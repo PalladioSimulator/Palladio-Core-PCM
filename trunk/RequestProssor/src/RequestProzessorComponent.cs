@@ -39,6 +39,7 @@ namespace RequestProssor
 
 			this.responseHandler = new DeliveresponseHandler();
 			this.responseHandler.AddAditionalHandler(new BibTexAnalyzerComponent());
+			this.responseHandler.AddAditionalHandler(new DLL_Engin.DLL_EnginComponent());
 			this.responseHandler.AddAditionalHandler(new StaticFileProviderComponent());
 			
 			this.errorHandler = new ErrorHandler();
@@ -68,6 +69,7 @@ namespace RequestProssor
 				IDeliverResponse responseChain = this.responseHandler.FixDeliverer(r,GetRealPath);
 				this.logger.Debug("Das ist der Pfad: "+GetRealPath);
 				res.MineType = this.settings.GetMineTypeMapping(r.FileExtension);
+				
 				res.MessageByte = responseChain.GetResponse;
 				res.FileSize = responseChain.GetFileSize;
 				res.StatusCode=" 202 OK ";

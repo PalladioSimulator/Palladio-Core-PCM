@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.IO;
@@ -70,8 +71,15 @@ namespace RequestProssor
 		/// <returns>The suitable minetype</returns>
 		public string GetMineTypeMapping(string fileExtension)
 		{
+			try
+			{
 				Console.WriteLine("File Extension " +fileExtension);
 				return this.mineTypes[fileExtension].ToString();
+			}
+			catch(Exception)
+			{
+				return "text/html";
+			}
 		}
 			
 
@@ -82,7 +90,9 @@ namespace RequestProssor
 		/// <param name="vDir">A Virtal dir as <code>string</code> </param>
 		/// <returns>The real Server Dir as <code>string</code> </returns>
 		public string GetDirMapping(string vDir)
-		{return this.physicalDir[vDir].ToString();}
+		{
+				return this.physicalDir[vDir].ToString();
+		}
 
 		
 		/// <summary>

@@ -3,13 +3,13 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{3000648D-3F75-45FC-9AF3-A4003C656C62}"
+        ProjectGuid = "{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "Request"
+                AssemblyName = "Dll-Engin"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "Request"
+                RootNamespace = "Dll_Engin"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -67,23 +67,32 @@
                 <Reference
                     Name = "System"
                     AssemblyName = "System"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
                 />
                 <Reference
                     Name = "System.Data"
                     AssemblyName = "System.Data"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
                     Name = "System.XML"
                     AssemblyName = "System.Xml"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "nunit.framework"
-                    AssemblyName = "nunit.framework"
-                    HintPath = "..\..\..\Programme\NUnit V2.1\\bin\nunit.framework.dll"
-                    AssemblyFolderKey = "hklm\dn\nunit.framework"
+                    Name = "Request"
+                    AssemblyName = "Request"
+                    HintPath = "..\Request\obj\Debug\Request.dll"
+                />
+                <Reference
+                    Name = "Greeting"
+                    AssemblyName = "Greeting"
+                    HintPath = "..\for dll Engin\Greeting\obj\Debug\Greeting.dll"
+                />
+                <Reference
+                    Name = "Delivery"
+                    AssemblyName = "Delivery"
+                    HintPath = "..\Delivery\obj\Debug\Delivery.dll"
                 />
             </References>
         </Build>
@@ -95,55 +104,33 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Request.txvpck"
-                    Link = "..\ComponentWebServer-BaseVersion\LibrarySupport\Request\Request\Request.txvpck"
+                    RelPath = "DelegationManger.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DLL_EnginComponent.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ErrorDLL.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "GreetingHandler.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "IDLL.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ModelSupport\DLL_Engin\DLL_Engin.txvpck"
                     BuildAction = "None"
-                />
-                <File
-                    RelPath = "ModelSupport\default.txvpck"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "ModelSupport\Request\Request.txvpck"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "ModelSupport\Request\UnitTests\UnitTests.txvpck"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\BaseRequest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\HttpPostRequest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\HttpPostValidator.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\HttpRequest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\HTTPValidator.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UnitTests\aResponse.txt"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "UnitTests\ValidatorTest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
                 />
             </Include>
         </Files>

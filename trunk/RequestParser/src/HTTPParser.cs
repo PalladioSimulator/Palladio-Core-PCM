@@ -45,7 +45,7 @@ namespace RequestParser
 
 			this.httpRequest.ArrivalTime = arrival;
 
-			this.httpRequest.UserInput = GetUserInput(aRequest);
+			this.httpRequest.UserInput = GetUserInput(this.httpRequest.URI);
 
 			if(this.httpRequest.RequestedMethod =="POST")
 			{
@@ -151,7 +151,7 @@ namespace RequestParser
 			//
 			//			return inputs[1];
 
-			return "halllo";
+			return "hallo";
 		}
 
 		internal string GetContextDiscripton(string body)
@@ -213,7 +213,7 @@ namespace RequestParser
 
 		private string identifyURI(string request)
 		{
-			Console.WriteLine("Kommt da was an? "+request);
+//			Console.WriteLine("Kommt da was an? "+request);
 			int startPos = request.IndexOf("HTTP",1);
 			string requestLine = request.Substring(0,startPos - 1);
 			string[] uri = requestLine.Split(' ');
@@ -229,10 +229,13 @@ namespace RequestParser
 			return uri.Substring(startPos,uri.Length - startPos);
 		}
 
-		private Hashtable GetUserInput(string aRequest)
+		private Hashtable GetUserInput(string uri)
 		{
-			return null;
-			aRequest.Trim();
+			//return null;
+			string[] temp = uri.Split('?');
+			if(temp.Length==1)
+				return null;
+			string aRequest = temp[1];
 			Hashtable result = new Hashtable();
 			string line="";
 			string[] erg1 = aRequest.Split('\n');
@@ -252,10 +255,12 @@ namespace RequestParser
 				{
 					String[] erg = s.Split('=');
 					result.Add(erg[0],erg[1]);
+					Console.WriteLine("Keys: "+erg[0]+"#"); 
 				}
 			}
 			catch(Exception)
 			{
+				Console.WriteLine("Kein User Input");
 				return null;
 			}
 			//generate Debug output

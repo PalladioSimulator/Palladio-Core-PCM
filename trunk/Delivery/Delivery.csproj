@@ -94,6 +94,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "Delivery.txvpck"
+                    Link = "..\ComponentWebServer-BaseVersion\LibrarySupport\Delivery\Delivery\Delivery.txvpck"
+                    BuildAction = "None"
+                />
+                <File
                     RelPath = "ErrorHandler.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -107,6 +112,10 @@
                     RelPath = "IDeliverResponse.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ModelSupport\default.txvpck"
+                    BuildAction = "None"
                 />
                 <File
                     RelPath = "ModelSupport\Delivery\Delivery.txvpck"

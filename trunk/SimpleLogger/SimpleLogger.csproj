@@ -95,6 +95,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "SimpleLogging.txvpck"
+                    Link = "..\ComponentWebServer-BaseVersion\LibrarySupport\SimpleLogger\SimpleLogging\SimpleLogging.txvpck"
+                    BuildAction = "None"
+                />
+                <File
                     RelPath = "ModelSupport\default.txvpck"
                     BuildAction = "None"
                 />
