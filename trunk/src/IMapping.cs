@@ -8,14 +8,14 @@ namespace Palladio.ComponentModel
 	/// Maps one ProvidesInterface of an inner Component
 	/// onto one ProvidesInterfaces of an outer Component.
 	/// </summary>
-	public interface IRequiresMapping : IConnection, IVisitable
+	public interface IMapping : IConnection, IVisitable
 	{
 		#region Properties
 
 		/// <summary>
 		/// ProvidesInterface of the inner component.
 		/// </summary>
-		AttachedInterface[] InnerInterfaces
+		AttachedInterface InnerInterface
 		{ 
 			get; set;
 		}

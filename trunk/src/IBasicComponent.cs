@@ -6,7 +6,7 @@ using ReflectionBasedVisitor;
 namespace Palladio.ComponentModel 
 {
 	/// <summary>
-	/// A Component is a set of Provides- and RequiresInterfaces.
+	/// A Component is a set of Provides- and RequiresInterface.
 	/// </summary>
 	public interface IBasicComponent : IComponent, IVisitable
 	{

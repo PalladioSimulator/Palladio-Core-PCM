@@ -196,17 +196,12 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IMapping.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\IParameter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IProvidesMapping.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IRequiresMapping.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -246,6 +241,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Collections\MultipleConnectionHash.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Components\AbstractComponent.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -261,22 +261,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Connections\AbstractConnection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Connections\Binding.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Connections\Connection.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Connections\ProvidesMapping.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Connections\RequiresMapping.cs"
+                    RelPath = "src\Connections\Mapping.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

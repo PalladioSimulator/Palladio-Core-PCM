@@ -9,17 +9,17 @@ namespace Palladio.ComponentModel.Connections
 	/// Maps one ProvidesInterface of an inner Component
 	/// onto one ProvidesInterfaces of an outer Component.
 	/// </summary>
-	internal class RequiresMapping : Connection, IRequiresMapping
+	internal class Mapping : AbstractConnection, IMapping
 	{
 		#region Properties
 
 		/// <summary>
 		/// ProvidesInterface of the inner component.
 		/// </summary>
-		public AttachedInterface[] InnerInterfaces
+		public AttachedInterface InnerInterface
 		{ 
-			get { return MultipleInterfaces; }
-			set { MultipleInterfaces = value; }
+			get{ return this.FirstInterface; }
+			set{ this.FirstInterface = value;}
 		}
 
 		/// <summary>
@@ -27,8 +27,8 @@ namespace Palladio.ComponentModel.Connections
 		/// </summary>
 		public string OuterRoleID
 		{ 
-			get { return SingleInterface.RoleID; } 
-			set { SingleInterface = new AttachedInterface(value,null); }
+			get { return this.SecondInterface.RoleID; }
+			set { this.SecondInterface = new AttachedInterface(value, null); }
 		}
 		#endregion
 
@@ -40,12 +40,12 @@ namespace Palladio.ComponentModel.Connections
 		/// <returns>A new object with the same values as the current instance.</returns>
 		public override object Clone()
 		{
-			return new RequiresMapping(this);
+			return new Mapping(this);
 		}
 
 		public override bool Equals(object obj)
 		{
-			if (!(obj is RequiresMapping))
+			if (!(obj is Mapping))
 				return false;
 			return base.Equals (obj);
 		}
@@ -69,16 +69,15 @@ namespace Palladio.ComponentModel.Connections
 
 		#region Constructors
 
-		public RequiresMapping(IAttributeHash anAttHash) : base(anAttHash)
+		public Mapping(IAttributeHash anAttHash) : base(anAttHash)
 		{
 		}
 
-		public RequiresMapping(RequiresMapping aProvMapping) : base( aProvMapping )
+		public Mapping(Mapping aProvMapping) : base( aProvMapping )
 		{
 		}
 
 		#endregion
-
 	}
 }
 

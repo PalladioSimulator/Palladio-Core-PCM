@@ -5,7 +5,7 @@ using Palladio.Attributes;
 namespace Palladio.ComponentModel 
 {
 	/// <summary>
-	/// A Component is a set of Provides- and RequiresInterfaces.
+	/// A Component is a set of Provides- and RequiresInterface.
 	/// </summary>
 	public interface IComponent : ICloneable, IAttributable
 	{
@@ -18,7 +18,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Interfaces required by the component from its environment.
 		/// </summary>
-		ISignatureList[] RequiresInterfaces { get; }
+		ISignatureList[] RequiresInterface { get; }
 
 		/// <summary>
 		/// Get the ProvidesInterface with the role aRoleID.

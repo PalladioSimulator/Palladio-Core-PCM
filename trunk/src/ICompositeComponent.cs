@@ -33,17 +33,17 @@ namespace Palladio.ComponentModel
 		/// of the internal components onto the ProvidesInterfaces of the
 		/// CompositeComponent.
 		/// </summary>
-		IProvidesMapping[] ProvidesMappings
+		IMapping[] ProvidesMappings
 		{ 
 			get;
 		}
 
 		/// <summary>
 		/// List of IReqCompMappings mapping the RequireInterfaces
-		/// of the internal components onto the RequiresInterfaces of the
+		/// of the internal components onto the RequiresInterface of the
 		/// CompositeComponent.
 		/// </summary>
-		IRequiresMapping[] RequiresMappings
+		IMapping[] RequiresMappings
 		{ 
 			get;
 		}
@@ -53,26 +53,26 @@ namespace Palladio.ComponentModel
 		void DeleteComponents(params IComponent[] aCompArray);
 		
 
-		void AddProvidesInterfaces(IProvidesMapping aProvMapping, params ISignatureList[] aProvIfaceArray);
-		
-		void AddRequiresInterface(IRequiresMapping aReqMapping, ISignatureList aReqInterface);
-		
-		void DeleteProvidesInterfaces(IProvidesMapping aProvMapping, params ISignatureList[] aProvIfaceArray);
+		void AddProvidesInterface(ISignatureList aProvInterface, IMapping aProvMapping );
 
-		void DeleteRequiresInterface(IRequiresMapping aReqMapping, ISignatureList aReqInterface);
+		void AddRequiresInterface(ISignatureList aReqInterface, IMapping aReqMapping);
+
+		void DeleteProvidesInterfaces(ISignatureList aProvInterface, IMapping aProvMapping);
+
+		void DeleteRequiresInterface(ISignatureList aReqInterface, IMapping aReqMapping);
 
 
-		IProvidesMapping GetProvidesMappingByOuter(string aProvRoleID);
+		IMapping GetProvidesMappingByOuter(string aProvRoleID);
 
 		IBinding GetBindingByRequires(AttachedInterface aReqInterface);
 
-		IRequiresMapping GetRequiresMappingByInner(AttachedInterface aReqInterface);
+		IMapping GetRequiresMappingByInner(AttachedInterface aReqInterface);
 
-		IRequiresMapping GetRequiresMappingByOuter(string aReqRoleID);
+		IMapping[] GetRequiresMappingsByOuter(string aReqRoleID);
 
-		IBinding GetBindingByProvides(AttachedInterface aProvInterface);
+		IBinding[] GetBindingsByProvides(AttachedInterface aProvInterface);
 
-		IProvidesMapping GetProvidesMappingByInner(AttachedInterface aProvInterface);
+		IMapping[] GetProvidesMappingByInner(AttachedInterface aProvInterface);
 		
 	}
 }

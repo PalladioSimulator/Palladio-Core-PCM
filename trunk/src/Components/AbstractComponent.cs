@@ -10,7 +10,7 @@ namespace Palladio.ComponentModel.Components
 
 	/// <summary>
 	/// Default Component class. A component consits of a set of
-	/// Provides and RequiresInterfaces which can be adapted to
+	/// Provides and RequiresInterface which can be adapted to
 	/// its environment.
 	/// </summary>
 	internal abstract class AbstractComponent : IComponent 
@@ -33,7 +33,7 @@ namespace Palladio.ComponentModel.Components
 		/// <summary>
 		/// Interfaces required by the component from its environment.
 		/// </summary>
-		public ISignatureList[] RequiresInterfaces { 
+		public ISignatureList[] RequiresInterface { 
 			get
 			{
 				ISignatureList[] result =  new ISignatureList[requiresTable.Values.Count];

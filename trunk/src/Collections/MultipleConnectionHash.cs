@@ -8,7 +8,7 @@ namespace Palladio.ComponentModel.Collections
 {
 	/// <summary>
 	/// </summary>
-	internal class ConnectionHash : ICloneable 
+	internal class MultipleConnectionHash : ICloneable 
 	{
 		#region Methods
 
@@ -17,26 +17,32 @@ namespace Palladio.ComponentModel.Collections
 			Hashtable strHash = (Hashtable) innerHash[aComponent];
 			if (strHash == null)
 				strHash = new Hashtable();
-			strHash[aRoleID] = aConnection;
+			Set connectionSet = (Set)strHash[aRoleID];
+			if (connectionSet == null)
+				connectionSet = new Set();
+			connectionSet.Add( aConnection );
+			strHash[aRoleID] = connectionSet;
 			innerHash[aComponent] = strHash;
 		}
 
-		public void Add(AttachedInterface anInterface, IConnection aConnection)
+		public void Add(AttachedInterface anInterface, IConnection aConnection )
 		{
 				Add(anInterface.Component, anInterface.RoleID, aConnection);
 		}
 
-		public IConnection Get(IComponent aComponent, string aRoleID)
+		public IConnection[] Get(IComponent aComponent, string aRoleID)
 		{
 			Hashtable strHash = (Hashtable)innerHash[aComponent];
 			if ( strHash != null) 
 			{
-				return (IConnection) strHash[aRoleID];
+				Set connectionSet = (Set)strHash[aRoleID];
+				if (connectionSet != null)
+					return (IConnection[]) connectionSet.ToArray(typeof(IConnection));
 			}
 			return null;
 		}
 
-		public IConnection Get(AttachedInterface anInterface)
+		public IConnection[] Get(AttachedInterface anInterface)
 		{
 
 			return Get(anInterface.Component, anInterface.RoleID);
@@ -48,7 +54,10 @@ namespace Palladio.ComponentModel.Collections
 			Hashtable strHash = (Hashtable)innerHash[aComponent];
 			if ( strHash != null) 
 			{
-				result.AddRange(strHash.Values);
+				foreach( DictionaryEntry e in strHash )
+				{
+					result.AddRange( (Set)e.Value );
+				}
 			}
 			return (IConnection[]) result.ToArray(typeof(IConnection));
 		}
@@ -58,26 +67,29 @@ namespace Palladio.ComponentModel.Collections
 			ArrayList result = new ArrayList();
 			foreach (DictionaryEntry e in innerHash)
 			{
-				result.AddRange( ((Hashtable) e.Value).Values );
+				Hashtable strHash = (Hashtable)e.Value;
+				foreach (DictionaryEntry f in strHash)
+				{
+					result.AddRange( (Set) f.Value );
+				}
 			}
 			return (IConnection[]) result.ToArray(typeof(IConnection));
 		}
 
-		public void Delete(IComponent aComponent, string aRoleID)
+		public void Delete(IComponent aComponent, string aRoleID, IConnection aConnection)
 		{
 			Hashtable strHash = (Hashtable)innerHash[aComponent];
 			if (strHash != null)
 			{
-				strHash.Remove(aRoleID);
+				Set connectionSet = (Set)strHash[aRoleID];
+				if ( connectionSet != null )
+					connectionSet.Remove(aConnection);
 			}
 		}
 
-		public void Delete(params AttachedInterface[] anIfaceArray)
+		public void Delete(AttachedInterface anInterface, IConnection aConnection)
 		{
-			foreach ( AttachedInterface iface in anIfaceArray )
-			{
-				Delete(iface.Component, iface.RoleID);
-			}
+				Delete(anInterface.Component, anInterface.RoleID, aConnection);
 		}
 
 
@@ -87,7 +99,7 @@ namespace Palladio.ComponentModel.Collections
 		/// <returns>A new object with the same values as the current instance.</returns>
 		public object Clone()
 		{
-			return new ConnectionHash(this);
+			return new MultipleConnectionHash(this);
 		}
 
 		/// <summary>
@@ -101,9 +113,9 @@ namespace Palladio.ComponentModel.Collections
 		/// are not equal.</returns>
 		public override bool Equals(object obj)
 		{
-			if (obj is ConnectionHash)
+			if (obj is MultipleConnectionHash)
 			{
-				ConnectionHash hash = (ConnectionHash)obj;
+				MultipleConnectionHash hash = (MultipleConnectionHash)obj;
 				return innerHash.Equals(hash.innerHash);
 			}
 			return false;
@@ -136,7 +148,7 @@ namespace Palladio.ComponentModel.Collections
 		/// <summary>
 		/// Creates a new ConnectionHash.
 		/// </summary>
-		public ConnectionHash ()
+		public MultipleConnectionHash ()
 		{
 			innerHash = new Hashtable();
 		}
@@ -145,7 +157,7 @@ namespace Palladio.ComponentModel.Collections
 		/// CopyConstructor.
 		/// </summary>
 		/// <param name="aConnectionHash">ConnectionHash to copy.</param>
-		public ConnectionHash( ConnectionHash aConnectionHash ) :
+		public MultipleConnectionHash( MultipleConnectionHash aConnectionHash ) :
 			this ( )
 		{
 			innerHash = new Hashtable( aConnectionHash.innerHash );
@@ -154,7 +166,7 @@ namespace Palladio.ComponentModel.Collections
 		#endregion
 
 		#region Data
-		Hashtable innerHash;
+		protected Hashtable innerHash;
 		#endregion
 	}
 }

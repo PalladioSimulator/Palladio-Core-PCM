@@ -6,10 +6,10 @@ using Palladio.Attributes;
 namespace Palladio.ComponentModel.Connections
 {
 	/// <summary>
-	/// Connects the RequiresInterfaces of one component to the ProvidesInterfaces
+	/// Connects the RequiresInterface of one component to the ProvidesInterfaces
 	/// of another.
 	/// </summary>
-	internal class Binding : Connection, IBinding
+	internal class Binding : AbstractConnection, IBinding
 	{
 		#region Properties
 
@@ -19,18 +19,18 @@ namespace Palladio.ComponentModel.Connections
 		/// </summary>
 		public AttachedInterface ProvidesInterface
 		{ 
-			get { return this.SingleInterface; }
-			set { this.SingleInterface = value; }
+			get { return this.FirstInterface; }
+			set { this.FirstInterface = value; }
 		}
 
 		/// <summary>
 		/// Description of the services required by one of the
 		/// components from the other.
 		/// </summary>
-		public AttachedInterface[] RequiresInterfaces
+		public AttachedInterface RequiresInterface
 		{ 
-			get { return this.MultipleInterfaces; }
-			set { this.MultipleInterfaces = value; }
+			get { return this.SecondInterface; }
+			set { this.SecondInterface = value; }
 		}
 
 		#endregion

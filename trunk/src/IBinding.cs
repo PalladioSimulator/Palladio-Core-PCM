@@ -5,7 +5,7 @@ using ReflectionBasedVisitor;
 namespace Palladio.ComponentModel
 {
 	/// <summary>
-	/// Connects the RequiresInterfaces of one component to the ProvidesInterfaces
+	/// Connects the RequiresInterface of one component to the ProvidesInterfaces
 	/// of another.
 	/// </summary>
 	public interface IBinding : IConnection, IVisitable
@@ -25,7 +25,7 @@ namespace Palladio.ComponentModel
 		/// Description of the services required by one of the
 		/// components from the other.
 		/// </summary>
-		AttachedInterface[] RequiresInterfaces
+		AttachedInterface RequiresInterface
 		{ 
 			get;
 		}

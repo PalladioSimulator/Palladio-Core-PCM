@@ -10,7 +10,7 @@ namespace Palladio.ComponentModel.Components
 
 	/// <summary>
 	/// Default Component class. A component consits of a set of
-	/// Provides and RequiresInterfaces which can be adapted to
+	/// Provides and RequiresInterface which can be adapted to
 	/// its environment.
 	/// </summary>
 	internal class BasicComponent : AbstractComponent, IBasicComponent 

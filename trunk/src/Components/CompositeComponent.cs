@@ -32,7 +32,7 @@ namespace Palladio.ComponentModel.Components
 		/// </summary>
 		public IBinding[] Bindings
 		{ 
-			get { return (IBinding[]) bindingByProvTable.Get(); }
+			get { return (IBinding[]) bindingByProvMCH.Get(); }
 		}
 
 		/// <summary>
@@ -40,19 +40,19 @@ namespace Palladio.ComponentModel.Components
 		/// of the internal components onto the ProvidesInterfaces of the
 		/// CompositeComponent.
 		/// </summary>
-		public IProvidesMapping[] ProvidesMappings
+		public IMapping[] ProvidesMappings
 		{ 
-			get { return (IProvidesMapping[]) provMapByInnerTable.Get(); }
+			get { return (IMapping[]) provMapByInnerMCH.Get(); }
 		}
 
 		/// <summary>
 		/// List of IReqCompMappings mapping the RequireInterfaces
-		/// of the internal components onto the RequiresInterfaces of the
+		/// of the internal components onto the RequiresInterface of the
 		/// CompositeComponent.
 		/// </summary>
-		public IRequiresMapping[] RequiresMappings
+		public IMapping[] RequiresMappings
 		{ 
-			get { return (IRequiresMapping[]) reqMapByInnerTable.Get(); }
+			get { return (IMapping[]) reqMapByInnerCH.Get(); }
 		}
 
 		#endregion
@@ -77,53 +77,45 @@ namespace Palladio.ComponentModel.Components
 		}
 		
 
-		public void AddProvidesInterfaces(IProvidesMapping aProvMapping, params ISignatureList[] aProvIfaceArray)
+		public void AddProvidesInterface(ISignatureList aProvInterface, IMapping aProvMapping )
 		{
-			CheckConsistency(aProvMapping,aProvIfaceArray);
+			CheckConsistency(aProvInterface, aProvMapping);
 			
-			// insert data
-			foreach ( ISignatureList prov in aProvIfaceArray )
-			{
-				providesTable.Add(prov.RoleID, prov);
-			}
-			provMapByInnerTable.Add(aProvMapping, aProvMapping.InnerInterface);
-			foreach( string outerRoleID in aProvMapping.OuterRoleIDs)
-			{
-				provMapByOuterTable.Add(outerRoleID,aProvMapping);
-			}
+			providesTable.Add(aProvInterface.RoleID, aProvInterface);
+			provMapByInnerMCH.Add(aProvMapping.InnerInterface, aProvMapping);
+			provMapByOuterHT.Add(aProvMapping.OuterRoleID, aProvMapping);
 		}
 
-		public void AddRequiresInterface(IRequiresMapping aReqMapping, ISignatureList aReqInterface)
+		public void AddRequiresInterface(ISignatureList aReqInterface, IMapping aReqMapping)
 		{
-			CheckConsistency(aReqMapping, aReqInterface);
+			CheckConsistency(aReqInterface, aReqMapping);
 
-			// insert data
 			requiresTable.Add(aReqInterface.RoleID, aReqInterface);
-			reqMapByOuterTable.Add(aReqMapping.OuterRoleID,aReqMapping);
-			reqMapByInnerTable.Add(aReqMapping,aReqMapping.InnerInterfaces);
+			reqMapByInnerCH.Add(aReqMapping.InnerInterface, aReqMapping);
+
+			Set mapSet = (Set)reqMapByOuterMHT[aReqMapping.OuterRoleID];
+			if (mapSet == null)
+				mapSet = new Set();
+			mapSet.Add(aReqMapping);
+			reqMapByOuterMHT[aReqMapping.OuterRoleID] = mapSet;
 		}
 
-		public void DeleteProvidesInterfaces(IProvidesMapping aProvMapping, params ISignatureList[] aProvIfaceArray)
+		public void DeleteProvidesInterfaces(ISignatureList aProvInterface, IMapping aProvMapping)
 		{
-		  CheckConsistency(aProvMapping,aProvIfaceArray);
-			foreach ( ISignatureList prov in aProvIfaceArray )
-			{
-				providesTable.Remove(prov.RoleID);
-			}
-			foreach( string roleID in aProvMapping.OuterRoleIDs )
-			{
-				provMapByOuterTable.Remove(roleID);
-			}
-			provMapByInnerTable.Add(aProvMapping, aProvMapping.InnerInterface);
+		  CheckConsistency(aProvInterface, aProvMapping);
+			
+			providesTable.Remove(aProvInterface.RoleID);
+			provMapByOuterHT.Remove(aProvMapping.OuterRoleID);
+			provMapByInnerMCH.Delete(aProvMapping.InnerInterface,aProvMapping);
 		}
 
-		public void DeleteRequiresInterface(IRequiresMapping aReqMapping, ISignatureList aReqInterface)
+		public void DeleteRequiresInterface(ISignatureList aReqInterface, IMapping aReqMapping)
 		{
-			CheckConsistency(aReqMapping, aReqInterface);
+			CheckConsistency(aReqInterface, aReqMapping);
 
 			requiresTable.Remove(aReqInterface.RoleID);
-			reqMapByOuterTable.Remove(aReqMapping.OuterRoleID);
-			reqMapByInnerTable.Delete(aReqMapping.InnerInterfaces);
+			reqMapByOuterMHT.Remove(aReqMapping.OuterRoleID);
+			reqMapByInnerCH.Delete(aReqMapping.InnerInterface);
 		}
 
 
@@ -132,16 +124,13 @@ namespace Palladio.ComponentModel.Components
 			foreach (IBinding binding in aBindingArray)
 			{
 				CheckInterface(binding.ProvidesInterface);
-				foreach (AttachedInterface iface in binding.RequiresInterfaces)
-				{
-					CheckInterface(iface);
-				}
+				CheckInterface(binding.RequiresInterface);
 			}
 
 			foreach (IBinding binding in aBindingArray)
 			{
-				bindingByProvTable.Add(binding, binding.ProvidesInterface);
-				bindingByReqTable.Add(binding, binding.RequiresInterfaces );
+				bindingByProvMCH.Add(binding.ProvidesInterface, binding);
+				bindingByReqCH.Add(binding.RequiresInterface, binding );
 			}
 		}
 
@@ -149,79 +138,83 @@ namespace Palladio.ComponentModel.Components
 		{
 			foreach (IBinding binding in aBindingArray)
 			{
-				bindingByProvTable.Delete(binding.ProvidesInterface);
-				bindingByReqTable.Delete(binding.RequiresInterfaces);
+				bindingByProvMCH.Delete(binding.ProvidesInterface,binding);
+				bindingByReqCH.Delete(binding.RequiresInterface);
 			}
 		}
 		
 
 		public IBinding[] GetOutgoingBindings(IComponent aComponent)
 		{
-			return (IBinding[])bindingByReqTable.Get(aComponent);
+			return (IBinding[])bindingByReqCH.Get(aComponent);
 		}
 
 		public IBinding[] GetIncomingBindings(IComponent aComponent)
 		{
-			return (IBinding[])bindingByProvTable.Get(aComponent);
+			return (IBinding[])bindingByProvMCH.Get(aComponent);
 		}
 
 		
-		public IProvidesMapping[] GetIncomingMappings(IComponent aComponent)
+		public IMapping[] GetIncomingMappings(IComponent aComponent)
 		{
-			return (IProvidesMapping[]) provMapByInnerTable.Get(aComponent);
+			return (IMapping[]) provMapByInnerMCH.Get(aComponent);
 		}
 
-		public IRequiresMapping[] GetOutgoingMappings(IComponent aComponent)
+		public IMapping[] GetOutgoingMappings(IComponent aComponent)
 		{
-			return (IRequiresMapping[]) reqMapByInnerTable.Get(aComponent);
+			return (IMapping[]) reqMapByInnerCH.Get(aComponent);
 		}
 
 
-		public IProvidesMapping GetProvidesMappingByOuter(string aProvRoleID)
+		public IMapping GetProvidesMappingByOuter(string aProvRoleID)
 		{
-			return (IProvidesMapping) provMapByOuterTable[aProvRoleID];
+			return (IMapping) provMapByOuterHT[aProvRoleID];
 		}
 
 		public IBinding GetBindingByRequires(AttachedInterface aReqInterface)
 		{
-			return (IBinding) bindingByReqTable.Get(aReqInterface);
+			return (IBinding) bindingByReqCH.Get(aReqInterface);
 		}
 
-		public IRequiresMapping GetRequiresMappingByInner(AttachedInterface aReqInterface)
+		public IMapping GetRequiresMappingByInner(AttachedInterface aReqInterface)
 		{
-			return (IRequiresMapping) reqMapByInnerTable.Get(aReqInterface);
+			return (IMapping) reqMapByInnerCH.Get(aReqInterface);
 		}
 
-		public IRequiresMapping GetRequiresMappingByOuter(string aReqRoleID)
+		public IMapping[] GetRequiresMappingsByOuter(string aReqRoleID)
 		{
-			return (IRequiresMapping) reqMapByOuterTable[aReqRoleID];
+			Set mapSet = (Set) reqMapByOuterMHT[aReqRoleID];
+			if (mapSet != null)
+				return (IMapping[]) mapSet.ToArray(typeof(IMapping));
+			else
+				return new IMapping[0] ;
 		}
 
-		public IBinding GetBindingByProvides(AttachedInterface aProvInterface)
+		public IBinding[] GetBindingsByProvides(AttachedInterface aProvInterface)
 		{
-			return (IBinding) bindingByProvTable.Get(aProvInterface);
+			return (IBinding[]) bindingByProvMCH.Get(aProvInterface);
 		}
 
-		public IProvidesMapping GetProvidesMappingByInner(AttachedInterface aProvInterface)
+		public IMapping[] GetProvidesMappingByInner(AttachedInterface aProvInterface)
 		{
-			return (IProvidesMapping) provMapByInnerTable.Get(aProvInterface);
+			return (IMapping[]) provMapByInnerMCH.Get(aProvInterface);
 		}
 
 
-		bool HasIncomingConnections(IComponent aComponent)
+		public bool HasIncomingConnections(IComponent aComponent)
 		{
-			if (provMapByInnerTable.Get(aComponent).Length > 0)
+			if (provMapByInnerMCH.Get(aComponent).Length > 0)
 				return true;
-			if (bindingByProvTable.Get(aComponent).Length > 0)
+			if (bindingByProvMCH.Get(aComponent).Length > 0)
 				return true;
 			return false;
 		}
 
-		bool HasOutgoingConnections(IComponent aComponent)
+		public bool HasOutgoingConnections(IComponent aComponent)
 		{
-			if ( reqMapByInnerTable.Get(aComponent).Length > 0 )
+			if ( reqMapByInnerCH.Get(aComponent).Length > 0 )
 				return true;
-			if ( bindingByReqTable.Get(aComponent).Length > 0 )
+			if ( bindingByReqCH.Get(aComponent).Length > 0 )
 				return true;
 			return false;
 		}
@@ -232,39 +225,15 @@ namespace Palladio.ComponentModel.Components
 		}
 
 
-		private void CheckConsistency(IProvidesMapping aProvMapping, params ISignatureList[] aProvIfaceArray)
+		private void CheckConsistency(ISignatureList aProvInterface, IMapping aProvMapping)
 		{
 			// check preconditions
 			// the mapped component exists
-			CheckInterface(aProvMapping.InnerInterface);
+			CheckInterface(aProvMapping.InnerInterface );
 
-			// each outer provides interface is also in the mapping
-			Hashtable provTable = new Hashtable();
-			foreach ( ISignatureList prov in aProvIfaceArray)
-			{
-				if ( Array.IndexOf( aProvMapping.OuterRoleIDs, prov.RoleID ) < 0 )
-					throw new ProvidesInterfaceNotInMappingException(prov.RoleID, aProvMapping);
-				provTable.Add(prov.RoleID,prov);
-			}
-
-			// for each outer role in the mapping exists an outer interface
-			foreach ( string roleID in aProvMapping.OuterRoleIDs )
-			{
-				if ( !provTable.ContainsKey(roleID) )
-					throw new NoInterfaceForRoleException(roleID);
-			}
-		}
-
-		public void CheckConsistency(IRequiresMapping aReqMapping, ISignatureList aReqInterface)
-		{
-			// check preconditions
-			if (aReqMapping.OuterRoleID != aReqInterface.RoleID)
-				throw new	RoleIDNotInterfaceRoleIDException ( aReqMapping.OuterRoleID, aReqInterface );
-
-			foreach (AttachedInterface iface in aReqMapping.InnerInterfaces)
-			{
-				CheckInterface(iface);
-			}
+			// the outer provides interface is also in the mapping
+			if ( aProvInterface.RoleID != aProvMapping.OuterRoleID )
+				throw new	RoleIDNotInterfaceRoleIDException ( aProvMapping.OuterRoleID, aProvInterface );
 		}
 
 		public void CheckInterface(AttachedInterface anInterface)
@@ -306,12 +275,12 @@ namespace Palladio.ComponentModel.Components
 		public CompositeComponent( CompositeComponent aComponent) : base (aComponent)
 		{
 			componentList = new ArrayList(aComponent.componentList);
-			provMapByOuterTable = new Hashtable(aComponent.provMapByOuterTable);
-			reqMapByOuterTable = new Hashtable(aComponent.reqMapByOuterTable);
-			provMapByInnerTable = (ConnectionHash) aComponent.provMapByInnerTable.Clone();
-			reqMapByInnerTable = (ConnectionHash) aComponent.reqMapByInnerTable.Clone();
-			bindingByProvTable = (ConnectionHash) aComponent.bindingByProvTable.Clone();
-			bindingByReqTable = (ConnectionHash) aComponent.bindingByReqTable.Clone();
+			provMapByOuterHT = new Hashtable(aComponent.provMapByOuterHT);
+			reqMapByOuterMHT = new Hashtable(aComponent.reqMapByOuterMHT);
+			provMapByInnerMCH = (MultipleConnectionHash) aComponent.provMapByInnerMCH.Clone();
+			reqMapByInnerCH = (ConnectionHash) aComponent.reqMapByInnerCH.Clone();
+			bindingByProvMCH = (MultipleConnectionHash) aComponent.bindingByProvMCH.Clone();
+			bindingByReqCH = (ConnectionHash) aComponent.bindingByReqCH.Clone();
 		}
 
 		#endregion
@@ -322,17 +291,18 @@ namespace Palladio.ComponentModel.Components
 		/// key string roleID
 		/// value IProvidesmapping
 		/// </summary>
-		private Hashtable provMapByOuterTable;
+		private Hashtable provMapByOuterHT;
+		private ConnectionHash reqMapByInnerCH;
+		private ConnectionHash bindingByReqCH;
+
 		/// <summary>
 		/// key string roleID
-		/// value IRequiresMapping
+		/// value Set
 		/// </summary>
-		private Hashtable reqMapByOuterTable;
+		private Hashtable reqMapByOuterMHT;
+		private MultipleConnectionHash bindingByProvMCH;
+		private MultipleConnectionHash provMapByInnerMCH;
 
-		private ConnectionHash provMapByInnerTable;
-		private ConnectionHash reqMapByInnerTable;
-		private ConnectionHash bindingByProvTable;
-		private ConnectionHash bindingByReqTable;
 		private ArrayList componentList;
 		#endregion
 	}
