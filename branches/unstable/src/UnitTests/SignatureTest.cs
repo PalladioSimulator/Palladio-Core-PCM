@@ -15,7 +15,7 @@ namespace Palladio.ComponentModel.UnitTests
 	[TestFixture]
 	public class SignatureTest
 	{
-		ISignature sigOne1, sigOne2, sigTwo1, sigTwo2;
+		ISignature sigOne1, sigOne2, sigTwo1, sigTwo2, sigThree1, sigThree2;
 		/// <summary>
 		/// </summary>
 		[SetUp] public void Init() 
@@ -36,6 +36,12 @@ namespace Palladio.ComponentModel.UnitTests
 													 ComponentFactory.CreateParameter(typeof(string),"tabs") },
 				typeof(TypeNotFoundException), typeof(RoleIDMissmatchException)
 				);
+			sigThree1 = ComponentFactory.CreateSignature("test",
+				new IParameter[] { ComponentFactory.CreateParameter(typeof(string),"a"),
+									 ComponentFactory.CreateParameter(typeof(int),"b") } );
+			sigThree2 = ComponentFactory.CreateSignature("test",
+				new IParameter[] { ComponentFactory.CreateParameter(typeof(int),"b"),
+									 ComponentFactory.CreateParameter(typeof(string),"a") } );
 		}
 		
 		/// <summary>
@@ -96,6 +102,11 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.AreEqual(s1.GetHashCode(),s2.GetHashCode());
 		}
 
+		[Test] public void SignatureIDUnique()
+		{
+			Assert.IsFalse(sigThree1.ID.Equals(sigThree2.ID));
+		}
+
 		private ISignature[] GetSignatureList(string role)
 		{
 			ISignature[] sigList = new ISignature[3];
@@ -114,6 +125,7 @@ namespace Palladio.ComponentModel.UnitTests
 				ParameterModifierEnum.OUT);
 			return list;
 		}
+
 	}
 }
 
