@@ -15,7 +15,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 	{
 		protected ISignatureList signatureList;
 		protected AttributeHash attributes;
-		protected ArrayList auxiliarySpecs = new ArrayList();
+		protected ArrayList protocolInfs = new ArrayList();
 
 		public ISignatureList SignatureList
 		{
@@ -60,39 +60,39 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <summary>
 		/// Additional specification data like FSMs, Petri Nets, ....
 		/// </summary>
-		public IAuxiliaryInterfaceSpecification[] AuxiliarySpecifications
+		public IProtocolInformation[] ProtocolInformations
 		{
 			get
 			{
-				IAuxiliaryInterfaceSpecification[] result = new IAuxiliaryInterfaceSpecification[auxiliarySpecs.Count];
-				auxiliarySpecs.CopyTo(result);
+				IProtocolInformation[] result = new IProtocolInformation[protocolInfs.Count];
+				protocolInfs.CopyTo(result);
 				return result;
 			}
 		}
 
 		/// <summary>
-		/// Get the auxiliary information of a given type
+		/// Get the additional information from given type
 		/// </summary>
 		/// <param name="aType">Type of the additional information to retrieve</param>
 		/// <returns>The requested information or an exception if the information is not
 		/// available</returns>
-		public IAuxiliaryInterfaceSpecification GetAuxiliarySpecification(System.Type aType)
+		public IProtocolInformation GetProtocolInformation(System.Type aType)
 		{
-			foreach (IAuxiliaryInterfaceSpecification spec in auxiliarySpecs)
+			foreach (IProtocolInformation inf in protocolInfs)
 			{
-				if (aType.IsAssignableFrom(spec.GetType()))
-					return spec;
+				if (aType.IsAssignableFrom(inf.GetType()))
+					return inf;
 			}
-			throw new Exception("Auxiliary information not found!");
+			throw new Exception("Additional information from given type not found!");
 		}
 		
 		/// <summary>
 		/// Add a new specification aspect to this interface, like a protocol spec.
 		/// </summary>
 		/// <param name="info">Additional specification data</param>
-		public void AddAuxiliarySpecification(IAuxiliaryInterfaceSpecification info)
+		public void AddProtocolInformation(IProtocolInformation info)
 		{
-			auxiliarySpecs.Add(info);
+			protocolInfs.Add(info);
 			signatureList.SignatureListChangeEvent += new SignatureListChangeEventHandler(info.SignatureListChangeEventHandler);
 		}
 			
@@ -121,7 +121,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 			}
 			writer.WriteEndElement();
 
-			foreach (IAuxiliaryInterfaceSpecification a in this.AuxiliarySpecifications) 
+			foreach (IProtocolInformation a in this.ProtocolInformations) 
 			{
 				writer.WriteStartElement("AuxiliarySpecification","http://palladio.informatik.uni-oldenburg.de/XSD");
 				a.Serialize(writer);

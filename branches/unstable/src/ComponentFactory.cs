@@ -2,6 +2,7 @@ using System;
 using Palladio.Attributes;
 using Palladio.ComponentModel.Signature;
 using Palladio.ComponentModel.InterfaceModels;
+using Palladio.ComponentModel.ServiceEffects;
 using Palladio.ComponentModel.Components;
 using Palladio.ComponentModel.Connections;
 using Palladio.FiniteStateMachines;
@@ -17,6 +18,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9.2.4  2005/02/18 13:31:36  joemal
+	/// xxx
+	///
 	/// Revision 1.9.2.3  2005/02/15 20:02:00  joemal
 	/// diverses
 	///

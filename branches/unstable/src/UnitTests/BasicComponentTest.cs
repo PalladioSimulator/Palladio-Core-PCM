@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5.2.3  2005/02/18 13:31:36  joemal
+	/// xxx
+	///
 	/// Revision 1.5.2.2  2005/02/15 20:02:00  joemal
 	/// diverses
 	///
@@ -103,13 +106,13 @@ namespace Palladio.ComponentModel.UnitTests
 
 			fsmComponent = ComponentFactory.CreateBasicComponent("fsmComponent");
 			IInterfaceModel prov = ComponentFactory.CreateInterfaceModel("prov");
-			prov.AddAuxiliarySpecification(FSMProtocolTest.CreateProvidesInterface());
+			prov.AddProtocolInformation(FSMProtocolTest.CreateProvidesInterface());
 			IServiceEffectSpecification d1 = ComponentFactory.CreateServiceEffectSpecification();
-			d1.AddAuxiliarySpecification(FSMProtocolTest.CreateServiceEffectD1());
+			d1.AddServiceInformation(FSMProtocolTest.CreateServiceEffectD1());
 			IServiceEffectSpecification d2 = ComponentFactory.CreateServiceEffectSpecification();
-			d2.AddAuxiliarySpecification(FSMProtocolTest.CreateServiceEffectD2());
+			d2.AddServiceInformation(FSMProtocolTest.CreateServiceEffectD2());
 			IInterfaceModel req = ComponentFactory.CreateInterfaceModel("req");
-			prov.AddAuxiliarySpecification(FSMProtocolTest.CreateRequires());
+			prov.AddProtocolInformation(FSMProtocolTest.CreateRequires());
 			
 			ISignature[] signatures = ComponentFactory.CreateSignatureArray("d1","d2");
 			prov.SignatureList.AddSignatures(signatures);

@@ -212,7 +212,7 @@ namespace Palladio.ComponentModel.Components
 					writer.WriteEndElement();
 
 					writer.WriteStartElement("AuxiliarySpecifications","http://palladio.informatik.uni-oldenburg.de/XSD");
-					foreach (IAuxiliaryServiceEffectSpecification auxSpec in sef.AuxiliarySpecifications) 
+					foreach (IServiceInformation auxSpec in sef.ServiceInformations) 
 					{
 						
 					}
