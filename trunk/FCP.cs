@@ -12,7 +12,7 @@ namespace FSM
 		protected Set CPInput;
 		protected Stack oneStates;
 		protected Stack twoStates;
-		protected bool debug  = !true;
+		protected bool debug  = true;
 		/// <summary>
 		/// Initaites a empty FCP
 		/// </summary>
@@ -45,8 +45,8 @@ namespace FSM
 		/// <returns>the cp of the two FSM</returns>
 		public FSM generateCP(FSM one, FSM two)
 		{
-			try
-			{
+//			try
+//			{
 
 				this.cp = new FSM();
 				this.oneStates = new Stack();
@@ -79,7 +79,8 @@ namespace FSM
 								break;
 							}
 						}
-						State oneNext = one.getNextState(oB,i);
+
+						State oneNext = one.getNextState(oneBefore,i);
 						if(this.debug)
 							Console.WriteLine("oneNext is: "+oneNext.ToString());
 
@@ -134,13 +135,16 @@ namespace FSM
 						}
 			
 					}
+
 				}
 				return this.cp;
-			}
-			catch
-			{
-				return new FSM();
-			}
+//			}
+//			catch
+//			{
+//				Console.WriteLine("gebe leeren Automaten zurück");
+//				return new FSM();
+//			}
+
 		}
 		/// <summary>
 		/// Checks if one state with an given input is selfpointing

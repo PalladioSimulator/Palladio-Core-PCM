@@ -22,8 +22,9 @@ namespace FSM
 		/// Returns all transitions of a FSM.
 		/// </summary>
 		/// <returns>A Hashtable of witch contains all transitions.</returns>
-		Hashtable getTransitions();
-		/// <summary>
+		// /
+//		Hashtable getTransitions();
+//		/// <summary>
 		/// Returns the input of a FSM.
 		/// </summary>
 		/// <returns>A Set witch contains the input of the FSM.</returns>

@@ -49,7 +49,7 @@ namespace FSM
 			{
 
 				return this.enu.MoveNext();
-				
+
 			}
 			/// <summary>
 			/// Sets the enumerator to its initial position, which is before the first element 

@@ -6,7 +6,7 @@ namespace FSM
 	/// <summary>
 	///Represents a FSM.
 	/// </summary>
-	public class FSM : Getters
+	public class FSM : Getters, Setters
 	{
 		protected Set inputAl;
 		protected Hashtable transitions;
@@ -159,6 +159,7 @@ namespace FSM
 		{
 			return this.inputAl;
 		}
+
 		//RR Implementation of the Getters interface
 
 		/// <summary>
@@ -189,50 +190,56 @@ namespace FSM
 		{
 			/*
 			evtl. schöner:
+			*/
 			if(	(fromState != null) &&
 				(fromState != ErrorState) &&
 				(getInputAl().Contains(input)) &&
-				(transitions.ContainsKey(fromState)) ){
+				(this.transitions.ContainsKey(fromState)) )
+			{
 				
-				for (IEnumerator e = transitions[fromState].GetEnumerator(); e.MoveNext();){
-					Transition trans = (Transition)e.Current;
+				//for (IEnumerator e =  (Hashtable) transitions[fromState].GetEnumerator(); e.MoveNext();){
+				Set transIterHash = (Set) this.transitions[fromState];	
+				IEnumerator transIter = transIterHash.GetEnumerator();
+				while(transIter.MoveNext())
+				{
+					Transition trans = (Transition)transIter.Current;
 					if (trans.input == input)
 						return trans.toState;
 				}
 			}
 			return ErrorState;
-			*/
+			//*/
 			 
-			//Console.WriteLine(":getNextState: The fromstate i got was: "+fromState.ToString());
-			if(fromState.Equals(this.ErrorState))
-				return this.ErrorState;
-		
-			if(fromState == null) {
-				Console.WriteLine("The fromState I got was null");
-				return ErrorState;
-			}
-
-			if(this.inputAl.Contains(input)== false)
-				return ErrorState;
-				//throw new InvalidInputException();
-
-			
-			if(this.transitions.ContainsKey(fromState)==false)
-				return ErrorState;
-				//throw new InvalidStateException();
-			
-
-			Object tmp = this.transitions[fromState];
-			
-				Set a = (Set) tmp;
-				IEnumerator k = a.GetEnumerator(); 
-				while(k.MoveNext())
-				{
-					Transition t = (Transition)k.Current;
-					if(t.input == input)
-						return new State(t.toState);
-				}
-			return ErrorState;
+//			//Console.WriteLine(":getNextState: The fromstate i got was: "+fromState.ToString());
+//			if(fromState.Equals(this.ErrorState))
+//				return this.ErrorState;
+//		
+//			if(fromState == null) {
+//				Console.WriteLine("The fromState I got was null");
+//				return ErrorState;
+//			}
+//
+//			if(this.inputAl.Contains(input)== false)
+//				return ErrorState;
+//				//throw new InvalidInputException();
+//
+//			
+//			if(this.transitions.ContainsKey(fromState)==false)
+//				return ErrorState;
+//				//throw new InvalidStateException();
+//			
+//
+//			Object tmp = this.transitions[fromState];
+//			
+//				Set a = (Set) tmp;
+//				IEnumerator k = a.GetEnumerator(); 
+//				while(k.MoveNext())
+//				{
+//					Transition t = (Transition)k.Current;
+//					if(t.input == input)
+//						return new State(t.toState);
+//				}
+//			return ErrorState;
 			//ErrorStates must be extra declarated this.setErrotStates();
 			//throw new ProgrammingErrorException();
 
