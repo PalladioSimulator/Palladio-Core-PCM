@@ -86,19 +86,19 @@
                     AssemblyFolderKey = "hklm\dn\nunit.framework"
                 />
                 <Reference
+                    Name = "SimpleLogger"
+                    AssemblyName = "SimpleLogger"
+                    HintPath = "..\SimpleLogger\bin\Debug\SimpleLogger.dll"
+                />
+                <Reference
                     Name = "Request"
-                    Project = "{3000648D-3F75-45FC-9AF3-A4003C656C62}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    AssemblyName = "Request"
+                    HintPath = "..\Request\bin\Debug\Request.dll"
                 />
                 <Reference
                     Name = "RequestProssor"
-                    Project = "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "SimpleLogger"
-                    Project = "{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    AssemblyName = "RequestProssor"
+                    HintPath = "..\RequestProssor\bin\Debug\RequestProssor.dll"
                 />
             </References>
         </Build>
@@ -108,11 +108,6 @@
                     RelPath = "AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "RequestParser.txvpck"
-                    Link = "..\ComponentWebServer\LibrarySupport\RequestParser\RequestParser\RequestParser.txvpck"
-                    BuildAction = "None"
                 />
                 <File
                     RelPath = "ModelSupport\default.txvpck"

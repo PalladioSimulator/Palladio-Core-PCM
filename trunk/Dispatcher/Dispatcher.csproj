@@ -88,17 +88,17 @@
                 <Reference
                     Name = "RequestParser"
                     AssemblyName = "RequestParser"
-                    HintPath = "..\RequestParser\obj\Debug\RequestParser.dll"
-                />
-                <Reference
-                    Name = "RequestProssor"
-                    Project = "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    HintPath = "..\RequestParser\bin\Debug\RequestParser.dll"
                 />
                 <Reference
                     Name = "SimpleLogger"
-                    Project = "{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    AssemblyName = "SimpleLogger"
+                    HintPath = "..\SimpleLogger\obj\Debug\SimpleLogger.dll"
+                />
+                <Reference
+                    Name = "RequestProssor"
+                    AssemblyName = "RequestProssor"
+                    HintPath = "..\RequestProssor\obj\Debug\RequestProssor.dll"
                 />
             </References>
         </Build>

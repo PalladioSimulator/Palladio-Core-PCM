@@ -3,6 +3,7 @@ using System.Data;
 using System.Net;
 using SimpleLogging;
 using System.Net.Sockets;
+using System.Collections;
 
 namespace Dispatcher
 {
@@ -18,11 +19,25 @@ namespace Dispatcher
 		
 		int port;
 
+
+		public ArrayList getIPs()
+		{
+			ArrayList localIPAdresses=new ArrayList();
+			String strHostName = Dns.GetHostName();
+			IPHostEntry iphostentry = Dns.GetHostByName(strHostName);
+			foreach(IPAddress ipaddress in iphostentry.AddressList)
+			{
+				localIPAdresses.Add(ipaddress);
+			}
+			return localIPAdresses;
+		}
+
+
 		public HTTPAcceptor(int port)
 		{
 
 			this.port= port;
-
+			
 			Console.WriteLine("Starting Accepting client");
 			this.logger = new SimpleLogger(this);
 			this.logger.ConsoleOutput=true;
@@ -31,8 +46,10 @@ namespace Dispatcher
 
 			try
 			{
-				
-				IPAddress local = IPAddress.Parse("192.168.0.3");  //(134106144138);
+				ArrayList localIP = getIPs();
+				IPAddress local = (IPAddress) localIP[0];
+				this.logger.Debug("Local Ip is: "+local.ToString());
+//				IPAddress local = IPAddress.Parse("192.168.0.3");  //(134106144138);
 //				TcpListener test = new TcpListener(local,90);
 				this.portListener = new TcpListener(local,port);
 				portListener.Start();

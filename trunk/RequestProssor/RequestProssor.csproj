@@ -87,28 +87,28 @@
                 />
                 <Reference
                     Name = "Request"
-                    Project = "{3000648D-3F75-45FC-9AF3-A4003C656C62}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    AssemblyName = "Request"
+                    HintPath = "..\Request\obj\Debug\Request.dll"
                 />
                 <Reference
                     Name = "SimpleLogger"
-                    Project = "{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "BibTexAnalyzer"
-                    Project = "{BB4B4D16-F1F1-4B9B-B0F5-BB5EFFC005ED}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "Delivery"
-                    Project = "{81767AF2-0999-4F50-B6D7-703338E73E90}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    AssemblyName = "SimpleLogger"
+                    HintPath = "..\SimpleLogger\obj\Debug\SimpleLogger.dll"
                 />
                 <Reference
                     Name = "StaticFileProvider"
-                    Project = "{901FD043-3CE1-44D3-9D86-6C47FB4C9667}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    AssemblyName = "StaticFileProvider"
+                    HintPath = "..\StaticFileProvider\obj\Debug\StaticFileProvider.dll"
+                />
+                <Reference
+                    Name = "Delivery"
+                    AssemblyName = "Delivery"
+                    HintPath = "..\Delivery\obj\Debug\Delivery.dll"
+                />
+                <Reference
+                    Name = "BibTexAnalyzerComponent"
+                    AssemblyName = "BibTexAnalyzerComponent"
+                    HintPath = "..\BibTexAnalyzerComponent\obj\Debug\BibTexAnalyzerComponent.dll"
                 />
             </References>
         </Build>
