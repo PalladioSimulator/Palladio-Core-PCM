@@ -84,6 +84,17 @@ namespace Palladio.ComponentModel.InterfaceModels
 			return signatures.Contains(aSignature);
 		}
 
+		public ISignature[] GetSignaturesByName( string aName )
+		{
+			ArrayList result = new ArrayList();
+			foreach (ISignature s in signatures)
+			{
+				if (s.Name.Equals(aName))
+					result.Add(s);
+			}
+			return (ISignature[])result.ToArray(typeof(ISignature));
+		}
+
 		
 		/// <summary>
 		/// This method is called by the <see cref="ReflectionBasedVisitor"/> to allow data

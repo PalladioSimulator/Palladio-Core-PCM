@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/05/24 13:54:07  sbecker
+	/// Added GetSignaturesByName
+	///
 	/// Revision 1.5  2004/05/24 12:42:34  sbecker
 	/// Added test cases for creating protocol interfaces
 	///
@@ -150,7 +153,19 @@ namespace Palladio.ComponentModel.InterfaceModels
 
 		public bool ContainsSignature( ISignature aSignature )
 		{
-			return ( Array.IndexOf( fsm.InputAlphabet, aSignature ) >= 0 );
+			IInput inputSymbol = FSMFactory.CreateDefaultInput(aSignature);
+			return ( Array.IndexOf( fsm.InputAlphabet, inputSymbol ) >= 0 );
+		}
+
+		public ISignature[] GetSignaturesByName(string aName)
+		{
+			ArrayList result = new ArrayList();
+			foreach (ISignature s in fsm.InputAlphabet)
+			{
+				if (s.Name.Equals(aName))
+					result.Add(s);
+			}
+			return (ISignature[])result.ToArray(typeof(ISignature));
 		}
 		
 		/// <summary>

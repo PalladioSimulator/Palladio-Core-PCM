@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/05/24 13:54:07  sbecker
+	/// Added GetSignaturesByName
+	///
 	/// Revision 1.2  2004/05/24 13:19:57  sbecker
 	/// Added requires protocols
 	/// Added signature test
@@ -115,12 +118,13 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.IsFalse(protocol1.Equals(clone));
 		}
 
-		[Test] public void AddSignature()
+		[Test] public void AddDeleteSignature()
 		{
 			ISignature sig = ComponentFactory.CreateSignatureArray("ProvIF","a")[0];
 			protocol1.AddSignatures(sig);
 			Assert.IsTrue(protocol1.ContainsSignature(sig));
-
+			protocol1.DeleteSignatures(sig);
+			Assert.IsFalse(protocol1.ContainsSignature(sig));
 		}
 	}
 }

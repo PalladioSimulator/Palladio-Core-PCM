@@ -43,6 +43,8 @@ namespace Palladio.ComponentModel
 
 		bool ContainsSignature( ISignature aSignature );
 
+		ISignature[] GetSignaturesByName( string aName );
+
 		#endregion
 	}
 }
