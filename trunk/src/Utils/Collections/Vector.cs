@@ -12,6 +12,9 @@ namespace Palladio.Utils.Collections
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/05/19 13:33:49  sliver
+	/// GetHashCode depends on the content of the vector now
+	///
 	/// Revision 1.1  2004/05/12 13:45:41  sliver
 	/// Initial Version
 	///
@@ -94,7 +97,12 @@ namespace Palladio.Utils.Collections
 		/// <returns>A hash value for the current object.</returns>
 		public override int GetHashCode() 
 		{
-			return base.GetHashCode ();
+			int result = Count.GetHashCode();
+			foreach (object o in this)
+			{
+				result ^= o.GetHashCode();
+			}
+			return result;
 		}
 
 		/// <summary>
