@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Identifier
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/03/15 22:03:02  joemal
+	/// add to string method
+	///
 	/// Revision 1.1  2005/03/15 12:30:24  joemal
 	/// initial class creation
 	///
@@ -58,7 +61,7 @@ namespace Palladio.ComponentModel.Identifier
 
 		#endregion		
 
-		#region
+		#region methods
 
 		/// <summary>
 		/// called to create a componentidentifier from this identifier.
@@ -104,6 +107,16 @@ namespace Palladio.ComponentModel.Identifier
 		{
 			return this;
 		}
+
+		/// <summary>
+		/// override to return the key of the identifier.
+		/// </summary>
+		/// <returns>the key of the identifier</returns>
+		public override string ToString()
+		{
+			return this.Key;
+		}
+
 
 		#endregion
 	}
