@@ -13,6 +13,9 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/23 11:55:08  kelsaka
+	/// added some parts of the building process
+	///
 	/// Revision 1.2  2004/10/21 15:02:02  kelsaka
 	/// added some more interfaces
 	///
@@ -25,7 +28,9 @@ namespace Palladio.Webserver.ConfigReader
 	public interface IConfigReader
 	{
 
-		IConfiguration ReadConfiguration(Path path);
+		void ReadConfiguration(string path);
+
+		object GetValue(string key);
 
 	}
 }

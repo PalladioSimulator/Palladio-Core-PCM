@@ -1,5 +1,8 @@
 using System;
+using System.IO;
+using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.WebserverFactory;
+using Palladio.Webserver.WebserverMonitor;
 
 namespace Palladio.Webserver
 {
@@ -12,6 +15,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/10/23 11:55:08  kelsaka
+	/// added some parts of the building process
+	///
 	/// Revision 1.3  2004/10/22 16:19:56  kelsaka
 	/// even more interface changes; configuration-alternative on loading the webserver
 	///
@@ -61,7 +67,7 @@ namespace Palladio.Webserver
 			{
 				configType = args[0];
 			}
-			catch(ArgumentOutOfRangeException e)
+			catch(IndexOutOfRangeException e)
 			{
 				configType = "";
 			}
@@ -87,7 +93,10 @@ namespace Palladio.Webserver
 
 			DefaultWebserverFactory webserverFactory = new DefaultWebserverFactory();
 
-			webserverFactory.CreateConfigReader();
+			IConfigReader configReader = webserverFactory.CreateConfigReader();
+			configReader.ReadConfiguration(DEFAULT_XML_CONFIGURATION_FILE);
+
+			IWebserverMonitor webserverMonitor = webserverFactory.CreateWebserverMonitor(configReader);
 
 		}
 	}

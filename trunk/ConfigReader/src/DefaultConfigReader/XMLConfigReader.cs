@@ -14,6 +14,9 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/10/23 11:55:08  kelsaka
+	/// added some parts of the building process
+	///
 	/// Revision 1.5  2004/10/22 16:19:56  kelsaka
 	/// even more interface changes; configuration-alternative on loading the webserver
 	///
@@ -43,7 +46,7 @@ namespace Palladio.Webserver.ConfigReader
 
 		}
 
-		public IConfiguration ReadConfiguration (Path path)
+		public void ReadConfiguration (string path)
 		{
 			
 
@@ -70,7 +73,10 @@ namespace Palladio.Webserver.ConfigReader
 		}
 
 
-
+		public object GetValue (string key)
+		{
+			throw new NotImplementedException ();
+		}
 
 
 
