@@ -1,12 +1,11 @@
-using System;
-using System.Collections;
-
-namespace FiniteStateMachines {
-	/// <summary>
-	/// Íterates over the Transitions of a FSM.
-	/// </summary>
-	public class TransitionIterator {
-//		protected Transition[] array;
+//using System;
+//using System.Collections;
+//
+//namespace FiniteStateMachines {
+//	/// <summary>
+//	/// Íterates over the Transitions of a FSM.
+//	/// </summary>
+//	public class TransitionIterator {		protected Transition[] array;
 //		protected ArrayList store;
 //		protected int counter;
 //		public TransitionIterator(IFiniteStateMachine f) {
@@ -35,5 +34,6 @@ namespace FiniteStateMachines {
 //				return this.store[this.counter];
 //			}
 //		}
-	}
-}
+//
+//	}
+//}

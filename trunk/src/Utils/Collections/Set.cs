@@ -128,5 +128,10 @@ namespace Utils.Collections {
 		public int Count {
 			get{ return data.Count; }
 		}
+		public override int GetHashCode()
+		{
+			return this.data.GetHashCode();
+		}
+
 	}
 }
