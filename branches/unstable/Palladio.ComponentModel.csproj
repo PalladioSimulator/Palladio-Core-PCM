@@ -135,12 +135,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\IBasicComponent.cs"
+                    RelPath = "src\IAssemblyConnector.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\IBinding.cs"
+                    RelPath = "src\IBasicComponent.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -160,6 +160,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IDelegationConnector.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\IFSMInterface.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -171,11 +176,6 @@
                 />
                 <File
                     RelPath = "src\IInterfaceModel.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IMapping.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -275,7 +275,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Connections\DefaultBinding.cs"
+                    RelPath = "src\Connections\DefaultAssemblyConnector.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -285,7 +285,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Connections\DefaultMapping.cs"
+                    RelPath = "src\Connections\DefaultDelegationConnector.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -325,12 +325,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Exceptions\HasIncomingMappingsException.cs"
+                    RelPath = "src\Exceptions\HasIncomingDelegationConnectionsException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Exceptions\HasOutgoingMappingsException.cs"
+                    RelPath = "src\Exceptions\HasOutgoingDelegationConnectionsException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -360,7 +360,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Exceptions\ProvidesInterfaceNotInMappingException.cs"
+                    RelPath = "src\Exceptions\ProvidesInterfaceNotInDelegationConnectorException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
