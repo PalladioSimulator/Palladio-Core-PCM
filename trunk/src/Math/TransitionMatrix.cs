@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/10/25 07:07:21  sliver
+ * implementation of
+ * - functions discrete, including convolution
+ * - path segmentation of FSMs
+ * - prediction of time consuption using density functions
+ *
  * Revision 1.1  2004/09/23 00:44:14  sliver
  * - major refactorings
  * - changed TypedCollections to CodeSmith generated files
@@ -14,7 +20,6 @@ using cdrnet.Lib.MathLib.Core;
 using cdrnet.Lib.MathLib.Scalar;
 using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
 using Palladio.FiniteStateMachines;
-using Palladio.Identifier;
 using Palladio.Reliability.Attributes;
 using Palladio.Reliability.TypedCollections;
 
@@ -120,7 +125,7 @@ namespace Palladio.Reliability.Math
 			{
 				int i = aMarkovModel.GetStateIndex(transition.SourceState);
 				int j = aMarkovModel.GetStateIndex(transition.DestinationState);
-				IVariableExpression serviceRel = anExternalReliabiltyHash[ (IIdentifiable) transition.InputSymbol.ID ];
+				IVariableExpression serviceRel = anExternalReliabiltyHash[ transition.InputSymbol.ID ];
 				MarkovAttribute markovAttr = MarkovAttribute.GetAttribute(transition);
 
 				IScalarExpression successProb = markovAttr.Probability.Expression;

@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.5  2004/10/25 07:07:21  sliver
+ * implementation of
+ * - functions discrete, including convolution
+ * - path segmentation of FSMs
+ * - prediction of time consuption using density functions
+ *
  * Revision 1.4  2004/09/23 00:44:14  sliver
  * - major refactorings
  * - changed TypedCollections to CodeSmith generated files
@@ -21,8 +27,6 @@
  */
 
 using System.Diagnostics;
-using cdrnet.Lib.MathLib.Core;
-using Palladio.FiniteStateMachines;
 using Palladio.Reliability.TypedCollections;
 using Palladio.Utils.Collections;
 
@@ -65,10 +69,11 @@ namespace Palladio.Reliability.Math
 		/// must contain a MarkovProbabilityAttribute.</param>
 		/// <param name="anExtReliabilityHashmap">Hashtable containing information about the reliability of 
 		/// the external services used by aMarkovModel.</param>
-		public ServiceReliability(IFiniteStateMachine aMarkovModel, ReliabilityHashmap anExtReliabilityHashmap)
+		public ServiceReliability(IMarkovModel aMarkovModel, ReliabilityHashmap anExtReliabilityHashmap)
 		{
-			MarkovModelInfo markovModelInfo = new MarkovModelInfo(new Context(), aMarkovModel, anExtReliabilityHashmap);
-			expression = markovModelInfo.PotentialMatrix[markovModelInfo.StartStateIndex, markovModelInfo.FinalStateIndex];
+			ITransitionMatrix tMx = new TransitionMatrix(aMarkovModel, anExtReliabilityHashmap);
+			IPotentialMatrix pMx = new PotentialMatrix(tMx);
+			expression = pMx.Matrix[pMx.StartStateIndex, pMx.FinalStateIndex];
 			variableSet = new Set(VariableExpression.GetVariables(expression));
 		}
 

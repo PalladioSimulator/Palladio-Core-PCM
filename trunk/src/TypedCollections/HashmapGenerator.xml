@@ -6,6 +6,7 @@
 		<import namespace="System.Collections" />
 		<import namespace="Palladio.Reliability.Math" />
 		<import namespace="Palladio.Reliability.Model" />
+		<import namespace="Palladio.FiniteStateMachines" />
 		<import namespace="Palladio.Identifier" />
 		<import namespace="Palladio.Utils.Collections" />
 	</imports>
@@ -15,8 +16,8 @@
 			<property name="ClassName">ReliabilityHashmap</property>
 			<property name="TargetNamespace">Palladio.Reliability.TypedCollections</property>
 			<property name="ImportNamespace">Palladio.Utils.Collections</property>
-			<property name="KeyType">IIdentifiable</property>
-			<property name="KeyNamespace">Palladio.Identifier</property>
+			<property name="KeyType">IMatchable</property>
+			<property name="KeyNamespace">Palladio.FiniteStateMachines</property>
 			<property name="KeyValueType">False</property>
 			<property name="KeyCustomSearch">False</property>
 			<property name="ItemType">IVariableExpression</property>

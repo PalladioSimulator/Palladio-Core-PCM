@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections;
+using Palladio.FiniteStateMachines;
 using Palladio.Identifier;
 using Palladio.Reliability.Math;
 using Palladio.Reliability.Model;
@@ -395,17 +396,17 @@ namespace Palladio.Reliability.TypedCollections
 
 	#endregion
 
-	#region Interface IIIdentifiableCollection
+	#region Interface IIMatchableCollection
 
 	/// <summary>
 	/// Defines size, enumerators, and synchronization methods for strongly
-	/// typed collections of <see cref="IIdentifiable"/> elements.
+	/// typed collections of <see cref="IMatchable"/> elements.
 	/// </summary>
 	/// <remarks>
-	/// <b>IIIdentifiableCollection</b> provides an <see cref="ICollection"/>
-	/// that is strongly typed for <see cref="IIdentifiable"/> elements.
+	/// <b>IIMatchableCollection</b> provides an <see cref="ICollection"/>
+	/// that is strongly typed for <see cref="IMatchable"/> elements.
 	/// </remarks>
-	public interface IIIdentifiableCollection
+	public interface IIMatchableCollection
 	{
 		#region Properties
 
@@ -413,10 +414,10 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets the number of elements contained in the
-		/// <see cref="IIIdentifiableCollection"/>.
+		/// <see cref="IIMatchableCollection"/>.
 		/// </summary>
 		/// <value>The number of elements contained in the
-		/// <see cref="IIIdentifiableCollection"/>.</value>
+		/// <see cref="IIMatchableCollection"/>.</value>
 		/// <remarks>Please refer to <see cref="ICollection.Count"/> for details.</remarks>
 		int Count { get; }
 
@@ -426,9 +427,9 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets a value indicating whether access to the
-		/// <see cref="IIIdentifiableCollection"/> is synchronized (thread-safe).
+		/// <see cref="IIMatchableCollection"/> is synchronized (thread-safe).
 		/// </summary>
-		/// <value><c>true</c> if access to the <see cref="IIIdentifiableCollection"/> is
+		/// <value><c>true</c> if access to the <see cref="IIMatchableCollection"/> is
 		/// synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="ICollection.IsSynchronized"/> for details.</remarks>
 		bool IsSynchronized { get; }
@@ -439,10 +440,10 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets an object that can be used to synchronize access
-		/// to the <see cref="IIIdentifiableCollection"/>.
+		/// to the <see cref="IIMatchableCollection"/>.
 		/// </summary>
 		/// <value>An object that can be used to synchronize access
-		/// to the <see cref="IIIdentifiableCollection"/>.</value>
+		/// to the <see cref="IIMatchableCollection"/>.</value>
 		/// <remarks>Please refer to <see cref="ICollection.SyncRoot"/> for details.</remarks>
 		object SyncRoot { get; }
 
@@ -455,11 +456,11 @@ namespace Palladio.Reliability.TypedCollections
 		#region CopyTo
 
 		/// <summary>
-		/// Copies the entire <see cref="IIIdentifiableCollection"/> to a one-dimensional <see cref="Array"/>
-		/// of <see cref="IIdentifiable"/> elements, starting at the specified index of the target array.
+		/// Copies the entire <see cref="IIMatchableCollection"/> to a one-dimensional <see cref="Array"/>
+		/// of <see cref="IMatchable"/> elements, starting at the specified index of the target array.
 		/// </summary>
 		/// <param name="array">The one-dimensional <see cref="Array"/> that is the destination of the
-		/// <see cref="IIdentifiable"/> elements copied from the <see cref="IIIdentifiableCollection"/>.
+		/// <see cref="IMatchable"/> elements copied from the <see cref="IIMatchableCollection"/>.
 		/// The <b>Array</b> must have zero-based indexing.</param>
 		/// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
 		/// at which copying begins.</param>
@@ -470,24 +471,24 @@ namespace Palladio.Reliability.TypedCollections
 		/// <exception cref="ArgumentException"><para>
 		/// <paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.
 		/// </para><para>-or-</para><para>
-		/// The number of elements in the source <see cref="IIIdentifiableCollection"/> is greater
+		/// The number of elements in the source <see cref="IIMatchableCollection"/> is greater
 		/// than the available space from <paramref name="arrayIndex"/> to the end of the destination
 		/// <paramref name="array"/>.</para></exception>
 		/// <remarks>Please refer to <see cref="ICollection.CopyTo"/> for details.</remarks>
-		void CopyTo(IIdentifiable[] array, int arrayIndex);
+		void CopyTo(IMatchable[] array, int arrayIndex);
 
 		#endregion
 
 		#region GetEnumerator
 
 		/// <summary>
-		/// Returns an <see cref="IIIdentifiableEnumerator"/> that can
-		/// iterate through the <see cref="IIIdentifiableCollection"/>.
+		/// Returns an <see cref="IIMatchableEnumerator"/> that can
+		/// iterate through the <see cref="IIMatchableCollection"/>.
 		/// </summary>
-		/// <returns>An <see cref="IIIdentifiableEnumerator"/>
-		/// for the entire <see cref="IIIdentifiableCollection"/>.</returns>
+		/// <returns>An <see cref="IIMatchableEnumerator"/>
+		/// for the entire <see cref="IIMatchableCollection"/>.</returns>
 		/// <remarks>Please refer to <see cref="IEnumerable.GetEnumerator"/> for details.</remarks>
-		IIIdentifiableEnumerator GetEnumerator();
+		IIMatchableEnumerator GetEnumerator();
 
 		#endregion
 
@@ -496,27 +497,27 @@ namespace Palladio.Reliability.TypedCollections
 
 	#endregion
 
-	#region Interface IIIdentifiableList
+	#region Interface IIMatchableList
 
 	/// <summary>
-	/// Represents a strongly typed collection of <see cref="IIdentifiable"/>
+	/// Represents a strongly typed collection of <see cref="IMatchable"/>
 	/// objects that can be individually accessed by index.
 	/// </summary>
 	/// <remarks>
-	/// <b>IIIdentifiableList</b> provides an <see cref="IList"/>
-	/// that is strongly typed for <see cref="IIdentifiable"/> elements.
+	/// <b>IIMatchableList</b> provides an <see cref="IList"/>
+	/// that is strongly typed for <see cref="IMatchable"/> elements.
 	/// </remarks>
 	public interface
-		IIIdentifiableList : IIIdentifiableCollection
+		IIMatchableList : IIMatchableCollection
 	{
 		#region Properties
 
 		#region IsFixedSize
 
 		/// <summary>
-		/// Gets a value indicating whether the <see cref="IIIdentifiableList"/> has a fixed size.
+		/// Gets a value indicating whether the <see cref="IIMatchableList"/> has a fixed size.
 		/// </summary>
-		/// <value><c>true</c> if the <see cref="IIIdentifiableList"/> has a fixed size;
+		/// <value><c>true</c> if the <see cref="IIMatchableList"/> has a fixed size;
 		/// otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="IList.IsFixedSize"/> for details.</remarks>
 		bool IsFixedSize { get; }
@@ -526,9 +527,9 @@ namespace Palladio.Reliability.TypedCollections
 		#region IsReadOnly
 
 		/// <summary>
-		/// Gets a value indicating whether the <see cref="IIIdentifiableList"/> is read-only.
+		/// Gets a value indicating whether the <see cref="IIMatchableList"/> is read-only.
 		/// </summary>
-		/// <value><c>true</c> if the <see cref="IIIdentifiableList"/> is read-only;
+		/// <value><c>true</c> if the <see cref="IIMatchableList"/> is read-only;
 		/// otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="IList.IsReadOnly"/> for details.</remarks>
 		bool IsReadOnly { get; }
@@ -538,23 +539,23 @@ namespace Palladio.Reliability.TypedCollections
 		#region Item
 
 		/// <summary>
-		/// Gets or sets the <see cref="IIdentifiable"/> element at the specified index.
+		/// Gets or sets the <see cref="IMatchable"/> element at the specified index.
 		/// </summary>
 		/// <param name="index">The zero-based index of the
-		/// <see cref="IIdentifiable"/> element to get or set.</param>
+		/// <see cref="IMatchable"/> element to get or set.</param>
 		/// <value>
-		/// The <see cref="IIdentifiable"/> element at the specified <paramref name="index"/>.
+		/// The <see cref="IMatchable"/> element at the specified <paramref name="index"/>.
 		/// </value>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="index"/> is equal to or greater than
-		/// <see cref="IIIdentifiableCollection.Count"/>.</para>
+		/// <see cref="IIMatchableCollection.Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// The property is set and the <see cref="IIIdentifiableList"/> is read-only.</exception>
+		/// The property is set and the <see cref="IIMatchableList"/> is read-only.</exception>
 		/// <remarks>Please refer to <see cref="IList.this"/> for details.</remarks>
-		IIdentifiable this[int index] { get; set; }
+		IMatchable this[int index] { get; set; }
 
 		#endregion
 
@@ -565,33 +566,33 @@ namespace Palladio.Reliability.TypedCollections
 		#region Add
 
 		/// <summary>
-		/// Adds a <see cref="IIdentifiable"/> to the end
-		/// of the <see cref="IIIdentifiableList"/>.
+		/// Adds a <see cref="IMatchable"/> to the end
+		/// of the <see cref="IIMatchableList"/>.
 		/// </summary>
-		/// <param name="value">The <see cref="IIdentifiable"/> object
-		/// to be added to the end of the <see cref="IIIdentifiableList"/>.
+		/// <param name="value">The <see cref="IMatchable"/> object
+		/// to be added to the end of the <see cref="IIMatchableList"/>.
 		/// This argument can be a null reference.
 		/// </param>
-		/// <returns>The <see cref="IIIdentifiableList"/> index at which
+		/// <returns>The <see cref="IIMatchableList"/> index at which
 		/// the <paramref name="value"/> has been added.</returns>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableList"/> is read-only.</para>
+		/// <para>The <see cref="IIMatchableList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>IIIdentifiableList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IIMatchableList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.Add"/> for details.</remarks>
-		int Add(IIdentifiable value);
+		int Add(IMatchable value);
 
 		#endregion
 
 		#region Clear
 
 		/// <summary>
-		/// Removes all elements from the <see cref="IIIdentifiableList"/>.
+		/// Removes all elements from the <see cref="IIMatchableList"/>.
 		/// </summary>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableList"/> is read-only.</para>
+		/// <para>The <see cref="IIMatchableList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>IIIdentifiableList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IIMatchableList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.Clear"/> for details.</remarks>
 		void Clear();
 
@@ -600,17 +601,17 @@ namespace Palladio.Reliability.TypedCollections
 		#region Contains
 
 		/// <summary>
-		/// Determines whether the <see cref="IIIdentifiableList"/>
-		/// contains the specified <see cref="IIdentifiable"/> element.
+		/// Determines whether the <see cref="IIMatchableList"/>
+		/// contains the specified <see cref="IMatchable"/> element.
 		/// </summary>
-		/// <param name="value">The <see cref="IIdentifiable"/> object
-		/// to locate in the <see cref="IIIdentifiableList"/>.
+		/// <param name="value">The <see cref="IMatchable"/> object
+		/// to locate in the <see cref="IIMatchableList"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <returns><c>true</c> if <paramref name="value"/> is found in the
-		/// <see cref="IIIdentifiableList"/>; otherwise, <c>false</c>.</returns>
+		/// <see cref="IIMatchableList"/>; otherwise, <c>false</c>.</returns>
 		/// <remarks>Please refer to <see cref="IList.Contains"/> for details.</remarks>
-		bool Contains(IIdentifiable value);
+		bool Contains(IMatchable value);
 
 		#endregion
 
@@ -618,64 +619,64 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Returns the zero-based index of the first occurrence of the specified
-		/// <see cref="IIdentifiable"/> in the <see cref="IIIdentifiableList"/>.
+		/// <see cref="IMatchable"/> in the <see cref="IIMatchableList"/>.
 		/// </summary>
-		/// <param name="value">The <see cref="IIdentifiable"/> object
-		/// to locate in the <see cref="IIIdentifiableList"/>.
+		/// <param name="value">The <see cref="IMatchable"/> object
+		/// to locate in the <see cref="IIMatchableList"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <returns>
 		/// The zero-based index of the first occurrence of <paramref name="value"/>
-		/// in the <see cref="IIIdentifiableList"/>, if found; otherwise, -1.
+		/// in the <see cref="IIMatchableList"/>, if found; otherwise, -1.
 		/// </returns>
 		/// <remarks>Please refer to <see cref="IList.IndexOf"/> for details.</remarks>
-		int IndexOf(IIdentifiable value);
+		int IndexOf(IMatchable value);
 
 		#endregion
 
 		#region Insert
 
 		/// <summary>
-		/// Inserts a <see cref="IIdentifiable"/> element into the
-		/// <see cref="IIIdentifiableList"/> at the specified index.
+		/// Inserts a <see cref="IMatchable"/> element into the
+		/// <see cref="IIMatchableList"/> at the specified index.
 		/// </summary>
 		/// <param name="index">The zero-based index at which
 		/// <paramref name="value"/> should be inserted.</param>
-		/// <param name="value">The <see cref="IIdentifiable"/> object
-		/// to insert into the <see cref="IIIdentifiableList"/>.
+		/// <param name="value">The <see cref="IMatchable"/> object
+		/// to insert into the <see cref="IIMatchableList"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="index"/> is greater than
-		/// <see cref="IIIdentifiableCollection.Count"/>.</para>
+		/// <see cref="IIMatchableCollection.Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableList"/> is read-only.</para>
+		/// <para>The <see cref="IIMatchableList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>IIIdentifiableList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IIMatchableList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.Insert"/> for details.</remarks>
-		void Insert(int index, IIdentifiable value);
+		void Insert(int index, IMatchable value);
 
 		#endregion
 
 		#region Remove
 
 		/// <summary>
-		/// Removes the first occurrence of the specified <see cref="IIdentifiable"/>
-		/// from the <see cref="IIIdentifiableList"/>.
+		/// Removes the first occurrence of the specified <see cref="IMatchable"/>
+		/// from the <see cref="IIMatchableList"/>.
 		/// </summary>
-		/// <param name="value">The <see cref="IIdentifiable"/> object
-		/// to remove from the <see cref="IIIdentifiableList"/>.
+		/// <param name="value">The <see cref="IMatchable"/> object
+		/// to remove from the <see cref="IIMatchableList"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableList"/> is read-only.</para>
+		/// <para>The <see cref="IIMatchableList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>IIIdentifiableList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IIMatchableList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.Remove"/> for details.</remarks>
-		void Remove(IIdentifiable value);
+		void Remove(IMatchable value);
 
 		#endregion
 
@@ -683,19 +684,19 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Removes the element at the specified index of the
-		/// <see cref="IIIdentifiableList"/>.
+		/// <see cref="IIMatchableList"/>.
 		/// </summary>
 		/// <param name="index">The zero-based index of the element to remove.</param>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="index"/> is equal to or greater than
-		/// <see cref="IIIdentifiableCollection.Count"/>.</para>
+		/// <see cref="IIMatchableCollection.Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableList"/> is read-only.</para>
+		/// <para>The <see cref="IIMatchableList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>IIIdentifiableList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IIMatchableList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.RemoveAt"/> for details.</remarks>
 		void RemoveAt(int index);
 
@@ -706,26 +707,26 @@ namespace Palladio.Reliability.TypedCollections
 
 	#endregion
 
-	#region Interface IIIdentifiableEnumerator
+	#region Interface IIMatchableEnumerator
 
 	/// <summary>
 	/// Supports type-safe iteration over a collection that
-	/// contains <see cref="IIdentifiable"/> elements.
+	/// contains <see cref="IMatchable"/> elements.
 	/// </summary>
 	/// <remarks>
-	/// <b>IIIdentifiableEnumerator</b> provides an <see cref="IEnumerator"/>
-	/// that is strongly typed for <see cref="IIdentifiable"/> elements.
+	/// <b>IIMatchableEnumerator</b> provides an <see cref="IEnumerator"/>
+	/// that is strongly typed for <see cref="IMatchable"/> elements.
 	/// </remarks>
-	public interface IIIdentifiableEnumerator
+	public interface IIMatchableEnumerator
 	{
 		#region Properties
 
 		#region Current
 
 		/// <summary>
-		/// Gets the current <see cref="IIdentifiable"/> element in the collection.
+		/// Gets the current <see cref="IMatchable"/> element in the collection.
 		/// </summary>
-		/// <value>The current <see cref="IIdentifiable"/> element in the collection.</value>
+		/// <value>The current <see cref="IMatchable"/> element in the collection.</value>
 		/// <exception cref="InvalidOperationException"><para>The enumerator is positioned
 		/// before the first element of the collection or after the last element.</para>
 		/// <para>-or-</para>
@@ -733,7 +734,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// <remarks>Please refer to <see cref="IEnumerator.Current"/> for details, but note
 		/// that <b>Current</b> fails if the collection was modified since the last successful
 		/// call to <see cref="MoveNext"/> or <see cref="Reset"/>.</remarks>
-		IIdentifiable Current { get; }
+		IMatchable Current { get; }
 
 		#endregion
 
@@ -773,17 +774,17 @@ namespace Palladio.Reliability.TypedCollections
 
 	#endregion
 
-	#region Interface IIIdentifiableIVariableExpressionCollection
+	#region Interface IIMatchableIVariableExpressionCollection
 
 	/// <summary>
 	/// Defines size, enumerators, and synchronization methods for strongly
 	/// typed collections of <see cref="IIExpressionEntry"/> elements.
 	/// </summary>
 	/// <remarks>
-	/// <b>IIIdentifiableIVariableExpressionCollection</b> provides an <see cref="ICollection"/>
+	/// <b>IIMatchableIVariableExpressionCollection</b> provides an <see cref="ICollection"/>
 	/// that is strongly typed for <see cref="IIExpressionEntry"/> elements.
 	/// </remarks>
-	public interface IIIdentifiableIVariableExpressionCollection
+	public interface IIMatchableIVariableExpressionCollection
 	{
 		#region Properties
 
@@ -791,10 +792,10 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets the number of elements contained in the
-		/// <see cref="IIIdentifiableIVariableExpressionCollection"/>.
+		/// <see cref="IIMatchableIVariableExpressionCollection"/>.
 		/// </summary>
 		/// <value>The number of elements contained in the
-		/// <see cref="IIIdentifiableIVariableExpressionCollection"/>.</value>
+		/// <see cref="IIMatchableIVariableExpressionCollection"/>.</value>
 		/// <remarks>Please refer to <see cref="ICollection.Count"/> for details.</remarks>
 		int Count { get; }
 
@@ -804,9 +805,9 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets a value indicating whether access to the
-		/// <see cref="IIIdentifiableIVariableExpressionCollection"/> is synchronized (thread-safe).
+		/// <see cref="IIMatchableIVariableExpressionCollection"/> is synchronized (thread-safe).
 		/// </summary>
-		/// <value><c>true</c> if access to the <see cref="IIIdentifiableIVariableExpressionCollection"/>
+		/// <value><c>true</c> if access to the <see cref="IIMatchableIVariableExpressionCollection"/>
 		/// is synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="ICollection.IsSynchronized"/> for details.</remarks>
 		bool IsSynchronized { get; }
@@ -817,10 +818,10 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets an object that can be used to synchronize access
-		/// to the <see cref="IIIdentifiableIVariableExpressionCollection"/>.
+		/// to the <see cref="IIMatchableIVariableExpressionCollection"/>.
 		/// </summary>
 		/// <value>An object that can be used to synchronize access to the
-		/// <see cref="IIIdentifiableIVariableExpressionCollection"/>.</value>
+		/// <see cref="IIMatchableIVariableExpressionCollection"/>.</value>
 		/// <remarks>Please refer to <see cref="ICollection.SyncRoot"/> for details.</remarks>
 		object SyncRoot { get; }
 
@@ -833,13 +834,13 @@ namespace Palladio.Reliability.TypedCollections
 		#region CopyTo
 
 		/// <summary>
-		/// Copies the entire <see cref="IIIdentifiableIVariableExpressionCollection"/>
+		/// Copies the entire <see cref="IIMatchableIVariableExpressionCollection"/>
 		/// to a one-dimensional <see cref="Array"/> of <see cref="IIExpressionEntry"/> elements,
 		/// starting at the specified index of the target array.
 		/// </summary>
 		/// <param name="array">The one-dimensional <see cref="Array"/> that is the
 		/// destination of the <see cref="IIExpressionEntry"/> elements copied from the
-		/// <see cref="IIIdentifiableIVariableExpressionCollection"/>.
+		/// <see cref="IIMatchableIVariableExpressionCollection"/>.
 		/// The <b>Array</b> must have zero-based indexing.</param>
 		/// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
 		/// at which copying begins.</param>
@@ -850,7 +851,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// <exception cref="ArgumentException"><para>
 		/// <paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.
 		/// </para><para>-or-</para><para>
-		/// The number of elements in the source <see cref="IIIdentifiableIVariableExpressionCollection"/>
+		/// The number of elements in the source <see cref="IIMatchableIVariableExpressionCollection"/>
 		/// is greater than the available space from <paramref name="arrayIndex"/> to the end of the
 		/// destination <paramref name="array"/>.</para></exception>
 		/// <remarks>Please refer to <see cref="ICollection.CopyTo"/> for details.</remarks>
@@ -861,13 +862,13 @@ namespace Palladio.Reliability.TypedCollections
 		#region GetEnumerator
 
 		/// <summary>
-		/// Returns an <see cref="IIIdentifiableIVariableExpressionEnumerator"/> that can
-		/// iterate through the <see cref="IIIdentifiableIVariableExpressionCollection"/>.
+		/// Returns an <see cref="IIMatchableIVariableExpressionEnumerator"/> that can
+		/// iterate through the <see cref="IIMatchableIVariableExpressionCollection"/>.
 		/// </summary>
-		/// <returns>An <see cref="IIIdentifiableIVariableExpressionEnumerator"/>
-		/// for the entire <see cref="IIIdentifiableIVariableExpressionCollection"/>.</returns>
+		/// <returns>An <see cref="IIMatchableIVariableExpressionEnumerator"/>
+		/// for the entire <see cref="IIMatchableIVariableExpressionCollection"/>.</returns>
 		/// <remarks>Please refer to <see cref="IEnumerable.GetEnumerator"/> for details.</remarks>
-		IIIdentifiableIVariableExpressionEnumerator GetEnumerator();
+		IIMatchableIVariableExpressionEnumerator GetEnumerator();
 
 		#endregion
 
@@ -876,19 +877,19 @@ namespace Palladio.Reliability.TypedCollections
 
 	#endregion
 
-	#region Interface IIIdentifiableIVariableExpressionDictionary
+	#region Interface IIMatchableIVariableExpressionDictionary
 
 	/// <summary>
 	/// Represents a strongly typed collection of
 	/// <see cref="IIExpressionEntry"/> key-and-value pairs.
 	/// </summary>
 	/// <remarks>
-	/// <b>IIIdentifiableIVariableExpressionDictionary</b> provides an
+	/// <b>IIMatchableIVariableExpressionDictionary</b> provides an
 	/// <see cref="IDictionary"/> that is strongly typed for
-	/// <see cref="IIdentifiable"/> keys and <see cref="IVariableExpression"/> values.
+	/// <see cref="IMatchable"/> keys and <see cref="IVariableExpression"/> values.
 	/// </remarks>
 	public interface
-		IIIdentifiableIVariableExpressionDictionary : IIIdentifiableIVariableExpressionCollection
+		IIMatchableIVariableExpressionDictionary : IIMatchableIVariableExpressionCollection
 	{
 		#region Properties
 
@@ -896,9 +897,9 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets a value indicating whether the
-		/// <see cref="IIIdentifiableIVariableExpressionDictionary"/> has a fixed size.
+		/// <see cref="IIMatchableIVariableExpressionDictionary"/> has a fixed size.
 		/// </summary>
-		/// <value><c>true</c> if the <see cref="IIIdentifiableIVariableExpressionDictionary"/>
+		/// <value><c>true</c> if the <see cref="IIMatchableIVariableExpressionDictionary"/>
 		/// has a fixed size; otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="IDictionary.IsFixedSize"/> for details.</remarks>
 		bool IsFixedSize { get; }
@@ -909,9 +910,9 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets a value indicating whether the
-		/// <see cref="IIIdentifiableIVariableExpressionDictionary"/> is read-only.
+		/// <see cref="IIMatchableIVariableExpressionDictionary"/> is read-only.
 		/// </summary>
-		/// <value><c>true</c> if the <see cref="IIIdentifiableIVariableExpressionDictionary"/>
+		/// <value><c>true</c> if the <see cref="IIMatchableIVariableExpressionDictionary"/>
 		/// is read-only; otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="IDictionary.IsReadOnly"/> for details.</remarks>
 		bool IsReadOnly { get; }
@@ -922,9 +923,9 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets or sets the <see cref="IVariableExpression"/> value
-		/// associated with the specified <see cref="IIdentifiable"/> key.
+		/// associated with the specified <see cref="IMatchable"/> key.
 		/// </summary>
-		/// <param name="key">The <see cref="IIdentifiable"/> key
+		/// <param name="key">The <see cref="IMatchable"/> key
 		/// whose value to get or set.</param>
 		/// <value>The <see cref="IVariableExpression"/> value associated with the specified
 		/// <paramref name="key"/>. If the specified <paramref name="key"/> is not found,
@@ -936,26 +937,26 @@ namespace Palladio.Reliability.TypedCollections
 		/// <paramref name="key"/> is a null reference.</exception>
 		/// <exception cref="NotSupportedException">
 		/// <para>The property is set and the
-		/// <see cref="IIIdentifiableIVariableExpressionDictionary"/> is read-only.</para>
+		/// <see cref="IIMatchableIVariableExpressionDictionary"/> is read-only.</para>
 		/// <para>-or-</para>
 		/// <para>The property is set, <paramref name="key"/> does not exist in the collection,
-		/// and the <b>IIIdentifiableIVariableExpressionDictionary</b> has a fixed size.</para>
+		/// and the <b>IIMatchableIVariableExpressionDictionary</b> has a fixed size.</para>
 		/// </exception>
 		/// <remarks>Please refer to <see cref="IDictionary.this"/> for details.</remarks>
-		IVariableExpression this[IIdentifiable key] { get; set; }
+		IVariableExpression this[IMatchable key] { get; set; }
 
 		#endregion
 
 		#region Keys
 
 		/// <summary>
-		/// Gets an <see cref="IIIdentifiableCollection"/> containing the keys
-		/// in the <see cref="IIIdentifiableIVariableExpressionDictionary"/>.
+		/// Gets an <see cref="IIMatchableCollection"/> containing the keys
+		/// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.
 		/// </summary>
-		/// <value>An <see cref="IIIdentifiableCollection"/> containing the keys
-		/// in the <see cref="IIIdentifiableIVariableExpressionDictionary"/>.</value>
+		/// <value>An <see cref="IIMatchableCollection"/> containing the keys
+		/// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.</value>
 		/// <remarks>Please refer to <see cref="IDictionary.Keys"/> for details.</remarks>
-		IIIdentifiableCollection Keys { get; }
+		IIMatchableCollection Keys { get; }
 
 		#endregion
 
@@ -963,10 +964,10 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets an <see cref="IIVariableExpressionCollection"/> containing the values
-		/// in the <see cref="IIIdentifiableIVariableExpressionDictionary"/>.
+		/// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.
 		/// </summary>
 		/// <value>An <see cref="IIVariableExpressionCollection"/> containing the values
-		/// in the <see cref="IIIdentifiableIVariableExpressionDictionary"/>.</value>
+		/// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.</value>
 		/// <remarks>Please refer to <see cref="IDictionary.Values"/> for details.</remarks>
 		IIVariableExpressionCollection Values { get; }
 
@@ -979,21 +980,21 @@ namespace Palladio.Reliability.TypedCollections
 		#region Add
 
 		/// <summary>
-		/// Adds an element with the specified <see cref="IIdentifiable"/>
+		/// Adds an element with the specified <see cref="IMatchable"/>
 		/// key and <see cref="IVariableExpression"/> value to the
-		/// <see cref="IIIdentifiableIVariableExpressionDictionary"/>.
+		/// <see cref="IIMatchableIVariableExpressionDictionary"/>.
 		/// </summary>
-		/// <param name="key">The <see cref="IIdentifiable"/> key of the element
-		/// to add to the <see cref="IIIdentifiableIVariableExpressionDictionary"/>.</param>
+		/// <param name="key">The <see cref="IMatchable"/> key of the element
+		/// to add to the <see cref="IIMatchableIVariableExpressionDictionary"/>.</param>
 		/// <param name="value">The <see cref="IVariableExpression"/> value of the element
-		/// to add to the <see cref="IIIdentifiableIVariableExpressionDictionary"/>.
+		/// to add to the <see cref="IIMatchableIVariableExpressionDictionary"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// <para>An element with the specified <paramref name="key"/> already exists
-		/// in the <see cref="IIIdentifiableIVariableExpressionDictionary"/>.</para>
+		/// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>IIIdentifiableIVariableExpressionDictionary</b> is set to use the
+		/// <para>The <b>IIMatchableIVariableExpressionDictionary</b> is set to use the
 		/// <see cref="IComparable"/> interface, and <paramref name="key"/> does not
 		/// implement the <b>IComparable</b> interface.</para></exception>
 		/// <exception cref="ArgumentNullException">
@@ -1001,24 +1002,24 @@ namespace Palladio.Reliability.TypedCollections
 		/// <exception cref="InvalidOperationException">
 		/// The comparer throws an exception.</exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableIVariableExpressionDictionary"/> is read-only.
+		/// <para>The <see cref="IIMatchableIVariableExpressionDictionary"/> is read-only.
 		/// </para><para>-or-</para>
-		/// <para>The <b>IIIdentifiableIVariableExpressionDictionary</b> has a fixed size.
+		/// <para>The <b>IIMatchableIVariableExpressionDictionary</b> has a fixed size.
 		/// </para></exception>
 		/// <remarks>Please refer to <see cref="IDictionary.Add"/> for details.</remarks>
-		void Add(IIdentifiable key, IVariableExpression value);
+		void Add(IMatchable key, IVariableExpression value);
 
 		#endregion
 
 		#region Clear
 
 		/// <summary>
-		/// Removes all elements from the <see cref="IIIdentifiableIVariableExpressionDictionary"/>.
+		/// Removes all elements from the <see cref="IIMatchableIVariableExpressionDictionary"/>.
 		/// </summary>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableIVariableExpressionDictionary"/> is read-only.
+		/// <para>The <see cref="IIMatchableIVariableExpressionDictionary"/> is read-only.
 		/// </para><para>-or-</para>
-		/// <para>The <b>IIIdentifiableIVariableExpressionDictionary</b> has a fixed size.
+		/// <para>The <b>IIMatchableIVariableExpressionDictionary</b> has a fixed size.
 		/// </para></exception>
 		/// <remarks>Please refer to <see cref="IDictionary.Clear"/> for details.</remarks>
 		void Clear();
@@ -1028,12 +1029,12 @@ namespace Palladio.Reliability.TypedCollections
 		#region Contains
 
 		/// <summary>
-		/// Determines whether the <see cref="IIIdentifiableIVariableExpressionDictionary"/>
-		/// contains the specified <see cref="IIdentifiable"/> key.
+		/// Determines whether the <see cref="IIMatchableIVariableExpressionDictionary"/>
+		/// contains the specified <see cref="IMatchable"/> key.
 		/// </summary>
-		/// <param name="key">The <see cref="IIdentifiable"/> key to locate
-		/// in the <see cref="IIIdentifiableIVariableExpressionDictionary"/>.</param>
-		/// <returns><c>true</c> if the <see cref="IIIdentifiableIVariableExpressionDictionary"/>
+		/// <param name="key">The <see cref="IMatchable"/> key to locate
+		/// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.</param>
+		/// <returns><c>true</c> if the <see cref="IIMatchableIVariableExpressionDictionary"/>
 		/// contains an element with the specified <paramref name="key"/>; otherwise, <c>false</c>.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">
@@ -1041,29 +1042,29 @@ namespace Palladio.Reliability.TypedCollections
 		/// <exception cref="InvalidOperationException">
 		/// The comparer throws an exception.</exception>
 		/// <remarks>Please refer to <see cref="IDictionary.Contains"/> for details.</remarks>
-		bool Contains(IIdentifiable key);
+		bool Contains(IMatchable key);
 
 		#endregion
 
 		#region Remove
 
 		/// <summary>
-		/// Removes the element with the specified <see cref="IIdentifiable"/> key
-		/// from the <see cref="IIIdentifiableIVariableExpressionDictionary"/>.
+		/// Removes the element with the specified <see cref="IMatchable"/> key
+		/// from the <see cref="IIMatchableIVariableExpressionDictionary"/>.
 		/// </summary>
-		/// <param name="key">The <see cref="IIdentifiable"/> key of the element to remove
-		/// from the <see cref="IIIdentifiableIVariableExpressionDictionary"/>.</param>
+		/// <param name="key">The <see cref="IMatchable"/> key of the element to remove
+		/// from the <see cref="IIMatchableIVariableExpressionDictionary"/>.</param>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="key"/> is a null reference.</exception>
 		/// <exception cref="InvalidOperationException">
 		/// The comparer throws an exception.</exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableIVariableExpressionDictionary"/> is read-only.
+		/// <para>The <see cref="IIMatchableIVariableExpressionDictionary"/> is read-only.
 		/// </para><para>-or-</para>
-		/// <para>The <b>IIIdentifiableIVariableExpressionDictionary</b> has a fixed size.
+		/// <para>The <b>IIMatchableIVariableExpressionDictionary</b> has a fixed size.
 		/// </para></exception>
 		/// <remarks>Please refer to <see cref="IDictionary.Remove"/> for details.</remarks>
-		void Remove(IIdentifiable key);
+		void Remove(IMatchable key);
 
 		#endregion
 
@@ -1072,18 +1073,18 @@ namespace Palladio.Reliability.TypedCollections
 
 	#endregion
 
-	#region Interface IIIdentifiableIVariableExpressionList
+	#region Interface IIMatchableIVariableExpressionList
 
 	/// <summary>
 	/// Represents a strongly typed collection of <see cref="IIExpressionEntry"/>
 	/// objects that can be individually accessed by index.
 	/// </summary>
 	/// <remarks>
-	/// <b>IIIdentifiableIVariableExpressionList</b> provides an <see cref="IList"/>
+	/// <b>IIMatchableIVariableExpressionList</b> provides an <see cref="IList"/>
 	/// that is strongly typed for <see cref="IIExpressionEntry"/> elements.
 	/// </remarks>
 	public interface
-		IIIdentifiableIVariableExpressionList : IIIdentifiableIVariableExpressionCollection
+		IIMatchableIVariableExpressionList : IIMatchableIVariableExpressionCollection
 	{
 		#region Properties
 
@@ -1091,9 +1092,9 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets a value indicating whether the
-		/// <see cref="IIIdentifiableIVariableExpressionList"/> has a fixed size.
+		/// <see cref="IIMatchableIVariableExpressionList"/> has a fixed size.
 		/// </summary>
-		/// <value><c>true</c> if the <see cref="IIIdentifiableIVariableExpressionList"/>
+		/// <value><c>true</c> if the <see cref="IIMatchableIVariableExpressionList"/>
 		/// has a fixed size; otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="IList.IsFixedSize"/> for details.</remarks>
 		bool IsFixedSize { get; }
@@ -1104,9 +1105,9 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Gets a value indicating whether the
-		/// <see cref="IIIdentifiableIVariableExpressionList"/> is read-only.
+		/// <see cref="IIMatchableIVariableExpressionList"/> is read-only.
 		/// </summary>
-		/// <value><c>true</c> if the <see cref="IIIdentifiableIVariableExpressionList"/>
+		/// <value><c>true</c> if the <see cref="IIMatchableIVariableExpressionList"/>
 		/// is read-only; otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="IList.IsReadOnly"/> for details.</remarks>
 		bool IsReadOnly { get; }
@@ -1127,10 +1128,10 @@ namespace Palladio.Reliability.TypedCollections
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="index"/> is equal to or greater than
-		/// <see cref="IIIdentifiableIVariableExpressionCollection.Count"/>.</para>
+		/// <see cref="IIMatchableIVariableExpressionCollection.Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">The property is set and the
-		/// <see cref="IIIdentifiableIVariableExpressionList"/> is read-only.</exception>
+		/// <see cref="IIMatchableIVariableExpressionList"/> is read-only.</exception>
 		/// <remarks>Please refer to <see cref="IList.this"/> for details.</remarks>
 		IIExpressionEntry this[int index] { get; set; }
 
@@ -1144,17 +1145,17 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Adds a <see cref="IIExpressionEntry"/> to the end
-		/// of the <see cref="IIIdentifiableIVariableExpressionList"/>.
+		/// of the <see cref="IIMatchableIVariableExpressionList"/>.
 		/// </summary>
 		/// <param name="entry">The <see cref="IIExpressionEntry"/> object
-		/// to be added to the end of the <see cref="IIIdentifiableIVariableExpressionList"/>.
+		/// to be added to the end of the <see cref="IIMatchableIVariableExpressionList"/>.
 		/// </param>
-		/// <returns>The <see cref="IIIdentifiableIVariableExpressionList"/> index at which
+		/// <returns>The <see cref="IIMatchableIVariableExpressionList"/> index at which
 		/// the <paramref name="entry"/> has been added.</returns>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableIVariableExpressionList"/> is read-only.</para>
+		/// <para>The <see cref="IIMatchableIVariableExpressionList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>IIIdentifiableIVariableExpressionList</b> has a fixed size.</para>
+		/// <para>The <b>IIMatchableIVariableExpressionList</b> has a fixed size.</para>
 		/// </exception>
 		/// <remarks>Please refer to <see cref="IList.Add"/> for details.</remarks>
 		int Add(IIExpressionEntry entry);
@@ -1164,12 +1165,12 @@ namespace Palladio.Reliability.TypedCollections
 		#region Clear
 
 		/// <summary>
-		/// Removes all elements from the <see cref="IIIdentifiableIVariableExpressionList"/>.
+		/// Removes all elements from the <see cref="IIMatchableIVariableExpressionList"/>.
 		/// </summary>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableIVariableExpressionList"/> is read-only.</para>
+		/// <para>The <see cref="IIMatchableIVariableExpressionList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>IIIdentifiableIVariableExpressionList</b> has a fixed size.</para>
+		/// <para>The <b>IIMatchableIVariableExpressionList</b> has a fixed size.</para>
 		/// </exception>
 		/// <remarks>Please refer to <see cref="IList.Clear"/> for details.</remarks>
 		void Clear();
@@ -1179,13 +1180,13 @@ namespace Palladio.Reliability.TypedCollections
 		#region Contains
 
 		/// <summary>
-		/// Determines whether the <see cref="IIIdentifiableIVariableExpressionList"/>
+		/// Determines whether the <see cref="IIMatchableIVariableExpressionList"/>
 		/// contains the specified <see cref="IIExpressionEntry"/> element.
 		/// </summary>
 		/// <param name="entry">The <see cref="IIExpressionEntry"/> object
-		/// to locate in the <see cref="IIIdentifiableIVariableExpressionList"/>.</param>
+		/// to locate in the <see cref="IIMatchableIVariableExpressionList"/>.</param>
 		/// <returns><c>true</c> if <paramref name="entry"/> is found in the
-		/// <see cref="IIIdentifiableIVariableExpressionList"/>; otherwise, <c>false</c>.</returns>
+		/// <see cref="IIMatchableIVariableExpressionList"/>; otherwise, <c>false</c>.</returns>
 		/// <remarks>Please refer to <see cref="IList.Contains"/> for details.</remarks>
 		bool Contains(IIExpressionEntry entry);
 
@@ -1195,13 +1196,13 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Returns the zero-based index of the first occurrence of the specified
-		/// <see cref="IIExpressionEntry"/> in the <see cref="IIIdentifiableIVariableExpressionList"/>.
+		/// <see cref="IIExpressionEntry"/> in the <see cref="IIMatchableIVariableExpressionList"/>.
 		/// </summary>
 		/// <param name="entry">The <see cref="IIExpressionEntry"/> object
-		/// to locate in the <see cref="IIIdentifiableIVariableExpressionList"/>.</param>
+		/// to locate in the <see cref="IIMatchableIVariableExpressionList"/>.</param>
 		/// <returns>
 		/// The zero-based index of the first occurrence of <paramref name="entry"/>
-		/// in the <see cref="IIIdentifiableIVariableExpressionList"/>, if found; otherwise, -1.
+		/// in the <see cref="IIMatchableIVariableExpressionList"/>, if found; otherwise, -1.
 		/// </returns>
 		/// <remarks>Please refer to <see cref="IList.IndexOf"/> for details.</remarks>
 		int IndexOf(IIExpressionEntry entry);
@@ -1212,22 +1213,22 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Inserts a <see cref="IIExpressionEntry"/> element into the
-		/// <see cref="IIIdentifiableIVariableExpressionList"/> at the specified index.
+		/// <see cref="IIMatchableIVariableExpressionList"/> at the specified index.
 		/// </summary>
 		/// <param name="index">The zero-based index at which
 		/// <paramref name="entry"/> should be inserted.</param>
 		/// <param name="entry">The <see cref="IIExpressionEntry"/> object to insert
-		/// into the <see cref="IIIdentifiableIVariableExpressionList"/>.</param>
+		/// into the <see cref="IIMatchableIVariableExpressionList"/>.</param>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="index"/> is greater than
-		/// <see cref="IIIdentifiableIVariableExpressionCollection.Count"/>.</para>
+		/// <see cref="IIMatchableIVariableExpressionCollection.Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableIVariableExpressionList"/> is read-only.</para>
+		/// <para>The <see cref="IIMatchableIVariableExpressionList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>IIIdentifiableIVariableExpressionList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IIMatchableIVariableExpressionList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.Insert"/> for details.</remarks>
 		void Insert(int index, IIExpressionEntry entry);
 
@@ -1237,14 +1238,14 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Removes the first occurrence of the specified <see cref="IIExpressionEntry"/>
-		/// from the <see cref="IIIdentifiableIVariableExpressionList"/>.
+		/// from the <see cref="IIMatchableIVariableExpressionList"/>.
 		/// </summary>
 		/// <param name="entry">The <see cref="IIExpressionEntry"/> object to remove
-		/// from the <see cref="IIIdentifiableIVariableExpressionList"/>.</param>
+		/// from the <see cref="IIMatchableIVariableExpressionList"/>.</param>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableIVariableExpressionList"/> is read-only.</para>
+		/// <para>The <see cref="IIMatchableIVariableExpressionList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>IIIdentifiableIVariableExpressionList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IIMatchableIVariableExpressionList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.Remove"/> for details.</remarks>
 		void Remove(IIExpressionEntry entry);
 
@@ -1254,19 +1255,19 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Removes the element at the specified index of the
-		/// <see cref="IIIdentifiableIVariableExpressionList"/>.
+		/// <see cref="IIMatchableIVariableExpressionList"/>.
 		/// </summary>
 		/// <param name="index">The zero-based index of the element to remove.</param>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="index"/> is equal to or greater than
-		/// <see cref="IIIdentifiableIVariableExpressionCollection.Count"/>.</para>
+		/// <see cref="IIMatchableIVariableExpressionCollection.Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="IIIdentifiableIVariableExpressionList"/> is read-only.</para>
+		/// <para>The <see cref="IIMatchableIVariableExpressionList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>IIIdentifiableIVariableExpressionList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IIMatchableIVariableExpressionList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.RemoveAt"/> for details.</remarks>
 		void RemoveAt(int index);
 
@@ -1277,18 +1278,18 @@ namespace Palladio.Reliability.TypedCollections
 
 	#endregion
 
-	#region Interface IIIdentifiableIVariableExpressionEnumerator
+	#region Interface IIMatchableIVariableExpressionEnumerator
 
 	/// <summary>
 	/// Supports type-safe iteration over a dictionary that
 	/// contains <see cref="IIExpressionEntry"/> elements.
 	/// </summary>
 	/// <remarks>
-	/// <b>IIIdentifiableIVariableExpressionEnumerator</b> provides an
+	/// <b>IIMatchableIVariableExpressionEnumerator</b> provides an
 	/// <see cref="IDictionaryEnumerator"/> that is strongly typed for
-	/// <see cref="IIdentifiable"/> keys and <see cref="IVariableExpression"/> values.
+	/// <see cref="IMatchable"/> keys and <see cref="IVariableExpression"/> values.
 	/// </remarks>
-	public interface IIIdentifiableIVariableExpressionEnumerator
+	public interface IIMatchableIVariableExpressionEnumerator
 	{
 		#region Properties
 
@@ -1331,9 +1332,9 @@ namespace Palladio.Reliability.TypedCollections
 		#region Key
 
 		/// <summary>
-		/// Gets the <see cref="IIdentifiable"/> key of the current dictionary entry.
+		/// Gets the <see cref="IMatchable"/> key of the current dictionary entry.
 		/// </summary>
-		/// <value>The <see cref="IIdentifiable"/> key
+		/// <value>The <see cref="IMatchable"/> key
 		/// of the current element of the enumeration.</value>
 		/// <exception cref="InvalidOperationException"><para>The enumerator is positioned
 		/// before the first element of the dictionary or after the last element.</para>
@@ -1342,7 +1343,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// <remarks>Please refer to <see cref="IDictionaryEnumerator.Key"/> for details, but
 		/// note that <b>Key</b> fails if the collection was modified since the last successful
 		/// call to <see cref="MoveNext"/> or <see cref="Reset"/>.</remarks>
-		IIdentifiable Key { get; }
+		IMatchable Key { get; }
 
 		#endregion
 
@@ -1403,19 +1404,19 @@ namespace Palladio.Reliability.TypedCollections
 	#region Struct IIExpressionEntry
 
 	/// <summary>
-	/// Implements a strongly typed pair of one <see cref="IIdentifiable"/>
+	/// Implements a strongly typed pair of one <see cref="IMatchable"/>
 	/// key and one <see cref="IVariableExpression"/> value.
 	/// </summary>
 	/// <remarks>
 	/// <b>IIExpressionEntry</b> provides a <see cref="DictionaryEntry"/> that is strongly
-	/// typed for <see cref="IIdentifiable"/> keys and <see cref="IVariableExpression"/> values.
+	/// typed for <see cref="IMatchable"/> keys and <see cref="IVariableExpression"/> values.
 	/// </remarks>
 	[Serializable]
 	public struct IIExpressionEntry
 	{
 		#region Private Fields
 
-		private IIdentifiable _key;
+		private IMatchable _key;
 		private IVariableExpression _value;
 
 		#endregion
@@ -1427,14 +1428,14 @@ namespace Palladio.Reliability.TypedCollections
 		/// class with the specified key and value.
 		/// </summary>
 		/// <param name="key">
-		/// The <see cref="IIdentifiable"/> key in the key-and-value pair.</param>
+		/// The <see cref="IMatchable"/> key in the key-and-value pair.</param>
 		/// <param name="value">
 		/// The <see cref="IVariableExpression"/> value in the key-and-value pair.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="key"/> is a null reference.</exception>
-		public IIExpressionEntry(IIdentifiable key, IVariableExpression value)
+		public IIExpressionEntry(IMatchable key, IVariableExpression value)
 		{
 			if ((object) key == null)
 				throw new ArgumentNullException("key");
@@ -1450,10 +1451,10 @@ namespace Palladio.Reliability.TypedCollections
 		#region Key
 
 		/// <summary>
-		/// Gets or sets the <see cref="IIdentifiable"/> key in the key-and-value pair.
+		/// Gets or sets the <see cref="IMatchable"/> key in the key-and-value pair.
 		/// </summary>
 		/// <value>
-		/// The <see cref="IIdentifiable"/> key in the key-and-value pair.
+		/// The <see cref="IMatchable"/> key in the key-and-value pair.
 		/// The default is a null reference.
 		/// </value>
 		/// <exception cref="ArgumentNullException">
@@ -1464,7 +1465,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// a default-constructed <b>IIExpressionEntry</b> contains a null reference by default,
 		/// even though it is not possible to explicitly set <b>Key</b> to a null reference.
 		/// </remarks>
-		public IIdentifiable Key
+		public IMatchable Key
 		{
 			get { return this._key; }
 			set
@@ -1508,7 +1509,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// the converted <paramref name="entry"/>.</returns>
 		/// <exception cref="InvalidCastException">
 		/// <para><paramref name="entry"/> contains a key that is not compatible
-		/// with <see cref="IIdentifiable"/>.</para>
+		/// with <see cref="IMatchable"/>.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="entry"/> contains a value that is not compatible
 		/// with <see cref="IVariableExpression"/>.</para>
@@ -1516,10 +1517,8 @@ namespace Palladio.Reliability.TypedCollections
 		public static implicit operator IIExpressionEntry(DictionaryEntry entry)
 		{
 			IIExpressionEntry pair = new IIExpressionEntry();
-			if (entry.Key != null)
-				pair.Key = (IIdentifiable) entry.Key;
-			if (entry.Value != null)
-				pair.Value = (IVariableExpression) entry.Value;
+			if (entry.Key != null) pair.Key = (IMatchable) entry.Key;
+			if (entry.Value != null) pair.Value = (IVariableExpression) entry.Value;
 			return pair;
 		}
 
@@ -1536,8 +1535,7 @@ namespace Palladio.Reliability.TypedCollections
 		public static implicit operator DictionaryEntry(IIExpressionEntry pair)
 		{
 			DictionaryEntry entry = new DictionaryEntry();
-			if (pair.Key != null)
-				entry.Key = pair.Key;
+			if (pair.Key != null) entry.Key = pair.Key;
 			entry.Value = pair.Value;
 			return entry;
 		}
@@ -1557,11 +1555,11 @@ namespace Palladio.Reliability.TypedCollections
 	/// </summary>
 	/// <remarks>
 	/// <b>ReliabilityHashmap</b> provides a <see cref="Hashtable"/> that is strongly typed
-	/// for <see cref="IIdentifiable"/> keys and <see cref="IVariableExpression"/> values.
+	/// for <see cref="IMatchable"/> keys and <see cref="IVariableExpression"/> values.
 	/// </remarks>
 	[Serializable]
 	public class ReliabilityHashmap :
-		IIIdentifiableIVariableExpressionDictionary, IDictionary, ICloneable
+		IIMatchableIVariableExpressionDictionary, IDictionary, ICloneable
 	{
 		#region Private Fields
 
@@ -1960,13 +1958,13 @@ namespace Palladio.Reliability.TypedCollections
 
 		#endregion
 
-		#region Item[IIdentifiable]: IVariableExpression
+		#region Item[IMatchable]: IVariableExpression
 
 		/// <summary>
 		/// Gets or sets the <see cref="IVariableExpression"/> value
-		/// associated with the specified <see cref="IIdentifiable"/> key.
+		/// associated with the specified <see cref="IMatchable"/> key.
 		/// </summary>
-		/// <param name="key">The <see cref="IIdentifiable"/> key
+		/// <param name="key">The <see cref="IMatchable"/> key
 		/// whose value to get or set.</param>
 		/// <value>The <see cref="IVariableExpression"/> value associated with the specified
 		/// <paramref name="key"/>. If the specified <paramref name="key"/> is not found,
@@ -1982,7 +1980,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// <para>The property is set, <paramref name="key"/> does not exist in the collection,
 		/// and the <b>ReliabilityHashmap</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
-		public IVariableExpression this[IIdentifiable key]
+		public IVariableExpression this[IMatchable key]
 		{
 			get { return (IVariableExpression) this._innerHash[key]; }
 			set { this._innerHash[key] = value; }
@@ -1996,7 +1994,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// Gets or sets the value associated with the specified key.
 		/// </summary>
 		/// <param name="key">The key whose value to get or set.
-		/// This argument must be compatible with <see cref="IIdentifiable"/>.</param>
+		/// This argument must be compatible with <see cref="IMatchable"/>.</param>
 		/// <value>
 		/// The value associated with the specified <paramref name="key"/>. If the specified
 		/// <paramref name="key"/> is not found, attempting to get it returns
@@ -2007,7 +2005,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="key"/> is a null reference.</exception>
 		/// <exception cref="InvalidCastException">
-		/// <para><paramref name="key"/> is not compatible with <see cref="IIdentifiable"/>.</para>
+		/// <para><paramref name="key"/> is not compatible with <see cref="IMatchable"/>.</para>
 		/// <para>-or-</para>
 		/// <para>The property is set to a value that is not compatible with
 		/// <see cref="IVariableExpression"/>.</para></exception>
@@ -2019,22 +2017,22 @@ namespace Palladio.Reliability.TypedCollections
 		/// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 		object IDictionary.this[object key]
 		{
-			get { return this[(IIdentifiable) key]; }
-			set { this[(IIdentifiable) key] = (IVariableExpression) value; }
+			get { return this[(IMatchable) key]; }
+			set { this[(IMatchable) key] = (IVariableExpression) value; }
 		}
 
 		#endregion
 
-		#region Keys: IIIdentifiableCollection
+		#region Keys: IIMatchableCollection
 
 		/// <summary>
-		/// Gets an <see cref="IIIdentifiableCollection"/> containing
+		/// Gets an <see cref="IIMatchableCollection"/> containing
 		/// the keys in the <see cref="ReliabilityHashmap"/>.
 		/// </summary>
-		/// <value>An <see cref="IIIdentifiableCollection"/> containing
+		/// <value>An <see cref="IIMatchableCollection"/> containing
 		/// the keys in the <see cref="ReliabilityHashmap"/>.</value>
 		/// <remarks>Please refer to <see cref="Hashtable.Keys"/> for details.</remarks>
-		public IIIdentifiableCollection Keys
+		public IIMatchableCollection Keys
 		{
 			get
 			{
@@ -2121,10 +2119,8 @@ namespace Palladio.Reliability.TypedCollections
 
 		public override bool Equals(object other)
 		{
-			if (!(other is ReliabilityHashmap))
-				return false;
-			if (other == this)
-				return true;
+			if (!(other is ReliabilityHashmap)) return false;
+			if (other == this) return true;
 			ReliabilityHashmap otherHashmap = (ReliabilityHashmap) other;
 			return otherHashmap._innerHash.Equals(this._innerHash);
 		}
@@ -2134,13 +2130,13 @@ namespace Palladio.Reliability.TypedCollections
 			return _innerHash.GetHashCode();
 		}
 
-		#region Add(IIdentifiable, IVariableExpression)
+		#region Add(IMatchable, IVariableExpression)
 
 		/// <summary>
-		/// Adds an element with the specified <see cref="IIdentifiable"/> key and
+		/// Adds an element with the specified <see cref="IMatchable"/> key and
 		/// <see cref="IVariableExpression"/> value to the <see cref="ReliabilityHashmap"/>.
 		/// </summary>
-		/// <param name="key">The <see cref="IIdentifiable"/> key of the element
+		/// <param name="key">The <see cref="IMatchable"/> key of the element
 		/// to add to the <see cref="ReliabilityHashmap"/>.</param>
 		/// <param name="value">The <see cref="IVariableExpression"/> value of the element
 		/// to add to the <see cref="ReliabilityHashmap"/>.
@@ -2156,7 +2152,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// <para>-or-</para>
 		/// <para>The <b>ReliabilityHashmap</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
-		public void Add(IIdentifiable key, IVariableExpression value)
+		public void Add(IMatchable key, IVariableExpression value)
 		{
 			this._innerHash.Add(key, value);
 		}
@@ -2170,7 +2166,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// to the <see cref="ReliabilityHashmap"/>.
 		/// </summary>
 		/// <param name="key">The key of the element to add to the <see cref="ReliabilityHashmap"/>.
-		/// This argument must be compatible with <see cref="IIdentifiable"/>.</param>
+		/// This argument must be compatible with <see cref="IMatchable"/>.</param>
 		/// <param name="value">The value of the element to add to the <see cref="ReliabilityHashmap"/>.
 		/// This argument must be compatible with <see cref="IVariableExpression"/>.
 		/// This argument can be a null reference.
@@ -2181,7 +2177,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="key"/> is a null reference.</exception>
 		/// <exception cref="InvalidCastException">
-		/// <para><paramref name="key"/> is not compatible with <see cref="IIdentifiable"/>.</para>
+		/// <para><paramref name="key"/> is not compatible with <see cref="IMatchable"/>.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="value"/> is not compatible with <see cref="IVariableExpression"/>.</para>
 		/// </exception>
@@ -2192,7 +2188,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 		void IDictionary.Add(object key, object value)
 		{
-			Add((IIdentifiable) key, (IVariableExpression) value);
+			Add((IMatchable) key, (IVariableExpression) value);
 		}
 
 		#endregion
@@ -2230,20 +2226,20 @@ namespace Palladio.Reliability.TypedCollections
 
 		#endregion
 
-		#region Contains(IIdentifiable)
+		#region Contains(IMatchable)
 
 		/// <summary>
 		/// Determines whether the <see cref="ReliabilityHashmap"/>
-		/// contains the specified <see cref="IIdentifiable"/> key.
+		/// contains the specified <see cref="IMatchable"/> key.
 		/// </summary>
-		/// <param name="key">The <see cref="IIdentifiable"/> key
+		/// <param name="key">The <see cref="IMatchable"/> key
 		/// to locate in the <see cref="ReliabilityHashmap"/>.</param>
 		/// <returns><c>true</c> if the <see cref="ReliabilityHashmap"/> contains an element
 		/// with the specified <paramref name="key"/>; otherwise, <c>false</c>.</returns>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="key"/> is a null reference.</exception>
 		/// <remarks>Please refer to <see cref="Hashtable.Contains"/> for details.</remarks>
-		public bool Contains(IIdentifiable key)
+		public bool Contains(IMatchable key)
 		{
 			return this._innerHash.Contains(key);
 		}
@@ -2256,17 +2252,17 @@ namespace Palladio.Reliability.TypedCollections
 		/// Determines whether the <see cref="ReliabilityHashmap"/> contains the specified key.
 		/// </summary>
 		/// <param name="key">The key to locate in the <see cref="ReliabilityHashmap"/>.
-		/// This argument must be compatible with <see cref="IIdentifiable"/>.</param>
+		/// This argument must be compatible with <see cref="IMatchable"/>.</param>
 		/// <returns><c>true</c> if the <see cref="ReliabilityHashmap"/> contains an element
 		/// with the specified <paramref name="key"/>; otherwise, <c>false</c>.</returns>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="key"/> is a null reference.</exception>
 		/// <exception cref="InvalidCastException"><paramref name="key"/>
-		/// is not compatible with <see cref="IIdentifiable"/>.</exception>
+		/// is not compatible with <see cref="IMatchable"/>.</exception>
 		/// <remarks>Please refer to <see cref="Hashtable.Contains"/> for details.</remarks>
 		bool IDictionary.Contains(object key)
 		{
-			return Contains((IIdentifiable) key);
+			return Contains((IMatchable) key);
 		}
 
 		#endregion
@@ -2275,16 +2271,16 @@ namespace Palladio.Reliability.TypedCollections
 
 		/// <summary>
 		/// Determines whether the <see cref="ReliabilityHashmap"/>
-		/// contains the specified <see cref="IIdentifiable"/> key.
+		/// contains the specified <see cref="IMatchable"/> key.
 		/// </summary>
-		/// <param name="key">The <see cref="IIdentifiable"/> key
+		/// <param name="key">The <see cref="IMatchable"/> key
 		/// to locate in the <see cref="ReliabilityHashmap"/>.</param>
 		/// <returns><c>true</c> if the <see cref="ReliabilityHashmap"/> contains an element
 		/// with the specified <paramref name="key"/>; otherwise, <c>false</c>.</returns>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="key"/> is a null reference.</exception>
 		/// <remarks>Please refer to <see cref="Hashtable.ContainsKey"/> for details.</remarks>
-		public bool ContainsKey(IIdentifiable key)
+		public bool ContainsKey(IMatchable key)
 		{
 			return this._innerHash.ContainsKey(key);
 		}
@@ -2375,16 +2371,16 @@ namespace Palladio.Reliability.TypedCollections
 
 		#endregion
 
-		#region GetEnumerator: IIIdentifiableIVariableExpressionEnumerator
+		#region GetEnumerator: IIMatchableIVariableExpressionEnumerator
 
 		/// <summary>
-		/// Returns an <see cref="IIIdentifiableIVariableExpressionEnumerator"/>
+		/// Returns an <see cref="IIMatchableIVariableExpressionEnumerator"/>
 		/// that can iterate through the <see cref="ReliabilityHashmap"/>.
 		/// </summary>
-		/// <returns>An <see cref="IIIdentifiableIVariableExpressionEnumerator"/>
+		/// <returns>An <see cref="IIMatchableIVariableExpressionEnumerator"/>
 		/// for the entire <see cref="ReliabilityHashmap"/>.</returns>
 		/// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
-		public IIIdentifiableIVariableExpressionEnumerator GetEnumerator()
+		public IIMatchableIVariableExpressionEnumerator GetEnumerator()
 		{
 			return new Enumerator(this);
 		}
@@ -2423,13 +2419,13 @@ namespace Palladio.Reliability.TypedCollections
 
 		#endregion
 
-		#region Remove(IIdentifiable)
+		#region Remove(IMatchable)
 
 		/// <summary>
-		/// Removes the element with the specified <see cref="IIdentifiable"/> key
+		/// Removes the element with the specified <see cref="IMatchable"/> key
 		/// from the <see cref="ReliabilityHashmap"/>.
 		/// </summary>
-		/// <param name="key">The <see cref="IIdentifiable"/> key of the element
+		/// <param name="key">The <see cref="IMatchable"/> key of the element
 		/// to remove from the <see cref="ReliabilityHashmap"/>.</param>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="key"/> is a null reference.</exception>
@@ -2438,7 +2434,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// <para>-or-</para>
 		/// <para>The <b>ReliabilityHashmap</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="Hashtable.Remove"/> for details.</remarks>
-		public void Remove(IIdentifiable key)
+		public void Remove(IMatchable key)
 		{
 			this._innerHash.Remove(key);
 		}
@@ -2452,11 +2448,11 @@ namespace Palladio.Reliability.TypedCollections
 		/// from the <see cref="ReliabilityHashmap"/>.
 		/// </summary>
 		/// <param name="key">The key of the element to remove from the <see cref="ReliabilityHashmap"/>.
-		/// This argument must be compatible with <see cref="IIdentifiable"/>.</param>
+		/// This argument must be compatible with <see cref="IMatchable"/>.</param>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="key"/> is a null reference.</exception>
 		/// <exception cref="InvalidCastException"><paramref name="key"/>
-		/// is not compatible with <see cref="IIdentifiable"/>.</exception>
+		/// is not compatible with <see cref="IMatchable"/>.</exception>
 		/// <exception cref="NotSupportedException">
 		/// <para>The <see cref="ReliabilityHashmap"/> is read-only.</para>
 		/// <para>-or-</para>
@@ -2464,7 +2460,7 @@ namespace Palladio.Reliability.TypedCollections
 		/// <remarks>Please refer to <see cref="Hashtable.Remove"/> for details.</remarks>
 		void IDictionary.Remove(object key)
 		{
-			Remove((IIdentifiable) key);
+			Remove((IMatchable) key);
 		}
 
 		#endregion
@@ -2525,7 +2521,7 @@ namespace Palladio.Reliability.TypedCollections
 		#region Class Enumerator
 
 		private sealed class Enumerator :
-			IIIdentifiableIVariableExpressionEnumerator, IDictionaryEnumerator
+			IIMatchableIVariableExpressionEnumerator, IDictionaryEnumerator
 		{
 			#region Private Fields
 
@@ -2564,9 +2560,9 @@ namespace Palladio.Reliability.TypedCollections
 				get { return this._innerEnumerator.Entry; }
 			}
 
-			public IIdentifiable Key
+			public IMatchable Key
 			{
-				get { return (IIdentifiable) this._innerEnumerator.Key; }
+				get { return (IMatchable) this._innerEnumerator.Key; }
 			}
 
 			object IDictionaryEnumerator.Key
@@ -2607,7 +2603,7 @@ namespace Palladio.Reliability.TypedCollections
 
 		[Serializable]
 		private sealed class KeyList :
-			IIIdentifiableCollection, ICollection
+			IIMatchableCollection, ICollection
 		{
 			#region Private Fields
 
@@ -2645,7 +2641,7 @@ namespace Palladio.Reliability.TypedCollections
 
 			#region Public Methods
 
-			public void CopyTo(IIdentifiable[] array, int arrayIndex)
+			public void CopyTo(IMatchable[] array, int arrayIndex)
 			{
 				this._dictionary.CheckTargetArray(array, arrayIndex);
 				foreach (IIExpressionEntry pair in this._dictionary)
@@ -2655,10 +2651,10 @@ namespace Palladio.Reliability.TypedCollections
 			void ICollection.CopyTo(Array array, int arrayIndex)
 			{
 				this._dictionary.CheckTargetArray(array, arrayIndex);
-				CopyTo((IIdentifiable[]) array, arrayIndex);
+				CopyTo((IMatchable[]) array, arrayIndex);
 			}
 
-			public IIIdentifiableEnumerator GetEnumerator()
+			public IIMatchableEnumerator GetEnumerator()
 			{
 				return new KeyEnumerator(this._dictionary);
 			}
@@ -2677,7 +2673,7 @@ namespace Palladio.Reliability.TypedCollections
 
 		[Serializable]
 		private sealed class KeyEnumerator :
-			IIIdentifiableEnumerator, IEnumerator
+			IIMatchableEnumerator, IEnumerator
 		{
 			#region Private Fields
 
@@ -2696,9 +2692,9 @@ namespace Palladio.Reliability.TypedCollections
 
 			#region Public Properties
 
-			public IIdentifiable Current
+			public IMatchable Current
 			{
-				get { return (IIdentifiable) this._innerEnumerator.Current; }
+				get { return (IMatchable) this._innerEnumerator.Current; }
 			}
 
 			object IEnumerator.Current
@@ -4349,10 +4345,8 @@ namespace Palladio.Reliability.TypedCollections
 		public static implicit operator ITreeNodeEntry(DictionaryEntry entry)
 		{
 			ITreeNodeEntry pair = new ITreeNodeEntry();
-			if (entry.Key != null)
-				pair.Key = (IIdentifier) entry.Key;
-			if (entry.Value != null)
-				pair.Value = (TreeNode) entry.Value;
+			if (entry.Key != null) pair.Key = (IIdentifier) entry.Key;
+			if (entry.Value != null) pair.Value = (TreeNode) entry.Value;
 			return pair;
 		}
 
@@ -4369,8 +4363,7 @@ namespace Palladio.Reliability.TypedCollections
 		public static implicit operator DictionaryEntry(ITreeNodeEntry pair)
 		{
 			DictionaryEntry entry = new DictionaryEntry();
-			if (pair.Key != null)
-				entry.Key = pair.Key;
+			if (pair.Key != null) entry.Key = pair.Key;
 			entry.Value = pair.Value;
 			return entry;
 		}
@@ -4954,10 +4947,8 @@ namespace Palladio.Reliability.TypedCollections
 
 		public override bool Equals(object other)
 		{
-			if (!(other is TreeNodeHashmap))
-				return false;
-			if (other == this)
-				return true;
+			if (!(other is TreeNodeHashmap)) return false;
+			if (other == this) return true;
 			TreeNodeHashmap otherHashmap = (TreeNodeHashmap) other;
 			return otherHashmap._innerHash.Equals(this._innerHash);
 		}

@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.4  2004/10/25 07:07:21  sliver
+ * implementation of
+ * - functions discrete, including convolution
+ * - path segmentation of FSMs
+ * - prediction of time consuption using density functions
+ *
  * Revision 1.3  2004/09/23 00:44:14  sliver
  * - major refactorings
  * - changed TypedCollections to CodeSmith generated files
@@ -20,7 +26,7 @@
 #if TEST
 
 using NUnit.Framework;
-using Palladio.ComponentModel;
+using Palladio.FiniteStateMachines;
 using Palladio.Reliability.Math;
 using Palladio.Reliability.TypedCollections;
 
@@ -40,7 +46,7 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void FSMReliability()
 		{
-			ServiceReliability sr = new ServiceReliability(fsmSeff.FSM, reliabilityHashmap);
+			ServiceReliability sr = new ServiceReliability(markovModel, reliabilityHashmap);
 			Assert.IsFalse(sr.HasVariables);
 			Assert.AreEqual(1.0, sr.Expression.Calculate(), 0.0000001);
 		}
@@ -60,7 +66,7 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void FSMVarReliability()
 		{
-			ServiceReliability sr = new ServiceReliability(fsmSeff.FSM, varRelHashmap);
+			ServiceReliability sr = new ServiceReliability(markovModel, varRelHashmap);
 			Assert.IsTrue(sr.HasVariables);
 			Assert.IsTrue(sr.Variables.Length == 1);
 			Assert.IsTrue(sr.VariableSet.Count == 1);
@@ -75,11 +81,11 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void FSMVarReliabilityDeep()
 		{
-			ServiceReliability sr = new ServiceReliability(fsmSeff.FSM, varRelHashmap);
+			ServiceReliability sr = new ServiceReliability(markovModel, varRelHashmap);
 			ReliabilityHashmap deepRelHashmap = new ReliabilityHashmap(reliabilityHashmap);
-			deepRelHashmap[ fsmSeff.Signatures[0] ] = sr;
+			deepRelHashmap[ fsm.InputAlphabet[0].ID ] = sr;
 
-			ServiceReliability sr2 = new ServiceReliability(fsmSeff.FSM, deepRelHashmap);
+			ServiceReliability sr2 = new ServiceReliability(markovModel, deepRelHashmap);
 
 			Assert.IsTrue(sr2.HasVariables);
 			Assert.IsTrue(sr2.Variables.Length == 1);
@@ -87,7 +93,7 @@ namespace Palladio.Reliability.Tests
 			Assert.IsFalse(sr2.Expression.IsConstant);
 			Assert.IsTrue(sr2.Variables[0].VariableName == "x");
 			Helper.SetValue(ref sr2.Variables[0], 1.0);
-			Assert.AreEqual(1.0, sr2.Expression.Calculate());
+			Assert.AreEqual(1.0, sr2.Expression.Calculate(), 0.000000001);
 		}
 
 
@@ -99,29 +105,26 @@ namespace Palladio.Reliability.Tests
 		[TestFixtureSetUp]
 		public void Init()
 		{
-			seff = CMBuilder.CreateServiceEffectD1();
+			fsm = TestBuilder.CreateTestFSM1();
 			reliabilityHashmap = new ReliabilityHashmap();
-			foreach (IExternalSignature extSig in seff.SignatureList)
+			foreach (IInput i in fsm.InputAlphabet)
 			{
-				reliabilityHashmap.Add(extSig, new ServiceReliability(1.0));
+				reliabilityHashmap.Add(i.ID, new ServiceReliability(1.0));
 			}
-			fsmSeff = (IFSMServiceEffect) seff.GetAuxiliarySpecification(typeof (IFSMServiceEffect));
+			markovModel = new MarkovModel(fsm);
+			transitionMatrix = new TransitionMatrix(markovModel);
 
 			varRelHashmap = new ReliabilityHashmap(reliabilityHashmap);
-			IExternalSignature sig = null;
-			foreach (IExternalSignature s in varRelHashmap.Keys)
-			{
-				sig = s;
-				break;
-			}
-			varRelHashmap.Remove(sig);
-			varRelHashmap.Add(sig, new ServiceReliability("x"));
+			IMatchable key = fsm.InputAlphabet[0].ID;
+			varRelHashmap.Remove(key);
+			varRelHashmap.Add(key, new ServiceReliability("x"));
 		}
 
-		private IServiceEffectSpecification seff;
+		private IFiniteStateMachine fsm;
 		private ReliabilityHashmap reliabilityHashmap;
 		private ReliabilityHashmap varRelHashmap;
-		private IFSMServiceEffect fsmSeff;
+		private IMarkovModel markovModel;
+		private ITransitionMatrix transitionMatrix;
 	}
 }
 

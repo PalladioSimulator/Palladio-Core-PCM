@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.5  2004/10/25 07:07:21  sliver
+ * implementation of
+ * - functions discrete, including convolution
+ * - path segmentation of FSMs
+ * - prediction of time consuption using density functions
+ *
  * Revision 1.4  2004/09/23 00:44:14  sliver
  * - major refactorings
  * - changed TypedCollections to CodeSmith generated files
@@ -23,6 +29,7 @@
 
 using System.Collections;
 using System.Diagnostics;
+using Palladio.FiniteStateMachines;
 using Palladio.Identifier;
 using Palladio.Reliability.Exceptions;
 using Palladio.Reliability.TypedCollections;
@@ -120,7 +127,7 @@ namespace Palladio.Reliability.Model
 			if (ProvidesReliabilities.Count > 0)
 			{
 				result += "".PadRight(level*2) + "Provides:\n";
-				foreach (IIdentifiable extSig in ProvidesReliabilities.Keys)
+				foreach (IMatchable extSig in ProvidesReliabilities.Keys)
 				{
 					result += "".PadRight((level + 1)*2) + extSig + " " + ProvidesReliabilities[extSig] + "\n";
 				}
@@ -128,7 +135,7 @@ namespace Palladio.Reliability.Model
 			if (RequiresReliabilities.Count > 0)
 			{
 				result += "".PadRight(level*2) + "Requires:\n";
-				foreach (IIdentifiable extSig in RequiresReliabilities.Keys)
+				foreach (IMatchable extSig in RequiresReliabilities.Keys)
 				{
 					result += "".PadRight((level + 1)*2) + extSig + " " + RequiresReliabilities[extSig] + "\n";
 				}

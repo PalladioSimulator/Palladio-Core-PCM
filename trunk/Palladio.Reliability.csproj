@@ -35,7 +35,7 @@
                     IncrementalBuild = "false"
                     NoStdLib = "false"
                     NoWarn = ""
-                    Optimize = "false"
+                    Optimize = "true"
                     OutputPath = "bin\Debug\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
@@ -145,27 +145,42 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Attributes\TimeAttribute.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Exceptions\TreeNodeNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Functions\DefaultFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Functions\IFunction.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Functions\IFunctionFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Functions\Discrete\DiscreteFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Functions\Discrete\DiscreteFunction.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Functions\Tests\FunctionFactoryTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Math\AbstractMarkovMatrix.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Math\ExecutionTime.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Math\IExecutionTime.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -206,11 +221,6 @@
                 />
                 <File
                     RelPath = "src\Math\MarkovModel.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Math\MarkovModelInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -260,6 +270,31 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Paths\FSMPaths.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Paths\IFSMPaths.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Paths\IPath.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Paths\Path.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Paths\Tests\PathTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Tests\CMBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -270,7 +305,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Tests\MarkovModelInfoTest.cs"
+                    RelPath = "src\Tests\MarkovModelTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -286,6 +321,41 @@
                 />
                 <File
                     RelPath = "src\Tests\ServiceReliabilityTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Tests\TestBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Time\ExecutionTime.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Time\IExecutionTime.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Time\IPathExecutionTime.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Time\PathExecutionTime.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Time\TimeAttribute.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Time\TimeOperations.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

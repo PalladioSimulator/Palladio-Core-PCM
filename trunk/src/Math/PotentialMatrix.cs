@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/10/25 07:07:21  sliver
+ * implementation of
+ * - functions discrete, including convolution
+ * - path segmentation of FSMs
+ * - prediction of time consuption using density functions
+ *
  * Revision 1.1  2004/09/23 00:44:14  sliver
  * - major refactorings
  * - changed TypedCollections to CodeSmith generated files
@@ -29,6 +35,10 @@ namespace Palladio.Reliability.Math
 			Trace.Assert(transMatrix.Matrix.LengthX == transMatrix.Matrix.LengthY, "transMatrix.Matrix.LengthX == transMatrix.Matrix.LengthY");
 			transitionMatrix = transMatrix;
 			matrix = CreatePotentialMatrix(transitionMatrix.Matrix);
+		}
+
+		public PotentialMatrix(IMarkovModel markovModel) : this(new TransitionMatrix(markovModel))
+		{
 		}
 
 		/// <summary>
