@@ -23,13 +23,13 @@ namespace Palladio.Example.Simulation
 
 			//the first simple thread starts in composite component CC at provides interface P1 with a call to
 			//the signature d1. This thread is observed.
-			IThreadStartingPoint sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));			
-			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL,new TestApp());
+			ThreadStartingPoint sp = new ThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));			
+			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ON_LPS,null);//new TestApp());
 
 			//the second thread is a periodic thread that starts in composite component CC at provides interface P1 with a call to
 			//the signature d2. It creates a new one every 5 timeunits.			
-			sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d2"));			
-			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL,5);
+			sp = new ThreadStartingPoint(ID("CC"),ID("P1"),ID("d2"));			
+			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_NOTHING,5);
 
 			//the simulation will never ends with periodic threads. Abort it after 100 timeunits 
 			env.Clock.MaximumSimulationTime = 100;
