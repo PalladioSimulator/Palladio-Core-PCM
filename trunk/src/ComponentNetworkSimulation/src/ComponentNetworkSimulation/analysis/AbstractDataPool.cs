@@ -12,7 +12,7 @@ namespace ComponentNetworkSimulation.analysis
 		
 		public abstract void reset();
 
-		public abstract void threadLog(SimulationThread  sender,TimeUser timeUser, long time,int param);
+		public abstract void threadLog(SimulationThread  sender,TimeConsumer TimeConsumer, long time,int param);
 
 		public abstract void otherLog(System.String message);
 	}

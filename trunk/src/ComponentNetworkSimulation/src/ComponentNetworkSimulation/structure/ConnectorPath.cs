@@ -1,16 +1,16 @@
 namespace ComponentNetworkSimulation.structure
 {
-	public class ConnectorPath : TimeUser
+	public class ConnectorPath : TimeConsumer
 	{
 		//
-		// all connectorpaths have at least an internal service as following timeuser
+		// all connectorpaths have at least an internal service as following TimeConsumer
 		// 
 		/// <TgData>
 		/// 	<link_directed>Directed</link_directed>
-		/// 	<link_label>nextTimeUser</link_label>
+		/// 	<link_label>nextTimeConsumer</link_label>
 		/// 	<link_clientCardinality>1</link_clientCardinality>
 		/// </TgData>
-		protected TimeUser nextTimeUser = null;
+		protected TimeConsumer nextTimeConsumer = null;
 
 		//
 		//each path belongs to one connector
@@ -23,30 +23,30 @@ namespace ComponentNetworkSimulation.structure
 
 		protected LoggingType loggingType = LoggingType.NO_LOG;
 
-		public ConnectorPath(AbstractConnector owningConnector, TimeUser nextTimeUser) : 
-			this(owningConnector, nextTimeUser,LoggingType.NO_LOG)
+		public ConnectorPath(AbstractConnector owningConnector, TimeConsumer nextTimeConsumer) : 
+			this(owningConnector, nextTimeConsumer,LoggingType.NO_LOG)
 		{
 		}
 
-		public ConnectorPath(AbstractConnector owningConnector, TimeUser nextTimeUser, LoggingType type) 
+		public ConnectorPath(AbstractConnector owningConnector, TimeConsumer nextTimeConsumer, LoggingType type) 
 		{
-			this.nextTimeUser = nextTimeUser;
+			this.nextTimeConsumer = nextTimeConsumer;
 			this.owningConnector = owningConnector;
 		}
 
-		#region TimeUser Member
+		#region TimeConsumer Member
 
 		public long getUsedTime() 
 		{
 			return owningConnector.getDelayTime();
 		}
 
-		public TimeUser getNextTimeUser() 
+		public TimeConsumer getNextTimeConsumer() 
 		{
-			return this.nextTimeUser;
+			return this.nextTimeConsumer;
 		}
 
-		public bool hasNextTimeUser()
+		public bool hasNextTimeConsumer()
 		{
 			return true;
 		}

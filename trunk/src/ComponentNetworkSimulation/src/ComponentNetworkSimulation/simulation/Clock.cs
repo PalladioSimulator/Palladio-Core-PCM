@@ -1,90 +1,204 @@
 using System;
+using ComponentNetworkSimulation;
 using ComponentNetworkSimulation.structure;
+using System.Collections;
+
 namespace ComponentNetworkSimulation.simulation
 {
+	/// <summary>
+	/// This declaration is used to define a eventhandler for timestep events.
+	/// TimeStepEvents are fired on every finished simulationstep.
+	/// </summary>
+	public delegate void TimeStepEventHandler(object sender, TimeStepEventArgs eventArgs);
+
+	/// <summary>
+	/// This class represents the clock of the simulation environment. It contains an absolute time counter of simulation time
+	/// to syncronize the simulation. The simulation time, if not set, is limitet to long.MaxValue.
+	/// Clock also contains an instance of ThreadScheduler, which manages the simulationthreads.
+	/// </summary>
 	public class Clock
-	{	
-		public Clock(ComponentNetworkSimulation.AbstractSimulationEnvironment simulationEnvironment)
+	{		
+		#region events
+
+		/// <summary>
+		/// This event is fired, when the timeline of the clock moves a step. The arguments of this events contains
+		/// the step length and the new absolute time.
+		/// </summary>
+		public event TimeStepEventHandler TimeStepEvent;
+
+		/// <summary>
+		/// This event is fired, when the maximum simulation time s reached
+		/// </summary>
+		public event EventHandler MaxTimeReachedEvent;
+
+		/// <summary>
+		/// This event is fired, when the clock was reseted.
+		/// </summary>
+		public event EventHandler ClockResetEvent;
+
+		#endregion
+
+		#region data
+
+		/// <summary>
+		/// holds the maxium simulation time. By default, it is set to long.MaxValue.
+		/// </summary>
+		protected long maxSimulationTime = long.MaxValue;
+
+		/// <summary>
+		/// holds the current absolute simulation time.
+		/// </summary>
+		private long currentTime = 0;
+
+		/// <summary>
+		/// holds an reference to the simulation environment
+		/// </summary>
+		protected AbstractSimulationEnvironment simulationEnvironment = null;
+
+		/// <summary>
+		/// holds the instance of the threadscheduler
+		/// </summary>
+		private ThreadScheduler scheduler = null;
+
+		#endregion
+
+		#region constructors
+
+		/// <summary>
+		/// constructs a new Clock used by given simulation environment. The maximum simulation time is set to long.MaxValue.
+		/// </summary>
+		/// <param name="simulationEnvironment">the simulation environment</param>
+		public Clock(AbstractSimulationEnvironment simulationEnvironment) : this(simulationEnvironment,long.MaxValue)
 		{
-			this.simulationEnvironment = simulationEnvironment;
 		}
 
-		public Clock(int maxSimulationTime) 
+		/// <summary>
+		/// constructs a new Clock used by given simulation environment. The maximum simulation time is set to 
+		/// given value.
+		/// </summary>
+		/// <param name="simulationEnvironment">the simulation environment</param>
+		/// <param name="maxSimulationTime">the maximum simulation time</param>
+		public Clock(AbstractSimulationEnvironment simulationEnvironment, long maxSimulationTime) 
 		{
 			this.maxSimulationTime = maxSimulationTime;
+			this.simulationEnvironment = simulationEnvironment;
+			this.scheduler = this.CreateScheduler();
 		}
 
-		public long getCurTime()
-		{
-			return this.currentTime;
-		}
+		#endregion
 
-		public bool isMaxTimeReached() 
-		{
-			return currentTime >= maxSimulationTime;
-		}
+		#region Properties
 
-		public void simulate() 
+		/// <summary>
+		/// This property sets and returns the maximum simulation time.
+		/// </summary>
+		public long MaximumSimulationTime 
 		{
-			while(simulationStep() && !isMaxTimeReached());
-		}
-
-		public bool simulationStep() 
-		{
-			long shortestFutureTime = findShortestFutureTime();
-			moveTimeLine(shortestFutureTime);
-			return true;
-		}
-
-		public void createSimulationThread(TimeUser firstTimeUser, String name)
-		{
-			simulationThreads.Add(new SimulationThread(name,firstTimeUser));
-		}
-
-		public void createSimulationThread(TimeUser firstTimeUser, String name, SimuationThreadType type)
-		{
-			simulationThreads.Add(new SimulationThread(name,firstTimeUser,type));
-		}
-
-		public void createPeriodicalSimulationThreads(TimeUser firstTimeUser, String name, long period)
-		{
-			throw (new Exception("To be Implemented"));
-		}
-		
-		public void createPeriodicalSimulationThreads(TimeUser firstTimeUser, String name, long period,
-			SimuationThreadType type)
-		{
-			throw (new Exception("To be Implemented"));
-		}
-
-		public void reset() 
-		{
-			simulationThreads.Clear();
-		}
-
-		
-		protected void moveTimeLine(long time) 
-		{
-			currentTime += time;
-			for (int a=0;a<simulationThreads.Count;a++) 
-				((SimulationThread)simulationThreads[a]).timeMoved(time);				
-		}
-
-		protected long findShortestFutureTime() 
-		{
-			long minTime = -1;
-			for (int a=0;a<this.simulationThreads.Count;a++) 
+			get { return this.maxSimulationTime;}
+			set 
 			{
-				SimulationThread thread = (SimulationThread)simulationThreads[a];
-				if ((thread.getTimeInFuture() < minTime || minTime == -1) &&
-					thread.isAlive()) minTime = thread.getTimeInFuture();
+				if (value < 0)
+					this.maxSimulationTime = long.MaxValue;
+				else
+					this.maxSimulationTime = value;
 			}
-			return minTime;
 		}
 
-		protected long maxSimulationTime = long.MaxValue;
-		protected ComponentNetworkSimulation.AbstractSimulationEnvironment simulationEnvironment = null;
-		protected System.Collections.ArrayList simulationThreads = new System.Collections.ArrayList();
-		private long currentTime = 0;
-	}
+		/// <summary>
+		/// return the instance of the Thread Scheduler
+		/// </summary>
+		public ThreadScheduler TheThreadScheduler
+		{
+			get {return this.scheduler;}
+		}
+
+		/// <summary>
+		/// return the current absolute simulation time
+		/// </summary>
+		public long CurrentTime
+		{
+			get {return this.currentTime;}
+		}
+
+		/// <summary>
+		/// returns true, if the maximum simulation time is reached 
+		/// </summary>
+		public bool IsMaxTimeReached 
+		{
+			get {return currentTime >= maxSimulationTime;}
+		}
+
+		#endregion
+
+		#region methods
+
+		/// <summary>
+		/// this method is called by the constructor to create an instance of the ThreadScheduler 
+		/// </summary>
+		protected virtual ThreadScheduler CreateScheduler()
+		{
+			return new ThreadScheduler(this.simulationEnvironment);
+		}
+
+		/// <summary>
+		/// call to simulate one step
+		/// </summary>
+		/// <returns>returns false, if the simulation reached its end because of reaching the maximum simulation time
+		/// or there are no more thread alive.</returns>
+		public bool SimulationStep() 
+		{
+			if (IsMaxTimeReached || !scheduler.IsAnyThreadAlive) return false;
+
+			long shortestFutureTime = scheduler.GetShortestFutureTime();
+			if (currentTime + shortestFutureTime > maxSimulationTime) shortestFutureTime = maxSimulationTime - currentTime;			
+			scheduler.MoveTime(shortestFutureTime);
+			currentTime += shortestFutureTime;
+
+			NotifyTimeStepEvent(shortestFutureTime);
+			if (currentTime == maxSimulationTime) NotifyMaxTimeReachedEvent();
+
+			return scheduler.IsAnyThreadAlive && !IsMaxTimeReached;
+		}
+
+		/// <summary>
+		/// call to reset the clock. All Threads in the ThreadScheduler are reseted and the simulationtime is set to zero.
+		/// </summary>
+		public void Reset() 
+		{
+			currentTime = 0;
+			scheduler.Reset();
+			NotifyClockResetEvent();
+		}
+
+		/// <summary>
+		/// called, when the current time moved, to fire an event.
+		/// </summary>
+		/// <param name="timeStep">The timestep, the time moved</param>
+		protected virtual void NotifyTimeStepEvent(long timeStep)
+		{
+            if (TimeStepEvent != null)
+				TimeStepEvent(this,new TimeStepEventArgs(timeStep,this.currentTime));
+		}
+
+		/// <summary>
+		/// called, when the maximum time is reached, in order to fire an event
+		/// </summary>
+		protected virtual void NotifyMaxTimeReachedEvent()
+		{
+			if (MaxTimeReachedEvent != null)
+				MaxTimeReachedEvent(this,EventArgs.Empty);
+		}
+
+		/// <summary>
+		/// called, when the clock was reset, in order to fire an event.
+		/// </summary>
+		protected virtual void NotifyClockResetEvent()
+		{
+			if (ClockResetEvent != null)
+				ClockResetEvent(this,EventArgs.Empty);
+		}
+
+		#endregion
+   	}
 }
+//EOF

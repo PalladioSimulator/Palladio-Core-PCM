@@ -15,9 +15,9 @@ namespace ComponentNetworkSimulation.analysis.datapools
 			System.Console.Out.WriteLine("Log: "+message); 
 		}
 
-		public override void threadLog(SimulationThread sender,TimeUser timeUser, long time, int param)
+		public override void threadLog(SimulationThread sender,TimeConsumer TimeConsumer, long time, int param)
 		{
-			System.Console.Out.WriteLine("Thread Log: "+sender+" on "+timeUser+" at time "+time+".");
+			System.Console.Out.WriteLine("Thread Log: "+sender+" on "+TimeConsumer+" at time "+time+".");
 			System.Console.Out.WriteLine("Param = "+param+", means: ");
 			if ((param & PARAM_ENTER_LP)!= 0)
 				System.Console.Out.WriteLine("Thread entered logpoint.");

@@ -1,6 +1,7 @@
 using ComponentNetworkSimulation.structure;
 using ComponentNetworkSimulation.simulation;
 using ComponentNetworkSimulation.analysis;
+using System.Collections;
 
 namespace ComponentNetworkSimulation
 {
@@ -16,12 +17,12 @@ namespace ComponentNetworkSimulation
 		{
 			this.resetSimulation();
 			this.prepairSimulation();
-			this.clock.simulate();
+			this.doSimulate();
 		}
 
 		public bool simulationStep()
 		{
-			return this.clock.simulationStep();
+			return this.clock.SimulationStep();
 		}
 
 		public void prepairSimulation()
@@ -31,7 +32,7 @@ namespace ComponentNetworkSimulation
 
 		public void resetSimulation()
 		{
-			this.clock.reset();
+			this.clock.Reset();
 			this.componentNetwork.reset();
 			this.dataPool.reset();
 		}
@@ -49,6 +50,11 @@ namespace ComponentNetworkSimulation
 		public AbstractDataPool getDataPool() 
 		{
 			return this.dataPool;
+		}
+
+		protected void doSimulate()
+		{
+			while(clock.SimulationStep() && !clock.IsMaxTimeReached);
 		}
 
 		protected abstract void createSystemSimulationThreads();
