@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Xml;
 using Altova.Types;
 using WebserverXML;
@@ -8,7 +9,7 @@ using WebserverXML;
 namespace Palladio.Webserver.ConfigReader
 {
 	/// <summary>
-	/// XMLConfigReader.
+	/// XMLConfigReader. Reads a xml-config file. The XML-root-element needs to have the name "config".
 	/// </summary>
 	/// 
 	/// 
@@ -17,6 +18,10 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2004/12/08 16:07:11  kelsaka
+	/// - added: the webserver halts if the config-file can not be found. To make the webserver
+	///  use easier the error-message describes how to set the paths (commandline and VS.NET)
+	///
 	/// Revision 1.8  2004/11/05 16:17:00  kelsaka
 	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
 	/// Code refactoring.
@@ -72,13 +77,20 @@ namespace Palladio.Webserver.ConfigReader
 			{
 				root = new ConfigType(doc.Load(configPathFile));
 			}
-			catch (FileNotFoundException e)
-			{
-				Debug.WriteLine(e);
-			}
 			catch (XmlException e)
 			{
-				Debug.WriteLine(e);
+				// write to Console, as the debug-file is not necessarily known.
+				Console.WriteLine(e);
+			}
+			catch (FileNotFoundException e)
+			{
+				// write to Console, as the debug-file is not necessarily known.
+				Console.WriteLine("ERROR: The config-file (" + configPathFile + ") could not be found. Please set the " +
+					"config-files at the commandline like:\nWebserver \"..\\..\\..\\Config\\\" (in VS.NET you can set the command " +
+					"line parameter by editing the properties of the starting-project (e. g. Palladio.Webserver) " +
+					"and setting configuration-properties \"debugging\" command-line-arguments.)\n" + e);
+				Console.WriteLine("Webserver halted. Please exit the webserver.");
+				Thread.CurrentThread.Suspend();
 			}
 
 			return root;
