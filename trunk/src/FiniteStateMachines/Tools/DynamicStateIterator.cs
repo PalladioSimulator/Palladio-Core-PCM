@@ -26,7 +26,12 @@ namespace Palladio.FiniteStateMachines {
 		/// <summary>
 		///		State currently processed.
 		/// </summary>
-		private IState currentState, startState;
+		private IState currentState;
+
+		/// <summary>
+		///		First state of the iteration.
+		/// </summary>
+		private IState startState;
 
 		/// <summary>
 		///		Creates a new enumerator starting at aState.

@@ -123,8 +123,8 @@ namespace Palladio.FiniteStateMachines
 		/// <returns>The result of merging the two FiniteStateMachines in a representation of a <code>IFiniteStateMachine</code></returns>
 		public IFiniteStateMachine Merge(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM)
 		{
-			FiniteCrossProductMaschineLazy product = new FiniteCrossProductMaschineLazy(aFSM,anotherFSM);
-			return product;
+			FiniteShuffleProductMaschine product = new FiniteShuffleProductMaschine(aFSM,anotherFSM);
+			return product.ShuffleProduct;
 		}
 
 
