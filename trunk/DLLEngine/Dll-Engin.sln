@@ -1,0 +1,37 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dll-Engin", "Dll-Engin.csproj", "{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greeting", "..\for dll Engin\Greeting\Greeting.csproj", "{7DDB6E18-186E-42B3-AD22-DE9F29913909}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "searchBibTexDatabase", "..\searchBibTexDatabase\searchBibTexDatabase.csproj", "{E86C116F-4949-4E33-887C-0BF050569C98}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}.Debug.ActiveCfg = Debug|.NET
+		{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}.Debug.Build.0 = Debug|.NET
+		{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}.Release.ActiveCfg = Release|.NET
+		{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}.Release.Build.0 = Release|.NET
+		{7DDB6E18-186E-42B3-AD22-DE9F29913909}.Debug.ActiveCfg = Debug|.NET
+		{7DDB6E18-186E-42B3-AD22-DE9F29913909}.Debug.Build.0 = Debug|.NET
+		{7DDB6E18-186E-42B3-AD22-DE9F29913909}.Release.ActiveCfg = Release|.NET
+		{7DDB6E18-186E-42B3-AD22-DE9F29913909}.Release.Build.0 = Release|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Debug.ActiveCfg = Debug|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Debug.Build.0 = Debug|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Release.ActiveCfg = Release|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

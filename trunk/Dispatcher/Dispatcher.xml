@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dispatcher</name>
+    </assembly>
+    <members>
+        <member name="T:Dispatcher.DispatcherComponent">
+            <summary>
+            Zusammenfassung für DispatcherComponent.
+            </summary>
+        </member>
+        <member name="T:Dispatcher.DispatcherThread">
+            <summary>
+            Zusammenfassung für DispatcherThread.
+            </summary>
+        </member>
+        <member name="F:Dispatcher.DispatcherThread.sendsResponse">
+            <summary>
+            The <code>Socket</code> on which the client is conntected
+            </summary>
+            
+        </member>
+        <member name="T:Dispatcher.HTTPAcceptor">
+            <summary>
+            Zusammenfassung für Class1.
+            </summary>
+            
+        </member>
+        <member name="T:Dispatcher.IParseRequest">
+            <summary>
+            Zusammenfassung für IParseRequest.
+            </summary>
+        </member>
+    </members>
+</doc>

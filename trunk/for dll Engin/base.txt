@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Unbenanntes Dokument</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<table width="787" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr> 
+    <td height="65" colspan="6" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <!--DWLayoutTable-->
+        <tr> 
+          <td width="787" height="65"><h2 align="center"><font face="Arial, Helvetica, sans-serif"><strong>Demoseiten 
+              F&uuml;r den Webserver (Experimentalseiten)</strong></font></h2></td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr> 
+    <td width="187" rowspan="2" valign="top"><p>&nbsp;</p>
+      <p><strong>Dynamische Seiten</strong></p>
+      <ul>
+        <li><a href="format.htm">BibTex formatieren</a></li>
+        <li><a href="entry.htm">BibTex eintragen</a></li>
+        <li><a href="suche.htm">BibTex suchen </a></li>
+        <li><a href="greeting.htm">Begr&uuml;&szlig;ung</a></li>
+        <li><a href="userStatictics.htm">Userstatistiken</a> </li>
+      </ul>
+      <p>&nbsp;</p></td>
+    <td width="42" height="60">&nbsp;</td>
+    <td width="126">&nbsp;</td>
+    <td width="230">&nbsp;</td>
+    <td width="162">&nbsp;</td>
+    <td width="40">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td height="149">&nbsp;</td>
+    <td colspan="3" rowspan="2" valign="top"><!-- </replace> --> <!--DWLayoutEmptyCell-->&nbsp;</td>
+    <td>&nbsp; </td>
+  </tr>
+  <tr>
+    <td height="111">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td height="33">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td></td>
+    <td valign="top"><div align="center">11.08.2004</div>
+      <!--chyjkxchyxjkchyjkxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjhxycjkxyhckyjxhckjxyhcyjkxchxyjkchxyjkchxyjkchkyjxchjkyxhcyjkchyxkjchyxjkchyjkxchyjkxchyxjkchyjkxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjhxycjkxyhckyjxhckjxyhcyjkxchxyjkchxyjkchxyjkchkyjxchjkyxhcyjkchyxkjchyxjkchyjkxchyjkxchyxjkchyjkxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjhxycjkxyhckyjxhckjxyhcyjkxchxyjkchxyjkchxyjkchkyjxchjkyxhcyjkchyxkjchyxjkchyjkxchyjkxchyxjkchyjkxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjhxycjkxyhckyjxhckjxyhcyjkxchxyjkchxyjkchxyjkchkyjxchjkyxhcyjkchyxkjchyxjkchyjkxchyjkxchyxjkchyjkxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjhxycjkxyhckyjxhckjxyhcyjkxchxyjkchxyjkchxyjkchkyjxchjkyxhcyjkchyxkjchyxjkchyjkxchyjkxchyxjkchyjkxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjhxycjkxyhckyjxhckjxyhcyjkxchxyjkchxyjkchxyjkchkyjxchjkyxhcyjkchyxkjchyxjkchyjkxchyjkxchyxjkchyjkxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjhxycjkxyhckyjxhckjxyhcyjkxchxyjkchxyjkchxyjkchkyjxchjkyxhcyjkchyxkjchyxjkchyjkxchyjkxchyxjkchyjkxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjhxycjkxyhckyjxhckjxyhcyjkxchxyjkchxyjkchxyjkchkyjxchjkyxhcyjkchyxkjchyxjkchyjkxchyjkxchyxjkchyjkxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjhxycjkxyhckyjxhckjxyhcyjkxchxyjkchxyjkchxyjkchkyjxchjkyxhcyjkchyxkjchyxjkchyjkxchyjkxchyxjkchyjkxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjhxycjkxyhckyjxhckjxyhcyjkxchxyjkchxyjkchxyjkchkyjxchjkyxhcyjkchyxkjchyxjkchyjkxchyjkxchyxjkchyjkxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjjjjjjkxycfhyxkcjhxyckjhyxckhyxkcjhxycjkhxyckjhxycjkxyhckyjxhckjxyhcyjkxchxyjkchxyjkchxyjkchkyjxchjkyxhcyjkchyxkjchyxjkchyjkxchyjkxchyxjkchyjkxc -->
+    </td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="15"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

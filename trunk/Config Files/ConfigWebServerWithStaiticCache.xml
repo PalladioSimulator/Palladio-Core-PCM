@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<BaseSettings>
+<!--Use absolute path!  !-->
+<configFileDir>..\..\..\Config Files\</configFileDir>
+<UsedComponents>
+	<Component>
+		<name>Dispatcher</name>
+		<ConfigFile>ConfigDispatcher.xml</ConfigFile>
+	</Component>
+	<Component>
+		<name>RequestProzessor</name>
+		<ConfigFile>ConfigRequestProzessor.xml</ConfigFile>
+	</Component>
+	<Component>
+		<name>Cache</name>
+		<ConfigFile>ConfigStaticCache.xml</ConfigFile>
+	 </Component>
+	<Component>
+		<name></name>
+		<ConfigFile></ConfigFile>
+	 </Component>
+</UsedComponents>
+</BaseSettings>
