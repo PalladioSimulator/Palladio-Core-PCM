@@ -17,6 +17,9 @@ namespace Palladio.Webserver.RequestClient
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/02/27 22:45:33  kelsaka
+	/// fixed logging-bug: log-messages were written mixed by multiple threads.
+	///
 	/// Revision 1.3  2005/02/27 22:13:07  kelsaka
 	/// Optimized multi-threading-behaviour: GUI is still responsive on creating requests;
 	/// requests are created looped.
@@ -137,15 +140,18 @@ namespace Palladio.Webserver.RequestClient
 		/// <param name="clientRequest">Reference to the clientRequest that has to be removed (caller of this method).</param>
 		public void RemoveFinishedClientRequestThread(ClientRequest clientRequest)
 		{
-			for (int x = 0; x < requestThreads.Count; x++)
+			if(active)
 			{
-				if( ((ThreadInfo)requestThreads[x]).clientRequest.Equals(clientRequest) )
+				for (int x = 0; x < requestThreads.Count; x++)
 				{
-					requestThreads.Remove(requestThreads[x]);
+					if( ((ThreadInfo)requestThreads[x]).clientRequest.Equals(clientRequest) )
+					{
+						requestThreads.Remove(requestThreads[x]);
+					}
 				}
+				Thread.Sleep(LoopDelay);
+				StartNewThreads();
 			}
-			Thread.Sleep(LoopDelay);
-			StartNewThreads();
 		}
 
 
@@ -194,6 +200,8 @@ namespace Palladio.Webserver.RequestClient
 					//TODO: make locking work.
 				}
 			}
+
+			requestThreads.Clear();
 		}
 	}
 }
