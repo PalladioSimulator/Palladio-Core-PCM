@@ -151,7 +151,7 @@
         </documenter>
         <documenter name="MSDN">
             <property name="OutputDirectory" value=".\doc\" />
-            <property name="HtmlHelpName" value="Documentation" />
+            <property name="HtmlHelpName" value="ReflectionBasedVisitor" />
             <property name="IncludeFavorites" value="False" />
             <property name="Title" value="Documentation of the Reflection Based Visitor" />
             <property name="SplitTOCs" value="False" />
