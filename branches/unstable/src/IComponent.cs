@@ -11,6 +11,8 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	public interface IComponent : ICloneable, IAttributable, IVisitable, IIdentifiable, ISerializable
 	{
+		string Name { get; set; }
+
 		/// <summary>
 		/// Interfaces provided by the component to its environment.
 		/// </summary>
@@ -37,6 +39,9 @@ namespace Palladio.ComponentModel
 		/// If no interface with aRoleID can be found, a RoleNotFoundException is thrown.</returns>
 		IInterfaceModel GetRequiresInterface(IIdentifier aRoleID);
 
+		IRole GetProvidesRoleByInterfaceID(IIdentifier interfaceID);
+		IRole GetRequiresRoleByInterfaceID(IIdentifier interfaceID);
+
 		/// <summary>
 		/// Checks, if the component contains a provides interface with the role aRoleID.
 		/// </summary>
@@ -57,7 +62,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aProvInterface">Provides interface to be added</param>
 		/// <param name="roleID">The ID that the conection of interface and component should get.</param>
-		void AddProvidesInterface(IIdentifier roleID,IInterfaceModel aProvInterface);
+		void AddProvidesInterface(IInterfaceModel aProvInterface);
 
 		/// <summary>
 		/// Remove all provides interfaces with the roles given by aProvRoleArray 
@@ -71,7 +76,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aReqArray">Requires interfaces to be added.</param>
 		/// <param name="roleID">The ID that the conection of interface and component should get.</param>
-		void AddRequiresInterface(IIdentifier roleID, IInterfaceModel aReqArray);
+		void AddRequiresInterface(IInterfaceModel aReqArray);
 
 		/// <summary>
 		/// Remove all requires interfaces with the roles given by aReqRoleArray.

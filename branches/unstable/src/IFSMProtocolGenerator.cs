@@ -83,7 +83,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Return the signatures which can be used as input alphabeth for the FSM
 		/// </summary>
-		IExternalSignature[] Signatures 
+		IService[] Signatures 
 		{
 			get;
 		}

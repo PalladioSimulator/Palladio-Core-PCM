@@ -21,6 +21,10 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6.2.1  2004/11/16 13:37:47  uffi
+	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+	/// Documentation needs fixing. Some unittests fail.
+	///
 	/// Revision 1.6  2004/09/02 12:50:06  uffi
 	/// Added XML Serialization and Deserialization functionality
 	///
@@ -183,8 +187,8 @@ namespace Palladio.ComponentModel.Components
 			foreach( IMapping provMapping in aProvMappingArray)
 			{
 				CheckProvidesInterface(provMapping.InnerRole);
-				if( !this.HasProvidesInterface(provMapping.OuterRole.RoleID))
-					throw new NoInterfaceForRoleException(provMapping.OuterRole.RoleID);
+				if( !this.HasProvidesInterface(provMapping.OuterRole.ID))
+					throw new NoInterfaceForRoleException(provMapping.OuterRole.ID);
 			}
 
 			// insert data
@@ -206,8 +210,8 @@ namespace Palladio.ComponentModel.Components
 			foreach( IMapping reqMapping in aReqMappingArray)
 			{
 				CheckRequiresInterface(reqMapping.InnerRole);
-				if (!this.HasRequiresInterface(reqMapping.OuterRole.RoleID))
-					throw new NoInterfaceForRoleException(reqMapping.OuterRole.RoleID);
+				if (!this.HasRequiresInterface(reqMapping.OuterRole.ID))
+					throw new NoInterfaceForRoleException(reqMapping.OuterRole.ID);
 			}
 			AddConnections(aReqMappingArray);
 		}
@@ -303,10 +307,10 @@ namespace Palladio.ComponentModel.Components
 			return (IMapping[])connectionList.ToArray(typeof(IMapping));
 		}
 
-		public IMapping[] GetProvidesMappingsByInner(IAttachedRole anInnerRole)
+		public IMapping[] GetProvidesMappingsByInner(IRole anInnerRole)
 		{
 			CheckProvidesInterface(anInnerRole);
-			Vector connectionList = SelectConnections("(ProvComponentID = '"+anInnerRole.ComponentID.ToString()+"') AND (ProvRoleID = '"+ anInnerRole.RoleID.ToString() +"') AND (ReqComponentID = '"+this.ID.ToString()+"')");
+			Vector connectionList = SelectConnections("(ProvComponentID = '"+anInnerRole.Component.ID.ToString()+"') AND (ProvRoleID = '"+ anInnerRole.ID.ToString() +"') AND (ReqComponentID = '"+this.ID.ToString()+"')");
 			if (connectionList.Count == 0)
 				throw new ConnectionNotFoundException(anInnerRole);
 			return (IMapping[])connectionList.ToArray(typeof(IMapping));
@@ -314,13 +318,13 @@ namespace Palladio.ComponentModel.Components
 
 		public IMapping[] GetProvidesMappingsByInner(IIdentifier anInnerCompID, IIdentifier anInnerRoleID)
 		{
-			return GetProvidesMappingsByInner(new DefaultAttachedRole(GetComponent(anInnerCompID),anInnerRoleID));
+			return GetProvidesMappingsByInner( GetComponent(anInnerCompID).GetRole(anInnerRoleID) );
 		}
 
-		public IMapping GetRequiresMappingByInner(IAttachedRole anInnerRole)
+		public IMapping GetRequiresMappingByInner(IRole anInnerRole)
 		{
 			CheckRequiresInterface(anInnerRole);
-			Vector connectionList = SelectConnections("(ReqComponentID = '"+anInnerRole.ComponentID.ToString()+"') AND (ReqRoleID = '"+ anInnerRole.RoleID.ToString() +"') AND (ProvComponentID = '"+this.ID.ToString()+"')");
+			Vector connectionList = SelectConnections("(ReqComponentID = '"+anInnerRole.Component.ID.ToString()+"') AND (ReqRoleID = '"+ anInnerRole.ID.ToString() +"') AND (ProvComponentID = '"+this.ID.ToString()+"')");
 			if (connectionList.Count == 0)
 				throw new ConnectionNotFoundException(anInnerRole);
 			return (IMapping)connectionList[0];
@@ -328,13 +332,13 @@ namespace Palladio.ComponentModel.Components
 
 		public IMapping GetRequiresMappingByInner(IIdentifier anInnerCompID, IIdentifier anInnerRoleID)
 		{
-			return GetRequiresMappingByInner(new DefaultAttachedRole( GetComponent(anInnerCompID), anInnerRoleID) );
+			return GetRequiresMappingByInner( GetComponent(anInnerCompID).GetRole(anInnerRoleID) );
 		}
 
-		public IBinding GetBindingByRequires(IAttachedRole aReqRole)
+		public IBinding GetBindingByRequires(IRole aReqRole)
 		{
 			CheckRequiresInterface(aReqRole);
-			Vector connectionList = SelectConnections("(ReqComponentID = '"+aReqRole.ComponentID.ToString()+"') AND (ReqRoleID = '"+ aReqRole.RoleID.ToString() +"') AND (ProvComponentID <> '"+this.ID.ToString()+"')");
+			Vector connectionList = SelectConnections("(ReqComponentID = '"+aReqRole.Component.ID.ToString()+"') AND (ReqRoleID = '"+ aReqRole.ID.ToString() +"') AND (ProvComponentID <> '"+this.ID.ToString()+"')");
 			if (connectionList.Count == 0)
 				throw new ConnectionNotFoundException(aReqRole);
 			return (IBinding)connectionList[0];
@@ -342,13 +346,13 @@ namespace Palladio.ComponentModel.Components
 
 		public IBinding GetBindingByRequires(IIdentifier aReqComponentID, IIdentifier aReqRoleID)
 		{
-			return GetBindingByRequires(new DefaultAttachedRole(GetComponent(aReqComponentID), aReqRoleID) );
+			return GetBindingByRequires( GetComponent(aReqComponentID).GetRole(aReqRoleID) );
 		}
 
-		public IBinding[] GetBindingsByProvides(IAttachedRole aProvRole)
+		public IBinding[] GetBindingsByProvides(IRole aProvRole)
 		{
 			CheckProvidesInterface(aProvRole);
-			Vector connectionList = SelectConnections("(ProvComponentID = '"+aProvRole.ComponentID.ToString()+"') AND (ProvRoleID = '"+ aProvRole.RoleID.ToString() +"') AND (ReqComponentID <> '"+this.ID.ToString()+"')");
+			Vector connectionList = SelectConnections("(ProvComponentID = '"+aProvRole.Component.ID.ToString()+"') AND (ProvRoleID = '"+ aProvRole.ID.ToString() +"') AND (ReqComponentID <> '"+this.ID.ToString()+"')");
 			if (connectionList.Count == 0)
 				throw new ConnectionNotFoundException(aProvRole);
 			return (IBinding[])connectionList.ToArray(typeof(IBinding));
@@ -356,7 +360,7 @@ namespace Palladio.ComponentModel.Components
 
 		public IBinding[] GetBindingsByProvides(IIdentifier aProvComponentID, IIdentifier aProvRoleID)
 		{
-			return GetBindingsByProvides(new DefaultAttachedRole(GetComponent(aProvComponentID), aProvRoleID));
+			return GetBindingsByProvides( GetComponent(aProvComponentID).GetRole(aProvRoleID) );
 		}
 
 		
@@ -380,7 +384,7 @@ namespace Palladio.ComponentModel.Components
 
 		public bool ContainsComponent(IIdentifier aComponentID)
 		{
-			return (aComponentID != null ? componentMap.Contains(aComponentID) : false);
+			return (aComponentID != null ? componentMap.ContainsKey(aComponentID) : false);
 		}
 
 		/// <summary>
@@ -395,16 +399,16 @@ namespace Palladio.ComponentModel.Components
 			return (IComponent) componentMap[aComponentID];
 		}
 
-		private void CheckProvidesInterface(IAttachedRole aRole)
+		private void CheckProvidesInterface(IRole aRole)
 		{
-			if ((!ContainsComponent(aRole.ComponentID)) || (!aRole.Component.HasProvidesInterface(aRole.RoleID)))
-				throw new InvalidAttachedRoleException(aRole);
+			if ((!ContainsComponent(aRole.Component.ID)) || (!aRole.Component.HasProvidesInterface(aRole.ID)))
+				throw new InvalidRoleException(aRole);
 		}
 
-		private void CheckRequiresInterface(IAttachedRole aRole)
+		private void CheckRequiresInterface(IRole aRole)
 		{
-			if ((!ContainsComponent(aRole.ComponentID)) || (!aRole.Component.HasRequiresInterface(aRole.RoleID)))
-				throw new InvalidAttachedRoleException(aRole);
+			if ((!ContainsComponent(aRole.Component.ID)) || (!aRole.Component.HasRequiresInterface(aRole.ID)))
+				throw new InvalidRoleException(aRole);
 		}
 
 		/// <summary>
@@ -466,10 +470,10 @@ namespace Palladio.ComponentModel.Components
 				long id = nextID++;
 				connectionDataSet.ConnectionTable.AddConnectionTableRow(
 					id,
-					c.ProvidingRole.ComponentID.ToString(),
-					c.ProvidingRole.RoleID.ToString(),
-					c.RequiringRole.ComponentID.ToString(),
-					c.RequiringRole.RoleID.ToString() );
+					c.ProvidingRole.Component.ID.ToString(),
+					c.ProvidingRole.ID.ToString(),
+					c.RequiringRole.Component.ID.ToString(),
+					c.RequiringRole.ID.ToString() );
 				connectionMap[id] = c;
 			}
 		}
@@ -480,7 +484,7 @@ namespace Palladio.ComponentModel.Components
 			foreach( IConnection c in aConnectionArray)
 			{
 				ConnectionDataSet.ConnectionTableRow[] rows = (ConnectionDataSet.ConnectionTableRow[])
-					connectionDataSet.ConnectionTable.Select("(ProvComponentID = '"+c.ProvidingRole.ComponentID.ToString()+"') AND ( ProvRoleID = '"+c.ProvidingRole.RoleID.ToString()+"') AND ( ReqComponentID = '"+c.RequiringRole.ComponentID.ToString()+"') AND ( ReqRoleID = '"+c.RequiringRole.RoleID.ToString()+"')");
+					connectionDataSet.ConnectionTable.Select("(ProvComponentID = '"+c.ProvidingRole.Component.ID.ToString()+"') AND ( ProvRoleID = '"+c.ProvidingRole.ID.ToString()+"') AND ( ReqComponentID = '"+c.RequiringRole.Component.ID.ToString()+"') AND ( ReqRoleID = '"+c.RequiringRole.ID.ToString()+"')");
 				if (rows.Length > 0)
 				{
 					connectionMap.Remove(rows[0].ID);
@@ -492,103 +496,76 @@ namespace Palladio.ComponentModel.Components
 		/// <summary>
 		/// The Serialize method is used to write the object to a XML stream.
 		/// </summary>
-		/// <param name="filename">The name of the file to which this component should be written.</param>
-		public void Serialize(string filename) 
-		{
-			XmlTextWriter writer = new XmlTextWriter(filename,System.Text.Encoding.UTF8);
-			writer.Formatting = Formatting.Indented;
-			writer.Indentation= 6;
-			writer.Namespaces = true;
-
-			// Starts a new document
-			writer.WriteStartDocument();
-			//Write comments
-			writer.WriteComment("Palladio Model");
-
-			this.Serialize(writer);
- 
-			// Ends the document
-			writer.WriteEndDocument();
-			writer.Close();
-		}
-
-		/// <summary>
-		/// The Serialize method is used to write the object to a XML stream.
-		/// </summary>
 		/// <param name="writer">The writer which is used to serialize the component.</param>
 		public override void Serialize(XmlTextWriter writer) 
 		{
-			writer.WriteStartElement("CompositeComponent","http://palladio.informatik.uni-oldenburg.de/XSD");
-			writer.WriteAttributeString("id",this.ID.ToString());
-
-			//serialize provides-interfaces
-			writer.WriteStartElement("Provides","http://palladio.informatik.uni-oldenburg.de/XSD");
-			foreach(IIdentifier c in providesMap.Keys)
-			{
-				((IRole)providesMap[c]).Serialize(writer);
-			}
-			writer.WriteEndElement();
-
-			//serialize requires-interfaces
-			writer.WriteStartElement("Requires","http://palladio.informatik.uni-oldenburg.de/XSD");
-			foreach(IIdentifier c in requiresMap.Keys)
-			{
-				((IRole)requiresMap[c]).Serialize(writer);
-			}
-			writer.WriteEndElement();
-
 			// serialize subcomponents
 			foreach(IIdentifier c in componentMap.Keys) 
 			{
-				((IComponent)componentMap[c]).Serialize(writer);
+				writer.WriteStartElement("Component","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("guid",((IComponent)componentMap[c]).ID.ToString());
+				writer.WriteEndElement();
 			}
-
-			// serialize connections
-			writer.WriteStartElement("Connections","http://palladio.informatik.uni-oldenburg.de/XSD");
-			foreach(long i in connectionMap.Keys)
+			//serialize provides-interfaces
+			foreach(IIdentifier c in providesMap.Keys)
 			{
-				((IConnection)connectionMap[i]).Serialize(writer);
+				writer.WriteStartElement("ProvidingRole","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("name",((IRole)providesMap[c]).Name);
+				writer.WriteAttributeString("id",((IRole)providesMap[c]).ID.ToString());
+				
+				writer.WriteStartElement("Interface","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("guid",((IRole)providesMap[c]).Interface.ID.ToString());
+				
+				writer.WriteEndElement();
+				writer.WriteEndElement();
 			}
-			writer.WriteEndElement();
-
-			writer.WriteEndElement();
+			//serialize requires-interfaces
+			foreach(IIdentifier c in requiresMap.Keys)
+			{
+				writer.WriteStartElement("RequiringRole","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("name",((IRole)requiresMap[c]).Name);
+				writer.WriteAttributeString("id",((IRole)requiresMap[c]).ID.ToString());
+				
+				writer.WriteStartElement("Interface","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("guid",((IRole)requiresMap[c]).Interface.ID.ToString());
+				
+				writer.WriteEndElement();
+				writer.WriteEndElement();
+			}
 		}
 
 		public override void Deserialize(System.Xml.XmlNode element) 
 		{
-			this.myID = NewID(element.Attributes["id"].Value.ToString());
-
 			System.Xml.XmlNode node = element.FirstChild;
 
 			while (node != null)
 			{
 				switch (node.Name) 
 				{
-					case "Provides":
-						foreach (XmlNode roleNode in node.ChildNodes)
-						{
-							IInterfaceModel role = ComponentFactory.CreateInterfaceModel();
-							role.Deserialize(roleNode);
-							this.AddProvidesInterface(NewID(roleNode.Attributes["id"].Value.ToString()), role);
-						}
+					case "ProvidingRole":
+						XmlNode ifaceNode = node.FirstChild;
+						FirstClassEntity iface = ModelPersistencyService.Instance.GetEntity(
+							IdentifiableFactory.CreateGUID(ifaceNode.Attributes["guid"].Value) as GloballyUniqueIdentifier );
+						if (!(iface != null && iface is IInterfaceModel))
+							throw new DeserializationException("Interface "+ifaceNode.Attributes["guid"].Value+" not found.");
+						this.AddProvidesInterface(iface as IInterfaceModel);
+						IRole newRole = this.GetProvidesRoleByInterfaceID(iface.ID);
+						newRole.Name = node.Attributes["name"].Value;
 						break;
-					case "Requires":
-						foreach (XmlNode roleNode in node.ChildNodes)
-						{
-							IInterfaceModel role = ComponentFactory.CreateInterfaceModel();
-							role.Deserialize(roleNode);
-							this.AddRequiresInterface(NewID(roleNode.Attributes["id"].Value.ToString()), role);
-						}
+					case "RequiringRole":
+						ifaceNode = node.FirstChild;
+						iface = ModelPersistencyService.Instance.GetEntity(
+							IdentifiableFactory.CreateGUID(ifaceNode.Attributes["guid"].Value) as GloballyUniqueIdentifier );
+						if (!(iface != null && iface is IInterfaceModel))
+							throw new DeserializationException("Interface "+ifaceNode.Attributes["guid"].Value+" not found.");
+						this.AddRequiresInterface(iface as IInterfaceModel);
+						newRole = this.GetRequiresRoleByInterfaceID(iface.ID);
+						newRole.Name = node.Attributes["name"].Value;
 						break;
-					case "BasicComponent":
-						IBasicComponent newBasicComp = ComponentFactory.CreateBasicComponent("");
-						newBasicComp.Deserialize(node);
-						this.AddComponents(newBasicComp);
-						break;
-					case "CompositeComponent":
-						ICompositeComponent newCompositeComp = ComponentFactory.CreateCompositeComponent("");
-						newCompositeComp.Deserialize(node);
-						this.AddComponents(newCompositeComp);
+					case "Component":
+						FirstClassEntity component = ModelPersistencyService.Instance.GetEntity(
+							IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value) as GloballyUniqueIdentifier );
+						this.AddComponents(component as IComponent);
 						break;
 					case "Connections":
 						foreach (XmlNode connNode in node.ChildNodes)
@@ -652,7 +629,7 @@ namespace Palladio.ComponentModel.Components
 
 		#region Constructors
 
-		public CompositeComponent( IAttributeHash anAttHash, IIdentifier anID ) : base (anAttHash,anID)
+		public CompositeComponent( IAttributeHash anAttHash, string name, GloballyUniqueIdentifier anID ) : base (anAttHash,name,anID)
 		{
 			nextID = 0;
 			connectionDataSet = new ConnectionDataSet();
@@ -674,7 +651,7 @@ namespace Palladio.ComponentModel.Components
 
 		#region Data
 
-		private ConnectionDataSet connectionDataSet;
+		ConnectionDataSet connectionDataSet;
 		private Hashmap componentMap;
 		private Hashmap connectionMap;
 		private long nextID;

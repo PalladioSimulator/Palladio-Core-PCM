@@ -28,6 +28,10 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3.2.1  2004/11/16 13:37:47  uffi
+	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+	/// Documentation needs fixing. Some unittests fail.
+	///
 	/// Revision 1.3  2004/09/02 12:50:06  uffi
 	/// Added XML Serialization and Deserialization functionality
 	///
@@ -213,6 +217,10 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3.2.1  2004/11/16 13:37:47  uffi
+	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+	/// Documentation needs fixing. Some unittests fail.
+	///
 	/// Revision 1.3  2004/09/02 12:50:06  uffi
 	/// Added XML Serialization and Deserialization functionality
 	///
@@ -276,16 +284,16 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Signatures of the interface.
 		/// </summary>
-		public IExternalSignature[] Signatures 
+		public IService[] Signatures 
 		{
 			get
 			{
 				try
 				{
-					IExternalSignature[] result = new IExternalSignature[fsm.InputAlphabet.Length];
+					IService[] result = new IService[fsm.InputAlphabet.Length];
 					for (int i = 0; i < fsm.InputAlphabet.Length; i++)
 					{
-						result[i] = (IExternalSignature)fsm.InputAlphabet[i].ID;
+						result[i] = (IService)fsm.InputAlphabet[i].ID;
 					}
 					return result;
 				}
@@ -315,17 +323,17 @@ namespace Palladio.ComponentModel
 		/// <param name="visitor">The visitor to accept</param>
 		public void AcceptVisitor (IVisitor visitor) {}
 
-		public void ExternalSignatureListChangeEventHandler(object sender, ExternalSignatureListChangeEventArgs args)
+		public void ServiceListChangeEventHandler(object sender, ServiceListChangeEventArgs args)
 		{
 			if (args.ChangeTime == ChangeTimeEnum.BEFORE)
 			{
 				switch (args.ChangeType)
 				{
 					case ChangeTypeEnum.ADD:
-						EditFSM.AddInputSymbols(FSMFactory.CreateInputFromList(args.Signature).StoredInputs);
+						EditFSM.AddInputSymbols(FSMFactory.CreateInputFromList(args.Service).StoredInputs);
 						break;
 					case ChangeTypeEnum.DELETE:
-						EditFSM.DeleteInputSymbols(FSMFactory.CreateInputFromList(args.Signature).StoredInputs);
+						EditFSM.DeleteInputSymbols(FSMFactory.CreateInputFromList(args.Service).StoredInputs);
 						break;
 				}
 			}

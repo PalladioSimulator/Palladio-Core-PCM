@@ -54,7 +54,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// ProvidesInterface of the inner component.
 		/// </summary>
-		IAttachedRole InnerRole
+		IRole InnerRole
 		{ 
 			get;
 		}
@@ -62,7 +62,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// ProvidesInterface of the outer component.
 		/// </summary>
-		IAttachedRole OuterRole
+		IRole OuterRole
 		{ 
 			get;
 		}

@@ -53,17 +53,18 @@ namespace Palladio.ComponentModel
 		{
 			get
 			{
-				string sigID = this.name+"(";
-				if (this.Parameters.Length > 0) 
-				{
-					foreach (IParameter p in this.Parameters) 
-					{
-						sigID += p.Type+",";
-					}
-					sigID = sigID.TrimEnd(new char[]{','});
-				}
-				sigID += ")";
-				return IdentifiableFactory.CreateStringID(sigID);
+				return IdentifiableFactory.CreateStringID(this.GetHashCode().ToString());
+//				string sigID = this.name+"(";
+//				if (this.Parameters.Length > 0) 
+//				{
+//					foreach (IParameter p in this.Parameters) 
+//					{
+//						sigID += p.Type+",";
+//					}
+//					sigID = sigID.TrimEnd(new char[]{','});
+//				}
+//				sigID += ")";
+//				return IdentifiableFactory.CreateStringID(sigID);
 			}
 		}
 		#endregion

@@ -91,11 +91,6 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "Palladio.Utils"
-                    Project = "{AEA33F47-FDF0-4A90-A95C-BABBFE19D2E6}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "ReflectionBasedVisitor"
                     Project = "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
@@ -108,6 +103,11 @@
                 <Reference
                     Name = "Palladio.Identifier"
                     Project = "{8FCBDED0-6436-4FE6-B99B-13F3BDE8D65C}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Palladio.Utils"
+                    Project = "{AEA33F47-FDF0-4A90-A95C-BABBFE19D2E6}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
@@ -130,7 +130,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\IAttachedRole.cs"
+                    RelPath = "src\FirstClassEntity.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -179,23 +179,9 @@
                     AutoGen = "True"
                 />
                 <File
-                    RelPath = "src\IInterfaceModel.cst"
-                    SubType = "Code"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\IInterfaceModelGenerator.xml"
-                    BuildAction = "Content"
-                    Generator = "CodeSmithGenerator"
-                    LastGenOutput = "IInterfaceModelGenerator.cs"
-                />
-                <File
-                    RelPath = "src\IInterfaceModelGenerator.cs"
-                    DependentUpon = "IInterfaceModelGenerator.xml"
+                    RelPath = "src\IInterfaceModel.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
-                    DesignTime = "True"
-                    AutoGen = "True"
                 />
                 <File
                     RelPath = "src\IMapping.cs"
@@ -214,6 +200,16 @@
                 />
                 <File
                     RelPath = "src\ISerializable.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IService.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IServiceEffectSpecification.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -247,12 +243,17 @@
                     AutoGen = "True"
                 />
                 <File
-                    RelPath = "src\ISignatureWithRole.cs"
+                    RelPath = "src\IType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\IType.cs"
+                    RelPath = "src\ModelPersistencyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelPersistencyService.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -291,11 +292,6 @@
                 />
                 <File
                     RelPath = "src\Components\CompositeComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Components\DefaultAttachedRole.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -365,7 +361,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Exceptions\InvalidAttachedInterfaceException.cs"
+                    RelPath = "src\Exceptions\InvalidRoleException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -415,7 +411,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Exceptions\SignatureHasNoServEffSpec.cs"
+                    RelPath = "src\Exceptions\ServiceHasNoServEffSpec.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -426,6 +422,16 @@
                 />
                 <File
                     RelPath = "src\Exceptions\TypeNotFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\InterfaceModels\DefaultInterfaceModel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\InterfaceModels\DefaultServiceEffectSpecification.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -443,25 +449,6 @@
                 <File
                     RelPath = "src\InterfaceModels\FSMProtocolGenerator.cs"
                     DependentUpon = "FSMProtocolGenerator.xml"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                    DesignTime = "True"
-                    AutoGen = "True"
-                />
-                <File
-                    RelPath = "src\InterfaceModels\InterfaceModel.cst"
-                    SubType = "Code"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\InterfaceModels\InterfaceModelGenerator.xml"
-                    BuildAction = "Content"
-                    Generator = "CodeSmithGenerator"
-                    LastGenOutput = "InterfaceModelGenerator.cs"
-                />
-                <File
-                    RelPath = "src\InterfaceModels\InterfaceModelGenerator.cs"
-                    DependentUpon = "InterfaceModelGenerator.xml"
                     SubType = "Code"
                     BuildAction = "Compile"
                     DesignTime = "True"
@@ -487,12 +474,12 @@
                     AutoGen = "True"
                 />
                 <File
-                    RelPath = "src\Signature\DefaultSignature.cs"
+                    RelPath = "src\Signature\DefaultService.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Signature\DefaultSignatureWithRole.cs"
+                    RelPath = "src\Signature\DefaultSignature.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

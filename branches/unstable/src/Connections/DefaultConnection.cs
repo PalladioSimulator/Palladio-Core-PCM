@@ -21,13 +21,13 @@ namespace Palladio.ComponentModel.Connections
 			get { return attributes; }
 		}
 
-		public IAttachedRole ProvidingRole
+		public IRole ProvidingRole
 		{
 			get { return providingRole; }
 			set { providingRole = value; }
 		}
 
-		public IAttachedRole RequiringRole
+		public IRole RequiringRole
 		{
 			get { return requiringRole;}
 			set { requiringRole = value; }
@@ -83,7 +83,7 @@ namespace Palladio.ComponentModel.Connections
 			attributes = (IAttributeHash)anAttHash.Clone();
 		}
 
-		protected DefaultConnection(IAttributeHash anAttHash, IAttachedRole aReqRole, IAttachedRole aProvRole) : this (anAttHash)
+		protected DefaultConnection(IAttributeHash anAttHash, IRole aReqRole, IRole aProvRole) : this (anAttHash)
 		{
 			providingRole = aProvRole;
 			requiringRole = aReqRole;
@@ -99,8 +99,8 @@ namespace Palladio.ComponentModel.Connections
 
 		#region Data
 
-		protected IAttachedRole providingRole;
-		protected IAttachedRole requiringRole;
+		protected IRole providingRole;
+		protected IRole requiringRole;
 		private   IAttributeHash attributes;
 		#endregion
 	}

@@ -84,6 +84,10 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.3.2.1  2004/11/16 13:37:47  uffi
+	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+	/// Documentation needs fixing. Some unittests fail.
+	///
 	/// Revision 1.3  2004/09/02 12:50:06  uffi
 	/// Added XML Serialization and Deserialization functionality
 	///
@@ -111,20 +115,20 @@ namespace Palladio.ComponentModel
 	/// <summary>
 	/// This is a class used as event arguments for ExternalSignatureListChangeEvents.
 	/// </summary>
-	public class ExternalSignatureListChangeEventArgs
+	public class ServiceListChangeEventArgs
 	{
 		private ChangeTimeEnum time;
 		private ChangeTypeEnum type;
-		private IExternalSignature signature;
+		private IService service;
 
 		/// <summary>
 		/// The signature being added or deleted from the signature list raising the event
 		/// </summary>
-		public IExternalSignature Signature
+		public IService Service
 		{
 			get
 			{
-				return signature;
+				return service;
 			}
 		}
 		
@@ -156,18 +160,18 @@ namespace Palladio.ComponentModel
 		/// <param name="sig">The signature being added or deleted</param>
 		/// <param name="time">The state of the process</param>
 		/// <param name="type">Is the signature added or deleted</param>
-		public ExternalSignatureListChangeEventArgs(IExternalSignature sig, ChangeTimeEnum time, ChangeTypeEnum type)
+		public ServiceListChangeEventArgs(IService sig, ChangeTimeEnum time, ChangeTypeEnum type)
 		{
 			this.time = time;
 			this.type = type;
-			this.signature = sig;
+			this.service = sig;
 		}
 	}
 
 	/// <summary>
 	/// The event delegate for ExternalSignatureListChangeEvents
 	/// </summary>
-	public delegate void ExternalSignatureListChangeEventHandler(object sender, ExternalSignatureListChangeEventArgs args);
+	public delegate void ServiceListChangeEventHandler(object sender, ServiceListChangeEventArgs args);
 
 	/// <summary>
 	/// Auxiliary information is additional specification data attached to a certain
@@ -179,6 +183,10 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.3.2.1  2004/11/16 13:37:47  uffi
+	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+	/// Documentation needs fixing. Some unittests fail.
+	///
 	/// Revision 1.3  2004/09/02 12:50:06  uffi
 	/// Added XML Serialization and Deserialization functionality
 	///
@@ -200,6 +208,6 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="sender">The signature list being changed</param>
 		/// <param name="args">The event args specifing the event in more detail</param>
-		void ExternalSignatureListChangeEventHandler(object sender, ExternalSignatureListChangeEventArgs args);
+		void ServiceListChangeEventHandler(object sender, ServiceListChangeEventArgs args);
 	}
 }

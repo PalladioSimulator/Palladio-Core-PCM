@@ -164,7 +164,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aProvInterface">Provides interface attached to an internal component.</param>
 		/// <returns>An array of IMappings associated with aProvInterface.</returns>
-		IMapping[] GetProvidesMappingsByInner(IAttachedRole aProvInterface);
+		IMapping[] GetProvidesMappingsByInner(IRole aProvInterface);
 
 		/// <summary>
 		/// Get the mappings associated with the provides interface with the role aProvRole of the 
@@ -180,7 +180,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aReqInterface">The required attached role</param>
 		/// <returns>The binding connected to the required role</returns>
-		IBinding GetBindingByRequires(IAttachedRole aReqInterface);
+		IBinding GetBindingByRequires(IRole aReqInterface);
 
 		/// <summary>
 		/// Get the binding connected to the given required role
@@ -195,7 +195,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aProvInterface">The component and role providing the role</param>
 		/// <returns>All bindings connected to the given role.</returns>
-		IBinding[] GetBindingsByProvides(IAttachedRole aProvInterface);
+		IBinding[] GetBindingsByProvides(IRole aProvInterface);
 
 		/// <summary>
 		/// Get all the bindings connected to the given providing role
@@ -210,7 +210,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aReqInterface">The component and role requiring services</param>
 		/// <returns>The mapping connected to the required role.</returns>
-		IMapping GetRequiresMappingByInner(IAttachedRole aReqInterface);
+		IMapping GetRequiresMappingByInner(IRole aReqInterface);
 
 		/// <summary>
 		/// Get the requires mapping connected to the given inner role
@@ -254,11 +254,5 @@ namespace Palladio.ComponentModel
 		/// <param name="aComponentID">ID of the component to search for</param>
 		/// <returns>The component with the given ID</returns>
 		IComponent GetComponent(IIdentifier aComponentID);
-
-		/// <summary>
-		/// Save the component in a schema-compliant XML format
-		/// </summary>
-		/// <param name="filename">The name of the XML file</param>
-		void Serialize(string filename);
 	}
 }

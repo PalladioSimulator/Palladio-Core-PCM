@@ -41,7 +41,7 @@ namespace Palladio.ComponentModel.Connections
 		/// <summary>
 		/// ProvidesInterface of the inner component.
 		/// </summary>
-		public IAttachedRole InnerRole
+		public IRole InnerRole
 		{ 
 			get
 			{
@@ -60,7 +60,7 @@ namespace Palladio.ComponentModel.Connections
 		/// <summary>
 		/// ProvidesInterface of the outer component.
 		/// </summary>
-		public IAttachedRole OuterRole
+		public IRole OuterRole
 		{ 
 			get
 			{
@@ -106,25 +106,25 @@ namespace Palladio.ComponentModel.Connections
 			if (IsProvidesMapping) 
 			{
 				writer.WriteStartElement("ProvidesMapping","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("provCompID",this.InnerRole.ComponentID.ToString());
-				writer.WriteAttributeString("provRoleID",this.InnerRole.RoleID.ToString());
-				writer.WriteAttributeString("reqCompID",this.OuterRole.ComponentID.ToString());
-				writer.WriteAttributeString("reqRoleID",this.OuterRole.RoleID.ToString());
+				writer.WriteAttributeString("provCompID",this.InnerRole.Component.ID.ToString());
+				writer.WriteAttributeString("provRoleID",this.InnerRole.ID.ToString());
+				writer.WriteAttributeString("reqCompID",this.OuterRole.Component.ID.ToString());
+				writer.WriteAttributeString("reqRoleID",this.OuterRole.ID.ToString());
 			}
 			else if (IsRequiresMapping) 
 			{
 				writer.WriteStartElement("RequiresMapping","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("provCompID",this.OuterRole.ComponentID.ToString());
-				writer.WriteAttributeString("provRoleID",this.OuterRole.RoleID.ToString());
-				writer.WriteAttributeString("reqCompID",this.InnerRole.ComponentID.ToString());
-				writer.WriteAttributeString("reqRoleID",this.InnerRole.RoleID.ToString());
+				writer.WriteAttributeString("provCompID",this.OuterRole.Component.ID.ToString());
+				writer.WriteAttributeString("provRoleID",this.OuterRole.ID.ToString());
+				writer.WriteAttributeString("reqCompID",this.InnerRole.Component.ID.ToString());
+				writer.WriteAttributeString("reqRoleID",this.InnerRole.ID.ToString());
 			}
 
 			writer.WriteEndElement();
 
 		}
 
-		public DefaultMapping(IAttributeHash anAttHash, IAttachedRole aReqRole, IAttachedRole aProvRole, MappingTypeEnum direction) : base(anAttHash,aReqRole,aProvRole)
+		public DefaultMapping(IAttributeHash anAttHash, IRole aReqRole, IRole aProvRole, MappingTypeEnum direction) : base(anAttHash,aReqRole,aProvRole)
 		{
 			this.myType = direction;
 		}

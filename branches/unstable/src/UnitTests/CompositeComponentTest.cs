@@ -20,6 +20,10 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5.2.1  2004/11/16 13:37:47  uffi
+	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+	/// Documentation needs fixing. Some unittests fail.
+	///
 	/// Revision 1.5  2004/09/02 12:50:06  uffi
 	/// Added XML Serialization and Deserialization functionality
 	///
@@ -126,28 +130,28 @@ namespace Palladio.ComponentModel.UnitTests
 		[ExpectedException(typeof(ComponentNotFoundException))]
 		[Test] public void GetBindingByRequires()
 		{
-			Assert.AreEqual( b1, oComp.GetBindingByRequires(iComp1.ID,ID("iReq2")) );
+			Assert.AreEqual( b1, oComp.GetBindingByRequires(iComp1.ID, iComp1.GetRequiresRoleByInterfaceID(iReq2.ID).ID) );
 			oComp.GetBindingByRequires(null,ID("missing"));
 		}
 
-//		[ExpectedException(typeof(InvalidAttachedRoleException))]
+		[ExpectedException(typeof(RoleIDNotFoundException))]
 		[Test] public void GetBindingByProvides()
 		{
-			Assert.AreEqual( b1, oComp.GetBindingsByProvides(iComp2.ID,ID("iProv2"))[0] );
-//			oComp.GetBindingsByProvides(iComp3.ID,null);
+			Assert.AreEqual( b1, oComp.GetBindingsByProvides(iComp2.ID, iComp2.GetProvidesRoleByInterfaceID(iProv2.ID).ID)[0] );
+			oComp.GetBindingsByProvides(iComp3.ID,ID("missing"));
 		}
 
 		[Test] public void TestBinding()
 		{
-			IBinding b2 = ComponentFactory.CreateBinding(iComp1,ID("iReq2"), iComp2,ID("iProv2"));
+			IBinding b2 = ComponentFactory.CreateBinding(iComp1, iComp1.GetRequiresRoleByInterfaceID(iReq2.ID).ID, iComp2, iComp2.GetProvidesRoleByInterfaceID(iProv2.ID).ID);
 			Assert.IsTrue(b1.Equals(b2));
-			IBinding b3 = ComponentFactory.CreateBinding(iComp1,ID("iReq1"), iComp2,ID("iProv2"));
+			IBinding b3 = ComponentFactory.CreateBinding(iComp1, iComp1.GetRequiresRoleByInterfaceID(iReq1.ID).ID, iComp2, iComp2.GetProvidesRoleByInterfaceID(iProv2.ID).ID);
 			Assert.IsFalse(b1.Equals(b3));
-			IBinding b4 = ComponentFactory.CreateBinding(iComp1,ID("iReq2"), iComp1,ID("iProv1"));
+			IBinding b4 = ComponentFactory.CreateBinding(iComp1, iComp1.GetRequiresRoleByInterfaceID(iReq2.ID).ID, iComp1, iComp1.GetProvidesRoleByInterfaceID(iProv1.ID).ID);
 			Assert.IsFalse(b1.Equals(b4));
 
 			DefaultBinding b5 = (DefaultBinding)b1.Clone();
-			b5.ProvidingRole = new DefaultAttachedRole(iComp1, ID("iProv1"));
+			b5.ProvidingRole = new DefaultRole(iComp1, iProv1);
 			Assert.IsFalse(b5.Equals(b1));
 		}
 
@@ -222,7 +226,7 @@ namespace Palladio.ComponentModel.UnitTests
 			clone.DeleteProvidesMappings(pm1);
 			Assert.IsTrue( clone.ProvidesMappings.Length == 1 );
 			Assert.AreEqual( 1, clone.GetProvidesMappingsByInner(pm1.InnerRole).Length);
-			Assert.IsTrue( clone.GetProvidesMappingByOuter(pm1.OuterRole.RoleID) == null );
+			Assert.IsTrue( clone.GetProvidesMappingByOuter(pm1.OuterRole.ID) == null );
 			clone.DeleteProvidesMappings(pm1);
 		}
 
@@ -232,7 +236,7 @@ namespace Palladio.ComponentModel.UnitTests
 			ICompositeComponent clone = (ICompositeComponent)oComp.Clone();
 			clone.DeleteRequiresMappings(rm1);
 			Assert.IsTrue( clone.RequiresMappings.Length == 1 );
-			Assert.AreEqual( 1, clone.GetRequiresMappingsByOuter(rm1.OuterRole.RoleID).Length);
+			Assert.AreEqual( 1, clone.GetRequiresMappingsByOuter(rm1.OuterRole.ID).Length);
 			Assert.IsTrue( clone.GetRequiresMappingByInner(rm1.InnerRole) == null );
 			clone.DeleteRequiresMappings(rm1);
 		}
@@ -254,9 +258,14 @@ namespace Palladio.ComponentModel.UnitTests
 
 		[Test] public void SerializeComponent()
 		{
-			oComp.Serialize("test.xml");
-			ICompositeComponent loadedComp = ComponentFactory.LoadCompositeComponent("test.xml");
+			ModelPersistencyService.Instance.SaveEntity(oComp.ID, "test.xml");
 	
+			ModelPersistencyService.Instance.ClearEntityTable();
+
+
+			ICompositeComponent loadedComp = ModelPersistencyService.Instance.LoadCompositeComponent("test.xml");
+	
+			ModelPersistencyService.Instance.SaveEntity(loadedComp.ID, "test2.xml");
 			Assert.AreEqual(loadedComp, oComp);
 		}
 
@@ -277,62 +286,62 @@ namespace Palladio.ComponentModel.UnitTests
 			iSigProv1 = ComponentFactory.CreateSignatureList("d1", "d2" );
 			iSigReq1 = ComponentFactory.CreateSignatureList("e1", "e2" );
 			iSigReq2 = ComponentFactory.CreateSignatureList("d3", "d4" );
-			iProv1 = ComponentFactory.CreateInterfaceModel(iSigProv1);
-			iReq1 = ComponentFactory.CreateInterfaceModel(iSigReq1);
-			iReq2 = ComponentFactory.CreateInterfaceModel(iSigReq2);
-			iComp1.AddProvidesInterface(ID("iProv1"),iProv1);
-			iComp1.AddRequiresInterface(ID("iReq1"),iReq1);
-			iComp1.AddRequiresInterface(ID("iReq2"),iReq2);
+			iProv1 = ComponentFactory.CreateInterfaceModel(iSigProv1, "iProv1", IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier, ModelPersistencyInfo.ATTACHED);
+			iReq1 = ComponentFactory.CreateInterfaceModel(iSigReq1, "iReq1", IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier, ModelPersistencyInfo.ATTACHED);
+			iReq2 = ComponentFactory.CreateInterfaceModel(iSigReq2, "iReq2", IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier, ModelPersistencyInfo.ATTACHED);
+			iComp1.AddProvidesInterface(iProv1);
+			iComp1.AddRequiresInterface(iReq1);
+			iComp1.AddRequiresInterface(iReq2);
 
 			ISignature sig = ComponentFactory.CreateSignature(System.Type.GetType("System.Int32"),"someMethod",
 				ComponentFactory.CreateParameter(ComponentFactory.CreateType("System.String"),"param"));
 
-			IInterfaceModel iReqX = ComponentFactory.CreateInterfaceModel();
+			IInterfaceModel iReqX = ComponentFactory.CreateInterfaceModel("iReqX");
 			iReqX.SignatureList.AddSignatures(sig);
-			iComp1.AddRequiresInterface(ID("iReqX"),iReqX);
+			iComp1.AddRequiresInterface(iReqX);
 
 			d1se = ComponentFactory.CreateServiceEffectSpecification();
-			d1se.SignatureList.AddSignatures(ComponentFactory.CreateExternalSignatureArray("iReq1",iSigReq1[0], iSigReq1[1]));
-			d1se.SignatureList.AddSignatures(ComponentFactory.CreateExternalSignatureArray("iReqX",sig));
+			d1se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq1, iSigReq1[0].ID, iSigReq1[1].ID));
+			d1se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReqX,sig.ID));
 
 			d2se = ComponentFactory.CreateServiceEffectSpecification();
-			d2se.SignatureList.AddSignatures(ComponentFactory.CreateExternalSignatureArray("iReq1",iSigReq1[0]));
-			d2se.SignatureList.AddSignatures(ComponentFactory.CreateExternalSignatureArray("iReq2",iSigReq2[0], iSigReq2[1]));
+			d2se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq1,iSigReq1[0].ID));
+			d2se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq2,iSigReq2[0].ID, iSigReq2[1].ID));
 
-			iComp1.AddServiceEffectSpecification(SigRole("iProv1",iSigProv1[0]),d1se);
-			iComp1.AddServiceEffectSpecification(SigRole("iProv1",iSigProv1[1]),d2se);
+//			iComp1.AddServiceEffectSpecification(SigRole("iProv1",iSigProv1[0]),d1se);
+//			iComp1.AddServiceEffectSpecification(SigRole("iProv1",iSigProv1[1]),d2se);
 		}
 
 		private void CreateIComp2()
 		{
 			iComp2 = ComponentFactory.CreateBasicComponent("iComp2");
 			iSigProv2 = ComponentFactory.CreateSignatureList("d3", "d4", "d5" );
-			iProv2 = ComponentFactory.CreateInterfaceModel(iSigProv2);
+			iProv2 = ComponentFactory.CreateInterfaceModel(iSigProv2, "iProv2", IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier, ModelPersistencyInfo.ATTACHED);
 			d3se = ComponentFactory.CreateServiceEffectSpecification();
 			d4se = ComponentFactory.CreateServiceEffectSpecification();
-			d4se.SignatureList.AddSignatures(ComponentFactory.CreateExternalSignatureArray("iReq1",iSigReq1[0],iSigReq1[1]));
+			d4se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq1,iSigReq1[0].ID,iSigReq1[1].ID));
 			d5se = ComponentFactory.CreateServiceEffectSpecification();
-			iComp2.AddRequiresInterface(ID("iReq1"),iReq1);							 
-			iComp2.AddProvidesInterface(ID("iProv2"),iProv2);
-			iComp2.AddServiceEffectSpecification(SigRole("iProv2",iSigProv2[0]),d3se);
-			iComp2.AddServiceEffectSpecification(SigRole("iProv2",iSigProv2[1]),d4se);
-			iComp2.AddServiceEffectSpecification(SigRole("iProv2",iSigProv2[2]),d5se);
+			iComp2.AddRequiresInterface(iReq1);							 
+			iComp2.AddProvidesInterface(iProv2);
+//			iComp2.AddServiceEffectSpecification(SigRole("iProv2",iSigProv2[0]),d3se);
+//			iComp2.AddServiceEffectSpecification(SigRole("iProv2",iSigProv2[1]),d4se);
+//			iComp2.AddServiceEffectSpecification(SigRole("iProv2",iSigProv2[2]),d5se);
 		}
 
 		private void CreateIComp3()
 		{
 			iComp3 = ComponentFactory.CreateBasicComponent("iComp3");
-			iComp3.AddRequiresInterface(ID("iReq1a"),iReq1);
-			iComp3.AddRequiresInterface(ID("iReq2a"),iReq2);
-			iComp1.AddProvidesInterface(ID("iProv1a"),iProv1);
+			iComp3.AddRequiresInterface(iReq1);
+			iComp3.AddRequiresInterface(iReq2);
+			iComp3.AddProvidesInterface(iProv1);
 		}
 
 		private void CreateOComp()
 		{
 			oSigProv1 = ComponentFactory.CreateSignatureList("d1");
 			oSigProv2 = ComponentFactory.CreateSignatureList("d2");
-			oProv1 = ComponentFactory.CreateInterfaceModel(oSigProv1);
-			oProv2 = ComponentFactory.CreateInterfaceModel(oSigProv2);
+			oProv1 = ComponentFactory.CreateInterfaceModel(oSigProv1, "oProv1");
+			oProv2 = ComponentFactory.CreateInterfaceModel(oSigProv2, "oProv1");
 
 			oComp = ComponentFactory.CreateCompositeComponent("oComp");
 			oCompCopy = ComponentFactory.CreateCompositeComponent("oComp");
@@ -340,25 +349,29 @@ namespace Palladio.ComponentModel.UnitTests
 
 			oCompCopy.AddComponents( iComp1, iComp2, iComp3 );
 			
-			oComp.AddProvidesInterface(ID("oProv1"),oProv1);
-			oComp.AddProvidesInterface(ID("oProv2"),oProv2);
-			oCompCopy.AddProvidesInterface( ID("oProv1"), (IInterfaceModel)oProv1.Clone());
-			oCompCopy.AddProvidesInterface( ID("oProv2"), (IInterfaceModel)oProv2.Clone());
-			oComp.AddRequiresInterface(ID("oReq1"),iReq1);
-			oCompCopy.AddRequiresInterface(ID("oReq1"), (IInterfaceModel)iReq1.Clone());
+			oComp.AddProvidesInterface(oProv1);
+			oComp.AddProvidesInterface(oProv2);
+			oCompCopy.AddProvidesInterface((IInterfaceModel)oProv1.Clone());
+			oCompCopy.AddProvidesInterface((IInterfaceModel)oProv2.Clone());
+			oComp.AddRequiresInterface(iReq1);
+			oCompCopy.AddRequiresInterface((IInterfaceModel)iReq1.Clone());
 
-			pm1 = ComponentFactory.CreateProvidesMapping(oComp, ID("oProv1"), iComp1, ID("iProv1"));
-			pm2 = ComponentFactory.CreateProvidesMapping(oComp, ID("oProv2"), iComp1, ID("iProv1"));
+			pm1 = ComponentFactory.CreateProvidesMapping(oComp, oComp.GetProvidesRoleByInterfaceID(oProv1.ID).ID, iComp1, iComp1.GetProvidesRoleByInterfaceID(iProv1.ID).ID);
+			pm2 = ComponentFactory.CreateProvidesMapping(oComp, oComp.GetProvidesRoleByInterfaceID(oProv2.ID).ID, iComp1, iComp1.GetProvidesRoleByInterfaceID(iProv1.ID).ID);
 
 			oComp.AddProvidesMappings(pm1,pm2);
-			oCompCopy.AddProvidesMappings(ComponentFactory.CreateProvidesMapping(oCompCopy, ID("oProv1"), iComp1, ID("iProv1")), ComponentFactory.CreateProvidesMapping(oCompCopy, ID("oProv2"), iComp1, ID("iProv1")));
+			oCompCopy.AddProvidesMappings(
+				ComponentFactory.CreateProvidesMapping(oCompCopy, oCompCopy.GetProvidesRoleByInterfaceID(oProv1.ID).ID, iComp1, iComp1.GetProvidesRoleByInterfaceID(iProv1.ID).ID), 
+				ComponentFactory.CreateProvidesMapping(oCompCopy, oCompCopy.GetProvidesRoleByInterfaceID(oProv2.ID).ID, iComp1, iComp1.GetProvidesRoleByInterfaceID(iProv1.ID).ID));
 
-			rm1 = ComponentFactory.CreateRequiresMapping(iComp1, ID("iReq1"), oComp, ID("oReq1"));
-			rm2 = ComponentFactory.CreateRequiresMapping(iComp2, ID("iReq1"), oComp, ID("oReq1"));
+			rm1 = ComponentFactory.CreateRequiresMapping(iComp1, iComp1.GetRequiresRoleByInterfaceID(iReq1.ID).ID, oComp, oComp.GetRequiresRoleByInterfaceID(iReq1.ID).ID);
+			rm2 = ComponentFactory.CreateRequiresMapping(iComp2, iComp2.GetRequiresRoleByInterfaceID(iReq1.ID).ID, oComp, oComp.GetRequiresRoleByInterfaceID(iReq1.ID).ID);
 			oComp.AddRequiresMappings(rm1,rm2);
-			oCompCopy.AddRequiresMappings( ComponentFactory.CreateRequiresMapping(iComp1, ID("iReq1"), oCompCopy, ID("oReq1")), ComponentFactory.CreateRequiresMapping(iComp2, ID("iReq1"), oCompCopy, ID("oReq1")) );
+			oCompCopy.AddRequiresMappings( 
+				ComponentFactory.CreateRequiresMapping(iComp1, iComp1.GetRequiresRoleByInterfaceID(iReq1.ID).ID, oCompCopy, oCompCopy.GetRequiresRoleByInterfaceID(iReq1.ID).ID), 
+				ComponentFactory.CreateRequiresMapping(iComp2, iComp2.GetRequiresRoleByInterfaceID(iReq1.ID).ID, oCompCopy, oCompCopy.GetRequiresRoleByInterfaceID(iReq1.ID).ID) );
 
-			b1 = ComponentFactory.CreateBinding(iComp1,ID("iReq2"),iComp2,ID("iProv2"));
+			b1 = ComponentFactory.CreateBinding(iComp1, iComp1.GetRequiresRoleByInterfaceID(iReq2.ID).ID, iComp2, iComp2.GetProvidesRoleByInterfaceID(iProv2.ID).ID);
 			oComp.AddBindings(b1);
 			oCompCopy.AddBindings(b1);
 		}
@@ -368,10 +381,10 @@ namespace Palladio.ComponentModel.UnitTests
 			return IdentifiableFactory.CreateStringID(aID);
 		}
 
-		private IExternalSignature SigRole(string role,ISignature sig)
-		{
-			return ComponentFactory.CreateExternalSignature(role,sig);
-		}
+//		private IService SigRole(string role,ISignature sig)
+//		{
+//			return ComponentFactory.CreateService(role,sig);
+//		}
 
 	}
 }

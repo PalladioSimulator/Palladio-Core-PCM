@@ -21,71 +21,61 @@ namespace Palladio.ComponentModel.Components
 		/// <summary>
 		/// Get the service effect specification associated with aSig.
 		/// </summary>
-		/// <param name="aSig">A signature provided in a role of this component.</param>
+		/// <param name="aService">A service provided by a role of this component.</param>
 		/// <returns>The service effect specification of aSig.</returns>
-		public IServiceEffectSpecification GetServiceEffectSpecification(IExternalSignature aSig)
+		public IServiceEffectSpecification GetServiceEffectSpecification(IService aService)
 		{
-			IRole aRole;
-			if ((aRole = providesMap[aSig.RoleID]) == null)
-				throw new RoleIDNotFoundException(aSig.RoleID);
-			if (!aRole.Interface.SignatureList.ContainsSignature(aSig.Signature))
-				throw new SignatureNotFoundException(aSig.Signature);
-			if (!serviceEffectMap.Contains(aSig))
-				throw new SignatureHasNoServEffSpecException(aSig.Signature);
-			return serviceEffectMap[aSig];
+			IRole aRole = GetProvidesRoleByInterfaceID(aService.Interface.ID);
+			if (aRole == null)
+				throw new RoleIDNotFoundException(aService.Interface.ID);
+			if (!aRole.Interface.SignatureList.ContainsSignatureID(aService.Signature.ID))
+				throw new SignatureNotFoundException(aService.Signature.ID);
+			if (!serviceEffectMap.Contains(aService.ID))
+				throw new ServiceHasNoServEffSpecException(aService);
+			return serviceEffectMap[aService.ID] as IServiceEffectSpecification;
 		}
 
 		/// <summary>
 		/// Get the service effect specification associated with aSig.
 		/// </summary>
-		/// <param name="aSig">The service to which an service effect is affected</param>
-		/// <param name="aRoleID">Role of the signature</param>
+		/// <param name="serviceID">The service ID to which an service effect is affected</param>
 		/// <returns>The service effect specification of aSig in role aRole.</returns>
-		public IServiceEffectSpecification GetServiceEffectSpecification(IIdentifier aRoleID, ISignature aSig)
+		public IServiceEffectSpecification GetServiceEffectSpecification(IIdentifier serviceID)
 		{
-			return GetServiceEffectSpecification(ComponentFactory.CreateExternalSignature(aRoleID,aSig));
+			if (!serviceEffectMap.Contains(serviceID))
+				throw new ServiceHasNoServEffSpecException(serviceID);
+			return serviceEffectMap[serviceID] as IServiceEffectSpecification;
 		}
 
 		/// <summary>
 		/// Changes the service effect specification of aSignature to aServEffSpec.
 		/// If aService.Signature does not exist an SignatureNotFoundException is thrown.
 		/// </summary>
-		/// <param name="aSignature">The service and its role to which an service effect is affected</param>
+		/// <param name="aService">The service and its role to which an service effect is affected</param>
 		/// <param name="aServEffSpec">The service effect specification</param>
-		public void ChangeServiceEffectSpecification(IExternalSignature aSignature, IServiceEffectSpecification aServEffSpec)
+		public void ChangeServiceEffectSpecification(IService aService, IServiceEffectSpecification aServEffSpec)
 		{
-			GetServiceEffectSpecification(aSignature);
-			serviceEffectMap[aSignature] = aServEffSpec;
+			GetServiceEffectSpecification(aService.ID);
+			serviceEffectMap[aService.ID] = aServEffSpec;
 		}
 
 		/// <summary>
-		/// Changes the service effect specification of aSignature to aServEffSpec.
-		/// If aService.Signature does not exist an SignatureNotFoundException is thrown.
+		/// Add the service effect specification aServEffSpec of aSignature to serviceEffectMap.
 		/// </summary>
-		/// <param name="aSignature">The service to which an service effect is affected</param>
+		/// <param name="aService">The service to which an service effect gets added</param>
 		/// <param name="aServEffSpec">The service effect specification</param>
-		/// <param name="aRoleID">Role of the signature</param>
-		public void ChangeServiceEffectSpecification(IIdentifier aRoleID, ISignature aSignature, IServiceEffectSpecification aServEffSpec)
+		public void AddServiceEffectSpecification(IService aService, IServiceEffectSpecification aServEffSpec)
 		{
-			ChangeServiceEffectSpecification(ComponentFactory.CreateExternalSignature(aRoleID,aSignature),aServEffSpec);
-		}
-
-		/// <summary>
-		/// Add the service effect specification of aSignature to aServEffSpec.
-		/// </summary>
-		/// <param name="aSignature">The service to which an service effect gets added</param>
-		/// <param name="aServEffSpec">The service effect specification</param>
-		public void AddServiceEffectSpecification(IExternalSignature aSignature, IServiceEffectSpecification aServEffSpec)
-		{
-			if (aSignature == null || aServEffSpec == null)
-				throw new ArgumentNullException("Signature and service effect can't be null!");
-			if (serviceEffectMap.Contains(aSignature))
-				throw new ServiceEffectAlreadySpecifiedException(aSignature.Signature);
-			if (!providesMap.Contains(aSignature.RoleID))
-				throw new RoleIDNotFoundException(aSignature.RoleID);
-			if (!providesMap[aSignature.RoleID].Interface.SignatureList.ContainsSignature(aSignature.Signature))
-				throw new SignatureNotFoundException(aSignature.Signature);
-			serviceEffectMap.Add(aSignature,aServEffSpec);
+			if (aService == null || aServEffSpec == null)
+				throw new ArgumentNullException("Service or service effect can't be null!");
+			if (serviceEffectMap.ContainsKey(aService.ID))
+				throw new ServiceEffectAlreadySpecifiedException(aService);
+			IRole role = GetProvidesRoleByInterfaceID(aService.Interface.ID);
+			if (role == null)
+				throw new RoleIDNotFoundException(aService.Interface.ID);
+			if (!role.Interface.SignatureList.ContainsSignatureID(aService.Signature.ID))
+				throw new SignatureNotFoundException(aService.Signature.ID);
+			serviceEffectMap.Add(aService.ID,aServEffSpec);
 		}
 
 		/// <summary>
@@ -94,15 +84,20 @@ namespace Palladio.ComponentModel.Components
 		/// <param name="aSignature">The service to which an service effect is affected</param>
 		/// <param name="aServEffSpec">The service effect specification</param>
 		/// <param name="aRoleID">Role of the signature</param>
-		public void AddServiceEffectSpecification(IIdentifier aRoleID, ISignature aSignature, IServiceEffectSpecification aServEffSpec)
+		public void AddServiceEffectSpecification(IIdentifier anInterfaceeID, IIdentifier aSignatureID, IServiceEffectSpecification aServEffSpec)
 		{
-			AddServiceEffectSpecification(ComponentFactory.CreateExternalSignature(aRoleID,aSignature),aServEffSpec);
+			IRole role = GetProvidesRoleByInterfaceID(anInterfaceeID);
+			if (role == null)
+				throw new RoleIDNotFoundException(anInterfaceeID);
+			
+			AddServiceEffectSpecification(ComponentFactory.CreateService(role.Interface,aSignatureID),aServEffSpec);
 		}
 
 		public override bool Equals(object obj)
 		{
 			if (!(obj is BasicComponent)) return false;
 			if ((object)this == obj) return true;
+			Console.WriteLine(base.Equals (obj));
 			if (!base.Equals (obj)) return false;
 			BasicComponent cmp = (BasicComponent) obj;
 			return serviceEffectMap.Equals(cmp.serviceEffectMap);
@@ -123,90 +118,100 @@ namespace Palladio.ComponentModel.Components
 			return new BasicComponent(this);
 		}
 
-		public void DeleteServiceEffectSpecification(params IExternalSignature[] signatures)
+		public void DeleteServiceEffectSpecification(params IService[] services)
 		{
-			foreach (IExternalSignature sr in signatures)
+			foreach (IService sr in services)
 			{
 				if (sr == null)
-					throw new ArgumentNullException("Signature can't be null!");
-				if (!serviceEffectMap.Contains(sr))
-					throw new SignatureNotFoundException(sr.Signature);
+					throw new ArgumentNullException("Service can't be null!");
+				if (!serviceEffectMap.ContainsKey(sr.ID))
+					throw new ServiceHasNoServEffSpecException(sr);
 			}
-			foreach (IExternalSignature sr in signatures)
+			foreach (IService sr in services)
 			{
-				serviceEffectMap.Remove(sr);
+				serviceEffectMap.Remove(sr.ID);
 			}
 		}
 
 		public override void Serialize(System.Xml.XmlTextWriter writer) 
 		{
-			writer.WriteStartElement("BasicComponent","http://palladio.informatik.uni-oldenburg.de/XSD");
-			writer.WriteAttributeString("id",this.ID.ToString());
-
 			//serialize provides-interfaces
-			writer.WriteStartElement("Provides","http://palladio.informatik.uni-oldenburg.de/XSD");
 			foreach(IIdentifier c in providesMap.Keys)
 			{
-				((IRole)providesMap[c]).Serialize(writer);
+				writer.WriteStartElement("ProvidingRole","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("name",((IRole)providesMap[c]).Name);
+				writer.WriteAttributeString("id",((IRole)providesMap[c]).ID.ToString());
+				
+				writer.WriteStartElement("Interface","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("guid",((IRole)providesMap[c]).Interface.ID.ToString());
+				
+				writer.WriteEndElement();
+				writer.WriteEndElement();
 			}
-			writer.WriteEndElement();
 
 			//serialize requires-interfaces
-			writer.WriteStartElement("Requires","http://palladio.informatik.uni-oldenburg.de/XSD");
 			foreach(IIdentifier c in requiresMap.Keys)
 			{
-				((IRole)requiresMap[c]).Serialize(writer);
+				writer.WriteStartElement("RequiringRole","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("name",((IRole)requiresMap[c]).Name);
+				writer.WriteAttributeString("id",((IRole)requiresMap[c]).ID.ToString());
+				
+				writer.WriteStartElement("Interface","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("guid",((IRole)requiresMap[c]).Interface.ID.ToString());
+				
+				writer.WriteEndElement();
+				writer.WriteEndElement();
 			}
-			writer.WriteEndElement();
 
 			//serialize service effect specs
 			if (serviceEffectMap.Count > 0) 
 			{
-				foreach(IExternalSignature sig in serviceEffectMap.Keys) 
+				foreach(IService sig in serviceEffectMap.Keys) 
 				{
 					writer.WriteStartElement("ServiceEffectSpecification","http://palladio.informatik.uni-oldenburg.de/XSD");
-					writer.WriteAttributeString("sigref",sig.ID.ToString());
+					//writer.WriteAttributeString("sigref",sig.ID.ToString());
+					
+					IServiceEffectSpecification sef = serviceEffectMap[sig] as IServiceEffectSpecification;
 
-					IServiceEffectSpecification sef = serviceEffectMap[sig];
-
-					writer.WriteStartElement("ExternalSignatureList","http://palladio.informatik.uni-oldenburg.de/XSD");
-					foreach (IExternalSignature extsig in sef.SignatureList) 
-					{
-						extsig.Serialize(writer);
-					}
-					writer.WriteEndElement();
-
+					//					writer.WriteStartElement("ExternalSignatureList","http://palladio.informatik.uni-oldenburg.de/XSD");
+					//					foreach (IExternalSignature extsig in sef.SignatureList) 
+					//					{
+					//						extsig.Serialize(writer);
+					//					}
+					//					writer.WriteEndElement();
+					
 					writer.WriteEndElement();
 				}
 			}
-			writer.WriteEndElement();
 		}
 
 		public override void Deserialize(System.Xml.XmlNode element) 
 		{
-			this.myID = NewID(element.Attributes["id"].Value.ToString());
-
 			System.Xml.XmlNode node = element.FirstChild;
 
 			while (node != null)
 			{
 				switch (node.Name) 
 				{
-					case "Provides":
-						foreach (XmlNode roleNode in node.ChildNodes)
-						{
-							IInterfaceModel role = ComponentFactory.CreateInterfaceModel();
-							role.Deserialize(roleNode);
-							this.AddProvidesInterface(NewID(roleNode.Attributes["id"].Value.ToString()), role);
-						}
+					case "ProvidingRole":
+						XmlNode ifaceNode = node.FirstChild;
+						FirstClassEntity iface = ModelPersistencyService.Instance.GetEntity(
+							IdentifiableFactory.CreateGUID(ifaceNode.Attributes["guid"].Value) as GloballyUniqueIdentifier );
+						if (!(iface != null && iface is IInterfaceModel))
+							throw new DeserializationException("Interface "+ifaceNode.Attributes["guid"].Value+" not found.");
+						this.AddProvidesInterface(iface as IInterfaceModel);
+						IRole newRole = this.GetProvidesRoleByInterfaceID(iface.ID);
+						newRole.Name = node.Attributes["name"].Value;
 						break;
-					case "Requires":
-						foreach (XmlNode roleNode in node.ChildNodes)
-						{
-							IInterfaceModel role = ComponentFactory.CreateInterfaceModel();
-							role.Deserialize(roleNode);
-							this.AddRequiresInterface(NewID(roleNode.Attributes["id"].Value.ToString()), role);
-						}
+					case "RequiringRole":
+						ifaceNode = node.FirstChild;
+						iface = ModelPersistencyService.Instance.GetEntity(
+							IdentifiableFactory.CreateGUID(ifaceNode.Attributes["guid"].Value) as GloballyUniqueIdentifier );
+						if (!(iface != null && iface is IInterfaceModel))
+							throw new DeserializationException("Interface "+ifaceNode.Attributes["guid"].Value+" not found.");
+						this.AddRequiresInterface(iface as IInterfaceModel);
+						newRole = this.GetRequiresRoleByInterfaceID(iface.ID);
+						newRole.Name = node.Attributes["name"].Value;
 						break;
 					case "ServiceEffectSpecification":
 						IServiceEffectSpecification sef = ComponentFactory.CreateServiceEffectSpecification();
@@ -256,12 +261,12 @@ namespace Palladio.ComponentModel.Components
 										if (referedReqSig == null) 
 											throw new DeserializationException("Signature "+exid[1]+" not found");
 
-										sef.SignatureList.AddSignatures(ComponentFactory.CreateExternalSignature(exid[0],referedReqSig));
+										//sef.SignatureList.AddSignatures(ComponentFactory.CreateService(exid[0],referedReqSig));
 									}
 									break;
 							}
 						}
-						this.AddServiceEffectSpecification(ComponentFactory.CreateExternalSignature(id[0],referedProvSig), sef);
+						//this.AddServiceEffectSpecification(ComponentFactory.CreateService(id[0],referedProvSig), sef);
 						break;
 				}
 				node = node.NextSibling;
@@ -281,9 +286,10 @@ namespace Palladio.ComponentModel.Components
 		/// </summary>
 		/// <param name="anAttHash">List of attributes attached to this component.</param>
 		/// <param name="id">ID of the component</param>
-		public BasicComponent(IAttributeHash anAttHash, IIdentifier id) : base (anAttHash,id)
+		public BasicComponent(IAttributeHash anAttHash, string name, GloballyUniqueIdentifier id) : base (anAttHash,name,id)
 		{
-			serviceEffectMap = new ServiceEffectHashmap();
+			//serviceEffectMap = new ServiceEffectHashmap();
+			serviceEffectMap = new Hashtable();
 		}
 
 		/// <summary>
@@ -292,13 +298,14 @@ namespace Palladio.ComponentModel.Components
 		/// <param name="anotherComponent">The basic component to copy.</param>
 		public BasicComponent(BasicComponent anotherComponent) : base(anotherComponent)
 		{
-			serviceEffectMap = (ServiceEffectHashmap)anotherComponent.serviceEffectMap.Clone();
+			//serviceEffectMap = (ServiceEffectHashmap)anotherComponent.serviceEffectMap.Clone();
+			serviceEffectMap = (Hashtable)anotherComponent.serviceEffectMap.Clone();
 		}
 
 		#endregion
 
 		#region Data
-		private ServiceEffectHashmap serviceEffectMap;
+		private Hashtable serviceEffectMap;
 														
 		#endregion
 	}

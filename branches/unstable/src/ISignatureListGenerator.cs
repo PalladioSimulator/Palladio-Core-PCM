@@ -56,6 +56,13 @@ namespace Palladio.ComponentModel
 		/// <param name="aSignature">The signature which is searched</param>
 		/// <returns>True if the queried signature is in the list</returns>
 		bool ContainsSignature( ISignature aSignature );
+
+		/// <summary>
+		/// Query the list for a certain signature ID
+		/// </summary>
+		/// <param name="aSignatureID">The signature ID which is searched</param>
+		/// <returns>True if the queried signature ID is in the list</returns>
+		bool ContainsSignatureID( IIdentifier aSignatureID );
 		
 		/// <summary>
 		/// Get the signatures in the list which the given name
@@ -85,7 +92,7 @@ namespace Palladio.ComponentModel
 	/// A SignatureList is  an InterfaceModel just
 	/// containing a set of signatures.
 	/// </summary>
-	public interface IExternalSignatureList : ICloneable, IEnumerable
+	public interface IServiceList : ICloneable, IEnumerable
 	{
 		#region Properties
 
@@ -100,7 +107,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Indexer to access the sigantures easily.
 		/// </summary>
-		IExternalSignature this[int index]
+		IService this[int index]
 		{
 			get;
 		}
@@ -109,20 +116,20 @@ namespace Palladio.ComponentModel
 		/// Adds an array of signatures to the interface.
 		/// </summary>
 		/// <param name="aSigArray">Signatures to add.</param>
-		void AddSignatures( params IExternalSignature[] aSigArray );
+		void AddSignatures( params IService[] aSigArray );
 
 		/// <summary>
 		/// Deletes a set of signatures from the interface.
 		/// </summary>
 		/// <param name="aSigArray">Signatures to delete.</param>
-		void DeleteSignatures( params IExternalSignature[] aSigArray );
+		void DeleteSignatures( params IService[] aSigArray );
 		
 		/// <summary>
 		/// Query the list for a certain signature
 		/// </summary>
 		/// <param name="aSignature">The signature which is searched</param>
 		/// <returns>True if the queried signature is in the list</returns>
-		bool ContainsSignature( IExternalSignature aSignature );
+		bool ContainsSignature( IService aSignature );
 		
 		/// <summary>
 		/// Get the signatures in the list which the given name
@@ -130,18 +137,18 @@ namespace Palladio.ComponentModel
 		/// <param name="aName">Name of the signatures to search</param>
 		/// <returns>All signatures with the given name, e.g. all overrides of a certain
 		/// signature</returns>
-		IExternalSignature[] GetSignaturesByID( IIdentifier aName );
+		IService[] GetSignaturesByID( IIdentifier aName );
 
 		/// <summary>
 		/// Returns the complete set of signatures belonging to this signature list
 		/// </summary>
 		/// <returns>A complete set of signatures belonging to this signature list</returns>
-		IExternalSignature[] GetSignatures();
+		IService[] GetSignatures();
 		
 		/// <summary>
 		/// This event is raised before and after a change of the signatures in this list
 		/// </summary>
-		event ExternalSignatureListChangeEventHandler SignatureListChangeEvent;
+		event ServiceListChangeEventHandler SignatureListChangeEvent;
 
 		#endregion
 	}

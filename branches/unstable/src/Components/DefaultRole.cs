@@ -12,6 +12,10 @@ namespace Palladio.ComponentModel.Components
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.4.2.1  2004/11/16 13:37:47  uffi
+	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+	/// Documentation needs fixing. Some unittests fail.
+	///
 	/// Revision 1.4  2004/09/02 12:50:06  uffi
 	/// Added XML Serialization and Deserialization functionality
 	///
@@ -29,7 +33,9 @@ namespace Palladio.ComponentModel.Components
 	internal class DefaultRole : IRole
 	{
 		protected IInterfaceModel interfaceModel;
+		protected IComponent component;
 		protected IIdentifier myID;
+		protected string name;
 
 		public IInterfaceModel Interface
 		{
@@ -39,17 +45,37 @@ namespace Palladio.ComponentModel.Components
 			}
 		}
 
+		public IComponent Component
+		{
+			get
+			{
+				return component;
+			}
+		}
+
+		public string Name
+		{
+			get
+			{
+				return name;
+			}
+			set
+			{
+				name = value;
+			}
+		}
+
 		public IIdentifier ID
 		{
 			get
 			{
-				return myID;
+				return IdentifiableFactory.CreateStringID( GetHashCode().ToString() );
 			}
 		}
 
 		public object Clone()
 		{
-			return new DefaultRole((IIdentifier)myID.Clone(),(IInterfaceModel)interfaceModel.Clone());
+			return new DefaultRole(this.component, (IInterfaceModel)interfaceModel.Clone());
 		}
 
 		public override bool Equals(object obj)
@@ -62,33 +88,17 @@ namespace Palladio.ComponentModel.Components
  
 		public override int GetHashCode()
 		{
-			return (
-				myID.GetHashCode() ^
-				interfaceModel.GetHashCode()
-				);
+			return ( component.ID.GetHashCode() ^ interfaceModel.ID.GetHashCode() );
 		}
-
-		public void Serialize(System.Xml.XmlTextWriter writer) 
-		{
-			writer.WriteStartElement("Role","http://palladio.informatik.uni-oldenburg.de/XSD");
-			writer.WriteAttributeString("id",this.ID.ToString());
-			this.Interface.Serialize(writer);
-			writer.WriteEndElement();
-		}
-
-		public void Deserialize(System.Xml.XmlNode element) 
-		{
-			this.Interface.Deserialize(element);
-		}
-
 
 		/// <summary>
 		/// Desciption of the constructor
 		/// </summary>
-		public DefaultRole(IIdentifier anID, IInterfaceModel anInterfaceModel)
+		public DefaultRole(IComponent aComponent, IInterfaceModel anInterfaceModel)
 		{
 			this.interfaceModel = anInterfaceModel;
-			this.myID = anID;
+			this.component = aComponent;
+			this.name = "Role";
 		}
 	}
 }

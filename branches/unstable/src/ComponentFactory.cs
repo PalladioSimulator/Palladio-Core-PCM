@@ -1,6 +1,4 @@
 using System;
-using System.Xml;
-using System.Xml.Schema;
 using Palladio.Attributes;
 using Palladio.ComponentModel.Signature;
 using Palladio.ComponentModel.InterfaceModels;
@@ -19,6 +17,10 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9.2.1  2004/11/16 13:37:46  uffi
+	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+	/// Documentation needs fixing. Some unittests fail.
+	///
 	/// Revision 1.9  2004/09/02 12:50:05  uffi
 	/// Added XML Serialization and Deserialization functionality
 	///
@@ -372,21 +374,11 @@ namespace Palladio.ComponentModel
 		/// <param name="aRoleID">The role ID of the external interface</param>
 		/// <param name="aSig">The signature of the service in the external interface</param>
 		/// <returns>A container object containing a signature and an associated role</returns>
-		public static IExternalSignature CreateExternalSignature(string aRoleID, ISignature aSig )
+		public static IService CreateService(IInterfaceModel iface, IIdentifier signatureID )
 		{
-			return new DefaultSignatureWithRole(aSig,IdentifiableFactory.CreateStringID(aRoleID));
-		}
-
-		/// <summary>
-		/// Create an container containing a signature and an associated role. Those signatures
-		/// have to be used if refering to external services.
-		/// </summary>
-		/// <param name="aRoleID">The role ID of the external interface</param>
-		/// <param name="aSig">The signature of the service in the external interface</param>
-		/// <returns>A container object containing a signature and an associated role</returns>
-		public static IExternalSignature CreateExternalSignature(IIdentifier aRoleID, ISignature aSig )
-		{
-			return new DefaultSignatureWithRole(aSig,aRoleID);
+			if (!iface.SignatureList.ContainsSignatureID(signatureID))
+				throw new Exceptions.SignatureNotFoundException(signatureID);
+			return new DefaultService(signatureID, iface);
 		}
 
 		/// <summary>
@@ -441,12 +433,12 @@ namespace Palladio.ComponentModel
 		/// <param name="roleID">The roleID to be assigned to the signatures</param>
 		/// <param name="sigs">The signatures to which a role is added</param>
 		/// <returns>An array of <see cref="IExternalSignature"/></returns>
-		public static IExternalSignature[] CreateExternalSignatureArray(IIdentifier roleID, params ISignature[] sigs)
+		public static IService[] CreateServiceArray(IInterfaceModel iface, params IIdentifier[] sigIDs)
 		{
-			IExternalSignature[] result = new IExternalSignature[sigs.Length];
-			for (int i=0; i < sigs.Length; i++)
+			IService[] result = new IService[sigIDs.Length];
+			for (int i=0; i < sigIDs.Length; i++)
 			{
-				result[i] = CreateExternalSignature(roleID,sigs[i]);
+				result[i] = CreateService(iface,sigIDs[i]);
 			}
 			return result;
 		}
@@ -457,9 +449,9 @@ namespace Palladio.ComponentModel
 		/// <param name="roleID">The roleID to be assigned to the signatures</param>
 		/// <param name="sigs">The signatures to which a role is added</param>
 		/// <returns>An array of <see cref="IExternalSignature"/></returns>		
-		public static IExternalSignature[] CreateExternalSignatureArray(string roleID, params ISignature[] sigs)
+		public static IService[] CreateServiceArray(IRole role, params IIdentifier[] sigIDs)
 		{
-			return CreateExternalSignatureArray(IdentifiableFactory.CreateStringID(roleID),sigs);
+			return CreateServiceArray(role.Interface,sigIDs);
 		}
 		#endregion
 
@@ -495,9 +487,9 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="signatures"></param>
 		/// <returns></returns>
-		public static IExternalSignatureList CreateExternalSignatureList(params IExternalSignature[] signatures)
+		public static IServiceList CreateServiceList(params IService[] signatures)
 		{
-			return new DefaultExternalSignatureList(CreateAttributeHash(), signatures);
+			return new DefaultServiceList(CreateAttributeHash(), signatures);
 		}
 
 		#endregion
@@ -507,9 +499,22 @@ namespace Palladio.ComponentModel
 		/// Construct a new interface model
 		/// </summary>
 		/// <returns>The newly created interface model</returns>
-		public static IInterfaceModel CreateInterfaceModel()
+		public static IInterfaceModel CreateInterfaceModel(ISignatureList aSigList, string name)
 		{
-			return new DefaultInterfaceModel(AttributesFactory.Default.CreateAttributeHash());
+			IInterfaceModel model = new DefaultInterfaceModel(AttributesFactory.Default.CreateAttributeHash(),aSigList, name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			ModelPersistencyService.Instance.RegisterEntity(model, ModelPersistencyInfo.ATTACHED);
+			return model;
+		}
+		
+		/// <summary>
+		/// Construct a new interface model
+		/// </summary>
+		/// <returns>The newly created interface model</returns>
+		public static IInterfaceModel CreateInterfaceModel(string name, GloballyUniqueIdentifier ID, ModelPersistencyInfo info)
+		{
+			IInterfaceModel model = new DefaultInterfaceModel(AttributesFactory.Default.CreateAttributeHash(), name, ID);
+			ModelPersistencyService.Instance.RegisterEntity(model, info);
+			return model;
 		}
 
 		/// <summary>
@@ -517,9 +522,18 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aSigList">The signatures to be added to the interface initialy</param>
 		/// <returns>The newly created interface model</returns>
-		public static IInterfaceModel CreateInterfaceModel(ISignatureList aSigList)
+		public static IInterfaceModel CreateInterfaceModel(ISignatureList aSigList, string name, GloballyUniqueIdentifier ID, ModelPersistencyInfo info)
 		{
-			return new DefaultInterfaceModel(AttributesFactory.Default.CreateAttributeHash(),aSigList);
+			IInterfaceModel model = new DefaultInterfaceModel(AttributesFactory.Default.CreateAttributeHash(),aSigList, name, ID);
+			ModelPersistencyService.Instance.RegisterEntity(model, info);
+			return model;
+		}
+
+		public static IInterfaceModel CreateInterfaceModel(string name)
+		{
+			IInterfaceModel model = new DefaultInterfaceModel(AttributesFactory.Default.CreateAttributeHash(), name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			ModelPersistencyService.Instance.RegisterEntity(model, ModelPersistencyInfo.ATTACHED);
+			return model;
 		}
 		
 		/// <summary>
@@ -536,16 +550,16 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aSigList">The external signatures contained in the service effect initialy</param>
 		/// <returns>A newly created service effect specification</returns>
-		public static IServiceEffectSpecification CreateServiceEffectSpecification(IExternalSignatureList aSigList)
+		public static IServiceEffectSpecification CreateServiceEffectSpecification(IServiceList aSigList)
 		{
 			return new DefaultServiceEffectSpecification(AttributesFactory.Default.CreateAttributeHash(),aSigList);
 		}
 		#endregion
 
 		#region CreateRole
-		internal static IRole CreateAttachedInterface(IInterfaceModel anInterface, IIdentifier aRole)
+		internal static IRole CreateRole(IInterfaceModel anInterface, IComponent aComponent)
 		{
-			return new DefaultRole(aRole,anInterface);
+			return new DefaultRole(aComponent,anInterface);
 		}
 		#endregion
 
@@ -577,40 +591,49 @@ namespace Palladio.ComponentModel
 		/// Create a new, empty IBasicComponent with the attributes specified in anAttrHash.
 		/// </summary>
 		/// <param name="anAttrHash">AttributeHash associated with the new component.</param>
-		/// <param name="ID">ID of the component to create.</param>
+		/// <param name="name">Name of the component to create.</param>
 		/// <returns>New IBasicComponent instance.</returns>
-		public static IBasicComponent CreateBasicComponent(IAttributeHash anAttrHash, string ID)
+		public static IBasicComponent CreateBasicComponent(IAttributeHash anAttrHash, string name)
 		{
-			return new BasicComponent(anAttrHash,IdentifiableFactory.CreateStringID(ID));
+			IBasicComponent comp = new BasicComponent(anAttrHash, name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			ModelPersistencyService.Instance.RegisterEntity(comp, ModelPersistencyInfo.ATTACHED);
+			return comp;
 		}
 
 		/// <summary>
 		/// Create a new, empty IBasicComponent.
 		/// </summary>
 		/// <returns>New IBasicComponent instance.</returns>
-		public static IBasicComponent CreateBasicComponent(string ID)
+		public static IBasicComponent CreateBasicComponent(string name)
 		{
-			return new BasicComponent(CreateAttributeHash(),IdentifiableFactory.CreateStringID(ID));
+			IBasicComponent comp = new BasicComponent(CreateAttributeHash(), name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			ModelPersistencyService.Instance.RegisterEntity(comp, ModelPersistencyInfo.ATTACHED);
+			return comp;
 		}
 
 		/// <summary>
 		/// Create a new, empty IBasicComponent with the attributes specified in anAttrHash.
 		/// </summary>
 		/// <param name="anAttrHash">AttributeHash associated with the new component.</param>
+		/// <param name="name">Name of the component to create.</param>
 		/// <param name="ID">ID of the component to create.</param>
 		/// <returns>New IBasicComponent instance.</returns>
-		public static IBasicComponent CreateBasicComponent(IAttributeHash anAttrHash, IIdentifier ID)
+		public static IBasicComponent CreateBasicComponent(IAttributeHash anAttrHash, string name, GloballyUniqueIdentifier ID, ModelPersistencyInfo info)
 		{
-			return new BasicComponent(anAttrHash,ID);
+			IBasicComponent comp = new BasicComponent(anAttrHash,name,ID);
+			ModelPersistencyService.Instance.RegisterEntity(comp, info);
+			return comp;
 		}
 
 		/// <summary>
 		/// Create a new, empty IBasicComponent.
 		/// </summary>
 		/// <returns>New IBasicComponent instance.</returns>
-		public static IBasicComponent CreateBasicComponent(IIdentifier ID)
+		public static IBasicComponent CreateBasicComponent(string name, GloballyUniqueIdentifier ID, ModelPersistencyInfo info)
 		{
-			return new BasicComponent(CreateAttributeHash(),ID);
+			IBasicComponent comp = new BasicComponent(CreateAttributeHash(), name, ID);
+			ModelPersistencyService.Instance.RegisterEntity(comp, info);
+			return comp;
 		}
 		#endregion
 
@@ -619,20 +642,24 @@ namespace Palladio.ComponentModel
 		/// Create a new, empty IBasicComponent with the attributes given by anAttributeHash.
 		/// </summary>
 		/// <param name="anAttrHash">Attributes of the new Component.</param>
-		/// <param name="ID">An string identifier for the component</param>
+		/// <param name="name">A name for the component</param>
 		/// <returns>New IBasicComponent instance.</returns>
-		public static ICompositeComponent CreateCompositeComponent(IAttributeHash anAttrHash, string ID)
+		public static ICompositeComponent CreateCompositeComponent(IAttributeHash anAttrHash, string name)
 		{
-			return new CompositeComponent(anAttrHash, IdentifiableFactory.CreateStringID(ID));
+			ICompositeComponent comp = new CompositeComponent(anAttrHash, name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			ModelPersistencyService.Instance.RegisterEntity(comp, ModelPersistencyInfo.ATTACHED);
+			return comp;
 		}
 
 		/// <summary>
 		/// Create a new, empty instance of ICompositeComponent.
 		/// </summary>
 		/// <returns>A new ICompositeComponent instance.</returns>
-		public static ICompositeComponent CreateCompositeComponent(string ID)
+		public static ICompositeComponent CreateCompositeComponent(string name)
 		{
-			return new CompositeComponent(CreateAttributeHash(), IdentifiableFactory.CreateStringID(ID));
+			ICompositeComponent comp = new CompositeComponent(CreateAttributeHash(), name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			ModelPersistencyService.Instance.RegisterEntity(comp, ModelPersistencyInfo.ATTACHED);
+			return comp;
 		}
 
 		/// <summary>
@@ -641,56 +668,23 @@ namespace Palladio.ComponentModel
 		/// <param name="anAttrHash">Attributes of the new Component.</param>
 		/// <param name="ID">An string identifier for the component</param>
 		/// <returns>New IBasicComponent instance.</returns>
-		public static ICompositeComponent CreateCompositeComponent(IAttributeHash anAttrHash, IIdentifier ID)
+		public static ICompositeComponent CreateCompositeComponent(IAttributeHash anAttrHash, string name, GloballyUniqueIdentifier ID, ModelPersistencyInfo info)
 		{
-			return new CompositeComponent(anAttrHash, ID);
+			ICompositeComponent comp = new CompositeComponent(anAttrHash, name, ID);
+			ModelPersistencyService.Instance.RegisterEntity(comp, info);
+			return comp;
 		}
 
 		/// <summary>
 		/// Create a new, empty instance of ICompositeComponent.
 		/// </summary>
 		/// <returns>A new ICompositeComponent instance.</returns>
-		public static ICompositeComponent CreateCompositeComponent(IIdentifier ID)
+		public static ICompositeComponent CreateCompositeComponent(string name, GloballyUniqueIdentifier ID, ModelPersistencyInfo info)
 		{
-			return new CompositeComponent(CreateAttributeHash(), ID);
-		}
-
-		/// <summary>
-		/// Load a CompositeComponent which previously has been serialized into a XML file
-		/// </summary>
-		/// <param name="xmlFileName">The path and filename of the XML file to load from</param>
-		/// <returns>A new ICompositeComponent instance.</returns>
-		public static ICompositeComponent LoadCompositeComponent(string xmlFileName)
-		{
-			XmlTextReader textReader = new XmlTextReader(xmlFileName);
-			textReader.WhitespaceHandling = WhitespaceHandling.None;
-
-			// validate file against schema definition
-			XmlValidatingReader validator = new XmlValidatingReader(textReader);
-			validator.ValidationType = ValidationType.Schema;
-
-			XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
-			schemaCollection.Add("http://palladio.informatik.uni-oldenburg.de/XSD","palladio.base.xsd");
-			validator.Schemas.Add(schemaCollection);
-
-			validator.ValidationEventHandler += new ValidationEventHandler(validator_ValidationEventHandler);
-
-			while (validator.Read()) { }
-			
-			// file is valid. create dom tree
-			validator.Close();
-			textReader.Close();
-			
-			textReader = new XmlTextReader(xmlFileName);
-
-			XmlDocument xmldoc = new XmlDocument();
-			xmldoc.Load(textReader);
-
-			CompositeComponent comp = new CompositeComponent(null,null);
-			comp.Deserialize(xmldoc.DocumentElement);
+			ICompositeComponent comp = new CompositeComponent(CreateAttributeHash(), name, ID);
+			ModelPersistencyService.Instance.RegisterEntity(comp, info);
 			return comp;
 		}
-
 
 		#endregion
 
@@ -712,8 +706,8 @@ namespace Palladio.ComponentModel
 		{
 			return new DefaultBinding(
 				anAttrHash,
-				new DefaultAttachedRole(reqComponent, reqRoleID),
-				new DefaultAttachedRole(provComponent, provRoleID));
+				reqComponent.GetRole(reqRoleID),
+				provComponent.GetRole(provRoleID));
 		}
 
 		/// <summary>
@@ -729,8 +723,8 @@ namespace Palladio.ComponentModel
 		{
 			return new DefaultBinding(
 				CreateAttributeHash(),
-				new DefaultAttachedRole(reqComponent, reqRoleID),
-				new DefaultAttachedRole(provComponent, provRoleID));
+				reqComponent.GetRole(reqRoleID),
+				provComponent.GetRole(provRoleID));
 		}
 
 		/// <summary>
@@ -740,7 +734,7 @@ namespace Palladio.ComponentModel
 		/// <param name="provRole">Providing role of the binding relation.</param>
 		/// <param name="reqRole">Requiring role of the binding relation.</param>
 		/// <returns>New IBinding instance</returns>
-		public static IBinding CreateBinding(IAttributeHash anAttrHash, IAttachedRole reqRole, IAttachedRole provRole)
+		public static IBinding CreateBinding(IAttributeHash anAttrHash, IRole reqRole, IRole provRole)
 		{
 			return new DefaultBinding( anAttrHash, reqRole, provRole);
 		}
@@ -759,7 +753,7 @@ namespace Palladio.ComponentModel
 		public static IMapping CreateProvidesMapping(IAttributeHash anAttrHash, IComponent anOuterComponent, 
 			IIdentifier anOuterRoleID, IComponent anInnerComponent, IIdentifier anInnerRoleID)
 		{
-			return new DefaultMapping(anAttrHash, new DefaultAttachedRole( anOuterComponent, anOuterRoleID ), new DefaultAttachedRole(anInnerComponent, anInnerRoleID), MappingTypeEnum.PROVIDES_MAPPING);
+			return new DefaultMapping(anAttrHash, anOuterComponent.GetRole(anOuterRoleID), anInnerComponent.GetRole(anInnerRoleID), MappingTypeEnum.PROVIDES_MAPPING);
 		}
 
 		/// <summary>
@@ -783,7 +777,7 @@ namespace Palladio.ComponentModel
 		/// <param name="anOuterRole">RoleID of the outer interface.</param>
 		/// <param name="anInnerRole">The inner role anOuterRole is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
-		public static IMapping CreateProvidesMapping(IAttributeHash anAttrHash, IAttachedRole anOuterRole, IAttachedRole anInnerRole)
+		public static IMapping CreateProvidesMapping(IAttributeHash anAttrHash, IRole anOuterRole, IRole anInnerRole)
 		{
 			return new DefaultMapping(anAttrHash, anOuterRole, anInnerRole, MappingTypeEnum.PROVIDES_MAPPING);
 		}
@@ -794,7 +788,7 @@ namespace Palladio.ComponentModel
 		/// <param name="anOuterRole">RoleID of the outer interface.</param>
 		/// <param name="anInnerRole">The inner role anOuterRole is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
-		public static IMapping CreateProvidesMapping(IAttachedRole anOuterRole, IAttachedRole anInnerRole)
+		public static IMapping CreateProvidesMapping(IRole anOuterRole, IRole anInnerRole)
 		{
 			return new DefaultMapping(CreateAttributeHash(), anOuterRole, anInnerRole, MappingTypeEnum.PROVIDES_MAPPING);
 		}
@@ -811,7 +805,7 @@ namespace Palladio.ComponentModel
 		public static IMapping CreateRequiresMapping(IAttributeHash anAttrHash, IComponent anInnerComponent, 
 			IIdentifier anInnerRoleID, IComponent anOuterComponent, IIdentifier anOuterRoleID)
 		{
-			return new DefaultMapping(anAttrHash, new DefaultAttachedRole(anInnerComponent, anInnerRoleID), new DefaultAttachedRole( anOuterComponent, anOuterRoleID ), MappingTypeEnum.REQUIRES_MAPPING);
+			return new DefaultMapping(anAttrHash, anInnerComponent.GetRole(anInnerRoleID), anOuterComponent.GetRole(anOuterRoleID), MappingTypeEnum.REQUIRES_MAPPING);
 		}
 
 		/// <summary>
@@ -835,7 +829,7 @@ namespace Palladio.ComponentModel
 		/// <param name="anInnerRole">The inner interface anOuterRole is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
 		public static IMapping CreateRequiresMapping(IAttributeHash anAttrHash, 
-			IAttachedRole anInnerRole, IAttachedRole anOuterRole)
+			IRole anInnerRole, IRole anOuterRole)
 		{
 			return new DefaultMapping(anAttrHash, anInnerRole, anOuterRole, MappingTypeEnum.REQUIRES_MAPPING);
 		}
@@ -846,7 +840,7 @@ namespace Palladio.ComponentModel
 		/// <param name="anOuterRole">RoleID of the outer interface.</param>
 		/// <param name="anInnerRole">The inner role anOuterRole is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
-		public static IMapping CreateRequiresMapping(IAttachedRole anInnerRole, IAttachedRole anOuterRole)
+		public static IMapping CreateRequiresMapping(IRole anInnerRole, IRole anOuterRole)
 		{
 			return new DefaultMapping(CreateAttributeHash(), anInnerRole, anOuterRole, MappingTypeEnum.REQUIRES_MAPPING);
 		}
@@ -861,11 +855,6 @@ namespace Palladio.ComponentModel
 		public static IAttributeHash CreateAttributeHash()
 		{
 			return AttributesFactory.Default.CreateAttributeHash();
-		}
-
-		private static void validator_ValidationEventHandler(object sender, ValidationEventArgs e)
-		{
-			throw new Exception(e.Message);
 		}
 	}
 }
