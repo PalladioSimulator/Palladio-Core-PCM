@@ -12,7 +12,7 @@ using Palladio.Identifier;
 namespace Palladio.Reliability.Exceptions
 {
 	/// <summary>
-	/// Description of Class1.	
+	/// Description of TreeNodeNotFoundException.	
 	/// </summary>
 	public class TreeNodeNotFoundException : ApplicationException
 	{
