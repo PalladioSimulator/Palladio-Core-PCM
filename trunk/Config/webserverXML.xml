@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE config SYSTEM "WebserverXML.dtd">
-<config xmlns:xsi="" xsi:noNamespaceSchemaLocation="WebserverXML.dtd">
-	<!--documentRoot: the path where the documents, that are delivered by the webserver, can be found.-->
-	<documentRoot path="..\documents"/>
+<Config xmlns:xsi="Webserver" xsi:noNamespaceSchemaLocation="WebserverXML.dtd">
+	<!--DocumentRoot: the path where the documents, that are delivered by the webserver, can be found.-->
+	<DocumentRoot path="..\documents"></DocumentRoot>
 	
-	<LogFile path="..\log.txt" />
+	<LogFile path="..\log.txt"></LogFile>
 	
-	<DebugFile path="..\debug.txt" />
+	<DebugFile path="..\debug.txt"></DebugFile>
 	
-	<ports>
+	<Ports>
 		<!--port: defines the port, the server is listening at.-->
-		<port number="81"/>
-		<port number="82"/>
-	</ports>
+		<Port number="81"></Port>
+		<Port number="82"></Port>
+	</Ports>
 	<MimeTypes>
 		<!--documentType: The types of documents which shall be delivered by the webserver and their header-information.-->
-		<MimeType extension=".html" content-type="text/html"/>
-		<MimeType extension=".htm" content-type="text/html"/>
-		<MimeType extension=".text" content-type="plaintext"/>
-		<MimeType extension=".gif" content-type="image/gif"/>
+		<MimeType extension=".html" content-type="text/html"></MimeType>
+		<MimeType extension=".htm" content-type="text/html"></MimeType>
+		<MimeType extension=".text" content-type="plaintext"></MimeType>
+		<MimeType extension=".gif" content-type="image/gif"></MimeType>
 	</MimeTypes>
 	<DefaultFiles>
 		<!--FileName: Order of files that are delivered to the client by default if a folder is requested. The order has to start with id 0, which indicates the highest priority.-->
 		<FileName id="0">index.htm</FileName> 
 		<FileName id="1">index.html</FileName> 
 	</DefaultFiles>
-</config>
+</Config>
+

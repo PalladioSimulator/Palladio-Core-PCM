@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using WebserverXML;
 
 namespace Palladio.Webserver.ConfigReader
 {
@@ -13,6 +14,9 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/10/23 14:08:35  kelsaka
+	/// first steps on reading xml-config-files
+	///
 	/// Revision 1.3  2004/10/23 11:55:08  kelsaka
 	/// added some parts of the building process
 	///
@@ -28,9 +32,18 @@ namespace Palladio.Webserver.ConfigReader
 	public interface IConfigReader
 	{
 
-		void ReadConfiguration(string path);
+		/// <summary>
+		/// Read the configuration at the specified path. Afterwards the setting can be accessed by GetValue.
+		/// </summary>
+		/// <param name="configFilePath">Path to XML-config-file</param>
+		void ReadConfiguration(string configFilePath);
 
-		object GetValue(string key);
+
+		/// <summary>
+		/// Deliveres the configuration root-object. First run ReadConfiguration().
+		/// </summary>
+		/// <returns>The ConfigType-root-object.</returns>
+		ConfigType GetRoot();
 
 	}
 }
