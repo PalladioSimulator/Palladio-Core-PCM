@@ -11,6 +11,9 @@ namespace Palladio.Utils.Collections
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/06/02 18:41:26  sbecker
+	/// Fixed docu
+	///
 	/// Revision 1.2  2004/06/02 14:53:08  sbecker
 	/// Added Constructors
 	///
@@ -65,16 +68,7 @@ namespace Palladio.Utils.Collections
 		/// Creates a copy of the current instance.
 		/// </summary>
 		/// <returns>A new object with the same values as the current instance.</returns>
-		object System.ICloneable.Clone()
-		{
-			return this.Clone();
-		}
-
-		/// <summary>
-		/// Creates a copy of the current instance.
-		/// </summary>
-		/// <returns>A new object with the same values as the current instance.</returns>
-		public Hashmap Clone()
+		public override object Clone()
 		{
 			Hashmap result = new Hashmap();
 			foreach (DictionaryEntry e in this)

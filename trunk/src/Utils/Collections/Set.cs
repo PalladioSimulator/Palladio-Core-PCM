@@ -11,6 +11,9 @@ namespace Palladio.Utils.Collections
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.4  2004/06/02 18:41:26  sbecker
+	/// Fixed docu
+	///
 	/// Revision 1.3  2004/05/24 12:43:02  sbecker
 	/// Added a static function to check equality of two array interpreted as sets
 	///
@@ -127,6 +130,13 @@ namespace Palladio.Utils.Collections
 			return new Set(this);
 		}
 
+		/// <summary>
+		/// Compare two array by treating their contents as if beeing a set - without 
+		/// respect to order or multiple instances
+		/// </summary>
+		/// <param name="a">Array A</param>
+		/// <param name="b">Array B</param>
+		/// <returns>true if Array A is equal to Array B if both are taken as sets</returns>
 		public static bool SetwiseEquals(object[] a, object[] b)
 		{
 			return CheckSubset(a,b) && CheckSubset(b,a);
