@@ -567,8 +567,8 @@ tryAgain:
 		case ']':  case '^':  case '_':  case '`':
 		case '|':  case '~':  case '\u00b4':  case '\u00c4':
 		case '\u00d6':  case '\u00dc':  case '\u00df':  case '\u00e4':
-		case '\u00f3':  case '\u00f4':  case '\u00f6':  case '\u00fc':
-		case '\u00fd':
+		case '\u00e9':  case '\u00f3':  case '\u00f4':  case '\u00f6':
+		case '\u00fc':  case '\u00fd':
 		{
 			mSPECIALS(false);
 			break;
@@ -604,7 +604,7 @@ tryAgain:
 			mSPECIALS1(false);
 			break;
 		}
-		case '\u00f3':  case '\u00f4':  case '\u00fd':
+		case '\u00e9':  case '\u00f3':  case '\u00f4':  case '\u00fd':
 		{
 			mSPECIALS2(false);
 			break;
@@ -659,8 +659,9 @@ tryAgain:
 		case 't':  case 'u':  case 'v':  case 'w':
 		case 'x':  case 'y':  case 'z':  case '|':
 		case '~':  case '\u00b4':  case '\u00c4':  case '\u00d6':
-		case '\u00dc':  case '\u00df':  case '\u00e4':  case '\u00f3':
-		case '\u00f4':  case '\u00f6':  case '\u00fc':  case '\u00fd':
+		case '\u00dc':  case '\u00df':  case '\u00e4':  case '\u00e9':
+		case '\u00f3':  case '\u00f4':  case '\u00f6':  case '\u00fc':
+		case '\u00fd':
 		{
 			mINNER_CHAR(false);
 			break;
@@ -728,8 +729,9 @@ tryAgain:
 		case 't':  case 'u':  case 'v':  case 'w':
 		case 'x':  case 'y':  case 'z':  case '|':
 		case '~':  case '\u00b4':  case '\u00c4':  case '\u00d6':
-		case '\u00dc':  case '\u00df':  case '\u00e4':  case '\u00f3':
-		case '\u00f4':  case '\u00f6':  case '\u00fc':  case '\u00fd':
+		case '\u00dc':  case '\u00df':  case '\u00e4':  case '\u00e9':
+		case '\u00f3':  case '\u00f4':  case '\u00f6':  case '\u00fc':
+		case '\u00fd':
 		{
 			mINNER_CHAR(false);
 			break;
@@ -862,8 +864,8 @@ _loop18_breakloop:			;
 		case 'x':  case 'y':  case 'z':  case '{':
 		case '|':  case '~':  case '\u00b4':  case '\u00c4':
 		case '\u00d6':  case '\u00dc':  case '\u00df':  case '\u00e4':
-		case '\u00f3':  case '\u00f4':  case '\u00f6':  case '\u00fc':
-		case '\u00fd':
+		case '\u00e9':  case '\u00f3':  case '\u00f4':  case '\u00f6':
+		case '\u00fc':  case '\u00fd':
 		{
 			{ // ( ... )+
 			int _cnt22=0;
@@ -895,8 +897,9 @@ _loop18_breakloop:			;
 				case 't':  case 'u':  case 'v':  case 'w':
 				case 'x':  case 'y':  case 'z':  case '|':
 				case '~':  case '\u00b4':  case '\u00c4':  case '\u00d6':
-				case '\u00dc':  case '\u00df':  case '\u00e4':  case '\u00f3':
-				case '\u00f4':  case '\u00f6':  case '\u00fc':  case '\u00fd':
+				case '\u00dc':  case '\u00df':  case '\u00e4':  case '\u00e9':
+				case '\u00f3':  case '\u00f4':  case '\u00f6':  case '\u00fc':
+				case '\u00fd':
 				{
 					mINNER_CHAR2(false);
 					break;
@@ -970,8 +973,8 @@ _loop22_breakloop:			;
 		case 'w':  case 'x':  case 'y':  case 'z':
 		case '{':  case '|':  case '~':  case '\u00b4':
 		case '\u00c4':  case '\u00d6':  case '\u00dc':  case '\u00df':
-		case '\u00e4':  case '\u00f3':  case '\u00f4':  case '\u00f6':
-		case '\u00fc':  case '\u00fd':
+		case '\u00e4':  case '\u00e9':  case '\u00f3':  case '\u00f4':
+		case '\u00f6':  case '\u00fc':  case '\u00fd':
 		{
 			{ // ( ... )+
 			int _cnt26=0;
@@ -1004,8 +1007,8 @@ _loop22_breakloop:			;
 				case 'w':  case 'x':  case 'y':  case 'z':
 				case '|':  case '~':  case '\u00b4':  case '\u00c4':
 				case '\u00d6':  case '\u00dc':  case '\u00df':  case '\u00e4':
-				case '\u00f3':  case '\u00f4':  case '\u00f6':  case '\u00fc':
-				case '\u00fd':
+				case '\u00e9':  case '\u00f3':  case '\u00f4':  case '\u00f6':
+				case '\u00fc':  case '\u00fd':
 				{
 					mINNER_CHAR3(false);
 					break;
@@ -1322,6 +1325,11 @@ _loop32_breakloop:		;
 				match('ý');
 				break;
 			}
+			case '\u00e9':
+			{
+				match('é');
+				break;
+			}
 			default:
 			{
 				throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
@@ -1454,7 +1462,7 @@ _loop32_breakloop:		;
 		data[0]=-21083994446336L;
 		data[1]=6341068275337658366L;
 		data[2]=4503599627370496L;
-		data[3]=3483534382910668816L;
+		data[3]=3483536581933924368L;
 		for (int i = 4; i<=7; i++) { data[i]=0L; }
 		return data;
 	}

@@ -109,7 +109,7 @@ protected SPECIALS1:	'-' | '/' | ':' | WS_TOKEN | NEWLINE | '\'' | '´' | '`' |
 			'<' | '>' | '|' | '[' | ']';
 
 /* Special chars of the kind TeX complains if not using extra packages */
-protected SPECIALS2:    ('ó' | 'ô' | 'ý')
+protected SPECIALS2:    ('ó' | 'ô' | 'ý' | 'é')
 			{
     		         if (LexerLogEvent != null)
 		            LexerLogEvent(this,new LogEventArgs(LogType.ERROR,
