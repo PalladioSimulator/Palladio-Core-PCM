@@ -120,42 +120,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "data\d1.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\d2.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\d3.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\intersection.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\merged.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\provMerged.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\provOne.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\provOne-x-provTwo.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\provTwo.xml"
-                    BuildAction = "Content"
-                />
-                <File
                     RelPath = "src\AuxiliaryInformationEnums.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

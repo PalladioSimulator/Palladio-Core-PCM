@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/07/13 07:48:21  sbecker
+	/// Made AttributesFactory static
+	///
 	/// Revision 1.7  2004/07/05 09:21:44  sbecker
 	/// Added further creation methods for programmers convinience
 	/// Removed an unnessesary method
@@ -501,7 +504,7 @@ namespace Palladio.ComponentModel
 		/// <returns>The newly created interface model</returns>
 		public static IInterfaceModel CreateInterfaceModel()
 		{
-			return new DefaultInterfaceModel(attributesFactory.Default.CreateAttributeHash());
+			return new DefaultInterfaceModel(AttributesFactory.Default.CreateAttributeHash());
 		}
 
 		/// <summary>
@@ -511,7 +514,7 @@ namespace Palladio.ComponentModel
 		/// <returns>The newly created interface model</returns>
 		public static IInterfaceModel CreateInterfaceModel(ISignatureList aSigList)
 		{
-			return new DefaultInterfaceModel(attributesFactory.Default.CreateAttributeHash(),aSigList);
+			return new DefaultInterfaceModel(AttributesFactory.Default.CreateAttributeHash(),aSigList);
 		}
 		
 		/// <summary>
@@ -520,7 +523,7 @@ namespace Palladio.ComponentModel
 		/// <returns>A newly created service effect specification</returns>
 		public static IServiceEffectSpecification CreateServiceEffectSpecification()
 		{
-			return new DefaultServiceEffectSpecification(attributesFactory.Default.CreateAttributeHash());
+			return new DefaultServiceEffectSpecification(AttributesFactory.Default.CreateAttributeHash());
 		}
 
 		/// <summary>
@@ -530,7 +533,7 @@ namespace Palladio.ComponentModel
 		/// <returns>A newly created service effect specification</returns>
 		public static IServiceEffectSpecification CreateServiceEffectSpecification(IExternalSignatureList aSigList)
 		{
-			return new DefaultServiceEffectSpecification(attributesFactory.Default.CreateAttributeHash(),aSigList);
+			return new DefaultServiceEffectSpecification(AttributesFactory.Default.CreateAttributeHash(),aSigList);
 		}
 		#endregion
 
@@ -815,9 +818,7 @@ namespace Palladio.ComponentModel
 		/// <returns>New IAttributeHash instance.</returns>
 		public static IAttributeHash CreateAttributeHash()
 		{
-			return attributesFactory.Default.CreateAttributeHash();
+			return AttributesFactory.Default.CreateAttributeHash();
 		}
-		
-		private static AttributesFactory attributesFactory = new AttributesFactory();
 	}
 }
