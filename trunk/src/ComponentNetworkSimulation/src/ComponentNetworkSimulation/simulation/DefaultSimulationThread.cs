@@ -27,6 +27,9 @@ namespace ComponentNetworkSimulation.Simulation
  	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.6  2004/06/19 16:02:28  joemal
+	/// - now the threads work with new visitors
+	///
 	/// Revision 1.5  2004/05/26 16:28:12  joemal
 	/// threads now use the visitor to walk through the architecture
 	///
@@ -47,7 +50,7 @@ namespace ComponentNetworkSimulation.Simulation
 		#region data
 
 		// the visitor used to navigate through the component architecture
-		private IComponentArchitectureVisitor visitor = new DefaultComponentArchitectureVisitor();
+		private IComponentVisitor visitor = null;
 	
 		/// <summary>
 		/// the id of the thread
@@ -78,10 +81,10 @@ namespace ComponentNetworkSimulation.Simulation
 		/// constructs a new simulationthread.
 		/// </summary>
 		/// <param name="threadId">The id of the thread.</param>
-		/// <param name="start">the startingpoint of this thread</param>
+		/// <param name="visitor">the visitor, used to walk through the componentarchitecture</param>
 		/// <param name="type">The type of the thread.</param>
-		public DefaultSimulationThread(int threadId, IThreadStartingPoint start,SimulationThreadType type):
-			this(threadId,start,type,null)
+		public DefaultSimulationThread(int threadId, IComponentVisitor visitor,SimulationThreadType type):
+			this(threadId,visitor,type,null)
 		{
 		}
 
@@ -89,17 +92,17 @@ namespace ComponentNetworkSimulation.Simulation
 		/// constructs a new simulationthread.
 		/// </summary>
 		/// <param name="threadId">The id of the thread.</param>
-		/// <param name="start">the startingpoint of this thread</param>
+		/// <param name="visitor">the visitor, used to walk through the componentarchitecture</param>
 		/// <param name="type">The type of the thread.</param>
 		/// <param name="observer">the observer for this thread</param>
-		public DefaultSimulationThread(int threadId, IThreadStartingPoint start,SimulationThreadType type, 
+		public DefaultSimulationThread(int threadId, IComponentVisitor visitor,SimulationThreadType type, 
 			IThreadObserver observer)
 		{
 			this.threadId = threadId;
 			this.type = type;
 			this.observer = observer;
-
-			init(start);
+			this.visitor = visitor;
+			Init();
 		}
 
 		#endregion
@@ -165,11 +168,20 @@ namespace ComponentNetworkSimulation.Simulation
 
 		#region methods
 
-		//does some initial work
-		private void init(IThreadStartingPoint start)
+		/// <summary>
+		/// call to init the first timeconsumer
+		/// </summary>
+		private void Init()
 		{
-			this.visitor.SetStart(start);
-			if (visitor.CurrentTimeConsumer != null)
+			this.visitor.OnVisitorEvent += new VisitorEventHandler(HandleVisitorEvent);
+
+			if (!(visitor.CurrentElement is ITimeConsumer))
+			{
+				while(!visitor.IsTimeConsumer && visitor.HasAnyElement)
+					visitor.NextElement();
+			}				
+			
+			if (visitor.IsTimeConsumer)
 				this.timeInFuture = visitor.CurrentTimeConsumer.ThreadEntered();
 		}
 
@@ -197,19 +209,19 @@ namespace ComponentNetworkSimulation.Simulation
 			ITimeConsumer previousTimeConsumer = visitor.CurrentTimeConsumer;
 			previousTimeConsumer.ThreadExited();
             
-			ITimeConsumer newTimeConsumer = visitor.NextTimeConsumer();            
-
-			if (newTimeConsumer == null)
+			do
 			{
-				NotifyThreadReachedEndEvent();
-				return;
+				visitor.NextElement();
 			}
+			while(!visitor.IsTimeConsumer && visitor.HasAnyElement);
+
+			ITimeConsumer newTimeConsumer = visitor.CurrentTimeConsumer;
+
+			if (newTimeConsumer == null) return;
 
 			this.timeInFuture = newTimeConsumer.ThreadEntered();
 			NotifyNextTCEvent(previousTimeConsumer);
 		}
-
-
 
 		/// <summary>
 		/// called to fire an event, when the thread changed the TimeConsumer
@@ -244,12 +256,57 @@ namespace ComponentNetworkSimulation.Simulation
 		}
 
 		/// <summary>
+		/// called to notify the listener, that an unbound external call was found. The thread skips the call.
+		/// </summary>
+		/// <param name="args">the parameter of the visitorevent</param>
+		protected virtual void NotifyUnboundExternalCallEvent(VisitorEventArgs args)
+		{
+			if (observer != null)
+				observer.NotifyUnboundExternalCall(args.Component,args.Signature);
+		}
+
+		/// <summary>
+		/// called, if the visitor has found an unknown element. The threads is stopped and removed from the
+		/// scheduler.
+		/// </summary>
+		protected virtual void NotifyUnknownElementEvent()
+		{
+			if (observer != null)
+				observer.NotifyUnknownElementFound();
+		}
+
+		/// <summary>
 		/// returns true, if any TimeConsumer is set to currentTimeConsumer
 		/// </summary>
 		/// <returns>true, if the thread is alive.</returns>
 		protected bool HasAnyTimeConsumer()
 		{
-			return this.visitor.CurrentTimeConsumer != null;
+			return this.visitor.HasAnyElement;
+		}
+
+		/// <summary>
+		/// called by the visitor to notify events.
+		/// </summary>
+		/// <param name="sender">the visitor</param>
+		/// <param name="args">the parameter of the event</param>
+		protected virtual void HandleVisitorEvent(object sender, VisitorEventArgs args)
+		{
+			switch(args.Type)
+			{
+				case VisitorEventArgs.EventType.TYPE_EXTERNALCALL:
+					NotifyUnboundExternalCallEvent(args);
+					return;
+				case VisitorEventArgs.EventType.TYPE_UNKNOWN_ELEMENT:
+					NotifyUnknownElementEvent();
+					NotifyThreadReachedEndEvent();
+					return;
+				case VisitorEventArgs.EventType.TYPE_RETURN:
+					NotifyThreadReachedEndEvent();
+					return;
+				case VisitorEventArgs.EventType.TYPE_UNBOUNDREQUIRES:
+					NotifyUnboundExternalCallEvent(args);
+					return;
+			}
 		}
 
 		#endregion

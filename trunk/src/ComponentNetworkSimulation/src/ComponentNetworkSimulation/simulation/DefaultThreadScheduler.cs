@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using ComponentNetworkSimulation.Analysis;
 using ComponentNetworkSimulation.Structure;
+using ComponentNetworkSimulation.Structure.Visitor;
 
 namespace ComponentNetworkSimulation.Simulation
 {
@@ -13,6 +14,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.6  2004/06/19 16:02:28  joemal
+	/// - now the threads work with new visitors
+	///
 	/// Revision 1.5  2004/05/26 16:28:35  joemal
 	/// threads now use the visitor to walk through the architecture
 	///
@@ -130,7 +134,8 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <param name="type">The logging type of this thread.</param>
 		public void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type)
 		{
-			this.PrepairNewThread(new DefaultSimulationThread(this.NextThreadID,start,type));			
+			IComponentVisitor visitor = this.simulationEnvironment.ComponentArchitecture.CreateVisitor(start);
+			this.PrepairNewThread(new DefaultSimulationThread(this.NextThreadID,visitor,type));			
 		}
 
 		/// <summary>
@@ -142,7 +147,8 @@ namespace ComponentNetworkSimulation.Simulation
 		public void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type, 
 			IThreadObserver observer)
 		{
-			this.PrepairNewThread(new DefaultSimulationThread(this.NextThreadID,start,type,observer));			
+			IComponentVisitor visitor = this.simulationEnvironment.ComponentArchitecture.CreateVisitor(start);
+			this.PrepairNewThread(new DefaultSimulationThread(this.NextThreadID,visitor,type,observer));			
 		}
 
 		/// <summary>
@@ -165,8 +171,10 @@ namespace ComponentNetworkSimulation.Simulation
 		public void CreateSimulationThread(IThreadStartingPoint start,SimulationThreadType type,
 			long periodTime, IThreadObserver observer)
 		{
+			IComponentVisitor visitor = this.simulationEnvironment.ComponentArchitecture.CreateVisitor(start);
+
 			DefaultPeriodicSimulationThread tmp = new DefaultPeriodicSimulationThread(periodTime,NextPeriodID,NextThreadID,
-				start,type,observer);
+				start,visitor,type,observer);
 			
 			tmp.NewPeriodicThreadEvent += new EventHandler(this.OnNewPeriodicThreadEvent);
 			this.PrepairNewThread(tmp);
@@ -279,7 +287,7 @@ namespace ComponentNetworkSimulation.Simulation
 		}
 
 		/// <summary>
-		/// called, when a new thread was created to fire a event
+		/// called to fire a event, when a new thread was created 
 		/// </summary>
 		/// <param name="theThread">the thread, which was created</param>
 		protected virtual void NotifyThreadCreatedEvent(ISimulationThread theThread)
@@ -376,8 +384,13 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <param name="args">set to EventArgs.Empty</param>
 		protected virtual void OnNewPeriodicThreadEvent(object sender, EventArgs args)
 		{
-			ISimulationThread tmp = ((IPeriodicSimulationThread)sender).CreateFollowingThread(this.NextThreadID);
-			((IPeriodicSimulationThread)tmp).NewPeriodicThreadEvent += new EventHandler(this.OnNewPeriodicThreadEvent);
+			IPeriodicSimulationThread old = (IPeriodicSimulationThread)sender;
+			IComponentVisitor visitor = this.simulationEnvironment.ComponentArchitecture.CreateVisitor(old.StartingPoint);
+
+			IPeriodicSimulationThread tmp = new DefaultPeriodicSimulationThread(old.PeriodLength,old.PeriodID,this.NextThreadID,
+				old.StartingPoint,visitor,old.TheType);
+			tmp.NewPeriodicThreadEvent += new EventHandler(this.OnNewPeriodicThreadEvent);
+			
 			PrepairNewThread(tmp);
 		}
 

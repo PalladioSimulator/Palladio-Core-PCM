@@ -1,6 +1,7 @@
 using System;
 using ComponentNetworkSimulation;
 using ComponentNetworkSimulation.Structure;
+using ComponentNetworkSimulation.Structure.Visitor;
 
 namespace ComponentNetworkSimulation.Simulation
 {
@@ -12,6 +13,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.4  2004/06/19 16:02:28  joemal
+	/// - now the threads work with new visitors
+	///
 	/// Revision 1.3  2004/05/26 16:28:12  joemal
 	/// threads now use the visitor to walk through the architecture
 	///
@@ -63,11 +67,15 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <param name="periodID">the id of the period threads</param>
 		/// <param name="id">the id of this thread</param>
 		/// <param name="start">the startingpoint of this thread</param>
+		/// <param name="visitor">the visitor used by this thread to walk through the architecture</param>
 		/// <param name="type">the type of the thread</param>
 		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, IThreadStartingPoint start,
-			SimulationThreadType type) : this(periodLength,periodID,id,start,type,null)
+			IComponentVisitor visitor, SimulationThreadType type) : base(id,visitor,type)
 		{
-			
+			this.startingPoint = start;
+			this.periodLength = periodLength;
+			this.periodID = periodID;
+			this.currentPeriodTime = periodLength;
 		}
 
 		/// <summary>
@@ -77,10 +85,11 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <param name="periodID">the id of the period threads</param>
 		/// <param name="id">the id of this thread</param>
 		/// <param name="start">the startingpoint of this thread</param>
+ 		/// <param name="visitor">the visitor used by this thread to walk through the architecture</param>
 		/// <param name="type">the type of the thread</param>
 		/// <param name="observer">the observer</param>
 		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, IThreadStartingPoint start,
-			SimulationThreadType type, IThreadObserver observer) : base (id, start,type,observer)
+			IComponentVisitor visitor,SimulationThreadType type, IThreadObserver observer) : base (id, visitor,type,observer)
 		{
 			this.startingPoint = start;
 			this.periodLength = periodLength;
@@ -136,6 +145,17 @@ namespace ComponentNetworkSimulation.Simulation
 			}
 		}
 
+		/// <summary>
+		/// return the startingpoint of this thread in order to create new one from the same one.
+		/// </summary>
+		public IThreadStartingPoint StartingPoint
+		{
+			get
+			{
+				return this.startingPoint;
+			}
+		}
+
 		#endregion
 
 		#region methods
@@ -155,18 +175,6 @@ namespace ComponentNetworkSimulation.Simulation
 			}
 
 			base.TimeMoved (time);	
-		}
-
-		/// <summary>
-		/// This method creates a new thread with same periodID, firstTimeConsumer, observer and periodLength like this.
-		/// It is called when the scheduler is notified to create a new thread.
-		/// </summary>
-		/// <param name="newThreadID">The id of the new thread.</param>
-		/// <returns>the new thread</returns>
-		public virtual ISimulationThread CreateFollowingThread(int newThreadID)
-		{
-			return new DefaultPeriodicSimulationThread(this.periodLength,this.periodID,newThreadID,this.startingPoint,
-				this.type,this.observer);
 		}
 
 		/// <summary>
