@@ -9,6 +9,9 @@
     <File name=".\src\Exceptions" subtype="Directory" buildaction="Compile" dependson="" data="" />
     <File name=".\src\Exceptions\TreeNodeNotFoundException.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
     <File name=".\src\TestCMBuilder.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\ReliabilityValue.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\ReliabilityHash.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\MarkovProbability.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
   </Contents>
   <References>
     <Reference type="Project" refto="ReflectionBasedVisitor" localcopy="True" />
@@ -21,13 +24,13 @@
   </References>
   <DeploymentInformation target="" script="" strategy="File" />
   <Configuration runwithwarnings="False" name="Debug">
-    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Exe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="Palladio.Reliability.MyClass" target="Exe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
     <Execution commandlineparameters="" consolepause="False" />
     <Output directory="..\bin\Debug" assembly="Palladio.Reliability" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
   </Configuration>
   <Configurations active="Debug">
     <Configuration runwithwarnings="False" name="Debug">
-      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Exe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="Palladio.Reliability.MyClass" target="Exe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
       <Execution commandlineparameters="" consolepause="False" />
       <Output directory="..\bin\Debug" assembly="Palladio.Reliability" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
     </Configuration>

@@ -5,13 +5,15 @@ using System.Collections;
 using Palladio.Identifier;
 using Palladio.Attributes;
 using Palladio.Reliability.Exceptions;
+using Palladio.Utils.Collections;
+using Palladio.ComponentModel;
 
 namespace Palladio.Reliability
 {
 	/// <summary>
 	/// Description of Tree.	
 	/// </summary>
-	public class TreeNode : IIdentifiable, IAttributable
+	public class TreeNode : IIdentifiable
 	{
 		
 		/// <summary>
@@ -31,15 +33,7 @@ namespace Palladio.Reliability
 		{
 			get { return father; }
 		}
-		
-		/// <summary>
-		/// A list of attributes attached an object. 
-		/// </summary>
-		public IAttributeHash Attributes 
-		{ 
-			get { return attributes; }
-		}
-		
+				
 		public bool HasChildren 
 		{
 			get { return children.Count != 0; }
@@ -49,7 +43,17 @@ namespace Palladio.Reliability
 		{
 			get { return father == null; }
 		}
+				
+		public ReliabilityHash RequiresReliabilities
+		{
+			get { return reqRelHash; }
+		}
 		
+		public ReliabilityHash ProvidesReliabilities
+		{
+			get { return provRelHash; }
+		}
+
 		public void AddChild(TreeNode n)
 		{
 			n.father = this;
@@ -89,30 +93,45 @@ namespace Palladio.Reliability
 		public string ToString(int level)
 		{
 			string result = "".PadRight(level*2) + this.ID + "\n";
+			result += "".PadRight(level*2) + "Provides:\n";
+			foreach (IExternalSignature exSig in ProvidesReliabilities.Keys)
+			{
+				result += "".PadRight( (level+1)*2 ) + exSig + " " + ProvidesReliabilities[exSig] + "\n";
+			}
+			
+			result += "".PadRight(level*2) + "Requires:\n";
+			foreach (IExternalSignature exSig in RequiresReliabilities.Keys)
+			{
+				result += "".PadRight( (level+1)*2 ) + exSig + " " + RequiresReliabilities[exSig] + "\n";
+			}
+			
 			foreach (TreeNode n in this.Children.Values)
 			{
-				result += n.ToString(level + 1);
+				result += n.ToString(level+2);
 			}
 			return result;
 		}
 		
 		
-		public TreeNode(IAttributeHash attributes, IIdentifier id)
+		public TreeNode(IIdentifier id)
 		{
 			this.id = id;
-			this.attributes = attributes;
 			this.children = new TreeNodeHash();
 			this.father = null;
+			this.provRelHash = new ReliabilityHash();
+			this.reqRelHash = new ReliabilityHash();
 		}
 		
-		public TreeNode(IAttributeHash attributes, IIdentifier id, TreeNode father) : this(attributes, id)
+		public TreeNode(IIdentifier id, TreeNode father) : this(id)
 		{
 			this.father = father;
 		}
 		
 		private IIdentifier id;
-		private IAttributeHash attributes;
 		private TreeNodeHash children;
 		private TreeNode father;
+		private ReliabilityHash provRelHash;
+		private ReliabilityHash reqRelHash;
+		
 	}
 }
