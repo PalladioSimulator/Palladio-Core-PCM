@@ -23,7 +23,7 @@ namespace WebServerWithDynamicCache
 			static void Main(string[] args)
 			{
 				//Change this if you run it on your computer
-				XMLConfigFileReader config = new XMLConfigFileReader(@"C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\WebserverComponents\Config Files\ConfigWebServerWithDynamicCache.xml");
+				XMLConfigFileReader config = new XMLConfigFileReader(@"C:\WebserverComponents\Config Files\ConfigWebServerWithDynamicCache.xml");
 				//instanziere Komponeten
 				ConfigTable ct = config.GetConfigTable("BaseSettings");
 				string configFileDir = ct["configFileDir"].ToString();
@@ -36,8 +36,8 @@ namespace WebServerWithDynamicCache
 				deliverer.ResponseHandler.AddAditionalHandler(new BibTexAnalyzer.BibTexAnalyzerComponent());
 				deliverer.ResponseHandler.AddAditionalHandler(new StaticFileProvider.StaticFileProviderComponent());
 				deliverer.ResponseHandler.AddAditionalHandler(dllEngin);
-				deliverer.ResponseHandler.AddAditionalHandler(new Cache.CacheComponent(ref forCache,ct["configFileDir"].ToString()+components["Cache"].ToString(),Cache.CacheComponent.CacheStrategie.leastFrequentlyUsed));
-			
+				deliverer.ResponseHandler.AddAditionalHandler(new DynamicCache.DynamicCacheComponent(ref dllEngin));
+		
 				//Parser
 				RequestParserComponent parser= new RequestParserComponent();
 				parser.AddAdditionalHandler(new RequestParser.HTTPHandler());
