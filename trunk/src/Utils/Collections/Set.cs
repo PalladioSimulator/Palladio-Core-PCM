@@ -11,6 +11,9 @@ namespace Palladio.Utils.Collections
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/05/12 14:39:59  sliver
+	/// ndoc project added
+	///
 	/// Revision 1.1  2004/05/12 13:45:41  sliver
 	/// Initial Version
 	///
@@ -67,7 +70,7 @@ namespace Palladio.Utils.Collections
 		}
 
 		/// <summary>
-		/// If value is not in this set it is added, otherwise nothing happes.
+		/// If value is not in this set it is added, otherwise nothing happens.
 		/// </summary>
 		/// <param name="index">Index, where the object should be added.</param>
 		/// <param name="value">Object which should be added.</param>
