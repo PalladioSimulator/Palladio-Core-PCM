@@ -11,9 +11,11 @@
 #endregion
 
 using System;
+using log4net;
 
 using Palladio.Identifier;
 using Palladio.ComponentModel;
+using Palladio.ComponentModel.Exceptions;
 using Palladio.Editor.Common.EntityProxies;
 
 namespace Palladio.Editor.Common.Commands
@@ -23,10 +25,17 @@ namespace Palladio.Editor.Common.Commands
 	/// </summary>
 	public class RemoveComponentCmd : AbstractCommand
 	{
+		private static readonly ILog log = LogManager.GetLogger(typeof(RemoveComponentCmd));
+
 		private ICompositeComponent _targetComp;
 		private IIdentifier _deleteID;
 		private IComponent _deletedComp;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="component"></param>
+		/// <param name="id"></param>
 		public RemoveComponentCmd(ICompositeComponent component, IIdentifier id)
 		{
 			this._targetComp = component;
@@ -34,13 +43,29 @@ namespace Palladio.Editor.Common.Commands
 		}
 
 		#region ICommand Member
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns>True if execution was succesful</returns>
 		public override bool Execute()
 		{
 			this._deletedComp = this._targetComp.GetComponent(this._deleteID);
 			if (this._deletedComp != null)
 			{
-				this._targetComp.DeleteComponents(this._deleteID);
+				try
+				{
+					this._targetComp.DeleteComponents(this._deleteID);
+				}
+				catch (ComponentHasIncomingConnectionsException e1)
+				{
+					log.Error("Unable to remove component. Incoming connections detected.");
+					return false;
+				}
+				catch (ComponentHasOutgoingConnectionsException e2)
+				{
+					log.Error("Unable to remove component. Outgoing connections detected.");
+					return false;
+				}
 
 				this._evtArgs = new Palladio.Editor.Common.EntityProxies.EventArgs(
 					EntityChangeReason.COMPONENT_REMOVED,

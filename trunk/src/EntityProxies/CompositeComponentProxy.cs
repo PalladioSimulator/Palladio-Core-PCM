@@ -33,8 +33,25 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// </summary>
 		protected new ICompositeComponent _component;
 
+		/// <summary>
+		/// </summary>
 		private CompositeComponentProxyCollection _compositeComponents;
+
+		/// <summary>
+		/// </summary>
 		private BasicComponentProxyCollection _basicComponents;
+
+		/// <summary>
+		/// </summary>
+		private BindingProxyCollection _bindings;
+
+		/// <summary>
+		/// </summary>
+		private ProvidesMappingProxyCollection _providesMappings;
+
+		/// <summary>
+		/// </summary>
+		private RequiresMappingProxyCollection _requiresMappings;
 		#endregion
 
 		#region Constructors
@@ -52,6 +69,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			this._component = component;
 			this._compositeComponents = new CompositeComponentProxyCollection();
 			this._basicComponents = new BasicComponentProxyCollection();
+			this._bindings = new BindingProxyCollection();
+			this._providesMappings = new ProvidesMappingProxyCollection();
+			this._requiresMappings = new RequiresMappingProxyCollection();
 
 			foreach(ComponentProxy comp in components)
 			{
@@ -107,6 +127,54 @@ namespace Palladio.Editor.Common.EntityProxies
 				coll.AddRange( this._compositeComponents.ToArray() );
 				coll.AddRange( this._basicComponents.ToArray() );
 				return coll;
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[ ReadOnly(false),
+		//TypeConverter(typeof(BasicComponentProxyCollection)),
+		//Editor(typeof(ComponentProxyCollectionTypeEditor), typeof(UITypeEditor)),
+		Category("Connections"),
+		DescriptionAttribute("A list of contained component bindings") ]
+		public BindingProxyCollection Bindings
+		{
+			get
+			{
+				return this._bindings;
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[ ReadOnly(false),
+		//TypeConverter(typeof(BasicComponentProxyCollection)),
+		//Editor(typeof(ComponentProxyCollectionTypeEditor), typeof(UITypeEditor)),
+		Category("Connections"),
+		DescriptionAttribute("A list of contained mappings between provides interfaces") ]
+		public ProvidesMappingProxyCollection ProvidesMappings
+		{
+			get
+			{
+				return this._providesMappings;
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[ ReadOnly(false),
+		//TypeConverter(typeof(BasicComponentProxyCollection)),
+		//Editor(typeof(ComponentProxyCollectionTypeEditor), typeof(UITypeEditor)),
+		Category("Connections"),
+		DescriptionAttribute("A list of contained mappings between requires interfaces") ]
+		public RequiresMappingProxyCollection RequiresMappings
+		{
+			get
+			{
+				return this._requiresMappings;
 			}
 		}
 		#endregion
@@ -203,6 +271,79 @@ namespace Palladio.Editor.Common.EntityProxies
 			RemoveComponentCmd command = new RemoveComponentCmd(this._component, id);
 			this.FireCommandIssued( command );
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="role1"></param>
+		/// <param name="role2"></param>
+		public void AddBinding(RoleProxy role1, RoleProxy role2)
+		{
+			AddBindingCmd command = new AddBindingCmd(this._component, role1.Component.ID, role1.ID, role2.Component.ID, role2.ID);
+			this.FireCommandIssued( command );
+		}
+
+		public void AddProvidesMapping(RoleProxy role1, RoleProxy role2)
+		{
+			AddProvidesMappingCmd command = new AddProvidesMappingCmd(this._component, role1.ID, role2.Component.ID, role2.ID);
+			this.FireCommandIssued( command );
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="role1"></param>
+		/// <param name="role2"></param>
+		public void AddRequiresMapping(RoleProxy role1, RoleProxy role2)
+		{
+			AddRequiresMappingCmd command = new AddRequiresMappingCmd(this._component, role2.ID, role1.Component.ID, role1.ID);
+			this.FireCommandIssued( command );
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public ComponentProxy GetComponentByID(IIdentifier id)
+		{
+			foreach (ComponentProxy proxy in this.Components)
+			{
+				if (proxy.ID.Equals(id))
+					return proxy;
+			}
+			return null;
+		}
+
+		public BindingProxy GetBindingByID(IIdentifier id)
+		{
+			foreach (BindingProxy proxy in this.Bindings)
+			{
+				if (proxy.ID.Equals(id))
+					return proxy;
+			}
+			return null;
+		}
+
+		public ProvidesMappingProxy GetProvidesMappingByID(IIdentifier id)
+		{
+			foreach (ProvidesMappingProxy proxy in this.ProvidesMappings)
+			{
+				if (proxy.ID.Equals(id))
+					return proxy;
+			}
+			return null;
+		}
+
+		public RequiresMappingProxy GetRequiresMappingByID(IIdentifier id)
+		{
+			foreach (RequiresMappingProxy proxy in this.RequiresMappings)
+			{
+				if (proxy.ID.Equals(id))
+					return proxy;
+			}
+			return null;
+		}
 		#endregion
 
 		#region ICustomTypeDescriptor Member Overrides
@@ -222,6 +363,9 @@ namespace Palladio.Editor.Common.EntityProxies
 
 			pds.Add(TypeDescriptor.GetProperties(this, true)["CompositeComponents"]);
 			pds.Add(TypeDescriptor.GetProperties(this, true)["BasicComponents"]);
+			pds.Add(TypeDescriptor.GetProperties(this, true)["Bindings"]);
+			pds.Add(TypeDescriptor.GetProperties(this, true)["ProvidesMappings"]);
+			pds.Add(TypeDescriptor.GetProperties(this, true)["RequiresMappings"]);
 
 			return pds;
 		}

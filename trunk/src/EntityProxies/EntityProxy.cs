@@ -45,6 +45,18 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// <summary> </summary>
 		COMPONENT_REMOVED,
 		/// <summary> </summary>
+		BINDING_ADDED,
+		/// <summary> </summary>
+		BINDING_REMOVED,
+		/// <summary> </summary>
+		PROVIDESMAPPING_ADDED,
+		/// <summary> </summary>
+		PROVIDESMAPPING_REMOVED,
+		/// <summary> </summary>
+		REQUIRESMAPPING_ADDED,
+		/// <summary> </summary>
+		REQUIRESMAPPING_REMOVED,
+		/// <summary> </summary>
 		UNSPECIFIED
 	}
 

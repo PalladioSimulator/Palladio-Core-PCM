@@ -194,6 +194,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Commands\AddBindingCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Commands\AddCompositeComponentCmd.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -209,7 +214,17 @@
                     BuildAction = "EmbeddedResource"
                 />
                 <File
+                    RelPath = "src\Commands\AddProvidesMappingCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Commands\AddRequiresInterfaceCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\AddRequiresMappingCmd.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -220,6 +235,11 @@
                 />
                 <File
                     RelPath = "src\Commands\ChangeFCENameCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\ChangeRoleNameCmd.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -249,6 +269,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\EntityProxies\BindingProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\EntityProxies\ComponentProxy.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -274,6 +299,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\EntityProxies\ProvidesMappingProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\RequiresMappingProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\EntityProxies\RoleProxy.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -289,6 +324,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\EntityProxies\Collections\BindingProxyCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\EntityProxies\Collections\ComponentProxyCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -300,6 +340,16 @@
                 />
                 <File
                     RelPath = "src\EntityProxies\Collections\ParameterProxyCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Collections\ProvidesMappingProxyCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Collections\RequiresMappingProxyCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

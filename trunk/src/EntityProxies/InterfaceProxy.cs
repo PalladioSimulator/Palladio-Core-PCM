@@ -38,7 +38,6 @@ namespace Palladio.Editor.Common.EntityProxies
 		protected SignatureProxyCollection _signatures;
 		#endregion
 
-
 		#region Constructors
 		/// <summary>
 		/// 

@@ -171,6 +171,22 @@ namespace Palladio.Editor.Common.EntityProxies
 				this.FireCommandIssued( command );
 			}
 		}
+
+		public RoleProxy GetProvidesRoleByInterfaceID(IIdentifier id)
+		{
+			foreach (RoleProxy role in this._providesRoles)
+				if (role.Interface.ID.Equals(id))
+					return role;
+			return null;
+		}
+
+		public RoleProxy GetRequiresRoleByInterfaceID(IIdentifier id)
+		{
+			foreach (RoleProxy role in this._requiresRoles)
+				if (role.Interface.ID.Equals(id))
+					return role;
+			return null;
+		}
 		#endregion
 
 		#region ICustomTypeDescriptor Member Overrides

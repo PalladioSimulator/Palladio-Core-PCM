@@ -15,6 +15,7 @@ using System.ComponentModel;
 
 using Palladio.Identifier;
 using Palladio.ComponentModel;
+using Palladio.Editor.Common.Commands;
 using Palladio.Editor.Common.EntityProxies.UITypeEditors;
 
 namespace Palladio.Editor.Common.EntityProxies
@@ -82,14 +83,12 @@ namespace Palladio.Editor.Common.EntityProxies
 		{
 			get
 			{
-				return (string)this._role.Name.Clone();
+				return this._role.Name;
 			}
 			set
 			{
-				this._role.Name = value;
-//				base.FireEntityChanged(
-//					this, 
-//					new EventArgs(EntityChangeReason.PROPERTY_CHANGED, null) );
+				ChangeRoleNameCmd command = new ChangeRoleNameCmd(this._role, value);
+				this.FireCommandIssued( command );
 			}
 		}
 

@@ -221,6 +221,7 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 			this.Name = "SignatureProxyCollectionForm";
 			this.ShowInTaskbar = false;
 			this.Text = "Edit Signature List";
+			this.Closing += new System.ComponentModel.CancelEventHandler(this.SignatureProxyCollectionForm_Closing);
 			this.panel1.ResumeLayout(false);
 			this.groupBoxLeft.ResumeLayout(false);
 			this.panelLeftBottom.ResumeLayout(false);
@@ -284,9 +285,16 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 		private void interface_EntityChanged(object source, EntityProxy entity, EventArgs e)
 		{
 			this.UpdateList();
-			if (this.listBox.Items.Count <= this.lastSelectedIndex)
+			if (this.listBox.Items.Count > this.lastSelectedIndex)
+			{
 				this.listBox.SelectedIndex = this.lastSelectedIndex;
-			this.propertyGrid.SelectedObject = this.listBox.SelectedItem;
+				this.propertyGrid.SelectedObject = this.listBox.SelectedItem;
+			}
+		}
+
+		private void SignatureProxyCollectionForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			this._interface.EntityChanged -= this._interface_EntityChangedHandler;
 		}
 	}
 }
