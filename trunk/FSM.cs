@@ -167,11 +167,14 @@ namespace FSM
 		/// <returns>the next State witch is reachable with the state and the inputcharacter</returns>
 		public State getNextState(State fromState, Input input)
 		{
-//			if(this.ErrorStateSet==false)
-//			{
-//				this.ErrorStateSet = true;
-//				this.setErrorStates();
-//			}
+			if(this.ErrorStateSet==false)
+			{
+				this.ErrorStateSet = true;
+				this.setErrorStates();
+			}
+
+			if(fromState == null)
+				Console.WriteLine("The fromState I got was null");
 
 			if(this.inputAl.Contains(input)== false)
 				throw new InvalidInputException();

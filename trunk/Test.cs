@@ -278,8 +278,20 @@ namespace FSM
 			notMin.setErrorStates();
 
 			FEC MinIt = new FEC(notMin);
-//			if(MinIt.equals(notMin))
-//				Console.WriteLine("both are equal");
+//			StateIterator st = new StateIterator(MinIt.getFSM());
+//			while(st.MoveNext())
+//			{
+//				State state = (State) st.Current;
+//				Console.WriteLine("Current State: "+ state.ToString());
+//				Hashtable zu = (Hashtable)MinIt.getFSM().getTransitionMap(state);
+//				Console.WriteLine("das habe ich bekommen: ");
+//				foreach(DictionaryEntry t in zu)
+//					Console.WriteLine(t.Value.ToString());
+//			}
+			if(MinIt.equal(notMin))
+				Console.WriteLine("both are equal");
+			else
+				Console.WriteLine("They are not equal");
 			Console.WriteLine("finished");
 			Console.Read();
 		}

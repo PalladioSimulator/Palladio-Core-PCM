@@ -11,12 +11,16 @@ namespace FSM
 		protected FSM fsm;
 		protected bool debug = !true;
 		protected bool createsFsmDebug = !true;
+		protected bool equalsDebug = true;
 		protected ArrayList groups;
 		protected int zaehler;
 		protected FSM minimized;
 		protected int counterForNumberOfGroups;
 		protected int actualGroupCounter;
 		protected ArrayList mini;
+		// for equals
+		protected Hashtable myMin2d;
+		protected Set visited;
 
 		/// <summary>
 		/// A temp Konstruktor
@@ -45,22 +49,153 @@ namespace FSM
 				this.printGroups();
 //			}
 		}
+
+		/**
+		 * Meine Ideee für die den Vergleich (auf deutsch ist besser da bin ich mir 
+		 * nämlich sicherer das ist das ausdrücken kann, was ich meine):
+		 * Es wird eine HAshmap erstellt, die eine Abbildung zwischen den beiden Automaten
+		 * darstellt. Und zwar werden unter den SChlüsseln(Zustände) des ersten Automaten 
+		 * die erreichten Zustände des anderen Automaten gespeichert.
+		 * Zudem wird eine Hashmap angelgt, díe alle schon besuchten ZUstände des zweiten 
+		 * Automaten enthält.
+		 * in der Hashmap werden zu die Stratzustände ermittelt und gespeichert, dann wird 
+		 * von dem aktuellem Zustand die Folgezustände ermittelt. Und im anderem FSM 
+		 * geschaut ob mit demselben Input ein zustand im zweiten Automaten erreicht werden
+		 * kann, der die gleichen Eigenschaften wie der erste hat.
+		 * Ist das der Fall so werden die Zustände in die Abbildungshashmap eingetragen. 
+		 * worrausgestzt der Zustand ist noch nicht besucht worden.
+		 * Dannn wird der ZUstand in visited eingetragen.
+		 * ZUsätzlcih muss noch eine Methode eingebaut werden , die überprüft, ob eine
+		 * TRansition wieder zum Ausgangszustand führt,
+		 * dies wird solange gemacht bis alle Zustnde durch sind.
+		 * */
+/**
+ * Frage : Du benutzt immer wenig globale Variablen, sondern gibs die Variablen in de
+ * Methoden weiter, welchen Grund hat das?
+ * */
+		public bool equal(object o)
+		{
+			FSM d ;
+			//only for the testing, later use the miniized one;
+			FSM myMin = this.fsm;
+			this.fsm.setErrorStates();
+			//first only this instance
+			if(o is FSM)
+				d = (FSM) o;
+			else return false;
+			if (!(getInputAl()).equals(d.getInputAl())) 
+			{
+				if(this.equalsDebug)
+					Console.WriteLine("Input not fitting");
+				return false;
+			}
+			this.myMin2d = new Hashtable();
+			this.visited = new Set();
+			
+			//Stártzustände abdecken#
+			State myStart = myMin.getStartState();
+			State dStart = d.getStartState();
+			if(!this.sameBehavior(myMin, myStart, d, dStart))
+				return false;
+			this.visited.Add(dStart);
+			this.myMin2d.Add(myStart,dStart);
+			StateIterator stateIter  = new StateIterator(myMin);
+			//State myNext;
+			while(stateIter.MoveNext())
+			{
+				State myState = (State) stateIter.Current;
+//				StateIterator st = new StateIterator(myMin);
+//				while(st.MoveNext())
+//				{
+//					if(st.Current.Equals(myState))
+//						Console.WriteLine("MyState gehört zu MyMin");
+//				}
+//				
+				if(myState.Equals(myMin.getStartState()))
+				{
+					Console.WriteLine("Startzustand übersprungen");
+					continue;
+				}
+				Console.WriteLine("MyState is : "+myState.ToString());
+				
+				State myNextState;
+
+				IEnumerator inputIter = (IEnumerator) myMin.getInputAl().GetEnumerator();
+				while(inputIter.MoveNext())
+				{
+
+//---------------------------	hier!!!!--------------------------------------------
+					Console.WriteLine("myState is now: "+myState.ToString());
+					if(myState == null)
+						Console.WriteLine("Also here myState is null");
+					myNextState = myMin.getNextState(myState,(Input) inputIter.Current);
+					if(myNextState.Equals(myMin.getErrorState()))
+						continue;
+					if(!this.mappingStateFound(myState,myMin,myNextState,d,(Input) inputIter.Current))
+						return false;
+				}
+			}
+
+				return true;
+			
+		}
+		protected bool selfPointing(FSM myMin, State myState, State myNext, Input i)
+		{
+			if(myMin.getNextState(myState,i).Equals(myNext))
+			{
+				if(this.equalsDebug)
+					Console.WriteLine(myState.ToString()+" is selfpointing");
+				return true;
+			}
+			return false;
+		}
 		/// <summary>
-		/// Compares two FSM and checks if they are equal
-		/// Erstmal wird die Funktion nur alleine benutzt, ohne auf die Minimierung 
-		/// zurück zu kommen. Deswegen wird auch zu Beginn der this.fsm verwendet.
+		/// 
 		/// </summary>
-		/// <param name="o"></param>
-		/// <returns>true if they are equal</returns>
-//		public bool Equal(Object o)
-//		{
-////			if(!(o is FSM || o is FEC))
-////				return false;
-//			FSM d = (FSM) o;
-//			if(!(d.getInputAl().Equals(this.fsm)))
-//				return false;
-//			return true;
-//		}
+		/// <param name="myState"></param>
+		/// <param name="myMin"></param>
+		/// <param name="myNext"></param>
+		/// <param name="d"></param>
+		/// <param name="i"></param>
+		/// <returns></returns>
+		protected bool mappingStateFound(State myState, FSM myMin,
+		State myNext, FSM d, Input i)
+		{
+			State dNext = d.getNextState((State)this.myMin2d[myState],i);
+			if(dNext.Equals(d.getErrorState()))
+				return false;
+			if(!sameBehavior(myMin,myNext,d,dNext))
+				return false;
+			if(selfPointing(myMin,myState,myNext,i) != selfPointing(d,(State)this.myMin2d[myState], dNext,i))
+				return false;
+			if(this.visited.Contains(dNext))
+				return false;
+			this.myMin2d.Add(myNext,dNext);
+			this.visited.Add(dNext);
+			return true;
+		}
+		protected bool sameBehavior(FSM myMin, State myNext, FSM d, State dNext)
+		{
+			if(myNext.getFinal() != dNext.getFinal())
+				return false;
+			if(myNext.getFinal() != dNext.getFinal())
+				return false;
+			if(this.equalsDebug)
+				Console.WriteLine(myNext.ToString()+ " and "+ dNext.ToString()
+					+" have the same behavior");
+			return true;
+		}
+
+		
+
+		public FSM getFSM()
+		{
+			return this.fsm;
+		}
+		public FSM getMinimizedFSM()
+		{
+			return this.minimized;
+		}
 		/// <summary>
 		/// Creates the minimized FSM
 		/// </summary>
@@ -376,19 +511,26 @@ namespace FSM
 //		{
 //			State dNextState;
 //			State myNextState;
-//			try 
-//			{
+////			try 
+////			{
 //				dNextState = dMin.getNextState(dState, i);
 //				myNextState = myMin.getNextState(myState, i);
 //
-//			}catch (Exception ) {
-//				throw new ProgrammingErrorException();
-//				}
+////			}catch (Exception ) {
+////				Console.WriteLine("Exception catched in: testStates in ermittlung neuer zustände");
+////				throw new ProgrammingErrorException();
+////				}
 //
 //			if (d2myStatesMap.ContainsKey(dNextState)) 
 //			{
 //				if ((d2myStatesMap[dNextState].Equals(myNextState)))
 //				{
+//					if(this.equalsDebug)
+//					{
+//						Console.WriteLine("in d2myStates unter "+dNextState.ToString() 
+//							+"steht "+ myNextState.ToString());
+//					}
+//
 //					return true;
 //				} 
 //				else 
@@ -403,31 +545,62 @@ namespace FSM
 //		private void mapStates(FSM myMin, State myState,
 //			FSM dMin, State dState,
 //			Hashtable d2myStatesMap, Hashtable visited)
-//		{
-//			Transition temp;
-//			Hashtable transitions = null;
+//		{	
 //
+//			//schaue ob myState zu myMin gehört
+//			Console.WriteLine("MyStates is: "+myState.ToString());
+//			StateIterator st = new StateIterator(myMin);
+//			while(st.MoveNext())
+//			{
+//				if(st.Current.Equals(myState))
+//					Console.WriteLine("MyState gehört zu MyMin");
+//			}
+//
+//			Transition temp;
+//			Hashtable transitions = null ;
+//
+////			foreach(State st in visited)
+////				if(st.Equals(myState))
+////				{
+////					Console.WriteLine("MyState is in visit");
+////					return;
+////				}
 //			if (visited.Contains(myState)) 
 //			{
+//				Console.WriteLine("MyState is in visied");
 //				return;
 //			}
 //			visited.Add(myState,myState);
-//
+//			
 //			try 
 //			{
 //				transitions = myMin.getTransitionMap(myState);
+//			
+//
+//				Console.WriteLine("das habe ich bekommen: ");
+//				foreach(DictionaryEntry t in transitions)
+//					Console.WriteLine(t.Value.ToString());
+//
 //			}
+//			
+//			
 //			catch (Exception) 
 //			{
+//				Console.WriteLine("Exception catched in: mapStates in get Trasnsition map");
 //
-//				throw new ProgrammingErrorException();
+//				//throw new ProgrammingErrorException();
 //			}
 //			//Iterrieren über SChlüssel
-//			IEnumerator myiIter = transitions.Keys.GetEnumerator();
 //
-//			while (myiIter.MoveNext()) 
+//				//IEnumerator myiIter = (IEnumerator)transitions.GetEnumerator();
+//		
+//			
+//			//while (myiIter.MoveNext())
+//			if(transitions != null)
+//			
+//			foreach(DictionaryEntry d in transitions) 
 //			{
-//				temp = 	(Transition)myiIter.Current;
+//				temp = 	(Transition)d.Value;
 //				Input myInput = temp.input;
 //
 //				if (!testStates(myMin,myState,dMin,dState,myInput,
@@ -436,6 +609,10 @@ namespace FSM
 //					Console.WriteLine("Not Mappleable");
 //					throw new Exception();
 //				}
+////				State myMinNext =myMin.getNextState(myState, myInput);
+////				Console.WriteLine("MYNextState is: "+ myMinNext.ToString());
+////				Hashtable tz = myMin.getTransitionMap(myMinNext);
+////				Console.WriteLine("nach hashtable holen");
 //				try 
 //				{
 //					mapStates(myMin,myMin.getNextState(myState, myInput),
@@ -449,6 +626,7 @@ namespace FSM
 //				}
 //				catch (InvalidInputException) 
 //				{
+//					Console.WriteLine("Exception catched in: map States Invalid input");
 //					throw new ProgrammingErrorException();
 //				}
 //			}
@@ -507,33 +685,40 @@ namespace FSM
 //		{
 //			//Object testing
 //			bool result = false;
-//			try 
-//			{
+////			try 
+////			{
 //				FSM d = (FSM) o;
 //
-//				if (!(getInputAl()).Equals(d.getInputAl())) 
+//				if (!(getInputAl()).equals(d.getInputAl())) 
 //				{
+//					Console.WriteLine("Input not fitting");
 //					return false;
 //				}
+//				//Console.WriteLine("Input is equal");
 //				FSM myMin = this.fsm;
 //				FSM dMin = d;
 ////				FSM myMin = this.minimized;
 ////				FEC dnMin = new FEC(d);
 ////				FSM dMin = dnMin.minimized;
 //				Hashtable d2myStatesMap = null;
-//
-//				try 
-//				{
+////
+////				try 
+////				{
 //					d2myStatesMap = (Hashtable) mapStates(myMin, dMin);
-//				}
-//				catch (Exception )
-//				{
-//					return false;
-//				}
+////
+////				}
+////				catch (Exception e )
+////				{
+////					Console.WriteLine("Exception catched in: bool");
+////					Console.WriteLine(e.Message);
+////					Console.WriteLine(e.Source);
+////					Console.WriteLine(e.StackTrace);
+////					return false;
+////				}
 //
-//				result = _equal(myMin, dMin, d2myStatesMap);
-//			}
-//			catch (Exception ){}
+//				result =  _equal(myMin, dMin, d2myStatesMap);
+////			}
+////			catch (Exception ){}
 //			return result;
 //		}
 	}

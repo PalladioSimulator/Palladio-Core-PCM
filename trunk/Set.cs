@@ -105,5 +105,18 @@ namespace FSM
 			
 			return s;
 		}
+		public bool equals(Object o)
+		{
+			if(!(o is Set))
+				return false;
+			Set obj = (Set) o;
+			IEnumerator thisIter = this.GetEnumerator();
+			while(thisIter.MoveNext())
+			{
+				if(!obj.Contains(thisIter.Current))
+					return false;
+			}
+			return true;
+		}
 	}
 }
