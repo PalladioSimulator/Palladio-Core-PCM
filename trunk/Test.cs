@@ -252,16 +252,16 @@ namespace FSM
 			Input Md = new Input("D");
 			Input Me = new Input("E");
 			//Transition
-			Transition t01 = new Transition(Mzero,Md,Mone);
-			Transition t02 = new Transition(Mzero,Me,Mtwo);
-			Transition t14 = new Transition(Mone,Md,Mfour);
-			Transition t15 = new Transition(Mone,Me,Mfive);
-			Transition t23 = new Transition(Mtwo,Md,Mthree);
-			Transition t44 = new Transition(Mfour,Md,Mfour);
-			Transition t42 = new Transition(Mfour,Me,Mtwo);
-			Transition t56 = new Transition(Mfive,Md,Msix);
-			Transition t67 = new Transition(Msix,Md,Mseven);
-			Transition t77 = new Transition(Mseven,Md,Mseven);
+			Transition t01 = new Transition(Mzero,Md,Mone);//0,d,1
+			Transition t02 = new Transition(Mzero,Me,Mtwo);//0,e,2
+			Transition t14 = new Transition(Mone,Md,Mfour);//1,d,4
+			Transition t15 = new Transition(Mone,Me,Mfive);//1,e,5
+			Transition t23 = new Transition(Mtwo,Md,Mthree);//2,d,3
+			Transition t44 = new Transition(Mfour,Md,Mfour);//4,d,4
+			Transition t42 = new Transition(Mfour,Me,Mtwo);//4,e,2
+			Transition t56 = new Transition(Mfive,Md,Msix);//5,d,6
+			Transition t67 = new Transition(Msix,Md,Mseven);//6,d,7
+			Transition t77 = new Transition(Mseven,Md,Mseven);//7,d,7
 
 			notMin.setTransition(t01);
 			notMin.setTransition(t02);
@@ -275,9 +275,13 @@ namespace FSM
 			notMin.setTransition(t77);
 
 			notMin.DisplayOnConsole();
-			notMin.setErrorStates();
-
+			//notMin.setErrorStates();
+			Console.WriteLine("----------------------------------------");
 			FEC MinIt = new FEC(notMin);
+//			FSM eins = MinIt.MinOne(notMin);
+//			Console.WriteLine("eins ist:");
+//			eins.DisplayOnConsole();
+//			FEC dada = new FEC(eins);
 //			StateIterator st = new StateIterator(MinIt.getFSM());
 //			while(st.MoveNext())
 //			{
@@ -288,10 +292,18 @@ namespace FSM
 //				foreach(DictionaryEntry t in zu)
 //					Console.WriteLine(t.Value.ToString());
 //			}
+
 			if(MinIt.equal(notMin))
 				Console.WriteLine("both are equal");
 			else
 				Console.WriteLine("They are not equal");
+////			Hashtable tenp = MinIt.myMin2d;
+//			IEnumerator enu = tenp.GetEnumerator();
+//			while(enu.MoveNext())
+//			{
+//				DictionaryEntry d = (DictionaryEntry) enu.Current;
+//				Console.WriteLine("Key: "+d.Key.ToString()+" value: "+d.Value.ToString());
+//			}
 			Console.WriteLine("finished");
 			Console.Read();
 		}

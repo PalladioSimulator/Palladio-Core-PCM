@@ -163,6 +163,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "StatesNotMappableException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "Test.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -174,6 +179,11 @@
                 />
                 <File
                     RelPath = "TransitionIterator.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "wquals.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
