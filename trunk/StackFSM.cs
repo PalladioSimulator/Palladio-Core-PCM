@@ -168,7 +168,7 @@ namespace FSM {
 			RecursionInput recInput = new RecursionInput(aState.TopService,nextState);
 			// TODO check this condition
 			if (!inputAlphabet.Contains(recInput)){
-				CCDistanceEqual cc = new CCDistanceEqual(anInput,recInput,1);
+				CounterCondition cc = new CounterCondition(anInput,recInput,1);
 				inputAlphabet.Add(recInput);
 				counterConditions.Add(recInput,cc);
 			}

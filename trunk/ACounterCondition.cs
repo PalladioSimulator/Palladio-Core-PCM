@@ -1,11 +1,11 @@
-using System;
+using System.ComponentModel;
 using FSM;
 
 namespace FSM {
 	/// <summary>
 	///Abstract class describing the basic functionality of a condition for a counter.
 	/// </summary>
-	public abstract class ACounterCondition {
+	public class CounterCondition {
 
 		private int requiredDistance;
 		private int currentDistance;
@@ -13,35 +13,20 @@ namespace FSM {
 		private Set setB;
 
 		
-		public ACounterCondition(){
-			requiredDistance = 0;
-			currentDistance = 0;
-			setA = new Set();
-			setB = new Set();
-		}
-
-		public ACounterCondition(Set aSetA, Set aSetB, int aDistance){
+		public CounterCondition(Set aSetA, Set aSetB, int aDistance){
 			requiredDistance = aDistance;
 			currentDistance = 0;
 			setA = aSetA;
 			setB = aSetB;
 		}
 
-		public ACounterCondition(Input inputA, Input inputB, int aDistance){
+		public CounterCondition(Input inputA, Input inputB, int aDistance){
 			requiredDistance = aDistance;
 			currentDistance = 0;
 			setA = new Set();
 			setA.Add(inputA);
 			setB = new Set();
 			setB.Add(inputB);
-		}
-
-		protected int RequiredDistance{
-			get { return requiredDistance; }
-		}
-
-		protected int CurrentDistance{
-			get { return currentDistance; }
 		}
 
 		/// <summary>
@@ -58,12 +43,16 @@ namespace FSM {
 		/// <summary>
 		///Checks the condition for the so far read prefix.
 		/// </summary>
-		public abstract bool CheckPrefix();
+		public abstract bool CheckPrefix(){
+			return ( currentDistance >= requiredDistance );
+		}
 
 		/// <summary>
 		/// Checks the condition for the read input, assuming that it is a terminal word.
 		/// </summary>
-		public abstract bool CheckTerminalWord();
+		public abstract bool CheckTerminalWord(){
+			return ( currentDistance == requiredDistance);
+		}
 
 	
 	
