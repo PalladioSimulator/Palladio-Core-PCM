@@ -21,6 +21,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2004/11/03 20:09:51  kelsaka
+	/// Added full support for POST-requests.
+	///
 	/// Revision 1.10  2004/11/03 18:52:48  kelsaka
 	/// Added ability to get the full content-data of post-requests
 	///
@@ -95,7 +98,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 			} 
 			catch (IOException e) 
 			{
-				webserverMonitor.WriteLogEntry("Calling COR-Successor as errors occured on handling (read data) the request as a http-request.");
+				webserverMonitor.WriteLogEntry("Calling COR-Successor as errors occured on handling (read data) the request as a http-request. " + e);
 				corSuccessor.HandleRequest(request);
 			}
 
@@ -200,6 +203,8 @@ namespace Palladio.Webserver.HTTPRequestParser
 					// The size has to be read from the request itself.
 					if(buffer.IndexOf("Content-Length:") != -1)
 					{
+						requestStringBuffer += buffer + "\n";
+
 						int lengthStartIndex = buffer.IndexOf(":") + 2; // 2: ":" is followed by a space - so read 2 chars later.
 						string contentLengthString = buffer.Substring(lengthStartIndex, buffer.Length - lengthStartIndex);
 						contentLength = Int32.Parse(contentLengthString) + 2; // 2: Two Linebreaks before the Variables start
@@ -265,18 +270,17 @@ namespace Palladio.Webserver.HTTPRequestParser
 			// parse file-type (e. g. ".html") out of the filename.
 			httpRequest.RequestedFileType = parseFileType(httpRequest.RequestedFileName);
 
-
-			Console.WriteLine(requestStringBuffer);
-
-			/*
+			
+			// Extract the request-part, that contains the variables-names and values:
 			int contentIndex = requestStringBuffer.IndexOf("Content-Length:");
 			string contentStringPart = requestStringBuffer.Substring(contentIndex, requestStringBuffer.Length - contentIndex);
 			contentIndex = contentStringPart.IndexOf("\n");
-			contentStringPart = contentStringPart.Substring(contentIndex + 1, contentStringPart.Length - contentIndex - 1);
+			// 3: remove superfluent line-breaks at the beginning of the string
+			// 4: remove superfluent line-breaks at the end of the string
+			contentStringPart = contentStringPart.Substring(contentIndex + 3, contentStringPart.Length - contentIndex - 4);
 
-			Console.WriteLine(contentStringPart);
-			*/
-
+			// seperates the string into variables and set as POST-Variables (false):
+			this.parseVariablesAndAddToHTTPRequest(contentStringPart, httpRequest, false);		
 		}
 
 
@@ -346,7 +350,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 			{								
 				// first save variables-string:
 				variables = httpRequest.RequestedFileName.Substring(qmarkPosition, httpRequest.RequestedFileName.Length - qmarkPosition);
-				parseVariablesAndAddToHTTPRequest(variables, httpRequest);
+				parseVariablesAndAddToHTTPRequest(variables, httpRequest, true);
 
 				// second: remove variables-part from the RequestedFileName-string:
 				httpRequest.RequestedFileName = httpRequest.RequestedFileName.Substring(0, qmarkPosition);
@@ -368,7 +372,8 @@ namespace Palladio.Webserver.HTTPRequestParser
 		/// </summary>
 		/// <param name="variables">The string to parse</param>
 		/// <param name="httpRequest">Request to add variables key/value-pairs to.</param>
-		private void parseVariablesAndAddToHTTPRequest (string variables, IHTTPRequest httpRequest)
+		/// <param name="setGETVariables">If set true, the GET-Variables are set. If set false; the POST-Variables are set.</param>
+		private void parseVariablesAndAddToHTTPRequest (string variables, IHTTPRequest httpRequest, bool setGETVariables)
 		{
 			// if variables contains "?" - first remove.
 			if (variables.StartsWith("?"))
@@ -420,8 +425,16 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 
 				// THIRD: save key-value-pairs.
-				httpRequest.SetGETVariableValue(key, value);
-				webserverMonitor.WriteLogEntry("GET-Variables, Key | Value: " + key + " | " + value);				
+				if(setGETVariables) 
+				{
+					httpRequest.SetGETVariableValue(key, value);
+					webserverMonitor.WriteLogEntry("GET-Variables, Key | Value: " + key + " | " + value);				
+				}
+				else //POST-Case.
+				{
+					httpRequest.SetPOSTVariableValue(key, value);
+					webserverMonitor.WriteLogEntry("POST-Variables, Key | Value: " + key + " | " + value);									
+				}
 			}
 
 			
