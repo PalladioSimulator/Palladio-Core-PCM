@@ -142,28 +142,30 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <param name="input">the input which should be used to deliver the next state</param>
 		/// <returns>The next reachable State</returns>
 		public override IState GetNextState(IState aState, Input input) {
-			if(aState  is DualState == false)
-				throw new InvalidStateException();
-			
-			DualState state = (DualState) aState;
-			if(this.InputAlphabet.Contains(input)== false)
+			if(this.InputAlphabet.Contains(input))
+			{
+				if(aState  is DualState)
+				{
+					DualState dState = (DualState) aState;
+					IState result = ErrorState;
+					IState oneNext,twoNext;
+					oneNext = this.one.GetNextState(dState.oneState,input);
+					twoNext = this.two.GetNextState(dState.twoState,input);
+					if ((!oneNext.Equals(one.ErrorState)) && (!twoNext.Equals(two.ErrorState)))
+					{
+						result = new DualState(oneNext,twoNext);
+					}
+					return result;
+				}
+				else
+				{
+					throw new InvalidStateException();
+				}
+			}
+			else
+			{
 				throw new InvalidInputException();
-			IState OneNext;
-			IState TwoNext;
-
-			try {
-				OneNext = this.one.GetNextState(state.oneState,input);
 			}
-			catch (Exception) {
-				return this.ErrorState;
-			}
-			try {
-				TwoNext = this.two.GetNextState(state.twoState,input);
-			}
-			catch (Exception) {
-				return this.ErrorState;
-			}
-			return new DualState(OneNext,TwoNext);
 		}
 
 

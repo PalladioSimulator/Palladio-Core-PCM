@@ -212,7 +212,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// Index of the group containing aState.
 		/// </returns>
 		protected int GetGroupIndex(IState aState) {
-			if (aState != fsm.ErrorState ) {
+			if (!aState.Equals(fsm.ErrorState) ) {
 				for(int i = 0 ; i< this.groups.Count; i++) {	
 					if(((IList)groups[i]).Contains(aState)) {
 						return i;
@@ -236,7 +236,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// One representative of the group of aState.
 		/// </returns>
 		private IState GetRepresentative( IState aState ) {
-			if ( aState != fsm.ErrorState ) {
+			if ( !aState.Equals(fsm.ErrorState) ) {
 				int index = GetGroupIndex(aState);
 				return (IState) ((IList)this.groups[index])[0];
 			} 
