@@ -126,11 +126,11 @@ namespace FSM {
 
 		/// <returns>The name of the current state.</returns>
 		public override string getName() {
-			string result = "Services: ";
+			string result = "s: ";
 			for (IEnumerator e = serviceStack.GetEnumerator();e.MoveNext();){
 				result += (e.Current + " ");
 			}
-			result += "\n"+"States  : ";
+			result += "\t"+"q: ";
 			for (IEnumerator e = stateStack.GetEnumerator();e.MoveNext();){
 				result+=(e.Current + " ");
 			}

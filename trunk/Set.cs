@@ -61,6 +61,7 @@ namespace FSM
 			}
 		}
 
+
 		public Set()
 		{
 			
@@ -85,6 +86,17 @@ namespace FSM
 			}
 
 		}
+
+
+		/// <summary>
+		/// Adds all elements of another set to this set.
+		/// </summary>
+		public void Join(Set anotherSet){
+			for (IEnumerator e = anotherSet.GetEnumerator(); e.MoveNext();){
+				Add(e);
+			}
+		}
+
 		/// <summary>
 		/// Determines whether the Hashtable contains a specific object. 
 		/// </summary>

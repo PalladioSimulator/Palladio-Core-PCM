@@ -6,7 +6,7 @@ namespace FSM
 	/// <summary>
 	///Represents a FSM.
 	/// </summary>
-	public class FSM : Getters, Setters 
+	public class FSM : Getters
 	{
 		protected Set inputAl;
 		protected Hashtable transitions;
@@ -14,7 +14,6 @@ namespace FSM
 		protected Set FinalSates;
 		protected State errorState;
 		protected Set States;
-		protected bool ErrorStateSet;
 
 
 		/// <summary>
@@ -26,7 +25,6 @@ namespace FSM
 			this.transitions = new Hashtable();
 			this.FinalSates = new Set();
 			this.errorState = State.CreateErrorState();
-			this.ErrorStateSet = !true;
 			this.States = new Set();
 
 		}
@@ -46,6 +44,34 @@ namespace FSM
 			Transition tr = new Transition(fromState, inChar, toState);
 			this.setTransition(tr);
 		}
+
+		/// <summary>
+		/// Find all reachable states from the state aState.
+		/// </summary>
+		/// <param name="aState">State to start from</param>
+		/// <returns>Set containing all reachable States</returns>
+		public Set GetReachableStates(State aState){
+			Set resultSet = new Set();
+			GetReachableStatesRecursive(aState,ref resultSet);
+			return resultSet;
+		}
+
+		/// <summary>
+		/// Find all reachable states from the state aState.
+		/// </summary>
+		/// <param name="aState">starting here</param>
+		/// <param name="resultSet">has to be an empty set. contains the result</param>
+		private void GetReachableStatesRecursive(State aState,ref Set resultSet){
+			if ((!resultSet.Contains(aState)) && (aState!=ErrorState)) {
+				resultSet.Add(aState);
+				Hashtable transitions = getTransitionMap(aState);
+				if (transitions != null){
+					for (IDictionaryEnumerator e = transitions.GetEnumerator(); e.MoveNext();){
+						GetReachableStatesRecursive(((Transition)e.Value).toState,ref resultSet);
+					}
+				}
+			}
+		}
 		
 		/// <summary>
 		/// Displays the startstate and the fianalstate of the FSM on the console.
@@ -53,24 +79,15 @@ namespace FSM
 		/// </summary>
 		public void writeStartFinal()
 		{
-			if(this.ErrorStateSet==false)
-			{
-				this.ErrorStateSet = true;
-				this.setErrorStates();
-			}
 			Console.WriteLine("startstate is: "+this.getStartState().ToString());
 			Console.WriteLine("finalstate is: "+this.getFinalStates().ToString());
 		}
+
 		/// <summary>
 		/// Also for testing
 		/// </summary>
 		public void DisplayOnConsole()
 		{
-			if(this.ErrorStateSet==false)
-			{
-				this.ErrorStateSet = true;
-				this.setErrorStates();
-			}
 			try
 			{
 
@@ -163,33 +180,46 @@ namespace FSM
 		}
 		
 		/// <summary>
-		/// Retruns the next State from a given State and an inputcharacter.
+		/// Returns the next State from a given State and an inputcharacter.
 		/// </summary>
 		/// <param name="fromState"> from State </param>
 		/// <param name="input">the inputcharacter</param>
 		/// <returns>the next State witch is reachable with the state and the inputcharacter</returns>
 		public State getNextState(State fromState, Input input)
 		{
-			if(this.ErrorStateSet==false)
-			{
-				this.ErrorStateSet = true;
-				this.setErrorStates();
+			/*
+			evtl. schöner:
+			if(	(fromState != null) &&
+				(fromState != ErrorState) &&
+				(getInputAl().Contains(input)) &&
+				(transitions.ContainsKey(fromState)) ){
+				
+				for (IEnumerator e = transitions[fromState].GetEnumerator(); e.MoveNext();){
+					Transition trans = (Transition)e.Current;
+					if (trans.input == input)
+						return trans.toState;
+				}
 			}
-			Console.WriteLine(":getNextState: The fromstate i got was: "+fromState.ToString());
-
+			return ErrorState;
+			*/
+			 
+			//Console.WriteLine(":getNextState: The fromstate i got was: "+fromState.ToString());
 			if(fromState.Equals(this.ErrorState))
 				return this.ErrorState;
 		
-			if(fromState == null)
+			if(fromState == null) {
 				Console.WriteLine("The fromState I got was null");
-			
+				return ErrorState;
+			}
 
 			if(this.inputAl.Contains(input)== false)
-				throw new InvalidInputException();
+				return ErrorState;
+				//throw new InvalidInputException();
 
 			
 			if(this.transitions.ContainsKey(fromState)==false)
-				throw new InvalidStateException();
+				return ErrorState;
+				//throw new InvalidStateException();
 			
 
 			Object tmp = this.transitions[fromState];
@@ -216,16 +246,13 @@ namespace FSM
 		/// <returns>The next possible Transition.</returns>
 		public Transition getTransition(State fromState, Input inChar) 
 		{
-			if(this.ErrorStateSet==false)
-			{
-				this.ErrorStateSet = true;
-				this.setErrorStates();
-			}
 			if(this.inputAl.Contains(inChar) ==  false)
-				throw new InvalidInputException();
+				return new Transition(fromState,inChar,ErrorState);
+				//throw new InvalidInputException();
 			
 			if(this.transitions.ContainsKey(fromState)!=true)
-				throw new InvalidStateException();
+				return new Transition(fromState,inChar,ErrorState);
+				//throw new InvalidStateException();
 
 			Object tmp = this.transitions[fromState];
 				Set s = (Set) tmp;
@@ -262,11 +289,6 @@ namespace FSM
 		/// <returns>All transition from the given state</returns>
 		public Hashtable getTransitionMap(State state)
 		{
-			if(this.ErrorStateSet==false)
-			{
-				this.ErrorStateSet = true;
-				this.setErrorStates();
-			}
 			Hashtable tmp = new Hashtable();
 			Object help = this.transitions[state];
 			if(help == null)
@@ -294,11 +316,6 @@ namespace FSM
 		/// <returns>All Transitions of the FSM in a Array</returns>
 		public Transition[] getTransitions()
 		{
-			if(this.ErrorStateSet==false)
-			{
-				this.ErrorStateSet = true;
-				this.setErrorStates();
-			}
 			int i = 0;
 			DynamicArray tmp = new DynamicArray(i);
 			IDictionaryEnumerator myEnumerator = this.transitions.GetEnumerator();
@@ -370,6 +387,9 @@ namespace FSM
 				this.FinalSates.Add(tr.toState);
 
 			this.States.Add(tr.fromState);
+			// The target state must be also considered.
+			this.States.Add(tr.toState);
+
 			if(this.transitions[tr.fromState] == null)
 			{	
 				Set tmp = new Set();
@@ -399,7 +419,7 @@ namespace FSM
 			foreach (Transition t in tr)
 				this.setTransition(t);
 		}
-		public void setErrorStates()
+/*		public void setErrorStates()
 		{
 			StateIterator stateIter = new StateIterator(this);
 			State actual = new State();
@@ -429,6 +449,7 @@ namespace FSM
 			}	
 				
 		}
+	*/
 		public void printInput()
 		{
 			foreach(Input i in this.inputAl)

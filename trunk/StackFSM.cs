@@ -11,13 +11,17 @@ namespace FSM {
 		Getters providesFSM;
 		Hashtable serviceEffectSpecifications;
 		State errorState;
+		Set inputAlphabet;
 
-		
+		Hashtable counterConditions;
+
 		public StackFSM(Getters aProvidesFSM, Hashtable aServiceEffectSpecificationSet){
 			// TODO check for every element of the input alphabet if there exists a corresponding SESP
 			providesFSM = aProvidesFSM;
-			serviceEffectSpecifications = new Hashtable(aServiceEffectSpecificationSet);
+			serviceEffectSpecifications = (Hashtable)aServiceEffectSpecificationSet.Clone();;
 			errorState = State.CreateErrorState();
+			inputAlphabet = DetermineInputAlphabet();
+			counterConditions = new Hashtable();
 		}
 
 		/// <summary>
@@ -40,20 +44,24 @@ namespace FSM {
 			return new StackState(providesFSM.getStartState());
 		}
 
-		public Set getInputAl() {
+
+		private Set DetermineInputAlphabet() {
 			Set resultSet = new Set();
 			for (IDictionaryEnumerator e = serviceEffectSpecifications.GetEnumerator(); e.MoveNext();){
-				for (IEnumerator f = ((Getters)e.Value).getInputAl().GetEnumerator(); e.MoveNext();){
+				for (IEnumerator f = ((Getters)e.Value).getInputAl().GetEnumerator(); f.MoveNext();){
 					resultSet.Add(f.Current);
 				}
 			}
 			for (IEnumerator e = providesFSM.getInputAl().GetEnumerator(); e.MoveNext();){
 				resultSet.Add(e.Current);
 			}
-			resultSet.Add(Input.INPUT_RETURN);
-			resultSet.Add(Input.INPUT_RECURSION);
+			resultSet.Add(Input.RETURN);
 
 			return resultSet;
+		}
+
+		public Set getInputAl() {
+			return inputAlphabet;
 		}
 
 		/// <summary>
@@ -74,16 +82,17 @@ namespace FSM {
 
 			if (fromState is StackState) {
 				StackState state = (StackState)fromState;
-				if ((!state.IsEmpty) && (serviceEffectSpecifications.ContainsKey(state.PeekService()))){
+				if (input is RecursionInput) {
+					resultState = HandleRecursionInput(state,(RecursionInput)input);
+				} else if (serviceEffectSpecifications.ContainsKey(input)) {
+					resultState = CallService(state,input);
+				} else if ((!state.IsEmpty) && (serviceEffectSpecifications.ContainsKey(state.PeekService()))){
 					Getters topService = (Getters)serviceEffectSpecifications[state.PeekService()];
 					if (topService.getInputAl().Contains(input)){
 						resultState = GetNextStateInService(topService,state,input);
-					} else if (input == Input.INPUT_RETURN){
+					} else if (input == Input.RETURN){
 						resultState = ReturnFromService(state);
 					}
-				} else if (serviceEffectSpecifications.ContainsKey(input)) {
-					resultState = CallService(state,input);
-				} else if (input == Input.INPUT_RECURSION) {
 				}
 			} else if (fromState == ErrorState) {
 				// stay in ErrorState; nothing to do
@@ -98,8 +107,8 @@ namespace FSM {
 		/// </summary>
 		/// <returns>The next reachable Transition.</returns>
 		public Transition getTransition(State fromState, Input inChar) {
-			// TODO Implement Method
-			return null;
+			State toState = getNextState(fromState,inChar);
+			return new Transition(fromState,inChar,toState);
 		}
 
 		/// <summary>
@@ -107,8 +116,11 @@ namespace FSM {
 		/// </summary>
 		/// <returns>A Hashtable witch contatins all Transtions from the given State.</returns>
 		public Hashtable getTransitionMap(State state) {
-			// TODO Implement Method
-			return null;
+			Hashtable result = new Hashtable();
+			for (IEnumerator e = inputAlphabet.GetEnumerator(); e.MoveNext();){
+				result.Add(e.Current,getNextState(state,(Input)e.Current));
+			}
+			return result;
 		}
 
 		/// <summary>
@@ -141,7 +153,7 @@ namespace FSM {
 
 			// check for recursion
 			if (!aState.LookupServiceTwice(anInput).IsEmpty) {
-				resultState = HandleRecursion(aState,anInput);
+				resultState = HandleRecursionCall(aState,anInput);
 			} else {
 				resultState = new StackState(aState);
 				Getters service = (Getters)serviceEffectSpecifications[anInput];
@@ -150,8 +162,30 @@ namespace FSM {
 			return resultState;
 		}
 
-		private State HandleRecursion(StackState aState, Input anInput){
-			return ErrorState;
+		private State HandleRecursionCall(StackState aState, Input anInput){
+			Getters service = (Getters)serviceEffectSpecifications[aState.TopService];
+			State nextState = service.getNextState(aState.TopState,anInput);
+			RecursionInput recInput = new RecursionInput(aState.TopService,nextState);
+			// TODO check this condition
+			if (!inputAlphabet.Contains(recInput)){
+				CCDistanceEqual cc = new CCDistanceEqual(anInput,recInput,1);
+				inputAlphabet.Add(recInput);
+				counterConditions.Add(recInput,cc);
+			}
+			return aState.LookupService(anInput);
+		}
+
+		private State HandleRecursionInput(StackState aState, RecursionInput recInput){
+			State resultState = ErrorState;
+			if( (aState.TopState.getFinal()) && (aState.LookupServiceTwice(recInput.Service).IsEmpty)){
+				FSM service = (FSM)serviceEffectSpecifications[aState.TopService];
+				Set reachableStates = service.GetReachableStates(recInput.State);
+				if (reachableStates.Contains(aState.TopState)){
+					resultState = new StackState(aState);
+					((StackState)resultState).ChangeTopState(recInput.State);
+				}
+			}
+			return resultState;
 		}
 
 		private State ReturnFromService(StackState aState){
@@ -164,8 +198,8 @@ namespace FSM {
 				}else {
 					service = (Getters)serviceEffectSpecifications[resultState.TopService];
 				}
-				// TODO if transitions with different results should be handled, the calledServiceName
-				// has to be extended by the result of the last transition
+				// TODO if transitions with different results should be handled, the object
+				// calledServiceName has to be extended by the result of the last transition
 				State nextState = service.getNextState(resultState.TopState,calledServiceName);
 				resultState.ChangeTopState(nextState);
 			} else {

@@ -11,14 +11,7 @@ namespace FSM
 		/// <summary>
 		/// Input instance indicating the end of a service effect specification.
 		/// </summary>
-		public static Input INPUT_RETURN = new Input("return");
-
-		/// <summary>
-		/// Input instance indicating a recursion.
-		/// 
-		/// Maybe own Inputclass (see implementation rr)
-		/// </summary>
-		public static Input INPUT_RECURSION = new Input("recursion");
+		public static Input RETURN = new Input("return");
 
 		/// <summary>
 		/// String represinting the input.
