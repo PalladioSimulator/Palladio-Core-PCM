@@ -3,8 +3,9 @@ using System.Collections;
 using Palladio.Utils.Collections;
 using Palladio.Attributes;
 using ReflectionBasedVisitor;
-using Palladio.ComponentModel.Collections;
 using Palladio.ComponentModel.Exceptions;
+using Palladio.ComponentModel.src.TypedCollections;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Components 
 {
@@ -13,6 +14,19 @@ namespace Palladio.ComponentModel.Components
 	/// are wired using ComponentBindings and mapped to the outside world 
 	/// using ComponentMappings.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/06/04 01:53:58  sliver
+	/// rework of composite component
+	///
+	/// Revision 1.7  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	internal class CompositeComponent : AbstractComponent, ICompositeComponent 
 	{
 
@@ -23,7 +37,21 @@ namespace Palladio.ComponentModel.Components
 		/// </summary>
 		public IComponent[] Components 
 		{ 
-			get { return (IComponent[]) componentList.ToArray(typeof(IComponent)); }
+			get { 
+				IComponent[] result = new IComponent[componentMap.Values.Count];
+				componentMap.Values.CopyTo(result,0);
+				return result;
+			}
+		}
+
+		public IIdentifier[] ComponentIDs
+		{
+			get 
+			{ 
+				IIdentifier[] result = new IIdentifier[componentMap.Keys.Count];
+				componentMap.Keys.CopyTo(result,0);
+				return result;
+			}
 		}
 
 		/// <summary>
@@ -32,387 +60,316 @@ namespace Palladio.ComponentModel.Components
 		/// </summary>
 		public IBinding[] Bindings
 		{ 
-			get { return (IBinding[]) bindingByProvMCH.Get().ToArray(typeof(IBinding)); }
+			get { 
+				return (IBinding[])SelectConnections("(ProvComponentID <> '"+this.ID.ToString()+"') AND (ReqComponentID <> '"+this.ID.ToString()+"')").ToArray(typeof(IBinding));
+			}
 		}
 
 		/// <summary>
-		/// List of ICompProvMappings mapping the ProvidesInterfaces
-		/// of the internal components onto the ProvidesInterfaces of the
+		/// List of ICompProvMappings mapping the provides interfaces
+		/// of the internal components onto the provides interfaces of the
 		/// CompositeComponent.
 		/// </summary>
 		public IMapping[] ProvidesMappings
 		{ 
-			get { return (IMapping[]) provMapByInnerMCH.Get().ToArray(typeof(IMapping)); }
+			get 
+			{ 
+				return (IMapping[])SelectConnections("ReqComponentID = '"+this.ID.ToString()+"'").ToArray(typeof(IMapping));
+			}
 		}
 
 		/// <summary>
 		/// List of IReqCompMappings mapping the RequireInterfaces
-		/// of the internal components onto the RequiresInterface of the
+		/// of the internal components onto the requires interface of the
 		/// CompositeComponent.
 		/// </summary>
 		public IMapping[] RequiresMappings
 		{ 
-			get { return (IMapping[]) reqMapByInnerCH.Get().ToArray(typeof(IMapping)); }
+			get 
+			{ 
+				return (IMapping[])SelectConnections("ProvComponentID = '"+this.ID.ToString()+"'").ToArray(typeof(IMapping));
+			}
 		}
 
 		#endregion
 		
 		#region Methods 
 
-		public void AddComponents(params IComponent[] aCompArray)
+		public void AddComponents(params IComponent[] aComponentArray)
 		{
-			if (ArrayIsNull(aCompArray))
+			if (aComponentArray == null)
 				throw new NullNotAllowedException();
-			componentList.AddRange(aCompArray);
+			foreach(object o in aComponentArray)
+				if (o == null)
+					throw new NullNotAllowedException();
+
+			foreach(IComponent c in aComponentArray)
+				componentMap[c.ID] = c;
 		}
 
-		public void DeleteComponents(params IComponent[] aCompArray)
+		public void DeleteComponents(params IIdentifier[] aCompIDArray)
 		{
-			if (aCompArray == null) return;
+			if (aCompIDArray == null) return;
 
 			// check precondition
-			foreach (IComponent cmp in aCompArray)
+			foreach (IIdentifier id in aCompIDArray)
 			{
-				if (HasIncomingConnections(cmp))
-					throw new ComponentHasIncomingConnectionsException(cmp);
-				if (HasOutgoingConnections(cmp))
-					throw new ComponentHasOutgoingConnectionsException(cmp);
+				if (id == null) continue;
+				if (HasIncomingConnections(id))
+					throw new ComponentHasIncomingConnectionsException(id);
+				if (HasOutgoingConnections(id))
+					throw new ComponentHasOutgoingConnectionsException(id);
 			}
 			// delete data
-			foreach (IComponent cmp in aCompArray)
+			foreach (IIdentifier id in aCompIDArray)
 			{
-				componentList.Remove(cmp);
+				if (id == null) continue;
+				componentMap.Remove(id);
 			}
 		}
 		
-
-		public void AddProvidesInterfaces(params ISignatureList[] aProvInterfaceArray)
+		public override void DeleteProvidesInterfaces(params IIdentifier[] aProvRoleArray)
 		{
 			// check preconditions
-			if (ArrayIsNull(aProvInterfaceArray))
-				throw new NullNotAllowedException();
+			if (aProvRoleArray == null) return;
 
-			foreach( ISignatureList provInterface in aProvInterfaceArray)
+			foreach ( IIdentifier id in aProvRoleArray)
 			{
-				if ((provInterface.RoleID == null) || (provInterface.RoleID == ""))
-					throw new MissingRoleIDException();
+				if ((id != null) && (SelectConnections("(ProvComponentID = '"+this.ID.ToString()+"') AND (ProvRoleID = '" + id.ToString() + "')").Count != 0))
+					throw new HasOutgoingMappingException(id);
 			}
-			
-			// insert data
-			foreach( ISignatureList provInterface in aProvInterfaceArray)
+
+			// delete data
+			base.DeleteProvidesInterfaces(aProvRoleArray);
+		}
+		
+		public override void DeleteRequiresInterfaces(params IIdentifier[] aReqRoleArray)
+		{
+			// check preconditions
+			if (aReqRoleArray == null) return;
+
+			foreach ( IIdentifier id in aReqRoleArray)
 			{
-				providesMap.Add(provInterface.RoleID, provInterface);
+				if ((id != null) && (SelectConnections("(ReqComponentID = '"+this.ID.ToString()+"') AND (ReqRoleID = '" + id.ToString() + "')").Count != 0))
+					throw new HasIncomingMappingsException(id);
 			}
+
+			// delete data
+			base.DeleteRequiresInterfaces(aReqRoleArray);
 		}
 
 		public void AddProvidesMappings(params IMapping[] aProvMappingArray )
 		{
 			// check preconditions
-			if (ArrayIsNull(aProvMappingArray))
+			if (aProvMappingArray == null)
 				throw new NullNotAllowedException();
 
 			foreach( IMapping provMapping in aProvMappingArray)
 			{
-				CheckProvidesInterface(provMapping.InnerInterface);
-				if( !this.HasProvidesInterface(provMapping.OuterRoleID))
-					throw new NoInterfaceForRoleException(provMapping.OuterRoleID);
+				CheckProvidesInterface(provMapping.InnerRole);
+				if( !this.HasProvidesInterface(provMapping.OuterRole.RoleID))
+					throw new NoInterfaceForRoleException(provMapping.OuterRole.RoleID);
 			}
 
 			// insert data
-			foreach( IMapping provMapping in aProvMappingArray)
-			{
-				provMapByInnerMCH.Add(provMapping.InnerInterface, provMapping);
-				provMapByOuterHT.Add(provMapping.OuterRoleID, provMapping);
-			}
+			AddConnections(aProvMappingArray);
 		}
 
-		public void DeleteProvidesInterfaces(params ISignatureList[] aProvInterfaceArray)
-		{
-			// check preconditions
-			if (aProvInterfaceArray == null) return;
-
-			foreach ( ISignatureList provInterface in aProvInterfaceArray)
-			{
-				if (provMapByOuterHT[provInterface.RoleID] != null)
-					throw new HasOutgoingMappingException((IMapping)provMapByOuterHT[provInterface.RoleID]);
-			}
-			// delete data
-			foreach ( ISignatureList provInterface in aProvInterfaceArray)
-			{
-				if (provInterface != null)
-					providesMap.Remove(provInterface.RoleID);
-			}
-		}
-		
 		public void DeleteProvidesMappings(params IMapping[] aProvMappingArray)
 		{
-			if (aProvMappingArray == null) return;
-
-			foreach (IMapping provMapping in aProvMappingArray)
-			{
-				if (provMapping != null)
-				{
-					provMapByOuterHT.Remove(provMapping.OuterRoleID);
-					provMapByInnerMCH.Delete(provMapping.InnerInterface,provMapping);
-				}
-			}
+			DeleteConnections(aProvMappingArray);
 		}
 
-
-		public void AddRequiresInterfaces(params ISignatureList[] aReqInterfaceArray)
-		{
-			// check preconditions
-			if (ArrayIsNull(aReqInterfaceArray))
-				throw new NullNotAllowedException();
-
-			foreach (ISignatureList reqInterface in aReqInterfaceArray)
-			{
-				if ((reqInterface.RoleID == null) || (reqInterface.RoleID == ""))
-					throw new MissingRoleIDException();
-			}
-
-			// insert data
-			foreach (ISignatureList reqInterface in aReqInterfaceArray)
-			{
-				requiresMap.Add(reqInterface.RoleID, reqInterface);
-			}
-		}
 
 		public void AddRequiresMappings(params IMapping[] aReqMappingArray)
 		{
 			// check preconditions
-			if (ArrayIsNull(aReqMappingArray))
+			if (aReqMappingArray == null)
 				throw new NullNotAllowedException();
 
 			foreach( IMapping reqMapping in aReqMappingArray)
 			{
-				CheckRequiresInterface(reqMapping.InnerInterface);
-				if (!this.HasRequiresInterface(reqMapping.OuterRoleID))
-					throw new NoInterfaceForRoleException(reqMapping.OuterRoleID);
+				CheckRequiresInterface(reqMapping.InnerRole);
+				if (!this.HasRequiresInterface(reqMapping.OuterRole.RoleID))
+					throw new NoInterfaceForRoleException(reqMapping.OuterRole.RoleID);
 			}
-
-			// insert data
-			foreach( IMapping reqMapping in aReqMappingArray)
-			{
-				reqMapByInnerCH.Add(reqMapping.InnerInterface, reqMapping);
-
-				Set mapSet = (Set)reqMapByOuterMHT[reqMapping.OuterRoleID];
-				if (mapSet == null)
-					mapSet = new Set();
-				mapSet.Add(reqMapping);
-				reqMapByOuterMHT[reqMapping.OuterRoleID] = mapSet;
-			}
-		}
-
-		public void DeleteRequiresInterfaces(params ISignatureList[] aReqInterfaceArray)
-		{
-			// check preconditions
-			if (aReqInterfaceArray == null) return;
-
-			foreach (ISignatureList reqInterface in aReqInterfaceArray)
-			{
-				if (aReqInterfaceArray != null)
-				{
-					Set connectionSet = (Set)reqMapByOuterMHT[reqInterface.RoleID];
-					if ((connectionSet != null) && connectionSet.Count > 0)
-						throw new HasIncomingMappingsException(connectionSet);
-				}
-			}
-
-			// delete data
-			foreach (ISignatureList reqInterface in aReqInterfaceArray)
-			{
-				if (aReqInterfaceArray != null)
-					requiresMap.Remove(reqInterface.RoleID);
-			}
+			AddConnections(aReqMappingArray);
 		}
 
 		public void DeleteRequiresMappings(params IMapping[] aReqMappingArray)
 		{
-			if (aReqMappingArray == null) return;
-
-			foreach( IMapping mapping in aReqMappingArray)
-			{
-				if (mapping != null)
-				{
-					Set connectionSet = (Set)reqMapByOuterMHT[mapping.OuterRoleID];
-					if (connectionSet != null)
-						connectionSet.Remove(mapping);
-					reqMapByInnerCH.Delete(mapping.InnerInterface);
-				}
-			}
+			DeleteConnections(aReqMappingArray);
 		}
-
 
 		public void AddBindings(params IBinding[] aBindingArray)
 		{
 			// check preconditions
-			if (ArrayIsNull(aBindingArray))
+			if (aBindingArray == null)
 				throw new NullNotAllowedException();
 
 			foreach (IBinding binding in aBindingArray)
 			{
-				CheckProvidesInterface(binding.ProvidesInterface);
-				CheckRequiresInterface(binding.RequiresInterface);
+				CheckProvidesInterface(binding.ProvidingRole);
+				CheckRequiresInterface(binding.RequiringRole);
 			}
 
 			// add data
-			foreach (IBinding binding in aBindingArray)
-			{
-				bindingByProvMCH.Add(binding.ProvidesInterface, binding);
-				bindingByReqCH.Add(binding.RequiresInterface, binding );
-			}
+			AddConnections(aBindingArray);
 		}
 
 		public void DeleteBindings(params IBinding[] aBindingArray)
 		{
-			if (aBindingArray == null) return;
-
-			foreach (IBinding binding in aBindingArray)
-			{
-				if (binding != null)
-				{
-					bindingByProvMCH.Delete(binding.ProvidesInterface,binding);
-					bindingByReqCH.Delete(binding.RequiresInterface);
-				}
-			}
+			DeleteConnections(aBindingArray);
 		}
 		
 
-		public IBinding[] GetRequiresBindings(IComponent aComponent)
+		public IBinding[] GetProvidesBindings(IIdentifier aComponentID)
 		{
-			if (!ContainsComponent(aComponent))
-				throw new ComponentNotFoundException(aComponent);
-			return (IBinding[])bindingByReqCH.Get(aComponent).ToArray(typeof(IBinding));
-		}
-
-		public IBinding[] GetProvidesBindings(IComponent aComponent)
-		{
-			if (!ContainsComponent(aComponent))
-				throw new ComponentNotFoundException(aComponent);
-			return (IBinding[])bindingByProvMCH.Get(aComponent).ToArray(typeof(IBinding));
+			if (!ContainsComponent(aComponentID))
+				throw new ComponentNotFoundException(aComponentID);
+			return (IBinding[]) SelectConnections("(ProvComponentID = '"+aComponentID.ToString()+"') AND (ReqComponentID <> '"+this.ID.ToString()+"')").ToArray(typeof(IBinding));
 		}
 
 		
-		public IMapping[] GetProvidesMappings(IComponent aComponent)
+		public IMapping[] GetProvidesMappings(IIdentifier aComponentID)
 		{
-			if (!ContainsComponent(aComponent))
-				throw new ComponentNotFoundException(aComponent);
-			return (IMapping[]) provMapByInnerMCH.Get(aComponent).ToArray(typeof(IMapping));
+			if (!ContainsComponent(aComponentID))
+				throw new ComponentNotFoundException(aComponentID);
+			return (IMapping[]) SelectConnections("(ProvComponentID = '"+aComponentID.ToString()+"') AND (ReqComponentID = '"+this.ID.ToString()+"')").ToArray(typeof(IMapping));
 		}
 
-		public IMapping[] GetRequiresMappings(IComponent aComponent)
+		public IBinding[] GetRequiresBindings(IIdentifier aComponentID)
 		{
-			if (!ContainsComponent(aComponent))
-				throw new ComponentNotFoundException(aComponent);
-			return (IMapping[]) reqMapByInnerCH.Get(aComponent).ToArray(typeof(IMapping));
+			if (!ContainsComponent(aComponentID))
+				throw new ComponentNotFoundException(aComponentID);
+			return (IBinding[]) SelectConnections("(ReqComponentID = '"+aComponentID.ToString()+"') AND (ProvComponentID <> '"+this.ID.ToString()+"')").ToArray(typeof(IBinding));
 		}
 
-
-		public IMapping GetProvidesMappingByOuter(string aProvRoleID)
+		public IMapping[] GetRequiresMappings(IIdentifier aComponentID)
 		{
-			if (!HasProvidesInterface(aProvRoleID))
-				throw new RoleIDNotFoundException(aProvRoleID);
-			return (IMapping) provMapByOuterHT[aProvRoleID];
-		}
-
-		public IMapping[] GetProvidesMappingsByInner(AttachedInterface aProvInterface)
-		{
-			CheckProvidesInterface(aProvInterface);
-			return (IMapping[]) provMapByInnerMCH.Get(aProvInterface).ToArray(typeof(IMapping));
-		}
-
-		public IMapping[] GetProvidesMappingsByInner(IComponent aProvComponent, string aProvRole)
-		{
-			return GetProvidesMappingsByInner( new AttachedInterface(aProvComponent, aProvRole) );
+			if (!ContainsComponent(aComponentID))
+				throw new ComponentNotFoundException(aComponentID);
+			return (IMapping[]) SelectConnections("(ReqComponentID = '"+aComponentID.ToString()+"') AND (ProvComponentID = '"+this.ID.ToString()+"')").ToArray(typeof(IMapping));
 		}
 
 
-		public IBinding GetBindingByRequires(AttachedInterface aReqInterface)
+		public IMapping GetProvidesMappingByOuter(IIdentifier anOuterRoleID)
 		{
-			CheckRequiresInterface(aReqInterface);
-			return (IBinding) bindingByReqCH.Get(aReqInterface);
+			if (!HasProvidesInterface(anOuterRoleID))
+				throw new RoleIDNotFoundException(anOuterRoleID);
+			Vector connectionList = SelectConnections("(ReqComponentID = '"+this.ID.ToString()+"') AND (ReqRoleID = '"+ anOuterRoleID.ToString() +"')");
+			if (connectionList.Count == 0)
+				throw new ConnectionNotFoundException(this.ID,anOuterRoleID);
+			return (IMapping)connectionList[0];
 		}
 
-		public IBinding GetBindingByRequires(IComponent aReqComponent, string aReqRole)
+		public IMapping[] GetRequiresMappingsByOuter(IIdentifier anOuterRoleID)
 		{
-			return GetBindingByRequires(new AttachedInterface(aReqComponent, aReqRole) );
+			if (!HasRequiresInterface(anOuterRoleID))
+				throw new RoleIDNotFoundException(anOuterRoleID);
+			Vector connectionList = SelectConnections("(ProvComponentID = '"+this.ID.ToString()+"') AND (ProvRoleID = '"+ anOuterRoleID.ToString() +"')");
+			if (connectionList.Count == 0)
+				throw new ConnectionNotFoundException(this.ID,anOuterRoleID);
+			return (IMapping[])connectionList.ToArray(typeof(IMapping));
 		}
 
-		public IBinding[] GetBindingsByProvides(AttachedInterface aProvInterface)
+		public IMapping[] GetProvidesMappingsByInner(IAttachedRole anInnerRole)
 		{
-			CheckProvidesInterface(aProvInterface);
-			return (IBinding[]) bindingByProvMCH.Get(aProvInterface).ToArray(typeof(IBinding));
+			CheckProvidesInterface(anInnerRole);
+			Vector connectionList = SelectConnections("(ProvComponentID = '"+anInnerRole.ComponentID.ToString()+"') AND (ProvRoleID = '"+ anInnerRole.RoleID.ToString() +"') AND (ReqComponentID = '"+this.ID.ToString()+"')");
+			if (connectionList.Count == 0)
+				throw new ConnectionNotFoundException(anInnerRole);
+			return (IMapping[])connectionList.ToArray(typeof(IMapping));
 		}
 
-		public IBinding[] GetBindingsByProvides(IComponent aProvComponent, string aProvRole)
+		public IMapping[] GetProvidesMappingsByInner(IIdentifier anInnerCompID, IIdentifier anInnerRoleID)
 		{
-			return GetBindingsByProvides(new AttachedInterface(aProvComponent, aProvRole));
+			return GetProvidesMappingsByInner(new DefaultAttachedRole(GetComponent(anInnerCompID),anInnerRoleID));
+		}
+
+		public IMapping GetRequiresMappingByInner(IAttachedRole anInnerRole)
+		{
+			CheckRequiresInterface(anInnerRole);
+			Vector connectionList = SelectConnections("(ReqComponentID = '"+anInnerRole.ComponentID.ToString()+"') AND (ReqRoleID = '"+ anInnerRole.RoleID.ToString() +"') AND (ProvComponentID = '"+this.ID.ToString()+"')");
+			if (connectionList.Count == 0)
+				throw new ConnectionNotFoundException(anInnerRole);
+			return (IMapping)connectionList[0];
+		}
+
+		public IMapping GetRequiresMappingByInner(IIdentifier anInnerCompID, IIdentifier anInnerRoleID)
+		{
+			return GetRequiresMappingByInner(new DefaultAttachedRole( GetComponent(anInnerCompID), anInnerRoleID) );
+		}
+
+		public IBinding GetBindingByRequires(IAttachedRole aReqRole)
+		{
+			CheckRequiresInterface(aReqRole);
+			Vector connectionList = SelectConnections("(ReqComponentID = '"+aReqRole.ComponentID.ToString()+"') AND (ReqRoleID = '"+ aReqRole.RoleID.ToString() +"') AND (ProvComponentID <> '"+this.ID.ToString()+"')");
+			if (connectionList.Count == 0)
+				throw new ConnectionNotFoundException(aReqRole);
+			return (IBinding)connectionList[0];
+		}
+
+		public IBinding GetBindingByRequires(IIdentifier aReqComponentID, IIdentifier aReqRoleID)
+		{
+			return GetBindingByRequires(new DefaultAttachedRole(GetComponent(aReqComponentID), aReqRoleID) );
+		}
+
+		public IBinding[] GetBindingsByProvides(IAttachedRole aProvRole)
+		{
+			CheckProvidesInterface(aProvRole);
+			Vector connectionList = SelectConnections("(ProvComponentID = '"+aProvRole.ComponentID.ToString()+"') AND (ProvRoleID = '"+ aProvRole.RoleID.ToString() +"') AND (ReqComponentID <> '"+this.ID.ToString()+"')");
+			if (connectionList.Count == 0)
+				throw new ConnectionNotFoundException(aProvRole);
+			return (IBinding[])connectionList.ToArray(typeof(IBinding));
+		}
+
+		public IBinding[] GetBindingsByProvides(IIdentifier aProvComponentID, IIdentifier aProvRoleID)
+		{
+			return GetBindingsByProvides(new DefaultAttachedRole(GetComponent(aProvComponentID), aProvRoleID));
 		}
 
 		
-		public IMapping GetRequiresMappingByInner(AttachedInterface aReqInterface)
+		public bool HasIncomingConnections(IIdentifier aComponentID)
 		{
-			CheckRequiresInterface(aReqInterface);
-			return (IMapping) reqMapByInnerCH.Get(aReqInterface);
-		}
-
-		public IMapping GetRequiresMappingByInner(IComponent aReqComponent, string aReqRole)
-		{
-			return GetRequiresMappingByInner(new AttachedInterface( aReqComponent, aReqRole ) );
-		}
-
-		public IMapping[] GetRequiresMappingsByOuter(string aReqRoleID)
-		{
-			if (!HasRequiresInterface(aReqRoleID))
-				throw new RoleIDNotFoundException(aReqRoleID);
-
-			Set mapSet = (Set) reqMapByOuterMHT[aReqRoleID];
-			if (mapSet != null)
-				return (IMapping[]) mapSet.ToArray(typeof(IMapping));
-			else
-				return new IMapping[0] ;
-		}
-
-
-		public bool HasIncomingConnections(IComponent aComponent)
-		{
-			if (aComponent == null)
+			if (aComponentID == null)
 				return false;
-			if (provMapByInnerMCH.Get(aComponent).Count > 0)
-				return true;
-			if (bindingByProvMCH.Get(aComponent).Count > 0)
+			if (SelectConnections("ProvComponentID = '"+aComponentID.ToString()+"'").Count > 0)
 				return true;
 			return false;
 		}
 
-		public bool HasOutgoingConnections(IComponent aComponent)
+		public bool HasOutgoingConnections(IIdentifier aComponentID)
 		{
-			if (aComponent == null)
+			if (aComponentID == null)
 				return false;
-			if ( reqMapByInnerCH.Get(aComponent).Count > 0 )
-				return true;
-			if ( bindingByReqCH.Get(aComponent).Count > 0 )
+			if (SelectConnections("ReqComponentID = '"+aComponentID.ToString()+"'").Count > 0)
 				return true;
 			return false;
 		}
 
-		public bool ContainsComponent(IComponent aComponent)
+		public bool ContainsComponent(IIdentifier aComponentID)
 		{
-			return (aComponent != null ? componentList.Contains(aComponent) : false);
+			return (aComponentID != null ? componentMap.Contains(aComponentID) : false);
 		}
 
-
-		private void CheckProvidesInterface(AttachedInterface anInterface)
+		public IComponent GetComponent(IIdentifier aComponentID)
 		{
-			if ((!ContainsComponent(anInterface.Component)) || (!anInterface.Component.HasProvidesInterface(anInterface.RoleID)))
-				throw new InvalidAttachedInterfaceException(anInterface);
+			if (aComponentID == null) 
+				throw new ComponentNotFoundException(aComponentID);
+			return (IComponent) componentMap[aComponentID];
 		}
 
-		private void CheckRequiresInterface(AttachedInterface anInterface)
+		private void CheckProvidesInterface(IAttachedRole aRole)
 		{
-			if ((!ContainsComponent(anInterface.Component)) || (!anInterface.Component.HasRequiresInterface(anInterface.RoleID)))
-				throw new InvalidAttachedInterfaceException(anInterface);
+			if ((!ContainsComponent(aRole.ComponentID)) || (!aRole.Component.HasProvidesInterface(aRole.RoleID)))
+				throw new InvalidAttachedRoleException(aRole);
+		}
+
+		private void CheckRequiresInterface(IAttachedRole aRole)
+		{
+			if ((!ContainsComponent(aRole.ComponentID)) || (!aRole.Component.HasRequiresInterface(aRole.RoleID)))
+				throw new InvalidAttachedRoleException(aRole);
 		}
 
 		/// <summary>
@@ -450,10 +407,8 @@ namespace Palladio.ComponentModel.Components
 			if (!base.Equals(obj)) return false;
 			CompositeComponent cc = (CompositeComponent)obj;
 			return (
-				this.componentList.Equals(cc.componentList) &&
-				this.bindingByReqCH.Equals(cc.bindingByReqCH) &&
-				this.provMapByOuterHT.Equals(cc.provMapByOuterHT) &&
-				this.reqMapByInnerCH.Equals(cc.reqMapByInnerCH)
+				componentMap.Equals(cc.componentMap) &&
+				Set.SetwiseEquals( connectionMap.Values, cc.connectionMap.Values )
 				);
 		}
 
@@ -468,53 +423,77 @@ namespace Palladio.ComponentModel.Components
 			return base.GetHashCode ();
 		}
 
+		private Vector SelectConnections(string filterExpression)
+		{
+			Vector result = new Vector();
+			ConnectionDataSet.ConnectionTableRow[] rows = (ConnectionDataSet.ConnectionTableRow[]) connectionDataSet.ConnectionTable.Select(filterExpression);
+			foreach(ConnectionDataSet.ConnectionTableRow row in rows)
+			{
+				result.Add(connectionMap[ row.ID ]);
+			}
+			return result;
+		}
+
+		private void AddConnections(params IConnection[] aConnectionArray)
+		{
+			foreach (IConnection c in aConnectionArray)
+			{
+				long id = nextID++;
+				connectionDataSet.ConnectionTable.AddConnectionTableRow(
+					id,
+					c.ProvidingRole.ComponentID.ToString(),
+					c.ProvidingRole.RoleID.ToString(),
+					c.RequiringRole.ComponentID.ToString(),
+					c.RequiringRole.RoleID.ToString() );
+				connectionMap[id] = c;
+			}
+		}
+
+		private void DeleteConnections(params IConnection[] aConnectionArray)
+		{
+			if (aConnectionArray == null) return;
+			foreach( IConnection c in aConnectionArray)
+			{
+				ConnectionDataSet.ConnectionTableRow[] rows = (ConnectionDataSet.ConnectionTableRow[])
+					connectionDataSet.ConnectionTable.Select("(ProvComponentID = '"+c.ProvidingRole.ComponentID.ToString()+"') AND ( ProvRoleID = '"+c.ProvidingRole.RoleID.ToString()+"') AND ( ReqComponentID = '"+c.RequiringRole.ComponentID.ToString()+"') AND ( ReqRoleID = '"+c.RequiringRole.RoleID.ToString()+"')");
+				if (rows.Length > 0)
+				{
+					connectionMap.Remove(rows[0].ID);
+					connectionDataSet.ConnectionTable.RemoveConnectionTableRow(rows[0]);
+				}
+			}
+		}
+
 		#endregion
 
 		#region Constructors
 
-		public CompositeComponent( IAttributeHash anAttHash ) : base (anAttHash)
+		public CompositeComponent( IAttributeHash anAttHash, IIdentifier anID ) : base (anAttHash,anID)
 		{
-			componentList = new Vector();
-			provMapByOuterHT = new Hashmap();
-			reqMapByOuterMHT = new Hashmap();
-			provMapByInnerMCH = new MultipleConnectionHash();
-			reqMapByInnerCH = new ConnectionHash();
-			bindingByProvMCH = new MultipleConnectionHash();
-			bindingByReqCH = new ConnectionHash();
+			nextID = 0;
+			connectionDataSet = new ConnectionDataSet();
+			componentMap = new Hashmap();
+			connectionMap = new Hashmap();
 		}
 
 		public CompositeComponent( CompositeComponent aComponent) : base (aComponent)
 		{
-			componentList = new Vector(aComponent.componentList);
-			provMapByOuterHT = aComponent.provMapByOuterHT.Clone();
-			reqMapByOuterMHT = aComponent.reqMapByOuterMHT.Clone();
-			provMapByInnerMCH = aComponent.provMapByInnerMCH.Clone();
-			reqMapByInnerCH = aComponent.reqMapByInnerCH.Clone();
-			bindingByProvMCH = aComponent.bindingByProvMCH.Clone();
-			bindingByReqCH = aComponent.bindingByReqCH.Clone();
+			nextID = 0;
+			connectionDataSet = new ConnectionDataSet();
+			componentMap = new Hashmap(aComponent.componentMap);
+			connectionMap = new Hashmap();
+			foreach( IConnection c in aComponent.connectionMap.Values )
+				AddConnections(c);
 		}
 
 		#endregion
 
 		#region Data
 
-		/// <summary>
-		/// key string roleID
-		/// value IProvidesmapping
-		/// </summary>
-		private Hashmap provMapByOuterHT;
-		private ConnectionHash reqMapByInnerCH;
-		private ConnectionHash bindingByReqCH;
-
-		/// <summary>
-		/// key string roleID
-		/// value Set
-		/// </summary>
-		private Hashmap reqMapByOuterMHT;
-		private MultipleConnectionHash bindingByProvMCH;
-		private MultipleConnectionHash provMapByInnerMCH;
-
-		private Vector componentList;
+		private ConnectionDataSet connectionDataSet;
+		private Hashmap componentMap;
+		private Hashmap connectionMap;
+		private long nextID;
 		#endregion
 	}
 }

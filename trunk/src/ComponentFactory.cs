@@ -3,7 +3,7 @@ using Palladio.Attributes;
 using Palladio.ComponentModel.Signature;
 using Palladio.ComponentModel.InterfaceModels;
 using Palladio.ComponentModel.Components;
-//using Palladio.ComponentModel.Connections;
+using Palladio.ComponentModel.Connections;
 using Palladio.FiniteStateMachines;
 using Palladio.Identifier;
 
@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/06/04 01:53:56  sliver
+	/// rework of composite component
+	///
 	/// Revision 1.4  2004/06/03 14:37:28  sbecker
 	/// Added the possibility to attach auxiliary specifications to a basic component
 	///
@@ -506,7 +509,7 @@ namespace Palladio.ComponentModel
 		}
 		#endregion
 
-		#region CreateXXXComponent
+		#region CreateBasicComponent
 
 		/// <summary>
 		/// Create a new, empty IBasicComponent with the attributes specified in anAttrHash.
@@ -528,31 +531,33 @@ namespace Palladio.ComponentModel
 			return new BasicComponent(CreateAttributeHash(),IdentifiableFactory.CreateStringID(ID));
 		}
 		#endregion
-#if false
+
 		#region CompositeComponent
 		/// <summary>
 		/// Create a new, empty IBasicComponent with the attributes given by anAttributeHash.
 		/// </summary>
 		/// <param name="anAttrHash">Attributes of the new Component.</param>
 		/// <returns>New IBasicComponent instance.</returns>
-		public static ICompositeComponent CreateCompositeComponent(IAttributeHash anAttrHash)
+		public static ICompositeComponent CreateCompositeComponent(IAttributeHash anAttrHash, string ID)
 		{
-			return new CompositeComponent(anAttrHash);
+			return new CompositeComponent(anAttrHash, IdentifiableFactory.CreateStringID(ID));
 		}
 
 		/// <summary>
 		/// Create a new, empty instance of ICompositeComponent.
 		/// </summary>
 		/// <returns>A new ICompositeComponent instance.</returns>
-		public static ICompositeComponent CreateCompositeComponent()
+		public static ICompositeComponent CreateCompositeComponent(string ID)
 		{
-			return new CompositeComponent(CreateAttributeHash());
+			return new CompositeComponent(CreateAttributeHash(), IdentifiableFactory.CreateStringID(ID));
 		}
 
 		#endregion
 
 		#region CreateConnections
 
+		#if true
+
 		/// <summary>
 		/// Create a new IBinding instance.
 		/// </summary>
@@ -562,12 +567,12 @@ namespace Palladio.ComponentModel
 		/// <param name="reqComp">Requiring component of the binding relation.</param>
 		/// <param name="reqRole">Requiring role of reqComp.</param>
 		/// <returns>New IBinding instance</returns>
-		public static IBinding CreateBinding(IAttributeHash anAttrHash, IComponent provComp, string provRole, IComponent reqComp, string reqRole)
+		public static IBinding CreateBinding(IAttributeHash anAttrHash, IComponent reqComponent, IIdentifier reqRoleID, IComponent provComponent, IIdentifier provRoleID)
 		{
-			return new Binding(
+			return new DefaultBinding(
 				anAttrHash,
-				new AttachedInterface(provComp, provRole), 
-				new AttachedInterface(reqComp, reqRole));
+				new DefaultAttachedRole(reqComponent, reqRoleID),
+				new DefaultAttachedRole(provComponent, provRoleID));
 		}
 
 		/// <summary>
@@ -578,9 +583,12 @@ namespace Palladio.ComponentModel
 		/// <param name="reqComp">Requiring component of the binding relation.</param>
 		/// <param name="reqRole">Requiring role of reqComp.</param>
 		/// <returns>New IBinding instance</returns>
-		public static IBinding CreateBinding(IComponent provComp, string provRole, IComponent reqComp, string reqRole)
+		public static IBinding CreateBinding(IComponent reqComponent, IIdentifier reqRoleID, IComponent provComponent, IIdentifier provRoleID)
 		{
-			return CreateBinding(CreateAttributeHash(), provComp, provRole, reqComp, reqRole);
+			return new DefaultBinding(
+				CreateAttributeHash(),
+				new DefaultAttachedRole(reqComponent, reqRoleID),
+				new DefaultAttachedRole(provComponent, provRoleID));
 		}
 
 		/// <summary>
@@ -590,9 +598,9 @@ namespace Palladio.ComponentModel
 		/// <param name="provInterface">Providing interface of the binding relation.</param>
 		/// <param name="reqInterface">Requiring inteface of the binding relation.</param>
 		/// <returns>New IBinding instance</returns>
-		public static IBinding CreateBinding(IAttributeHash anAttrHash, AttachedInterface provInterface, AttachedInterface reqInterface)
+		public static IBinding CreateBinding(IAttributeHash anAttrHash, IAttachedRole reqRole, IAttachedRole provRole)
 		{
-			return CreateBinding(anAttrHash, provInterface.Component, provInterface.RoleID, reqInterface.Component, reqInterface.RoleID);
+			return new DefaultBinding( anAttrHash, reqRole, provRole);
 		}
 
 		/// <summary>
@@ -601,11 +609,13 @@ namespace Palladio.ComponentModel
 		/// <param name="provInterface">Providing interface of the binding relation.</param>
 		/// <param name="reqInterface">Requiring inteface of the binding relation.</param>
 		/// <returns>New IBinding instance</returns>
-		public static IBinding CreateBinding(AttachedInterface provInterface, AttachedInterface reqInterface)
+		public static IBinding CreateBinding(IAttachedRole reqRole, IAttachedRole provRole)
 		{
-			return CreateBinding(CreateAttributeHash(), provInterface.Component, provInterface.RoleID, reqInterface.Component, reqInterface.RoleID);
+			return new DefaultBinding( CreateAttributeHash(), reqRole, provRole);
 		}
+#endif 
 
+#if true
 		/// <summary>
 		/// Create a new IMapping instance.
 		/// </summary>
@@ -614,9 +624,9 @@ namespace Palladio.ComponentModel
 		/// <param name="anInnerComponent">The inner component the outer interface is mapped onto.</param>
 		/// <param name="anInnerRole">The RoleID of the inner component the outer interface is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
-		public static IMapping CreateMapping(IAttributeHash anAttrHash, string anOuterRole, IComponent anInnerComponent, string anInnerRole)
+		public static IMapping CreateProvidesMapping(IAttributeHash anAttrHash, IComponent anOuterComponent, IIdentifier anOuterRoleID, IComponent anInnerComponent, IIdentifier anInnerRoleID)
 		{
-			return new Mapping(anAttrHash, new AttachedInterface( anInnerComponent, anInnerRole ), anOuterRole );
+			return new DefaultMapping(anAttrHash, new DefaultAttachedRole( anOuterComponent, anOuterRoleID ), new DefaultAttachedRole(anInnerComponent, anInnerRoleID), MappingTypeEnum.PROVIDES_MAPPING);
 		}
 
 		/// <summary>
@@ -626,9 +636,9 @@ namespace Palladio.ComponentModel
 		/// <param name="anInnerComponent">The inner component the outer interface is mapped onto.</param>
 		/// <param name="anInnerRole">The RoleID of the inner component the outer interface is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
-		public static IMapping CreateMapping(string anOuterRole, IComponent anInnerComponent, string anInnerRole)
+		public static IMapping CreateProvidesMapping(IComponent anOuterComponent, IIdentifier anOuterRoleID, IComponent anInnerComponent, IIdentifier anInnerRoleID)
 		{
-			return CreateMapping(CreateAttributeHash(), anOuterRole, anInnerComponent, anInnerRole);
+			return CreateProvidesMapping(CreateAttributeHash(), anOuterComponent, anOuterRoleID, anInnerComponent, anInnerRoleID);
 		}
 
 		/// <summary>
@@ -638,23 +648,74 @@ namespace Palladio.ComponentModel
 		/// <param name="anOuterRole">RoleID of the outer interface.</param>
 		/// <param name="anInnerInterface">The inner interface anOuterRole is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
-		public static IMapping CreateMapping(IAttributeHash anAttrHash, string anOuterRole, AttachedInterface anInnerInterface)
+		public static IMapping CreateProvidesMapping(IAttributeHash anAttrHash, IAttachedRole anOuterRole, IAttachedRole anInnerRole)
 		{
-			return CreateMapping( anAttrHash, anOuterRole, anInnerInterface.Component, anInnerInterface.RoleID );
+			return new DefaultMapping(anAttrHash, anOuterRole, anInnerRole, MappingTypeEnum.PROVIDES_MAPPING);
 		}
 		
 		/// <summary>
 		/// Create a new IMapping instance.
 		/// </summary>
+		/// <param name="anAttrHash">Attributes of the new Mapping.</param>
 		/// <param name="anOuterRole">RoleID of the outer interface.</param>
 		/// <param name="anInnerInterface">The inner interface anOuterRole is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
-		public static IMapping CreateMapping(string anOuterRole, AttachedInterface anInnerInterface)
+		public static IMapping CreateProvidesMapping(IAttachedRole anOuterRole, IAttachedRole anInnerRole)
 		{
-			return CreateMapping( CreateAttributeHash() , anOuterRole, anInnerInterface.Component, anInnerInterface.RoleID );
+			return new DefaultMapping(CreateAttributeHash(), anOuterRole, anInnerRole, MappingTypeEnum.PROVIDES_MAPPING);
 		}
-		#endregion
+		
+		/// <summary>
+		/// Create a new IMapping instance.
+		/// </summary>
+		/// <param name="anAttrHash">Attributes of the new Mapping.</param>
+		/// <param name="anOuterRole">RoleID of the outer interface.</param>
+		/// <param name="anInnerComponent">The inner component the outer interface is mapped onto.</param>
+		/// <param name="anInnerRole">The RoleID of the inner component the outer interface is mapped onto.</param>
+		/// <returns>A new IMapping instance.</returns>
+		public static IMapping CreateRequiresMapping(IAttributeHash anAttrHash, IComponent anInnerComponent, IIdentifier anInnerRoleID, IComponent anOuterComponent, IIdentifier anOuterRoleID)
+		{
+			return new DefaultMapping(anAttrHash, new DefaultAttachedRole(anInnerComponent, anInnerRoleID), new DefaultAttachedRole( anOuterComponent, anOuterRoleID ), MappingTypeEnum.REQUIRES_MAPPING);
+		}
+
+		/// <summary>
+		/// Create a new IMapping instance.
+		/// </summary>
+		/// <param name="anOuterRole">RoleID of the outer interface.</param>
+		/// <param name="anInnerComponent">The inner component the outer interface is mapped onto.</param>
+		/// <param name="anInnerRole">The RoleID of the inner component the outer interface is mapped onto.</param>
+		/// <returns>A new IMapping instance.</returns>
+		public static IMapping CreateRequiresMapping(IComponent anInnerComponent, IIdentifier anInnerRoleID, IComponent anOuterComponent, IIdentifier anOuterRoleID)
+		{
+			return CreateRequiresMapping(CreateAttributeHash(), anInnerComponent, anInnerRoleID, anOuterComponent, anOuterRoleID);
+		}
+
+		/// <summary>
+		/// Create a new IMapping instance.
+		/// </summary>
+		/// <param name="anAttrHash">Attributes of the new Mapping.</param>
+		/// <param name="anOuterRole">RoleID of the outer interface.</param>
+		/// <param name="anInnerInterface">The inner interface anOuterRole is mapped onto.</param>
+		/// <returns>A new IMapping instance.</returns>
+		public static IMapping CreateRequiresMapping(IAttributeHash anAttrHash, IAttachedRole anInnerRole, IAttachedRole anOuterRole)
+		{
+			return new DefaultMapping(anAttrHash, anInnerRole, anOuterRole, MappingTypeEnum.REQUIRES_MAPPING);
+		}
+		
+		/// <summary>
+		/// Create a new IMapping instance.
+		/// </summary>
+		/// <param name="anAttrHash">Attributes of the new Mapping.</param>
+		/// <param name="anOuterRole">RoleID of the outer interface.</param>
+		/// <param name="anInnerInterface">The inner interface anOuterRole is mapped onto.</param>
+		/// <returns>A new IMapping instance.</returns>
+		public static IMapping CreateRequiresMapping(IAttachedRole anInnerRole, IAttachedRole anOuterRole)
+		{
+			return new DefaultMapping(CreateAttributeHash(), anInnerRole, anOuterRole, MappingTypeEnum.REQUIRES_MAPPING);
+		}
+
 #endif
+		#endregion
 
 		/// <summary>
 		/// Creates a new, empty AttributeHash.

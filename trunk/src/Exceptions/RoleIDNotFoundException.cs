@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/06/04 01:54:03  sliver
+	/// rework of composite component
+	///
 	/// Revision 1.1  2004/06/02 14:50:25  sbecker
 	/// Initial Import after a major rework
 	///
@@ -27,7 +30,7 @@ namespace Palladio.ComponentModel.Exceptions
 		/// Error indicating, that a role could not be found.
 		/// </summary>
 		/// <param name="aRoleID">Role which couldn't be found.</param>
-		public RoleIDNotFoundException(string aRoleID) : base( "Role " + aRoleID + " not found!")
+		public RoleIDNotFoundException(Identifier.IIdentifier aRoleID) : base( "Role " + aRoleID.ToString() + " not found!")
 		{
 		}
 	}

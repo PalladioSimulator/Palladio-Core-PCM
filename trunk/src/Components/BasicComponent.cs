@@ -26,7 +26,7 @@ namespace Palladio.ComponentModel.Components
 		{
 			IRole aRole;
 			if ((aRole = providesMap[aSig.RoleID]) == null)
-				throw new RoleIDNotFoundException(aSig.RoleID.ToString());
+				throw new RoleIDNotFoundException(aSig.RoleID);
 			if (!aRole.Interface.SignatureList.ContainsSignature(aSig.Signature))
 				throw new SignatureNotFoundException(aSig.Signature);
 			if (!serviceEffectMap.Contains(aSig))
@@ -81,7 +81,7 @@ namespace Palladio.ComponentModel.Components
 			if (serviceEffectMap.Contains(aSignature))
 				throw new ServiceEffectAlreadySpecifiedException(aSignature.Signature);
 			if (!providesMap.Contains(aSignature.RoleID))
-				throw new RoleIDNotFoundException(aSignature.RoleID.ToString());
+				throw new RoleIDNotFoundException(aSignature.RoleID);
 			if (!providesMap[aSignature.RoleID].Interface.SignatureList.ContainsSignature(aSignature.Signature))
 				throw new SignatureNotFoundException(aSignature.Signature);
 			serviceEffectMap.Add(aSignature,aServEffSpec);

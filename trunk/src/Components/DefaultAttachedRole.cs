@@ -1,5 +1,6 @@
 using System;
 using Palladio.Identifier;
+using Palladio.ComponentModel.Exceptions;
 
 namespace Palladio.ComponentModel.Components
 {
@@ -48,6 +49,15 @@ namespace Palladio.ComponentModel.Components
 				return component;
 			}
 		}
+
+		public override bool Equals(object obj)
+		{
+			if (!(obj is DefaultAttachedRole)) return false;
+			if (obj == this) return true;
+			DefaultAttachedRole myRole = (DefaultAttachedRole)obj;
+			return (ComponentID.Equals(myRole.ComponentID) && RoleID.Equals(myRole.RoleID));
+		}
+
 
 		/// <summary>
 		/// Default constructor

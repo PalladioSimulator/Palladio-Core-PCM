@@ -76,10 +76,10 @@ namespace Palladio.ComponentModel.Connections
 			attributes = (IAttributeHash)anAttHash.Clone();
 		}
 
-		protected DefaultConnection(IAttributeHash anAttHash, IAttachedRole aFirstIface, IAttachedRole aSecondIface) : this (anAttHash)
+		protected DefaultConnection(IAttributeHash anAttHash, IAttachedRole aReqRole, IAttachedRole aProvRole) : this (anAttHash)
 		{
-			providingRole = aFirstIface;
-			requiringRole = aSecondIface;
+			providingRole = aProvRole;
+			requiringRole = aReqRole;
 		}
 
 		protected DefaultConnection(DefaultConnection aConnection) : 

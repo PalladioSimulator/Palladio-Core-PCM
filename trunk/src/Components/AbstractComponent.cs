@@ -80,7 +80,7 @@ namespace Palladio.ComponentModel.Components
 		{
 			IRole result = providesMap[aRoleID];
 			if (result == null)
-				throw new RoleIDNotFoundException(aRoleID.ToString());
+				throw new RoleIDNotFoundException(aRoleID);
 			return result.Interface;
 		}
 		
@@ -94,7 +94,7 @@ namespace Palladio.ComponentModel.Components
 		{
 			IRole result = requiresMap[aRoleID];
 			if (result == null)
-				throw new RoleIDNotFoundException(aRoleID.ToString());
+				throw new RoleIDNotFoundException(aRoleID);
 			return result.Interface;
 		}
 
@@ -125,7 +125,6 @@ namespace Palladio.ComponentModel.Components
 		}
 
 		public void AcceptVisitor(IVisitor v) {}
-		#endregion
 
 		/// <summary>
 		/// Adds a provides interface to the component. For each service of the interface a 
@@ -147,11 +146,11 @@ namespace Palladio.ComponentModel.Components
 		/// from the component.
 		/// </summary>
 		/// <param name="aProvRoleArray">Roles of the interfaces to be removed.</param>
-		public void DeleteProvidesInterfaces(params IIdentifier[] aProvRoleArray)
+		public virtual void DeleteProvidesInterfaces(params IIdentifier[] aProvRoleArray)
 		{
 			foreach (IIdentifier id in aProvRoleArray)
 				if (!HasProvidesInterface(id))
-					throw new RoleIDNotFoundException(id.ToString());
+					throw new RoleIDNotFoundException(id);
 			foreach (IIdentifier id in aProvRoleArray)
 			{
 				providesMap.Remove(id);
@@ -176,11 +175,11 @@ namespace Palladio.ComponentModel.Components
 		/// Remove all requires interfaces with the roles given by aReqRoleArray.
 		/// </summary>
 		/// <param name="aReqRoleArray">Roles of the requires interfaces to be deleted.</param>
-		public void DeleteRequiresInterfaces(params IIdentifier[] aReqRoleArray)
+		public virtual void DeleteRequiresInterfaces(params IIdentifier[] aReqRoleArray)
 		{
 			foreach (IIdentifier id in aReqRoleArray)
 				if (!HasRequiresInterface(id))
-					throw new RoleIDNotFoundException(id.ToString());
+					throw new RoleIDNotFoundException(id);
 			foreach (IIdentifier id in aReqRoleArray)
 			{
 				requiresMap.Remove(id);
@@ -197,13 +196,14 @@ namespace Palladio.ComponentModel.Components
 		public IRole GetRole(IIdentifier aRoleID)
 		{
 			if (!HasRole(aRoleID))
-				throw new RoleIDNotFoundException(aRoleID.ToString());
+				throw new RoleIDNotFoundException(aRoleID);
 			if (providesMap.Contains(aRoleID))
 				return providesMap[aRoleID];
 			else
 				return requiresMap[aRoleID];
 
 		}
+		#endregion
 
 		#region Constructors
 

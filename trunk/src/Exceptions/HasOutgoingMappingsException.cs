@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/06/04 01:54:02  sliver
+	/// rework of composite component
+	///
 	/// Revision 1.1  2004/06/02 14:50:25  sbecker
 	/// Initial Import after a major rework
 	///
@@ -34,7 +37,7 @@ namespace Palladio.ComponentModel.Exceptions
 		/// Error indicating, that a component cannot be deleted because it has incoming connections.
 		/// </summary>
 		/// <param name="aMapping">An outgoing mapping of a component.</param>
-		public HasOutgoingMappingException(IMapping aMapping) : base(" ProvidesInterface has still an outgoing mapping! \n" + aMapping)
+		public HasOutgoingMappingException(Identifier.IIdentifier anID) : base(" ProvidesInterface '" + anID.ToString() + "' has still an outgoing mapping! \n")
 		{
 		}
 	}

@@ -100,7 +100,7 @@ namespace Palladio.ComponentModel.Connections
 		}
 		#endregion
 
-		public DefaultMapping(IAttributeHash anAttHash, IAttachedRole aFirstIface, IAttachedRole aSecondIface, MappingTypeEnum direction) : base(anAttHash,aFirstIface,aSecondIface)
+		public DefaultMapping(IAttributeHash anAttHash, IAttachedRole aReqRole, IAttachedRole aProvRole, MappingTypeEnum direction) : base(anAttHash,aReqRole,aProvRole)
 		{
 			this.myType = direction;
 		}

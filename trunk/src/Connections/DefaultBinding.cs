@@ -11,6 +11,21 @@ namespace Palladio.ComponentModel.Connections
 	/// </summary>
 	internal class DefaultBinding : DefaultConnection, IBinding
 	{
-		public DefaultBinding(IAttributeHash anAttHash, IAttachedRole aFirstIface, IAttachedRole aSecondIface) : base(anAttHash,aFirstIface,aSecondIface) {}
+		public DefaultBinding(IAttributeHash anAttHash, IAttachedRole aReqRole, IAttachedRole aProvRole) : base(anAttHash,aReqRole,aProvRole) {}
+
+		public DefaultBinding(DefaultBinding aBinding) : base(aBinding) {}
+
+		public override bool Equals(object obj)
+		{
+			if (!(obj is DefaultBinding)) return false;
+			return base.Equals (obj);
+		}
+
+		public override object Clone()
+		{
+			return new DefaultBinding(this);
+		}
+
+
 	}
 }

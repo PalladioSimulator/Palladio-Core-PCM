@@ -321,6 +321,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Components\CompositeComponent.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Components\DefaultAttachedRole.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -362,6 +367,11 @@
                 />
                 <File
                     RelPath = "src\Exceptions\ComponentNotFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\ConnectionNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -523,6 +533,20 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\TypedCollections\ConnectionDataSet.cs"
+                    SubType = "code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\TypedCollections\ConnectionDataSet.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "src\TypedCollections\ConnectionDataSet.xsx"
+                    DependentUpon = "ConnectionDataSet.xsd"
+                    BuildAction = "None"
+                />
+                <File
                     RelPath = "src\TypedCollections\HashmapGenerator.xml"
                     BuildAction = "Content"
                     Generator = "CodeSmithGenerator"
@@ -538,6 +562,11 @@
                 />
                 <File
                     RelPath = "src\UnitTests\BasicComponentTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\CompositeComponentTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -58,13 +58,13 @@ namespace Palladio.ComponentModel
 		/// Add a set of components to the ICompositeComponent.
 		/// </summary>
 		/// <param name="aCompArray">Set of components to be added.</param>
-		void AddComponent(IComponent aCompArray);
+		void AddComponents(params IComponent[] aComponentArray);
 
 		/// <summary>
 		/// Remove a set of components from the ICompositeComponent.
 		/// </summary>
 		/// <param name="componentIDs">Set of components to be removed.</param>
-		void DeleteComponents(params IIdentifier[] componentIDs);
+		void DeleteComponents(params IIdentifier[] aCompIDArray);
 		
 		/// <summary>
 		/// Add a set of mappings between the provides interfaces of ICompositeComponent
@@ -139,7 +139,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aProvRoleID">Role of a provides interface of ICompositeComponent.</param>
 		/// <returns>Mapping associated with aProvRoleID.</returns>
-		IMapping GetProvidesMappingByOuter(string aProvRoleID);
+		IMapping GetProvidesMappingByOuter(IIdentifier aProvRoleID);
 		
 		/// <summary>
 		/// Get the mappings associated with the provides interface aProvInterface of an 
@@ -156,7 +156,7 @@ namespace Palladio.ComponentModel
 		/// <param name="aProvComponentID">Internal component of ICompositeComponent.</param>
 		/// <param name="aProvRole">Role of a provides interface of aProvComponent.</param>
 		/// <returns>An array of IMappings associated with aProvInterface.</returns>
-		IMapping[] GetProvidesMappingsByInner(IIdentifier aProvComponentID, string aProvRole);
+		IMapping[] GetProvidesMappingsByInner(IIdentifier aProvComponentID, IIdentifier aProvRoleID);
 
 		IBinding GetBindingByRequires(IAttachedRole aReqInterface);
 		IBinding GetBindingByRequires(IIdentifier aReqComponentID, IIdentifier aReqRole);
@@ -164,7 +164,7 @@ namespace Palladio.ComponentModel
 		IBinding[] GetBindingsByProvides(IIdentifier aProvComponentID, IIdentifier aProvRole);
 
 		IMapping GetRequiresMappingByInner(IAttachedRole aReqInterface);
-		IMapping GetRequiresMappingByInner(IIdentifier aReqComponentID, IIdentifier aReqRole);
+		IMapping GetRequiresMappingByInner(IIdentifier aReqComponentID, IIdentifier aReqRoleID);
 		IMapping[] GetRequiresMappingsByOuter(IIdentifier aReqRoleID);
 
 

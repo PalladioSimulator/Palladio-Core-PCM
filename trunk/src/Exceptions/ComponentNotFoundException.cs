@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/06/04 01:54:01  sliver
+	/// rework of composite component
+	///
 	/// Revision 1.1  2004/06/02 14:50:25  sbecker
 	/// Initial Import after a major rework
 	///
@@ -33,8 +36,8 @@ namespace Palladio.ComponentModel.Exceptions
 		/// Error indicating, that a component is missing.
 		/// </summary>
 		/// <param name="aComponent">The missing component.</param>
-		public ComponentNotFoundException(IComponent aComponent) : 
-			base( "Component " + (aComponent != null ? aComponent.ToString() : "<NULL>" )+ " could not be found!")
+		public ComponentNotFoundException(Identifier.IIdentifier aComponentID) : 
+			base( "Component " + (aComponentID != null ? aComponentID.ToString() : "<NULL>" )+ " could not be found!")
 		{
 		}
 	}
