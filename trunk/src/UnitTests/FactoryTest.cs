@@ -1,3 +1,4 @@
+#if TEST
 using System;
 using System.Collections;
 using System.Reflection;
@@ -15,6 +16,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2004/06/02 18:40:23  sbecker
+	/// Fixed docu
+	///
 	/// Revision 1.16  2004/05/13 15:03:46  sliver
 	/// IMatchable Interface added
 	///
@@ -63,8 +67,6 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	[TestFixture]
 	public class FactoryTest
 	{
-		IFiniteStateMachine fsmOne, fsmTwo;
-		
 		/// <summary>
 		/// </summary>
 		[SetUp] public void Init() 
@@ -439,3 +441,4 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		}
 	}
 }
+#endif

@@ -17,6 +17,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2004/06/02 18:40:23  sbecker
+	/// Fixed docu
+	///
 	/// Revision 1.9  2004/05/18 07:20:27  sliver
 	/// added function for creating input objects with an IMatchable instance as ID
 	///
@@ -181,6 +184,7 @@ namespace Palladio.FiniteStateMachines
 			return result;
 		}
 
+#if false
 		/// <summary>
 		///		Creates a tabular FSMs using a xml-file as input.
 		///		An example is listed below:
@@ -202,12 +206,11 @@ namespace Palladio.FiniteStateMachines
 		{
 		
 			TabularFSM result = new TabularFSM();
-#if false
 			result.Load(aFileDestination);
-#endif
+
 			return result;
 		}
-	
+#endif	
 #if false
 		/// <summary>
 		/// Minimizes a given FiniteStateMachine

@@ -15,6 +15,9 @@ namespace Palladio.FiniteStateMachines {
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/06/02 18:40:23  sbecker
+	/// Fixed docu
+	///
 	/// Revision 1.5  2004/05/24 12:43:33  sbecker
 	/// Fixed bugs related to FSM.Equals and Clone
 	///
@@ -51,6 +54,9 @@ namespace Palladio.FiniteStateMachines {
 		/// </summary>
 		IState StartState { get; }
 
+		/// <summary>
+		/// True if the FSM has a StartState and is therefore complete
+		/// </summary>
 		bool HasStartState { get; }
 
 		/// <summary>
@@ -60,6 +66,10 @@ namespace Palladio.FiniteStateMachines {
 		/// </summary>
 		IState[] FinalStates { get; }
 
+		/// <summary>
+		/// True if there are any final states in the FSM. Note that a complete
+		/// FSM is not required to have final states.
+		/// </summary>
 		bool HasFinalStates { get; }
 
 		/// <summary>
