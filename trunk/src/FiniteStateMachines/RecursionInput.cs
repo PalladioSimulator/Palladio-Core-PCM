@@ -8,9 +8,9 @@ namespace FiniteStateMachines
 	public class RecursionInput : Input
 	{
 		private Input service;
-		private State state;
+		private AbstractState state;
 
-		public RecursionInput(Input aService, State aState) : base(aService+"+"+aState){
+		public RecursionInput(Input aService, AbstractState aState) : base(aService+"+"+aState){
 			service = aService;
 			state = aState;
 		}
@@ -19,7 +19,7 @@ namespace FiniteStateMachines
 			get { return service; }
 		}
 
-		public State State {
+		public AbstractState State {
 			get {return state; }
 		}
 

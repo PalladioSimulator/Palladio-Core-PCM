@@ -1,18 +1,16 @@
-using System;
 using System.Collections;
 
 namespace FiniteStateMachines {
 
 	/// <summary>
-	///States used by StackFSM. A StackState consists of a number of 
-	///different 'nomral' states and a number of services stored as Input. 
-	///The combination of states and services gives it an unique identification.
-	///Each of the 'normal' states is associated with one of the services (the first 
-	///state belongs to the first service) This indicates that the state belongs 
-	///to that service. If there is a state left, but no more service it belongs to the 
-	///provides protocol.
+	///A <code>StackState</code> consists of a set of abstract states and a number of 
+	///service names stored as <code>Input</code>. 
+	///The combination of states and service names is leading to an unique identification of
+	///each <code>StackState</code>. Each abstract state is associated with a service name 
+	///(the top state with the top service), indicating that the state belongs 
+	///to this service. The last abstract state belongs to the provides protocol.
 	/// </summary>
-	public class StackState : State {
+	public class StackState : AbstractState {
 
 		/// <summary>
 		/// Stack containing the states of all active services.
@@ -20,123 +18,65 @@ namespace FiniteStateMachines {
 		private Stack stateStack;
 
 		/// <summary>
-		/// Stack containing all active services.
+		/// Stack containing the names of all active services.
 		/// </summary>
-		private Stack serviceStack;
+		private Stack serviceNameStack;
 		
+
 		/// <summary>
-		/// Creates an empty StackState.
+		/// Creates an empty StackState. Invisible to the public.
 		/// </summary>
-		public StackState(){
+		private StackState(){
 			stateStack = new Stack();
-			serviceStack = new Stack();
+			serviceNameStack = new Stack();
 		}
+
 
 		/// <summary>
 		/// The copy constructor.
 		/// </summary>
 		/// <param name="aState">The copied state.</param>
-		public StackState(StackState aState) : base(aState) {
+		public StackState(StackState aState) {
 			stateStack = (Stack)aState.stateStack.Clone();
-			serviceStack = (Stack)aState.serviceStack.Clone();
+			serviceNameStack = (Stack)aState.serviceNameStack.Clone();
 		}
 
+
 		/// <summary>
-		/// Creates a Stackstate for a state of the provides protocol.
+		/// Creates a new <code>StackState</code> for an abstract state.
+		/// It belongs to the provides protocol.
 		/// </summary>
-		/// <param name="state">State of the provides protocol</param>
-		public StackState(State state){
+		/// <param name="state">An abstract state of the provides protocol</param>
+		public StackState(AbstractState aState){
 			stateStack = new Stack();
-			serviceStack = new Stack();
-			stateStack.Push(state);
-		}
-
-		/// <summary>
-		/// Stores a state and a service on the stack. The state 
-		/// must belong to the service effect specification of the service.
-		/// </summary>
-		/// <param name="aService">Name of the service</param>
-		/// <param name="aState">State of the service</param>
-		public void Push(Input aService,State aState){
-			serviceStack.Push(aService);
+			serviceNameStack = new Stack();
 			stateStack.Push(aState);
 		}
 
-		public void ChangeTopState(State newState){
-			stateStack.Pop();
-			stateStack.Push(newState);
-		}
 
-		public Input PopService(){
-			return (Input)serviceStack.Pop();
-		}
-
-		public State PopState(){
-			return (State)stateStack.Pop();
-		}
-
-		public Input PeekService(){
-			return (Input)serviceStack.Peek();
-		}
-
-		public State PeekState(){
-			return (State) stateStack.Peek();
-		}
-
-		public bool IsEmpty {
+		/// <summary>
+		/// Identifies the name of the state by composing the names 
+		/// of its services and abstract states.
+		/// </summary>
+		public override string Name {
 			get {
-				return (serviceStack.Count == 0);
+				string result = "s: ";
+				for (IEnumerator e = serviceNameStack.GetEnumerator();e.MoveNext();){
+					result += (e.Current + " ");
+				}
+				result += "\t"+"q: ";
+				for (IEnumerator e = stateStack.GetEnumerator();e.MoveNext();){
+					result+=(e.Current + " ");
+				}
+				return result;
 			}
 		}
+
 
 		/// <summary>
-		/// Lookup the Service aService in the service stack.
+		/// True, if the top state belongs to the provides protocol and it
+		/// is a start state, otherwise false.
 		/// </summary>
-		/// <param name="service">Name of a service</param>
-		/// <returns>A copy of this StackState. All services and its associated states  
-		/// are removed down to aService. If this StackState does not contain aService the 
-		/// result is an empty StackState. </returns>
-		public StackState LookupService(Input aService){
-			StackState resultState = new StackState(this);
-			while ((!resultState.IsEmpty) && (resultState.PeekService() != aService)) {
-				resultState.PopService();
-				resultState.PopState();
-			}
-			return resultState;
-		}
-
-		/// <summary>
-		/// Lookup the second appearance of aService in the service stack.
-		/// </summary>
-		/// <param name="service">Name of a service</param>
-		/// <returns>A copy of this StackState. All services and its associated states are 
-		/// removed down to the second appearance of aService. If this StackState does not 
-		/// contain aService the result is an empty StackState.</returns>
-		public StackState LookupServiceTwice(Input service){
-			StackState resultState = LookupService(service);
-			if(!resultState.IsEmpty) {
-				resultState.PopService();
-				resultState.PopState();
-				return resultState.LookupService(service);
-			} else {
-				return resultState;
-			}
-		}
-
-		/// <returns>The name of the current state.</returns>
-		public override string getName() {
-			string result = "s: ";
-			for (IEnumerator e = serviceStack.GetEnumerator();e.MoveNext();){
-				result += (e.Current + " ");
-			}
-			result += "\t"+"q: ";
-			for (IEnumerator e = stateStack.GetEnumerator();e.MoveNext();){
-				result+=(e.Current + " ");
-			}
-			return result;
-		}
-
-		/// <returns>True if the current state is a startstate of the FSM, false otherwise</returns>
 		public override bool IsStartState {
 			get {
 				if (IsEmpty) {
@@ -147,7 +87,10 @@ namespace FiniteStateMachines {
 		}
 
 
-		/// <returns>True if the current state is a final state, false otherwise</returns>
+		/// <summary>
+		/// True, if the top state belongs to the provides protocol and it
+		/// is a final state, otherwise false.
+		/// </summary>
 		public override bool IsFinalState {
 			get {
 				if (IsEmpty) {
@@ -156,16 +99,109 @@ namespace FiniteStateMachines {
 				return false;
 			}
 		}
-
-		public State TopState {
-			get {
-				return PeekState();
-			}
+		
+		
+		/// <summary>
+		/// Stores a state and a service name on the stack. The state 
+		/// must belong to the service effect specification of the service.
+		/// </summary>
+		/// <param name="aService">Name of the service</param>
+		/// <param name="aState">State of the service</param>
+		public void Push(Input aServiceName, AbstractState aState){
+			serviceNameStack.Push(aServiceName);
+			stateStack.Push(aState);
 		}
 
-		public Input TopService {
-			get {
-				return PeekService();
+
+		/// <summary>
+		/// Changes the state of the top service effect specification to 
+		/// <code>newState</code>.
+		/// </summary>
+		/// <param name="newState"></param>
+		public void ChangeTopState(AbstractState newState){
+			stateStack.Pop();
+			stateStack.Push(newState);
+		}
+
+		
+		/// <summary>
+		/// Pop the name of the service on top.
+		/// </summary>
+		/// <returns>Name of the top service</returns>
+		public Input PopServiceName(){
+			return (Input)serviceNameStack.Pop();
+		}
+
+		
+		/// <summary>
+		/// Pop the state of the service on top.
+		/// </summary>
+		/// <returns>State of the top service</returns>
+		public AbstractState PopState(){
+			return (AbstractState)stateStack.Pop();
+		}
+
+		
+		/// <summary>
+		/// Lookup the name of the service on top.
+		/// </summary>
+		/// <returns>Name of the top service</returns>
+		public Input PeekServiceName(){
+			return (Input)serviceNameStack.Peek();
+		}
+
+		
+		/// <summary>
+		/// Lookup the state of the service on top.
+		/// </summary>
+		/// <returns>State of the top service</returns>
+		public AbstractState PeekState(){
+			return (AbstractState) stateStack.Peek();
+		}
+
+		
+		/// <summary>
+		/// Checks if there are any services left.
+		/// </summary>
+		public bool IsEmpty {
+			get { return (serviceNameStack.Count == 0); }
+		}
+
+		
+		/// <summary>
+		/// Lookup the service <code>aServiceName</code> on the service stack.
+		/// </summary>
+		/// <param name="service">Name of a service</param>
+		/// <returns>A copy of this StackState. All services and its associated states  
+		/// are removed down to <code>aServiceName</code>. If this StackState does not 
+		/// contain <code>aServiceName</code> the result is an empty <code>StackState</code>
+		/// containg only the state of the provides protocol.</returns>
+		public StackState LookupServiceName(Input aServiceName){
+			StackState resultState = new StackState(this);
+			while ((!resultState.IsEmpty) && (resultState.PeekServiceName() != aServiceName)) {
+				resultState.PopServiceName();
+				resultState.PopState();
+			}
+			return resultState;
+		}
+
+		
+		/// <summary>
+		/// Lookup the second appearance of <code>aServiceName</code> on the service stack.
+		/// </summary>
+		/// <param name="service">Name of a service</param>
+		/// <returns>A copy of this StackState. All services and its associated states are 
+		/// removed down to the second appearance of <code>aServiceName</code>. If this 
+		/// StackState does not contain <code>aServiceName</code> the result is an empty 
+		/// StackState containg only the state of the provides protocol.</returns>
+		public StackState LookupServiceNameTwice(Input aServiceName){
+			StackState resultState = LookupServiceName(aServiceName);
+			if(!resultState.IsEmpty) {
+				resultState.PopServiceName();
+				resultState.PopState();
+				return resultState.LookupServiceName(aServiceName);
+			} else {
+				return resultState;
 			}
 		}
 	}

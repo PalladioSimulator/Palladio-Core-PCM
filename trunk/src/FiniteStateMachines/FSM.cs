@@ -9,9 +9,9 @@ namespace FiniteStateMachines {
 	public class FSM : IFiniteStateMachine {
 		private Set inputAl;
 		private Hashtable transitions;
-		private State startState;
+		private AbstractState startState;
 		private Set finalSates;
-		private State errorState;
+		private AbstractState errorState;
 		private Set states;
 
 
@@ -22,12 +22,12 @@ namespace FiniteStateMachines {
 			this.inputAl = new Set();
 			this.transitions = new Hashtable();
 			this.finalSates = new Set();
-			this.errorState = State.CreateErrorState();
+			this.errorState = AbstractState.CreateErrorState();
 			this.states = new Set();
 
 		}
 		
-		public State ErrorState{
+		public AbstractState ErrorState{
 			get { return errorState; }
 		}
 
@@ -37,7 +37,7 @@ namespace FiniteStateMachines {
 		/// <param name="fromState"></param>
 		/// <param name="inChar"></param>
 		/// <param name="toState"></param>
-		public void setTransition(State fromState, Input inChar, State toState) {	
+		public void setTransition(AbstractState fromState, Input inChar, AbstractState toState) {	
 			Transition tr = new Transition(fromState, inChar, toState);
 			this.setTransition(tr);
 		}
@@ -50,7 +50,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="aState">State to start from</param>
 		/// <returns>Set containing all reachable States</returns>
-		public Set GetReachableStates(State aState){
+		public Set GetReachableStates(AbstractState aState){
 			Set resultSet = new Set();
 			GetReachableStatesRecursive(aState,ref resultSet);
 			return resultSet;
@@ -61,7 +61,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="aState">starting here</param>
 		/// <param name="resultSet">has to be an empty set. contains the result</param>
-		private void GetReachableStatesRecursive(State aState,ref Set resultSet){
+		private void GetReachableStatesRecursive(AbstractState aState,ref Set resultSet){
 			if ((!resultSet.Contains(aState)) && (aState!=ErrorState)) {
 				resultSet.Add(aState);
 				Hashtable transitions = GetOutgoingTransitions(aState);
@@ -110,7 +110,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="state"></param>
 		/// <param name="inChar"></param>
-		public string EverythingToString(State state, Input inChar) {
+		public string EverythingToString(AbstractState state, Input inChar) {
 			string s ="";
 			try {
 				
@@ -128,7 +128,7 @@ namespace FiniteStateMachines {
 			
 				//next state
 				s+="Next state from "+state.ToString()+" : "+"\n";
-				State next = this.GetNextState(state, inChar);
+				AbstractState next = this.GetNextState(state, inChar);
 				s+=next.ToString()+"\n";
 				//Console.WriteLine("-----------------------------");
 				//all transitions
@@ -160,7 +160,7 @@ namespace FiniteStateMachines {
 		/// Returns the startatate of the FSM
 		/// </summary>
 		/// <returns>State, witch is the startstate of the FSM.</returns>
-		public State StartState {
+		public AbstractState StartState {
 			get{ return this.startState; }
 
 		}
@@ -180,7 +180,7 @@ namespace FiniteStateMachines {
 		/// <param name="fromState"> from State </param>
 		/// <param name="input">the inputcharacter</param>
 		/// <returns>the next State witch is reachable with the state and the inputcharacter</returns>
-		public State GetNextState(State fromState, Input input) {
+		public AbstractState GetNextState(AbstractState fromState, Input input) {
 
 			/*
 			evtl. schöner:
@@ -243,7 +243,7 @@ namespace FiniteStateMachines {
 		/// <param name="fromState">State from witch the next Transition should be delivered.</param>
 		/// <param name="inChar">The inputcharakter witch should be in the delivered Transition.</param>
 		/// <returns>The next possible Transition.</returns>
-		public Transition GetTransition(State fromState, Input inChar) {
+		public Transition GetTransition(AbstractState fromState, Input inChar) {
 			if(this.inputAl.Contains(inChar) ==  false)
 				return new Transition(fromState,inChar,ErrorState);
 			//throw new InvalidInputException();
@@ -284,7 +284,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="state">The State from witch all Transitions should be delivered</param>
 		/// <returns>All transition from the given state</returns>
-		public Hashtable GetOutgoingTransitions(State state) {
+		public Hashtable GetOutgoingTransitions(AbstractState state) {
 			Hashtable tmp = new Hashtable();
 			Object help = this.transitions[state];
 			if(help == null)

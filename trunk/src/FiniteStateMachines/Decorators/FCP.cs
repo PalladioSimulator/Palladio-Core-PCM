@@ -56,18 +56,18 @@ namespace FiniteStateMachines.Decorators {
 			this.twoStates.Push(two.StartState);
 			while(this.oneStates.Count!= 0 && this.twoStates.Count!=0) {
 
-				State oneBefore = (State) this.oneStates.Pop();
-				State twoBefore = (State) this.twoStates.Pop();
+				AbstractState oneBefore = (AbstractState) this.oneStates.Pop();
+				AbstractState twoBefore = (AbstractState) this.twoStates.Pop();
 
 				foreach(Input i in this.CPInput) {
 
 
-					State oneNext = one.GetNextState(oneBefore,i);
+					AbstractState oneNext = one.GetNextState(oneBefore,i);
 					if(this.debug)
 						Console.WriteLine("oneNext is: "+oneNext.ToString());
 
 
-					State twoNext = two.GetNextState(twoBefore,i);
+					AbstractState twoNext = two.GetNextState(twoBefore,i);
 					if(this.debug)
 						Console.WriteLine("twoNext is: "+twoNext.ToString());
 					
@@ -129,17 +129,17 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="state">the state witch should be checked</param>
 		/// <param name="i">the inpt </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
-		protected bool selfPointing(FSM fsm, State state, Input i) {
+		protected bool selfPointing(FSM fsm, AbstractState state, Input i) {
 			//Console.WriteLine("Checking selfPointing");
-			State temp = null;
-			foreach(State s in fsm.getStates()) {
+			AbstractState temp = null;
+			foreach(AbstractState s in fsm.getStates()) {
 				if(s.Equals(state)) {
 					temp = s;
 					break;
 				}
 			}
 
-			State t = fsm.GetNextState(temp,i);
+			AbstractState t = fsm.GetNextState(temp,i);
 			if (t.Equals(state))
 				return true;
 			return false;

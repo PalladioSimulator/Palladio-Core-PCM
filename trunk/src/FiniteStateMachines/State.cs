@@ -4,19 +4,17 @@ namespace FiniteStateMachines {
 
 	/// <summary>
 	/// Represents the States of a FSM.
-	/// 
-	/// jh: some methods are 'virtual' now, so they can be overridden
 	/// </summary>
-	public class State {
-		protected static string ERROR_STATE_NAME = "ErrorState";
+	public class State : AbstractState {
 
 		private string name;
 		private bool isStartState; 
 		private bool isFinalState;
 		//protected int _hashcode;
 		
-		public State() {
+		private State() {
 		}
+
 		/// <summary>
 		/// </summary>
 		/// <param name="id">String, the name of the state.</param>
@@ -27,6 +25,7 @@ namespace FiniteStateMachines {
 			this.isStartState = start;
 			this.isFinalState = final;
 		}
+
 		/// <summary>
 		/// The copy construktor.
 		/// </summary>
@@ -35,66 +34,26 @@ namespace FiniteStateMachines {
 			this.name = s.name;
 			isStartState = s.isStartState;
 			this.isFinalState = s.isFinalState;
-
-		}
-
-		/// <summary>
-		/// Returns the object as a string.
-		/// </summary>
-		/// <returns>Returns this instance of State as a string.</returns>
-		override public string ToString() {
-			return this.getName();
 		}
 
 		/// <summary>
 		/// Checks if this instance is startstate.
 		/// </summary>
 		/// <returns>true, if this instance is a startstate.</returns>
-		public virtual bool IsStartState {
+		public override bool IsStartState {
 			get {return this.isStartState;}
 		}
+
 		/// <summary>
 		/// Checks if this instance is a finalstate.
 		/// </summary>
 		/// <returns>true, if thid instance is a finalstate.</returns>
-		public virtual bool IsFinalState {
+		public override bool IsFinalState {
 			get {return this.isFinalState;}
 		}
 
-		// jh: override the original Equals-Method
-		public override bool Equals(object obj) {
-			State state;
-			// jh: check if the object is an instance of State
-			if (obj is State) { 
-				state = (State)obj;
-				if(this.getName() == state.getName()) {
-					if(this.IsStartState == state.IsStartState)
-						if(this.IsFinalState == state.IsFinalState)
-							return true;
-				}
-			}
-			return false;
-		}
-
-		public static bool operator == (State one, State two){
-			return one.Equals(two);
-		}
-
-		public static bool operator != (State one, State two){
-			return !one.Equals(two);
-		}
-
-
-		public virtual string getName() {
-			return this.name;
-		}
-	
-		public override int GetHashCode() {
-			return getName().GetHashCode();
-		}
-
-		public static State CreateErrorState(){
-			return new State(ERROR_STATE_NAME,false,false);
+		public override string Name {
+			get {return this.name;}
 		}
 	}
 }

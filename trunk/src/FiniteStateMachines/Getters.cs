@@ -10,7 +10,7 @@ namespace FiniteStateMachines {
 		/// Returns the startstate of a FSM.
 		/// </summary>
 		/// <returns>The stratstate of a FSM.</returns>
-		State StartState { get; }
+		AbstractState StartState { get; }
 		/// <summary>
 		/// Returns the finalstate of a FSM.
 		/// </summary>
@@ -20,17 +20,17 @@ namespace FiniteStateMachines {
 		/// Returns the next State of FSM with a given Input.
 		/// </summary>
 		/// <returns>The next possoble State.</returns>
-		State GetNextState(State fromState, Input input);
+		AbstractState GetNextState(AbstractState sourceState, Input anInput);
 		/// <summary>
 		/// Returns the next Transition from a State with a given Input
 		/// </summary>
 		/// <returns>The next reachable Transition.</returns>
-		Transition GetTransition(State fromState, Input inChar);
+		Transition GetTransition(AbstractState sourceState, Input anInput);
 		/// <summary>
 		/// Returns all Transitions from a given State.
 		/// </summary>
 		/// <returns>A Hashtable witch contatins all Transtions from the given State.</returns>
-		Hashtable GetOutgoingTransitions(State state);
+		Hashtable GetOutgoingTransitions(AbstractState sourceState);
 		/// <summary>
 		/// Returns all Transitions of the FSM in Transition Array.
 		/// </summary>
@@ -42,7 +42,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// The errorstate of the FSM.
 		/// </summary>
-		State ErrorState { get; }
+		AbstractState ErrorState { get; }
 	}
 
 }

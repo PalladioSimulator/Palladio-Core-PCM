@@ -7,9 +7,9 @@ namespace FiniteStateMachines
 	/// </summary>
 	public class Transition
 	{
-		public State fromState;
+		public AbstractState fromState;
 		public  Input input;
-		public State toState;
+		public AbstractState toState;
 		public int hashcode;
 
 		/// <summary>
@@ -18,7 +18,7 @@ namespace FiniteStateMachines
 		/// <param name="f">State, the source of the Transition.</param>
 		/// <param name="i">Input of the Transition.</param>
 		/// <param name="t">State, where the Transition leads to.</param>
-		public Transition(State f, Input i, State t)
+		public Transition(AbstractState f, Input i, AbstractState t)
 		{
 			this.fromState = f;
 			this.input = i;

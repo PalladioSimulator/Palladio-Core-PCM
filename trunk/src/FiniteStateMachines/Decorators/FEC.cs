@@ -97,18 +97,18 @@ namespace FiniteStateMachines.Decorators {
 			ArrayList dStates = new ArrayList();
 			ArrayList myStates = new ArrayList();
 			foreach(DictionaryEntry dic in d2myStatesMap) {
-				dStates.Add((State) dic.Key);
-				myStates.Add((State)dic.Value);
+				dStates.Add((AbstractState) dic.Key);
+				myStates.Add((AbstractState)dic.Value);
 			}
 			dStates.TrimToSize();
 			myStates.TrimToSize();
-			State dNow = null;
-			State myNow = null;
+			AbstractState dNow = null;
+			AbstractState myNow = null;
 			if(dStates.Count != myStates.Count)
 				return false;
 			for(int i= 0; i<dStates.Count; i++) {
-				dNow = (State)dStates[i];
-				myNow = (State) myStates[i];
+				dNow = (AbstractState)dStates[i];
+				myNow = (AbstractState) myStates[i];
 				if(dNow.IsFinalState) {
 					if(!myNow.IsFinalState)
 						return false;
@@ -146,10 +146,10 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="dState">A state of the other FSM</param>
 		/// <param name="d2myStates">the mapping</param>
 		/// <param name="visited">a Hashtable witch contains the alreday visted states</param>
-		protected void mapStates(FSM myMin, State myState, FSM d, State dState,
+		protected void mapStates(FSM myMin, AbstractState myState, FSM d, AbstractState dState,
 			Hashtable d2myStates, Hashtable visited) {
 			foreach(DictionaryEntry da in visited) {
-				State sasa = (State) da.Value;
+				AbstractState sasa = (AbstractState) da.Value;
 				if(myState.Equals(sasa)) {
 					return;
 				}
@@ -157,8 +157,8 @@ namespace FiniteStateMachines.Decorators {
 			if(visited.Contains(myState))
 				return;
 			visited.Add(myState,myState);
-			State dNext= null;
-			State myNext = null;
+			AbstractState dNext= null;
+			AbstractState myNext = null;
 			IEnumerator inputIter = myMin.InputAlphabet.GetEnumerator();
 			while(inputIter.MoveNext()) {
 				Input currentInput = (Input) inputIter.Current;
@@ -195,10 +195,10 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="i">An Input charakter</param>
 		/// <param name="d2myStates">the mapping hashtable</param>
 		/// <returns></returns>
-		protected bool testStates(FSM myMin,State myState, FSM d, State dState,
+		protected bool testStates(FSM myMin,AbstractState myState, FSM d, AbstractState dState,
 			Input i, Hashtable d2myStates) {
-			State myNext = null;
-			State dNext = null;
+			AbstractState myNext = null;
+			AbstractState dNext = null;
 
 		
 			//			foreach(State s in myMin.getStates())
@@ -253,28 +253,28 @@ namespace FiniteStateMachines.Decorators {
 			
 			this.minimized = new FSM();
 			int counter =0;
-			State temp;
+			AbstractState temp;
 			ArrayList statesOfMini = new ArrayList();
 			ArrayList oldStates = new ArrayList();
 			foreach(ArrayList al in this.mini) {
 				
-				temp = (State) al[0];
-				State state = new State("state_"+counter,temp.IsStartState,temp.IsFinalState);
+				temp = (AbstractState) al[0];
+				AbstractState state = new State("state_"+counter,temp.IsStartState,temp.IsFinalState);
 				statesOfMini.Add(state);
-				oldStates.Add((State) al[0]);
+				oldStates.Add((AbstractState) al[0]);
 				counter++;
 			}
 			statesOfMini.TrimToSize();
 			if(this.createsFsmDebug) {
 				Console.WriteLine("The states of the minimized FSM: ");
-				foreach(State s in statesOfMini)
+				foreach(AbstractState s in statesOfMini)
 					Console.WriteLine(s.ToString());
 				Console.WriteLine("-------------------------");
 			}
 			for(int i = 0;i<statesOfMini.Count; i++) {
 				IEnumerator oldFsmInputIter = (IEnumerator)this.fsm.InputAlphabet.GetEnumerator();
 				while(oldFsmInputIter.MoveNext()) {
-					State toState  = (State) this.fsm.GetNextState((State)oldStates[i],
+					AbstractState toState  = (AbstractState) this.fsm.GetNextState((AbstractState)oldStates[i],
 						(Input)oldFsmInputIter.Current);
 		
 					//Console.WriteLine("toState is: "+toState.ToString());
@@ -285,9 +285,9 @@ namespace FiniteStateMachines.Decorators {
 					ArrayList newGroups = this.inGroup(toState,this.groups);
 					int indexOfStateToState = this.mini.IndexOf((ArrayList) 
 						this.inGroup(toState,this.mini));
-					this.minimized.setTransition((State) statesOfMini[i],
+					this.minimized.setTransition((AbstractState) statesOfMini[i],
 						(Input)oldFsmInputIter.Current,
-						(State) statesOfMini[indexOfStateToState]);
+						(AbstractState) statesOfMini[indexOfStateToState]);
 				}
 			}
 		}
@@ -302,7 +302,7 @@ namespace FiniteStateMachines.Decorators {
 			erroG.TrimToSize();
 			foreach(ArrayList al in g) {
 				al.TrimToSize();
-				foreach(State t in al) {
+				foreach(AbstractState t in al) {
 					if(t.Equals(fsm.ErrorState)) {
 						g.Remove(al);
 						return;
@@ -330,8 +330,8 @@ namespace FiniteStateMachines.Decorators {
 					Console.WriteLine("this.actualGroupCounter is : "
 						+this.actualGroupCounter.ToString());
 				}
-				State first = new State();
-				State next = new State();
+				AbstractState first = null;
+				AbstractState next = null;
 				ArrayList newGroup = new ArrayList();
 				ArrayList actualGroup = (ArrayList) this.groups[this.actualGroupCounter];
 				if(actualGroup.Count == 1) {
@@ -340,12 +340,12 @@ namespace FiniteStateMachines.Decorators {
 				}
 				actualGroup.TrimToSize();
 				int lengthOfActualGroup = actualGroup.Count;
-				first = (State) actualGroup[0];
+				first = (AbstractState) actualGroup[0];
 				if(this.debug) {
 					Console.WriteLine("First is : "+first.ToString());
 				}
 				for(int i=1; i< lengthOfActualGroup; i++) {
-					next = (State) actualGroup[i];
+					next = (AbstractState) actualGroup[i];
 					if(this.debug)
 						Console.WriteLine("Next is : "+next.ToString());
 					IEnumerator InputIter = fsm.InputAlphabet.GetEnumerator();
@@ -381,7 +381,7 @@ namespace FiniteStateMachines.Decorators {
 					this.counterForNumberOfGroups++;
 					this.groups.Add(newGroup);
 					this.groups.TrimToSize();
-					foreach(State s  in newGroup) {
+					foreach(AbstractState s  in newGroup) {
 						if(actualGroup.Contains(s)) {
 							actualGroup.Remove(s);
 						}
@@ -412,7 +412,7 @@ namespace FiniteStateMachines.Decorators {
 		/// group Iteration. The elements witch will be moved into the new group.
 		/// </param>
 		/// <returns>true, if the two given states are in the same group</returns>
-		protected bool sameGroup(State first, State next, ArrayList newGroup) {
+		protected bool sameGroup(AbstractState first, AbstractState next, ArrayList newGroup) {
 			if(inGroup(first,newGroup)==inGroup(next,newGroup))
 				return true;
 			return false;	
@@ -424,7 +424,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="groups">a group witch has not jet been added to this.groups.
 		/// it's the newGroup.
 		/// <returns>A ArrayList from this.groups witch contains state</returns>
-		protected ArrayList inGroup(State state, ArrayList groups) {
+		protected ArrayList inGroup(AbstractState state, ArrayList groups) {
 
 			if(groups.Contains(state))
 				return groups;
@@ -433,7 +433,7 @@ namespace FiniteStateMachines.Decorators {
 				return groups;
 			}
 			foreach(ArrayList al in this.groups) {
-				foreach(State s in al)
+				foreach(AbstractState s in al)
 					if(s.Equals(state))
 						return al;
 			}
@@ -469,10 +469,10 @@ namespace FiniteStateMachines.Decorators {
 
 			//in the beginig of minimation there are  only 2 (3) partions, the acceptiong and non accepting.
 			StateIterator iter = new StateIterator(fsm);
-			State actualState = new State();
+			AbstractState actualState = null;
 			while(iter.MoveNext()) {
 				both = null;
-				actualState = (State) iter.Current;
+				actualState = (AbstractState) iter.Current;
 
 				//								//now useless
 				//								if(actualState.Equals(new State("ErrorState",false,false)))

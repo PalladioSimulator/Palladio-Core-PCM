@@ -11,7 +11,7 @@ namespace FiniteStateMachines {
 		protected Stack states;
 		protected bool isInitialised;
 		protected IFiniteStateMachine getters;
-		protected State returnState;
+		protected AbstractState returnState;
 		protected Transition currentTransition;
 		protected Stack transitions;
 		//stores the elements witch has been already retruned
@@ -44,10 +44,10 @@ namespace FiniteStateMachines {
 
 				this.states.Push(this.getters.StartState); 
 				this.isInitialised = true;
-				this.returnState = (State) this.states.Peek();
+				this.returnState = (AbstractState) this.states.Peek();
 				
 				//First Transition of a FSM 
-				State none = new State("null",false,false);
+				AbstractState none = new State("null",false,false);
 				Input noInput = new Input("null"); 
 				Transition g = new Transition(none,noInput,this.returnState);
 				Transition emptyTransition = new Transition(none,new Input("null"),this.returnState);
@@ -77,7 +77,7 @@ namespace FiniteStateMachines {
 			}
 			else {
 				//top of Stack has allready been returning
-				State currentState = (State) this.states.Peek();
+				AbstractState currentState = (AbstractState) this.states.Peek();
 				//check if cs has chilldren();
 				Hashtable nextStates = this.getters.GetOutgoingTransitions(currentState);
 				while(nextStates == null) {
@@ -88,16 +88,16 @@ namespace FiniteStateMachines {
 					this.states.Pop();
 					this.transitions.Pop();
 					//next children 
-					nextStates = this.getters.GetOutgoingTransitions((State) this.states.Peek());
+					nextStates = this.getters.GetOutgoingTransitions((AbstractState) this.states.Peek());
 
 				}		
-				currentState = (State) this.states.Peek();
+				currentState = (AbstractState) this.states.Peek();
 				
 				nextStates = getters.GetOutgoingTransitions(currentState);
 				//E a Hashatabele witch contains the children of CS
 				//write every child on the Stack
 				Transition tempTransition = new Transition();
-				State tempState = new State();
+//				AbstractState tempState = new State();
 				IDictionaryEnumerator iterateOverChildren = nextStates.GetEnumerator();
 				while(iterateOverChildren.MoveNext()) {
 					
@@ -125,9 +125,9 @@ namespace FiniteStateMachines {
 					states.Pop();
 					this.MoveNext();
 				}
-				this.returnState = (State) this.states.Peek();
+				this.returnState = (AbstractState) this.states.Peek();
 				this.currentTransition = (Transition) this.transitions.Peek();
-				this.alreadyReturned.Add((State) this.states.Peek());
+				this.alreadyReturned.Add((AbstractState) this.states.Peek());
 				return true;
 			}
 		}

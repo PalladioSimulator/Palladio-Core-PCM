@@ -37,8 +37,8 @@ namespace FiniteStateMachines.Decorators {
 			twoStates.Push(two.StartState);
 			while(oneStates.Count!= 0 && twoStates.Count!=0) {
 
-				State oneBefore = (State) oneStates.Pop();
-				State twoBefore = (State) twoStates.Pop();
+				AbstractState oneBefore = (AbstractState) oneStates.Pop();
+				AbstractState twoBefore = (AbstractState) twoStates.Pop();
 
 				
 
@@ -47,12 +47,12 @@ namespace FiniteStateMachines.Decorators {
 				foreach(Input i in spInput) {
 
 
-					State oneNext = one.GetNextState(oneBefore,i);
+					AbstractState oneNext = one.GetNextState(oneBefore,i);
 					if(this.debug)
 						Console.WriteLine("oneNext is: "+oneNext.ToString());
 
 
-					State twoNext = two.GetNextState(twoBefore,i);
+					AbstractState twoNext = two.GetNextState(twoBefore,i);
 					if(this.debug)
 						Console.WriteLine("twoNext is: "+twoNext.ToString());
 
@@ -131,7 +131,7 @@ namespace FiniteStateMachines.Decorators {
 			}
 			return this.sp;
 		}
-		protected bool SelfPointing(State state, FSM fsm,Input i) {
+		protected bool SelfPointing(AbstractState state, FSM fsm,Input i) {
 			if(one.GetNextState(state,i)== state)
 				return true;
 			return false;

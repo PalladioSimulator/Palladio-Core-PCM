@@ -8,7 +8,7 @@ namespace FiniteStateMachines.Decorators {
 	/// Zusammenfassung für FCPLazy.
 	/// </summary>
 	public class FCPLazy : IFiniteStateMachine {
-		protected State errorState;
+		protected AbstractState errorState;
 		protected FSM one;
 		protected FSM two;
 		protected bool InputCreated;
@@ -27,7 +27,7 @@ namespace FiniteStateMachines.Decorators {
 			this.one = one;
 			this.two = two;
 		}
-		public State ErrorState {
+		public AbstractState ErrorState {
 			get { return new CPState(one.ErrorState,two.ErrorState); }
 		}
 		public Set InputAlphabet {
@@ -83,7 +83,7 @@ namespace FiniteStateMachines.Decorators {
 		//		}
 					
 					
-		public State GetNextState(State stateI,Input i) {
+		public AbstractState GetNextState(AbstractState stateI,Input i) {
 			if(stateI  is CPState == false)
 				throw new InvalidStateException();
 			
@@ -91,11 +91,11 @@ namespace FiniteStateMachines.Decorators {
 			if(this.InputAlphabet.Contains(i)== false)
 				throw new InvalidInputException();
 
-			State OneNext = this.one.GetNextState(state.oneState,i);
+			AbstractState OneNext = this.one.GetNextState(state.oneState,i);
 			if(OneNext == this.one.ErrorState) {
 				return this.ErrorState;
 			}
-			State TwoNext = this.two.GetNextState(state.twoState,i);
+			AbstractState TwoNext = this.two.GetNextState(state.twoState,i);
 			if(TwoNext == this.two.ErrorState) {
 				return this.ErrorState;
 			}
@@ -104,16 +104,16 @@ namespace FiniteStateMachines.Decorators {
 			return new CPState(OneNext,TwoNext);
 
 		}
-		public State StartState {
+		public AbstractState StartState {
 			get {return new CPState(this.one.StartState,this.two.StartState);}
 		}
 
-		public Hashtable GetOutgoingTransitions(State state) {
+		public Hashtable GetOutgoingTransitions(AbstractState state) {
 			if(state is CPState == false)
 				throw new InvalidStateException();
 
 			Hashtable TransitionMap = new Hashtable();
-			State NextState = new State();
+			AbstractState NextState = null;
 			foreach(Input i in this.InputAlphabet) {
 				NextState = this.GetNextState(state, i);
 				if(!NextState.Equals(this.ErrorState))
@@ -151,17 +151,17 @@ namespace FiniteStateMachines.Decorators {
 			twoStates.Push(two.StartState);
 			while(oneStates.Count!= 0 && twoStates.Count!=0) {
 
-				State oneBefore = (State) oneStates.Pop();
-				State twoBefore = (State) twoStates.Pop();
+				AbstractState oneBefore = (AbstractState) oneStates.Pop();
+				AbstractState twoBefore = (AbstractState) twoStates.Pop();
 
 				foreach(Input i in this.InputAlphabet) {
 
 
-					State oneNext = one.GetNextState(oneBefore,i);
+					AbstractState oneNext = one.GetNextState(oneBefore,i);
 					if(this.debug)
 						Console.WriteLine("oneNext is: "+oneNext.ToString());
 					
-					State twoNext = two.GetNextState(twoBefore,i);
+					AbstractState twoNext = two.GetNextState(twoBefore,i);
 					if(this.debug)
 						Console.WriteLine("twoNext is: "+twoNext.ToString());
 					
@@ -216,8 +216,8 @@ namespace FiniteStateMachines.Decorators {
 					this.finalStates = new Set();
 					//CPState FinalState = new CPState();
 
-					foreach(State ofs in OneFinal) {
-						foreach(State tfs in TwoFinal) {
+					foreach(AbstractState ofs in OneFinal) {
+						foreach(AbstractState tfs in TwoFinal) {
 							this.finalStates.Add(new CPState(ofs,tfs));
 						}
 					}
@@ -225,7 +225,7 @@ namespace FiniteStateMachines.Decorators {
 				return this.finalStates;
 			}
 		}
-		public Transition GetTransition(State state, Input i) {
+		public Transition GetTransition(AbstractState state, Input i) {
 			if(state is CPState== false)
 				throw new InvalidStateException();
 			//			CPState state = new CPState(state);
@@ -245,17 +245,17 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="state">the state witch should be checked</param>
 		/// <param name="i">the inpt </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
-		protected bool selfPointing(FSM fsm, State state, Input i) {
+		protected bool selfPointing(FSM fsm, AbstractState state, Input i) {
 			//Console.WriteLine("Checking selfPointing");
-			State temp = null;
-			foreach(State s in fsm.getStates()) {
+			AbstractState temp = null;
+			foreach(AbstractState s in fsm.getStates()) {
 				if(s.Equals(state)) {
 					temp = s;
 					break;
 				}
 			}
 
-			State t = fsm.GetNextState(temp,i);
+			AbstractState t = fsm.GetNextState(temp,i);
 			if (t.Equals(state))
 				return true;
 			return false;

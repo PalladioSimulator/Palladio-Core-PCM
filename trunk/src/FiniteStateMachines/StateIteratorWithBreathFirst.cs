@@ -12,7 +12,7 @@ namespace FiniteStateMachines {
 	public class StateIteratorWithBreathFirst {
 		protected ArrayList visitedStates;
 		protected int howMany;
-		protected State currentState;
+		protected AbstractState currentState;
 		protected int currentIndex;
 		protected Set fsmInput;
 		protected FSM fsm;
@@ -40,7 +40,7 @@ namespace FiniteStateMachines {
 					IDictionaryEnumerator iterator = tmp.GetEnumerator();
 					while(iterator.MoveNext()) {
 						Transition  t = (Transition)iterator.Value;
-						State visiting = t.toState;
+						AbstractState visiting = t.toState;
 						if(!this.visitedStates.Contains(visiting)) {
 							this.visitedStates.Add(visiting);
 							this.howMany++;
@@ -55,12 +55,12 @@ namespace FiniteStateMachines {
 				this.currentIndex++;
 				if(this.howMany < this.currentIndex)
 					break;
-				this.currentState = (State) this.visitedStates[this.currentIndex];
+				this.currentState = (AbstractState) this.visitedStates[this.currentIndex];
 
 			}
 			if(this.debugOutput) {
 				Console.WriteLine("vor Arrayauagabe");
-				foreach(State t in this.visitedStates)
+				foreach(AbstractState t in this.visitedStates)
 					Console.WriteLine("After traverse in Array: "+t.ToString());
 			}
 
