@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.HTTPRequestProcessor;
 using Palladio.Webserver.Request;
@@ -17,6 +18,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/10/28 07:54:43  kelsaka
+	/// -
+	///
 	/// Revision 1.5  2004/10/27 15:05:06  kelsaka
 	/// added more request handling-abilities
 	///
@@ -51,9 +55,18 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 		public void HandleRequest (IRequest request)
 		{
+
+			//make a byte array and receive data from the client 
+			Byte[] bReceive = new Byte[1024] ;
+			int i = request.Socket.Receive(bReceive,bReceive.Length,0) ;
+
+
+					
+			//Convert Byte to String
+			string sBuffer = Encoding.ASCII.GetString(bReceive);
 			
 
-			//throw new NotImplementedException ();
+
 		}
 	}
 }
