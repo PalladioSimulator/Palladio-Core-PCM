@@ -27,6 +27,13 @@ namespace Palladio.ComponentModel
 	/// <pre>
 	/// Version history:
 	///
+	/// $Log$
+	/// Revision 1.3.2.8  2005/02/11 10:27:49  joemal
+	/// merge the changes made by uffi with the template
+	///
+	/// Revision 1.2.2.4  2005/02/11 10:24:48  joemal
+	/// merge the changes made by uffi with the template
+	///
 	/// Revision 1.2.2.3  2005/02/10 19:21:33  joemal
 	/// merge the changes made by uffi with the template
 	///
@@ -220,6 +227,13 @@ namespace Palladio.ComponentModel
 	/// <remarks>
 	/// <pre>
 	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3.2.8  2005/02/11 10:27:49  joemal
+	/// merge the changes made by uffi with the template
+	///
+	/// Revision 1.2.2.4  2005/02/11 10:24:48  joemal
+	/// merge the changes made by uffi with the template
 	///
 	/// Revision 1.2.2.3  2005/02/10 19:21:33  joemal
 	/// merge the changes made by uffi with the template
