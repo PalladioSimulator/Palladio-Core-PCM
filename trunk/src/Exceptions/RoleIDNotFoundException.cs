@@ -6,7 +6,19 @@ namespace Palladio.ComponentModel.Exceptions
 	/// <summary>
 	/// Error indicating, that a role could not be found.
 	/// </summary>
-	public class RoleIDNotFoundException : ApplicationException
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/05/19 08:03:57  sbecker
+	/// Changed Exceptions to ComponentModelExceptions
+	/// Added CVS Logs
+	///
+	///
+	/// </pre>
+	/// </remarks>
+	public class RoleIDNotFoundException : ComponentModelException
 	{
 		/// <summary>
 		/// Error indicating, that a role could not be found.

@@ -6,7 +6,19 @@ namespace Palladio.ComponentModel.Exceptions
 	/// <summary>
 	/// Error indicating, that the provides interface is not a role of the IProvidesMapping.
 	/// </summary>
-	public class ProvidesInterfaceNotInMappingException : ApplicationException
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/05/19 08:03:57  sbecker
+	/// Changed Exceptions to ComponentModelExceptions
+	/// Added CVS Logs
+	///
+	///
+	/// </pre>
+	/// </remarks>
+	public class ProvidesInterfaceNotInMappingException : ComponentModelException
 	{
 		/// <summary>
 		/// Error indicating, that the provides interface is not a role of the IProvidesMapping.
