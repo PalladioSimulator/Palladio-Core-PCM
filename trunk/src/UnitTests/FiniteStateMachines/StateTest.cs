@@ -10,6 +10,9 @@ namespace UnitTests.FiniteStateMachines
 	[TestFixture]
 	public class StateTest
 	{
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Constructor() {
 			State state = new State("state",true,false);
 			Assert.AreEqual("state",state.Name);
@@ -17,6 +20,9 @@ namespace UnitTests.FiniteStateMachines
 			Assert.IsFalse(state.IsFinalState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Equals () {
 			State stateOne = new State("stateOne",true,false);
 			State stateTwo = new State("stateTwo",true,false);
@@ -30,6 +36,9 @@ namespace UnitTests.FiniteStateMachines
 		}
 
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void EqualOperator () {
 			State stateOne = new State("stateOne",true,false);
 			State stateTwo = new State("stateTwo",true,false);
@@ -44,6 +53,9 @@ namespace UnitTests.FiniteStateMachines
 			Assert.IsFalse(stateOne == stateTwo);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void NotEqualOperator () {
 			State stateOne = new State("stateOne",true,false);
 			State stateTwo = new State("stateTwo",true,false);

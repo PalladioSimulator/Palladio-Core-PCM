@@ -21,6 +21,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		IFiniteStateMachine deterministicFSM;
 		IFiniteStateMachine minimizedFSM;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[SetUp] public void Init() {
 			states = new State[6];
 			states[0] = new State("stateZero",true,false);
@@ -60,13 +63,18 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		}
 
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void ExpandedEqualsOriginal() {
 			FSMExpander exp = new FSMExpander(tabularMachine,minimizedFSM,epsilonAlphabet);
 			IFiniteStateMachine expanded = exp.GetExpandedMachine();
 			Assert.IsTrue(AbstractFSM.AreEqual(tabularMachine, expanded));
 		}
 
-		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void ExpandReduced(){
 			TabularFSM reduced = new TabularFSM();
 			reduced.AddTransition(states[0],inputs[4],states[5]);
@@ -87,6 +95,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.IsTrue( expandedFSM.Equals(shuffle.ShuffleProduct));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void ExpandModified(){
 			TabularFSM reduced = new TabularFSM();
 			reduced.AddTransition(states[3],inputs[4],states[5]);

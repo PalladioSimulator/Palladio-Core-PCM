@@ -125,6 +125,18 @@
                     BuildAction = "Content"
                 />
                 <File
+                    RelPath = "data\CrossProductResult.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\CrossProductSource1.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\CrossProductSource2.xml"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "data\minimisableFSM.xml"
                     BuildAction = "Content"
                 />
@@ -376,6 +388,16 @@
                 />
                 <File
                     RelPath = "src\UnitTests\FiniteStateMachines\Decorators\ExpanderTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FiniteStateMachines\Decorators\FiniteCrossProductLazyTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FiniteStateMachines\Decorators\FiniteCrossProductTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -14,6 +14,9 @@ namespace UnitTests.FiniteStateMachines {
 		Input i1,i2;
 		Transition tOne, tTwo, tThree, tFour;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[SetUp] public void Init() {
 			s1 = new State("s1",true,false);
 			s2 = new State("s2",false,false);
@@ -26,12 +29,18 @@ namespace UnitTests.FiniteStateMachines {
 			tFour = new Transition(s1,i1,s2);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Constructor() {
 			Assert.AreEqual(s1,tOne.SourceState);
 			Assert.AreEqual(s2,tOne.DestinationState);
 			Assert.AreEqual(i1,tOne.InputSymbol);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Equals() {
 			Assert.IsFalse(tOne.Equals(tTwo));
 			Assert.IsFalse(tOne.Equals(tThree));
@@ -40,6 +49,9 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.IsFalse(tOne.Equals(null));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void HashCode() {
 			Assert.IsFalse(tOne.GetHashCode() == tTwo.GetHashCode());
 			Assert.IsFalse(tOne.GetHashCode() == tThree.GetHashCode());
@@ -47,16 +59,25 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.IsTrue(tFour.GetHashCode() == tOne.GetHashCode());
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void SetValues() {
 			Transition t = new Transition(s2,i2,s3);
 			t.SetValues(tOne.SourceState,tOne.InputSymbol,tOne.DestinationState);
 			Assert.AreEqual(tOne,t);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void CopyConstructor() {
 			Assert.AreEqual(tOne,new Transition(tOne));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Clone() {
 			Assert.AreEqual(tOne,tOne.Clone());
 		}

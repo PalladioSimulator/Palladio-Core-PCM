@@ -13,6 +13,9 @@ namespace UnitTests.Utils.Collections
 		Set setOne, setTwo;
 		State[] states;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[SetUp] public void Init() {
 			states = new State[16];
 			states[0] = new State("stateZero",true,false);
@@ -43,15 +46,24 @@ namespace UnitTests.Utils.Collections
 			}
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Constructor() {
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Equals() {
 			Assert.IsTrue(setOne.Equals(setTwo),setOne+"\n"+setTwo);
 			setTwo.Add(new State("dummy",false,false));
 			Assert.IsFalse(setOne.Equals(setTwo),setOne+"\n"+setTwo);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Clone() {
 			Set three = (Set)setOne.Clone();
 			Assert.AreEqual(setOne,three,setOne+"\n"+three);

@@ -16,7 +16,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// A new FiniteTabularMachine which represents the result of the intersection of 
 		/// two FSMs. (The generated FiniteCrossProduktMaschine)
 		/// </summary>
-		protected TabularFSM cp;
+		protected IFiniteStateMachine cp;
 
 		/// <summary>
 		/// The intersection of the two Input alpabets from the given FSMs stored in a 
@@ -51,8 +51,8 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// Initiates a FiniteCrossProduktMaschine and generates the crossprodukt of the two given 
 		/// FiniteTabularMaschines
 		/// </summary>
-		/// <param name="one">the first FSM</param>
-		/// <param name="two">the other FSM, together with one they are used to
+		/// <param name="aFSM">the first FSM</param>
+		/// <param name="anotherFSM">the other FSM, together with one they are used to
 		/// create the crossprodukt></param>
 		public FiniteCrossProductMaschine(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) {
 			this.cp = GenerateCP(aFSM,anotherFSM);
@@ -63,9 +63,9 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// Returns the new generated <code>FiniteTabularMachine</code> which contains
 		/// the crossproduct.
 		/// </summary>
-		public TabularFSM CP {
+		public IFiniteStateMachine CP {
 			get {
-				return this.cp;
+				return (IFiniteStateMachine) this.cp;
 			}
 		}
 
@@ -73,10 +73,10 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <summary>
 		/// Cenerates the crossproduct from two given FSMs
 		/// </summary>
-		/// <param name="one">the first FSM</param>
-		/// <param name="two">the second FSM</param>
+		/// <param name="aFSM">the first FSM</param>
+		/// <param name="anotherFSM">the second FSM</param>
 		/// <returns>the cp of the two FSM</returns>
-		public TabularFSM GenerateCP(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) {
+		public IFiniteStateMachine GenerateCP(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) {
 			this.cp = new TabularFSM();
 			this.oneStates = new Stack();
 			this.twoStates = new Stack();
@@ -99,6 +99,8 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <param name="anotherFSM">The other FiniteTabularMachine</param>
 		private void LookForStatesOfCrossProduct(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) {
 			while(this.oneStates.Count!= 0 && this.twoStates.Count!=0) {
+			
+
 
 				IState oneBefore = (IState) this.oneStates.Pop();
 				IState twoBefore = (IState) this.twoStates.Pop();
@@ -111,11 +113,15 @@ namespace Palladio.FiniteStateMachines.Decorators {
 					if(this.debug)
 						Console.WriteLine("twoNext is: "+twoNext.ToString());
 					if(LoopChecking(aFSM,oneBefore,i)&& LoopChecking(anotherFSM,twoBefore,i)&&
-						!oneNext.Equals(aFSM.ErrorState) && !twoNext.Equals(anotherFSM.ErrorState)) {
+						!oneNext.Equals(aFSM.ErrorState) && !twoNext.Equals(anotherFSM.ErrorState)) 
+					{
 						DualState selfPointingState = new DualState(oneNext,twoNext);
-						this.cp.AddTransition(selfPointingState,i,selfPointingState);
-						this.oneStates.Pop();
-						this.twoStates.Pop();
+						if(this.debug)
+							Console.WriteLine("State is selfpointing");
+						this.cp.AddTransition(new Transition(selfPointingState,i,selfPointingState));
+//						When writing the UnitTest ein put the next to lines out.
+//						this.oneStates.Pop();
+//						this.twoStates.Pop();
 						continue;
 					}
 					if(!oneNext.Equals(aFSM.ErrorState)&&
@@ -127,7 +133,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 						DualState toState = new DualState(oneNext,twoNext);
 						if(this.debug)
 							Console.WriteLine("CPState toState is: "+toState.ToString());
-						this.cp.AddTransition(fromState,i,toState);
+						this.cp.AddTransition(new Transition(fromState,i,toState));
 						this.oneStates.Push(oneNext);
 						this.twoStates.Push(twoNext);
 						if(this.debug) {

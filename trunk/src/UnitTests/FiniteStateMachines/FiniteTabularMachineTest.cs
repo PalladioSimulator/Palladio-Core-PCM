@@ -21,6 +21,9 @@ namespace UnitTests.FiniteStateMachines {
 		TabularFSM machineThree;
 
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[SetUp] public void Init() {
 			states = new State[8];
 			states[0] = new State("stateZero",true,false);
@@ -68,6 +71,9 @@ namespace UnitTests.FiniteStateMachines {
 			transitions[1] = new Transition(states[6],inputs[1],states[7]);
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		[ExpectedException(typeof(InvalidStateException))]
 		[Test] public void AddTwoStartStates(){
 			TabularFSM machine = new TabularFSM();
@@ -75,6 +81,9 @@ namespace UnitTests.FiniteStateMachines {
 			machine.AddTransition(transitions[1]);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void AddState(){
 			TabularFSM machine = new TabularFSM();
 			machine.AddTransition(transitions[0]);
@@ -86,16 +95,25 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.AreEqual(states[0],machine.StartState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ExpectedException(typeof(InvalidStateException))]
 		[Test] public void NoStartState() {
 			IState startsState = machineTwo.StartState;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ExpectedException(typeof(ApplicationException))]
 		[Test] public void NoFinalStates() {
 			Set finalStates = machineThree.FinalStates;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void MultipleFinalStates(){
 			Set finalStates = machineTwo.FinalStates;
 			Assert.IsTrue(finalStates.Count==2);
@@ -103,6 +121,9 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.IsTrue(finalStates.Contains(states[6]));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void AddInput(){
 			Set input = machineOne.InputAlphabet;
 			Assert.IsTrue(input.Count == 4);
@@ -112,11 +133,17 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.IsTrue(input.Contains(inputs[4]));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ExpectedException(typeof(InvalidStateException))]
 		[Test] public void AddNonDeterministicTransition() {
 			machineOne.AddTransition(states[0],inputs[4],states[1]);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetTransitions(){
 			IList transitionList = machineOne.GetTransitions();
 			Assert.IsTrue(transitionList.Count==6);
@@ -125,6 +152,9 @@ namespace UnitTests.FiniteStateMachines {
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetNextExistingTransition() {
 			Assert.AreEqual(transitionSetOne[1],machineOne.GetNextTransition(states[0],inputs[1]));
 			State tempState = new State((string)states[0].Name.Clone(),states[0].IsStartState,states[0].IsFinalState);
@@ -132,41 +162,65 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.AreEqual(transitionSetOne[1],machineOne.GetNextTransition(tempState,tempInput));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetErrorTransition(){
 			Assert.AreEqual(new Transition(states[0],inputs[2],machineOne.ErrorState),machineOne.GetNextTransition(states[0],inputs[2]));
 			Assert.AreEqual(new Transition(states[5],inputs[0],machineTwo.ErrorState),machineTwo.GetNextTransition(states[5],inputs[0]));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ExpectedException(typeof(InvalidStateException))]
 		[Test] public void InvalidSourceState(){
 			machineOne.GetNextTransition(states[7],inputs[0]);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void FromErrorState() {
 			Assert.AreEqual(new Transition(machineOne.ErrorState,inputs[1],machineOne.ErrorState),machineOne.GetNextTransition(machineOne.ErrorState,inputs[1]));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ExpectedException(typeof(InvalidInputException))]
 		[Test] public void InvalidInput() {
 			machineOne.GetNextTransition(states[0],new Input("wrong input"));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetNextStateLikeGetNextTransition(){
 			Assert.AreEqual(machineOne.GetNextTransition(states[0],inputs[4]).DestinationState,machineOne.GetNextState(states[0],inputs[4]));
 			Assert.AreEqual(machineOne.GetNextTransition(states[0],inputs[2]).DestinationState,machineOne.GetNextState(states[0],inputs[2]));
 			Assert.AreEqual(machineOne.GetNextTransition(machineOne.ErrorState,inputs[4]).DestinationState,machineOne.GetNextState(machineOne.ErrorState,inputs[4]));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ExpectedException(typeof(InvalidInputException))]
 		[Test] public void InvalidInputForNextState() {
 			machineOne.GetNextState(states[0],new Input("wrong input"));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ExpectedException(typeof(InvalidStateException))]
 		[Test] public void InvalidSourceStateForNextState(){
 			machineOne.GetNextState(states[7],inputs[0]);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetOutgoingTransitions(){
 			IList outgoing = machineOne.GetOutgoingTransitions(states[0]);
 			foreach (Transition trans in outgoing) {
@@ -175,6 +229,9 @@ namespace UnitTests.FiniteStateMachines {
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetReachableStates() {
 			IList reach = machineOne.GetReachableStates(states[1]);
 			Assert.IsTrue(reach.Count == 2);
@@ -188,6 +245,9 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.IsTrue(reach.Contains(states[0]));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Equals() {
 			Assert.IsTrue(machineOne.Equals(machineOne));
 			//TODO not yet complete

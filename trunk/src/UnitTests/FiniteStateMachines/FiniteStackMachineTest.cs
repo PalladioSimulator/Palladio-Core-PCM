@@ -19,6 +19,9 @@ namespace UnitTests.FiniteStateMachines {
 		Input topServiceName;
 
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[SetUp] public void Init() {
 			p = new TabularFSM();
 			p1 = new State("p1",true,false);
@@ -98,6 +101,9 @@ namespace UnitTests.FiniteStateMachines {
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void FinalStates() {
 			Assert.IsTrue(sfsm.FinalStates.Contains(new StackState(p2)));
 			Assert.IsTrue(sfsm.FinalStates.Count == 1);
@@ -106,11 +112,17 @@ namespace UnitTests.FiniteStateMachines {
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void StartState () {
 			Assert.IsTrue(sfsm.StartState.IsStartState);
 			Assert.AreEqual(new StackState(p1),sfsm.StartState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void InputAlphabet () {
 			Assert.IsTrue(sfsm.InputAlphabet.Count == 6); // e1,e2,e3,id1,id2,return
 			Assert.IsTrue(sfsm.InputAlphabet.Contains(e1));
@@ -121,10 +133,16 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.IsTrue(sfsm.InputAlphabet.Contains(Input.RETURN));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void ErrorState() {
 			Assert.AreEqual(AbstractFSM.CreateErrorState(),sfsm.ErrorState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetTransition() {
 			// Trace FSM p.123
 			Assert.AreEqual(new Transition(s,e1,sfsm.ErrorState),sfsm.GetNextTransition(s,e1));
@@ -184,6 +202,9 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.AreEqual(new Transition(z,Input.RETURN,x),sfsm.GetNextTransition(z,Input.RETURN));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetOutgoingTransitions() {
 			IList outgoing = sfsm.GetOutgoingTransitions(s);
 			Assert.IsTrue(outgoing.Contains(new Transition(s,id1,v)));
@@ -195,6 +216,9 @@ namespace UnitTests.FiniteStateMachines {
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void RecursionHandling(){
 			StackState r6,r7,r8,r9,r10,r11,r12,r13,r14;
 			r6 = new StackState(p1);

@@ -16,6 +16,9 @@ namespace UnitTests.FiniteStateMachines.Decorators
 		Set statesSetOne, statesSetTwo, statesSetThree;
 		PowerSetState stateOne, stateTwo, stateThree;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[SetUp] public void Init() {
 			statesSetOne = new Set();
 			statesSetOne.Add(new State("stateZero",true,false));
@@ -36,21 +39,33 @@ namespace UnitTests.FiniteStateMachines.Decorators
 			stateThree = new PowerSetState(statesSetThree,false);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void IsStartState() {
 			Assert.IsTrue(stateOne.IsStartState);
 			Assert.IsFalse(stateThree.IsStartState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void IsFinalState() {
 			Assert.IsTrue(stateThree.IsFinalState);
 			Assert.IsFalse(stateOne.IsFinalState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Equals() {
 			Assert.AreEqual(stateOne,stateTwo);
 			Assert.IsFalse(stateOne.Equals(stateThree));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetStates() {
 			Assert.AreEqual(statesSetOne,stateOne.States);
 		}

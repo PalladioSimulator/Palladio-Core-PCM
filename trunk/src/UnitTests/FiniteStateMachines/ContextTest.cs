@@ -13,6 +13,9 @@ namespace UnitTests.FiniteStateMachines{
 		IState stateOne,stateTwo;
 		Input inputOne, inputTwo;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[SetUp] public void Init() {
 			stateOne = new State("stateOne",false,false);
 			inputOne = new Input("inputOne");
@@ -20,12 +23,18 @@ namespace UnitTests.FiniteStateMachines{
 			inputTwo = new Input("inputTwo");
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Constructor() {
 			StackContext context = new StackContext(inputOne,stateOne);
 			Assert.AreEqual(stateOne,context.State);
 			Assert.AreEqual(inputOne,context.ServiceName);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Equals () {
 			StackContext contextOne = new StackContext(inputOne,stateOne);
 			StackContext contextTwo = new StackContext(inputOne,stateOne);
@@ -38,6 +47,10 @@ namespace UnitTests.FiniteStateMachines{
 			Assert.IsFalse(contextOne.Equals(null));
 		}
 
+
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void CopyConstructor() {
 			StackContext contextOne = new StackContext(inputOne,stateOne);
 			StackContext contextTwo = new StackContext(contextOne);
@@ -47,6 +60,9 @@ namespace UnitTests.FiniteStateMachines{
 			Assert.IsFalse(contextOne.Equals(contextTwo));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Clone() {
 			StackContext contextOne = new StackContext(inputOne,stateOne);
 			StackContext contextTwo = (StackContext)contextOne.Clone();;
@@ -56,6 +72,9 @@ namespace UnitTests.FiniteStateMachines{
 			Assert.IsFalse(contextOne.Equals(contextTwo));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void EqualOperator () {
 			StackContext contextOne = new StackContext(inputOne,stateOne);
 			StackContext contextTwo = new StackContext(inputOne,stateOne);
@@ -68,6 +87,9 @@ namespace UnitTests.FiniteStateMachines{
 			Assert.IsFalse(null == contextTwo);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void NotEqualOperator () {
 			StackContext contextOne = new StackContext(inputOne,stateOne);
 			StackContext contextTwo = new StackContext(inputOne,stateOne);

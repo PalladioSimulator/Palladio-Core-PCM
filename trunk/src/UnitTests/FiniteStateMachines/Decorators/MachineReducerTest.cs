@@ -15,6 +15,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		public IFiniteStateMachine expandedRecursion, expandedIncomplete, expandedComplex, expandedSimple, topMachine;
 		public Hashtable tableSimple,tableComplex, tableIncomplete, tableRecursion;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[SetUp] public void Init() {
 			IFiniteStateMachine d1,d1s,d2,d3,d3s,d3incomplete;
 			topMachine = AbstractFSM.Loader("../../data/provides.xml");
@@ -53,18 +56,27 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		}
 
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void SimpleReduction() {
 			FSMReducer reducer = new FSMReducer(tableSimple,expandedSimple);
 			IFiniteStateMachine red = reducer.GetReducedMachine();
 			Assert.IsTrue(red.Equals(topMachine));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void MoreComplexReduction() {
 			FSMReducer reducer = new FSMReducer(tableComplex,expandedComplex);
 			IFiniteStateMachine red = reducer.GetReducedMachine();
 			Assert.IsTrue(red.Equals(topMachine));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void IncompleteReduction() {
 			FSMReducer reducer = new FSMReducer(tableIncomplete,expandedComplex);
 			IFiniteStateMachine red = reducer.GetReducedMachine();
@@ -72,6 +84,10 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			//TODO: Equals does not work with incomplete automatons.
 		}
 
+
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void RecursionReduction(){
 			FSMReducer reducer = new FSMReducer(tableRecursion,expandedRecursion);
 			IFiniteStateMachine red = reducer.GetReducedMachine();

@@ -154,8 +154,8 @@ namespace Palladio.FiniteStateMachines.Decorators {
 			TabularFSM d = new TabularFSM();
 			if(aState is DualState == false)
 				throw new InvalidStateException();
-			State oneNext;
-			State twoNext;
+			IState oneNext;
+			IState twoNext;
 			DualState cpState = (DualState) aState;
 			try {
 				oneNext = (State)this.aFSM.GetNextState(cpState.oneState,input);

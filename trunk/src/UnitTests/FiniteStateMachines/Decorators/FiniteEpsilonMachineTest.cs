@@ -19,6 +19,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		Set epsilonAlphabet;
 		IFiniteStateMachine deterministicFSM;
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[SetUp] public void Init() {
 			states = new State[6];
 			states[0] = new State("stateZero",true,false);
@@ -55,7 +58,10 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			epsilonMachine = new FiniteEpsilonMachine(tabularMachine,epsilonAlphabet);
 			deterministicFSM = epsilonMachine.GetDeterministicFiniteStateMachine();
 		}
-		
+
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetStartState() {
 			Set dump = new Set();
 			dump.Add(states[0]);
@@ -64,6 +70,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.AreEqual(new PowerSetState(dump,true),epsilonMachine.StartState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetNextTransitonForValidEpsilonInput() {
 			IState state = epsilonMachine.StartState;
 			Transition trans = epsilonMachine.GetNextTransition(state,inputs[0]);
@@ -71,7 +80,10 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.AreEqual(inputs[0],trans.InputSymbol);
 			Assert.AreEqual(state,trans.DestinationState);
 		}
-
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetNextTransitonForInvalidEpsilonInput() {
 			IState state = epsilonMachine.StartState;
 			Transition trans = epsilonMachine.GetNextTransition(state,inputs[1]);
@@ -80,6 +92,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.AreEqual(epsilonMachine.ErrorState,trans.DestinationState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetNextTransitonForValidInput() {
 			IState state = epsilonMachine.StartState;
 			Set destSet = new Set();
@@ -92,6 +107,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.AreEqual(destination,trans.DestinationState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetNextTransitonForValidInputAndComplexClosure() {
 			IState state = epsilonMachine.StartState;
 			Set destSet = new Set();
@@ -106,6 +124,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.AreEqual(destination,trans.DestinationState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetNextTransitonForInvalidInput() {
 			IState state = epsilonMachine.StartState;
 			Transition trans = epsilonMachine.GetNextTransition(state,inputs[3]);
@@ -114,6 +135,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.AreEqual(epsilonMachine.ErrorState,trans.DestinationState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetNextStateSameAsGetNextTransition() {
 			IState start = epsilonMachine.StartState;
 			foreach (Input i in epsilonMachine.InputAlphabet) {
@@ -121,6 +145,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void GetOutgoingTransitions() {
 			Set destSet = new Set();
 			destSet.Add(states[0]);
@@ -135,10 +162,16 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.IsTrue(outgoing.Contains(trans),outgoing.ToString());
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void DeterministicStartState() {
 			Assert.AreEqual(epsilonMachine.StartState,deterministicFSM.StartState);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void DeterministicInputAlphabet() {
 			foreach(Input i in deterministicFSM.InputAlphabet) {
 				Assert.IsFalse(epsilonMachine.EpsilonAlphabet.Contains(i));
@@ -150,6 +183,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void DeterministicTransitions() {
 			IState epsilonStart = epsilonMachine.StartState;
 			IState deterministicStart = deterministicFSM.StartState;
