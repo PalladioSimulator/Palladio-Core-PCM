@@ -1,0 +1,5 @@
+bin
+obj
+Palladio.Editor.PluginHost.csproj
+.cvsignore
+AssemblyInfo.cs
