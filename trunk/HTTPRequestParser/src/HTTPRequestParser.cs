@@ -21,6 +21,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.18  2005/01/29 21:47:44  kelsaka
+	/// Added continuous use of NetworkStream (instead of Socket)
+	///
 	/// Revision 1.17  2005/01/07 16:58:02  kelsaka
 	/// Added TimeConsumingProcessor including its documentation and configuration.
 	/// Integrated the new processor into the COR.
@@ -134,7 +137,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 			// Save the parsing-results into the IHTTP-Request
 			IHTTPRequest httpRequest = requestFactory.CreateHTTPRequest();
-			httpRequest.Socket = request.Socket;
+			httpRequest.NetworkStream = request.NetworkStream;
 
 
 			// Read the content-data of the request
@@ -180,7 +183,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 			}
 			catch (NoValidRequestTypeException)
 			{
-				request.Socket.Close();
+				request.NetworkStream.Close();
 				webserverMonitor.WriteDebugMessage("Error: No valid http-request-type (GET, POST) found. Socket closed.", 1);
 				return;
 			}
@@ -249,8 +252,8 @@ namespace Palladio.Webserver.HTTPRequestParser
 		/// <returns>The request-content as a string.</returns>
 		private string ReadRequestHTTPData (IRequest request)
 		{
-			NetworkStream networkStream = new NetworkStream(request.Socket, System.IO.FileAccess.ReadWrite, false);
-			StreamReader reader = new StreamReader(networkStream);
+			
+			StreamReader reader = new StreamReader(request.NetworkStream);
 			string requestStringBuffer = "";
 			string buffer = "";
 			int contentLength = 0;

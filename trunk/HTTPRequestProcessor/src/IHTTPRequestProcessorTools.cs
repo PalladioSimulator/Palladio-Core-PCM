@@ -13,6 +13,9 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/01/29 21:47:44  kelsaka
+	/// Added continuous use of NetworkStream (instead of Socket)
+	///
 	/// Revision 1.4  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -58,8 +61,8 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 		/// <param name="mimeType">Mime Type of the content</param>
 		/// <param name="totalBytes">Total Bytes to be sent in the body</param>
 		/// <param name="httpStatusCode">Status Code of the HTTP-Answer.</param>
-		/// <param name="socket">Socket reference</param>
-		void SendHTTPHeader(string httpVersion, string mimeType, int totalBytes, string httpStatusCode, Socket socket);
+		/// <param name="networkStream">NetworkStream reference</param>
+		void SendHTTPHeader(string httpVersion, string mimeType, int totalBytes, string httpStatusCode, NetworkStream networkStream);
 
 
 
@@ -76,16 +79,16 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 		/// Sends the data to the client.
 		/// </summary>
 		/// <param name="contentData">String that contains the answer to the client request.</param>
-		/// <param name="socket">Socket reference</param>
-		void SendContentToClient(string contentData, Socket socket);
+		/// <param name="networkStream">NetworkStream reference</param>
+		void SendContentToClient(string contentData, NetworkStream networkStream);
 
 
 		/// <summary>
 		/// Sends the data to the client. The byte-array might be used for binary data.
 		/// </summary>
 		/// <param name="contentDataBytes">Byte-array that contains the answer to the client request.</param>
-		/// <param name="socket">Socket reference</param>
-		void SendContentDataToClient(byte[] contentDataBytes, Socket socket);
+		/// <param name="networkStream">NetworkStream reference</param>
+		void SendContentDataToClient(byte[] contentDataBytes, NetworkStream networkStream);
 
 
 		/// <summary>

@@ -1,20 +1,12 @@
 using System;
 using System.Collections;
-using System.Data;
-using System.Data.SqlClient;
 using System.IO;
-using System.Net.Sockets;
 using System.Text;
-using System.Threading;
-using System.Web;
 using Altova.Xml;
-using BibTeX.Formater.Interfaces;
 using BibTeXProviderXML;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.HTTPRequestProcessor;
 using Palladio.Webserver.Request;
-using BibTeX.Parser;
-using BibTeX.Parser.Interfaces;
 using Palladio.Webserver.WebserverMonitor;
 
 
@@ -32,6 +24,9 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/01/29 21:47:44  kelsaka
+	/// Added continuous use of NetworkStream (instead of Socket)
+	///
 	/// Revision 1.7  2005/01/22 16:42:56  kelsaka
 	/// added configureable (XML) connection-string for the database;
 	/// added thread-name for the main thread;
@@ -146,8 +141,8 @@ namespace Palladio.Webserver.BibTeXProvider
 					responseString = bibTexDB.Search(bibTeXProviderConfiguration.DatabaseTableName, httpRequest, bibTeXProviderConfiguration.SearchedBibTeXFieldNames);
 				}
 
-				requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType), responseString.Length, "200 OK", httpRequest.Socket);
-				requestProcessorTools.SendContentToClient(responseString.ToString(), httpRequest.Socket);
+				requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType), responseString.Length, "200 OK", httpRequest.NetworkStream);
+				requestProcessorTools.SendContentToClient(responseString.ToString(), httpRequest.NetworkStream);
 				webserverMonitor.WriteLogEntry("Successfully sent response to client.");
 			}
 			catch (Exception ex)
@@ -157,8 +152,8 @@ namespace Palladio.Webserver.BibTeXProvider
 				// Send error message to client: server not avaiable:
 				responseString.Append(bibTeXProviderConfiguration.ErrorMessageOnConnectionProblems);
 				responseString.Append(" (Servername: " + bibTeXProviderConfiguration.DataSource + ")");
-				requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType), responseString.Length, "200 OK", httpRequest.Socket);
-				requestProcessorTools.SendContentToClient(responseString.ToString(), httpRequest.Socket);
+				requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType), responseString.Length, "200 OK", httpRequest.NetworkStream);
+				requestProcessorTools.SendContentToClient(responseString.ToString(), httpRequest.NetworkStream);
 			}
 		}
 

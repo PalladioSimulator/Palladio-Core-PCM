@@ -12,6 +12,9 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/01/29 21:47:44  kelsaka
+	/// Added continuous use of NetworkStream (instead of Socket)
+	///
 	/// Revision 1.1  2004/12/06 05:20:21  sliver
 	/// - RequestFactory added
 	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
@@ -41,7 +44,7 @@ namespace Palladio.Webserver.Request
 		private string requestedDirectoyName;
 		private string httpVersion;
 		private int methodType;
-		private Socket socket;
+		private NetworkStream networkStream;
 		private Hashtable variablesGET;
 		private Hashtable variablesPOST;
 
@@ -99,12 +102,12 @@ namespace Palladio.Webserver.Request
 		}
 
 		/// <summary>
-		/// The Socket of the request.
+		/// NetworkStream to read / write data from / to the client.
 		/// </summary>
-		public Socket Socket
+		public NetworkStream NetworkStream
 		{
-			get { return socket; }
-			set { socket = value; }
+			get { return networkStream; }
+			set { networkStream = value; }
 		}
 
 		/// <summary>

@@ -32,6 +32,9 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/01/29 21:47:44  kelsaka
+	/// Added continuous use of NetworkStream (instead of Socket)
+	///
 	/// Revision 1.8  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -178,8 +181,8 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 			enumer = httpRequest.GETHashtable.GetEnumerator();
 			fileContentString = SearchAndReplaceKeysByValues (enumer, fileContentString);
 
-			requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, fileMimeType, fileContentString.Length, "200 OK", httpRequest.Socket);
-			requestProcessorTools.SendContentToClient(fileContentString, httpRequest.Socket);
+			requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, fileMimeType, fileContentString.Length, "200 OK", httpRequest.NetworkStream);
+			requestProcessorTools.SendContentToClient(fileContentString, httpRequest.NetworkStream);
 			webserverMonitor.WriteLogEntry("Successfully sent response to client.");
 		}
 

@@ -12,6 +12,9 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/01/29 21:47:44  kelsaka
+	/// Added continuous use of NetworkStream (instead of Socket)
+	///
 	/// Revision 1.2  2005/01/22 16:42:56  kelsaka
 	/// added configureable (XML) connection-string for the database;
 	/// added thread-name for the main thread;
@@ -71,9 +74,9 @@ namespace Palladio.Webserver.Request
 
 
 		/// <summary>
-		/// The Socket of the request.
+		/// NetworkStream to read / write data from / to the client.
 		/// </summary>
-		Socket Socket {get; set;}
+		NetworkStream NetworkStream {get; set;}
 
 
 		/// <summary>

@@ -119,19 +119,23 @@ namespace Palladio.Webserver.Dispatcher
 					if (clientSocket.Connected)
 					{
 						webserverMonitor.WriteLogEntry("Client connected on IP: " + clientSocket.RemoteEndPoint);
-
+		
 						// set up request:
-						IRequest request = requestFactory.CreateRequest(webserverMonitor);
-						request.Socket = clientSocket;
-						request.TcpListener = tcpListener;
-						request.Port = port;
+						IRequest request = requestFactory.CreateRequest(webserverMonitor);						
 
+						// Create a NetworkStream from the socket, the whole connection can work on.
+						// "true" indicates that the socket is under control of the NetworkStream: 
+						request.NetworkStream = new NetworkStream(clientSocket, System.IO.FileAccess.ReadWrite, true);						
+						request.Port = port;
+						
 
 						// let the parser handle the request:
 						requestParser.HandleRequest(request);
 
 
-						clientSocket.Close();
+						//clientSocket.Close();						
+						request.NetworkStream.Flush();
+						request.NetworkStream.Close();
 					}
 				}
 			}
@@ -139,8 +143,9 @@ namespace Palladio.Webserver.Dispatcher
 			// and the listener is stopped.
 			finally
 			{
-				if (clientSocket != null)
-					clientSocket.Close();
+				//if (clientSocket != null)
+				//	clientSocket.Close();
+				
 				tcpListener.Stop();
 			}
 		}
