@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.10  2004/07/02 16:20:12  joemal
+	/// - now the threads must be started, after they have been created
+	///
 	/// Revision 1.9  2004/06/26 16:32:43  joemal
 	/// - fix a bug in method reset
 	///
@@ -262,6 +265,7 @@ namespace ComponentNetworkSimulation.Simulation
 			{
 				simulationThreads.Add(thread);
 				NotifyThreadCreatedEvent(thread);
+				thread.Start();
 			}
 			prepairedSimulationThreads.Clear();
 		}
@@ -369,12 +373,14 @@ namespace ComponentNetworkSimulation.Simulation
 				return;
 			else
 			{
-				if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_ALL || 
-					previousTimeConsumer.LoggingType == LoggingType_t.LOG_ON_EXIT ||
-					previousTimeConsumer.LoggingType == LoggingType_t.LOG_BOTH)
+				if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_ALL && previousTimeConsumer !=null)
 				{
-					NotifyThreadLogEvent("Thread exited TimeConsumer.",simulationThread,
-						ThreadLogEventArgs.EventType.THREAD_EXITED_TIMECONSUMER,previousTimeConsumer);
+					if (previousTimeConsumer.LoggingType == LoggingType_t.LOG_ON_EXIT ||
+						previousTimeConsumer.LoggingType == LoggingType_t.LOG_BOTH)
+					{
+						NotifyThreadLogEvent("Thread exited TimeConsumer.",simulationThread,
+							ThreadLogEventArgs.EventType.THREAD_EXITED_TIMECONSUMER,previousTimeConsumer);
+					}
 				}
 
 				if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_ALL || 

@@ -27,6 +27,9 @@ namespace ComponentNetworkSimulation.Simulation
  	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.8  2004/07/02 16:20:12  joemal
+	/// - now the threads must be started, after they have been created
+	///
 	/// Revision 1.7  2004/06/23 16:32:18  joemal
 	/// - add sender attribute to some methods of the observer
 	///
@@ -70,6 +73,11 @@ namespace ComponentNetworkSimulation.Simulation
 		/// holds the type of the thread
 		/// </summary>
 		protected SimulationThreadType type = SimulationThreadType.TYPE_LOG_ON_LPS;
+
+		/// <summary>
+		/// this flag is false, until the scheduler has started this thread
+		/// </summary>
+		protected bool isStarted=false;
 
 		/// <summary>
 		/// this field hold an implemented observer if set
@@ -183,9 +191,20 @@ namespace ComponentNetworkSimulation.Simulation
 				while(!visitor.IsTimeConsumer && visitor.HasAnyElement)
 					visitor.NextElement();
 			}				
+		}
+
+		/// <summary>
+		/// call to start the thread. This method normaly is started by the scheduler when it is inserted in the queue
+		/// of threads. This method only must be called one time in the whole lifecycle of the thread.
+		/// </summary>
+		public void Start() 
+		{
+			if (this.isStarted) return; 
 			
-			if (visitor.IsTimeConsumer)
-				this.timeInFuture = visitor.CurrentTimeConsumer.ThreadEntered();
+			this.timeInFuture = visitor.CurrentTimeConsumer.ThreadEntered();
+			this.NotifyNextTCEvent(null);
+
+			this.isStarted = true;
 		}
 
 		/// <summary>
@@ -284,7 +303,7 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <returns>true, if the thread is alive.</returns>
 		protected bool HasAnyTimeConsumer()
 		{
-			return this.visitor.HasAnyElement;
+			return this.visitor.HasAnyElement && this.isStarted;
 		}
 
 		/// <summary>

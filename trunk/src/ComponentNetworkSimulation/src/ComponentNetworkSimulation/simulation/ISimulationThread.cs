@@ -6,6 +6,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.5  2004/07/02 16:20:12  joemal
+	/// - now the threads must be started, after they have been created
+	///
 	/// Revision 1.4  2004/05/26 16:29:53  joemal
 	/// add cvs log tag
 	///
@@ -68,6 +71,12 @@ namespace ComponentNetworkSimulation.Simulation
 		#endregion
 
 		#region methods
+
+		/// <summary>
+		/// call to start the thread. This method normaly is started by the scheduler when it is inserted in the queue
+		/// of threads. This method only must be called one time in the whole lifecycle of the thread.
+		/// </summary>
+		void Start();
 
 		/// <summary>
 		/// called to move the timeline of the thread.
