@@ -1,0 +1,567 @@
+body  {
+ font-family : arial, helvetica, sans-serif;
+ color : #000000;
+ margin : 0;
+ font-size : 95%;
+ padding : 0;
+}
+h1 , h4 , h5 , h6 , p , ol , ul , dl , dt , dd , td , th , blockquote , address , div , multicol {
+ font-family : arial, helvetica, sans-serif;
+ color : #000000;
+}
+em , strong , samp , var , cite , dfn , acronym , q , i , u , strike , s , big , small , sup , sub {
+ font-family : arial, helvetica, sans-serif;
+}
+b, strong {
+font-family : arial, helvetica, sans-serif;
+font-weight : 600;
+color: #444444;
+}
+h1 {
+ font-family : arial, helvetica, sans-serif;
+ font-size : 140%;
+ font-weight : 500;
+ color : #555555;
+ margin-top : 0;
+}
+h2 {
+ font-family : arial, helvetica, sans-serif;
+ color : #555555;
+ font-size : 140%;
+ font-weight : 500;
+ margin-top : 0;
+}
+h3 {
+ font-family : arial, helvetica, sans-serif;
+ font-size : 120%;
+ font-weight : 600;
+ color: #555555;
+}
+h4 {
+ margin-bottom : 2px;
+ color: #555555;
+
+}
+hr {
+ color : #003399;
+ height : 1px;
+}
+ul li {
+ font-family : arial, helvetica, sans-serif;
+ line-height : 120%;
+ list-style-image : url(http://www.uni-oldenburg.de/img/rahmen/li.gif);
+ list-style-type : disc;
+}
+ul.runter li , li.runter {
+ list-style-image : url(http://www.uni-oldenburg.de/img/rahmen/pfeil-runter.gif);
+}
+.drucken {
+ display : none;
+}
+.tabelle-untenrand {
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/tabelle-untenrand-hg.gif);
+}
+.tabelle-abschluss {
+ text-align : center;
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/gruen.gif);
+ background-repeat : repeat-x;
+ vertical-align : top;
+ background-color : #d0d0d0;
+}
+.tabelle-ende {
+ display : block;
+ background-color : #ffffff;
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/tabelle-untenrand.gif);
+ background-repeat : no-repeat;
+ vertical-align : bottom;
+ height : 8px;
+ margin : 0;
+ margin-top : 5px;
+ border : medium none inherit;
+ border : 0 none inherit;
+}
+.fuellspalte {
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/gruen.gif);
+ background-repeat : repeat-y;
+ background-color : #ffffff;
+}
+.leer {
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/weiss.gif);
+}
+td.re {
+ border-bottom : thin solid #e0e0e0;
+ border-right : 1px solid #c0c0c0;
+ background : #f0f0f0;
+}
+td.li {
+ background : #e0e0ff;
+}
+.linie-quer {
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/gruen.gif);
+ background-repeat : repeat-x;
+}
+.linie-hoch {
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/gruen.gif);
+ background-repeat : repeat-y;
+}
+.homepage-button {
+ display : block;
+ padding : 0;
+ margin-left : 20px;
+ margin-right : 10px;
+ margin-top : 0;
+ margin-bottom : 10px;
+ border-width : 0;
+}
+.weiss {
+ background-color : white;
+ background-image : url(http://www.uni-oldenburg.de/img/weiss.gif);
+}
+.null , .links {
+ background-image : url(http://www.uni-oldenburg.de/img/leer.gif);
+ background-repeat : repeat;
+}
+.kopfbogen1 {
+ background-repeat : no-repeat;
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/kopfbogen1.jpg);
+}
+.kopfbogen2 {
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/kopfbogen2a.gif);
+ background-repeat : no-repeat;
+ background-color : white;
+}
+.box-fak {
+ border : 0 solid #c0c0c0;
+ margin-top : 0;
+ margin-bottom : 5px;
+ padding : 0 10px;
+ font-size : 100%;
+}
+.box-fak p {
+ margin : 2px 5px;
+}
+.hg-grau {
+ width : 590px;
+}
+.box-fak {
+ width : 590px;
+}
+.ebene0 {
+ margin-left : 14px;
+ text-indent : -14px;
+}
+.liste-pfeil {
+ margin-left : 14px;
+ text-indent : -14px;
+ margin-top : 3px;
+ margin-bottom : 3px;
+}
+.Schlagzeilen {
+ display : block;
+ margin-bottom : 5px;
+ margin-left : 11px;
+ text-indent : -11px;
+}
+.tickerbox {
+ text-align : left;
+ padding : 5px;
+ border : medium none #cccccc;
+ border-style : solid;
+ border-top-width : 0;
+ border-right-width : 0;
+ border-bottom-width : 1px;
+ border-left-width : 1px;
+}
+.tickerschrift {
+ font-size : 85%;
+}
+.SchlagzeilenHeader {
+ display : block;
+ margin : 0;
+ margin-bottom : 10px;
+ padding-left : 3px;
+ padding-top : 3px;
+ padding-bottom : 3px;
+}
+.td.bildunterschrift {
+ font-size : 88%;
+ font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: 700
+}
+.u-dotted p, .u-dotted .Schlagzeilen, td.u-dotted {
+ display:block;
+ border : 0px;
+ border-bottom : 1px dotted #a0a0a0;
+ padding : 5px 0px;
+}
+ul.u-dotted li  {
+ border : 0px;
+ border-bottom : 1px dotted #a0a0a0;
+ padding : 5px 0px;
+}
+
+.o-dotted p, .o-dotted .Schlagzeilen, p.o-dotted {
+ display:block;
+ border : 0px;
+ border-top : 1px dotted #a0a0a0;
+ padding : 5px 0px;
+}
+table.o-dotted tr td {
+ border : 0px;
+ border-top : 1px dotted #a0a0a0;
+ padding : 5px 0px;
+}
+@media all {
+ td.o-dotted {
+  border : 0px;
+  border-top : 1px dotted #a0a0a0;
+  padding : 5px 0px;
+ }
+}
+.lu-rahmen {
+ text-align : left;
+ padding : 10px;
+ border : medium none #b5dba5;
+ border-style : solid;
+ border-top-width : 0;
+ border-right-width : 0;
+ border-bottom-width : 1px;
+ border-left-width : 1px;
+}
+.rahmen {
+ text-align : left;
+ padding : 10px;
+ border : medium none #b5dba5;
+ border-style : solid;
+ border-width : 1px;
+} 
+.rahmen h4 {
+ border : medium none #c0c0c0;
+ border-style : solid;
+ border-width : 0 0 1px;
+ padding : 0 0 3px;
+ margin : 0px;
+ margin-bottom : 3px;
+}
+.rahmen h3 {
+ margin-top:0px;
+ padding-top:0px;
+}
+.klein {
+ font-family : arial, helvetica, sans-serif;
+ font-size : 13px;
+ text-decoration : none;
+}
+ul.geweitet li {
+ margin-bottom : 3px;
+}
+.code {
+ font-family : Courier New, Courier, mono;
+ color : #900030;
+}
+@media all {
+ th {
+  text-align : left;
+}
+ a, a b, a strong {
+  color : #0000aa;
+  text-decoration : none;
+}
+ a:hover, a:hover strong {
+  color : #000000;
+  text-decoration : underline;
+}
+ .hg-grau {
+  background-color : #e0e0e0;
+  padding : 10px;
+  margin-top : 20px;
+  margin-bottom : 0;
+  width : 590px;
+  border : 2px solid #c0c0c0;
+  border-bottom : 0 none inherit;
+}
+ div.lu-rahmen p {
+  margin-top : 0;
+  margin-bottom : 4px;
+}
+ .kopfbogen1 {
+  background-repeat : no-repeat;
+  background-image : url(http://www.uni-oldenburg.de/img/rahmen/kopfbogen1.jpg);
+}
+ .links {
+  background-image : url(http://www.uni-oldenburg.de/img/leer.gif);
+  background-repeat : repeat;
+}
+ .tickerbox {
+  border : 0 solid #3ea836;
+  padding : 0;
+  margin-left : 0;
+}
+ .lu-rahmen {
+  text-align : left;
+  padding : 10px;
+  padding-top : 5px;
+  border : medium none #b5dba5;
+  border-style : solid;
+  border-top-width : 0;
+  border-right-width : 0;
+  border-bottom-width : 1px;
+  border-left-width : 1px;
+  margin : 0;
+  margin-bottom : 15px;
+}
+ .SchlagzeilenHeader {
+  background-image : url('http://www.uni-oldenburg.de/img/uniglobal/sn-verlauf.jpg');
+  background-repeat : repeat-y;
+}
+ .xSchlagzeilenHeader {
+  background-color : #88bc26;
+}
+ .lu-rahmen ul li {
+  margin-left : -10px;
+  margin-bottom : 2px;
+  line-height : 110%;
+}
+}
+#logo-ebene {
+ width : 260px;
+ height : 76px;
+ z-index : 2;
+ background-image : url('http://www.uni-oldenburg.de/img/rahmen/logo.gif');
+ border : 0 none inherit;
+ border : medium none inherit;
+}
+.kopfbogen1 {
+ background-image : url('http://www.uni-oldenburg.de/img/rahmen/kopfbogen1.jpg');
+ background-color : #071697;
+}
+.hauptbereich {
+ background-color : #ffffff;
+ width : 768px;
+}
+.nachoben {
+ text-align : right;
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/trenn-hg.gif);
+ background-repeat : repeat-x;
+ margin : 5px 0px;
+}
+.textbody {
+ background-color : #ffffff;
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/weiss.gif);
+ margin-bottom : 0;
+}
+#textkoerper {
+ background-color : #ffffff;
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/weiss.gif);
+}
+@media all {
+ #textkoerper {
+  padding-bottom : 10px;
+}
+}
+.haengend {
+ text-indent : -30px;
+ margin-left : 30px;
+}
+#subnavi-rahmen {
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/weiss.gif);
+ background-repeat : repeat;
+}
+#subnavi-ebene {
+ margin : 1px;
+}
+.pause {
+ position : absolute;
+ width : 123px;
+ height : auto;
+ z-index : 1;
+ left : 1px;
+ top : 145px;
+}
+.subnavi-tabelle {
+ width : 127px;
+}
+.subnavi-zelle {
+ font-family : arial, helvetica, sans-serif;
+ font-size : 13px;
+ color : #ffffff;
+ background-color : #3ea836;
+ width : 123px;
+ padding-left : 3px;
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/subnavi-hg3.gif);
+}
+.subnavi-zelle a {
+ display : block;
+ width : 100%;
+ color : white;
+ text-decoration : none;
+}
+.subnavi-zelle a:hover , .subnavi-zelle a.aktiv {
+ display : block;
+ text-decoration : none;
+ color : black;
+ background-color : #81e572;
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/subnavi-hg-aktiv2.gif);
+}
+.subnavi-zelle-ueberschrift {
+ font-family : arial, helvetica, sans-serif;
+ font-size : 13px;
+ font-weight : 600;
+ color : #ffffff;
+ background-color : #3ea836;
+ width : 123px;
+ padding-left : 3px;
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/subnavi-hg-dunkel.gif);
+}
+.subnavi-zelle-ueberschrift a {
+ display : block;
+ width : 100%;
+ color : white;
+ text-decoration : none;
+}
+.subnavi-zelle-ueberschrift a:hover {
+ display : block;
+ text-decoration : none;
+ color : black;
+ background-color : #81e572;
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/subnavi-hg-aktiv2.gif);
+}
+.subnavi-ebene0 {
+ display : block;
+ text-indent : 0;
+ margin-left : 0;
+ text-decoration : none;
+}
+.subnavi-ebene1 {
+ display : block;
+ text-indent : -10px;
+ margin-left : 10px;
+ text-decoration : none;
+}
+.subnavi-ebene2 {
+ display : block;
+ text-indent : -10px;
+ margin-left : 20px;
+ text-decoration : none;
+}
+.subnavi5 {
+ display : inline;
+}
+#languages {
+ text-align : center;
+}
+.menuelink {
+ font-family : arial, helvetica, sans-serif;
+ font-size : 13px;
+ color : #ffffff;
+}
+.menuelink:link {
+ text-decoration : none;
+ color : #ffffff;
+}
+.menuelink:visited {
+ text-decoration : none;
+ color : #ffffff;
+}
+.menuelink:hover {
+ text-decoration : none;
+ color : #ffffff;
+ border : medium none inherit;
+ margin : 0;
+}
+.menuelink:active {
+ text-decoration : none;
+ color : #003399;
+}
+#history-bereich {
+ font-family : arial, helvetica, sans-serif;
+ font-size : 11px;
+ font-weight : 700;
+ color : #666666;
+ width : 500px;
+}
+#history-bereich a {
+ color : #669933;
+ text-decoration : none;
+ font-weight : 500;
+}
+#history-bereich a:hover {
+ text-decoration : underline;
+}
+#history-bereich {
+ text-transform : uppercase;
+ display : block;
+}
+#history-bereich b , #history-bereich a {
+ text-transform : uppercase;
+}
+.history {
+ font-family : arial, helvetica, sans-serif;
+ font-size : 11px;
+ color : #608040;
+ text-transform : uppercase;
+}
+.history:active {
+ text-decoration : none;
+}
+.history-zelle {
+ background-image : url(http://www.uni-oldenburg.de/img/rahmen/weiss.gif);
+ background-color : white;
+}
+.rechts {
+ text-align : left;
+ margin-left : 10px;
+ background-repeat : repeat-y;
+ background-color : #ffffff;
+}
+#rechts-rahmen {
+ text-align : left;
+ clear : right;
+ padding : 5px 5px 0;
+ border-color : #b5dba5;
+ border-style : solid;
+ border-top-width : 0;
+ border-right-width : 0;
+ border-bottom-width : 1px;
+ border-left-width : 1px;
+ margin : 0;
+}
+@media all {
+ #rechts-rahmen {
+  text-align : left;
+  padding : 5px;
+  border : medium none #b5dba5;
+  border-style : solid;
+  border-top-width : 0;
+  border-right-width : 0;
+  border-bottom-width : 1px;
+  border-left-width : 1px;
+  margin : 0;
+  margin-bottom : 15px;
+  margin-left : 5px;
+}
+ .orglogo {
+  display : block;
+  margin : 0;
+  margin-bottom : 10px;
+}
+}
+.uni-navi {
+ font-family : arial, helvetica, sans-serif;
+ font-size : 11px;
+ color : #000080;
+ text-decoration : none;
+}
+.uni-navi-ebene {
+ font-family : arial, helvetica, sans-serif;
+ font-size : 90%;
+ color : #000080;
+ text-decoration : none;
+ width : 768px;
+ margin : 0;
+ margin-top : 1px;
+ padding-top : 1px;
+ padding-bottom : 1px;
+ border : medium solid #122ba9;
+ border-width : 1px;
+ background-color : #d0d0d0;
+}
