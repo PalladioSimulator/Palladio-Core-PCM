@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/05/26 16:34:25  joemal
+	/// visitor now gets its startparameter in a structure
+	///
 	/// Revision 1.1  2004/05/18 15:40:40  joemal
 	/// initial creation
 	///
@@ -33,9 +36,8 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// <summary>
 		/// called to set the entry point of the controlflow.
 		/// </summary>
-		/// <param name="fsm">the fsm</param>
-		//todo: later Component and Signature of the service as param
-		void SetStart(IFiniteStateMachine fsm);
+		/// <param name="startingPoint">the datastructure, which describes the starting point of this thread.</param>
+		void SetStart(IThreadStartingPoint startingPoint);
 		
 		/// <summary>
 		/// call to jump to the next TimeConsumer in controlflow of the visitor.

@@ -15,6 +15,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/05/26 16:34:25  joemal
+	/// visitor now gets its startparameter in a structure
+	///
 	/// Revision 1.2  2004/05/20 14:18:53  joemal
 	/// changed the visit methods to public
 	///
@@ -63,11 +66,10 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// <summary>
 		/// call to set the startpoint of the controlflow of this visitor.
 		/// </summary>
-		/// <param name="fsm">fsm</param>
-		//todo: later Component and signature as parameter
-		public void SetStart(Palladio.FiniteStateMachines.IFiniteStateMachine fsm)
+		/// <param name="startingPoint">the datastructure, which describes the starting point of this thread.</param>
+		public void SetStart(IThreadStartingPoint startingPoint)
 		{
-			Visit(fsm);
+			Visit(startingPoint.FiniteStateMachine);
 		}
 
 		/// <summary>
