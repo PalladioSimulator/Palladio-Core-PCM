@@ -21,6 +21,10 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/01/07 16:58:02  kelsaka
+	/// Added TimeConsumingProcessor including its documentation and configuration.
+	/// Integrated the new processor into the COR.
+	///
 	/// Revision 1.1  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -176,20 +180,20 @@ namespace Palladio.Webserver
 			webserver.requestProcessorTools = webserverFactory.CreateRequestProcessorTools(webserver.webserverMonitor, webserver.webserverConfiguration);
 
 
-			// RequestProcessor-COR: Dynamic -> SimpleTemplate -> BibTeX -> Static -> Default.
-			webserver.httpRequestProcessors = new IHTTPRequestProcessor[5];
+			// RequestProcessor-COR: TimeConsuming -> Dynamic -> SimpleTemplate -> BibTeX -> Static -> Default.
+			webserver.httpRequestProcessors = new IHTTPRequestProcessor[6];
 			webserver.httpRequestProcessors[0] = webserverFactory.CreateDefaultRequestProcessor(webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
 			webserver.httpRequestProcessors[1] = webserverFactory.CreateStaticFileProvider(webserver.httpRequestProcessors[0], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
 
 			webserver.httpRequestProcessors[2] = webserverFactory.CreateBibTeXProvider(webserverFactory.CreateBibTexDB(), webserver.httpRequestProcessors[1], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
 			webserver.httpRequestProcessors[3] = webserverFactory.CreateSimpleTemplateFileProvider(webserver.httpRequestProcessors[2], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
 			webserver.httpRequestProcessors[4] = webserverFactory.CreateDynamicFileProvider(webserver.httpRequestProcessors[3], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
-
+			webserver.httpRequestProcessors[5] = webserverFactory.CreateTimeConsumingProcessor(webserver.httpRequestProcessors[4], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
 
 			// RequestParser-COR: HTTP -> Default (currently FTP is not implemented)
 			webserver.requestParsers = new IRequestParser[2];
 			webserver.requestParsers[0] = webserverFactory.CreateDefaultRequestParser(webserver.webserverMonitor, webserver.webserverConfiguration);
-			webserver.requestParsers[1] = webserverFactory.CreateHTTPRequestParser(webserver.httpRequestProcessors[4], webserver.requestParsers[0], webserver.webserverMonitor, webserver.webserverConfiguration, requestFactory);
+			webserver.requestParsers[1] = webserverFactory.CreateHTTPRequestParser(webserver.httpRequestProcessors[5], webserver.requestParsers[0], webserver.webserverMonitor, webserver.webserverConfiguration, requestFactory);
 
 			webserver.dispatcher = webserverFactory.CreateDispatcher(webserver.requestParsers[1], webserver.webserverMonitor, webserver.webserverConfiguration, requestFactory, portListenerFactory);
 			return webserver;
