@@ -30,6 +30,6 @@ namespace Palladio.Webserver.BibTeXProvider
 		/// </summary>
 		/// <param name="bibTeXTableName">Table-name of the sql-table.</param>
 		/// <returns>String that contains the result: html-table.</returns>
-		StringBuilder AllEntries(string bibTeXTableName);
+		StringBuilder SearchAllEntries(string bibTeXTableName);
 	}
 }

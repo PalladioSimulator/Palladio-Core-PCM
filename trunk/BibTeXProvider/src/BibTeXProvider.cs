@@ -39,6 +39,9 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/12/18 10:01:18  kelsaka
+	/// removed duplicate method CreateHTMLDataTableFromResult from BibTeXProvider.
+	///
 	/// Revision 1.5  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -135,7 +138,7 @@ namespace Palladio.Webserver.BibTeXProvider
 				if(httpRequest.GetPOSTVariableValue("showEntry") == "all")
 				{
 					// Case: display all entries
-					responseString = bibTexDB.AllEntries(bibTeXProviderConfiguration.DatabaseTableName);
+					responseString = bibTexDB.SearchAllEntries(bibTeXProviderConfiguration.DatabaseTableName);
 				}
 				else
 				{	
@@ -157,48 +160,6 @@ namespace Palladio.Webserver.BibTeXProvider
 				requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType), responseString.Length, "200 OK", httpRequest.Socket);
 				requestProcessorTools.SendContentToClient(responseString.ToString(), httpRequest.Socket);
 			}
-		}
-
-
-		/// <summary>
-		/// Creates a partial WHERE-statement, if the given key has a value != "" in the httpRequest (POST).
-		/// </summary>
-		/// <param name="httpRequest">Request that contains the variables to consider.</param>
-		/// <param name="keys">The key to search for in the request.</param>
-		/// <returns>A pair like "author = 'Shakespeare'".</returns>
-		private StringBuilder BuildWhereClause (IHTTPRequest httpRequest, string[] keys)
-		{
-			StringBuilder sqlRequest = new StringBuilder();
-			bool first = true;
-			foreach(string key in keys)
-			{
-				string value = httpRequest.GetPOSTVariableValue(key);
-				// unescape value-chars from URI-Encoding using the default representation.
-				// e. g. a whitespace is encoded by "+" or a linebreak by "%0A".
-				Encoding encoding = Encoding.Default;
-				value = HttpUtility.UrlDecode(value, encoding);
-
-				// convert SQL-Escape-Characters:
-				value = value.Replace("\"", "\\\""); //  " to \"
-				value = value.Replace("\'", "\\\'"); //  ' to \'
-
-
-				if(value != "")
-				{
-					if(first)
-					{
-						// only create where clause if value are != "" and only at the beginning.
-						sqlRequest.Append("WHERE ");
-					}
-					if(!first)
-					{
-						sqlRequest.Append(" AND ");
-					}
-					sqlRequest.Append(key + " LIKE '" + value + "'");
-					first = false;
-				}
-			}
-			return sqlRequest;
 		}
 
 
