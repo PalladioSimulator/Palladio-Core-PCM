@@ -102,12 +102,18 @@ namespace ComponentNetworkSimulation.Simulation
 		/// </summary>
 		void Reset();
 
+
+		/// <summary>
+		/// this methods make the scheduler to calculate the largest possible timestep
+		/// </summary>
+		/// <returns>the largest possible timestep</returns>
+		long CalculateNextTimeStep();
+
 		/// <summary>
 		/// call to move the timeline in the scheduler.
 		/// </summary>
-		/// <param name="maxTimeStep">the maximum timestep</param>
-		/// <returns>the realy done time step</returns>
-		long SimulationStep(long maxTimeStep);
+		/// <param name="steptime">the time, the schedulers timeline has to be moved</param>
+		void SimulationStep(long steptime);
 
 
 		#endregion

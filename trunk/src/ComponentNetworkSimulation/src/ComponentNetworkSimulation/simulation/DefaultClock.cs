@@ -152,10 +152,13 @@ namespace ComponentNetworkSimulation.Simulation
 
 			if (IsMaxTimeReached || !scheduler.IsAnyThreadAlive) return false;
 			
-			long curStep = scheduler.SimulationStep(maxSimulationTime-currentTime);
-			currentTime += curStep;
+			long nextStep = scheduler.CalculateNextTimeStep();
+			if (currentTime + nextStep > maxSimulationTime) nextStep = maxSimulationTime-currentTime;
 
-			NotifyTimeStepEvent(curStep);
+			currentTime += nextStep;
+			NotifyTimeStepEvent(nextStep);
+
+			scheduler.SimulationStep(nextStep);
 
 			if (currentTime == maxSimulationTime) NotifyMaxTimeReachedEvent();
 

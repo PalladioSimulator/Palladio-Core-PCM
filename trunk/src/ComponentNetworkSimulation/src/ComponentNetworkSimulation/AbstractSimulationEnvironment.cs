@@ -83,7 +83,7 @@ namespace ComponentNetworkSimulation
 		/// <returns>false is returned, if no more thread is alive or the maximum simulationtime is reached.</returns>
 		public virtual bool SimulationStep()
 		{
-			return this.clock.SimulationStep();
+			return this.Clock.SimulationStep();
 		}
 
 		/// <summary>
@@ -99,9 +99,9 @@ namespace ComponentNetworkSimulation
 		/// </summary>
 		public virtual void ResetSimulation()
 		{
-			this.clock.Reset();
-			this.componentNetwork.reset();
-			this.dataPool.Reset();
+			this.Clock.Reset();
+			this.TheComponentNetwork.reset();
+			this.DataPool.Reset();
 		}
 
 		/// <summary>
@@ -110,7 +110,7 @@ namespace ComponentNetworkSimulation
 		/// </summary>
 		protected virtual void DoSimulate()
 		{
-			while(clock.SimulationStep());
+			while(Clock.SimulationStep());
 		}
 
 		#endregion

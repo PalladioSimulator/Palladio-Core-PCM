@@ -22,9 +22,9 @@ namespace ComponentNetworkSimulation.Structure
 			return SystemServices.Count;
 		}
 
-		public IEnumerator getSystemServices()
+		public IList getSystemServices()
 		{
-			return SystemServices.GetEnumerator();
+			return SystemServices;
 		}
 
 		public void reset()

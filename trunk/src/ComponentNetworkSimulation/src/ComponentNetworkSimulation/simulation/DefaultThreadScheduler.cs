@@ -186,24 +186,27 @@ namespace ComponentNetworkSimulation.Simulation
 		}
 
 		/// <summary>
-		/// call to move the timeline in the scheduler. This methods iterates all threads to move there timelines.
+		/// this methods make the scheduler to calculate the largest possible timestep
 		/// </summary>
-		/// <param name="maxTimeStep">the maximum timestep</param>
-		/// <returns>the realy done time step</returns>
-		public virtual long SimulationStep(long maxTimeStep)
+		/// <returns>the largest possible timestep</returns>
+		public virtual long CalculateNextTimeStep()
 		{
 			this.InsertPrepairedThreads();
-			long timeStep = this.GetShortestFutureTime();
-			if (maxTimeStep < timeStep) timeStep = maxTimeStep;
+			return this.GetShortestFutureTime();
+		}
 
+		/// <summary>
+		/// call to move the timeline in the scheduler.
+		/// </summary>
+		/// <param name="steptime">the time, the schedulers timeline has to be moved</param>
+		public virtual void SimulationStep(long steptime)
+		{
 			foreach (ISimulationThread thread in this.simulationThreads)	
-				thread.TimeMoved(timeStep);		
+				thread.TimeMoved(steptime);		
 
 			this.InsertPrepairedThreads();
 			this.ClearDeadThreads();
-			if (!this.IsAnyThreadAlive)	NotifyNoMoreThreadsAliveEvent();
-
-			return timeStep;
+			if (!this.IsAnyThreadAlive)	NotifyNoMoreThreadsAliveEvent();		
 		}
 
 		/// <summary>
@@ -352,7 +355,7 @@ namespace ComponentNetworkSimulation.Simulation
 					previousTimeConsumer.LoggingType == LoggingType_t.LOG_BOTH)
 				{
 					NotifyThreadLogEvent("Thread entered TimeConsumer.",simulationThread,
-						ThreadLogEventArgs.EventType.THREAD_EXITED_TIMECONSUMER,currentTimeConsumer);
+						ThreadLogEventArgs.EventType.THREAD_ENTERED_TIMECONSUMER,currentTimeConsumer);
 				}
 			}
 		}

@@ -76,7 +76,9 @@ namespace nunittests.simulation
 
 			while (scheduler.IsAnyThreadAlive && simTime < 40) 
 			{
-				simTime += scheduler.SimulationStep(long.MaxValue);
+				long step = scheduler.CalculateNextTimeStep();
+				simTime += step;
+				scheduler.SimulationStep(step);
 			}
 		}
 

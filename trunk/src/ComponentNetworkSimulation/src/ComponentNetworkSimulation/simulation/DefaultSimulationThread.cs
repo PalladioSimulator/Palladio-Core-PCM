@@ -200,10 +200,11 @@ namespace ComponentNetworkSimulation.Simulation
 		/// If a SubCallingTimeConsumer is reached, its following TimeConsumer is pushed to stack. 
 		/// </summary>
 		/// <returns>
-		/// returns found SubCallingTimeConsumer, if any 
+		/// returns the timeconsumer that finished the subcall
 		/// </returns>
 		private ITimeConsumer BackToSubCaller()
 		{
+			ITimeConsumer previousTC = (ITimeConsumer)timeConsumerStack.Peek();
 			do
 			{
 				ITimeConsumer current = (ITimeConsumer)timeConsumerStack.Pop();
@@ -213,12 +214,13 @@ namespace ComponentNetworkSimulation.Simulation
 					if (nextTC != null) 
 					{
 						timeConsumerStack.Push(nextTC);
-						return current;
+						return previousTC;
 					}
 				}
 			}
 			while(timeConsumerStack.Count != 0);
-			return null;
+
+			return previousTC;
 		}
 
 		/// <summary>
