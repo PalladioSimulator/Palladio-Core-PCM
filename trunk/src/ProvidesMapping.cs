@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 
-namespace ComponentModel {
+namespace Palladio.ComponentModel 
+{
 	/// <summary>
 	/// </summary>
-	public class ProvidesMapping : AbstractConnection {
+	public class ProvidesMapping : IMapping 
+	{
 		
 		private ProvidesInterface	innerProvIFace;
 		private IComponent			innerComp;
@@ -12,33 +14,45 @@ namespace ComponentModel {
 		private ProvidesInterface	outerProvIFace;
 		private IComponent			outerComp;
 
-		public ProvidesInterface InnerProvIFace { 
+		public ProvidesInterface InnerProvIFace 
+		{ 
 			get { return innerProvIFace; }
 		}
 
-		public IComponent InnerComp { 
+		public IComponent InnerComp 
+		{ 
 			get { return innerComp; }
 		}
 
-		public ProvidesInterface OuterProvIFace { 
+		public ProvidesInterface OuterProvIFace 
+		{ 
 			get { return outerProvIFace; }
 		}
 
-		public IComponent OuterComp { 
+		public IComponent OuterComp 
+		{ 
 			get { return outerComp; }
 		}
 
 
 		public ProvidesMapping ( IComponent anInnerComp, ProvidesInterface anInnerProvI, 
-			IComponent anOuterComp, ProvidesInterface anOuterProvI ) {
+			IComponent anOuterComp, ProvidesInterface anOuterProvI ) 
+		{
 		}
 
-		public override bool CheckInteroperability(out IList anErrorList) {
+		public bool CheckSubType(out IList anErrorList) 
+		{
 			anErrorList = null;
 			return false;
 		}
 
-		public override IInterfaceModel GetIntersection() {
+		public bool CheckSubType()
+		{
+			return false;
+		}
+
+		public IInterfaceModel GetIntersection() 
+		{
 			return null;
 		}
 	}

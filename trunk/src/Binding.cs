@@ -1,13 +1,13 @@
 using System;
 using System.Collections;
 
-namespace ComponentModel {
+namespace Palladio.ComponentModel {
 	/// <summary>
-	/// Connection between the requires interface of component A and
-	/// the provides interface of component B. Both components stand on
+	/// Connection between a requires interface of component A and
+	/// a provides interface of component B. Both components stand on
 	/// the same level. (none is including the other)
 	/// </summary>
-	public class Binding : IConnection {
+	public class Binding : IBinding {
 
 		private ProvidesInterface provIFace;
 		private IComponent provComp;

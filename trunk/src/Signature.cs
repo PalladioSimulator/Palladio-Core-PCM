@@ -1,109 +1,144 @@
 using System;
 using System.Reflection;
 
-namespace ComponentModel {
+namespace Palladio.ComponentModel 
+{
 	/// <summary>
 	/// Signature of a service.
 	/// </summary>
-	public class MethodSignature : MethodInfo {
-
+	public class MethodSignature : MethodInfo, ISignature 
+	{
 		/// <summary>
 		/// Delegation to a .Net MethodInfo object, which contains 
 		/// all information about the method signature.
 		/// </summary>
 		private MethodInfo info;
 
-		public MethodSignature(MethodInfo aMethodInfo) {
+		public MethodSignature(MethodInfo aMethodInfo) 
+		{
 			info = aMethodInfo;
 		}
 
-		public bool Match( Service anOtherService ) {
-			return Info.Equals( anOtherService.Info );
+		public bool Match( ISignature anOtherSignature ) 
+		{
+			bool result = false;
+			if (anOtherSignature is MethodSignature) 
+			{
+				MethodSignature signature = (MethodSignature) anOtherSignature;
+				result = info.Equals( signature.info );
+			}
+			return result;
 		}
 
-		public bool MatchContraVariant( Service anOtherService ) {
+		public bool MatchContraVariant( ISignature anOtherSignature ) 
+		{
 			return false;
 		}
 
 		#region Delegate MethodInfo
-		public override MethodAttributes Attributes {
-			get {
+		public override MethodAttributes Attributes 
+		{
+			get 
+			{
 				return info.Attributes;
 			}
 		}
 
-		public override CallingConventions CallingConvention {
-			get {
+		public override CallingConventions CallingConvention 
+		{
+			get 
+			{
 				return info.CallingConvention;
 			}
 		}
 
-		public override Type DeclaringType {
-			get {
+		public override Type DeclaringType 
+		{
+			get 
+			{
 				return info.DeclaringType;
 			}
 		}
 
-		public override MethodInfo GetBaseDefinition() {
+		public override MethodInfo GetBaseDefinition() 
+		{
 			return info.GetBaseDefinition();
 		}
 
-		public override object[] GetCustomAttributes(bool inherit) {
+		public override object[] GetCustomAttributes(bool inherit) 
+		{
 			return info.GetCustomAttributes(inherit);
 		}
 
-		public override object[] GetCustomAttributes(Type attributeType, bool inherit) {
+		public override object[] GetCustomAttributes(Type attributeType, bool inherit) 
+		{
 			return info.GetCustomAttributes(attributeType, inherit);
 		}
 
-		public override MethodImplAttributes GetMethodImplementationFlags() {
+		public override MethodImplAttributes GetMethodImplementationFlags() 
+		{
 			return info.GetMethodImplementationFlags();
 		}
 
-		public override ParameterInfo[] GetParameters() {
+		public override ParameterInfo[] GetParameters() 
+		{
 			return info.GetParameters();
 		}
 
-		public override object Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, System.Globalization.CultureInfo culture) {
+		public override object Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, System.Globalization.CultureInfo culture) 
+		{
 			return info.Invoke(obj, invokeAttr, binder, parameters, culture);
 		}
 
-		public override bool IsDefined(Type attributeType, bool inherit) {
+		public override bool IsDefined(Type attributeType, bool inherit) 
+		{
 			return info.IsDefined(attributeType, inherit);
 		}
 
-		public override MemberTypes MemberType {
-			get {
+		public override MemberTypes MemberType 
+		{
+			get 
+			{
 				return info.MemberType;
 			}
 		}
 
-		public override RuntimeMethodHandle MethodHandle {
-			get {
+		public override RuntimeMethodHandle MethodHandle 
+		{
+			get 
+			{
 				return info.MethodHandle;
 			}
 		}
 
-		public override string Name {
-			get {
+		public override string Name 
+		{
+			get 
+			{
 				return info.Name;
 			}
 		}
 
-		public override Type ReflectedType {
-			get {
+		public override Type ReflectedType 
+		{
+			get 
+			{
 				return info.ReflectedType;
 			}
 		}
 
-		public override Type ReturnType {
-			get {
+		public override Type ReturnType 
+		{
+			get 
+			{
 				return info.ReturnType;
 			}
 		}
 
-		public override ICustomAttributeProvider ReturnTypeCustomAttributes {
-			get {
+		public override ICustomAttributeProvider ReturnTypeCustomAttributes 
+		{
+			get 
+			{
 				return info.ReturnTypeCustomAttributes;
 			}
 		}

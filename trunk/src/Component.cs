@@ -1,18 +1,27 @@
 using System;
 using System.Collections;
 
-namespace ComponentModel {
+namespace Palladio.ComponentModel 
+{
 
 	/// <summary>
 	/// Default Component class. A component consits of a set of
 	/// provides and requires interfaces, which can be adapted to
 	/// its environment.
 	/// </summary>
-	public class Component : IComponent {
+	public class Component : IComponent 
+	{
 
 		private IList provIFaceList;
 		private IList reqIFaceList;
 
+		/// <summary>
+		/// Creates an empty Component.
+		/// </summary>
+		public Component() 
+		{
+		}
+		
 		/// <summary>
 		/// Creates a new component with a list of provides interfaces an 
 		/// no requirements to the environment.
@@ -20,7 +29,8 @@ namespace ComponentModel {
 		/// <param name="aProvIFaceList">
 		/// A list of ProvidesInterface objects.
 		/// </param>
-		public Component( IList aProvIFaceList ){
+		public Component( IList aProvIFaceList )
+		{
 			provIFaceList = aProvIFaceList;
 		}
 
@@ -34,7 +44,8 @@ namespace ComponentModel {
 		/// <param name="aReqIFaceList">
 		/// A list of RequiresInterface objects.
 		/// </param>
-		public Component( IList aProvIFaceList, IList aReqIFaceList ) {
+		public Component( IList aProvIFaceList, IList aReqIFaceList ) 
+		{
 			provIFaceList = aProvIFaceList;
 			reqIFaceList = aReqIFaceList;
 		}
@@ -48,7 +59,8 @@ namespace ComponentModel {
 		/// <returns>
 		/// A list of ProvideInterface objects.
 		/// </returns>
-		public IList GetProvidesIFaceList(IList aProvIFaceList) {
+		public IList GetProvidesIFaceList(IList aProvIFaceList) 
+		{
 			return null;
 		}
 
@@ -62,7 +74,8 @@ namespace ComponentModel {
 		/// <returns>
 		/// A list of RequiresInterface objects.
 		/// </returns>
-		public IList GetRequiresIFaceList(IList aReqIFaceList) {
+		public IList GetRequiresIFaceList(IList aReqIFaceList) 
+		{
 			return null;
 		}
 
@@ -73,7 +86,8 @@ namespace ComponentModel {
 		/// <returns>
 		/// A List of ProvidesInterface objects.
 		/// </returns>
-		public IList GetProvidesIFaceList() {
+		public IList GetProvidesIFaceList() 
+		{
 			return provIFaceList;
 		}
 
@@ -84,8 +98,20 @@ namespace ComponentModel {
 		/// <returns>
 		/// A list of RequiresInterface objects.
 		/// </returns>
-		public IList GetRequiresIFaceList() {
+		public IList GetRequiresIFaceList() 
+		{
 			return reqIFaceList;
+		}
+
+		public bool IsSubTypeOf( IComponent aSuperType )
+		{
+			return false;
+		}
+
+		public bool IsSubTypeOf( IComponent aSuperType, out IList anErrorList)
+		{
+			anErrorList = new ArrayList();
+			return false;
 		}
 	}
 }

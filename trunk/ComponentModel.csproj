@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "ComponentModel"
+                AssemblyName = "Palladio.ComponentModel"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "ComponentModel"
+                RootNamespace = "Palladio.ComponentModel"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -79,6 +79,11 @@
                     AssemblyName = "System.Xml"
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
+                <Reference
+                    Name = "palladio"
+                    Project = "{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
@@ -89,12 +94,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\AbstractConnection.cs"
+                    RelPath = "src\AbstractIM.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\AbstractIM.cs"
+                    RelPath = "src\AmbiguousMatchError.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -109,12 +114,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentModelFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\CompositeComponent.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IBinding.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\IComponent.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ICompositeComponent.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -130,6 +150,31 @@
                 />
                 <File
                     RelPath = "src\IInterOperabilityProblem.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IMapping.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IModelNotProtocolIModelException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IModelNotSignatureListIMException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ISignature.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\NoMatchFoundIOpError.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

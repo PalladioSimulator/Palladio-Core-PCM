@@ -1,28 +1,33 @@
 using System;
 using System.Collections;
 
-namespace ComponentModel
+namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// </summary>
-	public class RequiresInterface : AbstractIM	 {
+	public class RequiresInterface : AbstractIModel	 
+	{
 
 		// Delegate
 		IInterfaceModel requiresIM;
 
-		public RequiresInterface() {
+		public RequiresInterface() 
+		{
 		}
 
-		public override bool SubTypeCheck(IInterfaceModel anIModel, out IList anErrorList) {
+		public override bool IsSubSetOf(IInterfaceModel anIModel, out IList anErrorList) 
+		{
 			anErrorList = null;
 			return false;
 		}
 
-		public override IList GetInterOperabilityErrors(IInterfaceModel anIModel) {
+		public override IInterfaceModel Merge(IInterfaceModel anIModel) 
+		{
 			return null;
 		}
 
-		public override IInterfaceModel Merge(IInterfaceModel anIModel) {
+		public override object Clone()
+		{
 			return null;
 		}
 	}

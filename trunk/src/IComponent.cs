@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace ComponentModel {
+namespace Palladio.ComponentModel {
 	/// <summary>
 	/// A Component is a set of provides and requires interfaces.
 	/// </summary>
@@ -46,5 +46,28 @@ namespace ComponentModel {
 		/// </returns>
 		IList GetRequiresIFaceList( IList aReqIFaceList );
 
+		bool IsSubTypeOf( IComponent aSuperType );
+
+		bool IsSubTypeOf( IComponent aSuperType, out IList anErrorList);
+
+//		void AddProvidesIFace( ProvidesInterface aProvIFace );
+//
+//		void AddProvidesIFaceList( IList aProvIFaceList );
+//		
+//		void RemoveProvidesIFace( ProvidesInterface aProvIFace );
+//
+//		void RemoveProvidesIFaceList( IList aProvIFaceList );
+//		
+//		void ClearProvidesIFaceList();
+//
+//		void AddRequiresIFace( RequiresInterface aReqIFace );
+//
+//		void AddRequiresIFaceList( IList aReqIFaceList );
+//
+//		void RemoveRequiresIFace( RequiresInterface aReqIFace );
+//
+//		void RemoveRequiresIFaceList( IList aReqIFaceList );
+//		
+//		void ClearRequiresIFaceList();
 	}
 }

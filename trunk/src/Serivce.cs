@@ -1,12 +1,12 @@
 using System;
 using System.Reflection;
 
-namespace ComponentModel {
+namespace Palladio.ComponentModel {
 	/// <summary>
 	/// A service consists of a provided method or function with an associated service
 	/// effect specification describing its requirements.
 	/// </summary>
-	public class Service : MethodInfo {
+	public class Service {
 
 		private IInterfaceModel effectSpec;
 		private MethodSignature signature;

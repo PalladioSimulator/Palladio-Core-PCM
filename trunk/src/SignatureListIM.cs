@@ -1,56 +1,94 @@
 using System;
 using System.Collections;
 
-namespace ComponentModel {
+namespace Palladio.ComponentModel 
+{
 	/// <summary>
 	/// A SignatureList is the simplest form of an IInterfaceModel, just
 	/// containing a set of signatures.
 	/// </summary>
-	public class SignatureListIM : AbstractIM {
-
+	public class SignatureListIModel : AbstractIModel 
+	{
 		private IList signatureList;
 
 		/// <summary>
-		/// A list of Service objects.
+		/// A list of ISignature objects.
 		/// </summary>
-		public IList SignatureList {
+		public IList SignatureList 
+		{
 			get { return signatureList; }
 		}
 
-		public SignatureListIM(IList aSignatureList) {
-			signatureList = aSignatureList;
+		public SignatureListIModel(IList aSignatureList) 
+		{
+			signatureList = new ArrayList(aSignatureList);
 		}
 
-		public override bool SubTypeCheck(IInterfaceModel anIModel, out IList anErrorList) {
+		public SignatureListIModel(SignatureListIModel anSigIModel)
+		{
+			signatureList = new ArrayList(anSigIModel.SignatureList);
+		}
+
+		public SignatureListIModel(SignatureListIModel anSigIModelOne, SignatureListIModel anSigIModelTwo)
+		{
+			ArrayList mergedList = new ArrayList( anSigIModelOne.SignatureList );
+			mergedList.AddRange( anSigIModelTwo.SignatureList );
+			signatureList = mergedList;
+		}
+		
+		public override bool IsSubSetOf(IInterfaceModel anIModel, out IList anErrorList) 
+		{
 			anErrorList = new ArrayList();
-			bool result = false;
 
-			if (anIModel is SignatureListIM ) {
-				SignatureListIM sigIM = (SignatureListIM) anIModel;
-				foreach( Service signature in SignatureList ) {
+			if (anIModel is SignatureListIModel ) 
+			{
+				SignatureListIModel sigListIM = (SignatureListIModel) anIModel;
+
+				foreach( ISignature sI in this.SignatureList ) 
+				{
+					IList matchList = new ArrayList();
+					foreach( ISignature sJ in sigListIM.SignatureList ) 
+					{
+						if (sI.Match(sJ)) 
+						{
+							matchList.Add(sJ);
+						}
+					}
+					if (matchList.Count == 0)  // no match found
+					{
+						anErrorList.Add( new NoMatchFoundError(sI) );
+					}
+					else if (matchList.Count > 1) // ambiguous match
+					{
+						anErrorList.Add( new AmbiguousMatchError(sI,matchList) );
+					}
 				}
-			}
-			//TODO add subtypecheck here (contra-variance!)
-			return result;
-		}
-
-		public override IList GetInterOperabilityErrors(IInterfaceModel anIModel) {
-			IList errorList = new ArrayList();
-			// modified subtypecheck? if got to look it up
-			return errorList;
-		}
-
-		public override IInterfaceModel Merge(IInterfaceModel anIModel) {
-			if ( anIModel is SignatureListIM ) {
-				SignatureListIM sigIM = (SignatureListIM) anIModel;
-				ArrayList mergedList = new ArrayList(SignatureList);
-				mergedList.AddRange( sigIM.SignatureList );
-				return new SignatureListIM( mergedList );
-			} else {
-				// TODO introduce new Exception
-				throw new ApplicationException ("IM is not a SignatureListIM");
+				return (anErrorList.Count == 0);
+			} 
+			else 
+			{
+				throw new IModelNotSignatureListIModelException();
 			}
 		}
+	
 
+		public override IInterfaceModel Merge(IInterfaceModel anIModel) 
+		{
+			if ( anIModel is SignatureListIModel ) 
+			{
+				SignatureListIModel sigIM = (SignatureListIModel) anIModel;
+				return new SignatureListIModel(this, sigIM);
+			} 
+			else 
+			{
+				throw new IModelNotSignatureListIModelException();
+			}
+		}
+
+
+		public override object Clone() 
+		{
+			return new SignatureListIModel(this);
+		}
 	}
 }

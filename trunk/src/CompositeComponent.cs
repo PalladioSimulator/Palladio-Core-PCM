@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 
-namespace ComponentModel {
+namespace Palladio.ComponentModel 
+{
 	/// <summary>
 	/// Component assembled of wired components.
 	/// </summary>
-	public class CompositeComponent : IComponent {
+	public class CompositeComponent : ICompositeComponent 
+	{
 
 		private IList componentList;
 		private IList bindingList;
@@ -15,7 +17,8 @@ namespace ComponentModel {
 		/// <summary>
 		/// List of IComponent objects assembled by the CompositComponent.
 		/// </summary>
-		public IList ComponentList { 
+		public IList ComponentList 
+		{ 
 			get { return componentList; }
 		}
 
@@ -23,7 +26,8 @@ namespace ComponentModel {
 		/// List of Binding objects which represent 
 		/// the wiring of the internal components.
 		/// </summary>
-		public IList BindingList { 
+		public IList BindingList 
+		{ 
 			get { return bindingList; }
 		}
 
@@ -32,7 +36,8 @@ namespace ComponentModel {
 		/// of the internal components onto the provides interfaces of the
 		/// CompositeComponent.
 		/// </summary>
-		public IList ProvMappingList { 
+		public IList ProvMappingList 
+		{ 
 			get { return provMappingList; }
 		}
 
@@ -41,27 +46,54 @@ namespace ComponentModel {
 		/// of the internal components onto the requires interfaces of the
 		/// CompositeComponent.
 		/// </summary>
-		public IList ReqMappingList { 
+		public IList ReqMappingList 
+		{ 
 			get { return reqMappingList; }
 		}
 
-		public CompositeComponent() {
+		public IList MappingList 
+		{
+			get { 
+				ArrayList resultList = new ArrayList(ReqMappingList);
+				resultList.AddRange(ProvMappingList);
+				return resultList;
+			}
 		}
 
-		public IList GetProvidesIFaceList(IList aProvIFaceList) {
+		public CompositeComponent() 
+		{
+		}
+
+		public IList GetProvidesIFaceList(IList aProvIFaceList) 
+		{
 			return null;
 		}
 
-		public IList GetRequiresIFaceList(IList aReqIFaceList) {
+		public IList GetRequiresIFaceList(IList aReqIFaceList) 
+		{
 			return null;
 		}
 
-		public IList GetProvidesIFaceList() {
+		public IList GetProvidesIFaceList() 
+		{
 			return null;
 		}
 
-		public IList GetRequiresIFaceList() {
+		public IList GetRequiresIFaceList() 
+		{
 			return null;
 		}
+
+		public bool IsSubTypeOf( IComponent aSuperType )
+		{
+			return false;
+		}
+
+		public bool IsSubTypeOf( IComponent aSuperType, out IList anErrorList)
+		{
+			anErrorList = new ArrayList();
+			return false;
+		}
+
 	}
 }

@@ -1,15 +1,12 @@
 using System;
 
-namespace ComponentModel {
-	public enum ErrorLevelEnum { low, medium, high };
-
-	public enum ErrorCodeEnum { xy_not_found, kaputt };
-
+namespace Palladio.ComponentModel 
+{
 	/// <summary>
 	/// </summary>
-	public interface IInterOperabilityError {
-		ErrorLevelEnum ErrorLevel { get; }
-		ErrorCodeEnum ErrorCode { get; }
+	public interface IInclusionError 
+	{
+		int ErrorLevel { get; }
 		string Message { get; }
 	}
 }

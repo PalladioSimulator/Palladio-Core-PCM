@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace ComponentModel
+namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// Implements functionality relevant to all types of connections.

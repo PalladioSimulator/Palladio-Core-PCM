@@ -1,43 +1,56 @@
 using System;
 using System.Collections;
 
-namespace ComponentModel {
+namespace Palladio.ComponentModel 
+{
 	/// <summary>
 	/// </summary>
-	public class RequiresMapping : AbstractConnection {
-		
+	public class RequiresMapping : IMapping 
+	{
 		private RequiresInterface	innerReqIFace;
 		private IComponent			innerComp;
 
 		private RequiresInterface	outerReqIFace;
 		private IComponent			outerComp;
 
-		public RequiresInterface InnerReqIFace { 
+		public RequiresInterface InnerReqIFace 
+		{ 
 			get { return innerReqIFace; }
 		}
 
-		public IComponent InnerComp { 
+		public IComponent InnerComp 
+		{ 
 			get { return innerComp; }
 		}
 
-		public RequiresInterface OuterReqIFace { 
+		public RequiresInterface OuterReqIFace 
+		{ 
 			get { return outerReqIFace; }
 		}
 
-		public IComponent OuterComp { 
+		public IComponent OuterComp 
+		{ 
 			get { return outerComp; }
 		}
 
 		public RequiresMapping ( IComponent anInnerComp, RequiresInterface anInnerReqIFace, 
-			IComponent anOuterComponent, RequiresInterface anOuterReqIFace) {
+			IComponent anOuterComponent, RequiresInterface anOuterReqIFace) 
+		{
 		}
 
-		public override bool CheckInteroperability(out IList anErrorList) {
+		public bool CheckSubType(out IList anErrorList) 
+		{
 			anErrorList = null;
 			return false;
 		}
 
-		public override IInterfaceModel GetIntersection() {
+		public bool CheckSubType()
+		{
+			return false;
+		}
+
+		public IInterfaceModel GetIntersection() 
+		{
 			return null;
 		}
 	}
