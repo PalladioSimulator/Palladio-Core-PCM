@@ -12,6 +12,9 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/10/30 15:24:39  kelsaka
+	/// webserverMonitor-Output on console; documentation (doc) update
+	///
 	/// Revision 1.3  2004/10/29 16:30:39  kelsaka
 	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
 	///
@@ -28,7 +31,6 @@ namespace Palladio.Webserver.Request
 	public class DefaultRequest : IRequest
 	{
 
-		private TcpClient tcpClient;
 		private TcpListener tcpListener;
 		private Socket socket;
 
@@ -42,16 +44,6 @@ namespace Palladio.Webserver.Request
 		
 		}
 
-
-		//TODO: Currently unused - remove?
-		/// <summary>
-		/// The client-identification at the tcp-level.
-		/// </summary>
-		public TcpClient TcpClient
-		{
-			get { return tcpClient; }
-			set { this.tcpClient = value; }
-		}
 
 		//TODO: Currently unused - remove?
 		/// <summary>

@@ -17,12 +17,18 @@ Webserver: Palladio.Webserver-solution and basic project
 doc: some dokumentation
 Config: XML-Configuration-File
 documents: HTML-Test-Files
+Altova: do not change, because this is generated code by XML-Spy
+AltovaXML: do not change, because this is generated code by XML-Spy
+webserverXML: do not change, because this is generated code by XML-Spy
 [other]: webserver-components
 
 
 
 ==== Version-Logs: ====
 $Log$
+Revision 1.3  2004/10/30 15:24:39  kelsaka
+webserverMonitor-Output on console; documentation (doc) update
+
 Revision 1.2  2004/10/22 14:18:17  kelsaka
 interface-update
 

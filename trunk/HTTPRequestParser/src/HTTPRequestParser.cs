@@ -19,6 +19,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/10/30 15:24:39  kelsaka
+	/// webserverMonitor-Output on console; documentation (doc) update
+	///
 	/// Revision 1.7  2004/10/29 16:30:38  kelsaka
 	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
 	///
@@ -104,7 +107,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 
 
-			// get the request-type (e. g. post, get):
+			// get the http-request-type (e. g. post, get):
 			try
 			{
 				httpRequest.RequestedMethodType = parseRequestMethod(requestStringBuffer);
@@ -112,7 +115,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 			catch (NoValidRequestTypeException)
 			{
 				request.Socket.Close();
-				webserverMonitor.WriteLogEntry("No valid http-request-type found. Socket closed.");
+				webserverMonitor.WriteDebugMessage("Error: No valid http-request-type (GET, POST) found. Socket closed.", 1);
 			}
 
 

@@ -20,6 +20,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2004/10/30 15:24:39  kelsaka
+	/// webserverMonitor-Output on console; documentation (doc) update
+	///
 	/// Revision 1.8  2004/10/29 16:30:38  kelsaka
 	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
 	///
@@ -104,7 +107,7 @@ namespace Palladio.Webserver.Dispatcher
 			}
 			catch(Exception e)
 			{
-				webserverMonitor.WriteDebugMessage("An exception occurred while listening :" + e.ToString(), 1);
+				webserverMonitor.WriteDebugMessage("An exception occurred while listening: " + e.ToString(), 1);
 			}
 			
 		}

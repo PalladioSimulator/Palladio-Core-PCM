@@ -16,6 +16,9 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/30 15:24:39  kelsaka
+	/// webserverMonitor-Output on console; documentation (doc) update
+	///
 	/// Revision 1.2  2004/10/30 11:42:08  kelsaka
 	/// Added full support for static websites using the get-method; added several test-documents; changed CoR for HTTP-Processing: dynamic files are delivered first
 	///
@@ -120,7 +123,7 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 					}			
 					else
 					{
-						webserverMonitor.WriteDebugMessage("Sent bytes to client: " + numberOfBytesSend, 1);
+						webserverMonitor.WriteLogEntry("Sent bytes to client: " + numberOfBytesSend);
 					}
 				}
 				else
