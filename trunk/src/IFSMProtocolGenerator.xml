@@ -1,20 +1,22 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <codeSmith>
 	<namespace>Palladio.ComponentModel</namespace>
 	<imports>
 		<import namespace="System" />
 		<import namespace="System.Collections" />
-		<import namespace="Palladio.Identifier" />
+		<import namespace="Palladio.Attributes" />
+		<import namespace="Palladio.FiniteStateMachines" />
+		<import namespace="ReflectionBasedVisitor" />
 	</imports>
 	<propertySets>
 		<propertySet>
 			<property name="ContainedSignatureType">ISignature</property>
-			<property name="InterfaceName">SignatureList</property>
+			<property name="InterfaceDescription">Interface</property>
 		</propertySet>
 		<propertySet>
 			<property name="ContainedSignatureType">ISignatureWithRole</property>
-			<property name="InterfaceName">SignatureWithRoleList</property>
+			<property name="InterfaceDescription">ServiceEffect</property>
 		</propertySet>
 	</propertySets>
-	<template path="ISignatureList.cst" />
+	<template path="IFSMProtocol.cst" />
 </codeSmith>

@@ -166,6 +166,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IAuxiliaryInformation.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\IBasicComponent.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -191,9 +196,23 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\IFSMProtocol.cs"
+                    RelPath = "src\IFSMProtocol.cst"
+                    SubType = "Code"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\IFSMProtocolGenerator.xml"
+                    BuildAction = "Content"
+                    Generator = "CodeSmithGenerator"
+                    LastGenOutput = "IFSMProtocolGenerator.cs"
+                />
+                <File
+                    RelPath = "src\IFSMProtocolGenerator.cs"
+                    DependentUpon = "IFSMProtocolGenerator.xml"
                     SubType = "Code"
                     BuildAction = "Compile"
+                    DesignTime = "True"
+                    AutoGen = "True"
                 />
                 <File
                     RelPath = "src\IInterfaceModel.cst"
@@ -272,6 +291,24 @@
                     RelPath = "src\ParameterModifierEnum.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\SignatureListEvents.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\SignatureListEventsGenerator.xml"
+                    BuildAction = "Content"
+                    Generator = "CodeSmithGenerator"
+                    LastGenOutput = "SignatureListEventsGenerator.cs"
+                />
+                <File
+                    RelPath = "src\SignatureListEventsGenerator.cs"
+                    DependentUpon = "SignatureListEventsGenerator.xml"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                    DesignTime = "True"
+                    AutoGen = "True"
                 />
                 <File
                     RelPath = "src\Components\AbstractComponent.cs"
@@ -409,6 +446,25 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\InterfaceModels\FSMProtocol.cst"
+                    SubType = "Code"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\InterfaceModels\FSMProtocolGenerator.xml"
+                    BuildAction = "Content"
+                    Generator = "CodeSmithGenerator"
+                    LastGenOutput = "FSMProtocolGenerator.cs"
+                />
+                <File
+                    RelPath = "src\InterfaceModels\FSMProtocolGenerator.cs"
+                    DependentUpon = "FSMProtocolGenerator.xml"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                    DesignTime = "True"
+                    AutoGen = "True"
+                />
+                <File
                     RelPath = "src\InterfaceModels\InterfaceModel.cst"
                     SubType = "Code"
                     BuildAction = "None"
@@ -482,6 +538,11 @@
                 />
                 <File
                     RelPath = "src\UnitTests\BasicComponentTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FSMProtocolTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

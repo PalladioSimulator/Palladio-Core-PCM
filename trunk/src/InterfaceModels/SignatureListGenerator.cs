@@ -61,7 +61,17 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <param name="aSigArray">Signatures to add.</param>
 		public void AddSignatures( params ISignature[] aSigArray )
 		{
+			foreach (ISignature s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new SignatureListChangeEventArgs(s, ChangeTimeEnum.BEFORE,ChangeTypeEnum.ADD));
+			}
 			signatures.AddRange(aSigArray);
+			foreach (ISignature s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new SignatureListChangeEventArgs(s, ChangeTimeEnum.AFTER,ChangeTypeEnum.ADD));
+			}
 		}
 
 		/// <summary>
@@ -70,9 +80,19 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <param name="aSigArray">Signatures to delete.</param>
 		public void DeleteSignatures( params ISignature[] aSigArray )
 		{
+			foreach (ISignature s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new SignatureListChangeEventArgs(s, ChangeTimeEnum.BEFORE,ChangeTypeEnum.DELETE));
+			}
 			foreach (ISignature sig in aSigArray)
 			{
 				signatures.Remove(sig);
+			}
+			foreach (ISignature s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new SignatureListChangeEventArgs(s, ChangeTimeEnum.AFTER,ChangeTypeEnum.DELETE));
 			}
 		}
 
@@ -165,6 +185,10 @@ namespace Palladio.ComponentModel.InterfaceModels
 			return result + "<<";
 		}
 
+		/// <summary>
+		/// This event is raised before and after a change of the signatures in this list
+		/// </summary>
+		public event SignatureListChangeEventHandler SignatureListChangeEvent;
 		#endregion
 
 		#region Constructors
@@ -243,7 +267,17 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <param name="aSigArray">Signatures to add.</param>
 		public void AddSignatures( params ISignatureWithRole[] aSigArray )
 		{
+			foreach (ISignatureWithRole s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new SignatureWithRoleListChangeEventArgs(s, ChangeTimeEnum.BEFORE,ChangeTypeEnum.ADD));
+			}
 			signatures.AddRange(aSigArray);
+			foreach (ISignatureWithRole s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new SignatureWithRoleListChangeEventArgs(s, ChangeTimeEnum.AFTER,ChangeTypeEnum.ADD));
+			}
 		}
 
 		/// <summary>
@@ -252,9 +286,19 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <param name="aSigArray">Signatures to delete.</param>
 		public void DeleteSignatures( params ISignatureWithRole[] aSigArray )
 		{
+			foreach (ISignatureWithRole s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new SignatureWithRoleListChangeEventArgs(s, ChangeTimeEnum.BEFORE,ChangeTypeEnum.DELETE));
+			}
 			foreach (ISignatureWithRole sig in aSigArray)
 			{
 				signatures.Remove(sig);
+			}
+			foreach (ISignatureWithRole s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new SignatureWithRoleListChangeEventArgs(s, ChangeTimeEnum.AFTER,ChangeTypeEnum.DELETE));
 			}
 		}
 
@@ -347,6 +391,10 @@ namespace Palladio.ComponentModel.InterfaceModels
 			return result + "<<";
 		}
 
+		/// <summary>
+		/// This event is raised before and after a change of the signatures in this list
+		/// </summary>
+		public event SignatureWithRoleListChangeEventHandler SignatureListChangeEvent;
 		#endregion
 
 		#region Constructors

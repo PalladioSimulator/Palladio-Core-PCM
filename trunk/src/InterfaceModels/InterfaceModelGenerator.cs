@@ -23,6 +23,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 	{
 		protected ISignatureList signatureList;
 		protected IAttributeHash attributes;
+		protected ArrayList auxiliarySpecs = new ArrayList();
 		
 		public ISignatureList SignatureList
 		{
@@ -63,6 +64,45 @@ namespace Palladio.ComponentModel.InterfaceModels
 				signatureList.GetHashCode()
 			);		
 		}
+
+		/// <summary>
+		/// Additional specification data like FSMs, Petri Nets, ....
+		/// </summary>
+		public IAuxiliaryInterfaceSpecification[] AuxiliarySpecifications
+		{
+			get
+			{
+				IAuxiliaryInterfaceSpecification[] result = new IAuxiliaryInterfaceSpecification[auxiliarySpecs.Count];
+				auxiliarySpecs.CopyTo(result);
+				return result;
+			}
+		}
+
+		/// <summary>
+		/// Get the auxiliary information of a given type
+		/// </summary>
+		/// <param name="type">Type of the additional information to retrieve</param>
+		/// <returns>The requested information or an exception if the information is not
+		/// available</returns>
+		public IAuxiliaryInterfaceSpecification GetAuxiliarySpecification(System.Type aType)
+		{
+			foreach (IAuxiliaryInterfaceSpecification spec in auxiliarySpecs)
+			{
+				if (aType.IsAssignableFrom(spec.GetType()))
+					return spec;
+			}
+			throw new Exception("Auxiliary information not found!");
+		}
+		
+		/// <summary>
+		/// Add a new specification aspect to this interface, like a protocol spec.
+		/// </summary>
+		/// <param name="info">Additional specification data</param>
+		public void AddAuxiliarySpecification(IAuxiliaryInterfaceSpecification info)
+		{
+			auxiliarySpecs.Add(info);
+			signatureList.SignatureListChangeEvent += new SignatureListChangeEventHandler(info.SignatureListChangeEventHandler);
+		}
 			
 		public DefaultInterfaceModel(IAttributeHash attrHash, ISignatureList aSignatureList)
 		{
@@ -88,6 +128,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 	{
 		protected ISignatureWithRoleList signatureList;
 		protected IAttributeHash attributes;
+		protected ArrayList auxiliarySpecs = new ArrayList();
 		
 		public ISignatureWithRoleList SignatureList
 		{
@@ -127,6 +168,45 @@ namespace Palladio.ComponentModel.InterfaceModels
 			return (
 				signatureList.GetHashCode()
 			);		
+		}
+
+		/// <summary>
+		/// Additional specification data like FSMs, Petri Nets, ....
+		/// </summary>
+		public IAuxiliaryServiceEffectSpecification[] AuxiliarySpecifications
+		{
+			get
+			{
+				IAuxiliaryServiceEffectSpecification[] result = new IAuxiliaryServiceEffectSpecification[auxiliarySpecs.Count];
+				auxiliarySpecs.CopyTo(result);
+				return result;
+			}
+		}
+
+		/// <summary>
+		/// Get the auxiliary information of a given type
+		/// </summary>
+		/// <param name="type">Type of the additional information to retrieve</param>
+		/// <returns>The requested information or an exception if the information is not
+		/// available</returns>
+		public IAuxiliaryServiceEffectSpecification GetAuxiliarySpecification(System.Type aType)
+		{
+			foreach (IAuxiliaryServiceEffectSpecification spec in auxiliarySpecs)
+			{
+				if (aType.IsAssignableFrom(spec.GetType()))
+					return spec;
+			}
+			throw new Exception("Auxiliary information not found!");
+		}
+		
+		/// <summary>
+		/// Add a new specification aspect to this interface, like a protocol spec.
+		/// </summary>
+		/// <param name="info">Additional specification data</param>
+		public void AddAuxiliarySpecification(IAuxiliaryServiceEffectSpecification info)
+		{
+			auxiliarySpecs.Add(info);
+			signatureList.SignatureListChangeEvent += new SignatureWithRoleListChangeEventHandler(info.SignatureWithRoleListChangeEventHandler);
 		}
 			
 		public DefaultServiceEffectSpecification(IAttributeHash attrHash, ISignatureWithRoleList aSignatureList)

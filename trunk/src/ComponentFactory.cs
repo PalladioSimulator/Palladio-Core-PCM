@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/06/03 14:37:28  sbecker
+	/// Added the possibility to attach auxiliary specifications to a basic component
+	///
 	/// Revision 1.3  2004/06/02 19:41:31  sbecker
 	/// Fixed docu
 	///
@@ -491,40 +494,17 @@ namespace Palladio.ComponentModel
 		}
 		#endregion
 
-
-#if false
 		#region CreateFSMProtocol
-		public static IFSMProtocol CreateFSMProtocolInterface(IAttributeHash hash, string aRole, IFiniteStateMachine fsm)
+		public static IFSMInterface CreateFSMProtocolInterface()
 		{
-			return new FSMProtocol(fsm,hash,aRole);
+			return new FSMInterface(CreateAttributeHash(), FSMFactory.CreateEmptyFSM());
 		}
 
-		public static IFSMProtocol CreateFSMProtocolInterface(string aRole, IFiniteStateMachine fsm)
+		public static IFSMServiceEffect CreateFSMProtocolServiceEffect()
 		{
-			return new FSMProtocol(fsm,CreateAttributeHash(),aRole);
-		}
-
-		public static IFSMProtocol CreateFSMProtocolInterface(string aRole)
-		{
-			return new FSMProtocol(FSMFactory.CreateEmptyFSM(),CreateAttributeHash(),aRole);
-		}
-
-		public static IFSMProtocol CreateFSMProtocolServiceEffect(IAttributeHash hash, IFiniteStateMachine fsm)
-		{
-			return new FSMProtocol(fsm,hash,"");
-		}
-
-		public static IFSMProtocol CreateFSMProtocolServiceEffect(IFiniteStateMachine fsm)
-		{
-			return new FSMProtocol(fsm,CreateAttributeHash(),"");
-		}
-
-		public static IFSMProtocol CreateFSMProtocolServiceEffect()
-		{
-			return new FSMProtocol(FSMFactory.CreateEmptyFSM(),CreateAttributeHash(),"");
+			return new FSMServiceEffect(CreateAttributeHash(), FSMFactory.CreateEmptyFSM());
 		}
 		#endregion
-#endif
 
 		#region CreateXXXComponent
 

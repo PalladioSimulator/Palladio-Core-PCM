@@ -4,7 +4,7 @@
 //
 using System;
 using Palladio.Identifier;
-
+using Palladio.FiniteStateMachines;
 
 namespace Palladio.ComponentModel
 {
@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/03 14:37:28  sbecker
+	/// Added the possibility to attach auxiliary specifications to a basic component
+	///
 	/// Revision 1.2  2004/06/02 19:41:31  sbecker
 	/// Fixed docu
 	///
@@ -21,7 +24,7 @@ namespace Palladio.ComponentModel
 	///
 	///
 	/// </pre></remarks>
-	public interface ISignatureWithRole : ICloneable
+	public interface ISignatureWithRole : ICloneable, IMatchable
 	{
 		/// <summary>
 		/// The signature

@@ -13,7 +13,7 @@ using Palladio.Identifier;
 
 namespace Palladio.ComponentModel
 {
-	#region ISignatureList
+	#region SignatureList
 	/// <summary>
 	/// A SignatureList is  an InterfaceModel just
 	/// containing a set of signatures.
@@ -64,12 +64,17 @@ namespace Palladio.ComponentModel
 		/// <returns>All signatures with the given name, e.g. all overrides of a certain
 		/// signature</returns>
 		ISignature[] GetSignaturesByID( IIdentifier aName );
+		
+		/// <summary>
+		/// This event is raised before and after a change of the signatures in this list
+		/// </summary>
+		event SignatureListChangeEventHandler SignatureListChangeEvent;
 
 		#endregion
 	}
 	#endregion
 	
-	#region ISignatureWithRoleList
+	#region SignatureWithRoleList
 	/// <summary>
 	/// A SignatureList is  an InterfaceModel just
 	/// containing a set of signatures.
@@ -120,6 +125,11 @@ namespace Palladio.ComponentModel
 		/// <returns>All signatures with the given name, e.g. all overrides of a certain
 		/// signature</returns>
 		ISignatureWithRole[] GetSignaturesByID( IIdentifier aName );
+		
+		/// <summary>
+		/// This event is raised before and after a change of the signatures in this list
+		/// </summary>
+		event SignatureWithRoleListChangeEventHandler SignatureListChangeEvent;
 
 		#endregion
 	}

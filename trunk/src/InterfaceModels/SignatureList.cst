@@ -48,7 +48,17 @@
 		/// <param name="aSigArray">Signatures to add.</param>
 		public void AddSignatures( params <%= ContainedSignatureType %>[] aSigArray )
 		{
+			foreach (<%= ContainedSignatureType %> s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new <%= ClassName %>ChangeEventArgs(s, ChangeTimeEnum.BEFORE,ChangeTypeEnum.ADD));
+			}
 			signatures.AddRange(aSigArray);
+			foreach (<%= ContainedSignatureType %> s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new <%= ClassName %>ChangeEventArgs(s, ChangeTimeEnum.AFTER,ChangeTypeEnum.ADD));
+			}
 		}
 
 		/// <summary>
@@ -57,9 +67,19 @@
 		/// <param name="aSigArray">Signatures to delete.</param>
 		public void DeleteSignatures( params <%= ContainedSignatureType %>[] aSigArray )
 		{
+			foreach (<%= ContainedSignatureType %> s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new <%= ClassName %>ChangeEventArgs(s, ChangeTimeEnum.BEFORE,ChangeTypeEnum.DELETE));
+			}
 			foreach (<%= ContainedSignatureType %> sig in aSigArray)
 			{
 				signatures.Remove(sig);
+			}
+			foreach (<%= ContainedSignatureType %> s in aSigArray)
+			{
+				if (SignatureListChangeEvent != null)
+					SignatureListChangeEvent(this,new <%= ClassName %>ChangeEventArgs(s, ChangeTimeEnum.AFTER,ChangeTypeEnum.DELETE));
 			}
 		}
 
@@ -152,6 +172,10 @@
 			return result + "<<";
 		}
 
+		/// <summary>
+		/// This event is raised before and after a change of the signatures in this list
+		/// </summary>
+		public event <%= ClassName %>ChangeEventHandler SignatureListChangeEvent;
 		#endregion
 
 		#region Constructors

@@ -1,0 +1,86 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Signature list template" %>
+<%@ Property Name="ContainedSignatureType" Type="System.String" Category="Context" Description="The type of the signatures in the SignatureList" %>
+<%@ Property Name="SignatureListType" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
+<%@ Property Name="InterfaceDescription" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
+
+
+	public class <%= SignatureListType %>ChangeEventArgs
+	{
+		protected ChangeTimeEnum time;
+		protected ChangeTypeEnum type;
+		protected bool actionAllowed = true;
+		protected Exception abortException;
+		protected <%= ContainedSignatureType %> signature;
+
+		public <%= ContainedSignatureType %> Signature
+		{
+			get
+			{
+				return signature;
+			}
+		}
+		 
+		public ChangeTimeEnum ChangeTime
+		{
+			get
+			{
+				return time;
+			}
+		}
+
+		public ChangeTypeEnum ChangeType
+		{
+			get
+			{
+				return type;
+			}
+		}
+
+		public bool ActionAllowed 
+		{
+			get
+			{
+				return actionAllowed;
+			}
+			set
+			{
+				actionAllowed = value;
+			}
+		}
+
+		public Exception ReasonForAbort
+		{
+			get
+			{
+				return abortException;
+			}
+			set
+			{
+				abortException = value;
+			}
+		}
+		
+		public <%= SignatureListType %>ChangeEventArgs(<%= ContainedSignatureType %> sig, ChangeTimeEnum time, ChangeTypeEnum type)
+		{
+			this.time = time;
+			this.type = type;
+			this.signature = sig;
+		}
+	}
+
+	public delegate void <%= SignatureListType %>ChangeEventHandler(object sender, <%= SignatureListType %>ChangeEventArgs args);
+
+	/// <summary>
+	/// Summary description for IAuxiliaryInformation.
+	/// </summary>
+	/// <remarks><pre>
+	/// $Log$
+	/// Revision 1.1  2004/06/03 14:37:28  sbecker
+	/// Added the possibility to attach auxiliary specifications to a basic component
+	///
+	///
+	/// </pre></remarks>
+	public interface IAuxiliary<%= InterfaceDescription %>Specification
+	{
+		void <%= SignatureListType %>ChangeEventHandler(object sender, <%= SignatureListType %>ChangeEventArgs args);
+	}

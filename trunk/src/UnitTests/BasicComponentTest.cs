@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/06/03 14:37:29  sbecker
+	/// Added the possibility to attach auxiliary specifications to a basic component
+	///
 	/// Revision 1.2  2004/06/02 15:41:13  sbecker
 	/// Fixed Compiler Warnings
 	///
@@ -39,7 +42,7 @@ namespace Palladio.ComponentModel.UnitTests
 		IServiceEffectSpecification d1se, d2se;
 		IBasicComponent iComp1, iComp2, iComp3;
 		ISignatureList sigsProv1, sigsReq1, sigsReq2;
-		// IBasicComponent fsmComponent;
+		IBasicComponent fsmComponent;
 
 		[SetUp] public void Init()
 		{
@@ -83,17 +86,26 @@ namespace Palladio.ComponentModel.UnitTests
 			iComp3.AddProvidesInterface(ID("P1"),(IInterfaceModel)iProv1.Clone());
 			iComp3.AddServiceEffectSpecification(ID("P1"),sigsProv1[0],(IServiceEffectSpecification)d1se.Clone());
 			iComp3.AddServiceEffectSpecification(ID("P1"),sigsProv1[1],(IServiceEffectSpecification)d2se.Clone());
-#if false
-			fsmComponent = ComponentFactory.CreateBasicComponent();
-			IFSMProtocol prov = FSMProtocolTest.CreateProvidesInterface();
-			IFSMProtocol d1	  = FSMProtocolTest.CreateServiceEffectD1();
-			IFSMProtocol d2	  = FSMProtocolTest.CreateServiceEffectD2();
-			IFSMProtocol req  = FSMProtocolTest.CreateRequires();
-			IServiceEffectMapping m1 = ComponentFactory.CreateServiceEffectMapping(prov[0], d1);
-			IServiceEffectMapping m2 = ComponentFactory.CreateServiceEffectMapping(prov[1], d2);
-			fsmComponent.AddProvidesInterface(prov, m1, m2);
-			fsmComponent.AddRequiresInterfaces(req);
-#endif
+
+			fsmComponent = ComponentFactory.CreateBasicComponent("fsmComponent");
+			IInterfaceModel prov = ComponentFactory.CreateInterfaceModel();
+			prov.AddAuxiliarySpecification(FSMProtocolTest.CreateProvidesInterface());
+			IServiceEffectSpecification d1 = ComponentFactory.CreateServiceEffectSpecification();
+			d1.AddAuxiliarySpecification(FSMProtocolTest.CreateServiceEffectD1());
+			IServiceEffectSpecification d2 = ComponentFactory.CreateServiceEffectSpecification();
+			d2.AddAuxiliarySpecification(FSMProtocolTest.CreateServiceEffectD2());
+			IInterfaceModel req = ComponentFactory.CreateInterfaceModel();
+			prov.AddAuxiliarySpecification(FSMProtocolTest.CreateRequires());
+			
+			ISignature[] signatures = ComponentFactory.CreateSignatureArray("d1","d2");
+			prov.SignatureList.AddSignatures(signatures);
+			req.SignatureList.AddSignatures(ComponentFactory.CreateSignatureArray("e1","e2","e3"));
+
+			fsmComponent.AddProvidesInterface(ID("Prov1"),prov);
+			fsmComponent.AddServiceEffectSpecification(ID("Prov1"),signatures[0],d1);
+			fsmComponent.AddServiceEffectSpecification(ID("Prov1"),signatures[1],d2);
+			
+			fsmComponent.AddRequiresInterface(ID("Req1"),req);
 		}
 
 		private IIdentifier ID(string aID)
@@ -106,23 +118,25 @@ namespace Palladio.ComponentModel.UnitTests
 			return ComponentFactory.CreateSignatureWithRole(role,sig);
 		}
 
-#if false
 		[Test] public void WalkthroughFSMComponent()
 		{
-			IFSMProtocol prov = (IFSMProtocol)fsmComponent.GetProvidesInterface("ProvIF");
-			ITransition[] transitions = prov.FSM.GetOutgoingTransitions(prov.FSM.StartState);
-			IFSMProtocol d1 = (IFSMProtocol)fsmComponent.GetServiceEffectSpecification( (ISignature) transitions[0].InputSymbol.ID );
-			IFSMProtocol d2 = (IFSMProtocol)fsmComponent.GetServiceEffectSpecification( (ISignature) transitions[1].InputSymbol.ID );
+			IInterfaceModel prov = fsmComponent.GetProvidesInterface(ID("Prov1"));
+			IFSMInterface fsmprov = (IFSMInterface)prov.GetAuxiliarySpecification(typeof(IFSMInterface));
+			ITransition[] transitions = fsmprov.FSM.GetOutgoingTransitions(fsmprov.FSM.StartState);
+			IServiceEffectSpecification d1spec = fsmComponent.GetServiceEffectSpecification(SigRole("Prov1",(ISignature)transitions[0].InputSymbol.ID ));
+			IFSMServiceEffect d1 = (IFSMServiceEffect)d1spec.GetAuxiliarySpecification(typeof(IFSMServiceEffect));
+			IServiceEffectSpecification d2spec = fsmComponent.GetServiceEffectSpecification(SigRole("Prov1",(ISignature)transitions[1].InputSymbol.ID ));
+			IFSMServiceEffect d2 = (IFSMServiceEffect)d2spec.GetAuxiliarySpecification(typeof(IFSMServiceEffect));
 			foreach( ITransition t in d1.FSM.Transitions )
 			{
-				Assert.IsTrue( fsmComponent.HasRequiresInterface( ((ISignature)t.InputSymbol.ID).RoleID ) );
+				Assert.IsTrue( fsmComponent.HasRequiresInterface( ((ISignatureWithRole)t.InputSymbol.ID).RoleID ));
 			}
 			foreach( ITransition t in d2.FSM.Transitions )
 			{
-				Assert.IsTrue( fsmComponent.HasRequiresInterface( ((ISignature)t.InputSymbol.ID).RoleID ) );
+				Assert.IsTrue( fsmComponent.HasRequiresInterface( ((ISignatureWithRole)t.InputSymbol.ID).RoleID ));
 			}
 		}
-#endif
+
 		[Test] public void GetInterfacesByRole()
 		{
 			Assert.AreEqual( iProv1, iComp1.GetProvidesInterface(ID("P1")) );

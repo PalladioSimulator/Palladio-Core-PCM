@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <codeSmith>
 	<namespace>Palladio.ComponentModel.InterfaceModels</namespace>
 	<imports>
@@ -8,14 +8,16 @@
 	</imports>
 	<propertySets>
 		<propertySet>
-			<property name="ContainedSignatureType">ISignature</property>
+			<property name="ContainedSignatureType">Signature</property>
 			<property name="ClassName">InterfaceModel</property>
 			<property name="DefaultSignatureListInstance">SignatureList</property>
+			<property name="InterfaceDescription">Interface</property>
 		</propertySet>
 		<propertySet>
-			<property name="ContainedSignatureType">ISignatureWithRole</property>
+			<property name="ContainedSignatureType">SignatureWithRole</property>
 			<property name="ClassName">ServiceEffectSpecification</property>
 			<property name="DefaultSignatureListInstance">ExternalSignatureList</property>
+			<property name="InterfaceDescription">ServiceEffect</property>
 		</propertySet>
 	</propertySets>
 	<template path="InterfaceModel.cst" />

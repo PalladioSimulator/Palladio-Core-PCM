@@ -7,7 +7,7 @@
 	/// A SignatureList is  an InterfaceModel just
 	/// containing a set of signatures.
 	/// </summary>
-	public interface <%= InterfaceName %> : ICloneable
+	public interface I<%= InterfaceName %> : ICloneable
 	{
 		#region Properties
 
@@ -53,6 +53,11 @@
 		/// <returns>All signatures with the given name, e.g. all overrides of a certain
 		/// signature</returns>
 		<%= ContainedSignatureType %>[] GetSignaturesByID( IIdentifier aName );
+		
+		/// <summary>
+		/// This event is raised before and after a change of the signatures in this list
+		/// </summary>
+		event <%= InterfaceName %>ChangeEventHandler SignatureListChangeEvent;
 
 		#endregion
 	}
