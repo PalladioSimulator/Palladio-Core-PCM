@@ -305,38 +305,50 @@ namespace FSM
 ////				Console.WriteLine("Key: "+d.Key.ToString()+" value: "+d.Value.ToString());
 ////			}
 ///
-			//For CP-Testing
-			FSM one = new FSM();
-			FSM two = new FSM();
-
-			Input a = new Input("a");
-			Input b = new Input("b");
-			Input c = new Input("c");
-			Input d = new Input("d");
-
-			State oone = new State("one",true,false);
-			State otwo = new State("two",false,false);
-			State othree = new State("three",false,true);
-
-			one.setTransition(oone,a,othree);
-			one.setTransition(othree,a,othree);
+//			//For CP-Testing
+//			FSM one = new FSM();
+//			FSM two = new FSM();
+//
+//			Input a = new Input("a");
+//			Input b = new Input("b");
+//			Input c = new Input("c");
+//			Input d = new Input("d");
+//
+//			State oone = new State("one",true,false);
+//			State otwo = new State("two",false,false);
+//			State othree = new State("three",false,true);
+//
+//			one.setTransition(oone,a,othree);
+//			one.setTransition(othree,a,othree);
 //			one.setTransition(othree,b,othree);
 //			one.setTransition(oone,c,othree);
-
-			State tone = new State("eins",true, false);
-			State ttwo = new State("zwei",false,false);
-			State tthree = new State("drei",false,true);
-
-			two.setTransition(tone,a,ttwo);
-			two.setTransition(ttwo,a,tthree);
-			two.setTransition(tthree,a,tthree);
-//			two.setTransition(ttwo,b,tthree);
+//
+//			State tone = new State("eins",true, false);
+//			State ttwo = new State("zwei",false,false);
+//			State tthree = new State("drei",false,true);
+//
 //			two.setTransition(tone,a,ttwo);
-//			two.setTransition(ttwo,b,tthree);
-//			two.setTransition(tone,d,tthree);
+//			two.setTransition(ttwo,a,tthree);
+//			two.setTransition(tthree,a,tthree);
+////			two.setTransition(ttwo,b,tthree);
+////			two.setTransition(tone,a,ttwo);
+////			two.setTransition(ttwo,b,tthree);
+////			two.setTransition(tone,d,tthree);
+//
+//			FCP cpTest = new FCP(one,two);
+//			cpTest.getCP().DisplayOnConsole();
+			FSM d2;
+			Input e3;
+			State d21,d22;
 
-			FCP cpTest = new FCP(one,two);
-			cpTest.getCP().DisplayOnConsole();
+			d2 = new FSM();
+			d21 = new State("d2_1",true,false);
+			d22 = new State("d2_2",false,true);
+			e3 = new Input("e3");
+			d2.setTransition(d21,e3,d22);
+
+			Console.WriteLine(d2.getNextState(d22,e3));
+
 			Console.WriteLine("finished");
 			Console.Read();
 		}
