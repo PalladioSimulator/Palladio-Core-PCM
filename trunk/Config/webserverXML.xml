@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config SYSTEM "webserverXML.dtd">
+<config xmlns:xsi="" xsi:noNamespaceSchemaLocation="webserverXML.dtd">
+	<!--documentRoot: the path where the documents, that are delivered by the webserver, can be found.-->
+	<documentRoot path="..\documents"/>
+	<ports>
+		<!--port: defines the port, the server is listening at.-->
+		<port number="81"/>
+		<port number="82"/>
+	</ports>
+	<MimeTypes>
+		<!--documentType: The types of documents which shall be delivered by the webserver and their header-information.-->
+		<MimeType extension=".html" content-type="text/html"/>
+		<MimeType extension=".htm" content-type="text/html"/>
+		<MimeType extension=".text" content-type="plaintext"/>
+		<MimeType extension=".gif" content-type="image/gif"/>
+	</MimeTypes>
+	<DefaultFiles>
+		<!--FileName: Order of files that are delivered to the client by default if a folder is requested. The order has to start with id 0, which indicates the highest priority.-->
+		<FileName id="0">index.htm</FileName> 
+		<FileName id="1">index.html</FileName> 
+	</DefaultFiles>
+</config>

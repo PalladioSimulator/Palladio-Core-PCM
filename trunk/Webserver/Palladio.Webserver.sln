@@ -51,6 +51,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Request", "..\Request\Reque
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altova", "..\Altova\Altova.csproj", "{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AltovaXML", "..\AltovaXML\AltovaXML.csproj", "{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webserverXML", "..\webserverXML\webserverXML.csproj", "{CD8DE3F3-BD5B-1E40-B4A3-E8335A565A42}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -109,6 +121,18 @@ Global
 		{CA375D44-037E-4023-8FC7-4E61C73D778E}.Debug.Build.0 = Debug|.NET
 		{CA375D44-037E-4023-8FC7-4E61C73D778E}.Release.ActiveCfg = Release|.NET
 		{CA375D44-037E-4023-8FC7-4E61C73D778E}.Release.Build.0 = Release|.NET
+		{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}.Debug.ActiveCfg = Debug|.NET
+		{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}.Debug.Build.0 = Debug|.NET
+		{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}.Release.ActiveCfg = Release|.NET
+		{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}.Release.Build.0 = Release|.NET
+		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}.Debug.ActiveCfg = Debug|.NET
+		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}.Debug.Build.0 = Debug|.NET
+		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}.Release.ActiveCfg = Release|.NET
+		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}.Release.Build.0 = Release|.NET
+		{CD8DE3F3-BD5B-1E40-B4A3-E8335A565A42}.Debug.ActiveCfg = Debug|.NET
+		{CD8DE3F3-BD5B-1E40-B4A3-E8335A565A42}.Debug.Build.0 = Debug|.NET
+		{CD8DE3F3-BD5B-1E40-B4A3-E8335A565A42}.Release.ActiveCfg = Release|.NET
+		{CD8DE3F3-BD5B-1E40-B4A3-E8335A565A42}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
