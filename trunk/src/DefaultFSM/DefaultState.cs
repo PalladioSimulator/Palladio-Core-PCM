@@ -16,6 +16,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/07/13 07:48:37  sbecker
+	/// Made AttributesFactory static
+	///
 	/// Revision 1.3  2004/05/17 14:08:05  sliver
 	/// added interface for attributable classes
 	///
@@ -51,7 +54,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// empty set of attributes attached to it.
 		/// </summary>
 		/// <param name="anId">ID of the new state</param>
-		public DefaultState(string anId) : this (anId, FSMFactory.attributesFactory.Default.CreateAttributeHash() , false) {}
+		public DefaultState(string anId) : this (anId, AttributesFactory.Default.CreateAttributeHash() , false) {}
 		
 		/// <summary>
 		/// Default constructor of a default state that has an 
@@ -59,6 +62,6 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// </summary>
 		/// <param name="anID">ID of the new state</param>
 		/// <param name="isErrorState">Specifies if this state is constructed as ErrorState</param>
-		public DefaultState(string anID, bool isErrorState) : this (anID, FSMFactory.attributesFactory.Default.CreateAttributeHash(), isErrorState) {}
+		public DefaultState(string anID, bool isErrorState) : this (anID, AttributesFactory.Default.CreateAttributeHash(), isErrorState) {}
 	}
 }

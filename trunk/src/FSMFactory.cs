@@ -17,6 +17,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2004/07/13 07:48:37  sbecker
+	/// Made AttributesFactory static
+	///
 	/// Revision 1.10  2004/06/02 18:40:23  sbecker
 	/// Fixed docu
 	///
@@ -48,8 +51,6 @@ namespace Palladio.FiniteStateMachines
 	/// </remarks>
 	public class FSMFactory
 	{
-		internal static AttributesFactory attributesFactory = new AttributesFactory();
-
 		/// <summary>
 		/// Generates an empty FiniteStateMachine.
 		/// </summary>

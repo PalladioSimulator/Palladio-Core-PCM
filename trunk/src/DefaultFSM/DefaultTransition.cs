@@ -22,6 +22,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/07/13 07:48:37  sbecker
+	/// Made AttributesFactory static
+	///
 	/// Revision 1.4  2004/05/17 14:08:05  sliver
 	/// added interface for attributable classes
 	///
@@ -77,7 +80,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// <param name="anInputSymbol">Input of the ITransition.</param>
 		/// <param name="aDestinationState">State, where the ITransition leads to.</param>
 		public DefaultTransition(IState aSourceState, IInput anInputSymbol, IState aDestinationState ) :
-			this (aSourceState, anInputSymbol, aDestinationState, FSMFactory.attributesFactory.Default.CreateAttributeHash()) {}
+			this (aSourceState, anInputSymbol, aDestinationState, AttributesFactory.Default.CreateAttributeHash()) {}
 			
 			
 		/// <summary>
