@@ -16,6 +16,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/05 14:23:31  joemal
+	/// changes in Palladio.Attributes
+	///
 	/// Revision 1.1  2005/02/21 13:19:37  joemal
 	/// initial import
 	///
@@ -30,7 +33,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// <param name="isErrorState">Determine if this state should represent an error condition</param>
 		/// <param name="anAttTab">A Hashtable containing the attributes attached to this state</param>
 		/// <param name="anID">ID of the state to create</param>
-		public DefaultState(string anID, AttributeHash anAttTab, bool isErrorState) 
+		public DefaultState(string anID, IAttributeHash anAttTab, bool isErrorState) 
 		{
 			this.id = anID;
 			this.attributes = anAttTab;
@@ -42,14 +45,14 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// </summary>
 		/// <param name="anAttTab">A Hashtable containing the attributes attached to this state</param>
 		/// <param name="anId">ID of the new state</param>
-		public DefaultState(string anId, AttributeHash anAttTab) : this (anId, anAttTab, false) {}
+		public DefaultState(string anId, IAttributeHash anAttTab) : this (anId, anAttTab, false) {}
 		
 		/// <summary>
 		/// Default constructor of a default state which is NOT an error state and has an 
 		/// empty set of attributes attached to it.
 		/// </summary>
 		/// <param name="anId">ID of the new state</param>
-		public DefaultState(string anId) : this (anId, new AttributeHash() , false) {}
+		public DefaultState(string anId) : this (anId, new DefaultAttributeHash() , false) {}
 		
 		/// <summary>
 		/// Default constructor of a default state that has an 
@@ -57,6 +60,6 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// </summary>
 		/// <param name="anID">ID of the new state</param>
 		/// <param name="isErrorState">Specifies if this state is constructed as ErrorState</param>
-		public DefaultState(string anID, bool isErrorState) : this (anID, new AttributeHash(), isErrorState) {}
+		public DefaultState(string anID, bool isErrorState) : this (anID, new DefaultAttributeHash(), isErrorState) {}
 	}
 }

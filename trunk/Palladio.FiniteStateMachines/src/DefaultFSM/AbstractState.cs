@@ -15,6 +15,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM {
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/05 14:23:31  joemal
+	/// changes in Palladio.Attributes
+	///
 	/// Revision 1.1  2005/02/21 13:19:37  joemal
 	/// initial import
 	///
@@ -25,7 +28,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM {
 	{
 		protected bool isErrorState = false;
 		protected string id;
-		protected AttributeHash attributes;
+		protected IAttributeHash attributes;
 
 		/// <summary>
 		/// If true, this state is an error state in which the FSM can drop if
@@ -59,7 +62,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM {
 		/// Information describing this state. Any type of information object can be
 		/// associated to a state.
 		/// </summary>
-		public virtual AttributeHash Attributes
+		public virtual IAttributeHash Attributes
 		{
 			get
 			{
