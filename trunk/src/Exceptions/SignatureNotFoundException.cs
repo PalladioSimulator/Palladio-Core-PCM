@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Exceptions
 {
@@ -11,6 +12,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/07/05 09:29:43  sbecker
+	/// New constructor added
+	///
 	/// Revision 1.1  2004/06/02 14:50:25  sbecker
 	/// Initial Import after a major rework
 	///
@@ -28,6 +32,14 @@ namespace Palladio.ComponentModel.Exceptions
 		/// </summary>
 		/// <param name="aSig">Signature which couldn't be found.</param>
 		public SignatureNotFoundException(ISignature aSig) : base( "Signature " + aSig + " not found!")
+		{
+		}
+
+		/// <summary>
+		/// Error indicating, that a signature could not be found.
+		/// </summary>
+		/// <param name="aSig">Signature which couldn't be found.</param>
+		public SignatureNotFoundException(IIdentifier aSig) : base( "Signature with ID " + aSig.ToString() + " not found!")
 		{
 		}
 	}
