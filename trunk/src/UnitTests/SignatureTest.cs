@@ -14,6 +14,8 @@ namespace Palladio.ComponentModel.UnitTests
 		ISignature one, one1, two, three, four;
 		IList sigListDouble, sigListOne1, sigList;
 
+		/// <summary>
+		/// </summary>
 		[SetUp] public void Init() 
 		{
 			one = new SimpleSignature("one");
@@ -31,12 +33,16 @@ namespace Palladio.ComponentModel.UnitTests
 			sigListDouble.Add(one);
 		}
 		
+		/// <summary>
+		/// </summary>
 		[Test] public void Match() 
 		{
 			Assert.IsTrue(one.Match(one1));
 			Assert.IsFalse(one.Match(two));
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void HasMatches() 
 		{
 			Assert.IsTrue(one.HasMatches(sigListOne1));
@@ -46,6 +52,8 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.IsTrue(matchList.Count == 2);
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void HasOneMatch() 
 		{
 			Assert.IsTrue(one.HasOneMatch(sigListOne1));
@@ -53,12 +61,16 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.IsFalse(one.HasOneMatch(sigListDouble));
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void Equals()
 		{
 			Assert.IsTrue(one.Equals(one1));
 			Assert.IsFalse(one.Equals(two));
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void Clone()
 		{
 			ISignature sig = (ISignature)one.Clone();

@@ -14,6 +14,8 @@ namespace Palladio.ComponentModel.UnitTests
 	{
 		Component comOne, comOne1, comTwo;
 
+		/// <summary>
+		/// </summary>
 		[SetUp] public void Init() 
 		{
 			FSMFactory factory = new FSMFactory();
@@ -78,17 +80,21 @@ namespace Palladio.ComponentModel.UnitTests
 			comTwo = new Component(provListTwo,reqListTwo);
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void Equals()
 		{
 			Assert.IsTrue(comOne.Equals(comOne1));
 			Assert.IsFalse(comOne.Equals(comTwo));
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void Clone()
 		{
 			Component com = (Component)comOne.Clone();
 			Assert.IsTrue(com.Equals(comOne1));
-			com.GetProvidesIFaceList().RemoveAt(0);
+			com.GetProvidesIfaceList().RemoveAt(0);
 			Assert.IsFalse(com.Equals(comOne));
 		}
 	}

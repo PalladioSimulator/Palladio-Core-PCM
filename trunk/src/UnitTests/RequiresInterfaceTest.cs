@@ -14,6 +14,8 @@ namespace Palladio.ComponentModel.UnitTests
 	{
 		RequiresInterface rqOne, rqOne1, rqTwo;
 		
+		/// <summary>
+		/// </summary>
 		[SetUp] public void Init() 
 		{
 			FSMFactory factory = new FSMFactory();
@@ -31,12 +33,16 @@ namespace Palladio.ComponentModel.UnitTests
 
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void Equals()
 		{
 			Assert.IsTrue(rqOne.Equals(rqOne1));
 			Assert.IsFalse(rqOne.Equals(rqTwo));
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void Clone()
 		{
 			RequiresInterface rq = (RequiresInterface) rqOne.Clone();

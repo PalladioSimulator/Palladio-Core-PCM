@@ -1,112 +1,87 @@
 using System;
 using System.Collections;
 using Utils.Collections;
+using System.Reflection;
 
 namespace Palladio.ComponentModel
 {
+	/// <summary>
+	/// A Signature describes the structure of a method, function or
+	/// procedure.
+	/// </summary>
 	public interface ISignature : ICloneable 
 	{
+		#region Properties
+
+		/// <summary>
+		/// The name of the signature without any additional
+		/// information like the return type or parameters.
+		/// </summary>
 		string Name 
 		{
 			get;
 		}
 
-		bool Match(ISignature aSig);
+		/// <summary>
+		/// Type of the return value.
+		/// </summary>
+		Type ReturnType
+		{
+			get;
+		}
 
-		bool HasMatches(IList aSigList, out IList aMatchList);
-
-		bool HasMatches(IList aSigList);
-
-		bool HasOneMatch(IList aSigList);
-
-		bool HasOneMatch(IList aSigList, out ISignature aMatch);
-	}
-
-
-	/// <summary>
-	/// </summary>
-	public abstract class AbstractSignature	: ISignature
-	{
-
-		#region Abstract Properties
-
-		public abstract string Name 
+		/// <summary>
+		/// Parameters required by this signature. If
+		/// no parameters are needed Parameters is set to 'null'.
+		/// </summary>
+		ParameterInfo[] Parameters
 		{
 			get;
 		}
 		#endregion
 
-		// TODO add parameters
+		#region Methods
 
-		#region Abstract Methods
+		/// <summary>
+		/// Checks whether this signature matches aSig. A match not 
+		/// only means that the types of both signatures are equal, but
+		/// also that they are contravariant.
+		/// </summary>
+		/// <param name="aSig">An other signature.</param>
+		/// <returns>True if both signatures are equal or contravariant.</returns>
+		bool Match(ISignature aSig);
 
-		public abstract object Clone();
-		#endregion
+		/// <summary>
+		/// Checks whether this signature has any matches in aSigList and
+		/// returns them in aMatchList.
+		/// </summary>
+		/// <param name="aSigList">List of ISignatures.</param>
+		/// <param name="aMatchList">List of ISignatures matching this signature.</param>
+		/// <returns>True if one or more signature were found, false otherwise.</returns>
+		bool HasMatches(IList aSigList, out IList aMatchList);
 
-		#region Implemented Methods
+		/// <summary>
+		/// Checks whether this signature has any matches in aSigList
+		/// </summary>
+		/// <param name="aSigList">List of ISignatures.</param>
+		/// <returns>True if one or more signature were found, false otherwise.</returns>
+		bool HasMatches(IList aSigList);
 
-		public bool Match(ISignature aSig)
-		{
-			return (aSig.Name == this.Name);
-		}
+		/// <summary>
+		/// Checks whether this signature has exactly one match in aSigList.
+		/// </summary>
+		/// <param name="aSigList">List of ISignatures</param>
+		/// <returns>True if exactly one match was found, false otherwise.</returns>
+		bool HasOneMatch(IList aSigList);
 
-		public bool HasMatches(IList aSigList, out IList aMatchList)
-		{
-			aMatchList = new Vector();
-			foreach (ISignature sig in aSigList) 
-			{
-				if (this.Match(sig)) 
-				{
-					aMatchList.Add(sig);
-				}
-			}
-			return (aMatchList.Count != 0);
-		}
-
-		public bool HasMatches(IList aSigList)
-		{
-			IList matchList;
-			return HasMatches(aSigList, out matchList);
-		}
-
-		public bool HasOneMatch(IList aSigList)
-		{
-			ISignature match;
-			return HasOneMatch(aSigList, out match);
-		}
-
-		public bool HasOneMatch(IList aSigList, out ISignature aMatch)
-		{
-			aMatch = null;
-			IList matchList;
-			if (HasMatches(aSigList, out matchList) && (matchList.Count == 1))
-			{
-				aMatch = (ISignature) matchList[0];
-				return true;
-			}
-			return false;
-		}
-
-		public override string ToString()
-		{
-			return Name;
-		}
-
-		public override bool Equals(object obj)
-		{
-			if (obj is ISignature) 
-			{
-				return ( ((ISignature)obj).Name == this.Name );
-			}
-			return false;
-		}
-
-		public override int GetHashCode()
-		{
-			return this.Name.GetHashCode();
-		}
-
-
+		/// <summary>
+		/// Checks whether this signature has exactly one match in aSigList and
+		/// returns it as aMatch.
+		/// </summary>
+		/// <param name="aSigList">List of ISignatures</param>
+		/// <param name="aMatch">The match of this signature in aSigList.</param>
+		/// <returns>True if exactly one match was found, false otherwise.</returns>
+		bool HasOneMatch(IList aSigList, out ISignature aMatch);
 
 		#endregion
 	}

@@ -1,10 +1,11 @@
 <project>
     <assemblies>
-        <assembly location="C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\ComponentModel\bin\Debug\Palladio.ComponentModel.dll" documentation="C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\ComponentModel\Palladio.ComponentModel.xml" />
-        <assembly location="C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\ComponentModel\..\palladio.fsm\bin\Debug\Palladio.FiniteStateMachines.dll" documentation="C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\ComponentModel\..\palladio.fsm\Palladio.FiniteStateMachines.xml" />
+        <assembly location="C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.ComponentModel\bin\Debug\Palladio.ComponentModel.dll" documentation="C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.ComponentModel\Palladio.ComponentModel.xml" />
+        <assembly location="C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.ComponentModel\..\Palladio.FiniteStateMachine\bin\Debug\Palladio.FiniteStateMachines.dll" documentation="C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.ComponentModel\..\Palladio.FiniteStateMachine\Palladio.FiniteStateMachines.xml" />
     </assemblies>
     <namespaces>
         <namespace name="Palladio.ComponentModel"></namespace>
+        <namespace name="Palladio.ComponentModel.UnitTests"></namespace>
         <namespace name="Palladio.FiniteStateMachines"></namespace>
         <namespace name="Palladio.FiniteStateMachines.Decorators"></namespace>
         <namespace name="Palladio.ParameterisedContracts"></namespace>

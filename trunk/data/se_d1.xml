@@ -2,7 +2,9 @@
 <fsm type="tabular">
 	<state name="one" start="true"/>
 	<state name="two" final="true"/>
+	<state name="three"/>
 
 	<transition source="one" target="two" input="ed1" />
-	<transition source="two" target="one" input="ed2" />
+	<transition source="one" target="three" input="ed3" />
+	<transition source="three" target="two" input="ed1" />
 </fsm>

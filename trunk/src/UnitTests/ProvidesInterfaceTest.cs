@@ -14,6 +14,8 @@ namespace Palladio.ComponentModel.UnitTests
 	{
 		ProvidesInterface piOne, piOne1, piTwo;
 		
+		/// <summary>
+		/// </summary>
 		[SetUp] public void Init() 
 		{
 			FSMFactory factory = new FSMFactory();
@@ -61,18 +63,22 @@ namespace Palladio.ComponentModel.UnitTests
 
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void Equals()
 		{
 			Assert.IsTrue(piOne.Equals(piOne1));
 			Assert.IsFalse(piOne.Equals(piTwo));
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void Clone()
 		{
-			ProvidesInterface pIFace = (ProvidesInterface) piOne.Clone();
-			Assert.IsTrue(pIFace.Equals(piOne1));
-			pIFace.ServiceList.RemoveAt(0);
-			Assert.IsFalse(pIFace.Equals(piOne));
+			ProvidesInterface pIface = (ProvidesInterface) piOne.Clone();
+			Assert.IsTrue(pIface.Equals(piOne1));
+			pIface.ServiceList.RemoveAt(0);
+			Assert.IsFalse(pIface.Equals(piOne));
 		}
 	}
 }

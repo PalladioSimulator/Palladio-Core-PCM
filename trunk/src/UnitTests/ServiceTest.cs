@@ -14,6 +14,8 @@ namespace Palladio.ComponentModel.UnitTests
 	{
 		Service srvOne, srvTwo, srvThree;
 		
+		/// <summary>
+		/// </summary>
 		[SetUp] public void Init() 
 		{
 			FSMFactory factory = new FSMFactory();
@@ -34,12 +36,16 @@ namespace Palladio.ComponentModel.UnitTests
 			srvThree = new Service(modelThree, sigThree);
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void Equals()
 		{
 			Assert.IsTrue(srvOne.Equals(srvThree));
 			Assert.IsFalse(srvTwo.Equals(srvOne));
 		}
 
+		/// <summary>
+		/// </summary>
 		[Test] public void Clone()
 		{
 			Service srv = (Service)srvOne.Clone();

@@ -4,7 +4,7 @@ using System.Collections;
 namespace Palladio.ComponentModel 
 {
 	/// <summary>
-	/// A Component is a set of provides and requires interfaces.
+	/// A Component is a set of Provides- and RequiresInterfaces.
 	/// </summary>
 	public interface IComponent : ICloneable 
 	{
@@ -15,7 +15,7 @@ namespace Palladio.ComponentModel
 		/// <returns>
 		/// A list of ProvidesInterface objects.
 		/// </returns>
-		IList GetProvidesIFaceList();
+		IList GetProvidesIfaceList();
 
 		/// <summary>
 		/// Interfaces required by the component from its environment.
@@ -23,49 +23,29 @@ namespace Palladio.ComponentModel
 		/// <returns>
 		/// A list of RequiresInterface objects.
 		/// </returns>
-		IList GetRequiresIFaceList();
+		IList GetRequiresIfaceList();
 
 		/// <summary>
 		/// Interfaces provided by the component constrained by its environment.
 		/// </summary>
-		/// <param name="aProvIFaceList">
+		/// <param name="aProvIfaceList">
 		/// List of ProvidesInterface objects provided to the component.
 		/// </param>
 		/// <returns>
 		/// A list of ProvidesInterface objects.
 		/// </returns>
-		IList GetProvidesIFaceList( IList aProvIFaceList );
+		IList GetProvidesIfaceList( IList aProvIfaceList );
 
 		/// <summary>
 		/// Interfaces required by the component adapted to the requirements
 		/// of the environment.
 		/// </summary>
-		/// <param name="aReqIFaceList">
+		/// <param name="aReqIfaceList">
 		/// List of RequiresInterface objects required from the component.
 		/// </param>
 		/// <returns>
 		/// A List of RequireInterface objects.
 		/// </returns>
-		IList GetRequiresIFaceList( IList aReqIFaceList );
-
-		//		void AddProvidesIFace( ProvidesInterface aProvIFace );
-		//
-		//		void AddProvidesIFaceList( IList aProvIFaceList );
-		//		
-		//		void RemoveProvidesIFace( ProvidesInterface aProvIFace );
-		//
-		//		void RemoveProvidesIFaceList( IList aProvIFaceList );
-		//		
-		//		void ClearProvidesIFaceList();
-		//
-		//		void AddRequiresIFace( RequiresInterface aReqIFace );
-		//
-		//		void AddRequiresIFaceList( IList aReqIFaceList );
-		//
-		//		void RemoveRequiresIFace( RequiresInterface aReqIFace );
-		//
-		//		void RemoveRequiresIFaceList( IList aReqIFaceList );
-		//		
-		//		void ClearRequiresIFaceList();
+		IList GetRequiresIfaceList( IList aReqIfaceList );
 	}
 }

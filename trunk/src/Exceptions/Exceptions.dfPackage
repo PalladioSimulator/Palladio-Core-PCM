@@ -1,0 +1,51 @@
+package id1fqo6dto2klg3dto2letf;
+
+/**
+@version 2.0
+@physicalPackage
+@__modelType diagram 
+*/
+class diagram {
+/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.NoBindingFoundException:oiref><oihard>
+@__modelType reference 
+*/
+class reference {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.IModelNotSignatureListIModelException:oiref><oihard>
+@__modelType reference 
+*/
+class reference9 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.IModelNotProtocolIModelException:oiref><oihard>
+@__modelType reference 
+*/
+class reference10 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.IModelNotComponentInterfaceException:oiref><oihard>
+@__modelType reference 
+*/
+class reference11 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.NoMappingFoundException:oiref><oihard>
+@__modelType reference 
+*/
+class reference12 {
+}}/**
+@__tags
+@shapeType ClassDiagram 
+*/
+class __tags {
+}/**
+@__options 
+*/
+class __options {
+}/**
+@__positions <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.IModelNotSignatureListIModelException:oiref>=10,150,200,101,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.NoMappingFoundException:oiref>=10,430,200,101,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.IModelNotComponentInterfaceException:oiref>=10,290,200,101,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.IModelNotProtocolIModelException:oiref>=230,10,200,101,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.NoBindingFoundException:oiref>=10,10,200,101,1:oigroup> 
+*/
+class __positions {
+}
