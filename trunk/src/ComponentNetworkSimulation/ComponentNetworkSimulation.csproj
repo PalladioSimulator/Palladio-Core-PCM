@@ -535,6 +535,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\nunittests\structure\VisitorTests.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\testapplication\TestApp.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

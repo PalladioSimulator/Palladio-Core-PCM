@@ -12,6 +12,9 @@ namespace nunittests.structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.8  2004/07/19 22:14:49  joemal
+	/// xxx
+	///
 	/// Revision 1.7  2004/07/05 11:16:02  joemal
 	/// - changes in the CM after code review
 	///
@@ -70,7 +73,7 @@ namespace nunittests.structure
 			FillEmptyService(builder.AddService(ID("P2"),ID("e1"),null),"C2->e1->1");
 			FillEmptyService(builder.AddService(ID("P2"),ID("e2"),null),"C2->e2->1");
 			FillEmptyService(builder.AddService(ID("P2"),ID("e3"),null),"C2->e3->1");
-			FillEmptyService(builder.AddService(ID("P2"),ID("e4"),null),"C2->e44->1");
+			FillEmptyService(builder.AddService(ID("P2"),ID("e4"),null),"C2->e4->1");
 		}
 
 		public static void FillServiceD1(IServiceBuilder builder)
