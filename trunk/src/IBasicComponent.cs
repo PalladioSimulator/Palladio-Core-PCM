@@ -10,6 +10,11 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	public interface IBasicComponent : IComponent, IVisitable
 	{
+		/// <summary>
+		/// Get the service effect specification associated with aSig.
+		/// </summary>
+		/// <param name="aSig">A signature provided in a role of this component.</param>
+		/// <returns>The service effect specification of aSig.</returns>
 		ISignatureList GetServiceEffectSpecification(ISignature aSig);
 
 		void ChangeServiceEffectSpecification(IService aServEffSpec);
