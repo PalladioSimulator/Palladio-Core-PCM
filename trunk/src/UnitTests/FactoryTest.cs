@@ -45,6 +45,12 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			{
 				Assert.IsTrue(Array.IndexOf(fsm.States,s) >= 0);
 			}
+			fsm.AddStates(states.StoredStates);
+			Assert.IsTrue(fsm.States.Length == 3);
+			foreach(IState s in states.StoredStates)
+			{
+				Assert.IsTrue(Array.IndexOf(fsm.States,s) >= 0);
+			}
 		}
 
 		[ExpectedException(typeof(StateNotFoundException))]
@@ -78,6 +84,65 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			Assert.IsTrue(Array.IndexOf(fsm.FinalStates,states["2"]) < 0);
 		}
 
+		[Test] public void AddInputSymbols()
+		{
+			IEditableFiniteStateMachine fsm = FSMFactory.CreateEmptyFSM();
+			InputSymbolHash inputs = FSMFactory.CreateInputFromList("a","b");
+			fsm.AddInputSymbols(inputs.StoredInputs);
+			Assert.IsTrue(fsm.InputAlphabet.Length == 2);
+			Assert.IsTrue(Array.IndexOf(fsm.InputAlphabet,inputs["a"]) >= 0);
+			Assert.IsTrue(Array.IndexOf(fsm.InputAlphabet,inputs["b"]) >= 0);
+		}
+		
+		[ExpectedException(typeof(InvalidStateException))]
+		[Test]public void AddNullTransition()
+		{
+			IEditableFiniteStateMachine fsm = FSMFactory.CreateEmptyFSM();
+			ITransition trans = FSMFactory.CreateDefaultTransition(null,null,null);
+			fsm.AddTransitions(trans);
+		}
+		
+		[ExpectedException(typeof(InvalidInputException))]
+		[Test]public void AddNullInputTransition()
+		{
+			IEditableFiniteStateMachine fsm = FSMFactory.CreateEmptyFSM();
+			StateHash states = FSMFactory.CreateStatesFromList("a","b");
+			fsm.AddStates(states.StoredStates);
+			ITransition trans = FSMFactory.CreateDefaultTransition(states["a"],null,states["b"]);
+			fsm.AddTransitions(trans);
+		}
+
+		[Test] public void AddDuplicateTransitions()
+		{
+			IEditableFiniteStateMachine fsm = FSMFactory.CreateEmptyFSM();
+			StateHash states = FSMFactory.CreateStatesFromList("a","b");
+			InputSymbolHash inputs = FSMFactory.CreateInputFromList("a","b","c");
+			ITransition trans = FSMFactory.CreateDefaultTransition(states["a"],inputs["a"],states["a"]);
+			fsm.AddStates(states.StoredStates);
+			fsm.AddInputSymbols(inputs.StoredInputs);
+			fsm.AddTransitions(trans,trans,trans);
+			Assert.IsTrue(fsm.Transitions.Length == 1);
+			Assert.IsTrue(fsm.Transitions[0].DestinationState.Equals(states["a"]));
+			Assert.IsTrue(fsm.Transitions[0].InputSymbol.Equals(inputs["a"]));
+			Assert.IsTrue(fsm.Transitions[0].SourceState.Equals(states["a"]));
+		}
+
+		[Test] public void BuildTestFSM()
+		{
+			IEditableFiniteStateMachine fsm = FSMFactory.CreateEmptyFSM();
+			StateHash states = FSMFactory.CreateStatesFromList("1","2","3");
+			InputSymbolHash inputs = FSMFactory.CreateInputFromList("a","b","c","eps");
+			fsm.AddStates(states.StoredStates);
+			fsm.AddInputSymbols(inputs.StoredInputs);
+			fsm.AddTransitions (FSMFactory.CreateDefaultTransition(states["1"],inputs["a"],states["1"]));
+			fsm.AddTransitions (FSMFactory.CreateDefaultTransition(states["1"],inputs["b"],states["2"]));
+			fsm.AddTransitions (FSMFactory.CreateDefaultTransition(states["2"],inputs["c"],states["3"]));
+			fsm.AddTransitions (FSMFactory.CreateDefaultTransition(states["3"],inputs["eps"],states["1"]));
+			Assert.IsTrue(fsm.Transitions.Length == 4);
+			states = FSMFactory.CreateStatesFromList("1","2","3");
+			fsm.FinalStates = new IState[] { states["1"], states["3"] };
+			fsm.StartState = states["1"];
+		}
 
 		/// <summary>
 		/// </summary>
