@@ -23,9 +23,9 @@ namespace ComponentNetworkSimulation.simulation
 		#region data
 		
 		/// <summary>
-		/// Holds the first timeconsumer of the thread in order to create new threads starting at the same one.
+		/// Holds the first TimeConsumer of the thread in order to create new threads starting at the same one.
 		/// </summary>
-		protected TimeConsumer firstTimeConsumer;
+		protected ITimeConsumer firstTimeConsumer;
 
 		/// <summary>
 		/// this field holds the length of the period in order to create new threads with the same period.
@@ -55,7 +55,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// <param name="id">the id of this thread</param>
 		/// <param name="firstTimeConsumer">the first time consumer</param>
 		/// <param name="type">the type of the thread</param>
-		public PeriodicSimulationThread(long periodLength, int periodID, int id, TimeConsumer firstTimeConsumer,
+		public PeriodicSimulationThread(long periodLength, int periodID, int id, ITimeConsumer firstTimeConsumer,
 			SimuationThreadType type) : this(periodLength,periodID,id,firstTimeConsumer,type,null)
 		{
 			
@@ -70,7 +70,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// <param name="firstTimeConsumer">the first time consumer</param>
 		/// <param name="type">the type of the thread</param>
 		/// <param name="observer">the observer</param>
-		public PeriodicSimulationThread(long periodLength, int periodID, int id, TimeConsumer firstTimeConsumer,
+		public PeriodicSimulationThread(long periodLength, int periodID, int id, ITimeConsumer firstTimeConsumer,
 			SimuationThreadType type, IThreadObserver observer) : base (id, firstTimeConsumer,type,observer)
 		{
 			this.firstTimeConsumer = firstTimeConsumer;

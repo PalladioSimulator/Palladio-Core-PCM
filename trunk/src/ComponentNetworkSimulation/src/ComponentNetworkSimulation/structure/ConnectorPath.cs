@@ -1,6 +1,6 @@
 namespace ComponentNetworkSimulation.structure
 {
-	public class ConnectorPath : TimeConsumer
+	public class ConnectorPath : ITimeConsumer
 	{
 		//
 		// all connectorpaths have at least an internal service as following TimeConsumer
@@ -10,7 +10,7 @@ namespace ComponentNetworkSimulation.structure
 		/// 	<link_label>nextTimeConsumer</link_label>
 		/// 	<link_clientCardinality>1</link_clientCardinality>
 		/// </TgData>
-		protected TimeConsumer nextTimeConsumer = null;
+		protected ITimeConsumer nextTimeConsumer = null;
 
 		//
 		//each path belongs to one connector
@@ -23,12 +23,12 @@ namespace ComponentNetworkSimulation.structure
 
 		protected LoggingType loggingType = LoggingType.NO_LOG;
 
-		public ConnectorPath(AbstractConnector owningConnector, TimeConsumer nextTimeConsumer) : 
+		public ConnectorPath(AbstractConnector owningConnector, ITimeConsumer nextTimeConsumer) : 
 			this(owningConnector, nextTimeConsumer,LoggingType.NO_LOG)
 		{
 		}
 
-		public ConnectorPath(AbstractConnector owningConnector, TimeConsumer nextTimeConsumer, LoggingType type) 
+		public ConnectorPath(AbstractConnector owningConnector, ITimeConsumer nextTimeConsumer, LoggingType type) 
 		{
 			this.nextTimeConsumer = nextTimeConsumer;
 			this.owningConnector = owningConnector;
@@ -41,7 +41,7 @@ namespace ComponentNetworkSimulation.structure
 			return owningConnector.getDelayTime();
 		}
 
-		public TimeConsumer getNextTimeConsumer() 
+		public ITimeConsumer getNextTimeConsumer() 
 		{
 			return this.nextTimeConsumer;
 		}

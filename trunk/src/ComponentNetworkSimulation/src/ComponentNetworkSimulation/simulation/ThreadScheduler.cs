@@ -19,7 +19,7 @@ namespace ComponentNetworkSimulation.simulation
 		#region events
 		
 		/// <summary>
-		/// This event is fired, if one of the threads changes its current timeconsumer.
+		/// This event is fired, if one of the threads changes its current TimeConsumer.
 		/// </summary>
 		public event NextTCEventHandler NextTCEvent;
 
@@ -116,9 +116,9 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// call to create a new SimulationThread.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first timeconsumer of this thread.</param>
+		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
-		public void CreateSimulationThread(TimeConsumer firstTimeConsumer, SimulationThread.SimuationThreadType type)
+		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThread.SimuationThreadType type)
 		{
 			this.PrepairNewThread(new SimulationThread(this.NextThreadID,firstTimeConsumer,type));			
 		}
@@ -126,10 +126,10 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// call to create a new SimulationThread observed by the given observer.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first timeconsumer of this thread.</param>
+		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
 		/// <param name="observer">the oberserver</param>
-		public void CreateSimulationThread(TimeConsumer firstTimeConsumer, SimulationThread.SimuationThreadType type, 
+		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThread.SimuationThreadType type, 
 			IThreadObserver observer)
 		{
 			this.PrepairNewThread(new SimulationThread(this.NextThreadID,firstTimeConsumer,type,observer));			
@@ -138,9 +138,9 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// call to create a new SimulationThread.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first timeconsumer of this thread.</param>
+		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
-		public void CreateSimulationThread(TimeConsumer firstTimeConsumer, 
+		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, 
 			SimulationThread.SimuationThreadType type, long periodTime)
 		{
 			CreateSimulationThread(firstTimeConsumer,type,periodTime,null);
@@ -149,11 +149,11 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// call to create a new PeriodicSimulationThread observed by the given observer.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first timeconsumer of this thread.</param>
+		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
 		/// <param name="periodTime">reached the thread this time, a new thread is created.</param>
 		/// <param name="observer">the oberserver</param>
-		public void CreateSimulationThread(TimeConsumer firstTimeConsumer,SimulationThread.SimuationThreadType type,
+		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer,SimulationThread.SimuationThreadType type,
 			long periodTime, IThreadObserver observer)
 		{
 			PeriodicSimulationThread tmp = new PeriodicSimulationThread(periodTime,NextPeriodID,NextThreadID,

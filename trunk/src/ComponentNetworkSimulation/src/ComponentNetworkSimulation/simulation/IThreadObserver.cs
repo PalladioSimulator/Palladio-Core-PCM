@@ -16,11 +16,11 @@ namespace ComponentNetworkSimulation.simulation
 		void NotifyThreadReachedEnd(SimulationThread sender);
 
 		/// <summary>
-		/// called, when the current timeconsumer of the thread has changed
+		/// called, when the current TimeConsumer of the thread has changed
 		/// </summary>
 		/// <param name="sender">the thread</param>
-		/// <param name="previous">the previous timeconsumer</param>
-		void NotifyThreadChangedTimeConsumer(SimulationThread sender, TimeConsumer previous);
+		/// <param name="previous">the previous TimeConsumer</param>
+		void NotifyThreadChangedTimeConsumer(SimulationThread sender, ITimeConsumer previous);
 
 		/// <summary>
 		/// called, when the timeline of the thread move

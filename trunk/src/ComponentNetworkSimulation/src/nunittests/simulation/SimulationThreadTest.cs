@@ -170,9 +170,9 @@ namespace nunittests.simulation
 			Console.WriteLine("Thread("+sender.ThreadID+") reached end...");
 		}
 
-		public void NotifyThreadChangedTimeConsumer(SimulationThread sender, ComponentNetworkSimulation.structure.TimeConsumer previous)
+		public void NotifyThreadChangedTimeConsumer(SimulationThread sender, ComponentNetworkSimulation.structure.ITimeConsumer previous)
 		{
-			Console.WriteLine("Thread("+sender.ThreadID+") changed timeconsumer.");
+			Console.WriteLine("Thread("+sender.ThreadID+") changed TimeConsumer.");
 		}
 
 		public void NotifyTimeStep(SimulationThread sender, long timeStep)

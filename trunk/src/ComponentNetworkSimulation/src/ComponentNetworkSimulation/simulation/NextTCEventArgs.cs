@@ -11,14 +11,14 @@ namespace ComponentNetworkSimulation.simulation
 		#region data
 
 		/// <summary>
-		/// The field holding the current timeconsumer
+		/// The field holding the current TimeConsumer
 		/// </summary>
-		private TimeConsumer currentTimeConsumer;
+		private ITimeConsumer currentTimeConsumer;
 
 		/// <summary>
 		/// the field holding the previous time consumer
 		/// </summary>
-		private TimeConsumer previousTimeConsumer;
+		private ITimeConsumer previousTimeConsumer;
 
 		#endregion
 
@@ -27,9 +27,9 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// constructs a new NextTCEventArgs data structure
 		/// </summary>
-		/// <param name="current">The current timeconsumer</param>
-		/// <param name="previous">The previous timeconsumer</param>
-		public NextTCEventArgs(TimeConsumer current, TimeConsumer previous)
+		/// <param name="current">The current TimeConsumer</param>
+		/// <param name="previous">The previous TimeConsumer</param>
+		public NextTCEventArgs(ITimeConsumer current, ITimeConsumer previous)
 		{
 			this.currentTimeConsumer = current;
 			this.previousTimeConsumer = previous;
@@ -40,17 +40,17 @@ namespace ComponentNetworkSimulation.simulation
 		#region properties
 
 		/// <summary>
-		/// return the current timeconsumer
+		/// return the current TimeConsumer
 		/// </summary>
-		public TimeConsumer CurrentTimeConsumer
+		public ITimeConsumer CurrentTimeConsumer
 		{ 
 			get { return this.currentTimeConsumer;}
 		}		
 
 		/// <summary>
-		/// return the previous timeconsumer
+		/// return the previous TimeConsumer
 		/// </summary>
-		public TimeConsumer PreviousTimeConsumer
+		public ITimeConsumer PreviousTimeConsumer
 		{ 
 			get { return this.previousTimeConsumer;}
 		}

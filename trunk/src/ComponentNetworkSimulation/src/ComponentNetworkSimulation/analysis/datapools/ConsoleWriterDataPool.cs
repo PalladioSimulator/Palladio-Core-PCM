@@ -1,3 +1,4 @@
+using System;
 using ComponentNetworkSimulation.simulation;
 using ComponentNetworkSimulation.structure;
 
@@ -5,26 +6,57 @@ namespace ComponentNetworkSimulation.analysis.datapools
 {
 	internal class ConsoleWriterDataPool : ComponentNetworkSimulation.analysis.AbstractDataPool
 	{
-		public override void reset()
+		public ConsoleWriterDataPool(AbstractSimulationEnvironment simulationEnvironment) : base (simulationEnvironment)
 		{
-			System.Console.Out.WriteLine("Log: reset simulation"); 
 		}
 
-		public override void otherLog(System.String message)
+		public override void Reset()
 		{
-			System.Console.Out.WriteLine("Log: "+message); 
+			PrintLog("Simulation reseted");
 		}
 
-		public override void threadLog(SimulationThread sender,TimeConsumer TimeConsumer, long time, int param)
+		protected override void OnClockEvent(object sender, ClockLogEventArgs eventArgs)
 		{
-			System.Console.Out.WriteLine("Thread Log: "+sender+" on "+TimeConsumer+" at time "+time+".");
-			System.Console.Out.WriteLine("Param = "+param+", means: ");
-			if ((param & PARAM_ENTER_LP)!= 0)
-				System.Console.Out.WriteLine("Thread entered logpoint.");
-			if ((param & PARAM_EXIT_LP)!= 0)
-				System.Console.Out.WriteLine("Thread leaved logpoint.");
-			if (param == 0)
-				System.Console.Out.WriteLine("No params set.");
+			if (eventArgs.TheType == ClockLogEventArgs.EventType.CLOCK_RESET)
+				PrintLog("ClockLog -> reset");
+			else if (eventArgs.TheType == ClockLogEventArgs.EventType.CLOCK_STEP)
+				PrintLog("ClockLog timeStep -> Stepsize = "+eventArgs.TimeStep);
+			else if (eventArgs.TheType == ClockLogEventArgs.EventType.CLOCK_REACHED_MAXTIME)
+				PrintLog("ClockLog -> maxtime reached");
+			else if (eventArgs.TheType == ClockLogEventArgs.EventType.CLOCK_NO_MORE_THREADS)
+				PrintLog("ClockLog -> no more threads alive");
 		}
+
+		protected override void OnThreadEvent(object sender, ThreadLogEventArgs eventArgs)
+		{
+			if (eventArgs.TheType == ThreadLogEventArgs.EventType.THREAD_CREATED) 
+			{
+				if (eventArgs.TheThread is PeriodicSimulationThread)
+					PrintLog("ThreadLog -> Periodic Thread("+eventArgs.TheThread.ThreadID+
+						","+((PeriodicSimulationThread)eventArgs.TheThread).PeriodID+") created.");
+				else
+					PrintLog("ThreadLog -> Thread("+eventArgs.TheThread.ThreadID+") created.");
+			}
+			else if (eventArgs.TheType == ThreadLogEventArgs.EventType.THREAD_REACHED_END) 
+				PrintLog("ThreadLog -> Thread("+eventArgs.TheThread.ThreadID+") reached its end.");
+			else if (eventArgs.TheType == ThreadLogEventArgs.EventType.THREAD_ENTERED_TIMECONSUMER) 
+				PrintLog("ThreadLog -> Thread("+eventArgs.TheThread.ThreadID+") entered TimeConsumer "+
+					eventArgs.TheTimeConsumer);
+			else if (eventArgs.TheType == ThreadLogEventArgs.EventType.THREAD_EXITED_TIMECONSUMER) 
+				PrintLog("ThreadLog -> Thread("+eventArgs.TheThread.ThreadID+") exited TimeConsumer "+eventArgs.TheTimeConsumer);
+		}
+
+		protected override void OnUnknownEvent(object sender, BasicLogEventArgs eventArgs)
+		{
+			PrintLog("Unknown log event -> "+eventArgs.Message);
+		}
+
+
+
+		protected void PrintLog(String message)
+		{
+			Console.WriteLine("Log at time "+this.SimulationTime+": "+message);
+		}
+
 	}
 }

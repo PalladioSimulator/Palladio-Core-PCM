@@ -3,24 +3,24 @@ using ComponentNetworkSimulation.structure;
 
 namespace nunittests.simulation
 {
-	public class Component : TimeConsumer
+	public class Component : ITimeConsumer
 	{
-		public static TimeConsumer createPath1()
+		public static ITimeConsumer createPath1()
 		{
 			return new Component(new Component(new Component(10),3),2);
 		}
 
-		public static TimeConsumer createPath2()
+		public static ITimeConsumer createPath2()
 		{
 			return new Component(new Component(5),10);
 		}
 
-		public static TimeConsumer createPath_with_Zero_TC()
+		public static ITimeConsumer createPath_with_Zero_TC()
 		{
 			return new Component(new Component(new Component(4),0),6);
 		}
 
-		public Component(TimeConsumer nextTimeConsumer, int timeToWait)
+		public Component(ITimeConsumer nextTimeConsumer, int timeToWait)
 		{
 			this.tc = nextTimeConsumer;
 			this.tw = timeToWait;
@@ -31,13 +31,13 @@ namespace nunittests.simulation
 			this.tw = timeToWait;
 		}
 
-		protected TimeConsumer tc = null;
+		protected ITimeConsumer tc = null;
 
 		protected int tw = 0;
 
-		#region TimeConsumer Member
+		#region ITimeConsumer Member
 
-		public ComponentNetworkSimulation.structure.TimeConsumer getNextTimeConsumer()
+		public ComponentNetworkSimulation.structure.ITimeConsumer getNextTimeConsumer()
 		{
 			return tc;
 		}

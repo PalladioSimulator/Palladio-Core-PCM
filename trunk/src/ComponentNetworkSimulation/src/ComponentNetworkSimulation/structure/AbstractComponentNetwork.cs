@@ -9,10 +9,10 @@ namespace ComponentNetworkSimulation.structure
 	
 		public abstract System.String getName();
 
-		public TimeConsumer getSystemService(int idx)
+		public ITimeConsumer getSystemService(int idx)
 		{
 			if (idx < SystemServices.Count)
-				return (TimeConsumer)SystemServices[idx];
+				return (ITimeConsumer)SystemServices[idx];
 			else
 				return null;
 		}

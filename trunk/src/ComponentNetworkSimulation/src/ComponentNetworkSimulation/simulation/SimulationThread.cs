@@ -26,7 +26,7 @@ namespace ComponentNetworkSimulation.simulation
 		#region events
 
 		/// <summary>
-		/// This event is fired, if the timeconsumer has changed to next one
+		/// This event is fired, if the TimeConsumer has changed to next one
 		/// </summary>
 		public event NextTCEventHandler NextTCEvent;
 
@@ -41,14 +41,14 @@ namespace ComponentNetworkSimulation.simulation
 
 		/// <summary>
 		/// this time contains the difference between the simulation time and the threads current state time.
-		/// If this field is zero, the next timeconsumer is entered.
+		/// If this field is zero, the next TimeConsumer is entered.
 		/// </summary>
 		protected long timeInFuture=0;
 
 		/// <summary>
-		/// holds the current timeconsumer.
+		/// holds the current TimeConsumer.
 		/// </summary>
-		protected ComponentNetworkSimulation.structure.TimeConsumer currentTimeConsumer=null;
+		protected ComponentNetworkSimulation.structure.ITimeConsumer currentTimeConsumer=null;
 
 		/// <summary>
 		/// holds the type of the thread
@@ -68,9 +68,9 @@ namespace ComponentNetworkSimulation.simulation
 		/// constructs a new simulationthread.
 		/// </summary>
 		/// <param name="id">The id of the thread.</param>
-		/// <param name="firstTimeConsumer">The first timeconsumer.</param>
+		/// <param name="firstTimeConsumer">The first TimeConsumer.</param>
 		/// <param name="type">The type of the thread.</param>
-		public SimulationThread(int id, TimeConsumer firstTimeConsumer, SimuationThreadType type)
+		public SimulationThread(int id, ITimeConsumer firstTimeConsumer, SimuationThreadType type)
 		{
 			this.threadId = id;
 			this.currentTimeConsumer = firstTimeConsumer;
@@ -82,9 +82,9 @@ namespace ComponentNetworkSimulation.simulation
 		/// constructs a new simulationthread.
 		/// </summary>
 		/// <param name="id">The id of the thread.</param>
-		/// <param name="firstTimeConsumer">The first timeconsumer.</param>
+		/// <param name="firstTimeConsumer">The first TimeConsumer.</param>
 		/// <param name="type">The type of the thread.</param>
-		public SimulationThread(int id, TimeConsumer firstTimeConsumer, SimuationThreadType type,
+		public SimulationThread(int id, ITimeConsumer firstTimeConsumer, SimuationThreadType type,
 			IThreadObserver observer)
 		{
 			this.threadId = id;
@@ -98,9 +98,9 @@ namespace ComponentNetworkSimulation.simulation
 
 		#region properties
 		/// <summary>
-		/// the current timeconsumer
+		/// the current TimeConsumer
 		/// </summary>
-		public TimeConsumer CurrentTimeConsumer 
+		public ITimeConsumer CurrentTimeConsumer 
 		{
 			get{ return currentTimeConsumer;}
 		}
@@ -114,7 +114,7 @@ namespace ComponentNetworkSimulation.simulation
 		}
 
 		/// <summary>
-		/// is true, if the thread already has following timeconsumers 
+		/// is true, if the thread already has following TimeConsumers 
 		/// </summary>
 		public virtual bool IsAlive 
 		{
@@ -147,7 +147,7 @@ namespace ComponentNetworkSimulation.simulation
 		}
 
 		/// <summary>
-		/// called if timeToFuture is zero to change to the next timeconsumer.
+		/// called if timeToFuture is zero to change to the next TimeConsumer.
 		/// if the end of the control flow is reached, a thread event is fired and the thread is marked as dead.
 		/// </summary>
 		protected void NextTimeConsumer()
@@ -161,7 +161,7 @@ namespace ComponentNetworkSimulation.simulation
 				return;
 			}
 
-			TimeConsumer previous = currentTimeConsumer;
+			ITimeConsumer previous = currentTimeConsumer;
 
 			currentTimeConsumer = currentTimeConsumer.getNextTimeConsumer();
 			timeInFuture = currentTimeConsumer.getUsedTime();
@@ -170,7 +170,7 @@ namespace ComponentNetworkSimulation.simulation
 		}
 
 		/// <summary>
-		/// returns true, if any timeconsumer is set to currentTimeConsumer
+		/// returns true, if any TimeConsumer is set to currentTimeConsumer
 		/// </summary>
 		/// <returns>true, if the thread is alive.</returns>
 		protected bool HasAnyTimeConsumer()
@@ -179,10 +179,10 @@ namespace ComponentNetworkSimulation.simulation
 		}
 
 		/// <summary>
-		/// called to fire an event, when the thread changed the timeconsumer
+		/// called to fire an event, when the thread changed the TimeConsumer
 		/// </summary>
-		/// <param name="previous">the previous timeconsumer</param>
-		protected virtual void NotifyNextTCEvent(TimeConsumer previous)
+		/// <param name="previous">the previous TimeConsumer</param>
+		protected virtual void NotifyNextTCEvent(ITimeConsumer previous)
 		{
 			if (NextTCEvent != null)
 				NextTCEvent(this,new NextTCEventArgs(this.currentTimeConsumer,previous));

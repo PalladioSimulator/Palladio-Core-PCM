@@ -5,68 +5,178 @@ using System.Collections;
 
 namespace ComponentNetworkSimulation
 {
+	/// <summary>
+	/// This is the abstract base class for all simulation environments. It holds references to the clock containing the scheduler, 
+	/// to the componentnetwork and to the datapool used to log the simulation. Implementing classes have to create the instances 
+	/// of these references.
+	/// </summary>
 	public abstract class AbstractSimulationEnvironment
 	{
+		#region data
+
+		/// <summary>
+		/// holds the instance of the clock
+		/// </summary>
+		private Clock clock = null;
+		
+		/// <summary>
+		/// holds the instance of the componentnetwork
+		/// </summary>
+		private AbstractComponentNetwork componentNetwork = null;
+		
+		/// <summary>
+		/// holds the datapool
+		/// </summary>
+		private AbstractDataPool dataPool = null;
+
+		#endregion
+
+		#region constructors
+
+		/// <summary>
+		/// constructs a new SimulationEnvironment. This constructor call the method Inilize() to let
+		/// the implementing classes inilizing the clock, the componentnetwork and the datapool.
+		/// </summary>
 		public AbstractSimulationEnvironment()
 		{
-			this.clock = createClock();
-			this.componentNetwork = createComponentNetwork();
+			this.Inilize();
 		}
 
-		public void simulate()
+		#endregion
+
+		#region methods
+
+		/// <summary>
+		/// called by the constructor in order to let the implementing classes inilize the clock, the componentnetwork
+		/// and the datapool. Refere to the components using the properties TheClock, TheComponentNetwork and TheDataPool.
+		/// </summary>
+		protected virtual void Inilize()
 		{
-			this.resetSimulation();
-			this.prepairSimulation();
-			this.doSimulate();
 		}
 
-		public bool simulationStep()
+		/// <summary>
+		/// call to start a whole simlution. The simulation ends, when maxsimulationtime is reached or no more thread is alive.
+		/// Before starting the simulation, a reset is processed through the whole simulation environment and 
+		/// PrepairSimulation() is called to inilize the startthreads.
+		/// </summary>
+		public virtual void Simulate()
+		{
+			this.ResetSimulation();
+			this.PrepairSimulation();
+			this.DoSimulate();
+		}
+
+
+		/// <summary>
+		/// call let the simulation environment make one simulationstep.
+		/// </summary>
+		/// <returns>false is returned, if no more thread is alive or the maximum simulationtime is reached.</returns>
+		public virtual bool SimulationStep()
 		{
 			return this.clock.SimulationStep();
 		}
 
-		public void prepairSimulation()
+		/// <summary>
+		/// call to inilize all startthreads. By default, the method CreateSystemSimulationThreads() is called.
+		/// </summary>
+		public virtual void PrepairSimulation()
 		{
-			this.createSystemSimulationThreads();
+			this.CreateSystemSimulationThreads();
 		}
 
-		public void resetSimulation()
+		/// <summary>
+		/// call to reset the whole simulation environment.
+		/// </summary>
+		public virtual void ResetSimulation()
 		{
 			this.clock.Reset();
 			this.componentNetwork.reset();
-			this.dataPool.reset();
+			this.dataPool.Reset();
 		}
 
-		public Clock getClock()
+		/// <summary>
+		/// called by Simulate to do a whole simulation. By default, the simulation ends, if no more threads are alive or
+		/// the maximum simulation time is reached.
+		/// </summary>
+		protected virtual void DoSimulate()
 		{
-			return this.clock;
+			while(clock.SimulationStep());
 		}
 
-		public AbstractComponentNetwork getComponentNetwork() 
+		#endregion
+
+		#region properties
+
+		/// <summary>
+		/// return the clock of the environment. The first call to this properties creates a new instance by
+		/// calling CreateClock().
+		/// </summary>
+		public Clock TheCLock
 		{
-			return this.componentNetwork;
+			get	
+			{
+				if (this.clock == null) this.clock = CreateClock();
+				return this.clock;
+			}
 		}
 
-		public AbstractDataPool getDataPool() 
+		/// <summary>
+		/// return the ComponentNetwork of the environment. The first call to this properties creates a new instance by
+		/// calling CreateComponentEnvironment().
+		/// </summary>
+		public AbstractComponentNetwork TheComponentNetwork 
 		{
-			return this.dataPool;
+			get
+			{ 
+				if (this.componentNetwork == null) this.componentNetwork = CreateComponentNetwork();
+				return this.componentNetwork;
+			}
 		}
 
-		protected void doSimulate()
+		/// <summary>
+		/// return the datapool of the environment. The first call to this properties creates a new instance by
+		/// calling CreateDataPool().
+		/// </summary>
+		public AbstractDataPool TheDataPool 
 		{
-			while(clock.SimulationStep() && !clock.IsMaxTimeReached);
+			get
+			{ 
+				if (this.dataPool == null) this.dataPool = CreateDataPool();
+				return this.dataPool;
+			}
 		}
 
-		protected abstract void createSystemSimulationThreads();
+		#endregion
+
+		#region abstract methods
+
+		/// <summary>
+		/// implement this method to inilize the SystemThreads of the simulation.
+		/// </summary>
+		protected abstract void CreateSystemSimulationThreads();
 		
-		protected abstract Clock createClock();
+		/// <summary>
+		/// implement this method to create a new ínstance of Clock. Do not any inilizations depending on other components, use
+		/// Inilize() instead. This method must not return null.
+		/// </summary>
+		/// <returns>the new instance of Clock.</returns>
+		protected abstract Clock CreateClock();
 
-		protected abstract AbstractComponentNetwork createComponentNetwork();
+		/// <summary>
+		/// implement this method to create a new ínstance of AbstractComponentNetwork. Do not any inilizations depending on 
+		/// other components, use Inilize() instead. This method must not return null.
+		/// </summary>
+		/// <returns>the new instance of AbstractComponentNetwork.</returns>
+		protected abstract AbstractComponentNetwork CreateComponentNetwork();
 
-		protected abstract AbstractDataPool createDataPool();
+		/// <summary>
+		/// implement this method to create a new ínstance of AbstractDataPool. Do not any inilizations depending on 
+		/// other components, use Inilize() instead. This method must not return null.
+		/// </summary>
+		/// <returns>the new instance of AbstractDataPool.</returns>
+		protected abstract AbstractDataPool CreateDataPool();
 
-		protected Clock clock = null;
-		protected AbstractComponentNetwork componentNetwork = null;
-		protected AbstractDataPool dataPool = null;
+		#endregion
 	}	
 }
+//EOF

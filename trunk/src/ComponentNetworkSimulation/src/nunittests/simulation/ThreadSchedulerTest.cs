@@ -82,7 +82,7 @@ namespace nunittests.simulation
 
 		protected void OnNextTCEvent(object sender, NextTCEventArgs args) 
 		{
-			Console.WriteLine("Thread("+((SimulationThread)sender).ThreadID+") changed the timeconsumer ...");
+			Console.WriteLine("Thread("+((SimulationThread)sender).ThreadID+") changed the TimeConsumer ...");
 		}
 		
 		protected void OnThreadCreatedEvent(object sender, ThreadLifeCycleEventArgs args) 
