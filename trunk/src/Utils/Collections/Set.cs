@@ -130,5 +130,8 @@ namespace Utils.Collections
 			}
 			return true;
 		}
+		public int Count {
+			get{ return data.Count; }
+		}
 	}
 }

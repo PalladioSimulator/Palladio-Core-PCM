@@ -1,12 +1,10 @@
 using System;
 
-namespace FiniteStateMachines
-{
+namespace FiniteStateMachines {
 	/// <summary>
 	/// Represents the input of a FSM.
 	/// </summary>
-	public class Input
-	{	
+	public class Input {	
 
 		/// <summary>
 		/// Input instance indicating the end of a service effect specification.
@@ -16,7 +14,7 @@ namespace FiniteStateMachines
 		/// <summary>
 		/// String represinting the input.
 		/// </summary>
-		protected string input;
+		private string inputSymbol;
 
 
 		//protected int Hashcode;
@@ -24,9 +22,8 @@ namespace FiniteStateMachines
 		/// The default constuctor.
 		/// </summary>
 		/// <param name="i">The input stirng.</param>
-		public Input(string i)
-		{
-			this.input = i;
+		public Input(string anInputSymbol) {
+			this.inputSymbol = anInputSymbol;
 			//this.Hashcode = this.GetHashCode();
 		}
 
@@ -34,9 +31,8 @@ namespace FiniteStateMachines
 		/// Returns the Input as a string.
 		/// </summary>
 		/// <returns>The Input as string.</returns>
-		override public String ToString()
-		{
-			return this.input;
+		override public String ToString() {
+			return this.inputSymbol;
 		}
 
 
@@ -47,7 +43,7 @@ namespace FiniteStateMachines
 		public override bool Equals(object obj) {
 			if (obj is Input) {
 				Input anInput = (Input)obj;
-				return (anInput.input == input);
+				return (anInput.inputSymbol == inputSymbol);
 			}
 			return false;
 		}
@@ -59,7 +55,15 @@ namespace FiniteStateMachines
 		/// <param name="input2"></param>
 		/// <returns></returns>
 		public static bool operator == (Input one, Input two){
-			return one.Equals(two);
+			try {
+				return one.Equals(two);
+			} catch( NullReferenceException e1 ) {
+				try {
+					return two.Equals(one);
+				} catch( NullReferenceException e2) {
+					return true;
+				}
+			}
 		}
 
 		/// <summary>
@@ -69,7 +73,15 @@ namespace FiniteStateMachines
 		/// <param name="input2"></param>
 		/// <returns></returns>
 		public static bool operator != (Input one, Input two){
-			return !one.Equals(two);
+			try {
+				return !one.Equals(two);
+			} catch( NullReferenceException e1 ) {
+				try {
+					return !two.Equals(one);
+				} catch( NullReferenceException e2) {
+					return false;
+				}
+			}
 		}
 
 		/// <summary>
@@ -77,7 +89,7 @@ namespace FiniteStateMachines
 		/// </summary>
 		/// <returns></returns>
 		public override int GetHashCode() {
-			return input.GetHashCode();
+			return inputSymbol.GetHashCode();
 		}
 
 	}

@@ -38,23 +38,5 @@ namespace FiniteStateMachines {
 			}
 			return false;
 		}
-
-		/// <summary>
-		/// Returns the Input as a string.
-		/// </summary>
-		/// <returns>The Input as string.</returns>
-		override public String ToString() {
-			return this.input + ":" + ReturnInfo;
-		}
-
-		/// <summary>
-		/// Refers to the GetHashCode of the string.
-		/// </summary>
-		/// <returns></returns>
-		public override int GetHashCode() {
-			return ToString().GetHashCode();
-		}
-
-	
 	}
 }

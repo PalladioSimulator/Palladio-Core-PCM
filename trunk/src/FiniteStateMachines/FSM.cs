@@ -269,18 +269,9 @@ namespace FiniteStateMachines {
 					back = new Transition(tr);
 			}
 			if(back.InputSymbol == null)
-				throw new InvalidInputException();
+				return new Transition(fromState,inChar,ErrorState);
+
 			return back;
-			/**else
-					{
-						Console.WriteLine("nothing found!");
-						throw new ProgrammingErrorException();
-				
-					}
-					*/
-			
-			//throw new ProgrammingErrorException();
-				
 		}
 
 		/// <summary>

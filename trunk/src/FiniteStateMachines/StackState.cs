@@ -16,18 +16,12 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Default name for the top service.
 		/// </summary>
-		public static Input TOP_SERVICE_NAME = new Input("top service");
-
-		/// <summary>
-		/// State of the top service.
-		/// </summary>
-		private AbstractState topServiceState;
+		public static string TOP_SERVICE_NAME = "top service";
 
 		/// <summary>
 		/// Stack containing all contexts of this state
 		/// </summary>
 		private Stack contextStack;
-
 
 		/// <summary>
 		/// Creates an empty StackState. Invisible to the public.
@@ -41,7 +35,6 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="aState">The copied state.</param>
 		public StackState(StackState aState) {
-			topServiceState = aState.topServiceState;
 			contextStack = (Stack)aState.contextStack.Clone();
 		}
 
@@ -51,8 +44,8 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="aState">The state of the top service</param>
 		public StackState(AbstractState aState){
-			topServiceState = aState;
 			contextStack = new Stack();
+			contextStack.Push(new Context(new Input(TOP_SERVICE_NAME),aState));
 		}
 
 
@@ -78,7 +71,7 @@ namespace FiniteStateMachines {
 		public override bool IsStartState {
 			get {
 				if (IsEmpty) {
-					return PeekState().IsStartState;
+					return Peek().State.IsStartState;
 				}
 				return false;
 			}
@@ -92,7 +85,7 @@ namespace FiniteStateMachines {
 		public override bool IsFinalState {
 			get {
 				if (IsEmpty) {
-					return PeekState().IsFinalState;
+					return Peek().State.IsFinalState;
 				}
 				return false;
 			}
@@ -116,9 +109,13 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="newState"></param>
 		public void ChangeTopState(AbstractState newState){
-			Context con = (Context)contextStack.Pop();
-			con.State = newState;
-			contextStack.Push(con);
+			try {
+				Context con = new Context((Context)contextStack.Pop()); // Create a clone
+				con.State = newState;
+				contextStack.Push(con);
+			} catch(InvalidOperationException e) {
+				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
+			}
 		}
 
 		
@@ -127,38 +124,27 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <returns>Top context</returns>
 		public Context Pop(){
-			Context con;
 			try{
-				con = (Context)contextStack.Pop();
+				if (contextStack.Count > 1) {
+					return (Context)contextStack.Pop();
+				} else {
+					return Peek();
+				}
 			} catch(InvalidOperationException e){
-				con = new Context(TOP_SERVICE_NAME,topServiceState);
+				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
 			}
-			return con;
 		}
 		
 
 		/// <summary>
-		/// Lookup the name of the service on top.
+		/// Lookup the top context .
 		/// </summary>
-		/// <returns>Name of the top service</returns>
-		public Input PeekServiceName(){
+		/// <returns>Context of the top service</returns>
+		public Context Peek(){
 			try {
-				return ((Context)contextStack.Peek()).ServiceName;
+				return ((Context)contextStack.Peek());
 			} catch(InvalidOperationException e){
-				return TOP_SERVICE_NAME;
-			}
-		}
-
-		
-		/// <summary>
-		/// Lookup the state of the service on top.
-		/// </summary>
-		/// <returns>State of the top service</returns>
-		public AbstractState PeekState(){
-			try {
-				return ((Context)contextStack.Peek()).State;
-			} catch(InvalidOperationException e) {
-				return topServiceState;
+				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
 			}
 		}
 
@@ -167,7 +153,7 @@ namespace FiniteStateMachines {
 		/// Checks if there are any services left except the top service.
 		/// </summary>
 		public bool IsEmpty {
-			get { return (contextStack.Count == 0); }
+			get { return (contextStack.Count == 1); }
 		}
 
 		
@@ -181,7 +167,7 @@ namespace FiniteStateMachines {
 		/// containg only the state of the provides protocol.</returns>
 		public StackState LookupServiceName(Input aServiceName){
 			StackState resultState = new StackState(this);
-			while ((!resultState.IsEmpty) && (resultState.PeekServiceName() != aServiceName)) {
+			while ((!resultState.IsEmpty) && (resultState.Peek().ServiceName != aServiceName)) {
 				resultState.Pop();
 			}
 			return resultState;

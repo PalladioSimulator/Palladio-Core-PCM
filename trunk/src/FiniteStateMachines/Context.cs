@@ -35,6 +35,16 @@ namespace FiniteStateMachines {
 			state = aState;
 		}
 
+
+		/// <summary>
+		/// Copy-Constructor.
+		/// </summary>
+		/// <param name="aContext"><code>Context</code> which should be cloned</param>
+		public Context(Context aContext){
+			serviceName = aContext.ServiceName;
+			state = aContext.State;
+		}
+
 		/// <summary>
 		/// State of the service.
 		/// </summary>
@@ -63,6 +73,10 @@ namespace FiniteStateMachines {
 
 		public override string ToString() {
 			return ServiceName + "; " + State;
+		}
+
+		public object Clone() {
+			return new Context(this);
 		}
 
 	}

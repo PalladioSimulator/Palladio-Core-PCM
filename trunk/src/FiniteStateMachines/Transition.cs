@@ -107,7 +107,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <returns>The Transition as string.</returns>
 		override public string ToString() {
-			return ("from " +this.SourceState.ToString() + " to " + this.DestinationState.ToString() +" with: " + this.InputSymbol.ToString());
+			return "(" + SourceState + "; " + InputSymbol + "; " + DestinationState + ")";
 		}
 		
 		
@@ -128,5 +128,22 @@ namespace FiniteStateMachines {
 		public virtual object Clone(){
 			return new Transition(this);
 		}
+
+
+		/// <summary>
+		/// Default implementation for Equals.
+		/// </summary>
+		/// <param name="obj"></param>
+		/// <returns></returns>
+		public override bool Equals(object obj) {
+			if (obj is Transition) {
+				Transition trans = (Transition)obj;
+				return (DestinationState.Equals(trans.DestinationState) &&
+						SourceState.Equals(trans.SourceState) &&
+						InputSymbol.Equals(trans.InputSymbol));
+			} 
+			return false;
+		}
+
 	}
 }

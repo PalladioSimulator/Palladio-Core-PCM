@@ -1,12 +1,10 @@
 using System;
 
-namespace FiniteStateMachines
-{
+namespace FiniteStateMachines {
 	/// <summary>
 	/// 
 	/// </summary>
-	public class RecursionInput : Input
-	{
+	public class RecursionInput : Input {
 		private Input service;
 		private AbstractState state;
 
@@ -35,12 +33,5 @@ namespace FiniteStateMachines
 			return false;
 		}
 
-		/// <summary>
-		/// Refers to the GetHashCode of the input string.
-		/// </summary>
-		/// <returns></returns>
-		public override int GetHashCode() {
-			return input.GetHashCode();
-		}
 	}
 }

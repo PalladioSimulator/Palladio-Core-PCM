@@ -155,11 +155,11 @@ namespace FiniteStateMachines {
 		/// Returns all Transitions from a given state.
 		/// </summary>
 		/// <returns>A Hashtable witch contatins all transtions from the given State.</returns>
-		public Hashtable GetOutgoingTransitions(AbstractState sourceState) {
+		public Hashtable GetOutgoingTransitions(AbstractState aSourceState) {
 			// TODO change the key - value reference key = input, value = transition
 			Hashtable result = new Hashtable();
 			foreach (Input input in inputAlphabet){
-				result.Add(input,GetTransition(sourceState,input));
+				result.Add(input,GetTransition(aSourceState,input));
 			}
 			return result;
 		}
@@ -181,7 +181,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <returns>The next possible transition</returns>
 		public Transition GetTransition(AbstractState sourceState, Input anInput) {
-			Transition result = null;
+			Transition result = CreateTransition(sourceState,anInput,ErrorState);
 
 			if (sourceState is StackState) {
 				StackState state = (StackState)sourceState;
@@ -189,8 +189,8 @@ namespace FiniteStateMachines {
 					result = HandleRecursionInput(state,(RecursionInput)anInput);
 				} else if (serviceEffectSpecificationTable.ContainsKey(anInput)) {
 					result = CallService(state,anInput);
-				} else if ((!state.IsEmpty) && (serviceEffectSpecificationTable.ContainsKey(state.PeekServiceName()))){
-					IFiniteStateMachine topService = (IFiniteStateMachine)serviceEffectSpecificationTable[state.PeekServiceName()];
+				} else if ((!state.IsEmpty) && (serviceEffectSpecificationTable.ContainsKey(state.Peek().ServiceName))){
+					IFiniteStateMachine topService = (IFiniteStateMachine)serviceEffectSpecificationTable[state.Peek().ServiceName];
 					if (topService.InputAlphabet.Contains(anInput)){
 						result = GetTransitionInService(topService,state,anInput);
 					} else if (anInput == Input.RETURN){
@@ -198,7 +198,7 @@ namespace FiniteStateMachines {
 					}
 				}
 			} else if (sourceState == ErrorState) {
-				result = CreateTransition(sourceState,anInput,ErrorState);
+				// Stay here, nothing to do
 			} else {
 				throw new InvalidStateException("The state '"+sourceState+"' is not a StackState");
 			}
@@ -220,15 +220,18 @@ namespace FiniteStateMachines {
 		/// <param name="aState"><code>StackState</code> for which the transition must be simulated</param>
 		/// <param name="anInput">The input symbol for the transition</param>
 		/// <returns>The transition object of <code>aService</code> with altered states</returns>
-		private Transition GetTransitionInService(IFiniteStateMachine aService, StackState sourceState, Input anInput){
-			Transition result = null;
-			AbstractState destinationState = ErrorState;
-			result = (Transition)aService.GetTransition(sourceState.PeekState(),anInput).Clone();
-			if (result.DestinationState != aService.ErrorState){
-				destinationState = new StackState(sourceState);
-				((StackState)destinationState).ChangeTopState(result.DestinationState);
+		private Transition GetTransitionInService(IFiniteStateMachine aService, StackState aSourceState, Input aServiceName){
+			Transition result = CreateTransition(aSourceState,aServiceName,ErrorState);
+			if(aService.InputAlphabet.Contains(aServiceName)) {
+				result = (Transition)aService.GetTransition(aSourceState.Peek().State,aServiceName).Clone();
+				if (result.DestinationState != aService.ErrorState){
+					AbstractState destinationState = new StackState(aSourceState);
+					((StackState)destinationState).ChangeTopState(result.DestinationState);
+					result.SetValues(aSourceState,aServiceName,destinationState);
+				} else {
+					result.SetValues(aSourceState,aServiceName,ErrorState);
+				}
 			}
-			result.SetValues(sourceState,anInput,destinationState);
 			return result;
 		}
 	
@@ -246,21 +249,29 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="aState"><code>StackState</code> for which the transition must be simulated</param>
 		/// <param name="serviceName">called service</param>
-		/// <returns>The transition object of <code>sourceState.PeekServiceName()</code> with altered states</returns>
+		/// <returns>The transition object of <code>sourceState.Peek().ServiceName</code> with altered states</returns>
 		private Transition CallService(StackState sourceState, Input serviceName){
-			Transition result = null;
-			AbstractState destinationState = ErrorState;
+			Transition result = CreateTransition(sourceState,serviceName,ErrorState);
 
 			// check for recursion
 			if (!sourceState.LookupServiceNameTwice(serviceName).IsEmpty) {
 				result = HandleRecursionCall(sourceState,serviceName);
 			} else {
-				destinationState = new StackState(sourceState);
-				IFiniteStateMachine service = (IFiniteStateMachine)serviceEffectSpecificationTable[serviceName];
-				((StackState)destinationState).Push(serviceName,service.StartState);
-				service = (IFiniteStateMachine)serviceEffectSpecificationTable[sourceState.PeekServiceName()];
-				result = service.GetTransition(sourceState.PeekState(),serviceName);
-				result.SetValues(sourceState,serviceName,destinationState);
+				IFiniteStateMachine topService;
+				if (sourceState.IsEmpty) {
+					topService = providesProtocol;
+				} else {
+					topService = (IFiniteStateMachine)serviceEffectSpecificationTable[sourceState.Peek().ServiceName];
+				}
+				// check if the transition exists in the c
+				Transition topTransition = topService.GetTransition(sourceState.Peek().State,serviceName);
+				if(topTransition.DestinationState != topService.ErrorState) {
+					AbstractState destinationState = new StackState(sourceState);
+					IFiniteStateMachine calledService = (IFiniteStateMachine)serviceEffectSpecificationTable[serviceName];
+					((StackState)destinationState).Push(serviceName,calledService.StartState);
+					result = (Transition)topTransition.Clone();
+					result.SetValues(sourceState,serviceName,destinationState);
+				}
 			}
 			return result;
 		}
@@ -277,12 +288,12 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="aState"><code>StackState for which the recursion was detected</code></param>
 		/// <param name="serviceName">Recursive symbol</param>
-		/// <returns>The transition object of <code>sourceState.PeekServiceName()</code> with altered states</returns>
+		/// <returns>The transition object of <code>sourceState.Peek().ServiceName</code> with altered states</returns>
 		private Transition HandleRecursionCall(StackState sourceState, Input serviceName){
 			Transition result = null;
-			IFiniteStateMachine service = (IFiniteStateMachine)serviceEffectSpecificationTable[sourceState.PeekServiceName()];
-			result = (Transition)service.GetTransition(sourceState.PeekState(),serviceName).Clone();
-			RecursionInput recInput = new RecursionInput(sourceState.PeekServiceName(),result.DestinationState);
+			IFiniteStateMachine service = (IFiniteStateMachine)serviceEffectSpecificationTable[sourceState.Peek().ServiceName];
+			result = (Transition)service.GetTransition(sourceState.Peek().State,serviceName).Clone();
+			RecursionInput recInput = new RecursionInput(sourceState.Peek().ServiceName,result.DestinationState);
 			// TODO check this condition
 			if (!inputAlphabet.Contains(recInput)){
 				CounterCondition cc = new CounterCondition(serviceName,recInput,1);
@@ -307,10 +318,10 @@ namespace FiniteStateMachines {
 		/// <returns>A new transition from source to destination</returns>
 		private Transition HandleRecursionInput(StackState sourceState, RecursionInput recInput){
 			AbstractState destinationState = ErrorState;
-			if( (sourceState.PeekState().IsFinalState) && (sourceState.LookupServiceNameTwice(recInput.Service).IsEmpty)){
-				FSM service = (FSM)serviceEffectSpecificationTable[sourceState.PeekServiceName()];
+			if( (sourceState.Peek().State.IsFinalState) && (sourceState.LookupServiceNameTwice(recInput.Service).IsEmpty)){
+				FSM service = (FSM)serviceEffectSpecificationTable[sourceState.Peek().ServiceName];
 				Set reachableStates = service.GetReachableStates(recInput.State);
-				if (reachableStates.Contains(sourceState.PeekState())){
+				if (reachableStates.Contains(sourceState.Peek().State)){
 					destinationState = new StackState(sourceState);
 					((StackState)destinationState).ChangeTopState(recInput.State);
 				}
@@ -330,7 +341,7 @@ namespace FiniteStateMachines {
 		/// <param name="sourceState">source</param>
 		/// <returns>The transition object of the calling service with altered states</returns>
 		private Transition ReturnFromService(StackState sourceState){
-			Transition result = null;
+			Transition result = CreateTransition(sourceState,Input.RETURN,ErrorState);
 			StackState destinationState = new StackState(sourceState);
 			Context currentContext = destinationState.Pop();
 			if (currentContext.State.IsFinalState) {
@@ -339,16 +350,14 @@ namespace FiniteStateMachines {
 				if (destinationState.IsEmpty){
 					service = providesProtocol;
 				}else {
-					service = (IFiniteStateMachine)serviceEffectSpecificationTable[destinationState.PeekServiceName()];
+					service = (IFiniteStateMachine)serviceEffectSpecificationTable[destinationState.Peek().ServiceName];
 				}
 				// TODO if transitions with different results should be handled, the object
 				// calledServiceName has to be extended by the result of the last transition
 
-				result = (Transition)service.GetTransition(destinationState.PeekState(),calledServiceName).Clone();
+				result = (Transition)service.GetTransition(destinationState.Peek().State,calledServiceName).Clone();
 				destinationState.ChangeTopState(result.DestinationState);
 				result.SetValues(sourceState,Input.RETURN,destinationState);
-			} else {
-				result.SetValues(sourceState,Input.RETURN,ErrorState);
 			}
 			return result;
 		}
