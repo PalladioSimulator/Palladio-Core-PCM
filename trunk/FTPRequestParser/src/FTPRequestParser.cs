@@ -17,6 +17,9 @@ namespace Palladio.Webserver.FTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/10/27 05:52:48  kelsaka
+	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
+	///
 	/// Revision 1.4  2004/10/22 16:19:56  kelsaka
 	/// even more interface changes; configuration-alternative on loading the webserver
 	///
@@ -34,7 +37,7 @@ namespace Palladio.Webserver.FTPRequestParser
 	/// </remarks>
 	public class FTPRequestParser : IRequestParser
 	{
-		public FTPRequestParser(IFTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public FTPRequestParser(IFTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor,  IWebserverConfiguration webserverConfiguration)
 		{
 
 

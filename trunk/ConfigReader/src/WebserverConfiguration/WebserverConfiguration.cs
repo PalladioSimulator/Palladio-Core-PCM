@@ -15,6 +15,9 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/10/27 05:52:48  kelsaka
+	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
+	///
 	/// Revision 1.1  2004/10/26 16:07:16  kelsaka
 	/// added initial version to cvs
 	///
@@ -131,10 +134,8 @@ namespace Palladio.Webserver.ConfigReader
 					{
 						if(configRoot.GetDefaultFiles().GetFileNameAt(y).Getid().IntValue() == x)
 						{
-							defaultFileNames[x]	= configRoot.GetDefaultFiles().GetFileNameAt(y).getDOMNode().Value; //TODO: get filename
-							Console.WriteLine(defaultFileNames[x]);
-						}
-						
+							defaultFileNames[x]	= configRoot.GetDefaultFiles().GetFileNameAt(y).getDOMNode().FirstChild.Value;
+						}						
 					}
 				}
 				

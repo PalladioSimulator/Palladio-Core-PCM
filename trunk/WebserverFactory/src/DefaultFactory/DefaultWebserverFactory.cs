@@ -18,6 +18,9 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/10/27 05:52:49  kelsaka
+	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
+	///
 	/// Revision 1.5  2004/10/25 06:35:51  kelsaka
 	/// added XML-reading-abilities
 	///
@@ -50,9 +53,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// </summary>
 		/// <param name="requestParser">A component that fullfills the required-interface.</param>
 		/// <returns>IDispatcher, using the services from the reqestParser.</returns>
-		public IDispatcher CreateDispatcher (IRequestParser requestParser, IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public IDispatcher CreateDispatcher (IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
-			return new DefaultDispatcher(requestParser, webserverMonitor, configReader);
+			return new DefaultDispatcher(requestParser, webserverMonitor, webserverConfiguration);
 		}
 
 		#endregion
@@ -91,9 +94,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="requestProcessor">The component used as HTTPRequestProcessor.</param>
 		/// <param name="CorSuccessor">The successor in the COR to handle requests by using the IRequestParser-Interface.</param>
 		/// <returns>HTTPRequestParser</returns>
-		public IRequestParser CreateHTTPRequestParser (IHTTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public IRequestParser CreateHTTPRequestParser (IHTTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
-			return new HTTPRequestParser.HTTPRequestParser(requestProcessor, CorSuccessor, webserverMonitor, configReader);
+			return new HTTPRequestParser.HTTPRequestParser(requestProcessor, CorSuccessor, webserverMonitor, webserverConfiguration);
 			
 		}
 
@@ -103,9 +106,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="requestProcessor">The component used as FTPRequestProcessor.</param>
 		/// <param name="CorSuccessor">The successor in the COR to handle requests by using the IRequestParser-Interface.</param>
 		/// <returns>FTPRequestParser</returns>
-		public IRequestParser CreateFTPRequestParser (IFTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public IRequestParser CreateFTPRequestParser (IFTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
-			return new FTPRequestParser.FTPRequestParser(requestProcessor, CorSuccessor, webserverMonitor, configReader);
+			return new FTPRequestParser.FTPRequestParser(requestProcessor, CorSuccessor, webserverMonitor, webserverConfiguration);
 		}
 
 		/// <summary>
@@ -113,9 +116,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// means that it is a error-handler of streams that cannot be parsed. It should be the last link in the COR.
 		/// </summary>
 		/// <returns>ErrorRequestParser</returns>
-		public IRequestParser CreateDefaultRequestParser (IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public IRequestParser CreateDefaultRequestParser (IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
-			return new DefaultRequestParser(webserverMonitor, configReader);
+			return new DefaultRequestParser(webserverMonitor, webserverConfiguration);
 		}
 
 		#endregion
@@ -126,9 +129,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// </summary>
 		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
 		/// <returns>StaticFileProvider</returns>
-		public IHTTPRequestProcessor CreateStaticFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public IHTTPRequestProcessor CreateStaticFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
-			return new StaticFileProvider.StaticFileProvider(CorSuccessor, webserverMonitor, configReader);
+			return new StaticFileProvider.StaticFileProvider(CorSuccessor, webserverMonitor, webserverConfiguration);
 		}
 
 		/// <summary>
@@ -136,9 +139,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// </summary>
 		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
 		/// <returns>StaticFileProvider</returns>
-		public IHTTPRequestProcessor CreateDynamicFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public IHTTPRequestProcessor CreateDynamicFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
-			return new DynamicFileProvider.DynamicFileProvider(CorSuccessor, webserverMonitor, configReader);
+			return new DynamicFileProvider.DynamicFileProvider(CorSuccessor, webserverMonitor, webserverConfiguration);
 		}
 
 		/// <summary>
@@ -146,9 +149,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// means that it is a error-handler of streams that cannot be processed. It should be the last link in the COR.
 		/// </summary>
 		/// <returns>DefaultRequestProcessor</returns>
-		public IHTTPRequestProcessor CreateDefaultRequestProcessor (IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public IHTTPRequestProcessor CreateDefaultRequestProcessor (IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
-			return new HTTPRequestProcessor.DefaultHTTPRequestProcessor(webserverMonitor, configReader);
+			return new HTTPRequestProcessor.DefaultHTTPRequestProcessor(webserverMonitor, webserverConfiguration);
 		}
 
 		#endregion

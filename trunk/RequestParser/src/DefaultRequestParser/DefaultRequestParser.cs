@@ -11,7 +11,7 @@ namespace Palladio.Webserver.RequestParser
 	/// </summary>
 	public class DefaultRequestParser : IRequestParser
 	{
-		public DefaultRequestParser(IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public DefaultRequestParser(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
 
 		}

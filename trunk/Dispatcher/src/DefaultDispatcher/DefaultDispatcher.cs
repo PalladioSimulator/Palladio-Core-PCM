@@ -15,6 +15,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/10/27 05:52:48  kelsaka
+	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
+	///
 	/// Revision 1.3  2004/10/25 06:35:51  kelsaka
 	/// added XML-reading-abilities
 	///
@@ -39,7 +42,7 @@ namespace Palladio.Webserver.Dispatcher
 		/// </summary>
 		/// <param name="requestParser">The delegate that is used as the proceeding component (RequestParser)
 		/// on processing the client-request.</param>
-		public DefaultDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public DefaultDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
 			this.requestParser = requestParser;
 		}
