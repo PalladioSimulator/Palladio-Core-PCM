@@ -3,6 +3,7 @@ using Dispatcher;
 using RequestProssor;
 using RequestParser;
 using System.Threading;
+using Delivery;
 
 namespace ComponentWebServer
 {
@@ -22,6 +23,11 @@ namespace ComponentWebServer
 			//instanziere Komponeten
 			#region instance Components
 			RequestProzessorComponent deliverer = new RequestProzessorComponent();
+
+			deliverer.ResponseHandler.AddAditionalHandler(new DLL_Engin.DLL_EnginComponent());
+			deliverer.ResponseHandler.AddAditionalHandler(new BibTexAnalyzer.BibTexAnalyzerComponent());
+			deliverer.ResponseHandler.AddAditionalHandler(new StaticFileProvider.StaticFileProviderComponent());
+			
 			//Parser
 			RequestParserComponent parser= new RequestParserComponent();
 			parser.AddAdditionalHandler(new RequestParser.HTTPHandler());

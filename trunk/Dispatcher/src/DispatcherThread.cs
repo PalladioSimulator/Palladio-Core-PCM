@@ -68,35 +68,16 @@ namespace Dispatcher
 
 		public void StartListen()
 		{
-			//			try
-			//			{
-//			if(this.clientStream.DataAvailable)
-//			{
-				this.request = ReadRequest();
-				this.request.Trim();
-				//			this.logger.Debug("The Request: "+this.request);
-				Console.Write(this.request);
-				//			Console.Read();
-				this.parsesRequest.IdentifiyAndHandleRequest(this.request,this.clientStream,this.arrivalTime, ref this.sendsResponse,this.clientSocket);
-//			}
+			this.request = ReadRequest();
+			this.request.Trim();
+			//				this.logger.Debug("The Request: "+this.request);
+			Console.Write(this.request);
+			this.parsesRequest.IdentifiyAndHandleRequest(this.request,this.clientStream,this.arrivalTime, ref this.sendsResponse,this.clientSocket);
 		}
-//				}
-//				else
-//					 throw new Exception();
-//			}
-//			catch(Exception e)
-//			{
-//				Console.WriteLine(e.Message);
-//				Console.WriteLine("Beende Client");
-//				this.clientSocket.Close();
-//			}
-//		}
+
 		public string ReadRequest()
 		{
 			this.logger.Debug("new Thread started");
-			//			this.read=false;
-//			if(this.clientStream.DataAvailable)
-//			{
 			Byte[] bytes = new Byte[256];
 				this.request = "";
 				String data = null;

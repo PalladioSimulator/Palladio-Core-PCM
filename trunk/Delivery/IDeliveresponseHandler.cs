@@ -20,7 +20,7 @@ namespace Delivery
 			this.handler = r;
 		}
 
-		//perhaps this ll not Work
+		//perhaps this ll  Work
 		public IDeliverResponse FixDeliverer(HttpRequest r,string path)
 		{			
 			return this.handler.DeliverResonse(r,path);		

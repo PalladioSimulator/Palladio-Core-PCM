@@ -58,6 +58,24 @@ namespace StaticFileProvider
 			return fs;
 		}
 
+		public byte[] GetFile(string tempPath)
+		{
+			FileStream fs = new FileStream(tempPath, FileMode.Open, 	FileAccess.Read, FileShare.Read);
+			string 	sResponse="";
+			int iTotBytes=0;
+			BinaryReader reader = new BinaryReader(fs);
+			byte[] bytes = new byte[fs.Length];
+			int read;
+			while((read = reader.Read(bytes, 0, bytes.Length)) != 0) 
+			{
+				// Read from the file and write the data to the network
+				sResponse = sResponse + Encoding.ASCII.GetString(bytes,0,read);
+				iTotBytes = iTotBytes + read;
+			}
+			reader.Close(); 
+			fs.Close();
+			return bytes;
+		}
 		protected void GetResponseByte()
 		{
 			

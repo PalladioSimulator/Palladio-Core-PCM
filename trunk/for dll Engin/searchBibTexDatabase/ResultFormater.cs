@@ -24,7 +24,7 @@ namespace searchBibTexDatabase
 
 					result  += "Title: "+dr["title"].ToString()+"<BR>";
 					result  += "Autor: "+dr["author"].ToString()+"<BR>";
-					result  += "ID. "+dr["ID"].ToString()+"<BR>";
+					//result  += "ID. "+dr["ID"].ToString()+"<BR>";
 					string id = dr["ID"].ToString();
 					result  +="<a href=\"suche.htm?ID="+id.ToString()+"\">";
 					result +="BibTex Eintrag anzeigen </a>";

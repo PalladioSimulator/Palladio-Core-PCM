@@ -26,6 +26,11 @@ namespace RequestProssor
 		WebServerMonitor realMonitor;
 		
 
+		public DeliveresponseHandler  ResponseHandler
+		{
+			get{return this.responseHandler;}
+			set{this.responseHandler = value;}
+		}
 
 		public RequestProzessorComponent()
 		{	
@@ -39,10 +44,10 @@ namespace RequestProssor
 
 			this.responseHandler = new DeliveresponseHandler();
 			
-			this.responseHandler.AddAditionalHandler(new DLL_Engin.DLL_EnginComponent());
-			this.responseHandler.AddAditionalHandler(new BibTexAnalyzerComponent());
-			this.responseHandler.AddAditionalHandler(new StaticFileProviderComponent());
-			
+//			this.responseHandler.AddAditionalHandler(new DLL_Engin.DLL_EnginComponent());
+//			this.responseHandler.AddAditionalHandler(new BibTexAnalyzerComponent());
+//			this.responseHandler.AddAditionalHandler(new StaticFileProviderComponent());
+//			
 			this.errorHandler = new ErrorHandler();
 
 			this.testMoni = new Monitor();
