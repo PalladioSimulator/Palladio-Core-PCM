@@ -127,7 +127,7 @@ namespace MySmallWebServer.ExternalApplication
 				this.text= t.GenerateText();
 				Console.WriteLine("Mein neuer Text: "+this.text);
 			}
-			else if(this.ClientRequest.RequestedFile.RequestedFileName=="dic.html")
+			else if(this.ClientRequest.RequestedFile.RequestedFileName=="dic.htm")
 			{
 				Console.WriteLine("Wörterbuch gefunden");
 				DictionaryApplication t = new DictionaryApplication(this.FilteredInput);

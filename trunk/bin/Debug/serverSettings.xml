@@ -29,7 +29,7 @@
 <VDirs>
 	<Vdir>
 		<RequestedDir>/</RequestedDir>
-		<realDir>C:\WEBSERVERDATA/</realDir> 
+		<realDir>../../Demopage/</realDir> 
 	</Vdir>
 	<VDir>
 		<requestedDir>/test/</requestedDir>
@@ -37,7 +37,7 @@
 	</VDir>
 	<VDir>
 		<requestedDir>/img/</requestedDir>
-		<realDir>C:\WEBSERVERDATA\img/</realDir>
+		<realDir>../../Demopage/img/</realDir>
 	</VDir>
 </VDirs>
 </serverSettings>

@@ -1,7 +1,7 @@
 <VisualStudioProject>
     <CSHARP LastOpenVersion = "7.10.3077" >
         <Build>
-            <Settings ReferencePath = "C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\dictionary\bin\Debug\;C:\Programme\Log4Net\log4net-1.2.0-beta8\bin\net\1.1\debug\;C:\Dokumente und Einstellungen\Yvette\Desktop\Neu Aktenkoffer\dictionary\bin\Debug\;C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Programme\log4net-1.2.0-beta8\bin\net\1.1\debug\" >
+            <Settings ReferencePath = "C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\dictionary\bin\Debug\;C:\Programme\Log4Net\log4net-1.2.0-beta8\bin\net\1.1\debug\;C:\Dokumente und Einstellungen\Yvette\Desktop\Neu Aktenkoffer\dictionary\bin\Debug\;C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Programme\log4net-1.2.0-beta8\bin\net\1.1\debug\;D:\Eigene Dateien\Visual Studio Projects\dictionary\bin\Debug\;D:\Programme\log4net\log4net-1.2.0-beta8\bin\net\1.1\debug\" >
                 <Config
                     Name = "Debug"
                     EnableASPDebugging = "false"
@@ -40,7 +40,7 @@
             CopyProjectDestinationFolder = ""
             CopyProjectUncPath = ""
             CopyProjectOption = "0"
-            ProjectView = "ProjectFiles"
+            ProjectView = "ShowAllFiles"
             ProjectTrust = "0"
         />
     </CSHARP>

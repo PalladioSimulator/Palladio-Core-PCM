@@ -149,7 +149,7 @@ namespace MySmallWebServer
 			string requestLine = this.requestString.Substring(0,startPos - 1);
 			Console.WriteLine("The requested Line: "+requestLine);
 			this.requestedDir = requestLine.Substring(requestLine.IndexOf("/"), requestLine.LastIndexOf("/")-3);
-			if(this.requestedDir=="/i")
+			if(this.requestedDir=="/i" || this.requestedDir=="/d")
 				this.requestedDir="/";
 			Console.WriteLine("requested Dir: "+this.requestedDir);
 			string requestedFile;
