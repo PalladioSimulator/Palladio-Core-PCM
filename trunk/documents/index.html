@@ -8,13 +8,30 @@
 <body>
 
 <h1>XHTML Testsite </h1>
-<p>Content:</p>
+<p><a href="index.html">This site (index.html) </a></p>
+<p>&nbsp;</p>
+<h2>Regular files: </h2>
 <p><a href="seite2.html">Link to a simple page</a></p>
-<p><a href="imagesite.html">Link to a site showing an image </a> </p>
+<p><a href="imagesite.html">Link to a site showing images of different types </a> </p>
 <p><a href="csssite.html">Link to a site using CSS </a></p>
 <p><a href="bigpage.html">Big page</a> </p>
 <p><a href="biggerpage.html">Even bigger page </a></p>
 <p><a href="formpage.html">Page with form </a></p>
+<p><a href="/subdirectory">Subdirectory</a></p>
+<p><a href="/subdirectory/index.html">Subdirectory index-file</a></p>
+<p>&nbsp;</p>
+<h2>The following links should cause errors:</h2>
+<p><a href="nonexisting.html">Non existing file</a> </p>
+<p><a href="/nonexisting">Non existing directory</a></p>
+<p><a href="/nonexisting/nonexisting.html">Non existing file in a non existing directory</a></p>
+<p>&nbsp;</p>
+<h2>DefaultFile-Settings:</h2>
+<p><a href="/directoryWithoutExistingDefaultFile">No existing default-file in a existing directory should cause an error </a> </p>
+<p><a href="/directoryWithoutExistingDefaultFile/test.txt">File (test.txt) in a existing directory without default-file should not cause an error</a></p>
+<p>&nbsp;</p>
+<h2>Other:</h2>
+<p><a href="unknownMime.abc">Unknown Mime-Type</a></p>
+<p><a href="file.myfile.txt">Filename containing severeral dots: file.myfile.txt</a></p>
 </body>
 </html>
 

@@ -16,6 +16,9 @@ namespace Palladio.Webserver.DynamicFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/10/30 11:42:08  kelsaka
+	/// Added full support for static websites using the get-method; added several test-documents; changed CoR for HTTP-Processing: dynamic files are delivered first
+	///
 	/// Revision 1.4  2004/10/29 16:30:38  kelsaka
 	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
 	///
@@ -33,9 +36,12 @@ namespace Palladio.Webserver.DynamicFileProvider
 	/// </remarks>
 	public class DynamicFileProvider : IHTTPRequestProcessor
 	{
-		public DynamicFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfigurationr)
-		{
 
+		private IHTTPRequestProcessor corSuccessor;
+
+		public DynamicFileProvider(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfigurationr)
+		{
+			this.corSuccessor = corSuccessor;
 		}
 
 
@@ -45,7 +51,10 @@ namespace Palladio.Webserver.DynamicFileProvider
 		/// <param name="httpRequest">The HTTP-Request.</param>
 		public void handleRequest (IHTTPRequest httpRequest)
 		{
-			throw new NotImplementedException ();
+			
+			// as no implementation is available no request can be handled and has to be forwarded to successor:
+			corSuccessor.handleRequest(httpRequest);
+
 		}
 	}
 }
