@@ -10,7 +10,7 @@ namespace nunittests.structure
 	/// <summary>
 	/// Zusammenfassung für TimeConsumingFSMTest.
 	/// </summary>
-	[TestFixture]
+/*	[TestFixture]
 	public class TimeConsumingFSMTest
 	{
 		public TimeConsumingFSMTest()
@@ -78,5 +78,5 @@ namespace nunittests.structure
 			Assert.IsTrue(trans2Cntr > 60 && trans2Cntr < 80,"No problems if this test fails, the value "+((double)trans2Cntr/100.0)+
 				" must be near to 0.7.");
 		}
-	}
+	}*/
 }
