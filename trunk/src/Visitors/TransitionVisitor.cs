@@ -35,7 +35,7 @@ namespace Palladio.FiniteStateMachines.Visitors
 			ITransition[] outgoingTransitions = fsm.GetOutgoingTransitions(s);
 			foreach (ITransition trans in outgoingTransitions)
 			{
-				if (transitions.Contains(trans))
+				if (!transitions.Contains(trans))
 				{
 					Visit(trans);
 				}
