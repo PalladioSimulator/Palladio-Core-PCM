@@ -104,8 +104,8 @@
                 />
                 <Reference
                     Name = "Palladio.Attributes"
-                    AssemblyName = "Palladio.Attributes"
-                    HintPath = "..\Palladio.Attributes\bin\Debug\Palladio.Attributes.dll"
+                    Project = "{7726B451-F155-4534-986E-8960C7BA4D97}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>
