@@ -8,6 +8,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/22 17:09:09  joemal
+	/// - change internal to public
+	///
 	/// Revision 1.2  2004/06/17 12:07:35  joemal
 	/// change namespace from service to elements
 	///
@@ -17,7 +20,7 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// 
 	/// </pre>
 	/// </remarks>
-	internal class StaticTimeStateParams : DefaultStateParams
+	public class StaticTimeStateParams : DefaultStateParams
 	{
 		private long staticTime;
 
