@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.4  2004/06/26 16:32:12  joemal
+	/// - now propagate the reset through the architecture
+	///
 	/// Revision 1.3  2004/06/23 14:37:19  joemal
 	/// fix a bug in method addTransition()
 	///
@@ -145,6 +148,16 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			serviceEffectSpecification.SignatureList.AddSignatures(extSig);
             
 			FSM.AddTransition(sourceStateID,extSig,destStateID);
+		}
+
+		/// <summary>
+		/// this method is called, when the simulation wants to reset the architecture. 
+		/// All states in the fsm of this service are reseted.
+		/// </summary>
+		public void Reset()
+		{
+			foreach(IState state in this.FSM.States)
+				if (state is ITimeConsumer) ((ITimeConsumer)state).Reset();
 		}
 
 		#endregion

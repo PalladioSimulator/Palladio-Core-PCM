@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/06/26 16:32:12  joemal
+	/// - now propagate the reset through the architecture
+	///
 	/// Revision 1.2  2004/06/23 16:33:51  joemal
 	/// - add methods to hold the builders of the elements
 	///
@@ -80,6 +83,7 @@ namespace ComponentNetworkSimulation.Structure
 		/// </summary>
 		public override void reset()
 		{
+			if (this.RootComponentBuilder != null)	this.RootComponentBuilder.Reset();
 		}
 
 		/// <summary>

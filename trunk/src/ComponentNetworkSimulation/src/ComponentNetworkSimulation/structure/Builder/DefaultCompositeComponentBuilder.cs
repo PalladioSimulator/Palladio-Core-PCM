@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/26 16:32:12  joemal
+	/// - now propagate the reset through the architecture
+	///
 	/// Revision 1.1  2004/06/26 15:39:44  joemal
 	/// - initial class creation
 	///
@@ -170,6 +173,19 @@ namespace ComponentNetworkSimulation.Structure.Builder
 				innerComp,compProvIFaceID);
 
 			this.CompositeComponent.AddProvidesMappings(mapping);
+		}
+
+		/// <summary>
+		/// this method is called, when the simulation wants to reset the architecture. 
+		/// The Reset methods of all contained componentbuilders and of the contained bindings are called.
+		/// </summary>
+		public override void Reset()
+		{
+			foreach(IBinding binding in CompositeComponent.Bindings)
+				if (binding is ITimeConsumer) ((ITimeConsumer)binding).Reset();
+
+			foreach(IComponentBuilder builder in this.builders.Values)
+				builder.Reset();
 		}
 
 		//todo: away, when ICompositeComponent contains a query method

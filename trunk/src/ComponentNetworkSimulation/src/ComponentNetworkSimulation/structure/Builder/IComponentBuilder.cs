@@ -10,6 +10,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/26 16:32:12  joemal
+	/// - now propagate the reset through the architecture
+	///
 	/// Revision 1.1  2004/06/22 12:17:18  joemal
 	/// inital class creation
 	///
@@ -29,7 +32,13 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// call to add a requires interface to the component.
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface</param>
-		void AddRequiresInterface(Palladio.Identifier.IIdentifier ifaceID);        
+		void AddRequiresInterface(Palladio.Identifier.IIdentifier ifaceID);
+        
+		/// <summary>
+		/// this method is called, when the simulation wants to reset the architecture. The implementing builder
+		/// should reset its component.
+		/// </summary>
+		void Reset();
 	}
 }
 //EOF

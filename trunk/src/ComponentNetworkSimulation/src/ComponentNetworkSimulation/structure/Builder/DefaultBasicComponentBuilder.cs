@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.4  2004/06/26 16:32:12  joemal
+	/// - now propagate the reset through the architecture
+	///
 	/// Revision 1.3  2004/06/23 16:33:51  joemal
 	/// - add methods to hold the builders of the elements
 	///
@@ -117,6 +120,16 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		{
 			ISignature sig = ComponentFactory.CreateSignatureArray(sigID.ToString())[0];
 			return ComponentFactory.CreateSignatureWithRole(iFaceID,sig);			
+		}
+
+		/// <summary>
+		/// this method is called, when the simulation wants to reset the architecture. 
+		/// The Reset methods of all servicebuilders are called.
+		/// </summary>
+		public override void Reset()
+		{
+			foreach(IServiceBuilder builder in this.serviceBuilderTable.Values)
+				builder.Reset();
 		}
 
 		#endregion

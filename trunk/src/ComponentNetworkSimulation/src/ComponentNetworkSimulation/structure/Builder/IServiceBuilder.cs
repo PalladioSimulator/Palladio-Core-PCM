@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/26 16:32:12  joemal
+	/// - now propagate the reset through the architecture
+	///
 	/// Revision 1.1  2004/06/22 12:17:18  joemal
 	/// inital class creation
 	///
@@ -48,7 +51,13 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// the id of the signature, created in the requires interfaces defined by reqIFaceID.</param>
 		/// <param name="reqIFaceID">the id of the interface, where the signature has to be created.</param>
 		/// <param name="destStateID">the id of the destination state</param>
-		void AddTransition(string sourceStateID,IIdentifier signatureID, IIdentifier reqIFaceID, string destStateID); 
+		void AddTransition(string sourceStateID,IIdentifier signatureID, IIdentifier reqIFaceID, string destStateID);
+ 
+		/// <summary>
+		/// this method is called, when the simulation wants to reset the architecture. The implementing builder
+		/// should reset all contained timeconsumers.
+		/// </summary>
+		void Reset();
 	}
 }
 //EOF

@@ -18,6 +18,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.5  2004/06/26 16:32:12  joemal
+	/// - now propagate the reset through the architecture
+	///
 	/// Revision 1.4  2004/05/26 16:34:59  joemal
 	/// remove methods:
 	/// - NextTimeConsumer
@@ -49,6 +52,12 @@ namespace ComponentNetworkSimulation.Structure
 		/// called by a simulationthread, when it left this timeconsumer
 		/// </summary>
 		void ThreadExited();
+
+		/// <summary>
+		/// this method is called, when the simulation wants to reset the architecture. Dynamic timeconsumer should
+		/// implement this method to reset its state.
+		/// </summary>
+		void Reset();
 	}
 }
 //EOF

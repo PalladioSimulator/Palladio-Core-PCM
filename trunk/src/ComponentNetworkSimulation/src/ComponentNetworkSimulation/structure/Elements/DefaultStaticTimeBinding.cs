@@ -11,6 +11,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/06/26 16:32:12  joemal
+	/// - now propagate the reset through the architecture
+	///
 	/// Revision 1.1  2004/06/26 15:39:44  joemal
 	/// - initial class creation
 	///
@@ -47,6 +50,14 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		/// called when a thread exited this binding. Not used in this implementation.
 		/// </summary>
 		public override void ThreadExited()
+		{
+		}
+
+		/// <summary>
+		/// this method is called, when the simulation wants to reset the architecture. 
+		/// This method is not needed in this implementation.
+		/// </summary>
+		public override void Reset()
 		{
 		}
 

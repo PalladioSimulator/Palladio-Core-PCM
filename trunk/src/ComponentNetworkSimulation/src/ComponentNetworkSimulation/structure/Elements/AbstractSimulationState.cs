@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.10  2004/06/26 16:32:12  joemal
+	/// - now propagate the reset through the architecture
+	///
 	/// Revision 1.9  2004/06/26 15:41:15  joemal
 	/// - fix bug in method equals
 	///
@@ -189,6 +192,12 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		/// called, when a thread want to leave this state.
 		/// </summary>
 		public abstract void ThreadExited();
+
+		/// <summary>
+		/// this method is called, when the simulation wants to reset the architecture. Dynamic timeconsumer should
+		/// implement this method to reset its state.
+		/// </summary>
+		public abstract void Reset();
 
 		#endregion
 	}

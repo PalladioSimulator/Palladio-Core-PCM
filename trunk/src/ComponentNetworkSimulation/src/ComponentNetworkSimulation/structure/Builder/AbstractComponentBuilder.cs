@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/26 16:32:12  joemal
+	/// - now propagate the reset through the architecture
+	///
 	/// Revision 1.1  2004/06/22 12:17:19  joemal
 	/// inital class creation
 	///
@@ -77,6 +80,12 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		{
 			this.component.AddRequiresInterface(ifaceID,ComponentFactory.CreateInterfaceModel());
 		}
+
+		/// <summary>
+		/// this method is called, when the simulation wants to reset the architecture. Builders should reset all its
+		/// containing timeconsumer.
+		/// </summary>
+		public abstract void Reset();
 
 		#endregion
 	}
