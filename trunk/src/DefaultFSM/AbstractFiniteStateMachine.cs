@@ -22,7 +22,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 
 		public abstract IState[] FinalStates { get; set; }
 
-		public abstract IInput[] InputAlphabet { get; set; }
+		public abstract IInput[] InputAlphabet { get; }
 
 		public abstract IState[] States { get; }
 

@@ -201,7 +201,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\NoInputWithIDException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\NoStartStateException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\NoStateWithIDException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -35,6 +35,15 @@ namespace Palladio.FiniteStateMachines
 		void AddTransitions(params ITransition[] aTransitionArray);
 
 		/// <summary>
+		///     Adds a transition from the state with the ID aSourceID to the state
+		///     with the ID aDestinationID and the input symbol with the ID anInputID.
+		/// </summary>
+		/// <param name="aSourceID">ID of the SourceState.</param>
+		/// <param name="anInputID">ID of the InputSymbol.</param>
+		/// <param name="aDestinationID">ID of the DestinationState.</param>
+		void AddTransition(string aSourceID, string anInputID, string aDestinationID);
+		
+		/// <summary>
 		///     Adds a list of transitions to the automaton.
 		/// </summary>
 		/// <param name="aTransitionList">A list of transitions.</param>
@@ -76,5 +85,27 @@ namespace Palladio.FiniteStateMachines
 		/// </summary>
 		/// <param name="anInputSymbolList">The list of input states to be deleted to the FSM</param>
 		void DeleteInputSymbols(params IInput[] anInputSymbolList);
+
+		/// <summary>
+		/// Returns the state with the id anID. If no state is found
+		/// a NoStateWithIDException is thrown.
+		/// </summary>
+		/// <param name="anID">ID of a state of the fsm.</param>
+		/// <returns>The state with the ID anID.</returns>
+		IState GetState(string anID);
+
+		/// <summary>
+		/// Returns the input symbol with the id anID. If no input
+		/// is found a NoInputWithIDException is thrown.
+		/// </summary>
+		/// <param name="anID">ID of an input symbol of the fsm.</param>
+		/// <returns>The input symbol with the ID anID.</returns>
+		IInput GetInput(string anID);
+
+		/// <summary>
+		/// Removes all unreachable states and transitions from the fsm. Also all
+		/// unused input symbols are deleted.
+		/// </summary>
+		void Clean();
 	}
 }

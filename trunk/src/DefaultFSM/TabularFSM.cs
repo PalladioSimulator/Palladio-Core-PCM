@@ -16,11 +16,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		{
 			get 
 			{
-				return (IInput[]) inputAlphabet.ToArray(typeof(IInput));
-			}
-			set
-			{
-				inputAlphabet = new Set(value);
+				IInput[] result = new IInput[inputAlphabet.Values.Count];
+				inputAlphabet.Values.CopyTo(result,0);
+				return result;
 			}
 		}
 
@@ -39,7 +37,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			}
 			set
 			{
-				if ( states.Contains(value) )
+				if ( HasState(value) )
 					startState = value;
 				else
 					throw new StateNotFoundException(value);
@@ -57,7 +55,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 				finalStates = new Set();
 				foreach (IState state in value)
 				{
-					if ( states.Contains(state) )
+					if ( HasState(state) )
 						finalStates.Add(state);
 					else
 						throw new StateNotFoundException(state);
@@ -69,7 +67,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		{
 			get
 			{
-				return (IState[]) states.ToArray(typeof(IState));
+				IState[] result = new IState[states.Values.Count];
+				states.Values.CopyTo(result,0);
+				return result;
 			}
 		}
 
@@ -102,7 +102,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 
 		public override ITransition[] GetNextTransitions(IState aSourceState, IInput anInput) 
 		{
-			if((!states.Contains(aSourceState)) && (!aSourceState.IsErrorState)) 
+			if((!HasState(aSourceState)) && (!aSourceState.IsErrorState)) 
 				throw new InvalidStateException(aSourceState);
 			if (!inputAlphabet.Contains(anInput)) 
 				throw new InvalidInputException(anInput);
@@ -136,7 +136,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 
 		public override ITransition[] GetOutgoingTransitions(IState state) 
 		{
-			if (!states.Contains(state))
+			if (!HasState(state))
 				throw new InvalidStateException(state);
 
 			Set transList = new Set();
@@ -165,15 +165,21 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		{
 			foreach (ITransition trans in aTransitionList)
 			{
-				if (!states.Contains(trans.SourceState))
+				if (!HasState(trans.SourceState))
 					throw new InvalidStateException( trans.SourceState);
-				if (!states.Contains(trans.DestinationState))
+				if (!HasState(trans.DestinationState))
 					throw new InvalidStateException( trans.DestinationState);
-				if (!inputAlphabet.Contains(trans.InputSymbol))
+				if (!HasInput(trans.InputSymbol))
 					throw new InvalidInputException( trans.InputSymbol);
 				AddToTransTable(trans);
 				AddToRevTransTable(trans);
 			}
+		}
+
+		public void AddTransition(string aSourceID, string anInputID, string aDestinationID)
+		{
+			ITransition trans = new DefaultTransition( GetState(aSourceID), GetInput(anInputID), GetState(aDestinationID) );
+			AddTransitions(trans);
 		}
 
 		public void DeleteTransitions(params ITransition[] aTranstionArray)
@@ -200,7 +206,8 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		{
 			foreach( IState state in aStateList )
 			{
-				states.Add(state);
+				if (!HasState(state))
+					states.Add(state.ID, state);
 			}
 		}
 
@@ -208,12 +215,12 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		{
 			foreach (IState state in aStateArray)
 			{
-				if (states.Contains(state))
+				if (HasState(state))
 				{
 					if (StateDeletionAllowed(state))
 					{
 						finalStates.Remove(state);
-						states.Remove(state);
+						states.Remove(state.ID);
 						if (StartState.Equals(state))
 						{
 							startState = null;
@@ -233,21 +240,56 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 
 		public void AddInputSymbols(params IInput[] anInputSymbolList)
 		{
-			inputAlphabet.AddRange(anInputSymbolList);
+			foreach (IInput i in anInputSymbolList)
+			{
+				if (!HasInput(i))
+					inputAlphabet.Add(i.ID,i);
+			}
 		}
 
 		public void DeleteInputSymbols(params IInput[] anInputSymbolList)
 		{
 			foreach (IInput i in anInputSymbolList)
 			{
-				if (inputAlphabet.Contains(i))
+				if (HasInput(i))
 					if (InputDeletionAllowed(i))
-						inputAlphabet.Remove(i);
+						inputAlphabet.Remove(i.ID);
 					else
 						throw new InputDeletionNotAllowedException(i);
 				else
 					throw new InputNotFoundException(i);
 			}
+		}
+
+		public IState GetState(string aStateID)
+		{
+			if (states.Contains(aStateID))
+				return (IState)states[aStateID];
+			throw new NoStateWithIDException(aStateID);
+		}
+
+		public IInput GetInput(string anInputID)
+		{
+			if (inputAlphabet.Contains(anInputID))
+				return (IInput)inputAlphabet[anInputID];
+			throw new NoInputWithIDException(anInputID);
+		}
+
+		public void Clean()
+		{
+			ITransition[] reachableTransitions = GetReachableTransitions(StartState);
+			foreach (ITransition t in Transitions)
+			{
+				if (Array.IndexOf(reachableTransitions,t) < 1)
+					DeleteTransitions(t);
+			}
+			IState[] reachableStates = GetReachableStates(StartState);
+			foreach (IState s in States)
+			{
+				if (Array.IndexOf(reachableStates,s))
+					DeleteStates(s);
+			}
+
 		}
 
 		public override object Clone()
@@ -348,16 +390,29 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			return true;
 		}
 
+		private bool HasState(IState aState)
+		{
+			if (aState != null)
+				return states.Contains(aState.ID);
+			return false;
+		}
+
+		private bool HasInput(IInput anInput)
+		{
+			if (anInput != null)
+				return inputAlphabet.Contains(anInput.ID);
+			return false;
+		}
 		#endregion
 
 		#region Constructurs
 
 		public TabularFSM() 
 		{
-			this.inputAlphabet = new Set();
+			this.inputAlphabet = new Hashtable();
 			this.transitionTable = new Hashtable();
 			this.finalStates = new Set();
-			this.states = new Set();
+			this.states = new Hashtable();
 			this.reverseTransTable = new Hashtable();
 		}
 
@@ -389,10 +444,10 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// Stores all ingoing transitions for a state. 
 		/// </summary>
 		private Hashtable reverseTransTable;
-		private Set inputAlphabet;
+		private Hashtable inputAlphabet;
 		private IState startState;
 		private Set finalStates;
-		private Set states;
+		private Hashtable states;
 		#endregion
 	}
 }
