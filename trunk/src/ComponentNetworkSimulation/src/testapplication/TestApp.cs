@@ -17,10 +17,12 @@ namespace testapplication
 		public static void Main()
 		{
 			ISimulationEnvironment env = new DefaultSimulationEnvironment();
+			env.RegisterDataPool(DefaultEnvironmentFactory.CreateDefaultDataPool(env));
+
 			TestArchitectures.FillCC((ICompositeComponentBuilder)env.ComponentArchitecture.CreateCompositeComponent(ID("CC"),null));
 
 			IThreadStartingPoint sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));			
-			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL);
+			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL,new TestApp());
 			
 			sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d2"));			
 			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL,5);
@@ -49,6 +51,11 @@ namespace testapplication
 			Console.WriteLine("Thread "+sender.ThreadID+" reached end ...");
 		}
 
+		public void NotifyThreadEnteredFirstTimeConsumer(ISimulationThread sender)
+		{
+			Console.WriteLine("Thread "+sender.ThreadID+" entered first TC: "+sender.CurrentTimeConsumer);
+		}
+
 		public void NotifyThreadChangedTimeConsumer(ISimulationThread sender, ITimeConsumer previous)
 		{
 			Console.WriteLine("Thread "+sender.ThreadID+" changed TC from "+previous+" to "+sender.CurrentTimeConsumer);
@@ -73,10 +80,5 @@ namespace testapplication
 		}
 
 		#endregion
-
-		private static void thread_NewPeriodicThreadEvent(object sender, EventArgs e)
-		{
-			Console.WriteLine("Should create next PeriodicThread ... ");
-		}
 	}
 }
