@@ -7,6 +7,10 @@ namespace Palladio.ComponentModel.Builder
 {
 	/// <summary>
 	/// ICompositeBase. Interface base for composite-like structures like composite component- and root-builder.
+	/// This interface does justice to the fact, that composite components (respective their builder) do not have
+	/// methods to add non-connected first class entities, those entities only can be added by the RootBuilder.
+	/// Anyway the <see cref="ICompositeComponentBuilder"/> and the <see cref="IRootBuilder"/> have lot of methods
+	/// in common.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -14,6 +18,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/03/18 07:17:38  kelsaka
+	/// - added comments
+	///
 	/// Revision 1.1  2005/03/17 19:54:12  kelsaka
 	/// - added builder-interfaces
 	///
