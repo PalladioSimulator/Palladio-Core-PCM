@@ -1,4 +1,5 @@
 using System;
+using ReflectionBasedVisitor;
 
 namespace Palladio.Attributes
 {
@@ -12,13 +13,16 @@ namespace Palladio.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/05/17 14:07:33  sliver
+	/// added interface for attributable classes
+	///
 	/// Revision 1.1  2004/05/13 15:17:31  sbecker
 	/// Initial import
 	///
 	///
 	/// </pre>
 	/// </remarks>
-	internal class DefaultAttributeType
+	internal class DefaultAttributeType : IAttributeType
 	{
 		protected string description = "";
 		protected Guid guid = Guid.Empty;
@@ -69,6 +73,10 @@ namespace Palladio.Attributes
 			this.guid = guid;
 			this.description = description;
 			this.type = type;
+		}
+
+		public void AcceptVisitor(IVisitor v)
+		{
 		}
 	}
 }
