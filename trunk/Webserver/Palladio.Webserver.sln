@@ -63,6 +63,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webserverXML", "..\webserve
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTPRequestProcessor", "..\FTPRequestProcessor\FTPRequestProcessor.csproj", "{96D040AA-90D6-4BBD-8F92-4E9F42827245}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -133,6 +137,10 @@ Global
 		{187A3048-4BFE-F344-92BE-AEE42C224D11}.Debug.Build.0 = Debug|.NET
 		{187A3048-4BFE-F344-92BE-AEE42C224D11}.Release.ActiveCfg = Release|.NET
 		{187A3048-4BFE-F344-92BE-AEE42C224D11}.Release.Build.0 = Release|.NET
+		{96D040AA-90D6-4BBD-8F92-4E9F42827245}.Debug.ActiveCfg = Debug|.NET
+		{96D040AA-90D6-4BBD-8F92-4E9F42827245}.Debug.Build.0 = Debug|.NET
+		{96D040AA-90D6-4BBD-8F92-4E9F42827245}.Release.ActiveCfg = Release|.NET
+		{96D040AA-90D6-4BBD-8F92-4E9F42827245}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
