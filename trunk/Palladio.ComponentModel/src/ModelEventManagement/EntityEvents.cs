@@ -1,3 +1,4 @@
+using Palladio.Attributes;
 using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.ModelEventManagement
@@ -10,6 +11,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/06 20:48:59  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.2  2005/04/05 14:23:59  joemal
 	/// implement the rest of the notification
 	///
@@ -30,6 +34,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		internal EntityEvents(IComponentModelEntity entity)
 		{
 			entity.NameChangedEvent += new StaticAttributeChangedEventHandler(entity_NameChangedEvent);
+			entity.Attributes.AttributeChanged +=new Palladio.Attributes.AttributeChangedEventHandler(Attributes_AttributeChanged);
 		}
 
 		#endregion
@@ -79,6 +84,12 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		private void entity_NameChangedEvent(object sender)
 		{
             NotifyNameChangedEvent(sender);
+		}
+
+		//called by the attributehash when an attribute has been changed
+		private void Attributes_AttributeChanged(object source, AttributeChangedEventArgs args)
+		{	
+			NotifyAttributeChangedEvent(source,args);
 		}
 
 		#endregion
