@@ -15,6 +15,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/05/20 14:18:53  joemal
+	/// changed the visit methods to public
+	///
 	/// Revision 1.1  2004/05/18 15:40:40  joemal
 	/// initial creation
 	///
@@ -64,7 +67,6 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		//todo: later Component and signature as parameter
 		public void SetStart(Palladio.FiniteStateMachines.IFiniteStateMachine fsm)
 		{
-            this.stack.Push(fsm);
 			Visit(fsm);
 		}
 
@@ -87,31 +89,39 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// <param name="o"></param>
 		public override void VisitObject (object o)
 		{
+			Console.WriteLine("Object from type: "+o.GetType()+" not supported ...");
 		}
 
 		/// <summary>
 		/// called by the <code>ReflectionBasedVisitor</code> when the element to be visited is a fsm.
 		/// </summary>
 		/// <param name="fsm">the fsm</param>
-		protected void VisitIFiniteStateMachine(IFiniteStateMachine fsm)
+		public void VisitIFiniteStateMachine(IFiniteStateMachine fsm)
 		{
-			this.stack.Push(fsm.StartState);
+			this.stack.Push(fsm);
 		}
 
 		/// <summary>
 		/// called by the <code>ReflectionBasedVisitor</code> when the element to be visited is a simulationstate.
 		/// </summary>
 		/// <param name="state">the state</param>
-		protected void VisitISimulationState(ISimulationState state)
+		public void VisitISimulationState(ISimulationState state)
 		{
-			IFiniteStateMachine fsm = (IFiniteStateMachine)stack.Peek();
-			int recursionDepth = stack.GetCountOfElement(state);
+			try 
+			{
+				IFiniteStateMachine fsm = (IFiniteStateMachine)stack.Peek();
+				int recursionDepth = stack.GetCountOfElement(state);
 
-			ITransition nextTrans = state.ControlFlowStrategy.GetNextTransition(state,fsm,recursionDepth);
-			if (nextTrans != null) 
-				Visit(nextTrans);
-			else
-				BackToCallingTransition();
+				ITransition nextTrans = state.ControlFlowStrategy.GetNextTransition(state,fsm,recursionDepth);
+				if (nextTrans != null) 
+					Visit(nextTrans);
+				else
+					BackToCallingTransition();
+			}
+			catch(Exception e)
+			{
+				Console.WriteLine("Exc: "+e.Message+"Trace: "+e.StackTrace);
+			}
 		}
 
 		// called by VisitISimulationState when a final state is reached to empty the stack to the calling transition.
@@ -119,9 +129,10 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		{
 			while (stack.Count != 0) 
 			{
-				if (stack.Peek() is ITransition) 
+				object element = stack.Pop();
+				if (element is ITransition) 
 				{
-					stack.Push(((ITransition)stack.Pop()).DestinationState);
+					stack.Push(((ITransition)element).DestinationState);
 					return;
 				}
 			}
@@ -131,7 +142,7 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// called by the <code>ReflectionBasedVisitor</code> when the element to be visited is a transition.
 		/// </summary>
 		/// <param name="trans">the transition</param>
-		protected void VisitITransition(ITransition trans)
+		public void VisitITransition(ITransition trans)
 		{
 			//todo: subcall to extern service
 			//now only the next state is set to stack
