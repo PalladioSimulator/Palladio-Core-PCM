@@ -139,11 +139,14 @@ namespace Palladio.ComponentModel.Signature
 		#region Constructors
 
 		/// <summary>
-		/// Creates a new Signature with the name aName and the return type aType.
+		/// Creates a new signature.
 		/// </summary>
-		/// <param name="aType">Return type of the Signature.</param>
-		/// <param name="aName">Name of the new Signature.</param>
-		/// <param name="aParamList">List of parameters of the signature</param>
+		/// <param name="anAttribHash">Attributes of the Signature.</param>
+		/// <param name="aRoleID">Role the signature</param>
+		/// <param name="aType"></param>
+		/// <param name="aName"></param>
+		/// <param name="aParamArray"></param>
+		/// <param name="anExceptArray"></param>
 		public DefaultSignature(IAttributeHash anAttribHash, string aRoleID, IType aType, string aName, IParameter[] aParamArray, IType[] anExceptArray)
 		{
 			attributes = anAttribHash;

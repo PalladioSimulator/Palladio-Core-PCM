@@ -316,6 +316,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\RoleIDMissmatchException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\RoleIDNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -367,6 +372,7 @@
                 />
                 <File
                     RelPath = "src\UnitTests\FactoryTest.cs"
+                    SubType = "Code"
                     BuildAction = "Compile"
                 />
             </Include>

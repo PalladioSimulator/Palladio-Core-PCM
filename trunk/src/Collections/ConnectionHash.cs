@@ -7,11 +7,19 @@ using Palladio.ComponentModel.Connections;
 namespace Palladio.ComponentModel.Collections
 {
 	/// <summary>
+	/// ConnectionHash maps a component and a role onto a connection.
 	/// </summary>
 	internal class ConnectionHash : ICloneable 
 	{
 		#region Methods
 
+		/// <summary>
+		/// Add aConnection to the ConnectionHash and associate it with
+		/// aComponent and the aRoleID.
+		/// </summary>
+		/// <param name="aComponent">Component key.</param>
+		/// <param name="aRoleID">RoleID key.</param>
+		/// <param name="aConnection">Connection value.</param>
 		public void Add(IComponent aComponent, string aRoleID, IConnection aConnection)
 		{
 			Hashtable strHash = (Hashtable) innerHash[aComponent];
@@ -21,10 +29,17 @@ namespace Palladio.ComponentModel.Collections
 			innerHash[aComponent] = strHash;
 		}
 
+		/// <summary>
+		/// Add aConnection to the ConnectionHash and associate it with the
+		/// component and role of anInterface.
+		/// </summary>
+		/// <param name="anInterface">Interface key.</param>
+		/// <param name="aConnection">Connection value.</param>
 		public void Add(AttachedInterface anInterface, IConnection aConnection)
 		{
 				Add(anInterface.Component, anInterface.RoleID, aConnection);
 		}
+
 
 		public IConnection Get(IComponent aComponent, string aRoleID)
 		{
