@@ -8,6 +8,9 @@ namespace Palladio.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:43  joemal
 	/// new cvs module for first release
 	///
@@ -38,18 +41,18 @@ namespace Palladio.Simulation
 		void Simulate();
 		
 		/// <summary>
-		/// call let the simulation environment make one simulationstep.
+		/// call to let the simulationenvironment do one simulationstep.
 		/// </summary>
-		/// <returns>false is returned, if no more steps are possible</returns>
+		/// <returns>false is returned, if no more steps are available</returns>
 		bool SimulationStep();
 
 		/// <summary>
-		/// call to inilize all startthreads.
+		/// called to initiate all startthreads.
 		/// </summary>
 		void PrepairSimulation();
 
 		/// <summary>
-		/// call to reset the whole simulation environment.
+		/// called to reset the whole simulationenvironment.
 		/// </summary>
 		void ResetSimulation();
 
@@ -58,7 +61,7 @@ namespace Palladio.Simulation
 		#region properties
 
 		/// <summary>
-		/// return the clock of the environment. 
+		/// returns the clock of the environment. 
 		/// </summary>
 		Palladio.Simulation.Simulation.IClock Clock
 		{
@@ -66,7 +69,7 @@ namespace Palladio.Simulation
 		}
 
 		/// <summary>
-		/// return the model of the component architecture of the environment. 
+		/// returns the model of the component architecture of the environment. 
 		/// </summary>
 		Palladio.Simulation.Model.IComponentArchitecture ComponentArchitecture
 		{

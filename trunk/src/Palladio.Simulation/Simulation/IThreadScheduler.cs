@@ -16,6 +16,9 @@ namespace Palladio.Simulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -68,35 +71,35 @@ namespace Palladio.Simulation.Simulation
 		#region methods
 
 		/// <summary>
-		/// call to create a new SimulationThread.
+		/// call to create a new simulationthread.
 		/// </summary>
 		/// <param name="start">the starting point of the thread.</param>
-		/// <param name="type">The logging type of this thread.</param>
+		/// <param name="type">The log type of this thread.</param>
 		void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type);
 
 		/// <summary>
-		/// call to create a new SimulationThread observed by the given observer.
+		/// call to create a new simulationthread observed by the given observer.
 		/// </summary>
 		/// <param name="start">the starting point of the thread.</param>
-		/// <param name="type">The logging type of this thread.</param>
+		/// <param name="type">The log type of this thread.</param>
 		/// <param name="observer">the observer</param>
 		void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type, 
 			IThreadObserver observer);
 
 		/// <summary>
-		/// call to create a new periodic SimulationThread.
+		/// call to create a new periodic simulationthread.
 		/// </summary>
 		/// <param name="start">the starting point of the thread.</param>
-		/// <param name="type">The logging type of this thread.</param>
-		/// <param name="periodTime">reached the thread this time, a new thread is created.</param>
+		/// <param name="type">The log type of this thread.</param>
+		/// <param name="periodTime">when the thread reaches this time, a new thread is created.</param>
 		void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type, long periodTime);
 
 		/// <summary>
-		/// call to create a new periodic SimulationThread observed by the given observer.
+		/// call to create a new periodic simulationthread observed by the given observer.
 		/// </summary>
 		/// <param name="start">the starting point of the thread.</param>
-		/// <param name="type">The logging type of this thread.</param>
-		/// <param name="periodTime">reached the thread this time, a new thread is created.</param>
+		/// <param name="type">The log type of this thread.</param>
+		/// <param name="periodTime">when the thread reaches this time, a new thread is created.</param>
 		/// <param name="observer">the oberserver</param>
 		void CreateSimulationThread(IThreadStartingPoint start,SimulationThreadType type,
 			long periodTime, IThreadObserver observer);
@@ -104,7 +107,7 @@ namespace Palladio.Simulation.Simulation
 		/// <summary>
 		/// call to add a simulationthread to the scheduler, created by any extern method.
 		/// </summary>
-		/// <param name="simulationThread">The simulationthread</param>
+		/// <param name="simulationThread">the simulationthread</param>
 		void AddSimulationThread(ISimulationThread simulationThread);
 
 		/// <summary>
@@ -114,15 +117,15 @@ namespace Palladio.Simulation.Simulation
 
 
 		/// <summary>
-		/// this methods make the scheduler to calculate the largest possible timestep
+		/// this method makes the scheduler to calculate the largest possible timestep
 		/// </summary>
 		/// <returns>the largest possible timestep</returns>
 		long CalculateNextTimeStep();
 
 		/// <summary>
-		/// call to move the timeline in the scheduler.
+		/// call to increase the timeline in the schedulers threads.
 		/// </summary>
-		/// <param name="steptime">the time, the schedulers timeline has to be moved</param>
+		/// <param name="steptime">the time, the schedulers threads timeline have to be increased</param>
 		void SimulationStep(long steptime);
 
 
@@ -130,3 +133,4 @@ namespace Palladio.Simulation.Simulation
 		
 	}
 }
+//EOF

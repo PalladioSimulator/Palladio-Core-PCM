@@ -5,11 +5,14 @@ using Palladio.Simulation.Model;
 namespace Palladio.Simulation.Simulation
 {
 	/// <summary>
-	/// This class extends BasicLogEventArgs in order to add some parameters belong to a log from a thread.
+	/// This class extends BasicLogEventArgs in order to add some parameters belonging to a log from a thread.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -21,7 +24,7 @@ namespace Palladio.Simulation.Simulation
 		#region declaration
 
 		/// <summary>
-		/// declaration of the type of thread log event
+		/// declaration of the threads logeventtype
 		/// </summary>
 		public enum EventType 
 		{
@@ -61,7 +64,7 @@ namespace Palladio.Simulation.Simulation
 		protected ThreadLogEventArgs.EventType type;
 
 		/// <summary>
-		/// the timeConsumer
+		/// the TimeConsumer
 		/// </summary>
 		protected ITimeConsumer timeConsumer;
 
@@ -89,7 +92,7 @@ namespace Palladio.Simulation.Simulation
 		#region properties
 
 		/// <summary>
-		/// the thread that fired this event
+		/// returns the thread that fired this event
 		/// </summary>
 		public ISimulationThread SimulationThread
 		{
@@ -97,7 +100,7 @@ namespace Palladio.Simulation.Simulation
 		}
 
 		/// <summary>
-		/// the type of this event
+		/// returns the type of this event
 		/// </summary>
 		public ThreadLogEventArgs.EventType TheType
 		{
@@ -105,7 +108,7 @@ namespace Palladio.Simulation.Simulation
 		}
 
 		/// <summary>
-		/// the timeconsumer
+		/// returns the timeconsumer
 		/// </summary>
 		public ITimeConsumer TimeConsumer 
 		{

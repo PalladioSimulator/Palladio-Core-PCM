@@ -3,12 +3,15 @@ using System;
 namespace Palladio.Simulation
 {
 	/// <summary>
-	/// This interface defines the factory ussed to configure the whole framework. It only contains properties which 
-	/// returns several other factories.
+	/// This interface defines the factory used to configure the whole framework. It only contains properties which 
+	/// refere to several other factories and a factory method to create the scheduler of the simulation part of the framework.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:43  joemal
 	/// new cvs module for first release
 	///

@@ -6,13 +6,15 @@ using System.Collections;
 namespace Palladio.Simulation
 {
 	/// <summary>
-	/// This is the abstract base class for all simulation environments. It holds references to the clock containing the scheduler, 
-	/// to the componentnetwork and to the datapool used to log the simulation. Implementing classes have to create the instances 
-	/// of these references.
+	/// This is the abstract base class for all simulationenvironments. It holds references to the clock that contains the scheduler, 
+	/// to the componentnetwork and to the datapools. Implementing classes have to create the instances of these references.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:43  joemal
 	/// new cvs module for first release
 	///
@@ -29,12 +31,12 @@ namespace Palladio.Simulation
 		private IClock clock = null;
 		
 		/// <summary>
-		/// holds the instance of component architecture
+		/// holds the instance of the component architecture
 		/// </summary>
 		private IComponentArchitecture componentArchitecture = null;
 		
 		/// <summary>
-		/// holds the list of registered datapools
+		/// holds the list of the registered datapools
 		/// </summary>
 		private IList dataPools = new ArrayList();
 
@@ -65,9 +67,9 @@ namespace Palladio.Simulation
 		}
 
 		/// <summary>
-		/// call to start a whole simlution. The simulation ends, when maxsimulationtime is reached or no more thread is alive.
-		/// Before starting the simulation, a reset is processed through the whole simulation environment and 
-		/// PrepairSimulation() is called to inilize the startthreads.
+		/// call to start a whole simlution. The simulation ends, when the maximum simulationtime is reached or no more 
+		/// threads are alive. Before starting the simulation, a reset is processed through the whole simulationenvironment and 
+		/// PrepairSimulation() is called to initiate the startthreads.
 		/// </summary>
 		public virtual void Simulate()
 		{
@@ -76,18 +78,17 @@ namespace Palladio.Simulation
 			this.DoSimulate();
 		}
 
-
 		/// <summary>
-		/// call let the simulation environment make one simulationstep.
+		/// call to let the simulationenvironment do one simulationstep.
 		/// </summary>
-		/// <returns>false is returned, if no more thread is alive or the maximum simulationtime is reached.</returns>
+		/// <returns>false is returned, if no more threads are alive or the maximum simulationtime is reached.</returns>
 		public virtual bool SimulationStep()
 		{
 			return this.Clock.SimulationStep();
 		}
 
 		/// <summary>
-		/// call to inilize all startthreads. By default, the method CreateSystemSimulationThreads() is called.
+		/// call to initiate all startthreads. By default, the method CreateSystemSimulationThreads() is called.
 		/// </summary>
 		public virtual void PrepairSimulation()
 		{
@@ -106,8 +107,8 @@ namespace Palladio.Simulation
 		}
 
 		/// <summary>
-		/// called by Simulate to do a whole simulation. By default, the simulation ends, if no more threads are alive or
-		/// the maximum simulation time is reached.
+		/// called by <code>Simulate()</code> to proceed a whole simulation. By default, the simulation ends, if no more threads 
+		/// are alive or the maximum simulation time is reached.
 		/// </summary>
 		protected virtual void DoSimulate()
 		{
@@ -119,8 +120,8 @@ namespace Palladio.Simulation
 		#region properties
 
 		/// <summary>
-		/// return the clock of the environment. The first call to this properties creates a new instance by
-		/// calling CreateClock().
+		/// returns the clock of the environment. The first call to this property creates a new instance by
+		/// calling <code>CreateClock()</code>.
 		/// </summary>
 		public IClock Clock
 		{
@@ -132,8 +133,8 @@ namespace Palladio.Simulation
 		}
 
 		/// <summary>
-		/// return the model of the componentarchitecture of the environment. The first call to this properties creates a new instance by
-		/// calling CreateComponentArchitecture().
+		/// returns the model of the componentarchitecture of the environment. The first call to this property creates a new 
+		/// instance by calling <code>CreateComponentArchitecture()</code>.
 		/// </summary>
 		public IComponentArchitecture ComponentArchitecture
 		{
@@ -145,7 +146,7 @@ namespace Palladio.Simulation
 		}
 
 		/// <summary>
-		/// returns the factory, used to configure the whole framework.
+		/// returns the factory used to configure the whole framework.
 		/// </summary>
 		public abstract IEnvironmentFactory EnvironmentFactory
 		{
@@ -157,30 +158,23 @@ namespace Palladio.Simulation
 		#region abstract methods
 
 		/// <summary>
-		/// implement this method to inilize the SystemThreads of the simulation.
+		/// implement this method to initiate the SystemThreads of the simulation.
 		/// </summary>
 		protected abstract void CreateSystemSimulationThreads();
 		
 		/// <summary>
-		/// implement this method to create a new ínstance of Clock. Do not any inilizations depending on other components, use
-		/// Inilize() instead. This method must not return null.
+		/// implement this method to create a new ínstance of Clock. Don't do any initiations depending on other components, use
+		/// <code>Inilize()</code> instead. This method must not return null.
 		/// </summary>
-		/// <returns>the new instance of Clock.</returns>
+		/// <returns>the new instance of IClock.</returns>
 		protected abstract IClock CreateClock();
 
 		/// <summary>
-		/// implement this method to create a new ínstance of IComponentArchitecture. Do not any inilizations depending on 
-		/// other components, use Inilize() instead. This method must not return null.
+		/// implement this method to create a new ínstance of IComponentArchitecture. Don't do any initiations depending on 
+		/// other components, use <code>Inilize()</code> instead. This method must not return null.
 		/// </summary>
 		/// <returns>the new instance of IComponentArchitecture.</returns>
 		protected abstract IComponentArchitecture CreateComponentArchitecture();
-
-		/// <summary>
-		/// implement this method to create a new ínstance of IDataPool. Do not any inilizations depending on 
-		/// other components, use Inilize() instead. This method must not return null.
-		/// </summary>
-		/// <returns>the new instance of IDataPool.</returns>
-		protected abstract IDataPool CreateDataPool();
 
 		#endregion
 	}	

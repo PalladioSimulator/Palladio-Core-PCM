@@ -4,11 +4,14 @@ using Palladio.Simulation.Analysis;
 namespace Palladio.Simulation.Simulation
 {
 	/// <summary>
-	/// This class extends BasicLogEventArgs in order to add some parameters belong to a log from the clock.
+	/// This class extends BasicLogEventArgs in order to add some parameters belonging to a log from the clock.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -20,7 +23,7 @@ namespace Palladio.Simulation.Simulation
 		#region declaration
 		
 		/// <summary>
-		/// declaration of the type of clock log event
+		/// declaration of the type of the clock log event
 		/// </summary>
 		public enum EventType 
 		{
@@ -71,9 +74,9 @@ namespace Palladio.Simulation.Simulation
 		/// <summary>
 		/// constructs a new ClockLogEvent
 		/// </summary>
-		/// <param name="message">the log message of this event</param>
+		/// <param name="message">the message of this log</param>
 		/// <param name="clock">the clock </param>
-		/// <param name="type">the type of event</param>
+		/// <param name="type">the type of the event</param>
 		/// <param name="timeStep">the length of the timestep</param>
 		public ClockLogEventArgs(String message, IClock clock, ClockLogEventArgs.EventType type, long timeStep) :
 			base(message)
@@ -96,7 +99,7 @@ namespace Palladio.Simulation.Simulation
 		}
 
 		/// <summary>
-		/// returns the type of event
+		/// returns the type of the event
 		/// </summary>
 		public ClockLogEventArgs.EventType TheType
 		{
@@ -104,7 +107,7 @@ namespace Palladio.Simulation.Simulation
 		}
 
 		/// <summary>
-		/// return the timestep
+		/// returns the timestep
 		/// </summary>
 		public long TimeStep 
 		{

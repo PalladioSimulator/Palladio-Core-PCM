@@ -5,12 +5,15 @@ using Palladio.Simulation.Analysis;
 namespace Palladio.Simulation
 {
 	/// <summary>
-	/// This is the default simulation environments. This environment can be used with the default environment factory
-	/// of the framework or by a modified one.
+	/// This is the default simulationenvironment. This environment can be used with the default environment factory
+	/// of the framework or with a modified one.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:43  joemal
 	/// new cvs module for first release
 	///
@@ -46,7 +49,7 @@ namespace Palladio.Simulation
 		#region constructor
 
 		/// <summary>
-		/// constructs a new DefaultSimulationEnvironment which is using the default environment factory of
+		/// constructs a new <code>DefaultSimulationEnvironment</code>. It uses the default environment factory of
 		/// the framework.
 		/// </summary>
 		public DefaultSimulationEnvironment()
@@ -56,9 +59,10 @@ namespace Palladio.Simulation
 		}
 
 		/// <summary>
-		/// constructs a new DefaultSimulationEnvironment which is using the given environment factory.
+		/// constructs a new <code>DefaultSimulationEnvironment</code>. It uses the given factory to
+		/// configure the framework.
 		/// </summary>
-		/// <param name="factory">the factory that should be used to configure the framework</param>
+		/// <param name="factory">the factory that is used to configure the framework</param>
 		public DefaultSimulationEnvironment(IEnvironmentFactory factory)
 		{
 			this.factory = factory;
@@ -70,8 +74,8 @@ namespace Palladio.Simulation
 		#region methods
 
 		/// <summary>
-		/// called by the constructor in order to let the implementing classes inilize the clock, the componentnetwork
-		/// and the datapool. Refere to the components using the properties Clock, ComponentNetwork and DataPool.
+		/// called by the constructor in order to let the implementing classes initiate the clock, the componentnetwork
+		/// and the datapools. Refere to the components using the properties Clock and ComponentNetwork.
 		/// </summary>
 		protected virtual void Inilize()
 		{
@@ -79,34 +83,25 @@ namespace Palladio.Simulation
 
 
 		/// <summary>
-		/// return the default clock.
+		/// returns the clock, created by the factory.
 		/// </summary>
-		/// <returns>the default clock</returns>
+		/// <returns>the instance of IClock, created by the factory</returns>
 		protected override Palladio.Simulation.Simulation.IClock CreateClock()
 		{
 			return DefaultEnvironmentFactory.CreateDefaultClock(this);
 		}
 
 		/// <summary>
-		/// return the default component architecture.
+		/// returns the component architecture, created by the factory.
 		/// </summary>
-		/// <returns>the default component artchitecture</returns>
+		/// <returns>the instance of IComponentArchitecture, created by the factory</returns>
 		protected override Palladio.Simulation.Model.IComponentArchitecture CreateComponentArchitecture()
 		{
 			return DefaultEnvironmentFactory.CreateDefaultComponentArchitecture(this);
 		}
 
 		/// <summary>
-		/// return the default datapool
-		/// </summary>
-		/// <returns>the default datapool</returns>
-		protected override Palladio.Simulation.Analysis.IDataPool CreateDataPool()
-		{
-			return DefaultEnvironmentFactory.CreateDefaultDataPool(this);
-		}
-
-		/// <summary>
-		/// The method is left empty. In this implementation, the threads must be created by external methods
+		/// This method is left empty. In this implementation, the threads must be created by using external methods.
 		/// </summary>
 		protected override void CreateSystemSimulationThreads()
 		{			

@@ -9,6 +9,9 @@ namespace Palladio.Simulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -20,12 +23,12 @@ namespace Palladio.Simulation.Simulation
 		#region data
 
 		/// <summary>
-		/// The field holding the current TimeConsumer
+		/// holds the current TimeConsumer
 		/// </summary>
 		private ITimeConsumer currentTimeConsumer;
 
 		/// <summary>
-		/// the field holding the previous time consumer
+		/// holds the previous TimeConsumer
 		/// </summary>
 		private ITimeConsumer previousTimeConsumer;
 
@@ -34,10 +37,10 @@ namespace Palladio.Simulation.Simulation
 		#region constructors
 
 		/// <summary>
-		/// constructs a new NextTCEventArgs data structure
+		/// constructs a new <code>NextTCEventArgs</code> data structure
 		/// </summary>
-		/// <param name="current">The current TimeConsumer</param>
-		/// <param name="previous">The previous TimeConsumer</param>
+		/// <param name="current">the current TimeConsumer</param>
+		/// <param name="previous">the previous TimeConsumer</param>
 		public NextTCEventArgs(ITimeConsumer current, ITimeConsumer previous)
 		{
 			this.currentTimeConsumer = current;
@@ -49,7 +52,7 @@ namespace Palladio.Simulation.Simulation
 		#region properties
 
 		/// <summary>
-		/// return the current TimeConsumer
+		/// returns the current TimeConsumer
 		/// </summary>
 		public ITimeConsumer CurrentTimeConsumer
 		{ 
@@ -57,7 +60,7 @@ namespace Palladio.Simulation.Simulation
 		}		
 
 		/// <summary>
-		/// return the previous TimeConsumer
+		/// returns the previous TimeConsumer
 		/// </summary>
 		public ITimeConsumer PreviousTimeConsumer
 		{ 

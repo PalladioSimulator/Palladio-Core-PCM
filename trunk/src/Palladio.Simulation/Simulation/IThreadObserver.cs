@@ -5,12 +5,15 @@ using Palladio.ComponentModel;
 namespace Palladio.Simulation.Simulation
 {
 	/// <summary>
-	/// This interface declares implementing classes as observer for simulationthreads. Each created thread may have 
-	/// one of these observers.
+	/// This interface declares implementing classes as observers for simulationthreads. Each created thread can only be observed 
+	/// by one of these observers.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -20,7 +23,7 @@ namespace Palladio.Simulation.Simulation
 	public interface IThreadObserver
 	{
 		/// <summary>
-		/// called, when the thread reaches the end of its control flow.
+		/// called, when the thread reaches the end of its controlflow.
 		/// </summary>
 		/// <param name="sender">the thread</param>
 		void NotifyThreadReachedEnd(ISimulationThread sender);
@@ -40,10 +43,10 @@ namespace Palladio.Simulation.Simulation
 		void NotifyThreadChangedTimeConsumer(ISimulationThread sender, ITimeConsumer previous);
 
 		/// <summary>
-		/// called, when the timeline of the thread move
+		/// called, when the timeline is increased
 		/// </summary>
 		/// <param name="sender">the thread</param>
-		/// <param name="timeStep">the timestep, the timeline moved</param>
+		/// <param name="timeStep">the timestep, the timeline has been increased</param>
 		void NotifyTimeStep(ISimulationThread sender, long timeStep);
 
 		/// <summary>
@@ -54,12 +57,12 @@ namespace Palladio.Simulation.Simulation
 		void NotifyUnknownElementFound(ISimulationThread sender);
 
 		/// <summary>
-		/// called, when a signature of the requires interface of a component is called by the thread but not bound 
-		/// with any provides interface of another component. The thread follows the way through its controlflow 
+		/// called, when a signature of the requiresinterface of a component is called by the thread but not bound 
+		/// with any providesinterface of another component. The thread follows the way through its controlflow 
 		/// without invoking this call.
 		/// </summary>
 		/// <param name="callingComponent">the calling component</param>
-		/// <param name="externalSignature">the signature of this call</param>
+		/// <param name="externalSignature">the signature of the call</param>
 		/// <param name="sender">the thread</param>
 		void NotifyUnboundExternalCall(ISimulationThread sender,IComponent callingComponent, 
 			IExternalSignature externalSignature);

@@ -9,20 +9,17 @@ using Palladio.Simulation.Analysis;
 namespace Palladio.Simulation
 {
 	/// <summary>
-	/// This is the default environmentfactory of the framework. It all created instances are from the default classes of the
-	/// framework. To change some of the elements, override the properties and return special factories. This is the only factory,
+	/// This is the default environmentfactory of the framework. All returned instances are created from the default classes of the
+	/// framework. To replace some of the factories, override the properties and return the new onces. This is the only factory,
 	/// that can be extended.
-	/// 
-	/// Example of extension:
-	/// 
-	/// To change some creational methods in the ElementFactory, implement the interface IElementFactory. 
-	/// All methods that should not be changed, can be delegated to the default elementfactory, created by a call to 
-	/// CreateDefaultElementFactory(). Other methods can return own instances.
-	/// 
+	///  
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:43  joemal
 	/// new cvs module for first release
 	///
@@ -121,7 +118,7 @@ namespace Palladio.Simulation
 		/// <summary>
 		/// called to create the default builderfactory of the framework
 		/// </summary>
-		/// <param name="elements">the elementfactory, used by the builders to create the elements of the architecture</param>
+		/// <param name="elements">the elementfactory used by the builders to create the elements of the architecture</param>
 		/// <returns>the default builderfactory of the framework</returns>
 		public static IBuilderFactory CreateDefaultBuilderFactory(IElementFactory elements)
 		{
@@ -151,7 +148,7 @@ namespace Palladio.Simulation
 		/// <summary>
 		/// called to create the default datapool of the framework
 		/// </summary>
-		/// <param name="simulationEnvironment">the default datapool</param>
+		/// <param name="simulationEnvironment">the simulation environment</param>
 		/// <returns>the default datapool</returns>
 		public static IDataPool CreateDefaultDataPool(ISimulationEnvironment simulationEnvironment)
 		{

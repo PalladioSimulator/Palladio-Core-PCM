@@ -1,11 +1,14 @@
 namespace Palladio.Simulation.Simulation
 {
 	/// <summary>
-	/// This interface defines all methods, properties and events provided by a SimulationThread.
+	/// This interface defines all methods, properties and events provided by a simulation thread.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -17,7 +20,7 @@ namespace Palladio.Simulation.Simulation
 		#region events
 
 		/// <summary>
-		/// This event is fired, if the TimeConsumer has changed to next one
+		/// This event is fired, if the current TimeConsumer has changed to the next one in the controlflow of the thread.
 		/// </summary>
 		event NextTCEventHandler NextTCEvent;
 
@@ -26,7 +29,7 @@ namespace Palladio.Simulation.Simulation
 		#region properties
 
 		/// <summary>
-		/// the current TimeConsumer
+		/// returns the current TimeConsumer
 		/// </summary>
 		Palladio.Simulation.Model.ITimeConsumer CurrentTimeConsumer
 		{
@@ -34,7 +37,7 @@ namespace Palladio.Simulation.Simulation
 		}
 
 		/// <summary>
-		/// this time contains the difference between the simulation time and the threads current state time.
+		/// this is the difference between the current simulationtime and the threads current time.
 		/// </summary>
 		long TimeInFuture 
 		{
@@ -42,7 +45,7 @@ namespace Palladio.Simulation.Simulation
 		}
 
 		/// <summary>
-		/// is true, if the thread already has any following TimeConsumer 
+		/// is true, if the thread has a following TimeConsumer
 		/// </summary>
 		bool IsAlive 
 		{
@@ -50,7 +53,7 @@ namespace Palladio.Simulation.Simulation
 		}
 
 		/// <summary>
-		/// the id of the thread
+		/// returns the id of the thread
 		/// </summary>
 		int ThreadID
 		{
@@ -58,7 +61,7 @@ namespace Palladio.Simulation.Simulation
 		}
 
 		/// <summary>
-		/// returns the type of the thread
+		/// returns the type of this thread
 		/// </summary>
 		SimulationThreadType TheType
 		{
@@ -70,15 +73,15 @@ namespace Palladio.Simulation.Simulation
 		#region methods
 
 		/// <summary>
-		/// call to start the thread. This method normaly is started by the scheduler when it is inserted in the queue
-		/// of threads. This method only must be called one time in the whole lifecycle of the thread.
+		/// call to start the thread. This method usually is started by the scheduler, when the thread is inserted in the queue
+		/// of threads. This method only shall be called only once in the whole lifecycle of the thread.
 		/// </summary>
 		void Start();
 
 		/// <summary>
-		/// called to move the timeline of the thread.
+		/// called to increase the timeline of the thread.
 		/// </summary>
-		/// <param name="time">The timestep to be moved.</param>
+		/// <param name="time">the timestep to be increased.</param>
 		void TimeMoved(long time);
 
 		#endregion

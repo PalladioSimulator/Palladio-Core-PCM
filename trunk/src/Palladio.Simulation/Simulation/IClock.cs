@@ -4,17 +4,20 @@ using Palladio.Simulation.Analysis;
 namespace Palladio.Simulation.Simulation
 {
 	/// <summary>
-	/// This declaration is used to define a eventhandler for timestep events.
-	/// TimeStepEvents are fired on every finished simulationstep.
+	/// This declaration is used to define an eventhandler for timestep events.
+	/// timestep events are fired on every finished simulationstep.
 	/// </summary>
 	public delegate void TimeStepEventHandler(object sender, TimeStepEventArgs eventArgs);
 
 	/// <summary>
-	/// This interface defines all methods, properties and events, the clock of the simulation environment provides.
+	/// This interface defines all the methods, properties and events, the clock of the simulation environment provides.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -26,13 +29,13 @@ namespace Palladio.Simulation.Simulation
 		#region events
 
 		/// <summary>
-		/// This event is fired, when the timeline of the clock moves a step. The arguments of this events contains
+		/// This event is fired, when the timeline of the clock does a timestep. The arguments of these events contain
 		/// the step length and the new absolute time.
 		/// </summary>
 		event TimeStepEventHandler TimeStepEvent;
 
 		/// <summary>
-		/// This event is fired, when the maximum simulation time s reached
+		/// This event is fired, when the maximum simulation time is reached
 		/// </summary>
 		event EventHandler MaxTimeReachedEvent;
 
@@ -42,7 +45,7 @@ namespace Palladio.Simulation.Simulation
 		event EventHandler ClockResetEvent;
 
 		/// <summary>
-		/// This event is fired, when the clock wants something to be logged by the datapool
+		/// This event is fired, when the clock requests something to be logged by the datapools
 		/// </summary>
 		event LogEventHandler ClockLogEvent;
 
@@ -60,7 +63,7 @@ namespace Palladio.Simulation.Simulation
 		}
 
 		/// <summary>
-		/// return the instance of IThreadScheduler
+		/// returns the instance of IThreadScheduler
 		/// </summary>
 		IThreadScheduler ThreadScheduler
 		{
@@ -68,7 +71,7 @@ namespace Palladio.Simulation.Simulation
 		}
 
 		/// <summary>
-		/// return the current absolute simulation time
+		/// returns the current absolute simulation time
 		/// </summary>
 		long CurrentTime
 		{
@@ -84,7 +87,7 @@ namespace Palladio.Simulation.Simulation
 		}
 
 		/// <summary>
-		/// returns true, if any next step is possible at calling time
+		/// returns true, if any next step is possible at the current time
 		/// </summary>
 		bool HasNextStep
 		{
@@ -96,7 +99,7 @@ namespace Palladio.Simulation.Simulation
 		#region methods
 
 		/// <summary>
-		/// call to set the time, after which the simulation has to fire a TimeStepEvent with cause CLOCK_STOP_EVENT.
+		/// call to set the time, after which the simulation has to fire a TimeStepEvent with the cause CLOCK_STOP_EVENT.
 		/// The clock might finish other steps before.
 		/// </summary>
 		/// <param name="time">the time, after which a TimeStepEvent has to be fired</param>
@@ -105,7 +108,7 @@ namespace Palladio.Simulation.Simulation
 		/// <summary>
 		/// call to simulate one step
 		/// </summary>
-		/// <returns>returns false, if the simulation reached its end</returns>
+		/// <returns>returns false, if no more steps are available</returns>
 		bool SimulationStep();
 
 		/// <summary>

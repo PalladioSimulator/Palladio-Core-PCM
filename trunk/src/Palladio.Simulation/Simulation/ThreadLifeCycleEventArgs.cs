@@ -8,6 +8,9 @@ namespace Palladio.Simulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/22 20:28:18  joemal
+	/// - changed some comments
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -22,7 +25,7 @@ namespace Palladio.Simulation.Simulation
 		private ISimulationThread theThread;
 
 		/// <summary>
-		/// constructs a new ThreadLifeCycleEventArgs object
+		/// constructs a new <code>ThreadLifeCycleEventArgs</code> object
 		/// </summary>
 		/// <param name="theThread">the simulation thread</param>
 		public ThreadLifeCycleEventArgs(ISimulationThread theThread)
