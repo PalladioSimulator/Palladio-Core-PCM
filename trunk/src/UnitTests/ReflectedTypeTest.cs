@@ -55,7 +55,7 @@ namespace Palladio.ComponentModel.UnitTests
 
 		/// <summary>
 		/// </summary>
-		[Test] public void GetHashCode()
+		[Test] public void GetHashCodeTest()
 		{
 			Assert.IsTrue( tOne.GetHashCode() == tOne1.GetHashCode() );
 			Assert.IsTrue( tOne.GetHashCode() != tTwo.GetHashCode() );

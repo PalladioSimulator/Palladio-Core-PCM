@@ -110,15 +110,6 @@ namespace Palladio.ComponentModel.Components
 			return base.GetHashCode ();
 		}
 
-		/// <summary>
-		/// This method is called by the <see cref="ReflectionBasedVisitor"/> to allow data
-		/// structure driven visiting of the structure.<br></br>
-		/// Leave this method's body empty if you don't need data structure driven visiting.
-		/// </summary>
-		/// <param name="visitor">The visitor to accept</param>
-		public void AcceptVisitor (IVisitor visitor)
-		{
-		}
 
 		/// <summary>
 		/// Creates a copy of the current instance.

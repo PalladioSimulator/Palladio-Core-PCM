@@ -2043,6 +2043,11 @@ namespace Palladio.ComponentModel.TypedCollections
 	    return otherHashmap._innerHash.Equals(this._innerHash);
         }
         
+        public override int GetHashCode()
+        {
+           return _innerHash.GetHashCode();
+        }
+        
         #region Add(IIdentifier, IRole)
 
         /// <summary>
@@ -4704,6 +4709,11 @@ namespace Palladio.ComponentModel.TypedCollections
 	    if (other == this) return true;
 	    ServiceEffectHashmap otherHashmap = (ServiceEffectHashmap)other;
 	    return otherHashmap._innerHash.Equals(this._innerHash);
+        }
+        
+        public override int GetHashCode()
+        {
+           return _innerHash.GetHashCode();
         }
         
         #region Add(ISignatureWithRole, IServiceEffectSpecification)

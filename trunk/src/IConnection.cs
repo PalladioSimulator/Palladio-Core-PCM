@@ -15,7 +15,7 @@ namespace Palladio.ComponentModel
 		/// Description of the services provided 
 		/// by one of the compontents to the other.
 		/// </summary>
-		IAttachedRole ProvidesRole
+		IAttachedRole ProvidingRole
 		{ 
 			get;
 		}
@@ -24,7 +24,7 @@ namespace Palladio.ComponentModel
 		/// Description of the services required by one of the
 		/// components from the other.
 		/// </summary>
-		IAttachedRole RequiresRole
+		IAttachedRole RequiringRole
 		{ 
 			get;
 		}

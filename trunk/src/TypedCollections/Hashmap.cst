@@ -583,6 +583,11 @@
 	    return otherHashmap._innerHash.Equals(this._innerHash);
         }
         
+        public override int GetHashCode()
+        {
+           return _innerHash.GetHashCode();
+        }
+        
         #region Add(<%= KeyType %>, <%= ItemType %>)
 
         /// <summary>

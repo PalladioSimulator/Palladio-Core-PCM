@@ -39,7 +39,7 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.IsTrue(clone.Equals(pOne1));
 		}
 
-		[Test] public void GetHashCode()
+		[Test] public void GetHashCodeTest()
 		{
 			Assert.IsTrue(pOne.GetHashCode() == pOne1.GetHashCode());
 			Assert.IsFalse(pTwo.GetHashCode() == pOne.GetHashCode());

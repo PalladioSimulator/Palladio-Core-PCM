@@ -46,7 +46,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <returns>A new object with the same values as the current instance.</returns>
 		public object Clone()
 		{
-			return new DefaultInterfaceModel(this.signatureList);
+			return new DefaultInterfaceModel(this.attributes, this.signatureList);
 		}
 				
 		public override bool Equals(object other)
@@ -56,15 +56,24 @@ namespace Palladio.ComponentModel.InterfaceModels
 			IInterfaceModel model = (IInterfaceModel)other;
 			return model.SignatureList.Equals(this.SignatureList);
 		}
+		
+		public override int GetHashCode()
+		{
+			return (
+				signatureList.GetHashCode()
+			);		
+		}
 			
-		public DefaultInterfaceModel(ISignatureList aSignatureList)
+		public DefaultInterfaceModel(IAttributeHash attrHash, ISignatureList aSignatureList)
 		{
 			this.signatureList = (ISignatureList)aSignatureList.Clone();
+			this.attributes = attrHash;
 		}
 		
-		public DefaultInterfaceModel()
+		public DefaultInterfaceModel(IAttributeHash attrHash)
 		{
 			signatureList = ComponentFactory.CreateSignatureList(new ISignature[0]);
+			this.attributes = attrHash;
 		}
 	}
 	#endregion
@@ -102,7 +111,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <returns>A new object with the same values as the current instance.</returns>
 		public object Clone()
 		{
-			return new DefaultServiceEffectSpecification(this.signatureList);
+			return new DefaultServiceEffectSpecification(this.attributes, this.signatureList);
 		}
 				
 		public override bool Equals(object other)
@@ -112,15 +121,24 @@ namespace Palladio.ComponentModel.InterfaceModels
 			IServiceEffectSpecification model = (IServiceEffectSpecification)other;
 			return model.SignatureList.Equals(this.SignatureList);
 		}
+		
+		public override int GetHashCode()
+		{
+			return (
+				signatureList.GetHashCode()
+			);		
+		}
 			
-		public DefaultServiceEffectSpecification(ISignatureWithRoleList aSignatureList)
+		public DefaultServiceEffectSpecification(IAttributeHash attrHash, ISignatureWithRoleList aSignatureList)
 		{
 			this.signatureList = (ISignatureWithRoleList)aSignatureList.Clone();
+			this.attributes = attrHash;
 		}
 		
-		public DefaultServiceEffectSpecification()
+		public DefaultServiceEffectSpecification(IAttributeHash attrHash)
 		{
 			signatureList = ComponentFactory.CreateExternalSignatureList(new ISignatureWithRole[0]);
+			this.attributes = attrHash;
 		}
 	}
 	#endregion

@@ -58,7 +58,7 @@ namespace Palladio.ComponentModel
 		/// Add a set of components to the ICompositeComponent.
 		/// </summary>
 		/// <param name="aCompArray">Set of components to be added.</param>
-		void AddComponent(IIdentifier ID, IComponent aCompArray);
+		void AddComponent(IComponent aCompArray);
 
 		/// <summary>
 		/// Remove a set of components from the ICompositeComponent.

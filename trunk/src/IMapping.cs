@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using ReflectionBasedVisitor;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel
 {
@@ -35,7 +36,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// ProvidesInterface of the inner component.
 		/// </summary>
-		IAttachedRole InnerInterface
+		IAttachedRole InnerRole
 		{ 
 			get;
 		}
@@ -43,7 +44,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// ProvidesInterface of the outer component.
 		/// </summary>
-		string OuterRoleID
+		IAttachedRole OuterRole
 		{ 
 			get;
 		}

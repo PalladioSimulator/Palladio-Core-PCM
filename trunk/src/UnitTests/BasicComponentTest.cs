@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/06/02 15:41:13  sbecker
+	/// Fixed Compiler Warnings
+	///
 	/// Revision 1.1  2004/06/02 14:50:25  sbecker
 	/// Initial Import after a major rework
 	///
@@ -36,7 +39,7 @@ namespace Palladio.ComponentModel.UnitTests
 		IServiceEffectSpecification d1se, d2se;
 		IBasicComponent iComp1, iComp2, iComp3;
 		ISignatureList sigsProv1, sigsReq1, sigsReq2;
-		IBasicComponent fsmComponent;
+		// IBasicComponent fsmComponent;
 
 		[SetUp] public void Init()
 		{

@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Components
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.2  2004/06/02 15:41:13  sbecker
+	/// Fixed Compiler Warnings
+	///
 	/// Revision 1.1  2004/06/02 14:50:24  sbecker
 	/// Initial Import after a major rework
 	///
@@ -51,6 +54,14 @@ namespace Palladio.ComponentModel.Components
 			return (otherRole.ID.Equals(this.ID) && otherRole.Interface.Equals(this.Interface));
 		}
  
+		public override int GetHashCode()
+		{
+			return (
+				myID.GetHashCode() ^
+				interfaceModel.GetHashCode()
+				);
+		}
+
 		/// <summary>
 		/// Desciption of the constructor
 		/// </summary>

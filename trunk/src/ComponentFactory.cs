@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/06/02 15:41:13  sbecker
+	/// Fixed Compiler Warnings
+	///
 	/// Revision 1.1  2004/06/02 14:50:24  sbecker
 	/// Initial Import after a major rework
 	///
@@ -440,22 +443,22 @@ namespace Palladio.ComponentModel
 		#region CreateXXXInterfaceModel
 		public static IInterfaceModel CreateInterfaceModel()
 		{
-			return new DefaultInterfaceModel();
+			return new DefaultInterfaceModel(attributesFactory.Default.CreateAttributeHash());
 		}
 
 		public static IInterfaceModel CreateInterfaceModel(ISignatureList aSigList)
 		{
-			return new DefaultInterfaceModel(aSigList);
+			return new DefaultInterfaceModel(attributesFactory.Default.CreateAttributeHash(),aSigList);
 		}
 		
 		public static IServiceEffectSpecification CreateServiceEffectSpecification()
 		{
-			return new DefaultServiceEffectSpecification();
+			return new DefaultServiceEffectSpecification(attributesFactory.Default.CreateAttributeHash());
 		}
 
 		public static IServiceEffectSpecification CreateServiceEffectSpecification(ISignatureWithRoleList aSigList)
 		{
-			return new DefaultServiceEffectSpecification(aSigList);
+			return new DefaultServiceEffectSpecification(attributesFactory.Default.CreateAttributeHash(),aSigList);
 		}
 		#endregion
 

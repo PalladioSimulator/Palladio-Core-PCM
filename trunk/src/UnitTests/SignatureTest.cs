@@ -14,7 +14,7 @@ namespace Palladio.ComponentModel.UnitTests
 	[TestFixture]
 	public class SignatureTest
 	{
-		ISignature sigOne1, sigOne2, sigTwo1, sigTwo2, sigThree1, sigThree2;
+		ISignature sigOne1, sigOne2, sigTwo1, sigTwo2;
 		/// <summary>
 		/// </summary>
 		[SetUp] public void Init() 
@@ -56,7 +56,7 @@ namespace Palladio.ComponentModel.UnitTests
 
 		/// <summary>
 		/// </summary>
-		[Test] public void GetHashCode()
+		[Test] public void GetHashCodeTest()
 		{
 			Assert.AreEqual(sigOne1.GetHashCode(), sigOne2.GetHashCode());
 			Assert.IsFalse(sigTwo1.GetHashCode() == sigOne1.GetHashCode());

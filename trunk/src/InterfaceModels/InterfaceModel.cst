@@ -36,7 +36,7 @@
 		/// <returns>A new object with the same values as the current instance.</returns>
 		public object Clone()
 		{
-			return new Default<%= ClassName %>(this.signatureList);
+			return new Default<%= ClassName %>(this.attributes, this.signatureList);
 		}
 				
 		public override bool Equals(object other)
@@ -46,15 +46,24 @@
 			I<%= ClassName %> model = (I<%= ClassName %>)other;
 			return model.SignatureList.Equals(this.SignatureList);
 		}
+		
+		public override int GetHashCode()
+		{
+			return (
+				signatureList.GetHashCode()
+			);		
+		}
 			
-		public Default<%= ClassName %>(<%= ContainedSignatureType %>List aSignatureList)
+		public Default<%= ClassName %>(IAttributeHash attrHash, <%= ContainedSignatureType %>List aSignatureList)
 		{
 			this.signatureList = (<%= ContainedSignatureType %>List)aSignatureList.Clone();
+			this.attributes = attrHash;
 		}
 		
-		public Default<%= ClassName %>()
+		public Default<%= ClassName %>(IAttributeHash attrHash)
 		{
 			signatureList = ComponentFactory.Create<%= DefaultSignatureListInstance %>(new <%= ContainedSignatureType %>[0]);
+			this.attributes = attrHash;
 		}
 	}
 	#endregion
