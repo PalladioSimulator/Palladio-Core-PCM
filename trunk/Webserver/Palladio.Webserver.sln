@@ -59,7 +59,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AltovaXML", "..\AltovaXML\A
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webserverXML", "..\webserverXML\webserverXML.csproj", "{CD8DE3F3-BD5B-1E40-B4A3-E8335A565A42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webserverXML", "..\webserverXML\webserverXML.csproj", "{187A3048-4BFE-F344-92BE-AEE42C224D11}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -129,10 +129,10 @@ Global
 		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}.Debug.Build.0 = Debug|.NET
 		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}.Release.ActiveCfg = Release|.NET
 		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}.Release.Build.0 = Release|.NET
-		{CD8DE3F3-BD5B-1E40-B4A3-E8335A565A42}.Debug.ActiveCfg = Debug|.NET
-		{CD8DE3F3-BD5B-1E40-B4A3-E8335A565A42}.Debug.Build.0 = Debug|.NET
-		{CD8DE3F3-BD5B-1E40-B4A3-E8335A565A42}.Release.ActiveCfg = Release|.NET
-		{CD8DE3F3-BD5B-1E40-B4A3-E8335A565A42}.Release.Build.0 = Release|.NET
+		{187A3048-4BFE-F344-92BE-AEE42C224D11}.Debug.ActiveCfg = Debug|.NET
+		{187A3048-4BFE-F344-92BE-AEE42C224D11}.Debug.Build.0 = Debug|.NET
+		{187A3048-4BFE-F344-92BE-AEE42C224D11}.Release.ActiveCfg = Release|.NET
+		{187A3048-4BFE-F344-92BE-AEE42C224D11}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

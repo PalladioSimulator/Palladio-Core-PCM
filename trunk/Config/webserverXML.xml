@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE config SYSTEM "webserverXML.dtd">
-<config xmlns:xsi="" xsi:noNamespaceSchemaLocation="webserverXML.dtd">
+<!DOCTYPE config SYSTEM "WebserverXML.dtd">
+<config xmlns:xsi="" xsi:noNamespaceSchemaLocation="WebserverXML.dtd">
 	<!--documentRoot: the path where the documents, that are delivered by the webserver, can be found.-->
 	<documentRoot path="..\documents"/>
+	
+	<LogFile path="..\log.txt" />
+	
+	<DebugFile path="..\debug.txt" />
+	
 	<ports>
 		<!--port: defines the port, the server is listening at.-->
 		<port number="81"/>

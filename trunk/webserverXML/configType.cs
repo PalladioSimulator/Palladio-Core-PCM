@@ -16,7 +16,7 @@ using System.Collections;
 using System.Xml;
 using Altova.Types;
 
-namespace webserverXML
+namespace WebserverXML
 {
 	public class configType : Altova.Xml.Node
 	{
@@ -47,6 +47,20 @@ namespace webserverXML
 				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "documentRoot", i);
 				InternalAdjustPrefix(DOMNode, false);
 				new documentRootType(DOMNode).AdjustPrefix();
+			}
+
+			for (int i = 0; i < DomChildCount(NodeType.Element, "", "LogFile"); i++)
+			{
+				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "LogFile", i);
+				InternalAdjustPrefix(DOMNode, false);
+				new LogFileType(DOMNode).AdjustPrefix();
+			}
+
+			for (int i = 0; i < DomChildCount(NodeType.Element, "", "DebugFile"); i++)
+			{
+				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "DebugFile", i);
+				InternalAdjustPrefix(DOMNode, false);
+				new DebugFileType(DOMNode).AdjustPrefix();
 			}
 
 			for (int i = 0; i < DomChildCount(NodeType.Element, "", "ports"); i++)
@@ -522,6 +536,306 @@ namespace webserverXML
 
         #endregion // documentRoot collection
 
+		#region LogFile accessor methods
+		public int GetLogFileMinCount()
+		{
+			return 1;
+		}
+
+		public int LogFileMinCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetLogFileMaxCount()
+		{
+			return 1;
+		}
+
+		public int LogFileMaxCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetLogFileCount()
+		{
+			return DomChildCount(NodeType.Element, "", "LogFile");
+		}
+
+		public int LogFileCount
+		{
+			get
+			{
+				return DomChildCount(NodeType.Element, "", "LogFile");
+			}
+		}
+
+		public bool HasLogFile()
+		{
+			return HasDomChild(NodeType.Element, "", "LogFile");
+		}
+
+		public LogFileType GetLogFileAt(int index)
+		{
+			return new LogFileType(GetDomChildAt(NodeType.Element, "", "LogFile", index));
+		}
+
+		public LogFileType GetLogFile()
+		{
+			return GetLogFileAt(0);
+		}
+
+		public LogFileType LogFile
+		{
+			get
+			{
+				return GetLogFileAt(0);
+			}
+		}
+
+		public void RemoveLogFileAt(int index)
+		{
+			RemoveDomChildAt(NodeType.Element, "", "LogFile", index);
+		}
+
+		public void RemoveLogFile()
+		{
+			while (HasLogFile())
+				RemoveLogFileAt(0);
+		}
+
+		public void AddLogFile(LogFileType newValue)
+		{
+			AppendDomElement("", "LogFile", newValue);
+		}
+
+		public void InsertLogFileAt(LogFileType newValue, int index)
+		{
+			InsertDomElementAt("", "LogFile", index, newValue);
+		}
+
+		public void ReplaceLogFileAt(LogFileType newValue, int index)
+		{
+			ReplaceDomElementAt("", "LogFile", index, newValue);
+		}
+		#endregion // LogFile accessor methods
+
+		#region LogFile collection
+        public LogFileCollection	MyLogFiles = new LogFileCollection( );
+
+        public class LogFileCollection: IEnumerable
+        {
+            configType parent;
+            public configType Parent
+			{
+				set
+				{
+					parent = value;
+				}
+			}
+			public LogFileEnumerator GetEnumerator() 
+			{
+				return new LogFileEnumerator(parent);
+			}
+		
+			IEnumerator IEnumerable.GetEnumerator() 
+			{
+				return GetEnumerator();
+			}
+        }
+
+        public class LogFileEnumerator: IEnumerator 
+        {
+			int nIndex;
+			configType parent;
+			public LogFileEnumerator(configType par) 
+			{
+				parent = par;
+				nIndex = -1;
+			}
+			public void Reset() 
+			{
+				nIndex = -1;
+			}
+			public bool MoveNext() 
+			{
+				nIndex++;
+				return(nIndex < parent.LogFileCount );
+			}
+			public LogFileType  Current 
+			{
+				get 
+				{
+					return(parent.GetLogFileAt(nIndex));
+				}
+			}
+			object IEnumerator.Current 
+			{
+				get 
+				{
+					return(Current);
+				}
+			}
+    	}
+
+        #endregion // LogFile collection
+
+		#region DebugFile accessor methods
+		public int GetDebugFileMinCount()
+		{
+			return 1;
+		}
+
+		public int DebugFileMinCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetDebugFileMaxCount()
+		{
+			return 1;
+		}
+
+		public int DebugFileMaxCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetDebugFileCount()
+		{
+			return DomChildCount(NodeType.Element, "", "DebugFile");
+		}
+
+		public int DebugFileCount
+		{
+			get
+			{
+				return DomChildCount(NodeType.Element, "", "DebugFile");
+			}
+		}
+
+		public bool HasDebugFile()
+		{
+			return HasDomChild(NodeType.Element, "", "DebugFile");
+		}
+
+		public DebugFileType GetDebugFileAt(int index)
+		{
+			return new DebugFileType(GetDomChildAt(NodeType.Element, "", "DebugFile", index));
+		}
+
+		public DebugFileType GetDebugFile()
+		{
+			return GetDebugFileAt(0);
+		}
+
+		public DebugFileType DebugFile
+		{
+			get
+			{
+				return GetDebugFileAt(0);
+			}
+		}
+
+		public void RemoveDebugFileAt(int index)
+		{
+			RemoveDomChildAt(NodeType.Element, "", "DebugFile", index);
+		}
+
+		public void RemoveDebugFile()
+		{
+			while (HasDebugFile())
+				RemoveDebugFileAt(0);
+		}
+
+		public void AddDebugFile(DebugFileType newValue)
+		{
+			AppendDomElement("", "DebugFile", newValue);
+		}
+
+		public void InsertDebugFileAt(DebugFileType newValue, int index)
+		{
+			InsertDomElementAt("", "DebugFile", index, newValue);
+		}
+
+		public void ReplaceDebugFileAt(DebugFileType newValue, int index)
+		{
+			ReplaceDomElementAt("", "DebugFile", index, newValue);
+		}
+		#endregion // DebugFile accessor methods
+
+		#region DebugFile collection
+        public DebugFileCollection	MyDebugFiles = new DebugFileCollection( );
+
+        public class DebugFileCollection: IEnumerable
+        {
+            configType parent;
+            public configType Parent
+			{
+				set
+				{
+					parent = value;
+				}
+			}
+			public DebugFileEnumerator GetEnumerator() 
+			{
+				return new DebugFileEnumerator(parent);
+			}
+		
+			IEnumerator IEnumerable.GetEnumerator() 
+			{
+				return GetEnumerator();
+			}
+        }
+
+        public class DebugFileEnumerator: IEnumerator 
+        {
+			int nIndex;
+			configType parent;
+			public DebugFileEnumerator(configType par) 
+			{
+				parent = par;
+				nIndex = -1;
+			}
+			public void Reset() 
+			{
+				nIndex = -1;
+			}
+			public bool MoveNext() 
+			{
+				nIndex++;
+				return(nIndex < parent.DebugFileCount );
+			}
+			public DebugFileType  Current 
+			{
+				get 
+				{
+					return(parent.GetDebugFileAt(nIndex));
+				}
+			}
+			object IEnumerator.Current 
+			{
+				get 
+				{
+					return(Current);
+				}
+			}
+    	}
+
+        #endregion // DebugFile collection
+
 		#region ports accessor methods
 		public int GetportsMinCount()
 		{
@@ -977,6 +1291,8 @@ namespace webserverXML
             Myxmlns_xsis.Parent = this; 
             Myxsi_noNamespaceSchemaLocations.Parent = this; 
             MydocumentRoots.Parent = this; 
+            MyLogFiles.Parent = this; 
+            MyDebugFiles.Parent = this; 
             Myportss.Parent = this; 
             MyMimeTypess.Parent = this; 
             MyDefaultFiless.Parent = this; 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!ELEMENT config (documentRoot, ports,MimeTypes,DefaultFiles)>
+<!ELEMENT config (documentRoot,LogFile,DebugFile, ports,MimeTypes,DefaultFiles)>
 <!ATTLIST config
 	xmlns:xsi CDATA #REQUIRED
 	xsi:noNamespaceSchemaLocation CDATA #REQUIRED
@@ -11,6 +11,19 @@
 <!ATTLIST documentRoot
 	path CDATA #REQUIRED
 >
+
+
+<!ELEMENT LogFile EMPTY>
+<!ATTLIST LogFile
+	path CDATA #REQUIRED
+>
+
+
+<!ELEMENT DebugFile EMPTY>
+<!ATTLIST DebugFile
+	path CDATA #REQUIRED
+>
+
 
 
 <!ELEMENT ports (port*)>
