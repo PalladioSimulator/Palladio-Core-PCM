@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Editor.Plugins.Sta
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncfusion.Diagram", "..\..\..\..\..\Programme\Syncfusion\Essential Suite\2.1.0.9\Diagram\Src\Syncfusion.Diagram.csproj", "{7B014FBB-61CA-4CB6-86A4-9C23211EA303}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncfusion.Diagram", "..\..\MatthiasCD\Diagram\Src\Syncfusion.Diagram.csproj", "{7B014FBB-61CA-4CB6-86A4-9C23211EA303}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -60,6 +60,7 @@ Global
 		{1D295EE3-C836-41EF-8793-E693D9A9E8BF}.Release-XML.ActiveCfg = Release|.NET
 		{1D295EE3-C836-41EF-8793-E693D9A9E8BF}.Release-XML.Build.0 = Release|.NET
 		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Debug.ActiveCfg = Debug|.NET
+		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Debug.Build.0 = Debug|.NET
 		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Debug-XML.ActiveCfg = Debug-XML|.NET
 		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Debug-XML.Build.0 = Debug-XML|.NET
 		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Release.ActiveCfg = Release|.NET

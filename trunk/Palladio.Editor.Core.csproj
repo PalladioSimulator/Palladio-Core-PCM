@@ -108,49 +108,49 @@
                     Name = "SandDock"
                     AssemblyName = "SandDock"
                     HintPath = "bin\Assemblies\SandDock.dll"
-                    Private = "False"
+                    Private = "True"
                 />
                 <Reference
                     Name = "SandBar"
                     AssemblyName = "SandBar"
                     HintPath = "bin\Assemblies\SandBar.dll"
-                    Private = "False"
+                    Private = "True"
                 />
                 <Reference
                     Name = "ReflectionBasedVisitor"
                     AssemblyName = "ReflectionBasedVisitor"
                     HintPath = "bin\Assemblies\ReflectionBasedVisitor.dll"
-                    Private = "False"
+                    Private = "True"
                 />
                 <Reference
                     Name = "Palladio.Attributes"
                     AssemblyName = "Palladio.Attributes"
                     HintPath = "bin\Assemblies\Palladio.Attributes.dll"
-                    Private = "False"
+                    Private = "True"
                 />
                 <Reference
                     Name = "Palladio.ComponentModel"
                     AssemblyName = "Palladio.ComponentModel"
                     HintPath = "bin\Assemblies\Palladio.ComponentModel.dll"
-                    Private = "False"
+                    Private = "True"
                 />
                 <Reference
                     Name = "Palladio.Identifier"
                     AssemblyName = "Palladio.Identifier"
                     HintPath = "bin\Assemblies\Palladio.Identifier.dll"
-                    Private = "False"
+                    Private = "True"
                 />
                 <Reference
                     Name = "log4net"
                     AssemblyName = "log4net"
                     HintPath = "bin\Assemblies\log4net.dll"
-                    Private = "False"
+                    Private = "True"
                 />
                 <Reference
                     Name = "Palladio.FiniteStateMachines"
                     AssemblyName = "Palladio.FiniteStateMachines"
                     HintPath = "bin\Assemblies\Palladio.FiniteStateMachines.dll"
-                    Private = "False"
+                    Private = "True"
                 />
             </References>
         </Build>
@@ -197,7 +197,31 @@
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
-                <Folder RelPath = "src\Agents\AnalyzeCoordinator\" />
+                <File
+                    RelPath = "src\Agents\AnalyzeCoordinator\Control.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\AnalyzeCoordinator\IAbstractionAdapter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\AnalyzeCoordinator\Presentation\AnalysesControlForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\AnalyzeCoordinator\Presentation\AnalysesControlForm.resx"
+                    DependentUpon = "AnalysesControlForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\Agents\AnalyzeCoordinator\Presentation\Facade.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
                 <Folder RelPath = "src\Agents\ExportCoordinator\" />
                 <Folder RelPath = "src\Agents\ImportCoordinator\" />
                 <File
@@ -211,7 +235,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Agents\PluginCoordinator\Abstraction\Abstraction.cs"
+                    RelPath = "src\Agents\PluginCoordinator\IPresentationAdapter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\PluginCoordinator\Abstraction\Facade.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -292,6 +321,11 @@
                 />
                 <File
                     RelPath = "src\Agents\ViewCoordinator\Control.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Interfaces\IAnalyzeCoordinator.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
