@@ -291,7 +291,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\ComponentModelException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\ComponentNotFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\FSMNotProtocolAutomatonException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
