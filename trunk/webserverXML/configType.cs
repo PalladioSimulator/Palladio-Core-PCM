@@ -42,6 +42,13 @@ namespace WebserverXML
 				InternalAdjustPrefix(DOMNode, false);
 			}
 
+			for (int i = 0; i < DomChildCount(NodeType.Element, "", "ListenIP"); i++)
+			{
+				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "ListenIP", i);
+				InternalAdjustPrefix(DOMNode, false);
+				new ListenIPType(DOMNode).AdjustPrefix();
+			}
+
 			for (int i = 0; i < DomChildCount(NodeType.Element, "", "DocumentRoot"); i++)
 			{
 				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "DocumentRoot", i);
@@ -385,6 +392,156 @@ namespace WebserverXML
     	}
 
         #endregion // xsi_noNamespaceSchemaLocation collection
+
+		#region ListenIP accessor methods
+		public int GetListenIPMinCount()
+		{
+			return 1;
+		}
+
+		public int ListenIPMinCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetListenIPMaxCount()
+		{
+			return 1;
+		}
+
+		public int ListenIPMaxCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetListenIPCount()
+		{
+			return DomChildCount(NodeType.Element, "", "ListenIP");
+		}
+
+		public int ListenIPCount
+		{
+			get
+			{
+				return DomChildCount(NodeType.Element, "", "ListenIP");
+			}
+		}
+
+		public bool HasListenIP()
+		{
+			return HasDomChild(NodeType.Element, "", "ListenIP");
+		}
+
+		public ListenIPType GetListenIPAt(int index)
+		{
+			return new ListenIPType(GetDomChildAt(NodeType.Element, "", "ListenIP", index));
+		}
+
+		public ListenIPType GetListenIP()
+		{
+			return GetListenIPAt(0);
+		}
+
+		public ListenIPType ListenIP
+		{
+			get
+			{
+				return GetListenIPAt(0);
+			}
+		}
+
+		public void RemoveListenIPAt(int index)
+		{
+			RemoveDomChildAt(NodeType.Element, "", "ListenIP", index);
+		}
+
+		public void RemoveListenIP()
+		{
+			while (HasListenIP())
+				RemoveListenIPAt(0);
+		}
+
+		public void AddListenIP(ListenIPType newValue)
+		{
+			AppendDomElement("", "ListenIP", newValue);
+		}
+
+		public void InsertListenIPAt(ListenIPType newValue, int index)
+		{
+			InsertDomElementAt("", "ListenIP", index, newValue);
+		}
+
+		public void ReplaceListenIPAt(ListenIPType newValue, int index)
+		{
+			ReplaceDomElementAt("", "ListenIP", index, newValue);
+		}
+		#endregion // ListenIP accessor methods
+
+		#region ListenIP collection
+        public ListenIPCollection	MyListenIPs = new ListenIPCollection( );
+
+        public class ListenIPCollection: IEnumerable
+        {
+            ConfigType parent;
+            public ConfigType Parent
+			{
+				set
+				{
+					parent = value;
+				}
+			}
+			public ListenIPEnumerator GetEnumerator() 
+			{
+				return new ListenIPEnumerator(parent);
+			}
+		
+			IEnumerator IEnumerable.GetEnumerator() 
+			{
+				return GetEnumerator();
+			}
+        }
+
+        public class ListenIPEnumerator: IEnumerator 
+        {
+			int nIndex;
+			ConfigType parent;
+			public ListenIPEnumerator(ConfigType par) 
+			{
+				parent = par;
+				nIndex = -1;
+			}
+			public void Reset() 
+			{
+				nIndex = -1;
+			}
+			public bool MoveNext() 
+			{
+				nIndex++;
+				return(nIndex < parent.ListenIPCount );
+			}
+			public ListenIPType  Current 
+			{
+				get 
+				{
+					return(parent.GetListenIPAt(nIndex));
+				}
+			}
+			object IEnumerator.Current 
+			{
+				get 
+				{
+					return(Current);
+				}
+			}
+    	}
+
+        #endregion // ListenIP collection
 
 		#region DocumentRoot accessor methods
 		public int GetDocumentRootMinCount()
@@ -1290,6 +1447,7 @@ namespace WebserverXML
         {
             Myxmlns_xsis.Parent = this; 
             Myxsi_noNamespaceSchemaLocations.Parent = this; 
+            MyListenIPs.Parent = this; 
             MyDocumentRoots.Parent = this; 
             MyLogFiles.Parent = this; 
             MyDebugFiles.Parent = this; 

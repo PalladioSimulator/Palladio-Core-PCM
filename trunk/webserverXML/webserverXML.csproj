@@ -3,7 +3,7 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{E6A552D1-37B9-2F43-9681-8DF6D0DFC1CE}"
+        ProjectGuid = "{8B5100D3-728D-D440-B1A5-6B57DA7F74CC}"
     >
         <Build>
             <Settings
@@ -125,6 +125,11 @@
                 />
                 <File
                     RelPath = "FileNameType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ListenIPType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

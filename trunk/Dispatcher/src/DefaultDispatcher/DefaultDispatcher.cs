@@ -21,6 +21,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2004/11/14 10:55:51  kelsaka
+	/// Completed listening on IP-Addresses. Now the IP the server is listening on defineable in the WebserverXML.xml. Pay attention that there might be some problems with the project-name of WebserverXML as XMLSpy sometimes produces lower-case-versions that cause problems on windows-systems.
+	///
 	/// Revision 1.13  2004/11/14 10:35:32  kelsaka
 	/// fixed bad aborting of tcpListening-Threads, now for each thread the abort-method is called first.
 	///
@@ -66,12 +69,6 @@ namespace Palladio.Webserver.Dispatcher
 	/// </remarks>
 	public class DefaultDispatcher : IDispatcher
 	{
-		/// <summary>
-		/// The local IP-address the server is listening on. As the server (at least the dispatcher) usually runs on a
-		/// single machine, first 127.0.0.1 is used. 
-		/// </summary>
-		private const string LOCAL_IP_ADDRESS = "10.10.20.12"; //"127.0.0.1";
-
 
 		private IRequestParser requestParser;
 		private IWebserverMonitor webserverMonitor;
@@ -110,7 +107,7 @@ namespace Palladio.Webserver.Dispatcher
 			webserverMonitor.WriteLogEntry("----------------------------");
 			webserverMonitor.WriteLogEntry("Webserver-Dispatcher started.");
 
-			IPAddress adress = IPAddress.Parse(LOCAL_IP_ADDRESS);
+			IPAddress adress = IPAddress.Parse(webserverConfiguration.ListenIP);
 			int portsCount = webserverConfiguration.ListeningPorts.Length;
 			serverThread = new Thread[portsCount];
 
@@ -123,7 +120,7 @@ namespace Palladio.Webserver.Dispatcher
 					
 					tcpListener = new TcpListener(adress, port);
 					tcpListener.Start();
-					webserverMonitor.WriteLogEntry("Listening (" + LOCAL_IP_ADDRESS + "; TCP) on port: " + port);
+					webserverMonitor.WriteLogEntry("Listening (" + webserverConfiguration.ListenIP + "; TCP) on port: " + port);
 					
 					ListeningThread listeningThread = new ListeningThread(requestParser, webserverMonitor,
 						webserverConfiguration, port, tcpListener);
