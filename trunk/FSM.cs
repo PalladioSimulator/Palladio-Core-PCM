@@ -231,7 +231,9 @@ namespace FSM
 			Hashtable tmp = new Hashtable();
 			Object help = this.transitions[state];
 			if(help == null)
-				throw new InvalidStateException();
+				//before a Exception was thrown here, but I changed this, because fir further implemetation
+				//it'S better to have a null, instad of catch a Exception.
+				return null;
 			if(help is Set)
 			{
 				Set s = (Set) help;

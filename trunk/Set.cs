@@ -66,7 +66,6 @@ namespace FSM
 			
 			this.data = new Hashtable();
 			this.enumerator = this.data.GetEnumerator();
-
 		}
 
 		/// <summary>
