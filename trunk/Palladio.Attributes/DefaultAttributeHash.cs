@@ -13,6 +13,9 @@ namespace Palladio.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/05 14:30:39  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.1  2005/04/05 14:20:12  joemal
 	/// initial class creation
 	///
@@ -85,7 +88,7 @@ namespace Palladio.Attributes
 		{
 			get
 			{
-				return (IAttribute) hashtable[type];
+				return (IAttribute) ((ICloneable)hashtable[type]).Clone();
 			}
 		}
 
