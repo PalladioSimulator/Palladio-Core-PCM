@@ -1,5 +1,5 @@
 Microsoft Visual Studio Solution File, Format Version 8.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.FiniteStateMachine", "Palladio.FiniteStateMachine.csproj", "{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.FiniteStateMachines", "Palladio.FiniteStateMachines.csproj", "{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
