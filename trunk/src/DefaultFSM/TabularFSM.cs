@@ -13,6 +13,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2004/05/13 15:03:46  sliver
+	/// IMatchable Interface added
+	///
 	/// Revision 1.13  2004/05/12 14:11:39  sbecker
 	/// Added CVS log
 	///
@@ -187,7 +190,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			}
 		}
 
-		public void AddTransition(string aSourceID, string anInputID, string aDestinationID)
+		public void AddTransition(string aSourceID, IMatchable anInputID, string aDestinationID)
 		{
 			ITransition trans = new DefaultTransition( GetState(aSourceID), GetInput(anInputID), GetState(aDestinationID) );
 			AddTransitions(trans);
@@ -279,7 +282,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			throw new NoStateWithIDException(aStateID);
 		}
 
-		public IInput GetInput(string anInputID)
+		public IInput GetInput(IMatchable anInputID)
 		{
 			if (inputAlphabet.Contains(anInputID))
 				return (IInput)inputAlphabet[anInputID];

@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/05/13 15:03:46  sliver
+	/// IMatchable Interface added
+	///
 	/// Revision 1.2  2004/05/12 12:57:11  sbecker
 	/// Added documentation and CVS log
 	///
@@ -20,12 +23,12 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// </remarks>
 	internal class DefaultInput : IInput
 	{
-		protected string id;
+		protected IMatchable id;
 
 		/// <summary>
 		/// A label for this input. Here implemented as Payload.ToString().
 		/// </summary>
-		public string ID
+		public IMatchable ID
 		{
 			get
 			{
@@ -37,7 +40,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// The default constuctor.
 		/// </summary>
 		/// <param name="anID">ID of the input symbol</param>
-		public DefaultInput(string anID) 
+		public DefaultInput(IMatchable anID) 
 		{
 			this.id = anID;
 		}
@@ -71,7 +74,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// <returns>The label of this input symbol</returns>
 		public override string ToString()
 		{
-			return id;
+			return id.ToString();
 		}
 
 	}

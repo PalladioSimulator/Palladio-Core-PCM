@@ -10,6 +10,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/05/13 15:03:46  sliver
+	/// IMatchable Interface added
+	///
 	/// Revision 1.2  2004/05/12 13:40:19  sbecker
 	/// Added documentation and CVS log
 	///
@@ -21,6 +24,6 @@ namespace Palladio.FiniteStateMachines
 		/// <summary>
 		/// The ID of the input symbol used for a certain transition
 		/// </summary>
-		string ID { get; }
+		IMatchable ID { get; }
 	}
 }

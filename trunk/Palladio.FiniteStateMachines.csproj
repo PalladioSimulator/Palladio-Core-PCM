@@ -127,6 +127,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IMatchable.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\InputSymbolHash.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -168,6 +173,11 @@
                 />
                 <File
                     RelPath = "src\DefaultFSM\DefaultTransition.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\DefaultFSM\MatchableString.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

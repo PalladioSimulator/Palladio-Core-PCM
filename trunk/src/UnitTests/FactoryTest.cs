@@ -3,6 +3,7 @@ using System.Collections;
 using System.Reflection;
 using NUnit.Framework;
 using Palladio.Utils.Collections;
+using Palladio.FiniteStateMachines.DefaultFSM;
 using Palladio.FiniteStateMachines.Exceptions;
 
 namespace Palladio.FiniteStateMachines.UnitTests
@@ -14,6 +15,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2004/05/13 15:03:46  sliver
+	/// IMatchable Interface added
+	///
 	/// Revision 1.15  2004/05/12 13:33:45  sliver
 	/// Comments for the exceptions added
 	///
@@ -287,12 +291,12 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			InputSymbolHash newSymbols = FSMFactory.CreateInputFromList("d","e");
 			fsm.AddInputSymbols(newSymbols.StoredInputs);
 			Assert.IsTrue(fsm.InputAlphabet.Length == 6);
-			Assert.IsTrue(Array.IndexOf(fsm.InputAlphabet,newSymbols["d"]) >= 0);
-			Assert.IsTrue(Array.IndexOf(fsm.InputAlphabet,newSymbols["e"]) >= 0);
+			Assert.IsTrue(Array.IndexOf(fsm.InputAlphabet,newSymbols[(MatchableString)"d"]) >= 0);
+			Assert.IsTrue(Array.IndexOf(fsm.InputAlphabet,newSymbols[(MatchableString)"e"]) >= 0);
 			fsm.AddInputSymbols(newSymbols.StoredInputs);
 			Assert.IsTrue(fsm.InputAlphabet.Length == 6);
-			Assert.IsTrue(Array.IndexOf(fsm.InputAlphabet,newSymbols["d"]) >= 0);
-			Assert.IsTrue(Array.IndexOf(fsm.InputAlphabet,newSymbols["e"]) >= 0);
+			Assert.IsTrue(Array.IndexOf(fsm.InputAlphabet,newSymbols[(MatchableString)"d"]) >= 0);
+			Assert.IsTrue(Array.IndexOf(fsm.InputAlphabet,newSymbols[(MatchableString)"e"]) >= 0);
 		}
 
 		[Test]public void GetOutgoingTransitions()
@@ -338,16 +342,16 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		[Test]public void GetInput()
 		{
 			IEditableFiniteStateMachine fsm = BuildExampleFSM();
-			Assert.AreEqual(FSMFactory.CreateDefaultInput("eps"),fsm.GetInput("eps"));
-			fsm.GetInput("not here");
+			Assert.AreEqual(FSMFactory.CreateDefaultInput("eps"),fsm.GetInput((MatchableString)"eps"));
+			fsm.GetInput((MatchableString)"not here");
 		}
 
 		[Test]public void AddTransition()
 		{
 			IEditableFiniteStateMachine fsm = BuildExampleFSM();
-			fsm.AddTransition("1","c","3");
+			fsm.AddTransition("1",(MatchableString)"c","3");
 			Assert.IsTrue(fsm.Transitions.Length == 5);
-			Assert.AreEqual( fsm.GetNextState( fsm.GetState("1"), fsm.GetInput("c") ), fsm.GetState("3"));
+			Assert.AreEqual( fsm.GetNextState( fsm.GetState("1"), fsm.GetInput((MatchableString)"c") ), fsm.GetState("3"));
 		}
 		
 		[Test]public void Clean()
@@ -355,8 +359,8 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			IEditableFiniteStateMachine fsm = BuildExampleFSM();
 			fsm.AddStates( FSMFactory.CreateStatesFromList("4","5").StoredStates );
 			Assert.IsTrue( fsm.GetReachableStates(fsm.StartState).Length == 3 );
-			fsm.AddTransition("4","b","5");
-			fsm.AddTransition("4","c","3");
+			fsm.AddTransition("4",(MatchableString)"b","5");
+			fsm.AddTransition("4",(MatchableString)"c","3");
 			fsm.Clean();
 			Assert.IsTrue( fsm.States.Length == 3 );
 			Assert.IsTrue( fsm.Transitions.Length == 4 );

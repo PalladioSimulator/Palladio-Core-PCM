@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Palladio.FiniteStateMachines.DefaultFSM;
 
 namespace Palladio.FiniteStateMachines
 {
@@ -29,6 +30,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/05/13 15:03:46  sliver
+	/// IMatchable Interface added
+	///
 	/// Revision 1.4  2004/05/12 13:28:04  sbecker
 	/// Added documentation and CVS log
 	///
@@ -52,11 +56,22 @@ namespace Palladio.FiniteStateMachines
 		/// <summary>
 		/// Get the input symbol with the given ID
 		/// </summary>
-		public IInput this[object key]
+		public IInput this[IMatchable key]
 		{
 			get
 			{
 				return (IInput)inputHash[key];
+			}
+		}
+
+		/// <summary>
+		/// Get the input symbol with the given ID
+		/// </summary>
+		public IInput this[string key]
+		{
+			get
+			{
+				return (IInput)inputHash[ new MatchableString(key) ];
 			}
 		}
 

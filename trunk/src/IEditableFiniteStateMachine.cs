@@ -13,6 +13,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/05/13 15:03:46  sliver
+	/// IMatchable Interface added
+	///
 	/// Revision 1.4  2004/05/12 14:12:24  sliver
 	/// Comments reviewed.
 	///
@@ -53,7 +56,7 @@ namespace Palladio.FiniteStateMachines
 		/// <param name="aSourceID">ID of the SourceState.</param>
 		/// <param name="anInputID">ID of the InputSymbol.</param>
 		/// <param name="aDestinationID">ID of the DestinationState.</param>
-		void AddTransition(string aSourceID, string anInputID, string aDestinationID);
+		void AddTransition(string aSourceID, IMatchable anInputID, string aDestinationID);
 		
 		/// <summary>
 		///     Add a list of transitions to the automaton.
@@ -113,7 +116,7 @@ namespace Palladio.FiniteStateMachines
 		/// </summary>
 		/// <param name="anID">ID of an input symbol of the FSM.</param>
 		/// <returns>The input symbol with the ID anID.</returns>
-		IInput GetInput(string anID);
+		IInput GetInput(IMatchable anID);
 
 		/// <summary>
 		/// Removes all unreachable states and transitions from the FSM.

@@ -16,6 +16,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2004/05/13 15:03:46  sliver
+	/// IMatchable Interface added
+	///
 	/// Revision 1.6  2004/05/12 14:12:24  sliver
 	/// Comments reviewed.
 	///
@@ -87,7 +90,7 @@ namespace Palladio.FiniteStateMachines
 		/// <returns>The created input symbol</returns>
 		public static IInput CreateDefaultInput(string anID)
 		{
-			return new DefaultInput(anID);
+			return new DefaultInput(new MatchableString( anID ));
 		}
 
 		/// <summary>
