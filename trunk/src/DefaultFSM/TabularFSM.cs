@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Xml;
 using System.Xml.XPath;
-using System.Collections;
 using Utils.Collections;
 using Palladio.FiniteStateMachines;
 using Palladio.FiniteStateMachines.Exceptions;
@@ -239,7 +238,10 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			foreach (IInput i in anInputSymbolList)
 			{
 				if (inputAlphabet.Contains(i))
-					inputAlphabet.Remove(i);
+					if (InputDeletionAllowed(i))
+						inputAlphabet.Remove(i);
+					else
+						throw new InputDeletionNotAllowedException(i);
 				else
 					throw new InputNotFoundException(i);
 			}
@@ -249,6 +251,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		{
 			return new TabularFSM(this);
 		}
+
 
 		private void AddToTransTable(ITransition aTrans)
 		{
@@ -328,6 +331,19 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			return true;
 		}
 			
+		private bool InputDeletionAllowed(IInput anInput)
+		{
+			foreach (DictionaryEntry e in transitionTable)
+			{
+				Hashtable inputTable = (Hashtable)e.Value;
+				IList transList = (IList)inputTable[anInput];
+				if ((transList != null) && (transList.Count > 0))
+				{
+					return false;
+				}
+			}
+			return true;
+		}
 
 		#endregion
 

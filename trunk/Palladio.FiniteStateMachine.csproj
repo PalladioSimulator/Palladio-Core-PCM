@@ -181,6 +181,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\InputDeletionNotAllowed.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\InputNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
