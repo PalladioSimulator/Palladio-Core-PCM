@@ -161,7 +161,32 @@ Zum Hinzufügen von neuen Zeitverbrauchern, genügt es, ein Set zu schreiben, welc
 
 \subsubsection{Erstellung des Modells der Architektur}
 \label{sec:entwurf:fein:model}
-%Basis ist CM von Palladio; Builder und die Architektur, Observer der Builder
+
+Grundsätzlich gibt es in der Komponentenarchitektur, welche das Framework unterstützt, drei vom Anwender zu füllende Bestandteile:
+
+\begin{itemize}
+\listitem{Basiskomponenten} Bei Basiskomponenten handelt es sich um Komponenten, die ausschließlich Dienste enthalten. Das bedeutet, dass beim Aufbau dieser Komponenten Angebots- und Bedarfsschnittstellen und die Dienste selber mit ihrer Signatur hinzugefügt werden müssen.
+
+\listitem{Zusammengesetzte Komponenten} Die zusammengesetzten Komponenten enthalten selber keine Dienste sondern ausschließlich andere möglicherweise miteinander verbundene Komponenten. Zu ihrem Aufbau müssen also Möglichkeiten bestehen, andere Komponenten (Basis als auch zusammengesetzt) hinzuzufügen und zu verbinden. Weiterhin müssen auch hier Angebots- und Bedarfsschnittstellen definierbar sein, damit Dienste der inneren Komponenten nach außen geführt werden können.
+
+\listitem{Dienste} Zum Aufbau von Diensten muss die Erstellung der Dienstbedarfsautomaten mit Zuständen und Transitionen möglich sein.
+
+\end{itemize}
+
+Der Aufbau der Komponenten und der Dienste wurde im Framework unter Verwendung des Erbauer-Entwurfsmusters (Builder-Pattern) \cite{lit:gof} umgesetzt um die interne Repräsentation der Komponenten und Dienste vom Aufbau zu entkoppeln. Es existiert für jede der beiden Komponententypen und für die Dienste jeweils ein Builder, welcher die Methoden zum Aufbau zur Verfügung stellt. Die Interfaces der einzelnen Builder sind der Abbildung \ref{pic:builders} zu entnehmen.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=13cm]{../res/builders.png}
+\caption{Builder zum Erstellung der Architektur}
+\label{pic:builders}
+\end{center}
+\end{figure}
+
+In der hier umgesetzten Variante des Musters wird der Erbauer selber nicht von außerhalb des Frameworks instanziert. Dies geschieht beim Hinzufügen einer Komponente. Soll beispielsweise ein Dienst zu einer Basiskomponente hinzugefügt werden, wird deren Methode \quellcode{AddService()} aufgerufen. Dieser Aufruf führt dazu, dass der internen Repräsentation der Komponente ein Dienst hinzugefügt und ein Erbauer erstellt wird, welcher für das Füllen des Dienstes zuständig ist. Dieser wird nach verlassen der Methode zurückgegeben. Da sich hierbei der Aufbau der Architektur von außen nach innen gestaltet, bleibt die Frage nach dem Anfang offen. Den Anfang einer Komponentenarchitektur bildet entweder eine zusammengesetzte oder eine Basiskomponente. Zum Erstellen dieser Komponente enthält das Hauptinterface des Modellteils (\quellcode{IComponentArchitecture}) die beiden Methoden \quellcode{CreateBasicRootComponent(...)} und \quellcode{CreateCompositeRootComponent(...)}, welche den jeweiligen Erbauer zu der Komponente zurückgeben.
+\par
+
+Um den Aufbau der Architektur überwachbar zu gestalten, kann beim Hinzufügen einer Komponente oder eines Dienstes ein Überwacher registriert werden, der bei Änderungen an der Komponente oder dem Dienst benachrichtigt wird. Es handelt sich bei diesem Konstrukt um die Umsetzung des Beobachter-Musters (Observer-Pattern) aus \cite{lit:gof}. Der Zusammenhang zwischen den Erbauern und den Überwachern ist in Abbildung \ref{pic:builders} dargestellt.
 
 \subsubsection{Simulationsthreads, Scheduler und Clock}
 \label{sec:entwurf:fein:sim}
