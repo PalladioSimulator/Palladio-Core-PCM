@@ -1,0 +1,64 @@
+<project SchemaVersion="1.3">
+    <assemblies>
+        <assembly location="..\Webserver\..\RequestProcessor\bin\Debug\RequestProcessor.dll" documentation="..\Webserver\..\RequestProcessor\doc.xml" />
+        <assembly location="..\Webserver\..\TimeConsumingProcessor\bin\Debug\TimeConsumingProcessor.dll" documentation="..\Webserver\..\TimeConsumingProcessor\doc.xml" />
+        <assembly location="..\Webserver\..\WebserverMonitor\bin\Debug\WebserverMonitor.dll" documentation="..\Webserver\..\WebserverMonitor\doc.xml" />
+        <assembly location="..\Webserver\..\Dispatcher\bin\Debug\Dispatcher.dll" documentation="..\Webserver\..\Dispatcher\doc.xml" />
+        <assembly location="..\Webserver\..\RequestParser\bin\Debug\RequestParser.dll" documentation="..\Webserver\..\RequestParser\doc.xml" />
+        <assembly location="..\Webserver\..\HTTPRequestParser\bin\Debug\HTTPRequestParser.dll" documentation="..\Webserver\..\HTTPRequestParser\doc.xml" />
+        <assembly location="..\Webserver\..\StaticFileProvider\bin\Debug\StaticFileProvider.dll" documentation="..\Webserver\..\StaticFileProvider\doc.xml" />
+        <assembly location="..\Webserver\..\Altova\bin\Debug\Altova.dll" documentation="..\Webserver\..\Altova\doc.xml" />
+        <assembly location="..\Webserver\..\webserverXML\bin\Debug\WebserverXML.dll" documentation="..\Webserver\..\webserverXML\doc.xml" />
+        <assembly location="..\Webserver\..\SimpleTemplateFileProviderXML\bin\Debug\SimpleTemplateFileProviderXML.dll" documentation="..\Webserver\..\SimpleTemplateFileProviderXML\doc.xml" />
+        <assembly location="..\Webserver\..\BibTeXProvider\bin\Debug\BibTeXProvider.dll" documentation="..\Webserver\..\BibTeXProvider\doc.xml" />
+        <assembly location="..\Webserver\..\AltovaXML\bin\Debug\Altova.XML.dll" documentation="..\Webserver\..\AltovaXML\doc.xml" />
+        <assembly location="..\Webserver\..\FTPRequestParser\bin\Debug\FTPRequestParser.dll" documentation="..\Webserver\..\FTPRequestParser\doc.xml" />
+        <assembly location="..\Webserver\bin\Debug\Webserver.exe" documentation="..\Webserver\doc.xml" />
+        <assembly location="..\Webserver\..\BibTeXProviderXML\bin\Debug\BibTeXProviderXML.dll" documentation="..\Webserver\..\BibTeXProviderXML\doc.xml" />
+        <assembly location="..\Webserver\..\ConfigReader\bin\Debug\ConfigReader.dll" documentation="..\Webserver\..\ConfigReader\doc.xml" />
+        <assembly location="..\Webserver\..\HTTPRequestProcessor\bin\Debug\HTTPRequestProcessor.dll" documentation="..\Webserver\..\HTTPRequestProcessor\doc.xml" />
+        <assembly location="..\Webserver\..\SimpleTemplateFileProvider\bin\Debug\SimpleTemplateFileProvider.dll" documentation="..\Webserver\..\SimpleTemplateFileProvider\doc.xml" />
+        <assembly location="..\Webserver\..\Request\bin\Debug\Request.dll" documentation="..\Webserver\..\Request\doc.xml" />
+        <assembly location="..\Webserver\..\WebserverFactory\bin\Debug\WebserverFactory.dll" documentation="..\Webserver\..\WebserverFactory\doc.xml" />
+        <assembly location="..\Webserver\..\TimeConsumingProcessorXML\bin\Debug\TimeConsumingProcessorXML.dll" documentation="..\Webserver\..\TimeConsumingProcessorXML\doc.xml" />
+        <assembly location="..\Webserver\..\FTPRequestProcessor\bin\Debug\FTPRequestProcessor.dll" documentation="..\Webserver\..\FTPRequestProcessor\doc.xml" />
+        <assembly location="..\Webserver\..\DynamicFileProvider\bin\Debug\DynamicFileProvider.dll" documentation="..\Webserver\..\DynamicFileProvider\doc.xml" />
+    </assemblies>
+    <documenters>
+        <documenter name="JavaDoc">
+            <property name="OutputDirectory" value=".\doc\" />
+        </documenter>
+        <documenter name="LaTeX">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="TextFileFullName" value="Documentation.tex" />
+            <property name="TexFileBaseName" value="Documentation" />
+            <property name="LatexCompiler" value="latex" />
+            <property name="TexFileFullPath" value=".\doc\Documentation.tex" />
+        </documenter>
+        <documenter name="LinearHtml">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="Title" value="An NDoc Documented Class Library" />
+        </documenter>
+        <documenter name="MSDN">
+            <property name="OutputDirectory" value=".\NDOC\" />
+            <property name="HtmlHelpName" value="Documentation" />
+            <property name="Title" value="Palladio.Webserver" />
+            <property name="OutputTarget" value="HtmlHelp" />
+            <property name="DocumentPrivates" value="True" />
+            <property name="CopyrightText" value="Palladio" />
+            <property name="CopyrightHref" value="http://se.informatik.uni-oldenburg.de/palladio" />
+        </documenter>
+        <documenter name="MSDN 2003">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="Title" value="An NDoc Documented Class Library" />
+        </documenter>
+        <documenter name="VS.NET 2003">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="HtmlHelpName" value="Documentation" />
+            <property name="Title" value="An NDoc documented library" />
+        </documenter>
+        <documenter name="XML">
+            <property name="OutputFile" value=".\doc\doc.xml" />
+        </documenter>
+    </documenters>
+</project>

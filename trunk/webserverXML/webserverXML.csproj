@@ -29,7 +29,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = ""
+                    DocumentationFile = "doc.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "true"
@@ -99,11 +99,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "WebserverXMLDoc.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "ConfigType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -139,12 +134,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "MimeTypesType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "MimeTypeType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "MimeTypesType.cs"
+                    RelPath = "PortsType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -154,7 +154,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "PortsType.cs"
+                    RelPath = "WebserverXMLDoc.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

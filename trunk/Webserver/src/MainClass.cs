@@ -15,6 +15,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/02/27 17:51:53  kelsaka
+	/// Added NDoc-Support (doc.xml-files are generated)
+	///
 	/// Revision 1.3  2005/01/22 16:42:56  kelsaka
 	/// added configureable (XML) connection-string for the database;
 	/// added thread-name for the main thread;
@@ -37,8 +40,8 @@ namespace Palladio.Webserver
 		/// Main webserver-application start.
 		/// </summary>
 		/// <param name="args">
-		/// First position: path to the config-files, including last backspace.</br>
-		/// Second position: configuration-number</br>
+		/// First position: path to the config-files, including last backspace.<br />
+		/// Second position: configuration-number<br />>
 		/// Example-usage: Webserver "..\..\..\Config\" 1</param>
 		public static void Main(string[] args)
 		{

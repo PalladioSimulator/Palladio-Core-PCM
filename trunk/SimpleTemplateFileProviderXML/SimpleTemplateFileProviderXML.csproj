@@ -29,7 +29,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = ""
+                    DocumentationFile = "doc.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "true"
@@ -99,11 +99,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "SimpleTemplateFileProviderXMLDoc.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "ConfigType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -115,6 +110,11 @@
                 />
                 <File
                     RelPath = "HandledFileTypesType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "SimpleTemplateFileProviderXMLDoc.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
