@@ -124,6 +124,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IRequestHandler.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IRequestHandlerFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\DefaultDispatcher\DefaultDispatcher.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -134,7 +144,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\DefaultDispatcher\DefaultRequestHandlerFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\DefaultDispatcher\PortListener.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\DefaultDispatcher\RequestHandler.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

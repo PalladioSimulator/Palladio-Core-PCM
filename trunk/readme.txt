@@ -21,7 +21,7 @@ Remark: If you are searching for a webserver for use in a productive context you
 ==== Folders: ====
 ==================
 - Webserver: Palladio.Webserver-solution and basic project
-- doc: some dokumentation (currently this folder contains an overview of the component-architecture of the webserver)
+- doc: some dokumentation (currently this folder contains an overview of the component-architecture of the webserver and a short description of the architecture.)
 - Config: XML-Configuration-Files
 - documents: HTML-Test-Files (contains as well test-data for the bibtex-component; see: .\documents\DBTestData\Bibtex.txt - this are comma-seperated test-entries for the database)
 - Libraries: Used libraries of the webserver
@@ -67,6 +67,10 @@ Feel free to customize the other xml-files as well. Each option is descripted/ex
 ==== Version-Logs: ====
 =======================
 $Log$
+Revision 1.6  2005/02/02 17:34:57  kelsaka
+Added multi-threading to handle requests.
+Added short architectural description.
+
 Revision 1.5  2005/01/07 08:26:38  kelsaka
 updated documentation; added installation guide
 

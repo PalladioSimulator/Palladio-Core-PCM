@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
@@ -15,6 +16,24 @@ namespace Palladio.Webserver.Dispatcher
 	/// </summary>
 	public class PortListener : IPortListener
 	{
+
+		/// <summary>
+		/// Stores the information about a running Thread.
+		/// This concerns the used Requesthandler and the thread
+		/// executing the ReqestHandler.
+		/// </summary>
+		private struct ThreadInfo
+		{
+			public IRequestHandler RequestHandler;
+			public Thread ExecutingThread;
+		}
+
+		/// <summary>
+		/// References on the started threads should be kept in this array to be able to shut down all threads using
+		/// the abort()-method.
+		/// </summary>
+		private ArrayList threadList;
+
 		private IRequestParser requestParser;
 		private IWebserverMonitor webserverMonitor;
 		private IWebserverConfiguration webserverConfiguration;
@@ -36,6 +55,7 @@ namespace Palladio.Webserver.Dispatcher
 			this.requestFactory = requestFactory;
 			this.address = address;
 			this.isRunning = true;
+			this.threadList = new ArrayList();
 		}
 
 		/// <summary>
@@ -79,10 +99,11 @@ namespace Palladio.Webserver.Dispatcher
 			tcpListener = new TcpListener(address, port);
 			tcpListener.Start();
 			webserverMonitor.WriteLogEntry("Listening (" + webserverConfiguration.ListenIP + "; TCP) on port: " + port);
-
 			webserverMonitor.WriteLogEntry("Dispatcher-Thread started. Waiting for client-requests...");
 
 			Socket clientSocket = null;
+			DefaultRequestHandlerFactory handlerFactory = new DefaultRequestHandlerFactory();
+
 			try
 			{
 
@@ -111,40 +132,33 @@ namespace Palladio.Webserver.Dispatcher
 				{
 					// Blocked waiting for a connection
 					clientSocket = tcpListener.AcceptSocket();
+								
 
-					webserverMonitor.WriteLogEntry("___________________________________");
-					webserverMonitor.WriteLogEntry("### Getting new client-request (port " + port + "): ###");
-					webserverMonitor.WriteLogEntry("Socket Type: " + clientSocket.SocketType);
-
-					if (clientSocket.Connected)
-					{
-						webserverMonitor.WriteLogEntry("Client connected on IP: " + clientSocket.RemoteEndPoint);
-		
-						// set up request:
-						IRequest request = requestFactory.CreateRequest(webserverMonitor);						
-
-						// Create a NetworkStream from the socket, the whole connection can work on.
-						// "true" indicates that the socket is under control of the NetworkStream: 
-						request.NetworkStream = new NetworkStream(clientSocket, System.IO.FileAccess.ReadWrite, true);						
-						request.Port = port;
-						
-
-						// let the parser handle the request:
-						requestParser.HandleRequest(request);
+					// Execute the request handling on a seperate thread.
+					// As usually no blocking request is used, the threads terminate after 
+					ThreadInfo threadInfo = new ThreadInfo();
+					threadInfo.RequestHandler = handlerFactory.CreateRequestHandler(requestParser,
+						webserverMonitor, webserverConfiguration, port, clientSocket, requestFactory);	
+					threadInfo.ExecutingThread = new Thread(new ThreadStart(threadInfo.RequestHandler.HandleRequest));	
+					threadInfo.ExecutingThread.Name = "RequestHandlerThread, port " + port
+						+ ", Socket-RemoteEndPoint: " + clientSocket.RemoteEndPoint;
+					threadInfo.ExecutingThread.Start();
 
 
-						//clientSocket.Close();						
-						request.NetworkStream.Flush();
-						request.NetworkStream.Close();
-					}
+					// save reference to the ThreadInfo
+					threadList.Add(threadInfo);
 				}
 			}
 			// use finally here to ensure that the connection is closed 
 			// and the listener is stopped.
 			finally
 			{
-				//if (clientSocket != null)
-				//	clientSocket.Close();
+				// Stop all running RequestHandler-threads:
+				foreach (ThreadInfo threadInfo in threadList)
+				{
+					threadInfo.RequestHandler.Stop();
+					threadInfo.ExecutingThread.Abort();
+				}
 				
 				tcpListener.Stop();
 			}
