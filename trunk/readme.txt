@@ -24,6 +24,7 @@ Remark: If you are searching for a webserver for use in a productive environment
 - Config: XML-Configuration-Files
 - documents: HTML-Test-Files (contains as well test-data for the bibtex-component; see: .\documents\DBTestData\Bibtex.txt - this are comma-seperated test-entries for the database)
 - Libraries: Used libraries of the webserver
+- SimulataneousRequestClient: Simple GUI-Client to create HTTP-GET-Requests. This tools allows you to test simultaneous access from multiple clients to the webserver.
 - Altova: do not change, because this is generated code by XML-Spy
 - AltovaXML: do not change, because this is generated code by XML-Spy
 - [something]XML: do not change, because this is generated code by XML-Spy
@@ -66,6 +67,9 @@ Feel free to customize the other xml-files as well. Each option is descripted/ex
 ==== Version-Logs: ====
 =======================
 $Log$
+Revision 1.8  2005/02/27 16:10:55  kelsaka
+- Added description of the "SimulataneousRequestClient"
+
 Revision 1.7  2005/02/03 07:42:40  kelsaka
 Added method to adjust the size of the thread pool.
 
