@@ -4,7 +4,7 @@ using Palladio.FiniteStateMachines;
 
 using ComponentNetworkSimulation.Structure;
 
-namespace ComponentNetworkSimulation.Structure.Components
+namespace ComponentNetworkSimulation.Structure.Services
 {
 	/// <summary>
 	/// Zusammenfassung für AbstractTimeConsumingTransition.
@@ -49,6 +49,11 @@ namespace ComponentNetworkSimulation.Structure.Components
 		public LoggingType_t LoggingType
 		{
 			get { return this.param.LoggingType;}
+		}
+
+		public double Probability
+		{
+			get { return this.param.Probability;}
 		}
 
 		#endregion

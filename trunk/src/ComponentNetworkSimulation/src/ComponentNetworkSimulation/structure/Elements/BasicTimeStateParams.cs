@@ -1,7 +1,7 @@
 using System;
 using Palladio.FiniteStateMachines;
 
-namespace ComponentNetworkSimulation.Structure.Components
+namespace ComponentNetworkSimulation.Structure.Services
 {
 	/// <summary>
 	/// Zusammenfassung für StaticTimeStateParams.

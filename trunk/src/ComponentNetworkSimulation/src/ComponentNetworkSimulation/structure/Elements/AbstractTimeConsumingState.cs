@@ -2,7 +2,7 @@ using System;
 using ComponentNetworkSimulation.Structure;
 using Palladio.FiniteStateMachines;
 
-namespace ComponentNetworkSimulation.Structure.Components
+namespace ComponentNetworkSimulation.Structure.Services
 {
 	/// <summary>
 	/// Zusammenfassung für TimeConsumingState.
