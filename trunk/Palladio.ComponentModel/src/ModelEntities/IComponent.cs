@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.ModelEntities
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/05 14:24:00  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.1  2005/03/15 12:31:23  joemal
 	/// initial class creation
 	///
@@ -24,11 +27,6 @@ namespace Palladio.ComponentModel.ModelEntities
 		/// returns the typed id of the component
 		/// </summary>
 		IComponentIdentifier ComponentID {get;}
-
-		/// <summary>
-		/// set or get the name of the component
-		/// </summary>
-		string Name { get; set; }
 
 		/// <summary>
 		/// set or get the type of the component

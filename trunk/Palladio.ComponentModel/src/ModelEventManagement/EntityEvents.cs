@@ -1,3 +1,5 @@
+using Palladio.ComponentModel.ModelEntities;
+
 namespace Palladio.ComponentModel.ModelEventManagement
 {
 	/// <summary>
@@ -8,6 +10,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/05 14:23:59  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.1  2005/03/29 13:05:37  joemal
 	/// initial class creation
 	///
@@ -18,10 +23,14 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	public class EntityEvents
 	{
 		#region constructor
+
 		/// <summary>
-		/// no need to be used from outside of the assembly
+		/// called to create a new eventstructure for an entity
 		/// </summary>
-		internal EntityEvents(){}
+		internal EntityEvents(IComponentModelEntity entity)
+		{
+			entity.NameChangedEvent += new StaticAttributeChangedEventHandler(entity_NameChangedEvent);
+		}
 
 		#endregion
 
@@ -38,6 +47,16 @@ namespace Palladio.ComponentModel.ModelEventManagement
 				AttributeChangedEvent(sender, args);
 		}
 
+		/// <summary>
+		/// called to fire the event
+		/// </summary>
+		/// <param name="sender">the sender</param>
+		internal void NotifyNameChangedEvent(object sender)
+		{
+			if (NameChangedEvent != null)
+				NameChangedEvent(sender);
+		}
+
 		#endregion
 
 		#region events
@@ -46,6 +65,21 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// fired, when an attribute of the attribute hashtable has been changed
 		/// </summary>
 		public event AttributeChangedEventHandler AttributeChangedEvent;
+
+		/// <summary>
+		/// called when the name of the entity has been changed
+		/// </summary>
+		public event StaticAttributeChangedEventHandler NameChangedEvent;
+
+		#endregion
+
+		#region private methods
+
+		//called by the entity when the name has been changed
+		private void entity_NameChangedEvent(object sender)
+		{
+            NotifyNameChangedEvent(sender);
+		}
 
 		#endregion
 	}

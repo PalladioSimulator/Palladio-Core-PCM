@@ -10,6 +10,9 @@ namespace Palladio.ComponentModel.ModelEntities
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/05 14:23:59  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.2  2005/03/17 18:30:35  kelsaka
 	/// - added first builder-interfaces
 	///
@@ -27,14 +30,6 @@ namespace Palladio.ComponentModel.ModelEntities
 		/// returns the typed id of this connection
 		/// </summary>
 		IConnectionIdentifier ConnectionID
-		{
-			get;
-		}
-
-		/// <summary>
-		/// returns the Name of the connection
-		/// </summary>
-		string Name
 		{
 			get;
 		}

@@ -30,6 +30,11 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// defines the eventhandler, that is called, when an attribute in the attribute hashtable has been changed
 	/// </summary>
 	public delegate void AttributeChangedEventHandler(object sender, AttributeChangedEventArgs args);
+
+	/// <summary>
+	/// defines the eventhandler, that is called, when the name of the entity has been changed
+	/// </summary>
+	public delegate void StaticAttributeChangedEventHandler(object sender);
 	
 	/// <summary>
 	/// defines the eventhandler, that is called, when a delegates connector has been added to or removed from a 

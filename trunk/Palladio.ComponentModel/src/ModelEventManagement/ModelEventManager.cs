@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/05 14:23:59  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.3  2005/04/04 16:27:28  joemal
 	/// implement the rest of the notification
 	///
@@ -77,9 +80,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		{
 			ComponentEvents compEv;
 			if (component.Type == ComponentType.BASIC)
-				compEv = new BasicComponentEvents();
+				compEv = new BasicComponentEvents(component);
 			else
-				compEv = new CompositeComponentEvents();
+				compEv = new CompositeComponentEvents(component);
 
 			eventStructures.Add(component.ID,compEv);
 
@@ -113,7 +116,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="iface">the interface to be registered</param>
 		public void RegisterInterface(IInterface iface)
 		{
-			eventStructures.Add(iface.ID,new InterfaceEvents());
+			eventStructures.Add(iface.ID,new InterfaceEvents(iface));
 			this.staticViewEvents.NotifyInterfaceAdded(this,new InterfaceBuildEventArgs(iface));
 		}
 
@@ -168,7 +171,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <exception cref="EntityNotFoundException">the interface could not be found in cm.</exception>
 		public void RegisterSignature(ISignature signature, IInterfaceIdentifier ifaceID)
 		{
-			eventStructures.Add(signature.ID,new SignatureEvents());
+			eventStructures.Add(signature.ID,new SignatureEvents(signature));
 			this.GetInterfaceEvents(ifaceID).NotifySignatureAddedEvent(this,new SignatureBuildEventArgs(signature));
 		}
 
@@ -216,7 +219,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <exception cref="EntityNotFoundException">one of the entities could not be found.</exception>
 		public void RegisterRequiresDelegation(IConnection connection, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID, IComponentIdentifier outerCompID, IInterfaceIdentifier outerIFaceID)
 		{
-			this.eventStructures.Add(connection.ID,new ConnectionEvents());
+			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
 			this.GetCompositeComponentEvents(outerCompID).NotifyDelegationConnectorAdded(this,
 				new DelegationConnectorBuildEventArgs(connection,innerCompID,innerIFaceID,outerCompID,outerIFaceID,
 				InterfaceRole.REQUIRES));
@@ -233,7 +236,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <exception cref="EntityNotFoundException">one of the entities could not be found.</exception>
 		public void RegisterProvidesDelegation(IConnection connection, IComponentIdentifier outerCompID, IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{
-			this.eventStructures.Add(connection.ID,new ConnectionEvents());
+			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
 			this.GetCompositeComponentEvents(outerCompID).NotifyDelegationConnectorAdded(this,
 				new DelegationConnectorBuildEventArgs(connection,innerCompID,innerIFaceID,outerCompID,outerIFaceID,
 				InterfaceRole.PROVIDES));
@@ -251,7 +254,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void RegisterAssemblyConnection(IConnection connection, IComponentIdentifier reqCompID, 
 							IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
-			this.eventStructures.Add(connection.ID,new ConnectionEvents());
+			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
 			ModelDataSet.ComponentsRow compRow = modelDataset.Components.FindByguid(reqCompID.Key);
 			if (compRow.parentComponent == null)
 				this.staticViewEvents.NotifyAssemblyConnectorAdded(this,

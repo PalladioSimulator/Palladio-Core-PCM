@@ -1,5 +1,6 @@
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities.Impl;
+using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.ModelEntities
 {
@@ -11,6 +12,9 @@ namespace Palladio.ComponentModel.ModelEntities
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/05 14:23:59  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.1  2005/03/15 12:31:23  joemal
 	/// initial class creation
 	///
@@ -45,6 +49,25 @@ namespace Palladio.ComponentModel.ModelEntities
 		/// An unordered set of exceptions thrown by the methods implementing this signature.
 		/// </summary>
 		IType[] Exceptions { get; set;}
+
+		#endregion
+
+		#region events
+
+		/// <summary>
+		/// has to be fired, when the return type of the signature has been changed
+		/// </summary>
+		event StaticAttributeChangedEventHandler ReturnTypeChanged;
+
+		/// <summary>
+		/// has to be fired, when the paremeters of the signature have been changed
+		/// </summary>
+		event StaticAttributeChangedEventHandler ParametersChanged;
+		
+		/// <summary>
+		/// has to be fired, when the exceptions of the signature have been changed
+		/// </summary>
+		event StaticAttributeChangedEventHandler ExceptionsChanged;
 
 		#endregion
 

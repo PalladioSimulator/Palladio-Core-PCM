@@ -1,3 +1,5 @@
+using Palladio.ComponentModel.ModelEntities;
+
 namespace Palladio.ComponentModel.ModelEventManagement
 {
 	/// <summary>
@@ -8,6 +10,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/05 14:23:59  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.1  2005/03/29 13:05:37  joemal
 	/// initial class creation
 	///
@@ -17,6 +22,19 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// </remarks>
 	public class ComponentEvents : EntityEvents
 	{
+		#region constructor
+
+		/// <summary>
+		/// called to create a eventstructure for a component
+		/// </summary>
+		/// <param name="component">the component</param>
+		public ComponentEvents(IComponent component) : base(component)
+		{
+		}
+
+
+		#endregion
+		
 		#region internal notify methods
 		
 		/// <summary>

@@ -1,4 +1,5 @@
 using Palladio.Attributes;
+using Palladio.ComponentModel.ModelEventManagement;
 using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.ModelEntities.Impl
@@ -12,13 +13,16 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/05 14:24:00  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.1  2005/03/15 12:31:37  joemal
 	/// initial class creation
 	///
 	/// 
 	/// </pre>
 	/// </remarks>
-	internal abstract class AbstractEntity : IIdentifiable, IAttributable
+	internal abstract class AbstractEntity : IComponentModelEntity
 	{
 		#region data
 
@@ -26,7 +30,7 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 		protected string name;
 
 		//holds the attribute hashtable
-		protected AttributeHash attributeHash;
+		protected IAttributeHash attributeHash;
 
 		//holds the id
 		protected IIdentifier id;
@@ -44,7 +48,7 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 		{
 			this.id = id;
 			this.name = name;
-			this.attributeHash = new AttributeHash();
+			this.attributeHash = new DefaultAttributeHash();
 		}
 
 		#endregion
@@ -88,19 +92,29 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 			set
 			{
 				this.name = value;
+				if (NameChangedEvent != null) NameChangedEvent(this);
 			}
 		}
 
-        /// <summary>
+		/// <summary>
         /// return the attribute hashtable of the entity
         /// </summary>
-		public AttributeHash Attributes
+		public IAttributeHash Attributes
 		{
 			get
 			{
 				return this.attributeHash;
 			}
 		}
+
+		#endregion
+
+		#region events
+
+		/// <summary>
+		/// has to be fired when the name is changed
+		/// </summary>
+		public event StaticAttributeChangedEventHandler NameChangedEvent;
 
 		#endregion
 	}

@@ -1,3 +1,5 @@
+using Palladio.ComponentModel.ModelEntities;
+
 namespace Palladio.ComponentModel.ModelEventManagement
 {
 	/// <summary>
@@ -8,6 +10,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/05 14:23:59  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.2  2005/04/04 16:27:28  joemal
 	/// implement the rest of the notification
 	///
@@ -20,6 +25,18 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// </remarks>
 	public class CompositeComponentEvents : ComponentEvents
 	{
+		#region constructor
+
+		/// <summary>
+		/// called to create a eventstructure for a composite component
+		/// </summary>
+		/// <param name="component">the component</param>
+		public CompositeComponentEvents(IComponent component) : base(component)
+		{
+		}
+
+		#endregion
+
 		#region notify methods
 
 		/// <summary>

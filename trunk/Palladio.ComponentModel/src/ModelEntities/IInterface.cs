@@ -10,6 +10,9 @@ namespace Palladio.ComponentModel.ModelEntities
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/05 14:23:59  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.2  2005/03/16 13:32:34  joemal
 	/// implement lowlevelbuilder
 	///
@@ -28,11 +31,6 @@ namespace Palladio.ComponentModel.ModelEntities
 		{
 			get;
 		}
-
-		/// <summary>
-		/// The name of the Interface
-		/// </summary>
-		string Name { get; set; }
 	}
 
 	/// <summary>

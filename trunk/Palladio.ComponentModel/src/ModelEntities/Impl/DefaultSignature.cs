@@ -1,4 +1,5 @@
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.ModelEntities.Impl
 {
@@ -11,6 +12,9 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/05 14:24:00  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.1  2005/03/15 12:31:37  joemal
 	/// initial class creation
 	///
@@ -45,6 +49,9 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 			set
 			{
 				this.signatureDescription = value;
+				if (this.ReturnTypeChanged != null) this.ReturnTypeChanged(this);
+				if (this.ParametersChanged != null) this.ParametersChanged(this);
+				if (this.ExceptionsChanged != null) this.ExceptionsChanged(this);
 			}
 		}
 
@@ -61,6 +68,7 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 			set
 			{
 				this.signatureDescription.ReturnType = value;
+				if (this.ReturnTypeChanged != null) this.ReturnTypeChanged(this);
 			}
 		}
 
@@ -77,6 +85,7 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 			set
 			{
 				this.signatureDescription.Parameters = value;
+				if (this.ParametersChanged != null) this.ParametersChanged(this);
 			}
 		}
 
@@ -93,8 +102,28 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 			set
 			{
 				this.signatureDescription.Exceptions = value;
+				if (this.ExceptionsChanged != null) this.ExceptionsChanged(this);
 			}
 		}
+
+		#endregion
+
+		#region events
+
+		/// <summary>
+		/// has to be fired, when the return type of the signature has been changed
+		/// </summary>
+		public event StaticAttributeChangedEventHandler ReturnTypeChanged;
+
+		/// <summary>
+		/// has to be fired, when the paremeters of the signature have been changed
+		/// </summary>
+		public event StaticAttributeChangedEventHandler ParametersChanged;
+
+		/// <summary>
+		/// has to be fired, when the exceptions of the signature have been changed
+		/// </summary>
+		public event StaticAttributeChangedEventHandler ExceptionsChanged;
 
 		#endregion
 
