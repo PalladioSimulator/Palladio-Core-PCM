@@ -42,7 +42,7 @@ namespace FiniteStateMachines {
 
 
 		/// <summary>
-		/// Empty Constructor; does nothing. Should be invisible to the public,
+		/// Empty Constructor; does nothing. Should be invisible to the public
 		/// because it does not produce a valid transition object!
 		/// 
 		/// Use <code>transition = null</code> instead!

@@ -23,28 +23,28 @@ namespace UnitTests.FiniteStateMachines {
 			p2 = new State("p2",false,true);
 			id1 = new Input("d1");
 			id2 = new Input("d2");
-			p.setTransition(p1,id2,p1);
-			p.setTransition(p1,id1,p2);
-			p.setTransition(p2,id2,p2);
+			p.addTransition(p1,id2,p1);
+			p.addTransition(p1,id1,p2);
+			p.addTransition(p2,id2,p2);
 
 			d1 = new FiniteTabularMachine();
 			d11 = new State("d1_1",true,false);
 			d12 = new State("d1_2",false,true);
 			e1 = new Input("e1");
 			e2 = new Input("e2");
-			d1.setTransition(d11,e1,d12);
-			d1.setTransition(d12,e2,d11);
+			d1.addTransition(d11,e1,d12);
+			d1.addTransition(d12,e2,d11);
 
 			d1s = new FiniteTabularMachine();
 			id3 = new Input("d3");
-			d1s.setTransition(d11,id3,d12);
-			d1s.setTransition(d12,e2,d11);
+			d1s.addTransition(d11,id3,d12);
+			d1s.addTransition(d12,e2,d11);
 
 			d2 = new FiniteTabularMachine();
 			d21 = new State("d2_1",true,false);
 			d22 = new State("d2_2",false,true);
 			e3 = new Input("e3");
-			d2.setTransition(d21,e3,d22);
+			d2.addTransition(d21,e3,d22);
 
 			d3 = new FiniteTabularMachine();
 			d31 = new State("d3_1",true,false);
@@ -55,10 +55,10 @@ namespace UnitTests.FiniteStateMachines {
 			e5 = new Input("e5");
 			e6 = new Input("e6");
 			id1s = new Input("d1s");
-			d3.setTransition(d31,e5,d32);
-			d3.setTransition(d32,id1s,d33);
-			d3.setTransition(d33,e6,d34);
-			d3.setTransition(d31,e4,d34);
+			d3.addTransition(d31,e5,d32);
+			d3.addTransition(d32,id1s,d33);
+			d3.addTransition(d33,e6,d34);
+			d3.addTransition(d31,e4,d34);
 
 			Hashtable sespSet = new Hashtable();
 			sespSet.Add(id1,d1);
@@ -66,9 +66,9 @@ namespace UnitTests.FiniteStateMachines {
 			sfsm = new FiniteStackMachine(p,sespSet);
 
 			q = new FiniteTabularMachine();
-			q.setTransition(p1,id2,p1);
-			q.setTransition(p1,id1s,p2);
-			q.setTransition(p2,id2,p2);
+			q.addTransition(p1,id2,p1);
+			q.addTransition(p1,id1s,p2);
+			q.addTransition(p2,id2,p2);
 		
 			sespSet.Remove(id1);
 			sespSet.Add(id1s,d1s);
@@ -255,7 +255,7 @@ namespace UnitTests.FiniteStateMachines {
 		public static void Main() {
 			FiniteStackMachineTest test = new FiniteStackMachineTest();
 			test.Init();
-			test.RecursionHandling();
+			test.GetTransition();
 		}
 	}
 }

@@ -28,38 +28,38 @@ namespace FiniteStateMachines {
 		Set FinalStates { get; }
 
 		/// <summary>
-		/// The input alphabet; a set of <code Input/> objects.
+		/// The input alphabet; a set of <code>Input</code> objects.
 		/// </summary>
 		Set InputAlphabet { get; }
 
 		/// <summary>
-		/// Returns the the target of a transiton starting at <code aSourceState/> 
-		/// with the input symbol <code anInput/>.
+		/// Returns the the target of a transiton starting at <code>aSourceState</code> 
+		/// with the input symbol <code>anInput</code>.
 		/// </summary>
 		/// <returns>The destination of the transition.</returns>
 		AbstractState GetNextState(AbstractState aSourceState, Input anInput);
 
 		/// <summary>
-		/// Returns the next Transition starting at <code aSourceState/> with the
-		/// input symbol <code anInput/>.
+		/// Returns the next <code>Transition</code> starting at <code>aSourceState</code> with the
+		/// input symbol <code>anInput</code>.
 		/// </summary>
-		/// <returns>The transition starting at <code aSourceState/> 
-		/// with the input symbol <code anInput/> </returns>
+		/// <returns>The transition starting at <code>aSourceState</code>  
+		/// with the input symbol <code>anInput</code> </returns>
 		Transition GetNextTransition(AbstractState aSourceState, Input anInput);
 
 		/// <summary>
-		/// Returns all transitions from a given State.
+		/// Returns all transitions with the source <code>aSourceState</code>.
 		/// </summary>
-		/// <returns>A <code Hashtable/> which contains all transtions from the given State.
-		/// The key of the <code Hashtable/> is the <code Input/> and the value the 
-		/// corresponding <code Transition/>.</returns>
+		/// <returns>A <code>Hashtable</code> which contains all transtions for the given state.
+		/// The key of the <code>Hashtable</code> is the <code>Input</code> and the value the 
+		/// corresponding <code>Transition</code>.</returns>
 		Hashtable GetOutgoingTransitions(AbstractState aSourceState);
 
 		/// <summary>
 		/// Returns all Transitions of the FSM in Transition Array.
 		/// </summary>
 		/// <returns>All Transitions of the FSM in a Array of Transitions.</returns>
-		Transition[] GetTransitions();
+		//Transition[] GetTransitions();
 	}
 
 }

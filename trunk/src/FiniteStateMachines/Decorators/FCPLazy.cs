@@ -248,7 +248,7 @@ namespace FiniteStateMachines.Decorators {
 		protected bool selfPointing(FiniteTabularMachine fsm, AbstractState state, Input i) {
 			//Console.WriteLine("Checking selfPointing");
 			AbstractState temp = null;
-			foreach(AbstractState s in fsm.getStates()) {
+			foreach(AbstractState s in fsm.States) {
 				if(s.Equals(state)) {
 					temp = s;
 					break;

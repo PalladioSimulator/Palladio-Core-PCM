@@ -82,7 +82,7 @@ namespace FiniteStateMachines.Decorators {
 						//							}
 						Console.WriteLine("in selfpointing folling transition set: "+"\n"
 							+new Transition(sps,i,sps));
-						this.cp.setTransition(sps,i,sps);
+						this.cp.addTransition(sps,i,sps);
 						this.oneStates.Pop();
 						this.twoStates.Pop();
 						continue;
@@ -98,7 +98,7 @@ namespace FiniteStateMachines.Decorators {
 							Console.WriteLine("CPState toState is: "+toState.getState().ToString());
 						Console.WriteLine("both sre! ES following transition added: " +"\n" 
 							+ new Transition(fromState.getState(),i,toState.getState()));
-						this.cp.setTransition(fromState.getState(),i,toState.getState());
+						this.cp.addTransition(fromState.getState(),i,toState.getState());
 						this.oneStates.Push(oneNext);
 						this.twoStates.Push(twoNext);
 						if(this.debug) {
@@ -132,7 +132,7 @@ namespace FiniteStateMachines.Decorators {
 		protected bool selfPointing(FiniteTabularMachine fsm, AbstractState state, Input i) {
 			//Console.WriteLine("Checking selfPointing");
 			AbstractState temp = null;
-			foreach(AbstractState s in fsm.getStates()) {
+			foreach(AbstractState s in fsm.States) {
 				if(s.Equals(state)) {
 					temp = s;
 					break;

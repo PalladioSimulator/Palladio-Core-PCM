@@ -17,14 +17,19 @@ namespace FiniteStateMachines {
 		private string inputSymbol;
 
 
-		//protected int Hashcode;
 		/// <summary>
 		/// The default constuctor.
 		/// </summary>
 		/// <param name="i">The input stirng.</param>
 		public Input(string anInputSymbol) {
 			this.inputSymbol = anInputSymbol;
-			//this.Hashcode = this.GetHashCode();
+		}
+
+		/// <summary>
+		/// String represinting the input.
+		/// </summary>
+		public string InputSymbol{
+			get {return inputSymbol;}
 		}
 
 		/// <summary>
@@ -91,6 +96,5 @@ namespace FiniteStateMachines {
 		public override int GetHashCode() {
 			return inputSymbol.GetHashCode();
 		}
-
 	}
 }

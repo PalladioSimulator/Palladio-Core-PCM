@@ -28,7 +28,7 @@ namespace FiniteStateMachines {
 
 		
 		/// <summary>
-		/// Contains the name of the State.
+		/// The name of the state.
 		/// </summary>
 		public abstract string Name { get; }
 
@@ -83,11 +83,19 @@ namespace FiniteStateMachines {
 		/// Default comparison of two states based on the 
 		/// implementation of <code>Equals</code>.
 		/// </summary>
-		/// <param name="stateOne"></param>
-		/// <param name="stateTwo"></param>
+		/// <param name="one"></param>
+		/// <param name="two"></param>
 		/// <returns>True, if <code>stateOne.Equals(stateTwo)</code>; false otherwise</returns>
-		public static bool operator == (AbstractState stateOne, AbstractState stateTwo){
-			return stateOne.Equals(stateTwo);
+		public static bool operator == (AbstractState one, AbstractState two){
+			try {
+				return one.Equals(two);
+			} catch( NullReferenceException  ) {
+				try {
+					return two.Equals(one);
+				} catch( NullReferenceException ) {
+					return true;
+				}
+			}
 		}
 
 		
@@ -95,11 +103,19 @@ namespace FiniteStateMachines {
 		/// Default comparison of two states based on the 
 		/// implementation of <code>Equals</code>.
 		/// </summary>
-		/// <param name="stateOne"></param>
-		/// <param name="stateTwo"></param>
+		/// <param name="one"></param>
+		/// <param name="two"></param>
 		/// <returns>True if _NOT_ <code>stateOne.Equals(stateTwo)</code>; false otherwise.</returns>
-		public static bool operator != (AbstractState stateOne, AbstractState stateTwo){
-			return !stateOne.Equals(stateTwo);
+		public static bool operator != (AbstractState one, AbstractState two){
+			try {
+				return !one.Equals(two);
+			} catch( NullReferenceException  ) {
+				try {
+					return !two.Equals(one);
+				} catch( NullReferenceException ) {
+					return false;
+				}
+			}
 		}
 	}
 }

@@ -36,7 +36,8 @@ namespace FiniteStateMachines.Decorators {
 			this.groups = new ArrayList();
 			this.Minimize(notMin);
 			this.createNewFsm();
-			this.minimized.DisplayOnConsole();
+			Console.WriteLine(this.minimized);
+			//this.minimized.DisplayOnConsole();
 			//						if(this.debug)
 			//						{
 			//							Console.WriteLine("After Minmasation the follwing groups exzits:");
@@ -285,7 +286,7 @@ namespace FiniteStateMachines.Decorators {
 					ArrayList newGroups = this.inGroup(toState,this.groups);
 					int indexOfStateToState = this.mini.IndexOf((ArrayList) 
 						this.inGroup(toState,this.mini));
-					this.minimized.setTransition((AbstractState) statesOfMini[i],
+					this.minimized.addTransition((AbstractState) statesOfMini[i],
 						(Input)oldFsmInputIter.Current,
 						(AbstractState) statesOfMini[indexOfStateToState]);
 				}

@@ -16,7 +16,7 @@ namespace FiniteStateMachines {
 	public class FiniteStackMachine : IFiniteStateMachine {
 
 		/// <summary>
-		/// Protocol specifing the provides interface.
+		/// The top finite state machine which calls all other services.
 		/// </summary>
 		private IFiniteStateMachine providesProtocol;
 
@@ -143,20 +143,22 @@ namespace FiniteStateMachines {
 
 
 		/// <summary>
-		/// Returns the next transition from the source state with a given input.
+		/// Returns the the target of a transiton starting at <code>aSourceState</code> 
+		/// with the input symbol <code>anInput</code>.
 		/// </summary>
-		/// <returns>The next reachable transition.</returns>
+		/// <returns>The destination of the transition.</returns>
 		public AbstractState GetNextState(AbstractState sourceState, Input anInput) {
 			return GetNextTransition(sourceState,anInput).DestinationState;
 		}
 
 		
 		/// <summary>
-		/// Returns all Transitions from a given state.
+		/// Returns all transitions with the source <code>aSourceState</code>.
 		/// </summary>
-		/// <returns>A Hashtable witch contatins all transtions from the given State.</returns>
+		/// <returns>A <code>Hashtable</code> which contains all transtions for the given state.
+		/// The key of the <code>Hashtable</code> is the <code>Input</code> and the value the 
+		/// corresponding <code>Transition</code>.</returns>
 		public Hashtable GetOutgoingTransitions(AbstractState aSourceState) {
-			// TODO change the key - value reference key = input, value = transition
 			try {
 				Hashtable result = new Hashtable();
 				foreach (Input input in inputAlphabet) {
@@ -164,6 +166,9 @@ namespace FiniteStateMachines {
 				}
 				return result;
 			} catch ( InvalidOperationException ) {
+				// TODO clean up this dirty hack
+				// problem: if the input alphabet is modified the iterator used by
+				// the foreach construct becomes invalid.
 				Hashtable result = new Hashtable();
 				foreach (Input input in inputAlphabet) {
 					result.Add(input,GetNextTransition(aSourceState,input));
@@ -173,16 +178,6 @@ namespace FiniteStateMachines {
 		}
 
 		
-		/// <summary>
-		/// Returns all Transitions of the FSM in Transition Array.
-		/// </summary>
-		/// <returns>All Transitions of the FSM in a Array of Transitions.</returns>
-		public Transition[] GetTransitions() {
-			// TODO remove from the interface?
-			return null;
-		}
-
-
 		/// <summary>
 		/// Identifies the transition starting at <code>aSourceState</code> with the 
 		/// input <code>anInput</code>.
@@ -270,19 +265,22 @@ namespace FiniteStateMachines {
 			} else {
 				topService = LookUpService(aSourceState.Peek().ServiceName);
 			}
-
-			// check if the transition is valid in this context
-			Transition topTransition = topService.GetNextTransition(aSourceState.Peek().State,aServiceName);
-			if(topTransition.DestinationState != topService.ErrorState) {
-				// check for recursion
-				if (!aSourceState.LookupServiceNameTwice(aServiceName).IsEmpty) {
-					result = HandleRecursionCall(aSourceState,aServiceName);
-				} else {
-					AbstractState destinationState = new StackState(aSourceState);
-					IFiniteStateMachine calledService = LookUpService(aServiceName);
-					((StackState)destinationState).Push(aServiceName,calledService.StartState);
-					result = (Transition)topTransition.Clone();
-					result.SetValues(aSourceState,aServiceName,destinationState);
+			
+			// check if the input symbol is valid for topService
+			if (topService.InputAlphabet.Contains(aServiceName)) {
+				// check if the transition is valid in this context
+				Transition topTransition = topService.GetNextTransition(aSourceState.Peek().State,aServiceName);
+				if(topTransition.DestinationState != topService.ErrorState) {
+					// check for recursion
+					if (!aSourceState.LookupServiceNameTwice(aServiceName).IsEmpty) {
+						result = HandleRecursionCall(aSourceState,aServiceName);
+					} else {
+						AbstractState destinationState = new StackState(aSourceState);
+						IFiniteStateMachine calledService = LookUpService(aServiceName);
+						((StackState)destinationState).Push(aServiceName,calledService.StartState);
+						result = (Transition)topTransition.Clone();
+						result.SetValues(aSourceState,aServiceName,destinationState);
+					}
 				}
 			}
 			return result;

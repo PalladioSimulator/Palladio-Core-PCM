@@ -107,8 +107,8 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Operator uses the implementation of Equals.
 		/// </summary>
-		/// <param name="input1"></param>
-		/// <param name="input2"></param>
+		/// <param name="one"></param>
+		/// <param name="two"></param>
 		/// <returns></returns>
 		public static bool operator == (Context one, Context two){
 			try {
@@ -125,8 +125,8 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Operator uses the implementation of Equals.
 		/// </summary>
-		/// <param name="input1"></param>
-		/// <param name="input2"></param>
+		/// <param name="one"></param>
+		/// <param name="two"></param>
 		/// <returns></returns>
 		public static bool operator != (Context one, Context two){
 			try {

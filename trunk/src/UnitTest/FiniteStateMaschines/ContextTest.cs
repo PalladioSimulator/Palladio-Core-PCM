@@ -55,7 +55,7 @@ namespace UnitTests.FiniteStateMachines{
 			Assert.IsFalse(contextOne.Equals(contextTwo));
 		}
 
-		[Test] public void EqualsOperator () {
+		[Test] public void EqualOperator () {
 			Context contextOne = new Context(inputOne,stateOne);
 			Context contextTwo = new Context(inputOne,stateOne);
 			Assert.IsTrue(contextOne == contextTwo);
@@ -63,8 +63,21 @@ namespace UnitTests.FiniteStateMachines{
 			Assert.IsFalse(contextOne == contextTwo);
 			contextTwo.State = stateTwo;
 			Assert.IsFalse(contextOne == contextTwo);
-//			Assert.IsFalse(contextOne == null);
-//			Assert.IsFalse(null == contextTwo);
+			Assert.IsFalse(contextOne == null);
+			Assert.IsFalse(null == contextTwo);
 		}
+
+		[Test] public void NotEqualOperator () {
+			Context contextOne = new Context(inputOne,stateOne);
+			Context contextTwo = new Context(inputOne,stateOne);
+			Assert.IsFalse(contextOne != contextTwo);
+			contextTwo.ServiceName = inputTwo;
+			Assert.IsTrue(contextOne != contextTwo);
+			contextTwo.State = stateTwo;
+			Assert.IsTrue(contextOne != contextTwo);
+			Assert.IsTrue(contextOne != null);
+			Assert.IsTrue(null != contextTwo);
+		}
+	
 	}
 }
