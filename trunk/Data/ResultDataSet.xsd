@@ -1,0 +1,92 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="ResultDataSet" targetNamespace="http://www.tempuri.org/ResultDataSet.xsd" xmlns:mstns="http://www.tempuri.org/ResultDataSet.xsd" xmlns="http://www.tempuri.org/ResultDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="ResultDataSet" msdata:IsDataSet="true">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="TimeTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:long" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ClassTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:long" />
+              <xs:element name="ClassName" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ExecutionTimeTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MethodID" type="xs:long" />
+              <xs:element name="TotalTime" type="xs:long" />
+              <xs:element name="AverageTime" type="xs:long" />
+              <xs:element name="NumOfCalls" type="xs:long" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MethodTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:long" />
+              <xs:element name="ClassID" type="xs:long" />
+              <xs:element name="MethodName" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RunTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:long" />
+              <xs:element name="StartTime" type="xs:long" />
+              <xs:element name="StopTime" type="xs:long" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CallTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:long" />
+              <xs:element name="CallNumber" type="xs:long" />
+              <xs:element name="CallLevel" type="xs:long" />
+              <xs:element name="CallerID" type="xs:long" />
+              <xs:element name="ClassName" type="xs:string" />
+              <xs:element name="MethodName" type="xs:string" />
+              <xs:element name="CallTime" type="xs:long" />
+              <xs:element name="ReturnTime" type="xs:long" />
+              <xs:element name="RunID" type="xs:long" />
+              <xs:element name="ThreadID" type="xs:long" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TimeTable" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="ClassTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ClassTable" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="ExecutionTimeTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ExecutionTimeTable" />
+      <xs:field xpath="mstns:MethodID" />
+    </xs:unique>
+    <xs:unique name="MethodTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:MethodTable" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="RunTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RunTable" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="CallTable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CallTable" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

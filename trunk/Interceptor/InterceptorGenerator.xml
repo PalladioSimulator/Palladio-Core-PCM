@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<codeSmith>
+	<namespace>Palladio.WebserverAnalyser.Interceptor</namespace>
+	<imports>
+		<import namespace="System" />
+		<import namespace="System.Reflection" />
+	</imports>
+	<propertySets>
+		<propertySet>
+			<property name="AssemblyFile">C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.WebserverAnalyser\bin\Debug\ConfigReader.dll</property>
+		</propertySet>
+		<propertySet>
+			<property name="AssemblyFile">C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.WebserverAnalyser\bin\Debug\Dispatcher.dll</property>
+		</propertySet>
+		<propertySet>
+			<property name="AssemblyFile">C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.WebserverAnalyser\bin\Debug\FTPRequestProcessor.dll</property>
+		</propertySet>
+		<propertySet>
+			<property name="AssemblyFile">C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.WebserverAnalyser\bin\Debug\HTTPRequestProcessor.dll</property>
+		</propertySet>
+		<propertySet>
+			<property name="AssemblyFile">C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.WebserverAnalyser\bin\Debug\Request.dll</property>
+		</propertySet>
+		<propertySet>
+			<property name="AssemblyFile">C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.WebserverAnalyser\bin\Debug\RequestParser.dll</property>
+		</propertySet>
+		<propertySet>
+			<property name="AssemblyFile">C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.WebserverAnalyser\bin\Debug\RequestProcessor.dll</property>
+		</propertySet>
+		<propertySet>
+			<property name="AssemblyFile">C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.WebserverAnalyser\bin\Debug\WebserverMonitor.dll</property>
+		</propertySet>
+	</propertySets>
+	<template path="Interceptor.cst" />
+</codeSmith>

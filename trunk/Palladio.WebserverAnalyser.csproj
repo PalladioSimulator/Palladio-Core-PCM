@@ -1,0 +1,300 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{4E33A3EE-054D-49F4-9E92-AE888389EF91}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = "App.ico"
+                AssemblyKeyContainerName = ""
+                AssemblyName = "Palldio.Interceptor"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "WinExe"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "Palladio.WebserverAnalyser"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\Debug\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "System.Windows.Forms"
+                    AssemblyName = "System.Windows.Forms"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+                <Reference
+                    Name = "system.data.oracleclient"
+                    AssemblyName = "System.Data.OracleClient"
+                    HintPath = "..\..\..\..\..\windows\assembly\gac\system.data.oracleclient\1.0.5000.0__b77a5c561934e089\system.data.oracleclient.dll"
+                />
+                <Reference
+                    Name = "System.EnterpriseServices"
+                    AssemblyName = "System.EnterpriseServices"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.EnterpriseServices.dll"
+                />
+                <Reference
+                    Name = "Altova"
+                    Project = "{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "AltovaXML"
+                    Project = "{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "BibTeXProvider"
+                    Project = "{8A2CD829-4510-4CB9-838C-F8C769763095}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "BibTeXProviderXML"
+                    Project = "{CBAF9A43-5EE7-7344-934C-7267B94B0310}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "ConfigReader"
+                    Project = "{749CB836-B6B7-42F5-9998-11B21736E143}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Dispatcher"
+                    Project = "{AA3055C5-6108-488B-9EE6-EEA5688ECECC}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "DynamicFileProvider"
+                    Project = "{465E5909-14F1-4BA1-8E65-DA466EC049E1}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "FTPRequestParser"
+                    Project = "{3C4FD220-3248-44D6-8C31-AE6B0BB46CED}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "FTPRequestProcessor"
+                    Project = "{96D040AA-90D6-4BBD-8F92-4E9F42827245}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "HTTPRequestParser"
+                    Project = "{0FC65FF4-7955-44D2-B2A0-DA0A53D46E84}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "HTTPRequestProcessor"
+                    Project = "{61580AC2-47F7-4183-B96E-385B39CE5D26}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "ReflectionBasedVisitor"
+                    Project = "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Request"
+                    Project = "{CA375D44-037E-4023-8FC7-4E61C73D778E}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "RequestParser"
+                    Project = "{3593CDA9-B1C3-45B6-B630-0041E5200719}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "RequestProcessor"
+                    Project = "{12C3C0FE-89E5-4C23-886D-99F65852C7F9}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "SimpleTemplateFileProvider"
+                    Project = "{3FB631C4-E62A-4AAE-8778-AA34619E70D8}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "SimpleTemplateFileProviderXML"
+                    Project = "{AE27C7C4-267A-344A-A1B8-BFB44149858C}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "StaticFileProvider"
+                    Project = "{31C516DB-E128-45EC-9DC8-E1A2CED0106F}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "WebserverFactory"
+                    Project = "{8C8F753B-2C8D-4908-A09E-B7DB7869A830}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "WebserverMonitor"
+                    Project = "{17051EB1-494F-4029-AE3B-BA4334E9EB0F}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "WebserverXML"
+                    Project = "{187A3048-4BFE-F344-92BE-AEE42C224D11}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "app.config"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "App.ico"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Analyser\DBAnalyser.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Analyser\DBLogger.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Data\ResultDataSet.xsd"
+                    BuildAction = "Content"
+                    Generator = "MSDataSetGenerator"
+                    LastGenOutput = "ResultDataSet.cs"
+                />
+                <File
+                    RelPath = "Data\ResultDataSet.cs"
+                    DependentUpon = "ResultDataSet.xsd"
+                    SubType = "code"
+                    BuildAction = "Compile"
+                    DesignTime = "True"
+                    AutoGen = "True"
+                />
+                <File
+                    RelPath = "Data\ResultDataSet.xsx"
+                    DependentUpon = "ResultDataSet.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "GUI\WebserverAnalyserForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "GUI\WebserverAnalyserForm.resx"
+                    DependentUpon = "WebserverAnalyserForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Interceptor\InterceptedRequestFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Interceptor\InterceptedWebserverFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Interceptor\Interceptor.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Interceptor\InterceptorActions.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Interceptor\InterceptorGenerator.xml"
+                    BuildAction = "Content"
+                    Generator = "CodeSmithGenerator"
+                    LastGenOutput = "InterceptorGenerator.cs"
+                />
+                <File
+                    RelPath = "Interceptor\InterceptorGenerator.cs"
+                    DependentUpon = "InterceptorGenerator.xml"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                    DesignTime = "True"
+                    AutoGen = "True"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+
