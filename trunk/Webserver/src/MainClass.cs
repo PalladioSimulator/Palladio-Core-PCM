@@ -7,8 +7,20 @@ using Palladio.Webserver.WebserverFactory;
 namespace Palladio.Webserver
 {
 	/// <summary>
-	/// Zusammenfassung für MainClass.
+	/// MainClass. The main entrance point to execute the webserver.
 	/// </summary>
+	/// 
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/12/18 10:06:48  kelsaka
+	/// Added CVS-logs and some comments.
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public class MainClass
 	{
 		/// <summary>

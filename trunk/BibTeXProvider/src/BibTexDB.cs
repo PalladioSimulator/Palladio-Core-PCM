@@ -10,6 +10,18 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// BibTexDB. Executes SQL-Queries on a database to search for BibTeX-Entries. This includes the ability to 
 	/// create a html-table that contains the results.
 	/// </summary>
+	/// 
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3  2004/12/18 10:06:48  kelsaka
+	/// Added CVS-logs and some comments.
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public class BibTexDB : IBibTexDB
 	{
 		private string connectionString;

@@ -17,6 +17,18 @@ namespace Palladio.Webserver.Dispatcher
 		/// main thread has to unblock this thread by opening
 		/// a new connection.
 		/// </summary>
+		/// 
+		/// <remarks>
+		/// <pre>
+		/// Version history:
+		///
+		/// $Log$
+		/// Revision 1.2  2004/12/18 10:06:48  kelsaka
+		/// Added CVS-logs and some comments.
+		///
+		/// 
+		/// </pre>
+		/// </remarks>
 		bool IsRunning { get; set; }
 
 		/// <summary>
