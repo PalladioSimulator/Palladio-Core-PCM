@@ -97,6 +97,34 @@ namespace Palladio.ComponentModel.Tests
 			{
 				Assert.AreEqual(sigs1[i].GetHashCode(),sigs2[i].GetHashCode());
 			}
+			IType returnType = ComponentFactory.CreateTypeFromSystemType(typeof(string));
+			IType ex1 = ComponentFactory.CreateTypeFromSystemType(typeof(Exception));
+			IType ex2 = ComponentFactory.CreateTypeFromSystemType(typeof(ApplicationException));
+			ISignature s1 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex1,ex2);
+			ISignature s2 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex2,ex1);
+			Assert.AreEqual(s1.GetHashCode(),s2.GetHashCode());
+		}
+
+		[Test] public void SignatureEquals()
+		{
+			ISignature[] sigs1 = GetSignatureList("Role1");
+			ISignature[] sigs2 = GetSignatureList("Role1");
+
+			for (int i = 0; i < sigs1.Length; i++)
+			{
+				Assert.AreEqual(sigs1[i],sigs2[i]);
+			}
+			IType returnType = ComponentFactory.CreateTypeFromSystemType(typeof(string));
+			IType ex1 = ComponentFactory.CreateTypeFromSystemType(typeof(Exception));
+			IType ex2 = ComponentFactory.CreateTypeFromSystemType(typeof(ApplicationException));
+			ISignature s1 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex1,ex2);
+			ISignature s2 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex2,ex1);
+			Assert.AreEqual(s1,s2);
+
+			IParameter[] parameters = GetParameterList();
+			s1 = ComponentFactory.CreateSignature("R","F1",parameters[0],parameters[1]);
+			s2 = ComponentFactory.CreateSignature("R","F1",parameters[1],parameters[0]);
+			Assert.IsFalse(s1.Equals(s2));
 		}
 
 		[TestFixtureSetUp]
