@@ -7,7 +7,8 @@ using Palladio.Webserver.Request;
 namespace Palladio.Webserver.BibTeXProvider
 {
 	/// <summary>
-	/// Zusammenfassung für BibTexDB.
+	/// BibTexDB. Executes SQL-Queries on a database to search for BibTeX-Entries. This includes the ability to 
+	/// create a html-table that contains the results.
 	/// </summary>
 	public class BibTexDB : IBibTexDB
 	{
@@ -70,7 +71,7 @@ namespace Palladio.Webserver.BibTeXProvider
 		/// </summary>
 		/// <param name="bibTeXTableName">Table-name of the sql-table.</param>
 		/// <returns>String that contains the result: html-table.</returns>
-		public StringBuilder AllEntries(string bibTeXTableName)
+		public StringBuilder SearchAllEntries(string bibTeXTableName)
 		{
 			SqlConnection connection = new SqlConnection(connectionString);
 			StringBuilder responseString = new StringBuilder();
