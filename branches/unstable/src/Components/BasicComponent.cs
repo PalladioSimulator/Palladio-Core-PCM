@@ -36,6 +36,23 @@ namespace Palladio.ComponentModel.Components
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public IService[] GetServicesWithServiceEffectSpecification()
+		{
+			IService[] result = new IService[this.serviceEffectMap.Count];
+			int count = 0;
+			foreach (IIdentifier id in this.serviceEffectMap.Keys)
+			{
+				string[] ids = id.ToString().Split(':');
+				IInterfaceModel iface = this.GetProvidesRoleByInterfaceID(IdentifiableFactory.CreateGUID(ids[0])).Interface;
+				result[count++] = ComponentFactory.CreateService(iface, IdentifiableFactory.CreateStringID(ids[1]));
+			}
+			return result;
+		}
+
+		/// <summary>
 		/// Get the service effect specification associated with aSig.
 		/// </summary>
 		/// <param name="serviceID">The service ID to which an service effect is affected</param>
@@ -173,10 +190,19 @@ namespace Palladio.ComponentModel.Components
 			{
 				foreach(IIdentifier sigID in serviceEffectMap.Keys) 
 				{
+					IServiceEffectSpecification sef = serviceEffectMap[sigID] as IServiceEffectSpecification;
+
 					writer.WriteStartElement("ServiceEffectSpecification","http://palladio.informatik.uni-oldenburg.de/XSD");
 					writer.WriteAttributeString("service",sigID.ToString());
-					
-					IServiceEffectSpecification sef = serviceEffectMap[sigID] as IServiceEffectSpecification;
+					writer.WriteAttributeString("id","");
+
+					foreach (IAttributeType attrType in sef.Attributes.Keys)
+					{
+						writer.WriteStartElement("Attribute","http://palladio.informatik.uni-oldenburg.de/XSD");
+						writer.WriteAttributeString("guid",attrType.GUID.ToString());
+						sef.Attributes[attrType].Serialize(writer);
+						writer.WriteEndElement();
+					}
 
 					writer.WriteStartElement("ServiceList","http://palladio.informatik.uni-oldenburg.de/XSD");
 					foreach (IService service in sef.SignatureList) 

@@ -55,5 +55,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="signatures">The services whose service effect specifications get deleted</param>
 		void DeleteServiceEffectSpecification(params IService[] services);
+
+		IService[] GetServicesWithServiceEffectSpecification();
 	}
 }

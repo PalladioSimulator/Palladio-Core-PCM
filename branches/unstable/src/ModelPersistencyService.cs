@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.1.2.3  2005/01/13 22:11:03  uffi
+	/// *** empty log message ***
+	///
 	/// Revision 1.1.2.2  2004/12/02 23:39:48  uffi
 	/// IAttributeHash replaced by AttributeHash,
 	/// added attribute serialization
@@ -88,12 +91,12 @@ namespace Palladio.ComponentModel
 			validator.ValidationType = ValidationType.Schema;
 
 			XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
-			schemaCollection.Add("http://palladio.informatik.uni-oldenburg.de/XSD","palladio_cm.ref.xsd");
+			schemaCollection.Add("http://palladio.informatik.uni-oldenburg.de/XSD",System.AppDomain.CurrentDomain.BaseDirectory+"\\palladio_cm.ref.xsd");
 			validator.Schemas.Add(schemaCollection);
 
 			validator.ValidationEventHandler += new ValidationEventHandler(validator_ValidationEventHandler);
 
-			while (validator.Read()) { }
+			//while (validator.Read()) { }
 			
 			// file is valid. create dom tree
 			validator.Close();
