@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/07/19 04:37:48  sliver
+ * extracted attributes
+ *
  * Revision 1.1  2004/07/12 06:33:04  sliver
  * Initial checkin
  *
@@ -121,14 +124,14 @@ namespace Palladio.Reliability.TypedCollections
 			innerHash.Clear();		
 		}
 		
-		public void Add(IExternalSignature key, ServiceReliability value)
+		public void Add(IExternalSignature key, IVariableExpression value)
 		{
 			innerHash.Add(key, value);
 		}
 		
 		void IDictionary.Add(object key, object value)
 		{
-			Add ((IExternalSignature)key, (ServiceReliability)value);
+			Add ((IExternalSignature)key, (IVariableExpression)value);
 		}
 		
 		public bool IsReadOnly {
@@ -137,9 +140,9 @@ namespace Palladio.Reliability.TypedCollections
 			}
 		}
 		
-		public ServiceReliability this[IExternalSignature key] {
+		public IVariableExpression this[IExternalSignature key] {
 			get {
-				return (ServiceReliability) innerHash[key];
+				return (IVariableExpression) innerHash[key];
 			}
 			set {
 				innerHash[key] = value;
@@ -151,7 +154,7 @@ namespace Palladio.Reliability.TypedCollections
 				return this[(IExternalSignature)key];
 			}
 			set {
-				this[(IExternalSignature)key] = (ServiceReliability)value;
+				this[(IExternalSignature)key] = (IVariableExpression)value;
 			}
 		}
 		
@@ -219,7 +222,7 @@ namespace Palladio.Reliability.TypedCollections
 			return innerHash.ContainsKey(key);
 		}
 		
-		public bool ContainsValue(ServiceReliability value)
+		public bool ContainsValue(IVariableExpression value)
 		{
 			return innerHash.ContainsValue(value);
 		}
@@ -261,9 +264,9 @@ namespace Palladio.Reliability.TypedCollections
 			}
 		}
 		
-		public ServiceReliability Value {
+		public IVariableExpression Value {
 			get {
-				return (ServiceReliability)innerEnumerator.Value;
+				return (IVariableExpression)innerEnumerator.Value;
 			}
 		}
 		

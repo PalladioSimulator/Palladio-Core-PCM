@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/07/19 04:37:48  sliver
+ * extracted attributes
+ *
  * Revision 1.2  2004/07/13 02:14:52  sliver
  * Added comments
  *
@@ -18,6 +21,7 @@ using Palladio.FiniteStateMachines;
 using Palladio.Attributes;
 using Palladio.Identifier;
 using Palladio.Reliability.Math;
+using Palladio.Reliability.Attributes;
 
 namespace Palladio.Reliability.Tests
 {
@@ -61,7 +65,7 @@ namespace Palladio.Reliability.Tests
 			IBasicComponent c2 = ComponentFactory.CreateBasicComponent("C2");
 			IInterfaceModel provides = CreateProvidesInterfaceP2();
 			c2.AddProvidesInterface(ID("P2"),provides);
-
+			
 			c2.AddServiceEffectSpecification(ID("P2"),provides.SignatureList.GetSignaturesByID(ID("e1"))[0],CreateEmptyServiceEffect());
 			c2.AddServiceEffectSpecification(ID("P2"),provides.SignatureList.GetSignaturesByID(ID("e2"))[0],CreateEmptyServiceEffect());
 			c2.AddServiceEffectSpecification(ID("P2"),provides.SignatureList.GetSignaturesByID(ID("e3"))[0],CreateEmptyServiceEffect());
@@ -140,6 +144,11 @@ namespace Palladio.Reliability.Tests
 
 			ISignature[] signatures = ComponentFactory.CreateSignatureArray("e1","e2","e3","e4");
 			ifModel.SignatureList.AddSignatures(signatures);
+			
+			signatures[0].Attributes.Add(ServiceReliabilityAttribute.AttributeType, new ServiceReliabilityAttribute(0.9));
+			signatures[1].Attributes.Add(ServiceReliabilityAttribute.AttributeType, new ServiceReliabilityAttribute("x"));
+			signatures[2].Attributes.Add(ServiceReliabilityAttribute.AttributeType, new ServiceReliabilityAttribute(0.7));
+			signatures[3].Attributes.Add(ServiceReliabilityAttribute.AttributeType, new ServiceReliabilityAttribute(0.1));
 
 			editFSM1 = fsmProtocol.EditFSM;
 

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.1  2004/07/19 04:37:48  sliver
+ * extracted attributes
+ *
  * Revision 1.1  2004/07/12 06:33:04  sliver
  * Initial checkin
  *
@@ -16,16 +19,30 @@ using System.Diagnostics;
 
 using Palladio.Attributes;
 using Palladio.Utils.Collections;
+using Palladio.Reliability.Math;
 
-namespace Palladio.Reliability.Math
+namespace Palladio.Reliability.Attributes
 {
 	/// <summary>
-	/// Description of MarkovProbabilityAttribute.	
+	/// Attribute containig the Markov Probability of a transition.	
 	/// </summary>
-	public class MarkovProbabilityAttribute : VariableExpression
+	public class MarkovProbabilityAttribute
 	{
 		#region Properties
 		
+		/// <summary>
+		/// The value of the MarkovProbabilityAttribute.
+		/// </summary>
+		public IVariableExpression MarkovProbability {
+			get {
+				return markovProbability;
+			}
+			set {
+				markovProbability = value;
+			}
+		}
+		
+				
 		/// <summary>
 		/// Type of the MarkovProbabilityAttribute.
 		/// </summary>
@@ -51,7 +68,7 @@ namespace Palladio.Reliability.Math
 		/// <returns>String representation of the object.</returns>
 		public override string ToString()
 		{
-			return expression.ToString();
+			return markovProbability.ToString();
 		}
 		#endregion
 		
@@ -61,16 +78,20 @@ namespace Palladio.Reliability.Math
 		/// Create a new MarkovProbabilityAttribute and assigns aValue to it. 
 		/// </summary>
 		/// <param name="aValue">Probability value. It can only be inbetween 0 and 1.</param>
-		public MarkovProbabilityAttribute(double aValue) : base(aValue)
+		public MarkovProbabilityAttribute(double aValue)
 		{
 			Trace.Assert( aValue >= 0 );
 			Trace.Assert( aValue <= 1 );
+			markovProbability = new VariableExpression(aValue);
 		}
+		
+		
 		
 		#endregion
 		
 		#region Data
 		
+		private IVariableExpression markovProbability;
 		private static IAttributeType attributeType = null;
 		#endregion
 		

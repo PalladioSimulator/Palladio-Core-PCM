@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/07/19 04:37:48  sliver
+ * extracted attributes
+ *
  * Revision 1.2  2004/07/13 02:14:51  sliver
  * Added comments
  *
@@ -21,6 +24,7 @@ using Palladio.ComponentModel;
 using Palladio.Identifier;
 using Palladio.Attributes;
 using Palladio.Reliability.Math;
+using Palladio.Reliability.Attributes;
 
 using log4net;
 using log4net.Config;
@@ -82,8 +86,8 @@ namespace Palladio.Reliability.Model
 			
 			foreach ( ISignature s in b.RequiringRole.Role.Interface.SignatureList )
 			{
-				IExternalSignature reqSig = ComponentFactory.CreateExternalSignatureArray( b.RequiringRole.RoleID, s) [0];
-				IExternalSignature provSig = ComponentFactory.CreateExternalSignatureArray( b.ProvidingRole.RoleID, s) [0];
+				IExternalSignature reqSig = ComponentFactory.CreateExternalSignature( b.RequiringRole.RoleID, s);
+				IExternalSignature provSig = ComponentFactory.CreateExternalSignature( b.ProvidingRole.RoleID, s);
 				
 				// forward reliability information
 				// calculate influences of the mapping here!!
@@ -123,13 +127,18 @@ namespace Palladio.Reliability.Model
 					foreach( ISignature sig in im.SignatureList )
 					{
 						IExternalSignature provSig = ComponentFactory.CreateExternalSignature( id, sig );
-						
-						IServiceEffectSpecification se = bc.GetServiceEffectSpecification(provSig);
-						IFSMServiceEffect fsmSe = se.GetAuxiliarySpecification(typeof(IFSMServiceEffect)) as IFSMServiceEffect;
-						
-						log.Debug("\n"+fsmSe.FSM);
-						
-						bcNode.ProvidesReliabilities[ provSig ] = new ServiceReliability(fsmSe.FSM, bcNode.RequiresReliabilities);
+						ServiceReliabilityAttribute srAttribute = sig.Attributes[ServiceReliabilityAttribute.AttributeType] as ServiceReliabilityAttribute;
+						if ( srAttribute != null )
+						{
+							bcNode.ProvidesReliabilities[ provSig ] = srAttribute.ServiceReliability;
+						}
+						else
+						{
+							IServiceEffectSpecification se = bc.GetServiceEffectSpecification(provSig);
+							IFSMServiceEffect fsmSe = se.GetAuxiliarySpecification(typeof(IFSMServiceEffect)) as IFSMServiceEffect;
+							
+							bcNode.ProvidesReliabilities[ provSig ] = new ServiceReliability(fsmSe.FSM, bcNode.RequiresReliabilities);
+						}
 					}
 				}
 			}

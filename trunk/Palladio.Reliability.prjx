@@ -10,7 +10,7 @@
     <File name=".\src\Tests\CMBuilder.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
     <File name=".\src\Math\ServiceReliability.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
     <File name=".\src\TypedCollections\ReliabilityHash.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
-    <File name=".\src\Math\MarkovProbability.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Attributes\MarkovProbabilityAttribute.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
     <File name=".\src\TypedCollections" subtype="Directory" buildaction="Compile" dependson="" data="" />
     <File name=".\src\Tests" subtype="Directory" buildaction="Compile" dependson="" data="" />
     <File name=".\src\Tests\ServiceReliabilityTest.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
@@ -24,6 +24,8 @@
     <File name=".\src\Math\IVariableExpression.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
     <File name=".\src\Model" subtype="Directory" buildaction="Compile" dependson="" data="" />
     <File name=".\src\Tests\ModelTest.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Attributes" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Attributes\ServiceReliabilityAttribute.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
   </Contents>
   <References>
     <Reference type="Project" refto="ReflectionBasedVisitor" localcopy="True" />

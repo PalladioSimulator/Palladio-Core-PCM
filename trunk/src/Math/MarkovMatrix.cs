@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/07/19 04:37:48  sliver
+ * extracted attributes
+ *
  * Revision 1.2  2004/07/13 02:14:49  sliver
  * Added comments
  *
@@ -17,6 +20,7 @@ using System.Diagnostics;
 
 using Palladio.FiniteStateMachines;
 using Palladio.Reliability.TypedCollections;
+using Palladio.Reliability.Attributes;
 using Palladio.ComponentModel;
 
 using cdrnet.Lib.MathLib.Core;
@@ -160,10 +164,10 @@ namespace Palladio.Reliability.Math
 			{
 				int x = (int)aStateNumHash[t.DestinationState.ID];
 				int y = (int)aStateNumHash[t.SourceState.ID];
-				ServiceReliability serviceRel = anExtReliabilityHash[ (IExternalSignature)t.InputSymbol.ID ];
-				MarkovProbabilityAttribute markovProb = (MarkovProbabilityAttribute) t.Attributes[ MarkovProbabilityAttribute.AttributeType ];
+				IVariableExpression serviceRel = anExtReliabilityHash[ (IExternalSignature)t.InputSymbol.ID ];
+				MarkovProbabilityAttribute mpAttribute = (MarkovProbabilityAttribute) t.Attributes[ MarkovProbabilityAttribute.AttributeType ];
 				
-				IScalarExpression successProb = markovProb.Expression;
+				IScalarExpression successProb = mpAttribute.MarkovProbability.Expression;
 				if ( serviceRel != null ) successProb = new ScalarMultiplication( aContext, successProb, serviceRel.Expression);				
 				
 				IScalarExpression currentExpr = result[x,y];
@@ -175,8 +179,8 @@ namespace Palladio.Reliability.Math
 				IScalarExpression markovProb = new ScalarExpressionValue(context, 1.0);
 				foreach (ITransition trans in aFSM.GetOutgoingTransitions(state))
 				{
-					MarkovProbabilityAttribute outMarkovProb = (MarkovProbabilityAttribute) trans.Attributes[ MarkovProbabilityAttribute.AttributeType ];
-					markovProb = new ScalarSubtraction( context, markovProb, outMarkovProb.Expression );
+					MarkovProbabilityAttribute mpAttribute = (MarkovProbabilityAttribute) trans.Attributes[ MarkovProbabilityAttribute.AttributeType ];
+					markovProb = new ScalarSubtraction( context, markovProb, mpAttribute.MarkovProbability.Expression );
 				}
 				int y = (int)aStateNumHash[state.ID];
 				result[rang-1,y] = markovProb;
