@@ -105,6 +105,16 @@
                     AssemblyName = "Palladio.Attributes"
                     HintPath = "..\..\..\Palladio.Attributes\bin\Debug\Palladio.Attributes.dll"
                 />
+                <Reference
+                    Name = "Palladio.ComponentModel"
+                    AssemblyName = "Palladio.ComponentModel"
+                    HintPath = "..\..\..\Palladio.ComponentModel\bin\Debug\Palladio.ComponentModel.dll"
+                />
+                <Reference
+                    Name = "Palladio.Identifier"
+                    AssemblyName = "Palladio.Identifier"
+                    HintPath = "..\..\..\Palladio.Identifier\bin\Debug\Palladio.Identifier.dll"
+                />
             </References>
         </Build>
         <Files>
@@ -116,6 +126,16 @@
                 />
                 <File
                     RelPath = "src\ComponentNetworkSimulation\AbstractSimulationEnvironment.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\DefaultEnvironmentFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\IEnvironmentFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -225,32 +245,22 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\AbstractComponentNetwork.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\AbstractComponentArchitecture.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\AbstractConnector.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\ComponentNetworkFactory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\ConnectorFactory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\ConnectorPath.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\DefaultComponentArchitecture.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\ComponentNetworkSimulation\structure\DefaultThreadStartingPoint.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\IComponentArchitecture.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -295,87 +305,137 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\componentnetwork\XMLBasedComponentNetwork.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\AbstractComponentBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\connectors\ConstantTimeConnector.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\DefaultBasicComponentBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\connectors\ZeroDelayConnector.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\DefaultBuilderFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\AbstractSimulationState.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\DefaultServiceBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\DefaultRandomStrategy.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\IBasicComponentBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\DefaultServiceBuilder.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\IBuilderFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\DefaultStateParams.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\IComponentBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\DefaultStaticTimeState.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\ICompositeComponentBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\IControlFlowStrategy.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\IServiceBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\IServiceBuilder.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\AbstractSimulationState.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\ISimulationState.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\DefaultElementFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\ISimulationStateParams.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\DefaultRandomStrategy.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\StaticTimeStateParams.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\DefaultStateParams.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\DefaultComponentArchitectureStack.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\DefaultStaticTimeState.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\DefaultComponentArchitectureVisitor.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\IControlFlowStrategy.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\IComponentArchitectureStack.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\IElementFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\IComponentArchitectureVisitor.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\ISimulationBinding.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\ISimulationState.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\ISimulationStateParams.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\StaticTimeStateParams.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\AbstractComponentVisitor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\DefaultBasicComponentVisitor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\DefaultCompositeComponentVisitor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\DefaultVisitorFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\IComponentVisitor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\IVisitorFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\VisitorEventArgs.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -395,17 +455,17 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\nunittests\structure\ComponentArchitectureStackTest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\nunittests\structure\ComponentArchitectureVisitorTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\nunittests\structure\TestArchitectures.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\testapplication\CMBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
