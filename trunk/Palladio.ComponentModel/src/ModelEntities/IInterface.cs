@@ -10,6 +10,9 @@ namespace Palladio.ComponentModel.ModelEntities
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/03/16 13:32:34  joemal
+	/// implement lowlevelbuilder
+	///
 	/// Revision 1.1  2005/03/15 12:31:23  joemal
 	/// initial class creation
 	///
@@ -30,5 +33,21 @@ namespace Palladio.ComponentModel.ModelEntities
 		/// The name of the Interface
 		/// </summary>
 		string Name { get; set; }
+	}
+
+	/// <summary>
+	/// determ wether an interfaces that is bound to an component is in provides or requires role
+	/// </summary>
+	public enum InterfaceRole
+	{
+		/// <summary>
+		/// The bound interface is in provides role
+		/// </summary>
+		PROVIDES,
+
+		/// <summary>
+		/// The bound interface is in requires role
+		/// </summary>
+		REQUIRES
 	}
 }

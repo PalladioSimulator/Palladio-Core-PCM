@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/03/16 13:32:34  joemal
+	/// implement lowlevelbuilder
+	///
 	/// Revision 1.1  2005/03/15 12:31:02  joemal
 	/// initial class creation
 	///
@@ -59,7 +62,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 
 		#endregion
 
-		#region methods
+		#region public methods
 
 		//connect the rowremoved-events of the tables to the eventhandler in this class
 		private void Init()
@@ -104,7 +107,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			newRow.guid = component.ID.Key;
 			newRow.type = (sbyte) component.Type;
 
-			ModelDataSet.ComponentsRow parentComp = getComponentsRow(parentComponentID);
+			ModelDataSet.ComponentsRow parentComp = GetComponentsRow(parentComponentID);
 			if (parentComp != null)
 				newRow.parentComponent = parentComp.id;
 
@@ -121,31 +124,35 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="componentId">the id of the component to be removed</param>
 		public void RemoveComponent(IComponentIdentifier componentId)
 		{
-			ModelDataSet.ComponentsRow component = getComponentsRow(componentId);
-			if (component != null)
-				ComponentsTable.RemoveComponentsRow(component);
-
-			ComponentsTable.AcceptChanges();
+			this.RemoveRow(componentId,ComponentsTable);
 		}
 
 		/// <summary>
-		/// called to add an existing interface as an provides interface to a component.
+		/// called to add an existing interface to a component.
 		/// </summary>
 		/// <param name="componentIdentifier">the id of component</param>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
-		public void AddProvidesInterfaceToComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier)
+		/// <param name="role">determ whether the interface is bound as requires or provides interface</param>
+		/// <exception cref="InterfaceNotFoundException">the interface could not be found in cm</exception>
+		/// <exception cref="ComponentNotFoundException">the component could not be found in cm</exception>
+		public void AddInterfaceToComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier, 
+			InterfaceRole role)
 		{
-			throw new NotImplementedException();
-		}
+			modelCheck.AddIFaceToCompCheck(componentIdentifier,ifaceIdentifier,role);
 
-		/// <summary>
-		/// called to add an existing interface as an requires interface to a component.
-		/// </summary>
-		/// <param name="componentIdentifier">the id of component</param>
-		/// <param name="ifaceIdentifier">the id of the interface</param>
-		public void AddRequiresInterfaceToComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier)
-		{
-			throw new NotImplementedException();
+			ModelDataSet.ComponentsRow compRow = GetComponentsRow(componentIdentifier);
+			ModelDataSet.InterfacesRow ifaceRow = GetInterfacesRow(ifaceIdentifier);
+
+			string query = "fk_comp = "+compRow.id+" and fk_iface = "+ifaceRow.id;
+			DataRow[] result = modelDataset.Roles.Select(query);
+
+			//still exists
+			if (result.Length == 2) return;
+			if (result.Length == 1)
+				if (((ModelDataSet.RolesRow)result[0]).type == (sbyte)role) return;
+            
+			RolesTable.AddRolesRow(this.NextID,compRow,ifaceRow,(sbyte) role);
+			RolesTable.AcceptChanges();
 		}
 
 		/// <summary>
@@ -153,22 +160,56 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		/// <param name="componentIdentifier">the id of component</param>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
-		public void RemoveInterfaceFromComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier)
+		/// <param name="role">the role bound of the interface in the component</param>
+		public void RemoveInterfaceFromComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier,
+			InterfaceRole role)
+		{
+			ModelDataSet.RolesRow rolesRow = QueryRole(componentIdentifier,ifaceIdentifier,role);
+			if (rolesRow == null) return;
+
+			rolesRow.Delete();
+			RolesTable.AcceptChanges();
+		}
+
+		/// <summary>
+		/// called to add a delegationconnector from the provides interface of an component to the provides 
+		/// interface of an inner component.
+		/// </summary>
+		/// <param name="connection">the connection to be added</param>
+		/// <param name="outerCompID">the id of the outer component</param>
+		/// <param name="outerIFaceID">the id of the outer component</param>
+		/// <param name="innerCompID">the id of the inner component</param>
+		/// <param name="innerIFaceID">the id of the inner components interface</param>
+		public void AddProvidesDelegationConnector(IConnection connection, IComponentIdentifier outerCompID, IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{
 			throw new NotImplementedException();
 		}
 
 		/// <summary>
-		/// called to add a connection from one component to another component. Therefore the interfaces and the two components
-		/// have to be specified. Both components must have the same parent component or must be placed at the top level of the
+		/// called to add a delegationconnector from the requires interface of an component to the requires 
+		/// interface of its parent component
+		/// </summary>
+		/// <param name="connection">the connection to be added</param>
+		/// <param name="innerCompID">the id of the inner component</param>
+		/// <param name="innerIFaceID">the id of the inner components interface</param>
+		/// <param name="outerCompID">the id of the outer component</param>
+		/// <param name="outerIFaceID">the id of the outer component</param>
+		public void AddRequiresDelegationConnector(IConnection connection, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID, IComponentIdentifier outerCompID, IInterfaceIdentifier outerIFaceID)
+		{
+			throw new NotImplementedException();
+		}
+
+		/// <summary>
+		/// called to add an assemblyConnector from a requires interfaces of a component to a provides interface of 
+		/// another component. Both components must have the same parent component or must be placed at the top level of the
 		/// model.
 		/// </summary>
-		/// <param name="connection"></param>
-		/// <param name="incomingCompID"></param>
-		/// <param name="incomingIFaceID"></param>
-		/// <param name="outgoingCompID"></param>
-		/// <param name="outgoingIFaceID"></param>
-		public void AddConnection(IConnection connection, IComponentIdentifier incomingCompID, IInterfaceIdentifier incomingIFaceID, IComponentIdentifier outgoingCompID, IInterfaceIdentifier outgoingIFaceID)
+		/// <param name="connection">the connection to be added</param>
+		/// <param name="reqCompID">the id of the incoming component</param>
+		/// <param name="reqIFaceID">the incoming components interface</param>
+		/// <param name="provCompID">the id of the outgoing component</param>
+		/// <param name="provIFaceID">the outgoing components interface</param>
+		public void AddAssemblyConnector(IConnection connection, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
 			throw new NotImplementedException();
 		}
@@ -179,16 +220,20 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="connectionID">the id of the connection that has to be removed</param>
 		public void RemoveConnection(IConnectionIdentifier connectionID)
 		{
-			throw new NotImplementedException();
+			RemoveRow(connectionID,ConnectionsTable);
 		}
 
 		/// <summary>
 		/// called to add an interface to the model. 
 		/// </summary>
 		/// <param name="iface">the interface to be added</param>
+		/// <exception cref="EntityAlreadyExistsException">an interface with given id already exists in cm</exception>
 		public void AddInterface(IInterface iface)
 		{
-			throw new NotImplementedException();
+			this.modelCheck.AddInterfaceCheck(iface);
+			this.InterfacesTable.AddInterfacesRow(this.NextID,iface.ID.Key);
+			this.InterfacesTable.AcceptChanges();
+			this.entityTable.AddEntity(iface);
 		}
 
 		/// <summary>
@@ -198,7 +243,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		public void RemoveInterface(IInterfaceIdentifier ifaceID)
 		{
-			throw new NotImplementedException();
+			this.RemoveRow(ifaceID,InterfacesTable);
 		}
 
 		/// <summary>
@@ -206,9 +251,13 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		/// <param name="signature">the signature to be added</param>
 		/// <param name="ifaceID">the id of the interface, to which the signature has to be added</param>
+		/// <exception cref="EntityAlreadyExistsException">an signature with given id already exists in cm</exception>
+		/// <exception cref="InterfaceNotFoundException">the interface could not be found in cm</exception>
 		public void AddSignature(ISignature signature, IInterfaceIdentifier ifaceID)
 		{
-			throw new NotImplementedException();
+			modelCheck.AddSignatureCheck(signature, ifaceID);
+			ModelDataSet.InterfacesRow ifaceRow = GetInterfacesRow(ifaceID);
+			SignaturesTable.AddSignaturesRow(this.NextID,signature.ID.Key,ifaceRow);
 		}
 
 		/// <summary>
@@ -217,7 +266,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="signatureID">the id of the signature that has to be removed</param>
 		public void RemoveSignature(ISignatureIdentifier signatureID)
 		{
-			throw new NotImplementedException();
+			this.RemoveRow(signatureID,SignaturesTable);			
 		}
 
 		/// <summary>
@@ -225,9 +274,14 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		/// <param name="protocol">the protocol to be added</param>
 		/// <param name="ifaceID">the id of the interface, to which the protocol has to be added</param>
+		/// <exception cref="InterfaceNotFoundException">the interface could not be found in cm</exception>
 		public void AddProtocol(IProtocol protocol, IInterfaceIdentifier ifaceID)
 		{
-			throw new NotImplementedException();
+			modelCheck.AddProtocolCheck(ifaceID);
+
+			ModelDataSet.InterfacesRow ifaceRow = GetInterfacesRow(ifaceID);
+			ProtocolsTable.AddProtocolsRow(protocol.ID.Key,ifaceRow);
+			ProtocolsTable.AcceptChanges();
 		}
 
 		/// <summary>
@@ -236,19 +290,69 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="protocolID">the id of the protocol that has to be removed</param>
 		public void RemoveProtocol(IProtocolIdentifier protocolID)
 		{
-			throw new NotImplementedException();
+			this.RemoveRow(protocolID,ProtocolsTable);			
 		}
 
-		//returns the row of the componenttable that is matching to the given component id.
-		private ModelDataSet.ComponentsRow getComponentsRow(IComponentIdentifier compID)
-		{
-			if (compID == null) return null;
+		#endregion
 
-			DataRow[] result = ComponentsTable.Select("guid = '"+compID.Key+"'");
+		#region private methods
+
+		//return the row from the componenttable that is matching to given component identifier.
+		private ModelDataSet.ComponentsRow GetComponentsRow(IComponentIdentifier compId)
+		{
+			return (ModelDataSet.ComponentsRow) GetRow(compId,ComponentsTable);
+		}
+
+		//return the row from the interfacetable that is matching to given interface identifier.
+		private ModelDataSet.InterfacesRow GetInterfacesRow(IInterfaceIdentifier ifaceId)
+		{
+			return (ModelDataSet.InterfacesRow) GetRow(ifaceId,InterfacesTable);
+		}
+
+		//returns the row of the given table that is matching to the given id.
+		private DataRow GetRow(IIdentifier id, DataTable table)
+		{
+			if (id == null) return null;
+			DataRow[] result = table.Select("guid = '"+id.Key+"'");
 			if (result.Length != 0)
-				return (ModelDataSet.ComponentsRow) result[0];
+				return result[0];
 			
 			return null;
+		}
+
+		//called to remove the row that is matching to id from given table
+		private void RemoveRow(IIdentifier id, DataTable table)
+		{
+			DataRow row = GetRow(id,table);
+			if (row != null)
+				row.Delete();
+
+			table.AcceptChanges();            			
+		}
+
+		//queries the role by componentid, interfaceid and role
+		private ModelDataSet.RolesRow QueryRole(IComponentIdentifier compId, IInterfaceIdentifier iFaceId, InterfaceRole role)
+		{
+			ModelDataSet.ComponentsRow compRow = GetComponentsRow(compId);
+			ModelDataSet.InterfacesRow ifaceRow = GetInterfacesRow(iFaceId);
+
+			if (compRow == null || ifaceRow == null) return null;
+
+			string query = "fk_comp = "+compRow.id+" and fk_iface = "+ifaceRow.id+" and type = "+(sbyte)role;
+			DataRow[] result = modelDataset.Roles.Select(query);
+
+			if (result.Length == 0) return null;	
+
+			return (ModelDataSet.RolesRow) result[0];
+		}
+
+		//called to add a connection between two roles
+		private void AddConnection(IConnection connection, ModelDataSet.RolesRow rolesRow1, 
+			ModelDataSet.RolesRow rolesRow2)
+		{
+			ConnectionsTable.AddConnectionsRow(rolesRow1,rolesRow2,connection.ID.Key);
+			ConnectionsTable.AcceptChanges();
+			entityTable.AddEntity(connection);
 		}
 
 		//the handler of the RowRemovedEvents of the datasets tables. 

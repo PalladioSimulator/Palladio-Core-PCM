@@ -87,6 +87,40 @@ namespace Palladio.ComponentModel.UnitTests
 			ISignature sig = EntityFactory.CreateSignature("Clone",new SignatureDescription());
 			modelManager.LowLevelBulder.AddSignature(sig,iface.InterfaceID);
 		}
+
+		[Test]
+		[ExpectedException(typeof(InterfaceNotFoundException))]
+		public void AddInterfaceToComponentIFaceNotFound()
+		{
+			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
+			IInterface iface = EntityFactory.CreateInterface("ICloneable");
+
+			modelManager.LowLevelBulder.AddComponent(cc,null);
+			modelManager.LowLevelBulder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.PROVIDES);
+		}
+
+		[Test]
+		[ExpectedException(typeof(ComponentNotFoundException))]
+		public void AddInterfaceToComponentComponentNotFound()
+		{
+			IInterface iface = EntityFactory.CreateInterface("ICloneable");
+			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
+			
+			modelManager.LowLevelBulder.AddInterface(iface);
+			modelManager.LowLevelBulder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.REQUIRES);
+		}
+
+		[Test]
+		public void AddInterfaceToComponent()
+		{
+			IInterface iface = EntityFactory.CreateInterface("ICloneable");
+			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
+
+			modelManager.LowLevelBulder.AddInterface(iface);
+			modelManager.LowLevelBulder.AddComponent(cc,null);
+			modelManager.LowLevelBulder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.PROVIDES);
+			modelManager.LowLevelBulder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.REQUIRES);
+		}
 	}
 }
 

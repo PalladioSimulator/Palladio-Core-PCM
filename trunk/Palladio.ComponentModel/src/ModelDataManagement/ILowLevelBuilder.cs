@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/03/16 13:32:34  joemal
+	/// implement lowlevelbuilder
+	///
 	/// Revision 1.1  2005/03/15 12:31:02  joemal
 	/// initial class creation
 	///
@@ -45,38 +48,61 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		void RemoveComponent(IComponentIdentifier componentId);
 
 		/// <summary>
-		/// called to add an existing interface as an provides interface to a component.
+		/// called to add an existing interface to a component.
 		/// </summary>
 		/// <param name="componentIdentifier">the id of component</param>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
-		void AddProvidesInterfaceToComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier);
-
-		/// <summary>
-		/// called to add an existing interface as an requires interface to a component.
-		/// </summary>
-		/// <param name="componentIdentifier">the id of component</param>
-		/// <param name="ifaceIdentifier">the id of the interface</param>
-		void AddRequiresInterfaceToComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier);
+		/// <param name="role">determ whether the interface is bound as requires or provides interface</param>
+		/// <exception cref="InterfaceNotFoundException">the interface could not be found in cm</exception>
+		/// <exception cref="ComponentNotFoundException">the component could not be found in cm</exception>
+		void AddInterfaceToComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier, 
+			InterfaceRole role);
 
 		/// <summary>
 		/// called to remove an interface from a component.
 		/// </summary>
 		/// <param name="componentIdentifier">the id of component</param>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
-		void RemoveInterfaceFromComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier);
+ 		/// <param name="role">the role bound of the interface in the component</param>
+		void RemoveInterfaceFromComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier,
+			InterfaceRole role);
 
 		/// <summary>
-		/// called to add a connection from one component to another component. Therefore the interfaces and the two components
-		/// have to be specified. Both components must have the same parent component or must be placed at the top level of the
+		/// called to add a delegationconnector from the provides interface of an component to the provides 
+		/// interface of an inner component.
+		/// </summary>
+		/// <param name="connection">the connection to be added</param>
+		/// <param name="outerCompID">the id of the outer component</param>
+		/// <param name="outerIFaceID">the id of the outer component</param>
+		/// <param name="innerCompID">the id of the inner component</param>
+		/// <param name="innerIFaceID">the id of the inner components interface</param>
+		void AddProvidesDelegationConnector(IConnection connection, IComponentIdentifier outerCompID, 
+			IInterfaceIdentifier outerIFaceID,IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
+
+		/// <summary>
+		/// called to add a delegationconnector from the requires interface of an component to the requires 
+		/// interface of its parent component
+		/// </summary>
+		/// <param name="connection">the connection to be added</param>
+		/// <param name="innerCompID">the id of the inner component</param>
+		/// <param name="innerIFaceID">the id of the inner components interface</param>
+		/// <param name="outerCompID">the id of the outer component</param>
+		/// <param name="outerIFaceID">the id of the outer component</param>
+		void AddRequiresDelegationConnector(IConnection connection, IComponentIdentifier innerCompID, 
+			IInterfaceIdentifier innerIFaceID,IComponentIdentifier outerCompID,IInterfaceIdentifier outerIFaceID);
+
+		/// <summary>
+		/// called to add an assemblyConnector from a requires interfaces of a component to a provides interface of 
+		/// another component. Both components must have the same parent component or must be placed at the top level of the
 		/// model.
 		/// </summary>
-		/// <param name="connection"></param>
-		/// <param name="incomingCompID"></param>
-		/// <param name="incomingIFaceID"></param>
-		/// <param name="outgoingCompID"></param>
-		/// <param name="outgoingIFaceID"></param>
-		void AddConnection(IConnection connection, IComponentIdentifier incomingCompID, IInterfaceIdentifier incomingIFaceID,
-			IComponentIdentifier outgoingCompID, IInterfaceIdentifier outgoingIFaceID);
+		/// <param name="connection">the connection to be added</param>
+		/// <param name="reqCompID">the id of the incoming component</param>
+		/// <param name="reqIFaceID">the incoming components interface</param>
+		/// <param name="provCompID">the id of the outgoing component</param>
+		/// <param name="provIFaceID">the outgoing components interface</param>
+		void AddAssemblyConnector(IConnection connection, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
+			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
 
 		/// <summary>
 		/// called to remove the connection that belongs to the given id.
@@ -88,6 +114,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// called to add an interface to the model. 
 		/// </summary>
 		/// <param name="iface">the interface to be added</param>
+		/// <exception cref="EntityAlreadyExistsException">an interface with given id already exists in cm</exception>
 		void AddInterface(IInterface iface);
 
 		/// <summary>
@@ -102,6 +129,8 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		/// <param name="signature">the signature to be added</param>
 		/// <param name="ifaceID">the id of the interface, to which the signature has to be added</param>
+		/// <exception cref="EntityAlreadyExistsException">an signature with given id already exists in cm</exception>
+		/// <exception cref="InterfaceNotFoundException">the interface could not be found in cm</exception>
 		void AddSignature(ISignature signature, IInterfaceIdentifier ifaceID);
 
 		/// <summary>
@@ -115,6 +144,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		/// <param name="protocol">the protocol to be added</param>
 		/// <param name="ifaceID">the id of the interface, to which the protocol has to be added</param>
+		/// <exception cref="InterfaceNotFoundException">the interface could not be found in cm</exception>
 		void AddProtocol(IProtocol protocol, IInterfaceIdentifier ifaceID);
 
 		/// <summary>
