@@ -17,6 +17,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/10/27 15:05:06  kelsaka
+	/// added more request handling-abilities
+	///
 	/// Revision 1.4  2004/10/27 05:52:48  kelsaka
 	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
 	///
@@ -34,15 +37,23 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// </remarks>
 	public class HTTPRequestParser : IRequestParser
 	{
+
+		private IWebserverMonitor webserverMonitor;
+		private IWebserverConfiguration webserverConfiguration;
+
 		public HTTPRequestParser(IHTTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor,  IWebserverConfiguration webserverConfiguration)
 		{
-			
+			this.webserverMonitor = webserverMonitor;
+			this.webserverConfiguration = webserverConfiguration;			
 		}
+
 
 
 		public void HandleRequest (IRequest request)
 		{
-			throw new NotImplementedException ();
+			
+
+			//throw new NotImplementedException ();
 		}
 	}
 }

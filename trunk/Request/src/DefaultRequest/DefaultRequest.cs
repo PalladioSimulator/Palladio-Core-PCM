@@ -12,6 +12,9 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/10/27 15:05:06  kelsaka
+	/// added more request handling-abilities
+	///
 	/// Revision 1.1  2004/10/21 15:03:09  kelsaka
 	/// new project: request
 	///
@@ -21,34 +24,43 @@ namespace Palladio.Webserver.Request
 	/// </remarks>
 	public class DefaultRequest : IRequest
 	{
+
+		private TcpClient tcpClient;
+		private TcpListener tcpListener;
+		private Socket socket;
+
+
 		public DefaultRequest()
 		{
 		
 		}
 
 
-		public string Request
-		{
-			get { throw new NotImplementedException (); }
-			set { throw new NotImplementedException (); }
-		}
-
+		/// <summary>
+		/// The client-identification at the tcp-level.
+		/// </summary>
 		public TcpClient TcpClient
 		{
-			get { throw new NotImplementedException (); }
-			set { throw new NotImplementedException (); }
+			get { return tcpClient; }
+			set { this.tcpClient = value; }
 		}
 
-		public string URI
+		/// <summary>
+		/// Observes the connections of TCP-networkclients.
+		/// </summary>
+		public TcpListener TcpListener
 		{
-			get { throw new NotImplementedException (); }
-			set { throw new NotImplementedException (); }
+			get { return tcpListener; }
+			set { tcpListener = value; }
 		}
 
-		public string RequestMethod
+		/// <summary>
+		/// The socket-interface / connection.
+		/// </summary>
+		public Socket Socket
 		{
-			get { throw new NotImplementedException (); }
-			set { throw new NotImplementedException (); }
+			get { return socket; }
+			set { socket = value; }
 		}
 	}
 }

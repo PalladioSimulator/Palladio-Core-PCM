@@ -11,9 +11,14 @@ namespace Palladio.Webserver.RequestParser
 	/// </summary>
 	public class DefaultRequestParser : IRequestParser
 	{
+
+		private IWebserverMonitor webserverMonitor;
+		private IWebserverConfiguration webserverConfiguration;
+
 		public DefaultRequestParser(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
-
+			this.webserverMonitor = webserverMonitor;
+			this.webserverConfiguration = webserverConfiguration;
 		}
 
 		public void HandleRequest (IRequest request)
