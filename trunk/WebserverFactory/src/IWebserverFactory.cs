@@ -18,6 +18,9 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/10/25 06:35:51  kelsaka
+	/// added XML-reading-abilities
+	///
 	/// Revision 1.5  2004/10/23 11:55:08  kelsaka
 	/// added some parts of the building process
 	///
@@ -57,7 +60,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// Creates a WebserverMonitor: a component for logging- and debuggin-features. 
 		/// </summary>
 		/// <returns></returns>
-		IWebserverMonitor CreateWebserverMonitor(IConfigReader configReader);
+		IWebserverMonitor CreateWebserverMonitor(IWebserverConfiguration webserverConfiguration);
 
 		#endregion
 

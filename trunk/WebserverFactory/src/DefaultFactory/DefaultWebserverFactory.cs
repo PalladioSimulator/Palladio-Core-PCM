@@ -4,7 +4,6 @@ using Palladio.Webserver.Dispatcher;
 using Palladio.Webserver.FTPRequestProcessor;
 using Palladio.Webserver.HTTPRequestProcessor;
 using Palladio.Webserver.RequestParser;
-using Palladio.Webserver.RequestParser;
 using Palladio.Webserver.WebserverMonitor;
 using Palladio.Webserver.HTTPRequestParser;
 
@@ -19,6 +18,9 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/10/25 06:35:51  kelsaka
+	/// added XML-reading-abilities
+	///
 	/// Revision 1.4  2004/10/23 11:55:08  kelsaka
 	/// added some parts of the building process
 	///
@@ -61,9 +63,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// Creates a WebserverMonitor: a component for logging- and debuggin-features. 
 		/// </summary>
 		/// <returns></returns>
-		public IWebserverMonitor CreateWebserverMonitor (IConfigReader configReader)
+		public IWebserverMonitor CreateWebserverMonitor (IWebserverConfiguration webserverConfiguration)
 		{
-			return new DefaultWebserverMonitor(configReader);
+			return new DefaultWebserverMonitor(webserverConfiguration);
 		}
 
 		#endregion

@@ -15,6 +15,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/25 06:35:51  kelsaka
+	/// added XML-reading-abilities
+	///
 	/// Revision 1.2  2004/10/22 16:19:56  kelsaka
 	/// even more interface changes; configuration-alternative on loading the webserver
 	///
@@ -42,11 +45,19 @@ namespace Palladio.Webserver.Dispatcher
 		}
 
 
+		
+		/// <summary>
+		/// Starts the dispatcher which is using threads to handle requests. This means that the webserver starts
+		/// listening at the defined ports.
+		/// </summary>
 		public void Run ()
 		{
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// Stops the dispatcher. This includes the service of the webserver.
+		/// </summary>
 		public void Stop ()
 		{
 			throw new NotImplementedException ();

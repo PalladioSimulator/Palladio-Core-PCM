@@ -12,6 +12,9 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/10/25 06:35:51  kelsaka
+	/// added XML-reading-abilities
+	///
 	/// Revision 1.4  2004/10/23 14:08:36  kelsaka
 	/// first steps on reading xml-config-files
 	///
@@ -30,6 +33,15 @@ namespace Palladio.Webserver.WebserverMonitor
 	public interface IWebserverMonitor
 	{
 
+		/// <summary>
+		/// Prepares the write access (e. g. file handles) for further access.
+		/// </summary>
+		void InitializeWriteAccess();
+
+		/// <summary>
+		/// Closes e. g. file handles and commits changes. Execute finally.
+		/// </summary>
+		void FinishWriteAccess();
 
 		/// <summary>
 		/// Writes debugMessage to defined (see xml-config-file) log-file.
