@@ -84,6 +84,16 @@
                     Project = "{CA375D44-037E-4023-8FC7-4E61C73D778E}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "WebserverMonitor"
+                    Project = "{17051EB1-494F-4029-AE3B-BA4334E9EB0F}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "ConfigReader"
+                    Project = "{749CB836-B6B7-42F5-9998-11B21736E143}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

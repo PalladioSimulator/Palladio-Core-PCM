@@ -4,7 +4,9 @@ using Palladio.Webserver.Dispatcher;
 using Palladio.Webserver.FTPRequestProcessor;
 using Palladio.Webserver.HTTPRequestProcessor;
 using Palladio.Webserver.RequestParser;
+using Palladio.Webserver.RequestParser;
 using Palladio.Webserver.WebserverMonitor;
+using Palladio.Webserver.HTTPRequestParser;
 
 namespace Palladio.Webserver.WebserverFactory
 {
@@ -17,6 +19,9 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/22 16:19:56  kelsaka
+	/// even more interface changes; configuration-alternative on loading the webserver
+	///
 	/// Revision 1.2  2004/10/22 14:18:17  kelsaka
 	/// interface-update
 	///
@@ -42,7 +47,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <returns>IDispatcher, using the services from the reqestParser.</returns>
 		public IDispatcher CreateDispatcher (IRequestParser requestParser, IWebserverMonitor webserverMonitor, IConfigReader configReader)
 		{
-			throw new NotImplementedException ();
+			return new DefaultDispatcher(requestParser, webserverMonitor, configReader);
 		}
 
 		#endregion
@@ -55,7 +60,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <returns></returns>
 		public IWebserverMonitor CreateWebserverMonitor (IConfigReader configReader)
 		{
-			throw new NotImplementedException ();
+			return new DefaultWebserverMonitor(configReader);
 		}
 
 		#endregion
@@ -68,7 +73,16 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <returns></returns>
 		public IConfigReader CreateConfigReader ()
 		{
-			throw new NotImplementedException ();
+			return new XMLConfigReader();
+		}
+
+		/// <summary>
+		/// Creates a ConfigReader to get settings for the webserver.
+		/// </summary>
+		/// <returns></returns>
+		public IConfigReader CreateConfigReader (string configFilePath)
+		{
+			return new XMLConfigReader();
 		}
 
 		#endregion
@@ -83,7 +97,8 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <returns>HTTPRequestParser</returns>
 		public IRequestParser CreateHTTPRequestParser (IHTTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor, IConfigReader configReader)
 		{
-			throw new NotImplementedException ();
+			return new HTTPRequestParser.HTTPRequestParser(requestProcessor, CorSuccessor, webserverMonitor, configReader);
+			
 		}
 
 		/// <summary>
@@ -94,7 +109,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <returns>FTPRequestParser</returns>
 		public IRequestParser CreateFTPRequestParser (IFTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor, IConfigReader configReader)
 		{
-			throw new NotImplementedException ();
+			return new FTPRequestParser.FTPRequestParser(requestProcessor, CorSuccessor, webserverMonitor, configReader);
 		}
 
 		/// <summary>
@@ -104,7 +119,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <returns>ErrorRequestParser</returns>
 		public IRequestParser CreateDefaultRequestParser (IWebserverMonitor webserverMonitor, IConfigReader configReader)
 		{
-			throw new NotImplementedException ();
+			return new DefaultRequestParser(webserverMonitor, configReader);
 		}
 
 		#endregion
@@ -117,7 +132,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <returns>StaticFileProvider</returns>
 		public IHTTPRequestProcessor CreateStaticFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IConfigReader configReader)
 		{
-			throw new NotImplementedException ();
+			return new StaticFileProvider.StaticFileProvider(CorSuccessor, webserverMonitor, configReader);
 		}
 
 		/// <summary>
@@ -127,7 +142,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <returns>StaticFileProvider</returns>
 		public IHTTPRequestProcessor CreateDynamicFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IConfigReader configReader)
 		{
-			throw new NotImplementedException ();
+			return new DynamicFileProvider.DynamicFileProvider(CorSuccessor, webserverMonitor, configReader);
 		}
 
 		/// <summary>
@@ -137,7 +152,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <returns>DefaultRequestProcessor</returns>
 		public IHTTPRequestProcessor CreateDefaultRequestProcessor (IWebserverMonitor webserverMonitor, IConfigReader configReader)
 		{
-			throw new NotImplementedException ();
+			return new HTTPRequestProcessor.DefaultHTTPRequestProcessor(webserverMonitor, configReader);
 		}
 
 		#endregion
