@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT config (documentRoot, ports,MimeTypes,DefaultFiles)>
+<!ATTLIST config
+	xmlns:xsi CDATA #REQUIRED
+	xsi:noNamespaceSchemaLocation CDATA #REQUIRED
+>
+
+
+<!ELEMENT documentRoot EMPTY>
+<!ATTLIST documentRoot
+	path CDATA #REQUIRED
+>
+
+
+<!ELEMENT ports (port*)>
+
+<!ELEMENT port EMPTY>
+<!ATTLIST port
+	number CDATA #REQUIRED
+>
+
+
+<!ELEMENT MimeTypes (MimeType*)>
+
+<!ELEMENT MimeType EMPTY>
+<!ATTLIST MimeType
+	extension CDATA #REQUIRED
+	content-type CDATA #REQUIRED
+>
+
+<!ELEMENT DefaultFiles (FileName*)>
+
+<!ELEMENT FileName (#PCDATA)>
+<!ATTLIST FileName
+	id CDATA #REQUIRED
+>
