@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/22 12:09:37  joemal
+	/// inital class creation
+	///
 	/// Revision 1.1  2004/06/19 16:03:13  joemal
 	/// initial class creation
 	///
@@ -25,6 +28,31 @@ namespace ComponentNetworkSimulation.Structure
 		/// the root component of the architecture
 		/// </summary>
 		IComponent ArchitectureRootComponent 
+		{
+			get;
+		}
+
+		/// <summary>
+		/// return the builder interface of the root component. If still no component is created, null is returned.
+		/// </summary>
+		/// todo: exceptions 
+		Builder.IComponentBuilder RootComponentBuilder
+		{
+			get;
+		}
+
+		/// <summary>
+		/// return true, if the root component is a composite component.
+		/// </summary>
+		bool IsRootComponentComposite
+		{
+			get;
+		}
+
+		/// <summary>
+		/// return true, if the root component is a basic component.
+		/// </summary>
+		bool IsRootComponentBasic
 		{
 			get;
 		}
@@ -52,6 +80,23 @@ namespace ComponentNetworkSimulation.Structure
 		/// </exception>
 		Visitor.IComponentVisitor CreateVisitor(IThreadStartingPoint startingPoint);
 
+		/// <summary>
+		/// call to create an empty basiccomponent and set it as root component. 
+		/// The builderinterface for this component is returned to fill this component.
+		/// </summary>
+		/// <param name="id">the id of the component</param>
+		/// <returns>the builder</returns>
+		//todo: add observer
+        Builder.IBasicComponentBuilder CreateBasicRootComponent(String id);
+
+		/// <summary>
+		/// call to create an empty compositecomponent and set it as root component. 
+		/// The builderinterface for this component is returned to fill this component.
+		/// </summary>
+		/// <param name="id">the id of the component</param>
+		/// <returns>the builder</returns>
+		//todo: add observer
+		Builder.ICompositeComponentBuilder CreateCompositeComponent(String id);
 	}
 }
 //EOF
