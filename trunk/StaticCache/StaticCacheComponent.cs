@@ -5,6 +5,9 @@ using Request;
 using System.IO;
 using StaticFileProvider;
 using SimpleLogging;
+using XMLConfigReader;
+
+
 
 
 namespace StaticCache
@@ -32,10 +35,12 @@ namespace StaticCache
 		
 		public StaticCacheComponent(ref StaticFileProviderComponent fileProvider)
 		{
+			XMLConfigFileReader cfr = new XMLConfigFileReader(@"C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\WebserverComponents\Config Files\ConfigStaticCache.xml");
+			ConfigTable ct = cfr.GetConfigTable("StaticCacheSettings");
 			this.usserStatistics = new Hashtable();
 			this.cache = new Hashtable();
-			this.visitTimesToBeCached = 2;
-			this.maxCountOfCachedSites = 4;
+			this.visitTimesToBeCached = int.Parse(ct["visitTimesToBeCached"].ToString());
+			this.maxCountOfCachedSites = int.Parse(ct["maxCountOfCachedSites"].ToString());
 			this.fileProvider = fileProvider;
 
 			this.logger = new SimpleLogger(this);

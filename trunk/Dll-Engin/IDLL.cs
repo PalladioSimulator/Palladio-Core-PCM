@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Request;
+using DBAcesses;
 
 namespace DLL_Engin
 {
@@ -10,7 +11,7 @@ namespace DLL_Engin
 	public interface IDLL
 	{
 		
-		IDLL DeliverDll(HttpRequest r,Hashtable t);
+		IDLL DeliverDll(HttpRequest r,Hashtable t, ref DBAcessComponent db);
 
 		string Result();
 

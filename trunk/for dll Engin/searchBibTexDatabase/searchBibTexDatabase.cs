@@ -3,6 +3,7 @@ using System.Collections;
 using DBAcesses;
 using System.Data;
 using System.IO;
+using DBAcesses;
 
 namespace searchBibTexDatabase
 {
@@ -13,22 +14,24 @@ namespace searchBibTexDatabase
 	{
 		Hashtable userInput;
 		bool detailsRequested=false;
-		public seachrchDB(Hashtable ui)
+		DBAcessComponent search;
+		public seachrchDB(Hashtable ui,ref DBAcessComponent db)
 		{
 			this.userInput = ui;
+			this.search = db;
 		}
 
 		public string Result()
 		{
 			Hashtable searchMode = new Hashtable();
-			DBAcessComponent search = new DBAcessComponent();
+			//DBAcessComponent search = new DBAcessComponent();
 
 			//check if Details requested:
 			if(this.userInput.ContainsKey("ID"))
 					this.detailsRequested = true;
 			if(this.detailsRequested)
 			{
-				DataSet temp = search.SearchDirektForRows("Bibtex",this.userInput);
+				DataSet temp = this.search.SearchDirektForRows("Bibtex",this.userInput);
 				ResultFormater rdf = new ResultFormater(temp);
 				return rdf.FormatToBibtexEntry();
 			}
@@ -63,7 +66,7 @@ namespace searchBibTexDatabase
 			
                 //search Database
 			
-			DataSet searchResult = search.SearchForRows("Bibtex",searchMode);
+			DataSet searchResult = this.search.SearchForRows("Bibtex",searchMode);
 
 			ResultFormater rsf = new ResultFormater(searchResult);
 

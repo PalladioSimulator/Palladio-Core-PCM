@@ -2,6 +2,7 @@ using System;
 using searchBibTexDatabase;
 using System.Collections;
 using Request;
+using DBAcesses;
 
 namespace DLL_Engin
 {
@@ -13,22 +14,24 @@ namespace DLL_Engin
 		IDLL sucessor;
 		Hashtable userInput;
 		string result;
+		DBAcessComponent db;
 
-		public IDLL DeliverDll(HttpRequest request, Hashtable userInput)
+		public IDLL DeliverDll(HttpRequest request, Hashtable userInput, ref DBAcessComponent db)
 		{
 			if(Responseable(request))
 			{
 				this.userInput = userInput;
 				this.userInput.Remove("Submit");
+				this.db = db;
 				ComputeResult();
 				return this;
 			}
-			else return this.sucessor.DeliverDll(request,userInput);
+			else return this.sucessor.DeliverDll(request,userInput,ref db);
 		}
 
 		public void  ComputeResult()
 		{
-			seachrchDB dbs = new seachrchDB(this.userInput);
+			seachrchDB dbs = new seachrchDB(this.userInput,ref this.db);
 			this.result = dbs.Result();
 		}
 			

@@ -62,8 +62,9 @@ namespace Dispatcher
 			{
 				this.parsesRequest.IdentifiyAndHandleRequest(this.request,this.clientStream,this.arrivalTime, ref this.sendsResponse,this.clientSocket);
 			}
-			catch(Exception)
+			catch(Exception e)
 			{
+				Console.WriteLine(e.Message);
 				this.ClientSocket.Close();
 				this.logger.Debug("Lost Client");
 			}

@@ -4,13 +4,33 @@ using System.Collections;
 namespace XMLConfigReader
 {
 	/// <summary>
-	/// Zusammenfassung für ConfigTable.
+	/// A ConfigTable contains config items in a key-value representation. It is based on a Hashtable.
+	/// Deutsch: Auch hier zum besseren Verständis ein Beispiel:
+	/// <settings>
+	///		<item1>value of item one</item1>
+	///		<item2>value of item two</item2>
+	///		....
+	/// </settings>
+	/// A ConfigTable, which root element is setting will contain the following values
+	/// item1	value of item 1
+	/// item2	value of item 2
 	/// </summary>
 	public class ConfigTable : IDictionary, IEnumerable
 	{
+		/// <summary>
+		/// As you can imagine this collection is based on a <c>Hashtable</c>
+		/// </summary>
 		protected Hashtable baseTable;
+
+		/// <summary>
+		/// The name of the Config Table. It is equal to the root element of the part of the
+		/// based XML Document.
+		/// </summary>
 		protected string name;
 
+		/// <summary>
+		/// Inits a ConfigTable
+		/// </summary>
 		public ConfigTable()
 		{
 			this.baseTable = new Hashtable();
@@ -23,6 +43,23 @@ namespace XMLConfigReader
 			set{this.name = value;}
 		}
 
+
+
+		/// <summary>
+		/// Returns the Content of the ContentTable as string.
+		/// </summary>
+		/// <returns>a string</returns>
+		public override string ToString()
+		{
+			string result= "";
+			foreach(DictionaryEntry de in this.baseTable)
+			{
+				result += "Key: "+de.Key+" Value: "+de.Value+"\n";
+			}
+			return result;
+		}
+
+	
 		#region IDictionary implementation
 
 		public void CopyTo(System.Array t, int i)
@@ -112,8 +149,21 @@ namespace XMLConfigReader
 		}
 		#endregion
 
+		public override bool Equals(object obj)
+		{
+			if(obj is ConfigTable)
+			{
+				if(this.Name.Equals(((ConfigTable) obj).Name))
+				{
+					if(this.Equals((ConfigTable) obj))
+					{
+						return true;
+					}
+				}
+			}
+			return false;
+		}
 
-		
 
 	
 	}

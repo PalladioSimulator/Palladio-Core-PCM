@@ -4,6 +4,7 @@ using Delivery;
 using Request;
 using System.IO;
 using System.Text;
+using DBAcesses;
 
 
 namespace DLL_Engin
@@ -15,15 +16,16 @@ namespace DLL_Engin
 	{
 		IDLL actualHandler;
 		IDeliverResponse sucessor;
+		DBAcessComponent db;
 
 		byte[] resultToSend;
 
 
 		public IDeliverResponse DeliverResonse(HttpRequest r, string path)
 		{
-			if(r.UserInput!=null || r is HttpPostRequest) 
+			if(r.UserInput!=null || r is HttpPostRequest || r.URI.IndexOf("userStatictics.htm")!=-1) 
 			{
-				this.actualHandler = this.actualHandler.DeliverDll(r,r.UserInput);
+				this.actualHandler = this.actualHandler.DeliverDll(r,r.UserInput,ref this.db);
 				this.ComputeResult();
 				return this;
 			}
@@ -37,8 +39,10 @@ namespace DLL_Engin
 		}
 		public DLL_EnginComponent()
 		{
+			this.db = new DBAcessComponent();
 			this.actualHandler = new AdDBHandler();
 			this.AddHandler(new SearchHandler());
+			this.AddHandler(new UserStasHandler());
 			this.AddHandler(new GreetingHandler());
 		}
 

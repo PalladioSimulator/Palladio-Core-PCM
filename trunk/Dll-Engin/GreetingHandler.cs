@@ -2,6 +2,7 @@ using System;
 using Request;
 using System.Collections;
 using Greeting;
+using DBAcesses;
 
 
 namespace DLL_Engin
@@ -17,7 +18,7 @@ namespace DLL_Engin
 		public GreetingHandler()
 		{}
 
-		public IDLL DeliverDll(HttpRequest request, Hashtable userInput)
+		public IDLL DeliverDll(HttpRequest request, Hashtable userInput, ref DBAcessComponent db)
 		{
 			if(Responseable(request))
 			{
@@ -25,7 +26,7 @@ namespace DLL_Engin
 				ComputeResult();
 				return this;
 			}
-			else return this.sucessor.DeliverDll(request,userInput);
+			else return this.sucessor.DeliverDll(request,userInput,ref db);
 		}
 
 		public void  ComputeResult()

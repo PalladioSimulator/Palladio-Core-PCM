@@ -4,6 +4,10 @@ using System.Net.Sockets;
 using System.IO;
 using System.Text;
 
+using ICSharpCode.SharpZipLib.Checksums;
+using ICSharpCode.SharpZipLib.Zip.Compression;
+using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
+
 namespace RequestProssor
 {
 	/// <summary>
@@ -15,14 +19,50 @@ namespace RequestProssor
 		private HttPResponse response;
 		private string path;
 
-		public Sender(HttpRequest req,HttPResponse res)
+		public Sender(HttpRequest req,HttPResponse res,bool zipRequested)
 		{
 			this.request = req;
 			this.response = res;
 
-			StartSending();
-			}
+			if(zipRequested)
+				StartZipSending();
+			else
+				StartSending();
+		}
 
+		private void StartZipSending()
+		{
+			Console.WriteLine("Zipped sending requested");
+			
+			MemoryStream outputMemStream = new MemoryStream(); 
+			ICSharpCode.SharpZipLib.GZip.GZipOutputStream zipStream = new ICSharpCode.SharpZipLib.GZip.GZipOutputStream(outputMemStream);
+			zipStream.Write(this.response.MessageByte,0,this.response.MessageByte.Length);
+			zipStream.Flush();
+			byte[] zipAsByte = new byte[outputMemStream.Length];
+			outputMemStream.Read(zipAsByte,0,zipAsByte.Length);
+			Console.WriteLine(Encoding.ASCII.GetChars(zipAsByte));
+			SendHeader(zipAsByte.Length,this.response.StatusCode);
+			this.request.ClientSocket.Write(zipAsByte,0,zipAsByte.Length);
+			zipStream.Close();
+			
+	
+			////		Stream s = new GZipOutputStream(File.Create(args[0] + ".gz"));
+			/// 		FileStream fs = File.OpenRead(args[0]);
+			/// 		byte[] writeData = new byte[fs.Length];
+			/// 		fs.Read(writeData, 0, (int)fs.Length);
+			/// 		s.Write(writeData, 0, writeData.Length);
+			/// 		s.Close();
+		
+		
+			this.request.ClientSocket.Close();
+			this.request.TcpClientOn.Close();
+
+			//			FileStream fs = File.OpenRead(args[0]);
+			//			byte[] writeData = new byte[fs.Length];
+			//			fs.Read(writeData, 0, (int)fs.Length);
+			//			s.Write(writeData, 0, writeData.Length);
+			//			s.Close();
+		}
 		private void StartSending()
 		{
 			SendHeader(this.response.FileSize,this.response.StatusCode);
@@ -30,32 +70,32 @@ namespace RequestProssor
 
 			this.request.ClientSocket.Close();
 			this.request.TcpClientOn.Close();
-//			int iTotBytes=0;
-//			string sResponse ="";
-//
-//			FileStream fs = new FileStream(this.path, FileMode.Open, 	FileAccess.Read, FileShare.Read);
-//			// Create a reader that can read bytes from the FileStream.
-//
-//						
-//			BinaryReader reader = new BinaryReader(fs);
-//			byte[] bytes = new byte[fs.Length];
-//			int read;
-//			while((read = reader.Read(bytes, 0, bytes.Length)) != 0) 
-//			{
-//				// Read from the file and write the data to the network
-//				sResponse = sResponse + Encoding.ASCII.GetString(bytes,0,read);
-//				iTotBytes = iTotBytes + read;
-//			}
-//			reader.Close(); 
-//			fs.Close();
-//		
-//			SendHeader( iTotBytes, this.response.StatusCode);
-//
-//			SendToBrowser(bytes);
-//						
-//			//mySocket.Send(bytes, bytes.Length,0);
-//			this.request.ClientSocket.Close();
-//			this.request.ClientSocket.
+			//			int iTotBytes=0;
+			//			string sResponse ="";
+			//
+			//			FileStream fs = new FileStream(this.path, FileMode.Open, 	FileAccess.Read, FileShare.Read);
+			//			// Create a reader that can read bytes from the FileStream.
+			//
+			//						
+			//			BinaryReader reader = new BinaryReader(fs);
+			//			byte[] bytes = new byte[fs.Length];
+			//			int read;
+			//			while((read = reader.Read(bytes, 0, bytes.Length)) != 0) 
+			//			{
+			//				// Read from the file and write the data to the network
+			//				sResponse = sResponse + Encoding.ASCII.GetString(bytes,0,read);
+			//				iTotBytes = iTotBytes + read;
+			//			}
+			//			reader.Close(); 
+			//			fs.Close();
+			//		
+			//			SendHeader( iTotBytes, this.response.StatusCode);
+			//
+			//			SendToBrowser(bytes);
+			//						
+			//			//mySocket.Send(bytes, bytes.Length,0);
+			//			this.request.ClientSocket.Close();
+			//			this.request.ClientSocket.
 		}	
 
 		public void SendHeader(int iTotBytes, string sStatusCode)
@@ -87,24 +127,24 @@ namespace RequestProssor
 
 		public void SendToBrowser(Byte[] bSendData)
 		{
-//			int numBytes = 0;
+			//			int numBytes = 0;
 			
 			try
 			{
 				this.request.ClientSocket.Write(bSendData,0,bSendData.Length);
 				
 			
-//				if (this.request.ClientSocket.Connected)
-//				{
-//					if (( numBytes = this.request.ClientSocket.Send(bSendData, bSendData.Length,0)) == -1)
-//						Console.WriteLine("Socket Error cannot Send Packet");
-//					else
-//					{
-//						Console.WriteLine("No. of bytes send {0}" , numBytes);
-//					}
-//				}
-//				else
-//					Console.WriteLine("Connection Dropped....");
+				//				if (this.request.ClientSocket.Connected)
+				//				{
+				//					if (( numBytes = this.request.ClientSocket.Send(bSendData, bSendData.Length,0)) == -1)
+				//						Console.WriteLine("Socket Error cannot Send Packet");
+				//					else
+				//					{
+				//						Console.WriteLine("No. of bytes send {0}" , numBytes);
+				//					}
+				//				}
+				//				else
+				//					Console.WriteLine("Connection Dropped....");
 			}
 			catch (Exception  e)
 			{

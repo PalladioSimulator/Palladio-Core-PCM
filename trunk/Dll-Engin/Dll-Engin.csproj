@@ -104,6 +104,16 @@
                     Project = "{E86C116F-4949-4E33-887C-0BF050569C98}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "DBAcesses"
+                    Project = "{0BA996CC-023F-4CB9-BE51-C7299C643B4D}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "UserStatistics"
+                    Project = "{3764C8DE-85A8-4742-95FF-059B4DF0B27A}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
@@ -145,6 +155,11 @@
                 />
                 <File
                     RelPath = "SearchHandler.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "UserStasHandler.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

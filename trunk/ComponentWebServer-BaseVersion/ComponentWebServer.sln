@@ -55,6 +55,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLConfigReader", "..\XMLCo
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserStatistics", "..\for dll Engin\UserStatistics\UserStatistics.csproj", "{3764C8DE-85A8-4742-95FF-059B4DF0B27A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -117,6 +121,10 @@ Global
 		{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}.Debug.Build.0 = Debug|.NET
 		{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}.Release.ActiveCfg = Release|.NET
 		{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}.Release.Build.0 = Release|.NET
+		{3764C8DE-85A8-4742-95FF-059B4DF0B27A}.Debug.ActiveCfg = Debug|.NET
+		{3764C8DE-85A8-4742-95FF-059B4DF0B27A}.Debug.Build.0 = Debug|.NET
+		{3764C8DE-85A8-4742-95FF-059B4DF0B27A}.Release.ActiveCfg = Release|.NET
+		{3764C8DE-85A8-4742-95FF-059B4DF0B27A}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

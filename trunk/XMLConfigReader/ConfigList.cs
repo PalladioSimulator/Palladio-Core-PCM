@@ -4,10 +4,30 @@ using System.Collections;
 namespace XMLConfigReader
 {
 	/// <summary>
-	/// Zusammenfassung für ConfigList.
+	/// Deutsch: Erstellt eine Liste von Key Value Paaren. Besonders ist, dass es sich bei
+	/// diesern Liste um einen Unterkonten der XML Congig Datei handelt. 
+	/// Zum besseren Verständnis ein Beispiel:
+	/// <meineConfigDatei>
+	///		<andererEinfacherKram>ein Einzelwert</andererEinfacherKram>
+	///		<meineListe>
+	///			<item>
+	///				<schluessel>erster Sclüssel</schluessel>
+	///				<wert>erster Wert</wert>
+	///			</item>
+	///				<schluessel>zweiter Schluessel</schluessel>
+	///				<wert>zweiter Wert</wert>
+	///			<item>
+	///			</item>
+	///		</meineListe>
+	/// </meineConfigDatei>
+	/// Diese Metode würde als TagValue meine Liste erhalten. Und würde dann eine
+	/// ConfigList mit folgenden Werten zurückgeben:
+	/// erster Schluessel	erster Wert
+	/// zweiter Schliessel	zweiter Wert
 	/// </summary>
 	public class ConfigList : ICollection, IEnumerable
 	{
+
 		protected Hashtable list;
 		protected string name;
 
@@ -16,6 +36,9 @@ namespace XMLConfigReader
 			this.list = new Hashtable();
 		}
 
+		/// <summary>
+		/// The name of the list. Its equal to the root Element.
+		/// </summary>
 		public string Name
 		{
 			get{return this.name;}

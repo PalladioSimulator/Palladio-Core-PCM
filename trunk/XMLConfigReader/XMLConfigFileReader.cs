@@ -3,15 +3,29 @@ using System.Xml;
 using System.Collections;
 using System.IO;
 
+
 namespace XMLConfigReader
 {
 	/// <summary>
-	/// Zusammenfassung für Class1.
+	/// This class is used to load Xml Config files from the file system. 
+	/// It delivers methods to create <c>ConfigTables</c> and <c>ConfigList</c>
 	/// </summary>
 	public class XMLConfigFileReader
 	{
+		/// <summary>
+		/// The read XML document
+		/// </summary>
 		protected XmlDocument doc;
+
+		/// <summary>
+		/// Contains the path, where the xml document is located.
+		/// </summary>
 		protected string path;
+
+		/// <summary>
+		/// Initates the XMLConfigFileReader.
+		/// </summary>
+		/// <param name="path">A string which contains the pysical path to the config XML file </param>
 		public XMLConfigFileReader(string path)
 		{
 			this.path = path;
@@ -26,37 +40,15 @@ namespace XMLConfigReader
 			this.doc.Load(xtr);
 		}
 
-
 		/// <summary>
-		/// Deutsch: Erstellt eine Liste von Key Value Paaren. Besonders ist, dass es sich bei
-		/// diesern Liste um einen Unterkonten der XML Congig Datei handelt. 
-		/// Zum besseren Verständnis ein Beispiel:
-		/// <meineConfigDatei>
-		///		<andererEinfacherKram>ein Einzelwert</andererEinfacherKram>
-		///		<meineListe>
-		///			<item>
-		///				<schluessel>erster Sclüssel</schluessel>
-		///				<wert>erster Wert</wert>
-		///			</item>
-		///				<schluessel>zweiter Schluessel</schluessel>
-		///				<wert>zweiter Wert</wert>
-		///			<item>
-		///			</item>
-		///		</meineListe>
-		/// </meineConfigDatei>
-		/// Diese Metode würde als TagValue meine Liste erhalten. Und würde dann eine
-		/// ConfigList mit folgenden Werten zurückgeben:
-		/// erster Schluessel	erster Wert
-		/// zweiter Schliessel	zweiter Wert
-		/// </summary>
+		/// Creates a <c>ConfigList</c> which root element is tagValue.
 		/// <param name="tagValue">Der Tagname des Knoten unter dem sich die zu erstellende Liste befindet</param>
 		/// <param name="key">Der Schlüsselwert, dem die Einträge zugeordnet werden sollen. Im Beispiel wäre das "schluessel"</param>
 		/// <param name="obj">Der Wert, der dem Schlüssel zugeordnet werden soll. Im Beispiel ist das "wert".</param>
 		/// <returns>Eine Liste mit Key Value Paaren </returns>
+		/// </summary>
 		public ConfigList GetConfigList(string tagValue,string key, string val)
 		{
-//			string key = "RequestedDir";
-//			string val = "realDir";
 			Console.WriteLine(this.doc);
 			ConfigList configList = new ConfigList();
 			configList.Name = tagValue;
@@ -77,6 +69,11 @@ namespace XMLConfigReader
 		}
 
 
+		/// <summary>
+		/// Delivers a <c>ConfigTable</c> from the
+		/// </summary>
+		/// <param name="tagValue">The root element for the table</param>
+		/// <returns>The generated <c>ConfigTable</c></returns>
 		public ConfigTable GetConfigTable(string tagValue)
 		{
 			ConfigTable keyValueList = new ConfigTable();
@@ -95,6 +92,12 @@ namespace XMLConfigReader
 			return keyValueList;
 		}
 
+
+		/// <summary>
+		/// Delives a single XML Node.
+		/// </summary>
+		/// <param name="tagValue">The Tag Name</param>
+		/// <returns>Result</returns>
 		public XmlNode GetXmlNode(string tagValue)
 		{
 			try
@@ -106,21 +109,6 @@ namespace XMLConfigReader
 				throw new ApplicationException("The TagValue doesn't exist in "+this.path);
 			}
 		}
-		public static void Main (string[] args)
-		{
-			XMLConfigFileReader test = new XMLConfigFileReader(@"C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\WebserverComponents\XMLConfigReader\UnitTest\TestXMLFile.xml");
-		}
-
-		public string printKeyValueList(ConfigTable t)
-		{
-			string result= "";
-			foreach(DictionaryEntry de in t)
-			{
-				result += "Key: "+de.Key+" Value: "+de.Value+"\n";
-			}
-			return result;
-		}
-
 	}
 	
 }

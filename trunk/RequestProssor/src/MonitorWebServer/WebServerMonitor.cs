@@ -2,6 +2,9 @@ using System;
 using System.IO;
 using Request;
 using System.Timers;
+using System.Collections;
+using DBAcesses;
+using System.Threading;
 
 namespace RequestProssor.MonitorWebServer
 {
@@ -11,13 +14,20 @@ namespace RequestProssor.MonitorWebServer
 	public class WebServerMonitor
 	{
 		int LogFileCounter;
+		int requestToWrite;
 		int FileCount;
 		string log;
+		IList tempLog;
+		DBAcessComponent db;
+		
 		public WebServerMonitor()
 		{
 			this.LogFileCounter =0;
-			this.FileCount=0;
+			this.FileCount =0;
+			this.requestToWrite=10;
 			this.log ="";
+			this.tempLog = new ArrayList();
+			this.db = new DBAcessComponent();
 		}
 
 		public void ServedRequestReciver(Monitor sender, RequestServedEventArgs e)
@@ -25,10 +35,43 @@ namespace RequestProssor.MonitorWebServer
 			Console.WriteLine("habe ein Event bekommen!");
 
 			TimeSpan duration = ComputeRoundTripTime(e.ServedRequest.ArrivalTime);
-
 			WriteText(e.ServedRequest.URI+";"+e.ServedRequest.FileExtension+";"+duration.Seconds+","+duration.Milliseconds+";"+e.ServedResponse.FileSize);
 			//			WriteText(DateTime.Now+";"+e.ServedRequest.URI+";"+duration.ToString());
 
+			//AddCurrentRequestToTempLog(e.ServedRequest.URI,e.ServedRequest.FileExtension,duration.Seconds+","+duration.Milliseconds,e.ServedResponse.FileSize);
+		}
+
+		public void AddCurrentRequestToTempLog(string uri,string fileEx,string time,int fileSize)
+		{
+			ArrayList temp = new ArrayList(4);
+			temp.Add(uri);
+			temp.Add(fileEx);
+			temp.Add(time);
+			temp.Add(fileSize.ToString());
+			this.tempLog.Add(temp);
+			this.LogFileCounter++;
+			if(this.LogFileCounter == this.requestToWrite)
+			{
+				WriteToDB();
+			}
+		}
+
+		protected void WriteToDB()
+		{
+			IList log = this.tempLog;
+			foreach(string s in log)
+			{
+
+				Hashtable ht = new Hashtable();
+				string[] al = s.Split(';');
+				ht.Add("uri",al[0].ToString());
+				ht.Add("filetype",al[1].ToString());
+				ht.Add("roundtriptime",al[2].ToString());
+				ht.Add("filesize",al[3].ToString());
+				ht.Add("dateTime",DateTime.Now.ToString());
+				db.InsertRow("UserStatistics",ht,"db","ddsddd");
+			}
+			this.LogFileCounter =0;
 		}
 
 		internal TimeSpan ComputeRoundTripTime(DateTime arrival)
@@ -64,7 +107,10 @@ namespace RequestProssor.MonitorWebServer
 		
 		internal void WriteText(string s)
 		{
-			
+			this.tempLog.Add(s);
+			this.LogFileCounter++;
+			if(this.LogFileCounter >= this.requestToWrite)
+				this.WriteToDB();
 			try
 			{
 				StreamWriter w = File.AppendText("LoggingMonitor.csv");

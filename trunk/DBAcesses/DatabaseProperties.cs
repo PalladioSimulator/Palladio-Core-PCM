@@ -17,11 +17,14 @@ namespace DBAcesses
 		{
 			//later it can be storted in a properties fiele
 			this.database =@"RAFIKI\NAGINI ";
-			this.tables = new DatabaseTable[1];
+			this.tables = new DatabaseTable[2];
 			this.tables[0] = new DatabaseTable();
 			this.tables[0].TableName = "Bibtex";
-			
 			this.tables[0].Entries = InsertBibTexTable();
+
+			this.tables[1] = new DatabaseTable();
+			this.tables[1].TableName ="UserStatistics";
+			this.tables[1].Entries = InsertUserStatistics();
 			
 		}
 
@@ -36,6 +39,17 @@ namespace DBAcesses
 		}
 
 
+		public IList InsertUserStatistics()
+		{
+			IList list = new ArrayList();
+			//list.Add("ID");
+			list.Add("uri");
+			list.Add("filetype");
+			list.Add("filesize");
+			list.Add("roundtriptime");
+			list.Add("dateTime");
+			return list;
+		}
 		public IList InsertBibTexTable()
 		{
 			IList list = new ArrayList();

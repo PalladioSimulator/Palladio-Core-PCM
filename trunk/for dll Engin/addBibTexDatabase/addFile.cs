@@ -20,11 +20,10 @@ namespace addBibTexDatabase
 	/// </summary>
 	public class addFile
 	{
-		public addFile()
+		DBAcessComponent db;
+		public addFile(ref DBAcessComponent db)
 		{
-			//
-			// TODO: Fügen Sie hier die Konstruktorlogik hinzu
-			//
+			this.db = db;
 		}
 
 		public string ComputeResponse(HttpPostRequest aRequest)
@@ -114,8 +113,8 @@ namespace addBibTexDatabase
 						newDBEntry.Add("label",toFormat.Label);
 						newDBEntry.Add("type",toFormat.TypeDescriptor);
 
-						DBAcessComponent dba = new DBAcessComponent();
-						dba.InsertRow("Bibtex",newDBEntry,"nichts","nichts");
+						///DBAcessComponent dba = new DBAcessComponent();
+						this.db.InsertRow("Bibtex",newDBEntry,"nichts","nichts");
 						counter++;
 
 						

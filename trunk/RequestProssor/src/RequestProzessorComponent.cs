@@ -26,6 +26,7 @@ namespace RequestProssor
 		WebServerMonitor realMonitor;
 		
 
+		protected bool zipRequested=false;
 		public DeliveresponseHandler  ResponseHandler
 		{
 			get{return this.responseHandler;}
@@ -98,7 +99,7 @@ namespace RequestProssor
 				res.FileSize= res.MessageByte.Length;
 				res.StatusCode=" 505 Server Problems ";
 			}
-			this.send = new Sender(r,res);
+			this.send = new Sender(r,res,this.zipRequested);
 			this.testMoni.RequestServed(r,res);
 		}
 
