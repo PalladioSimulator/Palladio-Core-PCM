@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/07/05 09:30:12  sbecker
+	/// Changes due to the refactorings after the first review
+	///
 	/// Revision 1.4  2004/06/09 12:36:31  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///
@@ -119,7 +122,7 @@ namespace Palladio.ComponentModel.UnitTests
 
 		private IExternalSignature SigRole(string role,ISignature sig)
 		{
-			return ComponentFactory.CreateSignatureWithRole(role,sig);
+			return ComponentFactory.CreateExternalSignature(role,sig);
 		}
 
 		[Test] public void WalkthroughFSMComponent()
@@ -198,7 +201,7 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			IInterfaceModel prov = iComp1.GetProvidesInterface(ID("P1"));
 			ArrayList list = new ArrayList();
-			foreach(ISignature sig in prov.SignatureList.Signatures )
+			foreach(ISignature sig in prov.SignatureList)
 			{
 				list.Add( iComp1.GetServiceEffectSpecification(SigRole("P1",sig)) );
 			}
@@ -245,7 +248,7 @@ namespace Palladio.ComponentModel.UnitTests
 				spec);
 			IServiceEffectSpecification se = cmp.GetServiceEffectSpecification(SigRole("P1",sigsProv1[0]));
 			Assert.IsTrue( se.SignatureList.ContainsSignature(SigRole("E1",sigsReq1[0])));
-			Assert.IsTrue( se.SignatureList.Signatures.Length == 1 );
+			Assert.IsTrue( se.SignatureList.Count == 1 );
 		}
 	}
 }

@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/07/05 09:30:12  sbecker
+	/// Changes due to the refactorings after the first review
+	///
 	/// Revision 1.2  2004/06/09 12:36:31  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///
@@ -69,7 +72,7 @@ namespace Palladio.ComponentModel.UnitTests
 			ISignatureList sigList = ComponentFactory.CreateSignatureList(sigs);
 			for (int i = 0; i < sigs.Length; i++)
 			{
-				Assert.IsTrue(sigList.Signatures[i].Equals(sigs[i]));
+				Assert.IsTrue(sigList[i].Equals(sigs[i]));
 			}
 			Assert.IsFalse(sigList[0].Equals(sigs[1]));
 		}

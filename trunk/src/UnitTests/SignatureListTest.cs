@@ -46,8 +46,8 @@ namespace Palladio.ComponentModel.UnitTests
 
 		[Test] public void ContentComplete()
 		{
-			Assert.AreEqual( 3,  modelOne.Signatures.Length );
-			ISignature[] sigs = modelOne.Signatures;
+			Assert.AreEqual( 3,  modelOne.Count );
+			ISignature[] sigs = modelOne.GetSignatures();
 			Assert.IsTrue( Array.IndexOf( sigs, ComponentFactory.CreateSignature("d1")) >= 0);
 			Assert.IsTrue( Array.IndexOf( sigs, ComponentFactory.CreateSignature("d2")) >= 0);
 			Assert.IsTrue( Array.IndexOf( sigs, ComponentFactory.CreateSignature("d3")) >= 0);
@@ -56,7 +56,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test] public void AddSignature()
 		{
 			modelOne.AddSignatures( ComponentFactory.CreateSignatureArray("d3","d4","d5") );
-			ISignature[] sigs = modelOne.Signatures;
+			ISignature[] sigs = modelOne.GetSignatures();
 			Assert.AreEqual( 5, sigs.Length );
 			Assert.IsTrue( Array.IndexOf( sigs, ComponentFactory.CreateSignature("d1")) >= 0);
 			Assert.IsTrue( Array.IndexOf( sigs, ComponentFactory.CreateSignature("d2")) >= 0);
@@ -77,13 +77,13 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test] public void CreateServiceEffectSigList()
 		{
 			IExternalSignatureList se = ComponentFactory.CreateExternalSignatureList();
-			se.AddSignatures ( ComponentFactory.CreateSignatureWithRole("role A",
+			se.AddSignatures ( ComponentFactory.CreateExternalSignature("role A",
 								ComponentFactory.CreateSignature("d1")) );
-			se.AddSignatures ( ComponentFactory.CreateSignatureWithRole("role B",
+			se.AddSignatures ( ComponentFactory.CreateExternalSignature("role B",
 								ComponentFactory.CreateSignature("d2")) );
-			se.AddSignatures ( ComponentFactory.CreateSignatureWithRole("role B",
+			se.AddSignatures ( ComponentFactory.CreateExternalSignature("role B",
 								ComponentFactory.CreateSignature("d3")) );
-			Assert.AreEqual( 3, se.Signatures.Length);
+			Assert.AreEqual( 3, se.Count);
 		}
 
 	}
