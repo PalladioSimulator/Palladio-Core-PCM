@@ -9,9 +9,12 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	///	$Log$
+	///	Revision 1.3  2004/06/19 13:45:27  joemal
+	///	- remove the parameter initialdepth
+	///
 	///	Revision 1.2  2004/06/17 12:07:35  joemal
 	///	change namespace from service to elements
-	///
+	///	
 	///	Revision 1.1  2004/05/20 14:12:22  joemal
 	///	initial creation
 	///	
@@ -48,9 +51,8 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		/// </summary>
 		/// <param name="state">the state</param>
 		/// <param name="fsm">the fsm of the state</param>
-		/// <param name="recursiveDepth">the recursive depth</param>
 		/// <returns>the selected transition or null</returns>
-		public ITransition GetNextTransition(IState state, IFiniteStateMachine fsm, int recursiveDepth)
+		public ITransition GetNextTransition(IState state, IFiniteStateMachine fsm)
 		{
 			ITransition[] outTrans = fsm.GetOutgoingTransitions(state);
 			int possibilities = outTrans.Length;

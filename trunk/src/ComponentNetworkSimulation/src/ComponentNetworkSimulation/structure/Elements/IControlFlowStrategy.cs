@@ -10,6 +10,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/19 13:45:27  joemal
+	/// - remove the parameter initialdepth
+	///
 	/// Revision 1.2  2004/06/17 12:07:35  joemal
 	/// change namespace from service to elements
 	///
@@ -28,9 +31,8 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		/// </summary>
 		/// <param name="state">the state, from which the next outgoing transition has to be found</param>
 		/// <param name="fsm">the fsm to this state</param>
-		/// <param name="recursiveDepth">the recursive depth of the state</param>
 		/// <returns></returns>
-		ITransition GetNextTransition(IState state, IFiniteStateMachine fsm, int recursiveDepth);
+		ITransition GetNextTransition(IState state, IFiniteStateMachine fsm);
 	}
 }
 //EOF
