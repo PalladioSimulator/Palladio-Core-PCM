@@ -16,6 +16,9 @@ namespace Palladio.Simulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/29 15:13:48  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.2  2004/07/22 20:28:18  joemal
 	/// - changed some comments
 	///
@@ -75,7 +78,7 @@ namespace Palladio.Simulation.Simulation
 		/// </summary>
 		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The log type of this thread.</param>
-		void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type);
+		void CreateSimulationThread(ThreadStartingPoint start, SimulationThreadType type);
 
 		/// <summary>
 		/// call to create a new simulationthread observed by the given observer.
@@ -83,7 +86,7 @@ namespace Palladio.Simulation.Simulation
 		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The log type of this thread.</param>
 		/// <param name="observer">the observer</param>
-		void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type, 
+		void CreateSimulationThread(ThreadStartingPoint start, SimulationThreadType type, 
 			IThreadObserver observer);
 
 		/// <summary>
@@ -92,7 +95,7 @@ namespace Palladio.Simulation.Simulation
 		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The log type of this thread.</param>
 		/// <param name="periodTime">when the thread reaches this time, a new thread is created.</param>
-		void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type, long periodTime);
+		void CreateSimulationThread(ThreadStartingPoint start, SimulationThreadType type, long periodTime);
 
 		/// <summary>
 		/// call to create a new periodic simulationthread observed by the given observer.
@@ -101,7 +104,7 @@ namespace Palladio.Simulation.Simulation
 		/// <param name="type">The log type of this thread.</param>
 		/// <param name="periodTime">when the thread reaches this time, a new thread is created.</param>
 		/// <param name="observer">the oberserver</param>
-		void CreateSimulationThread(IThreadStartingPoint start,SimulationThreadType type,
+		void CreateSimulationThread(ThreadStartingPoint start,SimulationThreadType type,
 			long periodTime, IThreadObserver observer);
 
 		/// <summary>

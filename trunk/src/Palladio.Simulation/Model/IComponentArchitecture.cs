@@ -13,6 +13,9 @@ namespace Palladio.Simulation.Model
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/07/29 15:13:47  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.1  2004/07/20 11:46:43  joemal
 	/// new cvs module for first release
 	///
@@ -64,7 +67,7 @@ namespace Palladio.Simulation.Model
 		/// described with given startingpoint.
 		/// </summary>
 		/// <param name="startingPoint">the point, from where the visitor has to start.</param>
-		/// <returns>an instance of <code>IComponentVisitor</code></returns>
+		/// <returns>an instance of <c>IComponentVisitor</c></returns>
 		/// <exception cref="Palladio.ComponentModel.Exceptions.ComponentNotFoundException">
 		/// thrown, if the component with given id can't be found in architecture
 		/// </exception>
@@ -74,7 +77,7 @@ namespace Palladio.Simulation.Model
 		///	<exception cref="Palladio.ComponentModel.Exceptions.SignatureNotFoundException">
 		/// thrown, if the signature with given id can't be found in interface
 		/// </exception>
-		Visitor.IComponentVisitor CreateVisitor(IThreadStartingPoint startingPoint);
+		Visitor.IComponentVisitor CreateVisitor(ThreadStartingPoint startingPoint);
 
 		/// <summary>
 		/// call to create an empty basiccomponent and set it as root component. 

@@ -15,6 +15,9 @@ namespace Palladio.Simulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/29 15:13:48  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -169,7 +172,7 @@ namespace Palladio.Simulation.Simulation
 
 			if (!this.HasNextStep) return false;
 
-			int cause = TimeStepEventArgs.THREAD_REACHED_TIME_IN_FUTURE;
+			TimeStepEventArgs.CauseType_t cause = TimeStepEventArgs.CauseType_t.THREAD_REACHED_TIME_IN_FUTURE;
 			long nextStep = long.MaxValue;
 
 			if (scheduler.IsAnyThreadAlive)	nextStep = scheduler.CalculateNextTimeStep();
@@ -177,7 +180,7 @@ namespace Palladio.Simulation.Simulation
 			if (currentTime + nextStep > maxSimulationTime) 
 			{
 				nextStep = maxSimulationTime-currentTime;
-				cause = TimeStepEventArgs.MAX_TIME_REACHED;
+				cause ^= TimeStepEventArgs.CauseType_t.MAX_TIME_REACHED;
 			}
 
 			if (this.clockStopEventTime != long.MaxValue) 
@@ -185,9 +188,9 @@ namespace Palladio.Simulation.Simulation
 				if (nextStep >= this.clockStopEventTime)
 				{
 					if (nextStep > this.clockStopEventTime)
-						cause = TimeStepEventArgs.CLOCK_STOP_EVENT;
+						cause = TimeStepEventArgs.CauseType_t.CLOCK_STOP_EVENT;
 					else
-						cause += TimeStepEventArgs.CLOCK_STOP_EVENT;
+						cause ^= TimeStepEventArgs.CauseType_t.CLOCK_STOP_EVENT;
 
 					nextStep = this.clockStopEventTime;
 					this.clockStopEventTime = long.MaxValue;				
@@ -233,8 +236,8 @@ namespace Palladio.Simulation.Simulation
 		/// </summary>
 		/// <param name="timeStep">The timestep, the time moved</param>
 		/// <param name="cause">the cause, why the timestep ends here. This can be a combination of the
-		/// constants, defined in <code>TimeStepEventArgs</code></param>
-		protected virtual void NotifyTimeStepEvent(long timeStep, int cause)
+		/// constants, defined in <c>TimeStepEventArgs</c></param>
+		protected virtual void NotifyTimeStepEvent(long timeStep, TimeStepEventArgs.CauseType_t cause)
 		{
             if (TimeStepEvent != null)
 				TimeStepEvent(this,new TimeStepEventArgs(timeStep,this.currentTime,cause));

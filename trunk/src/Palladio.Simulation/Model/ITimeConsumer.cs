@@ -1,3 +1,5 @@
+using System;
+
 namespace Palladio.Simulation.Model
 {
 	#region declarations
@@ -5,12 +7,11 @@ namespace Palladio.Simulation.Model
 	/// <summary>
 	/// this type defines the logging behavior of all timeconsumer in the framework
 	/// </summary>
+	[Flags]
 	public enum LoggingType_t 
 	{
-	
-		//bitvektoren einbauen (nachgucken ob noch woanders nötig) ...
 		/// <summary>
-		/// the timeconsumer is not a logging point
+		/// the timeconsumer should not be logged
 		/// </summary>
 		NO_LOG,
 
@@ -23,11 +24,6 @@ namespace Palladio.Simulation.Model
 		/// the timeconsumer should be logged, when a thread exited
 		/// </summary>
 		LOG_ON_EXIT,
-
-		/// <summary>
-		/// the timeconsumer should be logged, when a thread entered and exited
-		/// </summary>
-		LOG_BOTH
 	};	
 
 	#endregion
@@ -35,12 +31,15 @@ namespace Palladio.Simulation.Model
 	/// <summary>
 	/// this interface marks an implementing class as timeconsumer. A timeconsumer in the componentarchitecture is an element,
 	/// that consumes time in relality. It supports a property that returns the loggingtype of the timeconsumer. Two methods, 
-	/// <code>ThreadEntered()</code> and <code>ThreadExited()</code> are called by simulationthreads. The method 
-	/// <code>ThreadEntered()</code> returns the time, the entered thread has to stay in this timeconsumer.
+	/// <c>ThreadEntered()</c> and <c>ThreadExited()</c> are called by simulationthreads. The method 
+	/// <c>ThreadEntered()</c> returns the time, the entered thread has to stay in this timeconsumer.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/29 15:13:47  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.2  2004/07/28 15:34:46  sbecker
 	/// Review comments added
 	///

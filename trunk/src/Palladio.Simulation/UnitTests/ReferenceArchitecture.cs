@@ -25,7 +25,7 @@ namespace Palladio.Simulation.UnitTests
 			cc.AddProvidesInterface(ID("P1"),CreateProvidesInterfaceP1());
 			
 
-			StaticTimeBindingParams p = new StaticTimeBindingParams(LoggingType_t.LOG_BOTH,3);
+			StaticTimeBindingParams p = new StaticTimeBindingParams(LoggingType_t.LOG_ON_ENTER ^ LoggingType_t.LOG_ON_EXIT,3);
 			IBinding binding = new DefaultStaticTimeBinding(comps[0],ID("R1"),comps[1],ID("P2"),p);
 			cc.AddBindings(binding);
 			IMapping mapping = ComponentFactory.CreateProvidesMapping(

@@ -11,6 +11,9 @@ namespace Palladio.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/29 15:13:47  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.2  2004/07/22 20:28:18  joemal
 	/// - changed some comments
 	///
@@ -49,7 +52,7 @@ namespace Palladio.Simulation
 		#region constructor
 
 		/// <summary>
-		/// constructs a new <code>DefaultSimulationEnvironment</code>. It uses the default environment factory of
+		/// constructs a new <c>DefaultSimulationEnvironment</c>. It uses the default environment factory of
 		/// the framework.
 		/// </summary>
 		public DefaultSimulationEnvironment()
@@ -59,7 +62,7 @@ namespace Palladio.Simulation
 		}
 
 		/// <summary>
-		/// constructs a new <code>DefaultSimulationEnvironment</code>. It uses the given factory to
+		/// constructs a new <c>DefaultSimulationEnvironment</c>. It uses the given factory to
 		/// configure the framework.
 		/// </summary>
 		/// <param name="factory">the factory that is used to configure the framework</param>

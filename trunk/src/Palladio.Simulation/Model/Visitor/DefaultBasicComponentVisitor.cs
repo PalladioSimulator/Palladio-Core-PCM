@@ -13,6 +13,9 @@ namespace Palladio.Simulation.Model.Visitor
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/29 15:13:48  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -38,7 +41,7 @@ namespace Palladio.Simulation.Model.Visitor
 		#region constructor
 		
 		/// <summary>
-		/// constructs a new <code>DefaultBasicComponentVisitor</code> from the given basic component and signature.
+		/// constructs a new <c>DefaultBasicComponentVisitor</c> from the given basic component and signature.
 		/// This constructor normaly is used by another visitor when an inner component should be entered.
 		/// </summary>
 		/// <param name="component">the component to be visited</param>
@@ -49,8 +52,8 @@ namespace Palladio.Simulation.Model.Visitor
 		}
 
 		/// <summary>
-		/// constructs a new <code>DefaultBasicComponentVisitor</code> from the given basic component using the given
-		/// interface and signature. This constructor normaly is to create a visitor from <code>IThreadStartingPoint</code>.
+		/// constructs a new <c>DefaultBasicComponentVisitor</c> from the given basic component using the given
+		/// interface and signature. This constructor normaly is to create a visitor from <c>IThreadStartingPoint</c>.
 		/// </summary>
 		/// <param name="component">the component to be visited</param>
 		/// <param name="interfaceID">the id of the interface</param>

@@ -33,7 +33,7 @@ namespace Palladio.Simulation.UnitTests
 		[Test]
 		public void test_single_thread()
 		{
-			IThreadStartingPoint sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));
+			ThreadStartingPoint sp = new ThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));
 			ISimulationEnvironment env = new DefaultSimulationEnvironment();
 
 			TestArchitectures.FillCC(env.ComponentArchitecture.CreateCompositeRootComponent(ID("CC"),null));
@@ -103,7 +103,7 @@ namespace Palladio.Simulation.UnitTests
 		[Test]
 		public void test_periodic_thread_short_period()
 		{
-			IThreadStartingPoint sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));
+			ThreadStartingPoint sp = new ThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));
 			ISimulationEnvironment env = new DefaultSimulationEnvironment();
 
 			TestArchitectures.FillCC(env.ComponentArchitecture.CreateCompositeRootComponent(ID("CC"),null));
@@ -176,7 +176,7 @@ namespace Palladio.Simulation.UnitTests
 		[Test]
 		public void test_periodic_thread_long_period()
 		{
-			IThreadStartingPoint sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));
+			ThreadStartingPoint sp = new ThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));
 			ISimulationEnvironment env = new DefaultSimulationEnvironment();
 
 			long time = 0;

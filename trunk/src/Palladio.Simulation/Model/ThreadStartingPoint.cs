@@ -4,18 +4,18 @@ using Palladio.Identifier;
 namespace Palladio.Simulation.Model
 {
 	/// <summary>
-	/// This class is the default implementation of the datastructure describing a starting point for simulationthreads.
+	/// This class is the datastructure describing a starting point for simulationthreads.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
-	/// Revision 1.1  2004/07/20 11:46:43  joemal
-	/// new cvs module for first release
+	/// Revision 1.1  2004/07/29 15:13:47  joemal
+	/// - changes from the review
 	///
 	/// 
 	/// </pre>
 	/// </remarks>
-	public class DefaultThreadStartingPoint : IThreadStartingPoint
+	public class ThreadStartingPoint
 	{
 		#region data
 
@@ -33,12 +33,12 @@ namespace Palladio.Simulation.Model
 		#region constructors
 
 		/// <summary>
-		/// constructs a new DefaultThreadStartingPoint described by the given parameters.
+		/// constructs a new ThreadStartingPoint described by the given parameters.
 		/// </summary>
 		/// <param name="componentID">the id of the component</param>
 		/// <param name="ifaceID">the id of the interface</param>
 		/// <param name="signatureID">the id of the signature</param>
-		public DefaultThreadStartingPoint(IIdentifier componentID, IIdentifier ifaceID, IIdentifier signatureID)
+		public ThreadStartingPoint(IIdentifier componentID, IIdentifier ifaceID, IIdentifier signatureID)
 		{
 			this.componentID = componentID;
 			this.ifaceID = ifaceID;

@@ -12,6 +12,9 @@ namespace Palladio.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/29 15:13:47  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.2  2004/07/22 20:28:18  joemal
 	/// - changed some comments
 	///
@@ -107,7 +110,7 @@ namespace Palladio.Simulation
 		}
 
 		/// <summary>
-		/// called by <code>Simulate()</code> to proceed a whole simulation. By default, the simulation ends, if no more threads 
+		/// called by <c>Simulate()</c> to proceed a whole simulation. By default, the simulation ends, if no more threads 
 		/// are alive or the maximum simulation time is reached.
 		/// </summary>
 		protected virtual void DoSimulate()
@@ -121,7 +124,7 @@ namespace Palladio.Simulation
 
 		/// <summary>
 		/// returns the clock of the environment. The first call to this property creates a new instance by
-		/// calling <code>CreateClock()</code>.
+		/// calling <c>CreateClock()</c>.
 		/// </summary>
 		public IClock Clock
 		{
@@ -134,7 +137,7 @@ namespace Palladio.Simulation
 
 		/// <summary>
 		/// returns the model of the componentarchitecture of the environment. The first call to this property creates a new 
-		/// instance by calling <code>CreateComponentArchitecture()</code>.
+		/// instance by calling <c>CreateComponentArchitecture()</c>.
 		/// </summary>
 		public IComponentArchitecture ComponentArchitecture
 		{
@@ -164,14 +167,14 @@ namespace Palladio.Simulation
 		
 		/// <summary>
 		/// implement this method to create a new ínstance of Clock. Don't do any initiations depending on other components, use
-		/// <code>Inilize()</code> instead. This method must not return null.
+		/// <c>Inilize()</c> instead. This method must not return null.
 		/// </summary>
 		/// <returns>the new instance of IClock.</returns>
 		protected abstract IClock CreateClock();
 
 		/// <summary>
 		/// implement this method to create a new ínstance of IComponentArchitecture. Don't do any initiations depending on 
-		/// other components, use <code>Inilize()</code> instead. This method must not return null.
+		/// other components, use <c>Inilize()</c> instead. This method must not return null.
 		/// </summary>
 		/// <returns>the new instance of IComponentArchitecture.</returns>
 		protected abstract IComponentArchitecture CreateComponentArchitecture();

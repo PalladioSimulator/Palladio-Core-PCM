@@ -14,6 +14,9 @@ namespace Palladio.Simulation.Model
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/07/29 15:13:47  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.1  2004/07/20 11:46:43  joemal
 	/// new cvs module for first release
 	///
@@ -134,7 +137,7 @@ namespace Palladio.Simulation.Model
 		/// <param name="component">the component</param>
 		/// <param name="sp">the point in the architecture, where the thread has to start</param>
 		/// <returns>the created visitor</returns>
-		protected override IComponentVisitor CreateVisitor(IComponent component, IThreadStartingPoint sp)
+		protected override IComponentVisitor CreateVisitor(IComponent component, ThreadStartingPoint sp)
 		{
 			return this.VisitorFactory.CreateVisitor(component,sp.InterfaceID,sp.SignatureID);
 		}

@@ -4,12 +4,15 @@ using Palladio.Simulation.Model;
 namespace Palladio.Simulation.Simulation
 {
 	/// <summary>
-	/// This interface extends <code>ISimulationThread</code> to provide some additional methods, events and properties, used for
+	/// This interface extends <c>ISimulationThread</c> to provide some additional methods, events and properties, used for
 	/// periodic threads.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/29 15:13:47  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.2  2004/07/22 20:28:18  joemal
 	/// - changed some comments
 	///
@@ -51,7 +54,7 @@ namespace Palladio.Simulation.Simulation
 		/// <summary>
 		/// returns the startingpoint of this thread.
 		/// </summary>
-		IThreadStartingPoint StartingPoint
+		ThreadStartingPoint StartingPoint
 		{
 			get;
 		}

@@ -7,12 +7,15 @@ using Palladio.Attributes;
 namespace Palladio.Simulation.Model.Elements
 {
 	/// <summary>
-	/// This class is the abstract class of a simulation binding. It uses the binding created with <code>ComponentFactory</code>
+	/// This class is the abstract class of a simulation binding. It uses the binding created with <c>ComponentFactory</c>
 	/// to delegate the unchanged methods.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/29 15:13:48  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.1  2004/07/20 11:46:43  joemal
 	/// new cvs module for first release
 	///

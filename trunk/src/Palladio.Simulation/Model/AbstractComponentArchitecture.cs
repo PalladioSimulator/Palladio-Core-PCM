@@ -14,6 +14,9 @@ namespace Palladio.Simulation.Model
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/07/29 15:13:47  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.1  2004/07/20 11:46:43  joemal
 	/// new cvs module for first release
 	///
@@ -132,7 +135,7 @@ namespace Palladio.Simulation.Model
 		/// described with given startingpoint.
 		/// </summary>
 		/// <param name="startingPoint">the point, from where the visitor has to start.</param>
-		/// <returns>an instance of <code>IComponentVisitor</code></returns>
+		/// <returns>an instance of <c>IComponentVisitor</c></returns>
 		/// <exception cref="Palladio.ComponentModel.Exceptions.ComponentNotFoundException">
 		/// thrown, if the component with given id can't be found in architecture
 		/// </exception>
@@ -142,7 +145,7 @@ namespace Palladio.Simulation.Model
 		///	<exception cref="Palladio.ComponentModel.Exceptions.SignatureNotFoundException">
 		/// thrown, if the signature with given id can't be found in interface
 		/// </exception>
-		public virtual IComponentVisitor CreateVisitor(IThreadStartingPoint startingPoint)
+		public virtual IComponentVisitor CreateVisitor(ThreadStartingPoint startingPoint)
 		{
 			IComponentVisitor visitor = CreateVisitorChain(this.ArchitectureRootComponent,startingPoint);                        
 			if (visitor == null)
@@ -156,7 +159,7 @@ namespace Palladio.Simulation.Model
 		/// <param name="component">the component current component</param>
 		/// <param name="startingPoint">the starting point</param>
 		/// <returns></returns>
-		private IComponentVisitor CreateVisitorChain(IComponent component, IThreadStartingPoint startingPoint)
+		private IComponentVisitor CreateVisitorChain(IComponent component, ThreadStartingPoint startingPoint)
 		{
 			//found the component, return the visitor
 			if (component.ID.Equals(startingPoint.ComponentID))	return CreateVisitor(component,startingPoint);
@@ -185,7 +188,7 @@ namespace Palladio.Simulation.Model
 		/// <param name="component">the component</param>
 		/// <param name="startingPoint">the starting point</param>
 		/// <returns>the created visitor</returns>
-		protected abstract IComponentVisitor CreateVisitor(IComponent component, IThreadStartingPoint startingPoint);
+		protected abstract IComponentVisitor CreateVisitor(IComponent component, ThreadStartingPoint startingPoint);
 
 		/// <summary>
 		/// called by the method CreateVisitorChain, when a visitor for a composite component should be created.

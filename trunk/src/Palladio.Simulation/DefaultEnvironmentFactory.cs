@@ -17,6 +17,9 @@ namespace Palladio.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.4  2004/07/29 15:13:47  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.3  2004/07/28 15:34:46  sbecker
 	/// Review comments added
 	///
@@ -50,7 +53,32 @@ namespace Palladio.Simulation
 
 		#endregion
 
-		//konstructor mit fabriken und parametern 
+		#region constructors
+        
+		/// <summary>
+		/// called to create the environment factory. The default factories of the framework are used.
+		/// </summary>
+		public DefaultEnvironmentFactory() 
+		{
+		}
+
+		/// <summary>
+		/// called to create the environment factory. The factory uses the given instances of factories, if they are not null.
+		/// In case of null, the default factory of the framework is used. 
+		/// </summary>
+		/// <param name="elementFactory">the factory, that is used to create the elements of the architecture</param>
+		/// <param name="builderFactory">the factory, that creates the builder for the architecture</param>
+		/// <param name="visitorFactory">the factory, that creates the visitors, used to navigate through 
+		/// the components and services of the architecture.</param>
+		public DefaultEnvironmentFactory(IElementFactory elementFactory, IBuilderFactory builderFactory, 
+			IVisitorFactory visitorFactory)
+		{
+			this.elementFactory = elementFactory;
+			this.builderFactory = builderFactory;
+			this.visitorFactory = visitorFactory;
+		}
+
+		#endregion
 
 		#region create methods
 

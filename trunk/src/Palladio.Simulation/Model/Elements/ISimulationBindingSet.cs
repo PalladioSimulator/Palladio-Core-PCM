@@ -6,11 +6,14 @@ namespace Palladio.Simulation.Model.Elements
 {
 	/// <summary>
 	/// This interface contains the factory method to create bindings with the supported parameters. The method
-	/// <code>IsSupported()</code> decides, whether a parameterstructure is supported by this set of binding.
+	/// <c>IsSupported()</c> decides, whether a parameterstructure is supported by this set of binding.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/29 15:13:48  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.1  2004/07/20 11:46:43  joemal
 	/// new cvs module for first release
 	///

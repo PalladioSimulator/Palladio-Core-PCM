@@ -15,6 +15,9 @@ namespace Palladio.Simulation.Model.Visitor
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/07/29 15:13:48  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -40,8 +43,8 @@ namespace Palladio.Simulation.Model.Visitor
 		#region constructors
 
 		/// <summary>
-		/// constructs a new <code>DefaultCompositeVisitor</code> from given component. The given visitor belongs to an
-		/// inner component of this one. This constructor normaly is used by <code>IComponentArchitecture</code> to
+		/// constructs a new <c>DefaultCompositeVisitor</c> from given component. The given visitor belongs to an
+		/// inner component of this one. This constructor normaly is used by <c>IComponentArchitecture</c> to
 		/// create the chain of visitors to the given starting point. 
 		/// </summary>
 		/// <param name="component">the component</param>
@@ -56,7 +59,7 @@ namespace Palladio.Simulation.Model.Visitor
 		}
 
 		/// <summary>
-		/// constructs a new <code>DefaultCompositeVisitor</code> from given component and signature.
+		/// constructs a new <c>DefaultCompositeVisitor</c> from given component and signature.
 		/// </summary>
 		/// <param name="component">the component</param>
 		/// <param name="signature">the external signature to be called</param>
@@ -67,8 +70,8 @@ namespace Palladio.Simulation.Model.Visitor
 		}
 
 		/// <summary>
-		/// constructs a new <code>DefaultCompositeVisitor</code> from given component, interfaceID and signatureID.
-		/// This constructor normaly is used to create a visitor from <code>IThreadStartingPoint</code>.
+		/// constructs a new <c>DefaultCompositeVisitor</c> from given component, interfaceID and signatureID.
+		/// This constructor normaly is used to create a visitor from <c>IThreadStartingPoint</c>.
 		/// </summary>
 		/// <param name="component">the composite component</param>
 		/// <param name="interfaceID">the id of the interface</param>
@@ -146,8 +149,8 @@ namespace Palladio.Simulation.Model.Visitor
 		}
 
 		/// <summary>
-		/// this method is called, if the element to be visited is a <code>IBasicComponent</code>. In this case, 
-		/// a new <code>DefaultBasicComponentVisitor</code> is created and pushed to the top of the stack.
+		/// this method is called, if the element to be visited is a <c>IBasicComponent</c>. In this case, 
+		/// a new <c>DefaultBasicComponentVisitor</c> is created and pushed to the top of the stack.
 		/// </summary>
 		/// <param name="component">the component</param>
 		public void VisitIBasicComponent(IBasicComponent component)
@@ -162,8 +165,8 @@ namespace Palladio.Simulation.Model.Visitor
 		}
 
 		/// <summary>
-		/// this method is called, if the element to be visited is a <code>ICompositeComponent</code>. In this case, 
-		/// a new <code>DefaultCompositeComponentVisitor</code> is created and pushed to the top of the stack.
+		/// this method is called, if the element to be visited is a <c>ICompositeComponent</c>. In this case, 
+		/// a new <c>DefaultCompositeComponentVisitor</c> is created and pushed to the top of the stack.
 		/// </summary>
 		/// <param name="component">the component</param>
 		public void VisitICompositeComponent(ICompositeComponent component)
@@ -178,7 +181,7 @@ namespace Palladio.Simulation.Model.Visitor
 		}
 
 		/// <summary>
-		/// called, if the element to be visited is a component visitor. In this case, the methods <code>nextElement()</code>
+		/// called, if the element to be visited is a component visitor. In this case, the methods <c>nextElement()</c>
 		/// of this visitor is called.
 		/// </summary>
 		/// <param name="visitor">the visitor</param>

@@ -9,6 +9,9 @@ namespace Palladio.Simulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/29 15:13:48  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.2  2004/07/22 20:28:18  joemal
 	/// - changed some comments
 	///
@@ -37,7 +40,7 @@ namespace Palladio.Simulation.Simulation
 		#region constructors
 
 		/// <summary>
-		/// constructs a new <code>NextTCEventArgs</code> data structure
+		/// constructs a new <c>NextTCEventArgs</c> data structure
 		/// </summary>
 		/// <param name="current">the current TimeConsumer</param>
 		/// <param name="previous">the previous TimeConsumer</param>

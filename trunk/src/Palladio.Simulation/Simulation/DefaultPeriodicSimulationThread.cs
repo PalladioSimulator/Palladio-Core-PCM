@@ -13,6 +13,9 @@ namespace Palladio.Simulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/29 15:13:48  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -35,7 +38,7 @@ namespace Palladio.Simulation.Simulation
 		/// <summary>
 		/// Holds the startingpoint of the thread in order to create new threads starting at the same one.
 		/// </summary>
-		protected IThreadStartingPoint startingPoint;
+		protected ThreadStartingPoint startingPoint;
 
 		/// <summary>
 		/// this field holds the length of the period in order to create new threads with the same period.
@@ -66,7 +69,7 @@ namespace Palladio.Simulation.Simulation
 		/// <param name="start">the startingpoint of this thread</param>
 		/// <param name="visitor">the visitor used by this thread to walk through the architecture</param>
 		/// <param name="type">the type of the thread</param>
-		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, IThreadStartingPoint start,
+		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, ThreadStartingPoint start,
 			IComponentVisitor visitor, SimulationThreadType type) : base(id,visitor,type)
 		{
 			this.startingPoint = start;
@@ -85,7 +88,7 @@ namespace Palladio.Simulation.Simulation
  		/// <param name="visitor">the visitor used by this thread to walk through the architecture</param>
 		/// <param name="type">the type of the thread</param>
 		/// <param name="observer">the observer</param>
-		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, IThreadStartingPoint start,
+		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, ThreadStartingPoint start,
 			IComponentVisitor visitor,SimulationThreadType type, IThreadObserver observer) : base (id, visitor,type,observer)
 		{
 			this.startingPoint = start;
@@ -145,7 +148,7 @@ namespace Palladio.Simulation.Simulation
 		/// <summary>
 		/// return the startingpoint of this thread in order to create new one from the same one.
 		/// </summary>
-		public IThreadStartingPoint StartingPoint
+		public ThreadStartingPoint StartingPoint
 		{
 			get
 			{

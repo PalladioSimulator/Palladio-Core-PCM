@@ -18,7 +18,7 @@ namespace Palladio.Simulation.UnitTests
 			FillC2(builder.AddBasicComponent(ID("C2"),null));
 
 			//bind them
-			StaticTimeBindingParams p = new StaticTimeBindingParams(LoggingType_t.LOG_BOTH,3);
+			StaticTimeBindingParams p = new StaticTimeBindingParams(LoggingType_t.LOG_ON_ENTER ^ LoggingType_t.LOG_ON_EXIT,3);
 			builder.AddBinding(ID("C2"),ID("C1"),ID("P2"),ID("R1"),p);
 
 			//adds a provides mapping from c1 

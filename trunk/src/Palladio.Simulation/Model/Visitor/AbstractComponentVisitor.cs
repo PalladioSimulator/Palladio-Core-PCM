@@ -5,12 +5,15 @@ namespace Palladio.Simulation.Model.Visitor
 {
 	/// <summary>
 	/// This class is the abstract implementation of all component visitors in this framework. Therefor it implements 
-	/// the interface <code>IComponentVisitor</code>. The visitor holds the visited component, contains the VisitorEvent and
+	/// the interface <c>IComponentVisitor</c>. The visitor holds the visited component, contains the VisitorEvent and
 	/// provides the notify methods for this event.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/29 15:13:48  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -38,7 +41,7 @@ namespace Palladio.Simulation.Model.Visitor
 
 		#region constructors
 		/// <summary>
-		/// constructs a new <code>AbstractComponentVisitor</code> using the given component.
+		/// constructs a new <c>AbstractComponentVisitor</c> using the given component.
 		/// </summary>
 		/// <param name="component">the component, visited by this visitor</param>
 		public AbstractComponentVisitor(IComponent component):base(false)

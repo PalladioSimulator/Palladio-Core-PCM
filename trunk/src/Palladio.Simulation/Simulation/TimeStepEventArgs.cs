@@ -9,6 +9,9 @@ namespace Palladio.Simulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/29 15:13:48  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.2  2004/07/22 20:28:18  joemal
 	/// - changed some comments
 	///
@@ -23,22 +26,28 @@ namespace Palladio.Simulation.Simulation
 		#region declaration
 
 		/// <summary>
-		/// added to the field <code>cause</code> in order to indicate that the event 
-		/// was fired by a thread, that reached its time in future.
+		/// the enumeration of causes that can make the scheduler to let the simulationstep end here
 		/// </summary>
-		public const int THREAD_REACHED_TIME_IN_FUTURE = 1;
+		public enum CauseType_t
+		{		
+			/// <summary>
+			/// added to the field <c>cause</c> in order to indicate that the event 
+			/// was fired by a thread, that reached its time in future.
+			/// </summary>
+			THREAD_REACHED_TIME_IN_FUTURE,
 		
-		/// <summary>
-		/// added to the field <code>cause</code> in order to indicate that the event 
-		/// was fired by the clock, that reached its ClockStopTime
-		/// </summary>
-		public const int CLOCK_STOP_EVENT = 2;
+			/// <summary>
+			/// added to the field <c>cause</c> in order to indicate that the event 
+			/// was fired by the clock, that reached its ClockStopTime
+			/// </summary>
+			CLOCK_STOP_EVENT,
 
-		/// <summary>
-		/// added to the field <code>cause</code> in order to indicate that the event 
-		/// was fired by the clock, that reached its maximum simulationtime
-		/// </summary>
-		public const int MAX_TIME_REACHED = 4;
+			/// <summary>
+			/// added to the field <c>cause</c> in order to indicate that the event 
+			/// was fired by the clock, that reached its maximum simulationtime
+			/// </summary>
+			MAX_TIME_REACHED
+		}
 
 		#endregion
 
@@ -57,7 +66,7 @@ namespace Palladio.Simulation.Simulation
 		/// <summary>
 		/// the field, which holds a combination of causes that let the timestep end at this time
 		/// </summary>
-		private int cause;
+		private TimeStepEventArgs.CauseType_t cause;
 
 		#endregion
 
@@ -68,8 +77,8 @@ namespace Palladio.Simulation.Simulation
 		/// <param name="timeStep">the timestep</param>
 		/// <param name="currentSimulationTime">the current simulation time</param>
 		/// <param name="cause">the cause, that let the timestep end here. This can be a combination of the
-		/// constants, defined in <code>TimeStepEventArgs</code></param>
-		public TimeStepEventArgs(long timeStep, long currentSimulationTime, int cause)
+		/// constants, defined in <c>TimeStepEventArgs</c></param>
+		public TimeStepEventArgs(long timeStep, long currentSimulationTime, CauseType_t cause)
 		{
 			this.timeStep = timeStep;
 			this.currentSimulationTime = currentSimulationTime;
@@ -99,7 +108,7 @@ namespace Palladio.Simulation.Simulation
 		/// <summary>
 		/// returns the cause that lets the step end at this time		
 		/// </summary>
-		public int Cause
+		public TimeStepEventArgs.CauseType_t Cause
 		{
 			get{ return this.cause;}
 		}
@@ -109,7 +118,7 @@ namespace Palladio.Simulation.Simulation
 		/// </summary>
 		public bool IsThreadChangingTimeConsumer
 		{
-			get{ return (this.cause & THREAD_REACHED_TIME_IN_FUTURE) != 0;}
+			get{ return (this.cause & CauseType_t.THREAD_REACHED_TIME_IN_FUTURE) != 0;}
 		}
 
 		/// <summary>
@@ -117,7 +126,7 @@ namespace Palladio.Simulation.Simulation
 		/// </summary>
 		public bool IsClockStopEvent
 		{
-			get{ return (this.cause & CLOCK_STOP_EVENT) != 0;}
+			get{ return (this.cause & CauseType_t.CLOCK_STOP_EVENT) != 0;}
 		}
 
 		/// <summary>
@@ -125,7 +134,7 @@ namespace Palladio.Simulation.Simulation
 		/// </summary>
 		public bool IsMaximumSimulationTimeReached
 		{
-			get{ return (this.cause & MAX_TIME_REACHED) != 0;}
+			get{ return (this.cause & CauseType_t.MAX_TIME_REACHED) != 0;}
 		}		
 
 		#endregion

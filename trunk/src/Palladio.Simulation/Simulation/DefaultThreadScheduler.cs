@@ -14,6 +14,9 @@ namespace Palladio.Simulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/29 15:13:48  joemal
+	/// - changes from the review
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
@@ -129,7 +132,7 @@ namespace Palladio.Simulation.Simulation
 		/// </summary>
 		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
-		public void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type)
+		public void CreateSimulationThread(ThreadStartingPoint start, SimulationThreadType type)
 		{
 			IComponentVisitor visitor = this.simulationEnvironment.ComponentArchitecture.CreateVisitor(start);
 			this.PrepairNewThread(new DefaultSimulationThread(this.NextThreadID,visitor,type));			
@@ -141,7 +144,7 @@ namespace Palladio.Simulation.Simulation
 		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
 		/// <param name="observer">the oberserver</param>
-		public void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type, 
+		public void CreateSimulationThread(ThreadStartingPoint start, SimulationThreadType type, 
 			IThreadObserver observer)
 		{
 			IComponentVisitor visitor = this.simulationEnvironment.ComponentArchitecture.CreateVisitor(start);
@@ -154,7 +157,7 @@ namespace Palladio.Simulation.Simulation
 		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
 		/// <param name="periodTime">reached the thread this time, a new thread is created</param>
-		public void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type, long periodTime)
+		public void CreateSimulationThread(ThreadStartingPoint start, SimulationThreadType type, long periodTime)
 		{
 			CreateSimulationThread(start,type,periodTime,null);
 		}
@@ -166,7 +169,7 @@ namespace Palladio.Simulation.Simulation
 		/// <param name="type">The logging type of this thread.</param>
 		/// <param name="periodTime">reached the thread this time, a new thread is created.</param>
 		/// <param name="observer">the oberserver</param>
-		public void CreateSimulationThread(IThreadStartingPoint start,SimulationThreadType type,
+		public void CreateSimulationThread(ThreadStartingPoint start,SimulationThreadType type,
 			long periodTime, IThreadObserver observer)
 		{
 			IComponentVisitor visitor = this.simulationEnvironment.ComponentArchitecture.CreateVisitor(start);
@@ -359,19 +362,20 @@ namespace Palladio.Simulation.Simulation
 				return;
 			else
 			{
-				if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_ALL && previousTimeConsumer !=null)
+				if (previousTimeConsumer !=null)
 				{
-					if (previousTimeConsumer.LoggingType == LoggingType_t.LOG_ON_EXIT ||
-						previousTimeConsumer.LoggingType == LoggingType_t.LOG_BOTH)
+					if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_ALL  ||
+						(previousTimeConsumer.LoggingType & LoggingType_t.LOG_ON_EXIT) == LoggingType_t.LOG_ON_EXIT)
 					{
 						NotifyThreadLogEvent("Thread exited TimeConsumer.",simulationThread,
 							ThreadLogEventArgs.EventType.THREAD_EXITED_TIMECONSUMER,previousTimeConsumer);
 					}
 				}
 
+				Console.Out.WriteLine("LoggingType: "+currentTimeConsumer.LoggingType);
+
 				if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_ALL || 
-					currentTimeConsumer.LoggingType == LoggingType_t.LOG_ON_ENTER ||
-					currentTimeConsumer.LoggingType == LoggingType_t.LOG_BOTH)
+					(currentTimeConsumer.LoggingType & LoggingType_t.LOG_ON_ENTER) == LoggingType_t.LOG_ON_ENTER)
 				{
 					NotifyThreadLogEvent("Thread entered TimeConsumer.",simulationThread,
 						ThreadLogEventArgs.EventType.THREAD_ENTERED_TIMECONSUMER,currentTimeConsumer);
