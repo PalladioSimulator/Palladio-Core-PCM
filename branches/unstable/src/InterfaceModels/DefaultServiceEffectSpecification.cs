@@ -12,15 +12,15 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// </summary>
 	internal class DefaultServiceEffectSpecification : ICloneable, IAttributable, IServiceEffectSpecification
 	{
-		protected IServiceList signatureList;
+		protected IServiceList requiredServicesList;
 		protected AttributeHash attributes;
 		protected ArrayList auxiliarySpecs = new ArrayList();
 		
-		public IServiceList SignatureList
+		public IServiceList RequiredServicesList
 		{
 			get
 			{
-				return signatureList;
+				return requiredServicesList;
 			}
 		}
 		
@@ -38,7 +38,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <returns>A new object with the same values as the current instance.</returns>
 		public object Clone()
 		{
-			return new DefaultServiceEffectSpecification(this.attributes, this.signatureList);
+			return new DefaultServiceEffectSpecification(this.attributes, this.requiredServicesList);
 		}
 				
 		public override bool Equals(object other)
@@ -46,13 +46,13 @@ namespace Palladio.ComponentModel.InterfaceModels
 			if (!(other is IServiceEffectSpecification)) return false;
 			if (other == this) return true;
 			IServiceEffectSpecification model = (IServiceEffectSpecification)other;
-			return model.SignatureList.Equals(this.SignatureList);
+			return model.RequiredServicesList.Equals(this.RequiredServicesList);
 		}
 		
 		public override int GetHashCode()
 		{
 			return (
-				signatureList.GetHashCode()
+				requiredServicesList.GetHashCode()
 				);		
 		}
 
@@ -92,18 +92,18 @@ namespace Palladio.ComponentModel.InterfaceModels
 		public void AddAuxiliarySpecification(IAuxiliaryServiceEffectSpecification info)
 		{
 			auxiliarySpecs.Add(info);
-			signatureList.SignatureListChangeEvent += new ServiceListChangeEventHandler(info.ServiceListChangeEventHandler);
+			RequiredServicesList.ServiceListChangeEvent += new ServiceListChangeEventHandler(info.ServiceListChangeEventHandler);
 		}
 			
-		public DefaultServiceEffectSpecification(AttributeHash attrHash, IServiceList aSignatureList)
+		public DefaultServiceEffectSpecification(AttributeHash attrHash, IServiceList aRequiredServiceList)
 		{
-			this.signatureList = (IServiceList)aSignatureList.Clone();
+			this.requiredServicesList = (IServiceList)aRequiredServiceList.Clone();
 			this.attributes = attrHash;
 		}
 		
 		public DefaultServiceEffectSpecification(AttributeHash attrHash)
 		{
-			signatureList = ComponentFactory.CreateServiceList(new IService[0]);
+			requiredServicesList = ComponentFactory.CreateServiceList(new IService[0]);
 			this.attributes = attrHash;
 		}
 	}

@@ -6,7 +6,7 @@ using Palladio.Utils.Collections;
 using Palladio.Attributes;
 using ReflectionBasedVisitor;
 using Palladio.ComponentModel.Exceptions;
-using Palladio.ComponentModel.src.TypedCollections;
+using Palladio.ComponentModel.TypedCollections;
 using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Components 
@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6.2.6  2005/02/15 20:02:00  joemal
+	/// diverses
+	///
 	/// Revision 1.6.2.5  2004/12/02 23:39:48  uffi
 	/// IAttributeHash replaced by AttributeHash,
 	/// added attribute serialization

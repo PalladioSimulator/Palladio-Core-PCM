@@ -214,6 +214,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IServiceList.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ISigMatch.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -224,23 +229,9 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ISignatureList.cst"
-                    SubType = "Code"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\ISignatureListGenerator.xml"
-                    BuildAction = "Content"
-                    Generator = "CodeSmithGenerator"
-                    LastGenOutput = "ISignatureListGenerator.cs"
-                />
-                <File
-                    RelPath = "src\ISignatureListGenerator.cs"
-                    DependentUpon = "ISignatureListGenerator.xml"
+                    RelPath = "src\ISignatureList.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
-                    DesignTime = "True"
-                    AutoGen = "True"
                 />
                 <File
                     RelPath = "src\IType.cs"
@@ -436,6 +427,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\InterfaceModels\DefaultServiceList.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\InterfaceModels\DefaultSignatureList.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\InterfaceModels\FSMProtocol.cst"
                     SubType = "Code"
                     BuildAction = "None"
@@ -449,25 +450,6 @@
                 <File
                     RelPath = "src\InterfaceModels\FSMProtocolGenerator.cs"
                     DependentUpon = "FSMProtocolGenerator.xml"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                    DesignTime = "True"
-                    AutoGen = "True"
-                />
-                <File
-                    RelPath = "src\InterfaceModels\SignatureList.cst"
-                    SubType = "Code"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\InterfaceModels\SignatureListGenerator.xml"
-                    BuildAction = "Content"
-                    Generator = "CodeSmithGenerator"
-                    LastGenOutput = "SignatureListGenerator.cs"
-                />
-                <File
-                    RelPath = "src\InterfaceModels\SignatureListGenerator.cs"
-                    DependentUpon = "SignatureListGenerator.xml"
                     SubType = "Code"
                     BuildAction = "Compile"
                     DesignTime = "True"

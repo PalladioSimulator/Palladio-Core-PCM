@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5.2.3  2005/02/15 20:02:00  joemal
+	/// diverses
+	///
 	/// Revision 1.5.2.2  2004/11/26 16:23:44  uffi
 	/// serialization schema changed.
 	/// interfaces added to structure-node.
@@ -306,12 +309,12 @@ namespace Palladio.ComponentModel.UnitTests
 			iComp1.AddRequiresInterface(iReqX);
 
 			d1se = ComponentFactory.CreateServiceEffectSpecification();
-			d1se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq1, iSigReq1[0].ID, iSigReq1[1].ID));
-			d1se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReqX,sig.ID));
+			d1se.RequiredServicesList.AddServices(ComponentFactory.CreateServiceArray(iReq1, iSigReq1[0].ID, iSigReq1[1].ID));
+			d1se.RequiredServicesList.AddServices(ComponentFactory.CreateServiceArray(iReqX,sig.ID));
 
 			d2se = ComponentFactory.CreateServiceEffectSpecification();
-			d2se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq1,iSigReq1[0].ID));
-			d2se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq2,iSigReq2[0].ID, iSigReq2[1].ID));
+			d2se.RequiredServicesList.AddServices(ComponentFactory.CreateServiceArray(iReq1,iSigReq1[0].ID));
+			d2se.RequiredServicesList.AddServices(ComponentFactory.CreateServiceArray(iReq2,iSigReq2[0].ID, iSigReq2[1].ID));
 
 			iComp1.AddServiceEffectSpecification(ComponentFactory.CreateService(iProv1,iSigProv1[0].ID),d1se);
 			iComp1.AddServiceEffectSpecification(ComponentFactory.CreateService(iProv1,iSigProv1[1].ID),d2se);
@@ -324,7 +327,7 @@ namespace Palladio.ComponentModel.UnitTests
 			iProv2 = ComponentFactory.CreateInterfaceModel(iSigProv2, "iProv2", IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier, ModelPersistencyInfo.ATTACHED);
 			d3se = ComponentFactory.CreateServiceEffectSpecification();
 			d4se = ComponentFactory.CreateServiceEffectSpecification();
-			d4se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq1,iSigReq1[0].ID,iSigReq1[1].ID));
+			d4se.RequiredServicesList.AddServices(ComponentFactory.CreateServiceArray(iReq1,iSigReq1[0].ID,iSigReq1[1].ID));
 			d5se = ComponentFactory.CreateServiceEffectSpecification();
 			iComp2.AddRequiresInterface(iReq1);							 
 			iComp2.AddProvidesInterface(iProv2);

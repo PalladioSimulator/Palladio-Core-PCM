@@ -19,10 +19,10 @@ namespace Palladio.ComponentModel.Components
 	{
 		#region Methods
 		/// <summary>
-		/// Get the service effect specification associated with aSig.
+		/// Get the service effect specification which belongs to the given service.
 		/// </summary>
-		/// <param name="aService">A service provided by a role of this component.</param>
-		/// <returns>The service effect specification of aSig.</returns>
+		/// <param name="aService">the service provided by a role of this component.</param>
+		/// <returns>The service effect specification of aService.</returns>
 		public IServiceEffectSpecification GetServiceEffectSpecification(IService aService)
 		{
 			IRole aRole = GetProvidesRoleByInterfaceID(aService.Interface.ID);
@@ -205,7 +205,7 @@ namespace Palladio.ComponentModel.Components
 					}
 
 					writer.WriteStartElement("ServiceList","http://palladio.informatik.uni-oldenburg.de/XSD");
-					foreach (IService service in sef.SignatureList) 
+					foreach (IService service in sef.RequiredServicesList) 
 					{
 						service.Serialize(writer);
 					}
@@ -295,7 +295,7 @@ namespace Palladio.ComponentModel.Components
 										if (extSignature == null) 
 											throw new DeserializationException("Signature "+serviceNode.Attributes["id"].Value+" not found in RequiresInterface "+serviceNode.Attributes["guid"].Value);
 
-										sef.SignatureList.AddSignatures(ComponentFactory.CreateService(requires,extSignature.ID));
+										sef.RequiredServicesList.AddServices(ComponentFactory.CreateService(requires,extSignature.ID));
 									}
 									break;
 								case "AuxiliarySpecifications":

@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Signature
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.1.2.3  2005/02/15 20:02:00  joemal
+	/// diverses
+	///
 	/// Revision 1.1.2.2  2004/11/26 16:23:44  uffi
 	/// serialization schema changed.
 	/// interfaces added to structure-node.
@@ -105,7 +108,7 @@ namespace Palladio.ComponentModel.Signature
 		{
 			this.interfaceModel = iface;
 			if (interfaceModel.SignatureList.ContainsSignatureID(signatureID))
-				this.signature = interfaceModel.SignatureList.GetSignaturesByID(signatureID)[0];
+				this.signature = interfaceModel.SignatureList.GetSignaturesByID(signatureID);
 		}
 
 		public void Serialize(System.Xml.XmlTextWriter writer) 

@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9.2.3  2005/02/15 20:02:00  joemal
+	/// diverses
+	///
 	/// Revision 1.9.2.2  2004/12/02 23:39:48  uffi
 	/// IAttributeHash replaced by AttributeHash,
 	/// added attribute serialization
@@ -372,12 +375,12 @@ namespace Palladio.ComponentModel
 		}
 		
 		/// <summary>
-		/// Create an container containing a signature and an associated role. Those signatures
-		/// have to be used if refering to external services.
+		/// Create a container containing a signature and an interface. Those containers
+		/// are used to describe an external service from another component.
 		/// </summary>
-		/// <param name="aRoleID">The role ID of the external interface</param>
-		/// <param name="aSig">The signature of the service in the external interface</param>
-		/// <returns>A container object containing a signature and an associated role</returns>
+		/// <param name="iface">the iface of the required service</param>
+		/// <param name="signatureID">The signature of the service in the external interface</param>
+		/// <returns>A container object containing a signature and an interface</returns>
 		public static IService CreateService(IInterfaceModel iface, IIdentifier signatureID )
 		{
 			if (!iface.SignatureList.ContainsSignatureID(signatureID))
@@ -432,11 +435,12 @@ namespace Palladio.ComponentModel
 		}
 
 		/// <summary>
-		/// Create an array of signatures all of them having the same role
+		/// Create an array of <see cref="IService"/> containers. All of them belong to the same Interfaces which is
+		/// specified by iface.
 		/// </summary>
-		/// <param name="roleID">The roleID to be assigned to the signatures</param>
-		/// <param name="sigs">The signatures to which a role is added</param>
-		/// <returns>An array of <see cref="IExternalSignature"/></returns>
+		/// <param name="iface">The interface to be assigned to the signatures</param>
+		/// <param name="sigsIDs">The ids of the signatures to be attached to the interface.</param>
+		/// <returns>An array of <see cref="IService"/></returns>
 		public static IService[] CreateServiceArray(IInterfaceModel iface, params IIdentifier[] sigIDs)
 		{
 			IService[] result = new IService[sigIDs.Length];
@@ -448,11 +452,12 @@ namespace Palladio.ComponentModel
 		}
 
 		/// <summary>
-		/// Create an array of signatures all of them having the same role
+		/// Create an array of <see cref="IService"/> containers. All of them belong to the same Interfaces which is
+		/// extracted from role given by role.
 		/// </summary>
-		/// <param name="roleID">The roleID to be assigned to the signatures</param>
-		/// <param name="sigs">The signatures to which a role is added</param>
-		/// <returns>An array of <see cref="IExternalSignature"/></returns>		
+		/// <param name="role">the role, from which the interface is extracted</param>
+		/// <param name="sigsIDs">The ids of the signatures to be attached to the interface.</param>
+		/// <returns>An array of <see cref="IService"/></returns>
 		public static IService[] CreateServiceArray(IRole role, params IIdentifier[] sigIDs)
 		{
 			return CreateServiceArray(role.Interface,sigIDs);
@@ -469,7 +474,7 @@ namespace Palladio.ComponentModel
 		/// <returns>A new ISignatureList.</returns>
 		public static ISignatureList CreateSignatureList(params ISignature[] aSignatureArray)
 		{
-			return new DefaultSignatureList(CreateAttributeHash(), aSignatureArray);
+			return new DefaultSignatureList(aSignatureArray);
 		}
 
 		/// <summary>
@@ -480,7 +485,7 @@ namespace Palladio.ComponentModel
 		/// <returns>A new ISignature instance.</returns>
 		public static ISignatureList CreateSignatureList(params string[] aSignatureNameArray)
 		{
-			return new DefaultSignatureList(CreateAttributeHash(), CreateSignatureArray(aSignatureNameArray) );
+			return new DefaultSignatureList(CreateSignatureArray(aSignatureNameArray) );
 		}
 
 		/// <summary>
@@ -493,7 +498,7 @@ namespace Palladio.ComponentModel
 		/// <returns></returns>
 		public static IServiceList CreateServiceList(params IService[] signatures)
 		{
-			return new DefaultServiceList(CreateAttributeHash(), signatures);
+			return new DefaultServiceList(signatures);
 		}
 
 		#endregion

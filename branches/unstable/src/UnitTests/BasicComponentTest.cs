@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5.2.2  2005/02/15 20:02:00  joemal
+	/// diverses
+	///
 	/// Revision 1.5.2.1  2004/11/16 13:37:47  uffi
 	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
 	/// Documentation needs fixing. Some unittests fail.
@@ -73,10 +76,10 @@ namespace Palladio.ComponentModel.UnitTests
 			iComp1.AddProvidesInterface(iProv1);
 
 			d1se = ComponentFactory.CreateServiceEffectSpecification();
-			d1se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq1, sigsReq1[0].ID,sigsReq1[1].ID) );
+			d1se.RequiredServicesList.AddServices(ComponentFactory.CreateServiceArray(iReq1, sigsReq1[0].ID,sigsReq1[1].ID) );
 			d2se = ComponentFactory.CreateServiceEffectSpecification();
-			d2se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq1, sigsReq1[0].ID));
-			d2se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq2, sigsReq2[0].ID,sigsReq2[1].ID));
+			d2se.RequiredServicesList.AddServices(ComponentFactory.CreateServiceArray(iReq1, sigsReq1[0].ID));
+			d2se.RequiredServicesList.AddServices(ComponentFactory.CreateServiceArray(iReq2, sigsReq2[0].ID,sigsReq2[1].ID));
 
 			iComp1.AddServiceEffectSpecification(ComponentFactory.CreateService(iProv1,sigsProv1[0].ID),d1se);
 			iComp1.AddServiceEffectSpecification(ComponentFactory.CreateService(iProv1,sigsProv1[1].ID),d2se);
@@ -246,12 +249,12 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			IBasicComponent cmp = (IBasicComponent)iComp1.Clone();
 			IServiceEffectSpecification spec = ComponentFactory.CreateServiceEffectSpecification();
-			spec.SignatureList.AddSignatures(ComponentFactory.CreateService(iReq2,sigsReq2[0].ID));
+			spec.RequiredServicesList.AddServices(ComponentFactory.CreateService(iReq2,sigsReq2[0].ID));
 			cmp.ChangeServiceEffectSpecification(ComponentFactory.CreateService(iProv1,sigsProv1[0].ID),
 				spec);
 			IServiceEffectSpecification se = cmp.GetServiceEffectSpecification(ComponentFactory.CreateService(iProv1,sigsProv1[0].ID));
-			Assert.IsTrue( se.SignatureList.ContainsSignature(ComponentFactory.CreateService(iReq2,sigsReq2[0].ID)));
-			Assert.IsTrue( se.SignatureList.Count == 1 );
+			Assert.IsTrue( se.RequiredServicesList.ContainsService(ComponentFactory.CreateService(iReq2,sigsReq2[0].ID)));
+			Assert.IsTrue( se.RequiredServicesList.Count == 1 );
 		}
 	}
 }

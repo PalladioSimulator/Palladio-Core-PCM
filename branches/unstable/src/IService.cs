@@ -9,10 +9,15 @@ using Palladio.FiniteStateMachines;
 namespace Palladio.ComponentModel
 {
 	/// <summary>
-	/// A service specification consists of an interface ID and a signature ID.
+	/// IService represents a service. It is used to describe a service that is required by 
+	/// a service effect specification. It holds the signature of the service and the interface 
+	/// it belongs to.
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.1.2.2  2005/02/15 20:02:00  joemal
+	/// diverses
+	///
 	/// Revision 1.1.2.1  2004/11/16 13:37:47  uffi
 	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
 	/// Documentation needs fixing. Some unittests fail.
@@ -45,7 +50,7 @@ namespace Palladio.ComponentModel
 		}
 
 		/// <summary>
-		/// The external role used to identify the signature uniquely
+		/// The interface
 		/// </summary>
 		IInterfaceModel Interface
 		{

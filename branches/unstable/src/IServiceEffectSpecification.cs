@@ -14,7 +14,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// A list of signatures contained in this IServiceEffectSpecification
 		/// </summary>
-		IServiceList SignatureList
+		IServiceList RequiredServicesList
 		{
 			get;
 		}
