@@ -61,7 +61,7 @@ namespace Palladio.Webserver.Dispatcher
 					request.Socket = clientSocket;
 					request.TcpListener = tcpListener;
 					request.Port = port; 
-					
+
 
 					// let the parser handle the request:
 					requestParser.HandleRequest(request);

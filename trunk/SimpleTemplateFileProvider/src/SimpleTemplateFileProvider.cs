@@ -21,6 +21,9 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 	/// Remark: First the POST-Variables are replaced in the second step the GET-Variables are replaced.
 	/// This component only handles the requests for the file-types specified in its config-xml-file. Other requests are
 	/// passed to the COR-Successor.
+	/// 
+	/// The file-types (extensions like .shtml) that are handled have to be specified in the config-xml-file of the
+	/// SimpleTemplateFileProvider.
 	/// </summary>
 	/// 
 	/// 
@@ -29,6 +32,9 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/11/28 19:01:32  kelsaka
+	/// Added simple support for searching on a database, that contains BibTeX-Entries, added test-documents, added DB-test-content, added comments
+	///
 	/// Revision 1.5  2004/11/21 17:10:03  kelsaka
 	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
 	///

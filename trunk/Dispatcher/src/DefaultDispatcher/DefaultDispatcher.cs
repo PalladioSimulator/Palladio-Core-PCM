@@ -21,6 +21,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2004/11/28 19:01:32  kelsaka
+	/// Added simple support for searching on a database, that contains BibTeX-Entries, added test-documents, added DB-test-content, added comments
+	///
 	/// Revision 1.14  2004/11/14 10:55:51  kelsaka
 	/// Completed listening on IP-Addresses. Now the IP the server is listening on defineable in the WebserverXML.xml. Pay attention that there might be some problems with the project-name of WebserverXML as XMLSpy sometimes produces lower-case-versions that cause problems on windows-systems.
 	///
@@ -126,7 +129,8 @@ namespace Palladio.Webserver.Dispatcher
 						webserverConfiguration, port, tcpListener);
 
 					//start the thread which calls the method 'StartListen'
-					serverThread[x] = new Thread(new ThreadStart(listeningThread.StartListen));			
+					serverThread[x] = new Thread(new ThreadStart(listeningThread.StartListen));	
+					serverThread[x].Name = "ListeningThread, port "+ port;
 					serverThread[x].Start();
 				}
 

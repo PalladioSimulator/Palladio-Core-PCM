@@ -10,7 +10,12 @@ using Palladio.Webserver.WebserverMonitor;
 namespace Palladio.Webserver.StaticFileProvider
 {
 	/// <summary>
-	/// StaticFileProvider.
+	/// StaticFileProvider. Returns by default all files that are placed in the document-root of the webserver. If a mime-type
+	/// is specified for the request file-type (indentified by the file extension like .html), the mime-type is set in the 
+	/// response, otherwise the default-mime-type is returned. The settings are done in the config-xml-file of the webserver.
+	/// 
+	/// If a file or directory is not found a error is returned. If for a directory a file is not explicitly set, the default
+	/// file will be returned.
 	/// </summary>
 	/// 
 	/// 
@@ -19,6 +24,9 @@ namespace Palladio.Webserver.StaticFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/11/28 19:01:32  kelsaka
+	/// Added simple support for searching on a database, that contains BibTeX-Entries, added test-documents, added DB-test-content, added comments
+	///
 	/// Revision 1.7  2004/11/21 17:10:04  kelsaka
 	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
 	///
