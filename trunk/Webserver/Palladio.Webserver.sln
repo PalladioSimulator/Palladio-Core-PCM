@@ -1,0 +1,101 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Webserver", "Palladio.Webserver.csproj", "{0A6ACCF9-ED9F-476E-B68B-D1467791490F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebserverFactory", "..\WebserverFactory\WebserverFactory.csproj", "{8C8F753B-2C8D-4908-A09E-B7DB7869A830}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dispatcher", "..\Dispatcher\Dispatcher.csproj", "{AA3055C5-6108-488B-9EE6-EEA5688ECECC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigReader", "..\ConfigReader\ConfigReader.csproj", "{749CB836-B6B7-42F5-9998-11B21736E143}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestParser", "..\RequestParser\RequestParser.csproj", "{3593CDA9-B1C3-45B6-B630-0041E5200719}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestProcessor", "..\RequestProcessor\RequestProcessor.csproj", "{12C3C0FE-89E5-4C23-886D-99F65852C7F9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebserverMonitor", "..\WebserverMonitor\WebserverMonitor.csproj", "{17051EB1-494F-4029-AE3B-BA4334E9EB0F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPRequestParser", "..\HTTPRequestParser\HTTPRequestParser.csproj", "{0FC65FF4-7955-44D2-B2A0-DA0A53D46E84}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticFileProvider", "..\StaticFileProvider\StaticFileProvider.csproj", "{31C516DB-E128-45EC-9DC8-E1A2CED0106F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicFileProvider", "..\DynamicFileProvider\DynamicFileProvider.csproj", "{465E5909-14F1-4BA1-8E65-DA466EC049E1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTPRequestParser", "..\FTPRequestParser\FTPRequestParser.csproj", "{3C4FD220-3248-44D6-8C31-AE6B0BB46CED}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{0A6ACCF9-ED9F-476E-B68B-D1467791490F}.Debug.ActiveCfg = Debug|.NET
+		{0A6ACCF9-ED9F-476E-B68B-D1467791490F}.Debug.Build.0 = Debug|.NET
+		{0A6ACCF9-ED9F-476E-B68B-D1467791490F}.Release.ActiveCfg = Release|.NET
+		{0A6ACCF9-ED9F-476E-B68B-D1467791490F}.Release.Build.0 = Release|.NET
+		{8C8F753B-2C8D-4908-A09E-B7DB7869A830}.Debug.ActiveCfg = Debug|.NET
+		{8C8F753B-2C8D-4908-A09E-B7DB7869A830}.Debug.Build.0 = Debug|.NET
+		{8C8F753B-2C8D-4908-A09E-B7DB7869A830}.Release.ActiveCfg = Release|.NET
+		{8C8F753B-2C8D-4908-A09E-B7DB7869A830}.Release.Build.0 = Release|.NET
+		{AA3055C5-6108-488B-9EE6-EEA5688ECECC}.Debug.ActiveCfg = Debug|.NET
+		{AA3055C5-6108-488B-9EE6-EEA5688ECECC}.Debug.Build.0 = Debug|.NET
+		{AA3055C5-6108-488B-9EE6-EEA5688ECECC}.Release.ActiveCfg = Release|.NET
+		{AA3055C5-6108-488B-9EE6-EEA5688ECECC}.Release.Build.0 = Release|.NET
+		{749CB836-B6B7-42F5-9998-11B21736E143}.Debug.ActiveCfg = Debug|.NET
+		{749CB836-B6B7-42F5-9998-11B21736E143}.Debug.Build.0 = Debug|.NET
+		{749CB836-B6B7-42F5-9998-11B21736E143}.Release.ActiveCfg = Release|.NET
+		{749CB836-B6B7-42F5-9998-11B21736E143}.Release.Build.0 = Release|.NET
+		{3593CDA9-B1C3-45B6-B630-0041E5200719}.Debug.ActiveCfg = Debug|.NET
+		{3593CDA9-B1C3-45B6-B630-0041E5200719}.Debug.Build.0 = Debug|.NET
+		{3593CDA9-B1C3-45B6-B630-0041E5200719}.Release.ActiveCfg = Release|.NET
+		{3593CDA9-B1C3-45B6-B630-0041E5200719}.Release.Build.0 = Release|.NET
+		{12C3C0FE-89E5-4C23-886D-99F65852C7F9}.Debug.ActiveCfg = Debug|.NET
+		{12C3C0FE-89E5-4C23-886D-99F65852C7F9}.Debug.Build.0 = Debug|.NET
+		{12C3C0FE-89E5-4C23-886D-99F65852C7F9}.Release.ActiveCfg = Release|.NET
+		{12C3C0FE-89E5-4C23-886D-99F65852C7F9}.Release.Build.0 = Release|.NET
+		{17051EB1-494F-4029-AE3B-BA4334E9EB0F}.Debug.ActiveCfg = Debug|.NET
+		{17051EB1-494F-4029-AE3B-BA4334E9EB0F}.Debug.Build.0 = Debug|.NET
+		{17051EB1-494F-4029-AE3B-BA4334E9EB0F}.Release.ActiveCfg = Release|.NET
+		{17051EB1-494F-4029-AE3B-BA4334E9EB0F}.Release.Build.0 = Release|.NET
+		{0FC65FF4-7955-44D2-B2A0-DA0A53D46E84}.Debug.ActiveCfg = Debug|.NET
+		{0FC65FF4-7955-44D2-B2A0-DA0A53D46E84}.Debug.Build.0 = Debug|.NET
+		{0FC65FF4-7955-44D2-B2A0-DA0A53D46E84}.Release.ActiveCfg = Release|.NET
+		{0FC65FF4-7955-44D2-B2A0-DA0A53D46E84}.Release.Build.0 = Release|.NET
+		{31C516DB-E128-45EC-9DC8-E1A2CED0106F}.Debug.ActiveCfg = Debug|.NET
+		{31C516DB-E128-45EC-9DC8-E1A2CED0106F}.Debug.Build.0 = Debug|.NET
+		{31C516DB-E128-45EC-9DC8-E1A2CED0106F}.Release.ActiveCfg = Release|.NET
+		{31C516DB-E128-45EC-9DC8-E1A2CED0106F}.Release.Build.0 = Release|.NET
+		{465E5909-14F1-4BA1-8E65-DA466EC049E1}.Debug.ActiveCfg = Debug|.NET
+		{465E5909-14F1-4BA1-8E65-DA466EC049E1}.Debug.Build.0 = Debug|.NET
+		{465E5909-14F1-4BA1-8E65-DA466EC049E1}.Release.ActiveCfg = Release|.NET
+		{465E5909-14F1-4BA1-8E65-DA466EC049E1}.Release.Build.0 = Release|.NET
+		{3C4FD220-3248-44D6-8C31-AE6B0BB46CED}.Debug.ActiveCfg = Debug|.NET
+		{3C4FD220-3248-44D6-8C31-AE6B0BB46CED}.Debug.Build.0 = Debug|.NET
+		{3C4FD220-3248-44D6-8C31-AE6B0BB46CED}.Release.ActiveCfg = Release|.NET
+		{3C4FD220-3248-44D6-8C31-AE6B0BB46CED}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
