@@ -294,6 +294,21 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Connections\DefaultBinding.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Connections\DefaultConnection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Connections\DefaultMapping.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\ComponentHasIncomingConnectionsException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
