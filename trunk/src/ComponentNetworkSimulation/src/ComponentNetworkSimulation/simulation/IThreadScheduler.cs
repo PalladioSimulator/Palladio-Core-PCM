@@ -13,6 +13,15 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <summary>
 	/// This interface defines all methods and events provided by the threadscheduler of the simulation
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.5  2004/05/26 16:29:03  joemal
+	/// threads now use the visitor to walk through the architecture
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public interface IThreadScheduler
 	{
 		#region events
@@ -61,34 +70,34 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <summary>
 		/// call to create a new SimulationThread.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
+		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
-		void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThreadType type);
+		void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type);
 
 		/// <summary>
 		/// call to create a new SimulationThread observed by the given observer.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
+		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
 		/// <param name="observer">the observer</param>
-		void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThreadType type, 
+		void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type, 
 			IThreadObserver observer);
 
 		/// <summary>
 		/// call to create a new periodic SimulationThread.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
+		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
-		void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThreadType type, long periodTime);
+		void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type, long periodTime);
 
 		/// <summary>
 		/// call to create a new periodic SimulationThread observed by the given observer.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
+		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
 		/// <param name="periodTime">reached the thread this time, a new thread is created.</param>
 		/// <param name="observer">the oberserver</param>
-		void CreateSimulationThread(ITimeConsumer firstTimeConsumer,SimulationThreadType type,
+		void CreateSimulationThread(IThreadStartingPoint start,SimulationThreadType type,
 			long periodTime, IThreadObserver observer);
 
 		/// <summary>

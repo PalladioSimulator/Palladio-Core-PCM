@@ -10,6 +10,15 @@ namespace ComponentNetworkSimulation.Simulation
 	/// new Threads (single or periodic), calculate the next timestep and move this step. Dead threads are
 	/// removed and periodic threads are created by this class.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.5  2004/05/26 16:28:35  joemal
+	/// threads now use the visitor to walk through the architecture
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public class DefaultThreadScheduler : IThreadScheduler
 	{
 		#region events
@@ -117,47 +126,47 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <summary>
 		/// call to create a new SimulationThread.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
+		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
-		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThreadType type)
+		public void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type)
 		{
-			this.PrepairNewThread(new DefaultSimulationThread(this.NextThreadID,firstTimeConsumer,type));			
+			this.PrepairNewThread(new DefaultSimulationThread(this.NextThreadID,start,type));			
 		}
 
 		/// <summary>
 		/// call to create a new SimulationThread observed by the given observer.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
+		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
 		/// <param name="observer">the oberserver</param>
-		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThreadType type, 
+		public void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type, 
 			IThreadObserver observer)
 		{
-			this.PrepairNewThread(new DefaultSimulationThread(this.NextThreadID,firstTimeConsumer,type,observer));			
+			this.PrepairNewThread(new DefaultSimulationThread(this.NextThreadID,start,type,observer));			
 		}
 
 		/// <summary>
 		/// call to create a new SimulationThread.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
+		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
-		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThreadType type, long periodTime)
+		public void CreateSimulationThread(IThreadStartingPoint start, SimulationThreadType type, long periodTime)
 		{
-			CreateSimulationThread(firstTimeConsumer,type,periodTime,null);
+			CreateSimulationThread(start,type,periodTime,null);
 		}
 
 		/// <summary>
 		/// call to create a new PeriodicSimulationThread observed by the given observer.
 		/// </summary>
-		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
+		/// <param name="start">the starting point of the thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
 		/// <param name="periodTime">reached the thread this time, a new thread is created.</param>
 		/// <param name="observer">the oberserver</param>
-		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer,SimulationThreadType type,
+		public void CreateSimulationThread(IThreadStartingPoint start,SimulationThreadType type,
 			long periodTime, IThreadObserver observer)
 		{
 			DefaultPeriodicSimulationThread tmp = new DefaultPeriodicSimulationThread(periodTime,NextPeriodID,NextThreadID,
-				firstTimeConsumer,type,observer);
+				start,type,observer);
 			
 			tmp.NewPeriodicThreadEvent += new EventHandler(this.OnNewPeriodicThreadEvent);
 			this.PrepairNewThread(tmp);

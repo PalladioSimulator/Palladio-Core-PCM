@@ -9,6 +9,15 @@ namespace ComponentNetworkSimulation.Simulation
 	/// when the periodlength is reached. The notified scheduler has to create a new periodic thread. All threads, created
 	/// from one periodic thread, contains the same periodID, to identify them.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.3  2004/05/26 16:28:12  joemal
+	/// threads now use the visitor to walk through the architecture
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public class DefaultPeriodicSimulationThread : DefaultSimulationThread,IPeriodicSimulationThread
 	{
 		#region events
@@ -23,9 +32,9 @@ namespace ComponentNetworkSimulation.Simulation
 		#region data
 		
 		/// <summary>
-		/// Holds the first TimeConsumer of the thread in order to create new threads starting at the same one.
+		/// Holds the startingpoint of the thread in order to create new threads starting at the same one.
 		/// </summary>
-		protected ITimeConsumer firstTimeConsumer;
+		protected IThreadStartingPoint startingPoint;
 
 		/// <summary>
 		/// this field holds the length of the period in order to create new threads with the same period.
@@ -53,10 +62,10 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <param name="periodLength">the length of the period, until a new thread has to be created.</param>
 		/// <param name="periodID">the id of the period threads</param>
 		/// <param name="id">the id of this thread</param>
-		/// <param name="firstTimeConsumer">the first time consumer</param>
+		/// <param name="start">the startingpoint of this thread</param>
 		/// <param name="type">the type of the thread</param>
-		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, ITimeConsumer firstTimeConsumer,
-			SimulationThreadType type) : this(periodLength,periodID,id,firstTimeConsumer,type,null)
+		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, IThreadStartingPoint start,
+			SimulationThreadType type) : this(periodLength,periodID,id,start,type,null)
 		{
 			
 		}
@@ -67,13 +76,13 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <param name="periodLength">the length of the period, until a new thread has to be created.</param>
 		/// <param name="periodID">the id of the period threads</param>
 		/// <param name="id">the id of this thread</param>
-		/// <param name="firstTimeConsumer">the first time consumer</param>
+		/// <param name="start">the startingpoint of this thread</param>
 		/// <param name="type">the type of the thread</param>
 		/// <param name="observer">the observer</param>
-		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, ITimeConsumer firstTimeConsumer,
-			SimulationThreadType type, IThreadObserver observer) : base (id, firstTimeConsumer,type,observer)
+		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, IThreadStartingPoint start,
+			SimulationThreadType type, IThreadObserver observer) : base (id, start,type,observer)
 		{
-			this.firstTimeConsumer = firstTimeConsumer;
+			this.startingPoint = start;
 			this.periodLength = periodLength;
 			this.periodID = periodID;
 			this.currentPeriodTime = periodLength;
@@ -156,7 +165,7 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <returns>the new thread</returns>
 		public virtual ISimulationThread CreateFollowingThread(int newThreadID)
 		{
-			return new DefaultPeriodicSimulationThread(this.periodLength,this.periodID,newThreadID,this.firstTimeConsumer,
+			return new DefaultPeriodicSimulationThread(this.periodLength,this.periodID,newThreadID,this.startingPoint,
 				this.type,this.observer);
 		}
 

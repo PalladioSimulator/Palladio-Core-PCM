@@ -1,8 +1,10 @@
 using System;
-using System.Collections;
-using ComponentNetworkSimulation.Structure;
 
-//TODO: logging
+using ComponentNetworkSimulation.Structure;
+using ComponentNetworkSimulation.Structure.Visitor;
+
+using Palladio.FiniteStateMachines;
+
 namespace ComponentNetworkSimulation.Simulation
 {
 	#region declarations
@@ -22,19 +24,31 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <summary>
 	/// This class implements the simulation thread which is representing one request to the component network.
 	/// </summary>
+ 	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.5  2004/05/26 16:28:12  joemal
+	/// threads now use the visitor to walk through the architecture
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public class DefaultSimulationThread : ISimulationThread
-	{	
-		#region events
-
+	{
+		#region event
+		
 		/// <summary>
 		/// This event is fired, if the TimeConsumer has changed to next one
 		/// </summary>
 		public event NextTCEventHandler NextTCEvent;
 
-		#endregion events
+		#endregion
 
 		#region data
-		
+
+		// the visitor used to navigate through the component architecture
+		private IComponentArchitectureVisitor visitor = new DefaultComponentArchitectureVisitor();
+	
 		/// <summary>
 		/// the id of the thread
 		/// </summary>
@@ -56,80 +70,73 @@ namespace ComponentNetworkSimulation.Simulation
 		/// </summary>
 		protected IThreadObserver observer;
 
-		/// <summary>
-		/// this field holds the stack of timeconsumers. 
-		/// </summary>
-		protected Stack timeConsumerStack = new Stack();
-
 		#endregion data
 
-		#region constructor
+		#region constructors
 
 		/// <summary>
 		/// constructs a new simulationthread.
 		/// </summary>
-		/// <param name="id">The id of the thread.</param>
-		/// <param name="firstTimeConsumer">The first TimeConsumer.</param>
+		/// <param name="threadId">The id of the thread.</param>
+		/// <param name="start">the startingpoint of this thread</param>
 		/// <param name="type">The type of the thread.</param>
-		public DefaultSimulationThread(int id, ITimeConsumer firstTimeConsumer, SimulationThreadType type)
+		public DefaultSimulationThread(int threadId, IThreadStartingPoint start,SimulationThreadType type):
+			this(threadId,start,type,null)
 		{
-			this.threadId = id;
-			this.timeConsumerStack.Push(firstTimeConsumer);
-			this.timeInFuture = firstTimeConsumer.ThreadEntered();
-			this.type = type;
 		}
 
 		/// <summary>
 		/// constructs a new simulationthread.
 		/// </summary>
-		/// <param name="id">The id of the thread.</param>
-		/// <param name="firstTimeConsumer">The first TimeConsumer.</param>
+		/// <param name="threadId">The id of the thread.</param>
+		/// <param name="start">the startingpoint of this thread</param>
 		/// <param name="type">The type of the thread.</param>
-		public DefaultSimulationThread(int id, ITimeConsumer firstTimeConsumer, SimulationThreadType type,
+		/// <param name="observer">the observer for this thread</param>
+		public DefaultSimulationThread(int threadId, IThreadStartingPoint start,SimulationThreadType type, 
 			IThreadObserver observer)
 		{
-			this.threadId = id;
-			this.timeConsumerStack.Push(firstTimeConsumer);
-			this.timeInFuture = firstTimeConsumer.ThreadEntered();
+			this.threadId = threadId;
 			this.type = type;
 			this.observer = observer;
+
+			init(start);
 		}
 
-		#endregion constructor
+		#endregion
 
 		#region properties
+
 		/// <summary>
 		/// the current TimeConsumer
 		/// </summary>
-		public ITimeConsumer CurrentTimeConsumer 
+		public ComponentNetworkSimulation.Structure.ITimeConsumer CurrentTimeConsumer
 		{
 			get
 			{
-				try 
-				{
-					return (ITimeConsumer)timeConsumerStack.Peek();
-				}
-				catch
-				{
-					return null;
-				}
+				return visitor.CurrentTimeConsumer;
 			}
 		}
 
 		/// <summary>
 		/// this time contains the difference between the simulation time and the threads current state time.
 		/// </summary>
-		public virtual long TimeInFuture 
+		public virtual long TimeInFuture
 		{
-			get{ return timeInFuture;}
+			get
+			{
+				return this.timeInFuture;
+			}
 		}
 
 		/// <summary>
 		/// is true, if the thread already has following TimeConsumers 
 		/// </summary>
-		public virtual bool IsAlive 
+		public virtual bool IsAlive
 		{
-			get {return this.HasAnyTimeConsumer();}
+			get
+			{
+				return this.HasAnyTimeConsumer();
+			}
 		}
 
 		/// <summary>
@@ -137,28 +144,42 @@ namespace ComponentNetworkSimulation.Simulation
 		/// </summary>
 		public int ThreadID
 		{
-			get {return threadId;}
+			get
+			{
+				return this.threadId;
+			}
 		}
 
 		/// <summary>
 		/// returns the thread type
 		/// </summary>
-		public SimulationThreadType TheType
+		public ComponentNetworkSimulation.Simulation.SimulationThreadType TheType
 		{
-			get {return this.type;}
+			get
+			{
+				return this.type;
+			}
 		}
 
-		#endregion properties
+		#endregion
 
 		#region methods
+
+		//does some initial work
+		private void init(IThreadStartingPoint start)
+		{
+			this.visitor.SetStart(start);
+			if (visitor.CurrentTimeConsumer != null)
+				this.timeInFuture = visitor.CurrentTimeConsumer.ThreadEntered();
+		}
 
 		/// <summary>
 		/// called to move the timeline.
 		/// </summary>
 		/// <param name="time">The timestep to be moved.</param>
-		public virtual void TimeMoved(long time) 
+		public virtual void TimeMoved(long time)
 		{
-			if (!HasAnyTimeConsumer()) return;
+			if (!this.HasAnyTimeConsumer()) return;
 			
 			timeInFuture -= time;
 			NotifyTimeStepEvent(time);
@@ -171,66 +192,24 @@ namespace ComponentNetworkSimulation.Simulation
 		/// </summary>
 		protected void NextTimeConsumer()
 		{
-			if (!HasAnyTimeConsumer()) return;
+			if (!this.HasAnyTimeConsumer()) return;
 
-			ITimeConsumer previousTimeConsumer;
+			ITimeConsumer previousTimeConsumer = visitor.CurrentTimeConsumer;
+			previousTimeConsumer.ThreadExited();
+            
+			ITimeConsumer newTimeConsumer = visitor.NextTimeConsumer();            
 
-			if (CurrentTimeConsumer.HasNextTimeConsumer) 
-			{
-				previousTimeConsumer = CurrentTimeConsumer;
-				previousTimeConsumer.ThreadExited();
-				timeConsumerStack.Push(previousTimeConsumer.NextTimeConsumer);
-			}				
-			else
-				previousTimeConsumer = BackToSubCaller();
-
-			if (timeConsumerStack.Count == 0)
+			if (newTimeConsumer == null)
 			{
 				NotifyThreadReachedEndEvent();
 				return;
 			}
 
-			timeInFuture = CurrentTimeConsumer.ThreadEntered();
-
+			this.timeInFuture = newTimeConsumer.ThreadEntered();
 			NotifyNextTCEvent(previousTimeConsumer);
 		}
 
-		/// <summary>
-		/// call to remove all timeconsumer until reaching a SubCallingTimeConsumer or the stack is empty.
-		/// If a SubCallingTimeConsumer is reached, its following TimeConsumer is pushed to stack. 
-		/// </summary>
-		/// <returns>
-		/// returns the timeconsumer that finished the subcall
-		/// </returns>
-		private ITimeConsumer BackToSubCaller()
-		{
-			ITimeConsumer previousTC = (ITimeConsumer)timeConsumerStack.Peek();
-			do
-			{
-				ITimeConsumer current = (ITimeConsumer)timeConsumerStack.Pop();
-				if (current is ISubCallingTimeConsumer)
-				{
-					ITimeConsumer nextTC = ((ISubCallingTimeConsumer)current).NextTimeConsumerAfterReturn;
-					if (nextTC != null) 
-					{
-						timeConsumerStack.Push(nextTC);
-						return previousTC;
-					}
-				}
-			}
-			while(timeConsumerStack.Count != 0);
 
-			return previousTC;
-		}
-
-		/// <summary>
-		/// returns true, if any TimeConsumer is set to currentTimeConsumer
-		/// </summary>
-		/// <returns>true, if the thread is alive.</returns>
-		protected bool HasAnyTimeConsumer()
-		{
-			return timeConsumerStack.Count != 0;
-		}
 
 		/// <summary>
 		/// called to fire an event, when the thread changed the TimeConsumer
@@ -264,7 +243,16 @@ namespace ComponentNetworkSimulation.Simulation
 				observer.NotifyTimeStep(this,timeStep);
 		}
 
-		#endregion methods
+		/// <summary>
+		/// returns true, if any TimeConsumer is set to currentTimeConsumer
+		/// </summary>
+		/// <returns>true, if the thread is alive.</returns>
+		protected bool HasAnyTimeConsumer()
+		{
+			return this.visitor.CurrentTimeConsumer != null;
+		}
+
+		#endregion
 	}
 }
 //EOF
