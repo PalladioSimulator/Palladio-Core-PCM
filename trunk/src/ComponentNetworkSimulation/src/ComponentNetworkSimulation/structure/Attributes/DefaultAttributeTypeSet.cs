@@ -10,6 +10,9 @@ namespace ComponentNetworkSimulation.Structure.Attributes
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/23 16:31:33  joemal
+	/// - remove type for ids
+	///
 	/// Revision 1.1  2004/05/25 16:18:56  joemal
 	/// initial creation
 	///
@@ -28,9 +31,6 @@ namespace ComponentNetworkSimulation.Structure.Attributes
 
 		//holds the instance of StaticTmeAttributeType
 		private static StaticTmeAttributeType staticTimeType = null;
-
-		//holds the instance of IDAttributeType
-		private static IDAttributeType idType = null;
 
 		//holds the instance of LoggingTypeAttributeType
 		private static LoggingTypeAttributeType loggingAttributeType = null;
@@ -81,20 +81,6 @@ namespace ComponentNetworkSimulation.Structure.Attributes
 			}
 		}
 		
-		/// <summary>
-		/// get the attributetype of the static time attribute
-		/// </summary>
-		public static IDAttributeType IDType
-		{
-			get
-			{
-				if (idType == null)
-					idType = new IDAttributeType();
-
-				return idType;
-			}
-		}
-
 		/// <summary>
 		/// get the attributetype of the static time attribute
 		/// </summary>
