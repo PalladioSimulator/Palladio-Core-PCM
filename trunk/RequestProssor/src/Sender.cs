@@ -63,9 +63,12 @@ namespace RequestProssor
 		public void SendHeader(int iTotBytes, string sStatusCode)
 		{
 
+			string dateTime = generateActualDate();
 			String sBuffer = "";
 			sBuffer = sBuffer + this.request.Protocol + this.response.StatusCode + "\r\n";
-			sBuffer = sBuffer + "Server: Yvettes Mini Server :-)\r\n";
+			sBuffer = sBuffer + "Date: "+ DateTime.Now.ToString("r")+"\r\n";
+			sBuffer = sBuffer + "Server: Yvettes Mini Server \r\n";
+			sBuffer = sBuffer + "Accept-Ranges: bytes \r\n";
 			sBuffer = sBuffer + "Content-Type: " + this.response.MineType + "\r\n";
 			if(this.zipRequested)
 			{
@@ -85,6 +88,7 @@ namespace RequestProssor
 		public void SendToBrowser(String sData)
 		{
 			SendToBrowser (Encoding.ASCII.GetBytes(sData));
+			
 		}
 
 		public void SendToBrowser(Byte[] bSendData)
@@ -99,6 +103,33 @@ namespace RequestProssor
 							
 			}
 		}
+
+		internal string generateActualDate()
+		{
+			string result ="";
+			DateTime dt = DateTime.Now;
+			return result;
+		}
+
+//		public static void Main()  
+//		{
+//
+//			// Displays the values of the pattern properties.
+//			Console.WriteLine( " CULTURE    PROPERTY VALUE" );
+//			PrintPattern( "en-US" );
+//			PrintPattern( "ja-JP" );
+//			PrintPattern( "fr-FR" );
+//
+//		}
+//
+//		public static void PrintPattern( String myCulture )  
+//		{
+//
+//			DateTimeFormatInfo myDTFI = new CultureInfo( myCulture, false ).DateTimeFormat;
+//			Console.WriteLine( "  {0}     {1}", myCulture, myDTFI.RFC1123Pattern );
+//
+//		}
+
 
 	}
 }

@@ -26,7 +26,7 @@ namespace RequestProssor
 		WebServerMonitor realMonitor;
 		
 
-		protected bool zipRequested=true;
+		protected bool zipRequested=false;
 		public DeliveresponseHandler  ResponseHandler
 		{
 			get{return this.responseHandler;}
@@ -69,7 +69,7 @@ namespace RequestProssor
 				
 				res.MessageByte = responseChain.GetResponse;
 				res.FileSize = responseChain.GetFileSize;
-				res.StatusCode=" 202 OK ";
+				res.StatusCode=" 200 OK ";
 			}
 			catch(FileNotFoundException e)
 			{

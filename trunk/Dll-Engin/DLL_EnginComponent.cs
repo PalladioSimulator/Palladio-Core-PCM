@@ -72,10 +72,8 @@ namespace DLL_Engin
 		public IDeliverResponse Sucessor
 		{
 			get{
-				Console.WriteLine("DLl Engin Sucesor wurde aufgerufen");
 				return this.sucessor;}
 			set{
-				Console.WriteLine("Dll Engin sucessor wurde manipuliert \a");
 				this.sucessor = value;}
 		}
 		public void AddHandler(IDLL newHandler)

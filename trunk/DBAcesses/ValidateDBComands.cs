@@ -4,16 +4,27 @@ using System.Collections;
 namespace DBAcesses
 {
 	/// <summary>
-	/// Zusammenfassung für ValidateDBComands.
+	/// Validates each querry. For that we prevent surplus querries.
 	/// </summary>
 	public class ValidateDBComands
 	{
 		IList properties;
+
+		/// <summary>
+		/// Initates a new instance.
+		/// </summary>
+		/// <param name="pro">The properties for a database.</param>
 		public ValidateDBComands(DatabaseProperties pro)
 		{
 			this.properties = pro.Tables;
 		}
 
+		/// <summary>
+		/// Validates the tablename and the colum names of a querry.
+		/// </summary>
+		/// <param name="tablename">The datbasetable name to visit.</param>
+		/// <param name="entries">The entires to modufy as value and the colum name as key</param>
+		/// <returns>valid comand or not.</returns>
 		//first Validate Table and then validate Entries has to be called
 		internal bool ValidateTable(string tablename, Hashtable entries)
 		{
@@ -47,6 +58,13 @@ namespace DBAcesses
 			return true;
 		}
 
+		/// <summary>
+		/// The DatabaseAccess component gets the entries to modify oder adds as Hashtable,
+		/// this methods sequencings the entires.
+		/// </summary>
+		/// <param name="entries">Contains the unordered entries</param>
+		/// <param name="db">The table in database to modify.</param>
+		/// <returns>An ordered string.</returns>
 		public string OrderEntries(Hashtable entries,DatabaseTable db)
 		{
 			string rightOrder ="";

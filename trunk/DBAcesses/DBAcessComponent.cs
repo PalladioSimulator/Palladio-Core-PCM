@@ -107,7 +107,7 @@ namespace DBAcesses
 			{
 				Console.WriteLine(e.Message);
 			}
-			throw new Exception("searxh in Database was not successful ");
+			throw new Exception("search in Database was not successful ");
 		}
 
 		/// <summary>
@@ -147,7 +147,7 @@ namespace DBAcesses
 			{
 				Console.WriteLine(e.Message);
 			}
-			throw new Exception("searxh in Database was not successful ");
+			throw new Exception("search in Database was not successful ");
 		}
 
 		/// <summary>

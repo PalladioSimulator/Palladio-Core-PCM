@@ -24,7 +24,7 @@ namespace RequestProssor.MonitorWebServer
 		{
 			this.LogFileCounter =0;
 			this.FileCount =0;
-			this.requestToWrite=100;
+			this.requestToWrite=10000;
 			this.log ="";
 			this.tempLog = new ArrayList();
 			this.db = new DBAcessComponent();
