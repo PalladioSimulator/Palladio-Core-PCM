@@ -10,6 +10,9 @@ namespace Palladio.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/07/13 07:48:47  sbecker
+	/// Made AttributesFactory static
+	///
 	/// Revision 1.1  2004/05/13 15:17:31  sbecker
 	/// Initial import
 	///
@@ -26,7 +29,7 @@ namespace Palladio.Attributes
 		/// <summary>
 		/// Return a default factory
 		/// </summary>
-		public IAttributesFactory Default
+		public static IAttributesFactory Default
 		{
 			get
 			{
