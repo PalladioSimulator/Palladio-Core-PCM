@@ -11,6 +11,8 @@ namespace FSM
 	/// </summary>
 	public class State
 	{
+		protected static string ERROR_STATE_NAME = "ErrorState";
+
 		protected string name;
 		protected bool startState; 
 		protected bool finalState;
@@ -68,36 +70,38 @@ namespace FSM
 
 		// jh: override the original Equals-Method
 		public override bool Equals(object obj) {
-			
-
-			// jh: check if the object is an instance of State
 			State state;
+			// jh: check if the object is an instance of State
 			if (obj is State) { 
 				state = (State)obj;
-			} else {
-				return false;
+				if(this.getName() == state.getName()) {
+					if(this.getStart() == state.getStart())
+						if(this.getFinal() == state.getFinal())
+							return true;
+				}
 			}
-
-			if(this.name == state.name) {
-				if(this.getStart() == state.getStart())
-					if(this.getFinal() == state.getFinal())
-						return true;
-			}
-					
 			return false;
 		}
+
+		public static bool operator == (State one, State two){
+			return one.Equals(two);
+		}
+
+		public static bool operator != (State one, State two){
+			return !one.Equals(two);
+		}
+
+
 		public virtual string getName() {
 			return this.name;
 		}
 	
-
-		public virtual object Clone(){
-			State newState = new State();
-			newState.name = name;
-			newState.finalState = finalState;
-			newState.startState = startState;
-			return newState;
+		public override int GetHashCode() {
+			return getName().GetHashCode();
 		}
 
+		public static State CreateErrorState(){
+			return new State(ERROR_STATE_NAME,false,false);
+		}
 	}
 }

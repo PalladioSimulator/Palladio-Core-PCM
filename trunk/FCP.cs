@@ -96,15 +96,15 @@ namespace FSM
 							Console.WriteLine("twoNext is: "+twoNext.ToString());
 					
 						if(selfPointing(one,oB,i)& selfPointing(two,tB,i)&&
-							!oneNext.Equals(one.getErrorState()) && !twoNext.Equals(two.getErrorState()))
+							!oneNext.Equals(one.ErrorState) && !twoNext.Equals(two.ErrorState))
 						{
 							//Console.WriteLine("Both Selfpointing");
 							CPState sps = new CPState(oneNext,twoNext);
 							this.cp.setTransition(sps.getState(),i,sps.getState());
 							continue;
 						}
-						if(!oneNext.Equals(one.getErrorState())&&
-							!twoNext.Equals(two.getErrorState()))
+						if(!oneNext.Equals(one.ErrorState)&&
+							!twoNext.Equals(two.ErrorState))
 						{
 
 							//						Console.WriteLine("---------------------");

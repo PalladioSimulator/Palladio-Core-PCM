@@ -48,9 +48,9 @@ namespace FSM
 
 
 		/// <summary>
-		/// Compares this input to anoter object.
+		/// Compares this input to another object.
 		/// </summary>
-		/// <returns>true, if both inputs are equal; false, otherwise</returns>
+		/// <returns>true if both inputs are equal, false otherwise</returns>
 		public override bool Equals(object obj) {
 			if (obj is Input) {
 				Input anInput = (Input)obj;
@@ -60,23 +60,23 @@ namespace FSM
 		}
 		
 		/// <summary>
-		/// Operator uses the implementation of Equals .
+		/// Operator uses the implementation of Equals.
 		/// </summary>
 		/// <param name="input1"></param>
 		/// <param name="input2"></param>
 		/// <returns></returns>
-		public static bool operator == (Input input1, Input input2){
-			return input1.Equals(input2);
+		public static bool operator == (Input one, Input two){
+			return one.Equals(two);
 		}
 
 		/// <summary>
-		/// Operator uses the implementation of Equals .
+		/// Operator uses the implementation of Equals.
 		/// </summary>
 		/// <param name="input1"></param>
 		/// <param name="input2"></param>
 		/// <returns></returns>
-		public static bool operator != (Input input1, Input input2){
-			return !input1.Equals(input2);
+		public static bool operator != (Input one, Input two){
+			return !one.Equals(two);
 		}
 
 		/// <summary>

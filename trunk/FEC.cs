@@ -144,7 +144,7 @@ namespace FSM
 		{
 			Hashtable d2myMap = new Hashtable();
 			d2myMap.Add(d.getStartState(),myMin.getStartState());
-			d2myMap.Add(d.getErrorState(),myMin.getErrorState());
+			d2myMap.Add(d.ErrorState,myMin.ErrorState);
 			mapStates(myMin,myMin.getStartState(),d,d.getStartState(),
 				d2myMap, new Hashtable());
 			return d2myMap;
@@ -305,7 +305,7 @@ namespace FSM
 					State toState  = (State) this.fsm.getNextState((State)oldStates[i],
 						(Input)oldFsmInputIter.Current);
 		
-					if(toState.Equals(fsm.getErrorState()))
+					if(toState.Equals(fsm.ErrorState))
 						continue;
 					ArrayList newGroups = this.inGroup(toState,this.groups);
 					int indexOfStateToState = this.mini.IndexOf((ArrayList) 
@@ -323,14 +323,14 @@ namespace FSM
 		protected void RemoveErrorGroup(ArrayList g)
 		{
 			ArrayList erroG = new ArrayList();
-			erroG.Add(this.fsm.getErrorState());
+			erroG.Add(this.fsm.ErrorState);
 			erroG.TrimToSize();
 			foreach(ArrayList al in g)
 			{
 				al.TrimToSize();
 				foreach(State t in al)
 				{
-					if(t.Equals(fsm.getErrorState()))
+					if(t.Equals(fsm.ErrorState))
 					{
 						g.Remove(al);
 						return;

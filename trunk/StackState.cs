@@ -34,6 +34,15 @@ namespace FSM {
 		}
 
 		/// <summary>
+		/// The copy constructor.
+		/// </summary>
+		/// <param name="aState">The copied state.</param>
+		public StackState(StackState aState) : base(aState) {
+			stateStack = (Stack)aState.stateStack.Clone();
+			serviceStack = (Stack)aState.serviceStack.Clone();
+		}
+
+		/// <summary>
 		/// Creates a Stackstate for a state of the provides protocol.
 		/// </summary>
 		/// <param name="state">State of the provides protocol</param>
@@ -52,6 +61,11 @@ namespace FSM {
 		public void Push(Input aService,State aState){
 			serviceStack.Push(aService);
 			stateStack.Push(aState);
+		}
+
+		public void ChangeTopState(State newState){
+			stateStack.Pop();
+			stateStack.Push(newState);
 		}
 
 		public Input PopService(){
@@ -84,7 +98,7 @@ namespace FSM {
 		/// are removed down to aService. If this StackState does not contain aService the 
 		/// result is an empty StackState. </returns>
 		public StackState LookupService(Input aService){
-			StackState resultState = (StackState)this.Clone();
+			StackState resultState = new StackState(this);
 			while ((!resultState.IsEmpty) && (resultState.PeekService() != aService)) {
 				resultState.PopService();
 				resultState.PopState();
@@ -108,20 +122,6 @@ namespace FSM {
 			} else {
 				return resultState;
 			}
-		}
-
-		/// <summary>
-		/// Create a copy of the current Stackstate.
-		/// </summary>
-		/// <returns>A Copy of the current Stackstate</returns>
-		public override object Clone(){
-			StackState newState = new StackState();
-			newState.name = name;
-			newState.finalState = finalState;
-			newState.startState = startState;
-			newState.serviceStack = (Stack)serviceStack.Clone();
-			newState.stateStack = (Stack)stateStack.Clone();
-			return newState;
 		}
 
 		/// <returns>The name of the current state.</returns>
@@ -152,6 +152,18 @@ namespace FSM {
 				return PeekState().getFinal();
 			}
 			return false;
+		}
+
+		public State TopState {
+			get {
+				return PeekState();
+			}
+		}
+
+		public Input TopService {
+			get {
+				return PeekService();
+			}
 		}
 	}
 }

@@ -41,6 +41,13 @@ namespace FSM
 		/// displays alls Transitions on the console.
 		/// </summary>
 		string transitionsToString();
+
+		/// <summary>
+		/// The errorstate of the FSM.
+		/// </summary>
+		State ErrorState {
+			get;
+		}
 	}
 
 }
