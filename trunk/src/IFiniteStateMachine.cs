@@ -15,6 +15,9 @@ namespace Palladio.FiniteStateMachines {
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/05/24 12:43:33  sbecker
+	/// Fixed bugs related to FSM.Equals and Clone
+	///
 	/// Revision 1.4  2004/05/12 14:12:24  sliver
 	/// Comments reviewed.
 	///
@@ -48,12 +51,16 @@ namespace Palladio.FiniteStateMachines {
 		/// </summary>
 		IState StartState { get; }
 
+		bool HasStartState { get; }
+
 		/// <summary>
 		///     If the automaton reaches one of this states
 		///     during reading an input sequence, the
 		///     sequence is accepted.
 		/// </summary>
 		IState[] FinalStates { get; }
+
+		bool HasFinalStates { get; }
 
 		/// <summary>
 		///     A set of valid input symbols for

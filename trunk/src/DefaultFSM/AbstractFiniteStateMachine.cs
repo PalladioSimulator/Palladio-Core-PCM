@@ -19,6 +19,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2004/05/24 12:43:33  sbecker
+	/// Fixed bugs related to FSM.Equals and Clone
+	///
 	/// Revision 1.6  2004/05/12 14:11:39  sbecker
 	/// Added CVS log
 	///
@@ -36,6 +39,16 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		public abstract IInput[] InputAlphabet { get; }
 
 		public abstract IState[] States { get; }
+
+		public abstract bool HasStartState { get; }
+
+		public bool HasFinalStates 
+		{ 
+			get
+			{
+				return States.Length > 0;
+			}
+ 		}
 
 		public abstract ITransition[] Transitions { get; }
 
@@ -102,15 +115,37 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			return visitor.VisitedTransitions;
 		}
 
-		public override bool Equals(object obj) 
+		public override bool Equals(object obj)
 		{
-			if ( obj is IFiniteStateMachine) 
+			if (!(obj is IFiniteStateMachine)) return false;
+			if (obj == this) return true;
+			
+			IFiniteStateMachine other = (IFiniteStateMachine)obj;
+			if ( !other.HasStartState || !this.HasStartState )
 			{
-//TODO				return FSMFactory.AreEqual( this, (IFiniteStateMachine) obj );
+				if ( (other.HasStartState && !this.HasStartState) ||
+					 (!other.HasStartState && this.HasStartState))
+					return false;
+			}
+			if (other.HasStartState && this.HasStartState)
+				if (!(other.StartState.Equals(this.StartState))) 
+					return false;
+
+			if (!Set.SetwiseEquals(other.FinalStates,this.FinalStates))
 				return false;
-			} 
-			return false;
+			
+			if (!Set.SetwiseEquals(other.States,this.States))
+				return false;
+
+			if (!Set.SetwiseEquals(other.InputAlphabet,this.InputAlphabet))
+				return false;
+			
+			if (!Set.SetwiseEquals(other.Transitions,this.Transitions))
+				return false;
+
+			return true;
 		}
+
 
 		public override string ToString() 
 		{

@@ -13,6 +13,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2004/05/24 12:43:33  sbecker
+	/// Fixed bugs related to FSM.Equals and Clone
+	///
 	/// Revision 1.14  2004/05/13 15:03:46  sliver
 	/// IMatchable Interface added
 	///
@@ -25,6 +28,14 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	internal class TabularFSM : AbstractFSM, IEditableFiniteStateMachine
 	{
 		#region Properties
+
+		public override bool HasStartState 
+		{ 
+			get
+			{
+				return startState != null;
+			}
+		}
 
 		public override IInput[] InputAlphabet 
 		{
@@ -430,11 +441,12 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			this.reverseTransTable = new Hashtable();
 		}
 
-		public TabularFSM(TabularFSM aTabFSM)
+		public TabularFSM(TabularFSM aTabFSM) : this()
 		{
 			AddStates(aTabFSM.States);
-			FinalStates = aTabFSM.FinalStates;
-			StartState = aTabFSM.StartState;
+			finalStates = (Set)aTabFSM.finalStates.Clone();
+			startState = aTabFSM.startState;
+			inputAlphabet = new Hashtable( aTabFSM.inputAlphabet );
 			AddTransitions( aTabFSM.Transitions );
 		}
 		#endregion
