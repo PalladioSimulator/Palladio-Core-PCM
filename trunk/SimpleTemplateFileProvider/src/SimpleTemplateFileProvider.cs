@@ -3,6 +3,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using Altova.Xml;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.HTTPRequestProcessor;
@@ -26,6 +27,9 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/11/06 18:09:28  kelsaka
+	/// Changed handling of delimiters for variables in template-files.
+	///
 	/// Revision 1.1  2004/11/05 16:17:01  kelsaka
 	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
 	/// Code refactoring.
@@ -116,7 +120,8 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 
 
 		/// <summary>
-		/// Uses the template-replacing for the variables names to create the dynamic content.
+		/// Uses the template-replacing for the variables names to create the dynamic content. Searches for all 
+		/// occurences of [VariablesNameDelimiter][VariablesName][VariablesNameDelimiter] an replaces them by variables-values.
 		/// </summary>
 		/// <param name="fileContentString">String representing the file content.</param>
 		/// <param name="httpRequest">The HTTPRequest.</param>
@@ -128,18 +133,28 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 			string value;
 			IEnumerator enumer = httpRequest.POSTHashtable.GetEnumerator();
 
-			
+			// iterates over all variables-names and replaces the keys by their values.			
 			while(enumer.MoveNext())
 			{
 				key = (string)((DictionaryEntry)enumer.Current).Key;
-				value= (string)((DictionaryEntry)enumer.Current).Value;
+				value = (string)((DictionaryEntry)enumer.Current).Value;
 				
+				//TODO: unescape value-chars from URI-Encoding.
+/*
+				Encoding encoding = Encoding.ASCII;
+				Encoder encoder = encoding.GetEncoder();
+
+				string tt = "asd wie geht es übelkeit? 22^3.";
+				Console.WriteLine(tt + " |||| " + Regex.Escape(tt) + " |||| " + Regex.Unescape(tt));
+
+				
+				Console.WriteLine(" unescpaed- "  + Regex.Unescape(value)); */
+				//Console.WriteLine(" unescpaed- "  + Encoding.UTF8.GetString(b));
+
 				searchString = simpleTemplateConfiguration.VariablesNameDelimiter + key + simpleTemplateConfiguration.VariablesNameDelimiter;
 				fileContentString = fileContentString.Replace(searchString, value);
-				Console.WriteLine("Replaced: " + searchString + " with " + value);
 			}
 	
-			
 	
 	
 			requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, fileMimeType, fileContentString.Length, "200 OK", httpRequest.Socket);
