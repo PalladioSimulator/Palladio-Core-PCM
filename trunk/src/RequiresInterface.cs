@@ -4,31 +4,32 @@ using System.Collections;
 namespace Palladio.ComponentModel
 {
 	/// <summary>
+	/// Defines the requirements of a component.
 	/// </summary>
-	public class RequiresInterface : AbstractIModel	 
+	public class RequiresInterface : AbstractComponentInterface    	 
 	{
 
-		// Delegate
-		IInterfaceModel requiresIM;
+		#region Constructors 
 
-		public RequiresInterface() 
+		public RequiresInterface( IInterfaceModel aReqIModel ) 
 		{
+			iModel = (IInterfaceModel) aReqIModel.Clone();
 		}
 
-		public override bool IsSubSetOf(IInterfaceModel anIModel, out IList anErrorList) 
-		{
-			anErrorList = null;
-			return false;
-		}
+		public RequiresInterface(  RequiresInterface aReqIFace ) : 
+			this( aReqIFace.IModel ) {}
 
-		public override IInterfaceModel Merge(IInterfaceModel anIModel) 
-		{
-			return null;
-		}
+		#endregion
+
+
+		#region Methods
 
 		public override object Clone()
 		{
-			return null;
+			return new RequiresInterface(this);
 		}
+
+
+		#endregion
 	}
 }

@@ -9,10 +9,16 @@ namespace Palladio.ComponentModel
 	public class CompositeComponent : ICompositeComponent 
 	{
 
+		#region Data
+
 		private IList componentList;
 		private IList bindingList;
 		private IList provMappingList;
 		private IList reqMappingList;
+
+		#endregion
+
+		#region Properties
 
 		/// <summary>
 		/// List of IComponent objects assembled by the CompositComponent.
@@ -60,9 +66,17 @@ namespace Palladio.ComponentModel
 			}
 		}
 
+		#endregion
+
+		#region Constructors
+
 		public CompositeComponent() 
 		{
 		}
+
+		#endregion
+
+		#region Methods
 
 		public IList GetProvidesIFaceList(IList aProvIFaceList) 
 		{
@@ -84,16 +98,12 @@ namespace Palladio.ComponentModel
 			return null;
 		}
 
-		public bool IsSubTypeOf( IComponent aSuperType )
+		public object Clone() 
 		{
-			return false;
+			return null;
 		}
 
-		public bool IsSubTypeOf( IComponent aSuperType, out IList anErrorList)
-		{
-			anErrorList = new ArrayList();
-			return false;
-		}
+		#endregion
 
 	}
 }

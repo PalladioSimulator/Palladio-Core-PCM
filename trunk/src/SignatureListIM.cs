@@ -7,9 +7,16 @@ namespace Palladio.ComponentModel
 	/// A SignatureList is the simplest form of an IInterfaceModel, just
 	/// containing a set of signatures.
 	/// </summary>
-	public class SignatureListIModel : AbstractIModel 
+	public class SignatureListIModel : AbstractIModel  
 	{
+		#region Data
+
 		private IList signatureList;
+
+		#endregion
+
+
+		#region Properties
 
 		/// <summary>
 		/// A list of ISignature objects.
@@ -19,27 +26,34 @@ namespace Palladio.ComponentModel
 			get { return signatureList; }
 		}
 
+
+		#endregion
+
+
+		#region Constructors
+
 		public SignatureListIModel() 
 		{
 		}
+
 
 		public SignatureListIModel(IList aSignatureList) 
 		{
 			signatureList = new ArrayList(aSignatureList);
 		}
 
-		public SignatureListIModel(SignatureListIModel anSigIModel)
+
+		public SignatureListIModel(SignatureListIModel aSigIModel)
 		{
-			signatureList = new ArrayList(anSigIModel.SignatureList);
+			signatureList = new ArrayList(aSigIModel.SignatureList);
 		}
 
-		public SignatureListIModel(SignatureListIModel anSigIModelOne, SignatureListIModel anSigIModelTwo)
-		{
-			ArrayList mergedList = new ArrayList( anSigIModelOne.SignatureList );
-			mergedList.AddRange( anSigIModelTwo.SignatureList );
-			signatureList = mergedList;
-		}
-		
+
+		#endregion
+
+
+		#region Methods
+
 		public override bool IsSubSetOf(IInterfaceModel anIModel, out IList anErrorList) 
 		{
 			anErrorList = new ArrayList();
@@ -48,6 +62,7 @@ namespace Palladio.ComponentModel
 			{
 				SignatureListIModel sigListIM = (SignatureListIModel) anIModel;
 
+				//TODO Performance Tuning!
 				foreach( ISignature sI in this.SignatureList ) 
 				{
 					IList matchList = new ArrayList();
@@ -80,8 +95,38 @@ namespace Palladio.ComponentModel
 		{
 			if ( anIModel is SignatureListIModel ) 
 			{
-				SignatureListIModel sigIM = (SignatureListIModel) anIModel;
-				return new SignatureListIModel(this, sigIM);
+				SignatureListIModel sigListIM = (SignatureListIModel) anIModel;
+				ArrayList mergedList = new ArrayList( this.SignatureList );
+				//TODO handle matching signatures (how to choose??)
+				mergedList.AddRange( sigListIM.SignatureList );
+				SignatureListIModel resultIModel = (SignatureListIModel) this.Clone();
+				resultIModel.signatureList = mergedList;
+				return resultIModel;
+			} 
+			else 
+			{
+				throw new IModelNotSignatureListIModelException();
+			}
+		}
+
+
+		public override IInterfaceModel Intersect( IInterfaceModel anIModel )
+		{
+			if ( anIModel is SignatureListIModel ) 
+			{
+				IList interList = new ArrayList();
+				SignatureListIModel sigIModel = (SignatureListIModel) anIModel;
+
+				foreach (ISignature sig in SignatureList) 
+				{
+					if ( sig.HasOneMatch(sigIModel.SignatureList) )
+					{
+						interList.Add( sig );
+					}
+				}
+				SignatureListIModel resultIModel = (SignatureListIModel) this.Clone();
+				resultIModel.signatureList = interList;
+				return resultIModel;
 			} 
 			else 
 			{
@@ -94,5 +139,8 @@ namespace Palladio.ComponentModel
 		{
 			return new SignatureListIModel(this);
 		}
+
+
+		#endregion
 	}
 }

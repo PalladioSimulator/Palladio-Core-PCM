@@ -6,9 +6,8 @@ namespace Palladio.ComponentModel
 	/// <summary>
 	/// 
 	/// </summary>
-	public interface IInterfaceModel 
+	public interface IInterfaceModel : ICloneable 
 	{
-
 		bool IsSubSetOf( IList anIModelList );
 
 		bool IsSubSetOf( IInterfaceModel anIModel );
@@ -21,6 +20,8 @@ namespace Palladio.ComponentModel
 
 		IInterfaceModel Merge( IInterfaceModel anIModel );
 
-		object Clone();
+		IInterfaceModel Intersect( IList anIModelList );
+
+		IInterfaceModel Intersect( IInterfaceModel anIModel );
 	}
 }

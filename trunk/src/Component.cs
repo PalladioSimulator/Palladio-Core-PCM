@@ -12,16 +12,25 @@ namespace Palladio.ComponentModel
 	public class Component : IComponent 
 	{
 
-		private IList provIFaceList;
-		private IList reqIFaceList;
+		#region Data
+
+		private ArrayList provIFaceList;
+		private ArrayList reqIFaceList;
+
+		#endregion
+
+		#region Constructors
 
 		/// <summary>
 		/// Creates an empty Component.
 		/// </summary>
 		public Component() 
 		{
+			provIFaceList = new ArrayList();
+			reqIFaceList = new ArrayList();
 		}
 		
+
 		/// <summary>
 		/// Creates a new component with a list of provides interfaces an 
 		/// no requirements to the environment.
@@ -29,10 +38,11 @@ namespace Palladio.ComponentModel
 		/// <param name="aProvIFaceList">
 		/// A list of ProvidesInterface objects.
 		/// </param>
-		public Component( IList aProvIFaceList )
+		public Component( IList aProvIFaceList ) : this()
 		{
-			provIFaceList = aProvIFaceList;
+			provIFaceList.AddRange( aProvIFaceList );
 		}
+
 
 		/// <summary>
 		/// Creates a new component with a list of provides and requires
@@ -44,11 +54,19 @@ namespace Palladio.ComponentModel
 		/// <param name="aReqIFaceList">
 		/// A list of RequiresInterface objects.
 		/// </param>
-		public Component( IList aProvIFaceList, IList aReqIFaceList ) 
+		public Component( IList aProvIFaceList, IList aReqIFaceList ) : this( aProvIFaceList )
 		{
-			provIFaceList = aProvIFaceList;
-			reqIFaceList = aReqIFaceList;
+			reqIFaceList.AddRange( aReqIFaceList );
 		}
+
+
+		public Component( Component aComp ) : 
+			this (aComp.GetProvidesIFaceList(), aComp.GetRequiresIFaceList()) {}
+
+
+		#endregion
+
+		#region Methods
 
 		/// <summary>
 		/// Returns an list of adapted provides interfaces of this component.
@@ -103,15 +121,13 @@ namespace Palladio.ComponentModel
 			return reqIFaceList;
 		}
 
-		public bool IsSubTypeOf( IComponent aSuperType )
+
+		public object Clone() 
 		{
-			return false;
+			return new Component( this );
 		}
 
-		public bool IsSubTypeOf( IComponent aSuperType, out IList anErrorList)
-		{
-			anErrorList = new ArrayList();
-			return false;
-		}
+
+		#endregion
 	}
 }

@@ -7,12 +7,17 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	public class ProvidesMapping : IProvidesMapping 
 	{
+		#region Data
 		
 		private ProvidesInterface	innerProvIFace;
 		private IComponent			innerComp;
 
 		private ProvidesInterface	outerProvIFace;
 		private IComponent			outerComp;
+		#endregion
+
+
+		#region Properties
 
 		public ProvidesInterface InnerProvIFace 
 		{ 
@@ -34,26 +39,56 @@ namespace Palladio.ComponentModel
 			get { return outerComp; }
 		}
 
+		#endregion
 
-		public ProvidesMapping ( IComponent anInnerComp, ProvidesInterface anInnerProvI, 
-			IComponent anOuterComp, ProvidesInterface anOuterProvI ) 
+
+		#region Constructors
+
+		public ProvidesMapping ( IComponent anInnerComp, ProvidesInterface anInnerProvIFace, 
+			IComponent anOuterComp, ProvidesInterface anOuterProvIFace ) 
 		{
+			innerComp = anInnerComp;
+			innerProvIFace = anInnerProvIFace;
+			outerComp = anOuterComp;
+			outerProvIFace = anOuterProvIFace;
 		}
 
-		public bool CheckSubType(out IList anErrorList) 
+		public ProvidesMapping( ProvidesMapping aProvMapping ) : 
+			this ( aProvMapping.InnerComp, aProvMapping.InnerProvIFace,
+			aProvMapping.OuterComp, aProvMapping.OuterProvIFace ) {}
+
+		#endregion
+
+
+		#region Methods
+
+		/// <summary>
+		/// Checks if the provides interface of the outer componente is
+		/// a subset of the provides interface of the inner component.
+		/// </summary>
+		/// <param name="anErrorList"></param>
+		/// <returns></returns>
+		public bool IsSubType(out IList anErrorList) 
 		{
-			anErrorList = null;
-			return false;
+			return outerProvIFace.IsSubSetOf(InnerProvIFace, out anErrorList);
 		}
 
-		public bool CheckSubType()
+		public bool IsSubType()
 		{
-			return false;
+			IList errorList;
+			return IsSubType(out errorList);
 		}
 
 		public IInterfaceModel GetIntersection() 
 		{
-			return null;
+			return OuterProvIFace.Intersect(InnerProvIFace);
 		}
+
+		public object Clone() 
+		{
+			return new ProvidesMapping( this );
+		}
+
+		#endregion
 	}
 }

@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 
-namespace Palladio.ComponentModel {
+namespace Palladio.ComponentModel 
+{
 	/// <summary>
 	/// General representation of connection between two interfaces.
 	/// </summary>
-	public interface IConnection {
+	public interface IConnection : ICloneable
+	{
 
 		/// <summary>
 		/// Returns an IInterfaceModel representing the lowest common denominator

@@ -80,9 +80,15 @@
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "palladio"
+                    Name = "Palladio.FiniteStateMachine"
                     Project = "{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "nunit.framework"
+                    AssemblyName = "nunit.framework"
+                    HintPath = "..\..\..\..\..\Programme\NUnit V2.1\\bin\nunit.framework.dll"
+                    AssemblyFolderKey = "hklm\dn\nunit.framework"
                 />
             </References>
         </Build>
@@ -90,6 +96,11 @@
             <Include>
                 <File
                     RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\AbstractComponentInterface.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -134,6 +145,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IComponentInterface.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ICompositeComponent.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -159,6 +175,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IModelNotComponentInterfaceException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\IModelNotProtocolIModelException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -180,6 +201,11 @@
                 />
                 <File
                     RelPath = "src\ISignature.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\MethodSignature.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -224,12 +250,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Signature.cs"
+                    RelPath = "src\SignatureListIM.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\SignatureListIM.cs"
+                    RelPath = "src\UnitTests\SignatureTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

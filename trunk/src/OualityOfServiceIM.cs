@@ -7,10 +7,20 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	public class OualityOfServiceIModel : ProtocolIModel  
 	{
+		#region Data
+		#endregion
+
+
+		#region Constructors
 
 		public OualityOfServiceIModel()	
 		{
 		}
+
+		#endregion
+
+
+		#region Methods
 
 		public override bool IsSubSetOf(IInterfaceModel anIModel, out IList anErrorList) 
 		{
@@ -23,9 +33,16 @@ namespace Palladio.ComponentModel
 			return null;
 		}
 
+		public override IInterfaceModel Intersect(IInterfaceModel anIModel)
+		{
+			return null;
+		}
+
 		public override object Clone()
 		{
 			return null;
 		}
+
+		#endregion
 	}
 }

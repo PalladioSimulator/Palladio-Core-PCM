@@ -9,12 +9,23 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	public class ProtocolIModel : SignatureListIModel  
 	{
+		#region Data
+
 		private IFiniteStateMachine protocol;
+		#endregion
+
+
+		#region Properties
 
 		public IFiniteStateMachine Protocol 
 		{
 			get { return protocol; }
 		}
+
+		#endregion
+
+
+		#region Constructors
 
 		public ProtocolIModel() 
 		{
@@ -22,24 +33,32 @@ namespace Palladio.ComponentModel
 
 		public ProtocolIModel( IFiniteStateMachine aProtocol) 
 		{
-			protocol = aProtocol;
+			protocol = (IFiniteStateMachine) aProtocol.Clone();
 		}
 
-		public ProtocolIModel( ProtocolIModel aProtIModel ) 
-		{
-			protocol = aProtIModel.Protocol; //.Clone();
-		}
+		public ProtocolIModel( ProtocolIModel aProIModel ) : this (aProIModel.Protocol) {}
 
-		public ProtocolIModel( ProtocolIModel aProtIModelOne, ProtocolIModel aProtIModelTwo ) 
-		{
-//			FiniteShuffleProductMaschine shuffle = new FiniteShuffleProductMaschine(aProtIModelOne.Protocol, aProtIModelTwo.Protocol);
-//			protocol = shuffle.GenerateFSP();
-		}
+		#endregion
+
+
+		#region Methods
 
 		public override bool IsSubSetOf(IInterfaceModel anIModel, out IList anErrorList) 
 		{
-			anErrorList = null;
-			return false;
+			if (anIModel is ProtocolIModel) 
+			{
+				if (base.IsSubSetOf( anIModel, out anErrorList ))
+				{
+					ProtocolIModel protIM = (ProtocolIModel) anIModel;
+					IFiniteStateMachine crossProd = new FiniteCrossProductMaschineLazy( this.Protocol, protIM.Protocol );
+					return this.Protocol.Equals(crossProd);
+				}
+				return false;
+			}   
+			else 
+			{
+				throw new IModelNotProtocolIModelException();
+			}
 		}
 
 		public override IInterfaceModel Merge(IInterfaceModel anIModel) 
@@ -47,7 +66,24 @@ namespace Palladio.ComponentModel
 			if (anIModel is ProtocolIModel) 
 			{
 				ProtocolIModel protIM = (ProtocolIModel) anIModel;
-				return new ProtocolIModel( this, protIM);
+				ProtocolIModel resultIModel = (ProtocolIModel) base.Merge( anIModel ); // merge SignatureLists
+				//resultIModel.protocol = new FiniteShuffleProductMaschineLazy( this.Protocol, protIM.Protocol );
+				return resultIModel;
+			}   
+			else 
+			{
+				throw new IModelNotProtocolIModelException();
+			}
+		}
+
+		public override IInterfaceModel Intersect(IInterfaceModel anIModel)
+		{
+			if (anIModel is ProtocolIModel) 
+			{
+				ProtocolIModel protIM = (ProtocolIModel) anIModel;
+				ProtocolIModel resultIModel = (ProtocolIModel) base.Intersect( anIModel ); // intersect SignatureLists
+				resultIModel.protocol = new FiniteCrossProductMaschineLazy( this.Protocol, protIM.Protocol );
+				return resultIModel;
 			}   
 			else 
 			{
@@ -59,5 +95,7 @@ namespace Palladio.ComponentModel
 		{
 			return new ProtocolIModel(this);
 		}
+
+		#endregion
 	}
 }

@@ -16,8 +16,8 @@ namespace Palladio.ComponentModel
 			get;
 		}
 
-		bool CheckSubType(out IList anErrorList);
+		bool IsSubType(out IList anErrorList);
 
-		bool CheckSubType();
+		bool IsSubType();
 	}
 }

@@ -7,11 +7,17 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	public class RequiresMapping : IRequiresMapping 
 	{
+		#region Data
+
 		private RequiresInterface	innerReqIFace;
 		private IComponent			innerComp;
 
 		private RequiresInterface	outerReqIFace;
 		private IComponent			outerComp;
+		#endregion
+
+
+		#region Properties
 
 		public RequiresInterface InnerReqIFace 
 		{ 
@@ -33,25 +39,56 @@ namespace Palladio.ComponentModel
 			get { return outerComp; }
 		}
 
+		#endregion
+
+
+		#region Constructors
+
 		public RequiresMapping ( IComponent anInnerComp, RequiresInterface anInnerReqIFace, 
-			IComponent anOuterComponent, RequiresInterface anOuterReqIFace) 
+			IComponent anOuterComp, RequiresInterface anOuterReqIFace) 
 		{
+			innerComp = anInnerComp;
+			innerReqIFace = anInnerReqIFace;
+			outerComp = anOuterComp;
+			outerReqIFace = anOuterReqIFace;
 		}
 
-		public bool CheckSubType(out IList anErrorList) 
+		public RequiresMapping( RequiresMapping aReqMapping ) : 
+			this( aReqMapping.InnerComp, aReqMapping.InnerReqIFace,
+			aReqMapping.OuterComp, aReqMapping.OuterReqIFace) {}
+
+		#endregion
+
+
+		# region Methods
+
+		/// <summary>
+		/// Checks if the requires interface of the inner component is
+		/// a subtype of the requires interface of the outer component.
+		/// </summary>
+		/// <param name="anErrorList"></param>
+		/// <returns></returns>
+		public bool IsSubType(out IList anErrorList) 
 		{
-			anErrorList = null;
-			return false;
+			return InnerReqIFace.IsSubSetOf( OuterReqIFace, out anErrorList );
 		}
 
-		public bool CheckSubType()
+		public bool IsSubType()
 		{
-			return false;
+			IList errorList;
+			return IsSubType(out errorList);
 		}
 
 		public IInterfaceModel GetIntersection() 
 		{
-			return null;
+			return InnerReqIFace.Intersect( OuterReqIFace );
 		}
+
+		public object Clone() 
+		{
+			return new RequiresMapping( this );
+		}
+
+		#endregion
 	}
 }

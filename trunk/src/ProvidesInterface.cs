@@ -4,23 +4,33 @@ using System.Collections;
 namespace Palladio.ComponentModel 
 {
 	/// <summary>
-	/// Contains information about the services provided by a component.
+	/// Contains the information about the services provided by a component.
 	/// </summary>
-	public class ProvidesInterface : AbstractIModel 
+	public class ProvidesInterface : AbstractComponentInterface    
 	{
 
-		/// <summary>
-		/// IInterfaceModel describing the relationship 
-		/// of the provided services.
-		/// </summary>
-		private IInterfaceModel providesIModel;
-		
+		#region Data
 		private IList serviceList;
 
+		#endregion
 
+		#region Properties
+
+		/// <summary>
+		/// List of Service objects. A Service links a signature with a
+		/// service effect specification.
+		/// </summary>
+		public IList ServiceList 
+		{
+			get { return serviceList; }
+		}
+		#endregion
+
+		#region Constructors
+		
 		public ProvidesInterface(IInterfaceModel anProvidesIModel) 
 		{
-			providesIModel = (IInterfaceModel) anProvidesIModel.Clone();
+			iModel = (IInterfaceModel) anProvidesIModel.Clone();
 		}
 
 		public ProvidesInterface(IInterfaceModel anProvidesIModel, IList aServiceList) : this (anProvidesIModel) 
@@ -28,24 +38,18 @@ namespace Palladio.ComponentModel
 			serviceList = new ArrayList(aServiceList);
 		}
 
-		public override bool IsSubSetOf(IInterfaceModel anIModel, out IList anErrorList) 
-		{
-			return providesIModel.IsSubSetOf(anIModel, out anErrorList);
-		}
+		public ProvidesInterface( ProvidesInterface aProvIFace ) :
+			this( aProvIFace.IModel, aProvIFace.ServiceList ) {}
 
-		public override IInterfaceModel Merge(IInterfaceModel anIModel) 
-		{
-			if (anIModel is ProvidesInterface) 
-			{
-				// TODO Merge Provides-Interfaces correctly
-			}
-			return null;
+		#endregion
 
-		}
+		#region Methods
 
 		public override object Clone()
 		{
-			return new ProvidesInterface(providesIModel, serviceList);
+			return new ProvidesInterface(this);
 		}
+
+		#endregion
 	}
 }
