@@ -2,6 +2,10 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/09/09 04:07:52  sliver
+ * code refactored
+ * vs.net project files created
+ *
  * Revision 1.2  2004/07/13 02:14:50  sliver
  * Added comments
  *
@@ -11,17 +15,10 @@
  */
 
 
-using System;
 using System.Collections;
-
-using Palladio.Utils.Collections;
-
 using cdrnet.Lib.MathLib.Core;
 using cdrnet.Lib.MathLib.Scalar;
-using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
-using cdrnet.Lib.MathLib.Parsing;
-using cdrnet.Lib.MathLib.Exceptions;
-using cdrnet.Lib.MathLib.Tools;
+using Palladio.Utils.Collections;
 
 namespace Palladio.Reliability.Math
 {
@@ -32,7 +29,7 @@ namespace Palladio.Reliability.Math
 	public class VariableExpression : IVariableExpression
 	{
 		#region Properties
-		
+
 		/// <summary>
 		/// Represented mathematical expression.
 		/// </summary>
@@ -40,7 +37,7 @@ namespace Palladio.Reliability.Math
 		{
 			get { return expression; }
 		}
-		
+
 		/// <summary>
 		/// Set of variables used by the expression above.
 		/// </summary>
@@ -48,15 +45,15 @@ namespace Palladio.Reliability.Math
 		{
 			get { return variableSet; }
 		}
-		
+
 		/// <summary>
 		/// Variables used by the expression above.
 		/// </summary>
 		public Variable[] Variables
 		{
-			get { return (Variable[])variableSet.ToArray(typeof(Variable)); }
+			get { return (Variable[]) variableSet.ToArray(typeof (Variable)); }
 		}
-		
+
 		/// <summary>
 		/// Indicates whether the expression has variables or not.
 		/// </summary>
@@ -64,10 +61,11 @@ namespace Palladio.Reliability.Math
 		{
 			get { return variableSet.Count != 0; }
 		}
+
 		#endregion
-		
+
 		#region Constructors
-		
+
 		/// <summary>
 		/// Creates a new VariableExpression representing the scalar expression
 		/// anExpression. The Constructor extracts the Variables used by anExpression.
@@ -76,19 +74,19 @@ namespace Palladio.Reliability.Math
 		public VariableExpression(IScalarExpression anExpression)
 		{
 			VariableManager vm = new VariableManager(anExpression.Context);
-			variableSet = new Set( vm.Variables );
+			variableSet = new Set(vm.Variables);
 		}
-		
+
 		/// <summary>
 		/// Creates a new VariableExpression representing aValue.
 		/// </summary>
 		/// <param name="aValue">Value of the new Constant.</param>
 		public VariableExpression(double aValue)
 		{
-			expression = new ScalarExpressionValue(new Context(), aValue);	
+			expression = new ScalarExpressionValue(new Context(), aValue);
 			variableSet = new Set();
 		}
-		
+
 		/// <summary>
 		/// Creates a new VariableExpression representing a variable
 		/// with the name aVarName.
@@ -101,7 +99,7 @@ namespace Palladio.Reliability.Math
 			variableSet = new Set();
 			variableSet.Add(expression);
 		}
-		
+
 		/// <summary>
 		/// Creates an empty VariableExpression.
 		/// </summary>
@@ -110,10 +108,11 @@ namespace Palladio.Reliability.Math
 			expression = null;
 			variableSet = new Set();
 		}
+
 		#endregion
-		
+
 		#region Methods
-		
+
 		/// <summary>
 		/// Retrieves a string representation of the object.
 		/// </summary>
@@ -124,7 +123,7 @@ namespace Palladio.Reliability.Math
 				return expression.Calculate().ToString();
 			return expression.ToString();
 		}
-		
+
 		/// <summary>
 		/// Gets the variables used in anExpresspion.
 		/// </summary>
@@ -136,12 +135,14 @@ namespace Palladio.Reliability.Math
 			anExpression.CollectVariables(vm, true);
 			return vm.Variables;
 		}
+
 		#endregion
-		
+
 		#region Data
-		
+
 		protected IScalarExpression expression;
 		protected Set variableSet;
+
 		#endregion
 	}
 }

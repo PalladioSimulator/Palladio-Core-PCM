@@ -2,20 +2,18 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/09/09 04:07:52  sliver
+ * code refactored
+ * vs.net project files created
+ *
  * Revision 1.1  2004/07/12 06:33:03  sliver
  * Initial checkin
  * 
  */
 
-using System;
 using System.Collections;
-
 using cdrnet.Lib.MathLib.Core;
 using cdrnet.Lib.MathLib.Scalar;
-using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
-using cdrnet.Lib.MathLib.Parsing;
-using cdrnet.Lib.MathLib.Exceptions;
-using cdrnet.Lib.MathLib.Tools;
 
 namespace Palladio.Reliability.Math
 {
@@ -28,33 +26,21 @@ namespace Palladio.Reliability.Math
 		/// <summary>
 		/// Represented mathematical expression.
 		/// </summary>
-		IScalarExpression Expression
-		{
-			get;
-		}
-		
+		IScalarExpression Expression { get; }
+
 		/// <summary>
 		/// Set of variables used by the expression above.
 		/// </summary>
-		ICollection VariableSet
-		{
-			get;
-		}
-		
+		ICollection VariableSet { get; }
+
 		/// <summary>
 		/// Variables used by the expression above.
 		/// </summary>
-		Variable[] Variables
-		{
-			get;
-		}
-		
+		Variable[] Variables { get; }
+
 		/// <summary>
 		/// Indicates whether the expression has variables or not.
 		/// </summary>
-		bool HasVariables
-		{
-			get;
-		}
+		bool HasVariables { get; }
 	}
 }

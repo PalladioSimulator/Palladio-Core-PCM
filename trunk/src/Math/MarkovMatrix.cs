@@ -2,6 +2,10 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.4  2004/09/09 04:07:52  sliver
+ * code refactored
+ * vs.net project files created
+ *
  * Revision 1.3  2004/07/19 04:37:48  sliver
  * extracted attributes
  *
@@ -14,21 +18,15 @@
  */
 
 
-using System;
 using System.Collections;
 using System.Diagnostics;
-
-using Palladio.FiniteStateMachines;
-using Palladio.Reliability.TypedCollections;
-using Palladio.Reliability.Attributes;
-using Palladio.ComponentModel;
-
 using cdrnet.Lib.MathLib.Core;
 using cdrnet.Lib.MathLib.Scalar;
 using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
-using cdrnet.Lib.MathLib.Parsing;
-using cdrnet.Lib.MathLib.Exceptions;
-using cdrnet.Lib.MathLib.Tools;
+using Palladio.ComponentModel;
+using Palladio.FiniteStateMachines;
+using Palladio.Reliability.Attributes;
+using Palladio.Reliability.TypedCollections;
 
 namespace Palladio.Reliability.Math
 {
@@ -38,7 +36,7 @@ namespace Palladio.Reliability.Math
 	public class MarkovMatrix
 	{
 		#region Properties
-		
+
 		/// <summary>
 		/// The calculated Markov Matrix. It contains the probabilities to 
 		/// successfully reach another state from a source state with one transition.
@@ -51,7 +49,7 @@ namespace Palladio.Reliability.Math
 		{
 			get { return matrix; }
 		}
-		
+
 		/// <summary>
 		/// The original Markov Model.
 		/// </summary>
@@ -59,15 +57,15 @@ namespace Palladio.Reliability.Math
 		{
 			get { return fsm; }
 		}
-		
+
 		/// <summary>
 		/// Index of the start state in the Markov Matrix.
 		/// </summary>
 		public int StartStateIndex
 		{
-			get { return (int)stateNumHash[fsm.StartState.ID]; }
+			get { return (int) stateNumHash[fsm.StartState.ID]; }
 		}
-		
+
 		/// <summary>
 		/// Index of the final state in the Markov Matrix.
 		/// </summary>
@@ -75,10 +73,11 @@ namespace Palladio.Reliability.Math
 		{
 			get { return matrix.LengthX - 1; }
 		}
+
 		#endregion
-		
+
 		#region Constructors
-		
+
 		/// <summary>
 		/// Creates a new MarkovMatrix whichs probabilities indicate the
 		/// <b>successful</b> transition from a source state to a destiation state. It takes
@@ -91,14 +90,14 @@ namespace Palladio.Reliability.Math
 		/// <param name="anExtReliabilityHash">Hash assigning a ServiceReliability to external services.</param>
 		public MarkovMatrix(Context aContext, IFiniteStateMachine aMarkovModel, ReliabilityHash anExtReliabilityHash)
 		{
-			Trace.Assert( CheckPreconditions(aMarkovModel) );
+			Trace.Assert(CheckPreconditions(aMarkovModel));
 			this.context = aContext;
 			this.fsm = aMarkovModel;
 			this.extReliabilityHash = anExtReliabilityHash;
 			this.stateNumHash = CreateStateNumberHash();
 			this.matrix = CreateMarkovMatrix(context, fsm, extReliabilityHash, stateNumHash);
 		}
-		
+
 		/// <summary>
 		/// Creates a new MarkovMatrix whichs cells contain the probabilities of transition
 		/// from a source state to a destination state.
@@ -107,15 +106,16 @@ namespace Palladio.Reliability.Math
 		/// <param name="aMarkovModel">FSM with the MarkovProabilityAttribute annotated to its transitions.</param>
 		public MarkovMatrix(Context aContext, IFiniteStateMachine aMarkovModel)
 		{
-			Trace.Assert( CheckPreconditions(aMarkovModel) );
+			Trace.Assert(CheckPreconditions(aMarkovModel));
 			this.context = aContext;
 			this.fsm = aMarkovModel;
 			this.extReliabilityHash = new ReliabilityHash();
 			this.stateNumHash = CreateStateNumberHash();
 			this.matrix = CreateMarkovMatrix(context, fsm, extReliabilityHash, stateNumHash);
 		}
+
 		#endregion
-		
+
 		#region Private Methods
 
 		/// <summary>
@@ -125,13 +125,13 @@ namespace Palladio.Reliability.Math
 		private Hashtable CreateStateNumberHash()
 		{
 			Hashtable stateNumHash = new Hashtable();
-			for (int i = 0; i<fsm.States.Length; i++)
+			for (int i = 0; i < fsm.States.Length; i++)
 			{
 				stateNumHash.Add(fsm.States[i].ID, i);
 			}
 			return stateNumHash;
 		}
-		
+
 		/// <summary>
 		/// Creates a new aRang x aRang array of IScalarExpressions and initializes it with zeros.
 		/// </summary>
@@ -139,14 +139,14 @@ namespace Palladio.Reliability.Math
 		/// <param name="aRang">Rang of the new matrix.</param>
 		private IScalarExpression[,] CreateInitialMatrix(Context aContext, int aRang)
 		{
-			IScalarExpression[,] result = new IScalarExpression[aRang, aRang];
-			for (int i=0; i<aRang; i++)
-				for (int j=0; j<aRang; j++)
-					result[i,j] = new ScalarExpressionValue(aContext,0.0);
+			IScalarExpression[,] result = new IScalarExpression[aRang,aRang];
+			for (int i = 0; i < aRang; i++)
+				for (int j = 0; j < aRang; j++)
+					result[i, j] = new ScalarExpressionValue(aContext, 0.0);
 			return result;
 		}
-		
-		
+
+
 		/// <summary>
 		/// Creates a new MarkovMatrix using aFSM and the given external reliabilities.
 		/// </summary>
@@ -159,33 +159,34 @@ namespace Palladio.Reliability.Math
 		{
 			int rang = aFSM.States.Length + 1;
 			IScalarExpression[,] result = CreateInitialMatrix(aContext, rang);
-			
+
 			foreach (ITransition t in fsm.Transitions)
 			{
-				int x = (int)aStateNumHash[t.DestinationState.ID];
-				int y = (int)aStateNumHash[t.SourceState.ID];
-				IVariableExpression serviceRel = anExtReliabilityHash[ (IExternalSignature)t.InputSymbol.ID ];
+				int x = (int) aStateNumHash[t.DestinationState.ID];
+				int y = (int) aStateNumHash[t.SourceState.ID];
+				IVariableExpression serviceRel = anExtReliabilityHash[ (IExternalSignature) t.InputSymbol.ID ];
 				MarkovProbabilityAttribute mpAttribute = (MarkovProbabilityAttribute) t.Attributes[ MarkovProbabilityAttribute.AttributeType ];
-				
+
 				IScalarExpression successProb = mpAttribute.MarkovProbability.Expression;
-				if ( serviceRel != null ) successProb = new ScalarMultiplication( aContext, successProb, serviceRel.Expression);				
-				
-				IScalarExpression currentExpr = result[x,y];
-				result[x,y] = new ScalarAddition( context, currentExpr, successProb );
+				if (serviceRel != null)
+					successProb = new ScalarMultiplication(aContext, successProb, serviceRel.Expression);
+
+				IScalarExpression currentExpr = result[x, y];
+				result[x, y] = new ScalarAddition(context, currentExpr, successProb);
 			}
-			
+
 			foreach (IState state in aFSM.FinalStates)
 			{
 				IScalarExpression markovProb = new ScalarExpressionValue(context, 1.0);
 				foreach (ITransition trans in aFSM.GetOutgoingTransitions(state))
 				{
 					MarkovProbabilityAttribute mpAttribute = (MarkovProbabilityAttribute) trans.Attributes[ MarkovProbabilityAttribute.AttributeType ];
-					markovProb = new ScalarSubtraction( context, markovProb, mpAttribute.MarkovProbability.Expression );
+					markovProb = new ScalarSubtraction(context, markovProb, mpAttribute.MarkovProbability.Expression);
 				}
-				int y = (int)aStateNumHash[state.ID];
-				result[rang-1,y] = markovProb;
+				int y = (int) aStateNumHash[state.ID];
+				result[rang - 1, y] = markovProb;
 			}
-			
+
 			return new ScalarMatrix(context, result);
 		}
 
@@ -202,15 +203,17 @@ namespace Palladio.Reliability.Math
 			}
 			return true;
 		}
+
 		#endregion
-		
+
 		#region Data
-		
+
 		private IFiniteStateMachine fsm;
 		private ScalarMatrix matrix;
 		private ReliabilityHash extReliabilityHash;
 		private Context context;
 		private Hashtable stateNumHash;
+
 		#endregion
 	}
 }

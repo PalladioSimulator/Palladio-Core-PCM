@@ -16,7 +16,7 @@ namespace Palladio.Reliability.Exceptions
 	/// </summary>
 	public class TreeNodeNotFoundException : ApplicationException
 	{
-		public TreeNodeNotFoundException(IIdentifier id) : base("Node '"+ id +"' could not be found!")
+		public TreeNodeNotFoundException(IIdentifier id) : base("Node '" + id + "' could not be found!")
 		{
 		}
 	}

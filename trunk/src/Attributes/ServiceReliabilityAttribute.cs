@@ -2,6 +2,10 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/09/09 04:07:52  sliver
+ * code refactored
+ * vs.net project files created
+ *
  * Revision 1.2  2004/07/30 01:25:51  sliver
  * Some changes...
  *
@@ -13,16 +17,13 @@
 
 using System;
 using System.Diagnostics;
-
 using Palladio.Attributes;
+using Palladio.FiniteStateMachines;
 using Palladio.Reliability.Math;
 using Palladio.Reliability.TypedCollections;
-using Palladio.FiniteStateMachines;
- 
+
 namespace Palladio.Reliability.Attributes
 {
-	
-	
 	/// <summary>
 	/// Attribute containing the service reliability.
 	/// </summary>
@@ -33,34 +34,29 @@ namespace Palladio.Reliability.Attributes
 	public class ServiceReliabilityAttribute
 	{
 		#region Properties
-		
+
 		/// <summary>
 		/// The value of the ServiceReliabilityAttribute.
 		/// </summary>
-		public IVariableExpression ServiceReliability {
-			get {
-				return reliability;
-			}
-			set {
-				reliability = value;
-			}
+		public IVariableExpression ServiceReliability
+		{
+			get { return reliability; }
+			set { reliability = value; }
 		}
-		
-				
+
+
 		/// <summary>
 		/// Type of the ServiceReliabilityAttribute.
 		/// </summary>
 		public static IAttributeType AttributeType
 		{
-			get 
-			{
-				return attributeType;
-			}
+			get { return attributeType; }
 		}
+
 		#endregion
-		
+
 		#region Methods
-		
+
 		/// <summary>
 		/// Retrieves a string representation of the object.
 		/// </summary>
@@ -69,27 +65,28 @@ namespace Palladio.Reliability.Attributes
 		{
 			return reliability.ToString();
 		}
+
 		#endregion
-		
+
 		#region Constructors
-		
+
 		/// <summary>
 		/// Creates a new ServiceReliabilityAttribute and assigns aValue to it. 
 		/// </summary>
 		/// <param name="aValue">Reliability value. It can only be between 0 and 1.</param>
 		public ServiceReliabilityAttribute(double aValue)
 		{
-			Trace.Assert( aValue >= 0 );
-			Trace.Assert( aValue <= 1 );
+			Trace.Assert(aValue >= 0);
+			Trace.Assert(aValue <= 1);
 			reliability = new ServiceReliability(aValue);
 		}
-		
+
 		/// <summary>
 		/// Creates a new ServiceReliabilityAttribute with a variable representing
 		/// its reliability value.
 		/// </summary>
 		/// <param name="aVarName">Name of the Variable.</param>
-		public ServiceReliabilityAttribute( string aVarName )
+		public ServiceReliabilityAttribute(string aVarName)
 		{
 			reliability = new ServiceReliability(aVarName);
 		}
@@ -102,17 +99,18 @@ namespace Palladio.Reliability.Attributes
 		/// must contain a MarkovProbabilityAttribute.</param>
 		/// <param name="anExtReliabilityHash">Hashtable containing information about the reliability of 
 		/// the external services used by aMarkovModel.</param>
-		public ServiceReliabilityAttribute( IFiniteStateMachine aMarkovModel, ReliabilityHash anExtReliabilityHash )
+		public ServiceReliabilityAttribute(IFiniteStateMachine aMarkovModel, ReliabilityHash anExtReliabilityHash)
 		{
-			reliability = new ServiceReliability(aMarkovModel, anExtReliabilityHash );
-		}		
-		
+			reliability = new ServiceReliability(aMarkovModel, anExtReliabilityHash);
+		}
+
 		#endregion
-		
+
 		#region Data
-		
+
 		private IVariableExpression reliability;
-		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("d3b88ea3-be07-4ee1-959f-a90cf75ca5c8") ,"ServiceReliabilityAttribute", typeof(ServiceReliabilityAttribute));
+		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("d3b88ea3-be07-4ee1-959f-a90cf75ca5c8"), "ServiceReliabilityAttribute", typeof (ServiceReliabilityAttribute));
+
 		#endregion		
 	}
 }

@@ -1,1 +1,6 @@
 bin
+_ReSharper.Palladio.Reliability
+obj
+Palladio.Reliability.csproj.user
+Palladio.Reliability.suo
+Palladio.Reliability.resharperoptions

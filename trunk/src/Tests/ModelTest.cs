@@ -2,6 +2,10 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/09/09 04:07:53  sliver
+ * code refactored
+ * vs.net project files created
+ *
  * Revision 1.2  2004/07/30 01:25:52  sliver
  * Some changes...
  *
@@ -12,16 +16,11 @@
 
 #if TEST
 
-using System;
-using System.Diagnostics;
-
-using NUnit.Framework;
-
-using Palladio.ComponentModel;
-using Palladio.Reliability.Model;
-
 using log4net;
 using log4net.Config;
+using NUnit.Framework;
+using Palladio.ComponentModel;
+using Palladio.Reliability.Model;
 
 namespace Palladio.Reliability.Tests
 {
@@ -31,9 +30,9 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void TestMethod()
 		{
-			log.Debug("\n"+reliabilityTree);
+			log.Debug("\n" + reliabilityTree);
 		}
-		
+
 		[TestFixtureSetUp]
 		public void Init()
 		{
@@ -42,11 +41,12 @@ namespace Palladio.Reliability.Tests
 			CCVisitor v = new CCVisitor(cmpModel);
 			reliabilityTree = v.ReliabilityTree;
 		}
-		
+
 		private ICompositeComponent cmpModel;
 		private TreeNode reliabilityTree;
-		
-		private static readonly ILog log = LogManager.GetLogger(typeof(ModelTest));
+
+		private static readonly ILog log = LogManager.GetLogger(typeof (ModelTest));
 	}
 }
+
 #endif
