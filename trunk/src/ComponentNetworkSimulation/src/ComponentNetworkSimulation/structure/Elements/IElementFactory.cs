@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.4  2004/07/06 12:26:19  joemal
+	/// add the state- and bindingset support
+	///
 	/// Revision 1.3  2004/07/05 11:16:02  joemal
 	/// - changes in the CM after code review
 	///
@@ -26,6 +29,22 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// </remarks>
 	public interface IElementFactory
 	{
+		#region methods to add sets of states and bindings
+        
+		/// <summary>
+		/// call to add a set of supported simulationstates. 
+		/// </summary>
+		/// <param name="stateSet">the set of simulationstate</param>
+		void AddStateSet(ISimulationStateSet stateSet);
+
+		/// <summary>
+		/// called to add a set of supported simulationbindings.
+		/// </summary>
+		/// <param name="bindingSet">the set of simulationbindings</param>
+		void AddBindingSet(ISimulationBindingSet bindingSet);
+
+		#endregion
+		
 		#region elements for service effect FSMs
 
 		/// <summary>

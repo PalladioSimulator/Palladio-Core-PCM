@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+
 using Palladio.ComponentModel;
 using Palladio.Identifier;
 
@@ -10,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.4  2004/07/06 12:26:19  joemal
+	/// add the state- and bindingset support
+	///
 	/// Revision 1.3  2004/07/05 11:16:02  joemal
 	/// - changes in the CM after code review
 	///
@@ -26,16 +31,38 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	public class DefaultElementFactory : IElementFactory
 	{
 		/// <summary>
+		/// the sets of states that are supported by the factory
+		/// </summary>
+		private IList stateSets = new ArrayList();
+
+		/// <summary>
+		/// the sets of bindings that are supported by the factory
+		/// </summary>
+		private IList bindingSets = new ArrayList();
+
+		/// <summary>
+		/// creates a new DefaultElementFactory and adds the frameworks default state- and bindingset.
+		/// </summary>
+		public DefaultElementFactory()
+		{
+			this.AddStateSet(new DefaultSimulationStateSet());
+			this.AddBindingSet(new DefaultSimulationBindingSet());
+		}
+
+		/// <summary>
 		/// call to create a state used in service effect FSMs
 		/// </summary>
 		/// <param name="stateParams">the parameters for the state</param>
 		/// <returns>the state</returns>
 		public ISimulationState CreateState(ISimulationStateParams stateParams)
 		{
-			if (stateParams is StaticTimeStateParams)
-				return new DefaultStaticTimeState((StaticTimeStateParams)stateParams);
-			else
-                return null;
+			foreach(ISimulationStateSet stateSet in this.stateSets)
+			{
+				if (stateSet.IsSupported(stateParams)) 
+					return stateSet.CreateState(stateParams);
+			}
+			
+			throw new NotSupportedException("The given parameters are not supported by the current sets of states.");
 		}
 
 		/// <summary>
@@ -70,10 +97,31 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		public ISimulationBinding CreateBinding(IComponent reqComp,IIdentifier reqRole,IComponent provComp, 
 			IIdentifier provRole, ISimulationBindingParams parameters)
 		{
-			if (parameters is StaticTimeBindingParams)
-				return new DefaultStaticTimeBinding(reqComp,reqRole,provComp,provRole,(StaticTimeBindingParams)parameters);
-			else 
-				return null;
+			foreach(ISimulationBindingSet bindingSet in this.bindingSets)
+			{
+				if (bindingSet.IsSupported(parameters)) 
+					return bindingSet.CreateBinding(reqComp,reqRole,provComp,provRole,parameters);
+			}
+
+			throw new NotSupportedException("The given parameters are not supported by this set of bindings.");
+		}
+
+		/// <summary>
+		/// call to add a set of supported simulationstates. 
+		/// </summary>
+		/// <param name="stateSet">the set of simulationstate</param>
+		public void AddStateSet(ISimulationStateSet stateSet)
+		{
+			this.stateSets.Add(stateSet);
+		}
+
+		/// <summary>
+		/// called to add a set of supported simulationbindings.
+		/// </summary>
+		/// <param name="bindingSet">the set of simulationbindings</param>
+		public void AddBindingSet(ISimulationBindingSet bindingSet)
+		{
+			this.bindingSets.Add(bindingSet);
 		}
 	}
 }
