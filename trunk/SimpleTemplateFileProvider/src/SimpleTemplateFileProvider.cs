@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web;
 using Altova.Xml;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.HTTPRequestProcessor;
@@ -27,6 +28,9 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/11/07 11:13:01  kelsaka
+	/// Added recoding of variables-values representations; added support for dynamic pages created by HTTP GET; fixed HTML-field-names in test-documents.
+	///
 	/// Revision 1.2  2004/11/06 18:09:28  kelsaka
 	/// Changed handling of delimiters for variables in template-files.
 	///
@@ -128,40 +132,55 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 		/// <param name="fileMimeType">The recognized mime-type.</param>
 		private void CreateDynamicContentAndDeliverFile (string fileContentString, IHTTPRequest httpRequest, string fileMimeType)
 		{
-			string searchString;
-			string key;
-			string value;
+			// First: replace POST-Variables-Names:
 			IEnumerator enumer = httpRequest.POSTHashtable.GetEnumerator();
+			fileContentString = SearchAndReplaceKeysByValues (enumer, fileContentString);
 
-			// iterates over all variables-names and replaces the keys by their values.			
-			while(enumer.MoveNext())
-			{
-				key = (string)((DictionaryEntry)enumer.Current).Key;
-				value = (string)((DictionaryEntry)enumer.Current).Value;
-				
-				//TODO: unescape value-chars from URI-Encoding.
-/*
-				Encoding encoding = Encoding.ASCII;
-				Encoder encoder = encoding.GetEncoder();
+			// Second: replace GET-Variables-Names:
+			enumer = httpRequest.GETHashtable.GetEnumerator();
+			fileContentString = SearchAndReplaceKeysByValues (enumer, fileContentString);
 
-				string tt = "asd wie geht es übelkeit? 22^3.";
-				Console.WriteLine(tt + " |||| " + Regex.Escape(tt) + " |||| " + Regex.Unescape(tt));
-
-				
-				Console.WriteLine(" unescpaed- "  + Regex.Unescape(value)); */
-				//Console.WriteLine(" unescpaed- "  + Encoding.UTF8.GetString(b));
-
-				searchString = simpleTemplateConfiguration.VariablesNameDelimiter + key + simpleTemplateConfiguration.VariablesNameDelimiter;
-				fileContentString = fileContentString.Replace(searchString, value);
-			}
-	
-	
-	
 			requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, fileMimeType, fileContentString.Length, "200 OK", httpRequest.Socket);
 			requestProcessorTools.SendContentToClient(fileContentString, httpRequest.Socket);
 			webserverMonitor.WriteLogEntry("Successfully sent response to client.");
 		}
 
+
+		/// <summary>
+		/// Seaches for key-occurences and replaces them by thier values. This includes the convertion of character representation
+		/// from in- and output. This method converts as well line-breaks to "&lt;br /&gt;".
+		/// </summary>
+		/// <param name="enumer">The key-value-pairs representing variables-names and their values.</param>
+		/// <param name="fileContentString">The string where the key are replaced.</param>
+		/// <returns>The string where the keys are replaced by thier values using the enumer.</returns>
+		private string SearchAndReplaceKeysByValues (IEnumerator enumer, string fileContentString)
+		{
+			string value;
+			string key;
+			string searchString;
+
+			// iterates over all variables-names and replaces the keys by their values.			
+			while(enumer.MoveNext())
+			{
+				key = (string)((DictionaryEntry)enumer.Current).Key;
+				value = (string)((DictionaryEntry)enumer.Current).Value;			
+
+				// unescape value-chars from URI-Encoding using the default representation.
+				// e. g. a whitespace is encoded by "+" or a linebreak by "%0A".
+				Encoding encoding = Encoding.Default;
+				value = HttpUtility.UrlDecode(value, encoding);
+				
+				// encode special characters for HTML-representation, e. g. "&" to "&amp;"
+				value = HttpUtility.HtmlEncode(value);
+
+				// convert linebreak to HTML-Linebreak:
+				value = value.Replace("\n", "<br />");
+
+				searchString = simpleTemplateConfiguration.VariablesNameDelimiter + key + simpleTemplateConfiguration.VariablesNameDelimiter;
+				fileContentString = fileContentString.Replace(searchString, value);
+			}
+			return fileContentString;
+		}
 
 
 		/// <summary>
