@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "palladio", "palladio.csproj", "{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}.Debug.ActiveCfg = Debug|.NET
+		{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}.Debug.Build.0 = Debug|.NET
+		{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}.Release.ActiveCfg = Release|.NET
+		{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
