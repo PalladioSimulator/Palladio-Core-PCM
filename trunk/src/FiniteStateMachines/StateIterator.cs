@@ -62,29 +62,10 @@ namespace FiniteStateMachines {
 				Input noInput = new Input("null"); 
 				Transition g = new Transition(none,noInput,this.returnState);
 				Transition emptyTransition = new Transition(none,new Input("null"),this.returnState);
-
 				this.transitions.Push(emptyTransition);
 				this.alreadyReturned.Add(this.returnState);
 				this.currentTransition = (Transition) this.transitions.Peek();
-				/**
-				 * Checks if the Startstate is a Finalstate  and cheks also if there are no other Transitions:
-				 * in this case no States or 
-				
-				State isStartStateFinal = this.getters.getStartState; 
-				if(isStartStateFinal.getFinal())
-					try
-					{
-						Hashtable t  = this.getters.getTransitionMap(isStartStateFinal);
-					}
-					catch(Exception)
-					{
-						return false;
-					}
-					*/
-				// RR: is it possible that t is empty (or only containing transitions to an error state)?
-				// RR: please consider, that some Getters implementations are different from yours.
 				return true;
-			
 			}
 			else {
 				//top of Stack has allready been returning
@@ -159,55 +140,3 @@ namespace FiniteStateMachines {
 	
 	}
 }
-	
-				//no following the previous implemtation of the Iterator, but it uses backtracking
-				/**
-				State currentState = (State) this.states.Pop(); 
-				this.transitions.Pop();
-				Transition tempTransition = new Transition();
-				try
-				{
-					Hashtable nextStates = this.getters.getTransitionMap(currentState);
-				
-					IDictionaryEnumerator iterate = nextStates.GetEnumerator();
-					while(iterate.MoveNext())
-					{
-					
-						tempTransition = (Transition) iterate.Value;
-					
-						currentState = tempTransition.toState;
-						if(!this.visited.Contains(currentState))
-						{
-							this.states.Push(currentState);
-							try
-							{
-								this.visited.Add(currentState);
-							}
-							catch(Exception){}
-							this.transitions.Push(tempTransition);
-						}
-					}
-				
-				} 
-					/**
-					*if a InvalidStateException is thrown, there will be no warning because, this excetpion is
-					*part of the regular implemntation of FSM (checks if from the currentState other states are
-					*reachable)
-					*/
-				/**
-				catch(InvalidStateException)
-				{
-					
-				} 
-				catch(Exception)
-				{
-					Console.WriteLine("Internal Error in: FSM.Stateiterator.MoveNext()");
-				}
-				if(this.states.Count==0)
-				return false;
-				this.returnState = (State) this.states.Peek();
-				this.currentTransition = (Transition) this.transitions.Peek();
-				return true;
-			}
-		}
-		*/

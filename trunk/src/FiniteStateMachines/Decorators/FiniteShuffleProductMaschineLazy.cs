@@ -5,19 +5,55 @@ using Utils.Collections;
 namespace FiniteStateMachines.Decorators
 {
 	/// <summary>
-	/// Represents a FiniteShuffleProductMaschine. But when creating a new FiniteShuffleProductMaschineLazy
-	/// not all States has to be explored. 
+	///The FiniteShuffleProductMaschine (FSP) is a specialization of a normal FSM. Is generated out
+	/// of two FSMs. 
+	/// 
+	/// def!!!
+	/// 
+	/// But the there is one Difference between a normal FiniteShuffleProductMaschine and
+	/// this. The FiniteShuffleProductMaschineeLazy implemts <code>IFiniteStateMachine</code>
+	/// Interface. The other spezial thing of the FiniteShuffleProductMaschineLazy is that 
+	/// when your call its methods, you don't have to visit the whole FSM, only the realted
+	/// parts. This will be much faster when you have huge FSMs then creating a normal 
+	/// FiniteCrossProduktMaschine.
 	/// </summary>
 	public class FiniteShuffleProductMaschineLazy : IFiniteStateMachine
 	{
-		protected bool inputGenerated;
-		public Set inputAl;
-		public Set crossInput;
-		protected Set visitedStates;
-		protected FiniteTabularMachine aFSM;
-		protected FiniteTabularMachine anotherFSM;
 		/// <summary>
-		/// Creates a FiniteShuffleProductMaschineLazy
+		/// An indicator says if the input has already been created.
+		/// </summary>
+		protected bool inputGenerated;
+
+		/// <summary>
+		/// The input of both given FSMs stored in a Set.
+		/// </summary>
+		public Set inputAl;
+
+		/// <summary>
+		/// the cross Input of the FiniteShuffleProductMaschine stored in a 
+		/// <code>Set</code>.
+		/// </summary>
+		public Set crossInput;
+
+		/// <summary>
+		/// Stores all states which has been visited during iteration in a 
+		/// <code>Set</code>
+		/// </summary>
+		protected Set visitedStates;
+
+		/// <summary>
+		/// The first FiniteTabularMachine which is used to generate 
+		/// FiniteShuffleProductMaschine
+		/// </summary>
+		protected FiniteTabularMachine aFSM;
+
+		/// The second FiniteTabularMachine which is used to generate 
+		/// FiniteShuffleProductMaschine
+		protected FiniteTabularMachine anotherFSM;
+
+
+		/// <summary>
+		/// Initated a FiniteShuffleProductMaschineLazy with the two given FSMs.
 		/// </summary>
 		/// <param name="one">A <code>FiniteTabularMaschine</code></param>
 		/// <param name="two">Another <code>FiniteTabularMaschine</code></param>
@@ -25,18 +61,11 @@ namespace FiniteStateMachines.Decorators
 		{
 			this.aFSM = aFSM;
 			this.anotherFSM = anotherFSM;
-			
 		}
 		
-		//		old
-		//		public Set getInputAl()
-		//		{
-		//			if(!this.inputGenerated)
-		//				GenerateInput();
-		//			return this.inputAl;
-		//		}
+		
 		/// <summary>
-		/// Returns the InputAlphabet of the FiniteShuffleProductMaschineLazy in a <code>Set</code>
+		/// Returns the input of the FiniteShuffleProductMaschineLazy
 		/// </summary>
 		public Set InputAlphabet
 		{
@@ -47,6 +76,8 @@ namespace FiniteStateMachines.Decorators
 				return this.inputAl;
 			}
 		}
+
+
 		/// <summary>
 		/// Generates a Set which only contains the input elements which are in both <code>FiniteTabularMaschine</code>
 		/// (intersection of the input of the two given FiniteStatesMaschines)
@@ -63,6 +94,8 @@ namespace FiniteStateMachines.Decorators
 					}
 			}
 		}
+
+
 		/// <summary>
 		/// Generates the inputalphabet for the FiniteShuffleProductMaschine from the inputalphabets
 		/// of the two given FiniteStateMaschines.
@@ -80,36 +113,20 @@ namespace FiniteStateMachines.Decorators
 				this.inputAl.Add(i);
 		}
 		/// <summary>
-		/// Represents the ErrorState of the FiniteShuffleProductMaschine
+		/// Returns the ErrorState of the FiniteShuffleProductMaschine
 		/// </summary>
 		public AbstractState ErrorState
 		{
 			get { return new DualState(this.aFSM.ErrorState,anotherFSM.ErrorState);}
 		}
-		//		/// <summary>
-		//		/// old:
-		//		/// Represents the FinalStates of a FiniteShuffleProductMaschineLazy in a <code>Set</code>
-		//		/// </summary>
-		//		/// <returns>A <code>Set</code> with final States</returns>
-		//		public Set getFinalStates()
-		//		{
-		//			Set finalStates = new Set();
-		//			foreach(State oneFinal in this.aFSM.FinalStates)
-		//			{
-		//				foreach(State twoFinal in this.anotherFSM.FinalStates)
-		//				{
-		//					if(oneFinal.IsFinalState &&  twoFinal.IsFinalState)
-		//						finalStates.Add(new DualState(oneFinal,twoFinal));
-		//				}
-		//			}
-		//			return finalStates;
-		//		}
+		
+
+
 		/// <summary>
 		/// Represents the FinalStates of a FiniteShuffleProductMaschineLazy in a <code>Set</code>
 		/// </summary>
 		public Set FinalStates
 		{
-			
 			get
 			{
 				Set finalStates = new Set();
@@ -124,6 +141,7 @@ namespace FiniteStateMachines.Decorators
 				return finalStates;
 			}
 		}
+
 
 		/// <summary>
 		/// Delivers the next State from the given parameters
@@ -161,11 +179,9 @@ namespace FiniteStateMachines.Decorators
 			}
 			return this.ErrorState;
 		}
-		//		old:
-		//		public AbstractState getStartState()
-		//		{
-		//			return new DualState(this.aFSM.StartState,this.anotherFSM.StartState);
-		//		}
+		
+
+
 		/// <summary>
 		/// The Startstate of the FiniteShuffleProductMaschineLazy
 		/// </summary>
@@ -176,6 +192,8 @@ namespace FiniteStateMachines.Decorators
 				return new DualState(this.aFSM.StartState,this.anotherFSM.StartState);
 			}
 		}
+
+
 		/// <summary>
 		/// Delivers the next reachable <code>Transition</code> with the given parameters
 		/// </summary>
@@ -189,6 +207,8 @@ namespace FiniteStateMachines.Decorators
 			DualState cpState = (DualState) aState;
 			return new Transition(cpState,input, this.GetNextState(cpState,input));
 		}
+
+
 		/// <summary>
 		/// Delivers all reachable Transitions from the given <code>DualState</code>
 		/// </summary>
@@ -211,6 +231,7 @@ namespace FiniteStateMachines.Decorators
 			return transitionList;
 		}
 
+
 		/// <summary>
 		/// Delivers all Transitions of the FiniteShuffleProductMaschineLazy.
 		/// Note: For this the whole Maschine has to be explored.
@@ -221,14 +242,10 @@ namespace FiniteStateMachines.Decorators
 			Hashtable transitions = new Hashtable();
 
 			this.visitedStates = new Set();
-			//stachs to iterate
 			Stack oneStates = new Stack();
 			Stack twoStates = new Stack();
-
 			Set spInput = this.inputAl;
-
 			DualState startState = new DualState(aFSM.StartState,anotherFSM.StartState);
-
 			oneStates.Push(aFSM.StartState);
 			twoStates.Push(anotherFSM.StartState);
 			bool iterated = false;
@@ -236,12 +253,9 @@ namespace FiniteStateMachines.Decorators
 			{
 				State oneBefore = (State) oneStates.Pop();
 				State twoBefore = (State) twoStates.Pop();
-				
 				DualState fromState = new DualState(oneBefore,twoBefore);
-				
 				foreach(DualState s in this.visitedStates)
 				{
-					//if(s.getName() == fromState.getName())
 					if(s.oneState == fromState.oneState)
 						if(s.twoState == fromState.twoState)
 							iterated = true;
@@ -305,7 +319,6 @@ namespace FiniteStateMachines.Decorators
 					}
 				}
 			}
-			//init []
 			Transition[] allTransitions = new Transition[transitions.Count];
 			int indexer = 0;
 			foreach(DictionaryEntry dic in transitions)

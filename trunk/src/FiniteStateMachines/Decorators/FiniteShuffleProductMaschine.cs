@@ -6,14 +6,38 @@ using Utils.Collections;
 namespace FiniteStateMachines.Decorators
 {
 	/// <summary>
-	/// Represents FiniteStateMachine
+	/// The FiniteShuffleProductMaschine (FSP) is a specialization of a normal FSM. Is generated out
+	/// of two FSMs. 
+	/// 
+	/// def!!!
+	/// 
 	/// </summary>
 	public class FiniteShuffleProductMaschine 
 	{
+		/// <summary>
+		/// The first FiniteTabularMachine which is used to generate the FiniteShuffleProductMaschine
+		/// </summary>
 		protected FiniteTabularMachine one;
+
+		/// <summary>
+		/// The second FiniteTabularProcuctMachine which is used to generate the FiniteShuffleProductMaschine
+		/// </summary>
 		protected FiniteTabularMachine two;
+
+		/// <summary>
+		/// The generates FiniteShuffleProductMaschine stored in a FiniteTabularMachine
+		/// </summary>
 		protected FiniteTabularMachine sp;
+
+		/// <summary>
+		/// it is important to know, when genrating the FiniteShuffleProductMaschine which 
+		/// States has already been visited. Is is stored here in a Set.
+		/// </summary>
 		protected Set visitedStates;
+
+		/// <summary>
+		/// The cross Input of the FiniteShuffleProductMaschine stored in a <code>Set</code>
+		/// </summary>
 		protected Set crossInput;
 
 		/// <summary>
@@ -21,10 +45,11 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		public FiniteShuffleProductMaschine()
 		{
-			
 		}
+
+
 		/// <summary>
-		/// Generates a FiniteShuffleProductMaschine with tow given FinitStateMaschines
+		/// Generates a FiniteShuffleProductMaschine with tow given FinitTabularStateMachines
 		/// </summary>
 		/// <param name="one">The first FinitStateMaschine</param>
 		/// <param name="two">The second FiniteStatesMaschine</param>
@@ -32,14 +57,21 @@ namespace FiniteStateMachines.Decorators
 		{
 			this.sp = GenerateFSP(one,two);
 		}
+
+
 		/// <summary>
-		/// Returns the generated FiniteShuffleProductMaschine
+		/// Returns the generated FiniteShuffleProductMaschine in a FiniteTabularMachine
 		/// </summary>
 		/// <returns></returns>
-		public FiniteTabularMachine getSP()
+		public FiniteTabularMachine ShuffleProduct
 		{
-			return this.sp;
+			get
+			{
+				return this.sp;
+			}
 		}
+
+
 		/// <summary>
 		/// Returns the ErrorState of the FiniteShuffleProductMaschine
 		/// </summary>
@@ -47,6 +79,7 @@ namespace FiniteStateMachines.Decorators
 		{
 			get { return new DualState(one.ErrorState,two.ErrorState); }
 		}
+
 
 		/// <summary>
 		/// Generates the FiniteShuffleProductMaschine from two given FiniteStatesMaschines
@@ -60,16 +93,11 @@ namespace FiniteStateMachines.Decorators
 			this.one = one;
 			this.two = two;
 			this.sp = new FiniteTabularMachine();
-
 			this.visitedStates = new Set();
-			//stachs to iterate
 			Stack oneStates = new Stack();
 			Stack twoStates = new Stack();
-
 			Set spInput = GenerateSpInput(one,two);
-
 			DualState startState = new DualState(one.StartState,two.StartState);
-
 			oneStates.Push(one.StartState);
 			twoStates.Push(two.StartState);
 			bool iterated = false;
@@ -82,11 +110,9 @@ namespace FiniteStateMachines.Decorators
 				
 				foreach(DualState s in this.visitedStates)
 				{
-					//if(s.getName() == fromState.getName())
 					if(s.oneState == fromState.oneState)
 						if(s.twoState == fromState.twoState)
 							iterated = true;
-
 				}
 				//the fromState has already been explored
 				if(iterated)
@@ -94,7 +120,6 @@ namespace FiniteStateMachines.Decorators
 					continue;
 				}
 				DualState toState = new DualState();
-
 				foreach(Input input in this.GenerateSpInput(this.one,this.two))
 				{
 					this.visitedStates.Add(fromState);
@@ -118,7 +143,6 @@ namespace FiniteStateMachines.Decorators
 					{
 						if(oneNext != one.ErrorState)
 						{
-
 							this.sp.addTransition(fromState,input,new DualState(oneNext,fromState.twoState));
 							oneStates.Push(oneNext);
 							twoStates.Push(fromState.twoState);
@@ -146,13 +170,14 @@ namespace FiniteStateMachines.Decorators
 			return this.sp;
 		}			
 	
+
 		/// <summary>
 		/// Generates the inputalphabet for the FiniteShuffleProductMaschine from the inputalphabets
 		/// of the two given FiniteStateMaschines.
 		/// </summary>
 		/// <param name="one">The first FiniteStateMaschine </param>
 		/// <param name="two">The second FiniteStateMaschine</param>
-		/// <returns></returns>
+		/// <returns>The genrated Input stored in a Set</returns>
 		protected Set GenerateSpInput(FiniteTabularMachine one, FiniteTabularMachine two)
 		{
 			GenerateCrossInput();
@@ -165,6 +190,8 @@ namespace FiniteStateMachines.Decorators
 				spInput.Add(i);
 			return spInput;
 		}
+
+
 		/// <summary>
 		/// Generates a Set which only contains the input elements which are in both FinateStatesmaschines
 		/// (intersection of the input of the two given FiniteStatesMaschines)

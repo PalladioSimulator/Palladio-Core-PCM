@@ -6,32 +6,83 @@ using Utils.Collections;
 namespace FiniteStateMachines.Decorators 
 {
 	/// <summary>
-	/// This class allows to minimize and compares FSM
+	/// This class allows to minimizes a Fsm and it only can compare compare FSMs.
+	/// When two FSMs should be compared, then the FSMs are minimized, reduce states
+	/// that are needable forthe FSM.
+	/// By minimzation a verry popluar algorithmen is used. The states of the FSM
+	/// are organized in groups with the behavior. (Expresso?) 
 	/// </summary>
 	public class MinimizedAndEqualsFSM : FiniteTabularMachine 
 	{
+		/// <summary>
+		/// A FiniteTabluarMachine which should be minimized.
+		/// </summary>
 		protected FiniteTabularMachine fsm;
+
+		/// <summary>
+		/// for debugging 1
+		/// </summary>
 		protected bool debug = !true;
+
+		/// <summary>
+		/// for debugging 2
+		/// </summary>
 		protected bool createsFsmDebug = !true;
+
+		/// <summary>
+		/// for debugging 3
+		/// </summary>
 		protected bool equalsDebug = !true;
+
+		/// <summary>
+		/// A ArrayList which contains the groups 
+		/// </summary>
 		protected ArrayList groups;
-		protected int zaehler;
+
+		/// <summary>
+		/// This stores the minimized FSM in a FinitTabularMashine
+		/// </summary>
 		protected FiniteTabularMachine minimized;
+
+		/// <summary>
+		/// count the number of group 
+		/// </summary>
 		protected int counterForNumberOfGroups;
+
+		/// <summary>
+		/// a counter which show which group is in the moment served.
+		/// </summary>
 		protected int actualGroupCounter;
+
+		/// <summary>
+		/// ????
+		/// </summary>
 		protected ArrayList mini;
-		// for equals
+		
+
+		/// <summary>
+		/// A Hashtable which represents a mapping between two FSMs. It is needed when 
+		/// two FSMs are compared (calling equals). The keys are the states of a 
+		/// first FSM and the values are the states of the other FSM to which the states 
+		/// of the first FSM are mapped 
+		/// </summary>
 		public Hashtable myMin2d;
+
+		/// <summary>
+		/// A <code>Set</code> which contains ´the visited states.
+		/// </summary>
 		protected Set visited;
 
 		/// <summary>
-		/// A temp Konstruktor
+		///  Initates an empty class.
 		/// </summary>
 		public MinimizedAndEqualsFSM() 
 		{
 		}
+
+
 		/// <summary>
-		/// A temp Konstruktor
+		/// Initated this class, and generates a minmized FSM from the given FSM.
 		/// </summary>
 		/// <param name="notMin">A not minimized FSM, which should be minimized</param>
 		public MinimizedAndEqualsFSM(FiniteTabularMachine notMin) 
@@ -40,13 +91,8 @@ namespace FiniteStateMachines.Decorators
 			this.groups = new ArrayList();
 			this.Minimize(notMin);
 			this.createNewFsm();
-//			this.minimized.DisplayOnConsole();
-			//						if(this.debug)
-			//						{
-			//							Console.WriteLine("After Minmasation the follwing groups exzits:");
-			//							this.printGroups();
-			//						}
 		}
+
 
 		/// <summary>
 		/// Returns the minimized FSM form a given FSM
@@ -61,7 +107,7 @@ namespace FiniteStateMachines.Decorators
 		}
 	
 		/// <summary>
-		/// checks if this.Minimized is equal to a given FSM.
+		/// checks if Minimized is equal to a given FSM.
 		/// </summary>
 		/// <param name="o">A FSM </param>
 		/// <returns>true if they are equal</returns>
@@ -136,6 +182,7 @@ namespace FiniteStateMachines.Decorators
 			return true;
 		}
 
+
 		/// <summary>
 		/// Produces a Mapping between two FSMs
 		/// </summary>
@@ -152,8 +199,10 @@ namespace FiniteStateMachines.Decorators
 			return d2myMap;
 			
 		}
+
+
 		/// <summary>
-		/// Produces a´mapping between two states
+		/// Produces a mapping between two states
 		/// </summary>
 		/// <param name="myMin">A FSM</param>
 		/// <param name="myState">A state of myFsm</param>
@@ -181,29 +230,16 @@ namespace FiniteStateMachines.Decorators
 			while(inputIter.MoveNext()) 
 			{
 				Input currentInput = (Input) inputIter.Current;
-				//				foreach(State s in myMin.States)
-				//				{
-				//					if(myState.Equals(s))
-				//					{
 
 				myNext = myMin.GetNextState(myState,currentInput);
-				//						break;
-				//					}
-				//				}
-				//				foreach(State z in d.States)
-				//				{
-				//					if(z.Equals(dState))
-				//					{
 				dNext = d.GetNextState(dState,currentInput);
-				//						break;
-				//					}
-				//				}
-				
 				if(!testStates(myMin,myState,d,dState,currentInput,d2myStates))
 					throw new StatesNotMappableException();
 				mapStates(myMin, myNext,d,dNext,d2myStates,visited);
 			}
 		}
+
+
 		/// <summary>
 		/// Controlls if the next states of a FSM are mappable
 		/// </summary>
@@ -219,26 +255,8 @@ namespace FiniteStateMachines.Decorators
 		{
 			AbstractState myNext = null;
 			AbstractState dNext = null;
-
-		
-			//			foreach(State s in myMin.States)
-			//			{
-			//
-			//				if(myState.Equals(s))
-			//				{
 			myNext = myMin.GetNextState(myState,i);
-			//					break;
-			//				}
-			//			}
-			//			foreach(State z in d.States)
-			//			{
-			//				if(z.Equals(dState))
-			//				{
 			dNext = d.GetNextState(dState ,i);
-			//					break;
-			//				}
-			//			}
-
 			if(d2myStates.ContainsKey(dNext)) 
 			{
 				if(d2myStates[dNext].Equals(myNext)) 
@@ -255,6 +273,7 @@ namespace FiniteStateMachines.Decorators
 			return true;
 		}
 			
+
 		/// <summary>
 		/// Return the notMiniized FSM
 		/// </summary>
@@ -263,6 +282,16 @@ namespace FiniteStateMachines.Decorators
 		{
 			return this.fsm;
 		}
+
+		public FiniteTabularMachine originallyFiniteTabularMachine
+		{
+			get
+			{
+				return this.fsm;
+			}
+		}
+
+
 		/// <summary>
 		/// Returns the minimzed version of the FSM
 		/// </summary>
@@ -271,8 +300,11 @@ namespace FiniteStateMachines.Decorators
 		{
 			return this.minimized;
 		}
+
+
 		/// <summary>
-		/// Creates the minimized FSM
+		/// A Finite TabularMachine is created from the groups which has been 
+		/// found during iteration.
 		/// </summary>
 		protected void createNewFsm() 
 		{
@@ -284,7 +316,6 @@ namespace FiniteStateMachines.Decorators
 			ArrayList oldStates = new ArrayList();
 			foreach(ArrayList al in this.mini) 
 			{
-				
 				temp = (AbstractState) al[0];
 				AbstractState state = new State("state_"+counter,temp.IsStartState,temp.IsFinalState);
 				statesOfMini.Add(state);
@@ -306,11 +337,8 @@ namespace FiniteStateMachines.Decorators
 				{
 					AbstractState toState  = (AbstractState) this.fsm.GetNextState((AbstractState)oldStates[i],
 						(Input)oldFsmInputIter.Current);
-		
-					//Console.WriteLine("toState is: "+toState.ToString());
 					if(toState == fsm.ErrorState) 
 					{
-						//Console.WriteLine("ErrorState found");
 						continue;
 					}
 					ArrayList newGroups = this.inGroup(toState,this.groups);
@@ -322,13 +350,14 @@ namespace FiniteStateMachines.Decorators
 				}
 			}
 		}
+
+
 		/// <summary>
 		/// Removes the ErrorGroups from this.groups
 		/// </summary>
-		/// <param name="g">The groupwith should be removed</param>
+		/// <param name="g">The group with should be removed</param>
 		protected void RemoveErrorGroup(ArrayList g) 
 		{
-
 			ArrayList erroG = new ArrayList();
 			erroG.Add(this.fsm.ErrorState);
 			erroG.TrimToSize();
@@ -345,6 +374,8 @@ namespace FiniteStateMachines.Decorators
 				}
 			}		
 		}
+
+
 		/// <summary>
 		/// Minimizes a FSM 
 		/// </summary>
@@ -446,6 +477,8 @@ namespace FiniteStateMachines.Decorators
 			}
 			this.tidyUp();
 		}
+
+
 		/// <summary>
 		/// A method for debugging, desplays all elements of this.groups on the console
 		/// </summary>
@@ -454,6 +487,7 @@ namespace FiniteStateMachines.Decorators
 			foreach(ArrayList al in this.groups)
 				this.printGroup(al);
 		}
+
 
 		/// <summary>
 		/// checks if two states are in the same group
@@ -470,6 +504,8 @@ namespace FiniteStateMachines.Decorators
 				return true;
 			return false;	
 		}
+
+
 		/// <summary>
 		/// Delivers the group in which a state is in
 		/// </summary>
@@ -496,6 +532,7 @@ namespace FiniteStateMachines.Decorators
 			throw new ProgrammingErrorException();
 		}
 
+
 		/// <summary>
 		/// After iteration there are double groups in this.groups and here this groups are removed
 		/// </summary>
@@ -513,6 +550,8 @@ namespace FiniteStateMachines.Decorators
 			this.RemoveErrorGroup(this.mini);
 			this.groups = this.mini;
 		}
+
+
 		/// <summary>
 		/// Delivers the initail partions 
 		/// </summary>
@@ -533,14 +572,6 @@ namespace FiniteStateMachines.Decorators
 			{
 				both = null;
 				actualState = (AbstractState) iter.Current;
-
-				//								//now useless
-				//								if(actualState.Equals(new State("ErrorState",false,false)))
-				//								{
-				//									if(debug)
-				//										Console.WriteLine("ErrorState in init found!");
-				//									
-				//								}
 				if(actualState.IsFinalState) 
 				{
 					if(actualState.IsStartState) 
@@ -571,6 +602,8 @@ namespace FiniteStateMachines.Decorators
 			conclusion.TrimToSize();
 			this.groups = conclusion;
 		}
+
+
 		/// <summary>
 		/// Another method for debugging, prints a elemenet of this.groups
 		/// </summary>
@@ -585,6 +618,4 @@ namespace FiniteStateMachines.Decorators
 			Console.WriteLine("---End of Group----");
 		}
 	}
-
-
 }
