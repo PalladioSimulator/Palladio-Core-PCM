@@ -17,6 +17,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2004/10/27 15:05:06  kelsaka
+	/// added more request handling-abilities
+	///
 	/// Revision 1.8  2004/10/27 13:40:43  kelsaka
 	/// added component-interconnections; added tcp-listening
 	///
@@ -115,7 +118,6 @@ namespace Palladio.Webserver
 			IWebserverConfiguration webserverConfiguration = new WebserverConfiguration(configReader.GetRoot());
 
 			IWebserverMonitor webserverMonitor = webserverFactory.CreateWebserverMonitor(webserverConfiguration);
-			webserverMonitor.InitializeWriteAccess();
 			
 
 			// RequestProcessor-COR:
@@ -124,13 +126,13 @@ namespace Palladio.Webserver
 			
 			// RequestParser-COR:
 			IRequestParser defaultRequestParser = webserverFactory.CreateDefaultRequestParser(webserverMonitor, webserverConfiguration);
-			IRequestParser requestParser = webserverFactory.CreateHTTPRequestParser(staticFileProvider, defaultRequestParser, webserverMonitor, webserverConfiguration);
+			IRequestParser httpRequestParser = webserverFactory.CreateHTTPRequestParser(staticFileProvider, defaultRequestParser, webserverMonitor, webserverConfiguration);
 			
-			IDispatcher dispatcher = webserverFactory.CreateDispatcher(requestParser,webserverMonitor, webserverConfiguration);
+			IDispatcher dispatcher = webserverFactory.CreateDispatcher(httpRequestParser,webserverMonitor, webserverConfiguration);
 			dispatcher.Run();
 			
+			//dispatcher.Stop();
 			
-			webserverMonitor.FinishWriteAccess();
 
 
 

@@ -1,8 +1,10 @@
 using System;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using Palladio.Webserver.ConfigReader;
+using Palladio.Webserver.Request;
 using Palladio.Webserver.WebserverMonitor;
 using Palladio.Webserver.RequestParser;
 
@@ -18,6 +20,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/10/27 15:05:06  kelsaka
+	/// added more request handling-abilities
+	///
 	/// Revision 1.5  2004/10/27 13:40:43  kelsaka
 	/// added component-interconnections; added tcp-listening
 	///
@@ -38,7 +43,11 @@ namespace Palladio.Webserver.Dispatcher
 	/// </remarks>
 	public class DefaultDispatcher : IDispatcher
 	{
-
+		/// <summary>
+		/// The local IP-address the server is listening on. As the server usually runs on single machine,
+		/// first 127.0.0.1 is used. //TODO: maybe change to be able to listen to multiple addresses.
+		/// </summary>
+		byte[] localAddress = new byte[4]{127, 0, 0, 1};
 		
 		private IRequestParser requestParser;
 		private IWebserverMonitor webserverMonitor;
@@ -64,19 +73,25 @@ namespace Palladio.Webserver.Dispatcher
 		/// <summary>
 		/// Starts the dispatcher which is using threads to handle requests. This means that the webserver starts
 		/// listening at the defined ports.
+		/// Initializes the write-access of the WebserverMonitor.
 		/// </summary>
 		public void Run ()
 		{
+			webserverMonitor.InitializeWriteAccess();
+
+			webserverMonitor.WriteLogEntry("----------------------------");
+			webserverMonitor.WriteLogEntry("Webserver-Dispatcher started.");
 
 			try
 			{
-				//start listing on the given port //TODO: make listen on all specified ports later on.
-				tcpListener = new TcpListener(webserverConfiguration.ListeningPorts[0]);
+
+				//start listing on the given port //TODO: make listen on *all* specified ports later on.
+				tcpListener = new TcpListener(new IPAddress(localAddress), webserverConfiguration.ListeningPorts[0]);
 				tcpListener.Start();
 
 				//start the thread which calls the method 'StartListen'
 				Thread thread = new Thread(new ThreadStart(StartListen));
-				thread.Start() ;
+				thread.Start();
 
 			}
 			catch(Exception e)
@@ -92,10 +107,13 @@ namespace Palladio.Webserver.Dispatcher
 
 		/// <summary>
 		/// Stops the dispatcher. This includes the service of the webserver.
+		/// Stops the write-access of the WebserverMonitor.
 		/// </summary>
 		public void Stop ()
 		{
-			throw new NotImplementedException ();
+			webserverMonitor.WriteLogEntry("Shutting down webserver.");
+			webserverMonitor.FinishWriteAccess();
+			
 		}
 
 
@@ -105,22 +123,31 @@ namespace Palladio.Webserver.Dispatcher
 		//This method Accepts new connection and
 		//First it receives the welcome massage from the client,
 		//Then it sends the Current date time to the Client.
-		public void StartListen()
+		private void StartListen()
 		{
 
 						
 			while(true)
 			{
 				//Accept a new connection
-				Socket mySocket = tcpListener.AcceptSocket() ;
+				Socket clientSocket = tcpListener.AcceptSocket() ;
 
-				webserverMonitor.WriteLogEntry("Socket Type " + mySocket.SocketType ); 
+				webserverMonitor.WriteLogEntry("Socket Type: " + clientSocket.SocketType ); 
 				
-				if(mySocket.Connected)
+				if(clientSocket.Connected)
 				{
-					webserverMonitor.WriteLogEntry("Client connected on IP:" + mySocket.RemoteEndPoint) ;
+					webserverMonitor.WriteLogEntry("Client connected on IP: " + clientSocket.RemoteEndPoint) ;
 
-					mySocket.Close();						
+					// set up request:
+					IRequest request = new DefaultRequest();
+					request.Socket = clientSocket;
+					request.TcpListener = tcpListener;
+
+					// let the parser handle the request:
+					requestParser.HandleRequest(request);
+
+					
+					//clientSocket.Close();						
 				}
 			}
 		}
