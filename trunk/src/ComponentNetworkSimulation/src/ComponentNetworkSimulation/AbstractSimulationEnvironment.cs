@@ -15,6 +15,7 @@ namespace ComponentNetworkSimulation
 		public void simulate()
 		{
 			this.resetSimulation();
+			this.prepairSimulation();
 			this.clock.simulate();
 		}
 
@@ -23,12 +24,16 @@ namespace ComponentNetworkSimulation
 			return this.clock.simulationStep();
 		}
 
+		public void prepairSimulation()
+		{
+			this.createSystemSimulationThreads();
+		}
+
 		public void resetSimulation()
 		{
 			this.clock.reset();
 			this.componentNetwork.reset();
 			this.dataPool.reset();
-			this.createSystemSimulationThreads();
 		}
 
 		public Clock getClock()
