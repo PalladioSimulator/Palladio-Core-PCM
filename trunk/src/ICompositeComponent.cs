@@ -110,6 +110,20 @@ namespace Palladio.ComponentModel
 		void DeleteBindings(params IBinding[] aBindingArray);
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="aComponentID"></param>
+		/// <returns></returns>
+		IConnection[] GetProvidesConnections(IIdentifier aComponentID);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="aComponentID"></param>
+		/// <returns></returns>
+		IConnection[] GetRequiresConnections(IIdentifier aComponentID);
+		
+		/// <summary>
 		/// Get all bindings connected to the provides interfaces of aComponent.
 		/// </summary>
 		/// <param name="aComponentID">Internal component of ICompositeComponent.</param>

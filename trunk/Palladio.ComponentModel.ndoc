@@ -1,6 +1,6 @@
 <project SchemaVersion="1.3">
     <assemblies>
-        <assembly location="C:\Job\src\Palladio.ComponentModel\bin\Debug\Palladio.ComponentModel.dll" documentation="C:\Job\src\Palladio.ComponentModel\Palladio.ComponentModel.xml" />
+        <assembly location=".\bin\Debug\Palladio.ComponentModel.dll" documentation=".\Palladio.ComponentModel.xml" />
     </assemblies>
     <namespaces>
         <namespace name="Palladio.ComponentModel">The Palladio Component Model is a meta-model to descibe components and component connections.</namespace>

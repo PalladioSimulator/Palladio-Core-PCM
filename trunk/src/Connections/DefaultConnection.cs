@@ -64,6 +64,11 @@ namespace Palladio.ComponentModel.Connections
 				requiringRole.GetHashCode()
 			);
 		}
+		
+		public override string ToString()
+		{
+			return requiringRole.ToString() + " ---> " + providingRole.ToString();
+		}
 
 		public virtual void AcceptVisitor(IVisitor v){}
 

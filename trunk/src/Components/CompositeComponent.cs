@@ -19,6 +19,11 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/07/02 03:00:01  sliver
+	/// - absolute path changed to relative path in ndoc project
+	/// - ToString Method for Connections
+	/// - Methods for getting all incoming and outgoing transitions of a component added
+	///
 	/// Revision 1.3  2004/06/09 12:36:30  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///
@@ -223,6 +228,20 @@ namespace Palladio.ComponentModel.Components
 		public void DeleteBindings(params IBinding[] aBindingArray)
 		{
 			DeleteConnections(aBindingArray);
+		}
+		
+		public IConnection[] GetProvidesConnections(IIdentifier aComponentID)
+		{
+			if (!ContainsComponent(aComponentID))
+				throw new ComponentNotFoundException(aComponentID);
+			return (IConnection[]) SelectConnections("(ProvComponentID = '"+aComponentID.ToString()+"')").ToArray(typeof(IConnection));
+		}
+		
+		public IConnection[] GetRequiresConnections(IIdentifier aComponentID)
+		{
+			if (!ContainsComponent(aComponentID))
+				throw new ComponentNotFoundException(aComponentID);
+			return (IConnection[]) SelectConnections("(ReqComponentID = '"+aComponentID.ToString()+"')").ToArray(typeof(IConnection));
 		}
 		
 
