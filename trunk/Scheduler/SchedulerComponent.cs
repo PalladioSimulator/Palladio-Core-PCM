@@ -40,7 +40,7 @@ namespace Scheduler
 		{
 			ArrayList localIPs = GetLocalIPList();
 			this.localIP = (IPAddress) localIPs[0];
-			this.localPort = 2048;
+			this.localPort = 8000;
 
 			this.serverList = GetServerList();
 			this.serverEnum = this.serverList.GetEnumerator();
@@ -50,8 +50,8 @@ namespace Scheduler
 		{
 			ArrayList sL = new ArrayList();
 
-			sL.Add(new IPEndPoint(IPAddress.Parse("192.168.0.2"), 1233));
-			sL.Add(new IPEndPoint(IPAddress.Parse("192.168.0.2"), 1234));
+			sL.Add(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8001));
+			sL.Add(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8002));
 			// ...
 			
 			return sL;
@@ -79,13 +79,13 @@ namespace Scheduler
 		
 		protected void StartServer()
 		{
-			this.logger.Debug("Local IP: "+this.localIP.ToString()+":"+this.localPort);
-			
+			//this.logger.Debug("Local IP: "+this.localIP.ToString()+":"+this.localPort);
+			Console.WriteLine("Local IP: 127.0.0.1:"+this.localPort);
 			try
 			{
-				this.portListener = new TcpListener(this.localIP,this.localPort);
+				this.portListener = new TcpListener(IPAddress.Parse("127.0.0.1"),this.localPort);
 				portListener.Start();
-				this.logger.Debug("Server started.");
+				Console.WriteLine("Server started.");
 			}
 			catch(Exception e)
 			{
@@ -101,7 +101,7 @@ namespace Scheduler
 			while (true) 
 			{
 				this.client = portListener.AcceptTcpClient();
-				this.logger.Debug("Client connected.");
+				Console.WriteLine("Client connected.");
 		
 				// select next web server in list
 				if(!this.serverEnum.MoveNext())	
@@ -110,7 +110,7 @@ namespace Scheduler
 					this.serverEnum.MoveNext();
 				}
 				IPEndPoint serverEndPoint = (IPEndPoint)this.serverEnum.Current;
-				this.logger.Debug("Selected Server: "+serverEndPoint.Address.ToString()+":"+serverEndPoint.Port);
+				Console.WriteLine("Selected Server: "+serverEndPoint.Address.ToString()+":"+serverEndPoint.Port);
 
 				this.currentThread = new SchedulerThread(client, serverEndPoint);
 			}

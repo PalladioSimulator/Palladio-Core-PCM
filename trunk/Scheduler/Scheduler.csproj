@@ -84,6 +84,11 @@
                     AssemblyName = "SimpleLogger"
                     HintPath = "..\SimpleLogger\obj\Debug\SimpleLogger.dll"
                 />
+                <Reference
+                    Name = "RequestProzessor"
+                    AssemblyName = "RequestProzessor"
+                    HintPath = "..\RequestProzessor\bin\Debug\RequestProzessor.dll"
+                />
             </References>
         </Build>
         <Files>
