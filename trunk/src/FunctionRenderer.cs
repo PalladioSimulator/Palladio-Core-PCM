@@ -158,7 +158,7 @@ namespace Palladio.Reliability.Visualisation
 			set { yMin = value; }
 		}
 
-		public void AddFunction(IFunction function, Pen pen, string label)
+		public void AddFunction(IRealFunction function, Pen pen, string label)
 		{
 			FunctionInfo funcInfo = new FunctionInfo();
 			funcInfo.Function = function;
@@ -285,11 +285,11 @@ namespace Palladio.Reliability.Visualisation
 
 		private struct FunctionInfo
 		{
-			private IFunction function;
+			private IRealFunction function;
 			private Pen pen;
 			private string label;
 
-			public IFunction Function
+			public IRealFunction Function
 			{
 				get { return function; }
 				set { function = value; }
