@@ -100,6 +100,11 @@
                     AssemblyName = "ReflectionBasedVisitor"
                     HintPath = "..\..\..\ReflectionBasedVisitor\bin\Debug\ReflectionBasedVisitor.dll"
                 />
+                <Reference
+                    Name = "Palladio.Attributes"
+                    AssemblyName = "Palladio.Attributes"
+                    HintPath = "..\..\..\Palladio.Attributes\bin\Debug\Palladio.Attributes.dll"
+                />
             </References>
         </Build>
         <Files>
@@ -166,6 +171,11 @@
                 />
                 <File
                     RelPath = "src\ComponentNetworkSimulation\simulation\DefaultSimulationThread.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\simulation\DefaultSimulationThreadTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -276,37 +286,32 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\AbstractTimeConsumingState.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\services\IControlFlowStrategy.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\AbstractTimeConsumingTransition.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\services\ISimulationState.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\BasicTimeStateParams.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\DefaultComponentArchitectureStack.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\BasicTimeTransitionParams.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\DefaultComponentArchitectureVisitor.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\ServiceFactory.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\IComponentArchitectureStack.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\StaticTimeState.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\services\StaticTimeTransition.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\Visitor\IComponentArchitectureVisitor.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

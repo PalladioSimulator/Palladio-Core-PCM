@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionBasedVisitor", ".
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Attributes", "..\..\..\Palladio.Attributes\Palladio.Attributes.csproj", "{7726B451-F155-4534-986E-8960C7BA4D97}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -38,6 +42,10 @@ Global
 		{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}.Debug.Build.0 = Debug|.NET
 		{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}.Release.ActiveCfg = Release|.NET
 		{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}.Release.Build.0 = Release|.NET
+		{7726B451-F155-4534-986E-8960C7BA4D97}.Debug.ActiveCfg = Debug|.NET
+		{7726B451-F155-4534-986E-8960C7BA4D97}.Debug.Build.0 = Debug|.NET
+		{7726B451-F155-4534-986E-8960C7BA4D97}.Release.ActiveCfg = Release|.NET
+		{7726B451-F155-4534-986E-8960C7BA4D97}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
