@@ -7,7 +7,7 @@ namespace Utils.Collections
 	///     To reach this, the Add Methods of a default ArrayList 
 	///     are extended.
 	/// </summary>
-	public class Set : Vector 
+	public class Set : ArrayList 
 	{
 
 		/// <summary>
@@ -98,5 +98,53 @@ namespace Utils.Collections
 		{
 			return new Set(this);
 		}
+
+		// <summary>
+		//   Compares this object to the specified object.
+		//   Returns true if they are equal, false otherwise.
+		// </summary>
+		public override bool Equals(object obj)
+		{
+			if (obj is Set) 
+			{
+				Set other = (Set)obj;
+				if(other.Count == Count)
+				{
+					foreach(object o in other)
+					{
+						if(!Contains(o))
+						{
+							return false;
+						}
+					}
+					return true;
+				}
+			}
+			return false;
+		}
+
+		// <summary>
+		//   Returns a stringified representation of the object.
+		//   This is not supposed to be used for user presentation,
+		//   use Format() for that and IFormattable.
+		//
+		//   ToString is mostly used for debugging purposes.
+		// </summary>
+		public override string ToString() 
+		{
+			string result = "{ ";
+			foreach (object obj in this) 
+			{
+				result+=obj+" ";
+			}
+			result+="}";
+			return result;
+		}
+
+		public override int GetHashCode() 
+		{
+			return base.GetHashCode ();
+		}
+
 	}
 }

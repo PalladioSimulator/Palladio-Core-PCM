@@ -78,6 +78,20 @@ namespace Palladio.FiniteStateMachines {
 		}
 
 
+		/// <summary>
+		/// Copy-Constructor.
+		/// </summary>
+		/// <param name="aTabFSM"></param>
+		public TabularFSM(TabularFSM aTabFSM) 
+		{
+			this.inputAlphabet = new Set(aTabFSM.inputAlphabet);
+			this.transitionTable = new Hashtable(aTabFSM.transitionTable);
+			this.finalStates = new Set(aTabFSM.finalStates);
+			this.states = new Set(aTabFSM.states);
+			this.startState = aTabFSM.startState;
+		}
+
+
 
 	  
 		/// <summary>
@@ -383,5 +397,16 @@ namespace Palladio.FiniteStateMachines {
 				this.AddTransition(trans);
 			}
 		}
+
+
+		/// <summary>
+		/// Creates a Clone of this TabularFSM.
+		/// </summary>
+		/// <returns></returns>
+		public override object Clone()
+		{
+			return new TabularFSM(this);
+		}
+
 	}
 }

@@ -56,28 +56,6 @@ namespace Palladio.FiniteStateMachines {
 			return false;
 		}
 		
-//		public static bool operator == (Input one, Input two){
-//			if ( (object)one != null ) {
-//				return one.Equals(two);
-//			} else if ( (object)two != null ) {
-//				return false;
-//			} else {
-//				return true; // both null
-//			}
-//		}
-
-//		public static bool operator != (Input one, Input two){
-//			return !(one == two);
-//		}
-
-//		public static implicit operator string (Input anInput) {
-//			return anInput.InputSymbol.ToString();
-//		}
-//
-//		public static implicit operator Input (object aString) {
-//			return new Input( aString );
-//		}
-
 		/// <summary>
 		/// Delivers the Hashcode of the input
 		/// </summary>

@@ -41,8 +41,7 @@ namespace UnitTests.FiniteStateMachines.Decorators
 		{
 			IList result = this.FSMResult.GetOutgoingTransitions(new DualState(this.FSMOne.StartState,this.FSMTwo.StartState));
 			IList lazyRes = this.lazy.GetOutgoingTransitions(this.lazy.StartState);
-			Assert.IsTrue(Array.Equals(result,lazyRes));
-			//Assert.AreEqual(result,lazyRes);
+			Assert.AreEqual(result,lazyRes);
 			
 		}
 		

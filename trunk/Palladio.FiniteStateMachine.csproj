@@ -101,11 +101,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Vector.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "Visualization1.fwpnss"
                     BuildAction = "None"
                 />
