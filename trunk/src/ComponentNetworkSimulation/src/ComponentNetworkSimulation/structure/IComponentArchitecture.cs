@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/06/26 16:36:11  joemal
+	/// - remove todo tags
+	///
 	/// Revision 1.2  2004/06/22 12:09:37  joemal
 	/// inital class creation
 	///
@@ -35,7 +38,6 @@ namespace ComponentNetworkSimulation.Structure
 		/// <summary>
 		/// return the builder interface of the root component. If still no component is created, null is returned.
 		/// </summary>
-		/// todo: exceptions 
 		Builder.IComponentBuilder RootComponentBuilder
 		{
 			get;
@@ -86,7 +88,6 @@ namespace ComponentNetworkSimulation.Structure
 		/// </summary>
 		/// <param name="id">the id of the component</param>
 		/// <returns>the builder</returns>
-		//todo: add observer
         Builder.IBasicComponentBuilder CreateBasicRootComponent(String id);
 
 		/// <summary>
@@ -95,7 +96,6 @@ namespace ComponentNetworkSimulation.Structure
 		/// </summary>
 		/// <param name="id">the id of the component</param>
 		/// <returns>the builder</returns>
-		//todo: add observer
 		Builder.ICompositeComponentBuilder CreateCompositeComponent(String id);
 	}
 }
