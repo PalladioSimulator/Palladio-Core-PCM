@@ -38,9 +38,20 @@ namespace FiniteStateMachines {
 		/// <returns>True if there is another state, false if not</returns>
 		public bool MoveNext() {
 			if(!this.isInitialised) {
-				if(this.getters.StartState== null)
+				try
+				{
+					///State placboState = (State) this.getters.StartState;
+					//
+					if(this.getters.StartState == null)
+//					if (placboState == null)
+						Console.WriteLine(" ");
+					
+				}
+				catch(System.NullReferenceException)
+				{
 					//if you have no Startstate you can't iterate over a FSM
 					return false;
+				}
 
 				this.states.Push(this.getters.StartState); 
 				this.isInitialised = true;

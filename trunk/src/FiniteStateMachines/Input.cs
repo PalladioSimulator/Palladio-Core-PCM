@@ -57,10 +57,10 @@ namespace FiniteStateMachines {
 		public static bool operator == (Input one, Input two){
 			try {
 				return one.Equals(two);
-			} catch( NullReferenceException e1 ) {
+			} catch( NullReferenceException  ) {//e1
 				try {
 					return two.Equals(one);
-				} catch( NullReferenceException e2) {
+				} catch( NullReferenceException ) {//e2
 					return true;
 				}
 			}
@@ -75,10 +75,10 @@ namespace FiniteStateMachines {
 		public static bool operator != (Input one, Input two){
 			try {
 				return !one.Equals(two);
-			} catch( NullReferenceException e1 ) {
+			} catch( NullReferenceException  ) {//e1
 				try {
 					return !two.Equals(one);
-				} catch( NullReferenceException e2) {
+				} catch( NullReferenceException ) {//e2
 					return false;
 				}
 			}
