@@ -7,7 +7,7 @@ namespace FiniteStateMachines
 	/// <summary>
 	///Represents a FSM.
 	/// </summary>
-	public class FSM : Getters
+	public class FSM : IFiniteStateMachine
 	{
 		protected Set inputAl;
 		protected Hashtable transitions;

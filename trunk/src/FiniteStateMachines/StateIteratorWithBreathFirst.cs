@@ -25,7 +25,7 @@ namespace FiniteStateMachines
 		/// initiates a StateIteratorWithBreath-FrstWithBreath-firstWithBreath-first
 		/// </summary>
 		/// <param name="f"></param>
-		public StateIteratorWithBreathFirst(Getters f)
+		public StateIteratorWithBreathFirst(IFiniteStateMachine f)
 		{
 			this.fsm = (FSM)f;
 			this.currentState = this.fsm.getStartState();

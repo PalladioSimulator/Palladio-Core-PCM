@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Utils.Collections;
+using FiniteStateMachines.Decorators;
 
 
 namespace FiniteStateMachines 
@@ -8,16 +9,16 @@ namespace FiniteStateMachines
 	/// <summary>
 	///A FSM simulating a conjunction of several FSMs
 	/// </summary>
-	public class StackFSM : Getters {
+	public class StackFSM : IFiniteStateMachine {
 
-		Getters providesFSM;
+		IFiniteStateMachine providesFSM;
 		Hashtable serviceEffectSpecifications;
 		State errorState;
 		Set inputAlphabet;
 
 		Hashtable counterConditions;
 
-		public StackFSM(Getters aProvidesFSM, Hashtable aServiceEffectSpecificationSet){
+		public StackFSM(IFiniteStateMachine aProvidesFSM, Hashtable aServiceEffectSpecificationSet){
 			// TODO check for every element of the input alphabet if there exists a corresponding SESP
 			providesFSM = aProvidesFSM;
 			serviceEffectSpecifications = (Hashtable)aServiceEffectSpecificationSet.Clone();;
@@ -50,7 +51,7 @@ namespace FiniteStateMachines
 		private Set DetermineInputAlphabet() {
 			Set resultSet = new Set();
 			for (IDictionaryEnumerator e = serviceEffectSpecifications.GetEnumerator(); e.MoveNext();){
-				for (IEnumerator f = ((Getters)e.Value).getInputAl().GetEnumerator(); f.MoveNext();){
+				for (IEnumerator f = ((IFiniteStateMachine)e.Value).getInputAl().GetEnumerator(); f.MoveNext();){
 					resultSet.Add(f.Current);
 				}
 			}
@@ -89,7 +90,7 @@ namespace FiniteStateMachines
 				} else if (serviceEffectSpecifications.ContainsKey(input)) {
 					resultState = CallService(state,input);
 				} else if ((!state.IsEmpty) && (serviceEffectSpecifications.ContainsKey(state.PeekService()))){
-					Getters topService = (Getters)serviceEffectSpecifications[state.PeekService()];
+					IFiniteStateMachine topService = (IFiniteStateMachine)serviceEffectSpecifications[state.PeekService()];
 					if (topService.getInputAl().Contains(input)){
 						resultState = GetNextStateInService(topService,state,input);
 					} else if (input == Input.RETURN){
@@ -140,7 +141,7 @@ namespace FiniteStateMachines
 			}
 		}
 
-		private State GetNextStateInService(Getters aService, StackState aState, Input anInput){
+		private State GetNextStateInService(IFiniteStateMachine aService, StackState aState, Input anInput){
 			State resultState = ErrorState;
 			State nextState = aService.getNextState(aState.PeekState(),anInput);
 			if (nextState != aService.ErrorState){
@@ -158,14 +159,14 @@ namespace FiniteStateMachines
 				resultState = HandleRecursionCall(aState,anInput);
 			} else {
 				resultState = new StackState(aState);
-				Getters service = (Getters)serviceEffectSpecifications[anInput];
+				IFiniteStateMachine service = (IFiniteStateMachine)serviceEffectSpecifications[anInput];
 				((StackState)resultState).Push(anInput,service.getStartState());
 			}
 			return resultState;
 		}
 
 		private State HandleRecursionCall(StackState aState, Input anInput){
-			Getters service = (Getters)serviceEffectSpecifications[aState.TopService];
+			IFiniteStateMachine service = (IFiniteStateMachine)serviceEffectSpecifications[aState.TopService];
 			State nextState = service.getNextState(aState.TopState,anInput);
 			RecursionInput recInput = new RecursionInput(aState.TopService,nextState);
 			// TODO check this condition
@@ -193,12 +194,12 @@ namespace FiniteStateMachines
 		private State ReturnFromService(StackState aState){
 			StackState resultState = new StackState(aState);
 			if (resultState.PopState().getFinal()) {
-				Getters service;
+				IFiniteStateMachine service;
 				Input calledServiceName = resultState.PopService();
 				if (resultState.IsEmpty){
 					service = providesFSM;
 				}else {
-					service = (Getters)serviceEffectSpecifications[resultState.TopService];
+					service = (IFiniteStateMachine)serviceEffectSpecifications[resultState.TopService];
 				}
 				// TODO if transitions with different results should be handled, the object
 				// calledServiceName has to be extended by the result of the last transition

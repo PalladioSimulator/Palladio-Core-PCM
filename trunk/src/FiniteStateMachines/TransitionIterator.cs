@@ -11,7 +11,7 @@ namespace FiniteStateMachines
 		protected Transition[] array;
 		protected ArrayList store;
 		protected int counter;
-		public TransitionIterator(Getters f)
+		public TransitionIterator(IFiniteStateMachine f)
 		{
 			
 			this.array = f.getTransitions();

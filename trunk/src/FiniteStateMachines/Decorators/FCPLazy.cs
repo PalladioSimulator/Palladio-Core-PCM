@@ -8,7 +8,7 @@ namespace FiniteStateMachines.Decorators
 	/// <summary>
 	/// Zusammenfassung für FCPLazy.
 	/// </summary>
-	public class FCPLazy : Getters
+	public class FCPLazy : IFiniteStateMachine
 	{
 		protected State errorState;
 		protected FSM one;

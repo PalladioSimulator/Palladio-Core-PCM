@@ -12,7 +12,7 @@ namespace FiniteStateMachines
 		protected Set visited; 
 		protected Stack states;
 		protected bool isInitialised;
-		protected Getters getters;
+		protected IFiniteStateMachine getters;
 		protected State returnState;
 		protected Transition currentTransition;
 		protected Stack transitions;
@@ -24,7 +24,7 @@ namespace FiniteStateMachines
 		/// Initiates a FSM Iterator.
 		/// </summary>
 		/// <param name="d">The FSM witch should be iterated</param>
-		public StateIterator(Getters d)
+		public StateIterator(IFiniteStateMachine d)
 		{
 			this.getters =  d; // RR: what is if d is NOT a FSM but another class implementing Getters?
 						      // please use only the getter interface! 

@@ -13,8 +13,8 @@ namespace FiniteStateMachines
 		protected static string ERROR_STATE_NAME = "ErrorState";
 
 		protected string name;
-		protected bool startState; 
-		protected bool finalState;
+		protected bool isStartState; 
+		protected bool isFinalState;
 		//protected int _hashcode;
 		
 		public State()
@@ -28,8 +28,8 @@ namespace FiniteStateMachines
 		public State(string id, bool start, bool final)
 		{
 			this.name = id;
-			this.startState = start;
-			this.finalState = final;
+			this.isStartState = start;
+			this.isFinalState = final;
 		}
 		/// <summary>
 		/// The copy construktor.
@@ -38,8 +38,8 @@ namespace FiniteStateMachines
 		public State(State s)
 		{
 			this.name = s.name;
-			this.startState = s.startState;
-			this.finalState = s.finalState;
+			isStartState = s.isStartState;
+			this.isFinalState = s.isFinalState;
 
 		}
 
@@ -57,14 +57,14 @@ namespace FiniteStateMachines
 		/// </summary>
 		/// <returns>true, if this instance is a startstate.</returns>
 		public virtual bool getStart() {
-			return this.startState;
+			return this.isStartState;
 		}
 		/// <summary>
 		/// Checks if this instance is a finalstate.
 		/// </summary>
 		/// <returns>true, if thid instance is a finalstate.</returns>
 		public virtual bool getFinal() {
-			return this.finalState;
+			return this.isFinalState;
 		}
 
 		// jh: override the original Equals-Method

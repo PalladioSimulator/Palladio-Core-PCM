@@ -6,7 +6,7 @@ using Utils.Collections;
 namespace FiniteStateMachines
 {
 
-	public interface Getters
+	public interface IFiniteStateMachine
 	{
 		/// <summary>
 		/// Returns the startstate of a FSM.
