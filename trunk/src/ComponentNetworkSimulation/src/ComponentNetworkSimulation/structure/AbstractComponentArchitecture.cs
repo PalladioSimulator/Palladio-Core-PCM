@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.4  2004/07/08 19:11:18  joemal
+	/// change method CreateCompositeComponent to CreateCompositeRootComponent
+	///
 	/// Revision 1.3  2004/07/05 11:16:03  joemal
 	/// - changes in the CM after code review
 	///
@@ -222,7 +225,7 @@ namespace ComponentNetworkSimulation.Structure
 		/// The observer for this component. If no observer is needed, this parameter may be null.
 		/// </param>
 		/// <returns>the builder for the component</returns>
-		public abstract Builder.ICompositeComponentBuilder CreateCompositeComponent(IIdentifier id,
+		public abstract Builder.ICompositeComponentBuilder CreateCompositeRootComponent(IIdentifier id,
 			Builder.ICompositeComponentObserver observer);
 
 		#endregion

@@ -19,7 +19,7 @@ namespace testapplication
 			ISimulationEnvironment env = new DefaultSimulationEnvironment();
 			env.RegisterDataPool(DefaultEnvironmentFactory.CreateDefaultDataPool(env));
 
-			TestArchitectures.FillCC((ICompositeComponentBuilder)env.ComponentArchitecture.CreateCompositeComponent(ID("CC"),null));
+			TestArchitectures.FillCC((ICompositeComponentBuilder)env.ComponentArchitecture.CreateCompositeRootComponent(ID("CC"),null));
 
 			IThreadStartingPoint sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));			
 			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL,new TestApp());

@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.6  2004/07/08 19:11:18  joemal
+	/// change method CreateCompositeComponent to CreateCompositeRootComponent
+	///
 	/// Revision 1.5  2004/07/05 11:16:02  joemal
 	/// - changes in the CM after code review
 	///
@@ -118,7 +121,7 @@ namespace ComponentNetworkSimulation.Structure
 		/// The observer for this component. If no observer is needed, this parameter may be null.
 		/// </param>
 		/// <returns>the builder for the component</returns>
-		public override ICompositeComponentBuilder CreateCompositeComponent(IIdentifier id,ICompositeComponentObserver observer)
+		public override ICompositeComponentBuilder CreateCompositeRootComponent(IIdentifier id,ICompositeComponentObserver observer)
 		{
 			ICompositeComponent component = this.ElementFactory.CreateCompositeComponent(id);
 			this.rootComponent = component;
