@@ -22,7 +22,7 @@ namespace RequestProssor
 		SimpleLogger logger;
 		ErrorHandler errorHandler;
 		//for monitoring
-		Monitor testMoni;
+		public Monitor testMoni;
 		WebServerMonitor realMonitor;
 		
 

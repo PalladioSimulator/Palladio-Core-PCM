@@ -3,7 +3,7 @@ using Request;
 
 namespace RequestProssor.MonitorWebServer
 {
-	public delegate void RequestServedHandler (Monitor sender, RequestServedEventArgs e);
+	public delegate void RequestServedHandler(Monitor sender, RequestServedEventArgs e);
 	public delegate void ServerShutdown(Monitor monitor);
 	/// <summary>
 	/// Zusammenfassung für Monitor.

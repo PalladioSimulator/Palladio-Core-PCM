@@ -338,6 +338,7 @@ namespace RequestParser
 		{
 			System.Timers.Timer t = new System.Timers.Timer();
 			t.Elapsed += new System.Timers.ElapsedEventHandler(ReactOnTimeElapsed);
+			//t.Elapsed += new System.Timers.ElapsedEventHandler(
 			t.Interval = 2000;
 			t.AutoReset = false;
 			t.Start();
