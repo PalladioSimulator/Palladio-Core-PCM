@@ -1,38 +1,49 @@
 using System;
+using System.Collections;
 
 namespace ComponentModel {
 	/// <summary>
 	/// </summary>
 	public class Binding : IConnection {
 
-		public ProvidesInterface ProvIFace { get; }
-		public RequiresInterface ReqIFace { get; }
+		private ProvidesInterface provIFace;
+		private IComponent provComp;
 
-		public IComponent ProvComp { get; }
-		public IComponent ReqComp { get; }
+		private RequiresInterface reqIFace;
+		private IComponent reqComp;
+
+		public ProvidesInterface ProvIFace { 
+			get { return provIFace; }
+		}
+
+		public RequiresInterface ReqIFace { 
+			get { return reqIFace; }
+		}
+
+		public IComponent ProvComp { 
+			get { return provComp; }
+		}
+
+		public IComponent ReqComp { 
+			get { return reqComp; }
+		}
 
 		public Binding ( IComponent aProvComp, ProvidesInterface aProvIFace, 
 			IComponent anOuterComponent, RequiresInterface aReqIFace ) {
 		}
 
-		#region IConnection Member
-
 		public bool CheckInteroperability() {
-			// TODO:  Implementierung von Binding.CheckInteroperability hinzufügen
 			return false;
 		}
 
-		bool ComponentModel.IConnection.CheckInteroperability(out IList anErrorList) {
-			// TODO:  Implementierung von Binding.ComponentModel.IConnection.CheckInteroperability hinzufügen
+		public bool CheckInteroperability(out IList anErrorList) {
 			anErrorList = null;
 			return false;
 		}
 
 		public IInterfaceModel GetIntersection() {
-			// TODO:  Implementierung von Binding.GetIntersection hinzufügen
 			return null;
 		}
 
-		#endregion
 	}
 }

@@ -4,11 +4,18 @@ using System.Reflection;
 namespace ComponentModel {
 	/// <summary>
 	/// </summary>
-	public class Service : MethodInfo {
+	public class Service {
+
+		private IInterfaceModel serviceEffectSpec;
 		
-		public IInterfaceModel ServiceEffectSpec { get; }
-		
-		public Service(){
+		private MethodInfo methodInfo;
+
+		public IInterfaceModel ServiceEffectSpec { 
+			get { return serviceEffectSpec; }
 		}
+		
+		public Service( MethodInfo aMethodInfo ){
+		}
+
 	}
 }

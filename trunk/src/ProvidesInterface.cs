@@ -4,7 +4,8 @@ using System.Collections;
 namespace ComponentModel {
 	/// <summary>
 	/// </summary>
-	public class ProvidesInterface : IInterfaceModel {
+	public class ProvidesInterface : AbstractIM {
+
 		// Delegate
 		private IInterfaceModel providesIM;
 		
@@ -13,15 +14,6 @@ namespace ComponentModel {
 
 		public ProvidesInterface() {
 		}
-
-		public RequiresInterface GetRequiresInterface();
-
-		// Adapt provides interface to the supply of the environment.
-		// Which services can be supported.
-
-		// define rules for adaptation ??
-		public ProvidesInterface GetAdaptedProvInt( IList anEnvProvIntList );
-
 
 		public override IList GetInterOperabilityErrors(IList anIModelList) {
 			return null;

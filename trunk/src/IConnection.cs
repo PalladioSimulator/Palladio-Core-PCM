@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 
 namespace ComponentModel {
 	public interface IConnection {

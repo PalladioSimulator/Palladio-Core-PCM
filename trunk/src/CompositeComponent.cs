@@ -1,15 +1,25 @@
 using System;
+using System.Collections;
 
 namespace ComponentModel {
 	/// <summary>
 	/// </summary>
-	public class CompositeComponent : IComponent
-	{
-		public IList ComponentList { get; }
+	public class CompositeComponent : IComponent {
+		private IList componentList;
+		private IList bindingList;
+		private IList mappingList;
 
-		public IList BindingList { get; }
+		public IList ComponentList { 
+			get { return componentList; }
+		}
 
-		public IList MappingList { get; }
+		public IList BindingList { 
+			get { return bindingList; }
+		}
+
+		public IList MappingList { 
+			get { return mappingList; }
+		}
 
 		public CompositeComponent() {
 		}

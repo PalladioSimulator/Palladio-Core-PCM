@@ -1,17 +1,44 @@
 using System;
+using System.Collections;
 
 namespace ComponentModel {
 	/// <summary>
 	/// </summary>
-	public class RequiresMapping {
-		public RequiresInterface InnerReqI { get; }
-		public RequiresInterface OuterReqI { get; }
+	public class RequiresMapping : AbstractConnection {
+		
+		private RequiresInterface	innerReqIFace;
+		private IComponent			innerComp;
 
-		public IComponent InnerComp { get; }
-		public IComponent OuterComp { get; }
+		private RequiresInterface	outerReqIFace;
+		private IComponent			outerComp;
 
-		public RequiresMapping ( IComponent anInnerComp, RequiresInterface anInnerReqI, 
-			IComponent anOuterComponent, RequiresInterface anOuterReqI) {
+		public RequiresInterface InnerReqIFace { 
+			get { return innerReqIFace; }
+		}
+
+		public IComponent InnerComp { 
+			get { return innerComp; }
+		}
+
+		public RequiresInterface OuterReqIFace { 
+			get { return outerReqIFace; }
+		}
+
+		public IComponent OuterComp { 
+			get { return outerComp; }
+		}
+
+		public RequiresMapping ( IComponent anInnerComp, RequiresInterface anInnerReqIFace, 
+			IComponent anOuterComponent, RequiresInterface anOuterReqIFace) {
+		}
+
+		public override bool CheckInteroperability(out IList anErrorList) {
+			anErrorList = null;
+			return false;
+		}
+
+		public override IInterfaceModel GetIntersection() {
+			return null;
 		}
 	}
 }

@@ -1,9 +1,9 @@
 using System;
 
 namespace ComponentModel {
-	enum ErrorLevelEnum { low, medium, high };
+	public enum ErrorLevelEnum { low, medium, high };
 
-	enum ErrorCodeEnum { xy_not_found, kaputt };
+	public enum ErrorCodeEnum { xy_not_found, kaputt };
 
 	/// <summary>
 	/// </summary>

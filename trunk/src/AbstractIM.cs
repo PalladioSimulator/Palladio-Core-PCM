@@ -15,18 +15,18 @@ namespace ComponentModel {
 
 		public bool SubTypeCheck(IList anIModelList) {
 			IList errorList;
-			return SubTypeCheck(anIModelList, errorList);
+			return SubTypeCheck(anIModelList, out errorList);
 		}
 
 		public bool SubTypeCheck(IInterfaceModel anIModel) {
 			IList errorList;
-			return SubTypeCheck(anIModel, errorList);
+			return SubTypeCheck(anIModel, out errorList);
 		}
 
 		public bool SubTypeCheck(IInterfaceModel anIModel, out IList anErrorList) {
 			IList iModelList = new ArrayList();
 			iModelList.Add(anIModel);
-			return SubTypeCheck(iModelList, anErrorList);
+			return SubTypeCheck(iModelList, out anErrorList);
 		}
 
 		public IList GetInterOperabilityErrors(IInterfaceModel anIModel) {
