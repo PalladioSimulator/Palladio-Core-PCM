@@ -16,6 +16,10 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/05/24 13:19:57  sbecker
+	/// Added requires protocols
+	/// Added signature test
+	///
 	/// Revision 1.1  2004/05/24 12:44:30  sbecker
 	/// Added test cases for creating protocol interfaces
 	///
@@ -29,16 +33,18 @@ namespace Palladio.ComponentModel.UnitTests
 	{
 		IFSMProtocol protocol1 = null;
 		IFSMProtocol protocol2 = null;
+		IFSMProtocol protocol3 = null;
 
 		[SetUp] public void Init()
 		{
 			IEditableFiniteStateMachine editFSM1, editFSM2;
 
 			protocol1 = CreateProvidesInterface();
-			protocol2 = ComponentFactory.CreateFSMProtocolServiceEffect();
+			protocol2 = CreateServiceEffectD1();
+			protocol3 = CreateServiceEffectD2();
 		}
 
-		private IFSMProtocol CreateProvidesInterface()
+		public static IFSMProtocol CreateProvidesInterface()
 		{
 			IEditableFiniteStateMachine editFSM1;
 
@@ -59,6 +65,43 @@ namespace Palladio.ComponentModel.UnitTests
 			return result;
 		}
 
+		public static IFSMProtocol CreateServiceEffectD1()
+		{
+			IEditableFiniteStateMachine editFSM1;
+
+			IFSMProtocol result = ComponentFactory.CreateFSMProtocolServiceEffect();
+
+			editFSM1 = result.EditFSM;
+			StateHash states1 = FSMFactory.CreateStatesFromList("1","2"); 
+			ISignature[] signatures = ComponentFactory.CreateSignatureArray("Ext1","e1","e2");
+			editFSM1.AddStates(states1.StoredStates);
+			editFSM1.StartState = states1["1"];
+			editFSM1.FinalStates = new IState[] {states1["2"]};
+			editFSM1.AddInputSymbols(FSMFactory.CreateInputFromList(signatures).StoredInputs);
+			editFSM1.AddTransition("1",signatures[0],"2");
+			editFSM1.AddTransition("2",signatures[1],"1");
+			
+			return result;
+		}
+
+		public static IFSMProtocol CreateServiceEffectD2()
+		{
+			IEditableFiniteStateMachine editFSM1;
+
+			IFSMProtocol result = ComponentFactory.CreateFSMProtocolServiceEffect();
+
+			editFSM1 = result.EditFSM;
+			StateHash states1 = FSMFactory.CreateStatesFromList("1","2"); 
+			ISignature[] signatures = ComponentFactory.CreateSignatureArray("Ext1","e3");
+			editFSM1.AddStates(states1.StoredStates);
+			editFSM1.StartState = states1["1"];
+			editFSM1.FinalStates = new IState[] {states1["2"]};
+			editFSM1.AddInputSymbols(FSMFactory.CreateInputFromList(signatures).StoredInputs);
+			editFSM1.AddTransition("1",signatures[0],"2");
+			
+			return result;
+		}
+
 		[Test] public void ProtocolEquals()
 		{
 			Assert.AreEqual(CreateProvidesInterface(),protocol1);
@@ -70,6 +113,14 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.AreEqual(protocol1,clone);
 			clone.EditFSM.AddStates(FSMFactory.CreateDefaultState("3"));
 			Assert.IsFalse(protocol1.Equals(clone));
+		}
+
+		[Test] public void AddSignature()
+		{
+			ISignature sig = ComponentFactory.CreateSignatureArray("ProvIF","a")[0];
+			protocol1.AddSignatures(sig);
+			Assert.IsTrue(protocol1.ContainsSignature(sig));
+
 		}
 	}
 }
