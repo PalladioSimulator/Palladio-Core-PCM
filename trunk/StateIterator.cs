@@ -129,6 +129,11 @@ namespace FSM
 						return false;
 				}
 				//Now a State is found, witch jet has not been returning
+				if(this.states.Peek().Equals(new State("ErrorState",false,false)))
+				{
+					states.Pop();
+					this.MoveNext();
+				}
 				this.returnState = (State) this.states.Peek();
 				this.currentTransition = (Transition) this.transitions.Peek();
 				this.alreadyReturned.Add((State) this.states.Peek());

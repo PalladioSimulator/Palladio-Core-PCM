@@ -65,5 +65,18 @@ namespace FSM
 			return this.finalState;
 		}
 
+		public bool  Equals(State state)
+		{
+			if(this.name == state.name)
+			{
+				if(this.getStart() == state.getStart())
+					if(this.getFinal() == state.getFinal())
+						return true;
+			}
+					
+		return false;
+		}
+
+
 	}
 }

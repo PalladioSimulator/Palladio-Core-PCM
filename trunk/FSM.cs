@@ -12,10 +12,11 @@ namespace FSM
 		protected Hashtable transitions;
 		protected State StartState;
 		protected Set FinalSates;
+		protected State ErrorState;
 
 
 		/// <summary>
-		/// Initates a FSM
+		/// Creates a FSM
 		/// ---RR: omit obvious comments. "creates and initalises" is preferrable over "Initates" a FSM.
 		/// </summary>
 		public FSM()
@@ -23,6 +24,7 @@ namespace FSM
 			this.inputAl = new Set();
 			this.transitions = new Hashtable();
 			this.FinalSates = new Set();
+			this.ErrorState = new State("ErrosrState",false,false);
 
 		}
 		/// <summary>
@@ -175,8 +177,10 @@ namespace FSM
 					if(t.input == input)
 						return new State(t.toState);
 				}
-				Console.WriteLine("fehler!!");
-				throw new ProgrammingErrorException();
+			//return new State("ErrorState",false,false);
+			//ErrorStates must be extra declarated this.setErrotStates();
+			throw new ProgrammingErrorException();
+
 			
 		}
 		/// <summary>
@@ -231,7 +235,7 @@ namespace FSM
 			Hashtable tmp = new Hashtable();
 			Object help = this.transitions[state];
 			if(help == null)
-				//before a Exception was thrown here, but I changed this, because fir further implemetation
+				//before a Exception was thrown here, but I changed this, because for further implemetation
 				//it'S better to have a null, instad of catch a Exception.
 				return null;
 			if(help is Set)
@@ -328,8 +332,6 @@ namespace FSM
 				tmp.Add(tr);
 				this.transitions.Add(tr.fromState, tmp);
 				this.inputAl.Add(tr.input);
-				//Console.WriteLine(tr.ToString()+" hinzugefügt in die Trasnsitionen");
-				//Console.WriteLine(tr.input.ToString() +" added to inputAll");
 			}
 			else
 			{
@@ -352,6 +354,32 @@ namespace FSM
 		{	
 			foreach (Transition t in tr)
 				this.setTransition(t);
+		}
+		public void setErrorStates()
+		{
+			StateIterator stateIter = new StateIterator(this);
+			State actual = new State();
+			State next;
+			IEnumerator myInputIter;
+			while(stateIter.MoveNext())
+			{
+				actual = (State) stateIter.Current;
+				myInputIter = this.getInputAl().GetEnumerator();
+				while(myInputIter.MoveNext())
+				{
+					try
+					{
+						next = this.getNextState(actual,(Input)myInputIter.Current);
+					}
+					catch
+					{
+						this.setTransition(actual,(Input)myInputIter.Current,this.ErrorState);
+					}
+				}
+			}
+		
+				
+				
 		}
 	}
 

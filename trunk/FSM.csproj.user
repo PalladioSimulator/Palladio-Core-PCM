@@ -1,5 +1,5 @@
 <VisualStudioProject>
-    <CSHARP>
+    <CSHARP LastOpenVersion = "7.10.3077" >
         <Build>
             <Settings ReferencePath = "" >
                 <Config
@@ -40,7 +40,7 @@
             CopyProjectDestinationFolder = ""
             CopyProjectUncPath = ""
             CopyProjectOption = "0"
-            ProjectView = "ProjectFiles"
+            ProjectView = "ShowAllFiles"
             ProjectTrust = "0"
         />
     </CSHARP>
