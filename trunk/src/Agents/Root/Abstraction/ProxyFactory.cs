@@ -225,5 +225,28 @@ namespace Palladio.Editor.Core.Agents.Root.Abstraction
 		{
 			return new ParameterProxy(param);
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="binding"></param>
+		/// <param name="connCmdHandler"></param>
+		/// <returns></returns>
+		public static BindingProxy CreateBindingProxy(IBinding binding, CommandHandler connCmdHandler)
+		{
+			return new BindingProxy(binding, connCmdHandler);
+		}
+
+		public static ProvidesMappingProxy CreateProvidesMappingProxy(IMapping mapping, CommandHandler connCmdHandler)
+		{
+			return new ProvidesMappingProxy(mapping, connCmdHandler);
+		}
+
+		public static RequiresMappingProxy CreateRequiresMappingProxy(IMapping mapping, CommandHandler connCmdHandler)
+		{
+			return new RequiresMappingProxy(mapping, connCmdHandler);
+		}
+
+	
 	}
 }

@@ -143,6 +143,11 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 		#endregion
 
 		#region Presentation Event Handler
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void presentation_ActivatePluginRequested(object sender, System.EventArgs e)
 		{
 			int selectedIndex = this._presentation.GetSelectedPluginListIndex();
@@ -161,6 +166,11 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void presentation_DeactivatePluginRequested(object sender, System.EventArgs e)
 		{
 			int index = this._presentation.GetSelectedPluginListIndex();
@@ -172,6 +182,11 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 			System.GC.Collect();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="assemblyInfo"></param>
 		private void presentation_AddPluginRequested(object sender, System.IO.FileInfo assemblyInfo)
 		{
 			// create and define setup information for a new domain
@@ -185,7 +200,7 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 			{
 				// instantiate a RemoteLoader in the new application domain
 				RemoteLoader remoteLoader = pluginDomain.CreateInstanceFromAndUnwrap(
-					AppDomain.CurrentDomain.BaseDirectory+"\\Palladio.Editor.exe",
+					AppDomain.CurrentDomain.BaseDirectory+"\\Palladio.Editor.Core.exe",
 					typeof(RemoteLoader).ToString()) 
 					as RemoteLoader;
 
@@ -205,6 +220,11 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 		#endregion
 
 		#region Abstraction Event Handler
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="source"></param>
+		/// <param name="e"></param>
 		private void abstraction_DataChanged(object source, System.EventArgs e)
 		{
 			this._presentation.UpdatePluginList( this._abstraction.GetPluginInfos() );
@@ -212,12 +232,23 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 		#endregion
 
 		#region Parent Agent Event Handler
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="source"></param>
+		/// <param name="newModel"></param>
 		private void parent_ComponentModelChanged(object source, CompositeComponentProxy newModel)
 		{
 			if (this.ComponentModelChanged != null)
 				this.ComponentModelChanged(this, newModel);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="source"></param>
+		/// <param name="entity"></param>
+		/// <param name="e"></param>
 		private void parent_EntityChanged(object source, EntityProxy entity, Palladio.Editor.Common.EntityProxies.EventArgs e)
 		{
 			if (this.EntityChanged != null)
@@ -226,6 +257,11 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 		#endregion
 
 		#region Child Agents Event Handler
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="source"></param>
+		/// <param name="entity"></param>
 		private void viewCoordinator_SelectionChanged(object source, EntityProxy entity)
 		{
 			if (this.SelectionChanged != null)
@@ -234,6 +270,10 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 		#endregion
 
 		#region Public Methods
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="info"></param>
 		public void ActivatePlugin(PluginInfo info)
 		{
 			if (info.PluginType == PluginType.VIEW)

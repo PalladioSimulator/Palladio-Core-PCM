@@ -58,7 +58,15 @@ namespace Palladio.Editor.Core.Agents.Root
 		/// events fired by a <see cref="Palladio.Editor.Common.EntityProxies.InterfaceProxy"/></summary>
 		private CommandHandler _interfaceCmdHandler;
 
+		/// <summary>
+		/// Handler for <see cref="Palladio.Editor.Common.EntityProxies.EntityProxy.CommandIssued"/> 
+		/// events fired by a <see cref="Palladio.Editor.Common.EntityProxies.SignatureProxy"/></summary>
 		private CommandHandler _signatureCmdHandler;
+
+		/// <summary>
+		/// Handler for <see cref="Palladio.Editor.Common.EntityProxies.EntityProxy.CommandIssued"/> 
+		/// events fired by a connections</summary>
+		private CommandHandler _connectionCmdHandler;
 
 		/// <summary>
 		/// Holds an instance of the proxy for the active component model</summary>
@@ -98,6 +106,7 @@ namespace Palladio.Editor.Core.Agents.Root
 			this._roleCmdHandler = new CommandHandler(roleCommandIssued);
 			this._interfaceCmdHandler = new CommandHandler(interfaceCommandIssued);
 			this._signatureCmdHandler = new CommandHandler(signatureCommandIssued);
+			this._connectionCmdHandler = new CommandHandler(connectionCommandIssued);
 
 			this._undoCmdStack = new CommandStack();
 			this._redoCmdStack = new CommandStack();
@@ -341,53 +350,99 @@ namespace Palladio.Editor.Core.Agents.Root
 		}
 		#endregion
 
-		#region EntityChanged EventHandler
+		#region CommandIssued EventHandler
 		private void componentCommandIssued(object source, ICommand command)
 		{
 			if ( ExecuteCommand( command ) )
 			{
 				// provides interface added
-				if (command.EventArgs.Reason == EntityChangeReason.PROVIDESINTERFACE_ADDED)
+				switch(command.EventArgs.Reason)
 				{
-					IRole role = ((IComponent)command.Receiver).GetProvidesRoleByInterfaceID(command.EventArgs.AssociatedID);
-					if (role != null)
-					{
-						RoleProxy roleProxy = Abstraction.ProxyFactory.CreateRoleProxy(role, source as ComponentProxy, this._roleCmdHandler, this._interfaceCmdHandler, this._signatureCmdHandler);
-						((ComponentProxy)source).ProvidedRoles.Add(roleProxy);
-					}
-				}
-				// requires interface added
-				else if (command.EventArgs.Reason == EntityChangeReason.REQUIRESINTERFACE_ADDED)
-				{
-					IRole role = ((IComponent)command.Receiver).GetRequiresRoleByInterfaceID(command.EventArgs.AssociatedID);
-					if (role != null)
-					{
-						RoleProxy roleProxy = Abstraction.ProxyFactory.CreateRoleProxy(role, source as ComponentProxy, this._roleCmdHandler, this._interfaceCmdHandler, this._signatureCmdHandler);
-						((ComponentProxy)source).RequiredRoles.Add(roleProxy);
-					}
-				}
-				else if (command.EventArgs.Reason == EntityChangeReason.COMPONENT_ADDED)
-				{
-					ComponentProxy newComp = null;
-					FirstClassEntity newEntity = ModelPersistencyService.Instance.GetEntity(command.EventArgs.AssociatedID);
-					if (newEntity is IBasicComponent)
-					{
-						newComp = Abstraction.ProxyFactory.CreateBasicComponentProxy(newEntity as IBasicComponent, 
-							this._componentCmdHandler,
-							this._roleCmdHandler,
-							this._interfaceCmdHandler,
-							this._signatureCmdHandler );
-						((CompositeComponentProxy)source).BasicComponents.Add(newComp as BasicComponentProxy);
-					}
-					else if (newEntity is ICompositeComponent)
-					{
-						newComp = Abstraction.ProxyFactory.CreateCompositeComponentProxy(newEntity as ICompositeComponent,
-							this._componentCmdHandler,
-							this._roleCmdHandler,
-							this._interfaceCmdHandler,
-							this._signatureCmdHandler );
-						((CompositeComponentProxy)source).CompositeComponents.Add(newComp as CompositeComponentProxy);
-					}
+					case EntityChangeReason.PROVIDESINTERFACE_ADDED:
+						IRole role = ((IComponent)command.Receiver).GetProvidesRoleByInterfaceID(command.EventArgs.AssociatedID);
+						if (role != null)
+						{
+							RoleProxy roleProxy = Abstraction.ProxyFactory.CreateRoleProxy(role, source as ComponentProxy, this._roleCmdHandler, this._interfaceCmdHandler, this._signatureCmdHandler);
+							((ComponentProxy)source).ProvidedRoles.Add(roleProxy);
+						}
+						break;
+
+					case EntityChangeReason.REQUIRESINTERFACE_ADDED:
+						role = ((IComponent)command.Receiver).GetRequiresRoleByInterfaceID(command.EventArgs.AssociatedID);
+						if (role != null)
+						{
+							RoleProxy roleProxy = Abstraction.ProxyFactory.CreateRoleProxy(role, source as ComponentProxy, this._roleCmdHandler, this._interfaceCmdHandler, this._signatureCmdHandler);
+							((ComponentProxy)source).RequiredRoles.Add(roleProxy);
+						}
+						break;
+
+					case EntityChangeReason.COMPONENT_ADDED:
+						FirstClassEntity newEntity = ModelPersistencyService.Instance.GetEntity(command.EventArgs.AssociatedID);
+						if (newEntity is IBasicComponent)
+						{
+							BasicComponentProxy newComp = Abstraction.ProxyFactory.CreateBasicComponentProxy(
+								newEntity as IBasicComponent, 
+								this._componentCmdHandler,
+								this._roleCmdHandler,
+								this._interfaceCmdHandler,
+								this._signatureCmdHandler );
+							((CompositeComponentProxy)source).BasicComponents.Add(newComp);
+						}
+						else if (newEntity is ICompositeComponent)
+						{
+							CompositeComponentProxy newComp = Abstraction.ProxyFactory.CreateCompositeComponentProxy(
+								newEntity as ICompositeComponent,
+								this._componentCmdHandler,
+								this._roleCmdHandler,
+								this._interfaceCmdHandler,
+								this._signatureCmdHandler );
+							((CompositeComponentProxy)source).CompositeComponents.Add(newComp);
+						}
+						break;
+
+					case EntityChangeReason.COMPONENT_REMOVED:
+						ComponentProxy deleted = ((CompositeComponentProxy)source).GetComponentByID(command.EventArgs.AssociatedID);
+						if (deleted is CompositeComponentProxy)
+							((CompositeComponentProxy)source).CompositeComponents.Remove(deleted as CompositeComponentProxy);
+						else if (deleted is BasicComponentProxy)
+							((CompositeComponentProxy)source).BasicComponents.Remove(deleted as BasicComponentProxy);
+						break;
+
+					case EntityChangeReason.BINDING_ADDED:
+						foreach (IBinding binding in ((ICompositeComponent)command.Receiver).Bindings)
+						{
+							if (binding.ID.Equals(command.EventArgs.AssociatedID))
+							{
+								BindingProxy newBinding = Abstraction.ProxyFactory.CreateBindingProxy(binding, this._connectionCmdHandler);
+								((CompositeComponentProxy)source).Bindings.Add(newBinding);
+								break;
+							}
+						}
+						break;
+
+					case EntityChangeReason.PROVIDESMAPPING_ADDED:
+						foreach (IMapping mapping in ((ICompositeComponent)command.Receiver).ProvidesMappings)
+						{
+							if (mapping.ID.Equals(command.EventArgs.AssociatedID))
+							{
+								ProvidesMappingProxy newMapping = Abstraction.ProxyFactory.CreateProvidesMappingProxy(mapping, this._connectionCmdHandler);
+								((CompositeComponentProxy)source).ProvidesMappings.Add(newMapping);
+								break;
+							}
+						}
+						break;
+
+					case EntityChangeReason.REQUIRESMAPPING_ADDED:
+						foreach (IMapping mapping in ((ICompositeComponent)command.Receiver).RequiresMappings)
+						{
+							if (mapping.ID.Equals(command.EventArgs.AssociatedID))
+							{
+								RequiresMappingProxy newMapping = Abstraction.ProxyFactory.CreateRequiresMappingProxy(mapping, this._connectionCmdHandler);
+								((CompositeComponentProxy)source).RequiresMappings.Add(newMapping);
+								break;
+							}
+						}
+						break;
 				}
 
 				this.EntityChanged(this, source as ComponentProxy, command.EventArgs);
@@ -402,9 +457,10 @@ namespace Palladio.Editor.Core.Agents.Root
 		/// <param name="command"></param>
 		private void roleCommandIssued(object source, ICommand command)
 		{
-//			Palladio.Editor.Common.EntityProxies.EventArgs evtArgs = new Palladio.Editor.Common.EntityProxies.EventArgs(
-//				EntityChangeReason.ROLEPROPERTY_CHANGED, ((RoleProxy)proxy).ID);
-//			this.EntityChanged(this, ((RoleProxy)proxy).Component, evtArgs);
+			if ( ExecuteCommand( command ) )
+			{
+				this.EntityChanged(this, source as RoleProxy, command.EventArgs);
+			}
 		}
 
 		/// <summary>
@@ -413,9 +469,16 @@ namespace Palladio.Editor.Core.Agents.Root
 		/// </summary>
 		private void interfaceCommandIssued(object source, ICommand command)
 		{
-			if ( ExecuteCommand( command) )
+			if ( ExecuteCommand( command ) )
 			{
-				Console.WriteLine("ok4");
+
+//				InterfaceProxy proxy = Abstraction.ProxyFactory.CreateInterfaceProxy(
+//					command.Receiver as IInterfaceModel,
+//					this._interfaceCmdHandler,
+//					this._signatureCmdHandler );
+//
+//				this.EntityChanged(this, proxy, command.EventArgs);
+
 				if (command.EventArgs.Reason == EntityChangeReason.SIGNATURE_ADDED)
 				{
 					ISignature sig = ((IInterfaceModel)command.Receiver).SignatureList.GetSignaturesByID(command.EventArgs.AssociatedID)[0];
@@ -433,9 +496,8 @@ namespace Palladio.Editor.Core.Agents.Root
 
 		private void signatureCommandIssued(object source, ICommand command)
 		{
-			if ( ExecuteCommand( command) )
+			if ( ExecuteCommand( command ) )
 			{
-				Console.WriteLine("ok5");
 				this._presentation.SelectedObject = ((SignatureProxy)source).Interface.GetSignatureByID(((ISignature)command.Receiver).ID);
 				this.EntityChanged(
 					this, 
@@ -445,6 +507,11 @@ namespace Palladio.Editor.Core.Agents.Root
 						((ISignature)command.Receiver).ID
 					) );
 			}
+		}
+
+		private void connectionCommandIssued(object source, ICommand command)
+		{
+
 		}
 
 		private bool ExecuteCommand(ICommand command)
