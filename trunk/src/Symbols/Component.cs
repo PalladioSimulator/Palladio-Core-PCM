@@ -18,6 +18,26 @@ namespace Palladio.Editor.Plugins.StaticView.Symbols
 			this.requiresRoles = new Hashtable();
 		}
 
+		public PalladioSymbol[] ProvidesRoles
+		{
+			get
+			{
+				PalladioSymbol[] result = new PalladioSymbol[this.providesRoles.Count];
+				this.providesRoles.Values.CopyTo(result, 0);
+				return result;
+			}
+		}
+
+		public PalladioSymbol[] RequiresRoles
+		{
+			get
+			{
+				PalladioSymbol[] result = new PalladioSymbol[this.requiresRoles.Count];
+				this.requiresRoles.Values.CopyTo(result, 0);
+				return result;
+			}
+		}
+
 		public void RegisterProvidesRole(IIdentifier id, PalladioSymbol symbol)
 		{
 			this.providesRoles.Add(id, symbol);

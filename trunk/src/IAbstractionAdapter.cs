@@ -9,12 +9,11 @@ namespace Palladio.Editor.Plugins.StaticView
 	/// </summary>
 	public interface IAbstractionAdapter
 	{
-
 		void ClearRegistry();
 
 		void RegisterSymbol(System.Guid guid, EntityProxy proxy, float x, float y);
 
-		System.Guid GetModelID();
+		System.Guid ModelID {get; set;}
 
 		System.Guid[] GetSymbolIDsByEntityID(IIdentifier id);
 

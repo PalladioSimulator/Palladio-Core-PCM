@@ -42,6 +42,7 @@ namespace Palladio.Editor.Plugins.StaticView
 		private Port targetPort = null;
 		private Connection intermediateConnection = null;
 		private Symbols.Link _userGeneratedLink = null;
+		private Symbols.Component _userDraggedComponent = null;
 
 		public event SelectionChangedHandler SelectionChanged;
 
@@ -73,17 +74,13 @@ namespace Palladio.Editor.Plugins.StaticView
 		public void Initialize(CompositeComponentProxy model)
 		{
 			this.diagram.ChildrenChanging -= this.diagram_ChildrenChangingHandler;
-			this._abstraction.ClearRegistry();
 			this.diagram.Model.Clear();
-			SymbolModel symModel = this.publicPaletteView.Palette.GetChildByName("Composite Component") as SymbolModel;
-			Symbols.CompositeComponent modelSymbol = symModel.CreateSymbol() as Symbols.CompositeComponent;
-			modelSymbol.Name = this._abstraction.GetModelID().ToString();
-			modelSymbol.Tag = model;
-			modelSymbol.Labels["Name"].Text = model.Name;
+			Symbols.Component modelSymbol = this.AddComponent(model);
+			this._abstraction.ModelID = new Guid(modelSymbol.Name);
 			modelSymbol.Translate(240,120);
 			modelSymbol.Scale(3f,3f);
-			this._abstraction.RegisterSymbol(this._abstraction.GetModelID(), model, modelSymbol.X, modelSymbol.Y);
-			this.diagram.Model.InsertChild(modelSymbol,0);
+			this._abstraction.RegisterSymbol(this._abstraction.ModelID, model, modelSymbol.X, modelSymbol.Y);
+			modelSymbol.UpdateRoles();
 			this.diagram.Controller.SelectionList.Clear();
 			this.diagram.Model.UpdateViews();
 			this.diagram.ChildrenChanging += this.diagram_ChildrenChangingHandler;
@@ -375,13 +372,13 @@ namespace Palladio.Editor.Plugins.StaticView
 			foreach (System.Guid guid in this._abstraction.GetSymbolIDsByEntityID(entity.ID))
 			{
 				INode node = this.diagram.Model.GetChildByName(guid.ToString());
-				if (node is Symbols.Component)
+				if (node is Symbols.PalladioSymbol)
 				{
-					if (entity is ComponentProxy)
-					{
-						((Symbols.Component)node).Labels["Name"].Text = ((ComponentProxy)entity).Name;
-					}
-					((Symbols.Component)node).Tag = entity;
+					if (node is Symbols.Component)
+						if (entity is ComponentProxy)
+							((Symbols.Component)node).Labels["Name"].Text = ((ComponentProxy)entity).Name;
+
+					((Symbols.PalladioSymbol)node).Tag = entity;
 				}
 			}
 
@@ -389,6 +386,129 @@ namespace Palladio.Editor.Plugins.StaticView
 			this.diagram.ChildrenChanging += this.diagram_ChildrenChangingHandler;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="comp"></param>
+		/// <returns></returns>
+		private Symbols.Component AddComponent(ComponentProxy comp)
+		{
+			Symbols.Component symbol = null;
+			if (this._userDraggedComponent == null)
+			{
+				SymbolModel symModel = null;
+				if (comp is CompositeComponentProxy)
+					symModel = this.publicPaletteView.Palette.GetChildByName("Composite Component") as SymbolModel;
+				else 
+					symModel = this.publicPaletteView.Palette.GetChildByName("Basic Component") as SymbolModel;
+
+				symbol = symModel.CreateSymbol() as Symbols.Component;
+			}
+			else
+				symbol = this._userDraggedComponent;
+
+			System.Guid newGuid = System.Guid.NewGuid();
+			symbol.Name = newGuid.ToString();
+			symbol.Tag = comp;
+			symbol.Labels["Name"].Text = comp.Name;
+
+			this._abstraction.RegisterSymbol(newGuid, comp, symbol.X, symbol.Y);
+
+			this.diagram.Model.AppendChild(symbol);
+
+			if (comp is CompositeComponentProxy)
+			{
+				foreach(ComponentProxy subcomp in ((CompositeComponentProxy)comp).Components)
+				{
+					Symbols.Component compSymbol = this.AddComponent(subcomp);
+					compSymbol.ParentSymbol = symbol;
+					((Symbols.CompositeComponent)symbol).RegisterComponent(subcomp.ID, compSymbol);
+					compSymbol.X = symbol.X + 10;
+					compSymbol.Y = symbol.Y + 10;
+				}
+			}
+
+			foreach(RoleProxy role in comp.ProvidedRoles)
+			{
+				Symbols.ProvidesRole rolesymbol = this.CreateProvidesRoleSymbol();
+
+				System.Guid roleGuid = System.Guid.NewGuid();
+				rolesymbol.Name = newGuid.ToString();
+				rolesymbol.Tag = role;
+
+				rolesymbol.ParentSymbol = symbol;
+				symbol.RegisterProvidesRole(role.ID, rolesymbol);
+				this._abstraction.RegisterSymbol(roleGuid, role, 0, 0);
+
+				this.diagram.Model.AppendChild(rolesymbol);
+
+				// add interface symbol
+				SymbolModel ifaceSymModel = this.privatePaletteView.Palette.GetChildByName("Provides Interface") as SymbolModel;
+				Symbols.ProvidesInterface ifaceSymbol = ifaceSymModel.CreateSymbol() as Symbols.ProvidesInterface;
+
+				InterfaceProxy ifaceProxy = role.Interface;
+
+				System.Guid ifaceGuid = System.Guid.NewGuid();
+				//ifaceSymbol.Name = role.ID.ToString()+":"+ifaceProxy.ID.ToString();
+				ifaceSymbol.Name = ifaceGuid.ToString();
+				ifaceSymbol.Tag = ifaceProxy;
+				ifaceSymbol.EditStyle.AllowMove = false;
+				ifaceSymbol.EditStyle.AllowResize = false;
+				ifaceSymbol.FillStyle.Color = System.Drawing.Color.LightGray;
+
+				ifaceSymbol.ParentSymbol = symbol as Symbols.Component;
+				this._abstraction.RegisterSymbol(ifaceGuid, ifaceProxy, 0, 0);
+
+				rolesymbol.InterfaceSymbol = ifaceSymbol;
+
+				this.diagram.Model.AppendChild(ifaceSymbol);
+			}
+
+			foreach(RoleProxy role in comp.RequiredRoles)
+			{
+				Symbols.RequiresRole rolesymbol = this.CreateRequiresRoleSymbol();
+
+				System.Guid roleGuid = System.Guid.NewGuid();
+				rolesymbol.Name = newGuid.ToString();
+				rolesymbol.Tag = role;
+
+				rolesymbol.ParentSymbol = symbol;
+				symbol.RegisterRequiresRole(role.ID, rolesymbol);
+				this._abstraction.RegisterSymbol(roleGuid, role, 0, 0);
+
+				this.diagram.Model.AppendChild(rolesymbol);
+
+				// add interface symbol
+				SymbolModel ifaceSymModel = this.privatePaletteView.Palette.GetChildByName("Requires Interface") as SymbolModel;
+				Symbols.RequiresInterface ifaceSymbol = ifaceSymModel.CreateSymbol() as Symbols.RequiresInterface;
+
+				InterfaceProxy ifaceProxy = role.Interface;
+
+				System.Guid ifaceGuid = System.Guid.NewGuid();
+				//ifaceSymbol.Name = role.ID.ToString()+":"+ifaceProxy.ID.ToString();
+				ifaceSymbol.Name = ifaceGuid.ToString();
+				ifaceSymbol.Tag = ifaceProxy;
+				ifaceSymbol.EditStyle.AllowMove = false;
+				ifaceSymbol.EditStyle.AllowResize = false;
+				ifaceSymbol.FillStyle.Color = System.Drawing.Color.LightGray;
+
+				ifaceSymbol.ParentSymbol = symbol as Symbols.Component;
+				this._abstraction.RegisterSymbol(ifaceGuid, ifaceProxy, 0, 0);
+
+				rolesymbol.InterfaceSymbol = ifaceSymbol;
+
+				this.diagram.Model.AppendChild(ifaceSymbol);
+			}
+			this.diagram.Controller.SelectionList.Clear();
+			this.diagram.Controller.SelectionList.Add(symbol);
+			return symbol;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="target"></param>
+		/// <param name="compID"></param>
 		public void AddComponent(CompositeComponentProxy target, IIdentifier compID)
 		{
 			this.diagram.ChildrenChanging -= this.diagram_ChildrenChangingHandler;
@@ -399,48 +519,26 @@ namespace Palladio.Editor.Plugins.StaticView
 				if (node is Symbols.CompositeComponent)
 				{
 					Symbols.CompositeComponent parentSymbol = node as Symbols.CompositeComponent;
-					parentSymbol.Tag = target;
-					Symbols.PalladioSymbol pending = parentSymbol.GetComponent(IdentifiableFactory.CreateStringID("pending"));
-					if (pending != null)
+					foreach (ComponentProxy subcomp in target.Components)
 					{
-						parentSymbol.RegisterComponent(compID, pending);
-						this._abstraction.RegisterSymbol(new System.Guid(pending.Name), target.GetComponentByID(compID), pending.X, pending.Y);
-						parentSymbol.UnregisterComponent(IdentifiableFactory.CreateStringID("pending"));
-						parentSymbol.UpdateComponents();
-					}
-					else
-					{
-						foreach (ComponentProxy subcomp in target.Components)
+						if (subcomp.ID.Equals(compID))
 						{
-							if (subcomp.ID.Equals(compID))
+							Symbols.Component symbol = this.AddComponent(subcomp);
+							if (this._userDraggedComponent == null)
 							{
-								SymbolModel symModel = null;
-								if (subcomp is CompositeComponentProxy)
-									symModel = this.publicPaletteView.Palette.GetChildByName("Composite Component") as SymbolModel;
-								else 
-									symModel = this.publicPaletteView.Palette.GetChildByName("Basic Component") as SymbolModel;
-
-								Symbols.Component symbol = symModel.CreateSymbol() as Symbols.Component;
-							
-								System.Guid newGuid = System.Guid.NewGuid();
-
-								symbol.Name = newGuid.ToString();
-								symbol.Tag = subcomp;
-								symbol.Labels["Name"].Text = subcomp.Name;
-
 								symbol.ParentSymbol = parentSymbol;
 								symbol.Translate(parentSymbol.X+10,parentSymbol.Y+10);
-
-								parentSymbol.RegisterComponent(compID, symbol);
-							
-								this._abstraction.RegisterSymbol(newGuid, subcomp, symbol.X, symbol.Y);
-								this.diagram.Model.AppendChild(symbol);
-								break;
 							}
+							parentSymbol.RegisterComponent(subcomp.ID, symbol);
+							symbol.UpdateRoles();
+							parentSymbol.UpdateComponents();
+							break;
 						}
 					}
 				}
 			}
+			this._userDraggedComponent = null;
+
 			this.diagram.Model.UpdateViews();
 			this.diagram.ChildrenChanging += this.diagram_ChildrenChangingHandler;
 		}
@@ -493,23 +591,13 @@ namespace Palladio.Editor.Plugins.StaticView
 				if (node is Symbols.Component)
 				{
 					// add role symbol
-					SymbolModel symModel = this.privatePaletteView.Palette.GetChildByName("Provides Role") as SymbolModel;
-					Symbols.ProvidesRole symbol = symModel.CreateSymbol() as Symbols.ProvidesRole;
+					Symbols.ProvidesRole symbol = this.CreateProvidesRoleSymbol();
 
 					RoleProxy newRole = proxy.GetProvidesRoleByInterfaceID(ifaceID);
 
 					System.Guid newGuid = System.Guid.NewGuid();
-
 					symbol.Name = newGuid.ToString();
 					symbol.Tag = newRole;
-					symbol.EditStyle.AllowMove = false;
-					symbol.EditStyle.AllowResize = false;
-					symbol.Ports[0].Visible = false;
-					symbol.Ports[0].EditStyle.AllowSelect = false;
-					symbol.Ports[0].EditStyle.AllowMove = false;
-					symbol.Ports[1].Visible = false;
-					symbol.Ports[1].EditStyle.AllowSelect = false;
-					symbol.Ports[1].EditStyle.AllowMove = false;
 
 					symbol.ParentSymbol = node as Symbols.Component;
 					((Symbols.Component)node).RegisterProvidesRole(newRole.ID, symbol);
@@ -523,13 +611,16 @@ namespace Palladio.Editor.Plugins.StaticView
 
 					InterfaceProxy ifaceProxy = newRole.Interface;
 
-					ifaceSymbol.Name = newRole.ID.ToString()+":"+ifaceProxy.ID.ToString();
+					System.Guid ifaceGuid = System.Guid.NewGuid();
+					//ifaceSymbol.Name = newRole.ID.ToString()+":"+ifaceProxy.ID.ToString();
+					ifaceSymbol.Name = ifaceGuid.ToString();
 					ifaceSymbol.Tag = ifaceProxy;
 					ifaceSymbol.EditStyle.AllowMove = false;
 					ifaceSymbol.EditStyle.AllowResize = false;
 					ifaceSymbol.FillStyle.Color = System.Drawing.Color.LightGray;
 
 					ifaceSymbol.ParentSymbol = node as Symbols.Component;
+					this._abstraction.RegisterSymbol(ifaceGuid, ifaceProxy, 0, 0);
 
 					symbol.InterfaceSymbol = ifaceSymbol;
 
@@ -559,22 +650,13 @@ namespace Palladio.Editor.Plugins.StaticView
 				if (node is Symbols.Component)
 				{
 					// add role symbol
-					SymbolModel symModel = this.privatePaletteView.Palette.GetChildByName("Requires Role") as SymbolModel;
-					Symbols.RequiresRole symbol = symModel.CreateSymbol() as Symbols.RequiresRole;
+					Symbols.RequiresRole symbol = this.CreateRequiresRoleSymbol();
 
 					RoleProxy newRole = proxy.GetRequiresRoleByInterfaceID(ifaceID);
 
 					System.Guid newGuid = System.Guid.NewGuid();
 					symbol.Name = newGuid.ToString();
 					symbol.Tag = newRole;
-					symbol.EditStyle.AllowMove = false;
-					symbol.EditStyle.AllowResize = false;
-					symbol.Ports[0].Visible = false;
-					symbol.Ports[0].EditStyle.AllowSelect = false;
-					symbol.Ports[0].EditStyle.AllowMove = false;
-					symbol.Ports[1].Visible = false;
-					symbol.Ports[1].EditStyle.AllowSelect = false;
-					symbol.Ports[1].EditStyle.AllowMove = false;
 
 					symbol.ParentSymbol = node as Symbols.Component;
 					((Symbols.Component)node).RegisterRequiresRole(newRole.ID, symbol);
@@ -588,13 +670,16 @@ namespace Palladio.Editor.Plugins.StaticView
 
 					InterfaceProxy ifaceProxy = newRole.Interface;
 
-					ifaceSymbol.Name = newRole.ID.ToString()+":"+ifaceProxy.ID.ToString();
+					System.Guid ifaceGuid = System.Guid.NewGuid();
+					//ifaceSymbol.Name = newRole.ID.ToString()+":"+ifaceProxy.ID.ToString();
+					ifaceSymbol.Name = ifaceGuid.ToString();
 					ifaceSymbol.Tag = ifaceProxy;
 					ifaceSymbol.EditStyle.AllowMove = false;
 					ifaceSymbol.EditStyle.AllowResize = false;
 					ifaceSymbol.FillStyle.Color = System.Drawing.Color.LightGray;
 
 					ifaceSymbol.ParentSymbol = node as Symbols.Component;
+					this._abstraction.RegisterSymbol(ifaceGuid, ifaceProxy, 0, 0);
 
 					symbol.InterfaceSymbol = ifaceSymbol;
 
@@ -608,52 +693,22 @@ namespace Palladio.Editor.Plugins.StaticView
 			this.diagram.ChildrenChanging += this.diagram_ChildrenChangingHandler;
 		}
 
-		public void AddBinding(CompositeComponentProxy proxy, IIdentifier bindingID)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="proxy"></param>
+		/// <param name="connID"></param>
+		/// <param name="tag"></param>
+		public void AddConnection(CompositeComponentProxy proxy, IIdentifier connID, object tag)
 		{
 			this.diagram.ChildrenChanging -= this.diagram_ChildrenChangingHandler;
 			this.diagram.ConnectionsChangeComplete -= this.diagram_ConnectionsChangeCompleteHandler;
 
 			if (this._userGeneratedLink != null)
 			{
-				this._userGeneratedLink.Tag = proxy.GetBindingByID(bindingID);
-				this.diagram.Model.AppendChild(this._userGeneratedLink);
-				this.sourcePort.Container.Connect(this.sourcePort, this._userGeneratedLink.TailPort);
-				this.targetPort.Container.Connect(this._userGeneratedLink.HeadPort, this.targetPort);
-			}
-
-			this._userGeneratedLink = null;
-			this.diagram.Model.UpdateViews();
-			this.diagram.ConnectionsChangeComplete += this.diagram_ConnectionsChangeCompleteHandler;
-			this.diagram.ChildrenChanging += this.diagram_ChildrenChangingHandler;
-		}
-
-		public void AddProvidesMapping(CompositeComponentProxy proxy, IIdentifier bindingID)
-		{
-			this.diagram.ChildrenChanging -= this.diagram_ChildrenChangingHandler;
-			this.diagram.ConnectionsChangeComplete -= this.diagram_ConnectionsChangeCompleteHandler;
-
-			if (this._userGeneratedLink != null)
-			{
-				this._userGeneratedLink.Tag = proxy.GetProvidesMappingByID(bindingID);
-				this.diagram.Model.AppendChild(this._userGeneratedLink);
-				this.sourcePort.Container.Connect(this.sourcePort, this._userGeneratedLink.TailPort);
-				this.targetPort.Container.Connect(this._userGeneratedLink.HeadPort, this.targetPort);
-			}
-
-			this._userGeneratedLink = null;
-			this.diagram.Model.UpdateViews();
-			this.diagram.ConnectionsChangeComplete += this.diagram_ConnectionsChangeCompleteHandler;
-			this.diagram.ChildrenChanging += this.diagram_ChildrenChangingHandler;
-		}
-
-		public void AddRequiresMapping(CompositeComponentProxy proxy, IIdentifier bindingID)
-		{
-			this.diagram.ChildrenChanging -= this.diagram_ChildrenChangingHandler;
-			this.diagram.ConnectionsChangeComplete -= this.diagram_ConnectionsChangeCompleteHandler;
-
-			if (this._userGeneratedLink != null)
-			{
-				this._userGeneratedLink.Tag = proxy.GetRequiresMappingByID(bindingID);
+				this._userGeneratedLink.TailPort.EditStyle.AllowMove = false;
+				this._userGeneratedLink.HeadPort.EditStyle.AllowMove = false;
+				this._userGeneratedLink.Tag = tag;
 				this.diagram.Model.AppendChild(this._userGeneratedLink);
 				this.sourcePort.Container.Connect(this.sourcePort, this._userGeneratedLink.TailPort);
 				this.targetPort.Container.Connect(this._userGeneratedLink.HeadPort, this.targetPort);
@@ -680,13 +735,13 @@ namespace Palladio.Editor.Plugins.StaticView
 						this.diagram.CreateGraphics() );
 					if (intersecting == 0)
 					{
-						log.Debug("ungültiger drop");
+						log.Debug("invalid drop");
 						evtArgs.Cancel = true;
 						return;
 					}
 					if (intersecting > 1) 
 					{
-						log.Warn("mehrdeutiger drop. versuche in obersten container einzufügen.");
+						log.Warn("ambiguous drop. trying to insert in top level container.");
 						int highestZOrder = 0;
 						foreach (INode node in nodeCollection)
 						{
@@ -702,7 +757,7 @@ namespace Palladio.Editor.Plugins.StaticView
 						}
 						if (parentNode == null)
 						{
-							log.Error("keinen container gefunden");
+							log.Error("no container");
 							evtArgs.Cancel = true;
 							return;
 						}
@@ -714,7 +769,7 @@ namespace Palladio.Editor.Plugins.StaticView
 
 					if (!(parentNode is Symbols.CompositeComponent))
 					{
-						log.Debug("ungültiger drop");
+						log.Debug("invalid drop");
 						evtArgs.Cancel = true;
 						return;
 					}
@@ -722,32 +777,24 @@ namespace Palladio.Editor.Plugins.StaticView
 
 					CompositeComponentProxy parentEntity = parentSymbol.Tag as CompositeComponentProxy;
 
-					parentSymbol.RegisterComponent(IdentifiableFactory.CreateStringID("pending"), componentSymbol);
+					this._userDraggedComponent = componentSymbol;
+					this._userDraggedComponent.ParentSymbol = parentSymbol;
 
-					System.Guid newGuid = System.Guid.NewGuid();
-					componentSymbol.Name = newGuid.ToString();
-					this._abstraction.RegisterSymbol(newGuid,null,0,0);
+					evtArgs.Cancel = true;
 
 					IIdentifier compID = null;
-					if (componentSymbol is Symbols.BasicComponent)
+					if (this._userDraggedComponent is Symbols.BasicComponent)
 						compID = parentEntity.AddBasicComponent("Basic");
-					else if (componentSymbol is Symbols.CompositeComponent)
+					else if (this._userDraggedComponent is Symbols.CompositeComponent)
 						compID = parentEntity.AddCompositeComponent("Composite");
 
-					componentSymbol.ParentSymbol = parentSymbol;
+					
 				}
 			}
 		}
 
 		private void diagram_SelectionChanged(object sender, Syncfusion.Windows.Forms.Diagram.NodeCollection.EventArgs evtArgs)
 		{
-			// debug
-//			Syncfusion.Windows.Forms.Diagram.Symbol symbol = evtArgs.Node as Syncfusion.Windows.Forms.Diagram.Symbol;
-//			if (symbol == null)
-//				log.Debug("SelectionChanged: "+evtArgs.ChangeType+" / -");
-//			else
-//				log.Debug("SelectionChanged: "+evtArgs.ChangeType+" / "+evtArgs.Node.GetType());
-			/////////
 			if (evtArgs.ChangeType.ToString().Equals("Insert"))
 			{
 				if (evtArgs.Node is Symbols.PalladioSymbol)
@@ -809,7 +856,7 @@ namespace Palladio.Editor.Plugins.StaticView
 				foreach(INode node in this.diagram.SelectionList)
 				{
 					// dont care about model node
-					if (node.Name == this._abstraction.GetModelID().ToString())
+					if (node.Name == this._abstraction.ModelID.ToString())
 						continue;
 
 					if (!(node is Symbols.Component))
@@ -830,19 +877,43 @@ namespace Palladio.Editor.Plugins.StaticView
 
 		private void RemoveCompositeComponentSymbol(Symbols.CompositeComponent symbol)
 		{
+			foreach (Symbols.ProvidesRole providedRole in symbol.ProvidesRoles)
+			{
+				this.diagram.Model.RemoveChild(this.diagram.Model.GetChildIndex(providedRole));
+				this.diagram.Model.RemoveChild(this.diagram.Model.GetChildIndex(providedRole.InterfaceSymbol));
+				symbol.UnregisterProvidesRole(((RoleProxy)providedRole.Tag).ID);
+			}
+			foreach (Symbols.RequiresRole requiredRole in symbol.RequiresRoles)
+			{
+				this.diagram.Model.RemoveChild(this.diagram.Model.GetChildIndex(requiredRole));
+				this.diagram.Model.RemoveChild(this.diagram.Model.GetChildIndex(requiredRole.InterfaceSymbol));
+				symbol.UnregisterProvidesRole(((RoleProxy)requiredRole.Tag).ID);
+			}
 			foreach (Symbols.PalladioSymbol containedSymbol in  symbol.Components)
 			{
 				if (containedSymbol is Symbols.CompositeComponent)
 					RemoveCompositeComponentSymbol(containedSymbol as Symbols.CompositeComponent);
 				else if (containedSymbol is Symbols.BasicComponent)
 					RemoveBasicComponentSymbol(containedSymbol as Symbols.BasicComponent);
-				symbol.UnregisterComponent(((ComponentProxy)symbol.Tag).ID);
+				symbol.UnregisterComponent(((ComponentProxy)containedSymbol.Tag).ID);
 			}
 			this.diagram.Model.RemoveChild(this.diagram.Model.GetChildIndex(symbol));
 		}
 
 		private void RemoveBasicComponentSymbol(Symbols.BasicComponent symbol)
 		{
+			foreach (Symbols.ProvidesRole providedRole in symbol.ProvidesRoles)
+			{
+				this.diagram.Model.RemoveChild(this.diagram.Model.GetChildIndex(providedRole));
+				this.diagram.Model.RemoveChild(this.diagram.Model.GetChildIndex(providedRole.InterfaceSymbol));
+				symbol.UnregisterProvidesRole(((RoleProxy)providedRole.Tag).ID);
+			}
+			foreach (Symbols.RequiresRole requiredRole in symbol.RequiresRoles)
+			{
+				this.diagram.Model.RemoveChild(this.diagram.Model.GetChildIndex(requiredRole));
+				this.diagram.Model.RemoveChild(this.diagram.Model.GetChildIndex(requiredRole.InterfaceSymbol));
+				symbol.UnregisterProvidesRole(((RoleProxy)requiredRole.Tag).ID);
+			}
 			this.diagram.Model.RemoveChild(this.diagram.Model.GetChildIndex(symbol));
 		}
 
@@ -882,27 +953,36 @@ namespace Palladio.Editor.Plugins.StaticView
 					Symbols.PalladioSymbol sourceRole = this.sourcePort.Container as Symbols.PalladioSymbol;
 					Symbols.PalladioSymbol targetRole = this.targetPort.Container as Symbols.PalladioSymbol;
 
-					log.Debug(sourceRole.Name +" --> "+targetRole.Name);
-
-					switch (connType)
+					try
 					{
-						case ConnectionType.BINDING:
-							this._userGeneratedLink = this.RemoveLink(conn, this.intermediateConnection);
-							((CompositeComponentProxy)sourceRole.ParentSymbol.ParentSymbol.Tag).AddBinding(sourceRole.Tag as RoleProxy, targetRole.Tag as RoleProxy);
-							break;
-						case ConnectionType.PROVIDES_MAPPING:
-							this._userGeneratedLink = this.RemoveLink(conn, this.intermediateConnection);
-							((CompositeComponentProxy)sourceRole.ParentSymbol.Tag).AddProvidesMapping(sourceRole.Tag as RoleProxy, targetRole.Tag as RoleProxy);
-							break;
-						case ConnectionType.REQUIRES_MAPPING:
-							this._userGeneratedLink = this.RemoveLink(conn, this.intermediateConnection);
-							((CompositeComponentProxy)targetRole.ParentSymbol.Tag).AddRequiresMapping(sourceRole.Tag as RoleProxy, targetRole.Tag as RoleProxy);
-							break;
-						case ConnectionType.INVALID:
-							this.RemoveLink(conn, this.intermediateConnection);
-							this._userGeneratedLink = null;
-							evtArgs.Cancel = true;
-							break;
+						switch (connType)
+						{
+							case ConnectionType.BINDING:
+								this._userGeneratedLink = this.RemoveLink(conn, this.intermediateConnection);
+								((CompositeComponentProxy)sourceRole.ParentSymbol.ParentSymbol.Tag).AddBinding(sourceRole.Tag as RoleProxy, targetRole.Tag as RoleProxy);
+								break;
+							case ConnectionType.PROVIDES_MAPPING:
+								this._userGeneratedLink = this.RemoveLink(conn, this.intermediateConnection);
+								((CompositeComponentProxy)sourceRole.ParentSymbol.Tag).AddProvidesMapping(sourceRole.Tag as RoleProxy, targetRole.Tag as RoleProxy);
+								break;
+							case ConnectionType.REQUIRES_MAPPING:
+								this._userGeneratedLink = this.RemoveLink(conn, this.intermediateConnection);
+								((CompositeComponentProxy)targetRole.ParentSymbol.Tag).AddRequiresMapping(sourceRole.Tag as RoleProxy, targetRole.Tag as RoleProxy);
+								break;
+							case ConnectionType.INVALID:
+								log.Error("Could not establish connection.");
+								this.RemoveLink(conn, this.intermediateConnection);
+								this._userGeneratedLink = null;
+								evtArgs.Cancel = true;
+								break;
+						}
+					}
+					catch (Exception e)
+					{
+						log.Error("Could not establish connection.");
+						this.RemoveLink(conn, this.intermediateConnection);
+						this._userGeneratedLink = null;
+						evtArgs.Cancel = true;
 					}
 
 					this.diagram.Model.UpdateViews();
@@ -936,7 +1016,8 @@ namespace Palladio.Editor.Plugins.StaticView
 				this.targetPort.Container.Disconnect(targetPort, link.TailPort);
 
 				int idx = this.diagram.Model.GetChildIndex(link);
-				this.diagram.Model.RemoveChild(idx);
+				if (idx >= 0)
+					this.diagram.Model.RemoveChild(idx);
 			}
 
 			this.diagram.ConnectionsChangeComplete += this.diagram_ConnectionsChangeCompleteHandler;
@@ -952,7 +1033,11 @@ namespace Palladio.Editor.Plugins.StaticView
 		/// <returns></returns>
 		private ConnectionType PrepareConnection()
 		{
+			if (this.sourcePort.Container == this.targetPort.Container)
+				return ConnectionType.INVALID;
+
 			Port temp;
+
 			if (this.sourcePort.Name == "InnerProvidesPort" && this.targetPort.Name == "OuterProvidesPort")
 			{
 				return ConnectionType.PROVIDES_MAPPING;
@@ -987,6 +1072,41 @@ namespace Palladio.Editor.Plugins.StaticView
 				return ConnectionType.REQUIRES_MAPPING;
 			}
 			return ConnectionType.INVALID;
+		}
+
+
+		private Symbols.ProvidesRole CreateProvidesRoleSymbol()
+		{
+			SymbolModel symModel = this.privatePaletteView.Palette.GetChildByName("Provides Role") as SymbolModel;
+			Symbols.ProvidesRole symbol = symModel.CreateSymbol() as Symbols.ProvidesRole;
+
+			symbol.EditStyle.AllowMove = false;
+			symbol.EditStyle.AllowResize = false;
+			symbol.Ports[0].Visible = false;
+			symbol.Ports[0].EditStyle.AllowSelect = false;
+			symbol.Ports[0].EditStyle.AllowMove = false;
+			symbol.Ports[1].Visible = false;
+			symbol.Ports[1].EditStyle.AllowSelect = false;
+			symbol.Ports[1].EditStyle.AllowMove = false;
+
+			return symbol;
+		}
+
+		private Symbols.RequiresRole CreateRequiresRoleSymbol()
+		{
+			SymbolModel symModel = this.privatePaletteView.Palette.GetChildByName("Requires Role") as SymbolModel;
+			Symbols.RequiresRole symbol = symModel.CreateSymbol() as Symbols.RequiresRole;
+
+			symbol.EditStyle.AllowMove = false;
+			symbol.EditStyle.AllowResize = false;
+			symbol.Ports[0].Visible = false;
+			symbol.Ports[0].EditStyle.AllowSelect = false;
+			symbol.Ports[0].EditStyle.AllowMove = false;
+			symbol.Ports[1].Visible = false;
+			symbol.Ports[1].EditStyle.AllowSelect = false;
+			symbol.Ports[1].EditStyle.AllowMove = false;
+
+			return symbol;
 		}
 	}
 

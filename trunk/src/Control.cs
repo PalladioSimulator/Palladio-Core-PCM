@@ -37,7 +37,7 @@ namespace Palladio.Editor.Plugins.StaticView
 			base.Initialize(host);
 
 			CompositeComponentProxy activeModel = this._host.GetComponentModel();
-			this.abstraction.Initialize(activeModel);
+			this.abstraction.Initialize();
 			this.presentation.Initialize(activeModel);
 			
 			this.presentation.SelectionChanged += new SelectionChangedHandler(presentation_SelectionChanged);
@@ -46,9 +46,9 @@ namespace Palladio.Editor.Plugins.StaticView
 		}
 
 		// place diagram into mdi container
-		public override UserControlPosition UserControlPosition
+		public override ViewControlPosition ViewControlPosition
 		{
-			get { return UserControlPosition.MDI_CONTAINER; }
+			get { return ViewControlPosition.MDI_CONTAINER; }
 		}
 
 
@@ -70,7 +70,7 @@ namespace Palladio.Editor.Plugins.StaticView
 
 		protected override void host_ComponentModelChanged(object source, CompositeComponentProxy newModel)
 		{
-			this.abstraction.Initialize(newModel);
+			//this.abstraction.Initialize(newModel);
 			this.presentation.Initialize(newModel);
 		}
 
@@ -78,9 +78,6 @@ namespace Palladio.Editor.Plugins.StaticView
 		{
 			switch (e.Reason)
 			{
-				case EntityChangeReason.PROPERTY_CHANGED:
-					this.presentation.UpdateEntity(entity);
-					break;
 				case EntityChangeReason.COMPONENT_ADDED:
 					if (entity is CompositeComponentProxy)
 						this.presentation.AddComponent(entity as CompositeComponentProxy, e.AssociatedID);
@@ -95,26 +92,27 @@ namespace Palladio.Editor.Plugins.StaticView
 				case EntityChangeReason.REQUIRESINTERFACE_ADDED:
 					this.presentation.AddRequiresInterface(entity as ComponentProxy, e.AssociatedID);
 					break;
-				case EntityChangeReason.PROVIDESINTERFACE_REMOVED:
-					this.presentation.UpdateEntity(entity);
-					break;
-				case EntityChangeReason.REQUIRESINTERFACE_REMOVED:
-					this.presentation.UpdateEntity(entity);
-					break;
 				case EntityChangeReason.BINDING_ADDED:
-					this.presentation.AddBinding(entity as CompositeComponentProxy, e.AssociatedID);
+					CompositeComponentProxy comp = entity as CompositeComponentProxy;
+					this.presentation.AddConnection(comp, e.AssociatedID, comp.GetBindingByID(e.AssociatedID));
 					break;
 				case EntityChangeReason.PROVIDESMAPPING_ADDED:
-					this.presentation.AddProvidesMapping(entity as CompositeComponentProxy, e.AssociatedID);
+					comp = entity as CompositeComponentProxy;
+					this.presentation.AddConnection(comp, e.AssociatedID, comp.GetProvidesMappingByID(e.AssociatedID));
 					break;
 				case EntityChangeReason.REQUIRESMAPPING_ADDED:
-					this.presentation.AddRequiresMapping(entity as CompositeComponentProxy, e.AssociatedID);
+					comp = entity as CompositeComponentProxy;
+					this.presentation.AddConnection(comp, e.AssociatedID, comp.GetRequiresMappingByID(e.AssociatedID));
+					break;
+				default:
+					this.presentation.UpdateEntity(entity);
 					break;
 			}
 		}
 
 		public override void Detach()
 		{
+			this.presentation.Dispose();
 			log.Debug("Detached.");
 		}
 
@@ -130,9 +128,16 @@ namespace Palladio.Editor.Plugins.StaticView
 				this.SelectionChanged(this, entity);
 		}
 
-		public System.Guid GetModelID()
+		public System.Guid ModelID
 		{
-			return this.abstraction.GetModelID();
+			get
+			{
+				return this.abstraction.ModelID;
+			}
+			set
+			{
+				this.abstraction.ModelID = value;
+			}
 		}
 
 		public void ClearRegistry()

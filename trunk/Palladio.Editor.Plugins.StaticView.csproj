@@ -100,11 +100,6 @@
                     HintPath = "..\Palladio.Editor\bin\Debug\Assemblies\Syncfusion.Shared.dll"
                 />
                 <Reference
-                    Name = "Syncfusion.Diagram"
-                    Project = "{7B014FBB-61CA-4CB6-86A4-9C23211EA303}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "ReflectionBasedVisitor"
                     AssemblyName = "ReflectionBasedVisitor"
                     HintPath = "..\Palladio.Editor.Core\bin\Assemblies\ReflectionBasedVisitor.dll"
@@ -123,16 +118,15 @@
                     Private = "False"
                 />
                 <Reference
-                    Name = "Palladio.ComponentModel"
-                    AssemblyName = "Palladio.ComponentModel"
-                    HintPath = "..\Palladio.Editor.Core\bin\Assemblies\Palladio.ComponentModel.dll"
-                    Private = "False"
-                />
-                <Reference
                     Name = "Palladio.Identifier"
                     AssemblyName = "Palladio.Identifier"
                     HintPath = "..\Palladio.Editor.Core\bin\Assemblies\Palladio.Identifier.dll"
                     Private = "False"
+                />
+                <Reference
+                    Name = "Syncfusion.Diagram"
+                    Project = "{7B014FBB-61CA-4CB6-86A4-9C23211EA303}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>

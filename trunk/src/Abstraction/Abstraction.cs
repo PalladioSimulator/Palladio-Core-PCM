@@ -18,12 +18,9 @@ namespace Palladio.Editor.Plugins.StaticView
 			this.symbols = new Hashtable();
 		}
 
-		public void Initialize(CompositeComponentProxy model)
+		public void Initialize()
 		{
 			this.symbols.Clear();
-			System.Guid guid = System.Guid.NewGuid();
-			this.modelID = guid;
-			RegisterSymbol(guid, model);
 		}
 
 		public void RegisterSymbol(System.Guid guid, EntityProxy proxy)
@@ -36,9 +33,16 @@ namespace Palladio.Editor.Plugins.StaticView
 			this.symbols[guid] = new SymbolInformation(proxy, x, y);
 		}
 
-		public System.Guid GetModelID()
+		public System.Guid ModelID
 		{
-			return this.modelID;
+			get
+			{
+				return this.modelID;
+			}
+			set
+			{
+				this.modelID = value;
+			}
 		}
 
 		public void ClearRegistry()
