@@ -1,18 +1,15 @@
 namespace ComponentNetworkSimulation.structure.connectors
 {
-	public enum ConnectorType {ZeroTimeConnector};
-
 	public class ConnectorFactory
 	{
-		public static AbstractConnector createConnector(ConnectorType type)
+		public static ComponentNetworkSimulation.structure.AbstractConnector createZeroTimeConnector(int id)
 		{
-			switch(type) 
-			{
-				case ConnectorType.ZeroTimeConnector:
-					return new ZeroDelayConnector();
-				default:
-					return null;
-			}
+			return new ZeroDelayConnector(id);
+		}
+
+		public static ComponentNetworkSimulation.structure.AbstractConnector createConstantTimeConnector(int id,long delayTime)
+		{
+			return new ConstantTimeConnector(id,delayTime);
 		}
 	}
 }

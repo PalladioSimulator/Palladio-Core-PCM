@@ -12,10 +12,5 @@ namespace ComponentNetworkSimulation.structure.componentnetwork
 			//TODO: return name of network read from xmlfile
 			return "XMLBasedComponentNetwork";
 		}
-
-		public override void buildUp()
-		{			
-			throw(new System.ApplicationException("buildUp: Has to be implemented"));
-		}		
 	}
 }

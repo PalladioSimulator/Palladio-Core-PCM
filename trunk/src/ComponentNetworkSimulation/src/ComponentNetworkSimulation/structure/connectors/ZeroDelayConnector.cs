@@ -1,17 +1,17 @@
 namespace ComponentNetworkSimulation.structure.connectors
 {
-	internal class ZeroDelayConnector: ComponentNetworkSimulation.structure.AbstractConnector 
-	{
-		public ZeroDelayConnector()
+	internal class ZeroDelayConnector : ConstantTimeConnector {
+
+		public ZeroDelayConnector(int id) : base(id,0)
 		{
 		}
 
 		public override System.String getName()
 		{
-			return "Connector with zero delay";
+			return "Connector "+this.id+" [Zero delay]";
 		}
 
-		public override long getUsedTime(System.Object thread)
+		public override long getDelayTime()
 		{
 			return 0;
 		}

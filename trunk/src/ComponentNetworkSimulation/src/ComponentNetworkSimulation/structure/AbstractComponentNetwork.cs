@@ -5,15 +5,14 @@ namespace ComponentNetworkSimulation.structure
 	public abstract class AbstractComponentNetwork
 	{
 		protected ArrayList SystemServices = new ArrayList();
+		protected ArrayList ConnectorList = new ArrayList();
 	
 		public abstract System.String getName();
 
-		public abstract void buildUp();
-
-		public ExternalComponentService getSystemService(int idx)
+		public TimeUser getSystemService(int idx)
 		{
-			if (idx >= SystemServices.Count)
-				return (ExternalComponentService)SystemServices[idx];
+			if (idx < SystemServices.Count)
+				return (TimeUser)SystemServices[idx];
 			else
 				return null;
 		}
@@ -27,6 +26,11 @@ namespace ComponentNetworkSimulation.structure
 		{
 			return SystemServices.GetEnumerator();
 		}
- 
+
+		public void reset()
+		{
+			for (int a=0;a<ConnectorList.Count;a++)
+				((AbstractConnector)ConnectorList[a]).reset();
+		}
 	}
 }
