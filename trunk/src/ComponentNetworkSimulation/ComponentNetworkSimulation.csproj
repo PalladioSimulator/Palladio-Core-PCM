@@ -330,6 +330,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\IBasicComponentObserver.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Builder\IBuilderFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -340,12 +345,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\IComponentObserver.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Builder\ICompositeComponentBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\ICompositeComponentObserver.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Builder\IServiceBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\IServiceObserver.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
