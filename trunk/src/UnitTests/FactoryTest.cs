@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/05/12 08:23:15  sliver
+	/// DeleteIllegalTransition expects a TransitionNotFoundException now
+	///
 	/// Revision 1.7  2004/05/12 08:19:39  sbecker
 	/// Added DeleteState test
 	///
@@ -162,7 +165,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			fsm.DeleteStates(fsm.StartState);
 		}
 
-		[ExpectedException(typeof(Exception))]
+		[ExpectedException(typeof(TransitionNotFoundException))]
 		[Test] public void DeleteIllegalTransition()
 		{
 			IEditableFiniteStateMachine fsm = BuildExampleFSM();
