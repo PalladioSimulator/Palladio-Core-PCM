@@ -32,6 +32,11 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2004/12/06 05:20:21  sliver
+	/// - RequestFactory added
+	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
+	/// - WebserverConfigurator added
+	///
 	/// Revision 1.6  2004/11/28 19:01:32  kelsaka
 	/// Added simple support for searching on a database, that contains BibTeX-Entries, added test-documents, added DB-test-content, added comments
 	///
@@ -67,13 +72,13 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 		private const string DEFAULT_XML_CONFIGURATION_FILE = "SimpleTemplateFileProviderXML.xml";
 		
 
-		public SimpleTemplateFileProvider(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		public SimpleTemplateFileProvider(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
 		{
 			this.corSuccessor = corSuccessor;
 			this.webserverMonitor = webserverMonitor;
 			this.webserverConfiguration = webserverConfiguration;
 			this.simpleTemplateConfiguration = readConfiguration();
-			this.requestProcessorTools = new DefaultHTTPRequestProcessorTools(webserverMonitor, webserverConfiguration);
+			this.requestProcessorTools = requestProcessorTools;
 		}
 
 

@@ -1,6 +1,7 @@
 using System;
 using Palladio.Webserver.Dispatcher;
 using Palladio.Webserver.FTPRequestProcessor;
+using Palladio.Webserver.Request;
 using Palladio.Webserver.RequestParser;
 using Palladio.Webserver.WebserverMonitor;
 using Palladio.Webserver.ConfigReader;
@@ -18,6 +19,11 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2004/12/06 05:20:21  sliver
+	/// - RequestFactory added
+	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
+	/// - WebserverConfigurator added
+	///
 	/// Revision 1.9  2004/11/21 17:10:04  kelsaka
 	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
 	///
@@ -60,7 +66,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// </summary>
 		/// <param name="requestParser">A component that fullfills the required-interface.</param>
 		/// <returns>IDispatcher, using the services from the reqestParser.</returns>
-		IDispatcher CreateDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
+		IDispatcher CreateDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory);
 
 		#endregion
 
@@ -94,7 +100,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="CorSuccessor">The successor in the COR to handle requests by using the IRequestParser-Interface.</param>
 		/// <returns>HTTPRequestParser</returns>
 		IRequestParser CreateHTTPRequestParser(IHTTPRequestProcessor requestProcessor, IRequestParser CorSuccessor,
-			IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
+			IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory);
 
 
 		/// <summary>
@@ -126,7 +132,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
 		/// <returns>BibTeXProvider</returns>
-		IHTTPRequestProcessor CreateBibTeXProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
+		IHTTPRequestProcessor CreateBibTeXProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools);
 
 
 		/// <summary>
@@ -136,7 +142,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
 		/// <returns>SimpleTemplateFileProvider</returns>
-		IHTTPRequestProcessor CreateSimpleTemplateFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
+		IHTTPRequestProcessor CreateSimpleTemplateFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools);
 
 
 		/// <summary>
@@ -146,7 +152,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
 		/// <returns>StaticFileProvider</returns>
-		IHTTPRequestProcessor CreateStaticFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
+		IHTTPRequestProcessor CreateStaticFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools);
 
 
 		/// <summary>
@@ -156,7 +162,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
 		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
 		/// <returns>StaticFileProvider</returns>
-		IHTTPRequestProcessor CreateDynamicFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
+		IHTTPRequestProcessor CreateDynamicFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools);
 
 
 		/// <summary>
@@ -166,7 +172,32 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
 		/// <returns>DefaultRequestProcessor</returns>
-		IHTTPRequestProcessor CreateDefaultRequestProcessor(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
+		IHTTPRequestProcessor CreateDefaultRequestProcessor(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools);
+
+		#endregion
+
+		#region HTTPRequestProcessorTools
+
+		/// <summary>
+		/// Creates new <c>IHTTPRequestProcessorTools</c>.
+		/// </summary>
+		/// <param name="webserverMonitor"></param>
+		/// <param name="webserverConfiguration"></param>
+		/// <returns></returns>
+		IHTTPRequestProcessorTools CreateRequestProcessorTools(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
+
+		#endregion
+
+		#region WebserverConfiguration
+
+		/// <summary>
+		/// Creates new <c>IWebserverConfiguration</c>.
+		/// </summary>
+		/// <param name="configReader"></param>
+		/// <param name="pathToConfigFile"></param>
+		/// <param name="xmlConfigFile"></param>
+		/// <returns></returns>
+		IWebserverConfiguration CreateWebserverConfiguration(IConfigReader configReader, string pathToConfigFile, string xmlConfigFile);
 
 		#endregion
 

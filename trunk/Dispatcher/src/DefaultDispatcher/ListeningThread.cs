@@ -1,6 +1,4 @@
-using System;
 using System.Net.Sockets;
-using System.Threading;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.Request;
 using Palladio.Webserver.RequestParser;
@@ -20,16 +18,18 @@ namespace Palladio.Webserver.Dispatcher
 		private IWebserverConfiguration webserverConfiguration;
 		private TcpListener tcpListener;
 		private int port;
+		public IRequestFactory requestFactory;
 
 
 		public ListeningThread(IRequestParser requestParser, IWebserverMonitor webserverMonitor,
-			IWebserverConfiguration webserverConfiguration, int port, TcpListener tcpListener)
+			IWebserverConfiguration webserverConfiguration, int port, TcpListener tcpListener, IRequestFactory requestFactory)
 		{
 			this.tcpListener = tcpListener;
 			this.port = port;
 			this.requestParser = requestParser;
 			this.webserverMonitor = webserverMonitor;
 			this.webserverConfiguration = webserverConfiguration;
+			this.requestFactory = requestFactory;
 			
 		}
 
@@ -57,7 +57,7 @@ namespace Palladio.Webserver.Dispatcher
 					webserverMonitor.WriteLogEntry("Client connected on IP: " + clientSocket.RemoteEndPoint) ;
 
 					// set up request:
-					IRequest request = new DefaultRequest(webserverMonitor);
+					IRequest request = requestFactory.CreateRequest(webserverMonitor);
 					request.Socket = clientSocket;
 					request.TcpListener = tcpListener;
 					request.Port = port; 

@@ -144,6 +144,26 @@
                     Project = "{8A2CD829-4510-4CB9-838C-F8C769763095}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "Request"
+                    Project = "{CA375D44-037E-4023-8FC7-4E61C73D778E}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Altova"
+                    Project = "{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "AltovaXML"
+                    Project = "{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "WebserverXML"
+                    Project = "{187A3048-4BFE-F344-92BE-AEE42C224D11}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
@@ -155,6 +175,11 @@
                 />
                 <File
                     RelPath = "src\IWebserverFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\WebserverConfigurator.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

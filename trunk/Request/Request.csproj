@@ -94,7 +94,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IHTTPRequest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\IRequest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IRequestFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\RequestTypes.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\DefaultRequest\DefaultHTTPRequest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -104,17 +124,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\HTTPRequest\IHTTPRequest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\HTTPRequest\RequestTypes.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\HTTPRequest\DefaultHTTPRequest\DefaultHTTPRequest.cs"
+                    RelPath = "src\DefaultRequest\DefaultRequestFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

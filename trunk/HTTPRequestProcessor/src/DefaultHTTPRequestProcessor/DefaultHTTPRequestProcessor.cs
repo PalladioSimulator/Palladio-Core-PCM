@@ -14,6 +14,11 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/12/06 05:20:21  sliver
+	/// - RequestFactory added
+	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
+	/// - WebserverConfigurator added
+	///
 	/// Revision 1.5  2004/10/29 16:30:38  kelsaka
 	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
 	///
@@ -31,7 +36,7 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// </remarks>
 	public class DefaultHTTPRequestProcessor : IHTTPRequestProcessor
 	{
-		public DefaultHTTPRequestProcessor(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		public DefaultHTTPRequestProcessor(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
 		{
 
 		}

@@ -3,6 +3,8 @@ using System.IO;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.Dispatcher;
 using Palladio.Webserver.FTPRequestProcessor;
+using Palladio.Webserver.HTTPRequestProcessor;
+using Palladio.Webserver.Request;
 using Palladio.Webserver.RequestParser;
 using Palladio.Webserver.WebserverFactory;
 using Palladio.Webserver.WebserverMonitor;
@@ -19,6 +21,11 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2004/12/06 05:20:21  sliver
+	/// - RequestFactory added
+	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
+	/// - WebserverConfigurator added
+	///
 	/// Revision 1.14  2004/11/21 17:10:04  kelsaka
 	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
 	///
@@ -131,57 +138,24 @@ namespace Palladio.Webserver
 				configType = ""; //use default configuration
 			}
 
+			// Choose Factories
+			IWebserverFactory webserverFactory = new DefaultWebserverFactory();
+			IRequestFactory requestFactory = new DefaultRequestFactory();
+			WebserverConfigurator configurator = new WebserverConfigurator(webserverFactory, requestFactory, pathToConfigFile);
+
 
 			// Check for the desired configuration type:
 			switch(configType)
 			{
 				// default case; no special config-advices:
 				case "":
-					DefaultConfiguration();
+					configurator.CreateDefaultConfiguration();
 					break;
 
 				default:
-					DefaultConfiguration();
+					configurator.CreateDefaultConfiguration();
 					break;
 			}
-		}
-
-
-		/// <summary>
-		/// Creates a default component-configuration of the webserver.
-		/// Builds and starts a running webserver using the webserver-factory.
-		/// </summary>
-		private void DefaultConfiguration()
-		{
-
-			DefaultWebserverFactory webserverFactory = new DefaultWebserverFactory();
-
-			IConfigReader configReader = webserverFactory.CreateConfigReader();
-			IWebserverConfiguration webserverConfiguration = new WebserverConfiguration(
-				configReader.ReadConfiguration(pathToConfigFile + DEFAULT_XML_CONFIGURATION_FILE));
-			// Set the pathToConfigFile manually, because otherwise this would be a hen egg-problem: the
-			// configuration-file can't (or shouldn't have to) know it own position:
-			webserverConfiguration.ConfigFilesPath = pathToConfigFile;
-
-			IWebserverMonitor webserverMonitor = webserverFactory.CreateWebserverMonitor(webserverConfiguration);
-			
-
-			// RequestProcessor-COR: Dynamic -> SimpleTemplate -> BibTeX -> Static -> Default.
-			HTTPRequestProcessor.IHTTPRequestProcessor defaultHttpRequestProcessor = webserverFactory.CreateDefaultRequestProcessor(webserverMonitor, webserverConfiguration);			
-			HTTPRequestProcessor.IHTTPRequestProcessor staticFileProvider = webserverFactory.CreateStaticFileProvider(defaultHttpRequestProcessor, webserverMonitor, webserverConfiguration);
-			HTTPRequestProcessor.IHTTPRequestProcessor bibTeXProvider = webserverFactory.CreateBibTeXProvider(staticFileProvider, webserverMonitor, webserverConfiguration);
-			HTTPRequestProcessor.IHTTPRequestProcessor simpleTemplateFileProver = webserverFactory.CreateSimpleTemplateFileProvider(bibTeXProvider, webserverMonitor, webserverConfiguration);
-			HTTPRequestProcessor.IHTTPRequestProcessor dynamicFileProvider = webserverFactory.CreateDynamicFileProvider(simpleTemplateFileProver, webserverMonitor, webserverConfiguration);
-			
-			
-
-			// RequestParser-COR: HTTP -> Default (currently FTP is not implemented)
-			IRequestParser defaultRequestParser = webserverFactory.CreateDefaultRequestParser(webserverMonitor, webserverConfiguration);
-			IRequestParser httpRequestParser = webserverFactory.CreateHTTPRequestParser(dynamicFileProvider, defaultRequestParser, webserverMonitor, webserverConfiguration);
-			
-			IDispatcher dispatcher = webserverFactory.CreateDispatcher(httpRequestParser,webserverMonitor, webserverConfiguration);
-			dispatcher.Run();
-			
 		}
 	}
 }
