@@ -11,6 +11,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.8  2004/07/06 12:24:54  joemal
+	/// - add a method that is called when the thread has entered the first TC
+	///
 	/// Revision 1.7  2004/06/23 16:32:18  joemal
 	/// - add sender attribute to some methods of the observer
 	///
@@ -32,7 +35,14 @@ namespace ComponentNetworkSimulation.Simulation
 		void NotifyThreadReachedEnd(ISimulationThread sender);
 
 		/// <summary>
-		/// called, when the current TimeConsumer of the thread has changed
+		/// called, when the thread has entered its first timeconsumer
+		/// </summary>
+		/// <param name="sender">the thread</param>
+		void NotifyThreadEnteredFirstTimeConsumer(ISimulationThread sender);
+
+		/// <summary>
+		/// called, when the current TimeConsumer of the thread has changed. This method is not called, when the thread
+		/// has entered its first TimeConsumer.
 		/// </summary>
 		/// <param name="sender">the thread</param>
 		/// <param name="previous">the previous TimeConsumer</param>

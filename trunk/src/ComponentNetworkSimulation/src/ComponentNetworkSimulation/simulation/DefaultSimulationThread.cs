@@ -27,6 +27,9 @@ namespace ComponentNetworkSimulation.Simulation
  	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.9  2004/07/06 12:24:55  joemal
+	/// - add a method that is called when the thread has entered the first TC
+	///
 	/// Revision 1.8  2004/07/02 16:20:12  joemal
 	/// - now the threads must be started, after they have been created
 	///
@@ -251,11 +254,16 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <param name="previous">the previous TimeConsumer</param>
 		protected virtual void NotifyNextTCEvent(ITimeConsumer previous)
 		{
-			if (NextTCEvent != null)
+			if (NextTCEvent != null && previous != null)
 				NextTCEvent(this,new NextTCEventArgs(this.CurrentTimeConsumer,previous));
 
 			if (observer != null)
-				observer.NotifyThreadChangedTimeConsumer(this,previous);
+			{
+				if (previous != null)
+					observer.NotifyThreadChangedTimeConsumer(this,previous);
+				else
+					observer.NotifyThreadEnteredFirstTimeConsumer(this);
+			}
 		}
 
 		/// <summary>
