@@ -18,7 +18,7 @@
                 OutputType = "WinExe"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "RequestClient"
+                RootNamespace = "Palladio.Webserver.RequestClient"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >

@@ -5,10 +5,11 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace RequestClient
+namespace Palladio.Webserver.RequestClient
 {
 	/// <summary>
-	/// HTTPRequestGenerator.
+	/// HTTPRequestGenerator. Provides methods to send http-get-requests the specified server. The requests can be sent
+	/// multi-threaded, delayed and repeated.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -16,6 +17,9 @@ namespace RequestClient
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/27 16:37:58  kelsaka
+	/// Added some comments
+	///
 	/// Revision 1.1  2005/02/27 16:09:11  kelsaka
 	/// - Added the "simultaneous http request client"
 	///  (folder: SimulataneousRequestClient) for testing  the webserver with multiple
@@ -39,13 +43,23 @@ namespace RequestClient
 		private string requestString;
 
 
+		/// <summary>
+		/// Default Constructor.
+		/// </summary>
 		public HTTPRequestGenerator()
 		{
 			this.requestThreads = new ArrayList();			
 		}
 
 
+		/// <summary>
+		/// Delegate to handle <see cref="HandleRequestEvent"/>. Used for logging-information.
+		/// </summary>
 		public delegate void HandleRequestEvent(string message);
+
+		/// <summary>
+		/// Event is send for logging-purposes.
+		/// </summary>
 		public event HandleRequestEvent ClientMessage;
 
 
@@ -55,6 +69,7 @@ namespace RequestClient
 		/// <param name="requestUri">Client uri. The site to request (e. g. http://127.0.0.1:81/index.html).</param>
 		/// <param name="numberOfThreads">The number of threads to use parallel.</param>
 		/// <param name="numberOfLoops">How many loops.</param>
+		/// <param name="sendDelayInMilliseconds">Time in milliseconds between the starting of threads. (Thread.Sleep)</param>
 		public void StartRequest(string requestUri, int numberOfThreads, int numberOfLoops, int sendDelayInMilliseconds)
 		{
 			ClientMessage("Starting Requests. Address: " + requestUri + ", Number of simultaneous Requests: " + numberOfThreads + ", Number Of Loops: " + numberOfLoops);
@@ -102,22 +117,18 @@ namespace RequestClient
 		}
 
 
+		/// <summary>
+		/// Calls the Abort-method of each thread, that has been started.
+		/// </summary>
+		/// <remarks>
+		/// Note the problems of .NET according the termination of threads using the Abort-method.
+		/// </remarks>
 		public void TerminateThreads()
 		{
-			/*bool outstandingThreads = true;
-			while(outstandingThreads)
+			foreach(ThreadInfo threadInfo in requestThreads)
 			{
-				outstandingThreads = false;*/
-				foreach(ThreadInfo threadInfo in requestThreads)
-				{
-			
-					threadInfo.ExecutingThread.Abort();
-					/*if(threadInfo.clientRequest.IsActive)
-					{
-						//outstandingThreads = true;
-					}*/
-				}
-			//}*/
+				threadInfo.ExecutingThread.Abort();
+			}
 		}
 	}
 }

@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data;
 
-namespace RequestClient
+namespace Palladio.Webserver.RequestClient
 {
 	/// <summary>
 	/// GUI for a little client that creates HTTP-Get-Requests. The client runs multi-threaded to
@@ -18,6 +18,9 @@ namespace RequestClient
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/27 16:37:58  kelsaka
+	/// Added some comments
+	///
 	/// Revision 1.1  2005/02/27 16:09:11  kelsaka
 	/// - Added the "simultaneous http request client"
 	///  (folder: SimulataneousRequestClient) for testing  the webserver with multiple
@@ -67,7 +70,7 @@ namespace RequestClient
 		}
 
 
-		public void Init()
+		private void Init()
 		{
 			requestActive = false;
 			this.requestGenerator.ClientMessage += new HTTPRequestGenerator.HandleRequestEvent (this.requestGenerator_ClientMessage);			
@@ -100,6 +103,8 @@ namespace RequestClient
 			System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(MainForm));
 			this.buttonStartRequests = new System.Windows.Forms.Button();
 			this.groupBoxSettings = new System.Windows.Forms.GroupBox();
+			this.textBoxSendDelay = new System.Windows.Forms.TextBox();
+			this.labelSendDelay = new System.Windows.Forms.Label();
 			this.textBoxNumberOfLoops = new System.Windows.Forms.TextBox();
 			this.labelNumberOfLoops = new System.Windows.Forms.Label();
 			this.StartRequestPanel = new System.Windows.Forms.Panel();
@@ -115,8 +120,6 @@ namespace RequestClient
 			this.menuFileExit = new System.Windows.Forms.MenuItem();
 			this.menuHelp = new System.Windows.Forms.MenuItem();
 			this.menuHelpAbout = new System.Windows.Forms.MenuItem();
-			this.textBoxSendDelay = new System.Windows.Forms.TextBox();
-			this.labelSendDelay = new System.Windows.Forms.Label();
 			this.groupBoxSettings.SuspendLayout();
 			this.StartRequestPanel.SuspendLayout();
 			this.groupBoxOutput.SuspendLayout();
@@ -150,9 +153,25 @@ namespace RequestClient
 			this.groupBoxSettings.TabStop = false;
 			this.groupBoxSettings.Text = "Settings";
 			// 
+			// textBoxSendDelay
+			// 
+			this.textBoxSendDelay.Location = new System.Drawing.Point(412, 40);
+			this.textBoxSendDelay.Name = "textBoxSendDelay";
+			this.textBoxSendDelay.Size = new System.Drawing.Size(64, 20);
+			this.textBoxSendDelay.TabIndex = 8;
+			this.textBoxSendDelay.Text = "70";
+			// 
+			// labelSendDelay
+			// 
+			this.labelSendDelay.Location = new System.Drawing.Point(312, 42);
+			this.labelSendDelay.Name = "labelSendDelay";
+			this.labelSendDelay.Size = new System.Drawing.Size(96, 16);
+			this.labelSendDelay.TabIndex = 7;
+			this.labelSendDelay.Text = "Send Delay in ms:";
+			// 
 			// textBoxNumberOfLoops
 			// 
-			this.textBoxNumberOfLoops.Location = new System.Drawing.Point(408, 80);
+			this.textBoxNumberOfLoops.Location = new System.Drawing.Point(412, 80);
 			this.textBoxNumberOfLoops.Name = "textBoxNumberOfLoops";
 			this.textBoxNumberOfLoops.Size = new System.Drawing.Size(64, 20);
 			this.textBoxNumberOfLoops.TabIndex = 6;
@@ -160,7 +179,7 @@ namespace RequestClient
 			// 
 			// labelNumberOfLoops
 			// 
-			this.labelNumberOfLoops.Location = new System.Drawing.Point(312, 80);
+			this.labelNumberOfLoops.Location = new System.Drawing.Point(312, 82);
 			this.labelNumberOfLoops.Name = "labelNumberOfLoops";
 			this.labelNumberOfLoops.Size = new System.Drawing.Size(96, 16);
 			this.labelNumberOfLoops.TabIndex = 5;
@@ -177,7 +196,7 @@ namespace RequestClient
 			// 
 			// labelNumberOfRequests
 			// 
-			this.labelNumberOfRequests.Location = new System.Drawing.Point(8, 72);
+			this.labelNumberOfRequests.Location = new System.Drawing.Point(8, 74);
 			this.labelNumberOfRequests.Name = "labelNumberOfRequests";
 			this.labelNumberOfRequests.Size = new System.Drawing.Size(112, 32);
 			this.labelNumberOfRequests.TabIndex = 3;
@@ -201,7 +220,7 @@ namespace RequestClient
 			// 
 			// labelRequestURI
 			// 
-			this.labelRequestURI.Location = new System.Drawing.Point(8, 40);
+			this.labelRequestURI.Location = new System.Drawing.Point(8, 42);
 			this.labelRequestURI.Name = "labelRequestURI";
 			this.labelRequestURI.Size = new System.Drawing.Size(112, 16);
 			this.labelRequestURI.TabIndex = 2;
@@ -268,22 +287,6 @@ namespace RequestClient
 			this.menuHelpAbout.Index = 0;
 			this.menuHelpAbout.Text = "About";
 			this.menuHelpAbout.Click += new System.EventHandler(this.menuHelpAbout_Click);
-			// 
-			// textBoxSendDelay
-			// 
-			this.textBoxSendDelay.Location = new System.Drawing.Point(412, 40);
-			this.textBoxSendDelay.Name = "textBoxSendDelay";
-			this.textBoxSendDelay.Size = new System.Drawing.Size(64, 20);
-			this.textBoxSendDelay.TabIndex = 8;
-			this.textBoxSendDelay.Text = "70";
-			// 
-			// labelSendDelay
-			// 
-			this.labelSendDelay.Location = new System.Drawing.Point(316, 40);
-			this.labelSendDelay.Name = "labelSendDelay";
-			this.labelSendDelay.Size = new System.Drawing.Size(96, 16);
-			this.labelSendDelay.TabIndex = 7;
-			this.labelSendDelay.Text = "Send Delay in ms:";
 			// 
 			// MainForm
 			// 
@@ -392,7 +395,7 @@ namespace RequestClient
 		/// <param name="e"></param>
 		private void menuHelpAbout_Click(object sender, System.EventArgs e)
 		{
-			MessageBox.Show("Creates simultaneous HTTP-Requests to the specified URI.", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show("Testing-Client for the Palladio.Webserver.\nCreates simultaneous HTTP-GET-Requests to the specified URI.", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 		#endregion
 

@@ -24,7 +24,7 @@ Remark: If you are searching for a webserver for use in a productive environment
 - Config: XML-Configuration-Files
 - documents: HTML-Test-Files (contains as well test-data for the bibtex-component; see: .\documents\DBTestData\Bibtex.txt - this are comma-seperated test-entries for the database)
 - Libraries: Used libraries of the webserver
-- SimulataneousRequestClient: Simple GUI-Client to create HTTP-GET-Requests. This tools allows you to test simultaneous access from multiple clients to the webserver.
+- SimulataneousRequestClient: Simple GUI-Client to create HTTP-GET-Requests. This tools allows you to test simultaneous access from multiple clients to the webserver. (This client has its own VS-Solution.)
 - Altova: do not change, because this is generated code by XML-Spy
 - AltovaXML: do not change, because this is generated code by XML-Spy
 - [something]XML: do not change, because this is generated code by XML-Spy
@@ -53,10 +53,10 @@ Overview of config-files and their meaning:
 
 == Database configuration: ==
 - The BibTeXProvider-Component uses a database to create dynamic files. To set up the setting for the database-connection open the "BibTeXProviderXML.xml".
-- First set the "DataSource". This is the host-name of the database-server. The webserver is configured to be used with the "Microsoft SQL Server". Other databases are currently not supported. For the use with a local database this name is be identically to the host-name of your computer. You can find the host-name at the desktop > "My Computer" > right-click: "Properties" > "Computername" > "Computername".
+- First set the "DataSource". This is the host-name of the database-server. The webserver is configured to be used with the "Microsoft SQL Server". Other databases are currently not supported. For the use with a local database this name has to be identically to the host-name of your computer. You can find the host-name at the desktop > "My Computer" > right-click: "Properties" > "Computername" > "Computername".
 - Now you have to put some test-data to the database. For further exact information how to set up the MS SQL-Server using the test-data you should take a look at the "Microsoft SQL Server"-documentation.
-The following short decription how to put the test-data into the database refers to the german version of MS SQL Server.
-Open "SQL Server Enterprise Manader" from the startmenu. Chose the local DB-Server and create a new database (default name: "BibTeX"). Right-Click the database-icon and chose "Alle Tasks" > "Daten importieren". A MS assistant will appear to lead you through the process. Chose "Textdatei" as "Datenquelle" and specify the filename (.\documents\DBTestData\Bibtex.txt). In the next step chose "Getrennt. Die Spalten si..." and continue. As Target ("Ziel") you have to select "Microsoft OLE DB Provider für SQL Server", the target-database is the newly created database "BibTeX". The target table-name is "BibTeX" by default. If you continue executing the assistant the data will be completely imported. Now the DB-access should work.
+The following short decription of how to put the test-data into the database refers to the german version of MS SQL Server.
+Open "SQL Server Enterprise Manager" from the startmenu. Chose the local DB-Server and create a new database (default name: "BibTeX"). Right-Click the database-icon and chose "Alle Tasks" > "Daten importieren". A MS assistant will appear to lead you through the process. Chose "Textdatei" as "Datenquelle" and specify the filename (.\documents\DBTestData\Bibtex.txt). In the next step chose "Getrennt. Die Spalten si..." and continue. As Target ("Ziel") you have to select "Microsoft OLE DB Provider für SQL Server", the target-database is the newly created database "BibTeX". The target table-name is "BibTeX" by default. If you continue executing the assistant the data will be completely imported. Now the DB-access should work.
 
 == Other configuration-options: ==
 Feel free to customize the other xml-files as well. Each option is descripted/explained in the concerned file.
@@ -67,6 +67,9 @@ Feel free to customize the other xml-files as well. Each option is descripted/ex
 ==== Version-Logs: ====
 =======================
 $Log$
+Revision 1.9  2005/02/27 16:37:58  kelsaka
+Added some comments
+
 Revision 1.8  2005/02/27 16:10:55  kelsaka
 - Added description of the "SimulataneousRequestClient"
 
