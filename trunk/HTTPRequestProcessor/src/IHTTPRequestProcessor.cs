@@ -4,7 +4,9 @@ using Palladio.Webserver.Request;
 namespace Palladio.Webserver.HTTPRequestProcessor
 {
 	/// <summary>
-	/// IHTTPRequestProcessor.
+	/// IHTTPRequestProcessor. This interface has to be implemented for each processing component of
+	/// the Chain-Of-Responsibility (CoR). If a processor can not handle a IHTTPRequest it should be
+	/// passed to the CoR-Successor.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -12,6 +14,11 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/01/22 16:42:56  kelsaka
+	/// added configureable (XML) connection-string for the database;
+	/// added thread-name for the main thread;
+	/// fixed socket-error (updated documentation)
+	///
 	/// Revision 1.4  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each

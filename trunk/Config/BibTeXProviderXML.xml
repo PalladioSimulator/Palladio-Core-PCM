@@ -5,11 +5,22 @@
 	<!--Name of the Database-Server. For the use with a local database this is be identically to the host-name of your computer.-->
 	<DataSource Name="kuser_mobile" />
 
-	<!--Name of the Database, where the BibTeX-Entries are saved.-->	
+	<!--Name of the Database, where the BibTeX-Entries are saved. "initial catalog" in the connection-string.-->	
 	<DatabaseName Name="BibTeX" />
 	
 	<!--Name of the Table, where the BibTeX-Entries are saved.-->	
 	<DatabaseTableName Name="BibTeX" />
+	
+	<!--Security-Settings that is used. Default value is "SSPI".-->
+	<DatabaseIntegratedSecurity Value="SSPI" />
+	
+	<!--Set the persist security info-value for the database connection string. The default value is "False".-->
+	<DatabasePersistSecurityInfo Value="False" />
+	
+	<!--This field allows to define additional database-connection-values. The default value is "". Please keep in mind that
+		integrated security, data source, persist security info and, initial catalog are already set above. The string must have
+		the form ";[key1]=[value1]; .. ;[key1]=[value1];". Note the ";" as the very first position.-->
+	<DatabaseAdditionalConnectionString Value="" />
 	
 	<!--The following FieldNames are taken into consideration to search for BibTeX-Entries in the DB. This means
 		if one of the following FieldNames occours in the post-request it is used as a part of the search-request.

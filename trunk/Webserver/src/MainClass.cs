@@ -15,6 +15,11 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/01/22 16:42:56  kelsaka
+	/// added configureable (XML) connection-string for the database;
+	/// added thread-name for the main thread;
+	/// fixed socket-error (updated documentation)
+	///
 	/// Revision 1.2  2004/12/18 10:06:48  kelsaka
 	/// Added CVS-logs and some comments.
 	///
@@ -80,6 +85,7 @@ namespace Palladio.Webserver
 					break;
 			}
 
+			Thread.CurrentThread.Name = "Main-Thread"; //name the thread for debugging purposes.
 			Console.WriteLine("# Main-Thread: Webserver.Run started...");
 			webserver.Start();
 			// make the webserver shutdown explicitly.

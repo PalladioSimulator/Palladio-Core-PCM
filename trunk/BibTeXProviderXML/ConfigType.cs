@@ -63,6 +63,27 @@ namespace BibTeXProviderXML
 				new DatabaseTableNameType(DOMNode).AdjustPrefix();
 			}
 
+			for (int i = 0; i < DomChildCount(NodeType.Element, "", "DatabaseIntegratedSecurity"); i++)
+			{
+				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "DatabaseIntegratedSecurity", i);
+				InternalAdjustPrefix(DOMNode, false);
+				new DatabaseIntegratedSecurityType(DOMNode).AdjustPrefix();
+			}
+
+			for (int i = 0; i < DomChildCount(NodeType.Element, "", "DatabasePersistSecurityInfo"); i++)
+			{
+				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "DatabasePersistSecurityInfo", i);
+				InternalAdjustPrefix(DOMNode, false);
+				new DatabasePersistSecurityInfoType(DOMNode).AdjustPrefix();
+			}
+
+			for (int i = 0; i < DomChildCount(NodeType.Element, "", "DatabaseAdditionalConnectionString"); i++)
+			{
+				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "DatabaseAdditionalConnectionString", i);
+				InternalAdjustPrefix(DOMNode, false);
+				new DatabaseAdditionalConnectionStringType(DOMNode).AdjustPrefix();
+			}
+
 			for (int i = 0; i < DomChildCount(NodeType.Element, "", "SearchedBibTeXFieldNames"); i++)
 			{
 				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "SearchedBibTeXFieldNames", i);
@@ -836,6 +857,456 @@ namespace BibTeXProviderXML
 
         #endregion // DatabaseTableName collection
 
+		#region DatabaseIntegratedSecurity accessor methods
+		public int GetDatabaseIntegratedSecurityMinCount()
+		{
+			return 1;
+		}
+
+		public int DatabaseIntegratedSecurityMinCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetDatabaseIntegratedSecurityMaxCount()
+		{
+			return 1;
+		}
+
+		public int DatabaseIntegratedSecurityMaxCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetDatabaseIntegratedSecurityCount()
+		{
+			return DomChildCount(NodeType.Element, "", "DatabaseIntegratedSecurity");
+		}
+
+		public int DatabaseIntegratedSecurityCount
+		{
+			get
+			{
+				return DomChildCount(NodeType.Element, "", "DatabaseIntegratedSecurity");
+			}
+		}
+
+		public bool HasDatabaseIntegratedSecurity()
+		{
+			return HasDomChild(NodeType.Element, "", "DatabaseIntegratedSecurity");
+		}
+
+		public DatabaseIntegratedSecurityType GetDatabaseIntegratedSecurityAt(int index)
+		{
+			return new DatabaseIntegratedSecurityType(GetDomChildAt(NodeType.Element, "", "DatabaseIntegratedSecurity", index));
+		}
+
+		public DatabaseIntegratedSecurityType GetDatabaseIntegratedSecurity()
+		{
+			return GetDatabaseIntegratedSecurityAt(0);
+		}
+
+		public DatabaseIntegratedSecurityType DatabaseIntegratedSecurity
+		{
+			get
+			{
+				return GetDatabaseIntegratedSecurityAt(0);
+			}
+		}
+
+		public void RemoveDatabaseIntegratedSecurityAt(int index)
+		{
+			RemoveDomChildAt(NodeType.Element, "", "DatabaseIntegratedSecurity", index);
+		}
+
+		public void RemoveDatabaseIntegratedSecurity()
+		{
+			while (HasDatabaseIntegratedSecurity())
+				RemoveDatabaseIntegratedSecurityAt(0);
+		}
+
+		public void AddDatabaseIntegratedSecurity(DatabaseIntegratedSecurityType newValue)
+		{
+			AppendDomElement("", "DatabaseIntegratedSecurity", newValue);
+		}
+
+		public void InsertDatabaseIntegratedSecurityAt(DatabaseIntegratedSecurityType newValue, int index)
+		{
+			InsertDomElementAt("", "DatabaseIntegratedSecurity", index, newValue);
+		}
+
+		public void ReplaceDatabaseIntegratedSecurityAt(DatabaseIntegratedSecurityType newValue, int index)
+		{
+			ReplaceDomElementAt("", "DatabaseIntegratedSecurity", index, newValue);
+		}
+		#endregion // DatabaseIntegratedSecurity accessor methods
+
+		#region DatabaseIntegratedSecurity collection
+        public DatabaseIntegratedSecurityCollection	MyDatabaseIntegratedSecuritys = new DatabaseIntegratedSecurityCollection( );
+
+        public class DatabaseIntegratedSecurityCollection: IEnumerable
+        {
+            ConfigType parent;
+            public ConfigType Parent
+			{
+				set
+				{
+					parent = value;
+				}
+			}
+			public DatabaseIntegratedSecurityEnumerator GetEnumerator() 
+			{
+				return new DatabaseIntegratedSecurityEnumerator(parent);
+			}
+		
+			IEnumerator IEnumerable.GetEnumerator() 
+			{
+				return GetEnumerator();
+			}
+        }
+
+        public class DatabaseIntegratedSecurityEnumerator: IEnumerator 
+        {
+			int nIndex;
+			ConfigType parent;
+			public DatabaseIntegratedSecurityEnumerator(ConfigType par) 
+			{
+				parent = par;
+				nIndex = -1;
+			}
+			public void Reset() 
+			{
+				nIndex = -1;
+			}
+			public bool MoveNext() 
+			{
+				nIndex++;
+				return(nIndex < parent.DatabaseIntegratedSecurityCount );
+			}
+			public DatabaseIntegratedSecurityType  Current 
+			{
+				get 
+				{
+					return(parent.GetDatabaseIntegratedSecurityAt(nIndex));
+				}
+			}
+			object IEnumerator.Current 
+			{
+				get 
+				{
+					return(Current);
+				}
+			}
+    	}
+
+        #endregion // DatabaseIntegratedSecurity collection
+
+		#region DatabasePersistSecurityInfo accessor methods
+		public int GetDatabasePersistSecurityInfoMinCount()
+		{
+			return 1;
+		}
+
+		public int DatabasePersistSecurityInfoMinCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetDatabasePersistSecurityInfoMaxCount()
+		{
+			return 1;
+		}
+
+		public int DatabasePersistSecurityInfoMaxCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetDatabasePersistSecurityInfoCount()
+		{
+			return DomChildCount(NodeType.Element, "", "DatabasePersistSecurityInfo");
+		}
+
+		public int DatabasePersistSecurityInfoCount
+		{
+			get
+			{
+				return DomChildCount(NodeType.Element, "", "DatabasePersistSecurityInfo");
+			}
+		}
+
+		public bool HasDatabasePersistSecurityInfo()
+		{
+			return HasDomChild(NodeType.Element, "", "DatabasePersistSecurityInfo");
+		}
+
+		public DatabasePersistSecurityInfoType GetDatabasePersistSecurityInfoAt(int index)
+		{
+			return new DatabasePersistSecurityInfoType(GetDomChildAt(NodeType.Element, "", "DatabasePersistSecurityInfo", index));
+		}
+
+		public DatabasePersistSecurityInfoType GetDatabasePersistSecurityInfo()
+		{
+			return GetDatabasePersistSecurityInfoAt(0);
+		}
+
+		public DatabasePersistSecurityInfoType DatabasePersistSecurityInfo
+		{
+			get
+			{
+				return GetDatabasePersistSecurityInfoAt(0);
+			}
+		}
+
+		public void RemoveDatabasePersistSecurityInfoAt(int index)
+		{
+			RemoveDomChildAt(NodeType.Element, "", "DatabasePersistSecurityInfo", index);
+		}
+
+		public void RemoveDatabasePersistSecurityInfo()
+		{
+			while (HasDatabasePersistSecurityInfo())
+				RemoveDatabasePersistSecurityInfoAt(0);
+		}
+
+		public void AddDatabasePersistSecurityInfo(DatabasePersistSecurityInfoType newValue)
+		{
+			AppendDomElement("", "DatabasePersistSecurityInfo", newValue);
+		}
+
+		public void InsertDatabasePersistSecurityInfoAt(DatabasePersistSecurityInfoType newValue, int index)
+		{
+			InsertDomElementAt("", "DatabasePersistSecurityInfo", index, newValue);
+		}
+
+		public void ReplaceDatabasePersistSecurityInfoAt(DatabasePersistSecurityInfoType newValue, int index)
+		{
+			ReplaceDomElementAt("", "DatabasePersistSecurityInfo", index, newValue);
+		}
+		#endregion // DatabasePersistSecurityInfo accessor methods
+
+		#region DatabasePersistSecurityInfo collection
+        public DatabasePersistSecurityInfoCollection	MyDatabasePersistSecurityInfos = new DatabasePersistSecurityInfoCollection( );
+
+        public class DatabasePersistSecurityInfoCollection: IEnumerable
+        {
+            ConfigType parent;
+            public ConfigType Parent
+			{
+				set
+				{
+					parent = value;
+				}
+			}
+			public DatabasePersistSecurityInfoEnumerator GetEnumerator() 
+			{
+				return new DatabasePersistSecurityInfoEnumerator(parent);
+			}
+		
+			IEnumerator IEnumerable.GetEnumerator() 
+			{
+				return GetEnumerator();
+			}
+        }
+
+        public class DatabasePersistSecurityInfoEnumerator: IEnumerator 
+        {
+			int nIndex;
+			ConfigType parent;
+			public DatabasePersistSecurityInfoEnumerator(ConfigType par) 
+			{
+				parent = par;
+				nIndex = -1;
+			}
+			public void Reset() 
+			{
+				nIndex = -1;
+			}
+			public bool MoveNext() 
+			{
+				nIndex++;
+				return(nIndex < parent.DatabasePersistSecurityInfoCount );
+			}
+			public DatabasePersistSecurityInfoType  Current 
+			{
+				get 
+				{
+					return(parent.GetDatabasePersistSecurityInfoAt(nIndex));
+				}
+			}
+			object IEnumerator.Current 
+			{
+				get 
+				{
+					return(Current);
+				}
+			}
+    	}
+
+        #endregion // DatabasePersistSecurityInfo collection
+
+		#region DatabaseAdditionalConnectionString accessor methods
+		public int GetDatabaseAdditionalConnectionStringMinCount()
+		{
+			return 1;
+		}
+
+		public int DatabaseAdditionalConnectionStringMinCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetDatabaseAdditionalConnectionStringMaxCount()
+		{
+			return 1;
+		}
+
+		public int DatabaseAdditionalConnectionStringMaxCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetDatabaseAdditionalConnectionStringCount()
+		{
+			return DomChildCount(NodeType.Element, "", "DatabaseAdditionalConnectionString");
+		}
+
+		public int DatabaseAdditionalConnectionStringCount
+		{
+			get
+			{
+				return DomChildCount(NodeType.Element, "", "DatabaseAdditionalConnectionString");
+			}
+		}
+
+		public bool HasDatabaseAdditionalConnectionString()
+		{
+			return HasDomChild(NodeType.Element, "", "DatabaseAdditionalConnectionString");
+		}
+
+		public DatabaseAdditionalConnectionStringType GetDatabaseAdditionalConnectionStringAt(int index)
+		{
+			return new DatabaseAdditionalConnectionStringType(GetDomChildAt(NodeType.Element, "", "DatabaseAdditionalConnectionString", index));
+		}
+
+		public DatabaseAdditionalConnectionStringType GetDatabaseAdditionalConnectionString()
+		{
+			return GetDatabaseAdditionalConnectionStringAt(0);
+		}
+
+		public DatabaseAdditionalConnectionStringType DatabaseAdditionalConnectionString
+		{
+			get
+			{
+				return GetDatabaseAdditionalConnectionStringAt(0);
+			}
+		}
+
+		public void RemoveDatabaseAdditionalConnectionStringAt(int index)
+		{
+			RemoveDomChildAt(NodeType.Element, "", "DatabaseAdditionalConnectionString", index);
+		}
+
+		public void RemoveDatabaseAdditionalConnectionString()
+		{
+			while (HasDatabaseAdditionalConnectionString())
+				RemoveDatabaseAdditionalConnectionStringAt(0);
+		}
+
+		public void AddDatabaseAdditionalConnectionString(DatabaseAdditionalConnectionStringType newValue)
+		{
+			AppendDomElement("", "DatabaseAdditionalConnectionString", newValue);
+		}
+
+		public void InsertDatabaseAdditionalConnectionStringAt(DatabaseAdditionalConnectionStringType newValue, int index)
+		{
+			InsertDomElementAt("", "DatabaseAdditionalConnectionString", index, newValue);
+		}
+
+		public void ReplaceDatabaseAdditionalConnectionStringAt(DatabaseAdditionalConnectionStringType newValue, int index)
+		{
+			ReplaceDomElementAt("", "DatabaseAdditionalConnectionString", index, newValue);
+		}
+		#endregion // DatabaseAdditionalConnectionString accessor methods
+
+		#region DatabaseAdditionalConnectionString collection
+        public DatabaseAdditionalConnectionStringCollection	MyDatabaseAdditionalConnectionStrings = new DatabaseAdditionalConnectionStringCollection( );
+
+        public class DatabaseAdditionalConnectionStringCollection: IEnumerable
+        {
+            ConfigType parent;
+            public ConfigType Parent
+			{
+				set
+				{
+					parent = value;
+				}
+			}
+			public DatabaseAdditionalConnectionStringEnumerator GetEnumerator() 
+			{
+				return new DatabaseAdditionalConnectionStringEnumerator(parent);
+			}
+		
+			IEnumerator IEnumerable.GetEnumerator() 
+			{
+				return GetEnumerator();
+			}
+        }
+
+        public class DatabaseAdditionalConnectionStringEnumerator: IEnumerator 
+        {
+			int nIndex;
+			ConfigType parent;
+			public DatabaseAdditionalConnectionStringEnumerator(ConfigType par) 
+			{
+				parent = par;
+				nIndex = -1;
+			}
+			public void Reset() 
+			{
+				nIndex = -1;
+			}
+			public bool MoveNext() 
+			{
+				nIndex++;
+				return(nIndex < parent.DatabaseAdditionalConnectionStringCount );
+			}
+			public DatabaseAdditionalConnectionStringType  Current 
+			{
+				get 
+				{
+					return(parent.GetDatabaseAdditionalConnectionStringAt(nIndex));
+				}
+			}
+			object IEnumerator.Current 
+			{
+				get 
+				{
+					return(Current);
+				}
+			}
+    	}
+
+        #endregion // DatabaseAdditionalConnectionString collection
+
 		#region SearchedBibTeXFieldNames accessor methods
 		public int GetSearchedBibTeXFieldNamesMinCount()
 		{
@@ -1293,6 +1764,9 @@ namespace BibTeXProviderXML
             MyDataSources.Parent = this; 
             MyDatabaseNames.Parent = this; 
             MyDatabaseTableNames.Parent = this; 
+            MyDatabaseIntegratedSecuritys.Parent = this; 
+            MyDatabasePersistSecurityInfos.Parent = this; 
+            MyDatabaseAdditionalConnectionStrings.Parent = this; 
             MySearchedBibTeXFieldNamess.Parent = this; 
             MyHandledFileTypess.Parent = this; 
             MyErrorMessageOnConnectionProblemss.Parent = this; 

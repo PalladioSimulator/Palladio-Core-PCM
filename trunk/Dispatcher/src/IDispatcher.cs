@@ -1,7 +1,7 @@
 namespace Palladio.Webserver.Dispatcher
 {
 	/// <summary>
-	/// IDispatcher.
+	/// IDispatcher. The dispatcher interface. Offers methods to start and stop the dispatched threads.
 	/// </summary>
 	/// 
 	/// 
@@ -10,6 +10,11 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/01/22 16:42:56  kelsaka
+	/// added configureable (XML) connection-string for the database;
+	/// added thread-name for the main thread;
+	/// fixed socket-error (updated documentation)
+	///
 	/// Revision 1.4  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each

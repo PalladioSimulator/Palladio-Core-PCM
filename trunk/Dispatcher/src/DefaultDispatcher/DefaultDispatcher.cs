@@ -12,6 +12,7 @@ namespace Palladio.Webserver.Dispatcher
 	/// <summary>
 	/// DefaultDispatcher. This component starts threads with TCP-listeners that listen on the specified ports. The ports are configured
 	/// in the WebserverXML.xml. The webserver may even listen on multiple ports.
+	/// Offers methods to start and stop the dispatched threads.
 	/// </summary>
 	/// 
 	/// 
@@ -20,6 +21,11 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.18  2005/01/22 16:42:56  kelsaka
+	/// added configureable (XML) connection-string for the database;
+	/// added thread-name for the main thread;
+	/// fixed socket-error (updated documentation)
+	///
 	/// Revision 1.17  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -149,7 +155,7 @@ namespace Palladio.Webserver.Dispatcher
 		/// </summary>
 		public void Start ()
 		{
-
+			
 			webserverMonitor.WriteLogEntry("----------------------------");
 			webserverMonitor.WriteLogEntry("Webserver-Dispatcher started.");
 
