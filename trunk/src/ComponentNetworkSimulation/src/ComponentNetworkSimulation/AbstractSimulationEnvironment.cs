@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.12  2004/06/28 10:53:42  joemal
+	/// - move the inilization from abstract to default class
+	///
 	/// Revision 1.11  2004/06/22 12:01:56  joemal
 	/// add factory to configure the framework
 	///
@@ -45,38 +48,7 @@ namespace ComponentNetworkSimulation
 
 		#endregion
 
-		#region constructors
-
-		/// <summary>
-		/// constructs a new SimulationEnvironment. This constructor call the method Inilize() to let
-		/// the implementing classes inilizing the clock, the componentnetwork and the datapool.
-		/// </summary>
-		public AbstractSimulationEnvironment()
-		{
-			this.InternalInilize();
-		}
-
-		#endregion
-
 		#region methods
-
-		/// <summary>
-		/// this method is called by the constructor. Required inilizations are done in this method.
-		/// </summary>
-		private void InternalInilize()
-		{
-			Clock.ClockLogEvent += new LogEventHandler(DataPool.OnLogEvent);
-			Clock.ThreadScheduler.ThreadLogEvent += new LogEventHandler(DataPool.OnLogEvent);
-			this.Inilize();
-		}
-
-		/// <summary>
-		/// called by the constructor in order to let the implementing classes inilize the clock, the componentnetwork
-		/// and the datapool. Refere to the components using the properties Clock, ComponentNetwork and DataPool.
-		/// </summary>
-		protected virtual void Inilize()
-		{
-		}
 
 		/// <summary>
 		/// call to start a whole simlution. The simulation ends, when maxsimulationtime is reached or no more thread is alive.
