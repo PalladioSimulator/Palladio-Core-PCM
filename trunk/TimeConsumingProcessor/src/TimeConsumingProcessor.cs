@@ -17,7 +17,8 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 	/// A: the current thread is set sleeping to produce the delay. This means, that other threads can continue working.
 	/// B: the current thread is busy waiting. So this component simulates complex webserver-operations.
 	/// The options of this component are set in "TimeConsumingProcessorXML.xml". E. g. there are options to adjust the
-	/// probalitity how often the TimeConsumingProcessor should consume time in average.
+	/// probalitity how often the TimeConsumingProcessor should consume time (means: how often the component is activated)
+	/// in average.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -25,6 +26,11 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/01/22 16:42:56  kelsaka
+	/// added configureable (XML) connection-string for the database;
+	/// added thread-name for the main thread;
+	/// fixed socket-error (updated documentation)
+	///
 	/// Revision 1.1  2005/01/07 16:58:02  kelsaka
 	/// Added TimeConsumingProcessor including its documentation and configuration.
 	/// Integrated the new processor into the COR.

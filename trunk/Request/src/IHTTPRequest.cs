@@ -4,7 +4,7 @@ using System.Net.Sockets;
 namespace Palladio.Webserver.Request
 {
 	/// <summary>
-	/// IHTTPRequest.
+	/// IHTTPRequest. This interface offers the standard information of an typical HTTPRequest.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -12,6 +12,11 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/01/22 16:42:56  kelsaka
+	/// added configureable (XML) connection-string for the database;
+	/// added thread-name for the main thread;
+	/// fixed socket-error (updated documentation)
+	///
 	/// Revision 1.1  2004/12/06 05:20:21  sliver
 	/// - RequestFactory added
 	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory

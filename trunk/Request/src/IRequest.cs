@@ -3,7 +3,7 @@ using System.Net.Sockets;
 namespace Palladio.Webserver.Request
 {
 	/// <summary>
-	/// IRequest.
+	/// IRequest. This is a non specifical request for the webserver.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -11,6 +11,11 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/01/22 16:42:56  kelsaka
+	/// added configureable (XML) connection-string for the database;
+	/// added thread-name for the main thread;
+	/// fixed socket-error (updated documentation)
+	///
 	/// Revision 1.5  2004/12/06 05:20:21  sliver
 	/// - RequestFactory added
 	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory

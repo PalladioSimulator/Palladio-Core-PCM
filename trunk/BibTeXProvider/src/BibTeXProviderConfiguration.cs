@@ -12,6 +12,11 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/01/22 16:42:56  kelsaka
+	/// added configureable (XML) connection-string for the database;
+	/// added thread-name for the main thread;
+	/// fixed socket-error (updated documentation)
+	///
 	/// Revision 1.1  2004/12/03 11:09:32  kelsaka
 	/// The BibTeXProvider now reads its configuration from a xml-file; fixed sql-search-error in the BibTeXProvider; added documentation especially about a strange behaviour of the socket-connection  in the BibTeXProvider;
 	///
@@ -60,6 +65,39 @@ namespace Palladio.Webserver.BibTeXProvider
 			get
 			{
 				return configRoot.GetDatabaseTableName().GetName().Value;
+			}
+		}
+
+		/// <summary>
+		/// Part of the database-connection-string.
+		/// </summary>
+		public string DatabaseIntegratedSecurity
+		{
+			get
+			{
+				return configRoot.GetDatabaseIntegratedSecurity().GetValue().Value;
+			}
+		}
+
+		/// <summary>
+		/// Part of the database-connection-string.
+		/// </summary>
+		public string DatabasePersistSecurityInfo
+		{
+			get
+			{
+				return configRoot.GetDatabasePersistSecurityInfo().GetValue().Value;
+			}
+		}
+
+		/// <summary>
+		/// Part of the database-connection-string that can contain further settings for the connection.
+		/// </summary>
+		public string DDatabaseAdditionalConnectionString
+		{
+			get
+			{
+				return configRoot.GetDatabaseAdditionalConnectionString().GetValue().Value;
 			}
 		}
 

@@ -28,17 +28,15 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// </summary>
 	/// 
 	/// <remarks>
-	/// Please pay attention that there may occur problems concering the sockets used to handle the
-	/// http-request. If you use a lot of string-concatenation (like string += "abc";) the socket-connection might be
-	/// closed. As the error can be reproduced this seems to be a bug of the .NET-Framework (Version 1.1, November 2004).
-	/// The error could be identified to be indepentend from any kinds of time-outs. Even putting the thread sleeping for 
-	/// 5 seconds doesn't produce the same error.
-	/// Currently this behaviour does not seem to be deterministically.
-	/// 
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/01/22 16:42:56  kelsaka
+	/// added configureable (XML) connection-string for the database;
+	/// added thread-name for the main thread;
+	/// fixed socket-error (updated documentation)
+	///
 	/// Revision 1.6  2004/12/18 10:01:18  kelsaka
 	/// removed duplicate method CreateHTMLDataTableFromResult from BibTeXProvider.
 	///
@@ -127,14 +125,16 @@ namespace Palladio.Webserver.BibTeXProvider
 			}
 
 
-			// Necessary use of the StringBuilder, as the simple string causes the Socket to abort the connection.
-			// Probably this behaviour is not caused by a timeout, but by the frequent use of string-concatenation (=+).
+			// Use of the StringBuilder as the string-concatenation (+=) is very little performant.
 			StringBuilder responseString = new StringBuilder();
 
 			try{
 				bibTexDB.ConnectionString = 
-					"integrated security=SSPI;data source=" + bibTeXProviderConfiguration.DataSource + ";" + 
-					"persist security info=False;initial catalog=" + bibTeXProviderConfiguration.DatabaseName;
+					"integrated security=" + bibTeXProviderConfiguration.DatabaseIntegratedSecurity + ";" +
+					"data source=" + bibTeXProviderConfiguration.DataSource + ";" + 
+					"persist security info=" + bibTeXProviderConfiguration.DatabasePersistSecurityInfo + ";" +
+					"initial catalog=" + bibTeXProviderConfiguration.DatabaseName +
+					bibTeXProviderConfiguration.DDatabaseAdditionalConnectionString;
 				if(httpRequest.GetPOSTVariableValue("showEntry") == "all")
 				{
 					// Case: display all entries

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!ELEMENT Config (DataSource, DatabaseName, DatabaseTableName, SearchedBibTeXFieldNames, HandledFileTypes, ErrorMessageOnConnectionProblems)>
+<!ELEMENT Config (DataSource, DatabaseName, DatabaseTableName, DatabaseIntegratedSecurity, DatabasePersistSecurityInfo, DatabaseAdditionalConnectionString, SearchedBibTeXFieldNames, HandledFileTypes, ErrorMessageOnConnectionProblems)>
 <!ATTLIST Config
 	xmlns:xsi CDATA #REQUIRED
 	xsi:noNamespaceSchemaLocation CDATA #REQUIRED
@@ -18,7 +18,22 @@
 
 <!ELEMENT DatabaseTableName EMPTY>
 <!ATTLIST DatabaseTableName
-	 Name CDATA #REQUIRED
+	Name CDATA #REQUIRED
+>
+
+<!ELEMENT DatabaseIntegratedSecurity EMPTY>
+<!ATTLIST DatabaseIntegratedSecurity
+	Value CDATA #REQUIRED
+>
+
+<!ELEMENT DatabasePersistSecurityInfo EMPTY>
+<!ATTLIST DatabasePersistSecurityInfo
+	Value CDATA #REQUIRED
+>
+
+<!ELEMENT DatabaseAdditionalConnectionString EMPTY>
+<!ATTLIST  DatabaseAdditionalConnectionString
+	Value CDATA #REQUIRED
 >
 
 <!ELEMENT SearchedBibTeXFieldNames (FieldName+)>
