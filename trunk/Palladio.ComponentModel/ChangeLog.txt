@@ -20,8 +20,9 @@ Examples:
 CVS history:
 ---
 $Log$
-Revision 1.2  2005/02/22 11:15:05  sbecker
+Revision 1.1  2005/02/22 11:15:05  sbecker
 ChangeLog added and instructions inserted
+
 
 
 

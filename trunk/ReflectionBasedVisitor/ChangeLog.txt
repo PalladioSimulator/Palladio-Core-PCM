@@ -1,2 +1,28 @@
-Diese Datei führt alle großen Änderungen am Modul.
+This file logs all major changes to this module.
+
+Syntax:
+> (+)  if something has been added
+> (-)  if something has been removed
+> (SC) if there have been changes to the semantics of functions
+
+Please add also in which class, interface, file something was changed and a short form of your name!
+
+Examples:
+(+) Added function AktenzeichenXY, to caputure bad guys (in class TV) StB
+(-) Removed unused function GetMoneyFromBankAccount() (in class BankRobber) StB
+(SC) ThiefEquals is now checking also for the amount of money stolen (in class BankRobber) StB
+
+--- Snip: Add comments between the snippets
+22.2. Inital creation
+      (+) Added ChangeLog.txt instructions (ChangeLog.txt) StB
+---
+
+CVS history:
+---
+$Log$
+Revision 1.2  2005/02/22 11:15:05  sbecker
+ChangeLog added and instructions inserted
+
+
+
 
