@@ -114,12 +114,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IWebserverConfiguration.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\DefaultConfigReader\XMLConfigReader.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\DefaultConfiguration\DefaultConfiguration.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\WebserverConfiguration\WebserverConfiguration.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

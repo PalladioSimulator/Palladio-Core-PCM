@@ -14,6 +14,9 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/10/24 06:17:11  kelsaka
+	/// -
+	///
 	/// Revision 1.4  2004/10/23 14:08:36  kelsaka
 	/// first steps on reading xml-config-files
 	///
@@ -43,7 +46,7 @@ namespace Palladio.Webserver.WebserverMonitor
 
 		private void ReadConfiguration()
 		{
-			ConfigType configRoot = configReader.GetRoot();
+			//ConfigType configRoot = configReader.GetRoot();
 		}
 
 		public void WriteDebugMessage (string debugMessage, int debugLevel)
