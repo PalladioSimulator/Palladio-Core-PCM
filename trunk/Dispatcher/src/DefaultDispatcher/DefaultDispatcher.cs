@@ -1,12 +1,11 @@
 using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.Request;
-using Palladio.Webserver.WebserverMonitor;
 using Palladio.Webserver.RequestParser;
+using Palladio.Webserver.WebserverMonitor;
 
 namespace Palladio.Webserver.Dispatcher
 {
@@ -21,6 +20,11 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2004/12/06 05:20:21  sliver
+	/// - RequestFactory added
+	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
+	/// - WebserverConfigurator added
+	///
 	/// Revision 1.15  2004/11/28 19:01:32  kelsaka
 	/// Added simple support for searching on a database, that contains BibTeX-Entries, added test-documents, added DB-test-content, added comments
 	///
@@ -72,6 +76,7 @@ namespace Palladio.Webserver.Dispatcher
 	/// </remarks>
 	public class DefaultDispatcher : IDispatcher
 	{
+		private IRequestFactory requestFactory;
 
 		private IRequestParser requestParser;
 		private IWebserverMonitor webserverMonitor;
@@ -89,11 +94,12 @@ namespace Palladio.Webserver.Dispatcher
 		/// </summary>
 		/// <param name="requestParser">The delegate that is used as the proceeding component (RequestParser)
 		/// on processing the client-request.</param>
-		public DefaultDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		public DefaultDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory)
 		{
 			this.requestParser = requestParser;
 			this.webserverMonitor = webserverMonitor;
 			this.webserverConfiguration = webserverConfiguration;
+			this.requestFactory = requestFactory;
 		}
 
 
@@ -126,7 +132,7 @@ namespace Palladio.Webserver.Dispatcher
 					webserverMonitor.WriteLogEntry("Listening (" + webserverConfiguration.ListenIP + "; TCP) on port: " + port);
 					
 					ListeningThread listeningThread = new ListeningThread(requestParser, webserverMonitor,
-						webserverConfiguration, port, tcpListener);
+						webserverConfiguration, port, tcpListener, requestFactory);
 
 					//start the thread which calls the method 'StartListen'
 					serverThread[x] = new Thread(new ThreadStart(listeningThread.StartListen));	

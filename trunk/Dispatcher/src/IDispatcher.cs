@@ -1,5 +1,3 @@
-using System;
-
 namespace Palladio.Webserver.Dispatcher
 {
 	/// <summary>
@@ -12,6 +10,11 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/12/06 05:20:21  sliver
+	/// - RequestFactory added
+	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
+	/// - WebserverConfigurator added
+	///
 	/// Revision 1.2  2004/10/25 06:35:51  kelsaka
 	/// added XML-reading-abilities
 	///

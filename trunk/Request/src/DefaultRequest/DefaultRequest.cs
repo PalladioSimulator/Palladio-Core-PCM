@@ -1,7 +1,4 @@
-using System;
-using System.IO;
 using System.Net.Sockets;
-using System.Text;
 using Palladio.Webserver.WebserverMonitor;
 
 namespace Palladio.Webserver.Request
@@ -15,6 +12,11 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/12/06 05:20:21  sliver
+	/// - RequestFactory added
+	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
+	/// - WebserverConfigurator added
+	///
 	/// Revision 1.5  2004/11/03 18:52:48  kelsaka
 	/// Added ability to get the full content-data of post-requests
 	///
@@ -34,7 +36,7 @@ namespace Palladio.Webserver.Request
 	///
 	/// </pre>
 	/// </remarks>
-	public class DefaultRequest : IRequest
+	internal class DefaultRequest : IRequest
 	{
 
 		private IWebserverMonitor webserverMonitor;

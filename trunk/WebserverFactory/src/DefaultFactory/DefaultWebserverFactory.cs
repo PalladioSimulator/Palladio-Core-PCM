@@ -3,6 +3,7 @@ using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.Dispatcher;
 using Palladio.Webserver.FTPRequestProcessor;
 using Palladio.Webserver.HTTPRequestProcessor;
+using Palladio.Webserver.Request;
 using Palladio.Webserver.RequestParser;
 using Palladio.Webserver.WebserverMonitor;
 using Palladio.Webserver.HTTPRequestParser;
@@ -18,6 +19,11 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2004/12/06 05:20:21  sliver
+	/// - RequestFactory added
+	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
+	/// - WebserverConfigurator added
+	///
 	/// Revision 1.8  2004/11/21 17:10:04  kelsaka
 	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
 	///
@@ -60,9 +66,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// </summary>
 		/// <param name="requestParser">A component that fullfills the required-interface.</param>
 		/// <returns>IDispatcher, using the services from the reqestParser.</returns>
-		public IDispatcher CreateDispatcher (IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		public IDispatcher CreateDispatcher (IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory)
 		{
-			return new DefaultDispatcher(requestParser, webserverMonitor, webserverConfiguration);
+			return new DefaultDispatcher(requestParser, webserverMonitor, webserverConfiguration, requestFactory);
 		}
 
 		#endregion
@@ -103,9 +109,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="requestProcessor">The component used as HTTPRequestProcessor.</param>
 		/// <param name="CorSuccessor">The successor in the COR to handle requests by using the IRequestParser-Interface.</param>
 		/// <returns>HTTPRequestParser</returns>
-		public IRequestParser CreateHTTPRequestParser (IHTTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		public IRequestParser CreateHTTPRequestParser (IHTTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory)
 		{
-			return new HTTPRequestParser.HTTPRequestParser(requestProcessor, CorSuccessor, webserverMonitor, webserverConfiguration);
+			return new HTTPRequestParser.HTTPRequestParser(requestProcessor, CorSuccessor, webserverMonitor, webserverConfiguration, requestFactory);
 			
 		}
 
@@ -143,9 +149,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
 		/// <returns>BibTeXProvider</returns>
-		public IHTTPRequestProcessor CreateBibTeXProvider (IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		public IHTTPRequestProcessor CreateBibTeXProvider (IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
 		{
-			return new BibTeXProvider.BibTeXProvider(corSuccessor, webserverMonitor, webserverConfiguration);
+			return new BibTeXProvider.BibTeXProvider(corSuccessor, webserverMonitor, webserverConfiguration, requestProcessorTools);
 		}
 
 		/// <summary>
@@ -155,9 +161,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
 		/// <returns>SimpleTemplateFileProvider</returns>
-		public IHTTPRequestProcessor CreateSimpleTemplateFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		public IHTTPRequestProcessor CreateSimpleTemplateFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
 		{
-			return new SimpleTemplateFileProvider.SimpleTemplateFileProvider(CorSuccessor, webserverMonitor, webserverConfiguration);
+			return new SimpleTemplateFileProvider.SimpleTemplateFileProvider(CorSuccessor, webserverMonitor, webserverConfiguration, requestProcessorTools);
 		}
 
 
@@ -166,9 +172,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// </summary>
 		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
 		/// <returns>StaticFileProvider</returns>
-		public IHTTPRequestProcessor CreateStaticFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		public IHTTPRequestProcessor CreateStaticFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
 		{
-			return new StaticFileProvider.StaticFileProvider(CorSuccessor, webserverMonitor, webserverConfiguration);
+			return new StaticFileProvider.StaticFileProvider(CorSuccessor, webserverMonitor, webserverConfiguration, requestProcessorTools);
 		}
 
 		/// <summary>
@@ -176,9 +182,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// </summary>
 		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
 		/// <returns>StaticFileProvider</returns>
-		public IHTTPRequestProcessor CreateDynamicFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		public IHTTPRequestProcessor CreateDynamicFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
 		{
-			return new DynamicFileProvider.DynamicFileProvider(CorSuccessor, webserverMonitor, webserverConfiguration);
+			return new DynamicFileProvider.DynamicFileProvider(CorSuccessor, webserverMonitor, webserverConfiguration, requestProcessorTools);
 		}
 
 		/// <summary>
@@ -186,9 +192,31 @@ namespace Palladio.Webserver.WebserverFactory
 		/// means that it is a error-handler of streams that cannot be processed. It should be the last link in the COR.
 		/// </summary>
 		/// <returns>DefaultRequestProcessor</returns>
-		public IHTTPRequestProcessor CreateDefaultRequestProcessor (IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		public IHTTPRequestProcessor CreateDefaultRequestProcessor (IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
 		{
-			return new HTTPRequestProcessor.DefaultHTTPRequestProcessor(webserverMonitor, webserverConfiguration);
+			return new HTTPRequestProcessor.DefaultHTTPRequestProcessor(webserverMonitor, webserverConfiguration, requestProcessorTools);
+		}
+		#endregion
+
+		#region IHTTPRequestProcessorTools
+
+		public IHTTPRequestProcessorTools CreateRequestProcessorTools(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		{
+			return new DefaultHTTPRequestProcessorTools(webserverMonitor, webserverConfiguration);
+		}
+
+		#endregion
+
+		#region WebserverConfiguration
+
+		public IWebserverConfiguration CreateWebserverConfiguration(IConfigReader configReader, string pathToConfigFile, string xmlConfigFile)
+		{
+			IWebserverConfiguration webserverConfiguration = new WebserverConfiguration(
+				configReader.ReadConfiguration(pathToConfigFile + xmlConfigFile));
+			// Set the pathToConfigFile manually, because otherwise this would be a hen egg-problem: the
+			// configuration-file can't (or shouldn't have to) know it own position:
+			webserverConfiguration.ConfigFilesPath = pathToConfigFile;
+			return webserverConfiguration;
 		}
 
 		#endregion

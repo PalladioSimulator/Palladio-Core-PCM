@@ -21,6 +21,11 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2004/12/06 05:20:21  sliver
+	/// - RequestFactory added
+	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
+	/// - WebserverConfigurator added
+	///
 	/// Revision 1.14  2004/11/21 17:10:03  kelsaka
 	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
 	///
@@ -73,13 +78,15 @@ namespace Palladio.Webserver.HTTPRequestParser
 		private IWebserverConfiguration webserverConfiguration;
 		private IHTTPRequestProcessor requestProcessor;
 		private IRequestParser corSuccessor;
+		private IRequestFactory requestFactory;
 
-		public HTTPRequestParser(IHTTPRequestProcessor requestProcessor, IRequestParser corSuccessor, IWebserverMonitor webserverMonitor,  IWebserverConfiguration webserverConfiguration)
+		public HTTPRequestParser(IHTTPRequestProcessor requestProcessor, IRequestParser corSuccessor, IWebserverMonitor webserverMonitor,  IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory)
 		{
 			this.webserverMonitor = webserverMonitor;
 			this.webserverConfiguration = webserverConfiguration;		
 			this.requestProcessor = requestProcessor;
 			this.corSuccessor = corSuccessor;
+			this.requestFactory = requestFactory;
 		}
 
 
@@ -97,7 +104,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 			string requestString = "";
 
 			// Save the parsing-results into the IHTTP-Request
-			IHTTPRequest httpRequest = new DefaultHTTPRequest();
+			IHTTPRequest httpRequest = requestFactory.CreateHTTPRequest();
 			httpRequest.Socket = request.Socket;
 
 

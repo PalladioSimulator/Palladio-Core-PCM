@@ -39,6 +39,11 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/12/06 05:20:21  sliver
+	/// - RequestFactory added
+	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
+	/// - WebserverConfigurator added
+	///
 	/// Revision 1.3  2004/12/03 11:09:32  kelsaka
 	/// The BibTeXProvider now reads its configuration from a xml-file; fixed sql-search-error in the BibTeXProvider; added documentation especially about a strange behaviour of the socket-connection  in the BibTeXProvider;
 	///
@@ -64,12 +69,12 @@ namespace Palladio.Webserver.BibTeXProvider
 		private IHTTPRequestProcessorTools requestProcessorTools;
 		private BibTeXProviderConfiguration bibTeXProviderConfiguration;
 
-		public BibTeXProvider(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		public BibTeXProvider(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools )
 		{
 			this.corSuccessor = corSuccessor;
 			this.webserverMonitor = webserverMonitor;
 			this.webserverConfiguration = webserverConfiguration;
-			this.requestProcessorTools = new DefaultHTTPRequestProcessorTools(webserverMonitor, webserverConfiguration);
+			this.requestProcessorTools = requestProcessorTools;
 
 			this.bibTeXProviderConfiguration = readConfiguration();
 		}
