@@ -53,5 +53,12 @@ namespace UnitTests.Utils.Collections
 			setTwo.Add(new State("dummy",false,false));
 			Assert.IsFalse(setOne.Equals(setTwo));
 		}
+
+		[Test] public void Clone() {
+			Set three = (Set)setOne.Clone();
+			Assert.AreEqual(setOne,three);
+			three.Add(new State("new state",false,false));
+			Assert.IsFalse(setOne.Equals(three));
+		}
 	}
 }

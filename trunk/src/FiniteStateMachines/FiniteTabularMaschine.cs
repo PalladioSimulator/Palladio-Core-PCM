@@ -7,7 +7,7 @@ namespace FiniteStateMachines {
 	/// The class <code>FiniteTabularMachine</code> is the default
 	/// implementation of the interface <code>IFiniteStateMachine</code>.
 	/// It uses a table of transitions as input to create the finite state
-	/// machine.
+	/// machine. A <code>FiniteTabularMachine</code> is always deterministic.
 	/// </summary>
 	public class FiniteTabularMachine : IFiniteStateMachine {
 

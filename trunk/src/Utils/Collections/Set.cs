@@ -102,7 +102,7 @@ namespace Utils.Collections {
 			return s;
 		}
 
-		public bool Equals(object obj) {
+		public override bool Equals(object obj) {
 			if (obj is Set) {
 				Set other = (Set)obj;
 				if (other.Count==this.Count) {
@@ -115,6 +115,14 @@ namespace Utils.Collections {
 				}
 			}
 			return false;
+		}
+
+
+		public object Clone() {
+			Set result = new Set();
+			result.data = (Hashtable)data.Clone();
+			result.enumerator = result.data.GetEnumerator();
+			return result;
 		}
 
 		public int Count {
