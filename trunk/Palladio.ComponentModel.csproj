@@ -125,7 +125,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\AbstractIM.cs"
+                    RelPath = "src\AbstractIModel.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
