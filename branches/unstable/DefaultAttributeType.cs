@@ -13,6 +13,12 @@ namespace Palladio.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2.2.1  2004/12/02 23:37:39  uffi
+	/// major changes in Palladio.Attributes,
+	/// IAttribute added for implementations of attribute values,
+	/// AttributeHash is now a typed Hashtable,
+	/// IAttributeHash and Factories are currently obsolete, still in repository though.
+	///
 	/// Revision 1.2  2004/05/17 14:07:33  sliver
 	/// added interface for attributable classes
 	///
@@ -24,9 +30,21 @@ namespace Palladio.Attributes
 	/// </remarks>
 	internal class DefaultAttributeType : IAttributeType
 	{
+		protected string displayname = "";
 		protected string description = "";
 		protected Guid guid = Guid.Empty;
 		protected Type type = null;
+
+		/// <summary>
+		/// Get a name of the attribute, that is displayed in the property cell
+		/// </summary>
+		public virtual string DisplayName
+		{ 
+			get
+			{
+				return displayname;
+			}
+		}
 
 		/// <summary>
 		/// Get a description of the attribute

@@ -99,17 +99,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "DefaultAttributesFactory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "DefaultAttributeType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Factory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -119,12 +109,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "IAttributeHash.cs"
+                    RelPath = "IAttribute.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "IAttributesFactory.cs"
+                    RelPath = "IAttributeHash.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
