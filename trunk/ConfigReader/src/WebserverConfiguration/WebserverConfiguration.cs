@@ -3,6 +3,7 @@ using System.Xml.Schema;
 using Altova.Types;
 using WebserverXML;
 
+
 namespace Palladio.Webserver.ConfigReader
 {
 	/// <summary>
@@ -15,6 +16,9 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/11/14 10:55:51  kelsaka
+	/// Completed listening on IP-Addresses. Now the IP the server is listening on defineable in the WebserverXML.xml. Pay attention that there might be some problems with the project-name of WebserverXML as XMLSpy sometimes produces lower-case-versions that cause problems on windows-systems.
+	///
 	/// Revision 1.4  2004/11/05 16:17:00  kelsaka
 	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
 	/// Code refactoring.
@@ -53,6 +57,19 @@ namespace Palladio.Webserver.ConfigReader
 		{
 			get { return configFilesPath; }
 			set { configFilesPath = value; }
+		}
+
+		/// <summary>
+		/// The IP-address the server shall listen on. For local use this will probably be "127.0.0.1". If the
+		/// server shall be accessed by external clients the IP-address of the network-interface has to be used with which
+		/// the server is connected to the client (especially on using multiple network-interfaces on one server).
+		/// </summary>
+		public string ListenIP
+		{
+			get 
+			{
+				return configRoot.ListenIP.Getip().Value;
+			}
 		}
 
 
