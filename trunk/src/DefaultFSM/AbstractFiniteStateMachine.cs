@@ -24,14 +24,13 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 
 		public abstract IInput[] InputAlphabet { get; set; }
 
-		public virtual IState[] States 
+		public abstract IState[] States { get; }
+
+		public IState[] GetReachableStates ( IState s )
 		{
-			get
-			{
-				StateVisitor visitor = new StateVisitor(this);
-				visitor.Visit(StartState);
-				return visitor.VisitedStates;
-			}
+			StateVisitor visitor = new StateVisitor(this);
+			visitor.Visit(s);
+			return visitor.VisitedStates;
 		}
 
 		public virtual ITransition[] Transitions
@@ -91,32 +90,6 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			ITransition[] resultTransArray = new ITransition[transList.Count];
 			transList.CopyTo(resultTransArray,0);
 			return resultTransArray;
-		}
-
-
-	public virtual IState[] GetReachableStates(IState aState) 
-		{
-			IList stateList = new Vector();
-			GetReachableStatesRecursive(aState,ref stateList);
-			IState[] resultStates = new IState[stateList.Count];
-			stateList.CopyTo(resultStates,0);
-			return resultStates;
-		}
-
-		private void GetReachableStatesRecursive(IState aState,ref IList resultSet) 
-		{
-			if ((!resultSet.Contains(aState)) && (aState.IsErrorState)) 
-			{
-				resultSet.Add(aState);
-				IList transitions = GetOutgoingTransitions(aState);
-				if (transitions != null) 
-				{
-					foreach (ITransition trans in transitions) 
-					{
-						GetReachableStatesRecursive(trans.DestinationState,ref resultSet);
-					}
-				}
-			}
 		}
 
 		public override bool Equals(object obj) 

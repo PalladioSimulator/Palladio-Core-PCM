@@ -72,6 +72,13 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			}
 		}
 
+		public override IState[] States
+		{
+			get
+			{
+				return (IState[]) states.ToArray(typeof(IState));
+			}
+		}
 
 		#endregion
 
