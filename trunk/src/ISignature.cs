@@ -52,7 +52,7 @@ namespace Palladio.ComponentModel
 
 		public bool HasMatches(IList aSigList, out IList aMatchList)
 		{
-			aMatchList = new ArrayList();
+			aMatchList = new Vector();
 			foreach (ISignature sig in aSigList) 
 			{
 				if (this.Match(sig)) 

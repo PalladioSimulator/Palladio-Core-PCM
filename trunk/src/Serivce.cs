@@ -39,6 +39,18 @@ namespace Palladio.ComponentModel
 
 		#region Methods
 
+		public override bool Equals(object obj)
+		{
+			if (obj is Service) 
+			{
+				Service srv = (Service)obj;
+				return (this.Signature.Equals(srv.Signature) &&
+						this.EffectSpec.Equals(srv.EffectSpec));
+			}
+			return false;
+		}
+
+
 		#endregion
 		
 		#region Constructors

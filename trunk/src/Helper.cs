@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Palladio.FiniteStateMachines;
+using Utils.Collections;
 
 namespace Palladio.ComponentModel
 {
@@ -10,7 +11,7 @@ namespace Palladio.ComponentModel
 	{
 		public static IList SigListFromInputAlphabet(IList anInputAlphabet)
 		{
-			IList resultList = new ArrayList();
+			IList resultList = new Vector();
 			foreach( Input i in anInputAlphabet)
 			{
 				ISignature sig = new SimpleSignature((string)i.InputSymbol);

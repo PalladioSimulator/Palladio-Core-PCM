@@ -15,8 +15,8 @@ namespace Palladio.ComponentModel
 
 		#region Data
 
-		private ArrayList provIFaceList;
-		private ArrayList reqIFaceList;
+		private Vector provIFaceList;
+		private Vector reqIFaceList;
 
 		#endregion
 
@@ -27,8 +27,8 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		public Component() 
 		{
-			provIFaceList = new ArrayList();
-			reqIFaceList = new ArrayList();
+			provIFaceList = new Vector();
+			reqIFaceList = new Vector();
 		}
 		
 
@@ -123,9 +123,21 @@ namespace Palladio.ComponentModel
 		}
 
 
-		public object Clone() 
+		public object Clone()
 		{
-			return new Component( this );
+			return new Component(this);
+		}
+
+
+		public override bool Equals(object obj)
+		{
+			if (obj is Component)
+			{
+				Component com = (Component)obj;
+				return (this.provIFaceList.Equals(com.provIFaceList) &&
+					this.reqIFaceList.Equals(com.reqIFaceList));
+			}
+			return false;
 		}
 
 

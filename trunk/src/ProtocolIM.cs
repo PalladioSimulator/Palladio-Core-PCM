@@ -37,18 +37,9 @@ namespace Palladio.ComponentModel
 			protocol = (IFiniteStateMachine) aProtocol.Clone();
 		}
 
-//		public ProtocolIModel( IFiniteStateMachine aProtocol) : base() 
-//		{
-//			signatureList = new ArrayList();
-//			foreach (Input i in aProtocol.InputAlphabet)
-//			{
-//				ISignature sig = (ISignature)i.InputSymbol;
-//				signatureList.Add( sig );
-//			}
-//			protocol = (IFiniteStateMachine) aProtocol.Clone();
-//		}
-
-		public ProtocolIModel( ProtocolIModel aProIModel ) : this (aProIModel.Protocol, aProIModel.SignatureList) {}
+		public ProtocolIModel( ProtocolIModel aProIModel ) : this (aProIModel.Protocol, aProIModel.SignatureList)
+		{
+		}
 
 		#endregion
 

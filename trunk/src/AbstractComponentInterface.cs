@@ -10,7 +10,8 @@ namespace Palladio.ComponentModel
 	{
 		#region Data
 
-		protected IInterfaceModel iModel;
+		private IInterfaceModel iModel;
+		private string name;
 
 		#endregion
 
@@ -20,6 +21,11 @@ namespace Palladio.ComponentModel
 		public IInterfaceModel IModel 
 		{
 			get { return iModel; }
+		}
+
+		public string Name
+		{
+			get { return name; }
 		}
 		#endregion
 
@@ -68,6 +74,18 @@ namespace Palladio.ComponentModel
 				throw new IModelNotComponentInterfaceException();
 			}
 		}
+
+		public override bool Equals(object obj)
+		{
+			if (obj is AbstractComponentInterface)
+			{
+				AbstractComponentInterface aComIFace = (AbstractComponentInterface)obj;
+				return (this.IModel.Equals( aComIFace.IModel ) &&
+					this.Name.Equals( aComIFace.Name ));
+			}
+			return false;
+		}
+
 
 		#endregion
 	}

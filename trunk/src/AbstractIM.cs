@@ -39,7 +39,7 @@ namespace Palladio.ComponentModel
 		public bool IsSubSetOf(IList anIModelList, out IList anErrorList) 
 		{
 			bool result = false; // TODO select a proper return value
-			anErrorList = new ArrayList(); // TODO set a correct error value for an empty input
+			anErrorList = new Vector(); // TODO set a correct error value for an empty input
 			
 			if ( anIModelList.Count != 0 ) 
 			{
@@ -64,7 +64,7 @@ namespace Palladio.ComponentModel
 		public static IInterfaceModel MergeList( IList anIModelList )
 		{
 			IInterfaceModel resultIModel;
-			ArrayList iModelList = new ArrayList( anIModelList );
+			Vector iModelList = new Vector( anIModelList );
 
 			resultIModel = (IInterfaceModel) ((IInterfaceModel) iModelList[0]).Clone();
 			

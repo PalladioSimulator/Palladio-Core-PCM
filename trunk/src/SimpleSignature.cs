@@ -41,6 +41,16 @@ namespace Palladio.ComponentModel
 		{
 			return new SimpleSignature(this);
 		}
+
+		public override bool Equals(object obj)
+		{
+			if (obj is SimpleSignature)
+			{
+				SimpleSignature sig = (SimpleSignature)obj;
+				return sig.Match(this);
+			}
+			return false;
+		}
 		#endregion
 
 	}

@@ -61,7 +61,7 @@ namespace Palladio.ComponentModel
 		public IList MappingList 
 		{
 			get { 
-				ArrayList resultList = new ArrayList(ReqMappingList);
+				Vector resultList = new Vector(ReqMappingList);
 				resultList.AddRange(ProvMappingList);
 				return resultList;
 			}

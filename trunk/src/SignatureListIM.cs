@@ -40,13 +40,13 @@ namespace Palladio.ComponentModel
 
 		public SignatureListIModel(IList aSignatureList) 
 		{
-			signatureList = new ArrayList(aSignatureList);
+			signatureList = new Vector(aSignatureList);
 		}
 
 
 		public SignatureListIModel(SignatureListIModel aSigIModel)
 		{
-			signatureList = new ArrayList(aSigIModel.SignatureList);
+			signatureList = new Vector(aSigIModel.SignatureList);
 		}
 		#endregion
 
@@ -55,7 +55,7 @@ namespace Palladio.ComponentModel
 
 		public override bool IsSubSetOf(IInterfaceModel anIModel, out IList anErrorList) 
 		{
-			anErrorList = new ArrayList();
+			anErrorList = new Vector();
 
 			if (anIModel is SignatureListIModel ) 
 			{
@@ -64,7 +64,7 @@ namespace Palladio.ComponentModel
 				//TODO Performance Tuning!
 				foreach( ISignature sI in this.SignatureList ) 
 				{
-					IList matchList = new ArrayList();
+					IList matchList = new Vector();
 					foreach( ISignature sJ in sigListIM.SignatureList ) 
 					{
 						if (sI.Match(sJ)) 
@@ -95,7 +95,7 @@ namespace Palladio.ComponentModel
 			if ( anIModel is SignatureListIModel ) 
 			{
 				SignatureListIModel sigListIM = (SignatureListIModel) anIModel;
-				ArrayList mergedList = new ArrayList( this.SignatureList );
+				Vector mergedList = new Vector( this.SignatureList );
 				//TODO handle matching signatures (how to choose??)
 				mergedList.AddRange( sigListIM.SignatureList );
 				SignatureListIModel resultIModel = (SignatureListIModel) this.Clone();
@@ -113,7 +113,7 @@ namespace Palladio.ComponentModel
 		{
 			if ( anIModel is SignatureListIModel ) 
 			{
-				IList interList = new ArrayList();
+				IList interList = new Vector();
 				SignatureListIModel sigIModel = (SignatureListIModel) anIModel;
 
 				foreach (ISignature sig in SignatureList) 
@@ -145,7 +145,7 @@ namespace Palladio.ComponentModel
 			{
 				SignatureListIModel other = (SignatureListIModel)obj;
 				// BEGIN HACK
-				// The Equals method of ArrayList does not function properly
+				// The Equals method of Vector does not function properly
 				// TODO implement own IList?
 				if(other.SignatureList.Count == this.SignatureList.Count)
 				{

@@ -36,7 +36,7 @@ namespace Palladio.ComponentModel
 
 		public ProvidesInterface(IInterfaceModel anProvidesIModel, IList aServiceList) : this (anProvidesIModel) 
 		{
-			serviceList = new ArrayList(aServiceList);
+			serviceList = new Vector(aServiceList);
 		}
 
 		public ProvidesInterface( ProvidesInterface aProvIFace ) :
@@ -50,6 +50,19 @@ namespace Palladio.ComponentModel
 		{
 			return new ProvidesInterface(this);
 		}
+
+		public override bool Equals(object obj)
+		{
+			if (base.Equals(obj)) 
+			{
+				if (obj is ProvidesInterface)
+				{
+					return this.ServiceList.Equals(((ProvidesInterface)obj).ServiceList);
+				}
+			}
+			return false;
+		}
+
 
 		#endregion
 	}

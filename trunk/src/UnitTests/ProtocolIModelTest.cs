@@ -34,6 +34,14 @@ namespace Palladio.ComponentModel.UnitTests
 
 		[Test] public void Clone()
 		{
+			ProtocolIModel model = (ProtocolIModel) modelOne.Clone();
+			Assert.IsTrue(model.Equals(modelOne));
+			IState start = model.Protocol.StartState;
+			Input input = (Input) model.Protocol.InputAlphabet[1];
+			IState dest = (IState) model.Protocol.FinalStates[0];
+			ITransition t = new Transition(start,input,dest);
+			model.Protocol.AddTransition(t);
+			Assert.IsTrue( modelOne.Protocol.GetNextState(start, input).Equals(modelOne.Protocol.ErrorState));
 		}
 
 	}

@@ -59,6 +59,17 @@ namespace Palladio.ComponentModel
 		{
 			return new MethodSignature(this);
 		}
+
+		public override bool Equals(object obj)
+		{
+			if (obj is MethodSignature) 
+			{
+				MethodSignature sig = (MethodSignature) obj;
+				return sig.Match(this);
+			}
+			return false;
+		}
+
 		#endregion
 	}
 }

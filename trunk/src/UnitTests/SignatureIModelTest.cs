@@ -21,8 +21,8 @@ namespace Palladio.ComponentModel.UnitTests
 			two = new SimpleSignature("two");
 			three = new SimpleSignature("three");
 			four = new SimpleSignature("four");
-			sigListOne = new ArrayList();
-			sigListTwo = new ArrayList();
+			sigListOne = new Vector();
+			sigListTwo = new Vector();
 			sigListOne.Add(one);
 			sigListOne.Add(two);
 			sigListOne.Add(three);
@@ -30,7 +30,7 @@ namespace Palladio.ComponentModel.UnitTests
 			sigListTwo.Add(four);
 			modelOne = new SignatureListIModel(sigListOne);
 			modelTwo = new SignatureListIModel(sigListTwo);
-			modelThree = new SignatureListIModel(new ArrayList(sigListOne));
+			modelThree = new SignatureListIModel(new Vector(sigListOne));
 		}
 
 

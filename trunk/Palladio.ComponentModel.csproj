@@ -100,11 +100,23 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "data\provides.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\provides2.xml"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "data\se_d1.xml"
                     BuildAction = "Content"
                 />
                 <File
                     RelPath = "data\se_d2.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\se_d3.xml"
                     BuildAction = "Content"
                 />
                 <File
@@ -263,12 +275,32 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\UnitTests\ComponentTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\UnitTests\FactoryTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\UnitTests\ProtocolIModelTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\ProvidesInterfaceTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\RequiresInterfaceTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\ServiceTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
