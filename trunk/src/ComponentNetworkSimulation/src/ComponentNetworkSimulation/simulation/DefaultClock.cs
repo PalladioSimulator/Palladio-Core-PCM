@@ -52,6 +52,11 @@ namespace ComponentNetworkSimulation.Simulation
 		private long currentTime = 0;
 
 		/// <summary>
+		/// after this time, the next TimeStepEvent with cause CLOCK_STOP_EVENT has fired
+		/// </summary>
+		private long clockStopEventTime = long.MaxValue;
+
+		/// <summary>
 		/// holds an reference to the simulation environment
 		/// </summary>
 		protected ISimulationEnvironment simulationEnvironment = null;
@@ -130,6 +135,17 @@ namespace ComponentNetworkSimulation.Simulation
 			get {return currentTime >= maxSimulationTime;}
 		}
 
+		/// <summary>
+		/// returns true, if any next step is possible at calling time
+		/// </summary>
+		public virtual bool HasNextStep
+		{
+			get
+			{
+				return !IsMaxTimeReached && (scheduler.IsAnyThreadAlive || this.clockStopEventTime != long.MaxValue);
+			}
+		}
+
 		#endregion
 
 		#region methods
@@ -150,19 +166,55 @@ namespace ComponentNetworkSimulation.Simulation
 		public bool SimulationStep() 
 		{
 
-			if (IsMaxTimeReached || !scheduler.IsAnyThreadAlive) return false;
-			
-			long nextStep = scheduler.CalculateNextTimeStep();
-			if (currentTime + nextStep > maxSimulationTime) nextStep = maxSimulationTime-currentTime;
+			if (!this.HasNextStep) return false;
+
+			int cause = TimeStepEventArgs.THREAD_REACHED_TIME_IN_FUTURE;
+			long nextStep = long.MaxValue;
+
+			if (scheduler.IsAnyThreadAlive)	nextStep = scheduler.CalculateNextTimeStep();
+
+			if (currentTime + nextStep > maxSimulationTime) 
+			{
+				nextStep = maxSimulationTime-currentTime;
+				cause = TimeStepEventArgs.MAX_TIME_REACHED;
+			}
+
+			if (this.clockStopEventTime != long.MaxValue) 
+			{
+				if (nextStep >= this.clockStopEventTime)
+				{
+					if (nextStep > this.clockStopEventTime)
+						cause = TimeStepEventArgs.CLOCK_STOP_EVENT;
+					else
+						cause += TimeStepEventArgs.CLOCK_STOP_EVENT;
+
+					nextStep = this.clockStopEventTime;
+					this.clockStopEventTime = long.MaxValue;				
+				}
+				else
+				{
+					this.clockStopEventTime -= nextStep;
+				}
+			}
 
 			currentTime += nextStep;
-			NotifyTimeStepEvent(nextStep);
+			NotifyTimeStepEvent(nextStep,cause);
 
 			scheduler.SimulationStep(nextStep);
 
 			if (currentTime == maxSimulationTime) NotifyMaxTimeReachedEvent();
 
-			return scheduler.IsAnyThreadAlive && !IsMaxTimeReached;
+			return HasNextStep;
+		}
+
+		/// <summary>
+		/// call to set the time, after which the simulation has to fire a TimeStepEvent with cause CLOCK_STOP_EVENT.
+		/// The clock might finish other steps before.
+		/// </summary>
+		/// <param name="time">the time, after which a TimeStepEvent has to be fired</param>
+		public void SetClockStopEventTime(long time)
+		{
+			this.clockStopEventTime  = time;
 		}
 
 		/// <summary>
@@ -179,10 +231,11 @@ namespace ComponentNetworkSimulation.Simulation
 		/// called, when the current time moved, to fire an event.
 		/// </summary>
 		/// <param name="timeStep">The timestep, the time moved</param>
-		protected virtual void NotifyTimeStepEvent(long timeStep)
+		protected virtual void NotifyTimeStepEvent(long timeStep, int cause)
 		{
             if (TimeStepEvent != null)
-				TimeStepEvent(this,new TimeStepEventArgs(timeStep,this.currentTime));
+				TimeStepEvent(this,new TimeStepEventArgs(timeStep,this.currentTime,cause));
+			
 			NotifyClockLogEvent("Clock does a timestep with length "+timeStep,
 				ClockLogEventArgs.EventType.CLOCK_STEP,timeStep);
 		}

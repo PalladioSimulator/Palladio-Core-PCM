@@ -74,9 +74,24 @@ namespace ComponentNetworkSimulation.Simulation
 			get;
 		}
 
+		/// <summary>
+		/// returns true, if any next step is possible at calling time
+		/// </summary>
+		bool HasNextStep
+		{
+			get;
+		}
+
 		#endregion
 
 		#region methods
+
+		/// <summary>
+		/// call to set the time, after which the simulation has to fire a TimeStepEvent with cause CLOCK_STOP_EVENT.
+		/// The clock might finish other steps before.
+		/// </summary>
+		/// <param name="time">the time, after which a TimeStepEvent has to be fired</param>
+		void SetClockStopEventTime(long time);
 
 		/// <summary>
 		/// call to simulate one step

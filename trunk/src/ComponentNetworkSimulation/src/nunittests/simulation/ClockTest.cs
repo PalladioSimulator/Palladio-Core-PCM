@@ -13,6 +13,9 @@ namespace nunittests.simulation
 	public class ClockTest
 	{
 		protected IClock clock = null;
+		protected long nextClockStopTime;
+		protected long lastTime;
+		protected Random random = new Random();
 
 		public ClockTest()
 		{
@@ -86,6 +89,17 @@ namespace nunittests.simulation
 			Assert.AreEqual(steps,3);
 		}
 
+		[Test]
+		public void validateClockLockEvent()
+		{
+			clock.MaximumSimulationTime = 30;
+			clock.Reset();
+			clock.ThreadScheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS);
+			SetNextClockStopTime();
+			while(clock.SimulationStep());
+
+		}
+
 		private void OnReset(object sender, EventArgs args)
 		{
 			Console.WriteLine("Clock reseted");
@@ -93,7 +107,20 @@ namespace nunittests.simulation
 		
 		private void OnSimulationStep(object sender, TimeStepEventArgs args)
 		{
-			Console.WriteLine("SimulationStep: "+args.TimeStep+", Time: "+args.CurrentSimulationTime);
+			Console.WriteLine("SimulationStep: "+args.TimeStep+", Time: "+args.CurrentSimulationTime+",Cause: "+args.Cause);
+			if (args.IsClockStopEvent)
+			{
+				Assert.AreEqual(this.lastTime + this.nextClockStopTime, args.CurrentSimulationTime);
+				SetNextClockStopTime();
+			}
+		}
+
+		private void SetNextClockStopTime()
+		{
+			this.lastTime = clock.CurrentTime;
+			this.nextClockStopTime = random.Next(6);
+			clock.SetClockStopEventTime(this.nextClockStopTime);
+			Console.WriteLine("Next clockstoptime: "+this.nextClockStopTime);
 		}
 
 		private void OnMaxSimulationTime(object sender, EventArgs args)
