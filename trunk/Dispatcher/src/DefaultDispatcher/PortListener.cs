@@ -170,6 +170,11 @@ namespace Palladio.Webserver.Dispatcher
 		/// Adjusts the size of the ThreadPool. If to little unused threads are available the size
 		/// will be increased.
 		/// </summary>
+		/// <remarks>
+		/// The current version of the Palladio.Webserver probably does not have to adjust the size of the
+		/// threadpool. More than 100 simultaneous requests can be handled without problems. To test this
+		/// you might use the "SimulataneousRequestClient".
+		/// </remarks>
 		private void AdjustThreadPool()
 		{
 			int workerThreads;
@@ -179,8 +184,8 @@ namespace Palladio.Webserver.Dispatcher
 
 			if(workerThreads < 3 || completionPortThreads < 3)
 			{
-				// TODO: adjust size
-				//	CorSetMaxThreads	
+				// adjust size
+				// CorSetMaxThreads	
 			}
 			
 		}

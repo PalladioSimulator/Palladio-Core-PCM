@@ -29,7 +29,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = ""
+                    DocumentationFile = "doc.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "true"
@@ -94,12 +94,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "SchemaTypes.cs"
+                    RelPath = "SchemaTypeFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "SchemaTypeFactory.cs"
+                    RelPath = "SchemaTypes.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -107,3 +107,4 @@
         </Files>
     </CSHARP>
 </VisualStudioProject>
+
