@@ -7,10 +7,10 @@ using System.Collections;
 
 namespace UnitTests.FiniteStateMachines.Decorators {
 	/// <summary>
-	/// Unit test for <code>FiniteEpsilonMachine</code>
+	/// Unit test for MachineExpander
 	/// </summary>
 	[TestFixture]
-	public class ExpanderTest{
+	public class MachineExpanderTest{
 		AbstractState[] states;
 		Input[] inputs;
 		Transition[] transitionSet;
@@ -18,6 +18,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		FiniteEpsilonMachine epsilonMachine;
 		Set epsilonAlphabet;
 		IFiniteStateMachine deterministicFSM;
+        IFiniteStateMachine minimizedFSM;
 
 		[SetUp] public void Init() {
 			states = new State[6];
@@ -54,15 +55,15 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 
 			epsilonMachine = new FiniteEpsilonMachine(tabularMachine,epsilonAlphabet);
 			deterministicFSM = epsilonMachine.GetDeterministicFiniteStateMachine();
+			MinimizedAndEqualsFSM fec = new MinimizedAndEqualsFSM(deterministicFSM);
+			minimizedFSM = fec.getMinimizedFSM();
 		}
-		
+
 
 		[Test] public void ExpandedEqualsOriginal() {
-			MinimizedAndEqualsFSM fec = new MinimizedAndEqualsFSM(deterministicFSM);
-			IFiniteStateMachine min = fec.getMinimizedFSM();
-			Expander exp = new Expander(tabularMachine,min,epsilonAlphabet);
-			IFiniteStateMachine expanded = exp.GetExpandedMachine();
-			fec = new MinimizedAndEqualsFSM(tabularMachine);
+			MachineExpander exp = new MachineExpander(tabularMachine,minimizedFSM,epsilonAlphabet);
+            IFiniteStateMachine expanded = exp.GetExpandedMachine();
+			MinimizedAndEqualsFSM fec = new MinimizedAndEqualsFSM(tabularMachine);
 			Assert.IsTrue(fec.equal(expanded));
 		}
 
@@ -78,12 +79,41 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			expected.AddTransition(transitionSet[4]);
 			expected.AddTransition(transitionSet[5]);
 			expected.AddTransition(transitionSet[6]);
-			
-			Expander exp = new Expander(tabularMachine,reduced,epsilonAlphabet);
+
+			MachineExpander exp = new MachineExpander(tabularMachine,reduced,epsilonAlphabet);
 			MinimizedAndEqualsFSM min = new MinimizedAndEqualsFSM(exp.GetExpandedMachine());
-			Console.WriteLine(min.getMinimizedFSM());
 			Assert.IsTrue(min.equal(expected));
 		}
-		
+
+        [Test] public void ExpandModified(){
+			FiniteTabularMachine reduced = new FiniteTabularMachine();
+			reduced.AddTransition(states[3],inputs[4],states[5]);
+			reduced.AddTransition(states[5],inputs[3],states[4]);
+			reduced.AddTransition(states[4],inputs[4],states[5]);
+			reduced.AddTransition(states[0],inputs[5],states[1]);
+			reduced.AddTransition(states[1],inputs[5],states[2]);
+			reduced.AddTransition(states[2],inputs[5],states[3]);
+			MachineExpander machineExpander = new MachineExpander(tabularMachine,reduced,epsilonAlphabet);
+            IFiniteStateMachine expanded = machineExpander.GetExpandedMachine();
+            AbstractState state = expanded.StartState;
+            state = expanded.GetNextState (state,inputs[2]);
+            Assert.IsTrue(expanded.GetOutgoingTransitions(state).Count == 0);
+            state = expanded.StartState;
+            state = expanded.GetNextState (state,inputs[0]);
+            state = expanded.GetNextState (state,inputs[5]);
+            state = expanded.GetNextState (state,inputs[1]);
+            state = expanded.GetNextState (state,inputs[0]);
+            state = expanded.GetNextState (state,inputs[5]);
+            state = expanded.GetNextState (state,inputs[1]);
+            state = expanded.GetNextState (state,inputs[0]);
+            state = expanded.GetNextState (state,inputs[5]);
+            state = expanded.GetNextState (state,inputs[1]);
+            Assert.IsFalse(state == expanded.ErrorState);
+            Assert.IsTrue(expanded.GetOutgoingTransitions(expanded.GetNextState(state,inputs[0])).Count == 0);
+            state = expanded.GetNextState (state,inputs[2]);
+            state = expanded.GetNextState (state,inputs[4]);
+            state = expanded.GetNextState (state,inputs[1]);
+            Assert.IsTrue(expanded.FinalStates.Contains(state));
+        }
 	}
 }

@@ -47,8 +47,6 @@ namespace UnitTests.Utils.Collections
 		}
 
 		[Test] public void Equals() {
-			Console.Error.WriteLine(setOne+"\n"+setTwo);
-			Console.Error.WriteLine(setOne.Count+"\n"+setTwo.Count);
 			Assert.IsTrue(setOne.Equals(setTwo),setOne+"\n"+setTwo);
 			setTwo.Add(new State("dummy",false,false));
 			Assert.IsFalse(setOne.Equals(setTwo),setOne+"\n"+setTwo);
