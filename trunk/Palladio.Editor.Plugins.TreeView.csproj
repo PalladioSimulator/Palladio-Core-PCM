@@ -80,16 +80,6 @@
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "log4net"
-                    AssemblyName = "log4net"
-                    HintPath = "..\..\log4net-1.2.0-beta8\bin\net\1.1\release\log4net.dll"
-                />
-                <Reference
-                    Name = "Palladio.Editor.Common"
-                    Project = "{461BED64-4ECB-457B-8516-71C5FDA7895D}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "System.Windows.Forms"
                     AssemblyName = "System.Windows.Forms"
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
@@ -100,24 +90,37 @@
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
                 />
                 <Reference
-                    Name = "ReflectionBasedVisitor"
-                    AssemblyName = "ReflectionBasedVisitor"
-                    HintPath = "..\Palladio.ComponentModel\bin\Debug\ReflectionBasedVisitor.dll"
-                />
-                <Reference
-                    Name = "Palladio.Attributes"
-                    AssemblyName = "Palladio.Attributes"
-                    HintPath = "..\Palladio.ComponentModel\bin\Debug\Palladio.Attributes.dll"
-                />
-                <Reference
-                    Name = "Palladio.ComponentModel"
-                    AssemblyName = "Palladio.ComponentModel"
-                    HintPath = "..\Palladio.ComponentModel\bin\Debug\Palladio.ComponentModel.dll"
+                    Name = "Palladio.Editor.Common"
+                    Project = "{461BED64-4ECB-457B-8516-71C5FDA7895D}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
                     Name = "Palladio.Identifier"
                     AssemblyName = "Palladio.Identifier"
-                    HintPath = "..\Palladio.ComponentModel\bin\Debug\Palladio.Identifier.dll"
+                    HintPath = "..\Palladio.Editor.Core\bin\Assemblies\Palladio.Identifier.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "ReflectionBasedVisitor"
+                    AssemblyName = "ReflectionBasedVisitor"
+                    HintPath = "..\Palladio.Editor.Core\bin\Assemblies\ReflectionBasedVisitor.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "log4net"
+                    AssemblyName = "log4net"
+                    HintPath = "..\Palladio.Editor.Core\bin\Assemblies\log4net.dll"
+                />
+                <Reference
+                    Name = "Palladio.Attributes"
+                    AssemblyName = "Palladio.Attributes"
+                    HintPath = "..\Palladio.Editor.Core\bin\Assemblies\Palladio.Attributes.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "Palladio.ComponentModel"
+                    AssemblyName = "Palladio.ComponentModel"
+                    HintPath = "..\Palladio.Editor.Core\bin\Assemblies\Palladio.ComponentModel.dll"
                 />
             </References>
         </Build>
@@ -129,18 +132,18 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "TreeView.cs"
+                    RelPath = "Control.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "TreeViewControl.cs"
+                    RelPath = "TreeViewPresentation.cs"
                     SubType = "UserControl"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "TreeViewControl.resx"
-                    DependentUpon = "TreeViewControl.cs"
+                    RelPath = "TreeViewPresentation.resx"
+                    DependentUpon = "TreeViewPresentation.cs"
                     BuildAction = "EmbeddedResource"
                 />
             </Include>
