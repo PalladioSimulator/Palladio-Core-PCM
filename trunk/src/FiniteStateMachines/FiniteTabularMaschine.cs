@@ -275,7 +275,9 @@ namespace FiniteStateMachines {
 				// TODO create a new exception type
 				throw new InvalidStateException("A transition from "+aTransition.SourceState+" with the input symbol "+aTransition.InputSymbol+" is already defined!");
 			}
-			transitionTable[aTransition.SourceState] = inputTable;
+			
+				transitionTable[aTransition.SourceState] = inputTable;
+			
 		}
 
 

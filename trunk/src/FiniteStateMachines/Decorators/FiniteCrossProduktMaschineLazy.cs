@@ -6,23 +6,85 @@ using Utils.Collections;
 namespace FiniteStateMachines.Decorators 
 {
 	/// <summary>
-	/// Zusammenfassung für FCPLazy.
+	/// Generates a FiniteCrossProduktMaschine. A FiniteCrossProduktMaschine (FSP) is a 
+	/// specialization of a normal FSM. The FiniteCrossProduktMaschine is generated from
+	/// two FSMs(A,B). And it only contains Transitions and the Inputs which is in both
+	/// given FSMs.
+	/// But the there is one Difference between a normal FiniteCrossProduktMaschine and
+	/// this. The FiniteCrossProduktMaschineLazy implemts <code>IFiniteStateMachine</code>
+	/// Interface. The other spezial thing of the FiniteCrossProduktMaschineLazy is that 
+	/// when your call its methods, you don't have to visit the whole FSM, only the realted
+	/// parts. This will be much faster when you have huge FSMs then creating a normal 
+	/// FiniteCrossProduktMaschine.
 	/// </summary>
 	public class FiniteCrossProduktMaschineLazy : IFiniteStateMachine 
 	{
+		/// <summary>
+		/// The ErrorState
+		/// </summary>
 		protected AbstractState errorState;
+
+		/// <summary>
+		/// The first <code>FiniteTabularMachine</code> form whicch the crossproduct shoukd
+		/// be gernerated.
+		/// </summary>
 		protected FiniteTabularMachine one;
+
+		/// <summary>
+		/// The second <code>FiniteTabularMachine</code> form which the crossproduct should
+		/// be generated.
+		/// </summary>
 		protected FiniteTabularMachine two;
+
+		/// <summary>
+		/// if the Crossinput is gerated this will be set true, so the next time another
+		/// procedure is called.
+		/// </summary>
 		protected bool InputCreated;
+
+		/// <summary>
+		/// The crossinput of the two given FSMs stored in a <code>Set</code>
+		/// </summary>
 		protected Set inputAl;
+
+		/// <summary>
+		/// An indicator that shows if the crossprudctMachine has already been greated
+		/// </summary>
 		protected bool TransitionsCreated;
+
+		/// <summary>
+		/// A Hashtable ih which all Transitions of the crossproduct maschine a stored.
+		/// </summary>
 		public Hashtable Transitions;
+		
+		/// <summary>
+		/// for debugging
+		/// </summary>
 		protected bool debug = false;
+
+		/// <summary>
+		/// All states of the crossproductmaschine stored in a <code>Set</code>.
+		/// </summary>
 		protected Set States;
+
+		/// <summary>
+		/// All FinalSates of the Crossproduct Maschine stored un a <code>Set</code>
+		/// </summary>
 		protected Set finalStates;
+
+		/// <summary>
+		/// A indicator that shows if the Set of finalStates has been already 
+		/// created.
+		/// </summary>
 		protected bool finalCreated = false;
 
 
+
+		/// <summary>
+		/// Initates an FiniteCrossProduktMaschineLazy with two given <code>FiniteTabularMachine</code>
+		/// </summary>
+		/// <param name="one"></param>
+		/// <param name="two"></param>
 		public FiniteCrossProduktMaschineLazy(FiniteTabularMachine one, FiniteTabularMachine two) 
 		{
 			this.InputCreated = false;
@@ -30,10 +92,18 @@ namespace FiniteStateMachines.Decorators
 			this.one = one;
 			this.two = two;
 		}
+
+		/// <summary>
+		/// Delivers the Errorstate.
+		/// </summary>
 		public AbstractState ErrorState 
 		{
 			get { return new DualState(one.ErrorState,two.ErrorState); }
 		}
+
+		/// <summary>
+		/// Returns the Crossinput of the two given FSMs in a Set.
+		/// </summary>
 		public Set InputAlphabet 
 		{
 			get 
@@ -43,6 +113,13 @@ namespace FiniteStateMachines.Decorators
 				return this.inputAl;
 			}
 		}
+
+
+		/// <summary>
+		/// Generates the input of the CrossProductMachine. 
+		/// </summary>
+		/// <param name="one">The first FiniteTabularMachine </param>
+		/// <param name="two">the second FiniteTabularMachine</param>
 		protected void generateCPInput(FiniteTabularMachine one, FiniteTabularMachine two) 
 		{
 			this.InputCreated = true;
@@ -56,42 +133,15 @@ namespace FiniteStateMachines.Decorators
 					}
 			}	
 		}
+		
 		/// <summary>
-		/// doesn't work jet.
+		/// Delivers the next AbstractState from the given State with the given Input.
 		/// </summary>
-		/// <returns></returns>
-		//		public Set States
-		//		{
-		//			this.States = new Set();
-		//
-		//			foreach(Transition tr in this.getTransitions())
-		//			{
-		//
-		//
-		//				if(tr.toState != this.errorState) //&& !this.States.Contains(tr.toState))
-		//				{
-		//					
-		//					if(!this.States.Contains(tr.toState))
-		//					{
-		//						this.States.Add(tr.toState);
-		//						
-		//					}
-		////					Console.WriteLine("I just added "+tr.toState.ToString());
-		//				}
-		//				if(tr.fromState != this.errorState )//&& !this.States.Contains(tr.fromState))
-		//				{
-		//					if(!this.States.Contains(tr.fromState))
-		//					
-		//					this.States.Add(tr.fromState);
-		////					Console.WriteLine("I just added "+tr.fromState.ToString());
-		//				}
-		//
-		//			}
-		//
-		//			return this.States;
-		//		}
-					
-		//		public AbstractState GetNextState(AbstractState aState, Input input)			
+		/// <param name="aState">AbstractState which is the source state, this must be a
+		/// <code>DualState>
+		///</code>code></param>
+		/// <param name="input">the input which should be used to deliver the next state</param>
+		/// <returns>The next reachable State</returns>
 		public AbstractState GetNextState(AbstractState aState, Input input) 
 		{
 			if(aState  is DualState == false)
@@ -111,16 +161,23 @@ namespace FiniteStateMachines.Decorators
 			{
 				return this.ErrorState;
 			}
-
-
 			return new DualState(OneNext,TwoNext);
-
 		}
+
+
+		/// <summary>
+		/// Returns the Startstate of the FiniteCrossProductMachine,
+		/// </summary>
 		public AbstractState StartState 
 		{
 			get {return new DualState(this.one.StartState,this.two.StartState);}
 		}
 
+		/// <summary>
+		/// Delivers all transitions which are reachsable from the given State
+		/// </summary>
+		/// <param name="state">A DualState from which all Transisiotion should be delivered</param>
+		/// <returns>An ArrayList which contains the computed transitions.</returns>
 		public IList GetOutgoingTransitions(AbstractState state) 
 		{
 			if(state is DualState == false)
@@ -135,15 +192,16 @@ namespace FiniteStateMachines.Decorators
 				{
 					Transition newTransition = new Transition(state,i,NextState);
 					transitionList.Add(newTransition);
-					//					TransitionMap.Add(NextState as DualState,NextState as DualState);
 				}
 			}
 			return transitionList;
 		}
+
+
 		/// <summary>
-		/// da muss noch was gemacht werden !
+		/// Delivers all transitions of the FiniteCrossProductMachine. 
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>All transitions stored in a Transition[]</returns>
 		public Transition[] GetTransitions() 
 		{
 			if(!this.TransitionsCreated)
@@ -158,29 +216,25 @@ namespace FiniteStateMachines.Decorators
 			}
 			return TransitionsArray;
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		protected void CreateTransitions() 
 		{
 			this.TransitionsCreated = true;
 			this.Transitions = new Hashtable();
-			//			this.cp = new FSM();
 			Stack oneStates = new Stack();
 			Stack twoStates = new Stack();
-
-			//++++++++++++Wie war das mit der leeren Transition, die zum stsrtstae führt, muss da
-			//			da hier auch was gemacht werden?
-			//			CPState StartState = new CPState(one.getStartState,two.getStartState);
 			oneStates.Push(one.StartState);
 			twoStates.Push(two.StartState);
 			while(oneStates.Count!= 0 && twoStates.Count!=0) 
 			{
-
 				AbstractState oneBefore = (AbstractState) oneStates.Pop();
 				AbstractState twoBefore = (AbstractState) twoStates.Pop();
 
 				foreach(Input i in this.InputAlphabet) 
 				{
-
-
 					AbstractState oneNext = one.GetNextState(oneBefore,i);
 					if(this.debug)
 						Console.WriteLine("oneNext is: "+oneNext.ToString());
@@ -192,16 +246,8 @@ namespace FiniteStateMachines.Decorators
 					if(selfPointing(one,oneBefore,i)&& selfPointing(two,twoBefore,i)&&
 						!oneNext.Equals(one.ErrorState) && !twoNext.Equals(two.ErrorState)) 
 					{
-
 						DualState sps = new DualState(oneNext,twoNext);
-						//						Console.WriteLine("in selfpointing folling transition set: "+"\n"
-						//							+new Transition(sps.getState(),i,sps.getState()));
-						//this.cp.addTransition(sps.getState(),i,sps.getState());
-						
 						this.Transitions.Add(new Transition(sps,i,sps),new Transition(sps,i,sps));
-						//						Console.WriteLine("fcpLazy createTransitions: I just added the transition: "+"\n"+
-						//							new Transition(sps.getState(),i,sps.getState()).ToString());
-
 						oneStates.Pop();
 						twoStates.Pop();
 						continue;
@@ -209,31 +255,23 @@ namespace FiniteStateMachines.Decorators
 					if(!oneNext.Equals(one.ErrorState)&&
 						!twoNext.Equals(two.ErrorState)) 
 					{
-
 						DualState fromState = new DualState(oneBefore, twoBefore);
 						DualState toState = new DualState(oneNext,twoNext);
-			
-						//						Console.WriteLine("both sre! ES following transition added: " +"\n" 
-						//							+ new Transition(fromState.getState(),i,toState.getState()));
 						this.Transitions.Add(new Transition(fromState,i,toState),
-							new Transition(fromState,i,toState));
-						//						Console.WriteLine("I jsut added to this.transitions: "
-						//							+new Transition(fromState.getState(),i,toState.getState()));
-						//this.cp.addTransition(fromState.getState(),i,toState.getState());
+						new Transition(fromState,i,toState));
 						oneStates.Push(oneNext);
 						twoStates.Push(twoNext);
-						
 					}
-
 					else 
-					{
-					
-					}
-			
+					{}
 				}
 			}
 		}
 		
+
+		/// <summary>
+		/// Returns all finalStates of the crossProductMachine in a <code>Set</code>
+		/// </summary>
 		public Set FinalStates 
 		{
 			get 
@@ -242,10 +280,7 @@ namespace FiniteStateMachines.Decorators
 				{
 					Set OneFinal = this.one.FinalStates;
 					Set TwoFinal = this.two.FinalStates;
-
 					this.finalStates = new Set();
-					//CPState FinalState = new CPState();
-
 					foreach(AbstractState ofs in OneFinal) 
 					{
 						foreach(AbstractState tfs in TwoFinal) 
@@ -257,16 +292,20 @@ namespace FiniteStateMachines.Decorators
 				return this.finalStates;
 			}
 		}
+
+
+		/// <summary>
+		/// Returns the next transition with the given parameters
+		/// </summary>
+		/// <param name="state">The souce State for the transition. It muzt be a DualState</param>
+		/// <param name="i">The input for the transition</param>
+		/// <returns>The Transition</returns>
 		public Transition GetNextTransition(AbstractState state, Input i) 
 		{
 			if(state is DualState== false)
 				throw new InvalidStateException();
-			//			CPState state = new CPState(state);
 			if(!this.InputAlphabet.Contains(i))
 				throw new InvalidInputException();
-
-			//			return new Transition(new CPState(state.oneState,state.twoState),i
-			//				,new CPState(one.getNextState(state.oneState,i),two.getNextState(state.twoState,i)));
 			return new Transition(state,i,this.GetNextState(state,i));
 		}
 
@@ -275,12 +314,11 @@ namespace FiniteStateMachines.Decorators
 		/// Checks if one state with an given input is selfpointing (loop checking)
 		/// </summary>
 		/// <param name="fsm">A FSM which state and input should be checked</param>
-		/// <param name="state">the state which should be checked</param>
+		/// <param name="state">The state which should be checked</param>
 		/// <param name="i">the input </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
 		protected bool selfPointing(FiniteTabularMachine fsm, AbstractState state, Input i) 
 		{
-			//Console.WriteLine("Checking selfPointing");
 			AbstractState temp = null;
 			foreach(AbstractState s in fsm.States) 
 			{
@@ -296,6 +334,5 @@ namespace FiniteStateMachines.Decorators
 				return true;
 			return false;
 		}
-
 	}
 }
