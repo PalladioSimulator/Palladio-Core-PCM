@@ -11,6 +11,9 @@ namespace Palladio.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/05/18 13:19:58  sliver
+	/// Added Clone method for AttributeHash
+	///
 	/// Revision 1.1  2004/05/13 15:17:31  sbecker
 	/// Initial import
 	///
@@ -47,5 +50,18 @@ namespace Palladio.Attributes
 				return hash[type.GUID];
 			}
 		}
+
+		/// <summary>
+		/// Creates a copy of the current instance.
+		/// </summary>
+		/// <returns>A new object with the same values as the current instance.</returns>
+		public object Clone()
+		{
+			AttributeHash result;
+			result = new AttributeHash();
+			result.hash = new Hashtable(this.hash);
+			return result;
+		}
+
 	}
 }

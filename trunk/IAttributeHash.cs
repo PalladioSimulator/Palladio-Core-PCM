@@ -12,13 +12,16 @@ namespace Palladio.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/05/18 13:19:58  sliver
+	/// Added Clone method for AttributeHash
+	///
 	/// Revision 1.1  2004/05/13 15:17:31  sbecker
 	/// Initial import
 	///
 	///
 	/// </pre>
 	/// </remarks>
-	public interface IAttributeHash
+	public interface IAttributeHash	: ICloneable
 	{
 		/// <summary>
 		/// Add the value of an attribute with the given type to this 
