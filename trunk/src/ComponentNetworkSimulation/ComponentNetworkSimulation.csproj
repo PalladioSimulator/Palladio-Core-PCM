@@ -270,11 +270,40 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Attributes\ControlFlowStrategyAttributeType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Attributes\DefaultAttributeTypeSet.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Attributes\IDAttributeType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Attributes\LoggingTypeAttributeType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Attributes\StaticProbabilityAttributeType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Attributes\StaticTmeAttributeType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentNetworkSimulation\structure\componentnetwork\XMLBasedComponentNetwork.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
-                <Folder RelPath = "src\ComponentNetworkSimulation\structure\components\" />
                 <File
                     RelPath = "src\ComponentNetworkSimulation\structure\connectors\ConstantTimeConnector.cs"
                     SubType = "Code"
@@ -286,12 +315,52 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\services\AbstractSimulationState.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\services\DefaultRandomStrategy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\services\DefaultServiceBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\services\DefaultStateParams.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\services\DefaultStaticTimeState.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentNetworkSimulation\structure\services\IControlFlowStrategy.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\services\IServiceBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentNetworkSimulation\structure\services\ISimulationState.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\services\ISimulationStateParams.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\services\StaticTimeStateParams.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -336,7 +405,17 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\nunittests\structure\TimeConsumingFSMTest.cs"
+                    RelPath = "src\nunittests\structure\ComponentArchitectureStackTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\nunittests\structure\ComponentArchitectureVisitorTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\nunittests\structure\TestArchitectures.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
