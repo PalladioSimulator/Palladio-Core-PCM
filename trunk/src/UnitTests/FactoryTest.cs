@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2004/05/12 12:04:24  sliver
+	/// Test for GetReachableTransitions added.
+	///
 	/// Revision 1.12  2004/05/12 08:55:34  sbecker
 	/// Added GetNextState or GetNextStates tests
 	///
@@ -314,6 +317,51 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		{
 			IEditableFiniteStateMachine fsm = BuildExampleFSM();
 			fsm.GetOutgoingTransitions(FSMFactory.CreateDefaultState("lala"));
+		}
+
+		[ExpectedException(typeof(NoStateWithIDException))]
+		[Test]public void GetState()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			Assert.AreEqual(FSMFactory.CreateDefaultState("1"), fsm.GetState("1"));
+			fsm.GetState("34");
+
+		}
+
+		[ExpectedException(typeof(NoInputWithIDException))]
+		[Test]public void GetInput()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			Assert.AreEqual(FSMFactory.CreateDefaultInput("eps"),fsm.GetInput("eps"));
+			fsm.GetInput("not here");
+		}
+
+		[Test]public void AddTransition()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			fsm.AddTransition("1","c","3");
+			Assert.IsTrue(fsm.Transitions.Length == 5);
+			Assert.AreEqual( fsm.GetNextState( fsm.GetState("1"), fsm.GetInput("c") ), fsm.GetState("3"));
+		}
+		
+		[Test]public void Clean()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			fsm.AddStates( FSMFactory.CreateStatesFromList("4","5").StoredStates );
+			Assert.IsTrue( fsm.GetReachableStates(fsm.StartState).Length == 3 );
+//			fsm.AddTransition("4","b","5");
+//			fsm.AddTransition("4","c","3");
+
+
+			fsm.Clean();
+			Assert.IsTrue( fsm.States.Length == 3 );
+			Assert.IsTrue( fsm.Transitions.Length == 4 );
+		}
+
+		[Test]public void GetReachableTransitions()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			Assert.IsTrue( fsm.GetReachableTransitions(fsm.StartState).Length == 4 );
 		}
 
 		[Test]public void GetNextState()

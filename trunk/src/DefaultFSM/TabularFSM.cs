@@ -104,7 +104,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		{
 			if((!HasState(aSourceState)) && (!aSourceState.IsErrorState)) 
 				throw new InvalidStateException(aSourceState);
-			if (!inputAlphabet.Contains(anInput)) 
+			if (!HasInput(anInput)) 
 				throw new InvalidInputException(anInput);
 
 			Set transList = new Set();
@@ -280,13 +280,13 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			ITransition[] reachableTransitions = GetReachableTransitions(StartState);
 			foreach (ITransition t in Transitions)
 			{
-				if (Array.IndexOf(reachableTransitions,t) < 1)
+				if (Array.IndexOf(reachableTransitions,t) < 0)
 					DeleteTransitions(t);
 			}
 			IState[] reachableStates = GetReachableStates(StartState);
 			foreach (IState s in States)
 			{
-				if (Array.IndexOf(reachableStates,s))
+				if (Array.IndexOf(reachableStates,s) < 0)
 					DeleteStates(s);
 			}
 
