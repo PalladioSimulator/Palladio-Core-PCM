@@ -140,6 +140,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\InterfaceNotFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\TypeNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

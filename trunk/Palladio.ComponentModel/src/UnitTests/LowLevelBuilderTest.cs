@@ -62,6 +62,31 @@ namespace Palladio.ComponentModel.UnitTests
 			//ComponentNotFoundException expected 
 			modelManager.LowLevelBulder.AddComponent(bc,cc.ComponentID);
 		}
+
+		[Test]
+		public void AddInterfaceTest()
+		{
+			IInterface iface = EntityFactory.CreateInterface("ICloneable");
+            modelManager.LowLevelBulder.AddInterface(iface);
+		}
+
+		[Test]
+		public void AddSignature()
+		{
+			IInterface iface = EntityFactory.CreateInterface("ICloneable");
+			modelManager.LowLevelBulder.AddInterface(iface);
+			ISignature sig = EntityFactory.CreateSignature("Clone",new SignatureDescription());
+			modelManager.LowLevelBulder.AddSignature(sig,iface.InterfaceID);
+		}
+
+		[Test]
+		[ExpectedException(typeof(InterfaceNotFoundException))]
+		public void AddSignatureIFaceNotFound()
+		{
+			IInterface iface = EntityFactory.CreateInterface("ICloneable");
+			ISignature sig = EntityFactory.CreateSignature("Clone",new SignatureDescription());
+			modelManager.LowLevelBulder.AddSignature(sig,iface.InterfaceID);
+		}
 	}
 }
 
