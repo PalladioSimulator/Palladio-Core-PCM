@@ -21,6 +21,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2004/11/14 10:35:32  kelsaka
+	/// fixed bad aborting of tcpListening-Threads, now for each thread the abort-method is called first.
+	///
 	/// Revision 1.12  2004/11/08 20:42:44  kelsaka
 	/// The webserver is now listening on all specified ports
 	///
@@ -67,13 +70,17 @@ namespace Palladio.Webserver.Dispatcher
 		/// The local IP-address the server is listening on. As the server (at least the dispatcher) usually runs on a
 		/// single machine, first 127.0.0.1 is used. 
 		/// </summary>
-		private const string LOCAL_IP_ADDRESS = "127.0.0.1";
+		private const string LOCAL_IP_ADDRESS = "10.10.20.12"; //"127.0.0.1";
 
 
 		private IRequestParser requestParser;
 		private IWebserverMonitor webserverMonitor;
 		private IWebserverConfiguration webserverConfiguration;
-		private Thread serverThread;
+		/// <summary>
+		/// References on the started threads should be kept in this array to be able to shut down all threads using
+		/// the abort()-method.
+		/// </summary>
+		private Thread[] serverThread;
 
 		TcpListener tcpListener;
 
@@ -103,14 +110,17 @@ namespace Palladio.Webserver.Dispatcher
 			webserverMonitor.WriteLogEntry("----------------------------");
 			webserverMonitor.WriteLogEntry("Webserver-Dispatcher started.");
 
+			IPAddress adress = IPAddress.Parse(LOCAL_IP_ADDRESS);
+			int portsCount = webserverConfiguration.ListeningPorts.Length;
+			serverThread = new Thread[portsCount];
+
 			try
 			{
 				//start listing on the given port; listen on all specified ports.
-				foreach(int port in webserverConfiguration.ListeningPorts)
+				for(int x = 0; x < portsCount; x++)
 				{
+					int port = webserverConfiguration.ListeningPorts[x];					
 					
-					
-					IPAddress adress = IPAddress.Parse(LOCAL_IP_ADDRESS);
 					tcpListener = new TcpListener(adress, port);
 					tcpListener.Start();
 					webserverMonitor.WriteLogEntry("Listening (" + LOCAL_IP_ADDRESS + "; TCP) on port: " + port);
@@ -119,8 +129,8 @@ namespace Palladio.Webserver.Dispatcher
 						webserverConfiguration, port, tcpListener);
 
 					//start the thread which calls the method 'StartListen'
-					serverThread = new Thread(new ThreadStart(listeningThread.StartListen));			
-					serverThread.Start();
+					serverThread[x] = new Thread(new ThreadStart(listeningThread.StartListen));			
+					serverThread[x].Start();
 				}
 
 			}
@@ -148,15 +158,19 @@ namespace Palladio.Webserver.Dispatcher
 		/// </summary>
 		public void Stop()
 		{
-			if (serverThread != null)
+			// Send the abort-signale to all threads running:
+			for(int x = 0; x < serverThread.Length; x++)
 			{
-				try
+				if (serverThread[x] != null)
 				{
-					serverThread.Abort();
-				}
-				finally
-				{
-					serverThread = null;
+					try
+					{
+						serverThread[x].Abort();
+					}
+					finally
+					{
+						serverThread[x] = null;
+					}
 				}
 			}
 			webserverMonitor.WriteLogEntry("Shutting down webserver.");
