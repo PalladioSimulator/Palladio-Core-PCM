@@ -158,7 +158,7 @@ namespace UnitTests.FiniteStateMachines {
 		[Test] public void GetNextExistingTransition() {
 			Assert.AreEqual(transitionSetOne[1],machineOne.GetNextTransition(states[0],inputs[1]));
 			State tempState = new State((string)states[0].Name.Clone(),states[0].IsStartState,states[0].IsFinalState);
-			Input tempInput = new Input((string)inputs[1].InputSymbol.Clone());
+			Input tempInput = new Input((string)inputs[1].InputSymbol.ToString().Clone());
 			Assert.AreEqual(transitionSetOne[1],machineOne.GetNextTransition(tempState,tempInput));
 		}
 

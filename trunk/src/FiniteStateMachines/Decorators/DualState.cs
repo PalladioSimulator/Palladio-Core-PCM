@@ -124,14 +124,14 @@ namespace Palladio.FiniteStateMachines.Decorators {
 
 
 
-		public static bool operator == (DualState one, DualState two) {
-			return one.Equals(two);
-		}
+//		public static bool operator == (DualState one, DualState two) {
+//			return one.Equals(two);
+//		}
 
 
-		public static bool operator !=(DualState one, DualState two) {
-			return !one.Equals(two);
-		}
+//		public static bool operator !=(DualState one, DualState two) {
+//			return !one.Equals(two);
+//		}
 
 		/// <summary>
 		/// Provides the Hashcode of this <code>DualState</code>

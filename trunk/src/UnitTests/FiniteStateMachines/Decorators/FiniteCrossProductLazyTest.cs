@@ -19,6 +19,7 @@ namespace UnitTests.FiniteStateMachines.Decorators
 		IFiniteStateMachine FSMTwo;
 		IFiniteStateMachine FSMResult;
 		FiniteCrossProductMaschineLazy lazy;
+		IState final ;
 
 		/// <summary>
 		/// 
@@ -27,7 +28,7 @@ namespace UnitTests.FiniteStateMachines.Decorators
 		{
 			this.FSMOne= AbstractFSM.Loader("../../data/CrossProductSource1.xml");
 			this.FSMTwo = AbstractFSM.Loader("../../data/CrossProductSource2.xml");
-			this.FSMResult =  new FiniteCrossProductMaschine(this.FSMOne,this.FSMTwo).CP;
+			this.FSMResult =  AbstractFSM.Loader("../../data/CrossProductResult.xml");
 			this.lazy = new FiniteCrossProductMaschineLazy(this.FSMOne,this.FSMTwo);
 			
 			
@@ -36,28 +37,42 @@ namespace UnitTests.FiniteStateMachines.Decorators
 		/// <summary>
 		/// 
 		/// </summary>
-//		[Test] public void OutgoingTransitions()
-//		{
-//			IList result = this.FSMResult.GetOutgoingTransitions(this.FSMResult.StartState);
-//			IList lazyRes = this.lazy.GetOutgoingTransitions(this.lazy.StartState);
-//			Assert.AreEqual(result,lazyRes);
-//			
-//		}
+		[Test] public void OutgoingTransitions()
+		{
+			IList result = this.FSMResult.GetOutgoingTransitions(new DualState(this.FSMOne.StartState,this.FSMTwo.StartState));
+			IList lazyRes = this.lazy.GetOutgoingTransitions(this.lazy.StartState);
+			Assert.AreEqual(result,lazyRes);
+			
+		}
 		
-//		[Test] public void NextStates()
-//		{
-//			Set input = this.lazy.InputAlphabet;
-//			foreach(Input i in input)
-//			Assert.AreEqual(this.FSMResult.GetNextState(this.FSMResult.StartState,i),this.lazy.GetNextState(this.lazy.StartState,i));
-//
-//		}
+		[Test] public void FinalStates()
+		{
+			Set mustBe = new Set();
+			this.final = new DualState((IState) this.FSMOne.FinalStates[0],(IState)this.FSMTwo.FinalStates[0]);
+			mustBe.Add(this.final);
+			Assert.AreEqual(mustBe,this.lazy.FinalStates);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test] public void NextStates()
+		{
+		
+			Input a = new Input("a");
+			Assert.AreEqual(this.final,this.lazy.GetNextState(this.lazy.StartState,a));
 
+		}
+
+		
 		/// <summary>
 		/// 
 		/// </summary>
 		[Test] public void Input()
 		{
-			Assert.AreEqual(this.FSMResult.InputAlphabet,this.lazy.InputAlphabet);
+			Set mustBe = new Set();
+			mustBe.Add(new Input("a"));
+			mustBe.Add(new Input("b"));
+			Assert.AreEqual(mustBe,lazy.InputAlphabet);
 		}
 
 		/// <summary>
@@ -65,7 +80,7 @@ namespace UnitTests.FiniteStateMachines.Decorators
 		/// </summary>
 		[Test] public void StartState()
 		{
-			Assert.AreEqual(new DualState(this.FSMOne.StartState,this.FSMTwo.StartState),this.lazy.StartState);
+			Assert.AreEqual(this.FSMResult.StartState,this.lazy.StartState);
 		}
 
 		/// <summary>
@@ -75,6 +90,8 @@ namespace UnitTests.FiniteStateMachines.Decorators
 		{
 			FiniteCrossProductLazyTest test = new FiniteCrossProductLazyTest();
 			test.Init();
+			test.StartState();
+			test.FinalStates();
 
 			//test.StartState();
 		}

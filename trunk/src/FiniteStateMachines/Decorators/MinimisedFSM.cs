@@ -9,7 +9,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 	/// language, but it does not contain any equivalent states. So it has
 	/// the smallest possible number of states.
 	/// </summary>
-	public class MinimisedFSM : AbstractFSM {
+	internal class MinimisedFSM : AbstractFSM {
 
 		/// <summary>
 		/// Group index of ErrorState.

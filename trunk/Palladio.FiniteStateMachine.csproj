@@ -207,7 +207,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\FiniteStateMachines\FiniteTabularMaschine.cs"
+                    RelPath = "src\FiniteStateMachines\FSMFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -233,6 +233,11 @@
                 />
                 <File
                     RelPath = "src\FiniteStateMachines\IState.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FiniteStateMachines\ITransition.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -287,6 +292,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\FiniteStateMachines\TabularFSM.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\FiniteStateMachines\Transition.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -298,11 +308,6 @@
                 />
                 <File
                     RelPath = "src\FiniteStateMachines\Decorators\DualState.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\FiniteStateMachines\Decorators\Expander.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -328,6 +333,11 @@
                 />
                 <File
                     RelPath = "src\FiniteStateMachines\Decorators\FiniteShuffleProductMaschineLazy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FiniteStateMachines\Decorators\FSMExpander.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -368,6 +378,11 @@
                 />
                 <File
                     RelPath = "src\UnitTests\FiniteStateMachines\FiniteTabularMachineTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FiniteStateMachines\FSMFactoryTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -24,7 +24,7 @@ namespace Palladio.FiniteStateMachines
 		///		Returns the marked name of the
 		///		input symbol.
 		/// </summary>
-		public override string InputSymbol {
+		public override object InputSymbol {
 			get { return "__"+base.InputSymbol+"__"; }
 		}
 

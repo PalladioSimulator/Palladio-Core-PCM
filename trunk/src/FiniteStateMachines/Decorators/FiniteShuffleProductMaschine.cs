@@ -24,7 +24,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 	///			FSPState Y = ErrorState.
 	///	}
 	/// </summary>
-	public class FiniteShuffleProductMaschine {
+	internal class FiniteShuffleProductMaschine {
 		/// <summary>
 		/// The first FiniteTabularMachine which is used to generate the FiniteShuffleProductMaschine
 		/// </summary>

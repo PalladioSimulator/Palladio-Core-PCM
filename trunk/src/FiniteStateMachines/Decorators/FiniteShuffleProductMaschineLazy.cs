@@ -31,7 +31,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 	/// parts. This will be much faster when you have huge FSMs then creating a normal 
 	/// FiniteCrossProduktMaschine.
 	/// </summary>
-	public class FiniteShuffleProductMaschineLazy : AbstractFSM {
+	internal class FiniteShuffleProductMaschineLazy : AbstractFSM {
 		/// <summary>
 		/// An indicator says if the input has already been created.
 		/// </summary>

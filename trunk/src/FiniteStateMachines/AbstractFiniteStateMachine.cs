@@ -154,6 +154,29 @@ namespace Palladio.FiniteStateMachines
 			return result;
 		}
 
+
+		/// <summary>
+		///		General loader for FSM-files. Depending on the
+		///		type the corresponding machine type is chosen and
+		///		instanced.
+		/// </summary>
+		/// <param name="aFilename">
+		///		Name of the file. It must be in XML. You can find
+		///		more details on the file format in the corresponding
+		///		documentation of the loaders for each FSM-type.
+		/// </param>
+		/// <returns>
+		///		A loaded version of the FSM described in aFilename.
+		///	</returns>
+		public static IFiniteStateMachine Loader(string aFilename) 
+		{
+			//Just Tabular FSM can be loaded at the moment
+			TabularFSM result = new TabularFSM();
+			result.Load(aFilename);
+			return result;
+		}
+
+
 		/// <summary>
 		///     Searches for all states reachable from aState. This means
 		///     there exists a path from aState to every state contained
@@ -294,26 +317,7 @@ namespace Palladio.FiniteStateMachines
 			return new State(ERROR_STATE_NAME,false,false);
 		}
 
-		/// <summary>
-		///		General loader for FSM-files. Depending on the
-		///		type the corresponding machine type is chosen and
-		///		instanced.
-		/// </summary>
-		/// <param name="aFilename">
-		///		Name of the file. It must be in XML. You can find
-		///		more details on the file format in the corresponding
-		///		documentation of the loaders for each FSM-type.
-		/// </param>
-		/// <returns>
-		///		A loaded version of the FSM described in aFilename.
-		///	</returns>
-		public static IFiniteStateMachine Loader(string aFilename) 
-		{
-			//Just Tabular FSM can be loaded at the moment
-			TabularFSM result = new TabularFSM();
-			result.Load(aFilename);
-			return result;
-		}
+		
 
 		/// <summary>
 		///		Default implementation of ToString for FSMs.

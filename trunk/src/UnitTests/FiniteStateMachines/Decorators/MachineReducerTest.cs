@@ -29,7 +29,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			d3incomplete = AbstractFSM.Loader("../../data/se_d3incomplete.xml");
 
 
-			Input topServiceName = "top";
+			Input topServiceName = new Input("top");
 
 			tableSimple = new Hashtable();
 			tableSimple.Add(new Input("d1"),d1);

@@ -81,28 +81,28 @@ namespace Palladio.FiniteStateMachines {
 		/// <returns>
 		///		True, if stateOne.Equals(stateTwo); false otherwise
 		///	</returns>
-		public static bool operator == (AbstractState one, AbstractState two){
-			bool result = false;
-			if ( (object)one != null ) {
-				result = one.Equals(two);
-			} else if ( (object)two != null ) {
-				result = false;
-			} else {
-				result = true; // both null
-			}
-			return result;
-		}
+//		public static bool operator == (AbstractState one, AbstractState two){
+//			bool result = false;
+//			if ( (object)one != null ) {
+//				result = one.Equals(two);
+//			} else if ( (object)two != null ) {
+//				result = false;
+//			} else {
+//				result = true; // both null
+//			}
+//			return result;
+//		}
 
 		
-		/// <summary>
-		///		Default comparison of two states based on the 
-		///		implementation of Equals.
-		/// </summary>
-		/// <returns>
-		///		True if _NOT_ stateOne.Equals(stateTwo); false otherwise.
-		///	</returns>
-		public static bool operator != (AbstractState one, AbstractState two){
-			return !(one == two);
-		}
+//		/// <summary>
+//		///		Default comparison of two states based on the 
+//		///		implementation of Equals.
+//		/// </summary>
+//		/// <returns>
+//		///		True if _NOT_ stateOne.Equals(stateTwo); false otherwise.
+//		///	</returns>
+//		public static bool operator != (AbstractState one, AbstractState two){
+//			return !(one == two);
+//		}
 	}
 }

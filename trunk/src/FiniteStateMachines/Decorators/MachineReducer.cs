@@ -30,7 +30,7 @@ namespace Palladio.ParameterisedContracts {
 	///		
 	///		author: JH
 	/// </summary>
-	public class FSMReducer {
+	internal class FSMReducer {
 		
 		/// <summary>
 		///		The ruleTable impicitly contains all rules which should be applied to the 

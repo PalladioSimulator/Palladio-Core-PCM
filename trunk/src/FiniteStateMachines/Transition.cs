@@ -10,7 +10,7 @@ namespace Palladio.FiniteStateMachines {
 	///				
 	///	author: JH
 	/// </summary>
-	public class Transition {
+	public class Transition : ITransition{
 
 		/// <summary>
 		/// The source of the transition.
@@ -54,7 +54,7 @@ namespace Palladio.FiniteStateMachines {
 		/// <summary>
 		/// The copy constructor.
 		/// </summary>
-		/// <param name="t"></param>
+		/// <param name="newTransition"></param>
 		public Transition(Transition newTransition) {
 			this.SourceState = newTransition.SourceState;
 			this.InputSymbol = newTransition.InputSymbol;

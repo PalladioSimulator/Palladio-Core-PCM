@@ -75,32 +75,32 @@ namespace UnitTests.FiniteStateMachines{
 		/// <summary>
 		/// 
 		/// </summary>
-		[Test] public void EqualOperator () {
-			StackContext contextOne = new StackContext(inputOne,stateOne);
-			StackContext contextTwo = new StackContext(inputOne,stateOne);
-			Assert.IsTrue(contextOne == contextTwo);
-			contextTwo.ServiceName = inputTwo;
-			Assert.IsFalse(contextOne == contextTwo);
-			contextTwo.State = stateTwo;
-			Assert.IsFalse(contextOne == contextTwo);
-			Assert.IsFalse(contextOne == null);
-			Assert.IsFalse(null == contextTwo);
-		}
+//		[Test] public void EqualOperator () {
+//			StackContext contextOne = new StackContext(inputOne,stateOne);
+//			StackContext contextTwo = new StackContext(inputOne,stateOne);
+//			Assert.IsTrue(contextOne == contextTwo);
+//			contextTwo.ServiceName = inputTwo;
+//			Assert.IsFalse(contextOne == contextTwo);
+//			contextTwo.State = stateTwo;
+//			Assert.IsFalse(contextOne == contextTwo);
+//			Assert.IsFalse(contextOne == null);
+//			Assert.IsFalse(null == contextTwo);
+//		}
 
 		/// <summary>
 		/// 
-		/// </summary>
-		[Test] public void NotEqualOperator () {
-			StackContext contextOne = new StackContext(inputOne,stateOne);
-			StackContext contextTwo = new StackContext(inputOne,stateOne);
-			Assert.IsFalse(contextOne != contextTwo);
-			contextTwo.ServiceName = inputTwo;
-			Assert.IsTrue(contextOne != contextTwo);
-			contextTwo.State = stateTwo;
-			Assert.IsTrue(contextOne != contextTwo);
-			Assert.IsTrue(contextOne != null);
-			Assert.IsTrue(null != contextTwo);
-		}
+//		/// </summary>
+//		[Test] public void NotEqualOperator () {
+//			StackContext contextOne = new StackContext(inputOne,stateOne);
+//			StackContext contextTwo = new StackContext(inputOne,stateOne);
+//			Assert.IsFalse(contextOne != contextTwo);
+//			contextTwo.ServiceName = inputTwo;
+//			Assert.IsTrue(contextOne != contextTwo);
+//			contextTwo.State = stateTwo;
+//			Assert.IsTrue(contextOne != contextTwo);
+//			Assert.IsTrue(contextOne != null);
+//			Assert.IsTrue(null != contextTwo);
+//		}
 	
 	}
 }

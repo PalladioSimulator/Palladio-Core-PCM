@@ -17,7 +17,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 	/// parts. This will be much faster when you have huge FSMs then creating a normal 
 	/// FiniteCrossProduktMaschine.
 	/// </summary>
-	public class FiniteCrossProductMaschineLazy : AbstractFSM {
+	internal class FiniteCrossProductMaschineLazy : AbstractFSM {
 		/// <summary>
 		/// The ErrorState
 		/// </summary>
@@ -39,7 +39,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// if the Crossinput is gerated this will be set true, so the next time another
 		/// procedure is called.
 		/// </summary>
-		protected bool InputCreated;
+		protected bool InputCreated = false;
 
 		/// <summary>
 		/// The crossinput of the two given FSMs stored in a <code>Set</code>
@@ -87,6 +87,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		public FiniteCrossProductMaschineLazy(IFiniteStateMachine one, IFiniteStateMachine two) {
 			this.InputCreated = false;
 			this.TransitionsCreated = false;
+			this.finalCreated  = false;
 			this.one = one;
 			this.two = two;
 		}
@@ -116,13 +117,19 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <param name="one">The first FiniteTabularMachine </param>
 		/// <param name="two">the second FiniteTabularMachine</param>
 		protected void generateCPInput(IFiniteStateMachine one, IFiniteStateMachine two) {
+			Console.WriteLine("Generating CrossInput");
 			this.InputCreated = true;
 			this.inputAl = new Set();
-			foreach(Input i in one.InputAlphabet) {
+			foreach(Input i in one.InputAlphabet) 
+			{
+//				if(two.InputAlphabet.Contains(i))
 				foreach(Input p in two.InputAlphabet)
-					if(p.Equals(i)) {
-						this.inputAl.Add((Input) i);
-					}
+				if(p.ToString().Equals(i.ToString())) 
+				{
+					this.inputAl.Add( i);
+					Console.WriteLine("I just added "+i.ToString());
+				}
+//					
 			}	
 		}
 		
@@ -164,7 +171,8 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// Returns the Startstate of the FiniteCrossProductMachine,
 		/// </summary>
 		public override IState StartState {
-			get {return new DualState(this.one.StartState,this.two.StartState);}
+			get {Console.WriteLine("StartStates are: "+one.StartState+two.StartState);
+				return new DualState(this.one.StartState,this.two.StartState);}
 		}
 
 		/// <summary>

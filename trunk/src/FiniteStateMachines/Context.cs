@@ -110,35 +110,35 @@ namespace Palladio.ParameterisedContracts {
 			return sum.GetHashCode();
 		}
 
-		/// <summary>
-		/// Operator uses the implementation of Equals.
-		/// </summary>
-		public static bool operator == (StackContext one, StackContext two){
-			try {
-				return one.Equals(two);
-			} catch( NullReferenceException  ) {
-				try {
-					return two.Equals(one);
-				} catch( NullReferenceException ) {
-					return true;
-				}
-			}
-		}
+//		/// <summary>
+//		/// Operator uses the implementation of Equals.
+//		/// </summary>
+//		public static bool operator == (StackContext one, StackContext two){
+//			try {
+//				return one.Equals(two);
+//			} catch( NullReferenceException  ) {
+//				try {
+//					return two.Equals(one);
+//				} catch( NullReferenceException ) {
+//					return true;
+//				}
+//			}
+//		}
 
 		/// <summary>
 		/// Operator uses the implementation of Equals.
 		/// </summary>
-		public static bool operator != (StackContext one, StackContext two){
-			try {
-				return !one.Equals(two);
-			} catch( NullReferenceException  ) {
-				try {
-					return !two.Equals(one);
-				} catch( NullReferenceException ) {
-					return false;
-				}
-			}
-		}
+//		public static bool operator != (StackContext one, StackContext two){
+//			try {
+//				return !one.Equals(two);
+//			} catch( NullReferenceException  ) {
+//				try {
+//					return !two.Equals(one);
+//				} catch( NullReferenceException ) {
+//					return false;
+//				}
+//			}
+//		}
 
 	}
 }
