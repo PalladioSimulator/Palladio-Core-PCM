@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/07/30 01:25:52  sliver
+ * Some changes...
+ *
  * Revision 1.1  2004/07/13 02:14:53  sliver
  * Added comments
  * 
@@ -10,6 +13,7 @@
 #if TEST
 
 using System;
+using System.Diagnostics;
 
 using NUnit.Framework;
 

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/07/30 01:25:51  sliver
+ * Some changes...
+ *
  * Revision 1.1  2004/07/19 04:37:48  sliver
  * extracted attributes
  *
@@ -51,11 +54,6 @@ namespace Palladio.Reliability.Attributes
 		{
 			get 
 			{
-				if (attributeType != null)
-					return attributeType;
-				
-				AttributesFactory factory = new AttributesFactory();
-				attributeType = factory.Default.CreateAttributeType(new Guid("d3b88ea3-be07-4ee1-959f-a90cf75ca5c8") ,"ServiceReliabilityAttribute", typeof(ServiceReliabilityAttribute));
 				return attributeType;
 			}
 		}
@@ -114,7 +112,7 @@ namespace Palladio.Reliability.Attributes
 		#region Data
 		
 		private IVariableExpression reliability;
-		private static IAttributeType attributeType = null;
+		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("d3b88ea3-be07-4ee1-959f-a90cf75ca5c8") ,"ServiceReliabilityAttribute", typeof(ServiceReliabilityAttribute));
 		#endregion		
 	}
 }

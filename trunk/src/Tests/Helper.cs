@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/07/30 01:25:51  sliver
+ * Some changes...
+ *
  * Revision 1.2  2004/07/13 02:14:52  sliver
  * Added comments
  *
@@ -69,8 +72,7 @@ namespace Palladio.Reliability.Tests
 		
 		public static IAttributeHash CreateAttributeHash()
 		{
-			AttributesFactory factory = new AttributesFactory();
-			return factory.Default.CreateAttributeHash();
+			return AttributesFactory.Default.CreateAttributeHash();
 		}
 		
 	}

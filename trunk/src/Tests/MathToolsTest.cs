@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/07/30 01:25:51  sliver
+ * Some changes...
+ *
  * Revision 1.2  2004/07/13 02:14:52  sliver
  * Added comments
  *
@@ -49,6 +52,13 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void TestMethod()
 		{
+			Parser p = new Parser();
+			p.Provider = new InfixTokenizer();
+			IMatrixExpression orgMat = p.Parse("[[7/10,0,0],[3/10,2/10,0],[0,8/10,0]]") as IMatrixExpression;
+			MatrixIdentity identity = new MatrixIdentity(orgMat.Context, new ScalarExpressionValue( orgMat.Context, orgMat.LengthX ));
+			orgMat = new MatrixMatrixSubtraction( orgMat.Context, identity.Expand(), orgMat );
+			ScalarMatrix invers = MatrixTools.Invert(orgMat);
+			Console.WriteLine(invers.Calculate());
 		}
 
 		[TestFixtureSetUp]
