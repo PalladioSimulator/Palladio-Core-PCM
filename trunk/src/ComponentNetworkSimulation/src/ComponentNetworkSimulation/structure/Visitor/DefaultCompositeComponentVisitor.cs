@@ -15,6 +15,10 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/19 13:43:53  joemal
+	/// - add new constructors
+	/// - add some exception handling
+	///
 	/// Revision 1.1  2004/06/18 17:20:13  joemal
 	/// initial class creation
 	///
@@ -35,20 +39,42 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		#region constructors
 
 		/// <summary>
+		/// constructs a new <code>DefaultCompositeVisitor</code> from given component. The given visitor belongs to an
+		/// inner component of this one. This constructor normaly is used by <code>IComponentArchitecture</code> to
+		/// create the chain of visitors to the given starting point. 
+		/// </summary>
+		/// <param name="component">the component</param>
+		/// <param name="innerComponentVisitor">the visitor of one of the inner components.</param>
+		public DefaultCompositeComponentVisitor(ICompositeComponent component, IComponentVisitor innerComponentVisitor):
+			base(component)
+		{
+			innerComponentVisitor.OnVisitorEvent += new VisitorEventHandler(HandleVisitorEvent);
+			visitorStack.Push(innerComponentVisitor);
+		}
+
+		/// <summary>
 		/// constructs a new <code>DefaultCompositeVisitor</code> from given component, interfaceID and signatureID.
+		/// This constructor normaly is used to create a visitor from <code>IThreadStartingPoint</code>.
 		/// </summary>
 		/// <param name="component">the composite component</param>
 		/// <param name="interfaceID">the id of the interface</param>
 		/// <param name="signatureID">the id of the signature</param>
+		/// <exception cref="Palladio.ComponentModel.RoleIDNotFoundException">
+		/// thrown, if the interface with given id can't be found in the component
+		/// </exception>
+		///	<exception cref="Palladio.ComponentModel.SignatureNotFoundException">
+		/// thrown, if the signature with given id can't be found in interface
+		/// </exception>
 		public DefaultCompositeComponentVisitor(ICompositeComponent component, IIdentifier interfaceID, IIdentifier signatureID):
 			base(component)
 		{
-			init(interfaceID, signatureID);
+			Init(interfaceID, signatureID);
 		}
 
 		/// <summary>
 		/// constructs a new <code>DefaultCompositeVisitor</code> from given component and a external signature which 
-		/// describes the provided interface and the signature to be called.
+		/// describes the provided interface and the signature to be called. The constructor normal is used to
+		/// create a visitor by another visitor when an inner component should be entered.
 		/// </summary>
 		/// <param name="component">the component</param>
 		/// <param name="signature">the signature to be called</param>
@@ -60,7 +86,6 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		}
 
         #endregion
-
 
 		#region properties
         
@@ -103,7 +128,7 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// </summary>
 		public override void NextElement()
 		{
-			if (visitorStack.Count != 0) Visit(visitorStack.Peek());
+			if (visitorStack.Count != 0) Visit(visitorStack.Peek());			
 		}
 
 		/// <summary>
@@ -163,16 +188,27 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// </summary>
 		/// <param name="interfaceID">the id of the provided interface of the composite component</param>
 		/// <param name="signatureID">the id of the signature</param>
-		private void init(IIdentifier interfaceID, IIdentifier signatureID)
+		/// <exception cref="Palladio.ComponentModel.RoleIDNotFoundException">
+		/// thrown, if the interface with given id can't be found in the component
+		/// </exception>
+		///	<exception cref="Palladio.ComponentModel.SignatureNotFoundException">
+		/// thrown, if the signature with given id can't be found in interface
+		/// </exception>
+		private void Init(IIdentifier interfaceID, IIdentifier signatureID)
 		{
 			IInterfaceModel iface = CompositeComponent.GetProvidesInterface(interfaceID);
-			ISignature signature = iface.SignatureList.GetSignaturesByID(signatureID)[0];
+
+			ISignature[] sig = iface.SignatureList.GetSignaturesByID(signatureID);
+			if (sig.Length == 0)
+				//todo: change parameter to simple id
+				throw new Palladio.ComponentModel.Exceptions.SignatureNotFoundException(
+					ComponentFactory.CreateSignatureArray(signatureID.ToString())[0]);
 
 			IMapping mapping = CompositeComponent.GetProvidesMappingByOuter(interfaceID);
 			IComponent innerComponent = mapping.ProvidingRole.Component;
 
 			IExternalSignature calledSignature = ComponentFactory.
-				CreateSignatureWithRole(mapping.ProvidingRole.RoleID,signature);
+				CreateSignatureWithRole(mapping.ProvidingRole.RoleID,sig[0]);
 
 			visitorStack.Push(calledSignature);
 			Visit(innerComponent);
@@ -194,6 +230,7 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 					HandleExternalReturn();
 					break;
 				case VisitorEventArgs.EventType.TYPE_UNKNOWN_ELEMENT:
+					visitorStack.Clear();
 					NotifyUnknownElement();
 					break;
 			}
@@ -207,6 +244,7 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// <param name="callingSignature">the required signature to be called</param>
 		private void HandleExternalCall(IComponent callingComponent, IExternalSignature callingSignature)
 		{
+			//Todo: follow mappings !!!
 			IBinding binding = CompositeComponent.GetBindingByRequires(callingComponent.ID,callingSignature.RoleID);
 			IExternalSignature calledSignature = ComponentFactory.CreateSignatureWithRole(binding.ProvidingRole.RoleID,
 				callingSignature.Signature);
@@ -223,6 +261,7 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		private void HandleExternalReturn()
 		{
 			visitorStack.Pop();
+			if (visitorStack.Count == 0) NotifyServiceReturned();
 		}
 
 		#endregion
