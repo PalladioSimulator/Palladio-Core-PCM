@@ -1,0 +1,96 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Signature list template" %>
+<%@ Property Name="ContainedSignatureType" Type="System.String" Category="Context" Description="The type of the signatures in the SignatureList" %>
+<%@ Property Name="SignatureListType" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
+<%@ Property Name="InterfaceDescription" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
+
+	/// <summary>
+	/// This is a class used as event arguments for <%= SignatureListType %>ChangeEvents.
+	/// </summary>
+	public class <%= SignatureListType %>ChangeEventArgs
+	{
+		private ChangeTimeEnum time;
+		private ChangeTypeEnum type;
+		private <%= ContainedSignatureType %> signature;
+
+		/// <summary>
+		/// The signature being added or deleted from the signature list raising the event
+		/// </summary>
+		public <%= ContainedSignatureType %> Signature
+		{
+			get
+			{
+				return signature;
+			}
+		}
+		
+		/// <summary>
+		/// Point in the process when this event occured
+		/// </summary> 
+		public ChangeTimeEnum ChangeTime
+		{
+			get
+			{
+				return time;
+			}
+		}
+
+		/// <summary>
+		/// Kind of the change made to the signature list raising the event
+		/// </summary>
+		public ChangeTypeEnum ChangeType
+		{
+			get
+			{
+				return type;
+			}
+		}
+
+		/// <summary>
+		/// Default constructor
+		/// </summary>
+		/// <param name="sig">The signature being added or deleted</param>
+		/// <param name="time">The state of the process</param>
+		/// <param name="type">Is the signature added or deleted</param>
+		public <%= SignatureListType %>ChangeEventArgs(<%= ContainedSignatureType %> sig, ChangeTimeEnum time, ChangeTypeEnum type)
+		{
+			this.time = time;
+			this.type = type;
+			this.signature = sig;
+		}
+	}
+
+	/// <summary>
+	/// The event delegate for <%= SignatureListType %>ChangeEvents
+	/// </summary>
+	public delegate void <%= SignatureListType %>ChangeEventHandler(object sender, <%= SignatureListType %>ChangeEventArgs args);
+
+	/// <summary>
+	/// Auxiliary information is additional specification data attached to a certain
+	/// interface model. For example protocol information specified by the means
+	/// of FSMs, Petri Nets, .... or constraints given as pre- and postconditions or
+	/// OCL constraints.<br />
+	/// Implement this interface if you want to add further additional specification data
+	/// to an interface model.
+	/// </summary>
+	/// <remarks><pre>
+	/// $Log$
+	/// Revision 1.2  2004/06/09 12:36:30  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
+	/// Revision 1.1  2004/06/03 14:37:28  sbecker
+	/// Added the possibility to attach auxiliary specifications to a basic component
+	///
+	///
+	/// </pre></remarks>
+	public interface IAuxiliary<%= InterfaceDescription %>Specification
+	{
+		/// <summary>
+		/// Event handler handling notifications of changes in the underlying signature list.
+		/// This event handler is for implementing an observer pattern on the signature list so that
+		/// any kind of auxiliary information can stay consistend. For example, an FSM protocol
+		/// automaton used this events to update its input symbol set accordingly. 
+		/// </summary>
+		/// <param name="sender">The signature list being changed</param>
+		/// <param name="args">The event args specifing the event in more detail</param>
+		void <%= SignatureListType %>ChangeEventHandler(object sender, <%= SignatureListType %>ChangeEventArgs args);
+	}

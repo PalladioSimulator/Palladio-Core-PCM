@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="ConnectionDataSet" targetNamespace="http://tempuri.org/ConnectionDataSet.xsd"
+	elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://tempuri.org/ConnectionDataSet.xsd"
+	xmlns:mstns="http://tempuri.org/ConnectionDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="ConnectionDataSet" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="ConnectionTable">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID" type="xs:long" minOccurs="0" />
+							<xs:element name="ProvComponentID" type="xs:string" minOccurs="0" />
+							<xs:element name="ProvRoleID" type="xs:string" minOccurs="0" />
+							<xs:element name="ReqComponentID" type="xs:string" minOccurs="0" />
+							<xs:element name="ReqRoleID" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,110 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Signatures template" %>
+<%@ Property Name="ContainedSignatureType" Type="System.String" Category="Context" Description="The type of the signatures in the SignatureList" %>
+<%@ Property Name="DefaultSignatureListInstance" Type="System.String" Category="Context" Description="The type of the signatures in the SignatureList" %>
+<%@ Property Name="ClassName" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
+<%@ Property Name="InterfaceDescription" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
+
+	#region Default<%= ClassName %>
+	/// <summary>
+	/// An IInterfaceModel is the description of an interface (of a component).
+	/// In our case an interface is a set of signatures
+	/// which can be somehow related to each other.
+	/// </summary>
+	internal class Default<%= ClassName %> : ICloneable, IAttributable, I<%= ClassName %>
+	{
+		protected I<%= ContainedSignatureType %>List signatureList;
+		protected IAttributeHash attributes;
+		protected ArrayList auxiliarySpecs = new ArrayList();
+		
+		public I<%= ContainedSignatureType %>List SignatureList
+		{
+			get
+			{
+				return signatureList;
+			}
+		}
+		
+		public IAttributeHash Attributes 
+		{
+			get 
+			{
+				return attributes;
+			}
+		}	
+		
+		/// <summary>
+		/// Creates a copy of the current instance.
+		/// </summary>
+		/// <returns>A new object with the same values as the current instance.</returns>
+		public object Clone()
+		{
+			return new Default<%= ClassName %>(this.attributes, this.signatureList);
+		}
+				
+		public override bool Equals(object other)
+		{
+			if (!(other is I<%= ClassName %>)) return false;
+			if (other == this) return true;
+			I<%= ClassName %> model = (I<%= ClassName %>)other;
+			return model.SignatureList.Equals(this.SignatureList);
+		}
+		
+		public override int GetHashCode()
+		{
+			return (
+				signatureList.GetHashCode()
+			);		
+		}
+
+		/// <summary>
+		/// Additional specification data like FSMs, Petri Nets, ....
+		/// </summary>
+		public IAuxiliary<%= InterfaceDescription %>Specification[] AuxiliarySpecifications
+		{
+			get
+			{
+				IAuxiliary<%= InterfaceDescription %>Specification[] result = new IAuxiliary<%= InterfaceDescription %>Specification[auxiliarySpecs.Count];
+				auxiliarySpecs.CopyTo(result);
+				return result;
+			}
+		}
+
+		/// <summary>
+		/// Get the auxiliary information of a given type
+		/// </summary>
+		/// <param name="aType">Type of the additional information to retrieve</param>
+		/// <returns>The requested information or an exception if the information is not
+		/// available</returns>
+		public IAuxiliary<%= InterfaceDescription %>Specification GetAuxiliarySpecification(System.Type aType)
+		{
+			foreach (IAuxiliary<%= InterfaceDescription %>Specification spec in auxiliarySpecs)
+			{
+				if (aType.IsAssignableFrom(spec.GetType()))
+					return spec;
+			}
+			throw new Exception("Auxiliary information not found!");
+		}
+		
+		/// <summary>
+		/// Add a new specification aspect to this interface, like a protocol spec.
+		/// </summary>
+		/// <param name="info">Additional specification data</param>
+		public void AddAuxiliarySpecification(IAuxiliary<%= InterfaceDescription %>Specification info)
+		{
+			auxiliarySpecs.Add(info);
+			signatureList.SignatureListChangeEvent += new <%= ContainedSignatureType %>ListChangeEventHandler(info.<%= ContainedSignatureType %>ListChangeEventHandler);
+		}
+			
+		public Default<%= ClassName %>(IAttributeHash attrHash, I<%= ContainedSignatureType %>List aSignatureList)
+		{
+			this.signatureList = (I<%= ContainedSignatureType %>List)aSignatureList.Clone();
+			this.attributes = attrHash;
+		}
+		
+		public Default<%= ClassName %>(IAttributeHash attrHash)
+		{
+			signatureList = ComponentFactory.Create<%= DefaultSignatureListInstance %>(new I<%= ContainedSignatureType %>[0]);
+			this.attributes = attrHash;
+		}
+	}
+	#endregion
