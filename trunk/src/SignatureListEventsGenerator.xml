@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <codeSmith>
 	<namespace>Palladio.ComponentModel</namespace>
 	<imports>
@@ -13,8 +13,8 @@
 			<property name="InterfaceDescription">Interface</property>
 		</propertySet>
 		<propertySet>
-			<property name="ContainedSignatureType">ISignatureWithRole</property>
-			<property name="SignatureListType">SignatureWithRoleList</property>
+			<property name="ContainedSignatureType">IExternalSignature</property>
+			<property name="SignatureListType">ExternalSignatureList</property>
 			<property name="InterfaceDescription">ServiceEffect</property>
 		</propertySet>
 	</propertySets>

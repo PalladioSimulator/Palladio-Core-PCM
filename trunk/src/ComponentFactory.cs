@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/06/09 12:36:30  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.5  2004/06/04 01:53:56  sliver
 	/// rework of composite component
 	///
@@ -320,7 +323,7 @@ namespace Palladio.ComponentModel
 		/// <param name="aRoleID">The role ID of the external interface</param>
 		/// <param name="aSig">The signature of the service in the external interface</param>
 		/// <returns>A container object containing a signature and an associated role</returns>
-		public static ISignatureWithRole CreateSignatureWithRole(string aRoleID, ISignature aSig )
+		public static IExternalSignature CreateSignatureWithRole(string aRoleID, ISignature aSig )
 		{
 			return new DefaultSignatureWithRole(aSig,IdentifiableFactory.CreateStringID(aRoleID));
 		}
@@ -332,7 +335,7 @@ namespace Palladio.ComponentModel
 		/// <param name="aRoleID">The role ID of the external interface</param>
 		/// <param name="aSig">The signature of the service in the external interface</param>
 		/// <returns>A container object containing a signature and an associated role</returns>
-		public static ISignatureWithRole CreateSignatureWithRole(IIdentifier aRoleID, ISignature aSig )
+		public static IExternalSignature CreateSignatureWithRole(IIdentifier aRoleID, ISignature aSig )
 		{
 			return new DefaultSignatureWithRole(aSig,aRoleID);
 		}
@@ -388,10 +391,10 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="roleID">The roleID to be assigned to the signatures</param>
 		/// <param name="sigs">The signatures to which a role is added</param>
-		/// <returns>An array of <see cref="ISignatureWithRole"/></returns>
-		public static ISignatureWithRole[] CreateExternalSignatureArray(IIdentifier roleID, params ISignature[] sigs)
+		/// <returns>An array of <see cref="IExternalSignature"/></returns>
+		public static IExternalSignature[] CreateExternalSignatureArray(IIdentifier roleID, params ISignature[] sigs)
 		{
-			ISignatureWithRole[] result = new ISignatureWithRole[sigs.Length];
+			IExternalSignature[] result = new IExternalSignature[sigs.Length];
 			for (int i=0; i < sigs.Length; i++)
 			{
 				result[i] = CreateSignatureWithRole(roleID,sigs[i]);
@@ -404,8 +407,8 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="roleID">The roleID to be assigned to the signatures</param>
 		/// <param name="sigs">The signatures to which a role is added</param>
-		/// <returns>An array of <see cref="ISignatureWithRole"/></returns>		
-		public static ISignatureWithRole[] CreateExternalSignatureArray(string roleID, params ISignature[] sigs)
+		/// <returns>An array of <see cref="IExternalSignature"/></returns>		
+		public static IExternalSignature[] CreateExternalSignatureArray(string roleID, params ISignature[] sigs)
 		{
 			return CreateExternalSignatureArray(IdentifiableFactory.CreateStringID(roleID),sigs);
 		}
@@ -443,9 +446,9 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="signatures"></param>
 		/// <returns></returns>
-		public static ISignatureWithRoleList CreateExternalSignatureList(params ISignatureWithRole[] signatures)
+		public static IExternalSignatureList CreateExternalSignatureList(params IExternalSignature[] signatures)
 		{
-			return new DefaultSignatureWithRoleList(CreateAttributeHash(), signatures);
+			return new DefaultExternalSignatureList(CreateAttributeHash(), signatures);
 		}
 
 		#endregion
@@ -484,7 +487,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aSigList">The external signatures contained in the service effect initialy</param>
 		/// <returns>A newly created service effect specification</returns>
-		public static IServiceEffectSpecification CreateServiceEffectSpecification(ISignatureWithRoleList aSigList)
+		public static IServiceEffectSpecification CreateServiceEffectSpecification(IExternalSignatureList aSigList)
 		{
 			return new DefaultServiceEffectSpecification(attributesFactory.Default.CreateAttributeHash(),aSigList);
 		}
@@ -498,11 +501,21 @@ namespace Palladio.ComponentModel
 		#endregion
 
 		#region CreateFSMProtocol
+		/// <summary>
+		/// Create a FSM containing ISignatures as input symbols to specify
+		/// the allowed order of service calls.
+		/// </summary>
+		/// <returns>A newly created FSM interface protocol automaton</returns>
 		public static IFSMInterface CreateFSMProtocolInterface()
 		{
 			return new FSMInterface(CreateAttributeHash(), FSMFactory.CreateEmptyFSM());
 		}
 
+		/// <summary>
+		/// Create a FSM containing IExternalSignatures as input symbols to specify
+		/// the allowed order of service calls.
+		/// </summary>
+		/// <returns>A newly created FSM servive effect specification protocol automaton</returns>
 		public static IFSMServiceEffect CreateFSMProtocolServiceEffect()
 		{
 			return new FSMServiceEffect(CreateAttributeHash(), FSMFactory.CreateEmptyFSM());
@@ -537,6 +550,7 @@ namespace Palladio.ComponentModel
 		/// Create a new, empty IBasicComponent with the attributes given by anAttributeHash.
 		/// </summary>
 		/// <param name="anAttrHash">Attributes of the new Component.</param>
+		/// <param name="ID">An string identifier for the component</param>
 		/// <returns>New IBasicComponent instance.</returns>
 		public static ICompositeComponent CreateCompositeComponent(IAttributeHash anAttrHash, string ID)
 		{
@@ -562,12 +576,13 @@ namespace Palladio.ComponentModel
 		/// Create a new IBinding instance.
 		/// </summary>
 		/// <param name="anAttrHash">Attributes of the new binding.</param>
-		/// <param name="provComp">Providing component of the binding relation.</param>
-		/// <param name="provRole">Providing role of provComp.</param>
-		/// <param name="reqComp">Requiring component of the binding relation.</param>
-		/// <param name="reqRole">Requiring role of reqComp.</param>
+		/// <param name="provComponent">Providing component of the binding relation.</param>
+		/// <param name="provRoleID">Providing role of provComp.</param>
+		/// <param name="reqComponent">Requiring component of the binding relation.</param>
+		/// <param name="reqRoleID">Requiring role of reqComp.</param>
 		/// <returns>New IBinding instance</returns>
-		public static IBinding CreateBinding(IAttributeHash anAttrHash, IComponent reqComponent, IIdentifier reqRoleID, IComponent provComponent, IIdentifier provRoleID)
+		public static IBinding CreateBinding(IAttributeHash anAttrHash, IComponent reqComponent,
+			IIdentifier reqRoleID, IComponent provComponent, IIdentifier provRoleID)
 		{
 			return new DefaultBinding(
 				anAttrHash,
@@ -578,12 +593,13 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Create a new IBinding instance.
 		/// </summary>
-		/// <param name="provComp">Providing component of the binding relation.</param>
-		/// <param name="provRole">Providing role of provComp.</param>
-		/// <param name="reqComp">Requiring component of the binding relation.</param>
-		/// <param name="reqRole">Requiring role of reqComp.</param>
+		/// <param name="provComponent">Providing component of the binding relation.</param>
+		/// <param name="provRoleID">Providing role of provComp.</param>
+		/// <param name="reqRoleID">Requiring role of reqComp.</param>
+		/// <param name="reqComponent">Requiring component of the binding relation.</param>
 		/// <returns>New IBinding instance</returns>
-		public static IBinding CreateBinding(IComponent reqComponent, IIdentifier reqRoleID, IComponent provComponent, IIdentifier provRoleID)
+		public static IBinding CreateBinding(IComponent reqComponent, IIdentifier reqRoleID,
+			IComponent provComponent, IIdentifier provRoleID)
 		{
 			return new DefaultBinding(
 				CreateAttributeHash(),
@@ -595,8 +611,8 @@ namespace Palladio.ComponentModel
 		/// Create a new IBinding instance.
 		/// </summary>
 		/// <param name="anAttrHash">Attributes of the new binding.</param>
-		/// <param name="provInterface">Providing interface of the binding relation.</param>
-		/// <param name="reqInterface">Requiring inteface of the binding relation.</param>
+		/// <param name="provRole">Providing role of the binding relation.</param>
+		/// <param name="reqRole">Requiring role of the binding relation.</param>
 		/// <returns>New IBinding instance</returns>
 		public static IBinding CreateBinding(IAttributeHash anAttrHash, IAttachedRole reqRole, IAttachedRole provRole)
 		{
@@ -606,8 +622,8 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Create a new IBinding instance.
 		/// </summary>
-		/// <param name="provInterface">Providing interface of the binding relation.</param>
-		/// <param name="reqInterface">Requiring inteface of the binding relation.</param>
+		/// <param name="provRole">Providing role of the binding relation.</param>
+		/// <param name="reqRole">Requiring role of the binding relation.</param>
 		/// <returns>New IBinding instance</returns>
 		public static IBinding CreateBinding(IAttachedRole reqRole, IAttachedRole provRole)
 		{
@@ -620,11 +636,13 @@ namespace Palladio.ComponentModel
 		/// Create a new IMapping instance.
 		/// </summary>
 		/// <param name="anAttrHash">Attributes of the new Mapping.</param>
-		/// <param name="anOuterRole">RoleID of the outer interface.</param>
+		/// <param name="anOuterRoleID">RoleID of the outer interface.</param>
+		/// <param name="anOuterComponent">The outer component the inner component maps to.</param>
 		/// <param name="anInnerComponent">The inner component the outer interface is mapped onto.</param>
-		/// <param name="anInnerRole">The RoleID of the inner component the outer interface is mapped onto.</param>
+		/// <param name="anInnerRoleID">The RoleID of the inner component the outer interface is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
-		public static IMapping CreateProvidesMapping(IAttributeHash anAttrHash, IComponent anOuterComponent, IIdentifier anOuterRoleID, IComponent anInnerComponent, IIdentifier anInnerRoleID)
+		public static IMapping CreateProvidesMapping(IAttributeHash anAttrHash, IComponent anOuterComponent, 
+			IIdentifier anOuterRoleID, IComponent anInnerComponent, IIdentifier anInnerRoleID)
 		{
 			return new DefaultMapping(anAttrHash, new DefaultAttachedRole( anOuterComponent, anOuterRoleID ), new DefaultAttachedRole(anInnerComponent, anInnerRoleID), MappingTypeEnum.PROVIDES_MAPPING);
 		}
@@ -632,11 +650,13 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Create a new IMapping instance.
 		/// </summary>
-		/// <param name="anOuterRole">RoleID of the outer interface.</param>
+		/// <param name="anOuterRoleID">RoleID of the outer interface.</param>
 		/// <param name="anInnerComponent">The inner component the outer interface is mapped onto.</param>
-		/// <param name="anInnerRole">The RoleID of the inner component the outer interface is mapped onto.</param>
+		/// <param name="anInnerRoleID">The RoleID of the inner component the outer interface is mapped onto.</param>
+		/// <param name="anOuterComponent">The outer component to which the inner component is mapped to</param>
 		/// <returns>A new IMapping instance.</returns>
-		public static IMapping CreateProvidesMapping(IComponent anOuterComponent, IIdentifier anOuterRoleID, IComponent anInnerComponent, IIdentifier anInnerRoleID)
+		public static IMapping CreateProvidesMapping(IComponent anOuterComponent, IIdentifier anOuterRoleID, 
+			IComponent anInnerComponent, IIdentifier anInnerRoleID)
 		{
 			return CreateProvidesMapping(CreateAttributeHash(), anOuterComponent, anOuterRoleID, anInnerComponent, anInnerRoleID);
 		}
@@ -646,7 +666,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="anAttrHash">Attributes of the new Mapping.</param>
 		/// <param name="anOuterRole">RoleID of the outer interface.</param>
-		/// <param name="anInnerInterface">The inner interface anOuterRole is mapped onto.</param>
+		/// <param name="anInnerRole">The inner role anOuterRole is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
 		public static IMapping CreateProvidesMapping(IAttributeHash anAttrHash, IAttachedRole anOuterRole, IAttachedRole anInnerRole)
 		{
@@ -656,9 +676,8 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Create a new IMapping instance.
 		/// </summary>
-		/// <param name="anAttrHash">Attributes of the new Mapping.</param>
 		/// <param name="anOuterRole">RoleID of the outer interface.</param>
-		/// <param name="anInnerInterface">The inner interface anOuterRole is mapped onto.</param>
+		/// <param name="anInnerRole">The inner role anOuterRole is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
 		public static IMapping CreateProvidesMapping(IAttachedRole anOuterRole, IAttachedRole anInnerRole)
 		{
@@ -669,11 +688,13 @@ namespace Palladio.ComponentModel
 		/// Create a new IMapping instance.
 		/// </summary>
 		/// <param name="anAttrHash">Attributes of the new Mapping.</param>
-		/// <param name="anOuterRole">RoleID of the outer interface.</param>
+		/// <param name="anOuterRoleID">RoleID of the outer interface.</param>
 		/// <param name="anInnerComponent">The inner component the outer interface is mapped onto.</param>
-		/// <param name="anInnerRole">The RoleID of the inner component the outer interface is mapped onto.</param>
+		/// <param name="anOuterComponent">The outer component to which the inner compoent is mapped to.</param>
+		/// <param name="anInnerRoleID">The RoleID of the inner component the outer interface is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
-		public static IMapping CreateRequiresMapping(IAttributeHash anAttrHash, IComponent anInnerComponent, IIdentifier anInnerRoleID, IComponent anOuterComponent, IIdentifier anOuterRoleID)
+		public static IMapping CreateRequiresMapping(IAttributeHash anAttrHash, IComponent anInnerComponent, 
+			IIdentifier anInnerRoleID, IComponent anOuterComponent, IIdentifier anOuterRoleID)
 		{
 			return new DefaultMapping(anAttrHash, new DefaultAttachedRole(anInnerComponent, anInnerRoleID), new DefaultAttachedRole( anOuterComponent, anOuterRoleID ), MappingTypeEnum.REQUIRES_MAPPING);
 		}
@@ -681,9 +702,10 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Create a new IMapping instance.
 		/// </summary>
-		/// <param name="anOuterRole">RoleID of the outer interface.</param>
+		/// <param name="anOuterRoleID">RoleID of the outer interface.</param>
 		/// <param name="anInnerComponent">The inner component the outer interface is mapped onto.</param>
-		/// <param name="anInnerRole">The RoleID of the inner component the outer interface is mapped onto.</param>
+		/// <param name="anOuterComponent">The outer component to which the inner compoent is mapped to.</param>
+		/// <param name="anInnerRoleID">The RoleID of the inner component the outer interface is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
 		public static IMapping CreateRequiresMapping(IComponent anInnerComponent, IIdentifier anInnerRoleID, IComponent anOuterComponent, IIdentifier anOuterRoleID)
 		{
@@ -695,9 +717,10 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="anAttrHash">Attributes of the new Mapping.</param>
 		/// <param name="anOuterRole">RoleID of the outer interface.</param>
-		/// <param name="anInnerInterface">The inner interface anOuterRole is mapped onto.</param>
+		/// <param name="anInnerRole">The inner interface anOuterRole is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
-		public static IMapping CreateRequiresMapping(IAttributeHash anAttrHash, IAttachedRole anInnerRole, IAttachedRole anOuterRole)
+		public static IMapping CreateRequiresMapping(IAttributeHash anAttrHash, 
+			IAttachedRole anInnerRole, IAttachedRole anOuterRole)
 		{
 			return new DefaultMapping(anAttrHash, anInnerRole, anOuterRole, MappingTypeEnum.REQUIRES_MAPPING);
 		}
@@ -705,9 +728,8 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Create a new IMapping instance.
 		/// </summary>
-		/// <param name="anAttrHash">Attributes of the new Mapping.</param>
 		/// <param name="anOuterRole">RoleID of the outer interface.</param>
-		/// <param name="anInnerInterface">The inner interface anOuterRole is mapped onto.</param>
+		/// <param name="anInnerRole">The inner role anOuterRole is mapped onto.</param>
 		/// <returns>A new IMapping instance.</returns>
 		public static IMapping CreateRequiresMapping(IAttachedRole anInnerRole, IAttachedRole anOuterRole)
 		{

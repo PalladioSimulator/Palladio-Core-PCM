@@ -16,9 +16,9 @@
 			<property name="SignatureListType">SignatureList</property>
 		</propertySet>
 		<propertySet>
-			<property name="ContainedSignatureType">ISignatureWithRole</property>
+			<property name="ContainedSignatureType">IExternalSignature</property>
 			<property name="InterfaceDescription">ServiceEffect</property>
-			<property name="SignatureListType">SignatureWithRoleList</property>
+			<property name="SignatureListType">ExternalSignatureList</property>
 		</propertySet>
 	</propertySets>
 	<template path="FSMProtocol.cst" />

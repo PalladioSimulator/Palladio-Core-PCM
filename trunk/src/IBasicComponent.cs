@@ -16,7 +16,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aSig">A signature provided in a role of this component.</param>
 		/// <returns>The service effect specification of aSig.</returns>
-		IServiceEffectSpecification GetServiceEffectSpecification(ISignatureWithRole aSig);
+		IServiceEffectSpecification GetServiceEffectSpecification(IExternalSignature aSig);
 
 		/// <summary>
 		/// Changes the service effect specification of aSignature to aServEffSpec.
@@ -24,7 +24,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aSignature"></param>
 		/// <param name="aServEffSpec"></param>
-		void AddServiceEffectSpecification(ISignatureWithRole aSignature, IServiceEffectSpecification aServEffSpec);
+		void AddServiceEffectSpecification(IExternalSignature aSignature, IServiceEffectSpecification aServEffSpec);
 
 		/// <summary>
 		/// Changes the service effect specification of aSignature to aServEffSpec.
@@ -32,7 +32,7 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aSignature"></param>
 		/// <param name="aServEffSpec"></param>
-		void ChangeServiceEffectSpecification(ISignatureWithRole aSignature, IServiceEffectSpecification aServEffSpec);
+		void ChangeServiceEffectSpecification(IExternalSignature aSignature, IServiceEffectSpecification aServEffSpec);
 
 		/// <summary>
 		/// Get the service effect specification associated with aSig.
@@ -63,6 +63,6 @@ namespace Palladio.ComponentModel
 		/// Reset a certain service effect specification
 		/// </summary>
 		/// <param name="signatures">The services whose service effect specifications get deleted</param>
-		void DeleteServiceEffectSpecification(params ISignatureWithRole[] signatures);
+		void DeleteServiceEffectSpecification(params IExternalSignature[] signatures);
 	}
 }

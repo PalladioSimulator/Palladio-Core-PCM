@@ -11,6 +11,7 @@ namespace Palladio.ComponentModel.UnitTests
 {
 	/// <summary>
 	/// </summary>
+	/// <exclude />
 	[TestFixture]
 	public class SignatureTest
 	{

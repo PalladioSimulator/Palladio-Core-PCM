@@ -3050,27 +3050,27 @@ namespace Palladio.ComponentModel.TypedCollections
     }
 
     #endregion
-    #region Interface IISignatureWithRoleCollection
+    #region Interface IIExternalSignatureCollection
 
     /// <summary>
     /// Defines size, enumerators, and synchronization methods for strongly
-    /// typed collections of <see cref="ISignatureWithRole"/> elements.
+    /// typed collections of <see cref="IExternalSignature"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IISignatureWithRoleCollection</b> provides an <see cref="ICollection"/>
-    /// that is strongly typed for <see cref="ISignatureWithRole"/> elements.
+    /// <b>IIExternalSignatureCollection</b> provides an <see cref="ICollection"/>
+    /// that is strongly typed for <see cref="IExternalSignature"/> elements.
     /// </remarks>
 
-    internal interface IISignatureWithRoleCollection {
+    internal interface IIExternalSignatureCollection {
         #region Properties
         #region Count
 
         /// <summary>
         /// Gets the number of elements contained in the
-        /// <see cref="IISignatureWithRoleCollection"/>.
+        /// <see cref="IIExternalSignatureCollection"/>.
         /// </summary>
         /// <value>The number of elements contained in the
-        /// <see cref="IISignatureWithRoleCollection"/>.</value>
+        /// <see cref="IIExternalSignatureCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.Count"/> for details.</remarks>
 
         int Count { get; }
@@ -3080,9 +3080,9 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether access to the
-        /// <see cref="IISignatureWithRoleCollection"/> is synchronized (thread-safe).
+        /// <see cref="IIExternalSignatureCollection"/> is synchronized (thread-safe).
         /// </summary>
-        /// <value><c>true</c> if access to the <see cref="IISignatureWithRoleCollection"/> is
+        /// <value><c>true</c> if access to the <see cref="IIExternalSignatureCollection"/> is
         /// synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="ICollection.IsSynchronized"/> for details.</remarks>
 
@@ -3093,10 +3093,10 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Gets an object that can be used to synchronize access
-        /// to the <see cref="IISignatureWithRoleCollection"/>.
+        /// to the <see cref="IIExternalSignatureCollection"/>.
         /// </summary>
         /// <value>An object that can be used to synchronize access
-        /// to the <see cref="IISignatureWithRoleCollection"/>.</value>
+        /// to the <see cref="IIExternalSignatureCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.SyncRoot"/> for details.</remarks>
 
         object SyncRoot { get; }
@@ -3107,11 +3107,11 @@ namespace Palladio.ComponentModel.TypedCollections
         #region CopyTo
 
         /// <summary>
-        /// Copies the entire <see cref="IISignatureWithRoleCollection"/> to a one-dimensional <see cref="Array"/>
-        /// of <see cref="ISignatureWithRole"/> elements, starting at the specified index of the target array.
+        /// Copies the entire <see cref="IIExternalSignatureCollection"/> to a one-dimensional <see cref="Array"/>
+        /// of <see cref="IExternalSignature"/> elements, starting at the specified index of the target array.
         /// </summary>
         /// <param name="array">The one-dimensional <see cref="Array"/> that is the destination of the
-        /// <see cref="ISignatureWithRole"/> elements copied from the <see cref="IISignatureWithRoleCollection"/>.
+        /// <see cref="IExternalSignature"/> elements copied from the <see cref="IIExternalSignatureCollection"/>.
         /// The <b>Array</b> must have zero-based indexing.</param>
         /// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
         /// at which copying begins.</param>
@@ -3122,51 +3122,51 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="ArgumentException"><para>
         /// <paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.
         /// </para><para>-or-</para><para>
-        /// The number of elements in the source <see cref="IISignatureWithRoleCollection"/> is greater
+        /// The number of elements in the source <see cref="IIExternalSignatureCollection"/> is greater
         /// than the available space from <paramref name="arrayIndex"/> to the end of the destination
         /// <paramref name="array"/>.</para></exception>
         /// <remarks>Please refer to <see cref="ICollection.CopyTo"/> for details.</remarks>
 
-        void CopyTo(ISignatureWithRole[] array, int arrayIndex);
+        void CopyTo(IExternalSignature[] array, int arrayIndex);
 
         #endregion
         #region GetEnumerator
 
         /// <summary>
-        /// Returns an <see cref="IISignatureWithRoleEnumerator"/> that can
-        /// iterate through the <see cref="IISignatureWithRoleCollection"/>.
+        /// Returns an <see cref="IIExternalSignatureEnumerator"/> that can
+        /// iterate through the <see cref="IIExternalSignatureCollection"/>.
         /// </summary>
-        /// <returns>An <see cref="IISignatureWithRoleEnumerator"/>
-        /// for the entire <see cref="IISignatureWithRoleCollection"/>.</returns>
+        /// <returns>An <see cref="IIExternalSignatureEnumerator"/>
+        /// for the entire <see cref="IIExternalSignatureCollection"/>.</returns>
         /// <remarks>Please refer to <see cref="IEnumerable.GetEnumerator"/> for details.</remarks>
 
-        IISignatureWithRoleEnumerator GetEnumerator();
+        IIExternalSignatureEnumerator GetEnumerator();
 
         #endregion
         #endregion
     }
 
     #endregion
-    #region Interface IISignatureWithRoleList
+    #region Interface IIExternalSignatureList
 
     /// <summary>
-    /// Represents a strongly typed collection of <see cref="ISignatureWithRole"/>
+    /// Represents a strongly typed collection of <see cref="IExternalSignature"/>
     /// objects that can be individually accessed by index.
     /// </summary>
     /// <remarks>
-    /// <b>IISignatureWithRoleList</b> provides an <see cref="IList"/>
-    /// that is strongly typed for <see cref="ISignatureWithRole"/> elements.
+    /// <b>IIExternalSignatureList</b> provides an <see cref="IList"/>
+    /// that is strongly typed for <see cref="IExternalSignature"/> elements.
     /// </remarks>
 
     internal interface
-        IISignatureWithRoleList: IISignatureWithRoleCollection {
+        IIExternalSignatureList: IIExternalSignatureCollection {
         #region Properties
         #region IsFixedSize
 
         /// <summary>
-        /// Gets a value indicating whether the <see cref="IISignatureWithRoleList"/> has a fixed size.
+        /// Gets a value indicating whether the <see cref="IIExternalSignatureList"/> has a fixed size.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IISignatureWithRoleList"/> has a fixed size;
+        /// <value><c>true</c> if the <see cref="IIExternalSignatureList"/> has a fixed size;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsFixedSize"/> for details.</remarks>
 
@@ -3176,9 +3176,9 @@ namespace Palladio.ComponentModel.TypedCollections
         #region IsReadOnly
 
         /// <summary>
-        /// Gets a value indicating whether the <see cref="IISignatureWithRoleList"/> is read-only.
+        /// Gets a value indicating whether the <see cref="IIExternalSignatureList"/> is read-only.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IISignatureWithRoleList"/> is read-only;
+        /// <value><c>true</c> if the <see cref="IIExternalSignatureList"/> is read-only;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsReadOnly"/> for details.</remarks>
 
@@ -3188,24 +3188,24 @@ namespace Palladio.ComponentModel.TypedCollections
         #region Item
 
         /// <summary>
-        /// Gets or sets the <see cref="ISignatureWithRole"/> element at the specified index.
+        /// Gets or sets the <see cref="IExternalSignature"/> element at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index of the
-        /// <see cref="ISignatureWithRole"/> element to get or set.</param>
+        /// <see cref="IExternalSignature"/> element to get or set.</param>
         /// <value>
-        /// The <see cref="ISignatureWithRole"/> element at the specified <paramref name="index"/>.
+        /// The <see cref="IExternalSignature"/> element at the specified <paramref name="index"/>.
         /// </value>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IISignatureWithRoleCollection.Count"/>.</para>
+        /// <see cref="IIExternalSignatureCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// The property is set and the <see cref="IISignatureWithRoleList"/> is read-only.</exception>
+        /// The property is set and the <see cref="IIExternalSignatureList"/> is read-only.</exception>
         /// <remarks>Please refer to <see cref="IList.this"/> for details.</remarks>
 
-        ISignatureWithRole this[int index] { get; set; }
+        IExternalSignature this[int index] { get; set; }
 
         #endregion
         #endregion
@@ -3213,33 +3213,33 @@ namespace Palladio.ComponentModel.TypedCollections
         #region Add
 
         /// <summary>
-        /// Adds a <see cref="ISignatureWithRole"/> to the end
-        /// of the <see cref="IISignatureWithRoleList"/>.
+        /// Adds a <see cref="IExternalSignature"/> to the end
+        /// of the <see cref="IIExternalSignatureList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="ISignatureWithRole"/> object
-        /// to be added to the end of the <see cref="IISignatureWithRoleList"/>.
+        /// <param name="value">The <see cref="IExternalSignature"/> object
+        /// to be added to the end of the <see cref="IIExternalSignatureList"/>.
         /// This argument can be a null reference.
         /// </param>
-        /// <returns>The <see cref="IISignatureWithRoleList"/> index at which
+        /// <returns>The <see cref="IIExternalSignatureList"/> index at which
         /// the <paramref name="value"/> has been added.</returns>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleList"/> is read-only.</para>
+        /// <para>The <see cref="IIExternalSignatureList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIExternalSignatureList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Add"/> for details.</remarks>
 
-        int Add(ISignatureWithRole value);
+        int Add(IExternalSignature value);
 
         #endregion
         #region Clear
 
         /// <summary>
-        /// Removes all elements from the <see cref="IISignatureWithRoleList"/>.
+        /// Removes all elements from the <see cref="IIExternalSignatureList"/>.
         /// </summary>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleList"/> is read-only.</para>
+        /// <para>The <see cref="IIExternalSignatureList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIExternalSignatureList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Clear"/> for details.</remarks>
 
         void Clear();
@@ -3248,102 +3248,102 @@ namespace Palladio.ComponentModel.TypedCollections
         #region Contains
 
         /// <summary>
-        /// Determines whether the <see cref="IISignatureWithRoleList"/>
-        /// contains the specified <see cref="ISignatureWithRole"/> element.
+        /// Determines whether the <see cref="IIExternalSignatureList"/>
+        /// contains the specified <see cref="IExternalSignature"/> element.
         /// </summary>
-        /// <param name="value">The <see cref="ISignatureWithRole"/> object
-        /// to locate in the <see cref="IISignatureWithRoleList"/>.
+        /// <param name="value">The <see cref="IExternalSignature"/> object
+        /// to locate in the <see cref="IIExternalSignatureList"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <returns><c>true</c> if <paramref name="value"/> is found in the
-        /// <see cref="IISignatureWithRoleList"/>; otherwise, <c>false</c>.</returns>
+        /// <see cref="IIExternalSignatureList"/>; otherwise, <c>false</c>.</returns>
         /// <remarks>Please refer to <see cref="IList.Contains"/> for details.</remarks>
 
-        bool Contains(ISignatureWithRole value);
+        bool Contains(IExternalSignature value);
 
         #endregion
         #region IndexOf
 
         /// <summary>
         /// Returns the zero-based index of the first occurrence of the specified
-        /// <see cref="ISignatureWithRole"/> in the <see cref="IISignatureWithRoleList"/>.
+        /// <see cref="IExternalSignature"/> in the <see cref="IIExternalSignatureList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="ISignatureWithRole"/> object
-        /// to locate in the <see cref="IISignatureWithRoleList"/>.
+        /// <param name="value">The <see cref="IExternalSignature"/> object
+        /// to locate in the <see cref="IIExternalSignatureList"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <returns>
         /// The zero-based index of the first occurrence of <paramref name="value"/>
-        /// in the <see cref="IISignatureWithRoleList"/>, if found; otherwise, -1.
+        /// in the <see cref="IIExternalSignatureList"/>, if found; otherwise, -1.
         /// </returns>
         /// <remarks>Please refer to <see cref="IList.IndexOf"/> for details.</remarks>
 
-        int IndexOf(ISignatureWithRole value);
+        int IndexOf(IExternalSignature value);
 
         #endregion
         #region Insert
 
         /// <summary>
-        /// Inserts a <see cref="ISignatureWithRole"/> element into the
-        /// <see cref="IISignatureWithRoleList"/> at the specified index.
+        /// Inserts a <see cref="IExternalSignature"/> element into the
+        /// <see cref="IIExternalSignatureList"/> at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index at which
         /// <paramref name="value"/> should be inserted.</param>
-        /// <param name="value">The <see cref="ISignatureWithRole"/> object
-        /// to insert into the <see cref="IISignatureWithRoleList"/>.
+        /// <param name="value">The <see cref="IExternalSignature"/> object
+        /// to insert into the <see cref="IIExternalSignatureList"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is greater than
-        /// <see cref="IISignatureWithRoleCollection.Count"/>.</para>
+        /// <see cref="IIExternalSignatureCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleList"/> is read-only.</para>
+        /// <para>The <see cref="IIExternalSignatureList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIExternalSignatureList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Insert"/> for details.</remarks>
 
-        void Insert(int index, ISignatureWithRole value);
+        void Insert(int index, IExternalSignature value);
 
         #endregion
         #region Remove
 
         /// <summary>
-        /// Removes the first occurrence of the specified <see cref="ISignatureWithRole"/>
-        /// from the <see cref="IISignatureWithRoleList"/>.
+        /// Removes the first occurrence of the specified <see cref="IExternalSignature"/>
+        /// from the <see cref="IIExternalSignatureList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="ISignatureWithRole"/> object
-        /// to remove from the <see cref="IISignatureWithRoleList"/>.
+        /// <param name="value">The <see cref="IExternalSignature"/> object
+        /// to remove from the <see cref="IIExternalSignatureList"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleList"/> is read-only.</para>
+        /// <para>The <see cref="IIExternalSignatureList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIExternalSignatureList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Remove"/> for details.</remarks>
 
-        void Remove(ISignatureWithRole value);
+        void Remove(IExternalSignature value);
 
         #endregion
         #region RemoveAt
 
         /// <summary>
         /// Removes the element at the specified index of the
-        /// <see cref="IISignatureWithRoleList"/>.
+        /// <see cref="IIExternalSignatureList"/>.
         /// </summary>
         /// <param name="index">The zero-based index of the element to remove.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IISignatureWithRoleCollection.Count"/>.</para>
+        /// <see cref="IIExternalSignatureCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleList"/> is read-only.</para>
+        /// <para>The <see cref="IIExternalSignatureList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIExternalSignatureList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.RemoveAt"/> for details.</remarks>
 
         void RemoveAt(int index);
@@ -3353,25 +3353,25 @@ namespace Palladio.ComponentModel.TypedCollections
     }
 
     #endregion
-    #region Interface IISignatureWithRoleEnumerator
+    #region Interface IIExternalSignatureEnumerator
 
     /// <summary>
     /// Supports type-safe iteration over a collection that
-    /// contains <see cref="ISignatureWithRole"/> elements.
+    /// contains <see cref="IExternalSignature"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IISignatureWithRoleEnumerator</b> provides an <see cref="IEnumerator"/>
-    /// that is strongly typed for <see cref="ISignatureWithRole"/> elements.
+    /// <b>IIExternalSignatureEnumerator</b> provides an <see cref="IEnumerator"/>
+    /// that is strongly typed for <see cref="IExternalSignature"/> elements.
     /// </remarks>
 
-    internal interface IISignatureWithRoleEnumerator {
+    internal interface IIExternalSignatureEnumerator {
         #region Properties
         #region Current
 
         /// <summary>
-        /// Gets the current <see cref="ISignatureWithRole"/> element in the collection.
+        /// Gets the current <see cref="IExternalSignature"/> element in the collection.
         /// </summary>
-        /// <value>The current <see cref="ISignatureWithRole"/> element in the collection.</value>
+        /// <value>The current <see cref="IExternalSignature"/> element in the collection.</value>
         /// <exception cref="InvalidOperationException"><para>The enumerator is positioned
         /// before the first element of the collection or after the last element.</para>
         /// <para>-or-</para>
@@ -3380,7 +3380,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// that <b>Current</b> fails if the collection was modified since the last successful
         /// call to <see cref="MoveNext"/> or <see cref="Reset"/>.</remarks>
 
-        ISignatureWithRole Current { get; }
+        IExternalSignature Current { get; }
 
         #endregion
         #endregion
@@ -3416,27 +3416,27 @@ namespace Palladio.ComponentModel.TypedCollections
     }
 
     #endregion
-    #region Interface IISignatureWithRoleIServiceEffectSpecificationCollection
+    #region Interface IIExternalSignatureIServiceEffectSpecificationCollection
 
     /// <summary>
     /// Defines size, enumerators, and synchronization methods for strongly
     /// typed collections of <see cref="IServiceEntry"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IISignatureWithRoleIServiceEffectSpecificationCollection</b> provides an <see cref="ICollection"/>
+    /// <b>IIExternalSignatureIServiceEffectSpecificationCollection</b> provides an <see cref="ICollection"/>
     /// that is strongly typed for <see cref="IServiceEntry"/> elements.
     /// </remarks>
 
-    internal interface IISignatureWithRoleIServiceEffectSpecificationCollection {
+    internal interface IIExternalSignatureIServiceEffectSpecificationCollection {
         #region Properties
         #region Count
 
         /// <summary>
         /// Gets the number of elements contained in the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection"/>.
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationCollection"/>.
         /// </summary>
         /// <value>The number of elements contained in the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection"/>.</value>
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.Count"/> for details.</remarks>
 
         int Count { get; }
@@ -3446,9 +3446,9 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether access to the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection"/> is synchronized (thread-safe).
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationCollection"/> is synchronized (thread-safe).
         /// </summary>
-        /// <value><c>true</c> if access to the <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection"/>
+        /// <value><c>true</c> if access to the <see cref="IIExternalSignatureIServiceEffectSpecificationCollection"/>
         /// is synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="ICollection.IsSynchronized"/> for details.</remarks>
 
@@ -3459,10 +3459,10 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Gets an object that can be used to synchronize access
-        /// to the <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection"/>.
+        /// to the <see cref="IIExternalSignatureIServiceEffectSpecificationCollection"/>.
         /// </summary>
         /// <value>An object that can be used to synchronize access to the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection"/>.</value>
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.SyncRoot"/> for details.</remarks>
 
         object SyncRoot { get; }
@@ -3473,13 +3473,13 @@ namespace Palladio.ComponentModel.TypedCollections
         #region CopyTo
 
         /// <summary>
-        /// Copies the entire <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection"/>
+        /// Copies the entire <see cref="IIExternalSignatureIServiceEffectSpecificationCollection"/>
         /// to a one-dimensional <see cref="Array"/> of <see cref="IServiceEntry"/> elements,
         /// starting at the specified index of the target array.
         /// </summary>
         /// <param name="array">The one-dimensional <see cref="Array"/> that is the
         /// destination of the <see cref="IServiceEntry"/> elements copied from the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection"/>.
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationCollection"/>.
         /// The <b>Array</b> must have zero-based indexing.</param>
         /// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
         /// at which copying begins.</param>
@@ -3490,7 +3490,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="ArgumentException"><para>
         /// <paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.
         /// </para><para>-or-</para><para>
-        /// The number of elements in the source <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection"/>
+        /// The number of elements in the source <see cref="IIExternalSignatureIServiceEffectSpecificationCollection"/>
         /// is greater than the available space from <paramref name="arrayIndex"/> to the end of the
         /// destination <paramref name="array"/>.</para></exception>
         /// <remarks>Please refer to <see cref="ICollection.CopyTo"/> for details.</remarks>
@@ -3501,42 +3501,42 @@ namespace Palladio.ComponentModel.TypedCollections
         #region GetEnumerator
 
         /// <summary>
-        /// Returns an <see cref="IISignatureWithRoleIServiceEffectSpecificationEnumerator"/> that can
-        /// iterate through the <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection"/>.
+        /// Returns an <see cref="IIExternalSignatureIServiceEffectSpecificationEnumerator"/> that can
+        /// iterate through the <see cref="IIExternalSignatureIServiceEffectSpecificationCollection"/>.
         /// </summary>
-        /// <returns>An <see cref="IISignatureWithRoleIServiceEffectSpecificationEnumerator"/>
-        /// for the entire <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection"/>.</returns>
+        /// <returns>An <see cref="IIExternalSignatureIServiceEffectSpecificationEnumerator"/>
+        /// for the entire <see cref="IIExternalSignatureIServiceEffectSpecificationCollection"/>.</returns>
         /// <remarks>Please refer to <see cref="IEnumerable.GetEnumerator"/> for details.</remarks>
 
-        IISignatureWithRoleIServiceEffectSpecificationEnumerator GetEnumerator();
+        IIExternalSignatureIServiceEffectSpecificationEnumerator GetEnumerator();
 
         #endregion
         #endregion
     }
 
     #endregion
-    #region Interface IISignatureWithRoleIServiceEffectSpecificationDictionary
+    #region Interface IIExternalSignatureIServiceEffectSpecificationDictionary
 
     /// <summary>
     /// Represents a strongly typed collection of
     /// <see cref="IServiceEntry"/> key-and-value pairs.
     /// </summary>
     /// <remarks>
-    /// <b>IISignatureWithRoleIServiceEffectSpecificationDictionary</b> provides an
+    /// <b>IIExternalSignatureIServiceEffectSpecificationDictionary</b> provides an
     /// <see cref="IDictionary"/> that is strongly typed for
-    /// <see cref="ISignatureWithRole"/> keys and <see cref="IServiceEffectSpecification"/> values.
+    /// <see cref="IExternalSignature"/> keys and <see cref="IServiceEffectSpecification"/> values.
     /// </remarks>
 
     internal interface
-        IISignatureWithRoleIServiceEffectSpecificationDictionary: IISignatureWithRoleIServiceEffectSpecificationCollection {
+        IIExternalSignatureIServiceEffectSpecificationDictionary: IIExternalSignatureIServiceEffectSpecificationCollection {
         #region Properties
         #region IsFixedSize
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/> has a fixed size.
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/> has a fixed size.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>
+        /// <value><c>true</c> if the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>
         /// has a fixed size; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.IsFixedSize"/> for details.</remarks>
 
@@ -3547,9 +3547,9 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/> is read-only.
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/> is read-only.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>
+        /// <value><c>true</c> if the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>
         /// is read-only; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.IsReadOnly"/> for details.</remarks>
 
@@ -3560,9 +3560,9 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Gets or sets the <see cref="IServiceEffectSpecification"/> value
-        /// associated with the specified <see cref="ISignatureWithRole"/> key.
+        /// associated with the specified <see cref="IExternalSignature"/> key.
         /// </summary>
-        /// <param name="key">The <see cref="ISignatureWithRole"/> key
+        /// <param name="key">The <see cref="IExternalSignature"/> key
         /// whose value to get or set.</param>
         /// <value>The <see cref="IServiceEffectSpecification"/> value associated with the specified
         /// <paramref name="key"/>. If the specified <paramref name="key"/> is not found,
@@ -3574,37 +3574,37 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="NotSupportedException">
         /// <para>The property is set and the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/> is read-only.</para>
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The property is set, <paramref name="key"/> does not exist in the collection,
-        /// and the <b>IISignatureWithRoleIServiceEffectSpecificationDictionary</b> has a fixed size.</para>
+        /// and the <b>IIExternalSignatureIServiceEffectSpecificationDictionary</b> has a fixed size.</para>
         /// </exception>
         /// <remarks>Please refer to <see cref="IDictionary.this"/> for details.</remarks>
 
-        IServiceEffectSpecification this[ISignatureWithRole key] { get; set; }
+        IServiceEffectSpecification this[IExternalSignature key] { get; set; }
 
         #endregion
         #region Keys
 
         /// <summary>
-        /// Gets an <see cref="IISignatureWithRoleCollection"/> containing the keys
-        /// in the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.
+        /// Gets an <see cref="IIExternalSignatureCollection"/> containing the keys
+        /// in the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.
         /// </summary>
-        /// <value>An <see cref="IISignatureWithRoleCollection"/> containing the keys
-        /// in the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.</value>
+        /// <value>An <see cref="IIExternalSignatureCollection"/> containing the keys
+        /// in the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.Keys"/> for details.</remarks>
 
-        IISignatureWithRoleCollection Keys { get; }
+        IIExternalSignatureCollection Keys { get; }
 
         #endregion
         #region Values
 
         /// <summary>
         /// Gets an <see cref="IIServiceEffectSpecificationCollection"/> containing the values
-        /// in the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.
+        /// in the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.
         /// </summary>
         /// <value>An <see cref="IIServiceEffectSpecificationCollection"/> containing the values
-        /// in the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.</value>
+        /// in the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.Values"/> for details.</remarks>
 
         IIServiceEffectSpecificationCollection Values { get; }
@@ -3615,21 +3615,21 @@ namespace Palladio.ComponentModel.TypedCollections
         #region Add
 
         /// <summary>
-        /// Adds an element with the specified <see cref="ISignatureWithRole"/>
+        /// Adds an element with the specified <see cref="IExternalSignature"/>
         /// key and <see cref="IServiceEffectSpecification"/> value to the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.
         /// </summary>
-        /// <param name="key">The <see cref="ISignatureWithRole"/> key of the element
-        /// to add to the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.</param>
+        /// <param name="key">The <see cref="IExternalSignature"/> key of the element
+        /// to add to the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.</param>
         /// <param name="value">The <see cref="IServiceEffectSpecification"/> value of the element
-        /// to add to the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.
+        /// to add to the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <exception cref="ArgumentException">
         /// <para>An element with the specified <paramref name="key"/> already exists
-        /// in the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.</para>
+        /// in the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleIServiceEffectSpecificationDictionary</b> is set to use the
+        /// <para>The <b>IIExternalSignatureIServiceEffectSpecificationDictionary</b> is set to use the
         /// <see cref="IComparable"/> interface, and <paramref name="key"/> does not
         /// implement the <b>IComparable</b> interface.</para></exception>
         /// <exception cref="ArgumentNullException">
@@ -3637,24 +3637,24 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="InvalidOperationException">
         /// The comparer throws an exception.</exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/> is read-only.
+        /// <para>The <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/> is read-only.
         /// </para><para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleIServiceEffectSpecificationDictionary</b> has a fixed size.
+        /// <para>The <b>IIExternalSignatureIServiceEffectSpecificationDictionary</b> has a fixed size.
         /// </para></exception>
         /// <remarks>Please refer to <see cref="IDictionary.Add"/> for details.</remarks>
 
-        void Add(ISignatureWithRole key, IServiceEffectSpecification value);
+        void Add(IExternalSignature key, IServiceEffectSpecification value);
 
         #endregion
         #region Clear
 
         /// <summary>
-        /// Removes all elements from the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.
+        /// Removes all elements from the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.
         /// </summary>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/> is read-only.
+        /// <para>The <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/> is read-only.
         /// </para><para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleIServiceEffectSpecificationDictionary</b> has a fixed size.
+        /// <para>The <b>IIExternalSignatureIServiceEffectSpecificationDictionary</b> has a fixed size.
         /// </para></exception>
         /// <remarks>Please refer to <see cref="IDictionary.Clear"/> for details.</remarks>
 
@@ -3664,12 +3664,12 @@ namespace Palladio.ComponentModel.TypedCollections
         #region Contains
 
         /// <summary>
-        /// Determines whether the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>
-        /// contains the specified <see cref="ISignatureWithRole"/> key.
+        /// Determines whether the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>
+        /// contains the specified <see cref="IExternalSignature"/> key.
         /// </summary>
-        /// <param name="key">The <see cref="ISignatureWithRole"/> key to locate
-        /// in the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.</param>
-        /// <returns><c>true</c> if the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>
+        /// <param name="key">The <see cref="IExternalSignature"/> key to locate
+        /// in the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.</param>
+        /// <returns><c>true</c> if the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>
         /// contains an element with the specified <paramref name="key"/>; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
@@ -3678,56 +3678,56 @@ namespace Palladio.ComponentModel.TypedCollections
         /// The comparer throws an exception.</exception>
         /// <remarks>Please refer to <see cref="IDictionary.Contains"/> for details.</remarks>
 
-        bool Contains(ISignatureWithRole key);
+        bool Contains(IExternalSignature key);
 
         #endregion
         #region Remove
 
         /// <summary>
-        /// Removes the element with the specified <see cref="ISignatureWithRole"/> key
-        /// from the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.
+        /// Removes the element with the specified <see cref="IExternalSignature"/> key
+        /// from the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.
         /// </summary>
-        /// <param name="key">The <see cref="ISignatureWithRole"/> key of the element to remove
-        /// from the <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/>.</param>
+        /// <param name="key">The <see cref="IExternalSignature"/> key of the element to remove
+        /// from the <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/>.</param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="InvalidOperationException">
         /// The comparer throws an exception.</exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleIServiceEffectSpecificationDictionary"/> is read-only.
+        /// <para>The <see cref="IIExternalSignatureIServiceEffectSpecificationDictionary"/> is read-only.
         /// </para><para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleIServiceEffectSpecificationDictionary</b> has a fixed size.
+        /// <para>The <b>IIExternalSignatureIServiceEffectSpecificationDictionary</b> has a fixed size.
         /// </para></exception>
         /// <remarks>Please refer to <see cref="IDictionary.Remove"/> for details.</remarks>
 
-        void Remove(ISignatureWithRole key);
+        void Remove(IExternalSignature key);
 
         #endregion
         #endregion
     }
 
     #endregion
-    #region Interface IISignatureWithRoleIServiceEffectSpecificationList
+    #region Interface IIExternalSignatureIServiceEffectSpecificationList
 
     /// <summary>
     /// Represents a strongly typed collection of <see cref="IServiceEntry"/>
     /// objects that can be individually accessed by index.
     /// </summary>
     /// <remarks>
-    /// <b>IISignatureWithRoleIServiceEffectSpecificationList</b> provides an <see cref="IList"/>
+    /// <b>IIExternalSignatureIServiceEffectSpecificationList</b> provides an <see cref="IList"/>
     /// that is strongly typed for <see cref="IServiceEntry"/> elements.
     /// </remarks>
 
     internal interface
-        IISignatureWithRoleIServiceEffectSpecificationList: IISignatureWithRoleIServiceEffectSpecificationCollection {
+        IIExternalSignatureIServiceEffectSpecificationList: IIExternalSignatureIServiceEffectSpecificationCollection {
         #region Properties
         #region IsFixedSize
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/> has a fixed size.
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationList"/> has a fixed size.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>
+        /// <value><c>true</c> if the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>
         /// has a fixed size; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsFixedSize"/> for details.</remarks>
 
@@ -3738,9 +3738,9 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/> is read-only.
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationList"/> is read-only.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>
+        /// <value><c>true</c> if the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>
         /// is read-only; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsReadOnly"/> for details.</remarks>
 
@@ -3761,10 +3761,10 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection.Count"/>.</para>
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">The property is set and the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/> is read-only.</exception>
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationList"/> is read-only.</exception>
         /// <remarks>Please refer to <see cref="IList.this"/> for details.</remarks>
 
         IServiceEntry this[int index] { get; set; }
@@ -3776,17 +3776,17 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Adds a <see cref="IServiceEntry"/> to the end
-        /// of the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>.
+        /// of the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>.
         /// </summary>
         /// <param name="entry">The <see cref="IServiceEntry"/> object
-        /// to be added to the end of the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>.
+        /// to be added to the end of the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>.
         /// </param>
-        /// <returns>The <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/> index at which
+        /// <returns>The <see cref="IIExternalSignatureIServiceEffectSpecificationList"/> index at which
         /// the <paramref name="entry"/> has been added.</returns>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/> is read-only.</para>
+        /// <para>The <see cref="IIExternalSignatureIServiceEffectSpecificationList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleIServiceEffectSpecificationList</b> has a fixed size.</para>
+        /// <para>The <b>IIExternalSignatureIServiceEffectSpecificationList</b> has a fixed size.</para>
         /// </exception>
         /// <remarks>Please refer to <see cref="IList.Add"/> for details.</remarks>
 
@@ -3796,12 +3796,12 @@ namespace Palladio.ComponentModel.TypedCollections
         #region Clear
 
         /// <summary>
-        /// Removes all elements from the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>.
+        /// Removes all elements from the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>.
         /// </summary>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/> is read-only.</para>
+        /// <para>The <see cref="IIExternalSignatureIServiceEffectSpecificationList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleIServiceEffectSpecificationList</b> has a fixed size.</para>
+        /// <para>The <b>IIExternalSignatureIServiceEffectSpecificationList</b> has a fixed size.</para>
         /// </exception>
         /// <remarks>Please refer to <see cref="IList.Clear"/> for details.</remarks>
 
@@ -3811,13 +3811,13 @@ namespace Palladio.ComponentModel.TypedCollections
         #region Contains
 
         /// <summary>
-        /// Determines whether the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>
+        /// Determines whether the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>
         /// contains the specified <see cref="IServiceEntry"/> element.
         /// </summary>
         /// <param name="entry">The <see cref="IServiceEntry"/> object
-        /// to locate in the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>.</param>
+        /// to locate in the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>.</param>
         /// <returns><c>true</c> if <paramref name="entry"/> is found in the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>; otherwise, <c>false</c>.</returns>
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>; otherwise, <c>false</c>.</returns>
         /// <remarks>Please refer to <see cref="IList.Contains"/> for details.</remarks>
 
         bool Contains(IServiceEntry entry);
@@ -3827,13 +3827,13 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Returns the zero-based index of the first occurrence of the specified
-        /// <see cref="IServiceEntry"/> in the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>.
+        /// <see cref="IServiceEntry"/> in the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>.
         /// </summary>
         /// <param name="entry">The <see cref="IServiceEntry"/> object
-        /// to locate in the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>.</param>
+        /// to locate in the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>.</param>
         /// <returns>
         /// The zero-based index of the first occurrence of <paramref name="entry"/>
-        /// in the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>, if found; otherwise, -1.
+        /// in the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>, if found; otherwise, -1.
         /// </returns>
         /// <remarks>Please refer to <see cref="IList.IndexOf"/> for details.</remarks>
 
@@ -3844,22 +3844,22 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Inserts a <see cref="IServiceEntry"/> element into the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/> at the specified index.
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationList"/> at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index at which
         /// <paramref name="entry"/> should be inserted.</param>
         /// <param name="entry">The <see cref="IServiceEntry"/> object to insert
-        /// into the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>.</param>
+        /// into the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is greater than
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection.Count"/>.</para>
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/> is read-only.</para>
+        /// <para>The <see cref="IIExternalSignatureIServiceEffectSpecificationList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleIServiceEffectSpecificationList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIExternalSignatureIServiceEffectSpecificationList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Insert"/> for details.</remarks>
 
         void Insert(int index, IServiceEntry entry);
@@ -3869,14 +3869,14 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Removes the first occurrence of the specified <see cref="IServiceEntry"/>
-        /// from the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>.
+        /// from the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>.
         /// </summary>
         /// <param name="entry">The <see cref="IServiceEntry"/> object to remove
-        /// from the <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>.</param>
+        /// from the <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>.</param>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/> is read-only.</para>
+        /// <para>The <see cref="IIExternalSignatureIServiceEffectSpecificationList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleIServiceEffectSpecificationList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIExternalSignatureIServiceEffectSpecificationList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Remove"/> for details.</remarks>
 
         void Remove(IServiceEntry entry);
@@ -3886,19 +3886,19 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Removes the element at the specified index of the
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/>.
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationList"/>.
         /// </summary>
         /// <param name="index">The zero-based index of the element to remove.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IISignatureWithRoleIServiceEffectSpecificationCollection.Count"/>.</para>
+        /// <see cref="IIExternalSignatureIServiceEffectSpecificationCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IISignatureWithRoleIServiceEffectSpecificationList"/> is read-only.</para>
+        /// <para>The <see cref="IIExternalSignatureIServiceEffectSpecificationList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IISignatureWithRoleIServiceEffectSpecificationList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIExternalSignatureIServiceEffectSpecificationList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.RemoveAt"/> for details.</remarks>
 
         void RemoveAt(int index);
@@ -3908,19 +3908,19 @@ namespace Palladio.ComponentModel.TypedCollections
     }
 
     #endregion
-    #region Interface IISignatureWithRoleIServiceEffectSpecificationEnumerator
+    #region Interface IIExternalSignatureIServiceEffectSpecificationEnumerator
 
     /// <summary>
     /// Supports type-safe iteration over a dictionary that
     /// contains <see cref="IServiceEntry"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IISignatureWithRoleIServiceEffectSpecificationEnumerator</b> provides an
+    /// <b>IIExternalSignatureIServiceEffectSpecificationEnumerator</b> provides an
     /// <see cref="IDictionaryEnumerator"/> that is strongly typed for
-    /// <see cref="ISignatureWithRole"/> keys and <see cref="IServiceEffectSpecification"/> values.
+    /// <see cref="IExternalSignature"/> keys and <see cref="IServiceEffectSpecification"/> values.
     /// </remarks>
 
-    internal interface IISignatureWithRoleIServiceEffectSpecificationEnumerator {
+    internal interface IIExternalSignatureIServiceEffectSpecificationEnumerator {
         #region Properties
         #region Current
 
@@ -3961,9 +3961,9 @@ namespace Palladio.ComponentModel.TypedCollections
         #region Key
 
         /// <summary>
-        /// Gets the <see cref="ISignatureWithRole"/> key of the current dictionary entry.
+        /// Gets the <see cref="IExternalSignature"/> key of the current dictionary entry.
         /// </summary>
-        /// <value>The <see cref="ISignatureWithRole"/> key
+        /// <value>The <see cref="IExternalSignature"/> key
         /// of the current element of the enumeration.</value>
         /// <exception cref="InvalidOperationException"><para>The enumerator is positioned
         /// before the first element of the dictionary or after the last element.</para>
@@ -3973,7 +3973,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// note that <b>Key</b> fails if the collection was modified since the last successful
         /// call to <see cref="MoveNext"/> or <see cref="Reset"/>.</remarks>
 
-        ISignatureWithRole Key { get; }
+        IExternalSignature Key { get; }
 
         #endregion
         #region Value
@@ -4030,19 +4030,19 @@ namespace Palladio.ComponentModel.TypedCollections
     #region Struct IServiceEntry
 
     /// <summary>
-    /// Implements a strongly typed pair of one <see cref="ISignatureWithRole"/>
+    /// Implements a strongly typed pair of one <see cref="IExternalSignature"/>
     /// key and one <see cref="IServiceEffectSpecification"/> value.
     /// </summary>
     /// <remarks>
     /// <b>IServiceEntry</b> provides a <see cref="DictionaryEntry"/> that is strongly
-    /// typed for <see cref="ISignatureWithRole"/> keys and <see cref="IServiceEffectSpecification"/> values.
+    /// typed for <see cref="IExternalSignature"/> keys and <see cref="IServiceEffectSpecification"/> values.
     /// </remarks>
 
     [Serializable]
     internal struct IServiceEntry {
         #region Private Fields
 
-        private ISignatureWithRole _key;
+        private IExternalSignature _key;
         private IServiceEffectSpecification _value;
 
         #endregion
@@ -4053,7 +4053,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// class with the specified key and value.
         /// </summary>
         /// <param name="key">
-        /// The <see cref="ISignatureWithRole"/> key in the key-and-value pair.</param>
+        /// The <see cref="IExternalSignature"/> key in the key-and-value pair.</param>
         /// <param name="value">
         /// The <see cref="IServiceEffectSpecification"/> value in the key-and-value pair.
         /// This argument can be a null reference.
@@ -4061,7 +4061,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
 
-        public IServiceEntry(ISignatureWithRole key, IServiceEffectSpecification value) {
+        public IServiceEntry(IExternalSignature key, IServiceEffectSpecification value) {
             if ((object) key == null)
                 throw new ArgumentNullException("key");
 
@@ -4074,10 +4074,10 @@ namespace Palladio.ComponentModel.TypedCollections
         #region Key
 
         /// <summary>
-        /// Gets or sets the <see cref="ISignatureWithRole"/> key in the key-and-value pair.
+        /// Gets or sets the <see cref="IExternalSignature"/> key in the key-and-value pair.
         /// </summary>
         /// <value>
-        /// The <see cref="ISignatureWithRole"/> key in the key-and-value pair.
+        /// The <see cref="IExternalSignature"/> key in the key-and-value pair.
         /// The default is a null reference.
         /// </value>
         /// <exception cref="ArgumentNullException">
@@ -4089,7 +4089,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// even though it is not possible to explicitly set <b>Key</b> to a null reference.
         /// </remarks>
 
-        public ISignatureWithRole Key {
+        public IExternalSignature Key {
             get { return this._key; }
             set {
                 if ((object) value == null)
@@ -4127,7 +4127,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// the converted <paramref name="entry"/>.</returns>
         /// <exception cref="InvalidCastException">
         /// <para><paramref name="entry"/> contains a key that is not compatible
-        /// with <see cref="ISignatureWithRole"/>.</para>
+        /// with <see cref="IExternalSignature"/>.</para>
         /// <para>-or-</para>
         /// <para><paramref name="entry"/> contains a value that is not compatible
         /// with <see cref="IServiceEffectSpecification"/>.</para>
@@ -4135,7 +4135,7 @@ namespace Palladio.ComponentModel.TypedCollections
 
         public static implicit operator IServiceEntry(DictionaryEntry entry) {
             IServiceEntry pair = new IServiceEntry();
-            if (entry.Key != null) pair.Key = (ISignatureWithRole) entry.Key;
+            if (entry.Key != null) pair.Key = (IExternalSignature) entry.Key;
             if (entry.Value != null) pair.Value = (IServiceEffectSpecification) entry.Value;
             return pair;
         }
@@ -4170,12 +4170,12 @@ namespace Palladio.ComponentModel.TypedCollections
     /// </summary>
     /// <remarks>
     /// <b>ServiceEffectHashmap</b> provides a <see cref="Hashtable"/> that is strongly typed
-    /// for <see cref="ISignatureWithRole"/> keys and <see cref="IServiceEffectSpecification"/> values.
+    /// for <see cref="IExternalSignature"/> keys and <see cref="IServiceEffectSpecification"/> values.
     /// </remarks>
 
     [Serializable]
     internal class ServiceEffectHashmap:
-        IISignatureWithRoleIServiceEffectSpecificationDictionary, IDictionary, ICloneable {
+        IIExternalSignatureIServiceEffectSpecificationDictionary, IDictionary, ICloneable {
         #region Private Fields
 
         protected Hashmap _innerHash;
@@ -4552,13 +4552,13 @@ namespace Palladio.ComponentModel.TypedCollections
         }
 
         #endregion
-        #region Item[ISignatureWithRole]: IServiceEffectSpecification
+        #region Item[IExternalSignature]: IServiceEffectSpecification
 
         /// <summary>
         /// Gets or sets the <see cref="IServiceEffectSpecification"/> value
-        /// associated with the specified <see cref="ISignatureWithRole"/> key.
+        /// associated with the specified <see cref="IExternalSignature"/> key.
         /// </summary>
-        /// <param name="key">The <see cref="ISignatureWithRole"/> key
+        /// <param name="key">The <see cref="IExternalSignature"/> key
         /// whose value to get or set.</param>
         /// <value>The <see cref="IServiceEffectSpecification"/> value associated with the specified
         /// <paramref name="key"/>. If the specified <paramref name="key"/> is not found,
@@ -4575,7 +4575,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// and the <b>ServiceEffectHashmap</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 
-        public IServiceEffectSpecification this[ISignatureWithRole key] {
+        public IServiceEffectSpecification this[IExternalSignature key] {
             get {
                 return (IServiceEffectSpecification) this._innerHash[key];
             }
@@ -4589,7 +4589,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// Gets or sets the value associated with the specified key.
         /// </summary>
         /// <param name="key">The key whose value to get or set.
-        /// This argument must be compatible with <see cref="ISignatureWithRole"/>.</param>
+        /// This argument must be compatible with <see cref="IExternalSignature"/>.</param>
         /// <value>
         /// The value associated with the specified <paramref name="key"/>. If the specified
         /// <paramref name="key"/> is not found, attempting to get it returns
@@ -4600,7 +4600,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="InvalidCastException">
-        /// <para><paramref name="key"/> is not compatible with <see cref="ISignatureWithRole"/>.</para>
+        /// <para><paramref name="key"/> is not compatible with <see cref="IExternalSignature"/>.</para>
         /// <para>-or-</para>
         /// <para>The property is set to a value that is not compatible with
         /// <see cref="IServiceEffectSpecification"/>.</para></exception>
@@ -4612,22 +4612,22 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 
         object IDictionary.this[object key] {
-            get { return this[(ISignatureWithRole) key]; }
-            set { this[(ISignatureWithRole) key] = (IServiceEffectSpecification) value; }
+            get { return this[(IExternalSignature) key]; }
+            set { this[(IExternalSignature) key] = (IServiceEffectSpecification) value; }
         }
 
         #endregion
-        #region Keys: IISignatureWithRoleCollection
+        #region Keys: IIExternalSignatureCollection
 
         /// <summary>
-        /// Gets an <see cref="IISignatureWithRoleCollection"/> containing
+        /// Gets an <see cref="IIExternalSignatureCollection"/> containing
         /// the keys in the <see cref="ServiceEffectHashmap"/>.
         /// </summary>
-        /// <value>An <see cref="IISignatureWithRoleCollection"/> containing
+        /// <value>An <see cref="IIExternalSignatureCollection"/> containing
         /// the keys in the <see cref="ServiceEffectHashmap"/>.</value>
         /// <remarks>Please refer to <see cref="Hashtable.Keys"/> for details.</remarks>
 
-        public IISignatureWithRoleCollection Keys {
+        public IIExternalSignatureCollection Keys {
             get {
                 if (this._keyList == null)
                     this._keyList = new KeyList(this);
@@ -4716,13 +4716,13 @@ namespace Palladio.ComponentModel.TypedCollections
            return _innerHash.GetHashCode();
         }
         
-        #region Add(ISignatureWithRole, IServiceEffectSpecification)
+        #region Add(IExternalSignature, IServiceEffectSpecification)
 
         /// <summary>
-        /// Adds an element with the specified <see cref="ISignatureWithRole"/> key and
+        /// Adds an element with the specified <see cref="IExternalSignature"/> key and
         /// <see cref="IServiceEffectSpecification"/> value to the <see cref="ServiceEffectHashmap"/>.
         /// </summary>
-        /// <param name="key">The <see cref="ISignatureWithRole"/> key of the element
+        /// <param name="key">The <see cref="IExternalSignature"/> key of the element
         /// to add to the <see cref="ServiceEffectHashmap"/>.</param>
         /// <param name="value">The <see cref="IServiceEffectSpecification"/> value of the element
         /// to add to the <see cref="ServiceEffectHashmap"/>.
@@ -4739,7 +4739,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <b>ServiceEffectHashmap</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
-        public void Add(ISignatureWithRole key, IServiceEffectSpecification value) {
+        public void Add(IExternalSignature key, IServiceEffectSpecification value) {
             this._innerHash.Add(key, value);
         }
 
@@ -4751,7 +4751,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// to the <see cref="ServiceEffectHashmap"/>.
         /// </summary>
         /// <param name="key">The key of the element to add to the <see cref="ServiceEffectHashmap"/>.
-        /// This argument must be compatible with <see cref="ISignatureWithRole"/>.</param>
+        /// This argument must be compatible with <see cref="IExternalSignature"/>.</param>
         /// <param name="value">The value of the element to add to the <see cref="ServiceEffectHashmap"/>.
         /// This argument must be compatible with <see cref="IServiceEffectSpecification"/>.
         /// This argument can be a null reference.
@@ -4762,7 +4762,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="InvalidCastException">
-        /// <para><paramref name="key"/> is not compatible with <see cref="ISignatureWithRole"/>.</para>
+        /// <para><paramref name="key"/> is not compatible with <see cref="IExternalSignature"/>.</para>
         /// <para>-or-</para>
         /// <para><paramref name="value"/> is not compatible with <see cref="IServiceEffectSpecification"/>.</para>
         /// </exception>
@@ -4773,7 +4773,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
         void IDictionary.Add(object key, object value) {
-            Add((ISignatureWithRole) key, (IServiceEffectSpecification) value);
+            Add((IExternalSignature) key, (IServiceEffectSpecification) value);
         }
 
         #endregion
@@ -4808,13 +4808,13 @@ namespace Palladio.ComponentModel.TypedCollections
         }
 
         #endregion
-        #region Contains(ISignatureWithRole)
+        #region Contains(IExternalSignature)
 
         /// <summary>
         /// Determines whether the <see cref="ServiceEffectHashmap"/>
-        /// contains the specified <see cref="ISignatureWithRole"/> key.
+        /// contains the specified <see cref="IExternalSignature"/> key.
         /// </summary>
-        /// <param name="key">The <see cref="ISignatureWithRole"/> key
+        /// <param name="key">The <see cref="IExternalSignature"/> key
         /// to locate in the <see cref="ServiceEffectHashmap"/>.</param>
         /// <returns><c>true</c> if the <see cref="ServiceEffectHashmap"/> contains an element
         /// with the specified <paramref name="key"/>; otherwise, <c>false</c>.</returns>
@@ -4822,7 +4822,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <paramref name="key"/> is a null reference.</exception>
         /// <remarks>Please refer to <see cref="Hashtable.Contains"/> for details.</remarks>
 
-        public bool Contains(ISignatureWithRole key) {
+        public bool Contains(IExternalSignature key) {
             return this._innerHash.Contains(key);
         }
 
@@ -4833,17 +4833,17 @@ namespace Palladio.ComponentModel.TypedCollections
         /// Determines whether the <see cref="ServiceEffectHashmap"/> contains the specified key.
         /// </summary>
         /// <param name="key">The key to locate in the <see cref="ServiceEffectHashmap"/>.
-        /// This argument must be compatible with <see cref="ISignatureWithRole"/>.</param>
+        /// This argument must be compatible with <see cref="IExternalSignature"/>.</param>
         /// <returns><c>true</c> if the <see cref="ServiceEffectHashmap"/> contains an element
         /// with the specified <paramref name="key"/>; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="InvalidCastException"><paramref name="key"/>
-        /// is not compatible with <see cref="ISignatureWithRole"/>.</exception>
+        /// is not compatible with <see cref="IExternalSignature"/>.</exception>
         /// <remarks>Please refer to <see cref="Hashtable.Contains"/> for details.</remarks>
 
         bool IDictionary.Contains(object key) {
-            return Contains((ISignatureWithRole) key);
+            return Contains((IExternalSignature) key);
         }
 
         #endregion
@@ -4851,9 +4851,9 @@ namespace Palladio.ComponentModel.TypedCollections
 
         /// <summary>
         /// Determines whether the <see cref="ServiceEffectHashmap"/>
-        /// contains the specified <see cref="ISignatureWithRole"/> key.
+        /// contains the specified <see cref="IExternalSignature"/> key.
         /// </summary>
-        /// <param name="key">The <see cref="ISignatureWithRole"/> key
+        /// <param name="key">The <see cref="IExternalSignature"/> key
         /// to locate in the <see cref="ServiceEffectHashmap"/>.</param>
         /// <returns><c>true</c> if the <see cref="ServiceEffectHashmap"/> contains an element
         /// with the specified <paramref name="key"/>; otherwise, <c>false</c>.</returns>
@@ -4861,7 +4861,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <paramref name="key"/> is a null reference.</exception>
         /// <remarks>Please refer to <see cref="Hashtable.ContainsKey"/> for details.</remarks>
 
-        public bool ContainsKey(ISignatureWithRole key) {
+        public bool ContainsKey(IExternalSignature key) {
             return this._innerHash.ContainsKey(key);
         }
 
@@ -4947,17 +4947,17 @@ namespace Palladio.ComponentModel.TypedCollections
         }
 
         #endregion
-        #region GetEnumerator: IISignatureWithRoleIServiceEffectSpecificationEnumerator
+        #region GetEnumerator: IIExternalSignatureIServiceEffectSpecificationEnumerator
 
         /// <summary>
-        /// Returns an <see cref="IISignatureWithRoleIServiceEffectSpecificationEnumerator"/>
+        /// Returns an <see cref="IIExternalSignatureIServiceEffectSpecificationEnumerator"/>
         /// that can iterate through the <see cref="ServiceEffectHashmap"/>.
         /// </summary>
-        /// <returns>An <see cref="IISignatureWithRoleIServiceEffectSpecificationEnumerator"/>
+        /// <returns>An <see cref="IIExternalSignatureIServiceEffectSpecificationEnumerator"/>
         /// for the entire <see cref="ServiceEffectHashmap"/>.</returns>
         /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
-        public IISignatureWithRoleIServiceEffectSpecificationEnumerator GetEnumerator() {
+        public IIExternalSignatureIServiceEffectSpecificationEnumerator GetEnumerator() {
             return new Enumerator(this);
         }
 
@@ -4992,13 +4992,13 @@ namespace Palladio.ComponentModel.TypedCollections
         }
 
         #endregion
-        #region Remove(ISignatureWithRole)
+        #region Remove(IExternalSignature)
 
         /// <summary>
-        /// Removes the element with the specified <see cref="ISignatureWithRole"/> key
+        /// Removes the element with the specified <see cref="IExternalSignature"/> key
         /// from the <see cref="ServiceEffectHashmap"/>.
         /// </summary>
-        /// <param name="key">The <see cref="ISignatureWithRole"/> key of the element
+        /// <param name="key">The <see cref="IExternalSignature"/> key of the element
         /// to remove from the <see cref="ServiceEffectHashmap"/>.</param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
@@ -5008,7 +5008,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <b>ServiceEffectHashmap</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="Hashtable.Remove"/> for details.</remarks>
 
-        public void Remove(ISignatureWithRole key) {
+        public void Remove(IExternalSignature key) {
             this._innerHash.Remove(key);
         }
 
@@ -5020,11 +5020,11 @@ namespace Palladio.ComponentModel.TypedCollections
         /// from the <see cref="ServiceEffectHashmap"/>.
         /// </summary>
         /// <param name="key">The key of the element to remove from the <see cref="ServiceEffectHashmap"/>.
-        /// This argument must be compatible with <see cref="ISignatureWithRole"/>.</param>
+        /// This argument must be compatible with <see cref="IExternalSignature"/>.</param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="InvalidCastException"><paramref name="key"/>
-        /// is not compatible with <see cref="ISignatureWithRole"/>.</exception>
+        /// is not compatible with <see cref="IExternalSignature"/>.</exception>
         /// <exception cref="NotSupportedException">
         /// <para>The <see cref="ServiceEffectHashmap"/> is read-only.</para>
         /// <para>-or-</para>
@@ -5032,7 +5032,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <remarks>Please refer to <see cref="Hashtable.Remove"/> for details.</remarks>
 
         void IDictionary.Remove(object key) {
-            Remove((ISignatureWithRole) key);
+            Remove((IExternalSignature) key);
         }
 
         #endregion
@@ -5086,7 +5086,7 @@ namespace Palladio.ComponentModel.TypedCollections
         #region Class Enumerator
 
         private sealed class Enumerator:
-            IISignatureWithRoleIServiceEffectSpecificationEnumerator, IDictionaryEnumerator {
+            IIExternalSignatureIServiceEffectSpecificationEnumerator, IDictionaryEnumerator {
             #region Private Fields
 
             private readonly IDictionaryEnumerator _innerEnumerator;
@@ -5117,8 +5117,8 @@ namespace Palladio.ComponentModel.TypedCollections
                 get { return this._innerEnumerator.Entry; }
             }
 
-            public ISignatureWithRole Key {
-                get { return (ISignatureWithRole) this._innerEnumerator.Key; }
+            public IExternalSignature Key {
+                get { return (IExternalSignature) this._innerEnumerator.Key; }
             }
 
             object IDictionaryEnumerator.Key {
@@ -5152,7 +5152,7 @@ namespace Palladio.ComponentModel.TypedCollections
 
         [Serializable]
         private sealed class KeyList:
-            IISignatureWithRoleCollection, ICollection {
+            IIExternalSignatureCollection, ICollection {
             #region Private Fields
 
             private ServiceEffectHashmap _dictionary;
@@ -5182,7 +5182,7 @@ namespace Palladio.ComponentModel.TypedCollections
             #endregion
             #region Public Methods
 
-            public void CopyTo(ISignatureWithRole[] array, int arrayIndex) {
+            public void CopyTo(IExternalSignature[] array, int arrayIndex) {
                 this._dictionary.CheckTargetArray(array, arrayIndex);
                 foreach (IServiceEntry pair in this._dictionary)
                     array[arrayIndex++] = pair.Key;
@@ -5190,10 +5190,10 @@ namespace Palladio.ComponentModel.TypedCollections
 
             void ICollection.CopyTo(Array array, int arrayIndex) {
                 this._dictionary.CheckTargetArray(array, arrayIndex);
-                CopyTo((ISignatureWithRole[]) array, arrayIndex);
+                CopyTo((IExternalSignature[]) array, arrayIndex);
             }
 
-            public IISignatureWithRoleEnumerator GetEnumerator() {
+            public IIExternalSignatureEnumerator GetEnumerator() {
                 return new KeyEnumerator(this._dictionary);
             }
 
@@ -5209,7 +5209,7 @@ namespace Palladio.ComponentModel.TypedCollections
 
         [Serializable]
         private sealed class KeyEnumerator:
-            IISignatureWithRoleEnumerator, IEnumerator {
+            IIExternalSignatureEnumerator, IEnumerator {
             #region Private Fields
 
             private readonly IEnumerator _innerEnumerator;
@@ -5224,8 +5224,8 @@ namespace Palladio.ComponentModel.TypedCollections
             #endregion
             #region Public Properties
 
-            public ISignatureWithRole Current {
-                get { return (ISignatureWithRole) this._innerEnumerator.Current; }
+            public IExternalSignature Current {
+                get { return (IExternalSignature) this._innerEnumerator.Current; }
             }
 
             object IEnumerator.Current {

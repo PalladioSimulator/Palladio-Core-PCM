@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel
 			get;
 		}
 
+		/// <summary>
+		/// Get an array of IDs of the components in this composite component
+		/// </summary>
 		IIdentifier[] ComponentIDs
 		{
 			get;
@@ -57,13 +60,13 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Add a set of components to the ICompositeComponent.
 		/// </summary>
-		/// <param name="aCompArray">Set of components to be added.</param>
+		/// <param name="aComponentArray">Set of components to be added.</param>
 		void AddComponents(params IComponent[] aComponentArray);
 
 		/// <summary>
 		/// Remove a set of components from the ICompositeComponent.
 		/// </summary>
-		/// <param name="componentIDs">Set of components to be removed.</param>
+		/// <param name="aCompIDArray">Set of components IDs to be removed.</param>
 		void DeleteComponents(params IIdentifier[] aCompIDArray);
 		
 		/// <summary>
@@ -154,27 +157,81 @@ namespace Palladio.ComponentModel
 		/// internal component aProvComponent.
 		/// </summary>
 		/// <param name="aProvComponentID">Internal component of ICompositeComponent.</param>
-		/// <param name="aProvRole">Role of a provides interface of aProvComponent.</param>
+		/// <param name="aProvRoleID">Role of a provides interface of aProvComponent.</param>
 		/// <returns>An array of IMappings associated with aProvInterface.</returns>
 		IMapping[] GetProvidesMappingsByInner(IIdentifier aProvComponentID, IIdentifier aProvRoleID);
 
+		/// <summary>
+		/// Get the binding connected to the given required role
+		/// </summary>
+		/// <param name="aReqInterface">The required attached role</param>
+		/// <returns>The binding connected to the required role</returns>
 		IBinding GetBindingByRequires(IAttachedRole aReqInterface);
+
+		/// <summary>
+		/// Get the binding connected to the given required role
+		/// </summary>
+		/// <param name="aReqComponentID">The component where the role is attached to.</param>
+		/// <param name="aReqRole">Role of the component.</param>
+		/// <returns>The binding connected to the required role</returns>
 		IBinding GetBindingByRequires(IIdentifier aReqComponentID, IIdentifier aReqRole);
+
+		/// <summary>
+		/// Get all the bindings connected to the given providing role
+		/// </summary>
+		/// <param name="aProvInterface">The component and role providing the role</param>
+		/// <returns>All bindings connected to the given role.</returns>
 		IBinding[] GetBindingsByProvides(IAttachedRole aProvInterface);
+
+		/// <summary>
+		/// Get all the bindings connected to the given providing role
+		/// </summary>
+		/// <param name="aProvComponentID">ID of the component providing the role</param>
+		/// <param name="aProvRole">A provided role</param>
+		/// <returns>All bindings connected to the given role.</returns>
 		IBinding[] GetBindingsByProvides(IIdentifier aProvComponentID, IIdentifier aProvRole);
 
+		/// <summary>
+		/// Get the requires mapping connected to the given inner role
+		/// </summary>
+		/// <param name="aReqInterface">The component and role requiring services</param>
+		/// <returns>The mapping connected to the required role.</returns>
 		IMapping GetRequiresMappingByInner(IAttachedRole aReqInterface);
+
+		/// <summary>
+		/// Get the requires mapping connected to the given inner role
+		/// </summary>
+		/// <param name="aReqComponentID">ID of the component to which the role is attached.</param>
+		/// <param name="aReqRoleID">ID of the Role requiring services</param>
+		/// <returns>The mapping connected to the required role.</returns>
 		IMapping GetRequiresMappingByInner(IIdentifier aReqComponentID, IIdentifier aReqRoleID);
+
+		/// <summary>
+		/// Return all the mapping connected to an outer component role.
+		/// </summary>
+		/// <param name="aReqRoleID">The role of the outer component.</param>
+		/// <returns>All mappings connected to the given role.</returns>
 		IMapping[] GetRequiresMappingsByOuter(IIdentifier aReqRoleID);
-
-
 		
+		/// <summary>
+		/// Query a certain component for incomming connections.
+		/// </summary>
+		/// <param name="aComponentID">The ID of the component.</param>
+		/// <returns>true if the component has any incomming connections</returns>
 		bool HasIncomingConnections(IIdentifier aComponentID);
 
+		/// <summary>
+		/// Query a component for outgoing connections
+		/// </summary>
+		/// <param name="aComponentID">The component ID</param>
+		/// <returns>true if the component has any outgoing connections.</returns>
 		bool HasOutgoingConnections(IIdentifier aComponentID);
 
+		/// <summary>
+		/// Query the composite component for a certain basic component
+		/// </summary>
+		/// <param name="aComponentID">ID of the component to search for</param>
+		/// <returns>true if the component is part of the composite component</returns>
 		bool ContainsComponent(IIdentifier aComponentID);
-
-		
 	}
 }

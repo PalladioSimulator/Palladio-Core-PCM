@@ -14,7 +14,7 @@
 			<property name="InterfaceDescription">Interface</property>
 		</propertySet>
 		<propertySet>
-			<property name="ContainedSignatureType">SignatureWithRole</property>
+			<property name="ContainedSignatureType">ExternalSignature</property>
 			<property name="ClassName">ServiceEffectSpecification</property>
 			<property name="DefaultSignatureListInstance">ExternalSignatureList</property>
 			<property name="InterfaceDescription">ServiceEffect</property>

@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/06/09 12:36:31  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.2  2004/06/04 01:54:02  sliver
 	/// rework of composite component
 	///
@@ -36,7 +39,7 @@ namespace Palladio.ComponentModel.Exceptions
 		/// <summary>
 		/// Error indicating, that a component cannot be deleted because it has incoming connections.
 		/// </summary>
-		/// <param name="aMapping">An outgoing mapping of a component.</param>
+		/// <param name="anID">An outgoing mapping of a component.</param>
 		public HasOutgoingMappingException(Identifier.IIdentifier anID) : base(" ProvidesInterface '" + anID.ToString() + "' has still an outgoing mapping! \n")
 		{
 		}

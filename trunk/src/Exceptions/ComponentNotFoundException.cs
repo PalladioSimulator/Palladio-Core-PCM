@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/06/09 12:36:31  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.2  2004/06/04 01:54:01  sliver
 	/// rework of composite component
 	///
@@ -35,7 +38,7 @@ namespace Palladio.ComponentModel.Exceptions
 		/// <summary>
 		/// Error indicating, that a component is missing.
 		/// </summary>
-		/// <param name="aComponent">The missing component.</param>
+		/// <param name="aComponentID">The missing component.</param>
 		public ComponentNotFoundException(Identifier.IIdentifier aComponentID) : 
 			base( "Component " + (aComponentID != null ? aComponentID.ToString() : "<NULL>" )+ " could not be found!")
 		{

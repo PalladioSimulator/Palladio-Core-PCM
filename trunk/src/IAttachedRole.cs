@@ -8,10 +8,15 @@ using Palladio.Identifier;
 namespace Palladio.ComponentModel
 {
 	/// <summary>
-	/// Summary description for IAttachedInterface.
+	/// An attached role is a combination consisting of a component and a role. It is
+	/// used to describe a role attached to a component from an external point of view, e.g.
+	/// for usage in a connection specification.
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/09 12:36:30  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.2  2004/06/02 19:41:31  sbecker
 	/// Fixed docu
 	///

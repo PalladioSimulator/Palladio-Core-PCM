@@ -31,7 +31,7 @@
 			<property name="ClassName">ServiceEffectHashmap</property>
 			<property name="TargetNamespace">Palladio.ComponentModel.TypedCollections</property>
 			<property name="ImportNamespace">Palladio.Utils.Collections</property>
-			<property name="KeyType">ISignatureWithRole</property>
+			<property name="KeyType">IExternalSignature</property>
 			<property name="KeyNamespace">Palladio.ComponentModel</property>
 			<property name="KeyValueType">False</property>
 			<property name="KeyCustomSearch">False</property>

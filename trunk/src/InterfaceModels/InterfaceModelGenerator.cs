@@ -81,7 +81,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <summary>
 		/// Get the auxiliary information of a given type
 		/// </summary>
-		/// <param name="type">Type of the additional information to retrieve</param>
+		/// <param name="aType">Type of the additional information to retrieve</param>
 		/// <returns>The requested information or an exception if the information is not
 		/// available</returns>
 		public IAuxiliaryInterfaceSpecification GetAuxiliarySpecification(System.Type aType)
@@ -126,11 +126,11 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// </summary>
 	internal class DefaultServiceEffectSpecification : ICloneable, IAttributable, IServiceEffectSpecification
 	{
-		protected ISignatureWithRoleList signatureList;
+		protected IExternalSignatureList signatureList;
 		protected IAttributeHash attributes;
 		protected ArrayList auxiliarySpecs = new ArrayList();
 		
-		public ISignatureWithRoleList SignatureList
+		public IExternalSignatureList SignatureList
 		{
 			get
 			{
@@ -186,7 +186,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <summary>
 		/// Get the auxiliary information of a given type
 		/// </summary>
-		/// <param name="type">Type of the additional information to retrieve</param>
+		/// <param name="aType">Type of the additional information to retrieve</param>
 		/// <returns>The requested information or an exception if the information is not
 		/// available</returns>
 		public IAuxiliaryServiceEffectSpecification GetAuxiliarySpecification(System.Type aType)
@@ -206,18 +206,18 @@ namespace Palladio.ComponentModel.InterfaceModels
 		public void AddAuxiliarySpecification(IAuxiliaryServiceEffectSpecification info)
 		{
 			auxiliarySpecs.Add(info);
-			signatureList.SignatureListChangeEvent += new SignatureWithRoleListChangeEventHandler(info.SignatureWithRoleListChangeEventHandler);
+			signatureList.SignatureListChangeEvent += new ExternalSignatureListChangeEventHandler(info.ExternalSignatureListChangeEventHandler);
 		}
 			
-		public DefaultServiceEffectSpecification(IAttributeHash attrHash, ISignatureWithRoleList aSignatureList)
+		public DefaultServiceEffectSpecification(IAttributeHash attrHash, IExternalSignatureList aSignatureList)
 		{
-			this.signatureList = (ISignatureWithRoleList)aSignatureList.Clone();
+			this.signatureList = (IExternalSignatureList)aSignatureList.Clone();
 			this.attributes = attrHash;
 		}
 		
 		public DefaultServiceEffectSpecification(IAttributeHash attrHash)
 		{
-			signatureList = ComponentFactory.CreateExternalSignatureList(new ISignatureWithRole[0]);
+			signatureList = ComponentFactory.CreateExternalSignatureList(new IExternalSignature[0]);
 			this.attributes = attrHash;
 		}
 	}

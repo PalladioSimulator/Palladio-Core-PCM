@@ -74,19 +74,19 @@ namespace Palladio.ComponentModel
 	}
 	#endregion
 	
-	#region SignatureWithRoleList
+	#region ExternalSignatureList
 	/// <summary>
 	/// A SignatureList is  an InterfaceModel just
 	/// containing a set of signatures.
 	/// </summary>
-	public interface ISignatureWithRoleList : ICloneable
+	public interface IExternalSignatureList : ICloneable
 	{
 		#region Properties
 
 		/// <summary>
 		/// Signatures of the interface.
 		/// </summary>
-		ISignatureWithRole[] Signatures
+		IExternalSignature[] Signatures
 		{
 			get;
 		}
@@ -94,7 +94,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Indexer to access the sigantures easily.
 		/// </summary>
-		ISignatureWithRole this[int index]
+		IExternalSignature this[int index]
 		{
 			get;
 		}
@@ -103,20 +103,20 @@ namespace Palladio.ComponentModel
 		/// Adds an array of signatures to the interface.
 		/// </summary>
 		/// <param name="aSigArray">Signatures to add.</param>
-		void AddSignatures( params ISignatureWithRole[] aSigArray );
+		void AddSignatures( params IExternalSignature[] aSigArray );
 
 		/// <summary>
 		/// Deletes a set of signatures from the interface.
 		/// </summary>
 		/// <param name="aSigArray">Signatures to delete.</param>
-		void DeleteSignatures( params ISignatureWithRole[] aSigArray );
+		void DeleteSignatures( params IExternalSignature[] aSigArray );
 		
 		/// <summary>
 		/// Query the list for a certain signature
 		/// </summary>
 		/// <param name="aSignature">The signature which is searched</param>
 		/// <returns>True if the queried signature is in the list</returns>
-		bool ContainsSignature( ISignatureWithRole aSignature );
+		bool ContainsSignature( IExternalSignature aSignature );
 		
 		/// <summary>
 		/// Get the signatures in the list which the given name
@@ -124,12 +124,12 @@ namespace Palladio.ComponentModel
 		/// <param name="aName">Name of the signatures to search</param>
 		/// <returns>All signatures with the given name, e.g. all overrides of a certain
 		/// signature</returns>
-		ISignatureWithRole[] GetSignaturesByID( IIdentifier aName );
+		IExternalSignature[] GetSignaturesByID( IIdentifier aName );
 		
 		/// <summary>
 		/// This event is raised before and after a change of the signatures in this list
 		/// </summary>
-		event SignatureWithRoleListChangeEventHandler SignatureListChangeEvent;
+		event ExternalSignatureListChangeEventHandler SignatureListChangeEvent;
 
 		#endregion
 	}

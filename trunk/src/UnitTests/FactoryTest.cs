@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/06/09 12:36:31  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.1  2004/06/02 14:50:26  sbecker
 	/// Initial Import after a major rework
 	///
@@ -23,6 +26,7 @@ namespace Palladio.ComponentModel.UnitTests
 	///
 	/// </pre>
 	/// </remarks>
+	/// <exclude />
 	[TestFixture]
 	public class FactoryTest
 	{
@@ -43,7 +47,7 @@ namespace Palladio.ComponentModel.UnitTests
 		
 		[Test] public void CreateSignature()
 		{
-			ISignature[] sigs = GetSignatureList("Role1");
+			ISignature[] sigs = GetSignatureList();
 			Assert.IsTrue(sigs[0].ReturnType.ID == "System.Void");
 			Assert.IsTrue(sigs[0].Name == "Funktion1");
 			Assert.IsTrue(sigs[0].Parameters.Length == 3);
@@ -61,9 +65,8 @@ namespace Palladio.ComponentModel.UnitTests
 	
 		[Test] public void CreateSignatureList()
 		{
-			ISignature[] sigs = GetSignatureList("Role1");
-			ISignatureList sigList = ComponentFactory.CreateSignatureListInterface("Role1",sigs);
-			Assert.IsTrue(sigList.RoleID == "Role1");
+			ISignature[] sigs = GetSignatureList();
+			ISignatureList sigList = ComponentFactory.CreateSignatureList(sigs);
 			for (int i = 0; i < sigs.Length; i++)
 			{
 				Assert.IsTrue(sigList.Signatures[i].Equals(sigs[i]));
@@ -71,62 +74,10 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.IsFalse(sigList[0].Equals(sigs[1]));
 		}
 
-		[ExpectedException(typeof(RoleIDMissmatchException))]
-		[Test] public void CreateInvalidRoleInSignatureList()
-		{
-			ISignature[] sigs = GetSignatureList("Role2");
-			ISignatureList sigList = ComponentFactory.CreateSignatureListInterface("Role1",sigs);
-		}
-
-		[Test] public void CreateServiceEffect()
-		{
-			IServiceEffectMapping[] seMapping = GetServiceEffect();
-		}
-		
-		[ExpectedException(typeof(SignatureHasNoServEffSpecException))]
-		[Test] public void CreateBasicComponentWithoutServiceEffect()
-		{
-			ISignature[] sigs = GetSignatureList("Role1");
-			ISignatureList sigList = ComponentFactory.CreateSignatureListInterface("Role1",sigs);
-			IBasicComponent basicComponent = ComponentFactory.CreateBasicComponent();
-			basicComponent.AddProvidesInterface(sigList);
-		}
-
-		[Test] public void CreateBasicComponent()
-		{
-			ISignature[] sigs = GetSignatureList("Role1");
-			ISignatureList sigList = ComponentFactory.CreateSignatureListInterface("Role1",sigs);
-			IBasicComponent basicComponent = ComponentFactory.CreateBasicComponent();
-			IServiceEffectMapping[] srvEffect = GetServiceEffect();
-			basicComponent.AddRequiresInterfaces(GetSaverInterface(), GetLoaderInterface());
-			basicComponent.AddProvidesInterface(sigList,srvEffect);
-
-			Assert.IsTrue( sigList.Equals( basicComponent.GetProvidesInterface("Role1") ) );
-		}
-
-		[ExpectedException(typeof(RoleIDNotFoundException))]
-		[Test] public void UnknownRoleId()
-		{
-			IBasicComponent cmp = CreateComponent();
-			cmp.GetProvidesInterface("not here");
-		}
-
-		[Test] public void AccessServiceEffect()
-		{
-			IBasicComponent cmp = CreateComponent();
-			ISignatureList sigList = cmp.GetProvidesInterface("Role1");
-			ISignatureList se = cmp.GetServiceEffectSpecification( sigList[1] );
-			Console.WriteLine(se.RoleID);
-			foreach (ISignature s in se.Signatures)
-			{
-				Console.WriteLine(s.RoleID + "  " + s);
-			}
-		}
-
 		[Test] public void SignatureHashCode()
 		{
-			ISignature[] sigs1 = GetSignatureList("Role1");
-			ISignature[] sigs2 = GetSignatureList("Role1");
+			ISignature[] sigs1 = GetSignatureList();
+			ISignature[] sigs2 = GetSignatureList();
 
 			for (int i = 0; i < sigs1.Length; i++)
 			{
@@ -135,15 +86,15 @@ namespace Palladio.ComponentModel.UnitTests
 			IType returnType = ComponentFactory.CreateType(typeof(string));
 			IType ex1 = ComponentFactory.CreateType(typeof(Exception));
 			IType ex2 = ComponentFactory.CreateType(typeof(ApplicationException));
-			ISignature s1 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex1,ex2);
-			ISignature s2 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex2,ex1);
+			ISignature s1 = ComponentFactory.CreateSignature(returnType,"Funktion1",GetParameterList(),ex1,ex2);
+			ISignature s2 = ComponentFactory.CreateSignature(returnType,"Funktion1",GetParameterList(),ex2,ex1);
 			Assert.AreEqual(s1.GetHashCode(),s2.GetHashCode());
 		}
 
 		[Test] public void SignatureEquals()
 		{
-			ISignature[] sigs1 = GetSignatureList("Role1");
-			ISignature[] sigs2 = GetSignatureList("Role1");
+			ISignature[] sigs1 = GetSignatureList();
+			ISignature[] sigs2 = GetSignatureList();
 
 			for (int i = 0; i < sigs1.Length; i++)
 			{
@@ -152,13 +103,13 @@ namespace Palladio.ComponentModel.UnitTests
 			IType returnType = ComponentFactory.CreateType(typeof(string));
 			IType ex1 = ComponentFactory.CreateType(typeof(Exception));
 			IType ex2 = ComponentFactory.CreateType(typeof(ApplicationException));
-			ISignature s1 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex1,ex2);
-			ISignature s2 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex2,ex1);
+			ISignature s1 = ComponentFactory.CreateSignature(returnType,"Funktion1",GetParameterList(),ex1,ex2);
+			ISignature s2 = ComponentFactory.CreateSignature(returnType,"Funktion1",GetParameterList(),ex2,ex1);
 			Assert.AreEqual(s1,s2);
 
 			IParameter[] parameters = GetParameterList();
-			s1 = ComponentFactory.CreateSignature("R","F1",parameters[0],parameters[1]);
-			s2 = ComponentFactory.CreateSignature("R","F1",parameters[1],parameters[0]);
+			s1 = ComponentFactory.CreateSignature("F1",parameters[0],parameters[1]);
+			s2 = ComponentFactory.CreateSignature("F1",parameters[1],parameters[0]);
 			Assert.IsFalse(s1.Equals(s2));
 		}
 
@@ -177,63 +128,13 @@ namespace Palladio.ComponentModel.UnitTests
 			return list;
 		}
 
-		private ISignature[] GetSignatureList(string role)
+		private ISignature[] GetSignatureList()
 		{
 			ISignature[] sigList = new ISignature[3];
-			sigList[0] = ComponentFactory.CreateSignature(role,"Funktion1",GetParameterList());
-			sigList[1] = ComponentFactory.CreateSignature(role,"Funktion2");
-			sigList[2] = ComponentFactory.CreateSignature(role,ComponentFactory.CreateType(typeof(string)),"Funktion3",GetParameterList());
+			sigList[0] = ComponentFactory.CreateSignature("Funktion1",GetParameterList());
+			sigList[1] = ComponentFactory.CreateSignature("Funktion2");
+			sigList[2] = ComponentFactory.CreateSignature(ComponentFactory.CreateType(typeof(string)),"Funktion3",GetParameterList());
 			return sigList;
-		}
-
-		private IServiceEffectMapping[] GetServiceEffect()
-		{
-			IServiceEffectMapping[] seMappings = new IServiceEffectMapping[3];
-			ISignature[] sigs = GetSignatureList("Role1");
-			ISignature ext1 = ComponentFactory.CreateSignature("Loader","Load");
-			ISignature ext2 = ComponentFactory.CreateSignature("Saver","Save");
-			ISignatureList loaderInterface = ComponentFactory.CreateSignatureListServiceEffect(ext1);
-			ISignatureList saverInterface = ComponentFactory.CreateSignatureListServiceEffect(ext1,ext2);
-			seMappings[0] = ComponentFactory.CreateServiceEffectMapping(sigs[0]);
-			seMappings[1] = ComponentFactory.CreateServiceEffectMapping(sigs[1],loaderInterface);
-			seMappings[2] = ComponentFactory.CreateServiceEffectMapping(sigs[2],saverInterface);
-			return seMappings;
-		}
-
-		private IBasicComponent CreateComponent()
-		{
-			ISignature[] sigs = GetSignatureList("Role1");
-			ISignatureList sigList = ComponentFactory.CreateSignatureListInterface("Role1",sigs);
-			IBasicComponent basicComponent = ComponentFactory.CreateBasicComponent();
-			basicComponent.AddRequiresInterfaces(GetSaverInterface(), GetLoaderInterface());
-			basicComponent.AddProvidesInterface(sigList,GetServiceEffect());
-			return basicComponent;
-		}
-
-		private ISignature[] CreateSignatures(string aRoleID, params string[] strList)
-		{
-			ISignature[] result = new ISignature[strList.Length];
-			int index = 0;
-			foreach (string str in strList)
-			{
-				result[index++] = ComponentFactory.CreateSignature(aRoleID,str);
-			}
-			return result;
-		}
-
-		private ISignatureList CreateSigList(string aRoleID, params string[] strList)
-		{
-			return ComponentFactory.CreateSignatureListInterface(aRoleID, CreateSignatures(aRoleID, strList) );
-		}
-
-		private ISignatureList GetLoaderInterface()
-		{
-			return ComponentFactory.CreateSignatureListInterface("Loader","Load");
-		}
-
-		private ISignatureList GetSaverInterface()
-		{
-			return ComponentFactory.CreateSignatureListInterface("Saver","Save");
 		}
 	}
 }

@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/06/09 12:36:31  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.3  2004/06/03 14:37:29  sbecker
 	/// Added the possibility to attach auxiliary specifications to a basic component
 	///
@@ -34,6 +37,7 @@ namespace Palladio.ComponentModel.UnitTests
 	///
 	/// </pre>
 	/// </remarks>
+	/// <exclude />
 	[TestFixture]
 	public class BasicComponentTest
 	{
@@ -113,7 +117,7 @@ namespace Palladio.ComponentModel.UnitTests
 			return IdentifiableFactory.CreateStringID(aID);
 		}
 
-		private ISignatureWithRole SigRole(string role,ISignature sig)
+		private IExternalSignature SigRole(string role,ISignature sig)
 		{
 			return ComponentFactory.CreateSignatureWithRole(role,sig);
 		}
@@ -129,11 +133,11 @@ namespace Palladio.ComponentModel.UnitTests
 			IFSMServiceEffect d2 = (IFSMServiceEffect)d2spec.GetAuxiliarySpecification(typeof(IFSMServiceEffect));
 			foreach( ITransition t in d1.FSM.Transitions )
 			{
-				Assert.IsTrue( fsmComponent.HasRequiresInterface( ((ISignatureWithRole)t.InputSymbol.ID).RoleID ));
+				Assert.IsTrue( fsmComponent.HasRequiresInterface( ((IExternalSignature)t.InputSymbol.ID).RoleID ));
 			}
 			foreach( ITransition t in d2.FSM.Transitions )
 			{
-				Assert.IsTrue( fsmComponent.HasRequiresInterface( ((ISignatureWithRole)t.InputSymbol.ID).RoleID ));
+				Assert.IsTrue( fsmComponent.HasRequiresInterface( ((IExternalSignature)t.InputSymbol.ID).RoleID ));
 			}
 		}
 

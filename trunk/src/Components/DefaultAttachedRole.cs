@@ -58,6 +58,21 @@ namespace Palladio.ComponentModel.Components
 			return (ComponentID.Equals(myRole.ComponentID) && RoleID.Equals(myRole.RoleID));
 		}
 
+		public override int GetHashCode()
+		{
+			return	
+				(
+				(component	!= null ? component.ID.GetHashCode() : 0) ^ 
+				(role		!= null ? role.ID.GetHashCode() : 0) 
+				);
+		}
+
+
+		public override string ToString()
+		{
+			return "(" + ComponentID.ToString() + "," + RoleID.ToString() + ")";
+		}
+
 
 		/// <summary>
 		/// Default constructor

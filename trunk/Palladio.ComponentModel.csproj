@@ -28,7 +28,7 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE;TEST"
+                    DefineConstants = "DEBUG;TRACE"
                     DocumentationFile = "Palladio.ComponentModel.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
@@ -156,17 +156,17 @@
                     BuildAction = "Content"
                 />
                 <File
+                    RelPath = "src\AuxiliaryInformationEnums.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\IAttachedRole.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IAuxiliaryInformation.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -533,13 +533,18 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\TypedCollections\ConnectionDataSet.cs"
-                    SubType = "code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\TypedCollections\ConnectionDataSet.xsd"
                     BuildAction = "Content"
+                    Generator = "MSDataSetGenerator"
+                    LastGenOutput = "ConnectionDataSet.cs"
+                />
+                <File
+                    RelPath = "src\TypedCollections\ConnectionDataSet.cs"
+                    DependentUpon = "ConnectionDataSet.xsd"
+                    SubType = "code"
+                    BuildAction = "Compile"
+                    DesignTime = "True"
+                    AutoGen = "True"
                 />
                 <File
                     RelPath = "src\TypedCollections\ConnectionDataSet.xsx"
@@ -567,6 +572,11 @@
                 />
                 <File
                     RelPath = "src\UnitTests\CompositeComponentTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FactoryTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

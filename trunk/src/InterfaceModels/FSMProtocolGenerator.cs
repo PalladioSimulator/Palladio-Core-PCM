@@ -28,6 +28,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/06/09 12:36:31  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.1  2004/06/03 14:37:29  sbecker
 	/// Added the possibility to attach auxiliary specifications to a basic component
 	///
@@ -126,6 +129,18 @@ namespace Palladio.ComponentModel
 
 		public void SignatureListChangeEventHandler(object sender, SignatureListChangeEventArgs args)
 		{
+			if (args.ChangeTime == ChangeTimeEnum.BEFORE)
+			{
+				switch (args.ChangeType)
+				{
+					case ChangeTypeEnum.ADD:
+						EditFSM.AddInputSymbols(FSMFactory.CreateInputFromList(args.Signature).StoredInputs);
+						break;
+					case ChangeTypeEnum.DELETE:
+						EditFSM.DeleteInputSymbols(FSMFactory.CreateInputFromList(args.Signature).StoredInputs);
+						break;
+				}
+			}
 		}
 
 		/// <summary>
@@ -145,6 +160,10 @@ namespace Palladio.ComponentModel
 			return other.FSM.Equals(this.FSM);
 		}
 
+		public override int GetHashCode()
+		{
+			return (fsm == null ? 0 : fsm.GetHashCode());
+		}
 		#endregion
 
 		#region Constructors
@@ -182,6 +201,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/06/09 12:36:31  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.1  2004/06/03 14:37:29  sbecker
 	/// Added the possibility to attach auxiliary specifications to a basic component
 	///
@@ -239,16 +261,16 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Signatures of the interface.
 		/// </summary>
-		public ISignatureWithRole[] Signatures 
+		public IExternalSignature[] Signatures 
 		{
 			get
 			{
 				try
 				{
-					ISignatureWithRole[] result = new ISignatureWithRole[fsm.InputAlphabet.Length];
+					IExternalSignature[] result = new IExternalSignature[fsm.InputAlphabet.Length];
 					for (int i = 0; i < fsm.InputAlphabet.Length; i++)
 					{
-						result[i] = (ISignatureWithRole)fsm.InputAlphabet[i].ID;
+						result[i] = (IExternalSignature)fsm.InputAlphabet[i].ID;
 					}
 					return result;
 				}
@@ -278,8 +300,20 @@ namespace Palladio.ComponentModel
 		/// <param name="visitor">The visitor to accept</param>
 		public void AcceptVisitor (IVisitor visitor) {}
 
-		public void SignatureWithRoleListChangeEventHandler(object sender, SignatureWithRoleListChangeEventArgs args)
+		public void ExternalSignatureListChangeEventHandler(object sender, ExternalSignatureListChangeEventArgs args)
 		{
+			if (args.ChangeTime == ChangeTimeEnum.BEFORE)
+			{
+				switch (args.ChangeType)
+				{
+					case ChangeTypeEnum.ADD:
+						EditFSM.AddInputSymbols(FSMFactory.CreateInputFromList(args.Signature).StoredInputs);
+						break;
+					case ChangeTypeEnum.DELETE:
+						EditFSM.DeleteInputSymbols(FSMFactory.CreateInputFromList(args.Signature).StoredInputs);
+						break;
+				}
+			}
 		}
 
 		/// <summary>
@@ -299,6 +333,10 @@ namespace Palladio.ComponentModel
 			return other.FSM.Equals(this.FSM);
 		}
 
+		public override int GetHashCode()
+		{
+			return (fsm == null ? 0 : fsm.GetHashCode());
+		}
 		#endregion
 
 		#region Constructors

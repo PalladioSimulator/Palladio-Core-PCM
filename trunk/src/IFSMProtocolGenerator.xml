@@ -14,7 +14,7 @@
 			<property name="InterfaceDescription">Interface</property>
 		</propertySet>
 		<propertySet>
-			<property name="ContainedSignatureType">ISignatureWithRole</property>
+			<property name="ContainedSignatureType">IExternalSignature</property>
 			<property name="InterfaceDescription">ServiceEffect</property>
 		</propertySet>
 	</propertySets>

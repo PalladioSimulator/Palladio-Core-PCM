@@ -12,8 +12,8 @@
 			<property name="InterfaceName">SignatureList</property>
 		</propertySet>
 		<propertySet>
-			<property name="ContainedSignatureType">ISignatureWithRole</property>
-			<property name="InterfaceName">SignatureWithRoleList</property>
+			<property name="ContainedSignatureType">IExternalSignature</property>
+			<property name="InterfaceName">ExternalSignatureList</property>
 		</propertySet>
 	</propertySets>
 	<template path="ISignatureList.cst" />

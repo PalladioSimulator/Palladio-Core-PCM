@@ -72,7 +72,7 @@
 		/// <summary>
 		/// Get the auxiliary information of a given type
 		/// </summary>
-		/// <param name="type">Type of the additional information to retrieve</param>
+		/// <param name="aType">Type of the additional information to retrieve</param>
 		/// <returns>The requested information or an exception if the information is not
 		/// available</returns>
 		public IAuxiliary<%= InterfaceDescription %>Specification GetAuxiliarySpecification(System.Type aType)

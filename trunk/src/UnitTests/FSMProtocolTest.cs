@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/06/09 12:36:31  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.2  2004/06/03 14:37:29  sbecker
 	/// Added the possibility to attach auxiliary specifications to a basic component
 	///
@@ -40,6 +43,7 @@ namespace Palladio.ComponentModel.UnitTests
 	///
 	/// </pre>
 	/// </remarks>
+	/// <exclude />
 	[TestFixture]
 	public class FSMProtocolTest
 	{
@@ -83,7 +87,7 @@ namespace Palladio.ComponentModel.UnitTests
 
 			editFSM1 = result.EditFSM;
 			StateHash states1 = FSMFactory.CreateStatesFromList("1","2"); 
-			ISignatureWithRole[] signatures = ComponentFactory.CreateExternalSignatureArray("Req1",
+			IExternalSignature[] signatures = ComponentFactory.CreateExternalSignatureArray("Req1",
 				ComponentFactory.CreateSignatureArray("e1","e2"));
 			editFSM1.AddStates(states1.StoredStates);
 			editFSM1.StartState = states1["1"];
@@ -103,7 +107,7 @@ namespace Palladio.ComponentModel.UnitTests
 
 			editFSM1 = result.EditFSM;
 			StateHash states1 = FSMFactory.CreateStatesFromList("1","2"); 
-			ISignatureWithRole[] signatures = ComponentFactory.CreateExternalSignatureArray("Req1",
+			IExternalSignature[] signatures = ComponentFactory.CreateExternalSignatureArray("Req1",
 				ComponentFactory.CreateSignatureArray("e1"));
 			editFSM1.AddStates(states1.StoredStates);
 			editFSM1.StartState = states1["1"];

@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/06/09 12:36:30  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.2  2004/06/04 01:53:58  sliver
 	/// rework of composite component
 	///
@@ -370,16 +373,6 @@ namespace Palladio.ComponentModel.Components
 		{
 			if ((!ContainsComponent(aRole.ComponentID)) || (!aRole.Component.HasRequiresInterface(aRole.RoleID)))
 				throw new InvalidAttachedRoleException(aRole);
-		}
-
-		/// <summary>
-		/// This method is called by the <see cref="ReflectionBasedVisitor"/> to allow data
-		/// structure driven visiting of the structure.<br></br>
-		/// Leave this method's body empty if you don't need data structure driven visiting.
-		/// </summary>
-		/// <param name="visitor">The visitor to accept</param>
-		public void AcceptVisitor (IVisitor visitor)
-		{
 		}
 
 		/// <summary>

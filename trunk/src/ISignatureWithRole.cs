@@ -9,10 +9,13 @@ using Palladio.FiniteStateMachines;
 namespace Palladio.ComponentModel
 {
 	/// <summary>
-	/// Summary description for ISignatureWithRole.
+	/// An external signature specification consists of a role ID and a signature.
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.4  2004/06/09 12:36:30  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.3  2004/06/03 14:37:28  sbecker
 	/// Added the possibility to attach auxiliary specifications to a basic component
 	///
@@ -24,7 +27,7 @@ namespace Palladio.ComponentModel
 	///
 	///
 	/// </pre></remarks>
-	public interface ISignatureWithRole : ICloneable, IMatchable
+	public interface IExternalSignature : ICloneable, IMatchable
 	{
 		/// <summary>
 		/// The signature

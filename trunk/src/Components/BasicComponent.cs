@@ -22,7 +22,7 @@ namespace Palladio.ComponentModel.Components
 		/// </summary>
 		/// <param name="aSig">A signature provided in a role of this component.</param>
 		/// <returns>The service effect specification of aSig.</returns>
-		public IServiceEffectSpecification GetServiceEffectSpecification(ISignatureWithRole aSig)
+		public IServiceEffectSpecification GetServiceEffectSpecification(IExternalSignature aSig)
 		{
 			IRole aRole;
 			if ((aRole = providesMap[aSig.RoleID]) == null)
@@ -51,7 +51,7 @@ namespace Palladio.ComponentModel.Components
 		/// </summary>
 		/// <param name="aSignature">The service and its role to which an service effect is affected</param>
 		/// <param name="aServEffSpec">The service effect specification</param>
-		public void ChangeServiceEffectSpecification(ISignatureWithRole aSignature, IServiceEffectSpecification aServEffSpec)
+		public void ChangeServiceEffectSpecification(IExternalSignature aSignature, IServiceEffectSpecification aServEffSpec)
 		{
 			GetServiceEffectSpecification(aSignature);
 			serviceEffectMap[aSignature] = aServEffSpec;
@@ -74,7 +74,7 @@ namespace Palladio.ComponentModel.Components
 		/// </summary>
 		/// <param name="aSignature">The service to which an service effect gets added</param>
 		/// <param name="aServEffSpec">The service effect specification</param>
-		public void AddServiceEffectSpecification(ISignatureWithRole aSignature, IServiceEffectSpecification aServEffSpec)
+		public void AddServiceEffectSpecification(IExternalSignature aSignature, IServiceEffectSpecification aServEffSpec)
 		{
 			if (aSignature == null || aServEffSpec == null)
 				throw new ArgumentNullException("Signature and service effect can't be null!");
@@ -122,16 +122,16 @@ namespace Palladio.ComponentModel.Components
 			return new BasicComponent(this);
 		}
 
-		public void DeleteServiceEffectSpecification(params ISignatureWithRole[] signatures)
+		public void DeleteServiceEffectSpecification(params IExternalSignature[] signatures)
 		{
-			foreach (ISignatureWithRole sr in signatures)
+			foreach (IExternalSignature sr in signatures)
 			{
 				if (sr == null)
 					throw new ArgumentNullException("Signature can't be null!");
 				if (!serviceEffectMap.Contains(sr))
 					throw new SignatureNotFoundException(sr.Signature);
 			}
-			foreach (ISignatureWithRole sr in signatures)
+			foreach (IExternalSignature sr in signatures)
 			{
 				serviceEffectMap.Remove(sr);
 			}

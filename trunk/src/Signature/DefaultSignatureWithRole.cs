@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Signature
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/09 12:36:31  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.2  2004/06/03 14:37:29  sbecker
 	/// Added the possibility to attach auxiliary specifications to a basic component
 	///
@@ -22,7 +25,7 @@ namespace Palladio.ComponentModel.Signature
 	///
 	///
 	/// </pre></remarks>
-	internal class DefaultSignatureWithRole : ISignatureWithRole
+	internal class DefaultSignatureWithRole : IExternalSignature
 	{
 		protected ISignature encapsulatedSignature;
 		protected IIdentifier roleID;
@@ -46,7 +49,7 @@ namespace Palladio.ComponentModel.Signature
 
 		public bool Match(IMatchable other)
 		{
-			return ((ISignatureWithRole)other).Signature.Match(encapsulatedSignature);
+			return ((IExternalSignature)other).Signature.Match(encapsulatedSignature);
 		}
 
 		public object Clone()
@@ -54,11 +57,16 @@ namespace Palladio.ComponentModel.Signature
 			return new DefaultSignatureWithRole((ISignature)encapsulatedSignature.Clone(),(IIdentifier)roleID.Clone());
 		}
 
+		public override string ToString()
+		{
+			return encapsulatedSignature.ToString() + " of role " + roleID.ToString();
+		}
+
 		public override bool Equals(object obj)
 		{
-			if (!(obj is ISignatureWithRole)) return false;
+			if (!(obj is IExternalSignature)) return false;
 			if (obj == this) return true;
-			ISignatureWithRole sigRole = (ISignatureWithRole)obj;
+			IExternalSignature sigRole = (IExternalSignature)obj;
 			return (sigRole.RoleID.Equals(this.RoleID) && sigRole.Signature.Equals(this.Signature));
 		}
 

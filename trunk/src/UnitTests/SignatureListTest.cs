@@ -11,6 +11,7 @@ namespace Palladio.ComponentModel.UnitTests
 {
 	/// <summary>
 	/// </summary>
+	/// <exclude />
 	[TestFixture]
 	public class SignatureListTest
 	{
@@ -75,7 +76,7 @@ namespace Palladio.ComponentModel.UnitTests
 
 		[Test] public void CreateServiceEffectSigList()
 		{
-			ISignatureWithRoleList se = ComponentFactory.CreateExternalSignatureList();
+			IExternalSignatureList se = ComponentFactory.CreateExternalSignatureList();
 			se.AddSignatures ( ComponentFactory.CreateSignatureWithRole("role A",
 								ComponentFactory.CreateSignature("d1")) );
 			se.AddSignatures ( ComponentFactory.CreateSignatureWithRole("role B",

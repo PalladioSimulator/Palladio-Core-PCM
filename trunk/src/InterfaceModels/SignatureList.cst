@@ -93,7 +93,7 @@
 			ArrayList result = new ArrayList();
 			foreach (<%= ContainedSignatureType %> s in signatures)
 			{
-				if (s.<%if (ContainedSignatureType.Equals("ISignatureWithRole")) Response.Write("Signature."); %>Name.Equals(aName))
+				if (s.<%if (ContainedSignatureType.Equals("IExternalSignature")) Response.Write("Signature."); %>Name.Equals(aName.ToString()))
 					result.Add(s);
 			}
 			return (<%= ContainedSignatureType %>[])result.ToArray(typeof(<%= ContainedSignatureType %>));

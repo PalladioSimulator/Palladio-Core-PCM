@@ -19,7 +19,7 @@ namespace Palladio.ComponentModel.src.TypedCollections {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Diagnostics.DebuggerStepThrough()]
     [System.ComponentModel.ToolboxItem(true)]
-    public class ConnectionDataSet : DataSet {
+    internal class ConnectionDataSet : DataSet {
         
         private ConnectionTableDataTable tableConnectionTable;
         

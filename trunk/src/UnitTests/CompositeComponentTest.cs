@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/06/09 12:36:31  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.2  2004/06/04 01:54:04  sliver
 	/// rework of composite component
 	///
@@ -33,6 +36,7 @@ namespace Palladio.ComponentModel.UnitTests
 	///
 	/// </pre>
 	/// </remarks>
+	/// <exclude />
 	[TestFixture]
 	public class CompositeComponentTest
 	{
@@ -341,7 +345,7 @@ namespace Palladio.ComponentModel.UnitTests
 			return IdentifiableFactory.CreateStringID(aID);
 		}
 
-		private ISignatureWithRole SigRole(string role,ISignature sig)
+		private IExternalSignature SigRole(string role,ISignature sig)
 		{
 			return ComponentFactory.CreateSignatureWithRole(role,sig);
 		}

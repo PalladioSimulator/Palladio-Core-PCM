@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/06/09 12:36:30  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.2  2004/06/04 01:54:00  sliver
 	/// rework of composite component
 	///
@@ -29,7 +32,7 @@ namespace Palladio.ComponentModel.Exceptions
 		/// <summary>
 		/// Error indicating, that a component cannot be deleted because it has incoming connections.
 		/// </summary>
-		/// <param name="aComponent">Considered component.</param>
+		/// <param name="anID">Considered component.</param>
 		public ComponentHasIncomingConnectionsException(Identifier.IIdentifier anID) : base( "Component " + anID.ToString() + " has incoming connections!")
 		{
 		}

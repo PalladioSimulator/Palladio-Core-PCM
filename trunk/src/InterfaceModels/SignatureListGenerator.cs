@@ -106,7 +106,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 			ArrayList result = new ArrayList();
 			foreach (ISignature s in signatures)
 			{
-				if (s.Name.Equals(aName))
+				if (s.Name.Equals(aName.ToString()))
 					result.Add(s);
 			}
 			return (ISignature[])result.ToArray(typeof(ISignature));
@@ -222,32 +222,32 @@ namespace Palladio.ComponentModel.InterfaceModels
 	}
 	#endregion
 	
-	#region DefaultSignatureWithRoleList
+	#region DefaultExternalSignatureList
 	/// <summary>
 	/// A SignatureList is the simplest form of an IInterfaceModel, just
 	/// containing a set of signatures.
 	/// </summary>
-	internal class DefaultSignatureWithRoleList : ISignatureWithRoleList , ICloneable
+	internal class DefaultExternalSignatureList : IExternalSignatureList , ICloneable
 	{
 		#region Properties
 		
 		/// <summary>
 		/// Signatures of the interface.
 		/// </summary>
-		public ISignatureWithRole[] Signatures 
+		public IExternalSignature[] Signatures 
 		{
 			get
 			{
-				return (ISignatureWithRole[]) signatures.ToArray(typeof(ISignatureWithRole));
+				return (IExternalSignature[]) signatures.ToArray(typeof(IExternalSignature));
 			}
 		}
 
 		/// <summary>
 		/// Indexer to access the sigantures easily.
 		/// </summary>
-		public ISignatureWithRole this[int index]
+		public IExternalSignature this[int index]
 		{
-			get { return (ISignatureWithRole) signatures[index]; }
+			get { return (IExternalSignature) signatures[index]; }
 		}
 
 		/// <summary>
@@ -265,18 +265,18 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// Adds an array of signatures to the interface.
 		/// </summary>
 		/// <param name="aSigArray">Signatures to add.</param>
-		public void AddSignatures( params ISignatureWithRole[] aSigArray )
+		public void AddSignatures( params IExternalSignature[] aSigArray )
 		{
-			foreach (ISignatureWithRole s in aSigArray)
+			foreach (IExternalSignature s in aSigArray)
 			{
 				if (SignatureListChangeEvent != null)
-					SignatureListChangeEvent(this,new SignatureWithRoleListChangeEventArgs(s, ChangeTimeEnum.BEFORE,ChangeTypeEnum.ADD));
+					SignatureListChangeEvent(this,new ExternalSignatureListChangeEventArgs(s, ChangeTimeEnum.BEFORE,ChangeTypeEnum.ADD));
 			}
 			signatures.AddRange(aSigArray);
-			foreach (ISignatureWithRole s in aSigArray)
+			foreach (IExternalSignature s in aSigArray)
 			{
 				if (SignatureListChangeEvent != null)
-					SignatureListChangeEvent(this,new SignatureWithRoleListChangeEventArgs(s, ChangeTimeEnum.AFTER,ChangeTypeEnum.ADD));
+					SignatureListChangeEvent(this,new ExternalSignatureListChangeEventArgs(s, ChangeTimeEnum.AFTER,ChangeTypeEnum.ADD));
 			}
 		}
 
@@ -284,38 +284,38 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// Deletes a set of signatures from the interface.
 		/// </summary>
 		/// <param name="aSigArray">Signatures to delete.</param>
-		public void DeleteSignatures( params ISignatureWithRole[] aSigArray )
+		public void DeleteSignatures( params IExternalSignature[] aSigArray )
 		{
-			foreach (ISignatureWithRole s in aSigArray)
+			foreach (IExternalSignature s in aSigArray)
 			{
 				if (SignatureListChangeEvent != null)
-					SignatureListChangeEvent(this,new SignatureWithRoleListChangeEventArgs(s, ChangeTimeEnum.BEFORE,ChangeTypeEnum.DELETE));
+					SignatureListChangeEvent(this,new ExternalSignatureListChangeEventArgs(s, ChangeTimeEnum.BEFORE,ChangeTypeEnum.DELETE));
 			}
-			foreach (ISignatureWithRole sig in aSigArray)
+			foreach (IExternalSignature sig in aSigArray)
 			{
 				signatures.Remove(sig);
 			}
-			foreach (ISignatureWithRole s in aSigArray)
+			foreach (IExternalSignature s in aSigArray)
 			{
 				if (SignatureListChangeEvent != null)
-					SignatureListChangeEvent(this,new SignatureWithRoleListChangeEventArgs(s, ChangeTimeEnum.AFTER,ChangeTypeEnum.DELETE));
+					SignatureListChangeEvent(this,new ExternalSignatureListChangeEventArgs(s, ChangeTimeEnum.AFTER,ChangeTypeEnum.DELETE));
 			}
 		}
 
-		public bool ContainsSignature( ISignatureWithRole aSignature )
+		public bool ContainsSignature( IExternalSignature aSignature )
 		{
 			return signatures.Contains(aSignature);
 		}
 
-		public ISignatureWithRole[] GetSignaturesByID( IIdentifier aName )
+		public IExternalSignature[] GetSignaturesByID( IIdentifier aName )
 		{
 			ArrayList result = new ArrayList();
-			foreach (ISignatureWithRole s in signatures)
+			foreach (IExternalSignature s in signatures)
 			{
-				if (s.Signature.Name.Equals(aName))
+				if (s.Signature.Name.Equals(aName.ToString()))
 					result.Add(s);
 			}
-			return (ISignatureWithRole[])result.ToArray(typeof(ISignatureWithRole));
+			return (IExternalSignature[])result.ToArray(typeof(IExternalSignature));
 		}
 
 		
@@ -335,7 +335,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <returns>A new object with the same values as the current instance.</returns>
 		public object Clone()
 		{
-			return new DefaultSignatureWithRoleList(this);
+			return new DefaultExternalSignatureList(this);
 		}
 		
 		/// <summary>
@@ -349,9 +349,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// are not equal.</returns>
 		public override bool Equals(object obj)
 		{
-			if (obj is DefaultSignatureWithRoleList)
+			if (obj is DefaultExternalSignatureList)
 			{
-				DefaultSignatureWithRoleList sigList = (DefaultSignatureWithRoleList)obj;
+				DefaultExternalSignatureList sigList = (DefaultExternalSignatureList)obj;
 				return (
 					sigList.signatures.Equals(this.signatures)
 				);
@@ -369,7 +369,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		{
 			int result = 0;
 			
-			foreach (ISignatureWithRole s in signatures)
+			foreach (IExternalSignature s in signatures)
 			{
 				result ^= s.GetHashCode();
 			}
@@ -384,7 +384,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		{
 			string result = ">>";
 			
-			foreach (ISignatureWithRole s in signatures)
+			foreach (IExternalSignature s in signatures)
 			{
 				result += s.ToString()+" ";
 			}
@@ -394,7 +394,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <summary>
 		/// This event is raised before and after a change of the signatures in this list
 		/// </summary>
-		public event SignatureWithRoleListChangeEventHandler SignatureListChangeEvent;
+		public event ExternalSignatureListChangeEventHandler SignatureListChangeEvent;
 		#endregion
 
 		#region Constructors
@@ -404,7 +404,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// </summary>
 		/// <param name="anAttHash">Attributes.</param>
 		/// <param name="aSigArray">Signatures contained by the interface.</param>
-		public DefaultSignatureWithRoleList(IAttributeHash anAttHash, params ISignatureWithRole[] aSigArray)
+		public DefaultExternalSignatureList(IAttributeHash anAttHash, params IExternalSignature[] aSigArray)
 		{
 			attributes = anAttHash;
 			signatures = new Set();
@@ -415,7 +415,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// Copy constructor.
 		/// </summary>
 		/// <param name="aSigList">SignatureList to copy.</param>
-		public DefaultSignatureWithRoleList(DefaultSignatureWithRoleList aSigList) :
+		public DefaultExternalSignatureList(DefaultExternalSignatureList aSigList) :
 			this( aSigList.Attributes, aSigList.Signatures ) {}
 
 		#endregion

@@ -13,14 +13,18 @@ using Palladio.Identifier;
 
 namespace Palladio.ComponentModel
 {
+	/// <summary>
+	/// This is a class used as event arguments for SignatureListChangeEvents.
+	/// </summary>
 	public class SignatureListChangeEventArgs
 	{
-		protected ChangeTimeEnum time;
-		protected ChangeTypeEnum type;
-		protected bool actionAllowed = true;
-		protected Exception abortException;
-		protected ISignature signature;
+		private ChangeTimeEnum time;
+		private ChangeTypeEnum type;
+		private ISignature signature;
 
+		/// <summary>
+		/// The signature being added or deleted from the signature list raising the event
+		/// </summary>
 		public ISignature Signature
 		{
 			get
@@ -28,7 +32,10 @@ namespace Palladio.ComponentModel
 				return signature;
 			}
 		}
-		 
+		
+		/// <summary>
+		/// Point in the process when this event occured
+		/// </summary> 
 		public ChangeTimeEnum ChangeTime
 		{
 			get
@@ -37,6 +44,9 @@ namespace Palladio.ComponentModel
 			}
 		}
 
+		/// <summary>
+		/// Kind of the change made to the signature list raising the event
+		/// </summary>
 		public ChangeTypeEnum ChangeType
 		{
 			get
@@ -45,30 +55,12 @@ namespace Palladio.ComponentModel
 			}
 		}
 
-		public bool ActionAllowed 
-		{
-			get
-			{
-				return actionAllowed;
-			}
-			set
-			{
-				actionAllowed = value;
-			}
-		}
-
-		public Exception ReasonForAbort
-		{
-			get
-			{
-				return abortException;
-			}
-			set
-			{
-				abortException = value;
-			}
-		}
-		
+		/// <summary>
+		/// Default constructor
+		/// </summary>
+		/// <param name="sig">The signature being added or deleted</param>
+		/// <param name="time">The state of the process</param>
+		/// <param name="type">Is the signature added or deleted</param>
 		public SignatureListChangeEventArgs(ISignature sig, ChangeTimeEnum time, ChangeTypeEnum type)
 		{
 			this.time = time;
@@ -77,13 +69,24 @@ namespace Palladio.ComponentModel
 		}
 	}
 
+	/// <summary>
+	/// The event delegate for SignatureListChangeEvents
+	/// </summary>
 	public delegate void SignatureListChangeEventHandler(object sender, SignatureListChangeEventArgs args);
 
 	/// <summary>
-	/// Summary description for IAuxiliaryInformation.
+	/// Auxiliary information is additional specification data attached to a certain
+	/// interface model. For example protocol information specified by the means
+	/// of FSMs, Petri Nets, .... or constraints given as pre- and postconditions or
+	/// OCL constraints.<br />
+	/// Implement this interface if you want to add further additional specification data
+	/// to an interface model.
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.2  2004/06/09 12:36:30  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.1  2004/06/03 14:37:28  sbecker
 	/// Added the possibility to attach auxiliary specifications to a basic component
 	///
@@ -91,25 +94,40 @@ namespace Palladio.ComponentModel
 	/// </pre></remarks>
 	public interface IAuxiliaryInterfaceSpecification
 	{
+		/// <summary>
+		/// Event handler handling notifications of changes in the underlying signature list.
+		/// This event handler is for implementing an observer pattern on the signature list so that
+		/// any kind of auxiliary information can stay consistend. For example, an FSM protocol
+		/// automaton used this events to update its input symbol set accordingly. 
+		/// </summary>
+		/// <param name="sender">The signature list being changed</param>
+		/// <param name="args">The event args specifing the event in more detail</param>
 		void SignatureListChangeEventHandler(object sender, SignatureListChangeEventArgs args);
 	}
 	
-	public class SignatureWithRoleListChangeEventArgs
+	/// <summary>
+	/// This is a class used as event arguments for ExternalSignatureListChangeEvents.
+	/// </summary>
+	public class ExternalSignatureListChangeEventArgs
 	{
-		protected ChangeTimeEnum time;
-		protected ChangeTypeEnum type;
-		protected bool actionAllowed = true;
-		protected Exception abortException;
-		protected ISignatureWithRole signature;
+		private ChangeTimeEnum time;
+		private ChangeTypeEnum type;
+		private IExternalSignature signature;
 
-		public ISignatureWithRole Signature
+		/// <summary>
+		/// The signature being added or deleted from the signature list raising the event
+		/// </summary>
+		public IExternalSignature Signature
 		{
 			get
 			{
 				return signature;
 			}
 		}
-		 
+		
+		/// <summary>
+		/// Point in the process when this event occured
+		/// </summary> 
 		public ChangeTimeEnum ChangeTime
 		{
 			get
@@ -118,6 +136,9 @@ namespace Palladio.ComponentModel
 			}
 		}
 
+		/// <summary>
+		/// Kind of the change made to the signature list raising the event
+		/// </summary>
 		public ChangeTypeEnum ChangeType
 		{
 			get
@@ -126,31 +147,13 @@ namespace Palladio.ComponentModel
 			}
 		}
 
-		public bool ActionAllowed 
-		{
-			get
-			{
-				return actionAllowed;
-			}
-			set
-			{
-				actionAllowed = value;
-			}
-		}
-
-		public Exception ReasonForAbort
-		{
-			get
-			{
-				return abortException;
-			}
-			set
-			{
-				abortException = value;
-			}
-		}
-		
-		public SignatureWithRoleListChangeEventArgs(ISignatureWithRole sig, ChangeTimeEnum time, ChangeTypeEnum type)
+		/// <summary>
+		/// Default constructor
+		/// </summary>
+		/// <param name="sig">The signature being added or deleted</param>
+		/// <param name="time">The state of the process</param>
+		/// <param name="type">Is the signature added or deleted</param>
+		public ExternalSignatureListChangeEventArgs(IExternalSignature sig, ChangeTimeEnum time, ChangeTypeEnum type)
 		{
 			this.time = time;
 			this.type = type;
@@ -158,13 +161,24 @@ namespace Palladio.ComponentModel
 		}
 	}
 
-	public delegate void SignatureWithRoleListChangeEventHandler(object sender, SignatureWithRoleListChangeEventArgs args);
+	/// <summary>
+	/// The event delegate for ExternalSignatureListChangeEvents
+	/// </summary>
+	public delegate void ExternalSignatureListChangeEventHandler(object sender, ExternalSignatureListChangeEventArgs args);
 
 	/// <summary>
-	/// Summary description for IAuxiliaryInformation.
+	/// Auxiliary information is additional specification data attached to a certain
+	/// interface model. For example protocol information specified by the means
+	/// of FSMs, Petri Nets, .... or constraints given as pre- and postconditions or
+	/// OCL constraints.<br />
+	/// Implement this interface if you want to add further additional specification data
+	/// to an interface model.
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.2  2004/06/09 12:36:30  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.1  2004/06/03 14:37:28  sbecker
 	/// Added the possibility to attach auxiliary specifications to a basic component
 	///
@@ -172,6 +186,14 @@ namespace Palladio.ComponentModel
 	/// </pre></remarks>
 	public interface IAuxiliaryServiceEffectSpecification
 	{
-		void SignatureWithRoleListChangeEventHandler(object sender, SignatureWithRoleListChangeEventArgs args);
+		/// <summary>
+		/// Event handler handling notifications of changes in the underlying signature list.
+		/// This event handler is for implementing an observer pattern on the signature list so that
+		/// any kind of auxiliary information can stay consistend. For example, an FSM protocol
+		/// automaton used this events to update its input symbol set accordingly. 
+		/// </summary>
+		/// <param name="sender">The signature list being changed</param>
+		/// <param name="args">The event args specifing the event in more detail</param>
+		void ExternalSignatureListChangeEventHandler(object sender, ExternalSignatureListChangeEventArgs args);
 	}
 }

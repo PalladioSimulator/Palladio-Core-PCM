@@ -15,6 +15,9 @@
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/06/09 12:36:31  sbecker
+	/// Fixed documentation and renamed IExternalSignature
+	///
 	/// Revision 1.1  2004/06/03 14:37:29  sbecker
 	/// Added the possibility to attach auxiliary specifications to a basic component
 	///
@@ -113,7 +116,18 @@
 
 		public void <%= SignatureListType %>ChangeEventHandler(object sender, <%= SignatureListType %>ChangeEventArgs args)
 		{
-			// TODO: Add consistency checks!
+			if (args.ChangeTime == ChangeTimeEnum.BEFORE)
+			{
+				switch (args.ChangeType)
+				{
+					case ChangeTypeEnum.ADD:
+						EditFSM.AddInputSymbols(FSMFactory.CreateInputFromList(args.Signature).StoredInputs);
+						break;
+					case ChangeTypeEnum.DELETE:
+						EditFSM.DeleteInputSymbols(FSMFactory.CreateInputFromList(args.Signature).StoredInputs);
+						break;
+				}
+			}
 		}
 
 		/// <summary>
@@ -133,6 +147,10 @@
 			return other.FSM.Equals(this.FSM);
 		}
 
+		public override int GetHashCode()
+		{
+			return (fsm == null ? 0 : fsm.GetHashCode());
+		}
 		#endregion
 
 		#region Constructors

@@ -41,7 +41,10 @@ namespace Palladio.ComponentModel
 		{
 			get;
 		}
-
+		
+		/// <summary>
+		/// Return the signatures which can be used as input alphabeth for the FSM
+		/// </summary>
 		ISignature[] Signatures 
 		{
 			get;
@@ -76,8 +79,11 @@ namespace Palladio.ComponentModel
 		{
 			get;
 		}
-
-		ISignatureWithRole[] Signatures 
+		
+		/// <summary>
+		/// Return the signatures which can be used as input alphabeth for the FSM
+		/// </summary>
+		IExternalSignature[] Signatures 
 		{
 			get;
 		}

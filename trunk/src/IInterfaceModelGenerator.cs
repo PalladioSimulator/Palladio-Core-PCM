@@ -64,7 +64,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// A list of signatures contained in this IServiceEffectSpecification
 		/// </summary>
-		ISignatureWithRoleList SignatureList
+		IExternalSignatureList SignatureList
 		{
 			get;
 		}

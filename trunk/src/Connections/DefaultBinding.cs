@@ -20,6 +20,11 @@ namespace Palladio.ComponentModel.Connections
 			if (!(obj is DefaultBinding)) return false;
 			return base.Equals (obj);
 		}
+		
+		public override int GetHashCode()
+		{
+			return base.GetHashCode();
+		}
 
 		public override object Clone()
 		{
