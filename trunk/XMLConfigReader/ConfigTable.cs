@@ -6,11 +6,13 @@ namespace XMLConfigReader
 	/// <summary>
 	/// A ConfigTable contains config items in a key-value representation. It is based on a Hashtable.
 	/// Deutsch: Auch hier zum besseren Verständis ein Beispiel:
+	/// <code>
 	/// <settings>
 	///		<item1>value of item one</item1>
 	///		<item2>value of item two</item2>
 	///		....
 	/// </settings>
+	/// </code>
 	/// A ConfigTable, which root element is setting will contain the following values
 	/// item1	value of item 1
 	/// item2	value of item 2

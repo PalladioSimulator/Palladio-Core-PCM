@@ -38,7 +38,30 @@ namespace XMLConfigReader
 			XmlTextReader xtr = new XmlTextReader(new StringReader(xmlContent));
 			this.doc = new XmlDocument();
 			this.doc.Load(xtr);
+			
 		}
+
+		public SimpleConfigList GetSimpleConfigLidt(string tagValue, string item)
+		{
+			SimpleConfigList ConfigList = new SimpleConfigList();
+			ConfigList.Name = tagValue;
+
+			XmlNodeList node = this.doc.GetElementsByTagName(tagValue);
+			foreach(XmlNode n in node)
+			{
+				XmlNodeList list = n.ChildNodes;
+				foreach(XmlNode d in list)
+				{
+					ConfigList.Add(d[item].ToString());
+				}
+			}
+			foreach(DictionaryEntry di in ConfigList)
+			{
+				Console.WriteLine(di.Value.ToString());
+			}
+			return ConfigList;
+		}
+
 
 		/// <summary>
 		/// Creates a <c>ConfigList</c> which root element is tagValue.

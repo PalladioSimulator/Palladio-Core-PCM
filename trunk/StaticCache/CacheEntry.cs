@@ -1,6 +1,6 @@
 using System;
 
-namespace StaticCache
+namespace Cache
 {
 	/// <summary>
 	/// Zusammenfassung für CacheEntry.

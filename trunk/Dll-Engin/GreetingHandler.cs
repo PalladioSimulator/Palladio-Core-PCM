@@ -22,11 +22,15 @@ namespace DLL_Engin
 		{
 			if(Responseable(request))
 			{
+				Console.WriteLine("Grreting Responsable");
 				this.userInput = userInput;
 				ComputeResult();
 				return this;
 			}
-			else return this.sucessor.DeliverDll(request,userInput,ref db);
+			else 
+			{
+				return this.sucessor.DeliverDll(request,userInput,ref db);
+			}
 		}
 
 		public void  ComputeResult()
@@ -37,7 +41,7 @@ namespace DLL_Engin
 			
 		internal bool Responseable(HttpRequest r)
 		{
-			if(r.URI.IndexOf("dynamic.htm")!=-1 && r.RequestedMethod =="GET")
+			if(r.URI.IndexOf("greeting.htm")!=-1 && r.RequestedMethod =="GET")
 			{
 				return true;
 			}
@@ -47,7 +51,10 @@ namespace DLL_Engin
 		public IDLL Sucessor
 		{
 			get{return this.sucessor;}
-			set{this.sucessor = value;}
+			set{
+				this.sucessor = value;
+				}
+
 		}
 
 		public string Result()

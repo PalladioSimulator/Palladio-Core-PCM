@@ -12,6 +12,10 @@
 		<ConfigFile>ConfigRequestProzessor.xml</ConfigFile>
 	</Component>
 	<Component>
+		<name>Cache</name>
+		<ConfigFile>ConfigStaticCache.xml</ConfigFile>
+	 </Component>
+	<Component>
 		<name></name>
 		<ConfigFile></ConfigFile>
 	 </Component>

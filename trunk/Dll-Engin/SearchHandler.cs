@@ -20,13 +20,17 @@ namespace DLL_Engin
 		{
 			if(Responseable(request))
 			{
+				Console.WriteLine("Search Handler verantwortlich");
 				this.userInput = userInput;
 				this.userInput.Remove("Submit");
 				this.db = db;
 				ComputeResult();
 				return this;
 			}
-			else return this.sucessor.DeliverDll(request,userInput,ref db);
+			else
+			{
+				return this.sucessor.DeliverDll(request,userInput,ref db);
+			}
 		}
 
 		public void  ComputeResult()
@@ -47,7 +51,10 @@ namespace DLL_Engin
 		public IDLL Sucessor
 		{
 			get{return this.sucessor;}
-			set{this.sucessor = value;}
+			set
+			{
+				this.sucessor = value;
+			}
 		}
 
 		public string Result()

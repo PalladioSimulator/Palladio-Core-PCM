@@ -35,11 +35,11 @@ namespace ComponentWebServer
 			//Intanz components which fullfill the DeliverResponse Interface;
 			StaticFileProvider.StaticFileProviderComponent staticFileProvider = new StaticFileProvider.StaticFileProviderComponent();
 
-
+			object contentProvider = (object) staticFileProvider;
 			
 			requestProzessor.ResponseHandler.AddAditionalHandler(new Delivery.ErrorHandler());
 			requestProzessor.ResponseHandler.AddAditionalHandler(new StaticFileProvider.StaticFileProviderComponent());
-			requestProzessor.ResponseHandler.AddAditionalHandler(new StaticCache.StaticCacheComponent(ref staticFileProvider));
+			requestProzessor.ResponseHandler.AddAditionalHandler(new Cache.CacheComponent( ref contentProvider,ct["configFileDir"].ToString()+components["Cache"].ToString(),Cache.CacheComponent.CacheStrategie.leastFrequentlyUsed));
 			
 			//Parser
 			RequestParserComponent parser= new RequestParserComponent();

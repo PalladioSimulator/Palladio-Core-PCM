@@ -11,13 +11,20 @@ namespace DLL_Engin
 	public class ErrorDLL : IDLL
 	{
 		IDLL sucessor;
-		public ErrorDLL(Hashtable d)
+		public ErrorDLL()
 		{
 		}
 
 		public IDLL DeliverDll(HttpRequest t, Hashtable h,ref DBAcessComponent db)
 		{
-			return this;
+			Console.WriteLine("Error Handler wurde gefragt");
+			if(Responseable())
+			{
+				Console.WriteLine("Error Handler verantwortlich");
+				return this;
+			}
+			else
+				return this;
 		}
 		public string Result()
 		{
@@ -27,7 +34,12 @@ namespace DLL_Engin
 		public IDLL Sucessor
 		{
 			get{return this.sucessor;}
-			set{this.sucessor=value;}
+			set{
+				this.sucessor=value;}
+		}
+		protected bool Responseable()
+		{
+			return true;
 		}
 	}
 }

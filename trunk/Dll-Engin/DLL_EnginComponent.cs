@@ -15,6 +15,7 @@ namespace DLL_Engin
 	public class DLL_EnginComponent :IDeliverResponse
 	{
 		IDLL actualHandler;
+		IDLL firstInCain;
 		IDeliverResponse sucessor;
 		DBAcessComponent db;
 
@@ -25,7 +26,11 @@ namespace DLL_Engin
 		{
 			if(r.UserInput!=null || r is HttpPostRequest || r.URI.IndexOf("userStatictics.htm")!=-1) 
 			{
+				this.actualHandler = this.firstInCain;
+				if(r.UserInput == null)
+					r.UserInput= new Hashtable();
 				this.actualHandler = this.actualHandler.DeliverDll(r,r.UserInput,ref this.db);
+				//dings = dings.DeliverDll
 				this.ComputeResult();
 				return this;
 			}
@@ -40,10 +45,16 @@ namespace DLL_Engin
 		public DLL_EnginComponent()
 		{
 			this.db = new DBAcessComponent();
-			this.actualHandler = new AdDBHandler();
-			this.AddHandler(new SearchHandler());
+//			this.actualHandler = new AdDBHandler();
+//			this.actualHandler = new ErrorDLL();
+			this.AddHandler(new ErrorDLL());
 			this.AddHandler(new UserStasHandler());
-			this.AddHandler(new GreetingHandler());
+			this.AddHandler(new AdDBHandler());
+			this.AddHandler(new SearchHandler());
+			this.firstInCain = new GreetingHandler();
+			this.AddHandler(this.firstInCain);
+			
+			;
 		}
 
 		public byte[] GetResponse
@@ -60,8 +71,12 @@ namespace DLL_Engin
 		}
 		public IDeliverResponse Sucessor
 		{
-			get{return this.sucessor;}
-			set{this.sucessor = value;}
+			get{
+				Console.WriteLine("DLl Engin Sucesor wurde aufgerufen");
+				return this.sucessor;}
+			set{
+				Console.WriteLine("Dll Engin sucessor wurde manipuliert \a");
+				this.sucessor = value;}
 		}
 		public void AddHandler(IDLL newHandler)
 		{

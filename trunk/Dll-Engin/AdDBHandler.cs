@@ -20,16 +20,19 @@ namespace DLL_Engin
 
 		
 
-		public IDLL DeliverDll(HttpRequest t, Hashtable h,ref DBAcessComponent db)
+		public IDLL DeliverDll(HttpRequest t, Hashtable userInput,ref DBAcessComponent db)
 		{
 			if(Responseable(t))
 			{
+				Console.WriteLine("Error Handler verantwortlich");
 				this.request = (HttpPostRequest) t;
 				this.db = db;
 				return this;
 			}
 			else
-				return this.sucessor.DeliverDll(t,h,ref db);
+			{
+				return this.sucessor.DeliverDll(t,userInput,ref db);
+			}
 		}
 		internal bool Responseable(HttpRequest r)
 		{
@@ -43,7 +46,8 @@ namespace DLL_Engin
 		public IDLL Sucessor
 		{
 			get{return this.sucessor;}
-			set{this.sucessor = value;}
+			set{
+				this.sucessor = value;}
 		}
 
 		public string Result()

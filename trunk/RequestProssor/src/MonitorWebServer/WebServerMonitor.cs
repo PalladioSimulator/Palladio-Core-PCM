@@ -24,7 +24,7 @@ namespace RequestProssor.MonitorWebServer
 		{
 			this.LogFileCounter =0;
 			this.FileCount =0;
-			this.requestToWrite=10;
+			this.requestToWrite=100;
 			this.log ="";
 			this.tempLog = new ArrayList();
 			this.db = new DBAcessComponent();
@@ -124,22 +124,11 @@ namespace RequestProssor.MonitorWebServer
 			{
 				Console.WriteLine("Log Lost");
 			}
-//			this.log = log +s+"\n";
-//			this.LogFileCounter ++;
-//			if(this.LogFileCounter>=1000)
-//			{
-//				StoreLog();
-//			}
 		}
 
 		public static void Log (String logMessage, TextWriter w)
 		{
-//			w.Write("\r\nLog Entry : ");
-			//		w.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(),
-			//		DateTime.Now.ToLongDateString());
-			//		w.WriteLine("  :");
 			w.WriteLine(logMessage);
-//			w.WriteLine ("-------------------------------");
 			// Update the underlying file.
 			w.Flush(); 
 		}
@@ -156,18 +145,7 @@ namespace RequestProssor.MonitorWebServer
 			this.LogFileCounter =0;
 			this.FileCount++;
 		}
-//		public static void Log (String logMessage, TextWriter w)
-//		{
-////			w.Write("\r\nLog Entry : ");
-////			w.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(),
-////				DateTime.Now.ToLongDateString());
-////			w.WriteLine("  :");
-////			w.WriteLine("  :{0}", logMessage);
-//			w.WriteLine(logMessage);
-//			w.WriteLine ("-------------------------------");
-//			// Update the underlying file.
-//			
-//		}
+
 		public static void DumpLog (StreamReader r)
 		{
 			// While not at the end of the file, read and write lines.

@@ -37,6 +37,8 @@ namespace StaticFileProvider
 		public StaticFileProviderComponent()
 		{
 		}
+
+
 		public IDeliverResponse DeliverResonse(HttpRequest r,string path)
 		{
 			this.request = r;

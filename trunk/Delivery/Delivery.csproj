@@ -29,7 +29,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = ""
+                    DocumentationFile = "Delivery.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -92,11 +92,6 @@
                     RelPath = "AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Delivery.txvpck"
-                    Link = "..\ComponentWebServer-BaseVersion\LibrarySupport\Delivery\Delivery\Delivery.txvpck"
-                    BuildAction = "None"
                 />
                 <File
                     RelPath = "ErrorHandler.cs"

@@ -7,6 +7,7 @@ namespace XMLConfigReader
 	/// Deutsch: Erstellt eine Liste von Key Value Paaren. Besonders ist, dass es sich bei
 	/// diesern Liste um einen Unterkonten der XML Congig Datei handelt. 
 	/// Zum besseren Verständnis ein Beispiel:
+	/// <code>
 	/// <meineConfigDatei>
 	///		<andererEinfacherKram>ein Einzelwert</andererEinfacherKram>
 	///		<meineListe>
@@ -20,6 +21,7 @@ namespace XMLConfigReader
 	///			</item>
 	///		</meineListe>
 	/// </meineConfigDatei>
+	/// </code>
 	/// Diese Metode würde als TagValue meine Liste erhalten. Und würde dann eine
 	/// ConfigList mit folgenden Werten zurückgeben:
 	/// erster Schluessel	erster Wert

@@ -44,13 +44,7 @@ namespace RequestProssor
 			this.settings = new ServerSettings(configFilePath);
 
 			this.responseHandler = new DeliveresponseHandler();
-			
-//			this.responseHandler.AddAditionalHandler(new DLL_Engin.DLL_EnginComponent());
-//			this.responseHandler.AddAditionalHandler(new BibTexAnalyzerComponent());
-//			this.responseHandler.AddAditionalHandler(new StaticFileProviderComponent());
-//			
 			this.errorHandler = new ErrorHandler();
-
 			this.testMoni = new Monitor();
 			this.realMonitor = new WebServerMonitor();
 			
@@ -64,11 +58,7 @@ namespace RequestProssor
 
 		public void ServeRequest(HttpRequest r)
 		{
-			//loadMapping
-
 			HttPResponse res = new HttPResponse();
-			
-			
 			try
 			{
 				
@@ -90,15 +80,16 @@ namespace RequestProssor
 				res.StatusCode=" 404 File Not Found";
 
 			}
-			catch(Exception e)
-			{
-				Console.WriteLine(e.Message);
-				Console.WriteLine(e.GetType());
-				Console.WriteLine(e.Source);
-				res.MessageByte = this.errorHandler.GenerateErrorMessage(" 505 Server Problems ");
-				res.FileSize= res.MessageByte.Length;
-				res.StatusCode=" 505 Server Problems ";
-			}
+//			catch(Exception e)
+//			{
+//				Console.WriteLine(e.Message);
+//				Console.WriteLine(e.GetType());
+//				Console.WriteLine(e.Source);
+//				Console.WriteLine(e.StackTrace);
+//				res.MessageByte = this.errorHandler.GenerateErrorMessage(" 505 Server Problems ");
+//				res.FileSize= res.MessageByte.Length;
+//				res.StatusCode=" 505 Server Problems ";
+//			}
 			this.send = new Sender(r,res,this.zipRequested);
 			this.testMoni.RequestServed(r,res);
 		}
