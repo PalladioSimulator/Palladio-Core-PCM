@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.6  2004/07/20 08:49:54  joemal
+	/// xxx
+	///
 	/// Revision 1.5  2004/06/23 16:32:59  joemal
 	/// - add a properties for the observer
 	///
@@ -128,7 +131,7 @@ namespace ComponentNetworkSimulation.Simulation
 		{
 			get
 			{
-				return base.IsAlive || this.currentPeriodTime > 0;
+				return (base.IsAlive || this.currentPeriodTime > 0) && this.isStarted;
 			}
 		}
 
