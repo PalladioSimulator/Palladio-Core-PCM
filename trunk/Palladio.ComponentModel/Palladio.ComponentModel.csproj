@@ -120,161 +120,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\AuxiliaryInformationEnums.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ComponentFactory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IAssemblyConnector.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IBasicComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ICompositeComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IConnection.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IDelegationConnector.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IFSMInterface.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IFSMServiceEffect.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IInterfaceModel.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IParameter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IProtocolInformation.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IRole.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IService.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IServiceEffectSpecification.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IServiceInformation.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IServiceList.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ISigMatch.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ISignature.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ISignatureList.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Components\AbstractComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Components\BasicComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Components\CompositeComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Components\DefaultRole.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Connections\DefaultAssemblyConnector.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Connections\DefaultConnection.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Connections\DefaultDelegationConnector.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\ComponentHasIncomingConnectionsException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\ComponentHasOutgoingConnectionsException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Exceptions\ComponentModelException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -285,87 +130,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Exceptions\ConnectionNotFoundException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\DeserializationException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\FSMNotProtocolAutomatonException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\HasIncomingDelegationConnectionsException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\HasOutgoingDelegationConnectionsException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\InvalidRoleException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\MissingRequirementException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\MissingRoleIDException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\NoInterfaceForRoleException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\NullNotAllowedException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\ProvidesInterfaceNotInDelegationConnectorException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\RoleIDAlreadySpecifiedException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\RoleIDMissmatchException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\RoleIDNotFoundException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\ServiceEffectAlreadySpecifiedException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\ServiceHasNoServEffSpec.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Exceptions\SignatureNotFoundException.cs"
+                    RelPath = "src\Exceptions\EntityAlreadyExistsException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -375,157 +140,161 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\InterfaceModels\DefaultInterfaceModel.cs"
+                    RelPath = "src\Exceptions\WrongComponentTypeException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\InterfaceModels\DefaultSignatureList.cs"
+                    RelPath = "src\Identifier\EntityIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\InterfaceModels\FSMInterface.cs"
+                    RelPath = "src\Identifier\IComponentIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ServiceEffects\DefaultServiceEffectSpecification.cs"
+                    RelPath = "src\Identifier\IConnectionIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ServiceEffects\DefaultServiceList.cs"
+                    RelPath = "src\Identifier\IInterfaceIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ServiceEffects\FSMServiceEffect.cs"
+                    RelPath = "src\Identifier\IProtocolIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Signature\DefaultService.cs"
+                    RelPath = "src\Identifier\ISignatureIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Signature\DefaultSignature.cs"
+                    RelPath = "src\ModelDataManagement\ILowLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Signature\Parameter.cs"
+                    RelPath = "src\ModelDataManagement\LowLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Signature\ReflectedType.cs"
+                    RelPath = "src\ModelDataManagement\ModelConstrainsCheck.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\TypedCollections\ArrayList.cst"
-                    BuildAction = "None"
+                    RelPath = "src\ModelDataManagement\ModelDataManager.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\TypedCollections\ConnectionDataSet.xsd"
+                    RelPath = "src\ModelDataManagement\ModelDataSet.xsd"
                     BuildAction = "Content"
                     Generator = "MSDataSetGenerator"
-                    LastGenOutput = "ConnectionDataSet.cs"
+                    LastGenOutput = "ModelDataSet.cs"
                 />
                 <File
-                    RelPath = "src\TypedCollections\ConnectionDataSet.cs"
-                    DependentUpon = "ConnectionDataSet.xsd"
+                    RelPath = "src\ModelDataManagement\ModelDataSet.cs"
+                    DependentUpon = "ModelDataSet.xsd"
                     SubType = "code"
                     BuildAction = "Compile"
                     DesignTime = "True"
                     AutoGen = "True"
                 />
                 <File
-                    RelPath = "src\TypedCollections\ConnectionDataSet.xsx"
-                    DependentUpon = "ConnectionDataSet.xsd"
+                    RelPath = "src\ModelDataManagement\ModelDataSet.xsx"
+                    DependentUpon = "ModelDataSet.xsd"
                     BuildAction = "None"
                 />
                 <File
-                    RelPath = "src\TypedCollections\DictionaryList.cst"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\TypedCollections\Hashmap.cst"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\TypedCollections\HashmapGenerator.xml"
-                    BuildAction = "Content"
-                    Generator = "CodeSmithGenerator"
-                    LastGenOutput = "HashmapGenerator.cs"
-                />
-                <File
-                    RelPath = "src\TypedCollections\HashmapGenerator.cs"
-                    DependentUpon = "HashmapGenerator.xml"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                    DesignTime = "True"
-                    AutoGen = "True"
-                />
-                <File
-                    RelPath = "src\TypedCollections\Hashtable.cst"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\TypedCollections\IDictionary.cst"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\TypedCollections\IList.cst"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\TypedCollections\SortedList.cst"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\TypedCollections\Stack.cst"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\UnitTests\BasicComponentTest.cs"
+                    RelPath = "src\ModelEntities\EntityFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\UnitTests\CompositeComponentTest.cs"
+                    RelPath = "src\ModelEntities\IComponent.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\UnitTests\FactoryTest.cs"
+                    RelPath = "src\ModelEntities\IComponentModelEntity.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\UnitTests\FSMProtocolTest.cs"
+                    RelPath = "src\ModelEntities\IConnection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\UnitTests\ParameterTest.cs"
+                    RelPath = "src\ModelEntities\IInterface.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\UnitTests\ReflectedTypeTest.cs"
+                    RelPath = "src\ModelEntities\IParameter.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\UnitTests\SignatureListTest.cs"
+                    RelPath = "src\ModelEntities\IProtocol.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\UnitTests\SignatureTest.cs"
+                    RelPath = "src\ModelEntities\ISignature.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEntities\IType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEntities\Impl\AbstractEntity.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEntities\Impl\DefaultComponent.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEntities\Impl\DefaultConnection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEntities\Impl\DefaultInterface.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEntities\Impl\DefaultSignature.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEntities\Impl\Parameter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEntities\Impl\ReflectedType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\LowLevelBuilderTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

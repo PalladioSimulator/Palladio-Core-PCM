@@ -99,17 +99,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "DefaultIdentifiable.cs"
+                    RelPath = "DefaultGUIDIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "GloballyUniqueIdentifier.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IdentifiableFactory.cs"
+                    RelPath = "EntityHashtable.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -120,11 +115,6 @@
                 />
                 <File
                     RelPath = "IIdentifier.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "StringIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -1,17 +1,19 @@
 using System;
-using System.Collections;
 
 namespace Palladio.Identifier
 {
 	/// <summary>
 	/// Interface for Identifier types. If you want to create a new ID type implement this
-	/// interface and a factory for it.
+	/// interface.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/03/15 12:35:15  joemal
+	/// the refactoring of the componentmodel
+	///
 	/// Revision 1.1  2005/02/21 12:15:57  joemal
 	/// initial import
 	///
@@ -21,22 +23,18 @@ namespace Palladio.Identifier
 	public interface IIdentifier : ICloneable
 	{
 		/// <summary>
-		/// Return true if two IDs are equal
+		/// returns a string that represents the id.
 		/// </summary>
-		/// <param name="aID">The ID to compare to</param>
-		/// <returns>true if the IDs are equal</returns>
-		bool Equals(object aID);
+		string Key
+		{
+			get;			
+		}
 
 		/// <summary>
-		/// Format the ID to a string representation (for display or debugging purposes)
+		/// determ whether the given string matchs to this id.
 		/// </summary>
-		/// <returns>A string representation of the ID</returns>
-		string ToString();
-
-		/// <summary>
-		/// Calculate a hash code for the ID
-		/// </summary>
-		/// <returns>The hashcode of this ID</returns>
-		int GetHashCode();
+		/// <param name="key">the key that represents an id</param>
+		/// <returns>true, if the given key matchs to this id</returns>
+		bool Match(string key);
 	}
 }
