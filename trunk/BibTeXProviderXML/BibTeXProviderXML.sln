@@ -1,0 +1,40 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTeXProviderXML", "BibTeXProviderXML.csproj", "{CBAF9A43-5EE7-7344-934C-7267B94B0310}"
+	ProjectSection(ProjectDependencies) = postProject
+		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6} = {03AAA791-EC2D-4A90-ABBF-45337E52DFD6}
+		{D43E6C54-2DF5-454E-9566-DFFE2F3A6946} = {D43E6C54-2DF5-454E-9566-DFFE2F3A6946}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AltovaXML", "..\AltovaXML\AltovaXML.csproj", "{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D43E6C54-2DF5-454E-9566-DFFE2F3A6946} = {D43E6C54-2DF5-454E-9566-DFFE2F3A6946}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altova", "..\Altova\Altova.csproj", "{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{CBAF9A43-5EE7-7344-934C-7267B94B0310}.Debug.ActiveCfg = Debug|.NET
+		{CBAF9A43-5EE7-7344-934C-7267B94B0310}.Debug.Build.0 = Debug|.NET
+		{CBAF9A43-5EE7-7344-934C-7267B94B0310}.Release.ActiveCfg = Release|.NET
+		{CBAF9A43-5EE7-7344-934C-7267B94B0310}.Release.Build.0 = Release|.NET
+		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}.Debug.ActiveCfg = Debug|.NET
+		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}.Debug.Build.0 = Debug|.NET
+		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}.Release.ActiveCfg = Release|.NET
+		{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}.Release.Build.0 = Release|.NET
+		{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}.Debug.ActiveCfg = Debug|.NET
+		{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}.Debug.Build.0 = Debug|.NET
+		{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}.Release.ActiveCfg = Release|.NET
+		{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -79,6 +79,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTeXProvider", "..\BibTeX
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTeXProviderXML", "..\BibTeXProviderXML\BibTeXProviderXML.csproj", "{CBAF9A43-5EE7-7344-934C-7267B94B0310}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -165,6 +169,10 @@ Global
 		{8A2CD829-4510-4CB9-838C-F8C769763095}.Debug.Build.0 = Debug|.NET
 		{8A2CD829-4510-4CB9-838C-F8C769763095}.Release.ActiveCfg = Release|.NET
 		{8A2CD829-4510-4CB9-838C-F8C769763095}.Release.Build.0 = Release|.NET
+		{CBAF9A43-5EE7-7344-934C-7267B94B0310}.Debug.ActiveCfg = Debug|.NET
+		{CBAF9A43-5EE7-7344-934C-7267B94B0310}.Debug.Build.0 = Debug|.NET
+		{CBAF9A43-5EE7-7344-934C-7267B94B0310}.Release.ActiveCfg = Release|.NET
+		{CBAF9A43-5EE7-7344-934C-7267B94B0310}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

@@ -3,13 +3,13 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{8A2CD829-4510-4CB9-838C-F8C769763095}"
+        ProjectGuid = "{CBAF9A43-5EE7-7344-934C-7267B94B0310}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "BibTeXProvider"
+                AssemblyName = "BibTeXProviderXML"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "Palladio.Webserver.BibTeXProvider"
+                RootNamespace = "BibTeXProviderXML"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -32,7 +32,7 @@
                     DocumentationFile = ""
                     DebugSymbols = "true"
                     FileAlignment = "4096"
-                    IncrementalBuild = "false"
+                    IncrementalBuild = "true"
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "false"
@@ -67,87 +67,27 @@
                 <Reference
                     Name = "System"
                     AssemblyName = "System"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                    HintPath = "..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
                 />
                 <Reference
                     Name = "System.Data"
                     AssemblyName = "System.Data"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                    HintPath = "..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
                     Name = "System.XML"
                     AssemblyName = "System.Xml"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    HintPath = "..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "HTTPRequestProcessor"
-                    Project = "{61580AC2-47F7-4183-B96E-385B39CE5D26}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "WebserverMonitor"
-                    Project = "{17051EB1-494F-4029-AE3B-BA4334E9EB0F}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "ConfigReader"
-                    Project = "{749CB836-B6B7-42F5-9998-11B21736E143}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "Request"
-                    Project = "{CA375D44-037E-4023-8FC7-4E61C73D778E}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "BibTeXParser"
-                    AssemblyName = "BibTeXParser"
-                    HintPath = "..\Libraries\BibTeX\BibTeXParser.dll"
-                />
-                <Reference
-                    Name = "BibTeXModifier"
-                    AssemblyName = "BibTeXModifier"
-                    HintPath = "..\Libraries\BibTeX\BibTeXModifier.dll"
-                />
-                <Reference
-                    Name = "BibTeX Formater"
-                    AssemblyName = "BibTeX Formater"
-                    HintPath = "..\Libraries\BibTeX\BibTeX Formater.dll"
-                />
-                <Reference
-                    Name = "ReflectionBasedVisitor"
-                    AssemblyName = "ReflectionBasedVisitor"
-                    HintPath = "..\Libraries\BibTeX\ReflectionBasedVisitor.dll"
-                />
-                <Reference
-                    Name = "System.Drawing"
-                    AssemblyName = "System.Drawing"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
-                />
-                <Reference
-                    Name = "System.Windows.Forms"
-                    AssemblyName = "System.Windows.Forms"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
-                />
-                <Reference
-                    Name = "System.Web"
-                    AssemblyName = "System.Web"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.dll"
-                />
-                <Reference
-                    Name = "AltovaXML"
+                    Name = "Altova.XML"
                     Project = "{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "BibTeXProviderXML"
-                    Project = "{CBAF9A43-5EE7-7344-934C-7267B94B0310}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    Package = "{5D458EA4-4826-4648-A52F-CF3D0787600F}"
                 />
                 <Reference
                     Name = "Altova"
                     Project = "{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    Package = "{5D458EA4-4826-4648-A52F-CF3D0787600F}"
                 />
             </References>
         </Build>
@@ -159,12 +99,52 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\BibTeXProvider.cs"
+                    RelPath = "BibTeXProviderXMLDoc.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\BibTeXProviderConfiguration.cs"
+                    RelPath = "ConfigType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DataSourceType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DatabaseNameType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DatabaseTableNameType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ErrorMessageOnConnectionProblemsType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FieldNameType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FileType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "HandledFileTypesType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "SearchedBibTeXFieldNamesType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
