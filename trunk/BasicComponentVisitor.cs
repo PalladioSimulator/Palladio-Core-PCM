@@ -1,11 +1,13 @@
 using System;
 using Palladio.ComponentModel;
+using Palladio.FiniteStateMachines;
 
 namespace Palladio.CM.Example
 {
 	public class CallOnRequiresInterfaceEventArgs : ExternalCallNeededEventArgs
 	{
 		protected IBasicComponent component;
+		protected int lastLevel;
 
 		public IBasicComponent CallingComponent
 		{
@@ -15,10 +17,19 @@ namespace Palladio.CM.Example
 			}
 		}
 
-		public CallOnRequiresInterfaceEventArgs(IBasicComponent callingComponent, ISignature sig):base(sig)
+		public int LastLevel
+		{
+			get
+			{
+				return lastLevel;
+			}
+		}
+
+		public CallOnRequiresInterfaceEventArgs(IBasicComponent callingComponent, IMatchable sig, int lastLevel):base(sig)
 		{
 			this.component = callingComponent;
 			this.externalCall = sig;
+			this.lastLevel = lastLevel;
 		}
 	}
 
@@ -30,16 +41,19 @@ namespace Palladio.CM.Example
 	public class BasicComponentVisitor
 	{
 		protected IBasicComponent component;
+		protected int level;
 
 		public void ExternalCallHandler(object sender, ExternalCallNeededEventArgs args)
 		{
-			if (component.HasProvidesInterface(args.ExternalCall.RoleID))
+			IExternalSignature sig = (IExternalSignature)args.ExternalCall;
+
+			if (component.HasProvidesInterface(sig.RoleID))
 			{
-				VisitComponentMethod(args.ExternalCall);
+				VisitComponentMethod(sig);
 			}
-			else if (component.HasRequiresInterface(args.ExternalCall.RoleID))
+			else if (component.HasRequiresInterface(sig.RoleID))
 			{
-				CallOnRequiresInterfaceEvent(this,new CallOnRequiresInterfaceEventArgs(component,args.ExternalCall));
+				CallOnRequiresInterfaceEvent(this,new CallOnRequiresInterfaceEventArgs(component,args.ExternalCall,level));
 			}
 			else
 			{
@@ -47,19 +61,21 @@ namespace Palladio.CM.Example
 			}
 		}
 
-		public void VisitComponentMethod(ISignature sig)
+		public void VisitComponentMethod(IExternalSignature sig)
 		{
-			Console.WriteLine("Visit Component Method "+sig);
-			IFSMProtocol serviceEffect = (IFSMProtocol)component.GetServiceEffectSpecification(sig);
-			ProtocolVisitor fsmVisitor = new ProtocolVisitor(serviceEffect.FSM);
+			Console.WriteLine("".PadRight(level*2) + "Visit Component Method "+sig);
+			IServiceEffectSpecification seff = component.GetServiceEffectSpecification(sig);
+			IFSMServiceEffect serviceEffect = (IFSMServiceEffect)seff.GetAuxiliarySpecification(typeof(IFSMServiceEffect));
+			ProtocolVisitor fsmVisitor = new ProtocolVisitor(serviceEffect.FSM,level);
 			fsmVisitor.ExternalCallNeededEvent += new ExternalCallNeededEventHandler(this.ExternalCallHandler);
 			fsmVisitor.VisitIState(serviceEffect.FSM.StartState);
-			Console.WriteLine("End visit "+sig);
+			Console.WriteLine("".PadRight(level*2) + "End visit "+sig);
 		}
 
-		public BasicComponentVisitor(IBasicComponent basicComponent)
+		public BasicComponentVisitor(IBasicComponent basicComponent, int level)
 		{
 			component = basicComponent;
+			this.level = level;
 		}
 
 		public event CallOnRequiresInterfaceEventHandler CallOnRequiresInterfaceEvent;

@@ -1,5 +1,6 @@
 using System;
 using Palladio.ComponentModel;
+using Palladio.Identifier;
 
 namespace Palladio.CM.Example
 {
@@ -15,7 +16,8 @@ namespace Palladio.CM.Example
 		static void Main(string[] args)
 		{
 			ICompositeComponent example = (ICompositeComponent)CMBuilder.CreateCompositeComponent();
-			CompositeComponentVisitor visitor = new CompositeComponentVisitor(example,"P1");
+			CompositeComponentVisitor visitor = new CompositeComponentVisitor(example,
+				IdentifiableFactory.CreateStringID("P1"));
 			Console.ReadLine();
 		}
 	}
