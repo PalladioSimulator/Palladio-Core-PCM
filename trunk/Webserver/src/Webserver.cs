@@ -1,6 +1,8 @@
 using System;
 using System.IO;
 using Palladio.Webserver.ConfigReader;
+using Palladio.Webserver.Dispatcher;
+using Palladio.Webserver.RequestParser;
 using Palladio.Webserver.WebserverFactory;
 using Palladio.Webserver.WebserverMonitor;
 
@@ -15,6 +17,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/10/27 13:40:43  kelsaka
+	/// added component-interconnections; added tcp-listening
+	///
 	/// Revision 1.7  2004/10/27 05:52:49  kelsaka
 	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
 	///
@@ -58,7 +63,7 @@ namespace Palladio.Webserver
 		public static void Main(string[] args) 
 		{
 			Webserver webserver = new Webserver();
-			Console.WriteLine("# Webserver.Run started...");
+			Console.WriteLine("# Webserver.Run started... (Press CTRL + C to stop.)");
 			webserver.Run(args);
 			Console.WriteLine("# Webserver.Run exited...");
 			
@@ -109,12 +114,22 @@ namespace Palladio.Webserver
 			configReader.ReadConfiguration(DEFAULT_XML_CONFIGURATION_FILE);
 			IWebserverConfiguration webserverConfiguration = new WebserverConfiguration(configReader.GetRoot());
 
-			string[] f = webserverConfiguration.DefaultFileNames;
-
 			IWebserverMonitor webserverMonitor = webserverFactory.CreateWebserverMonitor(webserverConfiguration);
-
 			webserverMonitor.InitializeWriteAccess();
-			webserverMonitor.WriteDebugMessage("hallo", 2);
+			
+
+			// RequestProcessor-COR:
+			HTTPRequestProcessor.IHTTPRequestProcessor defaultHttpRequestProcessor = webserverFactory.CreateDefaultRequestProcessor(webserverMonitor, webserverConfiguration);
+			HTTPRequestProcessor.IHTTPRequestProcessor staticFileProvider = webserverFactory.CreateStaticFileProvider(defaultHttpRequestProcessor, webserverMonitor, webserverConfiguration);
+			
+			// RequestParser-COR:
+			IRequestParser defaultRequestParser = webserverFactory.CreateDefaultRequestParser(webserverMonitor, webserverConfiguration);
+			IRequestParser requestParser = webserverFactory.CreateHTTPRequestParser(staticFileProvider, defaultRequestParser, webserverMonitor, webserverConfiguration);
+			
+			IDispatcher dispatcher = webserverFactory.CreateDispatcher(requestParser,webserverMonitor, webserverConfiguration);
+			dispatcher.Run();
+			
+			
 			webserverMonitor.FinishWriteAccess();
 
 
