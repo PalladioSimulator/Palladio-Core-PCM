@@ -24,18 +24,17 @@ namespace Palladio.ComponentModel.InterfaceModels
 	internal class DefaultSignatureList : ISignatureList , ICloneable
 	{
 		#region Properties
-		
 		/// <summary>
-		/// Signatures of the interface.
+		/// The number of signature in this list
 		/// </summary>
-		public ISignature[] Signatures 
+		public int Count
 		{
 			get
 			{
-				return (ISignature[]) signatures.ToArray(typeof(ISignature));
+				return signatures.Count;
 			}
 		}
-
+		
 		/// <summary>
 		/// Indexer to access the sigantures easily.
 		/// </summary>
@@ -112,6 +111,15 @@ namespace Palladio.ComponentModel.InterfaceModels
 			return (ISignature[])result.ToArray(typeof(ISignature));
 		}
 
+		public ISignature[] GetSignatures()
+		{
+			return (ISignature[]) signatures.ToArray(typeof(ISignature));
+		}
+
+		public IEnumerator GetEnumerator()
+		{
+			return signatures.GetEnumerator();
+		}
 		
 		/// <summary>
 		/// This method is called by the <see cref="ReflectionBasedVisitor"/> to allow data
@@ -210,7 +218,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// </summary>
 		/// <param name="aSigList">SignatureList to copy.</param>
 		public DefaultSignatureList(DefaultSignatureList aSigList) :
-			this( aSigList.Attributes, aSigList.Signatures ) {}
+			this( aSigList.Attributes, aSigList.GetSignatures() ) {}
 
 		#endregion
 		
@@ -230,18 +238,17 @@ namespace Palladio.ComponentModel.InterfaceModels
 	internal class DefaultExternalSignatureList : IExternalSignatureList , ICloneable
 	{
 		#region Properties
-		
 		/// <summary>
-		/// Signatures of the interface.
+		/// The number of signature in this list
 		/// </summary>
-		public IExternalSignature[] Signatures 
+		public int Count
 		{
 			get
 			{
-				return (IExternalSignature[]) signatures.ToArray(typeof(IExternalSignature));
+				return signatures.Count;
 			}
 		}
-
+		
 		/// <summary>
 		/// Indexer to access the sigantures easily.
 		/// </summary>
@@ -318,6 +325,15 @@ namespace Palladio.ComponentModel.InterfaceModels
 			return (IExternalSignature[])result.ToArray(typeof(IExternalSignature));
 		}
 
+		public IExternalSignature[] GetSignatures()
+		{
+			return (IExternalSignature[]) signatures.ToArray(typeof(IExternalSignature));
+		}
+
+		public IEnumerator GetEnumerator()
+		{
+			return signatures.GetEnumerator();
+		}
 		
 		/// <summary>
 		/// This method is called by the <see cref="ReflectionBasedVisitor"/> to allow data
@@ -416,7 +432,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// </summary>
 		/// <param name="aSigList">SignatureList to copy.</param>
 		public DefaultExternalSignatureList(DefaultExternalSignatureList aSigList) :
-			this( aSigList.Attributes, aSigList.Signatures ) {}
+			this( aSigList.Attributes, aSigList.GetSignatures() ) {}
 
 		#endregion
 		

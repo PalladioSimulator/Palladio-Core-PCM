@@ -18,14 +18,14 @@ namespace Palladio.ComponentModel
 	/// A SignatureList is  an InterfaceModel just
 	/// containing a set of signatures.
 	/// </summary>
-	public interface ISignatureList : ICloneable
+	public interface ISignatureList : ICloneable, IEnumerable
 	{
 		#region Properties
 
 		/// <summary>
-		/// Signatures of the interface.
+		/// The number of signature in this list
 		/// </summary>
-		ISignature[] Signatures
+		int Count
 		{
 			get;
 		}
@@ -64,6 +64,12 @@ namespace Palladio.ComponentModel
 		/// <returns>All signatures with the given name, e.g. all overrides of a certain
 		/// signature</returns>
 		ISignature[] GetSignaturesByID( IIdentifier aName );
+
+		/// <summary>
+		/// Returns the complete set of signatures belonging to this signature list
+		/// </summary>
+		/// <returns>A complete set of signatures belonging to this signature list</returns>
+		ISignature[] GetSignatures();
 		
 		/// <summary>
 		/// This event is raised before and after a change of the signatures in this list
@@ -79,14 +85,14 @@ namespace Palladio.ComponentModel
 	/// A SignatureList is  an InterfaceModel just
 	/// containing a set of signatures.
 	/// </summary>
-	public interface IExternalSignatureList : ICloneable
+	public interface IExternalSignatureList : ICloneable, IEnumerable
 	{
 		#region Properties
 
 		/// <summary>
-		/// Signatures of the interface.
+		/// The number of signature in this list
 		/// </summary>
-		IExternalSignature[] Signatures
+		int Count
 		{
 			get;
 		}
@@ -125,6 +131,12 @@ namespace Palladio.ComponentModel
 		/// <returns>All signatures with the given name, e.g. all overrides of a certain
 		/// signature</returns>
 		IExternalSignature[] GetSignaturesByID( IIdentifier aName );
+
+		/// <summary>
+		/// Returns the complete set of signatures belonging to this signature list
+		/// </summary>
+		/// <returns>A complete set of signatures belonging to this signature list</returns>
+		IExternalSignature[] GetSignatures();
 		
 		/// <summary>
 		/// This event is raised before and after a change of the signatures in this list

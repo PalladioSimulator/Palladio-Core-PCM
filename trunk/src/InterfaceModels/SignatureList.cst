@@ -11,18 +11,17 @@
 	internal class Default<%= ClassName %> : I<%= ClassName %> , ICloneable
 	{
 		#region Properties
-		
 		/// <summary>
-		/// Signatures of the interface.
+		/// The number of signature in this list
 		/// </summary>
-		public <%= ContainedSignatureType %>[] Signatures 
+		public int Count
 		{
 			get
 			{
-				return (<%= ContainedSignatureType %>[]) signatures.ToArray(typeof(<%= ContainedSignatureType %>));
+				return signatures.Count;
 			}
 		}
-
+		
 		/// <summary>
 		/// Indexer to access the sigantures easily.
 		/// </summary>
@@ -99,6 +98,15 @@
 			return (<%= ContainedSignatureType %>[])result.ToArray(typeof(<%= ContainedSignatureType %>));
 		}
 
+		public <%= ContainedSignatureType %>[] GetSignatures()
+		{
+			return (<%= ContainedSignatureType %>[]) signatures.ToArray(typeof(<%= ContainedSignatureType %>));
+		}
+
+		public IEnumerator GetEnumerator()
+		{
+			return signatures.GetEnumerator();
+		}
 		
 		/// <summary>
 		/// This method is called by the <see cref="ReflectionBasedVisitor"/> to allow data
@@ -197,7 +205,7 @@
 		/// </summary>
 		/// <param name="aSigList">SignatureList to copy.</param>
 		public Default<%= ClassName %>(Default<%= ClassName %> aSigList) :
-			this( aSigList.Attributes, aSigList.Signatures ) {}
+			this( aSigList.Attributes, aSigList.GetSignatures() ) {}
 
 		#endregion
 		
