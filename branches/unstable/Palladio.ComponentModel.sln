@@ -58,13 +58,12 @@ Global
 		{8FCBDED0-6436-4FE6-B99B-13F3BDE8D65C}.Release.ActiveCfg = Release|.NET
 		{8FCBDED0-6436-4FE6-B99B-13F3BDE8D65C}.Release.Build.0 = Release|.NET
 		{9927A6D7-2623-415B-8353-59F655606778}.Debug.ActiveCfg = Debug|.NET
-		{9927A6D7-2623-415B-8353-59F655606778}.Debug.Build.0 = Debug|.NET
 		{9927A6D7-2623-415B-8353-59F655606778}.Release.ActiveCfg = Release|.NET
 		{9927A6D7-2623-415B-8353-59F655606778}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		XCSharpProjectsDisabled = 
 		XCSharpSolutionEnabled = False
+		XCSharpProjectsDisabled = 
 	EndGlobalSection
 	GlobalSection(ExtensibilityAddIns) = postSolution
 	EndGlobalSection

@@ -2,6 +2,7 @@
 <%@ Property Name="ContainedSignatureType" Type="System.String" Category="Context" Description="The type of the signatures in the SignatureList" %>
 <%@ Property Name="SignatureListType" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
 <%@ Property Name="InterfaceDescription" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
+<%@ Property Name="ItemType" Type="System.String" Category="Context" Description="The item that was added or removed." %>
 
 	/// <summary>
 	/// This is a class used as event arguments for <%= SignatureListType %>ChangeEvents.
@@ -10,16 +11,16 @@
 	{
 		private ChangeTimeEnum time;
 		private ChangeTypeEnum type;
-		private <%= ContainedSignatureType %> signature;
+		private <%= ContainedSignatureType %> item;
 
 		/// <summary>
 		/// The signature being added or deleted from the signature list raising the event
 		/// </summary>
-		public <%= ContainedSignatureType %> Signature
+		public <%= ContainedSignatureType %> <%= ItemType %>
 		{
 			get
 			{
-				return signature;
+				return item;
 			}
 		}
 		
@@ -48,14 +49,14 @@
 		/// <summary>
 		/// Default constructor
 		/// </summary>
-		/// <param name="sig">The signature being added or deleted</param>
+		/// <param name="item">The <%= ItemType %> being added or deleted</param>
 		/// <param name="time">The state of the process</param>
 		/// <param name="type">Is the signature added or deleted</param>
-		public <%= SignatureListType %>ChangeEventArgs(<%= ContainedSignatureType %> sig, ChangeTimeEnum time, ChangeTypeEnum type)
+		public <%= SignatureListType %>ChangeEventArgs(<%= ContainedSignatureType %> item, ChangeTimeEnum time, ChangeTypeEnum type)
 		{
 			this.time = time;
 			this.type = type;
-			this.signature = sig;
+			this.item = item;
 		}
 	}
 
@@ -74,6 +75,9 @@
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.2.2.1  2005/02/10 19:21:33  joemal
+	/// merge the changes made by uffi with the template
+	///
 	/// Revision 1.2  2004/06/09 12:36:30  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///
@@ -82,7 +86,7 @@
 	///
 	///
 	/// </pre></remarks>
-	public interface IAuxiliary<%= InterfaceDescription %>Specification
+	public interface IAuxiliary<%= InterfaceDescription %>Specification : ISerializable
 	{
 		/// <summary>
 		/// Event handler handling notifications of changes in the underlying signature list.

@@ -28,7 +28,10 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
-	/// Revision 1.3.2.3  2005/02/10 18:39:25  joemal
+	/// Revision 1.3.2.4  2005/02/10 19:21:33  joemal
+	/// merge the changes made by uffi with the template
+	///
+	/// Revision 1.2.2.2  2005/02/10 18:39:25  joemal
 	/// merge the changes made by uffi with the template
 	///
 	/// Revision 1.2.2.1  2004/12/02 23:39:49  uffi
@@ -171,6 +174,18 @@ namespace Palladio.ComponentModel
 		{
 			return (fsm == null ? 0 : fsm.GetHashCode());
 		}
+		
+		
+		public void Serialize(System.Xml.XmlTextWriter writer)
+		{
+		
+		}
+		
+		public void Deserialize(System.Xml.XmlNode element)
+		{
+		
+		}
+	
 		#endregion
 
 		#region Constructors
@@ -208,7 +223,10 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
-	/// Revision 1.3.2.3  2005/02/10 18:39:25  joemal
+	/// Revision 1.3.2.4  2005/02/10 19:21:33  joemal
+	/// merge the changes made by uffi with the template
+	///
+	/// Revision 1.2.2.2  2005/02/10 18:39:25  joemal
 	/// merge the changes made by uffi with the template
 	///
 	/// Revision 1.2.2.1  2004/12/02 23:39:49  uffi
@@ -351,6 +369,18 @@ namespace Palladio.ComponentModel
 		{
 			return (fsm == null ? 0 : fsm.GetHashCode());
 		}
+		
+		
+		public void Serialize(System.Xml.XmlTextWriter writer)
+		{
+		
+		}
+		
+		public void Deserialize(System.Xml.XmlNode element)
+		{
+		
+		}
+	
 		#endregion
 
 		#region Constructors

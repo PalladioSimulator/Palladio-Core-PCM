@@ -11,11 +11,13 @@
 			<property name="ContainedSignatureType">ISignature</property>
 			<property name="SignatureListType">SignatureList</property>
 			<property name="InterfaceDescription">Interface</property>
+			<property name="ItemType">Signature</property>
 		</propertySet>
 		<propertySet>
-			<property name="ContainedSignatureType">IExternalSignature</property>
-			<property name="SignatureListType">ExternalSignatureList</property>
+			<property name="ContainedSignatureType">IService</property>
+			<property name="SignatureListType">ServiceList</property>
 			<property name="InterfaceDescription">ServiceEffect</property>
+			<property name="ItemType">Service</property>
 		</propertySet>
 	</propertySets>
 	<template path="SignatureListEvents.cst" />

@@ -494,6 +494,10 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\TypedCollections\ArrayList.cst"
+                    BuildAction = "None"
+                />
+                <File
                     RelPath = "src\TypedCollections\ConnectionDataSet.xsd"
                     BuildAction = "Content"
                     Generator = "MSDataSetGenerator"
@@ -513,6 +517,14 @@
                     BuildAction = "None"
                 />
                 <File
+                    RelPath = "src\TypedCollections\DictionaryList.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\Hashmap.cst"
+                    BuildAction = "None"
+                />
+                <File
                     RelPath = "src\TypedCollections\HashmapGenerator.xml"
                     BuildAction = "Content"
                     Generator = "CodeSmithGenerator"
@@ -525,6 +537,26 @@
                     BuildAction = "Compile"
                     DesignTime = "True"
                     AutoGen = "True"
+                />
+                <File
+                    RelPath = "src\TypedCollections\Hashtable.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\IDictionary.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\IList.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\SortedList.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\Stack.cst"
+                    BuildAction = "None"
                 />
                 <File
                     RelPath = "src\UnitTests\BasicComponentTest.cs"
@@ -566,7 +598,6 @@
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
-                <Folder RelPath = "src\Visitors\" />
             </Include>
         </Files>
     </CSHARP>
