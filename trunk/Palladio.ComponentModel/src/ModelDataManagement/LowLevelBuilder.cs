@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/03/28 19:02:16  joemal
+	/// primary keys in the dataset now are the guids of the entities
+	///
 	/// Revision 1.4  2005/03/28 18:13:33  joemal
 	/// move private methods to private region
 	///
@@ -79,48 +82,15 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			ConnectionsTable.RowDeleted += new DataRowChangeEventHandler(this.EntityDatatable_HandleRowDeleted);			
 		}
 
-		//return the row from the componenttable that is matching to given component identifier.
-		private ModelDataSet.ComponentsRow GetComponentsRow(IComponentIdentifier compId)
-		{
-			return (ModelDataSet.ComponentsRow) GetRow(compId,ComponentsTable);
-		}
-
-		//return the row from the interfacetable that is matching to given interface identifier.
-		private ModelDataSet.InterfacesRow GetInterfacesRow(IInterfaceIdentifier ifaceId)
-		{
-			return (ModelDataSet.InterfacesRow) GetRow(ifaceId,InterfacesTable);
-		}
-
-		//returns the row of the given table that is matching to the given id.
-		private DataRow GetRow(IIdentifier id, DataTable table)
-		{
-			if (id == null) return null;
-			DataRow[] result = table.Select("guid = '"+id.Key+"'");
-			if (result.Length != 0)
-				return result[0];
-			
-			return null;
-		}
-
-		//called to remove the row that is matching to id from given table
-		private void RemoveRow(IIdentifier id, DataTable table)
-		{
-			DataRow row = GetRow(id,table);
-			if (row != null)
-				row.Delete();
-
-			table.AcceptChanges();            			
-		}
-
 		//queries the role by componentid, interfaceid and role
 		private ModelDataSet.RolesRow QueryRole(IComponentIdentifier compId, IInterfaceIdentifier iFaceId, InterfaceRole role)
 		{
-			ModelDataSet.ComponentsRow compRow = GetComponentsRow(compId);
-			ModelDataSet.InterfacesRow ifaceRow = GetInterfacesRow(iFaceId);
+			ModelDataSet.ComponentsRow compRow = ComponentsTable.FindByguid(compId.Key);
+			ModelDataSet.InterfacesRow ifaceRow = InterfacesTable.FindByguid(iFaceId.Key);
 
 			if (compRow == null || ifaceRow == null) return null;
 
-			string query = "fk_comp = "+compRow.id+" and fk_iface = "+ifaceRow.id+" and type = "+(sbyte)role;
+			string query = "fk_comp = '"+compRow.guid+"' and fk_iface = '"+ifaceRow.guid+"' and type = "+(sbyte)role;
 			DataRow[] result = modelDataset.Roles.Select(query);
 
 			if (result.Length == 0) return null;	
@@ -132,7 +102,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		private void AddDelegation(IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID, IComponentIdentifier outerCompID, 
 			IInterfaceIdentifier outerIFaceID, IConnection connection, InterfaceRole role)
 		{
-			modelCheck.EntityExistsCheck(connection.ID);
+			modelCheck.EntityAlreadyExistsCheck(connection.ID);
 			
 			ModelDataSet.RolesRow innerRole = QueryRole(innerCompID,innerIFaceID,role);
 			ModelDataSet.RolesRow outerRole = QueryRole(outerCompID,outerIFaceID,role);
@@ -187,13 +157,11 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			modelCheck.AddComponentCheck(component,parentComponentID);
 		
 			ModelDataSet.ComponentsRow newRow = ComponentsTable.NewComponentsRow();
-			newRow.id = NextID;
 			newRow.guid = component.ID.Key;
 			newRow.type = (sbyte) component.Type;
 
-			ModelDataSet.ComponentsRow parentComp = GetComponentsRow(parentComponentID);
-			if (parentComp != null)
-				newRow.parentComponent = parentComp.id;
+			if (parentComponentID != null)
+				newRow.parentComponent = parentComponentID.Key;
 
 			ComponentsTable.AddComponentsRow(newRow);
 			ComponentsTable.AcceptChanges();
@@ -209,7 +177,11 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="componentId">the id of the component to be removed</param>
 		public void RemoveComponent(IComponentIdentifier componentId)
 		{
-			this.RemoveRow(componentId,ComponentsTable);
+			ModelDataSet.ComponentsRow row = ComponentsTable.FindByguid(componentId.Key);
+			if (row == null) return;
+			
+			row.Delete();
+			ComponentsTable.AcceptChanges();
 		}
 
 		/// <summary>
@@ -225,10 +197,10 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		{
 			modelCheck.AddIFaceToCompCheck(componentIdentifier,ifaceIdentifier,role);
 
-			ModelDataSet.ComponentsRow compRow = GetComponentsRow(componentIdentifier);
-			ModelDataSet.InterfacesRow ifaceRow = GetInterfacesRow(ifaceIdentifier);
+			ModelDataSet.ComponentsRow compRow = ComponentsTable.FindByguid(componentIdentifier.Key);
+			ModelDataSet.InterfacesRow ifaceRow = InterfacesTable.FindByguid(ifaceIdentifier.Key);
 
-			string query = "fk_comp = "+compRow.id+" and fk_iface = "+ifaceRow.id;
+			string query = "fk_comp = '"+componentIdentifier+"' and fk_iface = '"+ifaceIdentifier+"'";
 			DataRow[] result = modelDataset.Roles.Select(query);
 
 			//still exists
@@ -315,7 +287,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <exception cref="NotAProvidesIFaceException">one of the given interfaces is not a provides </exception>
 		public void AddAssemblyConnector(IConnection connection, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
-			modelCheck.EntityExistsCheck(connection.ID);
+			modelCheck.EntityAlreadyExistsCheck(connection.ID);
 
 			ModelDataSet.RolesRow reqRole = QueryRole(reqCompID,reqIFaceID,InterfaceRole.REQUIRES);
 			ModelDataSet.RolesRow provRole = QueryRole(provCompID,provIFaceID,InterfaceRole.PROVIDES);
@@ -333,7 +305,10 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="connectionID">the id of the connection that has to be removed</param>
 		public void RemoveConnection(IConnectionIdentifier connectionID)
 		{
-			RemoveRow(connectionID,ConnectionsTable);
+			ModelDataSet.ConnectionsRow row = ConnectionsTable.FindByguid(connectionID.Key);
+			if (row == null) return;
+			row.Delete();
+			ConnectionsTable.AcceptChanges();
 		}
 
 		/// <summary>
@@ -344,7 +319,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		public void AddInterface(IInterface iface)
 		{
 			this.modelCheck.AddInterfaceCheck(iface);
-			this.InterfacesTable.AddInterfacesRow(this.NextID,iface.ID.Key);
+			this.InterfacesTable.AddInterfacesRow(iface.ID.Key);
 			this.InterfacesTable.AcceptChanges();
 			this.entityHashtable.AddEntity(iface);
 		}
@@ -357,7 +332,10 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		public void RemoveInterface(IInterfaceIdentifier ifaceID)
 		{
-			this.RemoveRow(ifaceID,InterfacesTable);
+			ModelDataSet.InterfacesRow row = InterfacesTable.FindByguid(ifaceID.Key);
+			if (row == null) return;
+			row.Delete();
+			InterfacesTable.AcceptChanges();
 		}
 
 		/// <summary>
@@ -370,8 +348,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		public void AddSignature(ISignature signature, IInterfaceIdentifier ifaceID)
 		{
 			modelCheck.AddSignatureCheck(signature, ifaceID);
-			ModelDataSet.InterfacesRow ifaceRow = GetInterfacesRow(ifaceID);
-			SignaturesTable.AddSignaturesRow(this.NextID,signature.ID.Key,ifaceRow);
+			ModelDataSet.InterfacesRow ifaceRow = InterfacesTable.FindByguid(ifaceID.Key);
+			SignaturesTable.AddSignaturesRow(signature.ID.Key,ifaceRow);
+			entityHashtable.AddEntity(signature);
 		}
 
 		/// <summary>
@@ -381,7 +360,10 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="signatureID">the id of the signature that has to be removed</param>
 		public void RemoveSignature(ISignatureIdentifier signatureID)
 		{
-			this.RemoveRow(signatureID,SignaturesTable);			
+			ModelDataSet.SignaturesRow row = SignaturesTable.FindByguid(signatureID.Key);
+			if (row == null) return;
+			row.Delete();
+			SignaturesTable.AcceptChanges();
 		}
 
 		/// <summary>
@@ -395,9 +377,10 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		{
 			modelCheck.AddProtocolCheck(protocol,ifaceID);
 
-			ModelDataSet.InterfacesRow ifaceRow = GetInterfacesRow(ifaceID);
+			ModelDataSet.InterfacesRow ifaceRow = InterfacesTable.FindByguid(ifaceID.Key);
 			ProtocolsTable.AddProtocolsRow(protocol.ID.Key,ifaceRow);
 			ProtocolsTable.AcceptChanges();
+			entityHashtable.AddEntity(protocol);
 		}
 
 		/// <summary>
@@ -407,7 +390,10 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="protocolID">the id of the protocol that has to be removed</param>
 		public void RemoveProtocol(IProtocolIdentifier protocolID)
 		{
-			this.RemoveRow(protocolID,ProtocolsTable);			
+			ModelDataSet.ProtocolsRow row = ProtocolsTable.FindByguid(protocolID.Key);
+			if (row == null) return;
+			row.Delete();
+			ProtocolsTable.AcceptChanges();
 		}
 
 		#endregion

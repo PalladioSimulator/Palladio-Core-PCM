@@ -9,16 +9,14 @@
 				<xs:element name="Components">
 					<xs:complexType>
 						<xs:sequence></xs:sequence>
-						<xs:attribute name="id" type="xs:long" msprop:nullValue="-1" />
 						<xs:attribute name="guid" type="xs:string" />
 						<xs:attribute name="type" type="xs:byte" />
-						<xs:attribute name="parentComponent" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="parentComponent" type="xs:string" msprop:nullValue="-1" />
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="Interfaces">
 					<xs:complexType>
 						<xs:sequence></xs:sequence>
-						<xs:attribute name="id" type="xs:long" msprop:nullValue="-1" />
 						<xs:attribute name="guid" type="xs:string" />
 					</xs:complexType>
 				</xs:element>
@@ -33,17 +31,16 @@
 				<xs:element name="Signatures">
 					<xs:complexType>
 						<xs:sequence />
-						<xs:attribute name="id" type="xs:long" msprop:nullValue="-1" />
 						<xs:attribute name="guid" type="xs:string" />
-						<xs:attribute name="fk_iface" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="fk_iface" type="xs:string" msprop:nullValue="-1" />
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="Roles">
 					<xs:complexType>
 						<xs:sequence></xs:sequence>
 						<xs:attribute name="id" type="xs:long" msprop:nullValue="-1" />
-						<xs:attribute name="fk_comp" type="xs:long" msprop:nullValue="-1" />
-						<xs:attribute name="fk_iface" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="fk_comp" type="xs:string" msprop:nullValue="-1" />
+						<xs:attribute name="fk_iface" type="xs:string" msprop:nullValue="-1" />
 						<xs:attribute name="type" type="xs:byte" />
 					</xs:complexType>
 				</xs:element>
@@ -51,29 +48,17 @@
 					<xs:complexType>
 						<xs:sequence></xs:sequence>
 						<xs:attribute name="guid" type="xs:string" />
-						<xs:attribute name="fk_iface" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="fk_iface" type="xs:string" msprop:nullValue="-1" />
 					</xs:complexType>
 				</xs:element>
 			</xs:choice>
 		</xs:complexType>
-		<xs:key name="COMP_PK" msdata:PrimaryKey="true">
-			<xs:selector xpath=".//mstns:Components" />
-			<xs:field xpath="@mstns:id" />
-		</xs:key>
-		<xs:key name="COMP_SK">
-			<xs:selector xpath=".//mstns:Components" />
-			<xs:field xpath="@mstns:guid" />
-		</xs:key>
-		<xs:keyref name="ComponentsComponents" refer="COMP_PK" msdata:AcceptRejectRule="None" msdata:DeleteRule="Cascade"
-			msdata:UpdateRule="SetNull">
+		<xs:keyref name="ComponentsComponents" refer="PK_COMP" msdata:AcceptRejectRule="None" msdata:DeleteRule="Cascade"
+			msdata:UpdateRule="Cascade">
 			<xs:selector xpath=".//mstns:Components" />
 			<xs:field xpath="@mstns:parentComponent" />
 		</xs:keyref>
-		<xs:key name="IFACE_PK" msdata:PrimaryKey="true">
-			<xs:selector xpath=".//mstns:Interfaces" />
-			<xs:field xpath="@mstns:id" />
-		</xs:key>
-		<xs:key name="CON_PK" msdata:PrimaryKey="true">
+		<xs:key name="CON_PK">
 			<xs:selector xpath=".//mstns:Connections" />
 			<xs:field xpath="@mstns:incoming" />
 			<xs:field xpath="@mstns:outgoing" />
@@ -90,31 +75,27 @@
 			<xs:selector xpath=".//mstns:Connections" />
 			<xs:field xpath="@mstns:outgoing" />
 		</xs:keyref>
-		<xs:keyref name="ComponentsRoles" refer="COMP_PK" msdata:DeleteRule="Cascade">
+		<xs:keyref name="ComponentsRoles" refer="PK_COMP" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
 			<xs:selector xpath=".//mstns:Roles" />
 			<xs:field xpath="@mstns:fk_comp" />
 		</xs:keyref>
-		<xs:keyref name="InterfacesRoles" refer="IFACE_PK" msdata:DeleteRule="Cascade">
+		<xs:keyref name="InterfacesRoles" refer="PK_IFACE" msdata:DeleteRule="Cascade">
 			<xs:selector xpath=".//mstns:Roles" />
 			<xs:field xpath="@mstns:fk_iface" />
 		</xs:keyref>
-		<xs:key name="SIG_PK" msdata:PrimaryKey="true">
-			<xs:selector xpath=".//mstns:Signatures" />
-			<xs:field xpath="@mstns:id" />
-		</xs:key>
-		<xs:key name="CON_SK">
+		<xs:key name="CON_SK" msdata:PrimaryKey="true">
 			<xs:selector xpath=".//mstns:Connections" />
 			<xs:field xpath="@mstns:guid" />
 		</xs:key>
-		<xs:key name="IFACE_SK">
+		<xs:key name="PK_IFACE" msdata:PrimaryKey="true">
 			<xs:selector xpath=".//mstns:Interfaces" />
 			<xs:field xpath="@mstns:guid" />
 		</xs:key>
-		<xs:key name="SIG_SK">
+		<xs:key name="PK_SIG" msdata:PrimaryKey="true">
 			<xs:selector xpath=".//mstns:Signatures" />
 			<xs:field xpath="@mstns:guid" />
 		</xs:key>
-		<xs:keyref name="InterfacesSignatures" refer="IFACE_PK" msdata:DeleteRule="Cascade">
+		<xs:keyref name="InterfacesSignatures" refer="PK_IFACE" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
 			<xs:selector xpath=".//mstns:Signatures" />
 			<xs:field xpath="@mstns:fk_iface" />
 		</xs:keyref>
@@ -122,9 +103,13 @@
 			<xs:selector xpath=".//mstns:Protocols" />
 			<xs:field xpath="@mstns:guid" />
 		</xs:key>
-		<xs:keyref name="InterfacesProtocols" refer="IFACE_PK" msdata:DeleteRule="Cascade">
+		<xs:keyref name="InterfacesProtocols" refer="PK_IFACE" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
 			<xs:selector xpath=".//mstns:Protocols" />
 			<xs:field xpath="@mstns:fk_iface" />
 		</xs:keyref>
+		<xs:key name="PK_COMP" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Components" />
+			<xs:field xpath="@mstns:guid" />
+		</xs:key>
 	</xs:element>
 </xs:schema>

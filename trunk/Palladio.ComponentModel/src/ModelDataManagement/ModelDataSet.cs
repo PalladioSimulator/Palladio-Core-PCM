@@ -251,12 +251,12 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             this.Tables.Add(this.tableProtocols);
             ForeignKeyConstraint fkc;
             fkc = new ForeignKeyConstraint("ComponentsComponents", new DataColumn[] {
-                        this.tableComponents.idColumn}, new DataColumn[] {
+                        this.tableComponents.guidColumn}, new DataColumn[] {
                         this.tableComponents.parentComponentColumn});
             this.tableComponents.Constraints.Add(fkc);
             fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = System.Data.Rule.Cascade;
-            fkc.UpdateRule = System.Data.Rule.SetNull;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
             fkc = new ForeignKeyConstraint("RolesConnections", new DataColumn[] {
                         this.tableRoles.idColumn}, new DataColumn[] {
                         this.tableConnections.incomingColumn});
@@ -272,35 +272,35 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             fkc.DeleteRule = System.Data.Rule.Cascade;
             fkc.UpdateRule = System.Data.Rule.Cascade;
             fkc = new ForeignKeyConstraint("InterfacesSignatures", new DataColumn[] {
-                        this.tableInterfaces.idColumn}, new DataColumn[] {
+                        this.tableInterfaces.guidColumn}, new DataColumn[] {
                         this.tableSignatures.fk_ifaceColumn});
             this.tableSignatures.Constraints.Add(fkc);
             fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = System.Data.Rule.Cascade;
             fkc.UpdateRule = System.Data.Rule.Cascade;
             fkc = new ForeignKeyConstraint("ComponentsRoles", new DataColumn[] {
-                        this.tableComponents.idColumn}, new DataColumn[] {
+                        this.tableComponents.guidColumn}, new DataColumn[] {
                         this.tableRoles.fk_compColumn});
             this.tableRoles.Constraints.Add(fkc);
             fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = System.Data.Rule.Cascade;
             fkc.UpdateRule = System.Data.Rule.Cascade;
             fkc = new ForeignKeyConstraint("InterfacesRoles", new DataColumn[] {
-                        this.tableInterfaces.idColumn}, new DataColumn[] {
+                        this.tableInterfaces.guidColumn}, new DataColumn[] {
                         this.tableRoles.fk_ifaceColumn});
             this.tableRoles.Constraints.Add(fkc);
             fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = System.Data.Rule.Cascade;
             fkc.UpdateRule = System.Data.Rule.Cascade;
             fkc = new ForeignKeyConstraint("InterfacesProtocols", new DataColumn[] {
-                        this.tableInterfaces.idColumn}, new DataColumn[] {
+                        this.tableInterfaces.guidColumn}, new DataColumn[] {
                         this.tableProtocols.fk_ifaceColumn});
             this.tableProtocols.Constraints.Add(fkc);
             fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = System.Data.Rule.Cascade;
             fkc.UpdateRule = System.Data.Rule.Cascade;
             this.relationComponentsComponents = new DataRelation("ComponentsComponents", new DataColumn[] {
-                        this.tableComponents.idColumn}, new DataColumn[] {
+                        this.tableComponents.guidColumn}, new DataColumn[] {
                         this.tableComponents.parentComponentColumn}, false);
             this.Relations.Add(this.relationComponentsComponents);
             this.relationRolesConnections = new DataRelation("RolesConnections", new DataColumn[] {
@@ -312,19 +312,19 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                         this.tableConnections.outgoingColumn}, false);
             this.Relations.Add(this.relationRolesConnections1);
             this.relationComponentsRoles = new DataRelation("ComponentsRoles", new DataColumn[] {
-                        this.tableComponents.idColumn}, new DataColumn[] {
+                        this.tableComponents.guidColumn}, new DataColumn[] {
                         this.tableRoles.fk_compColumn}, false);
             this.Relations.Add(this.relationComponentsRoles);
             this.relationInterfacesRoles = new DataRelation("InterfacesRoles", new DataColumn[] {
-                        this.tableInterfaces.idColumn}, new DataColumn[] {
+                        this.tableInterfaces.guidColumn}, new DataColumn[] {
                         this.tableRoles.fk_ifaceColumn}, false);
             this.Relations.Add(this.relationInterfacesRoles);
             this.relationInterfacesSignatures = new DataRelation("InterfacesSignatures", new DataColumn[] {
-                        this.tableInterfaces.idColumn}, new DataColumn[] {
+                        this.tableInterfaces.guidColumn}, new DataColumn[] {
                         this.tableSignatures.fk_ifaceColumn}, false);
             this.Relations.Add(this.relationInterfacesSignatures);
             this.relationInterfacesProtocols = new DataRelation("InterfacesProtocols", new DataColumn[] {
-                        this.tableInterfaces.idColumn}, new DataColumn[] {
+                        this.tableInterfaces.guidColumn}, new DataColumn[] {
                         this.tableProtocols.fk_ifaceColumn}, false);
             this.Relations.Add(this.relationInterfacesProtocols);
         }
@@ -374,8 +374,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         [System.Diagnostics.DebuggerStepThrough()]
         public class ComponentsDataTable : DataTable, System.Collections.IEnumerable {
             
-            private DataColumn columnid;
-            
             private DataColumn columnguid;
             
             private DataColumn columntype;
@@ -407,12 +405,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             public int Count {
                 get {
                     return this.Rows.Count;
-                }
-            }
-            
-            internal DataColumn idColumn {
-                get {
-                    return this.columnid;
                 }
             }
             
@@ -452,10 +444,9 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.Rows.Add(row);
             }
             
-            public ComponentsRow AddComponentsRow(long id, string guid, System.SByte type, ComponentsRow parentComponentsRowByComponentsComponents) {
+            public ComponentsRow AddComponentsRow(string guid, System.SByte type, ComponentsRow parentComponentsRowByComponentsComponents) {
                 ComponentsRow rowComponentsRow = ((ComponentsRow)(this.NewRow()));
                 rowComponentsRow.ItemArray = new object[] {
-                        id,
                         guid,
                         type,
                         parentComponentsRowByComponentsComponents[0]};
@@ -463,9 +454,9 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 return rowComponentsRow;
             }
             
-            public ComponentsRow FindByid(long id) {
+            public ComponentsRow FindByguid(string guid) {
                 return ((ComponentsRow)(this.Rows.Find(new object[] {
-                            id})));
+                            guid})));
             }
             
             public System.Collections.IEnumerator GetEnumerator() {
@@ -483,28 +474,20 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
             
             internal void InitVars() {
-                this.columnid = this.Columns["id"];
                 this.columnguid = this.Columns["guid"];
                 this.columntype = this.Columns["type"];
                 this.columnparentComponent = this.Columns["parentComponent"];
             }
             
             private void InitClass() {
-                this.columnid = new DataColumn("id", typeof(long), null, System.Data.MappingType.Attribute);
-                this.Columns.Add(this.columnid);
                 this.columnguid = new DataColumn("guid", typeof(string), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnguid);
                 this.columntype = new DataColumn("type", typeof(System.SByte), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columntype);
-                this.columnparentComponent = new DataColumn("parentComponent", typeof(long), null, System.Data.MappingType.Attribute);
+                this.columnparentComponent = new DataColumn("parentComponent", typeof(string), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnparentComponent);
-                this.Constraints.Add(new UniqueConstraint("COMP_PK", new DataColumn[] {
-                                this.columnid}, true));
-                this.Constraints.Add(new UniqueConstraint("COMP_SK", new DataColumn[] {
-                                this.columnguid}, false));
-                this.columnid.AllowDBNull = false;
-                this.columnid.Unique = true;
-                this.columnid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.Constraints.Add(new UniqueConstraint("PK_COMP", new DataColumn[] {
+                                this.columnguid}, true));
                 this.columnguid.AllowDBNull = false;
                 this.columnguid.Unique = true;
                 this.columnguid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
@@ -567,15 +550,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.tableComponents = ((ComponentsDataTable)(this.Table));
             }
             
-            public long id {
-                get {
-                    return ((long)(this[this.tableComponents.idColumn]));
-                }
-                set {
-                    this[this.tableComponents.idColumn] = value;
-                }
-            }
-            
             public string guid {
                 get {
                     return ((string)(this[this.tableComponents.guidColumn]));
@@ -599,13 +573,13 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
-            public long parentComponent {
+            public string parentComponent {
                 get {
                     if (this.IsparentComponentNull()) {
-                        return -1;
+                        return "-1";
                     }
                     else {
-                        return ((long)(this[this.tableComponents.parentComponentColumn]));
+                        return ((string)(this[this.tableComponents.parentComponentColumn]));
                     }
                 }
                 set {
@@ -675,8 +649,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         [System.Diagnostics.DebuggerStepThrough()]
         public class InterfacesDataTable : DataTable, System.Collections.IEnumerable {
             
-            private DataColumn columnid;
-            
             private DataColumn columnguid;
             
             internal InterfacesDataTable() : 
@@ -707,12 +679,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
-            internal DataColumn idColumn {
-                get {
-                    return this.columnid;
-                }
-            }
-            
             internal DataColumn guidColumn {
                 get {
                     return this.columnguid;
@@ -737,18 +703,17 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.Rows.Add(row);
             }
             
-            public InterfacesRow AddInterfacesRow(long id, string guid) {
+            public InterfacesRow AddInterfacesRow(string guid) {
                 InterfacesRow rowInterfacesRow = ((InterfacesRow)(this.NewRow()));
                 rowInterfacesRow.ItemArray = new object[] {
-                        id,
                         guid};
                 this.Rows.Add(rowInterfacesRow);
                 return rowInterfacesRow;
             }
             
-            public InterfacesRow FindByid(long id) {
+            public InterfacesRow FindByguid(string guid) {
                 return ((InterfacesRow)(this.Rows.Find(new object[] {
-                            id})));
+                            guid})));
             }
             
             public System.Collections.IEnumerator GetEnumerator() {
@@ -766,22 +731,14 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
             
             internal void InitVars() {
-                this.columnid = this.Columns["id"];
                 this.columnguid = this.Columns["guid"];
             }
             
             private void InitClass() {
-                this.columnid = new DataColumn("id", typeof(long), null, System.Data.MappingType.Attribute);
-                this.Columns.Add(this.columnid);
                 this.columnguid = new DataColumn("guid", typeof(string), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnguid);
-                this.Constraints.Add(new UniqueConstraint("IFACE_PK", new DataColumn[] {
-                                this.columnid}, true));
-                this.Constraints.Add(new UniqueConstraint("IFACE_SK", new DataColumn[] {
-                                this.columnguid}, false));
-                this.columnid.AllowDBNull = false;
-                this.columnid.Unique = true;
-                this.columnid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.Constraints.Add(new UniqueConstraint("PK_IFACE", new DataColumn[] {
+                                this.columnguid}, true));
                 this.columnguid.AllowDBNull = false;
                 this.columnguid.Unique = true;
                 this.columnguid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
@@ -840,15 +797,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             internal InterfacesRow(DataRowBuilder rb) : 
                     base(rb) {
                 this.tableInterfaces = ((InterfacesDataTable)(this.Table));
-            }
-            
-            public long id {
-                get {
-                    return ((long)(this[this.tableInterfaces.idColumn]));
-                }
-                set {
-                    this[this.tableInterfaces.idColumn] = value;
-                }
             }
             
             public string guid {
@@ -981,10 +929,9 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 return rowConnectionsRow;
             }
             
-            public ConnectionsRow FindByincomingoutgoing(long incoming, long outgoing) {
+            public ConnectionsRow FindByguid(string guid) {
                 return ((ConnectionsRow)(this.Rows.Find(new object[] {
-                            incoming,
-                            outgoing})));
+                            guid})));
             }
             
             public System.Collections.IEnumerator GetEnumerator() {
@@ -1016,9 +963,9 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.Columns.Add(this.columnguid);
                 this.Constraints.Add(new UniqueConstraint("CON_PK", new DataColumn[] {
                                 this.columnincoming,
-                                this.columnoutgoing}, true));
+                                this.columnoutgoing}, false));
                 this.Constraints.Add(new UniqueConstraint("CON_SK", new DataColumn[] {
-                                this.columnguid}, false));
+                                this.columnguid}, true));
                 this.columnincoming.AllowDBNull = false;
                 this.columnincoming.Namespace = "http://tempuri.org/ModelDataSet.xsd";
                 this.columnoutgoing.AllowDBNull = false;
@@ -1157,8 +1104,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         [System.Diagnostics.DebuggerStepThrough()]
         public class SignaturesDataTable : DataTable, System.Collections.IEnumerable {
             
-            private DataColumn columnid;
-            
             private DataColumn columnguid;
             
             private DataColumn columnfk_iface;
@@ -1188,12 +1133,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             public int Count {
                 get {
                     return this.Rows.Count;
-                }
-            }
-            
-            internal DataColumn idColumn {
-                get {
-                    return this.columnid;
                 }
             }
             
@@ -1227,19 +1166,18 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.Rows.Add(row);
             }
             
-            public SignaturesRow AddSignaturesRow(long id, string guid, InterfacesRow parentInterfacesRowByInterfacesSignatures) {
+            public SignaturesRow AddSignaturesRow(string guid, InterfacesRow parentInterfacesRowByInterfacesSignatures) {
                 SignaturesRow rowSignaturesRow = ((SignaturesRow)(this.NewRow()));
                 rowSignaturesRow.ItemArray = new object[] {
-                        id,
                         guid,
                         parentInterfacesRowByInterfacesSignatures[0]};
                 this.Rows.Add(rowSignaturesRow);
                 return rowSignaturesRow;
             }
             
-            public SignaturesRow FindByid(long id) {
+            public SignaturesRow FindByguid(string guid) {
                 return ((SignaturesRow)(this.Rows.Find(new object[] {
-                            id})));
+                            guid})));
             }
             
             public System.Collections.IEnumerator GetEnumerator() {
@@ -1257,25 +1195,17 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
             
             internal void InitVars() {
-                this.columnid = this.Columns["id"];
                 this.columnguid = this.Columns["guid"];
                 this.columnfk_iface = this.Columns["fk_iface"];
             }
             
             private void InitClass() {
-                this.columnid = new DataColumn("id", typeof(long), null, System.Data.MappingType.Attribute);
-                this.Columns.Add(this.columnid);
                 this.columnguid = new DataColumn("guid", typeof(string), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnguid);
-                this.columnfk_iface = new DataColumn("fk_iface", typeof(long), null, System.Data.MappingType.Attribute);
+                this.columnfk_iface = new DataColumn("fk_iface", typeof(string), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnfk_iface);
-                this.Constraints.Add(new UniqueConstraint("SIG_PK", new DataColumn[] {
-                                this.columnid}, true));
-                this.Constraints.Add(new UniqueConstraint("SIG_SK", new DataColumn[] {
-                                this.columnguid}, false));
-                this.columnid.AllowDBNull = false;
-                this.columnid.Unique = true;
-                this.columnid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.Constraints.Add(new UniqueConstraint("PK_SIG", new DataColumn[] {
+                                this.columnguid}, true));
                 this.columnguid.AllowDBNull = false;
                 this.columnguid.Unique = true;
                 this.columnguid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
@@ -1337,15 +1267,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.tableSignatures = ((SignaturesDataTable)(this.Table));
             }
             
-            public long id {
-                get {
-                    return ((long)(this[this.tableSignatures.idColumn]));
-                }
-                set {
-                    this[this.tableSignatures.idColumn] = value;
-                }
-            }
-            
             public string guid {
                 get {
                     return ((string)(this[this.tableSignatures.guidColumn]));
@@ -1355,13 +1276,13 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
-            public long fk_iface {
+            public string fk_iface {
                 get {
                     if (this.Isfk_ifaceNull()) {
-                        return -1;
+                        return "-1";
                     }
                     else {
-                        return ((long)(this[this.tableSignatures.fk_ifaceColumn]));
+                        return ((string)(this[this.tableSignatures.fk_ifaceColumn]));
                     }
                 }
                 set {
@@ -1528,9 +1449,9 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             private void InitClass() {
                 this.columnid = new DataColumn("id", typeof(long), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnid);
-                this.columnfk_comp = new DataColumn("fk_comp", typeof(long), null, System.Data.MappingType.Attribute);
+                this.columnfk_comp = new DataColumn("fk_comp", typeof(string), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnfk_comp);
-                this.columnfk_iface = new DataColumn("fk_iface", typeof(long), null, System.Data.MappingType.Attribute);
+                this.columnfk_iface = new DataColumn("fk_iface", typeof(string), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnfk_iface);
                 this.columntype = new DataColumn("type", typeof(System.SByte), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columntype);
@@ -1608,13 +1529,13 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
-            public long fk_comp {
+            public string fk_comp {
                 get {
                     if (this.Isfk_compNull()) {
-                        return -1;
+                        return "-1";
                     }
                     else {
-                        return ((long)(this[this.tableRoles.fk_compColumn]));
+                        return ((string)(this[this.tableRoles.fk_compColumn]));
                     }
                 }
                 set {
@@ -1622,13 +1543,13 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
-            public long fk_iface {
+            public string fk_iface {
                 get {
                     if (this.Isfk_ifaceNull()) {
-                        return -1;
+                        return "-1";
                     }
                     else {
-                        return ((long)(this[this.tableRoles.fk_ifaceColumn]));
+                        return ((string)(this[this.tableRoles.fk_ifaceColumn]));
                     }
                 }
                 set {
@@ -1827,7 +1748,7 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             private void InitClass() {
                 this.columnguid = new DataColumn("guid", typeof(string), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnguid);
-                this.columnfk_iface = new DataColumn("fk_iface", typeof(long), null, System.Data.MappingType.Attribute);
+                this.columnfk_iface = new DataColumn("fk_iface", typeof(string), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnfk_iface);
                 this.Constraints.Add(new UniqueConstraint("PROT_PK", new DataColumn[] {
                                 this.columnguid}, true));
@@ -1901,13 +1822,13 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
-            public long fk_iface {
+            public string fk_iface {
                 get {
                     if (this.Isfk_ifaceNull()) {
-                        return -1;
+                        return "-1";
                     }
                     else {
-                        return ((long)(this[this.tableProtocols.fk_ifaceColumn]));
+                        return ((string)(this[this.tableProtocols.fk_ifaceColumn]));
                     }
                 }
                 set {

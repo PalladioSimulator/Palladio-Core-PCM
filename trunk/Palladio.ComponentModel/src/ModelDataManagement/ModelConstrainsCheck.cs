@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/03/28 19:02:16  joemal
+	/// primary keys in the dataset now are the guids of the entities
+	///
 	/// Revision 1.3  2005/03/19 18:35:41  joemal
 	/// implement the rest of the lowlevelbuilder
 	///
@@ -39,6 +42,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 
 		#endregion
 
+
+		#region contructor
+
 		/// <summary>
 		/// called to create a new ModelConstrainsCheck object using given dataset and entitytable.
 		/// </summary>
@@ -49,6 +55,10 @@ namespace Palladio.ComponentModel.ModelDataManagement
             this.entities = entities;
 			this.dataset = dataset;
 		}
+
+		#endregion
+
+		#region public methods
 
 		/// <summary>
 		/// Check the constrains before adding a component.
@@ -61,7 +71,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
 		public void AddComponentCheck(IComponent comp, IComponentIdentifier parentCompID)
         {
-			EntityExistsCheck(comp.ID);
+			EntityAlreadyExistsCheck(comp.ID);
 			//no parent specified
 			if (parentCompID == null) return;
 
@@ -78,7 +88,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		/// <param name="entityID">the id of the entity to be checked</param>
 		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
-		public void EntityExistsCheck(IIdentifier entityID)
+		public void EntityAlreadyExistsCheck(IIdentifier entityID)
 		{
 			if (entities.ContainsKey(entityID.Key))
 				throw new EntityAlreadyExistsException(entityID);			
@@ -91,7 +101,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <exception cref="EntityAlreadyExistsException">an interface with given id already exists in cm</exception>
 		public void AddInterfaceCheck(IInterface iface)
 		{
-			EntityExistsCheck(iface.ID);
+			EntityAlreadyExistsCheck(iface.ID);
 		}
 
 		/// <summary>
@@ -103,7 +113,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <exception cref="InterfaceNotFoundException">the interface could not be found in cm</exception>
 		public void AddSignatureCheck(ISignature signature, IInterfaceIdentifier ifaceID)
 		{
-			EntityExistsCheck(signature.ID);
+			EntityAlreadyExistsCheck(signature.ID);
 			if (!entities.ContainsKey(ifaceID.Key))
 				throw new InterfaceNotFoundException(ifaceID);
 		}
@@ -133,7 +143,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <exception cref="EntityAlreadyExistsException">an signature with given id already exists in cm</exception>
 		public void AddProtocolCheck(IProtocol protocol,IInterfaceIdentifier ifaceId)
 		{
-			EntityExistsCheck(protocol.ID);
+			EntityAlreadyExistsCheck(protocol.ID);
 			InterfaceExitsCheck(ifaceId);
 		}
 
@@ -167,7 +177,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			if (outerRole.type != (sbyte)InterfaceRole.PROVIDES)
 				throw new NotAProvidesIFaceException(outerCompId,outerIFaceId);
 
-			ModelDataSet.ComponentsRow innerCompRow = dataset.Components.FindByid(innerRole.fk_comp);
+			ModelDataSet.ComponentsRow innerCompRow = dataset.Components.FindByguid(innerRole.fk_comp);
 			if (innerCompRow.parentComponent != outerRole.fk_comp)
 				throw new ComponentHierarchyException("Component "+outerCompId+" is not the parent component of "+
 					innerCompId+".");
@@ -203,7 +213,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			if (outerRole.type != (sbyte)InterfaceRole.REQUIRES)
 				throw new NotARequiresIFaceException(outerCompId,outerIFaceId);
 
-			ModelDataSet.ComponentsRow innerCompRow = dataset.Components.FindByid(innerRole.fk_comp);
+			ModelDataSet.ComponentsRow innerCompRow = dataset.Components.FindByguid(innerRole.fk_comp);
 			if (innerCompRow.parentComponent != outerRole.fk_comp)
 				throw new ComponentHierarchyException("Component "+outerCompId+" is not the parent component of "+
 					innerCompId+".");
@@ -239,13 +249,17 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			if (provRole.type != (sbyte)InterfaceRole.PROVIDES)
 				throw new NotAProvidesIFaceException(provCompId,provIFaceId);
 
-			ModelDataSet.ComponentsRow provCompRow = dataset.Components.FindByid(provRole.fk_comp);
-			ModelDataSet.ComponentsRow reqCompRow = dataset.Components.FindByid(reqRole.fk_comp);
+			ModelDataSet.ComponentsRow provCompRow = dataset.Components.FindByguid(provRole.fk_comp);
+			ModelDataSet.ComponentsRow reqCompRow = dataset.Components.FindByguid(reqRole.fk_comp);
 
 			if (provCompRow.parentComponent != reqCompRow.parentComponent)
 				throw new ComponentHierarchyException("Component "+reqCompId+" has not the same parent "+
 					"component like the component "+provCompId);
 		}
+
+		#endregion
+
+		#region private methods
 		
 		//check whether the given interface exits in cm
 		private void InterfaceExitsCheck(IInterfaceIdentifier ifaceID)
@@ -267,5 +281,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			if (role == null)
 				throw new InterfaceNotFromComponentException(compID,ifaceID);
 		}
+
+		#endregion
 	}
 }
