@@ -19,6 +19,9 @@ namespace Palladio.Webserver.RequestClient
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/02/27 22:45:33  kelsaka
+	/// fixed logging-bug: log-messages were written mixed by multiple threads.
+	///
 	/// Revision 1.3  2005/02/27 22:13:08  kelsaka
 	/// Optimized multi-threading-behaviour: GUI is still responsive on creating requests;
 	/// requests are created looped.
@@ -164,7 +167,7 @@ namespace Palladio.Webserver.RequestClient
 			this.textBoxSendDelay.Name = "textBoxSendDelay";
 			this.textBoxSendDelay.Size = new System.Drawing.Size(64, 20);
 			this.textBoxSendDelay.TabIndex = 8;
-			this.textBoxSendDelay.Text = "70";
+			this.textBoxSendDelay.Text = "100";
 			// 
 			// labelSendDelay
 			// 
@@ -331,14 +334,15 @@ namespace Palladio.Webserver.RequestClient
 		/// <param name="e"></param>
 		private void buttonStartRequests_Click(object sender, System.EventArgs e)
 		{
+			
 			if(!requestActive)
 			{
 				this.buttonStartRequests.Text = "Stop Requests";
 				requestActive = true;
-				//this.buttonStartRequests.Refresh();
+				this.buttonStartRequests.Refresh();
 
 				try 
-				{				
+				{								
 					requestGenerator.Setup(textBoxURI.Text, Int32.Parse(textBoxNumberOfRequests.Text), Int32.Parse(textBoxLoopDelay.Text), Int32.Parse(textBoxSendDelay.Text));
 					
 					// start generating threads in a own thread to keep the GUI responsive.
@@ -382,9 +386,12 @@ namespace Palladio.Webserver.RequestClient
 		/// <param name="message">message to write.</param>
 		private void WriteLogMessage(string message)
 		{
-			this.textBoxLogOutput.AppendText("# " + message + Environment.NewLine);
-			this.textBoxLogOutput.Refresh();
-			this.statusBar.Text = message;
+			lock(this) //lock as this method is called from several threads at the same time.
+			{
+				this.textBoxLogOutput.AppendText("# " + message + Environment.NewLine);
+				this.textBoxLogOutput.Refresh();
+				this.statusBar.Text = message;
+			}
 		}
 		#endregion
 
