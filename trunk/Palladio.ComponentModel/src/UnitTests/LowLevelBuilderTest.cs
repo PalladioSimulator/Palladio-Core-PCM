@@ -121,6 +121,118 @@ namespace Palladio.ComponentModel.UnitTests
 			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.PROVIDES);
 			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.REQUIRES);
 		}
+
+		[Test]
+		public void AddConnections()
+		{
+			//creates the entities
+			IInterface ifaceWBE = EntityFactory.CreateInterface("IWriterBackEnd");
+			IInterface ifaceW = EntityFactory.CreateInterface("IWriter");
+			IComponent cc1 = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"WriterCC");
+			IComponent bc1 = EntityFactory.CreateComponent(ComponentType.BASIC,"Writer");
+			IComponent bc2 = EntityFactory.CreateComponent(ComponentType.BASIC,"WriterBackEnd");
+			IConnection delProv = EntityFactory.CreateConnection("cc->bc1");
+			IConnection delReq = EntityFactory.CreateConnection("bc1->cc");
+			IConnection assCon = EntityFactory.CreateConnection("cc->bc2");
+
+			//add the components to the model
+			modelManager.LowLevelBuilder.AddComponent(cc1,null);
+			modelManager.LowLevelBuilder.AddComponent(bc2, null);
+			modelManager.LowLevelBuilder.AddComponent(bc1, cc1.ComponentID);
+
+			//add the interfaces to the model
+			modelManager.LowLevelBuilder.AddInterface(ifaceWBE);
+			modelManager.LowLevelBuilder.AddInterface(ifaceW);
+
+			//bind the interfaces to the component
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc1.ComponentID,ifaceW.InterfaceID, InterfaceRole.PROVIDES);
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc1.ComponentID,ifaceW.InterfaceID, InterfaceRole.PROVIDES);
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
+
+			//add the connections
+			modelManager.LowLevelBuilder.AddProvidesDelegationConnector(delProv,cc1.ComponentID,ifaceW.InterfaceID,
+				bc1.ComponentID,ifaceW.InterfaceID);
+			modelManager.LowLevelBuilder.AddRequiresDelegationConnector(delReq,bc1.ComponentID,ifaceWBE.InterfaceID,
+				cc1.ComponentID,ifaceWBE.InterfaceID);
+			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,cc1.ComponentID,ifaceWBE.InterfaceID,
+				bc2.ComponentID,ifaceWBE.InterfaceID);
+		}
+
+		[Test]
+		[ExpectedException(typeof(InterfaceNotFromComponentException))]
+		public void AddConnectionsIFaceNotBound()
+		{
+			//creates the entities
+			IInterface ifaceWBE = EntityFactory.CreateInterface("IWriterBackEnd");
+			IComponent bc1 = EntityFactory.CreateComponent(ComponentType.BASIC,"Writer");
+			IComponent bc2 = EntityFactory.CreateComponent(ComponentType.BASIC,"WriterBackEnd");
+			IConnection assCon = EntityFactory.CreateConnection("bc1->bc2");
+
+			modelManager.LowLevelBuilder.AddComponent(bc1, null);
+			modelManager.LowLevelBuilder.AddComponent(bc2, null);
+
+			modelManager.LowLevelBuilder.AddInterface(ifaceWBE);
+
+			//the error
+		//	modelManager.LowLevelBuilder.AddInterfaceToComponent(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
+
+			//add the connections
+			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,bc1.ComponentID,ifaceWBE.InterfaceID,
+				bc2.ComponentID,ifaceWBE.InterfaceID);
+		}
+
+		[Test]
+		[ExpectedException(typeof(ComponentHierarchyException))]
+		public void AddAssemblyConnectorHierarchyException()
+		{
+			//creates the entities
+			IInterface ifaceWBE = EntityFactory.CreateInterface("IWriterBackEnd");
+			IComponent bc1 = EntityFactory.CreateComponent(ComponentType.BASIC,"Writer");
+			IComponent bc2 = EntityFactory.CreateComponent(ComponentType.BASIC,"WriterBackEnd");
+			IComponent cc1 = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"Writer");
+			IConnection assCon = EntityFactory.CreateConnection("cc->bc2");
+
+			modelManager.LowLevelBuilder.AddComponent(cc1, null);
+			modelManager.LowLevelBuilder.AddComponent(bc1, cc1.ComponentID);
+			modelManager.LowLevelBuilder.AddComponent(bc2, null);
+
+			modelManager.LowLevelBuilder.AddInterface(ifaceWBE);
+
+			//bind the interfaces to the component
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
+
+			//add the connections
+			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,bc1.ComponentID,ifaceWBE.InterfaceID,
+				bc2.ComponentID,ifaceWBE.InterfaceID);
+		}
+
+		[Test]
+		[ExpectedException(typeof(ComponentHierarchyException))]
+		public void AddDelegationConnectorHierarchyException()
+		{
+			//creates the entities
+			IInterface ifaceWBE = EntityFactory.CreateInterface("IWriterBackEnd");
+			IComponent bc1 = EntityFactory.CreateComponent(ComponentType.BASIC,"Writer");
+			IComponent cc1 = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"Writer");
+			IConnection assCon = EntityFactory.CreateConnection("bc1->cc1");
+
+			modelManager.LowLevelBuilder.AddComponent(cc1, null);
+			modelManager.LowLevelBuilder.AddComponent(bc1, null);
+
+			modelManager.LowLevelBuilder.AddInterface(ifaceWBE);
+
+			//bind the interfaces to the component
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+
+			//add the connections
+			modelManager.LowLevelBuilder.AddRequiresDelegationConnector(assCon,bc1.ComponentID,ifaceWBE.InterfaceID,
+				cc1.ComponentID,ifaceWBE.InterfaceID);
+		}
 	}
 }
 

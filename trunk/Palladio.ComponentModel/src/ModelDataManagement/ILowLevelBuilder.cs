@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/03/19 18:35:41  joemal
+	/// implement the rest of the lowlevelbuilder
+	///
 	/// Revision 1.2  2005/03/16 13:32:34  joemal
 	/// implement lowlevelbuilder
 	///
@@ -42,13 +45,14 @@ namespace Palladio.ComponentModel.ModelDataManagement
 
 		/// <summary>
 		/// called to remove the component which belongs to the given id. All contained components and
-		/// all connections to and from this components are also removed.
+		/// all connections to and from this components are also removed. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="componentId">the id of the component to be removed</param>
 		void RemoveComponent(IComponentIdentifier componentId);
 
 		/// <summary>
-		/// called to add an existing interface to a component.
+		/// called to add an existing interface to a component. 
 		/// </summary>
 		/// <param name="componentIdentifier">the id of component</param>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
@@ -59,7 +63,8 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			InterfaceRole role);
 
 		/// <summary>
-		/// called to remove an interface from a component.
+		/// called to remove an interface from a component. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="componentIdentifier">the id of component</param>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
@@ -76,6 +81,12 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="outerIFaceID">the id of the outer component</param>
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
+		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
+		/// <exception cref="ComponentNotFoundException">a component could not be found in cm</exception>
+		/// <exception cref="ComponentHierarchyException">the outer component is not the parent of the inner component</exception>
+		/// <exception cref="NotAProvidesIFaceException">one of the given interfaces is not a provides
+		/// interface of the component</exception>
+		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
 		void AddProvidesDelegationConnector(IConnection connection, IComponentIdentifier outerCompID, 
 			IInterfaceIdentifier outerIFaceID,IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
 
@@ -88,6 +99,12 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		/// <param name="outerCompID">the id of the outer component</param>
 		/// <param name="outerIFaceID">the id of the outer component</param>
+		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
+		/// <exception cref="ComponentNotFoundException">a component could not be found in cm</exception>
+		/// <exception cref="ComponentHierarchyException">the outer component is not the parent of the inner component</exception>
+		/// <exception cref="NotARequiresIFaceException">one of the given interfaces is not a requires 
+		/// interface of the component</exception>
+		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
 		void AddRequiresDelegationConnector(IConnection connection, IComponentIdentifier innerCompID, 
 			IInterfaceIdentifier innerIFaceID,IComponentIdentifier outerCompID,IInterfaceIdentifier outerIFaceID);
 
@@ -101,11 +118,18 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
+		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
+		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
+		/// <exception cref="ComponentNotFoundException">a component could not be found in cm</exception>
+		/// <exception cref="ComponentHierarchyException">both components have not the same parent id</exception>
+		/// <exception cref="NotARequiresIFaceException">one of the given interfaces is not a requires</exception> 
+		/// <exception cref="NotAProvidesIFaceException">one of the given interfaces is not a provides </exception>
 		void AddAssemblyConnector(IConnection connection, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
 
 		/// <summary>
-		/// called to remove the connection that belongs to the given id.
+		/// called to remove the connection that belongs to the given id. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="connectionID">the id of the connection that has to be removed</param>
 		void RemoveConnection(IConnectionIdentifier connectionID);
@@ -119,7 +143,8 @@ namespace Palladio.ComponentModel.ModelDataManagement
 
 		/// <summary>
 		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
-		/// added to the interface are also removed.
+		/// added to the interface are also removed. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		void RemoveInterface(IInterfaceIdentifier ifaceID);
@@ -134,7 +159,8 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		void AddSignature(ISignature signature, IInterfaceIdentifier ifaceID);
 
 		/// <summary>
-		/// called to remove the signature with given id.
+		/// called to remove the signature with given id. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="signatureID">the id of the signature that has to be removed</param>
 		void RemoveSignature(ISignatureIdentifier signatureID);
@@ -145,10 +171,12 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="protocol">the protocol to be added</param>
 		/// <param name="ifaceID">the id of the interface, to which the protocol has to be added</param>
 		/// <exception cref="InterfaceNotFoundException">the interface could not be found in cm</exception>
+		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>		
 		void AddProtocol(IProtocol protocol, IInterfaceIdentifier ifaceID);
 
 		/// <summary>
-		/// called to remove the protocol with given id. 
+		/// called to remove the protocol with given id. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="protocolID">the id of the protocol that has to be removed</param>
 		void RemoveProtocol(IProtocolIdentifier protocolID);
