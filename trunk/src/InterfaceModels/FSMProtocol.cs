@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2004/05/24 15:03:14  sliver
+	/// added tests for fsmprotocols in a basic component
+	///
 	/// Revision 1.6  2004/05/24 13:54:07  sbecker
 	/// Added GetSignaturesByName
 	///
@@ -206,7 +209,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		{
 			this.fsm = (IFiniteStateMachine)fsm.Clone();
 			this.attributes = (IAttributeHash)hash.Clone();
-			this.roleID = roleID;
+			this.roleID = aRole;
 		}
 
 		#endregion

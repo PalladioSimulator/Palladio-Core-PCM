@@ -4,6 +4,7 @@ using System;
 using NUnit.Framework;
 using Palladio.ComponentModel.Exceptions;
 using System.Collections;
+using Palladio.FiniteStateMachines;
 
 namespace Palladio.ComponentModel.UnitTests
 {
@@ -15,6 +16,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/05/24 15:03:14  sliver
+	/// added tests for fsmprotocols in a basic component
+	///
 	/// Revision 1.1  2004/05/23 16:03:56  sliver
 	/// completed unit tests
 	///
@@ -29,6 +33,7 @@ namespace Palladio.ComponentModel.UnitTests
 		IServiceEffectMapping d1map, d2map;
 		IBasicComponent iComp1, iComp2, iComp3;
 		ISignature[] sigsProv1, sigsReq1, sigsReq2;
+		IBasicComponent fsmComponent;
 
 		[SetUp] public void Init()
 		{
@@ -53,14 +58,32 @@ namespace Palladio.ComponentModel.UnitTests
 			iComp3 = ComponentFactory.CreateBasicComponent();
 			iComp3.AddRequiresInterfaces(ComponentFactory.CreateSignatureListInterface("iReq1","e1","e2", "e3" ), (ISignatureList) iReq2.Clone());
 			iComp3.AddProvidesInterface( (ISignatureList) iProv1.Clone(), (IServiceEffectMapping) d1map.Clone(), (IServiceEffectMapping) d2map.Clone());
+
+			fsmComponent = ComponentFactory.CreateBasicComponent();
+			IFSMProtocol prov = FSMProtocolTest.CreateProvidesInterface();
+			IFSMProtocol d1	  = FSMProtocolTest.CreateServiceEffectD1();
+			IFSMProtocol d2	  = FSMProtocolTest.CreateServiceEffectD2();
+			IFSMProtocol req  = FSMProtocolTest.CreateRequires();
+			IServiceEffectMapping m1 = ComponentFactory.CreateServiceEffectMapping(prov[0], d1);
+			IServiceEffectMapping m2 = ComponentFactory.CreateServiceEffectMapping(prov[1], d2);
+			fsmComponent.AddProvidesInterface(prov, m1, m2);
+			fsmComponent.AddRequiresInterfaces(req);
 		}
 
-		[ExpectedException(typeof(MissingRequirementException))]
-		[Test] public void MissingRequirements()
+		[Test] public void WalkthroughFSMComponent()
 		{
-			IBasicComponent comp = ComponentFactory.CreateBasicComponent();
-			comp.AddRequiresInterfaces(iReq1);
-			comp.AddProvidesInterface(iProv1,d1map,d2map);
+			IFSMProtocol prov = (IFSMProtocol)fsmComponent.GetProvidesInterface("ProvIF");
+			ITransition[] transitions = prov.FSM.GetOutgoingTransitions(prov.FSM.StartState);
+			IFSMProtocol d1 = (IFSMProtocol)fsmComponent.GetServiceEffectSpecification( (ISignature) transitions[0].InputSymbol.ID );
+			IFSMProtocol d2 = (IFSMProtocol)fsmComponent.GetServiceEffectSpecification( (ISignature) transitions[1].InputSymbol.ID );
+			foreach( ITransition t in d1.FSM.Transitions )
+			{
+				Assert.IsTrue( fsmComponent.HasRequiresInterface( ((ISignature)t.InputSymbol.ID).RoleID ) );
+			}
+			foreach( ITransition t in d2.FSM.Transitions )
+			{
+				Assert.IsTrue( fsmComponent.HasRequiresInterface( ((ISignature)t.InputSymbol.ID).RoleID ) );
+			}
 		}
 
 		[Test] public void GetInterfacesByRole()
@@ -153,16 +176,7 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.IsTrue( se.Signatures.Length == 2 );
 		}
 
-		[ExpectedException(typeof(MissingRequirementException))]
-		[Test] public void MissingRequirementsForServiceEffect()
-		{
-			IBasicComponent cmp = (IBasicComponent)iComp1.Clone();
-			cmp.ChangeServiceEffectSpecification(
-				ComponentFactory.CreateSignature("iProv1","d1"), 
-				ComponentFactory.CreateSignatureListServiceEffect( 
-				ComponentFactory.CreateSignature("missing","missing")
-				));
-		}
+
 	}
 }
 #endif

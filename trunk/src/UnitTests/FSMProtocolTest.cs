@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/05/24 15:03:14  sliver
+	/// added tests for fsmprotocols in a basic component
+	///
 	/// Revision 1.3  2004/05/24 13:54:07  sbecker
 	/// Added GetSignaturesByName
 	///
@@ -102,6 +105,26 @@ namespace Palladio.ComponentModel.UnitTests
 			editFSM1.AddInputSymbols(FSMFactory.CreateInputFromList(signatures).StoredInputs);
 			editFSM1.AddTransition("1",signatures[0],"2");
 			
+			return result;
+		}
+
+		public static IFSMProtocol CreateRequires()
+		{
+			IEditableFiniteStateMachine editFSM1;
+
+			IFSMProtocol result = ComponentFactory.CreateFSMProtocolInterface("Ext1");
+
+			editFSM1 = result.EditFSM;
+			StateHash states1 = FSMFactory.CreateStatesFromList("1","2"); 
+			ISignature[] signatures = ComponentFactory.CreateSignatureArray("Ext1","e1", "e2", "e3");
+			editFSM1.AddStates(states1.StoredStates);
+			editFSM1.StartState = states1["1"];
+			editFSM1.FinalStates = new IState[] {states1["2"]};
+			editFSM1.AddInputSymbols(FSMFactory.CreateInputFromList(signatures).StoredInputs);
+			editFSM1.AddTransition("1",signatures[0],"2");
+			editFSM1.AddTransition("1",signatures[2],"1");
+			editFSM1.AddTransition("2",signatures[2],"2");
+			editFSM1.AddTransition("2",signatures[1],"1");
 			return result;
 		}
 

@@ -1,4 +1,4 @@
-//#if TEST
+#if TEST
 
 using System;
 using System.Collections;
@@ -96,4 +96,4 @@ namespace Palladio.ComponentModel.UnitTests
 	}
 }
 
-//#endif																																							 
+#endif																																							 
