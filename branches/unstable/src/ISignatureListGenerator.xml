@@ -12,8 +12,8 @@
 			<property name="InterfaceName">SignatureList</property>
 		</propertySet>
 		<propertySet>
-			<property name="ContainedSignatureType">IExternalSignature</property>
-			<property name="InterfaceName">ExternalSignatureList</property>
+			<property name="ContainedSignatureType">IService</property>
+			<property name="InterfaceName">ServiceList</property>
 		</propertySet>
 	</propertySets>
 	<template path="ISignatureList.cst" />
