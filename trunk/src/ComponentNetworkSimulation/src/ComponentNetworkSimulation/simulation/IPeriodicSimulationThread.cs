@@ -10,6 +10,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.4  2004/06/23 16:32:59  joemal
+	/// - add a properties for the observer
+	///
 	/// Revision 1.3  2004/06/19 16:00:23  joemal
 	/// - now this interface extends ISimulationThread
 	///
@@ -55,6 +58,15 @@ namespace ComponentNetworkSimulation.Simulation
 		{
 			get;
 		}
+
+		/// <summary>
+		/// return the observer of this thread.
+		/// </summary>
+		IThreadObserver Observer
+		{
+			get;
+		}
+
 		#endregion
 	}
 }

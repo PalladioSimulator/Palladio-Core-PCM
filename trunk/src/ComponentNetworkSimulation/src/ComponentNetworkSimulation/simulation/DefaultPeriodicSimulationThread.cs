@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.5  2004/06/23 16:32:59  joemal
+	/// - add a properties for the observer
+	///
 	/// Revision 1.4  2004/06/19 16:02:28  joemal
 	/// - now the threads work with new visitors
 	///
@@ -153,6 +156,17 @@ namespace ComponentNetworkSimulation.Simulation
 			get
 			{
 				return this.startingPoint;
+			}
+		}
+
+		/// <summary>
+		/// return the observer of this thread.
+		/// </summary>
+		public IThreadObserver Observer
+		{
+			get
+			{
+				return this.observer;
 			}
 		}
 
