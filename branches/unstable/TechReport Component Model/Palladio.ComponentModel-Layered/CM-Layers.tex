@@ -1,0 +1,158 @@
+% Version history:
+% $Log$
+% Revision 1.1.2.1  2005/02/20 13:17:04  kelsaka
+% erste Inhalte hinzugefügt
+%
+
+
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\setlength{\baselineskip}{1.5\baselineskip}
+
+
+
+	
+
+\title{Das Palladio Komponentenmodell}
+\author{Palladio Forschungsgruppe,\\
+Fk. II, Department für Informatik,\\
+Carl-Von-Ossietzky Universität Oldenburg}
+\date{\today}
+
+
+
+
+\begin{document}
+\maketitle
+
+
+
+\pagenumbering{arabic} %%Numerierung im Header der Seite
+\pagestyle{headings}
+
+
+
+\section{Einleitung}
+\label{sec:einleitung}
+Der vorliegende Text beschreibt die grundlegenden Erweiterungen und Veränderungen (Februar 2005) am Palladio Komponentenmodell. Um für ein Softwaresystem realistisch Komponenten auf der Implementierungs- und Deployment-Ebene modellieren zu können, wurde das Komponentenmodell auf drei Ebenen erweitert. Die neuen Ebenen ermöglichen eine Unterscheidung, ob es sich um Komponenten-Typen, -Implementierungen oder -Installationen handelt und heben damit die Einschränkung des alten Modells auf eine 1:1:1-Beziehung auf. Es sind also zu einem Typen mehrere Implementierungen und zu einer Implementierung mehrere Deployments möglich. In Abbildung \ref{fig:meta-scheme-implementation-layers01} werden die Multiplizitäten zwischen den Ebenen angegeben.
+
+
+
+\section{Änderungsübersicht}
+\label{sec:aenderungsuebersicht}
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=1.00\textwidth]{images/meta-scheme-implementation-layers01.pdf}
+	\caption{Ausprägungs- und Schema-Aufteilung auf die Detailebenen}
+	\label{fig:meta-scheme-implementation-layers01}
+\end{figure}
+Abbildung \ref{fig:meta-scheme-implementation-layers01} beschreibt die erweiterten Ebenen des Komponentenmodells. In der Visualisierung finden sich die neuen Hauptunterteilen in Typ, Implementierung, Deployment und Laufzeit auf der Vertikalen aufgetragen wieder. Um den Umfang des Modells in einer handhabbaren Größenordnung zu behalten wird im Komponentenmodell die Laufzeitebene ausgeblendet. Das bedeutet, dass sehr wohl Laufzeitinformationen modelliert werden können, diese jedoch mit einer 1:1-Beziehung zur Deploymentebene realisiert werden müssen. Das heißt, dass zu jeder deployten Komponente implizit genau eine Laufzeitinstanz zugeordnet wird. Informationen zur Laufzeitkomponente können daher auf der Deploymentebene hinterlegt werden. Damit erfährt das Modell die Einschränkung, dass auf üblichen Systemen keine Replikation von Komponenten zu mehreren Laufzeitinstanzen (bzw. deren Beschreibung) vorgenommen werden kann. 
+
+In der Horizontalen unterscheidet das Komponentenmodell zwischen dem Schema und der Instanz bzw. Ausprägung einer Komponente und Schnittstelle. Auf der Ebene der Implementierung kann die Implementierungsbeschreibung einen Verweis auf ein Code-Artefakt enthalten. Zur Unterstützung einer leichteren Modellierung kann die Beschreibung ohne eine konkrete Implementierung existieren, wie auch eine Implementierung ohne ihre Beschreibung vom Modell unterstützt wird. Folglich erhielte Quellcode in einer anderen Programmiersprache oder eine compilierte Variante des Codes jeweils eine eigene Beschreibung. Bedenkt man, dass abhängig von Programmiersprachen unterschiedliche Beschreibungen möglich sind, deren symmetrische Differenz nicht leer ist (beispielsweise bei der Unterstützung unterschiedlicher Sprachkonstrukte in der Programmiersprache), ließe sich keine sinnvolle gemeinsame Beschreibung finden.
+
+Die Navigation auf der Horizontalen geschieht im Allgemeinen nur von der Beschreibung über den darin enthaltenen Verweis zu der Implementierung.
+
+In der gleichen Weise enthält die Beschreibung der Deploymentinstanz eine Referenz auf die Deploymentinstanz. Auch hier die Navigation einschränkt und es ist der Fall möglich, dass lediglich eine Beschreibung vorliegt.
+
+Der Typebene wird im Komponentenmodell keine Ausprägung zugeordnet, da Typen eine reine Modellierungsebene darstellen, die keine physische Repräsentation aufweist. Aus diesem Grunde werden auf dieser Ebene ebenfalls die "`CompositeComponents"' erfasst, die eine logische Kapselung einer Menge von Komponenten und der von ihnen angebotenen und erforderten Schnittstellen darstellen und keine physische Ausprägung besitzen.
+
+TODO: Typebene: Wie wäre es hier mit Interfaces als Ausprägung? Der Typ wird durch die von ihm zu implementierenden Interfaces beschrieben. Auf den Interfaces kann man dann das Provides-Protokoll definieren. Die tiefer liegenden Ebenen Implementierung und Deployment beziehen sich dann auf die Komponenten und ihre Implementierung. Würde auf der Typebene eine Referenz auf die verwendeten Schnittstellen (Provides + Requires) gehalten, würde das für mich für BasicComponents Sinn machen. Man müsste dann noch mal schauen, wie es mit CompositeComponents aussieht, da ihre Schnittstellen keine physische Ausprägung haben...
+
+TODO: Auf der Typebene Protokoll zu einer Schnittstelle, auf der Implementierungsebene Protokoll wohl eher zu einer Rolle?
+
+
+
+\section{Quality of Service}
+\label{sec:QoS}
+Quality of Service (QoS) Merkmale hängen auf der \textit{Typebene} variabel ab von 
+
+\begin{itemize}
+
+\item den extern verwendeten Services ab, diese sind durch die Typbeschreibung nicht festgelegt, da erst die Implementierung festlegt, wie Funktionalität konkret realisiert wird. Die Typebene legt also nicht fest, welche externen Dienste verwendet werden.
+
+\item dem Deployment der Komponenten. Es ist also noch festgelegt welche Hardwareumgebung zur Verarbeitung zur Verfügung steht.
+
+\item dem Usage Profile. Durch diesen Parameter wird realisiert, dass je nach Szenario die Komponente eine unterschiedliche Verwendung findet, also beispielsweise eine gleichmäßige Last gegenüber Einzelbelastungswerten modelliert werden kann.
+
+\end{itemize}
+
+Je konkreter die Modellierungsebenen werden, desto kleiner wird der Modellraum für die Qualitätsmermale. Die \textit{Implementierungsebene} hängt lediglich vom Deployment und dem Usage Profile ab, während die \textit{Deploymentebene} nur noch eine Abhängigkeit vom Usage Profile aufweist. Auf der zunächst nicht direkt erfassten \textit{Laufzeit-Ebene} ließen sich schließlich feste Werte für Qualitätmerkmale ohne Parametrisierung erheben.
+
+
+
+\section{Modellierung}
+\label{sec:Modellierung}
+Die Modellierung wird von oben nach unten vorgenommen werden, da dies einer kontinuierlichen Verfeinerung der Spezifikation entspricht. Das bedeutet, dass zunächst die Typebene modelliert werden muss, bevor die Implementierungsebene und die Deploymentebene ergänzt werden. Wie in Abbildung \ref{fig:attributes-example01} dargestellt wird, erben die tiefer liegenden Ebenen die Attribute der "`Vater"'-Ebene.
+
+Wird die nächsttieferliegende Ebene im Modell spezifiziert, so wird diese zunächst mit den geerbten Attributen initiiert. Erst in den folgenden Schritten können Modifikationen vorgenommen werden. Dieser Entscheidung liegt die Annahme zu Grunde, dass zunächst und im Gros Implementierungen und Deployments modelliert werden dürften, die den jeweils höheren Ebenen entsprechen.
+
+Im Sprachgebrauch wird die Vererbungsbeziehung von der Implementierungs- zur Typ-Ebene mit dem Stereotpyen $\ll$implements$\gg$ bezeichnet. Die Beziehung zwischen der Deployment- und der Implementierungseben wird mit dem $\ll$deploys$\gg$-Stereotypen gekennzeichnet.
+
+
+
+\section{Attribute}
+\label{sec:Attribute}
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=1.00\textwidth]{images/attributes-example01.pdf}
+	\caption{Beispielmodell mit möglichen Attributen}
+	\label{fig:attributes-example01}
+\end{figure}
+
+Zwischen den Ebenen der Komponentenspezifizierung werden die Attribute nach unten vererbt (siehe Abbildung \ref{fig:attributes-example01}). Das heißt, dass Attribute, die auf höheren Ebenen angegeben werden auch für die tieferen Ebenen vorliegen. Entsprechend der üblichen Vererbung können tiefer liegende Ebenen Attribute ergänzen.
+
+
+
+\subsection{Provides-Protokoll}
+Auf der Typebene wird stets ein Maximalprotokoll definiert. Auf der Implementierungsebene dürfen Unterprotokolle (Teilautomaten) zum gegebenen Protokoll der Typebene definiert werden. Das heißt, dass auch Automaten, die nur einen Teil des Maximalprotokolls implementieren gültige Implementierungen sind (TODO: richtig? insbesondere im Bezug auf mögliches Subtyping...? Was ist mit nicht im Protokoll auftauchenden Methoden, die auf Typebene spezifiziert sind, auf Implementierungsebene aber nicht mehr auftauchen? Können die dann trotzdem aufgerufen werden und machen einfach nichts? Würden die dann nicht im einem parallen Automaten mit einem "`Trivialprotokoll"' auftauchen, bei dem dieses nicht mehr notwendigen Methoden immer aufgerufen werden können. Alternativ, um nur *einen* Automaten zu haben, müsste jeder Zustand mit einer Schleife diese nicht benutzen Methoden enthalten, dann könnten diese Methoden immer aufgerufen werden.). Die Implementierungsebene wird standardmäßig mit einer Kopie des Typebenen-Protokolls initiiert.
+
+Auf der Deploymentebene darf das Providesprotokoll nicht modifiziert werden, das Provides-Protokoll steht lediglich zum Lesen zur Verfügung. Das effektive Provides-Protkoll wird aus den verfügbaren externen Diensten mit Hilfe der Service-Effect-Spezifikation (SEFF) berechnet. Stehen für einen angebotenen Dienst, nicht alle im SEFF angegebenen externen Dienste zur Verfügung, weil beispielsweise nicht alle Requires-Schnittstellen erfüllt oder nur teilweise erfüllt werden, verringern sich die Dienste, die von der betrachteten Komponente angeboten werden können. Nur eigene Dienste, deren im SEFF spezifizierten externen Dienstaufrufe vollständig zur Verfügung stehen, werden angeboten, erscheinen folglich in der Angebots-Signaturliste und dem Angebotsprotokoll.
+
+Nur korrekte Teilautomaten des Provides-Protokolls der Implementierungsebene (die sich durch die vorangehend beschriebene Berechnung ergeben) sind dabei gültige Angebots-Protokolle der Deploymentebene. Ergibt sich auf Basis der Berechnung kein gültiger Unterautomat (die akzeptierte Sprache des Automaten $L(A) = \emptyset$), so können keine Dienste sinnvoll angeboten werden.
+
+
+\subsection{Requires-Protokoll}
+
+
+
+\subsection{Zusatzattribute}
+
+
+Erben nach oben. Spezialisierung. Subtyping. Was darf wo geändert werden. Was erlaubt - co / contra-varianz
+
+
+
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=1.00\textwidth]{images/level-example01.pdf}
+	\caption{Beispielarchitektur auf den Ebenen}
+	\label{fig:level-example01}
+\end{figure}
+
+
+
+\section{Modell}
+\label{sec:Modell}
+
+ADT. Tupel zur Navigation. DB-Charakter für alle Entitäten. Direkter und schneller Zugriff - Navigation. Möglichkeit von zentral aus Serialisierung auf Objekten anzustoßen, damit Möglichkeit auch Entitäten zu modellieren, die nicht Teil eines Gesamtmodells sind / in Architektur eingebunden. Zentrale Aufhängung um Modell herum soll über Builder verfügen, DB drin, Konsistenzchecks abfangen.
+
+ 
+
+\section{Konsistenz}
+\label{sec:Konsistenz}
+Prüfung extern, da ADT. Mechanismus in "`Außenobjekt"'. Protokolle, Signaturen. Auch hier Strategie. 
+
+
+%\cite*
+%\bibliographystyle{ieeetrans} %alpha
+%\bibliography{quellen}
+
+
+\end{document}
