@@ -6,7 +6,18 @@ namespace Palladio.FiniteStateMachines
 	/// <summary>
 	/// Zusammenfassung für InputSymbolHash.
 	/// </summary>
-	public class InputSymbolHash
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/05/12 08:07:25  sbecker
+	/// Added constructor constructing from IInput[]
+	/// Added CVS log
+	///
+	///
+	/// </pre>
+	/// </remarks>	public class InputSymbolHash
 	{
 		protected Hashtable inputHash = new Hashtable();
 
@@ -35,6 +46,14 @@ namespace Palladio.FiniteStateMachines
 
 		public InputSymbolHash()
 		{
+		}
+
+		public InputSymbolHash(IInput[] inputs)
+		{
+			foreach (IInput i in inputs)
+			{
+				this.Add(i.ID,i);
+			}
 		}
 
 		public override string ToString()
