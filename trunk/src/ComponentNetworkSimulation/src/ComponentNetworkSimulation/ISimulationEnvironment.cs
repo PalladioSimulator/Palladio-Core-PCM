@@ -5,6 +5,14 @@ namespace ComponentNetworkSimulation
 	/// <summary>
 	/// This Interface defines all methods and properties provided by the simulationenvironment.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.3  2004/05/26 16:37:22  joemal
+	/// add cvs log tag
+	///
+	/// </pre>
+	/// </remarks>
 	public interface ISimulationEnvironment
 	{
 		#region methods

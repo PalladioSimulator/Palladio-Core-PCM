@@ -10,6 +10,14 @@ namespace ComponentNetworkSimulation
 	/// to the componentnetwork and to the datapool used to log the simulation. Implementing classes have to create the instances 
 	/// of these references.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.9  2004/05/26 16:37:22  joemal
+	/// add cvs log tag
+	///
+	/// </pre>
+	/// </remarks>
 	public abstract class AbstractSimulationEnvironment : ISimulationEnvironment
 	{
 		#region data
