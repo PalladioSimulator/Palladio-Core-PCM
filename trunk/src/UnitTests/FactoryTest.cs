@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/05/12 08:06:58  sbecker
+	/// Added DeleteIllegalTransition
+	///
 	/// Revision 1.3  2004/05/12 07:50:59  sbecker
 	/// Added CVS log and DeleteIllegalState Test
 	///
@@ -148,6 +151,16 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		{
 			IEditableFiniteStateMachine fsm = BuildExampleFSM();
 			fsm.DeleteStates(fsm.StartState);
+		}
+
+		[ExpectedException(typeof(Exception))]
+		[Test] public void DeleteIllegalTransition()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			StateHash states = new StateHash(fsm.States);
+			InputSymbolHash inputs = new InputSymbolHash(fsm.InputAlphabet);
+			ITransition trans = FSMFactory.CreateDefaultTransition(states["1"],inputs["b"],states["3"]);
+			fsm.DeleteTransitions(trans);
 		}
 
 		/// <summary>
