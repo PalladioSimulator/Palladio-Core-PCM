@@ -107,7 +107,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			if (!inputAlphabet.Contains(anInput)) 
 				throw new InvalidInputException(anInput);
 
-			Vector transList = new Vector();
+			Set transList = new Set();
 			transList.Add(new DefaultTransition(aSourceState,anInput,ERROR_STATE));
 
 			if (transitionTable.Contains(aSourceState)) 
@@ -115,7 +115,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 				Hashtable inputTable = (Hashtable) transitionTable[aSourceState];
 				if (inputTable.Contains(anInput) && (((IList)inputTable[anInput])).Count != 0)
 				{
-					transList = (Vector)inputTable[anInput];
+					transList = (Set)inputTable[anInput];
 				}
 			}
 			return (ITransition[])transList.ToArray(typeof(ITransition));
@@ -136,7 +136,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 
 		public override ITransition[] GetOutgoingTransitions(IState state) 
 		{
-			Vector transList = new Vector();
+			Set transList = new Set();
 			Hashtable outgoing = (Hashtable)transitionTable[state];
 			if (outgoing != null) 
 			{
@@ -253,17 +253,10 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			IList transList = (IList)inputTable[aTrans.InputSymbol];
 			if (transList == null)
 			{
-				transList = new Vector();
+				transList = new Set();
 				inputTable[aTrans.InputSymbol] = transList;
 			}
-			if (!transList.Contains(aTrans))
-			{
 				transList.Add(aTrans);
-			}
-			else
-			{
-				throw new TransitionAlreadyDefinedException(aTrans);
-			}
 		}
 
 		private void AddToRevTransTable(ITransition aTrans)
@@ -271,7 +264,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			IList transList = (IList)reverseTransTable[aTrans.DestinationState];
 			if ( transList == null )
 			{
-				transList = new Vector();
+				transList = new Set();
 				reverseTransTable[aTrans.DestinationState] = transList;
 			}
 			transList.Add(aTrans);
