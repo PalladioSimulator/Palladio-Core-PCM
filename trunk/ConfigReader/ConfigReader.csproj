@@ -84,6 +84,16 @@
                     Project = "{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "AltovaXML"
+                    Project = "{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "webserverXML"
+                    Project = "{187A3048-4BFE-F344-92BE-AEE42C224D11}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

@@ -15,6 +15,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/10/23 14:08:36  kelsaka
+	/// first steps on reading xml-config-files
+	///
 	/// Revision 1.4  2004/10/23 11:55:08  kelsaka
 	/// added some parts of the building process
 	///
@@ -35,7 +38,7 @@ namespace Palladio.Webserver
 		/// <summary>
 		/// (Relative) Path to the xml-config-file. All other settings should be read out from the xml-file.
 		/// </summary>
-		private const string DEFAULT_XML_CONFIGURATION_FILE = "..\\..\\WebserverXML.xml";
+		private const string DEFAULT_XML_CONFIGURATION_FILE = "..\\..\\..\\Config\\WebserverXML.xml";
 
 
 		public Webserver()
@@ -67,9 +70,9 @@ namespace Palladio.Webserver
 			{
 				configType = args[0];
 			}
-			catch(IndexOutOfRangeException e)
+			catch(IndexOutOfRangeException)
 			{
-				configType = "";
+				configType = ""; //use default configuration
 			}
 
 

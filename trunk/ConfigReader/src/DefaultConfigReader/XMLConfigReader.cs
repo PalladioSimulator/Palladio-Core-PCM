@@ -1,6 +1,9 @@
 using System;
+using System.Diagnostics;
 using System.IO;
+using System.Xml;
 using Altova.Types;
+using WebserverXML;
 
 namespace Palladio.Webserver.ConfigReader
 {
@@ -14,6 +17,9 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2004/10/23 14:08:35  kelsaka
+	/// first steps on reading xml-config-files
+	///
 	/// Revision 1.6  2004/10/23 11:55:08  kelsaka
 	/// added some parts of the building process
 	///
@@ -38,6 +44,10 @@ namespace Palladio.Webserver.ConfigReader
 	public class XMLConfigReader : IConfigReader
 	{
 
+		/// <summary>
+		/// The configuration root-object.
+		/// </summary>
+		private ConfigType configRoot;
 
 
 
@@ -46,38 +56,46 @@ namespace Palladio.Webserver.ConfigReader
 
 		}
 
-		public void ReadConfiguration (string path)
-		{
+
+		/// <summary>
+		/// Read the configuration at the specified path. Afterwards the setting can be accessed by GetValue.
+		/// </summary>
+		/// <param name="configFilePath">Path to XML-config-file</param>
+		public void ReadConfiguration (string configFilePath)
+		{		
+
+			WebserverXMLDoc doc = new WebserverXMLDoc();
+			doc.SetRootElementName("", "Config");
 			
 
-			//
-			// TODO:
-			//   Insert your code here...
-			//
-			// Example code to create and save a structure:
-			//   webserverXMLDoc doc = new webserverXMLDoc();
-			//   portsType root = new portsType();
-			//   ...
-			//   doc.SetRootElementName("", "ports");
-			//   doc.SetSchemaLocation("webserverXML.xsd"); // optional
-			//   doc.Save("webserverXML1.xml", root);
-			//
-			// Example code to load and save a structure:
-			//   webserverXMLDoc doc = new webserverXMLDoc();
-			//   portsType root = new portsType(doc.Load("webserverXML1.xml"));
-			//   ...
-			//   doc.Save("webserverXML1.xml", root);
+			ConfigType root = new ConfigType();
 
+			try 
+			{
+				root = new ConfigType(doc.Load(configFilePath));
+			}
+			catch (FileNotFoundException e)
+			{
+				Debug.WriteLine(e);
+			}
+			catch (XmlException e)
+			{
+				Debug.WriteLine(e);
+			}
 
-			throw new NotImplementedException ();
+			this.configRoot = root;
+
 		}
 
 
-		public object GetValue (string key)
+		/// <summary>
+		/// Deliveres the configuration root-object. First run ReadConfiguration().
+		/// </summary>
+		/// <returns>The ConfigType-root-object.</returns>
+		public ConfigType GetRoot()
 		{
-			throw new NotImplementedException ();
+			return configRoot;
 		}
-
 
 
 

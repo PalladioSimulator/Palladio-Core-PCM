@@ -3,7 +3,7 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{187A3048-4BFE-F344-92BE-AEE42C224D11}"
+        ProjectGuid = "{0F00E70A-BB74-3B4B-8843-D110B46C59DE}"
     >
         <Build>
             <Settings
@@ -104,12 +104,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "ConfigType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "DebugFileType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "DefaultFilesType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DocumentRootType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -134,22 +144,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "configType.cs"
+                    RelPath = "PortType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "documentRootType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "portType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "portsType.cs"
+                    RelPath = "PortsType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

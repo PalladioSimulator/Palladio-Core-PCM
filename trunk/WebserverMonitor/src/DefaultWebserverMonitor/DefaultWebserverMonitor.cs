@@ -1,5 +1,6 @@
 using System;
 using Palladio.Webserver.ConfigReader;
+using WebserverXML;
 
 namespace Palladio.Webserver.WebserverMonitor
 {
@@ -13,6 +14,9 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/10/23 14:08:36  kelsaka
+	/// first steps on reading xml-config-files
+	///
 	/// Revision 1.3  2004/10/22 16:19:56  kelsaka
 	/// even more interface changes; configuration-alternative on loading the webserver
 	///
@@ -33,14 +37,21 @@ namespace Palladio.Webserver.WebserverMonitor
 		public DefaultWebserverMonitor(IConfigReader configReader)
 		{
 			this.configReader = configReader;
+
+			ReadConfiguration();
 		}
 
-		public void writeDebugMessage (string debugMessage, int debugLevel)
+		private void ReadConfiguration()
+		{
+			ConfigType configRoot = configReader.GetRoot();
+		}
+
+		public void WriteDebugMessage (string debugMessage, int debugLevel)
 		{
 			throw new NotImplementedException ();
 		}
 
-		public void writeLogEntry (string logMessage)
+		public void WriteLogEntry (string logMessage)
 		{
 			throw new NotImplementedException ();
 		}
