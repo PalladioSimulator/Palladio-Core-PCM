@@ -113,11 +113,6 @@
                     BuildAction = "None"
                 />
                 <File
-                    RelPath = "src\AssemblyInfo.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\DispatcherComponent.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
