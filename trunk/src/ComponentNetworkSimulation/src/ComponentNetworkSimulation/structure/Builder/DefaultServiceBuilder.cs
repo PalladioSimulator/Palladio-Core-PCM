@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/06/23 14:37:19  joemal
+	/// fix a bug in method addTransition()
+	///
 	/// Revision 1.2  2004/06/22 17:08:29  joemal
 	/// - change method signature in service builder
 	///
@@ -137,9 +140,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			ISignature sig = ComponentFactory.CreateSignatureArray(signatureID.ToString())[0];
 			this.component.GetRequiresInterface(reqIFaceID).SignatureList.AddSignatures(sig);
 
-			serviceEffectSpecification.SignatureList.AddSignatures(ComponentFactory.CreateSignatureWithRole(reqIFaceID,sig));
+			IExternalSignature extSig = ComponentFactory.CreateSignatureWithRole(reqIFaceID,sig);
+
+			serviceEffectSpecification.SignatureList.AddSignatures(extSig);
             
-			FSM.AddTransition(sourceStateID,sig,destStateID);
+			FSM.AddTransition(sourceStateID,extSig,destStateID);
 		}
 
 		#endregion
