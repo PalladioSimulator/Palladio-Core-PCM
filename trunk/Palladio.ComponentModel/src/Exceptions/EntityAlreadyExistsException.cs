@@ -1,0 +1,31 @@
+using Palladio.Identifier;
+
+namespace Palladio.ComponentModel.Exceptions
+{
+	/// <summary>
+	/// Error indicating, that an entity with same id already exists in the model.
+	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.1  2005/03/15 12:30:08  joemal
+	/// initial class creation
+	///
+	///
+	///
+	/// </pre>
+	/// </remarks>
+	public class EntityAlreadyExistsException : ComponentModelException
+	{
+		/// <summary>
+		/// Error indicating, that an entity with same id already exists in current model.
+		/// </summary>
+		/// <param name="entityId">the id of the entity</param>
+		public EntityAlreadyExistsException(IIdentifier entityId) : 
+			base( "Entity with id " + (entityId != null ? entityId.ToString() : "<NULL>" )+ " already exists!")
+		{
+		}
+	}
+}

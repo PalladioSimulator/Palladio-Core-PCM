@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="ModelDataSet" targetNamespace="http://tempuri.org/ModelDataSet.xsd" elementFormDefault="qualified"
+	attributeFormDefault="qualified" xmlns="http://tempuri.org/ModelDataSet.xsd" xmlns:mstns="http://tempuri.org/ModelDataSet.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+	xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+	<xs:element name="ModelDataSet" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="Components">
+					<xs:complexType>
+						<xs:sequence></xs:sequence>
+						<xs:attribute name="id" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="guid" type="xs:string" />
+						<xs:attribute name="type" type="xs:byte" />
+						<xs:attribute name="parentComponent" type="xs:long" msprop:nullValue="-1" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Interfaces">
+					<xs:complexType>
+						<xs:sequence></xs:sequence>
+						<xs:attribute name="id" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="guid" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Connections">
+					<xs:complexType>
+						<xs:sequence></xs:sequence>
+						<xs:attribute name="incoming" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="outgoing" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="guid" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Signatures">
+					<xs:complexType>
+						<xs:sequence />
+						<xs:attribute name="id" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="guid" type="xs:string" />
+						<xs:attribute name="fk_iface" type="xs:long" msprop:nullValue="-1" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Roles">
+					<xs:complexType>
+						<xs:sequence></xs:sequence>
+						<xs:attribute name="id" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="fk_comp" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="fk_iface" type="xs:long" msprop:nullValue="-1" />
+						<xs:attribute name="type" type="xs:byte" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Protocols">
+					<xs:complexType>
+						<xs:sequence></xs:sequence>
+						<xs:attribute name="guid" type="xs:string" />
+						<xs:attribute name="fk_iface" type="xs:long" msprop:nullValue="-1" />
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+		<xs:key name="COMP_PK" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Components" />
+			<xs:field xpath="@mstns:id" />
+		</xs:key>
+		<xs:key name="COMP_SK">
+			<xs:selector xpath=".//mstns:Components" />
+			<xs:field xpath="@mstns:guid" />
+		</xs:key>
+		<xs:keyref name="ComponentsComponents" refer="COMP_PK" msdata:AcceptRejectRule="None" msdata:DeleteRule="Cascade"
+			msdata:UpdateRule="SetNull">
+			<xs:selector xpath=".//mstns:Components" />
+			<xs:field xpath="@mstns:parentComponent" />
+		</xs:keyref>
+		<xs:key name="IFACE_PK" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Interfaces" />
+			<xs:field xpath="@mstns:id" />
+		</xs:key>
+		<xs:key name="CON_PK" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Connections" />
+			<xs:field xpath="@mstns:incoming" />
+			<xs:field xpath="@mstns:outgoing" />
+		</xs:key>
+		<xs:key name="ROLES_PK">
+			<xs:selector xpath=".//mstns:Roles" />
+			<xs:field xpath="@mstns:id" />
+		</xs:key>
+		<xs:keyref name="RolesConnections" refer="ROLES_PK">
+			<xs:selector xpath=".//mstns:Connections" />
+			<xs:field xpath="@mstns:incoming" />
+		</xs:keyref>
+		<xs:keyref name="RolesConnections1" refer="ROLES_PK">
+			<xs:selector xpath=".//mstns:Connections" />
+			<xs:field xpath="@mstns:outgoing" />
+		</xs:keyref>
+		<xs:keyref name="ComponentsRoles" refer="COMP_PK">
+			<xs:selector xpath=".//mstns:Roles" />
+			<xs:field xpath="@mstns:fk_comp" />
+		</xs:keyref>
+		<xs:keyref name="InterfacesRoles" refer="IFACE_PK">
+			<xs:selector xpath=".//mstns:Roles" />
+			<xs:field xpath="@mstns:fk_iface" />
+		</xs:keyref>
+		<xs:key name="SIG_PK" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Signatures" />
+			<xs:field xpath="@mstns:id" />
+		</xs:key>
+		<xs:key name="CON_SK">
+			<xs:selector xpath=".//mstns:Connections" />
+			<xs:field xpath="@mstns:guid" />
+		</xs:key>
+		<xs:key name="IFACE_SK">
+			<xs:selector xpath=".//mstns:Interfaces" />
+			<xs:field xpath="@mstns:guid" />
+		</xs:key>
+		<xs:key name="SIG_SK">
+			<xs:selector xpath=".//mstns:Signatures" />
+			<xs:field xpath="@mstns:guid" />
+		</xs:key>
+		<xs:keyref name="InterfacesSignatures" refer="IFACE_PK">
+			<xs:selector xpath=".//mstns:Signatures" />
+			<xs:field xpath="@mstns:fk_iface" />
+		</xs:keyref>
+		<xs:key name="PROT_PK" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Protocols" />
+			<xs:field xpath="@mstns:guid" />
+		</xs:key>
+		<xs:keyref name="InterfacesProtocols" refer="IFACE_PK">
+			<xs:selector xpath=".//mstns:Protocols" />
+			<xs:field xpath="@mstns:fk_iface" />
+		</xs:keyref>
+	</xs:element>
+</xs:schema>

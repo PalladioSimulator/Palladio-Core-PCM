@@ -1,0 +1,107 @@
+using Palladio.Attributes;
+using Palladio.Identifier;
+
+namespace Palladio.ComponentModel.ModelEntities.Impl
+{
+	/// <summary>
+	/// This abstract class is the base class of all entities in the component model. It
+	/// holds the name, the id and the attributehash of the entity.
+	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.1  2005/03/15 12:31:37  joemal
+	/// initial class creation
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
+	internal abstract class AbstractEntity : IIdentifiable, IAttributable
+	{
+		#region data
+
+		//holds the name
+		protected string name;
+
+		//holds the attribute hashtable
+		protected AttributeHash attributeHash;
+
+		//holds the id
+		protected IIdentifier id;
+
+		#endregion
+
+		#region constructor
+
+		/// <summary>
+		/// called to create a new AbstractEntity
+		/// </summary>
+		/// <param name="name">the name of the entity</param>
+		/// <param name="id">the id of the entity</param>
+		public AbstractEntity(IIdentifier id, string name)
+		{
+			this.id = id;
+			this.name = name;
+			this.attributeHash = new AttributeHash();
+		}
+
+		#endregion
+
+		#region methods
+
+		/// <summary>
+		/// This methods has ever to be called, when attributes have been changed to update all observer of the models
+		/// changes.
+		/// </summary>
+		public virtual void AttributesChanged()
+		{
+			//todo: implement notification
+		}
+
+		#endregion
+
+		#region properties
+
+		/// <summary>
+		/// The Identifier describing the identified object
+		/// </summary>
+		public virtual IIdentifier ID
+		{
+			get
+			{
+				return this.id;
+			}
+		}
+
+		/// <summary>
+		/// get or set the name of the entity
+		/// </summary>
+		public virtual string Name
+		{
+			get
+			{
+				return this.name;
+			}
+
+			set
+			{
+				this.name = value;
+			}
+		}
+
+        /// <summary>
+        /// return the attribute hashtable of the entity
+        /// </summary>
+		public AttributeHash Attributes
+		{
+			get
+			{
+				return this.attributeHash;
+			}
+		}
+
+		#endregion
+	}
+}
