@@ -2,6 +2,8 @@ using System;
 using Palladio.Attributes;
 using Palladio.FiniteStateMachines;
 
+using ComponentNetworkSimulation.Structure.Attributes;
+
 namespace ComponentNetworkSimulation.Structure.Services
 {
 	/// <summary>
@@ -10,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Services
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/05/25 16:23:37  joemal
+	/// parameters now are stored in attributehash
+	///
 	/// Revision 1.2  2004/05/20 14:14:01  joemal
 	/// replace the single parameters of the state with a parameterstructure
 	///
@@ -23,11 +28,6 @@ namespace ComponentNetworkSimulation.Structure.Services
 	{
 		#region data
 
-		/// <summary>
-		/// holds the structure with the state parameters
-		/// </summary>
-		protected ISimulationStateParams stateParams;
-
 		// the attribute hashtable
 		private IAttributeHash attributes = new AttributesFactory().Default.CreateAttributeHash();
 
@@ -38,11 +38,12 @@ namespace ComponentNetworkSimulation.Structure.Services
 		/// <summary>
 		/// constructs a new SimulationState.
 		/// </summary>
-		/// <param name="id">the id of the state</param>
-		/// <param name="strategy">the strategy object used to find the path through the FSMs.</param>
+		/// <param name="param">the parameterstructure of the state</param>
 		public AbstractSimulationState(ISimulationStateParams param)
 		{
-			this.stateParams = param;
+			this.attributes.Add(DefaultAttributeTypeSet.IDType,param.ID);
+			this.attributes.Add(DefaultAttributeTypeSet.ControlFlowStrategyType,param.ControlFlowStrategy);
+			this.attributes.Add(DefaultAttributeTypeSet.LoggingAttributeType,param.LoggingType);
 		}
 
 		#endregion
@@ -56,7 +57,7 @@ namespace ComponentNetworkSimulation.Structure.Services
 		{
 			get
 			{
-				return this.stateParams.ControlFlowStrategy;
+				return (IControlFlowStrategy)this.attributes[DefaultAttributeTypeSet.ControlFlowStrategyType];
 			}
 		}
 
@@ -67,7 +68,7 @@ namespace ComponentNetworkSimulation.Structure.Services
 		{
 			get
 			{
-				return this.stateParams.ID;
+				return (string)this.attributes[DefaultAttributeTypeSet.IDType];
 			}
 		}
 
@@ -116,11 +117,11 @@ namespace ComponentNetworkSimulation.Structure.Services
 		/// <summary>
 		/// returns the logging type of the state.
 		/// </summary>
-		public ComponentNetworkSimulation.Structure.LoggingType_t LoggingType
+		public LoggingType_t LoggingType
 		{
 			get
 			{
-				return this.stateParams.LoggingType;
+				return (LoggingType_t)this.attributes[DefaultAttributeTypeSet.LoggingAttributeType];
 			}
 		}
 
