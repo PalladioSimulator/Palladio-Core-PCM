@@ -408,6 +408,12 @@ namespace Palladio.Editor.Plugins.TreeView
 							newNode = CreateInterfaceNode(ip);
 							newNode.Tag = ip;
 						}
+						else if (entity is SignatureProxy)
+						{
+							SignatureProxy sp = entity as SignatureProxy;
+							newNode = CreateSignatureNode(sp);
+							newNode.Tag = sp;
+						}
 
 						this.treeView.Nodes.Add(newNode);
 						finished = true;
@@ -464,6 +470,12 @@ namespace Palladio.Editor.Plugins.TreeView
 							InterfaceProxy ip = entity as InterfaceProxy;
 							newNode = CreateInterfaceNode(ip);
 							newNode.Tag = ip;
+						}
+						else if (entity is SignatureProxy)
+						{
+							SignatureProxy sp = entity as SignatureProxy;
+							newNode = CreateSignatureNode(sp);
+							newNode.Tag = sp;
 						}
 
 						parent.Nodes.Add(newNode);

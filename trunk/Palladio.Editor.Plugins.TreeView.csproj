@@ -118,12 +118,6 @@
                     HintPath = "..\Palladio.Editor.Core\bin\Assemblies\Palladio.Attributes.dll"
                     Private = "False"
                 />
-                <Reference
-                    Name = "Palladio.ComponentModel"
-                    AssemblyName = "Palladio.ComponentModel"
-                    HintPath = "..\Palladio.Editor.Core\bin\Assemblies\Palladio.ComponentModel.dll"
-                    Private = "False"
-                />
             </References>
         </Build>
         <Files>
