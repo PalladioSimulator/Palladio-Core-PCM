@@ -1,5 +1,5 @@
 using System.Collections;
-namespace ComponentNetworkSimulation.structure
+namespace ComponentNetworkSimulation.Structure
 {
 	public abstract class AbstractConnector
 	{

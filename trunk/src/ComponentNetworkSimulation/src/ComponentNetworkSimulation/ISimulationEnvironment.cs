@@ -45,7 +45,7 @@ namespace ComponentNetworkSimulation
 		/// <summary>
 		/// return the ComponentNetwork of the environment. 
 		/// </summary>
-		ComponentNetworkSimulation.structure.AbstractComponentNetwork TheComponentNetwork 
+		ComponentNetworkSimulation.Structure.AbstractComponentNetwork TheComponentNetwork 
 		{
 			get;			
 		}

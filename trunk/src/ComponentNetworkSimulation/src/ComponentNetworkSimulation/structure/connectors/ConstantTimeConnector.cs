@@ -1,5 +1,5 @@
-using ComponentNetworkSimulation.structure;
-namespace ComponentNetworkSimulation.structure.connectors
+using ComponentNetworkSimulation.Structure;
+namespace ComponentNetworkSimulation.Structure.Connectors
 {
 	internal class ConstantTimeConnector: AbstractConnector
 	{

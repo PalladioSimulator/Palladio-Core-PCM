@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using ComponentNetworkSimulation.Simulation;
-using ComponentNetworkSimulation.structure;
+using ComponentNetworkSimulation.Structure;
 
 namespace ComponentNetworkSimulation.Analysis.Datapools
 {

@@ -1,4 +1,4 @@
-namespace ComponentNetworkSimulation.structure.connectors
+namespace ComponentNetworkSimulation.Structure.Connectors
 {
 	internal class ZeroDelayConnector : ConstantTimeConnector {
 

@@ -1,4 +1,4 @@
-using ComponentNetworkSimulation.structure;
+using ComponentNetworkSimulation.Structure;
 using ComponentNetworkSimulation.Simulation;
 using ComponentNetworkSimulation.Analysis;
 using System.Collections;

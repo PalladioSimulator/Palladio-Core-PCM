@@ -1,5 +1,6 @@
 using System;
-using ComponentNetworkSimulation.structure;
+using System.Collections;
+using ComponentNetworkSimulation.Structure;
 
 //TODO: logging
 namespace ComponentNetworkSimulation.Simulation
@@ -46,11 +47,6 @@ namespace ComponentNetworkSimulation.Simulation
 		protected long timeInFuture=0;
 
 		/// <summary>
-		/// holds the current TimeConsumer.
-		/// </summary>
-		protected ComponentNetworkSimulation.structure.ITimeConsumer currentTimeConsumer=null;
-
-		/// <summary>
 		/// holds the type of the thread
 		/// </summary>
 		protected SimulationThreadType type = SimulationThreadType.TYPE_LOG_ON_LPS;
@@ -59,6 +55,11 @@ namespace ComponentNetworkSimulation.Simulation
 		/// this field hold an implemented observer if set
 		/// </summary>
 		protected IThreadObserver observer;
+
+		/// <summary>
+		/// this field holds the stack of timeconsumers. 
+		/// </summary>
+		protected Stack timeConsumerStack = new Stack();
 
 		#endregion data
 
@@ -73,8 +74,8 @@ namespace ComponentNetworkSimulation.Simulation
 		public DefaultSimulationThread(int id, ITimeConsumer firstTimeConsumer, SimulationThreadType type)
 		{
 			this.threadId = id;
-			this.currentTimeConsumer = firstTimeConsumer;
-			this.timeInFuture = currentTimeConsumer.ThreadEntered();
+			this.timeConsumerStack.Push(firstTimeConsumer);
+			this.timeInFuture = firstTimeConsumer.ThreadEntered();
 			this.type = type;
 		}
 
@@ -88,8 +89,8 @@ namespace ComponentNetworkSimulation.Simulation
 			IThreadObserver observer)
 		{
 			this.threadId = id;
-			this.currentTimeConsumer = firstTimeConsumer;
-			this.timeInFuture = currentTimeConsumer.ThreadEntered();
+			this.timeConsumerStack.Push(firstTimeConsumer);
+			this.timeInFuture = firstTimeConsumer.ThreadEntered();
 			this.type = type;
 			this.observer = observer;
 		}
@@ -102,7 +103,17 @@ namespace ComponentNetworkSimulation.Simulation
 		/// </summary>
 		public ITimeConsumer CurrentTimeConsumer 
 		{
-			get{ return currentTimeConsumer;}
+			get
+			{
+				try 
+				{
+					return (ITimeConsumer)timeConsumerStack.Peek();
+				}
+				catch
+				{
+					return null;
+				}
+			}
 		}
 
 		/// <summary>
@@ -162,20 +173,52 @@ namespace ComponentNetworkSimulation.Simulation
 		{
 			if (!HasAnyTimeConsumer()) return;
 
-			if (!currentTimeConsumer.hasNextTimeConsumer()) 
+			ITimeConsumer previousTimeConsumer;
+
+			if (CurrentTimeConsumer.HasNextTimeConsumer) 
+			{
+				previousTimeConsumer = CurrentTimeConsumer;
+				previousTimeConsumer.ThreadExited();
+				timeConsumerStack.Push(previousTimeConsumer.NextTimeConsumer);
+			}				
+			else
+				previousTimeConsumer = BackToSubCaller();
+
+			if (timeConsumerStack.Count == 0)
 			{
 				NotifyThreadReachedEndEvent();
-				currentTimeConsumer = null;
 				return;
 			}
 
-			ITimeConsumer previous = currentTimeConsumer;
-			currentTimeConsumer.ThreadExited();
+			timeInFuture = CurrentTimeConsumer.ThreadEntered();
 
-			currentTimeConsumer = currentTimeConsumer.getNextTimeConsumer();
-			timeInFuture = currentTimeConsumer.ThreadEntered();
+			NotifyNextTCEvent(previousTimeConsumer);
+		}
 
-			NotifyNextTCEvent(previous);
+		/// <summary>
+		/// call to remove all timeconsumer until reaching a SubCallingTimeConsumer or the stack is empty.
+		/// If a SubCallingTimeConsumer is reached, its following TimeConsumer is pushed to stack. 
+		/// </summary>
+		/// <returns>
+		/// returns found SubCallingTimeConsumer, if any 
+		/// </returns>
+		private ITimeConsumer BackToSubCaller()
+		{
+			do
+			{
+				ITimeConsumer current = (ITimeConsumer)timeConsumerStack.Pop();
+				if (current is ISubCallingTimeConsumer)
+				{
+					ITimeConsumer nextTC = ((ISubCallingTimeConsumer)current).NextTimeConsumerAfterReturn;
+					if (nextTC != null) 
+					{
+						timeConsumerStack.Push(nextTC);
+						return current;
+					}
+				}
+			}
+			while(timeConsumerStack.Count != 0);
+			return null;
 		}
 
 		/// <summary>
@@ -184,7 +227,7 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <returns>true, if the thread is alive.</returns>
 		protected bool HasAnyTimeConsumer()
 		{
-			return currentTimeConsumer != null;
+			return timeConsumerStack.Count != 0;
 		}
 
 		/// <summary>
@@ -194,7 +237,7 @@ namespace ComponentNetworkSimulation.Simulation
 		protected virtual void NotifyNextTCEvent(ITimeConsumer previous)
 		{
 			if (NextTCEvent != null)
-				NextTCEvent(this,new NextTCEventArgs(this.currentTimeConsumer,previous));
+				NextTCEvent(this,new NextTCEventArgs(this.CurrentTimeConsumer,previous));
 
 			if (observer != null)
 				observer.NotifyThreadChangedTimeConsumer(this,previous);

@@ -160,7 +160,95 @@ namespace nunittests.simulation
 			Assert.IsTrue(newThread.IsAlive);
 		}
 
+		[Test]
+		public void test_single_thread_with_subcalls_1()
+		{
+			ISimulationThread testThread =new DefaultSimulationThread(0,ExternalCall.CreatePathStartingWithTimeConsumer(),
+				SimulationThreadType.TYPE_LOG_ON_LPS,this);
 
+			Assert.AreEqual(testThread.TimeInFuture,6);
+			testThread.TimeMoved(6);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,1);
+			testThread.TimeMoved(1);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,2);
+			testThread.TimeMoved(2);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,3);
+			testThread.TimeMoved(3);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,10);
+			testThread.TimeMoved(10);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,2);
+			testThread.TimeMoved(2);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,3);
+			testThread.TimeMoved(3);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,10);
+			testThread.TimeMoved(10);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,5);
+			testThread.TimeMoved(5);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,5);
+			testThread.TimeMoved(5);
+			Assert.IsFalse(testThread.IsAlive);
+		}
+
+		[Test]
+		public void test_single_thread_with_subcalls_2()
+		{
+			ISimulationThread testThread =new DefaultSimulationThread(0,ExternalCall.CreatePathStartingWithSubCall(),
+				SimulationThreadType.TYPE_LOG_ON_LPS,this);
+
+			Assert.AreEqual(testThread.TimeInFuture,1);
+			testThread.TimeMoved(1);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,2);
+			testThread.TimeMoved(2);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,3);
+			testThread.TimeMoved(3);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,10);
+			testThread.TimeMoved(10);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,2);
+			testThread.TimeMoved(2);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,3);
+			testThread.TimeMoved(3);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,10);
+			testThread.TimeMoved(10);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,5);
+			testThread.TimeMoved(5);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,5);
+			testThread.TimeMoved(5);
+			Assert.IsFalse(testThread.IsAlive);
+		}
 
 		#region IThreadObserver Member
 
@@ -169,7 +257,7 @@ namespace nunittests.simulation
 			Console.WriteLine("Thread("+sender.ThreadID+") reached end...");
 		}
 
-		public void NotifyThreadChangedTimeConsumer(ISimulationThread sender, ComponentNetworkSimulation.structure.ITimeConsumer previous)
+		public void NotifyThreadChangedTimeConsumer(ISimulationThread sender, ComponentNetworkSimulation.Structure.ITimeConsumer previous)
 		{
 			Console.WriteLine("Thread("+sender.ThreadID+") changed TimeConsumer.");
 		}

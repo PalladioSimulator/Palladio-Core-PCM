@@ -1,4 +1,4 @@
-namespace ComponentNetworkSimulation.structure
+namespace ComponentNetworkSimulation.Structure
 {
 	public class ConnectorPath : ITimeConsumer
 	{
@@ -21,14 +21,14 @@ namespace ComponentNetworkSimulation.structure
 		/// </TgData>
 		protected AbstractConnector owningConnector = null;
 
-		protected LoggingType loggingType = LoggingType.NO_LOG;
+		protected LoggingType_t loggingType = LoggingType_t.NO_LOG;
 
 		public ConnectorPath(AbstractConnector owningConnector, ITimeConsumer nextTimeConsumer) : 
-			this(owningConnector, nextTimeConsumer,LoggingType.NO_LOG)
+			this(owningConnector, nextTimeConsumer,LoggingType_t.NO_LOG)
 		{
 		}
 
-		public ConnectorPath(AbstractConnector owningConnector, ITimeConsumer nextTimeConsumer, LoggingType type) 
+		public ConnectorPath(AbstractConnector owningConnector, ITimeConsumer nextTimeConsumer, LoggingType_t type) 
 		{
 			this.nextTimeConsumer = nextTimeConsumer;
 			this.owningConnector = owningConnector;
@@ -36,19 +36,28 @@ namespace ComponentNetworkSimulation.structure
 
 		#region ITimeConsumer Member
 
-		public ITimeConsumer getNextTimeConsumer() 
+		public ITimeConsumer NextTimeConsumer 
 		{
-			return this.nextTimeConsumer;
+			get
+			{
+				return this.nextTimeConsumer;
+			}
 		}
 
-		public bool hasNextTimeConsumer()
+		public bool HasNextTimeConsumer
 		{
-			return true;
+			get
+			{
+				return true;
+			}
 		}
 
-		public ComponentNetworkSimulation.structure.LoggingType getLoggingType()
+		public ComponentNetworkSimulation.Structure.LoggingType_t LoggingType
 		{
-			return loggingType;
+			get
+			{
+				return loggingType;
+			}
 		}
 
 		public long ThreadEntered()

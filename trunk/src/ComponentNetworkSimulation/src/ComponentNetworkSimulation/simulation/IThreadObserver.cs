@@ -1,5 +1,5 @@
 using System;
-using ComponentNetworkSimulation.structure;
+using ComponentNetworkSimulation.Structure;
 
 namespace ComponentNetworkSimulation.Simulation
 {

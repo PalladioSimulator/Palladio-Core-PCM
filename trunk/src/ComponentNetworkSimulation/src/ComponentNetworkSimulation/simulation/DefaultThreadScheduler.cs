@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using ComponentNetworkSimulation.Analysis;
-using ComponentNetworkSimulation.structure;
+using ComponentNetworkSimulation.Structure;
 
 namespace ComponentNetworkSimulation.Simulation
 {
@@ -340,16 +340,16 @@ namespace ComponentNetworkSimulation.Simulation
 			else
 			{
 				if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_ALL || 
-					previousTimeConsumer.getLoggingType() == LoggingType.LOG_ON_EXIT ||
-					previousTimeConsumer.getLoggingType() == LoggingType.LOG_BOTH)
+					previousTimeConsumer.LoggingType == LoggingType_t.LOG_ON_EXIT ||
+					previousTimeConsumer.LoggingType == LoggingType_t.LOG_BOTH)
 				{
 					NotifyThreadLogEvent("Thread exited TimeConsumer.",simulationThread,
 						ThreadLogEventArgs.EventType.THREAD_EXITED_TIMECONSUMER,previousTimeConsumer);
 				}
 
 				if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_ALL || 
-					previousTimeConsumer.getLoggingType() == LoggingType.LOG_ON_ENTER ||
-					previousTimeConsumer.getLoggingType() == LoggingType.LOG_BOTH)
+					previousTimeConsumer.LoggingType == LoggingType_t.LOG_ON_ENTER ||
+					previousTimeConsumer.LoggingType == LoggingType_t.LOG_BOTH)
 				{
 					NotifyThreadLogEvent("Thread entered TimeConsumer.",simulationThread,
 						ThreadLogEventArgs.EventType.THREAD_EXITED_TIMECONSUMER,currentTimeConsumer);

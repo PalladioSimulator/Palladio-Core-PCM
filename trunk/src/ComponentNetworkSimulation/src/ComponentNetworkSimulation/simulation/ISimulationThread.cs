@@ -19,7 +19,7 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <summary>
 		/// the current TimeConsumer
 		/// </summary>
-		ComponentNetworkSimulation.structure.ITimeConsumer CurrentTimeConsumer
+		ComponentNetworkSimulation.Structure.ITimeConsumer CurrentTimeConsumer
 		{
 			get;
 		}

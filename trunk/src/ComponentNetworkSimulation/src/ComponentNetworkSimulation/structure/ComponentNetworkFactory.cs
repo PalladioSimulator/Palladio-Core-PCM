@@ -1,10 +1,10 @@
-namespace ComponentNetworkSimulation.structure
+namespace ComponentNetworkSimulation.Structure
 {
 	public class ComponentNetworkFactory
 	{
 		public static AbstractComponentNetwork createXMLBasedComponentNetwork(System.String xmlFile) 
 		{
-			return new componentnetwork.XMLBasedComponentNetwork(xmlFile);
+			return new Componentnetwork.XMLBasedComponentNetwork(xmlFile);
 		}
 	}
 }

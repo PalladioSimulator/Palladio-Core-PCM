@@ -1,4 +1,4 @@
-namespace ComponentNetworkSimulation.structure.componentnetwork
+namespace ComponentNetworkSimulation.Structure.Componentnetwork
 {
 	internal class XMLBasedComponentNetwork: AbstractComponentNetwork 
 	{

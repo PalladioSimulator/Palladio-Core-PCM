@@ -1,14 +1,25 @@
-namespace ComponentNetworkSimulation.structure
+namespace ComponentNetworkSimulation.Structure
 {
-	public enum LoggingType {NO_LOG,LOG_ON_ENTER,LOG_ON_EXIT,LOG_BOTH};	
+	public enum LoggingType_t {NO_LOG,LOG_ON_ENTER,LOG_ON_EXIT,LOG_BOTH};	
 
 	public interface ITimeConsumer
 	{
-		ITimeConsumer getNextTimeConsumer();
-		bool hasNextTimeConsumer();
+		ITimeConsumer NextTimeConsumer
+		{
+			get;
+		}
+
+		bool HasNextTimeConsumer 
+		{
+			get;
+		}
+
+		LoggingType_t LoggingType
+		{
+			get;
+		}
+
 		long ThreadEntered();
 		void ThreadExited();
-		LoggingType getLoggingType();
-
 	}
 }

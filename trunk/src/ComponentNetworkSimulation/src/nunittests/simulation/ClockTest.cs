@@ -1,6 +1,6 @@
 using System;
 using ComponentNetworkSimulation.Simulation;
-using ComponentNetworkSimulation.structure;
+using ComponentNetworkSimulation.Structure;
 
 namespace nunittests.simulation
 {

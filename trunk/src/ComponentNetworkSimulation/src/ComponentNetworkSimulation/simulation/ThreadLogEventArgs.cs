@@ -1,6 +1,6 @@
 using System;
 using ComponentNetworkSimulation.Analysis;
-using ComponentNetworkSimulation.structure;
+using ComponentNetworkSimulation.Structure;
 
 namespace ComponentNetworkSimulation.Simulation
 {

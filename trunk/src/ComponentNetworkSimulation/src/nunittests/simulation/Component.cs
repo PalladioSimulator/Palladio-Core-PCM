@@ -1,5 +1,5 @@
 using System;
-using ComponentNetworkSimulation.structure;
+using ComponentNetworkSimulation.Structure;
 
 namespace nunittests.simulation
 {
@@ -20,37 +20,46 @@ namespace nunittests.simulation
 			return new Component(new Component(new Component(4),0),6);
 		}
 
-		public Component(ITimeConsumer nextTimeConsumer, int timeToWait)
+		public Component(ITimeConsumer nextTimeConsumer, long timeToWait)
 		{
 			this.tc = nextTimeConsumer;
 			this.tw = timeToWait;
 		}
 
-		public Component(int timeToWait)
+		public Component(long timeToWait)
 		{
 			this.tw = timeToWait;
 		}
 
 		protected ITimeConsumer tc = null;
 
-		protected int tw = 0;
+		protected long tw = 0;
 
 		#region ITimeConsumer Member
 
-		public ComponentNetworkSimulation.structure.ITimeConsumer getNextTimeConsumer()
+		public ComponentNetworkSimulation.Structure.ITimeConsumer NextTimeConsumer
 		{
-			return tc;
+			get
+			{
+				return tc;
+			}
 		}
 
-		public bool hasNextTimeConsumer()
+		public bool HasNextTimeConsumer
 		{
-			return tc != null;
+			get
+			{
+				return tc != null;
+			}
 		}
 
 
-		public ComponentNetworkSimulation.structure.LoggingType getLoggingType()
+		public ComponentNetworkSimulation.Structure.LoggingType_t LoggingType
 		{
-			return LoggingType.NO_LOG;
+			get
+			{
+				return LoggingType_t.NO_LOG;
+			}
 		}
 
 		public long ThreadEntered()
@@ -60,6 +69,44 @@ namespace nunittests.simulation
 
 		public void ThreadExited()
 		{
+		}
+
+		#endregion
+	}
+
+	public class ExternalCall : Component, ISubCallingTimeConsumer
+	{
+		private ITimeConsumer tcAfterReturn;			
+
+		public static ITimeConsumer CreatePathStartingWithTimeConsumer()
+		{
+			ExternalCall lastTree = new ExternalCall(3,Component.createPath2(),new Component(5));
+			ExternalCall firstTree = new ExternalCall(1,Component.createPath1(),new Component(lastTree,2));
+			
+			return new Component(firstTree,6);			
+		}
+
+		public static ITimeConsumer CreatePathStartingWithSubCall()
+		{
+			ExternalCall lastTree = new ExternalCall(3,Component.createPath2(),new Component(5));
+			ExternalCall firstTree = new ExternalCall(1,Component.createPath1(),new Component(lastTree,2));
+			
+			return firstTree;			
+		}
+
+		public ExternalCall(long time, ITimeConsumer nextTC, ITimeConsumer tcAfterReturn) : base(nextTC,time)
+		{
+			this.tcAfterReturn = tcAfterReturn;
+		}
+
+		#region ISubCallingTimeConsumer Member
+
+		public ITimeConsumer NextTimeConsumerAfterReturn
+		{
+			get
+			{
+				return this.tcAfterReturn;
+			}
 		}
 
 		#endregion

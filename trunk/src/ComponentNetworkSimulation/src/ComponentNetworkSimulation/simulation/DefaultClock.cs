@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 
 using ComponentNetworkSimulation;
-using ComponentNetworkSimulation.structure;
+using ComponentNetworkSimulation.Structure;
 using ComponentNetworkSimulation.Analysis;
 
 namespace ComponentNetworkSimulation.Simulation
