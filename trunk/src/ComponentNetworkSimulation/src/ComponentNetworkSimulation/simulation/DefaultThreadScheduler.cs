@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.9  2004/06/26 16:32:43  joemal
+	/// - fix a bug in method reset
+	///
 	/// Revision 1.8  2004/06/26 15:43:35  joemal
 	/// - fix bug in logging method
 	///
@@ -204,6 +207,7 @@ namespace ComponentNetworkSimulation.Simulation
 		public virtual void Reset()
 		{
 			this.simulationThreads.Clear();
+			this.prepairedSimulationThreads.Clear();
 			this.threadIDCounter = 0;
 			this.periodIDCounter = 0;
 		}
