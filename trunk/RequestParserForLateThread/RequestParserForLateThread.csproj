@@ -3,13 +3,13 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}"
+        ProjectGuid = "{52F65222-20CB-40AB-A82C-DC87819FEDDB}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "SimpleLogger"
+                AssemblyName = "RequestParserForLateThread"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "SimpleLogger"
+                RootNamespace = "RequestParserForLateThread"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -67,23 +67,32 @@
                 <Reference
                     Name = "System"
                     AssemblyName = "System"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
                 />
                 <Reference
                     Name = "System.Data"
                     AssemblyName = "System.Data"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
                     Name = "System.XML"
                     AssemblyName = "System.Xml"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "nunit.framework"
-                    AssemblyName = "nunit.framework"
-                    HintPath = "..\..\..\..\..\..\Programme\NUnit V2.1\\bin\nunit.framework.dll"
-                    AssemblyFolderKey = "hklm\dn\nunit.framework"
+                    Name = "Request"
+                    AssemblyName = "Request"
+                    HintPath = "..\Request\obj\Debug\Request.dll"
+                />
+                <Reference
+                    Name = "SimpleLogger"
+                    AssemblyName = "SimpleLogger"
+                    HintPath = "..\SimpleLogger\obj\Debug\SimpleLogger.dll"
+                />
+                <Reference
+                    Name = "ThreadedRequestProzessor"
+                    AssemblyName = "ThreadedRequestProzessor"
+                    HintPath = "..\ThreadedRequestProzessor\obj\Debug\ThreadedRequestProzessor.dll"
                 />
             </References>
         </Build>
@@ -95,26 +104,37 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "LoggerTest.cs"
+                    RelPath = "ErrorHandler.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "SimpleLogger.cs"
+                    RelPath = "HTTPHandler.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "SimpleLogging.txvpck"
-                    Link = "..\ComponentWebServer-BaseVersion\LibrarySupport\SimpleLogger\SimpleLogging\SimpleLogging.txvpck"
-                    BuildAction = "None"
+                    RelPath = "HTTPParser.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "ModelSupport\default.txvpck"
-                    BuildAction = "None"
+                    RelPath = "HTTPRequestParser.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "ModelSupport\SimpleLogging\SimpleLogging.txvpck"
+                    RelPath = "IHandler.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "RequestParserComponent.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ModelSupport\RequestParserForLateThread\RequestParserForLateThread.txvpck"
                     BuildAction = "None"
                 />
             </Include>

@@ -3,22 +3,22 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}"
+        ProjectGuid = "{6D726145-7147-4BC6-8DC5-8E4C9F816418}"
     >
         <Build>
             <Settings
-                ApplicationIcon = ""
+                ApplicationIcon = "App.ico"
                 AssemblyKeyContainerName = ""
-                AssemblyName = "SimpleLogger"
+                AssemblyName = "LateThreadWebserver"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
                 DefaultTargetSchema = "IE50"
                 DelaySign = "false"
-                OutputType = "Library"
+                OutputType = "Exe"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "SimpleLogger"
+                RootNamespace = "LateThreadWebserver"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -67,54 +67,77 @@
                 <Reference
                     Name = "System"
                     AssemblyName = "System"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
                 />
                 <Reference
                     Name = "System.Data"
                     AssemblyName = "System.Data"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
                     Name = "System.XML"
                     AssemblyName = "System.Xml"
-                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "nunit.framework"
-                    AssemblyName = "nunit.framework"
-                    HintPath = "..\..\..\..\..\..\Programme\NUnit V2.1\\bin\nunit.framework.dll"
-                    AssemblyFolderKey = "hklm\dn\nunit.framework"
+                    Name = "Delivery"
+                    Project = "{81767AF2-0999-4F50-B6D7-703338E73E90}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "BibTexAnalyzer"
+                    Project = "{BB4B4D16-F1F1-4B9B-B0F5-BB5EFFC005ED}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "StaticFileProvider"
+                    Project = "{901FD043-3CE1-44D3-9D86-6C47FB4C9667}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Dll-Engin"
+                    Project = "{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "SingleThreadedDispatcherForLateThread"
+                    Project = "{36804B22-C4C7-42F8-9651-4031C2D34FF7}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "ThreadedRequestProzessor"
+                    Project = "{6D143F7B-A4F4-4235-963E-2338DC781716}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "RequestParserForLateThread"
+                    Project = "{52F65222-20CB-40AB-A82C-DC87819FEDDB}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>
         <Files>
             <Include>
                 <File
+                    RelPath = "App.ico"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "LoggerTest.cs"
+                    RelPath = "Class1.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "SimpleLogger.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "SimpleLogging.txvpck"
-                    Link = "..\ComponentWebServer-BaseVersion\LibrarySupport\SimpleLogger\SimpleLogging\SimpleLogging.txvpck"
+                    RelPath = "ModelSupport\ComponentWebServer\ComponentWebServer.txvpck"
                     BuildAction = "None"
                 />
                 <File
-                    RelPath = "ModelSupport\default.txvpck"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "ModelSupport\SimpleLogging\SimpleLogging.txvpck"
+                    RelPath = "ModelSupport\LateThreadWebserver\LateThreadWebserver.txvpck"
                     BuildAction = "None"
                 />
             </Include>
