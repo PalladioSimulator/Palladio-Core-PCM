@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/07/13 02:14:52  sliver
+ * Added comments
+ *
  * Revision 1.1  2004/07/12 06:33:04  sliver
  * Initial checkin
  * 
@@ -20,6 +23,9 @@ using cdrnet.Lib.MathLib.Parsing;
 using cdrnet.Lib.MathLib.Exceptions;
 using cdrnet.Lib.MathLib.Tools;
 using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
+
+using log4net;
+using log4net.Config;
 
 namespace Palladio.Reliability.Tests
 {
@@ -43,7 +49,6 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void TestMethod()
 		{
-			// TODO: Add your test.
 		}
 
 		[TestFixtureSetUp]

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/07/13 02:14:51  sliver
+ * Added comments
+ *
  * Revision 1.1  2004/07/12 06:33:04  sliver
  * Initial checkin
  *
@@ -19,6 +22,9 @@ using Palladio.Identifier;
 using Palladio.Attributes;
 using Palladio.Reliability.Math;
 
+using log4net;
+using log4net.Config;
+
 namespace Palladio.Reliability.Model
 {
 	/// <summary>
@@ -34,7 +40,7 @@ namespace Palladio.Reliability.Model
 		
 		public override void VisitObject(object o)
 		{
-			Console.WriteLine("Unkown object type: "+o.GetType());	
+			log.Debug("Unkown object type: "+o.GetType());	
 		}
 		
 		public void VisitIMapping(IMapping m)
@@ -116,8 +122,14 @@ namespace Palladio.Reliability.Model
 					IInterfaceModel im = bc.GetProvidesInterface(id);
 					foreach( ISignature sig in im.SignatureList )
 					{
-						IExternalSignature provSig = ComponentFactory.CreateExternalSignatureArray( id, sig ) [0];
-						bcNode.ProvidesReliabilities[ provSig ] = new ServiceReliability(1.0);
+						IExternalSignature provSig = ComponentFactory.CreateExternalSignature( id, sig );
+						
+						IServiceEffectSpecification se = bc.GetServiceEffectSpecification(provSig);
+						IFSMServiceEffect fsmSe = se.GetAuxiliarySpecification(typeof(IFSMServiceEffect)) as IFSMServiceEffect;
+						
+						log.Debug("\n"+fsmSe.FSM);
+						
+						bcNode.ProvidesReliabilities[ provSig ] = new ServiceReliability(fsmSe.FSM, bcNode.RequiresReliabilities);
 					}
 				}
 			}
@@ -141,5 +153,7 @@ namespace Palladio.Reliability.Model
 		private ICompositeComponent cc;
 		private ArrayList visited;
 		private TreeNode tree;
+		
+		private static readonly ILog log = LogManager.GetLogger(typeof(CCVisitor));
 	}
 }

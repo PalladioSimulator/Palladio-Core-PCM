@@ -1,10 +1,15 @@
 /*
- * Created by SharpDevelop.
- * User: sliver
- * Date: 02.07.2004
- * Time: 10:36
+ * $Id$
+ * 
+ * $Log$
+ * Revision 1.2  2004/07/13 02:14:54  sliver
+ * Added comments
+ *
+ * Revision 1.1  2004/07/12 06:33:04  sliver
+ * Initial checkin
  * 
  */
+
 
 using System;
 using System.Collections;

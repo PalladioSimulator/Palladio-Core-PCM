@@ -23,6 +23,7 @@
     <File name=".\src\Math\VariableExpression.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
     <File name=".\src\Math\IVariableExpression.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
     <File name=".\src\Model" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Tests\ModelTest.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
   </Contents>
   <References>
     <Reference type="Project" refto="ReflectionBasedVisitor" localcopy="True" />
@@ -33,6 +34,7 @@
     <Reference type="Project" refto="Palladio.Identifier" localcopy="True" />
     <Reference type="Assembly" refto="..\lib\MathLib.dll" localcopy="True" />
     <Reference type="Assembly" refto="..\..\..\..\..\..\Programme\NUnit V2.1\bin\nunit.framework.dll" localcopy="True" />
+    <Reference type="Assembly" refto="..\lib\log4net.dll" localcopy="True" />
   </References>
   <DeploymentInformation target="" script="" strategy="File" />
   <Configuration runwithwarnings="False" name="Debug">

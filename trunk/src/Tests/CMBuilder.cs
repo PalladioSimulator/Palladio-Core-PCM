@@ -1,3 +1,16 @@
+/*
+ * $Id$
+ * 
+ * $Log$
+ * Revision 1.2  2004/07/13 02:14:52  sliver
+ * Added comments
+ *
+ * Revision 1.1  2004/07/12 06:33:04  sliver
+ * Initial checkin
+ * 
+ */
+
+
 using System;
 
 using Palladio.ComponentModel;
@@ -11,9 +24,9 @@ namespace Palladio.Reliability.Tests
 	/// <summary>
 	/// Description of TestCMBuilder.	
 	/// </summary>
-	public class CMBuilder
+	public class CMBuilder : Helper
 	{
-		public static ICompositeComponent CreateCM()
+		public static ICompositeComponent CreateCM() 
 		{
 			ICompositeComponent rootCC = ComponentFactory.CreateCompositeComponent("root");
 			ICompositeComponent innerCC = ComponentFactory.CreateCompositeComponent("inner");
@@ -41,12 +54,6 @@ namespace Palladio.Reliability.Tests
 			rootCC.AddProvidesMappings(mapping);
 
 			return rootCC;
-		}
-		
-		public static IAttributeHash CreateAttributeHash()
-		{
-			AttributesFactory factory = new AttributesFactory();
-			return factory.Default.CreateAttributeHash();
 		}
 		
 		public static IComponent CreateC2()
@@ -182,14 +189,6 @@ namespace Palladio.Reliability.Tests
 			return seff;
 		}
 		
-		public static ITransition CreateTransition(string sourceState, IMatchable input, string destinationState)
-		{
-			return FSMFactory.CreateDefaultTransition(
-			       		FSMFactory.CreateDefaultState(sourceState), 
-			       		FSMFactory.CreateDefaultInput( input ), 
-			       		FSMFactory.CreateDefaultState(destinationState));
-		}
-
 		public static IServiceEffectSpecification CreateEmptyServiceEffect()
 		{
 			IEditableFiniteStateMachine editFSM1;
@@ -233,9 +232,5 @@ namespace Palladio.Reliability.Tests
 			return seff;
 		}
 
-		public static IIdentifier ID(string id)
-		{
-			return IdentifiableFactory.CreateStringID(id);
-		}		
 	}
 }

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/07/13 02:14:49  sliver
+ * Added comments
+ *
  * Revision 1.1  2004/07/12 06:33:03  sliver
  * Initial checkin
  * 
@@ -190,7 +193,7 @@ namespace Palladio.Reliability.Math
 		{
 			foreach (ITransition t in markovModel.Transitions)
 			{
-				if (!t.Attributes.Contains(MarkovProbabilityAttribute.AttributeType))
+				if (t.Attributes[MarkovProbabilityAttribute.AttributeType] == null)
 					return false;
 			}
 			return true;

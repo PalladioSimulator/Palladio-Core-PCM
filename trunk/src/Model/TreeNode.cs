@@ -1,3 +1,16 @@
+/*
+ * $Id$
+ * 
+ * $Log$
+ * Revision 1.2  2004/07/13 02:14:51  sliver
+ * Added comments
+ *
+ * Revision 1.1  2004/07/12 06:33:04  sliver
+ * Initial checkin
+ * 
+ */
+
+
 using System;
 using System.Diagnostics;
 using System.Collections;
@@ -92,21 +105,30 @@ namespace Palladio.Reliability.Model
 			return ToString(0);	
 		}
 		
+		/// <summary>
+		/// Retrieves a string representation of the object.
+		/// </summary>
+		/// <param name="level"></param>
+		/// <returns>String representation of the object.</returns>
 		public string ToString(int level)
 		{
 			string result = "".PadRight(level*2) + this.ID + "\n";
-			result += "".PadRight(level*2) + "Provides:\n";
-			foreach (IExternalSignature exSig in ProvidesReliabilities.Keys)
+			if ( ProvidesReliabilities.Count > 0 )
 			{
-				result += "".PadRight( (level+1)*2 ) + exSig + " " + ProvidesReliabilities[exSig] + "\n";
+				result += "".PadRight(level*2) + "Provides:\n";
+				foreach (IExternalSignature exSig in ProvidesReliabilities.Keys)
+				{
+					result += "".PadRight( (level+1)*2 ) + exSig + " " + ProvidesReliabilities[exSig] + "\n";
+				}
 			}
-			
-			result += "".PadRight(level*2) + "Requires:\n";
-			foreach (IExternalSignature exSig in RequiresReliabilities.Keys)
+			if ( RequiresReliabilities.Count > 0 )
 			{
-				result += "".PadRight( (level+1)*2 ) + exSig + " " + RequiresReliabilities[exSig] + "\n";
+				result += "".PadRight(level*2) + "Requires:\n";
+				foreach (IExternalSignature exSig in RequiresReliabilities.Keys)
+				{
+					result += "".PadRight( (level+1)*2 ) + exSig + " " + RequiresReliabilities[exSig] + "\n";
+				}
 			}
-			
 			foreach (TreeNode n in this.Children.Values)
 			{
 				result += n.ToString(level+2);

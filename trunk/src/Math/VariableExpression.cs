@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/07/13 02:14:50  sliver
+ * Added comments
+ *
  * Revision 1.1  2004/07/12 06:33:04  sliver
  * Initial checkin
  * 
@@ -109,8 +112,24 @@ namespace Palladio.Reliability.Math
 		}
 		#endregion
 		
-		#region Static Methods
+		#region Methods
 		
+		/// <summary>
+		/// Retrieves a string representation of the object.
+		/// </summary>
+		/// <returns>String representation of the object.</returns>
+		public override string ToString()
+		{
+			if (expression.IsConstant)
+				return expression.Calculate().ToString();
+			return expression.ToString();
+		}
+		
+		/// <summary>
+		/// Gets the variables used in anExpresspion.
+		/// </summary>
+		/// <param name="anExpression">Mathematical expression.</param>
+		/// <returns>Variables used in anExpression.</returns>
 		public static Variable[] GetVariables(IScalarExpression anExpression)
 		{
 			VariableManager vm = new VariableManager(anExpression.Context);

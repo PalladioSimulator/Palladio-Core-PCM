@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/07/13 02:14:52  sliver
+ * Added comments
+ *
  * Revision 1.1  2004/07/12 06:33:04  sliver
  * Initial checkin
  * 
@@ -12,6 +15,8 @@ using System;
 
 using Palladio.ComponentModel;
 using Palladio.FiniteStateMachines;
+using Palladio.Identifier;
+using Palladio.Attributes;
 using Palladio.Reliability;
 using Palladio.Reliability.TypedCollections;
 using Palladio.Reliability.Math;
@@ -48,5 +53,25 @@ namespace Palladio.Reliability.Tests
 			var.IsThreatenedAsVariable = false;
 			return exprVal;
 		}
+		
+		public static IIdentifier ID(string id)
+		{
+			return IdentifiableFactory.CreateStringID(id);
+		}
+		
+		public static ITransition CreateTransition(string sourceState, IMatchable input, string destinationState)
+		{
+			return FSMFactory.CreateDefaultTransition(
+			       		FSMFactory.CreateDefaultState(sourceState), 
+			       		FSMFactory.CreateDefaultInput( input ), 
+			       		FSMFactory.CreateDefaultState(destinationState));
+		}		
+		
+		public static IAttributeHash CreateAttributeHash()
+		{
+			AttributesFactory factory = new AttributesFactory();
+			return factory.Default.CreateAttributeHash();
+		}
+		
 	}
 }
