@@ -11,6 +11,9 @@ namespace ComponentNetworkSimulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/06 12:27:17  joemal
+	/// - now more datapools at the same simulation are supported
+	///
 	/// Revision 1.2  2004/06/28 10:53:42  joemal
 	/// - move the inilization from abstract to default class
 	///
@@ -55,7 +58,7 @@ namespace ComponentNetworkSimulation
 		public DefaultSimulationEnvironment()
 		{
 			factory = new DefaultEnvironmentFactory();
-			InternalInilize();
+			Inilize();
 		}
 
 		/// <summary>
@@ -65,22 +68,12 @@ namespace ComponentNetworkSimulation
 		public DefaultSimulationEnvironment(IEnvironmentFactory factory)
 		{
 			this.factory = factory;
-			InternalInilize();
+			Inilize();
 		}
 
 		#endregion
 
 		#region methods
-
-		/// <summary>
-		/// this method is called by the constructor. Required inilizations are done in this method.
-		/// </summary>
-		private void InternalInilize()
-		{
-			Clock.ClockLogEvent += new LogEventHandler(DataPool.OnLogEvent);
-			Clock.ThreadScheduler.ThreadLogEvent += new LogEventHandler(DataPool.OnLogEvent);
-			this.Inilize();
-		}
 
 		/// <summary>
 		/// called by the constructor in order to let the implementing classes inilize the clock, the componentnetwork

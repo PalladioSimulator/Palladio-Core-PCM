@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.13  2004/07/06 12:27:17  joemal
+	/// - now more datapools at the same simulation are supported
+	///
 	/// Revision 1.12  2004/06/28 10:53:42  joemal
 	/// - move the inilization from abstract to default class
 	///
@@ -42,13 +45,35 @@ namespace ComponentNetworkSimulation
 		private IComponentArchitecture componentArchitecture = null;
 		
 		/// <summary>
-		/// holds the datapool
+		/// holds the list of registered datapools
 		/// </summary>
-		private IDataPool dataPool = null;
+		private IList dataPools = new ArrayList();
 
 		#endregion
 
 		#region methods
+
+		/// <summary>
+		/// call to register the given datapool in the simulationenvironment. After calling the method, the datapool
+		/// will receive log events from the simulationenvironment until it is unregistered. 
+		/// </summary>
+		/// <param name="datapool">the datapool to be registered</param>
+		public void RegisterDataPool(Analysis.IDataPool datapool)
+		{
+			this.Clock.ClockLogEvent += new LogEventHandler(datapool.OnLogEvent);
+			this.Clock.ThreadScheduler.ThreadLogEvent += new LogEventHandler(datapool.OnLogEvent);
+		}
+
+		/// <summary>
+		/// call to unregister the given datapool from the simulationenvironment. After calling this method, the datapool
+		/// won't receive logevents any longer.
+		/// </summary>
+		/// <param name="datapool">the datapool to be unregistered</param>
+		public void UnRegisterDataPool(Analysis.IDataPool datapool)
+		{
+			this.Clock.ClockLogEvent -= new LogEventHandler(datapool.OnLogEvent);
+			this.Clock.ThreadScheduler.ThreadLogEvent -= new LogEventHandler(datapool.OnLogEvent);
+		}
 
 		/// <summary>
 		/// call to start a whole simlution. The simulation ends, when maxsimulationtime is reached or no more thread is alive.
@@ -87,7 +112,8 @@ namespace ComponentNetworkSimulation
 		{
 			this.Clock.Reset();
 			this.ComponentArchitecture.reset();
-			this.DataPool.Reset();
+			foreach(IDataPool datapool in this.dataPools)
+				datapool.Reset();
 		}
 
 		/// <summary>
@@ -126,19 +152,6 @@ namespace ComponentNetworkSimulation
 			{ 
 				if (this.componentArchitecture == null) this.componentArchitecture = CreateComponentArchitecture();
 				return this.componentArchitecture;
-			}
-		}
-
-		/// <summary>
-		/// return the datapool of the environment. The first call to this properties creates a new instance by
-		/// calling CreateDataPool().
-		/// </summary>
-		public IDataPool DataPool 
-		{
-			get
-			{ 
-				if (this.dataPool == null) this.dataPool = CreateDataPool();
-				return this.dataPool;
 			}
 		}
 

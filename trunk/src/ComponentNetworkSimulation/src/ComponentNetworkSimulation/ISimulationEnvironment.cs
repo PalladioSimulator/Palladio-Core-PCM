@@ -8,6 +8,9 @@ namespace ComponentNetworkSimulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.6  2004/07/06 12:27:17  joemal
+	/// - now more datapools at the same simulation are supported
+	///
 	/// Revision 1.5  2004/06/22 12:01:56  joemal
 	/// add factory to configure the framework
 	///
@@ -22,6 +25,20 @@ namespace ComponentNetworkSimulation
 	public interface ISimulationEnvironment
 	{
 		#region methods
+
+		/// <summary>
+		/// call to register the given datapool in the simulationenvironment. After calling the method, the datapool
+		/// will receive log events from the simulationenvironment until it is unregistered. 
+		/// </summary>
+		/// <param name="datapool">the datapool to be registered</param>
+		void RegisterDataPool(Analysis.IDataPool datapool);
+
+		/// <summary>
+		/// call to unregister the given datapool from the simulationenvironment. After calling this method, the datapool
+		/// won't receive logevents any longer.
+		/// </summary>
+		/// <param name="datapool">the datapool to be unregistered</param>
+		void UnRegisterDataPool(Analysis.IDataPool datapool);
 
 		/// <summary>
 		/// call to start a whole simlution. 
@@ -62,14 +79,6 @@ namespace ComponentNetworkSimulation
 		ComponentNetworkSimulation.Structure.IComponentArchitecture ComponentArchitecture
 		{
 			get;			
-		}
-
-		/// <summary>
-		/// return the datapool of the environment. 
-		/// </summary>
-		ComponentNetworkSimulation.Analysis.IDataPool DataPool
-		{
-			get;
 		}
 
 		/// <summary>
