@@ -58,11 +58,11 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// The first FiniteTabularMachine which is used to generate 
 		/// FiniteShuffleProductMaschine
 		/// </summary>
-		protected TabularFSM aFSM;
+		protected IFiniteStateMachine aFSM;
 
 		/// The second FiniteTabularMachine which is used to generate 
 		/// FiniteShuffleProductMaschine
-		protected TabularFSM anotherFSM;
+		protected IFiniteStateMachine anotherFSM;
 
 
 		/// <summary>
@@ -70,7 +70,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// </summary>
 		/// <param name="one">A <code>FiniteTabularMaschine</code></param>
 		/// <param name="two">Another <code>FiniteTabularMaschine</code></param>
-		public FiniteShuffleProductMaschineLazy(TabularFSM aFSM, TabularFSM anotherFSM) {
+		public FiniteShuffleProductMaschineLazy(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) {
 			this.aFSM = aFSM;
 			this.anotherFSM = anotherFSM;
 		}

@@ -28,17 +28,17 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <summary>
 		/// The first FiniteTabularMachine which is used to generate the FiniteShuffleProductMaschine
 		/// </summary>
-		protected TabularFSM one;
+		protected IFiniteStateMachine one;
 
 		/// <summary>
 		/// The second FiniteTabularProcuctMachine which is used to generate the FiniteShuffleProductMaschine
 		/// </summary>
-		protected TabularFSM two;
+		protected IFiniteStateMachine two;
 
 		/// <summary>
 		/// The generates FiniteShuffleProductMaschine stored in a FiniteTabularMachine
 		/// </summary>
-		protected TabularFSM sp;
+		protected IFiniteStateMachine sp;
 
 		/// <summary>
 		/// it is important to know, when genrating the FiniteShuffleProductMaschine which 
@@ -63,7 +63,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// </summary>
 		/// <param name="one">The first FinitStateMaschine</param>
 		/// <param name="two">The second FiniteStatesMaschine</param>
-		public FiniteShuffleProductMaschine(TabularFSM one, TabularFSM two) {
+		public FiniteShuffleProductMaschine(IFiniteStateMachine one, IFiniteStateMachine two) {
 			this.sp = GenerateFSP(one,two);
 		}
 
@@ -72,7 +72,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// Returns the generated FiniteShuffleProductMaschine in a FiniteTabularMachine
 		/// </summary>
 		/// <returns></returns>
-		public TabularFSM ShuffleProduct {
+		public IFiniteStateMachine ShuffleProduct {
 			get {
 				return this.sp;
 			}
@@ -93,7 +93,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <param name="one">The first FiniteStateMaschine</param>
 		/// <param name="two">The second FinteStateMaschine</param>
 		/// <returns>The generates FiniteShuffleProductMaschine</returns>
-		public TabularFSM GenerateFSP(TabularFSM one, TabularFSM two) {
+		public IFiniteStateMachine GenerateFSP(IFiniteStateMachine one, IFiniteStateMachine two) {
 			
 			this.one = one;
 			this.two = two;
@@ -123,8 +123,8 @@ namespace Palladio.FiniteStateMachines.Decorators {
 				}
 				DualState toState = new DualState();
 				foreach(Input input in this.GenerateSpInput(this.one,this.two)) {
-					State oneNext;
-					State twoNext;
+					IState oneNext;
+					IState twoNext;
 					this.visitedStates.Add(fromState);
 					try {
 						oneNext = (State) this.one.GetNextState(oneBefore,input);
@@ -142,7 +142,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 					if(this.crossInput.Contains(input)) {
 						//act like FCP
 						if(oneNext != this.one.ErrorState && twoNext!= two.ErrorState) {
-							this.sp.AddTransition(fromState,input,new DualState(oneNext,twoNext));
+							this.sp.AddTransition(new Transition(fromState,input,new DualState(oneNext,twoNext)));
 							oneStates.Push(oneNext);
 							twoStates.Push(twoNext);
 							continue;
@@ -153,7 +153,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 					}
 					if(this.one.InputAlphabet.Contains(input)) {
 						if(oneNext != one.ErrorState) {
-							this.sp.AddTransition(fromState,input,new DualState(oneNext,fromState.twoState));
+							this.sp.AddTransition(new Transition(fromState,input,new DualState(oneNext,fromState.twoState)));
 							oneStates.Push(oneNext);
 							twoStates.Push(fromState.twoState);
 							continue;
@@ -165,7 +165,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 					if(this.two.InputAlphabet.Contains(input)) {
 						if(twoNext !=two.ErrorState) {
 							try {
-								this.sp.AddTransition(fromState,input,new DualState(fromState.oneState,twoNext));
+								this.sp.AddTransition(new Transition(fromState,input,new DualState(fromState.oneState,twoNext)));
 							}
 							catch(Exception){}
 							oneStates.Push(fromState.oneState);
@@ -189,7 +189,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <param name="one">The first FiniteStateMaschine </param>
 		/// <param name="two">The second FiniteStateMaschine</param>
 		/// <returns>The genrated Input stored in a Set</returns>
-		protected Set GenerateSpInput(TabularFSM one, TabularFSM two) {
+		protected Set GenerateSpInput(IFiniteStateMachine one, IFiniteStateMachine two) {
 			GenerateCrossInput();
 			Set spInput = new Set();
 			Set oneInput = one.InputAlphabet;
