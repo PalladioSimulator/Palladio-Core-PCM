@@ -13,7 +13,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		private AbstractState state;
 
-		/// <summary>
+        /// <summary>
 		/// Name of the service
 		/// </summary>
 		private Input serviceName;

@@ -289,8 +289,6 @@ namespace FiniteStateMachines {
 		/// <param name="aState"></param>
 		private void AddState(AbstractState aState) {
 			if (!states.Contains(aState)){
-
-
 				if (aState.IsStartState){ 
 					if (startState == null) {
 						startState = aState;
