@@ -75,14 +75,29 @@ Neben den einmalig erzeugten soll das Framework auch regelmäßig wiederkehrende A
 \label{sec:entwurf:grob:erfassung}
 Zur Erfassung von Daten genügen an dieser Stelle ereignisgetriebene Komponenten, die über die Simulationsumgebung im Simulationsteil des Frameworks registriert werden. Von dort aus werden, wie oben beschrieben, verschiedene Nachrichten an die Komponenten versendet. 
 
-\subsection{Feinentwurf}
+\subsection{Erläuterungen zum Feinentwurf}
 \label{sec:entwurf:fein}
 
-An dieser Stelle der Entwurfsbeschreibung wird nun auf einige für das bessere Verständnis relavante Entwurfsentscheidungen in den vier Bestandteilen des Frameworks eingegangen.
+An dieser Stelle der Entwurfsbeschreibung wird nun auf einige für das bessere Verständnis relevante Entwurfsentscheidungen in den vier Bestandteilen des Frameworks eingegangen.
 
 \subsubsection{Instanzierung und Kommunikation unter Verwendung der Simulationsumgebung}
 \label{sec:entwurf:fein:simum}
-%IFAce, Abstract und Default ... Referencen zu den anderen Teilen Methoden
+
+Den Einstiegspunkt in das Framework bildet die Simulationsumgebung, da diese, wie in der Beschreibung der Architektur erläutert, für die Kommunikation und Instanzierung der drei anderen Bestandteile des Frameworks zuständig ist.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=12cm]{../res/simenv.png}
+\caption{Zusammenhang Simulationsumgebung und Hauptinterfaces}
+\label{pic:simenv}
+\end{center}
+\end{figure}
+
+Sie wird durch das Interface \quellcode{ISimulationEnvironment} repräsentiert. Die drei weiteren Teile des Frameworks werden über deren Hauptinterface mit der Simulationsumgebung verbunden. Der Zusammenhang zwischen den Interfaces ist im Klassendiagramm in Abbildung \ref{pic:simenv} dargestellt. Hierbei wird der Modellteil durch das Interface \quellcode{IComponentArchitecture} und der Simulationsteil durch das Interface \quellcode{IClock} definiert. Die Komponenten, welche der Datenerfassung dienen, implementieren das Interface \quellcode{IDatapool}. Wird eine neue Simulationsumgebung erstellt, so hat diese für die Instanzierung der \quellcode{IClock} und \quellcode{IComponentArchitecture} implementierenden Klassen zu sorgen und diese über die in \quellcode{ISimulationEnvironment} definierten Properties zurückzugeben. Die Datenerfassungskomponenten müssen nicht zwingend durch die Simulationsumgebung erstellt werden, da sie keinerlei Bedarfsdienste der anderen Klassen des Frameworks enthalten. Sie werden ausschließlich unter Verwendung von Events angesprochen und können in der Simulationsumgebung in beliebiger Anzahl registriert werden. Die Properties \quellcode{Clock} und \quellcode{ComponentArchitecture} dienen der Kommunikation. Die Vorimplementierungen von \quellcode{IClock} und \quellcode{IComponentArchitecture} beispielsweise werden mit der Instanz der Simulationsumgebung erstellt und können so über die Properties auf die tatsächliche Instanz der anderen Klasse zugreifen. Ziel der Entwurfsentscheidung ist die Entkoppelung der drei Hauptbestandteile des Frameworks, die sich hiermit einzeln unabhängig voneinander ersetzen lassen.
+\par
+Um kleinere Änderungen oder Anpassungen des Frameworks ohne Neuimplementierung des jeweiligen Hauptinterfaces und damit auch der eigendlichen Simulationsumgebung vornehmen zu können, müssen die Vorimplementierungen konfigurierbar sein. Im Framework wird hierfür eine Factory eingesetzt, deren Instanz ebenfalls in der Simulationsumgebung gehalten wird. Das Property \quellcode{EnvironmentFactory} gibt diese zurück. Abschnitt \ref{sec:entwurf:fein:konf} geht auf den Aufbau und die Benutzung der Factory genauer ein.
+\par
+Die Vorimplementierung der Simulationsumgebung befindet sich in der Klasse \quellcode{DefaultSimulationEnvironment} und ist direkt instanzierbar. Benutzt man deren parameterlosen Konstruktor, wird die Factory des Frameworks zur Konfiguration benutzt. Einem weiteren Konstruktor kann eine eigene Implementierung der Factory übergeben werden. Zwischen der instanzierbaren Klasse der Simulationsumgebung und deren Interface befindet sich die abstrakte Klasse \quellcode{AbstractSimulationEnvironment}, welche einen Teil der Implementierung bereits enthält und einem Nutzer des Frameworks die Erstellung einer neuen Simulationsumgebung erleichtern kann.
 
 \subsubsection{Modellierung der Zeitverbraucher}
 \label{sec:entwurf:fein:timeconsumer}
