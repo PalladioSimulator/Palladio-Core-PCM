@@ -18,6 +18,13 @@ namespace FiniteStateMachines.Decorators {
 		///		Value: AbstractFiniteStateMachine 
 		/// </summary>
 		private Hashtable ruleTable;
+
+		
+		/// <summary>
+		/// Containing the rules for recursion detection.
+		/// </summary>
+		private Hashtable recursionRuleTable;
+
 		
 
 		/// <summary>
@@ -42,36 +49,71 @@ namespace FiniteStateMachines.Decorators {
 		///		thrown.
 		/// </returns>
 		private Transition Match(Transition aStartTransition){
-			AbstractFiniteStateMachine leftSide = (AbstractFiniteStateMachine)ruleTable[aStartTransition.InputSymbol];
-			AbstractState matchDestination = sourceMachine.ErrorState;
-			DynamicStateIterator iterator = new DynamicStateIterator(new DualState(leftSide.StartState,aStartTransition.DestinationState));
+			AbstractFiniteStateMachine ruleAutomaton = (AbstractFiniteStateMachine)ruleTable[aStartTransition.InputSymbol];
+			AbstractState finalDestination = sourceMachine.ErrorState;
+			AbstractState stateInRule = ruleAutomaton.StartState;
+			AbstractState stateInSource = aStartTransition.DestinationState;
+
+			if(stateInRule.IsFinalState) {
+				FindDestination(stateInSource,ref finalDestination);
+			}
+
+			DynamicStateIterator iterator = new DynamicStateIterator(new DualState(stateInRule,stateInSource));
 
 			while(iterator.MoveNext()){
-				AbstractState leftState = ((DualState)iterator.Current).oneState;
-				AbstractState rightState = ((DualState)iterator.Current).twoState;
-				IList transitionList = leftSide.GetOutgoingTransitions(leftState);
-				foreach (Transition trans in transitionList){
-					AbstractState destState = sourceMachine.GetNextState(rightState,trans.InputSymbol);
-					if (destState == sourceMachine.ErrorState) {
-						throw new ApplicationException("No match found!\nNo target for "+trans.InputSymbol+" in state "+((DualState)iterator.Current).twoState);
-					} 
-					if(leftSide.FinalStates.Contains(trans.DestinationState)){
-						matchDestination = sourceMachine.GetNextState(destState,Input.RETURN);
-						if( matchDestination == sourceMachine.ErrorState){
-							throw new ApplicationException("No match found!\nNo return statement in state "+destState);
+				stateInRule = ((DualState)iterator.Current).oneState;
+				stateInSource = ((DualState)iterator.Current).twoState;
+
+				IList transitionInRuleList = ruleAutomaton.GetOutgoingTransitions(stateInRule);
+				IList transitionInSourceList = sourceMachine.GetOutgoingTransitions(stateInSource);
+
+				if (transitionInRuleList.Count == transitionInSourceList.Count) {
+					foreach (Transition transitionInRule in transitionInRuleList){
+						AbstractState destinationInSource = sourceMachine.ErrorState;
+						Transition transitionInSource = sourceMachine.GetNextTransition(stateInSource,transitionInRule.InputSymbol);
+
+						if(ruleTable.Contains(transitionInSource.InputSymbol)) {
+							destinationInSource = Match(transitionInSource).DestinationState;
+						} else {
+							destinationInSource = transitionInSource.DestinationState;
+						}
+
+						if (destinationInSource == sourceMachine.ErrorState) {
+							throw new ApplicationException("No match found!\nNo target for "+transitionInRule.InputSymbol+" in state "+((DualState)iterator.Current).twoState);
+						} 
+						if(transitionInRule.DestinationState.IsFinalState){
+							FindDestination(destinationInSource,ref finalDestination);
 						}
 					}
-					iterator.Append(new DualState(trans.DestinationState,destState));
+				} else {
+					throw new ApplicationException("No match found:\tDifferent number of transitions for "+stateInRule+" and "+stateInSource);
 				}
 			}
-			if (matchDestination == sourceMachine.ErrorState) {
-				throw new ApplicationException("No match found\nNo return statement found!");
+
+			if (finalDestination == sourceMachine.ErrorState) {
+				throw new ApplicationException("No match found:\tNo return statement found!");
 			}
+
 			Transition result = (Transition)aStartTransition.Clone();
-			result.DestinationState = matchDestination;
+			result.DestinationState = finalDestination;
 			return result;
 		}
 
+		
+		private void FindDestination(AbstractState aStateInSource, ref AbstractState aDestination) {
+			AbstractState tempState = sourceMachine.GetNextState(aStateInSource,Input.RETURN);
+			if( tempState != sourceMachine.ErrorState){
+				if( aDestination == sourceMachine.ErrorState ){
+					aDestination = tempState;
+				} else {
+					if (aDestination != tempState) {
+						throw new ApplicationException(" Multiple return targets found: "+aStateInSource+"\tand\t"+tempState);
+					}
+				}
+			} else {
+				throw new ApplicationException("No match found:\tNo return statement in state "+aStateInSource);
+			}
+		}
 
 		/// <summary>
 		///		All rules given to the MachineReducer are applied as long as 
@@ -86,9 +128,13 @@ namespace FiniteStateMachines.Decorators {
 			DynamicTransitionIterator iterator = new DynamicTransitionIterator(sourceMachine.StartState,sourceMachine);
 			while(iterator.MoveNext()){
 				if (ruleTable.Contains(iterator.Current.InputSymbol)){
-					Transition result = Match(iterator.Current);
-					resultMachine.AddTransition(result);
-					iterator.Append(result.DestinationState);
+					try {
+						Transition result = Match(iterator.Current);
+						resultMachine.AddTransition(result);
+						iterator.Append(result.DestinationState);
+					} catch( ApplicationException ) {
+						// The transition could not be taken, so there is nothing to do.
+					}
 				}
 			}
 			return resultMachine;
