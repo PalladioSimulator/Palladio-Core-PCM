@@ -5,12 +5,12 @@
 \label{sec:einleitung:motivation}
 Soll ein Softwaresystem auf Basis vorhandener Komponenten neu erstellt werden, so stellt sich häufig die Frage nach der Performance des Gesamtsystems. Deren Beantwortung vor der Implementierung ist häufig Voraussetzung zur Einhaltung einiger nichtfunktionaler Anforderungen, wie zum Beispiel der mittleren Antwortzeit. Werden die Antwortzeiten der Dienste der einzelnen Komponenten als bekannt vorausgesetzt, so gilt es nun, die Antwortzeit des Gesamtsystems mit einer bestimmten Konfiguration dieser Komponenten und ggf. Konnektoren zu ermitteln. Weiterhin ist häufig die Aufdeckung von 'Flaschenhälsen' im System hilfreich, um durch eine gezielt andere Konfiguration der Komponenten die Performance zu erhöhen.
 \par
-Besteht das System ausschließlich aus linear zusammenhängenden Komponenten, deren Dienste der Reihe nach von einer ankommenden Anfrage durchlaufen werden, so gestaltet sich die Analyse des Systems recht einfach. Problemfälle lassen sich anhand der Einzelzeiten identifizieren, und die gesamte Antwortzeit kann durch Addition der Einzelzeiten relativ leicht ermittelt werden.\\
+Besteht das System ausschließlich aus linear zusammenhängenden Komponenten, deren Dienste der Reihe nach von einer ankommenden Anfrage durchlaufen werden, so gestaltet sich die Analyse des Systems recht einfach. Problemfälle lassen sich anhand der Einzelzeiten identifizieren. Die gesamte Antwortzeit kann durch Addition der Einzelzeiten relativ leicht ermittelt werden.\\
 Beinhalten die Komponenten innerhalb des Systems jedoch Verzweigungen, so müssen alle sich ergebenen Pfade einzeln berechnet und mit einer bestimmten Gewichtung gewertet werden.\\
-Weiterhin ergibt es sich in Systemen häufig, dass bestimmte Dienste einer Komponente von mehreren Diensten des Gesamtsystems benötigt werden. Ein Beispiel hierfür sind Dienste, die Daten aus einer Datenbank auslesen. Hierbei geht die Analyse des Systems über die Pfade hinaus. Es müssen nun die Antwortzeiten der Dienste der Komponenten dynamisch auf die Anzahl der zu einem Zeitpunkt ankommenden Anfragen angepasst werden.\\
+Weiterhin ergibt es sich in Systemen häufig, dass bestimmte Dienste einer Komponente von mehreren Diensten des Gesamtsystems benötigt werden. Ein Beispiel hierfür sind Dienste, die Daten aus einer Datenbank auslesen. Hierbei geht die Analyse des Systems über die Pfade hinaus. Es müssen nun die Antwortzeiten der Dienste der Komponenten dynamisch auf die Anzahl der gleichzeitig ankommenden Anfragen angepasst werden.\\
 Übersteigt die mathematisch exakte Analyse des Systems bereits hier die Grenzen des sinnvoll Machbaren, so erscheint die exakte Berechnung bei der Verteilung der einzelnen Komponenten auf verschiedenen Prozessoren noch komplexer.
 \par
-An dieser Stelle kann die Simulation ansetzen. Es werden nun nicht mehr die mathematisch exakten Gegebenheiten berechnet, sondern anhand der Simulation eines Modells mit einer bestimmten Ungenauigkeit ermittelt. Weiterhin lassen sich bei der Simulation 'Flaschenhälse' identifizieren, die bei der mathematischen Berechnung nur schwer zu ermitteln sind. Hierzu kann beispielsweise einfach das Zeitverhalten einer Anfrage Dienst für Dienst aufgezeichnet und hinterher ausgewertet werden. Bild \ref{pic:simul} zeigt schematisch eine solche Simulation.
+An dieser Stelle kann die Simulation ansetzen. Es werden nun nicht mehr die mathematisch exakten Gegebenheiten berechnet, sondern anhand der Simulation eines Modells mit einer bestimmten Ungenauigkeit ermittelt. Weiterhin lassen sich bei der Simulation 'Flaschenhälse' identifizieren, die bei der mathematischen Berechnung nur schwer zu ermitteln sind. Hierzu kann beispielsweise einfach das Zeitverhalten einer Anfrage Dienst für Dienst aufgezeichnet und hinterher ausgewertet werden. Abbildung \ref{pic:simul} zeigt schematisch eine solche Simulation.
 
 \begin{figure}[ht]
 \begin{center}
@@ -26,12 +26,12 @@ Ziel dieses Projektes ist die Erstellung einer Infrastruktur für die in Abschnit
 \par
 Bei der Entwicklung wird verstärkt darauf geachtet, dass kleinere Änderungen und Erweiterungen des Frameworks nicht große Änderungen der Implementierung zur Folge haben. So ist es beispielsweise wünschenswert, dass sich einige von Modell zu Modell häufig ändernde Bestandteile austauschen lassen, ohne eine Zeile Quellcode des Frameworks ändern zu müssen. Weiterhin sollen Entwurfsentscheidungen, die die Umsetzung einer neuen Modellierung verhindern, änderbar sein. Das bedeutet, dass die Bestandteile des Frameworks unabhängig voneinander austauschbar sein müssen.
 \par
-Das Projekt gliedert sich in die drei im Proposal \cite{lit:proposal} angegebenen Entwicklungsinkremente. Am Ende jedes Inkrementes wird ein der Entwicklungsstufe angepasster Prototyp entstehen, welcher das Framework in seinem aktuellen Stand benutzt.
+Das Projekt gliedert sich in die drei im Proposal \cite{lit:proposal} angegebenen Entwicklungsinkremente. Am Ende jedes Inkrements wird ein der Entwicklungsstufe angepasster Prototyp entstehen, welcher das Framework in seinem aktuellen Stand benutzt.
 
 \subsection{Aufbau dieser Ausarbeitung}
 \label{sec:einleitung:aufbau}
 
-Die Ausarbeitung gliedert sich in drei inhaltliche Teile, welche von dieser Einleitung und einem abschließenden Fazit eingeschlossen sind.
+Die Ausarbeitung gliedert sich in drei inhaltliche Teile, die von dieser Einleitung und einem abschließenden Fazit eingeschlossen sind.
 \par
 Der erste Teil befasst sich mit der Klärung theoretischer Fragen in Bezug auf die Modellierung von Komponentenarchitekturen und der Simulation. Hierzu werden anfänglich einige Grundlagen zur Modellierung von Komponenten erarbeitet, welche als Ziel das Modell der gesamten Kom\-po\-nen\-ten\-ar\-chi\-tek\-tur haben. Darauf aufbauend werden in diesem Modell potentielle Zeitverbraucher identifiziert. Der letzte Teil dieses Kapitels stellt das für das Framework entwickelte Simulationsmodell vor.
 \par
