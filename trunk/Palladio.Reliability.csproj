@@ -245,12 +245,47 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Functions\IFunction.cs"
+                    RelPath = "src\ExecutionTime\RegexTime\MarkovInput.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\RegexTime\MarkovModelExecutionTime.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\Tests\Helper.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\Tests\RegexTimeTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\Tests\TestBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Fourier\FourierTransform.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Functions\IComplexFunction.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\Functions\IFunctionFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Functions\IRealFunction.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -346,6 +381,21 @@
                 />
                 <File
                     RelPath = "src\Math\DefaultMath\VisitsOnPathMatrix.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\MathNet.Numerics\Complex.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\MathNet.Numerics\Double.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\MathNet.Numerics\Trigonometry.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

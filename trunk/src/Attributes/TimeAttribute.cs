@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.4  2004/11/08 03:50:06  sliver
+ * *** empty log message ***
+ *
  * Revision 1.3  2004/11/04 08:52:13  sliver
  * added regular expressions
  *
@@ -35,7 +38,7 @@ namespace Palladio.Reliability.Attributes
 		/// <summary>
 		/// The value of the TimeAttribute.
 		/// </summary>
-		public IFunction DensityFunction
+		public IRealFunction DensityFunction
 		{
 			get { return df; }
 			set { df = value; }
@@ -65,7 +68,7 @@ namespace Palladio.Reliability.Attributes
 			return obj.Attributes[AttributeType] as TimeAttribute;
 		}
 
-		public static void SetAttribute(IAttributable obj, IFunction df)
+		public static void SetAttribute(IAttributable obj, IRealFunction df)
 		{
 			TimeAttribute attr = GetAttribute(obj);
 			if (attr == null)
@@ -86,7 +89,7 @@ namespace Palladio.Reliability.Attributes
 		/// Create a new TimeAttribute and assigns aValue to it. 
 		/// </summary>
 		/// <param name="aDF">Probability value. It can only be inbetween 0 and 1.</param>
-		public TimeAttribute(IFunction aDF)
+		public TimeAttribute(IRealFunction aDF)
 		{
 			df = aDF;
 		}
@@ -95,7 +98,7 @@ namespace Palladio.Reliability.Attributes
 
 		#region Data
 
-		private IFunction df;
+		private IRealFunction df;
 		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("E3D56D31-11E6-481e-8B1C-1BB350B1014B"), "TimeAttribute", typeof (TimeAttribute));
 
 		#endregion

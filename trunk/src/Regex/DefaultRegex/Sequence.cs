@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/08 03:50:06  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
@@ -60,7 +63,7 @@ namespace Palladio.Reliability.Regex.DefaultRegex
 
 		public override int GetHashCode()
 		{
-			return Predecessor.GetHashCode() + Successor.GetHashCode();
+			return Predecessor.GetHashCode() ^ Successor.GetHashCode();
 		}
 
 	}

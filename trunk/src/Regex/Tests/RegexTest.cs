@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/08 03:50:06  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
@@ -139,7 +142,6 @@ namespace Palladio.Reliability.Regex.Tests
 			RegexFactory.MeltTransitions(ref gnfa);
 
 			ITransition[] outgoing = gnfa.GetOutgoingTransitions(fsm.StartState);
-			Console.WriteLine(gnfa);
 			Assert.AreEqual(2, outgoing.Length );
 			foreach (ITransition transition in outgoing)
 			{
@@ -154,6 +156,21 @@ namespace Palladio.Reliability.Regex.Tests
 			}
 		}
 
+		[Test]
+		public void TestFSM1()
+		{
+			IFiniteStateMachine fsm = TestBuilder.CreateTestRegexFSM1();
+			IRegex regex = RegexFactory.GetRegularExpressionFromFSM(fsm);
+			Assert.AreEqual("(ab|e|(af|c)d)*(af|c)", regex.ToString());
+		}
+
+		[Test]
+		public void TestFSMComplex()
+		{
+			IFiniteStateMachine fsm = TestBuilder.CreateTestRegexFSMComplex();
+			IRegex regex = RegexFactory.GetRegularExpressionFromFSM(fsm);
+			Assert.AreEqual("(ab|cd|e)*(cf|ah)((ib|gd)(ab|cd|e)*(cf|ah)|ih|gf)*", regex.ToString());
+		}
 
 		[TestFixtureSetUp]
 		public void Init()

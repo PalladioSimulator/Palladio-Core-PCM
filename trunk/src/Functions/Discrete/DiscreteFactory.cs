@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/11/08 03:50:06  sliver
+ * *** empty log message ***
+ *
  * Revision 1.2  2004/11/04 08:52:13  sliver
  * added regular expressions
  *
@@ -68,7 +71,7 @@ namespace Palladio.Reliability.Functions.Discrete
 
 		#region IFunctionFactory
 
-		public IFunction CreateExponentialDistribution(double rate)
+		public IRealFunction CreateExponentialDistribution(double rate)
 		{
 			double[] values = new double[length];
 			double x = xmin;
@@ -81,21 +84,21 @@ namespace Palladio.Reliability.Functions.Discrete
 			return new DiscreteFunction(values, precision, 0, 0, 0, this);
 		}
 
-		public IFunction CreateConstantFunction(double c)
+		public IRealFunction CreateConstantFunction(double c)
 		{
 			double[] values = new double[1];
 			values[0] = c;
 			return new DiscreteFunction(values, precision, 0, c, c, this);
 		}
 
-		public IFunction CreateDiracFunction()
+		public IRealFunction CreateDiracFunction()
 		{
 			double[] values = new double[1];
 			values[0] = 1.0/precision;
 			return new DiscreteFunction(values, precision, 0, 0, 0, this);
 		}
 
-		public IFunction Copy(IFunction f)
+		public IRealFunction Copy(IRealFunction f)
 		{
 			double[] values = new double[length];
 			double x = xmin;
@@ -116,7 +119,7 @@ namespace Palladio.Reliability.Functions.Discrete
 		/// </summary>
 		/// <param name="f"></param>
 		/// <returns></returns>
-		internal DiscreteFunction MakeDiscrete(IFunction f)
+		internal DiscreteFunction MakeDiscrete(IRealFunction f)
 		{
 			if (f is DiscreteFunction)
 			{
@@ -134,7 +137,7 @@ namespace Palladio.Reliability.Functions.Discrete
 		/// </summary>
 		/// <param name="f"></param>
 		/// <returns></returns>
-		internal double GetXMin(IFunction f)
+		internal double GetXMin(IRealFunction f)
 		{
 			if (f is DiscreteFunction)
 				return ((DiscreteFunction) f).XMin;
@@ -148,7 +151,7 @@ namespace Palladio.Reliability.Functions.Discrete
 		/// </summary>
 		/// <param name="f"></param>
 		/// <returns></returns>
-		internal double GetXMax(IFunction f)
+		internal double GetXMax(IRealFunction f)
 		{
 			if (f is DiscreteFunction)
 				return ((DiscreteFunction) f).XMax;

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.8  2004/11/08 03:50:06  sliver
+ * *** empty log message ***
+ *
  * Revision 1.7  2004/11/04 08:52:13  sliver
  * added regular expressions
  *
@@ -111,7 +114,7 @@ namespace Palladio.Reliability.Tests
 		public static StateHash CreateStates(params string[] anIDArray)
 		{
 			StateHash result = new StateHash();
-			IFunction df = ffactory.CreateExponentialDistribution(1);
+			IRealFunction df = ffactory.CreateExponentialDistribution(1);
 			foreach (string id in anIDArray)
 			{
 				IState state = CreateState(id);

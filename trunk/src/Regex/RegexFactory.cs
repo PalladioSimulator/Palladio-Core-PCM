@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/08 03:50:06  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
@@ -218,7 +221,7 @@ namespace Palladio.Reliability.Regex
 					continue;
 				foreach (IState sj in gnfa.States)
 				{
-					// visit all state sj without the start state and current state.
+					// visit all states sj without the start state and current state.
 					if (sj.Equals(startState) || sj.Equals(state))
 						continue;
 
@@ -234,6 +237,7 @@ namespace Palladio.Reliability.Regex
 			DeleteState(ref gnfa, state);
 			if (transitionList.Count > 0)
 				gnfa.AddTransitionList(transitionList);
+			MeltTransitions(ref gnfa);
 		}
 
 		/// <summary>
@@ -288,16 +292,13 @@ namespace Palladio.Reliability.Regex
 		/// <returns></returns>
 		private static ITransition CreateMergedTransition(IEditableFiniteStateMachine gnfa, IState si, IState sj, IState sr)
 		{
-			IRegex r1, r2, r3, r4;
-			r1 = r2 = r3 = r4 = null;
+			IRegex r1, r2, r3;
+			r1 = r2 = r3 = null;
 			foreach(ITransition transition in gnfa.GetOutgoingTransitions(si))
 			{
 				// r1 = t(si,sr)
 				if (sr.Equals(transition.DestinationState))
 					r1 = GetRegexFromTransition(transition);
-				// r4 = t(si,sj)
-				else if (sj.Equals(transition.DestinationState))
-					r4 = GetRegexFromTransition(transition);
 			}
 			foreach( ITransition transition in gnfa.GetOutgoingTransitions(sr))
 			{
@@ -309,7 +310,7 @@ namespace Palladio.Reliability.Regex
 					r3 = GetRegexFromTransition(transition);
 			}
 
-			IRegex resultEx = GetTotalExpressionForTransition(r1, r2, r3, r4);
+			IRegex resultEx = GetTotalExpressionForTransition(r1, r2, r3);
 			
 			// no ingoing or outgoing transition for state sr
 			if (resultEx == null)
@@ -332,7 +333,7 @@ namespace Palladio.Reliability.Regex
 		}
 
 		/// <summary>
-		/// Returns the complete regular expression of the following form: r1 r2* r3 | r4
+		/// Returns the complete regular expression of the following form: r1 r2* r3
 		/// null pointers for r1...r4 are allowed.
 		/// r1 and r3 must exists to construct the left side of the expression.
 		/// If the complete expression cannot be constructed due to missing subexpressions
@@ -341,11 +342,10 @@ namespace Palladio.Reliability.Regex
 		/// <param name="r1"></param>
 		/// <param name="r2"></param>
 		/// <param name="r3"></param>
-		/// <param name="r4"></param>
 		/// <returns></returns>
-		private static IRegex GetTotalExpressionForTransition(IRegex r1, IRegex r2, IRegex r3, IRegex r4)
+		private static IRegex GetTotalExpressionForTransition(IRegex r1, IRegex r2, IRegex r3)
 		{
-			// regex = r1 r2* r3 | r4
+			// regex = r1 r2* r3
 			// r1 and r2 must exist to construct the left side of the new regex. 
 			// They can be epsilon
 			IRegex resultEx = null;
@@ -369,13 +369,6 @@ namespace Palladio.Reliability.Regex
 					else
 						resultEx = r3;
 				}
-			}
-			if ((r4 != null) && !r4.Equals(epsilon))
-			{
-				if ((resultEx != null) && !resultEx.Equals(epsilon))
-					resultEx = Alternative(resultEx,r4);
-				else
-					resultEx = r4;
 			}
 			return resultEx;
 		}

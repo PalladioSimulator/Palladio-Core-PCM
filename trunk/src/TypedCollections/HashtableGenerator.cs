@@ -23,11 +23,11 @@ namespace Palladio.Reliability.TypedCollections
 
     /// <summary>
     /// Defines size, enumerators, and synchronization methods for strongly
-    /// typed collections of <see cref="IFunction"/> elements.
+    /// typed collections of <see cref="IRealFunction"/> elements.
     /// </summary>
     /// <remarks>
     /// <b>IIFunctionCollection</b> provides an <see cref="ICollection"/>
-    /// that is strongly typed for <see cref="IFunction"/> elements.
+    /// that is strongly typed for <see cref="IRealFunction"/> elements.
     /// </remarks>
 
     public interface IIFunctionCollection {
@@ -77,10 +77,10 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Copies the entire <see cref="IIFunctionCollection"/> to a one-dimensional <see cref="Array"/>
-        /// of <see cref="IFunction"/> elements, starting at the specified index of the target array.
+        /// of <see cref="IRealFunction"/> elements, starting at the specified index of the target array.
         /// </summary>
         /// <param name="array">The one-dimensional <see cref="Array"/> that is the destination of the
-        /// <see cref="IFunction"/> elements copied from the <see cref="IIFunctionCollection"/>.
+        /// <see cref="IRealFunction"/> elements copied from the <see cref="IIFunctionCollection"/>.
         /// The <b>Array</b> must have zero-based indexing.</param>
         /// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
         /// at which copying begins.</param>
@@ -96,7 +96,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <paramref name="array"/>.</para></exception>
         /// <remarks>Please refer to <see cref="ICollection.CopyTo"/> for details.</remarks>
 
-        void CopyTo(IFunction[] array, int arrayIndex);
+        void CopyTo(IRealFunction[] array, int arrayIndex);
 
         #endregion
         #region GetEnumerator
@@ -119,12 +119,12 @@ namespace Palladio.Reliability.TypedCollections
     #region Interface IIFunctionList
 
     /// <summary>
-    /// Represents a strongly typed collection of <see cref="IFunction"/>
+    /// Represents a strongly typed collection of <see cref="IRealFunction"/>
     /// objects that can be individually accessed by index.
     /// </summary>
     /// <remarks>
     /// <b>IIFunctionList</b> provides an <see cref="IList"/>
-    /// that is strongly typed for <see cref="IFunction"/> elements.
+    /// that is strongly typed for <see cref="IRealFunction"/> elements.
     /// </remarks>
 
     public interface
@@ -157,12 +157,12 @@ namespace Palladio.Reliability.TypedCollections
         #region Item
 
         /// <summary>
-        /// Gets or sets the <see cref="IFunction"/> element at the specified index.
+        /// Gets or sets the <see cref="IRealFunction"/> element at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index of the
-        /// <see cref="IFunction"/> element to get or set.</param>
+        /// <see cref="IRealFunction"/> element to get or set.</param>
         /// <value>
-        /// The <see cref="IFunction"/> element at the specified <paramref name="index"/>.
+        /// The <see cref="IRealFunction"/> element at the specified <paramref name="index"/>.
         /// </value>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
@@ -174,7 +174,7 @@ namespace Palladio.Reliability.TypedCollections
         /// The property is set and the <see cref="IIFunctionList"/> is read-only.</exception>
         /// <remarks>Please refer to <see cref="IList.this"/> for details.</remarks>
 
-        IFunction this[int index] { get; set; }
+        IRealFunction this[int index] { get; set; }
 
         #endregion
         #endregion
@@ -182,10 +182,10 @@ namespace Palladio.Reliability.TypedCollections
         #region Add
 
         /// <summary>
-        /// Adds a <see cref="IFunction"/> to the end
+        /// Adds a <see cref="IRealFunction"/> to the end
         /// of the <see cref="IIFunctionList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="IFunction"/> object
+        /// <param name="value">The <see cref="IRealFunction"/> object
         /// to be added to the end of the <see cref="IIFunctionList"/>.
         /// This argument can be a null reference.
         /// </param>
@@ -197,7 +197,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <para>The <b>IIFunctionList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Add"/> for details.</remarks>
 
-        int Add(IFunction value);
+        int Add(IRealFunction value);
 
         #endregion
         #region Clear
@@ -218,9 +218,9 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Determines whether the <see cref="IIFunctionList"/>
-        /// contains the specified <see cref="IFunction"/> element.
+        /// contains the specified <see cref="IRealFunction"/> element.
         /// </summary>
-        /// <param name="value">The <see cref="IFunction"/> object
+        /// <param name="value">The <see cref="IRealFunction"/> object
         /// to locate in the <see cref="IIFunctionList"/>.
         /// This argument can be a null reference.
         /// </param>
@@ -228,16 +228,16 @@ namespace Palladio.Reliability.TypedCollections
         /// <see cref="IIFunctionList"/>; otherwise, <c>false</c>.</returns>
         /// <remarks>Please refer to <see cref="IList.Contains"/> for details.</remarks>
 
-        bool Contains(IFunction value);
+        bool Contains(IRealFunction value);
 
         #endregion
         #region IndexOf
 
         /// <summary>
         /// Returns the zero-based index of the first occurrence of the specified
-        /// <see cref="IFunction"/> in the <see cref="IIFunctionList"/>.
+        /// <see cref="IRealFunction"/> in the <see cref="IIFunctionList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="IFunction"/> object
+        /// <param name="value">The <see cref="IRealFunction"/> object
         /// to locate in the <see cref="IIFunctionList"/>.
         /// This argument can be a null reference.
         /// </param>
@@ -247,18 +247,18 @@ namespace Palladio.Reliability.TypedCollections
         /// </returns>
         /// <remarks>Please refer to <see cref="IList.IndexOf"/> for details.</remarks>
 
-        int IndexOf(IFunction value);
+        int IndexOf(IRealFunction value);
 
         #endregion
         #region Insert
 
         /// <summary>
-        /// Inserts a <see cref="IFunction"/> element into the
+        /// Inserts a <see cref="IRealFunction"/> element into the
         /// <see cref="IIFunctionList"/> at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index at which
         /// <paramref name="value"/> should be inserted.</param>
-        /// <param name="value">The <see cref="IFunction"/> object
+        /// <param name="value">The <see cref="IRealFunction"/> object
         /// to insert into the <see cref="IIFunctionList"/>.
         /// This argument can be a null reference.
         /// </param>
@@ -274,16 +274,16 @@ namespace Palladio.Reliability.TypedCollections
         /// <para>The <b>IIFunctionList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Insert"/> for details.</remarks>
 
-        void Insert(int index, IFunction value);
+        void Insert(int index, IRealFunction value);
 
         #endregion
         #region Remove
 
         /// <summary>
-        /// Removes the first occurrence of the specified <see cref="IFunction"/>
+        /// Removes the first occurrence of the specified <see cref="IRealFunction"/>
         /// from the <see cref="IIFunctionList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="IFunction"/> object
+        /// <param name="value">The <see cref="IRealFunction"/> object
         /// to remove from the <see cref="IIFunctionList"/>.
         /// This argument can be a null reference.
         /// </param>
@@ -293,7 +293,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <para>The <b>IIFunctionList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Remove"/> for details.</remarks>
 
-        void Remove(IFunction value);
+        void Remove(IRealFunction value);
 
         #endregion
         #region RemoveAt
@@ -326,11 +326,11 @@ namespace Palladio.Reliability.TypedCollections
 
     /// <summary>
     /// Supports type-safe iteration over a collection that
-    /// contains <see cref="IFunction"/> elements.
+    /// contains <see cref="IRealFunction"/> elements.
     /// </summary>
     /// <remarks>
     /// <b>IIFunctionEnumerator</b> provides an <see cref="IEnumerator"/>
-    /// that is strongly typed for <see cref="IFunction"/> elements.
+    /// that is strongly typed for <see cref="IRealFunction"/> elements.
     /// </remarks>
 
     public interface IIFunctionEnumerator {
@@ -338,9 +338,9 @@ namespace Palladio.Reliability.TypedCollections
         #region Current
 
         /// <summary>
-        /// Gets the current <see cref="IFunction"/> element in the collection.
+        /// Gets the current <see cref="IRealFunction"/> element in the collection.
         /// </summary>
-        /// <value>The current <see cref="IFunction"/> element in the collection.</value>
+        /// <value>The current <see cref="IRealFunction"/> element in the collection.</value>
         /// <exception cref="InvalidOperationException"><para>The enumerator is positioned
         /// before the first element of the collection or after the last element.</para>
         /// <para>-or-</para>
@@ -349,7 +349,7 @@ namespace Palladio.Reliability.TypedCollections
         /// that <b>Current</b> fails if the collection was modified since the last successful
         /// call to <see cref="MoveNext"/> or <see cref="Reset"/>.</remarks>
 
-        IFunction Current { get; }
+        IRealFunction Current { get; }
 
         #endregion
         #endregion
@@ -859,7 +859,7 @@ namespace Palladio.Reliability.TypedCollections
     /// <remarks>
     /// <b>IIResourceIFunctionDictionary</b> provides an
     /// <see cref="IDictionary"/> that is strongly typed for
-    /// <see cref="IResource"/> keys and <see cref="IFunction"/> values.
+    /// <see cref="IResource"/> keys and <see cref="IRealFunction"/> values.
     /// </remarks>
 
     public interface
@@ -894,12 +894,12 @@ namespace Palladio.Reliability.TypedCollections
         #region Item
 
         /// <summary>
-        /// Gets or sets the <see cref="IFunction"/> value
+        /// Gets or sets the <see cref="IRealFunction"/> value
         /// associated with the specified <see cref="IResource"/> key.
         /// </summary>
         /// <param name="key">The <see cref="IResource"/> key
         /// whose value to get or set.</param>
-        /// <value>The <see cref="IFunction"/> value associated with the specified
+        /// <value>The <see cref="IRealFunction"/> value associated with the specified
         /// <paramref name="key"/>. If the specified <paramref name="key"/> is not found,
         /// attempting to get it returns
         /// a null reference,
@@ -916,7 +916,7 @@ namespace Palladio.Reliability.TypedCollections
         /// </exception>
         /// <remarks>Please refer to <see cref="IDictionary.this"/> for details.</remarks>
 
-        IFunction this[IResource key] { get; set; }
+        IRealFunction this[IResource key] { get; set; }
 
         #endregion
         #region Keys
@@ -951,12 +951,12 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Adds an element with the specified <see cref="IResource"/>
-        /// key and <see cref="IFunction"/> value to the
+        /// key and <see cref="IRealFunction"/> value to the
         /// <see cref="IIResourceIFunctionDictionary"/>.
         /// </summary>
         /// <param name="key">The <see cref="IResource"/> key of the element
         /// to add to the <see cref="IIResourceIFunctionDictionary"/>.</param>
-        /// <param name="value">The <see cref="IFunction"/> value of the element
+        /// <param name="value">The <see cref="IRealFunction"/> value of the element
         /// to add to the <see cref="IIResourceIFunctionDictionary"/>.
         /// This argument can be a null reference.
         /// </param>
@@ -978,7 +978,7 @@ namespace Palladio.Reliability.TypedCollections
         /// </para></exception>
         /// <remarks>Please refer to <see cref="IDictionary.Add"/> for details.</remarks>
 
-        void Add(IResource key, IFunction value);
+        void Add(IResource key, IRealFunction value);
 
         #endregion
         #region Clear
@@ -1252,7 +1252,7 @@ namespace Palladio.Reliability.TypedCollections
     /// <remarks>
     /// <b>IIResourceIFunctionEnumerator</b> provides an
     /// <see cref="IDictionaryEnumerator"/> that is strongly typed for
-    /// <see cref="IResource"/> keys and <see cref="IFunction"/> values.
+    /// <see cref="IResource"/> keys and <see cref="IRealFunction"/> values.
     /// </remarks>
 
     public interface IIResourceIFunctionEnumerator {
@@ -1314,9 +1314,9 @@ namespace Palladio.Reliability.TypedCollections
         #region Value
 
         /// <summary>
-        /// Gets the <see cref="IFunction"/> value of the current dictionary entry.
+        /// Gets the <see cref="IRealFunction"/> value of the current dictionary entry.
         /// </summary>
-        /// <value>The <see cref="IFunction"/> value
+        /// <value>The <see cref="IRealFunction"/> value
         /// of the current element of the enumeration.</value>
         /// <exception cref="InvalidOperationException"><para>The enumerator is positioned
         /// before the first element of the dictionary or after the last element.</para>
@@ -1326,7 +1326,7 @@ namespace Palladio.Reliability.TypedCollections
         /// note that <b>Value</b> fails if the collection was modified since the last successful
         /// call to <see cref="MoveNext"/> or <see cref="Reset"/>.</remarks>
 
-        IFunction Value { get; }
+        IRealFunction Value { get; }
 
         #endregion
         #endregion
@@ -1366,11 +1366,11 @@ namespace Palladio.Reliability.TypedCollections
 
     /// <summary>
     /// Implements a strongly typed pair of one <see cref="IResource"/>
-    /// key and one <see cref="IFunction"/> value.
+    /// key and one <see cref="IRealFunction"/> value.
     /// </summary>
     /// <remarks>
     /// <b>IResourceUsageEntry</b> provides a <see cref="DictionaryEntry"/> that is strongly
-    /// typed for <see cref="IResource"/> keys and <see cref="IFunction"/> values.
+    /// typed for <see cref="IResource"/> keys and <see cref="IRealFunction"/> values.
     /// </remarks>
 
     [Serializable]
@@ -1378,7 +1378,7 @@ namespace Palladio.Reliability.TypedCollections
         #region Private Fields
 
         private IResource _key;
-        private IFunction _value;
+        private IRealFunction _value;
 
         #endregion
         #region Public Constructors
@@ -1390,13 +1390,13 @@ namespace Palladio.Reliability.TypedCollections
         /// <param name="key">
         /// The <see cref="IResource"/> key in the key-and-value pair.</param>
         /// <param name="value">
-        /// The <see cref="IFunction"/> value in the key-and-value pair.
+        /// The <see cref="IRealFunction"/> value in the key-and-value pair.
         /// This argument can be a null reference.
         /// </param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
 
-        public IResourceUsageEntry(IResource key, IFunction value) {
+        public IResourceUsageEntry(IResource key, IRealFunction value) {
             if ((object) key == null)
                 throw new ArgumentNullException("key");
 
@@ -1437,14 +1437,14 @@ namespace Palladio.Reliability.TypedCollections
         #region Value
 
         /// <summary>
-        /// Gets or sets the <see cref="IFunction"/> value in the key-and-value pair.
+        /// Gets or sets the <see cref="IRealFunction"/> value in the key-and-value pair.
         /// </summary>
         /// <value>
-        /// The <see cref="IFunction"/> value in the key-and-value pair.
+        /// The <see cref="IRealFunction"/> value in the key-and-value pair.
         /// This value can be a null reference, which is also the default.
         /// </value>
 
-        public IFunction Value {
+        public IRealFunction Value {
             get { return this._value; }
             set { this._value = value; }
         }
@@ -1465,13 +1465,13 @@ namespace Palladio.Reliability.TypedCollections
         /// with <see cref="IResource"/>.</para>
         /// <para>-or-</para>
         /// <para><paramref name="entry"/> contains a value that is not compatible
-        /// with <see cref="IFunction"/>.</para>
+        /// with <see cref="IRealFunction"/>.</para>
         /// </exception>
 
         public static implicit operator IResourceUsageEntry(DictionaryEntry entry) {
             IResourceUsageEntry pair = new IResourceUsageEntry();
             if (entry.Key != null) pair.Key = (IResource) entry.Key;
-            if (entry.Value != null) pair.Value = (IFunction) entry.Value;
+            if (entry.Value != null) pair.Value = (IRealFunction) entry.Value;
             return pair;
         }
 
@@ -1505,7 +1505,7 @@ namespace Palladio.Reliability.TypedCollections
     /// </summary>
     /// <remarks>
     /// <b>ResourceUsageTable</b> provides a <see cref="Hashtable"/> that is strongly typed
-    /// for <see cref="IResource"/> keys and <see cref="IFunction"/> values.
+    /// for <see cref="IResource"/> keys and <see cref="IRealFunction"/> values.
     /// </remarks>
 
     [Serializable]
@@ -1890,12 +1890,12 @@ namespace Palladio.Reliability.TypedCollections
         #region Item[IResource]: IFunction
 
         /// <summary>
-        /// Gets or sets the <see cref="IFunction"/> value
+        /// Gets or sets the <see cref="IRealFunction"/> value
         /// associated with the specified <see cref="IResource"/> key.
         /// </summary>
         /// <param name="key">The <see cref="IResource"/> key
         /// whose value to get or set.</param>
-        /// <value>The <see cref="IFunction"/> value associated with the specified
+        /// <value>The <see cref="IRealFunction"/> value associated with the specified
         /// <paramref name="key"/>. If the specified <paramref name="key"/> is not found,
         /// attempting to get it returns
         /// a null reference,
@@ -1910,9 +1910,9 @@ namespace Palladio.Reliability.TypedCollections
         /// and the <b>ResourceUsageTable</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 
-        public IFunction this[IResource key] {
+        public IRealFunction this[IResource key] {
             get {
-                return (IFunction) this._innerHash[key];
+                return (IRealFunction) this._innerHash[key];
             }
             set { this._innerHash[key] = value; }
         }
@@ -1930,7 +1930,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <paramref name="key"/> is not found, attempting to get it returns
         /// a null reference,
         /// and attempting to set it creates a new element using the specified <paramref name="key"/>.
-        /// When set, this value must be compatible with <see cref="IFunction"/>.
+        /// When set, this value must be compatible with <see cref="IRealFunction"/>.
         /// </value>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
@@ -1938,7 +1938,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <para><paramref name="key"/> is not compatible with <see cref="IResource"/>.</para>
         /// <para>-or-</para>
         /// <para>The property is set to a value that is not compatible with
-        /// <see cref="IFunction"/>.</para></exception>
+        /// <see cref="IRealFunction"/>.</para></exception>
         /// <exception cref="NotSupportedException">
         /// <para>The property is set and the <see cref="ResourceUsageTable"/> is read-only.</para>
         /// <para>-or-</para>
@@ -1948,7 +1948,7 @@ namespace Palladio.Reliability.TypedCollections
 
         object IDictionary.this[object key] {
             get { return this[(IResource) key]; }
-            set { this[(IResource) key] = (IFunction) value; }
+            set { this[(IResource) key] = (IRealFunction) value; }
         }
 
         #endregion
@@ -2041,11 +2041,11 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Adds an element with the specified <see cref="IResource"/> key and
-        /// <see cref="IFunction"/> value to the <see cref="ResourceUsageTable"/>.
+        /// <see cref="IRealFunction"/> value to the <see cref="ResourceUsageTable"/>.
         /// </summary>
         /// <param name="key">The <see cref="IResource"/> key of the element
         /// to add to the <see cref="ResourceUsageTable"/>.</param>
-        /// <param name="value">The <see cref="IFunction"/> value of the element
+        /// <param name="value">The <see cref="IRealFunction"/> value of the element
         /// to add to the <see cref="ResourceUsageTable"/>.
         /// This argument can be a null reference.
         /// </param>
@@ -2060,7 +2060,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <para>The <b>ResourceUsageTable</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
-        public void Add(IResource key, IFunction value) {
+        public void Add(IResource key, IRealFunction value) {
             this._innerHash.Add(key, value);
         }
 
@@ -2074,7 +2074,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <param name="key">The key of the element to add to the <see cref="ResourceUsageTable"/>.
         /// This argument must be compatible with <see cref="IResource"/>.</param>
         /// <param name="value">The value of the element to add to the <see cref="ResourceUsageTable"/>.
-        /// This argument must be compatible with <see cref="IFunction"/>.
+        /// This argument must be compatible with <see cref="IRealFunction"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <exception cref="ArgumentException">
@@ -2085,7 +2085,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <exception cref="InvalidCastException">
         /// <para><paramref name="key"/> is not compatible with <see cref="IResource"/>.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="value"/> is not compatible with <see cref="IFunction"/>.</para>
+        /// <para><paramref name="value"/> is not compatible with <see cref="IRealFunction"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
         /// <para>The <see cref="ResourceUsageTable"/> is read-only.</para>
@@ -2094,7 +2094,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
         void IDictionary.Add(object key, object value) {
-            Add((IResource) key, (IFunction) value);
+            Add((IResource) key, (IRealFunction) value);
         }
 
         #endregion
@@ -2191,9 +2191,9 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Determines whether the <see cref="ResourceUsageTable"/>
-        /// contains the specified <see cref="IFunction"/> value.
+        /// contains the specified <see cref="IRealFunction"/> value.
         /// </summary>
-        /// <param name="value">The <see cref="IFunction"/> value
+        /// <param name="value">The <see cref="IRealFunction"/> value
         /// to locate in the <see cref="ResourceUsageTable"/>.
         /// This argument can be a null reference.
         /// </param>
@@ -2201,7 +2201,7 @@ namespace Palladio.Reliability.TypedCollections
         /// with the specified <paramref name="value"/>; otherwise, <c>false</c>.</returns>
         /// <remarks>Please refer to <see cref="Hashtable.ContainsValue"/> for details.</remarks>
 
-        public bool ContainsValue(IFunction value) {
+        public bool ContainsValue(IRealFunction value) {
             return this._innerHash.ContainsValue(value);
         }
 
@@ -2446,8 +2446,8 @@ namespace Palladio.Reliability.TypedCollections
                 get { return this._innerEnumerator.Key; }
             }
 
-            public IFunction Value {
-                get { return (IFunction) this._innerEnumerator.Value; }
+            public IRealFunction Value {
+                get { return (IRealFunction) this._innerEnumerator.Value; }
             }
 
             object IDictionaryEnumerator.Value {
@@ -2602,7 +2602,7 @@ namespace Palladio.Reliability.TypedCollections
             #endregion
             #region Public Methods
 
-            public void CopyTo(IFunction[] array, int arrayIndex) {
+            public void CopyTo(IRealFunction[] array, int arrayIndex) {
                 this._dictionary.CheckTargetArray(array, arrayIndex);
                 foreach (IResourceUsageEntry pair in this._dictionary)
                     array[arrayIndex++] = pair.Value;
@@ -2610,7 +2610,7 @@ namespace Palladio.Reliability.TypedCollections
 
             void ICollection.CopyTo(Array array, int arrayIndex) {
                 this._dictionary.CheckTargetArray(array, arrayIndex);
-                CopyTo((IFunction[]) array, arrayIndex);
+                CopyTo((IRealFunction[]) array, arrayIndex);
             }
 
             public IIFunctionEnumerator GetEnumerator() {
@@ -2644,8 +2644,8 @@ namespace Palladio.Reliability.TypedCollections
             #endregion
             #region Public Properties
 
-            public IFunction Current {
-                get { return (IFunction) this._innerEnumerator.Current; }
+            public IRealFunction Current {
+                get { return (IRealFunction) this._innerEnumerator.Current; }
             }
 
             object IEnumerator.Current {

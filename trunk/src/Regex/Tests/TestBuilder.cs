@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/08 03:50:06  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
@@ -82,6 +85,51 @@ namespace Palladio.Reliability.Regex.Tests
 			editFSM.AddTransitions(CreateTransition(sh["1"], ih["a"], sh["1"], 0.3));
 			editFSM.AddTransitions(CreateTransition(sh["1"], ih["b"], sh["1"], 0.4));
 			editFSM.AddTransitions(CreateTransition(sh["1"], ih["c"], sh["2"], 0.3));
+			return editFSM;
+		}
+		
+		public static IFiniteStateMachine CreateTestRegexFSMComplex()
+		{
+			IEditableFiniteStateMachine editFSM = FSMFactory.CreateEmptyFSM();
+
+			InputSymbolHash ih = FSMFactory.CreateInputFromList("a", "b", "c","d","e","f","g","h","i");
+			editFSM.AddInputSymbols(ih.StoredInputs);
+
+			StateHash sh;
+			sh = CreateStates("1", "2", "3", "4");
+			editFSM.AddStates(sh.StoredStates);
+			editFSM.StartState = sh["1"];
+			editFSM.FinalStates = new IState[] {sh["4"]};
+			editFSM.AddTransitions(CreateTransition(sh["1"], ih["e"], sh["1"], 0.3));
+			editFSM.AddTransitions(CreateTransition(sh["1"], ih["c"], sh["2"], 0.4));
+			editFSM.AddTransitions(CreateTransition(sh["1"], ih["a"], sh["3"], 0.3));
+			editFSM.AddTransitions(CreateTransition(sh["2"], ih["d"], sh["1"], 0.5));
+			editFSM.AddTransitions(CreateTransition(sh["2"], ih["f"], sh["4"], 0.5));
+			editFSM.AddTransitions(CreateTransition(sh["3"], ih["b"], sh["1"], 0.7));
+			editFSM.AddTransitions(CreateTransition(sh["3"], ih["h"], sh["4"], 0.3));
+			editFSM.AddTransitions(CreateTransition(sh["4"], ih["i"], sh["3"], 0.3));
+			editFSM.AddTransitions(CreateTransition(sh["4"], ih["g"], sh["2"], 0.3));
+			return editFSM;
+		}
+		
+		public static IFiniteStateMachine CreateTestRegexFSM1()
+		{
+			IEditableFiniteStateMachine editFSM = FSMFactory.CreateEmptyFSM();
+
+			InputSymbolHash ih = FSMFactory.CreateInputFromList("a", "b", "c","d","e","f");
+			editFSM.AddInputSymbols(ih.StoredInputs);
+
+			StateHash sh;
+			sh = CreateStates("1", "2", "3");
+			editFSM.AddStates(sh.StoredStates);
+			editFSM.StartState = sh["1"];
+			editFSM.FinalStates = new IState[] {sh["3"]};
+			editFSM.AddTransitions(CreateTransition(sh["1"], ih["e"], sh["1"], 0.3));
+			editFSM.AddTransitions(CreateTransition(sh["1"], ih["a"], sh["2"], 0.4));
+			editFSM.AddTransitions(CreateTransition(sh["1"], ih["c"], sh["3"], 0.3));
+			editFSM.AddTransitions(CreateTransition(sh["2"], ih["b"], sh["1"], 0.5));
+			editFSM.AddTransitions(CreateTransition(sh["2"], ih["f"], sh["3"], 0.5));
+			editFSM.AddTransitions(CreateTransition(sh["3"], ih["d"], sh["1"], 0.7));
 			return editFSM;
 		}
 	}

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/11/08 03:50:06  sliver
+ * *** empty log message ***
+ *
  * Revision 1.2  2004/11/04 08:52:13  sliver
  * added regular expressions
  *
@@ -25,7 +28,7 @@ namespace Palladio.Reliability.Functions.Tests
 		[Test]
 		public void ExpDistribution()
 		{
-			IFunction df = ff.CreateExponentialDistribution(1);
+			IRealFunction df = ff.CreateExponentialDistribution(1);
 			Assert.AreEqual(System.Math.Exp(-0.5), df[0.5]);
 			Assert.AreEqual(System.Math.Exp(-1.55), df[1.55], 0.00000001);
 		}
@@ -33,17 +36,17 @@ namespace Palladio.Reliability.Functions.Tests
 		[Test]
 		public void Convolution()
 		{
-			IFunction df1 = ff.CreateExponentialDistribution(1);
-			IFunction conv = df1.Convolution(df1);
+			IRealFunction df1 = ff.CreateExponentialDistribution(1);
+			IRealFunction conv = df1.Convolution(df1);
 			Assert.AreEqual(0.3682475, conv[1.0], 0.000001);
 		}
 
 		[Test]
 		public void ScaledSum()
 		{
-			IFunction f = ff.CreateExponentialDistribution(2);
-			IFunction g = ff.CreateExponentialDistribution(5);
-			IFunction h = f.ScaledSum(3, g);
+			IRealFunction f = ff.CreateExponentialDistribution(2);
+			IRealFunction g = ff.CreateExponentialDistribution(5);
+			IRealFunction h = f.AddScaled(3, g);
 			double lf = 1.0/2.0;
 			double lg = 1.0/5.0;
 

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/11/08 03:50:06  sliver
+ * *** empty log message ***
+ *
  * Revision 1.2  2004/11/04 08:52:13  sliver
  * added regular expressions
  *
@@ -17,14 +20,14 @@ namespace Palladio.Reliability.Functions.Discrete
 {
 	/// <summary>
 	/// </summary>
-	internal class DiscreteFunction : IFunction
+	public class DiscreteFunction : IRealFunction
 	{
 		#region Data
 
 		/// <summary>
 		/// Array of function values.
 		/// </summary>
-		private double[] values;
+		private double[] data;
 
 		/// <summary>
 		/// Distance between two function values.
@@ -67,15 +70,15 @@ namespace Palladio.Reliability.Functions.Discrete
 		/// </summary>
 		public double XMax
 		{
-			get { return XMin + values.Length*Precision; }
+			get { return XMin + data.Length*Precision; }
 		}
 
 		/// <summary>
 		/// Array of discrete function values.
 		/// </summary>
-		public double[] Values
+		public double[] Data
 		{
-			get { return values; }
+			get { return data; }
 		}
 
 		/// <summary>
@@ -98,9 +101,9 @@ namespace Palladio.Reliability.Functions.Discrete
 		/// <param name="xPosLimit">Function value for x > XMax.</param>
 		/// <param name="xNegLimit">Function value for x < XMin.</param>
 		/// <param name="factory">Factory that constructed the function.</param>
-		public DiscreteFunction(double[] values, double precision, double xmin, double xPosLimit, double xNegLimit, DiscreteFactory factory)
+		internal DiscreteFunction(double[] values, double precision, double xmin, double xPosLimit, double xNegLimit, DiscreteFactory factory)
 		{
-			this.values = values;
+			this.data = values;
 			this.precision = precision;
 			this.xmin = xmin;
 			this.xPosLimit = xPosLimit;
@@ -112,7 +115,7 @@ namespace Palladio.Reliability.Functions.Discrete
 		/// Copy Constructor.
 		/// </summary>
 		/// <param name="df"></param>
-		public DiscreteFunction(DiscreteFunction df)
+		internal DiscreteFunction(DiscreteFunction df)
 		{
 			factory = df.factory;
 			this.precision = df.precision;
@@ -120,8 +123,8 @@ namespace Palladio.Reliability.Functions.Discrete
 			this.xPosLimit = df.xPosLimit;
 			this.xNegLimit = df.xNegLimit;
 			precision = df.precision;
-			values = new double[df.values.Length];
-			df.values.CopyTo(values, 0);
+			data = new double[df.data.Length];
+			df.data.CopyTo(data, 0);
 		}
 		#endregion
 
@@ -137,7 +140,7 @@ namespace Palladio.Reliability.Functions.Discrete
 			get
 			{
 				double pos = System.Math.Round(1/Precision*(x - XMin), 2);
-				if (pos >= values.Length)
+				if (pos >= data.Length)
 					return xPosLimit;
 				if (pos < 0)
 					return xNegLimit;
@@ -147,15 +150,15 @@ namespace Palladio.Reliability.Functions.Discrete
 				double mid = pos - (double) ipos;
 				if (mid > 0)
 				{
-					if (ipos < values.Length - 1)
-						return values[ipos]*(1 - mid) + values[ipos + 1]*(mid);
+					if (ipos < data.Length - 1)
+						return data[ipos]*(1 - mid) + data[ipos + 1]*(mid);
 				}
 				else if (mid < 0)
 				{
 					if (ipos > 0)
-						return values[ipos]*(1 + mid) + values[ipos - 1]*(-mid);
+						return data[ipos]*(1 + mid) + data[ipos - 1]*(-mid);
 				}
-				return values[ipos];
+				return data[ipos];
 			}
 		}
 
@@ -163,11 +166,11 @@ namespace Palladio.Reliability.Functions.Discrete
 		{
 			xNegLimit *= factor;
 			xPosLimit *= factor;
-			for (int i = 0; i < values.Length; i++)
-				values[i] *= factor;
+			for (int i = 0; i < data.Length; i++)
+				data[i] *= factor;
 		}
 
-		public IFunction GetScaled(double a)
+		public IRealFunction GetScaled(double a)
 		{
 			DiscreteFunction df = new DiscreteFunction(this);
 			df.Scale(a);
@@ -177,13 +180,13 @@ namespace Palladio.Reliability.Functions.Discrete
 		/// <summary>
 		/// Convolution, optimised for discrete functions.
 		/// </summary>
-		public IFunction Convolution(IFunction g)
+		public IRealFunction Convolution(IRealFunction g)
 		{
 			DiscreteFunction dg = factory.MakeDiscrete(g);
 
 			// the domain of the resulting function has the size of the domains of
 			// boths functions
-			double[] convolutionValues = new double[Values.Length + dg.Values.Length];
+			double[] convolutionValues = new double[Data.Length + dg.Data.Length];
 			
 			for (int i = 0; i < convolutionValues.Length; i++)
 			{
@@ -195,13 +198,13 @@ namespace Palladio.Reliability.Functions.Discrete
 				// (i - pos) = dg.Values.Length - 1
 				//		 - pos = - i + dg.Values.Length - 1
 				//		   pos =   i - dg.Values.Length + 1
-				int pos = System.Math.Max(0, i - dg.Values.Length + 1);
+				int pos = System.Math.Max(0, i - dg.Data.Length + 1);
 
 				// pos <= i : left border for dg.Values
 				// pos < Values.Length : right border for Values
-				while ((pos <= i) && (pos < Values.Length))
+				while ((pos <= i) && (pos < Data.Length))
 				{
-					convValue += Values[pos]*dg.Values[i - pos];
+					convValue += Data[pos]*dg.Data[i - pos];
 					pos++;
 				}
 				// scale the result according to the distance between the entries of the 
@@ -215,12 +218,12 @@ namespace Palladio.Reliability.Functions.Discrete
 			return new DiscreteFunction(convolutionValues, Precision, XMin + dg.XMin, 0, 0, factory);
 		}
 
-		public IFunction Sum(IFunction g)
+		public IRealFunction Add(IRealFunction g)
 		{
-			return ScaledSum(1.0, g);
+			return AddScaled(1.0, g);
 		}
 
-		public IFunction ScaledSum(double a, IFunction g)
+		public IRealFunction AddScaled(double a, IRealFunction g)
 		{
 			double tXMin = System.Math.Min(XMin, factory.GetXMin(g));
 			double tXMax = System.Math.Max(XMax, factory.GetXMax(g));
@@ -240,7 +243,7 @@ namespace Palladio.Reliability.Functions.Discrete
 			return new DiscreteFunction(sum, precision, tXMin, tPosLimit, tNegLimit, factory);
 		}
 
-		public IFunction Integral()
+		public IRealFunction Integral()
 		{
 			int length = (int) (XMax*1/Precision);
 
@@ -255,7 +258,7 @@ namespace Palladio.Reliability.Functions.Discrete
 			return new DiscreteFunction(integral, Precision, 0, integral[integral.Length - 1], 0, factory);
 		}
 
-		public IFunction Multiply(IFunction g)
+		public IRealFunction Multiply(IRealFunction g)
 		{
 			double tXMin = System.Math.Min(XMin, factory.GetXMin(g));
 			double tXMax = System.Math.Max(XMax, factory.GetXMax(g));
