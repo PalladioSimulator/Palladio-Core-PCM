@@ -47,6 +47,8 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         
         private DataRelation relationInterfacesProtocols;
         
+        private DataRelation relationComponentsConnections;
+        
         public ModelDataSet() {
             this.InitClass();
             System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -228,6 +230,7 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             this.relationInterfacesRoles = this.Relations["InterfacesRoles"];
             this.relationInterfacesSignatures = this.Relations["InterfacesSignatures"];
             this.relationInterfacesProtocols = this.Relations["InterfacesProtocols"];
+            this.relationComponentsConnections = this.Relations["ComponentsConnections"];
         }
         
         private void InitClass() {
@@ -271,6 +274,13 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = System.Data.Rule.Cascade;
             fkc.UpdateRule = System.Data.Rule.Cascade;
+            fkc = new ForeignKeyConstraint("ComponentsConnections", new DataColumn[] {
+                        this.tableComponents.guidColumn}, new DataColumn[] {
+                        this.tableConnections.fk_compColumn});
+            this.tableConnections.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = System.Data.Rule.SetNull;
+            fkc.UpdateRule = System.Data.Rule.SetNull;
             fkc = new ForeignKeyConstraint("InterfacesSignatures", new DataColumn[] {
                         this.tableInterfaces.guidColumn}, new DataColumn[] {
                         this.tableSignatures.fk_ifaceColumn});
@@ -327,6 +337,10 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                         this.tableInterfaces.guidColumn}, new DataColumn[] {
                         this.tableProtocols.fk_ifaceColumn}, false);
             this.Relations.Add(this.relationInterfacesProtocols);
+            this.relationComponentsConnections = new DataRelation("ComponentsConnections", new DataColumn[] {
+                        this.tableComponents.guidColumn}, new DataColumn[] {
+                        this.tableConnections.fk_compColumn}, false);
+            this.Relations.Add(this.relationComponentsConnections);
         }
         
         private bool ShouldSerializeComponents() {
@@ -619,6 +633,10 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             public RolesRow[] GetRolesRows() {
                 return ((RolesRow[])(this.GetChildRows(this.Table.ChildRelations["ComponentsRoles"])));
             }
+            
+            public ConnectionsRow[] GetConnectionsRows() {
+                return ((ConnectionsRow[])(this.GetChildRows(this.Table.ChildRelations["ComponentsConnections"])));
+            }
         }
         
         [System.Diagnostics.DebuggerStepThrough()]
@@ -855,6 +873,8 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             
             private DataColumn columnguid;
             
+            private DataColumn columnfk_comp;
+            
             internal ConnectionsDataTable() : 
                     base("Connections") {
                 this.InitClass();
@@ -901,6 +921,12 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
+            internal DataColumn fk_compColumn {
+                get {
+                    return this.columnfk_comp;
+                }
+            }
+            
             public ConnectionsRow this[int index] {
                 get {
                     return ((ConnectionsRow)(this.Rows[index]));
@@ -919,12 +945,13 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.Rows.Add(row);
             }
             
-            public ConnectionsRow AddConnectionsRow(RolesRow parentRolesRowByRolesConnections, RolesRow parentRolesRowByRolesConnections1, string guid) {
+            public ConnectionsRow AddConnectionsRow(RolesRow parentRolesRowByRolesConnections, RolesRow parentRolesRowByRolesConnections1, string guid, ComponentsRow parentComponentsRowByComponentsConnections) {
                 ConnectionsRow rowConnectionsRow = ((ConnectionsRow)(this.NewRow()));
                 rowConnectionsRow.ItemArray = new object[] {
                         parentRolesRowByRolesConnections[0],
                         parentRolesRowByRolesConnections1[0],
-                        guid};
+                        guid,
+                        parentComponentsRowByComponentsConnections[0]};
                 this.Rows.Add(rowConnectionsRow);
                 return rowConnectionsRow;
             }
@@ -952,6 +979,7 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.columnincoming = this.Columns["incoming"];
                 this.columnoutgoing = this.Columns["outgoing"];
                 this.columnguid = this.Columns["guid"];
+                this.columnfk_comp = this.Columns["fk_comp"];
             }
             
             private void InitClass() {
@@ -961,6 +989,8 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.Columns.Add(this.columnoutgoing);
                 this.columnguid = new DataColumn("guid", typeof(string), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnguid);
+                this.columnfk_comp = new DataColumn("fk_comp", typeof(string), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_comp);
                 this.Constraints.Add(new UniqueConstraint("CON_PK", new DataColumn[] {
                                 this.columnincoming,
                                 this.columnoutgoing}, false));
@@ -973,6 +1003,7 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.columnguid.AllowDBNull = false;
                 this.columnguid.Unique = true;
                 this.columnguid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnfk_comp.Namespace = "http://tempuri.org/ModelDataSet.xsd";
             }
             
             public ConnectionsRow NewConnectionsRow() {
@@ -1057,6 +1088,20 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
+            public string fk_comp {
+                get {
+                    try {
+                        return ((string)(this[this.tableConnections.fk_compColumn]));
+                    }
+                    catch (InvalidCastException e) {
+                        throw new StrongTypingException("Der Wert kann nicht ermittelt werden, da er DBNull ist.", e);
+                    }
+                }
+                set {
+                    this[this.tableConnections.fk_compColumn] = value;
+                }
+            }
+            
             public RolesRow RolesRowByRolesConnections {
                 get {
                     return ((RolesRow)(this.GetParentRow(this.Table.ParentRelations["RolesConnections"])));
@@ -1073,6 +1118,23 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["RolesConnections1"]);
                 }
+            }
+            
+            public ComponentsRow ComponentsRow {
+                get {
+                    return ((ComponentsRow)(this.GetParentRow(this.Table.ParentRelations["ComponentsConnections"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ComponentsConnections"]);
+                }
+            }
+            
+            public bool Isfk_compNull() {
+                return this.IsNull(this.tableConnections.fk_compColumn);
+            }
+            
+            public void Setfk_compNull() {
+                this[this.tableConnections.fk_compColumn] = System.Convert.DBNull;
             }
         }
         

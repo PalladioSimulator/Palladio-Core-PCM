@@ -26,6 +26,7 @@
 						<xs:attribute name="incoming" type="xs:long" msprop:nullValue="-1" />
 						<xs:attribute name="outgoing" type="xs:long" msprop:nullValue="-1" />
 						<xs:attribute name="guid" type="xs:string" />
+						<xs:attribute name="fk_comp" type="xs:string" />
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="Signatures">
@@ -111,5 +112,9 @@
 			<xs:selector xpath=".//mstns:Components" />
 			<xs:field xpath="@mstns:guid" />
 		</xs:key>
+		<xs:keyref name="ComponentsConnections" refer="PK_COMP" msdata:DeleteRule="SetNull" msdata:UpdateRule="SetNull">
+			<xs:selector xpath=".//mstns:Connections" />
+			<xs:field xpath="@mstns:fk_comp" />
+		</xs:keyref>
 	</xs:element>
 </xs:schema>

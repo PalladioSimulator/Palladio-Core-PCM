@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
@@ -17,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/04 16:27:28  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.7  2005/03/31 11:02:03  joemal
 	/// implement the rest of the notification
 	///
@@ -88,11 +92,12 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//connect the rowremoved-events of the tables to the eventhandler in this class
 		private void Init()
 		{
-			ComponentsTable.RowDeleted += new DataRowChangeEventHandler(this.EntityDatatable_HandleRowDeleted);			
-			InterfacesTable.RowDeleted += new DataRowChangeEventHandler(this.EntityDatatable_HandleRowDeleted);			
-			SignaturesTable.RowDeleted += new DataRowChangeEventHandler(this.EntityDatatable_HandleRowDeleted);			
-			ProtocolsTable.RowDeleted += new DataRowChangeEventHandler(this.EntityDatatable_HandleRowDeleted);			
-			ConnectionsTable.RowDeleted += new DataRowChangeEventHandler(this.EntityDatatable_HandleRowDeleted);			
+			modelDataset.Components.ComponentsRowDeleted += new ModelDataSet.ComponentsRowChangeEventHandler(CompDeleted);			
+			modelDataset.Interfaces.InterfacesRowDeleted += new ModelDataSet.InterfacesRowChangeEventHandler(IfaceDeleted);			
+			modelDataset.Signatures.SignaturesRowDeleted += new ModelDataSet.SignaturesRowChangeEventHandler(SigDeleted);			
+			modelDataset.Protocols.ProtocolsRowDeleted += new ModelDataSet.ProtocolsRowChangeEventHandler(ProtocolDeleted);			
+			modelDataset.Connections.ConnectionsRowDeleted += new ModelDataSet.ConnectionsRowChangeEventHandler(ConDeleted);			
+			modelDataset.Roles.RolesRowDeleted +=new ModelDataSet.RolesRowChangeEventHandler(InterfaceUnbound);
 		}
 
 		//queries the role by componentid, interfaceid and role
@@ -124,19 +129,83 @@ namespace Palladio.ComponentModel.ModelDataManagement
 				modelCheck.AddProvidesDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,innerRole,outerRole);
 			else
 				modelCheck.AddRequiresDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,innerRole,outerRole);
+
+			ModelDataSet.ComponentsRow outerCompRow = ComponentsTable.FindByguid(outerCompID.Key);
 	
-			ConnectionsTable.AddConnectionsRow(innerRole, outerRole,connection.ID.Key);
+			ConnectionsTable.AddConnectionsRow(innerRole, outerRole,connection.ID.Key,outerCompRow);
 			ConnectionsTable.AcceptChanges();
 		}
 
-		//the handler of the RowRemovedEvents of the datasets tables. 
-		//all tables that are observed by this handler must contain a column from type string that holds
-		//the key of the entities identifier. This key is used to find the entity in the hashtable.
-		private void EntityDatatable_HandleRowDeleted(object sender, DataRowChangeEventArgs e)
+		//called when a component has been removed from dataset
+		private void CompDeleted(object sender, ModelDataSet.ComponentsRowChangeEvent e)
 		{
-			IIdentifier entityID = entityHashtable[(string) e.Row["guid",DataRowVersion.Original]].ID;
-			this.entityHashtable.RemoveEntity(entityID.Key);
-			this.entityReg.EntityRemoved(entityID);
+			string compKey = (string)e.Row["guid",DataRowVersion.Original];
+			object parentKey = e.Row["parentComponent",DataRowVersion.Original];
+
+			IComponent comp = (IComponent) entityHashtable[compKey];
+			IComponentIdentifier parentID=null;
+
+			if (!(parentKey is DBNull))
+				parentID = ((IComponent)entityHashtable[(string)parentKey]).ComponentID;
+
+			entityReg.UnregisterComponent(comp,parentID);
+			entityHashtable.RemoveEntity(compKey);
+		}
+
+		//called when an interface has been removed from dataset
+		private void IfaceDeleted(object sender, ModelDataSet.InterfacesRowChangeEvent e)
+		{
+			string ifaceKey = (string)e.Row["guid",DataRowVersion.Original];
+			entityReg.UnregisterInterface((IInterface) entityHashtable[ifaceKey]);
+			entityHashtable.RemoveEntity(ifaceKey);
+		}
+
+		//called when a protocol has been removed from dataset
+		private void ProtocolDeleted(object sender, ModelDataSet.ProtocolsRowChangeEvent e)
+		{
+			string protKey = (string)e.Row["guid",DataRowVersion.Original];
+			string ifaceKey = (string)e.Row["fk_iface",DataRowVersion.Original];
+
+			entityReg.UnregisterProtocol((IProtocol)entityHashtable[protKey],
+				((IInterface)entityHashtable[ifaceKey]).InterfaceID);
+			
+			entityHashtable.RemoveEntity(protKey);
+		}
+
+		//called when a connection has been removed from dataset
+		private void ConDeleted(object sender, ModelDataSet.ConnectionsRowChangeEvent e)
+		{
+			string conKey = (string)e.Row["guid",DataRowVersion.Original];
+			object parentCKey = e.Row["fk_comp",DataRowVersion.Original];
+			IComponentIdentifier parentCompID = null;
+
+			if (!(parentCKey is DBNull))
+				parentCompID = (IComponentIdentifier) entityHashtable[(string)parentCKey];
+			
+			entityReg.UnregisterConnection((IConnection) entityHashtable[conKey],parentCompID);
+
+            entityHashtable.RemoveEntity(conKey);
+		}
+
+		//called when a signature has been removed from dataset
+		private void SigDeleted(object sender, ModelDataSet.SignaturesRowChangeEvent e)
+		{
+			string sigKey = (string)e.Row["guid",DataRowVersion.Original];
+			string ifaceKey = (string)e.Row["fk_iface",DataRowVersion.Original];
+
+			entityReg.UnregisterSignature((ISignature)entityHashtable[sigKey],
+				((IInterface)entityHashtable[ifaceKey]).InterfaceID);
+			
+			entityHashtable.RemoveEntity(sigKey);
+		}
+
+		//called when an interface has been unbound from a component
+		private void InterfaceUnbound(object sender, ModelDataSet.RolesRowChangeEvent e)
+		{
+			string compKey = (string)e.Row["fk_comp",DataRowVersion.Original];
+			string ifaceKey = (string)e.Row["fk_iface",DataRowVersion.Original];
+			entityReg.UnregisterInterfaceFromComponent((IComponentIdentifier) entityHashtable[compKey],
+			                                           (IInterfaceIdentifier) entityHashtable[ifaceKey]);
 		}
 
 		#endregion
@@ -315,7 +384,17 @@ namespace Palladio.ComponentModel.ModelDataManagement
 
 			modelCheck.AddAssemblyConnectorCheck(reqCompID,reqIFaceID,provCompID,provIFaceID,reqRole,provRole);
 
-			ConnectionsTable.AddConnectionsRow(reqRole, provRole,connection.ID.Key);
+            ModelDataSet.ComponentsRow provComp = ComponentsTable.FindByguid(provCompID.Key);
+
+			ModelDataSet.ConnectionsRow newRow = ConnectionsTable.NewConnectionsRow();
+			newRow.incoming = reqRole.id;
+			newRow.outgoing = provRole.id;
+			newRow.guid = connection.ID.Key;
+
+			if (provComp.parentComponent != null)
+				newRow.fk_comp = provComp.parentComponent;
+
+			ConnectionsTable.AddConnectionsRow(newRow);
 			ConnectionsTable.AcceptChanges();
 			entityReg.RegisterAssemblyConnection(connection,reqCompID,reqIFaceID,provCompID,provIFaceID);
 		}

@@ -8,6 +8,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/04 16:27:28  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.1  2005/03/29 13:05:37  joemal
 	/// initial class creation
 	///
@@ -68,57 +71,40 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// </summary>
 		/// <param name="sender">the sender</param>
 		/// <param name="args">the arguments</param>
-		internal void NotifyAssemblyConnectorRemoved(object sender, AssemblyConnectorBuildEventArgs args)
+		internal void NotifyConnectorRemoved(object sender, ConnectorRemovedEventArgs args)
 		{
-			if (AssembyConnectorRemovedEvent != null)
-				AssemblyConnectorAddedEvent(sender, args);
+			if (ConnectorRemovedEvent != null)
+				ConnectorRemovedEvent(sender, args);
 		}
-
-		/// <summary>
-		/// called to fire the event
-		/// </summary>
-		/// <param name="sender">the sender</param>
-		/// <param name="args">the arguments</param>
-		internal void NotifyDelegationConnectorRemoved(object sender, DelegationConnectorBuildEventArgs args)
-		{
-			if (DelegationConnectorRemovedEvent != null)
-				DelegationConnectorRemovedEvent(sender, args);
-		}
-
 
 		#endregion
 		
 		#region events
 
 		/// <summary>
-		/// fired, when a component has been added to the static view
+		/// fired, when a component has been added to the composite component
 		/// </summary>
 		public event ComponentBuildEventHandler ComponentAddedEvent;
 
 		/// <summary>
-		/// fired, when a component has been removed from the static view
+		/// fired, when a component has been removed from the composite component
 		/// </summary>
 		public event ComponentBuildEventHandler ComponentRemovedEvent;
 
 		/// <summary>
-		/// fired, when an assembly connector has been added to the static view
+		/// fired, when an assembly connector has been added to the composite component
 		/// </summary>
 		public event AssemblyConnectorBuildEventHandler AssemblyConnectorAddedEvent;
 
 		/// <summary>
-		/// fired, when an assembly connector has been removed from the static view
-		/// </summary>
-		public event AssemblyConnectorBuildEventHandler AssembyConnectorRemovedEvent;
-
-		/// <summary>
-		/// fired, when a delegation connector has been added to the static view
+		/// fired, when a delegation connector has been added to the composite component
 		/// </summary>
 		public event DelegationConnectorBuildEventHandler DelegationConnectorAddedEvent;
 
 		/// <summary>
-		/// fired, when a delegation connector has been removed from the static view
+		/// fired, when a connector has been removed from the composite component
 		/// </summary>
-		public event DelegationConnectorBuildEventHandler DelegationConnectorRemovedEvent;
+		public event ConnectorRemovedEventHandler ConnectorRemovedEvent;
 
 		#endregion
 

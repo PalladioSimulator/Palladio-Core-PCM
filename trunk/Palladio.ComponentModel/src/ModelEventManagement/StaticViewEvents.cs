@@ -8,6 +8,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/04 16:27:28  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.1  2005/03/29 13:05:37  joemal
 	/// initial class creation
 	///
@@ -57,10 +60,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// </summary>
 		/// <param name="sender">the sender</param>
 		/// <param name="args">the arguments</param>
-		internal void NotifyAssemblyConnectorRemoved(object sender, AssemblyConnectorBuildEventArgs args)
+		internal void NotifyAssemblyConnectorRemoved(object sender, ConnectorRemovedEventArgs args)
 		{
 			if (AssembyConnectorRemovedEvent != null)
-				AssemblyConnectorAddedEvent(sender, args);
+				AssembyConnectorRemovedEvent(sender,args);
 		}
 
 		/// <summary>
@@ -126,7 +129,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <summary>
 		/// fired, when an assembly connector has been removed from the static view
 		/// </summary>
-		public event AssemblyConnectorBuildEventHandler AssembyConnectorRemovedEvent;
+		public event ConnectorRemovedEventHandler AssembyConnectorRemovedEvent;
 
 		#endregion
 	}

@@ -20,6 +20,11 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// defines the eventhandler, that is called, when an assembly connector has been added or removed.
 	/// </summary>
 	public delegate void AssemblyConnectorBuildEventHandler(object sender, AssemblyConnectorBuildEventArgs args);
+
+	/// <summary>
+	/// defines the eventhandler, that is called, when a onnector has been removed.
+	/// </summary>
+	public delegate void ConnectorRemovedEventHandler(object sender, ConnectorRemovedEventArgs args);
 	
 	/// <summary>
 	/// defines the eventhandler, that is called, when an attribute in the attribute hashtable has been changed
@@ -100,6 +105,35 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			get
 			{
 				return this.component;
+			}
+		}
+	}
+
+	/// <summary>
+	/// This is the event argument structure of the ConnectorRemovedEventHandler
+	/// </summary>
+	public class ConnectorRemovedEventArgs
+	{
+		//the connection
+		private IConnection connection;
+
+		/// <summary>
+		/// called to create a new event argument structure
+		/// </summary>
+		/// <param name="con">the connection</param>
+		internal ConnectorRemovedEventArgs(IConnection con)
+		{
+			this.connection = con;
+		}
+
+		/// <summary>
+		/// returns the connection that has been removed
+		/// </summary>
+		public IConnection Connection
+		{
+			get
+			{
+				return this.connection;
 			}
 		}
 	}

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
@@ -18,6 +17,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/04 16:27:28  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.2  2005/03/31 11:02:03  joemal
 	/// implement the rest of the notification
 	///
@@ -89,6 +91,23 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		}
 
 		/// <summary>
+		/// called to unregister the given component from the event manager 
+		/// </summary>
+		/// <param name="component">the component</param>
+		/// <param name="parentComponentID">the parent component or null, if the component is placed 
+		/// in the top level of the model</param>
+		/// <exception cref="EntityNotFoundException">the parent component could not be found in cm.</exception>
+		public void UnregisterComponent(IComponent component, IComponentIdentifier parentComponentID)
+		{
+			this.eventStructures.Remove(component.ID);
+			if (parentComponentID == null)
+				this.GetStaticViewEvents().NotifyComponentRemoved(this,new ComponentBuildEventArgs(component));
+			else
+				this.GetCompositeComponentEvents(parentComponentID).
+					NotifyComponentRemoved(this,new ComponentBuildEventArgs(component));			
+		}
+
+		/// <summary>
 		/// called to register an interface.
 		/// </summary>
 		/// <param name="iface">the interface to be registered</param>
@@ -96,6 +115,16 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		{
 			eventStructures.Add(iface.ID,new InterfaceEvents());
 			this.staticViewEvents.NotifyInterfaceAdded(this,new InterfaceBuildEventArgs(iface));
+		}
+
+		/// <summary>
+		/// called to unregister the interface from the componentmodel
+		/// </summary>
+		/// <param name="iface"></param>
+		public void UnregisterInterface(IInterface iface)
+		{
+			this.eventStructures.Remove(iface.ID);
+			this.GetStaticViewEvents().NotifyInterfaceRemoved(this,new InterfaceBuildEventArgs(iface));
 		}
 
 		/// <summary>
@@ -121,6 +150,17 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		}
 
 		/// <summary>
+		/// called to unregister an interface from a component.
+		/// </summary>
+		/// <param name="compID">the id of the component</param>
+		/// <param name="ifaceID">the id of the interface</param>
+		public void UnregisterInterfaceFromComponent(IComponentIdentifier compID, IInterfaceIdentifier ifaceID)
+		{
+			IInterface iface = (IInterface) entityHashtable[ifaceID];
+			this.GetComponentEvents(compID).NotifyInterfaceRemoved(this,new InterfaceBuildEventArgs(iface));
+		}
+
+		/// <summary>
 		/// called to register a signature.
 		/// </summary>
 		/// <param name="signature">the signature which has to be registered</param>
@@ -133,6 +173,17 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		}
 
 		/// <summary>
+		/// called to unregister the signature
+		/// </summary>
+		/// <param name="signature">the signature</param>
+		/// <param name="ifaceID">the iface, to which the signature belongs</param>
+		public void UnregisterSignature(ISignature signature, IInterfaceIdentifier ifaceID)
+		{
+			this.eventStructures.Remove(signature.ID);
+			this.GetInterfaceEvents(ifaceID).NotifySignatureRemovedEvent(this,new SignatureBuildEventArgs(signature));
+		}
+
+		/// <summary>
 		/// called to register a protocol.
 		/// </summary>
 		/// <param name="protocol">the protocol to be registered</param>
@@ -141,6 +192,17 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void RegisterProtocol(IProtocol protocol, IInterfaceIdentifier ifaceID)
 		{
 			this.GetInterfaceEvents(ifaceID).NotifyProtocolAddedEvent(this,new ProtocolBuildEventArgs(protocol));
+		}
+
+		/// <summary>
+		/// called to unregister a protocol.
+		/// </summary>
+		/// <param name="protocol">the protocol to be registered</param>
+		/// <param name="ifaceID">the interface, to which the protocol belongs</param>
+		public void UnregisterProtocol(IProtocol protocol, IInterfaceIdentifier ifaceID)
+		{
+			this.eventStructures.Remove(protocol.ID);
+			this.GetInterfaceEvents(ifaceID).NotifyProtocolRemovedEvent(this,new ProtocolBuildEventArgs(protocol));
 		}
 
 		/// <summary>
@@ -186,8 +248,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="provCompID">the id of the providing component</param>
 		/// <param name="provIFaceID">the id of the providing components interface</param>
 		/// <exception cref="EntityNotFoundException">the parent component could not be found.</exception>
-		public void RegisterAssemblyConnection(IConnection connection, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
+		public void RegisterAssemblyConnection(IConnection connection, IComponentIdentifier reqCompID, 
+							IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
+			this.eventStructures.Add(connection.ID,new ConnectionEvents());
 			ModelDataSet.ComponentsRow compRow = modelDataset.Components.FindByguid(reqCompID.Key);
 			if (compRow.parentComponent == null)
 				this.staticViewEvents.NotifyAssemblyConnectorAdded(this,
@@ -201,13 +265,19 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		}
 
 		/// <summary>
-		/// called if one of the componentmodels entities has been removed
+		/// called to unregister an assembly connector.
 		/// </summary>
-		/// <param name="id">the id of the identifier</param>
-		public void EntityRemoved(IIdentifier id)
+		/// <param name="connection">the connector</param>
+		/// <param name="compositeCompID">the composite component, in which this connection is placed or null,
+		/// if this connection belongs to the top level of the model.</param>
+		public void UnregisterConnection(IConnection connection, IComponentIdentifier compositeCompID)
 		{
-			eventStructures.Remove(id);
-			//todo: notify remove events 
+			this.eventStructures.Remove(connection.ID);
+			if (compositeCompID == null)
+				this.GetStaticViewEvents().NotifyAssemblyConnectorRemoved(this,new ConnectorRemovedEventArgs(connection));
+			else
+				this.GetCompositeComponentEvents(compositeCompID).
+					NotifyConnectorRemoved(this,new ConnectorRemovedEventArgs(connection));
 		}
 
 		#endregion

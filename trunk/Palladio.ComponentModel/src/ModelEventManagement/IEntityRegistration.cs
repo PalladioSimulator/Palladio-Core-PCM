@@ -1,6 +1,6 @@
+using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
-using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.ModelEventManagement
 {
@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/04 16:27:28  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.1  2005/03/29 13:05:37  joemal
 	/// initial class creation
 	///
@@ -30,10 +33,25 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		void RegisterComponent(IComponent component,IComponentIdentifier parentComponent);
 
 		/// <summary>
+		/// called to unregister the given component from the event manager 
+		/// </summary>
+		/// <param name="component">the component</param>
+		/// <param name="parentComponentID">the parent component or null, if the component is placed 
+		/// in the top level of the model</param>
+		/// <exception cref="EntityNotFoundException">the parent component could not be found in cm.</exception>
+		void UnregisterComponent(IComponent component, IComponentIdentifier parentComponentID);
+
+		/// <summary>
 		/// called to register an interface.
 		/// </summary>
 		/// <param name="iface">the interface to be registered</param>
 		void RegisterInterface(IInterface iface);
+
+		/// <summary>
+		/// called to unregister the interface from the componentmodel
+		/// </summary>
+		/// <param name="iface"></param>
+		void UnregisterInterface(IInterface iface);
 
 		/// <summary>
 		/// called after an interface has bound to a component to notify the components eventlistener.
@@ -45,6 +63,13 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			InterfaceRole role);
 
 		/// <summary>
+		/// called to unregister an interface from a component.
+		/// </summary>
+		/// <param name="compID">the id of the component</param>
+		/// <param name="ifaceID">the id of the interface</param>
+		void UnregisterInterfaceFromComponent(IComponentIdentifier compID, IInterfaceIdentifier ifaceID);
+
+		/// <summary>
 		/// called to register a signature.
 		/// </summary>
 		/// <param name="signature">the signature which has to be registered</param>
@@ -52,11 +77,25 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		void RegisterSignature(ISignature signature,IInterfaceIdentifier ifaceID);
 
 		/// <summary>
+		/// called to unregister the signature
+		/// </summary>
+		/// <param name="signature">the signature</param>
+		/// <param name="ifaceID">the iface, to which the signature belongs</param>
+		void UnregisterSignature(ISignature signature, IInterfaceIdentifier ifaceID);
+
+		/// <summary>
 		/// called to register a protocol.
 		/// </summary>
 		/// <param name="protocol">the protocol to be registered</param>
 		/// <param name="ifaceID">the interface, to which the protocol belongs</param>
 		void RegisterProtocol(IProtocol protocol,IInterfaceIdentifier ifaceID);
+
+		/// <summary>
+		/// called to unregister a protocol.
+		/// </summary>
+		/// <param name="protocol">the protocol to be registered</param>
+		/// <param name="ifaceID">the interface, to which the protocol belongs</param>
+		void UnregisterProtocol(IProtocol protocol,IInterfaceIdentifier ifaceID);
 
 		/// <summary>
 		/// called to register a reguires delegation connector.
@@ -92,9 +131,11 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
 
 		/// <summary>
-		/// called if one of the componentmodels entities has been removed
+		/// called to unregister a connection.
 		/// </summary>
-		/// <param name="id">the id of the identifier</param>
-		void EntityRemoved(IIdentifier id);
+		/// <param name="connection">the connection</param>
+		/// <param name="compositeCompID">the composite component, in which this connection is placed or null,
+		/// if this connection belongs to the top level of the model.</param>
+		void UnregisterConnection(IConnection connection, IComponentIdentifier compositeCompID);
 	}
 }
