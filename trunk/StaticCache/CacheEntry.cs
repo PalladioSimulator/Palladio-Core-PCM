@@ -12,18 +12,31 @@ namespace StaticCache
 		protected int timesRequested;
 		protected DateTime lastTimeRequested;
 		protected DateTime lastTimeModified;
+		protected string id;
 
 
 		public CacheEntry()
 		{
-			//
-			// TODO: Fügen Sie hier die Konstruktorlogik hinzu
-			//
+			this.timesVisited =0;
+			this.LastTimeModified = DateTime.MinValue;
+			this.lastTimeRequested = DateTime.Now;
 		}
+
+		public string ID
+		{
+			get{return this.id;}
+			set{this.id = value;}
+		}
+
 
 		public byte[] Content
 		{
-			get{return this.content;}
+			get
+			{
+				this.timesVisited++;
+				this.lastTimeRequested = DateTime.Now;
+				return this.content;
+			}
 			set{this.content = value;}		
 		}
 

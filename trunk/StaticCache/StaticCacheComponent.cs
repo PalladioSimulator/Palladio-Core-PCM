@@ -4,6 +4,8 @@ using Delivery;
 using Request;
 using System.IO;
 using StaticFileProvider;
+using SimpleLogging;
+
 
 namespace StaticCache
 {
@@ -15,7 +17,9 @@ namespace StaticCache
 		protected Hashtable cache;
 		protected int visitTimesToBeCached;
 		protected int maxCountOfCachedSites;
-		protected int actualCountOfChachedPages;
+		//protected int actualCountOfChachedPages;
+
+		protected SimpleLogger logger;
 
 		protected byte[] response;
 
@@ -24,11 +28,22 @@ namespace StaticCache
 		protected Hashtable usserStatistics;
 
 		protected StaticFileProviderComponent fileProvider;
+
 		
 		public StaticCacheComponent(ref StaticFileProviderComponent fileProvider)
 		{
 			this.usserStatistics = new Hashtable();
+			this.cache = new Hashtable();
+			this.visitTimesToBeCached = 2;
+			this.maxCountOfCachedSites = 4;
 			this.fileProvider = fileProvider;
+
+			this.logger = new SimpleLogger(this);
+			this.logger.DebugOutput = true;
+			this.logger.FileOutput = true;
+
+//			this.requesthasBeenread = false;
+			this.response = System.Text.Encoding.ASCII.GetBytes("something has to be in here otherwise it can't be locked");
 		}
 
 		public IDeliverResponse DeliverResonse(HttpRequest r,string path)
@@ -36,8 +51,13 @@ namespace StaticCache
 			
 			if(IsResponsible(r,path))
 			{
-				this.response = ((CacheEntry) this.cache[r.URI]).Content;
-				((CacheEntry) this.cache[r.URI]).TimesVisit ++;
+				Console.WriteLine(PrintcacheContonent());
+				//ensures that no other Thread can manipulate the response
+				lock(this.response.SyncRoot)
+				{
+					this.response = ((CacheEntry) this.cache[r.URI.ToString()]).Content;
+					((CacheEntry) this.cache[r.URI]).TimesRequested ++;
+				}
 				return this;
 			}
 			else 
@@ -48,12 +68,14 @@ namespace StaticCache
 
 		internal bool CacheFull
 		{
-			get{return this.maxCountOfCachedSites == this.actualCountOfChachedPages;}
+			get{return this.maxCountOfCachedSites == this.cache.Count;}
 		}
 
 		public byte[] GetResponse
 		{
-			get{return this.response;}
+			get{
+//				this.requesthasBeenread = true;
+				return this.response;}
 		}
 
 		public int GetFileSize
@@ -85,6 +107,7 @@ namespace StaticCache
 			{
 				if(this.cache.ContainsKey(r.URI))
 				{
+					this.logger.Debug(this.PrintcacheContonent());
 					return true;
 				}
 				else 
@@ -98,35 +121,40 @@ namespace StaticCache
 
 		internal void HandleCacheMiss(HttpRequest request, string path)
 		{
-			//if it hasn't been visit jet, add new entry
-			if(!this.usserStatistics.ContainsKey(request.URI))
+			lock(this.cache.SyncRoot)
 			{
-				CacheEntry temp = new CacheEntry();
-				temp.TimesVisit = 1;
-				this.usserStatistics.Add(request.URI,temp);
-			}
+				//Console.WriteLine(PrintcacheContonent());
+				//if it hasn't been visit jet, add new entry
+				if(!this.usserStatistics.ContainsKey(request.URI))
+				{
+					this.usserStatistics.Add(request.URI,1);
+				}
 
-				//uri has already been requested
-			else
-			{
-				CacheEntry ca = (CacheEntry) this.usserStatistics[request.URI];
-				if(ca.TimesRequested < this.visitTimesToBeCached)
+					//uri has already been requested
+				else
 				{
-					ca.TimesVisit ++;
-					this.usserStatistics.Remove(this.usserStatistics[request.URI]);
-					this.usserStatistics.Add(request.URI,ca);
-				}
-					//now it s time to cache this entry
-				else if(ca.TimesRequested == this.visitTimesToBeCached)
-				{
-					ca.Content = this.fileProvider.GetFile(path);
-					ca.TimesVisit = 1;
-					this.cache.Add(request.URI,ca);
-				}
-				//if the cache is full an entry has to be removed
-				else if(CacheFull)
-				{
-					ReplaceEntryAndAddNew(request,path);
+					int timesUsed = (int) this.usserStatistics[request.URI];
+					if(timesUsed < this.visitTimesToBeCached)
+					{
+						timesUsed++;
+						this.usserStatistics.Remove(request.URI);
+						this.usserStatistics.Add(request.URI,timesUsed);
+					}
+						//now it s time to cache this entry
+					else if(timesUsed == this.visitTimesToBeCached)
+					{
+						if(CacheFull)
+						{
+							ReplaceEntryAndAddNew(request,path);
+						}
+					
+						CacheEntry ce = new CacheEntry();
+						ce.Content = this.fileProvider.GetFile(path);
+						ce.ID = request.URI;
+						ce.TimesVisit = 1;
+						this.cache.Add(request.URI.ToString(),ce);
+							
+					}
 				}
 			}
 		}
@@ -142,7 +170,7 @@ namespace StaticCache
 		{
 			DateTime LRUDate = DateTime.Now;
 			CacheEntry returnValue = null;
-			foreach(CacheEntry ce in this.cache)
+			foreach(CacheEntry ce in this.cache.Values)
 			{
 				if(ce.LastTimeRequested< LRUDate)
 				{
@@ -174,11 +202,11 @@ namespace StaticCache
 		/// <returns></returns>
 		internal string PrintcacheContonent()
 		{
-			string cacheContent ="Cache Content: \n";
+			string cacheContent ="Cache Content: \n\r";
 			foreach(DictionaryEntry di in this.cache)
 			{
-				cacheContent+="URI: "+di.Value.ToString()+"\n";
-				cacheContent+="Times rewuested: "+ ((CacheEntry) di.Value).TimesRequested.ToString();
+				cacheContent+="URI: "+di.Key.ToString()+"\n\r";
+				cacheContent+="Times requested: "+ ((CacheEntry) di.Value).TimesRequested.ToString()+"\n";
 			}
 			return cacheContent;
 		}

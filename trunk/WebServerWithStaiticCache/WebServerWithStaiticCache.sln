@@ -1,0 +1,101 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServerWithStaiticCache", "WebServerWithStaiticCache.csproj", "{1B3298AA-9941-4306-8802-077AD93135A8}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticCache", "..\StaticCache\StaticCache.csproj", "{FFD83475-6E29-4447-9DEA-56298EB1F9C6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticFileProvider", "..\StaticFileProvider\StaticFileProvider.csproj", "{901FD043-3CE1-44D3-9D86-6C47FB4C9667}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBAcesses", "..\DBAcesses\DBAcesses.csproj", "{0BA996CC-023F-4CB9-BE51-C7299C643B4D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dispatcher", "..\Dispatcher\Dispatcher.csproj", "{32598BB1-4810-4026-81C6-609A02855196}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery", "..\Delivery\Delivery.csproj", "{81767AF2-0999-4F50-B6D7-703338E73E90}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Request", "..\Request\Request.csproj", "{3000648D-3F75-45FC-9AF3-A4003C656C62}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestParser", "..\RequestParser\RequestParser.csproj", "{E8BB7DF1-1D1F-4366-B854-4B408E8C7DD5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestProssor", "..\RequestProssor\RequestProssor.csproj", "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLogger", "..\SimpleLogger\SimpleLogger.csproj", "{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTexAnalyzer", "..\BibTexAnalyzerComponent\BibTexAnalyzer.csproj", "{BB4B4D16-F1F1-4B9B-B0F5-BB5EFFC005ED}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{1B3298AA-9941-4306-8802-077AD93135A8}.Debug.ActiveCfg = Debug|.NET
+		{1B3298AA-9941-4306-8802-077AD93135A8}.Debug.Build.0 = Debug|.NET
+		{1B3298AA-9941-4306-8802-077AD93135A8}.Release.ActiveCfg = Release|.NET
+		{1B3298AA-9941-4306-8802-077AD93135A8}.Release.Build.0 = Release|.NET
+		{FFD83475-6E29-4447-9DEA-56298EB1F9C6}.Debug.ActiveCfg = Debug|.NET
+		{FFD83475-6E29-4447-9DEA-56298EB1F9C6}.Debug.Build.0 = Debug|.NET
+		{FFD83475-6E29-4447-9DEA-56298EB1F9C6}.Release.ActiveCfg = Release|.NET
+		{FFD83475-6E29-4447-9DEA-56298EB1F9C6}.Release.Build.0 = Release|.NET
+		{901FD043-3CE1-44D3-9D86-6C47FB4C9667}.Debug.ActiveCfg = Debug|.NET
+		{901FD043-3CE1-44D3-9D86-6C47FB4C9667}.Debug.Build.0 = Debug|.NET
+		{901FD043-3CE1-44D3-9D86-6C47FB4C9667}.Release.ActiveCfg = Release|.NET
+		{901FD043-3CE1-44D3-9D86-6C47FB4C9667}.Release.Build.0 = Release|.NET
+		{0BA996CC-023F-4CB9-BE51-C7299C643B4D}.Debug.ActiveCfg = Debug|.NET
+		{0BA996CC-023F-4CB9-BE51-C7299C643B4D}.Debug.Build.0 = Debug|.NET
+		{0BA996CC-023F-4CB9-BE51-C7299C643B4D}.Release.ActiveCfg = Release|.NET
+		{0BA996CC-023F-4CB9-BE51-C7299C643B4D}.Release.Build.0 = Release|.NET
+		{32598BB1-4810-4026-81C6-609A02855196}.Debug.ActiveCfg = Debug|.NET
+		{32598BB1-4810-4026-81C6-609A02855196}.Debug.Build.0 = Debug|.NET
+		{32598BB1-4810-4026-81C6-609A02855196}.Release.ActiveCfg = Release|.NET
+		{32598BB1-4810-4026-81C6-609A02855196}.Release.Build.0 = Release|.NET
+		{81767AF2-0999-4F50-B6D7-703338E73E90}.Debug.ActiveCfg = Debug|.NET
+		{81767AF2-0999-4F50-B6D7-703338E73E90}.Debug.Build.0 = Debug|.NET
+		{81767AF2-0999-4F50-B6D7-703338E73E90}.Release.ActiveCfg = Release|.NET
+		{81767AF2-0999-4F50-B6D7-703338E73E90}.Release.Build.0 = Release|.NET
+		{3000648D-3F75-45FC-9AF3-A4003C656C62}.Debug.ActiveCfg = Debug|.NET
+		{3000648D-3F75-45FC-9AF3-A4003C656C62}.Debug.Build.0 = Debug|.NET
+		{3000648D-3F75-45FC-9AF3-A4003C656C62}.Release.ActiveCfg = Release|.NET
+		{3000648D-3F75-45FC-9AF3-A4003C656C62}.Release.Build.0 = Release|.NET
+		{E8BB7DF1-1D1F-4366-B854-4B408E8C7DD5}.Debug.ActiveCfg = Debug|.NET
+		{E8BB7DF1-1D1F-4366-B854-4B408E8C7DD5}.Debug.Build.0 = Debug|.NET
+		{E8BB7DF1-1D1F-4366-B854-4B408E8C7DD5}.Release.ActiveCfg = Release|.NET
+		{E8BB7DF1-1D1F-4366-B854-4B408E8C7DD5}.Release.Build.0 = Release|.NET
+		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Debug.ActiveCfg = Debug|.NET
+		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Debug.Build.0 = Debug|.NET
+		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Release.ActiveCfg = Release|.NET
+		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Release.Build.0 = Release|.NET
+		{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}.Debug.ActiveCfg = Debug|.NET
+		{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}.Debug.Build.0 = Debug|.NET
+		{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}.Release.ActiveCfg = Release|.NET
+		{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}.Release.Build.0 = Release|.NET
+		{BB4B4D16-F1F1-4B9B-B0F5-BB5EFFC005ED}.Debug.ActiveCfg = Debug|.NET
+		{BB4B4D16-F1F1-4B9B-B0F5-BB5EFFC005ED}.Debug.Build.0 = Debug|.NET
+		{BB4B4D16-F1F1-4B9B-B0F5-BB5EFFC005ED}.Release.ActiveCfg = Release|.NET
+		{BB4B4D16-F1F1-4B9B-B0F5-BB5EFFC005ED}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -18,8 +18,11 @@ namespace Delivery
 
 		Stream DeliverResponseStream();
 
-
+		//old
 		byte[] GetResponse{get;}
+
+		//for testing the cache
+//		byte[] GetResponse(HttpRequest request);
 
 		int GetFileSize{get;}
 

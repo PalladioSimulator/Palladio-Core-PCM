@@ -3,22 +3,22 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{FFD83475-6E29-4447-9DEA-56298EB1F9C6}"
+        ProjectGuid = "{1B3298AA-9941-4306-8802-077AD93135A8}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "StaticCache"
+                AssemblyName = "WebServerWithStaiticCache"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
                 DefaultTargetSchema = "IE50"
                 DelaySign = "false"
-                OutputType = "Library"
+                OutputType = "Exe"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "StaticCache"
+                RootNamespace = "WebServerWithStaiticCache"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -80,14 +80,34 @@
                     HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "Delivery"
-                    AssemblyName = "Delivery"
-                    HintPath = "..\Delivery\obj\Debug\Delivery.dll"
+                    Name = "Dispatcher"
+                    AssemblyName = "Dispatcher"
+                    HintPath = "..\Dispatcher\obj\Debug\Dispatcher.dll"
+                />
+                <Reference
+                    Name = "RequestProssor"
+                    AssemblyName = "RequestProssor"
+                    HintPath = "..\RequestProssor\obj\Debug\RequestProssor.dll"
+                />
+                <Reference
+                    Name = "RequestParser"
+                    AssemblyName = "RequestParser"
+                    HintPath = "..\RequestParser\obj\Debug\RequestParser.dll"
                 />
                 <Reference
                     Name = "StaticFileProvider"
                     AssemblyName = "StaticFileProvider"
                     HintPath = "..\StaticFileProvider\obj\Debug\StaticFileProvider.dll"
+                />
+                <Reference
+                    Name = "StaticCache"
+                    AssemblyName = "StaticCache"
+                    HintPath = "..\StaticCache\obj\Debug\StaticCache.dll"
+                />
+                <Reference
+                    Name = "Delivery"
+                    AssemblyName = "Delivery"
+                    HintPath = "..\Delivery\obj\Debug\Delivery.dll"
                 />
                 <Reference
                     Name = "Request"
@@ -96,8 +116,8 @@
                 />
                 <Reference
                     Name = "SimpleLogger"
-                    Project = "{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    AssemblyName = "SimpleLogger"
+                    HintPath = "..\SimpleLogger\obj\Debug\SimpleLogger.dll"
                 />
             </References>
         </Build>
@@ -109,17 +129,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "CacheEntry.cs"
+                    RelPath = "Class1.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "StaticCacheComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ModelSupport\StaticCache\StaticCache.txvpck"
+                    RelPath = "ModelSupport\ComponentWebServer\ComponentWebServer.txvpck"
                     BuildAction = "None"
                 />
             </Include>

@@ -32,6 +32,11 @@ namespace Delivery
 		{
 			return new MemoryStream(System.Text.ASCIIEncoding.ASCII.GetBytes("An error occured in the delivery chain"));
 		}
+//		public byte[] GetResponse(HttpRequest r)
+//		{
+//			return System.Text.ASCIIEncoding.ASCII.GetBytes("An error occured in the delivery chain");
+//
+//		}
 		public byte[] GetResponse
 		{
 			get
