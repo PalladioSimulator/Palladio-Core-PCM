@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using ReflectionBasedVisitor;
+using Palladio.Attributes;
 
 namespace Palladio.FiniteStateMachines.DefaultFSM {
 
@@ -14,6 +15,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM {
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/05/17 14:08:05  sliver
+	/// added interface for attributable classes
+	///
 	/// Revision 1.4  2004/05/12 14:11:39  sbecker
 	/// Added CVS log
 	///
@@ -23,8 +27,8 @@ namespace Palladio.FiniteStateMachines.DefaultFSM {
 	internal abstract class AbstractState : IState 
 	{
 		protected bool isErrorState = false;
-		protected Hashtable attributeTable;
 		protected string id;
+		protected IAttributeHash attributes;
 
 		/// <summary>
 		/// If true, this state is an error state in which the FSM can drop if
@@ -58,11 +62,11 @@ namespace Palladio.FiniteStateMachines.DefaultFSM {
 		/// Information describing this state. Any type of information object can be
 		/// associated to a state.
 		/// </summary>
-		public virtual Hashtable AttributeTable
+		public virtual IAttributeHash Attributes
 		{
 			get
 			{
-				return attributeTable;
+				return attributes;
 			}
 		}
 

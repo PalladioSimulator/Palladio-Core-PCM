@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Palladio.Attributes;
 
 namespace Palladio.FiniteStateMachines.DefaultFSM
 {
@@ -15,6 +16,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/05/17 14:08:05  sliver
+	/// added interface for attributable classes
+	///
 	/// Revision 1.2  2004/05/12 12:57:10  sbecker
 	/// Added documentation and CVS log
 	///
@@ -28,10 +32,10 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// <param name="isErrorState">Determine if this state should represent an error condition</param>
 		/// <param name="anAttTab">A Hashtable containing the attributes attached to this state</param>
 		/// <param name="anID">ID of the state to create</param>
-		public DefaultState(string anID, Hashtable anAttTab, bool isErrorState) 
+		public DefaultState(string anID, IAttributeHash anAttTab, bool isErrorState) 
 		{
 			this.id = anID;
-			this.attributeTable = anAttTab;
+			this.attributes = anAttTab;
 			this.isErrorState = isErrorState;
 		}
 
@@ -40,14 +44,14 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// </summary>
 		/// <param name="anAttTab">A Hashtable containing the attributes attached to this state</param>
 		/// <param name="anId">ID of the new state</param>
-		public DefaultState(string anId, Hashtable anAttTab) : this (anId, anAttTab, false) {}
+		public DefaultState(string anId, IAttributeHash anAttTab) : this (anId, anAttTab, false) {}
 		
 		/// <summary>
 		/// Default constructor of a default state which is NOT an error state and has an 
 		/// empty set of attributes attached to it.
 		/// </summary>
 		/// <param name="anId">ID of the new state</param>
-		public DefaultState(string anId) : this (anId, new Hashtable(), false) {}
+		public DefaultState(string anId) : this (anId, FSMFactory.attributesFactory.Default.CreateAttributeHash() , false) {}
 		
 		/// <summary>
 		/// Default constructor of a default state that has an 
@@ -55,6 +59,6 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// </summary>
 		/// <param name="anID">ID of the new state</param>
 		/// <param name="isErrorState">Specifies if this state is constructed as ErrorState</param>
-		public DefaultState(string anID, bool isErrorState) : this (anID, new Hashtable(), isErrorState) {}
+		public DefaultState(string anID, bool isErrorState) : this (anID, FSMFactory.attributesFactory.Default.CreateAttributeHash(), isErrorState) {}
 	}
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using ReflectionBasedVisitor;
+using Palladio.Attributes;
 
 namespace Palladio.FiniteStateMachines 
 {
@@ -12,6 +13,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/05/17 14:08:06  sliver
+	/// added interface for attributable classes
+	///
 	/// Revision 1.3  2004/05/12 14:07:16  sbecker
 	/// Changed the reflection based visitors namespace
 	///
@@ -21,18 +25,12 @@ namespace Palladio.FiniteStateMachines
 	///
 	/// </pre>
 	/// </remarks>
-	public interface IState : IVisitable
+	public interface IState : IVisitable, IAttributable
 	{
 		/// <summary>
 		///		The unique ID of the state.
 		/// </summary>
 		string ID { get; }
-
-		/// <summary>
-		/// A list of attributes attached to this state. The attributes are stored in a 
-		/// hashmap hashing the ID of the attribute to the respective value.
-		/// </summary>
-		Hashtable AttributeTable { get; }
 
 		/// <summary>
 		/// If true this state is an error state. An error state is reached when running

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using ReflectionBasedVisitor;
+using Palladio.Attributes;
 
 namespace Palladio.FiniteStateMachines.DefaultFSM
 {
@@ -21,6 +22,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/05/17 14:08:05  sliver
+	/// added interface for attributable classes
+	///
 	/// Revision 1.3  2004/05/12 14:07:16  sbecker
 	/// Changed the reflection based visitors namespace
 	///
@@ -47,7 +51,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// </summary>
 		private IState destinationState;
 
-		private Hashtable attributeTable;
+		private IAttributeHash attributes;
 
 		/// <summary>
 		/// Deafault constructor
@@ -57,12 +61,12 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// <param name="anInputSymbol">Input of the ITransition.</param>
 		/// <param name="aDestinationState">State, where the ITransition leads to.</param>
 		/// <param name="anAttTable">A Hastable containing additional attributes attached to this transition.</param>
-		public DefaultTransition(IState aSourceState, IInput anInputSymbol, IState aDestinationState, Hashtable anAttTable) 
+		public DefaultTransition(IState aSourceState, IInput anInputSymbol, IState aDestinationState, IAttributeHash anAttTable) 
 		{
 			this.SourceState = aSourceState;
 			this.InputSymbol = anInputSymbol;
 			this.DestinationState = aDestinationState;
-			this.attributeTable = anAttTable;
+			this.attributes = anAttTable;
 		}
 
 		/// <summary>
@@ -73,7 +77,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// <param name="anInputSymbol">Input of the ITransition.</param>
 		/// <param name="aDestinationState">State, where the ITransition leads to.</param>
 		public DefaultTransition(IState aSourceState, IInput anInputSymbol, IState aDestinationState ) :
-			this (aSourceState, anInputSymbol, aDestinationState, new Hashtable()) {}
+			this (aSourceState, anInputSymbol, aDestinationState, FSMFactory.attributesFactory.Default.CreateAttributeHash()) {}
 			
 			
 		/// <summary>
@@ -114,9 +118,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			set { inputSymbol = value; }
 		}
 
-		public Hashtable AttributeTable 
+		public IAttributeHash Attributes 
 		{
-			get { return attributeTable; }
+			get { return attributes; }
 		}
 
 		/// <summary>

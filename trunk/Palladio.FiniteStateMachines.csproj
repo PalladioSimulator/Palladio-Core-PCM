@@ -102,6 +102,11 @@
                     Project = "{AEA33F47-FDF0-4A90-A95C-BABBFE19D2E6}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "Palladio.Attributes"
+                    Project = "{7726B451-F155-4534-986E-8960C7BA4D97}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

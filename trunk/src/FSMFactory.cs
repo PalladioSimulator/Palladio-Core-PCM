@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Palladio.Utils.Collections;
 using Palladio.FiniteStateMachines.DefaultFSM;
+using Palladio.Attributes;
 
 namespace Palladio.FiniteStateMachines
 {
@@ -16,6 +17,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/05/17 14:08:05  sliver
+	/// added interface for attributable classes
+	///
 	/// Revision 1.7  2004/05/13 15:03:46  sliver
 	/// IMatchable Interface added
 	///
@@ -38,6 +42,8 @@ namespace Palladio.FiniteStateMachines
 	/// </remarks>
 	public class FSMFactory
 	{
+		internal static AttributesFactory attributesFactory = new AttributesFactory();
+
 		/// <summary>
 		/// Generates an empty FiniteStateMachine.
 		/// </summary>
