@@ -17,6 +17,9 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/01/29 21:47:44  kelsaka
+	/// Added continuous use of NetworkStream (instead of Socket)
+	///
 	/// Revision 1.6  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -79,8 +82,8 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 		/// <param name="mimeType">Mime Type of the content</param>
 		/// <param name="totalBytes">Total Bytes to be sent in the body</param>
 		/// <param name="httpStatusCode">Status Code of the HTTP-Answer.</param>
-		/// <param name="socket">Socket reference</param>
-		public void SendHTTPHeader(string httpVersion, string mimeType, int totalBytes, string httpStatusCode, Socket socket)
+		/// <param name="networkStream">networkStream reference</param>
+		public void SendHTTPHeader(string httpVersion, string mimeType, int totalBytes, string httpStatusCode, NetworkStream networkStream)
 		{
 			if(httpStatusCode != "")
 			{
@@ -96,8 +99,10 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 			headerContent += "Accept-Ranges: bytes\r\n";
 			headerContent += "Content-Length: " + totalBytes + "\r\n\r\n";			
 
-			SendContentToClient(headerContent, socket);
+			SendContentToClient(headerContent, networkStream);
 		}
+
+
 
 
 
@@ -114,23 +119,24 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 
 
 			//Format The Message
-			SendHTTPHeader(httpRequest.HttpVersion, "", errorMessage.Length, errorCode, httpRequest.Socket);
+			SendHTTPHeader(httpRequest.HttpVersion, "", errorMessage.Length, errorCode, httpRequest.NetworkStream);
 
 			//Send to the browser
-			SendContentToClient(errorMessage, httpRequest.Socket);
+			SendContentToClient(errorMessage, httpRequest.NetworkStream);
 
 		}
+
 
 
 		/// <summary>
 		/// Sends the data to the client.
 		/// </summary>
 		/// <param name="contentData">String that contains the answer to the client request.</param>
-		/// <param name="socket">Socket reference</param>
-		public void SendContentToClient(string contentData, Socket socket)
+		/// <param name="networkStream">networkStream reference</param>
+		public void SendContentToClient(string contentData, NetworkStream networkStream)
 		{
 			// convert string into byte-array so that it can be sent.			
-			SendContentDataToClient(Encoding.ASCII.GetBytes(contentData), socket);
+			SendContentDataToClient(Encoding.ASCII.GetBytes(contentData), networkStream);
 		}
 
 
@@ -138,37 +144,40 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 		/// Sends the data to the client.
 		/// </summary>
 		/// <param name="contentDataBytes">Byte-array that contains the answer to the client request.</param>
-		/// <param name="socket">Socket reference</param>
-		public void SendContentDataToClient(byte[] contentDataBytes, Socket socket)
+		/// <param name="networkStream">Socket reference</param>
+		public void SendContentDataToClient(byte[] contentDataBytes, NetworkStream networkStream)
 		{				
-			int numberOfBytesSend = 0;
 
-			
-			try
+			if (networkStream.CanWrite)
 			{
-				if (socket.Connected)
+				try
 				{
 					// send data to client:
-					numberOfBytesSend = socket.Send(contentDataBytes, contentDataBytes.Length, 0);
-					
-					if (numberOfBytesSend == -1)
-					{
-						webserverMonitor.WriteDebugMessage("Error: Socket Error. Packet was not sent.", 1);			
-					}			
-					else
-					{
-						webserverMonitor.WriteLogEntry("Sent bytes to client: " + numberOfBytesSend);
-					}
+					networkStream.Write(contentDataBytes, 0, contentDataBytes.Length);
 				}
-				else
+				
+				catch (IOException e)
 				{
-					webserverMonitor.WriteDebugMessage("Error: Socket is not connected.", 1);
+					webserverMonitor.WriteDebugMessage("Error: There is a failure while writing to the network: " + e, 1);	
 				}
+				catch (ObjectDisposedException e)
+				{
+					webserverMonitor.WriteDebugMessage("Error: The NetworkStream is closed. " + e, 1);	
+				}
+				catch (SocketException e)
+				{
+					webserverMonitor.WriteDebugMessage("Error: SocketException. " + e, e.ErrorCode);	
+				}
+				catch (Exception e)
+				{
+					webserverMonitor.WriteDebugMessage("Error: Error on sending data to client: " + e, 1);							
+				}
+				
 			}
-			catch (Exception e)
+			else
 			{
-				webserverMonitor.WriteDebugMessage("Error: Error on sending data to client: " + e, 1);							
-			}
+				webserverMonitor.WriteDebugMessage("Error: Can not write to NetworkStream.", 1);
+			}				
 		}
 
 

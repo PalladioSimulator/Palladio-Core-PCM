@@ -24,6 +24,9 @@ namespace Palladio.Webserver.StaticFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/01/29 21:47:45  kelsaka
+	/// Added continuous use of NetworkStream (instead of Socket)
+	///
 	/// Revision 1.10  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -155,8 +158,8 @@ namespace Palladio.Webserver.StaticFileProvider
 		{			
 			byte[] fileContent = requestProcessorTools.OpenFile (completePath, requestedFileName);
 	
-			requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, fileMimeType, fileContent.Length, "200 OK", httpRequest.Socket);
-			requestProcessorTools.SendContentDataToClient(fileContent, httpRequest.Socket);
+			requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, fileMimeType, fileContent.Length, "200 OK", httpRequest.NetworkStream);
+			requestProcessorTools.SendContentDataToClient(fileContent, httpRequest.NetworkStream);
 			webserverMonitor.WriteLogEntry("Successfully sent response to client.");
 		}
 

@@ -12,6 +12,9 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/01/29 21:47:44  kelsaka
+	/// Added continuous use of NetworkStream (instead of Socket)
+	///
 	/// Revision 1.6  2004/12/06 05:20:21  sliver
 	/// - RequestFactory added
 	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
@@ -40,10 +43,8 @@ namespace Palladio.Webserver.Request
 	{
 
 		private IWebserverMonitor webserverMonitor;
-		private TcpListener tcpListener;
-		private Socket socket;
+		private NetworkStream networkStream;
 		private int port;
-		private byte[] receivedData;
 
 
 
@@ -57,27 +58,16 @@ namespace Palladio.Webserver.Request
 
 
 
-
-
-
-		//TODO: Currently unused - remove?
 		/// <summary>
-		/// Observes the connections of TCP-networkclients. 
+		/// The NetworkStream contains the socket and all necessary method to communicate with the client.
 		/// </summary>
-		public TcpListener TcpListener
+		public NetworkStream NetworkStream
 		{
-			get { return tcpListener; }
-			set { tcpListener = value; }
+			get { return networkStream; }
+			set { networkStream = value; }
 		}
 
-		/// <summary>
-		/// The socket-interface / connection.
-		/// </summary>
-		public Socket Socket
-		{
-			get { return socket; }
-			set { socket = value; }
-		}
+
 
 		/// <summary>
 		/// The Port on which the requested originally came in.
