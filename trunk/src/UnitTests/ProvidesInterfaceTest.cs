@@ -55,9 +55,9 @@ namespace Palladio.ComponentModel.UnitTests
 
 			
 
-			piOne = new ProvidesInterface(modelProvides,srvListOne);
-			piOne1 = new ProvidesInterface(modelProvides1,srvListOne1);
-			piTwo = new ProvidesInterface(modelProvidesTwo,srvListOne);
+			piOne = new ProvidesInterface(modelProvides,srvListOne,"one");
+			piOne1 = new ProvidesInterface(modelProvides1,srvListOne1,"one");
+			piTwo = new ProvidesInterface(modelProvidesTwo,srvListOne,"two");
 
 		}
 

@@ -29,18 +29,18 @@ namespace Palladio.ComponentModel
 
 		#region Constructors
 		
-		public ProvidesInterface(IInterfaceModel anProvidesIModel) 
+		public ProvidesInterface(IInterfaceModel anProvidesIModel, string aName) :
+			base ( anProvidesIModel, aName )
 		{
-			iModel = (IInterfaceModel) anProvidesIModel.Clone();
 		}
 
-		public ProvidesInterface(IInterfaceModel anProvidesIModel, IList aServiceList) : this (anProvidesIModel) 
+		public ProvidesInterface(IInterfaceModel anProvidesIModel, IList aServiceList, string aName) : this (anProvidesIModel, aName) 
 		{
 			serviceList = new Vector(aServiceList);
 		}
 
 		public ProvidesInterface( ProvidesInterface aProvIFace ) :
-			this( aProvIFace.IModel, aProvIFace.ServiceList ) {}
+			this( aProvIFace.IModel, aProvIFace.ServiceList, aProvIFace.Name ) {}
 
 		#endregion
 

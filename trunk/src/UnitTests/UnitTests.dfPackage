@@ -12,10 +12,45 @@ class diagram {
 */
 class reference {
 }/**
-@__ref <oiref:csharp#Class#Palladio.ComponentModel.src.UnitTests.FactoryTest:oiref><oihard>
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.AbstractIModel:oiref><oihard>
 @__modelType reference 
 */
-class reference19 {
+class reference26 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.SignatureIModelTest:oiref><oihard>
+@__modelType reference 
+*/
+class reference27 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.FactoryTest:oiref><oihard>
+@__modelType reference 
+*/
+class reference28 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.ProvidesInterfaceTest:oiref><oihard>
+@__modelType reference 
+*/
+class reference29 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.ServiceTest:oiref><oihard>
+@__modelType reference 
+*/
+class reference30 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.ComponentTest:oiref><oihard>
+@__modelType reference 
+*/
+class reference31 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.ProtocolIModelTest:oiref><oihard>
+@__modelType reference 
+*/
+class reference32 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.RequiresInterfaceTest:oiref><oihard>
+@__modelType reference 
+*/
+class reference33 {
 }}/**
 @__tags
 @shapeType ClassDiagram 

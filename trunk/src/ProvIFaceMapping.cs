@@ -5,15 +5,12 @@ namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// </summary>
-	public class ProvidesMapping : IProvidesMapping 
+	public class ProvIFaceMapping : IMapping
 	{
 		#region Data
 		
 		private ProvidesInterface	innerProvIFace;
-		private IComponent			innerComp;
-
 		private ProvidesInterface	outerProvIFace;
-		private IComponent			outerComp;
 		#endregion
 
 
@@ -24,38 +21,23 @@ namespace Palladio.ComponentModel
 			get { return innerProvIFace; }
 		}
 
-		public IComponent InnerComp 
-		{ 
-			get { return innerComp; }
-		}
-
 		public ProvidesInterface OuterProvIFace 
 		{ 
 			get { return outerProvIFace; }
 		}
-
-		public IComponent OuterComp 
-		{ 
-			get { return outerComp; }
-		}
-
 		#endregion
 
 
 		#region Constructors
 
-		public ProvidesMapping ( IComponent anInnerComp, ProvidesInterface anInnerProvIFace, 
-			IComponent anOuterComp, ProvidesInterface anOuterProvIFace ) 
+		public ProvIFaceMapping ( ProvidesInterface anInnerProvIFace, ProvidesInterface anOuterProvIFace ) 
 		{
-			innerComp = anInnerComp;
 			innerProvIFace = anInnerProvIFace;
-			outerComp = anOuterComp;
 			outerProvIFace = anOuterProvIFace;
 		}
 
-		public ProvidesMapping( ProvidesMapping aProvMapping ) : 
-			this ( aProvMapping.InnerComp, aProvMapping.InnerProvIFace,
-			aProvMapping.OuterComp, aProvMapping.OuterProvIFace ) {}
+		public ProvIFaceMapping( ProvIFaceMapping aProvMapping ) : 
+			this ( aProvMapping.InnerProvIFace, aProvMapping.OuterProvIFace ) {}
 
 		#endregion
 
@@ -86,7 +68,7 @@ namespace Palladio.ComponentModel
 
 		public object Clone() 
 		{
-			return new ProvidesMapping( this );
+			return new ProvIFaceMapping( this );
 		}
 
 		#endregion

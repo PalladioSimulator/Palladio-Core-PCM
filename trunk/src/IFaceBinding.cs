@@ -8,15 +8,12 @@ namespace Palladio.ComponentModel
 	/// a provides interface of component B. Both components stand on
 	/// the same level. (none is including the other)
 	/// </summary>
-	public class Binding : IBinding 
+	public class IFaceBinding : IBinding 
 	{
 		#region Data
 
 		private ProvidesInterface provIFace;
-		private IComponent provComp;
-
 		private RequiresInterface reqIFace;
-		private IComponent reqComp;
 		#endregion
 
 
@@ -31,29 +28,12 @@ namespace Palladio.ComponentModel
 		}
 
 		/// <summary>
-		/// Component B. Owner of the provides interface.
-		/// </summary>
-		public IComponent ProvComp 
-		{ 
-			get { return provComp; }
-		}
-
-		/// <summary>
 		/// Requires interface of component A.
 		/// </summary>
 		public RequiresInterface ReqIFace 
 		{ 
 			get { return reqIFace; }
 		}
-
-		/// <summary>
-		/// Component A. Owner of the requires interface.
-		/// </summary>
-		public IComponent ReqComp 
-		{ 
-			get { return reqComp; }
-		}
-
 		#endregion
 
 
@@ -68,18 +48,14 @@ namespace Palladio.ComponentModel
 		/// <param name="aProvIFace"></param>
 		/// <param name="anOuterComponent"></param>
 		/// <param name="aReqIFace"></param>
-		public Binding ( IComponent aProvComp, ProvidesInterface aProvIFace, 
-			IComponent aReqComp, RequiresInterface aReqIFace ) 
+		public IFaceBinding (RequiresInterface aReqIFace, ProvidesInterface aProvIFace) 
 		{
-			reqComp = aReqComp;
 			reqIFace = aReqIFace;
-			provComp = aProvComp;
 			provIFace = aProvIFace;
 		}
 
-		public Binding( Binding aBinding ) : 
-			this( aBinding.ProvComp, aBinding.ProvIFace,
-			aBinding.ReqComp, aBinding.ReqIFace ) {}
+		public IFaceBinding( IFaceBinding aBinding ) : 
+			this( aBinding.ReqIFace, aBinding.ProvIFace ) {}
 
 		#endregion
 
@@ -110,7 +86,7 @@ namespace Palladio.ComponentModel
 
 		public object Clone () 
 		{
-			return new Binding (this);
+			return new IFaceBinding (this);
 		}
 
 		#endregion

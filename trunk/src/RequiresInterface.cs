@@ -11,13 +11,13 @@ namespace Palladio.ComponentModel
 
 		#region Constructors 
 
-		public RequiresInterface( IInterfaceModel aReqIModel ) 
+		public RequiresInterface( IInterfaceModel aReqIModel, string aName ) :
+			base( aReqIModel, aName )
 		{
-			iModel = (IInterfaceModel) aReqIModel.Clone();
 		}
 
 		public RequiresInterface(  RequiresInterface aReqIFace ) : 
-			this( aReqIFace.IModel ) {}
+			this( aReqIFace.IModel, aReqIFace.Name ) {}
 
 		#endregion
 

@@ -125,17 +125,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\AbstractIM.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\AmbiguousMatchError.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Binding.cs"
+                    RelPath = "src\CompBinding.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -175,6 +170,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IFaceBinding.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\IInterfaceModel.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -205,22 +205,17 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\IProvidesMapping.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IRequiresMapping.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\ISignature.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\MethodSignature.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\NoBindingFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -240,22 +235,32 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ProvCompMapping.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ProvidesInterface.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ProvidesMapping.cs"
+                    RelPath = "src\ProvIFaceMapping.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ReqCompMapping.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ReqIFaceMapping.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\RequiresInterface.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\RequiresMapping.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -271,6 +276,11 @@
                 />
                 <File
                     RelPath = "src\SimpleSignature.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\AbstractIM.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

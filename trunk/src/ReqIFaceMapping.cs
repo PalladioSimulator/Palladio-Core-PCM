@@ -5,15 +5,12 @@ namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// </summary>
-	public class RequiresMapping : IRequiresMapping 
+	public class ReqIFaceMapping : IMapping 
 	{
 		#region Data
 
 		private RequiresInterface	innerReqIFace;
-		private IComponent			innerComp;
-
 		private RequiresInterface	outerReqIFace;
-		private IComponent			outerComp;
 		#endregion
 
 
@@ -24,19 +21,9 @@ namespace Palladio.ComponentModel
 			get { return innerReqIFace; }
 		}
 
-		public IComponent InnerComp 
-		{ 
-			get { return innerComp; }
-		}
-
 		public RequiresInterface OuterReqIFace 
 		{ 
 			get { return outerReqIFace; }
-		}
-
-		public IComponent OuterComp 
-		{ 
-			get { return outerComp; }
 		}
 
 		#endregion
@@ -44,18 +31,14 @@ namespace Palladio.ComponentModel
 
 		#region Constructors
 
-		public RequiresMapping ( IComponent anInnerComp, RequiresInterface anInnerReqIFace, 
-			IComponent anOuterComp, RequiresInterface anOuterReqIFace) 
+		public ReqIFaceMapping ( RequiresInterface anInnerReqIFace, RequiresInterface anOuterReqIFace) 
 		{
-			innerComp = anInnerComp;
 			innerReqIFace = anInnerReqIFace;
-			outerComp = anOuterComp;
 			outerReqIFace = anOuterReqIFace;
 		}
 
-		public RequiresMapping( RequiresMapping aReqMapping ) : 
-			this( aReqMapping.InnerComp, aReqMapping.InnerReqIFace,
-			aReqMapping.OuterComp, aReqMapping.OuterReqIFace) {}
+		public ReqIFaceMapping( ReqIFaceMapping aReqMapping ) : 
+			this( aReqMapping.InnerReqIFace, aReqMapping.OuterReqIFace) {}
 
 		#endregion
 
@@ -86,7 +69,7 @@ namespace Palladio.ComponentModel
 
 		public object Clone() 
 		{
-			return new RequiresMapping( this );
+			return new ReqIFaceMapping( this );
 		}
 
 		#endregion

@@ -25,9 +25,9 @@ namespace Palladio.ComponentModel.UnitTests
 			ProtocolIModel modelOne1 = new ProtocolIModel(fsmOne, Helper.SigListFromInputAlphabet(fsmOne.InputAlphabet));
 			ProtocolIModel modelTwo = new ProtocolIModel(fsmTwo, Helper.SigListFromInputAlphabet(fsmTwo.InputAlphabet));
 
-			rqOne = new RequiresInterface(modelOne);
-			rqOne1 = new RequiresInterface(modelOne1);
-			rqTwo = new RequiresInterface(modelTwo);
+			rqOne = new RequiresInterface(modelOne,"one");
+			rqOne1 = new RequiresInterface(modelOne1,"one");
+			rqTwo = new RequiresInterface(modelTwo,"two");
 
 		}
 

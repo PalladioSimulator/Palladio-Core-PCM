@@ -49,11 +49,11 @@ namespace Palladio.ComponentModel.UnitTests
 			srvListThree.Add(srvTwo.Clone());
 			srvListThree.Add(srvThree.Clone());
 
-			ProvidesInterface piOne = new ProvidesInterface(modelProvides,srvListOne);
-			ProvidesInterface piTwo = new ProvidesInterface(modelProvidesTwo,srvListOne);
+			ProvidesInterface piOne = new ProvidesInterface(modelProvides,srvListOne,"one");
+			ProvidesInterface piTwo = new ProvidesInterface(modelProvidesTwo,srvListOne,"one");
 
-			RequiresInterface rqOne = new RequiresInterface(modelOne);
-			RequiresInterface rqTwo = new RequiresInterface(modelTwo);
+			RequiresInterface rqOne = new RequiresInterface(modelOne,"one");
+			RequiresInterface rqTwo = new RequiresInterface(modelTwo,"two");
 
 			IList provListOne = new Vector();
 			IList provListOne1 = new Vector();

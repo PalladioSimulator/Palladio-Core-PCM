@@ -15,6 +15,14 @@ namespace Palladio.ComponentModel
 
 		#endregion
 
+		#region Constructors
+
+		protected AbstractComponentInterface( IInterfaceModel anIModel, string aName )
+		{
+			iModel = (IInterfaceModel)anIModel.Clone();
+			name = (string)aName.Clone();
+		}
+		#endregion
 
 		#region Implemented Properties
 
