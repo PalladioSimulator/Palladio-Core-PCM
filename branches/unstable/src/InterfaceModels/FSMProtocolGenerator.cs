@@ -28,7 +28,7 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
-	/// Revision 1.3.2.5  2005/02/10 19:54:13  joemal
+	/// Revision 1.3.2.6  2005/02/11 10:24:48  joemal
 	/// merge the changes made by uffi with the template
 	///
 	/// Revision 1.2.2.3  2005/02/10 19:21:33  joemal
@@ -99,7 +99,7 @@ namespace Palladio.ComponentModel
 		}
 
 		/// <summary>
-		/// Signatures of the interface.
+		/// Signatures  of the interface.
 		/// </summary>
 		public ISignature[] Signatures 
 		{
@@ -226,7 +226,7 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
-	/// Revision 1.3.2.5  2005/02/10 19:54:13  joemal
+	/// Revision 1.3.2.6  2005/02/11 10:24:48  joemal
 	/// merge the changes made by uffi with the template
 	///
 	/// Revision 1.2.2.3  2005/02/10 19:21:33  joemal
@@ -297,9 +297,9 @@ namespace Palladio.ComponentModel
 		}
 
 		/// <summary>
-		/// Signatures of the interface.
+		/// Services  of the interface.
 		/// </summary>
-		public IService[] Signatures 
+		public IService[] Services 
 		{
 			get
 			{

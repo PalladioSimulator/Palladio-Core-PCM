@@ -1,7 +1,7 @@
 <%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Signatures template" %>
 <%@ Property Name="ContainedSignatureType" Type="System.String" Category="Context" Description="The type of the signatures in the SignatureList" %>
 <%@ Property Name="InterfaceDescription" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
-
+<%@ Property Name="ListItemProperty"  Type="System.String" Category="Context" Description="Name of the item in the list" %>
 	/// <summary>
 	/// A ProtocolIModel is an extension of a SignatureListModel. In
 	/// addition to the list of services it describes the set of all possible
@@ -30,9 +30,9 @@
 		}
 		
 		/// <summary>
-		/// Return the signatures which can be used as input alphabeth for the FSM
+		/// Return the items which can be used as input alphabeth for the FSM
 		/// </summary>
-		<%= ContainedSignatureType %>[] Signatures 
+		<%= ContainedSignatureType %>[] <%= ListItemProperty %> 
 		{
 			get;
 		}

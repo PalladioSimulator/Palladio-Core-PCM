@@ -43,7 +43,7 @@ namespace Palladio.ComponentModel
 		}
 		
 		/// <summary>
-		/// Return the signatures which can be used as input alphabeth for the FSM
+		/// Return the items which can be used as input alphabeth for the FSM
 		/// </summary>
 		ISignature[] Signatures 
 		{
@@ -81,9 +81,9 @@ namespace Palladio.ComponentModel
 		}
 		
 		/// <summary>
-		/// Return the signatures which can be used as input alphabeth for the FSM
+		/// Return the items which can be used as input alphabeth for the FSM
 		/// </summary>
-		IService[] Signatures 
+		IService[] Services 
 		{
 			get;
 		}

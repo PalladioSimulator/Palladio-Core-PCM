@@ -15,12 +15,14 @@
 			<property name="InterfaceDescription">Interface</property>
 			<property name="SignatureListType">SignatureList</property>
 			<property name="EventArgType">Signature</property>
+			<property name="ListItemProperty">Signatures</property>
 		</propertySet>
 		<propertySet>
 			<property name="ContainedSignatureType">IService</property>
 			<property name="InterfaceDescription">ServiceEffect</property>
 			<property name="SignatureListType">ServiceList</property>
 			<property name="EventArgType">Service</property>
+			<property name="ListItemProperty">Services</property>
 		</propertySet>
 	</propertySets>
 	<template path="FSMProtocol.cst" />

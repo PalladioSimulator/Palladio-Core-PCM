@@ -3,6 +3,7 @@
 <%@ Property Name="InterfaceDescription" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
 <%@ Property Name="SignatureListType" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
 <%@ Property Name="EventArgType" Type="System.String" Category="Context" Description="Name of the property of the eventargs structure" %>
+<%@ Property Name="ListItemProperty"  Type="System.String" Category="Context" Description="Name of the item in the list" %>
 
 	/// <summary>
 	/// A ProtocolIModel is an extension of a SignatureListModel. In
@@ -16,6 +17,9 @@
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2.2.4  2005/02/11 10:24:48  joemal
+	/// merge the changes made by uffi with the template
+	///
 	/// Revision 1.2.2.3  2005/02/10 19:21:33  joemal
 	/// merge the changes made by uffi with the template
 	///
@@ -84,9 +88,9 @@
 		}
 
 		/// <summary>
-		/// Signatures of the interface.
+		/// <%= ListItemProperty %>  of the interface.
 		/// </summary>
-		public <%= ContainedSignatureType %>[] Signatures 
+		public <%= ContainedSignatureType %>[] <%= ListItemProperty %> 
 		{
 			get
 			{

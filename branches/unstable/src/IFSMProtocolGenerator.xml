@@ -12,10 +12,12 @@
 		<propertySet>
 			<property name="ContainedSignatureType">ISignature</property>
 			<property name="InterfaceDescription">Interface</property>
+			<property name="ListItemProperty">Signatures</property>
 		</propertySet>
 		<propertySet>
 			<property name="ContainedSignatureType">IService</property>
 			<property name="InterfaceDescription">ServiceEffect</property>
+			<property name="ListItemProperty">Services</property>
 		</propertySet>
 	</propertySets>
 	<template path="IFSMProtocol.cst" />
