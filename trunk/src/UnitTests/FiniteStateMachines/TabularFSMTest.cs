@@ -7,7 +7,7 @@ using System.Collections;
 namespace UnitTests.FiniteStateMachines 
 {
 	/// <summary>
-	/// Unit test for <code>FiniteTabularMachine</code>.
+	/// Unit test for <code>TabularFSM</code>.
 	/// </summary>
 	[TestFixture]
 	public class FiniteTabularMachineTest 
@@ -277,6 +277,9 @@ namespace UnitTests.FiniteStateMachines
 			//TODO not yet complete
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test] public void Clone() 
 		{
 			TabularFSM fsm = (TabularFSM) machineOne.Clone();
@@ -289,17 +292,7 @@ namespace UnitTests.FiniteStateMachines
 		/// <summary>
 		/// 
 		/// </summary>
-		[Test] public void CloneTabFSM() 
-		{
-			State stat = new State("anyname",true,true);
-			IFiniteStateMachine firstFsm = new FSMFactory().GenerateFSM(stat);
-			IFiniteStateMachine secFsm = (IFiniteStateMachine)firstFsm.Clone();
-			Console.WriteLine("Next line will fail, because cloned state doesn't have any startstate ... ");
-			Assert.AreEqual(firstFsm,secFsm);
-		}
-
-
-		[Test] public void SingleStated()
+		[Test] public void SingleStateFSM()
 		{
 			IState state = new State("start+final",true,true);
 			TabularFSM fsm = new TabularFSM(state);
@@ -307,6 +300,17 @@ namespace UnitTests.FiniteStateMachines
 			Assert.IsTrue(fsm.FinalStates.Count == 1);
 			Assert.IsTrue(fsm.FinalStates.Contains(state));
 			Assert.IsTrue(fsm.GetOutgoingTransitions(state).Count == 0);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test] public void CloneSingleStateFSM() 
+		{
+			State stat = new State("anyname",true,true);
+			IFiniteStateMachine firstFsm = new FSMFactory().GenerateFSM(stat);
+			IFiniteStateMachine secFsm = (IFiniteStateMachine)firstFsm.Clone();
+			Assert.AreEqual(firstFsm,secFsm);
 		}
 	}
 }
