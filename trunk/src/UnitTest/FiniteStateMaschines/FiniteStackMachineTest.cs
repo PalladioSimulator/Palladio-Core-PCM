@@ -10,10 +10,10 @@ namespace UnitTests.FiniteStateMachines {
 	/// </summary>
 	[TestFixture]
 	public class FiniteStackMachineTest {
-		FiniteTabularMachine d1, d2, p;
-		Input id1,id2, e1,e2,e3;
-		AbstractState p1,p2, d11,d12, d21,d22;
-		FiniteStackMachine sfsm;
+		FiniteTabularMachine d1, d1s, d2, d3, p,q;
+		Input id1,id1s,id2,id3, e1,e2,e3,e4,e5,e6;
+		AbstractState p1,p2, d11,d12, d21,d22, d31,d32,d33,d34;
+		FiniteStackMachine sfsm,rfsm;
 		StackState s,t,u,v,w,x,y,z;
 
 
@@ -35,16 +35,46 @@ namespace UnitTests.FiniteStateMachines {
 			d1.setTransition(d11,e1,d12);
 			d1.setTransition(d12,e2,d11);
 
+			d1s = new FiniteTabularMachine();
+			id3 = new Input("d3");
+			d1s.setTransition(d11,id3,d12);
+			d1s.setTransition(d12,e2,d11);
+
 			d2 = new FiniteTabularMachine();
 			d21 = new State("d2_1",true,false);
 			d22 = new State("d2_2",false,true);
 			e3 = new Input("e3");
 			d2.setTransition(d21,e3,d22);
 
+			d3 = new FiniteTabularMachine();
+			d31 = new State("d3_1",true,false);
+			d32 = new State("d3_2",false,false);
+			d33 = new State("d3_3",false,false);
+			d34 = new State("d3_4",false,true);
+			e4 = new Input("e4");
+			e5 = new Input("e5");
+			e6 = new Input("e6");
+			id1s = new Input("d1s");
+			d3.setTransition(d31,e5,d32);
+			d3.setTransition(d32,id1s,d33);
+			d3.setTransition(d33,e6,d34);
+			d3.setTransition(d31,e4,d34);
+
 			Hashtable sespSet = new Hashtable();
 			sespSet.Add(id1,d1);
 			sespSet.Add(id2,d2);
 			sfsm = new FiniteStackMachine(p,sespSet);
+
+			q = new FiniteTabularMachine();
+			q.setTransition(p1,id2,p1);
+			q.setTransition(p1,id1s,p2);
+			q.setTransition(p2,id2,p2);
+		
+			sespSet.Remove(id1);
+			sespSet.Add(id1s,d1s);
+			sespSet.Add(id3,d3);
+			rfsm = new FiniteStackMachine(q,sespSet);
+
 
 			s = new StackState(p1);
 			t = new StackState(p1);
@@ -60,6 +90,8 @@ namespace UnitTests.FiniteStateMachines {
 			y.Push(id2,d21);
 			z = new StackState(p2);
 			z.Push(id2,d22);
+
+
 		}
 
 		[Test] public void FinalStates() {
@@ -159,7 +191,71 @@ namespace UnitTests.FiniteStateMachines {
 			}
 		}
 
+		[Test] public void RecursionHandling(){
+			StackState r6,r7,r8,r9,r10,r11,r12,r13,r14;
+			r6 = new StackState(p1);
+			r6.Push(id1s,d11);
+			r6.Push(id3,d32);
+			r7 = new StackState(r6);
+			r7.Push(id1s,d11);
+			r8 = new StackState(r7);
+			r8.Push(id3,d31);
+			r9 = new StackState(r8);
+			r9.ChangeTopState(d32);
+			r10 = new StackState(r9);
+			r10.ChangeTopState(d34);
+			r11 = new StackState(r7);
+			r11.ChangeTopState(d12);
+			r12 = new StackState(r6);
+			r12.ChangeTopState(d33);
+			r13 = new StackState(r12);
+			r13.ChangeTopState(d34);
+			r14 = new StackState(r13);
+			r14.Pop();
+			r14.ChangeTopState(d12);
+
+			Input rIn = new RecursionInput(id3,d33);
+			
+			
+
+			foreach (DictionaryEntry entry in rfsm.GetOutgoingTransitions(r6)) {
+				Transition trans = (Transition)entry.Value;
+				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
+					((trans.InputSymbol == id1s) && (trans.DestinationState == r7)),trans.ToString());
+			}
+			foreach (DictionaryEntry entry in rfsm.GetOutgoingTransitions(r7)) {
+				Transition trans = (Transition)entry.Value;
+				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
+					((trans.InputSymbol == id3) && (trans.DestinationState == r8)),trans.ToString());
+			}
+			foreach (DictionaryEntry entry in rfsm.GetOutgoingTransitions(r8)) {
+				Transition trans = (Transition)entry.Value;
+				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
+					((trans.InputSymbol == e4) && (trans.DestinationState == r10)) ||
+					((trans.InputSymbol == e5) && (trans.DestinationState == r9)),trans.ToString());
+			}
+			foreach (DictionaryEntry entry in rfsm.GetOutgoingTransitions(r9)) {
+				Transition trans = (Transition)entry.Value;
+				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
+					((trans.InputSymbol == id1s) && (trans.DestinationState == r7)),trans.ToString());
+			}
+			foreach (DictionaryEntry entry in rfsm.GetOutgoingTransitions(r9)) {
+				Transition trans = (Transition)entry.Value;
+				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
+					((trans.InputSymbol == id1s) && (trans.DestinationState == r7)),trans.ToString());
+			}
+			foreach (DictionaryEntry entry in rfsm.GetOutgoingTransitions(r13)) {
+				Transition trans = (Transition)entry.Value;
+				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
+					((trans.InputSymbol == rIn) && (trans.DestinationState == r12)) ||
+					((trans.InputSymbol == Input.RETURN) && (trans.DestinationState == r14)),trans.ToString());
+			}
+		}
+
 		public static void Main() {
+			FiniteStackMachineTest test = new FiniteStackMachineTest();
+			test.Init();
+			test.RecursionHandling();
 		}
 	}
 }

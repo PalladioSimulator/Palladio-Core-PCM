@@ -5,58 +5,61 @@ using Utils.Collections;
 
 namespace FiniteStateMachines {
 
+	/// <summary>
+	/// All finite state machines have to implement this interface. It 
+	/// provides a simple protocol for the default functionality of a finte
+	/// state machine.
+	/// </summary>
 	public interface IFiniteStateMachine {
+
 		/// <summary>
-		/// Returns the startstate of a FSM.
+		/// The errorstate of the FSM.
 		/// </summary>
-		/// <returns>The stratstate of a FSM.</returns>
-		//		AbstractState GetStartState();
+		AbstractState ErrorState { get; }
+
 		/// <summary>
-		/// Returns the finalstate of a FSM.
+		/// The start state of the FSM.
 		/// </summary>
-		/// <returns>The finalstate of a FSM.</returns>
-		//		Set GetFinalStates();
+		AbstractState StartState { get; }
+
 		/// <summary>
-		/// Returns the next State of FSM with a given Input.
+		/// The final states of the FSM.
 		/// </summary>
-		/// <returns>The next possoble State.</returns>
+		Set FinalStates { get; }
+
+		/// <summary>
+		/// The input alphabet; a set of <code Input/> objects.
+		/// </summary>
+		Set InputAlphabet { get; }
+
+		/// <summary>
+		/// Returns the the target of a transiton starting at <code aSourceState/> 
+		/// with the input symbol <code anInput/>.
+		/// </summary>
+		/// <returns>The destination of the transition.</returns>
 		AbstractState GetNextState(AbstractState aSourceState, Input anInput);
+
 		/// <summary>
-		/// Returns the next Transition from a State with a given Input
+		/// Returns the next Transition starting at <code aSourceState/> with the
+		/// input symbol <code anInput/>.
 		/// </summary>
-		/// <returns>The next reachable Transition.</returns>
+		/// <returns>The transition starting at <code aSourceState/> 
+		/// with the input symbol <code anInput/> </returns>
 		Transition GetNextTransition(AbstractState aSourceState, Input anInput);
+
 		/// <summary>
-		/// Returns all Transitions from a given State.
+		/// Returns all transitions from a given State.
 		/// </summary>
-		/// <returns>A Hashtable which contatins all Transtions from the given State.</returns>
+		/// <returns>A <code Hashtable/> which contains all transtions from the given State.
+		/// The key of the <code Hashtable/> is the <code Input/> and the value the 
+		/// corresponding <code Transition/></returns>
 		Hashtable GetOutgoingTransitions(AbstractState aSourceState);
+
 		/// <summary>
 		/// Returns all Transitions of the FSM in Transition Array.
 		/// </summary>
 		/// <returns>All Transitions of the FSM in a Array of Transitions.</returns>
 		Transition[] GetTransitions();
-		//		Set GetInputAl();
-		/// <summary>
-		/// displays alls Transitions on the console.
-		/// </summary>
-		//		string transitionsToString();
-
-		/// <summary>
-		/// The errorstate of the FSM.
-		/// </summary>
-		AbstractState ErrorState {
-			get;
-		}
-		AbstractState StartState {
-			get;
-		}
-		Set FinalStates {
-			get;
-		}
-		Set InputAlphabet {
-			get;
-		}
 	}
 
 }

@@ -1,11 +1,13 @@
 using System;
 
 namespace FiniteStateMachines {
+	
 	/// <summary>
 	/// Represents the Context of a FSM. A Context consists of
 	/// a service name and a state, which belongs to the service.
 	/// </summary>
 	public class Context {
+
 		/// <summary>
 		/// State of the service.
 		/// </summary>

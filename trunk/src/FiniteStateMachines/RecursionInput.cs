@@ -8,7 +8,7 @@ namespace FiniteStateMachines {
 		private Input service;
 		private AbstractState state;
 
-		public RecursionInput(Input aService, AbstractState aState) : base(aService+"+"+aState){
+		public RecursionInput(Input aService, AbstractState aState) : base("("+aService+"; "+aState+")"){
 			service = aService;
 			state = aState;
 		}

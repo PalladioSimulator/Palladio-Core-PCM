@@ -475,6 +475,11 @@ namespace FiniteStateMachines {
 		public AbstractState GetStartState() {
 			return this.startState;
 		}
+
+		public override string ToString() {
+			return transitionsToString();
+		}
+
 	}
 
 }
