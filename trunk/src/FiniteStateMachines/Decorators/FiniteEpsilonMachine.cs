@@ -15,7 +15,7 @@ namespace FiniteStateMachines.Decorators {
 	///     
 	///     author: JH
 	/// </summary>
-	public class FiniteEpsilonMachine : AbstractFiniteStateMachine {
+	public class FiniteEpsilonMachine : AbstractFSM {
 
 		/// <summary>
 		///     The regular finite state machine which is used to simulate the
@@ -64,7 +64,7 @@ namespace FiniteStateMachines.Decorators {
 		///	</returns>
 		public IFiniteStateMachine GetDeterministicFiniteStateMachine(){
 			IList transitionList = GetAllTransitions();
-			FiniteTabularMachine deterministicFSM = new FiniteTabularMachine(transitionList);
+			TabularFSM deterministicFSM = new TabularFSM(transitionList);
 			return deterministicFSM;
 		}
 

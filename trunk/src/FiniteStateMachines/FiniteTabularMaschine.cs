@@ -12,7 +12,7 @@ namespace FiniteStateMachines {
 	///     
 	///     author: JH
 	/// </summary>
-	public class FiniteTabularMachine : AbstractFiniteStateMachine {
+	public class TabularFSM : AbstractFSM {
 
 		/// <summary>
 		///     A set of valid input symbols for this automaton.
@@ -55,7 +55,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		///		Creates a new, empty finite state machine.
 		/// </summary>
-		public FiniteTabularMachine() {
+		public TabularFSM() {
 			this.inputAlphabet = new Set();
 			this.transitionTable = new Hashtable();
 			this.finalStates = new Set();
@@ -69,7 +69,7 @@ namespace FiniteStateMachines {
 		/// <param name="aTransitionList">
 		///		All transitions of the finite state machine.
 		///	</param>
-		public FiniteTabularMachine(IList aTransitionList) {
+		public TabularFSM(IList aTransitionList) {
 			this.inputAlphabet = new Set();
 			this.transitionTable = new Hashtable();
 			this.finalStates = new Set();

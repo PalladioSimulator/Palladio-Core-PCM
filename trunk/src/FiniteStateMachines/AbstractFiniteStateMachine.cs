@@ -14,7 +14,7 @@ namespace FiniteStateMachines {
 	///     
 	///     author: JH
 	/// </summary>
-	public abstract class AbstractFiniteStateMachine : IFiniteStateMachine {
+	public abstract class AbstractFSM : IFiniteStateMachine {
 		
 		/// <summary>
 		///     Constant for the name of an error state.
@@ -278,7 +278,7 @@ namespace FiniteStateMachines {
 		///	</returns>
 		public static IFiniteStateMachine Loader(string aFilename) {
 			//Just Tabular FSM can be loaded at the moment
-			FiniteTabularMachine result = new FiniteTabularMachine();
+			TabularFSM result = new TabularFSM();
 			result.Load(aFilename);
 			return result;
 		}

@@ -17,7 +17,7 @@ namespace FiniteStateMachines.Decorators {
 	/// parts. This will be much faster when you have huge FSMs then creating a normal 
 	/// FiniteCrossProduktMaschine.
 	/// </summary>
-	public class FiniteCrossProductMaschineLazy : AbstractFiniteStateMachine {
+	public class FiniteCrossProductMaschineLazy : AbstractFSM {
 		/// <summary>
 		/// The ErrorState
 		/// </summary>
@@ -252,7 +252,7 @@ namespace FiniteStateMachines.Decorators {
 						twoStates.Push(twoNext);
 					}
 					else { 
-					 }
+					}
 				}
 			}
 		}

@@ -28,17 +28,17 @@ namespace FiniteStateMachines.Decorators {
 		/// <summary>
 		/// The first FiniteTabularMachine which is used to generate the FiniteShuffleProductMaschine
 		/// </summary>
-		protected FiniteTabularMachine one;
+		protected TabularFSM one;
 
 		/// <summary>
 		/// The second FiniteTabularProcuctMachine which is used to generate the FiniteShuffleProductMaschine
 		/// </summary>
-		protected FiniteTabularMachine two;
+		protected TabularFSM two;
 
 		/// <summary>
 		/// The generates FiniteShuffleProductMaschine stored in a FiniteTabularMachine
 		/// </summary>
-		protected FiniteTabularMachine sp;
+		protected TabularFSM sp;
 
 		/// <summary>
 		/// it is important to know, when genrating the FiniteShuffleProductMaschine which 
@@ -63,7 +63,7 @@ namespace FiniteStateMachines.Decorators {
 		/// </summary>
 		/// <param name="one">The first FinitStateMaschine</param>
 		/// <param name="two">The second FiniteStatesMaschine</param>
-		public FiniteShuffleProductMaschine(FiniteTabularMachine one, FiniteTabularMachine two) {
+		public FiniteShuffleProductMaschine(TabularFSM one, TabularFSM two) {
 			this.sp = GenerateFSP(one,two);
 		}
 
@@ -72,7 +72,7 @@ namespace FiniteStateMachines.Decorators {
 		/// Returns the generated FiniteShuffleProductMaschine in a FiniteTabularMachine
 		/// </summary>
 		/// <returns></returns>
-		public FiniteTabularMachine ShuffleProduct {
+		public TabularFSM ShuffleProduct {
 			get {
 				return this.sp;
 			}
@@ -93,11 +93,11 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="one">The first FiniteStateMaschine</param>
 		/// <param name="two">The second FinteStateMaschine</param>
 		/// <returns>The generates FiniteShuffleProductMaschine</returns>
-		public FiniteTabularMachine GenerateFSP(FiniteTabularMachine one, FiniteTabularMachine two) {
+		public TabularFSM GenerateFSP(TabularFSM one, TabularFSM two) {
 			
 			this.one = one;
 			this.two = two;
-			this.sp = new FiniteTabularMachine();
+			this.sp = new TabularFSM();
 			this.visitedStates = new Set();
 			Stack oneStates = new Stack();
 			Stack twoStates = new Stack();
@@ -189,7 +189,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="one">The first FiniteStateMaschine </param>
 		/// <param name="two">The second FiniteStateMaschine</param>
 		/// <returns>The genrated Input stored in a Set</returns>
-		protected Set GenerateSpInput(FiniteTabularMachine one, FiniteTabularMachine two) {
+		protected Set GenerateSpInput(TabularFSM one, TabularFSM two) {
 			GenerateCrossInput();
 			Set spInput = new Set();
 			Set oneInput = one.InputAlphabet;

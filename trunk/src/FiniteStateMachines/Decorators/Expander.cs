@@ -24,7 +24,7 @@ namespace ParameterisedContracts {
 	///     
 	///     author: JH
 	/// </summary>
-	public class FiniteStateMachineExpander {
+	public class FSMExpander {
 		
 		/// <summary>
 		///     Automaton used for reconstructing the
@@ -69,7 +69,7 @@ namespace ParameterisedContracts {
 		///     It has to be a subset of the input alphabet of
 		///     the original automaton.
 		/// </param>
-		public FiniteStateMachineExpander(IFiniteStateMachine aOriginalMachine, IFiniteStateMachine aReducedMachine, Set anEpsilonAlphabet) {
+		public FSMExpander(IFiniteStateMachine aOriginalMachine, IFiniteStateMachine aReducedMachine, Set anEpsilonAlphabet) {
 			originalMachine = aOriginalMachine;
 			reducedMachine = aReducedMachine;
 			epsilonAlphabet = anEpsilonAlphabet;
@@ -94,7 +94,7 @@ namespace ParameterisedContracts {
 			IList statesList = new ArrayList();
 			DualState startState = new DualState(reducedMachine.StartState,originalMachine.StartState);
 			ExpandRecursive(startState,ref transitionList, ref statesList);
-			return new FiniteTabularMachine(transitionList);
+			return new TabularFSM(transitionList);
 		}
 
 

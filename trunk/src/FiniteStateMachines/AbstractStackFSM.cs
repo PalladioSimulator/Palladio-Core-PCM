@@ -13,7 +13,7 @@ namespace ParameterisedContracts {
 	///     
 	///     author: JH
 	/// </summary>
-	public abstract class AbstractStackFiniteStateMachine : AbstractFiniteStateMachine {
+	public abstract class AbstractStackFSM : AbstractFSM {
 
 		/// <summary>
 		///     Name of the top FSM calling all other automatons.
@@ -47,7 +47,7 @@ namespace ParameterisedContracts {
 		/// <summary>
 		///	Empty constructor.
 		/// </summary>
-		protected AbstractStackFiniteStateMachine() {}
+		protected AbstractStackFSM() {}
 
 		/// <summary>
 		/// Excecute this after all your other initialisations have been done.

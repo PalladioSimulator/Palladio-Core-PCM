@@ -81,13 +81,13 @@ namespace FiniteStateMachines {
 		Transition GetNextTransition(IState aSourceState, Input anInput);
 
 		/// <summary>
-		///     Returns all _valid_ transitions with the source state.
+		///     Returns all _valid_ transitions for aSourceState.
 		/// </summary>
 		/// <param name="aSourceState">
 		///		The source for which all valid transitions are returned.
 		///	</param>
 		/// <returns>
-		///		A Hashtable which contains all transitions for the source state.
+		///		A Hashtable containing all transitions for the source state.
 		///     The key of the Hashtable is the Input and the value the
 		///     corresponding Transition.
 		/// </returns>

@@ -1,5 +1,3 @@
-using System;
-
 namespace FiniteStateMachines {
 	/// <summary>
 	/// Represents the transitions of the FSM.

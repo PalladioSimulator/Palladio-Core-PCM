@@ -31,7 +31,7 @@ namespace FiniteStateMachines.Decorators {
 	/// parts. This will be much faster when you have huge FSMs then creating a normal 
 	/// FiniteCrossProduktMaschine.
 	/// </summary>
-	public class FiniteShuffleProductMaschineLazy : AbstractFiniteStateMachine {
+	public class FiniteShuffleProductMaschineLazy : AbstractFSM {
 		/// <summary>
 		/// An indicator says if the input has already been created.
 		/// </summary>
@@ -58,11 +58,11 @@ namespace FiniteStateMachines.Decorators {
 		/// The first FiniteTabularMachine which is used to generate 
 		/// FiniteShuffleProductMaschine
 		/// </summary>
-		protected FiniteTabularMachine aFSM;
+		protected TabularFSM aFSM;
 
 		/// The second FiniteTabularMachine which is used to generate 
 		/// FiniteShuffleProductMaschine
-		protected FiniteTabularMachine anotherFSM;
+		protected TabularFSM anotherFSM;
 
 
 		/// <summary>
@@ -70,7 +70,7 @@ namespace FiniteStateMachines.Decorators {
 		/// </summary>
 		/// <param name="one">A <code>FiniteTabularMaschine</code></param>
 		/// <param name="two">Another <code>FiniteTabularMaschine</code></param>
-		public FiniteShuffleProductMaschineLazy(FiniteTabularMachine aFSM, FiniteTabularMachine anotherFSM) {
+		public FiniteShuffleProductMaschineLazy(TabularFSM aFSM, TabularFSM anotherFSM) {
 			this.aFSM = aFSM;
 			this.anotherFSM = anotherFSM;
 		}
@@ -151,7 +151,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="input">An <code>Input</code></param>
 		/// <returns>the next reachable DualState</returns>
 		public override IState GetNextState(IState aState, Input input) {
-			FiniteTabularMachine d = new FiniteTabularMachine();
+			TabularFSM d = new TabularFSM();
 			if(aState is DualState == false)
 				throw new InvalidStateException();
 			State oneNext;

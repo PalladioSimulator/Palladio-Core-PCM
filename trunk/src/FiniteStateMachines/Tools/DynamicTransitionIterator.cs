@@ -17,7 +17,7 @@ namespace FiniteStateMachines {
 		///		Enumerator holding the states whose transitions
 		///		are enumarated by the DynamicTransitionEnumerator.
 		/// </summary>
-		private DynamicStateIterator stateEnumerator;
+		private DynamicStateIterator stateIterator;
 
 		/// <summary>
 		///		List of transitions belonging to the current state of
@@ -54,7 +54,7 @@ namespace FiniteStateMachines {
 		///		FSM whose transitions are (partially) enumerated.
 		/// </param>
 		public DynamicTransitionIterator(IState aStartState, IFiniteStateMachine aFSM){
-			stateEnumerator = new DynamicStateIterator(aStartState);
+			stateIterator = new DynamicStateIterator(aStartState);
 			transitionList = null;
 			fsm = aFSM;
 			transitionIndex = 0;
@@ -82,7 +82,7 @@ namespace FiniteStateMachines {
 		///		A state whose transitions should be enumerated.
 		/// </param>
 		public void Append(IState aState){
-			stateEnumerator.Append(aState);
+			stateIterator.Append(aState);
 		}
 
 
@@ -107,8 +107,8 @@ namespace FiniteStateMachines {
 		///	</returns>
 		public bool MoveNext(){
 			if((transitionList == null) || (transitionIndex <= 0)){
-				if (stateEnumerator.MoveNext()){
-					transitionList = fsm.GetOutgoingTransitions(stateEnumerator.Current);
+				if (stateIterator.MoveNext()){
+					transitionList = fsm.GetOutgoingTransitions(stateIterator.Current);
 					transitionIndex = transitionList.Count;
 				} else {
 					return false;
@@ -127,7 +127,7 @@ namespace FiniteStateMachines {
 		///		All appended states are lost.
 		/// </summary>
 		public void Reset() {
-			stateEnumerator.Reset();
+			stateIterator.Reset();
 			transitionList = null;
 			currentTransition = null;
 		}

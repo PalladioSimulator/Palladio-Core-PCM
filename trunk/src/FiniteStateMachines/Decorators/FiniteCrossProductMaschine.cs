@@ -16,7 +16,7 @@ namespace FiniteStateMachines.Decorators {
 		/// A new FiniteTabularMachine which represents the result of the intersection of 
 		/// two FSMs. (The generated FiniteCrossProduktMaschine)
 		/// </summary>
-		protected FiniteTabularMachine cp;
+		protected TabularFSM cp;
 
 		/// <summary>
 		/// The intersection of the two Input alpabets from the given FSMs stored in a 
@@ -63,7 +63,7 @@ namespace FiniteStateMachines.Decorators {
 		/// Returns the new generated <code>FiniteTabularMachine</code> which contains
 		/// the crossproduct.
 		/// </summary>
-		public FiniteTabularMachine CP {
+		public TabularFSM CP {
 			get {
 				return this.cp;
 			}
@@ -76,8 +76,8 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the second FSM</param>
 		/// <returns>the cp of the two FSM</returns>
-		public FiniteTabularMachine GenerateCP(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) {
-			this.cp = new FiniteTabularMachine();
+		public TabularFSM GenerateCP(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) {
+			this.cp = new TabularFSM();
 			this.oneStates = new Stack();
 			this.twoStates = new Stack();
 			GenerateCrossProductInput(aFSM,anotherFSM);
@@ -136,7 +136,7 @@ namespace FiniteStateMachines.Decorators {
 						}
 					}
 					else { 
-					 }
+					}
 				}
 
 			}

@@ -12,7 +12,7 @@ namespace ParameterisedContracts {
 	///     
 	///     author: JH
 	/// </summary>
-	public class StackFiniteStateMachine : AbstractStackFiniteStateMachine {
+	public class StackFSM : AbstractStackFSM {
 
 		/// <summary>
 		/// A set of counter conditions. These conditions are not checked!
@@ -25,7 +25,7 @@ namespace ParameterisedContracts {
 		/// 
 		/// <param name="aProvidesProtocol">The top finite state machine which calls all other automatons.</param>
 		/// <param name="aServiceEffectSpecificationTable">Mapping of a set of input symbols onto a set of automatons.</param>
-		public StackFiniteStateMachine(IFiniteStateMachine aTopService, Input aTopServiceName, Hashtable aServiceTable) {
+		public StackFSM(IFiniteStateMachine aTopService, Input aTopServiceName, Hashtable aServiceTable) {
 			// avoid modifications of the original table
 			Hashtable serviceTable = (Hashtable) aServiceTable.Clone();
 			serviceTable.Add(aTopServiceName,aTopService);
@@ -34,7 +34,7 @@ namespace ParameterisedContracts {
 		}
 
 
-		public StackFiniteStateMachine(Input aTopServiceName, Hashtable aServiceTable) {
+		public StackFSM(Input aTopServiceName, Hashtable aServiceTable) {
 			counterConditionTable = new Hashtable();
 			Initialize(aTopServiceName,aServiceTable);
 		}
@@ -131,7 +131,7 @@ namespace ParameterisedContracts {
 			if( aSourceState.Peek().ServiceName == aRecInput.CallingServiceName) {
 				// the transition is only allowed outside the recursion handling
 				if( (aSourceState.Peek().State.IsFinalState) && (aSourceState.LookupServiceNameTwice(aRecInput.RecursiveServiceName).IsEmpty)) {
-					FiniteTabularMachine service = (FiniteTabularMachine)LookUpService(aSourceState.Peek().ServiceName);
+					TabularFSM service = (TabularFSM)LookUpService(aSourceState.Peek().ServiceName);
 					IList reachableStates = service.GetReachableStates(aRecInput.TargetState);
 					if (reachableStates.Contains(aSourceState.Peek().State)) {
 						destinationState = new StackState(aSourceState);

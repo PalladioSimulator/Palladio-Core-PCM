@@ -15,7 +15,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		IState[] states;
 		Input[] inputs;
 		Transition[] transitionSet;
-		FiniteTabularMachine tabularMachine;
+		TabularFSM tabularMachine;
 		FiniteEpsilonMachine epsilonMachine;
 		Set epsilonAlphabet;
 		IFiniteStateMachine deterministicFSM;
@@ -46,7 +46,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			transitionSet[4] = new Transition(states[3],inputs[4],states[4]);
 			transitionSet[5] = new Transition(states[4],inputs[1],states[5]);
 			transitionSet[6] = new Transition(states[4],inputs[3],states[3]);
-			tabularMachine = new FiniteTabularMachine();
+			tabularMachine = new TabularFSM();
 			tabularMachine.AddTransitionList(transitionSet);
 
 			epsilonAlphabet = new Set();
@@ -61,25 +61,25 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 
 
 		[Test] public void ExpandedEqualsOriginal() {
-			FiniteStateMachineExpander exp = new FiniteStateMachineExpander(tabularMachine,minimizedFSM,epsilonAlphabet);
+			FSMExpander exp = new FSMExpander(tabularMachine,minimizedFSM,epsilonAlphabet);
 			IFiniteStateMachine expanded = exp.GetExpandedMachine();
-			Assert.IsTrue(AbstractFiniteStateMachine.AreEqual(tabularMachine, expanded));
+			Assert.IsTrue(AbstractFSM.AreEqual(tabularMachine, expanded));
 		}
 
 		
 		[Test] public void ExpandReduced(){
-			FiniteTabularMachine reduced = new FiniteTabularMachine();
+			TabularFSM reduced = new TabularFSM();
 			reduced.AddTransition(states[0],inputs[4],states[5]);
 			reduced.AddTransition(states[5],inputs[3],states[1]);
 			reduced.AddTransition(states[1],inputs[4],states[5]);
-			FiniteTabularMachine expected = new FiniteTabularMachine();
+			TabularFSM expected = new TabularFSM();
 			expected.AddTransition(transitionSet[0]);
 			expected.AddTransition(transitionSet[1]);
 			expected.AddTransition(transitionSet[4]);
 			expected.AddTransition(transitionSet[5]);
 			expected.AddTransition(transitionSet[6]);
 
-			FiniteStateMachineExpander exp = new FiniteStateMachineExpander(tabularMachine,reduced,epsilonAlphabet);
+			FSMExpander exp = new FSMExpander(tabularMachine,reduced,epsilonAlphabet);
 			FiniteShuffleProductMaschine shuffle = new FiniteShuffleProductMaschine(tabularMachine,reduced);
 
 			IFiniteStateMachine expandedFSM = exp.GetExpandedMachine();
@@ -88,14 +88,14 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		}
 
 		[Test] public void ExpandModified(){
-			FiniteTabularMachine reduced = new FiniteTabularMachine();
+			TabularFSM reduced = new TabularFSM();
 			reduced.AddTransition(states[3],inputs[4],states[5]);
 			reduced.AddTransition(states[5],inputs[3],states[4]);
 			reduced.AddTransition(states[4],inputs[4],states[5]);
 			reduced.AddTransition(states[0],inputs[5],states[1]);
 			reduced.AddTransition(states[1],inputs[5],states[2]);
 			reduced.AddTransition(states[2],inputs[5],states[3]);
-			FiniteStateMachineExpander machineExpander = new FiniteStateMachineExpander(tabularMachine,reduced,epsilonAlphabet);
+			FSMExpander machineExpander = new FSMExpander(tabularMachine,reduced,epsilonAlphabet);
 			IFiniteStateMachine expanded = machineExpander.GetExpandedMachine();
 			IState state = expanded.StartState;
 			state = expanded.GetNextState (state,inputs[2]);

@@ -13,13 +13,13 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		IFiniteStateMachine minimisedFSM;
 
 		[SetUp] public void Init() {
-			originalFSM = AbstractFiniteStateMachine.Loader("../../data/minimisableFSM.xml");
-			minimisedFSM = AbstractFiniteStateMachine.Loader("../../data/minimisedFSM.xml");
+			originalFSM = AbstractFSM.Loader("../../data/minimisableFSM.xml");
+			minimisedFSM = AbstractFSM.Loader("../../data/minimisedFSM.xml");
 		}
 
 		[Test] public void Minimise() {
 			IFiniteStateMachine result = new MinimisedFSM( originalFSM );
-			Assert.IsTrue( AbstractFiniteStateMachine.AreEqual( result, minimisedFSM ));
+			Assert.IsTrue( AbstractFSM.AreEqual( result, minimisedFSM ));
 		}
 
 		public static void Main() {

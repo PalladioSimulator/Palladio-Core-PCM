@@ -13,9 +13,9 @@ namespace ParameterisedContracts {
 	///		
 	///		author: JH
 	/// </summary>
-	public class RecursiveFiniteStateMachine : AbstractStackFiniteStateMachine {
+	public class RecursiveServiceFSM : AbstractStackFSM {
 
-		public RecursiveFiniteStateMachine ( Input aRecursiveServiceName, Hashtable aServiceTable ) {
+		public RecursiveServiceFSM ( Input aRecursiveServiceName, Hashtable aServiceTable ) {
 			Initialize( aRecursiveServiceName, aServiceTable );
 		}
 

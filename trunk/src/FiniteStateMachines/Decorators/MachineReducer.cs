@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
+
 using FiniteStateMachines;
 using FiniteStateMachines.Decorators;
-using Utils.Collections;
 
 namespace ParameterisedContracts {
 	/// <summary>
@@ -30,7 +30,7 @@ namespace ParameterisedContracts {
 	///		
 	///		author: JH
 	/// </summary>
-	public class FiniteStateMachineReducer {
+	public class FSMReducer {
 		
 		/// <summary>
 		///		The ruleTable impicitly contains all rules which should be applied to the 
@@ -176,7 +176,7 @@ namespace ParameterisedContracts {
 		///		A new, reduced machine.
 		/// </returns>
 		public IFiniteStateMachine GetReducedMachine(){
-			IFiniteStateMachine resultMachine = new FiniteTabularMachine();
+			IFiniteStateMachine resultMachine = new TabularFSM();
 			DynamicTransitionIterator iterator = new DynamicTransitionIterator(originalFSM.StartState,originalFSM);
 			while(iterator.MoveNext()){
 				if (ruleTable.Contains(iterator.Current.InputSymbol)){
@@ -222,14 +222,14 @@ namespace ParameterisedContracts {
 				if ( input is RecursionInput ) {
 					RecursionInput recInput = (RecursionInput) input;
 					
-					IFiniteStateMachine recursiveFSM = new RecursiveFiniteStateMachine ( recInput.RecursiveServiceName, aServiceTable );
+					IFiniteStateMachine recursiveFSM = new RecursiveServiceFSM ( recInput.RecursiveServiceName, aServiceTable );
 					IList fsmList = new ArrayList();
 					fsmList.Add ( recursiveFSM );
 					MarkedInput markedInput = new MarkedInput ( recInput.RecursiveServiceName );
 					result.Add ( markedInput, recursiveFSM );
 
 					IFiniteStateMachine fsm = (IFiniteStateMachine) aServiceTable [ recInput.CallingServiceName ];
-					IFiniteStateMachine callingFSM = new CallingFiniteStateMachine ( fsm, recInput );
+					IFiniteStateMachine callingFSM = new CallingServiceFSM ( fsm, recInput );
 					fsmList = (IList) result [ recInput.CallingServiceName ];
 					fsmList.Add ( callingFSM );
 				}
@@ -249,7 +249,7 @@ namespace ParameterisedContracts {
 		/// <param name="anMachine">
 		///		The machine affected by the rules.
 		/// </param>
-		public FiniteStateMachineReducer(Hashtable aServiceTable, IFiniteStateMachine aMachine){
+		public FSMReducer(Hashtable aServiceTable, IFiniteStateMachine aMachine){
 			ruleTable = CreateRuleTable(aServiceTable,aMachine);
 			originalFSM = aMachine;
 		}

@@ -11,16 +11,16 @@ namespace UnitTests.FiniteStateMachines {
 	/// </summary>
 	[TestFixture]
 	public class FiniteStackMachineTest {
-		FiniteTabularMachine d1, d1s, d2, d3, p,q;
+		TabularFSM d1, d1s, d2, d3, p,q;
 		Input id1,id1s,id2,id3, e1,e2,e3,e4,e5,e6;
 		IState p1,p2, d11,d12, d21,d22, d31,d32,d33,d34;
-		StackFiniteStateMachine sfsm,rfsm;
+		StackFSM sfsm,rfsm;
 		StackState s,t,u,v,w,x,y,z;
 		Input topServiceName;
 
 
 		[SetUp] public void Init() {
-			p = new FiniteTabularMachine();
+			p = new TabularFSM();
 			p1 = new State("p1",true,false);
 			p2 = new State("p2",false,true);
 			id1 = new Input("d1");
@@ -29,7 +29,7 @@ namespace UnitTests.FiniteStateMachines {
 			p.AddTransition(p1,id1,p2);
 			p.AddTransition(p2,id2,p2);
 
-			d1 = new FiniteTabularMachine();
+			d1 = new TabularFSM();
 			d11 = new State("d1_1",true,false);
 			d12 = new State("d1_2",false,true);
 			e1 = new Input("e1");
@@ -37,18 +37,18 @@ namespace UnitTests.FiniteStateMachines {
 			d1.AddTransition(d11,e1,d12);
 			d1.AddTransition(d12,e2,d11);
 
-			d1s = new FiniteTabularMachine();
+			d1s = new TabularFSM();
 			id3 = new Input("d3");
 			d1s.AddTransition(d11,id3,d12);
 			d1s.AddTransition(d12,e2,d11);
 
-			d2 = new FiniteTabularMachine();
+			d2 = new TabularFSM();
 			d21 = new State("d2_1",true,false);
 			d22 = new State("d2_2",false,true);
 			e3 = new Input("e3");
 			d2.AddTransition(d21,e3,d22);
 
-			d3 = new FiniteTabularMachine();
+			d3 = new TabularFSM();
 			d31 = new State("d3_1",true,false);
 			d32 = new State("d3_2",false,false);
 			d33 = new State("d3_3",false,false);
@@ -67,9 +67,9 @@ namespace UnitTests.FiniteStateMachines {
 			Hashtable sespSet = new Hashtable();
 			sespSet.Add(id1,d1);
 			sespSet.Add(id2,d2);
-			sfsm = new StackFiniteStateMachine(p, topServiceName, sespSet);
+			sfsm = new StackFSM(p, topServiceName, sespSet);
 
-			q = new FiniteTabularMachine();
+			q = new TabularFSM();
 			q.AddTransition(p1,id2,p1);
 			q.AddTransition(p1,id1s,p2);
 			q.AddTransition(p2,id2,p2);
@@ -77,7 +77,7 @@ namespace UnitTests.FiniteStateMachines {
 			sespSet.Remove(id1);
 			sespSet.Add(id1s,d1s);
 			sespSet.Add(id3,d3);
-			rfsm = new StackFiniteStateMachine(q, topServiceName, sespSet);
+			rfsm = new StackFSM(q, topServiceName, sespSet);
 
 
 			s = new StackState(p1);
@@ -122,7 +122,7 @@ namespace UnitTests.FiniteStateMachines {
 		}
 
 		[Test] public void ErrorState() {
-			Assert.AreEqual(AbstractFiniteStateMachine.CreateErrorState(),sfsm.ErrorState);
+			Assert.AreEqual(AbstractFSM.CreateErrorState(),sfsm.ErrorState);
 		}
 
 		[Test] public void GetTransition() {

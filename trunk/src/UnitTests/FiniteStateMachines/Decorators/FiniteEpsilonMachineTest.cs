@@ -14,7 +14,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		IState[] states;
 		Input[] inputs;
 		Transition[] transitionSet;
-		FiniteTabularMachine tabularMachine;
+		TabularFSM tabularMachine;
 		FiniteEpsilonMachine epsilonMachine;
 		Set epsilonAlphabet;
 		IFiniteStateMachine deterministicFSM;
@@ -44,7 +44,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			transitionSet[4] = new Transition(states[3],inputs[4],states[4]);
 			transitionSet[5] = new Transition(states[4],inputs[1],states[5]);
 			transitionSet[6] = new Transition(states[4],inputs[3],states[3]);
-			tabularMachine = new FiniteTabularMachine();
+			tabularMachine = new TabularFSM();
 			tabularMachine.AddTransitionList(transitionSet);
 
 			epsilonAlphabet = new Set();

@@ -6,13 +6,13 @@ using FiniteStateMachines;
 namespace ParameterisedContracts {
 
 	/// <summary>
-	///		A CallingFiniteStateMachine represents the inner context of a recursive
-	///		service in a StackFiniteStateMachine. It is used to handle 
+	///		A CallingServiceFSM represents the inner context of a recursive
+	///		service in a StackFSM. It is used to handle 
 	///		the terminal part of the recursive function.
 	///		
 	///		author: JH
 	/// </summary>
-	public class CallingFiniteStateMachine : AbstractFiniteStateMachine {
+	public class CallingServiceFSM : AbstractFSM {
 
 		/// <summary>
 		///		Target state of the recursive transition.
@@ -51,7 +51,7 @@ namespace ParameterisedContracts {
 		///		certain final states to the destination state of the recursive
 		///		transition. The input symbol of that transition is aRecursionInput.
 		/// </summary>
-		public CallingFiniteStateMachine ( IFiniteStateMachine aFSM, RecursionInput aRecursionInput){
+		public CallingServiceFSM ( IFiniteStateMachine aFSM, RecursionInput aRecursionInput){
 			originalFSM = aFSM;
 			recursionInput = aRecursionInput;
 
