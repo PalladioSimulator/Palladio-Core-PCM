@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.Identifier</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.Identifier.DefaultIdentifiable">
+            <summary>
+            Zusammenfassung für DefaultIdentifiable.
+            </summary>
+        </member>
+        <member name="T:Palladio.Identifier.IIdentifiable">
+            <summary>
+            Data objects implementing this interface can be identified by a 
+            probably unique Identifier
+            </summary>
+        </member>
+        <member name="P:Palladio.Identifier.IIdentifiable.ID">
+            <summary>
+            The Identifier describing the identified object
+            </summary>
+        </member>
+        <member name="T:Palladio.Identifier.GloballyUniqueIdentifier">
+            <summary>
+            A Globally Unique Identifier (GUID)
+            </summary>
+        </member>
+        <member name="T:Palladio.Identifier.IIdentifier">
+            <summary>
+            Interface for Identifier types. If you want to create a new ID type implement this
+            interface and a factory for it.
+            </summary>
+        </member>
+        <member name="M:Palladio.Identifier.IIdentifier.Equals(System.Object)">
+            <summary>
+            Return true if two IDs are equal
+            </summary>
+            <param name="aID">The ID to compare to</param>
+            <returns>true if the IDs are equal</returns>
+        </member>
+        <member name="M:Palladio.Identifier.IIdentifier.ToString">
+            <summary>
+            Format the ID to a string representation (for display or debugging purposes)
+            </summary>
+            <returns>A string representation of the ID</returns>
+        </member>
+        <member name="M:Palladio.Identifier.IIdentifier.GetHashCode">
+            <summary>
+            Calculate a hash code for the ID
+            </summary>
+            <returns>The hashcode of this ID</returns>
+        </member>
+        <member name="F:Palladio.Identifier.GloballyUniqueIdentifier.guid">
+            <summary>
+            The internal ID representation
+            </summary>
+        </member>
+        <member name="M:Palladio.Identifier.GloballyUniqueIdentifier.Equals(System.Object)">
+            <summary>
+            Overridden equals method to compare two GUIDs
+            </summary>
+            <param name="aID">The ID to compare to</param>
+            <returns>true if the IDs are equal</returns>
+        </member>
+        <member name="M:Palladio.Identifier.GloballyUniqueIdentifier.GetHashCode">
+            <summary>
+            Calculate a hash code for this ID
+            </summary>
+            <returns>The hash code of this ID</returns>
+        </member>
+        <member name="M:Palladio.Identifier.GloballyUniqueIdentifier.ToString">
+            <summary>
+            Get a string representation of this ID
+            </summary>
+            <returns>A string representation of this ID</returns>
+        </member>
+        <member name="M:Palladio.Identifier.GloballyUniqueIdentifier.Clone">
+            <summary>
+            Create a copy of this ID
+            </summary>
+            <returns>A clone of this ID</returns>
+        </member>
+        <member name="T:Palladio.Identifier.IdentifiableFactory">
+            <summary>
+            A factory for creating IDs
+            </summary>
+        </member>
+        <member name="M:Palladio.Identifier.IdentifiableFactory.CreateStringID(System.String)">
+            <summary>
+            Create an ID from a given string
+            </summary>
+            <param name="s">The string to be used as ID</param>
+            <returns>An IIdentifier which represents the string as ID</returns>
+        </member>
+        <member name="M:Palladio.Identifier.IdentifiableFactory.CreateGUID">
+            <summary>
+            Create a new Globally Unique ID
+            </summary>
+            <returns>An IIdentifier which represents the GUID</returns>
+        </member>
+        <member name="M:Palladio.Identifier.IdentifiableFactory.CreateGUID(System.Guid)">
+            <summary>
+            Create a Globally Unique ID
+            </summary>
+            <param name="guid">The Guid to be converted to the IIdentifier</param>
+            <returns>An IIdentifier which represents the GUID</returns>
+        </member>
+        <member name="M:Palladio.Identifier.IdentifiableFactory.CreateGUID(System.String)">
+            <summary>
+            Create a Globally Unique ID
+            </summary>
+            <param name="s">The string to be converted to the IIdentifier</param>
+            <returns>An IIdentifier which represents the GUID</returns>
+        </member>
+        <member name="T:Palladio.Identifier.StringIdentifier">
+            <summary>
+            A string ID
+            </summary>
+        </member>
+        <member name="F:Palladio.Identifier.StringIdentifier.s">
+            <summary>
+            The internal ID representation
+            </summary>
+        </member>
+        <member name="M:Palladio.Identifier.StringIdentifier.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="aID">The string to be converted to an ID</param>
+        </member>
+        <member name="M:Palladio.Identifier.StringIdentifier.op_Implicit(System.String)~Palladio.Identifier.StringIdentifier">
+            <summary>
+            An conversion operator to convert basic string to StringIDs
+            </summary>
+            <param name="s">The string to be converted</param>
+            <returns>A string ID</returns>
+        </member>
+        <member name="M:Palladio.Identifier.StringIdentifier.Equals(System.Object)">
+            <summary>
+            Overridden equals method to compare two string IDs
+            </summary>
+            <param name="aID">The ID to compare to</param>
+            <returns>true if the IDs are equal</returns>
+        </member>
+        <member name="M:Palladio.Identifier.StringIdentifier.GetHashCode">
+            <summary>
+            Calculate a hash code for this ID
+            </summary>
+            <returns>The hash code of this ID</returns>
+        </member>
+        <member name="M:Palladio.Identifier.StringIdentifier.ToString">
+            <summary>
+            Get a string representation of this ID
+            </summary>
+            <returns>A string representation of this ID</returns>
+        </member>
+        <member name="M:Palladio.Identifier.StringIdentifier.Clone">
+            <summary>
+            Create a copy of this ID
+            </summary>
+            <returns>A clone of this ID</returns>
+        </member>
+    </members>
+</doc>

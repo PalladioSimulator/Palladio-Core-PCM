@@ -16,5 +16,34 @@ namespace Palladio.Identifier
 		{
 			return (StringIdentifier)s;
 		}
+
+		/// <summary>
+		/// Create a new Globally Unique ID
+		/// </summary>
+		/// <returns>An IIdentifier which represents the GUID</returns>
+		public static IIdentifier CreateGUID()
+		{
+			return new GloballyUniqueIdentifier();
+		}
+
+		/// <summary>
+		/// Create a Globally Unique ID
+		/// </summary>
+		/// <param name="guid">The Guid to be converted to the IIdentifier</param>
+		/// <returns>An IIdentifier which represents the GUID</returns>
+		public static IIdentifier CreateGUID(Guid guid)
+		{
+			return new GloballyUniqueIdentifier(guid);
+		}
+
+		/// <summary>
+		/// Create a Globally Unique ID
+		/// </summary>
+		/// <param name="s">The string to be converted to the IIdentifier</param>
+		/// <returns>An IIdentifier which represents the GUID</returns>
+		public static IIdentifier CreateGUID(string s)
+		{
+			return new GloballyUniqueIdentifier(s);
+		}
 	}
 }
