@@ -122,6 +122,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\FiniteStateMachines\AbstractStackFSM.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\FiniteStateMachines\AbstractState.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -173,6 +178,11 @@
                 />
                 <File
                     RelPath = "src\FiniteStateMachines\RecursionInput.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FiniteStateMachines\RecursionRule.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -50,12 +50,15 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			tableRecursion.Add(new Input("d3"),d3);
 			expandedRecursion = new FiniteStackMachine(topMachine, topServiceName, tableRecursion);
 
-			FiniteStackMachine stackFSM = new FiniteStackMachine(new Input("d1"),tableRecursion);
-			Console.WriteLine(stackFSM+"\n\n");
+			RecursionRule rule = new RecursionRule(new Input("d1"),tableRecursion);
+			Console.WriteLine(rule+"\n\n");
 
 
 //			TransitionIterator iter = new TransitionIterator(expandedRecursion);
 //			Console.WriteLine(expandedRecursion);
+
+//			IFiniteStateMachine rule = new RecursionRule(new Input("d1"),tableRecursion);
+//			Console.WriteLine(rule);
 
 		}
 
