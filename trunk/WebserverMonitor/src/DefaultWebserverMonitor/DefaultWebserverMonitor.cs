@@ -17,6 +17,31 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2004/12/15 00:32:33  sliver
+	/// Thread handling changed:
+	///   Instead of calling the Thread.Abort() method, each
+	///   thread instance contains a variable IsRunning which is
+	///   checked after each iteration through the loop.
+	///   If it is set to false, the tread terminates. This has been introduced to
+	///   establish a clean thread exit. The call of the Abort () method causes
+	///   an exeption in the aborted thread. This execption is forwarded through
+	///   the whole call stack, even if it is catched. So, every method on the stack
+	///   is informed about the thread exit. However, this causes some trouble
+	///   for the logging of the Webserver behaviour. Furthermore, the
+	///   Thread.Abort() and Thread.Interrupt() methods do not terminate
+	///   threads that are blocked. The call of the method TcpListener.AcceptSocket()
+	///   blocks the thread until a new connection is opened. So, the running
+	///   threads are not aborted until a new connection is opened.
+	///
+	///  Now, we proceed as follows to terminate the Webserver. For all
+	///  listening treads, we set the IsRunning variable to false. Next, we need
+	///  to unblock the threads. Therfore, we open a dummy connection to the
+	///  IP and port the tread is listening on. When re-iterating the the loop, the
+	///  check of the IsRunning variable causes the thread to terminate.
+	///
+	/// ListeningTread war renamed to PortListener
+	/// interfaces 'IPortListener' and IBibTexDB' added
+	///
 	/// Revision 1.9  2004/12/08 16:07:12  kelsaka
 	/// - added: the webserver halts if the config-file can not be found. To make the webserver
 	///  use easier the error-message describes how to set the paths (commandline and VS.NET)
@@ -66,14 +91,16 @@ namespace Palladio.Webserver.WebserverMonitor
 		/// </summary>
 		public void InitializeWriteAccess ()
 		{
-			//debug-file:
+			// debug-file:
+			// reduced to one access to the webserverConfiguration to keep the Seff simple
+			string debugFile = webserverConfiguration.DebugFile;
 			try 
 			{
-				this.debugStreamWriter =  File.AppendText(webserverConfiguration.DebugFile);
+				this.debugStreamWriter =  File.AppendText(debugFile);
 			}
 			catch (SecurityException e)
 			{
-				Console.WriteLine("ERROR: Not allowed to access the specified file: " + webserverConfiguration.DebugFile + ". " + e + ". " + e.StackTrace);
+				Console.WriteLine("ERROR: Not allowed to access the specified file: " + debugFile + ". " + e + ". " + e.StackTrace);
 			}
 			catch (FileNotFoundException e)
 			{
@@ -82,22 +109,23 @@ namespace Palladio.Webserver.WebserverMonitor
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("ERROR: Error on accessing File " + webserverConfiguration.DebugFile + ". " + e + ". " + e.StackTrace);
+				Console.WriteLine("ERROR: Error on accessing File " + debugFile + ". " + e + ". " + e.StackTrace);
 			}
 
 
 			//log-file:
+			string logFile = webserverConfiguration.LogFile;
 			try 
 			{
-				this.logStreamWriter =  File.AppendText(webserverConfiguration.LogFile);
+				this.logStreamWriter =  File.AppendText(logFile);
 			}
 			catch (SecurityException e)
 			{
-				Console.WriteLine("ERROR: Not allowed to access the specified file: " + webserverConfiguration.DebugFile + ". " + e + ". " + e.StackTrace);
+				Console.WriteLine("ERROR: Not allowed to access the specified file: " + logFile + ". " + e + ". " + e.StackTrace);
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("ERROR: Error on accessing File " + webserverConfiguration.DebugFile + ". " + e + ". " + e.StackTrace);
+				Console.WriteLine("ERROR: Error on accessing File " + logFile + ". " + e + ". " + e.StackTrace);
 			}
 
 			

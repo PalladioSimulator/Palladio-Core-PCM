@@ -114,12 +114,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IPortListener.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IPortListenerFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\DefaultDispatcher\DefaultDispatcher.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\DefaultDispatcher\ListeningThread.cs"
+                    RelPath = "src\DefaultDispatcher\DefaultPortListenerFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\DefaultDispatcher\PortListener.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

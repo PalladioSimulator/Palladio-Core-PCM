@@ -20,6 +20,31 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2004/12/15 00:32:33  sliver
+	/// Thread handling changed:
+	///   Instead of calling the Thread.Abort() method, each
+	///   thread instance contains a variable IsRunning which is
+	///   checked after each iteration through the loop.
+	///   If it is set to false, the tread terminates. This has been introduced to
+	///   establish a clean thread exit. The call of the Abort () method causes
+	///   an exeption in the aborted thread. This execption is forwarded through
+	///   the whole call stack, even if it is catched. So, every method on the stack
+	///   is informed about the thread exit. However, this causes some trouble
+	///   for the logging of the Webserver behaviour. Furthermore, the
+	///   Thread.Abort() and Thread.Interrupt() methods do not terminate
+	///   threads that are blocked. The call of the method TcpListener.AcceptSocket()
+	///   blocks the thread until a new connection is opened. So, the running
+	///   threads are not aborted until a new connection is opened.
+	///
+	///  Now, we proceed as follows to terminate the Webserver. For all
+	///  listening treads, we set the IsRunning variable to false. Next, we need
+	///  to unblock the threads. Therfore, we open a dummy connection to the
+	///  IP and port the tread is listening on. When re-iterating the the loop, the
+	///  check of the IsRunning variable causes the thread to terminate.
+	///
+	/// ListeningTread war renamed to PortListener
+	/// interfaces 'IPortListener' and IBibTexDB' added
+	///
 	/// Revision 1.16  2004/12/06 05:20:21  sliver
 	/// - RequestFactory added
 	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
@@ -76,30 +101,43 @@ namespace Palladio.Webserver.Dispatcher
 	/// </remarks>
 	public class DefaultDispatcher : IDispatcher
 	{
+		/// <summary>
+		/// Stores the information about a running Thread.
+		/// This concerns the used listener and the thread
+		/// executing the listener.
+		/// </summary>
+		private struct ThreadInfo
+		{
+			public IPortListener Listener;
+			public Thread ExecutingThread;
+		}
+
 		private IRequestFactory requestFactory;
+		private IPortListenerFactory portListenerFactory;
 
 		private IRequestParser requestParser;
 		private IWebserverMonitor webserverMonitor;
 		private IWebserverConfiguration webserverConfiguration;
+
+
 		/// <summary>
 		/// References on the started threads should be kept in this array to be able to shut down all threads using
 		/// the abort()-method.
 		/// </summary>
-		private Thread[] serverThread;
-
-		TcpListener tcpListener;
+		private ThreadInfo[] listenerThreads;
 
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
 		/// <param name="requestParser">The delegate that is used as the proceeding component (RequestParser)
 		/// on processing the client-request.</param>
-		public DefaultDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory)
+		public DefaultDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory, IPortListenerFactory portListenerFactory)
 		{
 			this.requestParser = requestParser;
 			this.webserverMonitor = webserverMonitor;
 			this.webserverConfiguration = webserverConfiguration;
 			this.requestFactory = requestFactory;
+			this.portListenerFactory = portListenerFactory;
 		}
 
 
@@ -109,35 +147,32 @@ namespace Palladio.Webserver.Dispatcher
 		/// listening at the defined ports.
 		/// Initializes the write-access of the WebserverMonitor.
 		/// </summary>
-		public void Run ()
+		public void Start ()
 		{
-			webserverMonitor.InitializeWriteAccess();
 
 			webserverMonitor.WriteLogEntry("----------------------------");
 			webserverMonitor.WriteLogEntry("Webserver-Dispatcher started.");
 
-			IPAddress adress = IPAddress.Parse(webserverConfiguration.ListenIP);
+			IPAddress address = IPAddress.Parse(webserverConfiguration.ListenIP);
 			int portsCount = webserverConfiguration.ListeningPorts.Length;
-			serverThread = new Thread[portsCount];
+			listenerThreads = new ThreadInfo[portsCount];
 
 			try
 			{
 				//start listing on the given port; listen on all specified ports.
-				for(int x = 0; x < portsCount; x++)
+				for(int i = 0; i < portsCount; i++)
 				{
-					int port = webserverConfiguration.ListeningPorts[x];					
-					
-					tcpListener = new TcpListener(adress, port);
-					tcpListener.Start();
-					webserverMonitor.WriteLogEntry("Listening (" + webserverConfiguration.ListenIP + "; TCP) on port: " + port);
-					
-					ListeningThread listeningThread = new ListeningThread(requestParser, webserverMonitor,
-						webserverConfiguration, port, tcpListener, requestFactory);
+					int port = webserverConfiguration.ListeningPorts[i];	
+				
+					ThreadInfo threadInfo = new ThreadInfo();
+					threadInfo.Listener = portListenerFactory.CreatePortListener(
+						requestParser, webserverMonitor, webserverConfiguration, 
+						port, address, requestFactory);
+					threadInfo.ExecutingThread = new Thread(new ThreadStart(threadInfo.Listener.StartListen));	
+					threadInfo.ExecutingThread.Name = "ListeningThread, port "+ port;
+					threadInfo.ExecutingThread.Start();
 
-					//start the thread which calls the method 'StartListen'
-					serverThread[x] = new Thread(new ThreadStart(listeningThread.StartListen));	
-					serverThread[x].Name = "ListeningThread, port "+ port;
-					serverThread[x].Start();
+					listenerThreads[i] = threadInfo;
 				}
 
 			}
@@ -145,15 +180,6 @@ namespace Palladio.Webserver.Dispatcher
 			{
 				webserverMonitor.WriteDebugMessage("An exception occurred while listening: " + e.ToString(), 1);
 			}
-			
-
-			// make the webserver shutdown explicitly.
-			webserverMonitor.WriteLogEntry("/=========================================\\");
-			webserverMonitor.WriteLogEntry("|  Press ENTER to shutdown the webserver. |");
-			webserverMonitor.WriteLogEntry("\\=========================================/");
-			Console.ReadLine();
-			Stop();
-
 		}
 
 
@@ -165,28 +191,22 @@ namespace Palladio.Webserver.Dispatcher
 		/// </summary>
 		public void Stop()
 		{
-			// Send the abort-signale to all threads running:
-			for(int x = 0; x < serverThread.Length; x++)
+			for(int i = 0; i < listenerThreads.Length; i++)
 			{
-				if (serverThread[x] != null)
+				if (listenerThreads[i].ExecutingThread != null)
 				{
-					try
-					{
-						serverThread[x].Abort();
-					}
-					finally
-					{
-						serverThread[x] = null;
-					}
+					listenerThreads[i].Listener.IsRunning = false;
+					
+					// unblock listening Thread
+					TcpClient tcpClient = new TcpClient();
+					tcpClient.Connect(listenerThreads[i].Listener.Address, listenerThreads[i].Listener.Port);
+					tcpClient.Close();
+
+					// wait for thread to terminate
+					listenerThreads[i].ExecutingThread.Join();
 				}
 			}
 			webserverMonitor.WriteLogEntry("Shutting down webserver.");
-			webserverMonitor.FinishWriteAccess();
-
-			// abort main-thread:
-			Thread.CurrentThread.Abort();
 		}
-
-
 	}
 }
