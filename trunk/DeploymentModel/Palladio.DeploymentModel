@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.DeploymentModel</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.DeploymentModel.CharacterisedElement">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.ICharacterisedElement">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Palladio.DeploymentModel.CharacterisedElement.ID">
+            <summary>
+            The Identifier describing the identified object
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.IArtifactConnection">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.ArtifactConnection">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.IArtifactContainer">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.IArtifactContainerWithConnections">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.ArtifactContainer">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.INodeConnection">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.NodeConnection">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.INodeContainer">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.INodeContainerWithConnections">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.NodeContainer">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.ElementConnection">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.IElementConnection">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.ElementContainer">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.IElementContainer">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.Default.Artifact">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.IArtifact">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Palladio.DeploymentModel.IArtifact.RealisedComponent">
+            <summary>
+            Component realised by this artifacts excluding components 
+            realised by nested artifacts.
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Default.Artifact.AcceptVisitor(ReflectionBasedVisitor.IVisitor)">
+            <summary>
+            This method is called by the <see cref="N:ReflectionBasedVisitor"/> to allow data
+            structure driven visiting of the structure.<br></br>
+            Leave this method's body empty if you don't need data structure driven visiting.
+            </summary>
+            <param name="visitor">The visitor to accept</param>
+        </member>
+        <member name="P:Palladio.DeploymentModel.Default.Artifact.RealisedComponent">
+            <summary>
+            Components realised by this artifacts excluding components 
+            realised by nested artifacts.
+            </summary>
+        </member>
+        <member name="P:Palladio.DeploymentModel.Default.Artifact.ID">
+            <summary>
+            The Identifier describing the identified object
+            </summary>
+        </member>
+        <member name="P:Palladio.DeploymentModel.Default.Artifact.Attributes">
+            <summary>
+            A list of attributes attached an object. 
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.Default.DeploymentSpecification">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.IDeploymentSpecification">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Default.DeploymentSpecification.AcceptVisitor(ReflectionBasedVisitor.IVisitor)">
+            <summary>
+            This method is called by the <see cref="N:ReflectionBasedVisitor"/> to allow data
+            structure driven visiting of the structure.<br></br>
+            Leave this method's body empty if you don't need data structure driven visiting.
+            </summary>
+            <param name="visitor">The visitor to accept</param>
+        </member>
+        <member name="P:Palladio.DeploymentModel.Default.DeploymentSpecification.Attributes">
+            <summary>
+            A list of attributes attached an object. 
+            </summary>
+        </member>
+        <member name="P:Palladio.DeploymentModel.Default.DeploymentSpecification.ID">
+            <summary>
+            The Identifier describing the identified object
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.Default.Node">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.INode">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Default.Node.AcceptVisitor(ReflectionBasedVisitor.IVisitor)">
+            <summary>
+            This method is called by the <see cref="N:ReflectionBasedVisitor"/> to allow data
+            structure driven visiting of the structure.<br></br>
+            Leave this method's body empty if you don't need data structure driven visiting.
+            </summary>
+            <param name="visitor">The visitor to accept</param>
+        </member>
+        <member name="P:Palladio.DeploymentModel.Default.Node.ID">
+            <summary>
+            The Identifier describing the identified object
+            </summary>
+        </member>
+        <member name="P:Palladio.DeploymentModel.Default.Node.Attributes">
+            <summary>
+            A list of attributes attached an object. 
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.Default.System">
+            <summary>
+            Zusammenfassung für System.
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.ISystem">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Default.System.AcceptVisitor(ReflectionBasedVisitor.IVisitor)">
+            <summary>
+            This method is called by the <see cref="N:ReflectionBasedVisitor"/> to allow data
+            structure driven visiting of the structure.<br></br>
+            Leave this method's body empty if you don't need data structure driven visiting.
+            </summary>
+            <param name="visitor">The visitor to accept</param>
+        </member>
+        <member name="P:Palladio.DeploymentModel.Default.System.ID">
+            <summary>
+            The Identifier describing the identified object
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.DeploymentTest.Init">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.DeploymentTest.AddElements">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.DeploymentTest.AddElementsHierarchical">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.DeploymentTest.Connections">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.ElementTest.Init">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.ElementTest.AddElements">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.ElementTest.NoElement">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.ElementTest.Contains">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.ElementTest.RemoveElements">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.ElementTest.Events">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.ElementTest.AddConnections">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.ElementTest.ContainsConnections">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.ElementTest.NoConnection">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.ElementTest.RemoveConnections">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.DeploymentModel.Tests.ElementTest.Clone">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.DeploymentModel.DeploymentFactory">
+            <summary>
+            </summary>
+        </member>
+    </members>
+</doc>

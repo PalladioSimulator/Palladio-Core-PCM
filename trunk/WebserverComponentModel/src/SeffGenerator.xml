@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<codeSmith>
+	<propertySets>
+		<propertySet>
+			<property name="ComponentName">DefaultDispatcher</property>
+			<property name="InterfaceName">IDispatcher</property>
+			<property name="SpecifiedServiceName">Start</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+					<string>IWebserverMonitor.WriteDebugMessage</string>
+					<string>IWebserverConfiguration.get_ListeningPorts</string>
+					<string>IWebserverConfiguration.get_ListenIP</string>
+				</stringList>
+			</property>
+			<property name="cBase">100</property>
+			<property name="NumOfStates">6</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">5, 6</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverMonitor.WriteLogEntry - 2</string>
+					<string>2 - IWebserverMonitor.WriteLogEntry - 3</string>
+					<string>3 - IWebserverConfiguration.get_ListenIP - 4</string>
+					<string>4 - IWebserverConfiguration.get_ListeningPorts - 5</string>
+					<string>5 - IWebserverConfiguration.get_ListeningPorts - 5</string>
+					<string>5 - IWebserverMonitor.WriteDebugMessage - 6</string>
+				</stringList>
+			</property>
+		</propertySet>
+		
+		<propertySet>
+			<property name="ComponentName">DefaultDispatcher</property>
+			<property name="InterfaceName">IDispatcher</property>
+			<property name="SpecifiedServiceName">Stop</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IPortListener.set_IsRunning</string>
+					<string>IPortListener.get_Address</string>
+					<string>IPortListener.get_Port</string>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+				</stringList>
+			</property>
+			<property name="cBase">200</property>
+			<property name="NumOfStates">4</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">4</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IPortListener.set_IsRunning - 2</string>
+					<string>2 - IPortListener.get_Address - 3</string>
+					<string>3 - IPortListener.get_Port - 1</string>
+					<string>1 - IWebserverMonitor.WriteLogEntry - 4</string>
+				</stringList>
+			</property>
+		</propertySet>
+		
+		<propertySet>
+			<property name="ComponentName">DefaultDispatcher</property>
+			<property name="InterfaceName">IPortListener</property>
+			<property name="SpecifiedServiceName">StartListen</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverConfiguration.get_ListenIP</string>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+					<string>IWebserverMonitor.WriteDebugMessage</string>
+					<string>IRequestParser.HandleRequest</string>
+				</stringList>
+			</property>
+			<property name="cBase">300</property>
+			<property name="NumOfStates">8</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">4</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverConfiguration.get_ListenIP - 2</string>
+					<string>2 - IWebserverMonitor.WriteLogEntry - 3</string>
+					<string>3 - IWebserverMonitor.WriteLogEntry - 4</string>
+					<string>4 - IWebserverMonitor.WriteLogEntry - 5</string>
+					<string>5 - IWebserverMonitor.WriteLogEntry - 6</string>
+					<string>6 - IWebserverMonitor.WriteLogEntry - 7</string>
+					<string>7 - IWebserverMonitor.WriteLogEntry - 8</string>
+					<string>8 - IWebserverMonitor.WriteLogEntry - 6</string>
+					<string>8 - IRequestParser.HandleRequest - 4</string>
+				</stringList>
+			</property>
+		</propertySet>
+		
+		<propertySet>
+			<property name="ComponentName">DynamicFileProvider</property>
+			<property name="InterfaceName">IHTTPRequestProcessor</property>
+			<property name="SpecifiedServiceName">HandleRequest</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+					<string>IHTTPRequestProcessor.HandleRequest</string>
+				</stringList>
+			</property>
+			<property name="cBase">6100</property>
+			<property name="NumOfStates">3</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">3</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverMonitor.WriteLogEntry - 2</string>
+					<string>2 - IHTTPRequestProcessor.HandleRequest - 3</string>
+				</stringList>
+			</property>
+		</propertySet>
+		
+		<propertySet>
+			<property name="ComponentName">BibTexProvider</property>
+			<property name="InterfaceName">IHTTPRequestProcessor</property>
+			<property name="SpecifiedServiceName">HandleRequest</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+					<string>IWebserverMonitor.WriteDebugMessage</string>
+					<string>IHTTPRequestProcessor.HandleRequest</string>
+					<string>IBibTexDB.set_ConnectionString</string>
+					<string>IBibTexDB.Search</string>
+					<string>IBibTexDB.AllEntries</string>
+					<string>IHTTPRequestProcessorTools.GetFileMimeTypeFor</string>
+					<string>IHTTPRequestProcessorTools.SendHTTPHeader</string>
+					<string>IHTTPRequestProcessorTools.SendContentToClient</string>
+				</stringList>
+			</property>
+			<property name="cBase">6200</property>
+			<property name="NumOfStates">10</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">10</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IBibTexDB.set_ConnectionString - 2</string>
+					<string>1 - IHTTPRequestProcessor.HandleRequest - 10</string>
+					<string>2 - IBibTexDB.AllEntries - 3</string>
+					<string>2 - IBibTexDB.Search - 3</string>
+					<string>3 - IWebserverMonitor.WriteDebugMessage - 7</string>
+					<string>3 - IHTTPRequestProcessorTools.GetFileMimeTypeFor - 4</string>
+					<string>4 - IHTTPRequestProcessorTools.SendHTTPHeader - 5</string>
+					<string>5 - IHTTPRequestProcessorTools.SendContentToClient - 6</string>
+					<string>6 - IWebserverMonitor.WriteLogEntry - 10</string>
+					<string>7 - IHTTPRequestProcessorTools.GetFileMimeTypeFor - 8</string>
+					<string>8 - IHTTPRequestProcessorTools.SendHTTPHeader - 9</string>
+					<string>9 - IHTTPRequestProcessorTools.SendContentToClient - 10</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+		<propertySet>
+			<property name="ComponentName">TemplateFileProvider</property>
+			<property name="InterfaceName">IHTTPRequestProcessor</property>
+			<property name="SpecifiedServiceName">HandleRequest</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+					<string>IHTTPRequestProcessor.HandleRequest</string>
+					<string>IHTTPRequestProcessorTools.BuildCompletePath</string>
+					<string>IHTTPRequestProcessorTools.OpenFile</string>
+					<string>IHTTPRequestProcessorTools.GetFileMimeTypeFor</string>
+					<string>IHTTPRequestProcessorTools.SendHTTPHeader</string>
+					<string>IHTTPRequestProcessorTools.SendContentToClient</string>
+				</stringList>
+			</property>
+			<property name="cBase">6300</property>
+			<property name="NumOfStates">9</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">9</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IHTTPRequestProcessorTools.BuildCompletePath - 2</string>
+					<string>1 - IHTTPRequestProcessor.HandleRequest - 9</string>
+					<string>2 - IHTTPRequestProcessor.HandleRequest - 9</string>
+					<string>2 - IWebserverMonitor.WriteLogEntry - 3</string>
+					<string>3 - IHTTPRequestProcessorTools.GetFileMimeTypeFor - 4</string>
+					<string>4 - IWebserverMonitor.WriteLogEntry - 5</string>
+					<string>5 - IHTTPRequestProcessorTools.OpenFile - 6</string>
+					<string>6 - IHTTPRequestProcessorTools.SendHTTPHeader - 7</string>
+					<string>7 - IHTTPRequestProcessorTools.SendContentToClient - 8</string>
+					<string>8 - IWebserverMonitor.WriteLogEntry - 9</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+		<propertySet>
+			<property name="ComponentName">StaticFileProvider</property>
+			<property name="InterfaceName">IHTTPRequestProcessor</property>
+			<property name="SpecifiedServiceName">HandleRequest</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+					<string>IHTTPRequestProcessor.HandleRequest</string>
+					<string>IHTTPRequestProcessorTools.BuildCompletePath</string>
+					<string>IWebserverConfiguration.get_DefaultFileNames</string>
+					<string>IHTTPRequestProcessorTools.OpenFile</string>
+					<string>IHTTPRequestProcessorTools.GetFileMimeTypeFor</string>
+					<string>IHTTPRequestProcessorTools.SendHTTPHeader</string>
+					<string>IHTTPRequestProcessorTools.SendContentDataToClient</string>
+					<string>IHTTPRequestProcessorTools.SendHTTPError</string>
+				</stringList>
+			</property>
+			<property name="cBase">6400</property>
+			<property name="NumOfStates">10</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">10</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IHTTPRequestProcessorTools.BuildCompletePath - 2</string>
+					<string>1 - IHTTPRequestProcessorTools.SendHTTPError - 10</string>
+					<string>2 - IHTTPRequestProcessorTools.SendHTTPError - 10</string>
+					<string>2 - IWebserverConfiguration.get_DefaultFileNames - 3</string>
+					<string>2 - IWebserverMonitor.WriteLogEntry - 4</string>
+					<string>3 - IWebserverMonitor.WriteLogEntry - 4</string>
+					<string>4 - IWebserverMonitor.WriteLogEntry - 4</string>
+					<string>4 - IHTTPRequestProcessorTools.SendHTTPError - 10</string>
+					<string>4 - IHTTPRequestProcessorTools.GetFileMimeTypeFor - 5</string>
+					<string>5 - IWebserverMonitor.WriteLogEntry - 6</string>
+					<string>6 - IHTTPRequestProcessorTools.OpenFile - 7</string>
+					<string>7 - IHTTPRequestProcessorTools.SendHTTPHeader - 8</string>
+					<string>8 - IHTTPRequestProcessorTools.SendContentDataToClient - 9</string>
+					<string>9 - IWebserverMonitor.WriteLogEntry - 10</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+		<propertySet>
+			<property name="ComponentName">HTTPRequestParser</property>
+			<property name="InterfaceName">IRequestParser</property>
+			<property name="SpecifiedServiceName">HandleRequest</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+					<string>IHTTPRequestProcessor.HandleRequest</string>
+					<string>IRequestParser.HandleRequest</string>
+				</stringList>
+			</property>
+			<property name="cBase">8100</property>
+			<property name="NumOfStates">5</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">5</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverMonitor.WriteLogEntry - 2</string>
+					<string>2 - IWebserverMonitor.WriteLogEntry - 3</string>
+					<string>3 - IWebserverMonitor.WriteLogEntry - 4</string>
+					<string>4 - IWebserverMonitor.WriteLogEntry - 4</string>
+					<string>2 - IRequestParser.HandleRequest - 5</string>
+					<string>3 - IRequestParser.HandleRequest - 5</string>
+					<string>4 - IRequestParser.HandleRequest - 5</string>
+					<string>4 - IHTTPRequestProcessor.HandleRequest - 5</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+		<propertySet>
+			<property name="ComponentName">DefaultRequestParser</property>
+			<property name="InterfaceName">IRequestParser</property>
+			<property name="SpecifiedServiceName">HandleRequest</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverMonitor.WriteDebugMessage</string>
+				</stringList>
+			</property>
+			<property name="cBase">8200</property>
+			<property name="NumOfStates">2</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">2</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverMonitor.WriteDebugMessage - 2</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+		<propertySet>
+			<property name="ComponentName">WebserverMonitor</property>
+			<property name="InterfaceName">IWebserverMonitor</property>
+			<property name="SpecifiedServiceName">InitializeWriteAccess</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverConfiguration.get_DebugFile</string>
+					<string>IWebserverConfiguration.get_LogFile</string>
+				</stringList>
+			</property>
+			<property name="cBase">4100</property>
+			<property name="NumOfStates">3</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">3</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverConfiguration.get_DebugFile - 2</string>
+					<string>2 - IWebserverConfiguration.get_LogFile - 3</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+		<propertySet>
+			<property name="ComponentName">DefaultHTTPRequestProcessor</property>
+			<property name="InterfaceName">IHTTPRequestProcessorTools</property>
+			<property name="SpecifiedServiceName">BuildCompletePath</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverConfiguration.get_DocumentRoot</string>
+				</stringList>
+			</property>
+			<property name="cBase">7100</property>
+			<property name="NumOfStates">2</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">2</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverConfiguration.get_DocumentRoot - 2</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+		<propertySet>
+			<property name="ComponentName">DefaultHTTPRequestProcessor</property>
+			<property name="InterfaceName">IHTTPRequestProcessorTools</property>
+			<property name="SpecifiedServiceName">SendContentDataToClient</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverMonitor.WriteDebugMessage</string>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+				</stringList>
+			</property>
+			<property name="cBase">7200</property>
+			<property name="NumOfStates">2</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">2</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverMonitor.WriteDebugMessage - 2</string>
+					<string>1 - IWebserverMonitor.WriteLogEntry - 2</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+		<propertySet>
+			<property name="ComponentName">DefaultHTTPRequestProcessor</property>
+			<property name="InterfaceName">IHTTPRequestProcessorTools</property>
+			<property name="SpecifiedServiceName">SendContentToClient</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverMonitor.WriteDebugMessage</string>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+				</stringList>
+			</property>
+			<property name="cBase">7300</property>
+			<property name="NumOfStates">2</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">2</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverMonitor.WriteDebugMessage - 2</string>
+					<string>1 - IWebserverMonitor.WriteLogEntry - 2</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+		<propertySet>
+			<property name="ComponentName">DefaultHTTPRequestProcessor</property>
+			<property name="InterfaceName">IHTTPRequestProcessorTools</property>
+			<property name="SpecifiedServiceName">SendHTTPHeader</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverMonitor.WriteDebugMessage</string>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+				</stringList>
+			</property>
+			<property name="cBase">7400</property>
+			<property name="NumOfStates">2</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">2</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverMonitor.WriteDebugMessage - 2</string>
+					<string>1 - IWebserverMonitor.WriteLogEntry - 2</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+		<propertySet>
+			<property name="ComponentName">DefaultHTTPRequestProcessor</property>
+			<property name="InterfaceName">IHTTPRequestProcessorTools</property>
+			<property name="SpecifiedServiceName">SendHTTPError</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverMonitor.WriteDebugMessage</string>
+					<string>IWebserverMonitor.WriteLogEntry</string>
+				</stringList>
+			</property>
+			<property name="cBase">7500</property>
+			<property name="NumOfStates">4</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">4</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverMonitor.WriteLogEntry - 2</string>
+					<string>2 - IWebserverMonitor.WriteDebugMessage - 3</string>
+					<string>2 - IWebserverMonitor.WriteLogEntry - 3</string>
+					<string>3 - IWebserverMonitor.WriteDebugMessage - 4</string>
+					<string>3 - IWebserverMonitor.WriteLogEntry - 4</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+		<propertySet>
+			<property name="ComponentName">DefaultHTTPRequestProcessor</property>
+			<property name="InterfaceName">IHTTPRequestProcessorTools</property>
+			<property name="SpecifiedServiceName">GetFileMimeTypeFor</property>
+			<property name="RequiredServices">
+				<stringList>
+					<string>IWebserverConfiguration.GetMimeTypeFor</string>
+					<string>IWebserverConfiguration.get_DefaultMimeType</string>
+				</stringList>
+			</property>
+			<property name="cBase">7600</property>
+			<property name="NumOfStates">3</property>
+			<property name="StartState">1</property>
+			<property name="FinalStates">2, 3</property>
+			<property name="Transitions">
+				<stringList>
+					<string>1 - IWebserverConfiguration.GetMimeTypeFor - 2</string>
+					<string>2 - IWebserverConfiguration.get_DefaultMimeType - 3</string>
+				</stringList>
+			</property>
+		</propertySet>
+
+	</propertySets>
+	<template path="SeffProtocol.cst" />
+</codeSmith>
+
+<!--  ConfigReader, FTPRequestProcessor, HTTPRequestProcessor, Request, RequestParser, RequestProcessor, WebserverMonitor -->

@@ -1,0 +1,114 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Src="AssemblyHandler.cs" Inherits="AssemblyHandler" Debug="False" Description="Template description here." %>
+
+<%@ Import Namespace="System" %>
+<%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Reflection" %>
+<%@ Import Namespace="System.Collections" %>
+<%@ Import Namespace="System.Diagnostics" %>
+
+using System.Collections;
+using Palladio.ComponentModel;
+
+namespace Palladio.Reliability.WebserverComponentModel
+{
+	/// <summary>
+	/// Factory for the creation of all required Seffs of the Webserver.
+	/// This factory was created due to the missing save and load operations 
+	/// for the Seffs.
+	/// 
+	/// </summary>
+	public class WebserverInterfaceFactory : WebserverModelHelper
+	{
+<%
+	UnifyPath();
+	Assembly[] assemblies = GetAssemblies();
+
+	foreach (Assembly assembly in assemblies)
+	{
+		foreach(Type type in assembly.GetTypes())
+		{	
+			if(type.IsInterface)
+			{
+%>
+		#region <%=type.Name%>
+
+		public static IInterfaceModel Create<%=type.Name%>()
+		{
+			if (!interfaceHash.Contains("<%=type.Name%>"))
+			{
+				IInterfaceModel iModel = ComponentFactory.CreateInterfaceModel("<%=type.Name%>");				
+				
+				Hashtable methodHash = new Hashtable();
+				<%
+					ArrayList methodList;
+					Hashtable propertyTable;
+					GetMethods(type, out propertyTable, out methodList);
+					foreach (PropertyInfo pInfo in propertyTable.Values)
+					{
+						if (pInfo.IsGettable)
+						{
+					%>
+				ISignature get_<%= pInfo.Name %> = CreateGetter(typeof(<%=pInfo.Type.ToString()%>), "<%= pInfo.Name %>");
+				methodHash["get_<%= pInfo.Name %>"] = get_<%= pInfo.Name %>;
+				iModel.SignatureList.AddSignatures(get_<%= pInfo.Name %>);
+				<%
+						}
+						if (pInfo.IsSettable)
+						{
+				%>
+				ISignature set_<%= pInfo.Name %> = CreateSetter(typeof(<%=pInfo.Type.ToString()%>), "<%= pInfo.Name %>");
+				methodHash["set_<%= pInfo.Name %>"] = set_<%= pInfo.Name %>;
+				iModel.SignatureList.AddSignatures(set_<%= pInfo.Name %>);
+				<%
+						}
+					}
+				%>
+				IParameter[] parameters;
+				<%
+					foreach (MethodInfo methodInfo in methodList)
+					{
+				%>
+				parameters = new IParameter[<%=methodInfo.GetParameters().Length%>];
+				<%
+						int i = 0;
+						foreach (ParameterInfo parameter in methodInfo.GetParameters())
+						{
+				%>
+				parameters[<%=i%>] = ComponentFactory.CreateParameter(typeof(<%=parameter.ParameterType.ToString()%>), "<%=parameter.Name%>");
+				<%
+							i++;
+						}
+				%>
+				ISignature <%=methodInfo.Name%> = ComponentFactory.CreateSignature(typeof (<%=GetReturnTypeString(methodInfo)%>), "<%=methodInfo.Name%>", parameters);
+				methodHash["<%=methodInfo.Name%>"] =  <%=methodInfo.Name%>;
+				iModel.SignatureList.AddSignatures(<%=methodInfo.Name%>);
+				<%
+					}
+				%>
+				
+				// Create FSM
+				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
+				WebserverProvidesFactory.CreateProvidesFsmFor<%=type.Name%>(fsmInterface.EditFSM, methodHash);
+
+				iModel.AddAuxiliarySpecification(fsmInterface);
+				interfaceHash["<%=type.Name%>"] = iModel;
+			}
+			return (IInterfaceModel) interfaceHash["<%=type.Name%>"];
+		}
+
+		#endregion
+
+<%
+			}
+		}
+	}
+%>
+
+		protected WebserverInterfaceFactory()
+		{
+		}
+	}
+}
+
+<script runat="template">
+</script>

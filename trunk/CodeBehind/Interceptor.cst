@@ -1,0 +1,117 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Src="AssemblyHandler.cs" Inherits="AssemblyHandler" Debug="True" Description="Builds a class for each class in the assembly, and a test stub for every method." %>
+<%@ Import NameSpace="System.Reflection" %>
+<%@ Import NameSpace="System.Collections" %>
+<%@ Import NameSpace="System.Diagnostics" %>
+
+ 
+<%
+	UnifyPath();
+	Assembly[] assemblies = GetAssemblies();
+
+	foreach (Assembly assembly in assemblies)
+	{
+		foreach(Type type in assembly.GetTypes())
+		{
+			if(type.IsInterface)
+			{
+				string className = type.Name.Remove(0,1) + "Interceptor";
+%>
+
+#region <%= type.Name%>
+
+public class <%=className%> : <%=type.ToString()%>
+{
+<%
+				ArrayList methodList;
+				Hashtable propertyTable;
+				GetMethods(type, out propertyTable, out methodList);
+
+%>
+	#region Properties 
+	
+<%
+				foreach (PropertyInfo pInfo in propertyTable.Values)
+				{
+%>
+	public <%=pInfo.Type.ToString()%> <%=pInfo.Name%>
+	{
+<% 
+					if (pInfo.IsGettable) { 
+%>
+		get 
+		{ 
+			MethodInfo method = _target.GetType().GetMethod("get_<%=pInfo.Name%>");
+			long id = InterceptorActions.GetNextCallID();
+			InterceptorActions.BeforeCall(id, method);
+			<%=pInfo.Type.ToString()%> returnValue = _target.<%=pInfo.Name%>; 
+			InterceptorActions.AfterCall(id, method);
+			return returnValue;
+		}
+<% 
+					} if (pInfo.IsSettable) { 
+%>
+		set 
+		{ 
+			MethodInfo method = _target.GetType().GetMethod("set_<%=pInfo.Name%>");
+			long id = InterceptorActions.GetNextCallID();
+			InterceptorActions.BeforeCall(id, method);
+			_target.<%=pInfo.Name%> = value; 
+			InterceptorActions.AfterCall(id, method);
+		}
+<% 
+					} 
+%>
+	}
+	
+<%
+			}
+	
+%>
+	#endregion 
+	
+	#region Methods
+	<%	
+				foreach(MethodInfo methodInfo in methodList)
+				{
+	%>
+
+	public <%=GetReturnTypeString(methodInfo)%> <%=methodInfo.Name%>( <%= GetParameterString(methodInfo) %>)
+	{
+		MethodInfo method = _target.GetType().GetMethod("<%=methodInfo.Name%>", <%=GetParameterTypeArrayString(methodInfo)%>);
+		long id = InterceptorActions.GetNextCallID();
+		InterceptorActions.BeforeCall(id, method);
+		<%=GetCallString(methodInfo)%>;
+		InterceptorActions.AfterCall(id, method);
+		<%
+					if (!IsVoidMethod(methodInfo)){
+		%>
+		return returnValue;
+		<%
+					}
+		%>
+	}                                   
+<%
+				}
+%>
+	#endregion 
+
+	#region Constructor and Data
+	
+	private <%=type.ToString()%> _target;
+	
+	public  <%=className%>(<%=type.ToString()%> target)
+	{
+		_target = target;
+	}
+	#endregion
+}
+
+#endregion
+<%
+			}
+		}
+	}
+%>
+
+<script runat="template">
+</script>

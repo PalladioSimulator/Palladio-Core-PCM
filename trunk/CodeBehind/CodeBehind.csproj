@@ -1,0 +1,231 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{50738D68-260D-41AE-B0F6-F688DF3DF416}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "CodeBehind"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Exe"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "CodeBehind"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\Debug\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+                <Reference
+                    Name = "CodeSmith.Engine"
+                    AssemblyName = "CodeSmith.Engine"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\CodeSmith.Engine.DLL"
+                />
+                <Reference
+                    Name = "ActiproSoftware.DockableWindow"
+                    AssemblyName = "ActiproSoftware.DockableWindow"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\ActiproSoftware.DockableWindow.dll"
+                />
+                <Reference
+                    Name = "ActiproSoftware.Shared"
+                    AssemblyName = "ActiproSoftware.Shared"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\ActiproSoftware.Shared.dll"
+                />
+                <Reference
+                    Name = "ActiproSoftware.SyntaxEditor"
+                    AssemblyName = "ActiproSoftware.SyntaxEditor"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\ActiproSoftware.SyntaxEditor.dll"
+                />
+                <Reference
+                    Name = "ActiproSoftware.TabStripPanel"
+                    AssemblyName = "ActiproSoftware.TabStripPanel"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\ActiproSoftware.TabStripPanel.dll"
+                />
+                <Reference
+                    Name = "ActiproSoftware.WinUICore"
+                    AssemblyName = "ActiproSoftware.WinUICore"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\ActiproSoftware.WinUICore.dll"
+                />
+                <Reference
+                    Name = "AxSHDocVw"
+                    AssemblyName = "AxSHDocVw"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\AxSHDocVw.DLL"
+                />
+                <Reference
+                    Name = "CodeSmith.BaseTemplates"
+                    AssemblyName = "CodeSmith.BaseTemplates"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\CodeSmith.BaseTemplates.dll"
+                />
+                <Reference
+                    Name = "CodeSmith.CustomProperties"
+                    AssemblyName = "CodeSmith.CustomProperties"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\CodeSmith.CustomProperties.dll"
+                />
+                <Reference
+                    Name = "CodeSmith.Gui"
+                    AssemblyName = "CodeSmith.Gui"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\CodeSmith.Gui.DLL"
+                />
+                <Reference
+                    Name = "CodeSmith.VisualStudio.AddIn"
+                    AssemblyName = "CodeSmith.VisualStudio.AddIn"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\CodeSmith.VisualStudio.AddIn.dll"
+                />
+                <Reference
+                    Name = "CodeSmith.VisualStudio.CodeGenerators"
+                    AssemblyName = "CodeSmith.VisualStudio.CodeGenerators"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\CodeSmith.VisualStudio.CodeGenerators.dll"
+                />
+                <Reference
+                    Name = "stdole"
+                    Guid = "{00020430-0000-0000-C000-000000000046}"
+                    VersionMajor = "2"
+                    VersionMinor = "0"
+                    Lcid = "0"
+                    WrapperTool = "primary"
+                />
+                <Reference
+                    Name = "CodeSmithUserControlHostLib"
+                    Guid = "{8C987544-D1B3-4B2D-B02C-822CBB3720A8}"
+                    VersionMajor = "1"
+                    VersionMinor = "0"
+                    Lcid = "0"
+                    WrapperTool = "tlbimp"
+                />
+                <Reference
+                    Name = "Extensibility"
+                    AssemblyName = "Extensibility"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\Extensibility.dll"
+                />
+                <Reference
+                    Name = "Interop.ADODB"
+                    AssemblyName = "Interop.ADODB"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\Interop.ADODB.DLL"
+                />
+                <Reference
+                    Name = "Interop.ADOX"
+                    AssemblyName = "Interop.ADOX"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\Interop.ADOX.DLL"
+                />
+                <Reference
+                    Name = "SampleCustomProperties"
+                    AssemblyName = "SampleCustomProperties"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\SampleCustomProperties.dll"
+                />
+                <Reference
+                    Name = "SchemaExplorer.ADOXSchemaProvider"
+                    AssemblyName = "SchemaExplorer.ADOXSchemaProvider"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\SchemaExplorer.ADOXSchemaProvider.dll"
+                />
+                <Reference
+                    Name = "SchemaExplorer"
+                    AssemblyName = "SchemaExplorer"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\SchemaExplorer.DLL"
+                />
+                <Reference
+                    Name = "SchemaExplorer.SqlSchemaProvider"
+                    AssemblyName = "SchemaExplorer.SqlSchemaProvider"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\SchemaExplorer.SqlSchemaProvider.dll"
+                />
+                <Reference
+                    Name = "SHDocVw"
+                    AssemblyName = "SHDocVw"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\SHDocVw.DLL"
+                />
+                <Reference
+                    Name = "Xheo.Licensing"
+                    AssemblyName = "Xheo.Licensing"
+                    HintPath = "..\..\..\..\..\Programme\CodeSmith\v2.6\Xheo.Licensing.dll"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyHandler.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FSMHelper.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "TestClass.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+
