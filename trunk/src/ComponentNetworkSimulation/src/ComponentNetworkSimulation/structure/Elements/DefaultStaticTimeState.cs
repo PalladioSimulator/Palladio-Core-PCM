@@ -9,6 +9,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.5  2004/06/26 15:41:14  joemal
+	/// - fix bug in method equals
+	///
 	/// Revision 1.4  2004/06/23 14:35:25  joemal
 	/// add equals methods
 	///
@@ -51,6 +54,16 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		{
 
 		}
+
+		/// <summary>
+		/// Default implementation of GetHashCode
+		/// </summary>
+		/// <returns></returns>
+		public override int GetHashCode()
+		{
+			return base.GetHashCode ();
+		}
+
 		
 		/// <summary>
 		///		Default implementation of Equals.
@@ -59,8 +72,8 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		///		The other object.
 		///	</param>
 		/// <returns>
-		///		True, if Name, IsStartState and
-		///		IsFinalState are Equal; false otherwise.
+		///		True, if Name, IsStartState, IsFinalState 
+		///		and the static time are Equal; false otherwise.
 		///	</returns>
 		public override bool Equals(object obj) 
 		{

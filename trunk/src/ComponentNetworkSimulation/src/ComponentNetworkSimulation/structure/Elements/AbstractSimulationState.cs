@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.9  2004/06/26 15:41:15  joemal
+	/// - fix bug in method equals
+	///
 	/// Revision 1.8  2004/06/23 16:31:14  joemal
 	/// now delegate all methods to the default state created with the FSM Factory
 	///
@@ -167,10 +170,13 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		///	</returns>
 		public override bool Equals(object obj) 
 		{
-			if (!delegat.Equals(obj)) return false;
 			if (!(obj is ISimulationState)) return false;
+			ISimulationState state = (ISimulationState)obj;
 
-			return ((ISimulationState)obj).ControlFlowStrategy == this.ControlFlowStrategy;
+			return (state.ControlFlowStrategy == this.ControlFlowStrategy &&
+					state.LoggingType == this.LoggingType &&
+					state.ID == this.ID
+				);
 		}
 
 		/// <summary>
