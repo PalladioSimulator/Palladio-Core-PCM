@@ -2,6 +2,7 @@ using System;
 using NUnit.Framework;
 
 using ComponentNetworkSimulation.Structure.Visitor;
+using ComponentNetworkSimulation.Structure;
 using Palladio.FiniteStateMachines;
 
 namespace nunittests.structure
@@ -13,6 +14,9 @@ namespace nunittests.structure
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/05/26 16:38:46  joemal
+	/// xxx
+	///
 	/// Revision 1.1  2004/05/24 16:00:14  joemal
 	/// initial creation
 	///
@@ -45,7 +49,7 @@ namespace nunittests.structure
 			IFiniteStateMachine fsm = TestArchitectures.createFSM();
 			StateHash sh = new StateHash(fsm.States);
 
-			visitor.SetStart(fsm);
+			visitor.SetStart(new DefaultThreadStartingPoint(fsm));
 			Assert.AreSame(fsm.StartState,visitor.CurrentTimeConsumer);
 			visitor.NextTimeConsumer();
 			Assert.AreSame(sh["1"],visitor.CurrentTimeConsumer);			
@@ -71,7 +75,7 @@ namespace nunittests.structure
 			IFiniteStateMachine fsm = TestArchitectures.createFSMSEqualsFOneT();
 			StateHash sh = new StateHash(fsm.States);
 
-			visitor.SetStart(fsm);
+			visitor.SetStart(new DefaultThreadStartingPoint(fsm));
 			Assert.AreSame(fsm.StartState,visitor.CurrentTimeConsumer);
 
 			int count = 0;

@@ -1,6 +1,9 @@
 using System;
 using NUnit.Framework;
 using ComponentNetworkSimulation.Simulation;
+using ComponentNetworkSimulation.Structure;
+
+using nunittests.structure;
 
 namespace nunittests.simulation
 {
@@ -26,69 +29,63 @@ namespace nunittests.simulation
 		[Test]
 		public void test_single_thread()
 		{
-			ISimulationThread testThread =new DefaultSimulationThread(0,Component.createPath1(),
-				SimulationThreadType.TYPE_LOG_ON_LPS,this);
+			IThreadStartingPoint start = new DefaultThreadStartingPoint(TestArchitectures.createFSM());
+			ISimulationThread testThread =new DefaultSimulationThread(0,start,SimulationThreadType.TYPE_LOG_ON_LPS,this);
 
-			Assert.AreEqual(testThread.TimeInFuture,2);
+			Assert.AreEqual(testThread.TimeInFuture,5);
 			testThread.TimeMoved(1);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,1);
-			testThread.TimeMoved(1);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,3);
-			testThread.TimeMoved(3);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,10);
-			testThread.TimeMoved(10);
-			Assert.IsFalse(testThread.IsAlive);
-		}
-
-		[Test]
-		public void test_single_thread_with_zero_tc()
-		{
-			ISimulationThread testThread =new DefaultSimulationThread(0,Component.createPath_with_Zero_TC(),
-				SimulationThreadType.TYPE_LOG_ON_LPS,this);
-
-			Assert.AreEqual(testThread.TimeInFuture,6);
-			testThread.TimeMoved(6);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,0);
-			testThread.TimeMoved(0);
 			Assert.IsTrue(testThread.IsAlive);
 
 			Assert.AreEqual(testThread.TimeInFuture,4);
 			testThread.TimeMoved(4);
+			Assert.IsTrue(testThread.IsAlive);
+
+			Assert.AreEqual(testThread.TimeInFuture,7);
+			testThread.TimeMoved(7);
+			Assert.IsTrue(testThread.IsAlive);
+
+			if (testThread.TimeInFuture == 3)
+			{
+				Console.WriteLine("long way");
+				testThread.TimeMoved(3);
+			}
+			Assert.AreEqual(testThread.TimeInFuture,8);
+			testThread.TimeMoved(8);
 			Assert.IsFalse(testThread.IsAlive);
 		}
 
 		[Test]
 		public void test_periodic_thread_short_period()
 		{
-			DefaultPeriodicSimulationThread testThread = new DefaultPeriodicSimulationThread(3,0,0,Component.createPath1(),
+			IThreadStartingPoint start = new DefaultThreadStartingPoint(TestArchitectures.createFSM());
+
+			DefaultPeriodicSimulationThread testThread = new DefaultPeriodicSimulationThread(7,0,0,start,
 				SimulationThreadType.TYPE_LOG_ON_LPS,this);
 			testThread.NewPeriodicThreadEvent += new EventHandler(OnNewPeriodicThread);
 
-			Assert.AreEqual(testThread.TimeInFuture,2);
+			Assert.AreEqual(testThread.TimeInFuture,5);
 			testThread.TimeMoved(testThread.TimeInFuture);
 			Assert.IsTrue(testThread.IsAlive);
 			Assert.IsFalse(this.newThreadCreated);
 
-			Assert.AreEqual(testThread.TimeInFuture,1);
-			testThread.TimeMoved(testThread.TimeInFuture);
-			Assert.IsTrue(testThread.IsAlive);
-			Assert.IsTrue(this.newThreadCreated);
-
 			Assert.AreEqual(testThread.TimeInFuture,2);
 			testThread.TimeMoved(testThread.TimeInFuture);
 			Assert.IsTrue(testThread.IsAlive);
 			Assert.IsTrue(this.newThreadCreated);
 
-			Assert.AreEqual(testThread.TimeInFuture,10);
+			Assert.AreEqual(testThread.TimeInFuture,5);
 			testThread.TimeMoved(testThread.TimeInFuture);
+			Assert.IsTrue(testThread.IsAlive);
+			Assert.IsTrue(this.newThreadCreated);
+
+			if (testThread.TimeInFuture == 3)
+			{
+				Console.WriteLine("long way");
+				testThread.TimeMoved(3);
+				Assert.IsTrue(this.newThreadCreated);
+			}
+			Assert.AreEqual(testThread.TimeInFuture,8);
+			testThread.TimeMoved(8);
 			Assert.IsFalse(testThread.IsAlive);
 			Assert.IsTrue(this.newThreadCreated);
 		}
@@ -96,54 +93,38 @@ namespace nunittests.simulation
 		[Test]
 		public void test_periodic_thread_long_period()
 		{
-			DefaultPeriodicSimulationThread testThread = new DefaultPeriodicSimulationThread(20,0,0,Component.createPath1(),
+			IThreadStartingPoint start = new DefaultThreadStartingPoint(TestArchitectures.createFSM());
+
+			DefaultPeriodicSimulationThread testThread = new DefaultPeriodicSimulationThread(30,0,0,start,
 				SimulationThreadType.TYPE_LOG_ON_LPS,this);
 			testThread.NewPeriodicThreadEvent += new EventHandler(OnNewPeriodicThread);
-
-			Assert.AreEqual(testThread.TimeInFuture,2);
-			testThread.TimeMoved(testThread.TimeInFuture);
-			Assert.IsTrue(testThread.IsAlive);
-			Assert.IsFalse(this.newThreadCreated);
-
-			Assert.AreEqual(testThread.TimeInFuture,3);
-			testThread.TimeMoved(testThread.TimeInFuture);
-			Assert.IsTrue(testThread.IsAlive);
-			Assert.IsFalse(this.newThreadCreated);
-
-			Assert.AreEqual(testThread.TimeInFuture,10);
-			testThread.TimeMoved(testThread.TimeInFuture);
-			Assert.IsTrue(testThread.IsAlive);
-			Assert.IsFalse(this.newThreadCreated);
 
 			Assert.AreEqual(testThread.TimeInFuture,5);
 			testThread.TimeMoved(testThread.TimeInFuture);
-			Assert.IsFalse(testThread.IsAlive);
-			Assert.IsTrue(this.newThreadCreated);
-		}
+			Assert.IsTrue(testThread.IsAlive);
+			Assert.IsFalse(this.newThreadCreated);
 
-		[Test]
-		public void test_periodic_thread_long_period_zero_tc()
-		{
-			DefaultPeriodicSimulationThread testThread = new DefaultPeriodicSimulationThread(20,0,0,Component.createPath_with_Zero_TC(),
-				SimulationThreadType.TYPE_LOG_ON_LPS,this);
-			testThread.NewPeriodicThreadEvent += new EventHandler(OnNewPeriodicThread);
-
-			Assert.AreEqual(testThread.TimeInFuture,6);
+			Assert.AreEqual(testThread.TimeInFuture,7);
 			testThread.TimeMoved(testThread.TimeInFuture);
 			Assert.IsTrue(testThread.IsAlive);
 			Assert.IsFalse(this.newThreadCreated);
 
-			Assert.AreEqual(testThread.TimeInFuture,0);
-			testThread.TimeMoved(testThread.TimeInFuture);
+			int time = 12;
+			if (testThread.TimeInFuture == 3)
+			{
+				Console.WriteLine("long way");
+				testThread.TimeMoved(3);
+				Assert.IsFalse(this.newThreadCreated);
+				time += 3;
+			}
+
+			time += 8;
+			Assert.AreEqual(testThread.TimeInFuture,8);
+			testThread.TimeMoved(8);
 			Assert.IsTrue(testThread.IsAlive);
 			Assert.IsFalse(this.newThreadCreated);
 
-			Assert.AreEqual(testThread.TimeInFuture,4);
-			testThread.TimeMoved(testThread.TimeInFuture);
-			Assert.IsTrue(testThread.IsAlive);
-			Assert.IsFalse(this.newThreadCreated);
-
-			Assert.AreEqual(testThread.TimeInFuture,10);
+			Assert.AreEqual(testThread.TimeInFuture,30-time);
 			testThread.TimeMoved(testThread.TimeInFuture);
 			Assert.IsFalse(testThread.IsAlive);
 			Assert.IsTrue(this.newThreadCreated);
@@ -158,96 +139,6 @@ namespace nunittests.simulation
 			Assert.AreEqual(((IPeriodicSimulationThread)newThread).PeriodID,0);
 			Assert.AreEqual(newThread.ThreadID,1);
 			Assert.IsTrue(newThread.IsAlive);
-		}
-
-		[Test]
-		public void test_single_thread_with_subcalls_1()
-		{
-			ISimulationThread testThread =new DefaultSimulationThread(0,ExternalCall.CreatePathStartingWithTimeConsumer(),
-				SimulationThreadType.TYPE_LOG_ON_LPS,this);
-
-			Assert.AreEqual(testThread.TimeInFuture,6);
-			testThread.TimeMoved(6);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,1);
-			testThread.TimeMoved(1);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,2);
-			testThread.TimeMoved(2);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,3);
-			testThread.TimeMoved(3);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,10);
-			testThread.TimeMoved(10);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,2);
-			testThread.TimeMoved(2);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,3);
-			testThread.TimeMoved(3);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,10);
-			testThread.TimeMoved(10);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,5);
-			testThread.TimeMoved(5);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,5);
-			testThread.TimeMoved(5);
-			Assert.IsFalse(testThread.IsAlive);
-		}
-
-		[Test]
-		public void test_single_thread_with_subcalls_2()
-		{
-			ISimulationThread testThread =new DefaultSimulationThread(0,ExternalCall.CreatePathStartingWithSubCall(),
-				SimulationThreadType.TYPE_LOG_ON_LPS,this);
-
-			Assert.AreEqual(testThread.TimeInFuture,1);
-			testThread.TimeMoved(1);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,2);
-			testThread.TimeMoved(2);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,3);
-			testThread.TimeMoved(3);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,10);
-			testThread.TimeMoved(10);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,2);
-			testThread.TimeMoved(2);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,3);
-			testThread.TimeMoved(3);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,10);
-			testThread.TimeMoved(10);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,5);
-			testThread.TimeMoved(5);
-			Assert.IsTrue(testThread.IsAlive);
-
-			Assert.AreEqual(testThread.TimeInFuture,5);
-			testThread.TimeMoved(5);
-			Assert.IsFalse(testThread.IsAlive);
 		}
 
 		#region IThreadObserver Member

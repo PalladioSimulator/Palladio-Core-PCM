@@ -150,7 +150,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\analysis\datapools\ConsoleWriterDataPool.cs"
+                    RelPath = "src\ComponentNetworkSimulation\analysis\datapools\TextWriterDataPool.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -171,11 +171,6 @@
                 />
                 <File
                     RelPath = "src\ComponentNetworkSimulation\simulation\DefaultSimulationThread.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ComponentNetworkSimulation\simulation\DefaultSimulationThreadTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -255,17 +250,17 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\ISubCallingTimeConsumer.cs"
+                    RelPath = "src\ComponentNetworkSimulation\structure\DefaultThreadStartingPoint.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\IThreadStartingPoint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\ComponentNetworkSimulation\structure\ITimeConsumer.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\SimpleTestComponentNetwork.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -386,11 +381,6 @@
                 />
                 <File
                     RelPath = "src\nunittests\simulation\ClockTest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\nunittests\simulation\Component.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

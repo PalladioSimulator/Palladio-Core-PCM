@@ -2,6 +2,8 @@ using System;
 using ComponentNetworkSimulation.Simulation;
 using ComponentNetworkSimulation.Structure;
 
+using nunittests.structure;
+
 namespace nunittests.simulation
 {
 	using NUnit.Framework;
@@ -16,6 +18,9 @@ namespace nunittests.simulation
 		protected long nextClockStopTime;
 		protected long lastTime;
 		protected Random random = new Random();
+		IThreadStartingPoint start1 = new DefaultThreadStartingPoint(TestArchitectures.createFSM());
+		IThreadStartingPoint start2 = new DefaultThreadStartingPoint(TestArchitectures.createFSM2());
+
 
 		public ClockTest()
 		{
@@ -42,7 +47,7 @@ namespace nunittests.simulation
 		public void validateSimulationWithOneThread()
 		{
 			clock.Reset();
-			clock.ThreadScheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS);
+			clock.ThreadScheduler.CreateSimulationThread(start1,SimulationThreadType.TYPE_LOG_ON_LPS);
 			int steps = 1;
 			while(clock.SimulationStep()) 
 			{
@@ -50,25 +55,23 @@ namespace nunittests.simulation
 				if (steps > 10) 
 					throw(new Exception("Clock works to long: "+steps));
 			}
-			Assert.AreEqual(clock.CurrentTime,15);
-			Assert.AreEqual(steps,3);
+			Assert.IsTrue((clock.CurrentTime == 20 && steps == 3) || (clock.CurrentTime == 23 && steps == 4));
 		}
 		
 		[Test]
 		public void validateSimulationWithTwoThread()
 		{
 			clock.Reset();
-			clock.ThreadScheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS);
-			clock.ThreadScheduler.CreateSimulationThread(Component.createPath2(),SimulationThreadType.TYPE_LOG_ON_LPS);
+			clock.ThreadScheduler.CreateSimulationThread(start1,SimulationThreadType.TYPE_LOG_ON_LPS);
+			clock.ThreadScheduler.CreateSimulationThread(start2,SimulationThreadType.TYPE_LOG_ON_LPS);
 			int steps = 1;
 			while(clock.SimulationStep()) 
 			{
 				steps++;
-				if (steps > 10) 
+				if (steps > 30) 
 					throw(new Exception("Clock works to long: "+steps));
 			}
-			Assert.AreEqual(clock.CurrentTime,15);
-			Assert.AreEqual(steps,4);
+			Assert.IsTrue(clock.CurrentTime>=20);
 		}
 
 		[Test]
@@ -76,8 +79,8 @@ namespace nunittests.simulation
 		{
 			clock.MaximumSimulationTime = 8;
 			clock.Reset();
-			clock.ThreadScheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS);
-			clock.ThreadScheduler.CreateSimulationThread(Component.createPath2(),SimulationThreadType.TYPE_LOG_ON_LPS);
+			clock.ThreadScheduler.CreateSimulationThread(start1,SimulationThreadType.TYPE_LOG_ON_LPS);
+			clock.ThreadScheduler.CreateSimulationThread(start2,SimulationThreadType.TYPE_LOG_ON_LPS);
 			int steps = 1;
 			while(clock.SimulationStep()) 
 			{
@@ -86,7 +89,7 @@ namespace nunittests.simulation
 					throw(new Exception("Clock works to long: "+steps));
 			}
 			Assert.AreEqual(clock.CurrentTime,8);
-			Assert.AreEqual(steps,3);
+			Assert.IsTrue(steps==3 || steps == 4);
 		}
 
 		[Test]
@@ -94,7 +97,7 @@ namespace nunittests.simulation
 		{
 			clock.MaximumSimulationTime = 30;
 			clock.Reset();
-			clock.ThreadScheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS);
+			clock.ThreadScheduler.CreateSimulationThread(start2,SimulationThreadType.TYPE_LOG_ON_LPS);
 			SetNextClockStopTime();
 			while(clock.SimulationStep());
 

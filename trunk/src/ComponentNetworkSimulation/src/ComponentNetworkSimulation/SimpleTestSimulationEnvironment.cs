@@ -9,7 +9,7 @@ namespace ComponentNetworkSimulation
 	/// <summary>
 	/// Zusammenfassung für SimpleTestSimulationEnvironment.
 	/// </summary>
-	public class SimpleTestSimulationEnvironment : AbstractSimulationEnvironment 
+/*	public class SimpleTestSimulationEnvironment : AbstractSimulationEnvironment 
 	{
 		public SimpleTestSimulationEnvironment()
 		{
@@ -32,8 +32,8 @@ namespace ComponentNetworkSimulation
 
 		protected override void CreateSystemSimulationThreads()
 		{
-			foreach(ITimeConsumer tc in this.TheComponentNetwork.getSystemServices())
-				this.Clock.ThreadScheduler.CreateSimulationThread(tc,SimulationThreadType.TYPE_LOG_ALL);
+		//	foreach(ITimeConsumer tc in this.TheComponentNetwork.getSystemServices())
+		//		this.Clock.ThreadScheduler.CreateSimulationThread(tc,SimulationThreadType.TYPE_LOG_ALL);
 		}
-	}
+	}*/
 }
