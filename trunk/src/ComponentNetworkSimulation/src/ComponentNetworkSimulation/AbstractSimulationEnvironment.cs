@@ -1,5 +1,6 @@
 using ComponentNetworkSimulation.structure;
 using ComponentNetworkSimulation.simulation;
+using ComponentNetworkSimulation.analysis;
 
 namespace ComponentNetworkSimulation
 {
@@ -26,6 +27,7 @@ namespace ComponentNetworkSimulation
 		{
 			this.clock.reset();
 			this.componentNetwork.reset();
+			this.dataPool.reset();
 			this.createSystemSimulationThreads();
 		}
 
@@ -39,13 +41,21 @@ namespace ComponentNetworkSimulation
 			return this.componentNetwork;
 		}
 
+		public AbstractDataPool getDataPool() 
+		{
+			return this.dataPool;
+		}
+
 		protected abstract void createSystemSimulationThreads();
 		
 		protected abstract Clock createClock();
 
 		protected abstract AbstractComponentNetwork createComponentNetwork();
 
+		protected abstract AbstractDataPool createDataPool();
+
 		protected Clock clock = null;
 		protected AbstractComponentNetwork componentNetwork = null;
+		protected AbstractDataPool dataPool = null;
 	}	
 }

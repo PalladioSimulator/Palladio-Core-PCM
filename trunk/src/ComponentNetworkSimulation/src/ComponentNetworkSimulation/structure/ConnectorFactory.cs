@@ -1,15 +1,15 @@
-namespace ComponentNetworkSimulation.structure.connectors
+namespace ComponentNetworkSimulation.structure
 {
 	public class ConnectorFactory
 	{
 		public static ComponentNetworkSimulation.structure.AbstractConnector createZeroTimeConnector(int id)
 		{
-			return new ZeroDelayConnector(id);
+			return new connectors.ZeroDelayConnector(id);
 		}
 
 		public static ComponentNetworkSimulation.structure.AbstractConnector createConstantTimeConnector(int id,long delayTime)
 		{
-			return new ConstantTimeConnector(id,delayTime);
+			return new connectors.ConstantTimeConnector(id,delayTime);
 		}
 	}
 }
