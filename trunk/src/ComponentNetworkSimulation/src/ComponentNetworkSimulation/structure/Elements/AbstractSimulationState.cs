@@ -10,6 +10,9 @@ namespace ComponentNetworkSimulation.Structure.Services
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/05/20 14:14:01  joemal
+	/// replace the single parameters of the state with a parameterstructure
+	///
 	/// Revision 1.1  2004/05/18 16:27:22  joemal
 	/// initial creation
 	///
@@ -20,16 +23,13 @@ namespace ComponentNetworkSimulation.Structure.Services
 	{
 		#region data
 
-		//holds the strategy object used to find the path through the FSMs.
-		private IControlFlowStrategy strategy;
-
-		// the id of the state
-		private string id;
+		/// <summary>
+		/// holds the structure with the state parameters
+		/// </summary>
+		protected ISimulationStateParams stateParams;
 
 		// the attribute hashtable
 		private IAttributeHash attributes = new AttributesFactory().Default.CreateAttributeHash();
-
-		private LoggingType_t loggingType;
 
 		#endregion
 
@@ -40,11 +40,9 @@ namespace ComponentNetworkSimulation.Structure.Services
 		/// </summary>
 		/// <param name="id">the id of the state</param>
 		/// <param name="strategy">the strategy object used to find the path through the FSMs.</param>
-		public AbstractSimulationState(string id, IControlFlowStrategy strategy, LoggingType_t loggingType)
+		public AbstractSimulationState(ISimulationStateParams param)
 		{
-			this.strategy = strategy;
-			this.id = id;
-			this.loggingType = loggingType;
+			this.stateParams = param;
 		}
 
 		#endregion
@@ -58,7 +56,7 @@ namespace ComponentNetworkSimulation.Structure.Services
 		{
 			get
 			{
-				return this.strategy;
+				return this.stateParams.ControlFlowStrategy;
 			}
 		}
 
@@ -69,7 +67,7 @@ namespace ComponentNetworkSimulation.Structure.Services
 		{
 			get
 			{
-				return this.id;
+				return this.stateParams.ID;
 			}
 		}
 
@@ -122,7 +120,7 @@ namespace ComponentNetworkSimulation.Structure.Services
 		{
 			get
 			{
-				return this.loggingType;
+				return this.stateParams.LoggingType;
 			}
 		}
 
@@ -139,8 +137,15 @@ namespace ComponentNetworkSimulation.Structure.Services
 		{
 		}
 
+		/// <summary>
+		/// called, when a thread entered this state
+		/// </summary>
+		/// <returns>the time, the thread has to wait in this state</returns>
 		public abstract long ThreadEntered();
 
+		/// <summary>
+		/// called, when a thread want to leave this state.
+		/// </summary>
 		public abstract void ThreadExited();
 
 		#endregion
