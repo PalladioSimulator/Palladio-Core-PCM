@@ -130,6 +130,21 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\IComponentBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\ICompositeBaseBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\ICompositeComponentBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\IInterfaceBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

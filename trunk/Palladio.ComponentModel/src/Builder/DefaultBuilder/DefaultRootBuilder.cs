@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/03/17 19:54:12  kelsaka
+	/// - added builder-interfaces
+	///
 	/// Revision 1.1  2005/03/17 18:30:35  kelsaka
 	/// - added first builder-interfaces
 	///
@@ -33,6 +36,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <summary>
 		/// Creates a new <see cref="IBasicComponentBuilder"/>, which allows to create new components.
 		/// </summary>
+		/// <returns>The new ComponentBuilder.</returns		
+		public IComponentBuilder AddComponent (IComponent component, IComponentIdentifier parentComponentID)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Creates a new <see cref="IBasicComponentBuilder"/>, which allows to create new components.
+		/// </summary>
 		/// <returns>The new ComponentBuilder.</returns>
 		public IBasicComponentBuilder AddBasicComponent (string name)
 		{
@@ -45,7 +57,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			return new DefaultBasicComponentBuilder(lowLevelBuilder);
 		}
 
-		public IBasicComponentBuilder AddCompositeComponent (string name)
+		public ICompositeComponentBuilder AddCompositeComponent (string name)
 		{
 			throw new NotImplementedException ();
 		}
@@ -70,7 +82,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// Creates a new <see cref="IInterfaceBuilder"/>, which allows to create new interfaces.
 		/// </summary>
 		/// <returns>A new InterfaceBuilder.</returns>
-		public IInterfaceBuilder CreateInterface ()
+		public IInterfaceBuilder AddInterface ()
 		{
 			throw new NotImplementedException ();
 		}
