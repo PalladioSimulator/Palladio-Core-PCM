@@ -256,7 +256,14 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 				transList = new Vector();
 				inputTable[aTrans.InputSymbol] = transList;
 			}
-			transList.Add(aTrans);
+			if (!transList.Contains(aTrans))
+			{
+				transList.Add(aTrans);
+			}
+			else
+			{
+				throw new TransitionAlreadyDefinedException(aTrans);
+			}
 		}
 
 		private void AddToRevTransTable(ITransition aTrans)
