@@ -1,6 +1,6 @@
 using System;
-using Palladio.FiniteStateMachines;
-using ComponentNetworkSimulation.Structure.Services;
+using ComponentNetworkSimulation.Structure.Elements;
+using ComponentNetworkSimulation.Structure.Builder;
 using ComponentNetworkSimulation.Structure;
 
 namespace nunittests.structure
@@ -12,6 +12,9 @@ namespace nunittests.structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.4  2004/06/23 16:35:39  joemal
+	/// xxxx
+	///
 	/// Revision 1.3  2004/05/27 10:31:47  joemal
 	/// xxx
 	///
@@ -27,63 +30,69 @@ namespace nunittests.structure
 
 	public class TestArchitectures
 	{
-
-		public static IFiniteStateMachine createFSM() 
+		public static void CreateC1(IBasicComponentBuilder builder)
 		{
-			IServiceBuilder builder = new DefaultServiceBuilder();
+			//only to test the get methods of the service builder
+			builder.AddService(ID("P1"),ID("d1"));
+			builder.AddService(ID("P1"),ID("d2"));
 
-			IControlFlowStrategy strategy = builder.GetControlFlowStrategy(DefaultServiceBuilder.STRATEGY_RANDOM);
-
-			builder.AddState(new StaticTimeStateParams("0",strategy,LoggingType_t.NO_LOG,5));
-			builder.AddState(new StaticTimeStateParams("1",strategy,LoggingType_t.NO_LOG,7));
-			builder.AddState(new StaticTimeStateParams("2",strategy,LoggingType_t.NO_LOG,3));
-			builder.AddState(new StaticTimeStateParams("3",strategy,LoggingType_t.NO_LOG,8));
-
-			builder.SetFinalStates(new String[]{"3"});
-			builder.SetStartState("0");
-
-			builder.AddTransition("0","e0","1");
-			builder.AddTransition("1","e1","2");
-			builder.AddTransition("1","e2","3");
-			builder.AddTransition("2","e2","3");
-
-			return builder.BuildService();
+			//creates service d1 and d2
+			TestArchitectures.CreateServiceD1(builder.GetServiceBuilder(ID("P1"),ID("d1")));
+			TestArchitectures.CreateServiceD2(builder.GetServiceBuilder(ID("P1"),ID("d2")));				
 		}
 
-		public static IFiniteStateMachine createFSM2() 
-		{
-			IServiceBuilder builder = new DefaultServiceBuilder();
-
-			IControlFlowStrategy strategy = builder.GetControlFlowStrategy(DefaultServiceBuilder.STRATEGY_RANDOM);
-
-			builder.AddState(new StaticTimeStateParams("0",strategy,LoggingType_t.NO_LOG,2));
-			builder.AddState(new StaticTimeStateParams("1",strategy,LoggingType_t.NO_LOG,3));
-			builder.AddState(new StaticTimeStateParams("2",strategy,LoggingType_t.NO_LOG,1));
-			builder.AddState(new StaticTimeStateParams("3",strategy,LoggingType_t.NO_LOG,6));
-
-			builder.SetFinalStates(new String[]{"3"});
-			builder.SetStartState("0");
-
-			builder.AddTransition("0","e0","1");
-			builder.AddTransition("1","e2","2");
-			builder.AddTransition("2","e3","1");
-			builder.AddTransition("1","e1","3");
-
-			return builder.BuildService();
+		public static void CreateC2(IBasicComponentBuilder builder)
+		{	
+			//creates service e1 to d4
+			CreateEmptyService(builder.AddService(ID("P2"),ID("e1")),"C2->e1->1");
+			CreateEmptyService(builder.AddService(ID("P2"),ID("e2")),"C2->e2->1");
+			CreateEmptyService(builder.AddService(ID("P2"),ID("e3")),"C2->e3->1");
+			CreateEmptyService(builder.AddService(ID("P2"),ID("e4")),"C2->e44->1");
 		}
 
-		public static IFiniteStateMachine createFSMSEqualsFOneT() 
+		public static void CreateServiceD1(IServiceBuilder builder)
 		{
-			IServiceBuilder builder = new DefaultServiceBuilder();
-			IControlFlowStrategy strategy = builder.GetControlFlowStrategy(DefaultServiceBuilder.STRATEGY_RANDOM);
+			builder.AddState(CP("d1->1",5));
+			builder.AddState(CP("d1->2",3));
+			builder.AddState(CP("d1->3",7));
 
-			builder.AddState(new StaticTimeStateParams("0",strategy,LoggingType_t.NO_LOG,5));
-			builder.SetFinalStates(new String[]{"0"});
-			builder.SetStartState("0");
-            
-			builder.AddTransition("0","e0","0");
+			builder.SetStartState("d1->1");
+			builder.SetFinalStates("d1->3");
 
-			return builder.BuildService();
+			builder.AddTransition("d1->1",ID("e1"),ID("R1"),"d1->2");
+			builder.AddTransition("d1->2",ID("e2"),ID("R1"),"d1->1");
+			builder.AddTransition("d1->1",ID("e4"),ID("R1"),"d1->3");
+		}
+
+		public static void CreateServiceD2(IServiceBuilder builder)
+		{
+			builder.AddState(CP("d2->1",3));
+			builder.AddState(CP("d2->2",4));
+
+			builder.SetStartState("d2->1");
+			builder.SetFinalStates("d2->2");
+
+			builder.AddTransition("d2->1",ID("e3"),ID("R1"),"d2->2");
+		}
+
+		public static void CreateEmptyService(IServiceBuilder builder, string service)
+		{
+			string statename = "C2->"+service+"->1";
+			builder.AddState(CP(statename,10));
+
+			builder.SetStartState(statename);
+			builder.SetFinalStates(statename);
+		}
+
+
+		public static ISimulationStateParams CP(string id, long time)
+		{
+			return new StaticTimeStateParams(id,DefaultRandomStrategy.getInstance(),LoggingType_t.NO_LOG,time);
+		}
+
+		public static Palladio.Identifier.IIdentifier ID(string id)
+		{
+			return Palladio.Identifier.IdentifiableFactory.CreateStringID(id);
 		}
 	}
 }
