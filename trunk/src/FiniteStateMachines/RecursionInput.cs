@@ -1,7 +1,7 @@
 using System;
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 
-namespace ParameterisedContracts {
+namespace Palladio.ParameterisedContracts {
 	/// <summary>
 	/// Input symbol used to handle the terminal recursion.
 	/// 

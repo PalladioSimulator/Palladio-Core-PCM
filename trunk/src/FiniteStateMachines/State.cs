@@ -1,6 +1,6 @@
 using System;
 
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines {
 
 	/// <summary>
 	/// This class represents a default state type of a finite state machine. 

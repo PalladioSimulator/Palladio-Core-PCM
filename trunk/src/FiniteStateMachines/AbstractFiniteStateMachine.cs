@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using Utils.Collections;
 using Utils.Exceptions;
-using FiniteStateMachines.Decorators;
+using Palladio.FiniteStateMachines.Decorators;
 
 
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines 
+{
 
 	/// <summary>
 	///     The AbstractFiniteStateMachine implements some
@@ -14,7 +15,8 @@ namespace FiniteStateMachines {
 	///     
 	///     author: JH
 	/// </summary>
-	public abstract class AbstractFSM : IFiniteStateMachine {
+	public abstract class AbstractFSM : IFiniteStateMachine 
+	{
 		
 		/// <summary>
 		///     Constant for the name of an error state.
@@ -31,9 +33,12 @@ namespace FiniteStateMachines {
 		///     All transitions with an unallowed input
 		///     lead to this error state.
 		/// </summary>
-		public virtual IState ErrorState { 
-			get{
-				if(errorState == null){
+		public virtual IState ErrorState 
+		{ 
+			get
+			{
+				if(errorState == null)
+				{
 					errorState = CreateErrorState();
 				}
 				return errorState;
@@ -86,7 +91,8 @@ namespace FiniteStateMachines {
 		/// <param name="aTransition">
 		///		The transition to add to the automaton.
 		///	</param>
-		public virtual void AddTransition(Transition aTransition){
+		public virtual void AddTransition(Transition aTransition)
+		{
 			throw new MethodNotImplementedException();
 		}
 
@@ -99,7 +105,8 @@ namespace FiniteStateMachines {
 		/// <param name="aTransitionList">
 		///		A list of transitions.
 		///	</param>
-		public virtual void AddTransitionList(IList aTransitionList){
+		public virtual void AddTransitionList(IList aTransitionList)
+		{
 			throw new MethodNotImplementedException();
 		}
 
@@ -117,7 +124,8 @@ namespace FiniteStateMachines {
 		/// <returns>
 		///		The destination of the transition.
 		///	</returns>
-		public virtual IState GetNextState(IState aSourceState, Input anInput) {
+		public virtual IState GetNextState(IState aSourceState, Input anInput) 
+		{
 			return GetNextTransition(aSourceState,anInput).DestinationState;
 		}
 
@@ -132,11 +140,14 @@ namespace FiniteStateMachines {
 		///     The key of the Hashtable is the Input and the value the
 		///     corresponding Transition.
 		/// </returns>
-		public virtual IList GetOutgoingTransitions(IState aSourceState) {
+		public virtual IList GetOutgoingTransitions(IState aSourceState) 
+		{
 			IList result = new ArrayList();
-			foreach( Input input in InputAlphabet ) {
+			foreach( Input input in InputAlphabet ) 
+			{
 				Transition trans = GetNextTransition(aSourceState,input);
-				if ( trans.DestinationState != ErrorState ) {
+				if ( trans.DestinationState != ErrorState ) 
+				{
 					result.Add(trans);
 				}
 			}
@@ -155,7 +166,8 @@ namespace FiniteStateMachines {
 		/// <returns>
 		///		An IList containing all reachable States.
 		///	</returns>
-		public virtual IList GetReachableStates(IState aState) {
+		public virtual IList GetReachableStates(IState aState) 
+		{
 			IList resultSet = new ArrayList();
 			GetReachableStatesRecursive(aState,ref resultSet);
 			return resultSet;
@@ -174,12 +186,16 @@ namespace FiniteStateMachines {
 		/// <param name="resultSet">
 		///		An IList containing the visited states.
 		///	</param>
-		private void GetReachableStatesRecursive(IState aState,ref IList resultSet) {
-			if ((!resultSet.Contains(aState)) && (aState!=ErrorState)) {
+		private void GetReachableStatesRecursive(IState aState,ref IList resultSet) 
+		{
+			if ((!resultSet.Contains(aState)) && (aState!=ErrorState)) 
+			{
 				resultSet.Add(aState);
 				IList transitions = GetOutgoingTransitions(aState);
-				if (transitions != null) {
-					foreach (Transition trans in transitions) {
+				if (transitions != null) 
+				{
+					foreach (Transition trans in transitions) 
+					{
 						GetReachableStatesRecursive(trans.DestinationState,ref resultSet);
 					}
 				}
@@ -190,7 +206,8 @@ namespace FiniteStateMachines {
 		/// <summary>
 		///		Calculates a minimized version of the current FSM.
 		/// </summary>
-		public IFiniteStateMachine GetMinimzed() {
+		public IFiniteStateMachine GetMinimzed() 
+		{
 			//TODO: evtl TabFSM zurückgeben
 			return new MinimisedFSM(this);
 		}
@@ -206,8 +223,10 @@ namespace FiniteStateMachines {
 		/// <returns>
 		/// True if the other FSM accepts the same language, false otherwise.
 		/// </returns>
-		public override bool Equals(object obj) {
-			if ( obj is IFiniteStateMachine) {
+		public override bool Equals(object obj) 
+		{
+			if ( obj is IFiniteStateMachine) 
+			{
 				return AreEqual( this, (IFiniteStateMachine) obj );
 			} 
 			return false;
@@ -223,31 +242,42 @@ namespace FiniteStateMachines {
 		/// <returns>
 		/// True if the two FSMs accept the same language, false otherwise.
 		/// </returns>
-		public static bool AreEqual( IFiniteStateMachine aFsmOne, IFiniteStateMachine aFsmTwo ) {
+		public static bool AreEqual( IFiniteStateMachine aFsmOne, IFiniteStateMachine aFsmTwo ) 
+		{
 			IFiniteStateMachine minOne = new MinimisedFSM(aFsmOne);
 			IFiniteStateMachine minTwo = new MinimisedFSM(aFsmTwo);
 
 			DynamicStateIterator iter = new DynamicStateIterator(new DualState(aFsmOne.StartState,aFsmTwo.StartState));
-			while (iter.MoveNext()) {
+			while (iter.MoveNext()) 
+			{
 				DualState current = (DualState) iter.Current;
 				if ((current.oneState.IsFinalState == current.twoState.IsFinalState) &&
-					(current.oneState.IsStartState == current.twoState.IsStartState)) {
-					foreach (Input input in minOne.InputAlphabet) {
+					(current.oneState.IsStartState == current.twoState.IsStartState)) 
+				{
+					foreach (Input input in minOne.InputAlphabet) 
+					{
 						IState nextOne = minOne.GetNextState(current.oneState, input);
 						IState nextTwo = minTwo.GetNextState(current.twoState, input);	
 						if (( nextOne != minOne.ErrorState ) &&
-							( nextTwo != minTwo.ErrorState )) {
+							( nextTwo != minTwo.ErrorState )) 
+						{
 							iter.Append(new DualState (nextOne, nextTwo));
-						} else {
-							// at this point one at least of the states has to be 
-							// an errorstate, if the other is not the two FSMs are not equivalent
+						} 
+						else 
+						{
+							// At this point at least one of the states is 
+							// an ErrorState. If both states are ErrorStates the FSMs
+							// can still be equivalent, else they are not.
 							if (( nextOne != minOne.ErrorState ) ||
-								( nextTwo != minTwo.ErrorState )) {
+								( nextTwo != minTwo.ErrorState )) 
+							{
 								return false;
 							}
 						}
 					}
-				} else {
+				} 
+				else 
+				{
 					return false;
 				}
 			}
@@ -259,7 +289,8 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// 
 		/// <returns>Default error state.</returns>
-		public static IState CreateErrorState(){
+		public static IState CreateErrorState()
+		{
 			return new State(ERROR_STATE_NAME,false,false);
 		}
 
@@ -276,7 +307,8 @@ namespace FiniteStateMachines {
 		/// <returns>
 		///		A loaded version of the FSM described in aFilename.
 		///	</returns>
-		public static IFiniteStateMachine Loader(string aFilename) {
+		public static IFiniteStateMachine Loader(string aFilename) 
+		{
 			//Just Tabular FSM can be loaded at the moment
 			TabularFSM result = new TabularFSM();
 			result.Load(aFilename);
@@ -289,25 +321,34 @@ namespace FiniteStateMachines {
 		/// <returns>
 		///		A string describing the FSM.
 		/// </returns>
-		public override string ToString() {
+		public override string ToString() 
+		{
 			string result = "start state : ";
-			try {
+			try 
+			{
 				result += StartState+"\n";
 				result += "transitions : \n";
 				DynamicTransitionIterator iterator = new DynamicTransitionIterator(StartState,this);
-				while(iterator.MoveNext()){
+				while(iterator.MoveNext())
+				{
 					result += "\t"+iterator.Current+"\n";
 					iterator.Append(iterator.Current.DestinationState);
 				}
-			} catch (InvalidStateException e){
+			} 
+			catch (InvalidStateException e)
+			{
 				result += e.Message+"\n";
 			}	
-			try {
+			try 
+			{
 				result += "final states: ";
-				foreach (IState state in FinalStates) {
+				foreach (IState state in FinalStates) 
+				{
 					result += state + " ";
 				}
-			} catch (InvalidStateException e){
+			} 
+			catch (InvalidStateException e)
+			{
 				result += e.Message+"\n";
 			}	
 			return result;
@@ -319,8 +360,14 @@ namespace FiniteStateMachines {
 		/// <returns>
 		///		A hashcode.
 		/// </returns>
-		public override int GetHashCode() {
+		public override int GetHashCode() 
+		{
 			return base.GetHashCode();
+		}
+
+		public virtual object Clone() 
+		{
+			throw new MethodNotImplementedException();
 		}
 
 	}

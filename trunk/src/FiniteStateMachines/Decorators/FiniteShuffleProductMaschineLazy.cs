@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using Utils.Collections;
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 
-namespace FiniteStateMachines.Decorators {
+namespace Palladio.FiniteStateMachines.Decorators {
 	/// <summary>
 	///The FiniteShuffleProductMaschine (FSP) is a specialization of a normal FSM. Is generated out
 	/// of two FSMs. 

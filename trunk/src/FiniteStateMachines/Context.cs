@@ -1,7 +1,7 @@
 using System;
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 
-namespace ParameterisedContracts {
+namespace Palladio.ParameterisedContracts {
 	
 	/// <summary>
 	/// Represents the Context of a FSM. A Context consists of

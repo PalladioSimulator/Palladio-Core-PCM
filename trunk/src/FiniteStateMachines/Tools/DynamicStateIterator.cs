@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines {
 
 	/// <summary>
 	///		Dynamically iterates over a set of states constructed during

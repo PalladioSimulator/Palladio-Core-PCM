@@ -1,9 +1,9 @@
 using System;
 using Utils.Collections;
 using System.Collections;
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 
-namespace ParameterisedContracts {
+namespace Palladio.ParameterisedContracts {
 
 	/// <summary>
 	///		A CallingServiceFSM represents the inner context of a recursive

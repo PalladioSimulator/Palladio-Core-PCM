@@ -1,4 +1,4 @@
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines {
 	/// <summary>
 	/// Represents the transitions of the FSM.
 	/// 

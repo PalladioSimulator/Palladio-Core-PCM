@@ -1,6 +1,6 @@
 using System;
 
-namespace FiniteStateMachines
+namespace Palladio.FiniteStateMachines
 {
 	/// <summary>
 	///		Used to mark an input symbol without changing 

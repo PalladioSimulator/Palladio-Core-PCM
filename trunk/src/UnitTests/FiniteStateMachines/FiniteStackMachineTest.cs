@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using NUnit.Framework;
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 using Utils.Collections;
-using ParameterisedContracts;
+using Palladio.ParameterisedContracts;
 
 namespace UnitTests.FiniteStateMachines {
 	/// <summary>

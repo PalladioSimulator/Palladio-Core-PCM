@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Utils.Collections;
 
-namespace FiniteStateMachines.Decorators {
+namespace Palladio.FiniteStateMachines.Decorators {
 	
 	/// <summary>
 	/// The MinimisedFSM behaves like the original FSM. It accepts the same

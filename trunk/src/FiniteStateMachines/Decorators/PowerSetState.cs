@@ -1,8 +1,8 @@
 using System;
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 using Utils.Collections;
 
-namespace FiniteStateMachines.Decorators {
+namespace Palladio.FiniteStateMachines.Decorators {
 	/// <summary>
 	///		A PowerSetState consists of a set of regular states. 
 	///		

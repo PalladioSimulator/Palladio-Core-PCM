@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace FiniteStateMachines 
+namespace Palladio.FiniteStateMachines 
 {
 	/// <summary>
 	/// Íterates over the Transitions of a FSM.

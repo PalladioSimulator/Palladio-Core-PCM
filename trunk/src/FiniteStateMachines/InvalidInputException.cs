@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Utils.Collections;
 
-namespace FiniteStateMachines
+namespace Palladio.FiniteStateMachines
 {
 
 	public class InvalidInputException : Exception

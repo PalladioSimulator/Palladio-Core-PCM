@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Utils.Collections;
 
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines {
 	/// <summary>
 	/// Iterates over the States of a IFiniteStateMachine with depth-first-search
 	/// </summary>

@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 
-using FiniteStateMachines.Decorators;
+using Palladio.FiniteStateMachines.Decorators;
 using Utils.Collections;
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 
-namespace ParameterisedContracts {
+namespace Palladio.ParameterisedContracts {
 	
 	/// <summary>
 	///     Abstract class for simulating a conjunction of several

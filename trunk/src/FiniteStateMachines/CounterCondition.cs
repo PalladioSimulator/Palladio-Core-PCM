@@ -1,8 +1,8 @@
 using System;
 using Utils.Collections;
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 
-namespace ParameterisedContracts
+namespace Palladio.ParameterisedContracts
 {
 	/// <summary>
 	/// Class describing the basic functionality of a condition for a counter.

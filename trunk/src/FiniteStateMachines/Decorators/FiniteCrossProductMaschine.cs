@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Utils.Collections;
 
-namespace FiniteStateMachines.Decorators {
+namespace Palladio.FiniteStateMachines.Decorators {
 	/// <summary>
 	/// Generates a FiniteCrossProduktMaschine. A FiniteCrossProduktMaschine (FSP) is a 
 	/// specialization of a normal FSM. The FiniteCrossProduktMaschine is generated from

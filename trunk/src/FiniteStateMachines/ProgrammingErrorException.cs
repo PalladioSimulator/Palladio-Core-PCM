@@ -1,6 +1,6 @@
 using System;
 
-namespace FiniteStateMachines
+namespace Palladio.FiniteStateMachines
 {
 	
 	public class ProgrammingErrorException : Exception

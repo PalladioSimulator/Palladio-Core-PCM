@@ -1,7 +1,7 @@
 using System;
 using Utils.Collections;
 using NUnit.Framework;
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 
 namespace UnitTests.Utils.Collections
 {

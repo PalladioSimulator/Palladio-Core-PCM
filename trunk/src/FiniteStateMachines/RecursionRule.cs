@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 
-using FiniteStateMachines;
-using FiniteStateMachines.Decorators;
+using Palladio.FiniteStateMachines;
+using Palladio.FiniteStateMachines.Decorators;
 using Utils.Collections;
 
-namespace ParameterisedContracts {
+namespace Palladio.ParameterisedContracts {
 
 	/// <summary>
 	///		FSM representing the inner part of a recursive service call in a

@@ -3,7 +3,7 @@ using System.Collections;
 using Utils.Collections;
 
 
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines {
 
 	/// <summary>
 	///     All finite state machines have to implement this interface. It
@@ -118,6 +118,8 @@ namespace FiniteStateMachines {
 		/// 
 		/// <param name="aTransitionList">A list of transitions.</param>
 		void AddTransitionList(IList aTransitionList);
+
+		object Clone();
 	}
 
 }

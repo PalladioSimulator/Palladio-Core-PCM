@@ -1,6 +1,6 @@
 using System;
 
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines {
 	/// <summary>
 	///	Represents the input of a FSM.
 	///	

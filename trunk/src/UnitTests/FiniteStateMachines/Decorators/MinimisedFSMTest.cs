@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
-using FiniteStateMachines;
-using FiniteStateMachines.Decorators;
+using Palladio.FiniteStateMachines;
+using Palladio.FiniteStateMachines.Decorators;
 using NUnit.Framework;
 
 namespace UnitTests.FiniteStateMachines.Decorators {

@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 
-using FiniteStateMachines;
-using FiniteStateMachines.Decorators;
+using Palladio.FiniteStateMachines;
+using Palladio.FiniteStateMachines.Decorators;
 
-namespace ParameterisedContracts {
+namespace Palladio.ParameterisedContracts {
 	/// <summary>
 	///		The MachineReducer reduces a FSM using a set of other FSMs. 
 	///		It is assumed, that the FSM which should be reduced is a 

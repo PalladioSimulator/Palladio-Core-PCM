@@ -4,7 +4,7 @@ using System.Xml;
 using System.Xml.XPath;
 using Utils.Collections;
 
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines {
 	/// <summary>
 	///     The FiniteTabularMachine is the default implementation of the IFiniteStateMachine interface.
 	///     It uses a table of transitions as input to create the finite state

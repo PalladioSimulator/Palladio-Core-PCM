@@ -1,9 +1,9 @@
 using System;
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 using Utils.Collections;
 using System.Collections;
 
-namespace FiniteStateMachines.Decorators {
+namespace Palladio.FiniteStateMachines.Decorators {
 
 	/// <summary>
 	///     A FiniteEpsilonMachine is based on a regular finite state machine. For

@@ -1,6 +1,6 @@
 using System;
 
-namespace FiniteStateMachines.Decorators {
+namespace Palladio.FiniteStateMachines.Decorators {
 	/// <summary>
 	/// This is a special form of a <code>AbstrcatState</code>it contains of two 
 	/// <code>AbstractStates</code>. This is usefull when you are bulding

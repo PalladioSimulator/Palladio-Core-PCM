@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Utils.Collections;
 
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines {
 	/// <summary>
 	/// Helps to iterate over the States of a IFiniteStateMachine by brearh-first-search. 
 	/// When this class has been initiated, all states of this fsm are stored

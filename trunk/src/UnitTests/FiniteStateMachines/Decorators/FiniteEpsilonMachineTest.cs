@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
-using FiniteStateMachines;
-using FiniteStateMachines.Decorators;
+using Palladio.FiniteStateMachines;
+using Palladio.FiniteStateMachines.Decorators;
 using Utils.Collections;
 using System.Collections;
 

@@ -1,6 +1,6 @@
 using System;
 
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines {
 
 	/// <summary>
 	///		Class representing the abstract type of a state.

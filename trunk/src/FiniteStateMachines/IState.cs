@@ -1,6 +1,6 @@
 using System;
 
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines {
 	/// <summary>
 	/// Interface for states used by all FSMs.
 	/// </summary>

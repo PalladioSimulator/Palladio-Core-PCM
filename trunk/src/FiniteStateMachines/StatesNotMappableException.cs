@@ -1,6 +1,6 @@
 using System;
 
-namespace FiniteStateMachines
+namespace Palladio.FiniteStateMachines
 {
 	/// <summary>
 	/// Zusammenfassung für StatesNotMappableException.

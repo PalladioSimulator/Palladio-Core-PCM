@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
-using FiniteStateMachines;
-using ParameterisedContracts;
+using Palladio.FiniteStateMachines;
+using Palladio.ParameterisedContracts;
 
 namespace UnitTests.FiniteStateMachines {
 	/// <summary>

@@ -1,10 +1,10 @@
 using System;
-using FiniteStateMachines;
-using FiniteStateMachines.Decorators;
+using Palladio.FiniteStateMachines;
+using Palladio.FiniteStateMachines.Decorators;
 using Utils.Collections;
 using System.Collections;
 
-namespace ParameterisedContracts {
+namespace Palladio.ParameterisedContracts {
 
 	/// <summary>
 	///     The FiniteStateMachineExpander reconstructs all epsilon

@@ -1,9 +1,9 @@
 using System.Collections;
 using System;
 
-using FiniteStateMachines;
+using Palladio.FiniteStateMachines;
 
-namespace ParameterisedContracts {
+namespace Palladio.ParameterisedContracts {
 
 	/// <summary>
 	///		A StackState consists of a set of abstract states and a number of 

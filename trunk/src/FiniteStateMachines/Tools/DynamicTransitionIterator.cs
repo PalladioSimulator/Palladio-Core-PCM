@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace FiniteStateMachines {
+namespace Palladio.FiniteStateMachines {
 
 	/// <summary>
 	///		Dynamically iterates over a set of transitions. 
