@@ -21,6 +21,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2004/11/05 08:31:19  kelsaka
+	/// changed comment
+	///
 	/// Revision 1.11  2004/11/03 20:09:51  kelsaka
 	/// Added full support for POST-requests.
 	///
@@ -110,9 +113,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 			//TODO: Fix: Variables or other content containing "HTTP" let the webserver think having a HTTP-Request.
 			httpStartPos = requestString.IndexOf("HTTP", 0);
 
-			// Call the CoR-Successor, if the request is not a HTTP-Request. The HTTP-Parser is not the right chain
+			// Call the CoR-Successor, if the request is not a HTTP-Request. The HTTP-Parser is not the right chain link
 			// for this request.
-			// The HandleRequest-Method is called, as it is the standard way for the IRequest-Chain.
+			// The HandleRequest-Method is called, as it is the standard call for the IRequest-Chain.
 			if(httpStartPos == -1)
 			{
 				webserverMonitor.WriteLogEntry("Calling the COR-Successor as the actual request is not a HTTP-Request.");
