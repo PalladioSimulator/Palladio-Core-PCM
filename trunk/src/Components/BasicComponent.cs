@@ -50,7 +50,6 @@ namespace Palladio.ComponentModel.Components
 		public void ChangeServiceEffectSpecification(ISignature aSignature, ISignatureList aServEffSpec)
 		{
 			GetServiceEffectSpecification(aSignature);
-			CheckServiceEffect(aServEffSpec);
 			serviceEffectMap[aSignature] = aServEffSpec;
 		}
 
@@ -79,13 +78,6 @@ namespace Palladio.ComponentModel.Components
 					throw new SignatureHasNoServEffSpecException(sig);
 			}
 			
-			// each RequiresInterface needed by a service effect specification exists.
-			foreach (ISignatureList sigList in srvMap.Values)
-			{
-				CheckServiceEffect(sigList);
-			}
-
-
 			foreach( DictionaryEntry e in srvMap )
 			{
 				serviceEffectMap.Add(e.Key,e.Value);
@@ -182,22 +174,6 @@ namespace Palladio.ComponentModel.Components
 		public override object Clone()
 		{
 			return new BasicComponent(this);
-		}
-
-		private void CheckServiceEffect(ISignatureList aServEffSpec)
-		{
-			foreach (ISignature sig in aServEffSpec.Signatures)
-			{
-				try 
-				{
-					if (!GetRequiresInterface(sig.RoleID).ContainsSignature(sig))
-						throw new MissingRequirementException(sig);
-				}
-				catch (RoleIDNotFoundException)
-				{
-					throw new MissingRequirementException(sig);
-				}
-			}
 		}
 
 		#endregion
