@@ -236,74 +236,107 @@ namespace FSM
 //					Console.WriteLine("FSM.Test.testingNewStateIterator.getCurrentTransition: "+StateIterTest.	getCurrentTransition.ToString());
 //				}
 //			}
+//
+//			//A FSM witch is used to test the Mini.
+//
+//			FSM notMin = new FSM();
+//			State Mzero  = new State("0",true,false);
+//			State Mone = new State("1",false,false);
+//			State Mtwo = new State("2",false,false);
+//			State Mthree = new State("3",false,true);
+//			State Mfour = new State("4",false,false);
+//			State Mfive = new State("5",false,true);
+//			State Msix = new State("6",false,true);
+//			State Mseven = new State("7",false,true);
+//			
+//			Input Md = new Input("D");
+//			Input Me = new Input("E");
+//			//Transition
+//			Transition t01 = new Transition(Mzero,Md,Mone);//0,d,1
+//			Transition t02 = new Transition(Mzero,Me,Mtwo);//0,e,2
+//			Transition t14 = new Transition(Mone,Md,Mfour);//1,d,4
+//			Transition t15 = new Transition(Mone,Me,Mfive);//1,e,5
+//			Transition t23 = new Transition(Mtwo,Md,Mthree);//2,d,3
+//			Transition t44 = new Transition(Mfour,Md,Mfour);//4,d,4
+//			Transition t42 = new Transition(Mfour,Me,Mtwo);//4,e,2
+//			Transition t56 = new Transition(Mfive,Md,Msix);//5,d,6
+//			Transition t67 = new Transition(Msix,Md,Mseven);//6,d,7
+//			Transition t77 = new Transition(Mseven,Md,Mseven);//7,d,7
+//
+//			notMin.setTransition(t01);
+//			notMin.setTransition(t02);
+//			notMin.setTransition(t14);
+//			notMin.setTransition(t15);
+//			notMin.setTransition(t23);
+//			notMin.setTransition(t44);
+//			notMin.setTransition(t42);
+//			notMin.setTransition(t56);
+//			notMin.setTransition(t67);
+//			notMin.setTransition(t77);
+//
+//			notMin.DisplayOnConsole();
+//			//notMin.setErrorStates();
+//			Console.WriteLine("----------------------------------------");
+//			FEC MinIt = new FEC(notMin);
+////			FSM eins = MinIt.MinOne(notMin);
+////			Console.WriteLine("eins ist:");
+////			eins.DisplayOnConsole();
+////			FEC dada = new FEC(eins);
+////			StateIterator st = new StateIterator(MinIt.getFSM());
+////			while(st.MoveNext())
+////			{
+////				State state = (State) st.Current;
+////				Console.WriteLine("Current State: "+ state.ToString());
+////				Hashtable zu = (Hashtable)MinIt.getFSM().getTransitionMap(state);
+////				Console.WriteLine("das habe ich bekommen: ");
+////				foreach(DictionaryEntry t in zu)
+////					Console.WriteLine(t.Value.ToString());
+////			}
+//
+//			if(MinIt.equal(notMin))
+//				Console.WriteLine("both are equal");
+//			else
+//				Console.WriteLine("They are not equal");
+//////			Hashtable tenp = MinIt.myMin2d;
+////			IEnumerator enu = tenp.GetEnumerator();
+////			while(enu.MoveNext())
+////			{
+////				DictionaryEntry d = (DictionaryEntry) enu.Current;
+////				Console.WriteLine("Key: "+d.Key.ToString()+" value: "+d.Value.ToString());
+////			}
+///
+			//For CP-Testing
+			FSM one = new FSM();
+			FSM two = new FSM();
 
-			//A FSM witch is used to test the Mini.
+			Input a = new Input("a");
+			Input b = new Input("b");
+			Input c = new Input("c");
+			Input d = new Input("d");
 
-			FSM notMin = new FSM();
-			State Mzero  = new State("0",true,false);
-			State Mone = new State("1",false,false);
-			State Mtwo = new State("2",false,false);
-			State Mthree = new State("3",false,true);
-			State Mfour = new State("4",false,false);
-			State Mfive = new State("5",false,true);
-			State Msix = new State("6",false,true);
-			State Mseven = new State("7",false,true);
-			
-			Input Md = new Input("D");
-			Input Me = new Input("E");
-			//Transition
-			Transition t01 = new Transition(Mzero,Md,Mone);//0,d,1
-			Transition t02 = new Transition(Mzero,Me,Mtwo);//0,e,2
-			Transition t14 = new Transition(Mone,Md,Mfour);//1,d,4
-			Transition t15 = new Transition(Mone,Me,Mfive);//1,e,5
-			Transition t23 = new Transition(Mtwo,Md,Mthree);//2,d,3
-			Transition t44 = new Transition(Mfour,Md,Mfour);//4,d,4
-			Transition t42 = new Transition(Mfour,Me,Mtwo);//4,e,2
-			Transition t56 = new Transition(Mfive,Md,Msix);//5,d,6
-			Transition t67 = new Transition(Msix,Md,Mseven);//6,d,7
-			Transition t77 = new Transition(Mseven,Md,Mseven);//7,d,7
+			State oone = new State("one",true,false);
+			State otwo = new State("two",false,false);
+			State othree = new State("three",false,true);
 
-			notMin.setTransition(t01);
-			notMin.setTransition(t02);
-			notMin.setTransition(t14);
-			notMin.setTransition(t15);
-			notMin.setTransition(t23);
-			notMin.setTransition(t44);
-			notMin.setTransition(t42);
-			notMin.setTransition(t56);
-			notMin.setTransition(t67);
-			notMin.setTransition(t77);
+			one.setTransition(oone,a,othree);
+			one.setTransition(othree,a,othree);
+//			one.setTransition(othree,b,othree);
+//			one.setTransition(oone,c,othree);
 
-			notMin.DisplayOnConsole();
-			//notMin.setErrorStates();
-			Console.WriteLine("----------------------------------------");
-			FEC MinIt = new FEC(notMin);
-//			FSM eins = MinIt.MinOne(notMin);
-//			Console.WriteLine("eins ist:");
-//			eins.DisplayOnConsole();
-//			FEC dada = new FEC(eins);
-//			StateIterator st = new StateIterator(MinIt.getFSM());
-//			while(st.MoveNext())
-//			{
-//				State state = (State) st.Current;
-//				Console.WriteLine("Current State: "+ state.ToString());
-//				Hashtable zu = (Hashtable)MinIt.getFSM().getTransitionMap(state);
-//				Console.WriteLine("das habe ich bekommen: ");
-//				foreach(DictionaryEntry t in zu)
-//					Console.WriteLine(t.Value.ToString());
-//			}
+			State tone = new State("eins",true, false);
+			State ttwo = new State("zwei",false,false);
+			State tthree = new State("drei",false,true);
 
-			if(MinIt.equal(notMin))
-				Console.WriteLine("both are equal");
-			else
-				Console.WriteLine("They are not equal");
-////			Hashtable tenp = MinIt.myMin2d;
-//			IEnumerator enu = tenp.GetEnumerator();
-//			while(enu.MoveNext())
-//			{
-//				DictionaryEntry d = (DictionaryEntry) enu.Current;
-//				Console.WriteLine("Key: "+d.Key.ToString()+" value: "+d.Value.ToString());
-//			}
+			two.setTransition(tone,a,ttwo);
+			two.setTransition(ttwo,a,tthree);
+			two.setTransition(tthree,a,tthree);
+//			two.setTransition(ttwo,b,tthree);
+//			two.setTransition(tone,a,ttwo);
+//			two.setTransition(ttwo,b,tthree);
+//			two.setTransition(tone,d,tthree);
+
+			FCP cpTest = new FCP(one,two);
+			cpTest.getCP().DisplayOnConsole();
 			Console.WriteLine("finished");
 			Console.Read();
 		}

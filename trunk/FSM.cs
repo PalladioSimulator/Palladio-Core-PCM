@@ -428,6 +428,11 @@ namespace FSM
 			}	
 				
 		}
+		public void printInput()
+		{
+			foreach(Input i in this.inputAl)
+				Console.WriteLine(i.ToString());
+		}
 	}
 
 }

@@ -98,7 +98,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "CPState.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "DynamicArray.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "FCP.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
