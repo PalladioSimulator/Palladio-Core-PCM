@@ -13,6 +13,9 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/31 16:30:40  kelsaka
+	/// preparing parsing of post-requests
+	///
 	/// Revision 1.2  2004/10/29 16:30:39  kelsaka
 	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
 	///
@@ -28,12 +31,14 @@ namespace Palladio.Webserver.Request
 		private string httpVersion;
 		private int methodType;
 		private Socket socket;
-		private Hashtable variables;
+		private Hashtable variablesGET;
+		private Hashtable variablesPOST;
 
 
 		public DefaultHTTPRequest()
 		{
-			variables = new Hashtable();
+			variablesGET = new Hashtable();
+			variablesPOST = new Hashtable();
 		}
 
 		/// <summary>
@@ -93,29 +98,53 @@ namespace Palladio.Webserver.Request
 
 		/// <summary>
 		/// Creates a new key / value-pair if the key is new, otherwise updates the value for the key.
-		/// Intention: use for the variables values of the http-request.
+		/// Intention: use for the GET-variables values of the http-request.
 		/// </summary>
 		/// <param name="key">The key. Attention: duplicate keys are overwriten.</param>
 		/// <param name="value">Value for the given key.</param>
-		public void SetVariableValue (string key, string value)
+		public void SetGETVariableValue (string key, string value)
 		{
-			if(variables.ContainsKey(key))
+			if(variablesGET.ContainsKey(key))
 			{
-				variables.Remove(key);
+				variablesGET.Remove(key);
 			}
-			variables.Add(key, value);
+			variablesGET.Add(key, value);
 		}
 
 		/// <summary>
-		/// Returns the value for the given key. Use for the http-request variables values.
+		/// Creates a new key / value-pair if the key is new, otherwise updates the value for the key.
+		/// Intention: use for the POST-variables values of the http-request.
+		/// </summary>
+		/// <param name="key">The key. Attention: duplicate keys are overwriten.</param>
+		/// <param name="value">Value for the given key.</param>
+		public void SetPOSTVariableValue (string key, string value)
+		{
+			if(variablesPOST.ContainsKey(key))
+			{
+				variablesPOST.Remove(key);
+			}
+			variablesPOST.Add(key, value);
+		}
+
+		/// <summary>
+		/// Returns the value for the given key. Use for the http-request variables values. GET-Method.
 		/// </summary>
 		/// <param name="key">The key to return the value for.</param>
 		/// <returns>The Value for the key.</returns>
-		public string GetVariableValue (string key)
+		public string GetGETVariableValue (string key)
 		{
-			return (string)variables[key];
+			return (string)variablesGET[key];
 		}
 
+		/// <summary>
+		/// Returns the value for the given key. Use for the http-request variables values. POST-Method.
+		/// </summary>
+		/// <param name="key">The key to return the value for.</param>
+		/// <returns>The Value for the key.</returns>
+		public string GetPOSTVariableValue (string key)
+		{
+			return (string)variablesPOST[key];
+		}
 
 	}
 }

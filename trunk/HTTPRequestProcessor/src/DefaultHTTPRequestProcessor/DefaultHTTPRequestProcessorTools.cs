@@ -16,6 +16,9 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/10/31 16:30:40  kelsaka
+	/// preparing parsing of post-requests
+	///
 	/// Revision 1.3  2004/10/30 15:24:39  kelsaka
 	/// webserverMonitor-Output on console; documentation (doc) update
 	///
@@ -78,6 +81,7 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 		public void SendHTTPError(IHTTPRequest httpRequest, string errorMessage, string errorCode)
 		{
 			webserverMonitor.WriteLogEntry("HTTP-Error Code " + errorCode + " | " + errorMessage);
+
 
 			//Format The Message
 			SendHTTPHeader(httpRequest.HttpVersion, "", errorMessage.Length, errorCode, httpRequest.Socket);

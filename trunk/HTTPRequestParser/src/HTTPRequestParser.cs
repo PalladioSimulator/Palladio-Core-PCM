@@ -19,6 +19,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2004/10/31 16:30:40  kelsaka
+	/// preparing parsing of post-requests
+	///
 	/// Revision 1.8  2004/10/30 15:24:39  kelsaka
 	/// webserverMonitor-Output on console; documentation (doc) update
 	///
@@ -79,18 +82,43 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 
 
-			//make a byte array and receive data from the client 
-			Byte[] bReceive = new Byte[1024];
-			int i = request.Socket.Receive(bReceive, bReceive.Length, 0);
+
+			//TODO ... Buggy: POST and long GET are not read completely:
+			httpRequest.Socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.ReceiveBuffer, 1024);
+
+			webserverMonitor.WriteLogEntry("available: " + httpRequest.Socket.Available);
+
+
+			int bSize;
+			if(httpRequest.Socket.Available < 2048)
+			{
+				bSize = 1024;
+			}
+			else
+			{
+				bSize = httpRequest.Socket.Available;	
+			}
+			
+
+			//make a byte array and receive data from the client
+			Byte[] bReceive = new Byte[bSize];
+			int requestSize = httpRequest.Socket.Receive(bReceive, 0, bReceive.Length, SocketFlags.None);
+			webserverMonitor.WriteLogEntry("Got request; size (bytes): " + requestSize);
+
 
 			// Convert Byte[] to String
 			string requestStringBuffer = Encoding.ASCII.GetString(bReceive);
 	
+			//Console.WriteLine("REQUEST " + requestStringBuffer);
 
 
 
-			// Look for HTTP request
-			httpStartPos = requestStringBuffer.IndexOf("HTTP",1);
+
+
+
+			// FIRST: HTTP-Request? 
+			// Look for HTTP request:
+			httpStartPos = requestStringBuffer.IndexOf("HTTP", 1);
 
 			// Call the CoR-Successor, if the request is not a HTTP-Request. The HTTP-Parser is not the right chain
 			// for this request.
@@ -107,6 +135,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 
 
+			// SECOND: GET / POST?
 			// get the http-request-type (e. g. post, get):
 			try
 			{
@@ -119,19 +148,78 @@ namespace Palladio.Webserver.HTTPRequestParser
 			}
 
 
-			// sets the filename and the directory of the requested file in the httpRequest:
-			setFilenameAndDirectoryInRequest (requestStringBuffer, httpStartPos, httpRequest);
+
+			// THIRD: Parse
+			// POST-Method:
+			if(httpRequest.RequestedMethodType == RequestTypes.POST_METHOD)
+			{				
+				ParsePostRequest(requestStringBuffer, httpStartPos, httpRequest);
+			}
+
+			// GET-Method:
+			else if(httpRequest.RequestedMethodType == RequestTypes.GET_METHOD) 
+			{
+				ParseGetRequest (requestStringBuffer, httpStartPos, httpRequest);
+			}
+
+		}
 
 
 
+		/// <summary>
+		/// Parses the rest (httpStartPos) of a get-method-request.
+		/// </summary>
+		/// <param name="requestStringBuffer">The request string.</param></param>
+		/// <param name="httpStartPos">Position from where to start parsing.</param>
+		/// <param name="httpRequest">The http-request that has to be created.</param>
+		private void ParseGetRequest (string requestStringBuffer, int httpStartPos, IHTTPRequest httpRequest)
+		{
+			// sets the filename and the directory of the requested file in the httpRequest as well as
+			// the variabels:
+			setFilenameDirectoryAndGetVariablesInRequest (requestStringBuffer, httpStartPos, httpRequest);
+	
+	
+	
+			// parse file-type (e. g. ".html") out of the filename.
+			httpRequest.RequestedFileType = parseFileType(httpRequest.RequestedFileName);
+	
+	
+	
+			// Handle IHTTPRequest in the requestProcessor. The httpRequest contains all necessary (parsed) data.
+			requestProcessor.handleRequest(httpRequest);
+		}
+
+
+
+		/// <summary>
+		/// Parses the rest (httpStartPos) of a post-method-request.
+		/// </summary>
+		/// <param name="requestStringBuffer">The request string.</param></param>
+		/// <param name="httpStartPos">Position from where to start parsing.</param>
+		/// <param name="httpRequest">The http-request that has to be created.</param>
+		private void ParsePostRequest (string requestStringBuffer, int httpStartPos, IHTTPRequest httpRequest)
+		{
+			Console.WriteLine("REQUEST:\n" + requestStringBuffer);
+			
+			
+
+
+			// sets the filename and the directory of the requested file in the httpRequest as well as
+			// the variabels:
+			setFilenameDirectoryAndGetVariablesInRequest (requestStringBuffer, httpStartPos, httpRequest);
+	
 			// parse file-type (e. g. ".html") out of the filename.
 			httpRequest.RequestedFileType = parseFileType(httpRequest.RequestedFileName);
 
 
 
-			// Handle IHTTPRequest in the requestProcessor. The httpRequest contains all necessary (parsed) data.
-			requestProcessor.handleRequest(httpRequest);
+				//IndexOf("Content-Length:");
+			
 
+			
+
+			// Handle IHTTPRequest in the requestProcessor. The httpRequest contains all necessary (parsed) data.
+			//requestProcessor.handleRequest(httpRequest);
 		}
 
 
@@ -162,24 +250,28 @@ namespace Palladio.Webserver.HTTPRequestParser
 		/// <param name="requestStringBuffer">String to parse.</param>
 		/// <param name="httpStartPos">Position where the http-request starts.</param>
 		/// <param name="httpRequest">The httpRequest where filename and directoy are set.</param>
-		private void setFilenameAndDirectoryInRequest (string requestStringBuffer, int httpStartPos, IHTTPRequest httpRequest)
+		private void setFilenameDirectoryAndGetVariablesInRequest (string requestStringBuffer, int httpStartPos, IHTTPRequest httpRequest)
 		{
 			string requestedFileOrDirectory;
 			string variables;
 
 			
 			// Extract the Requested Type and Requested file/directory
-			requestedFileOrDirectory = requestStringBuffer.Substring(0, httpStartPos - 1);
-	
+			// Typical part of the request: "POST /[directory/ies]/[filename] HTTP/1.1"
+			// Positions: after "POST " / "GET "; Length: letters until httpStartPos minus the starting-position of "/" and space
+			int slashIndex = requestStringBuffer.IndexOf("/");
+			requestedFileOrDirectory = requestStringBuffer.Substring(slashIndex, httpStartPos - (1 + slashIndex) );
+
 	
 			// Replace backslashes by forwardslashes
 			requestedFileOrDirectory.Replace("\\", "/");
-	
-	
-			//If file name is not supplied add forward slash to indicate 
-			//that it is a directory and then we will look for the 
-			//default file name..
-			if ((requestedFileOrDirectory.IndexOf(".") <1) && (!requestedFileOrDirectory.EndsWith("/")))
+				
+
+
+			// If file name is not supplied add forward slash to indicate 
+			// that it is a directory and then we will look for the 
+			// default file name..
+			if ((requestedFileOrDirectory.IndexOf(".") < 1) && (!requestedFileOrDirectory.EndsWith("/")))
 			{
 				requestedFileOrDirectory = requestedFileOrDirectory + "/"; 
 			}
@@ -204,10 +296,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 
 
-	
-
+				
 			//Extract The directory Name
-			httpRequest.RequestedDirectoyName = requestedFileOrDirectory.Substring(requestedFileOrDirectory.IndexOf("/"), requestedFileOrDirectory.LastIndexOf("/")-3);
+			httpRequest.RequestedDirectoyName = requestedFileOrDirectory.Substring(0, requestedFileOrDirectory.LastIndexOf("/") + 1);
 	
 			webserverMonitor.WriteLogEntry("Requested directory | file: " + httpRequest.RequestedDirectoyName + " | " + httpRequest.RequestedFileName);
 		}
@@ -271,7 +362,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 
 				// THIRD: save key-value-pairs.
-				httpRequest.SetVariableValue(key, value);
+				httpRequest.SetGETVariableValue(key, value);
 				webserverMonitor.WriteLogEntry("GET-Variables, Key | Value: " + key + " | " + value);				
 			}
 
@@ -286,26 +377,22 @@ namespace Palladio.Webserver.HTTPRequestParser
 		/// <returns>The type of request represented in int (see DefaultHTTPRequest).</returns>
 		private int parseRequestMethod (string requestStringBuffer)
 		{
+
 			// Get the request-method:
-			string requestMethod = requestStringBuffer.Substring(0,3);
-	
-			switch(requestMethod)
+			if(requestStringBuffer.Substring(0,3) == "GET")
 			{
-				case "GET":
-				{
-					webserverMonitor.WriteLogEntry("Request-method is of type GET.");
-					return RequestTypes.GET_METHOD;
-				}
-				case "POST":
-				{
-					webserverMonitor.WriteLogEntry("Request-method is of type POST.");
-					return  RequestTypes.POST_METHOD;
-				}
-				default:
-				{
-					throw new NoValidRequestTypeException();
-				}
+				webserverMonitor.WriteLogEntry("Request-method is of type GET.");
+				return RequestTypes.GET_METHOD;
 			}
+
+			if(requestStringBuffer.Substring(0,4) == "POST")
+			{
+				webserverMonitor.WriteLogEntry("Request-method is of type POST.");
+				return  RequestTypes.POST_METHOD;
+			}
+
+
+			throw new NoValidRequestTypeException();	
 		}
 
 

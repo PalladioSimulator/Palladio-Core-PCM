@@ -12,6 +12,9 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/10/31 16:30:40  kelsaka
+	/// preparing parsing of post-requests
+	///
 	/// Revision 1.3  2004/10/29 16:30:39  kelsaka
 	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
 	///
@@ -62,17 +65,30 @@ namespace Palladio.Webserver.Request
 		/// </summary>
 		/// <param name="key">The key.</param>
 		/// <param name="value">Value for the given key.</param>
-		void SetVariableValue(string key, string value);
-
+		void SetGETVariableValue(string key, string value);
 
 		/// <summary>
-		/// Returns the value for the given key. Use for the http-request variables values.
+		/// Creates a new key / value-pair if the key is new, otherwise updates the value for the key.
+		/// Intention: use for the POST-variables values of the http-request.
+		/// </summary>
+		/// <param name="key">The key. Attention: duplicate keys are overwriten.</param>
+		/// <param name="value">Value for the given key.</param>
+		void SetPOSTVariableValue (string key, string value);
+
+		/// <summary>
+		/// Returns the value for the given key. Use for the http-request variables values. GET-Method.
 		/// </summary>
 		/// <param name="key">The key to return the value for.</param>
 		/// <returns>The Value for the key.</returns>
-		string GetVariableValue(string key);
+		string GetGETVariableValue(string key);
 
 
+		/// <summary>
+		/// Returns the value for the given key. Use for the http-request variables values. POST-Method.
+		/// </summary>
+		/// <param name="key">The key to return the value for.</param>
+		/// <returns>The Value for the key.</returns>
+		string GetPOSTVariableValue(string key);
 
 	}
 }
