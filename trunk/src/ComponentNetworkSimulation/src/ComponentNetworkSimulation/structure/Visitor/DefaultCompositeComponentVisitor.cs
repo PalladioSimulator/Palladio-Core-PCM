@@ -15,6 +15,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.4  2004/06/22 12:24:30  joemal
+	/// now use the factory to create the component visitors
+	///
 	/// Revision 1.3  2004/06/19 16:04:42  joemal
 	/// add new event for unbound requires interfaces
 	///
@@ -37,6 +40,11 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// </summary>
 		private System.Collections.Stack visitorStack = new System.Collections.Stack();
 
+		/// <summary>
+		/// holds the factory used to create visitors
+		/// </summary>
+		private IVisitorFactory factory;
+
 		#endregion
 
 		#region constructors
@@ -48,11 +56,24 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// </summary>
 		/// <param name="component">the component</param>
 		/// <param name="innerComponentVisitor">the visitor of one of the inner components.</param>
-		public DefaultCompositeComponentVisitor(ICompositeComponent component, IComponentVisitor innerComponentVisitor):
-			base(component)
+		/// <param name="factory">the factory used to create new visitors</param>
+		public DefaultCompositeComponentVisitor(ICompositeComponent component, IComponentVisitor innerComponentVisitor,
+			IVisitorFactory factory):base(component)
 		{
+			this.factory = factory;
 			innerComponentVisitor.OnVisitorEvent += new VisitorEventHandler(HandleVisitorEvent);
 			visitorStack.Push(innerComponentVisitor);
+		}
+
+		/// <summary>
+		/// constructs a new <code>DefaultCompositeVisitor</code> from given component and signature.
+		/// </summary>
+		/// <param name="component">the component</param>
+		/// <param name="signature">the external signature to be called</param>
+ 		/// <param name="factory">the factory used to create new visitors</param>
+		public DefaultCompositeComponentVisitor(ICompositeComponent component, IExternalSignature signature, IVisitorFactory factory):
+			this(component,signature.RoleID, signature.Signature.ID,factory)
+		{			
 		}
 
 		/// <summary>
@@ -62,30 +83,18 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// <param name="component">the composite component</param>
 		/// <param name="interfaceID">the id of the interface</param>
 		/// <param name="signatureID">the id of the signature</param>
+  		/// <param name="factory">the factory used to create new visitors</param>
 		/// <exception cref="Palladio.ComponentModel.RoleIDNotFoundException">
 		/// thrown, if the interface with given id can't be found in the component
 		/// </exception>
 		///	<exception cref="Palladio.ComponentModel.SignatureNotFoundException">
 		/// thrown, if the signature with given id can't be found in interface
 		/// </exception>
-		public DefaultCompositeComponentVisitor(ICompositeComponent component, IIdentifier interfaceID, IIdentifier signatureID):
-			base(component)
+		public DefaultCompositeComponentVisitor(ICompositeComponent component, IIdentifier interfaceID, IIdentifier signatureID,
+			IVisitorFactory factory):base(component)
 		{
+			this.factory = factory;
 			Init(interfaceID, signatureID);
-		}
-
-		/// <summary>
-		/// constructs a new <code>DefaultCompositeVisitor</code> from given component and a external signature which 
-		/// describes the provided interface and the signature to be called. The constructor normal is used to
-		/// create a visitor by another visitor when an inner component should be entered.
-		/// </summary>
-		/// <param name="component">the component</param>
-		/// <param name="signature">the signature to be called</param>
-		public DefaultCompositeComponentVisitor(ICompositeComponent component, IExternalSignature signature):
-			base(component)
-		{
-			visitorStack.Push(signature);
-			Visit(component);
 		}
 
         #endregion
@@ -156,7 +165,8 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 			//in the stack, the external signature to be called is following the element binding
 			IExternalSignature calledSignature = (IExternalSignature)visitorStack.Pop();
 
-			IComponentVisitor compVisitor = new DefaultBasicComponentVisitor(component,calledSignature);
+			IComponentVisitor compVisitor = factory.CreateVisitor(component,calledSignature);
+
 			compVisitor.OnVisitorEvent +=new VisitorEventHandler(HandleVisitorEvent);
             visitorStack.Push(compVisitor);
 		}
@@ -171,7 +181,8 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 			//in the stack, the external signature to be called is following the element binding
 			IExternalSignature calledSignature = (IExternalSignature)visitorStack.Pop();
 
-			IComponentVisitor compVisitor = new DefaultCompositeComponentVisitor(component,calledSignature);
+			IComponentVisitor compVisitor = factory.CreateVisitor(component,calledSignature); 
+
 			compVisitor.OnVisitorEvent += new VisitorEventHandler(HandleVisitorEvent);
 			visitorStack.Push(compVisitor);
 		}
