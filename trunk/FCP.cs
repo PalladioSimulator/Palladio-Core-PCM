@@ -12,7 +12,7 @@ namespace FSM
 		protected Set CPInput;
 		protected Stack oneStates;
 		protected Stack twoStates;
-		protected bool debug  = true;
+		protected bool debug  = !true;
 		/// <summary>
 		/// Initaites a empty FCP
 		/// </summary>
@@ -68,35 +68,18 @@ namespace FSM
 
 					foreach(Input i in this.CPInput)
 					{
-						State oB = null;
-						State tB = null;
-						//look for next states
-						foreach(State s in one.getStates())
-						{
-							if(s.Equals(oneBefore))
-							{
-								oB = s;
-								break;
-							}
-						}
+
 
 						State oneNext = one.getNextState(oneBefore,i);
 						if(this.debug)
 							Console.WriteLine("oneNext is: "+oneNext.ToString());
 
-						foreach(State s in two.getStates())
-						{
-							if(s.Equals(twoBefore))
-							{
-								tB = s;
-								break;
-							}
-						}
-						State twoNext = two.getNextState(tB,i);
+
+						State twoNext = two.getNextState(twoBefore,i);
 						if(this.debug)
 							Console.WriteLine("twoNext is: "+twoNext.ToString());
 					
-						if(selfPointing(one,oB,i)& selfPointing(two,tB,i)&&
+						if(selfPointing(one,oneBefore,i)&& selfPointing(two,twoBefore,i)&&
 							!oneNext.Equals(one.ErrorState) && !twoNext.Equals(two.ErrorState))
 						{
 							//Console.WriteLine("Both Selfpointing");
@@ -108,12 +91,7 @@ namespace FSM
 							!twoNext.Equals(two.ErrorState))
 						{
 
-							//						Console.WriteLine("---------------------");
-							//						Console.WriteLine("this is what i Put: "+oneNext.ToString()
-							//							+" "+twoNext.ToString());
-							//						Console.WriteLine("----------------------------");
-
-							CPState fromState = new CPState(oB, tB);
+							CPState fromState = new CPState(oneBefore, twoBefore);
 							if(this.debug)
 								Console.WriteLine("CPState fromState: "+fromState.getState().ToString());
 							CPState toState = new CPState(oneNext,twoNext);
@@ -141,7 +119,6 @@ namespace FSM
 //			}
 //			catch
 //			{
-//				Console.WriteLine("gebe leeren Automaten zurück");
 //				return new FSM();
 //			}
 

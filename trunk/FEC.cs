@@ -11,7 +11,7 @@ namespace FSM
 		protected FSM fsm;
 		protected bool debug = !true;
 		protected bool createsFsmDebug = !true;
-		protected bool equalsDebug = true;
+		protected bool equalsDebug = !true;
 		protected ArrayList groups;
 		protected int zaehler;
 		protected FSM minimized;
@@ -38,12 +38,12 @@ namespace FSM
 			this.groups = new ArrayList();
 			this.Minimize(notMin);
 			this.createNewFsm();
-			//this.minimized.DisplayOnConsole();
-			//			if(this.debug)
-			//			{
-			//				Console.WriteLine("After Minmasation the follwing groups exzits:");
-			//				this.printGroups();
-			//			}
+			this.minimized.DisplayOnConsole();
+//						if(this.debug)
+//						{
+//							Console.WriteLine("After Minmasation the follwing groups exzits:");
+//							this.printGroups();
+//						}
 		}
 
 		/// <summary>
@@ -179,23 +179,23 @@ namespace FSM
 			while(inputIter.MoveNext())
 			{
 				Input currentInput = (Input) inputIter.Current;
-				foreach(State s in myMin.getStates())
-				{
-					if(myState.Equals(s))
-					{
+//				foreach(State s in myMin.getStates())
+//				{
+//					if(myState.Equals(s))
+//					{
 
-						myNext = myMin.getNextState((State) s,currentInput);
-						break;
-					}
-				}
-				foreach(State z in d.getStates())
-				{
-					if(z.Equals(dState))
-					{
-						dNext = d.getNextState((State) z,currentInput);
-						break;
-					}
-				}
+						myNext = myMin.getNextState(myState,currentInput);
+//						break;
+//					}
+//				}
+//				foreach(State z in d.getStates())
+//				{
+//					if(z.Equals(dState))
+//					{
+						dNext = d.getNextState(dState,currentInput);
+//						break;
+//					}
+//				}
 				
 				if(!testStates(myMin,myState,d,dState,currentInput,d2myStates))
 					throw new StatesNotMappableException();
@@ -219,23 +219,23 @@ namespace FSM
 			State dNext = null;
 
 		
-			foreach(State s in myMin.getStates())
-			{
-
-				if(myState.Equals(s))
-				{
-					myNext = myMin.getNextState((State) s,i);
-					break;
-				}
-			}
-			foreach(State z in d.getStates())
-			{
-				if(z.Equals(dState))
-				{
-					dNext = d.getNextState((State) z,i);
-					break;
-				}
-			}
+//			foreach(State s in myMin.getStates())
+//			{
+//
+//				if(myState.Equals(s))
+//				{
+					myNext = myMin.getNextState(myState,i);
+//					break;
+//				}
+//			}
+//			foreach(State z in d.getStates())
+//			{
+//				if(z.Equals(dState))
+//				{
+					dNext = d.getNextState(dState ,i);
+//					break;
+//				}
+//			}
 
 			if(d2myStates.ContainsKey(dNext))
 			{
@@ -305,8 +305,12 @@ namespace FSM
 					State toState  = (State) this.fsm.getNextState((State)oldStates[i],
 						(Input)oldFsmInputIter.Current);
 		
-					if(toState.Equals(fsm.ErrorState))
+					//Console.WriteLine("toState is: "+toState.ToString());
+					if(toState == fsm.ErrorState)
+					{
+						//Console.WriteLine("ErrorState found");
 						continue;
+					}
 					ArrayList newGroups = this.inGroup(toState,this.groups);
 					int indexOfStateToState = this.mini.IndexOf((ArrayList) 
 						this.inGroup(toState,this.mini));
@@ -322,6 +326,7 @@ namespace FSM
 		/// <param name="g">The groupwith should be removed</param>
 		protected void RemoveErrorGroup(ArrayList g)
 		{
+
 			ArrayList erroG = new ArrayList();
 			erroG.Add(this.fsm.ErrorState);
 			erroG.TrimToSize();
@@ -345,6 +350,11 @@ namespace FSM
 		protected  void Minimize(FSM fsm)
 		{	
 			this.initateGroups(fsm);
+			if(this.debug)
+			{
+				Console.WriteLine("IntialGroups");
+				this.printGroups();
+			}
 			bool furtherIteration = false;
 			this.actualGroupCounter = 0;
 			while(this.actualGroupCounter< this.groups.Count || furtherIteration)
@@ -467,13 +477,14 @@ namespace FSM
 		/// <returns>A ArrayList from this.groups witch contains state</returns>
 		protected ArrayList inGroup(State state, ArrayList groups)
 		{
+
 			if(groups.Contains(state))
 				return groups;
-			//			if(groups.Contains(fsm.getErrorState()))
-			//			{
-			//				Console.WriteLine("in group has found ErrorState");
-			//				return groups;
-			//			}
+						if(groups.Contains(fsm.ErrorState))
+						{
+							Console.WriteLine("in group has found ErrorState");
+							return groups;
+						}
 			foreach(ArrayList al in this.groups)
 			{
 				foreach(State s in al)
@@ -521,13 +532,13 @@ namespace FSM
 				both = null;
 				actualState = (State) iter.Current;
 
-				//				//now useless
-				//				if(actualState.Equals(new State("ErrorState",false,false)))
-				//				{
-				//					if(debug)
-				//						Console.WriteLine("ErrorState in init found!");
-				//					
-				//				}
+//								//now useless
+//								if(actualState.Equals(new State("ErrorState",false,false)))
+//								{
+//									if(debug)
+//										Console.WriteLine("ErrorState in init found!");
+//									
+//								}
 				if(actualState.getFinal())
 				{
 					if(actualState.getStart())
@@ -552,6 +563,10 @@ namespace FSM
 				conclusion.Add(both);
 				this.counterForNumberOfGroups++;
 			}
+			ArrayList eGroup = new ArrayList();
+			eGroup.Add(fsm.ErrorState);
+			conclusion.Add(eGroup);
+			conclusion.TrimToSize();
 			this.groups = conclusion;
 		}
 		/// <summary>

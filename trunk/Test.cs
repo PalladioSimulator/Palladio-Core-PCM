@@ -239,45 +239,45 @@ namespace FSM
 //
 //			//A FSM witch is used to test the Mini.
 //
-//			FSM notMin = new FSM();
-//			State Mzero  = new State("0",true,false);
-//			State Mone = new State("1",false,false);
-//			State Mtwo = new State("2",false,false);
-//			State Mthree = new State("3",false,true);
-//			State Mfour = new State("4",false,false);
-//			State Mfive = new State("5",false,true);
-//			State Msix = new State("6",false,true);
-//			State Mseven = new State("7",false,true);
-//			
-//			Input Md = new Input("D");
-//			Input Me = new Input("E");
-//			//Transition
-//			Transition t01 = new Transition(Mzero,Md,Mone);//0,d,1
-//			Transition t02 = new Transition(Mzero,Me,Mtwo);//0,e,2
-//			Transition t14 = new Transition(Mone,Md,Mfour);//1,d,4
-//			Transition t15 = new Transition(Mone,Me,Mfive);//1,e,5
-//			Transition t23 = new Transition(Mtwo,Md,Mthree);//2,d,3
-//			Transition t44 = new Transition(Mfour,Md,Mfour);//4,d,4
-//			Transition t42 = new Transition(Mfour,Me,Mtwo);//4,e,2
-//			Transition t56 = new Transition(Mfive,Md,Msix);//5,d,6
-//			Transition t67 = new Transition(Msix,Md,Mseven);//6,d,7
-//			Transition t77 = new Transition(Mseven,Md,Mseven);//7,d,7
-//
-//			notMin.setTransition(t01);
-//			notMin.setTransition(t02);
-//			notMin.setTransition(t14);
-//			notMin.setTransition(t15);
-//			notMin.setTransition(t23);
-//			notMin.setTransition(t44);
-//			notMin.setTransition(t42);
-//			notMin.setTransition(t56);
-//			notMin.setTransition(t67);
-//			notMin.setTransition(t77);
-//
-//			notMin.DisplayOnConsole();
+			FSM notMin = new FSM();
+			State Mzero  = new State("0",true,false);
+			State Mone = new State("1",false,false);
+			State Mtwo = new State("2",false,false);
+			State Mthree = new State("3",false,true);
+			State Mfour = new State("4",false,false);
+			State Mfive = new State("5",false,true);
+			State Msix = new State("6",false,true);
+			State Mseven = new State("7",false,true);
+			
+			Input Md = new Input("D");
+			Input Me = new Input("E");
+			//Transition
+			Transition t01 = new Transition(Mzero,Md,Mone);//0,d,1
+			Transition t02 = new Transition(Mzero,Me,Mtwo);//0,e,2
+			Transition t14 = new Transition(Mone,Md,Mfour);//1,d,4
+			Transition t15 = new Transition(Mone,Me,Mfive);//1,e,5
+			Transition t23 = new Transition(Mtwo,Md,Mthree);//2,d,3
+			Transition t44 = new Transition(Mfour,Md,Mfour);//4,d,4
+			Transition t42 = new Transition(Mfour,Me,Mtwo);//4,e,2
+			Transition t56 = new Transition(Mfive,Md,Msix);//5,d,6
+			Transition t67 = new Transition(Msix,Md,Mseven);//6,d,7
+			Transition t77 = new Transition(Mseven,Md,Mseven);//7,d,7
+
+			notMin.setTransition(t01);
+			notMin.setTransition(t02);
+			notMin.setTransition(t14);
+			notMin.setTransition(t15);
+			notMin.setTransition(t23);
+			notMin.setTransition(t44);
+			notMin.setTransition(t42);
+			notMin.setTransition(t56);
+			notMin.setTransition(t67);
+			notMin.setTransition(t77);
+
+			notMin.DisplayOnConsole();
 //			//notMin.setErrorStates();
-//			Console.WriteLine("----------------------------------------");
-//			FEC MinIt = new FEC(notMin);
+			Console.WriteLine("----------------------------------------");
+			FEC MinIt = new FEC(notMin);
 ////			FSM eins = MinIt.MinOne(notMin);
 ////			Console.WriteLine("eins ist:");
 ////			eins.DisplayOnConsole();
@@ -293,10 +293,10 @@ namespace FSM
 ////					Console.WriteLine(t.Value.ToString());
 ////			}
 //
-//			if(MinIt.equal(notMin))
-//				Console.WriteLine("both are equal");
-//			else
-//				Console.WriteLine("They are not equal");
+			if(MinIt.equal(notMin))
+				Console.WriteLine("both are equal");
+			else
+				Console.WriteLine("They are not equal");
 //////			Hashtable tenp = MinIt.myMin2d;
 ////			IEnumerator enu = tenp.GetEnumerator();
 ////			while(enu.MoveNext())
@@ -337,17 +337,6 @@ namespace FSM
 
 			FCP cpTest = new FCP(one,two);
 			cpTest.getCP().DisplayOnConsole();
-			FSM d2;
-			Input e3;
-			State d21,d22;
-
-			d2 = new FSM();
-			d21 = new State("d2_1",true,false);
-			d22 = new State("d2_2",false,true);
-			e3 = new Input("e3");
-			d2.setTransition(d21,e3,d22);
-
-			Console.WriteLine(d2.getNextState(d22,e3));
 
 			Console.WriteLine("finished");
 			Console.Read();
