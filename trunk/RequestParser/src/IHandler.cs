@@ -10,7 +10,7 @@ namespace RequestParser
 	public interface IHandler
 	{
 		
-	void HandleRequest(string request,NetworkStream client,DateTime arrival,ref RequestProssor.RequestProzessorComponent pro,TcpClient tcp);
+	void HandleRequest(DateTime arrival,ref RequestProssor.RequestProzessorComponent pro,TcpClient tcp);
 	IHandler Successor{set;get;}
 	}
 }

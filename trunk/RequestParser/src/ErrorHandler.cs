@@ -10,7 +10,7 @@ namespace RequestParser
 	public class ErrorHandler : IHandler
 	{
 		IHandler successor;
-		public void HandleRequest(string request,NetworkStream client,DateTime arrival,ref RequestProssor.RequestProzessorComponent pro, TcpClient d)
+		public void HandleRequest(DateTime arrival,ref RequestProssor.RequestProzessorComponent pro, TcpClient d)
 		{
 			Console.WriteLine(" An errror occured ");
 		}

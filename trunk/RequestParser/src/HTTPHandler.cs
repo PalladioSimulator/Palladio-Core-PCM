@@ -20,14 +20,14 @@ namespace RequestParser
 			set{this.successor = value;}
 		}
 
-		public void HandleRequest(string request,NetworkStream client,DateTime arrival,ref RequestProssor.RequestProzessorComponent pro,TcpClient da)
+		public void HandleRequest(DateTime arrival,ref RequestProssor.RequestProzessorComponent pro,TcpClient da)
 		{
 			HTTPParser pars = null;
-			if(CheckResponsebility(request,client,arrival))
-				pars = new HTTPParser(request,client,arrival,ref pro,da);
+			//if(CheckResponsebility(request,client,arrival))
+				pars = new HTTPParser(arrival,da, ref pro);
 
-			else
-				this.successor.HandleRequest(request,client,arrival,ref pro,da);
+//			else
+//				this.successor.HandleRequest(request,client,arrival,ref pro,da);
 		}
 
 		/// <summary>

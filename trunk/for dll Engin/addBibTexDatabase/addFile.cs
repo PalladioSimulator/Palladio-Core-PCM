@@ -133,7 +133,7 @@ namespace addBibTexDatabase
 				
 			}
 
-			string result = "Eintrag in Datenbank erfolgreich. Es wurden "+counter+" Datensätze eingefügt";
+			string result = "Eintrag in Datenbank erfolgreich. Es wurden "+counter+" Datens&auml;tze eingef&uuml;gt";
 			return result;
 		}
 	}

@@ -20,7 +20,7 @@ namespace RequestParser
 			ref RequestProssor.RequestProzessorComponent pro, TcpClient tcpCl)
 		{
 			Console.WriteLine("Start handling request");
-			this.handler.HandleRequest(request,client,arravial,ref pro,tcpCl);
+			this.handler.HandleRequest(arravial,ref pro,tcpCl);
 		}
 
 		public void AddAdditionalHandler(IHandler handler)

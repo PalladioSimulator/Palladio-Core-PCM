@@ -49,30 +49,24 @@ namespace Dispatcher
 			this.logger.DebugOutput=true;
 			this.logger.InfoOutput=true;
 			
-
 			this.clientSocket= aSocket;
 			this.arrivalTime = now;
-			
-
 
 			Thread clientThread = new Thread(new ThreadStart(StartListen));
 			clientThread.Start();
-
-
 		}
-
-		
-		
-
-
 
 		public void StartListen()
 		{
-			this.request = ReadRequest();
-			this.request.Trim();
-			//				this.logger.Debug("The Request: "+this.request);
-			Console.Write(this.request);
-			this.parsesRequest.IdentifiyAndHandleRequest(this.request,this.clientStream,this.arrivalTime, ref this.sendsResponse,this.clientSocket);
+			try
+			{
+				this.parsesRequest.IdentifiyAndHandleRequest(this.request,this.clientStream,this.arrivalTime, ref this.sendsResponse,this.clientSocket);
+			}
+			catch(Exception)
+			{
+				this.ClientSocket.Close();
+				this.logger.Debug("Lost Client");
+			}
 		}
 
 		public string ReadRequest()
@@ -89,7 +83,7 @@ namespace Dispatcher
 
 				// Get a stream object for reading and writing
 //				NetworkStream stream = this.clientSocket.GetStream();
-				Thread.Sleep(1000);
+				
 				this.clientStream = this.clientSocket.GetStream();
 
 				int i;

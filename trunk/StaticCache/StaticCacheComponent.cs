@@ -53,11 +53,11 @@ namespace StaticCache
 			{
 				Console.WriteLine(PrintcacheContonent());
 				//ensures that no other Thread can manipulate the response
-				lock(this.response.SyncRoot)
-				{
+//				lock(this.response.SyncRoot)
+//				{
 					this.response = ((CacheEntry) this.cache[r.URI.ToString()]).Content;
 					((CacheEntry) this.cache[r.URI]).TimesRequested ++;
-				}
+//				}
 				return this;
 			}
 			else 
@@ -121,8 +121,8 @@ namespace StaticCache
 
 		internal void HandleCacheMiss(HttpRequest request, string path)
 		{
-			lock(this.cache.SyncRoot)
-			{
+//			lock(this.cache.SyncRoot)
+//			{
 				//Console.WriteLine(PrintcacheContonent());
 				//if it hasn't been visit jet, add new entry
 				if(!this.usserStatistics.ContainsKey(request.URI))
@@ -155,7 +155,7 @@ namespace StaticCache
 						this.cache.Add(request.URI.ToString(),ce);
 							
 					}
-				}
+//				}
 			}
 		}
 
