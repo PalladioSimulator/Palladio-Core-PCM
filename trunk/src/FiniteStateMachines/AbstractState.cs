@@ -10,7 +10,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Constant for the name of an error state.
 		/// </summary>
-		private static string ERROR_STATE_NAME = "ErrorState";
+		private const string ERROR_STATE_NAME = "ErrorState";
 
 		
 		/// <summary>
@@ -34,7 +34,7 @@ namespace FiniteStateMachines {
 
 		
 		/// <summary>
-		/// Default implementation of ToString().
+		/// Default implementation of <code ToString()/>.
 		/// </summary>
 		/// <returns>The name of the State.</returns>
 		public override string ToString() {

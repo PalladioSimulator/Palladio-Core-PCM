@@ -4,7 +4,7 @@ namespace FiniteStateMachines {
 	
 	/// <summary>
 	/// Represents the Context of a FSM. A Context consists of
-	/// a service name and a state, which belongs to the service.
+	/// a service name and a state, which belongs to that service.
 	/// </summary>
 	public class Context {
 
@@ -72,13 +72,72 @@ namespace FiniteStateMachines {
 			}
 		}
 
-
+		
+		/// <summary>
+		/// Default implementation.
+		/// </summary>
+		/// <returns></returns>
 		public override string ToString() {
 			return ServiceName + "; " + State;
 		}
 
+
+		/// <summary>
+		/// Default implementation.
+		/// </summary>
+		/// <returns></returns>
 		public object Clone() {
 			return new Context(this);
+		}
+
+
+		/// <summary>
+		/// Default implementation.
+		/// </summary>
+		/// <param name="obj"></param>
+		/// <returns></returns>
+		public override bool Equals(object obj) {
+			if (obj is Context) {
+				Context other = (Context)obj;
+				return ((State == other.State) && (ServiceName == other.ServiceName));
+			}
+			return false;
+		}
+
+		/// <summary>
+		/// Operator uses the implementation of Equals.
+		/// </summary>
+		/// <param name="input1"></param>
+		/// <param name="input2"></param>
+		/// <returns></returns>
+		public static bool operator == (Context one, Context two){
+			try {
+				return one.Equals(two);
+			} catch( NullReferenceException  ) {
+				try {
+					return two.Equals(one);
+				} catch( NullReferenceException ) {
+					return true;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Operator uses the implementation of Equals.
+		/// </summary>
+		/// <param name="input1"></param>
+		/// <param name="input2"></param>
+		/// <returns></returns>
+		public static bool operator != (Context one, Context two){
+			try {
+				return !one.Equals(two);
+			} catch( NullReferenceException  ) {
+				try {
+					return !two.Equals(one);
+				} catch( NullReferenceException ) {
+					return false;
+				}
+			}
 		}
 
 	}

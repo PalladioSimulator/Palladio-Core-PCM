@@ -52,7 +52,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <returns>A <code Hashtable/> which contains all transtions from the given State.
 		/// The key of the <code Hashtable/> is the <code Input/> and the value the 
-		/// corresponding <code Transition/></returns>
+		/// corresponding <code Transition/>.</returns>
 		Hashtable GetOutgoingTransitions(AbstractState aSourceState);
 
 		/// <summary>
