@@ -10,7 +10,7 @@ namespace FSM
 	{
 		protected FSM fsm;
 		protected bool debug = !true;
-		protected bool createsFsmDebug = true;
+		protected bool createsFsmDebug = !true;
 		protected ArrayList groups;
 		protected int zaehler;
 		protected FSM minimized;
@@ -52,15 +52,15 @@ namespace FSM
 		/// </summary>
 		/// <param name="o"></param>
 		/// <returns>true if they are equal</returns>
-		public bool Equal(Object o)
-		{
-//			if(!(o is FSM || o is FEC))
+//		public bool Equal(Object o)
+//		{
+////			if(!(o is FSM || o is FEC))
+////				return false;
+//			FSM d = (FSM) o;
+//			if(!(d.getInputAl().Equals(this.fsm)))
 //				return false;
-			FSM d = (FSM) o;
-			if(!(d.getInputAl().Equals(this.fsm)))
-				return false;
-			return true;
-		}
+//			return true;
+//		}
 		/// <summary>
 		/// Creates the minimized FSM
 		/// </summary>
@@ -145,7 +145,7 @@ namespace FSM
 						+this.counterForNumberOfGroups.ToString());
 					Console.WriteLine("this.actualGroupCounter is : "
 						+this.actualGroupCounter.ToString());
-					this.printGroups();
+					//this.printGroups();
 				}
 				State first = new State();
 				State next = new State();
@@ -211,7 +211,7 @@ namespace FSM
 						if(this.debug)
 						{
 							Console.WriteLine("A new group has been created, it contains: ");
-							this.printGroup(newGroup);
+							//this.printGroup(newGroup);
 						}
 						this.counterForNumberOfGroups++;
 						this.groups.Add(newGroup);
@@ -367,5 +367,174 @@ namespace FSM
 			}
 			Console.WriteLine("---End of Group----");
 		}
+
+
+
+//		private bool testStates (FSM myMin, State myState,
+//			FSM dMin, State dState, Input i,
+//			Hashtable d2myStatesMap)
+//		{
+//			State dNextState;
+//			State myNextState;
+//			try 
+//			{
+//				dNextState = dMin.getNextState(dState, i);
+//				myNextState = myMin.getNextState(myState, i);
+//
+//			}catch (Exception ) {
+//				throw new ProgrammingErrorException();
+//				}
+//
+//			if (d2myStatesMap.ContainsKey(dNextState)) 
+//			{
+//				if ((d2myStatesMap[dNextState].Equals(myNextState)))
+//				{
+//					return true;
+//				} 
+//				else 
+//				{
+//					return false;
+//				}
+//			}
+//			d2myStatesMap.Add(dNextState,myNextState);
+//			return true;
+//		}
+//
+//		private void mapStates(FSM myMin, State myState,
+//			FSM dMin, State dState,
+//			Hashtable d2myStatesMap, Hashtable visited)
+//		{
+//			Transition temp;
+//			Hashtable transitions = null;
+//
+//			if (visited.Contains(myState)) 
+//			{
+//				return;
+//			}
+//			visited.Add(myState,myState);
+//
+//			try 
+//			{
+//				transitions = myMin.getTransitionMap(myState);
+//			}
+//			catch (Exception) 
+//			{
+//
+//				throw new ProgrammingErrorException();
+//			}
+//			//Iterrieren über SChlüssel
+//			IEnumerator myiIter = transitions.Keys.GetEnumerator();
+//
+//			while (myiIter.MoveNext()) 
+//			{
+//				temp = 	(Transition)myiIter.Current;
+//				Input myInput = temp.input;
+//
+//				if (!testStates(myMin,myState,dMin,dState,myInput,
+//					d2myStatesMap)) 
+//				{
+//					Console.WriteLine("Not Mappleable");
+//					throw new Exception();
+//				}
+//				try 
+//				{
+//					mapStates(myMin,myMin.getNextState(myState, myInput),
+//						dMin,dMin.getNextState(dState, myInput),
+//						d2myStatesMap,visited);
+//				}
+//				catch (InvalidStateException ) 
+//				{
+//					Console.WriteLine("Not Mappleable");
+//					throw new Exception();
+//				}
+//				catch (InvalidInputException) 
+//				{
+//					throw new ProgrammingErrorException();
+//				}
+//			}
+//		}
+//		protected Hashtable mapStates(FSM myMin, FSM dMin)
+//		{
+//			Hashtable d2myStatesMap = new Hashtable();
+//			d2myStatesMap.Add(dMin.getStartState(),myMin.getStartState());
+//			d2myStatesMap.Add(dMin.getErrorState(),myMin.getErrorState());
+//			mapStates(myMin,myMin.getStartState(),
+//				dMin, dMin.getStartState(),
+//				d2myStatesMap,new Hashtable());
+//			return d2myStatesMap;
+//		}
+//		protected bool _equal (FSM myMin, FSM dMin, Hashtable d2myStatesMap)
+//		{
+//			if (!myMin.getStartState().Equals(
+//				(State)d2myStatesMap[dMin.getStartState()]))
+//			{
+//				return false;
+//			}
+//
+//
+//			StateIterator stateSetIter = new StateIterator(dMin);
+//			while (stateSetIter.MoveNext()) 
+//			{
+//				State currentState = (State) stateSetIter.Current;
+//
+//				State myState = (State) d2myStatesMap[currentState];
+//
+//				if (myState == null) 
+//				{
+//					return false;
+//				}
+//
+//				if (currentState.getFinal()) 
+//				{
+//					if (!myState.getFinal()) 
+//					{
+//						return false;
+//					}
+//				}
+//				else
+//				{ // so !currentState.isFinalState()
+//					if (myState.getFinal()) 
+//					{
+//						return false;
+//					}
+//				}
+//			}
+//			return true;
+//		}
+//
+//		
+//		public bool equals(Object o)
+//		{
+//			//Object testing
+//			bool result = false;
+//			try 
+//			{
+//				FSM d = (FSM) o;
+//
+//				if (!(getInputAl()).Equals(d.getInputAl())) 
+//				{
+//					return false;
+//				}
+//				FSM myMin = this.fsm;
+//				FSM dMin = d;
+////				FSM myMin = this.minimized;
+////				FEC dnMin = new FEC(d);
+////				FSM dMin = dnMin.minimized;
+//				Hashtable d2myStatesMap = null;
+//
+//				try 
+//				{
+//					d2myStatesMap = (Hashtable) mapStates(myMin, dMin);
+//				}
+//				catch (Exception )
+//				{
+//					return false;
+//				}
+//
+//				result = _equal(myMin, dMin, d2myStatesMap);
+//			}
+//			catch (Exception ){}
+//			return result;
+//		}
 	}
 }

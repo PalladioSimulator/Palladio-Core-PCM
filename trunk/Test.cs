@@ -278,6 +278,8 @@ namespace FSM
 			notMin.setErrorStates();
 
 			FEC MinIt = new FEC(notMin);
+//			if(MinIt.equals(notMin))
+//				Console.WriteLine("both are equal");
 			Console.WriteLine("finished");
 			Console.Read();
 		}
