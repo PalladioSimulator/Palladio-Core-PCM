@@ -23,7 +23,8 @@ namespace Palladio.Webserver.RequestParser
 
 		public void HandleRequest (IRequest request)
 		{
-			throw new NotImplementedException ();
+
+			webserverMonitor.WriteDebugMessage("DefaultRequestParser could not handle the request.", 1);
 		}
 	}
 }

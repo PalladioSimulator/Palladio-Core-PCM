@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Specialized;
+using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using Palladio.Webserver.ConfigReader;
@@ -19,6 +21,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2004/11/03 18:52:48  kelsaka
+	/// Added ability to get the full content-data of post-requests
+	///
 	/// Revision 1.9  2004/10/31 16:30:40  kelsaka
 	/// preparing parsing of post-requests
 	///
@@ -76,49 +81,31 @@ namespace Palladio.Webserver.HTTPRequestParser
 			// default starting position:
 			int httpStartPos = 0;
 
+			// the request-data:
+			string requestString = "";
+
 			// Save the parsing-results into the IHTTP-Request
 			IHTTPRequest httpRequest = new DefaultHTTPRequest();
 			httpRequest.Socket = request.Socket;
 
 
-
-
-			//TODO ... Buggy: POST and long GET are not read completely:
-			httpRequest.Socket.SetSocketOption(SocketOptionLevel.Tcp, SocketOptionName.ReceiveBuffer, 1024);
-
-			webserverMonitor.WriteLogEntry("available: " + httpRequest.Socket.Available);
-
-
-			int bSize;
-			if(httpRequest.Socket.Available < 2048)
+			// Read the content-data of the request
+			try {				
+				requestString = ReadRequestHTTPData(request);
+			} 
+			catch (IOException e) 
 			{
-				bSize = 1024;
+				webserverMonitor.WriteLogEntry("Calling COR-Successor as errors occured on handling (read data) the request as a http-request.");
+				corSuccessor.HandleRequest(request);
 			}
-			else
-			{
-				bSize = httpRequest.Socket.Available;	
-			}
-			
-
-			//make a byte array and receive data from the client
-			Byte[] bReceive = new Byte[bSize];
-			int requestSize = httpRequest.Socket.Receive(bReceive, 0, bReceive.Length, SocketFlags.None);
-			webserverMonitor.WriteLogEntry("Got request; size (bytes): " + requestSize);
-
-
-			// Convert Byte[] to String
-			string requestStringBuffer = Encoding.ASCII.GetString(bReceive);
-	
-			//Console.WriteLine("REQUEST " + requestStringBuffer);
-
-
 
 
 
 
 			// FIRST: HTTP-Request? 
 			// Look for HTTP request:
-			httpStartPos = requestStringBuffer.IndexOf("HTTP", 1);
+			//TODO: Fix: Variables or other content containing "HTTP" let the webserver think having a HTTP-Request.
+			httpStartPos = requestString.IndexOf("HTTP", 0);
 
 			// Call the CoR-Successor, if the request is not a HTTP-Request. The HTTP-Parser is not the right chain
 			// for this request.
@@ -130,7 +117,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 			}
 
 			// Get the HTTP text and version e.g. it will return "HTTP/1.1"
-			httpRequest.HttpVersion = requestStringBuffer.Substring(httpStartPos, 8);
+			httpRequest.HttpVersion = requestString.Substring(httpStartPos, 8);
 			webserverMonitor.WriteLogEntry("HTTP-request has version " + httpRequest.HttpVersion);
 
 
@@ -139,7 +126,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 			// get the http-request-type (e. g. post, get):
 			try
 			{
-				httpRequest.RequestedMethodType = parseRequestMethod(requestStringBuffer);
+				httpRequest.RequestedMethodType = parseRequestMethod(requestString);
 			}
 			catch (NoValidRequestTypeException)
 			{
@@ -153,17 +140,94 @@ namespace Palladio.Webserver.HTTPRequestParser
 			// POST-Method:
 			if(httpRequest.RequestedMethodType == RequestTypes.POST_METHOD)
 			{				
-				ParsePostRequest(requestStringBuffer, httpStartPos, httpRequest);
+				ParsePostRequest(requestString, httpStartPos, httpRequest);
 			}
 
 			// GET-Method:
 			else if(httpRequest.RequestedMethodType == RequestTypes.GET_METHOD) 
 			{
-				ParseGetRequest (requestStringBuffer, httpStartPos, httpRequest);
+				ParseGetRequest (requestString, httpStartPos, httpRequest);
 			}
+
+
+
+	
+	
+			// FOURTH: Call the RequestProcessor
+			// Handle IHTTPRequest in the requestProcessor. The httpRequest contains all necessary (parsed) data.
+			requestProcessor.handleRequest(httpRequest);
+
 
 		}
 
+
+		/// <summary>
+		/// As the request-structure of a http-request is very special it is neccessary to get it with a method
+		/// which minds about this special features of the request-type.
+		/// </summary>
+		/// <param name="request">The request that contains the socket.</param>
+		/// <returns>The request-content as a string.</returns>
+		private string ReadRequestHTTPData (IRequest request)
+		{
+			NetworkStream networkStream = new NetworkStream(request.Socket, System.IO.FileAccess.ReadWrite, true);
+			StreamReader reader = new StreamReader(networkStream);
+			string requestStringBuffer = "";
+			string buffer = "";
+			int contentLength = 0;
+			char[] charBuffer;
+			bool contentRead = false;
+	
+			try 
+			{
+				while(true) 
+				{
+					
+					//if the content has been read (blockread) the ReadLine-command would hang:
+					if(!contentRead)
+					{
+						buffer = reader.ReadLine();
+					}
+					
+					// break looping if teh is buffer emtpy or the content (from post-requests) has been read:
+					if (buffer.Length <= 0 || buffer == null || contentRead)
+					{
+						break;
+					}
+					
+
+					// for the POST-Variables; that section start with "Content-Length:", so search for it.
+					// This part of the request can not be read by using ReadLine, because its size depends on each request.
+					// The size has to be read from the request itself.
+					if(buffer.IndexOf("Content-Length:") != -1)
+					{
+						int lengthStartIndex = buffer.IndexOf(":") + 2; // 2: ":" is followed by a space - so read 2 chars later.
+						string contentLengthString = buffer.Substring(lengthStartIndex, buffer.Length - lengthStartIndex);
+						contentLength = Int32.Parse(contentLengthString) + 2; // 2: Two Linebreaks before the Variables start
+						
+						charBuffer = new char[contentLength];
+						// read the rest of the request in a block; size is known from the request itself.
+						int requestSize = reader.ReadBlock(charBuffer, 0, contentLength);
+						buffer = new string(charBuffer);						
+
+						webserverMonitor.WriteLogEntry("Got request; size (bytes): " + requestSize);
+						contentRead = true;
+					}
+
+					// complete the request that has already been read.
+					requestStringBuffer += buffer + "\n";
+				}
+			} 
+			catch (SocketException e) 
+			{
+				webserverMonitor.WriteDebugMessage("ERROR: Caught Socket exception " + e, 1);
+			} 
+			catch (IOException e) 
+			{
+				webserverMonitor.WriteDebugMessage("ERROR: Caught IO exception " + e, 1);
+				throw e; // might be handled by a COR-Successor
+			}
+			return requestStringBuffer;
+		}
 
 
 		/// <summary>
@@ -176,17 +240,10 @@ namespace Palladio.Webserver.HTTPRequestParser
 		{
 			// sets the filename and the directory of the requested file in the httpRequest as well as
 			// the variabels:
-			setFilenameDirectoryAndGetVariablesInRequest (requestStringBuffer, httpStartPos, httpRequest);
-	
-	
+			setFilenameDirectoryAndGETVariablesInRequest (requestStringBuffer, httpStartPos, httpRequest);
 	
 			// parse file-type (e. g. ".html") out of the filename.
 			httpRequest.RequestedFileType = parseFileType(httpRequest.RequestedFileName);
-	
-	
-	
-			// Handle IHTTPRequest in the requestProcessor. The httpRequest contains all necessary (parsed) data.
-			requestProcessor.handleRequest(httpRequest);
 		}
 
 
@@ -198,28 +255,28 @@ namespace Palladio.Webserver.HTTPRequestParser
 		/// <param name="httpStartPos">Position from where to start parsing.</param>
 		/// <param name="httpRequest">The http-request that has to be created.</param>
 		private void ParsePostRequest (string requestStringBuffer, int httpStartPos, IHTTPRequest httpRequest)
-		{
-			Console.WriteLine("REQUEST:\n" + requestStringBuffer);
+		{	
 			
-			
-
 
 			// sets the filename and the directory of the requested file in the httpRequest as well as
 			// the variabels:
-			setFilenameDirectoryAndGetVariablesInRequest (requestStringBuffer, httpStartPos, httpRequest);
+			setFilenameDirectoryAndGETVariablesInRequest (requestStringBuffer, httpStartPos, httpRequest);
 	
 			// parse file-type (e. g. ".html") out of the filename.
 			httpRequest.RequestedFileType = parseFileType(httpRequest.RequestedFileName);
 
 
+			Console.WriteLine(requestStringBuffer);
 
-				//IndexOf("Content-Length:");
-			
+			/*
+			int contentIndex = requestStringBuffer.IndexOf("Content-Length:");
+			string contentStringPart = requestStringBuffer.Substring(contentIndex, requestStringBuffer.Length - contentIndex);
+			contentIndex = contentStringPart.IndexOf("\n");
+			contentStringPart = contentStringPart.Substring(contentIndex + 1, contentStringPart.Length - contentIndex - 1);
 
-			
+			Console.WriteLine(contentStringPart);
+			*/
 
-			// Handle IHTTPRequest in the requestProcessor. The httpRequest contains all necessary (parsed) data.
-			//requestProcessor.handleRequest(httpRequest);
 		}
 
 
@@ -246,11 +303,12 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 		/// <summary>
 		/// Parses the requeststring for the requested filename and directory and sets it in the httpRequest.
+		/// Extracts the GET-Variables from the RequestString and sets it in the HTTPRequest.
 		/// </summary>
 		/// <param name="requestStringBuffer">String to parse.</param>
 		/// <param name="httpStartPos">Position where the http-request starts.</param>
 		/// <param name="httpRequest">The httpRequest where filename and directoy are set.</param>
-		private void setFilenameDirectoryAndGetVariablesInRequest (string requestStringBuffer, int httpStartPos, IHTTPRequest httpRequest)
+		private void setFilenameDirectoryAndGETVariablesInRequest (string requestStringBuffer, int httpStartPos, IHTTPRequest httpRequest)
 		{
 			string requestedFileOrDirectory;
 			string variables;
