@@ -2,8 +2,7 @@ using System;
 using System.Collections;
 namespace Utils.Collections {
 	/// <summary>
-	/// A collection that contains no duplicate elements. 
-	/// RR use HashTable instead object[] because then you get methods contains and add for free.
+	/// A collection that contains no duplicate elements.
 	/// </summary>
 	/// 
 	public class Set: IEnumerable {

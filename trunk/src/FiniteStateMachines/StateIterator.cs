@@ -5,13 +5,13 @@ using Utils.Collections;
 namespace FiniteStateMachines 
 {
 	/// <summary>
-	/// Iterates over the States of a IFiniteStateMachine with depth-first-search-
+	/// Iterates over the States of a IFiniteStateMachine with depth-first-search
 	/// </summary>
 	public class StateIterator 
 	{
 
 		/// <summary>
-		/// Stores all states that has been visited in a <code>Set</code>
+		/// Stores all states that has been alrady returned in a <code>Set</code>
 		/// </summary>
 		private Set visited; 
 
@@ -31,7 +31,7 @@ namespace FiniteStateMachines
 		private IFiniteStateMachine getters;
 
 		/// <summary>
-		/// The current state, that will be returned
+		/// The current state of the iteration, this will be returned
 		/// </summary>
 		private AbstractState returnState;
 
@@ -53,8 +53,9 @@ namespace FiniteStateMachines
 		/// <summary>
 		/// for debugging
 		/// </summary>
-		protected bool debugOutput = true;
+		protected bool debugOutput = !true;
 		
+
 		/// <summary>
 		/// Initiates a FSM Iterator.
 		/// </summary>
@@ -78,15 +79,6 @@ namespace FiniteStateMachines
 		{
 			if(!this.isInitialised) 
 			{
-				try
-				{
-					if(this.getters.StartState == null)
-						Console.WriteLine(" ");
-				}
-				catch(System.NullReferenceException)
-				{//if you have no Startstate you can't iterate over a FSM
-					return false;
-				}
 				CreateInitailTransition();
 				return true;
 			}
@@ -96,18 +88,7 @@ namespace FiniteStateMachines
 				IList nextStates = this.getters.GetOutgoingTransitions(currentState);
 				while(nextStates == null) 
 				{
-					if(this.debugOutput)
-						Console.WriteLine("There are no Children from "+currentState.ToString());
-					//now there are no children left and this this state is now complety explored,
-					this.visited.Add(currentState);
-//					while(thatsEqual(currentState, (AbstractState) this.states.Peek()))
-//					{
-						this.states.Pop();
-//						Console.Read();
-//					}
-					this.transitions.Pop();
-					//next children 
-					nextStates = this.getters.GetOutgoingTransitions((AbstractState) this.states.Peek());
+					searchForChildrenOfTopOfStack(currentState, out nextStates);
 				}		
 				currentState = (AbstractState) this.states.Peek();
 				nextStates = getters.GetOutgoingTransitions(currentState);
@@ -118,7 +99,7 @@ namespace FiniteStateMachines
 					
 					ExploreAllChildrenOfCurrentState(iterateOverChildren);
 				}
-				//now all children of CS are no on the stack, and cs is completly explored 
+				//now all children of CS are now on the stack, and cs is completly explored 
 				this.visited.Add(currentState);
 				if(this.debugOutput)
 					Console.WriteLine(currentState.ToString()+ " now has been completly doscovered");
@@ -133,27 +114,50 @@ namespace FiniteStateMachines
 						return false;
 				}
 				//Now a State is found, which jet has not been returning
-				if(this.states.Peek().Equals(new State("ErrorState",false,false))) 
-				{
-					states.Pop();
-					this.MoveNext();
-				}
-				this.returnState = (AbstractState) this.states.Peek();
-				this.currentTransition = (Transition) this.transitions.Peek();
-				this.alreadyReturned.Add((AbstractState) this.states.Peek());
+				TidyUpAndSetReturningValues();
 				return true;
 			}
 		}
 
 
-		public bool thatsEqual(AbstractState aState, AbstractState bState)
+
+		/// <summary>
+		/// After iteration this is used to remove ErrorStates from the Stack, 
+		/// sets the State and the Transition which will be returned and adds this
+		/// state to the visited states so they won't be retruned again.
+		/// </summary>
+		private void TidyUpAndSetReturningValues()
 		{
-			if(aState.Name == bState.Name)
-				if(aState.IsFinalState == bState.IsFinalState)
-					if(aState.IsStartState == bState.IsStartState)
-						return true;
-			return false;
- 		}
+			if(this.states.Peek().Equals(new State("ErrorState",false,false))) 
+			{
+				states.Pop();
+				this.MoveNext();
+			}
+			this.returnState = (AbstractState) this.states.Peek();
+			this.currentTransition = (Transition) this.transitions.Peek();
+			this.alreadyReturned.Add((AbstractState) this.states.Peek());
+		}
+
+
+		/// <summary>
+		/// If the currentState has no children, this method is called to deliver all 
+		/// children of the state which is on top of the stack.
+		/// </summary>
+		/// <param name="currentState">The current State of the iteration</param>
+		/// <param name="nextStates">A list which contains the children of top of  stack </param>
+		private void searchForChildrenOfTopOfStack(AbstractState currentState, out IList nextStates)
+		{
+			if(this.debugOutput)
+				Console.WriteLine("There are no Children from "+currentState.ToString());
+			//now there are no children left and this this state is now complety explored,
+			this.visited.Add(currentState);
+			this.states.Pop();
+			this.transitions.Pop();
+			//next children 
+			nextStates = this.getters.GetOutgoingTransitions((AbstractState) this.states.Peek());
+		}
+
+
 		/// <summary>
 		/// Explores all children of the currentState and stores.
 		/// </summary>
@@ -167,18 +171,6 @@ namespace FiniteStateMachines
 			if(this.debugOutput)
 				Console.WriteLine(tempTransition.DestinationState.ToString()+" ís pushed on the stack");
 		}
-
-
-		/// <summary>
-		/// When a state has completly been explored, this is use to remove the state from the Stack and
-		/// add him to the visited states. And look for the next state, which has to be explored.
-		/// </summary>
-		/// <param name="currentState">The State which has been completly explored</param>
-		/// <param name="nextStates">A List of nextStates</param>
-//		private void tidyUp(AbstractState currentState, out IList nextStates)
-//		{
-//			
-//		}
 
 
 		/// <summary>
