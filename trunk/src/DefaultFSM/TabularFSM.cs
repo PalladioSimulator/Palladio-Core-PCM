@@ -136,6 +136,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 
 		public override ITransition[] GetOutgoingTransitions(IState state) 
 		{
+			if (!states.Contains(state))
+				throw new InvalidStateException(state);
+
 			Set transList = new Set();
 			Hashtable outgoing = (Hashtable)transitionTable[state];
 			if (outgoing != null) 
