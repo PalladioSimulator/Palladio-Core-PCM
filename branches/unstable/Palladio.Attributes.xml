@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.Attributes</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.Attributes.AttributeHash">
+            <summary>
+            A default implementation of an IAttributeHash.
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log$
+            Revision 1.1.2.1  2004/11/16 13:40:49  uffi
+            Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+            Documentation needs fixing. Some unittests fail.
+
+            Revision 1.2  2004/05/18 13:19:58  sliver
+            Added Clone method for AttributeHash
+            
+            Revision 1.1  2004/05/13 15:17:31  sbecker
+            Initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="T:Palladio.Attributes.IAttributeHash">
+            <summary>
+            A hashtable containing attributes which are associated to certain
+            objects in other data structures. Those attributes need to have
+            a type. 
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log$
+            Revision 1.1.2.1  2004/11/16 13:40:49  uffi
+            Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+            Documentation needs fixing. Some unittests fail.
+
+            Revision 1.2  2004/05/18 13:19:58  sliver
+            Added Clone method for AttributeHash
+            
+            Revision 1.1  2004/05/13 15:17:31  sbecker
+            Initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="M:Palladio.Attributes.IAttributeHash.Add(Palladio.Attributes.IAttributeType,System.Object)">
+            <summary>
+            Add the value of an attribute with the given type to this 
+            hashtable
+            </summary>
+            <param name="type">The type of the attribute to add</param>
+            <param name="val">The value of the attribute to add</param>
+        </member>
+        <member name="P:Palladio.Attributes.IAttributeHash.Item(Palladio.Attributes.IAttributeType)">
+            <summary>
+            Get the value of the attribute with the specified type
+            </summary>
+        </member>
+        <member name="F:Palladio.Attributes.AttributeHash.hash">
+            <summary>
+            The hashtable used to store the values
+            </summary>
+        </member>
+        <member name="M:Palladio.Attributes.AttributeHash.Add(Palladio.Attributes.IAttributeType,System.Object)">
+            <summary>
+            Add the value of an attribute with the given type to this 
+            hashtable
+            </summary>
+            <param name="type">The type of the attribute to add</param>
+            <param name="val">The value of the attribute to add</param>
+        </member>
+        <member name="M:Palladio.Attributes.AttributeHash.Clone">
+            <summary>
+            Creates a copy of the current instance.
+            </summary>
+            <returns>A new object with the same values as the current instance.</returns>
+        </member>
+        <member name="P:Palladio.Attributes.AttributeHash.Item(Palladio.Attributes.IAttributeType)">
+            <summary>
+            Get the value of the attribute with the specified type
+            </summary>
+        </member>
+        <member name="T:Palladio.Attributes.DefaultAttributesFactory">
+            <summary>
+            Factory for creating objects of the interfaces in this
+            namespace
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log$
+            Revision 1.1.2.1  2004/11/16 13:40:49  uffi
+            Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+            Documentation needs fixing. Some unittests fail.
+
+            Revision 1.1  2004/05/13 15:17:31  sbecker
+            Initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="T:Palladio.Attributes.IAttributesFactory">
+            <summary>
+            Zusammenfassung für IAttributesFactory.
+            </summary>
+        </member>
+        <member name="M:Palladio.Attributes.IAttributesFactory.CreateAttributeType(System.Guid,System.String,System.Type)">
+            <summary>
+            Create a new <see cref="T:Palladio.Attributes.IAttributeType"/>
+            </summary>
+            <param name="aGuid">The ID of the type</param>
+            <param name="description">A description of the attribute</param>
+            <param name="aType">The type of the attributes values</param>
+            <returns>A new IAttributeType</returns>
+        </member>
+        <member name="M:Palladio.Attributes.IAttributesFactory.CreateAttributeHash">
+            <summary>
+            Create a new <see cref="T:Palladio.Attributes.IAttributeHash"/>
+            </summary>
+            <returns>An IAttributeHash</returns>
+        </member>
+        <member name="M:Palladio.Attributes.DefaultAttributesFactory.CreateAttributeType(System.Guid,System.String,System.Type)">
+            <summary>
+            Create a new <see cref="T:Palladio.Attributes.IAttributeType"/>
+            </summary>
+            <param name="aGuid">The ID of the type</param>
+            <param name="description">A description of the attribute</param>
+            <param name="aType">The type of the attributes values</param>
+            <returns>A new IAttributeType</returns>
+        </member>
+        <member name="M:Palladio.Attributes.DefaultAttributesFactory.CreateAttributeHash">
+            <summary>
+            Create a new <see cref="T:Palladio.Attributes.IAttributeHash"/>
+            </summary>
+            <returns>An IAttributeHash</returns>
+        </member>
+        <member name="T:Palladio.Attributes.DefaultAttributeType">
+            <summary>
+            Stores information on the type of an attribute. The attribute
+            type inherits IVisitable in order to e.g. allow specialised
+            rendering of GUI elements to edit the value of the attribute.
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log$
+            Revision 1.1.2.1  2004/11/16 13:40:49  uffi
+            Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+            Documentation needs fixing. Some unittests fail.
+
+            Revision 1.2  2004/05/17 14:07:33  sliver
+            added interface for attributable classes
+            
+            Revision 1.1  2004/05/13 15:17:31  sbecker
+            Initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="T:Palladio.Attributes.IAttributeType">
+            <summary>
+            Stores information on the type of an attribute. The attribute
+            type inherits IVisitable in order to e.g. allow specialised
+            rendering of GUI elements to edit the value of the attribute.
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log$
+            Revision 1.1.2.1  2004/11/16 13:40:49  uffi
+            Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+            Documentation needs fixing. Some unittests fail.
+
+            Revision 1.1  2004/05/13 15:17:31  sbecker
+            Initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="P:Palladio.Attributes.IAttributeType.Description">
+            <summary>
+            Get a description of the attribute
+            </summary>
+        </member>
+        <member name="P:Palladio.Attributes.IAttributeType.GUID">
+            <summary>
+            Get a globally unique ID of the attribute used to identify 
+            the attribute
+            </summary>
+        </member>
+        <member name="P:Palladio.Attributes.IAttributeType.ValueType">
+            <summary>
+            Get the type of the value of the given attribute
+            </summary>
+        </member>
+        <member name="M:Palladio.Attributes.DefaultAttributeType.#ctor(System.Guid,System.String,System.Type)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="guid">The identifier of this attribute type</param>
+            <param name="description">A description of the attribute type</param>
+            <param name="type">The type of the attribute</param>
+        </member>
+        <member name="P:Palladio.Attributes.DefaultAttributeType.Description">
+            <summary>
+            Get a description of the attribute
+            </summary>
+        </member>
+        <member name="P:Palladio.Attributes.DefaultAttributeType.GUID">
+            <summary>
+            Get a globally unique ID of the attribute used to identify 
+            the attribute
+            </summary>
+        </member>
+        <member name="P:Palladio.Attributes.DefaultAttributeType.ValueType">
+            <summary>
+            Get the type of the value of the given attribute
+            </summary>
+        </member>
+        <member name="T:Palladio.Attributes.AttributesFactory">
+            <summary>
+            Static factory class for getting an <see cref="T:Palladio.Attributes.IAttributesFactory"/>
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log$
+            Revision 1.1.2.1  2004/11/16 13:40:49  uffi
+            Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+            Documentation needs fixing. Some unittests fail.
+
+            Revision 1.2  2004/07/13 07:48:47  sbecker
+            Made AttributesFactory static
+            
+            Revision 1.1  2004/05/13 15:17:31  sbecker
+            Initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="F:Palladio.Attributes.AttributesFactory.attributesFactory">
+            <summary>
+            Create a factory for attributes
+            </summary>
+        </member>
+        <member name="P:Palladio.Attributes.AttributesFactory.Default">
+            <summary>
+            Return a default factory
+            </summary>
+        </member>
+        <member name="T:Palladio.Attributes.IAttributable">
+            <summary>
+            </summary>
+            <remarks>
+            <pre>
+            $Log$
+            Revision 1.1.2.1  2004/11/16 13:40:49  uffi
+            Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
+            Documentation needs fixing. Some unittests fail.
+
+            Revision 1.1  2004/05/17 14:07:33  sliver
+            added interface for attributable classes
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="P:Palladio.Attributes.IAttributable.Attributes">
+            <summary>
+            A list of attributes attached an object. 
+            </summary>
+        </member>
+    </members>
+</doc>
