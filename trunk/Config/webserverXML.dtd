@@ -35,6 +35,9 @@
 
 
 <!ELEMENT MimeTypes (MimeType*)>
+<!ATTLIST MimeTypes
+	default-content-type CDATA #REQUIRED
+>
 
 <!ELEMENT MimeType EMPTY>
 <!ATTLIST MimeType

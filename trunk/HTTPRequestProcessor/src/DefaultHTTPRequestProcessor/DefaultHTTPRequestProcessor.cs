@@ -1,5 +1,6 @@
 using System;
 using Palladio.Webserver.ConfigReader;
+using Palladio.Webserver.Request;
 using Palladio.Webserver.WebserverMonitor;
 
 namespace Palladio.Webserver.HTTPRequestProcessor
@@ -13,6 +14,9 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/10/29 16:30:38  kelsaka
+	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
+	///
 	/// Revision 1.4  2004/10/27 05:52:48  kelsaka
 	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
 	///
@@ -30,6 +34,19 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 		public DefaultHTTPRequestProcessor(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
 
+		}
+
+		/// <summary>
+		/// Proceeds on creating a answer to the httpRequest.
+		/// </summary>
+		/// <param name="httpRequest">The HTTP-Request.</param>
+		public void handleRequest (IHTTPRequest httpRequest)
+		{
+
+
+			throw new NotImplementedException ();
+
+				
 		}
 	}
 }
