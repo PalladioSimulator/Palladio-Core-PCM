@@ -1,4 +1,6 @@
 using System;
+using Palladio.ComponentModel;
+using Palladio.Identifier;
 
 namespace ComponentNetworkSimulation.Structure.Elements
 {
@@ -8,6 +10,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/06/26 15:42:52  joemal
+	/// - add the simulation bindings
+	///
 	/// Revision 1.1  2004/06/22 12:19:55  joemal
 	/// inital class creation
 	///
@@ -35,9 +40,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		/// </summary>
 		/// <param name="id">the id of the component</param>
 		/// <returns>the component</returns>
-		public Palladio.ComponentModel.IBasicComponent CreateBasicComponent(string id)
+		public IBasicComponent CreateBasicComponent(string id)
 		{
-			return Palladio.ComponentModel.ComponentFactory.CreateBasicComponent(id);
+			return ComponentFactory.CreateBasicComponent(id);
 		}
 
 		/// <summary>
@@ -45,19 +50,27 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		/// </summary>
 		/// <param name="id">the id of the component</param>
 		/// <returns>the composite component</returns>
-		public Palladio.ComponentModel.ICompositeComponent CreateCompositeComponent(string id)
+		public ICompositeComponent CreateCompositeComponent(string id)
 		{
-			return Palladio.ComponentModel.ComponentFactory.CreateCompositeComponent(id);
+			return ComponentFactory.CreateCompositeComponent(id);
 		}
 
 		/// <summary>
 		/// called to create a binding to connect a requires interface of one component with the requires interface of another.
 		/// </summary>
+		/// <param name="reqComp">the requiring component</param>
+		/// <param name="reqRole">the id of the requires interface</param>
+		/// <param name="provComp">the providing component</param>
+		/// <param name="provRole">the id of the requires interface</param>
+		/// <param name="parameters">the parameters of the binding</param>
 		/// <returns>the binding</returns>
-		public ISimulationBinding CreateBinding()
+		public ISimulationBinding CreateBinding(IComponent reqComp,IIdentifier reqRole,IComponent provComp, 
+			IIdentifier provRole, ISimulationBindingParams parameters)
 		{
-			//todo: implement
-			return null;
+			if (parameters is StaticTimeBindingParams)
+				return new DefaultStaticTimeBinding(reqComp,reqRole,provComp,provRole,(StaticTimeBindingParams)parameters);
+			else 
+				return null;
 		}
 	}
 }
