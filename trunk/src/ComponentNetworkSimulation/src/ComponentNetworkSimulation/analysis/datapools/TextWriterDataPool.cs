@@ -8,6 +8,15 @@ namespace ComponentNetworkSimulation.Analysis.Datapools
 	/// <summary>
 	/// this class implements a datapool, that only writes all logs to the given writer.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.1  2004/05/26 16:22:40  joemal
+	/// initial creation
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	internal class TextWriterDataPool : ComponentNetworkSimulation.Analysis.DefaultDataPool
 	{
 		#region data
