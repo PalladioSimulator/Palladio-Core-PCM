@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Palladio.ComponentModel.Exceptions;
 
 namespace Palladio.ComponentModel
 {
@@ -18,6 +19,7 @@ namespace Palladio.ComponentModel
 				roleID = value;
 			}
 		}
+
 		public IComponent Component {
 			get {
 				return component;
@@ -27,10 +29,10 @@ namespace Palladio.ComponentModel
 			}
 		}
 		
-		public AttachedInterface(string roleID, IComponent component)
+		public AttachedInterface(string aRoleID, IComponent aComponent)
 		{
-			this.roleID = roleID;
-			this.component = component;
+			this.component = aComponent;
+			this.roleID = aRoleID;
 		}
 		
 		public override string ToString()
@@ -45,15 +47,16 @@ namespace Palladio.ComponentModel
 			if (!(obj is AttachedInterface)) return false;
 			if ((object)this == obj) return true;
 			AttachedInterface myAttachedInterface = (AttachedInterface)obj;
-			if (roleID != null ? roleID.Equals(myAttachedInterface.roleID): myAttachedInterface.roleID != null) return false;
-			if (component != myAttachedInterface.component) return false;
-			
+			if (roleID != null ? !roleID.Equals(myAttachedInterface.roleID) : myAttachedInterface.roleID != null) return false;
+			if (component != null ? !component.Equals( myAttachedInterface.component) : myAttachedInterface.component != null) return false;
 			return true;
 		}
 		
 		public override int GetHashCode()
 		{
-			return (roleID != null ? roleID.GetHashCode() : 0) ^ component.GetHashCode();
+			return 
+				(roleID != null ? roleID.GetHashCode() : 0) ^ 
+				( component != null ? component.GetHashCode() : 0);
 		}
 		
 		

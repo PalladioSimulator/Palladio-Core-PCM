@@ -2,150 +2,104 @@ using System;
 using System.Collections;
 using Palladio.Utils.Collections;
 
-namespace Palladio.ComponentModel 
+namespace Palladio.ComponentModel.Components 
 {
 	/// <summary>
 	/// A CompositeComponent consists of a set of internal components which 
 	/// are wired using ComponentBindings and mapped to the outside world 
 	/// using ComponentMappings.
 	/// </summary>
-	public class CompositeComponent : ICompositeComponent 
+	internal class CompositeComponent : ICompositeComponent 
 	{
-		#region Properties
-
-		/// <summary>
-		/// List of IComponent objects assembled by the CompositComponent.
-		/// </summary>
-		public IList ComponentList 
-		{ 
-			get { return componentList; }
-		}
-
-		/// <summary>
-		/// List of ComponentBinding objects which represent 
-		/// the wiring of the internal components.
-		/// </summary>
-		public IList BindingList 
-		{ 
-			get { return bindingList; }
-		}
-
-		/// <summary>
-		/// List of ICompProvMappings mapping the provides interfaces
-		/// of the internal components onto the provides interfaces of the
-		/// CompositeComponent.
-		/// </summary>
-		public IList ProvMappingList 
-		{ 
-			get { return provMappingList; }
-		}
-
-		/// <summary>
-		/// List of IReqCompMappings mapping the requires interfaces
-		/// of the internal components onto the requires interfaces of the
-		/// CompositeComponent.
-		/// </summary>
-		public IList ReqMappingList 
-		{ 
-			get { return reqMappingList; }
-		}
-
-		/// <summary>
-		/// List of all mappings including ICompProvMappings and ICompReqMappings.
-		/// </summary>
-		public IList MappingList 
-		{
-			get { 
-				Vector resultList = new Vector(ReqMappingList);
-				resultList.AddRange(ProvMappingList);
-				return resultList;
-			}
-		}
-		#endregion
-
-		#region Methods
-
-		/// <summary>
-		/// Interfaces provided by the component constrained by its environment.
-		/// </summary>
-		/// <param name="aProvIfaceList">
-		/// List of ProvidesInterface objects provided to the component.
-		/// </param>
-		/// <returns>
-		/// A list of ProvidesInterface objects.
-		/// </returns>
-		public IList GetProvidesIfaceList(IList aProvIfaceList) 
-		{
-			return null;
-		}
-
-		/// <summary>
-		/// Interfaces required by the component adapted to the requirements
-		/// of the environment.
-		/// </summary>
-		/// <param name="aReqIfaceList">
-		/// List of RequiresInterface objects required from the component.
-		/// </param>
-		/// <returns>
-		/// A List of RequireInterface objects.
-		/// </returns>
-		public IList GetRequiresIfaceList(IList aReqIfaceList) 
-		{
-			return null;
-		}
-
 		/// <summary>
 		/// Interfaces provided by the component to its environment.
 		/// </summary>
-		/// <returns>
-		/// A list of ProvidesInterface objects.
-		/// </returns>
-		public IList GetProvidesIfaceList() 
-		{
-			return null;
-		}
+		ISignatureList[] ProvidesInterfaces { get; }
 
 		/// <summary>
 		/// Interfaces required by the component from its environment.
 		/// </summary>
-		/// <returns>
-		/// A list of RequiresInterface objects.
-		/// </returns>
-		public IList GetRequiresIfaceList() 
-		{
-			return null;
+		ISignatureList[] RequiresInterfaces { get; }
+
+		/// <summary>
+		/// List of IComponent objects assembled by the CompositComponent.
+		/// </summary>
+		IComponent[] Components 
+		{ 
+			get;
 		}
 
 		/// <summary>
-		/// Creates a copy of the current instance.
+		/// List of CompBinding objects, which represent 
+		/// the wiring of the internal components.
 		/// </summary>
-		/// <returns>A new object with the same values as the current instance.</returns>
-		public object Clone() 
-		{
-			return null;
+		IBinding[] Bindings
+		{ 
+			get;
 		}
-
-		#endregion
-
-		#region Constructors
 
 		/// <summary>
-		/// Creates an empty Component.
+		/// List of ICompProvMappings mapping the ProvidesInterfaces
+		/// of the internal components onto the ProvidesInterfaces of the
+		/// CompositeComponent.
 		/// </summary>
-		public CompositeComponent() 
-		{
+		IProvidesMapping[] ProvidesMappings
+		{ 
+			get;
 		}
 
-		#endregion
+		/// <summary>
+		/// List of IReqCompMappings mapping the RequireInterfaces
+		/// of the internal components onto the RequiresInterfaces of the
+		/// CompositeComponent.
+		/// </summary>
+		IRequiresMapping[] RequiresMappings
+		{ 
+			get;
+		}
+		
+		/// <summary>
+		/// Get the ProvidesInterface with the role aRoleID.
+		/// </summary>
+		/// <param name="aRoleID">A provided role of the component.</param>
+		/// <returns>The ProvidesInterface with the role aRoleID. 
+		/// If no interface with aRoleID can be found, a RoleNotFoundException is thrown.</returns>
+		ISignatureList GetProvidesInterface(string aRoleID);
+		
+		/// <summary>
+		/// Get the RequiresInterface with the role aRoleID.
+		/// </summary>
+		/// <param name="aRoleID">A provided role of the component.</param>
+		/// <returns>The RequiresInterface with the role aRoleID. 
+		/// If no interface with aRoleID can be found, a RoleNotFoundException is thrown.</returns>
+		ISignatureList GetRequiresInterface(string aRoleID);
 
-		#region Data
+		void AddComponents(params IComponent[] aCompArray);
 
-		private IList componentList;
-		private IList bindingList;
-		private IList provMappingList;
-		private IList reqMappingList;
+		void DeleteComponents(params IComponent[] aCompArray);
+		
 
-		#endregion
+		void AddProvidesInterface(ISignatureList aProvInterface, IProvidesMapping aProvMapping);
 
+		void AddRequiresInterface(ISignatureList aReqInterface, IRequiresMapping aReqMapping);
+
+		void DeleteProvidesInterface(ISignatureList aProvInterface, IProvidesMapping aProvMapping);
+
+		void DeleteRequiresInterface(ISignatureList aReqInterface, IRequiresMapping aReqMapping);
+
+
+		IProvidesMapping GetProvidesMappingByOuter(string aProvRoleID);
+
+		IBinding GetBindingByRequires(AttachedInterface aReqInterface);
+
+		IRequiresMapping GetRequiresMappingByInner(AttachedInterface aReqInterface);
+
+		IRequiresMapping GetRequiresMappingByOuter(string aReqRoleID);
+
+		IBinding GetBindingByProvides(AttachedInterface aProvInterface);
+
+		IProvidesMapping GetProvidesMappingByInner(AttachedInterface aProvInterface);
+
+		private 
 	}
 }

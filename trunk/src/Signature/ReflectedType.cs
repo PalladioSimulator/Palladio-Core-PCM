@@ -94,7 +94,7 @@ namespace Palladio.ComponentModel.Signature
 		/// <returns>A hash value for the current object.</returns>
 		public override int GetHashCode()
 		{
-			return reflectedType.GetHashCode ();
+			return (reflectedType != null ? reflectedType.GetHashCode () : 0);
 		}
 
 		/// <summary>

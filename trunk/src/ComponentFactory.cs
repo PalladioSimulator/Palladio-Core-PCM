@@ -17,17 +17,17 @@ namespace Palladio.ComponentModel
 	{
 		public static ISignature CreateSignature( IAttributeHash anAttributeHash, string aRoleID, IType aReturnType, string aName, IParameter[] aParamArray, params IType[] anExceptionArray)
 		{
-			return new MethodSignature(anAttributeHash, aRoleID, aReturnType, aName, aParamArray, anExceptionArray);
+			return new DefaultSignature(anAttributeHash, aRoleID, aReturnType, aName, aParamArray, anExceptionArray);
 		}
 		
 		public static ISignature CreateSignature( string aRoleID, IType aReturnType, string aName, IParameter[] aParamArray, params IType[] anExceptionArray)
 		{
-			return new MethodSignature( attributesFactory.Default.CreateAttributeHash(), aRoleID, aReturnType, aName, aParamArray, anExceptionArray);
+			return new DefaultSignature( attributesFactory.Default.CreateAttributeHash(), aRoleID, aReturnType, aName, aParamArray, anExceptionArray);
 		}
 
 		public static ISignature CreateSignature( string aRoleID, string aName, params IParameter[] aParamArray )
 		{
-			return new MethodSignature(attributesFactory.Default.CreateAttributeHash(), aRoleID, new ReflectedType(typeof(void)), aName, aParamArray, new IType[0]);
+			return new DefaultSignature(attributesFactory.Default.CreateAttributeHash(), aRoleID, new ReflectedType(typeof(void)), aName, aParamArray, new IType[0]);
 		}
 		
 		private static AttributesFactory attributesFactory = new AttributesFactory();

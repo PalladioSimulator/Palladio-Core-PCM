@@ -1,13 +1,13 @@
 using System;
 using System.Reflection;
 
-namespace Palladio.ComponentModel 
+namespace Palladio.ComponentModel.InterfaceModels 
 {
 	/// <summary>
 	/// A service consists of a provided signature with an associated service
 	/// effect specification describing its requirements.
 	/// </summary>
-	public class Service : ICloneable 
+	internal class Service : IService 
 	{
 		#region Properties
 
@@ -17,14 +17,16 @@ namespace Palladio.ComponentModel
 		public ISignature Signature 
 		{
 			get { return signature; }
+			set { signature = value; }
 		}
 
 		/// <summary>
 		/// Specifies the requirements of this service.
 		/// </summary>
-		public IInterfaceModel EffectSpec 
+		public ISignatureList EffectSpec 
 		{ 
 			get { return effectSpec; }
+			set { effectSpec = value; }
 		}
 
 		#endregion
@@ -100,9 +102,9 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aServiceEffectSpec">Requirements of the service.</param>
 		/// <param name="aSignature">Signature provided by the new Service.</param>
-		public Service(IInterfaceModel aServiceEffectSpec, ISignature aSignature) : this( aSignature )
+		public Service(ISignatureList aServiceEffectSpec, ISignature aSignature) : this( aSignature )
 		{
-			effectSpec = (IInterfaceModel) aServiceEffectSpec.Clone();
+			effectSpec = (ISignatureList) aServiceEffectSpec.Clone();
 		}
 
 		/// <summary>
@@ -115,7 +117,7 @@ namespace Palladio.ComponentModel
 
 		#region Data
 
-		private IInterfaceModel effectSpec;
+		private ISignatureList effectSpec;
 		private ISignature signature;
 		#endregion
 	}

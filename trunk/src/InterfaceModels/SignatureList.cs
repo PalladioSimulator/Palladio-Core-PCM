@@ -4,7 +4,7 @@ using Palladio.Utils.Collections;
 using Palladio.Attributes;
 using ReflectionBasedVisitor;
 
-namespace Palladio.ComponentModel 
+namespace Palladio.ComponentModel.InterfaceModels 
 {
 	/// <summary>
 	/// A SignatureList is the simplest form of an IInterfaceModel, just

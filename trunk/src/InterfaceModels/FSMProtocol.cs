@@ -5,7 +5,7 @@ using Palladio.Utils.Collections;
 using Palladio.Attributes;
 using ReflectionBasedVisitor;
 
-namespace Palladio.ComponentModel 
+namespace Palladio.ComponentModel.InterfaceModels 
 {
 	/// <summary>
 	/// A ProtocolIModel is an extension of a SignatureListModel. In
@@ -14,7 +14,7 @@ namespace Palladio.ComponentModel
 	/// called protocol. The language accepted by the protocol
 	/// represents the possible call sequences.
 	/// </summary>
-	public class FSMProtocol : IFSMProtocol  
+	internal class FSMProtocol : IFSMProtocol  
 	{
 
 		#region Properties

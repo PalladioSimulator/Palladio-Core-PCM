@@ -8,7 +8,7 @@ namespace Palladio.ComponentModel.Signature
 	/// <summary>
 	/// Simple implementation of the ISignature interface for methods.
 	/// </summary>
-	internal class MethodSignature : ISignature
+	internal class DefaultSignature : ISignature
 	{
 		#region Properties
 
@@ -68,10 +68,51 @@ namespace Palladio.ComponentModel.Signature
 		/// Creates a copy of the current instance.
 		/// </summary>
 		/// <returns>A new object with the same values as the current instance.</returns>
-		public virtual object Clone()
+		public object Clone()
 		{
-			return new MethodSignature(this);
+			return new DefaultSignature(this);
 		}
+
+		public override bool Equals(object obj)
+		{
+			if (!(obj is DefaultSignature))
+				return false;
+			DefaultSignature sig = (DefaultSignature)obj;
+
+			if (!(sig.Name.Equals(this.Name) && 
+						sig.ReturnType.Equals(this.ReturnType) &&
+						sig.RoleID.Equals(this.RoleID) &&
+						(sig.Parameters.Length == this.Parameters.Length) &&
+						(sig.Exceptions.Length == this.Exceptions.Length)
+					))
+				return false;
+
+			for (int i = 0; i < this.Parameters.Length; i++)
+			{
+				if (!sig.Parameters[i].Equals(this.Parameters[i]))
+					return false;
+			}
+
+			foreach (IType ex in this.Exceptions)
+			{
+				if (Array.IndexOf(sig.Exceptions, ex) < 0)
+					return false;
+			}
+
+			return true;
+		}
+
+		public override int GetHashCode()
+		{
+			return	
+				(RoleID != null ? RoleID.GetHashCode()	: 0) ^ 
+				(Name		!= null ? Name.GetHashCode() : 0) ^ 
+				(ReturnType != null ? ReturnType.GetHashCode() : 0) ^ 
+				(Parameters != null ? Parameters.GetHashCode() : 0) ^ 
+				(Exceptions != null ? Exceptions.GetHashCode() : 0);
+		}
+
+
 
 
 		#endregion
@@ -84,7 +125,7 @@ namespace Palladio.ComponentModel.Signature
 		/// <param name="aType">Return type of the Signature.</param>
 		/// <param name="aName">Name of the new Signature.</param>
 		/// <param name="aParamList">List of parameters of the signature</param>
-		public MethodSignature(IAttributeHash anAttribHash, string aRoleID, IType aType, string aName, IParameter[] aParamArray, IType[] anExceptArray)
+		public DefaultSignature(IAttributeHash anAttribHash, string aRoleID, IType aType, string aName, IParameter[] aParamArray, IType[] anExceptArray)
 		{
 			attributes = anAttribHash;
 			roleID = aRoleID;
@@ -100,7 +141,7 @@ namespace Palladio.ComponentModel.Signature
 		/// CopyConstructor.
 		/// </summary>
 		/// <param name="aSig">Signature to copy.</param>
-		public MethodSignature(MethodSignature  aSig) : 
+		public DefaultSignature(DefaultSignature  aSig) : 
 			this(aSig.Attributes, aSig.RoleID, aSig.ReturnType, aSig.Name, aSig.Parameters, aSig.Exceptions) 
 		{
 		}

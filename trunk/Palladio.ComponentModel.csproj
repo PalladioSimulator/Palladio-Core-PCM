@@ -115,11 +115,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "DefaultClass.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "data\d1.xml"
                     BuildAction = "Content"
                 />
@@ -245,8 +240,46 @@
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
-                <Folder RelPath = "src\Components\" />
-                <Folder RelPath = "src\Exceptions\" />
+                <File
+                    RelPath = "src\Components\BasicComponent.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Connections\Binding.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Connections\Connection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Connections\ProvidesMapping.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Connections\RequiresMapping.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\RoleIDNotFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\SignatureHasNoServEffSpec.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\SignatureNotFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
                 <File
                     RelPath = "src\InterfaceModels\FSMProtocol.cs"
                     SubType = "Code"
@@ -263,7 +296,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Signature\MethodSignature.cs"
+                    RelPath = "src\Signature\DefaultSignature.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
