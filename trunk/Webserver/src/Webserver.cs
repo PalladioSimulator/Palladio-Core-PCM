@@ -17,6 +17,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2004/10/29 16:30:39  kelsaka
+	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
+	///
 	/// Revision 1.9  2004/10/27 15:05:06  kelsaka
 	/// added more request handling-abilities
 	///
@@ -66,9 +69,9 @@ namespace Palladio.Webserver
 		public static void Main(string[] args) 
 		{
 			Webserver webserver = new Webserver();
-			Console.WriteLine("# Webserver.Run started... (Press CTRL + C to stop.)");
+			Console.WriteLine("# Main-Thread: Webserver.Run started...");
 			webserver.Run(args);
-			Console.WriteLine("# Webserver.Run exited...");
+			Console.WriteLine("# Main-Thread: Webserver.Run exited...");
 			
 			Console.ReadLine();
 
@@ -122,7 +125,8 @@ namespace Palladio.Webserver
 
 			// RequestProcessor-COR:
 			HTTPRequestProcessor.IHTTPRequestProcessor defaultHttpRequestProcessor = webserverFactory.CreateDefaultRequestProcessor(webserverMonitor, webserverConfiguration);
-			HTTPRequestProcessor.IHTTPRequestProcessor staticFileProvider = webserverFactory.CreateStaticFileProvider(defaultHttpRequestProcessor, webserverMonitor, webserverConfiguration);
+			HTTPRequestProcessor.IHTTPRequestProcessor dynamicFileProvider = webserverFactory.CreateDynamicFileProvider(defaultHttpRequestProcessor, webserverMonitor, webserverConfiguration);
+			HTTPRequestProcessor.IHTTPRequestProcessor staticFileProvider = webserverFactory.CreateStaticFileProvider(dynamicFileProvider, webserverMonitor, webserverConfiguration);
 			
 			// RequestParser-COR:
 			IRequestParser defaultRequestParser = webserverFactory.CreateDefaultRequestParser(webserverMonitor, webserverConfiguration);

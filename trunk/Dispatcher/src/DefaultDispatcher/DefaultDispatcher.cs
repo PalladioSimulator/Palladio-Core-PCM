@@ -20,6 +20,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/10/29 16:30:38  kelsaka
+	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
+	///
 	/// Revision 1.7  2004/10/28 07:54:43  kelsaka
 	/// -
 	///
@@ -48,9 +51,9 @@ namespace Palladio.Webserver.Dispatcher
 	{
 		/// <summary>
 		/// The local IP-address the server is listening on. As the server usually runs on single machine,
-		/// first 127.0.0.1 is used. //TODO: maybe change to be able to listen to multiple addresses.
+		/// first 127.0.0.1 is used. 
 		/// </summary>
-		byte[] localAddress = new byte[4]{127, 0, 0, 1};
+		string localAddress = "127.0.0.1"; //TODO: maybe change to be able to listen to multiple addresses.
 		
 		private IRequestParser requestParser;
 		private IWebserverMonitor webserverMonitor;
@@ -89,9 +92,10 @@ namespace Palladio.Webserver.Dispatcher
 			{
 
 				//start listing on the given port //TODO: make listen on *all* specified ports later on.
-				//TODO: currently running without IP listening on: "new IPAddress(localAddress)"
+				//TODO: currently running without IP listening on: "new IPAddress(Encoding.ASCII.GetBytes(localAddress))"
 				tcpListener = new TcpListener(webserverConfiguration.ListeningPorts[0]);
 				tcpListener.Start();
+				webserverMonitor.WriteLogEntry("Listening (TCP) on port: " + webserverConfiguration.ListeningPorts[0]);
 
 				//start the thread which calls the method 'StartListen'
 				Thread thread = new Thread(new ThreadStart(StartListen));
@@ -129,14 +133,15 @@ namespace Palladio.Webserver.Dispatcher
 		//Then it sends the Current date time to the Client.
 		private void StartListen()
 		{
-
+			webserverMonitor.WriteLogEntry("Dispatcher-Thread started. Waiting for client-requests...");
 						
 			while(true)
 			{
 				//Accept a new connection
 				Socket clientSocket = tcpListener.AcceptSocket() ;
 
-				webserverMonitor.WriteLogEntry("Socket Type: " + clientSocket.SocketType ); 
+				webserverMonitor.WriteLogEntry("### Getting new client-request: ###"); 
+				webserverMonitor.WriteLogEntry("Socket Type: " + clientSocket.SocketType); 
 				
 				if(clientSocket.Connected)
 				{
@@ -151,7 +156,7 @@ namespace Palladio.Webserver.Dispatcher
 					requestParser.HandleRequest(request);
 
 					
-					//clientSocket.Close();						
+					clientSocket.Close();						
 				}
 			}
 		}

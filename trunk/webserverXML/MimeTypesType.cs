@@ -30,6 +30,12 @@ namespace WebserverXML
 		public override void AdjustPrefix()
 		{
 
+			for (int i = 0; i < DomChildCount(NodeType.Attribute, "", "default-content-type"); i++)
+			{
+				XmlNode DOMNode = GetDomChildAt(NodeType.Attribute, "", "default-content-type", i);
+				InternalAdjustPrefix(DOMNode, false);
+			}
+
 			for (int i = 0; i < DomChildCount(NodeType.Element, "", "MimeType"); i++)
 			{
 				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "MimeType", i);
@@ -38,6 +44,156 @@ namespace WebserverXML
 			}
 		}
 
+
+		#region default_content_type accessor methods
+		public int Getdefault_content_typeMinCount()
+		{
+			return 1;
+		}
+
+		public int default_content_typeMinCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int Getdefault_content_typeMaxCount()
+		{
+			return 1;
+		}
+
+		public int default_content_typeMaxCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int Getdefault_content_typeCount()
+		{
+			return DomChildCount(NodeType.Attribute, "", "default-content-type");
+		}
+
+		public int default_content_typeCount
+		{
+			get
+			{
+				return DomChildCount(NodeType.Attribute, "", "default-content-type");
+			}
+		}
+
+		public bool Hasdefault_content_type()
+		{
+			return HasDomChild(NodeType.Attribute, "", "default-content-type");
+		}
+
+		public SchemaString Getdefault_content_typeAt(int index)
+		{
+			return new SchemaString(GetDomNodeValue(GetDomChildAt(NodeType.Attribute, "", "default-content-type", index)));
+		}
+
+		public SchemaString Getdefault_content_type()
+		{
+			return Getdefault_content_typeAt(0);
+		}
+
+		public SchemaString default_content_type
+		{
+			get
+			{
+				return Getdefault_content_typeAt(0);
+			}
+		}
+
+		public void Removedefault_content_typeAt(int index)
+		{
+			RemoveDomChildAt(NodeType.Attribute, "", "default-content-type", index);
+		}
+
+		public void Removedefault_content_type()
+		{
+			while (Hasdefault_content_type())
+				Removedefault_content_typeAt(0);
+		}
+
+		public void Adddefault_content_type(SchemaString newValue)
+		{
+			AppendDomChild(NodeType.Attribute, "", "default-content-type", newValue.ToString());
+		}
+
+		public void Insertdefault_content_typeAt(SchemaString newValue, int index)
+		{
+			InsertDomChildAt(NodeType.Attribute, "", "default-content-type", index, newValue.ToString());
+		}
+
+		public void Replacedefault_content_typeAt(SchemaString newValue, int index)
+		{
+			ReplaceDomChildAt(NodeType.Attribute, "", "default-content-type", index, newValue.ToString());
+		}
+		#endregion // default_content_type accessor methods
+
+		#region default_content_type collection
+        public default_content_typeCollection	Mydefault_content_types = new default_content_typeCollection( );
+
+        public class default_content_typeCollection: IEnumerable
+        {
+            MimeTypesType parent;
+            public MimeTypesType Parent
+			{
+				set
+				{
+					parent = value;
+				}
+			}
+			public default_content_typeEnumerator GetEnumerator() 
+			{
+				return new default_content_typeEnumerator(parent);
+			}
+		
+			IEnumerator IEnumerable.GetEnumerator() 
+			{
+				return GetEnumerator();
+			}
+        }
+
+        public class default_content_typeEnumerator: IEnumerator 
+        {
+			int nIndex;
+			MimeTypesType parent;
+			public default_content_typeEnumerator(MimeTypesType par) 
+			{
+				parent = par;
+				nIndex = -1;
+			}
+			public void Reset() 
+			{
+				nIndex = -1;
+			}
+			public bool MoveNext() 
+			{
+				nIndex++;
+				return(nIndex < parent.default_content_typeCount );
+			}
+			public SchemaString  Current 
+			{
+				get 
+				{
+					return(parent.Getdefault_content_typeAt(nIndex));
+				}
+			}
+			object IEnumerator.Current 
+			{
+				get 
+				{
+					return(Current);
+				}
+			}
+    	}
+
+        #endregion // default_content_type collection
 
 		#region MimeType accessor methods
 		public int GetMimeTypeMinCount()
@@ -191,6 +347,7 @@ namespace WebserverXML
 
         private void SetCollectionParents()
         {
+            Mydefault_content_types.Parent = this; 
             MyMimeTypes.Parent = this; 
 	}
 }

@@ -15,6 +15,9 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/29 16:30:38  kelsaka
+	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
+	///
 	/// Revision 1.2  2004/10/27 05:52:48  kelsaka
 	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
 	///
@@ -38,15 +41,14 @@ namespace Palladio.Webserver.ConfigReader
 
 
 		/// <summary>
-		/// The root-path of documents delivered.
+		/// The root-path of documents (e. g. html-sites) delivered.
 		/// </summary>
 		public string DocumentRoot
 		{
 			get
 			{
-				return configRoot.GetDocumentRoot().ToString();
+				return configRoot.GetDocumentRoot().Getpath().Value;
 			}
-			set { throw new NotImplementedException (); }
 		}
 
 		/// <summary>
@@ -58,7 +60,6 @@ namespace Palladio.Webserver.ConfigReader
 			{ 
 				return configRoot.GetLogFile().Getpath().Value;
 			}
-			set { throw new NotImplementedException (); }
 		}
 
 		/// <summary>
@@ -70,7 +71,6 @@ namespace Palladio.Webserver.ConfigReader
 			{
 				return configRoot.GetDebugFile().Getpath().Value;
 			}
-			set { throw new NotImplementedException (); }
 		}
 
 		/// <summary>
@@ -90,7 +90,6 @@ namespace Palladio.Webserver.ConfigReader
 					
 				return ports;
 			}
-			set { throw new NotImplementedException (); }
 		}
 
 		/// <summary>
@@ -112,6 +111,18 @@ namespace Palladio.Webserver.ConfigReader
 			}
 			
 			throw new ExtensionNotFoundException("Could not find extension \"" + fileExtension + "\"");
+		}
+
+
+		/// <summary>
+		/// If no fitting Mimetype can be found for a given extension, this should be used. (see GetMimeTypeFor(string fileExtension))
+		/// </summary>
+		public string DefaultMimeType
+		{
+			get
+			{
+				return configRoot.GetMimeTypes().Getdefault_content_type().Value;
+			}
 		}
 
 
@@ -141,7 +152,7 @@ namespace Palladio.Webserver.ConfigReader
 				
 				return defaultFileNames;
 			}
-			set { throw new NotImplementedException (); }
 		}
+
 	}
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE config SYSTEM "WebserverXML.dtd">
 <Config xmlns:xsi="Webserver" xsi:noNamespaceSchemaLocation="WebserverXML.dtd">
 	<!--DocumentRoot: the path where the documents, that are delivered by the webserver, can be found.-->
-	<DocumentRoot path="..\..\..\documents"></DocumentRoot>
+	<DocumentRoot path="../../../documents/"></DocumentRoot>
 	
 	<LogFile path="log.txt"></LogFile>
 	
@@ -13,12 +13,16 @@
 		<Port number="81"></Port>
 		<Port number="82"></Port>
 	</Ports>
-	<MimeTypes>
+	
+	<!-- The default-content-type is used, if no fitting extension can be found. -->
+	<MimeTypes default-content-type="text/html">
 		<!--documentType: The types of documents which shall be delivered by the webserver and their header-information.-->
 		<MimeType extension=".html" content-type="text/html"></MimeType>
 		<MimeType extension=".htm" content-type="text/html"></MimeType>
 		<MimeType extension=".text" content-type="plaintext"></MimeType>
 		<MimeType extension=".gif" content-type="image/gif"></MimeType>
+		<MimeType extension=".jpg" content-type="image/jpeg"></MimeType>
+		<MimeType extension=".png" content-type="image/png"></MimeType>
 	</MimeTypes>
 	<DefaultFiles>
 		<!--FileName: Order of files that are delivered to the client by default if a folder is requested. The order has to start with id 0, which indicates the highest priority.-->

@@ -12,6 +12,9 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/29 16:30:39  kelsaka
+	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
+	///
 	/// Revision 1.2  2004/10/27 15:05:06  kelsaka
 	/// added more request handling-abilities
 	///
@@ -30,12 +33,17 @@ namespace Palladio.Webserver.Request
 		private Socket socket;
 
 
+
+		/// <summary>
+		/// The general request passed to the parsers by the dispatcher.
+		/// </summary>
 		public DefaultRequest()
 		{
 		
 		}
 
 
+		//TODO: Currently unused - remove?
 		/// <summary>
 		/// The client-identification at the tcp-level.
 		/// </summary>
@@ -45,8 +53,9 @@ namespace Palladio.Webserver.Request
 			set { this.tcpClient = value; }
 		}
 
+		//TODO: Currently unused - remove?
 		/// <summary>
-		/// Observes the connections of TCP-networkclients.
+		/// Observes the connections of TCP-networkclients. 
 		/// </summary>
 		public TcpListener TcpListener
 		{
