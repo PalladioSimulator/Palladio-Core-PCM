@@ -5,11 +5,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using MathNet.Numerics;
 using Palladio.FiniteStateMachines;
+using Palladio.Math;
 using Palladio.Reliability.Attributes;
 using Palladio.Reliability.ExecutionTime;
-using Palladio.Reliability.Fourier;
-using Palladio.Reliability.Functions;
-using Palladio.Reliability.Functions.Discrete;
+using Palladio.Math.Fourier;
+using Palladio.Math.Functions;
 using Palladio.Reliability.Paths;
 using Palladio.Reliability.Tests;
 using Palladio.Reliability.TypedCollections;
@@ -214,7 +214,7 @@ namespace Palladio.Reliability.Visualisation
 		private struct StateInfo
 		{
 			private IState state;
-			private IRealFunction densityFunction;
+			private IFunction densityFunction;
 			private double p;
 
 			public IState State
@@ -223,7 +223,7 @@ namespace Palladio.Reliability.Visualisation
 				set { state = value; }
 			}
 
-			public IRealFunction DensityFunction
+			public IFunction DensityFunction
 			{
 				get { return densityFunction; }
 				set { densityFunction = value; }
@@ -235,7 +235,7 @@ namespace Palladio.Reliability.Visualisation
 				set { p = value; }
 			}
 
-			public StateInfo(IState state, IRealFunction densityFunction, double p)
+			public StateInfo(IState state, IFunction densityFunction, double p)
 			{
 				this.state = state;
 				this.densityFunction = densityFunction;
@@ -255,30 +255,26 @@ namespace Palladio.Reliability.Visualisation
 //
 		private void runButton_Click(object sender, EventArgs e)
 		{
-			DiscreteFactory ff = new DiscreteFactory(0.1, 0, 25);
-			DiscreteFunction f = ff.CreateExponentialDistribution(1) as DiscreteFunction;
-			Complex[] data = new Complex[f.Data.Length];
-			for (int i = 0; i < data.Length; i++)
-			{
-				data[i] = f.Data[i];
-			}
+			MathTools.DiscreteFunctions.SamplingRate = 0.1;
+			MathTools.DiscreteFunctions.XMax = 25;
+			IDiscreteFunction f = MathTools.DiscreteFunctions.ExponentialDistribution(1) as IDiscreteFunction;
+			
+			Complex[] fd = MathTools.SimpleFourierTransform.ForwardFromReal(f.Data);
 
-			Complex[] fd = FourierTransform.DiscreteFourierTransform(data, true);
-
-			for (int i = 0; i < data.Length; i++)
+			for (int i = 0; i < fd.Length; i++)
 			{
 				fd[i] =  fd[i] * fd[i];
 			}
 
-			Complex[] d = FourierTransform.DiscreteFourierTransform(fd, false);
+			Complex[] d = MathTools.SimpleFourierTransform.Backward(fd);
 
-			for (int i = 0; i < data.Length; i++)
+			for (int i = 0; i < d.Length; i++)
 			{
 				f.Data[i] = d[i].Real * 0.1;
 			}
 			renderer.AddFunction(f,Pens.Blue,"Fourier - Convolution");
 
-			IRealFunction g = ff.CreateExponentialDistribution(1.0);
+			IFunction g = MathTools.DiscreteFunctions.ExponentialDistribution(1.0);
 			g = g.Convolution(g);
 			renderer.AddFunction(g,Pens.Red,"Plain - Convolution");
 			renderer.Draw();
@@ -300,7 +296,7 @@ namespace Palladio.Reliability.Visualisation
 		private void calcButton_Click(object sender, EventArgs e)
 		{
 			IFsmElement time = TimeOperations.FSMExecutionTime(fsm);
-			IRealFunction g = time.TimeDensityFunction;
+			IFunction g = time.TimeDensityFunction;
 			renderer.AddFunction(g, Pens.Blue, "Calculated");
 			renderer.Draw();
 		}
@@ -320,8 +316,9 @@ namespace Palladio.Reliability.Visualisation
 
 		private void expButton_Click(object sender, EventArgs e)
 		{
-			IFunctionFactory ffactory = new DiscreteFactory(0.01, 0, 20);
-			IRealFunction f = ffactory.CreateExponentialDistribution(1.0);
+			MathTools.DiscreteFunctions.SamplingRate = 0.01;
+			MathTools.DiscreteFunctions.XMax = 20;
+			IFunction f = MathTools.DiscreteFunctions.ExponentialDistribution(1.0);
 			//IFunction F = f.Integral();
 //			IFunction g = f.Convolution(f);
 //			IFunction G = g.Integral();
@@ -381,7 +378,7 @@ namespace Palladio.Reliability.Visualisation
 			long numPaths = 0;
 			long level = 0;
 			double pConfidence = 0.99;
-			IRealFunction dfTotal = null;
+			IFunction dfTotal = null;
 
 			StateTimeTable currentTimes = new StateTimeTable();
 			currentTimes[fsm.StartState] = TimeOperations.StateExecutionTime(fsm.StartState);
@@ -397,7 +394,7 @@ namespace Palladio.Reliability.Visualisation
 						if (dfTotal == null)
 							dfTotal = currentTimes[state].TimeDensityFunction;
 						else
-							dfTotal = dfTotal.Add(currentTimes[state].TimeDensityFunction);
+							dfTotal.Add(currentTimes[state].TimeDensityFunction);
 
 						renderer.AddFunction(dfTotal, Pens.Blue, "Trellis");
 						renderer.Draw();
@@ -409,7 +406,7 @@ namespace Palladio.Reliability.Visualisation
 						foreach (ITransition transition in fsm.GetOutgoingTransitions(state))
 						{
 							IState destState = transition.DestinationState;
-							double probability = MarkovAttribute.GetAttribute(transition).Probability.Expression.Calculate();
+							double probability = ProbabilityAttribute.GetAttribute(transition).Probability;
 
 							if (nextTimes[destState] == null)
 								nextTimes[destState] = currentTimes[state].Scale(probability);
@@ -430,7 +427,7 @@ namespace Palladio.Reliability.Visualisation
 				currentTimes = nextTimes;
 				Console.WriteLine("Level:\t" + ++level + "\tStackSize:\t" + currentTimes.Count);
 			}
-			IRealFunction F = dfTotal.Integral();
+			IFunction F = dfTotal.Integral();
 			renderer.AddFunction(F, Pens.Blue, "Integral");
 			renderer.Draw();
 		}
@@ -456,7 +453,7 @@ namespace Palladio.Reliability.Visualisation
 			long numPaths = 0;
 			long level = 0;
 			double pConfidence = 0.95;
-			IRealFunction dfTotal = null;
+			IFunction dfTotal = null;
 
 			while (pTotal <= pConfidence)
 			{
@@ -470,7 +467,7 @@ namespace Palladio.Reliability.Visualisation
 							TimeOperations.Sequence(
 								time.Time,
 								TimeOperations.StateExecutionTime(transition.DestinationState),
-								MarkovAttribute.GetAttribute(transition).Probability.Expression.Calculate()
+								ProbabilityAttribute.GetAttribute(transition).Probability
 								)
 							);
 
@@ -481,7 +478,7 @@ namespace Palladio.Reliability.Visualisation
 							if (dfTotal == null)
 								dfTotal = nextTime.Time.TimeDensityFunction;
 							else
-								dfTotal = dfTotal.Add(nextTime.Time.TimeDensityFunction);
+								dfTotal.Add(nextTime.Time.TimeDensityFunction);
 
 							renderer.AddFunction(dfTotal, Pens.Green, "Brute Force, new");
 							renderer.Draw();
@@ -501,7 +498,7 @@ namespace Palladio.Reliability.Visualisation
 				currentStates = nextStates;
 				Console.WriteLine("Level:\t" + ++level + "\tStackSize:\t" + currentStates.Count);
 			}
-			IRealFunction F = dfTotal.Integral();
+			IFunction F = dfTotal.Integral();
 			renderer.AddFunction(F, Pens.Green, "BF - Integral");
 			renderer.Draw();
 		}

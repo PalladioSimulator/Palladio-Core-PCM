@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Drawing;
-using Palladio.Reliability.Functions;
+using MathNet.Numerics;
+using Palladio.Math;
 
 namespace Palladio.Reliability.Visualisation
 {
@@ -230,14 +231,14 @@ namespace Palladio.Reliability.Visualisation
 			float yPosInc = InnerHeight/(float) Image;
 
 			float yPosOld = 0;
-			float yPos = (float) info.Function[xMin]*yPosInc;
+			float yPos = (float) info.Function.ValueOf(xMin)*yPosInc;
 			float xPos = InnerLeft + xPosInc; // start at position x+1
 			float x = (float) XMin + xValInc;
 
 			while (xPos < InnerRight + 0.1) // +0.1 added to tolerate some rounding error.
 			{
 				yPosOld = yPos;
-				yPos = (float) info.Function[x]*yPosInc;
+				yPos = (float) info.Function.ValueOf(x)*yPosInc;
 				graphics.DrawLine(info.Pen, xPos - xPosInc, InnerBottom - yPosOld, xPos, InnerBottom - yPos);
 				x += xValInc;
 				xPos += xPosInc;

@@ -110,8 +110,13 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "MathLib"
-                    Project = "{0D498555-3056-4E15-8376-EAEBEED3BF17}"
+                    Name = "Palladio.Math"
+                    Project = "{5F94A15B-5D2C-4990-8C39-6F8C4744E88A}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Numerics"
+                    Project = "{8D2A69DC-7A76-44B3-B976-C078AF604763}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>

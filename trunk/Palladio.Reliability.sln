@@ -31,7 +31,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Reliability", "..\
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLib", "..\MathNet\MathLib.csproj", "{0D498555-3056-4E15-8376-EAEBEED3BF17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.RegularExpressions", "..\Palladio.RegularExpressions\Palladio.RegularExpressions.csproj", "{D7C2E338-4041-4625-8C14-DA18436677B2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.DeploymentModel", "..\Palladio.DeploymentModel\Palladio.DeploymentModel.csproj", "{109F74D9-0E6A-44EA-BF85-861DF2B69A39}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Math", "..\Palladio.Math\Palladio.Math.csproj", "{5F94A15B-5D2C-4990-8C39-6F8C4744E88A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Numerics", "..\MathNet.Numerics\src\Numerics.csproj", "{8D2A69DC-7A76-44B3-B976-C078AF604763}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -90,12 +102,30 @@ Global
 		{66F27784-5E55-4BF6-8D82-820C82513861}.Release.Build.0 = Release|.NET
 		{66F27784-5E55-4BF6-8D82-820C82513861}.Release-Mono.ActiveCfg = Release|.NET
 		{66F27784-5E55-4BF6-8D82-820C82513861}.Release-Mono.Build.0 = Release|.NET
-		{0D498555-3056-4E15-8376-EAEBEED3BF17}.Debug.ActiveCfg = Release|.NET
-		{0D498555-3056-4E15-8376-EAEBEED3BF17}.Debug.Build.0 = Release|.NET
-		{0D498555-3056-4E15-8376-EAEBEED3BF17}.Release.ActiveCfg = Release|.NET
-		{0D498555-3056-4E15-8376-EAEBEED3BF17}.Release.Build.0 = Release|.NET
-		{0D498555-3056-4E15-8376-EAEBEED3BF17}.Release-Mono.ActiveCfg = Release|.NET
-		{0D498555-3056-4E15-8376-EAEBEED3BF17}.Release-Mono.Build.0 = Release|.NET
+		{D7C2E338-4041-4625-8C14-DA18436677B2}.Debug.ActiveCfg = Debug|.NET
+		{D7C2E338-4041-4625-8C14-DA18436677B2}.Debug.Build.0 = Debug|.NET
+		{D7C2E338-4041-4625-8C14-DA18436677B2}.Release.ActiveCfg = Release|.NET
+		{D7C2E338-4041-4625-8C14-DA18436677B2}.Release.Build.0 = Release|.NET
+		{D7C2E338-4041-4625-8C14-DA18436677B2}.Release-Mono.ActiveCfg = Release|.NET
+		{D7C2E338-4041-4625-8C14-DA18436677B2}.Release-Mono.Build.0 = Release|.NET
+		{109F74D9-0E6A-44EA-BF85-861DF2B69A39}.Debug.ActiveCfg = Debug|.NET
+		{109F74D9-0E6A-44EA-BF85-861DF2B69A39}.Debug.Build.0 = Debug|.NET
+		{109F74D9-0E6A-44EA-BF85-861DF2B69A39}.Release.ActiveCfg = Release|.NET
+		{109F74D9-0E6A-44EA-BF85-861DF2B69A39}.Release.Build.0 = Release|.NET
+		{109F74D9-0E6A-44EA-BF85-861DF2B69A39}.Release-Mono.ActiveCfg = Release|.NET
+		{109F74D9-0E6A-44EA-BF85-861DF2B69A39}.Release-Mono.Build.0 = Release|.NET
+		{5F94A15B-5D2C-4990-8C39-6F8C4744E88A}.Debug.ActiveCfg = Debug|.NET
+		{5F94A15B-5D2C-4990-8C39-6F8C4744E88A}.Debug.Build.0 = Debug|.NET
+		{5F94A15B-5D2C-4990-8C39-6F8C4744E88A}.Release.ActiveCfg = Release|.NET
+		{5F94A15B-5D2C-4990-8C39-6F8C4744E88A}.Release.Build.0 = Release|.NET
+		{5F94A15B-5D2C-4990-8C39-6F8C4744E88A}.Release-Mono.ActiveCfg = Release|.NET
+		{5F94A15B-5D2C-4990-8C39-6F8C4744E88A}.Release-Mono.Build.0 = Release|.NET
+		{8D2A69DC-7A76-44B3-B976-C078AF604763}.Debug.ActiveCfg = Debug|.NET
+		{8D2A69DC-7A76-44B3-B976-C078AF604763}.Debug.Build.0 = Debug|.NET
+		{8D2A69DC-7A76-44B3-B976-C078AF604763}.Release.ActiveCfg = Release|.NET
+		{8D2A69DC-7A76-44B3-B976-C078AF604763}.Release.Build.0 = Release|.NET
+		{8D2A69DC-7A76-44B3-B976-C078AF604763}.Release-Mono.ActiveCfg = Release-Mono|.NET
+		{8D2A69DC-7A76-44B3-B976-C078AF604763}.Release-Mono.Build.0 = Release-Mono|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
