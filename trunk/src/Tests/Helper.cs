@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.9  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.8  2004/11/08 03:50:06  sliver
  * *** empty log message ***
  *
@@ -36,15 +39,14 @@
  */
 
 
-using cdrnet.Lib.MathLib.Core;
-using cdrnet.Lib.MathLib.Scalar;
-using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
+using MathNet.Numerics;
+using MathNet.Numerics.LinearAlgebra;
 using Palladio.Attributes;
 using Palladio.FiniteStateMachines;
 using Palladio.Identifier;
+using Palladio.Math;
 using Palladio.Reliability.Attributes;
-using Palladio.Reliability.Functions;
-using Palladio.Reliability.Functions.Discrete;
+using Palladio.Math;
 
 namespace Palladio.Reliability.Tests
 {
@@ -53,24 +55,14 @@ namespace Palladio.Reliability.Tests
 	/// </summary>
 	public class Helper
 	{
-		public static IFunctionFactory ffactory = new DiscreteFactory(0.01, 0, 20.0);
-
-		public static double SumUpRow(ScalarMatrix aMatrix, int row)
+		public static double SumUpRow(Matrix aMatrix, int row)
 		{
-			IScalarExpression result = new ScalarExpressionValue(aMatrix.Context, 0.0);
-			for (int j = 0; j < aMatrix.LengthX; j++)
+			double result = 0;
+			for (int j = 0; j < aMatrix.ColumnDimension; j++)
 			{
-				result = new ScalarAddition(aMatrix.Context, result, aMatrix[row, j]);
+				result += aMatrix[row, j];
 			}
-			return result.Calculate();
-		}
-
-		public static ScalarExpressionValue SetValue(ref Variable var, double val)
-		{
-			ScalarExpressionValue exprVal = new ScalarExpressionValue(var.Context, val);
-			((ScalarExpressionVariable) var).Value = exprVal;
-			var.IsThreatenedAsVariable = false;
-			return exprVal;
+			return result;
 		}
 
 		public static IIdentifier ID(string id)
@@ -92,7 +84,7 @@ namespace Palladio.Reliability.Tests
 				from,
 				input,
 				to);
-			MarkovAttribute.SetAttribute(transition, prob);
+			ProbabilityAttribute.SetAttribute(transition, prob);
 			return transition;
 		}
 
@@ -102,19 +94,20 @@ namespace Palladio.Reliability.Tests
 				from,
 				FSMFactory.CreateDefaultInput(m),
 				to);
-			MarkovAttribute.SetAttribute(transition, prob);
+			ProbabilityAttribute.SetAttribute(transition, prob);
 			return transition;
 		}
 
 		public static ITransition CopyTransition(ITransition transition)
 		{
-			return CreateTransition(transition.SourceState, transition.InputSymbol, transition.DestinationState, MarkovAttribute.GetAttribute(transition).Probability.Expression.Calculate());
+			return CreateTransition(transition.SourceState, transition.InputSymbol, transition.DestinationState, ProbabilityAttribute.GetAttribute(transition).Probability);
 		}
 
 		public static StateHash CreateStates(params string[] anIDArray)
 		{
 			StateHash result = new StateHash();
-			IRealFunction df = ffactory.CreateExponentialDistribution(1);
+
+			IFunction df = MathTools.DiscreteFunctions.ExponentialDistribution(1);
 			foreach (string id in anIDArray)
 			{
 				IState state = CreateState(id);

@@ -9,8 +9,8 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections;
-using Palladio.Reliability.ExecutionTime;
 using Palladio.FiniteStateMachines;
+using Palladio.Reliability.ExecutionTime;
 
 namespace Palladio.Reliability.TypedCollections
 {

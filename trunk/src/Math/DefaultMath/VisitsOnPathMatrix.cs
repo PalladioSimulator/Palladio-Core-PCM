@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
@@ -20,9 +23,7 @@
  */
 
 using System.Diagnostics;
-using cdrnet.Lib.MathLib.Core;
-using cdrnet.Lib.MathLib.Scalar;
-using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra;
 
 namespace Palladio.Reliability.Math
 {
@@ -54,7 +55,7 @@ namespace Palladio.Reliability.Math
 		/// <summary>
 		/// The matrix.
 		/// </summary>
-		public override ScalarMatrix Matrix
+		public override Matrix Matrix
 		{
 			get { return matrix; }
 		}
@@ -97,7 +98,7 @@ namespace Palladio.Reliability.Math
 		public VisitsOnPathMatrix(IVisitProbabilityMatrix vMx)
 		{
 			visitProbabilityMatrix = vMx;
-			matrix = CreateVisitsOnPathMatrix(vMx.PotentialMatrix.Matrix, vMx.Matrix);
+			matrix = CreateVisitsOnPathMatrix(((IMarkovMatrix) vMx.PotentialMatrix).Matrix, ((IMarkovMatrix) vMx).Matrix);
 		}
 
 		public VisitsOnPathMatrix(IPotentialMatrix pMx) : this(new VisitProbabilityMatrix(pMx))
@@ -116,16 +117,15 @@ namespace Palladio.Reliability.Math
 
 		#region Private
 
-		private ScalarMatrix CreateVisitsOnPathMatrix(ScalarMatrix potentialMx, ScalarMatrix visitProbabilityMx)
+		private Matrix CreateVisitsOnPathMatrix(Matrix potentialMx, Matrix visitProbabilityMx)
 		{
-			Trace.Assert(potentialMx.LengthX == potentialMx.LengthY, "potentialMx.LengthX == potentialMx.LengthY");
-			Trace.Assert(visitProbabilityMx.LengthX == visitProbabilityMx.LengthY, "visitProbabilityMx.LengthX == visitProbabilityMx.LengthY");
-			int rank = potentialMx.LengthX;
-			Context cx = potentialMx.Context;
-			IScalarExpression[,] visitsExprs = new IScalarExpression[rank,rank];
+			Trace.Assert(potentialMx.ColumnDimension == potentialMx.RowDimension, "potentialMx.ColumnDimension == potentialMx.RowDimension");
+			Trace.Assert(visitProbabilityMx.ColumnDimension == visitProbabilityMx.RowDimension, "visitProbabilityMx.ColumnDimension == visitProbabilityMx.RowDimension");
+			int rank = potentialMx.ColumnDimension;
+			double[,] visitsExprs = new double[rank,rank];
 
-			for (int i = 0; i < potentialMx.LengthX; i++)
-				for (int j = 0; j < potentialMx.LengthY; j++)
+			for (int i = 0; i < potentialMx.ColumnDimension; i++)
+				for (int j = 0; j < potentialMx.RowDimension; j++)
 				{
 					if (i == j)
 					{
@@ -139,13 +139,13 @@ namespace Palladio.Reliability.Math
 						// the start state to j is P(s,i)*F(i,j), the expected number of visits to
 						// state i starting in s (=start state) multiplied by the probability of ever
 						// reaching state j from state i.
-						visitsExprs[i, j] = new ScalarMultiplication(cx, potentialMx[StartStateIndex, i], visitProbabilityMx[i, j]).Expand();
+						visitsExprs[i, j] = potentialMx[StartStateIndex, i] * visitProbabilityMx[i, j];
 					}
 				}
-			return new ScalarMatrix(cx, visitsExprs);
+			return new Matrix(visitsExprs);
 		}
 
-		private ScalarMatrix matrix;
+		private Matrix matrix;
 		private IVisitProbabilityMatrix visitProbabilityMatrix;
 
 		#endregion

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.1  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/09/23 00:44:14  sliver
  * - major refactorings
  * - changed TypedCollections to CodeSmith generated files
@@ -30,21 +33,20 @@
 using System;
 using System.Diagnostics;
 using Palladio.Attributes;
-using Palladio.Reliability.Math;
 
 namespace Palladio.Reliability.Attributes
 {
 	/// <summary>
 	/// Attribute containig the Markov Probability of a transition.	
 	/// </summary>
-	public class MarkovAttribute
+	public class ProbabilityAttribute
 	{
 		#region Properties
 
 		/// <summary>
 		/// The value of the MarkovProbabilityAttribute.
 		/// </summary>
-		public IVariableExpression Probability
+		public double Probability
 		{
 			get { return markovProbability; }
 			set { markovProbability = value; }
@@ -78,21 +80,21 @@ namespace Palladio.Reliability.Attributes
 		/// </summary>
 		/// <param name="obj"></param>
 		/// <returns></returns>
-		public static MarkovAttribute GetAttribute(IAttributable obj)
+		public static ProbabilityAttribute GetAttribute(IAttributable obj)
 		{
-			return obj.Attributes[AttributeType] as MarkovAttribute;
+			return obj.Attributes[AttributeType] as ProbabilityAttribute;
 		}
 
 		public static void SetAttribute(IAttributable obj, double aValue)
 		{
-			MarkovAttribute attr = GetAttribute(obj);
+			ProbabilityAttribute attr = GetAttribute(obj);
 			if (attr == null)
 			{
-				obj.Attributes.Add(AttributeType, new MarkovAttribute(aValue));
+				obj.Attributes.Add(AttributeType, new ProbabilityAttribute(aValue));
 			}
 			else
 			{
-				attr.Probability = new VariableExpression(aValue);
+				attr.Probability = aValue;
 			}
 		}
 
@@ -104,19 +106,19 @@ namespace Palladio.Reliability.Attributes
 		/// Create a new MarkovProbabilityAttribute and assigns aValue to it. 
 		/// </summary>
 		/// <param name="aValue">Probability value. It can only be inbetween 0 and 1.</param>
-		public MarkovAttribute(double aValue)
+		public ProbabilityAttribute(double aValue)
 		{
 			Trace.Assert(aValue >= 0);
 			Trace.Assert(aValue <= 1);
-			markovProbability = new VariableExpression(aValue);
+			markovProbability = aValue;
 		}
 
 		#endregion
 
 		#region Data
 
-		private IVariableExpression markovProbability;
-		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("96B433EC-D17C-480c-A35F-AE45D98A0619"), "MarkovProbabilityAttribute", typeof (MarkovAttribute));
+		private double markovProbability;
+		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("96B433EC-D17C-480c-A35F-AE45D98A0619"), "MarkovProbabilityAttribute", typeof (ProbabilityAttribute));
 
 		#endregion
 	}

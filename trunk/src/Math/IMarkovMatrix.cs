@@ -1,7 +1,11 @@
+using MathNet.Numerics.LinearAlgebra;
 /*
  * $Id$
  * 
  * $Log$
+ * Revision 1.4  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.3  2004/11/04 08:52:13  sliver
  * added regular expressions
  *
@@ -18,8 +22,6 @@
  * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
  *
  */
-
-using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
 
 namespace Palladio.Reliability.Math
 {
@@ -45,7 +47,7 @@ namespace Palladio.Reliability.Math
 		/// <summary>
 		/// The matrix.
 		/// </summary>
-		ScalarMatrix Matrix { get; }
+		Matrix Matrix { get; }
 
 		/// <summary>
 		/// The rank of the matrix.
@@ -55,12 +57,12 @@ namespace Palladio.Reliability.Math
 		/// <summary>
 		/// Number of columns.
 		/// </summary>
-		int LengthX { get; }
+		int ColumnDimension { get; }
 
 		/// <summary>
 		/// Number of rows.
 		/// </summary>
-		int LengthY { get; }
+		int RowDimension { get; }
 
 		#endregion
 	}

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
@@ -21,7 +24,7 @@
 
 
 using System;
-using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra;
 
 namespace Palladio.Reliability.Math
 {
@@ -43,40 +46,39 @@ namespace Palladio.Reliability.Math
 		/// <summary>
 		/// The matrix.
 		/// </summary>
-		public abstract ScalarMatrix Matrix { get; }
+		public abstract Matrix Matrix { get; }
 
 		public int Rank
 		{
-			get { return Matrix.LengthX; }
+			get { return Matrix.ColumnDimension; }
 		}
 
-		public int LengthX
+		public int ColumnDimension
 		{
-			get { return Matrix.LengthX; }
+			get { return Matrix.ColumnDimension; }
 		}
 
-		public int LengthY
+		public int RowDimension
 		{
-			get { return Matrix.LengthY; }
+			get { return Matrix.RowDimension; }
 		}
 
 		#region Public Methods
 
 		public override string ToString()
 		{
-			ValueMatrix matrix = Matrix.Calculate();
 			string result = "     ";
-			for (int j = 0; j < matrix.LengthY; j++)
+			for (int j = 0; j < Matrix.ColumnDimension; j++)
 			{
 				result += String.Format("{0,-6}", (j + 1));
 			}
 			result += "\n";
-			for (int i = 0; i < matrix.LengthX; i++)
+			for (int i = 0; i < Matrix.ColumnDimension; i++)
 			{
 				result += String.Format(" {0,2}  ", (i + 1));
-				for (int j = 0; j < matrix.LengthY; j++)
+				for (int j = 0; j < Matrix.RowDimension; j++)
 				{
-					double val = System.Math.Round(matrix[i, j],4);
+					double val = System.Math.Round(Matrix[i, j],4);
 					result += String.Format("{0,-6}", val);
 				}
 				result += "\n";

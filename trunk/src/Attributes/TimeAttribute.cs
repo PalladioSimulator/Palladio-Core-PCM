@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.5  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.4  2004/11/08 03:50:06  sliver
  * *** empty log message ***
  *
@@ -23,8 +26,10 @@
  */
 
 using System;
+using MathNet.Numerics;
 using Palladio.Attributes;
-using Palladio.Reliability.Functions;
+using Palladio.Math;
+using Double = System.Double;
 
 namespace Palladio.Reliability.Attributes
 {
@@ -36,14 +41,63 @@ namespace Palladio.Reliability.Attributes
 		#region Properties
 
 		/// <summary>
-		/// The value of the TimeAttribute.
+		/// Density function of the random variable describing the
+		/// execution time.
 		/// </summary>
-		public IRealFunction DensityFunction
+		public IFunction DensityFunction
 		{
-			get { return df; }
-			set { df = value; }
+			get { return function; }
+			set
+			{
+				if (!(value is IDiscreteFunction))
+					throw new ApplicationException("Discrete functions are supported only!");
+				function = value as IDiscreteFunction;
+
+				// lazy.
+				expectationValue = Double.NaN;
+				fourierTransformed = null;
+			}
 		}
 
+
+		/// <summary>
+		/// Expectation value of the random variable describing the
+		/// execution time.
+		/// </summary>
+		public double ExpectationValue
+		{
+			get
+			{
+				if (expectationValue == Double.NaN)
+					expectationValue = ComputeExpectationValue(function);
+				return expectationValue;
+			}
+		}
+
+		private double ComputeExpectationValue(IDiscreteFunction function)
+		{
+			double val = 0;
+			double x = function.XMin;
+			for (int i = 0; i < function.Data.Length; i++)
+			{
+				val += function.Data[i]*x*function.SamplingRate;
+				x += function.SamplingRate;
+			}
+			return val;
+		}
+
+		/// <summary>
+		/// Fourier transformed values of the <c>DensityFunction</c>.
+		/// </summary>
+		public Complex[] FourierTransformed
+		{
+			get
+			{
+				if (fourierTransformed == null)
+					fourierTransformed = fourier.ForwardFromReal(function.Data);
+				return fourierTransformed;
+			}
+		}
 
 		/// <summary>
 		/// Type of the TimeAttribute.
@@ -68,17 +122,14 @@ namespace Palladio.Reliability.Attributes
 			return obj.Attributes[AttributeType] as TimeAttribute;
 		}
 
-		public static void SetAttribute(IAttributable obj, IRealFunction df)
+		public static void SetAttribute(IAttributable obj, IFunction df)
 		{
 			TimeAttribute attr = GetAttribute(obj);
 			if (attr == null)
-			{
-				obj.Attributes.Add(AttributeType, new TimeAttribute(df));
-			}
-			else
-			{
-				attr.DensityFunction = df;
-			}
+				attr = new TimeAttribute();
+
+			attr.DensityFunction = df;
+			obj.Attributes.Add(AttributeType, attr);
 		}
 
 		#endregion
@@ -88,17 +139,19 @@ namespace Palladio.Reliability.Attributes
 		/// <summary>
 		/// Create a new TimeAttribute and assigns aValue to it. 
 		/// </summary>
-		/// <param name="aDF">Probability value. It can only be inbetween 0 and 1.</param>
-		public TimeAttribute(IRealFunction aDF)
+		public TimeAttribute()
 		{
-			df = aDF;
+			fourier = MathTools.SimpleFourierTransform;
 		}
 
 		#endregion
 
 		#region Data
 
-		private IRealFunction df;
+		private IDiscreteFunction function;
+		private double expectationValue;
+		private Complex[] fourierTransformed;
+		private IFourierTransform fourier;
 		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("E3D56D31-11E6-481e-8B1C-1BB350B1014B"), "TimeAttribute", typeof (TimeAttribute));
 
 		#endregion

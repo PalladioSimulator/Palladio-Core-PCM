@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
@@ -20,9 +23,7 @@
  */
 
 using System.Diagnostics;
-using cdrnet.Lib.MathLib.Core;
-using cdrnet.Lib.MathLib.Scalar;
-using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra;
 
 namespace Palladio.Reliability.Math
 {
@@ -54,7 +55,7 @@ namespace Palladio.Reliability.Math
 		/// <summary>
 		/// The matrix.
 		/// </summary>
-		public override ScalarMatrix Matrix
+		public override Matrix Matrix
 		{
 			get { return matrix; }
 		}
@@ -107,35 +108,34 @@ namespace Palladio.Reliability.Math
 
 		#region Private
 
-		private ScalarMatrix CreateVisitProbabilityMatrix(IMatrixExpression potentialMx)
+		/// <summary>
+		/// </summary>
+		/// <param name="R">Potential Matrix</param>
+		/// <returns></returns>
+		private Matrix CreateVisitProbabilityMatrix(Matrix R)
 		{
-			Trace.Assert(potentialMx.LengthX == potentialMx.LengthY, "potentialMx.LengthX == potentialMx.LengthY");
-			Context cx = new Context();
-			int rank = potentialMx.LengthX;
-			IScalarExpression one = new ScalarExpressionValue(cx, 1.0);
-			ScalarMatrix pMx = potentialMx.Expand();
-			IScalarExpression[,] fExprs = new IScalarExpression[rank,rank];
-			for (int i = 0; i < pMx.LengthX; i++)
+			Trace.Assert(R.ColumnDimension == R.RowDimension, "potentialMx.ColumnDimension == potentialMx.RowDimension");
+			int rank = R.RowDimension;
+			double[,] F = new double[rank,rank];
+			for (int i = 0; i < R.RowDimension; i++)
 			{
-				for (int j = 0; j < pMx.LengthY; j++)
+				for (int j = 0; j < R.ColumnDimension; j++)
 				{
 					if (i == j)
 					{
-						// F(i,j) = 1 - 1 / R(i,j) for i==j
-						fExprs[i, j] = new ScalarSubtraction(cx, one, new ScalarDivision(cx, one, pMx[i, j])).Expand();
+						F[i, j] = 1 - ( 1 / R[i,j]);
 					}
 					else
 					{
-						// F(i,j) = R(i,j)/R(j,j) for i!=j
-						fExprs[i, j] = new ScalarDivision(cx, pMx[i, j], pMx[j, j]).Expand();
+						F[i, j] = R[i, j] / R[j, j];
 					}
 				}
 			}
-			return new ScalarMatrix(cx, fExprs);
+			return new Matrix(F);
 		}
 
 		private IPotentialMatrix potentialMatrix;
-		private ScalarMatrix matrix;
+		private Matrix matrix;
 
 		#endregion
 	}

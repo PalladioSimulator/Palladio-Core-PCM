@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
@@ -104,7 +107,7 @@ namespace Palladio.Reliability.Math
 		private void CheckPreconditions(IFiniteStateMachine markovModel)
 		{
 			foreach (ITransition transition in markovModel.Transitions)
-				Trace.Assert(MarkovAttribute.GetAttribute(transition) != null, String.Format("Transition {0} has no MarkovAttribute!", transition));
+				Trace.Assert(ProbabilityAttribute.GetAttribute(transition) != null, String.Format("Transition {0} has no MarkovAttribute!", transition));
 		}
 
 

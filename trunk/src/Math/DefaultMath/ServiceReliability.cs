@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
@@ -40,8 +43,15 @@ namespace Palladio.Reliability.Math
 	/// reliability of a service. It can be a given or calculated value, 
 	/// the name of a variable, or a calculated function.
 	/// </summary>
-	public class ServiceReliability : VariableExpression
+	public class ServiceReliability
 	{
+		public double Expression
+		{
+			get { return val; }
+		}
+
+		private double val;
+
 		#region Constructors
 
 		/// <summary>
@@ -49,10 +59,11 @@ namespace Palladio.Reliability.Math
 		/// aValue. The value must be inbetween 0 and 1.
 		/// </summary>
 		/// <param name="aValue">Value of the reliability.</param>
-		public ServiceReliability(double aValue) : base(aValue)
+		public ServiceReliability(double aValue)
 		{
 			Trace.Assert(aValue >= 0);
 			Trace.Assert(aValue <= 1);
+			val = aValue;
 		}
 
 		/// <summary>
@@ -60,9 +71,9 @@ namespace Palladio.Reliability.Math
 		/// its value.
 		/// </summary>
 		/// <param name="aVarName">Name of the Variable.</param>
-		public ServiceReliability(string aVarName) : base(aVarName)
-		{
-		}
+//		public ServiceReliability(string aVarName) : base(aVarName)
+//		{
+//		}
 
 		/// <summary>
 		/// Calculates the ServiceReliability out of a Markov Model describing the
@@ -76,8 +87,7 @@ namespace Palladio.Reliability.Math
 		{
 			ITransitionMatrix tMx = new TransitionMatrix(aMarkovModel, anExtReliabilityHashtable);
 			IPotentialMatrix pMx = new PotentialMatrix(tMx);
-			expression = pMx.Matrix[pMx.StartStateIndex, pMx.FinalStateIndex];
-			variableSet = new Set(VariableExpression.GetVariables(expression));
+			val =  pMx.Matrix[pMx.StartStateIndex, pMx.FinalStateIndex];
 		}
 
 		#endregion

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
@@ -19,9 +22,7 @@
  *
  */
 
-using cdrnet.Lib.MathLib.Core;
-using cdrnet.Lib.MathLib.Scalar;
-using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra;
 using Palladio.FiniteStateMachines;
 using Palladio.Reliability.Attributes;
 using Palladio.Reliability.TypedCollections;
@@ -51,7 +52,7 @@ namespace Palladio.Reliability.Math
 		{
 		}
 
-		public TransitionMatrix(ScalarMatrix aMatrix, int aStartStateIndex, int aFinalStateIndex)
+		public TransitionMatrix(Matrix aMatrix, int aStartStateIndex, int aFinalStateIndex)
 		{
 			matrix = aMatrix;
 			finalStateIndex = aFinalStateIndex;
@@ -81,7 +82,7 @@ namespace Palladio.Reliability.Math
 		/// <summary>
 		/// Transition matrix.
 		/// </summary>
-		public override ScalarMatrix Matrix
+		public override Matrix Matrix
 		{
 			get { return matrix; }
 		}
@@ -98,13 +99,13 @@ namespace Palladio.Reliability.Math
 		/// <returns></returns>
 		public ITransitionMatrix ShrinkTo(params int[] indices)
 		{
-			IScalarExpression[,] shrinked = new IScalarExpression[indices.Length,indices.Length];
+			double[,] shrinked = new double[indices.Length,indices.Length];
 			for (int i = 0; i < indices.Length; i++)
 				for (int j = 0; j < indices.Length; j++)
 				{
 					shrinked[i, j] = Matrix[indices[i], indices[j]];
 				}
-			ScalarMatrix shrinkedMx = new ScalarMatrix(new Context(), shrinked);
+			Matrix shrinkedMx = new Matrix(shrinked);
 			return new TransitionMatrix(shrinkedMx, 0, indices.Length - 1);
 		}
 
@@ -118,53 +119,50 @@ namespace Palladio.Reliability.Math
 		/// <param name="aMarkovModel">FSM describing the Markov Model.</param>
 		/// <param name="anExternalReliabiltyHash">Hashtable association external services with a certain reliability.</param>
 		/// <returns>The Markov Matrix according to aFSM.</returns>
-		private ScalarMatrix CreateTransitionMatrix(IMarkovModel aMarkovModel, ReliabilityHashtable anExternalReliabiltyHash)
+		private Matrix CreateTransitionMatrix(IMarkovModel aMarkovModel, ReliabilityHashtable anExternalReliabiltyHash)
 		{
-			Context cx = new Context();
 			int rank = aMarkovModel.FSM.States.Length + 1;
-			IScalarExpression[,] transitionExprs = CreateZeroExpressionMatrix(cx, rank);
+			double[,] transitionExprs = CreateZeroExpressionMatrix(rank);
 
 			foreach (ITransition transition in aMarkovModel.FSM.Transitions)
 			{
 				int i = aMarkovModel.GetStateIndex(transition.SourceState);
 				int j = aMarkovModel.GetStateIndex(transition.DestinationState);
-				IVariableExpression serviceRel = anExternalReliabiltyHash[transition.InputSymbol.ID];
-				MarkovAttribute markovAttr = MarkovAttribute.GetAttribute(transition);
+				double serviceRel = (double)anExternalReliabiltyHash[transition.InputSymbol.ID];
+				ProbabilityAttribute probabilityAttr = ProbabilityAttribute.GetAttribute(transition);
 
-				IScalarExpression successProb = markovAttr.Probability.Expression;
-				if (serviceRel != null)
-					successProb = new ScalarMultiplication(cx, successProb, serviceRel.Expression).Expand().Simplify();
+				double successProb = probabilityAttr.Probability;
+				if (serviceRel != 0d)
+					successProb *= serviceRel;
 
-				IScalarExpression currentExpr = transitionExprs[i, j];
-				transitionExprs[i, j] = new ScalarAddition(cx, currentExpr, successProb).Expand().Simplify();
+				transitionExprs[i, j] += successProb;
 			}
 
 			foreach (IState state in aMarkovModel.FSM.FinalStates)
 			{
-				IScalarExpression markovProb = new ScalarExpressionValue(cx, 1.0);
+				double markovProb = 1d;
 				foreach (ITransition transition in aMarkovModel.FSM.GetOutgoingTransitions(state))
 				{
-					MarkovAttribute markovAttr = MarkovAttribute.GetAttribute(transition);
-					markovProb = new ScalarSubtraction(cx, markovProb, markovAttr.Probability.Expression).Expand().Simplify();
+					ProbabilityAttribute probabilityAttr = ProbabilityAttribute.GetAttribute(transition);
+					markovProb -= probabilityAttr.Probability;
 				}
 				int i = aMarkovModel.GetStateIndex(state);
 				transitionExprs[i, rank - 1] = markovProb;
 			}
 
-			return new ScalarMatrix(cx, transitionExprs);
+			return new Matrix(transitionExprs);
 		}
 
 		/// <summary>
-		/// Creates a new aRang x aRang array of IScalarExpressions and initializes it with zeros.
+		/// Creates a new aRang x aRang array of doubles and initializes it with zeros.
 		/// </summary>
-		/// <param name="aContext">Mathematical context.</param>
 		/// <param name="aRang">Rang of the new matrix.</param>
-		private IScalarExpression[,] CreateZeroExpressionMatrix(Context aContext, int aRang)
+		private double[,] CreateZeroExpressionMatrix(int aRang)
 		{
-			IScalarExpression[,] result = new IScalarExpression[aRang,aRang];
+			double[,] result = new double[aRang,aRang];
 			for (int i = 0; i < aRang; i++)
 				for (int j = 0; j < aRang; j++)
-					result[i, j] = new ScalarExpressionValue(aContext, 0.0);
+					result[i, j] = 0;
 			return result;
 		}
 
@@ -172,7 +170,7 @@ namespace Palladio.Reliability.Math
 
 		#region Data
 
-		private ScalarMatrix matrix;
+		private Matrix matrix;
 		private int startStateIndex;
 		private int finalStateIndex;
 

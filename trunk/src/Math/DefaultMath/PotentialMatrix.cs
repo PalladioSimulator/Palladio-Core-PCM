@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
@@ -20,9 +23,7 @@
  */
 
 using System.Diagnostics;
-using cdrnet.Lib.MathLib.Core;
-using cdrnet.Lib.MathLib.Scalar;
-using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra;
 
 namespace Palladio.Reliability.Math
 {
@@ -35,7 +36,7 @@ namespace Palladio.Reliability.Math
 	{
 		public PotentialMatrix(ITransitionMatrix transMatrix)
 		{
-			Trace.Assert(transMatrix.Matrix.LengthX == transMatrix.Matrix.LengthY, "transMatrix.Matrix.LengthX == transMatrix.Matrix.LengthY");
+			Trace.Assert(transMatrix.Matrix.RowDimension == transMatrix.Matrix.ColumnDimension, "transMatrix.Matrix.ColumnDimension == transMatrix.Matrix.RowDimension");
 			transitionMatrix = transMatrix;
 			matrix = CreatePotentialMatrix(transitionMatrix.Matrix);
 		}
@@ -63,7 +64,7 @@ namespace Palladio.Reliability.Math
 		/// <summary>
 		/// The matrix.
 		/// </summary>
-		public override ScalarMatrix Matrix
+		public override Matrix Matrix
 		{
 			get { return matrix; }
 		}
@@ -85,17 +86,15 @@ namespace Palladio.Reliability.Math
 			return new PotentialMatrix(tMx);
 		}
 
-		private ScalarMatrix CreatePotentialMatrix(IMatrixExpression transitionMx)
+		private Matrix CreatePotentialMatrix(Matrix transitionMx)
 		{
-			Context context = transitionMx.Context;
-			int rank = transitionMx.LengthX;
-			IScalarExpression rankExpr = new ScalarExpressionValue(context, rank);
-			IMatrixExpression idMx = new MatrixIdentity(transitionMx.Context, rankExpr).Expand();
-			IMatrixExpression idMinusProbMx = new MatrixMatrixSubtraction(context, idMx, transitionMx).Expand();
-			return MatrixTools.Invert(idMinusProbMx).Expand();
+			int rank = transitionMx.ColumnDimension;
+			Matrix idMx = Matrix.Identity(rank,rank);
+			Matrix idMinusProbMx = idMx - transitionMx;
+			return idMinusProbMx.Inverse();
 		}
 
-		private ScalarMatrix matrix;
+		private Matrix matrix;
 		private ITransitionMatrix transitionMatrix;
 	}
 }

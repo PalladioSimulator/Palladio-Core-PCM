@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.2  2004/11/04 08:52:13  sliver
  * added regular expressions
  *
@@ -49,20 +52,20 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void AllRowsOne()
 		{
-			for (int i = 0; i < transitionMatrix.LengthY - 1; i++)
+			for (int i = 0; i < transitionMatrix.RowDimension - 1; i++)
 				Assert.AreEqual(1.0, Helper.SumUpRow(transitionMatrix.Matrix, i));
 		}
 
 		[Test]
 		public void LastRowZero()
 		{
-			Assert.AreEqual(0.0, Helper.SumUpRow(transitionMatrix.Matrix, transitionMatrix.LengthY - 1));
+			Assert.AreEqual(0.0, Helper.SumUpRow(transitionMatrix.Matrix, transitionMatrix.RowDimension - 1));
 		}
 
 		[Test]
 		public void ReliabilityInfluence()
 		{
-			for (int i = 0; i < transitionMatrix.LengthY - 1; i++)
+			for (int i = 0; i < transitionMatrix.RowDimension - 1; i++)
 			{
 				double sum = Helper.SumUpRow(transitionMatrix.Matrix, i);
 				Assert.IsTrue(sum > 0);
@@ -92,7 +95,7 @@ namespace Palladio.Reliability.Tests
 			reliabilityHashtable = new ReliabilityHashtable();
 			foreach (IInput i in fsm.InputAlphabet)
 			{
-				reliabilityHashtable.Add(i.ID, new ServiceReliability(0.5));
+				reliabilityHashtable.Add(i.ID, 0.5);
 			}
 			markovModel = new MarkovModel(fsm);
 			transitionMatrix = new TransitionMatrix(markovModel);

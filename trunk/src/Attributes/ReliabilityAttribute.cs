@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.4  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.3  2004/11/04 08:52:13  sliver
  * added regular expressions
  *
@@ -52,7 +55,7 @@ namespace Palladio.Reliability.Attributes
 		/// <summary>
 		/// The value of the ServiceReliabilityAttribute.
 		/// </summary>
-		public IVariableExpression Reliability
+		public double Reliability
 		{
 			get { return reliability; }
 			set { reliability = value; }
@@ -103,17 +106,7 @@ namespace Palladio.Reliability.Attributes
 		{
 			Trace.Assert(aValue >= 0);
 			Trace.Assert(aValue <= 1);
-			reliability = new ServiceReliability(aValue);
-		}
-
-		/// <summary>
-		/// Creates a new ServiceReliabilityAttribute with a variable representing
-		/// its reliability value.
-		/// </summary>
-		/// <param name="aVarName">Name of the Variable.</param>
-		public ReliabilityAttribute(string aVarName)
-		{
-			reliability = new ServiceReliability(aVarName);
+			reliability = aValue;
 		}
 
 		/// <summary>
@@ -124,16 +117,16 @@ namespace Palladio.Reliability.Attributes
 		/// must contain a MarkovProbabilityAttribute.</param>
 		/// <param name="anExtReliabilityHashtable">Hashtable containing information about the reliability of 
 		/// the external services used by aMarkovModel.</param>
-		public ReliabilityAttribute(IMarkovModel aMarkovModel, ReliabilityHashtable anExtReliabilityHashtable)
-		{
-			reliability = new ServiceReliability(aMarkovModel, anExtReliabilityHashtable);
-		}
+//		public ReliabilityAttribute(IMarkovModel aMarkovModel, ReliabilityHashtable anExtReliabilityHashtable)
+//		{
+//			reliability = new ServiceReliability(aMarkovModel, anExtReliabilityHashtable);
+//		}
 
 		#endregion
 
 		#region Data
 
-		private IVariableExpression reliability;
+		private double reliability;
 		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("497F9B65-C4B4-4de6-9B43-D4452B73244C"), "ServiceReliabilityAttribute", typeof (ReliabilityAttribute));
 
 		#endregion		

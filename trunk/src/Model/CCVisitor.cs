@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.8  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.7  2004/11/04 08:52:13  sliver
  * added regular expressions
  *
@@ -150,7 +153,7 @@ namespace Palladio.Reliability.Model
 							IServiceEffectSpecification se = bc.GetServiceEffectSpecification(provSig);
 							IFSMServiceEffect fsmSe = se.GetAuxiliarySpecification(typeof (IFSMServiceEffect)) as IFSMServiceEffect;
 
-							bcNode.ProvidesReliabilities[provSig] = new ServiceReliability(new MarkovModel(fsmSe.FSM), bcNode.RequiresReliabilities);
+							bcNode.ProvidesReliabilities[provSig] = new ServiceReliability(new MarkovModel(fsmSe.FSM), bcNode.RequiresReliabilities).Expression;
 						}
 					}
 				}

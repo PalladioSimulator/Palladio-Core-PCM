@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.6  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.5  2004/09/23 00:44:14  sliver
  * - major refactorings
  * - changed TypedCollections to CodeSmith generated files
@@ -151,7 +154,7 @@ namespace Palladio.Reliability.Tests
 			ifModel.SignatureList.AddSignatures(signatures);
 
 			signatures[0].Attributes.Add(ReliabilityAttribute.AttributeType, new ReliabilityAttribute(0.9));
-			signatures[1].Attributes.Add(ReliabilityAttribute.AttributeType, new ReliabilityAttribute("x"));
+			signatures[1].Attributes.Add(ReliabilityAttribute.AttributeType, new ReliabilityAttribute(1.0));
 			signatures[2].Attributes.Add(ReliabilityAttribute.AttributeType, new ReliabilityAttribute(0.7));
 			signatures[3].Attributes.Add(ReliabilityAttribute.AttributeType, new ReliabilityAttribute(0.1));
 
@@ -189,15 +192,15 @@ namespace Palladio.Reliability.Tests
 
 			ITransition t;
 			t = CMBuilder.CreateTransition("1", signatures[0], "2");
-			t.Attributes.Add(MarkovAttribute.AttributeType, new MarkovAttribute(0.5));
+			t.Attributes.Add(ProbabilityAttribute.AttributeType, new ProbabilityAttribute(0.5));
 			editFSM1.AddTransitions(t);
 
 			t = CMBuilder.CreateTransition("2", signatures[1], "1");
-			t.Attributes.Add(MarkovAttribute.AttributeType, new MarkovAttribute(0.5));
+			t.Attributes.Add(ProbabilityAttribute.AttributeType, new ProbabilityAttribute(0.5));
 			editFSM1.AddTransitions(t);
 
 			t = CMBuilder.CreateTransition("1", signatures[2], "3");
-			t.Attributes.Add(MarkovAttribute.AttributeType, new MarkovAttribute(0.5));
+			t.Attributes.Add(ProbabilityAttribute.AttributeType, new ProbabilityAttribute(0.5));
 			editFSM1.AddTransitions(t);
 
 			return seff;
@@ -240,7 +243,7 @@ namespace Palladio.Reliability.Tests
 
 			ITransition t;
 			t = CreateTransition("1", signatures[0], "2");
-			t.Attributes.Add(MarkovAttribute.AttributeType, new MarkovAttribute(1.0));
+			t.Attributes.Add(ProbabilityAttribute.AttributeType, new ProbabilityAttribute(1.0));
 			editFSM1.AddTransitions(t);
 
 			return seff;

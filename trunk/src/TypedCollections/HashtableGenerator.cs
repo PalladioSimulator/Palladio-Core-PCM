@@ -9,37 +9,36 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections;
-using Palladio.Reliability.Functions;
 using Palladio.Reliability.Model;
 using Palladio.Reliability.ExecutionTime;
 using Palladio.Identifier;
 using Palladio.FiniteStateMachines;
-using Palladio.Reliability.Math;
+using Palladio.Math;
 
 namespace Palladio.Reliability.TypedCollections
 {
 
-    #region Interface IIFunctionCollection
+    #region Interface IIDiscreteFunctionCollection
 
     /// <summary>
     /// Defines size, enumerators, and synchronization methods for strongly
-    /// typed collections of <see cref="IRealFunction"/> elements.
+    /// typed collections of <see cref="IDiscreteFunction"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IIFunctionCollection</b> provides an <see cref="ICollection"/>
-    /// that is strongly typed for <see cref="IRealFunction"/> elements.
+    /// <b>IIDiscreteFunctionCollection</b> provides an <see cref="ICollection"/>
+    /// that is strongly typed for <see cref="IDiscreteFunction"/> elements.
     /// </remarks>
 
-    public interface IIFunctionCollection {
+    public interface IIDiscreteFunctionCollection {
         #region Properties
         #region Count
 
         /// <summary>
         /// Gets the number of elements contained in the
-        /// <see cref="IIFunctionCollection"/>.
+        /// <see cref="IIDiscreteFunctionCollection"/>.
         /// </summary>
         /// <value>The number of elements contained in the
-        /// <see cref="IIFunctionCollection"/>.</value>
+        /// <see cref="IIDiscreteFunctionCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.Count"/> for details.</remarks>
 
         int Count { get; }
@@ -49,9 +48,9 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether access to the
-        /// <see cref="IIFunctionCollection"/> is synchronized (thread-safe).
+        /// <see cref="IIDiscreteFunctionCollection"/> is synchronized (thread-safe).
         /// </summary>
-        /// <value><c>true</c> if access to the <see cref="IIFunctionCollection"/> is
+        /// <value><c>true</c> if access to the <see cref="IIDiscreteFunctionCollection"/> is
         /// synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="ICollection.IsSynchronized"/> for details.</remarks>
 
@@ -62,10 +61,10 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets an object that can be used to synchronize access
-        /// to the <see cref="IIFunctionCollection"/>.
+        /// to the <see cref="IIDiscreteFunctionCollection"/>.
         /// </summary>
         /// <value>An object that can be used to synchronize access
-        /// to the <see cref="IIFunctionCollection"/>.</value>
+        /// to the <see cref="IIDiscreteFunctionCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.SyncRoot"/> for details.</remarks>
 
         object SyncRoot { get; }
@@ -76,11 +75,11 @@ namespace Palladio.Reliability.TypedCollections
         #region CopyTo
 
         /// <summary>
-        /// Copies the entire <see cref="IIFunctionCollection"/> to a one-dimensional <see cref="Array"/>
-        /// of <see cref="IRealFunction"/> elements, starting at the specified index of the target array.
+        /// Copies the entire <see cref="IIDiscreteFunctionCollection"/> to a one-dimensional <see cref="Array"/>
+        /// of <see cref="IDiscreteFunction"/> elements, starting at the specified index of the target array.
         /// </summary>
         /// <param name="array">The one-dimensional <see cref="Array"/> that is the destination of the
-        /// <see cref="IRealFunction"/> elements copied from the <see cref="IIFunctionCollection"/>.
+        /// <see cref="IDiscreteFunction"/> elements copied from the <see cref="IIDiscreteFunctionCollection"/>.
         /// The <b>Array</b> must have zero-based indexing.</param>
         /// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
         /// at which copying begins.</param>
@@ -91,51 +90,51 @@ namespace Palladio.Reliability.TypedCollections
         /// <exception cref="ArgumentException"><para>
         /// <paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.
         /// </para><para>-or-</para><para>
-        /// The number of elements in the source <see cref="IIFunctionCollection"/> is greater
+        /// The number of elements in the source <see cref="IIDiscreteFunctionCollection"/> is greater
         /// than the available space from <paramref name="arrayIndex"/> to the end of the destination
         /// <paramref name="array"/>.</para></exception>
         /// <remarks>Please refer to <see cref="ICollection.CopyTo"/> for details.</remarks>
 
-        void CopyTo(IRealFunction[] array, int arrayIndex);
+        void CopyTo(IDiscreteFunction[] array, int arrayIndex);
 
         #endregion
         #region GetEnumerator
 
         /// <summary>
-        /// Returns an <see cref="IIFunctionEnumerator"/> that can
-        /// iterate through the <see cref="IIFunctionCollection"/>.
+        /// Returns an <see cref="IIDiscreteFunctionEnumerator"/> that can
+        /// iterate through the <see cref="IIDiscreteFunctionCollection"/>.
         /// </summary>
-        /// <returns>An <see cref="IIFunctionEnumerator"/>
-        /// for the entire <see cref="IIFunctionCollection"/>.</returns>
+        /// <returns>An <see cref="IIDiscreteFunctionEnumerator"/>
+        /// for the entire <see cref="IIDiscreteFunctionCollection"/>.</returns>
         /// <remarks>Please refer to <see cref="IEnumerable.GetEnumerator"/> for details.</remarks>
 
-        IIFunctionEnumerator GetEnumerator();
+        IIDiscreteFunctionEnumerator GetEnumerator();
 
         #endregion
         #endregion
     }
 
     #endregion
-    #region Interface IIFunctionList
+    #region Interface IIDiscreteFunctionList
 
     /// <summary>
-    /// Represents a strongly typed collection of <see cref="IRealFunction"/>
+    /// Represents a strongly typed collection of <see cref="IDiscreteFunction"/>
     /// objects that can be individually accessed by index.
     /// </summary>
     /// <remarks>
-    /// <b>IIFunctionList</b> provides an <see cref="IList"/>
-    /// that is strongly typed for <see cref="IRealFunction"/> elements.
+    /// <b>IIDiscreteFunctionList</b> provides an <see cref="IList"/>
+    /// that is strongly typed for <see cref="IDiscreteFunction"/> elements.
     /// </remarks>
 
     public interface
-        IIFunctionList: IIFunctionCollection {
+        IIDiscreteFunctionList: IIDiscreteFunctionCollection {
         #region Properties
         #region IsFixedSize
 
         /// <summary>
-        /// Gets a value indicating whether the <see cref="IIFunctionList"/> has a fixed size.
+        /// Gets a value indicating whether the <see cref="IIDiscreteFunctionList"/> has a fixed size.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIFunctionList"/> has a fixed size;
+        /// <value><c>true</c> if the <see cref="IIDiscreteFunctionList"/> has a fixed size;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsFixedSize"/> for details.</remarks>
 
@@ -145,9 +144,9 @@ namespace Palladio.Reliability.TypedCollections
         #region IsReadOnly
 
         /// <summary>
-        /// Gets a value indicating whether the <see cref="IIFunctionList"/> is read-only.
+        /// Gets a value indicating whether the <see cref="IIDiscreteFunctionList"/> is read-only.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIFunctionList"/> is read-only;
+        /// <value><c>true</c> if the <see cref="IIDiscreteFunctionList"/> is read-only;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsReadOnly"/> for details.</remarks>
 
@@ -157,24 +156,24 @@ namespace Palladio.Reliability.TypedCollections
         #region Item
 
         /// <summary>
-        /// Gets or sets the <see cref="IRealFunction"/> element at the specified index.
+        /// Gets or sets the <see cref="IDiscreteFunction"/> element at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index of the
-        /// <see cref="IRealFunction"/> element to get or set.</param>
+        /// <see cref="IDiscreteFunction"/> element to get or set.</param>
         /// <value>
-        /// The <see cref="IRealFunction"/> element at the specified <paramref name="index"/>.
+        /// The <see cref="IDiscreteFunction"/> element at the specified <paramref name="index"/>.
         /// </value>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IIFunctionCollection.Count"/>.</para>
+        /// <see cref="IIDiscreteFunctionCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// The property is set and the <see cref="IIFunctionList"/> is read-only.</exception>
+        /// The property is set and the <see cref="IIDiscreteFunctionList"/> is read-only.</exception>
         /// <remarks>Please refer to <see cref="IList.this"/> for details.</remarks>
 
-        IRealFunction this[int index] { get; set; }
+        IDiscreteFunction this[int index] { get; set; }
 
         #endregion
         #endregion
@@ -182,33 +181,33 @@ namespace Palladio.Reliability.TypedCollections
         #region Add
 
         /// <summary>
-        /// Adds a <see cref="IRealFunction"/> to the end
-        /// of the <see cref="IIFunctionList"/>.
+        /// Adds a <see cref="IDiscreteFunction"/> to the end
+        /// of the <see cref="IIDiscreteFunctionList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="IRealFunction"/> object
-        /// to be added to the end of the <see cref="IIFunctionList"/>.
+        /// <param name="value">The <see cref="IDiscreteFunction"/> object
+        /// to be added to the end of the <see cref="IIDiscreteFunctionList"/>.
         /// This argument can be a null reference.
         /// </param>
-        /// <returns>The <see cref="IIFunctionList"/> index at which
+        /// <returns>The <see cref="IIDiscreteFunctionList"/> index at which
         /// the <paramref name="value"/> has been added.</returns>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIFunctionList"/> is read-only.</para>
+        /// <para>The <see cref="IIDiscreteFunctionList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIFunctionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIDiscreteFunctionList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Add"/> for details.</remarks>
 
-        int Add(IRealFunction value);
+        int Add(IDiscreteFunction value);
 
         #endregion
         #region Clear
 
         /// <summary>
-        /// Removes all elements from the <see cref="IIFunctionList"/>.
+        /// Removes all elements from the <see cref="IIDiscreteFunctionList"/>.
         /// </summary>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIFunctionList"/> is read-only.</para>
+        /// <para>The <see cref="IIDiscreteFunctionList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIFunctionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIDiscreteFunctionList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Clear"/> for details.</remarks>
 
         void Clear();
@@ -217,102 +216,102 @@ namespace Palladio.Reliability.TypedCollections
         #region Contains
 
         /// <summary>
-        /// Determines whether the <see cref="IIFunctionList"/>
-        /// contains the specified <see cref="IRealFunction"/> element.
+        /// Determines whether the <see cref="IIDiscreteFunctionList"/>
+        /// contains the specified <see cref="IDiscreteFunction"/> element.
         /// </summary>
-        /// <param name="value">The <see cref="IRealFunction"/> object
-        /// to locate in the <see cref="IIFunctionList"/>.
+        /// <param name="value">The <see cref="IDiscreteFunction"/> object
+        /// to locate in the <see cref="IIDiscreteFunctionList"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <returns><c>true</c> if <paramref name="value"/> is found in the
-        /// <see cref="IIFunctionList"/>; otherwise, <c>false</c>.</returns>
+        /// <see cref="IIDiscreteFunctionList"/>; otherwise, <c>false</c>.</returns>
         /// <remarks>Please refer to <see cref="IList.Contains"/> for details.</remarks>
 
-        bool Contains(IRealFunction value);
+        bool Contains(IDiscreteFunction value);
 
         #endregion
         #region IndexOf
 
         /// <summary>
         /// Returns the zero-based index of the first occurrence of the specified
-        /// <see cref="IRealFunction"/> in the <see cref="IIFunctionList"/>.
+        /// <see cref="IDiscreteFunction"/> in the <see cref="IIDiscreteFunctionList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="IRealFunction"/> object
-        /// to locate in the <see cref="IIFunctionList"/>.
+        /// <param name="value">The <see cref="IDiscreteFunction"/> object
+        /// to locate in the <see cref="IIDiscreteFunctionList"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <returns>
         /// The zero-based index of the first occurrence of <paramref name="value"/>
-        /// in the <see cref="IIFunctionList"/>, if found; otherwise, -1.
+        /// in the <see cref="IIDiscreteFunctionList"/>, if found; otherwise, -1.
         /// </returns>
         /// <remarks>Please refer to <see cref="IList.IndexOf"/> for details.</remarks>
 
-        int IndexOf(IRealFunction value);
+        int IndexOf(IDiscreteFunction value);
 
         #endregion
         #region Insert
 
         /// <summary>
-        /// Inserts a <see cref="IRealFunction"/> element into the
-        /// <see cref="IIFunctionList"/> at the specified index.
+        /// Inserts a <see cref="IDiscreteFunction"/> element into the
+        /// <see cref="IIDiscreteFunctionList"/> at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index at which
         /// <paramref name="value"/> should be inserted.</param>
-        /// <param name="value">The <see cref="IRealFunction"/> object
-        /// to insert into the <see cref="IIFunctionList"/>.
+        /// <param name="value">The <see cref="IDiscreteFunction"/> object
+        /// to insert into the <see cref="IIDiscreteFunctionList"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is greater than
-        /// <see cref="IIFunctionCollection.Count"/>.</para>
+        /// <see cref="IIDiscreteFunctionCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIFunctionList"/> is read-only.</para>
+        /// <para>The <see cref="IIDiscreteFunctionList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIFunctionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIDiscreteFunctionList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Insert"/> for details.</remarks>
 
-        void Insert(int index, IRealFunction value);
+        void Insert(int index, IDiscreteFunction value);
 
         #endregion
         #region Remove
 
         /// <summary>
-        /// Removes the first occurrence of the specified <see cref="IRealFunction"/>
-        /// from the <see cref="IIFunctionList"/>.
+        /// Removes the first occurrence of the specified <see cref="IDiscreteFunction"/>
+        /// from the <see cref="IIDiscreteFunctionList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="IRealFunction"/> object
-        /// to remove from the <see cref="IIFunctionList"/>.
+        /// <param name="value">The <see cref="IDiscreteFunction"/> object
+        /// to remove from the <see cref="IIDiscreteFunctionList"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIFunctionList"/> is read-only.</para>
+        /// <para>The <see cref="IIDiscreteFunctionList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIFunctionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIDiscreteFunctionList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Remove"/> for details.</remarks>
 
-        void Remove(IRealFunction value);
+        void Remove(IDiscreteFunction value);
 
         #endregion
         #region RemoveAt
 
         /// <summary>
         /// Removes the element at the specified index of the
-        /// <see cref="IIFunctionList"/>.
+        /// <see cref="IIDiscreteFunctionList"/>.
         /// </summary>
         /// <param name="index">The zero-based index of the element to remove.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IIFunctionCollection.Count"/>.</para>
+        /// <see cref="IIDiscreteFunctionCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIFunctionList"/> is read-only.</para>
+        /// <para>The <see cref="IIDiscreteFunctionList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIFunctionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIDiscreteFunctionList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.RemoveAt"/> for details.</remarks>
 
         void RemoveAt(int index);
@@ -322,25 +321,25 @@ namespace Palladio.Reliability.TypedCollections
     }
 
     #endregion
-    #region Interface IIFunctionEnumerator
+    #region Interface IIDiscreteFunctionEnumerator
 
     /// <summary>
     /// Supports type-safe iteration over a collection that
-    /// contains <see cref="IRealFunction"/> elements.
+    /// contains <see cref="IDiscreteFunction"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IIFunctionEnumerator</b> provides an <see cref="IEnumerator"/>
-    /// that is strongly typed for <see cref="IRealFunction"/> elements.
+    /// <b>IIDiscreteFunctionEnumerator</b> provides an <see cref="IEnumerator"/>
+    /// that is strongly typed for <see cref="IDiscreteFunction"/> elements.
     /// </remarks>
 
-    public interface IIFunctionEnumerator {
+    public interface IIDiscreteFunctionEnumerator {
         #region Properties
         #region Current
 
         /// <summary>
-        /// Gets the current <see cref="IRealFunction"/> element in the collection.
+        /// Gets the current <see cref="IDiscreteFunction"/> element in the collection.
         /// </summary>
-        /// <value>The current <see cref="IRealFunction"/> element in the collection.</value>
+        /// <value>The current <see cref="IDiscreteFunction"/> element in the collection.</value>
         /// <exception cref="InvalidOperationException"><para>The enumerator is positioned
         /// before the first element of the collection or after the last element.</para>
         /// <para>-or-</para>
@@ -349,7 +348,7 @@ namespace Palladio.Reliability.TypedCollections
         /// that <b>Current</b> fails if the collection was modified since the last successful
         /// call to <see cref="MoveNext"/> or <see cref="Reset"/>.</remarks>
 
-        IRealFunction Current { get; }
+        IDiscreteFunction Current { get; }
 
         #endregion
         #endregion
@@ -751,27 +750,27 @@ namespace Palladio.Reliability.TypedCollections
     }
 
     #endregion
-    #region Interface IIResourceIFunctionCollection
+    #region Interface IIResourceIDiscreteFunctionCollection
 
     /// <summary>
     /// Defines size, enumerators, and synchronization methods for strongly
     /// typed collections of <see cref="IResourceUsageEntry"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IIResourceIFunctionCollection</b> provides an <see cref="ICollection"/>
+    /// <b>IIResourceIDiscreteFunctionCollection</b> provides an <see cref="ICollection"/>
     /// that is strongly typed for <see cref="IResourceUsageEntry"/> elements.
     /// </remarks>
 
-    public interface IIResourceIFunctionCollection {
+    public interface IIResourceIDiscreteFunctionCollection {
         #region Properties
         #region Count
 
         /// <summary>
         /// Gets the number of elements contained in the
-        /// <see cref="IIResourceIFunctionCollection"/>.
+        /// <see cref="IIResourceIDiscreteFunctionCollection"/>.
         /// </summary>
         /// <value>The number of elements contained in the
-        /// <see cref="IIResourceIFunctionCollection"/>.</value>
+        /// <see cref="IIResourceIDiscreteFunctionCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.Count"/> for details.</remarks>
 
         int Count { get; }
@@ -781,9 +780,9 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether access to the
-        /// <see cref="IIResourceIFunctionCollection"/> is synchronized (thread-safe).
+        /// <see cref="IIResourceIDiscreteFunctionCollection"/> is synchronized (thread-safe).
         /// </summary>
-        /// <value><c>true</c> if access to the <see cref="IIResourceIFunctionCollection"/>
+        /// <value><c>true</c> if access to the <see cref="IIResourceIDiscreteFunctionCollection"/>
         /// is synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="ICollection.IsSynchronized"/> for details.</remarks>
 
@@ -794,10 +793,10 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets an object that can be used to synchronize access
-        /// to the <see cref="IIResourceIFunctionCollection"/>.
+        /// to the <see cref="IIResourceIDiscreteFunctionCollection"/>.
         /// </summary>
         /// <value>An object that can be used to synchronize access to the
-        /// <see cref="IIResourceIFunctionCollection"/>.</value>
+        /// <see cref="IIResourceIDiscreteFunctionCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.SyncRoot"/> for details.</remarks>
 
         object SyncRoot { get; }
@@ -808,13 +807,13 @@ namespace Palladio.Reliability.TypedCollections
         #region CopyTo
 
         /// <summary>
-        /// Copies the entire <see cref="IIResourceIFunctionCollection"/>
+        /// Copies the entire <see cref="IIResourceIDiscreteFunctionCollection"/>
         /// to a one-dimensional <see cref="Array"/> of <see cref="IResourceUsageEntry"/> elements,
         /// starting at the specified index of the target array.
         /// </summary>
         /// <param name="array">The one-dimensional <see cref="Array"/> that is the
         /// destination of the <see cref="IResourceUsageEntry"/> elements copied from the
-        /// <see cref="IIResourceIFunctionCollection"/>.
+        /// <see cref="IIResourceIDiscreteFunctionCollection"/>.
         /// The <b>Array</b> must have zero-based indexing.</param>
         /// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
         /// at which copying begins.</param>
@@ -825,7 +824,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <exception cref="ArgumentException"><para>
         /// <paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.
         /// </para><para>-or-</para><para>
-        /// The number of elements in the source <see cref="IIResourceIFunctionCollection"/>
+        /// The number of elements in the source <see cref="IIResourceIDiscreteFunctionCollection"/>
         /// is greater than the available space from <paramref name="arrayIndex"/> to the end of the
         /// destination <paramref name="array"/>.</para></exception>
         /// <remarks>Please refer to <see cref="ICollection.CopyTo"/> for details.</remarks>
@@ -836,42 +835,42 @@ namespace Palladio.Reliability.TypedCollections
         #region GetEnumerator
 
         /// <summary>
-        /// Returns an <see cref="IIResourceIFunctionEnumerator"/> that can
-        /// iterate through the <see cref="IIResourceIFunctionCollection"/>.
+        /// Returns an <see cref="IIResourceIDiscreteFunctionEnumerator"/> that can
+        /// iterate through the <see cref="IIResourceIDiscreteFunctionCollection"/>.
         /// </summary>
-        /// <returns>An <see cref="IIResourceIFunctionEnumerator"/>
-        /// for the entire <see cref="IIResourceIFunctionCollection"/>.</returns>
+        /// <returns>An <see cref="IIResourceIDiscreteFunctionEnumerator"/>
+        /// for the entire <see cref="IIResourceIDiscreteFunctionCollection"/>.</returns>
         /// <remarks>Please refer to <see cref="IEnumerable.GetEnumerator"/> for details.</remarks>
 
-        IIResourceIFunctionEnumerator GetEnumerator();
+        IIResourceIDiscreteFunctionEnumerator GetEnumerator();
 
         #endregion
         #endregion
     }
 
     #endregion
-    #region Interface IIResourceIFunctionDictionary
+    #region Interface IIResourceIDiscreteFunctionDictionary
 
     /// <summary>
     /// Represents a strongly typed collection of
     /// <see cref="IResourceUsageEntry"/> key-and-value pairs.
     /// </summary>
     /// <remarks>
-    /// <b>IIResourceIFunctionDictionary</b> provides an
+    /// <b>IIResourceIDiscreteFunctionDictionary</b> provides an
     /// <see cref="IDictionary"/> that is strongly typed for
-    /// <see cref="IResource"/> keys and <see cref="IRealFunction"/> values.
+    /// <see cref="IResource"/> keys and <see cref="IDiscreteFunction"/> values.
     /// </remarks>
 
     public interface
-        IIResourceIFunctionDictionary: IIResourceIFunctionCollection {
+        IIResourceIDiscreteFunctionDictionary: IIResourceIDiscreteFunctionCollection {
         #region Properties
         #region IsFixedSize
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IIResourceIFunctionDictionary"/> has a fixed size.
+        /// <see cref="IIResourceIDiscreteFunctionDictionary"/> has a fixed size.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIResourceIFunctionDictionary"/>
+        /// <value><c>true</c> if the <see cref="IIResourceIDiscreteFunctionDictionary"/>
         /// has a fixed size; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.IsFixedSize"/> for details.</remarks>
 
@@ -882,9 +881,9 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IIResourceIFunctionDictionary"/> is read-only.
+        /// <see cref="IIResourceIDiscreteFunctionDictionary"/> is read-only.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIResourceIFunctionDictionary"/>
+        /// <value><c>true</c> if the <see cref="IIResourceIDiscreteFunctionDictionary"/>
         /// is read-only; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.IsReadOnly"/> for details.</remarks>
 
@@ -894,12 +893,12 @@ namespace Palladio.Reliability.TypedCollections
         #region Item
 
         /// <summary>
-        /// Gets or sets the <see cref="IRealFunction"/> value
+        /// Gets or sets the <see cref="IDiscreteFunction"/> value
         /// associated with the specified <see cref="IResource"/> key.
         /// </summary>
         /// <param name="key">The <see cref="IResource"/> key
         /// whose value to get or set.</param>
-        /// <value>The <see cref="IRealFunction"/> value associated with the specified
+        /// <value>The <see cref="IDiscreteFunction"/> value associated with the specified
         /// <paramref name="key"/>. If the specified <paramref name="key"/> is not found,
         /// attempting to get it returns
         /// a null reference,
@@ -909,24 +908,24 @@ namespace Palladio.Reliability.TypedCollections
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="NotSupportedException">
         /// <para>The property is set and the
-        /// <see cref="IIResourceIFunctionDictionary"/> is read-only.</para>
+        /// <see cref="IIResourceIDiscreteFunctionDictionary"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The property is set, <paramref name="key"/> does not exist in the collection,
-        /// and the <b>IIResourceIFunctionDictionary</b> has a fixed size.</para>
+        /// and the <b>IIResourceIDiscreteFunctionDictionary</b> has a fixed size.</para>
         /// </exception>
         /// <remarks>Please refer to <see cref="IDictionary.this"/> for details.</remarks>
 
-        IRealFunction this[IResource key] { get; set; }
+        IDiscreteFunction this[IResource key] { get; set; }
 
         #endregion
         #region Keys
 
         /// <summary>
         /// Gets an <see cref="IIResourceCollection"/> containing the keys
-        /// in the <see cref="IIResourceIFunctionDictionary"/>.
+        /// in the <see cref="IIResourceIDiscreteFunctionDictionary"/>.
         /// </summary>
         /// <value>An <see cref="IIResourceCollection"/> containing the keys
-        /// in the <see cref="IIResourceIFunctionDictionary"/>.</value>
+        /// in the <see cref="IIResourceIDiscreteFunctionDictionary"/>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.Keys"/> for details.</remarks>
 
         IIResourceCollection Keys { get; }
@@ -935,14 +934,14 @@ namespace Palladio.Reliability.TypedCollections
         #region Values
 
         /// <summary>
-        /// Gets an <see cref="IIFunctionCollection"/> containing the values
-        /// in the <see cref="IIResourceIFunctionDictionary"/>.
+        /// Gets an <see cref="IIDiscreteFunctionCollection"/> containing the values
+        /// in the <see cref="IIResourceIDiscreteFunctionDictionary"/>.
         /// </summary>
-        /// <value>An <see cref="IIFunctionCollection"/> containing the values
-        /// in the <see cref="IIResourceIFunctionDictionary"/>.</value>
+        /// <value>An <see cref="IIDiscreteFunctionCollection"/> containing the values
+        /// in the <see cref="IIResourceIDiscreteFunctionDictionary"/>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.Values"/> for details.</remarks>
 
-        IIFunctionCollection Values { get; }
+        IIDiscreteFunctionCollection Values { get; }
 
         #endregion
         #endregion
@@ -951,20 +950,20 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Adds an element with the specified <see cref="IResource"/>
-        /// key and <see cref="IRealFunction"/> value to the
-        /// <see cref="IIResourceIFunctionDictionary"/>.
+        /// key and <see cref="IDiscreteFunction"/> value to the
+        /// <see cref="IIResourceIDiscreteFunctionDictionary"/>.
         /// </summary>
         /// <param name="key">The <see cref="IResource"/> key of the element
-        /// to add to the <see cref="IIResourceIFunctionDictionary"/>.</param>
-        /// <param name="value">The <see cref="IRealFunction"/> value of the element
-        /// to add to the <see cref="IIResourceIFunctionDictionary"/>.
+        /// to add to the <see cref="IIResourceIDiscreteFunctionDictionary"/>.</param>
+        /// <param name="value">The <see cref="IDiscreteFunction"/> value of the element
+        /// to add to the <see cref="IIResourceIDiscreteFunctionDictionary"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <exception cref="ArgumentException">
         /// <para>An element with the specified <paramref name="key"/> already exists
-        /// in the <see cref="IIResourceIFunctionDictionary"/>.</para>
+        /// in the <see cref="IIResourceIDiscreteFunctionDictionary"/>.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIResourceIFunctionDictionary</b> is set to use the
+        /// <para>The <b>IIResourceIDiscreteFunctionDictionary</b> is set to use the
         /// <see cref="IComparable"/> interface, and <paramref name="key"/> does not
         /// implement the <b>IComparable</b> interface.</para></exception>
         /// <exception cref="ArgumentNullException">
@@ -972,24 +971,24 @@ namespace Palladio.Reliability.TypedCollections
         /// <exception cref="InvalidOperationException">
         /// The comparer throws an exception.</exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIResourceIFunctionDictionary"/> is read-only.
+        /// <para>The <see cref="IIResourceIDiscreteFunctionDictionary"/> is read-only.
         /// </para><para>-or-</para>
-        /// <para>The <b>IIResourceIFunctionDictionary</b> has a fixed size.
+        /// <para>The <b>IIResourceIDiscreteFunctionDictionary</b> has a fixed size.
         /// </para></exception>
         /// <remarks>Please refer to <see cref="IDictionary.Add"/> for details.</remarks>
 
-        void Add(IResource key, IRealFunction value);
+        void Add(IResource key, IDiscreteFunction value);
 
         #endregion
         #region Clear
 
         /// <summary>
-        /// Removes all elements from the <see cref="IIResourceIFunctionDictionary"/>.
+        /// Removes all elements from the <see cref="IIResourceIDiscreteFunctionDictionary"/>.
         /// </summary>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIResourceIFunctionDictionary"/> is read-only.
+        /// <para>The <see cref="IIResourceIDiscreteFunctionDictionary"/> is read-only.
         /// </para><para>-or-</para>
-        /// <para>The <b>IIResourceIFunctionDictionary</b> has a fixed size.
+        /// <para>The <b>IIResourceIDiscreteFunctionDictionary</b> has a fixed size.
         /// </para></exception>
         /// <remarks>Please refer to <see cref="IDictionary.Clear"/> for details.</remarks>
 
@@ -999,12 +998,12 @@ namespace Palladio.Reliability.TypedCollections
         #region Contains
 
         /// <summary>
-        /// Determines whether the <see cref="IIResourceIFunctionDictionary"/>
+        /// Determines whether the <see cref="IIResourceIDiscreteFunctionDictionary"/>
         /// contains the specified <see cref="IResource"/> key.
         /// </summary>
         /// <param name="key">The <see cref="IResource"/> key to locate
-        /// in the <see cref="IIResourceIFunctionDictionary"/>.</param>
-        /// <returns><c>true</c> if the <see cref="IIResourceIFunctionDictionary"/>
+        /// in the <see cref="IIResourceIDiscreteFunctionDictionary"/>.</param>
+        /// <returns><c>true</c> if the <see cref="IIResourceIDiscreteFunctionDictionary"/>
         /// contains an element with the specified <paramref name="key"/>; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
@@ -1020,18 +1019,18 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Removes the element with the specified <see cref="IResource"/> key
-        /// from the <see cref="IIResourceIFunctionDictionary"/>.
+        /// from the <see cref="IIResourceIDiscreteFunctionDictionary"/>.
         /// </summary>
         /// <param name="key">The <see cref="IResource"/> key of the element to remove
-        /// from the <see cref="IIResourceIFunctionDictionary"/>.</param>
+        /// from the <see cref="IIResourceIDiscreteFunctionDictionary"/>.</param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="InvalidOperationException">
         /// The comparer throws an exception.</exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIResourceIFunctionDictionary"/> is read-only.
+        /// <para>The <see cref="IIResourceIDiscreteFunctionDictionary"/> is read-only.
         /// </para><para>-or-</para>
-        /// <para>The <b>IIResourceIFunctionDictionary</b> has a fixed size.
+        /// <para>The <b>IIResourceIDiscreteFunctionDictionary</b> has a fixed size.
         /// </para></exception>
         /// <remarks>Please refer to <see cref="IDictionary.Remove"/> for details.</remarks>
 
@@ -1042,27 +1041,27 @@ namespace Palladio.Reliability.TypedCollections
     }
 
     #endregion
-    #region Interface IIResourceIFunctionList
+    #region Interface IIResourceIDiscreteFunctionList
 
     /// <summary>
     /// Represents a strongly typed collection of <see cref="IResourceUsageEntry"/>
     /// objects that can be individually accessed by index.
     /// </summary>
     /// <remarks>
-    /// <b>IIResourceIFunctionList</b> provides an <see cref="IList"/>
+    /// <b>IIResourceIDiscreteFunctionList</b> provides an <see cref="IList"/>
     /// that is strongly typed for <see cref="IResourceUsageEntry"/> elements.
     /// </remarks>
 
     public interface
-        IIResourceIFunctionList: IIResourceIFunctionCollection {
+        IIResourceIDiscreteFunctionList: IIResourceIDiscreteFunctionCollection {
         #region Properties
         #region IsFixedSize
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IIResourceIFunctionList"/> has a fixed size.
+        /// <see cref="IIResourceIDiscreteFunctionList"/> has a fixed size.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIResourceIFunctionList"/>
+        /// <value><c>true</c> if the <see cref="IIResourceIDiscreteFunctionList"/>
         /// has a fixed size; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsFixedSize"/> for details.</remarks>
 
@@ -1073,9 +1072,9 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IIResourceIFunctionList"/> is read-only.
+        /// <see cref="IIResourceIDiscreteFunctionList"/> is read-only.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIResourceIFunctionList"/>
+        /// <value><c>true</c> if the <see cref="IIResourceIDiscreteFunctionList"/>
         /// is read-only; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsReadOnly"/> for details.</remarks>
 
@@ -1096,10 +1095,10 @@ namespace Palladio.Reliability.TypedCollections
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IIResourceIFunctionCollection.Count"/>.</para>
+        /// <see cref="IIResourceIDiscreteFunctionCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">The property is set and the
-        /// <see cref="IIResourceIFunctionList"/> is read-only.</exception>
+        /// <see cref="IIResourceIDiscreteFunctionList"/> is read-only.</exception>
         /// <remarks>Please refer to <see cref="IList.this"/> for details.</remarks>
 
         IResourceUsageEntry this[int index] { get; set; }
@@ -1111,17 +1110,17 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Adds a <see cref="IResourceUsageEntry"/> to the end
-        /// of the <see cref="IIResourceIFunctionList"/>.
+        /// of the <see cref="IIResourceIDiscreteFunctionList"/>.
         /// </summary>
         /// <param name="entry">The <see cref="IResourceUsageEntry"/> object
-        /// to be added to the end of the <see cref="IIResourceIFunctionList"/>.
+        /// to be added to the end of the <see cref="IIResourceIDiscreteFunctionList"/>.
         /// </param>
-        /// <returns>The <see cref="IIResourceIFunctionList"/> index at which
+        /// <returns>The <see cref="IIResourceIDiscreteFunctionList"/> index at which
         /// the <paramref name="entry"/> has been added.</returns>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIResourceIFunctionList"/> is read-only.</para>
+        /// <para>The <see cref="IIResourceIDiscreteFunctionList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIResourceIFunctionList</b> has a fixed size.</para>
+        /// <para>The <b>IIResourceIDiscreteFunctionList</b> has a fixed size.</para>
         /// </exception>
         /// <remarks>Please refer to <see cref="IList.Add"/> for details.</remarks>
 
@@ -1131,12 +1130,12 @@ namespace Palladio.Reliability.TypedCollections
         #region Clear
 
         /// <summary>
-        /// Removes all elements from the <see cref="IIResourceIFunctionList"/>.
+        /// Removes all elements from the <see cref="IIResourceIDiscreteFunctionList"/>.
         /// </summary>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIResourceIFunctionList"/> is read-only.</para>
+        /// <para>The <see cref="IIResourceIDiscreteFunctionList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIResourceIFunctionList</b> has a fixed size.</para>
+        /// <para>The <b>IIResourceIDiscreteFunctionList</b> has a fixed size.</para>
         /// </exception>
         /// <remarks>Please refer to <see cref="IList.Clear"/> for details.</remarks>
 
@@ -1146,13 +1145,13 @@ namespace Palladio.Reliability.TypedCollections
         #region Contains
 
         /// <summary>
-        /// Determines whether the <see cref="IIResourceIFunctionList"/>
+        /// Determines whether the <see cref="IIResourceIDiscreteFunctionList"/>
         /// contains the specified <see cref="IResourceUsageEntry"/> element.
         /// </summary>
         /// <param name="entry">The <see cref="IResourceUsageEntry"/> object
-        /// to locate in the <see cref="IIResourceIFunctionList"/>.</param>
+        /// to locate in the <see cref="IIResourceIDiscreteFunctionList"/>.</param>
         /// <returns><c>true</c> if <paramref name="entry"/> is found in the
-        /// <see cref="IIResourceIFunctionList"/>; otherwise, <c>false</c>.</returns>
+        /// <see cref="IIResourceIDiscreteFunctionList"/>; otherwise, <c>false</c>.</returns>
         /// <remarks>Please refer to <see cref="IList.Contains"/> for details.</remarks>
 
         bool Contains(IResourceUsageEntry entry);
@@ -1162,13 +1161,13 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Returns the zero-based index of the first occurrence of the specified
-        /// <see cref="IResourceUsageEntry"/> in the <see cref="IIResourceIFunctionList"/>.
+        /// <see cref="IResourceUsageEntry"/> in the <see cref="IIResourceIDiscreteFunctionList"/>.
         /// </summary>
         /// <param name="entry">The <see cref="IResourceUsageEntry"/> object
-        /// to locate in the <see cref="IIResourceIFunctionList"/>.</param>
+        /// to locate in the <see cref="IIResourceIDiscreteFunctionList"/>.</param>
         /// <returns>
         /// The zero-based index of the first occurrence of <paramref name="entry"/>
-        /// in the <see cref="IIResourceIFunctionList"/>, if found; otherwise, -1.
+        /// in the <see cref="IIResourceIDiscreteFunctionList"/>, if found; otherwise, -1.
         /// </returns>
         /// <remarks>Please refer to <see cref="IList.IndexOf"/> for details.</remarks>
 
@@ -1179,22 +1178,22 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Inserts a <see cref="IResourceUsageEntry"/> element into the
-        /// <see cref="IIResourceIFunctionList"/> at the specified index.
+        /// <see cref="IIResourceIDiscreteFunctionList"/> at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index at which
         /// <paramref name="entry"/> should be inserted.</param>
         /// <param name="entry">The <see cref="IResourceUsageEntry"/> object to insert
-        /// into the <see cref="IIResourceIFunctionList"/>.</param>
+        /// into the <see cref="IIResourceIDiscreteFunctionList"/>.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is greater than
-        /// <see cref="IIResourceIFunctionCollection.Count"/>.</para>
+        /// <see cref="IIResourceIDiscreteFunctionCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIResourceIFunctionList"/> is read-only.</para>
+        /// <para>The <see cref="IIResourceIDiscreteFunctionList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIResourceIFunctionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIResourceIDiscreteFunctionList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Insert"/> for details.</remarks>
 
         void Insert(int index, IResourceUsageEntry entry);
@@ -1204,14 +1203,14 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Removes the first occurrence of the specified <see cref="IResourceUsageEntry"/>
-        /// from the <see cref="IIResourceIFunctionList"/>.
+        /// from the <see cref="IIResourceIDiscreteFunctionList"/>.
         /// </summary>
         /// <param name="entry">The <see cref="IResourceUsageEntry"/> object to remove
-        /// from the <see cref="IIResourceIFunctionList"/>.</param>
+        /// from the <see cref="IIResourceIDiscreteFunctionList"/>.</param>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIResourceIFunctionList"/> is read-only.</para>
+        /// <para>The <see cref="IIResourceIDiscreteFunctionList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIResourceIFunctionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIResourceIDiscreteFunctionList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Remove"/> for details.</remarks>
 
         void Remove(IResourceUsageEntry entry);
@@ -1221,19 +1220,19 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Removes the element at the specified index of the
-        /// <see cref="IIResourceIFunctionList"/>.
+        /// <see cref="IIResourceIDiscreteFunctionList"/>.
         /// </summary>
         /// <param name="index">The zero-based index of the element to remove.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IIResourceIFunctionCollection.Count"/>.</para>
+        /// <see cref="IIResourceIDiscreteFunctionCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIResourceIFunctionList"/> is read-only.</para>
+        /// <para>The <see cref="IIResourceIDiscreteFunctionList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIResourceIFunctionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIResourceIDiscreteFunctionList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.RemoveAt"/> for details.</remarks>
 
         void RemoveAt(int index);
@@ -1243,19 +1242,19 @@ namespace Palladio.Reliability.TypedCollections
     }
 
     #endregion
-    #region Interface IIResourceIFunctionEnumerator
+    #region Interface IIResourceIDiscreteFunctionEnumerator
 
     /// <summary>
     /// Supports type-safe iteration over a dictionary that
     /// contains <see cref="IResourceUsageEntry"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IIResourceIFunctionEnumerator</b> provides an
+    /// <b>IIResourceIDiscreteFunctionEnumerator</b> provides an
     /// <see cref="IDictionaryEnumerator"/> that is strongly typed for
-    /// <see cref="IResource"/> keys and <see cref="IRealFunction"/> values.
+    /// <see cref="IResource"/> keys and <see cref="IDiscreteFunction"/> values.
     /// </remarks>
 
-    public interface IIResourceIFunctionEnumerator {
+    public interface IIResourceIDiscreteFunctionEnumerator {
         #region Properties
         #region Current
 
@@ -1314,9 +1313,9 @@ namespace Palladio.Reliability.TypedCollections
         #region Value
 
         /// <summary>
-        /// Gets the <see cref="IRealFunction"/> value of the current dictionary entry.
+        /// Gets the <see cref="IDiscreteFunction"/> value of the current dictionary entry.
         /// </summary>
-        /// <value>The <see cref="IRealFunction"/> value
+        /// <value>The <see cref="IDiscreteFunction"/> value
         /// of the current element of the enumeration.</value>
         /// <exception cref="InvalidOperationException"><para>The enumerator is positioned
         /// before the first element of the dictionary or after the last element.</para>
@@ -1326,7 +1325,7 @@ namespace Palladio.Reliability.TypedCollections
         /// note that <b>Value</b> fails if the collection was modified since the last successful
         /// call to <see cref="MoveNext"/> or <see cref="Reset"/>.</remarks>
 
-        IRealFunction Value { get; }
+        IDiscreteFunction Value { get; }
 
         #endregion
         #endregion
@@ -1366,11 +1365,11 @@ namespace Palladio.Reliability.TypedCollections
 
     /// <summary>
     /// Implements a strongly typed pair of one <see cref="IResource"/>
-    /// key and one <see cref="IRealFunction"/> value.
+    /// key and one <see cref="IDiscreteFunction"/> value.
     /// </summary>
     /// <remarks>
     /// <b>IResourceUsageEntry</b> provides a <see cref="DictionaryEntry"/> that is strongly
-    /// typed for <see cref="IResource"/> keys and <see cref="IRealFunction"/> values.
+    /// typed for <see cref="IResource"/> keys and <see cref="IDiscreteFunction"/> values.
     /// </remarks>
 
     [Serializable]
@@ -1378,7 +1377,7 @@ namespace Palladio.Reliability.TypedCollections
         #region Private Fields
 
         private IResource _key;
-        private IRealFunction _value;
+        private IDiscreteFunction _value;
 
         #endregion
         #region Public Constructors
@@ -1390,13 +1389,13 @@ namespace Palladio.Reliability.TypedCollections
         /// <param name="key">
         /// The <see cref="IResource"/> key in the key-and-value pair.</param>
         /// <param name="value">
-        /// The <see cref="IRealFunction"/> value in the key-and-value pair.
+        /// The <see cref="IDiscreteFunction"/> value in the key-and-value pair.
         /// This argument can be a null reference.
         /// </param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
 
-        public IResourceUsageEntry(IResource key, IRealFunction value) {
+        public IResourceUsageEntry(IResource key, IDiscreteFunction value) {
             if ((object) key == null)
                 throw new ArgumentNullException("key");
 
@@ -1437,14 +1436,14 @@ namespace Palladio.Reliability.TypedCollections
         #region Value
 
         /// <summary>
-        /// Gets or sets the <see cref="IRealFunction"/> value in the key-and-value pair.
+        /// Gets or sets the <see cref="IDiscreteFunction"/> value in the key-and-value pair.
         /// </summary>
         /// <value>
-        /// The <see cref="IRealFunction"/> value in the key-and-value pair.
+        /// The <see cref="IDiscreteFunction"/> value in the key-and-value pair.
         /// This value can be a null reference, which is also the default.
         /// </value>
 
-        public IRealFunction Value {
+        public IDiscreteFunction Value {
             get { return this._value; }
             set { this._value = value; }
         }
@@ -1465,13 +1464,13 @@ namespace Palladio.Reliability.TypedCollections
         /// with <see cref="IResource"/>.</para>
         /// <para>-or-</para>
         /// <para><paramref name="entry"/> contains a value that is not compatible
-        /// with <see cref="IRealFunction"/>.</para>
+        /// with <see cref="IDiscreteFunction"/>.</para>
         /// </exception>
 
         public static implicit operator IResourceUsageEntry(DictionaryEntry entry) {
             IResourceUsageEntry pair = new IResourceUsageEntry();
             if (entry.Key != null) pair.Key = (IResource) entry.Key;
-            if (entry.Value != null) pair.Value = (IRealFunction) entry.Value;
+            if (entry.Value != null) pair.Value = (IDiscreteFunction) entry.Value;
             return pair;
         }
 
@@ -1505,12 +1504,12 @@ namespace Palladio.Reliability.TypedCollections
     /// </summary>
     /// <remarks>
     /// <b>ResourceUsageTable</b> provides a <see cref="Hashtable"/> that is strongly typed
-    /// for <see cref="IResource"/> keys and <see cref="IRealFunction"/> values.
+    /// for <see cref="IResource"/> keys and <see cref="IDiscreteFunction"/> values.
     /// </remarks>
 
     [Serializable]
     public class ResourceUsageTable:
-        IIResourceIFunctionDictionary, IDictionary, ICloneable {
+        IIResourceIDiscreteFunctionDictionary, IDictionary, ICloneable {
         #region Private Fields
 
         private Hashtable _innerHash;
@@ -1887,15 +1886,15 @@ namespace Palladio.Reliability.TypedCollections
         }
 
         #endregion
-        #region Item[IResource]: IFunction
+        #region Item[IResource]: IDiscreteFunction
 
         /// <summary>
-        /// Gets or sets the <see cref="IRealFunction"/> value
+        /// Gets or sets the <see cref="IDiscreteFunction"/> value
         /// associated with the specified <see cref="IResource"/> key.
         /// </summary>
         /// <param name="key">The <see cref="IResource"/> key
         /// whose value to get or set.</param>
-        /// <value>The <see cref="IRealFunction"/> value associated with the specified
+        /// <value>The <see cref="IDiscreteFunction"/> value associated with the specified
         /// <paramref name="key"/>. If the specified <paramref name="key"/> is not found,
         /// attempting to get it returns
         /// a null reference,
@@ -1910,9 +1909,9 @@ namespace Palladio.Reliability.TypedCollections
         /// and the <b>ResourceUsageTable</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 
-        public IRealFunction this[IResource key] {
+        public IDiscreteFunction this[IResource key] {
             get {
-                return (IRealFunction) this._innerHash[key];
+                return (IDiscreteFunction) this._innerHash[key];
             }
             set { this._innerHash[key] = value; }
         }
@@ -1930,7 +1929,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <paramref name="key"/> is not found, attempting to get it returns
         /// a null reference,
         /// and attempting to set it creates a new element using the specified <paramref name="key"/>.
-        /// When set, this value must be compatible with <see cref="IRealFunction"/>.
+        /// When set, this value must be compatible with <see cref="IDiscreteFunction"/>.
         /// </value>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
@@ -1938,7 +1937,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <para><paramref name="key"/> is not compatible with <see cref="IResource"/>.</para>
         /// <para>-or-</para>
         /// <para>The property is set to a value that is not compatible with
-        /// <see cref="IRealFunction"/>.</para></exception>
+        /// <see cref="IDiscreteFunction"/>.</para></exception>
         /// <exception cref="NotSupportedException">
         /// <para>The property is set and the <see cref="ResourceUsageTable"/> is read-only.</para>
         /// <para>-or-</para>
@@ -1948,7 +1947,7 @@ namespace Palladio.Reliability.TypedCollections
 
         object IDictionary.this[object key] {
             get { return this[(IResource) key]; }
-            set { this[(IResource) key] = (IRealFunction) value; }
+            set { this[(IResource) key] = (IDiscreteFunction) value; }
         }
 
         #endregion
@@ -2001,17 +2000,17 @@ namespace Palladio.Reliability.TypedCollections
         }
 
         #endregion
-        #region Values: IIFunctionCollection
+        #region Values: IIDiscreteFunctionCollection
 
         /// <summary>
-        /// Gets an <see cref="IIFunctionCollection"/> containing
+        /// Gets an <see cref="IIDiscreteFunctionCollection"/> containing
         /// the values in the <see cref="ResourceUsageTable"/>.
         /// </summary>
-        /// <value>An <see cref="IIFunctionCollection"/> containing
+        /// <value>An <see cref="IIDiscreteFunctionCollection"/> containing
         /// the values in the <see cref="ResourceUsageTable"/>.</value>
         /// <remarks>Please refer to <see cref="Hashtable.Values"/> for details.</remarks>
 
-        public virtual IIFunctionCollection Values {
+        public virtual IIDiscreteFunctionCollection Values {
             get {
                 if (this._valueList == null)
                     this._valueList = new ValueList(this);
@@ -2037,15 +2036,15 @@ namespace Palladio.Reliability.TypedCollections
         #endregion
         #endregion
         #region Public Methods
-        #region Add(IResource, IFunction)
+        #region Add(IResource, IDiscreteFunction)
 
         /// <summary>
         /// Adds an element with the specified <see cref="IResource"/> key and
-        /// <see cref="IRealFunction"/> value to the <see cref="ResourceUsageTable"/>.
+        /// <see cref="IDiscreteFunction"/> value to the <see cref="ResourceUsageTable"/>.
         /// </summary>
         /// <param name="key">The <see cref="IResource"/> key of the element
         /// to add to the <see cref="ResourceUsageTable"/>.</param>
-        /// <param name="value">The <see cref="IRealFunction"/> value of the element
+        /// <param name="value">The <see cref="IDiscreteFunction"/> value of the element
         /// to add to the <see cref="ResourceUsageTable"/>.
         /// This argument can be a null reference.
         /// </param>
@@ -2060,7 +2059,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <para>The <b>ResourceUsageTable</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
-        public void Add(IResource key, IRealFunction value) {
+        public void Add(IResource key, IDiscreteFunction value) {
             this._innerHash.Add(key, value);
         }
 
@@ -2074,7 +2073,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <param name="key">The key of the element to add to the <see cref="ResourceUsageTable"/>.
         /// This argument must be compatible with <see cref="IResource"/>.</param>
         /// <param name="value">The value of the element to add to the <see cref="ResourceUsageTable"/>.
-        /// This argument must be compatible with <see cref="IRealFunction"/>.
+        /// This argument must be compatible with <see cref="IDiscreteFunction"/>.
         /// This argument can be a null reference.
         /// </param>
         /// <exception cref="ArgumentException">
@@ -2085,7 +2084,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <exception cref="InvalidCastException">
         /// <para><paramref name="key"/> is not compatible with <see cref="IResource"/>.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="value"/> is not compatible with <see cref="IRealFunction"/>.</para>
+        /// <para><paramref name="value"/> is not compatible with <see cref="IDiscreteFunction"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
         /// <para>The <see cref="ResourceUsageTable"/> is read-only.</para>
@@ -2094,7 +2093,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
         void IDictionary.Add(object key, object value) {
-            Add((IResource) key, (IRealFunction) value);
+            Add((IResource) key, (IDiscreteFunction) value);
         }
 
         #endregion
@@ -2191,9 +2190,9 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Determines whether the <see cref="ResourceUsageTable"/>
-        /// contains the specified <see cref="IRealFunction"/> value.
+        /// contains the specified <see cref="IDiscreteFunction"/> value.
         /// </summary>
-        /// <param name="value">The <see cref="IRealFunction"/> value
+        /// <param name="value">The <see cref="IDiscreteFunction"/> value
         /// to locate in the <see cref="ResourceUsageTable"/>.
         /// This argument can be a null reference.
         /// </param>
@@ -2201,7 +2200,7 @@ namespace Palladio.Reliability.TypedCollections
         /// with the specified <paramref name="value"/>; otherwise, <c>false</c>.</returns>
         /// <remarks>Please refer to <see cref="Hashtable.ContainsValue"/> for details.</remarks>
 
-        public bool ContainsValue(IRealFunction value) {
+        public bool ContainsValue(IDiscreteFunction value) {
             return this._innerHash.ContainsValue(value);
         }
 
@@ -2268,17 +2267,17 @@ namespace Palladio.Reliability.TypedCollections
         }
 
         #endregion
-        #region GetEnumerator: IIResourceIFunctionEnumerator
+        #region GetEnumerator: IIResourceIDiscreteFunctionEnumerator
 
         /// <summary>
-        /// Returns an <see cref="IIResourceIFunctionEnumerator"/>
+        /// Returns an <see cref="IIResourceIDiscreteFunctionEnumerator"/>
         /// that can iterate through the <see cref="ResourceUsageTable"/>.
         /// </summary>
-        /// <returns>An <see cref="IIResourceIFunctionEnumerator"/>
+        /// <returns>An <see cref="IIResourceIDiscreteFunctionEnumerator"/>
         /// for the entire <see cref="ResourceUsageTable"/>.</returns>
         /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
-        public IIResourceIFunctionEnumerator GetEnumerator() {
+        public IIResourceIDiscreteFunctionEnumerator GetEnumerator() {
             return new Enumerator(this);
         }
 
@@ -2407,7 +2406,7 @@ namespace Palladio.Reliability.TypedCollections
         #region Class Enumerator
 
         private sealed class Enumerator:
-            IIResourceIFunctionEnumerator, IDictionaryEnumerator {
+            IIResourceIDiscreteFunctionEnumerator, IDictionaryEnumerator {
             #region Private Fields
 
             private readonly IDictionaryEnumerator _innerEnumerator;
@@ -2446,8 +2445,8 @@ namespace Palladio.Reliability.TypedCollections
                 get { return this._innerEnumerator.Key; }
             }
 
-            public IRealFunction Value {
-                get { return (IRealFunction) this._innerEnumerator.Value; }
+            public IDiscreteFunction Value {
+                get { return (IDiscreteFunction) this._innerEnumerator.Value; }
             }
 
             object IDictionaryEnumerator.Value {
@@ -2572,7 +2571,7 @@ namespace Palladio.Reliability.TypedCollections
 
         [Serializable]
         private sealed class ValueList:
-            IIFunctionCollection, ICollection {
+            IIDiscreteFunctionCollection, ICollection {
             #region Private Fields
 
             private ResourceUsageTable _dictionary;
@@ -2602,7 +2601,7 @@ namespace Palladio.Reliability.TypedCollections
             #endregion
             #region Public Methods
 
-            public void CopyTo(IRealFunction[] array, int arrayIndex) {
+            public void CopyTo(IDiscreteFunction[] array, int arrayIndex) {
                 this._dictionary.CheckTargetArray(array, arrayIndex);
                 foreach (IResourceUsageEntry pair in this._dictionary)
                     array[arrayIndex++] = pair.Value;
@@ -2610,10 +2609,10 @@ namespace Palladio.Reliability.TypedCollections
 
             void ICollection.CopyTo(Array array, int arrayIndex) {
                 this._dictionary.CheckTargetArray(array, arrayIndex);
-                CopyTo((IRealFunction[]) array, arrayIndex);
+                CopyTo((IDiscreteFunction[]) array, arrayIndex);
             }
 
-            public IIFunctionEnumerator GetEnumerator() {
+            public IIDiscreteFunctionEnumerator GetEnumerator() {
                 return new ValueEnumerator(this._dictionary);
             }
 
@@ -2629,7 +2628,7 @@ namespace Palladio.Reliability.TypedCollections
 
         [Serializable]
         private sealed class ValueEnumerator:
-            IIFunctionEnumerator, IEnumerator {
+            IIDiscreteFunctionEnumerator, IEnumerator {
             #region Private Fields
 
             private readonly IEnumerator _innerEnumerator;
@@ -2644,8 +2643,8 @@ namespace Palladio.Reliability.TypedCollections
             #endregion
             #region Public Properties
 
-            public IRealFunction Current {
-                get { return (IRealFunction) this._innerEnumerator.Current; }
+            public IDiscreteFunction Current {
+                get { return (IDiscreteFunction) this._innerEnumerator.Current; }
             }
 
             object IEnumerator.Current {
@@ -2673,27 +2672,27 @@ namespace Palladio.Reliability.TypedCollections
 
 	
 
-    #region Interface IIVariableExpressionCollection
+    #region Interface IdoubleCollection
 
     /// <summary>
     /// Defines size, enumerators, and synchronization methods for strongly
-    /// typed collections of <see cref="IVariableExpression"/> elements.
+    /// typed collections of <see cref="double"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IIVariableExpressionCollection</b> provides an <see cref="ICollection"/>
-    /// that is strongly typed for <see cref="IVariableExpression"/> elements.
+    /// <b>IdoubleCollection</b> provides an <see cref="ICollection"/>
+    /// that is strongly typed for <see cref="double"/> elements.
     /// </remarks>
 
-    public interface IIVariableExpressionCollection {
+    public interface IdoubleCollection {
         #region Properties
         #region Count
 
         /// <summary>
         /// Gets the number of elements contained in the
-        /// <see cref="IIVariableExpressionCollection"/>.
+        /// <see cref="IdoubleCollection"/>.
         /// </summary>
         /// <value>The number of elements contained in the
-        /// <see cref="IIVariableExpressionCollection"/>.</value>
+        /// <see cref="IdoubleCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.Count"/> for details.</remarks>
 
         int Count { get; }
@@ -2703,9 +2702,9 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether access to the
-        /// <see cref="IIVariableExpressionCollection"/> is synchronized (thread-safe).
+        /// <see cref="IdoubleCollection"/> is synchronized (thread-safe).
         /// </summary>
-        /// <value><c>true</c> if access to the <see cref="IIVariableExpressionCollection"/> is
+        /// <value><c>true</c> if access to the <see cref="IdoubleCollection"/> is
         /// synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="ICollection.IsSynchronized"/> for details.</remarks>
 
@@ -2716,10 +2715,10 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets an object that can be used to synchronize access
-        /// to the <see cref="IIVariableExpressionCollection"/>.
+        /// to the <see cref="IdoubleCollection"/>.
         /// </summary>
         /// <value>An object that can be used to synchronize access
-        /// to the <see cref="IIVariableExpressionCollection"/>.</value>
+        /// to the <see cref="IdoubleCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.SyncRoot"/> for details.</remarks>
 
         object SyncRoot { get; }
@@ -2730,11 +2729,11 @@ namespace Palladio.Reliability.TypedCollections
         #region CopyTo
 
         /// <summary>
-        /// Copies the entire <see cref="IIVariableExpressionCollection"/> to a one-dimensional <see cref="Array"/>
-        /// of <see cref="IVariableExpression"/> elements, starting at the specified index of the target array.
+        /// Copies the entire <see cref="IdoubleCollection"/> to a one-dimensional <see cref="Array"/>
+        /// of <see cref="double"/> elements, starting at the specified index of the target array.
         /// </summary>
         /// <param name="array">The one-dimensional <see cref="Array"/> that is the destination of the
-        /// <see cref="IVariableExpression"/> elements copied from the <see cref="IIVariableExpressionCollection"/>.
+        /// <see cref="double"/> elements copied from the <see cref="IdoubleCollection"/>.
         /// The <b>Array</b> must have zero-based indexing.</param>
         /// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
         /// at which copying begins.</param>
@@ -2745,51 +2744,51 @@ namespace Palladio.Reliability.TypedCollections
         /// <exception cref="ArgumentException"><para>
         /// <paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.
         /// </para><para>-or-</para><para>
-        /// The number of elements in the source <see cref="IIVariableExpressionCollection"/> is greater
+        /// The number of elements in the source <see cref="IdoubleCollection"/> is greater
         /// than the available space from <paramref name="arrayIndex"/> to the end of the destination
         /// <paramref name="array"/>.</para></exception>
         /// <remarks>Please refer to <see cref="ICollection.CopyTo"/> for details.</remarks>
 
-        void CopyTo(IVariableExpression[] array, int arrayIndex);
+        void CopyTo(double[] array, int arrayIndex);
 
         #endregion
         #region GetEnumerator
 
         /// <summary>
-        /// Returns an <see cref="IIVariableExpressionEnumerator"/> that can
-        /// iterate through the <see cref="IIVariableExpressionCollection"/>.
+        /// Returns an <see cref="IdoubleEnumerator"/> that can
+        /// iterate through the <see cref="IdoubleCollection"/>.
         /// </summary>
-        /// <returns>An <see cref="IIVariableExpressionEnumerator"/>
-        /// for the entire <see cref="IIVariableExpressionCollection"/>.</returns>
+        /// <returns>An <see cref="IdoubleEnumerator"/>
+        /// for the entire <see cref="IdoubleCollection"/>.</returns>
         /// <remarks>Please refer to <see cref="IEnumerable.GetEnumerator"/> for details.</remarks>
 
-        IIVariableExpressionEnumerator GetEnumerator();
+        IdoubleEnumerator GetEnumerator();
 
         #endregion
         #endregion
     }
 
     #endregion
-    #region Interface IIVariableExpressionList
+    #region Interface IdoubleList
 
     /// <summary>
-    /// Represents a strongly typed collection of <see cref="IVariableExpression"/>
+    /// Represents a strongly typed collection of <see cref="double"/>
     /// objects that can be individually accessed by index.
     /// </summary>
     /// <remarks>
-    /// <b>IIVariableExpressionList</b> provides an <see cref="IList"/>
-    /// that is strongly typed for <see cref="IVariableExpression"/> elements.
+    /// <b>IdoubleList</b> provides an <see cref="IList"/>
+    /// that is strongly typed for <see cref="double"/> elements.
     /// </remarks>
 
     public interface
-        IIVariableExpressionList: IIVariableExpressionCollection {
+        IdoubleList: IdoubleCollection {
         #region Properties
         #region IsFixedSize
 
         /// <summary>
-        /// Gets a value indicating whether the <see cref="IIVariableExpressionList"/> has a fixed size.
+        /// Gets a value indicating whether the <see cref="IdoubleList"/> has a fixed size.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIVariableExpressionList"/> has a fixed size;
+        /// <value><c>true</c> if the <see cref="IdoubleList"/> has a fixed size;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsFixedSize"/> for details.</remarks>
 
@@ -2799,9 +2798,9 @@ namespace Palladio.Reliability.TypedCollections
         #region IsReadOnly
 
         /// <summary>
-        /// Gets a value indicating whether the <see cref="IIVariableExpressionList"/> is read-only.
+        /// Gets a value indicating whether the <see cref="IdoubleList"/> is read-only.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIVariableExpressionList"/> is read-only;
+        /// <value><c>true</c> if the <see cref="IdoubleList"/> is read-only;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsReadOnly"/> for details.</remarks>
 
@@ -2811,24 +2810,24 @@ namespace Palladio.Reliability.TypedCollections
         #region Item
 
         /// <summary>
-        /// Gets or sets the <see cref="IVariableExpression"/> element at the specified index.
+        /// Gets or sets the <see cref="double"/> element at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index of the
-        /// <see cref="IVariableExpression"/> element to get or set.</param>
+        /// <see cref="double"/> element to get or set.</param>
         /// <value>
-        /// The <see cref="IVariableExpression"/> element at the specified <paramref name="index"/>.
+        /// The <see cref="double"/> element at the specified <paramref name="index"/>.
         /// </value>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IIVariableExpressionCollection.Count"/>.</para>
+        /// <see cref="IdoubleCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// The property is set and the <see cref="IIVariableExpressionList"/> is read-only.</exception>
+        /// The property is set and the <see cref="IdoubleList"/> is read-only.</exception>
         /// <remarks>Please refer to <see cref="IList.this"/> for details.</remarks>
 
-        IVariableExpression this[int index] { get; set; }
+        double this[int index] { get; set; }
 
         #endregion
         #endregion
@@ -2836,33 +2835,32 @@ namespace Palladio.Reliability.TypedCollections
         #region Add
 
         /// <summary>
-        /// Adds a <see cref="IVariableExpression"/> to the end
-        /// of the <see cref="IIVariableExpressionList"/>.
+        /// Adds a <see cref="double"/> to the end
+        /// of the <see cref="IdoubleList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="IVariableExpression"/> object
-        /// to be added to the end of the <see cref="IIVariableExpressionList"/>.
-        /// This argument can be a null reference.
+        /// <param name="value">The <see cref="double"/> object
+        /// to be added to the end of the <see cref="IdoubleList"/>.
         /// </param>
-        /// <returns>The <see cref="IIVariableExpressionList"/> index at which
+        /// <returns>The <see cref="IdoubleList"/> index at which
         /// the <paramref name="value"/> has been added.</returns>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIVariableExpressionList"/> is read-only.</para>
+        /// <para>The <see cref="IdoubleList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIVariableExpressionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IdoubleList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Add"/> for details.</remarks>
 
-        int Add(IVariableExpression value);
+        int Add(double value);
 
         #endregion
         #region Clear
 
         /// <summary>
-        /// Removes all elements from the <see cref="IIVariableExpressionList"/>.
+        /// Removes all elements from the <see cref="IdoubleList"/>.
         /// </summary>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIVariableExpressionList"/> is read-only.</para>
+        /// <para>The <see cref="IdoubleList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIVariableExpressionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IdoubleList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Clear"/> for details.</remarks>
 
         void Clear();
@@ -2871,102 +2869,98 @@ namespace Palladio.Reliability.TypedCollections
         #region Contains
 
         /// <summary>
-        /// Determines whether the <see cref="IIVariableExpressionList"/>
-        /// contains the specified <see cref="IVariableExpression"/> element.
+        /// Determines whether the <see cref="IdoubleList"/>
+        /// contains the specified <see cref="double"/> element.
         /// </summary>
-        /// <param name="value">The <see cref="IVariableExpression"/> object
-        /// to locate in the <see cref="IIVariableExpressionList"/>.
-        /// This argument can be a null reference.
+        /// <param name="value">The <see cref="double"/> object
+        /// to locate in the <see cref="IdoubleList"/>.
         /// </param>
         /// <returns><c>true</c> if <paramref name="value"/> is found in the
-        /// <see cref="IIVariableExpressionList"/>; otherwise, <c>false</c>.</returns>
+        /// <see cref="IdoubleList"/>; otherwise, <c>false</c>.</returns>
         /// <remarks>Please refer to <see cref="IList.Contains"/> for details.</remarks>
 
-        bool Contains(IVariableExpression value);
+        bool Contains(double value);
 
         #endregion
         #region IndexOf
 
         /// <summary>
         /// Returns the zero-based index of the first occurrence of the specified
-        /// <see cref="IVariableExpression"/> in the <see cref="IIVariableExpressionList"/>.
+        /// <see cref="double"/> in the <see cref="IdoubleList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="IVariableExpression"/> object
-        /// to locate in the <see cref="IIVariableExpressionList"/>.
-        /// This argument can be a null reference.
+        /// <param name="value">The <see cref="double"/> object
+        /// to locate in the <see cref="IdoubleList"/>.
         /// </param>
         /// <returns>
         /// The zero-based index of the first occurrence of <paramref name="value"/>
-        /// in the <see cref="IIVariableExpressionList"/>, if found; otherwise, -1.
+        /// in the <see cref="IdoubleList"/>, if found; otherwise, -1.
         /// </returns>
         /// <remarks>Please refer to <see cref="IList.IndexOf"/> for details.</remarks>
 
-        int IndexOf(IVariableExpression value);
+        int IndexOf(double value);
 
         #endregion
         #region Insert
 
         /// <summary>
-        /// Inserts a <see cref="IVariableExpression"/> element into the
-        /// <see cref="IIVariableExpressionList"/> at the specified index.
+        /// Inserts a <see cref="double"/> element into the
+        /// <see cref="IdoubleList"/> at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index at which
         /// <paramref name="value"/> should be inserted.</param>
-        /// <param name="value">The <see cref="IVariableExpression"/> object
-        /// to insert into the <see cref="IIVariableExpressionList"/>.
-        /// This argument can be a null reference.
+        /// <param name="value">The <see cref="double"/> object
+        /// to insert into the <see cref="IdoubleList"/>.
         /// </param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is greater than
-        /// <see cref="IIVariableExpressionCollection.Count"/>.</para>
+        /// <see cref="IdoubleCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIVariableExpressionList"/> is read-only.</para>
+        /// <para>The <see cref="IdoubleList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIVariableExpressionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IdoubleList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Insert"/> for details.</remarks>
 
-        void Insert(int index, IVariableExpression value);
+        void Insert(int index, double value);
 
         #endregion
         #region Remove
 
         /// <summary>
-        /// Removes the first occurrence of the specified <see cref="IVariableExpression"/>
-        /// from the <see cref="IIVariableExpressionList"/>.
+        /// Removes the first occurrence of the specified <see cref="double"/>
+        /// from the <see cref="IdoubleList"/>.
         /// </summary>
-        /// <param name="value">The <see cref="IVariableExpression"/> object
-        /// to remove from the <see cref="IIVariableExpressionList"/>.
-        /// This argument can be a null reference.
+        /// <param name="value">The <see cref="double"/> object
+        /// to remove from the <see cref="IdoubleList"/>.
         /// </param>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIVariableExpressionList"/> is read-only.</para>
+        /// <para>The <see cref="IdoubleList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIVariableExpressionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IdoubleList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Remove"/> for details.</remarks>
 
-        void Remove(IVariableExpression value);
+        void Remove(double value);
 
         #endregion
         #region RemoveAt
 
         /// <summary>
         /// Removes the element at the specified index of the
-        /// <see cref="IIVariableExpressionList"/>.
+        /// <see cref="IdoubleList"/>.
         /// </summary>
         /// <param name="index">The zero-based index of the element to remove.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IIVariableExpressionCollection.Count"/>.</para>
+        /// <see cref="IdoubleCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIVariableExpressionList"/> is read-only.</para>
+        /// <para>The <see cref="IdoubleList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIVariableExpressionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IdoubleList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.RemoveAt"/> for details.</remarks>
 
         void RemoveAt(int index);
@@ -2976,25 +2970,25 @@ namespace Palladio.Reliability.TypedCollections
     }
 
     #endregion
-    #region Interface IIVariableExpressionEnumerator
+    #region Interface IdoubleEnumerator
 
     /// <summary>
     /// Supports type-safe iteration over a collection that
-    /// contains <see cref="IVariableExpression"/> elements.
+    /// contains <see cref="double"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IIVariableExpressionEnumerator</b> provides an <see cref="IEnumerator"/>
-    /// that is strongly typed for <see cref="IVariableExpression"/> elements.
+    /// <b>IdoubleEnumerator</b> provides an <see cref="IEnumerator"/>
+    /// that is strongly typed for <see cref="double"/> elements.
     /// </remarks>
 
-    public interface IIVariableExpressionEnumerator {
+    public interface IdoubleEnumerator {
         #region Properties
         #region Current
 
         /// <summary>
-        /// Gets the current <see cref="IVariableExpression"/> element in the collection.
+        /// Gets the current <see cref="double"/> element in the collection.
         /// </summary>
-        /// <value>The current <see cref="IVariableExpression"/> element in the collection.</value>
+        /// <value>The current <see cref="double"/> element in the collection.</value>
         /// <exception cref="InvalidOperationException"><para>The enumerator is positioned
         /// before the first element of the collection or after the last element.</para>
         /// <para>-or-</para>
@@ -3003,7 +2997,7 @@ namespace Palladio.Reliability.TypedCollections
         /// that <b>Current</b> fails if the collection was modified since the last successful
         /// call to <see cref="MoveNext"/> or <see cref="Reset"/>.</remarks>
 
-        IVariableExpression Current { get; }
+        double Current { get; }
 
         #endregion
         #endregion
@@ -3405,27 +3399,27 @@ namespace Palladio.Reliability.TypedCollections
     }
 
     #endregion
-    #region Interface IIMatchableIVariableExpressionCollection
+    #region Interface IIMatchabledoubleCollection
 
     /// <summary>
     /// Defines size, enumerators, and synchronization methods for strongly
     /// typed collections of <see cref="IIExpressionEntry"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IIMatchableIVariableExpressionCollection</b> provides an <see cref="ICollection"/>
+    /// <b>IIMatchabledoubleCollection</b> provides an <see cref="ICollection"/>
     /// that is strongly typed for <see cref="IIExpressionEntry"/> elements.
     /// </remarks>
 
-    public interface IIMatchableIVariableExpressionCollection {
+    public interface IIMatchabledoubleCollection {
         #region Properties
         #region Count
 
         /// <summary>
         /// Gets the number of elements contained in the
-        /// <see cref="IIMatchableIVariableExpressionCollection"/>.
+        /// <see cref="IIMatchabledoubleCollection"/>.
         /// </summary>
         /// <value>The number of elements contained in the
-        /// <see cref="IIMatchableIVariableExpressionCollection"/>.</value>
+        /// <see cref="IIMatchabledoubleCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.Count"/> for details.</remarks>
 
         int Count { get; }
@@ -3435,9 +3429,9 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether access to the
-        /// <see cref="IIMatchableIVariableExpressionCollection"/> is synchronized (thread-safe).
+        /// <see cref="IIMatchabledoubleCollection"/> is synchronized (thread-safe).
         /// </summary>
-        /// <value><c>true</c> if access to the <see cref="IIMatchableIVariableExpressionCollection"/>
+        /// <value><c>true</c> if access to the <see cref="IIMatchabledoubleCollection"/>
         /// is synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="ICollection.IsSynchronized"/> for details.</remarks>
 
@@ -3448,10 +3442,10 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets an object that can be used to synchronize access
-        /// to the <see cref="IIMatchableIVariableExpressionCollection"/>.
+        /// to the <see cref="IIMatchabledoubleCollection"/>.
         /// </summary>
         /// <value>An object that can be used to synchronize access to the
-        /// <see cref="IIMatchableIVariableExpressionCollection"/>.</value>
+        /// <see cref="IIMatchabledoubleCollection"/>.</value>
         /// <remarks>Please refer to <see cref="ICollection.SyncRoot"/> for details.</remarks>
 
         object SyncRoot { get; }
@@ -3462,13 +3456,13 @@ namespace Palladio.Reliability.TypedCollections
         #region CopyTo
 
         /// <summary>
-        /// Copies the entire <see cref="IIMatchableIVariableExpressionCollection"/>
+        /// Copies the entire <see cref="IIMatchabledoubleCollection"/>
         /// to a one-dimensional <see cref="Array"/> of <see cref="IIExpressionEntry"/> elements,
         /// starting at the specified index of the target array.
         /// </summary>
         /// <param name="array">The one-dimensional <see cref="Array"/> that is the
         /// destination of the <see cref="IIExpressionEntry"/> elements copied from the
-        /// <see cref="IIMatchableIVariableExpressionCollection"/>.
+        /// <see cref="IIMatchabledoubleCollection"/>.
         /// The <b>Array</b> must have zero-based indexing.</param>
         /// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
         /// at which copying begins.</param>
@@ -3479,7 +3473,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <exception cref="ArgumentException"><para>
         /// <paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.
         /// </para><para>-or-</para><para>
-        /// The number of elements in the source <see cref="IIMatchableIVariableExpressionCollection"/>
+        /// The number of elements in the source <see cref="IIMatchabledoubleCollection"/>
         /// is greater than the available space from <paramref name="arrayIndex"/> to the end of the
         /// destination <paramref name="array"/>.</para></exception>
         /// <remarks>Please refer to <see cref="ICollection.CopyTo"/> for details.</remarks>
@@ -3490,42 +3484,42 @@ namespace Palladio.Reliability.TypedCollections
         #region GetEnumerator
 
         /// <summary>
-        /// Returns an <see cref="IIMatchableIVariableExpressionEnumerator"/> that can
-        /// iterate through the <see cref="IIMatchableIVariableExpressionCollection"/>.
+        /// Returns an <see cref="IIMatchabledoubleEnumerator"/> that can
+        /// iterate through the <see cref="IIMatchabledoubleCollection"/>.
         /// </summary>
-        /// <returns>An <see cref="IIMatchableIVariableExpressionEnumerator"/>
-        /// for the entire <see cref="IIMatchableIVariableExpressionCollection"/>.</returns>
+        /// <returns>An <see cref="IIMatchabledoubleEnumerator"/>
+        /// for the entire <see cref="IIMatchabledoubleCollection"/>.</returns>
         /// <remarks>Please refer to <see cref="IEnumerable.GetEnumerator"/> for details.</remarks>
 
-        IIMatchableIVariableExpressionEnumerator GetEnumerator();
+        IIMatchabledoubleEnumerator GetEnumerator();
 
         #endregion
         #endregion
     }
 
     #endregion
-    #region Interface IIMatchableIVariableExpressionDictionary
+    #region Interface IIMatchabledoubleDictionary
 
     /// <summary>
     /// Represents a strongly typed collection of
     /// <see cref="IIExpressionEntry"/> key-and-value pairs.
     /// </summary>
     /// <remarks>
-    /// <b>IIMatchableIVariableExpressionDictionary</b> provides an
+    /// <b>IIMatchabledoubleDictionary</b> provides an
     /// <see cref="IDictionary"/> that is strongly typed for
-    /// <see cref="IMatchable"/> keys and <see cref="IVariableExpression"/> values.
+    /// <see cref="IMatchable"/> keys and <see cref="double"/> values.
     /// </remarks>
 
     public interface
-        IIMatchableIVariableExpressionDictionary: IIMatchableIVariableExpressionCollection {
+        IIMatchabledoubleDictionary: IIMatchabledoubleCollection {
         #region Properties
         #region IsFixedSize
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IIMatchableIVariableExpressionDictionary"/> has a fixed size.
+        /// <see cref="IIMatchabledoubleDictionary"/> has a fixed size.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIMatchableIVariableExpressionDictionary"/>
+        /// <value><c>true</c> if the <see cref="IIMatchabledoubleDictionary"/>
         /// has a fixed size; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.IsFixedSize"/> for details.</remarks>
 
@@ -3536,9 +3530,9 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IIMatchableIVariableExpressionDictionary"/> is read-only.
+        /// <see cref="IIMatchabledoubleDictionary"/> is read-only.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIMatchableIVariableExpressionDictionary"/>
+        /// <value><c>true</c> if the <see cref="IIMatchabledoubleDictionary"/>
         /// is read-only; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.IsReadOnly"/> for details.</remarks>
 
@@ -3548,39 +3542,39 @@ namespace Palladio.Reliability.TypedCollections
         #region Item
 
         /// <summary>
-        /// Gets or sets the <see cref="IVariableExpression"/> value
+        /// Gets or sets the <see cref="double"/> value
         /// associated with the specified <see cref="IMatchable"/> key.
         /// </summary>
         /// <param name="key">The <see cref="IMatchable"/> key
         /// whose value to get or set.</param>
-        /// <value>The <see cref="IVariableExpression"/> value associated with the specified
+        /// <value>The <see cref="double"/> value associated with the specified
         /// <paramref name="key"/>. If the specified <paramref name="key"/> is not found,
         /// attempting to get it returns
-        /// a null reference,
+        /// a default-initialized <b>double</b> value,
         /// and attempting to set it creates a new element using the specified
         /// <paramref name="key"/>.</value>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="NotSupportedException">
         /// <para>The property is set and the
-        /// <see cref="IIMatchableIVariableExpressionDictionary"/> is read-only.</para>
+        /// <see cref="IIMatchabledoubleDictionary"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The property is set, <paramref name="key"/> does not exist in the collection,
-        /// and the <b>IIMatchableIVariableExpressionDictionary</b> has a fixed size.</para>
+        /// and the <b>IIMatchabledoubleDictionary</b> has a fixed size.</para>
         /// </exception>
         /// <remarks>Please refer to <see cref="IDictionary.this"/> for details.</remarks>
 
-        IVariableExpression this[IMatchable key] { get; set; }
+        double this[IMatchable key] { get; set; }
 
         #endregion
         #region Keys
 
         /// <summary>
         /// Gets an <see cref="IIMatchableCollection"/> containing the keys
-        /// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.
+        /// in the <see cref="IIMatchabledoubleDictionary"/>.
         /// </summary>
         /// <value>An <see cref="IIMatchableCollection"/> containing the keys
-        /// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.</value>
+        /// in the <see cref="IIMatchabledoubleDictionary"/>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.Keys"/> for details.</remarks>
 
         IIMatchableCollection Keys { get; }
@@ -3589,14 +3583,14 @@ namespace Palladio.Reliability.TypedCollections
         #region Values
 
         /// <summary>
-        /// Gets an <see cref="IIVariableExpressionCollection"/> containing the values
-        /// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.
+        /// Gets an <see cref="IdoubleCollection"/> containing the values
+        /// in the <see cref="IIMatchabledoubleDictionary"/>.
         /// </summary>
-        /// <value>An <see cref="IIVariableExpressionCollection"/> containing the values
-        /// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.</value>
+        /// <value>An <see cref="IdoubleCollection"/> containing the values
+        /// in the <see cref="IIMatchabledoubleDictionary"/>.</value>
         /// <remarks>Please refer to <see cref="IDictionary.Values"/> for details.</remarks>
 
-        IIVariableExpressionCollection Values { get; }
+        IdoubleCollection Values { get; }
 
         #endregion
         #endregion
@@ -3605,20 +3599,19 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Adds an element with the specified <see cref="IMatchable"/>
-        /// key and <see cref="IVariableExpression"/> value to the
-        /// <see cref="IIMatchableIVariableExpressionDictionary"/>.
+        /// key and <see cref="double"/> value to the
+        /// <see cref="IIMatchabledoubleDictionary"/>.
         /// </summary>
         /// <param name="key">The <see cref="IMatchable"/> key of the element
-        /// to add to the <see cref="IIMatchableIVariableExpressionDictionary"/>.</param>
-        /// <param name="value">The <see cref="IVariableExpression"/> value of the element
-        /// to add to the <see cref="IIMatchableIVariableExpressionDictionary"/>.
-        /// This argument can be a null reference.
+        /// to add to the <see cref="IIMatchabledoubleDictionary"/>.</param>
+        /// <param name="value">The <see cref="double"/> value of the element
+        /// to add to the <see cref="IIMatchabledoubleDictionary"/>.
         /// </param>
         /// <exception cref="ArgumentException">
         /// <para>An element with the specified <paramref name="key"/> already exists
-        /// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.</para>
+        /// in the <see cref="IIMatchabledoubleDictionary"/>.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIMatchableIVariableExpressionDictionary</b> is set to use the
+        /// <para>The <b>IIMatchabledoubleDictionary</b> is set to use the
         /// <see cref="IComparable"/> interface, and <paramref name="key"/> does not
         /// implement the <b>IComparable</b> interface.</para></exception>
         /// <exception cref="ArgumentNullException">
@@ -3626,24 +3619,24 @@ namespace Palladio.Reliability.TypedCollections
         /// <exception cref="InvalidOperationException">
         /// The comparer throws an exception.</exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIMatchableIVariableExpressionDictionary"/> is read-only.
+        /// <para>The <see cref="IIMatchabledoubleDictionary"/> is read-only.
         /// </para><para>-or-</para>
-        /// <para>The <b>IIMatchableIVariableExpressionDictionary</b> has a fixed size.
+        /// <para>The <b>IIMatchabledoubleDictionary</b> has a fixed size.
         /// </para></exception>
         /// <remarks>Please refer to <see cref="IDictionary.Add"/> for details.</remarks>
 
-        void Add(IMatchable key, IVariableExpression value);
+        void Add(IMatchable key, double value);
 
         #endregion
         #region Clear
 
         /// <summary>
-        /// Removes all elements from the <see cref="IIMatchableIVariableExpressionDictionary"/>.
+        /// Removes all elements from the <see cref="IIMatchabledoubleDictionary"/>.
         /// </summary>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIMatchableIVariableExpressionDictionary"/> is read-only.
+        /// <para>The <see cref="IIMatchabledoubleDictionary"/> is read-only.
         /// </para><para>-or-</para>
-        /// <para>The <b>IIMatchableIVariableExpressionDictionary</b> has a fixed size.
+        /// <para>The <b>IIMatchabledoubleDictionary</b> has a fixed size.
         /// </para></exception>
         /// <remarks>Please refer to <see cref="IDictionary.Clear"/> for details.</remarks>
 
@@ -3653,12 +3646,12 @@ namespace Palladio.Reliability.TypedCollections
         #region Contains
 
         /// <summary>
-        /// Determines whether the <see cref="IIMatchableIVariableExpressionDictionary"/>
+        /// Determines whether the <see cref="IIMatchabledoubleDictionary"/>
         /// contains the specified <see cref="IMatchable"/> key.
         /// </summary>
         /// <param name="key">The <see cref="IMatchable"/> key to locate
-        /// in the <see cref="IIMatchableIVariableExpressionDictionary"/>.</param>
-        /// <returns><c>true</c> if the <see cref="IIMatchableIVariableExpressionDictionary"/>
+        /// in the <see cref="IIMatchabledoubleDictionary"/>.</param>
+        /// <returns><c>true</c> if the <see cref="IIMatchabledoubleDictionary"/>
         /// contains an element with the specified <paramref name="key"/>; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
@@ -3674,18 +3667,18 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Removes the element with the specified <see cref="IMatchable"/> key
-        /// from the <see cref="IIMatchableIVariableExpressionDictionary"/>.
+        /// from the <see cref="IIMatchabledoubleDictionary"/>.
         /// </summary>
         /// <param name="key">The <see cref="IMatchable"/> key of the element to remove
-        /// from the <see cref="IIMatchableIVariableExpressionDictionary"/>.</param>
+        /// from the <see cref="IIMatchabledoubleDictionary"/>.</param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="InvalidOperationException">
         /// The comparer throws an exception.</exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIMatchableIVariableExpressionDictionary"/> is read-only.
+        /// <para>The <see cref="IIMatchabledoubleDictionary"/> is read-only.
         /// </para><para>-or-</para>
-        /// <para>The <b>IIMatchableIVariableExpressionDictionary</b> has a fixed size.
+        /// <para>The <b>IIMatchabledoubleDictionary</b> has a fixed size.
         /// </para></exception>
         /// <remarks>Please refer to <see cref="IDictionary.Remove"/> for details.</remarks>
 
@@ -3696,27 +3689,27 @@ namespace Palladio.Reliability.TypedCollections
     }
 
     #endregion
-    #region Interface IIMatchableIVariableExpressionList
+    #region Interface IIMatchabledoubleList
 
     /// <summary>
     /// Represents a strongly typed collection of <see cref="IIExpressionEntry"/>
     /// objects that can be individually accessed by index.
     /// </summary>
     /// <remarks>
-    /// <b>IIMatchableIVariableExpressionList</b> provides an <see cref="IList"/>
+    /// <b>IIMatchabledoubleList</b> provides an <see cref="IList"/>
     /// that is strongly typed for <see cref="IIExpressionEntry"/> elements.
     /// </remarks>
 
     public interface
-        IIMatchableIVariableExpressionList: IIMatchableIVariableExpressionCollection {
+        IIMatchabledoubleList: IIMatchabledoubleCollection {
         #region Properties
         #region IsFixedSize
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IIMatchableIVariableExpressionList"/> has a fixed size.
+        /// <see cref="IIMatchabledoubleList"/> has a fixed size.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIMatchableIVariableExpressionList"/>
+        /// <value><c>true</c> if the <see cref="IIMatchabledoubleList"/>
         /// has a fixed size; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsFixedSize"/> for details.</remarks>
 
@@ -3727,9 +3720,9 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Gets a value indicating whether the
-        /// <see cref="IIMatchableIVariableExpressionList"/> is read-only.
+        /// <see cref="IIMatchabledoubleList"/> is read-only.
         /// </summary>
-        /// <value><c>true</c> if the <see cref="IIMatchableIVariableExpressionList"/>
+        /// <value><c>true</c> if the <see cref="IIMatchabledoubleList"/>
         /// is read-only; otherwise, <c>false</c>. The default is <c>false</c>.</value>
         /// <remarks>Please refer to <see cref="IList.IsReadOnly"/> for details.</remarks>
 
@@ -3750,10 +3743,10 @@ namespace Palladio.Reliability.TypedCollections
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IIMatchableIVariableExpressionCollection.Count"/>.</para>
+        /// <see cref="IIMatchabledoubleCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">The property is set and the
-        /// <see cref="IIMatchableIVariableExpressionList"/> is read-only.</exception>
+        /// <see cref="IIMatchabledoubleList"/> is read-only.</exception>
         /// <remarks>Please refer to <see cref="IList.this"/> for details.</remarks>
 
         IIExpressionEntry this[int index] { get; set; }
@@ -3765,17 +3758,17 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Adds a <see cref="IIExpressionEntry"/> to the end
-        /// of the <see cref="IIMatchableIVariableExpressionList"/>.
+        /// of the <see cref="IIMatchabledoubleList"/>.
         /// </summary>
         /// <param name="entry">The <see cref="IIExpressionEntry"/> object
-        /// to be added to the end of the <see cref="IIMatchableIVariableExpressionList"/>.
+        /// to be added to the end of the <see cref="IIMatchabledoubleList"/>.
         /// </param>
-        /// <returns>The <see cref="IIMatchableIVariableExpressionList"/> index at which
+        /// <returns>The <see cref="IIMatchabledoubleList"/> index at which
         /// the <paramref name="entry"/> has been added.</returns>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIMatchableIVariableExpressionList"/> is read-only.</para>
+        /// <para>The <see cref="IIMatchabledoubleList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIMatchableIVariableExpressionList</b> has a fixed size.</para>
+        /// <para>The <b>IIMatchabledoubleList</b> has a fixed size.</para>
         /// </exception>
         /// <remarks>Please refer to <see cref="IList.Add"/> for details.</remarks>
 
@@ -3785,12 +3778,12 @@ namespace Palladio.Reliability.TypedCollections
         #region Clear
 
         /// <summary>
-        /// Removes all elements from the <see cref="IIMatchableIVariableExpressionList"/>.
+        /// Removes all elements from the <see cref="IIMatchabledoubleList"/>.
         /// </summary>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIMatchableIVariableExpressionList"/> is read-only.</para>
+        /// <para>The <see cref="IIMatchabledoubleList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIMatchableIVariableExpressionList</b> has a fixed size.</para>
+        /// <para>The <b>IIMatchabledoubleList</b> has a fixed size.</para>
         /// </exception>
         /// <remarks>Please refer to <see cref="IList.Clear"/> for details.</remarks>
 
@@ -3800,13 +3793,13 @@ namespace Palladio.Reliability.TypedCollections
         #region Contains
 
         /// <summary>
-        /// Determines whether the <see cref="IIMatchableIVariableExpressionList"/>
+        /// Determines whether the <see cref="IIMatchabledoubleList"/>
         /// contains the specified <see cref="IIExpressionEntry"/> element.
         /// </summary>
         /// <param name="entry">The <see cref="IIExpressionEntry"/> object
-        /// to locate in the <see cref="IIMatchableIVariableExpressionList"/>.</param>
+        /// to locate in the <see cref="IIMatchabledoubleList"/>.</param>
         /// <returns><c>true</c> if <paramref name="entry"/> is found in the
-        /// <see cref="IIMatchableIVariableExpressionList"/>; otherwise, <c>false</c>.</returns>
+        /// <see cref="IIMatchabledoubleList"/>; otherwise, <c>false</c>.</returns>
         /// <remarks>Please refer to <see cref="IList.Contains"/> for details.</remarks>
 
         bool Contains(IIExpressionEntry entry);
@@ -3816,13 +3809,13 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Returns the zero-based index of the first occurrence of the specified
-        /// <see cref="IIExpressionEntry"/> in the <see cref="IIMatchableIVariableExpressionList"/>.
+        /// <see cref="IIExpressionEntry"/> in the <see cref="IIMatchabledoubleList"/>.
         /// </summary>
         /// <param name="entry">The <see cref="IIExpressionEntry"/> object
-        /// to locate in the <see cref="IIMatchableIVariableExpressionList"/>.</param>
+        /// to locate in the <see cref="IIMatchabledoubleList"/>.</param>
         /// <returns>
         /// The zero-based index of the first occurrence of <paramref name="entry"/>
-        /// in the <see cref="IIMatchableIVariableExpressionList"/>, if found; otherwise, -1.
+        /// in the <see cref="IIMatchabledoubleList"/>, if found; otherwise, -1.
         /// </returns>
         /// <remarks>Please refer to <see cref="IList.IndexOf"/> for details.</remarks>
 
@@ -3833,22 +3826,22 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Inserts a <see cref="IIExpressionEntry"/> element into the
-        /// <see cref="IIMatchableIVariableExpressionList"/> at the specified index.
+        /// <see cref="IIMatchabledoubleList"/> at the specified index.
         /// </summary>
         /// <param name="index">The zero-based index at which
         /// <paramref name="entry"/> should be inserted.</param>
         /// <param name="entry">The <see cref="IIExpressionEntry"/> object to insert
-        /// into the <see cref="IIMatchableIVariableExpressionList"/>.</param>
+        /// into the <see cref="IIMatchabledoubleList"/>.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is greater than
-        /// <see cref="IIMatchableIVariableExpressionCollection.Count"/>.</para>
+        /// <see cref="IIMatchabledoubleCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIMatchableIVariableExpressionList"/> is read-only.</para>
+        /// <para>The <see cref="IIMatchabledoubleList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIMatchableIVariableExpressionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIMatchabledoubleList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Insert"/> for details.</remarks>
 
         void Insert(int index, IIExpressionEntry entry);
@@ -3858,14 +3851,14 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Removes the first occurrence of the specified <see cref="IIExpressionEntry"/>
-        /// from the <see cref="IIMatchableIVariableExpressionList"/>.
+        /// from the <see cref="IIMatchabledoubleList"/>.
         /// </summary>
         /// <param name="entry">The <see cref="IIExpressionEntry"/> object to remove
-        /// from the <see cref="IIMatchableIVariableExpressionList"/>.</param>
+        /// from the <see cref="IIMatchabledoubleList"/>.</param>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIMatchableIVariableExpressionList"/> is read-only.</para>
+        /// <para>The <see cref="IIMatchabledoubleList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIMatchableIVariableExpressionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIMatchabledoubleList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.Remove"/> for details.</remarks>
 
         void Remove(IIExpressionEntry entry);
@@ -3875,19 +3868,19 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Removes the element at the specified index of the
-        /// <see cref="IIMatchableIVariableExpressionList"/>.
+        /// <see cref="IIMatchabledoubleList"/>.
         /// </summary>
         /// <param name="index">The zero-based index of the element to remove.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <para><paramref name="index"/> is less than zero.</para>
         /// <para>-or-</para>
         /// <para><paramref name="index"/> is equal to or greater than
-        /// <see cref="IIMatchableIVariableExpressionCollection.Count"/>.</para>
+        /// <see cref="IIMatchabledoubleCollection.Count"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
-        /// <para>The <see cref="IIMatchableIVariableExpressionList"/> is read-only.</para>
+        /// <para>The <see cref="IIMatchabledoubleList"/> is read-only.</para>
         /// <para>-or-</para>
-        /// <para>The <b>IIMatchableIVariableExpressionList</b> has a fixed size.</para></exception>
+        /// <para>The <b>IIMatchabledoubleList</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="IList.RemoveAt"/> for details.</remarks>
 
         void RemoveAt(int index);
@@ -3897,19 +3890,19 @@ namespace Palladio.Reliability.TypedCollections
     }
 
     #endregion
-    #region Interface IIMatchableIVariableExpressionEnumerator
+    #region Interface IIMatchabledoubleEnumerator
 
     /// <summary>
     /// Supports type-safe iteration over a dictionary that
     /// contains <see cref="IIExpressionEntry"/> elements.
     /// </summary>
     /// <remarks>
-    /// <b>IIMatchableIVariableExpressionEnumerator</b> provides an
+    /// <b>IIMatchabledoubleEnumerator</b> provides an
     /// <see cref="IDictionaryEnumerator"/> that is strongly typed for
-    /// <see cref="IMatchable"/> keys and <see cref="IVariableExpression"/> values.
+    /// <see cref="IMatchable"/> keys and <see cref="double"/> values.
     /// </remarks>
 
-    public interface IIMatchableIVariableExpressionEnumerator {
+    public interface IIMatchabledoubleEnumerator {
         #region Properties
         #region Current
 
@@ -3968,9 +3961,9 @@ namespace Palladio.Reliability.TypedCollections
         #region Value
 
         /// <summary>
-        /// Gets the <see cref="IVariableExpression"/> value of the current dictionary entry.
+        /// Gets the <see cref="double"/> value of the current dictionary entry.
         /// </summary>
-        /// <value>The <see cref="IVariableExpression"/> value
+        /// <value>The <see cref="double"/> value
         /// of the current element of the enumeration.</value>
         /// <exception cref="InvalidOperationException"><para>The enumerator is positioned
         /// before the first element of the dictionary or after the last element.</para>
@@ -3980,7 +3973,7 @@ namespace Palladio.Reliability.TypedCollections
         /// note that <b>Value</b> fails if the collection was modified since the last successful
         /// call to <see cref="MoveNext"/> or <see cref="Reset"/>.</remarks>
 
-        IVariableExpression Value { get; }
+        double Value { get; }
 
         #endregion
         #endregion
@@ -4020,11 +4013,11 @@ namespace Palladio.Reliability.TypedCollections
 
     /// <summary>
     /// Implements a strongly typed pair of one <see cref="IMatchable"/>
-    /// key and one <see cref="IVariableExpression"/> value.
+    /// key and one <see cref="double"/> value.
     /// </summary>
     /// <remarks>
     /// <b>IIExpressionEntry</b> provides a <see cref="DictionaryEntry"/> that is strongly
-    /// typed for <see cref="IMatchable"/> keys and <see cref="IVariableExpression"/> values.
+    /// typed for <see cref="IMatchable"/> keys and <see cref="double"/> values.
     /// </remarks>
 
     [Serializable]
@@ -4032,7 +4025,7 @@ namespace Palladio.Reliability.TypedCollections
         #region Private Fields
 
         private IMatchable _key;
-        private IVariableExpression _value;
+        private double _value;
 
         #endregion
         #region Public Constructors
@@ -4044,13 +4037,12 @@ namespace Palladio.Reliability.TypedCollections
         /// <param name="key">
         /// The <see cref="IMatchable"/> key in the key-and-value pair.</param>
         /// <param name="value">
-        /// The <see cref="IVariableExpression"/> value in the key-and-value pair.
-        /// This argument can be a null reference.
+        /// The <see cref="double"/> value in the key-and-value pair.
         /// </param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
 
-        public IIExpressionEntry(IMatchable key, IVariableExpression value) {
+        public IIExpressionEntry(IMatchable key, double value) {
             if ((object) key == null)
                 throw new ArgumentNullException("key");
 
@@ -4091,14 +4083,13 @@ namespace Palladio.Reliability.TypedCollections
         #region Value
 
         /// <summary>
-        /// Gets or sets the <see cref="IVariableExpression"/> value in the key-and-value pair.
+        /// Gets or sets the <see cref="double"/> value in the key-and-value pair.
         /// </summary>
         /// <value>
-        /// The <see cref="IVariableExpression"/> value in the key-and-value pair.
-        /// This value can be a null reference, which is also the default.
+        /// The <see cref="double"/> value in the key-and-value pair.
         /// </value>
 
-        public IVariableExpression Value {
+        public double Value {
             get { return this._value; }
             set { this._value = value; }
         }
@@ -4119,13 +4110,18 @@ namespace Palladio.Reliability.TypedCollections
         /// with <see cref="IMatchable"/>.</para>
         /// <para>-or-</para>
         /// <para><paramref name="entry"/> contains a value that is not compatible
-        /// with <see cref="IVariableExpression"/>.</para>
+        /// with <see cref="double"/>.</para>
         /// </exception>
+        /// <remarks>
+        /// <para>If the specified <paramref name="entry"/> contains a value that is a null
+        /// reference, the returned <see cref="IIExpressionEntry"/> will contain a value
+        /// that is a default-initialized <see cref="double"/> object.</para>
+        /// </remarks>
 
         public static implicit operator IIExpressionEntry(DictionaryEntry entry) {
             IIExpressionEntry pair = new IIExpressionEntry();
             if (entry.Key != null) pair.Key = (IMatchable) entry.Key;
-            if (entry.Value != null) pair.Value = (IVariableExpression) entry.Value;
+            if (entry.Value != null) pair.Value = (double) entry.Value;
             return pair;
         }
 
@@ -4159,12 +4155,12 @@ namespace Palladio.Reliability.TypedCollections
     /// </summary>
     /// <remarks>
     /// <b>ReliabilityHashtable</b> provides a <see cref="Hashtable"/> that is strongly typed
-    /// for <see cref="IMatchable"/> keys and <see cref="IVariableExpression"/> values.
+    /// for <see cref="IMatchable"/> keys and <see cref="double"/> values.
     /// </remarks>
 
     [Serializable]
     public class ReliabilityHashtable:
-        IIMatchableIVariableExpressionDictionary, IDictionary, ICloneable {
+        IIMatchabledoubleDictionary, IDictionary, ICloneable {
         #region Private Fields
 
         private Hashtable _innerHash;
@@ -4541,18 +4537,18 @@ namespace Palladio.Reliability.TypedCollections
         }
 
         #endregion
-        #region Item[IMatchable]: IVariableExpression
+        #region Item[IMatchable]: double
 
         /// <summary>
-        /// Gets or sets the <see cref="IVariableExpression"/> value
+        /// Gets or sets the <see cref="double"/> value
         /// associated with the specified <see cref="IMatchable"/> key.
         /// </summary>
         /// <param name="key">The <see cref="IMatchable"/> key
         /// whose value to get or set.</param>
-        /// <value>The <see cref="IVariableExpression"/> value associated with the specified
+        /// <value>The <see cref="double"/> value associated with the specified
         /// <paramref name="key"/>. If the specified <paramref name="key"/> is not found,
         /// attempting to get it returns
-        /// a null reference,
+        /// a default-initialized <b>double</b> value,
         /// and attempting to set it creates a new element using the specified
         /// <paramref name="key"/>.</value>
         /// <exception cref="ArgumentNullException">
@@ -4564,9 +4560,11 @@ namespace Palladio.Reliability.TypedCollections
         /// and the <b>ReliabilityHashtable</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 
-        public IVariableExpression this[IMatchable key] {
+        public double this[IMatchable key] {
             get {
-                return (IVariableExpression) this._innerHash[key];
+                object obj = this._innerHash[key];
+                if (obj == null) return new double();
+                return (double) obj;
             }
             set { this._innerHash[key] = value; }
         }
@@ -4582,9 +4580,9 @@ namespace Palladio.Reliability.TypedCollections
         /// <value>
         /// The value associated with the specified <paramref name="key"/>. If the specified
         /// <paramref name="key"/> is not found, attempting to get it returns
-        /// a null reference,
+        /// a default-initialized <see cref="double"/> object,
         /// and attempting to set it creates a new element using the specified <paramref name="key"/>.
-        /// When set, this value must be compatible with <see cref="IVariableExpression"/>.
+        /// When set, this value must be compatible with <see cref="double"/>.
         /// </value>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
@@ -4592,7 +4590,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <para><paramref name="key"/> is not compatible with <see cref="IMatchable"/>.</para>
         /// <para>-or-</para>
         /// <para>The property is set to a value that is not compatible with
-        /// <see cref="IVariableExpression"/>.</para></exception>
+        /// <see cref="double"/>.</para></exception>
         /// <exception cref="NotSupportedException">
         /// <para>The property is set and the <see cref="ReliabilityHashtable"/> is read-only.</para>
         /// <para>-or-</para>
@@ -4602,7 +4600,7 @@ namespace Palladio.Reliability.TypedCollections
 
         object IDictionary.this[object key] {
             get { return this[(IMatchable) key]; }
-            set { this[(IMatchable) key] = (IVariableExpression) value; }
+            set { this[(IMatchable) key] = (double) value; }
         }
 
         #endregion
@@ -4655,17 +4653,17 @@ namespace Palladio.Reliability.TypedCollections
         }
 
         #endregion
-        #region Values: IIVariableExpressionCollection
+        #region Values: IdoubleCollection
 
         /// <summary>
-        /// Gets an <see cref="IIVariableExpressionCollection"/> containing
+        /// Gets an <see cref="IdoubleCollection"/> containing
         /// the values in the <see cref="ReliabilityHashtable"/>.
         /// </summary>
-        /// <value>An <see cref="IIVariableExpressionCollection"/> containing
+        /// <value>An <see cref="IdoubleCollection"/> containing
         /// the values in the <see cref="ReliabilityHashtable"/>.</value>
         /// <remarks>Please refer to <see cref="Hashtable.Values"/> for details.</remarks>
 
-        public virtual IIVariableExpressionCollection Values {
+        public virtual IdoubleCollection Values {
             get {
                 if (this._valueList == null)
                     this._valueList = new ValueList(this);
@@ -4691,17 +4689,16 @@ namespace Palladio.Reliability.TypedCollections
         #endregion
         #endregion
         #region Public Methods
-        #region Add(IMatchable, IVariableExpression)
+        #region Add(IMatchable, double)
 
         /// <summary>
         /// Adds an element with the specified <see cref="IMatchable"/> key and
-        /// <see cref="IVariableExpression"/> value to the <see cref="ReliabilityHashtable"/>.
+        /// <see cref="double"/> value to the <see cref="ReliabilityHashtable"/>.
         /// </summary>
         /// <param name="key">The <see cref="IMatchable"/> key of the element
         /// to add to the <see cref="ReliabilityHashtable"/>.</param>
-        /// <param name="value">The <see cref="IVariableExpression"/> value of the element
+        /// <param name="value">The <see cref="double"/> value of the element
         /// to add to the <see cref="ReliabilityHashtable"/>.
-        /// This argument can be a null reference.
         /// </param>
         /// <exception cref="ArgumentException">
         /// An element with the specified <paramref name="key"/>
@@ -4714,7 +4711,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <para>The <b>ReliabilityHashtable</b> has a fixed size.</para></exception>
         /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
-        public void Add(IMatchable key, IVariableExpression value) {
+        public void Add(IMatchable key, double value) {
             this._innerHash.Add(key, value);
         }
 
@@ -4728,8 +4725,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <param name="key">The key of the element to add to the <see cref="ReliabilityHashtable"/>.
         /// This argument must be compatible with <see cref="IMatchable"/>.</param>
         /// <param name="value">The value of the element to add to the <see cref="ReliabilityHashtable"/>.
-        /// This argument must be compatible with <see cref="IVariableExpression"/>.
-        /// This argument can be a null reference.
+        /// This argument must be compatible with <see cref="double"/>.
         /// </param>
         /// <exception cref="ArgumentException">
         /// An element with the specified <paramref name="key"/>
@@ -4739,7 +4735,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <exception cref="InvalidCastException">
         /// <para><paramref name="key"/> is not compatible with <see cref="IMatchable"/>.</para>
         /// <para>-or-</para>
-        /// <para><paramref name="value"/> is not compatible with <see cref="IVariableExpression"/>.</para>
+        /// <para><paramref name="value"/> is not compatible with <see cref="double"/>.</para>
         /// </exception>
         /// <exception cref="NotSupportedException">
         /// <para>The <see cref="ReliabilityHashtable"/> is read-only.</para>
@@ -4748,7 +4744,7 @@ namespace Palladio.Reliability.TypedCollections
         /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
         void IDictionary.Add(object key, object value) {
-            Add((IMatchable) key, (IVariableExpression) value);
+            Add((IMatchable) key, (double) value);
         }
 
         #endregion
@@ -4845,17 +4841,16 @@ namespace Palladio.Reliability.TypedCollections
 
         /// <summary>
         /// Determines whether the <see cref="ReliabilityHashtable"/>
-        /// contains the specified <see cref="IVariableExpression"/> value.
+        /// contains the specified <see cref="double"/> value.
         /// </summary>
-        /// <param name="value">The <see cref="IVariableExpression"/> value
+        /// <param name="value">The <see cref="double"/> value
         /// to locate in the <see cref="ReliabilityHashtable"/>.
-        /// This argument can be a null reference.
         /// </param>
         /// <returns><c>true</c> if the <see cref="ReliabilityHashtable"/> contains an element
         /// with the specified <paramref name="value"/>; otherwise, <c>false</c>.</returns>
         /// <remarks>Please refer to <see cref="Hashtable.ContainsValue"/> for details.</remarks>
 
-        public bool ContainsValue(IVariableExpression value) {
+        public bool ContainsValue(double value) {
             return this._innerHash.ContainsValue(value);
         }
 
@@ -4922,17 +4917,17 @@ namespace Palladio.Reliability.TypedCollections
         }
 
         #endregion
-        #region GetEnumerator: IIMatchableIVariableExpressionEnumerator
+        #region GetEnumerator: IIMatchabledoubleEnumerator
 
         /// <summary>
-        /// Returns an <see cref="IIMatchableIVariableExpressionEnumerator"/>
+        /// Returns an <see cref="IIMatchabledoubleEnumerator"/>
         /// that can iterate through the <see cref="ReliabilityHashtable"/>.
         /// </summary>
-        /// <returns>An <see cref="IIMatchableIVariableExpressionEnumerator"/>
+        /// <returns>An <see cref="IIMatchabledoubleEnumerator"/>
         /// for the entire <see cref="ReliabilityHashtable"/>.</returns>
         /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
-        public IIMatchableIVariableExpressionEnumerator GetEnumerator() {
+        public IIMatchabledoubleEnumerator GetEnumerator() {
             return new Enumerator(this);
         }
 
@@ -5061,7 +5056,7 @@ namespace Palladio.Reliability.TypedCollections
         #region Class Enumerator
 
         private sealed class Enumerator:
-            IIMatchableIVariableExpressionEnumerator, IDictionaryEnumerator {
+            IIMatchabledoubleEnumerator, IDictionaryEnumerator {
             #region Private Fields
 
             private readonly IDictionaryEnumerator _innerEnumerator;
@@ -5100,8 +5095,8 @@ namespace Palladio.Reliability.TypedCollections
                 get { return this._innerEnumerator.Key; }
             }
 
-            public IVariableExpression Value {
-                get { return (IVariableExpression) this._innerEnumerator.Value; }
+            public double Value {
+                get { return (double) this._innerEnumerator.Value; }
             }
 
             object IDictionaryEnumerator.Value {
@@ -5226,7 +5221,7 @@ namespace Palladio.Reliability.TypedCollections
 
         [Serializable]
         private sealed class ValueList:
-            IIVariableExpressionCollection, ICollection {
+            IdoubleCollection, ICollection {
             #region Private Fields
 
             private ReliabilityHashtable _dictionary;
@@ -5256,7 +5251,7 @@ namespace Palladio.Reliability.TypedCollections
             #endregion
             #region Public Methods
 
-            public void CopyTo(IVariableExpression[] array, int arrayIndex) {
+            public void CopyTo(double[] array, int arrayIndex) {
                 this._dictionary.CheckTargetArray(array, arrayIndex);
                 foreach (IIExpressionEntry pair in this._dictionary)
                     array[arrayIndex++] = pair.Value;
@@ -5264,10 +5259,10 @@ namespace Palladio.Reliability.TypedCollections
 
             void ICollection.CopyTo(Array array, int arrayIndex) {
                 this._dictionary.CheckTargetArray(array, arrayIndex);
-                CopyTo((IVariableExpression[]) array, arrayIndex);
+                CopyTo((double[]) array, arrayIndex);
             }
 
-            public IIVariableExpressionEnumerator GetEnumerator() {
+            public IdoubleEnumerator GetEnumerator() {
                 return new ValueEnumerator(this._dictionary);
             }
 
@@ -5283,7 +5278,7 @@ namespace Palladio.Reliability.TypedCollections
 
         [Serializable]
         private sealed class ValueEnumerator:
-            IIVariableExpressionEnumerator, IEnumerator {
+            IdoubleEnumerator, IEnumerator {
             #region Private Fields
 
             private readonly IEnumerator _innerEnumerator;
@@ -5298,8 +5293,8 @@ namespace Palladio.Reliability.TypedCollections
             #endregion
             #region Public Properties
 
-            public IVariableExpression Current {
-                get { return (IVariableExpression) this._innerEnumerator.Current; }
+            public double Current {
+                get { return (double) this._innerEnumerator.Current; }
             }
 
             object IEnumerator.Current {

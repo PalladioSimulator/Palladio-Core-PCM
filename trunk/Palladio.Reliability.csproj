@@ -121,8 +121,18 @@
                     AssemblyFolderKey = "hklm\dn\nunit.framework"
                 />
                 <Reference
-                    Name = "MathLib"
-                    Project = "{0D498555-3056-4E15-8376-EAEBEED3BF17}"
+                    Name = "Palladio.RegularExpressions"
+                    Project = "{D7C2E338-4041-4625-8C14-DA18436677B2}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Palladio.Math"
+                    Project = "{5F94A15B-5D2C-4990-8C39-6F8C4744E88A}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Numerics"
+                    Project = "{8D2A69DC-7A76-44B3-B976-C078AF604763}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
@@ -135,7 +145,22 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Attributes\MarkovAttribute.cs"
+                    RelPath = "src\IProbabilityAttribute.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ITimeAttribute.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Reliability.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Attributes\ProbabilityAttribute.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -270,41 +295,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Fourier\FourierTransform.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Functions\IComplexFunction.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Functions\IFunctionFactory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Functions\IRealFunction.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Functions\Discrete\DiscreteFactory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Functions\Discrete\DiscreteFunction.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Functions\Tests\FunctionFactoryTest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Math\IMarkovMatrix.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -325,22 +315,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Math\IVariableExpression.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Math\IVisitProbabilityMatrix.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\Math\IVisitsOnPathMatrix.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Math\MatrixTools.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -370,32 +350,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Math\DefaultMath\VariableExpression.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Math\DefaultMath\VisitProbabilityMatrix.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\Math\DefaultMath\VisitsOnPathMatrix.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\MathNet.Numerics\Complex.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\MathNet.Numerics\Double.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\MathNet.Numerics\Trigonometry.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -450,76 +410,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Regex\IAlternative.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\ILoop.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\IRegex.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\ISequence.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\ISymbol.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\RegexFactory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\DefaultRegex\Alternative.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\DefaultRegex\Loop.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\DefaultRegex\Regex.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\DefaultRegex\Sequence.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\DefaultRegex\Symbol.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\Tests\Helper.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\Tests\RegexTest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Regex\Tests\TestBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Tests\CMBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -531,11 +421,6 @@
                 />
                 <File
                     RelPath = "src\Tests\MarkovModelTest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Tests\MathToolsTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

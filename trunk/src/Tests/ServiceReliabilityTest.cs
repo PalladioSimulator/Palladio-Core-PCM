@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.6  2004/11/18 06:53:17  sliver
+ * *** empty log message ***
+ *
  * Revision 1.5  2004/11/04 08:52:13  sliver
  * added regular expressions
  *
@@ -42,61 +45,27 @@ namespace Palladio.Reliability.Tests
 		public void ValueReliability()
 		{
 			ServiceReliability sr = new ServiceReliability(0.99);
-			Assert.IsFalse(sr.HasVariables);
-			Assert.AreEqual(0.99, sr.Expression.Calculate());
+			Assert.AreEqual(0.99, sr.Expression);
 		}
 
 		[Test]
 		public void FSMReliability()
 		{
 			ServiceReliability sr = new ServiceReliability(markovModel, reliabilityHashtable);
-			Assert.IsFalse(sr.HasVariables);
-			Assert.AreEqual(1.0, sr.Expression.Calculate(), 0.0000001);
+			Assert.AreEqual(1.0, sr.Expression, 0.0000001);
 		}
 
-		[Test]
-		public void ValueVarReliability()
-		{
-			ServiceReliability sr = new ServiceReliability("x");
-			Assert.IsTrue(sr.HasVariables);
-			Assert.IsTrue(sr.Variables.Length == 1);
-			Assert.IsTrue(sr.VariableSet.Count == 1);
-			Assert.IsFalse(sr.Expression.IsConstant);
-			Assert.IsTrue(sr.Variables[0].VariableName == "x");
-		}
-
-
-		[Test]
-		public void FSMVarReliability()
-		{
-			ServiceReliability sr = new ServiceReliability(markovModel, varRelHashtable);
-			Assert.IsTrue(sr.HasVariables);
-			Assert.IsTrue(sr.Variables.Length == 1);
-			Assert.IsTrue(sr.VariableSet.Count == 1);
-			Assert.IsFalse(sr.Expression.IsConstant);
-			Assert.IsTrue(sr.Variables[0].VariableName == "x");
-			Helper.SetValue(ref sr.Variables[0], 1.0);
-			Assert.AreEqual(1.0, sr.Expression.Calculate());
-			sr.Variables[0].IsThreatenedAsVariable = true;
-		}
 
 
 		[Test]
 		public void FSMVarReliabilityDeep()
 		{
-			ServiceReliability sr = new ServiceReliability(markovModel, varRelHashtable);
+			ServiceReliability sr = new ServiceReliability(markovModel, reliabilityHashtable);
 			ReliabilityHashtable deepRelHashtable = new ReliabilityHashtable(reliabilityHashtable);
-			deepRelHashtable[fsm.InputAlphabet[0].ID] = sr;
+			deepRelHashtable[fsm.InputAlphabet[0].ID] = sr.Expression;
 
 			ServiceReliability sr2 = new ServiceReliability(markovModel, deepRelHashtable);
 
-			Assert.IsTrue(sr2.HasVariables);
-			Assert.IsTrue(sr2.Variables.Length == 1);
-			Assert.IsTrue(sr2.VariableSet.Count == 1);
-			Assert.IsFalse(sr2.Expression.IsConstant);
-			Assert.IsTrue(sr2.Variables[0].VariableName == "x");
-			Helper.SetValue(ref sr2.Variables[0], 1.0);
-			Assert.AreEqual(1.0, sr2.Expression.Calculate(), 0.000000001);
 		}
 
 
@@ -112,22 +81,14 @@ namespace Palladio.Reliability.Tests
 			reliabilityHashtable = new ReliabilityHashtable();
 			foreach (IInput i in fsm.InputAlphabet)
 			{
-				reliabilityHashtable.Add(i.ID, new ServiceReliability(1.0));
+				reliabilityHashtable.Add(i.ID, 1.0);
 			}
 			markovModel = new MarkovModel(fsm);
-			transitionMatrix = new TransitionMatrix(markovModel);
-
-			varRelHashtable = new ReliabilityHashtable(reliabilityHashtable);
-			IMatchable key = fsm.InputAlphabet[0].ID;
-			varRelHashtable.Remove(key);
-			varRelHashtable.Add(key, new ServiceReliability("x"));
 		}
 
 		private IFiniteStateMachine fsm;
 		private ReliabilityHashtable reliabilityHashtable;
-		private ReliabilityHashtable varRelHashtable;
 		private IMarkovModel markovModel;
-		private ITransitionMatrix transitionMatrix;
 	}
 }
 

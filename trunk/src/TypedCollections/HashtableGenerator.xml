@@ -9,7 +9,7 @@
 		<import namespace="Palladio.Reliability.ExecutionTime" />
 		<import namespace="Palladio.Identifier" />
 		<import namespace="Palladio.FiniteStateMachines" />
-		<import namespace="Palladio.Reliability.Math" />
+		<import namespace="Palladio.Math" />
 	</imports>
 	<propertySets>
 		<propertySet>
@@ -21,8 +21,8 @@
 			<property name="KeyNamespace">Palladio.Reliability.Model</property>
 			<property name="KeyValueType">False</property>
 			<property name="KeyCustomSearch">False</property>
-			<property name="ItemType">IFunction</property>
-			<property name="ItemNamespace">Palladio.Reliability.Functions</property>
+			<property name="ItemType">IDiscreteFunction</property>
+			<property name="ItemNamespace">Palladio.Math</property>
 			<property name="ItemValueType">False</property>
 			<property name="ItemCustomSearch">False</property>
 			<property name="PairType">IResourceUsageEntry</property>
@@ -38,9 +38,9 @@
 			<property name="KeyNamespace">Palladio.FiniteStateMachines</property>
 			<property name="KeyValueType">False</property>
 			<property name="KeyCustomSearch">False</property>
-			<property name="ItemType">IVariableExpression</property>
-			<property name="ItemNamespace">Palladio.Reliability.Math</property>
-			<property name="ItemValueType">False</property>
+			<property name="ItemType">double</property>
+			<property name="ItemNamespace">System</property>
+			<property name="ItemValueType">true</property>
 			<property name="ItemCustomSearch">False</property>
 			<property name="PairType">IIExpressionEntry</property>
 			<property name="IncludeInterfaces">True</property>
