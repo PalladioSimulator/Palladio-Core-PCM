@@ -50,14 +50,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		{
 			get 
 			{
-				if (finalStates.Count != 0) 
-				{
 					return (IState[])finalStates.ToArray(typeof(IState));
-				} 
-				else 
-				{
-					throw new ApplicationException("No final states defined");
-				}
 			}
 			set
 			{
@@ -79,6 +72,29 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 				return (IState[]) states.ToArray(typeof(IState));
 			}
 		}
+
+		public override ITransition[] Transitions
+		{
+			get
+			{
+				Vector transList = new Vector();
+				foreach (DictionaryEntry e in transitionTable)
+				{
+					if (e.Value != null)
+					{
+						foreach (DictionaryEntry f in ((Hashtable)e.Value))
+						{
+							if (f.Value != null)
+							{
+								transList.AddRange((IList)f.Value);
+							}
+						}
+					}
+				}
+				return (ITransition[])transList.ToArray(typeof(ITransition));
+			}
+		}
+
 
 		#endregion
 

@@ -92,9 +92,9 @@
                     AssemblyFolderKey = "hklm\dn\nunit.framework"
                 />
                 <Reference
-                    Name = "ReflectionBasedVisitor.cs"
-                    AssemblyName = "ReflectionBasedVisitor.cs"
-                    HintPath = "bin\Debug\ReflectionBasedVisitor.cs.dll"
+                    Name = "ReflectionBasedVisitor"
+                    Project = "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>
@@ -104,66 +104,6 @@
                     RelPath = "AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "data\complete.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\complex.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\CrossProductResult.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\CrossProductSource1.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\CrossProductSource2.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\minimisableFSM.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\minimisedFSM.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\provides.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\se_d1.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\se_d1s.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\se_d2.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\se_d3.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\se_d3back_over_recursion.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\se_d3incomplete.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "data\se_d3s.xml"
-                    BuildAction = "Content"
                 />
                 <File
                     RelPath = "src\FSMFactory.cs"
@@ -272,6 +212,11 @@
                 />
                 <File
                     RelPath = "src\Exceptions\TransitionNotFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FactoryTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

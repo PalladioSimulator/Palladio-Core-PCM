@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using ReflectionBasedVisitor.Interfaces;
 
-namespace Palladio.FiniteStateMachines {
+namespace Palladio.FiniteStateMachines.DefaultFSM {
 
 	/// <summary>
 	///		Class representing the abstract type of a state.
