@@ -31,15 +31,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestParser", "..\Request
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestProssor", "..\RequestProssor\RequestProssor.csproj", "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
-	ProjectSection(ProjectDependencies) = postProject
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLogger", "..\SimpleLogger\SimpleLogger.csproj", "{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTexAnalyzer", "..\BibTexAnalyzerComponent\BibTexAnalyzer.csproj", "{BB4B4D16-F1F1-4B9B-B0F5-BB5EFFC005ED}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestProzessor", "..\RequestProssor\RequestProzessor.csproj", "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLConfigReader", "..\XMLConfigReader\XMLConfigReader.csproj", "{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -81,10 +85,6 @@ Global
 		{E8BB7DF1-1D1F-4366-B854-4B408E8C7DD5}.Debug.Build.0 = Debug|.NET
 		{E8BB7DF1-1D1F-4366-B854-4B408E8C7DD5}.Release.ActiveCfg = Release|.NET
 		{E8BB7DF1-1D1F-4366-B854-4B408E8C7DD5}.Release.Build.0 = Release|.NET
-		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Debug.ActiveCfg = Debug|.NET
-		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Debug.Build.0 = Debug|.NET
-		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Release.ActiveCfg = Release|.NET
-		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Release.Build.0 = Release|.NET
 		{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}.Debug.ActiveCfg = Debug|.NET
 		{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}.Debug.Build.0 = Debug|.NET
 		{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}.Release.ActiveCfg = Release|.NET
@@ -93,6 +93,14 @@ Global
 		{BB4B4D16-F1F1-4B9B-B0F5-BB5EFFC005ED}.Debug.Build.0 = Debug|.NET
 		{BB4B4D16-F1F1-4B9B-B0F5-BB5EFFC005ED}.Release.ActiveCfg = Release|.NET
 		{BB4B4D16-F1F1-4B9B-B0F5-BB5EFFC005ED}.Release.Build.0 = Release|.NET
+		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Debug.ActiveCfg = Debug|.NET
+		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Debug.Build.0 = Debug|.NET
+		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Release.ActiveCfg = Release|.NET
+		{ED9D578E-8063-4B2E-879C-10E4913673CE}.Release.Build.0 = Release|.NET
+		{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}.Debug.ActiveCfg = Debug|.NET
+		{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}.Debug.Build.0 = Debug|.NET
+		{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}.Release.ActiveCfg = Release|.NET
+		{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

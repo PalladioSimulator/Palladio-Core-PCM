@@ -4,6 +4,7 @@ using RequestProssor;
 using RequestParser;
 using System.Threading;
 using Delivery;
+using XMLConfigReader;
 
 namespace SingleThreaddedServer
 {
@@ -21,8 +22,19 @@ namespace SingleThreaddedServer
 		static void Main(string[] args)
 		{
 			//instanziere Komponeten
+
+			
+			//Change this if you run it on your computer
+
+			XMLConfigFileReader config = new XMLConfigFileReader(@"C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\WebserverComponents\Config Files\ConfigSingleThreaddedServer.xml");
+			//instanziere Komponeten
+			ConfigTable ct = config.GetConfigTable("BaseSettings");
+			string configFileDir = ct["configFileDir"].ToString();
+			ConfigList components = config.GetConfigList("UsedComponents","name","ConfigFile");
+			
+
 			#region instance Components
-			RequestProzessorComponent deliverer = new RequestProzessorComponent();
+			RequestProzessorComponent deliverer = new RequestProzessorComponent(ct["configFileDir"].ToString()+components["RequestProzessor"].ToString());
 
 			deliverer.ResponseHandler.AddAditionalHandler(new DLL_Engin.DLL_EnginComponent());
 			deliverer.ResponseHandler.AddAditionalHandler(new BibTexAnalyzer.BibTexAnalyzerComponent());
@@ -32,7 +44,7 @@ namespace SingleThreaddedServer
 			RequestParserComponent parser= new RequestParserComponent();
 			parser.AddAdditionalHandler(new RequestParser.HTTPHandler());
 
-			dispatcher = new SinglethreadedDispatcherComponent();
+			dispatcher = new SinglethreadedDispatcherComponent(ct["configFileDir"].ToString()+components["SinglethreadedDispatcher"].ToString());
 			#endregion
 			
 
@@ -40,7 +52,7 @@ namespace SingleThreaddedServer
 			Console.WriteLine("Press q to quit;");
 			Thread d = new Thread(new ThreadStart(StartListen));
 			d.Start();
-			dispatcher.StartServer(1233,ref parser,ref deliverer);
+			dispatcher.StartServer(ref parser,ref deliverer);
 			
 			
 

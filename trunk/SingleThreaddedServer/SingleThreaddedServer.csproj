@@ -85,11 +85,6 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "RequestProssor"
-                    Project = "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "RequestParser"
                     Project = "{E8BB7DF1-1D1F-4366-B854-4B408E8C7DD5}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
@@ -122,6 +117,16 @@
                 <Reference
                     Name = "StaticFileProvider"
                     Project = "{901FD043-3CE1-44D3-9D86-6C47FB4C9667}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "RequestProzessor"
+                    Project = "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "XMLConfigReader"
+                    Project = "{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>

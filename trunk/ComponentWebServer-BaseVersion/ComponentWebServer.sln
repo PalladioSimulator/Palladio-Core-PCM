@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestParser", "..\Request
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestProssor", "..\RequestProssor\RequestProssor.csproj", "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestProzessor", "..\RequestProssor\RequestProzessor.csproj", "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject

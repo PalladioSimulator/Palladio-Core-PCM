@@ -22,11 +22,11 @@ namespace Dispatcher
 		protected bool dectecIP;
 		protected int serverPort;
 
-		public DispatcherComponent()
+		public DispatcherComponent(string configFilePath)
 		{
 			//Load Config File
 			//ConfigurationSettings config = ConfigurationSettings.AppSettings;			
-			XMLConfigFileReader configReader = new XMLConfigFileReader(@"C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\WebserverComponents\Config Files\ConfigDispatcher.xml");
+			XMLConfigFileReader configReader = new XMLConfigFileReader(configFilePath);
 			ConfigTable config = configReader.GetConfigTable("DispatcherSettings");
 			this.serverPort = int.Parse(config["serverPort"].ToString());
 			if(config["IpAutoRecognition"].ToString()=="false")

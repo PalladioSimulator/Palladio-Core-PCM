@@ -105,9 +105,13 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "XMLConfigReader.cs"
+                    RelPath = "XMLConfigFileReader.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ModelSupport\XMLConfigReader\XMLConfigReader.txvpck"
+                    BuildAction = "None"
                 />
                 <File
                     RelPath = "UnitTest\TestXMLFile.xml"

@@ -32,7 +32,7 @@ namespace RequestProssor
 			set{this.responseHandler = value;}
 		}
 
-		public RequestProzessorComponent()
+		public RequestProzessorComponent(string configFilePath)
 		{	
 			//load logger
 			this.logger = new SimpleLogger(this);
@@ -40,7 +40,7 @@ namespace RequestProssor
 			this.logger.DebugOutput=true;
 			this.logger.ErrorOutput=true;
 			//load Seetings
-			this.settings = new ServerSettings();
+			this.settings = new ServerSettings(configFilePath);
 
 			this.responseHandler = new DeliveresponseHandler();
 			

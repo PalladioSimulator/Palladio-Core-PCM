@@ -119,6 +119,11 @@
                     AssemblyName = "SimpleLogger"
                     HintPath = "..\SimpleLogger\obj\Debug\SimpleLogger.dll"
                 />
+                <Reference
+                    Name = "XMLConfigReader"
+                    Project = "{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

@@ -5,6 +5,7 @@ using RequestProssor;
 using Request;
 using System.Collections;
 using System.Threading;
+using XMLConfigReader;
 
 namespace SinglethreadedDispatcher
 {
@@ -19,24 +20,34 @@ namespace SinglethreadedDispatcher
 		protected RequestProzessorComponent sendsResponse;
 		protected RequestParserComponent parsesRequest;
 		protected bool shutdownRequested;
+		protected int serverPort;
+		protected bool dectecIP;
 
 		//for handling requests
 //		protected bool init =false;
 //		protected Queue waiting;
 
-		public SinglethreadedDispatcherComponent()
+		public SinglethreadedDispatcherComponent(string configFilePath)
 		{
-	
-			
+			//Load Config File
+			//ConfigurationSettings config = ConfigurationSettings.AppSettings;			
+			XMLConfigFileReader configReader = new XMLConfigFileReader(configFilePath);
+			ConfigTable config = configReader.GetConfigTable("DispatcherSettings");
+			this.serverPort = int.Parse(config["serverPort"].ToString());
+			if(config["IpAutoRecognition"].ToString()=="false")
+				this.dectecIP=false;
+			else
+				this.dectecIP=true;
 		}
 
-		public void StartServer(int port,ref RequestParserComponent parserComp, ref RequestProzessorComponent sender )
+
+		public void StartServer(ref RequestParserComponent parserComp, ref RequestProzessorComponent sender )
 		{
 			this.shutdownRequested = false;
 			this.sendsResponse = sender;
 			this.parsesRequest = parserComp;
 //			this.sendsResponse.testMoni.requestHandelt += new RequestProssor.MonitorWebServer.RequestServedHandler(this.RequestServed);
-			this.acceptor = new HTTPAcceptor(port);
+			this.acceptor = new HTTPAcceptor(this.serverPort,this.dectecIP);
 //			this.waiting = new Queue();
 			Running();
 		}

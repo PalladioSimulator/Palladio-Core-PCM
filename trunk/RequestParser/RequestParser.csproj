@@ -106,7 +106,7 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "RequestProssor"
+                    Name = "RequestProzessor"
                     Project = "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />

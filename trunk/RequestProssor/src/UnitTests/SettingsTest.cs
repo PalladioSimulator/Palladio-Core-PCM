@@ -22,7 +22,7 @@ namespace RequestProssor.UnitTests
 			this.logger.ConsoleOutput=true;
 			this.logger.DebugOutput = true;
 
-			this.testSetting = new ServerSettings();
+			this.testSetting = new ServerSettings("schreib den Pfad rein!");
 		}
 
 		[Test]public void TestGetPhysicalPath()

@@ -4,6 +4,7 @@ using RequestProssor;
 using RequestParser;
 using System.Threading;
 using Delivery;
+using XMLConfigReader;
 
 namespace ComponentWebServer
 {
@@ -21,8 +22,16 @@ namespace ComponentWebServer
 		static void Main(string[] args)
 		{
 			//instanziere Komponeten
+
+			//Change this if you run it on your computer
+			XMLConfigFileReader config = new XMLConfigFileReader(@"C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\WebserverComponents\Config Files\ConfigWebServerWithStaiticCache.xml");
+			//instanziere Komponeten
+			ConfigTable ct = config.GetConfigTable("BaseSettings");
+			string configFileDir = ct["configFileDir"].ToString();
+			ConfigList components = config.GetConfigList("UsedComponents","name","ConfigFile");
+			
 //			#region instance Components
-			RequestProzessorComponent requestProzessor = new RequestProzessorComponent();
+			RequestProzessorComponent requestProzessor = new RequestProzessorComponent(ct["configFileDir"].ToString()+components["RequestProzessor"].ToString());
 			//Intanz components which fullfill the DeliverResponse Interface;
 			StaticFileProvider.StaticFileProviderComponent staticFileProvider = new StaticFileProvider.StaticFileProviderComponent();
 
@@ -36,7 +45,7 @@ namespace ComponentWebServer
 			RequestParserComponent parser= new RequestParserComponent();
 			parser.AddAdditionalHandler(new RequestParser.HTTPHandler());
 
-			dispatcher = new DispatcherComponent();
+			dispatcher = new DispatcherComponent(ct["configFileDir"].ToString()+components["Dispatcher"].ToString());
 //			#endregion
 			
 
@@ -44,7 +53,7 @@ namespace ComponentWebServer
 			Console.WriteLine("Press q to quit;");
 			Thread d = new Thread(new ThreadStart(StartListen));
 			d.Start();
-			dispatcher.StartServer(1233,ref parser,ref requestProzessor);
+			dispatcher.StartServer(ref parser,ref requestProzessor);
 			
 			
 
@@ -58,7 +67,6 @@ namespace ComponentWebServer
 			Console.WriteLine("Thread gestartett");
 			while (true)
 			{
-				//				Console.WriteLine("hallo");
 				shutDownToken = Console.ReadLine();
 				if(shutDownToken=="q")
 					dispatcher.Shutdown();

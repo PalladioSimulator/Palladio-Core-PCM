@@ -34,17 +34,12 @@ namespace RequestProssor
 
 		/// <summary>
 		/// When a directory like sample.org/test/ ist called by the client
-		/// this is not the dir which on ServerDisk, for this reason this 
-		/// hashatable contains a mapping between this.
+		/// this is not the dir which on Server Disk, for this reason this 
+		/// <c></c> contains a mapping between this.
 		/// Key: The requested dir form the client
 		/// Value: The real dir on server disk
 		/// </summary>
 		private ConfigList physicalDir;
-
-		/// <summary>
-		/// The port on which the server is running
-		/// </summary>
-		private int port;
 
 		/// <summary>
 		/// the default file, when none is requested as <code>string</code>
@@ -111,13 +106,13 @@ namespace RequestProssor
 		/// The constructor loads the xmlFile and stores the setting in the class attributes 
 		/// attributs
 		/// </summary>
-		public ServerSettings()
+		public ServerSettings(string configFilePath)
 		{
 			this.logger = new SimpleLogger(this);
 			this.logger.ConsoleOutput = true;
 			this.logger.DebugOutput = true;
 
-			XMLConfigFileReader cfr = new XMLConfigFileReader(@"C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\WebserverComponents\Config Files\ConfigRequestProzessor.xml");
+			XMLConfigFileReader cfr = new XMLConfigFileReader(configFilePath);
 			ConfigTable configTable = cfr.GetConfigTable("serverSettings");
 			this.serverRoot = configTable["serverRoot"].ToString();
 			Console.WriteLine("Server Root Dir: "+this.serverRoot);
@@ -127,11 +122,6 @@ namespace RequestProssor
 
 			this.physicalDir = cfr.GetConfigList("VDirs","RequestedDir","realDir");
 			this.mineTypes = cfr.GetConfigList("MineTypes","fileExtension","type");
-
-			//Console.WriteLine("dupdidu");
-
-
-
 			
 //			try
 //			{

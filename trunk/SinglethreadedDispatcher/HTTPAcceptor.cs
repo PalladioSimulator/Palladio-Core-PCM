@@ -33,7 +33,7 @@ namespace SinglethreadedDispatcher
 		}
 
 
-		public HTTPAcceptor(int port)
+		public HTTPAcceptor(int port, bool IpAutoRecognition)
 		{
 
 			this.port= port;
@@ -46,11 +46,18 @@ namespace SinglethreadedDispatcher
 
 			try
 			{
-				ArrayList localIP = getIPs();
-				IPAddress local = (IPAddress) localIP[0];
-				this.logger.Debug("Local Ip is: "+local.ToString());
-//				IPAddress local = IPAddress.Parse("192.168.0.3");  //(134106144138);
-//				TcpListener test = new TcpListener(local,90);
+				IPAddress local;
+				if(IpAutoRecognition)
+				{
+					ArrayList localIP = getIPs();
+					local = (IPAddress) localIP[0];
+				}
+				else
+				{
+					local = IPAddress.Parse("127.0.0.1");  //(134106144138);
+				}
+
+				this.logger.Debug("Local Ip is: "+local.Address.ToString());
 				this.portListener = new TcpListener(local,port);
 				portListener.Start();
 				logger.Debug("Server Started....");
@@ -64,6 +71,7 @@ namespace SinglethreadedDispatcher
 			}
 
 		}
+
 
 
 		public Socket Listen()
