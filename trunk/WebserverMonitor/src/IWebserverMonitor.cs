@@ -12,6 +12,9 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/10/22 09:37:19  kelsaka
+	/// minor changes
+	///
 	/// Revision 1.1  2004/10/17 17:25:09  kelsaka
 	/// initial cvs-version; added general project structure
 	///
@@ -20,6 +23,11 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// </remarks>
 	public interface IWebserverMonitor
 	{
+
+
+		void writeDebugMessage(string debugMessage);
+
+		void writeLogEntry(string logMessage);
 
 	}
 }
