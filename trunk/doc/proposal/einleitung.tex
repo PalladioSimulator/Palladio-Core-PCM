@@ -13,4 +13,12 @@ Beinhalteten die Komponenten innerhalb des Systems jedoch Verzweigungen, so müss
 Weiterhin ergibt es sich in Systemen häufig, das bestimmte Dienste einer Komponente von mehren Diensten des Gesamtsystems benötigt werden. Ein Beispiel hierfür sind Dienste, die Daten aus einer Datenbank auslesen. Hierbei geht die Analyse des Systems über die Pfade hinaus. Es müssen nun die Antwortzeiten der Dienste der Komponenten dynamisch auf die Anzahl zu einem Zeitpunkt ankommender Anfragen angepasst werden.\\
 Übersteigt die mathematisch exakte Analyse des Systems bereits hier die Grenzen des sinnvoll machbaren, so erscheint die exakte Berechnung bei der Verteilung der einzelnen Komponenten auf verschiedene Prozessoren als unmöglich.
 \par
-An dieser Stelle kann die Simulation ansetzen. Es werden nun nicht mehr die mathematisch exakten Gegebenheiten berechnet sondern anhand der Simulation eines Modells mit einer bestimmten Ungenauigkeit ermittelt. Weiterhin lassen sich bei der Simulation 'Flaschenhälse' identifizieren, die bei der mathematischen Berechnung nur schwer zu ermitteln sind. Hierzu kann beispielsweise einfach das Zeitverhalten einer Anfrage Dienst für Dienst aufgezeichnet und hinterher ausgewertet werden. 
+An dieser Stelle kann die Simulation ansetzen. Es werden nun nicht mehr die mathematisch exakten Gegebenheiten berechnet sondern anhand der Simulation eines Modells mit einer bestimmten Ungenauigkeit ermittelt. Weiterhin lassen sich bei der Simulation 'Flaschenhälse' identifizieren, die bei der mathematischen Berechnung nur schwer zu ermitteln sind. Hierzu kann beispielsweise einfach das Zeitverhalten einer Anfrage Dienst für Dienst aufgezeichnet und hinterher ausgewertet werden. Bild \ref{pic:simul} zeigt schematisch eine solche Simulation.
+
+\begin{figure}[ht]
+\label{pic:simul}
+\begin{center}
+\fbox{\includegraphics[width=13cm]{../res/simul.jpg}}
+\caption{Schematische Darstellung der Simulation}
+\end{center}
+\end{figure}
