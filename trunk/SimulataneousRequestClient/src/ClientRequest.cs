@@ -6,7 +6,7 @@ using System.Threading;
 namespace Palladio.Webserver.RequestClient
 {
 	/// <summary>
-	/// ClientRequest. Provides Methods to send requests to a server.
+	/// ClientRequest. Provides Methods to send HTTP requests to a server.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -14,6 +14,9 @@ namespace Palladio.Webserver.RequestClient
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/03/03 07:54:10  kelsaka
+	/// use of a constant set of threads; performance enhancements
+	///
 	/// Revision 1.3  2005/02/27 22:13:07  kelsaka
 	/// Optimized multi-threading-behaviour: GUI is still responsive on creating requests;
 	/// requests are created looped.
@@ -34,7 +37,7 @@ namespace Palladio.Webserver.RequestClient
 		private int port;
 		private HTTPRequestGenerator.HandleRequestEvent requestEventHandler;
 		private byte[] request;
-		private HTTPRequestGenerator httpGenerator;
+		private int loopDelay;
 
 		/// <summary>
 		/// Indicates, that the client is still active.
@@ -43,58 +46,66 @@ namespace Palladio.Webserver.RequestClient
 
 
 		/// <summary>
-		/// Standard constructor.
+		/// Standard constructor. Sets up the request options.
 		/// </summary>
 		/// <param name="ipAddress">Sends requests to this IPAdresse.</param>
 		/// <param name="port">Sends requests to this Port.</param>
 		/// <param name="requestEventHandler">Handler to send messages.</param>
 		/// <param name="request">Content send to the server.</param>
-		/// <param name="httpGenerator">Callback-reference to be able to inform if the current thread has terminated.</param>
-		public ClientRequest(IPAddress ipAddress, int port, HTTPRequestGenerator.HandleRequestEvent requestEventHandler, byte[] request, HTTPRequestGenerator httpGenerator)
+		/// <param name="loopDelay">Delay of looping in ms.</param>
+		public ClientRequest(IPAddress ipAddress, int port, HTTPRequestGenerator.HandleRequestEvent requestEventHandler, byte[] request, int loopDelay)
 		{
 			this.ipAddress = ipAddress;
 			this.port = port;
 			this.requestEventHandler = requestEventHandler;
 			this.request = request;
-			this.httpGenerator = httpGenerator;
-
-			this.active = true;
+			this.loopDelay = loopDelay;
 		}
 
 
 		/// <summary>
-		/// Sends a requests to the specified server. Afterwards reads the full answer of the server.
+		/// Sends requests (looped) to the specified server until set to Terminate. Afterwards reads the full answer of the server.
 		/// </summary>
 		public void SendRequest()
 		{
 			this.active = true;
-			TcpClient tcpClient = new TcpClient();
+			TcpClient tcpClient;
+			NetworkStream networkStream;
 			
-			try 
+			//loop until set to inactive:
+			while(active)
 			{
-				tcpClient.Connect(ipAddress, port);
-				NetworkStream networkStream = tcpClient.GetStream();
+				tcpClient = new TcpClient();
 				try 
 				{
-					// send data/request to the server:
-					networkStream.Write(request, 0, request.Length);
-					//requestEventHandler(Thread.CurrentThread.Name + ": Successfully send request to server.");
+					tcpClient.Connect(ipAddress, port);
+					networkStream = tcpClient.GetStream();
+					try 
+					{
+						// send data/request to the server:
+						networkStream.Write(request, 0, request.Length);
+						//requestEventHandler(Thread.CurrentThread.Name + ": Successfully send request to server.");
 					
 
-					//read full answer:
-					while(true)
-					{
-						if (networkStream.ReadByte() == -1)
+						//read full answer:
+						while(active)
 						{
-							break;
+							if (networkStream.ReadByte() == -1)
+							{
+								break;
+							}
 						}
-						if (!active)
-						{
-							return;
-						}
-					}
 					
-					requestEventHandler(Thread.CurrentThread.Name + ": Successfully read answer from the server.");
+						requestEventHandler(Thread.CurrentThread.Name + ": Successfully read answer from the server.");
+					}
+					catch(Exception e)
+					{
+						requestEventHandler("Error in " + Thread.CurrentThread.Name + ": " + e);
+					}
+					finally 
+					{
+						networkStream.Close();
+					}
 				}
 				catch(Exception e)
 				{
@@ -102,20 +113,12 @@ namespace Palladio.Webserver.RequestClient
 				}
 				finally 
 				{
-					networkStream.Close();
-				}
+					tcpClient.Close();
+				}	
+	
+				// sleep to produce a delay until the next request.
+				Thread.Sleep(loopDelay);
 			}
-			catch(Exception e)
-			{
-				requestEventHandler("Error in " + Thread.CurrentThread.Name + ": " + e);
-			}
-			finally 
-			{
-				tcpClient.Close();
-			}
-			
-			// inform the "father" that the current thread has finished:
-			httpGenerator.RemoveFinishedClientRequestThread(this);
 		}
 
 
@@ -123,6 +126,9 @@ namespace Palladio.Webserver.RequestClient
 		/// <summary>
 		/// Terminates the current instance.
 		/// </summary>
+		/// <remarks>
+		/// Might not work properly if the webserver hangs up while writing the request. 
+		/// </remarks>
 		public void Terminate()
 		{
 			this.active = false;

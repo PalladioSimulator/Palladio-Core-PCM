@@ -19,6 +19,9 @@ namespace Palladio.Webserver.RequestClient
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/03/03 07:54:11  kelsaka
+	/// use of a constant set of threads; performance enhancements
+	///
 	/// Revision 1.4  2005/02/27 22:45:33  kelsaka
 	/// fixed logging-bug: log-messages were written mixed by multiple threads.
 	///
@@ -56,8 +59,8 @@ namespace Palladio.Webserver.RequestClient
 
 		private HTTPRequestGenerator requestGenerator;
 		private bool requestActive;
-		private System.Windows.Forms.TextBox textBoxSendDelay;
-		private System.Windows.Forms.Label labelSendDelay;
+		private System.Windows.Forms.TextBox textBoxThreadStartDelay;
+		private System.Windows.Forms.Label labelThreadStartDelay;
 		private System.Windows.Forms.TextBox textBoxLoopDelay;
 		private System.Windows.Forms.Label labelLoopDelay;
 		/// <summary>
@@ -111,8 +114,8 @@ namespace Palladio.Webserver.RequestClient
 			System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(MainForm));
 			this.buttonStartRequests = new System.Windows.Forms.Button();
 			this.groupBoxSettings = new System.Windows.Forms.GroupBox();
-			this.textBoxSendDelay = new System.Windows.Forms.TextBox();
-			this.labelSendDelay = new System.Windows.Forms.Label();
+			this.textBoxThreadStartDelay = new System.Windows.Forms.TextBox();
+			this.labelThreadStartDelay = new System.Windows.Forms.Label();
 			this.textBoxLoopDelay = new System.Windows.Forms.TextBox();
 			this.labelLoopDelay = new System.Windows.Forms.Label();
 			this.StartRequestPanel = new System.Windows.Forms.Panel();
@@ -144,8 +147,8 @@ namespace Palladio.Webserver.RequestClient
 			// 
 			// groupBoxSettings
 			// 
-			this.groupBoxSettings.Controls.Add(this.textBoxSendDelay);
-			this.groupBoxSettings.Controls.Add(this.labelSendDelay);
+			this.groupBoxSettings.Controls.Add(this.textBoxThreadStartDelay);
+			this.groupBoxSettings.Controls.Add(this.labelThreadStartDelay);
 			this.groupBoxSettings.Controls.Add(this.textBoxLoopDelay);
 			this.groupBoxSettings.Controls.Add(this.labelLoopDelay);
 			this.groupBoxSettings.Controls.Add(this.StartRequestPanel);
@@ -161,25 +164,25 @@ namespace Palladio.Webserver.RequestClient
 			this.groupBoxSettings.TabStop = false;
 			this.groupBoxSettings.Text = "Settings";
 			// 
-			// textBoxSendDelay
+			// textBoxThreadStartDelay
 			// 
-			this.textBoxSendDelay.Location = new System.Drawing.Point(412, 40);
-			this.textBoxSendDelay.Name = "textBoxSendDelay";
-			this.textBoxSendDelay.Size = new System.Drawing.Size(64, 20);
-			this.textBoxSendDelay.TabIndex = 8;
-			this.textBoxSendDelay.Text = "100";
+			this.textBoxThreadStartDelay.Location = new System.Drawing.Point(440, 40);
+			this.textBoxThreadStartDelay.Name = "textBoxThreadStartDelay";
+			this.textBoxThreadStartDelay.Size = new System.Drawing.Size(64, 20);
+			this.textBoxThreadStartDelay.TabIndex = 8;
+			this.textBoxThreadStartDelay.Text = "100";
 			// 
-			// labelSendDelay
+			// labelThreadStartDelay
 			// 
-			this.labelSendDelay.Location = new System.Drawing.Point(312, 42);
-			this.labelSendDelay.Name = "labelSendDelay";
-			this.labelSendDelay.Size = new System.Drawing.Size(96, 16);
-			this.labelSendDelay.TabIndex = 7;
-			this.labelSendDelay.Text = "Send Delay in ms:";
+			this.labelThreadStartDelay.Location = new System.Drawing.Point(312, 42);
+			this.labelThreadStartDelay.Name = "labelThreadStartDelay";
+			this.labelThreadStartDelay.Size = new System.Drawing.Size(128, 16);
+			this.labelThreadStartDelay.TabIndex = 7;
+			this.labelThreadStartDelay.Text = "Threadstart Delay in ms:";
 			// 
 			// textBoxLoopDelay
 			// 
-			this.textBoxLoopDelay.Location = new System.Drawing.Point(412, 80);
+			this.textBoxLoopDelay.Location = new System.Drawing.Point(440, 80);
 			this.textBoxLoopDelay.Name = "textBoxLoopDelay";
 			this.textBoxLoopDelay.Size = new System.Drawing.Size(64, 20);
 			this.textBoxLoopDelay.TabIndex = 6;
@@ -189,7 +192,7 @@ namespace Palladio.Webserver.RequestClient
 			// 
 			this.labelLoopDelay.Location = new System.Drawing.Point(312, 82);
 			this.labelLoopDelay.Name = "labelLoopDelay";
-			this.labelLoopDelay.Size = new System.Drawing.Size(96, 16);
+			this.labelLoopDelay.Size = new System.Drawing.Size(120, 16);
 			this.labelLoopDelay.TabIndex = 5;
 			this.labelLoopDelay.Text = "Loop-Delay in ms:";
 			// 
@@ -252,6 +255,7 @@ namespace Palladio.Webserver.RequestClient
 			this.textBoxLogOutput.Size = new System.Drawing.Size(786, 404);
 			this.textBoxLogOutput.TabIndex = 3;
 			this.textBoxLogOutput.Text = "";
+			//this.textBoxLogOutput.MaxLength = 1000000; //increase value to prevent early skipping of log. TODO: "remove" doesn't work properly with.
 			// 
 			// groupBoxOutput
 			// 
@@ -337,13 +341,13 @@ namespace Palladio.Webserver.RequestClient
 			
 			if(!requestActive)
 			{
-				this.buttonStartRequests.Text = "Stop Requests";
+				this.buttonStartRequests.Text = "Stop Request";
 				requestActive = true;
 				this.buttonStartRequests.Refresh();
 
 				try 
 				{								
-					requestGenerator.Setup(textBoxURI.Text, Int32.Parse(textBoxNumberOfRequests.Text), Int32.Parse(textBoxLoopDelay.Text), Int32.Parse(textBoxSendDelay.Text));
+					requestGenerator.Setup(textBoxURI.Text, Int32.Parse(textBoxNumberOfRequests.Text), Int32.Parse(textBoxLoopDelay.Text), Int32.Parse(textBoxThreadStartDelay.Text));
 					
 					// start generating threads in a own thread to keep the GUI responsive.
 					Thread requestGeneratorThread = new Thread(new ThreadStart(requestGenerator.GenerateRequests));
@@ -361,7 +365,7 @@ namespace Palladio.Webserver.RequestClient
 			else
 			{
 				requestActive = false;
-				this.buttonStartRequests.Text = "Start Requests";
+				this.buttonStartRequests.Text = "Starting Requests";
 
 				// terminate generating further threads.
 				requestGenerator.Terminate();
@@ -388,6 +392,12 @@ namespace Palladio.Webserver.RequestClient
 		{
 			lock(this) //lock as this method is called from several threads at the same time.
 			{
+				// shorten too long texts to the half of the maximum length:
+				if(this.textBoxLogOutput.Text.Length >= this.textBoxLogOutput.MaxLength - 1)
+				{
+					this.textBoxLogOutput.Text = this.textBoxLogOutput.Text.Remove(0, this.textBoxLogOutput.MaxLength / 2);
+				}
+
 				this.textBoxLogOutput.AppendText("# " + message + Environment.NewLine);
 				this.textBoxLogOutput.Refresh();
 				this.statusBar.Text = message;
@@ -414,7 +424,7 @@ namespace Palladio.Webserver.RequestClient
 		/// <param name="e"></param>
 		private void menuHelpAbout_Click(object sender, System.EventArgs e)
 		{
-			MessageBox.Show("Testing-Client for the Palladio.Webserver.\nCreates simultaneous HTTP-GET-Requests to the specified URI.", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show("Testing-Client for the Palladio.Webserver.\nhttp://se.informatik.uni-oldenburg.de/palladio\nCreates simultaneous HTTP-GET-Requests to the specified URI.", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 		#endregion
 

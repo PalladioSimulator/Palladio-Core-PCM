@@ -17,6 +17,9 @@ namespace Palladio.Webserver.RequestClient
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/03/03 07:54:10  kelsaka
+	/// use of a constant set of threads; performance enhancements
+	///
 	/// Revision 1.4  2005/02/27 22:45:33  kelsaka
 	/// fixed logging-bug: log-messages were written mixed by multiple threads.
 	///
@@ -46,8 +49,8 @@ namespace Palladio.Webserver.RequestClient
 		private bool active;
 		private Uri uri;
 		private int numberOfThreads;
-		private int LoopDelay;
-		private int sendDelayInMilliseconds;
+		private int loopDelay;
+		private int initDelayInMilliseconds;
 		private IPAddress ipAddress;
 		private int port;
 		
@@ -82,14 +85,16 @@ namespace Palladio.Webserver.RequestClient
 		/// </summary>
 		/// <param name="requestUri">Client uri. The site to request (e. g. http://127.0.0.1:81/index.html).</param>
 		/// <param name="numberOfThreads">The number of threads to use parallel.</param>
-		/// <param name="LoopDelay">Delay before starting new threads. (Used, if the first amount of threads has been
-		/// started, before starting the next threads.)</param>
-		/// <param name="sendDelayInMilliseconds">Time in milliseconds between the starting of threads. (Thread.Sleep)</param>
-		public void Setup(string requestUri, int numberOfThreads, int LoopDelay, int sendDelayInMilliseconds)
+		/// <param name="loopDelay">Delay before a client starts a re-requesting. (<see cref="Thread.Sleep"/>)</param>
+		/// <param name="initDelayInMilliseconds">Time in milliseconds between the starting of threads at initiation. (<see cref="Thread.Sleep"/>)</param>
+		/// <remarks>
+		/// Execute before executing <see cref="GenerateRequests"/>.
+		/// </remarks>
+		public void Setup(string requestUri, int numberOfThreads, int loopDelay, int initDelayInMilliseconds)
 		{
 			this.numberOfThreads = numberOfThreads;
-			this.LoopDelay = LoopDelay;
-			this.sendDelayInMilliseconds = sendDelayInMilliseconds;
+			this.loopDelay = loopDelay;
+			this.initDelayInMilliseconds = initDelayInMilliseconds;
 
 			// Parse input data.
 			this.uri = new Uri(requestUri);
@@ -102,57 +107,42 @@ namespace Palladio.Webserver.RequestClient
 
 
 		/// <summary>
-		/// Sends HTTP-Requests to the specified client. Execute Setup() first.
+		/// Sends HTTP-Requests to the specified client. Execute <see cref="Setup"/> first.
 		/// </summary>
 		public void GenerateRequests()
 		{
 			this.active = true;
-			ClientMessage("Starting Requests. Address: " + uri + ", Number of simultaneous Requests: " + numberOfThreads + ", Number Of Loops: " + LoopDelay);
-			ClientMessage("NOTE: according to the simultaneous access to the log-field without any mutex currently some messages from the threads might be lost.");			
+			ClientMessage("Starting Requests. Address: " + uri + ", Number of simultaneous Requests: " + numberOfThreads + ", Loop-Delay: " + loopDelay + ", Thread-Init-Delay: " + initDelayInMilliseconds + ".");
+			ClientMessage("NOTE: According to the init delay of threads it takes about " + (numberOfThreads * initDelayInMilliseconds) + " ms of time until all threads have been started.");			
 
-			StartNewThreads();
+			InitiateRequestThreads();
 		}
 
-
-		private void StartNewThreads()
-		{
-			// calculated number of non-started threads:
-			int numberOfThreadsToStart = numberOfThreads - requestThreads.Count;
-
-			for (int y = 0; y < numberOfThreadsToStart && active; y++)
-			{
-				ThreadInfo threadInfo = new ThreadInfo();
-				threadInfo.clientRequest = new ClientRequest(ipAddress, port, new HandleRequestEvent(FireClientMessage), Encoding.ASCII.GetBytes(requestString), this);				
-				threadInfo.ExecutingThread = new Thread(new ThreadStart(threadInfo.clientRequest.SendRequest));
-				threadInfo.ExecutingThread.Start();
-				threadInfo.ExecutingThread.Name = "Request-Thread number " + (y+1);
-				requestThreads.Add(threadInfo);
-				ClientMessage("Started Thread: " + threadInfo.ExecutingThread.Name + ".");
-					
-				Thread.Sleep(sendDelayInMilliseconds);
-			}
-		}
 
 
 		/// <summary>
-		/// Removes unused threads from the list of threads. Callback function used by the <see cref="ClientRequest"/>.
+		/// Sets up the ArrayList containing all ThreadInfos.
 		/// </summary>
-		/// <param name="clientRequest">Reference to the clientRequest that has to be removed (caller of this method).</param>
-		public void RemoveFinishedClientRequestThread(ClientRequest clientRequest)
+		private void InitiateRequestThreads()
 		{
-			if(active)
+			for (int y = 0; y < numberOfThreads && active; y++)
 			{
-				for (int x = 0; x < requestThreads.Count; x++)
+				ThreadInfo threadInfo = new ThreadInfo();
+				threadInfo.clientRequest = new ClientRequest(ipAddress, port, new HandleRequestEvent(FireClientMessage), Encoding.ASCII.GetBytes(requestString), loopDelay);				
+				threadInfo.ExecutingThread = new Thread(new ThreadStart(threadInfo.clientRequest.SendRequest));
+				threadInfo.ExecutingThread.Name = "Request-Thread number " + (y+1);
+				requestThreads.Add(threadInfo);
+
+				threadInfo.ExecutingThread.Start();
+				ClientMessage("Started Thread: " + threadInfo.ExecutingThread.Name + ".");
+				if(y == (numberOfThreads - 1))
 				{
-					if( ((ThreadInfo)requestThreads[x]).clientRequest.Equals(clientRequest) )
-					{
-						requestThreads.Remove(requestThreads[x]);
-					}
+					ClientMessage("NOTE: All " + numberOfThreads + " Threads have been started.");
 				}
-				Thread.Sleep(LoopDelay);
-				StartNewThreads();
-			}
+				Thread.Sleep(initDelayInMilliseconds);
+			}			
 		}
+
 
 
 		/// <summary>
@@ -169,13 +159,14 @@ namespace Palladio.Webserver.RequestClient
 
 
 		/// <summary>
-		/// Calls the Abort-method of each thread, that has been started. Prevents further threads to get started.
+		/// Calls the Terminate-method of each thread, that has been started. Prevents further threads to get started.
 		/// </summary>
 		/// <remarks>
 		/// Note the problems of .NET according the termination of threads using the Abort-method.
 		/// </remarks>
 		public void Terminate()
 		{
+			ClientMessage("Stopping Requests. Terminating - please wait until all RequestClients have returned...");
 			active = false;
 
 			// terminate all subordinates threads:
@@ -183,22 +174,22 @@ namespace Palladio.Webserver.RequestClient
 			{
 				try 
 				{
-					
-					//for (int x = 0; x < requestThreads.Count; x++)
-					///{
-					//	ThreadInfo threadInfo = (ThreadInfo)requestThreads[x];
-
 					foreach(ThreadInfo threadInfo in requestThreads)
 					{
-						threadInfo.clientRequest.Terminate();				
-						threadInfo.ExecutingThread.Abort();
+						threadInfo.clientRequest.Terminate();	
+						
+						// uncommenting this line causes infinit waiting of the clients if the
+						// server does not return any answer or abort signale:
+						//threadInfo.ExecutingThread.Abort(); 
 					}	
 				}
-				catch (Exception)
-				{
-					Console.WriteLine("ERROR!");
-					//TODO: make locking work.
+				catch (ThreadAbortException)
+				{					
 				}
+				catch (Exception e)
+				{
+					ClientMessage("Error: " + e.Message);
+				}				
 			}
 
 			requestThreads.Clear();
