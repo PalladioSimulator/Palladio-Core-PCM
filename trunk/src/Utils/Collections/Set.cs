@@ -118,9 +118,13 @@ namespace Utils.Collections {
 
 
 		public object Clone() {
+			// This Clone-Method is not very nice, BUT
+			// it is a workaround for a bug in the Clone
+			// Method of the Hashtables in Mono
 			Set result = new Set();
-			result.data = (Hashtable)data.Clone();
-			result.enumerator = result.data.GetEnumerator();
+			foreach(object entry in this){
+				result.Add(entry);
+			}
 			return result;
 		}
 

@@ -41,7 +41,7 @@ namespace UnitTests.FiniteStateMachines
 			Assert.IsFalse(tOne.Equals(null));
 		}
 
-		[Test] public void GetHashCode() {
+		[Test] public void HashCode() {
 			Assert.IsFalse(tOne.GetHashCode() == tTwo.GetHashCode());
 			Assert.IsFalse(tOne.GetHashCode() == tThree.GetHashCode());
 			Assert.IsFalse(tThree.GetHashCode() == tTwo.GetHashCode());

@@ -161,7 +161,6 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 
 			MinimizedAndEqualsFSM fec = new MinimizedAndEqualsFSM((FiniteTabularMachine)deterministicFSM);
 			IFiniteStateMachine min = fec.getMinimizedFSM();
-			Console.WriteLine(min.StartState.GetType());
 		}
 	}
 }

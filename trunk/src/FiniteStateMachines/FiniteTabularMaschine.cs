@@ -174,15 +174,9 @@ namespace FiniteStateMachines {
 		/// <param name="input">the inputcharacter</param>
 		/// <returns>the next State which is reachable with the state and the inputcharacter</returns>
 		public AbstractState GetNextState(AbstractState aSourceState, Input anInput) {
-			try
-			{
-				return GetNextTransition(aSourceState,anInput).DestinationState;
-			}
-			catch(Exception){
-				return this.ErrorState;
-			}
-
-			
+			// The exception has to be thrown, if the input is not in
+			// the InputAlphabet or the source state is not a state of the fsm
+			return GetNextTransition(aSourceState,anInput).DestinationState;
 		}
 
 
