@@ -15,11 +15,19 @@ Examples:
 --- Snip: Add comments between the snippets
 22.2. Inital creation
       (+) Added ChangeLog.txt instructions (ChangeLog.txt) StB
+24.2. Equals and serialisation
+      (-) The interface ISerialisation, ModelPersistency* and searialisation methods are removed MH
+      (-) the visitor interfaces and methods are removed
+      (-) the equals and getHashCode methods are removed
+      (SC) the equals methods now use the default implementation of object
 ---
 
 CVS history:
 ---
 $Log$
+Revision 1.2  2005/02/24 20:29:18  joemal
+remove serialization and equals methods
+
 Revision 1.1  2005/02/22 11:15:05  sbecker
 ChangeLog added and instructions inserted
 
