@@ -1,9 +1,9 @@
 using System;
 
-namespace Palladio.Webserver.HTTPRequestProcessor
+namespace Palladio.Webserver.FTPRequestProcessor
 {
 	/// <summary>
-	/// DefaultHTTPRequestProcessor.
+	/// IFTPRequestProcessor.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -11,17 +11,15 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
-	/// Revision 1.2  2004/10/22 12:55:56  kelsaka
+	/// Revision 1.1  2004/10/22 12:55:56  kelsaka
 	/// Actualised the UML-componentview; defined the webserverfactory-interface, therefore added some new interfaces
 	///
-	/// 
+	///
+	///
 	/// </pre>
 	/// </remarks>
-	public class DefaultHTTPRequestProcessor : IHTTPRequestProcessor
+	public interface IFTPRequestProcessor
 	{
-		public DefaultHTTPRequestProcessor()
-		{
 
-		}
 	}
 }
