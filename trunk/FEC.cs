@@ -19,7 +19,7 @@ namespace FSM
 		protected int actualGroupCounter;
 		protected ArrayList mini;
 		// for equals
-		protected Hashtable myMin2d;
+		public Hashtable myMin2d;
 		protected Set visited;
 
 		/// <summary>
@@ -37,161 +37,234 @@ namespace FSM
 			this.fsm = notMin;
 			this.groups = new ArrayList();
 			this.Minimize(notMin);
-
-			
-			
 			this.createNewFsm();
-			Console.WriteLine("the new FSM");
-			this.minimized.DisplayOnConsole();
-//			if(this.debug)
-//			{
-				Console.WriteLine("After Minmasation the follwing groups exzits:");
-				this.printGroups();
-//			}
+			//this.minimized.DisplayOnConsole();
+			//			if(this.debug)
+			//			{
+			//				Console.WriteLine("After Minmasation the follwing groups exzits:");
+			//				this.printGroups();
+			//			}
 		}
 
-		/**
-		 * Meine Ideee für die den Vergleich (auf deutsch ist besser da bin ich mir 
-		 * nämlich sicherer das ist das ausdrücken kann, was ich meine):
-		 * Es wird eine HAshmap erstellt, die eine Abbildung zwischen den beiden Automaten
-		 * darstellt. Und zwar werden unter den SChlüsseln(Zustände) des ersten Automaten 
-		 * die erreichten Zustände des anderen Automaten gespeichert.
-		 * Zudem wird eine Hashmap angelgt, díe alle schon besuchten ZUstände des zweiten 
-		 * Automaten enthält.
-		 * in der Hashmap werden zu die Stratzustände ermittelt und gespeichert, dann wird 
-		 * von dem aktuellem Zustand die Folgezustände ermittelt. Und im anderem FSM 
-		 * geschaut ob mit demselben Input ein zustand im zweiten Automaten erreicht werden
-		 * kann, der die gleichen Eigenschaften wie der erste hat.
-		 * Ist das der Fall so werden die Zustände in die Abbildungshashmap eingetragen. 
-		 * worrausgestzt der Zustand ist noch nicht besucht worden.
-		 * Dannn wird der ZUstand in visited eingetragen.
-		 * ZUsätzlcih muss noch eine Methode eingebaut werden , die überprüft, ob eine
-		 * TRansition wieder zum Ausgangszustand führt,
-		 * dies wird solange gemacht bis alle Zustnde durch sind.
-		 * */
-/**
- * Frage : Du benutzt immer wenig globale Variablen, sondern gibs die Variablen in de
- * Methoden weiter, welchen Grund hat das?
- * */
+		/// <summary>
+		/// Returns the minimized FSM form a given FSM
+		/// </summary>
+		/// <param name="o">A instance of FSM, witch should be minimized</param>
+		/// <returns>a Minimized FSM or an empty FSM</returns>
+		public FSM MinOne(object o)
+		{
+			if(equal(o))
+				return this.minimized;
+			else return new FSM();
+		}
+	
+		/// <summary>
+		/// checks if this.Minimized is equal to a given FSM.
+		/// </summary>
+		/// <param name="o">A FSM </param>
+		/// <returns>true if they are equal</returns>
 		public bool equal(object o)
 		{
-			FSM d ;
-			//only for the testing, later use the miniized one;
-			FSM myMin = this.fsm;
-			this.fsm.setErrorStates();
-			//first only this instance
-			if(o is FSM)
-				d = (FSM) o;
-			else return false;
-			if (!(getInputAl()).equals(d.getInputAl())) 
-			{
-				if(this.equalsDebug)
-					Console.WriteLine("Input not fitting");
+			if((o is FSM)== false)
 				return false;
-			}
-			this.myMin2d = new Hashtable();
-			this.visited = new Set();
-			
-			//Stártzustände abdecken#
-			State myStart = myMin.getStartState();
-			State dStart = d.getStartState();
-			if(!this.sameBehavior(myMin, myStart, d, dStart))
+			FEC dnotMin = new FEC((FSM) o);
+			FSM d = dnotMin.getMinimizedFSM();
+			FSM myMin = this.minimized;
+			bool result = false;
+			IEnumerator inputIter = myMin.getInputAl().GetEnumerator();
+			while(inputIter.MoveNext())
+				if(!d.getInputAl().Contains((Input) inputIter.Current))
 				return false;
-			this.visited.Add(dStart);
-			this.myMin2d.Add(myStart,dStart);
-			StateIterator stateIter  = new StateIterator(myMin);
-			//State myNext;
-			while(stateIter.MoveNext())
-			{
-				State myState = (State) stateIter.Current;
-//				StateIterator st = new StateIterator(myMin);
-//				while(st.MoveNext())
-//				{
-//					if(st.Current.Equals(myState))
-//						Console.WriteLine("MyState gehört zu MyMin");
-//				}
-//				
-				if(myState.Equals(myMin.getStartState()))
-				{
-					Console.WriteLine("Startzustand übersprungen");
-					continue;
-				}
-				Console.WriteLine("MyState is : "+myState.ToString());
-				
-				State myNextState;
-
-				IEnumerator inputIter = (IEnumerator) myMin.getInputAl().GetEnumerator();
-				while(inputIter.MoveNext())
-				{
-
-//---------------------------	hier!!!!--------------------------------------------
-					Console.WriteLine("myState is now: "+myState.ToString());
-					if(myState == null)
-						Console.WriteLine("Also here myState is null");
-					myNextState = myMin.getNextState(myState,(Input) inputIter.Current);
-					if(myNextState.Equals(myMin.getErrorState()))
-						continue;
-					if(!this.mappingStateFound(myState,myMin,myNextState,d,(Input) inputIter.Current))
-						return false;
-				}
-			}
-
-				return true;
 			
-		}
-		protected bool selfPointing(FSM myMin, State myState, State myNext, Input i)
-		{
-			if(myMin.getNextState(myState,i).Equals(myNext))
+			Hashtable d2myStatesMap = null;
+			try
 			{
-				if(this.equalsDebug)
-					Console.WriteLine(myState.ToString()+" is selfpointing");
-				return true;
+
+				d2myStatesMap = (Hashtable) mapStates(myMin, d);
 			}
-			return false;
+			catch
+			{
+					return false;
+			}
+			
+			result = _equal(myMin, d, d2myStatesMap);
+			return result;
 		}
 		/// <summary>
-		/// 
+		/// A inner Method to get the result
 		/// </summary>
-		/// <param name="myState"></param>
-		/// <param name="myMin"></param>
-		/// <param name="myNext"></param>
-		/// <param name="d"></param>
-		/// <param name="i"></param>
+		/// <param name="myMin">A FSM</param>
+		/// <param name="dMin">another FSM</param>
+		/// <param name="d2myStatesMap">the mapping</param>
+		/// <returns>true if the two FSM are equal</returns>
+		protected bool _equal(FSM myMin, FSM dMin, Hashtable d2myStatesMap)
+		{
+			if(!myMin.getStartState().Equals( dMin.getStartState()))
+				return false;
+			ArrayList dStates = new ArrayList();
+			ArrayList myStates = new ArrayList();
+			foreach(DictionaryEntry dic in d2myStatesMap)
+			{
+				dStates.Add((State) dic.Key);
+				myStates.Add((State)dic.Value);
+			}
+			dStates.TrimToSize();
+			myStates.TrimToSize();
+			State dNow = null;
+			State myNow = null;
+			if(dStates.Count != myStates.Count)
+				return false;
+			for(int i= 0; i<dStates.Count; i++)
+			{
+				dNow = (State)dStates[i];
+				myNow = (State) myStates[i];
+				if(dNow.getFinal())
+				{
+					if(!myNow.getFinal())
+						return false;
+				}
+				else
+				{
+					if(myNow.getFinal())
+					{
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+
+		/// <summary>
+		/// Produces a Mapping between two FSMs
+		/// </summary>
+		/// <param name="myMin">A FSM</param>
+		/// <param name="d">The other FSM</param>
+		/// <returns>A Hashtable witch contains the mapping betwenn the two FSMs</returns>
+		protected Hashtable mapStates(FSM myMin,FSM d)
+		{
+			Hashtable d2myMap = new Hashtable();
+			d2myMap.Add(d.getStartState(),myMin.getStartState());
+			d2myMap.Add(d.getErrorState(),myMin.getErrorState());
+			mapStates(myMin,myMin.getStartState(),d,d.getStartState(),
+				d2myMap, new Hashtable());
+			return d2myMap;
+			
+		}
+		/// <summary>
+		/// Produces a´mapping between two states
+		/// </summary>
+		/// <param name="myMin">A FSM</param>
+		/// <param name="myState">A state of myFsm</param>
+		/// <param name="d">Another FSM</param>
+		/// <param name="dState">A state of the other FSM</param>
+		/// <param name="d2myStates">the mapping</param>
+		/// <param name="visited">a Hashtable witch contains the alreday visted states</param>
+		protected void mapStates(FSM myMin, State myState, FSM d, State dState,
+			Hashtable d2myStates, Hashtable visited)
+		{
+			foreach(DictionaryEntry da in visited)
+			{
+				State sasa = (State) da.Value;
+				if(myState.Equals(sasa))
+				{
+					return;
+				}
+			}
+			if(visited.Contains(myState))
+				return;
+			visited.Add(myState,myState);
+			State dNext= null;
+			State myNext = null;
+			IEnumerator inputIter = myMin.getInputAl().GetEnumerator();
+			while(inputIter.MoveNext())
+			{
+				Input currentInput = (Input) inputIter.Current;
+				foreach(State s in myMin.getStates())
+				{
+					if(myState.Equals(s))
+					{
+
+						myNext = myMin.getNextState((State) s,currentInput);
+						break;
+					}
+				}
+				foreach(State z in d.getStates())
+				{
+					if(z.Equals(dState))
+					{
+						dNext = d.getNextState((State) z,currentInput);
+						break;
+					}
+				}
+				
+				if(!testStates(myMin,myState,d,dState,currentInput,d2myStates))
+					throw new StatesNotMappableException();
+				mapStates(myMin, myNext,d,dNext,d2myStates,visited);
+			}
+		}
+		/// <summary>
+		/// Controlls if the next states of a FSM are mappable
+		/// </summary>
+		/// <param name="myMin">A FSM</param>
+		/// <param name="myState">A state of MyMin</param>
+		/// <param name="d">Another FSM</param>
+		/// <param name="dState">A State of d</param>
+		/// <param name="i">An Input charakter</param>
+		/// <param name="d2myStates">the mapping hashtable</param>
 		/// <returns></returns>
-		protected bool mappingStateFound(State myState, FSM myMin,
-		State myNext, FSM d, Input i)
+		protected bool testStates(FSM myMin,State myState, FSM d, State dState,
+			Input i, Hashtable d2myStates)
 		{
-			State dNext = d.getNextState((State)this.myMin2d[myState],i);
-			if(dNext.Equals(d.getErrorState()))
-				return false;
-			if(!sameBehavior(myMin,myNext,d,dNext))
-				return false;
-			if(selfPointing(myMin,myState,myNext,i) != selfPointing(d,(State)this.myMin2d[myState], dNext,i))
-				return false;
-			if(this.visited.Contains(dNext))
-				return false;
-			this.myMin2d.Add(myNext,dNext);
-			this.visited.Add(dNext);
-			return true;
-		}
-		protected bool sameBehavior(FSM myMin, State myNext, FSM d, State dNext)
-		{
-			if(myNext.getFinal() != dNext.getFinal())
-				return false;
-			if(myNext.getFinal() != dNext.getFinal())
-				return false;
-			if(this.equalsDebug)
-				Console.WriteLine(myNext.ToString()+ " and "+ dNext.ToString()
-					+" have the same behavior");
-			return true;
-		}
+			State myNext = null;
+			State dNext = null;
 
 		
+			foreach(State s in myMin.getStates())
+			{
 
+				if(myState.Equals(s))
+				{
+					myNext = myMin.getNextState((State) s,i);
+					break;
+				}
+			}
+			foreach(State z in d.getStates())
+			{
+				if(z.Equals(dState))
+				{
+					dNext = d.getNextState((State) z,i);
+					break;
+				}
+			}
+
+			if(d2myStates.ContainsKey(dNext))
+			{
+				if(d2myStates[dNext].Equals(myNext))
+				{
+					return true;
+				}
+				else 
+				{
+					return false;
+				}
+				
+			}
+			d2myStates.Add(dNext,myNext);
+			return true;
+		}
+			
+		/// <summary>
+		/// Return the notMiniized FSM
+		/// </summary>
+		/// <returns>Return the notMiniized FSM</returns>
 		public FSM getFSM()
 		{
 			return this.fsm;
 		}
+		/// <summary>
+		/// Returns the minimzed version of the FSM
+		/// </summary>
+		/// <returns>Returns the minimzed version of the FSM</returns>
 		public FSM getMinimizedFSM()
 		{
 			return this.minimized;
@@ -241,8 +314,12 @@ namespace FSM
 						(Input)oldFsmInputIter.Current,
 						(State) statesOfMini[indexOfStateToState]);
 				}
-			}		
+			}
 		}
+		/// <summary>
+		/// Removes the ErrorGroups from this.groups
+		/// </summary>
+		/// <param name="g">The groupwith should be removed</param>
 		protected void RemoveErrorGroup(ArrayList g)
 		{
 			ArrayList erroG = new ArrayList();
@@ -259,8 +336,7 @@ namespace FSM
 						return;
 					}
 				}
-			}
-					
+			}		
 		}
 		/// <summary>
 		/// Minimizes a FSM 
@@ -280,7 +356,6 @@ namespace FSM
 						+this.counterForNumberOfGroups.ToString());
 					Console.WriteLine("this.actualGroupCounter is : "
 						+this.actualGroupCounter.ToString());
-					//this.printGroups();
 				}
 				State first = new State();
 				State next = new State();
@@ -304,7 +379,6 @@ namespace FSM
 					if(this.debug)
 						Console.WriteLine("Next is : "+next.ToString());
 					IEnumerator InputIter = fsm.getInputAl().GetEnumerator();
-					//for each charakter
 					while(InputIter.MoveNext())
 					{
 						Input currentInput = (Input) InputIter.Current;
@@ -332,40 +406,31 @@ namespace FSM
 							newGroup.TrimToSize();
 
 						}
-//						//for debuging
-//						if(sameGroup(fsm.getNextState(first,currentInput),
-//							fsm.getNextState(next,currentInput),newGroup))
-//						{
-//							
-//						}
 					}
 				}
-					//move elements
-					if(newGroup.Count >0)
+				//move elements
+				if(newGroup.Count >0)
+				{
+					if(this.debug)
 					{
-						if(this.debug)
-						{
-							Console.WriteLine("A new group has been created, it contains: ");
-							//this.printGroup(newGroup);
-						}
-						this.counterForNumberOfGroups++;
-						this.groups.Add(newGroup);
-						this.groups.TrimToSize();
-						foreach(State s  in newGroup)
-						{
-							if(actualGroup.Contains(s))
-							{
-								actualGroup.Remove(s);
-							}
-						}
-						actualGroup.TrimToSize();
-						this.groups.Remove(this.actualGroupCounter);
-
-						//the problem: that doesn't work!!
-						//if(!this.groups.Contains(actualGroup))
-							this.groups.Insert(this.actualGroupCounter,actualGroup);
+						Console.WriteLine("A new group has been created, it contains: ");
 					}
-					this.actualGroupCounter++;
+					this.counterForNumberOfGroups++;
+					this.groups.Add(newGroup);
+					this.groups.TrimToSize();
+					foreach(State s  in newGroup)
+					{
+						if(actualGroup.Contains(s))
+						{
+							actualGroup.Remove(s);
+						}
+					}
+					actualGroup.TrimToSize();
+					this.groups.Remove(this.actualGroupCounter);
+
+					this.groups.Insert(this.actualGroupCounter,actualGroup);
+				}
+				this.actualGroupCounter++;
 			}
 			this.tidyUp();
 		}
@@ -404,11 +469,11 @@ namespace FSM
 		{
 			if(groups.Contains(state))
 				return groups;
-//			if(groups.Contains(fsm.getErrorState()))
-//			{
-//				Console.WriteLine("in group has found ErrorState");
-//				return groups;
-//			}
+			//			if(groups.Contains(fsm.getErrorState()))
+			//			{
+			//				Console.WriteLine("in group has found ErrorState");
+			//				return groups;
+			//			}
 			foreach(ArrayList al in this.groups)
 			{
 				foreach(State s in al)
@@ -456,13 +521,13 @@ namespace FSM
 				both = null;
 				actualState = (State) iter.Current;
 
-//				//now useless
-//				if(actualState.Equals(new State("ErrorState",false,false)))
-//				{
-//					if(debug)
-//						Console.WriteLine("ErrorState in init found!");
-//					
-//				}
+				//				//now useless
+				//				if(actualState.Equals(new State("ErrorState",false,false)))
+				//				{
+				//					if(debug)
+				//						Console.WriteLine("ErrorState in init found!");
+				//					
+				//				}
 				if(actualState.getFinal())
 				{
 					if(actualState.getStart())
@@ -502,224 +567,7 @@ namespace FSM
 			}
 			Console.WriteLine("---End of Group----");
 		}
-
-
-
-//		private bool testStates (FSM myMin, State myState,
-//			FSM dMin, State dState, Input i,
-//			Hashtable d2myStatesMap)
-//		{
-//			State dNextState;
-//			State myNextState;
-////			try 
-////			{
-//				dNextState = dMin.getNextState(dState, i);
-//				myNextState = myMin.getNextState(myState, i);
-//
-////			}catch (Exception ) {
-////				Console.WriteLine("Exception catched in: testStates in ermittlung neuer zustände");
-////				throw new ProgrammingErrorException();
-////				}
-//
-//			if (d2myStatesMap.ContainsKey(dNextState)) 
-//			{
-//				if ((d2myStatesMap[dNextState].Equals(myNextState)))
-//				{
-//					if(this.equalsDebug)
-//					{
-//						Console.WriteLine("in d2myStates unter "+dNextState.ToString() 
-//							+"steht "+ myNextState.ToString());
-//					}
-//
-//					return true;
-//				} 
-//				else 
-//				{
-//					return false;
-//				}
-//			}
-//			d2myStatesMap.Add(dNextState,myNextState);
-//			return true;
-//		}
-//
-//		private void mapStates(FSM myMin, State myState,
-//			FSM dMin, State dState,
-//			Hashtable d2myStatesMap, Hashtable visited)
-//		{	
-//
-//			//schaue ob myState zu myMin gehört
-//			Console.WriteLine("MyStates is: "+myState.ToString());
-//			StateIterator st = new StateIterator(myMin);
-//			while(st.MoveNext())
-//			{
-//				if(st.Current.Equals(myState))
-//					Console.WriteLine("MyState gehört zu MyMin");
-//			}
-//
-//			Transition temp;
-//			Hashtable transitions = null ;
-//
-////			foreach(State st in visited)
-////				if(st.Equals(myState))
-////				{
-////					Console.WriteLine("MyState is in visit");
-////					return;
-////				}
-//			if (visited.Contains(myState)) 
-//			{
-//				Console.WriteLine("MyState is in visied");
-//				return;
-//			}
-//			visited.Add(myState,myState);
-//			
-//			try 
-//			{
-//				transitions = myMin.getTransitionMap(myState);
-//			
-//
-//				Console.WriteLine("das habe ich bekommen: ");
-//				foreach(DictionaryEntry t in transitions)
-//					Console.WriteLine(t.Value.ToString());
-//
-//			}
-//			
-//			
-//			catch (Exception) 
-//			{
-//				Console.WriteLine("Exception catched in: mapStates in get Trasnsition map");
-//
-//				//throw new ProgrammingErrorException();
-//			}
-//			//Iterrieren über SChlüssel
-//
-//				//IEnumerator myiIter = (IEnumerator)transitions.GetEnumerator();
-//		
-//			
-//			//while (myiIter.MoveNext())
-//			if(transitions != null)
-//			
-//			foreach(DictionaryEntry d in transitions) 
-//			{
-//				temp = 	(Transition)d.Value;
-//				Input myInput = temp.input;
-//
-//				if (!testStates(myMin,myState,dMin,dState,myInput,
-//					d2myStatesMap)) 
-//				{
-//					Console.WriteLine("Not Mappleable");
-//					throw new Exception();
-//				}
-////				State myMinNext =myMin.getNextState(myState, myInput);
-////				Console.WriteLine("MYNextState is: "+ myMinNext.ToString());
-////				Hashtable tz = myMin.getTransitionMap(myMinNext);
-////				Console.WriteLine("nach hashtable holen");
-//				try 
-//				{
-//					mapStates(myMin,myMin.getNextState(myState, myInput),
-//						dMin,dMin.getNextState(dState, myInput),
-//						d2myStatesMap,visited);
-//				}
-//				catch (InvalidStateException ) 
-//				{
-//					Console.WriteLine("Not Mappleable");
-//					throw new Exception();
-//				}
-//				catch (InvalidInputException) 
-//				{
-//					Console.WriteLine("Exception catched in: map States Invalid input");
-//					throw new ProgrammingErrorException();
-//				}
-//			}
-//		}
-//		protected Hashtable mapStates(FSM myMin, FSM dMin)
-//		{
-//			Hashtable d2myStatesMap = new Hashtable();
-//			d2myStatesMap.Add(dMin.getStartState(),myMin.getStartState());
-//			d2myStatesMap.Add(dMin.getErrorState(),myMin.getErrorState());
-//			mapStates(myMin,myMin.getStartState(),
-//				dMin, dMin.getStartState(),
-//				d2myStatesMap,new Hashtable());
-//			return d2myStatesMap;
-//		}
-//		protected bool _equal (FSM myMin, FSM dMin, Hashtable d2myStatesMap)
-//		{
-//			if (!myMin.getStartState().Equals(
-//				(State)d2myStatesMap[dMin.getStartState()]))
-//			{
-//				return false;
-//			}
-//
-//
-//			StateIterator stateSetIter = new StateIterator(dMin);
-//			while (stateSetIter.MoveNext()) 
-//			{
-//				State currentState = (State) stateSetIter.Current;
-//
-//				State myState = (State) d2myStatesMap[currentState];
-//
-//				if (myState == null) 
-//				{
-//					return false;
-//				}
-//
-//				if (currentState.getFinal()) 
-//				{
-//					if (!myState.getFinal()) 
-//					{
-//						return false;
-//					}
-//				}
-//				else
-//				{ // so !currentState.isFinalState()
-//					if (myState.getFinal()) 
-//					{
-//						return false;
-//					}
-//				}
-//			}
-//			return true;
-//		}
-//
-//		
-//		public bool equals(Object o)
-//		{
-//			//Object testing
-//			bool result = false;
-////			try 
-////			{
-//				FSM d = (FSM) o;
-//
-//				if (!(getInputAl()).equals(d.getInputAl())) 
-//				{
-//					Console.WriteLine("Input not fitting");
-//					return false;
-//				}
-//				//Console.WriteLine("Input is equal");
-//				FSM myMin = this.fsm;
-//				FSM dMin = d;
-////				FSM myMin = this.minimized;
-////				FEC dnMin = new FEC(d);
-////				FSM dMin = dnMin.minimized;
-//				Hashtable d2myStatesMap = null;
-////
-////				try 
-////				{
-//					d2myStatesMap = (Hashtable) mapStates(myMin, dMin);
-////
-////				}
-////				catch (Exception e )
-////				{
-////					Console.WriteLine("Exception catched in: bool");
-////					Console.WriteLine(e.Message);
-////					Console.WriteLine(e.Source);
-////					Console.WriteLine(e.StackTrace);
-////					return false;
-////				}
-//
-//				result =  _equal(myMin, dMin, d2myStatesMap);
-////			}
-////			catch (Exception ){}
-//			return result;
-//		}
 	}
+
+
 }

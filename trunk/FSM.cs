@@ -13,6 +13,7 @@ namespace FSM
 		protected State StartState;
 		protected Set FinalSates;
 		protected State ErrorState;
+		protected Set States;
 		protected bool ErrorStateSet;
 
 
@@ -25,7 +26,8 @@ namespace FSM
 			this.transitions = new Hashtable();
 			this.FinalSates = new Set();
 			this.ErrorState = new State("ErrorState",false,false);
-			this.ErrorStateSet = true;
+			this.ErrorStateSet = !true;
+			this.States = new Set();
 
 		}
 		public State getErrorState()
@@ -172,9 +174,14 @@ namespace FSM
 				this.ErrorStateSet = true;
 				this.setErrorStates();
 			}
+			//Console.WriteLine(":getNextState: The fromstate i got was: "+fromState.ToString());
 
+			if(fromState.Equals(this.getErrorState()))
+				return this.getErrorState();
+		
 			if(fromState == null)
 				Console.WriteLine("The fromState I got was null");
+			
 
 			if(this.inputAl.Contains(input)== false)
 				throw new InvalidInputException();
@@ -194,9 +201,9 @@ namespace FSM
 					if(t.input == input)
 						return new State(t.toState);
 				}
-			//return new State("ErrorState",false,false);
+			return new State("ErrorState",false,false);
 			//ErrorStates must be extra declarated this.setErrotStates();
-			throw new ProgrammingErrorException();
+			//throw new ProgrammingErrorException();
 
 			
 		}
@@ -342,6 +349,10 @@ namespace FSM
 			return st;
 
 		}
+		public Set getStates()
+		{
+			return this.States;
+		}
 	
 		//implementation of the  Setters interface.
 
@@ -357,6 +368,7 @@ namespace FSM
 			if(tr.toState.getFinal()==true)
 				this.FinalSates.Add(tr.toState);
 
+			this.States.Add(tr.fromState);
 			if(this.transitions[tr.fromState] == null)
 			{	
 				Set tmp = new Set();
