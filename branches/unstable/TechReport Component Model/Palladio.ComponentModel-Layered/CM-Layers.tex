@@ -1,5 +1,8 @@
 % Version history:
 % $Log$
+% Revision 1.1.2.8  2005/03/06 14:57:02  kelsaka
+% corrected errors
+%
 % Revision 1.1.2.7  2005/03/06 11:10:14  kelsaka
 % finished adding content
 %
@@ -62,7 +65,7 @@ Carl-Von-Ossietzky Universität Oldenburg}
 \label{sec:Overview}
 The Palladio component model is the meta-model for specifying component models in the context of the Palladio framework. Currently the specification of a layered logical view on basic components, components built by assembling components and component connections is supported. To gain a better understanding of the model take a closer look at figure \ref{fig:componentmodel}.
 
-As already mentioned the component model is multi-layered. It differs between a type-, implementation-, and deployment-layer to allow realistical modelling of software-systems. To give an easy introduction first the general elements (mainly at the type-level) are described.
+As already mentioned the component model is multi-layered. It differs between a type-, implementation-, and deployment-layer to allow realistical modelling of software systems. To give an easy introduction first the general elements (mainly at the type-level) are described.
 
 
 \begin{figure}[htb]
@@ -77,7 +80,7 @@ As already mentioned the component model is multi-layered. It differs between a 
 As depicted a component can be of two different types. 
 \begin{itemize}
 \item \emph{Basic Component}: A basic component can be seen as a black box entity for the component based system. There is no additional knowledge of the internal structure of those components, e.g. whether they are build from other components or not. A basic component is characterized by its interfaces as described later on.
-\item \emph{Composite Component}: A composite component is a container for other components (basic or composite). It is supposed to offer a set of interfaces belonging together, e.g., by fulfiling a complete domain task. The components which are part of a composite component are wired internally by so called connections which again are introduced later. Composite Components are just logical enitities with no physical representation.
+\item \emph{Composite Component}: A composite component is a container for other components (basic or composite). It is supposed to offer a set of interfaces belonging together, e.g., by fulfilling a complete domain task. The components which are part of a composite component are wired internally by so called connections which again are introduced later. Composite Components are just logical enitities with no physical representation.
 \end{itemize}
 
 \subsection{Roles and Interfaces}
@@ -117,9 +120,9 @@ Formally a connector is just a link between two interfaces. It is not a real own
 \subsection{Service Effect Specification}
 The Palladio component model supports the specification of so called \emph{service effect specifications} (SEFF). A service effect specification is a description of the behaviour of a single service - restricted to external interaction, i.e., if service A calls service B and C then B and C are part of the service effect specification of service A. In general the specification is represented by a finit state machine (FSM).
 
-The service effect can be seen as a special kind of interface model that is defined by the component that implements a interface. In fact not a interface has the service effect specification but a component implementation has a specification for each service provided. Chapter ref{TODO} shows at which level of the component model service effect are specified.
+The service effect can be seen as a special kind of interface model that is defined by the component that implements a interface. In fact not a interface has the service effect specification but a component's implementation has a specification for each service provided. Chapter \ref{sec:layeredModel} shows at which level of the component model service effects are specified.
 
-The main difference between an interface and a service effect specification is the type of the signatures used in the specification. With respect to the service effect specification a role identifier needs to be added to a signature to identify the external services uniquely, e.g., consider a service calling "save" on a file and on a database simultaneously. Then, in order to differentiate both of them the role identifier like "DatabaseStore" and "FileStore" are needed. This difference is not needed for interface specifications, as a signature is already identified by the interface offering the respective service.
+The main difference between an interface and a service effect specification is the type of signatures used in the specification. With respect to the service effect specification a role identifier needs to be added to a signature to identify the external services uniquely, e.g., consider a service calling "save" on a file and on a database simultaneously. Then, in order to differentiate both of them the role identifier like "DatabaseStore" and "FileStore" are needed. This difference is not needed for interface specifications, as a signature is already identified by the interface offering the respective service.
 
 An example of a service effect specification consisting of the external signatures and their calling order specified as FSM is depicted in figure \ref{fig:serviceeffect}.
 
@@ -151,27 +154,29 @@ as regular expression. Visualized as a FSM this protocol looks like depicted in 
 
 
 \subsubsection{Requires Protocol}
-The \textit{requires protocol} describes in which order external services, that are generally given by the service effect specification, are called. So requires protocols extract the calling-orders on \textit{one} interface out of the service effects, while the service effect specification defines a order of calls on a \textit{number} of interfaces. This means that mostly requires protocols are calculated. (TODO: completely understood?)
+The \textit{requires protocol} describes in which order external services, that are generally given by the service effect specification, are called. So requires protocols extract the calling-orders on \textit{one} interface out of the service effects, while the service effect specification defines a order of calls on a \textit{number} of interfaces. This means that mostly requires protocols are calculated. (TODO: completely understood? how many requires protocols exist if multiple provided interfaces are implemented?)
 
 
 \subsection{Resources}
 Resources are special entities for the deployment level of architectural modelling (see section \ref{sec:layeredModel}). They describe hardware-environments in the model.
 
 \begin{itemize}
-\item \emph{Computational}: A developed software-system uses this kind of resources for computing values and processing information. E. g. this are processors, virtual machines or even operating systems.
+\item \emph{Computational}: A developed software system uses this kind of resources for computing values and processing information. E. g. this are processors, virtual machines or even operating systems.
 
-\item \emph{Non-Computational}: Part of this class of resources are router, switches, network-cables, internet-connections. Software does not use this resources to compute, but for connection activities.
+\item \emph{Non-Computational}: Part of this class of resources are routers, switches, network-cables, internet-connections. Software does not use this resources to compute, but for connection activities.
 \end{itemize}
 
 
+
 \subsection{First Class Entities}
-The component model offers three types of \textit{first class entities}. They may exist without being connected or attached to the rest of a model. Basic Components, Interfaces and Ressources (see section TODO) are first class entities. E. g. this means it is possible to have multiple interfaces that are not connected to any components, as interface can exist by there own.
+The component model offers three types of \textit{first class entities}. They may exist without being connected or attached to the rest of a model. Basic Components, Interfaces and Ressources (see section \ref{sec:layeredModel}) are first class entities. E. g. this means it is possible to have multiple interfaces that are not connected to any components, as interface can exist by their own.
+
 
 
 \subsection{Multiple Occurrences and Identity}
 All entities in the component model have Globally Unique Indentifiers (\textit{GUID}s) to be able to decide whether they are identical or the same. This permits the modeller to name components and interfaces the same though different entities are meant. The following entities are equiped with GUIDs: Interfaces, Basic Components, Composite Components, Resources, Roles, Attributes, and ...TODO.
 
-To allow easy modelling of software architectures entities may occur multiple times. Due to the use of GUIDs e. g. interfaces can occur attached to several components at the same time. As \textit{one} interface in fact often is implemented by a lot of components a graphical representation of the model stays more clearly arranged. And as well attributes of an interface can be changed centrally. Figure \ref{fig:GUID01} shows an simple example of the use of GUIDs.
+To allow easy modelling of software architectures entities may occur multiple times. Due to the use of GUIDs e. g. interfaces can occur attached to several components at the same time. As \textit{one} interface in fact often is implemented by a lot of components a graphical representation of the model stays more clearly arranged. And as well attributes of an interface can be changed centrally. Figure \ref{fig:GUID01} shows a simple example of the use of GUIDs.
 
 \begin{figure}
 	\centering
@@ -205,11 +210,11 @@ For being able to model realistical component based software systems the compone
  
 Figure \ref{fig:meta-scheme-implementation-layers01} describes the layers of the component model. The main seperation into \textit{type}, \textit{implementation}, and \textit{deployment} is depicted vertically. To keept the complexity of the model handleable the \textit{runtime-level} is not modelled. Anyway it is possible to include runtime-information by assuming a 1:1-relation between the deployment- and runtime-level. This means, that each deployed component implicitly has exactly one runtime-instance. Runtime-informations have to be put to the deployment-level. Therefore only systems can be modelled that do not have duplicated runtime instances of a component.
 
-Horizonally the component model differs between scheme and instance of a component or interface. At the implementation-level the implementation description may contain a reference to a code artefact. To allow easy modelling a description can exist without a concrete implementation as well as a implementation without a description is supported. Sourcecode written in a different programming language or a compiled version of code always has its own description (note the 0..1 to 0..1 relation, as shown in figure \ref{fig:meta-scheme-implementation-layers01}). Depending on the programming language different descriptions are possible, whose symmetric difference (TODO: symmetrische Differenz) is not empty (e. g. if the programming languages support different constructs). So there would be not meaningful common description.
+Horizonally the component model differs between scheme and instance of a component or interface. At the implementation-level the implementation description may contain a reference to a code artefact. To allow easy modelling a description can exist without a concrete implementation as well as a implementation without a description is supported. Sourcecode written in a different programming language or a compiled version of code always has its own description (note the 0..1 to 0..1 relation, as shown in figure \ref{fig:meta-scheme-implementation-layers01}). Depending on the programming language different implementation descriptions, whose symmetrical difference (TODO: symmetrische Differenz) is not empty (e. g. if the programming languages support different constructs), are possible. So there would be no meaningful common description.
 
 Navigating at the horizonal axis generally only works from the description, using the contained reference, to the implementation.
 
-In the same way the description of the deploymentinstance has a reference to the deploymentinstance and the navigation is limited to direction from description to instance.
+In the same way the description of the deployment instance has a reference to the deployment instance and the navigation is limited to direction from description to instance.
 
 The type-level has no instance because it is a mere modelling-level with no physical representation. Because of this \textit{CompositeComponents} are covered by this level, as they \textit{logically} encapsulate a set of components and their provided and required interfaces.
 
@@ -217,7 +222,7 @@ The type-level has no instance because it is a mere modelling-level with no phys
 
 \subsection{Quality of Service}
 \label{sec:QoS}
-Quality of Service (QoS) Attributes at the \textit{type-level} depend on the following parameters:
+Quality of Service (QoS) attributes (see figure \ref{fig:meta-scheme-implementation-layers01}, right column) at the \textit{type-level} depend on the following parameters:
 
 \begin{itemize}
 
@@ -229,15 +234,15 @@ Quality of Service (QoS) Attributes at the \textit{type-level} depend on the fol
 
 \end{itemize}
 
-The more concrete a modelling-level gets, the less model-space (TODO?) is available for QoS-attributes. The \textit{implementation-level} depends on the deployment and the usage profile, whereas the \textit{deployment-level} only depends on the usage profile. At the runtime-level, which is not explicitly modeled, the QoS-Values have no parameters and can be dertermined exactly.
+The more concrete the modelling-level gets, the less model-space (TODO?) is available for QoS-attributes. \textit{Implementation-level} attributes depend on the deployment and the usage profile, whereas \textit{deployment-level} attributes only depend on the usage profile. At the runtime-level, which is not explicitly modeled, the QoS-Values have no parameters and can be determined exactly.
 
 
 
 \subsection{Modelling}
 \label{sec:Modelling}
-The supposed direction of modelling is top-down. This procedure corresponds to a consecutive refinement of the specification. The type-level has to be designed before the implementation- and deployment-level can be added. Like figure \ref{fig:attributes-example01} shows, attributes are inherited lower levels.
+The supposed direction of modelling is top-down. This procedure corresponds to a consecutive refinement of the specification. The type-level has to be designed before the implementation- and deployment-level can be added. Like figure \ref{fig:attributes-example01} shows, attributes are inherited by lower levels.
 
-If the next lower level is specified in the model, it is first initiated with inherited attributes. In the following step they can be modified. This modelling decision is based on the assumption, that implementations and deployments mostly fit excatly to their higher specification level.
+If the next lower level is specified in the model, it is first initiated with inherited attributes. In the following step they can be modified. This modelling decision is based on the assumption, that implementations and deployments mostly fit exactly to their higher specification level.
 
 The language usage for the inheritance relation from the implementation- to the type-level is characterized with the $\ll$implements$\gg$ stereotype. The relation between the deployment- and implementation-level is called $\ll$deploys$\gg$.
 
@@ -257,57 +262,57 @@ Between the layers of component specification attributes are inherited top-down 
 
 
 
-\subsubsection{Provides-Protocol}
+\subsubsection{Provides Protocol}
 At the \textit{type-layer} always a maximal protocol is defined. This protocol initially is duplicated for the \textit{implementation-layer}. Afterwards it may be \textit{extended} (e. g. using additional states and transitions like the "d1" transition in the example, figure \ref{fig:attributes-example01}). However the subtype-relation has to be fulfilled. Therefore at the type-level implementation-descriptions of the same type-description can be replaced with each other.
 
-At the \textit{deployment-level} the provides-protocol can not be modified manually, it is read-only. The effective provides-protocol is calculated from the available external services and the SEFF. If for a provided service not all external used services from the SEFF are available, because not all requires-interfaces are fulfilled, the provided services from the considered component are reduced. Only services, whose external service calls from the SEFF are fully available, can be provided. Thus only these services appear in the provided signature list and the provided protocol. So at the deployment-level components can be connected, that do not have a fully fitting protocol or signature list.
+At the \textit{deployment-level} the provides protocol can not be modified manually, it is read-only. The effective provides protocol is calculated from the available external services and the SEFF. If for a provided service not all external used services from the SEFF are available, because not all requires-interfaces are fulfilled, the provided services from the considered component are reduced. Only services, whose external service calls from the SEFF are fully available, can be provided. Thus only these services appear in the provided signature list and the provided protocol. So at the deployment-level components can be connected, that do not have a fully fitting protocol or signature list ("$required\ \subseteq \ provided$").
 
-Just correct partial automatons (TODO: Teilautomat?) (which are calculated by the procedure described above) of the provides-protocol from the implementations-layer are valid provides automatons at the deployment-level. If the calculations leads to no valid partial automaton (TODO) (the accepted language of the automaton: $L(A) = \emptyset$) no services can be offered.
+Just correct partial automatons (TODO: Teilautomat?) (which are calculated by the procedure described above) of the provides protocol from the implementation-layer are valid provides automatons at the deployment-level. If the calculations leads to no valid partial automaton (TODO) (the accepted language of the automaton is $L(A) = \emptyset$) no services can be offered.
 
 
 
-\subsubsection{Requires-Protocol}
-At the \textit{type-level} a trivial requires-protocol is assumed. It allows any order on calling external services (see figure \ref{fig:attributes-example01}). This protocol is read-only and the default protocol for all interfaces at the type-level.
+\subsubsection{Requires Protocol}
+At the \textit{type-level} a trivial requires protocol is assumed. It allows any order on calling external services (see figure \ref{fig:attributes-example01}). This protocol is read-only and the default protocol for all interfaces at the type-level.
 
-At the \textit{implementation-level} the requires-protocol is calculated from the provides-protocol and the SEFF. The calculation can be sketched (for FSMs):
+At the \textit{implementation-level} the requires protocol is calculated from the provides protocol and the SEFF. The calculation can be sketched (for FSMs):
 \begin{itemize}
 
-\item for all transitions (services) in the provides-protocol get into the SEFF, that describe the called service.
+\item for all transitions (services) in the provides protocol get into the SEFF, that describe the called service.
 
-\item for the new requires-protocol: expand the just viewed transition from the provides-protocol with all transitions from the SEFF.
+\item for the new requires protocol: expand the just viewed transition from the provides protocol with all transitions and states from the SEFF.
 
-\item assuming that $\varepsilon$-transitions are used, the initial state from the SEFF gets connected (with a $\varepsilon$-transition) with the previous state from the provides-protocol.
+\item assuming that $\varepsilon$-transitions are used, the initial state from the SEFF gets connected (with a $\varepsilon$-transition) with the previous state from the provides protocol.
 
-\item final states from the SEFF get non-final. They have to be connected to the following state from the provides-protocol (with a $\varepsilon$-transition).
+\item final states from the SEFF get non-final. They have to be connected to the following state from the provides protocol (with a $\varepsilon$-transition).
 
 \end{itemize}
 
 
-The calculation is illustrated in figure \ref{fig:requires-protocol01}. In the example a automaton with $\varepsilon$-transitions is created. At all the requires-protocol is the provides-protocol extended by the service effect specifications. This leads to quite a big automaton. 
+The calculation is illustrated in figure \ref{fig:requires-protocol01}. In the example a automaton with $\varepsilon$-transitions is created. At all the requires protocol is the provides protocol extended by the service effect specifications. This leads to quite a big automaton. 
 
 \begin{figure}[hpbt]
 	\centering
 		\includegraphics[width=1.00\textwidth]{images/requires-protocol01.pdf}
-	\caption{Example: calculating a requires-protocol}
+	\caption{Example: calculating a requires protocol}
 	\label{fig:requires-protocol01}
 \end{figure}
 
-As the requires-protocol allows any calling-sequence at the type-level the requires-protocol at the implementation-level is a limitation of sequences. For the languages of the automatons the following relation has to be valid, with language at type-level $L(A_{type})$ and language at implementation-level $L(A_{implementaion})$
+As the requires protocol allows any calling-sequence at the type-level the requires protocol at the implementation-level is a limitation of sequences. For the languages of the automatons the following relation has to be valid, with language at type-level $L(A_{type})$ and language at implementation-level $L(A_{implementaion})$
 \[
 L(A_{type}) \ \subseteq \ L(A_{implementaion}).
 \]
-The requires-protocol at the implementation-level is read-only.
+The requires protocol at the implementation-level is read-only.
 
-At the \textit{deployment-level} the requires-protocol is calculated in the same way like at the implementation level. It is read-only, too. Since the protocol is calculated from a reduces provides-protocol it may be reduced as well.
+At the \textit{deployment-level} the requires protocol is calculated in the same way like at the implementation level. It is read-only, too. Since the protocol is calculated from a reduces provides protocol it may be reduced as well.
 
 
 
 \subsubsection{Additional Attributes}
-Generally all attributes are inherited top-down. Descriptions from a lower level are specialisations from higher levels. Attributes from the type- to the imlemetation-layer have to fulfill the requirements for subtyping. So attributes may change from level to level but they have to keep consistence.
+Generally all attributes are inherited top-down. Descriptions from a lower level are specialisations from higher levels. Attributes from the type- to the implemetation-layer (stereotype $\ll$implements$\gg$) have to fulfill the requirements for subtyping. So attributes may change from level to level but they have to keep consistence.
 
 Type- and implementation-level follow the co- / contra-variance principle, that is known from programming languages like Java, C++ or C\#. This allows to model as known from these languages including subtype relations.
 
-In contrast to the first two layers the deployment-level allows to reduce attribute values or contracted attributes. By supporting this behaviour very dynamical architectures can be created, where components are exchanged. The newly created architecture can be examined, although the requires-interface it not completely fulfilled. As well components can be connected to requires-interfaces though they do not provides all required services. Please note that a component's implementation has to support such a kind of fault-tolerance. Otherwise errors might be caused.
+In contrast to the first two layers the deployment-level (stereotype $\ll$deploys$\gg$) allows to reduce attribute values or contracted attributes. This supports the dynamical exchange of components within the architecture. The newly created architecture can be examined, although the requires-interface it not completely fulfilled. As well components can be connected to requires-interfaces though they do not provides all required services. Please note that a component's implementation has to support such a kind of fault-tolerance. Otherwise errors might be caused.
 
 
 
@@ -329,11 +334,11 @@ The short notation allows to model, though only one level of the component model
 
 \subsection{Model}
 \label{sec:Model}
-The component model is realised as an abstract data type (ADT). This means that the data types have no methods except to modify the structure itself. So the component model is a pure data container for the architecutural informations and the entities attributes.
+The component model is realised as an abstract data type (ADT). This means that the data types have no methods except to modify the structure itself. So the component model is a pure data container for architectural informations and the entitie's attributes.
 
-All entities are put to a relational scheme. So the component model consists of huge n-tuples that allow free navigation across the architecture. This way is has a kind of database-character for the set of entities, which provides a direct and quick access to attributes and entities. As well a central serialization can be executed on the objects.
+All entities are put to a relational scheme. So the component model consists of n-tuples that allow free navigation across the architecture. This way is has a kind of database-character for the set of entities, which provides a direct and quick access to attributes and entities. As well a central serialization can be executed on the objects.
 
-Especially it is possible to have entities that are not connected to the rest of a architecture. Although these entities are not part of the entire model (because they are not part of the architecture), they can be caught. For the modeller this gives the possibility to design e. g. a set of components, that can be put to the architecture later on.
+Especially it is possible to have entities that are not connected to the rest of a architecture. Although these entities are not part of the entire model (because they are not part of the architecture) they can be caught. For the modeller this gives the possibility to design e. g. a set of components, that can be put to the architecture later on.
 
 The whole component model is part of a kind of "super-entity", which is a central suspension for the model. This super-entity is offering a builder (according to the builder-pattern \cite{gamma}). Therefore building complex parts of the model is fully encapsulated to the model. This makes the creational process easier for users.
 
@@ -343,18 +348,18 @@ Furthermore the component model centrally "knows" which entities exists and may 
 
 \subsection{Consistence}
 \label{sec:Consistence}
-\textit{External consistence-checks} are not part of the component model itself. As already explained above, the component model is a pure ADT. So consistence-mechanisms are performed through the "super-entity" using \textit{external} methods. This procedure allows to use different strategies (see the "strategie-pattern" in \cite{gamma}) for performing checks. As consistence might be defined quite differently no universal strategie is implemented in the model itself. External consistence-checks have to be started manually. This means that it is possible to build up models that do not fit to all available definitions of consistence. E. g. it is even possible to define contradicted checks, that can not be fulfilled at the same time. It might be easier to differ external consistence from internal consistence if it is called "\textit{validity}".
+\textit{External consistence-checks} are not part of the component model itself. As already explained above, the component model is a pure ADT. So consistence-mechanisms are performed through the "super-entity" using \textit{external} methods. This procedure allows to use different strategies (see the "strategie-pattern" in \cite{gamma}) for performing checks. As consistence might be defined quite differently no universal strategie is implemented in the model itself. External consistence-checks have to be started manually. This means that it is possible to build up models that do not fit to all available definitions of consistence. E. g. it is even possible to define contradicted checks, that can not be fulfilled at the same time.
 
-Validity-checks are imagineable for at least the following entities:
+It might be easier to differ external consistence from internal consistence if it is called "\textit{validity}". Validity-checks are imagineable for at least the following entities:
 
 \begin{itemize}
-	\item \emph{Protocols}: E. g. the accepted languages have to be subsets, or the protocols have to be exactly the same.
+	\item \emph{Protocols}: E. g. the accepted languages have to be subsets or the protocols have to be exactly the same.
 	
-	\item \emph{Signatures}: E. g. the signaturelist has to be a subset, or the signaturelist needs to match exactly.
+	\item \emph{Signatures}: E. g. the signaturelist has to be a subset or the signaturelist needs to match exactly.
 	
-	\item \emph{QoS-attributes}: E. g. all attribute have to match, or a number of QoS-attributes has to fit.
+	\item \emph{QoS-attributes}: E. g. all attribute have to match or a number of QoS-attributes has to fit.
 	
-	\item \emph{Connectors}: A strict definition might claim, that delegation connectors must be used between the same kinds of interfaces (required or provided), and assembly connector can be defined only between a provided and required interfaces that are directly compatible. Other validity-checks might define interfaces compatible if signatures and protocols are subsets ($provides\ interface \ \supseteq \ requires\ interface$). It should become clear that there is a broad field of possible definitions.
+	\item \emph{Connectors}: A strict definition might claim, that delegation connectors must be used between the same kinds of interfaces (required or provided), and assembly connectors can be defined only between a provided and required interfaces that are directly compatible. Other validity-checks might define interfaces compatible if signatures and protocols are subsets ($provides\ interface \ \supseteq \ requires\ interface$). It should become clear that there is a broad field of possible definitions.
 \end{itemize}
 
 \textit{Internal consistence} is directly granted by model. This means that interfaces cannot be interconnected, or components have to use interfaces for connections. The model grants a valid architectural structure. Other constructions are not possible.
@@ -370,10 +375,10 @@ Strategies are used for equals-checks as well. Possible strategies for equals-ch
 	
 	\item \emph{GUID}: It is checked whether the GUIDs of two objects match.
 	
-	\item \emph{Deep}: E. g. composite components are recursively checked for identical signaturelists, implemented interfaces, roles, internal SEFFs and so on. Only if all subcomponents fit to objects / components are equal.
+	\item \emph{Deep}: E. g. composite components are recursively checked for identical signaturelists, implemented interfaces, roles, internal SEFFs and so on. Only if all subcomponents fit objects / components are equal.
 \end{itemize}
 
-E. g. the equals strategie is used for hashtables as well. Only if the actual definition of equals meets objects are returned.
+E. g. the equals strategie is used for hashtables. Only if the actual definition of equals meets, objects are returned.
 
 
 
