@@ -13,6 +13,7 @@ namespace Cache
 		protected DateTime lastTimeRequested;
 		protected DateTime lastTimeModified;
 		protected string id;
+		protected bool obsolete;
 
 
 		public CacheEntry()
@@ -20,8 +21,9 @@ namespace Cache
 			this.timesVisited =0;
 			this.LastTimeModified = DateTime.MinValue;
 			this.lastTimeRequested = DateTime.Now;
+			this.obsolete = false;
+			StartEntryLifeCycle();
 		}
-
 		public string ID
 		{
 			get{return this.id;}
@@ -67,5 +69,26 @@ namespace Cache
 			get{return this.lastTimeRequested;}
 		}
 
+
+		internal void StartEntryLifeCycle()
+		{
+			System.Timers.Timer t = new System.Timers.Timer();
+			t.Elapsed += new System.Timers.ElapsedEventHandler(ReactOnTimeElapsed);
+			//t.Elapsed += new System.Timers.ElapsedEventHandler(
+			t.Interval = 20000;
+			t.AutoReset = false;
+			t.Start();
+		}
+
+		internal void ReactOnTimeElapsed(object o,System.Timers.ElapsedEventArgs e)
+		{
+			Console.WriteLine("Time is over Update Cache");
+			this.obsolete = true;
+		}
+
+		public bool EntryObsolete
+		{
+			get{return this.obsolete;}	
+		}
 	}
 }
