@@ -19,22 +19,7 @@ namespace FSM
 		public CPState()
 		{
 		}
-		/// <summary>
-		/// Copy Konstruktor
-		/// </summary>
-		/// <param name="state"></param>
-//		public CPState(State state)
-//		{
-////			
-//			this.name = state.getName();
-//			this.finalState = state.getFinal();
-//			this.startState = state.getStart();
-////				throw new InvalidStateException();
-//
-//
-//			
-//			//CPState newState = (CPState) state;
-//		}
+
 		public CPState(CPState state)
 		{
 			
@@ -117,6 +102,18 @@ namespace FSM
 				}
 			}
 			return false;
+		}
+		public static bool operator == (CPState one, CPState two)
+		{
+			return one.Equals(two);
+		}
+		public static bool operator !=(CPState one, CPState two)
+		{
+			return !one.Equals(two);
+		}
+		public override int GetHashCode()
+		{
+			return getName().GetHashCode();
 		}
 	}
 }

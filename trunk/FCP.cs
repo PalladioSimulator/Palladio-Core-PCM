@@ -90,8 +90,8 @@ namespace FSM
 //								continue;
 //							}
 							Console.WriteLine("in selfpointing folling transition set: "+"\n"
-								+new Transition(sps.getState(),i,sps.getState()));
-							this.cp.setTransition(sps.getState(),i,sps.getState());
+								+new Transition(sps,i,sps));
+							this.cp.setTransition(sps,i,sps);
 							this.oneStates.Pop();
 							this.twoStates.Pop();
 							continue;

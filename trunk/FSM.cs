@@ -441,8 +441,14 @@ namespace FSM
 					Set tmp = (Set) this.transitions[tr.fromState];
 					tmp.Add(tr);
 					this.transitions.Remove(tr.fromState);
-					this.transitions.Add(tr.fromState,tmp);
+					try
+					{
+						this.transitions.Add(tr.fromState,tmp);
+					}
+					catch(ArgumentException)
+					{}
 					this.inputAl.Add(tr.input);
+
 				}
 			}
 		}
