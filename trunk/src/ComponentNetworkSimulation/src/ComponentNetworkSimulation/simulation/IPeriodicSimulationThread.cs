@@ -1,4 +1,5 @@
 using System;
+using ComponentNetworkSimulation.Structure;
 
 namespace ComponentNetworkSimulation.Simulation
 {
@@ -9,13 +10,16 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/19 16:00:23  joemal
+	/// - now this interface extends ISimulationThread
+	///
 	/// Revision 1.2  2004/05/26 16:29:54  joemal
 	/// add cvs log tag
 	///
 	/// 
 	/// </pre>
 	/// </remarks>
-	public interface IPeriodicSimulationThread
+	public interface IPeriodicSimulationThread : ISimulationThread
 	{
 		#region events
 		
@@ -43,18 +47,14 @@ namespace ComponentNetworkSimulation.Simulation
 		{
 			get;
 		}
-		#endregion
-
-		#region methods
 
 		/// <summary>
-		/// This method creates a new thread with same periodID, firstTimeConsumer, observer and periodLength like this one.
-		/// It is called when the scheduler is notified to create a new thread.
+		/// return the startingpoint of this thread in order to create new one from the same one.
 		/// </summary>
-		/// <param name="newThreadID">The id of the new thread.</param>
-		/// <returns>the new thread</returns>
-		ISimulationThread CreateFollowingThread(int newThreadID);
-
+		IThreadStartingPoint StartingPoint
+		{
+			get;
+		}
 		#endregion
 	}
 }
