@@ -16,6 +16,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/05/12 13:28:37  sbecker
+	/// Fixed a small wrong signature in the input and state hash
+	///
 	/// Revision 1.2  2004/05/12 12:56:15  sbecker
 	/// Added documentation and CVS log
 	///
@@ -91,7 +94,7 @@ namespace Palladio.FiniteStateMachines
 			}
 			else
 			{
-				/// TODO!!!
+				// TODO!!!
 				return null;
 			}
 		}
@@ -108,7 +111,7 @@ namespace Palladio.FiniteStateMachines
 
 			foreach (string str in anIDArray)
 			{
-				result.Add(str,CreateDefaultInput(str));
+				result.Add(CreateDefaultInput(str));
 			}
 			return result;
 		}
@@ -125,7 +128,7 @@ namespace Palladio.FiniteStateMachines
 
 			foreach (string str in anIDArray)
 			{
-				result.Add(str,CreateDefaultState(str));
+				result.Add(CreateDefaultState(str));
 			}
 			return result;
 		}
