@@ -43,14 +43,14 @@ namespace FSM {
 		/// <summary>
 		///Checks the condition for the so far read prefix.
 		/// </summary>
-		public abstract bool CheckPrefix(){
+		public bool CheckPrefix(){
 			return ( currentDistance >= requiredDistance );
 		}
 
 		/// <summary>
 		/// Checks the condition for the read input, assuming that it is a terminal word.
 		/// </summary>
-		public abstract bool CheckTerminalWord(){
+		public bool CheckTerminalWord(){
 			return ( currentDistance == requiredDistance);
 		}
 
