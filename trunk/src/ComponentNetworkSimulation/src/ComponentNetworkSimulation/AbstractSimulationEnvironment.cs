@@ -39,7 +39,7 @@ namespace ComponentNetworkSimulation
 		/// </summary>
 		public AbstractSimulationEnvironment()
 		{
-			this.Inilize();
+			this.InternalInilize();
 		}
 
 		#endregion
@@ -47,8 +47,18 @@ namespace ComponentNetworkSimulation
 		#region methods
 
 		/// <summary>
+		/// this method is called by the constructor. Required inilizations are done in this method.
+		/// </summary>
+		private void InternalInilize()
+		{
+			Clock.ClockLogEvent += new LogEventHandler(DataPool.OnLogEvent);
+			Clock.ThreadScheduler.ThreadLogEvent += new LogEventHandler(DataPool.OnLogEvent);
+			this.Inilize();
+		}
+
+		/// <summary>
 		/// called by the constructor in order to let the implementing classes inilize the clock, the componentnetwork
-		/// and the datapool. Refere to the components using the properties TheClock, TheComponentNetwork and TheDataPool.
+		/// and the datapool. Refere to the components using the properties Clock, ComponentNetwork and DataPool.
 		/// </summary>
 		protected virtual void Inilize()
 		{

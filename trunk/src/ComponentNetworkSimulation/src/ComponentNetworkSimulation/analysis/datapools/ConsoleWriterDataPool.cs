@@ -70,19 +70,19 @@ namespace ComponentNetworkSimulation.Analysis.Datapools
 		{
 			if (eventArgs.TheType == ThreadLogEventArgs.EventType.THREAD_CREATED) 
 			{
-				if (eventArgs.TheThread is IPeriodicSimulationThread)
-					PrintLog("ThreadLog -> Periodic Thread("+eventArgs.TheThread.ThreadID+
-						","+((IPeriodicSimulationThread)eventArgs.TheThread).PeriodID+") created.");
+				if (eventArgs.SimulationThread is IPeriodicSimulationThread)
+					PrintLog("ThreadLog -> Periodic Thread("+eventArgs.SimulationThread.ThreadID+
+						","+((IPeriodicSimulationThread)eventArgs.SimulationThread).PeriodID+") created.");
 				else
-					PrintLog("ThreadLog -> Thread("+eventArgs.TheThread.ThreadID+") created.");
+					PrintLog("ThreadLog -> Thread("+eventArgs.SimulationThread.ThreadID+") created.");
 			}
 			else if (eventArgs.TheType == ThreadLogEventArgs.EventType.THREAD_REACHED_END) 
-				PrintLog("ThreadLog -> Thread("+eventArgs.TheThread.ThreadID+") reached its end.");
+				PrintLog("ThreadLog -> Thread("+eventArgs.SimulationThread.ThreadID+") reached its end.");
 			else if (eventArgs.TheType == ThreadLogEventArgs.EventType.THREAD_ENTERED_TIMECONSUMER) 
-				PrintLog("ThreadLog -> Thread("+eventArgs.TheThread.ThreadID+") entered TimeConsumer "+
-					eventArgs.TheTimeConsumer);
+				PrintLog("ThreadLog -> Thread("+eventArgs.SimulationThread.ThreadID+") entered TimeConsumer "+
+					eventArgs.TimeConsumer);
 			else if (eventArgs.TheType == ThreadLogEventArgs.EventType.THREAD_EXITED_TIMECONSUMER) 
-				PrintLog("ThreadLog -> Thread("+eventArgs.TheThread.ThreadID+") exited TimeConsumer "+eventArgs.TheTimeConsumer);
+				PrintLog("ThreadLog -> Thread("+eventArgs.SimulationThread.ThreadID+") exited TimeConsumer "+eventArgs.TimeConsumer);
 		}
 
 		/// <summary>

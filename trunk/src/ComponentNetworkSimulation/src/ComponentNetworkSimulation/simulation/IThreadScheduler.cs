@@ -1,4 +1,6 @@
 using System;
+
+using ComponentNetworkSimulation.Analysis;
 using ComponentNetworkSimulation.structure;
 
 namespace ComponentNetworkSimulation.Simulation
@@ -34,6 +36,11 @@ namespace ComponentNetworkSimulation.Simulation
 		/// This event is fired, if no more threads are alive
 		/// </summary>
 		event EventHandler NoMoreThreadsAliveEvent;
+
+		/// <summary>
+		/// this event is fired, if a thread wants to log something
+		/// </summary>
+		event LogEventHandler ThreadLogEvent;
 
 		#endregion events
 

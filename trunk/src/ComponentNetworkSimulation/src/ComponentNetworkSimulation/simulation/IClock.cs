@@ -1,4 +1,5 @@
 using System;
+using ComponentNetworkSimulation.Analysis;
 
 namespace ComponentNetworkSimulation.Simulation
 {
@@ -30,6 +31,11 @@ namespace ComponentNetworkSimulation.Simulation
 		/// This event is fired, when the clock was reseted.
 		/// </summary>
 		event EventHandler ClockResetEvent;
+
+		/// <summary>
+		/// This event is fired, when the clock wants something to be logged by the datapool
+		/// </summary>
+		event LogEventHandler ClockLogEvent;
 
 		#endregion
 

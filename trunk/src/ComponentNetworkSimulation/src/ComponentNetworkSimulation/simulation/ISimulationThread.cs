@@ -48,6 +48,14 @@ namespace ComponentNetworkSimulation.Simulation
 			get;
 		}
 
+		/// <summary>
+		/// returns the type of the thread
+		/// </summary>
+		SimulationThreadType TheType
+		{
+			get;
+		}
+
 		#endregion
 
 		#region methods

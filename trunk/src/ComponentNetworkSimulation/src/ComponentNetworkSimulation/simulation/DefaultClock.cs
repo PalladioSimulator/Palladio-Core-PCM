@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
+
 using ComponentNetworkSimulation;
 using ComponentNetworkSimulation.structure;
-using System.Collections;
+using ComponentNetworkSimulation.Analysis;
 
 namespace ComponentNetworkSimulation.Simulation
 {
@@ -29,6 +31,11 @@ namespace ComponentNetworkSimulation.Simulation
 		/// This event is fired, when the clock was reseted.
 		/// </summary>
 		public event EventHandler ClockResetEvent;
+
+		/// <summary>
+		/// This event is fired, when the clock wants something to be logged by the datapool
+		/// </summary>
+		public event LogEventHandler ClockLogEvent;
 
 		#endregion
 
@@ -77,6 +84,7 @@ namespace ComponentNetworkSimulation.Simulation
 			this.maxSimulationTime = maxSimulationTime;
 			this.simulationEnvironment = simulationEnvironment;
 			this.scheduler = this.CreateScheduler();
+			this.scheduler.NoMoreThreadsAliveEvent += new EventHandler(this.OnNoMoreThreadsAliveEvent);
 		}
 
 		#endregion
@@ -172,6 +180,8 @@ namespace ComponentNetworkSimulation.Simulation
 		{
             if (TimeStepEvent != null)
 				TimeStepEvent(this,new TimeStepEventArgs(timeStep,this.currentTime));
+			NotifyClockLogEvent("Clock does a timestep with length "+timeStep,
+				ClockLogEventArgs.EventType.CLOCK_STEP,timeStep);
 		}
 
 		/// <summary>
@@ -181,15 +191,40 @@ namespace ComponentNetworkSimulation.Simulation
 		{
 			if (MaxTimeReachedEvent != null)
 				MaxTimeReachedEvent(this,EventArgs.Empty);
+
+			NotifyClockLogEvent("Simulation ended. Clock reached maximum simulation time.",
+				ClockLogEventArgs.EventType.CLOCK_REACHED_MAXTIME,0);
 		}
 
 		/// <summary>
-		/// called, when the clock was reset, in order to fire an event.
+		/// called, when the clock was reseted, in order to fire an event.
 		/// </summary>
 		protected virtual void NotifyClockResetEvent()
 		{
 			if (ClockResetEvent != null)
 				ClockResetEvent(this,EventArgs.Empty);
+
+			NotifyClockLogEvent("Clock reseted.",ClockLogEventArgs.EventType.CLOCK_RESET,0);
+		}
+
+		/// <summary>
+		/// called, when the clock wants the datapool to log something
+		/// </summary>
+		protected virtual void NotifyClockLogEvent(String message, ClockLogEventArgs.EventType type, long timeStep)
+		{
+			if (ClockLogEvent != null)
+				ClockLogEvent(this,new ClockLogEventArgs(message,this,type,timeStep));
+		}
+
+		/// <summary>
+		/// called by the scheduler, when no more threads are alive.
+		/// </summary>
+		/// <param name="sender">the scheduler</param>
+		/// <param name="args">the eventargs</param>
+		private void OnNoMoreThreadsAliveEvent(object sender,EventArgs args)
+		{
+			NotifyClockLogEvent("Simulation ended. There are no more threads alive.",
+				ClockLogEventArgs.EventType.CLOCK_NO_MORE_THREADS,0);
 		}
 
 		#endregion

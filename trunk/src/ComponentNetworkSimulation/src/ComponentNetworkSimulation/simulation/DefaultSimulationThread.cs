@@ -129,6 +129,14 @@ namespace ComponentNetworkSimulation.Simulation
 			get {return threadId;}
 		}
 
+		/// <summary>
+		/// returns the thread type
+		/// </summary>
+		public SimulationThreadType TheType
+		{
+			get {return this.type;}
+		}
+
 		#endregion properties
 
 		#region methods

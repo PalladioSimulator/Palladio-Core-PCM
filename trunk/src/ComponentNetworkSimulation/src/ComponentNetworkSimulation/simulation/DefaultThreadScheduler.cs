@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using ComponentNetworkSimulation.Analysis;
 using ComponentNetworkSimulation.structure;
 
 namespace ComponentNetworkSimulation.Simulation
@@ -32,6 +33,11 @@ namespace ComponentNetworkSimulation.Simulation
 		/// This event is fired, if no more threads are alive
 		/// </summary>
 		public event EventHandler NoMoreThreadsAliveEvent;
+
+		/// <summary>
+		/// this event is fired, if a thread wants to log something
+		/// </summary>
+		public event LogEventHandler ThreadLogEvent;
 
 		#endregion events
 
@@ -194,7 +200,7 @@ namespace ComponentNetworkSimulation.Simulation
 				thread.TimeMoved(timeStep);		
 
 			this.InsertPrepairedThreads();
-			this.clearDeadThreads();
+			this.ClearDeadThreads();
 			if (!this.IsAnyThreadAlive)	NotifyNoMoreThreadsAliveEvent();
 
 			return timeStep;
@@ -244,7 +250,7 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <summary>
 		/// called by MoveTime(...) to remove dead threads from ThreadList.
 		/// </summary>
-		private void clearDeadThreads()
+		private void ClearDeadThreads()
 		{
 			int i=0;
 			while (i<simulationThreads.Count) 
@@ -268,6 +274,8 @@ namespace ComponentNetworkSimulation.Simulation
 		{
 			if (ThreadCreatedEvent != null)
 				ThreadCreatedEvent(this,new ThreadLifeCycleEventArgs(theThread));
+			NotifyThreadLogEvent("A new thread was created.",theThread,ThreadLogEventArgs.EventType.THREAD_CREATED,
+				theThread.CurrentTimeConsumer);
 		}
 
 		/// <summary>
@@ -278,6 +286,8 @@ namespace ComponentNetworkSimulation.Simulation
 		{
 			if (ThreadDestroyedEvent != null)
 				ThreadDestroyedEvent(this,new ThreadLifeCycleEventArgs(theThread));
+
+			NotifyThreadLogEvent("A thread was destroyed.",theThread,ThreadLogEventArgs.EventType.THREAD_REACHED_END,null);
 		}
 
 		/// <summary>
@@ -291,6 +301,19 @@ namespace ComponentNetworkSimulation.Simulation
 		}
 
 		/// <summary>
+		/// called by a thread, if it wants to log something.
+		/// </summary>
+		/// <param name="previousTimeConsumer">the previous timeconsumer</param>
+		/// <param name="simulationThread">the simulationthread that fired this event</param>
+		/// <param name="type">the type of event</param>
+		protected virtual void NotifyThreadLogEvent(String message, ISimulationThread simulationThread, 
+			ThreadLogEventArgs.EventType type, ITimeConsumer timeConsumer)
+		{
+            if (ThreadLogEvent != null)
+				ThreadLogEvent(this,new ThreadLogEventArgs(message,simulationThread,type,timeConsumer));
+		}
+
+		/// <summary>
 		/// this method delegates the NextTCEvents of each thread to the listed eventhandlers 
 		/// </summary>
 		/// <param name="sender"></param>
@@ -299,6 +322,39 @@ namespace ComponentNetworkSimulation.Simulation
 		{
 			if (NextTCEvent != null)
 				NextTCEvent(sender,eventArgs);
+
+			NotifyThreadLogEvent((ISimulationThread)sender, eventArgs.PreviousTimeConsumer, eventArgs.CurrentTimeConsumer);
+		}
+
+		/// <summary>
+		/// called by OnNextTCEvent. This method determs by the threadtype, if the event has to be logged.
+		/// </summary>
+		/// <param name="simulationThread">the thread that changed the timconsumer</param>
+		/// <param name="previousTimeConsumer">the previous timeconsumer</param>
+		/// <param name="currentTimeConsumer">the current timeconsumer</param>
+		private void NotifyThreadLogEvent(ISimulationThread simulationThread, ITimeConsumer previousTimeConsumer,
+			ITimeConsumer currentTimeConsumer)
+		{
+			if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_NOTHING) 
+				return;
+			else
+			{
+				if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_ALL || 
+					previousTimeConsumer.getLoggingType() == LoggingType.LOG_ON_EXIT ||
+					previousTimeConsumer.getLoggingType() == LoggingType.LOG_BOTH)
+				{
+					NotifyThreadLogEvent("Thread exited TimeConsumer.",simulationThread,
+						ThreadLogEventArgs.EventType.THREAD_EXITED_TIMECONSUMER,previousTimeConsumer);
+				}
+
+				if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_ALL || 
+					previousTimeConsumer.getLoggingType() == LoggingType.LOG_ON_ENTER ||
+					previousTimeConsumer.getLoggingType() == LoggingType.LOG_BOTH)
+				{
+					NotifyThreadLogEvent("Thread entered TimeConsumer.",simulationThread,
+						ThreadLogEventArgs.EventType.THREAD_EXITED_TIMECONSUMER,currentTimeConsumer);
+				}
+			}
 		}
 
 		/// <summary>
