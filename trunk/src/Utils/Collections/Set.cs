@@ -11,6 +11,9 @@ namespace Palladio.Utils.Collections
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.5  2004/06/04 01:51:52  sliver
+	/// modified SetwiseEquals
+	///
 	/// Revision 1.4  2004/06/02 18:41:26  sbecker
 	/// Fixed docu
 	///
@@ -137,16 +140,25 @@ namespace Palladio.Utils.Collections
 		/// <param name="a">Array A</param>
 		/// <param name="b">Array B</param>
 		/// <returns>true if Array A is equal to Array B if both are taken as sets</returns>
-		public static bool SetwiseEquals(object[] a, object[] b)
+		public static bool SetwiseEquals(IEnumerable a, IEnumerable b)
 		{
 			return CheckSubset(a,b) && CheckSubset(b,a);
 		}
 
-		private static bool CheckSubset(object[] a, object[] b)
+		private static bool CheckSubset(IEnumerable a, IEnumerable b)
 		{
 			foreach (object a_o in a)
 			{
-				if (System.Array.IndexOf(b,a_o) < 0)
+				bool found = false;
+				foreach(object b_o in b)
+				{
+					if (a_o.Equals(b_o))
+					{
+						found = true;
+						break;
+					}
+				}
+				if (!found)
 					return false;
 			}
 			return true;
