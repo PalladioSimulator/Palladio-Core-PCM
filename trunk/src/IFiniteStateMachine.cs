@@ -10,6 +10,17 @@ namespace Palladio.FiniteStateMachines {
 	///     
 	///     author: JH
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3  2004/05/12 13:40:19  sbecker
+	/// Added documentation and CVS log
+	///
+	///
+	/// </pre>
+	/// </remarks>
 	public interface IFiniteStateMachine : ICloneable 
 	{
 		/// <summary>

@@ -7,6 +7,17 @@ namespace Palladio.FiniteStateMachines
 	/// <summary>
 	/// Interface for states used by all FSMs.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/05/12 13:40:19  sbecker
+	/// Added documentation and CVS log
+	///
+	///
+	/// </pre>
+	/// </remarks>
 	public interface IState : IVisitable
 	{
 		/// <summary>
@@ -15,8 +26,8 @@ namespace Palladio.FiniteStateMachines
 		string ID { get; }
 
 		/// <summary>
-		/// Get or set the payload of this state. The payload is used to characterize 
-		/// this state in a given client application.
+		/// A list of attributes attached to this state. The attributes are stored in a 
+		/// hashmap hashing the ID of the attribute to the respective value.
 		/// </summary>
 		Hashtable AttributeTable { get; }
 

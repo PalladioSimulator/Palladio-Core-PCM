@@ -16,6 +16,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/05/12 13:40:19  sbecker
+	/// Added documentation and CVS log
+	///
 	/// Revision 1.4  2004/05/12 13:33:45  sliver
 	/// Comments for the exceptions added
 	///
@@ -162,24 +165,7 @@ namespace Palladio.FiniteStateMachines
 #endif
 			return result;
 		}
-
-
-		/// <summary>
-		///		Creates a new finite state machine using an array of transitions.
-		/// </summary>
-		/// <param name="aTransitionList">
-		///		All transitions of the finite state machine.
-		///	</param>
-		///	<returns>
-		///		
-		///	</returns>
-		public IFiniteStateMachine CreateFSM(IList aTransitionList)
-		{
-			// return new TabularFSM(aTransitionList); 
-			return null;
-		}
-
-		
+	
 #if false
 		/// <summary>
 		/// Minimizes a given FiniteStateMachine
