@@ -1,0 +1,43 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[OT1]{fontenc}
+\usepackage{ngerman}
+\usepackage[latin1]{inputenc}
+\usepackage{graphics}
+\usepackage{fancyhdr}
+\usepackage{epsfig}
+% nur für linux's pdflatex
+%\usepackage{pdfpages}
+
+\begin{document}
+
+% Kopfzeile mit Kapitel
+\renewcommand{\sectionmark}[1]{\markleft{#1}{}}
+\pagestyle{fancyplain}
+\rhead{\footnotesize\thepage}
+\lhead{\footnotesize\leftmark}
+\cfoot{}
+
+%Titelseite
+\begin{titlepage}
+\title{\includegraphics[width=7cm]{../res/uniol.jpg}\\ \vspace{2cm}				
+			\textbf{Entwicklung eines Frameworks zur Simulation von Komponentennetzwerken\\}
+			{ \large Ausarbeitung zum Individuellen Projekt\\ \vspace{2cm}}}
+			
+\author{Marko Hoyer\\Hans-Fleischer Straße 29-31\\26133 Oldenburg\\
+				Marko.Hoyer@informatik.uni-oldenburg.de}
+
+\maketitle
+
+\vspace{2cm}
+\textbf{Betreuer: } \parbox[t]{7cm}{Jun.-Prof. Dr. Ralf Reussner\\Dipl.-Wirtsch.-Inform. Steffen Becker}
+
+\thispagestyle{empty}
+\end{titlepage}
+
+%Inhaltsverzeichnis
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+
+\end{document}
