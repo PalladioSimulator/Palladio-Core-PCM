@@ -2,6 +2,8 @@ using System;
 using System.Reflection;
 using Palladio.Attributes;
 using Palladio.FiniteStateMachines;
+using System.Collections;
+using Palladio.Utils.Collections;
 
 namespace Palladio.ComponentModel.Signature
 {
@@ -34,7 +36,7 @@ namespace Palladio.ComponentModel.Signature
 		/// </summary>
 		public IParameter[] Parameters
 		{ 
-			get { return parameters; } 
+			get { return (IParameter[])parameters.ToArray(typeof(IParameter)); } 
 		}
 		
 		public string RoleID {
@@ -44,9 +46,7 @@ namespace Palladio.ComponentModel.Signature
 		}
 		
 		public IType[] Exceptions {
-			get {
-				return exceptions;
-			}
+			get { return (IType[])exceptions.ToArray(typeof(IType)); }
 		}
 		public IAttributeHash Attributes {
 			get {
@@ -104,11 +104,13 @@ namespace Palladio.ComponentModel.Signature
 		public override int GetHashCode()
 		{
 			return	
+				(
 				(RoleID != null ? RoleID.GetHashCode()	: 0) ^ 
 				(Name		!= null ? Name.GetHashCode() : 0) ^ 
-				(ReturnType != null ? ReturnType.GetHashCode() : 0) ^ 
-				(Parameters != null ? Parameters.GetHashCode() : 0) ^ 
-				(Exceptions != null ? Exceptions.GetHashCode() : 0);
+				(ReturnType != null ? ReturnType.GetHashCode() : 0) ^
+				(parameters != null ? parameters.GetHashCode() : 0) ^
+				(exceptions != null ? exceptions.GetHashCode() : 0) 
+				);
 		}
 
 		public override string ToString()
@@ -153,10 +155,8 @@ namespace Palladio.ComponentModel.Signature
 			roleID = aRoleID;
 			type = aType;
 			name = aName;
-			parameters = new IParameter[aParamArray.Length];
-			aParamArray.CopyTo(parameters,0);
-			exceptions = new IType[anExceptArray.Length];
-			anExceptArray.CopyTo(exceptions,0);
+			parameters = new Vector(aParamArray);
+			exceptions = new Set(anExceptArray);
 		}
 
 		/// <summary>
@@ -174,8 +174,8 @@ namespace Palladio.ComponentModel.Signature
 		private string name;
 		private string roleID;
 		private IType  type;
-		private IParameter[] parameters;
-		private IType[] exceptions;
+		private Vector parameters;
+		private Set exceptions;
 		private IAttributeHash attributes;
 
 		#endregion
