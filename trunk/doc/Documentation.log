@@ -1,0 +1,22 @@
+Microsoft HTML Help Compiler 4.74.8702
+
+Compiling c:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\MySmallWebServer\doc\Documentation.chm
+
+HHC4006: Warning: The file "MySmallWebServer.ClientResponse.ClientRequest.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "MySmallWebServer.ClientResponse.Method.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "MySmallWebServer.ClientResponse.MineType.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "MySmallWebServer.ClientResponse.StatusCode.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "MySmallWebServer.FileID.FileExtension.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "MySmallWebServer.UsedFile.FormularContent.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "MySmallWebServer.ExternalApplication.ExternalClientResponse.FilteredInput.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "MySmallWebServer.ExternalApplication.ExternalClientResponse.StatusCode.html" is already listed in the [FILES] section of the project file.
+
+Compile time: 0 minutes, 7 seconds
+212	Topics
+1,276	Local links
+0	Internet links
+7	Graphics
+
+
+Created c:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\MySmallWebServer\doc\Documentation.chm, 88,193 bytes
+Compression decreased file by 440,929 bytes.

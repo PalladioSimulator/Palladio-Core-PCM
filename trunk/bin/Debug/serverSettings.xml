@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<serverSettings>
+<serverRoot>C:\MyPersonalwebServerData\\</serverRoot>
+<defaultFile>index.html</defaultFile>
+<port>80</port>
+
+
+<MineTypes>
+	<aMineType>
+		<fileExtension>.html</fileExtension> 
+		<type>text/html</type>
+	</aMineType>
+
+	<aMineType>
+		<fileExtension>.htm</fileExtension> 
+		<type>text/html</type>
+	</aMineType>
+
+	<aMineType>
+		<fileExtension>.gif</fileExtension> 
+		<type>image/gif</type>
+	</aMineType>
+
+	<aMineType>
+		<fileExtension>.gif</fileExtension> 
+		<type>image/bmp</type>
+	</aMineType>
+</MineTypes>
+<VDirs>
+	<Vdir>
+		<RequestedDir>/</RequestedDir>
+		<realDir>C:\MyPersonalwebServerData/</realDir> 
+	</Vdir>
+	<VDir>
+		<requestedDir>/test/</requestedDir>
+		<realDir>C:\MyPersonalwebServerData\pic/</realDir>
+	</VDir>
+</VDirs>
+</serverSettings>
