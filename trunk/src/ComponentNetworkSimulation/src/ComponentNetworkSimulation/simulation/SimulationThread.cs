@@ -108,7 +108,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// this time contains the difference between the simulation time and the threads current state time.
 		/// </summary>
-		public long TimeInFuture 
+		public virtual long TimeInFuture 
 		{
 			get{ return timeInFuture;}
 		}
@@ -116,9 +116,9 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// is true, if the thread already has following timeconsumers 
 		/// </summary>
-		public bool IsAlive 
+		public virtual bool IsAlive 
 		{
-			get {return currentTimeConsumer != null;}
+			get {return this.HasAnyTimeConsumer();}
 		}
 
 		/// <summary>
@@ -137,8 +137,10 @@ namespace ComponentNetworkSimulation.simulation
 		/// called to move the timeline.
 		/// </summary>
 		/// <param name="time">The timestep to be moved.</param>
-		public void TimeMoved(long time) 
+		public virtual void TimeMoved(long time) 
 		{
+			if (!HasAnyTimeConsumer()) return;
+			
 			timeInFuture -= time;
 			NotifyTimeStepEvent(time);
 			if (timeInFuture <= 0) NextTimeConsumer();
@@ -150,7 +152,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// </summary>
 		protected void NextTimeConsumer()
 		{
-			if (!IsAlive) return;
+			if (!HasAnyTimeConsumer()) return;
 
 			if (!currentTimeConsumer.hasNextTimeConsumer()) 
 			{
@@ -165,6 +167,15 @@ namespace ComponentNetworkSimulation.simulation
 			timeInFuture = currentTimeConsumer.getUsedTime();
 
 			NotifyNextTCEvent(previous);
+		}
+
+		/// <summary>
+		/// returns true, if any timeconsumer is set to currentTimeConsumer
+		/// </summary>
+		/// <returns>true, if the thread is alive.</returns>
+		protected bool HasAnyTimeConsumer()
+		{
+			return currentTimeConsumer != null;
 		}
 
 		/// <summary>

@@ -31,8 +31,7 @@ namespace nunittests.simulation
 			scheduler.CreateSimulationThread(Component.createPath1(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
 			while (scheduler.IsAnyThreadAlive) 
 			{
-				long time = scheduler.GetShortestFutureTime();
-				scheduler.MoveTime(time);
+				scheduler.SimulationStep(long.MaxValue);
 			}
 		}
 
@@ -45,8 +44,7 @@ namespace nunittests.simulation
 
 			while (scheduler.IsAnyThreadAlive) 
 			{
-				long time = scheduler.GetShortestFutureTime();
-				scheduler.MoveTime(time);
+				scheduler.SimulationStep(long.MaxValue);
 			}
 		}
 
@@ -60,13 +58,25 @@ namespace nunittests.simulation
 
 			while (scheduler.IsAnyThreadAlive) 
 			{
-				long time = scheduler.GetShortestFutureTime();
-				scheduler.MoveTime(time);
+				scheduler.SimulationStep(long.MaxValue);
 				if (!flag)
 				{
 					scheduler.CreateSimulationThread(Component.createPath2(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
 					flag = true;
 				}
+			}
+		}
+
+		[Test]
+		public void TestPeriodicThread()
+		{
+			scheduler.Reset();
+			scheduler.CreateSimulationThread(Component.createPath1(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS,3);
+			long simTime = 0;
+
+			while (scheduler.IsAnyThreadAlive && simTime < 40) 
+			{
+				simTime += scheduler.SimulationStep(long.MaxValue);
 			}
 		}
 

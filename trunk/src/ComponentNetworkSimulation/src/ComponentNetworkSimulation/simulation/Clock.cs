@@ -147,14 +147,14 @@ namespace ComponentNetworkSimulation.simulation
 		/// or there are no more thread alive.</returns>
 		public bool SimulationStep() 
 		{
+
 			if (IsMaxTimeReached || !scheduler.IsAnyThreadAlive) return false;
+			
+			long curStep = scheduler.SimulationStep(maxSimulationTime-currentTime);
+			currentTime += curStep;
 
-			long shortestFutureTime = scheduler.GetShortestFutureTime();
-			if (currentTime + shortestFutureTime > maxSimulationTime) shortestFutureTime = maxSimulationTime - currentTime;			
-			scheduler.MoveTime(shortestFutureTime);
-			currentTime += shortestFutureTime;
+			NotifyTimeStepEvent(curStep);
 
-			NotifyTimeStepEvent(shortestFutureTime);
 			if (currentTime == maxSimulationTime) NotifyMaxTimeReachedEvent();
 
 			return scheduler.IsAnyThreadAlive && !IsMaxTimeReached;

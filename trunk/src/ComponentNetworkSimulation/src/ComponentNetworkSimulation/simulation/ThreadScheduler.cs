@@ -53,9 +53,15 @@ namespace ComponentNetworkSimulation.simulation
 		protected int periodIDCounter = 0;
 		
 		/// <summary>
+		/// this list is filled with new threads while scheduling one timestep. Before the starting the next timestep,
+		/// the threads are added through the threadlist.
+		/// </summary>
+		private IList prepairedSimulationThreads = new ArrayList();
+
+		/// <summary>
 		/// this list holds all SimulationThreads
 		/// </summary>
-		protected IList simulationThreads = new ArrayList();
+		private IList simulationThreads = new ArrayList();
 
 		/// <summary>
 		/// this field holds a reference to the SimulationEnvironment
@@ -84,7 +90,23 @@ namespace ComponentNetworkSimulation.simulation
 		/// </summary>
 		public bool IsAnyThreadAlive
 		{
-			get { return this.simulationThreads.Count>0;}
+			get { return this.simulationThreads.Count>0 || this.prepairedSimulationThreads.Count>0;}
+		}
+
+		/// <summary>
+		/// returns the next valid threadID.
+		/// </summary>
+		protected int NextThreadID
+		{
+			get{ return threadIDCounter++;}
+		}
+
+		/// <summary>
+		/// returns the next valid periodID.
+		/// </summary>
+		protected int NextPeriodID
+		{
+			get{ return periodIDCounter++;}
 		}
 
 		#endregion properties
@@ -98,7 +120,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// <param name="type">The logging type of this thread.</param>
 		public void CreateSimulationThread(TimeConsumer firstTimeConsumer, SimulationThread.SimuationThreadType type)
 		{
-			CreateSimulationThread(firstTimeConsumer,type,null);
+			this.PrepairNewThread(new SimulationThread(this.NextThreadID,firstTimeConsumer,type));			
 		}
 
 		/// <summary>
@@ -110,33 +132,70 @@ namespace ComponentNetworkSimulation.simulation
 		public void CreateSimulationThread(TimeConsumer firstTimeConsumer, SimulationThread.SimuationThreadType type, 
 			IThreadObserver observer)
 		{
-			SimulationThread tmp = new SimulationThread(this.threadIDCounter++,firstTimeConsumer,type,observer);
-			tmp.NextTCEvent += new NextTCEventHandler(OnNextTCEvent);
-			simulationThreads.Add(tmp);			
-			NotifyThreadCreatedEvent(tmp);
+			this.PrepairNewThread(new SimulationThread(this.NextThreadID,firstTimeConsumer,type,observer));			
 		}
 
-		//TODO: the periodic ones
-/*		public void CreateSimulationThread(TimeConsumer firstTimeConsumer, SimuationThreadType type, long periodTime)
+		/// <summary>
+		/// call to create a new SimulationThread.
+		/// </summary>
+		/// <param name="firstTimeConsumer">The first timeconsumer of this thread.</param>
+		/// <param name="type">The logging type of this thread.</param>
+		public void CreateSimulationThread(TimeConsumer firstTimeConsumer, 
+			SimulationThread.SimuationThreadType type, long periodTime)
 		{
-			SimulationThread tmp = CreateSimulationThread(periodIDCounter++, firstTimeConsumer,type);
-			periodicThreadDataList.Add(new PeriodicThreadData(tmp.PeriodID,firstTimeConsumer,periodTime));
+			CreateSimulationThread(firstTimeConsumer,type,periodTime,null);
 		}
 
-		public void createSimulationThread(TimeConsumer firstTimeConsumer, SimuationThreadType type, long periodTime, 
-			ThreadEventHandler eventHandler)
+		/// <summary>
+		/// call to create a new PeriodicSimulationThread observed by the given observer.
+		/// </summary>
+		/// <param name="firstTimeConsumer">The first timeconsumer of this thread.</param>
+		/// <param name="type">The logging type of this thread.</param>
+		/// <param name="periodTime">reached the thread this time, a new thread is created.</param>
+		/// <param name="observer">the oberserver</param>
+		public void CreateSimulationThread(TimeConsumer firstTimeConsumer,SimulationThread.SimuationThreadType type,
+			long periodTime, IThreadObserver observer)
 		{
-			SimulationThread tmp = CreateSimulationThread(periodIDCounter++, firstTimeConsumer,type);
-			periodicThreadDataList.Add(new PeriodicThreadData(tmp.PeriodID,firstTimeConsumer,periodTime));
-			tmp.ThreadEvent += eventHandler;
-		}*/
+			PeriodicSimulationThread tmp = new PeriodicSimulationThread(periodTime,NextPeriodID,NextThreadID,
+				firstTimeConsumer,type,observer);
+			
+			tmp.NewPeriodicThreadEvent += new EventHandler(this.OnNewPeriodicThreadEvent);
+			this.PrepairNewThread(tmp);
+		}
+
+		public void AddSimulationThread(SimulationThread simulationThread)
+		{
+			//TODO: implement
+			throw(new NotImplementedException("To be implemented"));
+		}
+
+		/// <summary>
+		/// call to move the timeline in the scheduler. This methods iterates all threads to move there timelines.
+		/// </summary>
+		/// <param name="maxTimeStep">the maximum timestep</param>
+		/// <returns>the realy done time step</returns>
+		public virtual long SimulationStep(long maxTimeStep)
+		{
+			this.InsertPrepairedThreads();
+			long timeStep = this.GetShortestFutureTime();
+			if (maxTimeStep < timeStep) timeStep = maxTimeStep;
+
+			foreach (SimulationThread thread in this.simulationThreads)	
+				thread.TimeMoved(timeStep);		
+
+			this.InsertPrepairedThreads();
+			this.clearDeadThreads();
+			if (!this.IsAnyThreadAlive)	NotifyNoMoreThreadsAliveEvent();
+
+			return timeStep;
+		}
 
 		/// <summary>
 		/// calculates the shortest time in future of the current threads. This time is used for the next
 		/// simulation step.
 		/// </summary>
 		/// <returns>the shortest time in future of the current threads</returns>
-		public long GetShortestFutureTime() 
+		protected virtual long GetShortestFutureTime() 
 		{
 			long minTime = -1;
 			foreach (SimulationThread thread in this.simulationThreads) 
@@ -145,29 +204,41 @@ namespace ComponentNetworkSimulation.simulation
 			if (minTime == -1)
 				return 0;
 			else
-                return minTime;
+				return minTime;
 		}
 
 		/// <summary>
-		/// call to move the timeline in the scheduler. This methods iterates all threads to move there timelines.
+		/// called to move all prepaired threads to the scheduled threadlist
 		/// </summary>
-		/// <param name="time">the timestep</param>
-		public void MoveTime(long time)
+		protected void InsertPrepairedThreads()
 		{
-			foreach (SimulationThread thread in this.simulationThreads)	
-				thread.TimeMoved(time);		
-			this.clearDeadThreads();
-			if (!this.IsAnyThreadAlive)	NotifyNoMoreThreadsAliveEvent();
+			foreach(SimulationThread thread in this.prepairedSimulationThreads) 
+			{
+				simulationThreads.Add(thread);
+				NotifyThreadCreatedEvent(thread);
+			}
+			prepairedSimulationThreads.Clear();
 		}
-		
+
 		/// <summary>
 		/// call to reset the scheduler. This method method removes all threads and reset the id counters to zero.
 		/// </summary>
-		public void Reset()
+		public virtual void Reset()
 		{
 			this.simulationThreads.Clear();
 			this.threadIDCounter = 0;
 			this.periodIDCounter = 0;
+		}
+
+		/// <summary>
+		/// called to prepair the given thread for adding it to the scheduler. 
+		/// The thread is added after ending the current or before the next simulationstep.
+		/// </summary>
+		/// <param name="newThread">the thread to be added</param>
+		protected void PrepairNewThread(SimulationThread newThread)
+		{
+			newThread.NextTCEvent += new NextTCEventHandler(OnNextTCEvent);
+			this.prepairedSimulationThreads.Add(newThread);
 		}
 
 		/// <summary>
@@ -228,6 +299,18 @@ namespace ComponentNetworkSimulation.simulation
 		{
 			if (NextTCEvent != null)
 				NextTCEvent(sender,eventArgs);
+		}
+
+		/// <summary>
+		/// called by periodic threads to notify that a new one has to be created.
+		/// </summary>
+		/// <param name="sender">the periodic thread fired the event.</param>
+		/// <param name="args">set to EventArgs.Empty</param>
+		protected virtual void OnNewPeriodicThreadEvent(object sender, EventArgs args)
+		{
+			PeriodicSimulationThread tmp = ((PeriodicSimulationThread)sender).CreateFollowingThread(this.NextThreadID);
+			tmp.NewPeriodicThreadEvent += new EventHandler(this.OnNewPeriodicThreadEvent);
+			PrepairNewThread(tmp);
 		}
 
 		#endregion

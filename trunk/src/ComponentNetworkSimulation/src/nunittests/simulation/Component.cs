@@ -15,6 +15,11 @@ namespace nunittests.simulation
 			return new Component(new Component(5),10);
 		}
 
+		public static TimeConsumer createPath_with_Zero_TC()
+		{
+			return new Component(new Component(new Component(4),0),6);
+		}
+
 		public Component(TimeConsumer nextTimeConsumer, int timeToWait)
 		{
 			this.tc = nextTimeConsumer;
