@@ -5,13 +5,12 @@ namespace ComponentModel {
 	/// <summary>
 	/// </summary>
 	public abstract class AbstractIM : IInterfaceModel {
+		
+		public abstract bool SubTypeCheck(IInterfaceModel anIModel, out IList anErrorList);
 
-		public abstract bool SubTypeCheck(IList anIModelList, out IList anErrorList);
+		public abstract IList GetInterOperabilityErrors(IInterfaceModel anIModel);
 
-		public abstract IList GetInterOperabilityErrors(IList anIModelList);
-
-		public abstract IInterfaceModel Merge(IList anIModelList);
-
+		public abstract IInterfaceModel Merge(IInterfaceModel anIModel);
 
 		public bool SubTypeCheck(IList anIModelList) {
 			IList errorList;
@@ -23,22 +22,36 @@ namespace ComponentModel {
 			return SubTypeCheck(anIModel, out errorList);
 		}
 
-		public bool SubTypeCheck(IInterfaceModel anIModel, out IList anErrorList) {
-			IList iModelList = new ArrayList();
-			iModelList.Add(anIModel);
-			return SubTypeCheck(iModelList, out anErrorList);
+		public bool SubTypeCheck(IList anIModelList, out IList anErrorList) {
+			bool result = false; // TODO select a proper return value
+			anErrorList = new ArrayList(); // TODO set a correct error value for an empty input
+			
+			if ( anIModelList.Count != 0 ) {
+				IInterfaceModel iModel = (IInterfaceModel) anIModelList[0];
+				anIModelList.RemoveAt(0);
+				result = SubTypeCheck ( iModel.Merge( anIModelList ), out anErrorList );
+			} 
+			return result;
+		}
+		
+
+		public IList GetInterOperabilityErrors(IList anIModelList) {
+			IList result = new ArrayList();
+			
+			if ( anIModelList.Count != 0 ) {
+				IInterfaceModel iModel = (IInterfaceModel) anIModelList[0];
+				anIModelList.RemoveAt(0);
+				result = GetInterOperabilityErrors( iModel.Merge( anIModelList ) );
+			} 
+			return result;
 		}
 
-		public IList GetInterOperabilityErrors(IInterfaceModel anIModel) {
-			IList iModelList = new ArrayList();
-			iModelList.Add(anIModel);
-			return GetInterOperabilityErrors(iModelList);
-		}
-
-		public IInterfaceModel Merge(IInterfaceModel anIModel) {
-			IList iModelList = new ArrayList();
-			iModelList.Add(anIModel);
-			return Merge(iModelList);
+		public IInterfaceModel Merge(IList anIModelList){
+			IInterfaceModel result = this; // TODO clone??
+			foreach ( IInterfaceModel iModel in anIModelList ) {
+				result = result.Merge( iModel );
+			}
+			return result;
 		}
 	}
 }

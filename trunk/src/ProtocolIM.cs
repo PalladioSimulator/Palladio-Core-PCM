@@ -9,17 +9,17 @@ namespace ComponentModel {
 		public ProtocolIM() {
 		}
 
-		public override IList GetInterOperabilityErrors(IList anIModelList) {
-			return null;
-		}
-
-		public override IInterfaceModel Merge(IList anIModelList) {
-			return null;
-		}
-
-		public override bool SubTypeCheck(IList anIModelList, out IList anErrorList) {
+		public override bool SubTypeCheck(IInterfaceModel anIModel, out IList anErrorList) {
 			anErrorList = null;
 			return false;
+		}
+
+		public override IList GetInterOperabilityErrors(IInterfaceModel anIModel) {
+			return null;
+		}
+
+		public override IInterfaceModel Merge(IInterfaceModel anIModel) {
+			return null;
 		}
 
 	}
