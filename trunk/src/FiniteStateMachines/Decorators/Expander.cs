@@ -122,7 +122,7 @@ namespace ParameterisedContracts {
 						nextStateFound = true;
 					} else {
 						try {
-							AbstractState nextReducedState = reducedMachine.GetNextState(currentState.oneState,trans.InputSymbol);
+							IState nextReducedState = reducedMachine.GetNextState(currentState.oneState,trans.InputSymbol);
 							if (nextReducedState != reducedMachine.ErrorState) {
 								nextState = new DualState(nextReducedState,trans.DestinationState);
 								nextStateFound = true;

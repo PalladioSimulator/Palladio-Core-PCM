@@ -26,29 +26,29 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			d3incomplete = AbstractFiniteStateMachine.Loader("../../data/se_d3incomplete.xml");
 
 
-			Input topServiceName = new Input("top");
+			Input topServiceName = "top";
 
 			tableSimple = new Hashtable();
-			tableSimple.Add(new Input("d1"),d1);
-			tableSimple.Add(new Input("d2"),d2);
+			tableSimple.Add("d1",d1);
+			tableSimple.Add("d2",d2);
 			expandedSimple = new StackFiniteStateMachine(topMachine, topServiceName, tableSimple);
 
 			tableComplex = new Hashtable();
-			tableComplex.Add(new Input("d1"),d1s);
-			tableComplex.Add(new Input("d2"),d2);
-			tableComplex.Add(new Input("d3"),d3s);
+			tableComplex.Add("d1",d1s);
+			tableComplex.Add("d2",d2);
+			tableComplex.Add("d3",d3s);
 			expandedComplex = new StackFiniteStateMachine(topMachine, topServiceName, tableComplex);
 
 			tableIncomplete = new Hashtable();
-			tableIncomplete.Add(new Input("d1"),d1s);
-			tableIncomplete.Add(new Input("d2"),d2);
-			tableIncomplete.Add(new Input("d3"),d3incomplete);
+			tableIncomplete.Add("d1",d1s);
+			tableIncomplete.Add("d2",d2);
+			tableIncomplete.Add("d3",d3incomplete);
 			expandedIncomplete = new StackFiniteStateMachine(topMachine, topServiceName, tableIncomplete);
 
 			tableRecursion = new Hashtable();
-			tableRecursion.Add(new Input("d1"),d1s);
-			tableRecursion.Add(new Input("d2"),d2);
-			tableRecursion.Add(new Input("d3"),d3);
+			tableRecursion.Add("d1",d1s);
+			tableRecursion.Add("d2",d2);
+			tableRecursion.Add("d3",d3);
 			expandedRecursion = new StackFiniteStateMachine(topMachine, topServiceName, tableRecursion);
 		}
 

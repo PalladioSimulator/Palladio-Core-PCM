@@ -35,7 +35,7 @@ namespace ParameterisedContracts {
 		///		The transition starting at aSourceState
 		///     with the input symbol anInput.
 		/// </returns>
-		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
+		public override Transition GetNextTransition(IState aSourceState, Input anInput) {
 			Transition result = CreateTransition(aSourceState,anInput,ErrorState);
 
 			if (aSourceState is StackState) {

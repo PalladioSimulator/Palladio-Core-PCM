@@ -50,7 +50,7 @@ namespace ParameterisedContracts {
 		/// 
 		/// <returns>The next possible transition</returns>
 		/// <seealso cref="IFiniteStateMachine.GetNextTransition"></seealso>
-		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
+		public override Transition GetNextTransition(IState aSourceState, Input anInput) {
 			Transition result = CreateTransition(aSourceState,anInput,ErrorState);
 
 			if (aSourceState is StackState) {
@@ -126,7 +126,7 @@ namespace ParameterisedContracts {
 		/// <param name="aRecInput">Recursion input</param>
 		/// <returns>A new transition from source to destination</returns>
 		private Transition HandleRecursionInput(StackState aSourceState, RecursionInput aRecInput) {
-			AbstractState destinationState = ErrorState;
+			IState destinationState = ErrorState;
 			// Recursive Transitions are only allowed in the corresponding service
 			if( aSourceState.Peek().ServiceName == aRecInput.CallingServiceName) {
 				// the transition is only allowed outside the recursion handling

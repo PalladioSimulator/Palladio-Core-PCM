@@ -10,7 +10,7 @@ namespace UnitTests.FiniteStateMachines{
 	/// </summary>
 	[TestFixture]
 	public class ContextTest{
-		AbstractState stateOne,stateTwo;
+		IState stateOne,stateTwo;
 		Input inputOne, inputTwo;
 
 		[SetUp] public void Init() {

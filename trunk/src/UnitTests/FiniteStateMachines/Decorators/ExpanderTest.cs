@@ -12,7 +12,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 	/// </summary>
 	[TestFixture]
 	public class MachineExpanderTest{
-		AbstractState[] states;
+		IState[] states;
 		Input[] inputs;
 		Transition[] transitionSet;
 		FiniteTabularMachine tabularMachine;
@@ -97,7 +97,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			reduced.AddTransition(states[2],inputs[5],states[3]);
 			FiniteStateMachineExpander machineExpander = new FiniteStateMachineExpander(tabularMachine,reduced,epsilonAlphabet);
 			IFiniteStateMachine expanded = machineExpander.GetExpandedMachine();
-			AbstractState state = expanded.StartState;
+			IState state = expanded.StartState;
 			state = expanded.GetNextState (state,inputs[2]);
 			Assert.IsTrue(expanded.GetOutgoingTransitions(state).Count == 0);
 			state = expanded.StartState;

@@ -25,13 +25,13 @@ namespace FiniteStateMachines {
 		///     All transitions with an unallowed input
 		///     lead to this error state.
 		/// </summary>
-		private AbstractState errorState;
+		private IState errorState;
 
 		/// <summary>
 		///     All transitions with an unallowed input
 		///     lead to this error state.
 		/// </summary>
-		public virtual AbstractState ErrorState { 
+		public virtual IState ErrorState { 
 			get{
 				if(errorState == null){
 					errorState = CreateErrorState();
@@ -45,7 +45,7 @@ namespace FiniteStateMachines {
 		///     an input sequence, this is the state to
 		///     start with.
 		/// </summary>
-		public abstract AbstractState StartState { get; }
+		public abstract IState StartState { get; }
 
 		/// <summary>
 		///     If the automaton reaches one of this states
@@ -75,7 +75,7 @@ namespace FiniteStateMachines {
 		///		The transition starting at aSourceState
 		///     with the input symbol anInput. 
 		/// </returns>
-		public abstract Transition GetNextTransition(AbstractState aSourceState, Input anInput);
+		public abstract Transition GetNextTransition(IState aSourceState, Input anInput);
         
 		/// <summary>
 		///     Adds a single transition to the automaton.
@@ -117,7 +117,7 @@ namespace FiniteStateMachines {
 		/// <returns>
 		///		The destination of the transition.
 		///	</returns>
-		public virtual AbstractState GetNextState(AbstractState aSourceState, Input anInput) {
+		public virtual IState GetNextState(IState aSourceState, Input anInput) {
 			return GetNextTransition(aSourceState,anInput).DestinationState;
 		}
 
@@ -132,7 +132,7 @@ namespace FiniteStateMachines {
 		///     The key of the Hashtable is the Input and the value the
 		///     corresponding Transition.
 		/// </returns>
-		public virtual IList GetOutgoingTransitions(AbstractState aSourceState) {
+		public virtual IList GetOutgoingTransitions(IState aSourceState) {
 			IList result = new ArrayList();
 			foreach( Input input in InputAlphabet ) {
 				Transition trans = GetNextTransition(aSourceState,input);
@@ -155,7 +155,7 @@ namespace FiniteStateMachines {
 		/// <returns>
 		///		An IList containing all reachable States.
 		///	</returns>
-		public virtual IList GetReachableStates(AbstractState aState) {
+		public virtual IList GetReachableStates(IState aState) {
 			IList resultSet = new ArrayList();
 			GetReachableStatesRecursive(aState,ref resultSet);
 			return resultSet;
@@ -174,7 +174,7 @@ namespace FiniteStateMachines {
 		/// <param name="resultSet">
 		///		An IList containing the visited states.
 		///	</param>
-		private void GetReachableStatesRecursive(AbstractState aState,ref IList resultSet) {
+		private void GetReachableStatesRecursive(IState aState,ref IList resultSet) {
 			if ((!resultSet.Contains(aState)) && (aState!=ErrorState)) {
 				resultSet.Add(aState);
 				IList transitions = GetOutgoingTransitions(aState);
@@ -196,6 +196,16 @@ namespace FiniteStateMachines {
 		}
 
 
+		/// <summary>
+		/// Compares this FSM with anoter FSM.
+		/// Two FSMs are considered as equal, if they accept the same language.
+		/// </summary>
+		/// <param name="obj">
+		/// Another FSM, implementing the IFiniteStateMachine interface.
+		/// </param>
+		/// <returns>
+		/// True if the other FSM accepts the same language, false otherwise.
+		/// </returns>
 		public override bool Equals(object obj) {
 			if ( obj is IFiniteStateMachine) {
 				return AreEqual( this, (IFiniteStateMachine) obj );
@@ -203,23 +213,38 @@ namespace FiniteStateMachines {
 			return false;
 		}
 
-		public static bool AreEqual( IFiniteStateMachine fsmOne, IFiniteStateMachine fsmTwo ) {
-			IFiniteStateMachine minOne = new MinimisedFSM(fsmOne);
-			IFiniteStateMachine minTwo = new MinimisedFSM(fsmTwo);
 
-			DynamicStateEnumerator iter = new DynamicStateEnumerator(new DualState(fsmOne.StartState,fsmTwo.StartState));
+		/// <summary>
+		/// Compares two FSMs.
+		/// Two FSMs are considered as equal, if they accept the same language.
+		/// </summary>
+		/// <param name="fsmOne"></param>
+		/// <param name="fsmTwo"></param>
+		/// <returns>
+		/// True if the two FSMs accept the same language, false otherwise.
+		/// </returns>
+		public static bool AreEqual( IFiniteStateMachine aFsmOne, IFiniteStateMachine aFsmTwo ) {
+			IFiniteStateMachine minOne = new MinimisedFSM(aFsmOne);
+			IFiniteStateMachine minTwo = new MinimisedFSM(aFsmTwo);
+
+			DynamicStateIterator iter = new DynamicStateIterator(new DualState(aFsmOne.StartState,aFsmTwo.StartState));
 			while (iter.MoveNext()) {
 				DualState current = (DualState) iter.Current;
 				if ((current.oneState.IsFinalState == current.twoState.IsFinalState) &&
 					(current.oneState.IsStartState == current.twoState.IsStartState)) {
 					foreach (Input input in minOne.InputAlphabet) {
-						AbstractState nextOne = minOne.GetNextState(current.oneState, input);
-						AbstractState nextTwo = minTwo.GetNextState(current.twoState, input);	
+						IState nextOne = minOne.GetNextState(current.oneState, input);
+						IState nextTwo = minTwo.GetNextState(current.twoState, input);	
 						if (( nextOne != minOne.ErrorState ) &&
 							( nextTwo != minTwo.ErrorState )) {
 							iter.Append(new DualState (nextOne, nextTwo));
 						} else {
-							return false;
+							// at this point one at least of the states has to be 
+							// an errorstate, if the other is not the two FSMs are not equivalent
+							if (( nextOne != minOne.ErrorState ) ||
+								( nextTwo != minTwo.ErrorState )) {
+								return false;
+							}
 						}
 					}
 				} else {
@@ -234,7 +259,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// 
 		/// <returns>Default error state.</returns>
-		public static AbstractState CreateErrorState(){
+		public static IState CreateErrorState(){
 			return new State(ERROR_STATE_NAME,false,false);
 		}
 
@@ -269,7 +294,7 @@ namespace FiniteStateMachines {
 			try {
 				result += StartState+"\n";
 				result += "transitions : \n";
-				DynamicTransitionEnumerator iterator = new DynamicTransitionEnumerator(StartState,this);
+				DynamicTransitionIterator iterator = new DynamicTransitionIterator(StartState,this);
 				while(iterator.MoveNext()){
 					result += "\t"+iterator.Current+"\n";
 					iterator.Append(iterator.Current.DestinationState);
@@ -279,7 +304,7 @@ namespace FiniteStateMachines {
 			}	
 			try {
 				result += "final states: ";
-				foreach (AbstractState state in FinalStates) {
+				foreach (IState state in FinalStates) {
 					result += state + " ";
 				}
 			} catch (InvalidStateException e){

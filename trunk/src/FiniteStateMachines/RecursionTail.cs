@@ -17,7 +17,7 @@ namespace ParameterisedContracts {
 		/// <summary>
 		///		Target state of the recursive transition.
 		/// </summary>
-		private AbstractState recursionEndState;
+		private IState recursionEndState;
 
 		/// <summary>
 		///		Final states reachable from recursionEndState.
@@ -58,7 +58,7 @@ namespace ParameterisedContracts {
 			recursionEndState = recursionInput.TargetState;
 			reachableFinalStates = new Set();
 			reachableStatesList = originalFSM.GetReachableStates(recursionEndState);
-			foreach( AbstractState state in reachableStatesList ){
+			foreach( IState state in reachableStatesList ){
 				if (state.IsFinalState) {
 					reachableFinalStates.Add(state);
 				}
@@ -75,7 +75,7 @@ namespace ParameterisedContracts {
 		///     an input sequence, this is the state to
 		///     start with.
 		/// </summary>
-		public override AbstractState StartState { 
+		public override IState StartState { 
 			get { return originalFSM.StartState; } 
 		}
 
@@ -108,7 +108,7 @@ namespace ParameterisedContracts {
 		/// <returns>The transition starting at aSourceState
 		///     with the input symbol anInput. </returns>
 		/// <seealso cref="IFiniteStateMachine.GetNextTransition"></seealso>
-		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
+		public override Transition GetNextTransition(IState aSourceState, Input anInput) {
 			Transition result = new Transition(aSourceState,anInput,ErrorState);
 
 			if (anInput is MarkedInput) {

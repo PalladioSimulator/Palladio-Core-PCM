@@ -6,18 +6,18 @@ namespace FiniteStateMachines {
 	/// <summary>
 	///		Dynamically iterates over a set of transitions. 
 	///		During the iteration process new states can be 
-	///		added to the enumerator. It iterates over the outgoing
-	///		transitions of these states.
+	///		added to the enumerator. The outgoing
+	///		transitions of these states are enumerated.
 	///		
 	///		author: JH
 	/// </summary>
-	public class DynamicTransitionEnumerator : IEnumerator {
+	public class DynamicTransitionIterator : IEnumerator {
 
 		/// <summary>
 		///		Enumerator holding the states whose transitions
 		///		are enumarated by the DynamicTransitionEnumerator.
 		/// </summary>
-		private DynamicStateEnumerator stateEnumerator;
+		private DynamicStateIterator stateEnumerator;
 
 		/// <summary>
 		///		List of transitions belonging to the current state of
@@ -53,8 +53,8 @@ namespace FiniteStateMachines {
 		/// <param name="aFSM">
 		///		FSM whose transitions are (partially) enumerated.
 		/// </param>
-		public DynamicTransitionEnumerator(AbstractState aStartState, IFiniteStateMachine aFSM){
-			stateEnumerator = new DynamicStateEnumerator(aStartState);
+		public DynamicTransitionIterator(IState aStartState, IFiniteStateMachine aFSM){
+			stateEnumerator = new DynamicStateIterator(aStartState);
 			transitionList = null;
 			fsm = aFSM;
 			transitionIndex = 0;
@@ -68,7 +68,7 @@ namespace FiniteStateMachines {
 		/// <param name="aFSM">
 		///		FSM whose transitions are (partially) enumerated.
 		/// </param>
-		public DynamicTransitionEnumerator(IFiniteStateMachine aFSM): this(aFSM.StartState,aFSM) {}
+		public DynamicTransitionIterator(IFiniteStateMachine aFSM): this(aFSM.StartState,aFSM) {}
 
 		
 		/// <summary>
@@ -81,7 +81,7 @@ namespace FiniteStateMachines {
 		/// <param name="aState">
 		///		A state whose transitions should be enumerated.
 		/// </param>
-		public void Append(AbstractState aState){
+		public void Append(IState aState){
 			stateEnumerator.Append(aState);
 		}
 

@@ -55,46 +55,28 @@ namespace FiniteStateMachines {
 			return false;
 		}
 		
-		/// <summary>
-		/// Operator uses the implementation of Equals.
-		/// </summary>
-		/// <param name="input1"></param>
-		/// <param name="input2"></param>
-		/// <returns></returns>
 		public static bool operator == (Input one, Input two){
-			try {
+			if ( (object)one != null ) {
 				return one.Equals(two);
-			} catch( NullReferenceException  ) {
-				try {
-					return two.Equals(one);
-				} catch( NullReferenceException ) {
-					return true;
-				}
+			} else if ( (object)two != null ) {
+				return false;
+			} else {
+				return true; // both null
 			}
 		}
 
-		/// <summary>
-		/// Operator uses the implementation of Equals.
-		/// </summary>
-		/// <param name="input1"></param>
-		/// <param name="input2"></param>
-		/// <returns></returns>
 		public static bool operator != (Input one, Input two){
-			try {
-				return !one.Equals(two);
-			} catch( NullReferenceException  ) {
-				try {
-					return !two.Equals(one);
-				} catch( NullReferenceException ) {
-					return false;
-				}
-			}
+			return !(one == two);
 		}
 
-		/// <summary>
-		/// Refers to the GetHashCode of the input string.
-		/// </summary>
-		/// <returns></returns>
+		public static implicit operator string (Input anInput) {
+			return anInput.InputSymbol;
+		}
+
+		public static implicit operator Input (string aString) {
+			return new Input( aString );
+		}
+
 		public override int GetHashCode() {
 			return InputSymbol.GetHashCode();
 		}

@@ -14,7 +14,7 @@ namespace ParameterisedContracts {
 		/// <summary>
 		/// State of the service.
 		/// </summary>
-		private AbstractState state;
+		private IState state;
 
 		/// <summary>
 		/// Name of the service
@@ -35,7 +35,7 @@ namespace ParameterisedContracts {
 		/// </summary>
 		/// <param name="aServiceName">Name of the service</param>
 		/// <param name="aState">State of the service</param>
-		public StackContext(Input aServiceName, AbstractState aState){
+		public StackContext(Input aServiceName, IState aState){
 			serviceName = aServiceName;
 			state = aState;
 		}
@@ -53,7 +53,7 @@ namespace ParameterisedContracts {
 		/// <summary>
 		/// State of the service.
 		/// </summary>
-		public AbstractState State {
+		public IState State {
 			get {
 				return state;
 			}

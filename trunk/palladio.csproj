@@ -117,6 +117,54 @@
                     BuildAction = "None"
                 />
                 <File
+                    RelPath = "data\complete.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\complex.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\minimisableFSM.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\minimisedFSM.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\provides.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\se_d1.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\se_d1s.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\se_d2.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\se_d3.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\se_d3back_over_recursion.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\se_d3incomplete.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\se_d3s.xml"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "src\FiniteStateMachines\AbstractFiniteStateMachine.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -168,6 +216,11 @@
                 />
                 <File
                     RelPath = "src\FiniteStateMachines\InvalidStateException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FiniteStateMachines\IState.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

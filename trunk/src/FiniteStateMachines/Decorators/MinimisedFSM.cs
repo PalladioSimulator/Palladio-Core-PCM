@@ -27,7 +27,7 @@ namespace FiniteStateMachines.Decorators {
 		/// of the original FSM. This is not inevitable the same as
 		/// in the original FSM!
 		/// </summary>
-		private AbstractState startState;
+		private IState startState;
 
 		/// <summary>
 		/// Set of representatives of the groups of each original
@@ -63,7 +63,7 @@ namespace FiniteStateMachines.Decorators {
 
 			try {
 				finalStates = new Set();
-				foreach ( AbstractState state in aFSM.FinalStates ) {
+				foreach ( IState state in aFSM.FinalStates ) {
 					finalStates.Add( GetRepresentative( state ) );
 				}
 			} 
@@ -77,7 +77,7 @@ namespace FiniteStateMachines.Decorators {
 		///     an input sequence, this is the state to
 		///     start with.
 		/// </summary>
-		public override AbstractState StartState { 
+		public override IState StartState { 
 			get { return startState; }
 		}
 
@@ -112,7 +112,7 @@ namespace FiniteStateMachines.Decorators {
 		///		The transition starting at aSourceState
 		///     with the input symbol anInput. 
 		/// </returns>
-		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
+		public override Transition GetNextTransition(IState aSourceState, Input anInput) {
 			Transition result = (Transition)fsm.GetNextTransition( aSourceState, anInput).Clone();
 			result.DestinationState = GetRepresentative (result.DestinationState);
 			return result;
@@ -135,14 +135,14 @@ namespace FiniteStateMachines.Decorators {
 				for ( int groupIndex = 0; groupIndex < this.groups.Count; groupIndex++ ) {
 					IList currentGroup = (IList) this.groups[groupIndex];
 					IList newGroup = new ArrayList();
-					AbstractState firstState = (AbstractState) currentGroup[0];
+					IState firstState = (IState) currentGroup[0];
 
 					for ( int i = 1; i < currentGroup.Count; i++ ) {
-						AbstractState nextState = (AbstractState) currentGroup[i];
+						IState nextState = (IState) currentGroup[i];
 
 						foreach ( Input input in aFSM.InputAlphabet ) {
-							AbstractState targetFirst = aFSM.GetNextState( firstState, input );
-							AbstractState targetNext = aFSM.GetNextState( nextState, input );
+							IState targetFirst = aFSM.GetNextState( firstState, input );
+							IState targetNext = aFSM.GetNextState( nextState, input );
 							if(GetGroupIndex(targetFirst)!=GetGroupIndex(targetNext)) {
 								newGroup.Add( nextState );
 								break;
@@ -154,7 +154,7 @@ namespace FiniteStateMachines.Decorators {
 						changed = true;
 						groups.Add( newGroup );
 
-						foreach (AbstractState state in newGroup) {
+						foreach (IState state in newGroup) {
 							currentGroup.Remove(state);
 						}
 					}
@@ -181,7 +181,7 @@ namespace FiniteStateMachines.Decorators {
 			
 			StateIterator stateIter = new StateIterator(aFSM);
 			while(stateIter.MoveNext()) {
-				if(((AbstractState) stateIter.Current).IsFinalState) {
+				if(((IState) stateIter.Current).IsFinalState) {
 					finalStates.Add(stateIter.Current);
 				}
 				else {
@@ -211,7 +211,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <returns>
 		/// Index of the group containing aState.
 		/// </returns>
-		protected int GetGroupIndex(AbstractState aState) {
+		protected int GetGroupIndex(IState aState) {
 			if (aState != fsm.ErrorState ) {
 				for(int i = 0 ; i< this.groups.Count; i++) {	
 					if(((IList)groups[i]).Contains(aState)) {
@@ -235,10 +235,10 @@ namespace FiniteStateMachines.Decorators {
 		/// <returns>
 		/// One representative of the group of aState.
 		/// </returns>
-		private AbstractState GetRepresentative( AbstractState aState ) {
+		private IState GetRepresentative( IState aState ) {
 			if ( aState != fsm.ErrorState ) {
 				int index = GetGroupIndex(aState);
-				return (AbstractState) ((IList)this.groups[index])[0];
+				return (IState) ((IList)this.groups[index])[0];
 			} 
 			else {
 				return ErrorState;

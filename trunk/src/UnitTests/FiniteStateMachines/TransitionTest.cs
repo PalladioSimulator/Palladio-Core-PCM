@@ -4,14 +4,13 @@ using NUnit.Framework;
 using FiniteStateMachines;
 
 
-namespace UnitTests.FiniteStateMachines
-{
+namespace UnitTests.FiniteStateMachines {
 	/// <summary>
 	/// Unit test for <code>StackFiniteStateMachine</code>
 	/// </summary>
 	[TestFixture]
 	public class TransitionTest {
-		AbstractState s1,s2,s3;
+		IState s1,s2,s3;
 		Input i1,i2;
 		Transition tOne, tTwo, tThree, tFour;
 

@@ -2,13 +2,11 @@ using System;
 using System.Collections;
 using Utils.Collections;
 
-namespace FiniteStateMachines 
-{
+namespace FiniteStateMachines {
 	/// <summary>
 	/// Iterates over the States of a IFiniteStateMachine with depth-first-search
 	/// </summary>
-	public class StateIterator 
-	{
+	public class StateIterator {
 
 		/// <summary>
 		/// Stores all states that has been alrady returned in a <code>Set</code>
@@ -33,7 +31,7 @@ namespace FiniteStateMachines
 		/// <summary>
 		/// The current state of the iteration, this will be returned
 		/// </summary>
-		private AbstractState returnState;
+		private IState returnState;
 
 		/// <summary>
 		/// The currant Transition that will be returned
@@ -60,8 +58,7 @@ namespace FiniteStateMachines
 		/// Initiates a FSM Iterator.
 		/// </summary>
 		/// <param name="d">The FSM which should be iterated</param>
-		public StateIterator(IFiniteStateMachine aIFiniteStateMachine) 
-		{
+		public StateIterator(IFiniteStateMachine aIFiniteStateMachine) {
 			this.getters =  aIFiniteStateMachine;
 			this.isInitialised =false;
 			this.states = new Stack();
@@ -75,27 +72,22 @@ namespace FiniteStateMachines
 		/// Checks if there is another State to visit.
 		/// </summary>
 		/// <returns>True if there is another state, false if not</returns>
-		public bool MoveNext() 
-		{
-			if(!this.isInitialised) 
-			{
+		public bool MoveNext() {
+			if(!this.isInitialised) {
 				CreateInitailTransition();
 				return true;
 			}
-			else 
-			{
-				AbstractState currentState = (AbstractState) this.states.Peek();
+			else {
+				IState currentState = (IState) this.states.Peek();
 				IList nextStates = this.getters.GetOutgoingTransitions(currentState);
-				while(nextStates == null) 
-				{
+				while(nextStates == null) {
 					searchForChildrenOfTopOfStack(currentState, out nextStates);
 				}		
-				currentState = (AbstractState) this.states.Peek();
+				currentState = (IState) this.states.Peek();
 				nextStates = getters.GetOutgoingTransitions(currentState);
 				Transition tempTransition = new Transition();
 				IEnumerator iterateOverChildren = nextStates.GetEnumerator();
-				while(iterateOverChildren.MoveNext()) 
-				{
+				while(iterateOverChildren.MoveNext()) {
 					
 					ExploreAllChildrenOfCurrentState(iterateOverChildren);
 				}
@@ -104,8 +96,7 @@ namespace FiniteStateMachines
 				if(this.debugOutput)
 					Console.WriteLine(currentState.ToString()+ " now has been completly doscovered");
 				//search of the next State which will be returned
-				while(this.alreadyReturned.Contains(this.states.Peek())) 
-				{
+				while(this.alreadyReturned.Contains(this.states.Peek())) {
 					if(this.debugOutput)
 						Console.WriteLine("This State hs already been discovered "+this.states.Peek().ToString());
 					this.states.Pop();
@@ -126,16 +117,14 @@ namespace FiniteStateMachines
 		/// sets the State and the Transition which will be returned and adds this
 		/// state to the visited states so they won't be retruned again.
 		/// </summary>
-		private void TidyUpAndSetReturningValues()
-		{
-			if(this.states.Peek().Equals(new State("ErrorState",false,false))) 
-			{
+		private void TidyUpAndSetReturningValues() {
+			if(this.states.Peek().Equals(new State("ErrorState",false,false))) {
 				states.Pop();
 				this.MoveNext();
 			}
-			this.returnState = (AbstractState) this.states.Peek();
+			this.returnState = (IState) this.states.Peek();
 			this.currentTransition = (Transition) this.transitions.Peek();
-			this.alreadyReturned.Add((AbstractState) this.states.Peek());
+			this.alreadyReturned.Add((IState) this.states.Peek());
 		}
 
 
@@ -145,8 +134,7 @@ namespace FiniteStateMachines
 		/// </summary>
 		/// <param name="currentState">The current State of the iteration</param>
 		/// <param name="nextStates">A list which contains the children of top of  stack </param>
-		private void searchForChildrenOfTopOfStack(AbstractState currentState, out IList nextStates)
-		{
+		private void searchForChildrenOfTopOfStack(IState currentState, out IList nextStates) {
 			if(this.debugOutput)
 				Console.WriteLine("There are no Children from "+currentState.ToString());
 			//now there are no children left and this this state is now complety explored,
@@ -154,7 +142,7 @@ namespace FiniteStateMachines
 			this.states.Pop();
 			this.transitions.Pop();
 			//next children 
-			nextStates = this.getters.GetOutgoingTransitions((AbstractState) this.states.Peek());
+			nextStates = this.getters.GetOutgoingTransitions((IState) this.states.Peek());
 		}
 
 
@@ -162,8 +150,7 @@ namespace FiniteStateMachines
 		/// Explores all children of the currentState and stores.
 		/// </summary>
 		/// <param name="iterateOverChildren">IEnumerator which helps to iterate</param>
-		private void ExploreAllChildrenOfCurrentState(IEnumerator iterateOverChildren)
-		{
+		private void ExploreAllChildrenOfCurrentState(IEnumerator iterateOverChildren) {
 			Transition tempTransition;
 			tempTransition = (Transition) iterateOverChildren.Current;
 			this.states.Push(tempTransition.DestinationState);
@@ -176,13 +163,12 @@ namespace FiniteStateMachines
 		/// <summary>
 		/// Creates a Transition from nowhere to the Startstate
 		/// </summary>
-		private void CreateInitailTransition()
-		{
+		private void CreateInitailTransition() {
 			this.states.Push(this.getters.StartState); 
 			this.isInitialised = true;
-			this.returnState = (AbstractState) this.states.Peek();
+			this.returnState = (IState) this.states.Peek();
 			//First Transition of a FSM 
-			AbstractState none = new State("null",false,false);
+			IState none = new State("null",false,false);
 			Input noInput = new Input("null"); 
 			Transition initialTransition = new Transition(none,new Input("null"),this.returnState);
 			this.transitions.Push(initialTransition);
@@ -194,10 +180,8 @@ namespace FiniteStateMachines
 		/// <summary>
 		/// Returns the current object of the FSM.
 		/// </summary>
-		public object Current 
-		{
-			get 
-			{
+		public object Current {
+			get {
 				return this.returnState;
 			}
 		}
@@ -206,10 +190,8 @@ namespace FiniteStateMachines
 		/// <summary>
 		/// return the current Transtion.
 		/// </summary>
-		public object getCurrentTransition 
-		{
-			get 
-			{
+		public object getCurrentTransition {
+			get {
 				return this.currentTransition;
 			}
 		}

@@ -1,23 +1,21 @@
 using System;
 
-namespace FiniteStateMachines.Decorators 
-{
+namespace FiniteStateMachines.Decorators {
 	/// <summary>
 	/// This is a special form of a <code>AbstrcatState</code>it contains of two 
 	/// <code>AbstractStates</code>. This is usefull when you are bulding
 	/// <code>FiniteCrossProductMaschine</code> and so on. 
 	/// </summary>
-	public class DualState : AbstractState 
-	{
+	public class DualState : AbstractState {
 		/// <summary>
 		/// The first <code>AbstractState</code> of which every DualState is composed of.
 		/// </summary>
-		protected AbstractState one;
+		protected IState one;
 
 		/// <summary>
 		/// The second <code>Abstract State</code> of which every DualState is composed of.
 		/// </summary>
-		protected AbstractState two;
+		protected IState two;
 
 		/// <summary>
 		/// The name of the <code>DualState</code>. It always looks like one.name-x-two.name.
@@ -27,8 +25,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Creates an empty DualState
 		/// </summary>
-		public DualState() 
-		{
+		public DualState() {
 		}
 
 
@@ -36,8 +33,7 @@ namespace FiniteStateMachines.Decorators
 		/// Copy construktor. Creates a new <code>DualState</code>from an existing DualState 
 		/// </summary>
 		/// <param name="state">A DualState which should be copied</param>
-		public DualState(DualState aState) 
-		{
+		public DualState(DualState aState) {
 			this.one = aState.one;
 			this.two = aState.two;
 			this.CPname = aState.CPname;
@@ -50,8 +46,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="one">A <code>AbstractState</code></param>
 		/// <param name="two">Another <code>AbstractState</code>, together with one a CPState can be 
 		/// created</param>
-		public DualState(AbstractState one, AbstractState two) 
-		{
+		public DualState(IState one, IState two) {
 			this.one = one;
 			this.two = two;
 		}
@@ -61,10 +56,8 @@ namespace FiniteStateMachines.Decorators
 		/// Checks if this <code>DualState</code> is a Startstate
 		/// </summary>
 		/// <returns>true if is a StartState, false if not </returns>
-		public override bool IsStartState 
-		{
-			get 
-			{
+		public override bool IsStartState {
+			get {
 				if(this.one.IsStartState == this.two.IsStartState)
 					return this.one.IsStartState;
 				return false;
@@ -76,10 +69,8 @@ namespace FiniteStateMachines.Decorators
 		/// Checks if this <code>DualState</code> is a FinalState
 		/// </summary>
 		/// <returns>true if it is a finalstate, false if not</returns>
-		public override bool IsFinalState 
-		{
-			get 
-			{
+		public override bool IsFinalState {
+			get {
 				if(this.one.IsFinalState == this.two.IsFinalState)
 					return this.one.IsFinalState;
 				return false;
@@ -92,8 +83,7 @@ namespace FiniteStateMachines.Decorators
 		/// looks like one.name-x-two.name.
 		/// </summary>
 		/// <returns>The name of this <code>DualState</code>as <code>string</code></returns>
-		public override string Name 
-		{
+		public override string Name {
 			get {return this.one.Name+"-X-"+this.two.Name;}
 		}
 
@@ -102,15 +92,13 @@ namespace FiniteStateMachines.Decorators
 		/// Delivers the first <code>Abstractstate</code> of this 
 		/// <code>DualState</code>
 		/// </summary>
-		public AbstractState oneState 
-		{
+		public IState oneState {
 			get {return this.one;}
 		}
 
 		/// Delivers the second <code>Abstractstate</code> of this 
 		/// <code>DualState</code>
-		public AbstractState twoState 
-		{
+		public IState twoState {
 			get {return this.two;}
 		}
 
@@ -120,18 +108,15 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="obj">The object which should be checked</param>
 		/// <returns>true, if booth are equal, false if not.</returns>
-		public override bool Equals(object obj) 
-		{
+		public override bool Equals(object obj) {
 			DualState state;
 			
-			if (obj is DualState) 
-			{ 
+			if (obj is DualState) { 
 				state = (DualState)obj;
-				if(this.Name == state.Name) 
-				{
+				if(this.Name == state.Name) {
 					if(this.IsStartState == state.IsStartState)
 						if(this.IsFinalState == state.IsFinalState)
-										return true;
+							return true;
 				}
 			}
 			return false;
@@ -139,14 +124,12 @@ namespace FiniteStateMachines.Decorators
 
 
 
-		public static bool operator == (DualState one, DualState two) 
-		{
+		public static bool operator == (DualState one, DualState two) {
 			return one.Equals(two);
 		}
 
 
-		public static bool operator !=(DualState one, DualState two) 
-		{
+		public static bool operator !=(DualState one, DualState two) {
 			return !one.Equals(two);
 		}
 
@@ -154,8 +137,7 @@ namespace FiniteStateMachines.Decorators
 		/// Provides the Hashcode of this <code>DualState</code>
 		/// </summary>
 		/// <returns>An int with the computes Hashcode of this object.</returns>
-		public override int GetHashCode() 
-		{
+		public override int GetHashCode() {
 			return Name.GetHashCode();
 		}
 	}

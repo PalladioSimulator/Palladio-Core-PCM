@@ -10,7 +10,7 @@ namespace UnitTests.FiniteStateMachines {
 	/// </summary>
 	[TestFixture]
 	public class FiniteTabularMachineTest {
-		AbstractState[] states;
+		IState[] states;
 		Input[] inputs;
 		Transition[] transitionSetOne;
 		Transition[] transitionSetTwo;
@@ -88,10 +88,10 @@ namespace UnitTests.FiniteStateMachines {
 
 		[ExpectedException(typeof(InvalidStateException))]
 		[Test] public void NoStartState() {
-			AbstractState startsState = machineTwo.StartState;
+			IState startsState = machineTwo.StartState;
 		}
 
-		[ExpectedException(typeof(InvalidStateException))]
+		[ExpectedException(typeof(ApplicationException))]
 		[Test] public void NoFinalStates() {
 			Set finalStates = machineThree.FinalStates;
 		}

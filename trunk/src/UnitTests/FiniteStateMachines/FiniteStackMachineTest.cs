@@ -13,7 +13,7 @@ namespace UnitTests.FiniteStateMachines {
 	public class FiniteStackMachineTest {
 		FiniteTabularMachine d1, d1s, d2, d3, p,q;
 		Input id1,id1s,id2,id3, e1,e2,e3,e4,e5,e6;
-		AbstractState p1,p2, d11,d12, d21,d22, d31,d32,d33,d34;
+		IState p1,p2, d11,d12, d21,d22, d31,d32,d33,d34;
 		StackFiniteStateMachine sfsm,rfsm;
 		StackState s,t,u,v,w,x,y,z;
 		Input topServiceName;
@@ -224,7 +224,7 @@ namespace UnitTests.FiniteStateMachines {
 
 			foreach (Transition trans in rfsm.GetOutgoingTransitions(r6)) {
 				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
-					((trans.InputSymbol == id1s) && (trans.DestinationState == r7)),trans.ToString());
+					((trans.InputSymbol == id1s) && (trans.DestinationState.Equals(r7))),trans.ToString());
 			}
 			foreach (Transition trans in rfsm.GetOutgoingTransitions(r7)) {
 				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 

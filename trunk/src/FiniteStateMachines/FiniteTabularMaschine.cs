@@ -5,13 +5,13 @@ using System.Xml.XPath;
 using Utils.Collections;
 
 namespace FiniteStateMachines {
-    /// <summary>
-    ///     The FiniteTabularMachine is the default implementation of the IFiniteStateMachine interface.
-    ///     It uses a table of transitions as input to create the finite state
-    ///     machine. A FiniteTabularMachine is always deterministic.
-    ///     
-    ///     author: JH
-    /// </summary>
+	/// <summary>
+	///     The FiniteTabularMachine is the default implementation of the IFiniteStateMachine interface.
+	///     It uses a table of transitions as input to create the finite state
+	///     machine. A FiniteTabularMachine is always deterministic.
+	///     
+	///     author: JH
+	/// </summary>
 	public class FiniteTabularMachine : AbstractFiniteStateMachine {
 
 		/// <summary>
@@ -24,7 +24,7 @@ namespace FiniteStateMachines {
 		///     an input sequence, this is the state to
 		///     start with.
 		/// </summary>
-		private AbstractState startState;
+		private IState startState;
 
 		/// <summary>
 		///     If the automaton reaches one of this states
@@ -130,7 +130,7 @@ namespace FiniteStateMachines {
 					iterator.Current.MoveToParent();
 				}
 
-				AbstractState state = new State(name,start,final);
+				IState state = new State(name,start,final);
 				stateTable.Add(name,state);
 				AddState(state);
 				stateCnt++;
@@ -140,16 +140,16 @@ namespace FiniteStateMachines {
 			iterator = nav.Select("/fsm/transition");
 			Hashtable inputTable = new Hashtable();
 			while (iterator.MoveNext()){
-				AbstractState source = null;
-				AbstractState target = null;
+				IState source = null;
+				IState target = null;
 				Input input = null;
 
 				if (iterator.Current.MoveToAttribute("source","")) {
-					source = (AbstractState)stateTable[iterator.Current.Value];
+					source = (IState)stateTable[iterator.Current.Value];
 					iterator.Current.MoveToParent();
 				}
 				if (iterator.Current.MoveToAttribute("target","")) {
-					target = (AbstractState)stateTable[iterator.Current.Value];
+					target = (IState)stateTable[iterator.Current.Value];
 					iterator.Current.MoveToParent();
 				}
 				if (iterator.Current.MoveToAttribute("input","")) {
@@ -189,7 +189,7 @@ namespace FiniteStateMachines {
 		///     an input sequence, this is the state to
 		///     start with.
 		/// </summary>
-		public override AbstractState StartState {
+		public override IState StartState {
 			get {
 				if (startState != null) {
 					return startState; 
@@ -227,15 +227,15 @@ namespace FiniteStateMachines {
 		}
 
 
-        /// <summary>
+		/// <summary>
 		///     Returns the next Transition
 		///     starting at aSourceState
 		///     with the input symbol anInput.
 		///     
 		///     The source state must be in the set of states an the input symbol must be
-        ///     in the input alphabet of the finite state machine, otherwise
-        ///     an excption is thrown.
-        /// </summary>
+		///     in the input alphabet of the finite state machine, otherwise
+		///     an excption is thrown.
+		/// </summary>
 		/// <param name="aSourceState">
 		///		The source of the transition.
 		///	</param>
@@ -246,7 +246,7 @@ namespace FiniteStateMachines {
 		///		The transition starting at aSourceState
 		///     with the input symbol anInput. 
 		/// </returns>
-		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
+		public override Transition GetNextTransition(IState aSourceState, Input anInput) {
 			//TODO use DefaultTransitionType here
 			Transition result = new Transition(aSourceState,anInput,ErrorState);
 			if((!States.Contains(aSourceState)) && (aSourceState != ErrorState)) {
@@ -276,7 +276,7 @@ namespace FiniteStateMachines {
 		///     The key of the Hashtable is the Input and the value the
 		///     corresponding Transition.
 		/// </returns>
-		public override IList GetOutgoingTransitions(AbstractState state) {
+		public override IList GetOutgoingTransitions(IState state) {
 			ArrayList result = new ArrayList();
 			Hashtable outgoing = (Hashtable)transitionTable[state];
 			if (outgoing != null) {
@@ -288,13 +288,13 @@ namespace FiniteStateMachines {
 		}
 
 
-        /// <summary>
-        ///		Returns all Transitions of the finite state machine.
-        /// </summary>
-        /// 
-        /// <returns>
-        ///		A IList of Transitions
-        ///	</returns>
+		/// <summary>
+		///		Returns all Transitions of the finite state machine.
+		/// </summary>
+		/// 
+		/// <returns>
+		///		A IList of Transitions
+		///	</returns>
 		public IList GetTransitions() {
 			ArrayList transitionArray = new ArrayList();
 			foreach (DictionaryEntry entry in transitionTable) {
@@ -309,16 +309,16 @@ namespace FiniteStateMachines {
 		/// <summary>
 		///     Adds a single transition to the automaton.
 		/// </summary>
-		public void AddTransition(AbstractState aSourceState, Input anInput, AbstractState aDestinationState) {	
+		public void AddTransition(IState aSourceState, Input anInput, IState aDestinationState) {	
 			//TODO use DefaultTransitionType here 
 			this.AddTransition(new Transition(aSourceState, anInput, aDestinationState));
 		}
 
 
-        /// <summary>
-        ///     Adds the transtion and the states included in the
-        ///     transition to the finite state machine.
-        /// </summary>
+		/// <summary>
+		///     Adds the transtion and the states included in the
+		///     transition to the finite state machine.
+		/// </summary>
 		public override void AddTransition(Transition aTransition) {	
 			AddState(aTransition.SourceState);
 			AddState(aTransition.DestinationState);
@@ -338,7 +338,7 @@ namespace FiniteStateMachines {
 				throw new InvalidStateException("A transition from "+aTransition.SourceState+" with the input symbol "+aTransition.InputSymbol+" is already defined!");
 			}
 			
-				transitionTable[aTransition.SourceState] = inputTable;
+			transitionTable[aTransition.SourceState] = inputTable;
 			
 		}
 
@@ -346,7 +346,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		///		Adds a state to the finite state machine.
 		/// </summary>
-		private void AddState(AbstractState aState) {
+		private void AddState(IState aState) {
 			if (!states.Contains(aState)){
 				if (aState.IsStartState){ 
 					if (startState == null) {
@@ -375,9 +375,9 @@ namespace FiniteStateMachines {
 		}
 
 		
-        /// <summary>
-        ///     Adds a list of transitions to the finite state machine.
-        /// </summary>
+		/// <summary>
+		///     Adds a list of transitions to the finite state machine.
+		/// </summary>
 		public override void AddTransitionList(IList aTransitionList) {	
 			foreach (Transition trans in aTransitionList){
 				this.AddTransition(trans);

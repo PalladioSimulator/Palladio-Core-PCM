@@ -10,7 +10,7 @@ namespace FiniteStateMachines {
 	///		
 	///		author: JH
 	/// </summary>
-	public class DynamicStateEnumerator : IEnumerator {
+	public class DynamicStateIterator : IEnumerator {
 
 		/// <summary>
 		///		States which have been already visited during 
@@ -26,7 +26,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		///		State currently processed.
 		/// </summary>
-		private AbstractState currentState, startState;
+		private IState currentState, startState;
 
 		/// <summary>
 		///		Creates a new enumerator starting at aState.
@@ -34,7 +34,7 @@ namespace FiniteStateMachines {
 		/// <param name="aState">
 		///		The starting point of the iteration.
 		/// </param>
-		public DynamicStateEnumerator(AbstractState aState) {
+		public DynamicStateIterator(IState aState) {
 			visitedStates = new Stack();
 			statesToVisit = new Stack();
 			statesToVisit.Push(aState);
@@ -45,7 +45,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		///		Get the currently processed state.
 		/// </summary>
-		public AbstractState Current {
+		public IState Current {
 			get { return currentState; }
 		}
 
@@ -57,7 +57,7 @@ namespace FiniteStateMachines {
 		/// <param name="aState">
 		///		A state wich should be enumerated.
 		/// </param>
-		public void Append(AbstractState aState){
+		public void Append(IState aState){
 			if (!visitedStates.Contains(aState) &&
 				!statesToVisit.Contains(aState) &&
 				(currentState != aState)){
@@ -70,19 +70,19 @@ namespace FiniteStateMachines {
 		/// </summary>
 		#region IEnumerator Member
 
-        /// <summary>
-        ///		Moves the iterator to the next state.
-        /// </summary>
-        /// <returns> 
-        ///		True if a next state exists, false oterwise.
-        ///	</returns>
+		/// <summary>
+		///		Moves the iterator to the next state.
+		/// </summary>
+		/// <returns> 
+		///		True if a next state exists, false oterwise.
+		///	</returns>
 		public bool MoveNext(){
 			if (currentState != null) {
 				visitedStates.Push(currentState);
 			}
 
 			if (statesToVisit.Count > 0) {
-				currentState = (AbstractState)statesToVisit.Pop();
+				currentState = (IState)statesToVisit.Pop();
 				return true;
 			} 
 			return false;

@@ -3,8 +3,7 @@ using System.Collections;
 using Utils.Collections;
 using FiniteStateMachines;
 
-namespace FiniteStateMachines.Decorators
-{
+namespace FiniteStateMachines.Decorators {
 	/// <summary>
 	///The FiniteShuffleProductMaschine (FSP) is a specialization of a normal FSM. Is generated out
 	/// of two FSMs. 
@@ -32,8 +31,7 @@ namespace FiniteStateMachines.Decorators
 	/// parts. This will be much faster when you have huge FSMs then creating a normal 
 	/// FiniteCrossProduktMaschine.
 	/// </summary>
-	public class FiniteShuffleProductMaschineLazy : AbstractFiniteStateMachine
-	{
+	public class FiniteShuffleProductMaschineLazy : AbstractFiniteStateMachine {
 		/// <summary>
 		/// An indicator says if the input has already been created.
 		/// </summary>
@@ -72,8 +70,7 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="one">A <code>FiniteTabularMaschine</code></param>
 		/// <param name="two">Another <code>FiniteTabularMaschine</code></param>
-		public FiniteShuffleProductMaschineLazy(FiniteTabularMachine aFSM, FiniteTabularMachine anotherFSM)
-		{
+		public FiniteShuffleProductMaschineLazy(FiniteTabularMachine aFSM, FiniteTabularMachine anotherFSM) {
 			this.aFSM = aFSM;
 			this.anotherFSM = anotherFSM;
 		}
@@ -82,10 +79,8 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Returns the input of the FiniteShuffleProductMaschineLazy
 		/// </summary>
-		public override Set InputAlphabet
-		{
-			get
-			{
+		public override Set InputAlphabet {
+			get {
 				if(!this.inputGenerated)
 					GenerateInput();
 				return this.inputAl;
@@ -97,14 +92,11 @@ namespace FiniteStateMachines.Decorators
 		/// Generates a Set which only contains the input elements which are in both <code>FiniteTabularMaschine</code>
 		/// (intersection of the input of the two given FiniteStatesMaschines)
 		/// </summary>
-		protected void GenerateCrossInput()
-		{
+		protected void GenerateCrossInput() {
 			this.crossInput = new Set();
-			foreach(Input i in aFSM.InputAlphabet)
-			{
+			foreach(Input i in aFSM.InputAlphabet) {
 				foreach(Input p in anotherFSM.InputAlphabet)
-					if(p.Equals(i))
-					{
+					if(p.Equals(i)) {
 						this.crossInput.Add((Input) i);
 					}
 			}
@@ -115,8 +107,7 @@ namespace FiniteStateMachines.Decorators
 		/// Generates the inputalphabet for the FiniteShuffleProductMaschine from the inputalphabets
 		/// of the two given FiniteStateMaschines.
 		/// </summary>
-		protected void GenerateInput()
-		{
+		protected void GenerateInput() {
 			this.inputGenerated = true;
 			GenerateCrossInput();
 			this.inputAl = new Set();
@@ -130,8 +121,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Returns the ErrorState of the FiniteShuffleProductMaschine
 		/// </summary>
-		public override AbstractState ErrorState
-		{
+		public override IState ErrorState {
 			get { return new DualState(this.aFSM.ErrorState,anotherFSM.ErrorState);}
 		}
 		
@@ -140,15 +130,11 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Represents the FinalStates of a FiniteShuffleProductMaschineLazy in a <code>Set</code>
 		/// </summary>
-		public override Set FinalStates
-		{
-			get
-			{
+		public override Set FinalStates {
+			get {
 				Set finalStates = new Set();
-				foreach(State oneFinal in this.aFSM.FinalStates)
-				{
-					foreach(State twoFinal in this.anotherFSM.FinalStates)
-					{
+				foreach(State oneFinal in this.aFSM.FinalStates) {
+					foreach(State twoFinal in this.anotherFSM.FinalStates) {
 						if(oneFinal.IsFinalState &&  twoFinal.IsFinalState)
 							finalStates.Add(new DualState(oneFinal,twoFinal));
 					}
@@ -164,49 +150,41 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="state">A <code>DualState</code> from which the next rechable State should be delivered</param>
 		/// <param name="input">An <code>Input</code></param>
 		/// <returns>the next reachable DualState</returns>
-		public override AbstractState GetNextState(AbstractState aState, Input input)
-		{
+		public override IState GetNextState(IState aState, Input input) {
 			FiniteTabularMachine d = new FiniteTabularMachine();
 			if(aState is DualState == false)
 				throw new InvalidStateException();
 			State oneNext;
 			State twoNext;
 			DualState cpState = (DualState) aState;
-			try
-			{
-				 oneNext = (State)this.aFSM.GetNextState(cpState.oneState,input);
+			try {
+				oneNext = (State)this.aFSM.GetNextState(cpState.oneState,input);
 			}
-			catch(Exception)
-			{
+			catch(Exception) {
 				oneNext = (State)d.ErrorState;
 			}
-			try
-			{
+			try {
 
 				twoNext = (State)this.anotherFSM.GetNextState(cpState.twoState,input);
 
 			}
-			catch(Exception)
-			{
+			catch(Exception) {
 				twoNext = (State) d.ErrorState;
 			}
 			
-			if(this.crossInput.Contains(input))
-			{
+			if(this.crossInput.Contains(input)) {
 				if(oneNext!=ErrorState && twoNext != anotherFSM.ErrorState)
 					return new DualState(oneNext,twoNext);
 				else return this.ErrorState;
 			}
 			//is in one
-			if(this.aFSM.InputAlphabet.Contains(input))
-			{
+			if(this.aFSM.InputAlphabet.Contains(input)) {
 				if(oneNext!= this.aFSM.ErrorState)
 					return new DualState(oneNext,cpState.twoState);
 				else return this.ErrorState;
 			}
 			//is in two
-			if(this.anotherFSM.InputAlphabet.Contains(input))
-			{
+			if(this.anotherFSM.InputAlphabet.Contains(input)) {
 				if(twoNext != this.anotherFSM.ErrorState)
 					return new DualState(cpState.oneState,twoNext);
 				else return this.ErrorState;
@@ -219,10 +197,8 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// The Startstate of the FiniteShuffleProductMaschineLazy
 		/// </summary>
-		public override AbstractState StartState
-		{
-			get
-			{
+		public override IState StartState {
+			get {
 				return new DualState(this.aFSM.StartState,this.anotherFSM.StartState);
 			}
 		}
@@ -234,8 +210,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="state">The sourceState for the new <code>Transition</code></param>
 		/// <param name="input">The<code>Input</code>for the <code>Transition</code></param>
 		/// <returns>The <code>Transition</code> which is reachable</returns>
-		public override Transition GetNextTransition(AbstractState aState, Input input)
-		{
+		public override Transition GetNextTransition(IState aState, Input input) {
 			if(aState is DualState== false)
 				throw new InvalidStateException();
 			DualState cpState = (DualState) aState;
@@ -248,16 +223,13 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="aState">The State from which all transition should be delivered</param>
 		/// <returns>A<code>Hashtable</code> with all reachale Transitions</returns>
-		public override IList GetOutgoingTransitions(AbstractState aState)
-		{
+		public override IList GetOutgoingTransitions(IState aState) {
 			if(aState is DualState == false)
 				throw new InvalidStateException();
 			IList transitionList = new ArrayList();
 			DualState cpState = (DualState) aState;
-			foreach(Input input in this.inputAl)
-			{
-				if(this.GetNextState(cpState,input)!=this.ErrorState)
-				{
+			foreach(Input input in this.inputAl) {
+				if(this.GetNextState(cpState,input)!=this.ErrorState) {
 					Transition newTransition = new Transition(cpState,input,this.GetNextState(cpState,input));
 					transitionList.Add(newTransition);
 				}
@@ -271,8 +243,7 @@ namespace FiniteStateMachines.Decorators
 		/// Note: For this the whole Maschine has to be explored.
 		/// </summary>
 		/// <returns>A Array which contains all Transitions</returns>
-		public Transition[] GetTransitions()
-		{
+		public Transition[] GetTransitions() {
 			Hashtable transitions = new Hashtable();
 
 			this.visitedStates = new Set();
@@ -283,50 +254,41 @@ namespace FiniteStateMachines.Decorators
 			oneStates.Push(aFSM.StartState);
 			twoStates.Push(anotherFSM.StartState);
 			bool iterated = false;
-			while(oneStates.Count!= 0 && twoStates.Count!=0)
-			{
+			while(oneStates.Count!= 0 && twoStates.Count!=0) {
 				State oneBefore = (State) oneStates.Pop();
 				State twoBefore = (State) twoStates.Pop();
 				DualState fromState = new DualState(oneBefore,twoBefore);
-				foreach(DualState s in this.visitedStates)
-				{
+				foreach(DualState s in this.visitedStates) {
 					if(s.oneState == fromState.oneState)
 						if(s.twoState == fromState.twoState)
 							iterated = true;
 
 				}
 				//the fromState has already been explored
-				if(iterated)
-				{
+				if(iterated) {
 					continue;
 				}
 				DualState toState = new DualState();
 				this.GenerateInput();
 				State oneNext;
 				State twoNext;
-				foreach(Input input in this.inputAl)
-				{
+				foreach(Input input in this.inputAl) {
 					this.visitedStates.Add(fromState);
-					try
-					{
+					try {
 						oneNext = (State)this.aFSM.GetNextState(oneBefore,input);
 					}
 					catch(Exception){
 						oneNext = (State) this.aFSM.ErrorState;
 					}
-					try
-					{
+					try {
 						twoNext = (State)this.anotherFSM.GetNextState(twoBefore,input);
 					}
-					catch(Exception)
-					{
+					catch(Exception) {
 						twoNext = (State) this.anotherFSM.ErrorState;
 					}
-					if(this.crossInput.Contains(input))
+					if(this.crossInput.Contains(input)) {
 						//act like FCP
-					{
-						if(oneNext != this.aFSM.ErrorState && twoNext!= anotherFSM.ErrorState)
-						{
+						if(oneNext != this.aFSM.ErrorState && twoNext!= anotherFSM.ErrorState) {
 							transitions.Add(new Transition(fromState,input,new DualState(oneNext,twoNext)),
 								new Transition(fromState,input,new DualState(oneNext,twoNext)));
 							oneStates.Push(oneNext);
@@ -337,10 +299,8 @@ namespace FiniteStateMachines.Decorators
 							//Errorstate
 							continue;
 					}
-					if(this.aFSM.InputAlphabet.Contains(input))
-					{
-						if(oneNext != aFSM.ErrorState)
-						{
+					if(this.aFSM.InputAlphabet.Contains(input)) {
+						if(oneNext != aFSM.ErrorState) {
 
 							transitions.Add(new Transition(fromState,input,new DualState(oneNext,fromState.twoState)),
 								new Transition(fromState,input,new DualState(oneNext,fromState.twoState)));
@@ -352,10 +312,8 @@ namespace FiniteStateMachines.Decorators
 							//ErrorState
 							continue;
 					}
-					if(this.anotherFSM.InputAlphabet.Contains(input))
-					{
-						if(twoNext != anotherFSM.ErrorState)
-						{
+					if(this.anotherFSM.InputAlphabet.Contains(input)) {
+						if(twoNext != anotherFSM.ErrorState) {
 							transitions.Add(new Transition(fromState,input,new DualState(fromState.oneState,twoNext)),
 								new Transition(fromState,input,new DualState(fromState.oneState,twoNext)));
 							oneStates.Push(fromState.oneState);
@@ -370,8 +328,7 @@ namespace FiniteStateMachines.Decorators
 			}
 			Transition[] allTransitions = new Transition[transitions.Count];
 			int indexer = 0;
-			foreach(DictionaryEntry dic in transitions)
-			{
+			foreach(DictionaryEntry dic in transitions) {
 				allTransitions[indexer] = (Transition) dic.Key;
 				indexer++;
 			}

@@ -17,7 +17,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// The source of the transition.
 		/// </summary>
-		private AbstractState sourceState;
+		private IState sourceState;
 
 		/// <summary>
 		/// The input symbol.
@@ -27,7 +27,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// The destination of the transition.
 		/// </summary>
-		private AbstractState destinationState;
+		private IState destinationState;
 
 
 		/// <summary>
@@ -36,7 +36,7 @@ namespace FiniteStateMachines {
 		/// <param name="f">State, the source of the Transition.</param>
 		/// <param name="i">Input of the Transition.</param>
 		/// <param name="t">State, where the Transition leads to.</param>
-		public Transition(AbstractState aSourceState, Input anInputSymbol, AbstractState aDestinationState) {
+		public Transition(IState aSourceState, Input anInputSymbol, IState aDestinationState) {
 			this.SourceState = aSourceState;
 			this.InputSymbol = anInputSymbol;
 			this.DestinationState = aDestinationState;
@@ -67,7 +67,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// The source of the transition.
 		/// </summary>
-		public AbstractState SourceState {
+		public IState SourceState {
 			get { return sourceState; }
 			set { sourceState = value; }
 		}
@@ -76,7 +76,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// The destination of the transition.
 		/// </summary>
-		public AbstractState DestinationState {
+		public IState DestinationState {
 			get { return destinationState; }
 			set { destinationState = value; }
 		}
@@ -97,7 +97,7 @@ namespace FiniteStateMachines {
 		/// <param name="aSourceState">Source</param>
 		/// <param name="anInputSymbol">Input symbol</param>
 		/// <param name="aDestinationState">Destination</param>
-		public void SetValues(AbstractState aSourceState, Input anInputSymbol, AbstractState aDestinationState) {
+		public void SetValues(IState aSourceState, Input anInputSymbol, IState aDestinationState) {
 			this.SourceState = aSourceState;
 			this.InputSymbol = anInputSymbol;
 			this.DestinationState = aDestinationState;
@@ -141,8 +141,8 @@ namespace FiniteStateMachines {
 			if (obj is Transition) {
 				Transition trans = (Transition)obj;
 				return (DestinationState.Equals(trans.DestinationState) &&
-						SourceState.Equals(trans.SourceState) &&
-						InputSymbol.Equals(trans.InputSymbol));
+					SourceState.Equals(trans.SourceState) &&
+					InputSymbol.Equals(trans.InputSymbol));
 			} 
 			return false;
 		}

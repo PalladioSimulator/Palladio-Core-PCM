@@ -8,7 +8,7 @@
 	<transition source="one" target="two" input="a" />
 	<transition source="two" target="two" input="c" />
 	<transition source="two" target="four" input="b" />
-	<transition source="one" target="three" input="d	" />
+	<transition source="one" target="three" input="d" />
 	<transition source="three" target="three" input="c" />
 	<transition source="three" target="four" input="b" />
 </fsm>

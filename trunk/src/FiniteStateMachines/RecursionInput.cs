@@ -24,9 +24,9 @@ namespace ParameterisedContracts {
 		///		The destination of the recursive Transition in 
 		///		the calling service.
 		/// </summary>
-		private AbstractState targetState;
+		private IState targetState;
 
-		public RecursionInput(Input aCallingServiceName, Input aRecursiveServiceName, AbstractState aState) : 
+		public RecursionInput(Input aCallingServiceName, Input aRecursiveServiceName, IState aState) : 
 			base("("+aRecursiveServiceName+"; "+aCallingServiceName+"; "+aState+")"){
 
 			callingServiceName = aCallingServiceName;
@@ -54,7 +54,7 @@ namespace ParameterisedContracts {
 		///		The destination of the recursive Transition in 
 		///		the calling service.
 		/// </summary>
-		public AbstractState TargetState {
+		public IState TargetState {
 			get {return targetState; }
 		}
 

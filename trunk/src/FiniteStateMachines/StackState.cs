@@ -46,7 +46,7 @@ namespace ParameterisedContracts {
 		/// Creates a new StackState for a top service.
 		/// </summary>
 		/// <param name="aState">The state of the top service</param>
-		public StackState(AbstractState aState, Input aTopServiceName){
+		public StackState(IState aState, Input aTopServiceName){
 			contextStack = new Stack();
 			contextStack.Push(new StackContext(aTopServiceName,aState));
 		}
@@ -56,7 +56,7 @@ namespace ParameterisedContracts {
 		/// Simplyfied version of the above constructor.
 		/// </summary>
 		/// <param name="aState"></param>
-		public StackState(AbstractState aState) : this(aState,StackState.TOP_SERVICE_NAME){}
+		public StackState(IState aState) : this(aState,StackState.TOP_SERVICE_NAME){}
 
 
 		/// <summary>
@@ -108,7 +108,7 @@ namespace ParameterisedContracts {
 		/// </summary>
 		/// <param name="aService">Name of the service</param>
 		/// <param name="aState">State of the service</param>
-		public void Push(Input aServiceName, AbstractState aState){
+		public void Push(Input aServiceName, IState aState){
 			contextStack.Push(new StackContext(aServiceName,aState));
 		}
 
@@ -118,7 +118,7 @@ namespace ParameterisedContracts {
 		/// newState.
 		/// </summary>
 		/// <param name="newState"></param>
-		public void ChangeTopState(AbstractState newState){
+		public void ChangeTopState(IState newState){
 			try {
 				StackContext con = new StackContext((StackContext)contextStack.Pop()); // Create a clone
 				con.State = newState;

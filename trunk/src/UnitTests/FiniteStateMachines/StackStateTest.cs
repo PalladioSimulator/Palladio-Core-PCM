@@ -9,7 +9,7 @@ namespace UnitTests.FiniteStateMachines {
 	/// </summary>
 	[TestFixture]
 	public class StackStateTest {
-		AbstractState a,b,c,d;
+		IState a,b,c,d;
 		Input s1,s2,s3,s4;
 
 		[SetUp] public void Init() {

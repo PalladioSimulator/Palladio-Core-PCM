@@ -69,15 +69,15 @@ namespace ParameterisedContracts {
 		///		thrown.
 		/// </returns>
 		private Transition Match(Transition aCallingTransition, IFiniteStateMachine anExpectedFSM) {
-			AbstractState finalTargetInOriginal = originalFSM.ErrorState;
-			AbstractState stateInRule = anExpectedFSM.StartState;
-			AbstractState stateInOriginal = aCallingTransition.DestinationState;
+			IState finalTargetInOriginal = originalFSM.ErrorState;
+			IState stateInRule = anExpectedFSM.StartState;
+			IState stateInOriginal = aCallingTransition.DestinationState;
 
 			if(stateInRule.IsFinalState) {
 				FindTargetInOriginal(stateInOriginal,ref finalTargetInOriginal);
 			}
 
-			DynamicStateEnumerator iterator = new DynamicStateEnumerator(new DualState(stateInRule,stateInOriginal));
+			DynamicStateIterator iterator = new DynamicStateIterator(new DualState(stateInRule,stateInOriginal));
 
 			while(iterator.MoveNext()){
 				stateInRule = ((DualState)iterator.Current).oneState;
@@ -88,7 +88,7 @@ namespace ParameterisedContracts {
 
 				if (transitionInRuleList.Count == transitionInOriginalList.Count) {
 					foreach (Transition transitionInRule in transitionInRuleList){
-						AbstractState targetInOriginal = originalFSM.ErrorState;
+						IState targetInOriginal = originalFSM.ErrorState;
 						Transition transitionInOriginal = originalFSM.GetNextTransition(stateInOriginal,transitionInRule.InputSymbol);
 
 						if(ruleTable.Contains(transitionInOriginal.InputSymbol)) {
@@ -124,8 +124,8 @@ namespace ParameterisedContracts {
 		///		belonging to the FSM associated to the applied rule in 
 		///		the originalFSM.
 		/// </summary>
-		private void FindTargetInOriginal(AbstractState aStateInOriginal, ref AbstractState aTargetInOriginal) {
-			AbstractState tempState = originalFSM.GetNextState(aStateInOriginal,Input.RETURN);
+		private void FindTargetInOriginal(IState aStateInOriginal, ref IState aTargetInOriginal) {
+			IState tempState = originalFSM.GetNextState(aStateInOriginal,Input.RETURN);
 			if( tempState != originalFSM.ErrorState){
 				if( aTargetInOriginal == originalFSM.ErrorState ){
 					aTargetInOriginal = tempState;
@@ -177,7 +177,7 @@ namespace ParameterisedContracts {
 		/// </returns>
 		public IFiniteStateMachine GetReducedMachine(){
 			IFiniteStateMachine resultMachine = new FiniteTabularMachine();
-			DynamicTransitionEnumerator iterator = new DynamicTransitionEnumerator(originalFSM.StartState,originalFSM);
+			DynamicTransitionIterator iterator = new DynamicTransitionIterator(originalFSM.StartState,originalFSM);
 			while(iterator.MoveNext()){
 				if (ruleTable.Contains(iterator.Current.InputSymbol)){
 					try {

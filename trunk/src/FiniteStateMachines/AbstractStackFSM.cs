@@ -96,7 +96,7 @@ namespace ParameterisedContracts {
 		/// </summary>
 		private Set DetermineFinalStates() {
 			Set resultStates = new Set();
-			foreach (AbstractState state in LookUpService(topServiceName).FinalStates) {
+			foreach (IState state in LookUpService(topServiceName).FinalStates) {
 				resultStates.Add(new StackState(state,topServiceName));
 			}
 			return resultStates;
@@ -125,7 +125,7 @@ namespace ParameterisedContracts {
 		///     Constructed out of the start state of the
 		///     provides protocol.
 		/// </summary>
-		public override AbstractState StartState {
+		public override IState StartState {
 			get {return new StackState(LookUpService(topServiceName).StartState,topServiceName);}
 		}
 
@@ -152,7 +152,7 @@ namespace ParameterisedContracts {
 		///     with the input symbol anInput.
 		/// </summary>
 		/// <returns>The destination of the transition.</returns>
-		public override AbstractState GetNextState(AbstractState sourceState, Input anInput) {
+		public override IState GetNextState(IState sourceState, Input anInput) {
 			return GetNextTransition(sourceState,anInput).DestinationState;
 		}
 
@@ -167,7 +167,7 @@ namespace ParameterisedContracts {
 		///     corresponding Transition.
 		/// </returns>
 		/// <seealso cref="IFiniteStateMachine.GetOutgoingTransitions"></seealso>
-		public override IList GetOutgoingTransitions(AbstractState aSourceState) {
+		public override IList GetOutgoingTransitions(IState aSourceState) {
 			ArrayList result = new ArrayList();
 			// the input alphabet has to be cloned, because it could be modified during the
 			// iteration leading to an exception, otherwise
@@ -200,7 +200,7 @@ namespace ParameterisedContracts {
 		protected Transition GetTransitionInService(IFiniteStateMachine aService, StackState aSourceState, Input aServiceName) {
 			Transition result = (Transition)aService.GetNextTransition(aSourceState.Peek().State,aServiceName).Clone();
 			if (result.DestinationState != aService.ErrorState) {
-				AbstractState destinationState = new StackState(aSourceState);
+				IState destinationState = new StackState(aSourceState);
 				((StackState)destinationState).ChangeTopState(result.DestinationState);
 				result.SetValues(aSourceState,aServiceName,destinationState);
 			} else {
@@ -237,7 +237,7 @@ namespace ParameterisedContracts {
 					if (CheckRecursion(aSourceState,aServiceName)) {
 						result = HandleRecursionCall(aSourceState,aServiceName);
 					} else {
-						AbstractState destinationState = new StackState(aSourceState);
+						IState destinationState = new StackState(aSourceState);
 						IFiniteStateMachine calledService = LookUpService(aServiceName);
 						((StackState)destinationState).Push(aServiceName,calledService.StartState);
 						result = (Transition)topTransition.Clone();
@@ -321,11 +321,11 @@ namespace ParameterisedContracts {
 		///     Creates a new Transition using the default type.
 		/// </summary>
 		/// <returns>New Transition object</returns>
-		protected Transition CreateTransition(AbstractState aSourceState, Input anInputSymbol, AbstractState aDestinationState) {
+		protected Transition CreateTransition(IState aSourceState, Input anInputSymbol, IState aDestinationState) {
 			Type[] types = new Type[3];
-			types[0] = typeof(AbstractState);
+			types[0] = typeof(IState);
 			types[1] = typeof(Input);
-			types[2] = typeof(AbstractState);
+			types[2] = typeof(IState);
 			System.Reflection.ConstructorInfo constructorInfo = defaultTransitonType.GetConstructor(types);
 			object[] parameters = new object[3];
 			parameters[0] = aSourceState;

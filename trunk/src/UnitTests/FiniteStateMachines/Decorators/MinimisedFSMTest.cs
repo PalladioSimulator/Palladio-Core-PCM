@@ -24,6 +24,8 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 
 		public static void Main() {
 			MinimisedFSMTest test = new MinimisedFSMTest();
+			test.Init();
+			test.Minimise();
 		}
 	}
 }

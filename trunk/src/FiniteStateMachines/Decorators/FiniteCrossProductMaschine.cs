@@ -2,8 +2,7 @@ using System;
 using System.Collections;
 using Utils.Collections;
 
-namespace FiniteStateMachines.Decorators
-{
+namespace FiniteStateMachines.Decorators {
 	/// <summary>
 	/// Generates a FiniteCrossProduktMaschine. A FiniteCrossProduktMaschine (FSP) is a 
 	/// specialization of a normal FSM. The FiniteCrossProduktMaschine is generated from
@@ -11,8 +10,7 @@ namespace FiniteStateMachines.Decorators
 	/// given FSMs. Its the intersection of two FSMs in the representation of new 
 	/// FiniteTabularMachine.
 	/// </summary>
-	public class FiniteCrossProductMaschine 
-	{
+	public class FiniteCrossProductMaschine {
 
 		/// <summary>
 		/// A new FiniteTabularMachine which represents the result of the intersection of 
@@ -45,8 +43,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Initaites a empty FiniteCrossProduktMaschine
 		/// </summary>
-		public FiniteCrossProductMaschine() 
-		{
+		public FiniteCrossProductMaschine() {
 		}
 
 
@@ -57,8 +54,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the other FSM, together with one they are used to
 		/// create the crossprodukt></param>
-		public FiniteCrossProductMaschine(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) 
-		{
+		public FiniteCrossProductMaschine(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) {
 			this.cp = GenerateCP(aFSM,anotherFSM);
 		}
 
@@ -67,10 +63,8 @@ namespace FiniteStateMachines.Decorators
 		/// Returns the new generated <code>FiniteTabularMachine</code> which contains
 		/// the crossproduct.
 		/// </summary>
-		public FiniteTabularMachine CP
-		{
-			get
-			{
+		public FiniteTabularMachine CP {
+			get {
 				return this.cp;
 			}
 		}
@@ -82,14 +76,12 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the second FSM</param>
 		/// <returns>the cp of the two FSM</returns>
-		public FiniteTabularMachine GenerateCP(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) 
-		{
+		public FiniteTabularMachine GenerateCP(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) {
 			this.cp = new FiniteTabularMachine();
 			this.oneStates = new Stack();
 			this.twoStates = new Stack();
 			GenerateCrossProductInput(aFSM,anotherFSM);
-			if(this.debug) 
-			{
+			if(this.debug) {
 				Console.WriteLine("CP Input: ");
 				this.PrintInput();
 			}
@@ -105,25 +97,21 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="aFSM">The first FiniteTabularMachine</param>
 		/// <param name="anotherFSM">The other FiniteTabularMachine</param>
-		private void LookForStatesOfCrossProduct(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM)
-		{
-			while(this.oneStates.Count!= 0 && this.twoStates.Count!=0) 
-			{
+		private void LookForStatesOfCrossProduct(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) {
+			while(this.oneStates.Count!= 0 && this.twoStates.Count!=0) {
 
-				AbstractState oneBefore = (AbstractState) this.oneStates.Pop();
-				AbstractState twoBefore = (AbstractState) this.twoStates.Pop();
+				IState oneBefore = (IState) this.oneStates.Pop();
+				IState twoBefore = (IState) this.twoStates.Pop();
 
-				foreach(Input i in this.CPInput) 
-				{
-					AbstractState oneNext = aFSM.GetNextState(oneBefore,i);
+				foreach(Input i in this.CPInput) {
+					IState oneNext = aFSM.GetNextState(oneBefore,i);
 					if(this.debug)
 						Console.WriteLine("oneNext is: "+oneNext.ToString());
-					AbstractState twoNext = anotherFSM.GetNextState(twoBefore,i);
+					IState twoNext = anotherFSM.GetNextState(twoBefore,i);
 					if(this.debug)
 						Console.WriteLine("twoNext is: "+twoNext.ToString());
 					if(LoopChecking(aFSM,oneBefore,i)&& LoopChecking(anotherFSM,twoBefore,i)&&
-						!oneNext.Equals(aFSM.ErrorState) && !twoNext.Equals(anotherFSM.ErrorState)) 
-					{
+						!oneNext.Equals(aFSM.ErrorState) && !twoNext.Equals(anotherFSM.ErrorState)) {
 						DualState selfPointingState = new DualState(oneNext,twoNext);
 						this.cp.AddTransition(selfPointingState,i,selfPointingState);
 						this.oneStates.Pop();
@@ -131,8 +119,7 @@ namespace FiniteStateMachines.Decorators
 						continue;
 					}
 					if(!oneNext.Equals(aFSM.ErrorState)&&
-						!twoNext.Equals(anotherFSM.ErrorState)) 
-					{
+						!twoNext.Equals(anotherFSM.ErrorState)) {
 
 						DualState fromState = new DualState(oneBefore, twoBefore);
 						if(this.debug)
@@ -143,14 +130,13 @@ namespace FiniteStateMachines.Decorators
 						this.cp.AddTransition(fromState,i,toState);
 						this.oneStates.Push(oneNext);
 						this.twoStates.Push(twoNext);
-						if(this.debug) 
-						{
+						if(this.debug) {
 							Console.WriteLine("I put one oneStates: "+oneNext.ToString());
 							Console.WriteLine("I put on twoStates: "+twoNext.ToString());
 						}
 					}
-					else 
-					{}
+					else { 
+					 }
 				}
 
 			}
@@ -165,8 +151,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="state">the state which should be checked</param>
 		/// <param name="i">the inpt </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
-		protected bool LoopChecking(IFiniteStateMachine fsm, AbstractState state, Input i) 
-		{
+		protected bool LoopChecking(IFiniteStateMachine fsm, IState state, Input i) {
 			return state == fsm.GetNextState(state,i);
 		}
 
@@ -176,14 +161,11 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="one">The first FSM</param>
 		/// <param name="two">The second FSM</param>
-		protected void GenerateCrossProductInput(IFiniteStateMachine one, IFiniteStateMachine two) 
-		{
+		protected void GenerateCrossProductInput(IFiniteStateMachine one, IFiniteStateMachine two) {
 			this.CPInput = new Set();
-			foreach(Input i in one.InputAlphabet) 
-			{
+			foreach(Input i in one.InputAlphabet) {
 				foreach(Input p in two.InputAlphabet)
-					if(p.Equals(i)) 
-					{
+					if(p.Equals(i)) {
 						this.CPInput.Add((Input) i);
 					}
 			}
@@ -193,8 +175,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// for debugging prints the cp Input alphabet.
 		/// </summary>
-		public void PrintInput() 
-		{
+		public void PrintInput() {
 			foreach(Input i in this.CPInput)
 				Console.WriteLine(i.ToString());
 		}

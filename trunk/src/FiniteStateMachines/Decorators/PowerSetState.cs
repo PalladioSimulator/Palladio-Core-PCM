@@ -2,8 +2,7 @@ using System;
 using FiniteStateMachines;
 using Utils.Collections;
 
-namespace FiniteStateMachines.Decorators
-{
+namespace FiniteStateMachines.Decorators {
 	/// <summary>
 	///		A PowerSetState consists of a set of regular states. 
 	///		
@@ -46,7 +45,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="aState">
 		///		A regular state.
 		///	</param>
-		public PowerSetState(AbstractState aState) {
+		public PowerSetState(IState aState) {
 			this.isStartState = aState.IsStartState;
 			stateSet = new Set();
 			stateSet.Add(aState);
@@ -83,7 +82,7 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		public override bool IsFinalState { 
 			get{
-				foreach (AbstractState state in stateSet) {
+				foreach (IState state in stateSet) {
 					if (state.IsFinalState){
 						return true;
 					}
@@ -99,7 +98,7 @@ namespace FiniteStateMachines.Decorators
 		public override string Name { 
 			get{
 				string result = "(";
-				foreach (AbstractState state in stateSet) {
+				foreach (IState state in stateSet) {
 					result += " "+state;
 				}
 				result += " )";
@@ -108,24 +107,24 @@ namespace FiniteStateMachines.Decorators
 		}
 
 
-        /// <summary>
-        ///		Default implementation of Equals.
-        /// </summary>
-        /// <param name="obj">
-        ///		The other object.
-        ///	</param>
-        /// <returns>
-        ///		True, if Name, IsStartState and IsFinalState 
-        ///		are Equal; false otherwise.
-        ///	</returns>
-        public override bool Equals(object obj) {
-            if (obj is PowerSetState) {
-                PowerSetState other = (PowerSetState)obj;
-                return (other.isStartState == isStartState) &&
-                    (other.stateSet.Equals(stateSet));
-            }
-            return false;
-        }
+		/// <summary>
+		///		Default implementation of Equals.
+		/// </summary>
+		/// <param name="obj">
+		///		The other object.
+		///	</param>
+		/// <returns>
+		///		True, if Name, IsStartState and IsFinalState 
+		///		are Equal; false otherwise.
+		///	</returns>
+		public override bool Equals(object obj) {
+			if (obj is PowerSetState) {
+				PowerSetState other = (PowerSetState)obj;
+				return (other.isStartState == isStartState) &&
+					(other.stateSet.Equals(stateSet));
+			}
+			return false;
+		}
 
 		public override int GetHashCode() {
 			return Name.GetHashCode();

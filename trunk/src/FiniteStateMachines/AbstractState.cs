@@ -7,9 +7,9 @@ namespace FiniteStateMachines {
 	///		
 	///		author: JH
 	/// </summary>
-	public abstract class AbstractState {
+	public abstract class AbstractState : IState {
 		
-        /// <summary>
+		/// <summary>
 		///		Denotes this state as a start state of the
 		///		finite state machine it belongs to.
 		/// </summary>
@@ -63,18 +63,17 @@ namespace FiniteStateMachines {
 		///		IsFinalState are Equal; false otherwise.
 		///	</returns>
 		public override bool Equals(object obj) {
-			AbstractState state;
-			if (obj is AbstractState) { 
-				state = (AbstractState)obj;
+			IState state;
+			if (obj is IState) { 
+				state = (IState)obj;
 				return ((Name == state.Name) && 
-						(IsStartState == state.IsStartState) &&
-						(IsFinalState == state.IsFinalState));
+					(IsStartState == state.IsStartState) &&
+					(IsFinalState == state.IsFinalState));
 			}
 			return false;
 		}
 
 		
-	
 		/// <summary>
 		///		Default comparison of two states based on the 
 		///		implementation of Equals.
@@ -83,15 +82,15 @@ namespace FiniteStateMachines {
 		///		True, if stateOne.Equals(stateTwo); false otherwise
 		///	</returns>
 		public static bool operator == (AbstractState one, AbstractState two){
-			try {
-				return one.Equals(two);
-			} catch( NullReferenceException  ) {
-				try {
-					return two.Equals(one);
-				} catch( NullReferenceException ) {
-					return true;
-				}
+			bool result = false;
+			if ( (object)one != null ) {
+				result = one.Equals(two);
+			} else if ( (object)two != null ) {
+				result = false;
+			} else {
+				result = true; // both null
 			}
+			return result;
 		}
 
 		
@@ -103,15 +102,7 @@ namespace FiniteStateMachines {
 		///		True if _NOT_ stateOne.Equals(stateTwo); false otherwise.
 		///	</returns>
 		public static bool operator != (AbstractState one, AbstractState two){
-			try {
-				return !one.Equals(two);
-			} catch( NullReferenceException  ) {
-				try {
-					return !two.Equals(one);
-				} catch( NullReferenceException ) {
-					return false;
-				}
-			}
+			return !(one == two);
 		}
 	}
 }

@@ -4,8 +4,7 @@ using Utils.Collections;
 using FiniteStateMachines;
 
 
-namespace FiniteStateMachines.Decorators 
-{
+namespace FiniteStateMachines.Decorators {
 	/// <summary>
 	/// Generates a FiniteCrossProduktMaschine. A FiniteCrossProduktMaschine (FSP) is a 
 	/// specialization of a normal FSM. The FiniteCrossProduktMaschine is generated from
@@ -18,12 +17,11 @@ namespace FiniteStateMachines.Decorators
 	/// parts. This will be much faster when you have huge FSMs then creating a normal 
 	/// FiniteCrossProduktMaschine.
 	/// </summary>
-	public class FiniteCrossProductMaschineLazy : AbstractFiniteStateMachine
-	{
+	public class FiniteCrossProductMaschineLazy : AbstractFiniteStateMachine {
 		/// <summary>
 		/// The ErrorState
 		/// </summary>
-		protected AbstractState errorState;
+		protected IState errorState;
 
 		/// <summary>
 		/// The first <code>FiniteTabularMachine</code> form whicch the crossproduct shoukd
@@ -86,8 +84,7 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="one"></param>
 		/// <param name="two"></param>
-		public FiniteCrossProductMaschineLazy(IFiniteStateMachine one, IFiniteStateMachine two) 
-		{
+		public FiniteCrossProductMaschineLazy(IFiniteStateMachine one, IFiniteStateMachine two) {
 			this.InputCreated = false;
 			this.TransitionsCreated = false;
 			this.one = one;
@@ -97,18 +94,15 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Delivers the Errorstate.
 		/// </summary>
-		public override AbstractState ErrorState 
-		{
+		public override IState ErrorState {
 			get { return new DualState(one.ErrorState,two.ErrorState); }
 		}
 
 		/// <summary>
 		/// Returns the Crossinput of the two given FSMs in a Set.
 		/// </summary>
-		public override Set InputAlphabet 
-		{
-			get 
-			{
+		public override Set InputAlphabet {
+			get {
 				if(!this.InputCreated)
 					generateCPInput(this.one,this.two);
 				return this.inputAl;
@@ -121,15 +115,12 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="one">The first FiniteTabularMachine </param>
 		/// <param name="two">the second FiniteTabularMachine</param>
-		protected void generateCPInput(IFiniteStateMachine one, IFiniteStateMachine two) 
-		{
+		protected void generateCPInput(IFiniteStateMachine one, IFiniteStateMachine two) {
 			this.InputCreated = true;
 			this.inputAl = new Set();
-			foreach(Input i in one.InputAlphabet) 
-			{
+			foreach(Input i in one.InputAlphabet) {
 				foreach(Input p in two.InputAlphabet)
-					if(p.Equals(i)) 
-					{
+					if(p.Equals(i)) {
 						this.inputAl.Add((Input) i);
 					}
 			}	
@@ -143,31 +134,26 @@ namespace FiniteStateMachines.Decorators
 		///</code>code></param>
 		/// <param name="input">the input which should be used to deliver the next state</param>
 		/// <returns>The next reachable State</returns>
-		public override AbstractState GetNextState(AbstractState aState, Input input) 
-		{
+		public override IState GetNextState(IState aState, Input input) {
 			if(aState  is DualState == false)
 				throw new InvalidStateException();
 			
 			DualState state = (DualState) aState;
 			if(this.InputAlphabet.Contains(input)== false)
 				throw new InvalidInputException();
-			AbstractState OneNext;
-			AbstractState TwoNext;
+			IState OneNext;
+			IState TwoNext;
 
-			try
-			{
+			try {
 				OneNext = this.one.GetNextState(state.oneState,input);
 			}
-			catch (Exception)
-			{
+			catch (Exception) {
 				return this.ErrorState;
 			}
-			try
-			{
+			try {
 				TwoNext = this.two.GetNextState(state.twoState,input);
 			}
-			catch (Exception)
-			{
+			catch (Exception) {
 				return this.ErrorState;
 			}
 			return new DualState(OneNext,TwoNext);
@@ -177,8 +163,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Returns the Startstate of the FiniteCrossProductMachine,
 		/// </summary>
-		public override AbstractState StartState 
-		{
+		public override IState StartState {
 			get {return new DualState(this.one.StartState,this.two.StartState);}
 		}
 
@@ -187,25 +172,20 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="state">A DualState from which all Transisiotion should be delivered</param>
 		/// <returns>An ArrayList which contains the computed transitions.</returns>
-		public override IList GetOutgoingTransitions(AbstractState state) 
-		{
+		public override IList GetOutgoingTransitions(IState state) {
 			if(state is DualState == false)
 				throw new InvalidStateException();
 
 			IList transitionList = new ArrayList();
-			AbstractState NextState = null;
-			foreach(Input i in this.InputAlphabet) 
-			{
-				try
-				{
+			IState NextState = null;
+			foreach(Input i in this.InputAlphabet) {
+				try {
 					NextState = this.GetNextState(state, i);
 				}
-				catch(Exception)
-				{
+				catch(Exception) {
 					NextState = this.ErrorState;
 				}
-				if(!NextState.Equals(this.ErrorState))
-				{
+				if(!NextState.Equals(this.ErrorState)) {
 					Transition newTransition = new Transition(state,i,NextState);
 					transitionList.Add(newTransition);
 				}
@@ -218,15 +198,13 @@ namespace FiniteStateMachines.Decorators
 		/// Delivers all transitions of the FiniteCrossProductMachine. 
 		/// </summary>
 		/// <returns>All transitions stored in a Transition[]</returns>
-		public Transition[] GetTransitions() 
-		{
+		public Transition[] GetTransitions() {
 			if(!this.TransitionsCreated)
 				CreateTransitions();
 
 			Transition[] TransitionsArray = new Transition[this.Transitions.Count];
 			int i = 0;
-			foreach(DictionaryEntry dic in this.Transitions) 
-			{
+			foreach(DictionaryEntry dic in this.Transitions) {
 				TransitionsArray[i] = (Transition) dic.Value;
 				i++;
 			}
@@ -236,32 +214,28 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// 
 		/// </summary>
-		protected void CreateTransitions() 
-		{
+		protected void CreateTransitions() {
 			this.TransitionsCreated = true;
 			this.Transitions = new Hashtable();
 			Stack oneStates = new Stack();
 			Stack twoStates = new Stack();
 			oneStates.Push(one.StartState);
 			twoStates.Push(two.StartState);
-			while(oneStates.Count!= 0 && twoStates.Count!=0) 
-			{
-				AbstractState oneBefore = (AbstractState) oneStates.Pop();
-				AbstractState twoBefore = (AbstractState) twoStates.Pop();
+			while(oneStates.Count!= 0 && twoStates.Count!=0) {
+				IState oneBefore = (IState) oneStates.Pop();
+				IState twoBefore = (IState) twoStates.Pop();
 
-				foreach(Input i in this.InputAlphabet) 
-				{
-					AbstractState oneNext = one.GetNextState(oneBefore,i);
+				foreach(Input i in this.InputAlphabet) {
+					IState oneNext = one.GetNextState(oneBefore,i);
 					if(this.debug)
 						Console.WriteLine("oneNext is: "+oneNext.ToString());
 					
-					AbstractState twoNext = two.GetNextState(twoBefore,i);
+					IState twoNext = two.GetNextState(twoBefore,i);
 					if(this.debug)
 						Console.WriteLine("twoNext is: "+twoNext.ToString());
 					
 					if(selfPointing(one,oneBefore,i)&& selfPointing(two,twoBefore,i)&&
-						!oneNext.Equals(one.ErrorState) && !twoNext.Equals(two.ErrorState)) 
-					{
+						!oneNext.Equals(one.ErrorState) && !twoNext.Equals(two.ErrorState)) {
 						DualState sps = new DualState(oneNext,twoNext);
 						this.Transitions.Add(new Transition(sps,i,sps),new Transition(sps,i,sps));
 						oneStates.Pop();
@@ -269,8 +243,7 @@ namespace FiniteStateMachines.Decorators
 						continue;
 					}
 					if(!oneNext.Equals(one.ErrorState)&&
-						!twoNext.Equals(two.ErrorState)) 
-					{
+						!twoNext.Equals(two.ErrorState)) {
 						DualState fromState = new DualState(oneBefore, twoBefore);
 						DualState toState = new DualState(oneNext,twoNext);
 						this.Transitions.Add(new Transition(fromState,i,toState),
@@ -278,8 +251,8 @@ namespace FiniteStateMachines.Decorators
 						oneStates.Push(oneNext);
 						twoStates.Push(twoNext);
 					}
-					else 
-					{}
+					else { 
+					 }
 				}
 			}
 		}
@@ -288,19 +261,14 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Returns all finalStates of the crossProductMachine in a <code>Set</code>
 		/// </summary>
-		public override Set FinalStates 
-		{
-			get 
-			{
-				if(this.finalCreated == false) 
-				{
+		public override Set FinalStates {
+			get {
+				if(this.finalCreated == false) {
 					Set OneFinal = this.one.FinalStates;
 					Set TwoFinal = this.two.FinalStates;
 					this.finalStates = new Set();
-					foreach(AbstractState ofs in OneFinal) 
-					{
-						foreach(AbstractState tfs in TwoFinal) 
-						{
+					foreach(IState ofs in OneFinal) {
+						foreach(IState tfs in TwoFinal) {
 							this.finalStates.Add(new DualState(ofs,tfs));
 						}
 					}
@@ -316,8 +284,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="state">The souce State for the transition. It muzt be a DualState</param>
 		/// <param name="i">The input for the transition</param>
 		/// <returns>The Transition</returns>
-		public override Transition GetNextTransition(AbstractState state, Input i) 
-		{
+		public override Transition GetNextTransition(IState state, Input i) {
 			if(state is DualState== false)
 				throw new InvalidStateException();
 			if(!this.InputAlphabet.Contains(i))
@@ -333,8 +300,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="state">The state which should be checked</param>
 		/// <param name="i">the input </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
-		protected bool selfPointing(IFiniteStateMachine fsm, AbstractState state, Input i) 
-		{
+		protected bool selfPointing(IFiniteStateMachine fsm, IState state, Input i) {
 			return state == fsm.GetNextState(state,i);
 		}
 	}
