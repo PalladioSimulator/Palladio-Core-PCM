@@ -8,18 +8,32 @@ namespace FiniteStateMachines
 	/// </summary>
 	public class TransitionIterator 
 	{		
+
+		//the TransitionIterator uses a StateIterator 
 		private StateIterator stateIter;
 
+
+		/// <summary>
+		/// Inits a  Transitioniterator
+		/// </summary>
+		/// <param name="aFSM">The <code>IFiniteStateMachine</code> which should be iterated</param>
 		public TransitionIterator(IFiniteStateMachine aFSM)
 		{
 			this.stateIter = new StateIterator(aFSM);
 		}
 
+		/// <summary>
+		/// Checks if there is another Transition to iterate
+		/// </summary>
+		/// <returns></returns>
 		public bool MoveNext()
 		{
 			return this.stateIter.MoveNext();
 		}
 
+		/// <summary>
+		/// Retruns the current Transition
+		/// </summary>
 		public object Current
 		{
 			get
@@ -29,35 +43,3 @@ namespace FiniteStateMachines
 		}
 	}
 }
-//		protected Transition[] array;
-//		protected ArrayList store;
-//		protected int counter;
-//		public TransitionIterator(IFiniteStateMachine f) {
-//			
-//			this.array = f.GetTransitions();
-//			this.store = new ArrayList();
-//			foreach(Transition t in this.array)
-//				this.store.Add(t);
-//			this.counter =-1;
-//		}
-//		/// <summary>
-//		/// checks, if there is a another Transition to iterate over.
-//		/// </summary>
-//		/// <returns></returns>
-//		public bool MoveNext() {
-//			this.counter++;
-//			if(this.store.Count<= this.counter)
-//				return false;
-//			return true;
-//		}
-//		/// <summary>
-//		/// returns the current Transition
-//		/// </summary>
-//		public object Current {
-//			get {
-//				return this.store[this.counter];
-//			}
-//		}
-//
-//	}
-//}

@@ -6,18 +6,18 @@ using Utils.Collections;
 namespace FiniteStateMachines.Decorators 
 {
 	/// <summary>
-	/// This class allows to minimizes a Fsm and it only can compare compare FSMs.
+	/// This class allows to minimizes a Fsm and it also can compare compare FSMs.
 	/// When two FSMs should be compared, then the FSMs are minimized, reduce states
-	/// that are needable forthe FSM.
-	/// By minimzation a verry popluar algorithmen is used. The states of the FSM
-	/// are organized in groups with the behavior. (Expresson Nyhill Nerode?) 
+	/// are deleted.
+	/// For the minimzation a verry popluar algorithmen is used. The states of the FSM
+	/// are organized in groups with the behavior. (Huffmann/Mealy) 
 	/// </summary>
 	public class MinimizedAndEqualsFSM : FiniteTabularMachine 
 	{
 		/// <summary>
 		/// A FiniteTabluarMachine which should be minimized.
 		/// </summary>
-		protected FiniteTabularMachine fsm;
+		protected IFiniteStateMachine fsm;
 
 		/// <summary>
 		/// for debugging 1
@@ -85,7 +85,7 @@ namespace FiniteStateMachines.Decorators
 		/// Initated this class, and generates a minmized FSM from the given FSM.
 		/// </summary>
 		/// <param name="notMin">A not minimized FSM, which should be minimized</param>
-		public MinimizedAndEqualsFSM(FiniteTabularMachine notMin) 
+		public MinimizedAndEqualsFSM(IFiniteStateMachine notMin) 
 		{
 			this.fsm = notMin;
 			this.groups = new ArrayList();
@@ -107,7 +107,7 @@ namespace FiniteStateMachines.Decorators
 		}
 	
 		/// <summary>
-		/// checks if Minimized is equal to a given FSM.
+		/// Checks if Minimized is equal to a given FSM.
 		/// </summary>
 		/// <param name="o">A FSM </param>
 		/// <returns>true if they are equal</returns>
@@ -138,6 +138,8 @@ namespace FiniteStateMachines.Decorators
 			result = _equal(myMin, d, d2myStatesMap);
 			return result;
 		}
+
+
 		/// <summary>
 		/// A inner Method to get the result
 		/// </summary>
@@ -278,12 +280,12 @@ namespace FiniteStateMachines.Decorators
 		/// Return the notMiniized FSM
 		/// </summary>
 		/// <returns>Return the notMiniized FSM</returns>
-		public FiniteTabularMachine getFSM() 
+		public IFiniteStateMachine getFSM() 
 		{
 			return this.fsm;
 		}
 
-		public FiniteTabularMachine originallyFiniteTabularMachine
+		public IFiniteStateMachine originallyFiniteTabularMachine
 		{
 			get
 			{
@@ -380,7 +382,7 @@ namespace FiniteStateMachines.Decorators
 		/// Minimizes a FSM 
 		/// </summary>
 		/// <param name="fsm">The FSM which should be minimized</param>
-		protected  void Minimize(FiniteTabularMachine fsm) 
+		protected  void Minimize(IFiniteStateMachine fsm) 
 		{	
 			this.initateGroups(fsm);
 			if(this.debug) 
@@ -454,28 +456,39 @@ namespace FiniteStateMachines.Decorators
 				//move elements
 				if(newGroup.Count >0) 
 				{
-					if(this.debug) 
-					{
-						Console.WriteLine("A new group has been created, it contains: ");
-					}
-					this.counterForNumberOfGroups++;
-					this.groups.Add(newGroup);
-					this.groups.TrimToSize();
-					foreach(AbstractState s  in newGroup) 
-					{
-						if(actualGroup.Contains(s)) 
-						{
-							actualGroup.Remove(s);
-						}
-					}
-					actualGroup.TrimToSize();
-					this.groups.Remove(this.actualGroupCounter);
-
-					this.groups.Insert(this.actualGroupCounter,actualGroup);
+					MoveGroups(newGroup, actualGroup);
 				}
 				this.actualGroupCounter++;
 			}
 			this.tidyUp();
+		}
+
+
+		/// <summary>
+		/// if a new group has been created this addes it to the exsiting groups.
+		/// </summary>
+		/// <param name="newGroup"></param>
+		/// <param name="actualGroup"></param>
+		private void MoveGroups(ArrayList newGroup, ArrayList actualGroup)
+		{
+			if(this.debug) 
+			{
+				Console.WriteLine("A new group has been created, it contains: ");
+			}
+			this.counterForNumberOfGroups++;
+			this.groups.Add(newGroup);
+			this.groups.TrimToSize();
+			foreach(AbstractState s  in newGroup) 
+			{
+				if(actualGroup.Contains(s)) 
+				{
+					actualGroup.Remove(s);
+				}
+			}
+			actualGroup.TrimToSize();
+			this.groups.Remove(this.actualGroupCounter);
+
+			this.groups.Insert(this.actualGroupCounter,actualGroup);
 		}
 
 
@@ -555,7 +568,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Delivers the initail partions 
 		/// </summary>
-		public void initateGroups(FiniteTabularMachine fsm) 
+		public void initateGroups(IFiniteStateMachine fsm) 
 		{
 
 			ArrayList conclusion = new ArrayList();

@@ -86,6 +86,7 @@ namespace FiniteStateMachines.Decorators
 			}
 		}
 
+
 		/// <summary>
 		/// Returns the name of this <code>DualState</code> in a string. It always 
 		/// looks like one.name-x-two.name.
