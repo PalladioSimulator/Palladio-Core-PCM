@@ -67,19 +67,6 @@ namespace FiniteStateMachines {
 		public abstract Set InputAlphabet { get; }
 
 		/// <summary>
-		///     Returns the target of a transition
-		///     starting at aSourceState with the input
-		///     symbol anInput.
-		/// </summary>
-		/// 
-		/// <param name="aSourceState">The source of the transition.</param>
-		/// <param name="anInput">The input symbol of the transition.</param>
-		/// 
-		/// <returns>The destination of the transition.</returns>
-		/// <seealso cref="IFiniteStateMachine.GetNextState"></seealso>
-		public abstract AbstractState GetNextState(AbstractState aSourceState, Input anInput);
-
-		/// <summary>
 		///     Returns the next Transition
 		///     starting at aSourceState
 		///     with the input symbol anInput.
@@ -93,20 +80,6 @@ namespace FiniteStateMachines {
 		/// <seealso cref="IFiniteStateMachine.GetNextTransition"></seealso>
 		public abstract Transition GetNextTransition(AbstractState aSourceState, Input anInput);
         
-        
-		/// <summary>
-		///     Returns all _valid_ transitions with the source state.
-		/// </summary>
-		/// 
-		/// <param name="aSourceState">The source for which all valid transitions are returned.</param>
-		/// 
-		/// <returns>
-		///		A Hashtable which contains all transitions for the source state.
-		///     The key of the Hashtable is the Input and the value the
-		///     corresponding Transition.</returns>
-		/// <seealso cref="IFiniteStateMachine.GetOutgoingTransitions"></seealso>
-		public abstract IList GetOutgoingTransitions(AbstractState aSourceState);
-
 		/// <summary>
 		///     Adds a single transition to the automaton.
 		///     The default behaviour is to throw an MethodNotImplementedException,
@@ -135,6 +108,42 @@ namespace FiniteStateMachines {
 			throw new MethodNotImplementedException();
 		}
 
+		/// <summary>
+		///     Returns the target of a transition
+		///     starting at aSourceState with the input
+		///     symbol anInput.
+		/// </summary>
+		/// 
+		/// <param name="aSourceState">The source of the transition.</param>
+		/// <param name="anInput">The input symbol of the transition.</param>
+		/// 
+		/// <returns>The destination of the transition.</returns>
+		/// <seealso cref="IFiniteStateMachine.GetNextState"></seealso>
+		public virtual AbstractState GetNextState(AbstractState aSourceState, Input anInput) {
+			return GetNextTransition(aSourceState,anInput).DestinationState;
+		}
+
+		/// <summary>
+		///     Returns all _valid_ transitions with the source state.
+		/// </summary>
+		/// 
+		/// <param name="aSourceState">The source for which all valid transitions are returned.</param>
+		/// 
+		/// <returns>
+		///		A Hashtable which contains all transitions for the source state.
+		///     The key of the Hashtable is the Input and the value the
+		///     corresponding Transition.</returns>
+		/// <seealso cref="IFiniteStateMachine.GetOutgoingTransitions"></seealso>
+		public virtual IList GetOutgoingTransitions(AbstractState aSourceState) {
+			IList result = new ArrayList();
+			foreach( Input input in InputAlphabet ) {
+				Transition trans = GetNextTransition(aSourceState,input);
+				if ( trans.DestinationState != ErrorState ) {
+					result.Add(trans);
+				}
+			}
+			return result;
+		}
 
 		/// <summary>
 		///     Searches for all states reachable from aState. This means

@@ -4,7 +4,7 @@ using FiniteStateMachines.Decorators;
 using Utils.Collections;
 using System.Collections;
 
-namespace FiniteStateMachines.Decorators {
+namespace ParameterisedContracts {
 
     /// <summary>
     ///     The MachineExpander reconstructs all epsilon

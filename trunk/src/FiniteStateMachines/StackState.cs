@@ -1,7 +1,9 @@
 using System.Collections;
 using System;
 
-namespace FiniteStateMachines {
+using FiniteStateMachines;
+
+namespace ParameterisedContracts {
 
 	/// <summary>
 	///		A StackState consists of a set of abstract states and a number of 

@@ -74,6 +74,18 @@ namespace FiniteStateMachines {
         ///     corresponding Transition.</returns>
 		IList GetOutgoingTransitions(AbstractState aSourceState);
 
+		/// <summary>
+		///     Searches for all states reachable from aState. This means
+		///     there exists a path from aState to every state contained
+		///     in the result. Certainly aState is also included in
+		///     the result.
+		/// </summary>
+		/// 
+		/// <param name="aState">The search starts here.</param>
+		/// 
+		/// <returns>An IList containing all reachable States.</returns>
+		IList GetReachableStates(AbstractState aState);
+
         /// <summary>
         ///     Adds a single transition to the automaton.
         /// </summary>

@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using FiniteStateMachines;
 using FiniteStateMachines.Tools;
+using FiniteStateMachines.Decorators;
 using Utils.Collections;
 
-namespace FiniteStateMachines.Decorators {
+namespace ParameterisedContracts {
 	/// <summary>
 	///		The MachineReducer reduces an automaton using a set of rules (for
 	///		more information see graph-grammars). These rules are applied sequentially
@@ -21,13 +22,6 @@ namespace FiniteStateMachines.Decorators {
 		private Hashtable ruleTable;
 
 		
-		/// <summary>
-		/// Containing the rules for recursion detection.
-		/// </summary>
-		private Hashtable recursionRuleTable;
-
-		
-
 		/// <summary>
 		///		The source automaton, which should be reduced.
 		/// </summary>
@@ -49,10 +43,9 @@ namespace FiniteStateMachines.Decorators {
 		///		transition is returned, otherwise a RuleNotApplicableException is
 		///		thrown.
 		/// </returns>
-		private Transition Match(Transition aStartTransition){
-			AbstractFiniteStateMachine ruleAutomaton = (AbstractFiniteStateMachine)ruleTable[aStartTransition.InputSymbol];
+		private Transition Match(Transition aStartTransition, IFiniteStateMachine anExpectedFSM) {
 			AbstractState finalDestination = sourceMachine.ErrorState;
-			AbstractState stateInRule = ruleAutomaton.StartState;
+			AbstractState stateInRule = anExpectedFSM.StartState;
 			AbstractState stateInSource = aStartTransition.DestinationState;
 
 			if(stateInRule.IsFinalState) {
@@ -65,7 +58,7 @@ namespace FiniteStateMachines.Decorators {
 				stateInRule = ((DualState)iterator.Current).oneState;
 				stateInSource = ((DualState)iterator.Current).twoState;
 
-				IList transitionInRuleList = ruleAutomaton.GetOutgoingTransitions(stateInRule);
+				IList transitionInRuleList = anExpectedFSM.GetOutgoingTransitions(stateInRule);
 				IList transitionInSourceList = sourceMachine.GetOutgoingTransitions(stateInSource);
 
 				if (transitionInRuleList.Count == transitionInSourceList.Count) {
@@ -74,7 +67,7 @@ namespace FiniteStateMachines.Decorators {
 						Transition transitionInSource = sourceMachine.GetNextTransition(stateInSource,transitionInRule.InputSymbol);
 
 						if(ruleTable.Contains(transitionInSource.InputSymbol)) {
-							destinationInSource = Match(transitionInSource).DestinationState;
+							destinationInSource = MatchAll(transitionInSource).DestinationState;
 						} else {
 							destinationInSource = transitionInSource.DestinationState;
 						}
@@ -116,6 +109,19 @@ namespace FiniteStateMachines.Decorators {
 			}
 		}
 
+		private Transition MatchAll(Transition aStartTransition) {
+			IList fsmList = (IList) ruleTable [ aStartTransition.InputSymbol ];
+			string msg = "Following exceptions have been thrown:\n";
+			foreach ( IFiniteStateMachine fsm in fsmList ) {
+				try {
+					return Match(aStartTransition,fsm);
+				} catch ( ApplicationException e ) {
+					msg += "\t"+e.Message+"\n";
+				}
+			}
+			throw new ApplicationException(msg);
+		}
+
 		/// <summary>
 		///		All rules given to the MachineReducer are applied as long as 
 		///		possible. If a part of the sourceMachine cannot be reduced by 
@@ -130,7 +136,7 @@ namespace FiniteStateMachines.Decorators {
 			while(iterator.MoveNext()){
 				if (ruleTable.Contains(iterator.Current.InputSymbol)){
 					try {
-						Transition result = Match(iterator.Current);
+						Transition result = MatchAll(iterator.Current);
 						resultMachine.AddTransition(result);
 						iterator.Append(result.DestinationState);
 					} catch( ApplicationException ) {
@@ -142,43 +148,35 @@ namespace FiniteStateMachines.Decorators {
 			return resultMachine;
 		}
 
+		protected Hashtable CreateRuleTable(Hashtable aServiceTable, AbstractFiniteStateMachine aMachine) {
+			
+			// Adding the default rules to the table.
+			Hashtable result = new Hashtable();
+			foreach ( DictionaryEntry entry in aServiceTable ) {
+				IList fsmList = new ArrayList();
+				fsmList.Add(entry.Value);
+				result.Add(entry.Key,fsmList);
+			}
 
-		private Hashtable CreateRecursiveRules(Hashtable aRuleTable, AbstractFiniteStateMachine aFSM){
-			// walk through the machine, so that all recursive Inputs are created
-			// TODO: find a better solution
-			TransitionIterator iterator = new TransitionIterator(aFSM);
-			while(iterator.MoveNext()) {}
+			// Adding recursion Rules to the table
+			foreach ( Input input in aMachine.InputAlphabet ) {
+				if ( input is RecursionInput ) {
+					RecursionInput recInput = (RecursionInput) input;
+					
+					IFiniteStateMachine recursiveFSM = new RecursiveFSM ( recInput.RecursiveServiceName, aServiceTable );
+					IList fsmList = new ArrayList();
+					fsmList.Add ( recursiveFSM );
+					MarkedInput markedInput = new MarkedInput ( recInput.RecursiveServiceName );
+					result.Add ( markedInput, recursiveFSM );
 
-			// find recursive Input Symbols
-			IList recInputList = new ArrayList();
-			foreach (Input input in aFSM.InputAlphabet){
-				if(input is RecursionInput) {
-					recInputList.Add(input);
+					IFiniteStateMachine fsm = (IFiniteStateMachine) aServiceTable [ recInput.CallingServiceName ];
+					IFiniteStateMachine callingFSM = new CallingFSM ( fsm, recInput );
+					fsmList = (IList) result [ recInput.CallingServiceName ];
+					fsmList.Add ( callingFSM );
 				}
 			}
 
-			foreach (RecursionInput recInput in recInputList) {
-				IFiniteStateMachine recService = (AbstractFiniteStateMachine)ruleTable[recInput.RecursiveServiceName];
-				IFiniteStateMachine first = CreateRecursiveFSM(recService,recInput.RecursiveServiceName);
-			}
-
-			return null;
-		}
-
-		private IFiniteStateMachine CreateRecursiveFSM(IFiniteStateMachine aRecFSM,Input aRecursiveServiceName) {
-			DynamicTransitionIterator iterator = new DynamicTransitionIterator(aRecFSM);
-			IList transitionList = new Set();
-			while(iterator.MoveNext()) {
-				if(iterator.Current.InputSymbol != aRecursiveServiceName) {
-					transitionList.Add(iterator.Current);
-					iterator.Append(iterator.Current.DestinationState);
-				} else {
-					Transition newTransition = (Transition)iterator.Current.Clone();
-					newTransition.DestinationState = aRecFSM.StartState;
-					transitionList.Add(newTransition);
-				}
-			}
-			return new FiniteTabularMachine(transitionList);
+			return result;
 		}
 
 
@@ -192,10 +190,9 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="anMachine">
 		///		The machine affected by the rules.
 		/// </param>
-		public MachineReducer(Hashtable aRuleTable, AbstractFiniteStateMachine aMachine){
-			ruleTable = aRuleTable;
+		public MachineReducer(Hashtable aServiceTable, AbstractFiniteStateMachine aMachine){
+			ruleTable = CreateRuleTable(aServiceTable,aMachine);
 			sourceMachine = aMachine;
-			recursionRuleTable = CreateRecursiveRules(aRuleTable,aMachine);
 		}
 	}
 }

@@ -1,14 +1,15 @@
 using System;
 using System.Collections;
 
+using FiniteStateMachines;
 using FiniteStateMachines.Decorators;
 using Utils.Collections;
 
-namespace FiniteStateMachines {
+namespace ParameterisedContracts {
 
-	public class RecursionRule : AbstractStackFSM {
+	public class RecursiveFSM : AbstractStackFSM {
 
-		public RecursionRule ( Input aRecursiveServiceName, Hashtable aServiceTable ) {
+		public RecursiveFSM ( Input aRecursiveServiceName, Hashtable aServiceTable ) {
 			Initialize( aRecursiveServiceName, aServiceTable );
 		}
 
@@ -75,29 +76,9 @@ namespace FiniteStateMachines {
 		}
 
 
-		/// <summary>
-		/// Identifies the transition starting at aSourceState with the 
-		/// input aRecInput.
-		/// 
-		/// Check if the recursion input is allowed and determin the destination of the transition.
-		/// 
-		/// pre: the current input symbol is a RecursionInput
-		/// </summary>
-		/// <param name="aSourceState">Source state</param>
-		/// <param name="aRecInput">Recursion input</param>
-		/// <returns>A new transition from source to destination</returns>
-//		protected override Transition HandleRecursionInput(StackState aSourceState, RecursionInput aRecInput) {
-//			return null;
-//		}
 
 		protected override bool CheckRecursion(StackState aState, Input aServiceName) {
 			return !aState.LookupServiceName(aServiceName).IsEmpty;
 		}
-
-
-
-
-
-
 	}
 }

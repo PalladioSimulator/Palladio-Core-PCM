@@ -28,7 +28,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// String represinting the input.
 		/// </summary>
-		public string InputSymbol{
+		public virtual string InputSymbol{
 			get {return inputSymbol;}
 		}
 
@@ -36,8 +36,8 @@ namespace FiniteStateMachines {
 		/// Returns the Input as a string.
 		/// </summary>
 		/// <returns>The Input as string.</returns>
-		override public String ToString() {
-			return this.inputSymbol;
+		public override String ToString() {
+			return this.InputSymbol;
 		}
 
 
@@ -48,7 +48,7 @@ namespace FiniteStateMachines {
 		public override bool Equals(object obj) {
 			if (obj is Input) {
 				Input anInput = (Input)obj;
-				return (anInput.inputSymbol == inputSymbol);
+				return (anInput.InputSymbol == InputSymbol);
 			}
 			return false;
 		}
@@ -94,7 +94,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <returns></returns>
 		public override int GetHashCode() {
-			return inputSymbol.GetHashCode();
+			return InputSymbol.GetHashCode();
 		}
 	}
 }

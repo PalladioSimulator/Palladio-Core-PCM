@@ -4,6 +4,7 @@ using FiniteStateMachines;
 using FiniteStateMachines.Decorators;
 using Utils.Collections;
 using System.Collections;
+using ParameterisedContracts;
 
 namespace UnitTests.FiniteStateMachines.Decorators {
 	/// <summary>
@@ -49,17 +50,6 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			tableRecursion.Add(new Input("d2"),d2);
 			tableRecursion.Add(new Input("d3"),d3);
 			expandedRecursion = new FiniteStackMachine(topMachine, topServiceName, tableRecursion);
-
-			RecursionRule rule = new RecursionRule(new Input("d1"),tableRecursion);
-			Console.WriteLine(rule+"\n\n");
-
-
-//			TransitionIterator iter = new TransitionIterator(expandedRecursion);
-//			Console.WriteLine(expandedRecursion);
-
-//			IFiniteStateMachine rule = new RecursionRule(new Input("d1"),tableRecursion);
-//			Console.WriteLine(rule);
-
 		}
 
 
@@ -84,7 +74,8 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 
 		[Test] public void RecursionReduction(){
 			MachineReducer reducer = new MachineReducer(tableRecursion,expandedRecursion);
-
+			IFiniteStateMachine red = reducer.GetReducedMachine();
+			Assert.IsTrue(topMachine.Equals(red));
 		}
 
 		public static void Main(){

@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 
+using FiniteStateMachines;
 using FiniteStateMachines.Decorators;
 using Utils.Collections;
 
-namespace FiniteStateMachines {
+namespace ParameterisedContracts {
 	
 	/// <summary>
 	///     This class represents a final state machine, which simulates a conjunction of several
@@ -29,14 +30,14 @@ namespace FiniteStateMachines {
 			// avoid modifications of the original table
 			Hashtable serviceTable = (Hashtable) aServiceTable.Clone();
 			serviceTable.Add(aTopServiceName,aTopService);
-			Initialize(aTopServiceName,serviceTable);
 			counterConditionTable = new Hashtable();
+			Initialize(aTopServiceName,serviceTable);
 		}
 
 
 		public FiniteStackMachine(Input aTopServiceName, Hashtable aServiceTable) {
-			Initialize(aTopServiceName,aServiceTable);
 			counterConditionTable = new Hashtable();
+			Initialize(aTopServiceName,aServiceTable);
 		}
 
 

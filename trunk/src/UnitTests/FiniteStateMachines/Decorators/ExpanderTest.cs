@@ -4,6 +4,7 @@ using FiniteStateMachines;
 using FiniteStateMachines.Decorators;
 using Utils.Collections;
 using System.Collections;
+using ParameterisedContracts;
 
 namespace UnitTests.FiniteStateMachines.Decorators {
 	/// <summary>

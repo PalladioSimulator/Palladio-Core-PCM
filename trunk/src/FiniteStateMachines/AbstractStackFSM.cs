@@ -3,8 +3,9 @@ using System.Collections;
 
 using FiniteStateMachines.Decorators;
 using Utils.Collections;
+using FiniteStateMachines;
 
-namespace FiniteStateMachines {
+namespace ParameterisedContracts {
 	
 	/// <summary>
 	///     This class represents a final state machine, which simulates a conjunction of several
@@ -45,12 +46,21 @@ namespace FiniteStateMachines {
 
 		protected AbstractStackFSM() {}
 
+		/// <summary>
+		/// Excecute this after all your other initialisations have been done.
+		/// </summary>
+		/// <param name="aTopServiceName"></param>
+		/// <param name="aServiceTable"></param>
 		protected void Initialize(Input aTopServiceName, Hashtable aServiceTable) {
 			topServiceName = aTopServiceName;
 			serviceTable = (Hashtable)aServiceTable.Clone();
 			inputAlphabet = DetermineInputAlphabet();
 			finalStates = DetermineFinalStates();
 			DefaultTransitionType = Type.GetType("FiniteStateMachines.Transition");
+
+			// Iterate through the Machine once, to find all recursions.
+			TransitionIterator it = new TransitionIterator(this);
+			while (it.MoveNext()) {}
 		}
 
 

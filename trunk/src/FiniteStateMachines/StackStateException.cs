@@ -1,6 +1,6 @@
 using System;
 
-namespace FiniteStateMachines
+namespace ParameterisedContracts
 {
 	public class StackStateException : ApplicationException
 	{

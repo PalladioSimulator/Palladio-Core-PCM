@@ -172,6 +172,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\FiniteStateMachines\MarkedInput.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\FiniteStateMachines\ProgrammingErrorException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -183,6 +188,11 @@
                 />
                 <File
                     RelPath = "src\FiniteStateMachines\RecursionRule.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FiniteStateMachines\RecursionTail.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

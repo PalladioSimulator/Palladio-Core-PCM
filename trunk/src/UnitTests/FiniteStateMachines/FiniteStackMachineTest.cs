@@ -3,6 +3,7 @@ using System.Collections;
 using NUnit.Framework;
 using FiniteStateMachines;
 using Utils.Collections;
+using ParameterisedContracts;
 
 namespace UnitTests.FiniteStateMachines {
 	/// <summary>

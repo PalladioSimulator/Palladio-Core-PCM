@@ -1,6 +1,7 @@
 using System;
+using FiniteStateMachines;
 
-namespace FiniteStateMachines {
+namespace ParameterisedContracts {
 	/// <summary>
 	/// 
 	/// </summary>

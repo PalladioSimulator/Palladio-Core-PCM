@@ -1,6 +1,7 @@
 using System;
 using FiniteStateMachines;
 using NUnit.Framework;
+using ParameterisedContracts;
 
 namespace UnitTests.FiniteStateMachines{
 
