@@ -37,7 +37,7 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 		{
 			this._interface = iface;
 			this._interface_EntityChangedHandler = new EntityChangedHandler(interface_EntityChanged);
-//			this._interface.EntityChanged += this._interface_EntityChangedHandler;
+			this._interface.EntityChanged += this._interface_EntityChangedHandler;
 
 			//
 			// Erforderlich für die Windows Form-Designerunterstützung
@@ -280,20 +280,13 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 			this.propertyGrid.SelectedObject = this.listBox.SelectedItem;
 		}
 
-		protected override void OnClosed(System.EventArgs e)
-		{
-			//this._interface.EntityChanged -= this._interface_EntityChangedHandler;
-		}
-
 
 		private void interface_EntityChanged(object source, EntityProxy entity, EventArgs e)
 		{
-			if (e.Reason == EntityChangeReason.UNSPECIFIED)
-			{
-				this.UpdateList();
+			this.UpdateList();
+			if (this.listBox.Items.Count <= this.lastSelectedIndex)
 				this.listBox.SelectedIndex = this.lastSelectedIndex;
-				this.propertyGrid.SelectedObject = this.listBox.SelectedItem;
-			}
+			this.propertyGrid.SelectedObject = this.listBox.SelectedItem;
 		}
 	}
 }

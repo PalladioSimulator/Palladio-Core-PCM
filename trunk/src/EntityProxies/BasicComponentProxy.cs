@@ -23,13 +23,24 @@ namespace Palladio.Editor.Common.EntityProxies
 	/// </summary>
 	public class BasicComponentProxy : ComponentProxy
 	{
+		/// <summary>
+		/// </summary>
 		protected new IBasicComponent _component;
 
+		#region Constructors
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="component"></param>
+		/// <param name="cmdHandler"></param>
+		/// <param name="provided"></param>
+		/// <param name="required"></param>
 		public BasicComponentProxy(IBasicComponent component, CommandHandler cmdHandler, RoleProxy[] provided, RoleProxy[] required)
 			: base(component, cmdHandler, provided, required)
 		{
 			this._component = component;
 
 		}
+		#endregion
 	}
 }

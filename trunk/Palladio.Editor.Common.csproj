@@ -114,11 +114,6 @@
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
                 />
                 <Reference
-                    Name = "log4net"
-                    AssemblyName = "log4net"
-                    HintPath = "..\Palladio.Editor\bin\Assemblies\log4net.dll"
-                />
-                <Reference
                     Name = "System.Design"
                     AssemblyName = "System.Design"
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Design.dll"
@@ -128,6 +123,11 @@
                     AssemblyName = "Palladio.FiniteStateMachines"
                     HintPath = "..\Palladio.Editor\bin\Assemblies\Palladio.FiniteStateMachines.dll"
                     Private = "False"
+                />
+                <Reference
+                    Name = "log4net"
+                    AssemblyName = "log4net"
+                    HintPath = "..\Palladio.Editor.Core\bin\Assemblies\log4net.dll"
                 />
             </References>
         </Build>

@@ -27,11 +27,25 @@ namespace Palladio.Editor.Common.EntityProxies
 	/// </summary>
 	public abstract class ComponentProxy : EntityProxy, ICustomTypeDescriptor
 	{
+		/// <summary>
+		/// </summary>
 		protected Palladio.ComponentModel.IComponent _component;
 
+		/// <summary>
+		/// </summary>
 		protected RoleProxyCollection _providesRoles;
+		/// <summary>
+		/// </summary>
 		protected RoleProxyCollection _requiresRoles;
 
+		#region Constructors
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="component"></param>
+		/// <param name="cmdHandler"></param>
+		/// <param name="provides"></param>
+		/// <param name="requires"></param>
 		public ComponentProxy(Palladio.ComponentModel.IComponent component, CommandHandler cmdHandler, RoleProxy[] provides, RoleProxy[] requires)
 			: base(cmdHandler)
 		{
@@ -42,11 +56,12 @@ namespace Palladio.Editor.Common.EntityProxies
 			this._providesRoles.AddRange(provides);
 			this._requiresRoles.AddRange(requires);
 		}
+		#endregion
 
+		#region Public Properties
 		/// <summary>
 		/// 
 		/// </summary>
-		#region Public Properties
 		[ ReadOnly(true),
 		  TypeConverter(typeof(StringConverter)),
 		  Category("Default"),
@@ -112,6 +127,7 @@ namespace Palladio.Editor.Common.EntityProxies
 		}
 		#endregion
 
+		#region Public Methods
 		/// <summary>
 		/// 
 		/// </summary>
@@ -155,8 +171,9 @@ namespace Palladio.Editor.Common.EntityProxies
 				this.FireCommandIssued( command );
 			}
 		}
+		#endregion
 
-		#region ICustomTypeDescriptor Member
+		#region ICustomTypeDescriptor Member Overrides
 
 		/// <summary>
 		/// 

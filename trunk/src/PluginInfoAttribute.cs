@@ -26,26 +26,36 @@ namespace Palladio.Editor.Common
 		private string version = "0";
 		private string description = "No description";
 
-		public PluginInfoAttribute() { }
-
+		/// <summary>
+		/// 
+		/// </summary>
 		public string Name
 		{
 			get { return this.name; }
 			set { this.name = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public string Author
 		{
 			get { return this.author; }
 			set { this.author = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public string Version
 		{
 			get { return this.version; }
 			set { this.version = value; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public string Description
 		{
 			get { return this.description; }

@@ -27,9 +27,25 @@ namespace Palladio.Editor.Common.EntityProxies
 	/// </summary>
 	public class InterfaceProxy : EntityProxy, ICustomTypeDescriptor
 	{
+		#region Fields
+		/// <summary>
+		/// 
+		/// </summary>
 		protected IInterfaceModel _interface;
+		/// <summary>
+		/// 
+		/// </summary>
 		protected SignatureProxyCollection _signatures;
+		#endregion
 
+
+		#region Constructors
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="iface"></param>
+		/// <param name="cmdHandler"></param>
+		/// <param name="signatures"></param>
 		public InterfaceProxy(IInterfaceModel iface, CommandHandler cmdHandler, SignatureProxy[] signatures)
 			: base(cmdHandler)
 		{
@@ -37,7 +53,12 @@ namespace Palladio.Editor.Common.EntityProxies
 			this._signatures = new SignatureProxyCollection();
 			this._signatures.AddRange(signatures);
 		}
+		#endregion
 
+		#region Public Properties
+		/// <summary>
+		/// 
+		/// </summary>
 		[ ReadOnly(true),
 		TypeConverter(typeof(StringConverter)),
 		Category("Default"),
@@ -50,6 +71,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ ReadOnly(false),
 		TypeConverter(typeof(StringConverter)),
 		Category("Default"),
@@ -67,6 +91,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ ReadOnly(false),
 		TypeConverter(typeof(SignatureListTypeConverter)),
 		Editor(typeof(SignatureProxyCollectionTypeEditor), typeof(UITypeEditor)),
@@ -79,7 +106,13 @@ namespace Palladio.Editor.Common.EntityProxies
 				return this._signatures;
 			}
 		}
+		#endregion
 
+		#region Public Methods
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public IIdentifier AddSignature()
 		{
 			AddSignatureCmd command = new AddSignatureCmd(
@@ -90,10 +123,16 @@ namespace Palladio.Editor.Common.EntityProxies
 
 			this.FireCommandIssued( command );
 
+			this.FireEntityChanged();
 			//return ID of added component
 			return command.EventArgs.AssociatedID;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sig"></param>
+		/// <returns></returns>
 		public IIdentifier AddSignature(ISignature sig)
 		{
 			AddSignatureCmd command = new AddSignatureCmd(this._interface, sig);
@@ -104,6 +143,11 @@ namespace Palladio.Editor.Common.EntityProxies
 			return command.EventArgs.AssociatedID;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sig"></param>
+		/// <returns></returns>
 		public IIdentifier RemoveSignature(SignatureProxy sig)
 		{
 			RemoveSignatureCmd command = new RemoveSignatureCmd(
@@ -112,9 +156,16 @@ namespace Palladio.Editor.Common.EntityProxies
 
 			this.FireCommandIssued( command );
 
+			this.FireEntityChanged();
+
 			return command.EventArgs.AssociatedID;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		public bool HasSignatureID(IIdentifier id)
 		{
 			foreach (SignatureProxy sig in this.Signatures)
@@ -125,6 +176,11 @@ namespace Palladio.Editor.Common.EntityProxies
 			return false;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		public SignatureProxy GetSignatureByID(IIdentifier id)
 		{
 			foreach (SignatureProxy sig in this.Signatures)
@@ -134,14 +190,23 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 			return null;
 		}
+		#endregion
 
 		#region ICustomTypeDescriptor Member Overrides
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributes"></param>
+		/// <returns></returns>
 		public override PropertyDescriptorCollection GetProperties(Attribute[] attributes)
 		{
 			return GetProperties();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public override PropertyDescriptorCollection GetProperties()
 		{
 			// Create a new collection object PropertyDescriptorCollection

@@ -45,10 +45,8 @@ namespace Palladio.Editor.Common.Commands
 
 		public override bool Execute()
 		{
-			Console.WriteLine("ok1");
 			if (this._interface.HasSignatureID(this._oldSignature.ID))
 			{
-				Console.WriteLine("ok2");
 				SignatureProxy sig = this._interface.GetSignatureByID(this._oldSignature.ID);
 				this._interface.RemoveSignature(sig);
 
@@ -60,11 +58,9 @@ namespace Palladio.Editor.Common.Commands
 					paramArray = this._oldSignature.Parameters;
 				else
 				{
-					Console.WriteLine("ok3");
 					paramArray = new IParameter[this._newParameters.Count];
 					for(int i = 0; i < this._newParameters.Count; i++)
 					{
-						Console.WriteLine("ok3.");
 						IParameter param = ComponentFactory.CreateParameter(this._newParameters[i].Type,this._newParameters[i].Name);
 						paramArray[i] = param;
 					}

@@ -30,13 +30,26 @@ namespace Palladio.Editor.Common.EntityProxies
 	[TypeConverter(typeof(UITypeEditors.SignatureTypeConverter))]
 	public class SignatureProxy : EntityProxy
 	{
+		/// <summary>
+		/// </summary>
 		protected ISignature _signature;
+
+		/// <summary>
+		/// </summary>
 		protected InterfaceProxy _interface;
 
 		private ParameterProxyCollection _parameters;
 
 		private EntityChangedHandler _parameter_EntityChangedHandler;
 
+		#region Constructors
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="signature"></param>
+		/// <param name="iface"></param>
+		/// <param name="cmdHandler"></param>
+		/// <param name="parameters"></param>
 		public SignatureProxy(ISignature signature, InterfaceProxy iface, CommandHandler cmdHandler, ParameterProxy[] parameters)
 			: base(cmdHandler)
 		{
@@ -46,10 +59,11 @@ namespace Palladio.Editor.Common.EntityProxies
 			this._parameters = new ParameterProxyCollection();
 			this._parameters.AddRange(parameters);
 
-			this._parameter_EntityChangedHandler = new EntityChangedHandler(parameter_EntityChanged);
+			//this._parameter_EntityChangedHandler = new EntityChangedHandler(parameter_EntityChanged);
 
-			this.UpdateParameterList();
+			//this.UpdateParameterList();
 		}
+		#endregion
 
 		#region Public Properties
 		/// <summary>
@@ -153,6 +167,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public InterfaceProxy Interface
 		{
 			get
@@ -167,20 +184,7 @@ namespace Palladio.Editor.Common.EntityProxies
 		#endregion
 
 
-		/// <summary>
-		/// 
-		/// </summary>
-		private void UpdateParameterList()
-		{
-			this._parameters.Clear();
-			foreach (IParameter param in this._signature.Parameters)
-			{
-				ParameterProxy parameter = new ParameterProxy(param);
-				//parameter.EntityChanged += this._parameter_EntityChangedHandler;
-				this._parameters.Add(parameter);
-			}
-		}
-
+		#region Public Methods
 		/// <summary>
 		/// 
 		/// </summary>
@@ -192,6 +196,20 @@ namespace Palladio.Editor.Common.EntityProxies
 				this._interface, null, null, parameters, null);
 			this.FireCommandIssued( command );
 		}
+		#endregion
+
+		/// <summary>
+		/// 
+		/// </summary>
+//		private void UpdateParameterList()
+//		{
+//			this._parameters.Clear();
+//			foreach (IParameter param in this._signature.Parameters)
+//			{
+//				ParameterProxy parameter = new ParameterProxy(param);
+//				this._parameters.Add(parameter);
+//			}
+//		}
 
 		#region ICustomTypeDescriptor Member Overrides
 
@@ -231,10 +249,10 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// <param name="source"></param>
 		/// <param name="entity"></param>
 		/// <param name="e"></param>
-		private void parameter_EntityChanged(object source, EntityProxy entity, EventArgs e)
-		{
-			this.UpdateParameterList();
-		}
+//		private void parameter_EntityChanged(object source, EntityProxy entity, EventArgs e)
+//		{
+//			this.UpdateParameterList();
+//		}
 	}
 
 	/// <summary>

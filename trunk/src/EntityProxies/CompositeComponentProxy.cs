@@ -28,11 +28,24 @@ namespace Palladio.Editor.Common.EntityProxies
 	/// </summary>
 	public class CompositeComponentProxy : ComponentProxy
 	{
+		#region Fields
+		/// <summary>
+		/// </summary>
 		protected new ICompositeComponent _component;
 
 		private CompositeComponentProxyCollection _compositeComponents;
 		private BasicComponentProxyCollection _basicComponents;
+		#endregion
 
+		#region Constructors
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="component"></param>
+		/// <param name="cmdHandler"></param>
+		/// <param name="provided"></param>
+		/// <param name="required"></param>
+		/// <param name="components"></param>
 		public CompositeComponentProxy(ICompositeComponent component, CommandHandler cmdHandler, RoleProxy[] provided, RoleProxy[] required, ComponentProxy[] components)
 			: base(component, cmdHandler, provided, required)
 		{
@@ -48,7 +61,9 @@ namespace Palladio.Editor.Common.EntityProxies
 					this._basicComponents.Add(comp as BasicComponentProxy);
 			}
 		}
+		#endregion
 
+		#region Public Properties
 		/// <summary>
 		/// 
 		/// </summary>
@@ -94,7 +109,9 @@ namespace Palladio.Editor.Common.EntityProxies
 				return coll;
 			}
 		}
+		#endregion
 
+		#region Public Methods
 		/// <summary>
 		/// 
 		/// </summary>
@@ -186,8 +203,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			RemoveComponentCmd command = new RemoveComponentCmd(this._component, id);
 			this.FireCommandIssued( command );
 		}
+		#endregion
 
-		#region ICustomTypeDescriptor Member
+		#region ICustomTypeDescriptor Member Overrides
 
 		public override PropertyDescriptorCollection GetProperties(Attribute[] attributes)
 		{

@@ -19,9 +19,17 @@ namespace Palladio.Editor.Common
 	/// </summary>
 	public interface IViewPluginHost : IPluginHost
 	{
+		/// <summary>
+		/// </summary>
 		event ComponentModelChangedHandler ComponentModelChanged;
+
+		/// <summary>
+		/// </summary>
 		event EntityChangedHandler EntityChanged;
 
+		/// <summary>
+		/// </summary>
+		/// <returns></returns>
 		EntityProxies.CompositeComponentProxy GetComponentModel();
 	}
 }

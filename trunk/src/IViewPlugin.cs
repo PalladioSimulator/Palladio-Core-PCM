@@ -23,9 +23,9 @@ namespace Palladio.Editor.Common
 	/// </summary>
 	public enum UserControlPosition
 	{
-		/// <summary>Place the plugin control within a floating or freely dockable frame.</summary>
+		/// <summary>Places the plugin control into a floating or freely dockable frame.</summary>
 		FLOAT,
-		/// <summary>Place the plugin control into the MDI container.</summary>
+		/// <summary>Places the plugin control into the MDI container.</summary>
 		MDI_CONTAINER,
 	}
 
@@ -34,14 +34,37 @@ namespace Palladio.Editor.Common
 	/// </summary>
 	public interface IViewPlugin : IPlugin
 	{
+		/// <summary>
+		/// 
+		/// </summary>
 		event SelectionChangedHandler SelectionChanged;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="host"></param>
+		/// <returns></returns>
 		bool Initialize(IViewPluginHost host);
 
+		/// <summary>
+		/// 
+		/// </summary>
 		System.Windows.Forms.Control ViewControl { get; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		UserControlPosition UserControlPosition { get; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		Object[] ToolboxItems { get; }
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="adapter"></param>
 		void Select(EntityProxies.EntityProxy adapter);
 	}
 }

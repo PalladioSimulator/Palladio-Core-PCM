@@ -24,9 +24,9 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors
 		{
 			Dialogs.RoleProxyCollectionForm dialog = null;
 			if ( context.PropertyDescriptor.DisplayName.Equals("ProvidedRoles") )
-				dialog = new Dialogs.RoleProxyCollectionForm(context.Instance as CompositeComponentProxy, false);
+				dialog = new Dialogs.RoleProxyCollectionForm(context.Instance as ComponentProxy, false);
 			else if ( context.PropertyDescriptor.DisplayName.Equals("RequiredRoles") )
-				dialog = new Dialogs.RoleProxyCollectionForm(context.Instance as CompositeComponentProxy, true);
+				dialog = new Dialogs.RoleProxyCollectionForm(context.Instance as ComponentProxy, true);
 			else
 				return value;
 			dialog.ShowDialog();

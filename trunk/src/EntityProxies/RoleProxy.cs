@@ -24,10 +24,28 @@ namespace Palladio.Editor.Common.EntityProxies
 	/// </summary>
 	public class RoleProxy : EntityProxy, ICustomTypeDescriptor
 	{
+		#region Fields
+		/// <summary>
+		/// The role instance behind this proxy.</summary>
 		protected IRole _role;
-		protected InterfaceProxy _interface;
-		protected ComponentProxy _component;
 
+		/// <summary>
+		/// A proxy to the interface attached to this role.</summary>
+		protected InterfaceProxy _interface;
+
+		/// <summary>
+		/// A proxy to the component to which this role is attached to.</summary>
+		protected ComponentProxy _component;
+		#endregion
+
+		#region Constructors
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="role"></param>
+		/// <param name="comp"></param>
+		/// <param name="iface"></param>
+		/// <param name="cmdHandler"></param>
 		public RoleProxy(IRole role, ComponentProxy comp, InterfaceProxy iface, CommandHandler cmdHandler)
 			: base(cmdHandler)
 		{
@@ -35,7 +53,12 @@ namespace Palladio.Editor.Common.EntityProxies
 			this._interface = iface;
 			this._component = comp;
 		}
+		#endregion
 
+		#region Public Properties
+		/// <summary>
+		/// 
+		/// </summary>
 		[ ReadOnly(true),
 		TypeConverter(typeof(StringConverter)),
 		Category("Default"),
@@ -48,6 +71,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ ReadOnly(false),
 		TypeConverter(typeof(StringConverter)),
 		Category("Default"),
@@ -67,6 +93,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ ReadOnly(false),
 		TypeConverter(typeof(InterfaceTypeConverter)),
 		Category("Context"),
@@ -79,6 +108,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ ReadOnly(true),
 		TypeConverter(typeof(ComponentTypeConverter)),
 		Category("Context"),
@@ -90,14 +122,24 @@ namespace Palladio.Editor.Common.EntityProxies
 				return this._component;
 			}
 		}
+		#endregion
 
 		#region ICustomTypeDescriptor Member Overrides
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributes"></param>
+		/// <returns></returns>
 		public override PropertyDescriptorCollection GetProperties(Attribute[] attributes)
 		{
 			return GetProperties();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public override PropertyDescriptorCollection GetProperties()
 		{
 			// Create a new collection object PropertyDescriptorCollection

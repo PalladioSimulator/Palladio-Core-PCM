@@ -47,11 +47,25 @@ namespace Palladio.Editor.Common
 	/// </summary>
 	public interface IPlugin
 	{
+		/// <summary>
+		/// </summary>
 		string Name				{ get; }
+
+		/// <summary>
+		/// </summary>
 		string Description		{ get; }
+
+		/// <summary>
+		/// </summary>
 		string Author			{ get; }
+
+		/// <summary>
+		/// </summary>
 		string Version			{ get; }
 
+		/// <summary>
+		/// 
+		/// </summary>
 		void Detach();
 	}
 }

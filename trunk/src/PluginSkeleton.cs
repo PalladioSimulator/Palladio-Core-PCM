@@ -20,6 +20,13 @@ namespace Palladio.Editor.Common
 	public abstract class PluginSkeleton : AbstractPlugin
 	{
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="name"></param>
+		/// <param name="descr"></param>
+		/// <param name="author"></param>
+		/// <param name="version"></param>
 		public PluginSkeleton(string name, string descr, string author, string version)
 		{
 			this._name = name;
@@ -28,21 +35,33 @@ namespace Palladio.Editor.Common
 			this._version = version;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override sealed string Name
 		{
 			get { return this._name; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override sealed string Description
 		{
 			get	{ return this._description; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override sealed string Author
 		{
 			get { return this._author; }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override sealed string Version
 		{
 			get { return this._version; }

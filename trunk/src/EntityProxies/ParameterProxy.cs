@@ -25,19 +25,35 @@ namespace Palladio.Editor.Common.EntityProxies
 	[TypeConverter(typeof(UITypeEditors.ParameterTypeConverter))]
 	public class ParameterProxy : EntityProxy, ICustomTypeDescriptor
 	{
+		/// <summary>
+		/// </summary>
 		protected IParameter _parameter;
 
+		/// <summary>
+		/// </summary>
 		private string _name;
+
+		/// <summary>
+		/// </summary>
 		private string _type;
 
+		#region Constructors
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
 		public ParameterProxy(IParameter param)
 		{
 			this._parameter = param;
 			this._name = param.Name;
 			this._type = param.Type.ToString();
-
 		}
+		#endregion
 
+		#region Public Properties
+		/// <summary>
+		/// 
+		/// </summary>
 		public override IIdentifier ID
 		{
 			get
@@ -46,6 +62,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ ReadOnly(false),
 		TypeConverter(typeof(StringConverter)),
 		Category("Default"),
@@ -59,12 +78,12 @@ namespace Palladio.Editor.Common.EntityProxies
 			set
 			{
 				this._name = value;
-//				base.FireEntityChanged(
-//					this, 
-//					new EventArgs(EntityChangeReason.PROPERTY_CHANGED, null) );
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[ ReadOnly(false),
 		TypeConverter(typeof(StringConverter)),
 		Category("Default"),
@@ -78,19 +97,25 @@ namespace Palladio.Editor.Common.EntityProxies
 			set
 			{
 				this._type = value;
-//				base.FireEntityChanged(
-//					this, 
-//					new EventArgs(EntityChangeReason.PROPERTY_CHANGED, null) );
 			}
 		}
+		#endregion
 
 		#region ICustomTypeDescriptor Member Overrides
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributes"></param>
+		/// <returns></returns>
 		public override PropertyDescriptorCollection GetProperties(Attribute[] attributes)
 		{
 			return GetProperties();
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public override PropertyDescriptorCollection GetProperties()
 		{
 			// Create a new collection object PropertyDescriptorCollection
@@ -101,15 +126,22 @@ namespace Palladio.Editor.Common.EntityProxies
 
 			return pds;
 		}
-
 		#endregion
 	}
 
+	/// <summary>
+	/// 
+	/// </summary>
 	internal class ParameterProxyCollectionDescriptor : PropertyDescriptor
 	{
 		private ParameterProxyCollection collection = null;
 		private int index = -1;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="coll"></param>
+		/// <param name="idx"></param>
 		public ParameterProxyCollectionDescriptor(ParameterProxyCollection coll, int idx) : 
 			base( "#"+idx.ToString(), null )
 		{
@@ -117,6 +149,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			this.index = idx;
 		} 
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override AttributeCollection Attributes
 		{
 			get 
@@ -125,11 +160,19 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="component"></param>
+		/// <returns></returns>
 		public override bool CanResetValue(object component)
 		{
 			return true;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override Type ComponentType
 		{
 			get 
@@ -138,6 +181,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override string DisplayName
 		{
 			get 
@@ -146,6 +192,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override string Description
 		{
 			get
@@ -155,35 +204,63 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="component"></param>
+		/// <returns></returns>
 		public override object GetValue(object component)
 		{
 			return this.collection[index];
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override bool IsReadOnly
 		{
 			get { return false;  }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override string Name
 		{
 			get { return "#"+index.ToString(); }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override Type PropertyType
 		{
 			get { return this.collection[index].GetType(); }
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="component"></param>
 		public override void ResetValue(object component)
 		{
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="component"></param>
+		/// <returns></returns>
 		public override bool ShouldSerializeValue(object component)
 		{
 			return true;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="component"></param>
+		/// <param name="value"></param>
 		public override void SetValue(object component, object value)
 		{
 			// this.collection[index] = value;

@@ -28,11 +28,11 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 
-		private CompositeComponentProxy _component;
+		private ComponentProxy _component;
 		private bool _isRequiredRolesForm;
 		private int lastSelectedIndex;
 
-		public RoleProxyCollectionForm(CompositeComponentProxy parentComp, bool isRequiredRolesForm)
+		public RoleProxyCollectionForm(ComponentProxy parentComp, bool isRequiredRolesForm)
 		{
 			this._component = parentComp;
 			this._isRequiredRolesForm = isRequiredRolesForm;
