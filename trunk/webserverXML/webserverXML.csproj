@@ -3,13 +3,13 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{CD8DE3F3-BD5B-1E40-B4A3-E8335A565A42}"
+        ProjectGuid = "{187A3048-4BFE-F344-92BE-AEE42C224D11}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "webserverXML"
+                AssemblyName = "WebserverXML"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "webserverXML"
+                RootNamespace = "WebserverXML"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -99,7 +99,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "configType.cs"
+                    RelPath = "WebserverXMLDoc.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DebugFileType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -109,17 +114,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "documentRootType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "FileNameType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "MimeTypesType.cs"
+                    RelPath = "LogFileType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -129,7 +129,17 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "portsType.cs"
+                    RelPath = "MimeTypesType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "configType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "documentRootType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -139,7 +149,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "webserverXMLDoc.cs"
+                    RelPath = "portsType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

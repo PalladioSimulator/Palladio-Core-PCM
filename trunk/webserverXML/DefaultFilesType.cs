@@ -16,7 +16,7 @@ using System.Collections;
 using System.Xml;
 using Altova.Types;
 
-namespace webserverXML
+namespace WebserverXML
 {
 	public class DefaultFilesType : Altova.Xml.Node
 	{

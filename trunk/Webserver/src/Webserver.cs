@@ -1,4 +1,5 @@
 using System;
+using Palladio.Webserver.WebserverFactory;
 
 namespace Palladio.Webserver
 {
@@ -11,6 +12,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/10/22 09:52:43  kelsaka
+	/// extended xml-config-files by logging-file-definitions
+	///
 	/// Revision 1.1  2004/10/22 09:37:19  kelsaka
 	/// minor changes
 	///
@@ -29,9 +33,18 @@ namespace Palladio.Webserver
 		/// </summary>
 		public static void Main() 
 		{
-			DefaultWebserver webserver = new DefaultWebserver();
+			Webserver webserver = new Webserver();
 			webserver.Run();
 		}
 
+
+		/// <summary>
+		/// Builds and starts a running webserver using the webserver-factory.
+		/// </summary>
+		public void Run()
+		{
+			DefaultWebserverFactory webserverFactory = new DefaultWebserverFactory();
+
+		}
 	}
 }
