@@ -5,7 +5,7 @@ using Palladio.Utils.Collections;
 namespace Palladio.ComponentModel 
 {
 	/// <summary>
-	/// A SignatureList is the simplest form of an IInterfaceModel, just
+	/// A SignatureList is  an InterfaceModel just
 	/// containing a set of signatures.
 	/// </summary>
 	public interface ISignatureList : IInterfaceModel
@@ -13,16 +13,32 @@ namespace Palladio.ComponentModel
 		#region Properties
 
 		/// <summary>
-		/// A list of ISignature objects.
+		/// Signatures of the interface.
 		/// </summary>
-		ISignature[] SignatureList 
+		ISignature[] Signatures
+		{
+			get;
+		}
+		
+		/// <summary>
+		/// Indexer to access the sigantures easily.
+		/// </summary>
+		ISignature this[int index]
 		{
 			get;
 		}
 
-		void AddSignatures( params ISignature[] aSig );
+		/// <summary>
+		/// Adds an array of signatures to the interface.
+		/// </summary>
+		/// <param name="aSigArray">Signatures to add.</param>
+		void AddSignatures( params ISignature[] aSigArray );
 
-		void DeleteSignatures( params ISignature[] aSig );
+		/// <summary>
+		/// Deletes a set of signatures from the interface.
+		/// </summary>
+		/// <param name="aSigArray">Signatures to delete.</param>
+		void DeleteSignatures( params ISignature[] aSigArray );
 
 		#endregion
 	}

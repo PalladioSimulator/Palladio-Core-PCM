@@ -8,9 +8,10 @@ using Palladio.Attributes;
 namespace Palladio.ComponentModel
 {
 	/// <summary>
+	/// Specifies the way how a parameter is passed to the method body.
 	/// </summary>
 	public enum ParameterModifierEnum
 	{
-		OUT, REF
+		NONE, OUT, REF
 	}
 }

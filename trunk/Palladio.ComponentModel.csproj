@@ -161,6 +161,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\IBasicComponent.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -238,6 +243,42 @@
                 <File
                     RelPath = "src\ParameterModifierEnum.cs"
                     SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <Folder RelPath = "src\Components\" />
+                <Folder RelPath = "src\Exceptions\" />
+                <File
+                    RelPath = "src\InterfaceModels\FSMProtocol.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\InterfaceModels\Serivce.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\InterfaceModels\SignatureList.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signature\MethodSignature.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signature\Parameter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signature\ReflectedType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FactoryTest.cs"
                     BuildAction = "Compile"
                 />
             </Include>

@@ -13,15 +13,19 @@ namespace Palladio.ComponentModel
 	{
 		#region Properties
 		/// <summary>
-		/// Parameter name.
+		/// Name of the parameter.
 		/// </summary>
 		string Name { get; }
 
 		/// <summary>
-		/// Parameter Type.
+		/// Type of the parameter.
 		/// </summary>
 		IType Type { get; }
 
+		/// <summary>
+		/// Modifier of the parameter. A modifier specifices the way of passing the
+		/// parameter to the method body.
+		/// </summary>
 		ParameterModifier Modifier { get; }
 
 		#endregion

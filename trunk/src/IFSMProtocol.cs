@@ -14,12 +14,12 @@ namespace Palladio.ComponentModel
 	public interface IFSMProtocol : ISignatureList  
 	{
 		/// <summary>
-		/// A Protocol is a finite state machine which describes
+		/// A Protocol describing
 		/// the possible call sequences of the services.
 		/// </summary>
-		IFiniteStateMachine FSMProtocol 
+		IFiniteStateMachine FSM
 		{
-			get; set;
+			get;
 		}
 	}
 }

@@ -6,15 +6,14 @@ using System.Reflection;
 namespace Palladio.ComponentModel
 {
 	/// <summary>
-	/// IType describes the types of parameters and return values of
-	/// signatures. It can be compared with System.Type.
+	/// IType describes a general type. It is comparable to System.Type.
 	/// </summary>
 	public interface IType : ICloneable 
 	{
 		#region Properties
 
 		/// <summary>
-		/// Name describing this type.
+		/// Unique identifier of this type.
 		/// </summary>
 		string ID { get; }
 
@@ -23,9 +22,9 @@ namespace Palladio.ComponentModel
 		#region Methods
 
 		/// <summary>
-		/// Checks if this PalladioType is a subtype of aType.
+		/// Checks if this type is a subtype of aType.
 		/// </summary>
-		/// <param name="aType">Another PalladioType.</param>
+		/// <param name="aType">Another type.</param>
 		/// <returns>True, if this instance is a subtye of aType, false otherwise.</returns>
 		bool IsSubtypeOf (IType aType);
 		#endregion

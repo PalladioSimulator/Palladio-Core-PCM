@@ -1,0 +1,17 @@
+bin
+obj
+ComponentModel.csproj.user
+ComponentModel.suo
+doc
+Palladio.ComponentModel.csproj.user
+Palladio.ComponentModel.suo
+Palladio.ComponentModel.xml
+data
+temp
+xsd
+Palladio.ComponentModel.tws
+ComponentModel.dfPackage
+DefaultClass.cs
+Palladio.ComponentModel.cmbx
+Palladio.ComponentModel.prjx
+Palladio.ComponentModel.tpr
