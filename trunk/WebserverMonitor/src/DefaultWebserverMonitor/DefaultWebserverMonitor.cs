@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Security;
 using Palladio.Webserver.ConfigReader;
 using WebserverXML;
 
@@ -14,6 +16,9 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/10/25 06:35:51  kelsaka
+	/// added XML-reading-abilities
+	///
 	/// Revision 1.5  2004/10/24 06:17:11  kelsaka
 	/// -
 	///
@@ -35,28 +40,92 @@ namespace Palladio.Webserver.WebserverMonitor
 	public class DefaultWebserverMonitor : IWebserverMonitor
 	{
 
-		private IConfigReader configReader;
+		private IWebserverConfiguration webserverConfiguration;
+		private FileStream debugFileStream;
+		private FileStream logFileStream;
 
-		public DefaultWebserverMonitor(IConfigReader configReader)
+		public DefaultWebserverMonitor(IWebserverConfiguration webserverConfiguration)
 		{
-			this.configReader = configReader;
+			this.webserverConfiguration = webserverConfiguration;
 
-			ReadConfiguration();
+
 		}
 
-		private void ReadConfiguration()
+
+		/// <summary>
+		/// Prepares the write access (e. g. file handles) for further access.
+		/// </summary>
+		public void InitializeWriteAccess ()
 		{
-			//ConfigType configRoot = configReader.GetRoot();
+			//debug-file:
+			try 
+			{
+				this.debugFileStream =  new FileStream(webserverConfiguration.DebugFile,
+					FileMode.Open, FileAccess.Write, FileShare.Write);
+			}
+			catch (SecurityException e)
+			{
+				Console.WriteLine("ERROR: Not allowed to access the specified file: " + webserverConfiguration.DebugFile + ". " + e + ". " + e.StackTrace);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("ERROR: Error on accessing File " + webserverConfiguration.DebugFile + ". " + e + ". " + e.StackTrace);
+			}
+
+
+			//log-file:
+			try 
+			{
+				this.logFileStream =  new FileStream(webserverConfiguration.DebugFile,
+					FileMode.Open, FileAccess.Write, FileShare.Write);
+			}
+			catch (SecurityException e)
+			{
+				Console.WriteLine("ERROR: Not allowed to access the specified file: " + webserverConfiguration.DebugFile + ". " + e + ". " + e.StackTrace);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("ERROR: Error on accessing File " + webserverConfiguration.DebugFile + ". " + e + ". " + e.StackTrace);
+			}
+
+			
+		}
+
+		/// <summary>
+		/// Closes e. g. file handles and commits changes. Execute finally.
+		/// </summary>
+		public void FinishWriteAccess ()
+		{
+			debugFileStream.Close();
+			logFileStream.Close();
 		}
 
 		public void WriteDebugMessage (string debugMessage, int debugLevel)
 		{
-			throw new NotImplementedException ();
+			if(debugFileStream.CanWrite)
+			{
+				//debugFileStream.		
+			}
+			else
+			{
+				Console.WriteLine("ERROR: Can not write Debug-Logfile.");
+			}
+//TODO:
+
 		}
 
 		public void WriteLogEntry (string logMessage)
 		{
-			throw new NotImplementedException ();
+			if(debugFileStream.CanWrite)
+			{
+				
+			}
+			else
+			{
+				Console.WriteLine("ERROR: Can not write Logfile.");
+			}
+
+
 		}
 	}
 }

@@ -15,6 +15,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/10/25 06:35:51  kelsaka
+	/// added XML-reading-abilities
+	///
 	/// Revision 1.5  2004/10/23 14:08:36  kelsaka
 	/// first steps on reading xml-config-files
 	///
@@ -55,6 +58,9 @@ namespace Palladio.Webserver
 			Console.WriteLine("# Webserver.Run started...");
 			webserver.Run(args);
 			Console.WriteLine("# Webserver.Run exited...");
+			
+			Console.ReadLine();
+
 		}
 
 
@@ -98,8 +104,14 @@ namespace Palladio.Webserver
 
 			IConfigReader configReader = webserverFactory.CreateConfigReader();
 			configReader.ReadConfiguration(DEFAULT_XML_CONFIGURATION_FILE);
+			IWebserverConfiguration webserverConfiguration = new WebserverConfiguration(configReader.GetRoot());
 
-			IWebserverMonitor webserverMonitor = webserverFactory.CreateWebserverMonitor(configReader);
+//			IWebserverMonitor webserverMonitor = webserverFactory.CreateWebserverMonitor(configReader);
+
+
+			string[] f = webserverConfiguration.DefaultFileNames;
+
+
 
 		}
 	}
