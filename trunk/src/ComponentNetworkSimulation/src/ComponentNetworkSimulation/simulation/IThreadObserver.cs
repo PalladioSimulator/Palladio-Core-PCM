@@ -1,5 +1,6 @@
 using System;
 using ComponentNetworkSimulation.Structure;
+using Palladio.ComponentModel;
 
 namespace ComponentNetworkSimulation.Simulation
 {
@@ -10,6 +11,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.6  2004/06/19 13:48:49  joemal
+	/// - add some methods to the observer
+	///
 	/// Revision 1.5  2004/05/26 16:29:53  joemal
 	/// add cvs log tag
 	///
@@ -37,6 +41,21 @@ namespace ComponentNetworkSimulation.Simulation
 		/// <param name="sender">the thread</param>
 		/// <param name="timeStep">the timestep, the timeline moved</param>
 		void NotifyTimeStep(ISimulationThread sender, long timeStep);
+
+		/// <summary>
+		/// called, if the componentarchitecture contains unknown elements. The controlflow of this thread is stopped.
+		/// And the thread is removed from the scheduler.
+		/// </summary>
+		void NotifyUnknownElementFound();
+
+		/// <summary>
+		/// called, when a signature of the requires interface of a component is called by the thread but not bound 
+		/// with any provides interface of another component. The thread follows the way through its controlflow 
+		/// without invoking this call.
+		/// </summary>
+		/// <param name="callingComponent">the calling component</param>
+		/// <param name="externalSignature">the signature of this call</param>
+		void NotifyUnboundExternalCall(IComponent callingComponent, IExternalSignature externalSignature);
 	}
 }
 //EOF
