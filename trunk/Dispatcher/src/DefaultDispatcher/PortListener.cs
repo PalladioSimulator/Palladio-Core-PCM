@@ -132,7 +132,8 @@ namespace Palladio.Webserver.Dispatcher
 				{
 					// Blocked waiting for a connection
 					clientSocket = tcpListener.AcceptSocket();
-								
+
+					AdjustThreadPool();
 
 					// Execute the request handling on a seperate thread.
 					// As usually no blocking request is used, the threads terminate after 
@@ -162,6 +163,26 @@ namespace Palladio.Webserver.Dispatcher
 				
 				tcpListener.Stop();
 			}
+		}
+
+
+		/// <summary>
+		/// Adjusts the size of the ThreadPool. If to little unused threads are available the size
+		/// will be increased.
+		/// </summary>
+		private void AdjustThreadPool()
+		{
+			int workerThreads;
+			int completionPortThreads;
+
+			ThreadPool.GetAvailableThreads(out workerThreads, out completionPortThreads);
+
+			if(workerThreads < 3 || completionPortThreads < 3)
+			{
+				// TODO: adjust size
+				//	CorSetMaxThreads	
+			}
+			
 		}
 	}
 }

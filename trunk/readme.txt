@@ -12,8 +12,7 @@ Homepage of the Palladio-Group: http://se.informatik.uni-oldenburg.de/palladio
 ==== General Information: ====
 ==============================
 The Palladio.Webserver is a component-based webserver for research-purposes only. 
-* no further information available *
-Remark: If you are searching for a webserver for use in a productive context you should use Webservers like the Apache Webserver (http://www.apache.org).
+Remark: If you are searching for a webserver for use in a productive environment you should use Webservers like the Apache Webserver (http://www.apache.org).
 
 
 
@@ -67,6 +66,9 @@ Feel free to customize the other xml-files as well. Each option is descripted/ex
 ==== Version-Logs: ====
 =======================
 $Log$
+Revision 1.7  2005/02/03 07:42:40  kelsaka
+Added method to adjust the size of the thread pool.
+
 Revision 1.6  2005/02/02 17:34:57  kelsaka
 Added multi-threading to handle requests.
 Added short architectural description.
