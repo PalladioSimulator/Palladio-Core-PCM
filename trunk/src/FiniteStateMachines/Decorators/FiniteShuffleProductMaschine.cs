@@ -156,7 +156,11 @@ namespace FiniteStateMachines.Decorators
 					{
 						if(twoNext !=two.ErrorState)
 						{
-							this.sp.addTransition(fromState,input,new DualState(fromState.oneState,twoNext));
+							try
+							{
+								this.sp.addTransition(fromState,input,new DualState(fromState.oneState,twoNext));
+							}
+							catch(Exception){}
 							oneStates.Push(fromState.oneState);
 							twoStates.Push(twoNext);
 							continue;

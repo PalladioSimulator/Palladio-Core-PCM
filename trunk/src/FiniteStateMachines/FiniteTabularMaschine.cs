@@ -174,7 +174,15 @@ namespace FiniteStateMachines {
 		/// <param name="input">the inputcharacter</param>
 		/// <returns>the next State which is reachable with the state and the inputcharacter</returns>
 		public AbstractState GetNextState(AbstractState aSourceState, Input anInput) {
-			return GetNextTransition(aSourceState,anInput).DestinationState;
+			try
+			{
+				return GetNextTransition(aSourceState,anInput).DestinationState;
+			}
+			catch(Exception){
+				return this.ErrorState;
+			}
+
+			
 		}
 
 
@@ -292,6 +300,7 @@ namespace FiniteStateMachines {
 				if (aState.IsStartState){ 
 					if (startState == null) {
 						startState = aState;
+						
 					} else {
 						throw new InvalidStateException("A start state is already defined! \nstart state: "+StartState+"\nnew state  :"+aState);
 					}
@@ -302,6 +311,7 @@ namespace FiniteStateMachines {
 				states.Add(aState);
 			}
 		}
+	
 
 
 		/// <summary>
