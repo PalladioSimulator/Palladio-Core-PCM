@@ -3,6 +3,7 @@ using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.ModelEventManagement;
 using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.ModelDataManagement
@@ -16,6 +17,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/03/29 13:06:11  joemal
+	/// add event support
+	///
 	/// Revision 1.5  2005/03/28 19:02:16  joemal
 	/// primary keys in the dataset now are the guids of the entities
 	///
@@ -51,6 +55,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//holds the constrains check for the componentmodel
 		private ModelConstrainsCheck modelCheck;
 
+		//the entity registration interface of the model event manager
+		private IEntityRegistration entityReg;
+
 		#endregion
 
 		#region constructor
@@ -60,12 +67,15 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		/// <param name="dataset">the datasets that represents the relational db to the model</param>
 		/// <param name="hashtable">the entity hashable that holds the entities of the model</param>
-		public LowLevelBuilder(ModelDataSet dataset, EntityHashtable hashtable)
+		/// <param name="registration">the interface of the event manager that is used to register
+		/// the enities</param>
+		public LowLevelBuilder(ModelDataSet dataset, EntityHashtable hashtable, IEntityRegistration registration)
 		{
 			this.modelDataset = dataset;
 			this.entityHashtable = hashtable;
 			this.modelCheck = new ModelConstrainsCheck(dataset,hashtable);
-			Init();
+			this.entityReg = registration;
+			Init();			
 		}
 
 		#endregion
@@ -167,6 +177,8 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			ComponentsTable.AcceptChanges();
 
 			entityHashtable.AddEntity(component);
+
+			entityReg.RegisterComponent(component,parentComponentID);			
 		}
 
 		/// <summary>
@@ -210,6 +222,8 @@ namespace Palladio.ComponentModel.ModelDataManagement
             
 			RolesTable.AddRolesRow(this.NextID,compRow,ifaceRow,(sbyte) role);
 			RolesTable.AcceptChanges();
+
+			entityReg.RegisterInterfaceToComponent(componentIdentifier,ifaceIdentifier,role);
 		}
 
 		/// <summary>
@@ -247,6 +261,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		public void AddProvidesDelegationConnector(IConnection connection, IComponentIdentifier outerCompID, IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{			
 			AddDelegation(innerCompID, innerIFaceID, outerCompID, outerIFaceID, connection, InterfaceRole.PROVIDES);
+			entityReg.RegisterProvidesDelegation(connection,outerCompID,outerIFaceID,innerCompID,innerIFaceID);
 		}
 
 		/// <summary>
@@ -267,6 +282,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		public void AddRequiresDelegationConnector(IConnection connection, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID, IComponentIdentifier outerCompID, IInterfaceIdentifier outerIFaceID)
 		{
 			AddDelegation(innerCompID, innerIFaceID, outerCompID, outerIFaceID, connection, InterfaceRole.REQUIRES);
+			entityReg.RegisterRequiresDelegation(connection,outerCompID,outerIFaceID,innerCompID,innerIFaceID);
 		}
 
 		/// <summary>
@@ -296,6 +312,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 
 			ConnectionsTable.AddConnectionsRow(reqRole, provRole,connection.ID.Key);
 			ConnectionsTable.AcceptChanges();
+			entityReg.RegisterAssemblyConnection(connection,reqCompID,reqIFaceID,provCompID,provIFaceID);
 		}
 
 		/// <summary>
@@ -322,6 +339,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			this.InterfacesTable.AddInterfacesRow(iface.ID.Key);
 			this.InterfacesTable.AcceptChanges();
 			this.entityHashtable.AddEntity(iface);
+			entityReg.RegisterInterface(iface);
 		}
 
 		/// <summary>
@@ -351,6 +369,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			ModelDataSet.InterfacesRow ifaceRow = InterfacesTable.FindByguid(ifaceID.Key);
 			SignaturesTable.AddSignaturesRow(signature.ID.Key,ifaceRow);
 			entityHashtable.AddEntity(signature);
+			entityReg.RegisterSignature(signature,ifaceID);
 		}
 
 		/// <summary>
@@ -381,6 +400,8 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			ProtocolsTable.AddProtocolsRow(protocol.ID.Key,ifaceRow);
 			ProtocolsTable.AcceptChanges();
 			entityHashtable.AddEntity(protocol);
+
+			entityReg.RegisterProtocol(protocol,ifaceID);
 		}
 
 		/// <summary>

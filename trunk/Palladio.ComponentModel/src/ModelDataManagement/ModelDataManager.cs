@@ -1,3 +1,4 @@
+using Palladio.ComponentModel.ModelEventManagement;
 using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.ModelDataManagement
@@ -11,6 +12,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/03/29 13:06:11  joemal
+	/// add event support
+	///
 	/// Revision 1.2  2005/03/17 18:30:35  kelsaka
 	/// - added first builder-interfaces
 	///
@@ -27,6 +31,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 
 		//holds the instance of the builder
 		private ILowLevelBuilder lowLevelBuilder;
+
+		//holds the event manager of the component model
+		private IModelEventManager modelEventManager;
 
 		//holds the dataset
 		private ModelDataSet modelDataset;
@@ -49,7 +56,8 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		{
 			modelDataset =  new ModelDataSet(); 
 			entityHashtable = new EntityHashtable();
-			lowLevelBuilder = new LowLevelBuilder(modelDataset,entityHashtable);
+			modelEventManager = new ModelEventManager(modelDataset,entityHashtable);
+			lowLevelBuilder = new LowLevelBuilder(modelDataset,entityHashtable,modelEventManager.EntityRegistration);
 		}
 
 		/// <summary>
@@ -60,6 +68,17 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			get
 			{
 				return this.lowLevelBuilder;
+			}
+		}
+
+		/// <summary>
+		/// returns the interfaces that can be used to register for events in the component model.
+		/// </summary>
+		public IEventInterface EventInterface
+		{
+			get
+			{
+				return this.modelEventManager.EventInterface;
 			}
 		}
 	}
