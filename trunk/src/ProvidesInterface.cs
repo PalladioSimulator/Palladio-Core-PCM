@@ -3,10 +3,14 @@ using System.Collections;
 
 namespace ComponentModel {
 	/// <summary>
+	/// Contains information about the services provided by a component.
 	/// </summary>
 	public class ProvidesInterface : AbstractIM {
 
-		// Delegate
+		/// <summary>
+		/// IInterfaceModel describing the relationship 
+		/// of the provided services.
+		/// </summary>
 		private IInterfaceModel providesIM;
 		
 		private IList serviceList;

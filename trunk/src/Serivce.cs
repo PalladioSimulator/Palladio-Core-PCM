@@ -3,19 +3,35 @@ using System.Reflection;
 
 namespace ComponentModel {
 	/// <summary>
+	/// A service consists of a provided method or function with an associated service
+	/// effect specification describing its requirements.
 	/// </summary>
-	public class Service {
+	public class Service : MethodInfo {
 
-		private IInterfaceModel serviceEffectSpec;
-		
-		private MethodInfo methodInfo;
+		private IInterfaceModel effectSpec;
+		private MethodSignature signature;
 
-		public IInterfaceModel ServiceEffectSpec { 
-			get { return serviceEffectSpec; }
+		/// <summary>
+		/// Describes the method provided by this service.
+		/// </summary>
+		public MethodSignature Signature {
+			get { return signature; }
+		}
+
+		/// <summary>
+		/// Specifies the requirements of this service.
+		/// </summary>
+		public IInterfaceModel EffectSpec { 
+			get { return effectSpec; }
 		}
 		
-		public Service( MethodInfo aMethodInfo ){
+		public Service(IInterfaceModel anIModel, MethodSignature aSignature ){
+			effectSpec = anIModel;
+			signature = aSignature;
 		}
 
+		public Service(MethodSignature aSignature){
+			signature = aSignature;
+		}
 	}
 }

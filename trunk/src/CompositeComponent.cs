@@ -3,22 +3,46 @@ using System.Collections;
 
 namespace ComponentModel {
 	/// <summary>
+	/// Component assembled of wired components.
 	/// </summary>
 	public class CompositeComponent : IComponent {
+
 		private IList componentList;
 		private IList bindingList;
-		private IList mappingList;
+		private IList provMappingList;
+		private IList reqMappingList;
 
+		/// <summary>
+		/// List of IComponent objects assembled by the CompositComponent.
+		/// </summary>
 		public IList ComponentList { 
 			get { return componentList; }
 		}
 
+		/// <summary>
+		/// List of Binding objects which represent 
+		/// the wiring of the internal components.
+		/// </summary>
 		public IList BindingList { 
 			get { return bindingList; }
 		}
 
-		public IList MappingList { 
-			get { return mappingList; }
+		/// <summary>
+		/// List of ProvidesMapping objects mapping the provides interfaces
+		/// of the internal components onto the provides interfaces of the
+		/// CompositeComponent.
+		/// </summary>
+		public IList ProvMappingList { 
+			get { return provMappingList; }
+		}
+
+		/// <summary>
+		/// List of RequiresMapping objects mapping the requires interfaces
+		/// of the internal components onto the requires interfaces of the
+		/// CompositeComponent.
+		/// </summary>
+		public IList ReqMappingList { 
+			get { return reqMappingList; }
 		}
 
 		public CompositeComponent() {

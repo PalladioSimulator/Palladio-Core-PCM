@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace ComponentModel {
 	/// <summary>
+	/// 
 	/// </summary>
 	public interface IInterfaceModel {
 

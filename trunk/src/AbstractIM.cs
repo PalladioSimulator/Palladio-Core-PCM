@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace ComponentModel {
 	/// <summary>
+	/// Implements functionality relevant to all InterfaceModels.
 	/// </summary>
 	public abstract class AbstractIM : IInterfaceModel {
 		
