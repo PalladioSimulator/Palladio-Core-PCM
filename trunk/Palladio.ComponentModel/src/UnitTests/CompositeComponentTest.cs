@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/21 15:37:43  joemal
+	/// replace keyword as with real typcast
+	///
 	/// Revision 1.1  2005/02/21 13:47:43  joemal
 	/// initial import
 	///
@@ -297,9 +300,9 @@ namespace Palladio.ComponentModel.UnitTests
 			iSigProv1 = ComponentFactory.CreateSignatureList("d1", "d2" );
 			iSigReq1 = ComponentFactory.CreateSignatureList("e1", "e2" );
 			iSigReq2 = ComponentFactory.CreateSignatureList("d3", "d4" );
-			iProv1 = ComponentFactory.CreateInterfaceModel(iSigProv1, "iProv1", IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier, ModelPersistencyInfo.ATTACHED);
-			iReq1 = ComponentFactory.CreateInterfaceModel(iSigReq1, "iReq1", IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier, ModelPersistencyInfo.ATTACHED);
-			iReq2 = ComponentFactory.CreateInterfaceModel(iSigReq2, "iReq2", IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier, ModelPersistencyInfo.ATTACHED);
+			iProv1 = ComponentFactory.CreateInterfaceModel(iSigProv1, "iProv1", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID(), ModelPersistencyInfo.ATTACHED);
+			iReq1 = ComponentFactory.CreateInterfaceModel(iSigReq1, "iReq1", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID(), ModelPersistencyInfo.ATTACHED);
+			iReq2 = ComponentFactory.CreateInterfaceModel(iSigReq2, "iReq2", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID(), ModelPersistencyInfo.ATTACHED);
 			iComp1.AddProvidesInterface(iProv1);
 			iComp1.AddRequiresInterface(iReq1);
 			iComp1.AddRequiresInterface(iReq2);
@@ -327,7 +330,7 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			iComp2 = ComponentFactory.CreateBasicComponent("iComp2");
 			iSigProv2 = ComponentFactory.CreateSignatureList("d3", "d4", "d5" );
-			iProv2 = ComponentFactory.CreateInterfaceModel(iSigProv2, "iProv2", IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier, ModelPersistencyInfo.ATTACHED);
+			iProv2 = ComponentFactory.CreateInterfaceModel(iSigProv2, "iProv2", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID(), ModelPersistencyInfo.ATTACHED);
 			d3se = ComponentFactory.CreateServiceEffectSpecification();
 			d4se = ComponentFactory.CreateServiceEffectSpecification();
 			d4se.RequiredServicesList.AddServices(ComponentFactory.CreateServiceArray(iReq1,iSigReq1[0].ID,iSigReq1[1].ID));

@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/21 15:37:44  joemal
+	/// replace keyword as with real typcast
+	///
 	/// Revision 1.1  2005/02/21 13:52:55  joemal
 	/// initial import
 	///
@@ -534,8 +537,8 @@ namespace Palladio.ComponentModel.Components
 				switch (node.Name) 
 				{
 					case "ProvidingRole":
-						FirstClassEntity iface = ModelPersistencyService.Instance.GetEntity(
-							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value) as GloballyUniqueIdentifier );
+						FirstClassEntity iface = ModelPersistencyService.Instance.GetEntity((GloballyUniqueIdentifier)
+							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value));
 						if (!(iface != null && iface is IInterfaceModel))
 							throw new DeserializationException("Interface "+node.Attributes["interface"].Value+" not found.");
 						this.AddProvidesInterface(iface as IInterfaceModel);
@@ -543,18 +546,18 @@ namespace Palladio.ComponentModel.Components
 						newRole.Name = node.Attributes["name"].Value;
 						break;
 					case "RequiringRole":
-						iface = ModelPersistencyService.Instance.GetEntity(
-							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value) as GloballyUniqueIdentifier );
+						iface = ModelPersistencyService.Instance.GetEntity((GloballyUniqueIdentifier )
+							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value));
 						if (!(iface != null && iface is IInterfaceModel))
 							throw new DeserializationException("Interface "+node.Attributes["interface"].Value+" not found.");
-						this.AddRequiresInterface(iface as IInterfaceModel);
+						this.AddRequiresInterface((IInterfaceModel)iface);
 						newRole = this.GetRequiresRoleByInterfaceID(iface.ID);
 						newRole.Name = node.Attributes["name"].Value;
 						break;
 					case "Component":
-						FirstClassEntity component = ModelPersistencyService.Instance.GetEntity(
-							IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value) as GloballyUniqueIdentifier );
-						this.AddComponents(component as IComponent);
+						FirstClassEntity component = ModelPersistencyService.Instance.GetEntity((GloballyUniqueIdentifier)
+							IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value));
+						this.AddComponents((IComponent)component);
 						break;
 					case "Binding":
 						IAssemblyConnector assemblyConnector = new Connections.DefaultAssemblyConnector(new AttributeHash(),null,null);

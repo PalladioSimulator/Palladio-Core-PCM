@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/21 15:37:44  joemal
+	/// replace keyword as with real typcast
+	///
 	/// Revision 1.1  2005/02/21 13:50:51  joemal
 	/// initial import
 	///
@@ -464,7 +467,7 @@ namespace Palladio.ComponentModel
 		/// <returns>The newly created interface model</returns>
 		public static IInterfaceModel CreateInterfaceModel(ISignatureList aSigList, string name)
 		{
-			IInterfaceModel model = new DefaultInterfaceModel(new AttributeHash(),aSigList, name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			IInterfaceModel model = new DefaultInterfaceModel(new AttributeHash(),aSigList, name, (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID());
 			ModelPersistencyService.Instance.RegisterEntity(model, ModelPersistencyInfo.ATTACHED);
 			return model;
 		}
@@ -494,7 +497,7 @@ namespace Palladio.ComponentModel
 
 		public static IInterfaceModel CreateInterfaceModel(string name)
 		{
-			IInterfaceModel model = new DefaultInterfaceModel(new AttributeHash(), name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			IInterfaceModel model = new DefaultInterfaceModel(new AttributeHash(), name, (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID());
 			ModelPersistencyService.Instance.RegisterEntity(model, ModelPersistencyInfo.ATTACHED);
 			return model;
 		}
@@ -558,7 +561,7 @@ namespace Palladio.ComponentModel
 		/// <returns>New IBasicComponent instance.</returns>
 		public static IBasicComponent CreateBasicComponent(AttributeHash anAttrHash, string name)
 		{
-			IBasicComponent comp = new BasicComponent(anAttrHash, name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			IBasicComponent comp = new BasicComponent(anAttrHash, name, (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID());
 			ModelPersistencyService.Instance.RegisterEntity(comp, ModelPersistencyInfo.ATTACHED);
 			return comp;
 		}
@@ -569,7 +572,7 @@ namespace Palladio.ComponentModel
 		/// <returns>New IBasicComponent instance.</returns>
 		public static IBasicComponent CreateBasicComponent(string name)
 		{
-			IBasicComponent comp = new BasicComponent(CreateAttributeHash(), name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			IBasicComponent comp = new BasicComponent(CreateAttributeHash(), name, (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID());
 			ModelPersistencyService.Instance.RegisterEntity(comp, ModelPersistencyInfo.ATTACHED);
 			return comp;
 		}
@@ -609,7 +612,7 @@ namespace Palladio.ComponentModel
 		/// <returns>New IBasicComponent instance.</returns>
 		public static ICompositeComponent CreateCompositeComponent(AttributeHash anAttrHash, string name)
 		{
-			ICompositeComponent comp = new CompositeComponent(anAttrHash, name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			ICompositeComponent comp = new CompositeComponent(anAttrHash, name, (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID());
 			ModelPersistencyService.Instance.RegisterEntity(comp, ModelPersistencyInfo.ATTACHED);
 			return comp;
 		}
@@ -620,7 +623,7 @@ namespace Palladio.ComponentModel
 		/// <returns>A new ICompositeComponent instance.</returns>
 		public static ICompositeComponent CreateCompositeComponent(string name)
 		{
-			ICompositeComponent comp = new CompositeComponent(CreateAttributeHash(), name, IdentifiableFactory.CreateGUID() as GloballyUniqueIdentifier);
+			ICompositeComponent comp = new CompositeComponent(CreateAttributeHash(), name, (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID());
 			ModelPersistencyService.Instance.RegisterEntity(comp, ModelPersistencyInfo.ATTACHED);
 			return comp;
 		}

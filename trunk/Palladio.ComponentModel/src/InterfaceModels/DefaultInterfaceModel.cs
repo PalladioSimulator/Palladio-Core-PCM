@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/21 15:37:43  joemal
+	/// replace keyword as with real typcast
+	///
 	/// Revision 1.1  2005/02/21 13:48:31  joemal
 	/// initial import
 	///
@@ -50,7 +53,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <returns>A new object with the same values as the current instance.</returns>
 		public object Clone()
 		{
-			return new DefaultInterfaceModel(this.attributes, this.signatureList, this.Name, this.ID as GloballyUniqueIdentifier);
+			return new DefaultInterfaceModel(this.attributes, this.signatureList, this.Name, (GloballyUniqueIdentifier)this.ID);
 		}
 				
 		public override bool Equals(object other)

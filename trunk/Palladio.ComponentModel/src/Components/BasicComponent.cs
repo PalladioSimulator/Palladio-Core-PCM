@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/21 15:37:44  joemal
+	/// replace keyword as with real typcast
+	///
 	/// Revision 1.1  2005/02/21 13:52:55  joemal
 	/// initial import
 	///
@@ -43,7 +46,7 @@ namespace Palladio.ComponentModel.Components
 				throw new SignatureNotFoundException(aService.Signature.ID);
 			if (!serviceEffectMap.Contains(aService.ID))
 				throw new ServiceHasNoServEffSpecException(aService);
-			return serviceEffectMap[aService.ID] as IServiceEffectSpecification;
+			return (IServiceEffectSpecification)serviceEffectMap[aService.ID];
 		}
 
 		/// <summary>
@@ -72,7 +75,7 @@ namespace Palladio.ComponentModel.Components
 		{
 			if (!serviceEffectMap.Contains(serviceID))
 				throw new ServiceHasNoServEffSpecException(serviceID);
-			return serviceEffectMap[serviceID] as IServiceEffectSpecification;
+			return (IServiceEffectSpecification)serviceEffectMap[serviceID];
 		}
 
 		/// <summary>
@@ -201,7 +204,7 @@ namespace Palladio.ComponentModel.Components
 			{
 				foreach(IIdentifier sigID in serviceEffectMap.Keys) 
 				{
-					IServiceEffectSpecification sef = serviceEffectMap[sigID] as IServiceEffectSpecification;
+					IServiceEffectSpecification sef = (IServiceEffectSpecification)serviceEffectMap[sigID];
 
 					writer.WriteStartElement("ServiceEffectSpecification","http://palladio.informatik.uni-oldenburg.de/XSD");
 					writer.WriteAttributeString("service",sigID.ToString());
@@ -243,20 +246,20 @@ namespace Palladio.ComponentModel.Components
 				switch (node.Name) 
 				{
 					case "ProvidingRole":
-						FirstClassEntity iface = ModelPersistencyService.Instance.GetEntity(
-							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value) as GloballyUniqueIdentifier );
+						FirstClassEntity iface = ModelPersistencyService.Instance.GetEntity((GloballyUniqueIdentifier)
+							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value));
 						if (!(iface != null && iface is IInterfaceModel))
 							throw new DeserializationException("Interface "+node.Attributes["interface"].Value+" not found.");
-						this.AddProvidesInterface(iface as IInterfaceModel);
+						this.AddProvidesInterface((IInterfaceModel)iface);
 						IRole newRole = this.GetProvidesRoleByInterfaceID(iface.ID);
 						newRole.Name = node.Attributes["name"].Value;
 						break;
 					case "RequiringRole":
-						iface = ModelPersistencyService.Instance.GetEntity(
-							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value) as GloballyUniqueIdentifier );
+						iface = ModelPersistencyService.Instance.GetEntity((GloballyUniqueIdentifier)
+							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value));
 						if (!(iface != null && iface is IInterfaceModel))
 							throw new DeserializationException("Interface "+node.Attributes["interface"].Value+" not found.");
-						this.AddRequiresInterface(iface as IInterfaceModel);
+						this.AddRequiresInterface((IInterfaceModel)iface);
 						newRole = this.GetRequiresRoleByInterfaceID(iface.ID);
 						newRole.Name = node.Attributes["name"].Value;
 						break;
@@ -265,7 +268,7 @@ namespace Palladio.ComponentModel.Components
 
 						// search for the refered provides-interface to which this spec applies to
 						string[] serviceID = node.Attributes["service"].Value.Split(':');
-						IInterfaceModel provides = ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(serviceID[0])) as IInterfaceModel;
+						IInterfaceModel provides = (IInterfaceModel)ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(serviceID[0]));
 
 						if (provides == null) 
 							throw new DeserializationException("ProvidesInterface "+serviceID[0]+" not found");
@@ -290,7 +293,7 @@ namespace Palladio.ComponentModel.Components
 								case "ServiceList":
 									foreach(XmlNode serviceNode in sefChild.ChildNodes)
 									{
-										IInterfaceModel requires = ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(serviceNode.Attributes["guid"].Value)) as IInterfaceModel;
+										IInterfaceModel requires = (IInterfaceModel)ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(serviceNode.Attributes["guid"].Value));
 
 										if (requires == null) 
 											throw new DeserializationException("RequiresInterface "+node.Attributes["guid"].Value+" not found");

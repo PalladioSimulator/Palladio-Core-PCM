@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/21 15:37:44  joemal
+	/// replace keyword as with real typcast
+	///
 	/// Revision 1.1  2005/02/21 13:52:55  joemal
 	/// initial import
 	///
@@ -85,7 +88,7 @@ namespace Palladio.ComponentModel.Components
 		/// If no interface with aRoleID can be found, a RoleNotFoundException is thrown.</returns>
 		public IInterfaceModel GetProvidesInterface(IIdentifier aRoleID)
 		{
-			IRole result = providesMap[aRoleID] as IRole;
+			IRole result = (IRole)providesMap[aRoleID];
 			if (result == null)
 				throw new RoleIDNotFoundException(aRoleID);
 			return result.Interface;
@@ -99,7 +102,7 @@ namespace Palladio.ComponentModel.Components
 		/// If no interface with aRoleID can be found, a RoleNotFoundException is thrown.</returns>
 		public IInterfaceModel GetRequiresInterface(IIdentifier aRoleID)
 		{
-			IRole result = requiresMap[aRoleID] as IRole;
+			IRole result = (IRole)requiresMap[aRoleID];
 			if (result == null)
 				throw new RoleIDNotFoundException(aRoleID);
 			return result.Interface;
@@ -228,9 +231,9 @@ namespace Palladio.ComponentModel.Components
 			if (!HasRole(aRoleID))
 				throw new RoleIDNotFoundException(aRoleID);
 			if (providesMap.Contains(aRoleID))
-				return providesMap[aRoleID] as IRole;
+				return (IRole)providesMap[aRoleID];
 			else
-				return requiresMap[aRoleID] as IRole;
+				return (IRole)requiresMap[aRoleID];
 
 		}
 

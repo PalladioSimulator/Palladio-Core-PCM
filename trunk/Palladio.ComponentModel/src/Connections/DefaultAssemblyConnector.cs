@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Connections
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/21 15:37:43  joemal
+	/// replace keyword as with real typcast
+	///
 	/// Revision 1.1  2005/02/21 13:48:18  joemal
 	/// initial import
 	///
@@ -74,7 +77,7 @@ namespace Palladio.ComponentModel.Connections
 				switch(node.Name)
 				{
 					case "ProvidingRole":
-						IComponent provComp = ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value)) as IComponent;
+						IComponent provComp = (IComponent)ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value));
 						if (provComp == null)
 							throw new DeserializationException("Component "+node.Attributes["guid"].Value+" not found.");
 						this.providingRole = provComp.GetRole(IdentifiableFactory.CreateStringID(node.Attributes["id"].Value));
@@ -82,7 +85,7 @@ namespace Palladio.ComponentModel.Connections
 							throw new DeserializationException("Role "+node.Attributes["id"].Value+" not found in Component "+node.Attributes["guid"].Value);
 						break;
 					case "RequiringRole":
-						IComponent reqComp = ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value)) as IComponent;
+						IComponent reqComp = (IComponent)ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value));
 						if (reqComp == null)
 							throw new DeserializationException("Component "+node.Attributes["guid"].Value+" not found.");
 						this.requiringRole = reqComp.GetRole(IdentifiableFactory.CreateStringID(node.Attributes["id"].Value));
