@@ -46,7 +46,7 @@ namespace Palladio.ComponentModel
 			if (anIModel is AbstractComponentInterface) 
 			{
 				AbstractComponentInterface compIface = (AbstractComponentInterface) anIModel;
-			return IModel.IsSubSetOf( compIface.IModel, out anErrorList );
+				return IModel.IsSubSetOf( compIface.IModel, out anErrorList );
 			}
 			else
 			{
@@ -89,6 +89,7 @@ namespace Palladio.ComponentModel
 				AbstractComponentInterface compIface = (AbstractComponentInterface) anIModel;
 				AbstractComponentInterface resultIface = (AbstractComponentInterface) this.Clone();
 				resultIface.iModel = IModel.GetIntersection( compIface.IModel );
+				resultIface.name = this.Name+"-x-"+compIface.Name;
 				return resultIface;
 			}
 			else
@@ -126,6 +127,17 @@ namespace Palladio.ComponentModel
 		public override int GetHashCode()
 		{
 			return name.GetHashCode ();
+		}
+
+		/// <summary>
+		/// Retrieves a string representation of the object.
+		/// </summary>
+		/// <returns>String representation of the object.</returns>
+		public override string ToString()
+		{
+			string result = "Interface "+Name+"\n";
+			result += IModel;
+			return result;
 		}
 		#endregion
 

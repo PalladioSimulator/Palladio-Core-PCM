@@ -100,27 +100,39 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "data\d1.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\d2.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\d3.xml"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "data\intersection.xml"
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "data\provides.xml"
+                    RelPath = "data\merged.xml"
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "data\provides2.xml"
+                    RelPath = "data\provMerged.xml"
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "data\se_d1.xml"
+                    RelPath = "data\provOne.xml"
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "data\se_d2.xml"
+                    RelPath = "data\provOne-x-provTwo.xml"
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "data\se_d3.xml"
+                    RelPath = "data\provTwo.xml"
                     BuildAction = "Content"
                 />
                 <File
@@ -135,11 +147,6 @@
                 />
                 <File
                     RelPath = "src\CompositeComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Helper.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -274,6 +281,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\IModelNotProvidesInterfaceException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\IModelNotSignatureListIMException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -329,12 +341,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\UnitTests\AbstractInterfaceModelTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\UnitTests\ComponentTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\UnitTests\DefaultTestFixture.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\Helper.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

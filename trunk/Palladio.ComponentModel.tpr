@@ -18,20 +18,20 @@ Version=3.0
 Developer.CodingWorkspace={{0,2,-1,0,0,0,0,0,0,1,0,50,75,25,-1,-1,-1,-1}${0,1,-1,0,0,0,0,1,0,1,0,50,75,25,-1,-1,-1,-1}${0,3,-1,0,0,0,0,1,0,1,0,66,50,25,-1,-1,-1,-1}${0,3,-1,0,0,0,0,1,0,1,0,66,50,25,-1,-1,-1,-1}${0,-1,-1,0,0,0,0,0,0,1,0,5,5,5,-1,-1,-1,-1}${0,5,-1,0,0,0,0,0,0,1,0,50,50,25,-1,-1,-1,-1}${0,4,-1,0,0,0,0,1,0,1,1,66,50,25,-1,-1,-1,-1}${0,7,-1,0,0,0,0,0,0,1,0,50,50,75,-1,-1,-1,-1}}
 Developer.DebugWorkspace={{0,2,-1,0,0,0,0,0,0,1,0,50,75,25,-1,-1,-1,-1}${0,1,-1,0,0,0,0,1,0,1,1,50,75,25,-1,-1,-1,-1}${0,3,-1,0,0,0,0,0,0,1,0,50,50,25,-1,-1,-1,-1}${0,3,-1,0,0,0,0,0,0,1,0,50,50,25,-1,-1,-1,-1}${0,-1,-1,0,0,0,0,0,0,1,0,5,5,5,-1,-1,-1,-1}${0,4,-1,0,0,0,0,0,0,1,0,50,50,25,-1,-1,-1,-1}${0,0,-1,0,0,0,0,1,0,1,0,75,5,5,-1,-1,-1,-1}${0,7,-1,0,0,0,0,0,0,1,0,50,50,75,-1,-1,-1,-1}}
 Developer.DesignWorkspace={{0,2,-1,0,0,0,0,1,0,1,0,50,75,22,-1,-1,-1,-1}${0,1,-1,0,0,0,0,0,0,1,0,50,75,22,-1,-1,-1,-1}${0,3,-1,0,0,0,0,1,0,1,0,50,50,22,-1,-1,-1,-1}${0,3,-1,0,0,0,0,1,0,1,0,50,50,22,-1,-1,-1,-1}${0,-1,-1,0,0,0,0,0,0,1,0,5,5,5,-1,-1,-1,-1}${0,4,-1,0,0,0,0,1,0,1,1,50,50,22,-1,-1,-1,-1}${0,0,-1,0,0,0,0,0,0,1,0,75,5,5,-1,-1,-1,-1}${0,7,-1,0,0,0,0,0,0,1,0,50,50,75,-1,-1,-1,-1}}
-Developer.Palladio.ComponentModel={{0,2,-1,0,0,0,0,1,0,1,1,50,75,27,-1,-1,-1,-1}${0,1,-1,0,0,0,0,0,0,1,0,50,75,27,-1,-1,-1,-1}${0,3,-1,0,0,0,0,0,0,1,0,50,50,27,-1,-1,-1,-1}${0,3,-1,0,0,0,0,0,0,1,0,50,50,27,-1,-1,-1,-1}${0,-1,-1,0,0,0,0,0,0,1,0,5,5,5,-1,-1,-1,-1}${0,4,-1,0,0,0,0,0,0,1,0,50,50,27,-1,-1,-1,-1}${0,0,-1,0,0,0,0,0,0,1,0,54,5,5,-1,-1,-1,-1}${0,7,-1,0,0,0,0,0,0,1,0,50,50,75,-1,-1,-1,-1}}
+Developer.Palladio.ComponentModel={{0,2,-1,0,0,0,0,1,0,1,1,50,75,27,-1,-1,-1,-1}${0,1,-1,0,0,0,0,0,0,1,0,50,75,27,-1,-1,-1,-1}${0,3,-1,0,0,0,0,1,0,1,0,50,50,27,-1,-1,-1,-1}${0,3,-1,0,0,0,0,1,0,1,0,50,50,27,-1,-1,-1,-1}${0,-1,-1,0,0,0,0,0,0,1,0,5,5,5,-1,-1,-1,-1}${0,4,-1,0,0,0,0,0,0,1,0,50,50,27,-1,-1,-1,-1}${0,0,-1,0,0,0,0,0,0,1,0,54,5,5,-1,-1,-1,-1}${0,7,-1,0,0,0,0,0,0,1,0,50,50,75,-1,-1,-1,-1}}
 names.Developer={Palladio.ComponentModel,DesignWorkspace,CodingWorkspace,DebugWorkspace}
 [lastOpenProjectName]
 Developer=Palladio.ComponentModel
 [editor]
-recent.file.0=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\AbstractIModel.cs
-recent.file.1=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\IInterfaceModel.cs
-recent.file.2=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\AbstractComponentInterface.cs
-recent.file.3=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\RequiresInterface.cs
-recent.file.4=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\ProvidesInterface.cs
-recent.file.5=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\OualityOfServiceIM.cs
-recent.file.6=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\ProtocolIModel.cs
-recent.file.7=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\Helper.cs
-recent.file.8=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\Connections\\InterfaceBinding.cs
-recent.file.9=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\Connections\\IfaceReqMapping.cs
+recent.file.0=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\IComponent.cs
+recent.file.1=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\OualityOfServiceIM.cs
+recent.file.2=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\ProtocolIModel.cs
+recent.file.3=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\Connections\\InterfaceBinding.cs
+recent.file.4=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\AbstractIModel.cs
+recent.file.5=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\IInterfaceModel.cs
+recent.file.6=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\AbstractComponentInterface.cs
+recent.file.7=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\RequiresInterface.cs
+recent.file.8=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\ProvidesInterface.cs
+recent.file.9=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\Helper.cs
 [print]
 diagram=current

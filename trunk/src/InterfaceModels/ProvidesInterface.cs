@@ -25,6 +25,63 @@ namespace Palladio.ComponentModel
 		#region Methods
 
 		/// <summary>
+		/// Intersects this IInterfaceModel and anIModel. 
+		/// The result contains alls services and relationships wich exist in both
+		/// IInterfaceModels.
+		/// </summary>
+		/// <param name="anIModel">IInterfaceModel to intersect with.</param>
+		/// <returns>A new IInterfaceModel representing the intersection 
+		/// of both IInterfaceModels</returns>
+		public override IInterfaceModel GetIntersection(IInterfaceModel anIModel)
+		{
+			if (anIModel is ProvidesInterface) 
+			{
+				ProvidesInterface prvIface = (ProvidesInterface) anIModel;
+				ProvidesInterface result = (ProvidesInterface) base.GetIntersection(anIModel);
+				result.serviceList = new Vector();
+				foreach(Service srv in this.ServiceList) 
+				{
+					if (prvIface.ServiceList.Contains(srv))
+					{
+						result.serviceList.Add(srv);
+					}
+				}
+				return result;
+			}
+			else
+			{
+				throw new IModelNotProvidesInterfaceException();
+			}
+		}
+
+		/// <summary>
+		/// Merges this IInterfaceModel with anIModel.
+		/// </summary>
+		/// <param name="anIModel">An IInterfaceModel which is merged with this one.</param>
+		/// <returns>A new IInterfaceModel created by merging this IInterfacemodel an anIModel.</returns>
+		public override IInterfaceModel Merge(IInterfaceModel anIModel) 
+		{
+			if (anIModel is ProvidesInterface) 
+			{
+				ProvidesInterface prvIface = (ProvidesInterface) anIModel;
+				ProvidesInterface result = (ProvidesInterface) base.Merge(anIModel);
+				result.serviceList = new Vector(this.ServiceList);
+				foreach(Service srv in prvIface.ServiceList) 
+				{
+					if (!result.ServiceList.Contains(srv))
+					{
+						result.serviceList.Add(srv);
+					}
+				}
+				return result;
+			}
+			else
+			{
+				throw new IModelNotProvidesInterfaceException();
+			}
+		}
+		
+		/// <summary>
 		/// Creates a copy of the current instance.
 		/// </summary>
 		/// <returns>A new object with the same values as the current instance.</returns>
@@ -65,6 +122,20 @@ namespace Palladio.ComponentModel
 		{
 			return base.GetHashCode ();
 		}
+
+		/// <summary>
+		/// Retrieves a string representation of the object.
+		/// </summary>
+		/// <returns>String representation of the object.</returns>
+		public override string ToString()
+		{
+			string result = base.ToString()+"\nServiceList:\n";
+			foreach (Service srv in ServiceList)
+			{
+				result += srv+"\n";
+			}
+			return result;
+		}
 		#endregion
 
 		#region Constructors
@@ -76,7 +147,7 @@ namespace Palladio.ComponentModel
 		/// provided signatures cannot be mapped onto a service effect
 		/// specification.
 		/// </summary>
-		/// <param name="anProvidesIModel">IInterfaceModel describing 
+		/// <param name="aProvidesIModel">IInterfaceModel describing 
 		/// the provided services.</param>
 		/// <param name="aName">An unique name of the interface.</param>
 		public ProvidesInterface(IInterfaceModel aProvidesIModel, string aName) :
@@ -108,6 +179,7 @@ namespace Palladio.ComponentModel
 			this( aProvIface.IModel, aProvIface.ServiceList, aProvIface.Name ) {}
 
 		#endregion
+
 		#region Data
 		private IList serviceList;
 

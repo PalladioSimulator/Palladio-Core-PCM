@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<fsm type="tabular">
+	<state name="Start-x-Start" start="true"/>
+	<state name="Final-x-Final" final="true"/>
+	<state name="Dummy-x-Start"/>
+	<state name="Final-x-Start"/>
+
+	<transition source="Start-x-Start" target="Final-x-Final" input="ed1" />
+	<transition source="Start-x-Start" target="Dummy-x-Start" input="ed3" />
+	<transition source="Dummy-x-Start" target="Final-x-Final" input="ed1" />
+	<transition source="Final-x-Final" target="Final-x-Start" input="ed2" />
+	<transition source="Final-x-Start" target="Final-x-Final" input="ed1" />
+</fsm>

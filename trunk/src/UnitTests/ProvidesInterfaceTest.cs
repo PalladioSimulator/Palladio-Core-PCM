@@ -10,75 +10,31 @@ namespace Palladio.ComponentModel.UnitTests
 	/// <summary>
 	/// </summary>
 	[TestFixture]
-	public class ProvidesInterfaceTest
+	public class ProvidesInterfaceTest : AbstractInterfaceModelTest
 	{
-		ProvidesInterface piOne, piOne1, piTwo;
-		
+		ProvidesInterface modelNoSrv;
 		/// <summary>
 		/// </summary>
 		[SetUp] public void Init() 
 		{
-			FSMFactory factory = new FSMFactory();
-			IFiniteStateMachine fsmOne = factory.CreateFSMFromFile("../../data/se_d1.xml");
-			IFiniteStateMachine fsmTwo = factory.CreateFSMFromFile("../../data/se_d2.xml");
-			IFiniteStateMachine fsmThree = factory.CreateFSMFromFile("../../data/se_d3.xml");
-			IFiniteStateMachine fsmProvides = factory.CreateFSMFromFile("../../data/provides.xml");
-			IFiniteStateMachine fsmProvidesTwo = factory.CreateFSMFromFile("../../data/provides2.xml");
+			modelOne = Helper.CreateProvidesIface("../../data","provOne","d1","d2");
+			modelOne1 = Helper.CreateProvidesIface("../../data","provOne","d1","d2");
+			modelTwo = Helper.CreateProvidesIface("../../data","provTwo","d2","d3");
+			modelIsec = Helper.CreateProvidesIface("../../data","provOne-x-provTwo","d2");
+			modelMerged = Helper.CreateProvidesIface("../../data","provMerged","d1","d2","d3");
+			modelNoSrv = Helper.CreateProvidesIface("../../data","provOne");
+		}
 
-
-			ProtocolIModel modelOne = new ProtocolIModel(fsmOne, Helper.SigListFromInputAlphabet(fsmOne.InputAlphabet));
-			ProtocolIModel modelTwo = new ProtocolIModel(fsmTwo, Helper.SigListFromInputAlphabet(fsmTwo.InputAlphabet));
-			ProtocolIModel modelThree = new ProtocolIModel(fsmThree, Helper.SigListFromInputAlphabet(fsmThree.InputAlphabet));
-			ProtocolIModel modelProvides = new ProtocolIModel(fsmProvides, Helper.SigListFromInputAlphabet(fsmProvides.InputAlphabet));
-			ProtocolIModel modelProvides1 = new ProtocolIModel(fsmProvides, Helper.SigListFromInputAlphabet(fsmProvides.InputAlphabet));
-			ProtocolIModel modelProvidesTwo = new ProtocolIModel(fsmProvidesTwo, Helper.SigListFromInputAlphabet(fsmProvidesTwo.InputAlphabet));
-
-			ISignature sigOne = new SimpleSignature("d1");
-			ISignature sigTwo = new SimpleSignature("d2");
-			ISignature sigThree = new SimpleSignature("d3");
-
-			Service srvOne = new Service(modelOne, sigOne);
-			Service srvTwo = new Service(modelTwo, sigTwo);
-			Service srvThree = new Service(modelThree, sigThree);
-
-			IList srvListOne = new Vector();
-			IList srvListOne1 = new Vector();
-			IList srvListTwo = new Vector();
-			IList srvListThree = new Vector();
-			srvListOne.Add(srvOne.Clone());
-			srvListOne.Add(srvTwo.Clone());
-			srvListOne1.Add(srvOne.Clone());
-			srvListOne1.Add(srvTwo.Clone());
-			srvListTwo.Add(srvTwo.Clone());
-			srvListTwo.Add(srvThree.Clone());
-			srvListThree.Add(srvOne.Clone());
-			srvListThree.Add(srvTwo.Clone());
-			srvListThree.Add(srvThree.Clone());
-
-			
-
-			piOne = new ProvidesInterface(modelProvides,srvListOne,"one");
-			piOne1 = new ProvidesInterface(modelProvides1,srvListOne1,"one");
-			piTwo = new ProvidesInterface(modelProvidesTwo,srvListOne,"two");
-
+		protected override void Modify(ref IInterfaceModel aModel)
+		{
+			((ProvidesInterface)aModel).ServiceList.RemoveAt(0);
 		}
 
 		/// <summary>
 		/// </summary>
-		[Test] public void Equals()
+		[Test] public void ServiceListValid()
 		{
-			Assert.IsTrue(piOne.Equals(piOne1));
-			Assert.IsFalse(piOne.Equals(piTwo));
-		}
-
-		/// <summary>
-		/// </summary>
-		[Test] public void Clone()
-		{
-			ProvidesInterface pIface = (ProvidesInterface) piOne.Clone();
-			Assert.IsTrue(pIface.Equals(piOne1));
-			pIface.ServiceList.RemoveAt(0);
-			Assert.IsFalse(pIface.Equals(piOne));
+			//TODO implementation
 		}
 	}
 }

@@ -17,11 +17,6 @@ class reference {
 */
 class reference27 {
 }/**
-@__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.FactoryTest:oiref><oihard>
-@__modelType reference 
-*/
-class reference28 {
-}/**
 @__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.ProvidesInterfaceTest:oiref><oihard>
 @__modelType reference 
 */
@@ -46,6 +41,11 @@ class reference32 {
 @__modelType reference 
 */
 class reference33 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.DefaultTestFixture:oiref><oihard>
+@__modelType reference 
+*/
+class reference1 {
 }}/**
 @__tags
 @shapeType ClassDiagram 

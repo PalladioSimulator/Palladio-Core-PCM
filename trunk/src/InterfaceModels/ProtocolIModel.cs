@@ -142,6 +142,18 @@ namespace Palladio.ComponentModel
 		{
 			return this.Protocol.GetHashCode ();
 		}
+
+		/// <summary>
+		/// Retrieves a string representation of the object.
+		/// </summary>
+		/// <returns>String representation of the object.</returns>
+		public override string ToString()
+		{
+			string result = base.ToString();
+			result+= "\nProtocol:\n";
+			result+= Protocol;
+			return result;
+		}
 		#endregion
 
 		#region Constructors

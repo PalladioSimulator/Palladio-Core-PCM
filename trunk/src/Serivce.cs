@@ -70,6 +70,18 @@ namespace Palladio.ComponentModel
 		{
 			return new Service( this );
 		}
+
+		/// <summary>
+		/// Retrieves a string representation of the object.
+		/// </summary>
+		/// <returns>String representation of the object.</returns>
+		public override string ToString()
+		{
+			string result = "Signature:\n"+Signature+"\n";
+			result += "ServiceEffectSpecification:\n" + EffectSpec;
+			return result;
+		}
+
 		#endregion
 		
 		#region Constructors

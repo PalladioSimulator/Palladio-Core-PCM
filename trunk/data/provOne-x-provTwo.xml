@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+
+<fsm>
+	<state name="one" start="true"/>
+	<state name="two" final="true"/>
+	
+	<transition source="one" target="two" input="d1"/>
+</fsm>

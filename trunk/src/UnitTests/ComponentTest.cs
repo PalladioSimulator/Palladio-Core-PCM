@@ -19,11 +19,11 @@ namespace Palladio.ComponentModel.UnitTests
 		[SetUp] public void Init() 
 		{
 			FSMFactory factory = new FSMFactory();
-			IFiniteStateMachine fsmOne = factory.CreateFSMFromFile("../../data/se_d1.xml");
-			IFiniteStateMachine fsmTwo = factory.CreateFSMFromFile("../../data/se_d2.xml");
-			IFiniteStateMachine fsmThree = factory.CreateFSMFromFile("../../data/se_d3.xml");
-			IFiniteStateMachine fsmProvides = factory.CreateFSMFromFile("../../data/provides.xml");
-			IFiniteStateMachine fsmProvidesTwo = factory.CreateFSMFromFile("../../data/provides2.xml");
+			IFiniteStateMachine fsmOne = factory.CreateFSMFromFile("../../data/d1.xml");
+			IFiniteStateMachine fsmTwo = factory.CreateFSMFromFile("../../data/d2.xml");
+			IFiniteStateMachine fsmThree = factory.CreateFSMFromFile("../../data/d3.xml");
+			IFiniteStateMachine fsmProvides = factory.CreateFSMFromFile("../../data/provOne.xml");
+			IFiniteStateMachine fsmProvidesTwo = factory.CreateFSMFromFile("../../data/provTwo.xml");
 
 
 			ProtocolIModel modelOne = new ProtocolIModel(fsmOne, Helper.SigListFromInputAlphabet(fsmOne.InputAlphabet));

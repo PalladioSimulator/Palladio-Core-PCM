@@ -56,23 +56,24 @@ class __tags {
 */
 class __options {
 }/**
-@__positions <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.OualityOfServiceIModel:oiref>=100,1200,200,149,1:oigroup>
-<oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.ProvidesInterface#Palladio.ComponentModel.AbstractComponentInterface:oiref>=540,870,540,818:oigroup>
-<oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.AbstractComponentInterface#IModel:oiref>=600,580,410,216:oigroup>
+@__positions <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.AbstractComponentInterface#Palladio.ComponentModel.AbstractIModel:oiref>=550,580,338,509:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.OualityOfServiceIModel#Palladio.ComponentModel.ProtocolIModel:oiref>=195,1200,195,1150:oigroup>
-<oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.AbstractComponentInterface#iModel:oiref>=575,580,385,216:oigroup>
-<oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.ProtocolIModel#Palladio.ComponentModel.SignatureListIModel:oiref>=187,880,187,819:oigroup>
+<oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.ProtocolIModel#Palladio.ComponentModel.SignatureListIModel:oiref>=187,880,187,835:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.AbstractComponentInterface:oiref>=500,580,200,238,1:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.ProvidesInterface:oiref>=380,870,200,190,1:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.ProtocolIModel:oiref>=90,880,200,270,1:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.AbstractIModel:oiref>=240,280,200,229,1:oigroup>
-<oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.SignatureListIModel#Palladio.ComponentModel.AbstractIModel:oiref>=185,565,309,509:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.IInterfaceModel:oiref>=240,10,200,206,1:oigroup>
-<oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.RequiresInterface#Palladio.ComponentModel.AbstractComponentInterface:oiref>=660,870,660,818:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.RequiresInterface:oiref>=620,870,200,117,1:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.AbstractIModel#Palladio.ComponentModel.IInterfaceModel:oiref>=360,280,360,216:oigroup>
-<oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.AbstractComponentInterface#Palladio.ComponentModel.AbstractIModel:oiref>=550,580,338,509:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.SignatureListIModel:oiref>=85,565,200,254,1:oigroup> 
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.OualityOfServiceIModel:oiref>=100,1200,200,181,1:oigroup>
+<oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.RequiresInterface#Palladio.ComponentModel.AbstractComponentInterface:oiref>=660,870,660,818:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.SignatureListIModel:oiref>=85,565,200,270,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.ProvidesInterface:oiref>=380,870,200,206,1:oigroup>
+<oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.AbstractComponentInterface#IModel:oiref>=600,580,410,216:oigroup>
+<oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.AbstractComponentInterface#Palladio.ComponentModel.AbstractIModel:oiref>=537,580,374,509:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.IInterfaceModel:oiref>=240,10,200,206,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.RequiresInterface:oiref>=620,870,200,117,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.AbstractIModel:oiref>=240,280,200,229,1:oigroup>
+<oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.AbstractComponentInterface#iModel:oiref>=575,580,385,216:oigroup>
+<oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.SignatureListIModel#Palladio.ComponentModel.AbstractIModel:oiref>=185,565,309,509:oigroup>
+<oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.ProvidesInterface#Palladio.ComponentModel.AbstractComponentInterface:oiref>=540,870,540,818:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.ProtocolIModel:oiref>=90,880,200,270,1:oigroup>
 */
 class __positions {
 }

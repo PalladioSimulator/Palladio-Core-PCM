@@ -18,22 +18,9 @@ namespace Palladio.ComponentModel.UnitTests
 		/// </summary>
 		[SetUp] public void Init() 
 		{
-			FSMFactory factory = new FSMFactory();
-			IFiniteStateMachine fsmOne = factory.CreateFSMFromFile("../../data/se_d1.xml");
-			IFiniteStateMachine fsmTwo = factory.CreateFSMFromFile("../../data/se_d2.xml");
-			IFiniteStateMachine fsmThree = factory.CreateFSMFromFile("../../data/se_d1.xml");
-
-			ProtocolIModel modelOne = new ProtocolIModel(fsmOne, Helper.SigListFromInputAlphabet(fsmOne.InputAlphabet));
-			ProtocolIModel modelTwo = new ProtocolIModel(fsmTwo, Helper.SigListFromInputAlphabet(fsmTwo.InputAlphabet));
-			ProtocolIModel modelThree = new ProtocolIModel(fsmThree, Helper.SigListFromInputAlphabet(fsmThree.InputAlphabet));
-
-			ISignature sigOne = new SimpleSignature("d1");
-			ISignature sigTwo = new SimpleSignature("d2");
-			ISignature sigThree = new SimpleSignature("d1");
-
-			srvOne = new Service(modelOne, sigOne);
-			srvTwo = new Service(modelTwo, sigTwo);
-			srvThree = new Service(modelThree, sigThree);
+			srvOne = Helper.CreateService("d1", "../../data/d1.xml");
+			srvTwo = Helper.CreateService("d2", "../../data/d2.xml");
+			srvThree = Helper.CreateService("d1", "../../data/d1.xml");
 		}
 
 		/// <summary>
