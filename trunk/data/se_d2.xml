@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<fsm>
+	<state name="one">
+		<start />
+	</state>
+	<state name="two">
+		<final />
+	</state>
+	<transition source="one" target="two" input="ed3" />
+</fsm>
