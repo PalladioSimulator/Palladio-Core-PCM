@@ -20,6 +20,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/03 10:34:37  kelsaka
+	/// fixed error on shutting down
+	///
 	/// Revision 1.1  2005/02/02 17:34:57  kelsaka
 	/// Added multi-threading to handle requests.
 	/// Added short architectural description.
@@ -103,9 +106,12 @@ namespace Palladio.Webserver.Dispatcher
 		/// </summary>
 		public void Stop()
 		{			
-			// the socket is handled by the networkstream and will be closed automatically:					
-			request.NetworkStream.Flush();
-			request.NetworkStream.Close();
+			// the socket is handled by the networkstream and will be closed automatically:
+			if(request != null && request.NetworkStream != null)
+			{
+				request.NetworkStream.Flush();
+				request.NetworkStream.Close();
+			}
 		}
 
 		/// <summary>
