@@ -16,7 +16,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Default name for the top service.
 		/// </summary>
-		public static string TOP_SERVICE_NAME = "top service";
+		public static string TOP_SERVICE_NAME = "top";
 
 		/// <summary>
 		/// Stack containing all contexts of this state

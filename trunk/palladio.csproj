@@ -15,12 +15,12 @@
                 DefaultHTMLPageLayout = "Grid"
                 DefaultTargetSchema = "Nav40"
                 DelaySign = "false"
-                OutputType = "Exe"
+                OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
                 RootNamespace = "palladio"
                 RunPostBuildEvent = "OnBuildSuccess"
-                StartupObject = "UnitTests.FiniteStateMachines.FiniteTabularMachineTest"
+                StartupObject = "UnitTests.FiniteStateMachines.Decorators.MachineReducerTest"
             >
                 <Config
                     Name = "Debug"
@@ -267,7 +267,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\FiniteStateMachines\Decorators\Rule.cs"
+                    RelPath = "src\FiniteStateMachines\Tools\DynamicStateIterator.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FiniteStateMachines\Tools\DynamicTransitionIterator.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

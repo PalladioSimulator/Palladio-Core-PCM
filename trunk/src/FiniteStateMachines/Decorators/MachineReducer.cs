@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using FiniteStateMachines;
+using FiniteStateMachines.Tools;
 
 namespace FiniteStateMachines.Decorators {
 	/// <summary>
@@ -11,10 +12,10 @@ namespace FiniteStateMachines.Decorators {
 	public class MachineReducer {
 		
 		/// <summary>
-		///		The ruleTable contains all rules which should be applied to the 
-		///		automaton. They are indexed by its names.
+		///		The ruleTable impicitly contains all rules which should be applied to the 
+		///		automaton. It is organized as follwed:
 		///		Key: Input 
-		///		Value: RulePair 
+		///		Value: AbstractFiniteStateMachine 
 		/// </summary>
 		private Hashtable ruleTable;
 		
@@ -41,32 +42,27 @@ namespace FiniteStateMachines.Decorators {
 		///		thrown.
 		/// </returns>
 		private Transition Match(Transition aStartTransition){
-			Rule rule = (Rule)ruleTable[aStartTransition.InputSymbol];
+			AbstractFiniteStateMachine leftSide = (AbstractFiniteStateMachine)ruleTable[aStartTransition.InputSymbol];
 			AbstractState matchDestination = sourceMachine.ErrorState;
-			Stack statesVisited = new Stack();
-			Stack statesLeft = new Stack();
-			statesLeft.Push(new DualState(rule.Left.StartState,aStartTransition.DestinationState));
-			while(statesLeft.Count != 0){
-				DualState currentState = (DualState)statesLeft.Pop();
-				IList transitionList = rule.Left.GetOutgoingTransitions(currentState.oneState);
-				foreach (Transition t in transitionList){
-					AbstractState destination = sourceMachine.GetNextState(currentState.twoState,t.InputSymbol);
-					if (destination == sourceMachine.ErrorState) {
-						throw new ApplicationException("No match found!\nNo target for "+t.InputSymbol+" in state "+currentState.twoState);
+			DynamicStateIterator iterator = new DynamicStateIterator(new DualState(leftSide.StartState,aStartTransition.DestinationState));
+
+			while(iterator.MoveNext()){
+				AbstractState leftState = ((DualState)iterator.Current).oneState;
+				AbstractState rightState = ((DualState)iterator.Current).twoState;
+				IList transitionList = leftSide.GetOutgoingTransitions(leftState);
+				foreach (Transition trans in transitionList){
+					AbstractState destState = sourceMachine.GetNextState(rightState,trans.InputSymbol);
+					if (destState == sourceMachine.ErrorState) {
+						throw new ApplicationException("No match found!\nNo target for "+trans.InputSymbol+" in state "+((DualState)iterator.Current).twoState);
 					} 
-					if(rule.Left.FinalStates.Contains(t.DestinationState)){
-						matchDestination = sourceMachine.GetNextState(destination,Input.RETURN);
+					if(leftSide.FinalStates.Contains(trans.DestinationState)){
+						matchDestination = sourceMachine.GetNextState(destState,Input.RETURN);
 						if( matchDestination == sourceMachine.ErrorState){
-							throw new ApplicationException("No match found!\nNo return statement in state "+destination);
+							throw new ApplicationException("No match found!\nNo return statement in state "+destState);
 						}
 					}
-					DualState nextState = new DualState(t.DestinationState,destination);
-					if( !statesLeft.Contains(nextState) &&
-						!statesVisited.Contains(nextState)) {
-						statesLeft.Push(nextState);
-					}
+					iterator.Append(new DualState(trans.DestinationState,destState));
 				}
-				statesVisited.Push(currentState);
 			}
 			if (matchDestination == sourceMachine.ErrorState) {
 				throw new ApplicationException("No match found\nNo return statement found!");
@@ -87,23 +83,13 @@ namespace FiniteStateMachines.Decorators {
 		/// </returns>
 		public IFiniteStateMachine GetReducedMachine(){
 			IFiniteStateMachine resultMachine = new FiniteTabularMachine();
-			Stack statesToVisit = new Stack();
-			Stack statesVisited = new Stack();
-			statesToVisit.Push(sourceMachine.StartState);
-			while(statesToVisit.Count > 0){
-				AbstractState currentState = (AbstractState)statesToVisit.Pop();
-				IList transitionList = sourceMachine.GetOutgoingTransitions(currentState);
-				foreach(Transition t in transitionList){
-					if (ruleTable.Contains(t.InputSymbol)){
-						Transition result = Match(t);
-						resultMachine.AddTransition(result);
-						if (!statesVisited.Contains(result.DestinationState) &&
-							!statesToVisit.Contains(result.DestinationState)){
-							statesToVisit.Push(result.DestinationState);
-						}
-					}
+			DynamicTransitionIterator iterator = new DynamicTransitionIterator(sourceMachine.StartState,sourceMachine);
+			while(iterator.MoveNext()){
+				if (ruleTable.Contains(iterator.Current.InputSymbol)){
+					Transition result = Match(iterator.Current);
+					resultMachine.AddTransition(result);
+					iterator.Append(result.DestinationState);
 				}
-				statesVisited.Push(currentState);
 			}
 			return resultMachine;
 		}

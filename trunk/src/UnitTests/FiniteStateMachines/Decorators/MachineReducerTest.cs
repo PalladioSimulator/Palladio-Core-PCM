@@ -13,62 +13,38 @@ namespace UnitTests.FiniteStateMachines.Decorators
 	[TestFixture]
 	public class MachineReducerTest
 	{
-		AbstractState[,] dbaStates;
-		Input[] dbaInputs;
-		Transition[][] dbaTransitions;
-		IFiniteStateMachine[] dbas;
-		IFiniteStateMachine expandedMachine;
-		IFiniteStateMachine topMachine;
-		Transition[] topTransitions;
-		AbstractState[] topStates;
-		Input[] topInput;
-		Hashtable ruleTable;
+		AbstractFiniteStateMachine expandedMachine, topMachine;
+		Hashtable table;
 
-		[SetUp] public void Init() 
-		{
-			dbaStates = new State[1,2];
-			dbaStates[0,0] = new State("00",true,false);
-			dbaStates[0,1] = new State("01",false,true);
-			dbaInputs = new Input[6];
-			dbaInputs[0] = new Input("a");
-			dbaInputs[1] = new Input("b");
-			dbaInputs[2] = new Input("c");
-			dbaInputs[3] = new Input("d");
-			dbaInputs[4] = new Input("e");
-			dbaInputs[5] = new Input("f");
-			dbaTransitions = new Transition[1][];
-			dbaTransitions[0] = new Transition[1];
-			dbaTransitions[0][0] = new Transition(dbaStates[0,0],dbaInputs[3],dbaStates[0,1]);
-			dbas = new IFiniteStateMachine[1];
-			dbas[0] = new FiniteTabularMachine(dbaTransitions[0]);
+		[SetUp] public void Init() {
+			AbstractFiniteStateMachine d1,d2;
+			topMachine = AbstractFiniteStateMachine.Loader("../../data/provides.xml");
+			d1 = AbstractFiniteStateMachine.Loader("../../data/se_d1.xml");
+			d2 = AbstractFiniteStateMachine.Loader("../../data/se_d2.xml");
 
-			topStates = new State[2];
-			topStates[0] = new State("Zero",true,false);
-			topStates[1] = new State("One",false,true);
-			topInput = new Input[1];
-			topInput[0] = new Input("d1");
-			topTransitions = new Transition[1];
-			topTransitions[0] = new Transition(topStates[0],topInput[0],topStates[1]);
-			topMachine = new FiniteTabularMachine(topTransitions);
-
-			Hashtable sesp = new Hashtable();
-			sesp.Add(topInput[0],dbas[0]);
-			expandedMachine = new FiniteStackMachine(topMachine,sesp);
-
-			ruleTable = new Hashtable();
-			ruleTable.Add(topInput[0],new Rule(dbas[0],topTransitions[0]));
+			table = new Hashtable();
+			table.Add(new Input("d1"),d1);
+			table.Add(new Input("d2"),d2);
+			expandedMachine = new FiniteStackMachine(topMachine,table);
+			Console.WriteLine(expandedMachine);
 		}
 
 
 		[Test] public void SimpleReduction() {
-			MachineReducer reducer = new MachineReducer(ruleTable,(AbstractFiniteStateMachine)expandedMachine);
+			MachineReducer reducer = new MachineReducer(table,expandedMachine);
 			IFiniteStateMachine red = reducer.GetReducedMachine();
 			red.Equals(topMachine);
 		}
 
-//		public static void Main() {
-//			MachineReducerTest tester = new MachineReducerTest();
-//			tester.SimpleReduction();
-//		}
+		[Test] public void MoreComplexReduction() {
+		}
+
+		public static void Main(){
+			MachineReducerTest test = new MachineReducerTest();
+			test.Init();
+			test.SimpleReduction();
+			Console.ReadLine();
+		}
+
 	}
 }

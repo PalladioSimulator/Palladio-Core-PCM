@@ -3,6 +3,7 @@ using System.Collections;
 using Utils.Collections;
 using Utils.Exceptions;
 using FiniteStateMachines.Decorators;
+using FiniteStateMachines.Tools;
 
 
 namespace FiniteStateMachines {
@@ -195,6 +196,42 @@ namespace FiniteStateMachines {
 		/// <returns>Default error state.</returns>
 		public static AbstractState CreateErrorState(){
 			return new State(ERROR_STATE_NAME,false,false);
+		}
+
+		/// <summary>
+		/// Factory, loading a FSM.
+		/// </summary>
+		/// <returns>A new FSM</returns>
+		public static AbstractFiniteStateMachine Loader(string aFilename) {
+			//Just Tabular FSM can be loaded at the moment
+			FiniteTabularMachine result = new FiniteTabularMachine();
+			result.Load(aFilename);
+			return result;
+		}
+
+		public override string ToString() {
+			string result = "start state : ";
+			try {
+				result += StartState+"\n";
+				result += "\n";
+				result += "transitions : \n";
+				DynamicTransitionIterator iterator = new DynamicTransitionIterator(StartState,this);
+				while(iterator.MoveNext()){
+					result += "\t"+iterator.Current+"\n";
+					iterator.Append(iterator.Current.DestinationState);
+				}
+			} catch (InvalidStateException e){
+				result += e.Message+"\n";
+			}	
+			try {
+				result += "final states: ";
+				foreach (AbstractState state in FinalStates) {
+					result += state + " ";
+				}
+			} catch (InvalidStateException e){
+				result += e.Message+"\n";
+			}	
+			return result;
 		}
 	}
 }

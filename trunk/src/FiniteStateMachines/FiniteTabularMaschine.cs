@@ -76,18 +76,13 @@ namespace FiniteStateMachines {
 
 	  
 		/// <summary>
-		/// Loader for tabular FSMs. Uses a xml-file as input.
-		/// An example is listed below.
+		/// Loader for tabular FSMs using a xml-file as input.
+		/// An example is listed below:
 		/// 
 		/// <?xml version="1.0" encoding="utf-8" ?> 
 		/// <fsm>
-		///		<state name="one">
-		/// 		<start/>
-		///		</state>
-		/// 
-		///		<state name="two">
-		/// 		<final/>
-		///		</state>
+		///		<state name="one" start="true"/>
+		///		<state name="two" final="true"/>
 		///		
 		///		<transition source="one" target="one" input="d2"/>
 		///		<transition source="one" target="two" input="d1"/>
@@ -115,17 +110,21 @@ namespace FiniteStateMachines {
 					name = iterator.Current.Value;
 					iterator.Current.MoveToParent();
 				}
-				if (iterator.Current.MoveToFirstChild()) {
-					do {
-						if (iterator.Current.Name == "final") {
-							final = true;
-						}
-						if (iterator.Current.Name == "start") {
-							start = true;
-						}
-					} while(iterator.Current.MoveToNext());
+
+				if (iterator.Current.MoveToAttribute("start","")) {
+					if (iterator.Current.Value == "true"){
+						start = true;
+					}
 					iterator.Current.MoveToParent();
 				}
+
+				if (iterator.Current.MoveToAttribute("final","")) {
+					if (iterator.Current.Value == "true"){
+						final = true;
+					}
+					iterator.Current.MoveToParent();
+				}
+
 				AbstractState state = new State(name,start,final);
 				stateTable.Add(name,state);
 				AddState(state);

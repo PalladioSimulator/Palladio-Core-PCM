@@ -190,14 +190,7 @@ namespace UnitTests.FiniteStateMachines {
 
 		[Test] public void Equals() {
 			Assert.IsTrue(machineOne.Equals(machineOne));
-			// not yet complete
-		}
-
-		public static void Main(){
-			FiniteTabularMachine fsm = new FiniteTabularMachine();
-			fsm.Load("../../data/se_d1s.xml");
-			Console.WriteLine(fsm);
-			Console.ReadLine();
+			//TODO not yet complete
 		}
 	}
 }
