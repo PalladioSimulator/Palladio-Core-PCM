@@ -20,13 +20,13 @@ namespace Palladio.ComponentModel.Connections
 			get { return attributes; }
 		}
 
-		protected AttachedInterface SingleInterface
+		public AttachedInterface SingleInterface
 		{
 			get { return singleInterface; }
 			set { singleInterface = value; }
 		}
 
-		protected AttachedInterface[] MultipleInterfaces
+		public AttachedInterface[] MultipleInterfaces
 		{
 			get { return (AttachedInterface[]) multipleInterfaces.ToArray(typeof(AttachedInterface));}
 			set { multipleInterfaces = new Vector(value); }

@@ -35,5 +35,10 @@ namespace Palladio.ComponentModel
 		/// <returns>The RequiresInterface with the role aRoleID. 
 		/// If no interface with aRoleID can be found, a RoleNotFoundException is thrown.</returns>
 		ISignatureList GetRequiresInterface(string aRoleID);
+
+		bool HasProvidesInterface(string aRoleID);
+
+		bool HasRequiresInterface(string aRoleID);
+
 	}
 }

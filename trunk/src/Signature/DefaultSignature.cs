@@ -75,8 +75,7 @@ namespace Palladio.ComponentModel.Signature
 
 		public override bool Equals(object obj)
 		{
-			if (!(obj is DefaultSignature))
-				return false;
+			if (!(obj is DefaultSignature)) return false;
 			DefaultSignature sig = (DefaultSignature)obj;
 
 			if (!(sig.Name.Equals(this.Name) && 

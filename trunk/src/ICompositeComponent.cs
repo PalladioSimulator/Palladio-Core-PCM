@@ -53,13 +53,13 @@ namespace Palladio.ComponentModel
 		void DeleteComponents(params IComponent[] aCompArray);
 		
 
-		void AddProvidesInterface(ISignatureList aProvInterface, IProvidesMapping aProvMapping);
+		void AddProvidesInterfaces(IProvidesMapping aProvMapping, params ISignatureList[] aProvIfaceArray);
+		
+		void AddRequiresInterface(IRequiresMapping aReqMapping, ISignatureList aReqInterface);
+		
+		void DeleteProvidesInterfaces(IProvidesMapping aProvMapping, params ISignatureList[] aProvIfaceArray);
 
-		void AddRequiresInterface(ISignatureList aReqInterface, IRequiresMapping aReqMapping);
-
-		void DeleteProvidesInterface(ISignatureList aProvInterface, IProvidesMapping aProvMapping);
-
-		void DeleteRequiresInterface(ISignatureList aReqInterface, IRequiresMapping aReqMapping);
+		void DeleteRequiresInterface(IRequiresMapping aReqMapping, ISignatureList aReqInterface);
 
 
 		IProvidesMapping GetProvidesMappingByOuter(string aProvRoleID);

@@ -241,7 +241,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Collections\ConnectionHash.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Components\AbstractComponent.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Components\BasicComponent.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Components\CompositeComponent.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -266,7 +281,42 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\ComponentHasIncomingConnectionsException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\ComponentHasOutgoingConnectionsException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\ComponentNotFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\InvalidAttachedInterfaceException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\NoInterfaceForRoleException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\ProvidesInterfaceNotInMappingException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\RoleIDNotFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\RoleIDNotInterfaceRoleIDException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
