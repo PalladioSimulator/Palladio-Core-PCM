@@ -19,6 +19,9 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/10/23 11:55:08  kelsaka
+	/// added some parts of the building process
+	///
 	/// Revision 1.3  2004/10/22 16:19:56  kelsaka
 	/// even more interface changes; configuration-alternative on loading the webserver
 	///
@@ -72,15 +75,6 @@ namespace Palladio.Webserver.WebserverFactory
 		/// </summary>
 		/// <returns></returns>
 		public IConfigReader CreateConfigReader ()
-		{
-			return new XMLConfigReader();
-		}
-
-		/// <summary>
-		/// Creates a ConfigReader to get settings for the webserver.
-		/// </summary>
-		/// <returns></returns>
-		public IConfigReader CreateConfigReader (string configFilePath)
 		{
 			return new XMLConfigReader();
 		}
