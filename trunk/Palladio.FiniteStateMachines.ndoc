@@ -7,7 +7,6 @@
         <namespace name="Palladio.FiniteStateMachines.DefaultFSM"></namespace>
         <namespace name="Palladio.FiniteStateMachines.Exceptions">This namespace contains the exceptions that can occur when handling with FSMs.</namespace>
         <namespace name="Palladio.FiniteStateMachines.Visitors"></namespace>
-        <namespace name="ReflectionBasedVisitor"></namespace>
     </namespaces>
     <documenters>
         <documenter name="HtmlHelp2">
