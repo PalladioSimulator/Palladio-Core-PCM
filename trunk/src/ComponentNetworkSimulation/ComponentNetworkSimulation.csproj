@@ -145,11 +145,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\SimpleTestSimulationEnvironment.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\ComponentNetworkSimulation\analysis\BasicLogEventArgs.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

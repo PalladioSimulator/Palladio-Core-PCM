@@ -16,14 +16,18 @@ namespace testapplication
 
 		public static void Main()
 		{
-			for (int a=0;a<5;a++)
+
+/*			for (int a=0;a<5;a++)
 			{
 				Console.Out.WriteLine("Neuer lauf: ");
 				IComponentArchitecture architecture = new SimpleComponentArchitecture();
 
 				IThreadStartingPoint sp = new DefaultThreadStartingPoint(ID("CompCom"),ID("P1"),ID("d1")); 
 				IComponentVisitor visitor = architecture.CreateVisitor(sp);
-				DefaultSimulationThread thread = new DefaultSimulationThread(0,visitor,SimulationThreadType.TYPE_LOG_NOTHING,new TestApp());
+				IPeriodicSimulationThread thread = new DefaultPeriodicSimulationThread(7,0,0,sp,visitor,
+					SimulationThreadType.TYPE_LOG_NOTHING,new TestApp());
+
+				thread.NewPeriodicThreadEvent +=new EventHandler(thread_NewPeriodicThreadEvent);
 
 				int round = 0;
 
@@ -37,7 +41,7 @@ namespace testapplication
 					Console.ReadLine();
 				}
 
-			}
+			}*/
 			Console.ReadLine();			
 		}
 
@@ -45,6 +49,7 @@ namespace testapplication
 		{
 			return IdentifiableFactory.CreateStringID(id);
 		}
+
 
 		#region IThreadObserver Member
 
@@ -77,5 +82,10 @@ namespace testapplication
 		}
 
 		#endregion
+
+		private static void thread_NewPeriodicThreadEvent(object sender, EventArgs e)
+		{
+			Console.WriteLine("Should create next PeriodicThread ... ");
+		}
 	}
 }
