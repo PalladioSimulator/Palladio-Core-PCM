@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.7  2004/06/23 16:34:47  joemal
+	/// - now copy observer from one to the next periodic thread
+	///
 	/// Revision 1.6  2004/06/19 16:02:28  joemal
 	/// - now the threads work with new visitors
 	///
@@ -388,7 +391,7 @@ namespace ComponentNetworkSimulation.Simulation
 			IComponentVisitor visitor = this.simulationEnvironment.ComponentArchitecture.CreateVisitor(old.StartingPoint);
 
 			IPeriodicSimulationThread tmp = new DefaultPeriodicSimulationThread(old.PeriodLength,old.PeriodID,this.NextThreadID,
-				old.StartingPoint,visitor,old.TheType);
+				old.StartingPoint,visitor,old.TheType,old.Observer);
 			tmp.NewPeriodicThreadEvent += new EventHandler(this.OnNewPeriodicThreadEvent);
 			
 			PrepairNewThread(tmp);
