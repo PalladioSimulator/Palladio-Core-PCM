@@ -1,7 +1,7 @@
 \section{Modellbildung}
 \label{sec:modell}
-In diesem Kapitel wird auf die Entwicklung und Auswahl der im Framework verwendeten Modelle eingegangen.
-...
+In diesem Kapitel wird auf die Entwicklung und Auswahl der im Framework verwendeten Modelle eingegangen. Hierzu gehört die statische Umsetzung der Komponenten und der Architektur in ein Modell und die darauf aufbauende Modellierung der eigendlichen Simulation.
+
 \subsection{Grundlagen zur Modellierung von Komponenten und Komponentenarchitekturen}
 \label{sec:modell:grundlagen}
 Da sich dieses Framework mit der Simulation von Modellen von Architekturen und Komponenten befassen soll, gilt es als erstes, geeignete Modelle für die Komponenten und die Architektur auszuwählen und diese ggf. für die Simulation anzupassen. Als Basis hierfür wird auf ein Komponentenmodell zurückgegriffen, welches in \cite{lit:reussner01} vorgestellt wird. In diesem Modell repräsentieren sich Komponenten durch eine Reihe angebotener Dienste. Diese Dienste werden nach außen hin durch Schnittstellen (in \cite{lit:reussner01} als {\em Angebotssschnittstellen} bezeichnet) abgebildet. Die Dienste selber können andere möglicherweise externe Dienste zu ihrer Ausführung benötigen, welche ebenso durch Schnittstellen (in \cite{lit:reussner01} als {\em Bedarfsschnittstelle} bezeichnet) nach außen abgebildet werden.
@@ -17,12 +17,13 @@ Das Modell sieht je nach Anfordung unterschiedliche Schnittstellenmodelle vor, w
 
 \end{itemize}
 
-Da im Framework die Komponenten nicht als Blackboxes simuliert werden sollen, benötigen die Schnittstellen selber keine Beschreibung der Nicht-funktionalen Eigenschaften der Komponente. Diese werden, wie in Abschnitt \ref{sec:modell:erweiterung} erläutert, direkt im Modell der Dienste der Komponenten umgesetzt. Auf die Modellierung von Protokollen kann ebenfalls verzichtet werden, da die Simulation nicht dazu dient, Interoperabilität zu prüfen. Es wird bereits davon ausgegangen, dass die Komponenten der zu simulierenden Architektur zusammenpassen. Somit genügt es, die unterste Ebene der Schnittstellenmodelle zu verwenden.
+Da im Framework die Komponenten nicht als Blackboxes simuliert werden sollen, benötigen die Schnittstellen selber keine Beschreibung der Nicht-funktionalen Eigenschaften der Komponente. Diese werden, wie in Abschnitt \ref{sec:modell:bestandteile} erläutert, direkt im Modell der Dienste der Komponenten umgesetzt. Auf die Modellierung von Protokollen kann ebenfalls verzichtet werden, da die Simulation nicht dazu dient, Interoperabilität zu prüfen. Es wird bereits davon ausgegangen, dass die Komponenten der zu simulierenden Architektur zusammenpassen. Somit genügt es, die unterste Ebene der Schnittstellenmodelle, die Signaturlisten, zu verwenden.
 
 
 \subsubsection{Modellierung der Dienste}
 \label{sec:modell:grundlagen:dienste}
-Die Dienste einer Komponente werden in \cite{lit:reussner01} durch endliche Automaten (dort {\em Dienstbedarfautomaten} genannt) umgesetzt, wobei die Zustände einen Kontrollfluss unabhängig von anderen Diensten repräsentieren und die Transitionen die Aufrufe anderer möglicherweise externer Dienste darstellen. Ist ein Zustand als Endzustand definiert, so wird dies als Beendigung eines Dienstes (durch Erfolg oder Ausnahme) gewertet. Bild \ref{pic:modell} zeigt einen Dienstbedarfsautomaten (für Dienst e0). Dieser könnte folgenden Quellcode einer Komponente modellieren.\\
+Die Dienste einer Komponente werden in \cite{lit:reussner01} durch endliche Automaten (dort {\em Dienstbedarfautomaten} genannt) umgesetzt, wobei die Zustände einen Kontrollfluss unabhängig von anderen Diensten repräsentieren und die Transitionen die Aufrufe anderer möglicherweise externer Dienste darstellen. Ist ein Zustand als Endzustand definiert, so wird dies als Beendigung eines Dienstes (durch Erfolg oder Ausnahme) gewertet. Verlassen zwei Transitonen einen Zustand, so repräsentiert dieses einen Zweig im Kontrollfluss, welcher in der Simulation durch an den Transitionen befindlichen Wahrscheinlichkeiten aufgelöst wird.
+Bild \ref{pic:modell} zeigt einen Dienstbedarfsautomaten (für Dienst e0). Dieser könnte folgenden Quellcode einer Komponente modellieren.\\
 \begin{code}
 be\=gi\=n \=e0\=()\\
 \>{\em interne Befehle}\\
@@ -51,25 +52,35 @@ Da diese Schnittstellen unter Umständen mehrere Dienste kapseln, müssen innerhal
 \end{center}
 \end{figure}
 
-\subsection{Aufbau des Simulationsmodells und benötigte Resourcen}
+\subsection{Aufbau des Simulationsmodells}
 \label{sec:modell:simulation}
 
-Beim Entwurf des Simulationsmodell geht es darum, an die Architektur gestellte Anfragen und deren Wechselwirkungen innerhalb der Architektur möglichst realitätsnah zu simulieren. Es werden im Folgenden Methoden zur Umsetzung dieser Problematik vorgestellt und anschließend die Resourcen der Methode, welche im Framework eingesetzt werden soll, ermittelt.
+Beim Entwurf des Simulationsmodell geht es darum, an die Architektur gestellte Anfragen und deren Wechselwirkungen innerhalb der Architektur möglichst realitätsnah zu simulieren. Es kommen grundsätzlich zwei Möglichkeiten in Frage, die im nächsten Abschnitt kurz diskutiert werden.
 
 \subsubsection{Reelle Threads vs. simulierte Threads}
 \label{sec:modell:simulation:reellvssim}
-Grundsätzlich bieten sich zur Lösung dieser Aufgabe zwei Wege an, die Verwendung reeller Threads oder deren Simulation.\par
-Bei der Simulation mit reellen Threads wird für jede Anfrage an das System ein reelles Thread erzeugt. Wie in der Realität auch, werden diese Zeit 
 
-\subsubsection{Resourcen bei der Verwendung von simulierten Threads}
-\label{sec:modell:simulation:res}
+Bei der Simulation mit reellen Threads wird für jede Anfrage an das System ein reelles Thread erzeugt. Wie in der Realität auch, werden diese an bestimmten Stellen in der Architektur Zeit verbrauchen. Dies läßt sich erreichen, indem die Threads an diesen Stellen für eine bestimmte Zeit blockiert werden. Diese Zeit kann im einfachsten Fall der Realität entsprechen, was dazu führt, dass das Modell in Echtzeit arbeitet. Nachteile bei dieser Methode ergeben sich, wenn sowohl kurze als auch lange Verzögerungszeiten in der Architektur auftreten, da sich dann möglicherweise eine unnötige Wartezeit ergibt. Diese könnte man überbrücken, indem die Simulationszeit gezielt  vorgestellt wird. Als erheblicher Nachteil bei diesem Prinzip erweist sich jedoch die Sychronisation der einzelnen Threads insbesondere wenn sie gleichzeitig an der selben Stelle auftreten. Experimentelle Versuche erwiesen hier aufgrund eben genannter Problematik komplizierte schlecht erweiterbare Konstrukte. Aufgrund dieser Nachteile, insbesondere der Synchronisationsproblematik, wird von der Verwendung dieses Ansatzes abgesehen. 
+\par
+Der zweite Ansatz simuliert Threads. Hierzu werden Stellen innerhalb der Architektur mit einer Zeit markiert. Die simulierten Threads addieren diese Zeit dann entlang ihres Kontrollflusses auf. Somit wird die Zeit der Simulation unabhängig von der Architektur, da die zu verbrauchende Zeit nicht verstreichen muss. Dieser Ansatz gestattet problemlos die Verarbeitung mehrer Anfragen, solange der Durchlauf einer Anfrage keinerlei Einfluss auf den  Kontrollfluss oder die zeitverbrauchenden Bestandteile der Architektur mit sich bringt. Ein solches Modell spiegelt jedoch die Realität nicht gut wieder. Es ist beispielsweise wünschenswert, bei der Modulation einer Single-Thread-Komponente die Wartezeit einer Anfrage zu erhöhen, wenn gerade eine andere Anfrage verarbeitet wird. Auf diese Art lassen sich ebenfalls Auslastungen des Prozessors, auf dem die Komponente läuft, modellieren. Weiterhin sinnvoll erscheint die dynamische Änderung des Kontrollflusses. Folgendes Beispiel erläutert den Sinn dieser Modellierung.
+\par
+Soll das Modell eine Schleife im Kontrollfluss modellieren, so benutzt man folgenden Ansatz. Man modelliert wie in Bild \ref{pic:rekurs} dargestellt eine Endlosschleife, wobei 1.0 und 0.0 die, wie in Kapitel  \ref{sec:modell:grundlagen:dienste} beschrieben, Wahrscheinlichkeiten zur Auflösung des Zweiges darstellen. Soll die Schleife nach einigen Durchläufen abgebrochen werden, so müssen diese Wahrscheinlichkeiten in Abhängigkeit der Anzahl der Durchläufe verändert werden, damit die Schleife verlassen wird.
 
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=7cm]{../res/rekurs.png}
+\caption{Dienstbedarfsautomat moduliert eine Endlosschleife}
+\label{pic:rekurs}
+\end{center}
+\end{figure}
 
 \par
-Im weiteren Verlauf der Arbeit werden Anfragen an das System teilweise auch als Threads bezeichnet. Diese Terminologie erscheint angemessen, da eine Anfrage an eine Komponentenarchitektur im Prinzip in der Realität das Eintreffen eines Threads bedeutet.
+Um diese beiden Anforderungen im Simualtionsmodell unterzubringen, wird eine Erweiterung benötigt, welche im nächsten Abschnitt erläutert wird.
 
-\subsection{Erweiterung des Komponenten- und Architekturmodells für die Simulation}
-\label{sec:modell:erweiterung}
-Nachdem im vorherigen Abschnitt ein Simulationsmodell für das Framework ausgewählt und erläutert wurde, muss nun die Modellierung der Komponenten und der Architektur auf dieses Simulationsmodell angepasst werden. ...
+\subsubsection{Synchronisation von simulierten Threads}
+\label{sec:modell:simulation:sync}
 
-- der Kram mit den ITimeConsumer und ISubCallingTimeConsumer ...
+
+
+\subsection{Identifizierung von zeitverbrauchenden Bestandteilen des Modells}
+\label{sec:modell:bestandteile}
