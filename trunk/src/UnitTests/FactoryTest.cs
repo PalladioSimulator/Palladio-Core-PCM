@@ -9,6 +9,17 @@ namespace Palladio.FiniteStateMachines.UnitTests
 {
 	/// <summary>
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3  2004/05/12 07:50:59  sbecker
+	/// Added CVS log and DeleteIllegalState Test
+	///
+	///
+	/// </pre>
+	/// </remarks>
 	[TestFixture]
 	public class DefaultTestFixture
 	{
@@ -129,6 +140,30 @@ namespace Palladio.FiniteStateMachines.UnitTests
 
 		[Test] public void BuildTestFSM()
 		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+		}
+		
+		[ExpectedException(typeof(Exception))]
+		[Test] public void DeleteIllegalState()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			fsm.DeleteStates(fsm.StartState);
+		}
+
+		/// <summary>
+		/// </summary>
+		[Test] public void Equals()
+		{
+		}
+
+		/// <summary>
+		/// </summary>
+		[Test] public void Clone()
+		{
+		}
+
+		private IEditableFiniteStateMachine BuildExampleFSM()
+		{
 			IEditableFiniteStateMachine fsm = FSMFactory.CreateEmptyFSM();
 			StateHash states = FSMFactory.CreateStatesFromList("1","2","3");
 			InputSymbolHash inputs = FSMFactory.CreateInputFromList("a","b","c","eps");
@@ -142,18 +177,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			states = FSMFactory.CreateStatesFromList("1","2","3");
 			fsm.FinalStates = new IState[] { states["1"], states["3"] };
 			fsm.StartState = states["1"];
-		}
-
-		/// <summary>
-		/// </summary>
-		[Test] public void Equals()
-		{
-		}
-
-		/// <summary>
-		/// </summary>
-		[Test] public void Clone()
-		{
+			return fsm;
 		}
 	}
 }
