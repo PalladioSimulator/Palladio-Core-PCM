@@ -23,6 +23,9 @@ namespace ComponentNetworkSimulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/26 15:44:17  joemal
+	/// - change the default logger to the console writer
+	///
 	/// Revision 1.2  2004/06/22 17:06:44  joemal
 	/// add static methods to create clock, architecture and datapool
 	///
@@ -145,7 +148,7 @@ namespace ComponentNetworkSimulation
 		/// <returns>the default datapool</returns>
 		public static IDataPool CreateDefaultDataPool(ISimulationEnvironment simulationEnvironment)
 		{
-			return new DefaultDataPool(simulationEnvironment);
+			return DataPoolFactory.CreateConsoleWriterDataPool(simulationEnvironment);
 		}
 	}
 }
