@@ -80,7 +80,7 @@
         </member>
         <member name="M:MySmallWebServer.ExternalApplication.ExternalClientResponse.generateText">
             <summary>
-            Geneartes the message for the response
+            Generates the message for the response
             </summary>
         </member>
         <member name="M:MySmallWebServer.ExternalApplication.ExternalClientResponse.#ctor">
@@ -98,6 +98,11 @@
             <summary>
             The Base of the <code>Abstractresponse</code>the <code>ClientRequest</code>
             (get and set)
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ExternalApplication.ExternalClientResponse.MineType">
+            <summary>
+            Sets and Gets the mineType of the Response in a string representation.
             </summary>
         </member>
         <member name="P:MySmallWebServer.ExternalApplication.ExternalClientResponse.StatusCode">
@@ -130,18 +135,29 @@
             Form1Applikation generates a dynamic webpage for the form.htm
             </summary>
         </member>
+        <member name="T:MySmallWebServer.ExternalApplication.IFormApplication">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ExternalApplication.IFormApplication.GenerateText">
+            <summary>
+            This method must contain the replay of the request. It has to be a html page, because this 
+            will be sended to the browser with no manipulation.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:MySmallWebServer.ExternalApplication.Form1Applikation.#ctor(System.Collections.Hashtable)">
             <summary>
-            The external application is initated with the sorted user
-            input
+            The external application is initated with the sorted user input
             </summary>
             <param name="input"></param>
         </member>
-        <member name="M:MySmallWebServer.ExternalApplication.Form1Applikation.generateText">
+        <member name="M:MySmallWebServer.ExternalApplication.Form1Applikation.GenerateText">
             <summary>
-            This is the most importeant method. Here the <code>ExternalApplication</code>
+            Implamentatin of the IFormApplication Interface
             </summary>
-            <returns>´Returns the generated page in a <code>string</code></returns>
+            <returns>Returns the generated page in a <code>string</code></returns>
         </member>
         <member name="T:MySmallWebServer.ExternalApplication.Form2Application">
             <summary>
@@ -153,9 +169,9 @@
             The external application is initated with the sorted user
             input
             </summary>
-            <param name="input">The filterd input</param>
+            <param name="anInput">The filterd input</param>
         </member>
-        <!-- Schlecht gebildeter XML-Kommentar wurde für den Member "M:MySmallWebServer.ExternalApplication.Form2Application.generateText" ignoriert -->
+        <!-- Schlecht gebildeter XML-Kommentar wurde für den Member "M:MySmallWebServer.ExternalApplication.Form2Application.GenerateText" ignoriert -->
         <member name="T:MySmallWebServer.MyServerException.MyExternalException">
             <summary>
             MyExternalException is thrown when a error in an external application happpens.
@@ -164,7 +180,7 @@
         <member name="T:MySmallWebServer.MyServerException.MyFatalServerException">
             <summary>
              MyFatalServerException is thrown when something really bad happend
-             on the server.
+             on the server. The Server must be stopped then.
             </summary>
         </member>
         <member name="M:MySmallWebServer.MyServerException.MyFatalServerException.#ctor">
@@ -174,9 +190,9 @@
         </member>
         <member name="M:MySmallWebServer.MyServerException.MyExternalException.#ctor(MySmallWebServer.ClientResponse)">
             <summary>
-            Thrown when a error in an external application happpens
+            Is thrown when an error in an external application happpens
             </summary>
-            <param name="r">The response on which the error happend</param>
+            <param name="r">The response on which module the error happend</param>
         </member>
         <member name="T:MySmallWebServer.MyServerException.MyFileNotFoundException">
             <summary>
@@ -305,7 +321,7 @@
         </member>
         <member name="F:MySmallWebServer.ClientResponse.physicalDir">
             <summary>
-            The physical Dir of the response as <code>string</code>
+            The physical dir of the response as <code>string</code>
             </summary>
         </member>
         <member name="F:MySmallWebServer.ClientResponse.path">
@@ -415,8 +431,8 @@
         </member>
         <member name="M:MySmallWebServer.connectedClient.StartListen">
              <summary>
-            This method Accepts new connection and
-            First it receives the welcome massage from the client, This
+            This method accepts new connection and
+            first it serves the welcome massage from the client, This
             method is calles when a new client has connected.
              </summary>
         </member>
@@ -658,7 +674,7 @@
             The generated response in a <code>AbstractResponse</code>
             </summary>
         </member>
-        <member name="M:MySmallWebServer.SendToClient.#ctor(MySmallWebServer.ClientResponse)">
+        <member name="M:MySmallWebServer.SendToClient.#ctor(MySmallWebServer.AbstractResponse)">
             <summary>
             The constructor its initaited which a <code>AbstractResponse</code>
             </summary>
@@ -706,7 +722,7 @@
             Sends the default header to the client.
             </summary>
         </member>
-        <member name="M:MySmallWebServer.SendToClient.SendHeader(MySmallWebServer.ClientResponse,System.Int32)">
+        <member name="M:MySmallWebServer.SendToClient.SendHeader(MySmallWebServer.AbstractResponse,System.Int32)">
             <summary>
             Sends the file to the browser
             </summary>
@@ -779,7 +795,7 @@
         <member name="F:MySmallWebServer.ServerSettings.physicalDir">
             <summary>
             When a directory like sample.org/test/ ist called by the client
-            this is not the dir which on ServerDisk, fpr this reason this 
+            this is not the dir which on ServerDisk, for this reason this 
             hashatable contains a mapping between this.
             Key: The requested dir form the client
             Value: The real dir on server disk

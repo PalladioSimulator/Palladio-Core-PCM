@@ -9,9 +9,9 @@ namespace MySmallWebServer.MyServerException
 	{
 
 		/// <summary>
-		/// Thrown when a error in an external application happpens
+		/// Is thrown when an error in an external application happpens
 		/// </summary>
-		/// <param name="r">The response on which the error happend</param>
+		/// <param name="r">The response on which module the error happend</param>
 		public MyExternalException(ClientResponse r)
 		{
 			string Message="<h2> We are sorry a external error</h2>";

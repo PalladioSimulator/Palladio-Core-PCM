@@ -56,6 +56,22 @@ namespace MySmallWebServer.ExternalApplication
 			set{this.cr = value;}
 		}
 
+
+		/// <summary>
+		/// Sets and Gets the mineType of the Response in a string representation.
+		/// </summary>
+		public override string MineType
+		{
+			get
+			{
+				return this.MineType;
+			}
+			set
+			{
+				this.MineType = value;}
+		}
+
+
 		/// <summary>
 		/// Initates an <code>ExternalClientResponse</code>
 		/// </summary>
@@ -87,7 +103,7 @@ namespace MySmallWebServer.ExternalApplication
 		}
 
 		/// <summary>
-		/// Geneartes the message for the response
+		/// Generates the message for the response
 		/// </summary>
 		protected void generateText()
 		{
@@ -101,13 +117,13 @@ namespace MySmallWebServer.ExternalApplication
 				{
 					Console.WriteLine(".");
 					Form1Applikation t = new Form1Applikation(this.filteredInput);
-					this.text= t.generateText();
+					this.text= t.GenerateText();
 					Console.WriteLine("Mein neuer Text: "+this.text);
 				}
 				else if(this.ClientRequest.RequestedFile.RequestedFileName=="form2.htm")
 				{
 					Form2Application t = new Form2Application(this.filteredInput);
-					this.text= t.generateText();
+					this.text= t.GenerateText();
 					Console.WriteLine("Mein neuer Text: "+this.text);
 				}
 					//Throw Excetpiotn
@@ -127,10 +143,12 @@ namespace MySmallWebServer.ExternalApplication
 			//			this.r.MessageSize = this.MessageSize;
 		}
 
+
 		/// <summary>
 		/// The empty constructor
 		/// </summary>
 		public ExternalClientResponse(){}
+
 
 		/// <summary>
 		/// Retruns the input sorted in a <code>Hashtable</code>

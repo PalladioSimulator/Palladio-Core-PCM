@@ -31,6 +31,8 @@ namespace MySmallWebServer
 		public abstract ClientResponse GeneratedResponse{get;}
 		
 		//		string PhysicalPfad{get;}
+
+		public abstract string MineType{get;set;}
 	}
 
 }

@@ -41,8 +41,8 @@ namespace MySmallWebServer
 		}
 
 		/// <summary>
-		///This method Accepts new connection and
-		///First it receives the welcome massage from the client, This
+		///This method accepts new connection and
+		///first it serves the welcome massage from the client, This
 		///method is calles when a new client has connected.
 		/// </summary>
 		public void StartListen()
@@ -62,7 +62,6 @@ namespace MySmallWebServer
 				//Convert Byte to String
 				string sBuffer = Encoding.ASCII.GetString(bReceive);
 				Console.WriteLine("The Request: "+sBuffer);
-//
 			try
 				{
 				RequestParser parser = new RequestParser(ref mySocket,ref serverIo, sBuffer);

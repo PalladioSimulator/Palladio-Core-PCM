@@ -18,13 +18,13 @@ namespace MySmallWebServer
 		/// <summary>
 		/// The generated response in a <code>AbstractResponse</code>
 		/// </summary>
-		protected ClientResponse cr;
+		protected AbstractResponse cr;
 
 		/// <summary>
 		/// The constructor its initaited which a <code>AbstractResponse</code>
 		/// </summary>
 		/// <param name="r">The <code>AbstractResponse</code></param>
-		public SendToClient(ClientResponse r)
+		public SendToClient(AbstractResponse r)
 		{
 			this.cr = r;
 			Console.WriteLine("Der Response :"+this.cr.ToString());
@@ -74,12 +74,12 @@ namespace MySmallWebServer
 				SendHeader();
 			}
 			if(this.cr.ClientRequest.RequestedMethod is PostMethod)
-	       {		
+			{		
 				SendHeader();
 				SendMessage();
 			}
 			else
-				;
+			{}
 			}
 
 
@@ -132,11 +132,9 @@ namespace MySmallWebServer
 		/// </summary>
 		public void SendHeader()
 		{
-//			Console.WriteLine("Datei: "+cr.MessageToSend);
 			string generatedMessage = this.cr.ClientRequest.Protocol+ cr.StatusCode +"\r\n";
 			generatedMessage = generatedMessage + "Server: Mogli-Server c\r\n";
 			generatedMessage = generatedMessage + "Content-Type: "+cr.MineType +"\r\n";
-//			generatedMessage = generatedMessage + "Accept-Ranges: bytes\r\n";
 			generatedMessage = generatedMessage + "Content-Length: " +cr.MessageToSend.Length+ "\r\n\r\n";
 			Console.WriteLine("Generated Message: "+generatedMessage);
 			Byte[] bSendData = Encoding.ASCII.GetBytes(generatedMessage);
@@ -148,7 +146,7 @@ namespace MySmallWebServer
 		/// </summary>
 		/// <param name="dd">The gernated <code>AbstractResponse</code> for the client request</param>
 		/// <param name="iTotBytes">An <code>int</code> which contains the size of the message</param>
-		public void SendHeader(ClientResponse dd, int iTotBytes)
+		public void SendHeader(AbstractResponse dd, int iTotBytes)
 		{					
 			String sBuffer = "";
 			// if Mime type is not provided set default to text/html

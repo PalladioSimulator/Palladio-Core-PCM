@@ -31,7 +31,7 @@ namespace MySmallWebServer
 
 		/// <summary>
 		/// When a directory like sample.org/test/ ist called by the client
-		/// this is not the dir which on ServerDisk, fpr this reason this 
+		/// this is not the dir which on ServerDisk, for this reason this 
 		/// hashatable contains a mapping between this.
 		/// Key: The requested dir form the client
 		/// Value: The real dir on server disk

@@ -26,7 +26,7 @@ namespace MySmallWebServer
 		protected string mineType;
 
 		/// <summary>
-		/// The physical Dir of the response as <code>string</code>
+		/// The physical dir of the response as <code>string</code>
 		/// </summary>
 		protected string physicalDir;
 
@@ -109,7 +109,6 @@ namespace MySmallWebServer
 			string s = "Thats the Response"+"\n";
 			s=s+ this.clientRequest.ToString();
 			s=s+"MineType "+ this.mineType;
-			//			s=s+"Path "+this.path;
 			s=s+"statusCode "+this.statusCode;
 			return s;
 		}
@@ -128,7 +127,7 @@ namespace MySmallWebServer
 		/// <summary>
 		/// Sets and gets the MineType of a response
 		/// </summary>
-		public string MineType
+		public override string MineType
 		{
 			get{return this.mineType;}
 			set{this.mineType = value;}
@@ -181,8 +180,6 @@ namespace MySmallWebServer
 				//here a notSupported fileEx has to be thrown
 				Console.WriteLine("mapping faild");
 			}
-			//map directory	
-			//			Console.WriteLine(this.clientRequest.Settings.GetDirMapping("/"));
 			this.physicalDir = this.clientRequest.Settings.GetDirMapping(this.clientRequest.RequestedFile.RequestedDirectory);
 			Console.WriteLine("Physical Dir "+ this.physicalDir);
 

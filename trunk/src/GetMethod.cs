@@ -19,6 +19,8 @@ namespace MySmallWebServer
 			get{return this.fileSize;}
 			set{this.fileSize = value;}
 		}
+
+
 		public override string MessageToSend
 		{
 			get{return this.fileContent;}
