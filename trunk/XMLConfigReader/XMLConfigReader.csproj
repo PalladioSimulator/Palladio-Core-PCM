@@ -3,13 +3,13 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{32598BB1-4810-4026-81C6-609A02855196}"
+        ProjectGuid = "{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "Dispatcher"
+                AssemblyName = "XMLConfigReader"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "Dispatcher"
+                RootNamespace = "XMLConfigReader"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -67,92 +67,54 @@
                 <Reference
                     Name = "System"
                     AssemblyName = "System"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
                 />
                 <Reference
                     Name = "System.Data"
                     AssemblyName = "System.Data"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
                     Name = "System.XML"
                     AssemblyName = "System.Xml"
-                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
                     Name = "nunit.framework"
                     AssemblyName = "nunit.framework"
-                    HintPath = "..\..\..\..\..\Programme\NUnit V2.1\\bin\nunit.framework.dll"
+                    HintPath = "..\..\..\..\..\..\Programme\NUnit V2.1\\bin\nunit.framework.dll"
                     AssemblyFolderKey = "hklm\dn\nunit.framework"
-                />
-                <Reference
-                    Name = "SimpleLogger"
-                    AssemblyName = "SimpleLogger"
-                    HintPath = "..\SimpleLogger\obj\Debug\SimpleLogger.dll"
-                />
-                <Reference
-                    Name = "RequestParser"
-                    AssemblyName = "RequestParser"
-                    HintPath = "..\RequestParser\obj\Debug\RequestParser.dll"
-                />
-                <Reference
-                    Name = "RequestProssor"
-                    AssemblyName = "RequestProssor"
-                    HintPath = "..\RequestProssor\obj\Debug\RequestProssor.dll"
-                />
-                <Reference
-                    Name = "XMLConfigReader"
-                    Project = "{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>
         <Files>
             <Include>
                 <File
-                    RelPath = "bin\Debug\Dispatcher.config"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "ModelSupport\default.txvpck"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "ModelSupport\Dispatcher\Dispatcher.txvpck"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\DispatcherComponent.cs"
+                    RelPath = "AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\DispatcherTest.cs"
+                    RelPath = "ConfigList.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\DispatcherThread.cs"
+                    RelPath = "ConfigTable.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\HTTPAcceptor.cs"
+                    RelPath = "XMLConfigReader.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\IAcceptrequest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
+                    RelPath = "UnitTest\TestXMLFile.xml"
+                    BuildAction = "Content"
                 />
                 <File
-                    RelPath = "src\IParseRequest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "UnitTests\ConfigurationTest.cs"
+                    RelPath = "UnitTest\XMLConfigReaderTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

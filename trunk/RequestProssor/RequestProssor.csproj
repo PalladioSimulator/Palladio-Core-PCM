@@ -120,6 +120,11 @@
                     Project = "{05C33052-6E61-4616-85B3-2F35430894ED}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "XMLConfigReader"
+                    Project = "{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

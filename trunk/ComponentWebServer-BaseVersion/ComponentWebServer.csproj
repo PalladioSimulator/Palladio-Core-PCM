@@ -20,7 +20,7 @@
                 PostBuildEvent = ""
                 RootNamespace = "ComponentWebServer"
                 RunPostBuildEvent = "OnBuildSuccess"
-                StartupObject = "ComponentWebServer.Class1"
+                StartupObject = "ComponentWebServer.BaseVersion"
             >
                 <Config
                     Name = "Debug"
@@ -138,7 +138,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Class1.cs"
+                    RelPath = "BaseVersion.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -51,6 +51,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "addBibTexDatabase", "..\for
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLConfigReader", "..\XMLConfigReader\XMLConfigReader.csproj", "{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -109,6 +113,10 @@ Global
 		{05C33052-6E61-4616-85B3-2F35430894ED}.Debug.Build.0 = Debug|.NET
 		{05C33052-6E61-4616-85B3-2F35430894ED}.Release.ActiveCfg = Release|.NET
 		{05C33052-6E61-4616-85B3-2F35430894ED}.Release.Build.0 = Release|.NET
+		{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}.Debug.ActiveCfg = Debug|.NET
+		{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}.Debug.Build.0 = Debug|.NET
+		{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}.Release.ActiveCfg = Release|.NET
+		{4A7D12F6-63D3-4BD9-822B-096FECE0A99A}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

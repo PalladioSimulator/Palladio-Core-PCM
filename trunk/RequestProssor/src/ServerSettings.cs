@@ -1,9 +1,9 @@
-
 using System;
 using System.Collections;
 using System.IO;
 using System.Xml;
 using SimpleLogging;
+using XMLConfigReader;
 
 namespace RequestProssor
 {
@@ -29,7 +29,7 @@ namespace RequestProssor
 		/// Key is a file extension like .htm
 		/// Value is the suitable mine Type
 		/// </summary>
-		private Hashtable mineTypes;
+		private ConfigList mineTypes;
 
 
 		/// <summary>
@@ -39,7 +39,7 @@ namespace RequestProssor
 		/// Key: The requested dir form the client
 		/// Value: The real dir on server disk
 		/// </summary>
-		private Hashtable physicalDir;
+		private ConfigList physicalDir;
 
 		/// <summary>
 		/// The port on which the server is running
@@ -55,13 +55,13 @@ namespace RequestProssor
 		/// Retruns the mapping between fileextensions and minetypes as
 		/// <code>Hashtable</code>
 		/// </summary>
-		public Hashtable MappedMineTypes
+		public ConfigList MappedMineTypes
 		{get{ return this.mineTypes;}}
 
 		/// <summary>
 		/// Retruns the mapping between virtual and real dir
 		/// </summary>
-		public Hashtable DirMapping{get{return this.physicalDir;}}
+		public ConfigList DirMapping{get{return this.physicalDir;}}
 
 
 		/// <summary>
@@ -108,71 +108,84 @@ namespace RequestProssor
 			
 
 		/// <summary>
-		/// Retruns the portnumber on which the server is running as <code>int</code>
-		/// </summary>
-		public int ServerPort{get{return this.port;}}
-
-		/// <summary>
 		/// The constructor loads the xmlFile and stores the setting in the class attributes 
 		/// attributs
 		/// </summary>
 		public ServerSettings()
 		{
 			this.logger = new SimpleLogger(this);
+			this.logger.ConsoleOutput = true;
+			this.logger.DebugOutput = true;
+
+			XMLConfigFileReader cfr = new XMLConfigFileReader(@"C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\WebserverComponents\Config Files\ConfigRequestProzessor.xml");
+			ConfigTable configTable = cfr.GetConfigTable("serverSettings");
+			this.serverRoot = configTable["serverRoot"].ToString();
+			Console.WriteLine("Server Root Dir: "+this.serverRoot);
+
+			this.dafaultFile = configTable["defaultFile"].ToString();
+			Console.WriteLine("Default File: "+this.DefaultFile);
+
+			this.physicalDir = cfr.GetConfigList("VDirs","RequestedDir","realDir");
+			this.mineTypes = cfr.GetConfigList("MineTypes","fileExtension","type");
+
+			//Console.WriteLine("dupdidu");
+
+
+
 			
-			try
-			{
-				StreamReader file = new StreamReader("serverSettings.xml");
-				string xmlContent = file.ReadToEnd();
-				XmlTextReader xtr = new XmlTextReader(new StringReader(xmlContent));
-				XmlDocument xmlDoc = new XmlDocument();
-				xmlDoc.Load(xtr);
-				XmlNode node;
-
-				//load Mine Typs
-				this.mineTypes = new Hashtable();
-				XmlNodeList nodeList = xmlDoc.SelectNodes("//MineTypes/*");
-				for(int i=0; i<nodeList.Count; i++)
-				{
-
-					try
-					{
-						this.mineTypes.Add(nodeList.Item(i).FirstChild.InnerText,nodeList.Item(i).LastChild.InnerText);
-					}
-					catch(Exception)
-					{
-						Console.WriteLine("One mineType has been already added");
-					}
-				}
-				//serverRoot
-				node = xmlDoc.DocumentElement.SelectSingleNode("/serverSettings/serverRoot/text()");
-				this.serverRoot = node.Value.ToString();
-				//identify the physical Dirs
-				this.physicalDir = new Hashtable();
-				nodeList = xmlDoc.SelectNodes("//VDirs/*");
-				for(int i=0; i<nodeList.Count; i++)
-				{
-					try
-					{
-						this.physicalDir.Add(nodeList.Item(i).FirstChild.InnerText,nodeList.Item(i).LastChild.InnerText);
-					}
-					catch(Exception)
-					{
-						Console.WriteLine("One directory has been already added");
-					}
-				}
-				node = xmlDoc.DocumentElement.SelectSingleNode("/serverSettings/defaultFile/text()");
-				this.dafaultFile = node.Value.ToString();
-				//port
-				node = xmlDoc.DocumentElement.SelectSingleNode("/serverSettings/port/text()");
-				//				Console.WriteLine(node.Value.ToString());
-				this.port = int.Parse(node.Value.ToString());
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine(e.Message);
-				//throw new FatalServerException();
-			}
+//			try
+//			{
+//				StreamReader file = new StreamReader("serverSettings.xml");
+//				string xmlContent = file.ReadToEnd();
+//				XmlTextReader xtr = new XmlTextReader(new StringReader(xmlContent));
+//				XmlDocument xmlDoc = new XmlDocument();
+//				xmlDoc.Load(xtr);
+//				XmlNode node;
+//
+//				//load Mine Typs
+//				this.mineTypes = new Hashtable();
+//				XmlNodeList nodeList = xmlDoc.SelectNodes("//MineTypes/*");
+//				for(int i=0; i<nodeList.Count; i++)
+//				{
+//
+//					try
+//					{
+//						this.mineTypes.Add(nodeList.Item(i).FirstChild.InnerText,nodeList.Item(i).LastChild.InnerText);
+//					}
+//					catch(Exception)
+//					{
+//						Console.WriteLine("One mineType has been already added");
+//					}
+//				}
+//				//serverRoot
+//				node = xmlDoc.DocumentElement.SelectSingleNode("/serverSettings/serverRoot/text()");
+//				this.serverRoot = node.Value.ToString();
+//				//identify the physical Dirs
+//				this.physicalDir = new Hashtable();
+//				nodeList = xmlDoc.SelectNodes("//VDirs/*");
+//				for(int i=0; i<nodeList.Count; i++)
+//				{
+//					try
+//					{
+//						this.physicalDir.Add(nodeList.Item(i).FirstChild.InnerText,nodeList.Item(i).LastChild.InnerText);
+//					}
+//					catch(Exception)
+//					{
+//						Console.WriteLine("One directory has been already added");
+//					}
+//				}
+//				node = xmlDoc.DocumentElement.SelectSingleNode("/serverSettings/defaultFile/text()");
+//				this.dafaultFile = node.Value.ToString();
+//				//port
+//				node = xmlDoc.DocumentElement.SelectSingleNode("/serverSettings/port/text()");
+//				//				Console.WriteLine(node.Value.ToString());
+//				this.port = int.Parse(node.Value.ToString());
+//			}
+//			catch (Exception e)
+//			{
+//				Console.WriteLine(e.Message);
+//				//throw new FatalServerException();
+//			}
 			
 		}
 
@@ -233,7 +246,6 @@ namespace RequestProssor
 				aString = aString +" "+dic.Key.ToString()+" is mapped to "+ dic.Value.ToString()+"\n";
 			//aString= aString +"\n" +
 			aString= aString +"\n Default File " + this.dafaultFile;
-			aString = aString +"\n Port: "+this.ServerPort;
 			return aString;
 		}
 		

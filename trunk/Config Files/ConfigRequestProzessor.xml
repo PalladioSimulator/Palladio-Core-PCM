@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<serverSettings>
+<serverRoot>C:\MyPersonalwebServerData/</serverRoot>
+<defaultFile>index.htm</defaultFile>
+<MineTypes>
+	<aMineType>
+		<fileExtension>.js</fileExtension> 
+		<type>application/x-javascript</type>
+	</aMineType>
+	<aMineType>
+		<fileExtension>.html</fileExtension> 
+		<type>text/html</type>
+	</aMineType>
+	<aMineType>
+		<fileExtension>.css</fileExtension> 
+		<type>text/html</type>
+	</aMineType>
+	<aMineType>
+		<fileExtension></fileExtension> 
+		<type>text/html</type>
+	</aMineType>
+	<aMineType>
+		<fileExtension>.htm</fileExtension> 
+		<type>text/html</type>
+	</aMineType>
+	<aMineType>
+		<fileExtension>.ico</fileExtension> 
+		<type>image/x-icon</type>
+	</aMineType>
+
+	<aMineType>
+		<fileExtension>.gif</fileExtension> 
+		<type>image/gif</type>
+	</aMineType>
+
+	<aMineType>
+		<fileExtension>.jpg</fileExtension> 
+		<type>image/jpeg</type>
+	</aMineType>
+	<aMineType>
+		<fileExtension>.JPG</fileExtension> 
+		<type>image/jpeg</type>
+	</aMineType>
+	<aMineType>
+		<fileExtension>.swf</fileExtension> 
+		<type>image/bmp</type>
+	</aMineType>
+	<aMineType>
+		<fileExtension>.css-skin=</fileExtension> 
+		<type>image/bmp</type>
+	</aMineType>
+</MineTypes>
+<VDirs>
+	<Vdir>
+		<RequestedDir>/Members/</RequestedDir>
+		<realDir>/Members/</realDir> 
+	</Vdir><Vdir>
+		<RequestedDir>/news/</RequestedDir>
+		<realDir>/news/</realDir> 
+	</Vdir><Vdir>
+		<RequestedDir>/Palladio/</RequestedDir>
+		<realDir>/Palladio/</realDir> 
+	</Vdir><Vdir>
+		<RequestedDir>/RZS-DOC/</RequestedDir>
+		<realDir>/RZS-DOC/</realDir> 
+	</Vdir>
+	<Vdir>
+		<RequestedDir>/www.uni-oldenburg.de/</RequestedDir>
+		<realDir>/www.uni-oldenburg.de/</realDir> 
+	</Vdir>
+	<Vdir>
+		<RequestedDir>/</RequestedDir>
+		<realDir>/Demopage/</realDir> 
+	</Vdir>
+	<Vdir>
+		<RequestedDir>/se/</RequestedDir>
+		<realDir>/se.informatik.uni-oldenburg.de/</realDir> 
+	</Vdir>
+	<VDir>
+		<RequestedDir>/test/</RequestedDir>
+		<realDir>/test/</realDir>
+	</VDir>
+	<VDir>
+		<RequestedDir>/dok/</RequestedDir>
+		<realDir>/docs/</realDir>
+	</VDir>
+	<VDir>
+		<RequestedDir>/img/</RequestedDir>
+		<realDir>/img/</realDir>
+	</VDir>
+</VDirs>
+</serverSettings>

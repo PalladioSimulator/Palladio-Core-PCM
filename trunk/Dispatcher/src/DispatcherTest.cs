@@ -15,7 +15,7 @@ namespace Dispatcher
 
 		[SetUp] public void init()
 		{
-			HTTPAcceptor acc = new HTTPAcceptor(90);
+			HTTPAcceptor acc = new HTTPAcceptor(90,true);
 			Console.WriteLine("starting dispatcher");
 		}
 
