@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2004/05/12 08:55:34  sbecker
+	/// Added GetNextState or GetNextStates tests
+	///
 	/// Revision 1.11  2004/05/12 08:54:16  sliver
 	/// GetOutGoingTransitions throws an InvalidStateException now, if the state is NULL or not in fsm.States
 	///
@@ -287,12 +290,16 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		{
 			IEditableFiniteStateMachine fsm = BuildExampleFSM();
 			StateHash states = new StateHash(fsm.States);
+			InputSymbolHash inputs = new InputSymbolHash(fsm.InputAlphabet);
 			ITransition[] transitions = fsm.GetOutgoingTransitions(states["1"]);
 			Assert.IsTrue(transitions.Length == 2);
 			transitions = fsm.GetOutgoingTransitions(states["2"]);
 			Assert.IsTrue(transitions.Length == 1);
 			transitions = fsm.GetOutgoingTransitions(states["3"]);
 			Assert.IsTrue(transitions.Length == 1);
+			fsm.AddTransitions(FSMFactory.CreateDefaultTransition(states["3"],inputs["eps"],states["2"]));
+			transitions = fsm.GetOutgoingTransitions(states["3"]);
+			Assert.IsTrue(transitions.Length == 2);
 		}
 
 		[ExpectedException(typeof(InvalidStateException))]
@@ -307,6 +314,42 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		{
 			IEditableFiniteStateMachine fsm = BuildExampleFSM();
 			fsm.GetOutgoingTransitions(FSMFactory.CreateDefaultState("lala"));
+		}
+
+		[Test]public void GetNextState()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			StateHash states = new StateHash(fsm.States);
+			InputSymbolHash inputs = new InputSymbolHash(fsm.InputAlphabet);
+			Assert.AreEqual(states["1"],fsm.GetNextState(states["1"],inputs["a"]));
+			Assert.AreEqual(states["2"],fsm.GetNextState(states["1"],inputs["b"]));
+			Assert.AreEqual(states["3"],fsm.GetNextState(states["2"],inputs["c"]));
+			Assert.AreEqual(states["1"],fsm.GetNextState(states["3"],inputs["eps"]));
+		}
+
+		[Test]public void GetNextStatesNonDeterministic()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			StateHash states = new StateHash(fsm.States);
+			InputSymbolHash inputs = new InputSymbolHash(fsm.InputAlphabet);
+			IState[] resultStates =	fsm.GetNextStates(states["3"],inputs["eps"]);
+			Assert.IsTrue (resultStates.Length == 1);
+			Assert.AreEqual (states["1"],resultStates[0]);
+			fsm.AddTransitions(FSMFactory.CreateDefaultTransition(states["3"],inputs["eps"],states["2"]));
+			resultStates =	fsm.GetNextStates(states["3"],inputs["eps"]);
+			Assert.IsTrue (resultStates.Length == 2);
+			Assert.IsTrue(Array.IndexOf(resultStates,states["1"]) >= 0);
+			Assert.IsTrue(Array.IndexOf(resultStates,states["2"]) >= 0);
+		}
+
+		[ExpectedException(typeof(FsmNotDeterministicException))]
+		[Test]public void GetNextStateNonDeterministic()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			StateHash states = new StateHash(fsm.States);
+			InputSymbolHash inputs = new InputSymbolHash(fsm.InputAlphabet);
+			fsm.AddTransitions(FSMFactory.CreateDefaultTransition(states["3"],inputs["eps"],states["2"]));
+			fsm.GetNextState(states["3"],inputs["eps"]);
 		}
 
 		/// <summary>
