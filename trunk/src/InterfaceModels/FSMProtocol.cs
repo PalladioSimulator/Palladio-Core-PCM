@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/05/24 12:42:34  sbecker
+	/// Added test cases for creating protocol interfaces
+	///
 	/// Revision 1.4  2004/05/23 16:03:56  sliver
 	/// completed unit tests
 	///
@@ -33,13 +36,14 @@ namespace Palladio.ComponentModel.InterfaceModels
 	{
 		protected IEditableFiniteStateMachine editFSM = null;
 
-		private IEditableFiniteStateMachine EditFSM
+		public IEditableFiniteStateMachine EditFSM
 		{
 			get
 			{
 				if (editFSM == null)
 				{
 					editFSM = FSMFactory.GetEditableFSM(fsm);
+					fsm = editFSM;
 				}
 				return editFSM;
 			}
@@ -142,7 +146,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 			{
 				EditFSM.DeleteInputSymbols(FSMFactory.CreateDefaultInput(sig));
 			}
-		}
+		} 
 
 		public bool ContainsSignature( ISignature aSignature )
 		{
@@ -166,6 +170,14 @@ namespace Palladio.ComponentModel.InterfaceModels
 			return new FSMProtocol(fsm,attributes,roleID);
 		}
 		
+		public override bool Equals(object obj)
+		{
+			if (!(obj is IFSMProtocol)) return false;
+			if (obj == this) return true;
+			IFSMProtocol other = (IFSMProtocol)obj;
+			return other.FSM.Equals(this.FSM);
+		}
+
 		#endregion
 
 		#region Constructors
@@ -178,7 +190,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		internal FSMProtocol (IFiniteStateMachine fsm, IAttributeHash hash, string aRole)
 		{
 			this.fsm = (IFiniteStateMachine)fsm.Clone();
-			this.attributes = (IAttributeHash)attributes.Clone();
+			this.attributes = (IAttributeHash)hash.Clone();
 			this.roleID = roleID;
 		}
 

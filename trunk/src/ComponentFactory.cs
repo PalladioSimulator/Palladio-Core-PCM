@@ -4,6 +4,7 @@ using Palladio.ComponentModel.Signature;
 using Palladio.ComponentModel.InterfaceModels;
 using Palladio.ComponentModel.Components;
 using Palladio.ComponentModel.Connections;
+using Palladio.FiniteStateMachines;
 
 namespace Palladio.ComponentModel
 {
@@ -15,6 +16,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/05/24 12:42:34  sbecker
+	/// Added test cases for creating protocol interfaces
+	///
 	/// Revision 1.5  2004/05/23 19:00:07  sliver
 	/// added comments
 	///
@@ -390,6 +394,38 @@ namespace Palladio.ComponentModel
 			return new SignatureList(CreateAttributeHash(), "", signatures);
 		}
 
+		#endregion
+
+		#region CreateFSMProtocol
+		public static IFSMProtocol CreateFSMProtocolInterface(IAttributeHash hash, string aRole, IFiniteStateMachine fsm)
+		{
+			return new FSMProtocol(fsm,hash,aRole);
+		}
+
+		public static IFSMProtocol CreateFSMProtocolInterface(string aRole, IFiniteStateMachine fsm)
+		{
+			return new FSMProtocol(fsm,CreateAttributeHash(),aRole);
+		}
+
+		public static IFSMProtocol CreateFSMProtocolInterface(string aRole)
+		{
+			return new FSMProtocol(FSMFactory.CreateEmptyFSM(),CreateAttributeHash(),aRole);
+		}
+
+		public static IFSMProtocol CreateFSMProtocolServiceEffect(IAttributeHash hash, IFiniteStateMachine fsm)
+		{
+			return new FSMProtocol(fsm,hash,"");
+		}
+
+		public static IFSMProtocol CreateFSMProtocolServiceEffect(IFiniteStateMachine fsm)
+		{
+			return new FSMProtocol(fsm,CreateAttributeHash(),"");
+		}
+
+		public static IFSMProtocol CreateFSMProtocolServiceEffect()
+		{
+			return new FSMProtocol(FSMFactory.CreateEmptyFSM(),CreateAttributeHash(),"");
+		}
 		#endregion
 
 		#region CreateServiceEffectMapping

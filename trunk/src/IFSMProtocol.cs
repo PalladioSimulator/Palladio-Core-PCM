@@ -21,5 +21,14 @@ namespace Palladio.ComponentModel
 		{
 			get;
 		}
+
+		/// <summary>
+		/// A Protocol describing
+		/// the possible call sequences of the services.
+		/// </summary>
+		IEditableFiniteStateMachine EditFSM
+		{
+			get;
+		}
 	}
 }
