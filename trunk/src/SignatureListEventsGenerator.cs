@@ -84,6 +84,9 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.3  2004/09/02 12:50:06  uffi
+	/// Added XML Serialization and Deserialization functionality
+	///
 	/// Revision 1.2  2004/06/09 12:36:30  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///
@@ -92,7 +95,7 @@ namespace Palladio.ComponentModel
 	///
 	///
 	/// </pre></remarks>
-	public interface IAuxiliaryInterfaceSpecification
+	public interface IAuxiliaryInterfaceSpecification : ISerializable
 	{
 		/// <summary>
 		/// Event handler handling notifications of changes in the underlying signature list.
@@ -176,6 +179,9 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.3  2004/09/02 12:50:06  uffi
+	/// Added XML Serialization and Deserialization functionality
+	///
 	/// Revision 1.2  2004/06/09 12:36:30  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///

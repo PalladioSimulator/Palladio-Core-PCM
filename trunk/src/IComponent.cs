@@ -9,7 +9,7 @@ namespace Palladio.ComponentModel
 	/// <summary>
 	/// A Component is a set of Provides- and RequiresInterface.
 	/// </summary>
-	public interface IComponent : ICloneable, IAttributable, IVisitable, IIdentifiable
+	public interface IComponent : ICloneable, IAttributable, IVisitable, IIdentifiable, ISerializable
 	{
 		/// <summary>
 		/// Interfaces provided by the component to its environment.
@@ -92,5 +92,6 @@ namespace Palladio.ComponentModel
 		/// <param name="roleID">The ID of the role to retrieve</param>
 		/// <returns>The role queried</returns>
 		IRole GetRole(IIdentifier roleID);
+
 	}
 }

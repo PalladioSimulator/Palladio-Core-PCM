@@ -28,6 +28,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/09/02 12:50:06  uffi
+	/// Added XML Serialization and Deserialization functionality
+	///
 	/// Revision 1.2  2004/06/09 12:36:31  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///
@@ -164,6 +167,15 @@ namespace Palladio.ComponentModel
 		{
 			return (fsm == null ? 0 : fsm.GetHashCode());
 		}
+
+		public void Serialize(System.Xml.XmlTextWriter writer) 
+		{
+		}
+
+		public void Deserialize(System.Xml.XmlNode element) 
+		{
+
+		}
 		#endregion
 
 		#region Constructors
@@ -201,6 +213,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/09/02 12:50:06  uffi
+	/// Added XML Serialization and Deserialization functionality
+	///
 	/// Revision 1.2  2004/06/09 12:36:31  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///

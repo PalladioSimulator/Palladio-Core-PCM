@@ -1,4 +1,6 @@
 using System;
+using System.Xml;
+using System.Xml.Schema;
 using System.Collections;
 using Palladio.Utils.Collections;
 using Palladio.Attributes;
@@ -19,6 +21,9 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/09/02 12:50:06  uffi
+	/// Added XML Serialization and Deserialization functionality
+	///
 	/// Revision 1.5  2004/07/05 09:28:54  sbecker
 	/// Added GetComponent
 	///
@@ -484,6 +489,165 @@ namespace Palladio.ComponentModel.Components
 			}
 		}
 
+		/// <summary>
+		/// The Serialize method is used to write the object to a XML stream.
+		/// </summary>
+		/// <param name="filename">The name of the file to which this component should be written.</param>
+		public void Serialize(string filename) 
+		{
+			XmlTextWriter writer = new XmlTextWriter(filename,System.Text.Encoding.UTF8);
+			writer.Formatting = Formatting.Indented;
+			writer.Indentation= 6;
+			writer.Namespaces = true;
+
+			// Starts a new document
+			writer.WriteStartDocument();
+			//Write comments
+			writer.WriteComment("Palladio Model");
+
+			this.Serialize(writer);
+ 
+			// Ends the document
+			writer.WriteEndDocument();
+			writer.Close();
+		}
+
+		/// <summary>
+		/// The Serialize method is used to write the object to a XML stream.
+		/// </summary>
+		/// <param name="writer">The writer which is used to serialize the component.</param>
+		public override void Serialize(XmlTextWriter writer) 
+		{
+			writer.WriteStartElement("CompositeComponent","http://palladio.informatik.uni-oldenburg.de/XSD");
+			writer.WriteAttributeString("id",this.ID.ToString());
+
+			//serialize provides-interfaces
+			writer.WriteStartElement("Provides","http://palladio.informatik.uni-oldenburg.de/XSD");
+			foreach(IIdentifier c in providesMap.Keys)
+			{
+				((IRole)providesMap[c]).Serialize(writer);
+			}
+			writer.WriteEndElement();
+
+			//serialize requires-interfaces
+			writer.WriteStartElement("Requires","http://palladio.informatik.uni-oldenburg.de/XSD");
+			foreach(IIdentifier c in requiresMap.Keys)
+			{
+				((IRole)requiresMap[c]).Serialize(writer);
+			}
+			writer.WriteEndElement();
+
+			// serialize subcomponents
+			foreach(IIdentifier c in componentMap.Keys) 
+			{
+				((IComponent)componentMap[c]).Serialize(writer);
+			}
+
+			// serialize connections
+			writer.WriteStartElement("Connections","http://palladio.informatik.uni-oldenburg.de/XSD");
+			foreach(long i in connectionMap.Keys)
+			{
+				((IConnection)connectionMap[i]).Serialize(writer);
+			}
+			writer.WriteEndElement();
+
+			writer.WriteEndElement();
+		}
+
+		public override void Deserialize(System.Xml.XmlNode element) 
+		{
+			this.myID = NewID(element.Attributes["id"].Value.ToString());
+
+			System.Xml.XmlNode node = element.FirstChild;
+
+			while (node != null)
+			{
+				switch (node.Name) 
+				{
+					case "Provides":
+						foreach (XmlNode roleNode in node.ChildNodes)
+						{
+							IInterfaceModel role = ComponentFactory.CreateInterfaceModel();
+							role.Deserialize(roleNode);
+							this.AddProvidesInterface(NewID(roleNode.Attributes["id"].Value.ToString()), role);
+						}
+						break;
+					case "Requires":
+						foreach (XmlNode roleNode in node.ChildNodes)
+						{
+							IInterfaceModel role = ComponentFactory.CreateInterfaceModel();
+							role.Deserialize(roleNode);
+							this.AddRequiresInterface(NewID(roleNode.Attributes["id"].Value.ToString()), role);
+						}
+						break;
+					case "BasicComponent":
+						IBasicComponent newBasicComp = ComponentFactory.CreateBasicComponent("");
+						newBasicComp.Deserialize(node);
+						this.AddComponents(newBasicComp);
+						break;
+					case "CompositeComponent":
+						ICompositeComponent newCompositeComp = ComponentFactory.CreateCompositeComponent("");
+						newCompositeComp.Deserialize(node);
+						this.AddComponents(newCompositeComp);
+						break;
+					case "Connections":
+						foreach (XmlNode connNode in node.ChildNodes)
+						{
+							IComponent provComp, reqComp;
+
+							IIdentifier provCompID = NewID(connNode.Attributes["provCompID"].Value.ToString());
+							if (this.ID.ToString() == provCompID.ToString())
+								provComp = this;
+							else
+								provComp = this.GetComponent(provCompID);
+
+							IIdentifier reqCompID = NewID(connNode.Attributes["reqCompID"].Value.ToString());
+							if (this.ID.ToString() == reqCompID.ToString())
+								reqComp = this;
+							else
+								reqComp = this.GetComponent(reqCompID);
+
+							if (provComp == null) 
+								throw new DeserializationException("Could not find providing Component with ID "+connNode.Attributes["provCompID"].Value.ToString());
+							if (reqComp == null) 
+								throw new DeserializationException("Could not find requiring Component with ID "+connNode.Attributes["reqCompID"].Value.ToString());
+
+							switch (connNode.Name)
+							{
+								case "Binding":
+									this.AddBindings( ComponentFactory.CreateBinding(
+										reqComp,
+										NewID(connNode.Attributes["reqRoleID"].Value.ToString()),
+										provComp,
+										NewID(connNode.Attributes["provRoleID"].Value.ToString())));
+									break;
+
+								case "ProvidesMapping":
+									this.AddProvidesMappings( ComponentFactory.CreateProvidesMapping(
+										reqComp,
+										NewID(connNode.Attributes["reqRoleID"].Value.ToString()),
+										provComp,
+										NewID(connNode.Attributes["provRoleID"].Value.ToString())));
+									break;
+								case "RequiresMapping":
+									this.AddRequiresMappings( ComponentFactory.CreateRequiresMapping(
+										reqComp,
+										NewID(connNode.Attributes["reqRoleID"].Value.ToString()),
+										provComp,
+										NewID(connNode.Attributes["provRoleID"].Value.ToString())));
+									break;
+							}
+						}
+						break;
+				}
+				node = node.NextSibling;
+			}
+		}
+
+		private IIdentifier NewID(string aID)
+		{
+			return IdentifiableFactory.CreateStringID(aID);
+		}
 		#endregion
 
 		#region Constructors
@@ -514,6 +678,8 @@ namespace Palladio.ComponentModel.Components
 		private Hashmap componentMap;
 		private Hashmap connectionMap;
 		private long nextID;
+
 		#endregion
+
 	}
 }

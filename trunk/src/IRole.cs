@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.3  2004/09/02 12:50:05  uffi
+	/// Added XML Serialization and Deserialization functionality
+	///
 	/// Revision 1.2  2004/06/02 19:41:31  sbecker
 	/// Fixed docu
 	///
@@ -26,7 +29,7 @@ namespace Palladio.ComponentModel
 	///
 	///
 	/// </pre></remarks>
-	public interface IRole : IIdentifiable, ICloneable
+	public interface IRole : IIdentifiable, ICloneable, ISerializable
 	{
 		/// <summary>
 		/// The interface attached to a component

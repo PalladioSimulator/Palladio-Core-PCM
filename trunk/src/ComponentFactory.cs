@@ -1,4 +1,6 @@
 using System;
+using System.Xml;
+using System.Xml.Schema;
 using Palladio.Attributes;
 using Palladio.ComponentModel.Signature;
 using Palladio.ComponentModel.InterfaceModels;
@@ -17,6 +19,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2004/09/02 12:50:05  uffi
+	/// Added XML Serialization and Deserialization functionality
+	///
 	/// Revision 1.8  2004/07/13 07:48:21  sbecker
 	/// Made AttributesFactory static
 	///
@@ -57,7 +62,7 @@ namespace Palladio.ComponentModel
 	/// </pre>
 	/// </remarks>
 	public class ComponentFactory
-	{																							
+	{	
 
 		#region CreateType
 
@@ -650,6 +655,43 @@ namespace Palladio.ComponentModel
 			return new CompositeComponent(CreateAttributeHash(), ID);
 		}
 
+		/// <summary>
+		/// Load a CompositeComponent which previously has been serialized into a XML file
+		/// </summary>
+		/// <param name="xmlFileName">The path and filename of the XML file to load from</param>
+		/// <returns>A new ICompositeComponent instance.</returns>
+		public static ICompositeComponent LoadCompositeComponent(string xmlFileName)
+		{
+			XmlTextReader textReader = new XmlTextReader(xmlFileName);
+			textReader.WhitespaceHandling = WhitespaceHandling.None;
+
+			// validate file against schema definition
+			XmlValidatingReader validator = new XmlValidatingReader(textReader);
+			validator.ValidationType = ValidationType.Schema;
+
+			XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
+			schemaCollection.Add("http://palladio.informatik.uni-oldenburg.de/XSD","palladio.base.xsd");
+			validator.Schemas.Add(schemaCollection);
+
+			validator.ValidationEventHandler += new ValidationEventHandler(validator_ValidationEventHandler);
+
+			while (validator.Read()) { }
+			
+			// file is valid. create dom tree
+			validator.Close();
+			textReader.Close();
+			
+			textReader = new XmlTextReader(xmlFileName);
+
+			XmlDocument xmldoc = new XmlDocument();
+			xmldoc.Load(textReader);
+
+			CompositeComponent comp = new CompositeComponent(null,null);
+			comp.Deserialize(xmldoc.DocumentElement);
+			return comp;
+		}
+
+
 		#endregion
 
 		#region CreateConnections
@@ -819,6 +861,11 @@ namespace Palladio.ComponentModel
 		public static IAttributeHash CreateAttributeHash()
 		{
 			return AttributesFactory.Default.CreateAttributeHash();
+		}
+
+		private static void validator_ValidationEventHandler(object sender, ValidationEventArgs e)
+		{
+			throw new Exception(e.Message);
 		}
 	}
 }

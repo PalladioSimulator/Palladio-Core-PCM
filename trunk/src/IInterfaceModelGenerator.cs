@@ -19,7 +19,7 @@ namespace Palladio.ComponentModel
 	/// In our case an interface is a set of signatures
 	/// which can be somehow related to each other.
 	/// </summary>
-	public interface IInterfaceModel : ICloneable, IAttributable
+	public interface IInterfaceModel : ICloneable, IAttributable, ISerializable
 	{
 		/// <summary>
 		/// A list of signatures contained in this IInterfaceModel

@@ -9,7 +9,7 @@ namespace Palladio.ComponentModel
 	/// <summary>
 	/// A Signature describes the calling conventions of a service.
 	/// </summary>
-	public interface ISignature : ICloneable, IMatchable, IAttributable, IIdentifiable
+	public interface ISignature : ICloneable, IMatchable, IAttributable, IIdentifiable, ISerializable
 	{
 		#region Properties
 		

@@ -115,6 +115,51 @@ namespace Palladio.ComponentModel.InterfaceModels
 			signatureList = ComponentFactory.CreateSignatureList(new ISignature[0]);
 			this.attributes = attrHash;
 		}
+
+		public void Serialize(System.Xml.XmlTextWriter writer) 
+		{
+			writer.WriteStartElement("SignatureList","http://palladio.informatik.uni-oldenburg.de/XSD");
+			foreach (ISignature s in this.SignatureList) 
+			{
+				s.Serialize(writer);
+			}
+			writer.WriteEndElement();
+
+			foreach (IAuxiliaryInterfaceSpecification a in this.AuxiliarySpecifications) 
+			{
+				writer.WriteStartElement("AuxiliarySpecification","http://palladio.informatik.uni-oldenburg.de/XSD");
+				a.Serialize(writer);
+				writer.WriteEndElement();
+			}
+		}
+
+		public void Deserialize(System.Xml.XmlNode element) 
+		{
+			System.Xml.XmlNode childNode = element.FirstChild;
+
+			while (childNode != null)
+			{
+				switch (childNode.Name) 
+				{
+					case "SignatureList":
+
+						System.Xml.XmlNode signatureNode = childNode.FirstChild;
+						while (signatureNode != null)
+						{
+							
+							ISignature signature = ComponentFactory.CreateSignature("a");
+							signature.Deserialize(signatureNode);
+							this.signatureList.AddSignatures(signature);
+							signatureNode = signatureNode.NextSibling;
+						}						
+						break;
+					case "AuxiliarySpecification":
+						break;
+				}
+				childNode = childNode.NextSibling;
+			}
+		}
+
 	}
 	#endregion
 	

@@ -254,5 +254,11 @@ namespace Palladio.ComponentModel
 		/// <param name="aComponentID">ID of the component to search for</param>
 		/// <returns>The component with the given ID</returns>
 		IComponent GetComponent(IIdentifier aComponentID);
+
+		/// <summary>
+		/// Save the component in a schema-compliant XML format
+		/// </summary>
+		/// <param name="filename">The name of the XML file</param>
+		void Serialize(string filename);
 	}
 }

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Palladio Model schema definition (main file), author: Matthias Uflacker, CvO University of Oldenburg -->
+<xs:schema targetNamespace="http://palladio.informatik.uni-oldenburg.de/XSD" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:palladio="http://palladio.informatik.uni-oldenburg.de/XSD" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!-- include auxiliary element schemata here -->
+	<xs:include schemaLocation="palladio.fsm.xsd"/>
+	<!-- ======================================= -->
+	<!-- === ELEMENT ========= -->
+	<xs:complexType name="Element">
+		<xs:sequence>
+			<xs:element name="Attribute" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Description" type="xs:string"/>
+						<xs:element name="Type" type="xs:string"/>
+						<xs:any/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<!-- === COMPONENT ========= -->
+	<xs:complexType name="Component">
+		<xs:complexContent>
+			<xs:extension base="palladio:Element">
+				<xs:sequence>
+					<xs:element name="Provides" type="palladio:Interfaces" minOccurs="0">
+						<!--						<xs:key name="providesRoleID">
+							<xs:selector xpath="palladio:Role"/>
+							<xs:field xpath="@id"/>
+						</xs:key>
+-->
+					</xs:element>
+					<xs:element name="Requires" type="palladio:Interfaces" minOccurs="0">
+						<!--						<xs:key name="requiresRoleID">
+							<xs:selector xpath="palladio:Role"/>
+							<xs:field xpath="@id"/>
+						</xs:key>
+-->
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- === INTERFACE ========= -->
+	<xs:complexType name="Interfaces">
+		<xs:sequence>
+			<xs:element name="Role" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="palladio:Element">
+							<xs:sequence>
+								<xs:element name="SignatureList" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="Signature" type="palladio:Signature" minOccurs="0" maxOccurs="unbounded"/>
+										</xs:sequence>
+									</xs:complexType>
+									<xs:key name="signatureID">
+										<xs:selector xpath="palladio:Signature"/>
+										<xs:field xpath="@id"/>
+									</xs:key>
+								</xs:element>
+								<xs:element name="AuxiliarySpecification" type="palladio:AuxiliarySpecification" minOccurs="0"/>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- === SIGNATURE ========= -->
+	<xs:complexType name="Signature">
+		<xs:complexContent>
+			<xs:extension base="palladio:Element">
+				<xs:sequence>
+					<xs:element name="Name" type="xs:string"/>
+					<xs:element name="ReturnType" type="xs:string"/>
+					<xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Name" type="xs:string"/>
+								<xs:element name="Type" type="xs:string"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Exception" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- === EXTERNAL SIGNATURE ========= -->
+	<xs:complexType name="ExternalSignature">
+<!--		<xs:sequence>
+			<xs:element name="Signature" type="palladio:Signature"/>
+			<xs:element name="Role" type="xs:string"/>
+		</xs:sequence>
+-->		<xs:attribute name="sigref" type="xs:string" use="required"/>
+	</xs:complexType>
+	<!-- === AUXILIARYSPECIFICATION ========= -->
+	<xs:complexType name="AuxiliarySpecification">
+		<xs:sequence>
+			<xs:element name="ProtocolAutomaton" type="palladio:ProtocolAutomaton"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- === CONNECTION ========= -->
+	<xs:complexType name="Connection">
+		<xs:complexContent>
+			<xs:extension base="palladio:Element">
+				<xs:attribute name="provCompID" type="xs:string" use="required"/>
+				<xs:attribute name="provRoleID" type="xs:string" use="required"/>
+				<xs:attribute name="reqRoleID" type="xs:string" use="required"/>
+				<xs:attribute name="reqCompID" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- === SERVICE EFFECT SPECIFICATION ========= -->
+	<xs:complexType name="ServiceEffectSpecification">
+		<xs:complexContent>
+			<xs:extension base="palladio:Element">
+				<xs:sequence>
+					<xs:element name="ExternalSignatureList" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="ExternalSignature" type="palladio:ExternalSignature" minOccurs="0" maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+						<!--						<xs:key name="signatureID">
+							<xs:selector xpath="palladio:Signature"/>
+							<xs:field xpath="@id"/>
+						</xs:key>
+-->
+					</xs:element>
+					<xs:element name="AuxiliarySpecification" type="palladio:AuxiliarySpecification" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="sigref" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- === BASICCOMPONENT ========= -->
+	<xs:complexType name="BasicComponent">
+		<xs:complexContent>
+			<xs:extension base="palladio:Component">
+				<xs:sequence>
+					<xs:element name="ServiceEffectSpecification" type="palladio:ServiceEffectSpecification" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- === COMPOSITECOMPONENT ========= -->
+	<xs:complexType name="CompositeComponent">
+		<xs:complexContent>
+			<xs:extension base="palladio:Component">
+				<xs:sequence>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="BasicComponent" type="palladio:BasicComponent" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="CompositeComponent" type="palladio:CompositeComponent" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:choice>
+					<xs:element name="Connections" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:choice minOccurs="0" maxOccurs="unbounded">
+									<xs:element name="Binding" type="palladio:Connection" minOccurs="0" maxOccurs="unbounded">
+										<!--									<xs:keyref name="providesRoleIDRefBind" 	refer="palladio:providesRoleID">
+											<xs:selector xpath="."/>
+											<xs:field xpath="@providingRole"/>
+										</xs:keyref>
+										<xs:keyref name="requiresRoleIDRefBind" refer="palladio:requiresRoleID">
+											<xs:selector xpath="."/>
+											<xs:field xpath="@requiringRole"/>
+										</xs:keyref>
+-->
+									</xs:element>
+									<xs:element name="RequiresMapping" type="palladio:Connection" minOccurs="0" maxOccurs="unbounded">
+										<!--									<xs:keyref name="providesRoleIDRefMap" 	refer="palladio:providesRoleID">
+											<xs:selector xpath="."/>
+											<xs:field xpath="@providingRole"/>
+										</xs:keyref>
+										<xs:keyref name="requiresRoleIDRefMap" refer="palladio:requiresRoleID">
+											<xs:selector xpath="."/>
+											<xs:field xpath="@requiringRole"/>
+										</xs:keyref>
+-->
+									</xs:element>
+									<xs:element name="ProvidesMapping" type="palladio:Connection" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:choice>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- === PALLADIOMODEL ========= -->
+	<xs:element name="CompositeComponent" type="palladio:CompositeComponent"/>
+</xs:schema>

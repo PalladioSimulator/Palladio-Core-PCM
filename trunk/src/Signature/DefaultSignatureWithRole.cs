@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Signature
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.4  2004/09/02 12:50:06  uffi
+	/// Added XML Serialization and Deserialization functionality
+	///
 	/// Revision 1.3  2004/06/09 12:36:31  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///
@@ -45,6 +48,14 @@ namespace Palladio.ComponentModel.Signature
 				return encapsulatedSignature;
 			}
 
+		}
+
+		public IIdentifier ID
+		{
+			get
+			{
+				return IdentifiableFactory.CreateStringID(this.roleID.ToString()+":"+encapsulatedSignature.ID.ToString());
+			}
 		}
 
 		public bool Match(IMatchable other)
@@ -85,6 +96,33 @@ namespace Palladio.ComponentModel.Signature
 		{
 			this.encapsulatedSignature = (ISignature)anEncapsulatedSignature.Clone();
 			this.roleID = aRoleID;
+		}
+
+		public void Serialize(System.Xml.XmlTextWriter writer) 
+		{
+			writer.WriteStartElement("ExternalSignature","http://palladio.informatik.uni-oldenburg.de/XSD");
+			writer.WriteAttributeString("sigref",this.ID.ToString());
+//			this.encapsulatedSignature.Serialize(writer);
+//			writer.WriteStartElement("Role","http://palladio.informatik.uni-oldenburg.de/XSD");
+//			writer.WriteString(this.roleID.ToString());
+//			writer.WriteEndElement();
+			writer.WriteEndElement();
+		}
+
+		public void Deserialize(System.Xml.XmlNode element) 
+		{
+			foreach (System.Xml.XmlNode childNode in element.ChildNodes) 
+			{
+				switch (childNode.Name) 
+				{
+					case "Signature":
+						this.encapsulatedSignature.Deserialize(childNode);
+						break;
+					case "Role":
+						this.roleID = IdentifiableFactory.CreateStringID(childNode.InnerText);
+						break;
+				}
+			}
 		}
 	}
 }

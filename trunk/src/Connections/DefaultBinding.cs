@@ -31,6 +31,20 @@ namespace Palladio.ComponentModel.Connections
 			return new DefaultBinding(this);
 		}
 
+		public override void Serialize(System.Xml.XmlTextWriter writer) 
+		{
+			writer.WriteStartElement("Binding","http://palladio.informatik.uni-oldenburg.de/XSD");
+			writer.WriteAttributeString("provCompID",this.ProvidingRole.ComponentID.ToString());
+			writer.WriteAttributeString("provRoleID",this.ProvidingRole.RoleID.ToString());
+			writer.WriteAttributeString("reqCompID",this.RequiringRole.ComponentID.ToString());
+			writer.WriteAttributeString("reqRoleID",this.RequiringRole.RoleID.ToString());
+			writer.WriteEndElement();
+		}
+
+		public override void Deserialize(System.Xml.XmlNode element) 
+		{
+
+		}
 
 	}
 }

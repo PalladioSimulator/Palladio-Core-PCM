@@ -72,6 +72,8 @@ namespace Palladio.ComponentModel.Connections
 
 		public virtual void AcceptVisitor(IVisitor v){}
 
+		public virtual void Serialize(System.Xml.XmlTextWriter writer) {}
+		public virtual void Deserialize(System.Xml.XmlNode element) {}
 		#endregion
 
 		#region Constructors

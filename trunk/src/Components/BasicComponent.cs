@@ -1,4 +1,5 @@
 using System;
+using System.Xml;
 using System.Collections;
 using Palladio.Utils.Collections;
 using Palladio.Attributes;
@@ -137,6 +138,140 @@ namespace Palladio.ComponentModel.Components
 			}
 		}
 
+		public override void Serialize(System.Xml.XmlTextWriter writer) 
+		{
+			writer.WriteStartElement("BasicComponent","http://palladio.informatik.uni-oldenburg.de/XSD");
+			writer.WriteAttributeString("id",this.ID.ToString());
+
+			//serialize provides-interfaces
+			writer.WriteStartElement("Provides","http://palladio.informatik.uni-oldenburg.de/XSD");
+			foreach(IIdentifier c in providesMap.Keys)
+			{
+				((IRole)providesMap[c]).Serialize(writer);
+			}
+			writer.WriteEndElement();
+
+			//serialize requires-interfaces
+			writer.WriteStartElement("Requires","http://palladio.informatik.uni-oldenburg.de/XSD");
+			foreach(IIdentifier c in requiresMap.Keys)
+			{
+				((IRole)requiresMap[c]).Serialize(writer);
+			}
+			writer.WriteEndElement();
+
+			//serialize service effect specs
+			if (serviceEffectMap.Count > 0) 
+			{
+				foreach(IExternalSignature sig in serviceEffectMap.Keys) 
+				{
+					writer.WriteStartElement("ServiceEffectSpecification","http://palladio.informatik.uni-oldenburg.de/XSD");
+					writer.WriteAttributeString("sigref",sig.ID.ToString());
+
+					IServiceEffectSpecification sef = serviceEffectMap[sig];
+
+					writer.WriteStartElement("ExternalSignatureList","http://palladio.informatik.uni-oldenburg.de/XSD");
+					foreach (IExternalSignature extsig in sef.SignatureList) 
+					{
+						extsig.Serialize(writer);
+					}
+					writer.WriteEndElement();
+
+					writer.WriteEndElement();
+				}
+			}
+			writer.WriteEndElement();
+		}
+
+		public override void Deserialize(System.Xml.XmlNode element) 
+		{
+			this.myID = NewID(element.Attributes["id"].Value.ToString());
+
+			System.Xml.XmlNode node = element.FirstChild;
+
+			while (node != null)
+			{
+				switch (node.Name) 
+				{
+					case "Provides":
+						foreach (XmlNode roleNode in node.ChildNodes)
+						{
+							IInterfaceModel role = ComponentFactory.CreateInterfaceModel();
+							role.Deserialize(roleNode);
+							this.AddProvidesInterface(NewID(roleNode.Attributes["id"].Value.ToString()), role);
+						}
+						break;
+					case "Requires":
+						foreach (XmlNode roleNode in node.ChildNodes)
+						{
+							IInterfaceModel role = ComponentFactory.CreateInterfaceModel();
+							role.Deserialize(roleNode);
+							this.AddRequiresInterface(NewID(roleNode.Attributes["id"].Value.ToString()), role);
+						}
+						break;
+					case "ServiceEffectSpecification":
+						IServiceEffectSpecification sef = ComponentFactory.CreateServiceEffectSpecification();
+
+						// search for the refered provides-interface to which this spec applies to
+						string sigref = node.Attributes["sigref"].Value.ToString();
+						ISignature referedProvSig = null;
+
+						string[] id = sigref.Split(new char[]{':'},2);
+						IInterfaceModel refProvRole = this.GetProvidesInterface(NewID(id[0]));
+
+						if (refProvRole == null) 
+							throw new DeserializationException("ProvidesInterface "+id[0]+" not found");
+
+						foreach (ISignature sig in refProvRole.SignatureList) 
+						{
+							if (sig.ID.ToString() == id[1])
+								referedProvSig = sig;
+						}
+
+						if (referedProvSig == null) 
+							throw new DeserializationException("Signature "+id[1]+" not found");
+
+						// provides-interface found. 
+						// now add the listed signatures from the required-interfaces to the spec.
+						foreach (XmlNode sefChild in node.ChildNodes)
+						{
+							switch (sefChild.Name)
+							{
+								case "ExternalSignatureList":
+									
+									foreach(XmlNode exSigNode in sefChild.ChildNodes)
+									{
+										string exsigref = exSigNode.Attributes["sigref"].Value.ToString();
+										ISignature referedReqSig = null;
+
+										string[] exid = exsigref.Split(new char[]{':'},2);
+										IInterfaceModel refReqRole = this.GetRequiresInterface(NewID(exid[0]));
+										if (refReqRole == null) 
+											throw new DeserializationException("RequiresInterface "+exid[0]+" not found");
+
+										foreach (ISignature sig in refReqRole.SignatureList) 
+										{
+											if (sig.ID.ToString() == exid[1])
+												referedReqSig = sig;
+										}
+										if (referedReqSig == null) 
+											throw new DeserializationException("Signature "+exid[1]+" not found");
+
+										sef.SignatureList.AddSignatures(ComponentFactory.CreateExternalSignature(exid[0],referedReqSig));
+									}
+									break;
+							}
+						}
+						this.AddServiceEffectSpecification(ComponentFactory.CreateExternalSignature(id[0],referedProvSig), sef);
+						break;
+				}
+				node = node.NextSibling;
+			}
+		}
+
+		private IIdentifier NewID(string aID)
+		{
+			return IdentifiableFactory.CreateStringID(aID);
+		}
 		#endregion
 
 		#region Constructors

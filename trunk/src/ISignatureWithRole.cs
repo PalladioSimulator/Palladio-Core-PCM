@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.5  2004/09/02 12:50:05  uffi
+	/// Added XML Serialization and Deserialization functionality
+	///
 	/// Revision 1.4  2004/06/09 12:36:30  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///
@@ -27,7 +30,7 @@ namespace Palladio.ComponentModel
 	///
 	///
 	/// </pre></remarks>
-	public interface IExternalSignature : ICloneable, IMatchable
+	public interface IExternalSignature : ICloneable, IMatchable, ISerializable, IIdentifiable
 	{
 		/// <summary>
 		/// The signature

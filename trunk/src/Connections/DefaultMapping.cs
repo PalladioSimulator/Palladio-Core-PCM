@@ -98,7 +98,31 @@ namespace Palladio.ComponentModel.Connections
 				base.GetHashCode()
 			);
 		}
+
 		#endregion
+
+		public override void Serialize(System.Xml.XmlTextWriter writer) 
+		{
+			if (IsProvidesMapping) 
+			{
+				writer.WriteStartElement("ProvidesMapping","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("provCompID",this.InnerRole.ComponentID.ToString());
+				writer.WriteAttributeString("provRoleID",this.InnerRole.RoleID.ToString());
+				writer.WriteAttributeString("reqCompID",this.OuterRole.ComponentID.ToString());
+				writer.WriteAttributeString("reqRoleID",this.OuterRole.RoleID.ToString());
+			}
+			else if (IsRequiresMapping) 
+			{
+				writer.WriteStartElement("RequiresMapping","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("provCompID",this.OuterRole.ComponentID.ToString());
+				writer.WriteAttributeString("provRoleID",this.OuterRole.RoleID.ToString());
+				writer.WriteAttributeString("reqCompID",this.InnerRole.ComponentID.ToString());
+				writer.WriteAttributeString("reqRoleID",this.InnerRole.RoleID.ToString());
+			}
+
+			writer.WriteEndElement();
+
+		}
 
 		public DefaultMapping(IAttributeHash anAttHash, IAttachedRole aReqRole, IAttachedRole aProvRole, MappingTypeEnum direction) : base(anAttHash,aReqRole,aProvRole)
 		{

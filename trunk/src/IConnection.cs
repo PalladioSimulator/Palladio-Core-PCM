@@ -7,7 +7,7 @@ namespace Palladio.ComponentModel
 	/// <summary>
 	/// Connects two interfaces of different componetens to each other.
 	/// </summary>
-	public interface IConnection : IAttributable, ICloneable
+	public interface IConnection : IAttributable, ICloneable, ISerializable
 	{
 		#region Properties
 

@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Components
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.4  2004/09/02 12:50:06  uffi
+	/// Added XML Serialization and Deserialization functionality
+	///
 	/// Revision 1.3  2004/06/02 19:41:31  sbecker
 	/// Fixed docu
 	///
@@ -64,6 +67,20 @@ namespace Palladio.ComponentModel.Components
 				interfaceModel.GetHashCode()
 				);
 		}
+
+		public void Serialize(System.Xml.XmlTextWriter writer) 
+		{
+			writer.WriteStartElement("Role","http://palladio.informatik.uni-oldenburg.de/XSD");
+			writer.WriteAttributeString("id",this.ID.ToString());
+			this.Interface.Serialize(writer);
+			writer.WriteEndElement();
+		}
+
+		public void Deserialize(System.Xml.XmlNode element) 
+		{
+			this.Interface.Deserialize(element);
+		}
+
 
 		/// <summary>
 		/// Desciption of the constructor

@@ -53,7 +53,17 @@ namespace Palladio.ComponentModel
 		{
 			get
 			{
-				return IdentifiableFactory.CreateStringID(name);
+				string sigID = this.name+"(";
+				if (this.Parameters.Length > 0) 
+				{
+					foreach (IParameter p in this.Parameters) 
+					{
+						sigID += p.Type+",";
+					}
+					sigID = sigID.TrimEnd(new char[]{','});
+				}
+				sigID += ")";
+				return IdentifiableFactory.CreateStringID(sigID);
 			}
 		}
 		#endregion
@@ -80,10 +90,11 @@ namespace Palladio.ComponentModel
 			if (!(obj is ISignature)) return false;
 			ISignature sig = (ISignature)obj;
 
-			if (!(sig.Name.Equals(this.Name) && 
-						sig.ReturnType.Equals(this.ReturnType) &&
-						(sig.Parameters.Length == this.Parameters.Length) &&
-						(sig.Exceptions.Length == this.Exceptions.Length)
+			if (!(this.name.Equals(sig.Name) &&
+						this.Name.Equals(sig.Name) && 
+						this.ReturnType.Equals(sig.ReturnType) &&
+						(this.Parameters.Length == sig.Parameters.Length) &&
+						(this.Exceptions.Length == sig.Exceptions.Length)
 					))
 				return false;
 
@@ -134,6 +145,82 @@ namespace Palladio.ComponentModel
 			if (exceptions.Length > 0)
 				result += "throws " + exceptions;
 			return result;
+		}
+
+		public void Serialize(System.Xml.XmlTextWriter writer) 
+		{
+			writer.WriteStartElement("Signature","http://palladio.informatik.uni-oldenburg.de/XSD");
+			writer.WriteAttributeString("id",this.ID.ToString());
+
+			writer.WriteStartElement("Name","http://palladio.informatik.uni-oldenburg.de/XSD");
+			writer.WriteString(this.Name);
+			writer.WriteEndElement();
+
+			writer.WriteStartElement("ReturnType","http://palladio.informatik.uni-oldenburg.de/XSD");
+			writer.WriteString(this.ReturnType.ToString());
+			writer.WriteEndElement();
+
+			foreach (IParameter p in parameters) 
+			{
+				writer.WriteStartElement("Parameter","http://palladio.informatik.uni-oldenburg.de/XSD");
+
+				writer.WriteStartElement("Name","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteString(p.Name);
+				writer.WriteEndElement();
+
+				writer.WriteStartElement("Type","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteString(p.Type.ToString());
+				writer.WriteEndElement();
+
+				writer.WriteEndElement();
+			}
+
+			foreach (IType t in exceptions) 
+			{
+				writer.WriteStartElement("Exception","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteString(t.ToString());
+				writer.WriteEndElement();
+			}
+
+			writer.WriteEndElement();
+		}
+
+		public void Deserialize(System.Xml.XmlNode element) 
+		{
+			foreach(System.Xml.XmlNode node in element.ChildNodes)
+			{
+				switch (node.Name) 
+				{
+					case "Name":
+						this.name = node.InnerText;
+						break;
+					case "ReturnType":
+						this.type = ComponentFactory.CreateType(node.InnerText);
+						break;
+					case "Parameter":
+						IType type = null;
+						string name = "";
+						foreach (System.Xml.XmlNode paramChild in node.ChildNodes) 
+						{
+							switch (paramChild.Name)
+							{
+								case "Name":
+									name = paramChild.InnerText;
+									break;
+								case "Type":
+									type = ComponentFactory.CreateType(paramChild.InnerText);
+									break;
+								case "Modifier":
+									break;
+							}
+						}
+						this.parameters.Add(ComponentFactory.CreateParameter(type,name));
+						break;
+					case "Exception":
+						this.exceptions.Add(ComponentFactory.CreateType(node.InnerText));
+							break;
+				}
+			}
 		}
 
 		#endregion

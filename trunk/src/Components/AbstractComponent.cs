@@ -203,6 +203,10 @@ namespace Palladio.ComponentModel.Components
 				return requiresMap[aRoleID];
 
 		}
+
+		public abstract void Serialize(System.Xml.XmlTextWriter writer);
+		public abstract void Deserialize(System.Xml.XmlNode element);
+
 		#endregion
 
 		#region Constructors

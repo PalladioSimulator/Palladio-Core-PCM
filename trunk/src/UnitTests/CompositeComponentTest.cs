@@ -1,6 +1,7 @@
 #if TEST
 
 using System;
+using System.Xml;
 using System.Collections;
 using NUnit.Framework;
 using Palladio.ComponentModel.Exceptions;
@@ -19,6 +20,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/09/02 12:50:06  uffi
+	/// Added XML Serialization and Deserialization functionality
+	///
 	/// Revision 1.4  2004/07/05 09:30:12  sbecker
 	/// Changes due to the refactorings after the first review
 	///
@@ -248,6 +252,14 @@ namespace Palladio.ComponentModel.UnitTests
 			clone.DeleteComponents(iComp2.ID);
 		}
 
+		[Test] public void SerializeComponent()
+		{
+			oComp.Serialize("test.xml");
+			ICompositeComponent loadedComp = ComponentFactory.LoadCompositeComponent("test.xml");
+	
+			Assert.AreEqual(loadedComp, oComp);
+		}
+
 
 //		[Test] public void Visitor()
 //		{
@@ -272,8 +284,16 @@ namespace Palladio.ComponentModel.UnitTests
 			iComp1.AddRequiresInterface(ID("iReq1"),iReq1);
 			iComp1.AddRequiresInterface(ID("iReq2"),iReq2);
 
+			ISignature sig = ComponentFactory.CreateSignature(System.Type.GetType("System.Int32"),"someMethod",
+				ComponentFactory.CreateParameter(ComponentFactory.CreateType("System.String"),"param"));
+
+			IInterfaceModel iReqX = ComponentFactory.CreateInterfaceModel();
+			iReqX.SignatureList.AddSignatures(sig);
+			iComp1.AddRequiresInterface(ID("iReqX"),iReqX);
+
 			d1se = ComponentFactory.CreateServiceEffectSpecification();
 			d1se.SignatureList.AddSignatures(ComponentFactory.CreateExternalSignatureArray("iReq1",iSigReq1[0], iSigReq1[1]));
+			d1se.SignatureList.AddSignatures(ComponentFactory.CreateExternalSignatureArray("iReqX",sig));
 
 			d2se = ComponentFactory.CreateServiceEffectSpecification();
 			d2se.SignatureList.AddSignatures(ComponentFactory.CreateExternalSignatureArray("iReq1",iSigReq1[0]));
