@@ -6,27 +6,27 @@ using Utils.Collections;
 
 namespace FiniteStateMachines {
 	
-    /// <summary>
-    ///     This class represents a final state machine, which simulates a conjunction of several
-    ///     others FSMs. The providesProtocol is the top FSM, which invokes all others.
-    ///     The serviceEffectSpecificationTable maps each input symbol of the
-    ///     providesProtocol onto another FSM.
-    /// </summary>
+	/// <summary>
+	///     This class represents a final state machine, which simulates a conjunction of several
+	///     others FSMs. The providesProtocol is the top FSM, which invokes all others.
+	///     The serviceEffectSpecificationTable maps each input symbol of the
+	///     providesProtocol onto another FSM.
+	/// </summary>
 	public class FiniteStackMachine : AbstractFiniteStateMachine {
 
-        /// <summary>
-        ///     The top finite state machine which calls all other automatons.
-        /// </summary>
+		/// <summary>
+		///     The top finite state machine which calls all other automatons.
+		/// </summary>
 		private IFiniteStateMachine providesProtocol;
 
-        /// <summary>
-        ///     Mapping of a set of input symbols onto a set of automatons.
-        /// </summary>
+		/// <summary>
+		///     Mapping of a set of input symbols onto a set of automatons.
+		/// </summary>
 		private Hashtable serviceEffectSpecificationTable;
 
-        /// <summary></summary>
-        /// 
-        /// <seealso cref="InputAlphabet"></seealso>
+		/// <summary></summary>
+		/// 
+		/// <seealso cref="InputAlphabet"></seealso>
 		private Set inputAlphabet;
 
 		/// <summary>
@@ -52,12 +52,12 @@ namespace FiniteStateMachines {
 		}
 
 
-        /// <summary>
-        ///     Standard constructor. Creates a new StackFiniteStateMachine.
-        /// </summary>
-        /// 
-        /// <param name="aProvidesProtocol">The top finite state machine which calls all other automatons.</param>
-        /// <param name="aServiceEffectSpecificationTable">Mapping of a set of input symbols onto a set of automatons.</param>
+		/// <summary>
+		///     Standard constructor. Creates a new StackFiniteStateMachine.
+		/// </summary>
+		/// 
+		/// <param name="aProvidesProtocol">The top finite state machine which calls all other automatons.</param>
+		/// <param name="aServiceEffectSpecificationTable">Mapping of a set of input symbols onto a set of automatons.</param>
 		public FiniteStackMachine(IFiniteStateMachine aProvidesProtocol, Hashtable aServiceEffectSpecificationTable) {
 			providesProtocol = aProvidesProtocol;
 			serviceEffectSpecificationTable = (Hashtable)aServiceEffectSpecificationTable.Clone();
@@ -70,14 +70,14 @@ namespace FiniteStateMachines {
 		}
 
 
-        /// <summary>
-        ///     Determins the complete input alphabet.
-        /// 
-        ///     The input alphabet is a conjunction of all
-        ///     input alphabets of the automatons this machine
-        ///     consits of.</summary>
-        /// 
-        /// <returns>The complete input alphabet.</returns>
+		/// <summary>
+		///     Determins the complete input alphabet.
+		/// 
+		///     The input alphabet is a conjunction of all
+		///     input alphabets of the automatons this machine
+		///     consits of.</summary>
+		/// 
+		/// <returns>The complete input alphabet.</returns>
 		private Set DetermineInputAlphabet() {
 			Set resultSet = new Set();
 			foreach (DictionaryEntry entry in serviceEffectSpecificationTable) {
@@ -116,62 +116,62 @@ namespace FiniteStateMachines {
 		}
 
 
-        /// <summary>
-        ///     FinalStates, constructed out of the final states
-        ///     of the provides protocol.</summary>
+		/// <summary>
+		///     FinalStates, constructed out of the final states
+		///     of the provides protocol.</summary>
 		public override Set FinalStates {
 			get { return finalStates; }
 		}
 
 
-        /// <summary>
-        ///     Constructed out of the start state of the
-        ///     provides protocol.
-        /// </summary>
-        /// 
-        /// <seealso cref="IFiniteStateMachine.StartState"></seealso>
+		/// <summary>
+		///     Constructed out of the start state of the
+		///     provides protocol.
+		/// </summary>
+		/// 
+		/// <seealso cref="IFiniteStateMachine.StartState"></seealso>
 		public override AbstractState StartState {
 			get {return new StackState(providesProtocol.StartState);}
 		}
 
 
-        /// <summary>
-        ///     Conjunction of all input alphabets of all automatons 
-        ///     included in this stack machine.
-        /// 
-        /// </summary>
-        /// 
-        /// <seealso cref="IFiniteStateMachine.InputAphabet"></seealso>
+		/// <summary>
+		///     Conjunction of all input alphabets of all automatons 
+		///     included in this stack machine.
+		/// 
+		/// </summary>
+		/// 
+		/// <seealso cref="IFiniteStateMachine.InputAphabet"></seealso>
 		public override Set InputAlphabet {
 			get { return inputAlphabet; }
 		}
 
 
-        /// <summary>
-        ///     Returns the the target of a transiton starting at aSourceState
-        ///     with the input symbol anInput.
-        /// </summary>
-        /// 
-        /// <param name="sourceState"></param>
-        /// <param name="anInput"></param>
-        /// 
-        /// <returns>The destination of the transition.</returns>
-        /// <seealso cref="IFiniteStateMachine.GetNextState"></seealso>
+		/// <summary>
+		///     Returns the the target of a transiton starting at aSourceState
+		///     with the input symbol anInput.
+		/// </summary>
+		/// 
+		/// <param name="sourceState"></param>
+		/// <param name="anInput"></param>
+		/// 
+		/// <returns>The destination of the transition.</returns>
+		/// <seealso cref="IFiniteStateMachine.GetNextState"></seealso>
 		public override AbstractState GetNextState(AbstractState sourceState, Input anInput) {
 			return GetNextTransition(sourceState,anInput).DestinationState;
 		}
 
 		
-        /// <summary>
-        ///     Returns all _valid_ transitions with the source aSourceState.
-        /// </summary>
-        /// 
-        /// <param name="aSourceState"></param>
-        /// 
-        /// <returns>A Hashtable which contains all transtions for the given state.
-        ///     The key of the Hashtable is the Input and the value the
-        ///     corresponding Transition.</returns>
-        /// <seealso cref="IFiniteStateMachine.GetOutgoingTransitions"></seealso>
+		/// <summary>
+		///     Returns all _valid_ transitions with the source aSourceState.
+		/// </summary>
+		/// 
+		/// <param name="aSourceState"></param>
+		/// 
+		/// <returns>A Hashtable which contains all transtions for the given state.
+		///     The key of the Hashtable is the Input and the value the
+		///     corresponding Transition.</returns>
+		/// <seealso cref="IFiniteStateMachine.GetOutgoingTransitions"></seealso>
 		public override IList GetOutgoingTransitions(AbstractState aSourceState) {
 			try {
 				ArrayList result = new ArrayList();
@@ -198,16 +198,16 @@ namespace FiniteStateMachines {
 		}
 
 		
-        /// <summary>
-        ///     Identifies the transition starting at aSourceState with the
-        ///     input anInput.
-        /// </summary>
-        /// 
-        /// <param name="aSourceState"></param>
-        /// <param name="anInput"></param>
-        /// 
-        /// <returns>The next possible transition</returns>
-        /// <seealso cref="IFiniteStateMachine.GetNextTransition"></seealso>
+		/// <summary>
+		///     Identifies the transition starting at aSourceState with the
+		///     input anInput.
+		/// </summary>
+		/// 
+		/// <param name="aSourceState"></param>
+		/// <param name="anInput"></param>
+		/// 
+		/// <returns>The next possible transition</returns>
+		/// <seealso cref="IFiniteStateMachine.GetNextTransition"></seealso>
 		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
 			Transition result = CreateTransition(aSourceState,anInput,ErrorState);
 
@@ -328,7 +328,7 @@ namespace FiniteStateMachines {
 			Transition result = null;
 			IFiniteStateMachine service = LookUpService(aSourceState.Peek().ServiceName);
 			result = (Transition)service.GetNextTransition(aSourceState.Peek().State,aServiceName).Clone();
-			RecursionInput recInput = new RecursionInput(aSourceState.Peek().ServiceName,result.DestinationState);
+			RecursionInput recInput = new RecursionInput(aSourceState.Peek().ServiceName,aServiceName, result.DestinationState);
 			// TODO check this condition - does it detect already handled recursions?
 			if (!inputAlphabet.Contains(recInput)) {
 				CounterCondition cc = new CounterCondition(aServiceName,recInput,1);
@@ -353,12 +353,16 @@ namespace FiniteStateMachines {
 		/// <returns>A new transition from source to destination</returns>
 		private Transition HandleRecursionInput(StackState aSourceState, RecursionInput aRecInput) {
 			AbstractState destinationState = ErrorState;
-			if( (aSourceState.Peek().State.IsFinalState) && (aSourceState.LookupServiceNameTwice(aRecInput.Service).IsEmpty)) {
-				FiniteTabularMachine service = (FiniteTabularMachine)LookUpService(aSourceState.Peek().ServiceName);
-				IList reachableStates = service.GetReachableStates(aRecInput.State);
-				if (reachableStates.Contains(aSourceState.Peek().State)) {
-					destinationState = new StackState(aSourceState);
-					((StackState)destinationState).ChangeTopState(aRecInput.State);
+			// Recursive Transitions are only allowed in the corresponding service
+			if( aSourceState.Peek().ServiceName == aRecInput.CallingServiceName) {
+				// the transition is only allowed outside the recursion handling
+				if( (aSourceState.Peek().State.IsFinalState) && (aSourceState.LookupServiceNameTwice(aRecInput.RecursiveServiceName).IsEmpty)) {
+					FiniteTabularMachine service = (FiniteTabularMachine)LookUpService(aSourceState.Peek().ServiceName);
+					IList reachableStates = service.GetReachableStates(aRecInput.TargetStateOfCallingService);
+					if (reachableStates.Contains(aSourceState.Peek().State)) {
+						destinationState = new StackState(aSourceState);
+						((StackState)destinationState).ChangeTopState(aRecInput.TargetStateOfCallingService);
+					}
 				}
 			}
 			return CreateTransition(aSourceState,aRecInput,destinationState);
@@ -412,15 +416,15 @@ namespace FiniteStateMachines {
 			return service;
 		}
 
-        /// <summary>
-        ///     Creates a new Transition using the default type.
-        /// </summary>
-        /// 
-        /// <param name="aSourceState">source</param>
-        /// <param name="anInputSymbol">input</param>
-        /// <param name="aDestinationState">destination</param>
-        /// 
-        /// <returns>New transition object</returns>
+		/// <summary>
+		///     Creates a new Transition using the default type.
+		/// </summary>
+		/// 
+		/// <param name="aSourceState">source</param>
+		/// <param name="anInputSymbol">input</param>
+		/// <param name="aDestinationState">destination</param>
+		/// 
+		/// <returns>New transition object</returns>
 		private Transition CreateTransition(AbstractState aSourceState, Input anInputSymbol, AbstractState aDestinationState) {
 			Type[] types = new Type[3];
 			types[0] = typeof(AbstractState);

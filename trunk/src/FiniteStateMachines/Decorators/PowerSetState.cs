@@ -114,5 +114,10 @@ namespace FiniteStateMachines.Decorators
             }
             return false;
         }
+
+		public override int GetHashCode() {
+			return Name.GetHashCode();
+		}
+
 	}
 }

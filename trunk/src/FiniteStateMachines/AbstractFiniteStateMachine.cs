@@ -213,7 +213,6 @@ namespace FiniteStateMachines {
 			string result = "start state : ";
 			try {
 				result += StartState+"\n";
-				result += "\n";
 				result += "transitions : \n";
 				DynamicTransitionIterator iterator = new DynamicTransitionIterator(StartState,this);
 				while(iterator.MoveNext()){
@@ -233,6 +232,11 @@ namespace FiniteStateMachines {
 			}	
 			return result;
 		}
+
+		public override int GetHashCode() {
+			return base.GetHashCode();
+		}
+
 	}
 }
 

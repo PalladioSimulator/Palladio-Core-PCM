@@ -214,7 +214,7 @@ namespace UnitTests.FiniteStateMachines {
 			r14.Pop();
 			r14.ChangeTopState(d12);
 
-			Input rIn = new RecursionInput(id3,d33);
+			Input rIn = new RecursionInput(id3,id1s,d33);
 			
 			
 

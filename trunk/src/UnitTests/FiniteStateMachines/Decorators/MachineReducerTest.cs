@@ -11,8 +11,8 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 	/// </summary>
 	[TestFixture]
 	public class MachineReducerTest {
-		public AbstractFiniteStateMachine expandedIncomplete, expandedComplex, expandedSimple, topMachine;
-		public Hashtable tableSimple,tableComplex, tableIncomplete;
+		public AbstractFiniteStateMachine expandedRecursion, expandedIncomplete, expandedComplex, expandedSimple, topMachine;
+		public Hashtable tableSimple,tableComplex, tableIncomplete, tableRecursion;
 
 		[SetUp] public void Init() {
 			AbstractFiniteStateMachine d1,d1s,d2,d3,d3s,d3incomplete;
@@ -41,6 +41,12 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			tableIncomplete.Add(new Input("d2"),d2);
 			tableIncomplete.Add(new Input("d3"),d3incomplete);
 			expandedIncomplete = new FiniteStackMachine(topMachine,tableIncomplete);
+
+			tableRecursion = new Hashtable();
+			tableRecursion.Add(new Input("d1"),d1s);
+			tableRecursion.Add(new Input("d2"),d2);
+			tableRecursion.Add(new Input("d3"),d3);
+			expandedRecursion = new FiniteStackMachine(topMachine,tableRecursion);
 		}
 
 
@@ -59,17 +65,18 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		[Test] public void IncompleteReduction() {
 			MachineReducer reducer = new MachineReducer(tableIncomplete,expandedComplex);
 			IFiniteStateMachine red = reducer.GetReducedMachine();
-			Console.WriteLine(red);
 			//Assert.IsFalse(topMachine.Equals(red));
 			//TODO: Equals does not work with incomplete automatons.
+		}
+
+		[Test] public void RecursionReduction(){
+			MachineReducer reducer = new MachineReducer(tableRecursion,expandedRecursion);
 		}
 
 		public static void Main(){
 			MachineReducerTest test = new MachineReducerTest();
 			test.Init();
-			Console.WriteLine(test.expandedIncomplete);
-			test.IncompleteReduction();
-			Console.ReadLine();
+			test.RecursionReduction();
 		}
 
 	}

@@ -21,6 +21,8 @@ namespace FiniteStateMachines.Tools
 			index = 0;
 		}
 
+		public DynamicTransitionIterator(IFiniteStateMachine aFSM): this(aFSM.StartState,aFSM) {}
+
 		public bool MoveNext(){
 			if((transitionList == null) || (index <= 0)){
 				if (stateIterator.MoveNext()){

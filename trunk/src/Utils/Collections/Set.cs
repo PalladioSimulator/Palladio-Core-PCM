@@ -104,6 +104,11 @@ namespace Utils.Collections {
         }
 
 
+		public override int GetHashCode() {
+			return base.GetHashCode ();
+		}
+
+
         // <summary>
         //   Returns a stringified representation of the object.
         //   This is not supposed to be used for user presentation,

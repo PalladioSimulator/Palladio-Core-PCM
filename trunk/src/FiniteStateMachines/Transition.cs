@@ -107,7 +107,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <returns>The Transition as string.</returns>
 		override public string ToString() {
-			return "(" + SourceState + "; " + InputSymbol + "; " + DestinationState + ")";
+			return "( " + SourceState + "\t-  " + InputSymbol + "\t-  " + DestinationState + ")";
 		}
 		
 		

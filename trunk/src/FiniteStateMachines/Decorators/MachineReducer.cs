@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using FiniteStateMachines;
 using FiniteStateMachines.Tools;
+using Utils.Collections;
 
 namespace FiniteStateMachines.Decorators {
 	/// <summary>
@@ -141,6 +142,45 @@ namespace FiniteStateMachines.Decorators {
 		}
 
 
+		private Hashtable CreateRecursiveRules(Hashtable aRuleTable, AbstractFiniteStateMachine aFSM){
+			// walk through the machine, so that all recursive Inputs are created
+			// TODO: find a better solution
+			TransitionIterator iterator = new TransitionIterator(aFSM);
+			while(iterator.MoveNext()) {}
+
+			// find recursive Input Symbols
+			IList recInputList = new ArrayList();
+			foreach (Input input in aFSM.InputAlphabet){
+				if(input is RecursionInput) {
+					recInputList.Add(input);
+				}
+			}
+
+			foreach (RecursionInput recInput in recInputList) {
+				IFiniteStateMachine recService = (AbstractFiniteStateMachine)ruleTable[recInput.RecursiveServiceName];
+				IFiniteStateMachine first = CreateRecursiveFSM(recService,recInput.RecursiveServiceName);
+				Console.WriteLine(first);
+			}
+			return null;
+		}
+
+		private IFiniteStateMachine CreateRecursiveFSM(IFiniteStateMachine aRecFSM,Input aName) {
+			DynamicTransitionIterator iterator = new DynamicTransitionIterator(aRecFSM);
+			IList transitionList = new Set();
+			while(iterator.MoveNext()) {
+				if(iterator.Current.InputSymbol != aName) {
+					transitionList.Add(iterator.Current);
+					iterator.Append(iterator.Current.DestinationState);
+				} else {
+					Transition newTransition = (Transition)iterator.Current.Clone();
+					newTransition.DestinationState = aRecFSM.StartState;
+					transitionList.Add(newTransition);
+				}
+			}
+			return new FiniteTabularMachine(transitionList);
+		}
+
+
 		/// <summary>
 		///		Initialises the MachineReducer with a set of rules and a machine
 		///		to which they will be applied.
@@ -154,6 +194,7 @@ namespace FiniteStateMachines.Decorators {
 		public MachineReducer(Hashtable aRuleTable, AbstractFiniteStateMachine aMachine){
 			ruleTable = aRuleTable;
 			sourceMachine = aMachine;
+			recursionRuleTable = CreateRecursiveRules(aRuleTable,aMachine);
 		}
 	}
 }
