@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/05/23 16:03:56  sliver
+	/// completed unit tests
+	///
 	/// Revision 1.3  2004/05/19 07:54:24  sbecker
 	/// Added CVS header
 	///
@@ -139,6 +142,11 @@ namespace Palladio.ComponentModel.InterfaceModels
 			{
 				EditFSM.DeleteInputSymbols(FSMFactory.CreateDefaultInput(sig));
 			}
+		}
+
+		public bool ContainsSignature( ISignature aSignature )
+		{
+			return ( Array.IndexOf( fsm.InputAlphabet, aSignature ) >= 0 );
 		}
 		
 		/// <summary>

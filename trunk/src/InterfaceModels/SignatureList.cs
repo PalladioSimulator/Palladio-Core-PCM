@@ -78,6 +78,12 @@ namespace Palladio.ComponentModel.InterfaceModels
 				signatures.Remove(sig);
 			}
 		}
+
+		public bool ContainsSignature( ISignature aSignature )
+		{
+			return signatures.Contains(aSignature);
+		}
+
 		
 		/// <summary>
 		/// This method is called by the <see cref="ReflectionBasedVisitor"/> to allow data
@@ -98,6 +104,48 @@ namespace Palladio.ComponentModel.InterfaceModels
 			return new SignatureList(this);
 		}
 		
+		/// <summary>
+		/// The Equals method determines whether the specified 
+		/// System.Object is equal to the current System.Object.
+		/// </summary>
+		/// <param name="obj">Contains the Object to compare with 
+		/// the current object.</param>
+		/// <returns>Returns true if the specified object is equal 
+		/// to the current objector or false if the obejcts 
+		/// are not equal.</returns>
+		public override bool Equals(object obj)
+		{
+			if (obj is SignatureList)
+			{
+				SignatureList sigList = (SignatureList)obj;
+				return (
+					sigList.roleID.Equals(this.roleID) &&
+					sigList.signatures.Equals(this.signatures)
+				);
+			}
+			return false;
+		}
+
+		/// <summary>
+		/// The GetHashCode method serves as a hash function 
+		/// for a particular type, suitable for use in hashing 
+		/// algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>A hash value for the current object.</returns>
+		public override int GetHashCode()
+		{
+			return roleID.GetHashCode ();
+		}
+
+		/// <summary>
+		/// Retrieves a string representation of the object.
+		/// </summary>
+		/// <returns>String representation of the object.</returns>
+		public override string ToString()
+		{
+			return roleID;
+		}
+
 		#endregion
 
 		#region Constructors
@@ -108,7 +156,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <param name="aRoleID">Unique identifier.</param>
 		/// <param name="anAttHash">Attributes.</param>
 		/// <param name="aSigArray">Signatures contained by the interface.</param>
-		public SignatureList(string aRoleID, IAttributeHash anAttHash, params ISignature[] aSigArray)
+		public SignatureList(IAttributeHash anAttHash, string aRoleID, params ISignature[] aSigArray)
 		{
 			roleID = aRoleID;
 			attributes = anAttHash;
@@ -121,7 +169,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// </summary>
 		/// <param name="aSigList">SignatureList to copy.</param>
 		public SignatureList(SignatureList aSigList) :
-			this( aSigList.RoleID, aSigList.Attributes, aSigList.Signatures ) {}
+			this( aSigList.Attributes, aSigList.RoleID, aSigList.Signatures ) {}
 
 		#endregion
 		

@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using Palladio.ComponentModel.Exceptions;
+using ReflectionBasedVisitor;
 
 namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// </summary>
-	public struct AttachedInterface
+	public struct AttachedInterface : IVisitable 
 	{
 		private string roleID;
 		private IComponent component;
@@ -58,8 +59,14 @@ namespace Palladio.ComponentModel
 				(roleID != null ? roleID.GetHashCode() : 0) ^ 
 				( component != null ? component.GetHashCode() : 0);
 		}
-		
-		
+
+		/// <summary>
+		/// This method is called by the <see cref="ReflectionBasedVisitor"/> to allow data
+		/// structure driven visiting of the structure.<br></br>
+		/// Leave this method's body empty if you don't need data structure driven visiting.
+		/// </summary>
+		/// <param name="visitor">The visitor to accept</param>
+		public void AcceptVisitor (IVisitor visitor) {}
 	}
 }
 

@@ -1,21 +1,29 @@
-/*
- * Created by SharpDevelop.
- * User: sliver
- * Date: 17.05.2004
- * Time: 20:39
- * 
- */
 #if TEST
 
 using System;
 using NUnit.Framework;
 using Palladio.ComponentModel.Exceptions;
+using System.Collections;
 
-namespace Palladio.ComponentModel.Tests
+namespace Palladio.ComponentModel.UnitTests
 {
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.4  2004/05/23 16:03:56  sliver
+	/// completed unit tests
+	///
+	/// </pre>
+	/// </remarks>
 	[TestFixture]
 	public class FactoryTest
 	{
+
 		[Test] public void CreateParameter()
 		{
 			IParameter[] param = GetParameterList();
@@ -24,7 +32,7 @@ namespace Palladio.ComponentModel.Tests
 			Assert.IsTrue(param[2].Name == "C");
 			Assert.IsTrue(param[0].Type.ID == "System.String");
 			Assert.IsTrue(param[1].Type.ID == "System.Int32");
-			Assert.IsTrue(param[2].Type.ID == "Palladio.ComponentModel.Tests.FactoryTest");
+			Assert.IsTrue(param[2].Type.ID == "Palladio.ComponentModel.UnitTests.FactoryTest");
 			Assert.IsTrue(param[0].Modifier == ParameterModifierEnum.NONE);
 			Assert.IsTrue(param[1].Modifier == ParameterModifierEnum.NONE);
 			Assert.IsTrue(param[2].Modifier == ParameterModifierEnum.OUT);
@@ -57,6 +65,7 @@ namespace Palladio.ComponentModel.Tests
 			{
 				Assert.IsTrue(sigList.Signatures[i].Equals(sigs[i]));
 			}
+			Assert.IsFalse(sigList[0].Equals(sigs[1]));
 		}
 
 		[ExpectedException(typeof(RoleIDMissmatchException))]
@@ -71,7 +80,7 @@ namespace Palladio.ComponentModel.Tests
 			IServiceEffectMapping[] seMapping = GetServiceEffect();
 		}
 		
-		[ExpectedException(typeof(SignatureHasNoServEffSpec))]
+		[ExpectedException(typeof(SignatureHasNoServEffSpecException))]
 		[Test] public void CreateBasicComponentWithoutServiceEffect()
 		{
 			ISignature[] sigs = GetSignatureList("Role1");
@@ -85,7 +94,30 @@ namespace Palladio.ComponentModel.Tests
 			ISignature[] sigs = GetSignatureList("Role1");
 			ISignatureList sigList = ComponentFactory.CreateSignatureListInterface("Role1",sigs);
 			IBasicComponent basicComponent = ComponentFactory.CreateBasicComponent();
-			basicComponent.AddProvidesInterface(sigList,GetServiceEffect());
+			IServiceEffectMapping[] srvEffect = GetServiceEffect();
+			basicComponent.AddRequiresInterfaces(GetSaverInterface(), GetLoaderInterface());
+			basicComponent.AddProvidesInterface(sigList,srvEffect);
+
+			Assert.IsTrue( sigList.Equals( basicComponent.GetProvidesInterface("Role1") ) );
+		}
+
+		[ExpectedException(typeof(RoleIDNotFoundException))]
+		[Test] public void UnknownRoleId()
+		{
+			IBasicComponent cmp = CreateComponent();
+			cmp.GetProvidesInterface("not here");
+		}
+
+		[Test] public void AccessServiceEffect()
+		{
+			IBasicComponent cmp = CreateComponent();
+			ISignatureList sigList = cmp.GetProvidesInterface("Role1");
+			ISignatureList se = cmp.GetServiceEffectSpecification( sigList[1] );
+			Console.WriteLine(se.RoleID);
+			foreach (ISignature s in se.Signatures)
+			{
+				Console.WriteLine(s.RoleID + "  " + s);
+			}
 		}
 
 		[Test] public void SignatureHashCode()
@@ -97,9 +129,9 @@ namespace Palladio.ComponentModel.Tests
 			{
 				Assert.AreEqual(sigs1[i].GetHashCode(),sigs2[i].GetHashCode());
 			}
-			IType returnType = ComponentFactory.CreateTypeFromSystemType(typeof(string));
-			IType ex1 = ComponentFactory.CreateTypeFromSystemType(typeof(Exception));
-			IType ex2 = ComponentFactory.CreateTypeFromSystemType(typeof(ApplicationException));
+			IType returnType = ComponentFactory.CreateType(typeof(string));
+			IType ex1 = ComponentFactory.CreateType(typeof(Exception));
+			IType ex2 = ComponentFactory.CreateType(typeof(ApplicationException));
 			ISignature s1 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex1,ex2);
 			ISignature s2 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex2,ex1);
 			Assert.AreEqual(s1.GetHashCode(),s2.GetHashCode());
@@ -114,9 +146,9 @@ namespace Palladio.ComponentModel.Tests
 			{
 				Assert.AreEqual(sigs1[i],sigs2[i]);
 			}
-			IType returnType = ComponentFactory.CreateTypeFromSystemType(typeof(string));
-			IType ex1 = ComponentFactory.CreateTypeFromSystemType(typeof(Exception));
-			IType ex2 = ComponentFactory.CreateTypeFromSystemType(typeof(ApplicationException));
+			IType returnType = ComponentFactory.CreateType(typeof(string));
+			IType ex1 = ComponentFactory.CreateType(typeof(Exception));
+			IType ex2 = ComponentFactory.CreateType(typeof(ApplicationException));
 			ISignature s1 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex1,ex2);
 			ISignature s2 = ComponentFactory.CreateSignature("R",returnType,"Funktion1",GetParameterList(),ex2,ex1);
 			Assert.AreEqual(s1,s2);
@@ -130,7 +162,6 @@ namespace Palladio.ComponentModel.Tests
 		[TestFixtureSetUp]
 		public void Init()
 		{
-			// TODO: Add Init code.
 		}
 
 		private IParameter[] GetParameterList()
@@ -148,7 +179,7 @@ namespace Palladio.ComponentModel.Tests
 			ISignature[] sigList = new ISignature[3];
 			sigList[0] = ComponentFactory.CreateSignature(role,"Funktion1",GetParameterList());
 			sigList[1] = ComponentFactory.CreateSignature(role,"Funktion2");
-			sigList[2] = ComponentFactory.CreateSignature(role,ComponentFactory.CreateTypeFromSystemType(typeof(string)),"Funktion3",GetParameterList());
+			sigList[2] = ComponentFactory.CreateSignature(role,ComponentFactory.CreateType(typeof(string)),"Funktion3",GetParameterList());
 			return sigList;
 		}
 
@@ -164,6 +195,42 @@ namespace Palladio.ComponentModel.Tests
 			seMappings[1] = ComponentFactory.CreateServiceEffectMapping(sigs[1],loaderInterface);
 			seMappings[2] = ComponentFactory.CreateServiceEffectMapping(sigs[2],saverInterface);
 			return seMappings;
+		}
+
+		private IBasicComponent CreateComponent()
+		{
+			ISignature[] sigs = GetSignatureList("Role1");
+			ISignatureList sigList = ComponentFactory.CreateSignatureListInterface("Role1",sigs);
+			IBasicComponent basicComponent = ComponentFactory.CreateBasicComponent();
+			basicComponent.AddRequiresInterfaces(GetSaverInterface(), GetLoaderInterface());
+			basicComponent.AddProvidesInterface(sigList,GetServiceEffect());
+			return basicComponent;
+		}
+
+		private ISignature[] CreateSignatures(string aRoleID, params string[] strList)
+		{
+			ISignature[] result = new ISignature[strList.Length];
+			int index = 0;
+			foreach (string str in strList)
+			{
+				result[index++] = ComponentFactory.CreateSignature(aRoleID,str);
+			}
+			return result;
+		}
+
+		private ISignatureList CreateSigList(string aRoleID, params string[] strList)
+		{
+			return ComponentFactory.CreateSignatureListInterface(aRoleID, CreateSignatures(aRoleID, strList) );
+		}
+
+		private ISignatureList GetLoaderInterface()
+		{
+			return ComponentFactory.CreateSignatureListInterface("Loader","Load");
+		}
+
+		private ISignatureList GetSaverInterface()
+		{
+			return ComponentFactory.CreateSignatureListInterface("Saver","Save");
 		}
 	}
 }

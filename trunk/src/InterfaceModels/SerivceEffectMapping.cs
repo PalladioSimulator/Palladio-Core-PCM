@@ -61,7 +61,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <returns>A hash value for the current object.</returns>
 		public override int GetHashCode()
 		{
-			return base.GetHashCode ();
+			return signature.GetHashCode ();
 		}
 
 		/// <summary>

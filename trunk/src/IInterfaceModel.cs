@@ -10,7 +10,7 @@ namespace Palladio.ComponentModel
 	/// In our case an interface is a set of signatures
 	/// which can be somehow related to each other.
 	/// </summary>
-	public interface IInterfaceModel : ICloneable, IAttributable, IVisitable
+	public interface IInterfaceModel : ICloneable, IAttributable
 	{
 		/// <summary>
 		/// Local unique identifier of the interface model.

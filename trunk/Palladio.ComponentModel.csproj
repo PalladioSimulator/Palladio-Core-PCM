@@ -206,7 +206,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ISerivce.cs"
+                    RelPath = "src\ISerivceEffectMapping.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -301,7 +301,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\HasIncomingMappingsException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\HasOutgoingMappingsException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\InvalidAttachedInterfaceException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\MissingRequirementException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\MissingRoleIDException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -311,7 +331,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\NullNotAllowedException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\ProvidesInterfaceNotInMappingException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\RoleIDAlreadySpecifiedException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -341,12 +371,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\TypeNotFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\InterfaceModels\FSMProtocol.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\InterfaceModels\Serivce.cs"
+                    RelPath = "src\InterfaceModels\SerivceEffectMapping.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -371,7 +406,42 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\UnitTests\BasicComponentTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\CompositeComponentTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\UnitTests\FactoryTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\ParameterTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\ReflectedTypeTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\SignatureListTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\SignatureTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Visitors\BasicComponentVisitor.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

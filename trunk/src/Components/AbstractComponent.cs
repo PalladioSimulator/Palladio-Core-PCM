@@ -4,6 +4,7 @@ using Palladio.Utils.Collections;
 using Palladio.Attributes;
 using ReflectionBasedVisitor;
 using Palladio.ComponentModel.Exceptions;
+using Palladio.ComponentModel.Collections;
 
 namespace Palladio.ComponentModel.Components 
 {
@@ -24,8 +25,8 @@ namespace Palladio.ComponentModel.Components
 		{ 
 			get 
 			{
-				ISignatureList[] result =  new ISignatureList[providesTable.Values.Count];
-				providesTable.Values.CopyTo(result,0);
+				ISignatureList[] result =  new ISignatureList[providesMap.Values.Count];
+				providesMap.Values.CopyTo(result,0);
 				return result;
 			}
 		}
@@ -33,11 +34,11 @@ namespace Palladio.ComponentModel.Components
 		/// <summary>
 		/// Interfaces required by the component from its environment.
 		/// </summary>
-		public ISignatureList[] RequiresInterface { 
+		public ISignatureList[] RequiresInterfaces { 
 			get
 			{
-				ISignatureList[] result =  new ISignatureList[requiresTable.Values.Count];
-				requiresTable.Values.CopyTo(result,0);
+				ISignatureList[] result =  new ISignatureList[requiresMap.Values.Count];
+				requiresMap.Values.CopyTo(result,0);
 				return result;
 			}
 		}
@@ -68,7 +69,7 @@ namespace Palladio.ComponentModel.Components
 		/// If no interface with aRoleID can be found, a RoleNotFoundException is thrown.</returns>
 		public ISignatureList GetProvidesInterface(string aRoleID)
 		{
-			ISignatureList result = (ISignatureList) providesTable[aRoleID];
+			ISignatureList result = (ISignatureList) providesMap[aRoleID];
 			if (result == null)
 				throw new RoleIDNotFoundException(aRoleID);
 			return result;
@@ -82,7 +83,7 @@ namespace Palladio.ComponentModel.Components
 		/// If no interface with aRoleID can be found, a RoleNotFoundException is thrown.</returns>
 		public ISignatureList GetRequiresInterface(string aRoleID)
 		{
-			ISignatureList result = (ISignatureList) requiresTable[aRoleID];
+			ISignatureList result = (ISignatureList) requiresMap[aRoleID];
 			if (result == null)
 				throw new RoleIDNotFoundException(aRoleID);
 			return result;
@@ -90,12 +91,12 @@ namespace Palladio.ComponentModel.Components
 
 		public bool HasProvidesInterface(string aRoleID)
 		{
-			return (providesTable[aRoleID] != null);
+			return (aRoleID != null ? providesMap[aRoleID] != null : false);
 		}
 		
 		public bool HasRequiresInterface(string aRoleID)
 		{
-			return (requiresTable[aRoleID] != null);
+			return (aRoleID != null ? requiresMap[aRoleID] != null : false);
 		}
 
 		public override bool Equals(object obj)
@@ -104,17 +105,28 @@ namespace Palladio.ComponentModel.Components
 			if ((object)this == obj) return true;
 			AbstractComponent cmp = (AbstractComponent)obj;
 			return (
-				( providesTable != null ? providesTable.Equals(cmp.providesTable) : cmp.providesTable == null) &&
-				( requiresTable != null ? requiresTable.Equals(cmp.requiresTable) : cmp.requiresTable == null)
-			);
+				providesMap.Equals(cmp.providesMap) &&
+				requiresMap.Equals(cmp.requiresMap)
+				);
 		}
 
 		public override int GetHashCode()
 		{
-			return (
-				( providesTable != null ? providesTable.GetHashCode() : 0) ^
-				( requiresTable != null ? requiresTable.GetHashCode() : 0)
-				);
+			return providesMap.GetHashCode() ^ requiresMap.GetHashCode();
+		}
+
+
+		protected bool ArrayIsNull(Array anArray)
+		{
+			if (anArray == null)
+				return true;
+
+			foreach( object o in anArray )
+			{
+				if (o == null)
+					return true;
+			}
+			return false;
 		}
 
 
@@ -129,25 +141,15 @@ namespace Palladio.ComponentModel.Components
 		/// <param name="anAttHash">List of attributes attached to this component.</param>
 		public AbstractComponent(IAttributeHash anAttHash)
 		{
-			providesTable = new Hashtable();
-			requiresTable = new Hashtable();
+			providesMap = new Hashmap();
+			requiresMap = new Hashmap();
 			attributes = anAttHash;
 		}
 
 		public AbstractComponent(AbstractComponent anotherComponent)
 		{
-			providesTable = new Hashtable();
-			requiresTable = new Hashtable();
-			foreach (DictionaryEntry e in anotherComponent.providesTable)
-			{
-				ISignatureList prov = (ISignatureList) ((ISignatureList) e.Value).Clone();
-				providesTable.Add( prov.RoleID, prov );
-			}
-			foreach (DictionaryEntry e in anotherComponent.requiresTable)
-			{
-				ISignatureList req = (ISignatureList) ((ISignatureList) e.Value).Clone();
-				requiresTable.Add( req.RoleID, req );
-			}
+			requiresMap = anotherComponent.requiresMap.Clone();
+			providesMap = anotherComponent.providesMap.Clone();
 			attributes = (IAttributeHash)anotherComponent.attributes.Clone();
 		}
 
@@ -159,12 +161,12 @@ namespace Palladio.ComponentModel.Components
 		/// key: string holding the roleID
 		/// value: ISignatureList
 		/// </summary>
-		protected Hashtable providesTable;
+		protected Hashmap providesMap;
 		/// <summary>
 		/// key: string holding the roleID
 		/// value: ISignatureList
 		/// </summary>
-		protected Hashtable requiresTable;
+		protected Hashmap requiresMap;
 
 		private IAttributeHash attributes;
 

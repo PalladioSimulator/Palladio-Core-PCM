@@ -18,7 +18,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Interfaces required by the component from its environment.
 		/// </summary>
-		ISignatureList[] RequiresInterface { get; }
+		ISignatureList[] RequiresInterfaces { get; }
 
 		/// <summary>
 		/// Get the ProvidesInterface with the role aRoleID.

@@ -80,6 +80,11 @@ namespace Palladio.ComponentModel.Connections
 		{
 		}
 
+		public Binding(IAttributeHash anAttHash, AttachedInterface aProvIface, AttachedInterface aReqIface) :
+			base ( anAttHash, aProvIface, aReqIface )
+		{
+		}
+
 		#endregion
 	}
 }

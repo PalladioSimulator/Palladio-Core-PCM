@@ -72,11 +72,17 @@ namespace Palladio.ComponentModel.Connections
 			attributes = (IAttributeHash)anAttHash.Clone();
 		}
 
-		protected AbstractConnection(AbstractConnection aConnection) : this (aConnection.Attributes)
+		protected AbstractConnection(IAttributeHash anAttHash, AttachedInterface aFirstIface, AttachedInterface aSecondIface) : this (anAttHash)
 		{
-			firstInterface = aConnection.firstInterface;
-			secondInterface = aConnection.SecondInterface;
+			firstInterface = aFirstIface;
+			secondInterface = aSecondIface;
 		}
+
+		protected AbstractConnection(AbstractConnection aConnection) : 
+			this (aConnection.Attributes, aConnection.FirstInterface, aConnection.SecondInterface)
+		{
+		}
+
 
 		#endregion
 

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using Palladio.Utils.Collections;
-using System.Reflection;
 using Palladio.ComponentModel.Connections;
 
 namespace Palladio.ComponentModel.Collections
@@ -9,6 +8,16 @@ namespace Palladio.ComponentModel.Collections
 	/// <summary>
 	/// ConnectionHash maps a component and a role onto a connection.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.4  2004/05/23 16:03:55  sliver
+	/// completed unit tests
+	///
+	/// </pre>
+	/// </remarks>
 	internal class ConnectionHash : ICloneable 
 	{
 		#region Methods
@@ -22,9 +31,9 @@ namespace Palladio.ComponentModel.Collections
 		/// <param name="aConnection">Connection value.</param>
 		public void Add(IComponent aComponent, string aRoleID, IConnection aConnection)
 		{
-			Hashtable strHash = (Hashtable) innerHash[aComponent];
+			Hashmap strHash = (Hashmap) innerHash[aComponent];
 			if (strHash == null)
-				strHash = new Hashtable();
+				strHash = new Hashmap();
 			strHash[aRoleID] = aConnection;
 			innerHash[aComponent] = strHash;
 		}
@@ -41,9 +50,15 @@ namespace Palladio.ComponentModel.Collections
 		}
 
 
+		/// <summary>
+		/// Get the connection associated with aComponent and aRoleID.
+		/// </summary>
+		/// <param name="aComponent">Component key.</param>
+		/// <param name="aRoleID">RoleID key.</param>
+		/// <returns>Connection of aComponent and aRoleID</returns>
 		public IConnection Get(IComponent aComponent, string aRoleID)
 		{
-			Hashtable strHash = (Hashtable)innerHash[aComponent];
+			Hashmap strHash = (Hashmap)innerHash[aComponent];
 			if ( strHash != null) 
 			{
 				return (IConnection) strHash[aRoleID];
@@ -51,48 +66,68 @@ namespace Palladio.ComponentModel.Collections
 			return null;
 		}
 
+		/// <summary>
+		/// Get the connection associated with anInterface.
+		/// </summary>
+		/// <param name="anInterface">Interface key.</param>
+		/// <returns>Connection of anInterface.</returns>
 		public IConnection Get(AttachedInterface anInterface)
 		{
 
 			return Get(anInterface.Component, anInterface.RoleID);
 		}
 
-		public IConnection[] Get(IComponent aComponent)
+		/// <summary>
+		/// Get all connections of aComponent.
+		/// </summary>
+		/// <param name="aComponent">Component key.</param>
+		/// <returns>Connections associated with aComponent.</returns>
+		public ArrayList Get(IComponent aComponent)
 		{
 			ArrayList result = new ArrayList();
-			Hashtable strHash = (Hashtable)innerHash[aComponent];
+			Hashmap strHash = (Hashmap)innerHash[aComponent];
 			if ( strHash != null) 
 			{
 				result.AddRange(strHash.Values);
 			}
-			return (IConnection[]) result.ToArray(typeof(IConnection));
+			return result;
 		}
 
-		public IConnection[] Get()
+		/// <summary>
+		/// Get all connections of the hash.
+		/// </summary>
+		/// <returns>All connections contained by the hash.</returns>
+		public ArrayList Get()
 		{
 			ArrayList result = new ArrayList();
 			foreach (DictionaryEntry e in innerHash)
 			{
-				result.AddRange( ((Hashtable) e.Value).Values );
+				result.AddRange( ((Hashmap) e.Value).Values );
 			}
-			return (IConnection[]) result.ToArray(typeof(IConnection));
+			return result;
 		}
 
+		/// <summary>
+		/// Delete the connection associated with aComponent and aRoleID.
+		/// </summary>
+		/// <param name="aComponent">Component key.</param>
+		/// <param name="aRoleID">RoleID key.</param>
 		public void Delete(IComponent aComponent, string aRoleID)
 		{
-			Hashtable strHash = (Hashtable)innerHash[aComponent];
+			Hashmap strHash = (Hashmap)innerHash[aComponent];
 			if (strHash != null)
 			{
 				strHash.Remove(aRoleID);
 			}
 		}
 
-		public void Delete(params AttachedInterface[] anIfaceArray)
+		/// <summary>
+		/// Delete the connection associated with anInterface.
+		/// </summary>
+		/// <param name="anInterface">Interface key.</param>
+		public void Delete(AttachedInterface anInterface)
 		{
-			foreach ( AttachedInterface iface in anIfaceArray )
-			{
-				Delete(iface.Component, iface.RoleID);
-			}
+			Delete(anInterface.Component, anInterface.RoleID);
 		}
 
 
@@ -100,9 +135,14 @@ namespace Palladio.ComponentModel.Collections
 		/// Creates a copy of the current instance.
 		/// </summary>
 		/// <returns>A new object with the same values as the current instance.</returns>
-		public object Clone()
+		public ConnectionHash Clone()
 		{
 			return new ConnectionHash(this);
+		}
+
+		object System.ICloneable.Clone()
+		{
+			return Clone();
 		}
 
 		/// <summary>
@@ -132,7 +172,7 @@ namespace Palladio.ComponentModel.Collections
 		/// <returns>A hash value for the current object.</returns>
 		public override int GetHashCode()
 		{
-			return innerHash.GetHashCode ();
+			return innerHash.GetHashCode();
 		}
 
 		/// <summary>
@@ -153,7 +193,7 @@ namespace Palladio.ComponentModel.Collections
 		/// </summary>
 		public ConnectionHash ()
 		{
-			innerHash = new Hashtable();
+			innerHash = new Hashmap();
 		}
 
 		/// <summary>
@@ -163,13 +203,13 @@ namespace Palladio.ComponentModel.Collections
 		public ConnectionHash( ConnectionHash aConnectionHash ) :
 			this ( )
 		{
-			innerHash = new Hashtable( aConnectionHash.innerHash );
+			innerHash = aConnectionHash.innerHash.Clone();
 		}
 
 		#endregion
-
+																										 
 		#region Data
-		Hashtable innerHash;
+		Hashmap innerHash;
 		#endregion
 	}
 }

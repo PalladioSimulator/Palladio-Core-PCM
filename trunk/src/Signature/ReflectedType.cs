@@ -3,6 +3,7 @@ using System.Collections;
 using Palladio.Utils.Collections;
 using System.Reflection;
 using System.Diagnostics;
+using Palladio.ComponentModel.Exceptions;
 
 namespace Palladio.ComponentModel.Signature
 {
@@ -126,7 +127,8 @@ namespace Palladio.ComponentModel.Signature
 		/// name of an existing type.</param>
 		public ReflectedType ( string aTypeName )
 		{
-			Debug.Assert( System.Type.GetType(aTypeName) != null );
+			if( System.Type.GetType(aTypeName) == null )
+				throw new TypeNotFoundException(aTypeName);
 			
 			reflectedType = System.Type.GetType(aTypeName);
 		}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Palladio.Utils.Collections;
+using ReflectionBasedVisitor;
 
 namespace Palladio.ComponentModel 
 {
@@ -8,7 +9,7 @@ namespace Palladio.ComponentModel
 	/// A SignatureList is  an InterfaceModel just
 	/// containing a set of signatures.
 	/// </summary>
-	public interface ISignatureList : IInterfaceModel
+	public interface ISignatureList : IInterfaceModel, IVisitable
 	{
 		#region Properties
 
@@ -39,6 +40,8 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aSigArray">Signatures to delete.</param>
 		void DeleteSignatures( params ISignature[] aSigArray );
+
+		bool ContainsSignature( ISignature aSignature );
 
 		#endregion
 	}

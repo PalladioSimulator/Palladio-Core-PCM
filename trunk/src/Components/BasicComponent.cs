@@ -4,6 +4,7 @@ using Palladio.Utils.Collections;
 using Palladio.Attributes;
 using ReflectionBasedVisitor;
 using Palladio.ComponentModel.Exceptions;
+using Palladio.ComponentModel.Collections;
 
 namespace Palladio.ComponentModel.Components 
 {
@@ -24,7 +25,7 @@ namespace Palladio.ComponentModel.Components
 		/// <returns>The service effect specification of aSig.</returns>
 		public ISignatureList GetServiceEffectSpecification(ISignature aSig)
 		{
-			ISignatureList result = (ISignatureList) serviceEffectTable[aSig];
+			ISignatureList result = (ISignatureList) serviceEffectMap[aSig];
 			if (result == null)
 				throw new SignatureNotFoundException(aSig);
 			return result;
@@ -35,9 +36,9 @@ namespace Palladio.ComponentModel.Components
 		/// If aService.Signature does not exist an SignatureNotFoundException is thrown.
 		/// </summary>
 		/// <param name="aService">Service associating a signature with a service effect specification.</param>
-		public void ChangeServiceEffectSpecification(IServiceEffectMapping aService)
-		{
-			ChangeServiceEffectSpecification(aService.Signature, aService.EffectSpec);
+		public void ChangeServiceEffectSpecification(IServiceEffectMapping aServiceEffectMapping)
+		{																																									 
+			ChangeServiceEffectSpecification(aServiceEffectMapping.Signature, aServiceEffectMapping.EffectSpec);
 		}
 
 		/// <summary>
@@ -49,26 +50,47 @@ namespace Palladio.ComponentModel.Components
 		public void ChangeServiceEffectSpecification(ISignature aSignature, ISignatureList aServEffSpec)
 		{
 			GetServiceEffectSpecification(aSignature);
-			serviceEffectTable[aSignature] = aServEffSpec;
+			CheckServiceEffect(aServEffSpec);
+			serviceEffectMap[aSignature] = aServEffSpec;
 		}
 
 		public void AddProvidesInterface(ISignatureList aProvInterface, params IServiceEffectMapping[] aServiceArray)
 		{
-			Hashtable srvTable = new Hashtable();
+			// check preconditions
+			if(aProvInterface == null)
+				throw new NullNotAllowedException();
+
+			if ((aProvInterface.RoleID == null) || (aProvInterface.RoleID == ""))
+				throw new MissingRoleIDException();
+
+			// no other interface with the roleID of aProvInterface must exist.
+			if (HasProvidesInterface(aProvInterface.RoleID))
+				throw new RoleIDAlreadySpecifiedException(aProvInterface.RoleID);
+
+			// each signature has a service effect specification.
+			Hashmap srvMap = new Hashmap();
 			foreach (IServiceEffectMapping srv in aServiceArray)
 			{
-				srvTable.Add(srv.Signature,srv.EffectSpec);
+				srvMap.Add(srv.Signature,srv.EffectSpec);
 			}
 			foreach (ISignature sig in aProvInterface.Signatures)
 			{
-				if (srvTable[sig] == null)
-					throw new SignatureHasNoServEffSpec(sig);
+				if (srvMap[sig] == null)
+					throw new SignatureHasNoServEffSpecException(sig);
 			}
-			foreach( DictionaryEntry e in srvTable )
+			
+			// each RequiresInterface needed by a service effect specification exists.
+			foreach (ISignatureList sigList in srvMap.Values)
 			{
-				serviceEffectTable.Add(e.Key,e.Value);
+				CheckServiceEffect(sigList);
 			}
-			providesTable.Add( aProvInterface.RoleID, aProvInterface );
+
+
+			foreach( DictionaryEntry e in srvMap )
+			{
+				serviceEffectMap.Add(e.Key,e.Value);
+			}
+			providesMap.Add( aProvInterface.RoleID, aProvInterface );
 		}
 
 		public void DeleteProvidesInterfaces(params ISignatureList[] aProvArray)
@@ -77,17 +99,38 @@ namespace Palladio.ComponentModel.Components
 			{
 				foreach (ISignature sig in sigList.Signatures)
 				{
-					serviceEffectTable.Remove(sig);
+					serviceEffectMap.Remove(sig);
 				}
-				providesTable.Remove(sigList.RoleID);
+				providesMap.Remove(sigList.RoleID);
+			}
+		}
+
+		public void DeleteProvidesInterfaces(params string[] aProvRoleArray)
+		{
+			foreach( string roleID in aProvRoleArray )
+			{
+				DeleteProvidesInterfaces( GetProvidesInterface(roleID) );
 			}
 		}
 
 		public void AddRequiresInterfaces(params ISignatureList[] aReqArray)
 		{
+			//check preconditions
+			if (ArrayIsNull(aReqArray))
+				throw new NullNotAllowedException();
+
 			foreach (ISignatureList sigList in aReqArray)
 			{
-				requiresTable.Add(sigList.RoleID,sigList);
+				if ((sigList.RoleID == null) || (sigList.RoleID == ""))
+					throw new MissingRoleIDException();
+
+				if (requiresMap.Contains(sigList.RoleID))
+					throw new RoleIDAlreadySpecifiedException(sigList.RoleID);
+			}
+
+			foreach (ISignatureList sigList in aReqArray)
+			{
+				requiresMap.Add(sigList.RoleID,sigList);
 			}
 		}
 
@@ -95,22 +138,29 @@ namespace Palladio.ComponentModel.Components
 		{
 			foreach (ISignatureList sigList in aReqArray)
 			{
-				requiresTable.Remove(sigList.RoleID);
+				DeleteRequiresInterfaces(sigList.RoleID);
 			}
 		}
 
+		public void DeleteRequiresInterfaces(params string[] aReqRoleArray)
+		{
+			foreach (string roleID in aReqRoleArray)
+			{
+				requiresMap.Remove(roleID);
+			}
+		}
 		public override bool Equals(object obj)
 		{
 			if (!(obj is BasicComponent)) return false;
 			if ((object)this == obj) return true;
 			if (!base.Equals (obj)) return false;
 			BasicComponent cmp = (BasicComponent) obj;
-			return (serviceEffectTable != null ? serviceEffectTable.Equals(cmp.serviceEffectTable) : cmp.serviceEffectTable == null);
+			return serviceEffectMap.Equals(cmp.serviceEffectMap);
 		}
 
 		public override int GetHashCode()
 		{
-			return base.GetHashCode () ^ (serviceEffectTable != null ? serviceEffectTable.GetHashCode() : 0 );
+			return base.GetHashCode ();
 		}
 
 
@@ -134,6 +184,22 @@ namespace Palladio.ComponentModel.Components
 			return new BasicComponent(this);
 		}
 
+		private void CheckServiceEffect(ISignatureList aServEffSpec)
+		{
+			foreach (ISignature sig in aServEffSpec.Signatures)
+			{
+				try 
+				{
+					if (!GetRequiresInterface(sig.RoleID).ContainsSignature(sig))
+						throw new MissingRequirementException(sig);
+				}
+				catch (RoleIDNotFoundException)
+				{
+					throw new MissingRequirementException(sig);
+				}
+			}
+		}
+
 		#endregion
 
 		#region Constructors
@@ -144,18 +210,12 @@ namespace Palladio.ComponentModel.Components
 		/// <param name="anAttHash">List of attributes attached to this component.</param>
 		public BasicComponent(IAttributeHash anAttHash) : base (anAttHash)
 		{
-			serviceEffectTable = new Hashtable();
+			serviceEffectMap = new Hashmap();
 		}
 
 		public BasicComponent(BasicComponent anotherComponent) : base(anotherComponent)
 		{
-			serviceEffectTable = new Hashtable();
-			foreach (DictionaryEntry e in anotherComponent.serviceEffectTable)
-			{
-				ISignatureList seff = (ISignatureList) ((ISignatureList) e.Value).Clone();
-				ISignature	   sig  = (ISignature)		 ((ISignature)		 e.Key).Clone();
-				requiresTable.Add( sig, seff );
-			}
+			serviceEffectMap = anotherComponent.serviceEffectMap.Clone();
 		}
 
 		#endregion
@@ -166,8 +226,8 @@ namespace Palladio.ComponentModel.Components
 		/// key: ISignature
 		/// value: ISignatureList
 		/// </summary>
-		private Hashtable serviceEffectTable;
-
+		private Hashmap serviceEffectMap;
+														
 		#endregion
 	}
 }
