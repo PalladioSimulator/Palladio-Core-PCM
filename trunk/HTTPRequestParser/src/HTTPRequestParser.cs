@@ -21,6 +21,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2004/11/21 17:10:03  kelsaka
+	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
+	///
 	/// Revision 1.13  2004/11/05 09:29:41  kelsaka
 	/// Improved determining of HTTP-Request-Types
 	///
@@ -112,6 +115,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 
 
+
 			// FIRST: HTTP-Request? 
 			// Look for HTTP request:	
 			httpStartPos = IsRequestOfHTTPType(requestString);
@@ -126,7 +130,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 			}
 
 			// Get the HTTP text and version e.g. it will return "HTTP/1.1"
-			httpRequest.HttpVersion = requestString.Substring(httpStartPos, 8);
+			httpRequest.HttpVersion = requestString.Substring(httpStartPos, 8); // 8 comes from the length of "HTTP/1.1"
 			webserverMonitor.WriteLogEntry("HTTP-request has version " + httpRequest.HttpVersion);
 
 
@@ -149,13 +153,13 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 			// THIRD: Parse
 			// POST-Method:
-			if(httpRequest.RequestedMethodType == RequestTypes.POST_METHOD)
+			if(httpRequest.RequestedMethodType == (int)RequestTypes.HTTPMethodType.POST_METHOD)
 			{				
 				ParsePostRequest(requestString, httpStartPos, httpRequest);
 			}
 
 			// GET-Method:
-			else if(httpRequest.RequestedMethodType == RequestTypes.GET_METHOD) 
+			else if(httpRequest.RequestedMethodType == (int)RequestTypes.HTTPMethodType.GET_METHOD) 
 			{
 				ParseGetRequest(requestString, httpStartPos, httpRequest);
 			}
@@ -397,9 +401,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 
 				
 			//Extract The directory Name
-			httpRequest.RequestedDirectoyName = requestedFileOrDirectory.Substring(0, requestedFileOrDirectory.LastIndexOf("/") + 1);
+			httpRequest.RequestedDirectoryName = requestedFileOrDirectory.Substring(0, requestedFileOrDirectory.LastIndexOf("/") + 1);
 	
-			webserverMonitor.WriteLogEntry("Requested directory | file: " + httpRequest.RequestedDirectoyName + " | " + httpRequest.RequestedFileName);
+			webserverMonitor.WriteLogEntry("Requested directory | file: " + httpRequest.RequestedDirectoryName + " | " + httpRequest.RequestedFileName);
 		}
 
 
@@ -490,13 +494,13 @@ namespace Palladio.Webserver.HTTPRequestParser
 			if(requestStringBuffer.Substring(0,3) == "GET")
 			{
 				webserverMonitor.WriteLogEntry("Request-method is of type GET.");
-				return RequestTypes.GET_METHOD;
+				return (int)RequestTypes.HTTPMethodType.GET_METHOD;
 			}
 
 			if(requestStringBuffer.Substring(0,4) == "POST")
 			{
 				webserverMonitor.WriteLogEntry("Request-method is of type POST.");
-				return  RequestTypes.POST_METHOD;
+				return  (int)RequestTypes.HTTPMethodType.POST_METHOD;
 			}
 
 

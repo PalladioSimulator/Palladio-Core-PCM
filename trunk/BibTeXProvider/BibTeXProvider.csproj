@@ -3,13 +3,13 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{8C8F753B-2C8D-4908-A09E-B7DB7869A830}"
+        ProjectGuid = "{8A2CD829-4510-4CB9-838C-F8C769763095}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "WebserverFactory"
+                AssemblyName = "BibTeXProvider"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "Palladio.Webserver.WebserverFactory"
+                RootNamespace = "Palladio.Webserver.BibTeXProvider"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -80,23 +80,8 @@
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "Dispatcher"
-                    Project = "{AA3055C5-6108-488B-9EE6-EEA5688ECECC}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "RequestParser"
-                    Project = "{3593CDA9-B1C3-45B6-B630-0041E5200719}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "RequestProcessor"
-                    Project = "{12C3C0FE-89E5-4C23-886D-99F65852C7F9}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "StaticFileProvider"
-                    Project = "{31C516DB-E128-45EC-9DC8-E1A2CED0106F}"
+                    Name = "HTTPRequestProcessor"
+                    Project = "{61580AC2-47F7-4183-B96E-385B39CE5D26}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
@@ -105,44 +90,34 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "DynamicFileProvider"
-                    Project = "{465E5909-14F1-4BA1-8E65-DA466EC049E1}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "ConfigReader"
                     Project = "{749CB836-B6B7-42F5-9998-11B21736E143}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "FTPRequestParser"
-                    Project = "{3C4FD220-3248-44D6-8C31-AE6B0BB46CED}"
+                    Name = "Request"
+                    Project = "{CA375D44-037E-4023-8FC7-4E61C73D778E}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "HTTPRequestParser"
-                    Project = "{0FC65FF4-7955-44D2-B2A0-DA0A53D46E84}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    Name = "BibTeXParser"
+                    AssemblyName = "BibTeXParser"
+                    HintPath = "..\Libraries\BibTeX\BibTeXParser.dll"
                 />
                 <Reference
-                    Name = "HTTPRequestProcessor"
-                    Project = "{61580AC2-47F7-4183-B96E-385B39CE5D26}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    Name = "BibTeXModifier"
+                    AssemblyName = "BibTeXModifier"
+                    HintPath = "..\Libraries\BibTeX\BibTeXModifier.dll"
                 />
                 <Reference
-                    Name = "FTPRequestProcessor"
-                    Project = "{96D040AA-90D6-4BBD-8F92-4E9F42827245}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    Name = "BibTeX Formater"
+                    AssemblyName = "BibTeX Formater"
+                    HintPath = "..\Libraries\BibTeX\BibTeX Formater.dll"
                 />
                 <Reference
-                    Name = "SimpleTemplateFileProvider"
-                    Project = "{3FB631C4-E62A-4AAE-8778-AA34619E70D8}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "BibTeXProvider"
-                    Project = "{8A2CD829-4510-4CB9-838C-F8C769763095}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    Name = "ReflectionBasedVisitor"
+                    AssemblyName = "ReflectionBasedVisitor"
+                    HintPath = "..\Libraries\BibTeX\ReflectionBasedVisitor.dll"
                 />
             </References>
         </Build>
@@ -154,12 +129,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\IWebserverFactory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\DefaultFactory\DefaultWebserverFactory.cs"
+                    RelPath = "src\BibTeXProvider.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

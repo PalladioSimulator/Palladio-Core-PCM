@@ -18,6 +18,9 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/11/21 17:10:04  kelsaka
+	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
+	///
 	/// Revision 1.7  2004/11/05 16:17:01  kelsaka
 	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
 	/// Code refactoring.
@@ -92,6 +95,8 @@ namespace Palladio.Webserver.WebserverFactory
 
 		#region RequestParsers
 
+
+
 		/// <summary>
 		/// Creates a HTTPRequestParser. This component can handle requests in a Chain Of Responsibility (COR).
 		/// </summary>
@@ -126,9 +131,23 @@ namespace Palladio.Webserver.WebserverFactory
 		}
 
 
+
 		#endregion
 
 		#region RequestProcessors
+
+		/// <summary>
+		/// Creates a BibTeXProvider. This component makes a bibtex-db accessible.
+		/// </summary>
+		/// <param name="corSuccessor">COR-Successor to process HTTPRequest.</param>
+		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
+		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
+		/// <returns>BibTeXProvider</returns>
+		public IHTTPRequestProcessor CreateBibTeXProvider (IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		{
+			return new BibTeXProvider.BibTeXProvider(corSuccessor, webserverMonitor, webserverConfiguration);
+		}
+
 		/// <summary>
 		/// Creates a SimpleTemplateFileProvider.
 		/// </summary>

@@ -13,6 +13,9 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/11/21 17:10:03  kelsaka
+	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
+	///
 	/// Revision 1.5  2004/11/05 16:17:01  kelsaka
 	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
 	/// Code refactoring.
@@ -49,7 +52,7 @@ namespace Palladio.Webserver.Request
 		/// <summary>
 		/// The name of the directory that is requested by the client.
 		/// </summary>
-		string RequestedDirectoyName {get; set;}
+		string RequestedDirectoryName {get; set;}
 		
 
 		/// <summary>

@@ -29,6 +29,9 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/11/21 17:10:03  kelsaka
+	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
+	///
 	/// Revision 1.4  2004/11/08 20:42:44  kelsaka
 	/// The webserver is now listening on all specified ports
 	///
@@ -87,7 +90,7 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 
 
 			// Path to the requestedFile:
-			string completePath = requestProcessorTools.BuildCompletePath(httpRequest.RequestedDirectoyName);
+			string completePath = requestProcessorTools.BuildCompletePath(httpRequest.RequestedDirectoryName);
 			if(!Directory.Exists(completePath))
 			{	
 				corSuccessor.handleRequest(httpRequest);

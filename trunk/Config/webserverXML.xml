@@ -27,6 +27,8 @@
 		<MimeType extension=".jpg" content-type="image/jpeg"></MimeType>
 		<MimeType extension=".png" content-type="image/png"></MimeType>
 		<MimeType extension=".css" content-type="text/css"></MimeType>
+		<MimeType extension=".shtml" content-type="text/html"></MimeType>
+		<MimeType extension=".bibhtml" content-type="text/html"></MimeType>
 	</MimeTypes>
 	<DefaultFiles>
 		<!--FileName: Order of files that are delivered to the client by default if a folder is requested. The order has to start with id 0, which indicates the highest priority.-->
