@@ -1,0 +1,75 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Editor.Core", "Palladio.Editor.Core.csproj", "{260CBC06-EA01-4D81-8029-FED8645CF2F5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Editor.Common", "..\Palladio.Editor.Common\Palladio.Editor.Common.csproj", "{461BED64-4ECB-457B-8516-71C5FDA7895D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Editor.Plugins.TreeView", "..\Palladio.Editor.Plugins.TreeView\Palladio.Editor.Plugins.TreeView.csproj", "{A3CF9DD5-0F8D-4E76-96BC-DEF0D7E57074}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Editor.Plugins.StaticView", "..\Palladio.Editor.Plugins.StaticView\Palladio.Editor.Plugins.StaticView.csproj", "{1D295EE3-C836-41EF-8793-E693D9A9E8BF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncfusion.Diagram", "..\..\..\..\..\Programme\Syncfusion\Essential Suite\2.1.0.9\Diagram\Src\Syncfusion.Diagram.csproj", "{7B014FBB-61CA-4CB6-86A4-9C23211EA303}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Debug-XML = Debug-XML
+		Release = Release
+		Release-XML = Release-XML
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{260CBC06-EA01-4D81-8029-FED8645CF2F5}.Debug.ActiveCfg = Debug|.NET
+		{260CBC06-EA01-4D81-8029-FED8645CF2F5}.Debug.Build.0 = Debug|.NET
+		{260CBC06-EA01-4D81-8029-FED8645CF2F5}.Debug-XML.ActiveCfg = Debug|.NET
+		{260CBC06-EA01-4D81-8029-FED8645CF2F5}.Debug-XML.Build.0 = Debug|.NET
+		{260CBC06-EA01-4D81-8029-FED8645CF2F5}.Release.ActiveCfg = Release|.NET
+		{260CBC06-EA01-4D81-8029-FED8645CF2F5}.Release.Build.0 = Release|.NET
+		{260CBC06-EA01-4D81-8029-FED8645CF2F5}.Release-XML.ActiveCfg = Release|.NET
+		{260CBC06-EA01-4D81-8029-FED8645CF2F5}.Release-XML.Build.0 = Release|.NET
+		{461BED64-4ECB-457B-8516-71C5FDA7895D}.Debug.ActiveCfg = Debug|.NET
+		{461BED64-4ECB-457B-8516-71C5FDA7895D}.Debug.Build.0 = Debug|.NET
+		{461BED64-4ECB-457B-8516-71C5FDA7895D}.Debug-XML.ActiveCfg = Debug|.NET
+		{461BED64-4ECB-457B-8516-71C5FDA7895D}.Debug-XML.Build.0 = Debug|.NET
+		{461BED64-4ECB-457B-8516-71C5FDA7895D}.Release.ActiveCfg = Release|.NET
+		{461BED64-4ECB-457B-8516-71C5FDA7895D}.Release.Build.0 = Release|.NET
+		{461BED64-4ECB-457B-8516-71C5FDA7895D}.Release-XML.ActiveCfg = Release|.NET
+		{461BED64-4ECB-457B-8516-71C5FDA7895D}.Release-XML.Build.0 = Release|.NET
+		{A3CF9DD5-0F8D-4E76-96BC-DEF0D7E57074}.Debug.ActiveCfg = Debug|.NET
+		{A3CF9DD5-0F8D-4E76-96BC-DEF0D7E57074}.Debug.Build.0 = Debug|.NET
+		{A3CF9DD5-0F8D-4E76-96BC-DEF0D7E57074}.Debug-XML.ActiveCfg = Debug|.NET
+		{A3CF9DD5-0F8D-4E76-96BC-DEF0D7E57074}.Debug-XML.Build.0 = Debug|.NET
+		{A3CF9DD5-0F8D-4E76-96BC-DEF0D7E57074}.Release.ActiveCfg = Release|.NET
+		{A3CF9DD5-0F8D-4E76-96BC-DEF0D7E57074}.Release.Build.0 = Release|.NET
+		{A3CF9DD5-0F8D-4E76-96BC-DEF0D7E57074}.Release-XML.ActiveCfg = Release|.NET
+		{A3CF9DD5-0F8D-4E76-96BC-DEF0D7E57074}.Release-XML.Build.0 = Release|.NET
+		{1D295EE3-C836-41EF-8793-E693D9A9E8BF}.Debug.ActiveCfg = Debug|.NET
+		{1D295EE3-C836-41EF-8793-E693D9A9E8BF}.Debug.Build.0 = Debug|.NET
+		{1D295EE3-C836-41EF-8793-E693D9A9E8BF}.Debug-XML.ActiveCfg = Debug|.NET
+		{1D295EE3-C836-41EF-8793-E693D9A9E8BF}.Debug-XML.Build.0 = Debug|.NET
+		{1D295EE3-C836-41EF-8793-E693D9A9E8BF}.Release.ActiveCfg = Release|.NET
+		{1D295EE3-C836-41EF-8793-E693D9A9E8BF}.Release.Build.0 = Release|.NET
+		{1D295EE3-C836-41EF-8793-E693D9A9E8BF}.Release-XML.ActiveCfg = Release|.NET
+		{1D295EE3-C836-41EF-8793-E693D9A9E8BF}.Release-XML.Build.0 = Release|.NET
+		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Debug.ActiveCfg = Debug|.NET
+		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Debug.Build.0 = Debug|.NET
+		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Debug-XML.ActiveCfg = Debug-XML|.NET
+		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Debug-XML.Build.0 = Debug-XML|.NET
+		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Release.ActiveCfg = Release|.NET
+		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Release.Build.0 = Release|.NET
+		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Release-XML.ActiveCfg = Release-XML|.NET
+		{7B014FBB-61CA-4CB6-86A4-9C23211EA303}.Release-XML.Build.0 = Release-XML|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

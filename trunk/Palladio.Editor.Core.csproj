@@ -1,0 +1,317 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{260CBC06-EA01-4D81-8029-FED8645CF2F5}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = "Palladio32.ico"
+                AssemblyKeyContainerName = ""
+                AssemblyName = "Palladio.Editor.Core"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "WinExe"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "Palladio.Editor.Core"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = "Palladio.Editor.xml"
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\Debug\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = "Palladio.Editor.xml"
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "System.Windows.Forms"
+                    AssemblyName = "System.Windows.Forms"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+                <Reference
+                    Name = "Palladio.Editor.Common"
+                    Project = "{461BED64-4ECB-457B-8516-71C5FDA7895D}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "System.Design"
+                    AssemblyName = "System.Design"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Design.dll"
+                />
+                <Reference
+                    Name = "System.Runtime.Serialization.Formatters.Soap"
+                    AssemblyName = "System.Runtime.Serialization.Formatters.Soap"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Runtime.Serialization.Formatters.Soap.dll"
+                />
+                <Reference
+                    Name = "SandDock"
+                    AssemblyName = "SandDock"
+                    HintPath = "bin\Assemblies\SandDock.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "SandBar"
+                    AssemblyName = "SandBar"
+                    HintPath = "bin\Assemblies\SandBar.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "ReflectionBasedVisitor"
+                    AssemblyName = "ReflectionBasedVisitor"
+                    HintPath = "bin\Assemblies\ReflectionBasedVisitor.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "Palladio.Attributes"
+                    AssemblyName = "Palladio.Attributes"
+                    HintPath = "bin\Assemblies\Palladio.Attributes.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "Palladio.ComponentModel"
+                    AssemblyName = "Palladio.ComponentModel"
+                    HintPath = "bin\Assemblies\Palladio.ComponentModel.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "Palladio.Identifier"
+                    AssemblyName = "Palladio.Identifier"
+                    HintPath = "bin\Assemblies\Palladio.Identifier.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "log4net"
+                    AssemblyName = "log4net"
+                    HintPath = "bin\Assemblies\log4net.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "Palladio.FiniteStateMachines"
+                    AssemblyName = "Palladio.FiniteStateMachines"
+                    HintPath = "bin\Assemblies\Palladio.FiniteStateMachines.dll"
+                    Private = "False"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "licenses.licx"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "log4net.config.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Palladio16.ico"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Palladio32.ico"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\AppMain.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\PluginInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\RemoteLoader.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\AgentFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <Folder RelPath = "src\Agents\AnalyzeCoordinator\" />
+                <Folder RelPath = "src\Agents\ExportCoordinator\" />
+                <Folder RelPath = "src\Agents\ImportCoordinator\" />
+                <File
+                    RelPath = "src\Agents\PluginCoordinator\Control.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\PluginCoordinator\IAbstractionAdapter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\PluginCoordinator\Abstraction\Abstraction.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\PluginCoordinator\Presentation\Facade.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\PluginCoordinator\Presentation\PluginControlForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\PluginCoordinator\Presentation\PluginControlForm.resx"
+                    DependentUpon = "PluginControlForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\Agents\Root\CommandStack.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\Root\Control.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\Root\IAbstractionAdapter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\Root\IPresentationAdapter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\Root\Abstraction\Facade.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\Root\Abstraction\ProxyFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\Root\Presentation\DataSetAppender.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\Root\Presentation\Facade.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\Root\Presentation\GUIMainForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\Root\Presentation\GUIMainForm.resx"
+                    DependentUpon = "GUIMainForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\Agents\Root\Presentation\LogOutputControl.cs"
+                    SubType = "UserControl"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Agents\Root\Presentation\LogOutputControl.resx"
+                    DependentUpon = "LogOutputControl.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\Agents\ViewCoordinator\Control.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Interfaces\IPluginCoordinator.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Interfaces\IRootAgent.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Interfaces\IViewCoordinator.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+
