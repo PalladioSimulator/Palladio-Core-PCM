@@ -11,12 +11,12 @@
 <h1>Forms: dynamic content </h1>
 <p>Page regularly ends with &quot;EOF&quot;.</p>
 <p>&nbsp;</p>
-<p>This site is used as a template. Charactersequences like [Dollar]variable[Dollar] are replaced by the values of the variables.</p>
-<p>Test: $variable$ End. </p>
+<p>This site is used as a template. Charactersequences like &amp;variable&amp; are replaced by the values of the variables.</p>
+<p>Test: &variable& End. </p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p>Surname: $surname$, age: $age$, hiddenField: $hiddenField$</p>
-<p>Multiline-Text: $multilinetext$</p>
+<p>Surname: &surname&, age: &age&, hiddenField: &hiddenField&</p>
+<p>Multiline-Text: &multilinetext&</p>
 <p>&nbsp;</p>
 <p>EOF</p>
 </body>

@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using SimpleTemplateFileProviderXML;
 
 namespace Palladio.Webserver.SimpleTemplateFileProvider
@@ -47,7 +48,13 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 		{
 			get
 			{
-				return configRoot.GetVariablesname().GetDelimiter().Value;
+				// convert the given string (usually 2 digits) into a char.
+				// the given string is interpreted as a ascii-code-no.
+				// This is necessary as a "&" (38) has to be decoded from &amp; in a XML-Document.
+				// So this is a kind of workaround to be able to specify special characters as well.
+				string urwert = configRoot.GetVariablesname().GetDelimiter().Value;
+				char c = Convert.ToChar(Int32.Parse(urwert));
+				return "" + c;
 			}
 		}
 

@@ -7,8 +7,9 @@
 			<File Extension=".shtml" />
 	</HandledFileTypes>
 	
-	<!--Whereever in the request file a variablesname delimited by this symbol appears it will be replaced by the variables-value. e. g. $name$-->
-	<Variablesname Delimiter="$" />
+	<!--Whereever in the request file a variablesname delimited by this symbol appears it will be replaced by the variables-value. e. g. &name&
+	    the Delimiter-Value has to be a decimal number representing the ASCII-Code-No. E. g. "&" has 38-->
+	<Variablesname Delimiter="38" />
 
 </Config>
 
