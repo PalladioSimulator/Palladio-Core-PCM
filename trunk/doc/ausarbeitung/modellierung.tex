@@ -4,11 +4,11 @@ In diesem Kapitel wird auf die Entwicklung und Auswahl der im Framework verwende
 ...
 \subsection{Grundlagen zur Modellierung von Komponenten und Komponentenarchitekturen}
 \label{sec:modell:grundlagen}
-Da sich dieses Framework mit der Simulation von Modellen von Architekturen und Komponenten befassen soll, gilt es als erstes, geeignete Modelle für die Komponenten und die Architektur auszuwählen und diese ggf. für die Simulation anzupassen. Als Basis hierfür wird auf ein Komponentenmodell zurückgegriffen, welches in (Literatur) vorgestellt wird. In diesem Modell repräsentieren sich Komponenten durch eine Reihe angebotener Dienste. Diese Dienste werden nach außen hin durch Schnittstellen (in (LIter) als {\em Angebotssschnittstellen} bezeichnet) abgebildet. Die Dienste selber können andere möglicherweise externe Dienste zu ihrer Ausführung benötigen, welche ebenso durch Schnittstellen (in (Literatur) als {\em Bedarfsschnittstelle} bezeichnet) nach außen abgebildet werden.
+Da sich dieses Framework mit der Simulation von Modellen von Architekturen und Komponenten befassen soll, gilt es als erstes, geeignete Modelle für die Komponenten und die Architektur auszuwählen und diese ggf. für die Simulation anzupassen. Als Basis hierfür wird auf ein Komponentenmodell zurückgegriffen, welches in \cite{lit:reussner01} vorgestellt wird. In diesem Modell repräsentieren sich Komponenten durch eine Reihe angebotener Dienste. Diese Dienste werden nach außen hin durch Schnittstellen (in \cite{lit:reussner01} als {\em Angebotssschnittstellen} bezeichnet) abgebildet. Die Dienste selber können andere möglicherweise externe Dienste zu ihrer Ausführung benötigen, welche ebenso durch Schnittstellen (in \cite{lit:reussner01} als {\em Bedarfsschnittstelle} bezeichnet) nach außen abgebildet werden.
 
 \subsubsection{Auswahl des Schnittstellenmodells}
 \label{sec:modell:grundlagen:schnittstellen}
-Das Modell sieht je nach Anfordung unterschiedliche Schnittstellenmodelle vor, welche hierarchisch angeordnet sind. Die aus (Liter) entnommene Auflistung erläutert diese kurz.
+Das Modell sieht je nach Anfordung unterschiedliche Schnittstellenmodelle vor, welche hierarchisch angeordnet sind. Die aus \cite{lit:reussner01} entnommene Auflistung erläutert diese kurz.
 \begin{itemize}
 \item \textbf{Signaturlisten} beschreiben die Signaturen von Diensten. Dazu gehören Name, Parameterzahl, Parametertypen und ggf. der Rückgabetyp des Dienstes
 \item \textbf{Protokolle} spezifizieren Reihenfolgen von Dienstaufrufen. Damit wird die Verfügbarkeit von Diensten einer Komponente in Abhängigkeit ihres internen Zustands beschrieben sowie die Reihenfolgen, mit denen die Komponente externe Dienste aufrufen kann.
@@ -22,7 +22,7 @@ Da im Framework die Komponenten nicht als Blackboxes simuliert werden sollen, be
 
 \subsubsection{Modellierung der Dienste}
 \label{sec:modell:grundlagen:dienste}
-Die Dienste einer Komponente werden in (Literatur) durch endliche Automaten (dort {\em Dienstbedarfautomaten} genannt) umgesetzt, wobei die Zustände einen Kontrollfluss unabhängig von anderen Diensten repräsentieren und die Transitionen die Aufrufe anderer möglicherweise externer Dienste darstellen. Ist ein Zustand als Endzustand definiert, so wird dies als Beendigung eines Dienstes (durch Erfolg oder Ausnahme) gewertet. Bild \ref{pic:modell} zeigt einen Dienstbedarfsautomaten (für Dienst e0). Dieser könnte folgenden Quellcode einer Komponente modellieren.\\
+Die Dienste einer Komponente werden in \cite{lit:reussner01} durch endliche Automaten (dort {\em Dienstbedarfautomaten} genannt) umgesetzt, wobei die Zustände einen Kontrollfluss unabhängig von anderen Diensten repräsentieren und die Transitionen die Aufrufe anderer möglicherweise externer Dienste darstellen. Ist ein Zustand als Endzustand definiert, so wird dies als Beendigung eines Dienstes (durch Erfolg oder Ausnahme) gewertet. Bild \ref{pic:modell} zeigt einen Dienstbedarfsautomaten (für Dienst e0). Dieser könnte folgenden Quellcode einer Komponente modellieren.\\
 \begin{code}
 be\=gi\=n \=e0\=()\\
 \>{\em interne Befehle}\\
