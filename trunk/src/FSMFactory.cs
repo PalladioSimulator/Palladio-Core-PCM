@@ -17,6 +17,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2004/05/18 07:20:27  sliver
+	/// added function for creating input objects with an IMatchable instance as ID
+	///
 	/// Revision 1.8  2004/05/17 14:08:05  sliver
 	/// added interface for attributable classes
 	///
@@ -100,6 +103,16 @@ namespace Palladio.FiniteStateMachines
 		}
 
 		/// <summary>
+		/// Create an input symbol to be used in transitions
+		/// </summary>
+		/// <param name="anID">ID of the input symbol to be created</param>
+		/// <returns>The created input symbol</returns>
+		public static IInput CreateDefaultInput(IMatchable anID)
+		{
+			return new DefaultInput( anID );
+		}
+
+		/// <summary>
 		/// Convert the given FSM into a FSM which can be edited
 		/// </summary>
 		/// <param name="fsm">The FSM to convert</param>
@@ -130,6 +143,23 @@ namespace Palladio.FiniteStateMachines
 			foreach (string str in anIDArray)
 			{
 				result.Add(CreateDefaultInput(str));
+			}
+			return result;
+		}
+
+		/// <summary>
+		/// Create an array of input symbols from a given list of strings
+		/// </summary>
+		/// <param name="anIDArray">A list of strings which will be used as IDs in the newly
+		/// created input symbols</param>
+		/// <returns>An array of input symbols</returns>
+		public static InputSymbolHash CreateInputFromList(params IMatchable[] anIDArray)
+		{
+			InputSymbolHash result = new InputSymbolHash();
+
+			foreach (IMatchable m in anIDArray)
+			{
+				result.Add(CreateDefaultInput(m));
 			}
 			return result;
 		}
