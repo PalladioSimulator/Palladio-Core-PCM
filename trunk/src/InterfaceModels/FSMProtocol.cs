@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/05/24 21:56:39  sbecker
+	/// Small Bugfix related to IInput and ISignature
+	///
 	/// Revision 1.7  2004/05/24 15:03:14  sliver
 	/// added tests for fsmprotocols in a basic component
 	///
@@ -163,8 +166,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 		public ISignature[] GetSignaturesByName(string aName)
 		{
 			ArrayList result = new ArrayList();
-			foreach (ISignature s in fsm.InputAlphabet)
+			foreach (IInput input in fsm.InputAlphabet)
 			{
+				ISignature s = (ISignature)input.ID;
 				if (s.Name.Equals(aName))
 					result.Add(s);
 			}
