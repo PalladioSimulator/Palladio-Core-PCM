@@ -5,6 +5,7 @@
 \usepackage{graphics}
 \usepackage{fancyhdr}
 \usepackage{epsfig}
+\usepackage{abstract}
 % nur für linux's pdflatex
 %\usepackage{pdfpages}
 
@@ -24,7 +25,8 @@
 			{ \large Ausarbeitung zum Individuellen Projekt\\ \vspace{2cm}}}
 			
 \author{Marko Hoyer\\Hans-Fleischer Straße 29-31\\26133 Oldenburg\\
-				Marko.Hoyer@informatik.uni-oldenburg.de}
+				Marko.Hoyer@informatik.uni-oldenburg.de
+				}
 
 \maketitle
 
@@ -34,10 +36,16 @@
 \thispagestyle{empty}
 \end{titlepage}
 
+\thispagestyle{empty}
+\input{abstract.tex}
+\newpage
+
 %Inhaltsverzeichnis
 \tableofcontents
 \thispagestyle{empty}
 \newpage
+
+\input{einleitung.tex}
 
 
 \end{document}
