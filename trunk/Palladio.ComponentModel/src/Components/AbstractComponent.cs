@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using Palladio.Utils.Collections;
 using Palladio.Attributes;
-using ReflectionBasedVisitor;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.TypedCollections;
 using Palladio.Identifier;
@@ -19,6 +16,9 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/02/24 20:13:06  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.2  2005/02/21 15:37:44  joemal
 	/// replace keyword as with real typcast
 	///
@@ -28,9 +28,36 @@ namespace Palladio.ComponentModel.Components
 	/// 
 	/// </pre>
 	/// </remarks>
-	internal abstract class AbstractComponent : FirstClassEntity, IComponent
+	internal abstract class AbstractComponent : IComponent
 	{
 		#region Properties
+
+		/// <summary>
+		/// return the id of the component
+		/// </summary>
+		public IIdentifier ID
+		{
+			get 
+			{
+				return this.guid;
+			}
+		}
+
+		/// <summary>
+		/// set or get the name of the component
+		/// </summary>
+		public string Name
+		{
+			get
+			{
+				return this.name;
+			}
+
+			set
+			{
+				this.name = value;
+			}
+		}
 
 		/// <summary>
 		/// Interfaces provided by the component to its environment.
@@ -88,7 +115,7 @@ namespace Palladio.ComponentModel.Components
 		/// If no interface with aRoleID can be found, a RoleNotFoundException is thrown.</returns>
 		public IInterfaceModel GetProvidesInterface(IIdentifier aRoleID)
 		{
-			IRole result = (IRole)providesMap[aRoleID];
+			IRole result = providesMap[aRoleID];
 			if (result == null)
 				throw new RoleIDNotFoundException(aRoleID);
 			return result.Interface;
@@ -102,7 +129,7 @@ namespace Palladio.ComponentModel.Components
 		/// If no interface with aRoleID can be found, a RoleNotFoundException is thrown.</returns>
 		public IInterfaceModel GetRequiresInterface(IIdentifier aRoleID)
 		{
-			IRole result = (IRole)requiresMap[aRoleID];
+			IRole result = requiresMap[aRoleID];
 			if (result == null)
 				throw new RoleIDNotFoundException(aRoleID);
 			return result.Interface;
@@ -138,30 +165,11 @@ namespace Palladio.ComponentModel.Components
 			return null;
 		}
 
-		public override bool Equals(object obj)
-		{
-			if (!(obj is AbstractComponent)) return false;
-			if ((object)this == obj) return true;
-			AbstractComponent cmp = (AbstractComponent)obj;
-			return (
-				providesMap.Equals(cmp.providesMap) &&
-				requiresMap.Equals(cmp.requiresMap)
-				);
-		}
-
-		public override int GetHashCode()
-		{
-			return providesMap.GetHashCode() ^ requiresMap.GetHashCode();
-		}
-
-		public void AcceptVisitor(IVisitor v) {}
-
 		/// <summary>
 		/// Adds a provides interface to the component. For each service of the interface a 
 		/// a service effect specification is required. It is given by a service effect mapping.
 		/// </summary>
 		/// <param name="aProvInterface">Provides interface to be added</param>
-		/// <param name="roleID">The ID of the role to be created</param>
 		public void AddProvidesInterface(IInterfaceModel aProvInterface)
 		{
 			if (aProvInterface == null)
@@ -193,7 +201,6 @@ namespace Palladio.ComponentModel.Components
 		/// Add all requires interfaces given by aReqArray to the component.
 		/// </summary>
 		/// <param name="aReqInterface">An requires interface to be added</param>
-		/// <param name="roleID">The role ID of the interface to attach</param>
 		public void AddRequiresInterface(IInterfaceModel aReqInterface)
 		{
 			if (aReqInterface == null)
@@ -231,14 +238,11 @@ namespace Palladio.ComponentModel.Components
 			if (!HasRole(aRoleID))
 				throw new RoleIDNotFoundException(aRoleID);
 			if (providesMap.Contains(aRoleID))
-				return (IRole)providesMap[aRoleID];
+				return providesMap[aRoleID];
 			else
-				return (IRole)requiresMap[aRoleID];
+				return requiresMap[aRoleID];
 
 		}
-
-		public abstract override void Serialize(System.Xml.XmlTextWriter writer);
-		public abstract override void Deserialize(System.Xml.XmlNode element);
 
 		#endregion
 
@@ -254,8 +258,8 @@ namespace Palladio.ComponentModel.Components
 			providesMap = new ComponentRolesHashmap();
 			requiresMap = new ComponentRolesHashmap();
 			attributes = anAttHash;
-			this._name = name;
-			this._guid = aID;
+			this.name = name;
+			this.guid = aID;
 		}
 
 		public AbstractComponent(AbstractComponent anotherComponent)
@@ -263,8 +267,8 @@ namespace Palladio.ComponentModel.Components
 			requiresMap = (ComponentRolesHashmap)anotherComponent.requiresMap.Clone();
 			providesMap = (ComponentRolesHashmap)anotherComponent.providesMap.Clone();
 			attributes = (AttributeHash)anotherComponent.attributes.Clone();
-			this._name = anotherComponent.Name;
-			this._guid = (GloballyUniqueIdentifier)anotherComponent.ID.Clone();
+			this.name = anotherComponent.Name;
+			this.guid = (GloballyUniqueIdentifier)anotherComponent.ID.Clone();
 		}
 
 		#endregion
@@ -273,8 +277,8 @@ namespace Palladio.ComponentModel.Components
 
 		protected ComponentRolesHashmap providesMap;
 		protected ComponentRolesHashmap requiresMap;
-		//protected Hashtable providesMap;
-		//protected Hashtable requiresMap;
+		protected String name;
+		protected GloballyUniqueIdentifier guid;
 		private	  AttributeHash attributes;
 
 		#endregion

@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Exceptions
 {
@@ -11,6 +10,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/24 20:13:05  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.1  2005/02/21 13:48:03  joemal
 	/// initial import
 	///
@@ -23,7 +25,7 @@ namespace Palladio.ComponentModel.Exceptions
 		/// Error indicating, that a component is missing.
 		/// </summary>
 		/// <param name="aComponentID">The missing component.</param>
-		public ComponentNotFoundException(Identifier.IIdentifier aComponentID) : 
+		public ComponentNotFoundException(IIdentifier aComponentID) : 
 			base( "Component " + (aComponentID != null ? aComponentID.ToString() : "<NULL>" )+ " could not be found!")
 		{
 		}

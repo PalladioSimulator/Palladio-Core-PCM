@@ -1,5 +1,3 @@
-using System;
-
 namespace Palladio.Attributes
 {
 	/// <summary>
@@ -10,6 +8,9 @@ namespace Palladio.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/24 20:13:06  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.1  2005/02/21 13:05:49  joemal
 	/// initial import
 	///
@@ -18,8 +19,5 @@ namespace Palladio.Attributes
 	/// </remarks>
 	public interface IAttribute
 	{
-		//todo: both methods are removed in time
-		void Serialize(System.Xml.XmlTextWriter writer);
-		void Deserialize(System.Xml.XmlNode element);
 	}
 }

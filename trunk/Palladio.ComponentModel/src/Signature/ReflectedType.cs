@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using Palladio.Utils.Collections;
-using System.Reflection;
-using System.Diagnostics;
 using Palladio.ComponentModel.Exceptions;
 
 namespace Palladio.ComponentModel.Signature
@@ -16,6 +12,9 @@ namespace Palladio.ComponentModel.Signature
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/24 20:13:05  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.1  2005/02/21 13:49:17  joemal
 	/// initial import
 	///
@@ -52,8 +51,8 @@ namespace Palladio.ComponentModel.Signature
 				Type otherRefType = ( (ReflectedType) aType).reflectedType;
 				if (otherRefType.IsInterface) 
 				{
-					System.Type[] interfaces = reflectedType.GetInterfaces();
-					foreach ( System.Type iface in interfaces)
+					Type[] interfaces = reflectedType.GetInterfaces();
+					foreach ( Type iface in interfaces)
 					{
 						if (iface.Equals(otherRefType))
 						{
@@ -80,36 +79,6 @@ namespace Palladio.ComponentModel.Signature
 		}
 
 		/// <summary>
-		/// The Equals method determines whether the specified 
-		/// System.Object is equal to the current System.Object.
-		/// </summary>
-		/// <param name="obj">Contains the Object to compare with 
-		/// the current object.</param>
-		/// <returns>Returns true if the specified object is equal 
-		/// to the current objector or false if the obejcts 
-		/// are not equal.</returns>
-		public override bool Equals(object obj)
-		{
-			if (obj is ReflectedType)
-			{
-				Type otherRefType = ((ReflectedType)obj).reflectedType;
-				return reflectedType.Equals(otherRefType);
-			}
-			return false;
-		}
-
-		/// <summary>
-		/// The GetHashCode method serves as a hash function 
-		/// for a particular type, suitable for use in hashing 
-		/// algorithms and data structures like a hash table.
-		/// </summary>
-		/// <returns>A hash value for the current object.</returns>
-		public override int GetHashCode()
-		{
-			return (reflectedType != null ? reflectedType.GetHashCode () : 0);
-		}
-
-		/// <summary>
 		/// Retrieves a string representation of the object.
 		/// </summary>
 		/// <returns>String representation of the object.</returns>
@@ -126,7 +95,7 @@ namespace Palladio.ComponentModel.Signature
 		/// Creates new ReflectedType using aReflectedType.
 		/// </summary>
 		/// <param name="aReflectedType">Sytem.Type describing the new ReflectedType</param>
-		public ReflectedType ( System.Type aReflectedType )
+		public ReflectedType ( Type aReflectedType )
 		{
 			reflectedType = aReflectedType;
 		}
@@ -138,10 +107,10 @@ namespace Palladio.ComponentModel.Signature
 		/// name of an existing type.</param>
 		public ReflectedType ( string aTypeName )
 		{
-			if( System.Type.GetType(aTypeName) == null )
+			if( Type.GetType(aTypeName) == null )
 				throw new TypeNotFoundException(aTypeName);
 			
-			reflectedType = System.Type.GetType(aTypeName);
+			reflectedType = Type.GetType(aTypeName);
 		}
 
 		/// <summary>
@@ -156,7 +125,7 @@ namespace Palladio.ComponentModel.Signature
 
 		#region Data
 
-		private System.Type reflectedType;
+		private Type reflectedType;
 		#endregion
 
 	}

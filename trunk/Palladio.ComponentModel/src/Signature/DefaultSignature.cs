@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Palladio.Identifier;
 using Palladio.Attributes;
 using Palladio.Utils.Collections;
@@ -15,6 +14,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/24 20:13:05  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.1  2005/02/21 13:49:17  joemal
 	/// initial import
 	///
@@ -85,7 +87,7 @@ namespace Palladio.ComponentModel
 		public bool Match(IMatchable other)
 		{
 			return false;
-			//TODO implement proper matching algorithm
+			//Todo: implement proper matching algorithm
 		}
 
 		/// <summary>
@@ -95,45 +97,6 @@ namespace Palladio.ComponentModel
 		public object Clone()
 		{
 			return new DefaultSignature(this);
-		}
-
-		public override bool Equals(object obj)
-		{
-			if (!(obj is ISignature)) return false;
-			ISignature sig = (ISignature)obj;
-
-			if (!(this.name.Equals(sig.Name) &&
-						this.Name.Equals(sig.Name) && 
-						this.ReturnType.Equals(sig.ReturnType) &&
-						(this.Parameters.Length == sig.Parameters.Length) &&
-						(this.Exceptions.Length == sig.Exceptions.Length)
-					))
-				return false;
-
-			for (int i = 0; i < this.Parameters.Length; i++)
-			{
-				if (!sig.Parameters[i].Equals(this.Parameters[i]))
-					return false;
-			}
-
-			foreach (IType ex in this.Exceptions)
-			{
-				if (Array.IndexOf(sig.Exceptions, ex) < 0)
-					return false;
-			}
-
-			return true;
-		}
-
-		public override int GetHashCode()
-		{
-			return	
-				(
-				(Name		!= null ? Name.GetHashCode() : 0) ^ 
-				(ReturnType != null ? ReturnType.GetHashCode() : 0) ^
-				(parameters != null ? parameters.GetHashCode() : 0) ^
-				(exceptions != null ? exceptions.GetHashCode() : 0) 
-				);
 		}
 
 		public override string ToString()
@@ -157,82 +120,6 @@ namespace Palladio.ComponentModel
 			if (exceptions.Length > 0)
 				result += "throws " + exceptions;
 			return result;
-		}
-
-		public void Serialize(System.Xml.XmlTextWriter writer) 
-		{
-			writer.WriteStartElement("Signature","http://palladio.informatik.uni-oldenburg.de/XSD");
-			writer.WriteAttributeString("id",this.ID.ToString());
-
-			writer.WriteStartElement("Name","http://palladio.informatik.uni-oldenburg.de/XSD");
-			writer.WriteString(this.Name);
-			writer.WriteEndElement();
-
-			writer.WriteStartElement("ReturnType","http://palladio.informatik.uni-oldenburg.de/XSD");
-			writer.WriteString(this.ReturnType.ToString());
-			writer.WriteEndElement();
-
-			foreach (IParameter p in parameters) 
-			{
-				writer.WriteStartElement("Parameter","http://palladio.informatik.uni-oldenburg.de/XSD");
-
-				writer.WriteStartElement("Name","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteString(p.Name);
-				writer.WriteEndElement();
-
-				writer.WriteStartElement("Type","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteString(p.Type.ToString());
-				writer.WriteEndElement();
-
-				writer.WriteEndElement();
-			}
-
-			foreach (IType t in exceptions) 
-			{
-				writer.WriteStartElement("Exception","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteString(t.ToString());
-				writer.WriteEndElement();
-			}
-
-			writer.WriteEndElement();
-		}
-
-		public void Deserialize(System.Xml.XmlNode element) 
-		{
-			foreach(System.Xml.XmlNode node in element.ChildNodes)
-			{
-				switch (node.Name) 
-				{
-					case "Name":
-						this.name = node.InnerText;
-						break;
-					case "ReturnType":
-						this.type = ComponentFactory.CreateType(node.InnerText);
-						break;
-					case "Parameter":
-						IType type = null;
-						string name = "";
-						foreach (System.Xml.XmlNode paramChild in node.ChildNodes) 
-						{
-							switch (paramChild.Name)
-							{
-								case "Name":
-									name = paramChild.InnerText;
-									break;
-								case "Type":
-									type = ComponentFactory.CreateType(paramChild.InnerText);
-									break;
-								case "Modifier":
-									break;
-							}
-						}
-						this.parameters.Add(ComponentFactory.CreateParameter(type,name));
-						break;
-					case "Exception":
-						this.exceptions.Add(ComponentFactory.CreateType(node.InnerText));
-							break;
-				}
-			}
 		}
 
 		#endregion

@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using Palladio.Attributes;
-using ReflectionBasedVisitor;
 using Palladio.Identifier;
 
 namespace Palladio.ComponentModel 
@@ -14,13 +10,16 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/24 20:13:06  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.1  2005/02/21 13:50:51  joemal
 	/// initial import
 	///
 	///
 	/// </pre>
 	/// </remarks>
-	public interface IBasicComponent : IComponent, IVisitable
+	public interface IBasicComponent : IComponent
 	{
 		/// <summary>
 		/// Get the service effect specification associated with aSig.

@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/02/24 20:13:06  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.2  2005/02/21 15:37:43  joemal
 	/// replace keyword as with real typcast
 	///
@@ -25,11 +28,41 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// 
 	/// </pre>
 	/// </remarks>
-	internal class DefaultInterfaceModel : FirstClassEntity, ICloneable, IAttributable, IInterfaceModel
+	internal class DefaultInterfaceModel : IInterfaceModel
 	{
 		protected ISignatureList signatureList;
 		protected AttributeHash attributes;
 		protected ArrayList protocolInfs = new ArrayList();
+		protected String name;
+		protected GloballyUniqueIdentifier guid;
+
+		/// <summary>
+		/// set or get the name of the interface
+		/// </summary>
+		public string Name
+		{
+			get
+			{
+				return this.name;
+			}
+
+			set
+			{
+				this.name = value;
+			}
+		}
+
+		/// <summary>
+		/// return the id of the interface
+		/// </summary>
+		public IIdentifier ID
+		{
+			get
+			{
+				return this .guid;
+			}
+		}
+
 
 		public ISignatureList SignatureList
 		{
@@ -56,21 +89,6 @@ namespace Palladio.ComponentModel.InterfaceModels
 			return new DefaultInterfaceModel(this.attributes, this.signatureList, this.Name, (GloballyUniqueIdentifier)this.ID);
 		}
 				
-		public override bool Equals(object other)
-		{
-			if (!(other is IInterfaceModel)) return false;
-			if (other == this) return true;
-			IInterfaceModel model = (IInterfaceModel)other;
-			return model.SignatureList.Equals(this.SignatureList);
-		}
-		
-		public override int GetHashCode()
-		{
-			return (
-				signatureList.GetHashCode()
-				);		
-		}
-
 		/// <summary>
 		/// Additional specification data like FSMs, Petri Nets, ....
 		/// </summary>
@@ -114,62 +132,17 @@ namespace Palladio.ComponentModel.InterfaceModels
 		{
 			this.signatureList = (ISignatureList)aSignatureList.Clone();
 			this.attributes = attrHash;
-			this._name = name;
-			this._guid = id;
+			this.name = name;
+			this.guid = id;
 		}
 		
 		public DefaultInterfaceModel(AttributeHash attrHash, string name, GloballyUniqueIdentifier id)
 		{
 			signatureList = ComponentFactory.CreateSignatureList(new ISignature[0]);
 			this.attributes = attrHash;
-			this._name = name;
-			this._guid = id;
+			this.name = name;
+			this.guid = id;
 		}
-
-		public override void Serialize(System.Xml.XmlTextWriter writer) 
-		{
-			writer.WriteStartElement("SignatureList","http://palladio.informatik.uni-oldenburg.de/XSD");
-			foreach (ISignature s in this.SignatureList) 
-			{
-				s.Serialize(writer);
-			}
-			writer.WriteEndElement();
-
-			foreach (IProtocolInformation a in this.ProtocolInformations) 
-			{
-				writer.WriteStartElement("AuxiliarySpecification","http://palladio.informatik.uni-oldenburg.de/XSD");
-				a.Serialize(writer);
-				writer.WriteEndElement();
-			}
-		}
-
-		public override void Deserialize(System.Xml.XmlNode element) 
-		{
-			System.Xml.XmlNode childNode = element.FirstChild;
-
-			while (childNode != null)
-			{
-				switch (childNode.Name) 
-				{
-					case "SignatureList":
-
-						System.Xml.XmlNode signatureNode = childNode.FirstChild;
-						while (signatureNode != null)
-						{
-							
-							ISignature signature = ComponentFactory.CreateSignature("a");
-							signature.Deserialize(signatureNode);
-							this.signatureList.AddSignatures(signature);
-							signatureNode = signatureNode.NextSibling;
-						}						
-						break;
-					case "AuxiliarySpecification":
-						break;
-				}
-				childNode = childNode.NextSibling;
-			}
-		}
-
 	}
 	#endregion
 }

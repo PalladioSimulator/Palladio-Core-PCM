@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using Palladio.Utils.Collections;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Exceptions
 {
@@ -12,6 +10,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/24 20:13:05  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.1  2005/02/21 13:48:03  joemal
 	/// initial import
 	///
@@ -24,7 +25,7 @@ namespace Palladio.ComponentModel.Exceptions
 		/// Error indicating, that a component cannot be deleted because it has incoming connections.
 		/// </summary>
 		/// <param name="aReqRoleID">The role for which the DelegationConnector were queried.</param>
-		public HasIncomingDelegationConnectorsException(Identifier.IIdentifier aReqRoleID) : base(" RequiresInterface '"+aReqRoleID+"' still has incoming DelegationConnectors!")
+		public HasIncomingDelegationConnectorsException(IIdentifier aReqRoleID) : base(" RequiresInterface '"+aReqRoleID+"' still has incoming DelegationConnectors!")
 		{
 		}
 	}

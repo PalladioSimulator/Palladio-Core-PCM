@@ -1,13 +1,8 @@
-using System;
-using System.Xml;
-using System.Xml.Schema;
-using System.Collections;
-using Palladio.Utils.Collections;
 using Palladio.Attributes;
-using ReflectionBasedVisitor;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.TypedCollections;
 using Palladio.Identifier;
+using Palladio.Utils.Collections;
 
 namespace Palladio.ComponentModel.Components 
 {
@@ -21,6 +16,9 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/02/24 20:13:06  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.2  2005/02/21 15:37:44  joemal
 	/// replace keyword as with real typcast
 	///
@@ -403,38 +401,6 @@ namespace Palladio.ComponentModel.Components
 			return new CompositeComponent(this);
 		}
 
-		/// <summary>
-		/// The Equals method determines whether the specified 
-		/// System.Object is equal to the current System.Object.
-		/// </summary>
-		/// <param name="obj">Contains the Object to compare with 
-		/// the current object.</param>
-		/// <returns>Returns true if the specified object is equal 
-		/// to the current objector or false if the obejcts 
-		/// are not equal.</returns>
-		public override bool Equals(object obj)
-		{
-			if (!(obj is CompositeComponent)) return false;
-			if (obj == (object)this) return true;
-			if (!base.Equals(obj)) return false;
-			CompositeComponent cc = (CompositeComponent)obj;
-			return (
-				componentMap.Equals(cc.componentMap) &&
-				Set.SetwiseEquals( connectionMap.Values, cc.connectionMap.Values )
-				);
-		}
-
-		/// <summary>
-		/// The GetHashCode method serves as a hash function 
-		/// for a particular type, suitable for use in hashing 
-		/// algorithms and data structures like a hash table.
-		/// </summary>
-		/// <returns>A hash value for the current object.</returns>
-		public override int GetHashCode()
-		{
-			return base.GetHashCode ();
-		}
-
 		private Vector SelectConnections(string filterExpression)
 		{
 			Vector result = new Vector();
@@ -476,113 +442,6 @@ namespace Palladio.ComponentModel.Components
 			}
 		}
 
-		/// <summary>
-		/// The Serialize method is used to write the structure of an object to a XML stream.
-		/// </summary>
-		/// <param name="writer">The writer which is used to serialize the component.</param>
-		public override void Serialize(XmlTextWriter writer) 
-		{
-			// add subcomponent links
-			foreach(IIdentifier id in componentMap.Keys) 
-			{
-				writer.WriteStartElement("Component","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("guid",((IComponent)componentMap[id]).ID.ToString());
-				writer.WriteEndElement();
-			}
-			// add interface links
-			Hashtable interfaces = new Hashtable();
-			foreach(IIdentifier id in providesMap.Keys)
-				interfaces[id] = ((IRole)providesMap[id]).Interface;
-			foreach(IIdentifier id in requiresMap.Keys)
-				interfaces[id] = ((IRole)requiresMap[id]).Interface;
-			foreach(IInterfaceModel iface in interfaces.Values)
-			{
-				writer.WriteStartElement("Interface","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("guid",iface.ID.ToString());
-				writer.WriteEndElement();
-			}
-
-			//add provides-interfaces
-			foreach(IIdentifier c in providesMap.Keys)
-			{
-				writer.WriteStartElement("ProvidingRole","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("name",((IRole)providesMap[c]).Name);
-				writer.WriteAttributeString("id",((IRole)providesMap[c]).ID.ToString());
-				writer.WriteAttributeString("interface",((IRole)providesMap[c]).Interface.ID.ToString());
-				writer.WriteEndElement();
-			}
-			//add requires-interfaces
-			foreach(IIdentifier c in requiresMap.Keys)
-			{
-				writer.WriteStartElement("RequiringRole","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("name",((IRole)requiresMap[c]).Name);
-				writer.WriteAttributeString("id",((IRole)requiresMap[c]).ID.ToString());
-				writer.WriteAttributeString("interface",((IRole)requiresMap[c]).Interface.ID.ToString());
-				writer.WriteEndElement();
-			}
-
-			// add connections
-			foreach(IConnection connection in this.connectionMap.Values)
-			{
-				connection.Serialize(writer);
-			}
-		}
-
-		public override void Deserialize(System.Xml.XmlNode element) 
-		{
-			System.Xml.XmlNode node = element.FirstChild;
-
-			while (node != null)
-			{
-				switch (node.Name) 
-				{
-					case "ProvidingRole":
-						FirstClassEntity iface = ModelPersistencyService.Instance.GetEntity((GloballyUniqueIdentifier)
-							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value));
-						if (!(iface != null && iface is IInterfaceModel))
-							throw new DeserializationException("Interface "+node.Attributes["interface"].Value+" not found.");
-						this.AddProvidesInterface(iface as IInterfaceModel);
-						IRole newRole = this.GetProvidesRoleByInterfaceID(iface.ID);
-						newRole.Name = node.Attributes["name"].Value;
-						break;
-					case "RequiringRole":
-						iface = ModelPersistencyService.Instance.GetEntity((GloballyUniqueIdentifier )
-							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value));
-						if (!(iface != null && iface is IInterfaceModel))
-							throw new DeserializationException("Interface "+node.Attributes["interface"].Value+" not found.");
-						this.AddRequiresInterface((IInterfaceModel)iface);
-						newRole = this.GetRequiresRoleByInterfaceID(iface.ID);
-						newRole.Name = node.Attributes["name"].Value;
-						break;
-					case "Component":
-						FirstClassEntity component = ModelPersistencyService.Instance.GetEntity((GloballyUniqueIdentifier)
-							IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value));
-						this.AddComponents((IComponent)component);
-						break;
-					case "Binding":
-						IAssemblyConnector assemblyConnector = new Connections.DefaultAssemblyConnector(new AttributeHash(),null,null);
-						assemblyConnector.Deserialize(node);
-						this.AddAssemblyConnectors(assemblyConnector);
-						break;
-					case "ProvidesMapping":
-						IDelegationConnector delegationCon = new Connections.DefaultDelegationConnector(new AttributeHash(),null,null,DelegationTypeEnum.PROVIDES_DELEGATION);
-						delegationCon.Deserialize(node);
-						this.AddProvidesDelegationConnectors(delegationCon);
-						break;
-					case "RequiresMapping":
-						delegationCon = new Connections.DefaultDelegationConnector(new AttributeHash(),null,null,DelegationTypeEnum.REQUIRES_DELEGATION);
-						delegationCon.Deserialize(node);
-						this.AddRequiresDelegationConnectors(delegationCon);
-						break;
-				}
-				node = node.NextSibling;
-			}
-		}
-
-		private IIdentifier NewID(string aID)
-		{
-			return IdentifiableFactory.CreateStringID(aID);
-		}
 		#endregion
 
 		#region Constructors

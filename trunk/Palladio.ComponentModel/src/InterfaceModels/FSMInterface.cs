@@ -3,8 +3,6 @@ using System;
 using Palladio.Attributes;
 using Palladio.FiniteStateMachines;
 using Palladio.ComponentModel.Exceptions;
-using ReflectionBasedVisitor;
-
 
 namespace Palladio.ComponentModel.InterfaceModels
 {
@@ -16,6 +14,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/24 20:13:06  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.1  2005/02/21 13:48:31  joemal
 	/// initial import
 	///
@@ -83,13 +84,6 @@ namespace Palladio.ComponentModel.InterfaceModels
 		#endregion
 		
 		#region Methods
-		/// <summary>
-		/// This method is called by the <see cref="ReflectionBasedVisitor"/> to allow data
-		/// structure driven visiting of the structure.<br></br>
-		/// Leave this method's body empty if you don't need data structure driven visiting.
-		/// </summary>
-		/// <param name="visitor">The visitor to accept</param>
-		public void AcceptVisitor (IVisitor visitor) {}
 
 		public void SignatureListChangeEventHandler(object sender, SignatureListChangeEventArgs args)
 		{
@@ -115,31 +109,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		{
 			return new FSMInterface(attributes,fsm);
 		}
-		
-		public override bool Equals(object obj)
-		{
-			if (!(obj is FSMInterface)) return false;
-			if (obj == this) return true;
-			FSMInterface other = (FSMInterface)obj;
-			return other.FSM.Equals(this.FSM);
-		}
-
-		public override int GetHashCode()
-		{
-			return (fsm == null ? 0 : fsm.GetHashCode());
-		}
-		
-		
-		public void Serialize(System.Xml.XmlTextWriter writer)
-		{
-		
-		}
-		
-		public void Deserialize(System.Xml.XmlNode element)
-		{
-		
-		}
-	
+			
 		#endregion
 
 		#region Constructors

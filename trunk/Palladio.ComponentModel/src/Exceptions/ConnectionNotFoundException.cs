@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Exceptions
 {
@@ -11,6 +10,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/24 20:13:05  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.1  2005/02/21 13:48:03  joemal
 	/// initial import
 	///
@@ -32,7 +34,7 @@ namespace Palladio.ComponentModel.Exceptions
 		/// </summary>
 		/// <param name="aComponentID">Considered component.</param>
 		/// <param name="aRoleID">The attached role.</param>
-		public ConnectionNotFoundException(Identifier.IIdentifier aComponentID, Identifier.IIdentifier aRoleID) : base( "Connection for '<" + aComponentID.ToString()+", "+ aRoleID.ToString() + ">' could not be found!")
+		public ConnectionNotFoundException(IIdentifier aComponentID, IIdentifier aRoleID) : base( "Connection for '<" + aComponentID.ToString()+", "+ aRoleID.ToString() + ">' could not be found!")
 		{
 		}
 	}

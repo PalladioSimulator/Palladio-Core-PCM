@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 
 using Palladio.Identifier;
@@ -16,13 +15,16 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/24 20:13:06  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.1  2005/02/21 13:49:17  joemal
 	/// initial import
 	///
 	///
 	/// </pre>
 	/// </remarks>
-	internal class DefaultServiceList : IServiceList , ICloneable
+	internal class DefaultServiceList : IServiceList
 	{
 		#region Properties
 		/// <summary>
@@ -134,7 +136,6 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <summary>
 		/// Creates a ServiceList.
 		/// </summary>
-		/// <param name="anAttHash">Attributes.</param>
 		/// <param name="aServiceArray">Services contained by the list.</param>
 		public DefaultServiceList(params IService[] aServiceArray)
 		{

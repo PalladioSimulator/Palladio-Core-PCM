@@ -130,11 +130,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\FirstClassEntity.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\IAssemblyConnector.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -195,11 +190,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ISerializable.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\IService.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -236,16 +226,6 @@
                 />
                 <File
                     RelPath = "src\IType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ModelPersistencyInfo.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\ModelPersistencyService.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

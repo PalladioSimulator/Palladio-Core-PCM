@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
 using Palladio.Attributes;
-using Palladio.Utils.Collections;
-using ReflectionBasedVisitor;
 using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Connections
@@ -14,6 +10,9 @@ namespace Palladio.ComponentModel.Connections
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/24 20:13:06  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.1  2005/02/21 13:48:18  joemal
 	/// initial import
 	///
@@ -65,35 +64,12 @@ namespace Palladio.ComponentModel.Connections
 		{
 			return new DefaultConnection(this);
 		}
-
-		public override bool Equals(object obj)
-		{
-			if (!(obj is IConnection)) return false;
-			if ((object)this == obj) return true;
-			IConnection myConnection = (IConnection)obj;
-			return (
-				providingRole.Equals(myConnection.ProvidingRole) &&
-				requiringRole.Equals(myConnection.RequiringRole)
-			);
-		}
-
-		public override int GetHashCode()
-		{
-			return (
-				requiringRole.GetHashCode() ^
-				providingRole.GetHashCode()
-			);
-		}
-		
+	
 		public override string ToString()
 		{
 			return requiringRole.ToString() + " ---> " + providingRole.ToString();
 		}
 
-		public virtual void AcceptVisitor(IVisitor v){}
-
-		public virtual void Serialize(System.Xml.XmlTextWriter writer) {}
-		public virtual void Deserialize(System.Xml.XmlNode element) {}
 		#endregion
 
 		#region Constructors

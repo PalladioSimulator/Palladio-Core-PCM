@@ -1,11 +1,7 @@
 using System;
-using System.Xml;
 using System.Collections;
-using Palladio.Utils.Collections;
 using Palladio.Attributes;
-using ReflectionBasedVisitor;
 using Palladio.ComponentModel.Exceptions;
-using Palladio.ComponentModel.TypedCollections;
 using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Components 
@@ -20,6 +16,9 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/02/24 20:13:06  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.2  2005/02/21 15:37:44  joemal
 	/// replace keyword as with real typcast
 	///
@@ -112,9 +111,9 @@ namespace Palladio.ComponentModel.Components
 		/// <summary>
 		/// Add the service effect specification of aSignature to aServEffSpec.
 		/// </summary>
-		/// <param name="aSignature">The service to which an service effect is affected</param>
+		/// <param name="anInterfaceID">The service to which an service effect is affected</param>
 		/// <param name="aServEffSpec">The service effect specification</param>
-		/// <param name="aRoleID">Role of the signature</param>
+		/// <param name="aSignatureID">Role of the signature</param>
 		public void AddServiceEffectSpecification(IIdentifier anInterfaceID, IIdentifier aSignatureID, IServiceEffectSpecification aServEffSpec)
 		{
 			IRole role = GetProvidesRoleByInterfaceID(anInterfaceID);
@@ -123,22 +122,6 @@ namespace Palladio.ComponentModel.Components
 			
 			AddServiceEffectSpecification(ComponentFactory.CreateService(role.Interface,aSignatureID),aServEffSpec);
 		}
-
-		public override bool Equals(object obj)
-		{
-			if (!(obj is BasicComponent)) return false;
-			if ((object)this == obj) return true;
-			Console.WriteLine(base.Equals (obj));
-			if (!base.Equals (obj)) return false;
-			BasicComponent cmp = (BasicComponent) obj;
-			return serviceEffectMap.Equals(cmp.serviceEffectMap);
-		}
-
-		public override int GetHashCode()
-		{
-			return base.GetHashCode ();
-		}
-
 
 		/// <summary>
 		/// Creates a copy of the current instance.
@@ -162,174 +145,6 @@ namespace Palladio.ComponentModel.Components
 			{
 				serviceEffectMap.Remove(sr.ID);
 			}
-		}
-
-		public override void Serialize(System.Xml.XmlTextWriter writer) 
-		{
-			// add interface links
-			Hashtable interfaces = new Hashtable();
-			foreach(IIdentifier id in providesMap.Keys)
-				interfaces[id] = ((IRole)providesMap[id]).Interface;
-			foreach(IIdentifier id in requiresMap.Keys)
-				interfaces[id] = ((IRole)requiresMap[id]).Interface;
-			foreach(IInterfaceModel iface in interfaces.Values)
-			{
-				writer.WriteStartElement("Interface","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("guid",iface.ID.ToString());
-				writer.WriteEndElement();
-			}
-
-			//add provides-interfaces
-			foreach(IIdentifier c in providesMap.Keys)
-			{
-				writer.WriteStartElement("ProvidingRole","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("name",((IRole)providesMap[c]).Name);
-				writer.WriteAttributeString("id",((IRole)providesMap[c]).ID.ToString());
-				writer.WriteAttributeString("interface",((IRole)providesMap[c]).Interface.ID.ToString());
-				writer.WriteEndElement();
-			}
-
-			//add requires-interfaces
-			foreach(IIdentifier c in requiresMap.Keys)
-			{
-				writer.WriteStartElement("RequiringRole","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("name",((IRole)requiresMap[c]).Name);
-				writer.WriteAttributeString("id",((IRole)requiresMap[c]).ID.ToString());
-				writer.WriteAttributeString("interface",((IRole)requiresMap[c]).Interface.ID.ToString());
-				writer.WriteEndElement();
-			}
-
-			//serialize service effect specs
-			if (serviceEffectMap.Count > 0) 
-			{
-				foreach(IIdentifier sigID in serviceEffectMap.Keys) 
-				{
-					IServiceEffectSpecification sef = (IServiceEffectSpecification)serviceEffectMap[sigID];
-
-					writer.WriteStartElement("ServiceEffectSpecification","http://palladio.informatik.uni-oldenburg.de/XSD");
-					writer.WriteAttributeString("service",sigID.ToString());
-					writer.WriteAttributeString("id","");
-
-					foreach (IAttributeType attrType in sef.Attributes.Keys)
-					{
-						writer.WriteStartElement("Attribute","http://palladio.informatik.uni-oldenburg.de/XSD");
-						writer.WriteAttributeString("guid",attrType.GUID.ToString());
-						sef.Attributes[attrType].Serialize(writer);
-						writer.WriteEndElement();
-					}
-
-					writer.WriteStartElement("ServiceList","http://palladio.informatik.uni-oldenburg.de/XSD");
-					foreach (IService service in sef.RequiredServicesList) 
-					{
-						service.Serialize(writer);
-					}
-					writer.WriteEndElement();
-
-					writer.WriteStartElement("AuxiliarySpecifications","http://palladio.informatik.uni-oldenburg.de/XSD");
-					foreach (IServiceInformation auxSpec in sef.ServiceInformations) 
-					{
-						
-					}
-					writer.WriteEndElement();
-					
-					writer.WriteEndElement();
-				}
-			}
-		}
-
-		public override void Deserialize(System.Xml.XmlNode element) 
-		{
-			System.Xml.XmlNode node = element.FirstChild;
-
-			while (node != null)
-			{
-				switch (node.Name) 
-				{
-					case "ProvidingRole":
-						FirstClassEntity iface = ModelPersistencyService.Instance.GetEntity((GloballyUniqueIdentifier)
-							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value));
-						if (!(iface != null && iface is IInterfaceModel))
-							throw new DeserializationException("Interface "+node.Attributes["interface"].Value+" not found.");
-						this.AddProvidesInterface((IInterfaceModel)iface);
-						IRole newRole = this.GetProvidesRoleByInterfaceID(iface.ID);
-						newRole.Name = node.Attributes["name"].Value;
-						break;
-					case "RequiringRole":
-						iface = ModelPersistencyService.Instance.GetEntity((GloballyUniqueIdentifier)
-							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value));
-						if (!(iface != null && iface is IInterfaceModel))
-							throw new DeserializationException("Interface "+node.Attributes["interface"].Value+" not found.");
-						this.AddRequiresInterface((IInterfaceModel)iface);
-						newRole = this.GetRequiresRoleByInterfaceID(iface.ID);
-						newRole.Name = node.Attributes["name"].Value;
-						break;
-					case "ServiceEffectSpecification":
-						IServiceEffectSpecification sef = ComponentFactory.CreateServiceEffectSpecification();
-
-						// search for the refered provides-interface to which this spec applies to
-						string[] serviceID = node.Attributes["service"].Value.Split(':');
-						IInterfaceModel provides = (IInterfaceModel)ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(serviceID[0]));
-
-						if (provides == null) 
-							throw new DeserializationException("ProvidesInterface "+serviceID[0]+" not found");
-
-						ISignature signature = null;
-
-						foreach (ISignature sig in provides.SignatureList) 
-						{
-							if (sig.ID.ToString() == serviceID[1])
-								signature = sig;
-						}
-
-						if (signature == null) 
-							throw new DeserializationException("Signature "+serviceID[1]+" not found");
-
-						// provides-interface found. 
-						// now add the listed signatures from the required-interfaces to the spec.
-						foreach (XmlNode sefChild in node.ChildNodes)
-						{
-							switch (sefChild.Name)
-							{
-								case "ServiceList":
-									foreach(XmlNode serviceNode in sefChild.ChildNodes)
-									{
-										IInterfaceModel requires = (IInterfaceModel)ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(serviceNode.Attributes["guid"].Value));
-
-										if (requires == null) 
-											throw new DeserializationException("RequiresInterface "+node.Attributes["guid"].Value+" not found");
-
-										ISignature extSignature = null;
-
-										foreach (ISignature sig in requires.SignatureList) 
-										{
-											if (sig.ID.ToString() == serviceNode.Attributes["id"].Value)
-												extSignature = sig;
-										}
-
-										if (extSignature == null) 
-											throw new DeserializationException("Signature "+serviceNode.Attributes["id"].Value+" not found in RequiresInterface "+serviceNode.Attributes["guid"].Value);
-
-										sef.RequiredServicesList.AddServices(ComponentFactory.CreateService(requires,extSignature.ID));
-									}
-									break;
-								case "AuxiliarySpecifications":
-									foreach(XmlNode auxSpecNode in sefChild.ChildNodes)
-									{
-									}
-									break;
-							}
-						}
-						
-						this.AddServiceEffectSpecification(ComponentFactory.CreateService(provides,signature.ID), sef);
-						break;
-				}
-				node = node.NextSibling;
-			}
-		}
-
-		private IIdentifier NewID(string aID)
-		{
-			return IdentifiableFactory.CreateStringID(aID);
 		}
 		#endregion
 

@@ -1,14 +1,11 @@
 #if TEST
 
 using System;
-using System.Xml;
-using System.Collections;
 using NUnit.Framework;
-using Palladio.ComponentModel.Exceptions;
-using Palladio.ComponentModel.Connections;
 using Palladio.ComponentModel.Components;
+using Palladio.ComponentModel.Connections;
+using Palladio.ComponentModel.Exceptions;
 using Palladio.Identifier;
-
 
 namespace Palladio.ComponentModel.UnitTests
 {
@@ -20,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/02/24 20:13:06  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.2  2005/02/21 15:37:43  joemal
 	/// replace keyword as with real typcast
 	///
@@ -270,44 +270,20 @@ namespace Palladio.ComponentModel.UnitTests
 			clone.DeleteComponents(iComp2.ID);
 		}
 
-		[Test] public void SerializeComponent()
-		{
-			ModelPersistencyService.Instance.SaveEntity(oComp.ID, "test.xml");
-	
-			ModelPersistencyService.Instance.ClearEntityTable();
-
-
-			ICompositeComponent loadedComp = ModelPersistencyService.Instance.LoadCompositeComponent("test.xml");
-	
-			ModelPersistencyService.Instance.SaveEntity(loadedComp.ID, "test2.xml");
-			Assert.AreEqual(loadedComp, oComp);
-		}
-
-
-//		[Test] public void Visitor()
-//		{
-//			BasicComponentVisitor v = new BasicComponentVisitor(oComp);
-//			v.Start();
-//			Assert.IsTrue( v.VisitedComponents.Length == 2 );
-//			Assert.IsTrue( Array.IndexOf(v.VisitedComponents, iComp1) >= 0);
-//			Assert.IsTrue( Array.IndexOf(v.VisitedComponents, iComp2) >= 0);
-//		}
-//
-//
 		private void CreateIComp1()
 		{
 			iComp1 = ComponentFactory.CreateBasicComponent("iComp1");
 			iSigProv1 = ComponentFactory.CreateSignatureList("d1", "d2" );
 			iSigReq1 = ComponentFactory.CreateSignatureList("e1", "e2" );
 			iSigReq2 = ComponentFactory.CreateSignatureList("d3", "d4" );
-			iProv1 = ComponentFactory.CreateInterfaceModel(iSigProv1, "iProv1", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID(), ModelPersistencyInfo.ATTACHED);
-			iReq1 = ComponentFactory.CreateInterfaceModel(iSigReq1, "iReq1", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID(), ModelPersistencyInfo.ATTACHED);
-			iReq2 = ComponentFactory.CreateInterfaceModel(iSigReq2, "iReq2", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID(), ModelPersistencyInfo.ATTACHED);
+			iProv1 = ComponentFactory.CreateInterfaceModel(iSigProv1, "iProv1", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID());
+			iReq1 = ComponentFactory.CreateInterfaceModel(iSigReq1, "iReq1", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID());
+			iReq2 = ComponentFactory.CreateInterfaceModel(iSigReq2, "iReq2", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID());
 			iComp1.AddProvidesInterface(iProv1);
 			iComp1.AddRequiresInterface(iReq1);
 			iComp1.AddRequiresInterface(iReq2);
 
-			ISignature sig = ComponentFactory.CreateSignature(System.Type.GetType("System.Int32"),"someMethod",
+			ISignature sig = ComponentFactory.CreateSignature(Type.GetType("System.Int32"),"someMethod",
 				ComponentFactory.CreateParameter(ComponentFactory.CreateType("System.String"),"param"));
 
 			IInterfaceModel iReqX = ComponentFactory.CreateInterfaceModel("iReqX");
@@ -330,7 +306,7 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			iComp2 = ComponentFactory.CreateBasicComponent("iComp2");
 			iSigProv2 = ComponentFactory.CreateSignatureList("d3", "d4", "d5" );
-			iProv2 = ComponentFactory.CreateInterfaceModel(iSigProv2, "iProv2", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID(), ModelPersistencyInfo.ATTACHED);
+			iProv2 = ComponentFactory.CreateInterfaceModel(iSigProv2, "iProv2", (GloballyUniqueIdentifier)IdentifiableFactory.CreateGUID());
 			d3se = ComponentFactory.CreateServiceEffectSpecification();
 			d4se = ComponentFactory.CreateServiceEffectSpecification();
 			d4se.RequiredServicesList.AddServices(ComponentFactory.CreateServiceArray(iReq1,iSigReq1[0].ID,iSigReq1[1].ID));

@@ -15,13 +15,16 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/24 20:13:06  joemal
+	/// remove serilization and equals methods
+	///
 	/// Revision 1.1  2005/02/21 13:49:17  joemal
 	/// initial import
 	///
 	///
 	/// </pre>
 	/// </remarks>
-	internal class DefaultServiceEffectSpecification : ICloneable, IAttributable, IServiceEffectSpecification
+	internal class DefaultServiceEffectSpecification : IServiceEffectSpecification
 	{
 		protected IServiceList requiredServicesList;
 		protected AttributeHash attributes;
@@ -52,21 +55,6 @@ namespace Palladio.ComponentModel.InterfaceModels
 			return new DefaultServiceEffectSpecification(this.attributes, this.requiredServicesList);
 		}
 				
-		public override bool Equals(object other)
-		{
-			if (!(other is IServiceEffectSpecification)) return false;
-			if (other == this) return true;
-			IServiceEffectSpecification model = (IServiceEffectSpecification)other;
-			return model.RequiredServicesList.Equals(this.RequiredServicesList);
-		}
-		
-		public override int GetHashCode()
-		{
-			return (
-				requiredServicesList.GetHashCode()
-				);		
-		}
-
 		/// <summary>
 		/// Additional specification data like FSMs, Petri Nets, ....
 		/// </summary>
