@@ -152,7 +152,7 @@
         </documenter>
         <documenter name="MSDN">
             <property name="OutputDirectory" value=".\doc\" />
-            <property name="HtmlHelpName" value="Documentation" />
+            <property name="HtmlHelpName" value="Palladio.Utils" />
             <property name="IncludeFavorites" value="False" />
             <property name="Title" value="Palladio Utilities" />
             <property name="SplitTOCs" value="False" />
