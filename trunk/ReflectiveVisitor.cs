@@ -1,12 +1,55 @@
 using System;
 using System.Reflection;
-using ReflectionBasedVisitor.Interfaces;
+using ReflectionBasedVisitor;
 
 namespace ReflectionBasedVisitor
 {
 	/// <summary>
-	/// TODO: Add example!!!
+	/// The base class for a reflection based visitor pattern.
+	/// See <a href="http://www.javaworld.com/javaworld/javatips/jw-javatip98.html">
+	/// http://www.javaworld.com/javaworld/javatips/jw-javatip98.html</a> for details 
+	/// on the usage.
 	/// </summary>
+	/// <remarks>
+	/// A usage example in a client using this assembly
+	/// <code>
+	/// class MyType : IVisitable
+	/// {
+	/// 	public virtual void AcceptVisitor(IVisitor v) 
+	/// 	{
+	/// 		// Add code here if you need data structure driven visiting!
+	/// 		// Otherwise leave empty!
+	///		}
+	/// }
+	/// 
+///	class MyVisitor : ReflectionBasedVisitor.ReflectionBasedVisitor, IVisitor
+///	{
+///		public override void VisitObject(object o)
+///		{
+///		   // Add default behaviour here if the visitor visits an object of unknown
+///		   // type
+///		}
+///
+///		public void VisitMyType(MyType objectOfMyType)
+///		{
+///		   // Do sth. when visiting an obejct of type MyType
+///		   // For example:
+///		   Console.WriteLine("Visiting "+objectOfMyType);
+///		   Visit(objectOfMyType.Next);
+///		}
+///
+///	}
+	/// </code>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/05/12 14:08:54  sbecker
+	/// Added documentation and moved the interface namespace
+	///
+	///
+	/// </pre>
+	/// </remarks>
 	public abstract class ReflectionBasedVisitor : IVisitor
 	{
 		/// <summary>
