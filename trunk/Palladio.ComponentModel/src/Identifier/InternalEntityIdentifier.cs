@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Identifier
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.1  2005/04/06 21:01:28  joemal
+	/// rename filename EntityIdentifier.cs to InternalEntityIdentifier.cs
+	///
 	/// Revision 1.2  2005/03/15 22:03:02  joemal
 	/// add to string method
 	///

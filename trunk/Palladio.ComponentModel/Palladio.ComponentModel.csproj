@@ -242,11 +242,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Identifier\EntityIdentifier.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Identifier\IComponentIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -258,6 +253,11 @@
                 />
                 <File
                     RelPath = "src\Identifier\IInterfaceIdentifier.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Identifier\InternalEntityIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
