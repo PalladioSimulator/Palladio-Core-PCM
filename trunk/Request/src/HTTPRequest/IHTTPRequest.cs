@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Net.Sockets;
 
 namespace Palladio.Webserver.Request
@@ -12,6 +13,10 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/11/05 16:17:01  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.4  2004/10/31 16:30:40  kelsaka
 	/// preparing parsing of post-requests
 	///
@@ -89,6 +94,19 @@ namespace Palladio.Webserver.Request
 		/// <param name="key">The key to return the value for.</param>
 		/// <returns>The Value for the key.</returns>
 		string GetPOSTVariableValue(string key);
+
+
+		/// <summary>
+		/// Returns the internal Hashtable that contains the key-value-pairs for the variables of a GET-Request.
+		/// </summary>
+		Hashtable POSTHashtable {get;}
+
+
+		/// <summary>
+		/// Returns the internal Hashtable that contains the key-value-pairs for the variables of a POST-Request.
+		/// </summary>
+		Hashtable GETHashtable {get;}
+
 
 	}
 }

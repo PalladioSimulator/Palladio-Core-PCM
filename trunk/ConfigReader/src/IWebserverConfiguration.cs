@@ -11,6 +11,10 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/11/05 16:17:00  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.2  2004/10/29 16:30:38  kelsaka
 	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
 	///
@@ -22,7 +26,13 @@ namespace Palladio.Webserver.ConfigReader
 	/// </remarks>
 	public interface IWebserverConfiguration
 	{
-		
+		/// <summary>
+		/// The path to the xml-config-files of the webserver. (Path without filename.)
+		/// This value must be set explicitly.
+		/// </summary>
+		string ConfigFilesPath{get; set;}
+
+
 		/// <summary>
 		/// The root-path of documents (e. g. html-sites) delivered.
 		/// </summary>

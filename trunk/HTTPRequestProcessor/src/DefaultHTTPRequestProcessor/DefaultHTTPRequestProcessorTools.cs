@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using Palladio.Webserver.ConfigReader;
@@ -16,6 +17,10 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/11/05 16:17:01  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.4  2004/10/31 16:30:40  kelsaka
 	/// preparing parsing of post-requests
 	///
@@ -141,6 +146,72 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 			}
 		}
 
+
+
+		/// <summary>
+		/// Build the path to the actually requested file, either a relative or absolute path.
+		/// (Uses the documentRoot from the webserver-configuration to build the complete path.)
+		/// </summary>
+		/// <param name="requestedPath">Build the complete path for this part of the request.</param>
+		/// <returns>Path to file / directory requested.</returns>
+		public string BuildCompletePath(string requestedPath)
+		{
+			return webserverConfiguration.DocumentRoot + requestedPath;
+		}
+
+
+
+		/// <summary>
+		/// Returns the the MimeType for the specified file-type.
+		/// </summary>
+		/// <param name="requestedFileType">For this filetype you get the mimetype.</param>
+		/// <returns>The mimetype. If no fitting mimetype was found the default type is returned.</returns>
+		public string GetFileMimeTypeFor (string requestedFileType)
+		{
+
+			string fileMimeType;
+			// Get the MimeType
+			try
+			{
+				fileMimeType = webserverConfiguration.GetMimeTypeFor(requestedFileType);	
+			}
+			catch (ExtensionNotFoundException)
+			{
+				fileMimeType = webserverConfiguration.DefaultMimeType; // default-mimetype from configuration.
+			}
+			return fileMimeType;
+		}
+
+
+
+		/// <summary>
+		/// Opens the file given by the path and the filename.
+		/// </summary>
+		/// <param name="completePath">The complete path directing to the specified filename.</param>
+		/// <param name="fileName">The Filename that shall be opened.</param>
+		/// <returns>The file's content a byte-array.</returns>
+		public byte[] OpenFile (string completePath, string fileName)
+		{
+			FileStream fileStream = new FileStream(completePath + fileName, FileMode.Open, FileAccess.Read, FileShare.Read);
+	
+			// Create a reader that can read bytes from the FileStream: especially required for binary-files.
+			BinaryReader reader = new BinaryReader(fileStream);
+			byte[] bytes = new byte[fileStream.Length];
+			int read;
+	
+			while(true) 
+			{
+				read = reader.Read(bytes, 0, bytes.Length);
+
+				if(read == 0) //file completely read - so break loop.
+				{
+					break;
+				}
+			}
+			reader.Close(); 
+			fileStream.Close();
+			return bytes;
+		}
 
 
 

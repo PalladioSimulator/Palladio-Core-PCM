@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config SYSTEM "SimpleTemplateFileProviderXML.dtd">
+<Config xmlns:xsi="Webserver" xsi:noNamespaceSchemaLocation="SimpleTemplateFileProviderXML.dtd">
+	<!--The File-Extensions the SimpleTemplateFileProvider shall handle as Templates.-->
+	<HandledFileTypes>
+			<File Extension=".template" />
+			<File Extension=".shtml" />
+	</HandledFileTypes>
+	
+	<!--Whereever in the request file a variablesname delimited by this symbol appears it will be replaced by the variables-value. e. g. $name$-->
+	<Variablesname Delimiter="$" />
+
+</Config>
+

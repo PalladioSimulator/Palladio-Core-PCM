@@ -17,6 +17,10 @@ namespace Palladio.Webserver.FTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/11/05 16:17:01  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.5  2004/10/27 05:52:48  kelsaka
 	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
 	///
@@ -37,15 +41,20 @@ namespace Palladio.Webserver.FTPRequestParser
 	/// </remarks>
 	public class FTPRequestParser : IRequestParser
 	{
+		private IWebserverMonitor webserverMonitor;
+		private IRequestParser corSuccessor;
+
 		public FTPRequestParser(IFTPRequestProcessor requestProcessor, IRequestParser CorSuccessor, IWebserverMonitor webserverMonitor,  IWebserverConfiguration webserverConfiguration)
 		{
-
-
+			corSuccessor = CorSuccessor;
+			this.webserverMonitor = webserverMonitor;
 		}
 
 		public void HandleRequest (IRequest request)
 		{
-			throw new NotImplementedException ();
+			// forward the request to the corSuccessor as no implementation is avaiable.
+			webserverMonitor.WriteLogEntry("FTPRequestParser forwards the request to COR-Successor.");
+			corSuccessor.HandleRequest(request);
 		}
 	}
 }

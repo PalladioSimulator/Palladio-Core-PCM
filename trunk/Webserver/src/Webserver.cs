@@ -2,9 +2,11 @@ using System;
 using System.IO;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.Dispatcher;
+using Palladio.Webserver.FTPRequestProcessor;
 using Palladio.Webserver.RequestParser;
 using Palladio.Webserver.WebserverFactory;
 using Palladio.Webserver.WebserverMonitor;
+using WebserverXML;
 
 namespace Palladio.Webserver
 {
@@ -17,6 +19,10 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2004/11/05 16:17:01  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.12  2004/11/03 18:52:48  kelsaka
 	/// Added ability to get the full content-data of post-requests
 	///
@@ -61,7 +67,12 @@ namespace Palladio.Webserver
 		/// <summary>
 		/// (Relative) Path to the xml-config-file. All other settings should be read out from the xml-file.
 		/// </summary>
-		private const string DEFAULT_XML_CONFIGURATION_FILE = "..\\..\\..\\Config\\WebserverXML.xml";
+		private const string DEFAULT_XML_CONFIGURATION_FILE = "WebserverXML.xml";
+
+		/// <summary>
+		/// Where the config-xml-file(s) can be found.
+		/// </summary>
+		private string pathToConfigFile;
 
 
 
@@ -70,9 +81,14 @@ namespace Palladio.Webserver
 
 		}
 
+
 		/// <summary>
 		/// Main webserver-application start.
 		/// </summary>
+		/// <param name="args">
+		/// First position: path to the config-files, including last backspace.</br>
+		/// Second position: configuration-number</br>
+		/// Example-usage: Webserver "..\..\..\Config\" 1</param>
 		public static void Main(string[] args) 
 		{
 			Webserver webserver = new Webserver();
@@ -90,12 +106,25 @@ namespace Palladio.Webserver
 		/// </summary>
 		private void Run(string[] args)
 		{
+			
+			// Get the config-path:
+			try 
+			{
+				pathToConfigFile = args[0];
+			}
+			catch(IndexOutOfRangeException)
+			{
+				pathToConfigFile = ""; //use default path
+			}
+			
+
+
 			// The kind of component-configuration:
 			string configType;
 
 			try 
 			{
-				configType = args[0];
+				configType = args[1];
 			}
 			catch(IndexOutOfRangeException)
 			{
@@ -108,6 +137,10 @@ namespace Palladio.Webserver
 			{
 				// default case; no special config-advices:
 				case "":
+					DefaultConfiguration();
+					break;
+
+				default:
 					DefaultConfiguration();
 					break;
 			}
@@ -124,17 +157,23 @@ namespace Palladio.Webserver
 			DefaultWebserverFactory webserverFactory = new DefaultWebserverFactory();
 
 			IConfigReader configReader = webserverFactory.CreateConfigReader();
-			configReader.ReadConfiguration(DEFAULT_XML_CONFIGURATION_FILE);
-			IWebserverConfiguration webserverConfiguration = new WebserverConfiguration(configReader.GetRoot());
+			IWebserverConfiguration webserverConfiguration = new WebserverConfiguration(
+				configReader.ReadConfiguration(pathToConfigFile + DEFAULT_XML_CONFIGURATION_FILE));
+			// Set the pathToConfigFile manually, because otherwise this would be a hen egg-problem: the
+			// configuration-file can't (or shouldn't have to) know it own position:
+			webserverConfiguration.ConfigFilesPath = pathToConfigFile;
 
 			IWebserverMonitor webserverMonitor = webserverFactory.CreateWebserverMonitor(webserverConfiguration);
 			
 
-			// RequestProcessor-COR: Dynamic -> Static -> Default.
+			// RequestProcessor-COR: Dynamic -> SimpleTemplate -> Static -> Default.
 			HTTPRequestProcessor.IHTTPRequestProcessor defaultHttpRequestProcessor = webserverFactory.CreateDefaultRequestProcessor(webserverMonitor, webserverConfiguration);			
 			HTTPRequestProcessor.IHTTPRequestProcessor staticFileProvider = webserverFactory.CreateStaticFileProvider(defaultHttpRequestProcessor, webserverMonitor, webserverConfiguration);
-			HTTPRequestProcessor.IHTTPRequestProcessor dynamicFileProvider = webserverFactory.CreateDynamicFileProvider(staticFileProvider, webserverMonitor, webserverConfiguration);
+			HTTPRequestProcessor.IHTTPRequestProcessor simpleTemplateFileProver = webserverFactory.CreateSimpleTemplateFileProvider(staticFileProvider, webserverMonitor, webserverConfiguration);
+			HTTPRequestProcessor.IHTTPRequestProcessor dynamicFileProvider = webserverFactory.CreateDynamicFileProvider(simpleTemplateFileProver, webserverMonitor, webserverConfiguration);
 			
+			
+
 			// RequestParser-COR: HTTP -> Default (currently FTP is not implemented)
 			IRequestParser defaultRequestParser = webserverFactory.CreateDefaultRequestParser(webserverMonitor, webserverConfiguration);
 			IRequestParser httpRequestParser = webserverFactory.CreateHTTPRequestParser(dynamicFileProvider, defaultRequestParser, webserverMonitor, webserverConfiguration);

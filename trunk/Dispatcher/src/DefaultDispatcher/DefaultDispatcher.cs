@@ -20,6 +20,10 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2004/11/05 16:17:01  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.10  2004/11/03 18:52:48  kelsaka
 	/// Added ability to get the full content-data of post-requests
 	///
@@ -164,6 +168,7 @@ namespace Palladio.Webserver.Dispatcher
 				//Accept a new connection
 				Socket clientSocket = tcpListener.AcceptSocket() ;
 
+				webserverMonitor.WriteLogEntry("___________________________________"); 
 				webserverMonitor.WriteLogEntry("### Getting new client-request: ###"); 
 				webserverMonitor.WriteLogEntry("Socket Type: " + clientSocket.SocketType); 
 				

@@ -13,6 +13,10 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/11/05 16:17:01  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.3  2004/10/31 16:30:40  kelsaka
 	/// preparing parsing of post-requests
 	///
@@ -144,6 +148,28 @@ namespace Palladio.Webserver.Request
 		public string GetPOSTVariableValue (string key)
 		{
 			return (string)variablesPOST[key];
+		}
+
+		/// <summary>
+		/// Returns the internal Hashtable that contains the key-value-pairs for the variables of a GET-Request.
+		/// </summary>
+		public Hashtable POSTHashtable
+		{
+			get 
+			{ 
+				return variablesPOST;
+			}
+		}
+
+		/// <summary>
+		/// Returns the internal Hashtable that contains the key-value-pairs for the variables of a POST-Request.
+		/// </summary>
+		public Hashtable GETHashtable
+		{
+			get
+			{
+				return variablesGET;
+			}
 		}
 
 	}
