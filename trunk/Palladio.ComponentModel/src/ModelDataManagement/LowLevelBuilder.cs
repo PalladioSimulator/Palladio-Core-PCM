@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/03/28 18:13:33  joemal
+	/// move private methods to private region
+	///
 	/// Revision 1.3  2005/03/19 18:35:41  joemal
 	/// implement the rest of the lowlevelbuilder
 	///
@@ -46,7 +49,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		private ModelConstrainsCheck modelCheck;
 
 		#endregion
-		
+
 		#region constructor
 
 		/// <summary>
@@ -64,7 +67,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 
 		#endregion
 
-		#region public methods
+		#region private methods
 
 		//connect the rowremoved-events of the tables to the eventhandler in this class
 		private void Init()
@@ -75,6 +78,85 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			ProtocolsTable.RowDeleted += new DataRowChangeEventHandler(this.EntityDatatable_HandleRowDeleted);			
 			ConnectionsTable.RowDeleted += new DataRowChangeEventHandler(this.EntityDatatable_HandleRowDeleted);			
 		}
+
+		//return the row from the componenttable that is matching to given component identifier.
+		private ModelDataSet.ComponentsRow GetComponentsRow(IComponentIdentifier compId)
+		{
+			return (ModelDataSet.ComponentsRow) GetRow(compId,ComponentsTable);
+		}
+
+		//return the row from the interfacetable that is matching to given interface identifier.
+		private ModelDataSet.InterfacesRow GetInterfacesRow(IInterfaceIdentifier ifaceId)
+		{
+			return (ModelDataSet.InterfacesRow) GetRow(ifaceId,InterfacesTable);
+		}
+
+		//returns the row of the given table that is matching to the given id.
+		private DataRow GetRow(IIdentifier id, DataTable table)
+		{
+			if (id == null) return null;
+			DataRow[] result = table.Select("guid = '"+id.Key+"'");
+			if (result.Length != 0)
+				return result[0];
+			
+			return null;
+		}
+
+		//called to remove the row that is matching to id from given table
+		private void RemoveRow(IIdentifier id, DataTable table)
+		{
+			DataRow row = GetRow(id,table);
+			if (row != null)
+				row.Delete();
+
+			table.AcceptChanges();            			
+		}
+
+		//queries the role by componentid, interfaceid and role
+		private ModelDataSet.RolesRow QueryRole(IComponentIdentifier compId, IInterfaceIdentifier iFaceId, InterfaceRole role)
+		{
+			ModelDataSet.ComponentsRow compRow = GetComponentsRow(compId);
+			ModelDataSet.InterfacesRow ifaceRow = GetInterfacesRow(iFaceId);
+
+			if (compRow == null || ifaceRow == null) return null;
+
+			string query = "fk_comp = "+compRow.id+" and fk_iface = "+ifaceRow.id+" and type = "+(sbyte)role;
+			DataRow[] result = modelDataset.Roles.Select(query);
+
+			if (result.Length == 0) return null;	
+
+			return (ModelDataSet.RolesRow) result[0];
+		}
+
+		//add a connection
+		private void AddDelegation(IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID, IComponentIdentifier outerCompID, 
+			IInterfaceIdentifier outerIFaceID, IConnection connection, InterfaceRole role)
+		{
+			modelCheck.EntityExistsCheck(connection.ID);
+			
+			ModelDataSet.RolesRow innerRole = QueryRole(innerCompID,innerIFaceID,role);
+			ModelDataSet.RolesRow outerRole = QueryRole(outerCompID,outerIFaceID,role);
+
+			if (role == InterfaceRole.PROVIDES)
+				modelCheck.AddProvidesDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,innerRole,outerRole);
+			else
+				modelCheck.AddRequiresDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,innerRole,outerRole);
+	
+			ConnectionsTable.AddConnectionsRow(innerRole, outerRole,connection.ID.Key);
+			ConnectionsTable.AcceptChanges();
+		}
+
+		//the handler of the RowRemovedEvents of the datasets tables. 
+		//all tables that are observed by this handler must contain a column from type string that holds
+		//the key of the entities identifier. This key is used to find the entity in the hashtable.
+		private void EntityDatatable_HandleRowDeleted(object sender, DataRowChangeEventArgs e)
+		{
+			this.entityHashtable.RemoveEntity((string) e.Row["guid",DataRowVersion.Original]);
+		}
+
+		#endregion
+
+		#region public methods
 
 		/// <summary>
 		/// call to remove all entities and there relations from the model
@@ -326,85 +408,6 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		public void RemoveProtocol(IProtocolIdentifier protocolID)
 		{
 			this.RemoveRow(protocolID,ProtocolsTable);			
-		}
-
-		#endregion
-
-		#region private methods
-
-		//return the row from the componenttable that is matching to given component identifier.
-		private ModelDataSet.ComponentsRow GetComponentsRow(IComponentIdentifier compId)
-		{
-			return (ModelDataSet.ComponentsRow) GetRow(compId,ComponentsTable);
-		}
-
-		//return the row from the interfacetable that is matching to given interface identifier.
-		private ModelDataSet.InterfacesRow GetInterfacesRow(IInterfaceIdentifier ifaceId)
-		{
-			return (ModelDataSet.InterfacesRow) GetRow(ifaceId,InterfacesTable);
-		}
-
-		//returns the row of the given table that is matching to the given id.
-		private DataRow GetRow(IIdentifier id, DataTable table)
-		{
-			if (id == null) return null;
-			DataRow[] result = table.Select("guid = '"+id.Key+"'");
-			if (result.Length != 0)
-				return result[0];
-			
-			return null;
-		}
-
-		//called to remove the row that is matching to id from given table
-		private void RemoveRow(IIdentifier id, DataTable table)
-		{
-			DataRow row = GetRow(id,table);
-			if (row != null)
-				row.Delete();
-
-			table.AcceptChanges();            			
-		}
-
-		//queries the role by componentid, interfaceid and role
-		private ModelDataSet.RolesRow QueryRole(IComponentIdentifier compId, IInterfaceIdentifier iFaceId, InterfaceRole role)
-		{
-			ModelDataSet.ComponentsRow compRow = GetComponentsRow(compId);
-			ModelDataSet.InterfacesRow ifaceRow = GetInterfacesRow(iFaceId);
-
-			if (compRow == null || ifaceRow == null) return null;
-
-			string query = "fk_comp = "+compRow.id+" and fk_iface = "+ifaceRow.id+" and type = "+(sbyte)role;
-			DataRow[] result = modelDataset.Roles.Select(query);
-
-			if (result.Length == 0) return null;	
-
-			return (ModelDataSet.RolesRow) result[0];
-		}
-
-		//add a connection
-		private void AddDelegation(IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID, IComponentIdentifier outerCompID, 
-			IInterfaceIdentifier outerIFaceID, IConnection connection, InterfaceRole role)
-		{
-			modelCheck.EntityExistsCheck(connection.ID);
-			
-			ModelDataSet.RolesRow innerRole = QueryRole(innerCompID,innerIFaceID,role);
-			ModelDataSet.RolesRow outerRole = QueryRole(outerCompID,outerIFaceID,role);
-
-			if (role == InterfaceRole.PROVIDES)
-				modelCheck.AddProvidesDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,innerRole,outerRole);
-			else
-				modelCheck.AddRequiresDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,innerRole,outerRole);
-	
-			ConnectionsTable.AddConnectionsRow(innerRole, outerRole,connection.ID.Key);
-			ConnectionsTable.AcceptChanges();
-		}
-
-		//the handler of the RowRemovedEvents of the datasets tables. 
-		//all tables that are observed by this handler must contain a column from type string that holds
-		//the key of the entities identifier. This key is used to find the entity in the hashtable.
-		private void EntityDatatable_HandleRowDeleted(object sender, DataRowChangeEventArgs e)
-		{
-			this.entityHashtable.RemoveEntity((string) e.Row["guid",DataRowVersion.Original]);
 		}
 
 		#endregion
