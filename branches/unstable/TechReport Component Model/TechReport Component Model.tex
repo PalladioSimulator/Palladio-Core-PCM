@@ -1,3 +1,10 @@
+%
+%
+% NOTE:
+% Currently the actual version is in the "Palladio.ComponentModel-Layered"-subdirectory.
+%
+%
+
 \documentclass[a4paper]{article}
 
 \usepackage{graphicx}
@@ -35,7 +42,7 @@ The Palladio component model is the meta-model for specifying component models i
 As depicted a component can be of two different types. 
 \begin{itemize}
 \item \emph{Basic Component}: A basic component can be seen as a black box entity for the component based system. There is no additional knowledge of the internal structure of those components, e.g. whether they are build from other components or not. A basic component is characterized by its interfaces as described later on.
-\item \emph{Composite Component}: A composite component is a container for other components (basic or composite). It is supposed to offer a set of interfaces belonging together, e.g., by fullfiling a complete domain task. The components which are part of a composite component are wired internally by so called connections which again are introduced later.
+\item \emph{Composite Component}: A composite component is a container for other components (basic or composite). It is supposed to offer a set of interfaces belonging together, e.g., by fullfiling a complete domain task. The components which are part of a composite component are wired internally by so called connections (TODO: right name?) which again are introduced later. Composite Components are just logical enitities with no physical representation.
 \end{itemize}
 
 \subsection{Roles and Interfaces}
