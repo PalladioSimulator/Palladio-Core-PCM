@@ -17,22 +17,19 @@ namespace testapplication
 		public static void Main()
 		{
 			ISimulationEnvironment env = new DefaultSimulationEnvironment();
-			env.ComponentArchitecture.CreateBasicRootComponent("comp");
+			TestArchitectures.FillCC((ICompositeComponentBuilder)env.ComponentArchitecture.CreateCompositeComponent("CC"));
 
-			TestArchitectures.CreateC1((IBasicComponentBuilder)env.ComponentArchitecture.RootComponentBuilder);
-
-			IThreadStartingPoint sp = new DefaultThreadStartingPoint(ID("comp"),ID("P1"),ID("d1"));			
-			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL,new TestApp());
+			IThreadStartingPoint sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));			
+			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL);
 			
-			sp = new DefaultThreadStartingPoint(ID("comp"),ID("P1"),ID("d2"));			
-			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL,5,new TestApp());
+			sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d2"));			
+			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ON_LPS,5);
 
 			
 			int cntr = 0;
 			while (env.SimulationStep() && cntr < 50) 
 			{
 				cntr++;
-				Console.WriteLine("Step ...");
 				Console.ReadLine();
 			}
 

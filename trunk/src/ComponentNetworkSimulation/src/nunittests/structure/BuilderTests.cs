@@ -44,20 +44,30 @@ namespace nunittests.structure
 		}
 
 		[Test]
+		public void CompositeComponentBuilderTest()
+		{
+			ICompositeComponent cc = ComponentFactory.CreateCompositeComponent("CC");
+			Assert.IsFalse(ReferenceArchitecture.CreateCompositeComponent().Equals(cc));
+
+			TestArchitectures.FillCC(factory.CreateBuilder(cc));
+			Assert.IsTrue(ReferenceArchitecture.CreateCompositeComponent().Equals(cc));
+		}
+
+		[Test]
 		public void ServiceBuilderTest()
 		{
 			//test c2 created with builder using the one from the reference architecture 
 			IBasicComponent c1 = ComponentFactory.CreateBasicComponent("C1");
 			Assert.IsFalse(ReferenceArchitecture.CreateC1().Equals(c1));
 
-			TestArchitectures.CreateC1(factory.CreateBuilder(c1));
+			TestArchitectures.FillC1(factory.CreateBuilder(c1));
 			Assert.IsTrue(ReferenceArchitecture.CreateC1().Equals(c1));
 
 			//test c2 created with builder using the one from the reference architecture 			
 			IBasicComponent c2 = ComponentFactory.CreateBasicComponent("C1");
 			Assert.IsFalse(ReferenceArchitecture.CreateC2().Equals(c2));
 
-			TestArchitectures.CreateC2(factory.CreateBuilder(c2));
+			TestArchitectures.FillC2(factory.CreateBuilder(c2));
 			Assert.IsTrue(ReferenceArchitecture.CreateC2().Equals(c2));
 		}
 

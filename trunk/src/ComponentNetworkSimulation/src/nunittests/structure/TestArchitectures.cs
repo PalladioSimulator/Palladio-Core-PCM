@@ -12,6 +12,9 @@ namespace nunittests.structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.5  2004/06/26 15:38:23  joemal
+	/// xxxx
+	///
 	/// Revision 1.4  2004/06/23 16:35:39  joemal
 	/// xxxx
 	///
@@ -30,31 +33,45 @@ namespace nunittests.structure
 
 	public class TestArchitectures
 	{
-		public static void CreateC1(IBasicComponentBuilder builder)
+		public static void FillCC(ICompositeComponentBuilder builder)
+		{
+			//create the two inner components
+			FillC1(builder.AddBasicComponent("C1"));
+			FillC2(builder.AddBasicComponent("C2"));
+
+			//bind them
+			StaticTimeBindingParams p = new StaticTimeBindingParams(LoggingType_t.LOG_BOTH,3);
+			builder.AddBinding("C2","C1",ID("P2"),ID("R1"),p);
+
+			//adds a provides mapping from c1 
+			builder.AddProvidesMapping("C1",ID("P1"),ID("P1"));
+		}
+
+		public static void FillC1(IBasicComponentBuilder builder)
 		{
 			//only to test the get methods of the service builder
 			builder.AddService(ID("P1"),ID("d1"));
 			builder.AddService(ID("P1"),ID("d2"));
 
 			//creates service d1 and d2
-			TestArchitectures.CreateServiceD1(builder.GetServiceBuilder(ID("P1"),ID("d1")));
-			TestArchitectures.CreateServiceD2(builder.GetServiceBuilder(ID("P1"),ID("d2")));				
+			FillServiceD1(builder.GetServiceBuilder(ID("P1"),ID("d1")));
+			FillServiceD2(builder.GetServiceBuilder(ID("P1"),ID("d2")));				
 		}
 
-		public static void CreateC2(IBasicComponentBuilder builder)
+		public static void FillC2(IBasicComponentBuilder builder)
 		{	
 			//creates service e1 to d4
-			CreateEmptyService(builder.AddService(ID("P2"),ID("e1")),"C2->e1->1");
-			CreateEmptyService(builder.AddService(ID("P2"),ID("e2")),"C2->e2->1");
-			CreateEmptyService(builder.AddService(ID("P2"),ID("e3")),"C2->e3->1");
-			CreateEmptyService(builder.AddService(ID("P2"),ID("e4")),"C2->e44->1");
+			FillEmptyService(builder.AddService(ID("P2"),ID("e1")),"C2->e1->1");
+			FillEmptyService(builder.AddService(ID("P2"),ID("e2")),"C2->e2->1");
+			FillEmptyService(builder.AddService(ID("P2"),ID("e3")),"C2->e3->1");
+			FillEmptyService(builder.AddService(ID("P2"),ID("e4")),"C2->e44->1");
 		}
 
-		public static void CreateServiceD1(IServiceBuilder builder)
+		public static void FillServiceD1(IServiceBuilder builder)
 		{
-			builder.AddState(CP("d1->1",5));
-			builder.AddState(CP("d1->2",3));
-			builder.AddState(CP("d1->3",7));
+			builder.AddState(CP("d1->1",5,LoggingType_t.NO_LOG));
+			builder.AddState(CP("d1->2",3,LoggingType_t.NO_LOG));
+			builder.AddState(CP("d1->3",7,LoggingType_t.NO_LOG));
 
 			builder.SetStartState("d1->1");
 			builder.SetFinalStates("d1->3");
@@ -64,10 +81,10 @@ namespace nunittests.structure
 			builder.AddTransition("d1->1",ID("e4"),ID("R1"),"d1->3");
 		}
 
-		public static void CreateServiceD2(IServiceBuilder builder)
+		public static void FillServiceD2(IServiceBuilder builder)
 		{
-			builder.AddState(CP("d2->1",3));
-			builder.AddState(CP("d2->2",4));
+			builder.AddState(CP("d2->1",3,LoggingType_t.NO_LOG));
+			builder.AddState(CP("d2->2",4,LoggingType_t.NO_LOG));
 
 			builder.SetStartState("d2->1");
 			builder.SetFinalStates("d2->2");
@@ -75,19 +92,18 @@ namespace nunittests.structure
 			builder.AddTransition("d2->1",ID("e3"),ID("R1"),"d2->2");
 		}
 
-		public static void CreateEmptyService(IServiceBuilder builder, string service)
+		public static void FillEmptyService(IServiceBuilder builder, string service)
 		{
-			string statename = "C2->"+service+"->1";
-			builder.AddState(CP(statename,10));
+			builder.AddState(CP(service,10,LoggingType_t.NO_LOG));
 
-			builder.SetStartState(statename);
-			builder.SetFinalStates(statename);
+			builder.SetStartState(service);
+			builder.SetFinalStates(service);
 		}
 
 
-		public static ISimulationStateParams CP(string id, long time)
+		public static ISimulationStateParams CP(string id, long time,LoggingType_t type)
 		{
-			return new StaticTimeStateParams(id,DefaultRandomStrategy.getInstance(),LoggingType_t.NO_LOG,time);
+			return new StaticTimeStateParams(id,DefaultRandomStrategy.getInstance(),type,time);
 		}
 
 		public static Palladio.Identifier.IIdentifier ID(string id)

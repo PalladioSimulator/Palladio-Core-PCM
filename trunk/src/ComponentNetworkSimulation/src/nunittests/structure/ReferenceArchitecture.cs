@@ -15,14 +15,16 @@ namespace nunittests.structure
 
 		public static IComponent CreateCompositeComponent()
 		{
-			ICompositeComponent cc = ComponentFactory.CreateCompositeComponent("CompCom");
+			ICompositeComponent cc = ComponentFactory.CreateCompositeComponent("CC");
 			IComponent[] comps = new IComponent[2];
 			comps[0] = CreateC1();
 			comps[1] = CreateC2();
 			cc.AddComponents(comps);
 			cc.AddProvidesInterface(ID("P1"),CreateProvidesInterfaceP1());
+			
 
-			IBinding binding = ComponentFactory.CreateBinding(comps[0],ID("R1"),comps[1],ID("P2"));
+			StaticTimeBindingParams p = new StaticTimeBindingParams(LoggingType_t.LOG_BOTH,3);
+			IBinding binding = new DefaultStaticTimeBinding(comps[0],ID("R1"),comps[1],ID("P2"),p);
 			cc.AddBindings(binding);
 			IMapping mapping = ComponentFactory.CreateProvidesMapping(
 				cc,ID("P1"),comps[0],ID("P1"));
