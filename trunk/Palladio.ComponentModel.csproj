@@ -100,6 +100,14 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "data\se_d1.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "data\se_d2.xml"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "src\AbstractComponentInterface.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -125,12 +133,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentModelFactory.cs"
+                    RelPath = "src\CompositeComponent.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\CompositeComponent.cs"
+                    RelPath = "src\Helper.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -141,11 +149,6 @@
                 />
                 <File
                     RelPath = "src\IComponent.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\IComponentInterface.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -251,6 +254,26 @@
                 />
                 <File
                     RelPath = "src\SignatureListIM.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\SimpleSignature.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FactoryTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\ProtocolIModelTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\SignatureIModelTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

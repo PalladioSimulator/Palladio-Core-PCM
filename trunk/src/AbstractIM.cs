@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Utils.Collections;
 
 namespace Palladio.ComponentModel 
 {

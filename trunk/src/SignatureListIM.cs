@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Utils.Collections;
 
 namespace Palladio.ComponentModel 
 {
@@ -11,7 +12,7 @@ namespace Palladio.ComponentModel
 	{
 		#region Data
 
-		private IList signatureList;
+		protected IList signatureList;
 
 		#endregion
 
@@ -47,8 +48,6 @@ namespace Palladio.ComponentModel
 		{
 			signatureList = new ArrayList(aSigIModel.SignatureList);
 		}
-
-
 		#endregion
 
 
@@ -139,6 +138,37 @@ namespace Palladio.ComponentModel
 		{
 			return new SignatureListIModel(this);
 		}
+
+		public override bool Equals(object obj)
+		{
+			if (obj is SignatureListIModel) 
+			{
+				SignatureListIModel other = (SignatureListIModel)obj;
+				// BEGIN HACK
+				// The Equals method of ArrayList does not function properly
+				// TODO implement own IList?
+				if(other.SignatureList.Count == this.SignatureList.Count)
+				{
+					foreach(object o in other.SignatureList)
+					{
+						if(!this.SignatureList.Contains(o))
+						{
+							return false;
+						}
+					}
+					return true;
+				}
+				// END HACK
+			}
+			return false;
+		}
+
+		public override int GetHashCode()
+		{
+			return this.SignatureList.GetHashCode();
+		}
+
+
 
 
 		#endregion

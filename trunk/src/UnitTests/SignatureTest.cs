@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Reflection;
 using NUnit.Framework;
+using Utils.Collections;
 
 namespace Palladio.ComponentModel.UnitTests
 {
@@ -10,73 +11,47 @@ namespace Palladio.ComponentModel.UnitTests
 	[TestFixture]
 	public class SignatureTest
 	{
+		ISignature one, one1, two, three, four;
+		IList sigListDouble, sigListOne1, sigList;
 
 		[SetUp] public void Init() 
 		{
+			one = new SimpleSignature("one");
+			one1 = new SimpleSignature("one");
+			two = new SimpleSignature("two");
+			three = new SimpleSignature("three");
+			four = new SimpleSignature("four");
+			sigList = new ArrayList();
+			sigList.Add(two);
+			sigList.Add(three);
+			sigList.Add(four);
+			sigListOne1 = new ArrayList(sigList);
+			sigListOne1.Add(one1);
+			sigListDouble = new ArrayList(sigListOne1);
+			sigListDouble.Add(one);
 		}
 		
-		[Test] public void Constructor() 
+		[Test] public void Match() 
 		{
-			DummyOne dOne = new DummyOne();
-			DummyTwo dTwo = new DummyTwo();
-			IList methodList = dOne.GetType().GetMethods();
-			foreach( MethodInfo info in methodList) 
-			{
-				Console.WriteLine(info.Name);
-			}
-
+			Assert.IsTrue(one.Match(one1));
+			Assert.IsFalse(one.Match(two));
 		}
 
-
-		// Dummy Methods for testing the reflection
-		private class Dummy1
+		[Test] public void HasMatches() 
 		{
-			public void m() 
-			{
-			}
+			Assert.IsTrue(one.HasMatches(sigListOne1));
+			Assert.IsFalse(one.HasMatches(sigList));
+			IList matchList;
+			one.HasMatches(sigListDouble,out matchList);
+			Assert.IsTrue(matchList.Count == 2);
 		}
 
-		private class Dummy2
+		[Test] public void HasOneMatch() 
 		{
-			public void m() 
-			{
-			}
+			Assert.IsTrue(one.HasOneMatch(sigListOne1));
+			Assert.IsFalse(one.HasOneMatch(sigList));
+			Assert.IsFalse(one.HasOneMatch(sigListDouble));
 		}
 
-		private class Dummy3
-		{
-			public void m(int b)
-			{
-			}
-		}
-		
-		private class Dummy4
-		{
-			public bool m(long b)
-			{
-				return false;
-			}
-		}
-
-		private class Dummy5
-		{
-			public void m(int a)
-			{
-			}
-		}
-
-		private class Dummy6
-		{
-			public void m(long b)
-			{
-			}
-		}
-
-		private class Dummy7
-		{
-			public void n(long b)
-			{
-			}
-		}
 	}
 }
