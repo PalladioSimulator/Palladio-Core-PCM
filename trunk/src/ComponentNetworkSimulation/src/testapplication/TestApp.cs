@@ -23,7 +23,7 @@ namespace testapplication
 			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL);
 			
 			sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d2"));			
-			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ON_LPS,5);
+			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL,5);
 
 			
 			int cntr = 0;
