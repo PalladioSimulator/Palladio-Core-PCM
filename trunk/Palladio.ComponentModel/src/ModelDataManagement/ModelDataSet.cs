@@ -576,7 +576,7 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             public string parentComponent {
                 get {
                     if (this.IsparentComponentNull()) {
-                        return "-1";
+                        return null;
                     }
                     else {
                         return ((string)(this[this.tableComponents.parentComponentColumn]));
@@ -1425,6 +1425,11 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 return rowRolesRow;
             }
             
+            public RolesRow FindByid(long id) {
+                return ((RolesRow)(this.Rows.Find(new object[] {
+                            id})));
+            }
+            
             public System.Collections.IEnumerator GetEnumerator() {
                 return this.Rows.GetEnumerator();
             }
@@ -1456,7 +1461,7 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.columntype = new DataColumn("type", typeof(System.SByte), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columntype);
                 this.Constraints.Add(new UniqueConstraint("ROLES_PK", new DataColumn[] {
-                                this.columnid}, false));
+                                this.columnid}, true));
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columnid.Namespace = "http://tempuri.org/ModelDataSet.xsd";

@@ -11,7 +11,7 @@
 						<xs:sequence></xs:sequence>
 						<xs:attribute name="guid" type="xs:string" />
 						<xs:attribute name="type" type="xs:byte" />
-						<xs:attribute name="parentComponent" type="xs:string" msprop:nullValue="-1" />
+						<xs:attribute name="parentComponent" type="xs:string" msprop:nullValue="_null" />
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="Interfaces">
@@ -63,7 +63,7 @@
 			<xs:field xpath="@mstns:incoming" />
 			<xs:field xpath="@mstns:outgoing" />
 		</xs:key>
-		<xs:key name="ROLES_PK">
+		<xs:key name="ROLES_PK" msdata:PrimaryKey="true">
 			<xs:selector xpath=".//mstns:Roles" />
 			<xs:field xpath="@mstns:id" />
 		</xs:key>

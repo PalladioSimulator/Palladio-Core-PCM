@@ -7,11 +7,11 @@
     <Signatures_XmlElement left="11562" top="8652" width="5292" height="2116" selected="0" zOrder="6" index="3" expanded="1" />
     <Roles_XmlElement left="10051" top="3718" width="5292" height="2963" selected="0" zOrder="8" index="4" expanded="1" />
     <Protocols_XmlElement left="2170" top="10980" width="5291" height="2117" selected="0" zOrder="10" index="5" expanded="1" />
-    <ComponentsRoles_XmlKeyref left="8531" top="3909" width="503" height="503" selected="0" zOrder="24" />
-    <InterfacesRoles_XmlKeyref left="8491" top="6179" width="503" height="503" selected="0" zOrder="28" />
-    <ComponentsComponents_XmlKeyref left="545" top="571" width="503" height="503" selected="0" zOrder="12" />
     <InterfacesProtocols_XmlKeyref left="1073" top="9779" width="503" height="503" selected="0" zOrder="36" />
     <RolesConnections1_XmlKeyref left="8822" top="2504" width="503" height="503" selected="0" zOrder="20" />
-    <InterfacesSignatures_XmlKeyref left="9246" top="8641" width="503" height="503" selected="0" zOrder="32" />
+    <ComponentsRoles_XmlKeyref left="8531" top="3909" width="503" height="503" selected="0" zOrder="24" />
+    <InterfacesRoles_XmlKeyref left="8491" top="6179" width="503" height="503" selected="0" zOrder="28" />
     <RolesConnections_XmlKeyref left="15912" top="2595" width="503" height="503" selected="0" zOrder="16" />
+    <ComponentsComponents_XmlKeyref left="545" top="571" width="503" height="503" selected="0" zOrder="12" />
+    <InterfacesSignatures_XmlKeyref left="9246" top="8641" width="503" height="503" selected="0" zOrder="32" />
 </XSDDesignerLayout>

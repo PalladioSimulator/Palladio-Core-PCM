@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/03/31 11:02:03  joemal
+	/// implement the rest of the notification
+	///
 	/// Revision 1.6  2005/03/29 13:06:11  joemal
 	/// add event support
 	///
@@ -131,7 +134,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//the key of the entities identifier. This key is used to find the entity in the hashtable.
 		private void EntityDatatable_HandleRowDeleted(object sender, DataRowChangeEventArgs e)
 		{
-			this.entityHashtable.RemoveEntity((string) e.Row["guid",DataRowVersion.Original]);
+			IIdentifier entityID = entityHashtable[(string) e.Row["guid",DataRowVersion.Original]].ID;
+			this.entityHashtable.RemoveEntity(entityID.Key);
+			this.entityReg.EntityRemoved(entityID);
 		}
 
 		#endregion
@@ -282,7 +287,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		public void AddRequiresDelegationConnector(IConnection connection, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID, IComponentIdentifier outerCompID, IInterfaceIdentifier outerIFaceID)
 		{
 			AddDelegation(innerCompID, innerIFaceID, outerCompID, outerIFaceID, connection, InterfaceRole.REQUIRES);
-			entityReg.RegisterRequiresDelegation(connection,outerCompID,outerIFaceID,innerCompID,innerIFaceID);
+			entityReg.RegisterRequiresDelegation(connection,innerCompID,innerIFaceID,outerCompID,outerIFaceID);
 		}
 
 		/// <summary>
