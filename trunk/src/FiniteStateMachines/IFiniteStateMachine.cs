@@ -24,6 +24,9 @@ namespace FiniteStateMachines {
         ///     If the automaton is used for accepting
         ///     an input sequence, this is the state to
         ///     start with.
+        ///     
+        ///     If no start state is defined an exception has to
+        ///     be thrown.
         /// </summary>
 		AbstractState StartState { get; }
 
@@ -31,6 +34,9 @@ namespace FiniteStateMachines {
         ///     If the automaton reaches one of this states
         ///     during reading an input sequence, the
         ///     sequence is accepted.
+        ///     
+        ///     If no finalstates are defined an exception has to
+        ///     be thrown. (type?)
         /// </summary>
 		Set FinalStates { get; }
 

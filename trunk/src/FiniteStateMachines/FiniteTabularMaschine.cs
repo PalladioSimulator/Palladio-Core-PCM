@@ -213,7 +213,7 @@ namespace FiniteStateMachines {
 				if (finalStates.Count != 0) {
 					return finalStates;
 				} else {
-					throw new InvalidStateException("No final states defined");
+					throw new ApplicationException("No final states defined");
 				}
 			}
 		}

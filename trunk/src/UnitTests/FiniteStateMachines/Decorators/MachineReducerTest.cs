@@ -78,11 +78,10 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.IsTrue(topMachine.Equals(red));
 		}
 
-		public static void Main(){
-			MachineReducerTest test = new MachineReducerTest();
-			test.Init();
-			test.RecursionReduction();
-		}
+//		public static void Main(){
+//			IFiniteStateMachine d1 = AbstractFiniteStateMachine.Loader("../../data/se_d1.xml");
+//			Console.WriteLine(d1);
+//		}
 
 	}
 }

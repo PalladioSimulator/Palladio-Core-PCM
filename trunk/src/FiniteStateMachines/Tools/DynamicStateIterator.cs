@@ -39,6 +39,7 @@ namespace FiniteStateMachines {
 			statesToVisit = new Stack();
 			statesToVisit.Push(aState);
 			currentState = null;
+			startState = aState;
 		}
 
 		/// <summary>

@@ -20,7 +20,7 @@
                 PostBuildEvent = ""
                 RootNamespace = "palladio"
                 RunPostBuildEvent = "OnBuildSuccess"
-                StartupObject = "UnitTests.FiniteStateMachines.Decorators.MachineReducerTest"
+                StartupObject = "UnitTests.FiniteStateMachines.Decorators.MinimizedFSMTest"
             >
                 <Config
                     Name = "Debug"
@@ -90,6 +90,11 @@
                     AssemblyName = "nunit.util"
                     HintPath = "..\..\..\..\..\Programme\NUnit V2.1\\bin\nunit.util.dll"
                     AssemblyFolderKey = "hklm\dn\nunit.framework"
+                />
+                <Reference
+                    Name = "log4net"
+                    AssemblyName = "log4net"
+                    HintPath = "..\..\..\..\..\Programme\log4net-1.2.0-beta8\bin\net\1.1\release\log4net.dll"
                 />
             </References>
         </Build>
@@ -272,6 +277,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\FiniteStateMachines\Decorators\MinimisedFSM.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\FiniteStateMachines\Decorators\MinimizedAndEqualsFSM.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -333,6 +343,11 @@
                 />
                 <File
                     RelPath = "src\UnitTests\FiniteStateMachines\Decorators\MachineReducerTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FiniteStateMachines\Decorators\MinimizedFSMTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

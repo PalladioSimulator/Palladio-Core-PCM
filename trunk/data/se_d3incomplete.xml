@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<fsm>
+<fsm type="tabular">
 	<state name="one" start="true"/>
 	<state name="two"/>
 	<state name="three"/>

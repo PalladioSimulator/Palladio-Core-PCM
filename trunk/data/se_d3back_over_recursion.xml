@@ -9,4 +9,5 @@
 	<transition source="two" target="three" input="d1"></transition>
 	<transition source="three" target="four" input="ed6"></transition>
 	<transition source="one" target="four" input="ed4"></transition>
+	<transition source="three" target="two" input="ed7"></transition>
 </fsm>

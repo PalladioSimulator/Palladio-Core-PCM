@@ -191,14 +191,42 @@ namespace FiniteStateMachines {
 		///		Calculates a minimized version of the current FSM.
 		/// </summary>
 		public IFiniteStateMachine GetMinimzed() {
-			MinimizedAndEqualsFSM minimized = new MinimizedAndEqualsFSM(this);
-			return minimized.getMinimizedFSM();
+			//TODO: evtl TabFSM zurückgeben
+			return new MinimisedFSM(this);
 		}
 
 
 		public override bool Equals(object obj) {
-			MinimizedAndEqualsFSM minimized = new MinimizedAndEqualsFSM(this);
-			return minimized.equal(obj);
+			if ( obj is IFiniteStateMachine) {
+				return AreEqual( this, (IFiniteStateMachine) obj );
+			} 
+			return false;
+		}
+
+		public static bool AreEqual( IFiniteStateMachine fsmOne, IFiniteStateMachine fsmTwo ) {
+			IFiniteStateMachine minOne = new MinimisedFSM(fsmOne);
+			IFiniteStateMachine minTwo = new MinimisedFSM(fsmTwo);
+
+			DynamicStateEnumerator iter = new DynamicStateEnumerator(new DualState(fsmOne.StartState,fsmTwo.StartState));
+			while (iter.MoveNext()) {
+				DualState current = (DualState) iter.Current;
+				if ((current.oneState.IsFinalState == current.twoState.IsFinalState) &&
+					(current.oneState.IsStartState == current.twoState.IsStartState)) {
+					foreach (Input input in minOne.InputAlphabet) {
+						AbstractState nextOne = minOne.GetNextState(current.oneState, input);
+						AbstractState nextTwo = minTwo.GetNextState(current.twoState, input);	
+						if (( nextOne != minOne.ErrorState ) &&
+							( nextTwo != minTwo.ErrorState )) {
+							iter.Append(new DualState (nextOne, nextTwo));
+						} else {
+							return false;
+						}
+					}
+				} else {
+					return false;
+				}
+			}
+			return true;
 		}
 
 		/// <summary>
