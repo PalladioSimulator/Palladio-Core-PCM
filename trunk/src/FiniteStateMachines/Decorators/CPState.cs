@@ -1,12 +1,10 @@
 using System;
 
-namespace FiniteStateMachines.Decorators
-{
+namespace FiniteStateMachines.Decorators {
 	/// <summary>
 	/// Zusammenfassung für CPState.
 	/// </summary>
-	public class CPState : State
-	{
+	public class CPState : State {
 		protected State one;
 		protected State two;
 		protected String CPname;
@@ -16,12 +14,10 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Creates an empty CPState
 		/// </summary>
-		public CPState()
-		{
+		public CPState() {
 		}
 
-		public CPState(CPState state)
-		{
+		public CPState(CPState state) {
 			
 			this.one = state.one;
 			this.two = state.two;
@@ -34,38 +30,40 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="one">A State</param>
 		/// <param name="two">Another State, together with one a CPState can be 
 		/// created</param>
-		public CPState(State one, State two)
-		{
+		public CPState(State one, State two) {
 			this.one = one;
 			this.two = two;
-			this.state = new State(this.getName(),this.getStart(),this.getFinal());
+			this.state = new State(this.getName(),this.IsStartState,this.IsFinalState);
 		}
 		/// <summary>
 		/// returns a 'normal' FSMState, witch can be used in all FSMs
 		/// </summary>
 		/// <returns>The normal FSM state</returns>
-		public State getState()
-		{
+		public State getState() {
 			return this.state;
 		}
 		/// <summary>
 		/// Checks if the state is a Startstate
 		/// </summary>
 		/// <returns>true if is a StartState, false if not </returns>
-		public override bool getStart() {
-			if(this.one.getStart() == this.two.getStart())
-				return this.one.getStart();
-			return false;
+		public override bool IsStartState {
+			get {
+				if(this.one.IsStartState == this.two.IsStartState)
+					return this.one.IsStartState;
+				return false;
+			}
 		}
 
 		/// <summary>
 		/// Checks if the state is a finalstate
 		/// </summary>
 		/// <returns>true if it is a finalstate, false if not</returns>
-		public override bool getFinal() {
-			if(this.one.getFinal() == this.two.getFinal())
-				return this.one.getFinal();
-			return false;
+		public override bool IsFinalState {
+			get {
+				if(this.one.IsFinalState == this.two.IsFinalState)
+					return this.one.IsFinalState;
+				return false;
+			}
 		}
 
 		/// <summary>
@@ -76,43 +74,35 @@ namespace FiniteStateMachines.Decorators
 			return this.one.getName()+"-X-"+this.two.getName();
 		}
 
-		public State oneState
-		{
+		public State oneState {
 			get {return this.one;}
 		}
-		public State twoState
-		{
+		public State twoState {
 			get {return this.two;}
 		}
-		public override bool Equals(object obj) 
-		{
+		public override bool Equals(object obj) {
 			CPState state;
 			
-			if (obj is CPState) 
-			{ 
+			if (obj is CPState) { 
 				state = (CPState)obj;
-				if(this.getName() == state.getName()) 
-				{
-					if(this.getStart() == state.getStart())
-						if(this.getFinal() == state.getFinal())
+				if(this.getName() == state.getName()) {
+					if(this.IsStartState == state.IsStartState)
+						if(this.IsFinalState == state.IsFinalState)
 							if(this.oneState == state.twoState)
 								if(this.twoState == state.twoState)
 									if(this.state == state.state)
-							return true;
+										return true;
 				}
 			}
 			return false;
 		}
-		public static bool operator == (CPState one, CPState two)
-		{
+		public static bool operator == (CPState one, CPState two) {
 			return one.Equals(two);
 		}
-		public static bool operator !=(CPState one, CPState two)
-		{
+		public static bool operator !=(CPState one, CPState two) {
 			return !one.Equals(two);
 		}
-		public override int GetHashCode()
-		{
+		public override int GetHashCode() {
 			return getName().GetHashCode();
 		}
 	}

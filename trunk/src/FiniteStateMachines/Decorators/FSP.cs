@@ -3,34 +3,28 @@ using System.Collections;
 using Utils.Collections;
 
 
-namespace FiniteStateMachines.Decorators
-{
+namespace FiniteStateMachines.Decorators {
 	/// <summary>
 	/// Zusammenfassung für FSP.
 	/// </summary>
-	public class FSP
-	{
+	public class FSP {
 		protected FSM one;
 		protected FSM two;
 		protected FSM sp;
 		protected bool debug = !false;
 
-		public FSP()
-		{
+		public FSP() {
 			
 		}
-		public FSP(FSM one, FSM two)
-		{
+		public FSP(FSM one, FSM two) {
 			this.one = one;
 			this.two = two;
 			this.sp = GenerateFSP(one,two);
 		}
-		public FSM getSP()
-		{
+		public FSM getSP() {
 			return this.sp;
 		}
-		public FSM GenerateFSP(FSM one, FSM two)
-		{
+		public FSM GenerateFSP(FSM one, FSM two) {
 			this.sp = new FSM();
 			Stack oneStates = new Stack();
 			Stack twoStates = new Stack();
@@ -38,11 +32,10 @@ namespace FiniteStateMachines.Decorators
 			Set spInput = GenerateSpInput(one,two);
 
 	
-			CPState StartState = new CPState(one.getStartState(),two.getStartState());
-			oneStates.Push(one.getStartState());
-			twoStates.Push(two.getStartState());
-			while(oneStates.Count!= 0 && twoStates.Count!=0)
-			{
+			CPState StartState = new CPState(one.StartState,two.StartState);
+			oneStates.Push(one.StartState);
+			twoStates.Push(two.StartState);
+			while(oneStates.Count!= 0 && twoStates.Count!=0) {
 
 				State oneBefore = (State) oneStates.Pop();
 				State twoBefore = (State) twoStates.Pop();
@@ -51,45 +44,41 @@ namespace FiniteStateMachines.Decorators
 
 				CPState fromState = new CPState(oneBefore,twoBefore);
 				CPState toState = new CPState();
-				foreach(Input i in spInput)
-				{
+				foreach(Input i in spInput) {
 
 
-					State oneNext = one.getNextState(oneBefore,i);
+					State oneNext = one.GetNextState(oneBefore,i);
 					if(this.debug)
 						Console.WriteLine("oneNext is: "+oneNext.ToString());
 
 
-					State twoNext = two.getNextState(twoBefore,i);
+					State twoNext = two.GetNextState(twoBefore,i);
 					if(this.debug)
 						Console.WriteLine("twoNext is: "+twoNext.ToString());
 
 
-					if(BigSelfPointing(i,fromState))
-					{
+					if(BigSelfPointing(i,fromState)) {
 						Console.WriteLine("Big Selfpointing");
 						this.sp.setTransition(fromState,i,fromState);
 						oneStates.Pop();
 						twoStates.Pop();
 						continue;
 					}
-					if(SelfPointing(oneBefore,one,i)&& SelfPointing(twoBefore,two,i))
-//						//&& oneNext !=one.ErrorState && twoNext!=two.ErrorState)
-					{
+					if(SelfPointing(oneBefore,one,i)&& SelfPointing(twoBefore,two,i)) {
+						//						//&& oneNext !=one.ErrorState && twoNext!=two.ErrorState)
 						Console.WriteLine("Both Selfpointing");
 						CPState sps = new CPState(oneNext,twoNext);
 						Console.WriteLine("in selfpointing folling transition set: "+"\n"
 							+new Transition(sps.getState(),i,sps.getState()));
 						this.sp.setTransition(sps,i,sps);
-//						if(SelfPointing(oneBefore,one,i))
+						//						if(SelfPointing(oneBefore,one,i))
 						oneStates.Pop();
-//						if(SelfPointing(twoBefore,two,i))
+						//						if(SelfPointing(twoBefore,two,i))
 						twoStates.Pop();
 					}
 					//if oneNext is ErrorState and twoNext not
 					//1
-					if(oneNext != one.ErrorState && twoNext != two.ErrorState)
-					{
+					if(oneNext != one.ErrorState && twoNext != two.ErrorState) {
 						Console.WriteLine("both are not ErrorState");
 						toState = new CPState(oneNext,twoNext);
 						sp.setTransition(fromState,i,toState);
@@ -99,10 +88,8 @@ namespace FiniteStateMachines.Decorators
 					}
 					//2
 					if(oneNext == one.ErrorState && 
-						twoNext != two.ErrorState)
-					{
-						if(!oneBefore.Equals(one.ErrorState))
-						{
+						twoNext != two.ErrorState) {
+						if(!oneBefore.Equals(one.ErrorState)) {
 							Console.WriteLine("OneBefore is : "+oneBefore+" and not Errorstate.");
 							toState = new CPState(oneBefore,twoNext);
 							this.sp.setTransition(fromState,i,toState);
@@ -115,11 +102,9 @@ namespace FiniteStateMachines.Decorators
 					}
 					//oneNext !=errorState twoNext == Errorstate
 					//3
-					if(oneNext!= one.ErrorState && twoNext == two.ErrorState)
-					{
+					if(oneNext!= one.ErrorState && twoNext == two.ErrorState) {
 						
-						if(twoBefore.Equals(two.ErrorState))
-						{
+						if(twoBefore.Equals(two.ErrorState)) {
 							Console.WriteLine("twoBefore is : "+twoBefore+"and not ErrorState");
 							toState = new CPState(oneNext,twoBefore);
 							this.sp.setTransition(fromState,i,toState);
@@ -133,44 +118,41 @@ namespace FiniteStateMachines.Decorators
 				
 
 					
-//					if(fromState == toState)
-//					{
-//						Console.WriteLine("beide gleich");
-//						oneStates.Pop();
-//						twoStates.Pop();
-//				
-//			
-//					}
+					//					if(fromState == toState)
+					//					{
+					//						Console.WriteLine("beide gleich");
+					//						oneStates.Pop();
+					//						twoStates.Pop();
+					//				
+					//			
+					//					}
 					Console.WriteLine("------------------------------");
 				}
 			}
 			return this.sp;
 		}
-		protected bool SelfPointing(State state, FSM fsm,Input i)
-		{
-			if(one.getNextState(state,i)== state)
+		protected bool SelfPointing(State state, FSM fsm,Input i) {
+			if(one.GetNextState(state,i)== state)
 				return true;
 			return false;
 			
 			
 		}
-		protected bool BigSelfPointing(Input i,CPState fromState)
-		{
-				CPState s = new CPState(this.one.getNextState(fromState.oneState,i),
-				this.two.getNextState(fromState.twoState,i));
+		protected bool BigSelfPointing(Input i,CPState fromState) {
+			CPState s = new CPState(this.one.GetNextState(fromState.oneState,i),
+				this.two.GetNextState(fromState.twoState,i));
 			Console.WriteLine(s.ToString()+" != "+fromState.ToString());
 			Console.WriteLine("fromstate is :" +fromState.ToString());
-				if(s==fromState)
-					return true;
+			if(s==fromState)
+				return true;
 			return false;
 		}
 			
 	
-		protected Set GenerateSpInput(FSM one, FSM two)
-		{
+		protected Set GenerateSpInput(FSM one, FSM two) {
 			Set spInput = new Set();
-			Set oneInput = one.getInputAl();
-			Set twoInput = two.getInputAl();
+			Set oneInput = one.InputAlphabet;
+			Set twoInput = two.InputAlphabet;
 			foreach(Input i in oneInput)
 				spInput.Add(i);
 			foreach(Input i in twoInput)

@@ -137,20 +137,24 @@ namespace FiniteStateMachines {
 		}
 
 		/// <returns>True if the current state is a startstate of the FSM, false otherwise</returns>
-		public override bool getStart() {
-			if (IsEmpty) {
-				return PeekState().getStart();
+		public override bool IsStartState {
+			get {
+				if (IsEmpty) {
+					return PeekState().IsStartState;
+				}
+				return false;
 			}
-			return false;
 		}
 
 
 		/// <returns>True if the current state is a final state, false otherwise</returns>
-		public override bool getFinal() {
-			if (IsEmpty) {
-				return PeekState().getFinal();
+		public override bool IsFinalState {
+			get {
+				if (IsEmpty) {
+					return PeekState().IsFinalState;
+				}
+				return false;
 			}
-			return false;
 		}
 
 		public State TopState {

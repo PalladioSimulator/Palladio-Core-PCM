@@ -2,13 +2,11 @@ using System;
 using System.Collections;
 using Utils.Collections;
 
-namespace FiniteStateMachines
-{
+namespace FiniteStateMachines {
 	/// <summary>
 	/// Iterates of the States of a FSM
 	/// </summary>
-	public class StateIterator
-	{
+	public class StateIterator {
 		protected Set visited; 
 		protected Stack states;
 		protected bool isInitialised;
@@ -24,10 +22,9 @@ namespace FiniteStateMachines
 		/// Initiates a FSM Iterator.
 		/// </summary>
 		/// <param name="d">The FSM witch should be iterated</param>
-		public StateIterator(IFiniteStateMachine d)
-		{
+		public StateIterator(IFiniteStateMachine d) {
 			this.getters =  d; // RR: what is if d is NOT a FSM but another class implementing Getters?
-						      // please use only the getter interface! 
+			// please use only the getter interface! 
 
 			this.isInitialised =false;
 			this.states = new Stack();
@@ -39,15 +36,13 @@ namespace FiniteStateMachines
 		/// Checks if there is another State to visit.
 		/// </summary>
 		/// <returns>True if there is another state, false if not</returns>
-		public bool MoveNext()
-		{
-			if(!this.isInitialised)
-			{
-				if(this.getters.getStartState()== null)
+		public bool MoveNext() {
+			if(!this.isInitialised) {
+				if(this.getters.StartState== null)
 					//if you have no Startstate you can't iterate over a FSM
 					return false;
 
-				this.states.Push(this.getters.getStartState()); 
+				this.states.Push(this.getters.StartState); 
 				this.isInitialised = true;
 				this.returnState = (State) this.states.Peek();
 				
@@ -64,7 +59,7 @@ namespace FiniteStateMachines
 				 * Checks if the Startstate is a Finalstate  and cheks also if there are no other Transitions:
 				 * in this case no States or 
 				
-				State isStartStateFinal = this.getters.getStartState(); 
+				State isStartStateFinal = this.getters.getStartState; 
 				if(isStartStateFinal.getFinal())
 					try
 					{
@@ -80,14 +75,12 @@ namespace FiniteStateMachines
 				return true;
 			
 			}
-			else
-			{
+			else {
 				//top of Stack has allready been returning
 				State currentState = (State) this.states.Peek();
 				//check if cs has chilldren();
-				Hashtable nextStates = this.getters.getTransitionMap(currentState);
-				while(nextStates == null)
-				{
+				Hashtable nextStates = this.getters.GetOutgoingTransitions(currentState);
+				while(nextStates == null) {
 					if(this.debugOutput)
 						Console.WriteLine("There are no Children from "+currentState.ToString());
 					//now there are no children left and this this state is now complety explored,
@@ -95,19 +88,18 @@ namespace FiniteStateMachines
 					this.states.Pop();
 					this.transitions.Pop();
 					//next children 
-					nextStates = this.getters.getTransitionMap((State) this.states.Peek());
+					nextStates = this.getters.GetOutgoingTransitions((State) this.states.Peek());
 
 				}		
 				currentState = (State) this.states.Peek();
 				
-				nextStates = getters.getTransitionMap(currentState);
+				nextStates = getters.GetOutgoingTransitions(currentState);
 				//E a Hashatabele witch contains the children of CS
 				//write every child on the Stack
 				Transition tempTransition = new Transition();
 				State tempState = new State();
 				IDictionaryEnumerator iterateOverChildren = nextStates.GetEnumerator();
-				while(iterateOverChildren.MoveNext())
-				{
+				while(iterateOverChildren.MoveNext()) {
 					
 					tempTransition = (Transition) iterateOverChildren.Value;
 					this.states.Push(tempTransition.toState);
@@ -120,8 +112,7 @@ namespace FiniteStateMachines
 				if(this.debugOutput)
 					Console.WriteLine(currentState.ToString()+ " now has been completly doscovered");
 				//search of the next State witch will be returned
-				while(this.alreadyReturned.Contains(this.states.Peek()))
-				{
+				while(this.alreadyReturned.Contains(this.states.Peek())) {
 					if(this.debugOutput)
 						Console.WriteLine("This State hs already been discovered "+this.states.Peek().ToString());
 					this.states.Pop();
@@ -130,8 +121,7 @@ namespace FiniteStateMachines
 						return false;
 				}
 				//Now a State is found, witch jet has not been returning
-				if(this.states.Peek().Equals(new State("ErrorState",false,false)))
-				{
+				if(this.states.Peek().Equals(new State("ErrorState",false,false))) {
 					states.Pop();
 					this.MoveNext();
 				}
@@ -145,17 +135,13 @@ namespace FiniteStateMachines
 		/// <summary>
 		/// Returns the current object of the FSM.
 		/// </summary>
-		public object Current
-		{
-			get
-			{
+		public object Current {
+			get {
 				return this.returnState;
 			}
 		}
-		public object getCurrentTransition
-		{
-			get
-			{
+		public object getCurrentTransition {
+			get {
 				return this.currentTransition;
 			}
 		}

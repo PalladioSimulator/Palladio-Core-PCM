@@ -4,12 +4,11 @@ using Utils.Collections;
 using FiniteStateMachines.Decorators;
 
 
-namespace FiniteStateMachines 
-{
+namespace FiniteStateMachines {
 	/// <summary>
 	///A FSM simulating a conjunction of several FSMs
 	/// </summary>
-	public class StackFSM : IFiniteStateMachine {
+	public class StackFiniteStateMachine : IFiniteStateMachine {
 
 		IFiniteStateMachine providesFSM;
 		Hashtable serviceEffectSpecifications;
@@ -18,7 +17,7 @@ namespace FiniteStateMachines
 
 		Hashtable counterConditions;
 
-		public StackFSM(IFiniteStateMachine aProvidesFSM, Hashtable aServiceEffectSpecificationSet){
+		public StackFiniteStateMachine(IFiniteStateMachine aProvidesFSM, Hashtable aServiceEffectSpecificationSet){
 			// TODO check for every element of the input alphabet if there exists a corresponding SESP
 			providesFSM = aProvidesFSM;
 			serviceEffectSpecifications = (Hashtable)aServiceEffectSpecificationSet.Clone();;
@@ -31,31 +30,33 @@ namespace FiniteStateMachines
 		/// Returns the finalstate of a FSM.
 		/// </summary>
 		/// <returns>The finalstate of a FSM.</returns>
-		public Set getFinalStates() {
-			Set finalStates = new Set();
-			for (IEnumerator e = providesFSM.getFinalStates().GetEnumerator(); e.MoveNext();){
-				finalStates.Add(new StackState((State)e.Current));
+		public Set FinalStates {
+			get {
+				Set finalStates = new Set();
+				for (IEnumerator e = providesFSM.FinalStates.GetEnumerator(); e.MoveNext();){
+					finalStates.Add(new StackState((State)e.Current));
+				}
+				return finalStates;
 			}
-			return finalStates;
 		}
 
 		/// <summary>
 		/// Returns the startstate of a FSM.
 		/// </summary>
 		/// <returns>The stratstate of a FSM.</returns>
-		public State getStartState() {
-			return new StackState(providesFSM.getStartState());
+		public State StartState {
+			get {return new StackState(providesFSM.StartState);}
 		}
 
 
 		private Set DetermineInputAlphabet() {
 			Set resultSet = new Set();
 			for (IDictionaryEnumerator e = serviceEffectSpecifications.GetEnumerator(); e.MoveNext();){
-				for (IEnumerator f = ((IFiniteStateMachine)e.Value).getInputAl().GetEnumerator(); f.MoveNext();){
+				for (IEnumerator f = ((IFiniteStateMachine)e.Value).InputAlphabet.GetEnumerator(); f.MoveNext();){
 					resultSet.Add(f.Current);
 				}
 			}
-			for (IEnumerator e = providesFSM.getInputAl().GetEnumerator(); e.MoveNext();){
+			for (IEnumerator e = providesFSM.InputAlphabet.GetEnumerator(); e.MoveNext();){
 				resultSet.Add(e.Current);
 			}
 			resultSet.Add(Input.RETURN);
@@ -63,8 +64,10 @@ namespace FiniteStateMachines
 			return resultSet;
 		}
 
-		public Set getInputAl() {
-			return inputAlphabet;
+		public Set InputAlphabet {
+			get {
+				return inputAlphabet;
+			}
 		}
 
 		/// <summary>
@@ -80,7 +83,7 @@ namespace FiniteStateMachines
 		/// Returns the next State of FSM with a given Input.
 		/// </summary>
 		/// <returns>The next possible State.</returns>
-		public State getNextState(State fromState, Input input) {
+		public State GetNextState(State fromState, Input input) {
 			State resultState = ErrorState;
 
 			if (fromState is StackState) {
@@ -91,7 +94,7 @@ namespace FiniteStateMachines
 					resultState = CallService(state,input);
 				} else if ((!state.IsEmpty) && (serviceEffectSpecifications.ContainsKey(state.PeekService()))){
 					IFiniteStateMachine topService = (IFiniteStateMachine)serviceEffectSpecifications[state.PeekService()];
-					if (topService.getInputAl().Contains(input)){
+					if (topService.InputAlphabet.Contains(input)){
 						resultState = GetNextStateInService(topService,state,input);
 					} else if (input == Input.RETURN){
 						resultState = ReturnFromService(state);
@@ -109,8 +112,8 @@ namespace FiniteStateMachines
 		/// Returns the next Transition from a State with a given Input
 		/// </summary>
 		/// <returns>The next reachable Transition.</returns>
-		public Transition getTransition(State fromState, Input inChar) {
-			State toState = getNextState(fromState,inChar);
+		public Transition GetTransition(State fromState, Input inChar) {
+			State toState = GetNextState(fromState,inChar);
 			return new Transition(fromState,inChar,toState);
 		}
 
@@ -118,10 +121,10 @@ namespace FiniteStateMachines
 		/// Returns all Transitions from a given State.
 		/// </summary>
 		/// <returns>A Hashtable witch contatins all Transtions from the given State.</returns>
-		public Hashtable getTransitionMap(State state) {
+		public Hashtable GetOutgoingTransitions(State state) {
 			Hashtable result = new Hashtable();
 			for (IEnumerator e = inputAlphabet.GetEnumerator(); e.MoveNext();){
-				result.Add(e.Current,getNextState(state,(Input)e.Current));
+				result.Add(e.Current,GetNextState(state,(Input)e.Current));
 			}
 			return result;
 		}
@@ -130,7 +133,7 @@ namespace FiniteStateMachines
 		/// Returns all Transitions of the FSM in Transition Array.
 		/// </summary>
 		/// <returns>All Transitions of the FSM in a Array of Transitions.</returns>
-		public Transition[] getTransitions() {
+		public Transition[] GetTransitions() {
 			// TODO Implement Method
 			return null;
 		}
@@ -143,7 +146,7 @@ namespace FiniteStateMachines
 
 		private State GetNextStateInService(IFiniteStateMachine aService, StackState aState, Input anInput){
 			State resultState = ErrorState;
-			State nextState = aService.getNextState(aState.PeekState(),anInput);
+			State nextState = aService.GetNextState(aState.PeekState(),anInput);
 			if (nextState != aService.ErrorState){
 				resultState = new StackState(aState);
 				((StackState)resultState).ChangeTopState(nextState);
@@ -160,14 +163,14 @@ namespace FiniteStateMachines
 			} else {
 				resultState = new StackState(aState);
 				IFiniteStateMachine service = (IFiniteStateMachine)serviceEffectSpecifications[anInput];
-				((StackState)resultState).Push(anInput,service.getStartState());
+				((StackState)resultState).Push(anInput,service.StartState);
 			}
 			return resultState;
 		}
 
 		private State HandleRecursionCall(StackState aState, Input anInput){
 			IFiniteStateMachine service = (IFiniteStateMachine)serviceEffectSpecifications[aState.TopService];
-			State nextState = service.getNextState(aState.TopState,anInput);
+			State nextState = service.GetNextState(aState.TopState,anInput);
 			RecursionInput recInput = new RecursionInput(aState.TopService,nextState);
 			// TODO check this condition
 			if (!inputAlphabet.Contains(recInput)){
@@ -180,7 +183,7 @@ namespace FiniteStateMachines
 
 		private State HandleRecursionInput(StackState aState, RecursionInput recInput){
 			State resultState = ErrorState;
-			if( (aState.TopState.getFinal()) && (aState.LookupServiceTwice(recInput.Service).IsEmpty)){
+			if( (aState.TopState.IsFinalState) && (aState.LookupServiceTwice(recInput.Service).IsEmpty)){
 				FSM service = (FSM)serviceEffectSpecifications[aState.TopService];
 				Set reachableStates = service.GetReachableStates(recInput.State);
 				if (reachableStates.Contains(aState.TopState)){
@@ -193,7 +196,7 @@ namespace FiniteStateMachines
 
 		private State ReturnFromService(StackState aState){
 			StackState resultState = new StackState(aState);
-			if (resultState.PopState().getFinal()) {
+			if (resultState.PopState().IsFinalState) {
 				IFiniteStateMachine service;
 				Input calledServiceName = resultState.PopService();
 				if (resultState.IsEmpty){
@@ -203,7 +206,7 @@ namespace FiniteStateMachines
 				}
 				// TODO if transitions with different results should be handled, the object
 				// calledServiceName has to be extended by the result of the last transition
-				State nextState = service.getNextState(resultState.TopState,calledServiceName);
+				State nextState = service.GetNextState(resultState.TopState,calledServiceName);
 				resultState.ChangeTopState(nextState);
 			} else {
 				return ErrorState;

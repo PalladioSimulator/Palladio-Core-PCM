@@ -2,13 +2,11 @@ using System;
 using System.Collections;
 using Utils.Collections;
 
-namespace FiniteStateMachines.Decorators
-{
+namespace FiniteStateMachines.Decorators {
 	/// <summary>
 	/// Zusammenfassung für FCP.
 	/// </summary>
-	public class FCP
-	{
+	public class FCP {
 		protected FSM cp;
 		protected Set CPInput;
 		protected Stack oneStates;
@@ -17,8 +15,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Initaites a empty FCP
 		/// </summary>
-		public FCP()
-		{
+		public FCP() {
 		}
 		/// <summary>
 		/// Initiates a FCP and generates the crossprodukt of the two given FSMs
@@ -26,16 +23,14 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the other FSM, together with one they are used to
 		/// create the crossprodukt></param>
-		public FCP(FSM one, FSM two)
-		{
-				this.cp = generateCP(one,two);
+		public FCP(FSM one, FSM two) {
+			this.cp = generateCP(one,two);
 		}
 		/// <summary>
 		/// Returns the cp FSM 
 		/// </summary>
 		/// <returns></returns>
-		public FSM getCP()
-		{
+		public FSM getCP() {
 			return this.cp;
 		}
 		/// <summary>
@@ -44,95 +39,87 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the second FSM</param>
 		/// <returns>the cp of the two FSM</returns>
-		public FSM generateCP(FSM one, FSM two)
-		{
-//			try
-//			{
+		public FSM generateCP(FSM one, FSM two) {
+			//			try
+			//			{
 
-				this.cp = new FSM();
-				this.oneStates = new Stack();
-				this.twoStates = new Stack();
-				generateCPInput(one,two);
-				if(this.debug)
-				{
-					Console.WriteLine("CP Input: ");
-					this.printInput();
-				}
-				CPState StartState = new CPState(one.getStartState(),two.getStartState());
-				this.oneStates.Push(one.getStartState());
-				this.twoStates.Push(two.getStartState());
-				while(this.oneStates.Count!= 0 && this.twoStates.Count!=0)
-				{
+			this.cp = new FSM();
+			this.oneStates = new Stack();
+			this.twoStates = new Stack();
+			generateCPInput(one,two);
+			if(this.debug) {
+				Console.WriteLine("CP Input: ");
+				this.printInput();
+			}
+			CPState StartState = new CPState(one.StartState,two.StartState);
+			this.oneStates.Push(one.StartState);
+			this.twoStates.Push(two.StartState);
+			while(this.oneStates.Count!= 0 && this.twoStates.Count!=0) {
 
-					State oneBefore = (State) this.oneStates.Pop();
-					State twoBefore = (State) this.twoStates.Pop();
+				State oneBefore = (State) this.oneStates.Pop();
+				State twoBefore = (State) this.twoStates.Pop();
 
-					foreach(Input i in this.CPInput)
-					{
+				foreach(Input i in this.CPInput) {
 
 
-						State oneNext = one.getNextState(oneBefore,i);
-						if(this.debug)
-							Console.WriteLine("oneNext is: "+oneNext.ToString());
+					State oneNext = one.GetNextState(oneBefore,i);
+					if(this.debug)
+						Console.WriteLine("oneNext is: "+oneNext.ToString());
 
 
-						State twoNext = two.getNextState(twoBefore,i);
-						if(this.debug)
-							Console.WriteLine("twoNext is: "+twoNext.ToString());
+					State twoNext = two.GetNextState(twoBefore,i);
+					if(this.debug)
+						Console.WriteLine("twoNext is: "+twoNext.ToString());
 					
-						if(selfPointing(one,oneBefore,i)&& selfPointing(two,twoBefore,i)&&
-							!oneNext.Equals(one.ErrorState) && !twoNext.Equals(two.ErrorState))
-						{
-							//Console.WriteLine("Both Selfpointing");
-							CPState sps = new CPState(oneNext,twoNext);
-//							if(this.cp.getAllTransitionHashtable().Contains(new Transition(sps.getState(),i,sps.getState())))
-//							{
-//								Console.Write("es geht");
-//								continue;
-//							}
-							Console.WriteLine("in selfpointing folling transition set: "+"\n"
-								+new Transition(sps,i,sps));
-							this.cp.setTransition(sps,i,sps);
-							this.oneStates.Pop();
-							this.twoStates.Pop();
-							continue;
-						}
-						if(!oneNext.Equals(one.ErrorState)&&
-							!twoNext.Equals(two.ErrorState))
-						{
+					if(selfPointing(one,oneBefore,i)&& selfPointing(two,twoBefore,i)&&
+						!oneNext.Equals(one.ErrorState) && !twoNext.Equals(two.ErrorState)) {
+						//Console.WriteLine("Both Selfpointing");
+						CPState sps = new CPState(oneNext,twoNext);
+						//							if(this.cp.getAllTransitionHashtable().Contains(new Transition(sps.getState(),i,sps.getState())))
+						//							{
+						//								Console.Write("es geht");
+						//								continue;
+						//							}
+						Console.WriteLine("in selfpointing folling transition set: "+"\n"
+							+new Transition(sps,i,sps));
+						this.cp.setTransition(sps,i,sps);
+						this.oneStates.Pop();
+						this.twoStates.Pop();
+						continue;
+					}
+					if(!oneNext.Equals(one.ErrorState)&&
+						!twoNext.Equals(two.ErrorState)) {
 
-							CPState fromState = new CPState(oneBefore, twoBefore);
-							if(this.debug)
-								Console.WriteLine("CPState fromState: "+fromState.getState().ToString());
-							CPState toState = new CPState(oneNext,twoNext);
-							if(this.debug)
-								Console.WriteLine("CPState toState is: "+toState.getState().ToString());
-							Console.WriteLine("both sre! ES following transition added: " +"\n" 
-								+ new Transition(fromState.getState(),i,toState.getState()));
-							this.cp.setTransition(fromState.getState(),i,toState.getState());
-							this.oneStates.Push(oneNext);
-							this.twoStates.Push(twoNext);
-							if(this.debug)
-							{
-								Console.WriteLine("I put one oneStates: "+oneNext.ToString());
-								Console.WriteLine("I put on twoStates: "+twoNext.ToString());
-							}
+						CPState fromState = new CPState(oneBefore, twoBefore);
+						if(this.debug)
+							Console.WriteLine("CPState fromState: "+fromState.getState().ToString());
+						CPState toState = new CPState(oneNext,twoNext);
+						if(this.debug)
+							Console.WriteLine("CPState toState is: "+toState.getState().ToString());
+						Console.WriteLine("both sre! ES following transition added: " +"\n" 
+							+ new Transition(fromState.getState(),i,toState.getState()));
+						this.cp.setTransition(fromState.getState(),i,toState.getState());
+						this.oneStates.Push(oneNext);
+						this.twoStates.Push(twoNext);
+						if(this.debug) {
+							Console.WriteLine("I put one oneStates: "+oneNext.ToString());
+							Console.WriteLine("I put on twoStates: "+twoNext.ToString());
 						}
-
-						else
-						{
-					
-						}
-			
 					}
 
+					else {
+					
+					}
+			
 				}
-				return this.cp;
-//			}
-//			catch
-//			{
-//				return new FSM();
-//			}
+
+			}
+			return this.cp;
+			//			}
+			//			catch
+			//			{
+			//				return new FSM();
+			//			}
 
 		}
 		/// <summary>
@@ -142,20 +129,17 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="state">the state witch should be checked</param>
 		/// <param name="i">the inpt </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
-		protected bool selfPointing(FSM fsm, State state, Input i)
-		{
+		protected bool selfPointing(FSM fsm, State state, Input i) {
 			//Console.WriteLine("Checking selfPointing");
 			State temp = null;
-			foreach(State s in fsm.getStates())
-			{
-				if(s.Equals(state))
-				{
+			foreach(State s in fsm.getStates()) {
+				if(s.Equals(state)) {
 					temp = s;
 					break;
 				}
 			}
 
-			State t = fsm.getNextState(temp,i);
+			State t = fsm.GetNextState(temp,i);
 			if (t.Equals(state))
 				return true;
 			return false;
@@ -165,14 +149,11 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the second FSM</param>
-		protected void generateCPInput(FSM one, FSM two)
-		{
+		protected void generateCPInput(FSM one, FSM two) {
 			this.CPInput = new Set();
-			foreach(Input i in one.getInputAl())
-			{
-				foreach(Input p in two.getInputAl())
-					if(p.Equals(i))
-					{
+			foreach(Input i in one.InputAlphabet) {
+				foreach(Input p in two.InputAlphabet)
+					if(p.Equals(i)) {
 						//Console.WriteLine("I just added in CPInput: "+i.ToString());
 						this.CPInput.Add((Input) i);
 					}
@@ -181,8 +162,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// for debugging prints the cp Input
 		/// </summary>
-		public void printInput()
-		{
+		public void printInput() {
 			foreach(Input i in this.CPInput)
 				Console.WriteLine(i.ToString());
 		}

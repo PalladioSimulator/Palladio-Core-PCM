@@ -1,20 +1,17 @@
 using System;
 using System.Collections;
 
-namespace FiniteStateMachines
-{
+namespace FiniteStateMachines {
 	/// <summary>
 	/// Íterates over the Transitions of a FSM.
 	/// </summary>
-	public class TransitionIterator
-	{
+	public class TransitionIterator {
 		protected Transition[] array;
 		protected ArrayList store;
 		protected int counter;
-		public TransitionIterator(IFiniteStateMachine f)
-		{
+		public TransitionIterator(IFiniteStateMachine f) {
 			
-			this.array = f.getTransitions();
+			this.array = f.GetTransitions();
 			this.store = new ArrayList();
 			foreach(Transition t in this.array)
 				this.store.Add(t);
@@ -24,8 +21,7 @@ namespace FiniteStateMachines
 		/// checks, if there is a another Transition to iterate over.
 		/// </summary>
 		/// <returns></returns>
-		public bool MoveNext()
-		{
+		public bool MoveNext() {
 			this.counter++;
 			if(this.store.Count<= this.counter)
 				return false;
@@ -34,10 +30,8 @@ namespace FiniteStateMachines
 		/// <summary>
 		/// returns the current Transition
 		/// </summary>
-		public object Current
-		{
-			get
-			{
+		public object Current {
+			get {
 				return this.store[this.counter];
 			}
 		}
