@@ -98,7 +98,7 @@ namespace Palladio.ParameterisedContracts {
 		public override bool Equals(object obj) {
 			if (obj is StackContext) {
 				StackContext other = (StackContext)obj;
-				return ((State == other.State) && (ServiceName == other.ServiceName));
+				return ((State.Equals(other.State) && (ServiceName == other.ServiceName)));
 			}
 			return false;
 		}

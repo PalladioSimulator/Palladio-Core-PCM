@@ -209,7 +209,7 @@ namespace UnitTests.FiniteStateMachines {
 			IList outgoing = sfsm.GetOutgoingTransitions(s);
 			Assert.IsTrue(outgoing.Contains(new Transition(s,id1,v)));
 			Assert.IsTrue(outgoing.Contains(new Transition(s,id2,t)));
-			foreach (Transition trans in outgoing) {
+			foreach (ITransition trans in outgoing) {
 				if ((trans.InputSymbol != id1) && (trans.InputSymbol != id2)){
 					Assert.AreEqual(sfsm.ErrorState,trans.DestinationState);
 				}
@@ -246,31 +246,31 @@ namespace UnitTests.FiniteStateMachines {
 			
 			
 
-			foreach (Transition trans in rfsm.GetOutgoingTransitions(r6)) {
-				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
-					((trans.InputSymbol == id1s) && (trans.DestinationState.Equals(r7))),trans.ToString());
+			foreach (ITransition trans in rfsm.GetOutgoingTransitions(r6)) {
+				Assert.IsTrue(trans.DestinationState.Equals(rfsm.ErrorState)  || 
+					(trans.InputSymbol.Equals(id1s) && trans.DestinationState.Equals(r7)),trans.ToString());
 			}
-			foreach (Transition trans in rfsm.GetOutgoingTransitions(r7)) {
-				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
-					((trans.InputSymbol == id3) && (trans.DestinationState == r8)),trans.ToString());
+			foreach (ITransition trans in rfsm.GetOutgoingTransitions(r7)) {
+				Assert.IsTrue(trans.DestinationState.Equals(rfsm.ErrorState)  || 
+					(trans.InputSymbol.Equals(id3) && trans.DestinationState.Equals(r8)),trans.ToString());
 			}
-			foreach (Transition trans in rfsm.GetOutgoingTransitions(r8)) {
-				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
-					((trans.InputSymbol == e4) && (trans.DestinationState == r10)) ||
-					((trans.InputSymbol == e5) && (trans.DestinationState == r9)),trans.ToString());
+			foreach (ITransition trans in rfsm.GetOutgoingTransitions(r8)) {
+				Assert.IsTrue(trans.DestinationState.Equals(rfsm.ErrorState)  || 
+					(trans.InputSymbol.Equals(e4) && trans.DestinationState.Equals(r10)) ||
+					(trans.InputSymbol.Equals(e5) && trans.DestinationState.Equals(r9)),trans.ToString());
 			}
-			foreach (Transition trans in rfsm.GetOutgoingTransitions(r9)) {
-				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
-					((trans.InputSymbol == id1s) && (trans.DestinationState == r7)),trans.ToString());
+			foreach (ITransition trans in rfsm.GetOutgoingTransitions(r9)) {
+				Assert.IsTrue(trans.DestinationState.Equals(rfsm.ErrorState)  || 
+					(trans.InputSymbol.Equals(id1s) && trans.DestinationState.Equals(r7)),trans.ToString());
 			}
-			foreach (Transition trans in rfsm.GetOutgoingTransitions(r9)) {
-				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
-					((trans.InputSymbol == id1s) && (trans.DestinationState == r7)),trans.ToString());
+			foreach (ITransition trans in rfsm.GetOutgoingTransitions(r9)) {
+				Assert.IsTrue(trans.DestinationState.Equals(rfsm.ErrorState)  || 
+					(trans.InputSymbol.Equals(id1s) && trans.DestinationState.Equals(r7)),trans.ToString());
 			}
-			foreach (Transition trans in rfsm.GetOutgoingTransitions(r13)) {
-				Assert.IsTrue((trans.DestinationState == rfsm.ErrorState)  || 
-					((trans.InputSymbol == rIn) && (trans.DestinationState == r12)) ||
-					((trans.InputSymbol == Input.RETURN) && (trans.DestinationState == r14)),trans.ToString());
+			foreach (ITransition trans in rfsm.GetOutgoingTransitions(r13)) {
+				Assert.IsTrue(trans.DestinationState.Equals(rfsm.ErrorState)  || 
+					(trans.InputSymbol.Equals(rIn) && trans.DestinationState.Equals(r12)) ||
+					(trans.InputSymbol.Equals(Input.RETURN) && trans.DestinationState.Equals(r14)),trans.ToString());
 			}
 		}
 	}

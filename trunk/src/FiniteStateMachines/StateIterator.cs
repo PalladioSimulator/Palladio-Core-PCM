@@ -34,9 +34,9 @@ namespace Palladio.FiniteStateMachines {
 		private IState returnState;
 
 		/// <summary>
-		/// The currant Transition that will be returned
+		/// The currant ITransition that will be returned
 		/// </summary>
-		private Transition currentTransition;
+		private ITransition currentTransition;
 
 		/// <summary>
 		/// A <code>Stack</code> in which all transitions are stored during iteration.
@@ -85,7 +85,7 @@ namespace Palladio.FiniteStateMachines {
 				}		
 				currentState = (IState) this.states.Peek();
 				nextStates = getters.GetOutgoingTransitions(currentState);
-				Transition tempTransition = new Transition();
+				ITransition tempTransition = new Transition();
 				IEnumerator iterateOverChildren = nextStates.GetEnumerator();
 				while(iterateOverChildren.MoveNext()) {
 					
@@ -114,7 +114,7 @@ namespace Palladio.FiniteStateMachines {
 
 		/// <summary>
 		/// After iteration this is used to remove ErrorStates from the Stack, 
-		/// sets the State and the Transition which will be returned and adds this
+		/// sets the State and the ITransition which will be returned and adds this
 		/// state to the visited states so they won't be retruned again.
 		/// </summary>
 		private void TidyUpAndSetReturningValues() {
@@ -123,7 +123,7 @@ namespace Palladio.FiniteStateMachines {
 				this.MoveNext();
 			}
 			this.returnState = (IState) this.states.Peek();
-			this.currentTransition = (Transition) this.transitions.Peek();
+			this.currentTransition = (ITransition) this.transitions.Peek();
 			this.alreadyReturned.Add((IState) this.states.Peek());
 		}
 
@@ -151,8 +151,8 @@ namespace Palladio.FiniteStateMachines {
 		/// </summary>
 		/// <param name="iterateOverChildren">IEnumerator which helps to iterate</param>
 		private void ExploreAllChildrenOfCurrentState(IEnumerator iterateOverChildren) {
-			Transition tempTransition;
-			tempTransition = (Transition) iterateOverChildren.Current;
+			ITransition tempTransition;
+			tempTransition = (ITransition) iterateOverChildren.Current;
 			this.states.Push(tempTransition.DestinationState);
 			this.transitions.Push(tempTransition);
 			if(this.debugOutput)
@@ -161,19 +161,19 @@ namespace Palladio.FiniteStateMachines {
 
 
 		/// <summary>
-		/// Creates a Transition from nowhere to the Startstate
+		/// Creates a ITransition from nowhere to the Startstate
 		/// </summary>
 		private void CreateInitailTransition() {
 			this.states.Push(this.getters.StartState); 
 			this.isInitialised = true;
 			this.returnState = (IState) this.states.Peek();
-			//First Transition of a FSM 
+			//First ITransition of a FSM 
 			IState none = new State("null",false,false);
 			Input noInput = new Input("null"); 
-			Transition initialTransition = new Transition(none,new Input("null"),this.returnState);
+			ITransition initialTransition = new Transition(none,new Input("null"),this.returnState);
 			this.transitions.Push(initialTransition);
 			this.alreadyReturned.Add(this.returnState);
-			this.currentTransition = (Transition) this.transitions.Peek();
+			this.currentTransition = (ITransition) this.transitions.Peek();
 		}
 
 

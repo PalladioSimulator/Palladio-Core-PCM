@@ -12,7 +12,7 @@ namespace UnitTests.FiniteStateMachines {
 	public class TransitionTest {
 		IState s1,s2,s3;
 		Input i1,i2;
-		Transition tOne, tTwo, tThree, tFour;
+		ITransition tOne, tTwo, tThree, tFour;
 
 		/// <summary>
 		/// 
@@ -63,7 +63,7 @@ namespace UnitTests.FiniteStateMachines {
 		/// 
 		/// </summary>
 		[Test] public void SetValues() {
-			Transition t = new Transition(s2,i2,s3);
+			ITransition t = new Transition(s2,i2,s3);
 			t.SetValues(tOne.SourceState,tOne.InputSymbol,tOne.DestinationState);
 			Assert.AreEqual(tOne,t);
 		}

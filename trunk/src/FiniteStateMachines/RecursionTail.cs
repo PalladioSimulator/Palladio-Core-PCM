@@ -97,7 +97,7 @@ namespace Palladio.ParameterisedContracts {
 
 
 		/// <summary>
-		///     Returns the next Transition
+		///     Returns the next ITransition
 		///     starting at aSourceState
 		///     with the input symbol anInput.
 		/// </summary>
@@ -108,14 +108,14 @@ namespace Palladio.ParameterisedContracts {
 		/// <returns>The transition starting at aSourceState
 		///     with the input symbol anInput. </returns>
 		/// <seealso cref="IFiniteStateMachine.GetNextTransition"></seealso>
-		public override Transition GetNextTransition(IState aSourceState, Input anInput) {
-			Transition result = new Transition(aSourceState,anInput,ErrorState);
+		public override ITransition GetNextTransition(IState aSourceState, Input anInput) {
+			ITransition result = new Transition(aSourceState,anInput,ErrorState);
 
 			if (anInput is MarkedInput) {
 				Input input = ((MarkedInput) anInput).GetUnMarkedInput();
 				result.DestinationState = originalFSM.GetNextState(aSourceState,input);
 			} else {
-				if ( anInput == recursionInput ) {
+				if ( anInput.Equals(recursionInput )) {
 					if ( reachableFinalStates.Contains( aSourceState )) {
 						result.DestinationState = recursionEndState;
 					}

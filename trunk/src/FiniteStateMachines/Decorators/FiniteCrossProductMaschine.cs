@@ -158,7 +158,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <param name="i">the inpt </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
 		protected bool LoopChecking(IFiniteStateMachine fsm, IState state, Input i) {
-			return state == fsm.GetNextState(state,i);
+			return state.Equals(fsm.GetNextState(state,i));
 		}
 
 

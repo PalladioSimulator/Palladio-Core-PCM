@@ -28,7 +28,7 @@ namespace Palladio.FiniteStateMachines {
 		/// <summary>
 		///		The currently active transition.
 		/// </summary>
-		private Transition currentTransition;
+		private ITransition currentTransition;
 
 		/// <summary>
 		///		FSM to which all transitions enumerated here belong.
@@ -89,7 +89,7 @@ namespace Palladio.FiniteStateMachines {
 		/// <summary>
 		///		Get the currently active transitions.
 		/// </summary>
-		public Transition Current {
+		public ITransition Current {
 			get { return currentTransition; }
 		}
 
@@ -115,7 +115,7 @@ namespace Palladio.FiniteStateMachines {
 				}
 			}
 			if(transitionList.Count > 0){
-				currentTransition = (Transition)transitionList[--transitionIndex];
+				currentTransition = (ITransition)transitionList[--transitionIndex];
 				return true;
 			} else {
 				return false;

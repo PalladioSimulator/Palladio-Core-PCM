@@ -69,7 +69,7 @@ namespace Palladio.FiniteStateMachines {
 					IList tmp = this.fsm.GetOutgoingTransitions(this.currentState);
 					IEnumerator iterator = tmp.GetEnumerator();
 					while(iterator.MoveNext()) {
-						Transition  t = (Transition)iterator.Current;
+						ITransition  t = (ITransition)iterator.Current;
 						IState visiting = t.DestinationState;
 						if(!this.visitedStates.Contains(visiting)) {
 							this.visitedStates.Add(visiting);

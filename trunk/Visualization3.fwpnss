@@ -434,7 +434,7 @@
         <ShowProtectedInternal>True</ShowProtectedInternal>
       </VisibilityPreference>
     </ClassProjection>
-    <ClassProjection Depth="0" AddedByUser="False" Fullname="FiniteStateMachines.Transition">
+    <ClassProjection Depth="0" AddedByUser="False" Fullname="FiniteStateMachines.ITransition">
       <TopLeft X="1168" Y="347" />
       <OverrideDefaultPreferences>False</OverrideDefaultPreferences>
       <AccessorMemberPreference>

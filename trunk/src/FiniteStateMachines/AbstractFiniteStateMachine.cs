@@ -65,7 +65,7 @@ namespace Palladio.FiniteStateMachines
 		public abstract Set InputAlphabet { get; }
 
 		/// <summary>
-		///     Returns the next Transition
+		///     Returns the next ITransition
 		///     starting at aSourceState
 		///     with the input symbol anInput.
 		/// </summary>
@@ -80,7 +80,7 @@ namespace Palladio.FiniteStateMachines
 		///		The transition starting at aSourceState
 		///     with the input symbol anInput. 
 		/// </returns>
-		public abstract Transition GetNextTransition(IState aSourceState, Input anInput);
+		public abstract ITransition GetNextTransition(IState aSourceState, Input anInput);
         
 		/// <summary>
 		///     Adds a single transition to the automaton.
@@ -91,7 +91,7 @@ namespace Palladio.FiniteStateMachines
 		/// <param name="aTransition">
 		///		The transition to add to the automaton.
 		///	</param>
-		public virtual void AddTransition(Transition aTransition)
+		public virtual void AddTransition(ITransition aTransition)
 		{
 			throw new MethodNotImplementedException();
 		}
@@ -138,14 +138,14 @@ namespace Palladio.FiniteStateMachines
 		/// <returns>
 		///		A Hashtable which contains all transitions for the source state.
 		///     The key of the Hashtable is the Input and the value the
-		///     corresponding Transition.
+		///     corresponding ITransition.
 		/// </returns>
 		public virtual IList GetOutgoingTransitions(IState aSourceState) 
 		{
 			IList result = new ArrayList();
 			foreach( Input input in InputAlphabet ) 
 			{
-				Transition trans = GetNextTransition(aSourceState,input);
+				ITransition trans = GetNextTransition(aSourceState,input);
 				if ( trans.DestinationState != ErrorState ) 
 				{
 					result.Add(trans);
@@ -217,7 +217,7 @@ namespace Palladio.FiniteStateMachines
 				IList transitions = GetOutgoingTransitions(aState);
 				if (transitions != null) 
 				{
-					foreach (Transition trans in transitions) 
+					foreach (ITransition trans in transitions) 
 					{
 						GetReachableStatesRecursive(trans.DestinationState,ref resultSet);
 					}

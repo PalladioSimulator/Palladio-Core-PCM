@@ -38,9 +38,15 @@ namespace Palladio.ParameterisedContracts {
 		private Set finalStates;
 
 		/// <summary>
-		/// Default type for all transitions, which have to be created.
+		/// Archetype for all transitions to the errorstate
 		/// </summary>
-		private System.Type defaultTransitonType;
+		private ITransition defaultErrorTransiton;
+
+
+		/// <summary>
+		/// Archetype for all transitions containing a RecursionInput.
+		/// </summary>
+		private ITransition defaultRecursiveTransition;
 
 
 
@@ -58,7 +64,8 @@ namespace Palladio.ParameterisedContracts {
 			serviceTable = (Hashtable)aServiceTable.Clone();
 			inputAlphabet = DetermineInputAlphabet();
 			finalStates = DetermineFinalStates();
-			DefaultTransitionType = Type.GetType("FiniteStateMachines.Transition");
+			DefaultErrorTransition = new Transition();
+			DefaultRecursiveTransition = new Transition();
 
 			// Iterate through the Machine once, to find all recursions.
 			TransitionIterator it = new TransitionIterator(this);
@@ -104,11 +111,22 @@ namespace Palladio.ParameterisedContracts {
 
 		
 		/// <summary>
-		/// Default type for all transitions, which have to be created.
+		/// Archetype for all transitions to the errorstate
 		/// </summary>
-		public System.Type DefaultTransitionType {
-			set{ defaultTransitonType = value; }
-			get{ return defaultTransitonType; }
+		public ITransition DefaultErrorTransition 
+		{
+			set{ defaultErrorTransiton = value; }
+			get{ return defaultErrorTransiton; }
+		}
+
+
+		/// <summary>
+		/// Archetype for all transitions containing a RecursionInput.
+		/// </summary>
+		public ITransition DefaultRecursiveTransition
+		{
+			set{ defaultRecursiveTransition = value; }
+			get{ return defaultRecursiveTransition; }
 		}
 
 
@@ -116,7 +134,8 @@ namespace Palladio.ParameterisedContracts {
 		///     FinalStates, constructed out of the final states
 		///     of the provides protocol.
 		/// </summary>
-		public override Set FinalStates {
+		public override Set FinalStates 
+		{
 			get { return finalStates; }
 		}
 
@@ -164,7 +183,7 @@ namespace Palladio.ParameterisedContracts {
 		/// <returns>
 		///		A Hashtable which contains all transtions for the given state.
 		///     The key of the Hashtable is the Input and the value the
-		///     corresponding Transition.
+		///     corresponding ITransition.
 		/// </returns>
 		/// <seealso cref="IFiniteStateMachine.GetOutgoingTransitions"></seealso>
 		public override IList GetOutgoingTransitions(IState aSourceState) {
@@ -173,7 +192,7 @@ namespace Palladio.ParameterisedContracts {
 			// iteration leading to an exception, otherwise
 			IList alphabet = (IList)InputAlphabet.Clone();
 			foreach (Input input in alphabet) {
-				Transition nextTransition = GetNextTransition(aSourceState,input);
+				ITransition nextTransition = GetNextTransition(aSourceState,input);
 				if (nextTransition.DestinationState != ErrorState) {
 					result.Add(nextTransition);
 				}
@@ -197,8 +216,8 @@ namespace Palladio.ParameterisedContracts {
 		/// <param name="aSourceState">StackState for which the transition must be simulated</param>
 		/// <param name="anInput">The input symbol for the transition</param>
 		/// <returns>The transition object of aService with altered states</returns>
-		protected Transition GetTransitionInService(IFiniteStateMachine aService, StackState aSourceState, Input aServiceName) {
-			Transition result = (Transition)aService.GetNextTransition(aSourceState.Peek().State,aServiceName).Clone();
+		protected ITransition GetTransitionInService(IFiniteStateMachine aService, StackState aSourceState, Input aServiceName) {
+			ITransition result = (ITransition)aService.GetNextTransition(aSourceState.Peek().State,aServiceName).Clone();
 			if (result.DestinationState != aService.ErrorState) {
 				IState destinationState = new StackState(aSourceState);
 				((StackState)destinationState).ChangeTopState(result.DestinationState);
@@ -224,14 +243,14 @@ namespace Palladio.ParameterisedContracts {
 		/// <param name="aSourceState">StackState for which the transition must be simulated</param>
 		/// <param name="aServiceName">called service</param>
 		/// <returns>The transition object of aSourceState.Peek().ServiceName with altered states</returns>
-		protected Transition CallService(StackState aSourceState, Input aServiceName) {
-			Transition result = CreateTransition(aSourceState,aServiceName,ErrorState);
+		protected ITransition CallService(StackState aSourceState, Input aServiceName) {
+			ITransition result = CreateErrorTransition(aSourceState,aServiceName);
 			IFiniteStateMachine topService = LookUpService(aSourceState.Peek().ServiceName);
 			
 			// check if the input symbol is valid for topService
 			if (topService.InputAlphabet.Contains(aServiceName)) {
 				// check if the transition is valid in this context
-				Transition topTransition = topService.GetNextTransition(aSourceState.Peek().State,aServiceName);
+				ITransition topTransition = topService.GetNextTransition(aSourceState.Peek().State,aServiceName);
 				if(topTransition.DestinationState != topService.ErrorState) {
 					// check for recursion
 					if (CheckRecursion(aSourceState,aServiceName)) {
@@ -240,7 +259,7 @@ namespace Palladio.ParameterisedContracts {
 						IState destinationState = new StackState(aSourceState);
 						IFiniteStateMachine calledService = LookUpService(aServiceName);
 						((StackState)destinationState).Push(aServiceName,calledService.StartState);
-						result = (Transition)topTransition.Clone();
+						result = (ITransition)topTransition.Clone();
 						result.SetValues(aSourceState,aServiceName,destinationState);
 					}
 				}
@@ -269,7 +288,7 @@ namespace Palladio.ParameterisedContracts {
 		/// <param name="aSourceState">StackState for which the recursion was detected</param>
 		/// <param name="aServiceName">Recursive symbol</param>
 		/// <returns>The transition object of aSourceState.Peek().ServiceName with altered states</returns>
-		protected abstract Transition HandleRecursionCall(StackState aSourceState, Input aServiceName);
+		protected abstract ITransition HandleRecursionCall(StackState aSourceState, Input aServiceName);
 
 
 		/// <summary>
@@ -282,8 +301,8 @@ namespace Palladio.ParameterisedContracts {
 		/// </summary>
 		/// <param name="aSourceState">source</param>
 		/// <returns>The transition object of the calling service with altered states</returns>
-		protected Transition ReturnFromService(StackState aSourceState) {
-			Transition result = CreateTransition(aSourceState,Input.RETURN,ErrorState);
+		protected ITransition ReturnFromService(StackState aSourceState) {
+			ITransition result = CreateErrorTransition(aSourceState,Input.RETURN);
 			if (!aSourceState.InTopService) {
 				StackState destinationState = new StackState(aSourceState);
 				StackContext currentContext = destinationState.Pop();
@@ -295,7 +314,7 @@ namespace Palladio.ParameterisedContracts {
 
 					// TODO if transitions with different results should be handled, the object
 					// calledServiceName has to be extended by the result of the last transition
-					result = (Transition)service.GetNextTransition(destinationState.Peek().State,calledServiceName).Clone();
+					result = (ITransition)service.GetNextTransition(destinationState.Peek().State,calledServiceName).Clone();
 					destinationState.ChangeTopState(result.DestinationState);
 					result.SetValues(aSourceState,Input.RETURN,destinationState);
 				}
@@ -317,21 +336,32 @@ namespace Palladio.ParameterisedContracts {
 			return service;
 		}
 
+		
 		/// <summary>
-		///     Creates a new Transition using the default type.
+		/// Create new ITransition to the errorstate using the archetype.
 		/// </summary>
-		/// <returns>New Transition object</returns>
-		protected Transition CreateTransition(IState aSourceState, Input anInputSymbol, IState aDestinationState) {
-			Type[] types = new Type[3];
-			types[0] = typeof(IState);
-			types[1] = typeof(Input);
-			types[2] = typeof(IState);
-			System.Reflection.ConstructorInfo constructorInfo = defaultTransitonType.GetConstructor(types);
-			object[] parameters = new object[3];
-			parameters[0] = aSourceState;
-			parameters[1] = anInputSymbol;
-			parameters[2] = aDestinationState;
-			return (Transition)constructorInfo.Invoke(parameters);
+		/// <returns>New ITransition object</returns>
+		protected ITransition CreateErrorTransition(IState aSourceState, Input anInputSymbol) {
+			ITransition result = (ITransition) DefaultErrorTransition.Clone();
+			result.DestinationState = ErrorState;
+			result.InputSymbol = anInputSymbol;
+			result.SourceState = aSourceState;
+			return result;
 		}
+
+		
+		/// <summary>
+		/// Create new ITransition to the errorstate using the archetype.
+		/// </summary>
+		/// <returns>New ITransition object</returns>
+		protected ITransition CreateRecursiveTransition(IState aSourceState, Input anInputSymbol, IState aDestinationState) 
+		{
+			ITransition result = (ITransition) DefaultRecursiveTransition.Clone();
+			result.DestinationState = aDestinationState;
+			result.InputSymbol = anInputSymbol;
+			result.SourceState = aSourceState;
+			return result;
+		}
+
 	}
 }

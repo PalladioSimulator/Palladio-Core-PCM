@@ -39,10 +39,10 @@ namespace Palladio.FiniteStateMachines {
 		///		state machine. The key of the Hashtable is the
 		///		source state, the value is another Hashtable. In this
 		///		sub-Hashtable the key is the Input of the 
-		///		Transition and the value the Transition itself.
+		///		ITransition and the value the ITransition itself.
 		/// 
 		///		This produces a hierarchie which can be used for a quick lookup of all
-		///		Transition objects.
+		///		ITransition objects.
 		/// </summary>
 		private Hashtable transitionTable;
 
@@ -164,7 +164,7 @@ namespace Palladio.FiniteStateMachines {
 				if ((source != null) && (target != null) && (input != null)) {
 					AddTransition(new Transition(source,input,target));
 				} else {
-					throw new ApplicationException("Incomplete Transition found!");
+					throw new ApplicationException("Incomplete ITransition found!");
 				}
 			}
 			
@@ -228,7 +228,7 @@ namespace Palladio.FiniteStateMachines {
 
 
 		/// <summary>
-		///     Returns the next Transition
+		///     Returns the next ITransition
 		///     starting at aSourceState
 		///     with the input symbol anInput.
 		///     
@@ -246,9 +246,9 @@ namespace Palladio.FiniteStateMachines {
 		///		The transition starting at aSourceState
 		///     with the input symbol anInput. 
 		/// </returns>
-		public override Transition GetNextTransition(IState aSourceState, Input anInput) {
+		public override ITransition GetNextTransition(IState aSourceState, Input anInput) {
 			//TODO use DefaultTransitionType here
-			Transition result = new Transition(aSourceState,anInput,ErrorState);
+			ITransition result = new Transition(aSourceState,anInput,ErrorState);
 			if((!States.Contains(aSourceState)) && (aSourceState != ErrorState)) {
 				throw new InvalidStateException(aSourceState+" is not a valid state for this finite state machine!");
 			} 
@@ -258,7 +258,7 @@ namespace Palladio.FiniteStateMachines {
 			else if (transitionTable.Contains(aSourceState)) {
 				Hashtable inputTable = (Hashtable) transitionTable[aSourceState];
 				if (inputTable.Contains(anInput)){
-					result = (Transition)inputTable[anInput];
+					result = (ITransition)inputTable[anInput];
 				}
 			}
 			return result;
@@ -274,7 +274,7 @@ namespace Palladio.FiniteStateMachines {
 		/// <returns>
 		///		A Hashtable which contains all transitions for the source state.
 		///     The key of the Hashtable is the Input and the value the
-		///     corresponding Transition.
+		///     corresponding ITransition.
 		/// </returns>
 		public override IList GetOutgoingTransitions(IState state) {
 			ArrayList result = new ArrayList();
@@ -319,7 +319,7 @@ namespace Palladio.FiniteStateMachines {
 		///     Adds the transtion and the states included in the
 		///     transition to the finite state machine.
 		/// </summary>
-		public override void AddTransition(Transition aTransition) {	
+		public override void AddTransition(ITransition aTransition) {	
 			AddState(aTransition.SourceState);
 			AddState(aTransition.DestinationState);
 			AddInput(aTransition.InputSymbol);
@@ -379,7 +379,7 @@ namespace Palladio.FiniteStateMachines {
 		///     Adds a list of transitions to the finite state machine.
 		/// </summary>
 		public override void AddTransitionList(IList aTransitionList) {	
-			foreach (Transition trans in aTransitionList){
+			foreach (ITransition trans in aTransitionList){
 				this.AddTransition(trans);
 			}
 		}

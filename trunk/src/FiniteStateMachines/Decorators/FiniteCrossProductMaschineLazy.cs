@@ -194,7 +194,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 					NextState = this.ErrorState;
 				}
 				if(!NextState.Equals(this.ErrorState)) {
-					Transition newTransition = new Transition(state,i,NextState);
+					ITransition newTransition = new Transition(state,i,NextState);
 					transitionList.Add(newTransition);
 				}
 			}
@@ -205,15 +205,15 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <summary>
 		/// Delivers all transitions of the FiniteCrossProductMachine. 
 		/// </summary>
-		/// <returns>All transitions stored in a Transition[]</returns>
-		public Transition[] GetTransitions() {
+		/// <returns>All transitions stored in a ITransition[]</returns>
+		public ITransition[] GetTransitions() {
 			if(!this.TransitionsCreated)
 				CreateTransitions();
 
-			Transition[] TransitionsArray = new Transition[this.Transitions.Count];
+			ITransition[] TransitionsArray = new ITransition[this.Transitions.Count];
 			int i = 0;
 			foreach(DictionaryEntry dic in this.Transitions) {
-				TransitionsArray[i] = (Transition) dic.Value;
+				TransitionsArray[i] = (ITransition) dic.Value;
 				i++;
 			}
 			return TransitionsArray;
@@ -291,8 +291,8 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// </summary>
 		/// <param name="state">The souce State for the transition. It muzt be a DualState</param>
 		/// <param name="i">The input for the transition</param>
-		/// <returns>The Transition</returns>
-		public override Transition GetNextTransition(IState state, Input i) {
+		/// <returns>The ITransition</returns>
+		public override ITransition GetNextTransition(IState state, Input i) {
 			if(state is DualState== false)
 				throw new InvalidStateException();
 			if(!this.InputAlphabet.Contains(i))
@@ -309,7 +309,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <param name="i">the input </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
 		protected bool selfPointing(IFiniteStateMachine fsm, IState state, Input i) {
-			return state == fsm.GetNextState(state,i);
+			return state.Equals(fsm.GetNextState(state,i));
 		}
 	}
 }

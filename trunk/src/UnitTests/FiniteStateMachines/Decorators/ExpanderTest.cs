@@ -14,7 +14,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 	public class MachineExpanderTest{
 		IState[] states;
 		Input[] inputs;
-		Transition[] transitionSet;
+		ITransition[] transitionSet;
 		TabularFSM tabularMachine;
 		FiniteEpsilonMachine epsilonMachine;
 		Set epsilonAlphabet;
@@ -41,7 +41,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			inputs[4] = new Input("four");
 			inputs[5] = new Input("five");
 
-			transitionSet = new Transition[7];
+			transitionSet = new ITransition[7];
 			transitionSet[0] = new Transition(states[0],inputs[0],states[1]);
 			transitionSet[1] = new Transition(states[0],inputs[2],states[3]);
 			transitionSet[2] = new Transition(states[1],inputs[5],states[2]);
@@ -121,7 +121,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			state = expanded.GetNextState (state,inputs[0]);
 			state = expanded.GetNextState (state,inputs[5]);
 			state = expanded.GetNextState (state,inputs[1]);
-			Assert.IsFalse(state == expanded.ErrorState);
+			Assert.IsFalse(state.Equals(expanded.ErrorState));
 			Assert.IsTrue(expanded.GetOutgoingTransitions(expanded.GetNextState(state,inputs[0])).Count == 0);
 			state = expanded.GetNextState (state,inputs[2]);
 			state = expanded.GetNextState (state,inputs[4]);

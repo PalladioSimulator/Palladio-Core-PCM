@@ -98,7 +98,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		}
 
 		/// <summary>
-		///     Returns the next Transition starting at aSourceState
+		///     Returns the next ITransition starting at aSourceState
 		///     with the input symbol anInput.
 		/// </summary>
 		/// 
@@ -112,8 +112,8 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		///		The transition starting at aSourceState
 		///     with the input symbol anInput. 
 		/// </returns>
-		public override Transition GetNextTransition(IState aSourceState, Input anInput) {
-			Transition result = (Transition)fsm.GetNextTransition( aSourceState, anInput).Clone();
+		public override ITransition GetNextTransition(IState aSourceState, Input anInput) {
+			ITransition result = (ITransition)fsm.GetNextTransition( aSourceState, anInput).Clone();
 			result.DestinationState = GetRepresentative (result.DestinationState);
 			return result;
 		}

@@ -2,7 +2,7 @@ namespace Palladio.FiniteStateMachines {
 	/// <summary>
 	/// Represents the transitions of the FSM.
 	/// 
-	/// Important:	Every class which inherits from <code>Transition</code> has to
+	/// Important:	Every class which inherits from <code>ITransition</code> has to
 	///				implement the method <code>Clone()</code> and a constructor 
 	///				of the following type:
 	///				
@@ -30,10 +30,10 @@ namespace Palladio.FiniteStateMachines {
 
 		/// <summary>
 		/// Deafault constructor
-		/// Initializes a new instance of the Transition.
-		/// <param name="f">State, the source of the Transition.</param>
-		/// <param name="i">Input of the Transition.</param>
-		/// <param name="t">State, where the Transition leads to.</param>
+		/// Initializes a new instance of the ITransition.
+		/// <param name="f">State, the source of the ITransition.</param>
+		/// <param name="i">Input of the ITransition.</param>
+		/// <param name="t">State, where the ITransition leads to.</param>
 		public Transition(IState aSourceState, Input anInputSymbol, IState aDestinationState) {
 			this.SourceState = aSourceState;
 			this.InputSymbol = anInputSymbol;
@@ -55,7 +55,7 @@ namespace Palladio.FiniteStateMachines {
 		/// The copy constructor.
 		/// </summary>
 		/// <param name="newTransition"></param>
-		public Transition(Transition newTransition) {
+		public Transition(ITransition newTransition) {
 			this.SourceState = newTransition.SourceState;
 			this.InputSymbol = newTransition.InputSymbol;
 			this.DestinationState = newTransition.DestinationState;
@@ -105,7 +105,7 @@ namespace Palladio.FiniteStateMachines {
 		/// <summary>
 		/// Returns a string representing the instance of a transition.
 		/// </summary>
-		/// <returns>The Transition as string.</returns>
+		/// <returns>The ITransition as string.</returns>
 		override public string ToString() {
 			return "( " + SourceState + "\t-  " + InputSymbol + "\t-  " + DestinationState + ")";
 		}
@@ -136,8 +136,8 @@ namespace Palladio.FiniteStateMachines {
 		/// <param name="obj"></param>
 		/// <returns></returns>
 		public override bool Equals(object obj) {
-			if (obj is Transition) {
-				Transition trans = (Transition)obj;
+			if (obj is ITransition) {
+				ITransition trans = (ITransition)obj;
 				return (DestinationState.Equals(trans.DestinationState) &&
 					SourceState.Equals(trans.SourceState) &&
 					InputSymbol.Equals(trans.InputSymbol));

@@ -13,7 +13,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 	/// StartState: ((Startstate A, StartState B)) 
 	/// FinalState: ((FinalState A, FinalState B))
 	/// FSPState: ((aState of A, aState of B))
-	/// Transition: ((FSPState x, Input i, FSPState y) |
+	/// ITransition: ((FSPState x, Input i, FSPState y) |
 	///		1. i is in Input A and Input B:  
 	///			FSPState y =(a State of A.next reachable with i),(a State of B.next reachable with i))
 	///		2. i is in Input A and not in Input B:
@@ -205,12 +205,12 @@ namespace Palladio.FiniteStateMachines.Decorators {
 
 
 		/// <summary>
-		/// Delivers the next reachable <code>Transition</code> with the given parameters
+		/// Delivers the next reachable <code>ITransition</code> with the given parameters
 		/// </summary>
-		/// <param name="state">The sourceState for the new <code>Transition</code></param>
-		/// <param name="input">The<code>Input</code>for the <code>Transition</code></param>
-		/// <returns>The <code>Transition</code> which is reachable</returns>
-		public override Transition GetNextTransition(IState aState, Input input) {
+		/// <param name="state">The sourceState for the new <code>ITransition</code></param>
+		/// <param name="input">The<code>Input</code>for the <code>ITransition</code></param>
+		/// <returns>The <code>ITransition</code> which is reachable</returns>
+		public override ITransition GetNextTransition(IState aState, Input input) {
 			if(aState is DualState== false)
 				throw new InvalidStateException();
 			DualState cpState = (DualState) aState;
@@ -230,7 +230,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 			DualState cpState = (DualState) aState;
 			foreach(Input input in this.inputAl) {
 				if(this.GetNextState(cpState,input)!=this.ErrorState) {
-					Transition newTransition = new Transition(cpState,input,this.GetNextState(cpState,input));
+					ITransition newTransition = new Transition(cpState,input,this.GetNextState(cpState,input));
 					transitionList.Add(newTransition);
 				}
 			}
@@ -243,7 +243,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// Note: For this the whole Maschine has to be explored.
 		/// </summary>
 		/// <returns>A Array which contains all Transitions</returns>
-		public Transition[] GetTransitions() {
+		public ITransition[] GetTransitions() {
 			Hashtable transitions = new Hashtable();
 
 			this.visitedStates = new Set();
@@ -259,8 +259,8 @@ namespace Palladio.FiniteStateMachines.Decorators {
 				State twoBefore = (State) twoStates.Pop();
 				DualState fromState = new DualState(oneBefore,twoBefore);
 				foreach(DualState s in this.visitedStates) {
-					if(s.oneState == fromState.oneState)
-						if(s.twoState == fromState.twoState)
+					if(s.oneState.Equals(fromState.oneState))
+						if(s.twoState.Equals(fromState.twoState))
 							iterated = true;
 
 				}
@@ -326,10 +326,10 @@ namespace Palladio.FiniteStateMachines.Decorators {
 					}
 				}
 			}
-			Transition[] allTransitions = new Transition[transitions.Count];
+			ITransition[] allTransitions = new ITransition[transitions.Count];
 			int indexer = 0;
 			foreach(DictionaryEntry dic in transitions) {
-				allTransitions[indexer] = (Transition) dic.Key;
+				allTransitions[indexer] = (ITransition) dic.Key;
 				indexer++;
 			}
 			return allTransitions;

@@ -91,7 +91,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 			if ((aState!=ErrorState) && (!visitedStates.Contains(aState))) {
 				visitedStates.Add(aState);
 				IList outgoing = GetOutgoingTransitions(aState);
-				foreach (Transition trans in outgoing) {
+				foreach (ITransition trans in outgoing) {
 					resultSet.Add(trans);
 					GetAllTransitionsRecursive(trans.DestinationState,ref resultSet,ref visitedStates);
 				}
@@ -197,7 +197,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 
 		
 		/// <summary>
-		///     Returns the next Transition starting 
+		///     Returns the next ITransition starting 
 		///     at aSourceState with the input symbol 
 		///     anInput.
 		/// </summary>
@@ -212,12 +212,12 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		///		The transition starting at aSourceState
 		///     with the input symbol anInput.
 		/// </returns>
-		public override Transition GetNextTransition(IState aSourceState, Input anInput){
+		public override ITransition GetNextTransition(IState aSourceState, Input anInput){
 			IState resultState = ErrorState;
 			PowerSetState powerState = (PowerSetState)aSourceState;
 			Set resultSet = new Set();
 			foreach (IState state in powerState.States) {
-				Transition trans = defaultMachine.GetNextTransition(state,anInput);
+				ITransition trans = defaultMachine.GetNextTransition(state,anInput);
 				if (trans.DestinationState != ErrorState) {
 					resultSet.Add(trans.DestinationState);
 				}
@@ -243,13 +243,13 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <returns>
 		///		A Hashtable which contains all transitions for the source state.
 		///     The key of the Hashtable is the Input and the value the
-		///     corresponding Transition.
+		///     corresponding ITransition.
 		/// </returns>
 		public override IList GetOutgoingTransitions(IState aSourceState){
 			ArrayList result = new ArrayList();
 			foreach(Input i in InputAlphabet) {
 				if (!EpsilonAlphabet.Contains(i)) {
-					Transition nextTransition = GetNextTransition(aSourceState,i);
+					ITransition nextTransition = GetNextTransition(aSourceState,i);
 					if(nextTransition.DestinationState != ErrorState) {
 						result.Add(nextTransition);
 					}

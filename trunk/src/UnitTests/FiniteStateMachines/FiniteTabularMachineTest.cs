@@ -12,10 +12,10 @@ namespace UnitTests.FiniteStateMachines {
 	public class FiniteTabularMachineTest {
 		IState[] states;
 		Input[] inputs;
-		Transition[] transitionSetOne;
-		Transition[] transitionSetTwo;
-		Transition[] transitionSetThree;
-		Transition[] transitions;
+		ITransition[] transitionSetOne;
+		ITransition[] transitionSetTwo;
+		ITransition[] transitionSetThree;
+		ITransition[] transitions;
 		TabularFSM machineOne;
 		TabularFSM machineTwo;
 		TabularFSM machineThree;
@@ -42,7 +42,7 @@ namespace UnitTests.FiniteStateMachines {
 			inputs[3] = new Input("three");
 			inputs[4] = new Input("four");
 
-			transitionSetOne = new Transition[6];
+			transitionSetOne = new ITransition[6];
 			transitionSetOne[0] = new Transition(states[0],inputs[4],states[0]);
 			transitionSetOne[1] = new Transition(states[0],inputs[1],states[1]);
 			transitionSetOne[2] = new Transition(states[0],inputs[3],states[5]);
@@ -52,21 +52,21 @@ namespace UnitTests.FiniteStateMachines {
 			machineOne = new TabularFSM();
 			machineOne.AddTransitionList(transitionSetOne);
 
-			transitionSetTwo = new Transition[3];
+			transitionSetTwo = new ITransition[3];
 			transitionSetTwo[0] = new Transition(states[4],inputs[0],states[6]);
 			transitionSetTwo[1] = new Transition(states[4],inputs[1],states[5]);
 			transitionSetTwo[2] = new Transition(states[6],inputs[1],states[5]);
 			machineTwo = new TabularFSM();
 			machineTwo.AddTransitionList(transitionSetTwo);
 
-			transitionSetThree = new Transition[3];
+			transitionSetThree = new ITransition[3];
 			transitionSetThree[0] = new Transition(states[0],inputs[0],states[1]);
 			transitionSetThree[1] = new Transition(states[0],inputs[1],states[2]);
 			transitionSetThree[2] = new Transition(states[1],inputs[1],states[2]);
 			machineThree = new TabularFSM();
 			machineThree.AddTransitionList(transitionSetThree);
 
-			transitions = new Transition[2];
+			transitions = new ITransition[2];
 			transitions[0] = new Transition(states[0],inputs[0],states[6]);
 			transitions[1] = new Transition(states[6],inputs[1],states[7]);
 		}
@@ -147,7 +147,7 @@ namespace UnitTests.FiniteStateMachines {
 		[Test] public void GetTransitions(){
 			IList transitionList = machineOne.GetTransitions();
 			Assert.IsTrue(transitionList.Count==6);
-			foreach (Transition t in transitionSetOne) {
+			foreach (ITransition t in transitionSetOne) {
 				Assert.IsTrue(transitionList.Contains(t));
 			}
 		}
@@ -223,7 +223,7 @@ namespace UnitTests.FiniteStateMachines {
 		/// </summary>
 		[Test] public void GetOutgoingTransitions(){
 			IList outgoing = machineOne.GetOutgoingTransitions(states[0]);
-			foreach (Transition trans in outgoing) {
+			foreach (ITransition trans in outgoing) {
 				Assert.IsTrue(machineOne.InputAlphabet.Contains(trans.InputSymbol));
 				Assert.AreEqual(machineOne.GetNextTransition(states[0],trans.InputSymbol),trans);
 			}

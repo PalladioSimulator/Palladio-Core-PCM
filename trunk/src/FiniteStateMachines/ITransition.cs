@@ -8,17 +8,17 @@ namespace Palladio.FiniteStateMachines
 	public interface ITransition
 	{
 		/// <summary>
-		/// The sorceState of a Transition
+		/// The sorceState of a ITransition
 		/// </summary>
 		IState SourceState{get;set;}
 
 		/// <summary>
-		/// The Destination of a Transition
+		/// The Destination of a ITransition
 		/// </summary>
 		IState DestinationState{get;set;}
 
 		/// <summary>
-		/// The input of a Transition
+		/// The input of a ITransition
 		/// </summary>
 		Input InputSymbol{get;set;}
 
@@ -40,6 +40,8 @@ namespace Palladio.FiniteStateMachines
 		/// </summary>
 		/// <returns></returns>
 		int GetHashCode();
+
+		void SetValues(IState aSourceState, Input anInputSymbol, IState aDestinationState);
 
 		
 	}

@@ -63,7 +63,7 @@ namespace Palladio.FiniteStateMachines {
 		IState GetNextState(IState aSourceState, Input anInput);
 
 		/// <summary>
-		///     Returns the next Transition starting 
+		///     Returns the next ITransition starting 
 		///     at aSourceState with the input symbol 
 		///     anInput.
 		/// </summary>
@@ -78,7 +78,7 @@ namespace Palladio.FiniteStateMachines {
 		///		The transition starting at aSourceState
 		///     with the input symbol anInput.
 		/// </returns>
-		Transition GetNextTransition(IState aSourceState, Input anInput);
+		ITransition GetNextTransition(IState aSourceState, Input anInput);
 
 		/// <summary>
 		///     Returns all _valid_ transitions for aSourceState.
@@ -89,7 +89,7 @@ namespace Palladio.FiniteStateMachines {
 		/// <returns>
 		///		A Hashtable containing all transitions for the source state.
 		///     The key of the Hashtable is the Input and the value the
-		///     corresponding Transition.
+		///     corresponding ITransition.
 		/// </returns>
 		IList GetOutgoingTransitions(IState aSourceState);
 
@@ -110,7 +110,7 @@ namespace Palladio.FiniteStateMachines {
 		/// </summary>
 		/// 
 		/// <param name="aTransition">The transition to add to the automaton.</param>
-		void AddTransition(Transition aTransition);
+		void AddTransition(ITransition aTransition);
 
 		/// <summary>
 		///     Adds a list of transitions to the automaton.

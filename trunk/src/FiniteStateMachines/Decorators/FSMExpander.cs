@@ -113,7 +113,7 @@ namespace Palladio.ParameterisedContracts {
 			if(!visitedStatesList.Contains(currentState)){
 				visitedStatesList.Add(currentState);
 				IList outgoingTransitionList = originalMachine.GetOutgoingTransitions(currentState.twoState);
-				foreach (Transition trans in outgoingTransitionList) {
+				foreach (ITransition trans in outgoingTransitionList) {
 					DualState nextState = null;
 					bool nextStateFound = false;
 
@@ -135,7 +135,7 @@ namespace Palladio.ParameterisedContracts {
 						}
 					}
 					if(nextStateFound){
-						Transition newTransition = (Transition)trans.Clone();
+						ITransition newTransition = (ITransition)trans.Clone();
 						newTransition.SetValues(currentState,trans.InputSymbol,nextState);
 						transitionList.Add(newTransition);
 						ExpandRecursive(nextState,ref transitionList, ref visitedStatesList);

@@ -20,7 +20,7 @@ namespace Palladio.ParameterisedContracts {
 		}
 
 		/// <summary>
-		///     Returns the next Transition starting 
+		///     Returns the next ITransition starting 
 		///     at aSourceState with the input symbol 
 		///     anInput.
 		/// </summary>
@@ -35,8 +35,8 @@ namespace Palladio.ParameterisedContracts {
 		///		The transition starting at aSourceState
 		///     with the input symbol anInput.
 		/// </returns>
-		public override Transition GetNextTransition(IState aSourceState, Input anInput) {
-			Transition result = CreateTransition(aSourceState,anInput,ErrorState);
+		public override ITransition GetNextTransition(IState aSourceState, Input anInput) {
+			ITransition result = CreateErrorTransition(aSourceState,anInput);
 
 			if (aSourceState is StackState) {
 				StackState state = (StackState)aSourceState;
@@ -48,12 +48,12 @@ namespace Palladio.ParameterisedContracts {
 					if (topService.InputAlphabet.Contains(anInput)) {
 						result = GetTransitionInService(topService,state,anInput);
 					} 
-					else if (anInput == Input.RETURN) {
+					else if (anInput.Equals(Input.RETURN)) {
 						result = ReturnFromService(state);
 					}
 				}
 			} 
-			else if (aSourceState == ErrorState) {
+			else if (aSourceState.Equals(ErrorState)) {
 				// Stay in ErrorState, nothing to do
 			} 
 			else {
@@ -75,13 +75,13 @@ namespace Palladio.ParameterisedContracts {
 		/// <param name="aSourceState">StackState for which the recursion was detected</param>
 		/// <param name="aServiceName">Recursive symbol</param>
 		/// <returns>The transition object of aSourceState.Peek().ServiceName with altered states</returns>
-		protected override Transition HandleRecursionCall(StackState aSourceState, Input aServiceName) {
+		protected override ITransition HandleRecursionCall(StackState aSourceState, Input aServiceName) {
 			Input callingServiceName = aSourceState.Peek().ServiceName;
-			Transition recursiveTransition = LookUpService(callingServiceName).GetNextTransition(aSourceState.Peek().State,aServiceName);
+			ITransition recursiveTransition = LookUpService(callingServiceName).GetNextTransition(aSourceState.Peek().State,aServiceName);
 			RecursionInput recInput = new RecursionInput( callingServiceName, aServiceName, recursiveTransition.DestinationState);
 			InputAlphabet.Add(recInput);
 			Console.WriteLine ( "Recursion detected: " + recInput);
-			Transition result = (Transition) recursiveTransition.Clone();
+			ITransition result = (ITransition) recursiveTransition.Clone();
 			result.SetValues ( aSourceState, aServiceName, StartState);
 			return result;
 		}

@@ -21,7 +21,7 @@ namespace Palladio.ParameterisedContracts {
 		private Input recursiveServiceName;
 
 		/// <summary>
-		///		The destination of the recursive Transition in 
+		///		The destination of the recursive ITransition in 
 		///		the calling service.
 		/// </summary>
 		private IState targetState;
@@ -51,7 +51,7 @@ namespace Palladio.ParameterisedContracts {
 
 
 		/// <summary>
-		///		The destination of the recursive Transition in 
+		///		The destination of the recursive ITransition in 
 		///		the calling service.
 		/// </summary>
 		public IState TargetState {
@@ -64,7 +64,7 @@ namespace Palladio.ParameterisedContracts {
 				return ((base.Equals(obj)) && 
 					(CallingServiceName == recInput.CallingServiceName) &&
 					(RecursiveServiceName == recInput.RecursiveServiceName) && 
-					(TargetState == recInput.TargetState));
+					(TargetState.Equals(recInput.TargetState)));
 			}
 			return false;
 		}

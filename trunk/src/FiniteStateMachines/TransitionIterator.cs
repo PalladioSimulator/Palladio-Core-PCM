@@ -23,7 +23,7 @@ namespace Palladio.FiniteStateMachines
 		}
 
 		/// <summary>
-		/// Checks if there is another Transition to iterate
+		/// Checks if there is another ITransition to iterate
 		/// </summary>
 		/// <returns></returns>
 		public bool MoveNext()
@@ -32,7 +32,7 @@ namespace Palladio.FiniteStateMachines
 		}
 
 		/// <summary>
-		/// Retruns the current Transition
+		/// Retruns the current ITransition
 		/// </summary>
 		public object Current
 		{

@@ -13,7 +13,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 	/// StartState: ((Startstate A, StartState B)) 
 	/// FinalState: ((FinalState A, FinalState B))
 	/// FSPState: ((aState of A, aState of B))
-	/// Transition: ((FSPState x, Input i, FSPState y) |
+	/// ITransition: ((FSPState x, Input i, FSPState y) |
 	///		1. i is in Input A and Input B:  
 	///			FSPState y =(a State of A.next reachable with i),(a State of B.next reachable with i))
 	///		2. i is in Input A and not in Input B:
@@ -113,8 +113,8 @@ namespace Palladio.FiniteStateMachines.Decorators {
 				DualState fromState = new DualState(oneBefore,twoBefore);
 				
 				foreach(DualState s in this.visitedStates) {
-					if(s.oneState == fromState.oneState)
-						if(s.twoState == fromState.twoState)
+					if(s.oneState.Equals(fromState.oneState))
+						if(s.twoState.Equals(fromState.twoState))
 							iterated = true;
 				}
 				//the fromState has already been explored

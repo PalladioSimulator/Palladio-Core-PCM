@@ -50,8 +50,8 @@ namespace Palladio.ParameterisedContracts {
 		/// 
 		/// <returns>The next possible transition</returns>
 		/// <seealso cref="IFiniteStateMachine.GetNextTransition"></seealso>
-		public override Transition GetNextTransition(IState aSourceState, Input anInput) {
-			Transition result = CreateTransition(aSourceState,anInput,ErrorState);
+		public override ITransition GetNextTransition(IState aSourceState, Input anInput) {
+			ITransition result = CreateErrorTransition(aSourceState,anInput);
 
 			if (aSourceState is StackState) {
 				StackState state = (StackState)aSourceState;
@@ -66,12 +66,12 @@ namespace Palladio.ParameterisedContracts {
 					if (topService.InputAlphabet.Contains(anInput)) {
 						result = GetTransitionInService(topService,state,anInput);
 					} 
-					else if (anInput == Input.RETURN) {
+					else if (anInput.Equals(Input.RETURN)) {
 						result = ReturnFromService(state);
 					}
 				}
 			} 
-			else if (aSourceState == ErrorState) {
+			else if (aSourceState.Equals(ErrorState)) {
 				// Stay in ErrorState, nothing to do
 			} 
 			else {
@@ -93,10 +93,10 @@ namespace Palladio.ParameterisedContracts {
 		/// <param name="aSourceState">StackState for which the recursion was detected</param>
 		/// <param name="aServiceName">Recursive symbol</param>
 		/// <returns>The transition object of aSourceState.Peek().ServiceName with altered states</returns>
-		protected override Transition HandleRecursionCall(StackState aSourceState, Input aServiceName) {
-			Transition result = null;
+		protected override ITransition HandleRecursionCall(StackState aSourceState, Input aServiceName) {
+			ITransition result = null;
 			IFiniteStateMachine service = LookUpService(aSourceState.Peek().ServiceName);
-			result = (Transition)service.GetNextTransition(aSourceState.Peek().State,aServiceName).Clone();
+			result = (ITransition)service.GetNextTransition(aSourceState.Peek().State,aServiceName).Clone();
 			RecursionInput recInput = new RecursionInput(aSourceState.Peek().ServiceName,aServiceName, result.DestinationState);
 			// TODO check this condition - does it detect already handled recursions?
 			if (!InputAlphabet.Contains(recInput)) {
@@ -125,7 +125,7 @@ namespace Palladio.ParameterisedContracts {
 		/// <param name="aSourceState">Source state</param>
 		/// <param name="aRecInput">Recursion input</param>
 		/// <returns>A new transition from source to destination</returns>
-		private Transition HandleRecursionInput(StackState aSourceState, RecursionInput aRecInput) {
+		private ITransition HandleRecursionInput(StackState aSourceState, RecursionInput aRecInput) {
 			IState destinationState = ErrorState;
 			// Recursive Transitions are only allowed in the corresponding service
 			if( aSourceState.Peek().ServiceName == aRecInput.CallingServiceName) {
@@ -139,7 +139,7 @@ namespace Palladio.ParameterisedContracts {
 					}
 				}
 			}
-			return CreateTransition(aSourceState,aRecInput,destinationState);
+			return CreateRecursiveTransition(aSourceState,aRecInput,destinationState);
 		}
 
 

@@ -68,7 +68,7 @@ namespace Palladio.ParameterisedContracts {
 		///		transition is returned, otherwise a ApplicationException is
 		///		thrown.
 		/// </returns>
-		private Transition Match(Transition aCallingTransition, IFiniteStateMachine anExpectedFSM) {
+		private ITransition Match(ITransition aCallingTransition, IFiniteStateMachine anExpectedFSM) {
 			IState finalTargetInOriginal = originalFSM.ErrorState;
 			IState stateInRule = anExpectedFSM.StartState;
 			IState stateInOriginal = aCallingTransition.DestinationState;
@@ -87,9 +87,9 @@ namespace Palladio.ParameterisedContracts {
 				IList transitionInOriginalList = originalFSM.GetOutgoingTransitions(stateInOriginal);
 
 				if (transitionInRuleList.Count == transitionInOriginalList.Count) {
-					foreach (Transition transitionInRule in transitionInRuleList){
+					foreach (ITransition transitionInRule in transitionInRuleList){
 						IState targetInOriginal = originalFSM.ErrorState;
-						Transition transitionInOriginal = originalFSM.GetNextTransition(stateInOriginal,transitionInRule.InputSymbol);
+						ITransition transitionInOriginal = originalFSM.GetNextTransition(stateInOriginal,transitionInRule.InputSymbol);
 
 						if(ruleTable.Contains(transitionInOriginal.InputSymbol)) {
 							targetInOriginal = MatchAll(transitionInOriginal).DestinationState;
@@ -97,7 +97,7 @@ namespace Palladio.ParameterisedContracts {
 							targetInOriginal = transitionInOriginal.DestinationState;
 						}
 
-						if (targetInOriginal == originalFSM.ErrorState) {
+						if (targetInOriginal.Equals(originalFSM.ErrorState)) {
 							throw new ApplicationException("No match found!\nNo target for "+transitionInRule.InputSymbol+" in state "+((DualState)iterator.Current).twoState);
 						} 
 						if(transitionInRule.DestinationState.IsFinalState){
@@ -109,11 +109,11 @@ namespace Palladio.ParameterisedContracts {
 				}
 			}
 
-			if (finalTargetInOriginal == originalFSM.ErrorState) {
+			if (finalTargetInOriginal.Equals(originalFSM.ErrorState)) {
 				throw new ApplicationException("No match found:\tNo return statement found!");
 			}
 
-			Transition result = (Transition)aCallingTransition.Clone();
+			ITransition result = (ITransition)aCallingTransition.Clone();
 			result.DestinationState = finalTargetInOriginal;
 			return result;
 		}
@@ -127,7 +127,7 @@ namespace Palladio.ParameterisedContracts {
 		private void FindTargetInOriginal(IState aStateInOriginal, ref IState aTargetInOriginal) {
 			IState tempState = originalFSM.GetNextState(aStateInOriginal,Input.RETURN);
 			if( tempState != originalFSM.ErrorState){
-				if( aTargetInOriginal == originalFSM.ErrorState ){
+				if( aTargetInOriginal.Equals(originalFSM.ErrorState )){
 					aTargetInOriginal = tempState;
 				} else {
 					if (aTargetInOriginal != tempState) {
@@ -147,14 +147,14 @@ namespace Palladio.ParameterisedContracts {
 		///		If it fails an ApplicationException is thrown.
 		/// </summary>
 		/// <param name="aStartTransition">
-		///		Transition, where the application of the rules starts.
+		///		ITransition, where the application of the rules starts.
 		/// </param>
 		/// <returns>
 		///		A transition leading from the source state of aStartTransiton to
 		///		the destination of the return-transistions associtated with the
 		///		fsm for the applied rule.
 		/// </returns>
-		private Transition MatchAll(Transition aStartTransition) {
+		private ITransition MatchAll(ITransition aStartTransition) {
 			IList fsmList = (IList) ruleTable [ aStartTransition.InputSymbol ];
 			string msg = "Following exceptions have been thrown:\n";
 			foreach ( IFiniteStateMachine fsm in fsmList ) {
@@ -181,11 +181,11 @@ namespace Palladio.ParameterisedContracts {
 			while(iterator.MoveNext()){
 				if (ruleTable.Contains(iterator.Current.InputSymbol)){
 					try {
-						Transition result = MatchAll(iterator.Current);
+						ITransition result = MatchAll(iterator.Current);
 						resultMachine.AddTransition(result);
 						iterator.Append(result.DestinationState);
 					} catch( ApplicationException ) {
-						Console.WriteLine("Transition "+iterator.Current+" could not be taken.");
+						Console.WriteLine("ITransition "+iterator.Current+" could not be taken.");
 						// The transition could not be taken, so there is nothing to do.
 					}
 				}

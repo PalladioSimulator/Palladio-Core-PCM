@@ -51,7 +51,7 @@ namespace Palladio.FiniteStateMachines {
 			if (obj is Input)
 			{
 				Input anInput = (Input)obj;
-				return (anInput.InputSymbol == InputSymbol);
+				return anInput.InputSymbol.Equals(InputSymbol);
 			}
 			return false;
 		}
