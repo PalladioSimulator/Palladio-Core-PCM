@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/23 16:33:51  joemal
+	/// - add methods to hold the builders of the elements
+	///
 	/// Revision 1.1  2004/06/22 12:56:46  joemal
 	/// inital class creation
 	///
@@ -28,6 +31,11 @@ namespace ComponentNetworkSimulation.Structure
 		/// </summary>
 		private IComponent rootComponent;
 
+		/// <summary>
+		/// holds the builder for the root component
+		/// </summary>
+		private IComponentBuilder componentBuilder;
+
 		#endregion
 
 		/// <summary>
@@ -37,6 +45,8 @@ namespace ComponentNetworkSimulation.Structure
 		public DefaultComponentArchitecture(ISimulationEnvironment env):base(env)
 		{
 		}
+
+		#region properties
 
 		/// <summary>
 		/// return the current set root component. Returns null, if no component is still set
@@ -56,12 +66,13 @@ namespace ComponentNetworkSimulation.Structure
 		{
 			get
 			{
-				if (this.IsRootComponentBasic)
-					return this.BuilderFactory.CreateBuilder((IBasicComponent)this.ArchitectureRootComponent);
-				else
-					return this.BuilderFactory.CreateBuilder((ICompositeComponent)this.ArchitectureRootComponent);
+				return this.componentBuilder;
 			}
 		}
+
+		#endregion
+
+		#region methods 
 
 		/// <summary>
 		/// called by the simulationenvironment, to reset the architecture. The method can be used to reset dynamic parts of the 
@@ -80,7 +91,9 @@ namespace ComponentNetworkSimulation.Structure
 		{
 			IBasicComponent component = this.ElementFactory.CreateBasicComponent(id);
 			this.rootComponent = component;
-			return this.BuilderFactory.CreateBuilder(component);
+
+			this.componentBuilder = this.BuilderFactory.CreateBuilder(component);
+			return (IBasicComponentBuilder)this.componentBuilder;
 		}
 
 		/// <summary>
@@ -92,7 +105,9 @@ namespace ComponentNetworkSimulation.Structure
 		{
 			ICompositeComponent component = this.ElementFactory.CreateCompositeComponent(id);
 			this.rootComponent = component;
-			return this.BuilderFactory.CreateBuilder(component);
+
+			this.componentBuilder = this.BuilderFactory.CreateBuilder(component);
+			return (ICompositeComponentBuilder)this.componentBuilder;
 		}
 
 		/// <summary>
@@ -118,6 +133,8 @@ namespace ComponentNetworkSimulation.Structure
 		{
 			return this.VisitorFactory.CreateVisitor(component,sp.InterfaceID,sp.SignatureID);
 		}
+
+		#endregion
 	}
 }
 //EOF

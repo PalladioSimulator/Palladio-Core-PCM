@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using Palladio.ComponentModel;
 using ComponentNetworkSimulation.Structure.Elements;
+using Palladio.Identifier;
 
 namespace ComponentNetworkSimulation.Structure.Builder
 {
@@ -12,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/06/23 16:33:51  joemal
+	/// - add methods to hold the builders of the elements
+	///
 	/// Revision 1.2  2004/06/22 17:08:29  joemal
 	/// - change method signature in service builder
 	///
@@ -24,6 +29,15 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// </remarks>
 	public class DefaultBasicComponentBuilder : AbstractComponentBuilder,IBasicComponentBuilder
 	{
+		#region data
+
+		/// <summary>
+		/// holds the table of builders for the services
+		/// </summary>
+		private IDictionary serviceBuilderTable = new Hashtable();
+
+		#endregion
+
 		#region properties
 
 		/// <summary>
@@ -57,12 +71,12 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		#region methods
 
 		/// <summary>
-		/// adds a service to the component. The service is defined by the given signature, which has to be added to 
+		/// called to add a service to the basic component
 		/// </summary>
-		/// <param name="provIfaceID"></param>
-		/// <param name="signatureID"></param>
-		/// <returns></returns>
-		public IServiceBuilder AddService(Palladio.Identifier.IIdentifier provIfaceID, Palladio.Identifier.IIdentifier signatureID)
+		/// <param name="provIfaceID">the id of the provides interface to which the signature of the service has to be added</param>
+		/// <param name="signatureID">the id of the signature</param>
+		/// <returns>the builder to fill the service</returns>
+		public IServiceBuilder AddService(IIdentifier provIfaceID, IIdentifier signatureID)
 		{
 			if (!this.BasicComponent.HasProvidesInterface(provIfaceID)) 
 				this.BasicComponent.AddProvidesInterface(provIfaceID,ComponentFactory.CreateInterfaceModel());
@@ -76,7 +90,33 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
 			seff.AddAuxiliarySpecification(fsmSeff);
 
-			return this.builderFactory.CreateBuilder(this.BasicComponent,seff);
+			IServiceBuilder builder = this.builderFactory.CreateBuilder(this.BasicComponent,seff);
+			serviceBuilderTable.Add(CreateExternalSignature(provIfaceID,signatureID),builder);
+
+			return builder;
+		}
+
+		/// <summary>
+		/// call to get the builder for an existing service. Null is returned, if the service doesn't exist.
+		/// </summary>
+		/// <param name="provIfaceID">the id of the provides interface where the signature of the service can be found</param>
+		/// <param name="signatureID">the id of the signature of the service</param>
+		/// <returns>the builder</returns>
+		public IServiceBuilder GetServiceBuilder(IIdentifier provIfaceID, IIdentifier signatureID)
+		{
+			return (IServiceBuilder)serviceBuilderTable[CreateExternalSignature(provIfaceID,signatureID)];
+		}
+
+		/// <summary>
+		/// call to create an external signature from given iface id and signature id
+		/// </summary>
+		/// <param name="iFaceID"></param>
+		/// <param name="sigID"></param>
+		/// <returns></returns>
+		private IExternalSignature CreateExternalSignature(IIdentifier iFaceID, IIdentifier sigID)
+		{
+			ISignature sig = ComponentFactory.CreateSignatureArray(sigID.ToString())[0];
+			return ComponentFactory.CreateSignatureWithRole(iFaceID,sig);			
 		}
 
 		#endregion
