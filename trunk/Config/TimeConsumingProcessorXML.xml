@@ -4,7 +4,7 @@
 
 	<!--Active: Specifies, wether the TimeConsumer is activated. "1": active, "0": inactive. Pay attention that the activation might slow down the
 		webserver extremely.-->
-	<Active Value="1" />
+	<Active Value="0" />
 	
 	<!--WaitOption: The TimeConsumoingProcessor knows two ways how to wait. If threadSleep is set to "1" the current thread will sleep for the specified time.
 		The other way the time is consumed by busy waiting. For this set threadSleep to "0".-->

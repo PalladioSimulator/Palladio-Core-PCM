@@ -13,14 +13,14 @@ Homepage of the Palladio-Group: http://se.informatik.uni-oldenburg.de/palladio
 ======================
 The webserver is organised in two CoRs (Chain of Responsibility): the first chain contains parsers (IRequestParser) for different kinds of request (IRequest). E. g. FTP-support is intended for further versions of the webserver. Currently the first chain contains a parser for HTTP-requests. The second chain contains IRequestProcessors for each IRequestParser. This means that the HTTP-RequestParser has its own Processors for processing requests. 
 
-According to the Design-Pattern (see "Gamma et al - Design Patterns, Addison-Wesley, München, 1995") the chains start with the very most specifical links, getting more and more general. If a link cannot handle a request it is passed to the CoR-Successor, which in proceeding can try to handle the request. For the case that no link can handle a request an error-handler returns an error message.
+According to the Design-Pattern (see "Gamma et al - Design Patterns, Addison-Wesley, München, 1995") the chains start with the very most specifical links, getting more and more general. If a link cannot handle a request it is passed to the CoR-Successor, which in proceeding can try to handle the request. For the case no link can handle a request an error-handler returns an error message.
 
 
 
 ===================
 ==== Threading ====
 ===================
-The webserver consists of three classes of threads:
+Dispatcher-Component: The webserver consists of three classes of threads:
 - The Main-Thread initiates the webserver. It also terminates the webserver.
 - PortListener-Threads are started for each port the webserver listens on. These threads accept TCP-requests.
 - RequestHandler-Threads are started for each incoming request the PortListener accepts. These threads are the working threads, that handle processing the client-request.
@@ -31,6 +31,9 @@ The webserver consists of three classes of threads:
 ==== Version-Logs: ====
 =======================
 $Log$
+Revision 1.2  2005/02/03 09:01:26  kelsaka
+minor changes
+
 Revision 1.1  2005/02/02 17:34:57  kelsaka
 Added multi-threading to handle requests.
 Added short architectural description.
