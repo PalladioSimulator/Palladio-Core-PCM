@@ -43,7 +43,7 @@ namespace Palladio.ComponentModel
 		public IType[] Exceptions {
 			get { return (IType[])exceptions.ToArray(typeof(IType)); }
 		}
-		public IAttributeHash Attributes {
+		public AttributeHash Attributes {
 			get {
 				return attributes;
 			}
@@ -236,7 +236,7 @@ namespace Palladio.ComponentModel
 		/// <param name="aName">The name of the signature</param>
 		/// <param name="aParamArray">Parameters of the signature</param>
 		/// <param name="anExceptArray">Exceptions of the signature</param>
-		public DefaultSignature(IAttributeHash anAttribHash, IType aType, string aName, IParameter[] aParamArray, IType[] anExceptArray
+		public DefaultSignature(AttributeHash anAttribHash, IType aType, string aName, IParameter[] aParamArray, IType[] anExceptArray
 		)
 		{
 			attributes = anAttribHash;
@@ -264,7 +264,7 @@ namespace Palladio.ComponentModel
 		private IType  type;
 		private Vector parameters;
 		private Set exceptions;
-		private IAttributeHash attributes;
+		private AttributeHash attributes;
 
 		#endregion
 	}

@@ -300,7 +300,7 @@ namespace Palladio.ComponentModel.Components
 		/// </summary>
 		/// <param name="anAttHash">List of attributes attached to this component.</param>
 		/// <param name="id">ID of the component</param>
-		public BasicComponent(IAttributeHash anAttHash, string name, GloballyUniqueIdentifier id) : base (anAttHash,name,id)
+		public BasicComponent(AttributeHash anAttHash, string name, GloballyUniqueIdentifier id) : base (anAttHash,name,id)
 		{
 			//serviceEffectMap = new ServiceEffectHashmap();
 			serviceEffectMap = new Hashtable();

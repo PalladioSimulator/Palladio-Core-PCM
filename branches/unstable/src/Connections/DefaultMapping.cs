@@ -110,6 +110,13 @@ namespace Palladio.ComponentModel.Connections
 			{
 				writer.WriteStartElement("ProvidesMapping","http://palladio.informatik.uni-oldenburg.de/XSD");
 				writer.WriteAttributeString("id", this.ID.ToString());
+				foreach (IAttributeType attrType in this.Attributes.Keys)
+				{
+					writer.WriteStartElement("Attribute","http://palladio.informatik.uni-oldenburg.de/XSD");
+					writer.WriteAttributeString("guid",attrType.GUID.ToString());
+					this.Attributes[attrType].Serialize(writer);
+					writer.WriteEndElement();
+				}
 				writer.WriteStartElement("ProvidingRole","http://palladio.informatik.uni-oldenburg.de/XSD");
 				writer.WriteAttributeString("guid",this.InnerRole.Component.ID.ToString());
 				writer.WriteAttributeString("id",this.InnerRole.ID.ToString());
@@ -124,6 +131,13 @@ namespace Palladio.ComponentModel.Connections
 			{
 				writer.WriteStartElement("RequiresMapping","http://palladio.informatik.uni-oldenburg.de/XSD");
 				writer.WriteAttributeString("id", this.ID.ToString());
+				foreach (IAttributeType attrType in this.Attributes.Keys)
+				{
+					writer.WriteStartElement("Attribute","http://palladio.informatik.uni-oldenburg.de/XSD");
+					writer.WriteAttributeString("guid",attrType.GUID.ToString());
+					this.Attributes[attrType].Serialize(writer);
+					writer.WriteEndElement();
+				}
 				writer.WriteStartElement("ProvidingRole","http://palladio.informatik.uni-oldenburg.de/XSD");
 				writer.WriteAttributeString("guid",this.OuterRole.Component.ID.ToString());
 				writer.WriteAttributeString("id",this.OuterRole.ID.ToString());
@@ -167,7 +181,7 @@ namespace Palladio.ComponentModel.Connections
 			}
 		}
 
-		public DefaultMapping(IAttributeHash anAttHash, IRole aReqRole, IRole aProvRole, MappingTypeEnum direction) : base(anAttHash,aReqRole,aProvRole)
+		public DefaultMapping(AttributeHash anAttHash, IRole aReqRole, IRole aProvRole, MappingTypeEnum direction) : base(anAttHash,aReqRole,aProvRole)
 		{
 			this.myType = direction;
 		}

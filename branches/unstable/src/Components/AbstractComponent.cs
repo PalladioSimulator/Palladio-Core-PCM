@@ -51,7 +51,7 @@ namespace Palladio.ComponentModel.Components
 		/// <summary>
 		/// A list of attributes attached this component. 
 		/// </summary>
-		public IAttributeHash Attributes 
+		public AttributeHash Attributes 
 		{ 
 			get { return attributes; }
 		}
@@ -235,7 +235,7 @@ namespace Palladio.ComponentModel.Components
 		/// </summary>
 		/// <param name="anAttHash">List of attributes attached to this component.</param>
 		/// <param name="aID">ID of the component</param>
-		public AbstractComponent(IAttributeHash anAttHash, string name, GloballyUniqueIdentifier aID)
+		public AbstractComponent(AttributeHash anAttHash, string name, GloballyUniqueIdentifier aID)
 		{
 			providesMap = new ComponentRolesHashmap();
 			requiresMap = new ComponentRolesHashmap();
@@ -248,7 +248,7 @@ namespace Palladio.ComponentModel.Components
 		{
 			requiresMap = (ComponentRolesHashmap)anotherComponent.requiresMap.Clone();
 			providesMap = (ComponentRolesHashmap)anotherComponent.providesMap.Clone();
-			attributes = (IAttributeHash)anotherComponent.attributes.Clone();
+			attributes = (AttributeHash)anotherComponent.attributes.Clone();
 			this._name = anotherComponent.Name;
 			this._guid = (GloballyUniqueIdentifier)anotherComponent.ID.Clone();
 		}
@@ -261,7 +261,7 @@ namespace Palladio.ComponentModel.Components
 		protected ComponentRolesHashmap requiresMap;
 		//protected Hashtable providesMap;
 		//protected Hashtable requiresMap;
-		private	  IAttributeHash attributes;
+		private	  AttributeHash attributes;
 
 		#endregion
 	}

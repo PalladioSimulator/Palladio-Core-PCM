@@ -17,7 +17,7 @@ namespace Palladio.ComponentModel.Connections
 		/// <summary>
 		/// A list of attributes attached this component. 
 		/// </summary>
-		public IAttributeHash Attributes 
+		public AttributeHash Attributes 
 		{ 
 			get { return attributes; }
 		}
@@ -87,12 +87,12 @@ namespace Palladio.ComponentModel.Connections
 
 		#region Constructors
 
-		protected DefaultConnection(IAttributeHash anAttHash)
+		protected DefaultConnection(AttributeHash anAttHash)
 		{
-			attributes = (IAttributeHash)anAttHash.Clone();
+			attributes = (AttributeHash)anAttHash.Clone();
 		}
 
-		protected DefaultConnection(IAttributeHash anAttHash, IRole aReqRole, IRole aProvRole) : this (anAttHash)
+		protected DefaultConnection(AttributeHash anAttHash, IRole aReqRole, IRole aProvRole) : this (anAttHash)
 		{
 			providingRole = aProvRole;
 			requiringRole = aReqRole;
@@ -110,7 +110,7 @@ namespace Palladio.ComponentModel.Connections
 
 		protected IRole providingRole;
 		protected IRole requiringRole;
-		private   IAttributeHash attributes;
+		private   AttributeHash attributes;
 		#endregion
 	}
 }

@@ -46,7 +46,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <summary>
 		/// A list of attributes attached an object. 
 		/// </summary>
-		public IAttributeHash Attributes 
+		public AttributeHash Attributes 
 		{ 
 			get { return attributes; }
 		}
@@ -217,7 +217,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// </summary>
 		/// <param name="anAttHash">Attributes.</param>
 		/// <param name="aSigArray">Signatures contained by the interface.</param>
-		public DefaultSignatureList(IAttributeHash anAttHash, params ISignature[] aSigArray)
+		public DefaultSignatureList(AttributeHash anAttHash, params ISignature[] aSigArray)
 		{
 			attributes = anAttHash;
 			signatures = new Set();
@@ -235,7 +235,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		
 		#region Data
 		
-		private IAttributeHash attributes;
+		private AttributeHash attributes;
 		private Set signatures;
 		#endregion
 	}
@@ -271,7 +271,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <summary>
 		/// A list of attributes attached an object. 
 		/// </summary>
-		public IAttributeHash Attributes 
+		public AttributeHash Attributes 
 		{ 
 			get { return attributes; }
 		}
@@ -431,7 +431,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// </summary>
 		/// <param name="anAttHash">Attributes.</param>
 		/// <param name="aSigArray">Signatures contained by the interface.</param>
-		public DefaultServiceList(IAttributeHash anAttHash, params IService[] aSigArray)
+		public DefaultServiceList(AttributeHash anAttHash, params IService[] aSigArray)
 		{
 			attributes = anAttHash;
 			signatures = new Set();
@@ -449,7 +449,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		
 		#region Data
 		
-		private IAttributeHash attributes;
+		private AttributeHash attributes;
 		private Set signatures;
 		#endregion
 	}

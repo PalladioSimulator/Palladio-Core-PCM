@@ -28,6 +28,10 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3.2.2  2004/12/02 23:39:49  uffi
+	/// IAttributeHash replaced by AttributeHash,
+	/// added attribute serialization
+	///
 	/// Revision 1.3.2.1  2004/11/16 13:37:47  uffi
 	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
 	/// Documentation needs fixing. Some unittests fail.
@@ -119,7 +123,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// A list of attributes attached an object. 
 		/// </summary>
-		public IAttributeHash Attributes 
+		public AttributeHash Attributes 
 		{ 
 			get { return attributes; }
 		}
@@ -188,17 +192,17 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="fsm">The FSM to be stored in the cloned class</param>
 		/// <param name="hash">The attributes to clone</param>
-		internal FSMInterface ( IAttributeHash hash, IFiniteStateMachine fsm)
+		internal FSMInterface ( AttributeHash hash, IFiniteStateMachine fsm)
 		{
 			this.fsm = (IFiniteStateMachine)fsm.Clone();
-			this.attributes = (IAttributeHash)hash.Clone();
+			this.attributes = (AttributeHash)hash.Clone();
 		}
 
 		#endregion
 		
 		#region Data
 		
-		private IAttributeHash attributes;
+		private AttributeHash attributes;
 		private IFiniteStateMachine fsm;
 		
 		#endregion
@@ -217,6 +221,10 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3.2.2  2004/12/02 23:39:49  uffi
+	/// IAttributeHash replaced by AttributeHash,
+	/// added attribute serialization
+	///
 	/// Revision 1.3.2.1  2004/11/16 13:37:47  uffi
 	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
 	/// Documentation needs fixing. Some unittests fail.
@@ -308,7 +316,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// A list of attributes attached an object. 
 		/// </summary>
-		public IAttributeHash Attributes 
+		public AttributeHash Attributes 
 		{ 
 			get { return attributes; }
 		}
@@ -368,17 +376,17 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="fsm">The FSM to be stored in the cloned class</param>
 		/// <param name="hash">The attributes to clone</param>
-		internal FSMServiceEffect ( IAttributeHash hash, IFiniteStateMachine fsm)
+		internal FSMServiceEffect ( AttributeHash hash, IFiniteStateMachine fsm)
 		{
 			this.fsm = (IFiniteStateMachine)fsm.Clone();
-			this.attributes = (IAttributeHash)hash.Clone();
+			this.attributes = (AttributeHash)hash.Clone();
 		}
 
 		#endregion
 		
 		#region Data
 		
-		private IAttributeHash attributes;
+		private AttributeHash attributes;
 		private IFiniteStateMachine fsm;
 		
 		#endregion

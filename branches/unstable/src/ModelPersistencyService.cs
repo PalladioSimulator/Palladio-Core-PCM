@@ -3,12 +3,22 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Collections;
 using Palladio.Identifier;
+using Palladio.Attributes;
 
 namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// Zusammenfassung für ModelPersistencyService.
 	/// </summary>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.1.2.2  2004/12/02 23:39:48  uffi
+	/// IAttributeHash replaced by AttributeHash,
+	/// added attribute serialization
+	///
+	/// </pre>
 	public class ModelPersistencyService
 	{
 		private static ModelPersistencyService singletonInstance;
@@ -245,6 +255,14 @@ namespace Palladio.ComponentModel
 				writer.WriteAttributeString("name",entity.Name);
 				writer.WriteAttributeString("guid",entity.ID.ToString());
 
+				foreach (IAttributeType attrType in comp.Attributes.Keys)
+				{
+					writer.WriteStartElement("Attribute","http://palladio.informatik.uni-oldenburg.de/XSD");
+					writer.WriteAttributeString("guid",attrType.GUID.ToString());
+					comp.Attributes[attrType].Serialize(writer);
+					writer.WriteEndElement();
+				}
+
 				writer.WriteStartElement("Structure","http://palladio.informatik.uni-oldenburg.de/XSD");
 
 				entity.Serialize(writer);
@@ -294,6 +312,14 @@ namespace Palladio.ComponentModel
 				writer.WriteAttributeString("name",entity.Name);
 				writer.WriteAttributeString("guid",entity.ID.ToString());
 
+				foreach (IAttributeType attrType in comp.Attributes.Keys)
+				{
+					writer.WriteStartElement("Attribute","http://palladio.informatik.uni-oldenburg.de/XSD");
+					writer.WriteAttributeString("guid",attrType.GUID.ToString());
+					comp.Attributes[attrType].Serialize(writer);
+					writer.WriteEndElement();
+				}
+
 				writer.WriteStartElement("Structure","http://palladio.informatik.uni-oldenburg.de/XSD");
 
 				entity.Serialize(writer);
@@ -341,6 +367,14 @@ namespace Palladio.ComponentModel
 				writer.WriteStartElement("Interface","http://palladio.informatik.uni-oldenburg.de/XSD");
 				writer.WriteAttributeString("name",entity.Name);
 				writer.WriteAttributeString("guid",entity.ID.ToString());
+
+				foreach (IAttributeType attrType in iface.Attributes.Keys)
+				{
+					writer.WriteStartElement("Attribute","http://palladio.informatik.uni-oldenburg.de/XSD");
+					writer.WriteAttributeString("guid",attrType.GUID.ToString());
+					iface.Attributes[attrType].Serialize(writer);
+					writer.WriteEndElement();
+				}
 
 				entity.Serialize(writer);
 

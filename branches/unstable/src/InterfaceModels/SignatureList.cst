@@ -33,7 +33,7 @@
 		/// <summary>
 		/// A list of attributes attached an object. 
 		/// </summary>
-		public IAttributeHash Attributes 
+		public AttributeHash Attributes 
 		{ 
 			get { return attributes; }
 		}
@@ -193,7 +193,7 @@
 		/// </summary>
 		/// <param name="anAttHash">Attributes.</param>
 		/// <param name="aSigArray">Signatures contained by the interface.</param>
-		public Default<%= ClassName %>(IAttributeHash anAttHash, params <%= ContainedSignatureType %>[] aSigArray)
+		public Default<%= ClassName %>(AttributeHash anAttHash, params <%= ContainedSignatureType %>[] aSigArray)
 		{
 			attributes = anAttHash;
 			signatures = new Set();
@@ -211,7 +211,7 @@
 		
 		#region Data
 		
-		private IAttributeHash attributes;
+		private AttributeHash attributes;
 		private Set signatures;
 		#endregion
 	}

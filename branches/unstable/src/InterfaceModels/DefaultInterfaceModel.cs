@@ -14,7 +14,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 	internal class DefaultInterfaceModel : FirstClassEntity, ICloneable, IAttributable, IInterfaceModel
 	{
 		protected ISignatureList signatureList;
-		protected IAttributeHash attributes;
+		protected AttributeHash attributes;
 		protected ArrayList auxiliarySpecs = new ArrayList();
 
 		public ISignatureList SignatureList
@@ -25,7 +25,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 			}
 		}
 		
-		public IAttributeHash Attributes 
+		public AttributeHash Attributes 
 		{
 			get 
 			{
@@ -96,7 +96,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 			signatureList.SignatureListChangeEvent += new SignatureListChangeEventHandler(info.SignatureListChangeEventHandler);
 		}
 			
-		public DefaultInterfaceModel(IAttributeHash attrHash, ISignatureList aSignatureList, string name, GloballyUniqueIdentifier id)
+		public DefaultInterfaceModel(AttributeHash attrHash, ISignatureList aSignatureList, string name, GloballyUniqueIdentifier id)
 		{
 			this.signatureList = (ISignatureList)aSignatureList.Clone();
 			this.attributes = attrHash;
@@ -104,7 +104,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 			this._guid = id;
 		}
 		
-		public DefaultInterfaceModel(IAttributeHash attrHash, string name, GloballyUniqueIdentifier id)
+		public DefaultInterfaceModel(AttributeHash attrHash, string name, GloballyUniqueIdentifier id)
 		{
 			signatureList = ComponentFactory.CreateSignatureList(new ISignature[0]);
 			this.attributes = attrHash;

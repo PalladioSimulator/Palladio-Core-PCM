@@ -15,6 +15,10 @@
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2.2.1  2004/12/02 23:39:49  uffi
+	/// IAttributeHash replaced by AttributeHash,
+	/// added attribute serialization
+	///
 	/// Revision 1.2  2004/06/09 12:36:31  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///
@@ -99,7 +103,7 @@
 		/// <summary>
 		/// A list of attributes attached an object. 
 		/// </summary>
-		public IAttributeHash Attributes 
+		public AttributeHash Attributes 
 		{ 
 			get { return attributes; }
 		}
@@ -159,17 +163,17 @@
 		/// </summary>
 		/// <param name="fsm">The FSM to be stored in the cloned class</param>
 		/// <param name="hash">The attributes to clone</param>
-		internal FSM<%= InterfaceDescription %> ( IAttributeHash hash, IFiniteStateMachine fsm)
+		internal FSM<%= InterfaceDescription %> ( AttributeHash hash, IFiniteStateMachine fsm)
 		{
 			this.fsm = (IFiniteStateMachine)fsm.Clone();
-			this.attributes = (IAttributeHash)hash.Clone();
+			this.attributes = (AttributeHash)hash.Clone();
 		}
 
 		#endregion
 		
 		#region Data
 		
-		private IAttributeHash attributes;
+		private AttributeHash attributes;
 		private IFiniteStateMachine fsm;
 		
 		#endregion

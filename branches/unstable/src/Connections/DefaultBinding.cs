@@ -14,7 +14,7 @@ namespace Palladio.ComponentModel.Connections
 	/// </summary>
 	internal class DefaultBinding : DefaultConnection, IBinding
 	{
-		public DefaultBinding(IAttributeHash anAttHash, IRole aReqRole, IRole aProvRole) : base(anAttHash,aReqRole,aProvRole) {}
+		public DefaultBinding(AttributeHash anAttHash, IRole aReqRole, IRole aProvRole) : base(anAttHash,aReqRole,aProvRole) {}
 
 		public DefaultBinding(DefaultBinding aBinding) : base(aBinding) {}
 
@@ -38,6 +38,13 @@ namespace Palladio.ComponentModel.Connections
 		{
 			writer.WriteStartElement("Binding","http://palladio.informatik.uni-oldenburg.de/XSD");
 			writer.WriteAttributeString("id", this.ID.ToString());
+			foreach (IAttributeType attrType in this.Attributes.Keys)
+			{
+				writer.WriteStartElement("Attribute","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("guid",attrType.GUID.ToString());
+				this.Attributes[attrType].Serialize(writer);
+				writer.WriteEndElement();
+			}
 			writer.WriteStartElement("ProvidingRole","http://palladio.informatik.uni-oldenburg.de/XSD");
 			writer.WriteAttributeString("guid",this.ProvidingRole.Component.ID.ToString());
 			writer.WriteAttributeString("id",this.ProvidingRole.ID.ToString());

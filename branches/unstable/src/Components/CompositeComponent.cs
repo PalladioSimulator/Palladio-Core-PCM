@@ -21,6 +21,10 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6.2.5  2004/12/02 23:39:48  uffi
+	/// IAttributeHash replaced by AttributeHash,
+	/// added attribute serialization
+	///
 	/// Revision 1.6.2.4  2004/11/26 19:37:21  uffi
 	/// *** empty log message ***
 	///
@@ -589,17 +593,17 @@ namespace Palladio.ComponentModel.Components
 						this.AddComponents(component as IComponent);
 						break;
 					case "Binding":
-						IBinding binding = new Connections.DefaultBinding(AttributesFactory.Default.CreateAttributeHash(),null,null);
+						IBinding binding = new Connections.DefaultBinding(new AttributeHash(),null,null);
 						binding.Deserialize(node);
 						this.AddBindings(binding);
 						break;
 					case "ProvidesMapping":
-						IMapping mapping = new Connections.DefaultMapping(AttributesFactory.Default.CreateAttributeHash(),null,null,MappingTypeEnum.PROVIDES_MAPPING);
+						IMapping mapping = new Connections.DefaultMapping(new AttributeHash(),null,null,MappingTypeEnum.PROVIDES_MAPPING);
 						mapping.Deserialize(node);
 						this.AddProvidesMappings(mapping);
 						break;
 					case "RequiresMapping":
-						mapping = new Connections.DefaultMapping(AttributesFactory.Default.CreateAttributeHash(),null,null,MappingTypeEnum.REQUIRES_MAPPING);
+						mapping = new Connections.DefaultMapping(new AttributeHash(),null,null,MappingTypeEnum.REQUIRES_MAPPING);
 						mapping.Deserialize(node);
 						this.AddRequiresMappings(mapping);
 						break;
@@ -616,7 +620,7 @@ namespace Palladio.ComponentModel.Components
 
 		#region Constructors
 
-		public CompositeComponent( IAttributeHash anAttHash, string name, GloballyUniqueIdentifier anID ) : base (anAttHash,name,anID)
+		public CompositeComponent( AttributeHash anAttHash, string name, GloballyUniqueIdentifier anID ) : base (anAttHash,name,anID)
 		{
 			nextID = 0;
 			connectionDataSet = new ConnectionDataSet();

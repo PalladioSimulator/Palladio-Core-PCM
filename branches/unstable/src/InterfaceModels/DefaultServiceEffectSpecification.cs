@@ -13,7 +13,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 	internal class DefaultServiceEffectSpecification : ICloneable, IAttributable, IServiceEffectSpecification
 	{
 		protected IServiceList signatureList;
-		protected IAttributeHash attributes;
+		protected AttributeHash attributes;
 		protected ArrayList auxiliarySpecs = new ArrayList();
 		
 		public IServiceList SignatureList
@@ -24,7 +24,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 			}
 		}
 		
-		public IAttributeHash Attributes 
+		public AttributeHash Attributes 
 		{
 			get 
 			{
@@ -95,13 +95,13 @@ namespace Palladio.ComponentModel.InterfaceModels
 			signatureList.SignatureListChangeEvent += new ServiceListChangeEventHandler(info.ServiceListChangeEventHandler);
 		}
 			
-		public DefaultServiceEffectSpecification(IAttributeHash attrHash, IServiceList aSignatureList)
+		public DefaultServiceEffectSpecification(AttributeHash attrHash, IServiceList aSignatureList)
 		{
 			this.signatureList = (IServiceList)aSignatureList.Clone();
 			this.attributes = attrHash;
 		}
 		
-		public DefaultServiceEffectSpecification(IAttributeHash attrHash)
+		public DefaultServiceEffectSpecification(AttributeHash attrHash)
 		{
 			signatureList = ComponentFactory.CreateServiceList(new IService[0]);
 			this.attributes = attrHash;
