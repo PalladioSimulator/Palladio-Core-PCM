@@ -94,7 +94,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IConfiguration.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\DefaultConfigReader\XMLConfigReader.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\DefaultConfiguration\DefaultConfiguration.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

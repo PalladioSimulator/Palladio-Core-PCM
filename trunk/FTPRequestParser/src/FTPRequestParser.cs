@@ -1,4 +1,5 @@
 using System;
+using Palladio.Webserver.Request;
 using Palladio.Webserver.RequestParser;
 
 namespace Palladio.Webserver.FTPRequestParser
@@ -13,6 +14,9 @@ namespace Palladio.Webserver.FTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/21 15:02:02  kelsaka
+	/// added some more interfaces
+	///
 	/// Revision 1.2  2004/10/20 15:38:01  kelsaka
 	/// added HTTPRequestProcessor as designed in doc
 	///
@@ -28,6 +32,11 @@ namespace Palladio.Webserver.FTPRequestParser
 		{
 
 
+		}
+
+		public void HandleRequest (IRequest request)
+		{
+			throw new NotImplementedException ();
 		}
 	}
 }
