@@ -164,6 +164,10 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "ModelSupport\default.txvpck"
+                    BuildAction = "None"
+                />
+                <File
                     RelPath = "ModelSupport\DLL_Engin\DLL_Engin.txvpck"
                     BuildAction = "None"
                 />

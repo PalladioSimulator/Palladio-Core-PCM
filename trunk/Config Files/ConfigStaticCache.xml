@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<StaticCacheSettings>
+	<visitTimesToBeCached>4</visitTimesToBeCached>
+	<maxCountOfCachedSites>5</maxCountOfCachedSites>
+	<NotCache>true</NotCache>
+	<DoCache>false</DoCache>
+	<ContentList>
+		<uri>/userStatictics.htm</uri>
+	</ContentList>
+</StaticCacheSettings>

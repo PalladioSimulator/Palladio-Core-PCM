@@ -4,15 +4,16 @@ using System.Collections;
 namespace DBAcesses
 {
 	/// <summary>
-	/// Entkapselt die Eigenschaften der Datenbank
+	/// Encapsolates the database properties.
 	/// </summary>
 	public class DatabaseProperties
 	{
-		/// <summary>
-		/// DatabaseLocation
-		/// </summary>
 		string database;
 		DatabaseTable[] tables;
+
+		/// <summary>
+		/// Initiates a new database properties.
+		/// </summary>
 		public DatabaseProperties()
 		{
 			//later it can be storted in a properties fiele
@@ -21,13 +22,18 @@ namespace DBAcesses
 			this.tables[0] = new DatabaseTable();
 			this.tables[0].TableName = "Bibtex";
 			this.tables[0].Entries = InsertBibTexTable();
-
 			this.tables[1] = new DatabaseTable();
 			this.tables[1].TableName ="UserStatistics";
 			this.tables[1].Entries = InsertUserStatistics();
 			
 		}
 
+
+		/// <summary>
+		/// Each database 
+		/// </summary>
+		/// <param name="tablename"></param>
+		/// <returns></returns>
 		public DatabaseTable GetAssociatedTable(string tablename)
 		{
 			foreach(DatabaseTable d in this.tables)
@@ -39,6 +45,10 @@ namespace DBAcesses
 		}
 
 
+		/// <summary>
+		/// Returns the colum names of the UserStatistics Table.
+		/// </summary>
+		/// <returns>In the representaion of a <c>IList</c>/returns>
 		public IList InsertUserStatistics()
 		{
 			IList list = new ArrayList();
@@ -50,6 +60,13 @@ namespace DBAcesses
 			list.Add("dateTime");
 			return list;
 		}
+
+
+		
+		/// <summary>
+		/// Returns the colum names of the BibTex Table.
+		/// </summary>
+		/// <returns>In the representaion of a <c>IList</c>/returns>
 		public IList InsertBibTexTable()
 		{
 			IList list = new ArrayList();
@@ -72,12 +89,19 @@ namespace DBAcesses
 			return list;
 		}
 
+
+		/// <summary>
+		/// ´Delivers all DatabaseTables in an <c>IList</c>.
+		/// </summary>
 		public IList Tables
 		{
 			get{return this.tables;}
 		}
 
 
+		/// <summary>
+		/// Returns the name of the database.
+		/// </summary>
 		public string Database
 		{
 			get{return this.database;}

@@ -15,23 +15,28 @@ using ReflectionBasedVisitor;
 namespace BibTexAnalyzer
 {
 	/// <summary>
-	/// Zusammenfassung für Class1.
+	/// Analies an Bibtex File an returns the entries formated in HTML.
+	/// This a handler Implemtaion of the Chain of Resonseabilty hosted by the request
+	/// prozessor component.This class uses the Bibtex Parser implemented by Steffen Becker.
 	/// </summary>
 	public class BibTexAnalyzerComponent :IDeliverResponse
 	{
-		IDeliverResponse sucessor;
-		HttpRequest request;
-		string path;
-		byte[] response;
-		int fileSize;
+		protected IDeliverResponse sucessor;
+		protected byte[] response;
+		protected int fileSize;
 	
+
+		/// <summary>
+		/// Initates an empty BibTexAnalyzer
+		/// </summary>
 		public BibTexAnalyzerComponent() 
 		{
-			//
-			// TODO: Fügen Sie hier die Konstruktorlogik hinzu
-			//
 		}
 
+		/// <summary>
+		/// Delivers the response of the BibTex Analyzer as HTML. It is stored in a
+		/// byte Array.
+		/// </summary>
 		public byte[] GetResponse
 		{
 			get
@@ -40,6 +45,16 @@ namespace BibTexAnalyzer
 			}
 		}
 
+		/// <summary>
+		/// This is the implementation of the <c>IDeliverResponse</c> Interface. This one
+		/// successor for the chain of responsability. This method decides if this class
+		/// is responsable for the request. If not the request is handelt to the successor.
+		/// </summary>
+		/// <param name="request">The request which should be answered</param>
+		/// <param name="path">The absolute path to the requested file. This file is located
+		/// on the HD of the server. For this class this can be an empty to string. Please notice, that a
+		/// successor will perhaps need this information. </param>
+		/// <returns>this if it is responsable</returns>
 		public IDeliverResponse DeliverResonse(HttpRequest request, string path)
 		{
 			if(isResonsible(request,path))
@@ -50,6 +65,16 @@ namespace BibTexAnalyzer
 			else return this.sucessor.DeliverResonse(request,path);
 		}
 
+
+		/// <summary>
+		/// Cbecks if this class is responsable for the request. This class btz. handler is
+		/// responsable if the uri is format.htm and the request is not a <c>HTTPPostRequest</c>
+		/// </summary>
+		/// <param name="request">The request which should be answered</param>
+		/// <param name="path">The absolute path to the requested file. This file is located
+		/// on the HD of the server. For this class this can be an empty to string. Please notice, that a
+		/// successor will perhaps need this information. </param>
+		/// <returns>True if this class is responsale.</returns>
 		internal bool isResonsible(HttpRequest request, string path)
 		{
 			if(!(request is HttpPostRequest))
@@ -59,40 +84,35 @@ namespace BibTexAnalyzer
 			return true;
 		}
 
+		/// <summary>
+		/// Generates the HTML side from the given BibTexFile. The HTML side contains an
+		///a normal HTML header and a heading. The BibTex entries are represented in a 
+		///HTML table. If the BibTex file ist not valid an error message will be generated.
+		///This methods uses the <c>BibTex Parser</c>. This class manipulates the responseByte
+		///and the fileSize variables.
+		/// </summary>
+		/// <param name="aRequest"The request which should be answered.></param>
 		internal void ComputeResponse(HttpPostRequest aRequest)
 		{
-
 			string worth= new StreamReader("head.txt").ReadToEnd();
 			try
 			{
-//			StreamWriter file = new StreamWriter("test.bwl");
-//			file.WriteLine(aRequest.Content);
-//			file.Flush();
-//			file.Close();
-			IBibTeXFactory bibtexFactory = FactoryBuilder.CreateBibTeXFactory();
-			IBibTeXFile bibFile;
-			Stream stream = new MemoryStream(System.Text.ASCIIEncoding.ASCII.GetBytes(aRequest.Content));
-			bibFile = bibtexFactory.CreateBibTeXFileFromStream(new StreamReader(stream));
-//			bibFile = bibtexFactory.CreateBibTeXFileFromLocalFile("test.bwl");
-
-			//			FixEntries(bibFile.Entries);
-			IBibTeXFormater ASCIIFormater;
-			ASCIIFormater = FormaterFactory.GetASCIIFormater();
-			//			ASCIIFormater.FormatToString(bibFile.
-			IEntry[] test = bibFile.Entries;
-			Console.WriteLine("Anzahl der Einträge: "+test.Length);
-
-			StringWriter writer = new StringWriter();
-			
+				IBibTeXFactory bibtexFactory = FactoryBuilder.CreateBibTeXFactory();
+				IBibTeXFile bibFile;
+				Stream stream = new MemoryStream(System.Text.ASCIIEncoding.ASCII.GetBytes(aRequest.Content));
+				bibFile = bibtexFactory.CreateBibTeXFileFromStream(new StreamReader(stream));
+				IBibTeXFormater ASCIIFormater;
+				ASCIIFormater = FormaterFactory.GetASCIIFormater();
+				IEntry[] test = bibFile.Entries;
+				Console.WriteLine("Anzahl der Einträge: "+test.Length);
+				StringWriter writer = new StringWriter();
+				
 				foreach(IEntry e in test)
 				{
 					if (e.Type == EntryType.REGULAR)
 					{
 						worth = worth +FormatEntry(e)+"<br><p>";
-					
-					
 					}
-					//				response = response+ ASCIIFormater.FormatToString(e);
 				}
 			}
 			catch(Exception e)
@@ -106,6 +126,12 @@ namespace BibTexAnalyzer
 			this.response = Encoding.ASCII.GetBytes(worth);
 		}
 
+		/// <summary>
+		/// This internal method formates a single BibTex entry and returns them as a row
+		/// of the result table.
+		/// </summary>
+		/// <param name="entry">The BibTrx Ntry whixh should be formated.</param>
+		/// <returns>AThe foramted BibTex Entry</returns>
 		internal string FormatEntry(IEntry entry)
 		{
 			IRegularEntry toFormat = (IRegularEntry)entry;
@@ -118,17 +144,30 @@ namespace BibTexAnalyzer
 			Console.WriteLine(result);
 			return result;
 		}
+
+		/// <summary>
+		/// Sets and delivers the sucessor of the Responsability Chain.
+		/// </summary>
 		public IDeliverResponse Sucessor
 		{
 			set{this.sucessor = value;}
 			get{return this.sucessor;}
 		}
 
+		/// <summary>
+		/// The size of the generated reponse
+		/// </summary>
 		public int GetFileSize
 		{
 			get{return this.fileSize;}
 		}
 
+
+		/// <summary>
+		/// The Date of the last modofication of the response. For the dynamic genration of
+		/// thr response this is alway noe.
+		/// </summary>
+		/// <returns></returns>
 		public DateTime  LastModified()
 		{
 			return DateTime.Now;

@@ -46,13 +46,14 @@ namespace DLL_Engin
 		public IDLL Sucessor
 		{
 			get{return this.sucessor;}
-			set{
+			set
+			{
 				this.sucessor = value;}
 		}
 
 		public string Result()
 		{
-			addFile add = new addFile(ref this.db);
+			AddFile add = new AddFile(ref this.db);
 			return add.ComputeResponse(request);
 		
 		}

@@ -16,16 +16,34 @@ using DBAcesses;
 namespace addBibTexDatabase
 {
 	/// <summary>
-	/// Zusammenfassung für Class1.
+	/// This add a BibtexFile into the database. Only regular BibTex Entries will be
+	/// accepted. When the adding is successful a success message will be provided. 
+	/// This message contains the number of added entries in the database. It also 
+	/// provides a sucess message if the Entrie is already in the database. But the entry
+	/// will not be added into the database. If the entry is not valid an erroy message
+	/// will be provided. This class uses the Bibtex Parser implemented by Steffen Becker.
 	/// </summary>
-	public class addFile
+	public class AddFile
 	{
-		DBAcessComponent db;
-		public addFile(ref DBAcessComponent db)
+		protected DBAcessComponent db;
+
+		/// <summary>
+		/// Initates a new AddFile.
+		/// </summary>
+		/// <param name="db">A reference on a DBAcessComponent to get aceess to the database.</param>
+		public AddFile(ref DBAcessComponent db)
 		{
 			this.db = db;
 		}
 
+		/// <summary>
+		/// Computes the response message.  This message contains the number of added entries in the database. It also 
+		/// provides a sucess message if the Entrie is already in the database. But the entry
+		/// will not be added into the database. If the entry is not valid an erroy message
+		/// will be provided.
+		/// </summary>
+		/// <param name="aRequest">The request which content should be added to the database</param>
+		/// <returns>The result of the computation, It contains information for the user.</returns>
 		public string ComputeResponse(HttpPostRequest aRequest)
 		{
 
@@ -41,7 +59,7 @@ namespace addBibTexDatabase
 				IBibTeXFormater ASCIIFormater;
 				ASCIIFormater = FormaterFactory.GetASCIIFormater();
 				//			ASCIIFormater.FormatToString(bibFile.
-			    test = bibFile.Entries;
+				test = bibFile.Entries;
 				Console.WriteLine("Anzahl der Einträge: "+test.Length);
 			}
 			catch(Exception e)
@@ -60,8 +78,6 @@ namespace addBibTexDatabase
 					
 						IRegularEntry toFormat = (IRegularEntry) e;
 						Hashtable newDBEntry = new Hashtable();
-
-						
 						newDBEntry.Add("title",toFormat.Fields["title"].FlatValue);
 						newDBEntry.Add("author",toFormat.Fields["author"].FlatValue);
 						if(toFormat.Fields.HasField("note"))
@@ -112,13 +128,9 @@ namespace addBibTexDatabase
 
 						newDBEntry.Add("label",toFormat.Label);
 						newDBEntry.Add("type",toFormat.TypeDescriptor);
-
 						///DBAcessComponent dba = new DBAcessComponent();
 						this.db.InsertRow("Bibtex",newDBEntry,"nichts","nichts");
 						counter++;
-
-						
-					
 					}
 				}
 				catch(Exception ex)
@@ -127,11 +139,7 @@ namespace addBibTexDatabase
 					throw new Exception("The BibtexFile you ve uploaded is not valid Error Message: "+ex.Message);
 					
 				}
-
-
-				
 			}
-
 			string result = "Eintrag in Datenbank erfolgreich. Es wurden "+counter+" Datens&auml;tze eingef&uuml;gt";
 			return result;
 		}

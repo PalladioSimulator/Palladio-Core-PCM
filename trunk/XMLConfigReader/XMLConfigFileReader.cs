@@ -52,7 +52,7 @@ namespace XMLConfigReader
 				XmlNodeList list = n.ChildNodes;
 				foreach(XmlNode d in list)
 				{
-					ConfigList.Add(d[item].ToString());
+					ConfigList.Add(d.InnerText);
 				}
 			}
 			foreach(DictionaryEntry di in ConfigList)

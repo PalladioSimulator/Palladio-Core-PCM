@@ -91,6 +91,12 @@ namespace XMLConfigReader
 		public bool Contains(object o)
 		{
 			return this.list.Contains(o);
+//			foreach(DictionaryEntry d in this.list)
+//			{
+//				if(d.Value.ToString() == o.ToString())
+//					return true;
+//			}
+//			return false;
 		}
 
 

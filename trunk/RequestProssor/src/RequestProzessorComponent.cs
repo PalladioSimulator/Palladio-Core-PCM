@@ -26,7 +26,7 @@ namespace RequestProssor
 		WebServerMonitor realMonitor;
 		
 
-		protected bool zipRequested=false;
+		protected bool zipRequested=true;
 		public DeliveresponseHandler  ResponseHandler
 		{
 			get{return this.responseHandler;}
@@ -80,16 +80,16 @@ namespace RequestProssor
 				res.StatusCode=" 404 File Not Found";
 
 			}
-//			catch(Exception e)
-//			{
-//				Console.WriteLine(e.Message);
-//				Console.WriteLine(e.GetType());
-//				Console.WriteLine(e.Source);
-//				Console.WriteLine(e.StackTrace);
-//				res.MessageByte = this.errorHandler.GenerateErrorMessage(" 505 Server Problems ");
-//				res.FileSize= res.MessageByte.Length;
-//				res.StatusCode=" 505 Server Problems ";
-//			}
+			catch(Exception e)
+			{
+				Console.WriteLine(e.Message);
+				Console.WriteLine(e.GetType());
+				Console.WriteLine(e.Source);
+				Console.WriteLine(e.StackTrace);
+				res.MessageByte = this.errorHandler.GenerateErrorMessage(" 505 Server Problems ");
+				res.FileSize= res.MessageByte.Length;
+				res.StatusCode=" 505 Server Problems ";
+			}
 			this.send = new Sender(r,res,this.zipRequested);
 			this.testMoni.RequestServed(r,res);
 		}
