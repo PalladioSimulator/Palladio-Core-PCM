@@ -47,6 +47,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPRequestProcessor", "..\
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Request", "..\Request\Request.csproj", "{CA375D44-037E-4023-8FC7-4E61C73D778E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -101,6 +105,10 @@ Global
 		{61580AC2-47F7-4183-B96E-385B39CE5D26}.Debug.Build.0 = Debug|.NET
 		{61580AC2-47F7-4183-B96E-385B39CE5D26}.Release.ActiveCfg = Release|.NET
 		{61580AC2-47F7-4183-B96E-385B39CE5D26}.Release.Build.0 = Release|.NET
+		{CA375D44-037E-4023-8FC7-4E61C73D778E}.Debug.ActiveCfg = Debug|.NET
+		{CA375D44-037E-4023-8FC7-4E61C73D778E}.Debug.Build.0 = Debug|.NET
+		{CA375D44-037E-4023-8FC7-4E61C73D778E}.Release.ActiveCfg = Release|.NET
+		{CA375D44-037E-4023-8FC7-4E61C73D778E}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
