@@ -1,7 +1,7 @@
 using System;
 using Palladio.FiniteStateMachines;
 
-namespace ComponentNetworkSimulation.Structure.Services
+namespace ComponentNetworkSimulation.Structure.Elements
 {
 	/// <summary>
 	/// This class is the default implementation of the service builder in the framework.
@@ -9,6 +9,9 @@ namespace ComponentNetworkSimulation.Structure.Services
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/17 12:07:35  joemal
+	/// change namespace from service to elements
+	///
 	/// Revision 1.2  2004/05/26 16:32:12  joemal
 	/// add cvs log tag
 	///

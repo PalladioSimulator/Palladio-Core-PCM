@@ -1,7 +1,7 @@
 using System;
 using ComponentNetworkSimulation.Structure.Attributes;
 
-namespace ComponentNetworkSimulation.Structure.Services
+namespace ComponentNetworkSimulation.Structure.Elements
 {
 	/// <summary>
 	/// This class is the default implementation of a simulationstate with static waitingtime.
@@ -9,6 +9,9 @@ namespace ComponentNetworkSimulation.Structure.Services
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/17 12:07:35  joemal
+	/// change namespace from service to elements
+	///
 	/// Revision 1.2  2004/05/25 16:23:37  joemal
 	/// parameters now are stored in attributehash
 	///

@@ -1,7 +1,7 @@
 using System;
 using Palladio.FiniteStateMachines;
 
-namespace ComponentNetworkSimulation.Structure.Services
+namespace ComponentNetworkSimulation.Structure.Elements
 {
 	/// <summary>
 	/// Implementing classes provide the functionality to resolve the indeterminism in FSM with states who have more than
@@ -10,6 +10,9 @@ namespace ComponentNetworkSimulation.Structure.Services
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/06/17 12:07:35  joemal
+	/// change namespace from service to elements
+	///
 	/// Revision 1.1  2004/05/18 15:42:06  joemal
 	/// initial creation
 	///

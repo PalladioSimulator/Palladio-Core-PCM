@@ -4,7 +4,7 @@ using Palladio.FiniteStateMachines;
 
 using ComponentNetworkSimulation.Structure.Attributes;
 
-namespace ComponentNetworkSimulation.Structure.Services
+namespace ComponentNetworkSimulation.Structure.Elements
 {
 	/// <summary>
 	/// This is the abstract class for all states of the FSM's services implemented by the framework.
@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Services
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.5  2004/06/17 12:07:35  joemal
+	/// change namespace from service to elements
+	///
 	/// Revision 1.4  2004/05/26 16:33:26  joemal
 	/// remove methods:
 	/// - NextTimeConsumer

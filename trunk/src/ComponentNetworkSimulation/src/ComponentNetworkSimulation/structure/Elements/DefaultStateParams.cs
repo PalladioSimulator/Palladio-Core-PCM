@@ -1,6 +1,6 @@
 using System;
 
-namespace ComponentNetworkSimulation.Structure.Services
+namespace ComponentNetworkSimulation.Structure.Elements
 {
 	/// <summary>
 	/// This is the default parameterstructure for simulationstates, implemented by the framework. 
@@ -9,6 +9,9 @@ namespace ComponentNetworkSimulation.Structure.Services
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/17 12:07:35  joemal
+	/// change namespace from service to elements
+	///
 	/// Revision 1.2  2004/05/26 16:31:53  joemal
 	/// change some docs
 	///
