@@ -13,6 +13,7 @@ namespace FSM
 		protected State StartState;
 		protected Set FinalSates;
 		protected State ErrorState;
+		protected bool ErrorStateSet;
 
 
 		/// <summary>
@@ -24,7 +25,12 @@ namespace FSM
 			this.transitions = new Hashtable();
 			this.FinalSates = new Set();
 			this.ErrorState = new State("ErrorState",false,false);
+			this.ErrorStateSet = true;
 
+		}
+		public State getErrorState()
+		{
+			return new State("ErrorState",false,false);
 		}
 		/// <summary>
 		/// Adds a Transition to the FSM. 
@@ -44,6 +50,11 @@ namespace FSM
 		/// </summary>
 		public void writeStartFinal()
 		{
+			if(this.ErrorStateSet==false)
+			{
+				this.ErrorStateSet = true;
+				this.setErrorStates();
+			}
 			Console.WriteLine("startstate is: "+this.getStartState().ToString());
 			Console.WriteLine("finalstate is: "+this.getFinalStates().ToString());
 		}
@@ -52,6 +63,11 @@ namespace FSM
 		/// </summary>
 		public void DisplayOnConsole()
 		{
+			if(this.ErrorStateSet==false)
+			{
+				this.ErrorStateSet = true;
+				this.setErrorStates();
+			}
 			try
 			{
 
@@ -151,6 +167,11 @@ namespace FSM
 		/// <returns>the next State witch is reachable with the state and the inputcharacter</returns>
 		public State getNextState(State fromState, Input input)
 		{
+//			if(this.ErrorStateSet==false)
+//			{
+//				this.ErrorStateSet = true;
+//				this.setErrorStates();
+//			}
 
 			if(this.inputAl.Contains(input)== false)
 				throw new InvalidInputException();
@@ -184,6 +205,11 @@ namespace FSM
 		/// <returns>The next possible Transition.</returns>
 		public Transition getTransition(State fromState, Input inChar) 
 		{
+			if(this.ErrorStateSet==false)
+			{
+				this.ErrorStateSet = true;
+				this.setErrorStates();
+			}
 			if(this.inputAl.Contains(inChar) ==  false)
 				throw new InvalidInputException();
 			
@@ -225,6 +251,11 @@ namespace FSM
 		/// <returns>All transition from the given state</returns>
 		public Hashtable getTransitionMap(State state)
 		{
+			if(this.ErrorStateSet==false)
+			{
+				this.ErrorStateSet = true;
+				this.setErrorStates();
+			}
 			Hashtable tmp = new Hashtable();
 			Object help = this.transitions[state];
 			if(help == null)
@@ -252,7 +283,11 @@ namespace FSM
 		/// <returns>All Transitions of the FSM in a Array</returns>
 		public Transition[] getTransitions()
 		{
-			
+			if(this.ErrorStateSet==false)
+			{
+				this.ErrorStateSet = true;
+				this.setErrorStates();
+			}
 			int i = 0;
 			DynamicArray tmp = new DynamicArray(i);
 			IDictionaryEnumerator myEnumerator = this.transitions.GetEnumerator();
@@ -294,7 +329,13 @@ namespace FSM
 			string st ="";
 			Transition[] bla = this.getTransitions();
 			foreach(Transition tr in bla)
+			{
+				if(tr.fromState.Equals(this.ErrorState))
+					continue;
+				if(tr.toState.Equals(this.ErrorState))
+					continue;
 				st+= tr.ToString()+"\n";
+			}
 			return st;
 
 		}
