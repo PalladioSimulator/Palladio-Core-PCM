@@ -12,6 +12,15 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <summary>
 	/// This interface defines all methods, properties and events, the clock of the simulation environment provides.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.4  2004/05/26 16:29:54  joemal
+	/// add cvs log tag
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public interface IClock
 	{
 		#region events

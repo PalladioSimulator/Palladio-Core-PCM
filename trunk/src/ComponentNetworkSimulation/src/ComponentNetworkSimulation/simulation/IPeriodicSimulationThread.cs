@@ -6,6 +6,15 @@ namespace ComponentNetworkSimulation.Simulation
 	/// This interface extends a SimulationThread to provide some additional methods, events and properties, used for
 	/// periodic threads.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.2  2004/05/26 16:29:54  joemal
+	/// add cvs log tag
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public interface IPeriodicSimulationThread
 	{
 		#region events

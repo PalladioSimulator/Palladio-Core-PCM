@@ -3,6 +3,15 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <summary>
 	/// This interface defines all methods, properties and events provided by a SimulationThread.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.4  2004/05/26 16:29:53  joemal
+	/// add cvs log tag
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public interface ISimulationThread
 	{
 		#region events

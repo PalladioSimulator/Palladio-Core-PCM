@@ -7,6 +7,15 @@ namespace ComponentNetworkSimulation.Simulation
 	/// This interface declares implementing classes as observer for simulationthreads. Each created thread may have 
 	/// one of these observers.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.5  2004/05/26 16:29:53  joemal
+	/// add cvs log tag
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public interface IThreadObserver
 	{
 		/// <summary>

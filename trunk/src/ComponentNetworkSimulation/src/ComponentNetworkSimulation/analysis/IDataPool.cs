@@ -10,6 +10,15 @@ namespace ComponentNetworkSimulation.Analysis
 	/// <summary>
 	/// The interface defines a DataPool. 
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.2  2004/05/26 16:26:52  joemal
+	/// add cvs log tag
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public interface IDataPool
 	{
 		/// <summary>

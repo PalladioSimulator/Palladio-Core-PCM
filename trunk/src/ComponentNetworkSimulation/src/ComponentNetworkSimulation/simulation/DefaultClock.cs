@@ -12,6 +12,15 @@ namespace ComponentNetworkSimulation.Simulation
 	/// to syncronize the simulation. The simulation time, if not set, is limitet to long.MaxValue.
 	/// Clock also contains an instance of ThreadScheduler, which manages the simulationthreads.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.6  2004/05/26 16:29:54  joemal
+	/// add cvs log tag
+	///
+	/// 
+	/// </pre>
+	/// </remarks>	
 	public class DefaultClock : IClock
 	{		
 		#region events

@@ -3,6 +3,15 @@ namespace ComponentNetworkSimulation.Analysis
 	/// <summary>
 	/// The factory belongs to the "Factory Methods Pattern" which implements the creation of several datapools.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.4  2004/05/26 16:26:52  joemal
+	/// add cvs log tag
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public class DataPoolFactory
 	{
 		#region static create methods

@@ -9,6 +9,15 @@ namespace ComponentNetworkSimulation.Analysis
 	/// three types, ClockLogs, ThreadLogs and Unknown logs by there parameterclasses. For each of these types, 
 	/// a method virtual exits. This implementation also holds an instance of simualtionenvironment.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.3  2004/05/26 16:26:52  joemal
+	/// add cvs log tag
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public class DefaultDataPool : IDataPool
 	{
 		#region data

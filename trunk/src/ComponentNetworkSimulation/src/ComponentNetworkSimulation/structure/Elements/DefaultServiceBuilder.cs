@@ -4,12 +4,23 @@ using Palladio.FiniteStateMachines;
 namespace ComponentNetworkSimulation.Structure.Services
 {
 	/// <summary>
-	/// Zusammenfassung für DefaultServiceBuilder.
+	/// This class is the default implementation of the service builder in the framework.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.2  2004/05/26 16:32:12  joemal
+	/// add cvs log tag
+	///
+	/// </pre>
+	/// </remarks>
 	public class DefaultServiceBuilder : IServiceBuilder
 	{
 		#region constants
 		
+		/// <summary>
+		/// the type that identifies the random strategy
+		/// </summary>
 		public const int STRATEGY_RANDOM = 0;
 
 		#endregion

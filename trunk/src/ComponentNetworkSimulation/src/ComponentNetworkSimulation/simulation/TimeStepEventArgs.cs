@@ -6,6 +6,15 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <summary>
 	/// This class extends the class EventArgs. It is used in TimeStepEventHandler.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.5  2004/05/26 16:29:53  joemal
+	/// add cvs log tag
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public class TimeStepEventArgs : EventArgs
 	{
 		#region declaration

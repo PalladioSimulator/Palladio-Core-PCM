@@ -6,6 +6,15 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <summary>
 	/// This class extends BasicLogEventArgs in order to add some parameters belong to a log from the clock.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.4  2004/05/26 16:29:54  joemal
+	/// add cvs log tag
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public class ClockLogEventArgs : BasicLogEventArgs
 	{
 		#region declaration

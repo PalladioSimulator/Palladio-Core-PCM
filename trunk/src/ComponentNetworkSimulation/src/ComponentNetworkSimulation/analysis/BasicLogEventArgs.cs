@@ -5,6 +5,15 @@ namespace ComponentNetworkSimulation.Analysis
 	/// <summary>
 	/// This class extends EventArgs to provide a basic event argument structure for all log events.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// $Log$
+	/// Revision 1.4  2004/05/26 16:26:52  joemal
+	/// add cvs log tag
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public class BasicLogEventArgs : EventArgs
 	{
 		#region data
