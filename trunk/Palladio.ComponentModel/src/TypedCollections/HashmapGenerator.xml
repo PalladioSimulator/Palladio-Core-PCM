@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<codeSmith>
+	<namespace>Palladio.ComponentModel.TypedCollections</namespace>
+	<imports>
+		<import namespace="System" />
+		<import namespace="System.Collections" />
+		<import namespace="Palladio.Attributes" />
+		<import namespace="Palladio.Identifier" />
+		<import namespace="Palladio.Utils.Collections" />
+	</imports>
+	<propertySets>
+		<propertySet>
+			<property name="Accessibility">Internal</property>
+			<property name="ClassName">ComponentRolesHashmap</property>
+			<property name="TargetNamespace">Palladio.ComponentModel.TypedCollections</property>
+			<property name="ImportNamespace">Palladio.Utils.Collections</property>
+			<property name="KeyType">IIdentifier</property>
+			<property name="KeyNamespace">Palladio.Identifier</property>
+			<property name="KeyValueType">False</property>
+			<property name="KeyCustomSearch">False</property>
+			<property name="ItemType">IRole</property>
+			<property name="ItemNamespace">Palladio.ComponentModel</property>
+			<property name="ItemValueType">False</property>
+			<property name="ItemCustomSearch">False</property>
+			<property name="PairType">IIDRoleEntry</property>
+			<property name="IncludeInterfaces">True</property>
+			<property name="IncludeNamespaces">True</property>
+		</propertySet>
+		<propertySet>
+			<property name="Accessibility">Internal</property>
+			<property name="ClassName">ServiceEffectHashmap</property>
+			<property name="TargetNamespace">Palladio.ComponentModel.TypedCollections</property>
+			<property name="ImportNamespace">Palladio.Utils.Collections</property>
+			<property name="KeyType">IService</property>
+			<property name="KeyNamespace">Palladio.ComponentModel</property>
+			<property name="KeyValueType">False</property>
+			<property name="KeyCustomSearch">False</property>
+			<property name="ItemType">IServiceEffectSpecification</property>
+			<property name="ItemNamespace">Palladio.ComponentModel</property>
+			<property name="ItemValueType">False</property>
+			<property name="ItemCustomSearch">False</property>
+			<property name="PairType">IServiceEntry</property>
+			<property name="IncludeInterfaces">True</property>
+			<property name="IncludeNamespaces">True</property>
+		</propertySet>
+	</propertySets>
+	<template path="hashmap.cst" />
+</codeSmith>
