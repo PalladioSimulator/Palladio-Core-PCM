@@ -12,7 +12,7 @@
 	
 	<!--Delay: The delays this component should produce. basicDelay: the default delay, that is produced. The variance specifies the range out of which the
 		delays are calculated. The time has to be specified in milliseconds. -->
-	<Delay BasicDelay="30000" Variance="0" />
+	<Delay BasicDelay="5000" Variance="0" />
 	
 	<!--ProbaliltyOfActivation: How often the consumer should produce a time consume. This will cause unpredictable time consuming. If the value is 100 the 
 		consumption will always be enabled, if the value is 0 the chance of activation is 1 to 100. All integer number between 0 and 100 are allowed. Default is 100.-->
