@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/22 17:08:29  joemal
+	/// - change method signature in service builder
+	///
 	/// Revision 1.1  2004/06/22 12:17:19  joemal
 	/// inital class creation
 	///
@@ -61,11 +64,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// called to create a builder used to fill a fsm of a service in a basic component.
 		/// </summary>
 		/// <param name="component">the component which contains the service to be filled</param>
-		/// <param name="fsm">the fsm of the service</param>
+		/// <param name="seff">the service effect specification</param>
 		/// <returns>the builder used to fill the FSM</returns>
-		public IServiceBuilder CreateBuilder(IBasicComponent component, IFSMServiceEffect fsmSeff)
+		public IServiceBuilder CreateBuilder(IBasicComponent component, IServiceEffectSpecification seff)
 		{
-			return new DefaultServiceBuilder(component,fsmSeff,elementFactory);
+			return new DefaultServiceBuilder(component,seff,elementFactory);
 		}
 	}
 }

@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/22 17:08:29  joemal
+	/// - change method signature in service builder
+	///
 	/// Revision 1.1  2004/06/22 12:17:19  joemal
 	/// inital class creation
 	///
@@ -73,7 +76,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
 			seff.AddAuxiliarySpecification(fsmSeff);
 
-			return this.builderFactory.CreateBuilder(this.BasicComponent,fsmSeff);
+			return this.builderFactory.CreateBuilder(this.BasicComponent,seff);
 		}
 
 		#endregion

@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/22 17:08:29  joemal
+	/// - change method signature in service builder
+	///
 	/// Revision 1.1  2004/06/22 12:17:19  joemal
 	/// inital class creation
 	///
@@ -28,7 +31,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <summary>
 		/// holds the editable fsm of the service
 		/// </summary>
-		private IEditableFiniteStateMachine fsm;
+		private IServiceEffectSpecification serviceEffectSpecification;
 
 		/// <summary>
 		/// holds the component that contains the service
@@ -42,6 +45,32 @@ namespace ComponentNetworkSimulation.Structure.Builder
 
 		#endregion
 
+		#region properties
+
+		/// <summary>
+		/// call to extract the editable fsm from service effect
+		/// </summary>
+		protected IEditableFiniteStateMachine FSM
+		{
+			get
+			{
+				return FSMServiceEffect.EditFSM;
+			}
+		}
+
+		/// <summary>
+		/// call to extract the service effect from effect specification
+		/// </summary>
+		protected IFSMServiceEffect FSMServiceEffect
+		{
+			get
+			{
+				return (IFSMServiceEffect)this.serviceEffectSpecification.GetAuxiliarySpecification(typeof(IFSMServiceEffect));
+			}
+		}
+
+		#endregion
+
 		#region constructor
 
 		/// <summary>
@@ -50,11 +79,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="component">the component, that contains the service</param>
 		/// <param name="fsmSeff">the FSM service effect, that has to be filled</param>
 		/// <param name="factory">the factory, used to create the elements of the fsm</param>
-		public DefaultServiceBuilder(IBasicComponent component, IFSMServiceEffect fsmSeff, IElementFactory factory)
+		public DefaultServiceBuilder(IBasicComponent component, IServiceEffectSpecification seff, IElementFactory factory)
 		{
 			this.component = component;
-			this.fsm = fsmSeff.EditFSM;
-			this.elementFactory = elementFactory;
+			this.serviceEffectSpecification = seff;
+			this.elementFactory = factory;
 		}
 
 		#endregion
@@ -68,7 +97,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		public void AddState(ISimulationStateParams stateParams)
 		{
 			ISimulationState newState = elementFactory.CreateState(stateParams);
-			fsm.AddStates(newState);
+			FSM.AddStates(newState);
 		}
 
 		/// <summary>
@@ -77,7 +106,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="id">the id of the state</param>
 		public void SetStartState(string id)
 		{
-			fsm.StartState = fsm.GetState(id);
+			FSM.StartState = FSM.GetState(id);
 		}
 
 		/// <summary>
@@ -88,7 +117,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		{
 			IState[] finalState = new IState[ids.Length];
 			for(int a=0;a<ids.Length;a++)
-				finalState[a] = fsm.GetState(ids[a]);			
+				finalState[a] = FSM.GetState(ids[a]);			
 		}
 
 		/// <summary>
@@ -105,10 +134,12 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			if (!this.component.HasRequiresInterface(reqIFaceID)) 
 				this.component.AddRequiresInterface(reqIFaceID,ComponentFactory.CreateInterfaceModel());
 
-			ISignature[] sigs = ComponentFactory.CreateSignatureArray(signatureID.ToString());
-			this.component.GetRequiresInterface(reqIFaceID).SignatureList.AddSignatures(sigs);
+			ISignature sig = ComponentFactory.CreateSignatureArray(signatureID.ToString())[0];
+			this.component.GetRequiresInterface(reqIFaceID).SignatureList.AddSignatures(sig);
 
-			fsm.AddTransition(sourceStateID,sigs[0],destStateID);
+			serviceEffectSpecification.SignatureList.AddSignatures(ComponentFactory.CreateSignatureWithRole(reqIFaceID,sig));
+            
+			FSM.AddTransition(sourceStateID,sig,destStateID);
 		}
 
 		#endregion
