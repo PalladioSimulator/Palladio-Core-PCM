@@ -45,8 +45,10 @@ namespace FiniteStateMachines {
 		public Hashtable getAllTransitionHashtable() {
 			return this.transitions;
 		}
+
+
 		/// <summary>
-		/// Find all reachable states from the state aState.
+		/// Finds all reachable states from the state <code>aState</code>.
 		/// </summary>
 		/// <param name="aState">State to start from</param>
 		/// <returns>Set containing all reachable States</returns>
@@ -57,7 +59,9 @@ namespace FiniteStateMachines {
 		}
 
 		/// <summary>
-		/// Find all reachable states from the state aState.
+		/// Finds all reachable states from the state <code>aState</code>.
+		/// 
+		/// Used by the public method.
 		/// </summary>
 		/// <param name="aState">starting here</param>
 		/// <param name="resultSet">has to be an empty set. contains the result</param>
@@ -66,8 +70,8 @@ namespace FiniteStateMachines {
 				resultSet.Add(aState);
 				Hashtable transitions = GetOutgoingTransitions(aState);
 				if (transitions != null){
-					for (IDictionaryEnumerator e = transitions.GetEnumerator(); e.MoveNext();){
-						GetReachableStatesRecursive(((Transition)e.Value).DestinationState,ref resultSet);
+					foreach (DictionaryEntry entry in transitions){
+						GetReachableStatesRecursive(((Transition)entry.Value).DestinationState,ref resultSet);
 					}
 				}
 			}

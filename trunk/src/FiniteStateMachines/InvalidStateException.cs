@@ -3,7 +3,7 @@ using System;
 namespace FiniteStateMachines
 {
 
-	public class InvalidStateException : Exception
+	public class InvalidStateException : ApplicationException
 	{
 		
 		public InvalidStateException(){}

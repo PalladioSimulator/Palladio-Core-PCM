@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 
 namespace FiniteStateMachines {
 
@@ -13,22 +14,25 @@ namespace FiniteStateMachines {
 	public class StackState : AbstractState {
 
 		/// <summary>
-		/// Stack containing the states of all active services.
+		/// Default name for the top service.
 		/// </summary>
-		private Stack stateStack;
+		public static Input TOP_SERVICE_NAME = new Input("top service");
 
 		/// <summary>
-		/// Stack containing the names of all active services.
+		/// State of the top service.
 		/// </summary>
-		private Stack serviceNameStack;
-		
+		private AbstractState topServiceState;
+
+		/// <summary>
+		/// Stack containing all contexts of this state
+		/// </summary>
+		private Stack contextStack;
+
 
 		/// <summary>
 		/// Creates an empty StackState. Invisible to the public.
 		/// </summary>
 		private StackState(){
-			stateStack = new Stack();
-			serviceNameStack = new Stack();
 		}
 
 
@@ -37,20 +41,18 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="aState">The copied state.</param>
 		public StackState(StackState aState) {
-			stateStack = (Stack)aState.stateStack.Clone();
-			serviceNameStack = (Stack)aState.serviceNameStack.Clone();
+			topServiceState = aState.topServiceState;
+			contextStack = (Stack)aState.contextStack.Clone();
 		}
 
 
 		/// <summary>
-		/// Creates a new <code>StackState</code> for an abstract state.
-		/// It belongs to the provides protocol.
+		/// Creates a new <code>StackState</code> for a top service.
 		/// </summary>
-		/// <param name="state">An abstract state of the provides protocol</param>
+		/// <param name="aState">The state of the top service</param>
 		public StackState(AbstractState aState){
-			stateStack = new Stack();
-			serviceNameStack = new Stack();
-			stateStack.Push(aState);
+			topServiceState = aState;
+			contextStack = new Stack();
 		}
 
 
@@ -60,13 +62,9 @@ namespace FiniteStateMachines {
 		/// </summary>
 		public override string Name {
 			get {
-				string result = "s: ";
-				for (IEnumerator e = serviceNameStack.GetEnumerator();e.MoveNext();){
-					result += (e.Current + " ");
-				}
-				result += "\t"+"q: ";
-				for (IEnumerator e = stateStack.GetEnumerator();e.MoveNext();){
-					result+=(e.Current + " ");
+				string result = "";
+				foreach(Context con in contextStack){
+					result+="("+con+") ";
 				}
 				return result;
 			}
@@ -108,8 +106,7 @@ namespace FiniteStateMachines {
 		/// <param name="aService">Name of the service</param>
 		/// <param name="aState">State of the service</param>
 		public void Push(Input aServiceName, AbstractState aState){
-			serviceNameStack.Push(aServiceName);
-			stateStack.Push(aState);
+			contextStack.Push(new Context(aServiceName,aState));
 		}
 
 
@@ -119,35 +116,37 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="newState"></param>
 		public void ChangeTopState(AbstractState newState){
-			stateStack.Pop();
-			stateStack.Push(newState);
+			Context con = (Context)contextStack.Pop();
+			con.State = newState;
+			contextStack.Push(con);
 		}
 
 		
 		/// <summary>
-		/// Pop the name of the service on top.
+		/// Pops the top context.
 		/// </summary>
-		/// <returns>Name of the top service</returns>
-		public Input PopServiceName(){
-			return (Input)serviceNameStack.Pop();
+		/// <returns>Top context</returns>
+		public Context Pop(){
+			Context con;
+			try{
+				con = (Context)contextStack.Pop();
+			} catch(InvalidOperationException e){
+				con = new Context(TOP_SERVICE_NAME,topServiceState);
+			}
+			return con;
 		}
-
 		
-		/// <summary>
-		/// Pop the state of the service on top.
-		/// </summary>
-		/// <returns>State of the top service</returns>
-		public AbstractState PopState(){
-			return (AbstractState)stateStack.Pop();
-		}
 
-		
 		/// <summary>
 		/// Lookup the name of the service on top.
 		/// </summary>
 		/// <returns>Name of the top service</returns>
 		public Input PeekServiceName(){
-			return (Input)serviceNameStack.Peek();
+			try {
+				return ((Context)contextStack.Peek()).ServiceName;
+			} catch(InvalidOperationException e){
+				return TOP_SERVICE_NAME;
+			}
 		}
 
 		
@@ -156,15 +155,19 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <returns>State of the top service</returns>
 		public AbstractState PeekState(){
-			return (AbstractState) stateStack.Peek();
+			try {
+				return ((Context)contextStack.Peek()).State;
+			} catch(InvalidOperationException e) {
+				return topServiceState;
+			}
 		}
 
 		
 		/// <summary>
-		/// Checks if there are any services left.
+		/// Checks if there are any services left except the top service.
 		/// </summary>
 		public bool IsEmpty {
-			get { return (serviceNameStack.Count == 0); }
+			get { return (contextStack.Count == 0); }
 		}
 
 		
@@ -179,8 +182,7 @@ namespace FiniteStateMachines {
 		public StackState LookupServiceName(Input aServiceName){
 			StackState resultState = new StackState(this);
 			while ((!resultState.IsEmpty) && (resultState.PeekServiceName() != aServiceName)) {
-				resultState.PopServiceName();
-				resultState.PopState();
+				resultState.Pop();
 			}
 			return resultState;
 		}
@@ -197,8 +199,7 @@ namespace FiniteStateMachines {
 		public StackState LookupServiceNameTwice(Input aServiceName){
 			StackState resultState = LookupServiceName(aServiceName);
 			if(!resultState.IsEmpty) {
-				resultState.PopServiceName();
-				resultState.PopState();
+				resultState.Pop();
 				return resultState.LookupServiceName(aServiceName);
 			} else {
 				return resultState;
