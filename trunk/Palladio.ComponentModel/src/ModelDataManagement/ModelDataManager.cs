@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/03/17 18:30:35  kelsaka
+	/// - added first builder-interfaces
+	///
 	/// Revision 1.1  2005/03/15 12:31:02  joemal
 	/// initial class creation
 	///
@@ -52,7 +55,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <summary>
 		/// returns the lowlevelbuilder to create and modify the componentmodel
 		/// </summary>
-		public ILowLevelBuilder LowLevelBulder
+		public ILowLevelBuilder LowLevelBuilder
 		{
 			get
 			{

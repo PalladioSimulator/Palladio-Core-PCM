@@ -24,17 +24,17 @@ namespace Palladio.ComponentModel.UnitTests
 		public void ParentComponentNotFound()
 		{
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
-			modelManager.LowLevelBulder.AddComponent(cc,cc.ComponentID);
+			modelManager.LowLevelBuilder.AddComponent(cc,cc.ComponentID);
 		}
 		[Test]
 		[ExpectedException(typeof(WrongComponentTypeException))]
 		public void ComponentFromWrongType()
 		{
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.BASIC,"CC");
-			modelManager.LowLevelBulder.AddComponent(cc,null);
+			modelManager.LowLevelBuilder.AddComponent(cc,null);
 
 			IComponent bc = EntityFactory.CreateComponent(ComponentType.BASIC,"BC");
-			modelManager.LowLevelBulder.AddComponent(bc,cc.ComponentID);
+			modelManager.LowLevelBuilder.AddComponent(bc,cc.ComponentID);
 		}
 
 		[Test]
@@ -42,8 +42,8 @@ namespace Palladio.ComponentModel.UnitTests
 		public void AddSameComponentTwice()
 		{
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.BASIC,"CC");
-			modelManager.LowLevelBulder.AddComponent(cc,null);
-			modelManager.LowLevelBulder.AddComponent(cc,null);
+			modelManager.LowLevelBuilder.AddComponent(cc,null);
+			modelManager.LowLevelBuilder.AddComponent(cc,null);
 		}
 
 		[Test]
@@ -51,32 +51,32 @@ namespace Palladio.ComponentModel.UnitTests
 		public void RemoveComponent()
 		{
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
-			modelManager.LowLevelBulder.AddComponent(cc,null);
+			modelManager.LowLevelBuilder.AddComponent(cc,null);
 
 			IComponent bc = EntityFactory.CreateComponent(ComponentType.BASIC,"BC");
-			modelManager.LowLevelBulder.AddComponent(bc,cc.ComponentID);
-			modelManager.LowLevelBulder.RemoveComponent(bc.ComponentID);
-			modelManager.LowLevelBulder.AddComponent(bc,cc.ComponentID);
+			modelManager.LowLevelBuilder.AddComponent(bc,cc.ComponentID);
+			modelManager.LowLevelBuilder.RemoveComponent(bc.ComponentID);
+			modelManager.LowLevelBuilder.AddComponent(bc,cc.ComponentID);
 			//remove with cascade
-			modelManager.LowLevelBulder.RemoveComponent(cc.ComponentID);
+			modelManager.LowLevelBuilder.RemoveComponent(cc.ComponentID);
 			//ComponentNotFoundException expected 
-			modelManager.LowLevelBulder.AddComponent(bc,cc.ComponentID);
+			modelManager.LowLevelBuilder.AddComponent(bc,cc.ComponentID);
 		}
 
 		[Test]
 		public void AddInterfaceTest()
 		{
 			IInterface iface = EntityFactory.CreateInterface("ICloneable");
-            modelManager.LowLevelBulder.AddInterface(iface);
+            modelManager.LowLevelBuilder.AddInterface(iface);
 		}
 
 		[Test]
 		public void AddSignature()
 		{
 			IInterface iface = EntityFactory.CreateInterface("ICloneable");
-			modelManager.LowLevelBulder.AddInterface(iface);
+			modelManager.LowLevelBuilder.AddInterface(iface);
 			ISignature sig = EntityFactory.CreateSignature("Clone",new SignatureDescription());
-			modelManager.LowLevelBulder.AddSignature(sig,iface.InterfaceID);
+			modelManager.LowLevelBuilder.AddSignature(sig,iface.InterfaceID);
 		}
 
 		[Test]
@@ -85,7 +85,7 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			IInterface iface = EntityFactory.CreateInterface("ICloneable");
 			ISignature sig = EntityFactory.CreateSignature("Clone",new SignatureDescription());
-			modelManager.LowLevelBulder.AddSignature(sig,iface.InterfaceID);
+			modelManager.LowLevelBuilder.AddSignature(sig,iface.InterfaceID);
 		}
 
 		[Test]
@@ -95,8 +95,8 @@ namespace Palladio.ComponentModel.UnitTests
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
 			IInterface iface = EntityFactory.CreateInterface("ICloneable");
 
-			modelManager.LowLevelBulder.AddComponent(cc,null);
-			modelManager.LowLevelBulder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.PROVIDES);
+			modelManager.LowLevelBuilder.AddComponent(cc,null);
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.PROVIDES);
 		}
 
 		[Test]
@@ -106,8 +106,8 @@ namespace Palladio.ComponentModel.UnitTests
 			IInterface iface = EntityFactory.CreateInterface("ICloneable");
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
 			
-			modelManager.LowLevelBulder.AddInterface(iface);
-			modelManager.LowLevelBulder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterface(iface);
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.REQUIRES);
 		}
 
 		[Test]
@@ -116,10 +116,10 @@ namespace Palladio.ComponentModel.UnitTests
 			IInterface iface = EntityFactory.CreateInterface("ICloneable");
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
 
-			modelManager.LowLevelBulder.AddInterface(iface);
-			modelManager.LowLevelBulder.AddComponent(cc,null);
-			modelManager.LowLevelBulder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.PROVIDES);
-			modelManager.LowLevelBulder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterface(iface);
+			modelManager.LowLevelBuilder.AddComponent(cc,null);
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.PROVIDES);
+			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.REQUIRES);
 		}
 	}
 }

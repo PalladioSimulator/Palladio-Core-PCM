@@ -125,6 +125,31 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\IBasicComponentBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\IInterfaceBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\IRootBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\DefaultBasicComponentBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\DefaultRootBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\ComponentModelException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
