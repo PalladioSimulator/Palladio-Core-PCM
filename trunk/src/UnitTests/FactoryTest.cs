@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/05/12 08:12:50  sbecker
+	/// Added DeleteTransition test
+	///
 	/// Revision 1.4  2004/05/12 08:06:58  sbecker
 	/// Added DeleteIllegalTransition
 	///
@@ -161,6 +164,24 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			InputSymbolHash inputs = new InputSymbolHash(fsm.InputAlphabet);
 			ITransition trans = FSMFactory.CreateDefaultTransition(states["1"],inputs["b"],states["3"]);
 			fsm.DeleteTransitions(trans);
+		}
+
+		[Test] public void DeleteTransition()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			StateHash states = new StateHash(fsm.States);
+			InputSymbolHash inputs = new InputSymbolHash(fsm.InputAlphabet);
+			ITransition trans1 = FSMFactory.CreateDefaultTransition(states["2"],inputs["c"],states["3"]);
+			ITransition trans2 = FSMFactory.CreateDefaultTransition(states["3"],inputs["eps"],states["1"]);
+			ITransition trans3 = FSMFactory.CreateDefaultTransition(states["1"],inputs["a"],states["1"]);
+			ITransition trans4 = FSMFactory.CreateDefaultTransition(states["1"],inputs["b"],states["2"]);
+			fsm.DeleteTransitions(trans1,trans2);
+			Assert.IsTrue(fsm.Transitions.Length == 2);
+			Assert.IsTrue(fsm.States.Length == 3);
+			Assert.IsTrue(Array.IndexOf(fsm.Transitions,trans1) == -1);
+			Assert.IsTrue(Array.IndexOf(fsm.Transitions,trans2) == -1);
+			Assert.IsTrue(Array.IndexOf(fsm.Transitions,trans3) >= 0);
+			Assert.IsTrue(Array.IndexOf(fsm.Transitions,trans4) >= 0);
 		}
 
 		/// <summary>
