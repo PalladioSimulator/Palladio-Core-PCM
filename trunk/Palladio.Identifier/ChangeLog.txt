@@ -15,11 +15,19 @@ Examples:
 --- Snip: Add comments between the snippets
 22.2. Inital creation
       (+) Added ChangeLog.txt instructions (ChangeLog.txt) StB
+15.3. Refactoring of the componentmodel
+      (-) the factory
+      (-) string and guid identifier
+      (+) the key attribute of the interface IIdentifier
+      (+) the EntityHashTable
 ---
 
 CVS history:
 ---
 $Log$
+Revision 1.3  2005/03/15 13:01:38  joemal
+the refactoring of the componentmodel
+
 Revision 1.2  2005/02/22 11:15:05  sbecker
 ChangeLog added and instructions inserted
 

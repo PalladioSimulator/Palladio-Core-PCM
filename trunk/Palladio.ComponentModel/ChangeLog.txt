@@ -20,11 +20,22 @@ Examples:
       (-) the visitor interfaces and methods are removed
       (-) the equals and getHashCode methods are removed
       (SC) the equals methods now use the default implementation of object
+15.3. Refactoring of the componentmodel
+      (-) Old intefaces of the entities of the componentmodel
+      (-) Old Testcases
+      (-) Most of old exceptions
+      (+) the modeldatamanager and implementations
+      (+) the base class ComponentModel.cs
+      (+) the new implementation of the entities
+      (+) the typed identifiers of the entities
 ---
 
 CVS history:
 ---
 $Log$
+Revision 1.3  2005/03/15 12:58:55  joemal
+the refactoring of the componentmodel
+
 Revision 1.2  2005/02/24 20:29:18  joemal
 remove serialization and equals methods
 
