@@ -1,6 +1,6 @@
 \section{Modellbildung}
 \label{sec:modell}
-In diesem Kapitel wird auf die Entwicklung und Auswahl der im Framework verwendeten Modelle eingegangen. Hierzu gehört die statische Umsetzung der Komponenten und der Architektur in ein Modell und die darauf aufbauende Modellierung der eigendlichen Simulation.
+In diesem Kapitel wird auf die Entwicklung und Auswahl der im Framework verwendeten Modelle eingegangen. Hierzu gehört die Abbildung der Komponenten und der Architektur in ein Modell, die Identifizierung der Zeitverbraucher innerhalb der Architektur und die darauf aufbauende Modellierung der eigendlichen Simulation.
 
 \subsection{Grundlagen zur Modellierung von Komponenten und Komponentenarchitekturen}
 \label{sec:modell:grundlagen}
@@ -40,9 +40,9 @@ end e0
 \subsubsection{Verbindungen zwischen Komponenten}
 \label{sec:modell:grundlagen:verbindung}
 
-Nachdem nun einzelne Komponenten modelliert werden können, müssen jetzt Möglichkeiten geschaffen werden, mehrere dieser Komponenten untereinander oder mit der Aussenwelt zu verbinden. Bei der Verbindung zweier Komponenten untereinander wird eine Bedarfsschnittstelle einer Komponente mit der Angebotsschnittstelle einer anderen verbunden. Bei der Verbindung zur Außenwelt dagegen werden zwei Bedarfs- bzw. Angebotsschnittstellen miteinander verbunden. Abbildung \ref{pic:modell} stellt diesen Unterschied anschaulich dar.
+Nachdem nun einzelne Komponenten modelliert werden können, müssen jetzt Möglichkeiten geschaffen werden, mehrere dieser Komponenten untereinander oder mit der Aussenwelt zu verbinden. Bei der Verbindung zweier Komponenten untereinander wird eine Bedarfsschnittstelle einer Komponente mit der Angebotsschnittstelle einer anderen verbunden. Bei der Verbindung zur Außenwelt dagegen werden zwei Bedarfs- bzw. Angebotsschnittstellen miteinander verbunden. Die erste der beiden Verbindungen werden im Folgenden als ComponentMapping und die zweite als ComponentBinding bezeichnet. Abbildung \ref{pic:modell} stellt diesen Unterschied anschaulich dar.
 \par
-Da diese Schnittstellen unter Umständen mehrere Dienste kapseln, müssen innerhalb einer dieser Verbindungen Strukturen zur Verfügung stehen, die jeden einzelnen Dienst verbinden.
+Da Schnittstellen unter Umständen mehrere Dienste kapseln, müssen innerhalb einer dieser Verbindungen Strukturen zur Verfügung stehen, die jeden einzelnen Dienst verbinden. Diese Einzelverbindungen werden im Folgenden als Mapping bzw. Binding bezeichnet.
 
 \begin{figure}[ht]
 \begin{center}
@@ -51,6 +51,19 @@ Da diese Schnittstellen unter Umständen mehrere Dienste kapseln, müssen innerhal
 \label{pic:modell}
 \end{center}
 \end{figure}
+
+
+\subsection{Identifizierung von zeitverbrauchenden Bestandteilen des Modells}
+\label{sec:modell:bestandteile}
+Nachdem im vorherigen Abschnitt die Modellierung einer Komponente beschrieben wurde, müssen nun innerhalb des Modells Zeitverbraucher identifiziert werden, welche der Simulation später als Datenbasis dienen werden. Hierzu hangeln wir uns im Modell durch den Kontrollfluss einer Anfrage.
+\par
+Dieser beginnt für gewöhnlich am Rand einer Architektur durch den Aufruf eines Dienstes, welcher über ein Binding innerhalb eines ComponentBinding in einer Komponente erreichbar ist. Ist diese über z.B. einen Softwarebus erreichbar, ergibt sich hier ein möglichweise sogar dynamischer Zeitverbraucher. Es ist davon auszugehen, das alle Bindings innerhalb eines ComponentBinding die gleichen Laufzeiteigenschaften haben, da ein ComponentBinding ein Interface repräsentiert und dieses für alle dort deklarierten Dienste den gleichen Weg nehmen wird. Somit gibt ein ComponentBinding eine dynamische Zeit vor, die alle enthaltenen Bindings benutzen können. Ebenso wie bei ComponentBindings verhält es sich bei der Verbindung zweier Komponenten, also bei ComponentMappings.
+\par
+Erreicht die Anfrage das Angebotsinterface, steht ihr als nächstes der Weg zum Dienstbedarfsautomat bevor. Hierbei handelt es sich jedoch um einen Weg, welcher üblicherweise nur im Modell existiert. In der Realität ist ein Dienst für gewöhnlich eine Implementierung einer Methode eines Interface. Somit ist dieser Weg kein Zeitverbraucher. Soll trotzdem an dieser Stelle eine Zeitverzögerung modelliert werden, so ist es prinzipiell möglich, diese in den  Dienst einzurechnen.
+\par
+Dienste werden, wie in Abschnitt \ref{sec:modell:grundlagen:dienste} beschrieben, durch Dienstbedarfsautomaten also endliche Automaten modelliert, wobei Zustände interne Befehle und Transitionen externe Dienste repräsentieren. Interne Befehle benötigen Rechenzeit, die sich auch wieder dynamisch ändern kann, kommen also als dynamische Zeitverbraucher in Betracht. Externe Dienstaufrufe sind keine direkten Zeitverbaucher. Ihre Zeit berechnet sich aus dem Zeitverbauch des aufzurufenden Dienstes und dem Weg dahin.
+\par
+Nachdem nun alle Zeitverbraucher entlang dem Kontrollfluss einer Anfrage identifiziert wurden, beschäftigt sich der nächste Abschnitt mit dem Aufbau eines Simulationsmodells.
 
 \subsection{Aufbau des Simulationsmodells}
 \label{sec:modell:simulation}
@@ -62,7 +75,7 @@ Beim Entwurf des Simulationsmodell geht es darum, an die Architektur gestellte A
 
 Bei der Simulation mit reellen Threads wird für jede Anfrage an das System ein reelles Thread erzeugt. Wie in der Realität auch, werden diese an bestimmten Stellen in der Architektur Zeit verbrauchen. Dies läßt sich erreichen, indem die Threads an diesen Stellen für eine bestimmte Zeit blockiert werden. Diese Zeit kann im einfachsten Fall der Realität entsprechen, was dazu führt, dass das Modell in Echtzeit arbeitet. Nachteile bei dieser Methode ergeben sich, wenn sowohl kurze als auch lange Verzögerungszeiten in der Architektur auftreten, da sich dann möglicherweise eine unnötige Wartezeit ergibt. Diese könnte man überbrücken, indem die Simulationszeit gezielt  vorgestellt wird. Als erheblicher Nachteil bei diesem Prinzip erweist sich jedoch die Sychronisation der einzelnen Threads insbesondere wenn sie gleichzeitig an der selben Stelle auftreten. Experimentelle Versuche erwiesen hier aufgrund eben genannter Problematik komplizierte schlecht erweiterbare Konstrukte. Aufgrund dieser Nachteile, insbesondere der Synchronisationsproblematik, wird von der Verwendung dieses Ansatzes abgesehen. 
 \par
-Der zweite Ansatz simuliert Threads. Hierzu werden Stellen innerhalb der Architektur mit einer Zeit markiert. Die simulierten Threads addieren diese Zeit dann entlang ihres Kontrollflusses auf. Somit wird die Zeit der Simulation unabhängig von der Architektur, da die zu verbrauchende Zeit nicht verstreichen muss. Dieser Ansatz gestattet problemlos die Verarbeitung mehrer Anfragen, solange der Durchlauf einer Anfrage keinerlei Einfluss auf den  Kontrollfluss oder die zeitverbrauchenden Bestandteile der Architektur mit sich bringt. Ein solches Modell spiegelt jedoch die Realität nicht gut wieder. Es ist beispielsweise wünschenswert, bei der Modulation einer Single-Thread-Komponente die Wartezeit einer Anfrage zu erhöhen, wenn gerade eine andere Anfrage verarbeitet wird. Auf diese Art lassen sich ebenfalls Auslastungen des Prozessors, auf dem die Komponente läuft, modellieren. Weiterhin sinnvoll erscheint die dynamische Änderung des Kontrollflusses. Folgendes Beispiel erläutert den Sinn dieser Modellierung.
+Der zweite Ansatz simuliert Threads. Hierzu werden Stellen innerhalb der Architektur mit einer Zeit markiert. Die simulierten Threads starten an einer dieser Stellen und addieren dann die Zeiten entlang ihres Kontrollflusses auf. Somit wird die Zeit der Simulation unabhängig von der Architektur, da die zu verbrauchende Zeit nicht verstreichen muss. Dieser Ansatz gestattet problemlos die Verarbeitung mehrer Anfragen, solange der Durchlauf einer Anfrage keinerlei Einfluss auf den  Kontrollfluss oder die zeitverbrauchenden Bestandteile der Architektur mit sich bringt. Ein solches Modell spiegelt jedoch die Realität nicht gut wieder. Es ist beispielsweise wünschenswert, bei der Modulation einer Single-Thread-Komponente die Wartezeit einer Anfrage zu erhöhen, wenn gerade eine andere Anfrage verarbeitet wird. Auf diese Art lassen sich ebenfalls Auslastungen des Prozessors, auf dem die Komponente läuft, modellieren. Weiterhin sinnvoll erscheint die dynamische Änderung des Kontrollflusses. Folgendes Beispiel erläutert den Sinn dieser Modellierung.
 \par
 Soll das Modell eine Schleife im Kontrollfluss modellieren, so benutzt man folgenden Ansatz. Man modelliert wie in Bild \ref{pic:rekurs} dargestellt eine Endlosschleife, wobei 1.0 und 0.0 die, wie in Kapitel  \ref{sec:modell:grundlagen:dienste} beschrieben, Wahrscheinlichkeiten zur Auflösung des Zweiges darstellen. Soll die Schleife nach einigen Durchläufen abgebrochen werden, so müssen diese Wahrscheinlichkeiten in Abhängigkeit der Anzahl der Durchläufe verändert werden, damit die Schleife verlassen wird.
 
@@ -74,13 +87,22 @@ Soll das Modell eine Schleife im Kontrollfluss modellieren, so benutzt man folge
 \end{center}
 \end{figure}
 
-\par
-Um diese beiden Anforderungen im Simualtionsmodell unterzubringen, wird eine Erweiterung benötigt, welche im nächsten Abschnitt erläutert wird.
+Um diese beiden Anforderungen im Simualtionsmodell unterzubringen, ist auch in diesem Fall die Synchronisation der Anfragen untereinander notwendig, damit diese ihren gleichzeitigen Aufenthalt an ein und der selben Stelle in der Architektur überhaupt wahrnehmen können. Hierbei kommt man schnell zu der Erkenntnis, dass das einfache aufaddieren der Zeiten hier nicht mehr genügt, da das Einrechnen der Wechselwirkungen durch andere Threads unmöglich ist. Eine kleine Modifikation des Ansatzes löst dieses Problem. Die Simulation wird pro Anfrage nicht mehr am Stück durchgeführt, sondern Schrittweise. Dies bedeutet, dass alle zur Zeit vorhandenen Anfragen um die gleiche Schrittweite vorgestellt werden. Nun ist die dynamische Anpassung der Wartezeiten problemlos möglich, da alle Anfrage quasi gleichzeitig simuliert werden. Die maximale Schrittweite eines Schrittes ist hierbei begrenzt durch die Zeit, in der keines der Threads eine Zustandsänderung erfährt. Mit Zustandsänderung sei hier der Wechsel eines Threads zum nächsten zeitverbrauchenden Bestandteil der Architektur im Kontrollfluss gemeint. Der folgende Abschnitt verdeutlicht die Umsetzung dieses Ansatzes anhand eines Beispiels.
 
-\subsubsection{Synchronisation von simulierten Threads}
+\subsubsection{Ablauf einer Simulation}
 \label{sec:modell:simulation:sync}
 
+In Bild \ref{pic:ablauf} ist eine mögliche Startkonfiguration einer Simulation dargestellt. Es befinden sich zum Zeitpunkt 0 drei Anfragen an bestimmten Punkten des Systems. Entlang der Zeitachse t sind für jedes Thread die Wartezeiten eingetragen, welche hier der Einfachheit halber statisch gewählt sind. 
 
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=13cm]{../res/simmodell.png}
+\caption{Simulation von Anfragen}
+\label{pic:ablauf}
+\end{center}
+\end{figure}
 
-\subsection{Identifizierung von zeitverbrauchenden Bestandteilen des Modells}
-\label{sec:modell:bestandteile}
+Der nächste Zeitschritt berechnet sich aus der kürzesten noch verbleibenden Wartezeit aller Threads, im Beispiel also 6, da nach Ablauf dieser Zeit Thread 1 seinen Zustand ändert. Wird der Zeitschritt ausgeführt, so verringert sich bei allen Threads die verbleibende Zeit um diesen Schritt. Erreicht ein Thread eine verbleibende Zeit von 0, so wechselt dieses zu seinem nächsten Zeitverbraucher im Kontrollfluss. Existiert dieser nicht, so hat das Thread die Abarbeitung der Anfrage beendet. In Bild \ref{pic:ablauf} erreicht beispielsweise Thread 2 diesen Zustand nach 20 Zeiteinheiten. Nachdem alle Threads diesen Zustand erreicht haben, im Beispiel nach 23 Zeiteinheiten, endet die Simulation.\\
+
+\par
+Nachdem in diesem Kapitel die theoretischen Hintergründe für die Simulation von Komponentarchitekturen ausgibig diskutiert wurden, befasst sich das nächste Kapitel mit der praktischen Umsetzung dieser Modelle.
