@@ -135,54 +135,71 @@ namespace FiniteStateMachines.Decorators
 				DualState toState = new DualState();
 				foreach(Input input in this.GenerateSpInput(this.one,this.two))
 				{
+					State oneNext;
+					State twoNext;
 					this.visitedStates.Add(fromState);
-					State oneNext = (State) this.one.GetNextState(oneBefore,input);
-					State twoNext = (State) this.two.GetNextState(twoBefore,input);
-					if(this.crossInput.Contains(input))
-						//act like FCP
+					try
 					{
-						if(oneNext != this.one.ErrorState && twoNext!= two.ErrorState)
-						{
-							this.sp.AddTransition(fromState,input,new DualState(oneNext,twoNext));
-							oneStates.Push(oneNext);
-							twoStates.Push(twoNext);
-							continue;
-						}
-						else
-							//Errorstate
-							continue;
+						oneNext = (State) this.one.GetNextState(oneBefore,input);
 					}
-					if(this.one.InputAlphabet.Contains(input))
+					catch(Exception)
 					{
-						if(oneNext != one.ErrorState)
-						{
-							this.sp.AddTransition(fromState,input,new DualState(oneNext,fromState.twoState));
-							oneStates.Push(oneNext);
-							twoStates.Push(fromState.twoState);
-							continue;
-						}
-						else
-							//ErrorState
-							continue;
+						oneNext = (State)this.one.ErrorState;
 					}
-					if(this.two.InputAlphabet.Contains(input))
-					{
-						if(twoNext !=two.ErrorState)
+						try
 						{
-							try
-							{
-								this.sp.AddTransition(fromState,input,new DualState(fromState.oneState,twoNext));
+
+							twoNext = (State) this.two.GetNextState(twoBefore,input);
+						}
+						catch(Exception)
+						 {
+							twoNext = (State) this.two.ErrorState;
 							}
-							catch(Exception){}
-							oneStates.Push(fromState.oneState);
-							twoStates.Push(twoNext);
-							continue;
+							if(this.crossInput.Contains(input))
+								//act like FCP
+							{
+								if(oneNext != this.one.ErrorState && twoNext!= two.ErrorState)
+								{
+									this.sp.AddTransition(fromState,input,new DualState(oneNext,twoNext));
+									oneStates.Push(oneNext);
+									twoStates.Push(twoNext);
+									continue;
+								}
+								else
+									//Errorstate
+									continue;
+							}
+							if(this.one.InputAlphabet.Contains(input))
+							{
+								if(oneNext != one.ErrorState)
+								{
+									this.sp.AddTransition(fromState,input,new DualState(oneNext,fromState.twoState));
+									oneStates.Push(oneNext);
+									twoStates.Push(fromState.twoState);
+									continue;
+								}
+								else
+									//ErrorState
+									continue;
+							}
+							if(this.two.InputAlphabet.Contains(input))
+							{
+								if(twoNext !=two.ErrorState)
+								{
+									try
+									{
+										this.sp.AddTransition(fromState,input,new DualState(fromState.oneState,twoNext));
+									}
+									catch(Exception){}
+									oneStates.Push(fromState.oneState);
+									twoStates.Push(twoNext);
+									continue;
+								}
+								else
+									//ErrorState
+									continue;
+							}
 						}
-						else
-							//ErrorState
-							continue;
-					}
-				}
 			}
 			return this.sp;
 		}			

@@ -18,7 +18,7 @@ namespace FiniteStateMachines.Decorators
 	/// parts. This will be much faster when you have huge FSMs then creating a normal 
 	/// FiniteCrossProduktMaschine.
 	/// </summary>
-	public class FiniteCrossProduktMaschineLazy : AbstractFiniteStateMachine
+	public class FiniteCrossProductMaschineLazy : AbstractFiniteStateMachine
 	{
 		/// <summary>
 		/// The ErrorState
@@ -86,7 +86,7 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="one"></param>
 		/// <param name="two"></param>
-		public FiniteCrossProduktMaschineLazy(IFiniteStateMachine one, IFiniteStateMachine two) 
+		public FiniteCrossProductMaschineLazy(IFiniteStateMachine one, IFiniteStateMachine two) 
 		{
 			this.InputCreated = false;
 			this.TransitionsCreated = false;
@@ -151,14 +151,22 @@ namespace FiniteStateMachines.Decorators
 			DualState state = (DualState) aState;
 			if(this.InputAlphabet.Contains(input)== false)
 				throw new InvalidInputException();
+			AbstractState OneNext;
+			AbstractState TwoNext;
 
-			AbstractState OneNext = this.one.GetNextState(state.oneState,input);
-			if(OneNext == this.one.ErrorState) 
+			try
+			{
+				OneNext = this.one.GetNextState(state.oneState,input);
+			}
+			catch (Exception)
 			{
 				return this.ErrorState;
 			}
-			AbstractState TwoNext = this.two.GetNextState(state.twoState,input);
-			if(TwoNext == this.two.ErrorState) 
+			try
+			{
+				TwoNext = this.two.GetNextState(state.twoState,input);
+			}
+			catch (Exception)
 			{
 				return this.ErrorState;
 			}
@@ -188,7 +196,14 @@ namespace FiniteStateMachines.Decorators
 			AbstractState NextState = null;
 			foreach(Input i in this.InputAlphabet) 
 			{
-				NextState = this.GetNextState(state, i);
+				try
+				{
+					NextState = this.GetNextState(state, i);
+				}
+				catch(Exception)
+				{
+					NextState = this.ErrorState;
+				}
 				if(!NextState.Equals(this.ErrorState))
 				{
 					Transition newTransition = new Transition(state,i,NextState);
@@ -259,7 +274,7 @@ namespace FiniteStateMachines.Decorators
 						DualState fromState = new DualState(oneBefore, twoBefore);
 						DualState toState = new DualState(oneNext,twoNext);
 						this.Transitions.Add(new Transition(fromState,i,toState),
-						new Transition(fromState,i,toState));
+							new Transition(fromState,i,toState));
 						oneStates.Push(oneNext);
 						twoStates.Push(twoNext);
 					}

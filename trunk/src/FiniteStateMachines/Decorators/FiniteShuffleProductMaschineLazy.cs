@@ -166,12 +166,31 @@ namespace FiniteStateMachines.Decorators
 		/// <returns>the next reachable DualState</returns>
 		public override AbstractState GetNextState(AbstractState aState, Input input)
 		{
+			FiniteTabularMachine d = new FiniteTabularMachine();
 			if(aState is DualState == false)
 				throw new InvalidStateException();
+			State oneNext;
+			State twoNext;
 			DualState cpState = (DualState) aState;
-			State oneNext = (State)this.aFSM.GetNextState(cpState.oneState,input);
-			State twoNext = (State)this.anotherFSM.GetNextState(cpState.twoState,input);
+			try
+			{
+				 oneNext = (State)this.aFSM.GetNextState(cpState.oneState,input);
+			}
+			catch(Exception)
+			{
+				oneNext = (State)d.ErrorState;
+			}
+			try
+			{
 
+				twoNext = (State)this.anotherFSM.GetNextState(cpState.twoState,input);
+
+			}
+			catch(Exception)
+			{
+				twoNext = (State) d.ErrorState;
+			}
+			
 			if(this.crossInput.Contains(input))
 			{
 				if(oneNext!=ErrorState && twoNext != anotherFSM.ErrorState)
@@ -283,11 +302,26 @@ namespace FiniteStateMachines.Decorators
 				}
 				DualState toState = new DualState();
 				this.GenerateInput();
+				State oneNext;
+				State twoNext;
 				foreach(Input input in this.inputAl)
 				{
 					this.visitedStates.Add(fromState);
-					State oneNext = (State)this.aFSM.GetNextState(oneBefore,input);
-					State twoNext = (State)this.anotherFSM.GetNextState(twoBefore,input);
+					try
+					{
+						oneNext = (State)this.aFSM.GetNextState(oneBefore,input);
+					}
+					catch(Exception){
+						oneNext = (State) this.aFSM.ErrorState;
+					}
+					try
+					{
+						twoNext = (State)this.anotherFSM.GetNextState(twoBefore,input);
+					}
+					catch(Exception)
+					{
+						twoNext = (State) this.anotherFSM.ErrorState;
+					}
 					if(this.crossInput.Contains(input))
 						//act like FCP
 					{

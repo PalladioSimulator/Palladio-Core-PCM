@@ -11,7 +11,7 @@ namespace FiniteStateMachines.Decorators
 	/// given FSMs. Its the intersection of two FSMs in the representation of new 
 	/// FiniteTabularMachine.
 	/// </summary>
-	public class FiniteCrossProduktMaschine 
+	public class FiniteCrossProductMaschine 
 	{
 
 		/// <summary>
@@ -45,7 +45,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Initaites a empty FiniteCrossProduktMaschine
 		/// </summary>
-		public FiniteCrossProduktMaschine() 
+		public FiniteCrossProductMaschine() 
 		{
 		}
 
@@ -57,7 +57,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the other FSM, together with one they are used to
 		/// create the crossprodukt></param>
-		public FiniteCrossProduktMaschine(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) 
+		public FiniteCrossProductMaschine(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) 
 		{
 			this.cp = GenerateCP(aFSM,anotherFSM);
 		}
@@ -167,7 +167,7 @@ namespace FiniteStateMachines.Decorators
 		/// <returns>true if it is selfpointing, false if not</returns>
 		protected bool LoopChecking(IFiniteStateMachine fsm, AbstractState state, Input i) 
 		{
-						return state == fsm.GetNextState(state,i);
+			return state == fsm.GetNextState(state,i);
 		}
 
 
