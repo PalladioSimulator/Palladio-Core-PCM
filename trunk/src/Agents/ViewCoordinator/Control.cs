@@ -28,12 +28,16 @@ namespace Palladio.Editor.Core.Agents.ViewCoordinator
 	internal class Control : IViewCoordinator, IViewPluginHost
 	{
 		#region Fields
+		/// <summary>
+		/// log4net logging service</summary>
 		private static readonly ILog log = LogManager.GetLogger(typeof(Control));
 
-		// parent agent
+		/// <summary>
+		/// The PluginCoordinator PAC agent</summary>
 		private IPluginCoordinator _parent;
 
-		// child agents (ViewPlugins)
+		/// <summary>
+		/// child agents (ViewPlugins) </summary>
 		private Hashtable _plugins;
 		#endregion
 
@@ -50,6 +54,10 @@ namespace Palladio.Editor.Core.Agents.ViewCoordinator
 		#endregion
 
 		#region Constructors
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="parent">parent agent</param>
 		public Control(IPluginCoordinator parent)
 		{
 			this._parent = parent;
@@ -61,6 +69,8 @@ namespace Palladio.Editor.Core.Agents.ViewCoordinator
 		#region IViewCoordinator Member
 		public void Initialize()
 		{
+			log.Debug("Initializing.");
+
 			// hook up to parent agent events
 			this._parent.ComponentModelChanged += new ComponentModelChangedHandler(parent_ComponentModelChanged);
 			this._parent.EntityChanged += new EntityChangedHandler(parent_EntityChanged);

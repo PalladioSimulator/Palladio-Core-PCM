@@ -40,22 +40,25 @@ namespace Palladio.Editor.Core.Agents.Root.Abstraction
 		/// <param name="sigCmdHandler">The handler that is called when the
 		/// <see cref="Palladio.Editor.Common.EntityProxies.EntityProxy.CommandIssued"/> event is fired by 
 		/// signatures belonging to interfaces within or attached to this proxy.</param>
+		/// <param name="attrProv"></param>
 		/// <returns>A Proxy object for the specified <see cref="Palladio.ComponentModel.IBasicComponent"/>.</returns>
 		public static BasicComponentProxy CreateBasicComponentProxy(
 			IBasicComponent comp, 
 			CommandHandler compCmdHandler, 
 			CommandHandler roleCmdHandler, 
 			CommandHandler ifaceCmdHandler, 
-			CommandHandler sigCmdHandler)
+			CommandHandler sigCmdHandler,
+			AttributeProvider attrProv)
 		{
-			BasicComponentProxy proxy = new BasicComponentProxy(comp, compCmdHandler, new RoleProxy[comp.ProvidedRoles.Length], new RoleProxy[comp.ProvidedRoles.Length]);
+
+			BasicComponentProxy proxy = new BasicComponentProxy(comp, compCmdHandler, new RoleProxy[comp.ProvidedRoles.Length], new RoleProxy[comp.ProvidedRoles.Length], new ServiceEffectSpecificationProxy[comp.GetServicesWithServiceEffectSpecification().Length], attrProv);
 
 			// create role proxies for the provides interfaces
 			RoleProxy[] providedRoles = new RoleProxy[comp.ProvidedRoles.Length];
 			for(int i = 0; i < comp.ProvidedRoles.Length; i++)
 			{
 				Palladio.ComponentModel.IRole role = comp.GetRole(comp.ProvidedRoles[i]);
-				RoleProxy entity = CreateRoleProxy(role, proxy, roleCmdHandler, ifaceCmdHandler, sigCmdHandler);
+				RoleProxy entity = CreateRoleProxy(role, proxy, roleCmdHandler, ifaceCmdHandler, sigCmdHandler, attrProv);
 				providedRoles[i] = entity;
 			}
 
@@ -64,7 +67,7 @@ namespace Palladio.Editor.Core.Agents.Root.Abstraction
 			for(int i = 0; i < comp.RequiredRoles.Length; i++)
 			{
 				Palladio.ComponentModel.IRole role = comp.GetRole(comp.RequiredRoles[i]);
-				RoleProxy entity = CreateRoleProxy(role, proxy, roleCmdHandler, ifaceCmdHandler, sigCmdHandler);
+				RoleProxy entity = CreateRoleProxy(role, proxy, roleCmdHandler, ifaceCmdHandler, sigCmdHandler, attrProv);
 				requiredRoles[i] = entity;
 			}
 
@@ -72,6 +75,23 @@ namespace Palladio.Editor.Core.Agents.Root.Abstraction
 			proxy.RequiredRoles.Clear();
 			proxy.ProvidedRoles.AddRange(providedRoles);
 			proxy.RequiredRoles.AddRange(requiredRoles);
+
+			// create sef proxies
+			IService[] services = comp.GetServicesWithServiceEffectSpecification();
+			ServiceEffectSpecificationProxy[] sefProxies = new ServiceEffectSpecificationProxy[services.Length];
+			for(int i = 0; i < services.Length; i++)
+			{
+				Palladio.ComponentModel.IServiceEffectSpecification sef = comp.GetServiceEffectSpecification(services[i]);
+				ServiceEffectSpecificationProxy entity = CreateServiceEffectSpecificationProxy(sef, proxy, services[i], compCmdHandler, attrProv);
+				foreach(IService sig in sef.SignatureList)
+				{
+					entity.ServiceList.Add(CreateSignatureProxy(sig.Signature,proxy.GetRequiresRoleByInterfaceID(sig.Interface.ID).Interface, sigCmdHandler, attrProv));
+				}
+				sefProxies[i] = entity;
+			}
+
+			proxy.ServiceEffects.Clear();
+			proxy.ServiceEffects.AddRange(sefProxies);
 
 			return proxy;
 		}
@@ -92,13 +112,15 @@ namespace Palladio.Editor.Core.Agents.Root.Abstraction
 		/// <param name="sigCmdHandler">The handler that is called when the
 		/// <see cref="Palladio.Editor.Common.EntityProxies.EntityProxy.CommandIssued"/> event is fired by 
 		/// signatures belonging to interfaces within or attached to this proxy.</param>
+		/// <param name="attrProv"></param>
 		/// <returns>A Proxy object for the specified <see cref="Palladio.ComponentModel.ICompositeComponent"/>.</returns>
 		public static CompositeComponentProxy CreateCompositeComponentProxy(
 			ICompositeComponent comp, 
 			CommandHandler compCmdHandler, 
 			CommandHandler roleCmdHandler, 
 			CommandHandler ifaceCmdHandler, 
-			CommandHandler sigCmdHandler)
+			CommandHandler sigCmdHandler,
+			AttributeProvider attrProv)
 		{
 			ComponentProxy[] subcomps = new ComponentProxy[comp.Components.Length];
 			for(int i = 0; i < comp.Components.Length; i++)
@@ -106,20 +128,20 @@ namespace Palladio.Editor.Core.Agents.Root.Abstraction
 				ComponentProxy entity = null;
 				Palladio.ComponentModel.IComponent subcomp = comp.Components[i];
 				if (subcomp is IBasicComponent)
-					entity = CreateBasicComponentProxy(subcomp as IBasicComponent, compCmdHandler, roleCmdHandler, ifaceCmdHandler, sigCmdHandler );
+					entity = CreateBasicComponentProxy(subcomp as IBasicComponent, compCmdHandler, roleCmdHandler, ifaceCmdHandler, sigCmdHandler, attrProv );
 				if (subcomp is ICompositeComponent)
-					entity = CreateCompositeComponentProxy(subcomp as ICompositeComponent, compCmdHandler, roleCmdHandler, ifaceCmdHandler, sigCmdHandler);
+					entity = CreateCompositeComponentProxy(subcomp as ICompositeComponent, compCmdHandler, roleCmdHandler, ifaceCmdHandler, sigCmdHandler, attrProv);
 				subcomps[i] = entity;
 			}
 			
-			CompositeComponentProxy proxy = new CompositeComponentProxy(comp, compCmdHandler, new RoleProxy[comp.ProvidedRoles.Length], new RoleProxy[comp.RequiredRoles.Length], subcomps);
+			CompositeComponentProxy proxy = new CompositeComponentProxy(comp, compCmdHandler, new RoleProxy[comp.ProvidedRoles.Length], new RoleProxy[comp.RequiredRoles.Length], subcomps, attrProv);
 
 			// create role proxies for the provides interfaces
 			RoleProxy[] providedRoles = new RoleProxy[comp.ProvidedRoles.Length];
 			for(int i = 0; i < comp.ProvidedRoles.Length; i++)
 			{
 				Palladio.ComponentModel.IRole role = comp.GetRole(comp.ProvidedRoles[i]);
-				RoleProxy entity = CreateRoleProxy(role, proxy, roleCmdHandler, ifaceCmdHandler, sigCmdHandler);
+				RoleProxy entity = CreateRoleProxy(role, proxy, roleCmdHandler, ifaceCmdHandler, sigCmdHandler, attrProv);
 				providedRoles[i] = entity;
 			}
 
@@ -128,7 +150,7 @@ namespace Palladio.Editor.Core.Agents.Root.Abstraction
 			for(int i = 0; i < comp.RequiredRoles.Length; i++)
 			{
 				Palladio.ComponentModel.IRole role = comp.GetRole(comp.RequiredRoles[i]);
-				RoleProxy entity = CreateRoleProxy(role, proxy, roleCmdHandler, ifaceCmdHandler, sigCmdHandler);
+				RoleProxy entity = CreateRoleProxy(role, proxy, roleCmdHandler, ifaceCmdHandler, sigCmdHandler, attrProv);
 				requiredRoles[i] = entity;
 			}
 
@@ -154,10 +176,11 @@ namespace Palladio.Editor.Core.Agents.Root.Abstraction
 		/// <param name="sigCmdHandler">The handler that is called when the
 		/// <see cref="Palladio.Editor.Common.EntityProxies.EntityProxy.CommandIssued"/> event is fired by 
 		/// signatures belonging to the interface attached to this role.</param>
+		/// <param name="attrProv"></param>
 		/// <returns>A Proxy object for the specified <see cref="Palladio.ComponentModel.IRole"/>.</returns>
-		public static RoleProxy CreateRoleProxy(IRole role, ComponentProxy comp, CommandHandler roleCmdHandler, CommandHandler ifaceCmdHandler, CommandHandler sigCmdHandler)
+		public static RoleProxy CreateRoleProxy(IRole role, ComponentProxy comp, CommandHandler roleCmdHandler, CommandHandler ifaceCmdHandler, CommandHandler sigCmdHandler, AttributeProvider attrProv)
 		{
-			InterfaceProxy interfaceProxy = CreateInterfaceProxy(role.Interface, ifaceCmdHandler, sigCmdHandler);
+			InterfaceProxy interfaceProxy = CreateInterfaceProxy(role.Interface, ifaceCmdHandler, sigCmdHandler, attrProv);
 			RoleProxy rp = new RoleProxy(role, comp, interfaceProxy, roleCmdHandler);
 			return rp;
 		}
@@ -172,19 +195,20 @@ namespace Palladio.Editor.Core.Agents.Root.Abstraction
 		/// <param name="sigCmdHandler">The handler that is called when the
 		/// <see cref="Palladio.Editor.Common.EntityProxies.EntityProxy.CommandIssued"/> event is fired by 
 		/// signatures belonging to this interface proxy.</param>
+		/// <param name="attrProv"></param>
 		/// <returns>A Proxy object for the specified <see cref="Palladio.ComponentModel.IInterfaceModel"/>.</returns>
-		public static InterfaceProxy CreateInterfaceProxy(IInterfaceModel iface, CommandHandler ifaceCmdHandler, CommandHandler sigCmdHandler)
+		public static InterfaceProxy CreateInterfaceProxy(IInterfaceModel iface, CommandHandler ifaceCmdHandler, CommandHandler sigCmdHandler, AttributeProvider attrProv)
 		{
 			SignatureProxy[] signatures = new SignatureProxy[iface.SignatureList.Count];
 
 			for(int i = 0; i < iface.SignatureList.Count; i++)
 			{
 				Palladio.ComponentModel.ISignature sig = iface.SignatureList[i];
-				SignatureProxy sigProxy = CreateSignatureProxy(sig, null, sigCmdHandler);
+				SignatureProxy sigProxy = CreateSignatureProxy(sig, null, sigCmdHandler, attrProv);
 				signatures[i] = sigProxy;
 			}
 
-			InterfaceProxy ip = new InterfaceProxy(iface, ifaceCmdHandler, signatures);
+			InterfaceProxy ip = new InterfaceProxy(iface, ifaceCmdHandler, signatures, attrProv);
 
 			foreach(SignatureProxy sig in ip.Signatures)
 				sig.Interface = ip;
@@ -201,29 +225,32 @@ namespace Palladio.Editor.Core.Agents.Root.Abstraction
 		/// <see cref="Palladio.Editor.Common.EntityProxies.EntityProxy.CommandIssued"/> event is fired by 
 		/// this proxy.</param>
 		/// <returns></returns>
-		public static SignatureProxy CreateSignatureProxy(ISignature sig, InterfaceProxy iface, CommandHandler sigCmdHandler)
+		public static SignatureProxy CreateSignatureProxy(ISignature sig, InterfaceProxy iface, CommandHandler sigCmdHandler, AttributeProvider attrProv)
 		{
-			ParameterProxy[] parameters = new ParameterProxy[sig.Parameters.Length];
+			SignatureProxy proxy = new SignatureProxy(sig, iface, sigCmdHandler, new ParameterProxy[sig.Parameters.Length], attrProv);
 
+			ParameterProxy[] parameters = new ParameterProxy[sig.Parameters.Length];
 			for(int i = 0; i < sig.Parameters.Length; i++)
 			{
 				Palladio.ComponentModel.IParameter param = sig.Parameters[i];
-				ParameterProxy paramProxy = CreateParameterProxy(param);
+				ParameterProxy paramProxy = CreateParameterProxy(param, proxy);
 				parameters[i] = paramProxy;
 			}
 
-			SignatureProxy sp = new SignatureProxy(sig, iface, sigCmdHandler, parameters);
-			return sp;
+			proxy.Parameters.Clear();
+			proxy.Parameters.AddRange(parameters);
+			return proxy;
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="param"></param>
+		/// <param name="sig"></param>
 		/// <returns></returns>
-		public static ParameterProxy CreateParameterProxy(IParameter param)
+		public static ParameterProxy CreateParameterProxy(IParameter param, SignatureProxy sig)
 		{
-			return new ParameterProxy(param);
+			return new ParameterProxy(param, sig);
 		}
 
 		/// <summary>
@@ -231,22 +258,52 @@ namespace Palladio.Editor.Core.Agents.Root.Abstraction
 		/// </summary>
 		/// <param name="binding"></param>
 		/// <param name="connCmdHandler"></param>
+		/// <param name="attrProv"></param>
 		/// <returns></returns>
-		public static BindingProxy CreateBindingProxy(IBinding binding, CommandHandler connCmdHandler)
+		public static BindingProxy CreateBindingProxy(IBinding binding, RoleProxy provRole, RoleProxy reqRole, CommandHandler connCmdHandler, AttributeProvider attrProv)
 		{
-			return new BindingProxy(binding, connCmdHandler);
+			return new BindingProxy(binding, provRole, reqRole, connCmdHandler, attrProv);
 		}
 
-		public static ProvidesMappingProxy CreateProvidesMappingProxy(IMapping mapping, CommandHandler connCmdHandler)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="mapping"></param>
+		/// <param name="innerRole"></param>
+		/// <param name="outerRole"></param>
+		/// <param name="connCmdHandler"></param>
+		/// <param name="attrProv"></param>
+		/// <returns></returns>
+		public static ProvidesMappingProxy CreateProvidesMappingProxy(IMapping mapping, RoleProxy innerRole, RoleProxy outerRole, CommandHandler connCmdHandler, AttributeProvider attrProv)
 		{
-			return new ProvidesMappingProxy(mapping, connCmdHandler);
+			return new ProvidesMappingProxy(mapping, innerRole, outerRole, connCmdHandler, attrProv);
 		}
 
-		public static RequiresMappingProxy CreateRequiresMappingProxy(IMapping mapping, CommandHandler connCmdHandler)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="mapping"></param>
+		/// <param name="connCmdHandler"></param>
+		/// <param name="attrProv"></param>
+		/// <returns></returns>
+		public static RequiresMappingProxy CreateRequiresMappingProxy(IMapping mapping, RoleProxy innerRole, RoleProxy outerRole, CommandHandler connCmdHandler, AttributeProvider attrProv)
 		{
-			return new RequiresMappingProxy(mapping, connCmdHandler);
+			return new RequiresMappingProxy(mapping, innerRole, outerRole, connCmdHandler, attrProv);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sef"></param>
+		/// <param name="comp"></param>
+		/// <param name="service"></param>
+		/// <param name="sefCmdHandler"></param>
+		/// <param name="attrProv"></param>
+		/// <returns></returns>
+		public static ServiceEffectSpecificationProxy CreateServiceEffectSpecificationProxy(IServiceEffectSpecification sef, BasicComponentProxy comp, IService service, CommandHandler sefCmdHandler, AttributeProvider attrProv)
+		{
+			return new ServiceEffectSpecificationProxy(sef, comp, service, sefCmdHandler, attrProv);
+		}
 	
 	}
 }

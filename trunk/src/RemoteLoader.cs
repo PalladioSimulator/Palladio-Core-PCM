@@ -22,6 +22,7 @@ namespace Palladio.Editor.Core
 	/// <summary>
 	/// Zusammenfassung für RemoteLoader.
 	/// </summary>
+	[Serializable]
 	public class RemoteLoader : MarshalByRefObject
 	{
 		/// <summary>
@@ -51,39 +52,28 @@ namespace Palladio.Editor.Core
 
 			foreach(System.Type type in types)
 			{
-				if(type.GetInterface("IViewPlugin")!=null)
+				PluginInfo newPluginInfo;
+
+				if(type.IsSubclassOf(typeof(Palladio.Editor.Common.ViewPluginSkeleton)))
 				{
-					Console.WriteLine("Found ViewPlugin "+type.Name);
-					PluginInfo newPluginInfo;
+					object[] attributes = type.GetCustomAttributes(typeof(PluginInfoAttribute), false);
 
-					object[] attributes;
-
-					attributes = type.GetCustomAttributes(typeof(PluginInfoAttribute), false);
-					if (attributes.Length > 0)
-					{
-						PluginInfoAttribute attr = (PluginInfoAttribute)attributes[0];
-						newPluginInfo = new PluginInfo(	type,
-							PluginType.VIEW,
-							attr.Name,
-							attr.Description,
-							attr.Author,
-							attr.Version,
-							fileName,
-							PluginStatus.INACTIVE);
-					} 
+					if (attributes != null && attributes.Length > 0)
+						newPluginInfo = CreatePluginInfo(type, PluginType.VIEW, (PluginInfoAttribute)attributes[0], fileName);
 					else
-					{
-						newPluginInfo = new PluginInfo(	type,
-							PluginType.VIEW,
-							"Unspecified",
-							"Unspecified",
-							"Unspecified",
-							"Unspecified",
-							fileName,
-							PluginStatus.INACTIVE);
-					}
+						newPluginInfo = CreatePluginInfo(type, PluginType.VIEW, null, fileName);
 					infoList.Add(newPluginInfo);
-				} 
+				}
+				else if(type.IsSubclassOf(typeof(Palladio.Editor.Common.AnalyzePluginSkeleton)))
+				{
+					object[] attributes = type.GetCustomAttributes(typeof(PluginInfoAttribute), false);
+
+					if (attributes != null && attributes.Length > 0)
+						newPluginInfo = CreatePluginInfo(type, PluginType.ANALYZE, (PluginInfoAttribute)attributes[0], fileName);
+					else
+						newPluginInfo = CreatePluginInfo(type, PluginType.ANALYZE, null, fileName);
+					infoList.Add(newPluginInfo);
+				}
 			}
 			PluginInfo[] returnArray = new PluginInfo[infoList.Count];
 			returnArray = (PluginInfo[])infoList.ToArray(typeof(PluginInfo));
@@ -114,9 +104,13 @@ namespace Palladio.Editor.Core
 				fullInfo.Version = attr.Version;
 			}
 
-			if(type.GetInterface("IViewPlugin")!=null)
+			if(type.IsSubclassOf(typeof(Palladio.Editor.Common.ViewPluginSkeleton)))
 			{
 				fullInfo.PluginType = PluginType.VIEW;
+			}
+			else if(type.IsSubclassOf(typeof(Palladio.Editor.Common.AnalyzePluginSkeleton)))
+			{
+				fullInfo.PluginType = PluginType.ANALYZE;
 			}
 			return fullInfo;
 		}
@@ -136,6 +130,38 @@ namespace Palladio.Editor.Core
 			IViewPlugin instance = Activator.CreateInstance(type, new object[]{pluginInfo.Name,pluginInfo.Description,pluginInfo.Author,pluginInfo.Version}) as IViewPlugin;
 
 			return instance;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sType"></param>
+		/// <param name="pType"></param>
+		/// <param name="attr"></param>
+		/// <param name="filename"></param>
+		/// <returns></returns>
+		private PluginInfo CreatePluginInfo(System.Type sType, PluginType pType, PluginInfoAttribute attr, string filename)
+		{
+			if (attr != null)
+				return new PluginInfo(	
+					sType,
+					pType,
+					attr.Name,
+					attr.Description,
+					attr.Author,
+					attr.Version,
+					filename,
+					PluginStatus.INACTIVE );
+			else
+				return new PluginInfo(
+					sType,
+					pType,
+					"Unspecified",
+					"Unspecified",
+					"Unspecified",
+					"Unspecified",
+					filename,
+					PluginStatus.INACTIVE );
 		}
 	}
 }

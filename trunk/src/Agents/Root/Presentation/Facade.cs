@@ -39,6 +39,7 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 		public event FileEventHandler SaveComponentModelAsRequested;
 		public event EventHandler SaveComponentModelRequested;
 		public event EventHandler PluginControlDialogRequested;
+		public event StringEventHandler AnalysesControlDialogRequested;
 		public event EventHandler ExitApplicationRequested;
 		public event EventHandler UndoRequested;
 		public event EventHandler RedoRequested;
@@ -114,6 +115,16 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 		{
 			this._mainForm.RemoveView(type);
 		}
+
+		public void AddAnalysis(IAnalyzePlugin plugin)
+		{
+			this._mainForm.AddAnalysis(plugin);
+		}
+
+		public void AddAnalysisResult(System.Windows.Forms.UserControl result)
+		{
+			this._mainForm.AddAnalysisResult(result);
+		}	
 		#endregion
 
 		#region Event Actuators
@@ -163,6 +174,12 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 		{
 			if (this.RedoRequested != null)
 				this.RedoRequested(this, new System.EventArgs());
+		}
+
+		public void FireAnalysesControlDialogRequested(string type)
+		{
+			if (this.AnalysesControlDialogRequested != null)
+				this.AnalysesControlDialogRequested(this, type);
 		}
 		#endregion
 

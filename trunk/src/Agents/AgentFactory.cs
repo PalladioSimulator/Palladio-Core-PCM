@@ -38,5 +38,12 @@ namespace Palladio.Editor.Core.Agents
 		{
 			return new ViewCoordinator.Control(parent);
 		}
+
+		public static IAnalyzeCoordinator CreateAnalyzeCoordinator(IPluginCoordinator parent)
+		{
+			return new AnalyzeCoordinator.Control(parent);
+		}
+
+	
 	}
 }

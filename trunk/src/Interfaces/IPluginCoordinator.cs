@@ -34,10 +34,13 @@ namespace Palladio.Editor.Core.Interfaces
 		// called by parent agent
 		void Initialize();
 		void ShowPluginControlDialog();
+		void ShowAnalysesControlDialog(string pluginType);
 
 		// called by child agents
 		void PluginAttached(IPlugin plugin);
 		void PluginDetached(string pluginType);
 		CompositeComponentProxy GetComponentModel();
+		void RegisterAttributeType(AbstractAttributeType type);
+		void NewAnalysisResult(System.Windows.Forms.UserControl result);
 	}
 }

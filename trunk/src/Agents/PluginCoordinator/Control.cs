@@ -25,9 +25,11 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 	/// <summary>
 	/// The Control Component of the PluginCoordinator PAC agent
 	/// </summary>
-	internal class Control : IPluginCoordinator, IAbstractionAdapter
+	internal class Control : IPluginCoordinator, IAbstractionAdapter, IPresentationAdapter
 	{
 		#region Fields
+		/// <summary>
+		/// log4net logging service</summary>
 		private static readonly ILog log = LogManager.GetLogger(typeof(Control));
 
 		/// <summary>
@@ -40,11 +42,16 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 
 		/// <summary>
 		/// The Abstraction Component of the PluginCoordinator PAC agent</summary>
-		private Abstraction _abstraction;
+		private Abstraction.Facade _abstraction;
 
 		/// <summary>
 		/// A child PAC agent responsible for ViewPlugin coordination</summary>
 		private IViewCoordinator _viewCoordinator;
+
+		/// <summary>
+		/// A child PAC agent responsible for AnalyzePlugin coordination</summary>
+		private IAnalyzeCoordinator _analyzeCoordinator;
+
 		#endregion
 
 		#region Public Events
@@ -66,10 +73,11 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 
 			// create presentation and abstraction components
 			this._presentation = new Presentation.Facade(this);
-			this._abstraction = new Abstraction(this);
+			this._abstraction = new Abstraction.Facade(this);
 
 			// create child agents
 			this._viewCoordinator = Agents.AgentFactory.CreateViewCoordinator(this);
+			this._analyzeCoordinator = Agents.AgentFactory.CreateAnalyzeCoordinator(this);
 		}
 		#endregion
 
@@ -82,6 +90,7 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 			log.Debug("Initializing PluginCoordinator.");
 
 			// initialize child agents
+			this._analyzeCoordinator.Initialize();
 			this._viewCoordinator.Initialize();
 
 			// hook up to parent agent events
@@ -90,6 +99,7 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 
 			// hook up to presentation and abstraction events
 			this._abstraction.DataChanged += new EventHandler(this.abstraction_DataChanged);
+			this._abstraction.PluginActivationRequested += new Abstraction.PluginInfoEventHandler(this.abstraction_PluginActivationRequested);
 			this._presentation.AddPluginRequested += new FileEventHandler(presentation_AddPluginRequested);
 			this._presentation.ActivatePluginRequested += new EventHandler(presentation_ActivatePluginRequested);
 			this._presentation.DeactivatePluginRequested += new EventHandler(presentation_DeactivatePluginRequested);
@@ -101,14 +111,35 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 			this._abstraction.Initialize();
 		}
 	
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public CompositeComponentProxy GetComponentModel()
 		{
 			return this._parent.GetComponentModel();
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public void ShowPluginControlDialog()
 		{
 			this._presentation.ShowPluginControlDialog();
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public void ShowAnalysesControlDialog(string pluginType)
+		{
+			this._analyzeCoordinator.ShowAnalysesControlDialog(pluginType);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="plugin"></param>
 		public void PluginAttached(IPlugin plugin)
 		{
 			this._parent.PluginAttached(plugin);
@@ -117,6 +148,11 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 			info.Status = PluginStatus.ACTIVE;
 			this._abstraction.SetPluginInfo(info);
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="type"></param>
 		public void PluginDetached(string type)
 		{
 			PluginInfo info = this._abstraction.GetPluginInfo(type);
@@ -126,9 +162,19 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 			info.Status = PluginStatus.INACTIVE;
 			this._abstraction.SetPluginInfo(info);
 		}
+
+		public void RegisterAttributeType(AbstractAttributeType type)
+		{
+			this._parent.RegisterAttributeType(type);
+		}
+
+		public void NewAnalysisResult(System.Windows.Forms.UserControl result)
+		{
+			this._parent.NewAnalysisResult(result);
+		}
 		#endregion
 
-		#region IDataProvider Member
+		#region IAbstractionAdapter Member
 
 		public PluginInfo[] GetPluginInfos() 
 		{ 
@@ -152,18 +198,8 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 		{
 			int selectedIndex = this._presentation.GetSelectedPluginListIndex();
 			PluginInfo pluginInfo = this._abstraction.GetPluginInfo(selectedIndex);
-			if (pluginInfo.PluginType == PluginType.VIEW)
-			{
-				try 
-				{
-					this._viewCoordinator.AttachPlugin(pluginInfo);
-				}
-				catch (Exception exc)
-				{
-					log.Error("Could not instantiate "+pluginInfo.TypeName+": "+exc.ToString());
 
-				}
-			}
+			this.ActivatePlugin(pluginInfo);
 		}
 
 		/// <summary>
@@ -179,6 +215,11 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 			{
 				this._viewCoordinator.DetachPlugin(info.TypeName);
 			}
+			else if (info.PluginType == PluginType.ANALYZE)
+			{
+				this._analyzeCoordinator.DetachPlugin(info.TypeName);
+			}
+
 			System.GC.Collect();
 		}
 
@@ -229,6 +270,11 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 		{
 			this._presentation.UpdatePluginList( this._abstraction.GetPluginInfos() );
 		}
+
+		private void abstraction_PluginActivationRequested(object source, PluginInfo info)
+		{
+			this.ActivatePlugin(info);
+		}
 		#endregion
 
 		#region Parent Agent Event Handler
@@ -269,24 +315,24 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator
 		}
 		#endregion
 
-		#region Public Methods
+		#region Private Methods
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="info"></param>
-		public void ActivatePlugin(PluginInfo info)
+		private void ActivatePlugin(PluginInfo info)
 		{
-			if (info.PluginType == PluginType.VIEW)
+			try 
 			{
-				try 
-				{
+				if (info.PluginType == PluginType.VIEW)
 					this._viewCoordinator.AttachPlugin(info);
-				}
-				catch (Exception e)
-				{
-					log.Error("Could not instantiate "+info.TypeName+": "+e.ToString());
-				}
-			}			
+				else if (info.PluginType == PluginType.ANALYZE)
+					this._analyzeCoordinator.AttachPlugin(info);
+			}
+			catch (Exception e)
+			{
+				log.Error("Could not instantiate "+info.TypeName+": "+e.ToString());
+			}
 		}
 		#endregion
 	}

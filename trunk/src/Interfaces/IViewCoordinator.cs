@@ -21,7 +21,7 @@ namespace Palladio.Editor.Core.Interfaces
 	/// <summary>
 	/// Zusammenfassung für IViewCoordinator.
 	/// </summary>
-	public interface IViewCoordinator
+	internal interface IViewCoordinator
 	{
 		/// <summary>
 		/// Fired when an attached plugin selected a model entity

@@ -30,11 +30,15 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 	internal class GUIMainForm : System.Windows.Forms.Form
 	{
 		#region Fields
+		/// <summary>
+		/// log4net logging service</summary>
 		private static readonly ILog log = LogManager.GetLogger(typeof(GUIMainForm));
 
 		private Facade _facade;
 
 		private Hashtable activeViews;
+
+		private Hashtable activeAnalyses;
 		#endregion
 
 		#region GUI components
@@ -73,7 +77,6 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 		private Palladio.Editor.Core.Agents.Root.Presentation.LogOutputControl outputControl;
 //		private Palladio.Editor.Core.Presentation.ToolBoxControl toolboxControl;
 		private TD.SandBar.MenuButtonItem menubar_View_Output;
-		private TD.SandBar.MenuBarItem menubar_Analysis;
 		private TD.SandBar.MenuButtonItem menubar_Edit_Plugins;
 		private TD.SandBar.MenuButtonItem menubar_Help_Info;
 		private System.Windows.Forms.OpenFileDialog openFileDialog;
@@ -85,13 +88,18 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 		private TD.SandBar.MenuButtonItem menubar_View_Toolbox;
 		private TD.SandBar.MenuButtonItem menubar_Edit_Undo;
 		private TD.SandBar.MenuButtonItem menubar_Edit_Redo;
+		private TD.SandBar.MenuBarItem menubar_Analyses;
+		private TD.SandBar.MenuButtonItem menubar_Analyses_Analyses;
 		private TD.SandDock.DockControl dctToolbox;
 		#endregion
 
 		public GUIMainForm(Facade facade)
 		{
 			this._facade = facade;
+
 			this.activeViews = new Hashtable();
+			this.activeAnalyses = new Hashtable();
+
 			InitializeComponent();
 
 			this.outputControl = new LogOutputControl();
@@ -126,12 +134,14 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 			this.menubar_File_Print = new TD.SandBar.MenuButtonItem();
 			this.menubar_File_Exit = new TD.SandBar.MenuButtonItem();
 			this.menubar_Edit = new TD.SandBar.MenuBarItem();
+			this.menubar_Edit_Undo = new TD.SandBar.MenuButtonItem();
+			this.menubar_Edit_Redo = new TD.SandBar.MenuButtonItem();
 			this.menubar_Edit_Plugins = new TD.SandBar.MenuButtonItem();
 			this.menubar_View = new TD.SandBar.MenuBarItem();
 			this.menubar_View_Output = new TD.SandBar.MenuButtonItem();
 			this.menubar_View_Properties = new TD.SandBar.MenuButtonItem();
 			this.menubar_View_Toolbox = new TD.SandBar.MenuButtonItem();
-			this.menubar_Analysis = new TD.SandBar.MenuBarItem();
+			this.menubar_Analyses = new TD.SandBar.MenuBarItem();
 			this.menubar_Help = new TD.SandBar.MenuBarItem();
 			this.menubar_Help_Info = new TD.SandBar.MenuButtonItem();
 			this.imageList = new System.Windows.Forms.ImageList(this.components);
@@ -151,8 +161,7 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 			this.topSandDock = new TD.SandDock.DockContainer();
 			this.documentContainer = new TD.SandDock.DocumentContainer();
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-			this.menubar_Edit_Undo = new TD.SandBar.MenuButtonItem();
-			this.menubar_Edit_Redo = new TD.SandBar.MenuButtonItem();
+			this.menubar_Analyses_Analyses = new TD.SandBar.MenuButtonItem();
 			this.topSandBarDock.SuspendLayout();
 			this.leftSandDock.SuspendLayout();
 			this.rightSandDock.SuspendLayout();
@@ -225,7 +234,7 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 																			   this.menubar_File,
 																			   this.menubar_Edit,
 																			   this.menubar_View,
-																			   this.menubar_Analysis,
+																			   this.menubar_Analyses,
 																			   this.menubar_Help});
 			this.menuBar.Guid = new System.Guid("039a1dce-8a93-4612-bdd3-324fc2483654");
 			this.menuBar.ImageList = this.imageList;
@@ -306,6 +315,20 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 																					 this.menubar_Edit_Plugins});
 			this.menubar_Edit.Text = "&Edit";
 			// 
+			// menubar_Edit_Undo
+			// 
+			this.menubar_Edit_Undo.ImageIndex = 8;
+			this.menubar_Edit_Undo.Shortcut = System.Windows.Forms.Shortcut.CtrlZ;
+			this.menubar_Edit_Undo.Text = "&Undo";
+			this.menubar_Edit_Undo.Activate += new System.EventHandler(this.menubar_Edit_Undo_Activate);
+			// 
+			// menubar_Edit_Redo
+			// 
+			this.menubar_Edit_Redo.ImageIndex = 9;
+			this.menubar_Edit_Redo.Shortcut = System.Windows.Forms.Shortcut.CtrlY;
+			this.menubar_Edit_Redo.Text = "&Redo";
+			this.menubar_Edit_Redo.Activate += new System.EventHandler(this.menubar_Edit_Redo_Activate);
+			// 
 			// menubar_Edit_Plugins
 			// 
 			this.menubar_Edit_Plugins.BeginGroup = true;
@@ -323,24 +346,29 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 			// 
 			// menubar_View_Output
 			// 
+			this.menubar_View_Output.Shortcut = System.Windows.Forms.Shortcut.CtrlShiftO;
 			this.menubar_View_Output.Text = "&Output";
 			this.menubar_View_Output.Activate += new System.EventHandler(this.menubar_View_Output_Activate);
 			// 
 			// menubar_View_Properties
 			// 
 			this.menubar_View_Properties.ImageIndex = 10;
+			this.menubar_View_Properties.Shortcut = System.Windows.Forms.Shortcut.CtrlShiftP;
 			this.menubar_View_Properties.Text = "&Properties";
 			this.menubar_View_Properties.Activate += new System.EventHandler(this.menubar_View_Properties_Activate);
 			// 
 			// menubar_View_Toolbox
 			// 
 			this.menubar_View_Toolbox.ImageIndex = 6;
+			this.menubar_View_Toolbox.Shortcut = System.Windows.Forms.Shortcut.CtrlShiftT;
 			this.menubar_View_Toolbox.Text = "&Toolbox";
 			this.menubar_View_Toolbox.Activate += new System.EventHandler(this.menubar_View_Toolbox_Activate);
 			// 
-			// menubar_Analysis
+			// menubar_Analyses
 			// 
-			this.menubar_Analysis.Text = "&Analysis";
+			this.menubar_Analyses.MenuItems.AddRange(new TD.SandBar.MenuButtonItem[] {
+																						 this.menubar_Analyses_Analyses});
+			this.menubar_Analyses.Text = "&Analyses";
 			// 
 			// menubar_Help
 			// 
@@ -525,19 +553,11 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 			this.saveFileDialog.DefaultExt = "palladio.xml";
 			this.saveFileDialog.Filter = "Palladio-Model (*.palladio.xml)|*.palladio.xml";
 			// 
-			// menubar_Edit_Undo
+			// menubar_Analyses_Analyses
 			// 
-			this.menubar_Edit_Undo.ImageIndex = 8;
-			this.menubar_Edit_Undo.Shortcut = System.Windows.Forms.Shortcut.CtrlZ;
-			this.menubar_Edit_Undo.Text = "&Undo";
-			this.menubar_Edit_Undo.Activate += new System.EventHandler(this.menubar_Edit_Undo_Activate);
-			// 
-			// menubar_Edit_Redo
-			// 
-			this.menubar_Edit_Redo.ImageIndex = 9;
-			this.menubar_Edit_Redo.Shortcut = System.Windows.Forms.Shortcut.CtrlY;
-			this.menubar_Edit_Redo.Text = "&Redo";
-			this.menubar_Edit_Redo.Activate += new System.EventHandler(this.menubar_Edit_Redo_Activate);
+			this.menubar_Analyses_Analyses.Shortcut = System.Windows.Forms.Shortcut.F11;
+			this.menubar_Analyses_Analyses.Text = "Analyses...";
+			this.menubar_Analyses_Analyses.Activate += new System.EventHandler(this.menubar_Analyses_Analyses_Activate);
 			// 
 			// GUIMainForm
 			// 
@@ -597,24 +617,43 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 		}
 		#endregion
 
+		/// <summary>
+		/// Adds visual components for a view plugin to the GUI
+		/// </summary>
+		/// <param name="plugin">The plugin for which user controls should be added</param>
 		public void AddView(IViewPlugin plugin)
 		{
+			if (this.activeViews[plugin.GetType().ToString()] != null)
+			{
+				log.Error("Plugin has already been added to the GUI");
+				return;
+			}
+
+			// create a new record to hold viewplugin informations
 			ActiveViewPluginRecord record = new ActiveViewPluginRecord();
+
+			// create menu item
 			TD.SandBar.MenuButtonItem viewMenuItem = new TD.SandBar.MenuButtonItem(plugin.Name);
+			viewMenuItem.Activate += new System.EventHandler(this.menubar_View_Plugin_Activate);
+			if (this.menubar_View.MenuItems.Count == 3)
+				viewMenuItem.BeginGroup = true;
+
 			record.ViewMenuItem = viewMenuItem;
 			this.menubar_View.MenuItems.Add(viewMenuItem);
-			System.Windows.Forms.Control newCtrl = plugin.ViewControl;
 
+			System.Windows.Forms.Control newCtrl = plugin.ViewControl;
 			if (newCtrl != null) 
 			{
+				newCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
 				DockControl dct = new TD.SandDock.DockControl();
 				dct.AutoScroll = true;
 				dct.Controls.Add(newCtrl);
 				dct.Name = "dct"+plugin.Name;
 				dct.Text = plugin.Name;
 
-				if (plugin.UserControlPosition == UserControlPosition.FLOAT)
+				if (plugin.ViewControlPosition == ViewControlPosition.FLOAT)
 				{
+					record.ControlPosition = ViewControlPosition.FLOAT;
 					dct.FloatingSize = new System.Drawing.Size(400, 300);
 					dct.Location = new System.Drawing.Point(0, 20);
 					dct.Size = new System.Drawing.Size(808, 165);
@@ -622,18 +661,22 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 					ControlLayoutSystem layout = new ControlLayoutSystem(180, 100, new DockControl [] {dct}, dct);
 					this.leftSandDock.LayoutSystem.LayoutSystems.Add(layout);
 				}
-				else if (plugin.UserControlPosition == UserControlPosition.MDI_CONTAINER)
+				else if (plugin.ViewControlPosition == ViewControlPosition.MDI_CONTAINER)
 				{
+					record.ControlPosition = ViewControlPosition.MDI_CONTAINER;
 					this.documentContainer.AddDocument(dct);
 					this.dctToolbox.Controls.Add((System.Windows.Forms.Control)plugin.ToolboxItems[0]);
 				}
 
 				record.ViewControl = dct;
-
 			}
 			this.activeViews.Add(plugin.GetType().ToString(), record);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="type"></param>
 		public void RemoveView(string type) 
 		{
 			ActiveViewPluginRecord record = (ActiveViewPluginRecord)this.activeViews[type];
@@ -650,11 +693,66 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 			this.activeViews.Remove(type.ToString());
 		}
 
+		/// <summary>
+		/// Adds visual components for a analyze plugin to the GUI
+		/// </summary>
+		/// <param name="plugin">The plugin for which user controls should be added</param>
+		public void AddAnalysis(IAnalyzePlugin plugin)
+		{
+			if (this.activeAnalyses[plugin.GetType().ToString()] != null)
+			{
+				log.Error("Plugin has already been added to the GUI");
+				return;
+			}
+
+			// create a new record to hold viewplugin informations
+			ActiveAnalysisPluginRecord record = new ActiveAnalysisPluginRecord();
+			record.Type = plugin.GetType().ToString();
+
+			// create menu item
+			TD.SandBar.MenuButtonItem analyzeMenuItem = new TD.SandBar.MenuButtonItem(plugin.Name);
+			analyzeMenuItem.Activate += new System.EventHandler(this.menubar_Analyses_Plugin_Activate);
+			if (this.menubar_Analyses.MenuItems.Count == 1)
+				analyzeMenuItem.BeginGroup = true;
+
+			record.AnalysesMenuItem = analyzeMenuItem;
+			this.menubar_Analyses.MenuItems.Add(analyzeMenuItem);
+
+			this.activeAnalyses.Add(plugin.GetType().ToString(), record);
+		}
+
+		public void AddAnalysisResult(UserControl result)
+		{
+			if (result != null) 
+			{
+				result.Dock = System.Windows.Forms.DockStyle.Fill;
+				DockControl dct = new TD.SandDock.DockControl();
+				dct.AutoScroll = true;
+				dct.Controls.Add(result);
+				dct.Text = "Result";
+
+				dct.FloatingSize = new System.Drawing.Size(400, 300);
+				dct.Location = new System.Drawing.Point(0, 20);
+				dct.Size = new System.Drawing.Size(808, 165);
+
+				ControlLayoutSystem layout = new ControlLayoutSystem(180, 100, new DockControl [] {dct}, dct);
+				this.bottomSandDock.LayoutSystem.LayoutSystems.Add(layout);
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="selected"></param>
 		public void SetSelectedObject(object selected)
 		{
 			this.propertyGrid.SelectedObject = selected;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public object GetSelectedObject()
 		{
 			return this.propertyGrid.SelectedObject;
@@ -736,12 +834,51 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 			this.dctToolbox.Activate();
 		}
 
+		private void menubar_View_Plugin_Activate(object sender, System.EventArgs e)
+		{
+			foreach (ActiveViewPluginRecord viewRcrd in this.activeViews.Values)
+			{
+				if (sender == viewRcrd.ViewMenuItem)
+				{
+					if (viewRcrd.ControlPosition == ViewControlPosition.FLOAT)
+					{
+						viewRcrd.ViewControl.Open();
+						viewRcrd.ViewControl.Activate();
+					}
+					else if (viewRcrd.ControlPosition == ViewControlPosition.MDI_CONTAINER)
+					{
+						if (!this.documentContainer.Contains(viewRcrd.ViewControl))
+							this.documentContainer.AddDocument(viewRcrd.ViewControl);
+						this.documentContainer.ActiveDocument = viewRcrd.ViewControl;
+					}
+				}
+			}
+		}
+
+		// ANALYSES //////////
+		private void menubar_Analyses_Analyses_Activate(object sender, System.EventArgs e)
+		{
+			this._facade.FireAnalysesControlDialogRequested(null);
+		}
+
+		private void menubar_Analyses_Plugin_Activate(object sender, System.EventArgs e)
+		{
+			foreach (ActiveAnalysisPluginRecord anaRcrd in this.activeAnalyses.Values)
+			{
+				if (sender == anaRcrd.AnalysesMenuItem)
+				{
+					this._facade.FireAnalysesControlDialogRequested(anaRcrd.Type);
+				}
+			}
+		}
+		#endregion
+
 		private void GUIMainForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			this._facade.FireExitApplicationRequested();
 		}
 
-		#endregion
+
 
 
 
@@ -749,6 +886,13 @@ namespace Palladio.Editor.Core.Agents.Root.Presentation
 		{
 			public TD.SandBar.MenuButtonItem ViewMenuItem;
 			public DockControl ViewControl;
+			public ViewControlPosition ControlPosition;
+		}
+
+		private struct ActiveAnalysisPluginRecord
+		{
+			public TD.SandBar.MenuButtonItem AnalysesMenuItem;
+			public string Type;
 		}
 	}
 }

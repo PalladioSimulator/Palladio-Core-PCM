@@ -45,9 +45,9 @@ namespace Palladio.Editor.Core.Agents.PluginCoordinator.Presentation
 		private System.Windows.Forms.ColumnHeader pluginColumnAssembly;
 		private System.Windows.Forms.Label labelDescr;
 		private System.Windows.Forms.OpenFileDialog openFileDialog;
+
 		/// <summary>
-		/// Erforderliche Designervariable.
-		/// </summary>
+		/// Erforderliche Designervariable.</summary>
 		private System.ComponentModel.Container components = null;
 
 		public PluginControlForm(Facade facade)

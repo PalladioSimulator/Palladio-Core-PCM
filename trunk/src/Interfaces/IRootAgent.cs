@@ -12,8 +12,8 @@
 
 using System;
 
-using Palladio.Editor.Common;
 using Palladio.ComponentModel;
+using Palladio.Editor.Common;
 using Palladio.Editor.Common.EntityProxies;
 
 namespace Palladio.Editor.Core.Interfaces
@@ -23,14 +23,18 @@ namespace Palladio.Editor.Core.Interfaces
 	/// </summary>
 	internal interface IRootAgent
 	{
-		event ComponentModelChangedHandler ComponentModelChanged;
+		// events for child agents
 		event EntityChangedHandler EntityChanged;
+		event ComponentModelChangedHandler ComponentModelChanged;
 
 		void Initialize();
+
+		// called by child agents
 		void PluginAttached(IPlugin plugin);
 		void PluginDetached(PluginType pluginType, string systemType);
-
 		CompositeComponentProxy GetComponentModel();
+		void RegisterAttributeType(AbstractAttributeType type);
+		void NewAnalysisResult(System.Windows.Forms.UserControl result);
 
 	}
 }
