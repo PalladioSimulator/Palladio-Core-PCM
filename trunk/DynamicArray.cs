@@ -6,7 +6,7 @@ namespace FSM
 	/// <summary>
 	/// dynamisches wachsendes Array
 	/// </summary>
-	public class DynamicArray  : IEnumerable
+	public class DynamicArray : IEnumerable
 	{
 		IEnumerator e;
 		public Object[] array;
@@ -29,7 +29,7 @@ namespace FSM
 			{
 				get
 				{
-					if(currentIndex > outer.array.Length)
+					if (currentIndex > outer.array.Length)
 						throw new InvalidOperationException();
 					return outer.array[currentIndex];
 				}
@@ -42,9 +42,9 @@ namespace FSM
 			///</returns>
 			public bool MoveNext()
 			{
-				if(currentIndex > outer.array.Length)
+				if (currentIndex > outer.array.Length)
 					throw new InvalidOperationException();
-				return ++currentIndex < outer.array.Length;
+				return++currentIndex < outer.array.Length;
 			}
 			/// <summary>
 			/// Sets the enumerator to its initial position, which is before the first element 
@@ -55,26 +55,26 @@ namespace FSM
 				currentIndex = -1;
 			}
 		}
-		
+
 		public DynamicArray(int i)
 		{
 			this.array = new Object[i];
 		}
 		public void AddE(Object o, int index)
 		{
-			if(index == this.array.Length)
+			if (index == this.array.Length)
 			{
 				this.array = trim();
-				this.array.SetValue(o,index);
+				this.array.SetValue(o, index);
 			}
 			else
-				this.array.SetValue(o,index);
+				this.array.SetValue(o, index);
 		}
 		protected Object[] trim()
 		{
-			Object[] feld = new Object[this.array.Length +1];
-			for(int i =0; i< this.array.Length; i++)
-				feld[i]= this.array[i];
+			Object[] feld = new Object[this.array.Length + 1];
+			for (int i = 0; i < this.array.Length; i++)
+				feld[i] = this.array[i];
 			return feld;
 		}
 		//sort
