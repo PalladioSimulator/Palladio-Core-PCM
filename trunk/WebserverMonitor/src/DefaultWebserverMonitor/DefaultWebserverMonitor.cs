@@ -1,4 +1,5 @@
 using System;
+using Palladio.Webserver.ConfigReader;
 
 namespace Palladio.Webserver.WebserverMonitor
 {
@@ -12,6 +13,9 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/22 16:19:56  kelsaka
+	/// even more interface changes; configuration-alternative on loading the webserver
+	///
 	/// Revision 1.2  2004/10/22 09:37:19  kelsaka
 	/// minor changes
 	///
@@ -23,12 +27,15 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// </remarks>
 	public class DefaultWebserverMonitor : IWebserverMonitor
 	{
-		public DefaultWebserverMonitor()
-		{
 
+		private IConfigReader configReader;
+
+		public DefaultWebserverMonitor(IConfigReader configReader)
+		{
+			this.configReader = configReader;
 		}
 
-		public void writeDebugMessage (string debugMessage)
+		public void writeDebugMessage (string debugMessage, int debugLevel)
 		{
 			throw new NotImplementedException ();
 		}

@@ -14,6 +14,9 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/10/22 16:19:56  kelsaka
+	/// even more interface changes; configuration-alternative on loading the webserver
+	///
 	/// Revision 1.4  2004/10/22 09:37:19  kelsaka
 	/// minor changes
 	///
@@ -31,6 +34,10 @@ namespace Palladio.Webserver.ConfigReader
 	/// </remarks>
 	public class XMLConfigReader : IConfigReader
 	{
+
+
+
+
 		public XMLConfigReader()
 		{
 
@@ -38,7 +45,7 @@ namespace Palladio.Webserver.ConfigReader
 
 		public IConfiguration ReadConfiguration (Path path)
 		{
-			throw new NotImplementedException ();
+			
 
 			//
 			// TODO:
@@ -57,6 +64,9 @@ namespace Palladio.Webserver.ConfigReader
 			//   portsType root = new portsType(doc.Load("webserverXML1.xml"));
 			//   ...
 			//   doc.Save("webserverXML1.xml", root);
+
+
+			throw new NotImplementedException ();
 		}
 
 

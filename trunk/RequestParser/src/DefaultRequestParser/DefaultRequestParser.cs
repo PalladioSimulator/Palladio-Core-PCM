@@ -1,15 +1,17 @@
 using System;
+using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.Request;
+using Palladio.Webserver.WebserverMonitor;
 
-namespace Palladio.Webserver.RequestParser.src.ErrorRequestParser
+namespace Palladio.Webserver.RequestParser
 {
 	/// <summary>
 	/// ErrorRequestParser. Usually this class should be used at the end of the Chain Of Responsibility
 	/// to catch errors on getting a fitting parser for the delivered stream.
 	/// </summary>
-	public class ErrorRequestParser : IRequestParser
+	public class DefaultRequestParser : IRequestParser
 	{
-		public ErrorRequestParser()
+		public DefaultRequestParser(IWebserverMonitor webserverMonitor, IConfigReader configReader)
 		{
 
 		}
