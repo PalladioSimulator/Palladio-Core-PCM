@@ -1,0 +1,75 @@
+\section{Modellbildung}
+\label{sec:modell}
+In diesem Kapitel wird auf die Entwicklung und Auswahl der im Framework verwendeten Modelle eingegangen.
+...
+\subsection{Grundlagen zur Modellierung von Komponenten und Komponentenarchitekturen}
+\label{sec:modell:grundlagen}
+Da sich dieses Framework mit der Simulation von Modellen von Architekturen und Komponenten befassen soll, gilt es als erstes, geeignete Modelle für die Komponenten und die Architektur auszuwählen und diese ggf. für die Simulation anzupassen. Als Basis hierfür wird auf ein Komponentenmodell zurückgegriffen, welches in (Literatur) vorgestellt wird. In diesem Modell repräsentieren sich Komponenten durch eine Reihe angebotener Dienste. Diese Dienste werden nach außen hin durch Schnittstellen (in (LIter) als {\em Angebotssschnittstellen} bezeichnet) abgebildet. Die Dienste selber können andere möglicherweise externe Dienste zu ihrer Ausführung benötigen, welche ebenso durch Schnittstellen (in (Literatur) als {\em Bedarfsschnittstelle} bezeichnet) nach außen abgebildet werden.
+
+\subsubsection{Auswahl des Schnittstellenmodells}
+\label{sec:modell:grundlagen:schnittstellen}
+Das Modell sieht je nach Anfordung unterschiedliche Schnittstellenmodelle vor, welche hierarchisch angeordnet sind. Die aus (Liter) entnommene Auflistung erläutert diese kurz.
+\begin{itemize}
+\item \textbf{Signaturlisten} beschreiben die Signaturen von Diensten. Dazu gehören Name, Parameterzahl, Parametertypen und ggf. der Rückgabetyp des Dienstes
+\item \textbf{Protokolle} spezifizieren Reihenfolgen von Dienstaufrufen. Damit wird die Verfügbarkeit von Diensten einer Komponente in Abhängigkeit ihres internen Zustands beschrieben sowie die Reihenfolgen, mit denen die Komponente externe Dienste aufrufen kann.
+
+\item \textbf{Qualitätsattribute und Nicht-funktionale Eigenschaften} betreffen Randbedingungen, die spezifizieren wie eine Komponente ihre Funktionalität erfüllt. Solche Randbedingungen betreffen beispielsweise Zuverlässigkeit, Effizienz bestimmter Dienste oder Robustheit.
+
+\end{itemize}
+
+Da im Framework die Komponenten nicht als Blackboxes simuliert werden sollen, benötigen die Schnittstellen selber keine Beschreibung der Nicht-funktionalen Eigenschaften der Komponente. Diese werden, wie in Abschnitt \ref{sec:modell:erweiterung} erläutert, direkt im Modell der Dienste der Komponenten umgesetzt. Auf die Modellierung von Protokollen kann ebenfalls verzichtet werden, da die Simulation nicht dazu dient, Interoperabilität zu prüfen. Es wird bereits davon ausgegangen, dass die Komponenten der zu simulierenden Architektur zusammenpassen. Somit genügt es, die unterste Ebene der Schnittstellenmodelle zu verwenden.
+
+
+\subsubsection{Modellierung der Dienste}
+\label{sec:modell:grundlagen:dienste}
+Die Dienste einer Komponente werden in (Literatur) durch endliche Automaten (dort {\em Dienstbedarfautomaten} genannt) umgesetzt, wobei die Zustände einen Kontrollfluss unabhängig von anderen Diensten repräsentieren und die Transitionen die Aufrufe anderer möglicherweise externer Dienste darstellen. Ist ein Zustand als Endzustand definiert, so wird dies als Beendigung eines Dienstes (durch Erfolg oder Ausnahme) gewertet. Bild \ref{pic:modell} zeigt einen Dienstbedarfsautomaten (für Dienst e0). Dieser könnte folgenden Quellcode einer Komponente modellieren.\\
+\begin{code}
+be\=gi\=n \=e0\=()\\
+\>{\em interne Befehle}\\
+\>if ({\em Bedingung})\\
+\>\>e1();\\
+\>\>{\em interne Befehle}\\
+\>\>e2();\\
+\>else \\
+\>\>e3();\\
+end e0
+
+\end{code}
+
+\subsubsection{Verbindungen zwischen Komponenten}
+\label{sec:modell:grundlagen:verbindung}
+
+Nachdem nun einzelne Komponenten modelliert werden können, müssen jetzt Möglichkeiten geschaffen werden, mehrere dieser Komponenten untereinander oder mit der Aussenwelt zu verbinden. Bei der Verbindung zweier Komponenten untereinander wird eine Bedarfsschnittstelle einer Komponente mit der Angebotsschnittstelle einer anderen verbunden. Bei der Verbindung zur Außenwelt dagegen werden zwei Bedarfs- bzw. Angebotsschnittstellen miteinander verbunden. Abbildung \ref{pic:modell} stellt diesen Unterschied anschaulich dar.
+\par
+Da diese Schnittstellen unter Umständen mehrere Dienste kapseln, müssen innerhalb einer dieser Verbindungen Strukturen zur Verfügung stehen, die jeden einzelnen Dienst verbinden.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=13.5cm]{../res/modell.png}
+\caption{Modell einer Komponentenarchitektur}
+\label{pic:modell}
+\end{center}
+\end{figure}
+
+\subsection{Aufbau des Simulationsmodells und benötigte Resourcen}
+\label{sec:modell:simulation}
+
+Beim Entwurf des Simulationsmodell geht es darum, an die Architektur gestellte Anfragen und deren Wechselwirkungen innerhalb der Architektur möglichst realitätsnah zu simulieren. Es werden im Folgenden Methoden zur Umsetzung dieser Problematik vorgestellt und anschließend die Resourcen der Methode, welche im Framework eingesetzt werden soll, ermittelt.
+
+\subsubsection{Reelle Threads vs. simulierte Threads}
+\label{sec:modell:simulation:reellvssim}
+Grundsätzlich bieten sich zur Lösung dieser Aufgabe zwei Wege an, die Verwendung reeller Threads oder deren Simulation.\par
+Bei der Simulation mit reellen Threads wird für jede Anfrage an das System ein reelles Thread erzeugt. Wie in der Realität auch, werden diese Zeit 
+
+\subsubsection{Resourcen bei der Verwendung von simulierten Threads}
+\label{sec:modell:simulation:res}
+
+
+\par
+Im weiteren Verlauf der Arbeit werden Anfragen an das System teilweise auch als Threads bezeichnet. Diese Terminologie erscheint angemessen, da eine Anfrage an eine Komponentenarchitektur im Prinzip in der Realität das Eintreffen eines Threads bedeutet.
+
+\subsection{Erweiterung des Komponenten- und Architekturmodells für die Simulation}
+\label{sec:modell:erweiterung}
+Nachdem im vorherigen Abschnitt ein Simulationsmodell für das Framework ausgewählt und erläutert wurde, muss nun die Modellierung der Komponenten und der Architektur auf dieses Simulationsmodell angepasst werden. ...
+
+- der Kram mit den ITimeConsumer und ISubCallingTimeConsumer ...

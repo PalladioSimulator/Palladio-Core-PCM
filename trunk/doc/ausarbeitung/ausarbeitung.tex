@@ -11,6 +11,11 @@
 
 \begin{document}
 
+%definitionen
+\newenvironment{code}
+	{\begin{tabbing}}
+	{\end{tabbing}}
+
 % Kopfzeile mit Kapitel
 \renewcommand{\sectionmark}[1]{\markleft{#1}{}}
 \pagestyle{fancyplain}
@@ -46,6 +51,10 @@
 \newpage
 
 \input{einleitung.tex}
+\newpage
+
+\input{modellierung.tex}
+\newpage
 
 
 \end{document}
