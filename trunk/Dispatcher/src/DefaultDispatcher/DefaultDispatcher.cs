@@ -20,6 +20,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2004/11/03 18:52:48  kelsaka
+	/// Added ability to get the full content-data of post-requests
+	///
 	/// Revision 1.9  2004/10/30 15:24:39  kelsaka
 	/// webserverMonitor-Output on console; documentation (doc) update
 	///
@@ -61,6 +64,7 @@ namespace Palladio.Webserver.Dispatcher
 		private IRequestParser requestParser;
 		private IWebserverMonitor webserverMonitor;
 		private IWebserverConfiguration webserverConfiguration;
+		private Thread serverThread;
 
 		private TcpListener tcpListener;
 
@@ -101,8 +105,8 @@ namespace Palladio.Webserver.Dispatcher
 				webserverMonitor.WriteLogEntry("Listening (TCP) on port: " + webserverConfiguration.ListeningPorts[0]);
 
 				//start the thread which calls the method 'StartListen'
-				Thread thread = new Thread(new ThreadStart(StartListen));
-				thread.Start();
+				serverThread = new Thread(new ThreadStart(StartListen));
+				serverThread.Start();
 
 			}
 			catch(Exception e)
@@ -110,6 +114,12 @@ namespace Palladio.Webserver.Dispatcher
 				webserverMonitor.WriteDebugMessage("An exception occurred while listening: " + e.ToString(), 1);
 			}
 			
+
+			//TODO: make the webserver shutdown explicitly.
+			//webserverMonitor.WriteLogEntry("Press ENTER to stop the webserver.");
+			//Console.ReadLine();
+			//Stop();
+
 		}
 
 
@@ -120,11 +130,22 @@ namespace Palladio.Webserver.Dispatcher
 		/// Stops the dispatcher. This includes the service of the webserver.
 		/// Stops the write-access of the WebserverMonitor.
 		/// </summary>
-		public void Stop ()
+		public void Stop()
 		{
+			if (serverThread != null)
+			{
+				try
+				{
+					serverThread.Abort();
+				}
+				finally
+				{
+					serverThread = null;
+				}
+			}
 			webserverMonitor.WriteLogEntry("Shutting down webserver.");
 			webserverMonitor.FinishWriteAccess();
-			
+
 		}
 
 
@@ -151,9 +172,11 @@ namespace Palladio.Webserver.Dispatcher
 					webserverMonitor.WriteLogEntry("Client connected on IP: " + clientSocket.RemoteEndPoint) ;
 
 					// set up request:
-					IRequest request = new DefaultRequest();
+					IRequest request = new DefaultRequest(webserverMonitor);
 					request.Socket = clientSocket;
 					request.TcpListener = tcpListener;
+					request.Port = webserverConfiguration.ListeningPorts[0]; //TODO: on using all defined ports change this.
+					
 
 					// let the parser handle the request:
 					requestParser.HandleRequest(request);

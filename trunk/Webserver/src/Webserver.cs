@@ -17,6 +17,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2004/11/03 18:52:48  kelsaka
+	/// Added ability to get the full content-data of post-requests
+	///
 	/// Revision 1.11  2004/10/30 11:42:08  kelsaka
 	/// Added full support for static websites using the get-method; added several test-documents; changed CoR for HTTP-Processing: dynamic files are delivered first
 	///
@@ -61,6 +64,7 @@ namespace Palladio.Webserver
 		private const string DEFAULT_XML_CONFIGURATION_FILE = "..\\..\\..\\Config\\WebserverXML.xml";
 
 
+
 		public Webserver()
 		{
 
@@ -76,7 +80,7 @@ namespace Palladio.Webserver
 			webserver.Run(args);
 			Console.WriteLine("# Main-Thread: Webserver.Run exited...");
 			
-			Console.ReadLine();
+			//Console.ReadLine();
 
 		}
 

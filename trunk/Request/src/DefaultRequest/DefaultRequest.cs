@@ -1,5 +1,8 @@
 using System;
+using System.IO;
 using System.Net.Sockets;
+using System.Text;
+using Palladio.Webserver.WebserverMonitor;
 
 namespace Palladio.Webserver.Request
 {
@@ -12,6 +15,9 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/11/03 18:52:48  kelsaka
+	/// Added ability to get the full content-data of post-requests
+	///
 	/// Revision 1.4  2004/10/30 15:24:39  kelsaka
 	/// webserverMonitor-Output on console; documentation (doc) update
 	///
@@ -31,18 +37,25 @@ namespace Palladio.Webserver.Request
 	public class DefaultRequest : IRequest
 	{
 
+		private IWebserverMonitor webserverMonitor;
 		private TcpListener tcpListener;
 		private Socket socket;
+		private int port;
+		private byte[] receivedData;
 
 
 
 		/// <summary>
 		/// The general request passed to the parsers by the dispatcher.
 		/// </summary>
-		public DefaultRequest()
+		public DefaultRequest(IWebserverMonitor webserverMonitor)
 		{
-		
+			this.webserverMonitor = webserverMonitor;
 		}
+
+
+
+
 
 
 		//TODO: Currently unused - remove?
@@ -63,5 +76,16 @@ namespace Palladio.Webserver.Request
 			get { return socket; }
 			set { socket = value; }
 		}
+
+		/// <summary>
+		/// The Port on which the requested originally came in.
+		/// </summary>
+		public int Port
+		{
+			get { return port; }
+			set { port = value; }
+		}
+
+
 	}
 }
