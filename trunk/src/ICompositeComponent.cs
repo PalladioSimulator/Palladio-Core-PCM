@@ -9,6 +9,16 @@ namespace Palladio.ComponentModel
 	/// are wired using ComponentBindings and mapped to the outside world 
 	/// using ComponentMappings.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.6  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	public interface ICompositeComponent : IComponent, IVisitable
 	{
 		/// <summary>

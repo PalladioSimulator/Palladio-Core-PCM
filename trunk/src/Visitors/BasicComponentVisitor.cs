@@ -8,6 +8,16 @@ namespace Palladio.ComponentModel.Visitors
 {
 	/// <summary>
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3  2004/05/24 15:20:45  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	internal class BasicComponentVisitor : ReflectionBasedVisitor.ReflectionBasedVisitor
 	{
 		ICompositeComponent componsiteComponent;

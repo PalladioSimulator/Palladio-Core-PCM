@@ -10,6 +10,16 @@ namespace Palladio.ComponentModel
 	/// you to implement different versions of matching algorithms to 
 	/// satisfy a wide range of requirements.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	public interface ISigMatch : ICloneable 
 	{
 		#region Methods

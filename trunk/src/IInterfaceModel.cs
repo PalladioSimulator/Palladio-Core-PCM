@@ -10,6 +10,16 @@ namespace Palladio.ComponentModel
 	/// In our case an interface is a set of signatures
 	/// which can be somehow related to each other.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.4  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	public interface IInterfaceModel : ICloneable, IAttributable
 	{
 		/// <summary>

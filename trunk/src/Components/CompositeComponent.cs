@@ -13,6 +13,16 @@ namespace Palladio.ComponentModel.Components
 	/// are wired using ComponentBindings and mapped to the outside world 
 	/// using ComponentMappings.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.7  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	internal class CompositeComponent : AbstractComponent, ICompositeComponent 
 	{
 

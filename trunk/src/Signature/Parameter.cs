@@ -9,6 +9,16 @@ namespace Palladio.ComponentModel.Signature
 	/// Parameter contains the information describing a parameter
 	/// of a signature. It consits of a parameter name and a parameter type.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.6  2004/05/24 15:20:45  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	internal class Parameter : IParameter 
 	{
 		#region Properties

@@ -9,6 +9,16 @@ namespace Palladio.ComponentModel
 	/// IParameter contains the information describing a parameter
 	/// of a signature. It consists of a name, a type and a modifier.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.5  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	public interface IParameter : ICloneable 
 	{
 		#region Properties

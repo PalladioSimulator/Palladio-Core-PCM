@@ -8,6 +8,16 @@ namespace Palladio.ComponentModel
 	/// <summary>
 	/// An AttachedInterface specifices a role by associating it with a component.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.6  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	public struct AttachedInterface : IVisitable 
 	{
 		#region Properties

@@ -10,6 +10,16 @@ namespace Palladio.ComponentModel
 	/// <summary>
 	/// A Signature describes the calling conventions of a service.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	public interface ISignature : ICloneable, IMatchable, IAttributable
 	{
 		#region Properties

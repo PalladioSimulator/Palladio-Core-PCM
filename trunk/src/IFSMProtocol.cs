@@ -11,6 +11,16 @@ namespace Palladio.ComponentModel
 	/// called protocol. The language accepted by the protocol
 	/// represents the possible call sequences.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.4  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	public interface IFSMProtocol : ISignatureList  
 	{
 		/// <summary>

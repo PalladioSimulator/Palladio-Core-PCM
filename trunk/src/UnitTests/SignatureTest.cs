@@ -11,6 +11,16 @@ namespace Palladio.ComponentModel.UnitTests
 {
 	/// <summary>
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/05/24 15:20:45  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	[TestFixture]
 	public class SignatureTest
 	{

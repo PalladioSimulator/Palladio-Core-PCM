@@ -8,6 +8,16 @@ namespace Palladio.ComponentModel
 	/// Connects the RequiresInterface of one component to the ProvidesInterfaces
 	/// of another.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	public interface IBinding : IConnection, IVisitable
 	{
 		#region Properties

@@ -9,6 +9,16 @@ namespace Palladio.ComponentModel.Connections
 	/// Maps one ProvidesInterface of an inner Component
 	/// onto one ProvidesInterfaces of an outer Component.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.4  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	internal class Mapping : AbstractConnection, IMapping
 	{
 		#region Properties

@@ -7,6 +7,16 @@ namespace Palladio.ComponentModel
 	/// <summary>
 	/// A Component is a set of Provides- and RequiresInterface.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.7  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	public interface IComponent : ICloneable, IAttributable
 	{
 		

@@ -7,6 +7,16 @@ namespace Palladio.ComponentModel.Connections
 {
 	/// <summary>
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	internal abstract class AbstractConnection : IConnection
 	{
 

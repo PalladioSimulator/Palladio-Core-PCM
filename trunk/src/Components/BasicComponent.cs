@@ -14,6 +14,16 @@ namespace Palladio.ComponentModel.Components
 	/// Provides and RequiresInterface which can be adapted to
 	/// its environment.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.9  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	internal class BasicComponent : AbstractComponent, IBasicComponent 
 	{
 		#region Methods

@@ -11,6 +11,16 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// A SignatureList is the simplest form of an IInterfaceModel, just
 	/// containing a set of signatures.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.6  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	internal class SignatureList : ISignatureList 
 	{
 		#region Properties

@@ -11,6 +11,16 @@ namespace Palladio.ComponentModel.Signature
 	/// IType describes the types of parameters and return values of
 	/// signatures. It can be compared with System.Type.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.4  2004/05/24 15:20:45  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	internal class ReflectedType : IType
 	{
 		#region Properties

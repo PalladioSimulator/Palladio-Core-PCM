@@ -8,6 +8,16 @@ namespace Palladio.ComponentModel
 	/// <summary>
 	/// IType describes a general type. It is comparable to System.Type.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3  2004/05/24 15:20:44  sliver
+	/// added cvs log
+	///
+	/// </pre>
+	/// </remarks>
 	public interface IType : ICloneable 
 	{
 		#region Properties
