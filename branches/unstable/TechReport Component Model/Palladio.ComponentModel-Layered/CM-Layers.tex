@@ -1,5 +1,8 @@
 % Version history:
 % $Log$
+% Revision 1.1.2.6  2005/03/05 16:06:57  kelsaka
+% added content
+%
 % Revision 1.1.2.5  2005/03/04 16:16:44  kelsaka
 % added content
 %
@@ -243,7 +246,7 @@ The language usage for the inheritance relation from the implementation- to the 
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=1.00\textwidth]{images/attributes-example01.pdf}
-	\caption{Example modell including possible attributes}
+	\caption{Example model including possible attributes}
 	\label{fig:attributes-example01}
 \end{figure}
 
@@ -256,45 +259,90 @@ At the \textit{type-layer} always a maximal protocol is defined. This protocol i
 
 At the \textit{deployment-level} the provides-protocol can not be modified manually, it is read-only. The effective provides-protocol is calculated from the available external services and the SEFF. If for a provided service not all external used services from the SEFF are available, because not all requires-interfaces are fulfilled, the provided services from the considered component are reduced. Only services, whose external service calls from the SEFF are fully available, can be provided. Thus only these services appear in the provided signature list and the provided protocol. So at the deployment-level components can be connected, that do not have a fully fitting protocol or signature list.
 
-Just correct partial automatons (TODO: Teilautomat?) (which are calculated by the procedure described above) of the provides-protocol from the implementations-layer are valid provides automatons at the deployment-level. If the calculations leads to no valid partial automaton (TODO) (the accepted language of the automaton $L(A) = \emptyset$) no services can be offered.
+Just correct partial automatons (TODO: Teilautomat?) (which are calculated by the procedure described above) of the provides-protocol from the implementations-layer are valid provides automatons at the deployment-level. If the calculations leads to no valid partial automaton (TODO) (the accepted language of the automaton: $L(A) = \emptyset$) no services can be offered.
 
 
 
 \subsubsection{Requires-Protocol}
 At the \textit{type-level} a trivial requires-protocol is assumed. It allows any order on calling external services (see figure \ref{fig:attributes-example01}). This protocol is read-only and the default protocol for all interfaces at the type-level.
 
+At the \textit{implementation-level} the requires-protocol is calculated from the provides-protocol and the SEFF. The calculation can be sketched (for FSMs):
+\begin{itemize}
+
+\item for all transitions (services) in the provides-protocol get into the SEFF, that describe the called service.
+
+\item for the new requires-protocol: expand the just viewed transition from the provides-protocol with all transitions from the SEFF.
+
+\item assuming that $\varepsilon$-transitions are used, the initial state from the SEFF gets connected (with a $\varepsilon$-transition) with the previous state from the provides-protocol.
+
+\item final states from the SEFF get non-final. They have to be connected to the following state from the provides-protocol (with a $\varepsilon$-transition).
+
+\end{itemize}
+
+
+The calculation is illustrated in figure \ref{fig:requires-protocol01}. In the example a automaton with $\varepsilon$-transitions is created. At all the requires-protocol is the provides-protocol extended by the service effect specifications. This leads to quite a big automaton. 
+
+\begin{figure}[hpbt]
+	\centering
+		\includegraphics[width=1.00\textwidth]{images/requires-protocol01.pdf}
+	\caption{Example: calculating a requires-protocol}
+	\label{fig:requires-protocol01}
+\end{figure}
+
+As the requires-protocol allows any calling-sequence at the type-level the requires-protocol at the implementation-level is a limitation of sequences. For the languages of the automatons the following relation has to be valid, with language at type-level $L(A_{type})$ and language at implementation-level $L(A_{implementaion})$
+\[
+L(A_{type}) \ \subseteq \ L(A_{implementaion}).
+\]
+The requires-protocol at the implementation-level is read-only.
+
+At the \textit{deployment-level} the requires-protocol is calculated in the same way like at the implementation level. It is read-only, too. Since the protocol is calculated from a reduces provides-protocol it may be reduced as well.
 
 
 
 \subsubsection{Additional Attributes}
+Generally all attributes are inherited top-down. Descriptions from a lower level are specialisations from higher levels. Attributes from the type- to the imlemetation-layer have to fulfill the requirements for subtyping. So attributes may change from level to level but they have to keep consistence.
+
+Type- and implementation-level follow the co- / contra-variance principle, that is known from programming languages like Java, C++ or C\#. This allows to model as known from these languages including subtype relations.
+
+In contrast to the first two layers the deployment-level allows to reduce attribute values or contracted attributes. By supporting this behaviour very dynamical architectures can be created, where components are exchanged. The newly created architecture can be examined, although the requires-interface it not completely fulfilled. As well components can be connected to requires-interfaces though they do not provides all required services. Please note that a component's implementation has to support such a kind of fault-tolerance. Otherwise errors might be caused.
 
 
-Erben nach oben. Spezialisierung. Subtyping. Was darf wo geändert werden. Was erlaubt - co / contra-varianz
 
+\subsection{Visualization}
+\label{sec:Visualization}
 
-
-
-\begin{figure}[htbp]
+\begin{figure}[p!tbh]
 	\centering
 		\includegraphics[width=1.00\textwidth]{images/level-example01.pdf}
 	\caption{Example achitecture spread across the layers}
 	\label{fig:level-example01}
 \end{figure}
 
+Figure \ref{fig:level-example01} shows a simple example how to visualize a component's architecture across the different levels of the component model. Especially the $\ll$deploys$\gg$-relation of connection from the implementation- to the deployment-level might be of interest, as here ressources can be assigned to connections.
+
+The short notation allows to model, though only one level of the component model is displayed. By picking up the name of the inherited components from the higher levels it should be clear which type- or implementation-level component is currently worked with.
 
 
-\subsection{Modell}
-\label{sec:Modell}
 
-ADT. Tupel zur Navigation. DB-Charakter für alle Entitäten. Direkter und schneller Zugriff - Navigation. Möglichkeit von zentral aus Serialisierung auf Objekten anzustoßen, damit Möglichkeit auch Entitäten zu modellieren, die nicht Teil eines Gesamtmodells sind / in Architektur eingebunden. Zentrale Aufhängung um Modell herum soll über Builder verfügen, DB drin, Konsistenzchecks abfangen.
+\subsection{Model}
+\label{sec:Model}
+The component model is realised as an abstract data type (ADT). This means that the data types have no methods except to modify the structure itself. So the component model is a pure data container for the architecutural informations and the entities attributes.
+
+All entities are put to a relational scheme. So the component model consists of huge n-tuples that allow free navigation across the architecture. This way is has a kind of database-character for the set of entities, which provides a direct and quick access to attributes and entities. As well a central serialization can be executed on the objects.
+
+Especially it is possible to have entities that are not connected to the rest of a architecture. Although these entities are not part of the entire model (because they are not part of the architecture), they can be caught. For the modeller this gives the possibility to design e. g. a set of components, that can be put to the architecture later on.
+
+The whole component model is part of a kind of "super-entity", which is a central suspension for the model. This super-entity is offering a builder (according to the builder-pattern TODO:cite{gamma}). Therefore building complex parts of the model is fully encapsulated to the model. This makes the creational process easier for users.
+
+Furthermore the component model centrally "knows" which entities exists and may manage them (e. g. create, load, save, change-events). So the relational access to the entities and consistence-checks (see section \ref{sec:Consistence}) are monitored by the super-entity as well.
 
  
 
-\subsection{Konsistenz}
-\label{sec:Konsistenz}
-Prüfung extern, da ADT. Mechanismus in "`Außenobjekt"'. Protokolle, Signaturen. Auch hier Strategie. 
+\subsection{Consistence}
+\label{sec:Consistence}
+TODO: Prüfung extern, da ADT. Mechanismus in "`Außenobjekt"'. Protokolle, Signaturen. Auch hier Strategie. 
 
-
+	
 
 Connectors:
 UML 2.0 defines some sensible but incomplete compatibility constraints over connectors. For example, delegation connectors must be used between the same kinds of ports or interfaces (provided or required), and assembly connectors can be defined only between a provided interface and a required interface that are compatible. The definition of compatible, however, is a semantic variation point, though signature compatibility and complete coverage (i.e., the features in the provided interface must be a superset of those in the required interface) are minimal criteria.
@@ -310,7 +358,7 @@ UML 2.0 defines some sensible but incomplete compatibility constraints over conn
 \section{Static Structure}
 \label{sec:staticStructure}
 
-\begin{quote} TODO: this section is not reviewed yet. \end{quote}
+\begin{quote}\emph{\emph{\textbf{ TODO: this section is not reviewed yet. }}}\end{quote}
 
 The meta-model as described in the previous section is realised in a .NET assembly. The complete structure of the interfaces involved can be seen in figure \ref{fig:classdiagramm}.
 
