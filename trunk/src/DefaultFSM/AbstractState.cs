@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using ReflectionBasedVisitor.Interfaces;
+using ReflectionBasedVisitor;
 
 namespace Palladio.FiniteStateMachines.DefaultFSM {
 

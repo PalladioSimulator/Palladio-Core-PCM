@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using ReflectionBasedVisitor.Interfaces;
+using ReflectionBasedVisitor;
 
 namespace Palladio.FiniteStateMachines 
 {
@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/05/12 14:07:16  sbecker
+	/// Changed the reflection based visitors namespace
+	///
 	/// Revision 1.2  2004/05/12 13:40:19  sbecker
 	/// Added documentation and CVS log
 	///
