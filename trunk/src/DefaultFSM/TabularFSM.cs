@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Xml;
 using System.Xml.XPath;
+using System.Collections;
 using Utils.Collections;
 using Palladio.FiniteStateMachines;
 using Palladio.FiniteStateMachines.Exceptions;
@@ -207,11 +208,18 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			{
 				if (states.Contains(state))
 				{
-					finalStates.Remove(state);
-					states.Remove(state);
-					if (StartState.Equals(state))
+					if (StateDeletionAllowed(state))
 					{
-						startState = null;
+						finalStates.Remove(state);
+						states.Remove(state);
+						if (StartState.Equals(state))
+						{
+							startState = null;
+						}
+					}
+					else
+					{
+						throw new StateDeletionNotAllowed(state);
 					}
 				}
 				else
@@ -294,6 +302,30 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			IList transList = (IList)reverseTransTable[aTrans.DestinationState];
 			if (transList != null) 
 				transList.Remove(aTrans);
+		}
+
+		private bool StateDeletionAllowed(IState aState)
+		{
+			// check outgoing transitions
+			Hashtable inputTable = (Hashtable)transitionTable[aState];
+			if (inputTable != null)
+			{
+				foreach ( DictionaryEntry e in inputTable )
+				{
+					IList transList = (IList)e.Value;
+					if ((transList != null) && (transList.Count > 0))
+					{
+						return false;
+					}
+				}
+			}
+			// check incoming transitions
+			IList tList = (IList) reverseTransTable[aState];
+			if ((tList != null) && (tList.Count > 0))
+			{
+				return false;
+			}
+			return true;
 		}
 			
 

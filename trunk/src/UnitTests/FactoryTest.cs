@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/05/12 08:18:14  sliver
+	/// DeleteStates throws a StateDeletionNotAllowedException now, if the specified state has any incoming or outgoing transtions.
+	///
 	/// Revision 1.5  2004/05/12 08:12:50  sbecker
 	/// Added DeleteTransition test
 	///
@@ -27,7 +30,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// </pre>
 	/// </remarks>
 	[TestFixture]
-	public class DefaultTestFixture
+	public class FactoryTest
 	{
 		IFiniteStateMachine fsmOne, fsmTwo;
 		
@@ -149,7 +152,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			IEditableFiniteStateMachine fsm = BuildExampleFSM();
 		}
 		
-		[ExpectedException(typeof(Exception))]
+		[ExpectedException(typeof(StateDeletionNotAllowed))]
 		[Test] public void DeleteIllegalState()
 		{
 			IEditableFiniteStateMachine fsm = BuildExampleFSM();

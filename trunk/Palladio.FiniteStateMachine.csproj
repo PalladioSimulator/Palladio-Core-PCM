@@ -201,6 +201,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\StateDeletionNotAllowed.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\StateNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
