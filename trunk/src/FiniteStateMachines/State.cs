@@ -1,7 +1,6 @@
 using System;
-using FSM;
 
-namespace FSM
+namespace FiniteStateMachines
 {
 
 	/// <summary>

@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
-using FSM;
 
-namespace FSM {
+namespace FiniteStateMachines {
 
 	/// <summary>
 	///States used by StackFSM. A StackState consists of a number of 

@@ -1,6 +1,6 @@
 using System;
 
-namespace FSM
+namespace FiniteStateMachines
 {
 	/// <summary>
 	/// Zusammenfassung für StatesNotMappableException.

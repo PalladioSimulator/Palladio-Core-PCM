@@ -1,6 +1,6 @@
 using System;
 
-namespace FSM
+namespace FiniteStateMachines.Decorators
 {
 	/// <summary>
 	/// Zusammenfassung für CPState.

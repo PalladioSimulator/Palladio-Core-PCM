@@ -1,7 +1,7 @@
 // created on 22.04.2003 at 19:57
 using System;
 using System.Collections;
-namespace FSM
+namespace Utils.Collections
 {
 	/// <summary>
 	///  Another implentation of a set based on a Hashtable.

@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-namespace FSM
+namespace Utils.Collections
 {
 	/// <summary>
 	/// A collection that contains no duplicate elements. 

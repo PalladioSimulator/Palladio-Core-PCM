@@ -1,8 +1,10 @@
 using System;
-using FSM;
 using System.Collections;
+using Utils.Collections;
 
-namespace FSM {
+
+namespace FiniteStateMachines 
+{
 	/// <summary>
 	///A FSM simulating a conjunction of several FSMs
 	/// </summary>

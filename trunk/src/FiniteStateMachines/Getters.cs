@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using Utils.Collections;
 
-namespace FSM
+
+namespace FiniteStateMachines
 {
 
 	public interface Getters

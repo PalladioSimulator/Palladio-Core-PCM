@@ -1,7 +1,8 @@
 using System;
 using System.Collections;
+using Utils.Collections;
 
-namespace FSM
+namespace FiniteStateMachines
 {
 	/// <summary>
 	/// Helps to iterate over the States of a FSM by brearh-first-search. 

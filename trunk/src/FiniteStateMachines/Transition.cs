@@ -1,6 +1,6 @@
 using System;
 
-namespace FSM
+namespace FiniteStateMachines
 {
 	/// <summary>
 	/// Represents the transitions of the FSM. 

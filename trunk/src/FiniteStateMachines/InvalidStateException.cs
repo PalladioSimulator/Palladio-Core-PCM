@@ -1,6 +1,6 @@
 using System;
 
-namespace FSM
+namespace FiniteStateMachines
 {
 
 	public class InvalidStateException : Exception

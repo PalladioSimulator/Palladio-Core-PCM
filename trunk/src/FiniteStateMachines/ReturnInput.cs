@@ -1,6 +1,6 @@
 using System;
 
-namespace FSM {
+namespace FiniteStateMachines {
 	/// <summary>
 	///Class representing an Input object which stores also information about the output value of a transition. 
 	/// </summary>

@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace FSM
+namespace Utils.Collections
 {
 	/// <summary>
 	/// dynamisches wachsendes Array

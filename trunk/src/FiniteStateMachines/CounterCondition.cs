@@ -1,7 +1,8 @@
-using System.ComponentModel;
-using FSM;
+using System;
+using Utils.Collections;
 
-namespace FSM {
+namespace FiniteStateMachines 
+{
 	/// <summary>
 	///Abstract class describing the basic functionality of a condition for a counter.
 	/// </summary>

@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using Utils.Collections;
 
-namespace FSM
+
+namespace FiniteStateMachines.Decorators
 {
 	/// <summary>
 	/// This class allows to minimize and compares FSM

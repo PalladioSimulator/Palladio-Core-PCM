@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace FSM
+namespace FiniteStateMachines
 {
 	/// <summary>
 	/// Íterates over the Transitions of a FSM.

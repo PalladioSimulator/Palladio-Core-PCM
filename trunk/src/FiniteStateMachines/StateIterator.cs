@@ -1,7 +1,8 @@
 using System;
 using System.Collections;
+using Utils.Collections;
 
-namespace FSM
+namespace FiniteStateMachines
 {
 	/// <summary>
 	/// Iterates of the States of a FSM

@@ -1,6 +1,6 @@
 using System;
 
-namespace FSM
+namespace FiniteStateMachines
 {
 	/// <summary>
 	/// Represents the input of a FSM.

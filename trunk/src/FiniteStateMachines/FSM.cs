@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
+using Utils.Collections;
 
-namespace FSM
+namespace FiniteStateMachines
 {
 	/// <summary>
 	///Represents a FSM.
 	/// </summary>
-	public class FSM : Getters, Setters
+	public class FSM : Getters
 	{
 		protected Set inputAl;
 		protected Hashtable transitions;
