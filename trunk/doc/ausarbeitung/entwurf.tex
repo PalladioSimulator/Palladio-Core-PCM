@@ -190,12 +190,63 @@ Um den Aufbau der Architektur überwachbar zu gestalten, kann beim Hinzufügen ein
 
 \subsubsection{Simulationsthreads, Scheduler und Clock}
 \label{sec:entwurf:fein:sim}
-%Visitorbasierte Threads, Clock, Scheduler, Observer, Loggen
+
+Der Simulationsteil besteht aus den in Kapitel \ref{sec:entwurf:grob:sim} identifizierten Teilkomponenten {\em Clock}, {\em Scheduler} und den {\em Simulationsthreads}. Sie werden im Framework durch die Interfaces \quellcode{IClock}, \quellcode{IScheduler} und \quellcode{ISimulationThread} repräsentiert, wobei \quellcode{IClock} das Hauptinterface des Simulationsteils darstellt und somit direkt über die Simulationsumgebung zugreifbar ist (siehe Abschnitt \ref{sec:entwurf:fein:simum}). Simulationsthreads des Typs \quellcode{IPeriodicSimulationThread} bilden eine Erweiterung der Simulationsthreads. Sie veranlassen den Scheduler nach Ablauf einer Periodendauer dazu, einen neuen periodischen Thread an der Stelle zu erzeugen, an der auch der erste Thread gestartet wurde. Der Zusammenhang dieser Interfaces wird in Abbildung \ref{pic:simulation} verdeutlicht.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=13cm]{../res/simulation.png}
+\caption{Klassen und Interfaces des Simulationsteils}
+\label{pic:simulation}
+\end{center}
+\end{figure}
+
+Die Uhr (\quellcode{IClock}) dient der Bildung der Simulationszeit. Damit überwacht sie die Einhaltung der maximalen Simulationszeit und kann den Datenerfassungskomponenten als Referenz zu den erfassten Daten dienen. Neben der Simulationszeit bietet die Uhr mehrere Events, die bei bestimmten Zustandsänderungen der Uhr ausgelöst werden. So wird beispielsweise nach jedem Zeitschritt ein \quellcode{TimeStepEvent} ausgelöst, welches auswertenden Komponenten die Länge des eben zurückgelegten Zeitschrittes zurückgibt. 
+Die Länge eines Zeitschrittes berechnet sich wie in Kapitel \ref{sec:modell:simulation} beschrieben aus den Zeiten zwischen den Zustandsänderungen der Threads. Um unabhängig von diesen Zeiten an bestimmten Punkten Zeitschritte zu beenden, bietet die Uhr die Methode \quellcode{SetClockStopEventTime(int time)} zum Setzen dieser Zeitpunkte. Ein Aufruf dieser Methode stellt sicher, dass beim Erreichen der angegebenen Zeit ein \quellcode{TimeStepEvent} ausgelöst wird, auch wenn keines der Threads nach Ablauf des Zeitschrittes eine Zustandsänderung erfährt.
+\par
+Über eine Property der Uhr läßt sich der Scheduler erreichen, welcher der Verwaltung der Threads dient. Es können unter Verwendung der Create-Methoden normale und periodische Threads erzeugt werden, wobei die Angabe des Startpunktes und des Threadtyps genügt. Die Vergabe der IDs regelt der Scheduler. Zusätlich existiert die Methode \quellcode{AddSimulationThread(...)}, mit der dem Scheduler direkt Simulationsthreads hinzugefügt werden können. Für die Erzeugung des Threads ist hierbei die Anwendung verantwortlich. Simulationsthreads werden in beiden Fällen nicht direkt in die Liste der aktiven Threads eingefügt, weil beim Erzeugen von neuen Threads innerhalb eines Zeitschrittes sonst die Gefahr der Inkonsistenz besteht. So kann es beispielsweise dazu kommen, dass die neuen an  das Ende der Liste angehängten Threads, gleich in die Bearbeitung des Zeitschrittes einbezogen werden, obwohl sie erst ab dem nächsten Zeitschritt existieren dürften. Zur Lösung dieses Problems werden sie erst vorgemerkt und dann nach Abarbeitung des Zeitschrittes übernommen.
+\par
+Um alle Threads einzeln überwachen zu können wird im Framework an dieser Stelle wieder das Entwurfsmuster des Beobachters (Observer) aus \cite{lit:gof} umgesetzt. Eine Implementierung des Beobachterinterfaces \quellcode{IThreadObserver} kann dem Scheduler bei der Erstellung des Threads übergeben werden. Die Nutzung der in C\# sonst üblichen Events ist an dieser Stelle nicht möglich, da eine Anwendung, welche Threads unter Verwendung der Create-Methoden erzeugt, keinen direkten Zugriff auf diese Threads erhält.
+\par
+Da nicht immer alle Anfragen an die Komponentenarchitektur detailiert ausgewertet werden müssen, wurde die Möglichkeit der Angabe eines Levels zum Loggen eingeführt. Hierbei wird beim Erstellen eines Threads einer der drei im folgenden erläuterten Typen übergeben.
+
+\begin{itemize}
+\listitem{nicht loggen}
+Wird eine Thread unter Angabe des Types \quellcode{TYPE\_LOG\_NOTHING} erzeugt, werden keinerlei Daten von diesem Thread erfasst.
+
+\listitem{an Messpunkten loggen}
+Der Typ \quellcode{TYPE\_LOG\_ON\_LPS} eines Threads sorgt dafür, dass nur Informationen an Messpunkten gesammelt werden. Messpunkte werden detailiert in Abschnitt \ref{sec:entwurf:fein:timeconsumer} beschrieben.
+
+\listitem{alles loggen}
+Alle Informationen, die ein Thread sammeln kann, werden bei der Angabe des Typs \quellcode{TYPE\_LOG\_ALL} erfasst.
+
+\end{itemize}
+
+\subsubsection{Besuchermuster zum Navigieren im Modell}
+\label{sec:entwurf:fein:visitor}
+
+%Visitor
 
 \subsubsection{Datenerfassungsmöglichkeiten}
 \label{sec:entwurf:fein:analysis}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=13cm]{../res/analysis.png}
+\caption{Datenerfassungskomponente und die Eventparameter}
+\label{pic:analysis}
+\end{center}
+\end{figure}
 % Fabrik von Datapools, Registrierung
 
 \subsubsection{Konfiguration des Frameworks}
 \label{sec:entwurf:fein:konf}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=13cm]{../res/factories.png}
+\caption{Zusammenhang zwischen den Factories zur Konfiguration des Frameworks}
+\label{pic:factories}
+\end{center}
+\end{figure}
 % Das zusammenspiel der Factories ..., Die konfigurierbare Elementfactory
