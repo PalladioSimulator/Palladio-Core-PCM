@@ -131,7 +131,7 @@ namespace FiniteStateMachines.Decorators {
                         } catch (InvalidInputException) {
                             // This exception is thrown, if the reduced automaton does not
                             // contain the current input symbol, so this transition can not 
-                            // be taken.
+                            // be taken and the process can be continued.
                             // There is nothing to do...
                         }
                     }

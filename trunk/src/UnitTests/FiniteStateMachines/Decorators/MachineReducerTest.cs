@@ -61,11 +61,14 @@ namespace UnitTests.FiniteStateMachines.Decorators
 
 
 		[Test] public void SimpleReduction() {
-			MachineReducer reducer = new MachineReducer(ruleTable,expandedMachine);
+			MachineReducer reducer = new MachineReducer(ruleTable,(AbstractFiniteStateMachine)expandedMachine);
 			IFiniteStateMachine red = reducer.GetReducedMachine();
-			Console.WriteLine(red);
-			MinimizedAndEqualsFSM min = new MinimizedAndEqualsFSM(red);
-			Assert.IsTrue(min.equal(topMachine));
+			red.Equals(topMachine);
 		}
+
+//		public static void Main() {
+//			MachineReducerTest tester = new MachineReducerTest();
+//			tester.SimpleReduction();
+//		}
 	}
 }

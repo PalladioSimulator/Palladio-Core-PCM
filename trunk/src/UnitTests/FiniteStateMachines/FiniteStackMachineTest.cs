@@ -245,11 +245,5 @@ namespace UnitTests.FiniteStateMachines {
 					((trans.InputSymbol == Input.RETURN) && (trans.DestinationState == r14)),trans.ToString());
 			}
 		}
-
-		public static void Main() {
-			FiniteStackMachineTest test = new FiniteStackMachineTest();
-			test.Init();
-			test.GetTransition();
-		}
 	}
 }

@@ -2,15 +2,13 @@ using System;
 using System.Collections;
 using FiniteStateMachines;
 
-namespace FiniteStateMachines.Decorators
-{
+namespace FiniteStateMachines.Decorators {
 	/// <summary>
 	///		The MachineReducer reduces an automaton using a set of rules (for
 	///		more information see graph-grammars). These rules are applied sequentially
 	///		to the automaton beginning at its startnode.
 	/// </summary>
-	public class MachineReducer
-	{
+	public class MachineReducer {
 		
 		/// <summary>
 		///		The ruleTable contains all rules which should be applied to the 
@@ -24,7 +22,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		///		The source automaton, which should be reduced.
 		/// </summary>
-		private IFiniteStateMachine sourceMachine;
+		private AbstractFiniteStateMachine sourceMachine;
 
 
 		/// <summary>
@@ -46,10 +44,10 @@ namespace FiniteStateMachines.Decorators
 			Rule rule = (Rule)ruleTable[aStartTransition.InputSymbol];
 			AbstractState matchDestination = sourceMachine.ErrorState;
 			Stack statesVisited = new Stack();
-			Stack statesToVisit = new Stack();
-			statesToVisit.Push(new DualState(rule.Left.StartState,aStartTransition.DestinationState));
-			while(statesToVisit.Count != 0){
-				DualState currentState = (DualState)statesToVisit.Pop();
+			Stack statesLeft = new Stack();
+			statesLeft.Push(new DualState(rule.Left.StartState,aStartTransition.DestinationState));
+			while(statesLeft.Count != 0){
+				DualState currentState = (DualState)statesLeft.Pop();
 				IList transitionList = rule.Left.GetOutgoingTransitions(currentState.oneState);
 				foreach (Transition t in transitionList){
 					AbstractState destination = sourceMachine.GetNextState(currentState.twoState,t.InputSymbol);
@@ -63,9 +61,9 @@ namespace FiniteStateMachines.Decorators
 						}
 					}
 					DualState nextState = new DualState(t.DestinationState,destination);
-					if( !statesToVisit.Contains(nextState) &&
+					if( !statesLeft.Contains(nextState) &&
 						!statesVisited.Contains(nextState)) {
-						statesToVisit.Push(nextState);
+						statesLeft.Push(nextState);
 					}
 				}
 				statesVisited.Push(currentState);
@@ -92,7 +90,7 @@ namespace FiniteStateMachines.Decorators
 			Stack statesToVisit = new Stack();
 			Stack statesVisited = new Stack();
 			statesToVisit.Push(sourceMachine.StartState);
-			while(statesToVisit.Count != 0){
+			while(statesToVisit.Count > 0){
 				AbstractState currentState = (AbstractState)statesToVisit.Pop();
 				IList transitionList = sourceMachine.GetOutgoingTransitions(currentState);
 				foreach(Transition t in transitionList){
@@ -121,7 +119,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="anMachine">
 		///		The machine affected by the rules.
 		/// </param>
-		public MachineReducer(Hashtable aRuleTable, IFiniteStateMachine aMachine){
+		public MachineReducer(Hashtable aRuleTable, AbstractFiniteStateMachine aMachine){
 			ruleTable = aRuleTable;
 			sourceMachine = aMachine;
 		}

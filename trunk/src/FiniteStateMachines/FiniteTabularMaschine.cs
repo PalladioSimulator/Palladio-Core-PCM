@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Xml;
+using System.Xml.XPath;
 using Utils.Collections;
 
 namespace FiniteStateMachines {
@@ -72,7 +74,97 @@ namespace FiniteStateMachines {
 
 
 
-	   
+	  
+		/// <summary>
+		/// Loader for tabular FSMs. Uses a xml-file as input.
+		/// An example is listed below.
+		/// 
+		/// <?xml version="1.0" encoding="utf-8" ?> 
+		/// <fsm>
+		///		<state name="one">
+		/// 		<start/>
+		///		</state>
+		/// 
+		///		<state name="two">
+		/// 		<final/>
+		///		</state>
+		///		
+		///		<transition source="one" target="one" input="d2"/>
+		///		<transition source="one" target="two" input="d1"/>
+		///		<transition source="two" target="two" input="d2"/>
+		/// </fsm>
+		/// 
+		/// </summary>
+		public void Load(string aFilename) {
+
+			XmlDocument doc = new XmlDocument();
+			doc.Load(aFilename);
+
+			XPathNavigator nav = doc.CreateNavigator();
+			int stateCnt = 0;
+			Hashtable stateTable = new Hashtable();
+
+			// Loading States
+			XPathNodeIterator iterator = nav.Select("/fsm/state");
+			while (iterator.MoveNext()){
+				string	name = "state "+stateCnt;
+				bool	start = false;
+				bool	final = false;
+
+				if (iterator.Current.MoveToAttribute("name","")) {
+					name = iterator.Current.Value;
+					iterator.Current.MoveToParent();
+				}
+				if (iterator.Current.MoveToFirstChild()) {
+					do {
+						if (iterator.Current.Name == "final") {
+							final = true;
+						}
+						if (iterator.Current.Name == "start") {
+							start = true;
+						}
+					} while(iterator.Current.MoveToNext());
+					iterator.Current.MoveToParent();
+				}
+				AbstractState state = new State(name,start,final);
+				stateTable.Add(name,state);
+				AddState(state);
+				stateCnt++;
+			}
+
+			// Loading Transitions
+			iterator = nav.Select("/fsm/transition");
+			Hashtable inputTable = new Hashtable();
+			while (iterator.MoveNext()){
+				AbstractState source = null;
+				AbstractState target = null;
+				Input input = null;
+
+				if (iterator.Current.MoveToAttribute("source","")) {
+					source = (AbstractState)stateTable[iterator.Current.Value];
+					iterator.Current.MoveToParent();
+				}
+				if (iterator.Current.MoveToAttribute("target","")) {
+					target = (AbstractState)stateTable[iterator.Current.Value];
+					iterator.Current.MoveToParent();
+				}
+				if (iterator.Current.MoveToAttribute("input","")) {
+					input = (Input)inputTable[iterator.Current.Value];
+					if (input == null) {
+						input = new Input(iterator.Current.Value);
+						inputTable.Add(iterator.Current.Value, input);
+					}
+					iterator.Current.MoveToParent();
+				}
+
+				if ((source != null) && (target != null) && (input != null)) {
+					AddTransition(new Transition(source,input,target));
+				} else {
+					throw new ApplicationException("Incomplete Transition found!");
+				}
+			}
+			
+		}
 		
 
         /// <summary></summary>

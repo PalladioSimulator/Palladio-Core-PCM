@@ -187,5 +187,17 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.IsTrue(reach.Contains(states[5]));
 			Assert.IsTrue(reach.Contains(states[0]));
 		}
+
+		[Test] public void Equals() {
+			Assert.IsTrue(machineOne.Equals(machineOne));
+			// not yet complete
+		}
+
+		public static void Main(){
+			FiniteTabularMachine fsm = new FiniteTabularMachine();
+			fsm.Load("../../data/se_d1s.xml");
+			Console.WriteLine(fsm);
+			Console.ReadLine();
+		}
 	}
 }
