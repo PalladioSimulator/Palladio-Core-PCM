@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/07/05 09:28:54  sbecker
+	/// Added GetComponent
+	///
 	/// Revision 1.4  2004/07/02 03:00:01  sliver
 	/// - absolute path changed to relative path in ndoc project
 	/// - ToString Method for Connections
@@ -375,6 +378,11 @@ namespace Palladio.ComponentModel.Components
 			return (aComponentID != null ? componentMap.Contains(aComponentID) : false);
 		}
 
+		/// <summary>
+		/// Query the composite component for a certain basic component
+		/// </summary>
+		/// <param name="aComponentID">ID of the component to search for</param>
+		/// <returns>The component with the given ID</returns>
 		public IComponent GetComponent(IIdentifier aComponentID)
 		{
 			if (aComponentID == null) 

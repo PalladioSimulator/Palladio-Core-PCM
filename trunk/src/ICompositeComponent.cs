@@ -242,10 +242,17 @@ namespace Palladio.ComponentModel
 		bool HasOutgoingConnections(IIdentifier aComponentID);
 
 		/// <summary>
-		/// Query the composite component for a certain basic component
+		/// Query the composite component for a certain component
 		/// </summary>
 		/// <param name="aComponentID">ID of the component to search for</param>
 		/// <returns>true if the component is part of the composite component</returns>
 		bool ContainsComponent(IIdentifier aComponentID);
+
+		/// <summary>
+		/// Query the composite component for a certain basic component
+		/// </summary>
+		/// <param name="aComponentID">ID of the component to search for</param>
+		/// <returns>The component with the given ID</returns>
+		IComponent GetComponent(IIdentifier aComponentID);
 	}
 }
