@@ -15,6 +15,9 @@ namespace Palladio.Webserver.StaticFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/27 05:52:49  kelsaka
+	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
+	///
 	/// Revision 1.2  2004/10/22 16:19:56  kelsaka
 	/// even more interface changes; configuration-alternative on loading the webserver
 	///
@@ -26,7 +29,7 @@ namespace Palladio.Webserver.StaticFileProvider
 	/// </remarks>
 	public class StaticFileProvider : IHTTPRequestProcessor
 	{
-		public StaticFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public StaticFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
 
 		}

@@ -15,6 +15,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2004/10/27 05:52:49  kelsaka
+	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
+	///
 	/// Revision 1.6  2004/10/25 06:35:51  kelsaka
 	/// added XML-reading-abilities
 	///
@@ -106,10 +109,14 @@ namespace Palladio.Webserver
 			configReader.ReadConfiguration(DEFAULT_XML_CONFIGURATION_FILE);
 			IWebserverConfiguration webserverConfiguration = new WebserverConfiguration(configReader.GetRoot());
 
-//			IWebserverMonitor webserverMonitor = webserverFactory.CreateWebserverMonitor(configReader);
-
-
 			string[] f = webserverConfiguration.DefaultFileNames;
+
+			IWebserverMonitor webserverMonitor = webserverFactory.CreateWebserverMonitor(webserverConfiguration);
+
+			webserverMonitor.InitializeWriteAccess();
+			webserverMonitor.WriteDebugMessage("hallo", 2);
+			webserverMonitor.FinishWriteAccess();
+
 
 
 

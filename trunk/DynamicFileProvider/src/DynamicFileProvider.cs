@@ -16,6 +16,9 @@ namespace Palladio.Webserver.DynamicFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/27 05:52:48  kelsaka
+	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
+	///
 	/// Revision 1.2  2004/10/22 16:19:56  kelsaka
 	/// even more interface changes; configuration-alternative on loading the webserver
 	///
@@ -27,7 +30,7 @@ namespace Palladio.Webserver.DynamicFileProvider
 	/// </remarks>
 	public class DynamicFileProvider : IHTTPRequestProcessor
 	{
-		public DynamicFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IConfigReader configReader)
+		public DynamicFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfigurationr)
 		{
 
 		}

@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Security;
 using Palladio.Webserver.ConfigReader;
@@ -16,6 +17,9 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2004/10/27 05:52:49  kelsaka
+	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
+	///
 	/// Revision 1.6  2004/10/25 06:35:51  kelsaka
 	/// added XML-reading-abilities
 	///
@@ -41,8 +45,8 @@ namespace Palladio.Webserver.WebserverMonitor
 	{
 
 		private IWebserverConfiguration webserverConfiguration;
-		private FileStream debugFileStream;
-		private FileStream logFileStream;
+		private StreamWriter debugStreamWriter;
+		private StreamWriter logStreamWriter;
 
 		public DefaultWebserverMonitor(IWebserverConfiguration webserverConfiguration)
 		{
@@ -60,8 +64,7 @@ namespace Palladio.Webserver.WebserverMonitor
 			//debug-file:
 			try 
 			{
-				this.debugFileStream =  new FileStream(webserverConfiguration.DebugFile,
-					FileMode.Open, FileAccess.Write, FileShare.Write);
+				this.debugStreamWriter =  File.AppendText(webserverConfiguration.DebugFile);
 			}
 			catch (SecurityException e)
 			{
@@ -76,8 +79,7 @@ namespace Palladio.Webserver.WebserverMonitor
 			//log-file:
 			try 
 			{
-				this.logFileStream =  new FileStream(webserverConfiguration.DebugFile,
-					FileMode.Open, FileAccess.Write, FileShare.Write);
+				this.logStreamWriter =  File.AppendText(webserverConfiguration.LogFile);
 			}
 			catch (SecurityException e)
 			{
@@ -91,41 +93,44 @@ namespace Palladio.Webserver.WebserverMonitor
 			
 		}
 
+
 		/// <summary>
 		/// Closes e. g. file handles and commits changes. Execute finally.
 		/// </summary>
 		public void FinishWriteAccess ()
 		{
-			debugFileStream.Close();
-			logFileStream.Close();
+			debugStreamWriter.Close();
+			logStreamWriter.Close();
 		}
 
+
+		/// <summary>
+		/// Method to write debug-messages to the debug-file (see xml-config-file). Another output is put to the debug-console.
+		/// </summary>
+		/// <param name="debugMessage">The message to display.</param>
+		/// <param name="debugLevel">How critical is the message. Use "0" for important and "5" for less
+		/// important messages.</param>
 		public void WriteDebugMessage (string debugMessage, int debugLevel)
 		{
-			if(debugFileStream.CanWrite)
-			{
-				//debugFileStream.		
-			}
-			else
-			{
-				Console.WriteLine("ERROR: Can not write Debug-Logfile.");
-			}
-//TODO:
+			debugMessage = "Level: " + debugLevel + " | " + debugMessage;
 
+			debugStreamWriter.WriteLine(DateTime.Now.Ticks + " | " + debugMessage);
+			debugStreamWriter.Flush();
+			Debug.WriteLine(debugMessage);
 		}
 
+
+		/// <summary>
+		/// Writes general loginformations to the specified file. Displays the output as well on the console.
+		/// </summary>
+		/// <param name="logMessage">The message to write.</param>
 		public void WriteLogEntry (string logMessage)
 		{
-			if(debugFileStream.CanWrite)
-			{
-				
-			}
-			else
-			{
-				Console.WriteLine("ERROR: Can not write Logfile.");
-			}
-
-
+			logStreamWriter.WriteLine(DateTime.Now.Ticks + " | " + logMessage);
+			logStreamWriter.Flush();
+			Console.WriteLine(logMessage);
 		}
+
+
 	}
 }
