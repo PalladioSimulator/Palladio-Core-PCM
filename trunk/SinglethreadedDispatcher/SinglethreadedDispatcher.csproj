@@ -80,16 +80,6 @@
                     HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "RequestParser"
-                    Project = "{E8BB7DF1-1D1F-4366-B854-4B408E8C7DD5}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "RequestProssor"
-                    Project = "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "SimpleLogger"
                     Project = "{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
