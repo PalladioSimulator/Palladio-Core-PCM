@@ -90,8 +90,8 @@ namespace Palladio.ParameterisedContracts {
 		///     automaton.
 		/// </returns>
 		public IFiniteStateMachine GetExpandedMachine() {
-			IList transitionList = new ArrayList();
-			IList statesList = new ArrayList();
+			IList transitionList = new Vector();
+			IList statesList = new Vector();
 			DualState startState = new DualState(reducedMachine.StartState,originalMachine.StartState);
 			ExpandRecursive(startState,ref transitionList, ref statesList);
 			return new TabularFSM(transitionList);

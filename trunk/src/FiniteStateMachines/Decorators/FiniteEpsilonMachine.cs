@@ -74,8 +74,8 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		///		Determins all transitons of this automaton.
 		/// </summary>
 		private IList GetAllTransitions(){
-			ArrayList transitions = new ArrayList();
-			ArrayList visitedStates = new ArrayList();
+			Vector transitions = new Vector();
+			Vector visitedStates = new Vector();
 			GetAllTransitionsRecursive(StartState,ref transitions,ref visitedStates);
 			return transitions;
 		}
@@ -87,7 +87,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// <param name="aState"></param>
 		/// <param name="resultSet"></param>
 		/// <returns></returns>
-		private void GetAllTransitionsRecursive(IState aState, ref ArrayList resultSet, ref ArrayList visitedStates ){
+		private void GetAllTransitionsRecursive(IState aState, ref Vector resultSet, ref Vector visitedStates ){
 			if ((aState!=ErrorState) && (!visitedStates.Contains(aState))) {
 				visitedStates.Add(aState);
 				IList outgoing = GetOutgoingTransitions(aState);
@@ -246,7 +246,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		///     corresponding ITransition.
 		/// </returns>
 		public override IList GetOutgoingTransitions(IState aSourceState){
-			ArrayList result = new ArrayList();
+			Vector result = new Vector();
 			foreach(Input i in InputAlphabet) {
 				if (!EpsilonAlphabet.Contains(i)) {
 					ITransition nextTransition = GetNextTransition(aSourceState,i);

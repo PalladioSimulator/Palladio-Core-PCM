@@ -187,7 +187,7 @@ namespace Palladio.ParameterisedContracts {
 		/// </returns>
 		/// <seealso cref="IFiniteStateMachine.GetOutgoingTransitions"></seealso>
 		public override IList GetOutgoingTransitions(IState aSourceState) {
-			ArrayList result = new ArrayList();
+			Vector result = new Vector();
 			// the input alphabet has to be cloned, because it could be modified during the
 			// iteration leading to an exception, otherwise
 			IList alphabet = (IList)InputAlphabet.Clone();

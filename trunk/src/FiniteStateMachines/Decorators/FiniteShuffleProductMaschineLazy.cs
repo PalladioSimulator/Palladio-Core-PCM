@@ -226,7 +226,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		public override IList GetOutgoingTransitions(IState aState) {
 			if(aState is DualState == false)
 				throw new InvalidStateException();
-			IList transitionList = new ArrayList();
+			IList transitionList = new Vector();
 			DualState cpState = (DualState) aState;
 			foreach(Input input in this.inputAl) {
 				if(this.GetNextState(cpState,input)!=this.ErrorState) {

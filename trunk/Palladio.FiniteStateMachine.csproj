@@ -447,6 +447,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Utils\Collections\Vector.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Utils\Exceptions\MethodNotImplementedException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

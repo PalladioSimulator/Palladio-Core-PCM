@@ -179,12 +179,12 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// Delivers all transitions which are reachsable from the given State
 		/// </summary>
 		/// <param name="state">A DualState from which all Transisiotion should be delivered</param>
-		/// <returns>An ArrayList which contains the computed transitions.</returns>
+		/// <returns>An Vector which contains the computed transitions.</returns>
 		public override IList GetOutgoingTransitions(IState state) {
 			if(state is DualState == false)
 				throw new InvalidStateException();
 
-			IList transitionList = new ArrayList();
+			IList transitionList = new Vector();
 			IState NextState = null;
 			foreach(Input i in this.InputAlphabet) {
 				try {

@@ -106,7 +106,7 @@ namespace Palladio.FiniteStateMachines {
 		///		True if a next transition exists, false oterwise.
 		///	</returns>
 		public bool MoveNext(){
-			if((transitionList == null) || (transitionIndex <= 0)){
+			while((transitionList == null) || (transitionIndex <= 0)){
 				if (stateIterator.MoveNext()){
 					transitionList = fsm.GetOutgoingTransitions(stateIterator.Current);
 					transitionIndex = transitionList.Count;
@@ -114,7 +114,7 @@ namespace Palladio.FiniteStateMachines {
 					return false;
 				}
 			}
-			if(transitionList.Count > 0){
+			if(transitionList.Count > 0){ // condition must be true
 				currentTransition = (ITransition)transitionList[--transitionIndex];
 				return true;
 			} else {

@@ -82,13 +82,14 @@ namespace Palladio.FiniteStateMachines {
 		/// Copy-Constructor.
 		/// </summary>
 		/// <param name="aTabFSM"></param>
-		public TabularFSM(TabularFSM aTabFSM) 
+		public TabularFSM(TabularFSM aTabFSM) : this()
 		{
-			this.inputAlphabet = new Set(aTabFSM.inputAlphabet);
-			this.transitionTable = new Hashtable(aTabFSM.transitionTable);
-			this.finalStates = new Set(aTabFSM.finalStates);
-			this.states = new Set(aTabFSM.states);
-			this.startState = aTabFSM.startState;
+			DynamicTransitionIterator it = new DynamicTransitionIterator(aTabFSM);
+			while(it.MoveNext())
+			{
+				AddTransition(it.Current);
+				it.Append(it.Current.DestinationState);
+			}
 		}
 
 
@@ -291,7 +292,7 @@ namespace Palladio.FiniteStateMachines {
 		///     corresponding ITransition.
 		/// </returns>
 		public override IList GetOutgoingTransitions(IState state) {
-			ArrayList result = new ArrayList();
+			Vector result = new Vector();
 			Hashtable outgoing = (Hashtable)transitionTable[state];
 			if (outgoing != null) {
 				foreach (DictionaryEntry entry in outgoing) {
@@ -310,7 +311,7 @@ namespace Palladio.FiniteStateMachines {
 		///		A IList of Transitions
 		///	</returns>
 		public IList GetTransitions() {
-			ArrayList transitionArray = new ArrayList();
+			Vector transitionArray = new Vector();
 			foreach (DictionaryEntry entry in transitionTable) {
 				foreach (DictionaryEntry subEntry in ((Hashtable)entry.Value)){
 					transitionArray.Add(subEntry.Value);

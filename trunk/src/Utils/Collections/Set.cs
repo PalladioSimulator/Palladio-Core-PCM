@@ -4,10 +4,10 @@ namespace Utils.Collections
 {
 	/// <summary>
 	///     A collection that contains no duplicate elements.
-	///     To reach this, the Add Methods of a default ArrayList 
+	///     To reach this, the Add Methods of a default Vector 
 	///     are extended.
 	/// </summary>
-	public class Set : ArrayList 
+	public class Set : Vector 
 	{
 
 		/// <summary>
@@ -35,7 +35,7 @@ namespace Utils.Collections
 		/// <param name="value"></param>
 		/// 
 		/// <returns></returns>
-		/// <seealso cref="ArrayList.Add"></seealso>
+		/// <seealso cref="Vector.Add"></seealso>
 		public override int Add(object value) 
 		{
 			if (!Contains(value)) 
@@ -50,7 +50,7 @@ namespace Utils.Collections
 		/// <param name="index"></param>
 		/// <param name="value"></param>
 		/// 
-		/// <seealso cref="ArrayList.Insert"></seealso>
+		/// <seealso cref="Vector.Insert"></seealso>
 		public override void Insert(int index, object value) 
 		{
 			if (!Contains(value)) 
@@ -64,7 +64,7 @@ namespace Utils.Collections
 		/// <param name="index"></param>
 		/// <param name="c"></param>
 		/// 
-		/// <seealso cref="ArrayList.InsertRange"></seealso>
+		/// <seealso cref="Vector.InsertRange"></seealso>
 		public override void InsertRange(int index, ICollection c) 
 		{
 			foreach(object obj in c)
@@ -81,7 +81,7 @@ namespace Utils.Collections
 		/// 
 		/// <param name="c"></param>
 		/// 
-		/// <seealso cref="ArrayList.AddRange"></seealso>
+		/// <seealso cref="Vector.AddRange"></seealso>
 		public override void AddRange(ICollection c) 
 		{
 			foreach(object obj in c)

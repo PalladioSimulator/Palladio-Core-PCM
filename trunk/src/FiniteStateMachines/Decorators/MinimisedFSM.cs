@@ -134,7 +134,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 				changed = false;
 				for ( int groupIndex = 0; groupIndex < this.groups.Count; groupIndex++ ) {
 					IList currentGroup = (IList) this.groups[groupIndex];
-					IList newGroup = new ArrayList();
+					IList newGroup = new Vector();
 					IState firstState = (IState) currentGroup[0];
 
 					for ( int i = 1; i < currentGroup.Count; i++ ) {
@@ -175,9 +175,9 @@ namespace Palladio.FiniteStateMachines.Decorators {
 		/// Initial group partitioning.
 		/// </returns>
 		private IList InitGroups(IFiniteStateMachine aFSM) {
-			IList groups = new ArrayList();
-			IList finalStates = new ArrayList();
-			IList notFinalStates = new ArrayList();
+			IList groups = new Vector();
+			IList finalStates = new Vector();
+			IList notFinalStates = new Vector();
 			
 			StateIterator stateIter = new StateIterator(aFSM);
 			while(stateIter.MoveNext()) {

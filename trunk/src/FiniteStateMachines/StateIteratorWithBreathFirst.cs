@@ -11,9 +11,9 @@ namespace Palladio.FiniteStateMachines {
 	/// </summary>
 	public class StateIteratorWithBreathFirst {
 		/// <summary>
-		/// A <code>ArrayList</code> which contians all allready visited States
+		/// A <code>Vector</code> which contians all allready visited States
 		/// </summary>
-		private ArrayList visitedStates;
+		private Vector visitedStates;
 
 		/// <summary
 		/// Counts how many states are in this FSM.
@@ -52,7 +52,7 @@ namespace Palladio.FiniteStateMachines {
 		public StateIteratorWithBreathFirst(IFiniteStateMachine aFsm) {
 			this.fsm = aFsm;
 			this.currentState = this.fsm.StartState;
-			this.visitedStates = new ArrayList();
+			this.visitedStates = new Vector();
 			this.visitedStates.Add(this.currentState);
 			this.howMany = 0;
 			this.currentIndex = 0;

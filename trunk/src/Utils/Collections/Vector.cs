@@ -4,7 +4,7 @@ using System.Collections;
 namespace Utils.Collections
 {
 	/// <summary>
-	/// ArrayList with an useful Equals-Method.
+	/// Vector with an useful Equals-Method.
 	/// </summary>
 	public class Vector : ArrayList 
 	{
@@ -26,9 +26,9 @@ namespace Utils.Collections
 		// </summary>
 		public override bool Equals(object obj)
 		{
-			if (obj is Set) 
+			if (obj is Vector) 
 			{
-				Set other = (Set)obj;
+				Vector other = (Vector)obj;
 				if(other.Count == Count)
 				{
 					foreach(object o in other)

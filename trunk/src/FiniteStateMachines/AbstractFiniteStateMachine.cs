@@ -142,7 +142,7 @@ namespace Palladio.FiniteStateMachines
 		/// </returns>
 		public virtual IList GetOutgoingTransitions(IState aSourceState) 
 		{
-			IList result = new ArrayList();
+			IList result = new Vector();
 			foreach( Input input in InputAlphabet ) 
 			{
 				ITransition trans = GetNextTransition(aSourceState,input);
@@ -191,7 +191,7 @@ namespace Palladio.FiniteStateMachines
 		///	</returns>
 		public virtual IList GetReachableStates(IState aState) 
 		{
-			IList resultSet = new ArrayList();
+			IList resultSet = new Vector();
 			GetReachableStatesRecursive(aState,ref resultSet);
 			return resultSet;
 		}

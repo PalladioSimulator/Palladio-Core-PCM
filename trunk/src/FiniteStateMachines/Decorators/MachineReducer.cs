@@ -3,6 +3,7 @@ using System.Collections;
 
 using Palladio.FiniteStateMachines;
 using Palladio.FiniteStateMachines.Decorators;
+using Utils.Collections;
 
 namespace Palladio.ParameterisedContracts {
 	/// <summary>
@@ -212,7 +213,7 @@ namespace Palladio.ParameterisedContracts {
 			// Adding the default rules to the table.
 			Hashtable result = new Hashtable();
 			foreach ( DictionaryEntry entry in aServiceTable ) {
-				IList fsmList = new ArrayList();
+				IList fsmList = new Vector();
 				fsmList.Add(entry.Value);
 				result.Add(entry.Key,fsmList);
 			}
@@ -223,7 +224,7 @@ namespace Palladio.ParameterisedContracts {
 					RecursionInput recInput = (RecursionInput) input;
 					
 					IFiniteStateMachine recursiveFSM = new RecursiveServiceFSM ( recInput.RecursiveServiceName, aServiceTable );
-					IList fsmList = new ArrayList();
+					IList fsmList = new Vector();
 					fsmList.Add ( recursiveFSM );
 					MarkedInput markedInput = new MarkedInput ( recInput.RecursiveServiceName );
 					result.Add ( markedInput, recursiveFSM );
