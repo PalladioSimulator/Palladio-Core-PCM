@@ -4,13 +4,14 @@ using Palladio.ComponentModel;
 using Palladio.FiniteStateMachines;
 using Palladio.Attributes;
 using Palladio.Identifier;
+using Palladio.Reliability.Math;
 
-namespace Palladio.Reliability
+namespace Palladio.Reliability.Tests
 {
 	/// <summary>
 	/// Description of TestCMBuilder.	
 	/// </summary>
-	public class TestCMBuilder
+	public class CMBuilder
 	{
 		public static ICompositeComponent CreateCM()
 		{
@@ -163,19 +164,19 @@ namespace Palladio.Reliability
 			StateHash states1 = FSMFactory.CreateStatesFromList("1","2","3"); 
 			editFSM1.AddStates(states1.StoredStates);
 			editFSM1.StartState = states1["1"];
-			editFSM1.FinalStates = new IState[] {states1["2"]};
+			editFSM1.FinalStates = new IState[] {states1["2"], states1["3"]};
 			
 			ITransition t;
-			t = CreateTransition("1",signatures[0],"2");
-			t.Attributes.Add(MarkovProbability.AttributeType, new MarkovProbability(0.5));
+			t = CMBuilder.CreateTransition("1",signatures[0],"2");
+			t.Attributes.Add(MarkovProbabilityAttribute.AttributeType, new MarkovProbabilityAttribute(0.5));
 			editFSM1.AddTransitions(t);
 			
-			t = CreateTransition("2",signatures[1],"1");
-			t.Attributes.Add(MarkovProbability.AttributeType, new MarkovProbability(0.5));
+			t = CMBuilder.CreateTransition("2",signatures[1],"1");
+			t.Attributes.Add(MarkovProbabilityAttribute.AttributeType, new MarkovProbabilityAttribute(0.5));
 			editFSM1.AddTransitions(t);
 			
-			t = CreateTransition("1",signatures[2],"3");
-			t.Attributes.Add(MarkovProbability.AttributeType, new MarkovProbability(0.5));
+			t = CMBuilder.CreateTransition("1",signatures[2],"3");
+			t.Attributes.Add(MarkovProbabilityAttribute.AttributeType, new MarkovProbabilityAttribute(0.5));
 			editFSM1.AddTransitions(t);
 						
 			return seff;
@@ -226,7 +227,7 @@ namespace Palladio.Reliability
 		
 			ITransition t;
 			t = CreateTransition("1",signatures[0],"2");
-			t.Attributes.Add(MarkovProbability.AttributeType, new MarkovProbability(1.0));
+			t.Attributes.Add(MarkovProbabilityAttribute.AttributeType, new MarkovProbabilityAttribute(1.0));
 			editFSM1.AddTransitions(t);
 			
 			return seff;

@@ -5,10 +5,12 @@ using System.Collections;
 using Palladio.Identifier;
 using Palladio.Attributes;
 using Palladio.Reliability.Exceptions;
+using Palladio.Reliability.TypedCollections;
 using Palladio.Utils.Collections;
 using Palladio.ComponentModel;
 
-namespace Palladio.Reliability
+
+namespace Palladio.Reliability.Model
 {
 	/// <summary>
 	/// Description of Tree.	

@@ -1,17 +1,28 @@
 <Project name="Palladio.Reliability" standardNamespace="Palladio.Reliability" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#">
   <Contents>
-    <File name=".\src\MyClass.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
     <File name=".\AssemblyInfo.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
     <File name=".\src" subtype="Directory" buildaction="Compile" dependson="" data="" />
-    <File name=".\src\CCVisitor.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
-    <File name=".\src\TreeNodeHash.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
-    <File name=".\src\TreeNode.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Model\CCVisitor.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\TypedCollections\TreeNodeHash.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Model\TreeNode.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
     <File name=".\src\Exceptions" subtype="Directory" buildaction="Compile" dependson="" data="" />
     <File name=".\src\Exceptions\TreeNodeNotFoundException.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
-    <File name=".\src\TestCMBuilder.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
-    <File name=".\src\ReliabilityValue.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
-    <File name=".\src\ReliabilityHash.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
-    <File name=".\src\MarkovProbability.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Tests\CMBuilder.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Math\ServiceReliability.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\TypedCollections\ReliabilityHash.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Math\MarkovProbability.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\TypedCollections" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Tests" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Tests\ServiceReliabilityTest.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Math" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Math\MarkovMatrix.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Tests\MarkovMatrixTest.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Tests\Helper.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Math\MatrixTools.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Tests\MathToolsTest.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Math\VariableExpression.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Math\IVariableExpression.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Model" subtype="Directory" buildaction="Compile" dependson="" data="" />
   </Contents>
   <References>
     <Reference type="Project" refto="ReflectionBasedVisitor" localcopy="True" />
@@ -20,17 +31,18 @@
     <Reference type="Project" refto="Palladio.Attributes" localcopy="True" />
     <Reference type="Project" refto="Palladio.ComponentModel" localcopy="True" />
     <Reference type="Project" refto="Palladio.Identifier" localcopy="True" />
-    <Reference type="Project" refto="Palladio.CM.Example" localcopy="True" />
+    <Reference type="Assembly" refto="..\lib\MathLib.dll" localcopy="True" />
+    <Reference type="Assembly" refto="..\..\..\..\..\..\Programme\NUnit V2.1\bin\nunit.framework.dll" localcopy="True" />
   </References>
   <DeploymentInformation target="" script="" strategy="File" />
   <Configuration runwithwarnings="False" name="Debug">
-    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="Palladio.Reliability.MyClass" target="Exe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Library" definesymbols="DEBUG;TRACE;TEST" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
     <Execution commandlineparameters="" consolepause="False" />
     <Output directory="..\bin\Debug" assembly="Palladio.Reliability" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
   </Configuration>
   <Configurations active="Debug">
     <Configuration runwithwarnings="False" name="Debug">
-      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="Palladio.Reliability.MyClass" target="Exe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Library" definesymbols="DEBUG;TRACE;TEST" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
       <Execution commandlineparameters="" consolepause="False" />
       <Output directory="..\bin\Debug" assembly="Palladio.Reliability" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
     </Configuration>

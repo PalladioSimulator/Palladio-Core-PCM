@@ -2,7 +2,6 @@
   <StartMode startupentry="Palladio.Reliability" single="False">
     <Execute entry="Palladio.Reliability" type="Execute" />
     <Execute entry="Palladio.Attributes" type="None" />
-    <Execute entry="Palladio.CM.Example" type="None" />
     <Execute entry="Palladio.ComponentModel" type="None" />
     <Execute entry="Palladio.FiniteStateMachines" type="None" />
     <Execute entry="Palladio.Identifier" type="None" />
@@ -12,7 +11,6 @@
   <Entries>
     <Entry filename=".\.\Palladio.Reliability.prjx" />
     <Entry filename="..\Palladio.Attributes\Palladio.Attributes.prjx" />
-    <Entry filename="..\Palladio.CM.Example\Palladio.CM.Example.prjx" />
     <Entry filename="..\Palladio.ComponentModel\Palladio.ComponentModel.prjx" />
     <Entry filename="..\Palladio.FiniteStateMachines\Palladio.FiniteStateMachines.prjx" />
     <Entry filename="..\Palladio.Identifier\Palladio.Identifier.prjx" />
@@ -23,7 +21,6 @@
     <Configuration name="Release">
       <Entry name="Palladio.Reliability" configurationname="Debug" build="False" />
       <Entry name="Palladio.Attributes" configurationname="Debug" build="False" />
-      <Entry name="Palladio.CM.Example" configurationname="Debug" build="False" />
       <Entry name="Palladio.ComponentModel" configurationname="Debug" build="False" />
       <Entry name="Palladio.FiniteStateMachines" configurationname="Debug" build="False" />
       <Entry name="Palladio.Identifier" configurationname="Debug" build="False" />
@@ -33,7 +30,6 @@
     <Configuration name="Debug">
       <Entry name="Palladio.Reliability" configurationname="Debug" build="False" />
       <Entry name="Palladio.Attributes" configurationname="Debug" build="False" />
-      <Entry name="Palladio.CM.Example" configurationname="Debug" build="False" />
       <Entry name="Palladio.ComponentModel" configurationname="Debug" build="False" />
       <Entry name="Palladio.FiniteStateMachines" configurationname="Debug" build="False" />
       <Entry name="Palladio.Identifier" configurationname="Debug" build="False" />

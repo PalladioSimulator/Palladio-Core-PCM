@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.1  2004/07/12 06:33:04  sliver
+ * Initial checkin
+ *
  * Revision 1.2  2004/07/06 00:30:44  sliver
  * + added Markov Probability for transitions
  * + CCVisitor propagates the reliability now
@@ -14,8 +17,9 @@ using System.Collections;
 using Palladio.ComponentModel;
 using Palladio.Identifier;
 using Palladio.Attributes;
+using Palladio.Reliability.Math;
 
-namespace Palladio.Reliability
+namespace Palladio.Reliability.Model
 {
 	/// <summary>
 	/// Description of CompositeComponentVisitor.	
@@ -113,7 +117,7 @@ namespace Palladio.Reliability
 					foreach( ISignature sig in im.SignatureList )
 					{
 						IExternalSignature provSig = ComponentFactory.CreateExternalSignatureArray( id, sig ) [0];
-						bcNode.ProvidesReliabilities[ provSig ] = new ReliabilityValue(1.0);
+						bcNode.ProvidesReliabilities[ provSig ] = new ServiceReliability(1.0);
 					}
 				}
 			}

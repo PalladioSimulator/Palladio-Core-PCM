@@ -1,90 +1,88 @@
 /*
- * $Id$
- * 
- * $Log$
- * Revision 1.1  2004/07/06 00:30:44  sliver
- * + added Markov Probability for transitions
- * + CCVisitor propagates the reliability now
+ * Created by SharpDevelop.
+ * User: sliver
+ * Date: 02.07.2004
+ * Time: 10:36
  * 
  */
 
 using System;
 using System.Collections;
+using Palladio.Identifier;
+using Palladio.Reliability.Model;
 
-using Palladio.ComponentModel;
-
-namespace Palladio.Reliability
+namespace Palladio.Reliability.TypedCollections
 {
-	public class ReliabilityHash : IDictionary, ICollection, IEnumerable, ICloneable
+	public class TreeNodeHash : IDictionary, ICollection, IEnumerable, ICloneable
 	{
 		protected Hashtable innerHash;
 		
 		#region "Constructors"
-		public  ReliabilityHash()
+		public  TreeNodeHash()
 		{
 			innerHash = new Hashtable();
 		}
 		
-		public ReliabilityHash(ReliabilityHash original)
+		public TreeNodeHash(TreeNodeHash original)
 		{
 			innerHash = new Hashtable(original.innerHash);
 		}
 		
-		public ReliabilityHash(IDictionary dictionary)
+		public TreeNodeHash(IDictionary dictionary)
 		{
 			innerHash = new Hashtable(dictionary);
 		}
 		
-		public ReliabilityHash(int capacity)
+		public TreeNodeHash(int capacity)
 		{
 			innerHash = new Hashtable(capacity);
 		}
 		
-		public ReliabilityHash(IDictionary dictionary, float loadFactor)
+		public TreeNodeHash(IDictionary dictionary, float loadFactor)
 		{
 			innerHash = new Hashtable(dictionary, loadFactor);
 		}
 		
-		public ReliabilityHash(IHashCodeProvider codeProvider, IComparer comparer)
+		public TreeNodeHash(IHashCodeProvider codeProvider, IComparer comparer)
 		{
 			innerHash = new Hashtable(codeProvider, comparer);
 		}
 		
-		public ReliabilityHash(int capacity, int loadFactor)
+		public TreeNodeHash(int capacity, int loadFactor)
 		{
 			innerHash = new Hashtable(capacity, loadFactor);
 		}
 		
-		public ReliabilityHash(IDictionary dictionary, IHashCodeProvider codeProvider, IComparer comparer)
+		public TreeNodeHash(IDictionary dictionary, IHashCodeProvider codeProvider, IComparer comparer)
 		{
 			innerHash = new Hashtable(dictionary, codeProvider, comparer);
 		}
 		
-		public ReliabilityHash(int capacity, IHashCodeProvider codeProvider, IComparer comparer)
+		public TreeNodeHash(int capacity, IHashCodeProvider codeProvider, IComparer comparer)
 		{
 			innerHash = new Hashtable(capacity, codeProvider, comparer);
 		}
 		
-		public ReliabilityHash(IDictionary dictionary, float loadFactor, IHashCodeProvider codeProvider, IComparer comparer)
+		public TreeNodeHash(IDictionary dictionary, float loadFactor, IHashCodeProvider codeProvider, IComparer comparer)
 		{
 			innerHash = new Hashtable(dictionary, loadFactor, codeProvider, comparer);
 		}
 		
-		public ReliabilityHash(int capacity, float loadFactor, IHashCodeProvider codeProvider, IComparer comparer)
+		public TreeNodeHash(int capacity, float loadFactor, IHashCodeProvider codeProvider, IComparer comparer)
 		{
 			innerHash = new Hashtable(capacity, loadFactor, codeProvider, comparer);
 		}
 		#endregion
 
 		#region Implementation of IDictionary
-		public ReliabilityHashEnumerator GetEnumerator()
+		public TreeNodeHashEnumerator GetEnumerator()
 		{
-			return new ReliabilityHashEnumerator(this);
+			return new TreeNodeHashEnumerator(this);
 		}
 		
 		System.Collections.IDictionaryEnumerator IDictionary.GetEnumerator()
 		{
-			return new ReliabilityHashEnumerator(this);
+			return new TreeNodeHashEnumerator(this);
 		}
 		
 		IEnumerator IEnumerable.GetEnumerator()
@@ -92,24 +90,24 @@ namespace Palladio.Reliability
 			return GetEnumerator();
 		}
 		
-		public void Remove(IExternalSignature key)
+		public void Remove(IIdentifier key)
 		{
 			innerHash.Remove(key);
 		}
 		
 		void IDictionary.Remove(object key)
 		{
-			Remove ((IExternalSignature)key);
+			Remove ((IIdentifier)key);
 		}
 		
-		public bool Contains(IExternalSignature key)
+		public bool Contains(IIdentifier key)
 		{
 			return innerHash.Contains(key);
 		}
 		
 		bool IDictionary.Contains(object key)
 		{
-			return Contains((IExternalSignature)key);
+			return Contains((IIdentifier)key);
 		}
 		
 		public void Clear()
@@ -117,14 +115,14 @@ namespace Palladio.Reliability
 			innerHash.Clear();		
 		}
 		
-		public void Add(IExternalSignature key, ReliabilityValue value)
+		public void Add(IIdentifier key, TreeNode value)
 		{
 			innerHash.Add(key, value);
 		}
 		
 		void IDictionary.Add(object key, object value)
 		{
-			Add ((IExternalSignature)key, (ReliabilityValue)value);
+			Add ((IIdentifier)key, (TreeNode)value);
 		}
 		
 		public bool IsReadOnly {
@@ -133,9 +131,9 @@ namespace Palladio.Reliability
 			}
 		}
 		
-		public ReliabilityValue this[IExternalSignature key] {
+		public TreeNode this[IIdentifier key] {
 			get {
-				return (ReliabilityValue) innerHash[key];
+				return (TreeNode) innerHash[key];
 			}
 			set {
 				innerHash[key] = value;
@@ -144,10 +142,10 @@ namespace Palladio.Reliability
 		
 		object IDictionary.this[object key] {
 			get {
-				return this[(IExternalSignature)key];
+				return this[(IIdentifier)key];
 			}
 			set {
-				this[(IExternalSignature)key] = (ReliabilityValue)value;
+				this[(IIdentifier)key] = (TreeNode)value;
 			}
 		}
 		
@@ -196,9 +194,9 @@ namespace Palladio.Reliability
 		#endregion
 		
 		#region Implementation of ICloneable
-		public ReliabilityHash Clone()
+		public TreeNodeHash Clone()
 		{
-			ReliabilityHash clone = new ReliabilityHash();
+			TreeNodeHash clone = new TreeNodeHash();
 			clone.innerHash = (Hashtable) innerHash.Clone();
 			return clone;
 		}
@@ -210,19 +208,19 @@ namespace Palladio.Reliability
 		#endregion
 		
 		#region "HashTable Methods"
-		public bool ContainsKey(IExternalSignature key)
+		public bool ContainsKey(IIdentifier key)
 		{
 			return innerHash.ContainsKey(key);
 		}
 		
-		public bool ContainsValue(ReliabilityValue value)
+		public bool ContainsValue(TreeNode value)
 		{
 			return innerHash.ContainsValue(value);
 		}
 		
-		public static ReliabilityHash Synchronized(ReliabilityHash nonSync)
+		public static TreeNodeHash Synchronized(TreeNodeHash nonSync)
 		{
-			ReliabilityHash sync = new ReliabilityHash();
+			TreeNodeHash sync = new TreeNodeHash();
 			sync.innerHash = Hashtable.Synchronized(nonSync.innerHash);
 			return sync;
 		}
@@ -235,19 +233,19 @@ namespace Palladio.Reliability
 		}
 	}
 	
-	public class ReliabilityHashEnumerator : IDictionaryEnumerator
+	public class TreeNodeHashEnumerator : IDictionaryEnumerator
 	{
 		private IDictionaryEnumerator innerEnumerator;
 		
-		internal ReliabilityHashEnumerator(ReliabilityHash enumerable)
+		internal TreeNodeHashEnumerator(TreeNodeHash enumerable)
 		{
 			innerEnumerator = enumerable.InnerHash.GetEnumerator();
 		}
 		
 		#region Implementation of IDictionaryEnumerator
-		public IExternalSignature Key {
+		public IIdentifier Key {
 			get {
-				return (IExternalSignature)innerEnumerator.Key;
+				return (IIdentifier)innerEnumerator.Key;
 			}
 		}
 		
@@ -257,9 +255,9 @@ namespace Palladio.Reliability
 			}
 		}
 		
-		public ReliabilityValue Value {
+		public TreeNode Value {
 			get {
-				return (ReliabilityValue)innerEnumerator.Value;
+				return (TreeNode)innerEnumerator.Value;
 			}
 		}
 		
