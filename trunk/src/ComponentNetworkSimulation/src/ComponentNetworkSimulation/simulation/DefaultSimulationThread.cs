@@ -27,6 +27,9 @@ namespace ComponentNetworkSimulation.Simulation
  	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.7  2004/06/23 16:32:18  joemal
+	/// - add sender attribute to some methods of the observer
+	///
 	/// Revision 1.6  2004/06/19 16:02:28  joemal
 	/// - now the threads work with new visitors
 	///
@@ -262,7 +265,7 @@ namespace ComponentNetworkSimulation.Simulation
 		protected virtual void NotifyUnboundExternalCallEvent(VisitorEventArgs args)
 		{
 			if (observer != null)
-				observer.NotifyUnboundExternalCall(args.Component,args.Signature);
+				observer.NotifyUnboundExternalCall(this,args.Component,args.Signature);
 		}
 
 		/// <summary>
@@ -272,7 +275,7 @@ namespace ComponentNetworkSimulation.Simulation
 		protected virtual void NotifyUnknownElementEvent()
 		{
 			if (observer != null)
-				observer.NotifyUnknownElementFound();
+				observer.NotifyUnknownElementFound(this);
 		}
 
 		/// <summary>
