@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.11  2004/06/22 12:01:56  joemal
+	/// add factory to configure the framework
+	///
 	/// Revision 1.10  2004/06/19 15:59:03  joemal
 	/// - now the interface for the component architecture is defined
 	///
@@ -165,6 +168,14 @@ namespace ComponentNetworkSimulation
 				if (this.dataPool == null) this.dataPool = CreateDataPool();
 				return this.dataPool;
 			}
+		}
+
+		/// <summary>
+		/// returns the factory, used to configure the whole framework.
+		/// </summary>
+		public abstract IEnvironmentFactory EnvironmentFactory
+		{
+			get;
 		}
 
 		#endregion
