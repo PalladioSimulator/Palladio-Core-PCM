@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/03/18 07:36:27  kelsaka
+	/// - corrected errors
+	///
 	/// Revision 1.2  2005/03/17 19:54:12  kelsaka
 	/// - added builder-interfaces
 	///
@@ -63,6 +66,17 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		/// <summary>
+		/// Called to remove the component which belongs to the given id. All contained components
+		/// (Type <see cref="ComponentType.COMPOSITE"/>) and
+		/// all connections to and from this components are also removed.
+		/// </summary>
+		/// <param name="componentId">the id of the component to be removed</param>
+		public void RemoveComponent (IComponentIdentifier componentId)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
 		/// called to add an assemblyConnector from a requires interfaces of a component to a provides interface of 
 		/// another component. Both components must have the same parent component or must be placed at the top level of the
 		/// model.
@@ -87,5 +101,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// called to add an existing interface to a component.
+		/// </summary>
+		/// <param name="componentIdentifier">the id of component</param>
+		/// <param name="ifaceIdentifier">the id of the interface</param>
+		/// <param name="role">determ whether the interface is bound as requires or provides interface</param>
+		public void AddInterfaceToComponent (IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier, InterfaceRole role)
+		{
+			throw new NotImplementedException ();
+		}
 	}
 }

@@ -6,7 +6,8 @@ using Palladio.ComponentModel.ModelEntities;
 namespace Palladio.ComponentModel.Builder
 {
 	/// <summary>
-	/// ICompositeBase. Interface base for composite-like structures like composite component- and root-builder.
+	/// ICompositeBase. Interface base for composite-like structures like composite component- and the outer
+	/// component model (created by the root-builder).
 	/// This interface does justice to the fact, that composite components (respective their builder) do not have
 	/// methods to add non-connected first class entities, those entities only can be added by the RootBuilder.
 	/// Anyway the <see cref="ICompositeComponentBuilder"/> and the <see cref="IRootBuilder"/> have lot of methods
@@ -18,6 +19,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/03/18 07:36:27  kelsaka
+	/// - corrected errors
+	///
 	/// Revision 1.2  2005/03/18 07:17:38  kelsaka
 	/// - added comments
 	///
