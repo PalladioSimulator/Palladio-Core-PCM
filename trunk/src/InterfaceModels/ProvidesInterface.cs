@@ -50,7 +50,7 @@ namespace Palladio.ComponentModel
 			}
 			else
 			{
-				throw new IModelNotProvidesInterfaceException();
+				return base.GetIntersection(anIModel);
 			}
 		}
 

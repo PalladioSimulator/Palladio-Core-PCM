@@ -36,6 +36,11 @@ class reference12 {
 @__modelType reference 
 */
 class reference2 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.IModelNotProvidesInterfaceException:oiref><oihard>
+@__modelType reference 
+*/
+class reference4 {
 }}/**
 @__tags
 @shapeType ClassDiagram 

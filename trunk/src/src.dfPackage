@@ -58,11 +58,6 @@ class reference18 {
 */
 class reference5 {
 }/**
-@__ref <oiref:csharp#Class#Palladio.ComponentModel.Helper:oiref><oihard>
-@__modelType reference 
-*/
-class reference25 {
-}/**
 @__ref <oiref:design#Class#id2r2ardto2klg3dto2les1.diagram:oiref><oihard>
 @__modelType reference
 @__fqn <oiref:#Package#Palladio.ComponentModel.src.Errors:oiref> 
@@ -96,7 +91,7 @@ class __tags {
 */
 class __options {
 }/**
-@__positions <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.Component#Palladio.ComponentModel.IComponent:oiref>=495,212,495,152:oigroup>
+@__positions <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.Component#Palladio.ComponentModel.IComponent:oiref>=965,212,965,152:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.Service#Signature:oiref>=1850,1440,143,472:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.MethodSignature#Palladio.ComponentModel.AbstractSignature:oiref>=150,565,150,537:oigroup>
 <oigroup:<oiref:csharp#Member#Palladio.ComponentModel.ReqCompMapping#GenerateMappings#(##)#:oiref>=1440,470,178,16,1:oigroup>
@@ -109,7 +104,7 @@ class __options {
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.AbstractComponentInterface:oiref>=670,565,200,238,1:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModell.AbstractComponentMapping#Palladio.ComponentModel.IMapping:oiref>=720,360,720,255:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.SignatureListIModel:oiref>=450,565,200,254,1:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.Service:oiref>=780,10,200,254,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.Service:oiref>=1510,550,200,270,1:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.ReqIFaceMapping:oiref>=1768,532,200,238,1:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.AbstractComponentMapping#Palladio.ComponentModel.IComponentConnection:oiref>=911,196,1338,108,1338,85:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.AbstractInterfaceMapping#Palladio.ComponentModel.IInterfaceConnection:oiref>=1840,196,1840,88:oigroup>
@@ -119,7 +114,7 @@ class __options {
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.SimpleSignature#Palladio.ComponentModel.AbstractSignature:oiref>=275,565,275,537:oigroup>
 <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.ProvIFaceMapping#Palladio.ComponentModel.AbstractInterfaceMapping:oiref>=1703,532,1703,434:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.ProvidesMapping#InnerProvIFace:oiref>=1858,750,2258,547:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.Component:oiref>=340,212,200,270,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.Component:oiref>=810,212,200,270,1:oigroup>
 <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.IInterfaceConnection#Palladio.ComponentModel.IConnection:oiref>=1650,161,1390,101:oigroup>
 <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.OualityOfServiceIModel#Palladio.ComponentModel.ProtocolIModel:oiref>=770,1017,770,973:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.OualityOfServiceIModel:oiref>=379,1209,200,149,1:oigroup>
@@ -130,12 +125,12 @@ class __options {
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.RequiresMapping#innerComp:oiref>=1558,750,728,152:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.IRequiresMapping:oiref>=1368,398,200,123,1:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.ProvidesMapping#Palladio.ComponentModel.IProvidesMapping:oiref>=1688,750,1688,521:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.CompositeComponent:oiref>=560,516,200,318,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.CompositeComponent:oiref>=1030,516,200,318,1:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.IBinding#ReqComp:oiref>=1330,198,760,96:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.ProvidesMapping#InnerComp:oiref>=1718,750,731,152:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.ComponentBinding#IBinding:oiref>=2060,196,2060,104:oigroup>
 <oigroup:<oiref:csharp#Implements#AbstractComponentMapping#Palladio.ComponentModel.IMapping:oiref>=372,360,372,255:oigroup>
-<oigroup:<oiref:design#Class#id4xh40dtsdeasadtseh9xr.diagram:oiref>=1090,240,179,180,1:oigroup>
+<oigroup:<oiref:design#Class#id4xh40dtsdeasadtseh9xr.diagram:oiref>=1520,230,179,180,1:oigroup>
 <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.IBinding#Palladio.ComponentModel.IConnection:oiref>=1360,161,1360,101:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.IMapping#OuterComp:oiref>=1550,192,760,40:oigroup>
 <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.ProvidesInterface#Palladio.ComponentModel.AbstractComponentInterface:oiref>=697,847,697,647:oigroup>
@@ -159,14 +154,13 @@ class __options {
 <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.AbstractComponentInterface#Palladio.ComponentModel.AbstractIModel:oiref>=714,565,714,505:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.IBinding#ReqIFace:oiref>=1362,338,1080,513,1918,428:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.AbstractComponentMapping:oiref>=778,196,200,286,1:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.Helper:oiref>=790,270,199,85,1:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.RequiresMapping#OuterReqIFace:oiref>=1658,750,2078,499:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.ProvidesInterface#providesIModel:oiref>=2138,511,1100,818,1100,619,400,216:oigroup>
 <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.ProtocolIModel#Palladio.ComponentModel.SignatureListIModel:oiref>=770,751,770,691:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.RequiresMapping#Palladio.ComponentModel.IRequiresMapping:oiref>=1468,750,1468,521:oigroup>
-<oigroup:<oiref:design#Class#id11zxydto2klg3dtohz1qu.diagram:oiref>=1280,20,153,276,1:oigroup>
+<oigroup:<oiref:design#Class#id11zxydto2klg3dtohz1qu.diagram:oiref>=1710,10,153,276,1:oigroup>
 <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.RequiresInterface#Palladio.ComponentModel.AbstractIModel:oiref>=991,565,991,505:oigroup>
-<oigroup:<oiref:design#Class#id2r2ardto2klg3dto2les1.diagram:oiref>=1290,340,143,100,1:oigroup>
+<oigroup:<oiref:design#Class#id2r2ardto2klg3dto2les1.diagram:oiref>=1720,330,143,100,1:oigroup>
 <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.SignatureListIModel#Palladio.ComponentModel.AbstractIModel:oiref>=885,565,885,505:oigroup>
 <oigroup:<oiref:csharp#Member#Palladio.ComponentModel.ProvidesInterface#providesIModel:oiref>=470,900,194,16,1:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.ProvidesMapping:oiref>=1660,318,200,302,1:oigroup>
@@ -185,11 +179,11 @@ class __options {
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.IInterfaceModel:oiref>=558,10,200,206,1:oigroup>
 <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.ProvIFaceMapping#AbstractInterfaceMapping:oiref>=813,696,813,442:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.RequiresMapping#outerReqIFace:oiref>=1618,750,1998,499:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.ICompositeComponent:oiref>=560,212,200,171,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.ICompositeComponent:oiref>=1030,212,200,171,1:oigroup>
 <oigroup:<oiref:csharp#Extends#ICompProvMapping#Palladio.ComponentModel.IComponentConnection:oiref>=882,220,882,105:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.Binding#provComp:oiref>=1326,398,744,152:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.AmbiguousMatchError#Palladio.ComponentModel.IInclusionError:oiref>=935,193,935,133:oigroup>
-<oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.CompositeComponent#Palladio.ComponentModel.ICompositeComponent:oiref>=660,516,660,383:oigroup>
+<oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.CompositeComponent#Palladio.ComponentModel.ICompositeComponent:oiref>=1130,516,1130,383:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.IProvidesMapping#OuterProvIFace:oiref>=1898,427,2138,427:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.Service#EffectSpec:oiref>=1970,1440,358,216:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.AmbiguousMatchError#originalSig:oiref>=890,250,210,250:oigroup>
@@ -219,12 +213,12 @@ class __options {
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.AbstractInterfaceMapping#Palladio.ComponentModel.IMapping:oiref>=1396,360,1253,274:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.ProvidesInterface#providesIM:oiref>=1260,1409,1112,1284,1112,1088,1622,739:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.AbstractComponentMapping#ICompReqMapping:oiref>=1005,360,1186,274:oigroup>
-<oigroup:<oiref:design#Class#id1fqo6dto2klg3dto2letf.diagram:oiref>=10,870,200,148,1:oigroup>
+<oigroup:<oiref:design#Class#id1fqo6dto2klg3dto2letf.diagram:oiref>=1900,20,200,164,1:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.RequiresMapping#outerComp:oiref>=1538,750,725,152:oigroup>
 <oigroup:<oiref:csharp#Class#IComponentInterface:oiref>=608,276,132,75,1:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.RequiresInterface#requiresIM:oiref>=581,1697,391,1572,391,1027:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.NoMatchFoundError#Palladio.ComponentModel.IInclusionError:oiref>=1045,193,1045,133:oigroup>
-<oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.ICompositeComponent#Palladio.ComponentModel.IComponent:oiref>=605,212,605,152:oigroup>
+<oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.ICompositeComponent#Palladio.ComponentModel.IComponent:oiref>=1075,212,1075,152:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.MethodSignature:oiref>=10,565,200,238,1:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.AbstractSignature:oiref>=120,260,200,277,1:oigroup>
 <oigroup:<oiref:csharp#Extends#AbstractComponentInterface#Palladio.ComponentModel.AbstractIModel:oiref>=1012,565,1012,505:oigroup>
@@ -238,8 +232,8 @@ class __options {
 <oigroup:<oiref:csharp#Class#ICompProvMapping:oiref>=780,220,125,94,1:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.RequiresMapping#innerReqIFace:oiref>=1598,750,1958,499:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.AbstractConnection#Palladio.ComponentModel.IConnection:oiref>=2186,682,842,682:oigroup>
-<oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.Binding#ProvComp:oiref>=1458,526,1898,469,752,152:oigroup>
 <oigroup:<oiref:csharp#Implements#AbstractInterfaceMapping#Palladio.ComponentModel.IMapping:oiref>=830,360,830,255:oigroup>
+<oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.Binding#ProvComp:oiref>=1458,526,1898,469,752,152:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.ProvidesMapping#Palladio.ComponentModel.IMapping:oiref>=1686,318,1686,258:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.IMapping#InnerComp:oiref>=1550,220,760,68:oigroup>
 <oigroup:<oiref:csharp#Class#IInterfaceConnection:oiref>=666,161,200,126,1:oigroup>
@@ -248,7 +242,7 @@ class __options {
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.IComponentBinding:oiref>=1218,196,200,94,1:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.ISignature:oiref>=120,10,200,222,1:oigroup>
 <oigroup:<oiref:csharp#Extends#IInterfaceConnection#Palladio.ComponentModel.IConnection:oiref>=711,161,711,101:oigroup>
-<oigroup:<oiref:design#Class#idnu99dtcnlpjgdtcnmj0z.diagram:oiref>=1090,30,143,180,1:oigroup>
+<oigroup:<oiref:design#Class#idnu99dtcnlpjgdtcnmj0z.diagram:oiref>=1520,20,170,212,1:oigroup>
 <oigroup:<oiref:csharp#Implements#Palladio.ComponentModel.AbstractComponentMapping#IMapping:oiref>=844,196,1159,104:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.ProvIFaceMapping:oiref>=1548,532,200,238,1:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.Binding#ReqIFace:oiref>=1458,506,1918,448:oigroup>
@@ -262,7 +256,7 @@ class __options {
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.IBinding#ProvIFace:oiref>=1450,338,1450,481,2138,481:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.IRequiresMapping#InnerReqIFace:oiref>=1520,521,1520,660,1918,468:oigroup>
 <oigroup:<oiref:csharp#Extends#Palladio.ComponentModel.ICompReqMapping#Palladio.ComponentModel.IComponentConnection:oiref>=1463,196,1463,85:oigroup>
-<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.IComponent:oiref>=450,10,200,142,1:oigroup>
+<oigroup:<oiref:csharp#Class#Palladio.ComponentModel.IComponent:oiref>=920,10,200,142,1:oigroup>
 <oigroup:MemberLink#<oiref:csharp#Member#Palladio.ComponentModel.ProvidesMapping#innerComp:oiref>=1758,750,737,152:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.IProvidesMapping:oiref>=1588,398,200,123,1:oigroup>
 <oigroup:<oiref:csharp#Class#Palladio.ComponentModel.RequiresInterface:oiref>=818,879,200,117,1:oigroup>

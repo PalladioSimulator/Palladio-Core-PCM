@@ -23,15 +23,15 @@ names.Developer={Palladio.ComponentModel,DesignWorkspace,CodingWorkspace,DebugWo
 [lastOpenProjectName]
 Developer=Palladio.ComponentModel
 [editor]
-recent.file.0=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\IComponent.cs
-recent.file.1=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\OualityOfServiceIM.cs
-recent.file.2=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\ProtocolIModel.cs
-recent.file.3=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\Connections\\InterfaceBinding.cs
-recent.file.4=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\AbstractIModel.cs
-recent.file.5=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\IInterfaceModel.cs
-recent.file.6=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\AbstractComponentInterface.cs
-recent.file.7=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\RequiresInterface.cs
-recent.file.8=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\ProvidesInterface.cs
-recent.file.9=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\Helper.cs
+recent.file.0=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\Serivce.cs
+recent.file.1=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\Connections\\InterfaceBinding.cs
+recent.file.2=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\IComponent.cs
+recent.file.3=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\OualityOfServiceIM.cs
+recent.file.4=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\ProtocolIModel.cs
+recent.file.5=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\AbstractIModel.cs
+recent.file.6=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\IInterfaceModel.cs
+recent.file.7=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\AbstractComponentInterface.cs
+recent.file.8=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\RequiresInterface.cs
+recent.file.9=C:\\Dokumente und Einstellungen\\sliver\\Eigene Dateien\\Visual Studio Projects\\Palladio.ComponentModel\\src\\InterfaceModels\\ProvidesInterface.cs
 [print]
 diagram=current

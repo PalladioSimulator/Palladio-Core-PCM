@@ -1,5 +1,6 @@
-workspace.diagram.active = <oiref:design#Class#id42kvpdsg75rhrdsg795ym.diagram:oiref>
-workspace.diagram.open.0 = <oiref:design#Class#id42kvpdsg75rhrdsg795ym.diagram:oiref>
-workspace.editor.active = C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.ComponentModel\src\IComponent.cs
-workspace.editor.open.0 = C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.ComponentModel\src\IComponent.cs
-workspace.editor.open.1 = C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.ComponentModel\src\Connections\InterfaceBinding.cs
+workspace.diagram.active = <oiref:design#Class#id11zxydto2klg3dtohz1qu.diagram:oiref>
+workspace.diagram.open.0 = <oiref:design#Class#id11zxydto2klg3dtohz1qu.diagram:oiref>
+workspace.editor.active = C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.ComponentModel\src\Serivce.cs
+workspace.editor.open.0 = C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.ComponentModel\src\Serivce.cs
+workspace.editor.open.1 = C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.ComponentModel\src\IComponent.cs
+workspace.editor.open.2 = C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.ComponentModel\src\Connections\InterfaceBinding.cs

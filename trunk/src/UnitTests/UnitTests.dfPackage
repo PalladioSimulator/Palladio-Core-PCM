@@ -46,6 +46,16 @@ class reference33 {
 @__modelType reference 
 */
 class reference1 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.Helper:oiref><oihard>
+@__modelType reference 
+*/
+class reference2 {
+}/**
+@__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.AbstractInterfaceModelTest:oiref><oihard>
+@__modelType reference 
+*/
+class reference3 {
 }}/**
 @__tags
 @shapeType ClassDiagram 
