@@ -22,6 +22,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5.2.1  2004/12/02 23:42:05  uffi
+	/// IAttributeHash replaced by AttributeHash
+	///
 	/// Revision 1.5  2004/07/13 07:48:37  sbecker
 	/// Made AttributesFactory static
 	///
@@ -54,7 +57,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// </summary>
 		private IState destinationState;
 
-		private IAttributeHash attributes;
+		private AttributeHash attributes;
 
 		/// <summary>
 		/// Deafault constructor
@@ -64,7 +67,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// <param name="anInputSymbol">Input of the ITransition.</param>
 		/// <param name="aDestinationState">State, where the ITransition leads to.</param>
 		/// <param name="anAttTable">A Hastable containing additional attributes attached to this transition.</param>
-		public DefaultTransition(IState aSourceState, IInput anInputSymbol, IState aDestinationState, IAttributeHash anAttTable) 
+		public DefaultTransition(IState aSourceState, IInput anInputSymbol, IState aDestinationState, AttributeHash anAttTable) 
 		{
 			this.SourceState = aSourceState;
 			this.InputSymbol = anInputSymbol;
@@ -80,7 +83,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// <param name="anInputSymbol">Input of the ITransition.</param>
 		/// <param name="aDestinationState">State, where the ITransition leads to.</param>
 		public DefaultTransition(IState aSourceState, IInput anInputSymbol, IState aDestinationState ) :
-			this (aSourceState, anInputSymbol, aDestinationState, AttributesFactory.Default.CreateAttributeHash()) {}
+			this (aSourceState, anInputSymbol, aDestinationState, new AttributeHash()) {}
 			
 			
 		/// <summary>
@@ -121,7 +124,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			set { inputSymbol = value; }
 		}
 
-		public IAttributeHash Attributes 
+		public AttributeHash Attributes 
 		{
 			get { return attributes; }
 		}
