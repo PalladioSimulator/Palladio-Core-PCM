@@ -5,7 +5,7 @@ namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// </summary>
-	public class RequiresMapping : IMapping 
+	public class RequiresMapping : IRequiresMapping 
 	{
 		private RequiresInterface	innerReqIFace;
 		private IComponent			innerComp;

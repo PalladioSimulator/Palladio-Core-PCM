@@ -3,3 +3,7 @@ obj
 .cvsignore
 ComponentModel.csproj.user
 ComponentModel.suo
+doc
+Palladio.ComponentModel.csproj.user
+Palladio.ComponentModel.suo
+Palladio.ComponentModel.xml

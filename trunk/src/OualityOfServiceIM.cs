@@ -5,7 +5,7 @@ namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// </summary>
-	public class OualityOfServiceIModel : AbstractIModel 
+	public class OualityOfServiceIModel : ProtocolIModel  
 	{
 
 		public OualityOfServiceIModel()	

@@ -5,7 +5,7 @@ namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// </summary>
-	public class ProvidesMapping : IMapping 
+	public class ProvidesMapping : IProvidesMapping 
 	{
 		
 		private ProvidesInterface	innerProvIFace;

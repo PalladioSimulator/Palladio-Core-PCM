@@ -7,13 +7,17 @@ namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// </summary>
-	public class ProtocolIModel : AbstractIModel 
+	public class ProtocolIModel : SignatureListIModel  
 	{
 		private IFiniteStateMachine protocol;
 
 		public IFiniteStateMachine Protocol 
 		{
 			get { return protocol; }
+		}
+
+		public ProtocolIModel() 
+		{
 		}
 
 		public ProtocolIModel( IFiniteStateMachine aProtocol) 

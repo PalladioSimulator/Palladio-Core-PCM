@@ -19,6 +19,10 @@ namespace Palladio.ComponentModel
 			get { return signatureList; }
 		}
 
+		public SignatureListIModel() 
+		{
+		}
+
 		public SignatureListIModel(IList aSignatureList) 
 		{
 			signatureList = new ArrayList(aSignatureList);

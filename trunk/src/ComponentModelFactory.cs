@@ -25,12 +25,14 @@ namespace Palladio.ComponentModel
 //		
 //		public ICompositeComponent ComposeComponent(IList aCompList, IList aBindingList, IList aReqMappingList, IList aProvMappingList);
 //
-//		public IList BindComponents(IComponent compOne, IComponent compTwo);
+//		public IList BindComponents(IComponent aReqComp, IComponent aProvComp);
 //
-//		public IBinding BindInterfaces(RequiresInterface reqIFace, ProvidesInterface provIFace);
+//		public IBinding BindInterfaces(RequiresInterface aReqIFace, ProvidesInterface aProvIFace);
 //
-//		public IMapping MapInterfaces(IInterfaceModel ifaceOne, IInterfaceModel ifaceTwo);
+//		public IMapping MapInterfaces(IInterfaceModel anInnerIFace, IInterfaceModel anOuterIFace);
 //
-//		public bool CheckSubType(IComponent superType, IComponent subType);
+//		public IProvidesMapping MapInterfaces(ProvidesInterface anInnerProvIFace, ProvidesInterface anOuterProvIFace);
+//
+//		public IRequiresMapping MapInterfaces(RequiresInterface anInnerReqIFace, RequiresInterface anOuterReqIFace);
 	}
 }
