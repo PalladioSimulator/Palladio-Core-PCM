@@ -1,6 +1,6 @@
 <project>
     <assemblies>
-        <assembly location="E:\projects\ip\Palladio.Simulation\bin\Release\Palladio.Simulation.dll" documentation="E:\projects\ip\Palladio.Simulation\bin\Release\Palladio.Simulation.xml" />
+        <assembly location=".\bin\Release\Palladio.Simulation.dll" documentation=".\bin\Release\Palladio.Simulation.xml" />
     </assemblies>
     <namespaces>
         <namespace name="Palladio.Simulation"></namespace>

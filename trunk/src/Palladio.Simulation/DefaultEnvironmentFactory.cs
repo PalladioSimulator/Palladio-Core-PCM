@@ -17,6 +17,9 @@ namespace Palladio.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/28 15:34:46  sbecker
+	/// Review comments added
+	///
 	/// Revision 1.2  2004/07/22 20:28:18  joemal
 	/// - changed some comments
 	///
@@ -46,6 +49,8 @@ namespace Palladio.Simulation
 		private IVisitorFactory visitorFactory;
 
 		#endregion
+
+		//konstructor mit fabriken und parametern 
 
 		#region create methods
 

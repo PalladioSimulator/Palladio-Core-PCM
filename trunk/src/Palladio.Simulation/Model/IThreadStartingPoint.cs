@@ -9,12 +9,16 @@ namespace Palladio.Simulation.Model
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/07/28 15:34:46  sbecker
+	/// Review comments added
+	///
 	/// Revision 1.1  2004/07/20 11:46:43  joemal
 	/// new cvs module for first release
 	///
 	/// 
 	/// </pre>
 	/// </remarks>
+	/// Raus!!!
 	public interface IThreadStartingPoint
 	{
 		/// <summary>

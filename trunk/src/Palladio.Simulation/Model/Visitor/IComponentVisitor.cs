@@ -12,12 +12,16 @@ namespace Palladio.Simulation.Model.Visitor
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/07/28 15:34:46  sbecker
+	/// Review comments added
+	///
 	/// Revision 1.1  2004/07/20 11:46:42  joemal
 	/// new cvs module for first release
 	///
 	/// 
 	/// </pre>
 	/// </remarks>
+	/// IEnumerable einbauen ...
 	public interface IComponentVisitor 
 	{
 		/// <summary>
