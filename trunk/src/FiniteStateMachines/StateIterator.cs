@@ -2,109 +2,118 @@ using System;
 using System.Collections;
 using Utils.Collections;
 
-namespace FiniteStateMachines {
+namespace FiniteStateMachines 
+{
 	/// <summary>
-	/// Iterates of the States of a FSM
+	/// Iterates over the States of a IFiniteStateMachine with depth-first-search-
 	/// </summary>
-	public class StateIterator {
+	public class StateIterator 
+	{
+
+		/// <summary>
+		/// Stores all states that has been visited in a <code>Set</code>
+		/// </summary>
 		protected Set visited; 
+
+		/// <summary>
+		/// Temporary (during iteration) the states are stored here.
+		/// </summary>
 		protected Stack states;
+
+		/// <summary>
+		/// An indicator that checks if the stateiterator has already been init.
+		/// </summary>
 		protected bool isInitialised;
+
+		/// <summary>
+		/// The thing we want to iterate over.
+		/// </summary>
 		protected IFiniteStateMachine getters;
+
+		/// <summary>
+		/// The current state, that will be returned
+		/// </summary>
 		protected AbstractState returnState;
+
+		/// <summary>
+		/// The currant Transition that will be returned
+		/// </summary>
 		protected Transition currentTransition;
+
+		/// <summary>
+		/// A <code>Stack</code> in which all transitions are stored during iteration.
+		/// </summary>
 		protected Stack transitions;
-		//stores the elements which has been already retruned
+		
+		/// <summary>
+		/// Stores all states, which has already been retruned in a <code>Set</code>
+		/// </summary>
 		protected Set alreadyReturned;
+
+		/// <summary>
+		/// for debugging
+		/// </summary>
 		protected bool debugOutput = !true;
 		
 		/// <summary>
 		/// Initiates a FSM Iterator.
 		/// </summary>
 		/// <param name="d">The FSM which should be iterated</param>
-		public StateIterator(IFiniteStateMachine d) {
-			this.getters =  d; // RR: what is if d is NOT a FSM but another class implementing Getters?
-			// please use only the getter interface! 
-
+		public StateIterator(IFiniteStateMachine aIFiniteStateMachine) 
+		{
+			this.getters =  aIFiniteStateMachine;
 			this.isInitialised =false;
 			this.states = new Stack();
 			this.visited = new Set();
 			this.alreadyReturned = new Set();
 			this.transitions = new Stack();
 		}
+
+
 		/// <summary>
 		/// Checks if there is another State to visit.
 		/// </summary>
 		/// <returns>True if there is another state, false if not</returns>
-		public bool MoveNext() {
-			if(!this.isInitialised) {
+		public bool MoveNext() 
+		{
+			if(!this.isInitialised) 
+			{
 				try
 				{
-					///State placboState = (State) this.getters.StartState;
-					//
 					if(this.getters.StartState == null)
-//					if (placboState == null)
 						Console.WriteLine(" ");
-					
 				}
 				catch(System.NullReferenceException)
-				{
-					//if you have no Startstate you can't iterate over a FSM
+				{//if you have no Startstate you can't iterate over a FSM
 					return false;
 				}
-
-				this.states.Push(this.getters.StartState); 
-				this.isInitialised = true;
-				this.returnState = (AbstractState) this.states.Peek();
-				
-				//First Transition of a FSM 
-				AbstractState none = new State("null",false,false);
-				Input noInput = new Input("null"); 
-				Transition g = new Transition(none,noInput,this.returnState);
-				Transition emptyTransition = new Transition(none,new Input("null"),this.returnState);
-				this.transitions.Push(emptyTransition);
-				this.alreadyReturned.Add(this.returnState);
-				this.currentTransition = (Transition) this.transitions.Peek();
+				CreateInitailTransition();
 				return true;
 			}
-			else {
-				//top of Stack has allready been returning
+			else 
+			{
 				AbstractState currentState = (AbstractState) this.states.Peek();
-				//check if cs has chilldren();
 				IList nextStates = this.getters.GetOutgoingTransitions(currentState);
-				while(nextStates == null) {
-					if(this.debugOutput)
-						Console.WriteLine("There are no Children from "+currentState.ToString());
-					//now there are no children left and this this state is now complety explored,
-					this.visited.Add(currentState);
-					this.states.Pop();
-					this.transitions.Pop();
-					//next children 
-					nextStates = this.getters.GetOutgoingTransitions((AbstractState) this.states.Peek());
-
+				while(nextStates == null) 
+				{
+					tidyUp(currentState, out nextStates);
 				}		
 				currentState = (AbstractState) this.states.Peek();
-				
 				nextStates = getters.GetOutgoingTransitions(currentState);
-				//E a Hashatabele which contains the children of CS
-				//write every child on the Stack
 				Transition tempTransition = new Transition();
-				//				AbstractState tempState = new State();
 				IEnumerator iterateOverChildren = nextStates.GetEnumerator();
-				while(iterateOverChildren.MoveNext()) {
+				while(iterateOverChildren.MoveNext()) 
+				{
 					
-					tempTransition = (Transition) iterateOverChildren.Current;
-					this.states.Push(tempTransition.DestinationState);
-					this.transitions.Push(tempTransition);
-					if(this.debugOutput)
-						Console.WriteLine(tempTransition.DestinationState.ToString()+" ís pushed on the stack");
+					ExploreAllChildrenOfCurrentState(iterateOverChildren);
 				}
 				//now all children of CS are no on the stack, and cs is completly explored 
 				this.visited.Add(currentState);
 				if(this.debugOutput)
 					Console.WriteLine(currentState.ToString()+ " now has been completly doscovered");
 				//search of the next State which will be returned
-				while(this.alreadyReturned.Contains(this.states.Peek())) {
+				while(this.alreadyReturned.Contains(this.states.Peek())) 
+				{
 					if(this.debugOutput)
 						Console.WriteLine("This State hs already been discovered "+this.states.Peek().ToString());
 					this.states.Pop();
@@ -113,7 +122,8 @@ namespace FiniteStateMachines {
 						return false;
 				}
 				//Now a State is found, which jet has not been returning
-				if(this.states.Peek().Equals(new State("ErrorState",false,false))) {
+				if(this.states.Peek().Equals(new State("ErrorState",false,false))) 
+				{
 					states.Pop();
 					this.MoveNext();
 				}
@@ -124,16 +134,78 @@ namespace FiniteStateMachines {
 			}
 		}
 
+
+		/// <summary>
+		/// Explores all children of the currentState and stores.
+		/// </summary>
+		/// <param name="iterateOverChildren">IEnumerator which helps to iterate</param>
+		private void ExploreAllChildrenOfCurrentState(IEnumerator iterateOverChildren)
+		{
+			Transition tempTransition;
+			tempTransition = (Transition) iterateOverChildren.Current;
+			this.states.Push(tempTransition.DestinationState);
+			this.transitions.Push(tempTransition);
+			if(this.debugOutput)
+				Console.WriteLine(tempTransition.DestinationState.ToString()+" ís pushed on the stack");
+		}
+
+
+		/// <summary>
+		/// When a state has completly been explored, this is use to remove the state from the Stack and
+		/// add him to the visited states. And look for the next state, which has to be explored.
+		/// </summary>
+		/// <param name="currentState">The State which has been completly explored</param>
+		/// <param name="nextStates">A List of nextStates</param>
+		private void tidyUp(AbstractState currentState, out IList nextStates)
+		{
+			if(this.debugOutput)
+				Console.WriteLine("There are no Children from "+currentState.ToString());
+			//now there are no children left and this this state is now complety explored,
+			this.visited.Add(currentState);
+			this.states.Pop();
+			this.transitions.Pop();
+			//next children 
+			nextStates = this.getters.GetOutgoingTransitions((AbstractState) this.states.Peek());
+		}
+
+
+		/// <summary>
+		/// Creates a Transition from nowhere to the Startstate
+		/// </summary>
+		private void CreateInitailTransition()
+		{
+			this.states.Push(this.getters.StartState); 
+			this.isInitialised = true;
+			this.returnState = (AbstractState) this.states.Peek();
+			//First Transition of a FSM 
+			AbstractState none = new State("null",false,false);
+			Input noInput = new Input("null"); 
+			Transition initialTransition = new Transition(none,new Input("null"),this.returnState);
+			this.transitions.Push(initialTransition);
+			this.alreadyReturned.Add(this.returnState);
+			this.currentTransition = (Transition) this.transitions.Peek();
+		}
+
+
 		/// <summary>
 		/// Returns the current object of the FSM.
 		/// </summary>
-		public object Current {
-			get {
+		public object Current 
+		{
+			get 
+			{
 				return this.returnState;
 			}
 		}
-		public object getCurrentTransition {
-			get {
+
+
+		/// <summary>
+		/// return the current Transtion.
+		/// </summary>
+		public object getCurrentTransition 
+		{
+			get 
+			{
 				return this.currentTransition;
 			}
 		}
