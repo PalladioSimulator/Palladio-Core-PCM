@@ -21,6 +21,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2004/11/05 09:29:41  kelsaka
+	/// Improved determining of HTTP-Request-Types
+	///
 	/// Revision 1.12  2004/11/05 08:31:19  kelsaka
 	/// changed comment
 	///
@@ -103,28 +106,29 @@ namespace Palladio.Webserver.HTTPRequestParser
 			{
 				webserverMonitor.WriteLogEntry("Calling COR-Successor as errors occured on handling (read data) the request as a http-request. " + e);
 				corSuccessor.HandleRequest(request);
+				return;
 			}
 
 
 
 
 			// FIRST: HTTP-Request? 
-			// Look for HTTP request:
-			//TODO: Fix: Variables or other content containing "HTTP" let the webserver think having a HTTP-Request.
-			httpStartPos = requestString.IndexOf("HTTP", 0);
-
-			// Call the CoR-Successor, if the request is not a HTTP-Request. The HTTP-Parser is not the right chain link
-			// for this request.
-			// The HandleRequest-Method is called, as it is the standard call for the IRequest-Chain.
-			if(httpStartPos == -1)
+			// Look for HTTP request:	
+			httpStartPos = IsRequestOfHTTPType(requestString);
+			if(httpStartPos == -1) //handle non-http-request.
 			{
+				// Call the CoR-Successor, if the request is not a HTTP-Request. The HTTP-Parser is not the right chain link
+				// for this request.
+				// The HandleRequest-Method is called, as it is the standard call for the IRequest-Chain.
 				webserverMonitor.WriteLogEntry("Calling the COR-Successor as the actual request is not a HTTP-Request.");
 				corSuccessor.HandleRequest(request);
+				return;
 			}
 
 			// Get the HTTP text and version e.g. it will return "HTTP/1.1"
 			httpRequest.HttpVersion = requestString.Substring(httpStartPos, 8);
 			webserverMonitor.WriteLogEntry("HTTP-request has version " + httpRequest.HttpVersion);
+
 
 
 
@@ -138,6 +142,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 			{
 				request.Socket.Close();
 				webserverMonitor.WriteDebugMessage("Error: No valid http-request-type (GET, POST) found. Socket closed.", 1);
+				return;
 			}
 
 
@@ -152,7 +157,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 			// GET-Method:
 			else if(httpRequest.RequestedMethodType == RequestTypes.GET_METHOD) 
 			{
-				ParseGetRequest (requestString, httpStartPos, httpRequest);
+				ParseGetRequest(requestString, httpStartPos, httpRequest);
 			}
 
 
@@ -162,8 +167,37 @@ namespace Palladio.Webserver.HTTPRequestParser
 			// FOURTH: Call the RequestProcessor
 			// Handle IHTTPRequest in the requestProcessor. The httpRequest contains all necessary (parsed) data.
 			requestProcessor.handleRequest(httpRequest);
+		}
 
 
+
+		/// <summary>
+		/// Parses the request and determines, whether it is a HTTP-Request.
+		/// </summary>
+		/// <param name="requestString">The full request-string that has to be parsed.</param>
+		/// <returns>The Index-Position of the "HTTP"-String, if a valid HTTP-Request was given.
+		///	If an error occured on parsing or the parsing-process returned with an non HTTP-request -1 will be returned.</returns>
+		private int IsRequestOfHTTPType (string requestString)
+		{
+			int httpStartPos;
+
+			// A typical first GET/POST-HTTP-Request-Row looks like (without ""):
+			// "GET /subdirectory/index.html HTTP/1.1"
+			try
+			{
+				string firstRow = requestString.Substring(0, requestString.IndexOf("\n")); // get the first row
+				httpStartPos = firstRow.LastIndexOf(" ") + 1; // "HTTP" should appear behind the last space.
+
+				if (requestString.Substring(httpStartPos, 4) != "HTTP") // check for "HTTP"-string
+				{
+					return -1; //no HTTP-request
+				}
+			}
+			catch (Exception) // if the first row is not of the expected form (probably not HTTP-Request) a exception will be thrown.
+			{			
+				return -1; //no HTTP-request
+			}
+			return httpStartPos;
 		}
 
 
