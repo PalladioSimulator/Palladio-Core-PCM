@@ -43,8 +43,7 @@ namespace FSM
 		/// Checks if the state is a Startstate
 		/// </summary>
 		/// <returns>true if is a StartState, false if not </returns>
-		public  bool getStart()
-		{
+		public override bool getStart() {
 			if(this.one.getStart() == this.two.getStart())
 				return this.one.getStart();
 			return false;
@@ -54,8 +53,7 @@ namespace FSM
 		/// Checks if the state is a finalstate
 		/// </summary>
 		/// <returns>true if it is a finalstate, false if not</returns>
-		public bool getFinal()
-		{
+		public override bool getFinal() {
 			if(this.one.getFinal() == this.two.getFinal())
 				return this.one.getFinal();
 			return false;
@@ -65,8 +63,7 @@ namespace FSM
 		/// returns the name of a state in a string
 		/// </summary>
 		/// <returns>the name of the state</returns>
-		public string getName()
-		{
+		public override string getName() {
 			return this.one.getName()+"-X-"+this.two.getName();
 		}
 	}

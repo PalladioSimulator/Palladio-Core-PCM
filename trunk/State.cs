@@ -1,11 +1,14 @@
 using System;
+using FSM;
 
 namespace FSM
 {
 
 	/// <summary>
 	/// Represents the States of a FSM.
-	/// </summary>f
+	/// 
+	/// jh: some methods are 'virtual' now, so they can be overridden
+	/// </summary>
 	public class State
 	{
 		protected string name;
@@ -45,42 +48,56 @@ namespace FSM
 		/// <returns>Returns this instance of State as a string.</returns>
 		override public string ToString()
 		{
-			return this.name;
+			return this.getName();
 		}
 
 		/// <summary>
 		/// Checks if this instance is startstate.
 		/// </summary>
 		/// <returns>true, if this instance is a startstate.</returns>
-		public bool getStart()
-		{
+		public virtual bool getStart() {
 			return this.startState;
 		}
 		/// <summary>
 		/// Checks if this instance is a finalstate.
 		/// </summary>
 		/// <returns>true, if thid instance is a finalstate.</returns>
-		public bool getFinal()
-		{
+		public virtual bool getFinal() {
 			return this.finalState;
 		}
 
-		public bool  Equals(State state)
-		{
-			if(this.name == state.name)
-			{
+		// jh: override the original Equals-Method
+		public override bool Equals(object obj) {
+			
+
+			// jh: check if the object is an instance of State
+			State state;
+			if (obj is State) { 
+				state = (State)obj;
+			} else {
+				return false;
+			}
+
+			if(this.name == state.name) {
 				if(this.getStart() == state.getStart())
 					if(this.getFinal() == state.getFinal())
 						return true;
 			}
 					
-		return false;
+			return false;
 		}
-		public string getName()
-		{
+		public virtual string getName() {
 			return this.name;
 		}
+	
 
+		public virtual object Clone(){
+			State newState = new State();
+			newState.name = name;
+			newState.finalState = finalState;
+			newState.startState = startState;
+			return newState;
+		}
 
 	}
 }

@@ -8,7 +8,24 @@ namespace FSM
 	public class Input
 	{	
 
+		/// <summary>
+		/// Input instance indicating the end of a service effect specification.
+		/// </summary>
+		public static Input INPUT_RETURN = new Input("return");
+
+		/// <summary>
+		/// Input instance indicating a recursion.
+		/// 
+		/// Maybe own Inputclass (see implementation rr)
+		/// </summary>
+		public static Input INPUT_RECURSION = new Input("recursion");
+
+		/// <summary>
+		/// String represinting the input.
+		/// </summary>
 		protected string input;
+
+
 		//protected int Hashcode;
 		/// <summary>
 		/// The default constuctor.
@@ -29,6 +46,46 @@ namespace FSM
 			return this.input;
 		}
 
+
+		/// <summary>
+		/// Compares this input to anoter object.
+		/// </summary>
+		/// <returns>true, if both inputs are equal; false, otherwise</returns>
+		public override bool Equals(object obj) {
+			if (obj is Input) {
+				Input anInput = (Input)obj;
+				return (anInput.input == input);
+			}
+			return false;
+		}
+		
+		/// <summary>
+		/// Operator uses the implementation of Equals .
+		/// </summary>
+		/// <param name="input1"></param>
+		/// <param name="input2"></param>
+		/// <returns></returns>
+		public static bool operator == (Input input1, Input input2){
+			return input1.Equals(input2);
+		}
+
+		/// <summary>
+		/// Operator uses the implementation of Equals .
+		/// </summary>
+		/// <param name="input1"></param>
+		/// <param name="input2"></param>
+		/// <returns></returns>
+		public static bool operator != (Input input1, Input input2){
+			return !input1.Equals(input2);
+		}
+
+		/// <summary>
+		/// Refers to the GetHashCode of the input string.
+		/// </summary>
+		/// <returns></returns>
+		public override int GetHashCode() {
+			return input.GetHashCode();
+		}
 
 	}
 }
