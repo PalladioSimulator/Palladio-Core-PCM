@@ -15,6 +15,9 @@ namespace Palladio.FiniteStateMachines {
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/05/12 14:12:24  sliver
+	/// Comments reviewed.
+	///
 	/// Revision 1.3  2004/05/12 13:40:19  sbecker
 	/// Added documentation and CVS log
 	///
@@ -49,9 +52,6 @@ namespace Palladio.FiniteStateMachines {
 		///     If the automaton reaches one of this states
 		///     during reading an input sequence, the
 		///     sequence is accepted.
-		///     
-		///     If no finalstates are defined an exception has to
-		///     be thrown. (type?)
 		/// </summary>
 		IState[] FinalStates { get; }
 
@@ -62,7 +62,7 @@ namespace Palladio.FiniteStateMachines {
 		IInput[] InputAlphabet { get; }
 
 		/// <summary>
-		///     Returns the target of a transition
+		///     Returns the targets of a transition
 		///     starting at aSourceState with the input 
 		///     symbol anInput.
 		/// </summary>
@@ -89,7 +89,7 @@ namespace Palladio.FiniteStateMachines {
 		IState GetNextState(IState aSourceState, IInput anInput);
 		
 		/// <summary>
-		///     Returns the next ITransition starting 
+		///     Returns an array of the ITransitions starting 
 		///     at aSourceState with the input symbol 
 		///     anInput.
 		/// </summary>
@@ -101,8 +101,8 @@ namespace Palladio.FiniteStateMachines {
 		///	</param>
 		/// 
 		/// <returns>
-		///		The transition starting at aSourceState
-		///     with the input symbol anInput.
+		///		The transitions starting at aSourceState
+		///   with the input symbol anInput.
 		/// </returns>
 		ITransition[] GetNextTransitions(IState aSourceState, IInput anInput);
 		
@@ -127,7 +127,7 @@ namespace Palladio.FiniteStateMachines {
 		ITransition GetNextTransition(IState aSourceState, IInput anInput);
 
 		/// <summary>
-		///     Returns all _valid_ transitions for aSourceState.
+		///     Returns all <b>valid</b> transitions for aSourceState.
 		/// </summary>
 		/// <param name="aSourceState">
 		///		The source for which all valid transitions are returned.

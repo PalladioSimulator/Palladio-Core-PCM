@@ -234,7 +234,7 @@
                 <File
                     RelPath = "src\UnitTests\FactoryTest.cs"
                     SubType = "Code"
-                    BuildAction = "None"
+                    BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\Visitors\StateVisitor.cs"

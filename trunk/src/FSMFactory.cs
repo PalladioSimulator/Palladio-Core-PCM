@@ -16,6 +16,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/05/12 14:12:24  sliver
+	/// Comments reviewed.
+	///
 	/// Revision 1.5  2004/05/12 13:40:19  sbecker
 	/// Added documentation and CVS log
 	///
@@ -55,7 +58,7 @@ namespace Palladio.FiniteStateMachines
 		}
 
 		/// <summary>
-		/// Construct a state with the given payload
+		/// Construct a state with the given id.
 		/// </summary>
 		/// <param name="anID">ID of the state to be created</param>
 		/// <returns>An IState representing the new state</returns>
