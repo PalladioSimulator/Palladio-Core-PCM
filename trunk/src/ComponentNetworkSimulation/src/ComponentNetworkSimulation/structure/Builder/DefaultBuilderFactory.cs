@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/06/26 15:42:23  joemal
+	/// - add the default builder for composite components
+	///
 	/// Revision 1.2  2004/06/22 17:08:29  joemal
 	/// - change method signature in service builder
 	///
@@ -44,10 +47,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// </summary>
 		/// <param name="component">the component to be filled</param>
 		/// <returns>the builder used to fill the component</returns>
-		public ICompositeComponentBuilder CreateBuilder(Palladio.ComponentModel.ICompositeComponent component)
+		public ICompositeComponentBuilder CreateBuilder(ICompositeComponent component)
 		{
-			//todo: implement ...
-			return null;
+			return new DefaultCompositeComponentBuilder(component,elementFactory,this);
 		}
 
 		/// <summary>
