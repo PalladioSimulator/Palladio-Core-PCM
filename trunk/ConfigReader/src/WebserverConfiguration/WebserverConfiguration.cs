@@ -16,6 +16,10 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/02/02 17:34:56  kelsaka
+	/// Added multi-threading to handle requests.
+	/// Added short architectural description.
+	///
 	/// Revision 1.5  2004/11/14 10:55:51  kelsaka
 	/// Completed listening on IP-Addresses. Now the IP the server is listening on defineable in the WebserverXML.xml. Pay attention that there might be some problems with the project-name of WebserverXML as XMLSpy sometimes produces lower-case-versions that cause problems on windows-systems.
 	///
@@ -74,7 +78,7 @@ namespace Palladio.Webserver.ConfigReader
 
 
 		/// <summary>
-		/// The root-path of documents (e. g. html-sites) delivered.
+		/// The root-path of documents (e. g. html-sites) delivered. (Relative paths are supported.)
 		/// </summary>
 		public string DocumentRoot
 		{
