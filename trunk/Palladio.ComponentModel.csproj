@@ -125,6 +125,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\AbstractIM.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\AmbiguousMatchError.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -276,11 +281,6 @@
                 />
                 <File
                     RelPath = "src\SimpleSignature.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\UnitTests\AbstractIM.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

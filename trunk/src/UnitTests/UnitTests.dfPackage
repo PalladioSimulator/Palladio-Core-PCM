@@ -12,11 +12,6 @@ class diagram {
 */
 class reference {
 }/**
-@__ref <oiref:csharp#Class#Palladio.ComponentModel.AbstractIModel:oiref><oihard>
-@__modelType reference 
-*/
-class reference26 {
-}/**
 @__ref <oiref:csharp#Class#Palladio.ComponentModel.UnitTests.SignatureIModelTest:oiref><oihard>
 @__modelType reference 
 */

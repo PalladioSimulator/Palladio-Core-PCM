@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jens Happe (University pf Oldenburg) -->
+<xs:schema targetNamespace="Palladio.ComponentModel" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:pc="Palladio.ComponentModel" xmlns:pf="Palladio.FiniteStateMachines" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="Palladio.FiniteStateMachines" schemaLocation="C:\Dokumente und Einstellungen\sliver\Eigene Dateien\Visual Studio Projects\Palladio.FiniteStateMachine\xsd\Palladio.FiniteStateMachines.xsd"/>
+	<xs:element name="ComponentModel">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ComponentList">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Component" type="pc:ComponentType" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="BindingList">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Binding" type="pc:BindingType" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="InterfaceModelType">
+		<xs:attribute name="ID" type="xs:ID" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ServiceType">
+		<xs:sequence>
+			<xs:element name="EffectSpecification"/>
+		</xs:sequence>
+		<xs:attribute name="Signature" type="xs:IDREF" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ProvidesInterfaceType">
+		<xs:sequence>
+			<xs:element name="InterfaceModel" type="pc:InterfaceModelType"/>
+			<xs:element name="ServiceList">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Service" type="pc:ServiceType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BindingType">
+		<xs:sequence>
+			<xs:element name="InterfaceBinding" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="ProvidingInterface" type="xs:IDREF" use="required"/>
+					<xs:attribute name="RequiringInterface" type="xs:IDREF" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ProvidingComponent" type="xs:IDREF" use="required"/>
+		<xs:attribute name="RequiringComponent" type="xs:IDREF" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="RequiresInterfaceType">
+		<xs:sequence>
+			<xs:element name="InterfaceModel" type="pc:InterfaceModelType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ComponentType">
+		<xs:sequence>
+			<xs:element name="ProvidesInterfaceList">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ProvidesInterface" type="pc:ProvidesInterfaceType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RequiresInterfaceList">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="RequiresInterface" type="pc:RequiresInterfaceType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="SignatureListType">
+		<xs:complexContent>
+			<xs:extension base="pc:InterfaceModelType">
+				<xs:sequence>
+					<xs:element name="Signature" type="pc:SignatureType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SignatureType">
+		<xs:sequence>
+			<xs:element name="ParameterList">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Parameter">
+							<xs:complexType>
+								<xs:attribute name="Type" type="xs:string" use="required"/>
+								<xs:attribute name="Name" type="xs:string" use="required"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID" use="required"/>
+		<xs:attribute name="ReturnType" type="xs:string" use="required"/>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ProtocolType">
+		<xs:complexContent>
+			<xs:extension base="pc:SignatureListType">
+				<xs:sequence>
+					<xs:element ref="pf:FSM"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CompositeComponentType">
+		<xs:complexContent>
+			<xs:extension base="pc:ComponentType">
+				<xs:sequence>
+					<xs:element name="ComponentList">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Component" type="pc:ComponentType" maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="BindingList">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Binding" type="pc:BindingType"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="ProvidesMappingList">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="ProvidesMapping">
+									<xs:complexType>
+										<xs:attribute name="InnerComponent" type="xs:IDREF" use="required"/>
+										<xs:attribute name="OuterComponent" type="xs:IDREF" use="required"/>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

@@ -37,7 +37,6 @@ namespace Palladio.ComponentModel
 		}
 		#endregion
 
-
 		#region Implemented Methods
 
 		public override bool IsSubSetOf(IInterfaceModel anIModel, out IList anErrorList) 
@@ -93,7 +92,6 @@ namespace Palladio.ComponentModel
 			}
 			return false;
 		}
-
 
 		#endregion
 	}

@@ -51,7 +51,7 @@ namespace Palladio.ComponentModel
 		}
 		#endregion
 
-		#region Methods
+		#region private Methods
 
 		private IFaceBinding[] GenerateBindings()
 		{
