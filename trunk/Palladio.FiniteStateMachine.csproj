@@ -90,6 +90,7 @@
                     AssemblyName = "nunit.util"
                     HintPath = "..\..\..\..\..\Programme\NUnit V2.1\\bin\nunit.util.dll"
                     AssemblyFolderKey = "hklm\dn\nunit.framework"
+                    Private = "False"
                 />
                 <Reference
                     Name = "ReflectionBasedVisitor"
@@ -233,7 +234,7 @@
                 <File
                     RelPath = "src\UnitTests\FactoryTest.cs"
                     SubType = "Code"
-                    BuildAction = "Compile"
+                    BuildAction = "None"
                 />
                 <File
                     RelPath = "src\Utils\Collections\Set.cs"
