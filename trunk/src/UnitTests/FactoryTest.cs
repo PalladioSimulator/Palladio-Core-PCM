@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2004/05/12 12:54:33  sliver
+	/// Comments for the exceptions added
+	///
 	/// Revision 1.13  2004/05/12 12:04:24  sliver
 	/// Test for GetReachableTransitions added.
 	///
@@ -349,10 +352,8 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			IEditableFiniteStateMachine fsm = BuildExampleFSM();
 			fsm.AddStates( FSMFactory.CreateStatesFromList("4","5").StoredStates );
 			Assert.IsTrue( fsm.GetReachableStates(fsm.StartState).Length == 3 );
-//			fsm.AddTransition("4","b","5");
-//			fsm.AddTransition("4","c","3");
-
-
+			fsm.AddTransition("4","b","5");
+			fsm.AddTransition("4","c","3");
 			fsm.Clean();
 			Assert.IsTrue( fsm.States.Length == 3 );
 			Assert.IsTrue( fsm.Transitions.Length == 4 );

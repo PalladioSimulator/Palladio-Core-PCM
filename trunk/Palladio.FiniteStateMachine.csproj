@@ -226,11 +226,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Exceptions\StateNotStartStateException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Exceptions\TransitionNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
