@@ -1,5 +1,8 @@
 % Version history:
 % $Log$
+% Revision 1.1.2.4  2005/03/04 08:17:46  kelsaka
+% added further content
+%
 % Revision 1.1.2.3  2005/03/03 16:36:43  kelsaka
 % reviewed and corrected original text from the tech report; added updated graphics
 %
@@ -49,7 +52,6 @@ Carl-Von-Ossietzky Universität Oldenburg}
 
 \section{Overview}
 \label{sec:Overview}
-%Der vorliegende Text beschreibt die grundlegenden Erweiterungen und Veränderungen (Februar 2005) am Palladio Komponentenmodell. Um für ein Softwaresystem realistisch Komponenten auf der Implementierungs- und Deployment-Ebene modellieren zu können, wurde das Komponentenmodell auf drei Ebenen erweitert. Die neuen Ebenen ermöglichen eine Unterscheidung, ob es sich um Komponenten-Typen, -Implementierungen oder -Installationen handelt und heben damit die Einschränkung des alten Modells auf eine 1:1:1-Beziehung auf. Es sind also zu einem Typen mehrere Implementierungen und zu einer Implementierung mehrere Deployments möglich. In Abbildung \ref{fig:meta-scheme-implementation-layers01} werden die Multiplizitäten zwischen den Ebenen angegeben.
 The Palladio component model is the meta-model for specifying component models in the context of the Palladio framework. Currently the specification of a layered logical view on basic components, components built by assembling components and component connections is supported. To gain a better understanding of the model take a closer look at figure \ref{fig:componentmodel}.
 
 As already mentioned the component model is multi-layered. It differs between a type-, implementation-, and deployment-layer to allow realistical modelling of software-systems. To give an easy introduction first the general elements (mainly at the type-level) are described.
@@ -77,23 +79,16 @@ An interface is described by a so called \emph{interface model}. The interface m
 
 
 \subsection{Connections}
-A connector, which is a new concept in UML 2.0, represents a communication link between two or more instances. Connectors can be realized by a variety of mechanisms, such as pointers or network connections--though the particular mechanism is not part of a connector definition. Formally, a connector is just a link between two or more connectable elements (e.g., ports or interfaces); it cannot be associated with a behavioral description or attributes that characterize the connection.
-
-UML 2.0 specifies two kinds of connectors: assembly and delegation. An assembly connector is a binding between a provided interface and a required interface (or ports) that indicates that one component provides the services required by another. A delegation connector binds a component's external behavior (as specified at a port) to an internal realization of that behavior by one of its parts. For example, a delegation connector between the port of a component to the port of an internal part indicates that the behavior described at the component's port is realized by the internal part's behavior.
-
-UML 2.0 defines some sensible but incomplete compatibility constraints over connectors. For example, delegation connectors must be used between the same kinds of ports or interfaces (provided or required), and assembly connectors can be defined only between a provided interface and a required interface that are compatible. The definition of compatible, however, is a semantic variation point, though signature compatibility and complete coverage (i.e., the features in the provided interface must be a superset of those in the required interface) are minimal criteria.
-
-Connectors can be represented in different ways, depending on the type of the connector and the type of elements being joined. Figure 11 shows an assembly connector (the unlabeled line) between the ports of two components. Figure 12 shows an assembly connector between a provided interface of one component and a required interface of a second component using the ball-and-socket notation; in this form, the connector adds no new symbols and is represented by positioning the ball inside the connected socket. Connectors can also be defined directly between two components, without connecting ports or interfaces, though it is clearest to use explicit ports or interfaces.
------------ 
-
-
-
 The basic components and their interfaces are inter-connected in a composite component by two different types of connectors. The visualisation refers to the UML 2.0 connectors (see \cite{carnegie}).
 
 \begin{itemize}
 \item \emph{Assembly Connector} (aka Binding): This kind of connection is used to connect a requires interface of one component to the provides service of another component. Such a connection has the meaning that any call of the requiring component to the respective requires role is actually redirected to a call of an appropriate provided service on the providing component. Note that there might be some kind of connector involved in this process, like using a RMI or .NET Remoting call.
 
-\item \emph{Delegation Connector} (aka Mapping): Delegation connectors on the other hand are logical constructs which map the provided or required services of the composite component to contained components. There are two types of delegation connectors: \textit{Provides delegation connectors} are used to map provides services to components offering those services and \textit{requires delegation connectors} are used to map required services to requires interfaces of the composite component.
+\item \emph{Delegation Connector} (aka Mapping): Delegation connectors are logical constructs which map the provided or required services of the composite component to contained components. A delegation connector maps a component's external behavior to an internal realization of that behavior by one of its sub-components. 
+
+There are two types of delegation connectors: \textit{Provides delegation connectors} are used to map provides services to components offering those services and \textit{requires delegation connectors} are used to map required services to requires interfaces of the composite component.
+
+
 \end{itemize}
 
 The different types of connections can be seen in figure \ref{fig:componentmodel} and figure \ref{fig:connections} respectively.
@@ -131,27 +126,42 @@ An example of a service effect specification consisting of the external signatur
 
 \subsection{Protocols}
 \label{sec:protocols}
-Interface protocols mostly are described using FSMs. They are attached to interfaces as additional attributes.
+Interface protocols mostly are described using FSMs. They are attached to interfaces as additional attributes and describe all correct orders of calling services, either at the provided or required side.
 
 \subsubsection{Provides Protocol}
-
-Attribs: Protokolle: interface, SEFF: COmpoProv Req.
+The \textit{provides protocol} describes in which order the provides services have to be called, to use a interface properly. E. g. a typical access to a filesystem has a calling sequence like
+\[
+OpenHandle()\ \ (\:Read(),\ Write()\:)^{+}\ \ CloseHandle()
+\]
+as regular expression. Visualized as a FSM this protocol looks like depicted in figure \ref{fig:providesProtocol}.
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=0.50\textwidth]{images/provides-protocol01.pdf}
+	\caption{Example provides protocol}
+	\label{fig:providesProtocol}
+\end{figure}
 
 
 \subsubsection{Requires Protocol}
-
+The \textit{requires protocol} describes in which order external services, that are generally given by the service effect specification, are called. So requires protocols extract the calling-orders on \textit{one} interface out of the service effects, while the service effect specification defines a order of calls on a \textit{number} of interfaces. This means that mostly requires protocols are calculated. (TODO: completely understood?)
 
 
 \subsection{Resources}
+Resources are special entities for the deployment level of architectural modelling (see section \ref{sec:layeredModel}). They describe hardware-environments in the model.
 
+\begin{itemize}
+\item \emph{Computational}: A developed software-system uses this kind of resources for computing values and processing information. E. g. this are processors, virtual machines or even operating systems.
+
+\item \emph{Non-Computational}: Part of this class of resources are router, switches, network-cables, internet-connections. Software does not use this resources to compute, but for connection activities.
+\end{itemize}
 
 
 \subsection{First Class Entities}
-The component model offers three types of first class entities. They may exist without being connected or attached to the rest of a model. Basic Components, Interfaces and Ressources (see section TODO) are first class entities. E. g. this means it is possible to have multiple interfaces that are not connected to any components, as interface can exist by there own.
+The component model offers three types of \textit{first class entities}. They may exist without being connected or attached to the rest of a model. Basic Components, Interfaces and Ressources (see section TODO) are first class entities. E. g. this means it is possible to have multiple interfaces that are not connected to any components, as interface can exist by there own.
 
 
 \subsection{Multiple Occurrences and Identity}
-All entities in the component model have Globally Unique Indentifiers (GUIDs) to be able to decide whether they are identical or the same. This permits the modeller to name components and interfaces the same though different entities are meant. The following entities are equiped with GUIDs: Interfaces, Basic Components, Composite Components, Resources, Roles, Attributes, and ...TODO.
+All entities in the component model have Globally Unique Indentifiers (\textit{GUID}s) to be able to decide whether they are identical or the same. This permits the modeller to name components and interfaces the same though different entities are meant. The following entities are equiped with GUIDs: Interfaces, Basic Components, Composite Components, Resources, Roles, Attributes, and ...TODO.
 
 To allow easy modelling of software architectures entities may occur multiple times. Due to the use of GUIDs e. g. interfaces can occur attached to several components at the same time. As \textit{one} interface in fact often is implemented by a lot of components a graphical representation of the model stays more clearly arranged. And as well attributes of an interface can be changed centrally. Figure \ref{fig:GUID01} shows an simple example of the use of GUIDs.
 
@@ -174,6 +184,8 @@ To allow easy modelling of software architectures entities may occur multiple ti
 
 \section{Layered Model}
 \label{sec:layeredModel}
+Der vorliegende Text beschreibt die grundlegenden Erweiterungen und Veränderungen (Februar 2005) am Palladio Komponentenmodell. Um für ein Softwaresystem realistisch Komponenten auf der Implementierungs- und Deployment-Ebene modellieren zu können, wurde das Komponentenmodell auf drei Ebenen erweitert. Die neuen Ebenen ermöglichen eine Unterscheidung, ob es sich um Komponenten-Typen, -Implementierungen oder -Installationen handelt und heben damit die Einschränkung des alten Modells auf eine 1:1:1-Beziehung auf. Es sind also zu einem Typen mehrere Implementierungen und zu einer Implementierung mehrere Deployments möglich. In Abbildung \ref{fig:meta-scheme-implementation-layers01} werden die Multiplizitäten zwischen den Ebenen angegeben.
+
 
 \begin{figure}[ht]
 	\centering
@@ -280,6 +292,9 @@ ADT. Tupel zur Navigation. DB-Charakter für alle Entitäten. Direkter und schnell
 Prüfung extern, da ADT. Mechanismus in "`Außenobjekt"'. Protokolle, Signaturen. Auch hier Strategie. 
 
 
+
+Connectors:
+UML 2.0 defines some sensible but incomplete compatibility constraints over connectors. For example, delegation connectors must be used between the same kinds of ports or interfaces (provided or required), and assembly connectors can be defined only between a provided interface and a required interface that are compatible. The definition of compatible, however, is a semantic variation point, though signature compatibility and complete coverage (i.e., the features in the provided interface must be a superset of those in the required interface) are minimal criteria.
 
 
 
