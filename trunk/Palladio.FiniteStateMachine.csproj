@@ -377,17 +377,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\UnitTests\FiniteStateMachines\FiniteStackMachineTest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\UnitTests\FiniteStateMachines\FiniteTabularMachineTest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\UnitTests\FiniteStateMachines\FSMFactoryTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FiniteStateMachines\StackFSMTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -398,6 +393,11 @@
                 />
                 <File
                     RelPath = "src\UnitTests\FiniteStateMachines\StateTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FiniteStateMachines\TabularFSMTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

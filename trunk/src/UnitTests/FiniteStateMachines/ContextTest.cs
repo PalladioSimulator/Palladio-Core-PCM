@@ -35,18 +35,6 @@ namespace UnitTests.FiniteStateMachines{
 		/// <summary>
 		/// 
 		/// </summary>
-		[Test] public void CloneTabFSM() 
-		{
-			State stat = new State("anyname",true,true);
-			IFiniteStateMachine firstFsm = new FSMFactory().GenerateFSM(stat);
-			IFiniteStateMachine secFsm = (IFiniteStateMachine)firstFsm.Clone();
-			Console.WriteLine("Next line will fail, because cloned state doesn't have any startstate ... ");
-			Assert.AreEqual(firstFsm,secFsm);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
 		[Test] public void Equals () {
 			StackContext contextOne = new StackContext(inputOne,stateOne);
 			StackContext contextTwo = new StackContext(inputOne,stateOne);

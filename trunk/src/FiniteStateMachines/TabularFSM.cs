@@ -98,7 +98,7 @@ namespace Palladio.FiniteStateMachines {
 		/// Copy-Constructor.
 		/// </summary>
 		/// <param name="aTabFSM"></param>
-		public TabularFSM(TabularFSM aTabFSM) : this()
+		public TabularFSM(TabularFSM aTabFSM) : this(aTabFSM.StartState)
 		{
 			DynamicTransitionIterator it = new DynamicTransitionIterator(aTabFSM);
 			while(it.MoveNext())

@@ -10,7 +10,7 @@ namespace UnitTests.FiniteStateMachines {
 	/// Unit test for <code>StackFiniteStateMachine</code>
 	/// </summary>
 	[TestFixture]
-	public class FiniteStackMachineTest {
+	public class StackFSMTest {
 		TabularFSM d1, d1s, d2, d3, p,q;
 		Input id1,id1s,id2,id3, e1,e2,e3,e4,e5,e6;
 		IState p1,p2, d11,d12, d21,d22, d31,d32,d33,d34;
