@@ -56,16 +56,14 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 
 			epsilonMachine = new FiniteEpsilonMachine(tabularMachine,epsilonAlphabet);
 			deterministicFSM = epsilonMachine.GetDeterministicFiniteStateMachine();
-			MinimizedAndEqualsFSM fec = new MinimizedAndEqualsFSM(deterministicFSM);
-			minimizedFSM = fec.getMinimizedFSM();
+			minimizedFSM = new MinimisedFSM(deterministicFSM);
 		}
 
 
 		[Test] public void ExpandedEqualsOriginal() {
 			FiniteStateMachineExpander exp = new FiniteStateMachineExpander(tabularMachine,minimizedFSM,epsilonAlphabet);
 			IFiniteStateMachine expanded = exp.GetExpandedMachine();
-			MinimizedAndEqualsFSM fec = new MinimizedAndEqualsFSM(tabularMachine);
-			Assert.IsTrue(fec.equal(expanded));
+			Assert.IsTrue(AbstractFiniteStateMachine.AreEqual(tabularMachine, expanded));
 		}
 
 		
@@ -84,9 +82,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			FiniteStateMachineExpander exp = new FiniteStateMachineExpander(tabularMachine,reduced,epsilonAlphabet);
 			FiniteShuffleProductMaschine shuffle = new FiniteShuffleProductMaschine(tabularMachine,reduced);
 
-			MinimizedAndEqualsFSM min = new MinimizedAndEqualsFSM(exp.GetExpandedMachine());
-			Assert.IsTrue(min.equal(expected));
-			Assert.IsTrue(min.equal(shuffle.ShuffleProduct));
+			IFiniteStateMachine expandedFSM = exp.GetExpandedMachine();
+			Assert.IsTrue( expandedFSM.Equals(expected));
+			Assert.IsTrue( expandedFSM.Equals(shuffle.ShuffleProduct));
 		}
 
 		[Test] public void ExpandModified(){
@@ -120,8 +118,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.IsTrue(expanded.FinalStates.Contains(state));
 
 			FiniteShuffleProductMaschine shuffle = new FiniteShuffleProductMaschine(tabularMachine,reduced);
-			MinimizedAndEqualsFSM min = new MinimizedAndEqualsFSM(expanded);
-			Assert.IsTrue(min.equal(shuffle.ShuffleProduct));
+			Assert.IsTrue(expanded.Equals(shuffle.ShuffleProduct));
 		}
 	}
 }
