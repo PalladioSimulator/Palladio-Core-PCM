@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2004/05/12 08:54:16  sliver
+	/// GetOutGoingTransitions throws an InvalidStateException now, if the state is NULL or not in fsm.States
+	///
 	/// Revision 1.10  2004/05/12 08:40:33  sbecker
 	/// Added GetOutgoingTransitions tests
 	///
@@ -218,6 +221,30 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			Assert.IsTrue(Array.IndexOf(fsm.Transitions,trans4) >= 0);
 			Assert.IsTrue(fsm.FinalStates.Length == 1);
 			Assert.IsTrue(Array.IndexOf(fsm.States,states["3"]) == -1);
+		}
+
+		[Test] public void DeleteInputSymbol()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			IInput i = FSMFactory.CreateDefaultInput("i");
+			fsm.AddInputSymbols(i);
+			Assert.IsTrue(fsm.InputAlphabet.Length == 5);
+			fsm.DeleteInputSymbols(i);
+			Assert.IsTrue(fsm.InputAlphabet.Length == 4);
+		}
+
+		[ExpectedException(typeof(InputDeletionNotAllowedException))]
+		[Test] public void DeleteUsedInputSymbol()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			fsm.DeleteInputSymbols(FSMFactory.CreateDefaultInput("b"));
+		}
+
+		[ExpectedException(typeof(InputNotFoundException))]
+		[Test] public void DeleteUnkownInput()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			fsm.DeleteInputSymbols(FSMFactory.CreateDefaultInput("i"));
 		}
 
 		[Test] public void GetReachableStatesAfterDeleteTransition()

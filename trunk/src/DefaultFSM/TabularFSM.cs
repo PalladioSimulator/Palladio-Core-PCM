@@ -142,7 +142,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			Set transList = new Set();
 			Hashtable outgoing = (Hashtable)transitionTable[state];
 			if (outgoing != null) 
-			{
+			{																																						  
 				foreach (DictionaryEntry entry in outgoing) 
 				{
 					transList.AddRange((IList)entry.Value);
