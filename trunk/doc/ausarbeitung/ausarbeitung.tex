@@ -50,14 +50,14 @@
 \thispagestyle{empty}
 \end{titlepage}
 
-\thispagestyle{empty}
-\input{abstract.tex}
-\newpage
+%\thispagestyle{empty}
+%\input{abstract.tex}
+%\newpage
 
 %Inhaltsverzeichnis
-%\small
+\small
 \tableofcontents
-%\normalsize
+\normalsize
 
 \thispagestyle{empty}
 \newpage
@@ -78,6 +78,11 @@
 \newpage
 
 \pagenumbering{Roman}
+
+%Literaturverzeichnis
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures
+\newpage
 
 %Literaturverzeichnis
 \addcontentsline{toc}{section}{Literatur}
