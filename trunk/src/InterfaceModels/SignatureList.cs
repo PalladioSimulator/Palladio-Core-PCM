@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Palladio.Utils.Collections;
 using Palladio.Attributes;
+using Palladio.ComponentModel.Exceptions;
 using ReflectionBasedVisitor;
 
 namespace Palladio.ComponentModel.InterfaceModels 
@@ -60,6 +61,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <param name="aSigArray">Signatures to add.</param>
 		public void AddSignatures( params ISignature[] aSigArray )
 		{
+			foreach(ISignature sig in aSigArray)
+				if ((this.RoleID != "") && (sig.RoleID != this.RoleID))
+					throw new RoleIDMissmatchException(sig.RoleID,this.RoleID);
 			signatures.AddRange(aSigArray);
 		}
 

@@ -7,7 +7,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// A service consists of a provided signature with an associated service
 	/// effect specification describing its requirements.
 	/// </summary>
-	internal class Service : IService 
+	internal class ServiceEffectMapping : IServiceEffectMapping 
 	{
 		#region Properties
 
@@ -44,9 +44,9 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// are not equal.</returns>
 		public override bool Equals(object obj)
 		{
-			if (obj is Service) 
+			if (obj is IServiceEffectMapping) 
 			{
-				Service srv = (Service)obj;
+				IServiceEffectMapping srv = (IServiceEffectMapping)obj;
 				return (this.Signature.Equals(srv.Signature) &&
 						this.EffectSpec.Equals(srv.EffectSpec));
 			}
@@ -70,7 +70,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <returns>A new object with the same values as the current instance.</returns>
 		public object Clone()
 		{
-			return new Service( this );
+			return new ServiceEffectMapping( this );
 		}
 
 		/// <summary>
@@ -89,21 +89,13 @@ namespace Palladio.ComponentModel.InterfaceModels
 		#region Constructors
 		
 		/// <summary>
-		/// Creates a new Service without a service effect specification.
-		/// </summary>
-		/// <param name="aSignature">Signature provided by the new Service.</param>
-		public Service(ISignature aSignature)
-		{
-			signature = (ISignature) aSignature.Clone();
-		}
-
-		/// <summary>
 		/// Creates a new Service providing aSignature and requiring aServideEffectSpec.
 		/// </summary>
 		/// <param name="aServiceEffectSpec">Requirements of the service.</param>
 		/// <param name="aSignature">Signature provided by the new Service.</param>
-		public Service(ISignatureList aServiceEffectSpec, ISignature aSignature) : this( aSignature )
+		public ServiceEffectMapping(ISignature aSignature, ISignatureList aServiceEffectSpec)
 		{
+			signature = (ISignature) aSignature.Clone();
 			effectSpec = (ISignatureList) aServiceEffectSpec.Clone();
 		}
 
@@ -111,7 +103,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// CopyConstructor.
 		/// </summary>
 		/// <param name="aService">Service to copy.</param>
-		public Service( Service aService ) : this( aService.EffectSpec, aService.Signature ) {}
+		public ServiceEffectMapping( IServiceEffectMapping aService ) : this( aService.Signature, aService.EffectSpec ) {}
 
 		#endregion
 

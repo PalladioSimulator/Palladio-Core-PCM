@@ -75,8 +75,8 @@ namespace Palladio.ComponentModel.Signature
 
 		public override bool Equals(object obj)
 		{
-			if (!(obj is DefaultSignature)) return false;
-			DefaultSignature sig = (DefaultSignature)obj;
+			if (!(obj is ISignature)) return false;
+			ISignature sig = (ISignature)obj;
 
 			if (!(sig.Name.Equals(this.Name) && 
 						sig.ReturnType.Equals(this.ReturnType) &&
@@ -111,8 +111,28 @@ namespace Palladio.ComponentModel.Signature
 				(Exceptions != null ? Exceptions.GetHashCode() : 0);
 		}
 
-
-
+		public override string ToString()
+		{
+			string result = ReturnType + " " + Name + "(";
+			string parameters = "";
+			string exceptions = "";
+			foreach(IParameter p in Parameters)
+			{
+				parameters += p.ToString() + ", ";
+			}
+			if (parameters.Length != 0) 
+				parameters = parameters.Substring(0,parameters.Length-2);
+			foreach(IType e in Exceptions)
+			{
+				exceptions += e.ToString() + ", ";
+			}
+			if (exceptions.Length != 0) 
+				exceptions = exceptions.Substring(0,exceptions.Length-2);
+			result += parameters + ")";
+			if (exceptions.Length > 0)
+				result += "throws " + exceptions;
+			return result;
+		}
 
 		#endregion
 

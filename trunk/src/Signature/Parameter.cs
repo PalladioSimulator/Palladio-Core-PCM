@@ -28,7 +28,7 @@ namespace Palladio.ComponentModel.Signature
 			get{ return type; }
 		}
 
-		public ParameterModifier Modifier {
+		public ParameterModifierEnum Modifier {
 			get {
 				return modifier;
 			}
@@ -87,7 +87,10 @@ namespace Palladio.ComponentModel.Signature
 		/// <returns>String representation of the object.</returns>
 		public override string ToString()
 		{
-			return type + " " + name;
+			if (modifier != ParameterModifierEnum.NONE)
+				return modifier + " " + type + " " + name;
+			else
+				return type + " " + name;
 		}
 
 		#endregion
@@ -100,7 +103,7 @@ namespace Palladio.ComponentModel.Signature
 		/// </summary>
 		/// <param name="aType">Type of the Parameter.</param>
 		/// <param name="aName">Name of the Parameter.</param>
-		public Parameter( IType aType, string aName, ParameterModifier aModifier)
+		public Parameter(IType aType, string aName, ParameterModifierEnum aModifier)
 		{
 			type = aType;
 			name = aName;
@@ -122,7 +125,7 @@ namespace Palladio.ComponentModel.Signature
 
 		private string name;
 		private IType type;
-		private ParameterModifier modifier;
+		private ParameterModifierEnum modifier;
 		#endregion
 	}
 }

@@ -22,7 +22,7 @@ namespace Palladio.ComponentModel
 		/// If aService.Signature does not exist an SignatureNotFoundException is thrown.
 		/// </summary>
 		/// <param name="aService">Service associating a signature with a service effect specification.</param>
-		void ChangeServiceEffectSpecification(IService aService);
+		void ChangeServiceEffectSpecification(IServiceEffectMapping aService);
 
 		/// <summary>
 		/// Changes the service effect specification of aSignature to aServEffSpec.
@@ -32,7 +32,7 @@ namespace Palladio.ComponentModel
 		/// <param name="aServEffSpec"></param>
 		void ChangeServiceEffectSpecification(ISignature aSignature, ISignatureList aServEffSpec);
 
-		void AddProvidesInterface(ISignatureList aProvInterface, params IService[] aServEffSpecArray);
+		void AddProvidesInterface(ISignatureList aProvInterface, params IServiceEffectMapping[] aServEffSpecArray);
 
 		void DeleteProvidesInterfaces(params ISignatureList[] aProvArray);
 

@@ -26,7 +26,7 @@ namespace Palladio.ComponentModel
 		/// Modifier of the parameter. A modifier specifices the way of passing the
 		/// parameter to the method body.
 		/// </summary>
-		ParameterModifier Modifier { get; }
+		ParameterModifierEnum Modifier { get; }
 
 		#endregion
 	}

@@ -7,7 +7,7 @@ namespace Palladio.ComponentModel
 	/// A service consists of a provided signature with an associated service
 	/// effect specification describing its requirements.
 	/// </summary>
-	public interface IService : ICloneable 
+	public interface IServiceEffectMapping : ICloneable 
 	{
 		#region Properties
 
