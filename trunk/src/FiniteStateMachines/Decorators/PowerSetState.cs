@@ -98,5 +98,21 @@ namespace FiniteStateMachines.Decorators
 				return result;
 			}
 		}
+
+
+        /// <summary>
+        /// Default implementation of <code>Equals</code>.
+        /// </summary>
+        /// <param name="obj">The other object.</param>
+        /// <returns>True, if <code>Name</code>, <code>IsStartState</code> and
+        /// <code>IsFinalState</code> are Equal; false otherwise.</returns>
+        public override bool Equals(object obj) {
+            if (obj is PowerSetState) {
+                PowerSetState other = (PowerSetState)obj;
+                return (other.isStartState == isStartState) &&
+                    (other.stateSet.Equals(stateSet));
+            }
+            return false;
+        }
 	}
 }

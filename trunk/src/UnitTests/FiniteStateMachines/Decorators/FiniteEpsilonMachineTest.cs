@@ -130,9 +130,9 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			PowerSetState destination = new PowerSetState(destSet,false);
 
 			IList outgoing = epsilonMachine.GetOutgoingTransitions(epsilonMachine.StartState);
-			Assert.IsTrue(outgoing.Count==2);
+			Assert.IsTrue(outgoing.Count==2,outgoing.Count.ToString());
 			Transition trans = new Transition(epsilonMachine.StartState,inputs[5],destination);
-			Assert.IsTrue(outgoing.Contains(trans));
+			Assert.IsTrue(outgoing.Contains(trans),outgoing.ToString());
 		}
 
 		[Test] public void DeterministicStartState() {

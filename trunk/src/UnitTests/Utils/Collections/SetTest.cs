@@ -49,16 +49,16 @@ namespace UnitTests.Utils.Collections
 		[Test] public void Equals() {
 			Console.Error.WriteLine(setOne+"\n"+setTwo);
 			Console.Error.WriteLine(setOne.Count+"\n"+setTwo.Count);
-			Assert.IsTrue(setOne.Equals(setTwo));
+			Assert.IsTrue(setOne.Equals(setTwo),setOne+"\n"+setTwo);
 			setTwo.Add(new State("dummy",false,false));
-			Assert.IsFalse(setOne.Equals(setTwo));
+			Assert.IsFalse(setOne.Equals(setTwo),setOne+"\n"+setTwo);
 		}
 
 		[Test] public void Clone() {
 			Set three = (Set)setOne.Clone();
-			Assert.AreEqual(setOne,three);
+			Assert.AreEqual(setOne,three,setOne+"\n"+three);
 			three.Add(new State("new state",false,false));
-			Assert.IsFalse(setOne.Equals(three));
+			Assert.IsFalse(setOne.Equals(three),setOne+"\n"+three);
 		}
 	}
 }

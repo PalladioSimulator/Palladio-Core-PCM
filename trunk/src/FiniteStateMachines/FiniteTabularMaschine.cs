@@ -10,31 +10,31 @@ namespace FiniteStateMachines {
     /// </summary>
 	public class FiniteTabularMachine : AbstractFiniteStateMachine {
 
-        /// <summary>
-        /// The input alphabet; a set of <code>Input</code> objects.
-        /// </summary>
+        /// <summary></summary>
+        /// 
+        /// <seealso cref="IFiniteStateMachine.InputAlphabet"></seealso>
 		private Set inputAlphabet;
 
-		/// <summary>
-		/// The start state of the FSM.
-		/// </summary>
+        /// <summary></summary>
+        /// 
+        /// <seealso cref="IFiniteStateMachine.StartState"></seealso>
 		private AbstractState startState;
 
-		/// <summary>
-		/// The final states of the FSM.
-		/// </summary>
+        /// <summary></summary>
+        /// 
+        /// <seealso cref="IFiniteStateMachine.FinalStates"></seealso>
 		private Set finalStates;
 
 
 		/// <summary>
-		/// The <code>transitionTable</code> contains all transitions of the finite
-		/// state machine. The key of the <code>Hashtable</code> is the
-		/// source state, the value is another <code>Hashtable</code>. In this
-		/// sub-<code>Hashtable</code> the key is the <code>Input</code> of the 
-		/// <code>Transition</code> and the value the <code>Transition</code> itself.
+		/// The transitionTable contains all transitions of the finite
+		/// state machine. The key of the Hashtable is the
+		/// source state, the value is another Hashtable. In this
+		/// sub-Hashtable the key is the Input of the 
+		/// Transition and the value the Transition itself.
 		/// 
 		/// This produces a hierarchie which can be used for a quick lookup of all
-		/// <code>Transition</code> objects.
+		/// Transition objects.
 		/// </summary>
 		private Hashtable transitionTable;
 
@@ -75,9 +75,9 @@ namespace FiniteStateMachines {
 	   
 		
 
-		/// <summary>
-		/// The input alphabet; a set of <code>Input</code> objects.
-		/// </summary>
+        /// <summary></summary>
+        /// 
+        /// <seealso cref="IFiniteStateMachine.InputAphabet"></seealso>
 		public override Set InputAlphabet {
 			get {
 				return this.inputAlphabet;
@@ -123,12 +123,13 @@ namespace FiniteStateMachines {
 		}
 
 
-		/// <summary>
-		/// Returns the next State from a given State and an inputcharacter.
-		/// </summary>
-		/// <param name="fromState"> from State </param>
-		/// <param name="input">the inputcharacter</param>
-		/// <returns>the next State which is reachable with the state and the inputcharacter</returns>
+        /// <summary></summary>
+        /// 
+        /// <param name="aSourceState"></param>
+        /// <param name="anInput"></param>
+        /// 
+        /// <returns>the next State which is reachable with the state and the inputcharacter</returns>
+        /// <seealso cref="IFiniteStateMachine.GetNextState"></seealso>
 		public override AbstractState GetNextState(AbstractState aSourceState, Input anInput) {
 			// The exception has to be thrown, if the input is not in
 			// the InputAlphabet or the source state is not a state of the fsm
@@ -136,16 +137,18 @@ namespace FiniteStateMachines {
 		}
 
 
-		/// <summary>
-		/// Returns the next <code>Transition</code> starting at <code>aSourceState</code> with the
-		/// input symbol <code>anInput</code>.
-		/// 
-		/// The source state must be in the set of states an the input symbol must be 
-		/// in the input alphabet of the finite state machine, otherwise
-		/// an excption is thrown.
-		/// </summary>
-		/// <returns>The transition starting at <code>aSourceState</code>  
-		/// with the input symbol <code>anInput</code> </returns>
+        /// <summary>
+        ///     The source state must be in the set of states an the input symbol must be
+        ///     in the input alphabet of the finite state machine, otherwise
+        ///     an excption is thrown.
+        /// </summary>
+        /// 
+        /// <param name="aSourceState"></param>
+        /// <param name="anInput"></param>
+        /// 
+        /// <returns>The transition starting at aSourceState
+        /// with the input symbol anInput </returns>
+        /// <seealso cref="IFiniteStateMachine.GetNextTransition"></seealso>
 		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
 			//TODO use DefaultTransitionType here
 			Transition result = new Transition(aSourceState,anInput,ErrorState);
@@ -165,12 +168,12 @@ namespace FiniteStateMachines {
 		}
 
 		
-		/// <summary>
-		/// Returns all transitions with the source <code>aSourceState</code>.
-		/// </summary>
-		/// <returns>A <code>Hashtable</code> which contains all transtions for the given state.
-		/// The key of the <code>Hashtable</code> is the <code>Input</code> and the value the 
-		/// corresponding <code>Transition</code>.</returns>
+        /// <summary></summary>
+        /// 
+        /// <param name="state"></param>
+        /// 
+        /// <returns></returns>
+        /// <seealso cref="IFiniteStateMachine.GetOutgoingTransitions "></seealso>
 		public override IList GetOutgoingTransitions(AbstractState state) {
 			ArrayList result = new ArrayList();
 			Hashtable outgoing = (Hashtable)transitionTable[state];
@@ -183,10 +186,11 @@ namespace FiniteStateMachines {
 		}
 
 
-		/// <summary>
-		/// Returns all <code>Transitions</code> of the finite state machine.
-		/// </summary>
-		/// <returns>A <code>IList</code> of <code>Transition</code>s</returns>
+        /// <summary>
+        /// Returns all Transitions of the finite state machine.
+        /// </summary>
+        /// 
+        /// <returns>A IList of Transitions</returns>
 		public IList GetTransitions() {
 			ArrayList transitionArray = new ArrayList();
 			foreach (DictionaryEntry entry in transitionTable) {
@@ -198,23 +202,27 @@ namespace FiniteStateMachines {
 		}
 
 
-		/// <summary>
-		/// Adds a <code>Transition</code> to the finite state machine. 
-		/// </summary>
-		/// <param name="aSourceState">Source of the transition.</param>
-		/// <param name="anInput">Input used for the transition</param>
-		/// <param name="aDestinationState">Target of the transition.</param>
+        /// <summary>
+        /// Adds a Transition to the finite state machine.
+        /// </summary>
+        /// 
+        /// <param name="aSourceState">Source of the transition.</param>
+        /// <param name="anInput">Input used for the transition</param>
+        /// <param name="aDestinationState">Target of the transition.</param>
 		public void AddTransition(AbstractState aSourceState, Input anInput, AbstractState aDestinationState) {	
 			//TODO use DefaultTransitionType here 
 			this.AddTransition(new Transition(aSourceState, anInput, aDestinationState));
 		}
 
 
-		/// <summary>
-		/// Adds the transtion and the states included in the 
-		/// transition to the finite state machine.
-		/// </summary>
-		/// <param name="aTransition">The transition.</param>
+        /// <summary>
+        ///     Adds the transtion and the states included in the
+        ///     transition to the finite state machine.
+        /// </summary>
+        /// 
+        /// <param name="aTransition">The transition.</param>
+        /// 
+        /// <seealso cref="IFiniteStateMachine.AddTransition"></seealso>
 		public override void AddTransition(Transition aTransition) {	
 			AddState(aTransition.SourceState);
 			AddState(aTransition.DestinationState);
@@ -273,10 +281,13 @@ namespace FiniteStateMachines {
 		}
 
 		
-		/// <summary>
-		/// Adds an array of transitions to the finite state machine. 
-		/// </summary>
-		/// <param name="aTransitionList">A list of a transitions.</param>
+        /// <summary>
+        ///     Adds an array of transitions to the finite state machine.
+        /// </summary>
+        /// 
+        /// <param name="aTransitionList">A list of a transitions.</param>
+        /// 
+        /// <seealso cref="IFiniteStateMachine.AddTransitionList"></seealso>
 		public override void AddTransitionList(IList aTransitionList) {	
 			foreach (Transition trans in aTransitionList){
 				this.AddTransition(trans);
@@ -284,9 +295,11 @@ namespace FiniteStateMachines {
 		}
 
 
-		/// <summary>
-		/// Default implementation of <code>ToString</code>.
-		/// </summary>
+        /// <summary>
+        /// Default implementation of ToString.
+        /// </summary>
+        /// 
+        /// <returns></returns>
 		public override string ToString() {
 			string result = "start state : ";
 			try {

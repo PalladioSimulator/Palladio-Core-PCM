@@ -1,140 +1,123 @@
 using System;
 using System.Collections;
 namespace Utils.Collections {
-	/// <summary>
-	/// A collection that contains no duplicate elements.
-	/// </summary>
-	/// 
-	public class Set: IEnumerable {
-		private Hashtable data;
-		private IDictionaryEnumerator enumerator;
-		public virtual IEnumerator GetEnumerator() {
-			return new Set.Enumerator(this);
-		}
-		/// <summary>
-		/// class which helps to iterate over the collection
-		/// </summary>
-		private class Enumerator : IEnumerator {
-			Set outer;
-			IDictionaryEnumerator enu;
-			internal Enumerator(Set outer) {
-				this.outer = outer;
-				this.enu = this.outer.data.GetEnumerator();
-				
-			}
-			/// <summary>
-			/// Returns the current element of the collection. 
-			/// </summary>
-			public object Current {
-				get {
-					DictionaryEntry k = (DictionaryEntry) this.enu.Current;
-					return k.Value;
-				}
-			}
-			/// <summary>
-			/// Advances the enumerator to the next element of the collection. 
-			/// </summary>
-			/// <returns>true if the enumerator was successfully advanced to the next element; 
-			/// false if the enumerator has passed the end of the collection. 
-			///</returns>
-			public bool MoveNext() {
+    /// <summary>
+    ///     A collection that contains no duplicate elements.
+    ///     To reach this, the Add Methods of a default ArrayList 
+    ///     are extended.
+    /// </summary>
+	public class Set : ArrayList {
 
-				return this.enu.MoveNext();
-
-			}
-			/// <summary>
-			/// Sets the enumerator to its initial position, which is before the first element 
-			/// in the collection. 
-			/// </summary>
-			public void Reset() {
-				this.enu.Reset();
-			}
-		}
+        /// <summary>
+        ///     Code indicating that an element was NOT 
+        ///     added to the set.
+        /// </summary>
+        public const int ERROR_CODE = -1;
 
 
-		public Set() {
-			
-			this.data = new Hashtable();
-			this.enumerator = this.data.GetEnumerator();
-		}
 
-		/// <summary>
-		/// Adds a element to the collection.
-		/// </summary>
-		/// <param name="obj">The object which should be added into the Collection.</param>
-		public void Add(object obj) {
-			try {
-				this.data.Add(obj, obj);
-			}
-			catch(ArgumentException) {
-				//				just see if its works
-				//				Console.WriteLine("Already added!!! " + obj.ToString());
-			}
+        public Set() : base(){
+        }
 
-		}
+        public Set(ICollection c) : base(c) {
+        }
+
+        public Set(int initialCapacity) : base(initialCapacity) {
+        }
+
+        /// <summary>If value is not in this set it is added, otherwise not.</summary>
+        /// 
+        /// <param name="value"></param>
+        /// 
+        /// <returns></returns>
+        /// <seealso cref="ArrayList.Add"></seealso>
+        public override int Add(object value) {
+            if (!Contains(value)) {
+                return base.Add(value);
+            }
+            return ERROR_CODE;
+        }
+
+        /// <summary>If value is not in this set it is added, otherwise not.</summary>
+        /// 
+        /// <param name="index"></param>
+        /// <param name="value"></param>
+        /// 
+        /// <seealso cref="ArrayList.Insert"></seealso>
+        public override void Insert(int index, object value) {
+            if (!Contains(value)) {
+                base.Insert(index,value);
+            }
+        }
+
+        /// <summary>Only every element which is not in this set is added.</summary>
+        /// 
+        /// <param name="index"></param>
+        /// <param name="c"></param>
+        /// 
+        /// <seealso cref="ArrayList.InsertRange"></seealso>
+        public override void InsertRange(int index, ICollection c) {
+            foreach(object obj in c){
+                if(!Contains(obj)){
+                    base.Insert(index,obj);
+                    index++;
+                }
+            }
+        }
+
+        /// <summary>Only every element which is not in this set is added.</summary>
+        /// 
+        /// <param name="c"></param>
+        /// 
+        /// <seealso cref="ArrayList.AddRange"></seealso>
+        public override void AddRange(ICollection c) {
+            foreach(object obj in c){
+                if(!Contains(obj)){
+                    base.Add(obj);
+                }
+            }
+        }
 
 
-		/// <summary>
-		/// Adds all elements of another set to this set.
-		/// </summary>
-		public void Join(Set anotherSet){
-			for (IEnumerator e = anotherSet.GetEnumerator(); e.MoveNext();){
-				Add(e);
-			}
-		}
+        public override object Clone(){
+            return new Set(this);
+        }
 
-		/// <summary>
-		/// Determines whether the Hashtable contains a specific object. 
-		/// </summary>
-		/// <param name="obj">the object which should be checked</param>
-		/// <returns>true if the Collection constains the object, false if not</returns>
-		public bool Contains(Object obj) {
-			return this.data.Contains(obj);
-		}
-		override public string ToString() {
-			string s ="";
-			foreach(DictionaryEntry so in this.data) {
-				s +=so.Value.ToString();
-				s +=", ";
-			}
-			
-			return s;
-		}
-
-		public override bool Equals(object obj) {
-			if (obj is Set) {
-				Set other = (Set)obj;
-				if (other.Count==this.Count) {
-					foreach (object entry in other) {
-						if (!this.Contains(entry)){
-							return false;
-						}
-					}
-					return true;
-				}
-			}
-			return false;
-		}
+        
+        // <summary>
+        //   Compares this object to the specified object.
+        //   Returns true if they are equal, false otherwise.
+        // </summary>
+        public override bool Equals(object o) {
+            if (o is Set) {
+                Set other = (Set)o;
+                if(other.Count == Count){
+                    foreach(object obj in other){
+                        if(!Contains(obj)){
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
 
 
-		public object Clone() {
-			// This Clone-Method is not very nice, BUT
-			// it is a workaround for a bug in the Clone
-			// Method of the Hashtables in Mono
-			Set result = new Set();
-			foreach(object entry in this){
-				result.Add(entry);
-			}
-			return result;
-		}
-
-		public int Count {
-			get{ return data.Count; }
-		}
-		public override int GetHashCode()
-		{
-			return this.data.GetHashCode();
-		}
-
-	}
+        // <summary>
+        //   Returns a stringified representation of the object.
+        //   This is not supposed to be used for user presentation,
+        //   use Format() for that and IFormattable.
+        //
+        //   ToString is mostly used for debugging purposes.
+        // </summary>
+        public override string ToString() {
+            string result = "{ ";
+            foreach (object obj in this) {
+                result+=obj+" ";
+            }
+            result+="}";
+            return result;
+        }
+    }
 }
