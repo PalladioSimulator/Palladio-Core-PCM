@@ -76,6 +76,10 @@ namespace FSM
 					
 		return false;
 		}
+		public string getName()
+		{
+			return this.name;
+		}
 
 
 	}

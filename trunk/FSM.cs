@@ -17,14 +17,13 @@ namespace FSM
 
 		/// <summary>
 		/// Creates a FSM
-		/// ---RR: omit obvious comments. "creates and initalises" is preferrable over "Initates" a FSM.
 		/// </summary>
 		public FSM()
 		{
 			this.inputAl = new Set();
 			this.transitions = new Hashtable();
 			this.FinalSates = new Set();
-			this.ErrorState = new State("ErrosrState",false,false);
+			this.ErrorState = new State("ErrorState",false,false);
 
 		}
 		/// <summary>
@@ -76,8 +75,6 @@ namespace FSM
 
 		/// <summary>
 		/// Another method witch tests the implentation of FSM.
-		/// ---RR change into ToString
-		/// ---------------------------------------------------
 		/// </summary>
 		/// <param name="state"></param>
 		/// <param name="inChar"></param>
@@ -130,7 +127,6 @@ namespace FSM
 
 		/// <summary>
 		/// Returns the startatate of the FSM
-		/// ---RR put startstate and finalstates in a variable, set in setTransition 
 		/// </summary>
 		/// <returns>State, witch is the startstate of the FSM.</returns>
 		public State getStartState()
@@ -140,9 +136,6 @@ namespace FSM
 		}
 		/// <summary>
 		/// Returns the FinalState of the FSM.
-		/// ---RR there are often more than one final state.
-		/// ---RR save finals states in set during setTransition and only return set here
-		/// ---(because of peformance)
 		/// </summary>
 		/// <returns>State, the fianalstate of the FSM.</returns>
 		public Set getFinalStates()
@@ -310,12 +303,6 @@ namespace FSM
 
 		/// <summary>
 		/// Adds a Transtion to the Transitionmap of the FSM.
-		///						willkürlich
-		/// ---RR: 1) key can be arbitrary objects, not necesarily ints.
-		///  Daher
-		///  Hence, it is not required to manually translate keys into ints by their hashcode.
-		/// ---2) always store a set as a value or null. In some cases the set only contains one single 
-		///   element. However, that saves you the extra if (tmp is Set) at inserting and reading  
 		/// </summary>
 		/// <param name="tr"></param>
 		public void setTransition(Transition tr)
@@ -377,8 +364,12 @@ namespace FSM
 					}
 				}
 			}
-		
-				
+			myInputIter= this.getInputAl().GetEnumerator();
+			while(myInputIter.MoveNext())
+			{
+
+				this.setTransition(this.ErrorState, (Input)myInputIter.Current, this.ErrorState);
+			}	
 				
 		}
 	}

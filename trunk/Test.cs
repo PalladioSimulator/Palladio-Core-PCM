@@ -13,8 +13,8 @@ namespace FSM
 		}
 		public static void Main()
 		{
-//			bool stateIteratorDebug = false;
-			//a FSM with no Startstate
+//		bool stateIteratorDebug = false;
+//			//a FSM with no Startstate
 //			FSM fsmWithNoStartstate = new FSM();
 //			State noStartState = new State("s",false,false);
 //			StateIterator IteratesOverNoStart = new StateIterator(fsmWithNoStartstate);
@@ -157,28 +157,28 @@ namespace FSM
 //				}
 //			}
 //			//fsm.DisplayOnConsole();
-////
-////			Console.WriteLine("Testing TransitionIterator:");
-////			TransitionIterator trI1= new TransitionIterator(easy);
-////			Console.WriteLine("for easy: ");
-////			while(trI1.MoveNext())
-////			{
-////				Console.WriteLine(trI1.Current.ToString());
-////			}
-////			trI1= new TransitionIterator(tree);
-////			Console.WriteLine("for tree: ");
-////			while(trI1.MoveNext())
-////				Console.WriteLine(trI1.Current.ToString());
-////
-////			trI1= new TransitionIterator(tree1);
-////			Console.WriteLine("for tree1: ");
-////			while(trI1.MoveNext())
-////				Console.WriteLine(trI1.Current.ToString());
-////
-////			trI1= new TransitionIterator(fsm);
-////			Console.WriteLine("for fsm: ");
-////			while(trI1.MoveNext())
-////				Console.WriteLine(trI1.Current.ToString());
+//
+//			Console.WriteLine("Testing TransitionIterator:");
+//			TransitionIterator trI1= new TransitionIterator(easy);
+//			Console.WriteLine("for easy: ");
+//			while(trI1.MoveNext())
+//			{
+//				Console.WriteLine(trI1.Current.ToString());
+//			}
+//			trI1= new TransitionIterator(tree);
+//			Console.WriteLine("for tree: ");
+//			while(trI1.MoveNext())
+//				Console.WriteLine(trI1.Current.ToString());
+//
+//			trI1= new TransitionIterator(tree1);
+//			Console.WriteLine("for tree1: ");
+//			while(trI1.MoveNext())
+//				Console.WriteLine(trI1.Current.ToString());
+//
+//			trI1= new TransitionIterator(fsm);
+//			Console.WriteLine("for fsm: ");
+//			while(trI1.MoveNext())
+//				Console.WriteLine(trI1.Current.ToString());
 //
 //			Console.WriteLine("-*-*-*-*-------------------------------------------------------");
 //
