@@ -180,22 +180,17 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Palladio.Simulation\Model\DefaultThreadStartingPoint.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Palladio.Simulation\Model\IComponentArchitecture.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Palladio.Simulation\Model\IThreadStartingPoint.cs"
+                    RelPath = "src\Palladio.Simulation\Model\ITimeConsumer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Palladio.Simulation\Model\ITimeConsumer.cs"
+                    RelPath = "src\Palladio.Simulation\Model\ThreadStartingPoint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
