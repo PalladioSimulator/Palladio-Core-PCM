@@ -24,6 +24,7 @@ namespace MySmallWebServer
 		{
 			get{return this.userInput;}
 			set{this.userInput = value;}
+			
 		}
 
 

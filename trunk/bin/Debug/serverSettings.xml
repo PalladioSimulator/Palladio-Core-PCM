@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <serverSettings>
-<serverRoot>C:\Dokumente und Einstellungen\yvette\Eigene Dateien\Visual Studio Projekte\MySmallWebServer\doc\\</serverRoot>
+<serverRoot>C:\MyPersonalwebServerData/</serverRoot>
 <defaultFile>index.html</defaultFile>
 <port>90</port>
 
@@ -29,7 +29,7 @@
 <VDirs>
 	<Vdir>
 		<RequestedDir>/</RequestedDir>
-		<realDir>C:\Dokumente und Einstellungen\yvette\Eigene Dateien\Visual Studio Projekte\MySmallWebServer\doc\</realDir> 
+		<realDir>C:\MyPersonalwebServerData/</realDir> 
 	</Vdir>
 	<VDir>
 		<requestedDir>/test/</requestedDir>
