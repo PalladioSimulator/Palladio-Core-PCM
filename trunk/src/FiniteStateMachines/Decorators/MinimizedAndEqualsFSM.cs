@@ -113,30 +113,33 @@ namespace FiniteStateMachines.Decorators
 		/// <returns>true if they are equal</returns>
 		public bool equal(object o) 
 		{
-			if((o is FiniteTabularMachine)== false)
-				return false;
-			MinimizedAndEqualsFSM dnotMin = new MinimizedAndEqualsFSM((FiniteTabularMachine) o);
-			FiniteTabularMachine d = dnotMin.getMinimizedFSM();
-			FiniteTabularMachine myMin = this.minimized;
-			bool result = false;
-			IEnumerator inputIter = myMin.InputAlphabet.GetEnumerator();
-			while(inputIter.MoveNext())
-				if(!d.InputAlphabet.Contains((Input) inputIter.Current))
+			if(o is IFiniteStateMachine){
+				MinimizedAndEqualsFSM dnotMin = new MinimizedAndEqualsFSM((IFiniteStateMachine) o);
+				FiniteTabularMachine d = dnotMin.getMinimizedFSM();
+				FiniteTabularMachine myMin = this.minimized;
+				if(!myMin.InputAlphabet.Equals(d.InputAlphabet)){
 					return false;
-			
-			Hashtable d2myStatesMap = null;
-			try 
-			{
+				}
+				/*
+				IEnumerator inputIter = myMin.InputAlphabet.GetEnumerator();
+				while(inputIter.MoveNext())
+					if(!d.InputAlphabet.Contains((Input) inputIter.Current))
+						return false;
+				*/
+				Hashtable d2myStatesMap = null;
+				try 
+				{
 
-				d2myStatesMap = (Hashtable) mapStates(myMin, d);
-			}
-			catch 
-			{
-				return false;
-			}
+					d2myStatesMap = (Hashtable) mapStates(myMin, d);
+				}
+				catch 
+				{
+					return false;
+				}
 			
-			result = _equal(myMin, d, d2myStatesMap);
-			return result;
+				return _equal(myMin, d, d2myStatesMap);
+			}
+			return false;
 		}
 
 

@@ -158,9 +158,6 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 				Assert.AreEqual(epsilonMachine.GetNextTransition(epsilonStart,i),
 								deterministicFSM.GetNextTransition(deterministicStart,i));
 			}
-
-			MinimizedAndEqualsFSM fec = new MinimizedAndEqualsFSM((FiniteTabularMachine)deterministicFSM);
-			IFiniteStateMachine min = fec.getMinimizedFSM();
 		}
 	}
 }

@@ -334,11 +334,20 @@ namespace FiniteStateMachines {
 		/// Default implementation of <code>ToString</code>.
 		/// </summary>
 		public override string ToString() {
-			string result = "start state : "+StartState+"\n";
-			result += "final states: ";
-			foreach (AbstractState state in FinalStates) {
-				result += state + " ";
-			}
+			string result = "start state : ";
+			try {
+				result += StartState+"\n";
+			} catch (InvalidStateException e){
+				result += e.Message+"\n";
+			}	
+			try {
+				result += "final states: ";
+				foreach (AbstractState state in FinalStates) {
+					result += state + " ";
+				}
+			} catch (InvalidStateException e){
+				result += e.Message+"\n";
+			}	
 			result += "\n";
 			result += "transitions : \n";
 			foreach (Transition trans in GetTransitions()) {
