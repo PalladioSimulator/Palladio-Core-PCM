@@ -37,7 +37,7 @@ namespace Palladio.ComponentModel.Visitors
 			if ( !visitedBasicComponents.Contains(aComponent) )
 			{
 				visitedBasicComponents.Add(aComponent);
-				IBinding[] bindings = componsiteComponent.GetOutgoingBindings(aComponent);
+				IBinding[] bindings = componsiteComponent.GetRequiresBindings(aComponent);
 				foreach( IBinding b in bindings)
 				{
 					Visit(b.ProvidesInterface.Component);

@@ -106,8 +106,9 @@ namespace Palladio.ComponentModel.Signature
 		/// Creates a new Parameter with the name aName and the
 		/// type aType.
 		/// </summary>
-		/// <param name="aType">Type of the Parameter.</param>
-		/// <param name="aName">Name of the Parameter.</param>
+		/// <param name="aType">Type of the parameter.</param>
+		/// <param name="aName">Name of the parameter.</param>
+		/// <param name="aModifier">Modifier of the parameter.</param>
 		public Parameter(IType aType, string aName, ParameterModifierEnum aModifier)
 		{
 			type = aType;

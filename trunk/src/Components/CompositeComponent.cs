@@ -134,7 +134,7 @@ namespace Palladio.ComponentModel.Components
 			foreach ( ISignatureList provInterface in aProvInterfaceArray)
 			{
 				if (provMapByOuterHT[provInterface.RoleID] != null)
-					throw new HasOutgoingMappingsException((IMapping)provMapByOuterHT[provInterface.RoleID]);
+					throw new HasOutgoingMappingException((IMapping)provMapByOuterHT[provInterface.RoleID]);
 			}
 			// delete data
 			foreach ( ISignatureList provInterface in aProvInterfaceArray)
@@ -279,14 +279,14 @@ namespace Palladio.ComponentModel.Components
 		}
 		
 
-		public IBinding[] GetOutgoingBindings(IComponent aComponent)
+		public IBinding[] GetRequiresBindings(IComponent aComponent)
 		{
 			if (!ContainsComponent(aComponent))
 				throw new ComponentNotFoundException(aComponent);
 			return (IBinding[])bindingByReqCH.Get(aComponent).ToArray(typeof(IBinding));
 		}
 
-		public IBinding[] GetIncomingBindings(IComponent aComponent)
+		public IBinding[] GetProvidesBindings(IComponent aComponent)
 		{
 			if (!ContainsComponent(aComponent))
 				throw new ComponentNotFoundException(aComponent);
@@ -294,14 +294,14 @@ namespace Palladio.ComponentModel.Components
 		}
 
 		
-		public IMapping[] GetIncomingMappings(IComponent aComponent)
+		public IMapping[] GetProvidesMappings(IComponent aComponent)
 		{
 			if (!ContainsComponent(aComponent))
 				throw new ComponentNotFoundException(aComponent);
 			return (IMapping[]) provMapByInnerMCH.Get(aComponent).ToArray(typeof(IMapping));
 		}
 
-		public IMapping[] GetOutgoingMappings(IComponent aComponent)
+		public IMapping[] GetRequiresMappings(IComponent aComponent)
 		{
 			if (!ContainsComponent(aComponent))
 				throw new ComponentNotFoundException(aComponent);
@@ -324,7 +324,7 @@ namespace Palladio.ComponentModel.Components
 
 		public IMapping[] GetProvidesMappingsByInner(IComponent aProvComponent, string aProvRole)
 		{
-			return GetProvidesMappingsByInner( new AttachedInterface(aProvRole, aProvComponent) );
+			return GetProvidesMappingsByInner( new AttachedInterface(aProvComponent, aProvRole) );
 		}
 
 
@@ -336,7 +336,7 @@ namespace Palladio.ComponentModel.Components
 
 		public IBinding GetBindingByRequires(IComponent aReqComponent, string aReqRole)
 		{
-			return GetBindingByRequires(new AttachedInterface(aReqRole, aReqComponent) );
+			return GetBindingByRequires(new AttachedInterface(aReqComponent, aReqRole) );
 		}
 
 		public IBinding[] GetBindingsByProvides(AttachedInterface aProvInterface)
@@ -347,7 +347,7 @@ namespace Palladio.ComponentModel.Components
 
 		public IBinding[] GetBindingsByProvides(IComponent aProvComponent, string aProvRole)
 		{
-			return GetBindingsByProvides(new AttachedInterface(aProvRole, aProvComponent));
+			return GetBindingsByProvides(new AttachedInterface(aProvComponent, aProvRole));
 		}
 
 		
@@ -359,7 +359,7 @@ namespace Palladio.ComponentModel.Components
 
 		public IMapping GetRequiresMappingByInner(IComponent aReqComponent, string aReqRole)
 		{
-			return GetRequiresMappingByInner(new AttachedInterface( aReqRole, aReqComponent ) );
+			return GetRequiresMappingByInner(new AttachedInterface( aReqComponent, aReqRole ) );
 		}
 
 		public IMapping[] GetRequiresMappingsByOuter(string aReqRoleID)

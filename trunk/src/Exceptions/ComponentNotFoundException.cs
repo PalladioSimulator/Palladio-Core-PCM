@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/05/23 19:00:07  sliver
+	/// added comments
+	///
 	/// Revision 1.3  2004/05/23 16:03:56  sliver
 	/// completed unit tests
 	///
@@ -26,7 +29,7 @@ namespace Palladio.ComponentModel.Exceptions
 		/// <summary>
 		/// Error indicating, that a component is missing.
 		/// </summary>
-		/// <param name="aRoleID">Role which couldn't be found.</param>
+		/// <param name="aComponent">The missing component.</param>
 		public ComponentNotFoundException(IComponent aComponent) : 
 			base( "Component " + (aComponent != null ? aComponent.ToString() : "<NULL>" )+ " could not be found!")
 		{

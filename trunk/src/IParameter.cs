@@ -7,7 +7,7 @@ namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// IParameter contains the information describing a parameter
-	/// of a signature. It consits of a parameter name and a parameter type.
+	/// of a signature. It consists of a name, a type and a modifier.
 	/// </summary>
 	public interface IParameter : ICloneable 
 	{

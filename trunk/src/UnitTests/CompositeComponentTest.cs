@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/05/23 19:00:07  sliver
+	/// added comments
+	///
 	/// Revision 1.1  2004/05/23 16:03:56  sliver
 	/// completed unit tests
 	///
@@ -147,7 +150,7 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.IsFalse(b1.Equals(b4));
 
 			Binding b5 = (Binding)b1.Clone();
-			b5.ProvidesInterface = new AttachedInterface("role",iComp1);
+			b5.ProvidesInterface = new AttachedInterface(iComp1, "role");
 			Assert.IsFalse(b5.Equals(b1));
 		}
 
@@ -172,19 +175,19 @@ namespace Palladio.ComponentModel.UnitTests
 		[ExpectedException(typeof(ComponentNotFoundException))]
 		[Test] public void GetConnections()
 		{
-			Assert.AreEqual( b1, oComp.GetOutgoingBindings(iComp1)[0] );
-			Assert.AreEqual( b1, oComp.GetIncomingBindings(iComp2)[0] );
-			Assert.AreEqual( 1, oComp.GetOutgoingBindings(iComp1).Length );
-			Assert.AreEqual( 1, oComp.GetIncomingBindings(iComp2).Length );
-			IMapping[] provMappings = oComp.GetIncomingMappings(iComp1);
+			Assert.AreEqual( b1, oComp.GetRequiresBindings(iComp1)[0] );
+			Assert.AreEqual( b1, oComp.GetProvidesBindings(iComp2)[0] );
+			Assert.AreEqual( 1, oComp.GetRequiresBindings(iComp1).Length );
+			Assert.AreEqual( 1, oComp.GetProvidesBindings(iComp2).Length );
+			IMapping[] provMappings = oComp.GetProvidesMappings(iComp1);
 			Assert.AreEqual( 2, provMappings.Length );
 			Assert.IsTrue( Array.IndexOf( provMappings, pm1 ) >= 0);
 			Assert.IsTrue( Array.IndexOf( provMappings, pm2 ) >= 0);
-			Assert.AreEqual( 0, oComp.GetOutgoingMappings(iComp3).Length );
-			IMapping[] reqMappings = oComp.GetOutgoingMappings(iComp2);
+			Assert.AreEqual( 0, oComp.GetRequiresMappings(iComp3).Length );
+			IMapping[] reqMappings = oComp.GetRequiresMappings(iComp2);
 			Assert.AreEqual(1, reqMappings.Length);
 			Assert.AreEqual(rm2, reqMappings[0]);
-			oComp.GetOutgoingBindings(null);
+			oComp.GetRequiresBindings(null);
 		}
 
 		[Test] public void Equals()

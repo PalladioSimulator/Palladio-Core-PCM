@@ -28,7 +28,7 @@ namespace Palladio.ComponentModel.Connections
 		public string OuterRoleID
 		{ 
 			get { return this.SecondInterface.RoleID; }
-			set { this.SecondInterface = new AttachedInterface(value, null); }
+			set { this.SecondInterface = new AttachedInterface(null, value); }
 		}
 		#endregion
 
@@ -78,7 +78,7 @@ namespace Palladio.ComponentModel.Connections
 		}
 
 		public Mapping(IAttributeHash anAttHash, AttachedInterface anInnerIface, string anOuterRoleID) :
-			base(anAttHash, anInnerIface, new AttachedInterface(anOuterRoleID,null))
+			base(anAttHash, anInnerIface, new AttachedInterface(null, anOuterRoleID))
 		{
 		}
 

@@ -4,13 +4,16 @@ using System.Collections;
 namespace Palladio.ComponentModel.Exceptions
 {
 	/// <summary>
-	/// Error indicating, that a role could not be found.
+	/// Error indicating, that the role of an interface is missing.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/05/23 19:00:07  sliver
+	/// added comments
+	///
 	/// Revision 1.1  2004/05/23 16:03:56  sliver
 	/// completed unit tests
 	///
@@ -24,9 +27,8 @@ namespace Palladio.ComponentModel.Exceptions
 	public class MissingRoleIDException : ComponentModelException
 	{
 		/// <summary>
-		/// Error indicating, that a role could not be found.
+		/// Error indicating, that an interface has no role identifier.
 		/// </summary>
-		/// <param name="aRoleID">Role which couldn't be found.</param>
 		public MissingRoleIDException() : base( "No RoleID specified for interface!")
 		{
 		}

@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/05/23 19:00:07  sliver
+	/// added comments
+	///
 	/// Revision 1.3  2004/05/19 11:19:47  sliver
 	/// connections are 1 on 1 now
 	/// IProvidesMapping and IRequiresMapping joined to IMapping
@@ -28,6 +31,7 @@ namespace Palladio.ComponentModel.Exceptions
 		/// Error indicating, that the provides interface is not a role of the IMapping.
 		/// </summary>
 		/// <param name="aRoleID">Role which couldn't be found.</param>
+		/// <param name="aMapping">Mapping with the missing role.</param>
 		public ProvidesInterfaceNotInMappingException(string aRoleID, IMapping aMapping) : base( "Role " + aRoleID + " not found in " + aMapping + "!")
 		{
 		}

@@ -35,7 +35,7 @@ namespace Palladio.ComponentModel.Components
 		/// Changes the service effect specification of aService.Signature to aService.EffectSpec.
 		/// If aService.Signature does not exist an SignatureNotFoundException is thrown.
 		/// </summary>
-		/// <param name="aService">Service associating a signature with a service effect specification.</param>
+		/// <param name="aServiceEffectMapping">IServiceEffectMapping associating a signature with a service effect specification.</param>
 		public void ChangeServiceEffectSpecification(IServiceEffectMapping aServiceEffectMapping)
 		{																																									 
 			ChangeServiceEffectSpecification(aServiceEffectMapping.Signature, aServiceEffectMapping.EffectSpec);

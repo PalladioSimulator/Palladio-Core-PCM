@@ -4,13 +4,18 @@ using System.Collections;
 namespace Palladio.ComponentModel.Exceptions
 {
 	/// <summary>
-	/// Error indicating, that a component cannot be deleted because it has incoming connections.
+	/// Error indicating, that the requirements of a service effect
+	/// specification cannot be fulfilled by the RequiresInterfaces of
+	/// the component.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/05/23 19:00:07  sliver
+	/// added comments
+	///
 	/// Revision 1.1  2004/05/23 16:03:56  sliver
 	/// completed unit tests
 	///
@@ -24,9 +29,11 @@ namespace Palladio.ComponentModel.Exceptions
 	public class MissingRequirementException : ComponentModelException
 	{
 		/// <summary>
-		/// Error indicating, that a component cannot be deleted because it has incoming connections.
+		/// Error indicating, that the requirements of a service effect
+		/// specification cannot be fulfilled by the RequiresInterfaces of
+		/// the component.
 		/// </summary>
-		/// <param name="aComponent">Considered component.</param>
+		/// <param name="aSig">Signature whichs requirements are missing.</param>
 		public MissingRequirementException(ISignature aSig) : base( "Signature \"" + aSig + "\" is not in the component requirements!" )
 		{
 		}
