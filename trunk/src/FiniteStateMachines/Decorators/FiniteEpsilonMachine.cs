@@ -10,7 +10,8 @@ namespace FiniteStateMachines.Decorators {
     ///     this automaton an epsilon alphabet is defined which is a subset of the input alphabet.
     ///     The elements of this alphabet are interpreted as the empty word epsilon. This leads to
     ///     a non-deterministic finite state machine. To handle this non-determinism the
-    ///     FiniteEpsilonMachine computes the epsilon-closure for each state.
+    ///     FiniteEpsilonMachine computes the epsilon-closure for each destination state of a 
+    ///     transition.
     /// </summary>
 	public class FiniteEpsilonMachine : AbstractFiniteStateMachine {
 

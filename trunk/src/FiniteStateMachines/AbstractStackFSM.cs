@@ -13,7 +13,7 @@ namespace ParameterisedContracts {
 	///     The serviceEffectSpecificationTable maps each input symbol of the
 	///     providesProtocol onto another FSM.
 	/// </summary>
-	public abstract class AbstractStackFSM : AbstractFiniteStateMachine {
+	public abstract class AbstractStackFiniteStateMachine : AbstractFiniteStateMachine {
 
 		/// <summary>
 		///     Name of the top FSM calling all other automatons.
@@ -44,7 +44,7 @@ namespace ParameterisedContracts {
 
 
 
-		protected AbstractStackFSM() {}
+		protected AbstractStackFiniteStateMachine() {}
 
 		/// <summary>
 		/// Excecute this after all your other initialisations have been done.
@@ -296,7 +296,7 @@ namespace ParameterisedContracts {
 			Transition result = CreateTransition(aSourceState,Input.RETURN,ErrorState);
 			if (!aSourceState.InTopService) {
 				StackState destinationState = new StackState(aSourceState);
-				Context currentContext = destinationState.Pop();
+				StackContext currentContext = destinationState.Pop();
 				if (currentContext.State.IsFinalState) {
 					IFiniteStateMachine service;
 					Input calledServiceName = currentContext.ServiceName;
@@ -323,7 +323,7 @@ namespace ParameterisedContracts {
 		protected IFiniteStateMachine LookUpService(Input aServiceName) {
 			IFiniteStateMachine service = (IFiniteStateMachine)serviceTable[aServiceName];
 			if (service == null) 
-				throw new StackStateException("Service "+aServiceName+" not known!");
+				throw new ApplicationException("Service "+aServiceName+" not known!");
 			return service;
 		}
 

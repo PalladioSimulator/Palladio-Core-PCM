@@ -13,7 +13,7 @@ namespace ParameterisedContracts {
 	///     The serviceEffectSpecificationTable maps each input symbol of the
 	///     providesProtocol onto another FSM.
 	/// </summary>
-	public class FiniteStackMachine : AbstractStackFSM {
+	public class StackFiniteStateMachine : AbstractStackFiniteStateMachine {
 
 		/// <summary>
 		/// A set of counter conditions. These conditions are not checked!
@@ -26,7 +26,7 @@ namespace ParameterisedContracts {
 		/// 
 		/// <param name="aProvidesProtocol">The top finite state machine which calls all other automatons.</param>
 		/// <param name="aServiceEffectSpecificationTable">Mapping of a set of input symbols onto a set of automatons.</param>
-		public FiniteStackMachine(IFiniteStateMachine aTopService, Input aTopServiceName, Hashtable aServiceTable) {
+		public StackFiniteStateMachine(IFiniteStateMachine aTopService, Input aTopServiceName, Hashtable aServiceTable) {
 			// avoid modifications of the original table
 			Hashtable serviceTable = (Hashtable) aServiceTable.Clone();
 			serviceTable.Add(aTopServiceName,aTopService);
@@ -35,7 +35,7 @@ namespace ParameterisedContracts {
 		}
 
 
-		public FiniteStackMachine(Input aTopServiceName, Hashtable aServiceTable) {
+		public StackFiniteStateMachine(Input aTopServiceName, Hashtable aServiceTable) {
 			counterConditionTable = new Hashtable();
 			Initialize(aTopServiceName,aServiceTable);
 		}

@@ -47,7 +47,7 @@ namespace ParameterisedContracts {
 		/// <param name="aState">The state of the top service</param>
 		public StackState(AbstractState aState, Input aTopServiceName){
 			contextStack = new Stack();
-			contextStack.Push(new Context(aTopServiceName,aState));
+			contextStack.Push(new StackContext(aTopServiceName,aState));
 		}
 
 
@@ -65,7 +65,7 @@ namespace ParameterisedContracts {
 		public override string Name {
 			get {
 				string result = "";
-				foreach(Context con in contextStack){
+				foreach(StackContext con in contextStack){
 					result+="("+con+") ";
 				}
 				return result;
@@ -108,7 +108,7 @@ namespace ParameterisedContracts {
 		/// <param name="aService">Name of the service</param>
 		/// <param name="aState">State of the service</param>
 		public void Push(Input aServiceName, AbstractState aState){
-			contextStack.Push(new Context(aServiceName,aState));
+			contextStack.Push(new StackContext(aServiceName,aState));
 		}
 
 
@@ -119,7 +119,7 @@ namespace ParameterisedContracts {
 		/// <param name="newState"></param>
 		public void ChangeTopState(AbstractState newState){
 			try {
-				Context con = new Context((Context)contextStack.Pop()); // Create a clone
+				StackContext con = new StackContext((StackContext)contextStack.Pop()); // Create a clone
 				con.State = newState;
 				contextStack.Push(con);
 			} catch(InvalidOperationException) {
@@ -132,25 +132,25 @@ namespace ParameterisedContracts {
 		/// Pops the top context.
 		/// </summary>
 		/// <returns>Top context</returns>
-		public Context Pop(){
+		public StackContext Pop(){
 			try{
 				if (contextStack.Count > 0) {
-					return (Context)contextStack.Pop();
+					return (StackContext)contextStack.Pop();
 				} else {
 					throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
 				}
 			} catch(InvalidOperationException){
 				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
 			}
-//			try{
-//				if (contextStack.Count > 1) {
-//					return (Context)contextStack.Pop();
-//				} else {
-//					return Peek();
-//				}
-//			} catch(InvalidOperationException){
-//				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
-//			}
+			//			try{
+			//				if (contextStack.Count > 1) {
+			//					return (Context)contextStack.Pop();
+			//				} else {
+			//					return Peek();
+			//				}
+			//			} catch(InvalidOperationException){
+			//				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
+			//			}
 		}
 		
 
@@ -158,9 +158,9 @@ namespace ParameterisedContracts {
 		/// Lookup the top context .
 		/// </summary>
 		/// <returns>Context of the top service</returns>
-		public Context Peek(){
+		public StackContext Peek(){
 			try {
-				return ((Context)contextStack.Peek());
+				return ((StackContext)contextStack.Peek());
 			} catch(InvalidOperationException){
 				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
 			}

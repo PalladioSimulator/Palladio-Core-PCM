@@ -5,7 +5,7 @@ using Utils.Collections;
 namespace FiniteStateMachines.Decorators
 {
 	/// <summary>
-	/// A <code>PowerSetState</code> consists of a set of regular states. 
+	/// A PowerSetState consists of a set of regular states. 
 	/// </summary>
 	public class PowerSetState : AbstractState {
 		
@@ -16,14 +16,14 @@ namespace FiniteStateMachines.Decorators
 		private bool isStartState;
 
 		/// <summary>
-		/// A Set of states forming the <code>PowerSetState</code>.
+		/// A Set of states forming the PowerSetState.
 		/// </summary>
 		private Set stateSet;
 
 
 		/// <summary>
-		/// Creates a new <code>PowerSetState</code> consisting of
-		/// the states in <code>aStateSet</code>.
+		/// Creates a new PowerSetState consisting of
+		/// the states in aStateSet.
 		/// </summary>
 		/// <param name="aStateSet">A set of regular states.</param>
 		/// <param name="isStartState">Denotes this state as a start state.</param>
@@ -34,8 +34,8 @@ namespace FiniteStateMachines.Decorators
 
 		
 		/// <summary>
-		/// Creates a new <code>PowerSetState</code> containing only 
-		/// the state <code>aState</code>.
+		/// Creates a new PowerSetState containing only 
+		/// the state aState.
 		/// </summary>
 		/// <param name="aState">A regular state.</param>
 		public PowerSetState(AbstractState aState) {
@@ -46,7 +46,7 @@ namespace FiniteStateMachines.Decorators
 
 		
 		/// <summary>
-		/// A Set of states forming the <code>PowerSetState</code>.
+		/// A Set of states forming the PowerSetState.
 		/// </summary>
 		public Set States {
 			get {
@@ -101,11 +101,11 @@ namespace FiniteStateMachines.Decorators
 
 
         /// <summary>
-        /// Default implementation of <code>Equals</code>.
+        /// Default implementation of Equals.
         /// </summary>
         /// <param name="obj">The other object.</param>
-        /// <returns>True, if <code>Name</code>, <code>IsStartState</code> and
-        /// <code>IsFinalState</code> are Equal; false otherwise.</returns>
+        /// <returns>True, if Name, IsStartState and
+        /// IsFinalState are Equal; false otherwise.</returns>
         public override bool Equals(object obj) {
             if (obj is PowerSetState) {
                 PowerSetState other = (PowerSetState)obj;

@@ -96,7 +96,7 @@ namespace UnitTests.FiniteStateMachines {
 		[Test] public void Pop() {
 			StackState state = new StackState(a);
 			state.Push(s1,b);
-			Context con = state.Pop();
+			StackContext con = state.Pop();
 			Assert.AreSame(s1,con.ServiceName);
 			Assert.AreSame(b,con.State);
 			con = state.Pop();

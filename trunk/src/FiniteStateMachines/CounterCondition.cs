@@ -1,7 +1,7 @@
 using System;
 using Utils.Collections;
 
-namespace FiniteStateMachines.Decorators
+namespace ParameterisedContracts
 {
 	/// <summary>
 	///Abstract class describing the basic functionality of a condition for a counter.

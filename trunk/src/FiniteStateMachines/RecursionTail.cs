@@ -5,30 +5,64 @@ using FiniteStateMachines;
 
 namespace ParameterisedContracts {
 
-	public class CallingFSM : AbstractFiniteStateMachine {
+	/// <summary>
+	///		A CallingFiniteStateMachine represents the inner context of a recursive
+	///		service in a StackFiniteStateMachine. It is used to handle 
+	///		the terminal part of the recursive function.
+	/// </summary>
+	public class CallingFiniteStateMachine : AbstractFiniteStateMachine {
 
-		private AbstractState recursiveStartState;
-		private Set recursiveFinalStates;
+		/// <summary>
+		///		Target state of the recursive transition.
+		/// </summary>
+		private AbstractState recursionEndState;
+
+		/// <summary>
+		///		Final states reachable from recursionEndState.
+		/// </summary>
+		private Set reachableFinalStates;
+
+		/// <summary>
+		///     A set of valid input symbols for
+		///     this automaton.
+		/// </summary>
 		private Set inputAlphabet;
 
-		private IFiniteStateMachine fsm;
+		/// <summary>
+		///		FSM used for adaption.
+		/// </summary>
+		private IFiniteStateMachine originalFSM;
+
+		/// <summary>
+		///		
+		/// </summary>
 		private RecursionInput recursionInput;
+
+		/// <summary>
+		///		States reachable from recursionEndState
+		/// </summary>
 		private IList reachableStatesList;
 
-		public CallingFSM ( IFiniteStateMachine aFSM, RecursionInput aRecursionInput){
-			fsm = aFSM;
+
+		/// <summary>
+		///		Uses aFSM to construct a CallingFSM.
+		/// </summary>
+		/// <param name="aFSM"></param>
+		/// <param name="aRecursionInput"></param>
+		public CallingFiniteStateMachine ( IFiniteStateMachine aFSM, RecursionInput aRecursionInput){
+			originalFSM = aFSM;
 			recursionInput = aRecursionInput;
 
-			recursiveStartState = recursionInput.TargetStateOfCallingService;
-			recursiveFinalStates = new Set();
-			reachableStatesList = fsm.GetReachableStates(recursiveStartState);
+			recursionEndState = recursionInput.TargetStateOfCallingService;
+			reachableFinalStates = new Set();
+			reachableStatesList = originalFSM.GetReachableStates(recursionEndState);
 			foreach( AbstractState state in reachableStatesList ){
 				if (state.IsFinalState) {
-					recursiveFinalStates.Add(state);
+					reachableFinalStates.Add(state);
 				}
 			}
 
-			inputAlphabet = (Set)fsm.InputAlphabet.Clone();
+			inputAlphabet = (Set)originalFSM.InputAlphabet.Clone();
 			inputAlphabet.Add(recursionInput);
 			inputAlphabet.Remove(recursionInput.RecursiveServiceName);
 			inputAlphabet.Add(new MarkedInput(recursionInput.RecursiveServiceName));
@@ -42,7 +76,7 @@ namespace ParameterisedContracts {
 		/// 
 		/// <seealso cref="IFiniteStateMachine.StartState"></seealso>
 		public override AbstractState StartState { 
-			get { return fsm.StartState; } 
+			get { return originalFSM.StartState; } 
 		}
 
 		/// <summary>
@@ -53,7 +87,7 @@ namespace ParameterisedContracts {
 		/// 
 		/// <seealso cref="IFiniteStateMachine.FinalStates"></seealso>
 		public override Set FinalStates { 
-			get { return fsm.FinalStates; } 
+			get { return originalFSM.FinalStates; } 
 		}
 
 		/// <summary>
@@ -81,14 +115,14 @@ namespace ParameterisedContracts {
 
 			if (anInput is MarkedInput) {
 				Input input = ((MarkedInput) anInput).GetUnMarkedInput();
-				result.DestinationState = fsm.GetNextState(aSourceState,input);
+				result.DestinationState = originalFSM.GetNextState(aSourceState,input);
 			} else {
 				if ( anInput == recursionInput ) {
-					if ( recursiveFinalStates.Contains( aSourceState )) {
-						result.DestinationState = recursiveStartState;
+					if ( reachableFinalStates.Contains( aSourceState )) {
+						result.DestinationState = recursionEndState;
 					}
 				} else {
-					result = fsm.GetNextTransition(aSourceState,anInput);
+					result = originalFSM.GetNextTransition(aSourceState,anInput);
 				}
 			}
 			return result;

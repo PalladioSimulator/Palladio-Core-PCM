@@ -21,14 +21,14 @@ namespace UnitTests.FiniteStateMachines{
 		}
 		
 		[Test] public void Constructor() {
-			Context context = new Context(inputOne,stateOne);
+			StackContext context = new StackContext(inputOne,stateOne);
 			Assert.AreEqual(stateOne,context.State);
 			Assert.AreEqual(inputOne,context.ServiceName);
 		}
 
 		[Test] public void Equals () {
-			Context contextOne = new Context(inputOne,stateOne);
-			Context contextTwo = new Context(inputOne,stateOne);
+			StackContext contextOne = new StackContext(inputOne,stateOne);
+			StackContext contextTwo = new StackContext(inputOne,stateOne);
 			Assert.AreEqual(contextOne,contextTwo);
 			contextTwo.ServiceName = inputTwo;
 			Assert.IsFalse(contextOne.Equals(contextTwo));
@@ -39,8 +39,8 @@ namespace UnitTests.FiniteStateMachines{
 		}
 
 		[Test] public void CopyConstructor() {
-			Context contextOne = new Context(inputOne,stateOne);
-			Context contextTwo = new Context(contextOne);
+			StackContext contextOne = new StackContext(inputOne,stateOne);
+			StackContext contextTwo = new StackContext(contextOne);
 			Assert.AreEqual(contextOne,contextTwo);
 			contextTwo.ServiceName = inputTwo;
 			contextTwo.State = stateTwo;
@@ -48,8 +48,8 @@ namespace UnitTests.FiniteStateMachines{
 		}
 
 		[Test] public void Clone() {
-			Context contextOne = new Context(inputOne,stateOne);
-			Context contextTwo = (Context)contextOne.Clone();;
+			StackContext contextOne = new StackContext(inputOne,stateOne);
+			StackContext contextTwo = (StackContext)contextOne.Clone();;
 			Assert.AreEqual(contextOne,contextTwo);
 			contextTwo.ServiceName = inputTwo;
 			contextTwo.State = stateTwo;
@@ -57,8 +57,8 @@ namespace UnitTests.FiniteStateMachines{
 		}
 
 		[Test] public void EqualOperator () {
-			Context contextOne = new Context(inputOne,stateOne);
-			Context contextTwo = new Context(inputOne,stateOne);
+			StackContext contextOne = new StackContext(inputOne,stateOne);
+			StackContext contextTwo = new StackContext(inputOne,stateOne);
 			Assert.IsTrue(contextOne == contextTwo);
 			contextTwo.ServiceName = inputTwo;
 			Assert.IsFalse(contextOne == contextTwo);
@@ -69,8 +69,8 @@ namespace UnitTests.FiniteStateMachines{
 		}
 
 		[Test] public void NotEqualOperator () {
-			Context contextOne = new Context(inputOne,stateOne);
-			Context contextTwo = new Context(inputOne,stateOne);
+			StackContext contextOne = new StackContext(inputOne,stateOne);
+			StackContext contextTwo = new StackContext(inputOne,stateOne);
 			Assert.IsFalse(contextOne != contextTwo);
 			contextTwo.ServiceName = inputTwo;
 			Assert.IsTrue(contextOne != contextTwo);

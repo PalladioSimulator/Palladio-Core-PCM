@@ -7,14 +7,14 @@ namespace ParameterisedContracts {
 	/// Represents the Context of a FSM. A Context consists of
 	/// a service name and a state, which belongs to that service.
 	/// </summary>
-	public class Context {
+	public class StackContext {
 
 		/// <summary>
 		/// State of the service.
 		/// </summary>
 		private AbstractState state;
 
-        /// <summary>
+		/// <summary>
 		/// Name of the service
 		/// </summary>
 		private Input serviceName;
@@ -23,7 +23,7 @@ namespace ParameterisedContracts {
 		/// <summary>
 		/// Default constructor, invisible.
 		/// </summary>
-		private Context() {
+		private StackContext() {
 		}
 
 
@@ -33,7 +33,7 @@ namespace ParameterisedContracts {
 		/// </summary>
 		/// <param name="aServiceName">Name of the service</param>
 		/// <param name="aState">State of the service</param>
-		public Context(Input aServiceName, AbstractState aState){
+		public StackContext(Input aServiceName, AbstractState aState){
 			serviceName = aServiceName;
 			state = aState;
 		}
@@ -43,7 +43,7 @@ namespace ParameterisedContracts {
 		/// Copy-Constructor.
 		/// </summary>
 		/// <param name="aContext"><code>Context</code> which should be cloned</param>
-		public Context(Context aContext){
+		public StackContext(StackContext aContext){
 			serviceName = aContext.ServiceName;
 			state = aContext.State;
 		}
@@ -88,7 +88,7 @@ namespace ParameterisedContracts {
 		/// </summary>
 		/// <returns></returns>
 		public object Clone() {
-			return new Context(this);
+			return new StackContext(this);
 		}
 
 
@@ -98,8 +98,8 @@ namespace ParameterisedContracts {
 		/// <param name="obj"></param>
 		/// <returns></returns>
 		public override bool Equals(object obj) {
-			if (obj is Context) {
-				Context other = (Context)obj;
+			if (obj is StackContext) {
+				StackContext other = (StackContext)obj;
 				return ((State == other.State) && (ServiceName == other.ServiceName));
 			}
 			return false;
@@ -118,7 +118,7 @@ namespace ParameterisedContracts {
 		/// <param name="one"></param>
 		/// <param name="two"></param>
 		/// <returns></returns>
-		public static bool operator == (Context one, Context two){
+		public static bool operator == (StackContext one, StackContext two){
 			try {
 				return one.Equals(two);
 			} catch( NullReferenceException  ) {
@@ -136,7 +136,7 @@ namespace ParameterisedContracts {
 		/// <param name="one"></param>
 		/// <param name="two"></param>
 		/// <returns></returns>
-		public static bool operator != (Context one, Context two){
+		public static bool operator != (StackContext one, StackContext two){
 			try {
 				return !one.Equals(two);
 			} catch( NullReferenceException  ) {

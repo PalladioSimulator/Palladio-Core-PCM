@@ -19,7 +19,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		FiniteEpsilonMachine epsilonMachine;
 		Set epsilonAlphabet;
 		IFiniteStateMachine deterministicFSM;
-        IFiniteStateMachine minimizedFSM;
+		IFiniteStateMachine minimizedFSM;
 
 		[SetUp] public void Init() {
 			states = new State[6];
@@ -62,8 +62,8 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 
 
 		[Test] public void ExpandedEqualsOriginal() {
-			MachineExpander exp = new MachineExpander(tabularMachine,minimizedFSM,epsilonAlphabet);
-            IFiniteStateMachine expanded = exp.GetExpandedMachine();
+			FiniteStateMachineExpander exp = new FiniteStateMachineExpander(tabularMachine,minimizedFSM,epsilonAlphabet);
+			IFiniteStateMachine expanded = exp.GetExpandedMachine();
 			MinimizedAndEqualsFSM fec = new MinimizedAndEqualsFSM(tabularMachine);
 			Assert.IsTrue(fec.equal(expanded));
 		}
@@ -81,7 +81,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			expected.AddTransition(transitionSet[5]);
 			expected.AddTransition(transitionSet[6]);
 
-			MachineExpander exp = new MachineExpander(tabularMachine,reduced,epsilonAlphabet);
+			FiniteStateMachineExpander exp = new FiniteStateMachineExpander(tabularMachine,reduced,epsilonAlphabet);
 			FiniteShuffleProductMaschine shuffle = new FiniteShuffleProductMaschine(tabularMachine,reduced);
 
 			MinimizedAndEqualsFSM min = new MinimizedAndEqualsFSM(exp.GetExpandedMachine());
@@ -89,7 +89,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.IsTrue(min.equal(shuffle.ShuffleProduct));
 		}
 
-        [Test] public void ExpandModified(){
+		[Test] public void ExpandModified(){
 			FiniteTabularMachine reduced = new FiniteTabularMachine();
 			reduced.AddTransition(states[3],inputs[4],states[5]);
 			reduced.AddTransition(states[5],inputs[3],states[4]);
@@ -97,27 +97,27 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			reduced.AddTransition(states[0],inputs[5],states[1]);
 			reduced.AddTransition(states[1],inputs[5],states[2]);
 			reduced.AddTransition(states[2],inputs[5],states[3]);
-			MachineExpander machineExpander = new MachineExpander(tabularMachine,reduced,epsilonAlphabet);
-            IFiniteStateMachine expanded = machineExpander.GetExpandedMachine();
-            AbstractState state = expanded.StartState;
-            state = expanded.GetNextState (state,inputs[2]);
-            Assert.IsTrue(expanded.GetOutgoingTransitions(state).Count == 0);
-            state = expanded.StartState;
-            state = expanded.GetNextState (state,inputs[0]);
-            state = expanded.GetNextState (state,inputs[5]);
-            state = expanded.GetNextState (state,inputs[1]);
-            state = expanded.GetNextState (state,inputs[0]);
-            state = expanded.GetNextState (state,inputs[5]);
-            state = expanded.GetNextState (state,inputs[1]);
-            state = expanded.GetNextState (state,inputs[0]);
-            state = expanded.GetNextState (state,inputs[5]);
-            state = expanded.GetNextState (state,inputs[1]);
-            Assert.IsFalse(state == expanded.ErrorState);
-            Assert.IsTrue(expanded.GetOutgoingTransitions(expanded.GetNextState(state,inputs[0])).Count == 0);
-            state = expanded.GetNextState (state,inputs[2]);
-            state = expanded.GetNextState (state,inputs[4]);
-            state = expanded.GetNextState (state,inputs[1]);
-            Assert.IsTrue(expanded.FinalStates.Contains(state));
+			FiniteStateMachineExpander machineExpander = new FiniteStateMachineExpander(tabularMachine,reduced,epsilonAlphabet);
+			IFiniteStateMachine expanded = machineExpander.GetExpandedMachine();
+			AbstractState state = expanded.StartState;
+			state = expanded.GetNextState (state,inputs[2]);
+			Assert.IsTrue(expanded.GetOutgoingTransitions(state).Count == 0);
+			state = expanded.StartState;
+			state = expanded.GetNextState (state,inputs[0]);
+			state = expanded.GetNextState (state,inputs[5]);
+			state = expanded.GetNextState (state,inputs[1]);
+			state = expanded.GetNextState (state,inputs[0]);
+			state = expanded.GetNextState (state,inputs[5]);
+			state = expanded.GetNextState (state,inputs[1]);
+			state = expanded.GetNextState (state,inputs[0]);
+			state = expanded.GetNextState (state,inputs[5]);
+			state = expanded.GetNextState (state,inputs[1]);
+			Assert.IsFalse(state == expanded.ErrorState);
+			Assert.IsTrue(expanded.GetOutgoingTransitions(expanded.GetNextState(state,inputs[0])).Count == 0);
+			state = expanded.GetNextState (state,inputs[2]);
+			state = expanded.GetNextState (state,inputs[4]);
+			state = expanded.GetNextState (state,inputs[1]);
+			Assert.IsTrue(expanded.FinalStates.Contains(state));
 
 			FiniteShuffleProductMaschine shuffle = new FiniteShuffleProductMaschine(tabularMachine,reduced);
 			MinimizedAndEqualsFSM min = new MinimizedAndEqualsFSM(expanded);

@@ -3,7 +3,7 @@ using FiniteStateMachines;
 
 namespace ParameterisedContracts {
 	/// <summary>
-	/// 
+	/// Input symbol used to handle the terminal recursion.
 	/// </summary>
 	public class RecursionInput : Input {
 		private Input callingServiceName;

@@ -10,14 +10,27 @@ namespace ParameterisedContracts {
 	///		The MachineReducer reduces an automaton using a set of rules (for
 	///		more information see graph-grammars). These rules are applied sequentially
 	///		to the automaton beginning at its startnode.
+	///		
+	///		- rules only implicit
+	///			- one transition right side
+	///			- fsm left side
+	///			- using hashtable key: input, value set of fsms
+	///			-> all these fsm mapped on a transition with the same input symbol
+	///			- calling and return transition not explicitly given in rule, but expected
+	///			  by the algorithm.
+	///			- application of rules in a predefined order, beginning at the startstate
+	///			- recursive match calls (apply all required rules during the application of
+	///			  the outer rule)
+	///			- the original machine is not reduced, but a new reduced version of the automaton
+	///			  is constructed in parallel
 	/// </summary>
-	public class MachineReducer {
+	public class FiniteStateMachineReducer {
 		
 		/// <summary>
 		///		The ruleTable impicitly contains all rules which should be applied to the 
 		///		automaton. It is organized as follwed:
 		///		Key: Input 
-		///		Value: AbstractFiniteStateMachine 
+		///		Value: IList of IFiniteStateMachines 
 		/// </summary>
 		private Hashtable ruleTable;
 
@@ -25,12 +38,12 @@ namespace ParameterisedContracts {
 		/// <summary>
 		///		The source automaton, which should be reduced.
 		/// </summary>
-		private AbstractFiniteStateMachine sourceMachine;
+		private AbstractFiniteStateMachine originalFSM;
 
 
 		/// <summary>
 		///		Applies the rule associated with the Input of aStartTransition to
-		///		the sourceMachine. Recursively all other rules needed to perform this
+		///		the originalMachine. Recursively all other rules needed to perform this
 		///		reduction are executed.
 		/// </summary>
 		/// <param name="aStartTransition">
@@ -44,71 +57,93 @@ namespace ParameterisedContracts {
 		///		thrown.
 		/// </returns>
 		private Transition Match(Transition aStartTransition, IFiniteStateMachine anExpectedFSM) {
-			AbstractState finalDestination = sourceMachine.ErrorState;
+			AbstractState finalTargetInOriginal = originalFSM.ErrorState;
 			AbstractState stateInRule = anExpectedFSM.StartState;
-			AbstractState stateInSource = aStartTransition.DestinationState;
+			AbstractState stateInOriginal = aStartTransition.DestinationState;
 
 			if(stateInRule.IsFinalState) {
-				FindDestination(stateInSource,ref finalDestination);
+				FindTargetInOriginal(stateInOriginal,ref finalTargetInOriginal);
 			}
 
-			DynamicStateIterator iterator = new DynamicStateIterator(new DualState(stateInRule,stateInSource));
+			DynamicStateIterator iterator = new DynamicStateIterator(new DualState(stateInRule,stateInOriginal));
 
 			while(iterator.MoveNext()){
 				stateInRule = ((DualState)iterator.Current).oneState;
-				stateInSource = ((DualState)iterator.Current).twoState;
+				stateInOriginal = ((DualState)iterator.Current).twoState;
 
 				IList transitionInRuleList = anExpectedFSM.GetOutgoingTransitions(stateInRule);
-				IList transitionInSourceList = sourceMachine.GetOutgoingTransitions(stateInSource);
+				IList transitionInOriginalList = originalFSM.GetOutgoingTransitions(stateInOriginal);
 
-				if (transitionInRuleList.Count == transitionInSourceList.Count) {
+				if (transitionInRuleList.Count == transitionInOriginalList.Count) {
 					foreach (Transition transitionInRule in transitionInRuleList){
-						AbstractState destinationInSource = sourceMachine.ErrorState;
-						Transition transitionInSource = sourceMachine.GetNextTransition(stateInSource,transitionInRule.InputSymbol);
+						AbstractState targetInOriginal = originalFSM.ErrorState;
+						Transition transitionInOriginal = originalFSM.GetNextTransition(stateInOriginal,transitionInRule.InputSymbol);
 
-						if(ruleTable.Contains(transitionInSource.InputSymbol)) {
-							destinationInSource = MatchAll(transitionInSource).DestinationState;
+						if(ruleTable.Contains(transitionInOriginal.InputSymbol)) {
+							targetInOriginal = MatchAll(transitionInOriginal).DestinationState;
 						} else {
-							destinationInSource = transitionInSource.DestinationState;
+							targetInOriginal = transitionInOriginal.DestinationState;
 						}
 
-						if (destinationInSource == sourceMachine.ErrorState) {
+						if (targetInOriginal == originalFSM.ErrorState) {
 							throw new ApplicationException("No match found!\nNo target for "+transitionInRule.InputSymbol+" in state "+((DualState)iterator.Current).twoState);
 						} 
 						if(transitionInRule.DestinationState.IsFinalState){
-							FindDestination(destinationInSource,ref finalDestination);
+							FindTargetInOriginal(targetInOriginal,ref finalTargetInOriginal);
 						}
 					}
 				} else {
-					throw new ApplicationException("No match found:\tDifferent number of transitions for "+stateInRule+" and "+stateInSource);
+					throw new ApplicationException("No match found:\tDifferent number of transitions for "+stateInRule+" and "+stateInOriginal);
 				}
 			}
 
-			if (finalDestination == sourceMachine.ErrorState) {
+			if (finalTargetInOriginal == originalFSM.ErrorState) {
 				throw new ApplicationException("No match found:\tNo return statement found!");
 			}
 
 			Transition result = (Transition)aStartTransition.Clone();
-			result.DestinationState = finalDestination;
+			result.DestinationState = finalTargetInOriginal;
 			return result;
 		}
 
-		
-		private void FindDestination(AbstractState aStateInSource, ref AbstractState aDestination) {
-			AbstractState tempState = sourceMachine.GetNextState(aStateInSource,Input.RETURN);
-			if( tempState != sourceMachine.ErrorState){
-				if( aDestination == sourceMachine.ErrorState ){
-					aDestination = tempState;
+
+		/// <summary>
+		///		Finds the destination state of all return transitions 
+		///		belonging to the FSM associated to the applied rule in 
+		///		the originalFSM.
+		/// </summary>
+		/// <param name="aStateInSource"></param>
+		/// <param name="aDestination"></param>
+		private void FindTargetInOriginal(AbstractState aStateInOriginal, ref AbstractState aTargetInOriginal) {
+			AbstractState tempState = originalFSM.GetNextState(aStateInOriginal,Input.RETURN);
+			if( tempState != originalFSM.ErrorState){
+				if( aTargetInOriginal == originalFSM.ErrorState ){
+					aTargetInOriginal = tempState;
 				} else {
-					if (aDestination != tempState) {
-						throw new ApplicationException(" Multiple return targets found: "+aStateInSource+"\tand\t"+tempState);
+					if (aTargetInOriginal != tempState) {
+						throw new ApplicationException(" Multiple return targets found: "+aStateInOriginal+"\tand\t"+tempState);
 					}
 				}
 			} else {
-				throw new ApplicationException("No match found:\tNo return statement in state "+aStateInSource);
+				throw new ApplicationException("No match found:\tNo return statement in state "+aStateInOriginal);
 			}
 		}
 
+
+		/// <summary>
+		///		Tries to apply one of the possible rules associated with the 
+		///		input symbol of aStartTransition.
+		///		
+		///		If it fails an ApplicationException is thrown.
+		/// </summary>
+		/// <param name="aStartTransition">
+		///		Transition, where the application of the rules starts.
+		/// </param>
+		/// <returns>
+		///		A transition leading from the source state of aStartTransiton to
+		///		the destination of the return-transistions associtated with the
+		///		fsm for the applied rule.
+		/// </returns>
 		private Transition MatchAll(Transition aStartTransition) {
 			IList fsmList = (IList) ruleTable [ aStartTransition.InputSymbol ];
 			string msg = "Following exceptions have been thrown:\n";
@@ -132,7 +167,7 @@ namespace ParameterisedContracts {
 		/// </returns>
 		public IFiniteStateMachine GetReducedMachine(){
 			IFiniteStateMachine resultMachine = new FiniteTabularMachine();
-			DynamicTransitionIterator iterator = new DynamicTransitionIterator(sourceMachine.StartState,sourceMachine);
+			DynamicTransitionIterator iterator = new DynamicTransitionIterator(originalFSM.StartState,originalFSM);
 			while(iterator.MoveNext()){
 				if (ruleTable.Contains(iterator.Current.InputSymbol)){
 					try {
@@ -148,8 +183,13 @@ namespace ParameterisedContracts {
 			return resultMachine;
 		}
 
-		protected Hashtable CreateRuleTable(Hashtable aServiceTable, AbstractFiniteStateMachine aMachine) {
-			
+
+		/// <summary>
+		/// </summary>
+		/// <param name="aServiceTable"></param>
+		/// <param name="aFSM"></param>
+		/// <returns></returns>
+		protected Hashtable CreateRuleTable(Hashtable aServiceTable, AbstractFiniteStateMachine aFSM) {
 			// Adding the default rules to the table.
 			Hashtable result = new Hashtable();
 			foreach ( DictionaryEntry entry in aServiceTable ) {
@@ -159,18 +199,18 @@ namespace ParameterisedContracts {
 			}
 
 			// Adding recursion Rules to the table
-			foreach ( Input input in aMachine.InputAlphabet ) {
+			foreach ( Input input in aFSM.InputAlphabet ) {
 				if ( input is RecursionInput ) {
 					RecursionInput recInput = (RecursionInput) input;
 					
-					IFiniteStateMachine recursiveFSM = new RecursiveFSM ( recInput.RecursiveServiceName, aServiceTable );
+					IFiniteStateMachine recursiveFSM = new RecursiveFiniteStateMachine ( recInput.RecursiveServiceName, aServiceTable );
 					IList fsmList = new ArrayList();
 					fsmList.Add ( recursiveFSM );
 					MarkedInput markedInput = new MarkedInput ( recInput.RecursiveServiceName );
 					result.Add ( markedInput, recursiveFSM );
 
 					IFiniteStateMachine fsm = (IFiniteStateMachine) aServiceTable [ recInput.CallingServiceName ];
-					IFiniteStateMachine callingFSM = new CallingFSM ( fsm, recInput );
+					IFiniteStateMachine callingFSM = new CallingFiniteStateMachine ( fsm, recInput );
 					fsmList = (IList) result [ recInput.CallingServiceName ];
 					fsmList.Add ( callingFSM );
 				}
@@ -190,9 +230,9 @@ namespace ParameterisedContracts {
 		/// <param name="anMachine">
 		///		The machine affected by the rules.
 		/// </param>
-		public MachineReducer(Hashtable aServiceTable, AbstractFiniteStateMachine aMachine){
+		public FiniteStateMachineReducer(Hashtable aServiceTable, AbstractFiniteStateMachine aMachine){
 			ruleTable = CreateRuleTable(aServiceTable,aMachine);
-			sourceMachine = aMachine;
+			originalFSM = aMachine;
 		}
 	}
 }

@@ -7,9 +7,9 @@ using Utils.Collections;
 
 namespace ParameterisedContracts {
 
-	public class RecursiveFSM : AbstractStackFSM {
+	public class RecursiveFiniteStateMachine : AbstractStackFiniteStateMachine {
 
-		public RecursiveFSM ( Input aRecursiveServiceName, Hashtable aServiceTable ) {
+		public RecursiveFiniteStateMachine ( Input aRecursiveServiceName, Hashtable aServiceTable ) {
 			Initialize( aRecursiveServiceName, aServiceTable );
 		}
 

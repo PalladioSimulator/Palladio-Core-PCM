@@ -31,49 +31,49 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			tableSimple = new Hashtable();
 			tableSimple.Add(new Input("d1"),d1);
 			tableSimple.Add(new Input("d2"),d2);
-			expandedSimple = new FiniteStackMachine(topMachine, topServiceName, tableSimple);
+			expandedSimple = new StackFiniteStateMachine(topMachine, topServiceName, tableSimple);
 
 			tableComplex = new Hashtable();
 			tableComplex.Add(new Input("d1"),d1s);
 			tableComplex.Add(new Input("d2"),d2);
 			tableComplex.Add(new Input("d3"),d3s);
-			expandedComplex = new FiniteStackMachine(topMachine, topServiceName, tableComplex);
+			expandedComplex = new StackFiniteStateMachine(topMachine, topServiceName, tableComplex);
 
 			tableIncomplete = new Hashtable();
 			tableIncomplete.Add(new Input("d1"),d1s);
 			tableIncomplete.Add(new Input("d2"),d2);
 			tableIncomplete.Add(new Input("d3"),d3incomplete);
-			expandedIncomplete = new FiniteStackMachine(topMachine, topServiceName, tableIncomplete);
+			expandedIncomplete = new StackFiniteStateMachine(topMachine, topServiceName, tableIncomplete);
 
 			tableRecursion = new Hashtable();
 			tableRecursion.Add(new Input("d1"),d1s);
 			tableRecursion.Add(new Input("d2"),d2);
 			tableRecursion.Add(new Input("d3"),d3);
-			expandedRecursion = new FiniteStackMachine(topMachine, topServiceName, tableRecursion);
+			expandedRecursion = new StackFiniteStateMachine(topMachine, topServiceName, tableRecursion);
 		}
 
 
 		[Test] public void SimpleReduction() {
-			MachineReducer reducer = new MachineReducer(tableSimple,expandedSimple);
+			FiniteStateMachineReducer reducer = new FiniteStateMachineReducer(tableSimple,expandedSimple);
 			IFiniteStateMachine red = reducer.GetReducedMachine();
 			Assert.IsTrue(red.Equals(topMachine));
 		}
 
 		[Test] public void MoreComplexReduction() {
-			MachineReducer reducer = new MachineReducer(tableComplex,expandedComplex);
+			FiniteStateMachineReducer reducer = new FiniteStateMachineReducer(tableComplex,expandedComplex);
 			IFiniteStateMachine red = reducer.GetReducedMachine();
 			Assert.IsTrue(red.Equals(topMachine));
 		}
 
 		[Test] public void IncompleteReduction() {
-			MachineReducer reducer = new MachineReducer(tableIncomplete,expandedComplex);
+			FiniteStateMachineReducer reducer = new FiniteStateMachineReducer(tableIncomplete,expandedComplex);
 			IFiniteStateMachine red = reducer.GetReducedMachine();
 			//Assert.IsFalse(topMachine.Equals(red));
 			//TODO: Equals does not work with incomplete automatons.
 		}
 
 		[Test] public void RecursionReduction(){
-			MachineReducer reducer = new MachineReducer(tableRecursion,expandedRecursion);
+			FiniteStateMachineReducer reducer = new FiniteStateMachineReducer(tableRecursion,expandedRecursion);
 			IFiniteStateMachine red = reducer.GetReducedMachine();
 			Assert.IsTrue(topMachine.Equals(red));
 		}
