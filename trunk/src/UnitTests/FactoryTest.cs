@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2004/05/12 08:24:34  sbecker
+	/// Added GetReachableStates test
+	///
 	/// Revision 1.8  2004/05/12 08:23:15  sliver
 	/// DeleteIllegalTransition expects a TransitionNotFoundException now
 	///
@@ -212,6 +215,27 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			Assert.IsTrue(Array.IndexOf(fsm.Transitions,trans4) >= 0);
 			Assert.IsTrue(fsm.FinalStates.Length == 1);
 			Assert.IsTrue(Array.IndexOf(fsm.States,states["3"]) == -1);
+		}
+
+		[Test] public void GetReachableStatesAfterDeleteTransition()
+		{
+			IEditableFiniteStateMachine fsm = BuildExampleFSM();
+			StateHash states = new StateHash(fsm.States);
+			InputSymbolHash inputs = new InputSymbolHash(fsm.InputAlphabet);
+			ITransition trans1 = FSMFactory.CreateDefaultTransition(states["2"],inputs["c"],states["3"]);
+			ITransition trans2 = FSMFactory.CreateDefaultTransition(states["3"],inputs["eps"],states["1"]);
+			ITransition trans3 = FSMFactory.CreateDefaultTransition(states["1"],inputs["a"],states["1"]);
+			ITransition trans4 = FSMFactory.CreateDefaultTransition(states["1"],inputs["b"],states["2"]);
+			fsm.DeleteTransitions(trans1,trans2);
+			Assert.IsTrue(fsm.Transitions.Length == 2);
+			Assert.IsTrue(fsm.States.Length == 3);
+			Assert.IsTrue(Array.IndexOf(fsm.Transitions,trans1) == -1);
+			Assert.IsTrue(Array.IndexOf(fsm.Transitions,trans2) == -1);
+			Assert.IsTrue(Array.IndexOf(fsm.Transitions,trans3) >= 0);
+			Assert.IsTrue(Array.IndexOf(fsm.Transitions,trans4) >= 0);
+			IState[] reachableStates = fsm.GetReachableStates(fsm.StartState);
+			Assert.IsTrue(reachableStates.Length == 2);
+			Assert.IsTrue(Array.IndexOf(reachableStates,states["3"]) == -1); 
 		}
 
 		/// <summary>
