@@ -1,18 +1,13 @@
 <project>
     <assemblies>
-        <assembly location="C:\Job\src\Palladio.FiniteStateMachine\bin\Debug\Palladio.FiniteStateMachines.dll" documentation="C:\Job\src\Palladio.FiniteStateMachine\bin\Debug\Palladio.FiniteStateMachines.xml" />
-        <assembly location="C:\Job\src\Palladio.FiniteStateMachine\bin\Debug\ReflectionBasedVisitor.dll" documentation="C:\Job\src\Palladio.FiniteStateMachine\bin\Debug\ReflectionBasedVisitor.xml" />
+        <assembly location=".\bin\Debug\Palladio.FiniteStateMachines.dll" documentation=".\bin\Debug\Palladio.FiniteStateMachines.xml" />
     </assemblies>
     <namespaces>
-        <namespace name="Palladio.FiniteStateMachines"></namespace>
+        <namespace name="Palladio.FiniteStateMachines">The Palladio.FiniteStateMachines assembly provides an implementation of the classical NFA and DFA (as a special case). A FSM consists of a set of states, a set of input symbols, a start state, a set of final states and an input alphabet. The FSM provided here follow exactly this mathematical model. <br></br> Editable FSM are provided as well as the possibility to add custom attributes to states and transitions.</namespace>
         <namespace name="Palladio.FiniteStateMachines.DefaultFSM"></namespace>
-        <namespace name="Palladio.FiniteStateMachines.Exceptions"></namespace>
-        <namespace name="Palladio.FiniteStateMachines.UnitTests"></namespace>
+        <namespace name="Palladio.FiniteStateMachines.Exceptions">This namespace contains the exceptions that can occur when handling with FSMs.</namespace>
         <namespace name="Palladio.FiniteStateMachines.Visitors"></namespace>
         <namespace name="ReflectionBasedVisitor"></namespace>
-        <namespace name="ReflectionBasedVisitor.Interfaces"></namespace>
-        <namespace name="Utils.Collections"></namespace>
-        <namespace name="Utils.Exceptions"></namespace>
     </namespaces>
     <documenters>
         <documenter name="HtmlHelp2">
@@ -185,7 +180,7 @@
             <property name="DocumentProtectedInternalAsProtected" value="False" />
             <property name="DocumentEmptyNamespaces" value="False" />
             <property name="IncludeAssemblyVersion" value="True" />
-            <property name="CopyrightText" value="" />
+            <property name="CopyrightText" value="Copyright by DFG Palladio, 2004" />
             <property name="CopyrightHref" value="" />
             <property name="ReferencesPath" value="" />
             <property name="SkipNamespacesWithoutSummaries" value="False" />
