@@ -1,0 +1,4 @@
+bin
+obj
+.cvsignore
+ComponentModel.csproj.user
