@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.5  2004/06/28 10:51:47  joemal
+	/// - add observer to the builders
+	///
 	/// Revision 1.4  2004/06/26 16:32:12  joemal
 	/// - now propagate the reset through the architecture
 	///
@@ -48,6 +51,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// holds the elementfactory 
 		/// </summary>
 		private IElementFactory elementFactory;
+
+		/// <summary>
+		/// holds the observer for this service
+		/// </summary>
+		private IServiceObserver observer;
 
 		#endregion
 
@@ -85,11 +93,16 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="component">the component, that contains the service</param>
 		/// <param name="fsmSeff">the FSM service effect, that has to be filled</param>
 		/// <param name="factory">the factory, used to create the elements of the fsm</param>
-		public DefaultServiceBuilder(IBasicComponent component, IServiceEffectSpecification seff, IElementFactory factory)
+		/// <param name="observer">
+		/// The observer for the service. If no observer is needed, this parameter may be null.
+		/// </param>
+		public DefaultServiceBuilder(IBasicComponent component, IServiceEffectSpecification seff, IElementFactory factory,
+			IServiceObserver observer)
 		{
 			this.component = component;
 			this.serviceEffectSpecification = seff;
 			this.elementFactory = factory;
+			this.observer = observer;
 		}
 
 		#endregion
@@ -104,6 +117,12 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		{
 			ISimulationState newState = elementFactory.CreateState(stateParams);
 			FSM.AddStates(newState);
+
+			if (this.observer != null) 
+			{
+				IExternalSignature extSig = serviceEffectSpecification.SignatureList.Signatures[0];
+				observer.OnStateAdded(extSig.RoleID,extSig.Signature.ID,stateParams);
+			}
 		}
 
 		/// <summary>
@@ -113,6 +132,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		public void SetStartState(string id)
 		{
 			FSM.StartState = FSM.GetState(id);
+			if (this.observer != null) 
+			{
+				IExternalSignature extSig = serviceEffectSpecification.SignatureList.Signatures[0];
+				observer.OnStartStateSet(extSig.RoleID,extSig.Signature.ID,id);
+			}
 		}
 
 		/// <summary>
@@ -124,6 +148,12 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			IState[] finalState = new IState[ids.Length];
 			for(int a=0;a<ids.Length;a++)
 				finalState[a] = FSM.GetState(ids[a]);			
+			
+			if (this.observer != null) 
+			{
+				IExternalSignature extSig = serviceEffectSpecification.SignatureList.Signatures[0];
+				observer.OnFinalStatesSet(extSig.RoleID,extSig.Signature.ID,ids);
+			}
 		}
 
 		/// <summary>
@@ -148,6 +178,12 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			serviceEffectSpecification.SignatureList.AddSignatures(extSig);
             
 			FSM.AddTransition(sourceStateID,extSig,destStateID);
+
+			if (this.observer != null) 
+			{
+				IExternalSignature exSig = serviceEffectSpecification.SignatureList.Signatures[0];
+				observer.OnTransitionAdded(exSig.RoleID,exSig.Signature.ID,sourceStateID,signatureID,reqIFaceID,destStateID);
+			}
 		}
 
 		/// <summary>

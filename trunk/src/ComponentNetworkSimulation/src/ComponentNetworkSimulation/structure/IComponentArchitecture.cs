@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.4  2004/06/28 10:51:47  joemal
+	/// - add observer to the builders
+	///
 	/// Revision 1.3  2004/06/26 16:36:11  joemal
 	/// - remove todo tags
 	///
@@ -87,16 +90,22 @@ namespace ComponentNetworkSimulation.Structure
 		/// The builderinterface for this component is returned to fill this component.
 		/// </summary>
 		/// <param name="id">the id of the component</param>
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder</returns>
-        Builder.IBasicComponentBuilder CreateBasicRootComponent(String id);
+        Builder.IBasicComponentBuilder CreateBasicRootComponent(String id, Builder.IBasicComponentObserver observer);
 
 		/// <summary>
 		/// call to create an empty compositecomponent and set it as root component. 
 		/// The builderinterface for this component is returned to fill this component.
 		/// </summary>
 		/// <param name="id">the id of the component</param>
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder</returns>
-		Builder.ICompositeComponentBuilder CreateCompositeComponent(String id);
+		Builder.ICompositeComponentBuilder CreateCompositeComponent(String id, Builder.ICompositeComponentObserver observer);
 	}
 }
 //EOF

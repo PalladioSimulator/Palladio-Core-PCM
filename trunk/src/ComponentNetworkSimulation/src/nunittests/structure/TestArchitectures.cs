@@ -12,6 +12,9 @@ namespace nunittests.structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.6  2004/06/28 10:52:39  joemal
+	/// - add observer to the builders
+	///
 	/// Revision 1.5  2004/06/26 15:38:23  joemal
 	/// xxxx
 	///
@@ -36,8 +39,8 @@ namespace nunittests.structure
 		public static void FillCC(ICompositeComponentBuilder builder)
 		{
 			//create the two inner components
-			FillC1(builder.AddBasicComponent("C1"));
-			FillC2(builder.AddBasicComponent("C2"));
+			FillC1(builder.AddBasicComponent("C1",null));
+			FillC2(builder.AddBasicComponent("C2",null));
 
 			//bind them
 			StaticTimeBindingParams p = new StaticTimeBindingParams(LoggingType_t.LOG_BOTH,3);
@@ -50,8 +53,8 @@ namespace nunittests.structure
 		public static void FillC1(IBasicComponentBuilder builder)
 		{
 			//only to test the get methods of the service builder
-			builder.AddService(ID("P1"),ID("d1"));
-			builder.AddService(ID("P1"),ID("d2"));
+			builder.AddService(ID("P1"),ID("d1"),null);
+			builder.AddService(ID("P1"),ID("d2"),null);
 
 			//creates service d1 and d2
 			FillServiceD1(builder.GetServiceBuilder(ID("P1"),ID("d1")));
@@ -61,10 +64,10 @@ namespace nunittests.structure
 		public static void FillC2(IBasicComponentBuilder builder)
 		{	
 			//creates service e1 to d4
-			FillEmptyService(builder.AddService(ID("P2"),ID("e1")),"C2->e1->1");
-			FillEmptyService(builder.AddService(ID("P2"),ID("e2")),"C2->e2->1");
-			FillEmptyService(builder.AddService(ID("P2"),ID("e3")),"C2->e3->1");
-			FillEmptyService(builder.AddService(ID("P2"),ID("e4")),"C2->e44->1");
+			FillEmptyService(builder.AddService(ID("P2"),ID("e1"),null),"C2->e1->1");
+			FillEmptyService(builder.AddService(ID("P2"),ID("e2"),null),"C2->e2->1");
+			FillEmptyService(builder.AddService(ID("P2"),ID("e3"),null),"C2->e3->1");
+			FillEmptyService(builder.AddService(ID("P2"),ID("e4"),null),"C2->e44->1");
 		}
 
 		public static void FillServiceD1(IServiceBuilder builder)

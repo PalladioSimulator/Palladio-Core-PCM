@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.4  2004/06/28 10:51:47  joemal
+	/// - add observer to the builders
+	///
 	/// Revision 1.3  2004/06/26 15:42:23  joemal
 	/// - add the default builder for composite components
 	///
@@ -46,20 +49,26 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// called to create a builder used to fill the given composite component. 
 		/// </summary>
 		/// <param name="component">the component to be filled</param>
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder used to fill the component</returns>
-		public ICompositeComponentBuilder CreateBuilder(ICompositeComponent component)
+		public ICompositeComponentBuilder CreateBuilder(ICompositeComponent component, ICompositeComponentObserver observer)
 		{
-			return new DefaultCompositeComponentBuilder(component,elementFactory,this);
+			return new DefaultCompositeComponentBuilder(component,elementFactory,this,observer);
 		}
 
 		/// <summary>
 		/// called to create a builder used to fill the given basic component. 
 		/// </summary>
 		/// <param name="component">the component to be filled</param>
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder used to fill the component</returns>
-		public IBasicComponentBuilder CreateBuilder(IBasicComponent component)
+		public IBasicComponentBuilder CreateBuilder(IBasicComponent component,IBasicComponentObserver observer)
 		{
-			return new DefaultBasicComponentBuilder(component,elementFactory,this);
+			return new DefaultBasicComponentBuilder(component,elementFactory,this,observer);
 		}
 
 		/// <summary>
@@ -67,10 +76,14 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// </summary>
 		/// <param name="component">the component which contains the service to be filled</param>
 		/// <param name="seff">the service effect specification</param>
+		/// <param name="observer">
+		/// The observer for the service. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder used to fill the FSM</returns>
-		public IServiceBuilder CreateBuilder(IBasicComponent component, IServiceEffectSpecification seff)
+		public IServiceBuilder CreateBuilder(IBasicComponent component, IServiceEffectSpecification seff, 
+			IServiceObserver observer)
 		{
-			return new DefaultServiceBuilder(component,seff,elementFactory);
+			return new DefaultServiceBuilder(component,seff,elementFactory,observer);
 		}
 	}
 }

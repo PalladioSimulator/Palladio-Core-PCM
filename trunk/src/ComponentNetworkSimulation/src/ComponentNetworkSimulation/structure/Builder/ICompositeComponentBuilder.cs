@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/06/28 10:51:47  joemal
+	/// - add observer to the builders
+	///
 	/// Revision 1.2  2004/06/26 15:41:47  joemal
 	/// - now implemented
 	///
@@ -28,15 +31,21 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// called to add a basic component with given id.
 		/// </summary>
 		/// <param name="componentID">the id of the new component.</param>
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param> 
 		/// <returns>the builder to fill this component</returns>
-		IBasicComponentBuilder AddBasicComponent(string componentID);
+		IBasicComponentBuilder AddBasicComponent(string componentID, IBasicComponentObserver observer);
 
 		/// <summary>
 		/// called to add a composite component with given id.
 		/// </summary>
 		/// <param name="componentID">the id of the new component.</param>
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder to fill this component</returns>
-		ICompositeComponentBuilder AddCompositeComponent(string componentID);
+		ICompositeComponentBuilder AddCompositeComponent(string componentID, ICompositeComponentObserver observer);
 
 		/// <summary>
 		/// called to get the builder of the component with the given id. If the component doesn't exist, null

@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/28 10:51:47  joemal
+	/// - add observer to the builders
+	///
 	/// Revision 1.1  2004/06/22 12:56:46  joemal
 	/// inital class creation
 	///
@@ -200,15 +203,23 @@ namespace ComponentNetworkSimulation.Structure
 		/// call to create the root component. This call creates a basic component as root.
 		/// </summary>
 		/// <param name="id">the id of the component</param>
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder for the component</returns>
-		public abstract Builder.IBasicComponentBuilder CreateBasicRootComponent(String id);
+		public abstract Builder.IBasicComponentBuilder CreateBasicRootComponent(String id,
+			Builder.IBasicComponentObserver observer);
 
 		/// <summary>
 		/// call to create the root component. This call creates a composite component as root.
 		/// </summary>
 		/// <param name="id">the id of the component</param>
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder for the component</returns>
-		public abstract Builder.ICompositeComponentBuilder CreateCompositeComponent(String id);
+		public abstract Builder.ICompositeComponentBuilder CreateCompositeComponent(String id,
+			Builder.ICompositeComponentObserver observer);
 
 		#endregion
 	}

@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.4  2004/06/28 10:51:47  joemal
+	/// - add observer to the builders
+	///
 	/// Revision 1.3  2004/06/26 16:32:12  joemal
 	/// - now propagate the reset through the architecture
 	///
@@ -90,13 +93,16 @@ namespace ComponentNetworkSimulation.Structure
 		/// call to create the root component. This call creates a basic component as root.
 		/// </summary>
 		/// <param name="id">the id of the component</param>
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder for the component</returns>
-		public override IBasicComponentBuilder CreateBasicRootComponent(String id)
+		public override IBasicComponentBuilder CreateBasicRootComponent(String id, IBasicComponentObserver observer)
 		{
 			IBasicComponent component = this.ElementFactory.CreateBasicComponent(id);
 			this.rootComponent = component;
 
-			this.componentBuilder = this.BuilderFactory.CreateBuilder(component);
+			this.componentBuilder = this.BuilderFactory.CreateBuilder(component,observer);
 			return (IBasicComponentBuilder)this.componentBuilder;
 		}
 
@@ -104,13 +110,16 @@ namespace ComponentNetworkSimulation.Structure
 		/// call to create the root component. This call creates a composite component as root.
 		/// </summary>
 		/// <param name="id">the id of the component</param>
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder for the component</returns>
-		public override ICompositeComponentBuilder CreateCompositeComponent(String id)
+		public override ICompositeComponentBuilder CreateCompositeComponent(String id,ICompositeComponentObserver observer)
 		{
 			ICompositeComponent component = this.ElementFactory.CreateCompositeComponent(id);
 			this.rootComponent = component;
 
-			this.componentBuilder = this.BuilderFactory.CreateBuilder(component);
+			this.componentBuilder = this.BuilderFactory.CreateBuilder(component,observer);
 			return (ICompositeComponentBuilder)this.componentBuilder;
 		}
 

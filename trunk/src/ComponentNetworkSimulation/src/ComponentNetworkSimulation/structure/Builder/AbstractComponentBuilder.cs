@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/06/28 10:51:47  joemal
+	/// - add observer to the builders
+	///
 	/// Revision 1.2  2004/06/26 16:32:12  joemal
 	/// - now propagate the reset through the architecture
 	///
@@ -42,6 +45,26 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// </summary>
 		protected IBuilderFactory builderFactory;
 
+		/// <summary>
+		/// holds the observer for this builders component
+		/// </summary>
+		protected IComponentObserver observer;
+
+		#endregion
+
+		#region properties
+
+		/// <summary>
+		/// called to extract the id of the builders component
+		/// </summary>
+		protected string CompID
+		{
+			get
+			{
+				return this.component.ID.ToString();
+			}
+		}
+
 		#endregion
 
 		#region constructor
@@ -52,11 +75,16 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="comp">the component to be filled</param>
 		/// <param name="elements">the factory, used to create the elements of the architecture</param>
  		/// <param name="builder">the factory, used to create the builder</param>
-		public AbstractComponentBuilder(IComponent comp, IElementFactory elements, IBuilderFactory builder)
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
+		public AbstractComponentBuilder(IComponent comp, IElementFactory elements, IBuilderFactory builder, 
+			IComponentObserver observer)
 		{
 			this.component = comp;
 			this.elementFactory = elements;
 			this.builderFactory = builder;
+			this.observer = observer;
 		}
 
 		#endregion
@@ -70,6 +98,8 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		public void AddProvidesInterface(Palladio.Identifier.IIdentifier ifaceID)
 		{
 			this.component.AddProvidesInterface(ifaceID,ComponentFactory.CreateInterfaceModel());
+			if (this.observer != null)
+				observer.OnProvidesInterfaceAdded(CompID,ifaceID);
 		}
 
 		/// <summary>
@@ -79,6 +109,8 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		public void AddRequiresInterface(Palladio.Identifier.IIdentifier ifaceID)
 		{
 			this.component.AddRequiresInterface(ifaceID,ComponentFactory.CreateInterfaceModel());
+			if (this.observer != null)
+				observer.OnRequiresInterfaceAdded(CompID,ifaceID);
 		}
 
 		/// <summary>

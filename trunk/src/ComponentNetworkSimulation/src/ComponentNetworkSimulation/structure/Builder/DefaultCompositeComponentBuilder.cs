@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/06/28 10:51:47  joemal
+	/// - add observer to the builders
+	///
 	/// Revision 1.2  2004/06/26 16:32:12  joemal
 	/// - now propagate the reset through the architecture
 	///
@@ -45,6 +48,17 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			}
 		}
 
+		/// <summary>
+		/// called to get the observer for this builders compositecomponent.
+		/// </summary>
+		protected ICompositeComponentObserver CompositeComponentObserver
+		{
+			get
+			{
+				return (ICompositeComponentObserver)this.observer;
+			}
+		}
+
 		#endregion
 
 		#region constructors
@@ -55,8 +69,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="component">the component to be filled with this builder.</param>
 		/// <param name="elements">the factory, used to create the elements of the architecture</param>
 		/// <param name="builder">the factory, used to create the builder</param>
-		public DefaultCompositeComponentBuilder(ICompositeComponent component, IElementFactory elements, IBuilderFactory builder) 
-			: base(component,elements,builder)
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
+		public DefaultCompositeComponentBuilder(ICompositeComponent component, IElementFactory elements, IBuilderFactory builder,
+			ICompositeComponentObserver observer) : base(component,elements,builder,observer)
 		{
 		}
 
@@ -68,14 +85,20 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// called to add a basic component with given id.
 		/// </summary>
 		/// <param name="componentID">the id of the new component.</param>
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder to fill this component</returns>
-		public IBasicComponentBuilder AddBasicComponent(string componentID)
+		public IBasicComponentBuilder AddBasicComponent(string componentID, IBasicComponentObserver observer)
 		{
 			IBasicComponent basicComp = ComponentFactory.CreateBasicComponent(componentID);
 			this.CompositeComponent.AddComponents(basicComp);
 
-			IBasicComponentBuilder builder = this.builderFactory.CreateBuilder(basicComp);
+			IBasicComponentBuilder builder = this.builderFactory.CreateBuilder(basicComp,observer);
 			this.builders.Add(componentID,builder);
+
+			if(this.observer != null)
+				CompositeComponentObserver.OnBasicComponentAdded(CompID,componentID);
 
 			return builder;
 		}
@@ -83,15 +106,21 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <summary>
 		/// called to add a composite component with given id.
 		/// </summary>
-		/// <param name="componentID">the id of the new component.</param>
+		/// <param name="componentID">the id of the new component.</param>		
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
 		/// <returns>the builder to fill this component</returns>
-		public ICompositeComponentBuilder AddCompositeComponent(string componentID)
+		public ICompositeComponentBuilder AddCompositeComponent(string componentID,ICompositeComponentObserver observer)
 		{
 			ICompositeComponent compositeComp = ComponentFactory.CreateCompositeComponent(componentID);
 			this.CompositeComponent.AddComponents(compositeComp);
 
-			ICompositeComponentBuilder builder = this.builderFactory.CreateBuilder(compositeComp);
+			ICompositeComponentBuilder builder = this.builderFactory.CreateBuilder(compositeComp,observer);
 			this.builders.Add(componentID,builder);
+
+			if(this.observer != null)
+				CompositeComponentObserver.OnCompositeComponentAdded(CompID,componentID);
 
 			return builder;
 		}
@@ -123,6 +152,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 
 			ISimulationBinding binding = elementFactory.CreateBinding(rComp,reqIFaceID,pComp,provIFaceID,parms);
 			this.CompositeComponent.AddBindings(binding);
+
+			if(this.observer != null)
+				CompositeComponentObserver.OnBindingAdded(CompID,provComp,reqComp,provIFaceID,reqIFaceID,parms);
 		}
 
 		/// <summary>
@@ -148,6 +180,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 				this.CompositeComponent,thisCompReqIFaceID);
 
 			this.CompositeComponent.AddRequiresMappings(mapping);
+
+			if(this.observer != null)
+				CompositeComponentObserver.OnRequiresMappingAdded(CompID,requiringComp,compReqIFaceID,thisCompReqIFaceID);
 		}
 
 		/// <summary>
@@ -173,6 +208,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 				innerComp,compProvIFaceID);
 
 			this.CompositeComponent.AddProvidesMappings(mapping);
+
+			if(this.observer != null)
+				CompositeComponentObserver.OnProvidesMappingAdded(CompID,providingComp,compProvIFaceID,thisCompProvIFaceID);
 		}
 
 		/// <summary>

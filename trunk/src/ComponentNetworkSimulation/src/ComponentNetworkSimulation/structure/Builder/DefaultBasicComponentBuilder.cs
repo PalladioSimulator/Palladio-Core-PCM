@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.5  2004/06/28 10:51:47  joemal
+	/// - add observer to the builders
+	///
 	/// Revision 1.4  2004/06/26 16:32:12  joemal
 	/// - now propagate the reset through the architecture
 	///
@@ -54,6 +57,17 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			}
 		}
 
+		/// <summary>
+		/// called to get the observer for this builders basiccomponent.
+		/// </summary>
+		protected IBasicComponentObserver BasicComponentObserver
+		{
+			get
+			{
+				return (IBasicComponentObserver)this.observer;
+			}
+		}
+
 		#endregion
 
 		#region constructor
@@ -64,8 +78,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="component">the component filled with this builder.</param>
 		/// <param name="elements">the factory, used to create the elements of the architecture</param>
 		/// <param name="builder">the factory, used to create the builder</param>
-		public DefaultBasicComponentBuilder(IBasicComponent component, IElementFactory elements, IBuilderFactory builder) 
-			: base(component,elements,builder)
+		/// <param name="observer">
+		/// The observer for this component. If no observer is needed, this parameter may be null.
+		/// </param>
+		public DefaultBasicComponentBuilder(IBasicComponent component, IElementFactory elements, IBuilderFactory builder,
+			IBasicComponentObserver observer): base(component,elements,builder,observer)
 		{
 		}
 
@@ -78,8 +95,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// </summary>
 		/// <param name="provIfaceID">the id of the provides interface to which the signature of the service has to be added</param>
 		/// <param name="signatureID">the id of the signature</param>
-		/// <returns>the builder to fill the service</returns>
-		public IServiceBuilder AddService(IIdentifier provIfaceID, IIdentifier signatureID)
+		/// <param name="observer">
+		/// The observer for the service. If no observer is needed, this parameter may be null.
+		/// </param>
+		/// <returns>the builder to fill the service</returns>/// <returns>the builder to fill the service</returns>
+		public IServiceBuilder AddService(IIdentifier provIfaceID, IIdentifier signatureID,IServiceObserver observer)
 		{
 			if (!this.BasicComponent.HasProvidesInterface(provIfaceID)) 
 				this.BasicComponent.AddProvidesInterface(provIfaceID,ComponentFactory.CreateInterfaceModel());
@@ -93,8 +113,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
 			seff.AddAuxiliarySpecification(fsmSeff);
 
-			IServiceBuilder builder = this.builderFactory.CreateBuilder(this.BasicComponent,seff);
+			IServiceBuilder builder = this.builderFactory.CreateBuilder(this.BasicComponent,seff,observer);
 			serviceBuilderTable.Add(CreateExternalSignature(provIfaceID,signatureID),builder);
+
+			if(observer != null)
+				this.BasicComponentObserver.OnServiceAdded(this.component.ID.ToString(),provIfaceID,signatureID);
 
 			return builder;
 		}
