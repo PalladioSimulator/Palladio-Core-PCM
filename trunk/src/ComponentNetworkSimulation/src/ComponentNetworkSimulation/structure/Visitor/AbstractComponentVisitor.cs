@@ -11,6 +11,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/06/19 13:42:28  joemal
+	/// Add some methods to retrieve the status of the visitor
+	///
 	/// Revision 1.1  2004/06/18 17:20:13  joemal
 	/// initial class creation
 	///
@@ -68,6 +71,40 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 			get;
 		}
 
+		/// <summary>
+		/// if the current element is a timeconsumer, it is returned. Otherwise, null is returned.
+		/// </summary>
+		public ITimeConsumer CurrentTimeConsumer
+		{
+			get
+			{
+				if (this.IsTimeConsumer) return (ITimeConsumer)this.CurrentElement;
+				return null;
+			}
+		}
+
+		/// <summary>
+		/// returns true, if the current element is a timeconsumer
+		/// </summary>
+		public bool IsTimeConsumer
+		{
+			get
+			{
+				return this.HasAnyElement && (this.CurrentElement is ITimeConsumer);
+			}
+		}
+
+		/// <summary>
+		/// returns true, if any element exits in controlflow of the visitor
+		/// </summary>
+		public bool HasAnyElement
+		{
+			get
+			{
+				return this.CurrentElement != null;
+			}
+		}
+				
 		#endregion
 
 		#region methods
