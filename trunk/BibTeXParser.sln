@@ -1,0 +1,61 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTeXParser", "BibTeXParser.csproj", "{8C664A1E-8A05-4FD7-BB7C-3801FC11D138}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTeX Analyzer", "..\BibTeX Analyzer\BibTeX Analyzer.csproj", "{76498322-01D2-458C-B3B3-65DA84D2E049}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTeXModifier", "..\BibTeXModifier\BibTeXModifier.csproj", "{53A565F2-22E7-4462-9B1B-E21D106FDED1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTeX Formater", "..\BibTeX Formater\BibTeX Formater.csproj", "{3E1FBEB1-8E71-4AB1-8BAC-0F4B269ECBDC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Options", "..\Options\Options.csproj", "{C602F723-04CB-4A96-BF35-DA7A2A9776DB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionBasedVisitor", "..\ReflectionBasedVisitor\ReflectionBasedVisitor.csproj", "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{8C664A1E-8A05-4FD7-BB7C-3801FC11D138}.Debug.ActiveCfg = Debug|.NET
+		{8C664A1E-8A05-4FD7-BB7C-3801FC11D138}.Debug.Build.0 = Debug|.NET
+		{8C664A1E-8A05-4FD7-BB7C-3801FC11D138}.Release.ActiveCfg = Release|.NET
+		{8C664A1E-8A05-4FD7-BB7C-3801FC11D138}.Release.Build.0 = Release|.NET
+		{76498322-01D2-458C-B3B3-65DA84D2E049}.Debug.ActiveCfg = Debug|.NET
+		{76498322-01D2-458C-B3B3-65DA84D2E049}.Debug.Build.0 = Debug|.NET
+		{76498322-01D2-458C-B3B3-65DA84D2E049}.Release.ActiveCfg = Release|.NET
+		{76498322-01D2-458C-B3B3-65DA84D2E049}.Release.Build.0 = Release|.NET
+		{53A565F2-22E7-4462-9B1B-E21D106FDED1}.Debug.ActiveCfg = Debug|.NET
+		{53A565F2-22E7-4462-9B1B-E21D106FDED1}.Debug.Build.0 = Debug|.NET
+		{53A565F2-22E7-4462-9B1B-E21D106FDED1}.Release.ActiveCfg = Release|.NET
+		{53A565F2-22E7-4462-9B1B-E21D106FDED1}.Release.Build.0 = Release|.NET
+		{3E1FBEB1-8E71-4AB1-8BAC-0F4B269ECBDC}.Debug.ActiveCfg = Debug|.NET
+		{3E1FBEB1-8E71-4AB1-8BAC-0F4B269ECBDC}.Debug.Build.0 = Debug|.NET
+		{3E1FBEB1-8E71-4AB1-8BAC-0F4B269ECBDC}.Release.ActiveCfg = Release|.NET
+		{3E1FBEB1-8E71-4AB1-8BAC-0F4B269ECBDC}.Release.Build.0 = Release|.NET
+		{C602F723-04CB-4A96-BF35-DA7A2A9776DB}.Debug.ActiveCfg = Debug|.NET
+		{C602F723-04CB-4A96-BF35-DA7A2A9776DB}.Debug.Build.0 = Debug|.NET
+		{C602F723-04CB-4A96-BF35-DA7A2A9776DB}.Release.ActiveCfg = Release|.NET
+		{C602F723-04CB-4A96-BF35-DA7A2A9776DB}.Release.Build.0 = Release|.NET
+		{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}.Debug.ActiveCfg = Debug|.NET
+		{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}.Debug.Build.0 = Debug|.NET
+		{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}.Release.ActiveCfg = Release|.NET
+		{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
