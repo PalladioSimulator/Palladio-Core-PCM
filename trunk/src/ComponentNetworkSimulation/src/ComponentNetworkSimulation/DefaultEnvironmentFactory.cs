@@ -1,7 +1,10 @@
 using System;
+using ComponentNetworkSimulation.Structure;
 using ComponentNetworkSimulation.Structure.Elements;
 using ComponentNetworkSimulation.Structure.Builder;
 using ComponentNetworkSimulation.Structure.Visitor;
+using ComponentNetworkSimulation.Simulation;
+using ComponentNetworkSimulation.Analysis;
 
 namespace ComponentNetworkSimulation
 {
@@ -20,6 +23,9 @@ namespace ComponentNetworkSimulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/06/22 17:06:44  joemal
+	/// add static methods to create clock, architecture and datapool
+	///
 	/// Revision 1.1  2004/06/22 12:01:56  joemal
 	/// add factory to configure the framework
 	///
@@ -85,31 +91,61 @@ namespace ComponentNetworkSimulation
 		}
 
 		/// <summary>
-		/// called to create a the default elementfactory of the framework
+		/// called to create the default elementfactory of the framework
 		/// </summary>
 		/// <returns>the default elementfactory of the framework</returns>
 		public static IElementFactory CreateDefaultElementFactory()
 		{
-			return new Structure.Elements.DefaultElementFactory();
+			return new DefaultElementFactory();
 		}
 		
 		/// <summary>
-		/// called to create a the default visitorfactory of the framework
+		/// called to create the default visitorfactory of the framework
 		/// </summary>
 		/// <returns>the default visitorfactory of the framework</returns>
 		public static IVisitorFactory CreateDefaultVisitorFactory()
 		{
-			return new Structure.Visitor.DefaultVisitorFactory();
+			return new DefaultVisitorFactory();
 		}
 
 		/// <summary>
-		/// called to create a the default elementfactory of the framework
+		/// called to create the default builderfactory of the framework
 		/// </summary>
 		/// <param name="elements">the elementfactory, used by the builders to create the elements of the architecture</param>
-		/// <returns>the default elementfactory of the framework</returns>
-		public static IBuilderFactory CreateDefaultBuilderFactory(Structure.Elements.IElementFactory elements)
+		/// <returns>the default builderfactory of the framework</returns>
+		public static IBuilderFactory CreateDefaultBuilderFactory(IElementFactory elements)
 		{
-			return new Structure.Builder.DefaultBuilderFactory(elements);
+			return new DefaultBuilderFactory(elements);
+		}
+
+		/// <summary>
+		/// called to create the default component architecture of the framework
+		/// </summary>
+		/// <param name="simulationEnvironment">the simulation environment</param>
+		/// <returns>the default component architecture</returns>
+		public static IComponentArchitecture CreateDefaultComponentArchitecture(ISimulationEnvironment simulationEnvironment)
+		{
+			return new DefaultComponentArchitecture(simulationEnvironment);
+		}
+
+		/// <summary>
+		/// called to create the default clock of the framework
+		/// </summary>
+		/// <param name="simulationEnvironment">the simulation environment</param>
+		/// <returns>the default clock</returns>
+		public static IClock CreateDefaultClock(ISimulationEnvironment simulationEnvironment)
+		{
+			return new DefaultClock(simulationEnvironment);
+		}
+
+		/// <summary>
+		/// called to create the default datapool of the framework
+		/// </summary>
+		/// <param name="simulationEnvironment">the default datapool</param>
+		/// <returns>the default datapool</returns>
+		public static IDataPool CreateDefaultDataPool(ISimulationEnvironment simulationEnvironment)
+		{
+			return new DefaultDataPool(simulationEnvironment);
 		}
 	}
 }
