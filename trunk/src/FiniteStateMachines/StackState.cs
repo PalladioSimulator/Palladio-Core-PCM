@@ -113,7 +113,7 @@ namespace FiniteStateMachines {
 				Context con = new Context((Context)contextStack.Pop()); // Create a clone
 				con.State = newState;
 				contextStack.Push(con);
-			} catch(InvalidOperationException e) {
+			} catch(InvalidOperationException) {
 				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
 			}
 		}
@@ -130,7 +130,7 @@ namespace FiniteStateMachines {
 				} else {
 					return Peek();
 				}
-			} catch(InvalidOperationException e){
+			} catch(InvalidOperationException){
 				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
 			}
 		}
@@ -143,7 +143,7 @@ namespace FiniteStateMachines {
 		public Context Peek(){
 			try {
 				return ((Context)contextStack.Peek());
-			} catch(InvalidOperationException e){
+			} catch(InvalidOperationException){
 				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
 			}
 		}

@@ -177,10 +177,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\FiniteStateMachines\ReturnInput.cs"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\FiniteStateMachines\StackState.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -256,12 +252,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\FiniteStateMachines\Decorators\MachineReducer.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\FiniteStateMachines\Decorators\MinimizedAndEqualsFSM.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\FiniteStateMachines\Decorators\PowerSetState.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FiniteStateMachines\Decorators\Rule.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -302,6 +308,11 @@
                 />
                 <File
                     RelPath = "src\UnitTests\FiniteStateMachines\Decorators\FiniteEpsilonMachineTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FiniteStateMachines\Decorators\MachineReducerTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
