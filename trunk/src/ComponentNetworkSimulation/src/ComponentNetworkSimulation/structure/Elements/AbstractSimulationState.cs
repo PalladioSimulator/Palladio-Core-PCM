@@ -12,6 +12,12 @@ namespace ComponentNetworkSimulation.Structure.Services
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.4  2004/05/26 16:33:26  joemal
+	/// remove methods:
+	/// - NextTimeConsumer
+	/// - HasNextTimeConsumer
+	/// Use visitor now
+	///
 	/// Revision 1.3  2004/05/25 16:23:37  joemal
 	/// parameters now are stored in attributehash
 	///
@@ -95,25 +101,6 @@ namespace ComponentNetworkSimulation.Structure.Services
 			}
 		}
 
-		public ITimeConsumer NextTimeConsumer
-		{
-			get
-			{
-				// TODO:  away later
-				return null;
-			}
-		}
-
-		public bool HasNextTimeConsumer
-		{
-			get
-			{
-				//TODO: away later ... 
-				return false;
-			}
-		}
-
-
 		/// <summary>
 		/// returns the logging type of the state.
 		/// </summary>
@@ -126,7 +113,6 @@ namespace ComponentNetworkSimulation.Structure.Services
 		}
 
 		#endregion
-
 
 		#region methods
 
