@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+<?xml version="1.0" encoding="utf-8" ?> 
 <codeSmith>
 	<namespace>Palladio.ComponentModel.TypedCollections</namespace>
 	<imports>
@@ -31,7 +31,7 @@
 			<property name="ClassName">ServiceEffectHashmap</property>
 			<property name="TargetNamespace">Palladio.ComponentModel.TypedCollections</property>
 			<property name="ImportNamespace">Palladio.Utils.Collections</property>
-			<property name="KeyType">IExternalSignature</property>
+			<property name="KeyType">IService</property>
 			<property name="KeyNamespace">Palladio.ComponentModel</property>
 			<property name="KeyValueType">False</property>
 			<property name="KeyCustomSearch">False</property>
