@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.1  2004/10/25 07:07:21  sliver
  * implementation of
  * - functions discrete, including convolution
@@ -86,17 +89,17 @@ namespace Palladio.Reliability.Tests
 		public void Init()
 		{
 			fsm = TestBuilder.CreateTestFSM1();
-			reliabilityHashmap = new ReliabilityHashmap();
+			reliabilityHashtable = new ReliabilityHashtable();
 			foreach (IInput i in fsm.InputAlphabet)
 			{
-				reliabilityHashmap.Add(i.ID, new ServiceReliability(0.5));
+				reliabilityHashtable.Add(i.ID, new ServiceReliability(0.5));
 			}
 			markovModel = new MarkovModel(fsm);
 			transitionMatrix = new TransitionMatrix(markovModel);
 		}
 
 		private IFiniteStateMachine fsm;
-		private ReliabilityHashmap reliabilityHashmap;
+		private ReliabilityHashtable reliabilityHashtable;
 		private IMarkovModel markovModel;
 		private ITransitionMatrix transitionMatrix;
 	}

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.6  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.5  2004/10/25 07:07:21  sliver
  * implementation of
  * - functions discrete, including convolution
@@ -69,14 +72,14 @@ namespace Palladio.Reliability.Model
 			get { return father == null; }
 		}
 
-		public ReliabilityHashmap RequiresReliabilities
+		public ReliabilityHashtable RequiresReliabilities
 		{
-			get { return reqRelHashmap; }
+			get { return reqRelHashtable; }
 		}
 
-		public ReliabilityHashmap ProvidesReliabilities
+		public ReliabilityHashtable ProvidesReliabilities
 		{
-			get { return provRelHashmap; }
+			get { return provRelHashtable; }
 		}
 
 		public void AddChild(TreeNode n)
@@ -153,8 +156,8 @@ namespace Palladio.Reliability.Model
 			this.id = id;
 			this.children = new TreeNodeHashmap();
 			this.father = null;
-			this.provRelHashmap = new ReliabilityHashmap();
-			this.reqRelHashmap = new ReliabilityHashmap();
+			this.provRelHashtable = new ReliabilityHashtable();
+			this.reqRelHashtable = new ReliabilityHashtable();
 		}
 
 		public TreeNode(IIdentifier id, TreeNode father) : this(id)
@@ -165,8 +168,8 @@ namespace Palladio.Reliability.Model
 		private IIdentifier id;
 		private TreeNodeHashmap children;
 		private TreeNode father;
-		private ReliabilityHashmap provRelHashmap;
-		private ReliabilityHashmap reqRelHashmap;
+		private ReliabilityHashtable provRelHashtable;
+		private ReliabilityHashtable reqRelHashtable;
 
 	}
 }

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.2  2004/10/25 07:07:21  sliver
  * implementation of
  * - functions discrete, including convolution
@@ -119,11 +122,11 @@ namespace Palladio.Reliability.Attributes
 		/// </summary>
 		/// <param name="aMarkovModel">FSM with annotated transition. Each transition 
 		/// must contain a MarkovProbabilityAttribute.</param>
-		/// <param name="anExtReliabilityHashmap">Hashtable containing information about the reliability of 
+		/// <param name="anExtReliabilityHashtable">Hashtable containing information about the reliability of 
 		/// the external services used by aMarkovModel.</param>
-		public ReliabilityAttribute(IMarkovModel aMarkovModel, ReliabilityHashmap anExtReliabilityHashmap)
+		public ReliabilityAttribute(IMarkovModel aMarkovModel, ReliabilityHashtable anExtReliabilityHashtable)
 		{
-			reliability = new ServiceReliability(aMarkovModel, anExtReliabilityHashmap);
+			reliability = new ServiceReliability(aMarkovModel, anExtReliabilityHashtable);
 		}
 
 		#endregion

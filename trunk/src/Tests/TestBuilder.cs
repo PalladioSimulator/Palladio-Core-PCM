@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.1  2004/10/25 07:07:21  sliver
  * implementation of
  * - functions discrete, including convolution
@@ -101,6 +104,50 @@ namespace Palladio.Reliability.Tests
 			editFSM.AddTransitions(CreateTransition(sh["2"], ih["a"], sh["4"], 0.4));
 			editFSM.AddTransitions(CreateTransition(sh["3"], ih["d"], sh["5"], 1.0));
 			editFSM.AddTransitions(CreateTransition(sh["4"], ih["d"], sh["5"], 1.0));
+			return editFSM;
+		}
+
+		public static IFiniteStateMachine CreateTestMarkovModel3()
+		{
+			IEditableFiniteStateMachine editFSM = FSMFactory.CreateEmptyFSM();
+
+			InputSymbolHash ih = FSMFactory.CreateInputFromList("a", "b", "c", "d");
+			editFSM.AddInputSymbols(ih.StoredInputs);
+
+			StateHash sh;
+			sh = CreateStates("1", "2", "3", "4", "5");
+			editFSM.AddStates(sh.StoredStates);
+			editFSM.StartState = sh["1"];
+			editFSM.FinalStates = new IState[] {sh["5"]};
+			editFSM.AddTransitions(CreateTransition(sh["1"], ih["a"], sh["2"], 0.2));
+			editFSM.AddTransitions(CreateTransition(sh["1"], ih["c"], sh["3"], 0.5));
+			editFSM.AddTransitions(CreateTransition(sh["1"], ih["b"], sh["4"], 0.3));
+			editFSM.AddTransitions(CreateTransition(sh["2"], ih["b"], sh["1"], 0.6));
+			editFSM.AddTransitions(CreateTransition(sh["2"], ih["a"], sh["4"], 0.4));
+			editFSM.AddTransitions(CreateTransition(sh["3"], ih["d"], sh["5"], 1.0));
+			editFSM.AddTransitions(CreateTransition(sh["4"], ih["d"], sh["2"], 0.5));
+			editFSM.AddTransitions(CreateTransition(sh["4"], ih["a"], sh["1"], 0.5));
+			return editFSM;
+		}
+
+		public static IFiniteStateMachine CreateTestMarkovModel4()
+		{
+			IEditableFiniteStateMachine editFSM = FSMFactory.CreateEmptyFSM();
+
+			InputSymbolHash ih = FSMFactory.CreateInputFromList("a", "b", "c", "d");
+			editFSM.AddInputSymbols(ih.StoredInputs);
+
+			StateHash sh;
+			sh = CreateStates("1", "2", "3", "4", "5");
+			editFSM.AddStates(sh.StoredStates);
+			editFSM.StartState = sh["1"];
+			editFSM.FinalStates = new IState[] {sh["5"]};
+			editFSM.AddTransitions(CreateTransition(sh["1"], ih["a"], sh["2"], 0.5));
+			editFSM.AddTransitions(CreateTransition(sh["1"], ih["c"], sh["3"], 0.5));
+			editFSM.AddTransitions(CreateTransition(sh["2"], ih["b"], sh["5"], 1.0));
+			editFSM.AddTransitions(CreateTransition(sh["3"], ih["a"], sh["4"], 0.4));
+			editFSM.AddTransitions(CreateTransition(sh["3"], ih["d"], sh["1"], 0.6));
+			editFSM.AddTransitions(CreateTransition(sh["4"], ih["c"], sh["3"], 1.0));
 			return editFSM;
 		}
 

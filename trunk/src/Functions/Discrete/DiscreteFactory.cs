@@ -1,7 +1,10 @@
-/*
+ /*
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.1  2004/10/25 07:07:21  sliver
  * implementation of
  * - functions discrete, including convolution
@@ -9,21 +12,51 @@
  * - prediction of time consuption using density functions
  *
  */
+
 namespace Palladio.Reliability.Functions.Discrete
 {
 	/// <summary>
-	/// Creates Functions.
+	/// Creates discrete functions.
 	/// </summary>
-	internal class DiscreteFactory : IFunctionFactory
+	public class DiscreteFactory : IFunctionFactory
 	{
+		#region Data
+
+		/// <summary>
+		/// Precision for the created functions.
+		/// </summary>
 		private double precision;
+
+		/// <summary>
+		/// Default maximum for the greatest x value that has an associated function value.
+		/// </summary>
 		private double xmax;
+
+		/// <summary>
+		/// Default minimum for the smallest x value that has an associated function value.
+		/// </summary>
 		private double xmin;
+
+		/// <summary>
+		/// xmax - xmin.
+		/// </summary>
 		private double width;
+
+		/// <summary>
+		/// Default length of the value array: width / precision
+		/// </summary>
 		private int length;
+		#endregion
 
+		#region Constructor
 
-		public DiscreteFactory(double precision, double xmax, double xmin)
+		/// <summary>
+		/// Creates discrete function factory. 
+		/// </summary>
+		/// <param name="precision">Precision of all functions created.</param>
+		/// <param name="xmin">Default minimum for the smallest x value that has an associated function value.</param>
+		/// <param name="xmax">Default maximum for the greatest x value that has an associated function value.</param>
+		public DiscreteFactory(double precision, double xmin, double xmax)
 		{
 			this.precision = precision;
 			this.xmax = xmax;
@@ -31,6 +64,9 @@ namespace Palladio.Reliability.Functions.Discrete
 			this.width = xmax - xmin;
 			this.length = (int) (width/precision);
 		}
+		#endregion
+
+		#region IFunctionFactory
 
 		public IFunction CreateExponentialDistribution(double rate)
 		{
@@ -42,21 +78,21 @@ namespace Palladio.Reliability.Functions.Discrete
 				values[i] = lambda*System.Math.Exp(-x*lambda);
 				x += precision;
 			}
-			return new DiscreteFunction(values, precision, 0, 0, 0);
+			return new DiscreteFunction(values, precision, 0, 0, 0, this);
 		}
 
 		public IFunction CreateConstantFunction(double c)
 		{
 			double[] values = new double[1];
 			values[0] = c;
-			return new DiscreteFunction(values, precision, 0, c, c);
+			return new DiscreteFunction(values, precision, 0, c, c, this);
 		}
 
 		public IFunction CreateDiracFunction()
 		{
 			double[] values = new double[1];
 			values[0] = 1.0/precision;
-			return new DiscreteFunction(values, precision, 0, 0, 0);
+			return new DiscreteFunction(values, precision, 0, 0, 0, this);
 		}
 
 		public IFunction Copy(IFunction f)
@@ -68,97 +104,56 @@ namespace Palladio.Reliability.Functions.Discrete
 				values[i] = f[x];
 				x += precision;
 			}
-			return new DiscreteFunction(values, precision, xmin, f[xmax + 1], f[xmin - 1]);
+			return new DiscreteFunction(values, precision, xmin, f[xmax + 1], f[xmin - 1], this);
 		}
+		#endregion
+
+		#region Helper Methods
 
 		/// <summary>
-		/// Returns a discrete version of the function, 
+		/// Returns a discrete version of the function that is 
 		/// suitable for this factory.
 		/// </summary>
 		/// <param name="f"></param>
 		/// <returns></returns>
-		private DiscreteFunction MakeDiscrete(IFunction f)
+		internal DiscreteFunction MakeDiscrete(IFunction f)
 		{
 			if (f is DiscreteFunction)
 			{
 				DiscreteFunction df = (DiscreteFunction) f;
-				if (df.Distance == precision)
+				if (df.Precision == precision)
 					return df;
 			}
 			return (DiscreteFunction) Copy(f);
 		}
 
-		private double GetXMin(IFunction f)
+		/// <summary>
+		/// Returns the first x value of f for which an entry
+		/// in the value array exists, if f is discrete. Otherwise,
+		/// the default minimum x value is returned.
+		/// </summary>
+		/// <param name="f"></param>
+		/// <returns></returns>
+		internal double GetXMin(IFunction f)
 		{
 			if (f is DiscreteFunction)
 				return ((DiscreteFunction) f).XMin;
 			else return xmin;
 		}
 
-		private double GetXMax(IFunction f)
+		/// <summary>
+		/// Returns the last x value of f for which an entry
+		/// in the value array exists, if f is discrete. Otherwise,
+		/// the default maximum x value is returned.
+		/// </summary>
+		/// <param name="f"></param>
+		/// <returns></returns>
+		internal double GetXMax(IFunction f)
 		{
 			if (f is DiscreteFunction)
 				return ((DiscreteFunction) f).XMax;
 			else return xmax;
 		}
-
-
-		/// <summary>
-		/// Convolution, optimised for discrete functions.
-		/// <code>
-		/// conv[n] += df.Values[m] * dh.Values[n - m];
-		/// </code>
-		/// This line is the actual convolution. The rest of the code 
-		/// is optimisation.
-		/// </summary>
-		/// <param name="f"></param>
-		/// <param name="g"></param>
-		/// <returns></returns>
-		public IFunction Convolution(IFunction f, IFunction g)
-		{
-			DiscreteFunction df, dg;
-			df = MakeDiscrete(f);
-			dg = MakeDiscrete(g);
-
-			double[] conv = new double[df.Values.Length + dg.Values.Length];
-			int s = - dg.Values.Length;
-
-			for (int n = 0; n < conv.Length; n++)
-			{
-				double c = 0;
-				s++;
-				for (int m = s > 0 ? s : 0; (m <= n) && (m < df.Values.Length); m++)
-				{
-					c += df.Values[m]*dg.Values[n - m];
-				}
-				conv[n] = c*precision;
-			}
-			return new DiscreteFunction(conv, precision, df.XMin + dg.XMin, 0, 0);
-		}
-
-		public IFunction Sum(IFunction f, IFunction g)
-		{
-			return ScaledSum(f, g, 1.0);
-		}
-
-		public IFunction ScaledSum(IFunction f, IFunction g, double a)
-		{
-			double tXMin = System.Math.Min(GetXMin(f), GetXMin(g));
-			double tXMax = System.Math.Max(GetXMax(f), GetXMax(g));
-			double tWidth = tXMax - tXMin;
-			int tLength = (int) (tWidth*1/precision);
-
-			double[] sum = new double[tLength];
-			double x = tXMin;
-			for (int i = 0; i < sum.Length; i++)
-			{
-				sum[i] = f[x] + a*g[x];
-				x += precision;
-			}
-			// use the values next to the borders as limits
-			double tPosLimit = f[tXMax + 1] + a*g[tXMax + 1];
-			double tNegLimit = f[tXMin - 1] + a*g[tXMin - 1];
-			return new DiscreteFunction(sum, precision, tXMin, tPosLimit, tNegLimit);
-		}
+		#endregion
 	}
 }

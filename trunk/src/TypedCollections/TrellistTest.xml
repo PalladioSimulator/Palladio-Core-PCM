@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<codeSmith>
+	<namespace>Palladio.Reliability.TypedCollections</namespace>
+	<imports>
+		<import namespace="System" />
+		<import namespace="System.Collections" />
+		<import namespace="Palladio.Reliability.ExecutionTime" />
+		<import namespace="Palladio.FiniteStateMachines" />
+	</imports>
+	<propertySets>
+		<propertySet>
+			<property name="Accessibility">Public</property>
+			<property name="ClassName">StateTimeTable</property>
+			<property name="TargetNamespace">Palladio.Reliability.TypedCollections</property>
+			<property name="ImportNamespace">Palladio.Utils.Collections</property>
+			<property name="KeyType">IState</property>
+			<property name="KeyNamespace">Palladio.FiniteStateMachine</property>
+			<property name="KeyValueType">False</property>
+			<property name="KeyCustomSearch">False</property>
+			<property name="ItemType">IExecutionElement</property>
+			<property name="ItemNamespace">Palladio.Reliability.ExecutionTime</property>
+			<property name="ItemValueType">False</property>
+			<property name="ItemCustomSearch">False</property>
+			<property name="PairType">IStateTimeEntry</property>
+			<property name="IncludeInterfaces">True</property>
+			<property name="IncludeNamespaces">True</property>
+		</propertySet>
+	</propertySets>
+	<template path="hashtable.cst" />
+</codeSmith>

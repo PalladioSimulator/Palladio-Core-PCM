@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.7  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.6  2004/10/25 07:07:21  sliver
  * implementation of
  * - functions discrete, including convolution
@@ -140,14 +143,14 @@ namespace Palladio.Reliability.Model
 						ReliabilityAttribute srAttribute = sig.Attributes[ReliabilityAttribute.AttributeType] as ReliabilityAttribute;
 						if (srAttribute != null)
 						{
-							bcNode.ProvidesReliabilities[ provSig ] = srAttribute.Reliability;
+							bcNode.ProvidesReliabilities[provSig] = srAttribute.Reliability;
 						}
 						else
 						{
 							IServiceEffectSpecification se = bc.GetServiceEffectSpecification(provSig);
 							IFSMServiceEffect fsmSe = se.GetAuxiliarySpecification(typeof (IFSMServiceEffect)) as IFSMServiceEffect;
 
-							bcNode.ProvidesReliabilities[ provSig ] = new ServiceReliability(new MarkovModel(fsmSe.FSM), bcNode.RequiresReliabilities);
+							bcNode.ProvidesReliabilities[provSig] = new ServiceReliability(new MarkovModel(fsmSe.FSM), bcNode.RequiresReliabilities);
 						}
 					}
 				}

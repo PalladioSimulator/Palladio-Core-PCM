@@ -26,13 +26,13 @@
                     Name = "Debug"
                     AllowUnsafeBlocks = "false"
                     BaseAddress = "285212672"
-                    CheckForOverflowUnderflow = "false"
+                    CheckForOverflowUnderflow = "true"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE;TEST"
                     DocumentationFile = ""
                     DebugSymbols = "true"
                     FileAlignment = "4096"
-                    IncrementalBuild = "false"
+                    IncrementalBuild = "true"
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "true"
@@ -48,7 +48,7 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "TRACE"
+                    DefineConstants = ""
                     DocumentationFile = ""
                     DebugSymbols = "false"
                     FileAlignment = "4096"
@@ -145,12 +145,102 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Attributes\TimeAttribute.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\TreeNodeNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Functions\DefaultFactory.cs"
+                    RelPath = "src\ExecutionTime\IAlternativeElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\ICyclicElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\IExecutionElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\IFsmElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\IPathElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\ISequenceElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\IStateElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\ITotalPathElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\TimeOperations.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\DefaultExecutionTime\AlternativeElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\DefaultExecutionTime\CyclicElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\DefaultExecutionTime\ExecutionElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\DefaultExecutionTime\FsmElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\DefaultExecutionTime\PathElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\DefaultExecutionTime\SequenceElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\DefaultExecutionTime\StateElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\DefaultExecutionTime\SumElement.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExecutionTime\DefaultExecutionTime\TotalPathElement.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -176,11 +266,6 @@
                 />
                 <File
                     RelPath = "src\Functions\Tests\FunctionFactoryTest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Math\AbstractMarkovMatrix.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -220,42 +305,47 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Math\MarkovModel.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Math\MatrixTools.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Math\PotentialMatrix.cs"
+                    RelPath = "src\Math\DefaultMath\AbstractMarkovMatrix.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Math\ServiceReliability.cs"
+                    RelPath = "src\Math\DefaultMath\MarkovModel.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Math\TransitionMatrix.cs"
+                    RelPath = "src\Math\DefaultMath\PotentialMatrix.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Math\VariableExpression.cs"
+                    RelPath = "src\Math\DefaultMath\ServiceReliability.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Math\VisitProbabilityMatrix.cs"
+                    RelPath = "src\Math\DefaultMath\TransitionMatrix.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Math\VisitsOnPathMatrix.cs"
+                    RelPath = "src\Math\DefaultMath\VariableExpression.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\DefaultMath\VisitProbabilityMatrix.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\DefaultMath\VisitsOnPathMatrix.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -265,12 +355,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Model\IResource.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Model\ModelFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Model\TreeNode.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Paths\FSMPaths.cs"
+                    RelPath = "src\Model\Resource\Resource.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -285,12 +385,87 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Paths\Path.cs"
+                    RelPath = "src\Paths\DefaultPaths\FSMPaths.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Paths\DefaultPaths\Path.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\Paths\Tests\PathTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\IAlternative.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\ILoop.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\IRegex.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\ISequence.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\ISymbol.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\RegexFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\DefaultRegex\Alternative.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\DefaultRegex\Loop.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\DefaultRegex\Regex.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\DefaultRegex\Sequence.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\DefaultRegex\Symbol.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\Tests\Helper.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\Tests\RegexTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Regex\Tests\TestBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -330,36 +505,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Time\ExecutionTime.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Time\IExecutionTime.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Time\IPathExecutionTime.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Time\PathExecutionTime.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Time\TimeAttribute.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Time\TimeOperations.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\TypedCollections\ArrayList.cst"
                     BuildAction = "None"
                 />
@@ -372,22 +517,22 @@
                     BuildAction = "None"
                 />
                 <File
-                    RelPath = "src\TypedCollections\HashmapGenerator.xml"
-                    BuildAction = "Content"
-                    Generator = "CodeSmithGenerator"
-                    LastGenOutput = "HashmapGenerator.cs"
+                    RelPath = "src\TypedCollections\Hashtable.cst"
+                    BuildAction = "None"
                 />
                 <File
-                    RelPath = "src\TypedCollections\HashmapGenerator.cs"
-                    DependentUpon = "HashmapGenerator.xml"
+                    RelPath = "src\TypedCollections\HashtableGenerator.xml"
+                    BuildAction = "Content"
+                    Generator = "CodeSmithGenerator"
+                    LastGenOutput = "HashtableGenerator.cs"
+                />
+                <File
+                    RelPath = "src\TypedCollections\HashtableGenerator.cs"
+                    DependentUpon = "HashtableGenerator.xml"
                     SubType = "Code"
                     BuildAction = "Compile"
                     DesignTime = "True"
                     AutoGen = "True"
-                />
-                <File
-                    RelPath = "src\TypedCollections\Hashtable.cst"
-                    BuildAction = "None"
                 />
                 <File
                     RelPath = "src\TypedCollections\IDictionary.cst"
@@ -404,6 +549,20 @@
                 <File
                     RelPath = "src\TypedCollections\Stack.cst"
                     BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\TrellistTest.xml"
+                    BuildAction = "Content"
+                    Generator = "CodeSmithGenerator"
+                    LastGenOutput = "TrellistTest.cs"
+                />
+                <File
+                    RelPath = "src\TypedCollections\TrellistTest.cs"
+                    DependentUpon = "TrellistTest.xml"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                    DesignTime = "True"
+                    AutoGen = "True"
                 />
             </Include>
         </Files>

@@ -1,7 +1,10 @@
-/*
+ /*
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.1  2004/10/25 07:07:21  sliver
  * implementation of
  * - functions discrete, including convolution
@@ -9,6 +12,7 @@
  * - prediction of time consuption using density functions
  *
  */
+
 namespace Palladio.Reliability.Functions
 {
 	/// <summary>
@@ -40,35 +44,10 @@ namespace Palladio.Reliability.Functions
 		IFunction CreateDiracFunction();
 
 		/// <summary>
-		/// Creates the convolution of this function with
-		/// aFunction.
-		/// </summary>
-		/// <param name="f"></param>
-		/// <returns></returns>
-		IFunction Convolution(IFunction f, IFunction g);
-
-		/// <summary>
-		/// Adds aFunction to this function.
-		/// </summary>
-		/// <param name="f"></param>
-		/// <returns></returns>
-		IFunction Sum(IFunction f, IFunction g);
-
-		/// <summary>
-		/// Returns f(x) + a * g(x)
-		/// </summary>
-		/// <param name="f"></param>
-		/// <param name="g"></param>
-		/// <param name="a"></param>
-		/// <returns></returns>
-		IFunction ScaledSum(IFunction f, IFunction g, double a);
-
-		/// <summary>
 		/// Creates a copy of f with the parameters given by the factory.
 		/// </summary>
 		/// <param name="f"></param>
 		/// <returns></returns>
 		IFunction Copy(IFunction f);
-
 	}
 }

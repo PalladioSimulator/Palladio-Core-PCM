@@ -1,4 +1,4 @@
-<%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Generates a strongly typed Hashtable collection." %>
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Debug="true" Description="Generates a strongly typed Hashtable collection." %>
 <%@ Property Name="Accessibility" Type="AccessibilityEnum" Category="Options" Description="The accessibility of the collection class." %>
 <%@ Property Name="ClassName" Type="System.String" Optional="True" Category="Context" Description="The name of the collection class." %>
 <%@ Property Name="TargetNamespace" Type="System.String" Optional="True" Category="Namespaces" Description="The namespace of the collection class." %>
@@ -16,12 +16,7 @@
 <%@ Property Name="IncludeNamespaces" Type="System.Boolean" Optional="True" Category="Namespaces" Default="true" Description="Generate using and namespace statements." %>
 <% ValidateClassName(); %>
 <% ValidatePairType(); %>
-<% UsingNamespace("System"); %>
-<% UsingNamespace("System.Collections"); %>
-<% UsingNamespace(KeyNamespace); %>
-<% UsingNamespace(ItemNamespace); %>
-<% UsingNamespace(ImportNamespace); %>
-<% StartNamespace(TargetNamespace); %>
+
     <% GenerateInterfaces(); %>
     #region Class <%= ClassName %>
 
@@ -1226,7 +1221,7 @@
     }
 
     #endregion
-<% EndNamespace(TargetNamespace); %>
+
 <script runat="template">
 public enum AccessibilityEnum {
     Public,

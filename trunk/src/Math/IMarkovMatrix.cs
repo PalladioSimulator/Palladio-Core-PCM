@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.2  2004/10/25 07:07:21  sliver
  * implementation of
  * - functions discrete, including convolution
@@ -21,6 +24,9 @@ using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
 namespace Palladio.Reliability.Math
 {
 	/// <summary>
+	/// General matrix. Each row/column is associated with a state
+	/// of a Markov model. The matrix knows the row/column of the start
+	/// and final state.
 	/// </summary>
 	public interface IMarkovMatrix
 	{
@@ -41,10 +47,19 @@ namespace Palladio.Reliability.Math
 		/// </summary>
 		ScalarMatrix Matrix { get; }
 
+		/// <summary>
+		/// The rank of the matrix.
+		/// </summary>
 		int Rank { get; }
 
+		/// <summary>
+		/// Number of columns.
+		/// </summary>
 		int LengthX { get; }
 
+		/// <summary>
+		/// Number of rows.
+		/// </summary>
 		int LengthY { get; }
 
 		#endregion

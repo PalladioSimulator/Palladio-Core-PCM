@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.1  2004/10/25 07:07:21  sliver
  * implementation of
  * - functions discrete, including convolution
@@ -24,19 +27,43 @@ namespace Palladio.Reliability.Functions
 		double this[double x] { get; }
 
 		/// <summary>
-		/// Scales this function by aFactor.
+		/// Scales this function by a.
 		/// </summary>
-		/// <param name="aFactor"></param>
-		void Scale(double aFactor);
+		/// <param name="a"></param>
+		void Scale(double a);
 
 		/// <summary>
-		/// Unfortunately, a function must know its factory. 
-		/// This is required since other methods using this 
-		/// function might need a factory to create new functions. 
-		/// We don't want to make any assuptions about the type 
-		/// of the function (i.e. discrete). So, the method must use
-		/// the same Factory as used for the creation of this function.
+		/// Returns this function scaled by a.
 		/// </summary>
-		// IFunctionFactory Factory { get; }
+		/// <param name="a"></param>
+		/// <returns></returns>
+		IFunction GetScaled(double a);
+
+		/// <summary>
+		/// Creates the convolution of this function with
+		/// aFunction.
+		/// </summary>
+		IFunction Convolution(IFunction g);
+
+		/// <summary>
+		/// Adds aFunction to this function.
+		/// </summary>
+		IFunction Sum(IFunction g);
+
+		/// <summary>
+		/// Returns f(x) + a * g(x)
+		/// </summary>
+		IFunction ScaledSum(double a, IFunction g);
+
+		/// <summary>
+		/// Returns the integral F of this function starting at 0.
+		/// </summary>
+		IFunction Integral();
+
+		/// <summary>
+		/// Returns the multiplication of this function by g.
+		/// </summary>
+		IFunction Multiply(IFunction g);
+
 	}
 }

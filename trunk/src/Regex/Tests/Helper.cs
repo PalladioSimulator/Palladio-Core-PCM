@@ -2,7 +2,7 @@
  * $Id$
  * 
  * $Log$
- * Revision 1.7  2004/11/04 08:52:13  sliver
+ * Revision 1.1  2004/11/04 08:52:14  sliver
  * added regular expressions
  *
  * Revision 1.6  2004/10/25 07:07:21  sliver
@@ -43,7 +43,7 @@ using Palladio.Reliability.Attributes;
 using Palladio.Reliability.Functions;
 using Palladio.Reliability.Functions.Discrete;
 
-namespace Palladio.Reliability.Tests
+namespace Palladio.Reliability.Regex.Tests
 {
 	/// <summary>
 	/// Description of Helper.	

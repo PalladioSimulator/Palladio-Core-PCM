@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.5  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.4  2004/10/25 07:07:21  sliver
  * implementation of
  * - functions discrete, including convolution
@@ -46,7 +49,7 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void FSMReliability()
 		{
-			ServiceReliability sr = new ServiceReliability(markovModel, reliabilityHashmap);
+			ServiceReliability sr = new ServiceReliability(markovModel, reliabilityHashtable);
 			Assert.IsFalse(sr.HasVariables);
 			Assert.AreEqual(1.0, sr.Expression.Calculate(), 0.0000001);
 		}
@@ -66,7 +69,7 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void FSMVarReliability()
 		{
-			ServiceReliability sr = new ServiceReliability(markovModel, varRelHashmap);
+			ServiceReliability sr = new ServiceReliability(markovModel, varRelHashtable);
 			Assert.IsTrue(sr.HasVariables);
 			Assert.IsTrue(sr.Variables.Length == 1);
 			Assert.IsTrue(sr.VariableSet.Count == 1);
@@ -81,11 +84,11 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void FSMVarReliabilityDeep()
 		{
-			ServiceReliability sr = new ServiceReliability(markovModel, varRelHashmap);
-			ReliabilityHashmap deepRelHashmap = new ReliabilityHashmap(reliabilityHashmap);
-			deepRelHashmap[ fsm.InputAlphabet[0].ID ] = sr;
+			ServiceReliability sr = new ServiceReliability(markovModel, varRelHashtable);
+			ReliabilityHashtable deepRelHashtable = new ReliabilityHashtable(reliabilityHashtable);
+			deepRelHashtable[fsm.InputAlphabet[0].ID] = sr;
 
-			ServiceReliability sr2 = new ServiceReliability(markovModel, deepRelHashmap);
+			ServiceReliability sr2 = new ServiceReliability(markovModel, deepRelHashtable);
 
 			Assert.IsTrue(sr2.HasVariables);
 			Assert.IsTrue(sr2.Variables.Length == 1);
@@ -106,23 +109,23 @@ namespace Palladio.Reliability.Tests
 		public void Init()
 		{
 			fsm = TestBuilder.CreateTestFSM1();
-			reliabilityHashmap = new ReliabilityHashmap();
+			reliabilityHashtable = new ReliabilityHashtable();
 			foreach (IInput i in fsm.InputAlphabet)
 			{
-				reliabilityHashmap.Add(i.ID, new ServiceReliability(1.0));
+				reliabilityHashtable.Add(i.ID, new ServiceReliability(1.0));
 			}
 			markovModel = new MarkovModel(fsm);
 			transitionMatrix = new TransitionMatrix(markovModel);
 
-			varRelHashmap = new ReliabilityHashmap(reliabilityHashmap);
+			varRelHashtable = new ReliabilityHashtable(reliabilityHashtable);
 			IMatchable key = fsm.InputAlphabet[0].ID;
-			varRelHashmap.Remove(key);
-			varRelHashmap.Add(key, new ServiceReliability("x"));
+			varRelHashtable.Remove(key);
+			varRelHashtable.Add(key, new ServiceReliability("x"));
 		}
 
 		private IFiniteStateMachine fsm;
-		private ReliabilityHashmap reliabilityHashmap;
-		private ReliabilityHashmap varRelHashmap;
+		private ReliabilityHashtable reliabilityHashtable;
+		private ReliabilityHashtable varRelHashtable;
 		private IMarkovModel markovModel;
 		private ITransitionMatrix transitionMatrix;
 	}

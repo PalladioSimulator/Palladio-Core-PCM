@@ -1,7 +1,10 @@
-/*
+ /*
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.1  2004/10/25 07:07:21  sliver
  * implementation of
  * - functions discrete, including convolution
@@ -9,38 +12,131 @@
  * - prediction of time consuption using density functions
  *
  */
+
 namespace Palladio.Reliability.Functions.Discrete
 {
 	/// <summary>
 	/// </summary>
 	internal class DiscreteFunction : IFunction
 	{
+		#region Data
+
+		/// <summary>
+		/// Array of function values.
+		/// </summary>
 		private double[] values;
-		private double distance;
+
+		/// <summary>
+		/// Distance between two function values.
+		/// </summary>
+		private double precision;
+
+		/// <summary>
+		/// Minimal x value for which a value is listed in the value array.
+		/// </summary>
 		private double xmin;
+
+		/// <summary>
+		/// Positiv limit of the function. If x > XMax this value is returned.
+		/// </summary>
 		private double xPosLimit;
+
+		/// <summary>
+		/// Negative limit of the function. If x < XMin this value is returned.
+		/// </summary>
 		private double xNegLimit;
 
+		/// <summary>
+		/// Factory that created this function.
+		/// </summary>
+		private DiscreteFactory factory;
+		#endregion
+
+		#region Poperties
+
+		/// <summary>
+		/// Smallest x value for which an entry in the value array exists.
+		/// </summary>
 		public double XMin
 		{
 			get { return xmin; }
 		}
 
+		/// <summary>
+		/// Greatest x value for which an entry in the value array exists.
+		/// </summary>
+		public double XMax
+		{
+			get { return XMin + values.Length*Precision; }
+		}
+
+		/// <summary>
+		/// Array of discrete function values.
+		/// </summary>
 		public double[] Values
 		{
 			get { return values; }
 		}
 
-		public double Distance
+		/// <summary>
+		/// Distance (x-axis) between two entries in the value array.
+		/// </summary>
+		public double Precision
 		{
-			get { return distance; }
+			get { return precision; }
+		}
+		#endregion
+
+		#region Constructors
+
+		/// <summary>
+		/// Creates new function.
+		/// </summary>
+		/// <param name="values">Array of function values.</param>
+		/// <param name="precision">x distance of the values in the array.</param>
+		/// <param name="xmin">x value for the first entry in the value array.</param>
+		/// <param name="xPosLimit">Function value for x > XMax.</param>
+		/// <param name="xNegLimit">Function value for x < XMin.</param>
+		/// <param name="factory">Factory that constructed the function.</param>
+		public DiscreteFunction(double[] values, double precision, double xmin, double xPosLimit, double xNegLimit, DiscreteFactory factory)
+		{
+			this.values = values;
+			this.precision = precision;
+			this.xmin = xmin;
+			this.xPosLimit = xPosLimit;
+			this.xNegLimit = xNegLimit;
+			this.factory = factory;
 		}
 
+		/// <summary>
+		/// Copy Constructor.
+		/// </summary>
+		/// <param name="df"></param>
+		public DiscreteFunction(DiscreteFunction df)
+		{
+			factory = df.factory;
+			this.precision = df.precision;
+			this.xmin = df.xmin;
+			this.xPosLimit = df.xPosLimit;
+			this.xNegLimit = df.xNegLimit;
+			precision = df.precision;
+			values = new double[df.values.Length];
+			df.values.CopyTo(values, 0);
+		}
+		#endregion
+
+		#region IFunction
+
+		/// <summary>
+		/// Returns the function value of x, that is f(x). For x values 
+		/// between two discrete values the result is the linear interpolation of
+		/// both values.
+		/// </summary>
 		public double this[double x]
 		{
 			get
 			{
-				double pos = System.Math.Round(1/distance*(x - XMin), 2);
+				double pos = System.Math.Round(1/Precision*(x - XMin), 2);
 				if (pos >= values.Length)
 					return xPosLimit;
 				if (pos < 0)
@@ -63,26 +159,6 @@ namespace Palladio.Reliability.Functions.Discrete
 			}
 		}
 
-		public DiscreteFunction(double[] values, double distance, double origin, double xPosLimit, double xNegLimit)
-		{
-			this.values = values;
-			this.distance = distance;
-			this.xmin = origin;
-			this.xPosLimit = xPosLimit;
-			this.xNegLimit = xNegLimit;
-		}
-
-		public DiscreteFunction(DiscreteFunction df)
-		{
-			this.distance = df.distance;
-			this.xmin = df.xmin;
-			this.xPosLimit = df.xPosLimit;
-			this.xNegLimit = df.xNegLimit;
-			distance = df.distance;
-			values = new double[df.values.Length];
-			df.values.CopyTo(values, 0);
-		}
-
 		public void Scale(double factor)
 		{
 			xNegLimit *= factor;
@@ -91,14 +167,119 @@ namespace Palladio.Reliability.Functions.Discrete
 				values[i] *= factor;
 		}
 
+		public IFunction GetScaled(double a)
+		{
+			DiscreteFunction df = new DiscreteFunction(this);
+			df.Scale(a);
+			return df;
+		}
+
+		/// <summary>
+		/// Convolution, optimised for discrete functions.
+		/// </summary>
+		public IFunction Convolution(IFunction g)
+		{
+			DiscreteFunction dg = factory.MakeDiscrete(g);
+
+			// the domain of the resulting function has the size of the domains of
+			// boths functions
+			double[] convolutionValues = new double[Values.Length + dg.Values.Length];
+			
+			for (int i = 0; i < convolutionValues.Length; i++)
+			{
+				double convValue = 0;
+				
+				// if i is larger than the length of the array dg.Values,
+				// the largest position (i-pos) in the array dg.Values is
+				// dg.Values.Length - 1. Therfore:
+				// (i - pos) = dg.Values.Length - 1
+				//		 - pos = - i + dg.Values.Length - 1
+				//		   pos =   i - dg.Values.Length + 1
+				int pos = System.Math.Max(0, i - dg.Values.Length + 1);
+
+				// pos <= i : left border for dg.Values
+				// pos < Values.Length : right border for Values
+				while ((pos <= i) && (pos < Values.Length))
+				{
+					convValue += Values[pos]*dg.Values[i - pos];
+					pos++;
+				}
+				// scale the result according to the distance between the entries of the 
+				// value array. Remember: in the analogous world convolution is an integral 
+				convolutionValues[i] = convValue*Precision;
+
+				// TODO remove this:
+				// Optimisation for testing, works only for our special test cases!!
+				if (( i > 100) && (convolutionValues[i] < 0.0000000000000001 )) break;
+			}
+			return new DiscreteFunction(convolutionValues, Precision, XMin + dg.XMin, 0, 0, factory);
+		}
+
+		public IFunction Sum(IFunction g)
+		{
+			return ScaledSum(1.0, g);
+		}
+
+		public IFunction ScaledSum(double a, IFunction g)
+		{
+			double tXMin = System.Math.Min(XMin, factory.GetXMin(g));
+			double tXMax = System.Math.Max(XMax, factory.GetXMax(g));
+			double tWidth = tXMax - tXMin;
+			int tLength = (int) (tWidth*1/precision);
+
+			double[] sum = new double[tLength];
+			double x = tXMin;
+			for (int i = 0; i < sum.Length; i++)
+			{
+				sum[i] = this[x] + a*g[x];
+				x += precision;
+			}
+			// use the values next to the borders as limits
+			double tPosLimit = this[tXMax + 1] + a*g[tXMax + 1];
+			double tNegLimit = this[tXMin - 1] + a*g[tXMin - 1];
+			return new DiscreteFunction(sum, precision, tXMin, tPosLimit, tNegLimit, factory);
+		}
+
+		public IFunction Integral()
+		{
+			int length = (int) (XMax*1/Precision);
+
+			double[] integral = new double[length];
+			integral[0] = this[0]*Precision;
+			double x = Precision;
+			for (int i = 1; i < integral.Length; i++)
+			{
+				integral[i] = integral[i - 1] + this[x]*Precision;
+				x += Precision;
+			}
+			return new DiscreteFunction(integral, Precision, 0, integral[integral.Length - 1], 0, factory);
+		}
+
+		public IFunction Multiply(IFunction g)
+		{
+			double tXMin = System.Math.Min(XMin, factory.GetXMin(g));
+			double tXMax = System.Math.Max(XMax, factory.GetXMax(g));
+			double tWidth = tXMax - tXMin;
+			int tLength = (int) (tWidth*1/precision);
+
+			double[] mult = new double[tLength];
+			double x = tXMin;
+			for (int i = 0; i < mult.Length; i++)
+			{
+				mult[i] = this[x]*g[x];
+				x += precision;
+			}
+			// use the values next to the borders as limits
+			double tPosLimit = this[tXMax + 1]*g[tXMax + 1];
+			double tNegLimit = this[tXMin - 1]*g[tXMin - 1];
+			return new DiscreteFunction(mult, precision, tXMin, tPosLimit, tNegLimit, factory);
+		}
+
 		public object Clone()
 		{
 			return new DiscreteFunction(this);
 		}
+		#endregion
 
-		public double XMax
-		{
-			get { return XMin + values.Length*distance; }
-		}
 	}
 }

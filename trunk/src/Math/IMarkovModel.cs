@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2004/11/04 08:52:13  sliver
+ * added regular expressions
+ *
  * Revision 1.1  2004/09/23 00:44:14  sliver
  * - major refactorings
  * - changed TypedCollections to CodeSmith generated files
@@ -15,6 +18,8 @@ using Palladio.FiniteStateMachines;
 namespace Palladio.Reliability.Math
 {
 	/// <summary>
+	/// A Markov model is a FSM with probabilities added to
+	/// its transitions.
 	/// </summary>
 	public interface IMarkovModel
 	{
