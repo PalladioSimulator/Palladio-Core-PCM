@@ -73,6 +73,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Utils\Collections\Hashmap.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Utils\Collections\Set.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
