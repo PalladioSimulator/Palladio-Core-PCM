@@ -5,7 +5,7 @@ namespace Palladio.Identifier
 	/// <summary>
 	/// Zusammenfassung für DefaultIdentifiable.
 	/// </summary>
-	public class DefaultIdentifiable : IIdentifiable
+	internal class DefaultIdentifiable : IIdentifiable
 	{
 		protected StringIdentifier stringID;
 
