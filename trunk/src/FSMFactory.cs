@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using Utils.Collections;
+using Palladio.Utils.Collections;
 using Palladio.FiniteStateMachines.DefaultFSM;
 
 namespace Palladio.FiniteStateMachines
@@ -16,6 +16,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/05/12 13:33:45  sliver
+	/// Comments for the exceptions added
+	///
 	/// Revision 1.3  2004/05/12 13:28:37  sbecker
 	/// Fixed a small wrong signature in the input and state hash
 	///

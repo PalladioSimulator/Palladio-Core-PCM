@@ -1,6 +1,6 @@
 using System;
 using ReflectionBasedVisitor;
-using Utils.Collections;
+using Palladio.Utils.Collections;
 
 namespace Palladio.FiniteStateMachines.Visitors
 {

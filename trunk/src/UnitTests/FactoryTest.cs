@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Reflection;
 using NUnit.Framework;
-using Utils.Collections;
+using Palladio.Utils.Collections;
 using Palladio.FiniteStateMachines.Exceptions;
 
 namespace Palladio.FiniteStateMachines.UnitTests
@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2004/05/12 13:33:45  sliver
+	/// Comments for the exceptions added
+	///
 	/// Revision 1.14  2004/05/12 12:54:33  sliver
 	/// Comments for the exceptions added
 	///

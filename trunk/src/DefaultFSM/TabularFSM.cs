@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Xml;
 using System.Xml.XPath;
-using Utils.Collections;
+using Palladio.Utils.Collections;
 using Palladio.FiniteStateMachines;
 using Palladio.FiniteStateMachines.Exceptions;
 

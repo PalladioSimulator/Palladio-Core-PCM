@@ -97,15 +97,15 @@
                     Project = "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "Palladio.Utils"
+                    Project = "{AEA33F47-FDF0-4A90-A95C-BABBFE19D2E6}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
             <Include>
-                <File
-                    RelPath = "AssemblyInfo.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
                 <File
                     RelPath = "src\FSMFactory.cs"
                     SubType = "Code"
@@ -235,21 +235,6 @@
                     RelPath = "src\UnitTests\FactoryTest.cs"
                     SubType = "Code"
                     BuildAction = "None"
-                />
-                <File
-                    RelPath = "src\Utils\Collections\Set.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Utils\Collections\Vector.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Utils\Exceptions\MethodNotImplementedException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\Visitors\StateVisitor.cs"

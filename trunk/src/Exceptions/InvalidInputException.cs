@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using Utils.Collections;
+using Palladio.Utils.Collections;
 
 namespace Palladio.FiniteStateMachines.Exceptions
 {
@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/05/12 13:33:45  sliver
+	/// Comments for the exceptions added
+	///
 	/// Revision 1.2  2004/05/12 12:54:33  sliver
 	/// Comments for the exceptions added
 	///

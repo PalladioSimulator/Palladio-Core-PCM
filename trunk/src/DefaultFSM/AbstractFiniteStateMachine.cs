@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
-using Utils.Collections;
-using Utils.Exceptions;
+using Palladio.Utils.Collections;
+using Palladio.Utils.Exceptions;
 using Palladio.FiniteStateMachines;
 using Palladio.FiniteStateMachines.Visitors;
 
