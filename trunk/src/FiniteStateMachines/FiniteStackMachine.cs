@@ -127,7 +127,6 @@ namespace FiniteStateMachines {
         /// <summary>
         ///     Constructed out of the start state of the
         ///     provides protocol.
-        /// 
         /// </summary>
         /// 
         /// <seealso cref="IFiniteStateMachine.StartState"></seealso>

@@ -79,15 +79,17 @@ namespace FiniteStateMachines.Decorators {
 
         /// <summary>
         ///     Expands the reduced automaton using the 
-        ///     original as pattern. So that all missing
+        ///     original one as pattern, so that all missing
         ///     epsilon transitions can be added.
         /// </summary>
         /// 
-        /// <returns>A new IFiniteStateMachine representing the
+        /// <returns>
+        ///		A new IFiniteStateMachine representing the
         ///     expanded version of the reduced automaton.
         ///     "Expanded" means that it contains all possible
         ///     epsilon transitions regarding to the original
-        ///     automaton.</returns>
+        ///     automaton.
+        /// </returns>
         public IFiniteStateMachine GetExpandedMachine() {
             IList transitionList = new ArrayList();
             IList statesList = new ArrayList();
@@ -126,7 +128,7 @@ namespace FiniteStateMachines.Decorators {
                                 nextState = new DualState(nextReducedState,trans.DestinationState);
                                 nextStateFound = true;
                             } 
-                        } catch (InvalidInputException e) {
+                        } catch (InvalidInputException) {
                             // This exception is thrown, if the reduced automaton does not
                             // contain the current input symbol, so this transition can not 
                             // be taken.

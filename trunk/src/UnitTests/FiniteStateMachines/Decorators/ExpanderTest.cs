@@ -81,8 +81,11 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			expected.AddTransition(transitionSet[6]);
 
 			MachineExpander exp = new MachineExpander(tabularMachine,reduced,epsilonAlphabet);
+			FiniteShuffleProductMaschine shuffle = new FiniteShuffleProductMaschine(tabularMachine,reduced);
+
 			MinimizedAndEqualsFSM min = new MinimizedAndEqualsFSM(exp.GetExpandedMachine());
 			Assert.IsTrue(min.equal(expected));
+			Assert.IsTrue(min.equal(shuffle.ShuffleProduct));
 		}
 
         [Test] public void ExpandModified(){
@@ -114,6 +117,10 @@ namespace UnitTests.FiniteStateMachines.Decorators {
             state = expanded.GetNextState (state,inputs[4]);
             state = expanded.GetNextState (state,inputs[1]);
             Assert.IsTrue(expanded.FinalStates.Contains(state));
-        }
+
+			FiniteShuffleProductMaschine shuffle = new FiniteShuffleProductMaschine(tabularMachine,reduced);
+			MinimizedAndEqualsFSM min = new MinimizedAndEqualsFSM(expanded);
+			Assert.IsTrue(min.equal(shuffle.ShuffleProduct));
+		}
 	}
 }
