@@ -14,6 +14,17 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	///     default functionality useful for most finite state
 	///     machines.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.6  2004/05/12 14:11:39  sbecker
+	/// Added CVS log
+	///
+	///
+	/// </pre>
+	/// </remarks>
 	internal abstract class AbstractFSM : IFiniteStateMachine 
 	{
 		#region Properties

@@ -8,6 +8,17 @@ using Palladio.FiniteStateMachines.Exceptions;
 
 namespace Palladio.FiniteStateMachines.DefaultFSM 
 {
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.13  2004/05/12 14:11:39  sbecker
+	/// Added CVS log
+	///
+	///
+	/// </pre>
+	/// </remarks>
 	internal class TabularFSM : AbstractFSM, IEditableFiniteStateMachine
 	{
 		#region Properties

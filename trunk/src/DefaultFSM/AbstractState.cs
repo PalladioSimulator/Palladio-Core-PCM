@@ -9,6 +9,17 @@ namespace Palladio.FiniteStateMachines.DefaultFSM {
 	///		
 	///		author: JH
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.4  2004/05/12 14:11:39  sbecker
+	/// Added CVS log
+	///
+	///
+	/// </pre>
+	/// </remarks>
 	internal abstract class AbstractState : IState 
 	{
 		protected bool isErrorState = false;
