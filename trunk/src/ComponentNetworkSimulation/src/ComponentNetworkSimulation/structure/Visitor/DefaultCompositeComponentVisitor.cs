@@ -15,6 +15,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/06/19 16:04:42  joemal
+	/// add new event for unbound requires interfaces
+	///
 	/// Revision 1.2  2004/06/19 13:43:53  joemal
 	/// - add new constructors
 	/// - add some exception handling
@@ -233,6 +236,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 					visitorStack.Clear();
 					NotifyUnknownElement();
 					break;
+				case VisitorEventArgs.EventType.TYPE_UNBOUNDREQUIRES:
+					NotifyUnboundRequiresInterface(args.Component,args.Signature);
+					break;
 			}
 		}
 
@@ -244,14 +250,60 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// <param name="callingSignature">the required signature to be called</param>
 		private void HandleExternalCall(IComponent callingComponent, IExternalSignature callingSignature)
 		{
-			//Todo: follow mappings !!!
-			IBinding binding = CompositeComponent.GetBindingByRequires(callingComponent.ID,callingSignature.RoleID);
-			IExternalSignature calledSignature = ComponentFactory.CreateSignatureWithRole(binding.ProvidingRole.RoleID,
-				callingSignature.Signature);
+			if (LookForBinding(callingComponent,callingSignature)) return;
+			if (LookForMapping(callingComponent,callingSignature)) return;
 
-			//push the external signature of the providing component to the stack
-			visitorStack.Push(calledSignature);			
-			visitorStack.Push(binding);
+			NotifyUnboundRequiresInterface(callingComponent, callingSignature);
+				
+		}
+
+		/// <summary>
+		/// look, if the requires interface of the calling component is bound via a requires mapping.
+		/// </summary>
+		/// <param name="comp">the calling component</param>
+		/// <param name="extSig">the calling signature</param>
+		/// <returns>true, if a requires mapping was found</returns>
+		private bool LookForMapping(IComponent comp,IExternalSignature extSig)
+		{
+			try 
+			{
+				IMapping mapping = CompositeComponent.GetRequiresMappingByInner(comp.ID,extSig.RoleID);
+
+				IExternalSignature calledSignature = ComponentFactory.CreateSignatureWithRole(mapping.RequiringRole.RoleID,
+					extSig.Signature);
+
+				NotifyExternalCall(calledSignature);
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		/// <summary>
+		/// look, if the requires interface of the calling component is bound via a binding.
+		/// </summary>
+		/// <param name="comp">the calling component</param>
+		/// <param name="extSig">the calling signature</param>
+		/// <returns>true, if a bindinf was found</returns>
+		private bool LookForBinding(IComponent comp,IExternalSignature extSig)
+		{
+			try 
+			{
+				IBinding binding = CompositeComponent.GetBindingByRequires(comp.ID,extSig.RoleID);
+				IExternalSignature calledSignature = ComponentFactory.CreateSignatureWithRole(binding.ProvidingRole.RoleID,
+					extSig.Signature);
+
+				//push the external signature of the providing component to the stack
+				visitorStack.Push(calledSignature);			
+				visitorStack.Push(binding);
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 
 		/// <summary>

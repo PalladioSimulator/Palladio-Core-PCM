@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/06/19 16:04:42  joemal
+	/// add new event for unbound requires interfaces
+	///
 	/// Revision 1.1  2004/06/18 17:20:13  joemal
 	/// initial class creation
 	///
@@ -25,7 +28,7 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// <summary>
 		/// This defines the type of the event
 		/// </summary>
-		public enum EventType {TYPE_EXTERNALCALL,TYPE_RETURN,TYPE_UNKNOWN_ELEMENT}; 
+		public enum EventType {TYPE_EXTERNALCALL,TYPE_RETURN,TYPE_UNKNOWN_ELEMENT,TYPE_UNBOUNDREQUIRES}; 
 
 		/// <summary>
 		/// the required signature of the calling component

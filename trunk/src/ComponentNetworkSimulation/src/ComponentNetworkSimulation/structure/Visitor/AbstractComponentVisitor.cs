@@ -11,6 +11,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/19 16:04:42  joemal
+	/// add new event for unbound requires interfaces
+	///
 	/// Revision 1.2  2004/06/19 13:42:28  joemal
 	/// Add some methods to retrieve the status of the visitor
 	///
@@ -150,6 +153,19 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 			if (this.OnVisitorEvent != null)
 				this.OnVisitorEvent(this,new VisitorEventArgs(VisitorEventArgs.EventType.TYPE_RETURN));
 		}
+
+		/// <summary>
+		/// called to notify the super visitor that the given component has an unbound requires interfaces. 
+		/// The visitor skip the external call.
+		/// </summary>
+		/// <param name="com">the calling component</param>
+		/// <param name="sig">the signature</param>
+		protected void NotifyUnboundRequiresInterface(IComponent com,IExternalSignature sig)
+		{
+			if (this.OnVisitorEvent != null)
+				this.OnVisitorEvent(this,new VisitorEventArgs(VisitorEventArgs.EventType.TYPE_UNBOUNDREQUIRES,com,sig));
+		}
+
 		#endregion
 	}
 }
