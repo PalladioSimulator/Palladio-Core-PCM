@@ -9,6 +9,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.4  2004/06/23 14:35:25  joemal
+	/// add equals methods
+	///
 	/// Revision 1.3  2004/06/17 12:07:35  joemal
 	/// change namespace from service to elements
 	///
@@ -47,6 +50,27 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		public override void ThreadExited()
 		{
 
+		}
+		
+		/// <summary>
+		///		Default implementation of Equals.
+		/// </summary>
+		/// <param name="obj">
+		///		The other object.
+		///	</param>
+		/// <returns>
+		///		True, if Name, IsStartState and
+		///		IsFinalState are Equal; false otherwise.
+		///	</returns>
+		public override bool Equals(object obj) 
+		{
+			if (!base.Equals(obj)) return false;
+			ISimulationState simState = (ISimulationState)obj;
+
+			long myTime = (long)this.Attributes[DefaultAttributeTypeSet.StaticTimeType];
+			long itsTime = (long)simState.Attributes[DefaultAttributeTypeSet.StaticTimeType];
+
+			return myTime == itsTime;
 		}
 	}
 }

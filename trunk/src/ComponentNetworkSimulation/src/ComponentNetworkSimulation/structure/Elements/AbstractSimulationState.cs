@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.7  2004/06/23 14:35:25  joemal
+	/// add equals methods
+	///
 	/// Revision 1.6  2004/06/19 13:46:05  joemal
 	/// - add toString method
 	///
@@ -139,6 +142,35 @@ namespace ComponentNetworkSimulation.Structure.Elements
 			return "State: "+this.ID;
 		}
 
+		/// <summary>
+		///		Default implementation of GetHashCode(). 
+		///		Refers to the hashcode of name.
+		/// </summary>
+		/// <returns>
+		///		Hashcode of Name
+		///	</returns>
+		public override int GetHashCode() 
+		{
+			return ID.GetHashCode();
+		}
+		
+		/// <summary>
+		///		Default implementation of Equals.
+		/// </summary>
+		/// <param name="obj">
+		///		The other object.
+		///	</param>
+		/// <returns>
+		///		True, if Name, IsStartState and
+		///		IsFinalState are Equal; false otherwise.
+		///	</returns>
+		public override bool Equals(object obj) 
+		{
+			if (!(obj is ISimulationState)) return false;
+			ISimulationState simState = (ISimulationState)obj;
+
+			return simState.ID.Equals(this.ID) && simState.ControlFlowStrategy == this.ControlFlowStrategy;
+		}
 
 		/// <summary>
 		/// called, when a thread entered this state
