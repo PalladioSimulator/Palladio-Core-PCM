@@ -386,21 +386,27 @@ namespace Palladio.Editor.Plugins.TreeView
 						node.Remove();
 						if (entity is BasicComponentProxy)
 						{
-							BasicComponentProxy bca = entity as BasicComponentProxy;
-							newNode = CreateBasicComponentNode(bca);
-							newNode.Tag = bca;
+							BasicComponentProxy bcp = entity as BasicComponentProxy;
+							newNode = CreateBasicComponentNode(bcp);
+							newNode.Tag = bcp;
 						}
 						else if (entity is CompositeComponentProxy)
 						{
-							CompositeComponentProxy cca = entity as CompositeComponentProxy;
-							newNode = CreateCompositeComponentNode(cca);
-							newNode.Tag = cca;
+							CompositeComponentProxy ccp = entity as CompositeComponentProxy;
+							newNode = CreateCompositeComponentNode(ccp);
+							newNode.Tag = ccp;
+						}
+						else if (entity is RoleProxy)
+						{
+							RoleProxy rp = entity as RoleProxy;
+							newNode = CreateRoleNode(rp, node.ImageIndex);
+							newNode.Tag = rp;
 						}
 						else if (entity is InterfaceProxy)
 						{
-							InterfaceProxy ia = entity as InterfaceProxy;
-							newNode = CreateInterfaceNode(ia);
-							newNode.Tag = ia;
+							InterfaceProxy ip = entity as InterfaceProxy;
+							newNode = CreateInterfaceNode(ip);
+							newNode.Tag = ip;
 						}
 
 						this.treeView.Nodes.Add(newNode);
@@ -447,6 +453,12 @@ namespace Palladio.Editor.Plugins.TreeView
 							newNode = CreateCompositeComponentNode(ccp);
 							newNode.Tag = ccp;
 						}
+						else if (entity is RoleProxy)
+						{
+							RoleProxy rp = entity as RoleProxy;
+							newNode = CreateRoleNode(rp, node.ImageIndex);
+							newNode.Tag = rp;
+						}
 						else if (entity is InterfaceProxy)
 						{
 							InterfaceProxy ip = entity as InterfaceProxy;
@@ -488,10 +500,7 @@ namespace Palladio.Editor.Plugins.TreeView
 			{
 				foreach (RoleProxy role in comp.ProvidedRoles)
 				{
-					TreeNode roleNode = new TreeNode(role.Name, 1, 1);
-					roleNode.Tag = role;
-					roleNode.Nodes.Add(CreateInterfaceNode(role.Interface));
-					compNode.Nodes.Add(roleNode);
+					compNode.Nodes.Add( CreateRoleNode(role, 1) );
 				}
 			}
 
@@ -499,10 +508,7 @@ namespace Palladio.Editor.Plugins.TreeView
 			{
 				foreach (RoleProxy role in comp.RequiredRoles)
 				{
-					TreeNode roleNode = new TreeNode(role.Name, 2, 2);
-					roleNode.Tag = role;
-					roleNode.Nodes.Add(CreateInterfaceNode(role.Interface));
-					compNode.Nodes.Add(roleNode);
+					compNode.Nodes.Add( CreateRoleNode(role, 2) );
 				}
 			}
 
@@ -518,10 +524,7 @@ namespace Palladio.Editor.Plugins.TreeView
 			{
 				foreach (RoleProxy role in comp.ProvidedRoles)
 				{
-					TreeNode roleNode = new TreeNode(role.Name, 1, 1);
-					roleNode.Tag = role;
-					roleNode.Nodes.Add(CreateInterfaceNode(role.Interface));
-					compNode.Nodes.Add(roleNode);
+					compNode.Nodes.Add( CreateRoleNode(role, 1) );
 				}
 			}
 
@@ -529,14 +532,21 @@ namespace Palladio.Editor.Plugins.TreeView
 			{
 				foreach (RoleProxy role in comp.RequiredRoles)
 				{
-					TreeNode roleNode = new TreeNode(role.Name, 2, 2);
-					roleNode.Tag = role;
-					roleNode.Nodes.Add(CreateInterfaceNode(role.Interface));
-					compNode.Nodes.Add(roleNode);
+					compNode.Nodes.Add( CreateRoleNode(role, 2) );
 				}
 			}
 
 			return compNode;
+		}
+
+		private TreeNode CreateRoleNode(RoleProxy role, int imageIndex)
+		{
+			TreeNode roleNode = new TreeNode(role.Name, imageIndex, imageIndex);
+			roleNode.Tag = role;
+
+			roleNode.Nodes.Add( CreateInterfaceNode(role.Interface) );
+
+			return roleNode;
 		}
 
 		private TreeNode CreateInterfaceNode(InterfaceProxy iface)
