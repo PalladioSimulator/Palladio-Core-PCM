@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.6  2004/06/19 13:46:05  joemal
+	/// - add toString method
+	///
 	/// Revision 1.5  2004/06/17 12:07:35  joemal
 	/// change namespace from service to elements
 	///
@@ -126,6 +129,16 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		public void AcceptVisitor(ReflectionBasedVisitor.IVisitor visitor)
 		{
 		}
+
+		/// <summary>
+		/// override to return a debug string containing the id of this state
+		/// </summary>
+		/// <returns>a debug string containing the id of this state</returns>
+		public override string ToString()
+		{
+			return "State: "+this.ID;
+		}
+
 
 		/// <summary>
 		/// called, when a thread entered this state
