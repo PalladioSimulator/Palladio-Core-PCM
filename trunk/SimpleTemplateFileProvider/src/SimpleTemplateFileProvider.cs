@@ -18,6 +18,7 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 	/// SimpleTemplateFileProvider. Using the variables-names of the request (POST and GET) this component replaces
 	/// all occurences of the variables-names surrounded by defined delimiters (definition in SimpleTemplateFileProvider.xml)
 	/// by their given values.
+	/// Remark: First the POST-Variables are replaced in the second step the GET-Variables are replaced.
 	/// This component only handles the requests for the file-types specified in its config-xml-file. Other requests are
 	/// passed to the COR-Successor.
 	/// </summary>
@@ -28,6 +29,9 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/11/08 20:42:44  kelsaka
+	/// The webserver is now listening on all specified ports
+	///
 	/// Revision 1.3  2004/11/07 11:13:01  kelsaka
 	/// Added recoding of variables-values representations; added support for dynamic pages created by HTTP GET; fixed HTML-field-names in test-documents.
 	///
@@ -108,19 +112,14 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 
 
 
-
-
-
 			// Open and read the source-file:
 			byte[] fileContent = requestProcessorTools.OpenFile (completePath, httpRequest.RequestedFileName);
 			string fileContentString = Encoding.ASCII.GetString(fileContent);
 
-	
 			// create the response-content and send it to the client:
 			CreateDynamicContentAndDeliverFile (fileContentString, httpRequest, fileMimeType);
-
-
 		}
+
 
 
 		/// <summary>

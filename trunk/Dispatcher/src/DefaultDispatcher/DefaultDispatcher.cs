@@ -11,7 +11,8 @@ using Palladio.Webserver.RequestParser;
 namespace Palladio.Webserver.Dispatcher
 {
 	/// <summary>
-	/// DefaultDispatcher.
+	/// DefaultDispatcher. This component starts threads with TCP-listeners that listen on the specified ports. The ports are configured
+	/// in the WebserverXML.xml. The webserver may even listen on multiple ports.
 	/// </summary>
 	/// 
 	/// 
@@ -20,6 +21,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2004/11/08 20:42:44  kelsaka
+	/// The webserver is now listening on all specified ports
+	///
 	/// Revision 1.11  2004/11/05 16:17:01  kelsaka
 	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
 	/// Code refactoring.
@@ -60,18 +64,18 @@ namespace Palladio.Webserver.Dispatcher
 	public class DefaultDispatcher : IDispatcher
 	{
 		/// <summary>
-		/// The local IP-address the server is listening on. As the server usually runs on single machine,
-		/// first 127.0.0.1 is used. 
+		/// The local IP-address the server is listening on. As the server (at least the dispatcher) usually runs on a
+		/// single machine, first 127.0.0.1 is used. 
 		/// </summary>
-		string localAddress = "127.0.0.1"; //TODO: maybe change to be able to listen to multiple addresses.
-		
+		private const string LOCAL_IP_ADDRESS = "127.0.0.1";
+
+
 		private IRequestParser requestParser;
 		private IWebserverMonitor webserverMonitor;
 		private IWebserverConfiguration webserverConfiguration;
 		private Thread serverThread;
 
-		private TcpListener tcpListener;
-
+		TcpListener tcpListener;
 
 		/// <summary>
 		/// Default constructor.
@@ -101,16 +105,23 @@ namespace Palladio.Webserver.Dispatcher
 
 			try
 			{
+				//start listing on the given port; listen on all specified ports.
+				foreach(int port in webserverConfiguration.ListeningPorts)
+				{
+					
+					
+					IPAddress adress = IPAddress.Parse(LOCAL_IP_ADDRESS);
+					tcpListener = new TcpListener(adress, port);
+					tcpListener.Start();
+					webserverMonitor.WriteLogEntry("Listening (" + LOCAL_IP_ADDRESS + "; TCP) on port: " + port);
+					
+					ListeningThread listeningThread = new ListeningThread(requestParser, webserverMonitor,
+						webserverConfiguration, port, tcpListener);
 
-				//start listing on the given port //TODO: make listen on *all* specified ports later on.
-				//TODO: currently running without IP listening on: "new IPAddress(Encoding.ASCII.GetBytes(localAddress))"
-				tcpListener = new TcpListener(webserverConfiguration.ListeningPorts[0]);
-				tcpListener.Start();
-				webserverMonitor.WriteLogEntry("Listening (TCP) on port: " + webserverConfiguration.ListeningPorts[0]);
-
-				//start the thread which calls the method 'StartListen'
-				serverThread = new Thread(new ThreadStart(StartListen));
-				serverThread.Start();
+					//start the thread which calls the method 'StartListen'
+					serverThread = new Thread(new ThreadStart(listeningThread.StartListen));			
+					serverThread.Start();
+				}
 
 			}
 			catch(Exception e)
@@ -119,20 +130,21 @@ namespace Palladio.Webserver.Dispatcher
 			}
 			
 
-			//TODO: make the webserver shutdown explicitly.
-			//webserverMonitor.WriteLogEntry("Press ENTER to stop the webserver.");
-			//Console.ReadLine();
-			//Stop();
+			// make the webserver shutdown explicitly.
+			webserverMonitor.WriteLogEntry("/=========================================\\");
+			webserverMonitor.WriteLogEntry("|  Press ENTER to shutdown the webserver. |");
+			webserverMonitor.WriteLogEntry("\\=========================================/");
+			Console.ReadLine();
+			Stop();
 
 		}
 
 
-
-
+		
 
 		/// <summary>
 		/// Stops the dispatcher. This includes the service of the webserver.
-		/// Stops the write-access of the WebserverMonitor.
+		/// Stops the write-access of the WebserverMonitor. Stops the Main-Thread.
 		/// </summary>
 		public void Stop()
 		{
@@ -150,48 +162,10 @@ namespace Palladio.Webserver.Dispatcher
 			webserverMonitor.WriteLogEntry("Shutting down webserver.");
 			webserverMonitor.FinishWriteAccess();
 
+			// abort main-thread:
+			Thread.CurrentThread.Abort();
 		}
 
-
-
-
-		
-		//This method Accepts new connection and
-		//First it receives the welcome massage from the client,
-		//Then it sends the Current date time to the Client.
-		private void StartListen()
-		{
-			webserverMonitor.WriteLogEntry("Dispatcher-Thread started. Waiting for client-requests...");
-						
-			while(true)
-			{
-				//Accept a new connection
-				Socket clientSocket = tcpListener.AcceptSocket() ;
-
-				webserverMonitor.WriteLogEntry("___________________________________"); 
-				webserverMonitor.WriteLogEntry("### Getting new client-request: ###"); 
-				webserverMonitor.WriteLogEntry("Socket Type: " + clientSocket.SocketType); 
-				
-				if(clientSocket.Connected)
-				{
-					webserverMonitor.WriteLogEntry("Client connected on IP: " + clientSocket.RemoteEndPoint) ;
-
-					// set up request:
-					IRequest request = new DefaultRequest(webserverMonitor);
-					request.Socket = clientSocket;
-					request.TcpListener = tcpListener;
-					request.Port = webserverConfiguration.ListeningPorts[0]; //TODO: on using all defined ports change this.
-					
-
-					// let the parser handle the request:
-					requestParser.HandleRequest(request);
-
-					
-					clientSocket.Close();						
-				}
-			}
-		}
-	
 
 	}
 }
