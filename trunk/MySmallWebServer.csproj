@@ -26,21 +26,21 @@
                     Name = "Debug"
                     AllowUnsafeBlocks = "false"
                     BaseAddress = "285212672"
-                    CheckForOverflowUnderflow = "false"
+                    CheckForOverflowUnderflow = "true"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = "Documentation.xml"
-                    DebugSymbols = "false"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
                     NoStdLib = "false"
                     NoWarn = ""
-                    Optimize = "false"
+                    Optimize = "true"
                     OutputPath = "bin\Debug\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
-                    WarningLevel = "4"
+                    WarningLevel = "0"
                 />
                 <Config
                     Name = "Release"
@@ -94,6 +94,11 @@
                     AssemblyName = "dictionary"
                     HintPath = "..\dictionary\bin\Debug\dictionary.dll"
                 />
+                <Reference
+                    Name = "log4net"
+                    AssemblyName = "log4net"
+                    HintPath = "..\..\..\..\..\Programme\Log4Net\log4net-1.2.0-beta8\bin\net\1.1\debug\log4net.dll"
+                />
             </References>
         </Build>
         <Files>
@@ -108,8 +113,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "bin\Debug\Log4netConfig.log4net"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "bin\Debug\serverSettings.xml"
                     BuildAction = "Content"
+                />
+                <File
+                    RelPath = "bin\Debug\SimpleModule.dll.log4net"
+                    BuildAction = "None"
                 />
                 <Folder RelPath = "DATA\LatexConverter\generatedDocs\" />
                 <File
@@ -224,6 +237,11 @@
                 />
                 <File
                     RelPath = "src\ExternalApplication\PDFGenerator.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\MyServerException\EmptyClientException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

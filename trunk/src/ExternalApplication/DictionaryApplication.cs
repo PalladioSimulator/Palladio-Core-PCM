@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using MySmallWebServer.MyServerException;
 using dictionary;
+using System.IO;
 
 
 namespace MySmallWebServer.ExternalApplication
@@ -36,12 +37,20 @@ namespace MySmallWebServer.ExternalApplication
 
 		public string GenerateText()
 		{
-			string replayString="<html><head><title>My Replay</title></head><body bgcolor =#ca1102> \n\r";
+
+			Console.WriteLine("versuche Datei zu öffnen");
+			StreamReader baseFile = new StreamReader("default-webPage.txt");
+			string baseDoc = baseFile.ReadToEnd();
+			
+			string replayString =""; 
 			replayString = replayString +"<H2>gefundene Entsprechungen zum Wort: "+ this.word +"</H2> \n\r";
 			replayString = replayString +this.resultTable();
 			replayString = replayString +"<a href=\"dic.html\"> neue Suche </a>";
-			replayString = replayString +"</body></html>";
-			return replayString;
+
+			baseDoc = baseDoc.Replace("#######################################",replayString);
+			return baseDoc;
+			
+			
 		}
 
 		protected string resultTable()

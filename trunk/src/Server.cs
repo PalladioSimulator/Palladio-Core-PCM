@@ -5,6 +5,8 @@ using System.IO;
 using System.Net.Sockets;
 using System.Threading;
 using System.Collections;
+using log4net.Config;
+using log4net;
 
 namespace MySmallWebServer
 {
@@ -18,7 +20,7 @@ namespace MySmallWebServer
 		/// <summary>
 		/// A TcpListener witch listens to the Port 
 		/// </summary>
-		private TcpListener myListener ;
+		private TcpListener portListener ;
 
 		/// <summary>
 		/// All setting (like Server Root, Dir mapping,.. ) of a Server a
@@ -26,6 +28,7 @@ namespace MySmallWebServer
 		/// </summary>
 		public ServerSettings io;
 
+		private  readonly  ILog log = LogManager.GetLogger(typeof(Server));
 
 		/// <summary>
 		///The constructor which make the TcpListener start listening on the
@@ -35,26 +38,30 @@ namespace MySmallWebServer
 		{
 			try
 			{
+
+				log4net.Config.BasicConfigurator.Configure();
 				//load ServerSettings
 				this.io= new ServerSettings();
-				myListener = new TcpListener(this.io.ServerPort);
-				myListener.Start();
-				Console.WriteLine("Web Server Running...");
+				portListener = new TcpListener(this.io.ServerPort);
+				portListener.Start();
+				this.log.Info(this.io.ToString());
+				this.log.Info("Web Server Running...");
+				
 				
 				//start the thread which calls the method 'StartListen'
 				while(true)
 				{
 					//Accept a new connection
-					Socket mySocket = myListener.AcceptSocket() ;
-					connectedClient tt = new connectedClient(mySocket,ref this.io);
+					Socket clinetSocket = portListener.AcceptSocket() ;
+					ConnectedClient connectedClient = new ConnectedClient(clinetSocket, this.io);
 				}
 
 			}
 			catch(Exception e)
 			{
-				Console.WriteLine("An Exception Occurred while Listening :" +e.ToString());
-				Console.WriteLine(e.Message);
-				Console.WriteLine("Please press enter");
+				this.log.Error("An Exception Occurred while Listening :" +e.ToString());
+				this.log.Error(e.Message);
+				this.log.Error("Please press enter");
 				Console.Read();
 			}
 		}

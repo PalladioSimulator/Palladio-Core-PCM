@@ -86,12 +86,12 @@ namespace MySmallWebServer
 		/// <returns></returns>
 		public override string ToString()
 		{
-			string r = "The Client Request: "+"\n";
-			r = r+ "Method: "+this.requestedMethod.ToString() +"\n";
-			r = r + "Protocol: "+  this.protocol.ToString()+"\n";
-			r = r + "the requested File: "+this.fileID.ToString()+"\n";
-			r = r + "--------------------------------------";
-			return r;
+			string returnString = "The Client Request: "+"\n";
+			returnString = returnString+ "Method: "+this.requestedMethod.ToString() +"\n";
+			returnString = returnString+ "Protocol: "+  this.protocol.ToString()+"\n";
+			returnString = returnString + "the requested File: "+this.fileID.ToString()+"\n";
+			returnString = returnString + "--------------------------------------";
+			return returnString;
 		} 
 
 	}

@@ -29,11 +29,15 @@
 <VDirs>
 	<Vdir>
 		<RequestedDir>/</RequestedDir>
-		<realDir>C:\MyPersonalwebServerData/</realDir> 
+		<realDir>C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Demopage/</realDir> 
 	</Vdir>
 	<VDir>
 		<requestedDir>/test/</requestedDir>
 		<realDir>C:\MyPersonalwebServerData\pic/</realDir>
+	</VDir>
+	<VDir>
+		<requestedDir>/img/</requestedDir>
+		<realDir>C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Demopage\img/</realDir>
 	</VDir>
 </VDirs>
 </serverSettings>

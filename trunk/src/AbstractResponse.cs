@@ -9,7 +9,7 @@ namespace MySmallWebServer
 	public abstract class AbstractResponse
 	{
 		/// <summary>
-		/// The request to which a response should be gerated
+		/// The request to which a response should be generated
 		/// </summary>
 		public abstract ClientRequest ClientRequest{get;set;}
 
@@ -30,8 +30,9 @@ namespace MySmallWebServer
 		/// </summary>
 		public abstract ClientResponse GeneratedResponse{get;}
 		
-		//		string PhysicalPfad{get;}
-
+		/// <summary>
+		/// The MineType for the response.
+		/// </summary>
 		public abstract string MineType{get;set;}
 	}
 

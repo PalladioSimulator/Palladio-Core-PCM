@@ -28,10 +28,28 @@ namespace MySmallWebServer.ExternalApplication
 		/// </summary>
 		/// <returns>Returns the generated page in a <code>string</code></returns>
 		public string GenerateText(){
-			string replayString="<html><head><title>My Replay</title></head><body> \n\r";
-			replayString = replayString +"<H1> Hallo "+this.input["textfield0"].ToString()+"! Dein Passwort war: "+this.input["textfield1"].ToString()+"</H1> \n\r";
-			replayString = replayString +"</body></html>";
-			return replayString;
+//			
+//			string replayString="<html><head><title>My Replay</title></head><body> \n\r";
+//			replayString = replayString +"<H1> Hallo "+this.input["textfield0"].ToString()+"! Dein Passwort war: "+this.input["textfield1"].ToString()+"</H1> \n\r";
+//			replayString = replayString +"</body></html>";
+//			return replayString;
+
+			Console.WriteLine("versuche Datei zu öffnen");
+			StreamReader baseFile = new StreamReader("default-webPage.txt");
+			string baseDoc = baseFile.ReadToEnd();
+			
+			baseDoc = baseDoc.Replace("#######################################","<H1> Hallo "+this.input["textfield0"].ToString()+"! Dein Passwort war: "+this.input["textfield1"].ToString()+"</H1>");
+			return baseDoc;
+		}
+
+		private void Replace()
+		{
+			Console.WriteLine("versuche Datei zu öffnen");
+			StreamReader baseFile = new StreamReader("default-webPage.txt");
+			string baseDoc = baseFile.ReadToEnd();
+			
+			baseDoc = baseDoc.Replace("#######################################","<H1> Hallo "+this.input["textfield0"].ToString()+"! Dein Passwort war: "+this.input["textfield1"].ToString()+"</H1>");
+			
 		}
 	}
 }

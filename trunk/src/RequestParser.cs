@@ -69,7 +69,7 @@ namespace MySmallWebServer
 		/// <param name="clientSocket"><code>Soclket</code> on which the client is connected</param>
 		/// <param name="settings">The settings of the server</param>
 		/// <param name="request">The requet of the client as a <code>string</code> representation</param>
-		public RequestParser(ref Socket clientSocket,ref ServerSettings settings,string request)
+		public RequestParser(ref Socket clientSocket, ServerSettings settings,string request)
 		{
 			this.generatedRequest = new ClientRequest();
 			Console.WriteLine("Start Parsing");
@@ -83,6 +83,7 @@ namespace MySmallWebServer
 			{
 				this.userInput = ParseUserInput();
 			}
+
 			this.file = new UsedFile();
 
 			identifyFile();
@@ -97,6 +98,7 @@ namespace MySmallWebServer
 			this.generatedRequest.UserInput = this.userInput;
 			this.generatedRequest.RequestedFile.FileExtension = this.fileEx;
 			this.generatedRequest.RequestedFile.RequestedDirectory = this.requestedDir;
+			
 		}
 
 		
@@ -111,37 +113,20 @@ namespace MySmallWebServer
 
 		/// <summary>
 		/// This start parsing the onput, and locks for the user Input
-		/// ist search for the line, which contains a &
+		/// ist search for the line, which contains a "&"
 		/// </summary>
 		/// <returns></returns>
 		private string ParseUserInput()
 		{
-//			Console.WriteLine("hier bin ich");
 			string output ="";
 			this.requestString.Trim();
-//			int i = this.requestString.IndexOf("no-cache");
-//			string temp = this.requestString.Substring(i);
 			string[] erg = this.requestString.Split('\n');
 			foreach(string s in erg)
 			{
 				if(s.IndexOf("&")!=-1)
 					output = s;
 			}
-			Console.WriteLine("The right line? "+output);
 			return output;
-//			string output;
-//			this.requestString.TrimEnd();
-//			string[] erg = this.requestString.Split(' ');
-//			string input = erg[erg.Length-1];
-//			input.Trim();
-////			Console.WriteLine("das ist der AUsgangsstring: "+input+" das ist das ENde");
-//			string[] dad = input.Split('\n');
-//			string[] dum = dad;
-//			Console.WriteLine(dad[dad.Length-1]);
-//			dum = dad[dad.Length-1].Split('\r');			
-//			output = dum[dum.Length-1];
-//			Console.WriteLine("Formular Eingabe: "+output);
-//			return output;
 		}
 
 
@@ -162,7 +147,11 @@ namespace MySmallWebServer
 		{
 			int startPos = this.requestString.IndexOf("HTTP",1);
 			string requestLine = this.requestString.Substring(0,startPos - 1);
+			Console.WriteLine("The requested Line: "+requestLine);
 			this.requestedDir = requestLine.Substring(requestLine.IndexOf("/"), requestLine.LastIndexOf("/")-3);
+			if(this.requestedDir=="/i")
+				this.requestedDir="/";
+			Console.WriteLine("requested Dir: "+this.requestedDir);
 			string requestedFile;
 			//Replace backslash with Forward Slash, if Any
 			this.requestString.Replace("\\","/");
@@ -187,6 +176,7 @@ namespace MySmallWebServer
 //				this.file = new UsedFile(requestedFile);
 			this.file.RequestedFileName = requestedFile;
 			Console.WriteLine("Requested File: "+requestedFile);
+			Console.WriteLine("Ende identifyFile");
 		}
 
 
@@ -217,6 +207,7 @@ namespace MySmallWebServer
 				{
 					///here a exception has to be thrown
 					Console.WriteLine("Method not known!");
+					throw new MyServerException.ResponseException(this.GeneratedClientRequest);
 //					mySocket.Close();
 					return;
 				}

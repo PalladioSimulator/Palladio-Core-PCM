@@ -53,6 +53,29 @@ namespace MySmallWebServer
 
 
 		/// <summary>
+		/// Returns the base of the response, the <code>ClientRequest</code>
+		/// </summary>
+		/// <param name="cr"></param>
+		public ClientResponse(ClientRequest cr)
+		{
+			if(cr.RequestedMethod is GetMethod)
+			{
+				this.clientRequest = cr;
+				Console.WriteLine("The generated Request---"+ cr.ToString());
+				validateFile();
+				BuildResponse();
+				Console.WriteLine(this.ToString());
+			}
+			if(cr.RequestedMethod is HeadMethod)
+			{
+				this.clientRequest = cr;
+				validateFile();
+				BuildResponse();
+				Console.WriteLine(this.ToString());
+			}
+		}
+
+		/// <summary>
 		/// The originaly request
 		/// </summary>
 		public override ClientRequest ClientRequest
@@ -146,21 +169,7 @@ namespace MySmallWebServer
 		{get{return this;}}
 
 
-		/// <summary>
-		/// Returns the base of the response, the <code>ClientRequest</code>
-		/// </summary>
-		/// <param name="cr"></param>
-		public ClientResponse(ClientRequest cr)
-		{
-			if(cr.RequestedMethod is GetMethod)
-			{
-				this.clientRequest = cr;
-				Console.WriteLine("The generated Request---"+ cr.ToString());
-				validateFile();
-				BuildResponse();
-				Console.WriteLine(this.ToString());
-			}
-		}
+		
 
 
 
@@ -173,7 +182,7 @@ namespace MySmallWebServer
 			try
 			{
 				this.mineType = this.clientRequest.Settings.GetMineTypeMapping(this.clientRequest.RequestedFile.FileExtension);
-				Console.WriteLine("The mineType: *********************************************************************"+this.mineType);
+				Console.WriteLine("The mineType: "+this.mineType);
 			}
 			catch(Exception)
 			{

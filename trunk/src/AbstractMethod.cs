@@ -1,5 +1,6 @@
 using System;
 
+
 namespace MySmallWebServer
 {
 	/// <summary>
@@ -20,6 +21,7 @@ namespace MySmallWebServer
 		/// </summary>
 		public abstract string MessageToSend{get ;set;}
 
+		
 		/// <summary>
 		/// Builds a Response to the delivers Request
 		/// </summary>
@@ -30,5 +32,7 @@ namespace MySmallWebServer
 		/// The size of the message which should be sendend as get and set
 		/// </summary>
 		public abstract int MessageSize{get;set;}
+
+		public abstract Byte[] FetchImage();
 	}
 }

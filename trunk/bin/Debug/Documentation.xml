@@ -107,7 +107,7 @@
         </member>
         <member name="M:MySmallWebServer.ExternalApplication.ExternalClientResponse.ParseInput">
             <summary>
-            parses the user input <code>string</code> an generates the soreted 
+            Parses the user input <code>string</code> an generates the soreted 
             <code>Hashtable</code>
             </summary>
         </member>
@@ -354,6 +354,12 @@
             The kind of method to which should be answered
             </summary>
         </member>
+        <member name="M:MySmallWebServer.ClientResponse.#ctor(MySmallWebServer.ClientRequest)">
+            <summary>
+            Returns the base of the response, the <code>ClientRequest</code>
+            </summary>
+            <param name="cr"></param>
+        </member>
         <member name="M:MySmallWebServer.ClientResponse.BuildResponse">
             <summary>
             Build the response to a request
@@ -364,12 +370,6 @@
             The Request in a <code>string</code> reprenstation 
             </summary>
             <returns></returns>
-        </member>
-        <member name="M:MySmallWebServer.ClientResponse.#ctor(MySmallWebServer.ClientRequest)">
-            <summary>
-            Returns the base of the response, the <code>ClientRequest</code>
-            </summary>
-            <param name="cr"></param>
         </member>
         <member name="M:MySmallWebServer.ClientResponse.validateFile">
              <summary>
@@ -416,30 +416,30 @@
             Returns itself
             </summary>
         </member>
-        <member name="T:MySmallWebServer.connectedClient">
+        <member name="T:MySmallWebServer.ConnectedClient">
             <summary>
             This is initated when a client is conntected. It's starts a thread
             in which the request of the connected client will be answered
             </summary>
         </member>
-        <member name="F:MySmallWebServer.connectedClient.mySocket">
+        <member name="F:MySmallWebServer.ConnectedClient.mySocket">
             <summary>
             The <code>Socket</code> on which the client is conntected
             </summary>
         </member>
-        <member name="F:MySmallWebServer.connectedClient.serverIo">
+        <member name="F:MySmallWebServer.ConnectedClient.serverIo">
             <summary>
             Teh settings of the Server
             </summary>
         </member>
-        <member name="M:MySmallWebServer.connectedClient.#ctor(System.Net.Sockets.Socket,MySmallWebServer.ServerSettings@)">
+        <member name="M:MySmallWebServer.ConnectedClient.#ctor(System.Net.Sockets.Socket,MySmallWebServer.ServerSettings)">
             <summary>
             The constructor of a connected CLient, iniates an new thread
             </summary>
             <param name="aSocket">The <code>Socket</code>on which the client is connected</param>
             <param name="io">The serversettings as reference</param>
         </member>
-        <member name="M:MySmallWebServer.connectedClient.StartListen">
+        <member name="M:MySmallWebServer.ConnectedClient.StartListen">
              <summary>
             This method accepts new connection and
             first it serves the welcome massage from the client, This
@@ -640,7 +640,7 @@
             The user input as <code>string</code>
             </summary>
         </member>
-        <member name="M:MySmallWebServer.RequestParser.#ctor(System.Net.Sockets.Socket@,MySmallWebServer.ServerSettings@,System.String)">
+        <member name="M:MySmallWebServer.RequestParser.#ctor(System.Net.Sockets.Socket@,MySmallWebServer.ServerSettings,System.String)">
             <summary>
             The Constructor
             </summary>
@@ -758,7 +758,7 @@
             incomming requests an trys to answer them
             </summary>
         </member>
-        <member name="F:MySmallWebServer.Server.myListener">
+        <member name="F:MySmallWebServer.Server.portListener">
             <summary>
             A TcpListener witch listens to the Port 
             </summary>
@@ -798,7 +798,7 @@
         <member name="F:MySmallWebServer.ServerSettings.mineTypes">
             <summary>
             A Hashtable which contains a mapping fot Mine Types.
-            Key is a fileextension like .htm
+            Key is a file extension like .htm
             Value is the suitable mine Type
             </summary>
         </member>
@@ -911,6 +911,17 @@
             <summary>
             Retrun a <code>string</code> which contains the formualr input
             </summary>
+        </member>
+        <member name="T:MySmallWebServer.MyServerException.EmptyClientException">
+            <summary>
+            Zusammenfassung für EmptyClientException.
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.MyServerException.EmptyClientException.#ctor(MySmallWebServer.ClientResponse,System.String)">
+            <summary>
+            This is thrown when the the requested file has not been found.
+            </summary>
+            <param name="r">The <code>ClientResponse</code> which requested has not been found</param>
         </member>
     </members>
 </doc>

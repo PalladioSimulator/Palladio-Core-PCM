@@ -81,7 +81,7 @@ namespace MySmallWebServer.ExternalApplication
 		{
 			this.file = (UsedFile) r.RequestedFile;
 			this.cr = r;
-			Console.WriteLine("Externe Antwort: "+r.UserInput);
+//			Console.WriteLine("Externe Antwort: "+r.UserInput);
 			ParseInput();
 			generateText();
 		}
@@ -153,7 +153,7 @@ namespace MySmallWebServer.ExternalApplication
 			}
 		
 			this.r.StatusCode=" 200 ok ";
-			this.r.MessageToSend = this.text;
+			this.r.MessageToSend =  this.text;
 			this.r.ClientRequest = this.cr;
 			Console.WriteLine(r.ToString());
 			//			this.r.MessageSize = this.MessageSize;
@@ -176,7 +176,7 @@ namespace MySmallWebServer.ExternalApplication
 
 
 		/// <summary>
-		/// parses the user input <code>string</code> an generates the soreted 
+		/// Parses the user input <code>string</code> an generates the soreted 
 		/// <code>Hashtable</code>
 		/// </summary>
 		protected void ParseInput()

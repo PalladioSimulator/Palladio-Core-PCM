@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.IO;
 namespace MySmallWebServer.ExternalApplication
 {
 	/// <summary>
@@ -37,13 +38,20 @@ namespace MySmallWebServer.ExternalApplication
 				option = " Gut, erstmal dagegen sein, auch ok";
 			if(this.drei=="vielleicht")
 				option =" Keine Meinung ist auch eine";
-			string gaga="<html><head><title>My Replay</title></head><body> \n\r";
-			gaga = gaga +"<H1> Die Eingaben waren: </H1><p> ";
+		
+			string gaga="";
 			gaga = gaga +" Das war die Eingabe ins erste Feld: "+this.input[this.eins].ToString()+"<br>";
 			gaga = gaga +"Eingabe ins zweite Feld: "+this.input[this.zwei].ToString() +"<br>";
 			gaga = gaga+ "Deine Meinung: "+option;
-			gaga = gaga +"</body></html>";
-			return gaga;
+		
+			
+			Console.WriteLine("versuche Datei zu öffnen");
+			StreamReader baseFile = new StreamReader("default-webPage.txt");
+			string baseDoc = baseFile.ReadToEnd();
+			
+			baseDoc = baseDoc.Replace("#######################################",gaga);
+			return baseDoc;
+			
 		}
 	}
 }

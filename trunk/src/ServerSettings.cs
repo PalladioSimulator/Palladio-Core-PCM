@@ -23,7 +23,7 @@ namespace MySmallWebServer
 
 		/// <summary>
 		/// A Hashtable which contains a mapping fot Mine Types.
-		/// Key is a fileextension like .htm
+		/// Key is a file extension like .htm
 		/// Value is the suitable mine Type
 		/// </summary>
 		private Hashtable mineTypes;
@@ -148,7 +148,7 @@ namespace MySmallWebServer
 				this.dafaultFile = node.Value.ToString();
 				//port
 				node = xmlDoc.DocumentElement.SelectSingleNode("/serverSettings/port/text()");
-				Console.WriteLine(node.Value.ToString());
+//				Console.WriteLine(node.Value.ToString());
 				this.port = int.Parse(node.Value.ToString());
 			}
 			catch (Exception e)
@@ -156,7 +156,7 @@ namespace MySmallWebServer
 				Console.WriteLine(e.Message);
 				//throw new FatalServerException();
 			}
-			Console.WriteLine(this.ToString());
+			
 		}
 
 		/// <summary>
@@ -177,7 +177,8 @@ namespace MySmallWebServer
 			foreach(DictionaryEntry dic in this.physicalDir)
 				aString = aString +" "+dic.Key.ToString()+" is mapped to "+ dic.Value.ToString()+"\n";
 			//aString= aString +"\n" +
-			aString= aString +"\n" + this.dafaultFile;
+			aString= aString +"\n Default File " + this.dafaultFile;
+			aString = aString +"\n Port: "+this.ServerPort;
 			return aString;
 		}
 		

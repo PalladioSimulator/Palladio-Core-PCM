@@ -45,5 +45,11 @@ namespace MySmallWebServer
 			get{return this.fileContent;}
 			set{this.fileContent = value;}
 		}
+
+		public override Byte[] FetchImage()
+		{
+			return null;
+		}
+
 	}
 }

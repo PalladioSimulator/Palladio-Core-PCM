@@ -27,7 +27,7 @@ namespace MySmallWebServer
 		public SendToClient(AbstractResponse r)
 		{
 			this.cr = r;
-			Console.WriteLine("Der Response :"+this.cr.ToString());
+//			Console.WriteLine("Der Response :"+this.cr.ToString());
 		}
 
 
@@ -67,6 +67,14 @@ namespace MySmallWebServer
 			if(this.cr.ClientRequest.RequestedMethod is GetMethod)
 			{
 				SendHeader();
+				//TO DO Change string message to Byte[] so this can be dropped.
+				if(this.cr.MineType == "image/bmp" || this.cr.MineType =="image/gif")
+				{
+					Console.WriteLine("bild soll gesendet werden");
+					Byte[] image = this.cr.ClientRequest.RequestedMethod.FetchImage();
+					SendToBrowser(image,this.cr.ClientRequest.ClientSocket);
+					Console.WriteLine("Bild sollte da sein");
+				}
 				SendMessage();
 			}
 			if(this.cr.ClientRequest.RequestedMethod is HeadMethod)
@@ -185,7 +193,7 @@ namespace MySmallWebServer
 		/// <param name="mySocket">The <code>Socket</code> on which the client listens</param>
 		public void SendToBrowser(String sData, Socket mySocket)
 		{
-			SendToBrowser (Encoding.ASCII.GetBytes(sData),  mySocket);
+			SendToBrowser(Encoding.ASCII.GetBytes(sData),  mySocket);
 		}
 
 
