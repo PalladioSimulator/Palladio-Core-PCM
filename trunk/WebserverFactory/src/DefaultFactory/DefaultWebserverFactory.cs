@@ -12,7 +12,7 @@ using Palladio.Webserver.HTTPRequestParser;
 namespace Palladio.Webserver.WebserverFactory
 {
 	/// <summary>
-	/// 
+	/// Encapsulates the creational process of the webserver-components.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -20,6 +20,9 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2004/12/18 10:06:48  kelsaka
+	/// Added CVS-logs and some comments.
+	///
 	/// Revision 1.10  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each

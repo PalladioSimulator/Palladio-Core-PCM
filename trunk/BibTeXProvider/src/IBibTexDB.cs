@@ -8,6 +8,18 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// Wrapper for calls to the BibTex DB. This was introduced to be able 
 	/// to intercept calls to the DB and measure their performance and realiability.
 	/// </summary>
+	/// 
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3  2004/12/18 10:06:48  kelsaka
+	/// Added CVS-logs and some comments.
+	///
+	/// 
+	/// </pre>
+	/// </remarks>
 	public interface IBibTexDB
 	{
 		/// <summary>
