@@ -12,33 +12,39 @@
 
 using System;
 
-namespace Palladio.Editor.Common
+namespace Palladio.Editor.Common.Commands
 {
 	/// <summary>
-	/// Zusammenfassung für AbstractPlugin.
+	/// Zusammenfassung für AbstractCommand.
 	/// </summary>
-	public abstract class AbstractPlugin : MarshalByRefObject, IPlugin
+	public abstract class AbstractCommand : ICommand
 	{
-		public AbstractPlugin()
+		protected Palladio.Editor.Common.EntityProxies.EventArgs _evtArgs;
+
+		public AbstractCommand()
 		{
-			this._name			= "undef";
-			this._description	= "undef";
-			this._author		= "undef";
-			this._version		= "undef";
 		}
 
-		protected string _name;
-		public abstract string Name	{ get; }
+		public abstract bool Execute();
 
-		protected string _description;
-		public abstract string Description { get; }
+		public abstract bool CanUndo
+		{
+			get;
+		}
 
-		protected string _author;
-		public abstract string Author {	get; }
+		public abstract bool Undo();
 
-		protected string _version;
-		public abstract string Version { get; }
+		public abstract object Clone();
 
-		public abstract void Detach();
+		public abstract Palladio.Editor.Common.EntityProxies.EventArgs EventArgs
+		{
+			get;
+		}
+
+		public abstract object Receiver
+		{
+			get;
+		}
+
 	}
 }

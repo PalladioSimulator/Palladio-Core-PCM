@@ -11,34 +11,25 @@
 #endregion
 
 using System;
+using System.ComponentModel;
 
-namespace Palladio.Editor.Common
+using Palladio.Identifier; 
+using Palladio.ComponentModel;
+
+namespace Palladio.Editor.Common.EntityProxies
 {
 	/// <summary>
-	/// Zusammenfassung für AbstractPlugin.
+	/// Zusammenfassung für BasicComponentProxy.
 	/// </summary>
-	public abstract class AbstractPlugin : MarshalByRefObject, IPlugin
+	public class BasicComponentProxy : ComponentProxy
 	{
-		public AbstractPlugin()
+		protected new IBasicComponent _component;
+
+		public BasicComponentProxy(IBasicComponent component, CommandHandler cmdHandler, RoleProxy[] provided, RoleProxy[] required)
+			: base(component, cmdHandler, provided, required)
 		{
-			this._name			= "undef";
-			this._description	= "undef";
-			this._author		= "undef";
-			this._version		= "undef";
+			this._component = component;
+
 		}
-
-		protected string _name;
-		public abstract string Name	{ get; }
-
-		protected string _description;
-		public abstract string Description { get; }
-
-		protected string _author;
-		public abstract string Author {	get; }
-
-		protected string _version;
-		public abstract string Version { get; }
-
-		public abstract void Detach();
 	}
 }

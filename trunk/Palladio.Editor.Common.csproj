@@ -29,7 +29,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = ""
+                    DocumentationFile = "Palladio.Editor.Common.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -49,7 +49,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "TRACE"
-                    DocumentationFile = ""
+                    DocumentationFile = "Palladio.Editor.Common.xml"
                     DebugSymbols = "false"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -85,24 +85,49 @@
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
                 />
                 <Reference
-                    Name = "ReflectionBasedVisitor"
-                    AssemblyName = "ReflectionBasedVisitor"
-                    HintPath = "..\Palladio.ComponentModel\bin\Debug\ReflectionBasedVisitor.dll"
+                    Name = "Palladio.ComponentModel"
+                    AssemblyName = "Palladio.ComponentModel"
+                    HintPath = "..\Palladio.Editor\bin\Assemblies\Palladio.ComponentModel.dll"
+                    Private = "False"
                 />
                 <Reference
                     Name = "Palladio.Attributes"
                     AssemblyName = "Palladio.Attributes"
-                    HintPath = "..\Palladio.ComponentModel\bin\Debug\Palladio.Attributes.dll"
-                />
-                <Reference
-                    Name = "Palladio.ComponentModel"
-                    AssemblyName = "Palladio.ComponentModel"
-                    HintPath = "..\Palladio.ComponentModel\bin\Debug\Palladio.ComponentModel.dll"
+                    HintPath = "..\Palladio.Editor\bin\Assemblies\Palladio.Attributes.dll"
+                    Private = "False"
                 />
                 <Reference
                     Name = "Palladio.Identifier"
                     AssemblyName = "Palladio.Identifier"
-                    HintPath = "..\Palladio.ComponentModel\bin\Debug\Palladio.Identifier.dll"
+                    HintPath = "..\Palladio.Editor\bin\Assemblies\Palladio.Identifier.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "ReflectionBasedVisitor"
+                    AssemblyName = "ReflectionBasedVisitor"
+                    HintPath = "..\Palladio.Editor\bin\Assemblies\ReflectionBasedVisitor.dll"
+                    Private = "False"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "log4net"
+                    AssemblyName = "log4net"
+                    HintPath = "..\Palladio.Editor\bin\Assemblies\log4net.dll"
+                />
+                <Reference
+                    Name = "System.Design"
+                    AssemblyName = "System.Design"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Design.dll"
+                />
+                <Reference
+                    Name = "Palladio.FiniteStateMachines"
+                    AssemblyName = "Palladio.FiniteStateMachines"
+                    HintPath = "..\Palladio.Editor\bin\Assemblies\Palladio.FiniteStateMachines.dll"
+                    Private = "False"
                 />
             </References>
         </Build>
@@ -144,12 +169,252 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\PluginInfoAttribute.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\PluginSkeleton.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\ViewPluginSkeleton.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\AbstractCommand.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\AddBasicComponentCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\AddCompositeComponentCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\AddProvidesInterfaceCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\AddProvidesInterfaceCmd.resx"
+                    DependentUpon = "AddProvidesInterfaceCmd.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\Commands\AddRequiresInterfaceCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\AddSignatureCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\ChangeFCENameCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\ChangeSignatureCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\ICommand.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\RemoveComponentCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\RemoveSignatureCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\BasicComponentProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\ComponentProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\CompositeComponentProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\EntityProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\InterfaceProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\ParameterProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\RoleProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\SignatureProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Collections\BasicComponentProxyCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Collections\ComponentProxyCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Collections\CompositeComponentProxyCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Collections\ParameterProxyCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Collections\RoleProxyCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Collections\RoleProxyCollection.resx"
+                    DependentUpon = "RoleProxyCollection.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Collections\SignatureProxyCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Dialogs\AddBasicComponent.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Dialogs\AddBasicComponent.resx"
+                    DependentUpon = "AddBasicComponent.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Dialogs\AddCompositeComponent.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Dialogs\AddCompositeComponent.resx"
+                    DependentUpon = "AddCompositeComponent.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Dialogs\AddInterface.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Dialogs\AddInterface.resx"
+                    DependentUpon = "AddInterface.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\ComponentProxyCollectionTypeEditor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\ParameterProxyCollectionTypeEditor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\RoleProxyCollectionTypeEditor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\SignatureProxyCollectionTypeEditor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\TypeConverter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\ComponentProxyCollectionForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\ComponentProxyCollectionForm.resx"
+                    DependentUpon = "ComponentProxyCollectionForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\ParameterProxyCollectionForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\ParameterProxyCollectionForm.resx"
+                    DependentUpon = "ParameterProxyCollectionForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\RoleProxyCollectionForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\RoleProxyCollectionForm.resx"
+                    DependentUpon = "RoleProxyCollectionForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\SignatureProxyCollectionForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\SignatureProxyCollectionForm.resx"
+                    DependentUpon = "SignatureProxyCollectionForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\Exceptions\IDNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -1,3 +1,15 @@
+#region Universität Oldenburg
+//////////////////////////////////////////////////////////////////////////
+//	Universität Oldenburg
+//	Department für Informatik, Software Engineering
+//	-----------------------------------------------------------------
+//	Master-Arbeit "Entwicklung eines Editors für die modellgetriebene
+//	Konstruktion komponentenbasierter Software-Architekturen"
+//	Autor: Matthias Uflacker, 2004
+//	eMail: matthias.uflacker@informatik.uni-oldenburg.de
+//////////////////////////////////////////////////////////////////////////
+#endregion
+
 using System;
 
 namespace Palladio.Editor.Common
@@ -7,39 +19,13 @@ namespace Palladio.Editor.Common
 	/// </summary>
 	public abstract class PluginSkeleton : AbstractPlugin
 	{
-		public override event PluginStatusChangedHandler StatusChanged;
 
-		public PluginSkeleton()
+		public PluginSkeleton(string name, string descr, string author, string version)
 		{
-			//
-			// TODO: Fügen Sie hier die Konstruktorlogik hinzu
-			//
-		}
-
-		public override sealed PluginStatusEnum Status
-		{
-			get { return base.Status; }
-			set 
-			{
-				if (base.Status != value) 
-				{
-					base.Status = value;
-					if (value == PluginStatusEnum.ACTIVE) 
-					{
-						OnActivate();
-						if (this.StatusChanged != null)
-							StatusChanged(this,PluginStatusEnum.ACTIVE);
-						return;
-					}
-					if (value == PluginStatusEnum.INACTIVE) 
-					{
-						OnInactivate();
-						if (this.StatusChanged != null)
-							StatusChanged(this,PluginStatusEnum.INACTIVE);
-						return;
-					}
-				}
-			}
+			this._name = name;
+			this._description = descr;
+			this._author = author;
+			this._version = version;
 		}
 
 		public override sealed string Name
@@ -61,8 +47,5 @@ namespace Palladio.Editor.Common
 		{
 			get { return this._version; }
 		}
-
-		protected abstract void OnActivate();
-		protected abstract void OnInactivate();
 	}
 }

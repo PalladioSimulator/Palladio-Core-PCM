@@ -1,5 +1,16 @@
+#region Universität Oldenburg
+//////////////////////////////////////////////////////////////////////////
+//	Universität Oldenburg
+//	Department für Informatik, Software Engineering
+//	-----------------------------------------------------------------
+//	Master-Arbeit "Entwicklung eines Editors für die modellgetriebene
+//	Konstruktion komponentenbasierter Software-Architekturen"
+//	Autor: Matthias Uflacker, 2004
+//	eMail: matthias.uflacker@informatik.uni-oldenburg.de
+//////////////////////////////////////////////////////////////////////////
+#endregion
+
 using System;
-using Palladio.ComponentModel;
 
 namespace Palladio.Editor.Common
 {
@@ -8,6 +19,9 @@ namespace Palladio.Editor.Common
 	/// </summary>
 	public interface IViewPluginHost : IPluginHost
 	{
-		ICompositeComponent GetComponentModel();
+		event ComponentModelChangedHandler ComponentModelChanged;
+		event EntityChangedHandler EntityChanged;
+
+		EntityProxies.CompositeComponentProxy GetComponentModel();
 	}
 }
