@@ -21,6 +21,11 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6.2.2  2004/11/26 16:23:44  uffi
+	/// serialization schema changed.
+	/// interfaces added to structure-node.
+	/// sef-serialization/deserialization
+	///
 	/// Revision 1.6.2.1  2004/11/16 13:37:47  uffi
 	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
 	/// Documentation needs fixing. Some unittests fail.
@@ -494,42 +499,47 @@ namespace Palladio.ComponentModel.Components
 		}
 
 		/// <summary>
-		/// The Serialize method is used to write the object to a XML stream.
+		/// The Serialize method is used to write the structure of an object to a XML stream.
 		/// </summary>
 		/// <param name="writer">The writer which is used to serialize the component.</param>
 		public override void Serialize(XmlTextWriter writer) 
 		{
-			// serialize subcomponents
-			foreach(IIdentifier c in componentMap.Keys) 
+			// add subcomponent links
+			foreach(IIdentifier id in componentMap.Keys) 
 			{
 				writer.WriteStartElement("Component","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("guid",((IComponent)componentMap[c]).ID.ToString());
+				writer.WriteAttributeString("guid",((IComponent)componentMap[id]).ID.ToString());
 				writer.WriteEndElement();
 			}
-			//serialize provides-interfaces
+			// add interface links
+			Hashtable interfaces = new Hashtable();
+			foreach(IIdentifier id in providesMap.Keys)
+				interfaces[id] = ((IRole)providesMap[id]).Interface;
+			foreach(IIdentifier id in requiresMap.Keys)
+				interfaces[id] = ((IRole)requiresMap[id]).Interface;
+			foreach(IInterfaceModel iface in interfaces.Values)
+			{
+				writer.WriteStartElement("Interface","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("guid",iface.ID.ToString());
+				writer.WriteEndElement();
+			}
+
+			//add provides-interfaces
 			foreach(IIdentifier c in providesMap.Keys)
 			{
 				writer.WriteStartElement("ProvidingRole","http://palladio.informatik.uni-oldenburg.de/XSD");
 				writer.WriteAttributeString("name",((IRole)providesMap[c]).Name);
 				writer.WriteAttributeString("id",((IRole)providesMap[c]).ID.ToString());
-				
-				writer.WriteStartElement("Interface","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("guid",((IRole)providesMap[c]).Interface.ID.ToString());
-				
-				writer.WriteEndElement();
+				writer.WriteAttributeString("interface",((IRole)providesMap[c]).Interface.ID.ToString());
 				writer.WriteEndElement();
 			}
-			//serialize requires-interfaces
+			//add requires-interfaces
 			foreach(IIdentifier c in requiresMap.Keys)
 			{
 				writer.WriteStartElement("RequiringRole","http://palladio.informatik.uni-oldenburg.de/XSD");
 				writer.WriteAttributeString("name",((IRole)requiresMap[c]).Name);
 				writer.WriteAttributeString("id",((IRole)requiresMap[c]).ID.ToString());
-				
-				writer.WriteStartElement("Interface","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("guid",((IRole)requiresMap[c]).Interface.ID.ToString());
-				
-				writer.WriteEndElement();
+				writer.WriteAttributeString("interface",((IRole)requiresMap[c]).Interface.ID.ToString());
 				writer.WriteEndElement();
 			}
 		}
@@ -543,21 +553,19 @@ namespace Palladio.ComponentModel.Components
 				switch (node.Name) 
 				{
 					case "ProvidingRole":
-						XmlNode ifaceNode = node.FirstChild;
 						FirstClassEntity iface = ModelPersistencyService.Instance.GetEntity(
-							IdentifiableFactory.CreateGUID(ifaceNode.Attributes["guid"].Value) as GloballyUniqueIdentifier );
+							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value) as GloballyUniqueIdentifier );
 						if (!(iface != null && iface is IInterfaceModel))
-							throw new DeserializationException("Interface "+ifaceNode.Attributes["guid"].Value+" not found.");
+							throw new DeserializationException("Interface "+node.Attributes["interface"].Value+" not found.");
 						this.AddProvidesInterface(iface as IInterfaceModel);
 						IRole newRole = this.GetProvidesRoleByInterfaceID(iface.ID);
 						newRole.Name = node.Attributes["name"].Value;
 						break;
 					case "RequiringRole":
-						ifaceNode = node.FirstChild;
 						iface = ModelPersistencyService.Instance.GetEntity(
-							IdentifiableFactory.CreateGUID(ifaceNode.Attributes["guid"].Value) as GloballyUniqueIdentifier );
+							IdentifiableFactory.CreateGUID(node.Attributes["interface"].Value) as GloballyUniqueIdentifier );
 						if (!(iface != null && iface is IInterfaceModel))
-							throw new DeserializationException("Interface "+ifaceNode.Attributes["guid"].Value+" not found.");
+							throw new DeserializationException("Interface "+node.Attributes["interface"].Value+" not found.");
 						this.AddRequiresInterface(iface as IInterfaceModel);
 						newRole = this.GetRequiresRoleByInterfaceID(iface.ID);
 						newRole.Name = node.Attributes["name"].Value;

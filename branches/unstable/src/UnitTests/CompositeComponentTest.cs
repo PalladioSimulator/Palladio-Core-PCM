@@ -20,6 +20,11 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5.2.2  2004/11/26 16:23:44  uffi
+	/// serialization schema changed.
+	/// interfaces added to structure-node.
+	/// sef-serialization/deserialization
+	///
 	/// Revision 1.5.2.1  2004/11/16 13:37:47  uffi
 	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
 	/// Documentation needs fixing. Some unittests fail.
@@ -308,8 +313,8 @@ namespace Palladio.ComponentModel.UnitTests
 			d2se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq1,iSigReq1[0].ID));
 			d2se.SignatureList.AddSignatures(ComponentFactory.CreateServiceArray(iReq2,iSigReq2[0].ID, iSigReq2[1].ID));
 
-//			iComp1.AddServiceEffectSpecification(SigRole("iProv1",iSigProv1[0]),d1se);
-//			iComp1.AddServiceEffectSpecification(SigRole("iProv1",iSigProv1[1]),d2se);
+			iComp1.AddServiceEffectSpecification(ComponentFactory.CreateService(iProv1,iSigProv1[0].ID),d1se);
+			iComp1.AddServiceEffectSpecification(ComponentFactory.CreateService(iProv1,iSigProv1[1].ID),d2se);
 		}
 
 		private void CreateIComp2()
@@ -323,9 +328,9 @@ namespace Palladio.ComponentModel.UnitTests
 			d5se = ComponentFactory.CreateServiceEffectSpecification();
 			iComp2.AddRequiresInterface(iReq1);							 
 			iComp2.AddProvidesInterface(iProv2);
-//			iComp2.AddServiceEffectSpecification(SigRole("iProv2",iSigProv2[0]),d3se);
-//			iComp2.AddServiceEffectSpecification(SigRole("iProv2",iSigProv2[1]),d4se);
-//			iComp2.AddServiceEffectSpecification(SigRole("iProv2",iSigProv2[2]),d5se);
+			iComp2.AddServiceEffectSpecification(ComponentFactory.CreateService(iProv2,iSigProv2[0].ID),d3se);
+			iComp2.AddServiceEffectSpecification(ComponentFactory.CreateService(iProv2,iSigProv2[1].ID),d4se);
+			iComp2.AddServiceEffectSpecification(ComponentFactory.CreateService(iProv2,iSigProv2[2].ID),d5se);
 		}
 
 		private void CreateIComp3()

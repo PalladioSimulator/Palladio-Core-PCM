@@ -14,6 +14,11 @@ namespace Palladio.ComponentModel.Signature
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.1.2.2  2004/11/26 16:23:44  uffi
+	/// serialization schema changed.
+	/// interfaces added to structure-node.
+	/// sef-serialization/deserialization
+	///
 	/// Revision 1.1.2.1  2004/11/16 13:37:47  uffi
 	/// Initial commit of the 2.0 version of the component model. BETA!!! See the techreport (to be updated) for details.
 	/// Documentation needs fixing. Some unittests fail.
@@ -106,11 +111,8 @@ namespace Palladio.ComponentModel.Signature
 		public void Serialize(System.Xml.XmlTextWriter writer) 
 		{
 			writer.WriteStartElement("Service","http://palladio.informatik.uni-oldenburg.de/XSD");
-			writer.WriteAttributeString("sigref",this.ID.ToString());
-//			this.encapsulatedSignature.Serialize(writer);
-//			writer.WriteStartElement("Role","http://palladio.informatik.uni-oldenburg.de/XSD");
-//			writer.WriteString(this.roleID.ToString());
-//			writer.WriteEndElement();
+			writer.WriteAttributeString("guid",this.Interface.ID.ToString());
+			writer.WriteAttributeString("id",this.Signature.ID.ToString());
 			writer.WriteEndElement();
 		}
 
