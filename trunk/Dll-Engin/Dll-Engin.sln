@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greeting", "..\for dll Engi
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "searchBibTexDatabase", "..\searchBibTexDatabase\searchBibTexDatabase.csproj", "{E86C116F-4949-4E33-887C-0BF050569C98}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -21,6 +25,10 @@ Global
 		{7DDB6E18-186E-42B3-AD22-DE9F29913909}.Debug.Build.0 = Debug|.NET
 		{7DDB6E18-186E-42B3-AD22-DE9F29913909}.Release.ActiveCfg = Release|.NET
 		{7DDB6E18-186E-42B3-AD22-DE9F29913909}.Release.Build.0 = Release|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Debug.ActiveCfg = Debug|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Debug.Build.0 = Debug|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Release.ActiveCfg = Release|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

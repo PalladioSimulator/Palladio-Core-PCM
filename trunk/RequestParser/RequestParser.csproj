@@ -86,19 +86,24 @@
                     AssemblyFolderKey = "hklm\dn\nunit.framework"
                 />
                 <Reference
-                    Name = "SimpleLogger"
-                    AssemblyName = "SimpleLogger"
-                    HintPath = "..\SimpleLogger\bin\Debug\SimpleLogger.dll"
-                />
-                <Reference
                     Name = "Request"
                     AssemblyName = "Request"
-                    HintPath = "..\Request\bin\Debug\Request.dll"
+                    HintPath = "..\Request\obj\Debug\Request.dll"
+                />
+                <Reference
+                    Name = "StaticFileProvider"
+                    AssemblyName = "StaticFileProvider"
+                    HintPath = "..\StaticFileProvider\obj\Debug\StaticFileProvider.dll"
+                />
+                <Reference
+                    Name = "SimpleLogger"
+                    Project = "{DA4B5C4B-6375-4A5E-B4E7-5918C0DBCE9A}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
                     Name = "RequestProssor"
-                    AssemblyName = "RequestProssor"
-                    HintPath = "..\RequestProssor\bin\Debug\RequestProssor.dll"
+                    Project = "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>

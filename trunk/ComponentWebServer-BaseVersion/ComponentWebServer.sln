@@ -39,6 +39,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dll-Engin", "..\Dll-Engin\D
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBAcesses", "..\DBAcesses\DBAcesses.csproj", "{0BA996CC-023F-4CB9-BE51-C7299C643B4D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "searchBibTexDatabase", "..\for dll Engin\searchBibTexDatabase\searchBibTexDatabase.csproj", "{E86C116F-4949-4E33-887C-0BF050569C98}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "addBibTexDatabase", "..\for dll Engin\addBibTexDatabase\addBibTexDatabase.csproj", "{05C33052-6E61-4616-85B3-2F35430894ED}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -85,6 +97,18 @@ Global
 		{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}.Debug.Build.0 = Debug|.NET
 		{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}.Release.ActiveCfg = Release|.NET
 		{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}.Release.Build.0 = Release|.NET
+		{0BA996CC-023F-4CB9-BE51-C7299C643B4D}.Debug.ActiveCfg = Debug|.NET
+		{0BA996CC-023F-4CB9-BE51-C7299C643B4D}.Debug.Build.0 = Debug|.NET
+		{0BA996CC-023F-4CB9-BE51-C7299C643B4D}.Release.ActiveCfg = Release|.NET
+		{0BA996CC-023F-4CB9-BE51-C7299C643B4D}.Release.Build.0 = Release|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Debug.ActiveCfg = Debug|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Debug.Build.0 = Debug|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Release.ActiveCfg = Release|.NET
+		{E86C116F-4949-4E33-887C-0BF050569C98}.Release.Build.0 = Release|.NET
+		{05C33052-6E61-4616-85B3-2F35430894ED}.Debug.ActiveCfg = Debug|.NET
+		{05C33052-6E61-4616-85B3-2F35430894ED}.Debug.Build.0 = Debug|.NET
+		{05C33052-6E61-4616-85B3-2F35430894ED}.Release.ActiveCfg = Release|.NET
+		{05C33052-6E61-4616-85B3-2F35430894ED}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

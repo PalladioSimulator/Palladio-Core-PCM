@@ -1,0 +1,15 @@
+<h2>Ihre Suche f&uuml;hrte zu keinem Ergebnis!</h2>
+<p>M&ouml;gliche Fehlerursachen k&ouml;nnten sein: </p>
+<ol>
+  <li>Zu den angefragten Daten befinden sich keine Eintrge in der Datenbank.</li>
+  <li>Sie haben nach einem leeren Eintrag gesucht.</li>
+  <li>Sie haben es nicht geschaft den richtigen Wert in der Pull Down Men&uuml; 
+    auszuw&auml;hlen</li>
+  <li>Die Suche ist kaputt. In dem Fall kann man nichts machen, beschweren sie 
+    sich einfach beim Entwickler .</li>
+</ol>
+<p><br>
+  F&uuml;r alle F&auml;lle gilt: Die Hoffnung stribt zuletzt. Versuchen Sie es 
+  doch bitte noch einmal! </p>
+<p align="center"><br>
+  <a href src="bibtex.htm">Gut, ich versuchs </a></p>

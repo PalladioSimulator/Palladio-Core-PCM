@@ -115,6 +115,11 @@
                     Project = "{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "addBibTexDatabase"
+                    Project = "{05C33052-6E61-4616-85B3-2F35430894ED}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
@@ -127,6 +132,11 @@
                 <File
                     RelPath = "RequestProssor.txvpck"
                     Link = "..\ComponentWebServer-BaseVersion\LibrarySupport\RequestProssor\RequestProssor\RequestProssor.txvpck"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "UnitTests.txvpck"
+                    Link = "..\ComponentWebServer-BaseVersion\LibrarySupport\RequestProssor\RequestProssor\UnitTests\UnitTests.txvpck"
                     BuildAction = "None"
                 />
                 <File

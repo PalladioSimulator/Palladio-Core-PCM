@@ -20,7 +20,7 @@ namespace DLL_Engin
 		}
 		public string Result()
 		{
-			return "Yvette hat es kaputt gemacht";
+			return "Yvette hat es kaputt gemacht oder besser gesagt entweder hat sie vergessen eine Komponete einzuhängen, oder sie haben was falsches eingegeben";
 		}
 
 		public IDLL Sucessor

@@ -21,7 +21,7 @@ namespace DLL_Engin
 
 		public IDeliverResponse DeliverResonse(HttpRequest r, string path)
 		{
-			if(r.UserInput!=null)
+			if(r.UserInput!=null || r is HttpPostRequest) 
 			{
 				this.actualHandler = this.actualHandler.DeliverDll(r,r.UserInput);
 				this.ComputeResult();
@@ -37,7 +37,8 @@ namespace DLL_Engin
 		}
 		public DLL_EnginComponent()
 		{
-			this.actualHandler = new ErrorDLL(new Hashtable());
+			this.actualHandler = new AdDBHandler();
+			this.AddHandler(new SearchHandler());
 			this.AddHandler(new GreetingHandler());
 		}
 

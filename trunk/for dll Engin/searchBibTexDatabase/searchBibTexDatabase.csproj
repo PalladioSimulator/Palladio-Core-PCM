@@ -3,13 +3,13 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{094FBE86-ACF4-43B3-9A8B-C60F2A4A99E7}"
+        ProjectGuid = "{E86C116F-4949-4E33-887C-0BF050569C98}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "Dll-Engin"
+                AssemblyName = "searchBibTexDatabase"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "Dll_Engin"
+                RootNamespace = "searchBibTexDatabase"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -80,76 +80,31 @@
                     HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "Request"
-                    AssemblyName = "Request"
-                    HintPath = "..\Request\obj\Debug\Request.dll"
-                />
-                <Reference
-                    Name = "Greeting"
-                    AssemblyName = "Greeting"
-                    HintPath = "..\for dll Engin\Greeting\obj\Debug\Greeting.dll"
-                />
-                <Reference
-                    Name = "Delivery"
-                    AssemblyName = "Delivery"
-                    HintPath = "..\Delivery\obj\Debug\Delivery.dll"
-                />
-                <Reference
-                    Name = "addBibTexDatabase"
-                    Project = "{05C33052-6E61-4616-85B3-2F35430894ED}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "searchBibTexDatabase"
-                    Project = "{E86C116F-4949-4E33-887C-0BF050569C98}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    Name = "DBAcesses"
+                    AssemblyName = "DBAcesses"
+                    HintPath = "..\DBAcesses\obj\Debug\DBAcesses.dll"
                 />
             </References>
         </Build>
         <Files>
             <Include>
                 <File
-                    RelPath = "AdDBHandler.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "DelegationManger.cs"
+                    RelPath = "ResultFormater.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "DLL_EnginComponent.cs"
+                    RelPath = "searchBibTexDatabase.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "ErrorDLL.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "GreetingHandler.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "IDLL.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "SearchHandler.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ModelSupport\DLL_Engin\DLL_Engin.txvpck"
+                    RelPath = "ModelSupport\searchBibTexDatabase\searchBibTexDatabase.txvpck"
                     BuildAction = "None"
                 />
             </Include>

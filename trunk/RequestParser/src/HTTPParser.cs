@@ -238,6 +238,12 @@ namespace RequestParser
 			string aRequest = temp[1];
 			Hashtable result = new Hashtable();
 			string line="";
+			if(temp[1].IndexOf('&')==-1)
+			{
+				string[] singleResult = temp[1].Split('=');
+				result.Add(singleResult[0],singleResult[1]);
+				return result;
+			}
 			string[] erg1 = aRequest.Split('\n');
 			try
 			{
@@ -250,6 +256,7 @@ namespace RequestParser
 				//				return null;
 			
 			
+				
 				string[] singleFormular = line.Split('&');
 				foreach(string s in singleFormular)
 				{

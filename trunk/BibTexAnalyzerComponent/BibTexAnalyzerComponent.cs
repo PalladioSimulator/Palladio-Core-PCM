@@ -54,8 +54,8 @@ namespace BibTexAnalyzer
 		{
 			if(!(request is HttpPostRequest))
 				return false;
-//			if(!(request.URI.IndexOf("bibtex.htm")>=0))
-//				return false;
+			if(!(request.URI.IndexOf("format.htm")>=0))
+				return false;
 			return true;
 		}
 

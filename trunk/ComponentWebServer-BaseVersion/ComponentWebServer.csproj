@@ -80,11 +80,6 @@
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "Dispatcher"
-                    AssemblyName = "Dispatcher"
-                    HintPath = "..\Dispatcher\obj\Debug\Dispatcher.dll"
-                />
-                <Reference
                     Name = "RequestProssor"
                     Project = "{ED9D578E-8063-4B2E-879C-10E4913673CE}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
@@ -95,13 +90,18 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
+                    Name = "Request"
+                    Project = "{3000648D-3F75-45FC-9AF3-A4003C656C62}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
                     Name = "RequestParser"
                     Project = "{E8BB7DF1-1D1F-4366-B854-4B408E8C7DD5}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "Request"
-                    Project = "{3000648D-3F75-45FC-9AF3-A4003C656C62}"
+                    Name = "Dispatcher"
+                    Project = "{32598BB1-4810-4026-81C6-609A02855196}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>

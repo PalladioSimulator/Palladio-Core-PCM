@@ -38,8 +38,9 @@ namespace RequestProssor
 			this.settings = new ServerSettings();
 
 			this.responseHandler = new DeliveresponseHandler();
-			this.responseHandler.AddAditionalHandler(new BibTexAnalyzerComponent());
+			
 			this.responseHandler.AddAditionalHandler(new DLL_Engin.DLL_EnginComponent());
+			this.responseHandler.AddAditionalHandler(new BibTexAnalyzerComponent());
 			this.responseHandler.AddAditionalHandler(new StaticFileProviderComponent());
 			
 			this.errorHandler = new ErrorHandler();
@@ -85,7 +86,10 @@ namespace RequestProssor
 			}
 			catch(Exception e)
 			{
-				res.MessageByte = this.errorHandler.GenerateErrorMessage(" 404 FileNotFound ");
+				Console.WriteLine(e.Message);
+				Console.WriteLine(e.GetType());
+				Console.WriteLine(e.Source);
+				res.MessageByte = this.errorHandler.GenerateErrorMessage(" 505 Server Problems ");
 				res.FileSize= res.MessageByte.Length;
 				res.StatusCode=" 505 Server Problems ";
 			}

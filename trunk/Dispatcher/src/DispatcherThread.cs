@@ -133,8 +133,10 @@ namespace Dispatcher
 					
 					completeMessage += data;
 				}
-				msg =
-					System.Text.Encoding.ASCII.GetBytes(completeMessage);
+					
+				msg = System.Text.Encoding.ASCII.GetBytes(completeMessage); 
+//					System.Text.Encoding.Unicode.GetBytes(completeMessage);
+					//I ll test something
 //			Console.WriteLine("DAs ist der reQUEST. "+completeMessage);
 //				this.request = completeMessage;
 				// Send back a response.
