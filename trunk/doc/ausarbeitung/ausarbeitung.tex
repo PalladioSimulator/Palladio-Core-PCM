@@ -16,6 +16,8 @@
 \newenvironment{code}
 	{\begin{tabbing}}
 	{\end{tabbing}}
+	
+\newcommand{\listitem}[1]{\item \textbf{#1}\\}
 
 % Kopfzeile mit Kapitel
 \renewcommand{\sectionmark}[1]{\markleft{#1}{}}
@@ -54,10 +56,16 @@
 \thispagestyle{empty}
 \newpage
 
-\input{einleitung.tex}
+%\input{einleitung.tex}
+%\newpage
+
+%\input{modellierung.tex}
+%\newpage
+
+\input{entwurf.tex}
 \newpage
 
-\input{modellierung.tex}
+\input{anwendung.tex}
 \newpage
 
 \pagenumbering{Roman}

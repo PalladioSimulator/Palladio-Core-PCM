@@ -12,6 +12,9 @@ namespace nunittests.structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/05/27 10:31:47  joemal
+	/// xxx
+	///
 	/// Revision 1.2  2004/05/26 16:38:46  joemal
 	/// xxx
 	///
@@ -64,7 +67,7 @@ namespace nunittests.structure
 			builder.AddTransition("0","e0","1");
 			builder.AddTransition("1","e2","2");
 			builder.AddTransition("2","e3","1");
-			builder.AddTransition("2","e1","3");
+			builder.AddTransition("1","e1","3");
 
 			return builder.BuildService();
 		}

@@ -14,6 +14,9 @@ namespace nunittests.structure
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/05/27 10:32:36  joemal
+	/// xxx
+	///
 	/// Revision 1.2  2004/05/26 16:38:46  joemal
 	/// xxx
 	///
@@ -70,7 +73,7 @@ namespace nunittests.structure
 		}
 
 		[Test]
-		public void TestPathThroughFSM2()
+		public void TestPathThroughFSM1()
 		{
 			IFiniteStateMachine fsm = TestArchitectures.createFSMSEqualsFOneT();
 			StateHash sh = new StateHash(fsm.States);
@@ -86,6 +89,35 @@ namespace nunittests.structure
 			}
 
             Console.WriteLine(""+count+" times moved until left fsm."); 
+		}
+
+		[Test]
+		public void TestPathThroughFSM2()
+		{
+			IFiniteStateMachine fsm = TestArchitectures.createFSM2();
+			StateHash sh = new StateHash(fsm.States);
+
+			visitor.SetStart(new DefaultThreadStartingPoint(fsm));
+			Assert.AreSame(fsm.StartState,visitor.CurrentTimeConsumer);
+			visitor.NextTimeConsumer();
+			
+			Assert.AreSame(sh["1"],visitor.CurrentTimeConsumer);			
+			visitor.NextTimeConsumer();
+
+			int cntr = 0;
+			while (visitor.CurrentTimeConsumer == sh["2"]) 
+			{
+				visitor.NextTimeConsumer();
+				cntr ++;
+				Assert.AreSame(sh["1"],visitor.CurrentTimeConsumer,"State: "+((IState)visitor.CurrentTimeConsumer).ID);			
+				visitor.NextTimeConsumer();
+			}
+
+			Assert.AreSame(sh["3"],visitor.CurrentTimeConsumer);			
+			visitor.NextTimeConsumer();
+
+			Assert.IsNull(visitor.CurrentTimeConsumer);
+			Console.WriteLine("Moved in loop for "+cntr+" times.");
 		}
 	}
 }
