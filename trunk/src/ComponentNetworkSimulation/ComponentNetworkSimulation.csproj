@@ -390,6 +390,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\DefaultSimulationBindingSet.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\DefaultSimulationStateSet.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Elements\DefaultStateParams.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -425,12 +435,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\ISimulationBindingSet.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Elements\ISimulationState.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Elements\ISimulationStateParams.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\ISimulationStateSet.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

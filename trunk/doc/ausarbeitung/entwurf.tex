@@ -5,7 +5,7 @@ Nachdem im vorherigen Kapitel die theoretischen Hintergründe der Anwendungsdomän
 \subsection{Anforderungen}
 \label{sec:entwurf:anf}
 
-Das Gebiet der Simulation von Komponentenarchitekturen ist z.Z. praktisch relativ unerforscht. Dieses Framework bildet den Versuch der Umsetzung einer Simulationsumgebung, ohne auf bereits bewährte Methoden auf diesem Gebiet zurückgreifen zu könnnen. Hierbei ergeben sich zwei zwingende funktionale Anforderungen.
+Das Gebiet der Simulation von Komponentenarchitekturen ist z.Z. praktisch relativ unerforscht. Dieses Framework bildet den Versuch der Umsetzung einer Simulationsumgebung, ohne auf bereits bewährte Methoden auf diesem Gebiet zurückgreifen zu könnnen. Hierbei ergeben sich zwei allgemeine funktionale Anforderungen an das Framework selber, welche im Folgenden erläutert werden. Auf spezielle Anforderungen an die Komponenten des Frameworks wird bei der genaueren Analyse seiner Einzelteile in Kapitel \ref{sec:entwurf:grob} eingegangen.
 
 \subsubsection{Bereitstellung von Basisfunktionalitäten}
 \label{sec:entwurf:anf:basis}
@@ -73,9 +73,33 @@ Neben den einmalig erzeugten soll das Framework auch regelmäßig wiederkehrende A
 
 \subsubsection{Bestandteile der Datenerfassung}
 \label{sec:entwurf:grob:erfassung}
-Zur Erfassung von Daten genügt an dieser Stelle eine ereignisgetriebene Komponente, die über die Simulationsumgebung im Simulationsteil des Frameworks registriert wird. Von dort aus werden, wie oben beschrieben, verschiedene Nachrichten an die Komponente versendet. 
+Zur Erfassung von Daten genügen an dieser Stelle ereignisgetriebene Komponenten, die über die Simulationsumgebung im Simulationsteil des Frameworks registriert werden. Von dort aus werden, wie oben beschrieben, verschiedene Nachrichten an die Komponenten versendet. 
 
 \subsection{Feinentwurf}
 \label{sec:entwurf:fein}
-- Namespace und Klassen und 
-Kommunikation intern und extern
+
+An dieser Stelle der Entwurfsbeschreibung wird nun auf einige für das bessere Verständnis relavante Entwurfsentscheidungen in den vier Bestandteilen des Frameworks eingegangen.
+
+\subsubsection{Instanzierung und Kommunikation unter Verwendung der Simulationsumgebung}
+\label{sec:entwurf:fein:simum}
+%IFAce, Abstract und Default ... Referencen zu den anderen Teilen Methoden
+
+\subsubsection{Modellierung der Zeitverbraucher}
+\label{sec:entwurf:fein:timeconsumer}
+%TimeConsumer mit Typ, States und Bindings und deren Parameter und Sets 
+
+\subsubsection{Erstellung des Modells der Architektur}
+\label{sec:entwurf:fein:model}
+%Basis ist CM von Palladio; Builder und die Architektur, Observer der Builder
+
+\subsubsection{Simulationsthreads, Scheduler und Clock}
+\label{sec:entwurf:fein:sim}
+%Visitorbasierte Threads, Clock, Scheduler, Observer
+
+\subsubsection{Datenerfassungsmöglichkeiten}
+\label{sec:entwurf:fein:analysis}
+% Fabrik von Datapools, Registrierung
+
+\subsubsection{Konfiguration des Frameworks}
+\label{sec:entwurf:fein:konf}
+% Das zusammenspiel der Factories ..., Die konfigurierbare Elementfactory
