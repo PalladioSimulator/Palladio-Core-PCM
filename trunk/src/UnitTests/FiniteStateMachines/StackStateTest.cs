@@ -9,7 +9,7 @@ namespace UnitTests.FiniteStateMachines {
 	[TestFixture]
 	public class StackStateTest {
 		AbstractState a,b,c,d;
-		Input s1,s2,s3,s4,topServiceName;
+		Input s1,s2,s3,s4;
 
 		[SetUp] public void Init() {
 			a = new State("a",true,false);
@@ -21,7 +21,6 @@ namespace UnitTests.FiniteStateMachines {
 			s2 = new Input("2");
 			s3 = new Input("3");
 			s4 = new Input("2");
-			topServiceName = new Input(StackState.TOP_SERVICE_NAME);
 		}
 
 		[Test] public void Constructor() {
@@ -49,7 +48,6 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.IsFalse(state1.Equals(state3));
 		}
 
-		//[ExpectedException(typeof(StackStateException))]	
 		[Test] public void CopyConstructor(){
 			StackState state = new StackState(a);
 			StackState clone = new StackState(state);
@@ -65,7 +63,7 @@ namespace UnitTests.FiniteStateMachines {
 			clone = new StackState(state);
 			Assert.AreEqual(state,clone);
 
-            clone.Push(s3,d);
+			clone.Push(s3,d);
 			Assert.IsFalse(state.Equals(clone));
 
 			clone.Pop();
@@ -76,9 +74,9 @@ namespace UnitTests.FiniteStateMachines {
 
 		[Test] public void IsEmpty() {
 			StackState state = new StackState(a);
-			Assert.IsTrue(state.IsEmpty);
+			Assert.IsTrue(state.InTopService);
 			state.Push(s1,a);
-			Assert.IsFalse(state.IsEmpty);
+			Assert.IsFalse(state.InTopService);
 		}
 
 		[Test] public void PushPeek() {
@@ -90,7 +88,7 @@ namespace UnitTests.FiniteStateMachines {
 
 		[Test] public void EmptyPeek() {
 			StackState state = new StackState(a);
-			Assert.AreEqual(topServiceName,state.Peek().ServiceName);
+			Assert.AreEqual(StackState.TOP_SERVICE_NAME,state.Peek().ServiceName);
 			Assert.AreSame(a,state.Peek().State);
 		}
 
@@ -102,21 +100,20 @@ namespace UnitTests.FiniteStateMachines {
 			Assert.AreSame(b,con.State);
 			con = state.Pop();
 			Assert.AreSame(a,con.State);
-			Assert.AreEqual(topServiceName,con.ServiceName);
+			Assert.AreEqual(StackState.TOP_SERVICE_NAME,con.ServiceName);
 		}
 
 		
-		//		[ExpectedException(typeof(StackStateException))]	
 		[Test] public void PopEmptyServiceName() {
 			StackState state = new StackState(a);
-			Assert.AreEqual(topServiceName,state.Pop().ServiceName);
+			Assert.AreEqual(StackState.TOP_SERVICE_NAME,state.Pop().ServiceName);
 		}
 
 		[Test] public void PopEmptyState() {
 			StackState state = new StackState(a);
 			state.Pop();
-			Assert.AreSame(a,state.Pop().State);
-			Assert.AreSame(a,state.Pop().State);
+			Assert.IsTrue(state.IsEmpty);
+			Assert.IsFalse(state.InTopService);
 		}
 
 		[Test] public void LookUpServiceName() {
@@ -127,8 +124,6 @@ namespace UnitTests.FiniteStateMachines {
 			StackState stateTwo = new StackState(a);
 			stateTwo.Push(s1,b);
 			Assert.AreEqual(stateTwo,stateOne.LookupServiceName(s1));
-			stateTwo.Pop();
-			Assert.AreEqual(stateTwo,stateOne.LookupServiceName(s3));
 			Assert.IsTrue(stateOne.LookupServiceName(s3).IsEmpty);
 		}
 
@@ -143,9 +138,6 @@ namespace UnitTests.FiniteStateMachines {
 			stateTwo.Push(s1,b);
 			stateTwo.Push(s2,c);
 			Assert.AreEqual(stateTwo,stateOne.LookupServiceNameTwice(s2));
-			stateTwo.Pop();
-			stateTwo.Pop();
-			Assert.AreEqual(stateTwo,stateOne.LookupServiceNameTwice(s3));
 			Assert.IsTrue(stateOne.LookupServiceNameTwice(s3).IsEmpty);
 		}
 

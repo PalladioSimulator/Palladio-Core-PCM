@@ -15,14 +15,14 @@ namespace FiniteStateMachines {
 	public class FiniteStackMachine : AbstractFiniteStateMachine {
 
 		/// <summary>
-		///     The top finite state machine which calls all other automatons.
+		///     Name of the top finite state machine calling all other automatons.
 		/// </summary>
-		private IFiniteStateMachine providesProtocol;
+		private Input topServiceName;
 
 		/// <summary>
 		///     Mapping of a set of input symbols onto a set of automatons.
 		/// </summary>
-		private Hashtable serviceEffectSpecificationTable;
+		private Hashtable serviceTable;
 
 		/// <summary></summary>
 		/// 
@@ -58,14 +58,23 @@ namespace FiniteStateMachines {
 		/// 
 		/// <param name="aProvidesProtocol">The top finite state machine which calls all other automatons.</param>
 		/// <param name="aServiceEffectSpecificationTable">Mapping of a set of input symbols onto a set of automatons.</param>
-		public FiniteStackMachine(IFiniteStateMachine aProvidesProtocol, Hashtable aServiceEffectSpecificationTable) {
-			providesProtocol = aProvidesProtocol;
-			serviceEffectSpecificationTable = (Hashtable)aServiceEffectSpecificationTable.Clone();
+		public FiniteStackMachine(IFiniteStateMachine aTopService,Input aTopServiceName, Hashtable aServiceTable) {
+			topServiceName = aTopServiceName;
+			serviceTable = (Hashtable)aServiceTable.Clone();
+			serviceTable.Add(aTopServiceName,aTopService);
 			counterConditionTable = new Hashtable();
-
 			inputAlphabet = DetermineInputAlphabet();
 			finalStates = DetermineFinalStates();
+			DefaultTransitionType = Type.GetType("FiniteStateMachines.Transition");
+		}
 
+
+		public FiniteStackMachine(Input aTopServiceName, Hashtable aServiceTable) {
+			topServiceName = aTopServiceName;
+			serviceTable = (Hashtable)aServiceTable.Clone();
+			counterConditionTable = new Hashtable();
+			inputAlphabet = DetermineInputAlphabet();
+			finalStates = DetermineFinalStates();
 			DefaultTransitionType = Type.GetType("FiniteStateMachines.Transition");
 		}
 
@@ -80,12 +89,12 @@ namespace FiniteStateMachines {
 		/// <returns>The complete input alphabet.</returns>
 		private Set DetermineInputAlphabet() {
 			Set resultSet = new Set();
-			foreach (DictionaryEntry entry in serviceEffectSpecificationTable) {
+			foreach (DictionaryEntry entry in serviceTable) {
 				foreach (Input input in ((IFiniteStateMachine)entry.Value).InputAlphabet) {
 					resultSet.Add(input);
 				}
 			}
-			foreach (Input input in providesProtocol.InputAlphabet) {
+			foreach (Input input in LookUpService(topServiceName).InputAlphabet) {
 				resultSet.Add(input);
 			}
 			resultSet.Add(Input.RETURN);
@@ -100,8 +109,8 @@ namespace FiniteStateMachines {
 		/// <returns></returns>
 		private Set DetermineFinalStates() {
 			Set resultStates = new Set();
-			foreach (AbstractState state in providesProtocol.FinalStates) {
-				resultStates.Add(new StackState(state));
+			foreach (AbstractState state in LookUpService(topServiceName).FinalStates) {
+				resultStates.Add(new StackState(state,topServiceName));
 			}
 			return resultStates;
 		}
@@ -131,7 +140,7 @@ namespace FiniteStateMachines {
 		/// 
 		/// <seealso cref="IFiniteStateMachine.StartState"></seealso>
 		public override AbstractState StartState {
-			get {return new StackState(providesProtocol.StartState);}
+			get {return new StackState(LookUpService(topServiceName).StartState,topServiceName);}
 		}
 
 
@@ -168,9 +177,11 @@ namespace FiniteStateMachines {
 		/// 
 		/// <param name="aSourceState"></param>
 		/// 
-		/// <returns>A Hashtable which contains all transtions for the given state.
+		/// <returns>
+		///		A Hashtable which contains all transtions for the given state.
 		///     The key of the Hashtable is the Input and the value the
-		///     corresponding Transition.</returns>
+		///     corresponding Transition.
+		/// </returns>
 		/// <seealso cref="IFiniteStateMachine.GetOutgoingTransitions"></seealso>
 		public override IList GetOutgoingTransitions(AbstractState aSourceState) {
 			try {
@@ -216,10 +227,10 @@ namespace FiniteStateMachines {
 				if (anInput is RecursionInput) {
 					result = HandleRecursionInput(state,(RecursionInput)anInput);
 				} 
-				else if (serviceEffectSpecificationTable.ContainsKey(anInput)) {
+				else if (serviceTable.ContainsKey(anInput)) {
 					result = CallService(state,anInput);
 				} 
-				else if ((!state.IsEmpty) && (serviceEffectSpecificationTable.ContainsKey(state.Peek().ServiceName))) {
+				else if ((!state.InTopService) && (serviceTable.ContainsKey(state.Peek().ServiceName))) {
 					IFiniteStateMachine topService = LookUpService(state.Peek().ServiceName);
 					if (topService.InputAlphabet.Contains(anInput)) {
 						result = GetTransitionInService(topService,state,anInput);
@@ -283,13 +294,7 @@ namespace FiniteStateMachines {
 		/// <returns>The transition object of aSourceState.Peek().ServiceName with altered states</returns>
 		private Transition CallService(StackState aSourceState, Input aServiceName) {
 			Transition result = CreateTransition(aSourceState,aServiceName,ErrorState);
-			IFiniteStateMachine topService;
-
-			if (aSourceState.IsEmpty) {
-				topService = providesProtocol;
-			} else {
-				topService = LookUpService(aSourceState.Peek().ServiceName);
-			}
+			IFiniteStateMachine topService = LookUpService(aSourceState.Peek().ServiceName);
 			
 			// check if the input symbol is valid for topService
 			if (topService.InputAlphabet.Contains(aServiceName)) {
@@ -335,7 +340,12 @@ namespace FiniteStateMachines {
 				inputAlphabet.Add(recInput);
 				counterConditionTable.Add(recInput,cc);
 			}
-			result.SetValues(aSourceState,aServiceName,aSourceState.LookupServiceName(aServiceName));
+			StackState destination = aSourceState.LookupServiceName(aServiceName);
+			if (!destination.IsEmpty){
+				result.SetValues(aSourceState,aServiceName,destination);
+			} else {
+				throw new ApplicationException("Empty destination state!");
+			}
 			return result;
 		}
 
@@ -386,15 +396,11 @@ namespace FiniteStateMachines {
 			if (currentContext.State.IsFinalState) {
 				IFiniteStateMachine service;
 				Input calledServiceName = currentContext.ServiceName;
-				if (destinationState.IsEmpty) {
-					service = providesProtocol;
-				}
-				else {
-					service = LookUpService(destinationState.Peek().ServiceName);
-				}
+
+				service = LookUpService(destinationState.Peek().ServiceName);
+
 				// TODO if transitions with different results should be handled, the object
 				// calledServiceName has to be extended by the result of the last transition
-
 				result = (Transition)service.GetNextTransition(destinationState.Peek().State,calledServiceName).Clone();
 				destinationState.ChangeTopState(result.DestinationState);
 				result.SetValues(aSourceState,Input.RETURN,destinationState);
@@ -410,7 +416,7 @@ namespace FiniteStateMachines {
 		/// <param name="aServiceName">The name of the service.</param>
 		/// <returns>The service corresponding to <code aServiceName/></returns>
 		private IFiniteStateMachine LookUpService(Input aServiceName) {
-			IFiniteStateMachine service = (IFiniteStateMachine)serviceEffectSpecificationTable[aServiceName];
+			IFiniteStateMachine service = (IFiniteStateMachine)serviceTable[aServiceName];
 			if (service == null) 
 				throw new StackStateException("Service "+aServiceName+" not known!");
 			return service;

@@ -15,6 +15,7 @@ namespace UnitTests.FiniteStateMachines {
 		AbstractState p1,p2, d11,d12, d21,d22, d31,d32,d33,d34;
 		FiniteStackMachine sfsm,rfsm;
 		StackState s,t,u,v,w,x,y,z;
+		Input topServiceName;
 
 
 		[SetUp] public void Init() {
@@ -60,10 +61,12 @@ namespace UnitTests.FiniteStateMachines {
 			d3.AddTransition(d33,e6,d34);
 			d3.AddTransition(d31,e4,d34);
 
+			topServiceName = new Input("top");
+
 			Hashtable sespSet = new Hashtable();
 			sespSet.Add(id1,d1);
 			sespSet.Add(id2,d2);
-			sfsm = new FiniteStackMachine(p,sespSet);
+			sfsm = new FiniteStackMachine(p, topServiceName, sespSet);
 
 			q = new FiniteTabularMachine();
 			q.AddTransition(p1,id2,p1);
@@ -73,7 +76,7 @@ namespace UnitTests.FiniteStateMachines {
 			sespSet.Remove(id1);
 			sespSet.Add(id1s,d1s);
 			sespSet.Add(id3,d3);
-			rfsm = new FiniteStackMachine(q,sespSet);
+			rfsm = new FiniteStackMachine(q, topServiceName, sespSet);
 
 
 			s = new StackState(p1);

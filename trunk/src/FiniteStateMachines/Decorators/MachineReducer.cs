@@ -134,6 +134,7 @@ namespace FiniteStateMachines.Decorators {
 						resultMachine.AddTransition(result);
 						iterator.Append(result.DestinationState);
 					} catch( ApplicationException ) {
+						Console.WriteLine("Transition "+iterator.Current+" could not be taken.");
 						// The transition could not be taken, so there is nothing to do.
 					}
 				}
@@ -159,16 +160,16 @@ namespace FiniteStateMachines.Decorators {
 			foreach (RecursionInput recInput in recInputList) {
 				IFiniteStateMachine recService = (AbstractFiniteStateMachine)ruleTable[recInput.RecursiveServiceName];
 				IFiniteStateMachine first = CreateRecursiveFSM(recService,recInput.RecursiveServiceName);
-				Console.WriteLine(first);
 			}
+
 			return null;
 		}
 
-		private IFiniteStateMachine CreateRecursiveFSM(IFiniteStateMachine aRecFSM,Input aName) {
+		private IFiniteStateMachine CreateRecursiveFSM(IFiniteStateMachine aRecFSM,Input aRecursiveServiceName) {
 			DynamicTransitionIterator iterator = new DynamicTransitionIterator(aRecFSM);
 			IList transitionList = new Set();
 			while(iterator.MoveNext()) {
-				if(iterator.Current.InputSymbol != aName) {
+				if(iterator.Current.InputSymbol != aRecursiveServiceName) {
 					transitionList.Add(iterator.Current);
 					iterator.Append(iterator.Current.DestinationState);
 				} else {

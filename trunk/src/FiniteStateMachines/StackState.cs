@@ -4,31 +4,31 @@ using System;
 namespace FiniteStateMachines {
 
 	/// <summary>
-	///A <code>StackState</code> consists of a set of abstract states and a number of 
-	///service names stored as <code>Input</code>. 
-	///The combination of states and service names is leading to an unique identification of
-	///each <code>StackState</code>. Each abstract state is associated with a service name 
-	///(the top state with the top service), indicating that the state belongs 
-	///to this service. The last abstract state belongs to the provides protocol.
+	///		A StackState consists of a set of abstract states and a number of 
+	///		service names stored as Input. The combination of states and service 
+	///		names is leading to an unique identification of each StackState. 
+	///		Each abstract state is associated with a service name (the top state with 
+	///		the top service), indicating that the state belongs to this service. The 
+	///		last abstract state belongs to the provides protocol.
 	/// </summary>
 	public class StackState : AbstractState {
 
 		/// <summary>
-		/// Default name for the top service.
+		///		Default name for the top service.
 		/// </summary>
-		public static string TOP_SERVICE_NAME = "top";
+		public static Input TOP_SERVICE_NAME = new Input("top");
 
 		/// <summary>
-		/// Stack containing all contexts of this state
+		///		Stack containing all contexts of this state
 		/// </summary>
 		private Stack contextStack;
 
 		/// <summary>
-		/// Creates an empty StackState. Invisible to the public.
+		///		Creates an empty StackState.
 		/// </summary>
-		private StackState(){
+		public StackState(){
+			contextStack = new Stack();
 		}
-
 
 		/// <summary>
 		/// The copy constructor.
@@ -40,13 +40,20 @@ namespace FiniteStateMachines {
 
 
 		/// <summary>
-		/// Creates a new <code>StackState</code> for a top service.
+		/// Creates a new StackState for a top service.
 		/// </summary>
 		/// <param name="aState">The state of the top service</param>
-		public StackState(AbstractState aState){
+		public StackState(AbstractState aState, Input aTopServiceName){
 			contextStack = new Stack();
-			contextStack.Push(new Context(new Input(TOP_SERVICE_NAME),aState));
+			contextStack.Push(new Context(aTopServiceName,aState));
 		}
+
+
+		/// <summary>
+		/// Simplyfied version of the above constructor.
+		/// </summary>
+		/// <param name="aState"></param>
+		public StackState(AbstractState aState) : this(aState,StackState.TOP_SERVICE_NAME){}
 
 
 		/// <summary>
@@ -70,7 +77,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		public override bool IsStartState {
 			get {
-				if (IsEmpty) {
+				if (InTopService) {
 					return Peek().State.IsStartState;
 				}
 				return false;
@@ -84,7 +91,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		public override bool IsFinalState {
 			get {
-				if (IsEmpty) {
+				if (InTopService) {
 					return Peek().State.IsFinalState;
 				}
 				return false;
@@ -105,7 +112,7 @@ namespace FiniteStateMachines {
 
 		/// <summary>
 		/// Changes the state of the top service effect specification to 
-		/// <code>newState</code>.
+		/// newState.
 		/// </summary>
 		/// <param name="newState"></param>
 		public void ChangeTopState(AbstractState newState){
@@ -125,14 +132,23 @@ namespace FiniteStateMachines {
 		/// <returns>Top context</returns>
 		public Context Pop(){
 			try{
-				if (contextStack.Count > 1) {
+				if (contextStack.Count > 0) {
 					return (Context)contextStack.Pop();
 				} else {
-					return Peek();
+					throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
 				}
 			} catch(InvalidOperationException){
 				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
 			}
+//			try{
+//				if (contextStack.Count > 1) {
+//					return (Context)contextStack.Pop();
+//				} else {
+//					return Peek();
+//				}
+//			} catch(InvalidOperationException){
+//				throw new InvalidStateException("This is not a valid state! - There are no states on the stack.");
+//			}
 		}
 		
 
@@ -152,19 +168,28 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Checks if there are any services left except the top service.
 		/// </summary>
-		public bool IsEmpty {
+		public bool InTopService {
 			get { return (contextStack.Count == 1); }
 		}
 
+		/// <summary>
+		/// Checks if there are any services left.
+		/// </summary>
+		public bool IsEmpty {
+			get { return (contextStack.Count == 0); }
+		}
 		
 		/// <summary>
-		/// Lookup the service <code>aServiceName</code> on the service stack.
+		///		Lookup the service aServiceName on the service stack.
 		/// </summary>
-		/// <param name="service">Name of a service</param>
-		/// <returns>A copy of this StackState. All services and its associated states  
-		/// are removed down to <code>aServiceName</code>. If this StackState does not 
-		/// contain <code>aServiceName</code> the result is an empty <code>StackState</code>
-		/// containg only the state of the provides protocol.</returns>
+		/// <param name="service">
+		///		Name of a service
+		///	</param>
+		/// <returns>
+		///		A copy of this StackState. All services and its associated states  
+		///		are removed down to aServiceName. If this StackState does not 
+		///		contain aServiceName the result is an empty StackState.
+		///	</returns>
 		public StackState LookupServiceName(Input aServiceName){
 			StackState resultState = new StackState(this);
 			while ((!resultState.IsEmpty) && (resultState.Peek().ServiceName != aServiceName)) {
@@ -175,13 +200,17 @@ namespace FiniteStateMachines {
 
 		
 		/// <summary>
-		/// Lookup the second appearance of <code>aServiceName</code> on the service stack.
+		///		Lookup the second appearance of aServiceName on the service stack.
 		/// </summary>
-		/// <param name="service">Name of a service</param>
-		/// <returns>A copy of this StackState. All services and its associated states are 
-		/// removed down to the second appearance of <code>aServiceName</code>. If this 
-		/// StackState does not contain <code>aServiceName</code> the result is an empty 
-		/// StackState containg only the state of the provides protocol.</returns>
+		/// <param name="service">
+		///		Name of a service
+		///	</param>
+		/// <returns>
+		///		A copy of this StackState. All services and its associated states are 
+		///		removed down to the second appearance of aServiceName. If this 
+		///		StackState does not contain aServiceName the result is an empty 
+		///		StackState.
+		///	</returns>
 		public StackState LookupServiceNameTwice(Input aServiceName){
 			StackState resultState = LookupServiceName(aServiceName);
 			if(!resultState.IsEmpty) {

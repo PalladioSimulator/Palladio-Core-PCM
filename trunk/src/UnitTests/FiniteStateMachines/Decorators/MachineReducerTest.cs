@@ -25,28 +25,38 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			d3incomplete = AbstractFiniteStateMachine.Loader("../../data/se_d3incomplete.xml");
 
 
+			Input topServiceName = new Input("top");
+
 			tableSimple = new Hashtable();
 			tableSimple.Add(new Input("d1"),d1);
 			tableSimple.Add(new Input("d2"),d2);
-			expandedSimple = new FiniteStackMachine(topMachine,tableSimple);
+			expandedSimple = new FiniteStackMachine(topMachine, topServiceName, tableSimple);
 
 			tableComplex = new Hashtable();
 			tableComplex.Add(new Input("d1"),d1s);
 			tableComplex.Add(new Input("d2"),d2);
 			tableComplex.Add(new Input("d3"),d3s);
-			expandedComplex = new FiniteStackMachine(topMachine,tableComplex);
+			expandedComplex = new FiniteStackMachine(topMachine, topServiceName, tableComplex);
 
 			tableIncomplete = new Hashtable();
 			tableIncomplete.Add(new Input("d1"),d1s);
 			tableIncomplete.Add(new Input("d2"),d2);
 			tableIncomplete.Add(new Input("d3"),d3incomplete);
-			expandedIncomplete = new FiniteStackMachine(topMachine,tableIncomplete);
+			expandedIncomplete = new FiniteStackMachine(topMachine, topServiceName, tableIncomplete);
 
 			tableRecursion = new Hashtable();
 			tableRecursion.Add(new Input("d1"),d1s);
 			tableRecursion.Add(new Input("d2"),d2);
 			tableRecursion.Add(new Input("d3"),d3);
-			expandedRecursion = new FiniteStackMachine(topMachine,tableRecursion);
+			expandedRecursion = new FiniteStackMachine(topMachine, topServiceName, tableRecursion);
+
+			FiniteStackMachine stackFSM = new FiniteStackMachine(new Input("d1"),tableRecursion);
+			Console.WriteLine(stackFSM+"\n\n");
+
+
+//			TransitionIterator iter = new TransitionIterator(expandedRecursion);
+//			Console.WriteLine(expandedRecursion);
+
 		}
 
 
@@ -71,6 +81,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 
 		[Test] public void RecursionReduction(){
 			MachineReducer reducer = new MachineReducer(tableRecursion,expandedRecursion);
+
 		}
 
 		public static void Main(){
