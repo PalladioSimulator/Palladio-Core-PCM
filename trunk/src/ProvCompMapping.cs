@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 
 namespace Palladio.ComponentModel
 {
@@ -45,20 +46,20 @@ namespace Palladio.ComponentModel
 		private ProvIFaceMapping[] GenerateMappings()
 		{
 			IList mappingList = new ArrayList();
-			foreach ( ProvuiresInterface reqOuter in outerComp.GetProvuiresIFaceList() )
+			foreach ( ProvidesInterface provOuter in outerComp.GetProvidesIFaceList() )
 			{
 				bool found = false;
-				foreach( ProvuiresInterface reqInner in innerComp.GetProvuiresIFaceList() )
+				foreach( ProvidesInterface provInner in innerComp.GetProvidesIFaceList() )
 				{
-					if (reqOuter.Name.Equals(reqInner.Name))
+					if (provOuter.Name.Equals(provInner.Name))
 					{
 						found = true;
-						mappingList.Add( new ProvIFaceMapping(reqInner,reqOuter) );
+						mappingList.Add( new ProvIFaceMapping(provInner,provOuter) );
 						break;
 					}
 				}
 				if (!found)
-					throw new NoMappingFoundException(reqInner);
+					throw new NoMappingFoundException(provOuter);
 			}
 			ProvIFaceMapping[] result = new ProvIFaceMapping[mappingList.Count];
 			mappingList.CopyTo(result,0);

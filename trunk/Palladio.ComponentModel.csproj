@@ -225,6 +225,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\NoMappingFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\NoMatchFoundIOpError.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

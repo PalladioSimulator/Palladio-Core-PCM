@@ -93,6 +93,12 @@ namespace Palladio.ComponentModel
 			return false;
 		}
 
+		public override int GetHashCode()
+		{
+			return base.GetHashCode ();
+		}
+
+
 		#endregion
 	}
 }
