@@ -125,7 +125,7 @@ namespace FiniteStateMachines.Decorators
 						!oneNext.Equals(aFSM.ErrorState) && !twoNext.Equals(anotherFSM.ErrorState)) 
 					{
 						DualState selfPointingState = new DualState(oneNext,twoNext);
-						this.cp.addTransition(selfPointingState,i,selfPointingState);
+						this.cp.AddTransition(selfPointingState,i,selfPointingState);
 						this.oneStates.Pop();
 						this.twoStates.Pop();
 						continue;
@@ -140,7 +140,7 @@ namespace FiniteStateMachines.Decorators
 						DualState toState = new DualState(oneNext,twoNext);
 						if(this.debug)
 							Console.WriteLine("CPState toState is: "+toState.ToString());
-						this.cp.addTransition(fromState,i,toState);
+						this.cp.AddTransition(fromState,i,toState);
 						this.oneStates.Push(oneNext);
 						this.twoStates.Push(twoNext);
 						if(this.debug) 

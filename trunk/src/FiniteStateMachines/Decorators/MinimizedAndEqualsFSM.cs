@@ -349,7 +349,7 @@ namespace FiniteStateMachines.Decorators
 					ArrayList newGroups = this.inGroup(toState,this.groups);
 					int indexOfStateToState = this.mini.IndexOf((ArrayList) 
 						this.inGroup(toState,this.mini));
-					this.minimized.addTransition((AbstractState) statesOfMini[i],
+					this.minimized.AddTransition((AbstractState) statesOfMini[i],
 						(Input)oldFsmInputIter.Current,
 						(AbstractState) statesOfMini[indexOfStateToState]);
 				}

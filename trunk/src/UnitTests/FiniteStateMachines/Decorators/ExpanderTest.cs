@@ -45,7 +45,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			transitionSet[5] = new Transition(states[4],inputs[1],states[5]);
 			transitionSet[6] = new Transition(states[4],inputs[3],states[3]);
 			tabularMachine = new FiniteTabularMachine();
-			tabularMachine.addTransitions(transitionSet);
+			tabularMachine.AddTransitionList(transitionSet);
 
 			epsilonAlphabet = new Set();
 			epsilonAlphabet.Add(inputs[0]);
@@ -69,15 +69,15 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		
 		[Test] public void ExpandReduced(){
 			FiniteTabularMachine reduced = new FiniteTabularMachine();
-			reduced.addTransition(states[0],inputs[4],states[5]);
-			reduced.addTransition(states[5],inputs[3],states[1]);
-			reduced.addTransition(states[1],inputs[4],states[5]);
+			reduced.AddTransition(states[0],inputs[4],states[5]);
+			reduced.AddTransition(states[5],inputs[3],states[1]);
+			reduced.AddTransition(states[1],inputs[4],states[5]);
 			FiniteTabularMachine expected = new FiniteTabularMachine();
-			expected.addTransition(transitionSet[0]);
-			expected.addTransition(transitionSet[1]);
-			expected.addTransition(transitionSet[4]);
-			expected.addTransition(transitionSet[5]);
-			expected.addTransition(transitionSet[6]);
+			expected.AddTransition(transitionSet[0]);
+			expected.AddTransition(transitionSet[1]);
+			expected.AddTransition(transitionSet[4]);
+			expected.AddTransition(transitionSet[5]);
+			expected.AddTransition(transitionSet[6]);
 			
 			Expander exp = new Expander(tabularMachine,reduced,epsilonAlphabet);
 			MinimizedAndEqualsFSM min = new MinimizedAndEqualsFSM(exp.GetExpandedMachine());

@@ -3,17 +3,16 @@ using System.Collections;
 using Utils.Collections;
 
 namespace FiniteStateMachines {
-	/// <summary>
-	/// The class <code>FiniteTabularMachine</code> is the default
-	/// implementation of the interface <code>IFiniteStateMachine</code>.
-	/// It uses a table of transitions as input to create the finite state
-	/// machine. A <code>FiniteTabularMachine</code> is always deterministic.
-	/// </summary>
-	public class FiniteTabularMachine : IFiniteStateMachine {
+    /// <summary>
+    ///     The FiniteTabularMachine is the default implementation of the IFiniteStateMachine interface.
+    ///     It uses a table of transitions as input to create the finite state
+    ///     machine. A FiniteTabularMachine is always deterministic.
+    /// </summary>
+	public class FiniteTabularMachine : AbstractFiniteStateMachine {
 
-		/// <summary>
-		/// The input alphabet; a set of <code>Input</code> objects.
-		/// </summary>
+        /// <summary>
+        /// The input alphabet; a set of <code>Input</code> objects.
+        /// </summary>
 		private Set inputAlphabet;
 
 		/// <summary>
@@ -26,10 +25,6 @@ namespace FiniteStateMachines {
 		/// </summary>
 		private Set finalStates;
 
-		/// <summary>
-		/// The errorstate of the FSM.
-		/// </summary>
-		private AbstractState errorState;
 
 		/// <summary>
 		/// The <code>transitionTable</code> contains all transitions of the finite
@@ -59,7 +54,6 @@ namespace FiniteStateMachines {
 			this.inputAlphabet = new Set();
 			this.transitionTable = new Hashtable();
 			this.finalStates = new Set();
-			this.errorState = AbstractState.CreateErrorState();
 			this.states = new Set();
 		}
 
@@ -72,49 +66,19 @@ namespace FiniteStateMachines {
 			this.inputAlphabet = new Set();
 			this.transitionTable = new Hashtable();
 			this.finalStates = new Set();
-			this.errorState = AbstractState.CreateErrorState();
 			this.states = new Set();
-			this.addTransitions(aTransitionList);
+			this.AddTransitionList(aTransitionList);
 		}
 
 
 
-		/// <summary>
-		/// Finds all reachable states for <code>aState</code>.
-		/// </summary>
-		/// <param name="aState">State to start from</param>
-		/// <returns>Set containing all reachable States</returns>
-		public Set GetReachableStates(AbstractState aState) {
-			Set resultSet = new Set();
-			GetReachableStatesRecursive(aState,ref resultSet);
-			return resultSet;
-		}
-
-
-		/// <summary>
-		/// Finds all reachable states for <code>aState</code>.
-		/// 
-		/// Used by the public method.
-		/// </summary>
-		/// <param name="aState">starting here</param>
-		/// <param name="resultSet">has to be an empty set. contains the result</param>
-		private void GetReachableStatesRecursive(AbstractState aState,ref Set resultSet) {
-			if ((!resultSet.Contains(aState)) && (aState!=ErrorState)) {
-				resultSet.Add(aState);
-				IList transitions = GetOutgoingTransitions(aState);
-				if (transitions != null) {
-					foreach (Transition trans in transitions) {
-						GetReachableStatesRecursive(trans.DestinationState,ref resultSet);
-					}
-				}
-			}
-		}
+	   
 		
 
 		/// <summary>
 		/// The input alphabet; a set of <code>Input</code> objects.
 		/// </summary>
-		public Set InputAlphabet {
+		public override Set InputAlphabet {
 			get {
 				return this.inputAlphabet;
 			}
@@ -125,7 +89,7 @@ namespace FiniteStateMachines {
 		/// The start state of the FSM. If no start state is defined
 		/// an exception is thrown because the FSM is not valid.
 		/// </summary>
-		public AbstractState StartState {
+		public override AbstractState StartState {
 			get {
 				if (startState != null) {
 					return startState; 
@@ -140,7 +104,7 @@ namespace FiniteStateMachines {
 		/// The final states of the FSM. If no final states are defined
 		/// an exception is thrown because the FSM is not valid.
 		/// </summary>
-		public Set FinalStates {
+		public override Set FinalStates {
 			get {
 				if (finalStates.Count != 0) {
 					return finalStates;
@@ -160,20 +124,12 @@ namespace FiniteStateMachines {
 
 
 		/// <summary>
-		/// The errorstate of the FSM.
-		/// </summary>
-		public AbstractState ErrorState {
-			get { return errorState; }
-		}
-
-		
-		/// <summary>
 		/// Returns the next State from a given State and an inputcharacter.
 		/// </summary>
 		/// <param name="fromState"> from State </param>
 		/// <param name="input">the inputcharacter</param>
 		/// <returns>the next State which is reachable with the state and the inputcharacter</returns>
-		public AbstractState GetNextState(AbstractState aSourceState, Input anInput) {
+		public override AbstractState GetNextState(AbstractState aSourceState, Input anInput) {
 			// The exception has to be thrown, if the input is not in
 			// the InputAlphabet or the source state is not a state of the fsm
 			return GetNextTransition(aSourceState,anInput).DestinationState;
@@ -190,7 +146,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <returns>The transition starting at <code>aSourceState</code>  
 		/// with the input symbol <code>anInput</code> </returns>
-		public Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
+		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
 			//TODO use DefaultTransitionType here
 			Transition result = new Transition(aSourceState,anInput,ErrorState);
 			if((!States.Contains(aSourceState)) && (aSourceState != ErrorState)) {
@@ -215,7 +171,7 @@ namespace FiniteStateMachines {
 		/// <returns>A <code>Hashtable</code> which contains all transtions for the given state.
 		/// The key of the <code>Hashtable</code> is the <code>Input</code> and the value the 
 		/// corresponding <code>Transition</code>.</returns>
-		public IList GetOutgoingTransitions(AbstractState state) {
+		public override IList GetOutgoingTransitions(AbstractState state) {
 			ArrayList result = new ArrayList();
 			Hashtable outgoing = (Hashtable)transitionTable[state];
 			if (outgoing != null) {
@@ -248,9 +204,9 @@ namespace FiniteStateMachines {
 		/// <param name="aSourceState">Source of the transition.</param>
 		/// <param name="anInput">Input used for the transition</param>
 		/// <param name="aDestinationState">Target of the transition.</param>
-		public void addTransition(AbstractState aSourceState, Input anInput, AbstractState aDestinationState) {	
+		public void AddTransition(AbstractState aSourceState, Input anInput, AbstractState aDestinationState) {	
 			//TODO use DefaultTransitionType here 
-			this.addTransition(new Transition(aSourceState, anInput, aDestinationState));
+			this.AddTransition(new Transition(aSourceState, anInput, aDestinationState));
 		}
 
 
@@ -259,7 +215,7 @@ namespace FiniteStateMachines {
 		/// transition to the finite state machine.
 		/// </summary>
 		/// <param name="aTransition">The transition.</param>
-		public void addTransition(Transition aTransition) {	
+		public override void AddTransition(Transition aTransition) {	
 			AddState(aTransition.SourceState);
 			AddState(aTransition.DestinationState);
 			AddInput(aTransition.InputSymbol);
@@ -321,9 +277,9 @@ namespace FiniteStateMachines {
 		/// Adds an array of transitions to the finite state machine. 
 		/// </summary>
 		/// <param name="aTransitionList">A list of a transitions.</param>
-		public void addTransitions(IList aTransitionList) {	
+		public override void AddTransitionList(IList aTransitionList) {	
 			foreach (Transition trans in aTransitionList){
-				this.addTransition(trans);
+				this.AddTransition(trans);
 			}
 		}
 

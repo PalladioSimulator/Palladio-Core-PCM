@@ -7,13 +7,7 @@ namespace FiniteStateMachines {
 	/// </summary>
 	public abstract class AbstractState {
 		
-		/// <summary>
-		/// Constant for the name of an error state.
-		/// </summary>
-		private const string ERROR_STATE_NAME = "ErrorState";
-
-		
-		/// <summary>
+        /// <summary>
 		/// Denotes this state as a start state of the
 		/// finite state machine it belongs to.
 		/// </summary>
@@ -70,15 +64,7 @@ namespace FiniteStateMachines {
 		}
 
 		
-		/// <summary>
-		/// Creates a new state, which represents the default error state.
-		/// </summary>
-		/// <returns>Default error state.</returns>
-		public static AbstractState CreateErrorState(){
-			return new State(ERROR_STATE_NAME,false,false);
-		}
-
-		
+	
 		/// <summary>
 		/// Default comparison of two states based on the 
 		/// implementation of <code>Equals</code>.

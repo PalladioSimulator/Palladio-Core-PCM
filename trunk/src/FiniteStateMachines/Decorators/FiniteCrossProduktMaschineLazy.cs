@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Utils.Collections;
+using FiniteStateMachines;
 
 
 namespace FiniteStateMachines.Decorators 
@@ -17,7 +18,7 @@ namespace FiniteStateMachines.Decorators
 	/// parts. This will be much faster when you have huge FSMs then creating a normal 
 	/// FiniteCrossProduktMaschine.
 	/// </summary>
-	public class FiniteCrossProduktMaschineLazy : IFiniteStateMachine 
+	public class FiniteCrossProduktMaschineLazy : AbstractFiniteStateMachine
 	{
 		/// <summary>
 		/// The ErrorState
@@ -96,7 +97,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Delivers the Errorstate.
 		/// </summary>
-		public AbstractState ErrorState 
+		public override AbstractState ErrorState 
 		{
 			get { return new DualState(one.ErrorState,two.ErrorState); }
 		}
@@ -104,7 +105,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Returns the Crossinput of the two given FSMs in a Set.
 		/// </summary>
-		public Set InputAlphabet 
+		public override Set InputAlphabet 
 		{
 			get 
 			{
@@ -142,7 +143,7 @@ namespace FiniteStateMachines.Decorators
 		///</code>code></param>
 		/// <param name="input">the input which should be used to deliver the next state</param>
 		/// <returns>The next reachable State</returns>
-		public AbstractState GetNextState(AbstractState aState, Input input) 
+		public override AbstractState GetNextState(AbstractState aState, Input input) 
 		{
 			if(aState  is DualState == false)
 				throw new InvalidStateException();
@@ -168,7 +169,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Returns the Startstate of the FiniteCrossProductMachine,
 		/// </summary>
-		public AbstractState StartState 
+		public override AbstractState StartState 
 		{
 			get {return new DualState(this.one.StartState,this.two.StartState);}
 		}
@@ -178,7 +179,7 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="state">A DualState from which all Transisiotion should be delivered</param>
 		/// <returns>An ArrayList which contains the computed transitions.</returns>
-		public IList GetOutgoingTransitions(AbstractState state) 
+		public override IList GetOutgoingTransitions(AbstractState state) 
 		{
 			if(state is DualState == false)
 				throw new InvalidStateException();
@@ -272,7 +273,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Returns all finalStates of the crossProductMachine in a <code>Set</code>
 		/// </summary>
-		public Set FinalStates 
+		public override Set FinalStates 
 		{
 			get 
 			{
@@ -300,7 +301,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="state">The souce State for the transition. It muzt be a DualState</param>
 		/// <param name="i">The input for the transition</param>
 		/// <returns>The Transition</returns>
-		public Transition GetNextTransition(AbstractState state, Input i) 
+		public override Transition GetNextTransition(AbstractState state, Input i) 
 		{
 			if(state is DualState== false)
 				throw new InvalidStateException();

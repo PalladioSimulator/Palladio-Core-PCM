@@ -13,7 +13,7 @@ namespace FiniteStateMachines {
 	///	The <code>serviceEffectSpecificationTable</code> maps each input symbol of the 
 	///	<code>providesProtocol</code> onto another FSM.
 	/// </summary>
-	public class FiniteStackMachine : IFiniteStateMachine {
+	public class FiniteStackMachine : AbstractFiniteStateMachine {
 
 		/// <summary>
 		/// The top finite state machine which calls all other services.
@@ -24,11 +24,6 @@ namespace FiniteStateMachines {
 		/// Mapping of a set of input symbols onto a set of FSMs.
 		/// </summary>
 		private Hashtable serviceEffectSpecificationTable;
-
-		/// <summary>
-		/// Default error state.
-		/// </summary>
-		private AbstractState errorState;
 
 		/// <summary>
 		/// The complete input alphabet of this FSM.
@@ -66,7 +61,6 @@ namespace FiniteStateMachines {
 		public FiniteStackMachine(IFiniteStateMachine aProvidesProtocol, Hashtable aServiceEffectSpecificationTable) {
 			providesProtocol = aProvidesProtocol;
 			serviceEffectSpecificationTable = (Hashtable)aServiceEffectSpecificationTable.Clone();
-			errorState = AbstractState.CreateErrorState();
 			counterConditionTable = new Hashtable();
 
 			inputAlphabet = DetermineInputAlphabet();
@@ -121,7 +115,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Final states of the FSM.
 		/// </summary>
-		public Set FinalStates {
+		public override Set FinalStates {
 			get { return finalStates; }
 		}
 
@@ -129,7 +123,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Start state of the FSM.
 		/// </summary>
-		public AbstractState StartState {
+		public override AbstractState StartState {
 			get {return new StackState(providesProtocol.StartState);}
 		}
 
@@ -137,7 +131,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Input alphabet of the FSM.
 		/// </summary>
-		public Set InputAlphabet {
+		public override Set InputAlphabet {
 			get { return inputAlphabet; }
 		}
 
@@ -147,7 +141,7 @@ namespace FiniteStateMachines {
 		/// with the input symbol <code>anInput</code>.
 		/// </summary>
 		/// <returns>The destination of the transition.</returns>
-		public AbstractState GetNextState(AbstractState sourceState, Input anInput) {
+		public override AbstractState GetNextState(AbstractState sourceState, Input anInput) {
 			return GetNextTransition(sourceState,anInput).DestinationState;
 		}
 
@@ -158,7 +152,7 @@ namespace FiniteStateMachines {
 		/// <returns>A <code>Hashtable</code> which contains all transtions for the given state.
 		/// The key of the <code>Hashtable</code> is the <code>Input</code> and the value the 
 		/// corresponding <code>Transition</code>.</returns>
-		public IList GetOutgoingTransitions(AbstractState aSourceState) {
+		public override IList GetOutgoingTransitions(AbstractState aSourceState) {
 			try {
 				ArrayList result = new ArrayList();
 				foreach (Input input in inputAlphabet) {
@@ -189,7 +183,7 @@ namespace FiniteStateMachines {
 		/// input <code>anInput</code>.
 		/// </summary>
 		/// <returns>The next possible transition</returns>
-		public Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
+		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
 			Transition result = CreateTransition(aSourceState,anInput,ErrorState);
 
 			if (aSourceState is StackState) {
@@ -336,7 +330,7 @@ namespace FiniteStateMachines {
 			AbstractState destinationState = ErrorState;
 			if( (aSourceState.Peek().State.IsFinalState) && (aSourceState.LookupServiceNameTwice(aRecInput.Service).IsEmpty)) {
 				FiniteTabularMachine service = (FiniteTabularMachine)LookUpService(aSourceState.Peek().ServiceName);
-				Set reachableStates = service.GetReachableStates(aRecInput.State);
+				IList reachableStates = service.GetReachableStates(aRecInput.State);
 				if (reachableStates.Contains(aSourceState.Peek().State)) {
 					destinationState = new StackState(aSourceState);
 					((StackState)destinationState).ChangeTopState(aRecInput.State);
@@ -411,14 +405,6 @@ namespace FiniteStateMachines {
 			parameters[1] = anInputSymbol;
 			parameters[2] = aDestinationState;
 			return (Transition)constructorInfo.Invoke(parameters);
-		}
-
-
-		/// <summary>
-		/// Default error state.
-		/// </summary>
-		public AbstractState ErrorState {
-			get { return errorState;}
 		}
 	}
 }

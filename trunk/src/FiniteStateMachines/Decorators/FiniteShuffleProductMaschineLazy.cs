@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Utils.Collections;
+using FiniteStateMachines;
 
 namespace FiniteStateMachines.Decorators
 {
@@ -31,7 +32,7 @@ namespace FiniteStateMachines.Decorators
 	/// parts. This will be much faster when you have huge FSMs then creating a normal 
 	/// FiniteCrossProduktMaschine.
 	/// </summary>
-	public class FiniteShuffleProductMaschineLazy : IFiniteStateMachine
+	public class FiniteShuffleProductMaschineLazy : AbstractFiniteStateMachine
 	{
 		/// <summary>
 		/// An indicator says if the input has already been created.
@@ -81,7 +82,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Returns the input of the FiniteShuffleProductMaschineLazy
 		/// </summary>
-		public Set InputAlphabet
+		public override Set InputAlphabet
 		{
 			get
 			{
@@ -129,7 +130,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Returns the ErrorState of the FiniteShuffleProductMaschine
 		/// </summary>
-		public AbstractState ErrorState
+		public override AbstractState ErrorState
 		{
 			get { return new DualState(this.aFSM.ErrorState,anotherFSM.ErrorState);}
 		}
@@ -139,7 +140,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Represents the FinalStates of a FiniteShuffleProductMaschineLazy in a <code>Set</code>
 		/// </summary>
-		public Set FinalStates
+		public override Set FinalStates
 		{
 			get
 			{
@@ -163,7 +164,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="state">A <code>DualState</code> from which the next rechable State should be delivered</param>
 		/// <param name="input">An <code>Input</code></param>
 		/// <returns>the next reachable DualState</returns>
-		public AbstractState GetNextState(AbstractState aState, Input input)
+		public override AbstractState GetNextState(AbstractState aState, Input input)
 		{
 			if(aState is DualState == false)
 				throw new InvalidStateException();
@@ -199,7 +200,7 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// The Startstate of the FiniteShuffleProductMaschineLazy
 		/// </summary>
-		public AbstractState StartState
+		public override AbstractState StartState
 		{
 			get
 			{
@@ -214,7 +215,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="state">The sourceState for the new <code>Transition</code></param>
 		/// <param name="input">The<code>Input</code>for the <code>Transition</code></param>
 		/// <returns>The <code>Transition</code> which is reachable</returns>
-		public Transition GetNextTransition(AbstractState aState, Input input)
+		public override Transition GetNextTransition(AbstractState aState, Input input)
 		{
 			if(aState is DualState== false)
 				throw new InvalidStateException();
@@ -228,7 +229,7 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="aState">The State from which all transition should be delivered</param>
 		/// <returns>A<code>Hashtable</code> with all reachale Transitions</returns>
-		public IList GetOutgoingTransitions(AbstractState aState)
+		public override IList GetOutgoingTransitions(AbstractState aState)
 		{
 			if(aState is DualState == false)
 				throw new InvalidStateException();

@@ -5,19 +5,19 @@ using System.Collections;
 
 namespace FiniteStateMachines.Decorators {
 
-	/// <summary>
-	/// A <code>FiniteEpsilonMachine</code> is based on a regular finite state machine. For
-	/// this automaton an epsilon alphabet is defined which is a subset of the input alphabet. 
-	/// The elements of this alphabet are interpreted as the empty word epsilon. This leads to 
-	/// a non-deterministic finite state machine. To handle this non-determinism the 
-	/// <code>FiniteEpsilonMachine</code> computes the epsilon-closure for each state.
-	/// </summary>
-	public class FiniteEpsilonMachine : IFiniteStateMachine {
+    /// <summary>
+    ///     A FiniteEpsilonMachine is based on a regular finite state machine. For
+    ///     this automaton an epsilon alphabet is defined which is a subset of the input alphabet.
+    ///     The elements of this alphabet are interpreted as the empty word epsilon. This leads to
+    ///     a non-deterministic finite state machine. To handle this non-determinism the
+    ///     FiniteEpsilonMachine computes the epsilon-closure for each state.
+    /// </summary>
+	public class FiniteEpsilonMachine : AbstractFiniteStateMachine {
 
-		/// <summary>
-		/// The regular finite state machine which is used to simulate the 
-		/// <code>FiniteEpsilonMachine</code>.
-		/// </summary>
+        /// <summary>
+        ///     The regular finite state machine which is used to simulate the
+        ///     FiniteEpsilonMachine.
+        /// </summary>
 		private IFiniteStateMachine defaultMachine;
 
 		/// <summary>
@@ -26,13 +26,14 @@ namespace FiniteStateMachines.Decorators {
 		private Set epsilonAlphabet;
 		
 		
-		/// <summary>
-		/// Creates a new <code>FiniteEpsilonMachine</code> based on a regular finite state
-		/// machine and an alphabet <code>anEpsilonAlphabet</code> which elements are interpreted
-		/// as the empty word / empty input epsilon.
-		/// </summary>
-		/// <param name="aFiniteStateMachine">A regular finite state machine.</param>
-		/// <param name="anEpsilonAlphabet">The alphabet which elements are interpreted as epsilon.</param>
+        /// <summary>
+        ///     Creates a new FiniteEpsilonMachine based on a regular finite state
+        ///     machine and an alphabet anEpsilonAlphabet which elements are interpreted
+        ///     as the empty word / empty input epsilon.
+        /// </summary>
+        /// 
+        /// <param name="aFiniteStateMachine">A regular finite state machine.</param>
+        /// <param name="anEpsilonAlphabet">The alphabet which elements are interpreted as epsilon.</param>
 		public FiniteEpsilonMachine(IFiniteStateMachine aFiniteStateMachine, Set anEpsilonAlphabet){
 			defaultMachine = aFiniteStateMachine;
 			epsilonAlphabet = anEpsilonAlphabet;
@@ -91,14 +92,17 @@ namespace FiniteStateMachines.Decorators {
 		}	
 
 
-		/// <summary>
-		/// Determins the epsilon-closure for <code>aState</code>. Only
-		/// <code>PowerSetStates</code> are allowed as input. The method
-		///	determins the epsilon-closure for all included states.
-		/// <param name="aState">The state for which the epsilon-closure is determined.</param>
-		/// </summary>
-		/// <returns>A <code>PowerSetState</code> representing the epsilon-closure of <code>aState</code>.
-		/// </returns>
+        /// <summary>
+        /// Determins the epsilon-closure for <code>aState</code>. Only
+        /// <code>PowerSetStates</code> are allowed as input. The method
+        /// determins the epsilon-closure for all included states.
+        /// <param name="aState">The state for which the epsilon-closure is determined.</param>
+        /// </summary>
+        /// 
+        /// <param name="aState"></param>
+        /// 
+        /// <returns>A <code>PowerSetState</code> representing the epsilon-closure of <code>aState</code>.
+        /// </returns>
 		private PowerSetState GetEpsilonClosure(PowerSetState aState){
 			Set closure = new Set();
 			foreach (AbstractState state in aState.States){
@@ -127,7 +131,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <summary>
 		/// The errorstate of the FSM.
 		/// </summary>
-		public AbstractState ErrorState { 
+		public override AbstractState ErrorState { 
 			get{
 				return defaultMachine.ErrorState;
 			} 
@@ -137,7 +141,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <summary>
 		/// The start state of the FSM.
 		/// </summary>
-		public AbstractState StartState { 
+		public override AbstractState StartState { 
 			get {
 				PowerSetState initialStartState = new PowerSetState(defaultMachine.StartState);
 				return GetEpsilonClosure(initialStartState);
@@ -148,7 +152,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <summary>
 		/// The final states of the FSM.
 		/// </summary>
-		public Set FinalStates { 
+		public override Set FinalStates { 
 			get{
 				//TODO create new PowerSetStates 
 				return defaultMachine.FinalStates; 
@@ -159,7 +163,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <summary>
 		/// The input alphabet; a set of <code>Input</code> objects.
 		/// </summary>
-		public Set InputAlphabet { 
+		public override Set InputAlphabet { 
 			get {
 				return defaultMachine.InputAlphabet;
 			}
@@ -171,7 +175,7 @@ namespace FiniteStateMachines.Decorators {
 		/// with the input symbol <code>anInput</code>.
 		/// </summary>
 		/// <returns>The destination of the transition.</returns>
-		public AbstractState GetNextState(AbstractState aSourceState, Input anInput){
+		public override AbstractState GetNextState(AbstractState aSourceState, Input anInput){
 			return GetNextTransition(aSourceState,anInput).DestinationState;
 		}
 
@@ -182,7 +186,7 @@ namespace FiniteStateMachines.Decorators {
 		/// </summary>
 		/// <returns>The transition starting at <code>aSourceState</code>  
 		/// with the input symbol <code>anInput</code> </returns>
-		public Transition GetNextTransition(AbstractState aSourceState, Input anInput){
+		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput){
 			AbstractState resultState = ErrorState;
 			PowerSetState powerState = (PowerSetState)aSourceState;
 			Set resultSet = new Set();
@@ -210,7 +214,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <returns>A <code>Hashtable</code> which contains all transtions for <code>aSourceState</code>.
 		/// The key of the <code>Hashtable</code> is the <code>Input</code> and the value the 
 		/// corresponding <code>Transition</code>.</returns>
-		public IList GetOutgoingTransitions(AbstractState aSourceState){
+		public override IList GetOutgoingTransitions(AbstractState aSourceState){
 			ArrayList result = new ArrayList();
 			foreach(Input i in InputAlphabet) {
 				if (!EpsilonAlphabet.Contains(i)) {

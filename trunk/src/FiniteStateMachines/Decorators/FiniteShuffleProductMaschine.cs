@@ -143,7 +143,7 @@ namespace FiniteStateMachines.Decorators
 					{
 						if(oneNext != this.one.ErrorState && twoNext!= two.ErrorState)
 						{
-							this.sp.addTransition(fromState,input,new DualState(oneNext,twoNext));
+							this.sp.AddTransition(fromState,input,new DualState(oneNext,twoNext));
 							oneStates.Push(oneNext);
 							twoStates.Push(twoNext);
 							continue;
@@ -156,7 +156,7 @@ namespace FiniteStateMachines.Decorators
 					{
 						if(oneNext != one.ErrorState)
 						{
-							this.sp.addTransition(fromState,input,new DualState(oneNext,fromState.twoState));
+							this.sp.AddTransition(fromState,input,new DualState(oneNext,fromState.twoState));
 							oneStates.Push(oneNext);
 							twoStates.Push(fromState.twoState);
 							continue;
@@ -171,7 +171,7 @@ namespace FiniteStateMachines.Decorators
 						{
 							try
 							{
-								this.sp.addTransition(fromState,input,new DualState(fromState.oneState,twoNext));
+								this.sp.AddTransition(fromState,input,new DualState(fromState.oneState,twoNext));
 							}
 							catch(Exception){}
 							oneStates.Push(fromState.oneState);

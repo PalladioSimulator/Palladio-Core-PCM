@@ -47,21 +47,21 @@ namespace UnitTests.FiniteStateMachines {
 			transitionSetOne[4] = new Transition(states[1],inputs[2],states[5]);
 			transitionSetOne[5] = new Transition(states[1],inputs[3],states[5]);
 			machineOne = new FiniteTabularMachine();
-			machineOne.addTransitions(transitionSetOne);
+			machineOne.AddTransitionList(transitionSetOne);
 
 			transitionSetTwo = new Transition[3];
 			transitionSetTwo[0] = new Transition(states[4],inputs[0],states[6]);
 			transitionSetTwo[1] = new Transition(states[4],inputs[1],states[5]);
 			transitionSetTwo[2] = new Transition(states[6],inputs[1],states[5]);
 			machineTwo = new FiniteTabularMachine();
-			machineTwo.addTransitions(transitionSetTwo);
+			machineTwo.AddTransitionList(transitionSetTwo);
 
 			transitionSetThree = new Transition[3];
 			transitionSetThree[0] = new Transition(states[0],inputs[0],states[1]);
 			transitionSetThree[1] = new Transition(states[0],inputs[1],states[2]);
 			transitionSetThree[2] = new Transition(states[1],inputs[1],states[2]);
 			machineThree = new FiniteTabularMachine();
-			machineThree.addTransitions(transitionSetThree);
+			machineThree.AddTransitionList(transitionSetThree);
 
 			transitions = new Transition[2];
 			transitions[0] = new Transition(states[0],inputs[0],states[6]);
@@ -71,13 +71,13 @@ namespace UnitTests.FiniteStateMachines {
 		[ExpectedException(typeof(InvalidStateException))]
 		[Test] public void AddTwoStartStates(){
 			FiniteTabularMachine machine = new FiniteTabularMachine();
-			machine.addTransition(transitions[0]);
-			machine.addTransition(transitions[1]);
+			machine.AddTransition(transitions[0]);
+			machine.AddTransition(transitions[1]);
 		}
 
 		[Test] public void AddState(){
 			FiniteTabularMachine machine = new FiniteTabularMachine();
-			machine.addTransition(transitions[0]);
+			machine.AddTransition(transitions[0]);
 			Assert.IsTrue(machine.FinalStates.Count == 1);
 			Assert.IsTrue(machine.FinalStates.Contains(states[6]));
 			Assert.IsTrue(machine.States.Count == 2);
@@ -114,7 +114,7 @@ namespace UnitTests.FiniteStateMachines {
 
 		[ExpectedException(typeof(InvalidStateException))]
 		[Test] public void AddNonDeterministicTransition() {
-			machineOne.addTransition(states[0],inputs[4],states[1]);
+			machineOne.AddTransition(states[0],inputs[4],states[1]);
 		}
 
 		[Test] public void GetTransitions(){
@@ -176,7 +176,7 @@ namespace UnitTests.FiniteStateMachines {
 		}
 
 		[Test] public void GetReachableStates() {
-			Set reach = machineOne.GetReachableStates(states[1]);
+			IList reach = machineOne.GetReachableStates(states[1]);
 			Assert.IsTrue(reach.Count == 2);
 			Assert.IsTrue(reach.Contains(states[1]));
 			Assert.IsTrue(reach.Contains(states[5]));

@@ -45,7 +45,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			transitionSet[5] = new Transition(states[4],inputs[1],states[5]);
 			transitionSet[6] = new Transition(states[4],inputs[3],states[3]);
 			tabularMachine = new FiniteTabularMachine();
-			tabularMachine.addTransitions(transitionSet);
+			tabularMachine.AddTransitionList(transitionSet);
 
 			epsilonAlphabet = new Set();
 			epsilonAlphabet.Add(inputs[0]);
