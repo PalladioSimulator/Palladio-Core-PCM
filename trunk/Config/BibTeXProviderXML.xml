@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config SYSTEM "BibTeXProviderXML.dtd">
+<Config xmlns:xsi="Webserver" xsi:noNamespaceSchemaLocation="BibTeXProviderXML.dtd">
+	
+	<!--Name of the Database-Server.-->
+	<DataSource Name="KUSER_MOBILE" />
+
+	<!--Name of the Database, where the BibTeX-Entries are saved.-->	
+	<DatabaseName Name="BibTeX" />
+	
+	<!--Name of the Table, where the BibTeX-Entries are saved.-->	
+	<DatabaseTableName Name="BibTeX" />
+	
+	<!--The following FieldNames are taken into consideration to search for BibTeX-Entries in the DB. This means
+		if one of the following FieldNames occours in the post-request it is seen as a part of the search-request.-->	
+	<SearchedBibTeXFieldNames>
+			<FieldName Name="author" />
+			<FieldName Name="title" />
+			<FieldName Name="publisher" />
+			<FieldName Name="year" />
+	</SearchedBibTeXFieldNames>
+
+	<!--The File-Extensions the BibTeXProvider shall handle to display search results. The files do not have to
+		exist in the filesystem. The BibTeXProvider produces XHTML-Tables to represent the answer.-->
+	<HandledFileTypes>
+			<File Extension=".bibhtml" />
+	</HandledFileTypes>
+
+	<!--If no connection can be established to the Database-Server this message is displayed to the users.-->
+	<ErrorMessageOnConnectionProblems Message="Error: could not connect to the databaseserver." />
+		
+</Config>
+
