@@ -75,6 +75,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTemplateFileProviderX
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTeXProvider", "..\BibTeXProvider\BibTeXProvider.csproj", "{8A2CD829-4510-4CB9-838C-F8C769763095}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -157,6 +161,10 @@ Global
 		{AE27C7C4-267A-344A-A1B8-BFB44149858C}.Debug.Build.0 = Debug|.NET
 		{AE27C7C4-267A-344A-A1B8-BFB44149858C}.Release.ActiveCfg = Release|.NET
 		{AE27C7C4-267A-344A-A1B8-BFB44149858C}.Release.Build.0 = Release|.NET
+		{8A2CD829-4510-4CB9-838C-F8C769763095}.Debug.ActiveCfg = Debug|.NET
+		{8A2CD829-4510-4CB9-838C-F8C769763095}.Debug.Build.0 = Debug|.NET
+		{8A2CD829-4510-4CB9-838C-F8C769763095}.Release.ActiveCfg = Release|.NET
+		{8A2CD829-4510-4CB9-838C-F8C769763095}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

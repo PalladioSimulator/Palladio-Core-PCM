@@ -11,7 +11,7 @@ using WebserverXML;
 namespace Palladio.Webserver
 {
 	/// <summary>
-	/// Webserver.
+	/// This is the main webserver-component which provides the ability to create a default configuration of the webserver.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -19,6 +19,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2004/11/21 17:10:04  kelsaka
+	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
+	///
 	/// Revision 1.13  2004/11/05 16:17:01  kelsaka
 	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
 	/// Code refactoring.
@@ -95,9 +98,6 @@ namespace Palladio.Webserver
 			Console.WriteLine("# Main-Thread: Webserver.Run started...");
 			webserver.Run(args);
 			Console.WriteLine("# Main-Thread: Webserver.Run exited...");
-			
-			//Console.ReadLine();
-
 		}
 
 
@@ -166,10 +166,11 @@ namespace Palladio.Webserver
 			IWebserverMonitor webserverMonitor = webserverFactory.CreateWebserverMonitor(webserverConfiguration);
 			
 
-			// RequestProcessor-COR: Dynamic -> SimpleTemplate -> Static -> Default.
+			// RequestProcessor-COR: Dynamic -> SimpleTemplate -> BibTeX -> Static -> Default.
 			HTTPRequestProcessor.IHTTPRequestProcessor defaultHttpRequestProcessor = webserverFactory.CreateDefaultRequestProcessor(webserverMonitor, webserverConfiguration);			
 			HTTPRequestProcessor.IHTTPRequestProcessor staticFileProvider = webserverFactory.CreateStaticFileProvider(defaultHttpRequestProcessor, webserverMonitor, webserverConfiguration);
-			HTTPRequestProcessor.IHTTPRequestProcessor simpleTemplateFileProver = webserverFactory.CreateSimpleTemplateFileProvider(staticFileProvider, webserverMonitor, webserverConfiguration);
+			HTTPRequestProcessor.IHTTPRequestProcessor bibTeXProvider = webserverFactory.CreateBibTeXProvider(staticFileProvider, webserverMonitor, webserverConfiguration);
+			HTTPRequestProcessor.IHTTPRequestProcessor simpleTemplateFileProver = webserverFactory.CreateSimpleTemplateFileProvider(bibTeXProvider, webserverMonitor, webserverConfiguration);
 			HTTPRequestProcessor.IHTTPRequestProcessor dynamicFileProvider = webserverFactory.CreateDynamicFileProvider(simpleTemplateFileProver, webserverMonitor, webserverConfiguration);
 			
 			
@@ -181,12 +182,6 @@ namespace Palladio.Webserver
 			IDispatcher dispatcher = webserverFactory.CreateDispatcher(httpRequestParser,webserverMonitor, webserverConfiguration);
 			dispatcher.Run();
 			
-			//dispatcher.Stop();
-			
-
-
-
-
 		}
 	}
 }

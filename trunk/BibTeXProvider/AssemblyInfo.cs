@@ -6,12 +6,12 @@ using System.Runtime.CompilerServices;
 // gesteuert. Ändern Sie diese Attributswerte, um die Informationen zu modifizieren,
 // die mit einer Assembly verknüpft sind.
 //
-[assembly: AssemblyTitle("Palladio.Webserver. Component based webserver of the Palladio SE-Group.")]
-[assembly: AssemblyDescription("Component based webserver of the Palladio SE-Group.")]
+[assembly: AssemblyTitle("")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Palladio, Software-Engineering-Group, University of Oldenburg, Germany")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Palladio 2004")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]		
 

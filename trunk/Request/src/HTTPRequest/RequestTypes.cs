@@ -11,6 +11,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2004/11/21 17:10:03  kelsaka
+	/// Added BibTeX-Component; added enumerator for request-types; added test-html-documents
+	///
 	/// Revision 1.1  2004/11/01 07:42:16  kelsaka
 	/// *** empty log message ***
 	///
@@ -19,13 +22,13 @@ namespace Palladio.Webserver
 	public class RequestTypes
 	{
 		/// <summary>
-		/// Representing the GET-Method-Type of the request.
+		/// Enumeration of HTTP-Method-Type
 		/// </summary>
-		public static int GET_METHOD = 1;
+		public enum HTTPMethodType
+		{
+			GET_METHOD,
+			POST_METHOD
+		}
 
-		/// <summary>
-		/// Representing the POST-Method-Type of the request.
-		/// </summary>
-		public static int POST_METHOD = 2;
 	}
 }
