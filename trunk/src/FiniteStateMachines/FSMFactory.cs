@@ -23,13 +23,25 @@ namespace Palladio.FiniteStateMachines
 		}
 
 		/// <summary>
-		/// Generates a "normal" FiniteStateMachine.
+		/// Generates an empty FiniteStateMachine.
 		/// </summary>
-		/// <returns>The generates FiniteStatemachine</returns>
+		/// <returns>An empty FSM</returns>
 		public IFiniteStateMachine GenerateFSM()
 		{
 			return new TabularFSM();
 		}
+
+
+		/// <summary>
+		///		Creates a new FSM containing only aStartState.
+		/// </summary>
+		/// <param name="aStartState">Start-State of the new FSM.</param>
+		/// <returns>new FSM</returns>
+		public IFiniteStateMachine GenerateFSM(IState aStartState)
+		{
+			return new TabularFSM(aStartState);
+		}
+
 
 
 		/// <summary>
@@ -62,6 +74,9 @@ namespace Palladio.FiniteStateMachines
 		/// <param name="aTransitionList">
 		///		All transitions of the finite state machine.
 		///	</param>
+		///	<returns>
+		///		
+		///	</returns>
 		public IFiniteStateMachine CreateFSM(IList aTransitionList)
 		{
 			return new TabularFSM(aTransitionList); 

@@ -10,7 +10,6 @@ namespace Palladio.FiniteStateMachines {
 	///     It uses a table of transitions as input to create the finite state
 	///     machine. A FiniteTabularMachine is always deterministic.
 	///     
-	///     author: JH
 	/// </summary>
 	public class TabularFSM : AbstractFSM {
 
@@ -60,6 +59,23 @@ namespace Palladio.FiniteStateMachines {
 			this.transitionTable = new Hashtable();
 			this.finalStates = new Set();
 			this.states = new Set();
+		}
+
+
+		/// <summary>
+		///		Creates a new FSM containing only aStartState.
+		/// </summary>
+		/// <param name="aStartState">Start-State of the new FSM.</param>
+		public TabularFSM( IState aStartState ) : this ()
+		{
+			if (aStartState.IsStartState)
+			{
+				AddState(aStartState);
+			}
+			else
+			{
+				throw new StateNotStartStateException(aStartState);
+			}
 		}
 
 		

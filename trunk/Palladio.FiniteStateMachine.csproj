@@ -222,16 +222,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\FiniteStateMachines\InvalidInputException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\FiniteStateMachines\InvalidStateException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\FiniteStateMachines\IState.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -353,6 +343,21 @@
                 />
                 <File
                     RelPath = "src\FiniteStateMachines\Decorators\PowerSetState.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FiniteStateMachines\Exceptions\InvalidInputException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FiniteStateMachines\Exceptions\InvalidStateException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FiniteStateMachines\Exceptions\StateNotStartStateException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

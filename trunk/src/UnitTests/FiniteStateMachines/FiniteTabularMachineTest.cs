@@ -285,5 +285,15 @@ namespace UnitTests.FiniteStateMachines
 			fsm.AddTransition(t);
 			Assert.IsFalse(fsm.Equals(machineOne));
 		}
+
+		[Test] public void SingleStated()
+		{
+			IState state = new State("null",true,true);
+			TabularFSM fsm = new TabularFSM(state);
+			Assert.AreEqual(fsm.StartState,state);
+			Assert.IsTrue(fsm.FinalStates.Count == 1);
+			Assert.IsTrue(fsm.FinalStates.Contains(state));
+			Assert.IsTrue(fsm.GetOutgoingTransitions(state).Count == 0);
+		}
 	}
 }
