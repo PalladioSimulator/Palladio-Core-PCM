@@ -17,6 +17,10 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2004/07/05 09:21:44  sbecker
+	/// Added further creation methods for programmers convinience
+	/// Removed an unnessesary method
+	///
 	/// Revision 1.6  2004/06/09 12:36:30  sbecker
 	/// Fixed documentation and renamed IExternalSignature
 	///
@@ -248,6 +252,43 @@ namespace Palladio.ComponentModel
 		}
 
 		/// <summary>
+		/// Creates a new ISignature with System.Void as return type.
+		/// </summary>
+		/// <param name="aName">Name of the Signature.</param>
+		/// <param name="aParamArray">Orderd array of parameters of the signature.</param>
+		/// <param name="anExceptionNameArray">Unorderd Array of the names of exceptions which can be thrown during the execution of the signature. </param>
+		/// <returns>A new ISignature.</returns>
+		public static ISignature CreateSignature(string aName, IParameter[] aParamArray,params string[] anExceptionNameArray)
+		{
+			IType[] exceptionArray = CreateTypeArray(anExceptionNameArray);
+			return CreateSignature(aName, aParamArray, exceptionArray);
+		}
+
+		/// <summary>
+		/// Creates a new ISignature with System.Void as return type, empty parameter and empty
+		/// exception list
+		/// </summary>
+		/// <param name="aName">Name of the Signature.</param>
+		/// <returns>A new ISignature.</returns>
+		public static ISignature CreateSignature(string aName)
+		{
+			return CreateSignature(aName, new IParameter[0], new IType[0]);
+		}
+
+		/// <summary>
+		/// Creates a new ISignature with System.Void as return type.
+		/// </summary>
+		/// <param name="aName">Name of the Signature.</param>
+		/// <param name="aParamArray">Orderd array of parameters of the signature.</param>
+		/// <param name="exceptionArray">Unorderd Array of the names of exceptions which can be thrown during the execution of the signature. </param>
+		/// <returns>A new ISignature.</returns>
+		public static ISignature CreateSignature(string aName, IParameter[] aParamArray,params IType[] exceptionArray)
+		{
+			IType returnType = CreateType("System.Void");
+			return CreateSignature(returnType, aName, aParamArray, exceptionArray);
+		}
+
+		/// <summary>
 		/// Creates a new ISignature without exceptions. It can only be added to interfaces with the
 		/// roleID aRoleID.
 		/// </summary>
@@ -323,7 +364,7 @@ namespace Palladio.ComponentModel
 		/// <param name="aRoleID">The role ID of the external interface</param>
 		/// <param name="aSig">The signature of the service in the external interface</param>
 		/// <returns>A container object containing a signature and an associated role</returns>
-		public static IExternalSignature CreateSignatureWithRole(string aRoleID, ISignature aSig )
+		public static IExternalSignature CreateExternalSignature(string aRoleID, ISignature aSig )
 		{
 			return new DefaultSignatureWithRole(aSig,IdentifiableFactory.CreateStringID(aRoleID));
 		}
@@ -335,7 +376,7 @@ namespace Palladio.ComponentModel
 		/// <param name="aRoleID">The role ID of the external interface</param>
 		/// <param name="aSig">The signature of the service in the external interface</param>
 		/// <returns>A container object containing a signature and an associated role</returns>
-		public static IExternalSignature CreateSignatureWithRole(IIdentifier aRoleID, ISignature aSig )
+		public static IExternalSignature CreateExternalSignature(IIdentifier aRoleID, ISignature aSig )
 		{
 			return new DefaultSignatureWithRole(aSig,aRoleID);
 		}
@@ -397,7 +438,7 @@ namespace Palladio.ComponentModel
 			IExternalSignature[] result = new IExternalSignature[sigs.Length];
 			for (int i=0; i < sigs.Length; i++)
 			{
-				result[i] = CreateSignatureWithRole(roleID,sigs[i]);
+				result[i] = CreateExternalSignature(roleID,sigs[i]);
 			}
 			return result;
 		}
@@ -543,6 +584,26 @@ namespace Palladio.ComponentModel
 		{
 			return new BasicComponent(CreateAttributeHash(),IdentifiableFactory.CreateStringID(ID));
 		}
+
+		/// <summary>
+		/// Create a new, empty IBasicComponent with the attributes specified in anAttrHash.
+		/// </summary>
+		/// <param name="anAttrHash">AttributeHash associated with the new component.</param>
+		/// <param name="ID">ID of the component to create.</param>
+		/// <returns>New IBasicComponent instance.</returns>
+		public static IBasicComponent CreateBasicComponent(IAttributeHash anAttrHash, IIdentifier ID)
+		{
+			return new BasicComponent(anAttrHash,ID);
+		}
+
+		/// <summary>
+		/// Create a new, empty IBasicComponent.
+		/// </summary>
+		/// <returns>New IBasicComponent instance.</returns>
+		public static IBasicComponent CreateBasicComponent(IIdentifier ID)
+		{
+			return new BasicComponent(CreateAttributeHash(),ID);
+		}
 		#endregion
 
 		#region CompositeComponent
@@ -564,6 +625,26 @@ namespace Palladio.ComponentModel
 		public static ICompositeComponent CreateCompositeComponent(string ID)
 		{
 			return new CompositeComponent(CreateAttributeHash(), IdentifiableFactory.CreateStringID(ID));
+		}
+
+		/// <summary>
+		/// Create a new, empty IBasicComponent with the attributes given by anAttributeHash.
+		/// </summary>
+		/// <param name="anAttrHash">Attributes of the new Component.</param>
+		/// <param name="ID">An string identifier for the component</param>
+		/// <returns>New IBasicComponent instance.</returns>
+		public static ICompositeComponent CreateCompositeComponent(IAttributeHash anAttrHash, IIdentifier ID)
+		{
+			return new CompositeComponent(anAttrHash, ID);
+		}
+
+		/// <summary>
+		/// Create a new, empty instance of ICompositeComponent.
+		/// </summary>
+		/// <returns>A new ICompositeComponent instance.</returns>
+		public static ICompositeComponent CreateCompositeComponent(IIdentifier ID)
+		{
+			return new CompositeComponent(CreateAttributeHash(), ID);
 		}
 
 		#endregion
@@ -617,17 +698,6 @@ namespace Palladio.ComponentModel
 		public static IBinding CreateBinding(IAttributeHash anAttrHash, IAttachedRole reqRole, IAttachedRole provRole)
 		{
 			return new DefaultBinding( anAttrHash, reqRole, provRole);
-		}
-
-		/// <summary>
-		/// Create a new IBinding instance.
-		/// </summary>
-		/// <param name="provRole">Providing role of the binding relation.</param>
-		/// <param name="reqRole">Requiring role of the binding relation.</param>
-		/// <returns>New IBinding instance</returns>
-		public static IBinding CreateBinding(IAttachedRole reqRole, IAttachedRole provRole)
-		{
-			return new DefaultBinding( CreateAttributeHash(), reqRole, provRole);
 		}
 #endif 
 
