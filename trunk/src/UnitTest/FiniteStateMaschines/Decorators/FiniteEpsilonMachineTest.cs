@@ -159,7 +159,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 								deterministicFSM.GetNextTransition(deterministicStart,i));
 			}
 
-			FEC fec = new FEC((FiniteTabularMachine)deterministicFSM);
+			MinimizedAndEqualsFSM fec = new MinimizedAndEqualsFSM((FiniteTabularMachine)deterministicFSM);
 			IFiniteStateMachine min = fec.getMinimizedFSM();
 			Console.WriteLine(min.StartState.GetType());
 		}

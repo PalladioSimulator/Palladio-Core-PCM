@@ -104,6 +104,13 @@ namespace FiniteStateMachines {
 			return false;
 		}
 
+
+		public override int GetHashCode(){
+			string sum = State.ToString();
+			sum += ServiceName;
+			return sum.GetHashCode();
+		}
+
 		/// <summary>
 		/// Operator uses the implementation of Equals.
 		/// </summary>

@@ -509,9 +509,9 @@ namespace FiniteStateMachines.Decorators
 		/// <summary>
 		/// Delivers the group in which a state is in
 		/// </summary>
-		/// <param name="state">the state which group should be found</param>
+		/// <param name="state">the state which group should be found/>
 		/// <param name="groups">a group which has not jet been added to this.groups.
-		/// it's the newGroup.
+		/// it's the newGroup./>
 		/// <returns>A ArrayList from this.groups which contains state</returns>
 		protected ArrayList inGroup(AbstractState state, ArrayList groups) 
 		{

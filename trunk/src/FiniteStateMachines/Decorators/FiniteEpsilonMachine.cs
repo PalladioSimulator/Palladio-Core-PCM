@@ -4,7 +4,7 @@ using Utils.Collections;
 using System.Collections;
 
 namespace FiniteStateMachines.Decorators {
-	
+
 	/// <summary>
 	/// A <code>FiniteEpsilonMachine</code> is based on a regular finite state machine. For
 	/// this automaton an epsilon alphabet is defined which is a subset of the input alphabet. 
@@ -16,7 +16,7 @@ namespace FiniteStateMachines.Decorators {
 
 		/// <summary>
 		/// The regular finite state machine which is used to simulate the 
-		/// <code>FiniteEpsilonMachine</code>
+		/// <code>FiniteEpsilonMachine</code>.
 		/// </summary>
 		private IFiniteStateMachine defaultMachine;
 
@@ -88,7 +88,7 @@ namespace FiniteStateMachines.Decorators {
 					GetAllTransitionsRecursive(trans.DestinationState,ref resultSet,ref visitedStates);
 				}
 			}
-		}
+		}	
 
 
 		/// <summary>
@@ -96,7 +96,9 @@ namespace FiniteStateMachines.Decorators {
 		/// <code>PowerSetStates</code> are allowed as input. The method
 		///	determins the epsilon-closure for all included states.
 		/// <param name="aState">The state for which the epsilon-closure is determined.</param>
-		/// <returns>A <code>PowerSetState</code> representing the epsilon-closure of <code>aState</code>.</returns>
+		/// </summary>
+		/// <returns>A <code>PowerSetState</code> representing the epsilon-closure of <code>aState</code>.
+		/// </returns>
 		private PowerSetState GetEpsilonClosure(PowerSetState aState){
 			Set closure = new Set();
 			foreach (AbstractState state in aState.States){
