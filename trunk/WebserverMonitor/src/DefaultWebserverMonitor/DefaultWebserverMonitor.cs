@@ -17,6 +17,10 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2004/12/08 16:07:12  kelsaka
+	/// - added: the webserver halts if the config-file can not be found. To make the webserver
+	///  use easier the error-message describes how to set the paths (commandline and VS.NET)
+	///
 	/// Revision 1.8  2004/10/30 15:24:39  kelsaka
 	/// webserverMonitor-Output on console; documentation (doc) update
 	///
@@ -52,10 +56,8 @@ namespace Palladio.Webserver.WebserverMonitor
 		private StreamWriter logStreamWriter;
 
 		public DefaultWebserverMonitor(IWebserverConfiguration webserverConfiguration)
-		{
+		{			
 			this.webserverConfiguration = webserverConfiguration;
-
-
 		}
 
 
@@ -72,6 +74,11 @@ namespace Palladio.Webserver.WebserverMonitor
 			catch (SecurityException e)
 			{
 				Console.WriteLine("ERROR: Not allowed to access the specified file: " + webserverConfiguration.DebugFile + ". " + e + ". " + e.StackTrace);
+			}
+			catch (FileNotFoundException e)
+			{
+				Console.WriteLine("ERROR: The specified debug-file could not be found. " + 
+					"Possible Reasons: The debug-file does not exist OR the configuration-file is not available.\n" + e + e.StackTrace);
 			}
 			catch (Exception e)
 			{
@@ -115,12 +122,19 @@ namespace Palladio.Webserver.WebserverMonitor
 		/// important messages.</param>
 		public void WriteDebugMessage (string debugMessage, int debugLevel)
 		{
-			debugMessage = "Level: " + debugLevel + " | " + debugMessage;
+			try 
+			{
+				debugMessage = "Level: " + debugLevel + " | " + debugMessage;
 
-			debugStreamWriter.WriteLine(DateTime.Now.Ticks + " | " + debugMessage);
-			debugStreamWriter.Flush();
-			Debug.WriteLine("! DEBUG: " + debugMessage);
-			Console.WriteLine("! DEBUG: " + debugMessage);
+				debugStreamWriter.WriteLine(DateTime.Now.Ticks + " | " + debugMessage);
+				debugStreamWriter.Flush();
+				Debug.WriteLine("! DEBUG: " + debugMessage);
+				Console.WriteLine("! DEBUG: " + debugMessage);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("ERROR: Could not write to the debugfile: " + debugMessage + " (More information: " + e.Message + "\n" + e.StackTrace + ")");
+			}
 		}
 
 

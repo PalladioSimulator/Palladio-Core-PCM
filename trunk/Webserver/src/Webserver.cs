@@ -21,6 +21,10 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2004/12/08 16:07:12  kelsaka
+	/// - added: the webserver halts if the config-file can not be found. To make the webserver
+	///  use easier the error-message describes how to set the paths (commandline and VS.NET)
+	///
 	/// Revision 1.15  2004/12/06 05:20:21  sliver
 	/// - RequestFactory added
 	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
@@ -74,10 +78,6 @@ namespace Palladio.Webserver
 	/// </remarks>
 	public class Webserver
 	{
-		/// <summary>
-		/// (Relative) Path to the xml-config-file. All other settings should be read out from the xml-file.
-		/// </summary>
-		private const string DEFAULT_XML_CONFIGURATION_FILE = "WebserverXML.xml";
 
 		/// <summary>
 		/// Where the config-xml-file(s) can be found.
