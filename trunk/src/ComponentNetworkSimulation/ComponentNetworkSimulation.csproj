@@ -88,21 +88,22 @@
                 <Reference
                     Name = "Palladio.FiniteStateMachines"
                     AssemblyName = "Palladio.FiniteStateMachines"
-                    HintPath = "..\..\..\palladio.fsm\bin\Debug\Palladio.FiniteStateMachines.dll"
+                    HintPath = "..\..\..\Palladio.FiniteStateMachines\bin\Debug\Palladio.FiniteStateMachines.dll"
                 />
                 <Reference
-                    Name = "Palladio.ComponentModel"
-                    AssemblyName = "Palladio.ComponentModel"
-                    HintPath = "..\..\..\ComponentModel\bin\Debug\Palladio.ComponentModel.dll"
+                    Name = "Palladio.Utils"
+                    AssemblyName = "Palladio.Utils"
+                    HintPath = "..\..\..\Palladio.Utils\bin\Debug\Palladio.Utils.dll"
+                />
+                <Reference
+                    Name = "ReflectionBasedVisitor"
+                    AssemblyName = "ReflectionBasedVisitor"
+                    HintPath = "..\..\..\ReflectionBasedVisitor\bin\Debug\ReflectionBasedVisitor.dll"
                 />
             </References>
         </Build>
         <Files>
             <Include>
-                <File
-                    RelPath = "ComponentNetworkSimulation_Model.tgs"
-                    BuildAction = "None"
-                />
                 <File
                     RelPath = "src\AssemblyInfo.cs"
                     SubType = "Code"
