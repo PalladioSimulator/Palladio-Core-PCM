@@ -2,13 +2,11 @@ using System;
 using System.Collections;
 using Utils.Collections;
 
-namespace FiniteStateMachines 
-{
+namespace FiniteStateMachines {
 	/// <summary>
 	///Represents a FSM.
 	/// </summary>
-	public class FiniteTabularMaschine : IFiniteStateMachine 
-	{
+	public class FiniteTabularMachine : IFiniteStateMachine {
 		private Set inputAl;
 		private Hashtable transitions;
 		private AbstractState startState;
@@ -20,8 +18,7 @@ namespace FiniteStateMachines
 		/// <summary>
 		/// Creates a FSM
 		/// </summary>
-		public FiniteTabularMaschine() 
-		{
+		public FiniteTabularMachine() {
 			this.inputAl = new Set();
 			this.transitions = new Hashtable();
 			this.finalSates = new Set();
@@ -30,8 +27,7 @@ namespace FiniteStateMachines
 
 		}
 		
-		public AbstractState ErrorState
-		{
+		public AbstractState ErrorState {
 			get { return errorState; }
 		}
 
@@ -41,14 +37,12 @@ namespace FiniteStateMachines
 		/// <param name="fromState"></param>
 		/// <param name="inChar"></param>
 		/// <param name="toState"></param>
-		public void setTransition(AbstractState fromState, Input inChar, AbstractState toState) 
-		{	
+		public void setTransition(AbstractState fromState, Input inChar, AbstractState toState) {	
 			Transition tr = new Transition(fromState, inChar, toState);
 			this.setTransition(tr);
 		}
 
-		public Hashtable getAllTransitionHashtable() 
-		{
+		public Hashtable getAllTransitionHashtable() {
 			return this.transitions;
 		}
 
@@ -58,8 +52,7 @@ namespace FiniteStateMachines
 		/// </summary>
 		/// <param name="aState">State to start from</param>
 		/// <returns>Set containing all reachable States</returns>
-		public Set GetReachableStates(AbstractState aState)
-		{
+		public Set GetReachableStates(AbstractState aState) {
 			Set resultSet = new Set();
 			GetReachableStatesRecursive(aState,ref resultSet);
 			return resultSet;
@@ -72,16 +65,12 @@ namespace FiniteStateMachines
 		/// </summary>
 		/// <param name="aState">starting here</param>
 		/// <param name="resultSet">has to be an empty set. contains the result</param>
-		private void GetReachableStatesRecursive(AbstractState aState,ref Set resultSet)
-		{
-			if ((!resultSet.Contains(aState)) && (aState!=ErrorState)) 
-			{
+		private void GetReachableStatesRecursive(AbstractState aState,ref Set resultSet) {
+			if ((!resultSet.Contains(aState)) && (aState!=ErrorState)) {
 				resultSet.Add(aState);
 				Hashtable transitions = GetOutgoingTransitions(aState);
-				if (transitions != null)
-				{
-					foreach (DictionaryEntry entry in transitions)
-					{
+				if (transitions != null) {
+					foreach (DictionaryEntry entry in transitions) {
 						GetReachableStatesRecursive(((Transition)entry.Value).DestinationState,ref resultSet);
 					}
 				}
@@ -92,8 +81,7 @@ namespace FiniteStateMachines
 		/// Displays the startstate and the fianalstate of the FSM on the console.
 		/// It's a method for testing my implementation of the FSM.
 		/// </summary>
-		public void writeStartFinal() 
-		{
+		public void writeStartFinal() {
 			Console.WriteLine("startstate is: "+this.StartState.ToString());
 			Console.WriteLine("finalstate is: "+this.FinalStates.ToString());
 		}
@@ -101,10 +89,8 @@ namespace FiniteStateMachines
 		/// <summary>
 		/// Also for testing
 		/// </summary>
-		public void DisplayOnConsole() 
-		{
-			try 
-			{
+		public void DisplayOnConsole() {
+			try {
 
 				Console.WriteLine("Startstate: "+this.StartState);
 				Console.WriteLine("Finalstate: "+this.FinalStates);
@@ -114,8 +100,7 @@ namespace FiniteStateMachines
 				Console.WriteLine(this.transitionsToString());
 			
 			}
-			catch(Exception e) 
-			{
+			catch(Exception e) {
 				Console.WriteLine("Error !");
 				Console.WriteLine(e.Source);
 				Console.WriteLine(e.Message);
@@ -129,11 +114,9 @@ namespace FiniteStateMachines
 		/// </summary>
 		/// <param name="state"></param>
 		/// <param name="inChar"></param>
-		public string EverythingToString(AbstractState state, Input inChar) 
-		{
+		public string EverythingToString(AbstractState state, Input inChar) {
 			string s ="";
-			try 
-			{
+			try {
 				
 				s+="Input: ";
 				Set input = this.InputAlphabet;
@@ -157,8 +140,7 @@ namespace FiniteStateMachines
 				s += this.transitionsToString();
 				
 			}
-			catch(Exception e) 
-			{
+			catch(Exception e) {
 				Console.WriteLine("Error !");
 				Console.WriteLine(e.Source);
 				Console.WriteLine(e.Message);
@@ -170,17 +152,15 @@ namespace FiniteStateMachines
 		/// Returns the input of the FSM.
 		/// </summary>
 		/// <returns>The input of the FSM as Set.</returns>
-		public Set InputAlphabet 
-		{
-			get 
-			{
+		public Set InputAlphabet {
+			get {
 				return this.inputAl;
 			}
 		}
-//		public Set GetInputAl()
-//		{
-//			return this.inputAl;
-//		}
+		//		public Set GetInputAl()
+		//		{
+		//			return this.inputAl;
+		//		}
 
 		//RR Implementation of the Getters interface
 
@@ -188,32 +168,29 @@ namespace FiniteStateMachines
 		/// Returns the startatate of the FSM
 		/// </summary>
 		/// <returns>State, witch is the startstate of the FSM.</returns>
-		public AbstractState StartState 
-		{
+		public AbstractState StartState {
 		
-			get
-			{//{if(this.startState != null)  
+			get {
+				//{if(this.startState != null)  
 				return this.startState; 
 			}
-//			else return this.ErrorState;}
+			//			else return this.ErrorState;}
 
 		}
 		/// <summary>
 		/// Returns the FinalState of the FSM.
 		/// </summary>
 		/// <returns>State, the fianalstate of the FSM.</returns>
-		public Set FinalStates 
-		{
-			get 
-			{
+		public Set FinalStates {
+			get {
 				return this.finalSates;
 			}
 		}
 
-//		public Set GetFinalStates()
-//		{
-//			return this.finalSates;
-//		}
+		//		public Set GetFinalStates()
+		//		{
+		//			return this.finalSates;
+		//		}
 		
 		/// <summary>
 		/// Returns the next State from a given State and an inputcharacter.
@@ -221,8 +198,7 @@ namespace FiniteStateMachines
 		/// <param name="fromState"> from State </param>
 		/// <param name="input">the inputcharacter</param>
 		/// <returns>the next State witch is reachable with the state and the inputcharacter</returns>
-		public AbstractState GetNextState(AbstractState fromState, Input input) 
-		{
+		public AbstractState GetNextState(AbstractState fromState, Input input) {
 
 			/*
 			evtl. schöner:
@@ -230,14 +206,12 @@ namespace FiniteStateMachines
 			if(	(fromState != null) &&
 				(fromState != ErrorState) &&
 				(InputAlphabet.Contains(input)) &&
-				(this.transitions.ContainsKey(fromState)) ) 
-			{
+				(this.transitions.ContainsKey(fromState)) ) {
 				
 				//for (IEnumerator e =  (Hashtable) transitions[fromState].GetEnumerator(); e.MoveNext();){
 				Set transIterHash = (Set) this.transitions[fromState];	
 				IEnumerator transIter = transIterHash.GetEnumerator();
-				while(transIter.MoveNext()) 
-				{
+				while(transIter.MoveNext()) {
 					Transition trans = (Transition)transIter.Current;
 					if (trans.InputSymbol == input)
 						return trans.DestinationState;
@@ -287,8 +261,7 @@ namespace FiniteStateMachines
 		/// <param name="fromState">State from witch the next Transition should be delivered.</param>
 		/// <param name="inChar">The inputcharakter witch should be in the delivered Transition.</param>
 		/// <returns>The next possible Transition.</returns>
-		public Transition GetNextTransition(AbstractState fromState, Input inChar) 
-		{
+		public Transition GetNextTransition(AbstractState fromState, Input inChar) {
 			if(this.inputAl.Contains(inChar) ==  false)
 				return new Transition(fromState,inChar,ErrorState);
 			//throw new InvalidInputException();
@@ -302,8 +275,7 @@ namespace FiniteStateMachines
 			Transition back = new Transition();
 			Transition tr = new Transition();
 			IEnumerator eda = s.GetEnumerator();
-			while(eda.MoveNext()) 
-			{
+			while(eda.MoveNext()) {
 				if(eda.Current is Transition)
 					tr = (Transition) eda.Current;
 				
@@ -321,21 +293,18 @@ namespace FiniteStateMachines
 		/// </summary>
 		/// <param name="state">The State from witch all Transitions should be delivered</param>
 		/// <returns>All transition from the given state</returns>
-		public Hashtable GetOutgoingTransitions(AbstractState state) 
-		{
+		public Hashtable GetOutgoingTransitions(AbstractState state) {
 			Hashtable tmp = new Hashtable();
 			Object help = this.transitions[state];
 			if(help == null)
 				//before a Exception was thrown here, but I changed this, because for further implemetation
 				//it'S better to have a null, instad of catch a Exception.
 				return null;
-			if(help is Set) 
-			{
+			if(help is Set) {
 				Set s = (Set) help;
 				Transition trans = new Transition();
 				IEnumerator iter = s.GetEnumerator();
-				while(iter.MoveNext()) 
-				{
+				while(iter.MoveNext()) {
 					trans = (Transition) iter.Current;
 					tmp.Add(trans, trans);
 				}
@@ -348,33 +317,27 @@ namespace FiniteStateMachines
 		/// Returns all transitions from the FSM in a Transition Array
 		/// </summary>
 		/// <returns>All Transitions of the FSM in a Array</returns>
-		public Transition[] GetTransitions() 
-		{
+		public Transition[] GetTransitions() {
 			int i = 0;
 			DynamicArray tmp = new DynamicArray(i);
 			IDictionaryEnumerator myEnumerator = this.transitions.GetEnumerator();
-			while ( myEnumerator.MoveNext() ) 
-			{
+			while ( myEnumerator.MoveNext() ) {
 				Object item = myEnumerator.Value;
 				
-				if(item is Set) 
-				{
+				if(item is Set) {
 					Set so = (Set) item;
-					foreach(Transition s in so) 
-					{
+					foreach(Transition s in so) {
 						tmp.AddE(s,i);
 						i++;
 					}
 				}
-				else 
-				{
+				else {
 					throw new ProgrammingErrorException();
 				}
 			}
 			Transition[] fi = new Transition[tmp.array.Length];
 			int z =0;
-			foreach(Transition t in tmp.array) 
-			{
+			foreach(Transition t in tmp.array) {
 				
 				fi[z] = t;
 				//Console.WriteLine(fi[z].ToString());
@@ -386,15 +349,13 @@ namespace FiniteStateMachines
 		/// <summary>
 		/// Displays all Transition of a FSM on the console.
 		/// </summary>
-		public string transitionsToString() 
-		{
+		public string transitionsToString() {
 			string st ="";
 			Transition[] bla = this.GetTransitions();
 			Set da = new Set();
 			Transition temp = new Transition();
 
-			foreach(Transition tr in bla) 
-			{
+			foreach(Transition tr in bla) {
 				temp = tr;
 				//Console.WriteLine("Aktuelles TransitionsObjekt: "+tr.ToString());
 					
@@ -425,8 +386,7 @@ namespace FiniteStateMachines
 			return st;
 
 		}
-		public Set getStates() 
-		{
+		public Set getStates() {
 			return this.states;
 		}
 	
@@ -436,8 +396,7 @@ namespace FiniteStateMachines
 		/// Adds a Transtion to the Transitionmap of the FSM.
 		/// </summary>
 		/// <param name="tr"></param>
-		public void setTransition(Transition tr) 
-		{	
+		public void setTransition(Transition tr) {	
 			//stores only one startState, no exceptionhandling
 			if(tr.SourceState.IsStartState==true)
 				this.startState = tr.SourceState;
@@ -448,27 +407,22 @@ namespace FiniteStateMachines
 			// The target state must be also considered.
 			this.states.Add(tr.DestinationState);
 
-			if(this.transitions[tr.SourceState] == null) 
-			{	
+			if(this.transitions[tr.SourceState] == null) {	
 				Set tmp = new Set();
 				tmp.Add(tr);
 				this.transitions.Add(tr.SourceState, tmp);
 				this.inputAl.Add(tr.InputSymbol);
 			}
-			else 
-			{
+			else {
 
-				if(this.transitions[tr.SourceState] is  Set) 
-				{ 
+				if(this.transitions[tr.SourceState] is  Set) { 
 					Set tmp = (Set) this.transitions[tr.SourceState];
 					tmp.Add(tr);
 					this.transitions.Remove(tr.SourceState);
-					try 
-					{
+					try {
 						this.transitions.Add(tr.SourceState,tmp);
 					}
-					catch(ArgumentException) 
-					{
+					catch(ArgumentException) {
 					}
 					this.inputAl.Add(tr.InputSymbol);
 
@@ -479,8 +433,7 @@ namespace FiniteStateMachines
 		/// Adds a Array of Ttransitions into the Transitions of a FSM. 
 		/// </summary>
 		/// <param name="tr">An Array of a Transitions.</param>
-		public void setTransitions(Transition[] tr) 
-		{	
+		public void setTransitions(Transition[] tr) {	
 			foreach (Transition t in tr)
 				this.setTransition(t);
 		}
@@ -515,13 +468,11 @@ namespace FiniteStateMachines
 				
 				}
 			*/
-		public void printInput() 
-		{
+		public void printInput() {
 			foreach(Input i in this.inputAl)
 				Console.WriteLine(i.ToString());
 		}
-		public AbstractState GetStartState()
-		{
+		public AbstractState GetStartState() {
 			return this.startState;
 		}
 	}

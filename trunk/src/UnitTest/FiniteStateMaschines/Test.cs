@@ -238,7 +238,7 @@ namespace UnitTests.FiniteStateMachines {
 			//
 			//			//A FSM witch is used to test the Mini.
 			//
-			FSM notMin = new FSM();
+			FiniteTabularMachine notMin = new FiniteTabularMachine();
 			State Mzero  = new State("0",true,false);
 			State Mone = new State("1",false,false);
 			State Mtwo = new State("2",false,false);
@@ -305,8 +305,8 @@ namespace UnitTests.FiniteStateMachines {
 			////			}
 			///
 			//			//For CP-Testing
-			FSM one = new FSM();
-			FSM two = new FSM();
+			FiniteTabularMachine one = new FiniteTabularMachine();
+			FiniteTabularMachine two = new FiniteTabularMachine();
 
 			Input a = new Input("a");
 			Input b = new Input("b");

@@ -7,7 +7,7 @@ namespace FiniteStateMachines.Decorators {
 	/// Zusammenfassung für FCP.
 	/// </summary>
 	public class FCP {
-		protected FSM cp;
+		protected FiniteTabularMachine cp;
 		protected Set CPInput;
 		protected Stack oneStates;
 		protected Stack twoStates;
@@ -23,14 +23,14 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the other FSM, together with one they are used to
 		/// create the crossprodukt></param>
-		public FCP(FSM one, FSM two) {
+		public FCP(FiniteTabularMachine one, FiniteTabularMachine two) {
 			this.cp = generateCP(one,two);
 		}
 		/// <summary>
 		/// Returns the cp FSM 
 		/// </summary>
 		/// <returns></returns>
-		public FSM getCP() {
+		public FiniteTabularMachine getCP() {
 			return this.cp;
 		}
 		/// <summary>
@@ -39,11 +39,11 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the second FSM</param>
 		/// <returns>the cp of the two FSM</returns>
-		public FSM generateCP(FSM one, FSM two) {
+		public FiniteTabularMachine generateCP(FiniteTabularMachine one, FiniteTabularMachine two) {
 			//			try
 			//			{
 
-			this.cp = new FSM();
+			this.cp = new FiniteTabularMachine();
 			this.oneStates = new Stack();
 			this.twoStates = new Stack();
 			generateCPInput(one,two);
@@ -129,7 +129,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="state">the state witch should be checked</param>
 		/// <param name="i">the inpt </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
-		protected bool selfPointing(FSM fsm, AbstractState state, Input i) {
+		protected bool selfPointing(FiniteTabularMachine fsm, AbstractState state, Input i) {
 			//Console.WriteLine("Checking selfPointing");
 			AbstractState temp = null;
 			foreach(AbstractState s in fsm.getStates()) {
@@ -149,7 +149,7 @@ namespace FiniteStateMachines.Decorators {
 		/// </summary>
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the second FSM</param>
-		protected void generateCPInput(FSM one, FSM two) {
+		protected void generateCPInput(FiniteTabularMachine one, FiniteTabularMachine two) {
 			this.CPInput = new Set();
 			foreach(Input i in one.InputAlphabet) {
 				foreach(Input p in two.InputAlphabet)

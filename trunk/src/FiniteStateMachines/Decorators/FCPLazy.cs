@@ -9,8 +9,8 @@ namespace FiniteStateMachines.Decorators {
 	/// </summary>
 	public class FCPLazy : IFiniteStateMachine {
 		protected AbstractState errorState;
-		protected FSM one;
-		protected FSM two;
+		protected FiniteTabularMachine one;
+		protected FiniteTabularMachine two;
 		protected bool InputCreated;
 		protected Set inputAl;
 		protected bool TransitionsCreated;
@@ -21,7 +21,7 @@ namespace FiniteStateMachines.Decorators {
 		protected bool finalCreated = false;
 
 
-		public FCPLazy(FSM one, FSM two) {
+		public FCPLazy(FiniteTabularMachine one, FiniteTabularMachine two) {
 			this.InputCreated = false;
 			this.TransitionsCreated = false;
 			this.one = one;
@@ -37,7 +37,7 @@ namespace FiniteStateMachines.Decorators {
 				return this.inputAl;
 			}
 		}
-		protected void generateCPInput(FSM one, FSM two) {
+		protected void generateCPInput(FiniteTabularMachine one, FiniteTabularMachine two) {
 			this.InputCreated = true;
 			this.inputAl = new Set();
 			foreach(Input i in one.InputAlphabet) {
@@ -225,7 +225,7 @@ namespace FiniteStateMachines.Decorators {
 				return this.finalStates;
 			}
 		}
-		public Transition GetTransition(AbstractState state, Input i) {
+		public Transition GetNextTransition(AbstractState state, Input i) {
 			if(state is CPState== false)
 				throw new InvalidStateException();
 			//			CPState state = new CPState(state);
@@ -245,7 +245,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="state">the state witch should be checked</param>
 		/// <param name="i">the inpt </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
-		protected bool selfPointing(FSM fsm, AbstractState state, Input i) {
+		protected bool selfPointing(FiniteTabularMachine fsm, AbstractState state, Input i) {
 			//Console.WriteLine("Checking selfPointing");
 			AbstractState temp = null;
 			foreach(AbstractState s in fsm.getStates()) {

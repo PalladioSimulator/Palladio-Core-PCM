@@ -7,14 +7,14 @@ namespace FiniteStateMachines.Decorators {
 	/// <summary>
 	/// This class allows to minimize and compares FSM
 	/// </summary>
-	public class FEC : FSM {
-		protected FSM fsm;
+	public class FEC : FiniteTabularMachine {
+		protected FiniteTabularMachine fsm;
 		protected bool debug = !true;
 		protected bool createsFsmDebug = !true;
 		protected bool equalsDebug = !true;
 		protected ArrayList groups;
 		protected int zaehler;
-		protected FSM minimized;
+		protected FiniteTabularMachine minimized;
 		protected int counterForNumberOfGroups;
 		protected int actualGroupCounter;
 		protected ArrayList mini;
@@ -31,7 +31,7 @@ namespace FiniteStateMachines.Decorators {
 		/// A temp Konstruktor
 		/// </summary>
 		/// <param name="notMin">A not minimized FSM, witch should be minimized</param>
-		public FEC(FSM notMin) {
+		public FEC(FiniteTabularMachine notMin) {
 			this.fsm = notMin;
 			this.groups = new ArrayList();
 			this.Minimize(notMin);
@@ -49,10 +49,10 @@ namespace FiniteStateMachines.Decorators {
 		/// </summary>
 		/// <param name="o">A instance of FSM, witch should be minimized</param>
 		/// <returns>a Minimized FSM or an empty FSM</returns>
-		public FSM MinOne(object o) {
+		public FiniteTabularMachine MinOne(object o) {
 			if(equal(o))
 				return this.minimized;
-			else return new FSM();
+			else return new FiniteTabularMachine();
 		}
 	
 		/// <summary>
@@ -61,11 +61,11 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="o">A FSM </param>
 		/// <returns>true if they are equal</returns>
 		public bool equal(object o) {
-			if((o is FSM)== false)
+			if((o is FiniteTabularMachine)== false)
 				return false;
-			FEC dnotMin = new FEC((FSM) o);
-			FSM d = dnotMin.getMinimizedFSM();
-			FSM myMin = this.minimized;
+			FEC dnotMin = new FEC((FiniteTabularMachine) o);
+			FiniteTabularMachine d = dnotMin.getMinimizedFSM();
+			FiniteTabularMachine myMin = this.minimized;
 			bool result = false;
 			IEnumerator inputIter = myMin.InputAlphabet.GetEnumerator();
 			while(inputIter.MoveNext())
@@ -91,7 +91,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="dMin">another FSM</param>
 		/// <param name="d2myStatesMap">the mapping</param>
 		/// <returns>true if the two FSM are equal</returns>
-		protected bool _equal(FSM myMin, FSM dMin, Hashtable d2myStatesMap) {
+		protected bool _equal(FiniteTabularMachine myMin, FiniteTabularMachine dMin, Hashtable d2myStatesMap) {
 			if(!myMin.StartState.Equals( dMin.StartState))
 				return false;
 			ArrayList dStates = new ArrayList();
@@ -128,7 +128,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="myMin">A FSM</param>
 		/// <param name="d">The other FSM</param>
 		/// <returns>A Hashtable witch contains the mapping betwenn the two FSMs</returns>
-		protected Hashtable mapStates(FSM myMin,FSM d) {
+		protected Hashtable mapStates(FiniteTabularMachine myMin,FiniteTabularMachine d) {
 			Hashtable d2myMap = new Hashtable();
 			d2myMap.Add(d.StartState,myMin.StartState);
 			d2myMap.Add(d.ErrorState,myMin.ErrorState);
@@ -146,7 +146,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="dState">A state of the other FSM</param>
 		/// <param name="d2myStates">the mapping</param>
 		/// <param name="visited">a Hashtable witch contains the alreday visted states</param>
-		protected void mapStates(FSM myMin, AbstractState myState, FSM d, AbstractState dState,
+		protected void mapStates(FiniteTabularMachine myMin, AbstractState myState, FiniteTabularMachine d, AbstractState dState,
 			Hashtable d2myStates, Hashtable visited) {
 			foreach(DictionaryEntry da in visited) {
 				AbstractState sasa = (AbstractState) da.Value;
@@ -195,7 +195,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="i">An Input charakter</param>
 		/// <param name="d2myStates">the mapping hashtable</param>
 		/// <returns></returns>
-		protected bool testStates(FSM myMin,AbstractState myState, FSM d, AbstractState dState,
+		protected bool testStates(FiniteTabularMachine myMin,AbstractState myState, FiniteTabularMachine d, AbstractState dState,
 			Input i, Hashtable d2myStates) {
 			AbstractState myNext = null;
 			AbstractState dNext = null;
@@ -236,14 +236,14 @@ namespace FiniteStateMachines.Decorators {
 		/// Return the notMiniized FSM
 		/// </summary>
 		/// <returns>Return the notMiniized FSM</returns>
-		public FSM getFSM() {
+		public FiniteTabularMachine getFSM() {
 			return this.fsm;
 		}
 		/// <summary>
 		/// Returns the minimzed version of the FSM
 		/// </summary>
 		/// <returns>Returns the minimzed version of the FSM</returns>
-		public FSM getMinimizedFSM() {
+		public FiniteTabularMachine getMinimizedFSM() {
 			return this.minimized;
 		}
 		/// <summary>
@@ -251,7 +251,7 @@ namespace FiniteStateMachines.Decorators {
 		/// </summary>
 		protected void createNewFsm() {
 			
-			this.minimized = new FSM();
+			this.minimized = new FiniteTabularMachine();
 			int counter =0;
 			AbstractState temp;
 			ArrayList statesOfMini = new ArrayList();
@@ -314,7 +314,7 @@ namespace FiniteStateMachines.Decorators {
 		/// Minimizes a FSM 
 		/// </summary>
 		/// <param name="fsm">The FSM witch should be minimized</param>
-		protected  void Minimize(FSM fsm) {	
+		protected  void Minimize(FiniteTabularMachine fsm) {	
 			this.initateGroups(fsm);
 			if(this.debug) {
 				Console.WriteLine("IntialGroups");
@@ -458,7 +458,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <summary>
 		/// Delivers the initail partions 
 		/// </summary>
-		public void initateGroups(FSM fsm) {
+		public void initateGroups(FiniteTabularMachine fsm) {
 
 			ArrayList conclusion = new ArrayList();
 			ArrayList final = new ArrayList();
