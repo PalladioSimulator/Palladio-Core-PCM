@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.1  2004/06/28 10:50:51  joemal
 	/// initial class creation
 	///
@@ -26,7 +29,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="componentID">the id of the observing component</param>
 		/// <param name="provIfaceID">the id of the provides interface, to which the signature of the service is added</param>
 		/// <param name="signatureID">the id of the signature</param>
-		void OnServiceAdded(string componentID, IIdentifier provIfaceID,IIdentifier signatureID);
+		void OnServiceAdded(IIdentifier componentID, IIdentifier provIfaceID,IIdentifier signatureID);
 	}
 }
 //EOF

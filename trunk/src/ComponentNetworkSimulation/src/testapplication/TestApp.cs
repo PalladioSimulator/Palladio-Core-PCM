@@ -17,7 +17,7 @@ namespace testapplication
 		public static void Main()
 		{
 			ISimulationEnvironment env = new DefaultSimulationEnvironment();
-			TestArchitectures.FillCC((ICompositeComponentBuilder)env.ComponentArchitecture.CreateCompositeComponent("CC",null));
+			TestArchitectures.FillCC((ICompositeComponentBuilder)env.ComponentArchitecture.CreateCompositeComponent(ID("CC"),null));
 
 			IThreadStartingPoint sp = new DefaultThreadStartingPoint(ID("CC"),ID("P1"),ID("d1"));			
 			env.Clock.ThreadScheduler.CreateSimulationThread(sp,SimulationThreadType.TYPE_LOG_ALL);

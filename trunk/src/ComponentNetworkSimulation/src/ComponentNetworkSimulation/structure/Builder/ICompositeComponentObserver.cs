@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.1  2004/06/28 10:50:51  joemal
 	/// initial class creation
 	///
@@ -26,14 +29,14 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// </summary>
 		/// <param name="componentID">the id of the observing component.</param>
 		/// <param name="innerComponentID">the id of the component that was added</param>
-		void OnBasicComponentAdded(string componentID, string innerComponentID);
+		void OnBasicComponentAdded(IIdentifier componentID, IIdentifier innerComponentID);
 
 		/// <summary>
 		/// called, when a composite component was added to the observing composite component.
 		/// </summary>
 		/// <param name="componentID">the id of the observing component.</param>
 		/// <param name="innerComponentID">the id of the component that was added</param>
-		void OnCompositeComponentAdded(string componentID, string innerComponentID);
+		void OnCompositeComponentAdded(IIdentifier componentID, IIdentifier innerComponentID);
 
 		/// <summary>
 		/// called, when a binding was added to the observing composite component.
@@ -44,7 +47,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="provIFaceID">the id of the provides interface</param>
 		/// <param name="reqIFaceID">the id of the requires interface</param>
 		/// <param name="parms">the parameters for the binding</param>
-		void OnBindingAdded(string componentID, string provCompID,string reqCompID,IIdentifier provIFaceID,
+		void OnBindingAdded(IIdentifier componentID, IIdentifier provCompID,IIdentifier reqCompID,IIdentifier provIFaceID,
 			IIdentifier reqIFaceID,ISimulationBindingParams parms);
 
 		/// <summary>
@@ -54,7 +57,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="requiringComp">the inner component</param>
 		/// <param name="compReqIFaceID">the interface of the inner component</param>
 		/// <param name="thisCompReqIFaceID">the interface of this component</param>
-		void OnRequiresMappingAdded(string componentID,string requiringComp, IIdentifier compReqIFaceID, 
+		void OnRequiresMappingAdded(IIdentifier componentID,IIdentifier requiringComp, IIdentifier compReqIFaceID, 
 			IIdentifier thisCompReqIFaceID); 
 
 		/// <summary>
@@ -64,7 +67,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="requiringComp">the inner component</param>
 		/// <param name="compReqIFaceID">the interface of the inner component</param>
 		/// <param name="thisCompReqIFaceID">the interface of this component</param>
-		void OnProvidesMappingAdded(string componentID,string providingComp, IIdentifier compProvIFaceID, 
+		void OnProvidesMappingAdded(IIdentifier componentID,IIdentifier providingComp, IIdentifier compProvIFaceID, 
 			IIdentifier thisCompProvIFaceID); 
 	}
 }

@@ -12,6 +12,9 @@ namespace nunittests.structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.7  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.6  2004/06/28 10:52:39  joemal
 	/// - add observer to the builders
 	///
@@ -39,15 +42,15 @@ namespace nunittests.structure
 		public static void FillCC(ICompositeComponentBuilder builder)
 		{
 			//create the two inner components
-			FillC1(builder.AddBasicComponent("C1",null));
-			FillC2(builder.AddBasicComponent("C2",null));
+			FillC1(builder.AddBasicComponent(ID("C1"),null));
+			FillC2(builder.AddBasicComponent(ID("C2"),null));
 
 			//bind them
 			StaticTimeBindingParams p = new StaticTimeBindingParams(LoggingType_t.LOG_BOTH,3);
-			builder.AddBinding("C2","C1",ID("P2"),ID("R1"),p);
+			builder.AddBinding(ID("C2"),ID("C1"),ID("P2"),ID("R1"),p);
 
 			//adds a provides mapping from c1 
-			builder.AddProvidesMapping("C1",ID("P1"),ID("P1"));
+			builder.AddProvidesMapping(ID("C1"),ID("P1"),ID("P1"));
 		}
 
 		public static void FillC1(IBasicComponentBuilder builder)

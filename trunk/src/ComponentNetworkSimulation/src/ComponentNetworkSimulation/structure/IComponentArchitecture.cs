@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.5  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.4  2004/06/28 10:51:47  joemal
 	/// - add observer to the builders
 	///
@@ -94,7 +97,7 @@ namespace ComponentNetworkSimulation.Structure
 		/// The observer for this component. If no observer is needed, this parameter may be null.
 		/// </param>
 		/// <returns>the builder</returns>
-        Builder.IBasicComponentBuilder CreateBasicRootComponent(String id, Builder.IBasicComponentObserver observer);
+        Builder.IBasicComponentBuilder CreateBasicRootComponent(IIdentifier id, Builder.IBasicComponentObserver observer);
 
 		/// <summary>
 		/// call to create an empty compositecomponent and set it as root component. 
@@ -105,7 +108,7 @@ namespace ComponentNetworkSimulation.Structure
 		/// The observer for this component. If no observer is needed, this parameter may be null.
 		/// </param>
 		/// <returns>the builder</returns>
-		Builder.ICompositeComponentBuilder CreateCompositeComponent(String id, Builder.ICompositeComponentObserver observer);
+		Builder.ICompositeComponentBuilder CreateCompositeComponent(IIdentifier id, Builder.ICompositeComponentObserver observer);
 	}
 }
 //EOF

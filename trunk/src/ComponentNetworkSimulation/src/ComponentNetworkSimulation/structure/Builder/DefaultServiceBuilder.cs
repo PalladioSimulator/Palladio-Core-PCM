@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.6  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.5  2004/06/28 10:51:47  joemal
 	/// - add observer to the builders
 	///
@@ -120,7 +123,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 
 			if (this.observer != null) 
 			{
-				IExternalSignature extSig = serviceEffectSpecification.SignatureList.Signatures[0];
+				IExternalSignature extSig = serviceEffectSpecification.SignatureList[0];
 				observer.OnStateAdded(extSig.RoleID,extSig.Signature.ID,stateParams);
 			}
 		}
@@ -134,7 +137,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			FSM.StartState = FSM.GetState(id);
 			if (this.observer != null) 
 			{
-				IExternalSignature extSig = serviceEffectSpecification.SignatureList.Signatures[0];
+				IExternalSignature extSig = serviceEffectSpecification.SignatureList[0];
 				observer.OnStartStateSet(extSig.RoleID,extSig.Signature.ID,id);
 			}
 		}
@@ -151,7 +154,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			
 			if (this.observer != null) 
 			{
-				IExternalSignature extSig = serviceEffectSpecification.SignatureList.Signatures[0];
+				IExternalSignature extSig = serviceEffectSpecification.SignatureList[0];
 				observer.OnFinalStatesSet(extSig.RoleID,extSig.Signature.ID,ids);
 			}
 		}
@@ -170,10 +173,10 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			if (!this.component.HasRequiresInterface(reqIFaceID)) 
 				this.component.AddRequiresInterface(reqIFaceID,ComponentFactory.CreateInterfaceModel());
 
-			ISignature sig = ComponentFactory.CreateSignatureArray(signatureID.ToString())[0];
+			ISignature sig = ComponentFactory.CreateSignature(signatureID.ToString());
 			this.component.GetRequiresInterface(reqIFaceID).SignatureList.AddSignatures(sig);
 
-			IExternalSignature extSig = ComponentFactory.CreateSignatureWithRole(reqIFaceID,sig);
+			IExternalSignature extSig = ComponentFactory.CreateExternalSignature(reqIFaceID,sig);
 
 			serviceEffectSpecification.SignatureList.AddSignatures(extSig);
             
@@ -181,7 +184,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 
 			if (this.observer != null) 
 			{
-				IExternalSignature exSig = serviceEffectSpecification.SignatureList.Signatures[0];
+				IExternalSignature exSig = serviceEffectSpecification.SignatureList[0];
 				observer.OnTransitionAdded(exSig.RoleID,exSig.Signature.ID,sourceStateID,signatureID,reqIFaceID,destStateID);
 			}
 		}

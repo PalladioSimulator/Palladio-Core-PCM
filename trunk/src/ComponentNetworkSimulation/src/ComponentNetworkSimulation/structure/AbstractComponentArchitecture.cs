@@ -1,6 +1,7 @@
 using System;
 using Palladio.ComponentModel;
 using ComponentNetworkSimulation.Structure.Visitor;
+using Palladio.Identifier;
 
 namespace ComponentNetworkSimulation.Structure
 {
@@ -13,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.3  2004/07/05 11:16:03  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.2  2004/06/28 10:51:47  joemal
 	/// - add observer to the builders
 	///
@@ -207,7 +211,7 @@ namespace ComponentNetworkSimulation.Structure
 		/// The observer for this component. If no observer is needed, this parameter may be null.
 		/// </param>
 		/// <returns>the builder for the component</returns>
-		public abstract Builder.IBasicComponentBuilder CreateBasicRootComponent(String id,
+		public abstract Builder.IBasicComponentBuilder CreateBasicRootComponent(IIdentifier id,
 			Builder.IBasicComponentObserver observer);
 
 		/// <summary>
@@ -218,7 +222,7 @@ namespace ComponentNetworkSimulation.Structure
 		/// The observer for this component. If no observer is needed, this parameter may be null.
 		/// </param>
 		/// <returns>the builder for the component</returns>
-		public abstract Builder.ICompositeComponentBuilder CreateCompositeComponent(String id,
+		public abstract Builder.ICompositeComponentBuilder CreateCompositeComponent(IIdentifier id,
 			Builder.ICompositeComponentObserver observer);
 
 		#endregion

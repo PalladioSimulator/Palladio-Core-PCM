@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.2  2004/06/26 15:42:52  joemal
 	/// - add the simulation bindings
 	///
@@ -41,14 +44,14 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		/// </summary>
 		/// <param name="id">the id of the component</param>
 		/// <returns>the component</returns>
-		IBasicComponent CreateBasicComponent(string id);
+		IBasicComponent CreateBasicComponent(IIdentifier id);
 
 		/// <summary>
 		/// called to create an composite component
 		/// </summary>
 		/// <param name="id">the id of the component</param>
 		/// <returns>the composite component</returns>
-		ICompositeComponent CreateCompositeComponent(string id);
+		ICompositeComponent CreateCompositeComponent(IIdentifier id);
 
 		#endregion
 

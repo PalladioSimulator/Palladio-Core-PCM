@@ -2,6 +2,7 @@ using System;
 using ComponentNetworkSimulation.Structure.Visitor;
 using ComponentNetworkSimulation.Structure.Builder;
 using Palladio.ComponentModel;
+using Palladio.Identifier;
 
 namespace ComponentNetworkSimulation.Structure
 {
@@ -13,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.5  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.4  2004/06/28 10:51:47  joemal
 	/// - add observer to the builders
 	///
@@ -97,7 +101,7 @@ namespace ComponentNetworkSimulation.Structure
 		/// The observer for this component. If no observer is needed, this parameter may be null.
 		/// </param>
 		/// <returns>the builder for the component</returns>
-		public override IBasicComponentBuilder CreateBasicRootComponent(String id, IBasicComponentObserver observer)
+		public override IBasicComponentBuilder CreateBasicRootComponent(IIdentifier id, IBasicComponentObserver observer)
 		{
 			IBasicComponent component = this.ElementFactory.CreateBasicComponent(id);
 			this.rootComponent = component;
@@ -114,7 +118,7 @@ namespace ComponentNetworkSimulation.Structure
 		/// The observer for this component. If no observer is needed, this parameter may be null.
 		/// </param>
 		/// <returns>the builder for the component</returns>
-		public override ICompositeComponentBuilder CreateCompositeComponent(String id,ICompositeComponentObserver observer)
+		public override ICompositeComponentBuilder CreateCompositeComponent(IIdentifier id,ICompositeComponentObserver observer)
 		{
 			ICompositeComponent component = this.ElementFactory.CreateCompositeComponent(id);
 			this.rootComponent = component;

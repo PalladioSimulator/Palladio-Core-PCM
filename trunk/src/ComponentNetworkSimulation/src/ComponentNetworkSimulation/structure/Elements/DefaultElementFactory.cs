@@ -10,6 +10,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.2  2004/06/26 15:42:52  joemal
 	/// - add the simulation bindings
 	///
@@ -40,7 +43,7 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		/// </summary>
 		/// <param name="id">the id of the component</param>
 		/// <returns>the component</returns>
-		public IBasicComponent CreateBasicComponent(string id)
+		public IBasicComponent CreateBasicComponent(IIdentifier id)
 		{
 			return ComponentFactory.CreateBasicComponent(id);
 		}
@@ -50,7 +53,7 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		/// </summary>
 		/// <param name="id">the id of the component</param>
 		/// <returns>the composite component</returns>
-		public ICompositeComponent CreateCompositeComponent(string id)
+		public ICompositeComponent CreateCompositeComponent(IIdentifier id)
 		{
 			return ComponentFactory.CreateCompositeComponent(id);
 		}

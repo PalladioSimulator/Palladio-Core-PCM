@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.6  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.5  2004/06/28 10:51:47  joemal
 	/// - add observer to the builders
 	///
@@ -104,11 +107,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			if (!this.BasicComponent.HasProvidesInterface(provIfaceID)) 
 				this.BasicComponent.AddProvidesInterface(provIfaceID,ComponentFactory.CreateInterfaceModel());
 
-			ISignature[] sigs = ComponentFactory.CreateSignatureArray(signatureID.ToString());
-			this.BasicComponent.GetProvidesInterface(provIfaceID).SignatureList.AddSignatures(sigs);
+			ISignature sig = ComponentFactory.CreateSignature(signatureID.ToString());
+			this.BasicComponent.GetProvidesInterface(provIfaceID).SignatureList.AddSignatures(sig);
 
 			IServiceEffectSpecification seff = ComponentFactory.CreateServiceEffectSpecification();
-			this.BasicComponent.AddServiceEffectSpecification(provIfaceID,sigs[0],seff);
+			this.BasicComponent.AddServiceEffectSpecification(provIfaceID,sig,seff);
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
 			seff.AddAuxiliarySpecification(fsmSeff);
@@ -117,7 +120,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 			serviceBuilderTable.Add(CreateExternalSignature(provIfaceID,signatureID),builder);
 
 			if(observer != null)
-				this.BasicComponentObserver.OnServiceAdded(this.component.ID.ToString(),provIfaceID,signatureID);
+				this.BasicComponentObserver.OnServiceAdded(this.component.ID,provIfaceID,signatureID);
 
 			return builder;
 		}
@@ -141,8 +144,8 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <returns></returns>
 		private IExternalSignature CreateExternalSignature(IIdentifier iFaceID, IIdentifier sigID)
 		{
-			ISignature sig = ComponentFactory.CreateSignatureArray(sigID.ToString())[0];
-			return ComponentFactory.CreateSignatureWithRole(iFaceID,sig);			
+			ISignature sig = ComponentFactory.CreateSignature(sigID.ToString());
+			return ComponentFactory.CreateExternalSignature(iFaceID,sig);			
 		}
 
 		/// <summary>

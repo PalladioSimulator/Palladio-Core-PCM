@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.1  2004/06/28 10:50:51  joemal
 	/// initial class creation
 	///
@@ -25,14 +28,14 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// </summary>
 		/// <param name="componentId">the id of the observing component</param>
 		/// <param name="iFaceID">the id of the new interface</param>
-		void OnRequiresInterfaceAdded(string componentId, IIdentifier iFaceID);
+		void OnRequiresInterfaceAdded(IIdentifier componentId, IIdentifier iFaceID);
 
 		/// <summary>
 		/// called by the componentbuilder, when a provides interface was added to the observing component.
 		/// </summary>
 		/// <param name="componentId">the id of the observing component</param>
 		/// <param name="iFaceID">the id of the new interface</param>
-		void OnProvidesInterfaceAdded(string componentId, IIdentifier iFaceID);
+		void OnProvidesInterfaceAdded(IIdentifier componentId, IIdentifier iFaceID);
 	}
 }
 //EOF

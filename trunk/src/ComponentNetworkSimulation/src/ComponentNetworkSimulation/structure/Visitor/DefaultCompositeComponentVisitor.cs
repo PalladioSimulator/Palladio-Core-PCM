@@ -15,6 +15,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.5  2004/07/05 11:16:03  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.4  2004/06/22 12:24:30  joemal
 	/// now use the factory to create the component visitors
 	///
@@ -214,15 +217,13 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 
 			ISignature[] sig = iface.SignatureList.GetSignaturesByID(signatureID);
 			if (sig.Length == 0)
-				//todo: change parameter to simple id
-				throw new Palladio.ComponentModel.Exceptions.SignatureNotFoundException(
-					ComponentFactory.CreateSignatureArray(signatureID.ToString())[0]);
+				throw new Palladio.ComponentModel.Exceptions.SignatureNotFoundException(signatureID);
 
 			IMapping mapping = CompositeComponent.GetProvidesMappingByOuter(interfaceID);
 			IComponent innerComponent = mapping.ProvidingRole.Component;
 
 			IExternalSignature calledSignature = ComponentFactory.
-				CreateSignatureWithRole(mapping.ProvidingRole.RoleID,sig[0]);
+				CreateExternalSignature(mapping.ProvidingRole.RoleID,sig[0]);
 
 			visitorStack.Push(calledSignature);
 			Visit(innerComponent);
@@ -280,7 +281,7 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 			{
 				IMapping mapping = CompositeComponent.GetRequiresMappingByInner(comp.ID,extSig.RoleID);
 
-				IExternalSignature calledSignature = ComponentFactory.CreateSignatureWithRole(mapping.RequiringRole.RoleID,
+				IExternalSignature calledSignature = ComponentFactory.CreateExternalSignature(mapping.RequiringRole.RoleID,
 					extSig.Signature);
 
 				NotifyExternalCall(calledSignature);
@@ -303,7 +304,7 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 			try 
 			{
 				IBinding binding = CompositeComponent.GetBindingByRequires(comp.ID,extSig.RoleID);
-				IExternalSignature calledSignature = ComponentFactory.CreateSignatureWithRole(binding.ProvidingRole.RoleID,
+				IExternalSignature calledSignature = ComponentFactory.CreateExternalSignature(binding.ProvidingRole.RoleID,
 					extSig.Signature);
 
 				//push the external signature of the providing component to the stack

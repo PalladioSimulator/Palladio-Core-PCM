@@ -1,6 +1,7 @@
 using System;
 using Palladio.ComponentModel;
 using ComponentNetworkSimulation.Structure.Elements;
+using Palladio.Identifier;
 
 namespace ComponentNetworkSimulation.Structure.Builder
 {
@@ -13,6 +14,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.4  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.3  2004/06/28 10:51:47  joemal
 	/// - add observer to the builders
 	///
@@ -57,11 +61,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <summary>
 		/// called to extract the id of the builders component
 		/// </summary>
-		protected string CompID
+		protected IIdentifier CompID
 		{
 			get
 			{
-				return this.component.ID.ToString();
+				return this.component.ID;
 			}
 		}
 

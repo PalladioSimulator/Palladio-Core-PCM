@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/07/05 11:16:03  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.2  2004/06/19 13:44:16  joemal
 	/// - add some exception handling
 	///
@@ -58,10 +61,10 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 		/// <param name="component">the component to be visited</param>
 		/// <param name="interfaceID">the id of the interface</param>
 		/// <param name="signatureID">the id of the signature</param>
-		/// <exception cref="Palladio.ComponentModel.RoleIDNotFoundException">
+		/// <exception cref="Palladio.ComponentModel.Exceptions.RoleIDNotFoundException">
 		/// thrown, if the interface with given id can't be found in the component
 		/// </exception>
-		///	<exception cref="Palladio.ComponentModel.SignatureNotFoundException">
+		///	<exception cref="Palladio.ComponentModel.Exceptions.SignatureNotFoundException">
 		/// thrown, if the signature with given id can't be found in interface
 		/// </exception>
 		public DefaultBasicComponentVisitor(IBasicComponent component, IIdentifier interfaceID, IIdentifier signatureID):base(component)
@@ -70,11 +73,9 @@ namespace ComponentNetworkSimulation.Structure.Visitor
 			ISignature[] sig = iface.SignatureList.GetSignaturesByID(signatureID);
 
 			if (sig.Length == 0)
-				//todo: change parameter to simple id
-				throw new Palladio.ComponentModel.Exceptions.SignatureNotFoundException(
-					ComponentFactory.CreateSignatureArray(signatureID.ToString())[0]);
+				throw new Palladio.ComponentModel.Exceptions.SignatureNotFoundException(signatureID);
 
-			Init(ComponentFactory.CreateSignatureWithRole(interfaceID,sig[0]));			
+			Init(ComponentFactory.CreateExternalSignature(interfaceID,sig[0]));			
 		}
 
 		#endregion

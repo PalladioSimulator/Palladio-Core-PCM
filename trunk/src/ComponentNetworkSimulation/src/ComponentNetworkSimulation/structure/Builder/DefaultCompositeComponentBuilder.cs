@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.4  2004/07/05 11:16:02  joemal
+	/// - changes in the CM after code review
+	///
 	/// Revision 1.3  2004/06/28 10:51:47  joemal
 	/// - add observer to the builders
 	///
@@ -89,7 +92,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// The observer for this component. If no observer is needed, this parameter may be null.
 		/// </param>
 		/// <returns>the builder to fill this component</returns>
-		public IBasicComponentBuilder AddBasicComponent(string componentID, IBasicComponentObserver observer)
+		public IBasicComponentBuilder AddBasicComponent(IIdentifier componentID, IBasicComponentObserver observer)
 		{
 			IBasicComponent basicComp = ComponentFactory.CreateBasicComponent(componentID);
 			this.CompositeComponent.AddComponents(basicComp);
@@ -111,7 +114,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// The observer for this component. If no observer is needed, this parameter may be null.
 		/// </param>
 		/// <returns>the builder to fill this component</returns>
-		public ICompositeComponentBuilder AddCompositeComponent(string componentID,ICompositeComponentObserver observer)
+		public ICompositeComponentBuilder AddCompositeComponent(IIdentifier componentID,ICompositeComponentObserver observer)
 		{
 			ICompositeComponent compositeComp = ComponentFactory.CreateCompositeComponent(componentID);
 			this.CompositeComponent.AddComponents(compositeComp);
@@ -131,7 +134,7 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// </summary>
 		/// <param name="componentID">the id of the component</param>
 		/// <returns>the builder of the component</returns>
-		public IComponentBuilder getComponentBuilder(string componentID)
+		public IComponentBuilder getComponentBuilder(IIdentifier componentID)
 		{
 			return (IComponentBuilder)builders[componentID];
 		}
@@ -144,11 +147,11 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="provIFaceID">the id of the provides interface</param>
 		/// <param name="reqIFaceID">the id of the requires interface</param>
 		/// <param name="parms">the parameters for the binding</param>
-		public void AddBinding(string provComp, string reqComp, IIdentifier provIFaceID, IIdentifier reqIFaceID, 
+		public void AddBinding(IIdentifier provComp, IIdentifier reqComp, IIdentifier provIFaceID, IIdentifier reqIFaceID, 
 			ISimulationBindingParams parms)
 		{
-			IComponent pComp = this.findComponent(provComp);
-			IComponent rComp = this.findComponent(reqComp);
+			IComponent pComp = this.CompositeComponent.GetComponent(provComp);
+			IComponent rComp = this.CompositeComponent.GetComponent(reqComp);
 
 			ISimulationBinding binding = elementFactory.CreateBinding(rComp,reqIFaceID,pComp,provIFaceID,parms);
 			this.CompositeComponent.AddBindings(binding);
@@ -164,9 +167,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="requiringComp">the inner component</param>
 		/// <param name="compReqIFaceID">the interface of the inner component</param>
 		/// <param name="thisCompReqIFaceID">the interface of this component</param>
-		public void AddRequiresMapping(string requiringComp, IIdentifier compReqIFaceID, IIdentifier thisCompReqIFaceID)
+		public void AddRequiresMapping(IIdentifier requiringComp, IIdentifier compReqIFaceID, IIdentifier thisCompReqIFaceID)
 		{
-			IComponent innerComp = findComponent(requiringComp);
+			IComponent innerComp = CompositeComponent.GetComponent(requiringComp);
 			if (!innerComp.HasRequiresInterface(compReqIFaceID))
 				innerComp.AddRequiresInterface(compReqIFaceID,ComponentFactory.CreateInterfaceModel());
 
@@ -192,9 +195,9 @@ namespace ComponentNetworkSimulation.Structure.Builder
 		/// <param name="providingComp">the inner component</param>
 		/// <param name="compProvIFaceID">the interface of the inner component</param>
 		/// <param name="thisCompProvIFaceID">the interface of this component</param>
-		public void AddProvidesMapping(string providingComp, IIdentifier compProvIFaceID, IIdentifier thisCompProvIFaceID)
+		public void AddProvidesMapping(IIdentifier providingComp, IIdentifier compProvIFaceID, IIdentifier thisCompProvIFaceID)
 		{
-			IComponent innerComp = findComponent(providingComp);
+			IComponent innerComp = this.CompositeComponent.GetComponent(providingComp);
 			if (!innerComp.HasProvidesInterface(compProvIFaceID))
 				innerComp.AddProvidesInterface(compProvIFaceID,ComponentFactory.CreateInterfaceModel());
 
@@ -226,19 +229,10 @@ namespace ComponentNetworkSimulation.Structure.Builder
 				builder.Reset();
 		}
 
-		//todo: away, when ICompositeComponent contains a query method
-		private IComponent findComponent(string id)
-		{
-			foreach (IComponent c in this.CompositeComponent.Components)
-				if (c.ID.Equals(IdentifiableFactory.CreateStringID(id))) return c;
-
-			return null;
-		}
-
 		//called to add copies of all signatures from Interface fromIFace that are missing in interface toIFace to toIFace.
 		private void copyMissingSignatures(IInterfaceModel fromIFace, IInterfaceModel toIFace)
 		{
-			foreach(ISignature sig in fromIFace.SignatureList.Signatures)
+			foreach(ISignature sig in fromIFace.SignatureList)
 				if (!toIFace.SignatureList.ContainsSignature(sig)) 
 					toIFace.SignatureList.AddSignatures((ISignature)sig.Clone());
 		}
