@@ -168,10 +168,10 @@ namespace UnitTests.FiniteStateMachines {
 		}
 
 		[Test] public void GetOutgoingTransitions(){
-			Hashtable outgoing = machineOne.GetOutgoingTransitions(states[0]);
-			foreach (DictionaryEntry entry in outgoing) {
-				Assert.IsTrue(machineOne.InputAlphabet.Contains(entry.Key));
-				Assert.AreEqual(machineOne.GetNextTransition(states[0],(Input)entry.Key),entry.Value);
+			IList outgoing = machineOne.GetOutgoingTransitions(states[0]);
+			foreach (Transition trans in outgoing) {
+				Assert.IsTrue(machineOne.InputAlphabet.Contains(trans.InputSymbol));
+				Assert.AreEqual(machineOne.GetNextTransition(states[0],trans.InputSymbol),trans);
 			}
 		}
 

@@ -53,13 +53,7 @@ namespace FiniteStateMachines {
 		/// <returns>A <code>Hashtable</code> which contains all transtions for the given state.
 		/// The key of the <code>Hashtable</code> is the <code>Input</code> and the value the 
 		/// corresponding <code>Transition</code>.</returns>
-		Hashtable GetOutgoingTransitions(AbstractState aSourceState);
-
-		/// <summary>
-		/// Returns all Transitions of the FSM in Transition Array.
-		/// </summary>
-		/// <returns>All Transitions of the FSM in a Array of Transitions.</returns>
-		//Transition[] GetTransitions();
+		IList GetOutgoingTransitions(AbstractState aSourceState);
 	}
 
 }

@@ -67,15 +67,16 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Creates a new finite state machine using an array of transitions.
 		/// </summary>
-		/// <param name="aTransitionSet">All transitions of the finite state machine.</param>
-		public FiniteTabularMachine(Transition[] aTransitionSet) {
+		/// <param name="aTransitionList">All transitions of the finite state machine.</param>
+		public FiniteTabularMachine(IList aTransitionList) {
 			this.inputAlphabet = new Set();
 			this.transitionTable = new Hashtable();
 			this.finalStates = new Set();
 			this.errorState = AbstractState.CreateErrorState();
 			this.states = new Set();
-			this.addTransitions(aTransitionSet);
+			this.addTransitions(aTransitionList);
 		}
+
 
 
 		/// <summary>
@@ -100,10 +101,10 @@ namespace FiniteStateMachines {
 		private void GetReachableStatesRecursive(AbstractState aState,ref Set resultSet) {
 			if ((!resultSet.Contains(aState)) && (aState!=ErrorState)) {
 				resultSet.Add(aState);
-				Hashtable transitions = GetOutgoingTransitions(aState);
+				IList transitions = GetOutgoingTransitions(aState);
 				if (transitions != null) {
-					foreach (DictionaryEntry entry in transitions) {
-						GetReachableStatesRecursive(((Transition)entry.Value).DestinationState,ref resultSet);
+					foreach (Transition trans in transitions) {
+						GetReachableStatesRecursive(trans.DestinationState,ref resultSet);
 					}
 				}
 			}
@@ -212,10 +213,13 @@ namespace FiniteStateMachines {
 		/// <returns>A <code>Hashtable</code> which contains all transtions for the given state.
 		/// The key of the <code>Hashtable</code> is the <code>Input</code> and the value the 
 		/// corresponding <code>Transition</code>.</returns>
-		public Hashtable GetOutgoingTransitions(AbstractState state) {
-			Hashtable result = new Hashtable();
-			foreach( Input i in InputAlphabet) {
-				result.Add(i,GetNextTransition(state,i));
+		public IList GetOutgoingTransitions(AbstractState state) {
+			ArrayList result = new ArrayList();
+			Hashtable outgoing = (Hashtable)transitionTable[state];
+			if (outgoing != null) {
+				foreach (DictionaryEntry entry in outgoing) {
+					result.Add(entry.Value);
+				}
 			}
 			return result;
 		}
@@ -310,10 +314,10 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Adds an array of transitions to the finite state machine. 
 		/// </summary>
-		/// <param name="tr">An array of a transitions.</param>
-		public void addTransitions(Transition[] tr) {	
-			foreach (Transition t in tr){
-				this.addTransition(t);
+		/// <param name="aTransitionList">A list of a transitions.</param>
+		public void addTransitions(IList aTransitionList) {	
+			foreach (Transition trans in aTransitionList){
+				this.addTransition(trans);
 			}
 		}
 
@@ -324,7 +328,7 @@ namespace FiniteStateMachines {
 		public override string ToString() {
 			string result = "start state : "+StartState+"\n";
 			result += "final states: ";
-			foreach (State state in FinalStates) {
+			foreach (AbstractState state in FinalStates) {
 				result += state + " ";
 			}
 			result += "\n";

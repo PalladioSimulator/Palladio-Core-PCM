@@ -90,7 +90,7 @@ namespace FiniteStateMachines {
 				//top of Stack has allready been returning
 				AbstractState currentState = (AbstractState) this.states.Peek();
 				//check if cs has chilldren();
-				Hashtable nextStates = this.getters.GetOutgoingTransitions(currentState);
+				IList nextStates = this.getters.GetOutgoingTransitions(currentState);
 				while(nextStates == null) {
 					if(this.debugOutput)
 						Console.WriteLine("There are no Children from "+currentState.ToString());
@@ -109,10 +109,10 @@ namespace FiniteStateMachines {
 				//write every child on the Stack
 				Transition tempTransition = new Transition();
 				//				AbstractState tempState = new State();
-				IDictionaryEnumerator iterateOverChildren = nextStates.GetEnumerator();
+				IEnumerator iterateOverChildren = nextStates.GetEnumerator();
 				while(iterateOverChildren.MoveNext()) {
 					
-					tempTransition = (Transition) iterateOverChildren.Value;
+					tempTransition = (Transition) iterateOverChildren.Current;
 					this.states.Push(tempTransition.DestinationState);
 					this.transitions.Push(tempTransition);
 					if(this.debugOutput)

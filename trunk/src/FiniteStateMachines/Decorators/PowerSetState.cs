@@ -34,6 +34,18 @@ namespace FiniteStateMachines.Decorators
 
 		
 		/// <summary>
+		/// Creates a new <code>PowerSetState</code> containing only 
+		/// the state <code>aState</code>.
+		/// </summary>
+		/// <param name="aState">A regular state.</param>
+		public PowerSetState(AbstractState aState) {
+			this.isStartState = aState.IsStartState;
+			stateSet = new Set();
+			stateSet.Add(aState);
+		}
+
+		
+		/// <summary>
 		/// A Set of states forming the <code>PowerSetState</code>.
 		/// </summary>
 		public Set States {

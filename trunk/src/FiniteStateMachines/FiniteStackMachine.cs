@@ -153,25 +153,31 @@ namespace FiniteStateMachines {
 
 		
 		/// <summary>
-		/// Returns all transitions with the source <code>aSourceState</code>.
+		/// Returns all _valid_ transitions with the source <code>aSourceState</code>.
 		/// </summary>
 		/// <returns>A <code>Hashtable</code> which contains all transtions for the given state.
 		/// The key of the <code>Hashtable</code> is the <code>Input</code> and the value the 
 		/// corresponding <code>Transition</code>.</returns>
-		public Hashtable GetOutgoingTransitions(AbstractState aSourceState) {
+		public IList GetOutgoingTransitions(AbstractState aSourceState) {
 			try {
-				Hashtable result = new Hashtable();
+				ArrayList result = new ArrayList();
 				foreach (Input input in inputAlphabet) {
-					result.Add(input,GetNextTransition(aSourceState,input));
+					Transition nextTransition = GetNextTransition(aSourceState,input);
+					if (nextTransition.DestinationState != ErrorState) {
+						result.Add(nextTransition);
+					}
 				}
 				return result;
 			} catch ( InvalidOperationException ) {
 				// TODO clean up this dirty hack
 				// problem: if the input alphabet is modified the iterator used by
 				// the foreach construct becomes invalid.
-				Hashtable result = new Hashtable();
+				ArrayList result = new ArrayList();
 				foreach (Input input in inputAlphabet) {
-					result.Add(input,GetNextTransition(aSourceState,input));
+					Transition nextTransition = GetNextTransition(aSourceState,input);
+					if (nextTransition.DestinationState != ErrorState) {
+						result.Add(nextTransition);
+					}
 				}
 				return result;
 			}

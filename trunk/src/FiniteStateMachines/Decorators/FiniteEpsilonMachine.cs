@@ -54,32 +54,52 @@ namespace FiniteStateMachines.Decorators {
 		/// whole machine is pre-calculated, so its faster; the disadvantage is the wastage of memory.
 		/// </summary>
 		/// <returns>A new pre-calculated finite state machine.</returns>
-		public IFiniteStateMachine GetRegularFiniteStateMachine(){
-			return null;
+		public IFiniteStateMachine GetDeterministicFiniteStateMachine(){
+			IList transitionList = GetAllTransitions();
+			FiniteTabularMachine deterministicFSM = new FiniteTabularMachine(transitionList);
+			return deterministicFSM;
+		}
+
+
+
+		/// <summary>
+		/// Determins all transitons of this automaton.
+		/// </summary>
+		private IList GetAllTransitions(){
+			ArrayList transitions = new ArrayList();
+			ArrayList visitedStates = new ArrayList();
+			GetAllTransitionsRecursive(StartState,ref transitions,ref visitedStates);
+			return transitions;
 		}
 
 
 		/// <summary>
-		/// Determins the epsilon-closure for <code>aState</code>. Two types of
-		/// states allowed as input:
-		/// 1.	<code>PowerSetStates</code>, the functions determins the epsilon-closure
-		///		for all included states.
-		///	2.	States of the default type of the initial finite state machine handed over to
-		///		the constructor. In this case the closure is determined only for a single state.
+		/// Recursive implementation of <code>GetAllTransitions</code>.
 		/// </summary>
+		/// <param name="aState"></param>
+		/// <param name="resultSet"></param>
+		/// <returns></returns>
+		private void GetAllTransitionsRecursive(AbstractState aState, ref ArrayList resultSet, ref ArrayList visitedStates ){
+			if ((aState!=ErrorState) && (!visitedStates.Contains(aState))) {
+				visitedStates.Add(aState);
+				IList outgoing = GetOutgoingTransitions(aState);
+				foreach (Transition trans in outgoing) {
+					resultSet.Add(trans);
+					GetAllTransitionsRecursive(trans.DestinationState,ref resultSet,ref visitedStates);
+				}
+			}
+		}
+
+
+		/// <summary>
+		/// Determins the epsilon-closure for <code>aState</code>. Only
+		/// <code>PowerSetStates</code> are allowed as input. The method
+		///	determins the epsilon-closure for all included states.
 		/// <param name="aState">The state for which the epsilon-closure is determined.</param>
 		/// <returns>A <code>PowerSetState</code> representing the epsilon-closure of <code>aState</code>.</returns>
-		private PowerSetState GetEpsilonClosure(AbstractState aState){
-			Set stateSet;
-			if (aState is PowerSetState) {
-				stateSet = ((PowerSetState)aState).States;
-			} else {
-				stateSet = new Set();
-				stateSet.Add(aState);
-			}
-
+		private PowerSetState GetEpsilonClosure(PowerSetState aState){
 			Set closure = new Set();
-			foreach (AbstractState state in stateSet){
+			foreach (AbstractState state in aState.States){
 				GetEpsilonClosureRecursive(state,ref closure);
 			}
 			return new PowerSetState(closure,aState.IsStartState);
@@ -93,7 +113,7 @@ namespace FiniteStateMachines.Decorators {
 		/// <param name="resultSet"></param>
 		/// <returns></returns>
 		private void GetEpsilonClosureRecursive(AbstractState aState, ref Set resultSet){
-			if ((!resultSet.Contains(aState)) && (aState!=ErrorState)) {
+			if ((aState!=ErrorState) && (!resultSet.Contains(aState))) {
 				resultSet.Add(aState);
 				foreach (Input input in epsilonAlphabet) {
 					GetEpsilonClosureRecursive(defaultMachine.GetNextState(aState,input),ref resultSet);
@@ -117,7 +137,8 @@ namespace FiniteStateMachines.Decorators {
 		/// </summary>
 		public AbstractState StartState { 
 			get {
-				return  GetEpsilonClosure(defaultMachine.StartState);
+				PowerSetState initialStartState = new PowerSetState(defaultMachine.StartState);
+				return GetEpsilonClosure(initialStartState);
 			} 
 		}
 
@@ -149,7 +170,7 @@ namespace FiniteStateMachines.Decorators {
 		/// </summary>
 		/// <returns>The destination of the transition.</returns>
 		public AbstractState GetNextState(AbstractState aSourceState, Input anInput){
-			return defaultMachine.GetNextState(aSourceState,anInput);
+			return GetNextTransition(aSourceState,anInput).DestinationState;
 		}
 
 		
@@ -182,13 +203,22 @@ namespace FiniteStateMachines.Decorators {
 
 		
 		/// <summary>
-		/// Returns all transitions with the source <code>aSourceState</code>.
+		/// Returns all _valid_ transitions with the source <code>aSourceState</code>.
 		/// </summary>
-		/// <returns>A <code>Hashtable</code> which contains all transtions for the given state.
+		/// <returns>A <code>Hashtable</code> which contains all transtions for <code>aSourceState</code>.
 		/// The key of the <code>Hashtable</code> is the <code>Input</code> and the value the 
 		/// corresponding <code>Transition</code>.</returns>
-		public Hashtable GetOutgoingTransitions(AbstractState aSourceState){
-			return defaultMachine.GetOutgoingTransitions(aSourceState);
+		public IList GetOutgoingTransitions(AbstractState aSourceState){
+			ArrayList result = new ArrayList();
+			foreach(Input i in InputAlphabet) {
+				if (!EpsilonAlphabet.Contains(i)) {
+					Transition nextTransition = GetNextTransition(aSourceState,i);
+					if(nextTransition.DestinationState != ErrorState) {
+						result.Add(nextTransition);
+					}
+				}
+			}
+			return result;
 		}
 	}
 }

@@ -17,6 +17,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 		FiniteTabularMachine tabularMachine;
 		FiniteEpsilonMachine epsilonMachine;
 		Set epsilonAlphabet;
+		IFiniteStateMachine deterministicFSM;
 
 		[SetUp] public void Init() {
 			states = new State[6];
@@ -52,6 +53,7 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			epsilonAlphabet.Add(inputs[2]);
 
 			epsilonMachine = new FiniteEpsilonMachine(tabularMachine,epsilonAlphabet);
+			deterministicFSM = epsilonMachine.GetDeterministicFiniteStateMachine();
 		}
 		
 		[Test] public void GetStartState() {
@@ -110,6 +112,56 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 			Assert.AreEqual(state,trans.SourceState);
 			Assert.AreEqual(inputs[3],trans.InputSymbol);
 			Assert.AreEqual(epsilonMachine.ErrorState,trans.DestinationState);
+		}
+
+		[Test] public void GetNextStateSameAsGetNextTransition() {
+			AbstractState start = epsilonMachine.StartState;
+			foreach (Input i in epsilonMachine.InputAlphabet) {
+				Assert.AreEqual(epsilonMachine.GetNextTransition(start,i).DestinationState,epsilonMachine.GetNextState(start,i));
+			}
+		}
+
+		[Test] public void GetOutgoingTransitions() {
+			Set destSet = new Set();
+			destSet.Add(states[0]);
+			destSet.Add(states[1]);
+			destSet.Add(states[2]);
+			destSet.Add(states[3]);
+			PowerSetState destination = new PowerSetState(destSet,false);
+
+			IList outgoing = epsilonMachine.GetOutgoingTransitions(epsilonMachine.StartState);
+			Assert.IsTrue(outgoing.Count==2);
+			Transition trans = new Transition(epsilonMachine.StartState,inputs[5],destination);
+			Assert.IsTrue(outgoing.Contains(trans));
+		}
+
+		[Test] public void DeterministicStartState() {
+			Assert.AreEqual(epsilonMachine.StartState,deterministicFSM.StartState);
+		}
+
+		[Test] public void DeterministicInputAlphabet() {
+			foreach(Input i in deterministicFSM.InputAlphabet) {
+				Assert.IsFalse(epsilonMachine.EpsilonAlphabet.Contains(i));
+			}
+			foreach(Input i in epsilonMachine.InputAlphabet) {
+				if (!epsilonMachine.EpsilonAlphabet.Contains(i)) {
+					Assert.IsTrue(deterministicFSM.InputAlphabet.Contains(i));
+				}
+			}
+		}
+
+		[Test] public void DeterministicTransitions() {
+			AbstractState epsilonStart = epsilonMachine.StartState;
+			AbstractState deterministicStart = deterministicFSM.StartState;
+
+			foreach(Input i in deterministicFSM.InputAlphabet) {
+				Assert.AreEqual(epsilonMachine.GetNextTransition(epsilonStart,i),
+								deterministicFSM.GetNextTransition(deterministicStart,i));
+			}
+
+			FEC fec = new FEC((FiniteTabularMachine)deterministicFSM);
+			IFiniteStateMachine min = fec.getMinimizedFSM();
+			Console.WriteLine(min.StartState.GetType());
 		}
 	}
 }

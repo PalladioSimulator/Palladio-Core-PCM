@@ -108,18 +108,18 @@ namespace FiniteStateMachines.Decorators {
 			get {return new CPState(this.one.StartState,this.two.StartState);}
 		}
 
-		public Hashtable GetOutgoingTransitions(AbstractState state) {
+		public IList GetOutgoingTransitions(AbstractState state) {
 			if(state is CPState == false)
 				throw new InvalidStateException();
 
-			Hashtable TransitionMap = new Hashtable();
-			AbstractState NextState = null;
+			ArrayList TransitionList = new ArrayList();
+			Transition nextTransition = null;
 			foreach(Input i in this.InputAlphabet) {
-				NextState = this.GetNextState(state, i);
-				if(!NextState.Equals(this.ErrorState))
-					TransitionMap.Add(NextState as CPState,NextState as CPState);
+				nextTransition = this.GetNextTransition(state, i);
+				if(nextTransition.DestinationState != ErrorState)
+					TransitionList.Add(nextTransition);
 			}
-			return TransitionMap;
+			return TransitionList;
 		}
 		/// <summary>
 		/// da muss noch was gemacht werden !
