@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
+using System.Threading;
 using System.Windows.Forms;
 using System.Data;
 
@@ -18,6 +19,10 @@ namespace Palladio.Webserver.RequestClient
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/02/27 22:13:08  kelsaka
+	/// Optimized multi-threading-behaviour: GUI is still responsive on creating requests;
+	/// requests are created looped.
+	///
 	/// Revision 1.2  2005/02/27 16:37:58  kelsaka
 	/// Added some comments
 	///
@@ -45,13 +50,13 @@ namespace Palladio.Webserver.RequestClient
 		private System.Windows.Forms.Panel StartRequestPanel;
 		private System.Windows.Forms.Label labelNumberOfRequests;
 		private System.Windows.Forms.Label labelRequestURI;
-		private System.Windows.Forms.Label labelNumberOfLoops;
-		private System.Windows.Forms.TextBox textBoxNumberOfLoops;
 
 		private HTTPRequestGenerator requestGenerator;
 		private bool requestActive;
 		private System.Windows.Forms.TextBox textBoxSendDelay;
 		private System.Windows.Forms.Label labelSendDelay;
+		private System.Windows.Forms.TextBox textBoxLoopDelay;
+		private System.Windows.Forms.Label labelLoopDelay;
 		/// <summary>
 		/// Erforderliche Designervariable.
 		/// </summary>
@@ -105,8 +110,8 @@ namespace Palladio.Webserver.RequestClient
 			this.groupBoxSettings = new System.Windows.Forms.GroupBox();
 			this.textBoxSendDelay = new System.Windows.Forms.TextBox();
 			this.labelSendDelay = new System.Windows.Forms.Label();
-			this.textBoxNumberOfLoops = new System.Windows.Forms.TextBox();
-			this.labelNumberOfLoops = new System.Windows.Forms.Label();
+			this.textBoxLoopDelay = new System.Windows.Forms.TextBox();
+			this.labelLoopDelay = new System.Windows.Forms.Label();
 			this.StartRequestPanel = new System.Windows.Forms.Panel();
 			this.labelNumberOfRequests = new System.Windows.Forms.Label();
 			this.textBoxNumberOfRequests = new System.Windows.Forms.TextBox();
@@ -138,8 +143,8 @@ namespace Palladio.Webserver.RequestClient
 			// 
 			this.groupBoxSettings.Controls.Add(this.textBoxSendDelay);
 			this.groupBoxSettings.Controls.Add(this.labelSendDelay);
-			this.groupBoxSettings.Controls.Add(this.textBoxNumberOfLoops);
-			this.groupBoxSettings.Controls.Add(this.labelNumberOfLoops);
+			this.groupBoxSettings.Controls.Add(this.textBoxLoopDelay);
+			this.groupBoxSettings.Controls.Add(this.labelLoopDelay);
 			this.groupBoxSettings.Controls.Add(this.StartRequestPanel);
 			this.groupBoxSettings.Controls.Add(this.labelNumberOfRequests);
 			this.groupBoxSettings.Controls.Add(this.textBoxNumberOfRequests);
@@ -169,21 +174,21 @@ namespace Palladio.Webserver.RequestClient
 			this.labelSendDelay.TabIndex = 7;
 			this.labelSendDelay.Text = "Send Delay in ms:";
 			// 
-			// textBoxNumberOfLoops
+			// textBoxLoopDelay
 			// 
-			this.textBoxNumberOfLoops.Location = new System.Drawing.Point(412, 80);
-			this.textBoxNumberOfLoops.Name = "textBoxNumberOfLoops";
-			this.textBoxNumberOfLoops.Size = new System.Drawing.Size(64, 20);
-			this.textBoxNumberOfLoops.TabIndex = 6;
-			this.textBoxNumberOfLoops.Text = "1";
+			this.textBoxLoopDelay.Location = new System.Drawing.Point(412, 80);
+			this.textBoxLoopDelay.Name = "textBoxLoopDelay";
+			this.textBoxLoopDelay.Size = new System.Drawing.Size(64, 20);
+			this.textBoxLoopDelay.TabIndex = 6;
+			this.textBoxLoopDelay.Text = "100";
 			// 
-			// labelNumberOfLoops
+			// labelLoopDelay
 			// 
-			this.labelNumberOfLoops.Location = new System.Drawing.Point(312, 82);
-			this.labelNumberOfLoops.Name = "labelNumberOfLoops";
-			this.labelNumberOfLoops.Size = new System.Drawing.Size(96, 16);
-			this.labelNumberOfLoops.TabIndex = 5;
-			this.labelNumberOfLoops.Text = "Number of loops:";
+			this.labelLoopDelay.Location = new System.Drawing.Point(312, 82);
+			this.labelLoopDelay.Name = "labelLoopDelay";
+			this.labelLoopDelay.Size = new System.Drawing.Size(96, 16);
+			this.labelLoopDelay.TabIndex = 5;
+			this.labelLoopDelay.Text = "Loop-Delay in ms:";
 			// 
 			// StartRequestPanel
 			// 
@@ -330,10 +335,15 @@ namespace Palladio.Webserver.RequestClient
 			{
 				this.buttonStartRequests.Text = "Stop Requests";
 				requestActive = true;
+				//this.buttonStartRequests.Refresh();
 
 				try 
 				{				
-					requestGenerator.StartRequest(textBoxURI.Text, Int32.Parse(textBoxNumberOfRequests.Text), Int32.Parse(textBoxNumberOfLoops.Text), Int32.Parse(textBoxSendDelay.Text));
+					requestGenerator.Setup(textBoxURI.Text, Int32.Parse(textBoxNumberOfRequests.Text), Int32.Parse(textBoxLoopDelay.Text), Int32.Parse(textBoxSendDelay.Text));
+					
+					// start generating threads in a own thread to keep the GUI responsive.
+					Thread requestGeneratorThread = new Thread(new ThreadStart(requestGenerator.GenerateRequests));
+					requestGeneratorThread.Start();
 				}
 				catch (FormatException ex)
 				{
@@ -348,7 +358,9 @@ namespace Palladio.Webserver.RequestClient
 			{
 				requestActive = false;
 				this.buttonStartRequests.Text = "Start Requests";
-				requestGenerator.TerminateThreads();
+
+				// terminate generating further threads.
+				requestGenerator.Terminate();
 			}
 		}
 

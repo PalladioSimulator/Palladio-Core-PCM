@@ -14,6 +14,10 @@ namespace Palladio.Webserver.RequestClient
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/02/27 22:13:07  kelsaka
+	/// Optimized multi-threading-behaviour: GUI is still responsive on creating requests;
+	/// requests are created looped.
+	///
 	/// Revision 1.2  2005/02/27 16:37:58  kelsaka
 	/// Added some comments
 	///
@@ -30,11 +34,12 @@ namespace Palladio.Webserver.RequestClient
 		private int port;
 		private HTTPRequestGenerator.HandleRequestEvent requestEventHandler;
 		private byte[] request;
+		private HTTPRequestGenerator httpGenerator;
 
 		/// <summary>
 		/// Indicates, that the client is still active.
 		/// </summary>
-		private bool isActive;
+		private bool active;
 
 
 		/// <summary>
@@ -44,14 +49,16 @@ namespace Palladio.Webserver.RequestClient
 		/// <param name="port">Sends requests to this Port.</param>
 		/// <param name="requestEventHandler">Handler to send messages.</param>
 		/// <param name="request">Content send to the server.</param>
-		public ClientRequest(IPAddress ipAddress, int port, HTTPRequestGenerator.HandleRequestEvent requestEventHandler, byte[] request)
+		/// <param name="httpGenerator">Callback-reference to be able to inform if the current thread has terminated.</param>
+		public ClientRequest(IPAddress ipAddress, int port, HTTPRequestGenerator.HandleRequestEvent requestEventHandler, byte[] request, HTTPRequestGenerator httpGenerator)
 		{
 			this.ipAddress = ipAddress;
 			this.port = port;
 			this.requestEventHandler = requestEventHandler;
 			this.request = request;
+			this.httpGenerator = httpGenerator;
 
-			this.isActive = true;
+			this.active = true;
 		}
 
 
@@ -60,6 +67,7 @@ namespace Palladio.Webserver.RequestClient
 		/// </summary>
 		public void SendRequest()
 		{
+			this.active = true;
 			TcpClient tcpClient = new TcpClient();
 			
 			try 
@@ -80,9 +88,12 @@ namespace Palladio.Webserver.RequestClient
 						{
 							break;
 						}
+						if (!active)
+						{
+							return;
+						}
 					}
 					
-
 					requestEventHandler(Thread.CurrentThread.Name + ": Successfully read answer from the server.");
 				}
 				catch(Exception e)
@@ -101,18 +112,20 @@ namespace Palladio.Webserver.RequestClient
 			finally 
 			{
 				tcpClient.Close();
-				this.isActive = false;
 			}
 			
+			// inform the "father" that the current thread has finished:
+			httpGenerator.RemoveFinishedClientRequestThread(this);
 		}
 
 
+
 		/// <summary>
-		/// Indicates, that the client is still active.
+		/// Terminates the current instance.
 		/// </summary>
-		public bool IsActive
+		public void Terminate()
 		{
-			get { return isActive; }
+			this.active = false;
 		}
 
 	}
