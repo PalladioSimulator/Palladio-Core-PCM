@@ -94,7 +94,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "AttributeHash.cs"
+                    RelPath = "DefaultAttributeHash.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
