@@ -1,5 +1,6 @@
 using System;
 
+
 namespace MySmallWebServer.MyServerException
 {
 	/// <summary>
@@ -17,6 +18,7 @@ namespace MySmallWebServer.MyServerException
 			SendToClient sender = new SendToClient();
 			Console.WriteLine(r.ToString());
 			sender.sendError(Message," 404 File Not Found ",r);
+			
 		}
 	}
 }

@@ -22,7 +22,7 @@
 	</aMineType>
 
 	<aMineType>
-		<fileExtension>.gif</fileExtension> 
+		<fileExtension>.jpg</fileExtension> 
 		<type>image/bmp</type>
 	</aMineType>
 </MineTypes>

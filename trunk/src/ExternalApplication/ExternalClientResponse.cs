@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using MySmallWebServer;
+using MySmallWebServer.MyServerException;
 
 namespace MySmallWebServer.ExternalApplication
 {
@@ -113,22 +114,37 @@ namespace MySmallWebServer.ExternalApplication
 
 			try
 			{
-				if(this.ClientRequest.RequestedFile.RequestedFileName=="form.htm")
-				{
-					Console.WriteLine(".");
-					Form1Applikation t = new Form1Applikation(this.filteredInput);
-					this.text= t.GenerateText();
-					Console.WriteLine("Mein neuer Text: "+this.text);
-				}
-				else if(this.ClientRequest.RequestedFile.RequestedFileName=="form2.htm")
-				{
-					Form2Application t = new Form2Application(this.filteredInput);
-					this.text= t.GenerateText();
-					Console.WriteLine("Mein neuer Text: "+this.text);
-				}
-					//Throw Excetpiotn
-				else
-					throw new MyServerException.MyExternalException( r);
+			if(this.ClientRequest.RequestedFile.RequestedFileName=="form.htm")
+			{
+				Console.WriteLine(".");
+				Form1Applikation t = new Form1Applikation(this.filteredInput);
+				this.text= t.GenerateText();
+				Console.WriteLine("Mein neuer Text: "+this.text);
+			}
+			else if(this.ClientRequest.RequestedFile.RequestedFileName=="form2.htm")
+			{
+				Form2Application t = new Form2Application(this.filteredInput);
+				this.text= t.GenerateText();
+				Console.WriteLine("Mein neuer Text: "+this.text);
+			}
+			else if(this.ClientRequest.RequestedFile.RequestedFileName=="dic.html")
+			{
+				Console.WriteLine("Wörterbuch gefunden");
+				DictionaryApplication t = new DictionaryApplication(this.FilteredInput);
+				this.text = t.GenerateText();
+				Console.WriteLine("Mein neuer Text: "+this.text);
+			}
+			else if(this.ClientRequest.RequestedFile.RequestedFileName=="changesForm.htm")
+			{
+				Console.WriteLine("pdf soll generiert werden");
+				PDFGenerator t = new PDFGenerator(this.FilteredInput);
+//				this.text = t.
+			}
+				//Throw Excetpiotn
+			else
+			{
+				throw new MyServerException.MyExternalException( r);
+			}
 				//building Response
 			}
 			catch(Exception)

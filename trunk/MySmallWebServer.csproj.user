@@ -1,7 +1,7 @@
 <VisualStudioProject>
     <CSHARP LastOpenVersion = "7.10.3077" >
         <Build>
-            <Settings ReferencePath = "" >
+            <Settings ReferencePath = "C:\Dokumente und Einstellungen\Yvette\Eigene Dateien\Visual Studio Projects\dictionary\bin\Debug\" >
                 <Config
                     Name = "Debug"
                     EnableASPDebugging = "false"
@@ -40,7 +40,7 @@
             CopyProjectDestinationFolder = ""
             CopyProjectUncPath = ""
             CopyProjectOption = "0"
-            ProjectView = "ProjectFiles"
+            ProjectView = "ShowAllFiles"
             ProjectTrust = "0"
         />
     </CSHARP>

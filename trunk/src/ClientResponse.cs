@@ -173,7 +173,7 @@ namespace MySmallWebServer
 			try
 			{
 				this.mineType = this.clientRequest.Settings.GetMineTypeMapping(this.clientRequest.RequestedFile.FileExtension);
-				Console.WriteLine("The mineType: "+this.mineType);
+				Console.WriteLine("The mineType: *********************************************************************"+this.mineType);
 			}
 			catch(Exception)
 			{

@@ -89,6 +89,11 @@
                     AssemblyName = "System.Windows.Forms"
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
                 />
+                <Reference
+                    Name = "dictionary"
+                    AssemblyName = "dictionary"
+                    HintPath = "..\dictionary\bin\Debug\dictionary.dll"
+                />
             </References>
         </Build>
         <Files>
@@ -103,13 +108,10 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Visualization1.fwpnss"
-                    BuildAction = "None"
-                />
-                <File
                     RelPath = "bin\Debug\serverSettings.xml"
                     BuildAction = "Content"
                 />
+                <Folder RelPath = "DATA\LatexConverter\generatedDocs\" />
                 <File
                     RelPath = "src\AbstractHttpProtocol.cs"
                     SubType = "Code"
@@ -196,6 +198,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ExternalApplication\DictionaryApplication.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ExternalApplication\ExternalClientResponse.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -212,6 +219,11 @@
                 />
                 <File
                     RelPath = "src\ExternalApplication\IFormApplication.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ExternalApplication\PDFGenerator.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

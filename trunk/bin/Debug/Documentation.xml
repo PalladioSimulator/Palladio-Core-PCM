@@ -4,6 +4,23 @@
         <name>MySmallWebServer</name>
     </assembly>
     <members>
+        <member name="T:MySmallWebServer.ExternalApplication.DictionaryApplication">
+            <summary>
+            Zusammenfassung für DictionaryApplication.
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.ExternalApplication.IFormApplication">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ExternalApplication.IFormApplication.GenerateText">
+            <summary>
+            This method must contain the replay of the request. It has to be a html page, because this 
+            will be sended to the browser with no manipulation.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:MySmallWebServer.ExternalApplication.ExternalClientResponse">
             <summary>
             This is an implemtation for an ExternalClientResponse. It implemts the
@@ -135,18 +152,6 @@
             Form1Applikation generates a dynamic webpage for the form.htm
             </summary>
         </member>
-        <member name="T:MySmallWebServer.ExternalApplication.IFormApplication">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:MySmallWebServer.ExternalApplication.IFormApplication.GenerateText">
-            <summary>
-            This method must contain the replay of the request. It has to be a html page, because this 
-            will be sended to the browser with no manipulation.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:MySmallWebServer.ExternalApplication.Form1Applikation.#ctor(System.Collections.Hashtable)">
             <summary>
             The external application is initated with the sorted user input
@@ -172,6 +177,11 @@
             <param name="anInput">The filterd input</param>
         </member>
         <!-- Schlecht gebildeter XML-Kommentar wurde für den Member "M:MySmallWebServer.ExternalApplication.Form2Application.GenerateText" ignoriert -->
+        <member name="T:MySmallWebServer.ExternalApplication.PDFGenerator">
+            <summary>
+            Zusammenfassung für PDFGenerator.
+            </summary>
+        </member>
         <member name="T:MySmallWebServer.MyServerException.MyExternalException">
             <summary>
             MyExternalException is thrown when a error in an external application happpens.

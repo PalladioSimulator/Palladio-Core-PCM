@@ -62,8 +62,8 @@ namespace MySmallWebServer
 				//Convert Byte to String
 				string sBuffer = Encoding.ASCII.GetString(bReceive);
 				Console.WriteLine("The Request: "+sBuffer);
-			try
-				{
+//			try
+//				{
 				RequestParser parser = new RequestParser(ref mySocket,ref serverIo, sBuffer);
 				ClientRequest request = parser.GeneratedClientRequest;
 				if(request.RequestedMethod is GetMethod)
@@ -86,10 +86,10 @@ namespace MySmallWebServer
 
 
 				}
-				catch(Exception e)
-				{
-						Console.WriteLine(" Not able to answer request"+e.Message);
-				}
+//				catch(Exception e)
+//				{
+//						Console.WriteLine(" Not able to answer request"+e.Message);
+//				}
 
 			}
 		}
@@ -97,4 +97,4 @@ namespace MySmallWebServer
 			
 	}
 	
-}
+//}
