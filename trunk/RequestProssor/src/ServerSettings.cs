@@ -121,62 +121,7 @@ namespace RequestProssor
 			Console.WriteLine("Default File: "+this.DefaultFile);
 
 			this.physicalDir = cfr.GetConfigList("VDirs","RequestedDir","realDir");
-			this.mineTypes = cfr.GetConfigList("MineTypes","fileExtension","type");
-			
-//			try
-//			{
-//				StreamReader file = new StreamReader("serverSettings.xml");
-//				string xmlContent = file.ReadToEnd();
-//				XmlTextReader xtr = new XmlTextReader(new StringReader(xmlContent));
-//				XmlDocument xmlDoc = new XmlDocument();
-//				xmlDoc.Load(xtr);
-//				XmlNode node;
-//
-//				//load Mine Typs
-//				this.mineTypes = new Hashtable();
-//				XmlNodeList nodeList = xmlDoc.SelectNodes("//MineTypes/*");
-//				for(int i=0; i<nodeList.Count; i++)
-//				{
-//
-//					try
-//					{
-//						this.mineTypes.Add(nodeList.Item(i).FirstChild.InnerText,nodeList.Item(i).LastChild.InnerText);
-//					}
-//					catch(Exception)
-//					{
-//						Console.WriteLine("One mineType has been already added");
-//					}
-//				}
-//				//serverRoot
-//				node = xmlDoc.DocumentElement.SelectSingleNode("/serverSettings/serverRoot/text()");
-//				this.serverRoot = node.Value.ToString();
-//				//identify the physical Dirs
-//				this.physicalDir = new Hashtable();
-//				nodeList = xmlDoc.SelectNodes("//VDirs/*");
-//				for(int i=0; i<nodeList.Count; i++)
-//				{
-//					try
-//					{
-//						this.physicalDir.Add(nodeList.Item(i).FirstChild.InnerText,nodeList.Item(i).LastChild.InnerText);
-//					}
-//					catch(Exception)
-//					{
-//						Console.WriteLine("One directory has been already added");
-//					}
-//				}
-//				node = xmlDoc.DocumentElement.SelectSingleNode("/serverSettings/defaultFile/text()");
-//				this.dafaultFile = node.Value.ToString();
-//				//port
-//				node = xmlDoc.DocumentElement.SelectSingleNode("/serverSettings/port/text()");
-//				//				Console.WriteLine(node.Value.ToString());
-//				this.port = int.Parse(node.Value.ToString());
-//			}
-//			catch (Exception e)
-//			{
-//				Console.WriteLine(e.Message);
-//				//throw new FatalServerException();
-//			}
-			
+			this.mineTypes = cfr.GetConfigList("MineTypes","fileExtension","type");			
 		}
 
 		internal string GetPhysicalPath(string uri)

@@ -4,7 +4,8 @@ using System.IO;
 namespace RequestProssor
 {
 	/// <summary>
-	/// Zusammenfassung für HttPResponse.
+	/// This class stores all information about the generated response. This inforamtion 
+	/// are mime-types, status codes and the generated message for exsample. 
 	/// </summary>
 	public class HttPResponse
 	{
