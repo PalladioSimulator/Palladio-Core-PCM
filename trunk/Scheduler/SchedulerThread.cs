@@ -41,8 +41,23 @@ namespace Scheduler
 			}
 			
 			// wait for answer
-			while (!schedulerToServerStream.DataAvailable); 
-			
+			int counter=0;
+			Console.Write("Waiting for reply: ");
+			while (!schedulerToServerStream.DataAvailable) 
+			{
+				Thread.Sleep(100);
+				counter+=100;
+				Console.Write(counter + " ");
+				if (counter >= 5000) 
+				{
+					Console.WriteLine("\r\nServer Connection Timeout (5000 ms)." );
+					clientStream.Close();
+					schedulerToServer.Close();
+					return;
+				}
+			} 
+			Console.WriteLine();
+
 			// transmit web server response to client
 			i=0;
 			Byte[] receiveBuffer = new Byte[256];
