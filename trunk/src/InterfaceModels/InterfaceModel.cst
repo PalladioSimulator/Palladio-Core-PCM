@@ -1,0 +1,60 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Signatures template" %>
+<%@ Property Name="ContainedSignatureType" Type="System.String" Category="Context" Description="The type of the signatures in the SignatureList" %>
+<%@ Property Name="DefaultSignatureListInstance" Type="System.String" Category="Context" Description="The type of the signatures in the SignatureList" %>
+<%@ Property Name="ClassName" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
+
+	#region Default<%= ClassName %>
+	/// <summary>
+	/// An IInterfaceModel is the description of an interface (of a component).
+	/// In our case an interface is a set of signatures
+	/// which can be somehow related to each other.
+	/// </summary>
+	internal class Default<%= ClassName %> : ICloneable, IAttributable, I<%= ClassName %>
+	{
+		protected <%= ContainedSignatureType %>List signatureList;
+		protected IAttributeHash attributes;
+		
+		public <%= ContainedSignatureType %>List SignatureList
+		{
+			get
+			{
+				return signatureList;
+			}
+		}
+		
+		public IAttributeHash Attributes 
+		{
+			get 
+			{
+				return attributes;
+			}
+		}	
+		
+		/// <summary>
+		/// Creates a copy of the current instance.
+		/// </summary>
+		/// <returns>A new object with the same values as the current instance.</returns>
+		public object Clone()
+		{
+			return new Default<%= ClassName %>(this.signatureList);
+		}
+				
+		public override bool Equals(object other)
+		{
+			if (!(other is I<%= ClassName %>)) return false;
+			if (other == this) return true;
+			I<%= ClassName %> model = (I<%= ClassName %>)other;
+			return model.SignatureList.Equals(this.SignatureList);
+		}
+			
+		public Default<%= ClassName %>(<%= ContainedSignatureType %>List aSignatureList)
+		{
+			this.signatureList = (<%= ContainedSignatureType %>List)aSignatureList.Clone();
+		}
+		
+		public Default<%= ClassName %>()
+		{
+			signatureList = ComponentFactory.Create<%= DefaultSignatureListInstance %>(new <%= ContainedSignatureType %>[0]);
+		}
+	}
+	#endregion

@@ -1,0 +1,48 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Signature list template" %>
+<%@ Property Name="ContainedSignatureType" Type="System.String" Category="Context" Description="The type of the signatures in the SignatureList" %>
+<%@ Property Name="InterfaceName" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
+
+	#region <%= InterfaceName %>
+	/// <summary>
+	/// A SignatureList is  an InterfaceModel just
+	/// containing a set of signatures.
+	/// </summary>
+	public interface <%= InterfaceName %> : ICloneable
+	{
+		#region Properties
+
+		/// <summary>
+		/// Signatures of the interface.
+		/// </summary>
+		<%= ContainedSignatureType %>[] Signatures
+		{
+			get;
+		}
+		
+		/// <summary>
+		/// Indexer to access the sigantures easily.
+		/// </summary>
+		<%= ContainedSignatureType %> this[int index]
+		{
+			get;
+		}
+
+		/// <summary>
+		/// Adds an array of signatures to the interface.
+		/// </summary>
+		/// <param name="aSigArray">Signatures to add.</param>
+		void AddSignatures( params <%= ContainedSignatureType %>[] aSigArray );
+
+		/// <summary>
+		/// Deletes a set of signatures from the interface.
+		/// </summary>
+		/// <param name="aSigArray">Signatures to delete.</param>
+		void DeleteSignatures( params <%= ContainedSignatureType %>[] aSigArray );
+
+		bool ContainsSignature( <%= ContainedSignatureType %> aSignature );
+
+		<%= ContainedSignatureType %>[] GetSignaturesByID( IIdentifier aName );
+
+		#endregion
+	}
+	#endregion

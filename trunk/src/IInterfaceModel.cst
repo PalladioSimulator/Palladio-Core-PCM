@@ -1,0 +1,18 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Description="Signatures template" %>
+<%@ Property Name="ContainedSignatureType" Type="System.String" Category="Context" Description="The type of the signatures in the SignatureList" %>
+<%@ Property Name="InterfaceName" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
+
+	#region <%= InterfaceName %>
+	/// <summary>
+	/// An IInterfaceModel is the description of an interface (of a component).
+	/// In our case an interface is a set of signatures
+	/// which can be somehow related to each other.
+	/// </summary>
+	public interface <%= InterfaceName %> : ICloneable, IAttributable
+	{
+		<%= ContainedSignatureType %> SignatureList
+		{
+			get;
+		}
+	}
+	#endregion

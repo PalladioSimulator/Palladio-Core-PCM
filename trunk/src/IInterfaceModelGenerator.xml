@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<codeSmith>
+	<namespace>Palladio.ComponentModel</namespace>
+	<imports>
+		<import namespace="System" />
+		<import namespace="System.Collections" />
+		<import namespace="Palladio.Attributes" />
+	</imports>
+	<propertySets>
+		<propertySet>
+			<property name="ContainedSignatureType">ISignatureList</property>
+			<property name="InterfaceName">IInterfaceModel</property>
+		</propertySet>
+		<propertySet>
+			<property name="ContainedSignatureType">ISignatureListWithRole</property>
+			<property name="InterfaceName">IServiceEffectSpecification</property>
+		</propertySet>
+	</propertySets>
+	<template path="IInterfaceModel.cst" />
+</codeSmith>
