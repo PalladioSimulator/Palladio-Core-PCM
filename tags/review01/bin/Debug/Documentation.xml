@@ -1,0 +1,927 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MySmallWebServer</name>
+    </assembly>
+    <members>
+        <member name="T:MySmallWebServer.ExternalApplication.DictionaryApplication">
+            <summary>
+            Zusammenfassung für DictionaryApplication.
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.ExternalApplication.IFormApplication">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ExternalApplication.IFormApplication.GenerateText">
+            <summary>
+            This method must contain the replay of the request. It has to be a html page, because this 
+            will be sended to the browser with no manipulation.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MySmallWebServer.ExternalApplication.ExternalClientResponse">
+            <summary>
+            This is an implemtation for an ExternalClientResponse. It implemts the
+            <code>AbstractResponse</code>. And  generates responses for external Applications. So an external 
+            Application must only provide a generateText Method to deliver the answer to this request.
+            On this way only formular Application can be answered.
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.AbstractResponse">
+            <summary>
+            An AbstractResponse from this all response this mus be the father
+            (Vererbung halt)
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.AbstractResponse.ClientRequest">
+            <summary>
+            The request to which a response should be gerated
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.AbstractResponse.MessageToSend">
+            <summary>
+            The Message which is the response for the client  in a
+            <code>String</code> represnetation
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.AbstractResponse.StatusCode">
+            <summary>
+            The status code of the response stored in a <code>string</code>
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.AbstractResponse.GeneratedResponse">
+            <summary>
+            The generated Response in the representation of an 
+            <code>AbstractResponse</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ExternalApplication.ExternalClientResponse.file">
+            <summary>
+            The File which has been used 
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ExternalApplication.ExternalClientResponse.cr">
+            <summary>
+            The <code>ClientRequest</code> which should be answered
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ExternalApplication.ExternalClientResponse.filteredInput">
+            <summary>
+            An hashtable which containst he user input:
+            key: Name of the formular
+            value: The input of the user on this field
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ExternalApplication.ExternalClientResponse.text">
+            <summary>
+            The message as <code>string</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ExternalApplication.ExternalClientResponse.r">
+            <summary>
+            The <code>AbstractResponse</code> object.
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ExternalApplication.ExternalClientResponse.statusCode">
+            <summary>
+            The statuscode of the Request in a <code>string</code> representation
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ExternalApplication.ExternalClientResponse.#ctor(MySmallWebServer.ClientRequest)">
+            <summary>
+            Initates an <code>ExternalClientResponse</code>
+            </summary>
+            <param name="r">The <code>ClientRequest</code> which should be answered</param>
+        </member>
+        <member name="M:MySmallWebServer.ExternalApplication.ExternalClientResponse.generateText">
+            <summary>
+            Generates the message for the response
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ExternalApplication.ExternalClientResponse.#ctor">
+            <summary>
+            The empty constructor
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ExternalApplication.ExternalClientResponse.ParseInput">
+            <summary>
+            Parses the user input <code>string</code> an generates the soreted 
+            <code>Hashtable</code>
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ExternalApplication.ExternalClientResponse.ClientRequest">
+            <summary>
+            The Base of the <code>Abstractresponse</code>the <code>ClientRequest</code>
+            (get and set)
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ExternalApplication.ExternalClientResponse.MineType">
+            <summary>
+            Sets and Gets the mineType of the Response in a string representation.
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ExternalApplication.ExternalClientResponse.StatusCode">
+            <summary>
+            Seter and geter for the status code stored in a <code>string</code>
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ExternalApplication.ExternalClientResponse.GeneratedResponse">
+            <summary>
+            Returns the generated response
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ExternalApplication.ExternalClientResponse.FilteredInput">
+            <summary>
+            Retruns the input sorted in a <code>Hashtable</code>
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ExternalApplication.ExternalClientResponse.MessageToSend">
+            <summary>
+            Geter and seter for the message which shoulg be sendend
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ExternalApplication.ExternalClientResponse.MessageSize">
+            <summary>
+            the Size of the message which should be sended
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.ExternalApplication.Form1Applikation">
+            <summary>
+            Form1Applikation generates a dynamic webpage for the form.htm
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ExternalApplication.Form1Applikation.#ctor(System.Collections.Hashtable)">
+            <summary>
+            The external application is initated with the sorted user input
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:MySmallWebServer.ExternalApplication.Form1Applikation.GenerateText">
+            <summary>
+            Implamentatin of the IFormApplication Interface
+            </summary>
+            <returns>Returns the generated page in a <code>string</code></returns>
+        </member>
+        <member name="T:MySmallWebServer.ExternalApplication.Form2Application">
+            <summary>
+             Form2Applikation generates a dynamic webpage for the form1.htm
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ExternalApplication.Form2Application.#ctor(System.Collections.Hashtable)">
+            <summary>
+            The external application is initated with the sorted user
+            input
+            </summary>
+            <param name="anInput">The filterd input</param>
+        </member>
+        <!-- Schlecht gebildeter XML-Kommentar wurde für den Member "M:MySmallWebServer.ExternalApplication.Form2Application.GenerateText" ignoriert -->
+        <member name="T:MySmallWebServer.ExternalApplication.PDFGenerator">
+            <summary>
+            Zusammenfassung für PDFGenerator.
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.MyServerException.MyExternalException">
+            <summary>
+            MyExternalException is thrown when a error in an external application happpens.
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.MyServerException.MyFatalServerException">
+            <summary>
+             MyFatalServerException is thrown when something really bad happend
+             on the server. The Server must be stopped then.
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.MyServerException.MyFatalServerException.#ctor">
+            <summary>
+            Initates an empty Exception
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.MyServerException.MyExternalException.#ctor(MySmallWebServer.ClientResponse)">
+            <summary>
+            Is thrown when an error in an external application happpens
+            </summary>
+            <param name="r">The response on which module the error happend</param>
+        </member>
+        <member name="T:MySmallWebServer.MyServerException.MyFileNotFoundException">
+            <summary>
+            This is thrown when the the requested file has not been found.
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.MyServerException.MyFileNotFoundException.#ctor(MySmallWebServer.ClientResponse)">
+            <summary>
+            This is thrown when the the requested file has not been found.
+            </summary>
+            <param name="r">The <code>ClientResponse</code> which requested has not been found</param>
+        </member>
+        <member name="T:MySmallWebServer.MyServerException.ResponseException">
+            <summary>
+            ResponseException It is thrown when there where Problems to answer the request
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.MyServerException.ResponseException.#ctor(MySmallWebServer.ClientRequest)">
+            <summary>
+            Creates an <code>ResponseException</code> for a given client request
+            </summary>
+            <param name="r">A <code>ClientRequest</code> which could not have been answered</param>
+        </member>
+        <member name="T:MySmallWebServer.AbstractHttpProtocol">
+            <summary>
+            An AbstractHttpProtocol
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.AbstractHttpProtocol.#ctor">
+            <summary>
+            Creates an empty <code>AbstractHttpProtocol</code>
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.AbstractMethod">
+            <summary>
+            Represents a comman Method.
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.AbstractMethod.#ctor">
+            <summary>
+            Initaites an empty Method
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.AbstractMethod.BuildResponse(MySmallWebServer.ClientResponse)">
+            <summary>
+            Builds a Response to the delivers Request
+            </summary>
+            <param name="r"></param>
+        </member>
+        <member name="P:MySmallWebServer.AbstractMethod.MessageToSend">
+            <summary>
+            The message which should be sendend
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.AbstractMethod.MessageSize">
+            <summary>
+            The size of the message which should be sendend as get and set
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.ClientRequest">
+            <summary>
+            This class represents a Client Request and stores all needable information 
+            about it.
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ClientRequest.#ctor">
+            <summary>
+            The empty constructor 
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ClientRequest.ToString">
+            <summary>
+            Retruns the Request in a <code>string</code>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MySmallWebServer.ClientRequest.UserInput">
+            <summary>
+            The input of the user as <code>string</code>
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientRequest.Protocol">
+            <summary>
+            Sets and Gets the Protocol of the request
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientRequest.RequestedFile">
+            <summary>
+            Returns the <code>FileID</code> of the request
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientRequest.Settings">
+            <summary>
+            The settings of the server (get, set)
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientRequest.ClientSocket">
+            <summary>
+            The <code>Socket</code> on which the client is conntected
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientRequest.RequestedMethod">
+            <summary>
+            Sets and gets the Requested Method
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.ClientResponse">
+            <summary>
+            A Response has to be answered this class rpresents the answer
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ClientResponse.clientRequest">
+            <summary>
+            The request which should be answered
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ClientResponse.statusCode">
+            <summary>
+            The status Code of the response as <code>string</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ClientResponse.mineType">
+            <summary>
+            The minetyoe of the request as <code>string</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ClientResponse.physicalDir">
+            <summary>
+            The physical dir of the response as <code>string</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ClientResponse.path">
+            <summary>
+            The physical path to the requested file as <code>string</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ClientResponse.sendedMessage">
+            <summary>
+            The message (html page) which shozld be sendend
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ClientResponse.size">
+            <summary>
+            The size of the message as <code>string</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ClientResponse.method">
+            <summary>
+            The kind of method to which should be answered
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ClientResponse.#ctor(MySmallWebServer.ClientRequest)">
+            <summary>
+            Returns the base of the response, the <code>ClientRequest</code>
+            </summary>
+            <param name="cr"></param>
+        </member>
+        <member name="M:MySmallWebServer.ClientResponse.BuildResponse">
+            <summary>
+            Build the response to a request
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ClientResponse.ToString">
+            <summary>
+            The Request in a <code>string</code> reprenstation 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MySmallWebServer.ClientResponse.validateFile">
+             <summary>
+            Checks if the requested file is valid and throws a exception if not.
+             </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientResponse.ClientRequest">
+            <summary>
+            The originaly request
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientResponse.MessageToSend">
+            <summary>
+            Gets and sets the messge which should be sended
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientResponse.MessageSize">
+            <summary>
+            Gets and Sets the Size of the message
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientResponse.Method">
+            <summary>
+            Sets and gets the method of the request
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientResponse.StatusCode">
+            <summary>
+            Gets ans sets the satuscode of a response
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientResponse.MineType">
+            <summary>
+            Sets and gets the MineType of a response
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientResponse.PhysicalPfad">
+            <summary>
+            The physical pfad of a file as <code>string</code>
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ClientResponse.GeneratedResponse">
+            <summary>
+            Returns itself
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.ConnectedClient">
+            <summary>
+            This is initated when a client is conntected. It's starts a thread
+            in which the request of the connected client will be answered
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ConnectedClient.mySocket">
+            <summary>
+            The <code>Socket</code> on which the client is conntected
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ConnectedClient.serverIo">
+            <summary>
+            Teh settings of the Server
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ConnectedClient.#ctor(System.Net.Sockets.Socket,MySmallWebServer.ServerSettings)">
+            <summary>
+            The constructor of a connected CLient, iniates an new thread
+            </summary>
+            <param name="aSocket">The <code>Socket</code>on which the client is connected</param>
+            <param name="io">The serversettings as reference</param>
+        </member>
+        <member name="M:MySmallWebServer.ConnectedClient.StartListen">
+             <summary>
+            This method accepts new connection and
+            first it serves the welcome massage from the client, This
+            method is calles when a new client has connected.
+             </summary>
+        </member>
+        <member name="T:MySmallWebServer.FileID">
+            <summary>
+            Rrepresents the requested file from the client
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.FileID.requestedFile">
+            <summary>
+            The requested File as <code>string</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.FileID.requestedDir">
+            <summary>
+            The requested dir as <code>string</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.FileID.fileExtension">
+            <summary>
+            The extension of the requested file
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.FileID.#ctor">
+            <summary>
+            Initates an emty <code>FileID</code>
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.FileID.#ctor(System.String)">
+            <summary>
+            Initates a <code>FileID</code> with a given FileID
+            (copy constructor)
+            </summary>
+            <param name="fileID"></param>
+        </member>
+        <member name="P:MySmallWebServer.FileID.FileExtension">
+            <summary>
+            Retruns and set the extension of the requested file as string
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.FileID.RequestedFileName">
+            <summary>
+            Returns and set the name of the requested File as <code>string</code>
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.FileID.RequestedDirectory">
+            <summary>
+            Returns the requested dir of the client as <code>string</code>
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.GetMethod">
+            <summary>
+            The GetMethod which can be requested by Client
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.GetMethod.#ctor">
+            <summary>
+            Initates an empty GetMethod
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.GetMethod.BuildResponse(MySmallWebServer.ClientResponse)">
+            <summary>
+            Build the response for this reques Method
+            </summary>
+            <param name="r">An <code>AbstractResponse</code> to fetch the file</param>
+        </member>
+        <member name="M:MySmallWebServer.GetMethod.FetchFile">
+            <summary>
+            Fertch the selected file from the disk an stores them into a <code>string</code>
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.HeadMethod">
+            <summary>
+            Represents a Head Method form a client. It implements the Abstract Method
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.HeadMethod.#ctor">
+            <summary>
+            Inits a empty HeadMethod
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.Http_1_0">
+            <summary>
+            The Http_1_0 protocol.
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.Http_1_0.#ctor">
+            <summary>
+            The empty constructor for this class
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.Http_1_0.ToString">
+            <summary>
+            Retruns the protocoltype as <code>string</code>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MySmallWebServer.Http_1_1">
+            <summary>
+            The Http_1_1 protocol
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.Http_1_1.#ctor">
+            <summary>
+            Initaes an empty protocol
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.Http_1_1.ToString">
+            <summary>
+            The protocol as <code>string</code> representation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MySmallWebServer.PostMethod">
+            <summary>
+            Initates a PostMethod. This method is able to answer Post methods
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.PostMethod.#ctor">
+            <summary>
+            Initates an empty PostMethod
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.PostMethod.BuildResponse(MySmallWebServer.ClientResponse)">
+            <summary>
+            Builds a Response for this method
+            </summary>
+            <param name="r"></param>
+        </member>
+        <member name="P:MySmallWebServer.PostMethod.MessageSize">
+            <summary>
+            Retruns the size of the size of a generated message
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.PostMethod.MessageToSend">
+            <summary>
+            The Message which as <code> string</code> which will be sended to the client
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.RequestParser">
+            <summary>
+            Parses the Request and generates a RequestClient.
+            The generated request contains of method Type, protocol, FileID
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.RequestParser.settings">
+            <summary>
+            A instance ot the <code>ServerSettings</code> to check some things
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.RequestParser.clientSocket">
+            <summary>
+            The <code>Socket</code> on which the client is conntected
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.RequestParser.requestString">
+            <summary>
+            The request which has been sended by the client as <code>string</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.RequestParser.requestedDir">
+            <summary>
+            The dir, which has been requested by the client as <code>string</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.RequestParser.method">
+            <summary>
+            The <code>AbstractMethod</code> which is called by the client
+            n the moment this can be head get and post
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.RequestParser.file">
+            <summary>
+            The <code>AbstractFile</code> contains all inforamtion of the requested
+            or used file
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.RequestParser.protocol">
+            <summary>
+            The protocol which is used by the client
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.RequestParser.generatedRequest">
+            <summary>
+            This will be the generated <code>AbstractRequest</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.RequestParser.fileEx">
+            <summary>
+            The fileextension of the Request
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.RequestParser.userInput">
+            <summary>
+            The user input as <code>string</code>
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.RequestParser.#ctor(System.Net.Sockets.Socket@,MySmallWebServer.ServerSettings,System.String)">
+            <summary>
+            The Constructor
+            </summary>
+            <param name="clientSocket"><code>Soclket</code> on which the client is connected</param>
+            <param name="settings">The settings of the server</param>
+            <param name="request">The requet of the client as a <code>string</code> representation</param>
+        </member>
+        <!-- Schlecht gebildeter XML-Kommentar wurde für den Member "M:MySmallWebServer.RequestParser.ParseUserInput" ignoriert -->
+        <member name="M:MySmallWebServer.RequestParser.identifyProtocol">
+            <summary>
+            Searchs for the used protocol
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.RequestParser.identifyFile">
+            <summary>
+            Searches in the input string for the filename and extensions
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.RequestParser.identifyMethod">
+            <summary>
+            Parses out the requested method
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.RequestParser.GeneratedClientRequest">
+            <summary>
+            The Request which has been generates by the Parser
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.SendToClient">
+            <summary>
+            This class sends the response to the client
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.SendToClient.message">
+            <summary>
+            The message which should be sended to the client as <code>string</code>
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.SendToClient.cr">
+            <summary>
+            The generated response in a <code>AbstractResponse</code>
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.SendToClient.#ctor(MySmallWebServer.AbstractResponse)">
+            <summary>
+            The constructor its initaited which a <code>AbstractResponse</code>
+            </summary>
+            <param name="r">The <code>AbstractResponse</code></param>
+        </member>
+        <member name="M:MySmallWebServer.SendToClient.#ctor">
+            <summary>
+            An empty constructor
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.SendToClient.sendError(System.String,System.String,MySmallWebServer.ClientResponse)">
+            <summary>
+            This sends a error message to the client
+            </summary>
+            <param name="kindOfError">A <code>string</code> which contains 
+            the error message.</param>
+            <param name="httpCode">The HTTP protocol as <code>string</code></param>
+            <param name="r">An <code>AbstractResponse</code> which should be answered
+            with an errror</param>
+        </member>
+        <member name="M:MySmallWebServer.SendToClient.SendResponse">
+            <summary>
+            The default way to answer a request.
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.SendToClient.SendErrorHeader(System.String,System.String,System.Int32,System.String,System.Net.Sockets.Socket)">
+            <summary>
+            Sends a error Header to the client
+            </summary>
+            <param name="sHttpVersion">The http protocol as <code>string</code></param>
+            <param name="sMIMEHeader">The mine type as <code>string</code></param>
+            <param name="iTotBytes">An <code>int</code> which contains the size of the message</param>
+            <param name="sStatusCode">The status code as <code>string</code></param>
+            <param name="mySocket">The <code>Socket</code> on which the client is connected</param>
+        </member>
+        <member name="M:MySmallWebServer.SendToClient.sendError(System.String,MySmallWebServer.ClientResponse)">
+            <summary>
+            Send an error to the client
+            </summary>
+            <param name="error">A <code>string</code> which contains the error message</param>
+            <param name="cr"></param>
+        </member>
+        <member name="M:MySmallWebServer.SendToClient.SendHeader">
+            <summary>
+            Sends the default header to the client.
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.SendToClient.SendHeader(MySmallWebServer.AbstractResponse,System.Int32)">
+            <summary>
+            Sends the file to the browser
+            </summary>
+            <param name="dd">The gernated <code>AbstractResponse</code> for the client request</param>
+            <param name="iTotBytes">An <code>int</code> which contains the size of the message</param>
+        </member>
+        <member name="M:MySmallWebServer.SendToClient.SendMessage">
+            <summary>
+            Sends a message to the browser (Default way)
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.SendToClient.SendToBrowser(System.String,System.Net.Sockets.Socket)">
+             <summary>
+            Sends data to the browser format.
+             </summary>
+             <param name="sData">A <code>string</code> which contains the message</param>
+             <param name="mySocket">The <code>Socket</code> on which the client listens</param>
+        </member>
+        <!-- Schlecht gebildeter XML-Kommentar wurde für den Member "M:MySmallWebServer.SendToClient.SendToBrowser(System.Byte[],System.Net.Sockets.Socket)" ignoriert -->
+        <member name="T:MySmallWebServer.Server">
+            <summary>
+            This is tthe main class, it opens a Port and waits for
+            incomming requests an trys to answer them
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.Server.portListener">
+            <summary>
+            A TcpListener witch listens to the Port 
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.Server.io">
+            <summary>
+            All setting (like Server Root, Dir mapping,.. ) of a Server a
+             stored in a Settings class. This is an instance of this.
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.Server.#ctor">
+             <summary>
+            The constructor which make the TcpListener start listening on the
+            given port. It also calls a Thread on the method StartListen(). 
+             </summary>
+        </member>
+        <member name="M:MySmallWebServer.Server.Main">
+            <summary>
+            This is the Main Method of this Application, it starts here
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.ServerSettings">
+            <summary>
+            Does everythings which has to do with In and Output of the server.
+            Checks if files are avalable, mapps dicrectories ...
+            Loads the settings of this server from a xml File named serverSettings.xml
+            This settings contains the server Root, all suported mine Types, the port
+            on which the Server is waiting for requestes. Default file names ans dirs.
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ServerSettings.serverRoot">
+            <summary>
+            A String witch contains the RootDir of the server, here all
+            documents are stored
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ServerSettings.mineTypes">
+            <summary>
+            A Hashtable which contains a mapping fot Mine Types.
+            Key is a file extension like .htm
+            Value is the suitable mine Type
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ServerSettings.physicalDir">
+            <summary>
+            When a directory like sample.org/test/ ist called by the client
+            this is not the dir which on ServerDisk, for this reason this 
+            hashatable contains a mapping between this.
+            Key: The requested dir form the client
+            Value: The real dir on server disk
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ServerSettings.port">
+            <summary>
+            The port on which the server is running
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.ServerSettings.dafaultFile">
+            <summary>
+            the default file, when none is requested as <code>string</code>
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ServerSettings.GetMineTypeMapping(System.String)">
+            <summary>
+            Returns a minetype to a given fileextension
+            </summary>
+            <param name="fileExtension">A File Extension</param>
+            <returns>The suitable minetype</returns>
+        </member>
+        <member name="M:MySmallWebServer.ServerSettings.GetDirMapping(System.String)">
+            <summary>
+            Delivers a string witch is a mapping between a a virtual Dir
+            and a real Dir on thsi server.
+            </summary>
+            <param name="vDir">A Virtal dir as <code>string</code> </param>
+            <returns>The real Server Dir as <code>string</code> </returns>
+        </member>
+        <member name="M:MySmallWebServer.ServerSettings.#ctor">
+            <summary>
+            The constructor loads the xmlFile and stores the setting in the class attributes 
+            attributs
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.ServerSettings.ToString">
+            <summary>
+            All settings of this server represented in a <code>string</code>
+            This is mainly for debugging
+            </summary>
+            <returns>all server settings as string</returns>
+        </member>
+        <member name="P:MySmallWebServer.ServerSettings.MappedMineTypes">
+            <summary>
+            Retruns the mapping between fileextensions and minetypes as
+            <code>Hashtable</code>
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ServerSettings.DirMapping">
+            <summary>
+            Retruns the mapping between virtual and real dir
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ServerSettings.DefaultFile">
+            <summary>
+            Retrurn the default file name, when none is requested as <code>string</code>
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ServerSettings.DefaultDir">
+            <summary>
+             Retrurn the default dir name, when none is requested as <code>string</code>
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.ServerSettings.ServerPort">
+            <summary>
+            Retruns the portnumber on which the server is running as <code>int</code>
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.UsedFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.UsedFile.formularContent">
+            <summary>
+            The input of the forumlar which is has been enterd by the user
+            as a <code>string</code>.
+            </summary>
+        </member>
+        <member name="F:MySmallWebServer.UsedFile.userInput">
+            <summary>
+            A <code>Hashatble</code> which contains the formualr input in a mapping
+            key: FormularName
+            Value: the content of this field enterd by user
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.UsedFile.#ctor(System.String)">
+            <summary>
+            Different to FileID, because an instance of this class is
+            iniziated when a PostMethod (formular sended) is orderd by
+            the client. this contains not the requested file, but the file 
+            which was use to generate the formular content.
+            </summary>
+            <param name="file">The used file as <code>string</code></param>
+        </member>
+        <member name="M:MySmallWebServer.UsedFile.#ctor">
+            <summary>
+            An empty constructor for this class.
+            </summary>
+        </member>
+        <member name="P:MySmallWebServer.UsedFile.FormularContent">
+            <summary>
+            Retrun a <code>string</code> which contains the formualr input
+            </summary>
+        </member>
+        <member name="T:MySmallWebServer.MyServerException.EmptyClientException">
+            <summary>
+            Zusammenfassung für EmptyClientException.
+            </summary>
+        </member>
+        <member name="M:MySmallWebServer.MyServerException.EmptyClientException.#ctor(MySmallWebServer.ClientResponse,System.String)">
+            <summary>
+            This is thrown when the the requested file has not been found.
+            </summary>
+            <param name="r">The <code>ClientResponse</code> which requested has not been found</param>
+        </member>
+    </members>
+</doc>
