@@ -9,6 +9,9 @@ namespace ComponentNetworkSimulation.Structure.Services
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/05/26 16:31:53  joemal
+	/// change some docs
+	///
 	/// Revision 1.1  2004/05/20 14:12:22  joemal
 	/// initial creation
 	///
@@ -19,10 +22,13 @@ namespace ComponentNetworkSimulation.Structure.Services
 	{
 		#region data
 		
+		//holds the id
 		private String id;
 
+		//holds the strategy
 		private IControlFlowStrategy strategy;
 
+		//holds the loggingtype
 		private LoggingType_t type;
 
 		#endregion
