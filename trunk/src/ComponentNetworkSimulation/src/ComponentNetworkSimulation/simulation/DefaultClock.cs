@@ -15,6 +15,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.7  2004/06/28 10:54:35  joemal
+	/// - move the creation of the scheduler from the clock to the environmentfactory
+	///
 	/// Revision 1.6  2004/05/26 16:29:54  joemal
 	/// add cvs log tag
 	///
@@ -97,7 +100,7 @@ namespace ComponentNetworkSimulation.Simulation
 		{
 			this.maxSimulationTime = maxSimulationTime;
 			this.simulationEnvironment = simulationEnvironment;
-			this.scheduler = this.CreateScheduler();
+			this.scheduler = this.simulationEnvironment.EnvironmentFactory.CreateSimulationThreadScheduler(simulationEnvironment);
 			this.scheduler.NoMoreThreadsAliveEvent += new EventHandler(this.OnNoMoreThreadsAliveEvent);
 		}
 
@@ -158,14 +161,6 @@ namespace ComponentNetworkSimulation.Simulation
 		#endregion
 
 		#region methods
-
-		/// <summary>
-		/// this method is called by the constructor to create an instance of the ThreadScheduler 
-		/// </summary>
-		protected virtual IThreadScheduler CreateScheduler()
-		{
-			return new DefaultThreadScheduler(this.simulationEnvironment);
-		}
 
 		/// <summary>
 		/// call to simulate one step

@@ -9,6 +9,9 @@ namespace ComponentNetworkSimulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/06/28 10:54:35  joemal
+	/// - move the creation of the scheduler from the clock to the environmentfactory
+	///
 	/// Revision 1.1  2004/06/22 12:01:56  joemal
 	/// add factory to configure the framework
 	///
@@ -40,6 +43,11 @@ namespace ComponentNetworkSimulation
 		{
 			get;
 		}
+
+		/// <summary>
+		/// creates a threadscheduler used by the simulation to schedule the threads
+		/// </summary>
+		Simulation.IThreadScheduler CreateSimulationThreadScheduler(ISimulationEnvironment env);
 	}
 }
 //EOF

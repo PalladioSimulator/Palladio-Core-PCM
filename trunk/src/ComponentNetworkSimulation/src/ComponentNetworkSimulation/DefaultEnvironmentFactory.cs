@@ -23,6 +23,9 @@ namespace ComponentNetworkSimulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.4  2004/06/28 10:54:35  joemal
+	/// - move the creation of the scheduler from the clock to the environmentfactory
+	///
 	/// Revision 1.3  2004/06/26 15:44:17  joemal
 	/// - change the default logger to the console writer
 	///
@@ -91,6 +94,14 @@ namespace ComponentNetworkSimulation
 				if (visitorFactory == null) visitorFactory = CreateDefaultVisitorFactory();
 				return visitorFactory;
 			}
+		}
+
+		/// <summary>
+		/// creates a threadscheduler used by the simulation to schedule the threads
+		/// </summary>
+		public Simulation.IThreadScheduler CreateSimulationThreadScheduler(ISimulationEnvironment env)
+		{
+			return new DefaultThreadScheduler(env);
 		}
 
 		/// <summary>
