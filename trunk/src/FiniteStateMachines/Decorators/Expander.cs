@@ -21,6 +21,8 @@ namespace ParameterisedContracts {
 	///     input symbol contained by the epsilon alphabet.
 	///     The epsilon alphabet is a subset of the input
 	///     alphabet of the original automaton.
+	///     
+	///     author: JH
 	/// </summary>
 	public class FiniteStateMachineExpander {
 		

@@ -2,7 +2,9 @@ using System;
 
 namespace FiniteStateMachines {
 	/// <summary>
-	/// Represents the input of a FSM.
+	///	Represents the input of a FSM.
+	///	
+	///	author: JH
 	/// </summary>
 	public class Input {	
 

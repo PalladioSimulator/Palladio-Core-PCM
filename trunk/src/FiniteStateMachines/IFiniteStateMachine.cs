@@ -9,6 +9,8 @@ namespace FiniteStateMachines {
     ///     All finite state machines have to implement this interface. It
     ///     provides a simple protocol for the default functionality of a finte
     ///     state machine.
+    ///     
+    ///     author: JH
     /// </summary>
 	public interface IFiniteStateMachine {
 
@@ -43,11 +45,15 @@ namespace FiniteStateMachines {
         ///     starting at aSourceState with the input 
         ///     symbol anInput.
         /// </summary>
-        /// 
-        /// <param name="aSourceState">The source of the transition.</param>
-        /// <param name="anInput">The input symbol of the transition.</param>
-        /// 
-        /// <returns>The destination of the transition.</returns>
+        /// <param name="aSourceState">
+        ///		The source of the transition.
+        ///	</param>
+        /// <param name="anInput">
+        ///		The input symbol of the transition.
+        ///	</param>
+        /// <returns>
+        ///		The destination of the transition.
+        ///	</returns>
 		AbstractState GetNextState(AbstractState aSourceState, Input anInput);
 
         /// <summary>
@@ -55,23 +61,30 @@ namespace FiniteStateMachines {
         ///     at aSourceState with the input symbol 
         ///     anInput.
         /// </summary>
+        /// <param name="aSourceState">
+        ///		The source of the transition.
+        ///	</param>
+        /// <param name="anInput">
+        ///		The input of the transition.
+        ///	</param>
         /// 
-        /// <param name="aSourceState">The source of the transition.</param>
-        /// <param name="anInput">The input of the transition.</param>
-        /// 
-        /// <returns>The transition starting at aSourceState
-        ///     with the input symbol anInput.</returns>
+        /// <returns>
+        ///		The transition starting at aSourceState
+        ///     with the input symbol anInput.
+        /// </returns>
 		Transition GetNextTransition(AbstractState aSourceState, Input anInput);
 
         /// <summary>
         ///     Returns all _valid_ transitions with the source state.
         /// </summary>
-        /// 
-        /// <param name="aSourceState">The source for which all valid transitions are returned.</param>
-        /// 
-        /// <returns>A Hashtable which contains all transitions for the source state.
+        /// <param name="aSourceState">
+        ///		The source for which all valid transitions are returned.
+        ///	</param>
+        /// <returns>
+        ///		A Hashtable which contains all transitions for the source state.
         ///     The key of the Hashtable is the Input and the value the
-        ///     corresponding Transition.</returns>
+        ///     corresponding Transition.
+        /// </returns>
 		IList GetOutgoingTransitions(AbstractState aSourceState);
 
 		/// <summary>

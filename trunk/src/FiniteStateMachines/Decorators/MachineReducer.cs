@@ -1,34 +1,45 @@
 using System;
 using System.Collections;
 using FiniteStateMachines;
-using FiniteStateMachines.Tools;
 using FiniteStateMachines.Decorators;
 using Utils.Collections;
 
 namespace ParameterisedContracts {
 	/// <summary>
-	///		The MachineReducer reduces an automaton using a set of rules (for
-	///		more information see graph-grammars). These rules are applied sequentially
-	///		to the automaton beginning at its startnode.
+	///		The MachineReducer reduces a FSM using a set of other FSMs. 
+	///		It is assumed, that the FSM which should be reduced is a 
+	///		somehow modified StackFiniteStateMachine.
 	///		
-	///		- rules only implicit
-	///			- one transition right side
-	///			- fsm left side
-	///			- using hashtable key: input, value set of fsms
-	///			-> all these fsm mapped on a transition with the same input symbol
-	///			- calling and return transition not explicitly given in rule, but expected
-	///			  by the algorithm.
-	///			- application of rules in a predefined order, beginning at the startstate
-	///			- recursive match calls (apply all required rules during the application of
-	///			  the outer rule)
-	///			- the original machine is not reduced, but a new reduced version of the automaton
-	///			  is constructed in parallel
+	///		The reduction of the source FSM is done by graph grammars, 
+	///		using some essential modifications to meet the performance 
+	///		requirements.
+	///		
+	///		So whats different to graph grammars:
+	///			
+	///		At first we don't have any indeterminism in our algorithm. It is
+	///		always clear where a rule has to be applied and which one it must
+	///		be. This is because we begin our application at the start state of the 
+	///		FSM and walk from there trough the whole automaton. We know the rule
+	///		to apply because of the calling transitions of the subautomatons. We
+	///		also know, that the result of the application can only be a transiton,
+	///		labeled the same as the calling transition.
+	///		
+	///		An other point is the possibility of recursive calls during a Match. If
+	///		an other calling transition is found during a Match the corresponding Match 
+	///		function is called recursively. This avoids the necessity of resets.
+	///		
+	///		author: JH
 	/// </summary>
 	public class FiniteStateMachineReducer {
 		
 		/// <summary>
 		///		The ruleTable impicitly contains all rules which should be applied to the 
-		///		automaton. It is organized as follwed:
+		///		automaton. The calling transition and the return transition are not 
+		///		explicitly added to the rule, but they are expected by the Match(...) 
+		///		function. Also the transitions to which the FSMs are reduced are not 
+		///		stored, but its input symbols.
+		///		
+		///		It is organized as follwed:
 		///		Key: Input 
 		///		Value: IList of IFiniteStateMachines 
 		/// </summary>
@@ -36,36 +47,37 @@ namespace ParameterisedContracts {
 
 		
 		/// <summary>
-		///		The source automaton, which should be reduced.
+		///		The original automaton, which is reduced.
 		/// </summary>
-		private AbstractFiniteStateMachine originalFSM;
+		private IFiniteStateMachine originalFSM;
 
 
 		/// <summary>
 		///		Applies the rule associated with the Input of aStartTransition to
 		///		the originalMachine. Recursively all other rules needed to perform this
-		///		reduction are executed.
+		///		reduction are executed. Implicitly requires aCallingTransition and valid
+		///		return transitions to surround the expected FSM.
 		/// </summary>
-		/// <param name="aStartTransition">
-		///		The first transition of the left side of the rule that 
-		///		should be applied to the sourceMachine. The rule can be identified
+		/// <param name="aCallingTransition">
+		///		The first transition of the left side of the rule (it's only implicit) 
+		///		that should be applied to the sourceMachine. The rule can be identified
 		///		by its input symbol.
 		/// </param>
 		/// <returns>
 		///		If the application of the rule finished successfully the resulting
-		///		transition is returned, otherwise a RuleNotApplicableException is
+		///		transition is returned, otherwise a ApplicationException is
 		///		thrown.
 		/// </returns>
-		private Transition Match(Transition aStartTransition, IFiniteStateMachine anExpectedFSM) {
+		private Transition Match(Transition aCallingTransition, IFiniteStateMachine anExpectedFSM) {
 			AbstractState finalTargetInOriginal = originalFSM.ErrorState;
 			AbstractState stateInRule = anExpectedFSM.StartState;
-			AbstractState stateInOriginal = aStartTransition.DestinationState;
+			AbstractState stateInOriginal = aCallingTransition.DestinationState;
 
 			if(stateInRule.IsFinalState) {
 				FindTargetInOriginal(stateInOriginal,ref finalTargetInOriginal);
 			}
 
-			DynamicStateIterator iterator = new DynamicStateIterator(new DualState(stateInRule,stateInOriginal));
+			DynamicStateEnumerator iterator = new DynamicStateEnumerator(new DualState(stateInRule,stateInOriginal));
 
 			while(iterator.MoveNext()){
 				stateInRule = ((DualState)iterator.Current).oneState;
@@ -101,7 +113,7 @@ namespace ParameterisedContracts {
 				throw new ApplicationException("No match found:\tNo return statement found!");
 			}
 
-			Transition result = (Transition)aStartTransition.Clone();
+			Transition result = (Transition)aCallingTransition.Clone();
 			result.DestinationState = finalTargetInOriginal;
 			return result;
 		}
@@ -112,8 +124,6 @@ namespace ParameterisedContracts {
 		///		belonging to the FSM associated to the applied rule in 
 		///		the originalFSM.
 		/// </summary>
-		/// <param name="aStateInSource"></param>
-		/// <param name="aDestination"></param>
 		private void FindTargetInOriginal(AbstractState aStateInOriginal, ref AbstractState aTargetInOriginal) {
 			AbstractState tempState = originalFSM.GetNextState(aStateInOriginal,Input.RETURN);
 			if( tempState != originalFSM.ErrorState){
@@ -167,7 +177,7 @@ namespace ParameterisedContracts {
 		/// </returns>
 		public IFiniteStateMachine GetReducedMachine(){
 			IFiniteStateMachine resultMachine = new FiniteTabularMachine();
-			DynamicTransitionIterator iterator = new DynamicTransitionIterator(originalFSM.StartState,originalFSM);
+			DynamicTransitionEnumerator iterator = new DynamicTransitionEnumerator(originalFSM.StartState,originalFSM);
 			while(iterator.MoveNext()){
 				if (ruleTable.Contains(iterator.Current.InputSymbol)){
 					try {
@@ -185,11 +195,20 @@ namespace ParameterisedContracts {
 
 
 		/// <summary>
+		///		Generates a table associating an input symbol with a set of FSMs as
+		///		it is required for a ruleTable.
 		/// </summary>
-		/// <param name="aServiceTable"></param>
-		/// <param name="aFSM"></param>
-		/// <returns></returns>
-		protected Hashtable CreateRuleTable(Hashtable aServiceTable, AbstractFiniteStateMachine aFSM) {
+		/// <param name="aServiceTable">
+		///		Table of FSMs (value) associated with an input symbol (key).
+		/// </param>
+		/// <param name="aFSM">
+		///		StackFiniteStateMachine used to identify the rules required
+		///		for recursion handling.
+		/// </param>
+		/// <returns>
+		///		A Hashtable as required for ruleTable.
+		/// </returns>
+		protected Hashtable CreateRuleTable (Hashtable aServiceTable, IFiniteStateMachine aFSM) {
 			// Adding the default rules to the table.
 			Hashtable result = new Hashtable();
 			foreach ( DictionaryEntry entry in aServiceTable ) {
@@ -230,7 +249,7 @@ namespace ParameterisedContracts {
 		/// <param name="anMachine">
 		///		The machine affected by the rules.
 		/// </param>
-		public FiniteStateMachineReducer(Hashtable aServiceTable, AbstractFiniteStateMachine aMachine){
+		public FiniteStateMachineReducer(Hashtable aServiceTable, IFiniteStateMachine aMachine){
 			ruleTable = CreateRuleTable(aServiceTable,aMachine);
 			originalFSM = aMachine;
 		}

@@ -9,48 +9,51 @@ namespace FiniteStateMachines {
     ///     The FiniteTabularMachine is the default implementation of the IFiniteStateMachine interface.
     ///     It uses a table of transitions as input to create the finite state
     ///     machine. A FiniteTabularMachine is always deterministic.
+    ///     
+    ///     author: JH
     /// </summary>
 	public class FiniteTabularMachine : AbstractFiniteStateMachine {
 
-        /// <summary></summary>
-        /// 
-        /// <seealso cref="IFiniteStateMachine.InputAlphabet"></seealso>
+		/// <summary>
+		///     A set of valid input symbols for this automaton.
+		/// </summary>
 		private Set inputAlphabet;
 
-        /// <summary></summary>
-        /// 
-        /// <seealso cref="IFiniteStateMachine.StartState"></seealso>
+		/// <summary>
+		///     If the automaton is used for accepting
+		///     an input sequence, this is the state to
+		///     start with.
+		/// </summary>
 		private AbstractState startState;
 
-        /// <summary></summary>
-        /// 
-        /// <seealso cref="IFiniteStateMachine.FinalStates"></seealso>
+		/// <summary>
+		///     If the automaton reaches one of this states
+		///     during reading an input sequence, the
+		///     sequence is accepted.
+		/// </summary>
 		private Set finalStates;
 
 
 		/// <summary>
-		/// The transitionTable contains all transitions of the finite
-		/// state machine. The key of the Hashtable is the
-		/// source state, the value is another Hashtable. In this
-		/// sub-Hashtable the key is the Input of the 
-		/// Transition and the value the Transition itself.
+		///		The transitionTable contains all transitions of the finite
+		///		state machine. The key of the Hashtable is the
+		///		source state, the value is another Hashtable. In this
+		///		sub-Hashtable the key is the Input of the 
+		///		Transition and the value the Transition itself.
 		/// 
-		/// This produces a hierarchie which can be used for a quick lookup of all
-		/// Transition objects.
+		///		This produces a hierarchie which can be used for a quick lookup of all
+		///		Transition objects.
 		/// </summary>
 		private Hashtable transitionTable;
 
 		/// <summary>
-		/// Set containing all states of the FSM.
+		///		Set containing all states of the FSM.
 		/// </summary>
 		private Set states;
 
 
 		/// <summary>
-		/// Creates a new finite state machine.
-		/// 
-		/// jh: this constructor should be invisilbe to the public 
-		/// because it does not create a valid instance of a tabular fsm.
+		///		Creates a new, empty finite state machine.
 		/// </summary>
 		public FiniteTabularMachine() {
 			this.inputAlphabet = new Set();
@@ -61,9 +64,11 @@ namespace FiniteStateMachines {
 
 		
 		/// <summary>
-		/// Creates a new finite state machine using an array of transitions.
+		///		Creates a new finite state machine using an array of transitions.
 		/// </summary>
-		/// <param name="aTransitionList">All transitions of the finite state machine.</param>
+		/// <param name="aTransitionList">
+		///		All transitions of the finite state machine.
+		///	</param>
 		public FiniteTabularMachine(IList aTransitionList) {
 			this.inputAlphabet = new Set();
 			this.transitionTable = new Hashtable();
@@ -76,8 +81,8 @@ namespace FiniteStateMachines {
 
 	  
 		/// <summary>
-		/// Loader for tabular FSMs using a xml-file as input.
-		/// An example is listed below:
+		///		Loader for tabular FSMs using a xml-file as input.
+		///		An example is listed below:
 		/// 
 		/// <?xml version="1.0" encoding="utf-8" ?> 
 		/// <fsm>
@@ -166,9 +171,9 @@ namespace FiniteStateMachines {
 		}
 		
 
-        /// <summary></summary>
-        /// 
-        /// <seealso cref="IFiniteStateMachine.InputAphabet"></seealso>
+		/// <summary>
+		///     A set of valid input symbols for this automaton.
+		/// </summary>
 		public override Set InputAlphabet {
 			get {
 				return this.inputAlphabet;
@@ -177,8 +182,12 @@ namespace FiniteStateMachines {
 
 		
 		/// <summary>
-		/// The start state of the FSM. If no start state is defined
-		/// an exception is thrown because the FSM is not valid.
+		///		The start state of the FSM. If no start state is defined
+		///		an exception is thrown because the FSM is not valid.
+		/// 
+		///     If the automaton is used for accepting
+		///     an input sequence, this is the state to
+		///     start with.
 		/// </summary>
 		public override AbstractState StartState {
 			get {
@@ -192,8 +201,12 @@ namespace FiniteStateMachines {
 
 
 		/// <summary>
-		/// The final states of the FSM. If no final states are defined
-		/// an exception is thrown because the FSM is not valid.
+		///		The final states of the FSM. If no final states are defined
+		///		an exception is thrown because the FSM is not valid.
+		/// 
+		///     If the automaton reaches one of this states
+		///     during reading an input sequence, the
+		///     sequence is accepted.
 		/// </summary>
 		public override Set FinalStates {
 			get {
@@ -207,39 +220,32 @@ namespace FiniteStateMachines {
 
 		
 		/// <summary>
-		/// The set of states of the finite state machine.
+		///		The set of states of the finite state machine.
 		/// </summary>
 		public Set States {
 			get {return this.states;}
 		}
 
 
-        /// <summary></summary>
-        /// 
-        /// <param name="aSourceState"></param>
-        /// <param name="anInput"></param>
-        /// 
-        /// <returns>the next State which is reachable with the state and the inputcharacter</returns>
-        /// <seealso cref="IFiniteStateMachine.GetNextState"></seealso>
-		public override AbstractState GetNextState(AbstractState aSourceState, Input anInput) {
-			// The exception has to be thrown, if the input is not in
-			// the InputAlphabet or the source state is not a state of the fsm
-			return GetNextTransition(aSourceState,anInput).DestinationState;
-		}
-
-
         /// <summary>
-        ///     The source state must be in the set of states an the input symbol must be
+		///     Returns the next Transition
+		///     starting at aSourceState
+		///     with the input symbol anInput.
+		///     
+		///     The source state must be in the set of states an the input symbol must be
         ///     in the input alphabet of the finite state machine, otherwise
         ///     an excption is thrown.
         /// </summary>
-        /// 
-        /// <param name="aSourceState"></param>
-        /// <param name="anInput"></param>
-        /// 
-        /// <returns>The transition starting at aSourceState
-        /// with the input symbol anInput </returns>
-        /// <seealso cref="IFiniteStateMachine.GetNextTransition"></seealso>
+		/// <param name="aSourceState">
+		///		The source of the transition.
+		///	</param>
+		/// <param name="anInput">
+		///		The input of the transition.
+		///	</param>
+		/// <returns>
+		///		The transition starting at aSourceState
+		///     with the input symbol anInput. 
+		/// </returns>
 		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
 			//TODO use DefaultTransitionType here
 			Transition result = new Transition(aSourceState,anInput,ErrorState);
@@ -259,12 +265,17 @@ namespace FiniteStateMachines {
 		}
 
 		
-        /// <summary></summary>
-        /// 
-        /// <param name="state"></param>
-        /// 
-        /// <returns></returns>
-        /// <seealso cref="IFiniteStateMachine.GetOutgoingTransitions "></seealso>
+		/// <summary>
+		///     Returns all _valid_ transitions with the source state.
+		/// </summary>
+		/// <param name="aSourceState">
+		///		The source for which all valid transitions are returned.
+		///	</param>
+		/// <returns>
+		///		A Hashtable which contains all transitions for the source state.
+		///     The key of the Hashtable is the Input and the value the
+		///     corresponding Transition.
+		/// </returns>
 		public override IList GetOutgoingTransitions(AbstractState state) {
 			ArrayList result = new ArrayList();
 			Hashtable outgoing = (Hashtable)transitionTable[state];
@@ -278,10 +289,12 @@ namespace FiniteStateMachines {
 
 
         /// <summary>
-        /// Returns all Transitions of the finite state machine.
+        ///		Returns all Transitions of the finite state machine.
         /// </summary>
         /// 
-        /// <returns>A IList of Transitions</returns>
+        /// <returns>
+        ///		A IList of Transitions
+        ///	</returns>
 		public IList GetTransitions() {
 			ArrayList transitionArray = new ArrayList();
 			foreach (DictionaryEntry entry in transitionTable) {
@@ -293,13 +306,9 @@ namespace FiniteStateMachines {
 		}
 
 
-        /// <summary>
-        /// Adds a Transition to the finite state machine.
-        /// </summary>
-        /// 
-        /// <param name="aSourceState">Source of the transition.</param>
-        /// <param name="anInput">Input used for the transition</param>
-        /// <param name="aDestinationState">Target of the transition.</param>
+		/// <summary>
+		///     Adds a single transition to the automaton.
+		/// </summary>
 		public void AddTransition(AbstractState aSourceState, Input anInput, AbstractState aDestinationState) {	
 			//TODO use DefaultTransitionType here 
 			this.AddTransition(new Transition(aSourceState, anInput, aDestinationState));
@@ -310,10 +319,6 @@ namespace FiniteStateMachines {
         ///     Adds the transtion and the states included in the
         ///     transition to the finite state machine.
         /// </summary>
-        /// 
-        /// <param name="aTransition">The transition.</param>
-        /// 
-        /// <seealso cref="IFiniteStateMachine.AddTransition"></seealso>
 		public override void AddTransition(Transition aTransition) {	
 			AddState(aTransition.SourceState);
 			AddState(aTransition.DestinationState);
@@ -339,9 +344,8 @@ namespace FiniteStateMachines {
 
 
 		/// <summary>
-		/// Adds a state to the finite state machine.
+		///		Adds a state to the finite state machine.
 		/// </summary>
-		/// <param name="aState"></param>
 		private void AddState(AbstractState aState) {
 			if (!states.Contains(aState)){
 				if (aState.IsStartState){ 
@@ -362,9 +366,8 @@ namespace FiniteStateMachines {
 
 
 		/// <summary>
-		/// Adds an input symbol to the input alphabet.
+		///		Adds an input symbol to the input alphabet.
 		/// </summary>
-		/// <param name="anInput"></param>
 		private void AddInput(Input anInput) {
 			if (!inputAlphabet.Contains(anInput)) {
 				inputAlphabet.Add(anInput);
@@ -373,45 +376,12 @@ namespace FiniteStateMachines {
 
 		
         /// <summary>
-        ///     Adds an array of transitions to the finite state machine.
+        ///     Adds a list of transitions to the finite state machine.
         /// </summary>
-        /// 
-        /// <param name="aTransitionList">A list of a transitions.</param>
-        /// 
-        /// <seealso cref="IFiniteStateMachine.AddTransitionList"></seealso>
 		public override void AddTransitionList(IList aTransitionList) {	
 			foreach (Transition trans in aTransitionList){
 				this.AddTransition(trans);
 			}
-		}
-
-
-        /// <summary>
-        /// Default implementation of ToString.
-        /// </summary>
-        /// 
-        /// <returns></returns>
-		public override string ToString() {
-			string result = "start state : ";
-			try {
-				result += StartState+"\n";
-			} catch (InvalidStateException e){
-				result += e.Message+"\n";
-			}	
-			try {
-				result += "final states: ";
-				foreach (AbstractState state in FinalStates) {
-					result += state + " ";
-				}
-			} catch (InvalidStateException e){
-				result += e.Message+"\n";
-			}	
-			result += "\n";
-			result += "transitions : \n";
-			foreach (Transition trans in GetTransitions()) {
-				result += "\t" + trans + "\n";
-			}
-			return result;
 		}
 	}
 }

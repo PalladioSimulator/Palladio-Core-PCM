@@ -7,23 +7,34 @@ using Utils.Collections;
 
 namespace ParameterisedContracts {
 
+	/// <summary>
+	///		FSM representing the inner part of a recursive service call in a
+	///		StackFiniteStateMachine.
+	///		
+	///		author: JH
+	/// </summary>
 	public class RecursiveFiniteStateMachine : AbstractStackFiniteStateMachine {
 
 		public RecursiveFiniteStateMachine ( Input aRecursiveServiceName, Hashtable aServiceTable ) {
 			Initialize( aRecursiveServiceName, aServiceTable );
 		}
 
-
 		/// <summary>
-		///     Identifies the transition starting at aSourceState with the
-		///     input anInput.
+		///     Returns the next Transition starting 
+		///     at aSourceState with the input symbol 
+		///     anInput.
 		/// </summary>
+		/// <param name="aSourceState">
+		///		The source of the transition.
+		///	</param>
+		/// <param name="anInput">
+		///		The input of the transition.
+		///	</param>
 		/// 
-		/// <param name="aSourceState"></param>
-		/// <param name="anInput"></param>
-		/// 
-		/// <returns>The next possible transition</returns>
-		/// <seealso cref="IFiniteStateMachine.GetNextTransition"></seealso>
+		/// <returns>
+		///		The transition starting at aSourceState
+		///     with the input symbol anInput.
+		/// </returns>
 		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput) {
 			Transition result = CreateTransition(aSourceState,anInput,ErrorState);
 

@@ -9,6 +9,8 @@ namespace FiniteStateMachines {
 	///				of the following type:
 	///				
 	///				XXXTransition(AbstractState, Input, AbstractState)
+	///				
+	///	author: JH
 	/// </summary>
 	public class Transition {
 

@@ -4,7 +4,9 @@ namespace FiniteStateMachines {
 
 	/// <summary>
 	/// This class represents a default state type of a finite state machine. 
-	/// It is primarily used by the class <code>FiniteTabularMachine</code>.
+	/// It is primarily used by the class FiniteTabularMachine.
+	/// 
+	/// author: JH
 	/// </summary>
 	public class State : AbstractState {
 
@@ -34,7 +36,7 @@ namespace FiniteStateMachines {
 
 
 		/// <summary>
-		/// Constructs a new state with the identifier <code>aName</code>.
+		/// Constructs a new state with the identifier aName.
 		/// </summary>
 		/// <param name="aName">The name of the state.</param>
 		/// <param name="isStartState">true, if the state is a start state.</param>

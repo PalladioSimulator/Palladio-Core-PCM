@@ -10,8 +10,9 @@ namespace ParameterisedContracts {
 	///		service names stored as Input. The combination of states and service 
 	///		names is leading to an unique identification of each StackState. 
 	///		Each abstract state is associated with a service name (the top state with 
-	///		the top service), indicating that the state belongs to this service. The 
-	///		last abstract state belongs to the provides protocol.
+	///		the top service), indicating that the state belongs to this service. 
+	///		
+	///		author: JH
 	/// </summary>
 	public class StackState : AbstractState {
 

@@ -12,6 +12,8 @@ namespace FiniteStateMachines.Decorators {
     ///     a non-deterministic finite state machine. To handle this non-determinism the
     ///     FiniteEpsilonMachine computes the epsilon-closure for each destination state of a 
     ///     transition.
+    ///     
+    ///     author: JH
     /// </summary>
 	public class FiniteEpsilonMachine : AbstractFiniteStateMachine {
 
@@ -42,7 +44,8 @@ namespace FiniteStateMachines.Decorators {
 
 		
 		/// <summary>
-		/// The alphabet which elements are interpreted as the empty word epsilon. 
+		///		The alphabet whose elements are interpreted as 
+		///		the empty word epsilon. 
 		/// </summary>
 		public Set EpsilonAlphabet {
 			get{
@@ -52,10 +55,13 @@ namespace FiniteStateMachines.Decorators {
 
 		
 		/// <summary>
-		/// Constructs a new regular finite state machine. The advantage of this machine is that the
-		/// whole machine is pre-calculated, so its faster; the disadvantage is the wastage of memory.
+		///		Constructs a new regular finite state machine. The advantage 
+		///		of this machine is that the whole machine is pre-calculated, 
+		///		so its faster; the disadvantage is the wastage of memory.
 		/// </summary>
-		/// <returns>A new pre-calculated finite state machine.</returns>
+		/// <returns>
+		///		A new pre-calculated finite state machine.
+		///	</returns>
 		public IFiniteStateMachine GetDeterministicFiniteStateMachine(){
 			IList transitionList = GetAllTransitions();
 			FiniteTabularMachine deterministicFSM = new FiniteTabularMachine(transitionList);
@@ -65,7 +71,7 @@ namespace FiniteStateMachines.Decorators {
 
 
 		/// <summary>
-		/// Determins all transitons of this automaton.
+		///		Determins all transitons of this automaton.
 		/// </summary>
 		private IList GetAllTransitions(){
 			ArrayList transitions = new ArrayList();
@@ -76,7 +82,7 @@ namespace FiniteStateMachines.Decorators {
 
 
 		/// <summary>
-		/// Recursive implementation of <code>GetAllTransitions</code>.
+		///		Recursive implementation of GetAllTransitions.
 		/// </summary>
 		/// <param name="aState"></param>
 		/// <param name="resultSet"></param>
@@ -94,15 +100,15 @@ namespace FiniteStateMachines.Decorators {
 
 
         /// <summary>
-        /// Determins the epsilon-closure for <code>aState</code>. Only
-        /// <code>PowerSetStates</code> are allowed as input. The method
-        /// determins the epsilon-closure for all included states.
-        /// <param name="aState">The state for which the epsilon-closure is determined.</param>
-        /// </summary>
-        /// 
-        /// <param name="aState"></param>
-        /// 
-        /// <returns>A <code>PowerSetState</code> representing the epsilon-closure of <code>aState</code>.
+        ///		Determins the epsilon-closure for aState. Only
+        ///		PowerSetStates are allowed as input. The method
+        ///		determins the epsilon-closure for all included states.
+		/// </summary>
+		/// <param name="aState">
+        ///		The state for which the epsilon-closure is determined.
+        ///	</param>
+        /// <returns>
+        ///		A PowerSetState representing the epsilon-closure of aState.
         /// </returns>
 		private PowerSetState GetEpsilonClosure(PowerSetState aState){
 			Set closure = new Set();
@@ -114,7 +120,7 @@ namespace FiniteStateMachines.Decorators {
 
 
 		/// <summary>
-		/// Recursive implementation of <code>GetEpsilonClosure</code>.
+		///		Recursive implementation of GetEpsilonClosure.
 		/// </summary>
 		/// <param name="aState"></param>
 		/// <param name="resultSet"></param>
@@ -130,7 +136,7 @@ namespace FiniteStateMachines.Decorators {
 
 
 		/// <summary>
-		/// The errorstate of the FSM.
+		///		The errorstate of the FSM.
 		/// </summary>
 		public override AbstractState ErrorState { 
 			get{
@@ -140,7 +146,7 @@ namespace FiniteStateMachines.Decorators {
 
 		
 		/// <summary>
-		/// The start state of the FSM.
+		///		The start state of the FSM.
 		/// </summary>
 		public override AbstractState StartState { 
 			get {
@@ -151,7 +157,7 @@ namespace FiniteStateMachines.Decorators {
 
 		
 		/// <summary>
-		/// The final states of the FSM.
+		///		The final states of the FSM.
 		/// </summary>
 		public override Set FinalStates { 
 			get{
@@ -162,7 +168,7 @@ namespace FiniteStateMachines.Decorators {
 
 		
 		/// <summary>
-		/// The input alphabet; a set of <code>Input</code> objects.
+		///		The input alphabet; a set of Input objects.
 		/// </summary>
 		public override Set InputAlphabet { 
 			get {
@@ -172,21 +178,40 @@ namespace FiniteStateMachines.Decorators {
 
 		
 		/// <summary>
-		/// Returns the the target of a transiton starting at <code>aSourceState</code> 
-		/// with the input symbol <code>anInput</code>.
+		///     Returns the target of a transition
+		///     starting at aSourceState with the input 
+		///     symbol anInput.
 		/// </summary>
-		/// <returns>The destination of the transition.</returns>
+		/// <param name="aSourceState">
+		///		The source of the transition.
+		///	</param>
+		/// <param name="anInput">
+		///		The input symbol of the transition.
+		///	</param>
+		/// <returns>
+		///		The destination of the transition.
+		///	</returns>
 		public override AbstractState GetNextState(AbstractState aSourceState, Input anInput){
 			return GetNextTransition(aSourceState,anInput).DestinationState;
 		}
 
 		
 		/// <summary>
-		/// Returns the next <code>Transition</code> starting at <code>aSourceState</code> with the
-		/// input symbol <code>anInput</code>.
+		///     Returns the next Transition starting 
+		///     at aSourceState with the input symbol 
+		///     anInput.
 		/// </summary>
-		/// <returns>The transition starting at <code>aSourceState</code>  
-		/// with the input symbol <code>anInput</code> </returns>
+		/// <param name="aSourceState">
+		///		The source of the transition.
+		///	</param>
+		/// <param name="anInput">
+		///		The input of the transition.
+		///	</param>
+		/// 
+		/// <returns>
+		///		The transition starting at aSourceState
+		///     with the input symbol anInput.
+		/// </returns>
 		public override Transition GetNextTransition(AbstractState aSourceState, Input anInput){
 			AbstractState resultState = ErrorState;
 			PowerSetState powerState = (PowerSetState)aSourceState;
@@ -210,11 +235,16 @@ namespace FiniteStateMachines.Decorators {
 
 		
 		/// <summary>
-		/// Returns all _valid_ transitions with the source <code>aSourceState</code>.
+		///     Returns all _valid_ transitions with the source state.
 		/// </summary>
-		/// <returns>A <code>Hashtable</code> which contains all transtions for <code>aSourceState</code>.
-		/// The key of the <code>Hashtable</code> is the <code>Input</code> and the value the 
-		/// corresponding <code>Transition</code>.</returns>
+		/// <param name="aSourceState">
+		///		The source for which all valid transitions are returned.
+		///	</param>
+		/// <returns>
+		///		A Hashtable which contains all transitions for the source state.
+		///     The key of the Hashtable is the Input and the value the
+		///     corresponding Transition.
+		/// </returns>
 		public override IList GetOutgoingTransitions(AbstractState aSourceState){
 			ArrayList result = new ArrayList();
 			foreach(Input i in InputAlphabet) {

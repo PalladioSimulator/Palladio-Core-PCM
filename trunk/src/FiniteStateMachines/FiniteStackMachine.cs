@@ -8,10 +8,9 @@ using Utils.Collections;
 namespace ParameterisedContracts {
 	
 	/// <summary>
-	///     This class represents a final state machine, which simulates a conjunction of several
-	///     others FSMs. The providesProtocol is the top FSM, which invokes all others.
-	///     The serviceEffectSpecificationTable maps each input symbol of the
-	///     providesProtocol onto another FSM.
+	///     Class simulating a conjunction of several others FSMs. 
+	///     
+	///     author: JH
 	/// </summary>
 	public class StackFiniteStateMachine : AbstractStackFiniteStateMachine {
 
@@ -133,16 +132,21 @@ namespace ParameterisedContracts {
 				// the transition is only allowed outside the recursion handling
 				if( (aSourceState.Peek().State.IsFinalState) && (aSourceState.LookupServiceNameTwice(aRecInput.RecursiveServiceName).IsEmpty)) {
 					FiniteTabularMachine service = (FiniteTabularMachine)LookUpService(aSourceState.Peek().ServiceName);
-					IList reachableStates = service.GetReachableStates(aRecInput.TargetStateOfCallingService);
+					IList reachableStates = service.GetReachableStates(aRecInput.TargetState);
 					if (reachableStates.Contains(aSourceState.Peek().State)) {
 						destinationState = new StackState(aSourceState);
-						((StackState)destinationState).ChangeTopState(aRecInput.TargetStateOfCallingService);
+						((StackState)destinationState).ChangeTopState(aRecInput.TargetState);
 					}
 				}
 			}
 			return CreateTransition(aSourceState,aRecInput,destinationState);
 		}
 
+
+		/// <summary>
+		/// Tests aState and aServiceName for recursion. If aServiceName is
+		/// called in aState, is that a recursion?
+		/// </summary>
 		protected override bool CheckRecursion(StackState aState, Input aServiceName) {
 			return !aState.LookupServiceNameTwice(aServiceName).IsEmpty;
 		}

@@ -6,6 +6,8 @@ namespace ParameterisedContracts {
 	/// <summary>
 	/// Represents the Context of a FSM. A Context consists of
 	/// a service name and a state, which belongs to that service.
+	/// 
+	/// author: JH
 	/// </summary>
 	public class StackContext {
 
@@ -77,7 +79,6 @@ namespace ParameterisedContracts {
 		/// <summary>
 		/// Default implementation.
 		/// </summary>
-		/// <returns></returns>
 		public override string ToString() {
 			return ServiceName + "; " + State;
 		}
@@ -86,7 +87,6 @@ namespace ParameterisedContracts {
 		/// <summary>
 		/// Default implementation.
 		/// </summary>
-		/// <returns></returns>
 		public object Clone() {
 			return new StackContext(this);
 		}
@@ -95,8 +95,6 @@ namespace ParameterisedContracts {
 		/// <summary>
 		/// Default implementation.
 		/// </summary>
-		/// <param name="obj"></param>
-		/// <returns></returns>
 		public override bool Equals(object obj) {
 			if (obj is StackContext) {
 				StackContext other = (StackContext)obj;
@@ -115,9 +113,6 @@ namespace ParameterisedContracts {
 		/// <summary>
 		/// Operator uses the implementation of Equals.
 		/// </summary>
-		/// <param name="one"></param>
-		/// <param name="two"></param>
-		/// <returns></returns>
 		public static bool operator == (StackContext one, StackContext two){
 			try {
 				return one.Equals(two);
@@ -133,9 +128,6 @@ namespace ParameterisedContracts {
 		/// <summary>
 		/// Operator uses the implementation of Equals.
 		/// </summary>
-		/// <param name="one"></param>
-		/// <param name="two"></param>
-		/// <returns></returns>
 		public static bool operator != (StackContext one, StackContext two){
 			try {
 				return !one.Equals(two);

@@ -9,6 +9,8 @@ namespace ParameterisedContracts {
 	///		A CallingFiniteStateMachine represents the inner context of a recursive
 	///		service in a StackFiniteStateMachine. It is used to handle 
 	///		the terminal part of the recursive function.
+	///		
+	///		author: JH
 	/// </summary>
 	public class CallingFiniteStateMachine : AbstractFiniteStateMachine {
 
@@ -45,15 +47,15 @@ namespace ParameterisedContracts {
 
 
 		/// <summary>
-		///		Uses aFSM to construct a CallingFSM.
+		///		Creates a new FSM by extending aFSM with transitions form
+		///		certain final states to the destination state of the recursive
+		///		transition. The input symbol of that transition is aRecursionInput.
 		/// </summary>
-		/// <param name="aFSM"></param>
-		/// <param name="aRecursionInput"></param>
 		public CallingFiniteStateMachine ( IFiniteStateMachine aFSM, RecursionInput aRecursionInput){
 			originalFSM = aFSM;
 			recursionInput = aRecursionInput;
 
-			recursionEndState = recursionInput.TargetStateOfCallingService;
+			recursionEndState = recursionInput.TargetState;
 			reachableFinalStates = new Set();
 			reachableStatesList = originalFSM.GetReachableStates(recursionEndState);
 			foreach( AbstractState state in reachableStatesList ){
@@ -73,8 +75,6 @@ namespace ParameterisedContracts {
 		///     an input sequence, this is the state to
 		///     start with.
 		/// </summary>
-		/// 
-		/// <seealso cref="IFiniteStateMachine.StartState"></seealso>
 		public override AbstractState StartState { 
 			get { return originalFSM.StartState; } 
 		}
@@ -84,8 +84,6 @@ namespace ParameterisedContracts {
 		///     during reading an input sequence, the
 		///     sequence is accepted.
 		/// </summary>
-		/// 
-		/// <seealso cref="IFiniteStateMachine.FinalStates"></seealso>
 		public override Set FinalStates { 
 			get { return originalFSM.FinalStates; } 
 		}

@@ -1,11 +1,17 @@
 using System;
 using Utils.Collections;
+using FiniteStateMachines;
 
 namespace ParameterisedContracts
 {
 	/// <summary>
-	///Abstract class describing the basic functionality of a condition for a counter.
+	/// Class describing the basic functionality of a condition for a counter.
+	/// 
+	/// author: JH
 	/// </summary>
+	/// <remarks>
+	///	This class is only needed implicit by StackFiniteStateMachine
+	/// </remarks>
 	public class CounterCondition {
 
 		private int requiredDistance;
@@ -31,7 +37,7 @@ namespace ParameterisedContracts
 		}
 
 		/// <summary>
-		/// Adds the next input to the condition.
+		///		Adjust the condition for a new input symbol.
 		/// </summary>
 		public void ReadInput(Input anInput) {
 			if (setA.Contains(anInput)){
@@ -42,14 +48,15 @@ namespace ParameterisedContracts
 		}
 
 		/// <summary>
-		///Checks the condition for the so far read prefix.
+		///		Checks the condition for the so far read prefix.
 		/// </summary>
 		public bool CheckPrefix(){
 			return ( currentDistance >= requiredDistance );
 		}
 
 		/// <summary>
-		/// Checks the condition for the read input, assuming that it is a terminal word.
+		///		Checks the condition for the read input, 
+		///		assuming that it is a terminal word.
 		/// </summary>
 		public bool CheckTerminalWord(){
 			return ( currentDistance == requiredDistance);

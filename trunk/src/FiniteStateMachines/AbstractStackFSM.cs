@@ -8,10 +8,10 @@ using FiniteStateMachines;
 namespace ParameterisedContracts {
 	
 	/// <summary>
-	///     This class represents a final state machine, which simulates a conjunction of several
-	///     others FSMs. The providesProtocol is the top FSM, which invokes all others.
-	///     The serviceEffectSpecificationTable maps each input symbol of the
-	///     providesProtocol onto another FSM.
+	///     Abstract class for simulating a conjunction of several
+	///     others FSMs.
+	///     
+	///     author: JH
 	/// </summary>
 	public abstract class AbstractStackFiniteStateMachine : AbstractFiniteStateMachine {
 
@@ -21,7 +21,7 @@ namespace ParameterisedContracts {
 		private Input topServiceName;
 
 		/// <summary>
-		///     Mapping of a set of input symbols onto a set of automatons.
+		///     Mapping of input symbols (key) onto FSMs (value).
 		/// </summary>
 		private Hashtable serviceTable;
 
@@ -44,13 +44,15 @@ namespace ParameterisedContracts {
 
 
 
+		/// <summary>
+		///	Empty constructor.
+		/// </summary>
 		protected AbstractStackFiniteStateMachine() {}
 
 		/// <summary>
 		/// Excecute this after all your other initialisations have been done.
+		/// It sets up the AbstractStackFiniteStateMachine.
 		/// </summary>
-		/// <param name="aTopServiceName"></param>
-		/// <param name="aServiceTable"></param>
 		protected void Initialize(Input aTopServiceName, Hashtable aServiceTable) {
 			topServiceName = aTopServiceName;
 			serviceTable = (Hashtable)aServiceTable.Clone();
@@ -69,7 +71,8 @@ namespace ParameterisedContracts {
 		/// 
 		///     The input alphabet is a conjunction of all
 		///     input alphabets of the automatons this machine
-		///     consits of.</summary>
+		///     consits of.
+		/// </summary>
 		/// 
 		/// <returns>The complete input alphabet.</returns>
 		private Set DetermineInputAlphabet() {
@@ -91,7 +94,6 @@ namespace ParameterisedContracts {
 		/// <summary>
 		/// Determins all final states of the StackFiniteStateMachine.
 		/// </summary>
-		/// <returns></returns>
 		private Set DetermineFinalStates() {
 			Set resultStates = new Set();
 			foreach (AbstractState state in LookUpService(topServiceName).FinalStates) {
@@ -112,7 +114,8 @@ namespace ParameterisedContracts {
 
 		/// <summary>
 		///     FinalStates, constructed out of the final states
-		///     of the provides protocol.</summary>
+		///     of the provides protocol.
+		/// </summary>
 		public override Set FinalStates {
 			get { return finalStates; }
 		}
@@ -122,8 +125,6 @@ namespace ParameterisedContracts {
 		///     Constructed out of the start state of the
 		///     provides protocol.
 		/// </summary>
-		/// 
-		/// <seealso cref="IFiniteStateMachine.StartState"></seealso>
 		public override AbstractState StartState {
 			get {return new StackState(LookUpService(topServiceName).StartState,topServiceName);}
 		}
@@ -133,8 +134,6 @@ namespace ParameterisedContracts {
 		///     Conjunction of all input alphabets of all automatons 
 		///     included in this stack machine.
 		/// </summary>
-		/// 
-		/// <seealso cref="IFiniteStateMachine.InputAphabet"></seealso>
 		public override Set InputAlphabet {
 			get { return inputAlphabet; }
 		}
@@ -152,12 +151,7 @@ namespace ParameterisedContracts {
 		///     Returns the the target of a transiton starting at aSourceState
 		///     with the input symbol anInput.
 		/// </summary>
-		/// 
-		/// <param name="sourceState"></param>
-		/// <param name="anInput"></param>
-		/// 
 		/// <returns>The destination of the transition.</returns>
-		/// <seealso cref="IFiniteStateMachine.GetNextState"></seealso>
 		public override AbstractState GetNextState(AbstractState sourceState, Input anInput) {
 			return GetNextTransition(sourceState,anInput).DestinationState;
 		}
@@ -166,8 +160,6 @@ namespace ParameterisedContracts {
 		/// <summary>
 		///     Returns all _valid_ transitions with the source aSourceState.
 		/// </summary>
-		/// 
-		/// <param name="aSourceState"></param>
 		/// 
 		/// <returns>
 		///		A Hashtable which contains all transtions for the given state.
@@ -258,11 +250,9 @@ namespace ParameterisedContracts {
 
 
 		/// <summary>
-		/// Tests aState and aServiceName for recursion.
+		/// Tests aState and aServiceName for recursion. If aServiceName is
+		/// called in aState, is that a recursion?
 		/// </summary>
-		/// <param name="aState"></param>
-		/// <param name="aServiceName"></param>
-		/// <returns></returns>
 		protected abstract bool CheckRecursion(StackState aState,Input aServiceName);
 
 
@@ -330,12 +320,7 @@ namespace ParameterisedContracts {
 		/// <summary>
 		///     Creates a new Transition using the default type.
 		/// </summary>
-		/// 
-		/// <param name="aSourceState">source</param>
-		/// <param name="anInputSymbol">input</param>
-		/// <param name="aDestinationState">destination</param>
-		/// 
-		/// <returns>New transition object</returns>
+		/// <returns>New Transition object</returns>
 		protected Transition CreateTransition(AbstractState aSourceState, Input anInputSymbol, AbstractState aDestinationState) {
 			Type[] types = new Type[3];
 			types[0] = typeof(AbstractState);

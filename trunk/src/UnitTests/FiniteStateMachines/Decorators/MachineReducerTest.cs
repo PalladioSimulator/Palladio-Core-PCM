@@ -12,11 +12,11 @@ namespace UnitTests.FiniteStateMachines.Decorators {
 	/// </summary>
 	[TestFixture]
 	public class MachineReducerTest {
-		public AbstractFiniteStateMachine expandedRecursion, expandedIncomplete, expandedComplex, expandedSimple, topMachine;
+		public IFiniteStateMachine expandedRecursion, expandedIncomplete, expandedComplex, expandedSimple, topMachine;
 		public Hashtable tableSimple,tableComplex, tableIncomplete, tableRecursion;
 
 		[SetUp] public void Init() {
-			AbstractFiniteStateMachine d1,d1s,d2,d3,d3s,d3incomplete;
+			IFiniteStateMachine d1,d1s,d2,d3,d3s,d3incomplete;
 			topMachine = AbstractFiniteStateMachine.Loader("../../data/provides.xml");
 			d1 = AbstractFiniteStateMachine.Loader("../../data/se_d1.xml");
 			d1s = AbstractFiniteStateMachine.Loader("../../data/se_d1s.xml");

@@ -3,55 +3,65 @@ using System;
 namespace FiniteStateMachines {
 
 	/// <summary>
-	/// Class representing the abstract type of a state.
+	///		Class representing the abstract type of a state.
+	///		
+	///		author: JH
 	/// </summary>
 	public abstract class AbstractState {
 		
         /// <summary>
-		/// Denotes this state as a start state of the
-		/// finite state machine it belongs to.
+		///		Denotes this state as a start state of the
+		///		finite state machine it belongs to.
 		/// </summary>
 		public abstract bool IsStartState { get; }
 
 		
 		/// <summary>
-		/// Denotes this state as a final state of the
-		/// finite state machine it belongs to.
+		///		Denotes this state as a final state of the
+		///		finite state machine it belongs to.
 		/// </summary>
 		public abstract bool IsFinalState { get; }
 
 		
 		/// <summary>
-		/// The name of the state.
+		///		The name of the state.
 		/// </summary>
 		public abstract string Name { get; }
 
 		
 		/// <summary>
-		/// Default implementation of <code ToString()/>.
+		///		Default implementation of ToString().
 		/// </summary>
-		/// <returns>The name of the State.</returns>
+		/// <returns>
+		///		The name of the State.
+		///	</returns>
 		public override string ToString() {
 			return this.Name;
 		}
 
 		
 		/// <summary>
-		/// Default implementation of <code>GetHashCode()</code>. 
-		/// Refers to the hashcode of <code>name</code>.
+		///		Default implementation of GetHashCode(). 
+		///		Refers to the hashcode of name.
 		/// </summary>
-		/// <returns>Hashcode of <code>name</code></returns>
+		/// <returns>
+		///		Hashcode of Name
+		///	</returns>
 		public override int GetHashCode() {
 			return Name.GetHashCode();
 		}
 
 		
 		/// <summary>
-		/// Default implementation of <code>Equals</code>.
+		///		Default implementation of Equals.
 		/// </summary>
-		/// <param name="obj">The other object.</param>
-		/// <returns>True, if <code>Name</code>, <code>IsStartState</code> and
-		/// <code>IsFinalState</code> are Equal; false otherwise.</returns>
+		/// <param name="obj">
+		///		The other object.
+		///	</param>
+		/// <returns>
+		///		True, if Name, IsStartState and
+		///		IsFinalState are Equal; false otherwise.
+		///	</returns>
 		public override bool Equals(object obj) {
 			AbstractState state;
 			if (obj is AbstractState) { 
@@ -66,12 +76,12 @@ namespace FiniteStateMachines {
 		
 	
 		/// <summary>
-		/// Default comparison of two states based on the 
-		/// implementation of <code>Equals</code>.
+		///		Default comparison of two states based on the 
+		///		implementation of Equals.
 		/// </summary>
-		/// <param name="one"></param>
-		/// <param name="two"></param>
-		/// <returns>True, if <code>stateOne.Equals(stateTwo)</code>; false otherwise</returns>
+		/// <returns>
+		///		True, if stateOne.Equals(stateTwo); false otherwise
+		///	</returns>
 		public static bool operator == (AbstractState one, AbstractState two){
 			try {
 				return one.Equals(two);
@@ -86,12 +96,12 @@ namespace FiniteStateMachines {
 
 		
 		/// <summary>
-		/// Default comparison of two states based on the 
-		/// implementation of <code>Equals</code>.
+		///		Default comparison of two states based on the 
+		///		implementation of Equals.
 		/// </summary>
-		/// <param name="one"></param>
-		/// <param name="two"></param>
-		/// <returns>True if _NOT_ <code>stateOne.Equals(stateTwo)</code>; false otherwise.</returns>
+		/// <returns>
+		///		True if _NOT_ stateOne.Equals(stateTwo); false otherwise.
+		///	</returns>
 		public static bool operator != (AbstractState one, AbstractState two){
 			try {
 				return !one.Equals(two);
