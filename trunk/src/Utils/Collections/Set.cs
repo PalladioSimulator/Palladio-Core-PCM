@@ -11,6 +11,9 @@ namespace Palladio.Utils.Collections
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.3  2004/05/24 12:43:02  sbecker
+	/// Added a static function to check equality of two array interpreted as sets
+	///
 	/// Revision 1.2  2004/05/12 14:39:59  sliver
 	/// ndoc project added
 	///
@@ -122,6 +125,21 @@ namespace Palladio.Utils.Collections
 		public override object Clone()
 		{
 			return new Set(this);
+		}
+
+		public static bool SetwiseEquals(object[] a, object[] b)
+		{
+			return CheckSubset(a,b) && CheckSubset(b,a);
+		}
+
+		private static bool CheckSubset(object[] a, object[] b)
+		{
+			foreach (object a_o in a)
+			{
+				if (System.Array.IndexOf(b,a_o) < 0)
+					return false;
+			}
+			return true;
 		}
 	}
 }
