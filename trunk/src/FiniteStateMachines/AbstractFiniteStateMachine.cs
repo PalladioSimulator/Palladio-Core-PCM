@@ -237,8 +237,8 @@ namespace Palladio.FiniteStateMachines
 		/// Compares two FSMs.
 		/// Two FSMs are considered as equal, if they accept the same language.
 		/// </summary>
-		/// <param name="fsmOne"></param>
-		/// <param name="fsmTwo"></param>
+		/// <param name="aFsmOne"></param>
+		/// <param name="aFsmTwo"></param>
 		/// <returns>
 		/// True if the two FSMs accept the same language, false otherwise.
 		/// </returns>
