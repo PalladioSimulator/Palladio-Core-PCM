@@ -308,7 +308,7 @@ namespace UnitTests.FiniteStateMachines
 		[Test] public void CloneSingleStateFSM() 
 		{
 			State stat = new State("anyname",true,true);
-			IFiniteStateMachine firstFsm = new FSMFactory().GenerateFSM(stat);
+			IFiniteStateMachine firstFsm = new FSMFactory().CreateFSM(stat);
 			IFiniteStateMachine secFsm = (IFiniteStateMachine)firstFsm.Clone();
 			Assert.AreEqual(firstFsm,secFsm);
 		}

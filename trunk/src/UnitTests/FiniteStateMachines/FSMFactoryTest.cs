@@ -20,7 +20,7 @@ namespace UnitTests.FiniteStateMachines
 		[SetUp] void Init()
 		{
 			this.factory = new FSMFactory();
-			this.FSMOne = factory.GenerateFSM();
+			this.FSMOne = factory.CreateFSM();
 			IState one = new State("one",true,false);
 			IState two = new State("two",false, false);
 			IState three = new State("three",false,true);
@@ -33,7 +33,7 @@ namespace UnitTests.FiniteStateMachines
 			this.FSMOne.AddTransition(new Transition(three,b,three));
 			this.FSMOne.AddTransition(new Transition(one,c,three));
 
-			this.FSMTwo = this.factory.GenerateFSM();
+			this.FSMTwo = this.factory.CreateFSM();
 			this.FSMTwo.AddTransition(new Transition(one,d,three));
 			this.FSMTwo.AddTransition(new Transition(one,a,three));
 			this.FSMTwo.AddTransition(new Transition(one,b,three));
@@ -44,7 +44,7 @@ namespace UnitTests.FiniteStateMachines
 		[Test] public void InitTest()
 		{
 			FSMFactory factory = new FSMFactory();
-			IFiniteStateMachine fsm = factory.GenerateFSM();
+			IFiniteStateMachine fsm = factory.CreateFSM();
 			State a = new State("eins",true,false);
 			Input i = new Input("i");
 			fsm.AddTransition(new Transition(a,i,a));

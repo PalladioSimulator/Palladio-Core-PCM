@@ -26,7 +26,7 @@ namespace Palladio.FiniteStateMachines
 		/// Generates an empty FiniteStateMachine.
 		/// </summary>
 		/// <returns>An empty FSM</returns>
-		public IFiniteStateMachine GenerateFSM()
+		public IFiniteStateMachine CreateFSM()
 		{
 			return new TabularFSM();
 		}
@@ -37,7 +37,7 @@ namespace Palladio.FiniteStateMachines
 		/// </summary>
 		/// <param name="aStartState">Start-State of the new FSM.</param>
 		/// <returns>new FSM</returns>
-		public IFiniteStateMachine GenerateFSM(IState aStartState)
+		public IFiniteStateMachine CreateFSM(IState aStartState)
 		{
 			return new TabularFSM(aStartState);
 		}
