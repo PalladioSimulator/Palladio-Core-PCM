@@ -279,23 +279,30 @@ namespace Palladio.FiniteStateMachines
 				{
 					foreach (Input input in minOne.InputAlphabet) 
 					{
-						IState nextOne = minOne.GetNextState(current.oneState, input);
-						IState nextTwo = minTwo.GetNextState(current.twoState, input);	
-						if (( nextOne != minOne.ErrorState ) &&
-							( nextTwo != minTwo.ErrorState )) 
+						if (minOne.GetOutgoingTransitions(current.oneState).Count == minTwo.GetOutgoingTransitions(current.twoState).Count )
 						{
-							iter.Append(new DualState (nextOne, nextTwo));
+							IState nextOne = minOne.GetNextState(current.oneState, input);
+							IState nextTwo = minTwo.GetNextState(current.twoState, input);	
+							if (( nextOne != minOne.ErrorState ) &&
+								( nextTwo != minTwo.ErrorState )) 
+							{
+								iter.Append(new DualState (nextOne, nextTwo));
+							} 
+							else 
+							{
+								// At this point at least one of the states is 
+								// an ErrorState. If both states are ErrorStates the FSMs
+								// can still be equivalent, else they are not.
+								if (( nextOne != minOne.ErrorState ) ||
+									( nextTwo != minTwo.ErrorState )) 
+								{
+									return false;
+								}
+							}
 						} 
 						else 
 						{
-							// At this point at least one of the states is 
-							// an ErrorState. If both states are ErrorStates the FSMs
-							// can still be equivalent, else they are not.
-							if (( nextOne != minOne.ErrorState ) ||
-								( nextTwo != minTwo.ErrorState )) 
-							{
-								return false;
-							}
+							return false;
 						}
 					}
 				} 
