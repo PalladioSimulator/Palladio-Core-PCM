@@ -52,8 +52,8 @@ namespace Palladio.ComponentModel.Components
 		/// <summary>
 		/// Default constructor
 		/// </summary>
-		/// <param name="anInterface">An interface to attach to a component</param>
-		/// <param name="aRole">The role of the interface in the attachment</param>
+		/// <param name="component">The component to which to role is attached</param>
+		/// <param name="roleID">The role of the interface in the attachment</param>
 		public DefaultAttachedRole(IComponent component, IIdentifier roleID)
 		{
 			this.component = component;

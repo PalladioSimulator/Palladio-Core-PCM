@@ -49,9 +49,20 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aSigArray">Signatures to delete.</param>
 		void DeleteSignatures( params ISignature[] aSigArray );
-
+		
+		/// <summary>
+		/// Query the list for a certain signature
+		/// </summary>
+		/// <param name="aSignature">The signature which is searched</param>
+		/// <returns>True if the queried signature is in the list</returns>
 		bool ContainsSignature( ISignature aSignature );
-
+		
+		/// <summary>
+		/// Get the signatures in the list which the given name
+		/// </summary>
+		/// <param name="aName">Name of the signatures to search</param>
+		/// <returns>All signatures with the given name, e.g. all overrides of a certain
+		/// signature</returns>
 		ISignature[] GetSignaturesByID( IIdentifier aName );
 
 		#endregion
@@ -94,9 +105,20 @@ namespace Palladio.ComponentModel
 		/// </summary>
 		/// <param name="aSigArray">Signatures to delete.</param>
 		void DeleteSignatures( params ISignatureWithRole[] aSigArray );
-
+		
+		/// <summary>
+		/// Query the list for a certain signature
+		/// </summary>
+		/// <param name="aSignature">The signature which is searched</param>
+		/// <returns>True if the queried signature is in the list</returns>
 		bool ContainsSignature( ISignatureWithRole aSignature );
-
+		
+		/// <summary>
+		/// Get the signatures in the list which the given name
+		/// </summary>
+		/// <param name="aName">Name of the signatures to search</param>
+		/// <returns>All signatures with the given name, e.g. all overrides of a certain
+		/// signature</returns>
 		ISignatureWithRole[] GetSignaturesByID( IIdentifier aName );
 
 		#endregion

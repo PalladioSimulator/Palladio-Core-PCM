@@ -1501,7 +1501,7 @@ namespace Palladio.ComponentModel.TypedCollections
     /// key-and-value pairs that are organized based on the hash code of the key.
     /// </summary>
     /// <remarks>
-    /// <b>ComponentRolesHashmap</b> provides a <see cref="Hashmap"/> that is strongly typed
+    /// <b>ComponentRolesHashmap</b> provides a <see cref="Hashtable"/> that is strongly typed
     /// for <see cref="IIdentifier"/> keys and <see cref="IRole"/> values.
     /// </remarks>
 
@@ -1534,7 +1534,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// that is empty and has the default initial capacity, the default load factor,
         /// the default hash code provider and the default comparer.
         /// </summary>
-        /// <remarks>Please refer to <see cref="Hashmap()"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable()"/> for details.</remarks>
 
         public ComponentRolesHashmap() {
             this._innerHash = new Hashmap();
@@ -1560,7 +1560,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>A null reference to use the default comparer, which is each key's
         /// implementation of <see cref="Object.Equals"/>.</para></param>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IHashCodeProvider, IComparer)"/> for details.
+        /// Please refer to <see cref="Hashtable(IHashCodeProvider, IComparer)"/> for details.
         /// </remarks>
 
         public ComponentRolesHashmap(IHashCodeProvider provider, IComparer comparer) {
@@ -1579,7 +1579,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <see cref="ComponentRolesHashmap"/> is initially capable of storing.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <paramref name="capacity"/> is less than zero.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap(Int32)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(Int32)"/> for details.</remarks>
 
         public ComponentRolesHashmap(int capacity) {
             this._innerHash = new Hashmap(capacity);
@@ -1609,7 +1609,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="ArgumentOutOfRangeException">
         /// <paramref name="capacity"/> is less than zero.</exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(Int32, IHashCodeProvider, IComparer)"/> for details.
+        /// Please refer to <see cref="Hashtable(Int32, IHashCodeProvider, IComparer)"/> for details.
         /// </remarks>
 
         public ComponentRolesHashmap(int capacity,
@@ -1636,7 +1636,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para><paramref name="loadFactor"/> is less than 0.1.</para>
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap(Int32, Single)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(Int32, Single)"/> for details.</remarks>
 
         public ComponentRolesHashmap(int capacity, float loadFactor) {
             this._innerHash = new Hashmap(capacity, loadFactor);
@@ -1672,7 +1672,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(Int32, Single, IHashCodeProvider, IComparer)"/>
+        /// Please refer to <see cref="Hashtable(Int32, Single, IHashCodeProvider, IComparer)"/>
         /// for details.</remarks>
 
         public ComponentRolesHashmap(int capacity, float loadFactor,
@@ -1694,7 +1694,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// whose elements are copied to the new collection.</param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap(IDictionary)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(IDictionary)"/> for details.</remarks>
 
         public ComponentRolesHashmap(ComponentRolesHashmap dictionary) {
             if (dictionary == null)
@@ -1716,7 +1716,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// whose elements are copied to the new collection.</param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap(IDictionary)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(IDictionary)"/> for details.</remarks>
 
         public ComponentRolesHashmap(IDictionary dictionary) {
             this._innerHash = new Hashmap(dictionary);
@@ -1747,7 +1747,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IDictionary, IHashCodeProvider, IComparer)"/>
+        /// Please refer to <see cref="Hashtable(IDictionary, IHashCodeProvider, IComparer)"/>
         /// for details.</remarks>
 
         public ComponentRolesHashmap(IDictionary dictionary,
@@ -1776,7 +1776,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IDictionary, Single)"/> for details.
+        /// Please refer to <see cref="Hashtable(IDictionary, Single)"/> for details.
         /// </remarks>
 
         public ComponentRolesHashmap(IDictionary dictionary, float loadFactor) {
@@ -1814,7 +1814,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IDictionary, Single, IHashCodeProvider, IComparer)"/>
+        /// Please refer to <see cref="Hashtable(IDictionary, Single, IHashCodeProvider, IComparer)"/>
         /// for details.</remarks>
 
         public ComponentRolesHashmap(IDictionary dictionary,
@@ -1834,7 +1834,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <value>
         /// The number of key-and-value pairs contained in the <see cref="ComponentRolesHashmap"/>.
         /// </value>
-        /// <remarks>Please refer to <see cref="Hashmap.Count"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Count"/> for details.</remarks>
 
         public int Count {
             get { return this._innerHash.Count; }
@@ -1848,7 +1848,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value><c>true</c> if the <see cref="ComponentRolesHashmap"/> has a fixed size;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.IsFixedSize"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.IsFixedSize"/> for details.</remarks>
 
         public bool IsFixedSize {
             get { return this._innerHash.IsFixedSize; }
@@ -1862,7 +1862,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value><c>true</c> if the <see cref="ComponentRolesHashmap"/> is read-only;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.IsReadOnly"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.IsReadOnly"/> for details.</remarks>
 
         public bool IsReadOnly {
             get { return this._innerHash.IsReadOnly; }
@@ -1877,7 +1877,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value><c>true</c> if access to the <see cref="ComponentRolesHashmap"/> is
         /// synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.IsSynchronized"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.IsSynchronized"/> for details.</remarks>
 
         public bool IsSynchronized {
             get { return this._innerHash.IsSynchronized; }
@@ -1905,7 +1905,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>-or-</para>
         /// <para>The property is set, <paramref name="key"/> does not exist in the collection,
         /// and the <b>ComponentRolesHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.this"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 
         public IRole this[IIdentifier key] {
             get {
@@ -1941,7 +1941,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>-or-</para>
         /// <para>The property is set, <paramref name="key"/> does not exist in the collection,
         /// and the <b>ComponentRolesHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.this"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 
         object IDictionary.this[object key] {
             get { return this[(IIdentifier) key]; }
@@ -1957,7 +1957,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value>An <see cref="IIIdentifierCollection"/> containing
         /// the keys in the <see cref="ComponentRolesHashmap"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Keys"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Keys"/> for details.</remarks>
 
         public IIIdentifierCollection Keys {
             get {
@@ -1976,7 +1976,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value>An <see cref="ICollection"/> containing
         /// the keys in the <see cref="ComponentRolesHashmap"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Keys"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Keys"/> for details.</remarks>
 
         ICollection IDictionary.Keys {
             get { return (ICollection) Keys; }
@@ -1991,7 +1991,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value>An object that can be used to synchronize
         /// access to the <see cref="ComponentRolesHashmap"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.SyncRoot"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.SyncRoot"/> for details.</remarks>
 
         public object SyncRoot {
             get { return this._innerHash.SyncRoot; }
@@ -2006,7 +2006,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value>An <see cref="IIRoleCollection"/> containing
         /// the values in the <see cref="ComponentRolesHashmap"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Values"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Values"/> for details.</remarks>
 
         public virtual IIRoleCollection Values {
             get {
@@ -2025,7 +2025,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value>An <see cref="ICollection"/> containing
         /// the values in the <see cref="ComponentRolesHashmap"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Values"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Values"/> for details.</remarks>
 
         ICollection IDictionary.Values {
             get { return (ICollection) Values; }
@@ -2069,7 +2069,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <see cref="ComponentRolesHashmap"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b>ComponentRolesHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Add"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
         public void Add(IIdentifier key, IRole value) {
             this._innerHash.Add(key, value);
@@ -2102,7 +2102,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <see cref="ComponentRolesHashmap"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b>ComponentRolesHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Add"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
         void IDictionary.Add(object key, object value) {
             Add((IIdentifier) key, (IRole) value);
@@ -2118,7 +2118,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <see cref="ComponentRolesHashmap"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b>ComponentRolesHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Clear"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Clear"/> for details.</remarks>
 
         public void Clear() {
             this._innerHash.Clear();
@@ -2131,7 +2131,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// Creates a shallow copy of the <see cref="ComponentRolesHashmap"/>.
         /// </summary>
         /// <returns>A shallow copy of the <see cref="ComponentRolesHashmap"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.Clone"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Clone"/> for details.</remarks>
 
         public object Clone() {
             ComponentRolesHashmap dictionary = new ComponentRolesHashmap(Tag.Default);
@@ -2152,7 +2152,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// with the specified <paramref name="key"/>; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Contains"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Contains"/> for details.</remarks>
 
         public bool Contains(IIdentifier key) {
             return this._innerHash.Contains(key);
@@ -2172,7 +2172,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="InvalidCastException"><paramref name="key"/>
         /// is not compatible with <see cref="IIdentifier"/>.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Contains"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Contains"/> for details.</remarks>
 
         bool IDictionary.Contains(object key) {
             return Contains((IIdentifier) key);
@@ -2191,7 +2191,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// with the specified <paramref name="key"/>; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.ContainsKey"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.ContainsKey"/> for details.</remarks>
 
         public bool ContainsKey(IIdentifier key) {
             return this._innerHash.ContainsKey(key);
@@ -2210,7 +2210,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </param>
         /// <returns><c>true</c> if the <see cref="ComponentRolesHashmap"/> contains an element
         /// with the specified <paramref name="value"/>; otherwise, <c>false</c>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.ContainsValue"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.ContainsValue"/> for details.</remarks>
 
         public bool ContainsValue(IRole value) {
             return this._innerHash.ContainsValue(value);
@@ -2238,7 +2238,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// The number of elements in the source <see cref="ComponentRolesHashmap"/> is greater than
         /// the available space from <paramref name="arrayIndex"/> to the end of the destination
         /// <paramref name="array"/>.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.CopyTo"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.CopyTo"/> for details.</remarks>
 
         public void CopyTo(IIDRoleEntry[] array, int arrayIndex) {
             this._innerHash.CopyTo(array, arrayIndex);
@@ -2271,7 +2271,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="InvalidCastException">
         /// The <see cref="IIDRoleEntry"/> type cannot be cast automatically
         /// to the type of the destination <paramref name="array"/>.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.CopyTo"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.CopyTo"/> for details.</remarks>
 
         void ICollection.CopyTo(Array array, int arrayIndex) {
             CheckTargetArray(array, arrayIndex);
@@ -2287,7 +2287,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <returns>An <see cref="IIIdentifierIRoleEnumerator"/>
         /// for the entire <see cref="ComponentRolesHashmap"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.GetEnumerator"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
         public IIIdentifierIRoleEnumerator GetEnumerator() {
             return new Enumerator(this);
@@ -2302,7 +2302,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <returns>An <see cref="IDictionaryEnumerator"/>
         /// for the entire <see cref="ComponentRolesHashmap"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.GetEnumerator"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
         IDictionaryEnumerator IDictionary.GetEnumerator() {
             return (IDictionaryEnumerator) GetEnumerator();
@@ -2317,7 +2317,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <returns>An <see cref="IEnumerator"/>
         /// for the entire <see cref="ComponentRolesHashmap"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.GetEnumerator"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
         IEnumerator IEnumerable.GetEnumerator() {
             return (IEnumerator) GetEnumerator();
@@ -2338,7 +2338,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <see cref="ComponentRolesHashmap"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b>ComponentRolesHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Remove"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Remove"/> for details.</remarks>
 
         public void Remove(IIdentifier key) {
             this._innerHash.Remove(key);
@@ -2361,7 +2361,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <see cref="ComponentRolesHashmap"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b>ComponentRolesHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Remove"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Remove"/> for details.</remarks>
 
         void IDictionary.Remove(object key) {
             Remove((IIdentifier) key);
@@ -2378,7 +2378,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <returns>A synchronized (thread-safe) wrapper around <paramref name="dictionary"/>.</returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Synchronized"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Synchronized"/> for details.</remarks>
 
         public static ComponentRolesHashmap Synchronized(ComponentRolesHashmap dictionary) {
             if (dictionary == null)
@@ -4169,7 +4169,7 @@ namespace Palladio.ComponentModel.TypedCollections
     /// key-and-value pairs that are organized based on the hash code of the key.
     /// </summary>
     /// <remarks>
-    /// <b>ServiceEffectHashmap</b> provides a <see cref="Hashmap"/> that is strongly typed
+    /// <b>ServiceEffectHashmap</b> provides a <see cref="Hashtable"/> that is strongly typed
     /// for <see cref="ISignatureWithRole"/> keys and <see cref="IServiceEffectSpecification"/> values.
     /// </remarks>
 
@@ -4202,7 +4202,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// that is empty and has the default initial capacity, the default load factor,
         /// the default hash code provider and the default comparer.
         /// </summary>
-        /// <remarks>Please refer to <see cref="Hashmap()"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable()"/> for details.</remarks>
 
         public ServiceEffectHashmap() {
             this._innerHash = new Hashmap();
@@ -4228,7 +4228,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>A null reference to use the default comparer, which is each key's
         /// implementation of <see cref="Object.Equals"/>.</para></param>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IHashCodeProvider, IComparer)"/> for details.
+        /// Please refer to <see cref="Hashtable(IHashCodeProvider, IComparer)"/> for details.
         /// </remarks>
 
         public ServiceEffectHashmap(IHashCodeProvider provider, IComparer comparer) {
@@ -4247,7 +4247,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <see cref="ServiceEffectHashmap"/> is initially capable of storing.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <paramref name="capacity"/> is less than zero.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap(Int32)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(Int32)"/> for details.</remarks>
 
         public ServiceEffectHashmap(int capacity) {
             this._innerHash = new Hashmap(capacity);
@@ -4277,7 +4277,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="ArgumentOutOfRangeException">
         /// <paramref name="capacity"/> is less than zero.</exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(Int32, IHashCodeProvider, IComparer)"/> for details.
+        /// Please refer to <see cref="Hashtable(Int32, IHashCodeProvider, IComparer)"/> for details.
         /// </remarks>
 
         public ServiceEffectHashmap(int capacity,
@@ -4304,7 +4304,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para><paramref name="loadFactor"/> is less than 0.1.</para>
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap(Int32, Single)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(Int32, Single)"/> for details.</remarks>
 
         public ServiceEffectHashmap(int capacity, float loadFactor) {
             this._innerHash = new Hashmap(capacity, loadFactor);
@@ -4340,7 +4340,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(Int32, Single, IHashCodeProvider, IComparer)"/>
+        /// Please refer to <see cref="Hashtable(Int32, Single, IHashCodeProvider, IComparer)"/>
         /// for details.</remarks>
 
         public ServiceEffectHashmap(int capacity, float loadFactor,
@@ -4362,7 +4362,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// whose elements are copied to the new collection.</param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap(IDictionary)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(IDictionary)"/> for details.</remarks>
 
         public ServiceEffectHashmap(ServiceEffectHashmap dictionary) {
             if (dictionary == null)
@@ -4384,7 +4384,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// whose elements are copied to the new collection.</param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap(IDictionary)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(IDictionary)"/> for details.</remarks>
 
         public ServiceEffectHashmap(IDictionary dictionary) {
             this._innerHash = new Hashmap(dictionary);
@@ -4415,7 +4415,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IDictionary, IHashCodeProvider, IComparer)"/>
+        /// Please refer to <see cref="Hashtable(IDictionary, IHashCodeProvider, IComparer)"/>
         /// for details.</remarks>
 
         public ServiceEffectHashmap(IDictionary dictionary,
@@ -4444,7 +4444,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IDictionary, Single)"/> for details.
+        /// Please refer to <see cref="Hashtable(IDictionary, Single)"/> for details.
         /// </remarks>
 
         public ServiceEffectHashmap(IDictionary dictionary, float loadFactor) {
@@ -4482,7 +4482,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IDictionary, Single, IHashCodeProvider, IComparer)"/>
+        /// Please refer to <see cref="Hashtable(IDictionary, Single, IHashCodeProvider, IComparer)"/>
         /// for details.</remarks>
 
         public ServiceEffectHashmap(IDictionary dictionary,
@@ -4502,7 +4502,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <value>
         /// The number of key-and-value pairs contained in the <see cref="ServiceEffectHashmap"/>.
         /// </value>
-        /// <remarks>Please refer to <see cref="Hashmap.Count"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Count"/> for details.</remarks>
 
         public int Count {
             get { return this._innerHash.Count; }
@@ -4516,7 +4516,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value><c>true</c> if the <see cref="ServiceEffectHashmap"/> has a fixed size;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.IsFixedSize"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.IsFixedSize"/> for details.</remarks>
 
         public bool IsFixedSize {
             get { return this._innerHash.IsFixedSize; }
@@ -4530,7 +4530,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value><c>true</c> if the <see cref="ServiceEffectHashmap"/> is read-only;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.IsReadOnly"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.IsReadOnly"/> for details.</remarks>
 
         public bool IsReadOnly {
             get { return this._innerHash.IsReadOnly; }
@@ -4545,7 +4545,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value><c>true</c> if access to the <see cref="ServiceEffectHashmap"/> is
         /// synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.IsSynchronized"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.IsSynchronized"/> for details.</remarks>
 
         public bool IsSynchronized {
             get { return this._innerHash.IsSynchronized; }
@@ -4573,7 +4573,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>-or-</para>
         /// <para>The property is set, <paramref name="key"/> does not exist in the collection,
         /// and the <b>ServiceEffectHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.this"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 
         public IServiceEffectSpecification this[ISignatureWithRole key] {
             get {
@@ -4609,7 +4609,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>-or-</para>
         /// <para>The property is set, <paramref name="key"/> does not exist in the collection,
         /// and the <b>ServiceEffectHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.this"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 
         object IDictionary.this[object key] {
             get { return this[(ISignatureWithRole) key]; }
@@ -4625,7 +4625,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value>An <see cref="IISignatureWithRoleCollection"/> containing
         /// the keys in the <see cref="ServiceEffectHashmap"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Keys"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Keys"/> for details.</remarks>
 
         public IISignatureWithRoleCollection Keys {
             get {
@@ -4644,7 +4644,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value>An <see cref="ICollection"/> containing
         /// the keys in the <see cref="ServiceEffectHashmap"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Keys"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Keys"/> for details.</remarks>
 
         ICollection IDictionary.Keys {
             get { return (ICollection) Keys; }
@@ -4659,7 +4659,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value>An object that can be used to synchronize
         /// access to the <see cref="ServiceEffectHashmap"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.SyncRoot"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.SyncRoot"/> for details.</remarks>
 
         public object SyncRoot {
             get { return this._innerHash.SyncRoot; }
@@ -4674,7 +4674,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value>An <see cref="IIServiceEffectSpecificationCollection"/> containing
         /// the values in the <see cref="ServiceEffectHashmap"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Values"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Values"/> for details.</remarks>
 
         public virtual IIServiceEffectSpecificationCollection Values {
             get {
@@ -4693,7 +4693,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <value>An <see cref="ICollection"/> containing
         /// the values in the <see cref="ServiceEffectHashmap"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Values"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Values"/> for details.</remarks>
 
         ICollection IDictionary.Values {
             get { return (ICollection) Values; }
@@ -4737,7 +4737,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <see cref="ServiceEffectHashmap"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b>ServiceEffectHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Add"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
         public void Add(ISignatureWithRole key, IServiceEffectSpecification value) {
             this._innerHash.Add(key, value);
@@ -4770,7 +4770,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <see cref="ServiceEffectHashmap"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b>ServiceEffectHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Add"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
         void IDictionary.Add(object key, object value) {
             Add((ISignatureWithRole) key, (IServiceEffectSpecification) value);
@@ -4786,7 +4786,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <see cref="ServiceEffectHashmap"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b>ServiceEffectHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Clear"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Clear"/> for details.</remarks>
 
         public void Clear() {
             this._innerHash.Clear();
@@ -4799,7 +4799,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// Creates a shallow copy of the <see cref="ServiceEffectHashmap"/>.
         /// </summary>
         /// <returns>A shallow copy of the <see cref="ServiceEffectHashmap"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.Clone"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Clone"/> for details.</remarks>
 
         public object Clone() {
             ServiceEffectHashmap dictionary = new ServiceEffectHashmap(Tag.Default);
@@ -4820,7 +4820,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// with the specified <paramref name="key"/>; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Contains"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Contains"/> for details.</remarks>
 
         public bool Contains(ISignatureWithRole key) {
             return this._innerHash.Contains(key);
@@ -4840,7 +4840,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="InvalidCastException"><paramref name="key"/>
         /// is not compatible with <see cref="ISignatureWithRole"/>.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Contains"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Contains"/> for details.</remarks>
 
         bool IDictionary.Contains(object key) {
             return Contains((ISignatureWithRole) key);
@@ -4859,7 +4859,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// with the specified <paramref name="key"/>; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.ContainsKey"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.ContainsKey"/> for details.</remarks>
 
         public bool ContainsKey(ISignatureWithRole key) {
             return this._innerHash.ContainsKey(key);
@@ -4878,7 +4878,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </param>
         /// <returns><c>true</c> if the <see cref="ServiceEffectHashmap"/> contains an element
         /// with the specified <paramref name="value"/>; otherwise, <c>false</c>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.ContainsValue"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.ContainsValue"/> for details.</remarks>
 
         public bool ContainsValue(IServiceEffectSpecification value) {
             return this._innerHash.ContainsValue(value);
@@ -4906,7 +4906,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// The number of elements in the source <see cref="ServiceEffectHashmap"/> is greater than
         /// the available space from <paramref name="arrayIndex"/> to the end of the destination
         /// <paramref name="array"/>.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.CopyTo"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.CopyTo"/> for details.</remarks>
 
         public void CopyTo(IServiceEntry[] array, int arrayIndex) {
             this._innerHash.CopyTo(array, arrayIndex);
@@ -4939,7 +4939,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <exception cref="InvalidCastException">
         /// The <see cref="IServiceEntry"/> type cannot be cast automatically
         /// to the type of the destination <paramref name="array"/>.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.CopyTo"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.CopyTo"/> for details.</remarks>
 
         void ICollection.CopyTo(Array array, int arrayIndex) {
             CheckTargetArray(array, arrayIndex);
@@ -4955,7 +4955,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <returns>An <see cref="IISignatureWithRoleIServiceEffectSpecificationEnumerator"/>
         /// for the entire <see cref="ServiceEffectHashmap"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.GetEnumerator"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
         public IISignatureWithRoleIServiceEffectSpecificationEnumerator GetEnumerator() {
             return new Enumerator(this);
@@ -4970,7 +4970,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <returns>An <see cref="IDictionaryEnumerator"/>
         /// for the entire <see cref="ServiceEffectHashmap"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.GetEnumerator"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
         IDictionaryEnumerator IDictionary.GetEnumerator() {
             return (IDictionaryEnumerator) GetEnumerator();
@@ -4985,7 +4985,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// </summary>
         /// <returns>An <see cref="IEnumerator"/>
         /// for the entire <see cref="ServiceEffectHashmap"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.GetEnumerator"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
         IEnumerator IEnumerable.GetEnumerator() {
             return (IEnumerator) GetEnumerator();
@@ -5006,7 +5006,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <see cref="ServiceEffectHashmap"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b>ServiceEffectHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Remove"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Remove"/> for details.</remarks>
 
         public void Remove(ISignatureWithRole key) {
             this._innerHash.Remove(key);
@@ -5029,7 +5029,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <para>The <see cref="ServiceEffectHashmap"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b>ServiceEffectHashmap</b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Remove"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Remove"/> for details.</remarks>
 
         void IDictionary.Remove(object key) {
             Remove((ISignatureWithRole) key);
@@ -5046,7 +5046,7 @@ namespace Palladio.ComponentModel.TypedCollections
         /// <returns>A synchronized (thread-safe) wrapper around <paramref name="dictionary"/>.</returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Synchronized"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Synchronized"/> for details.</remarks>
 
         public static ServiceEffectHashmap Synchronized(ServiceEffectHashmap dictionary) {
             if (dictionary == null)

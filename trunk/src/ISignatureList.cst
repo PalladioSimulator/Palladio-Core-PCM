@@ -38,9 +38,20 @@
 		/// </summary>
 		/// <param name="aSigArray">Signatures to delete.</param>
 		void DeleteSignatures( params <%= ContainedSignatureType %>[] aSigArray );
-
+		
+		/// <summary>
+		/// Query the list for a certain signature
+		/// </summary>
+		/// <param name="aSignature">The signature which is searched</param>
+		/// <returns>True if the queried signature is in the list</returns>
 		bool ContainsSignature( <%= ContainedSignatureType %> aSignature );
-
+		
+		/// <summary>
+		/// Get the signatures in the list which the given name
+		/// </summary>
+		/// <param name="aName">Name of the signatures to search</param>
+		/// <returns>All signatures with the given name, e.g. all overrides of a certain
+		/// signature</returns>
 		<%= ContainedSignatureType %>[] GetSignaturesByID( IIdentifier aName );
 
 		#endregion

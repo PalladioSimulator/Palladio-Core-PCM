@@ -132,7 +132,7 @@ namespace Palladio.ComponentModel.Components
 		/// a service effect specification is required. It is given by a service effect mapping.
 		/// </summary>
 		/// <param name="aProvInterface">Provides interface to be added</param>
-		/// <param name="aServEffSpecArray">Service effect specifications of all signatures of the provides interface.</param>
+		/// <param name="roleID">The ID of the role to be created</param>
 		public void AddProvidesInterface(IIdentifier roleID,IInterfaceModel aProvInterface)
 		{
 			if (aProvInterface == null || roleID == null)
@@ -161,7 +161,8 @@ namespace Palladio.ComponentModel.Components
 		/// <summary>
 		/// Add all requires interfaces given by aReqArray to the component.
 		/// </summary>
-		/// <param name="aReqArray">Requires interfaces to be added.</param>
+		/// <param name="aReqInterface">An requires interface to be added</param>
+		/// <param name="roleID">The role ID of the interface to attach</param>
 		public void AddRequiresInterface(IIdentifier roleID, IInterfaceModel aReqInterface)
 		{
 			if (aReqInterface == null || roleID == null)
@@ -210,6 +211,7 @@ namespace Palladio.ComponentModel.Components
 		/// Creates an empty component with the attributes in anAttHash.
 		/// </summary>
 		/// <param name="anAttHash">List of attributes attached to this component.</param>
+		/// <param name="aID">ID of the component</param>
 		public AbstractComponent(IAttributeHash anAttHash, IIdentifier aID)
 		{
 			providesMap = new ComponentRolesHashmap();

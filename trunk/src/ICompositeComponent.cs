@@ -63,7 +63,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Remove a set of components from the ICompositeComponent.
 		/// </summary>
-		/// <param name="aCompArray">Set of components to be removed.</param>
+		/// <param name="componentIDs">Set of components to be removed.</param>
 		void DeleteComponents(params IIdentifier[] componentIDs);
 		
 		/// <summary>
@@ -109,30 +109,30 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// Get all bindings connected to the provides interfaces of aComponent.
 		/// </summary>
-		/// <param name="aComponent">Internal component of ICompositeComponent.</param>
+		/// <param name="aComponentID">Internal component of ICompositeComponent.</param>
 		/// <returns>An array of bindings which are connected to the provides interfaces of aComponent.</returns>
-		IBinding[] GetProvidesBindings(string aComponentID);
+		IBinding[] GetProvidesBindings(IIdentifier aComponentID);
 		
 		/// <summary>
 		/// Get all bindings connected to the requires interfaces of aComponent.
 		/// </summary>
-		/// <param name="aComponent">Internal component of ICompositeComponent.</param>
+		/// <param name="aComponentID">Internal component of ICompositeComponent.</param>
 		/// <returns>An array of bindings which are connected to the requires interfaces of aComponent.</returns>
-		IBinding[] GetRequiresBindings(string aComponentID);
+		IBinding[] GetRequiresBindings(IIdentifier aComponentID);
 
 		/// <summary>
 		/// Get all mappings connected to the provides interfaces of aComponent.
 		/// </summary>
-		/// <param name="aComponent">Internal component of ICompositeComponent.</param>
+		/// <param name="aComponentID">Internal component of ICompositeComponent.</param>
 		/// <returns>An array of mappings which are connected to the provides interfaces of aComponent.</returns>
-		IMapping[] GetProvidesMappings(string aComponentID);
+		IMapping[] GetProvidesMappings(IIdentifier aComponentID);
 
 		/// <summary>
 		/// Get all mappings connected to the requires interfaces of aComponent.
 		/// </summary>
-		/// <param name="aComponent">Internal component of ICompositeComponent.</param>
+		/// <param name="aComponentID">Internal component of ICompositeComponent.</param>
 		/// <returns>An array of mappings which are connected to the requires interfaces of aComponent.</returns>
-		IMapping[] GetRequiresMappings(string aComponentID);
+		IMapping[] GetRequiresMappings(IIdentifier aComponentID);
 
 		/// <summary>
 		/// Get the mapping associated with the provides interface with the role aProvRoleID.
@@ -153,27 +153,27 @@ namespace Palladio.ComponentModel
 		/// Get the mappings associated with the provides interface with the role aProvRole of the 
 		/// internal component aProvComponent.
 		/// </summary>
-		/// <param name="aProvComponent">Internal component of ICompositeComponent.</param>
+		/// <param name="aProvComponentID">Internal component of ICompositeComponent.</param>
 		/// <param name="aProvRole">Role of a provides interface of aProvComponent.</param>
 		/// <returns>An array of IMappings associated with aProvInterface.</returns>
-		IMapping[] GetProvidesMappingsByInner(string aProvComponentID, string aProvRole);
+		IMapping[] GetProvidesMappingsByInner(IIdentifier aProvComponentID, string aProvRole);
 
 		IBinding GetBindingByRequires(IAttachedRole aReqInterface);
-		IBinding GetBindingByRequires(string aReqComponentID, string aReqRole);
+		IBinding GetBindingByRequires(IIdentifier aReqComponentID, IIdentifier aReqRole);
 		IBinding[] GetBindingsByProvides(IAttachedRole aProvInterface);
-		IBinding[] GetBindingsByProvides(string aProvComponentID, string aProvRole);
+		IBinding[] GetBindingsByProvides(IIdentifier aProvComponentID, IIdentifier aProvRole);
 
 		IMapping GetRequiresMappingByInner(IAttachedRole aReqInterface);
-		IMapping GetRequiresMappingByInner(string aReqComponentID, string aReqRole);
-		IMapping[] GetRequiresMappingsByOuter(string aReqRoleID);
+		IMapping GetRequiresMappingByInner(IIdentifier aReqComponentID, IIdentifier aReqRole);
+		IMapping[] GetRequiresMappingsByOuter(IIdentifier aReqRoleID);
 
 
 		
-		bool HasIncomingConnections(string aComponentID);
+		bool HasIncomingConnections(IIdentifier aComponentID);
 
-		bool HasOutgoingConnections(string aComponentID);
+		bool HasOutgoingConnections(IIdentifier aComponentID);
 
-		bool ContainsComponent(string aComponentID);
+		bool ContainsComponent(IIdentifier aComponentID);
 
 		
 	}

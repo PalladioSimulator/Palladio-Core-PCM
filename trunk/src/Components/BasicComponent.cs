@@ -9,7 +9,6 @@ using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Components 
 {
-
 	/// <summary>
 	/// Default Component class. A component consits of a set of
 	/// Provides and RequiresInterface which can be adapted to
@@ -38,8 +37,9 @@ namespace Palladio.ComponentModel.Components
 		/// <summary>
 		/// Get the service effect specification associated with aSig.
 		/// </summary>
-		/// <param name="aSig">A signature provided in a role of this component.</param>
-		/// <returns>The service effect specification of aSig.</returns>
+		/// <param name="aSig">The service to which an service effect is affected</param>
+		/// <param name="aRoleID">Role of the signature</param>
+		/// <returns>The service effect specification of aSig in role aRole.</returns>
 		public IServiceEffectSpecification GetServiceEffectSpecification(IIdentifier aRoleID, ISignature aSig)
 		{
 			return GetServiceEffectSpecification(ComponentFactory.CreateSignatureWithRole(aRoleID,aSig));
@@ -49,8 +49,8 @@ namespace Palladio.ComponentModel.Components
 		/// Changes the service effect specification of aSignature to aServEffSpec.
 		/// If aService.Signature does not exist an SignatureNotFoundException is thrown.
 		/// </summary>
-		/// <param name="aSignature"></param>
-		/// <param name="aServEffSpec"></param>
+		/// <param name="aSignature">The service and its role to which an service effect is affected</param>
+		/// <param name="aServEffSpec">The service effect specification</param>
 		public void ChangeServiceEffectSpecification(ISignatureWithRole aSignature, IServiceEffectSpecification aServEffSpec)
 		{
 			GetServiceEffectSpecification(aSignature);
@@ -61,8 +61,9 @@ namespace Palladio.ComponentModel.Components
 		/// Changes the service effect specification of aSignature to aServEffSpec.
 		/// If aService.Signature does not exist an SignatureNotFoundException is thrown.
 		/// </summary>
-		/// <param name="aSignature"></param>
-		/// <param name="aServEffSpec"></param>
+		/// <param name="aSignature">The service to which an service effect is affected</param>
+		/// <param name="aServEffSpec">The service effect specification</param>
+		/// <param name="aRoleID">Role of the signature</param>
 		public void ChangeServiceEffectSpecification(IIdentifier aRoleID, ISignature aSignature, IServiceEffectSpecification aServEffSpec)
 		{
 			ChangeServiceEffectSpecification(ComponentFactory.CreateSignatureWithRole(aRoleID,aSignature),aServEffSpec);
@@ -89,8 +90,9 @@ namespace Palladio.ComponentModel.Components
 		/// <summary>
 		/// Add the service effect specification of aSignature to aServEffSpec.
 		/// </summary>
-		/// <param name="aSignature">The service to which an service effect gets added</param>
+		/// <param name="aSignature">The service to which an service effect is affected</param>
 		/// <param name="aServEffSpec">The service effect specification</param>
+		/// <param name="aRoleID">Role of the signature</param>
 		public void AddServiceEffectSpecification(IIdentifier aRoleID, ISignature aSignature, IServiceEffectSpecification aServEffSpec)
 		{
 			AddServiceEffectSpecification(ComponentFactory.CreateSignatureWithRole(aRoleID,aSignature),aServEffSpec);
@@ -143,11 +145,16 @@ namespace Palladio.ComponentModel.Components
 		/// Creates an empty component with the attributes in anAttHash.
 		/// </summary>
 		/// <param name="anAttHash">List of attributes attached to this component.</param>
+		/// <param name="id">ID of the component</param>
 		public BasicComponent(IAttributeHash anAttHash, IIdentifier id) : base (anAttHash,id)
 		{
 			serviceEffectMap = new ServiceEffectHashmap();
 		}
 
+		/// <summary>
+		/// Copy constructor
+		/// </summary>
+		/// <param name="anotherComponent">The basic component to copy.</param>
 		public BasicComponent(BasicComponent anotherComponent) : base(anotherComponent)
 		{
 			serviceEffectMap = (ServiceEffectHashmap)anotherComponent.serviceEffectMap.Clone();

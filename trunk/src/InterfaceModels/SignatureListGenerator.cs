@@ -172,7 +172,6 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <summary>
 		/// Creates a SignaturesList.
 		/// </summary>
-		/// <param name="aRoleID">Unique identifier.</param>
 		/// <param name="anAttHash">Attributes.</param>
 		/// <param name="aSigArray">Signatures contained by the interface.</param>
 		public DefaultSignatureList(IAttributeHash anAttHash, params ISignature[] aSigArray)
@@ -355,7 +354,6 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <summary>
 		/// Creates a SignaturesList.
 		/// </summary>
-		/// <param name="aRoleID">Unique identifier.</param>
 		/// <param name="anAttHash">Attributes.</param>
 		/// <param name="aSigArray">Signatures contained by the interface.</param>
 		public DefaultSignatureWithRoleList(IAttributeHash anAttHash, params ISignatureWithRole[] aSigArray)

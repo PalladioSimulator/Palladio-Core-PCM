@@ -144,11 +144,10 @@ namespace Palladio.ComponentModel
 		/// Creates a new signature.
 		/// </summary>
 		/// <param name="anAttribHash">Attributes of the Signature.</param>
-		/// <param name="aRoleID">Role the signature</param>
-		/// <param name="aType"></param>
-		/// <param name="aName"></param>
-		/// <param name="aParamArray"></param>
-		/// <param name="anExceptArray"></param>
+		/// <param name="aType">A return type</param>
+		/// <param name="aName">The name of the signature</param>
+		/// <param name="aParamArray">Parameters of the signature</param>
+		/// <param name="anExceptArray">Exceptions of the signature</param>
 		public DefaultSignature(IAttributeHash anAttribHash, IType aType, string aName, IParameter[] aParamArray, IType[] anExceptArray
 		)
 		{

@@ -10,6 +10,9 @@
 	/// </summary>
 	public interface <%= InterfaceName %> : ICloneable, IAttributable
 	{
+		/// <summary>
+		/// A list of signatures contained in this <%= InterfaceName %>
+		/// </summary>
 		<%= ContainedSignatureType %> SignatureList
 		{
 			get;

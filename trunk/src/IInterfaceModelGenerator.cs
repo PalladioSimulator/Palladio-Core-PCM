@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	public interface IInterfaceModel : ICloneable, IAttributable
 	{
+		/// <summary>
+		/// A list of signatures contained in this IInterfaceModel
+		/// </summary>
 		ISignatureList SignatureList
 		{
 			get;
@@ -36,6 +39,9 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	public interface IServiceEffectSpecification : ICloneable, IAttributable
 	{
+		/// <summary>
+		/// A list of signatures contained in this IServiceEffectSpecification
+		/// </summary>
 		ISignatureWithRoleList SignatureList
 		{
 			get;

@@ -12,6 +12,17 @@ namespace Palladio.ComponentModel
 	/// </summary>
 	public enum ParameterModifierEnum
 	{
-		NONE, OUT, REF
+		/// <summary>
+		/// Parameter is unmodified
+		/// </summary>
+		NONE, 
+		/// <summary>
+		/// Parameter can be modified by the service
+		/// </summary>
+		OUT, 
+		/// <summary>
+		/// A value type is passed as reference instead of being passed by value
+		/// </summary>
+		REF
 	}
 }

@@ -12,7 +12,7 @@
 			<property name="InterfaceName">IInterfaceModel</property>
 		</propertySet>
 		<propertySet>
-			<property name="ContainedSignatureType">ISignatureListWithRole</property>
+			<property name="ContainedSignatureType">ISignatureWithRoleList</property>
 			<property name="InterfaceName">IServiceEffectSpecification</property>
 		</propertySet>
 	</propertySets>

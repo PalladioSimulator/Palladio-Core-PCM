@@ -56,7 +56,7 @@ namespace Palladio.ComponentModel
 		/// a service effect specification is required. It is given by a service effect mapping.
 		/// </summary>
 		/// <param name="aProvInterface">Provides interface to be added</param>
-		/// <param name="aServEffSpecArray">Service effect specifications of all signatures of the provides interface.</param>
+		/// <param name="roleID">The ID that the conection of interface and component should get.</param>
 		void AddProvidesInterface(IIdentifier roleID,IInterfaceModel aProvInterface);
 
 		/// <summary>
@@ -70,6 +70,7 @@ namespace Palladio.ComponentModel
 		/// Add all requires interfaces given by aReqArray to the component.
 		/// </summary>
 		/// <param name="aReqArray">Requires interfaces to be added.</param>
+		/// <param name="roleID">The ID that the conection of interface and component should get.</param>
 		void AddRequiresInterface(IIdentifier roleID, IInterfaceModel aReqArray);
 
 		/// <summary>
@@ -78,8 +79,18 @@ namespace Palladio.ComponentModel
 		/// <param name="aReqRoleArray">Roles of the requires interfaces to be deleted.</param>
 		void DeleteRequiresInterfaces(params IIdentifier[] aReqRoleArray);
 
+		/// <summary>
+		/// Query the components provides and requires interfaces for a certain role
+		/// </summary>
+		/// <param name="roleID">The role ID to be queried</param>
+		/// <returns>True if the component has the given role</returns>
 		bool HasRole(IIdentifier roleID);
 
+		/// <summary>
+		/// Retrieve the <see cref="IRole"/> by its ID from the component
+		/// </summary>
+		/// <param name="roleID">The ID of the role to retrieve</param>
+		/// <returns>The role queried</returns>
 		IRole GetRole(IIdentifier roleID);
 	}
 }

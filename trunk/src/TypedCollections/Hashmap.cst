@@ -25,7 +25,7 @@
     /// key-and-value pairs that are organized based on the hash code of the key.
     /// </summary>
     /// <remarks>
-    /// <b><%= ClassName %></b> provides a <see cref="Hashmap"/> that is strongly typed
+    /// <b><%= ClassName %></b> provides a <see cref="Hashtable"/> that is strongly typed
     /// for <see cref="<%= KeyType %>"/> keys and <see cref="<%= ItemType %>"/> values.
     /// </remarks>
 
@@ -58,7 +58,7 @@
         /// that is empty and has the default initial capacity, the default load factor,
         /// the default hash code provider and the default comparer.
         /// </summary>
-        /// <remarks>Please refer to <see cref="Hashmap()"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable()"/> for details.</remarks>
 
         public <%= ClassName %>() {
             this._innerHash = new Hashmap();
@@ -84,7 +84,7 @@
         /// <para>A null reference to use the default comparer, which is each key's
         /// implementation of <see cref="Object.Equals"/>.</para></param>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IHashCodeProvider, IComparer)"/> for details.
+        /// Please refer to <see cref="Hashtable(IHashCodeProvider, IComparer)"/> for details.
         /// </remarks>
 
         public <%= ClassName %>(IHashCodeProvider provider, IComparer comparer) {
@@ -103,7 +103,7 @@
         /// <see cref="<%= ClassName %>"/> is initially capable of storing.</param>
         /// <exception cref="ArgumentOutOfRangeException">
         /// <paramref name="capacity"/> is less than zero.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap(Int32)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(Int32)"/> for details.</remarks>
 
         public <%= ClassName %>(int capacity) {
             this._innerHash = new Hashmap(capacity);
@@ -133,7 +133,7 @@
         /// <exception cref="ArgumentOutOfRangeException">
         /// <paramref name="capacity"/> is less than zero.</exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(Int32, IHashCodeProvider, IComparer)"/> for details.
+        /// Please refer to <see cref="Hashtable(Int32, IHashCodeProvider, IComparer)"/> for details.
         /// </remarks>
 
         public <%= ClassName %>(int capacity,
@@ -160,7 +160,7 @@
         /// <para><paramref name="loadFactor"/> is less than 0.1.</para>
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap(Int32, Single)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(Int32, Single)"/> for details.</remarks>
 
         public <%= ClassName %>(int capacity, float loadFactor) {
             this._innerHash = new Hashmap(capacity, loadFactor);
@@ -196,7 +196,7 @@
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(Int32, Single, IHashCodeProvider, IComparer)"/>
+        /// Please refer to <see cref="Hashtable(Int32, Single, IHashCodeProvider, IComparer)"/>
         /// for details.</remarks>
 
         public <%= ClassName %>(int capacity, float loadFactor,
@@ -218,7 +218,7 @@
         /// whose elements are copied to the new collection.</param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap(IDictionary)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(IDictionary)"/> for details.</remarks>
 
         public <%= ClassName %>(<%= ClassName %> dictionary) {
             if (dictionary == null)
@@ -240,7 +240,7 @@
         /// whose elements are copied to the new collection.</param>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap(IDictionary)"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable(IDictionary)"/> for details.</remarks>
 
         public <%= ClassName %>(IDictionary dictionary) {
             this._innerHash = new Hashmap(dictionary);
@@ -271,7 +271,7 @@
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IDictionary, IHashCodeProvider, IComparer)"/>
+        /// Please refer to <see cref="Hashtable(IDictionary, IHashCodeProvider, IComparer)"/>
         /// for details.</remarks>
 
         public <%= ClassName %>(IDictionary dictionary,
@@ -300,7 +300,7 @@
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IDictionary, Single)"/> for details.
+        /// Please refer to <see cref="Hashtable(IDictionary, Single)"/> for details.
         /// </remarks>
 
         public <%= ClassName %>(IDictionary dictionary, float loadFactor) {
@@ -338,7 +338,7 @@
         /// <para>-or-</para>
         /// <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
         /// <remarks>
-        /// Please refer to <see cref="Hashmap(IDictionary, Single, IHashCodeProvider, IComparer)"/>
+        /// Please refer to <see cref="Hashtable(IDictionary, Single, IHashCodeProvider, IComparer)"/>
         /// for details.</remarks>
 
         public <%= ClassName %>(IDictionary dictionary,
@@ -358,7 +358,7 @@
         /// <value>
         /// The number of key-and-value pairs contained in the <see cref="<%= ClassName %>"/>.
         /// </value>
-        /// <remarks>Please refer to <see cref="Hashmap.Count"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Count"/> for details.</remarks>
 
         public int Count {
             get { return this._innerHash.Count; }
@@ -372,7 +372,7 @@
         /// </summary>
         /// <value><c>true</c> if the <see cref="<%= ClassName %>"/> has a fixed size;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.IsFixedSize"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.IsFixedSize"/> for details.</remarks>
 
         public bool IsFixedSize {
             get { return this._innerHash.IsFixedSize; }
@@ -386,7 +386,7 @@
         /// </summary>
         /// <value><c>true</c> if the <see cref="<%= ClassName %>"/> is read-only;
         /// otherwise, <c>false</c>. The default is <c>false</c>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.IsReadOnly"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.IsReadOnly"/> for details.</remarks>
 
         public bool IsReadOnly {
             get { return this._innerHash.IsReadOnly; }
@@ -401,7 +401,7 @@
         /// </summary>
         /// <value><c>true</c> if access to the <see cref="<%= ClassName %>"/> is
         /// synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.IsSynchronized"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.IsSynchronized"/> for details.</remarks>
 
         public bool IsSynchronized {
             get { return this._innerHash.IsSynchronized; }
@@ -435,7 +435,7 @@
         /// <para>-or-</para>
         /// <para>The property is set, <paramref name="key"/> does not exist in the collection,
         /// and the <b><%= ClassName %></b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.this"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 
         public <%= ItemType %> this[<%= KeyType %> key] {
             get {
@@ -481,7 +481,7 @@
         /// <para>-or-</para>
         /// <para>The property is set, <paramref name="key"/> does not exist in the collection,
         /// and the <b><%= ClassName %></b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.this"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.this"/> for details.</remarks>
 
         object IDictionary.this[object key] {
             get { return this[(<%= KeyType %>) key]; }
@@ -497,7 +497,7 @@
         /// </summary>
         /// <value>An <see cref="I<%= KeyType %>Collection"/> containing
         /// the keys in the <see cref="<%= ClassName %>"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Keys"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Keys"/> for details.</remarks>
 
         public I<%= KeyType %>Collection Keys {
             get {
@@ -516,7 +516,7 @@
         /// </summary>
         /// <value>An <see cref="ICollection"/> containing
         /// the keys in the <see cref="<%= ClassName %>"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Keys"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Keys"/> for details.</remarks>
 
         ICollection IDictionary.Keys {
             get { return (ICollection) Keys; }
@@ -531,7 +531,7 @@
         /// </summary>
         /// <value>An object that can be used to synchronize
         /// access to the <see cref="<%= ClassName %>"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.SyncRoot"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.SyncRoot"/> for details.</remarks>
 
         public object SyncRoot {
             get { return this._innerHash.SyncRoot; }
@@ -546,7 +546,7 @@
         /// </summary>
         /// <value>An <see cref="I<%= ItemType %>Collection"/> containing
         /// the values in the <see cref="<%= ClassName %>"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Values"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Values"/> for details.</remarks>
 
         public virtual I<%= ItemType %>Collection Values {
             get {
@@ -565,7 +565,7 @@
         /// </summary>
         /// <value>An <see cref="ICollection"/> containing
         /// the values in the <see cref="<%= ClassName %>"/>.</value>
-        /// <remarks>Please refer to <see cref="Hashmap.Values"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Values"/> for details.</remarks>
 
         ICollection IDictionary.Values {
             get { return (ICollection) Values; }
@@ -613,7 +613,7 @@
         /// <para>The <see cref="<%= ClassName %>"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b><%= ClassName %></b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Add"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
         public void Add(<%= KeyType %> key, <%= ItemType %> value) {
             this._innerHash.Add(key, value);
@@ -648,7 +648,7 @@
         /// <para>The <see cref="<%= ClassName %>"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b><%= ClassName %></b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Add"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Add"/> for details.</remarks>
 
         void IDictionary.Add(object key, object value) {
             Add((<%= KeyType %>) key, (<%= ItemType %>) value);
@@ -664,7 +664,7 @@
         /// <para>The <see cref="<%= ClassName %>"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b><%= ClassName %></b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Clear"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Clear"/> for details.</remarks>
 
         public void Clear() {
             this._innerHash.Clear();
@@ -677,7 +677,7 @@
         /// Creates a shallow copy of the <see cref="<%= ClassName %>"/>.
         /// </summary>
         /// <returns>A shallow copy of the <see cref="<%= ClassName %>"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.Clone"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Clone"/> for details.</remarks>
 
         public object Clone() {
             <%= ClassName %> dictionary = new <%= ClassName %>(Tag.Default);
@@ -700,7 +700,7 @@
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
         <% } %>
-        /// <remarks>Please refer to <see cref="Hashmap.Contains"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Contains"/> for details.</remarks>
 
         public bool Contains(<%= KeyType %> key) {
             return this._innerHash.Contains(key);
@@ -720,7 +720,7 @@
         /// <paramref name="key"/> is a null reference.</exception>
         /// <exception cref="InvalidCastException"><paramref name="key"/>
         /// is not compatible with <see cref="<%= KeyType %>"/>.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Contains"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Contains"/> for details.</remarks>
 
         bool IDictionary.Contains(object key) {
             return Contains((<%= KeyType %>) key);
@@ -741,7 +741,7 @@
         /// <exception cref="ArgumentNullException">
         /// <paramref name="key"/> is a null reference.</exception>
         <% } %>
-        /// <remarks>Please refer to <see cref="Hashmap.ContainsKey"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.ContainsKey"/> for details.</remarks>
 
         public bool ContainsKey(<%= KeyType %> key) {
             return this._innerHash.ContainsKey(key);
@@ -762,7 +762,7 @@
         /// </param>
         /// <returns><c>true</c> if the <see cref="<%= ClassName %>"/> contains an element
         /// with the specified <paramref name="value"/>; otherwise, <c>false</c>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.ContainsValue"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.ContainsValue"/> for details.</remarks>
 
         public bool ContainsValue(<%= ItemType %> value) {
             return this._innerHash.ContainsValue(value);
@@ -790,7 +790,7 @@
         /// The number of elements in the source <see cref="<%= ClassName %>"/> is greater than
         /// the available space from <paramref name="arrayIndex"/> to the end of the destination
         /// <paramref name="array"/>.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.CopyTo"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.CopyTo"/> for details.</remarks>
 
         public void CopyTo(<%= PairType %>[] array, int arrayIndex) {
             this._innerHash.CopyTo(array, arrayIndex);
@@ -823,7 +823,7 @@
         /// <exception cref="InvalidCastException">
         /// The <see cref="<%= PairType %>"/> type cannot be cast automatically
         /// to the type of the destination <paramref name="array"/>.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.CopyTo"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.CopyTo"/> for details.</remarks>
 
         void ICollection.CopyTo(Array array, int arrayIndex) {
             CheckTargetArray(array, arrayIndex);
@@ -839,7 +839,7 @@
         /// </summary>
         /// <returns>An <see cref="I<%= KeyType %><%= ItemType %>Enumerator"/>
         /// for the entire <see cref="<%= ClassName %>"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.GetEnumerator"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
         public I<%= KeyType %><%= ItemType %>Enumerator GetEnumerator() {
             return new Enumerator(this);
@@ -854,7 +854,7 @@
         /// </summary>
         /// <returns>An <see cref="IDictionaryEnumerator"/>
         /// for the entire <see cref="<%= ClassName %>"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.GetEnumerator"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
         IDictionaryEnumerator IDictionary.GetEnumerator() {
             return (IDictionaryEnumerator) GetEnumerator();
@@ -869,7 +869,7 @@
         /// </summary>
         /// <returns>An <see cref="IEnumerator"/>
         /// for the entire <see cref="<%= ClassName %>"/>.</returns>
-        /// <remarks>Please refer to <see cref="Hashmap.GetEnumerator"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.GetEnumerator"/> for details.</remarks>
 
         IEnumerator IEnumerable.GetEnumerator() {
             return (IEnumerator) GetEnumerator();
@@ -892,7 +892,7 @@
         /// <para>The <see cref="<%= ClassName %>"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b><%= ClassName %></b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Remove"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Remove"/> for details.</remarks>
 
         public void Remove(<%= KeyType %> key) {
             this._innerHash.Remove(key);
@@ -915,7 +915,7 @@
         /// <para>The <see cref="<%= ClassName %>"/> is read-only.</para>
         /// <para>-or-</para>
         /// <para>The <b><%= ClassName %></b> has a fixed size.</para></exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Remove"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Remove"/> for details.</remarks>
 
         void IDictionary.Remove(object key) {
             Remove((<%= KeyType %>) key);
@@ -932,7 +932,7 @@
         /// <returns>A synchronized (thread-safe) wrapper around <paramref name="dictionary"/>.</returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="dictionary"/> is a null reference.</exception>
-        /// <remarks>Please refer to <see cref="Hashmap.Synchronized"/> for details.</remarks>
+        /// <remarks>Please refer to <see cref="Hashtable.Synchronized"/> for details.</remarks>
 
         public static <%= ClassName %> Synchronized(<%= ClassName %> dictionary) {
             if (dictionary == null)

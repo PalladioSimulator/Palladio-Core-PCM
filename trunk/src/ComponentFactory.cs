@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/06/02 19:41:31  sbecker
+	/// Fixed docu
+	///
 	/// Revision 1.2  2004/06/02 15:41:13  sbecker
 	/// Fixed Compiler Warnings
 	///
@@ -178,7 +181,6 @@ namespace Palladio.ComponentModel
 		/// roleID aRoleID.
 		/// </summary>
 		/// <param name="anAttributeHash">Attributes of the signature.</param>
-		/// <param name="aRoleID">RoleID of the interface the signature belongs to.</param>
 		/// <param name="aReturnType">Type of the return value of the signature.</param>
 		/// <param name="aName">Name of the Signature.</param>
 		/// <param name="aParamArray">Orderd array of parameters of the signature.</param>
@@ -193,7 +195,6 @@ namespace Palladio.ComponentModel
 		/// Creates a new ISignature. It can only be added to interfaces with the
 		/// roleID aRoleID.
 		/// </summary>
-		/// <param name="aRoleID">RoleID of the interface the signature belongs to.</param>
 		/// <param name="aReturnType">Type of the return value of the signature.</param>
 		/// <param name="aName">Name of the Signature.</param>
 		/// <param name="aParamArray">Orderd array of parameters of the signature.</param>
@@ -209,7 +210,6 @@ namespace Palladio.ComponentModel
 		/// Creates a new ISignature. It can only be added to interfaces with the
 		/// roleID aRoleID.
 		/// </summary>
-		/// <param name="aRoleID">RoleID of the interface the signature belongs to.</param>
 		/// <param name="aReturnType">Type of the return value of the signature.</param>
 		/// <param name="aName">Name of the Signature.</param>
 		/// <param name="aParamArray">Orderd array of parameters of the signature.</param>
@@ -226,7 +226,6 @@ namespace Palladio.ComponentModel
 		/// Creates a new ISignature. It can only be added to interfaces with the
 		/// roleID aRoleID.
 		/// </summary>
-		/// <param name="aRoleID">RoleID of the interface the signature belongs to.</param>
 		/// <param name="aReturnTypeName">Name of the type of the return value of the signature.</param>
 		/// <param name="aName">Name of the Signature.</param>
 		/// <param name="aParamArray">Orderd array of parameters of the signature.</param>
@@ -243,7 +242,6 @@ namespace Palladio.ComponentModel
 		/// Creates a new ISignature without exceptions. It can only be added to interfaces with the
 		/// roleID aRoleID.
 		/// </summary>
-		/// <param name="aRoleID">RoleID of the interface the signature belongs to.</param>
 		/// <param name="aReturnType">Type of the return value of the signature.</param>
 		/// <param name="aName">Name of the Signature.</param>
 		/// <param name="aParamArray">Orderd array of parameters of the signature.</param>
@@ -258,7 +256,6 @@ namespace Palladio.ComponentModel
 		/// Creates a new ISignature without exceptions. It can only be added to interfaces with the
 		/// roleID aRoleID.
 		/// </summary>
-		/// <param name="aRoleID">RoleID of the interface the signature belongs to.</param>
 		/// <param name="aReturnType">Type of the return value of the signature.</param>
 		/// <param name="aName">Name of the Signature.</param>
 		/// <param name="aParamArray">Orderd array of parameters of the signature.</param>
@@ -273,11 +270,9 @@ namespace Palladio.ComponentModel
 		/// Creates a new ISignature without exceptions. It can only be added to interfaces with the
 		/// roleID aRoleID.
 		/// </summary>
-		/// <param name="aRoleID">RoleID of the interface the signature belongs to.</param>
 		/// <param name="aReturnTypeName">Name of the type of the return value of the signature.</param>
 		/// <param name="aName">Name of the Signature.</param>
 		/// <param name="aParamArray">Orderd array of parameters of the signature.</param>
-		/// <param name="anExceptionNameArray">Unorderd Array of the names of exceptions which can be thrown during the execution of the signature. </param>
 		/// <returns>A new ISignature.</returns>
 		public static ISignature CreateSignature(string aReturnTypeName, string aName, params IParameter[] aParamArray)
 		{
@@ -289,7 +284,6 @@ namespace Palladio.ComponentModel
 		/// Creates a new ISignature without exceptions and the return type 'void'. 
 		/// It can only be added to interfaces with the roleID aRoleID.
 		/// </summary>
-		/// <param name="aRoleID">RoleID of the interface the signature belongs to.</param>
 		/// <param name="aName">Name of the Signature.</param>
 		/// <param name="aParamArray">Orderd array of parameters of the signature.</param>
 		/// <returns>A new ISignature.</returns>
@@ -341,7 +335,6 @@ namespace Palladio.ComponentModel
 		/// Creates a new ISignature without parameters. It can only be added to interfaces with the
 		/// roleID aRoleID.
 		/// </summary>
-		/// <param name="aRoleID">RoleID of the interface the signature belongs to.</param>
 		/// <param name="aReturnType">Type of the return value of the signature.</param>
 		/// <param name="aName">Name of the Signature.</param>
 		/// <param name="anExceptionArray">Unorderd Array of exceptions which can be thrown during the execution of the signature. </param>
@@ -357,7 +350,6 @@ namespace Palladio.ComponentModel
 		/// Creates a new ISignature without parameters. It can only be added to interfaces with the
 		/// roleID aRoleID.
 		/// </summary>
-		/// <param name="aRoleID">RoleID of the interface the signature belongs to.</param>
 		/// <param name="aReturnTypeName">Name of the type of the return value of the signature.</param>
 		/// <param name="aName">Name of the Signature.</param>
 		/// <param name="anExceptionNameArray">Unorderd Array of the names of exceptions which can be thrown during the execution of the signature. </param>
@@ -374,7 +366,6 @@ namespace Palladio.ComponentModel
 		/// without parameters and exceptions is created. The return type of each 
 		/// new ISignature is 'void' and its roleID is aRoleID.
 		/// </summary>
-		/// <param name="aRoleID">The role all signatures belong to.</param>
 		/// <param name="aNameArray">Names of the new Signatures.</param>
 		/// <returns>An Array of new ISignatures.</returns>
 		public static ISignature[] CreateSignatureArray(params string[] aNameArray)
@@ -386,6 +377,12 @@ namespace Palladio.ComponentModel
 			return result;
 		}
 
+		/// <summary>
+		/// Create an array of signatures all of them having the same role
+		/// </summary>
+		/// <param name="roleID">The roleID to be assigned to the signatures</param>
+		/// <param name="sigs">The signatures to which a role is added</param>
+		/// <returns>An array of <see cref="ISignatureWithRole"/></returns>
 		public static ISignatureWithRole[] CreateExternalSignatureArray(IIdentifier roleID, params ISignature[] sigs)
 		{
 			ISignatureWithRole[] result = new ISignatureWithRole[sigs.Length];
@@ -395,6 +392,13 @@ namespace Palladio.ComponentModel
 			}
 			return result;
 		}
+
+		/// <summary>
+		/// Create an array of signatures all of them having the same role
+		/// </summary>
+		/// <param name="roleID">The roleID to be assigned to the signatures</param>
+		/// <param name="sigs">The signatures to which a role is added</param>
+		/// <returns>An array of <see cref="ISignatureWithRole"/></returns>		
 		public static ISignatureWithRole[] CreateExternalSignatureArray(string roleID, params ISignature[] sigs)
 		{
 			return CreateExternalSignatureArray(IdentifiableFactory.CreateStringID(roleID),sigs);
@@ -441,21 +445,39 @@ namespace Palladio.ComponentModel
 		#endregion
 
 		#region CreateXXXInterfaceModel
+		/// <summary>
+		/// Construct a new interface model
+		/// </summary>
+		/// <returns>The newly created interface model</returns>
 		public static IInterfaceModel CreateInterfaceModel()
 		{
 			return new DefaultInterfaceModel(attributesFactory.Default.CreateAttributeHash());
 		}
 
+		/// <summary>
+		/// Construct a new interface model containing the given signatures
+		/// </summary>
+		/// <param name="aSigList">The signatures to be added to the interface initialy</param>
+		/// <returns>The newly created interface model</returns>
 		public static IInterfaceModel CreateInterfaceModel(ISignatureList aSigList)
 		{
 			return new DefaultInterfaceModel(attributesFactory.Default.CreateAttributeHash(),aSigList);
 		}
 		
+		/// <summary>
+		/// Construct an empty service effect specification
+		/// </summary>
+		/// <returns>A newly created service effect specification</returns>
 		public static IServiceEffectSpecification CreateServiceEffectSpecification()
 		{
 			return new DefaultServiceEffectSpecification(attributesFactory.Default.CreateAttributeHash());
 		}
 
+		/// <summary>
+		/// Construct an service effect specification containing the given external signatures
+		/// </summary>
+		/// <param name="aSigList">The external signatures contained in the service effect initialy</param>
+		/// <returns>A newly created service effect specification</returns>
 		public static IServiceEffectSpecification CreateServiceEffectSpecification(ISignatureWithRoleList aSigList)
 		{
 			return new DefaultServiceEffectSpecification(attributesFactory.Default.CreateAttributeHash(),aSigList);
@@ -510,6 +532,7 @@ namespace Palladio.ComponentModel
 		/// Create a new, empty IBasicComponent with the attributes specified in anAttrHash.
 		/// </summary>
 		/// <param name="anAttrHash">AttributeHash associated with the new component.</param>
+		/// <param name="ID">ID of the component to create.</param>
 		/// <returns>New IBasicComponent instance.</returns>
 		public static IBasicComponent CreateBasicComponent(IAttributeHash anAttrHash, string ID)
 		{

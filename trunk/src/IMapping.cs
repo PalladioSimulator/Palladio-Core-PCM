@@ -5,9 +5,18 @@ using Palladio.Identifier;
 
 namespace Palladio.ComponentModel
 {
+	/// <summary>
+	/// Describe the type of a mapping
+	/// </summary>
 	public enum MappingTypeEnum
 	{
+		/// <summary>
+		/// The mapping maps a requires role to the outer world
+		/// </summary>
 		REQUIRES_MAPPING,
+		/// <summary>
+		/// The mapping maps a provided role to an internal component
+		/// </summary>
 		PROVIDES_MAPPING
 	}
 
@@ -18,16 +27,25 @@ namespace Palladio.ComponentModel
 	public interface IMapping : IConnection, IVisitable
 	{
 		#region Properties
+		/// <summary>
+		/// The type of the mapping - provides mapping or requires mapping
+		/// </summary>
 		MappingTypeEnum MappingType
 		{
 			get;
 		}
 
+		/// <summary>
+		/// True if the mapping maps an external provided role to an internal provided role
+		/// </summary>
 		bool IsProvidesMapping
 		{
 			get;
 		}
 
+		/// <summary>
+		/// True if the mapping maps an internal required role to an outside required role
+		/// </summary>
 		bool IsRequiresMapping
 		{
 			get;

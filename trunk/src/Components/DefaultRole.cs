@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Components
 	/// </summary>
 	/// <remarks><pre>
 	/// $Log$
+	/// Revision 1.3  2004/06/02 19:41:31  sbecker
+	/// Fixed docu
+	///
 	/// Revision 1.2  2004/06/02 15:41:13  sbecker
 	/// Fixed Compiler Warnings
 	///
@@ -20,7 +23,7 @@ namespace Palladio.ComponentModel.Components
 	///
 	///
 	/// </pre></remarks>
-	public class DefaultRole : IRole
+	internal class DefaultRole : IRole
 	{
 		protected IInterfaceModel interfaceModel;
 		protected IIdentifier myID;
