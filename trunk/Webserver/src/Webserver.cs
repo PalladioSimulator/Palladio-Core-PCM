@@ -17,6 +17,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2004/10/30 11:42:08  kelsaka
+	/// Added full support for static websites using the get-method; added several test-documents; changed CoR for HTTP-Processing: dynamic files are delivered first
+	///
 	/// Revision 1.10  2004/10/29 16:30:39  kelsaka
 	/// a lot of changes: xml-schema changed: added default mimetype; delivering file with the static file provider; changed parsing of filename; added parsing of variables; Altova-xml-spy-classes updated, ...
 	///
@@ -123,14 +126,14 @@ namespace Palladio.Webserver
 			IWebserverMonitor webserverMonitor = webserverFactory.CreateWebserverMonitor(webserverConfiguration);
 			
 
-			// RequestProcessor-COR:
-			HTTPRequestProcessor.IHTTPRequestProcessor defaultHttpRequestProcessor = webserverFactory.CreateDefaultRequestProcessor(webserverMonitor, webserverConfiguration);
-			HTTPRequestProcessor.IHTTPRequestProcessor dynamicFileProvider = webserverFactory.CreateDynamicFileProvider(defaultHttpRequestProcessor, webserverMonitor, webserverConfiguration);
-			HTTPRequestProcessor.IHTTPRequestProcessor staticFileProvider = webserverFactory.CreateStaticFileProvider(dynamicFileProvider, webserverMonitor, webserverConfiguration);
+			// RequestProcessor-COR: Dynamic -> Static -> Default.
+			HTTPRequestProcessor.IHTTPRequestProcessor defaultHttpRequestProcessor = webserverFactory.CreateDefaultRequestProcessor(webserverMonitor, webserverConfiguration);			
+			HTTPRequestProcessor.IHTTPRequestProcessor staticFileProvider = webserverFactory.CreateStaticFileProvider(defaultHttpRequestProcessor, webserverMonitor, webserverConfiguration);
+			HTTPRequestProcessor.IHTTPRequestProcessor dynamicFileProvider = webserverFactory.CreateDynamicFileProvider(staticFileProvider, webserverMonitor, webserverConfiguration);
 			
-			// RequestParser-COR:
+			// RequestParser-COR: HTTP -> Default (currently FTP is not implemented)
 			IRequestParser defaultRequestParser = webserverFactory.CreateDefaultRequestParser(webserverMonitor, webserverConfiguration);
-			IRequestParser httpRequestParser = webserverFactory.CreateHTTPRequestParser(staticFileProvider, defaultRequestParser, webserverMonitor, webserverConfiguration);
+			IRequestParser httpRequestParser = webserverFactory.CreateHTTPRequestParser(dynamicFileProvider, defaultRequestParser, webserverMonitor, webserverConfiguration);
 			
 			IDispatcher dispatcher = webserverFactory.CreateDispatcher(httpRequestParser,webserverMonitor, webserverConfiguration);
 			dispatcher.Run();
