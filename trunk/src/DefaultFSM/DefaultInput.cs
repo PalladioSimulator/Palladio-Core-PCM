@@ -7,6 +7,17 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	///	
 	///	author: JH
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/05/12 12:57:11  sbecker
+	/// Added documentation and CVS log
+	///
+	///
+	/// </pre>
+	/// </remarks>
 	internal class DefaultInput : IInput
 	{
 		protected string id;
@@ -25,7 +36,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// <summary>
 		/// The default constuctor.
 		/// </summary>
-		/// <param name="anInputSymbol">Payload of this transition</param>
+		/// <param name="anID">ID of the input symbol</param>
 		public DefaultInput(string anID) 
 		{
 			this.id = anID;

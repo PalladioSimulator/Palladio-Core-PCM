@@ -11,6 +11,16 @@ namespace Palladio.FiniteStateMachines
 	/// 
 	/// This class deals with the Factory Method Pattern. 
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/05/12 12:56:15  sbecker
+	/// Added documentation and CVS log
+	///
+	/// </pre>
+	/// </remarks>
 	public class FSMFactory
 	{
 		/// <summary>
@@ -38,7 +48,7 @@ namespace Palladio.FiniteStateMachines
 		/// <summary>
 		/// Construct a state with the given payload
 		/// </summary>
-		/// <param name="payload">A payload object characterizing the state to be constructed</param>
+		/// <param name="anID">ID of the state to be created</param>
 		/// <returns>An IState representing the new state</returns>
 		public static IState CreateDefaultState(string anID)
 		{
@@ -61,7 +71,7 @@ namespace Palladio.FiniteStateMachines
 		/// <summary>
 		/// Create an input symbol to be used in transitions
 		/// </summary>
-		/// <param name="payload">The ID of the input symbol</param>
+		/// <param name="anID">ID of the input symbol to be created</param>
 		/// <returns>The created input symbol</returns>
 		public static IInput CreateDefaultInput(string anID)
 		{
@@ -89,7 +99,8 @@ namespace Palladio.FiniteStateMachines
 		/// <summary>
 		/// Create an array of input symbols from a given list of strings
 		/// </summary>
-		/// <param name="objs">A list of objects, each one will be uses as input symbol</param>
+		/// <param name="anIDArray">A list of strings which will be used as IDs in the newly
+		/// created input symbols</param>
 		/// <returns>An array of input symbols</returns>
 		public static InputSymbolHash CreateInputFromList(params string[] anIDArray)
 		{
@@ -105,7 +116,8 @@ namespace Palladio.FiniteStateMachines
 		/// <summary>
 		/// Create an array of input symbols from a given list of strings
 		/// </summary>
-		/// <param name="objs">A list of objects, each one will be uses as input symbol</param>
+		/// <param name="anIDArray">A list of strings which will be used as IDs in the newly
+		/// created states</param>
 		/// <returns>An array of input symbols</returns>
 		public static StateHash CreateStatesFromList(params string[] anIDArray)
 		{
@@ -122,6 +134,7 @@ namespace Palladio.FiniteStateMachines
 		///		Creates a tabular FSMs using a xml-file as input.
 		///		An example is listed below:
 		/// 
+		/// <pre>
 		/// <?xml version="1.0" encoding="utf-8" ?> 
 		/// <fsm>
 		///		<state name="one" start="true"/>
@@ -131,6 +144,7 @@ namespace Palladio.FiniteStateMachines
 		///		<transition source="one" target="two" input="d1"/>
 		///		<transition source="two" target="two" input="d2"/>
 		/// </fsm>
+		/// </pre>
 		/// 
 		/// </summary>
 		public IFiniteStateMachine CreateFSMFromFile(string aFileDestination)

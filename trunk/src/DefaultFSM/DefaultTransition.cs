@@ -16,6 +16,17 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	///	author: JH
 	///         StB
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.2  2004/05/12 12:57:10  sbecker
+	/// Added documentation and CVS log
+	///
+	///
+	/// </pre>
+	/// </remarks>
 	internal class DefaultTransition : ITransition
 	{
 		/// <summary>
@@ -42,6 +53,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// <param name="aSourceState">State, the source of the ITransition.</param>
 		/// <param name="anInputSymbol">Input of the ITransition.</param>
 		/// <param name="aDestinationState">State, where the ITransition leads to.</param>
+		/// <param name="anAttTable">A Hastable containing additional attributes attached to this transition.</param>
 		public DefaultTransition(IState aSourceState, IInput anInputSymbol, IState aDestinationState, Hashtable anAttTable) 
 		{
 			this.SourceState = aSourceState;
@@ -50,6 +62,13 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			this.attributeTable = anAttTable;
 		}
 
+		/// <summary>
+		/// Deafault constructor
+		/// Initializes a new instance of the ITransition.
+		/// </summary>
+		/// <param name="aSourceState">State, the source of the ITransition.</param>
+		/// <param name="anInputSymbol">Input of the ITransition.</param>
+		/// <param name="aDestinationState">State, where the ITransition leads to.</param>
 		public DefaultTransition(IState aSourceState, IInput anInputSymbol, IState aDestinationState ) :
 			this (aSourceState, anInputSymbol, aDestinationState, new Hashtable()) {}
 			
@@ -57,7 +76,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		/// <summary>
 		/// The copy constructor.
 		/// </summary>
-		/// <param name="newTransition"></param>
+		/// <param name="newTransition">The transition to be copied</param>
 		public DefaultTransition(ITransition newTransition) 
 		{
 			this.SourceState = newTransition.SourceState;

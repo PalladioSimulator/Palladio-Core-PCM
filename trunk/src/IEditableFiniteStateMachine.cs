@@ -4,8 +4,20 @@ using System.Collections;
 namespace Palladio.FiniteStateMachines
 {
 	/// <summary>
-	/// Zusammenfassung für IEditableFiniteStateMachine.
+	/// An interface implemented by a FSM which can be edited programatically. Any FSM
+	/// can be converted to an editable FSM by using the method <see cref="FSMFactory.GetEditableFSM"/>.
+	/// Editable FSMs offer methods for manipulating states, transitions and input symbols.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3  2004/05/12 12:56:08  sbecker
+	/// Added documentation and CVS log
+	///
+	/// </pre>
+	/// </remarks>
 	public interface IEditableFiniteStateMachine : IFiniteStateMachine
 	{
 		/// <summary>
@@ -16,7 +28,7 @@ namespace Palladio.FiniteStateMachines
 		///     If no start state is defined an exception has to
 		///     be thrown.
 		/// </summary>
-		IState StartState { set; get; }
+		new IState StartState { set; get; }
 
 		/// <summary>
 		///     If the automaton reaches one of this states
@@ -26,7 +38,7 @@ namespace Palladio.FiniteStateMachines
 		///     If no finalstates are defined an exception has to
 		///     be thrown. (type?)
 		/// </summary>
-		IState[] FinalStates { set; get; }
+		new IState[] FinalStates { set; get; }
 
 		/// <summary>
 		///     Adds a single transition to the automaton.
