@@ -20,6 +20,10 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/01/07 16:58:02  kelsaka
+	/// Added TimeConsumingProcessor including its documentation and configuration.
+	/// Integrated the new processor into the COR.
+	///
 	/// Revision 1.11  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -150,6 +154,15 @@ namespace Palladio.Webserver.WebserverFactory
 
 		#region RequestProcessors
 
+		/// <summary>
+		/// Creates a TimeConsumingProcessor. This component is able to consume a defineable amount of time.
+		/// </summary>
+		/// <param name="corSuccessor">COR-Successor to process HTTPRequest.</param>
+		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
+		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
+		/// <param name="requestProcessorTools">General tools.</param>
+		/// <returns>TimeConsumingProcessor</returns> 
+		IHTTPRequestProcessor CreateTimeConsumingProcessor(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools);
 
 		/// <summary>
 		/// Creates a BibTeXProvider. This component makes a bibtex-db accessible.

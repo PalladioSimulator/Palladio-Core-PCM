@@ -21,6 +21,10 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/01/07 16:58:02  kelsaka
+	/// Added TimeConsumingProcessor including its documentation and configuration.
+	/// Integrated the new processor into the COR.
+	///
 	/// Revision 1.16  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -245,7 +249,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 		/// <returns>The request-content as a string.</returns>
 		private string ReadRequestHTTPData (IRequest request)
 		{
-			NetworkStream networkStream = new NetworkStream(request.Socket, System.IO.FileAccess.ReadWrite, true);
+			NetworkStream networkStream = new NetworkStream(request.Socket, System.IO.FileAccess.ReadWrite, false);
 			StreamReader reader = new StreamReader(networkStream);
 			string requestStringBuffer = "";
 			string buffer = "";

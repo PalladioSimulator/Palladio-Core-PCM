@@ -83,6 +83,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTeXProviderXML", "..\Bib
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeConsumingProcessor", "..\TimeConsumingProcessor\TimeConsumingProcessor.csproj", "{1B3ED06C-DE11-4983-A118-B48C3E0F5149}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeConsumingProcessorXML", "..\TimeConsumingProcessorXML\TimeConsumingProcessorXML.csproj", "{8963B7E2-AF97-1F43-90DE-0224C543E41F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -173,6 +181,14 @@ Global
 		{CBAF9A43-5EE7-7344-934C-7267B94B0310}.Debug.Build.0 = Debug|.NET
 		{CBAF9A43-5EE7-7344-934C-7267B94B0310}.Release.ActiveCfg = Release|.NET
 		{CBAF9A43-5EE7-7344-934C-7267B94B0310}.Release.Build.0 = Release|.NET
+		{1B3ED06C-DE11-4983-A118-B48C3E0F5149}.Debug.ActiveCfg = Debug|.NET
+		{1B3ED06C-DE11-4983-A118-B48C3E0F5149}.Debug.Build.0 = Debug|.NET
+		{1B3ED06C-DE11-4983-A118-B48C3E0F5149}.Release.ActiveCfg = Release|.NET
+		{1B3ED06C-DE11-4983-A118-B48C3E0F5149}.Release.Build.0 = Release|.NET
+		{8963B7E2-AF97-1F43-90DE-0224C543E41F}.Debug.ActiveCfg = Debug|.NET
+		{8963B7E2-AF97-1F43-90DE-0224C543E41F}.Debug.Build.0 = Debug|.NET
+		{8963B7E2-AF97-1F43-90DE-0224C543E41F}.Release.ActiveCfg = Release|.NET
+		{8963B7E2-AF97-1F43-90DE-0224C543E41F}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
