@@ -10,6 +10,9 @@ namespace ComponentNetworkSimulation.Structure.Attributes
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2004/06/19 13:46:55  joemal
+	/// - some refactoring
+	///
 	/// Revision 1.1  2004/05/25 16:18:56  joemal
 	/// initial creation
 	///
@@ -48,7 +51,7 @@ namespace ComponentNetworkSimulation.Structure.Attributes
 		{
 			get
 			{
-				return typeof(ComponentNetworkSimulation.Structure.Services.IControlFlowStrategy);
+				return typeof(ComponentNetworkSimulation.Structure.Elements.IControlFlowStrategy);
 			}
 		}
 
