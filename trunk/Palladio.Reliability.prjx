@@ -1,0 +1,40 @@
+<Project name="Palladio.Reliability" standardNamespace="Palladio.Reliability" description="" newfilesearch="None" enableviewstate="True" version="1.1" projecttype="C#">
+  <Contents>
+    <File name=".\src\MyClass.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\AssemblyInfo.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\CCVisitor.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\TreeNodeHash.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\TreeNode.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Exceptions" subtype="Directory" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\Exceptions\TreeNodeNotFoundException.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\src\TestCMBuilder.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+  </Contents>
+  <References>
+    <Reference type="Project" refto="ReflectionBasedVisitor" localcopy="True" />
+    <Reference type="Project" refto="Palladio.FiniteStateMachines" localcopy="True" />
+    <Reference type="Project" refto="Palladio.Utils" localcopy="True" />
+    <Reference type="Project" refto="Palladio.Attributes" localcopy="True" />
+    <Reference type="Project" refto="Palladio.ComponentModel" localcopy="True" />
+    <Reference type="Project" refto="Palladio.Identifier" localcopy="True" />
+    <Reference type="Project" refto="Palladio.CM.Example" localcopy="True" />
+  </References>
+  <DeploymentInformation target="" script="" strategy="File" />
+  <Configuration runwithwarnings="False" name="Debug">
+    <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Exe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+    <Execution commandlineparameters="" consolepause="False" />
+    <Output directory="..\bin\Debug" assembly="Palladio.Reliability" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+  </Configuration>
+  <Configurations active="Debug">
+    <Configuration runwithwarnings="False" name="Debug">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="Standard" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="True" mainclass="" target="Exe" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory="..\bin\Debug" assembly="Palladio.Reliability" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+    <Configuration runwithwarnings="True" name="Release">
+      <CodeGeneration runtime="MsNet" compiler="Csc" compilerversion="" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="" target="Library" definesymbols="" generatexmldocumentation="False" win32Icon="" noconfig="False" nostdlib="False" />
+      <Execution commandlineparameters="" consolepause="False" />
+      <Output directory="..\bin\Release" assembly="Palladio.Reliability" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+    </Configuration>
+  </Configurations>
+</Project>

@@ -1,0 +1,16 @@
+<Combine fileversion="1.0" name="Palladio.Reliability" description="">
+  <StartMode startupentry="Palladio.Reliability" single="True">
+    <Execute entry="Palladio.Reliability" type="None" />
+  </StartMode>
+  <Entries>
+    <Entry filename=".\.\Palladio.Reliability.prjx" />
+  </Entries>
+  <Configurations active="Debug">
+    <Configuration name="Release">
+      <Entry name="Palladio.Reliability" configurationname="Debug" build="False" />
+    </Configuration>
+    <Configuration name="Debug">
+      <Entry name="Palladio.Reliability" configurationname="Debug" build="False" />
+    </Configuration>
+  </Configurations>
+</Combine>
