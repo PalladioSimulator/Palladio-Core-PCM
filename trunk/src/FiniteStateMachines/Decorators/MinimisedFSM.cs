@@ -179,7 +179,7 @@ namespace Palladio.FiniteStateMachines.Decorators {
 			IList finalStates = new Vector();
 			IList notFinalStates = new Vector();
 			
-			StateIterator stateIter = new StateIterator(aFSM);
+		  StateIteratorOld stateIter = new StateIteratorOld(aFSM);
 			while(stateIter.MoveNext()) {
 				if(((IState) stateIter.Current).IsFinalState) {
 					finalStates.Add(stateIter.Current);

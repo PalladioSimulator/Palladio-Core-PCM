@@ -17,7 +17,7 @@ namespace UnitTests.FiniteStateMachines {
 		/// <summary>
 		/// 
 		/// </summary>
-		[SetUp] public void Init() {
+		[SetUp] public void Init() { 
 			s1 = new State("s1",true,false);
 			s2 = new State("s2",false,false);
 			s3 = new State("s3",false,true);

@@ -58,7 +58,7 @@ namespace UnitTests.FiniteStateMachines.Decorators
 		/// <summary>
 		/// 
 		/// </summary>
-		[Test] public void Equals() {
+		[Test] public void Equals() { 
 			Assert.AreEqual(stateOne,stateTwo);
 			Assert.IsFalse(stateOne.Equals(stateThree));
 		}

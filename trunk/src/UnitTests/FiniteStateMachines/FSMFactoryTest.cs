@@ -48,12 +48,10 @@ namespace UnitTests.FiniteStateMachines
 			State a = new State("eins",true,false);
 			Input i = new Input("i");
 			fsm.AddTransition(new Transition(a,i,a));
-//			this.FSMOne.ToString();
-//			this.FSMTwo.ToString();
+
 			IFiniteStateMachine res = factory.Intersect(this.FSMOne,this.FSMTwo);
 			IFiniteStateMachine merge = factory.Merge(this.FSMOne,this.FSMTwo);
-//			Console.WriteLine(merge.StartState);
-//			Console.WriteLine(merge.FinalStates);
+
 
 		}
 

@@ -137,6 +137,10 @@
                     BuildAction = "Content"
                 />
                 <File
+                    RelPath = "data\ForStateIteration1.xml"
+                    BuildAction = "Content"
+                />
+                <File
                     RelPath = "data\minimisableFSM.xml"
                     BuildAction = "Content"
                 />
@@ -272,6 +276,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\FiniteStateMachines\StateIteratorOld.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\FiniteStateMachines\StateIteratorWithBreathFirst.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -388,6 +397,11 @@
                 />
                 <File
                     RelPath = "src\UnitTests\FiniteStateMachines\StackStateTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\FiniteStateMachines\StateIterTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

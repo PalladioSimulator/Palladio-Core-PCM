@@ -36,15 +36,15 @@ namespace UnitTests.FiniteStateMachines
 		}
 
 
-//		/// <summary>
-//		/// 
+		/// <summary>
+		/// 
 //		/// </summary>
-//		[Test] public void EqualOperator () {
+//		[Test] public void EqualMethod () {
 //			State stateOne = new State("stateOne",true,false);
 //			State stateTwo = new State("stateTwo",true,false);
 //			State stateThree = new State("stateOne",true,true);
 //			State stateFour = new State("stateOne",true,false);
-//			Assert.IsTrue(stateOne==stateFour);
+//			Assert.IsTruest(stateOne.Equals(stateFour));
 //			Assert.IsFalse(stateOne==stateTwo);
 //			Assert.IsFalse(stateOne==stateThree);
 //			Assert.IsFalse(stateTwo==stateThree);
