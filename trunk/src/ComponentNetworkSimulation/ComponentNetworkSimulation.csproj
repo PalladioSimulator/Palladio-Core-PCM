@@ -135,6 +135,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentNetworkSimulation\DefaultSimulationEnvironment.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentNetworkSimulation\IEnvironmentFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -280,11 +285,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentNetworkSimulation\structure\Attributes\IDAttributeType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Attributes\LoggingTypeAttributeType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -311,6 +311,11 @@
                 />
                 <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Builder\DefaultBuilderFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Builder\DefaultCompositeComponentBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -345,6 +350,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\AbstractSimulationBinding.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Elements\AbstractSimulationState.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -361,6 +371,11 @@
                 />
                 <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Elements\DefaultStateParams.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\DefaultStaticTimeBinding.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -385,12 +400,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\ISimulationBindingParams.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Elements\ISimulationState.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\ComponentNetworkSimulation\structure\Elements\ISimulationStateParams.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ComponentNetworkSimulation\structure\Elements\StaticTimeBindingParams.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -450,17 +475,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\nunittests\structure\BuilderTests.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\nunittests\structure\ComponentArchitectureVisitorTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\nunittests\structure\TestArchitectures.cs"
+                    RelPath = "src\nunittests\structure\ReferenceArchitecture.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\testapplication\CMBuilder.cs"
+                    RelPath = "src\nunittests\structure\TestArchitectures.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -14,6 +14,9 @@ namespace nunittests.structure
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2004/06/26 15:44:51  joemal
+	/// xxx
+	///
 	/// Revision 1.3  2004/05/27 10:32:36  joemal
 	/// xxx
 	///
@@ -25,7 +28,7 @@ namespace nunittests.structure
 	///
 	/// </pre>
 	/// </remarks>
-	[TestFixture]
+/*	[TestFixture]
 	public class ComponentArchitectureVisitorTest
 	{
 		private DefaultComponentArchitectureVisitor visitor;
@@ -119,6 +122,6 @@ namespace nunittests.structure
 			Assert.IsNull(visitor.CurrentTimeConsumer);
 			Console.WriteLine("Moved in loop for "+cntr+" times.");
 		}
-	}
+	}*/
 }
 //EOF

@@ -9,7 +9,7 @@ namespace nunittests.simulation
 	/// <summary>
 	/// Zusammenfassung für ThreadScheduler.
 	/// </summary>
-	[TestFixture]
+/*	[TestFixture]
 	public class ThreadSchedulerTest
 	{
 		IThreadScheduler scheduler = new DefaultThreadScheduler(null);
@@ -100,5 +100,5 @@ namespace nunittests.simulation
 		{
 			Console.WriteLine("Thread ("+args.TheThread.ThreadID+") destroyed ...");
 		}
-	}
+	}*/
 }

@@ -11,7 +11,7 @@ namespace nunittests.simulation
 	/// Zusammenfassung für SimulationThreadTest.
 	/// </summary>
 	/// 
-	[TestFixture]
+/*	[TestFixture]
 	public class SimulationThreadTest : IThreadObserver
 	{
 		protected bool newThreadCreated;
@@ -159,5 +159,5 @@ namespace nunittests.simulation
 		}
 
 		#endregion
-	}
+	}*/
 }

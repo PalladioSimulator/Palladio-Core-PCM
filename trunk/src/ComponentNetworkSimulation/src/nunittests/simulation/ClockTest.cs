@@ -14,7 +14,7 @@ namespace nunittests.simulation
 	[TestFixture]
 	public class ClockTest
 	{
-		protected IClock clock = null;
+/*		protected IClock clock = null;
 		protected long nextClockStopTime;
 		protected long lastTime;
 		protected Random random = new Random();
@@ -134,6 +134,6 @@ namespace nunittests.simulation
 		private void OnNoThreadAlive(object sender, EventArgs args)
 		{
 			Console.WriteLine("No more Thread alive");
-		}
+		}*/
 	}
 }
