@@ -12,6 +12,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.8  2004/06/23 16:31:14  joemal
+	/// now delegate all methods to the default state created with the FSM Factory
+	///
 	/// Revision 1.7  2004/06/23 14:35:25  joemal
 	/// add equals methods
 	///
@@ -43,8 +46,8 @@ namespace ComponentNetworkSimulation.Structure.Elements
 	{
 		#region data
 
-		// the attribute hashtable
-		private IAttributeHash attributes = new AttributesFactory().Default.CreateAttributeHash();
+		//the state, that is used as delegat
+		private IState delegat;
 
 		#endregion
 
@@ -56,9 +59,9 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		/// <param name="param">the parameterstructure of the state</param>
 		public AbstractSimulationState(ISimulationStateParams param)
 		{
-			this.attributes.Add(DefaultAttributeTypeSet.IDType,param.ID);
-			this.attributes.Add(DefaultAttributeTypeSet.ControlFlowStrategyType,param.ControlFlowStrategy);
-			this.attributes.Add(DefaultAttributeTypeSet.LoggingAttributeType,param.LoggingType);
+			delegat = FSMFactory.CreateDefaultState(param.ID);
+			this.Attributes.Add(DefaultAttributeTypeSet.ControlFlowStrategyType,param.ControlFlowStrategy);
+			this.Attributes.Add(DefaultAttributeTypeSet.LoggingAttributeType,param.LoggingType);
 		}
 
 		#endregion
@@ -72,7 +75,7 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		{
 			get
 			{
-				return (IControlFlowStrategy)this.attributes[DefaultAttributeTypeSet.ControlFlowStrategyType];
+				return (IControlFlowStrategy)this.Attributes[DefaultAttributeTypeSet.ControlFlowStrategyType];
 			}
 		}
 
@@ -83,7 +86,7 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		{
 			get
 			{
-				return (string)this.attributes[DefaultAttributeTypeSet.IDType];
+				return this.delegat.ID;
 			}
 		}
 
@@ -106,7 +109,7 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		{
 			get
 			{
-				return this.attributes;
+				return this.delegat.Attributes;
 			}
 		}
 
@@ -117,7 +120,7 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		{
 			get
 			{
-				return (LoggingType_t)this.attributes[DefaultAttributeTypeSet.LoggingAttributeType];
+				return (LoggingType_t)this.Attributes[DefaultAttributeTypeSet.LoggingAttributeType];
 			}
 		}
 
@@ -126,11 +129,12 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		#region methods
 
 		/// <summary>
-		/// not used in this implementation
+		/// delegated to default state
 		/// </summary>
 		/// <param name="visitor"></param>
 		public void AcceptVisitor(ReflectionBasedVisitor.IVisitor visitor)
 		{
+			delegat.AcceptVisitor(visitor);
 		}
 
 		/// <summary>
@@ -139,19 +143,16 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		/// <returns>a debug string containing the id of this state</returns>
 		public override string ToString()
 		{
-			return "State: "+this.ID;
+			return delegat.ToString();
 		}
 
 		/// <summary>
-		///		Default implementation of GetHashCode(). 
-		///		Refers to the hashcode of name.
+		///	delegated to default state
 		/// </summary>
-		/// <returns>
-		///		Hashcode of Name
-		///	</returns>
+		/// <returns></returns>
 		public override int GetHashCode() 
 		{
-			return ID.GetHashCode();
+			return delegat.GetHashCode();
 		}
 		
 		/// <summary>
@@ -166,10 +167,10 @@ namespace ComponentNetworkSimulation.Structure.Elements
 		///	</returns>
 		public override bool Equals(object obj) 
 		{
+			if (!delegat.Equals(obj)) return false;
 			if (!(obj is ISimulationState)) return false;
-			ISimulationState simState = (ISimulationState)obj;
 
-			return simState.ID.Equals(this.ID) && simState.ControlFlowStrategy == this.ControlFlowStrategy;
+			return ((ISimulationState)obj).ControlFlowStrategy == this.ControlFlowStrategy;
 		}
 
 		/// <summary>
