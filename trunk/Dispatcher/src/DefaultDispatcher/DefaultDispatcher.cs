@@ -20,6 +20,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2004/10/28 07:54:43  kelsaka
+	/// -
+	///
 	/// Revision 1.6  2004/10/27 15:05:06  kelsaka
 	/// added more request handling-abilities
 	///
@@ -86,7 +89,8 @@ namespace Palladio.Webserver.Dispatcher
 			{
 
 				//start listing on the given port //TODO: make listen on *all* specified ports later on.
-				tcpListener = new TcpListener(new IPAddress(localAddress), webserverConfiguration.ListeningPorts[0]);
+				//TODO: currently running without IP listening on: "new IPAddress(localAddress)"
+				tcpListener = new TcpListener(webserverConfiguration.ListeningPorts[0]);
 				tcpListener.Start();
 
 				//start the thread which calls the method 'StartListen'
