@@ -2,7 +2,7 @@
 <!DOCTYPE config SYSTEM "BibTeXProviderXML.dtd">
 <Config xmlns:xsi="Webserver" xsi:noNamespaceSchemaLocation="BibTeXProviderXML.dtd">
 	
-	<!--Name of the Database-Server.-->
+	<!--Name of the Database-Server. For the use with a local database this is be identically to the host-name of your computer.-->
 	<DataSource Name="Inspiron" />
 
 	<!--Name of the Database, where the BibTeX-Entries are saved.-->	
@@ -12,7 +12,8 @@
 	<DatabaseTableName Name="BibTeX" />
 	
 	<!--The following FieldNames are taken into consideration to search for BibTeX-Entries in the DB. This means
-		if one of the following FieldNames occours in the post-request it is seen as a part of the search-request.-->	
+		if one of the following FieldNames occours in the post-request it is used as a part of the search-request.
+		Other FieldNames will be ignored until they are set in this file.-->	
 	<SearchedBibTeXFieldNames>
 			<FieldName Name="author" />
 			<FieldName Name="title" />
