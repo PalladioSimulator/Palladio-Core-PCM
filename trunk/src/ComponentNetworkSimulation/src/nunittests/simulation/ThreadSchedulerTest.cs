@@ -1,6 +1,6 @@
 using System;
 using NUnit.Framework;
-using ComponentNetworkSimulation.simulation;
+using ComponentNetworkSimulation.Simulation;
 
 namespace nunittests.simulation
 {
@@ -10,7 +10,7 @@ namespace nunittests.simulation
 	[TestFixture]
 	public class ThreadSchedulerTest
 	{
-		ThreadScheduler scheduler = new ThreadScheduler(null);
+		IThreadScheduler scheduler = new DefaultThreadScheduler(null);
 
 		public ThreadSchedulerTest()
 		{
@@ -28,7 +28,7 @@ namespace nunittests.simulation
 		public void TestOneThread()
 		{
             scheduler.Reset();
-			scheduler.CreateSimulationThread(Component.createPath1(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
+			scheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS);
 			while (scheduler.IsAnyThreadAlive) 
 			{
 				scheduler.SimulationStep(long.MaxValue);
@@ -39,8 +39,8 @@ namespace nunittests.simulation
 		public void TestTwoThreadsSameTime()
 		{
 			scheduler.Reset();
-			scheduler.CreateSimulationThread(Component.createPath1(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
-			scheduler.CreateSimulationThread(Component.createPath2(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
+			scheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS);
+			scheduler.CreateSimulationThread(Component.createPath2(),SimulationThreadType.TYPE_LOG_ON_LPS);
 
 			while (scheduler.IsAnyThreadAlive) 
 			{
@@ -52,7 +52,7 @@ namespace nunittests.simulation
 		public void TestTwoThreadsDiffStartTime()
 		{
 			scheduler.Reset();
-			scheduler.CreateSimulationThread(Component.createPath1(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
+			scheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS);
 
 			bool flag = false;
 
@@ -61,7 +61,7 @@ namespace nunittests.simulation
 				scheduler.SimulationStep(long.MaxValue);
 				if (!flag)
 				{
-					scheduler.CreateSimulationThread(Component.createPath2(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
+					scheduler.CreateSimulationThread(Component.createPath2(),SimulationThreadType.TYPE_LOG_ON_LPS);
 					flag = true;
 				}
 			}
@@ -71,7 +71,7 @@ namespace nunittests.simulation
 		public void TestPeriodicThread()
 		{
 			scheduler.Reset();
-			scheduler.CreateSimulationThread(Component.createPath1(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS,3);
+			scheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS,3);
 			long simTime = 0;
 
 			while (scheduler.IsAnyThreadAlive && simTime < 40) 
@@ -82,7 +82,7 @@ namespace nunittests.simulation
 
 		protected void OnNextTCEvent(object sender, NextTCEventArgs args) 
 		{
-			Console.WriteLine("Thread("+((SimulationThread)sender).ThreadID+") changed the TimeConsumer ...");
+			Console.WriteLine("Thread("+((ISimulationThread)sender).ThreadID+") changed the TimeConsumer ...");
 		}
 		
 		protected void OnThreadCreatedEvent(object sender, ThreadLifeCycleEventArgs args) 

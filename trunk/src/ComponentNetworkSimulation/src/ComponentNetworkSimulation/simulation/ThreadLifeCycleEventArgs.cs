@@ -1,6 +1,6 @@
 using System;
 
-namespace ComponentNetworkSimulation.simulation
+namespace ComponentNetworkSimulation.Simulation
 {
 	/// <summary>
 	/// This class extends the class EventArgs. It is used in ThreadLifeCycleEventHandler.
@@ -10,13 +10,13 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// holds the simulation thread
 		/// </summary>
-		private SimulationThread theThread;
+		private ISimulationThread theThread;
 
 		/// <summary>
 		/// constructs a new ThreadLifeCycleEventArgs object
 		/// </summary>
 		/// <param name="theThread">the simulation thread</param>
-		public ThreadLifeCycleEventArgs(SimulationThread theThread)
+		public ThreadLifeCycleEventArgs(ISimulationThread theThread)
 		{
 			this.theThread = theThread;
 		}
@@ -24,7 +24,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// return the simulationthread
 		/// </summary>
-		public SimulationThread TheThread 
+		public ISimulationThread TheThread 
 		{
 			get {return this.theThread;}
 		}

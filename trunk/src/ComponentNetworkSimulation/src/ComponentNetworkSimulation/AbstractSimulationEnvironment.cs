@@ -1,6 +1,6 @@
 using ComponentNetworkSimulation.structure;
-using ComponentNetworkSimulation.simulation;
-using ComponentNetworkSimulation.analysis;
+using ComponentNetworkSimulation.Simulation;
+using ComponentNetworkSimulation.Analysis;
 using System.Collections;
 
 namespace ComponentNetworkSimulation
@@ -10,14 +10,14 @@ namespace ComponentNetworkSimulation
 	/// to the componentnetwork and to the datapool used to log the simulation. Implementing classes have to create the instances 
 	/// of these references.
 	/// </summary>
-	public abstract class AbstractSimulationEnvironment
+	public abstract class AbstractSimulationEnvironment : ISimulationEnvironment
 	{
 		#region data
 
 		/// <summary>
 		/// holds the instance of the clock
 		/// </summary>
-		private Clock clock = null;
+		private IClock clock = null;
 		
 		/// <summary>
 		/// holds the instance of the componentnetwork
@@ -27,7 +27,7 @@ namespace ComponentNetworkSimulation
 		/// <summary>
 		/// holds the datapool
 		/// </summary>
-		private AbstractDataPool dataPool = null;
+		private IDataPool dataPool = null;
 
 		#endregion
 
@@ -111,7 +111,7 @@ namespace ComponentNetworkSimulation
 		/// return the clock of the environment. The first call to this properties creates a new instance by
 		/// calling CreateClock().
 		/// </summary>
-		public Clock TheCLock
+		public IClock Clock
 		{
 			get	
 			{
@@ -137,7 +137,7 @@ namespace ComponentNetworkSimulation
 		/// return the datapool of the environment. The first call to this properties creates a new instance by
 		/// calling CreateDataPool().
 		/// </summary>
-		public AbstractDataPool TheDataPool 
+		public IDataPool DataPool 
 		{
 			get
 			{ 
@@ -160,7 +160,7 @@ namespace ComponentNetworkSimulation
 		/// Inilize() instead. This method must not return null.
 		/// </summary>
 		/// <returns>the new instance of Clock.</returns>
-		protected abstract Clock CreateClock();
+		protected abstract IClock CreateClock();
 
 		/// <summary>
 		/// implement this method to create a new ínstance of AbstractComponentNetwork. Do not any inilizations depending on 
@@ -170,11 +170,11 @@ namespace ComponentNetworkSimulation
 		protected abstract AbstractComponentNetwork CreateComponentNetwork();
 
 		/// <summary>
-		/// implement this method to create a new ínstance of AbstractDataPool. Do not any inilizations depending on 
+		/// implement this method to create a new ínstance of IDataPool. Do not any inilizations depending on 
 		/// other components, use Inilize() instead. This method must not return null.
 		/// </summary>
-		/// <returns>the new instance of AbstractDataPool.</returns>
-		protected abstract AbstractDataPool CreateDataPool();
+		/// <returns>the new instance of IDataPool.</returns>
+		protected abstract IDataPool CreateDataPool();
 
 		#endregion
 	}	

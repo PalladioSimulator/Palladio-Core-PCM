@@ -3,20 +3,14 @@ using ComponentNetworkSimulation;
 using ComponentNetworkSimulation.structure;
 using System.Collections;
 
-namespace ComponentNetworkSimulation.simulation
+namespace ComponentNetworkSimulation.Simulation
 {
-	/// <summary>
-	/// This declaration is used to define a eventhandler for timestep events.
-	/// TimeStepEvents are fired on every finished simulationstep.
-	/// </summary>
-	public delegate void TimeStepEventHandler(object sender, TimeStepEventArgs eventArgs);
-
 	/// <summary>
 	/// This class represents the clock of the simulation environment. It contains an absolute time counter of simulation time
 	/// to syncronize the simulation. The simulation time, if not set, is limitet to long.MaxValue.
 	/// Clock also contains an instance of ThreadScheduler, which manages the simulationthreads.
 	/// </summary>
-	public class Clock
+	public class DefaultClock : IClock
 	{		
 		#region events
 
@@ -53,12 +47,12 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// holds an reference to the simulation environment
 		/// </summary>
-		protected AbstractSimulationEnvironment simulationEnvironment = null;
+		protected ISimulationEnvironment simulationEnvironment = null;
 
 		/// <summary>
 		/// holds the instance of the threadscheduler
 		/// </summary>
-		private ThreadScheduler scheduler = null;
+		private IThreadScheduler scheduler = null;
 
 		#endregion
 
@@ -68,7 +62,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// constructs a new Clock used by given simulation environment. The maximum simulation time is set to long.MaxValue.
 		/// </summary>
 		/// <param name="simulationEnvironment">the simulation environment</param>
-		public Clock(AbstractSimulationEnvironment simulationEnvironment) : this(simulationEnvironment,long.MaxValue)
+		public DefaultClock(ISimulationEnvironment simulationEnvironment) : this(simulationEnvironment,long.MaxValue)
 		{
 		}
 
@@ -78,7 +72,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// </summary>
 		/// <param name="simulationEnvironment">the simulation environment</param>
 		/// <param name="maxSimulationTime">the maximum simulation time</param>
-		public Clock(AbstractSimulationEnvironment simulationEnvironment, long maxSimulationTime) 
+		public DefaultClock(ISimulationEnvironment simulationEnvironment, long maxSimulationTime) 
 		{
 			this.maxSimulationTime = maxSimulationTime;
 			this.simulationEnvironment = simulationEnvironment;
@@ -107,7 +101,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// return the instance of the Thread Scheduler
 		/// </summary>
-		public ThreadScheduler TheThreadScheduler
+		public IThreadScheduler ThreadScheduler
 		{
 			get {return this.scheduler;}
 		}
@@ -135,9 +129,9 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// this method is called by the constructor to create an instance of the ThreadScheduler 
 		/// </summary>
-		protected virtual ThreadScheduler CreateScheduler()
+		protected virtual IThreadScheduler CreateScheduler()
 		{
-			return new ThreadScheduler(this.simulationEnvironment);
+			return new DefaultThreadScheduler(this.simulationEnvironment);
 		}
 
 		/// <summary>
@@ -199,6 +193,6 @@ namespace ComponentNetworkSimulation.simulation
 		}
 
 		#endregion
-   	}
+	}
 }
 //EOF

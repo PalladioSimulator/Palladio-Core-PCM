@@ -1,20 +1,54 @@
 using System;
-using ComponentNetworkSimulation.simulation;
+using System.IO;
+using ComponentNetworkSimulation.Simulation;
 using ComponentNetworkSimulation.structure;
 
-namespace ComponentNetworkSimulation.analysis.datapools
+namespace ComponentNetworkSimulation.Analysis.Datapools
 {
-	internal class ConsoleWriterDataPool : ComponentNetworkSimulation.analysis.AbstractDataPool
+	/// <summary>
+	/// this class implements a datapool, that only writes all logs to the given writer.
+	/// </summary>
+	internal class TextWriterDataPool : ComponentNetworkSimulation.Analysis.DefaultDataPool
 	{
-		public ConsoleWriterDataPool(AbstractSimulationEnvironment simulationEnvironment) : base (simulationEnvironment)
+		#region data
+
+		/// <summary>
+		/// the writer, the logs are written to
+		/// </summary>
+		protected TextWriter writer;
+
+		#endregion
+
+		#region constructors
+
+		/// <summary>
+		/// constructs a new TextWriterDataPool
+		/// </summary>
+		/// <param name="simulationEnvironment">the simulationenvironment</param>
+		/// <param name="writer">the writer used to write the logs to</param>
+		public TextWriterDataPool(ISimulationEnvironment simulationEnvironment, TextWriter writer)
+			: base (simulationEnvironment)
 		{
+			this.writer = writer;
 		}
 
+		#endregion
+
+		#region methods
+
+		/// <summary>
+		/// Called, when the simulation was reseted 
+		/// </summary>
 		public override void Reset()
 		{
 			PrintLog("Simulation reseted");
 		}
 
+		/// <summary>
+		/// called on incoming Clocklogs
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="eventArgs"></param>
 		protected override void OnClockEvent(object sender, ClockLogEventArgs eventArgs)
 		{
 			if (eventArgs.TheType == ClockLogEventArgs.EventType.CLOCK_RESET)
@@ -27,13 +61,18 @@ namespace ComponentNetworkSimulation.analysis.datapools
 				PrintLog("ClockLog -> no more threads alive");
 		}
 
+		/// <summary>
+		/// called on incoming ThreadLogs
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="eventArgs"></param>
 		protected override void OnThreadEvent(object sender, ThreadLogEventArgs eventArgs)
 		{
 			if (eventArgs.TheType == ThreadLogEventArgs.EventType.THREAD_CREATED) 
 			{
-				if (eventArgs.TheThread is PeriodicSimulationThread)
+				if (eventArgs.TheThread is IPeriodicSimulationThread)
 					PrintLog("ThreadLog -> Periodic Thread("+eventArgs.TheThread.ThreadID+
-						","+((PeriodicSimulationThread)eventArgs.TheThread).PeriodID+") created.");
+						","+((IPeriodicSimulationThread)eventArgs.TheThread).PeriodID+") created.");
 				else
 					PrintLog("ThreadLog -> Thread("+eventArgs.TheThread.ThreadID+") created.");
 			}
@@ -46,17 +85,26 @@ namespace ComponentNetworkSimulation.analysis.datapools
 				PrintLog("ThreadLog -> Thread("+eventArgs.TheThread.ThreadID+") exited TimeConsumer "+eventArgs.TheTimeConsumer);
 		}
 
+		/// <summary>
+		/// called on incoming unknown logs
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="eventArgs"></param>
 		protected override void OnUnknownEvent(object sender, BasicLogEventArgs eventArgs)
 		{
 			PrintLog("Unknown log event -> "+eventArgs.Message);
 		}
 
-
-
+		/// <summary>
+		/// called to write a log with given message to the writer.
+		/// </summary>
+		/// <param name="message"></param>
 		protected void PrintLog(String message)
 		{
-			Console.WriteLine("Log at time "+this.SimulationTime+": "+message);
+			writer.WriteLine("Log at time "+this.SimulationTime+": "+message);
 		}
 
+		#endregion
 	}
 }
+//EOF

@@ -2,19 +2,14 @@ using System;
 using System.Collections;
 using ComponentNetworkSimulation.structure;
 
-namespace ComponentNetworkSimulation.simulation
+namespace ComponentNetworkSimulation.Simulation
 {
-	/// <summary>
-	/// Handles the events fired when threads are created or destroyed.
-	/// </summary>	
-	public delegate void ThreadLifeCycleEventHandler(object sender,ThreadLifeCycleEventArgs eventArgs);
-
 	/// <summary>
 	/// This class manages the threads in the simulation. Therefor, it supports methods to create 
 	/// new Threads (single or periodic), calculate the next timestep and move this step. Dead threads are
 	/// removed and periodic threads are created by this class.
 	/// </summary>
-	public class ThreadScheduler 
+	public class DefaultThreadScheduler : IThreadScheduler
 	{
 		#region events
 		
@@ -66,7 +61,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// this field holds a reference to the SimulationEnvironment
 		/// </summary>
-		protected AbstractSimulationEnvironment simulationEnvironment;
+		protected ISimulationEnvironment simulationEnvironment;
 
 		#endregion data
 
@@ -76,7 +71,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// constructs a new ThreadScheduler
 		/// </summary>
 		/// <param name="simulationEnvironment">the instance of SimulationEnvironment</param>
-		public ThreadScheduler(AbstractSimulationEnvironment simulationEnvironment)
+		public DefaultThreadScheduler(ISimulationEnvironment simulationEnvironment)
 		{
 			this.simulationEnvironment = simulationEnvironment;
 		}
@@ -118,9 +113,9 @@ namespace ComponentNetworkSimulation.simulation
 		/// </summary>
 		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
-		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThread.SimuationThreadType type)
+		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThreadType type)
 		{
-			this.PrepairNewThread(new SimulationThread(this.NextThreadID,firstTimeConsumer,type));			
+			this.PrepairNewThread(new DefaultSimulationThread(this.NextThreadID,firstTimeConsumer,type));			
 		}
 
 		/// <summary>
@@ -129,10 +124,10 @@ namespace ComponentNetworkSimulation.simulation
 		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
 		/// <param name="observer">the oberserver</param>
-		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThread.SimuationThreadType type, 
+		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThreadType type, 
 			IThreadObserver observer)
 		{
-			this.PrepairNewThread(new SimulationThread(this.NextThreadID,firstTimeConsumer,type,observer));			
+			this.PrepairNewThread(new DefaultSimulationThread(this.NextThreadID,firstTimeConsumer,type,observer));			
 		}
 
 		/// <summary>
@@ -140,8 +135,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// </summary>
 		/// <param name="firstTimeConsumer">The first TimeConsumer of this thread.</param>
 		/// <param name="type">The logging type of this thread.</param>
-		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, 
-			SimulationThread.SimuationThreadType type, long periodTime)
+		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer, SimulationThreadType type, long periodTime)
 		{
 			CreateSimulationThread(firstTimeConsumer,type,periodTime,null);
 		}
@@ -153,20 +147,36 @@ namespace ComponentNetworkSimulation.simulation
 		/// <param name="type">The logging type of this thread.</param>
 		/// <param name="periodTime">reached the thread this time, a new thread is created.</param>
 		/// <param name="observer">the oberserver</param>
-		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer,SimulationThread.SimuationThreadType type,
+		public void CreateSimulationThread(ITimeConsumer firstTimeConsumer,SimulationThreadType type,
 			long periodTime, IThreadObserver observer)
 		{
-			PeriodicSimulationThread tmp = new PeriodicSimulationThread(periodTime,NextPeriodID,NextThreadID,
+			DefaultPeriodicSimulationThread tmp = new DefaultPeriodicSimulationThread(periodTime,NextPeriodID,NextThreadID,
 				firstTimeConsumer,type,observer);
 			
 			tmp.NewPeriodicThreadEvent += new EventHandler(this.OnNewPeriodicThreadEvent);
 			this.PrepairNewThread(tmp);
 		}
 
-		public void AddSimulationThread(SimulationThread simulationThread)
+		/// <summary>
+		/// call to add a simulationthread to the scheduler, created by any extern method.
+		/// </summary>
+		/// <param name="simulationThread">The simulationthread</param>
+		public void AddSimulationThread(ISimulationThread simulationThread)
 		{
-			//TODO: implement
-			throw(new NotImplementedException("To be implemented"));
+			this.PrepairNewThread(simulationThread);
+			if (simulationThread is IPeriodicSimulationThread)
+				((IPeriodicSimulationThread)simulationThread).NewPeriodicThreadEvent += 
+					new EventHandler(this.OnNewPeriodicThreadEvent);
+		}
+
+		/// <summary>
+		/// call to reset the scheduler. This method method removes all threads and reset the id counters to zero.
+		/// </summary>
+		public virtual void Reset()
+		{
+			this.simulationThreads.Clear();
+			this.threadIDCounter = 0;
+			this.periodIDCounter = 0;
 		}
 
 		/// <summary>
@@ -180,7 +190,7 @@ namespace ComponentNetworkSimulation.simulation
 			long timeStep = this.GetShortestFutureTime();
 			if (maxTimeStep < timeStep) timeStep = maxTimeStep;
 
-			foreach (SimulationThread thread in this.simulationThreads)	
+			foreach (ISimulationThread thread in this.simulationThreads)	
 				thread.TimeMoved(timeStep);		
 
 			this.InsertPrepairedThreads();
@@ -198,7 +208,7 @@ namespace ComponentNetworkSimulation.simulation
 		protected virtual long GetShortestFutureTime() 
 		{
 			long minTime = -1;
-			foreach (SimulationThread thread in this.simulationThreads) 
+			foreach (ISimulationThread thread in this.simulationThreads) 
 				if (thread.TimeInFuture < minTime || minTime == -1) minTime = thread.TimeInFuture;
 
 			if (minTime == -1)
@@ -212,7 +222,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// </summary>
 		protected void InsertPrepairedThreads()
 		{
-			foreach(SimulationThread thread in this.prepairedSimulationThreads) 
+			foreach(ISimulationThread thread in this.prepairedSimulationThreads) 
 			{
 				simulationThreads.Add(thread);
 				NotifyThreadCreatedEvent(thread);
@@ -221,21 +231,11 @@ namespace ComponentNetworkSimulation.simulation
 		}
 
 		/// <summary>
-		/// call to reset the scheduler. This method method removes all threads and reset the id counters to zero.
-		/// </summary>
-		public virtual void Reset()
-		{
-			this.simulationThreads.Clear();
-			this.threadIDCounter = 0;
-			this.periodIDCounter = 0;
-		}
-
-		/// <summary>
 		/// called to prepair the given thread for adding it to the scheduler. 
 		/// The thread is added after ending the current or before the next simulationstep.
 		/// </summary>
 		/// <param name="newThread">the thread to be added</param>
-		protected void PrepairNewThread(SimulationThread newThread)
+		protected void PrepairNewThread(ISimulationThread newThread)
 		{
 			newThread.NextTCEvent += new NextTCEventHandler(OnNextTCEvent);
 			this.prepairedSimulationThreads.Add(newThread);
@@ -249,7 +249,7 @@ namespace ComponentNetworkSimulation.simulation
 			int i=0;
 			while (i<simulationThreads.Count) 
 			{
-				SimulationThread curThread = (SimulationThread)simulationThreads[i];
+				ISimulationThread curThread = (ISimulationThread)simulationThreads[i];
 				if (!curThread.IsAlive)
 				{				
 					this.simulationThreads.RemoveAt(i);
@@ -264,7 +264,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// called, when a new thread was created to fire a event
 		/// </summary>
 		/// <param name="theThread">the thread, which was created</param>
-		protected virtual void NotifyThreadCreatedEvent(SimulationThread theThread)
+		protected virtual void NotifyThreadCreatedEvent(ISimulationThread theThread)
 		{
 			if (ThreadCreatedEvent != null)
 				ThreadCreatedEvent(this,new ThreadLifeCycleEventArgs(theThread));
@@ -274,7 +274,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// called, when a thread was destroyed
 		/// </summary>
 		/// <param name="theThread">the thread, which was destroyed</param>
-		protected virtual void NotifyThreadDestroyedEvent(SimulationThread theThread)
+		protected virtual void NotifyThreadDestroyedEvent(ISimulationThread theThread)
 		{
 			if (ThreadDestroyedEvent != null)
 				ThreadDestroyedEvent(this,new ThreadLifeCycleEventArgs(theThread));
@@ -308,8 +308,8 @@ namespace ComponentNetworkSimulation.simulation
 		/// <param name="args">set to EventArgs.Empty</param>
 		protected virtual void OnNewPeriodicThreadEvent(object sender, EventArgs args)
 		{
-			PeriodicSimulationThread tmp = ((PeriodicSimulationThread)sender).CreateFollowingThread(this.NextThreadID);
-			tmp.NewPeriodicThreadEvent += new EventHandler(this.OnNewPeriodicThreadEvent);
+			ISimulationThread tmp = ((IPeriodicSimulationThread)sender).CreateFollowingThread(this.NextThreadID);
+			((IPeriodicSimulationThread)tmp).NewPeriodicThreadEvent += new EventHandler(this.OnNewPeriodicThreadEvent);
 			PrepairNewThread(tmp);
 		}
 

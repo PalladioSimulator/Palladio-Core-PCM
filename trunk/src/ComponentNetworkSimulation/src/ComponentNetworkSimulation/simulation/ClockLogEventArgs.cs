@@ -1,7 +1,7 @@
 using System;
-using ComponentNetworkSimulation.analysis;
+using ComponentNetworkSimulation.Analysis;
 
-namespace ComponentNetworkSimulation.simulation
+namespace ComponentNetworkSimulation.Simulation
 {
 	/// <summary>
 	/// Zusammenfassung für ClockLogEventArgs.
@@ -13,9 +13,9 @@ namespace ComponentNetworkSimulation.simulation
 		
 		protected long timeStep;
 		protected ClockLogEventArgs.EventType type;
-		protected Clock theClock;
+		protected IClock theClock;
 
-		public ClockLogEventArgs(String message, Clock theClock, ClockLogEventArgs.EventType type, long timeStep) :
+		public ClockLogEventArgs(String message, IClock theClock, ClockLogEventArgs.EventType type, long timeStep) :
 			base(message)
 		{
 			this.theClock = theClock;
@@ -23,7 +23,7 @@ namespace ComponentNetworkSimulation.simulation
 			this.timeStep = timeStep;
 		}
 
-		public Clock TheClock
+		public IClock TheClock
 		{
 			get {return this.theClock;}
 		}

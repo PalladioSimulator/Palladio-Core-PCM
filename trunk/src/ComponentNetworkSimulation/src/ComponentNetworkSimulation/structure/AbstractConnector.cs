@@ -32,7 +32,9 @@ namespace ComponentNetworkSimulation.structure
 		}
 
 
-		public abstract long getDelayTime();
+		public abstract long ThreadEntered();
+
+		public abstract void ThreadExited();
 
 		public abstract void reset();
 

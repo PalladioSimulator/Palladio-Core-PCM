@@ -2,14 +2,14 @@ using System;
 using ComponentNetworkSimulation;
 using ComponentNetworkSimulation.structure;
 
-namespace ComponentNetworkSimulation.simulation
+namespace ComponentNetworkSimulation.Simulation
 {
 	/// <summary>
 	/// This class extends SimulationThread in order to provide periodic threads. A periodic thread notifies the scheduler,
 	/// when the periodlength is reached. The notified scheduler has to create a new periodic thread. All threads, created
 	/// from one periodic thread, contains the same periodID, to identify them.
 	/// </summary>
-	public class PeriodicSimulationThread : SimulationThread
+	public class DefaultPeriodicSimulationThread : DefaultSimulationThread,IPeriodicSimulationThread
 	{
 		#region events
 		
@@ -55,8 +55,8 @@ namespace ComponentNetworkSimulation.simulation
 		/// <param name="id">the id of this thread</param>
 		/// <param name="firstTimeConsumer">the first time consumer</param>
 		/// <param name="type">the type of the thread</param>
-		public PeriodicSimulationThread(long periodLength, int periodID, int id, ITimeConsumer firstTimeConsumer,
-			SimuationThreadType type) : this(periodLength,periodID,id,firstTimeConsumer,type,null)
+		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, ITimeConsumer firstTimeConsumer,
+			SimulationThreadType type) : this(periodLength,periodID,id,firstTimeConsumer,type,null)
 		{
 			
 		}
@@ -70,8 +70,8 @@ namespace ComponentNetworkSimulation.simulation
 		/// <param name="firstTimeConsumer">the first time consumer</param>
 		/// <param name="type">the type of the thread</param>
 		/// <param name="observer">the observer</param>
-		public PeriodicSimulationThread(long periodLength, int periodID, int id, ITimeConsumer firstTimeConsumer,
-			SimuationThreadType type, IThreadObserver observer) : base (id, firstTimeConsumer,type,observer)
+		public DefaultPeriodicSimulationThread(long periodLength, int periodID, int id, ITimeConsumer firstTimeConsumer,
+			SimulationThreadType type, IThreadObserver observer) : base (id, firstTimeConsumer,type,observer)
 		{
 			this.firstTimeConsumer = firstTimeConsumer;
 			this.periodLength = periodLength;
@@ -154,9 +154,9 @@ namespace ComponentNetworkSimulation.simulation
 		/// </summary>
 		/// <param name="newThreadID">The id of the new thread.</param>
 		/// <returns>the new thread</returns>
-		public virtual PeriodicSimulationThread CreateFollowingThread(int newThreadID)
+		public virtual ISimulationThread CreateFollowingThread(int newThreadID)
 		{
-			return new PeriodicSimulationThread(this.periodLength,this.periodID,newThreadID,this.firstTimeConsumer,
+			return new DefaultPeriodicSimulationThread(this.periodLength,this.periodID,newThreadID,this.firstTimeConsumer,
 				this.type,this.observer);
 		}
 

@@ -6,7 +6,8 @@ namespace ComponentNetworkSimulation.structure
 	{
 		ITimeConsumer getNextTimeConsumer();
 		bool hasNextTimeConsumer();
-		long getUsedTime();
+		long ThreadEntered();
+		void ThreadExited();
 		LoggingType getLoggingType();
 
 	}

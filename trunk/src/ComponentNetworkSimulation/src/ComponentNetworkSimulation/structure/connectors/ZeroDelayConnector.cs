@@ -11,9 +11,10 @@ namespace ComponentNetworkSimulation.structure.connectors
 			return "Connector "+this.id+" [Zero delay]";
 		}
 
-		public override long getDelayTime()
+		public override long ThreadEntered()
 		{
 			return 0;
 		}
+
 	}
 }

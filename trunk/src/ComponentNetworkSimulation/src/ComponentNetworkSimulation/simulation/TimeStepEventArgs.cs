@@ -1,7 +1,7 @@
 using System;
 using ComponentNetworkSimulation.structure;
 
-namespace ComponentNetworkSimulation.simulation
+namespace ComponentNetworkSimulation.Simulation
 {
 	/// <summary>
 	/// This class extends the class EventArgs. It is used in TimeStepEventHandler.

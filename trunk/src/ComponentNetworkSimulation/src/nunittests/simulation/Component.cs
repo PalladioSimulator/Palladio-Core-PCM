@@ -3,7 +3,7 @@ using ComponentNetworkSimulation.structure;
 
 namespace nunittests.simulation
 {
-	public class Component : ITimeConsumer
+	public class Component :ITimeConsumer
 	{
 		public static ITimeConsumer createPath1()
 		{
@@ -47,14 +47,19 @@ namespace nunittests.simulation
 			return tc != null;
 		}
 
-		public long getUsedTime()
-		{
-			return tw;
-		}
 
 		public ComponentNetworkSimulation.structure.LoggingType getLoggingType()
 		{
 			return LoggingType.NO_LOG;
+		}
+
+		public long ThreadEntered()
+		{
+			return tw;
+		}
+
+		public void ThreadExited()
+		{
 		}
 
 		#endregion

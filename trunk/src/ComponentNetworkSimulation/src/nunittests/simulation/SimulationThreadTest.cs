@@ -1,6 +1,6 @@
 using System;
 using NUnit.Framework;
-using ComponentNetworkSimulation.simulation;
+using ComponentNetworkSimulation.Simulation;
 
 namespace nunittests.simulation
 {
@@ -26,8 +26,8 @@ namespace nunittests.simulation
 		[Test]
 		public void test_single_thread()
 		{
-			SimulationThread testThread =new SimulationThread(0,Component.createPath1(),
-				SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS,this);
+			ISimulationThread testThread =new DefaultSimulationThread(0,Component.createPath1(),
+				SimulationThreadType.TYPE_LOG_ON_LPS,this);
 
 			Assert.AreEqual(testThread.TimeInFuture,2);
 			testThread.TimeMoved(1);
@@ -49,8 +49,8 @@ namespace nunittests.simulation
 		[Test]
 		public void test_single_thread_with_zero_tc()
 		{
-			SimulationThread testThread =new SimulationThread(0,Component.createPath_with_Zero_TC(),
-				SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS,this);
+			ISimulationThread testThread =new DefaultSimulationThread(0,Component.createPath_with_Zero_TC(),
+				SimulationThreadType.TYPE_LOG_ON_LPS,this);
 
 			Assert.AreEqual(testThread.TimeInFuture,6);
 			testThread.TimeMoved(6);
@@ -68,8 +68,8 @@ namespace nunittests.simulation
 		[Test]
 		public void test_periodic_thread_short_period()
 		{
-			PeriodicSimulationThread testThread = new PeriodicSimulationThread(3,0,0,Component.createPath1(),
-				SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS,this);
+			DefaultPeriodicSimulationThread testThread = new DefaultPeriodicSimulationThread(3,0,0,Component.createPath1(),
+				SimulationThreadType.TYPE_LOG_ON_LPS,this);
 			testThread.NewPeriodicThreadEvent += new EventHandler(OnNewPeriodicThread);
 
 			Assert.AreEqual(testThread.TimeInFuture,2);
@@ -96,8 +96,8 @@ namespace nunittests.simulation
 		[Test]
 		public void test_periodic_thread_long_period()
 		{
-			PeriodicSimulationThread testThread = new PeriodicSimulationThread(20,0,0,Component.createPath1(),
-				SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS,this);
+			DefaultPeriodicSimulationThread testThread = new DefaultPeriodicSimulationThread(20,0,0,Component.createPath1(),
+				SimulationThreadType.TYPE_LOG_ON_LPS,this);
 			testThread.NewPeriodicThreadEvent += new EventHandler(OnNewPeriodicThread);
 
 			Assert.AreEqual(testThread.TimeInFuture,2);
@@ -124,8 +124,8 @@ namespace nunittests.simulation
 		[Test]
 		public void test_periodic_thread_long_period_zero_tc()
 		{
-			PeriodicSimulationThread testThread = new PeriodicSimulationThread(20,0,0,Component.createPath_with_Zero_TC(),
-				SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS,this);
+			DefaultPeriodicSimulationThread testThread = new DefaultPeriodicSimulationThread(20,0,0,Component.createPath_with_Zero_TC(),
+				SimulationThreadType.TYPE_LOG_ON_LPS,this);
 			testThread.NewPeriodicThreadEvent += new EventHandler(OnNewPeriodicThread);
 
 			Assert.AreEqual(testThread.TimeInFuture,6);
@@ -154,9 +154,8 @@ namespace nunittests.simulation
 			this.newThreadCreated = !this.newThreadCreated;
 			Console.WriteLine("Notified to create a new Thread ...");
 			
-			PeriodicSimulationThread newThread = (PeriodicSimulationThread)((PeriodicSimulationThread)sender).
-				CreateFollowingThread(1);
-			Assert.AreEqual(newThread.PeriodID,0);
+			ISimulationThread newThread = ((IPeriodicSimulationThread)sender).CreateFollowingThread(1);
+			Assert.AreEqual(((IPeriodicSimulationThread)newThread).PeriodID,0);
 			Assert.AreEqual(newThread.ThreadID,1);
 			Assert.IsTrue(newThread.IsAlive);
 		}
@@ -165,17 +164,17 @@ namespace nunittests.simulation
 
 		#region IThreadObserver Member
 
-		public void NotifyThreadReachedEnd(SimulationThread sender)
+		public void NotifyThreadReachedEnd(ISimulationThread sender)
 		{
 			Console.WriteLine("Thread("+sender.ThreadID+") reached end...");
 		}
 
-		public void NotifyThreadChangedTimeConsumer(SimulationThread sender, ComponentNetworkSimulation.structure.ITimeConsumer previous)
+		public void NotifyThreadChangedTimeConsumer(ISimulationThread sender, ComponentNetworkSimulation.structure.ITimeConsumer previous)
 		{
 			Console.WriteLine("Thread("+sender.ThreadID+") changed TimeConsumer.");
 		}
 
-		public void NotifyTimeStep(SimulationThread sender, long timeStep)
+		public void NotifyTimeStep(ISimulationThread sender, long timeStep)
 		{
 			Console.WriteLine("Thread("+sender.ThreadID+") step: "+timeStep);
 		}

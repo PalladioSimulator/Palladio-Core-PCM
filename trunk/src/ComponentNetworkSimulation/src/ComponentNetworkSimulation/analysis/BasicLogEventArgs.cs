@@ -1,6 +1,6 @@
 using System;
 
-namespace ComponentNetworkSimulation.analysis
+namespace ComponentNetworkSimulation.Analysis
 {
 	/// <summary>
 	/// Zusammenfassung für BasicLogEventArgs.

@@ -34,12 +34,7 @@ namespace ComponentNetworkSimulation.structure
 			this.owningConnector = owningConnector;
 		}
 
-		#region TimeConsumer Member
-
-		public long getUsedTime() 
-		{
-			return owningConnector.getDelayTime();
-		}
+		#region ITimeConsumer Member
 
 		public ITimeConsumer getNextTimeConsumer() 
 		{
@@ -54,6 +49,16 @@ namespace ComponentNetworkSimulation.structure
 		public ComponentNetworkSimulation.structure.LoggingType getLoggingType()
 		{
 			return loggingType;
+		}
+
+		public long ThreadEntered()
+		{
+			return this.owningConnector.ThreadEntered();
+		}
+
+		public void ThreadExited()
+		{
+			this.owningConnector.ThreadExited();
 		}
 
 		#endregion

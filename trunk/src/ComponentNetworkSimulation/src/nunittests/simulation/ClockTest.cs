@@ -1,5 +1,5 @@
 using System;
-using ComponentNetworkSimulation.simulation;
+using ComponentNetworkSimulation.Simulation;
 using ComponentNetworkSimulation.structure;
 
 namespace nunittests.simulation
@@ -12,7 +12,7 @@ namespace nunittests.simulation
 	[TestFixture]
 	public class ClockTest
 	{
-		protected Clock clock = null;
+		protected IClock clock = null;
 
 		public ClockTest()
 		{
@@ -21,25 +21,25 @@ namespace nunittests.simulation
 		[SetUp]
 		public void doInit()
 		{
-			clock = new Clock(null);
+			clock = new DefaultClock(null);
 			clock.ClockResetEvent += new EventHandler(OnReset);
 			clock.MaxTimeReachedEvent += new EventHandler(OnMaxSimulationTime);
 			clock.TimeStepEvent += new TimeStepEventHandler(OnSimulationStep);
-			clock.TheThreadScheduler.NoMoreThreadsAliveEvent += new EventHandler(OnNoThreadAlive);
+			clock.ThreadScheduler.NoMoreThreadsAliveEvent += new EventHandler(OnNoThreadAlive);
 		}
 		
 		[Test]
 		public void validateEmptyClock()
 		{
 			clock.Reset();
-			Assert.IsFalse(clock.TheThreadScheduler.IsAnyThreadAlive);
+			Assert.IsFalse(clock.ThreadScheduler.IsAnyThreadAlive);
 		}
 
 		[Test]
 		public void validateSimulationWithOneThread()
 		{
 			clock.Reset();
-			clock.TheThreadScheduler.CreateSimulationThread(Component.createPath1(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
+			clock.ThreadScheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS);
 			int steps = 1;
 			while(clock.SimulationStep()) 
 			{
@@ -55,8 +55,8 @@ namespace nunittests.simulation
 		public void validateSimulationWithTwoThread()
 		{
 			clock.Reset();
-			clock.TheThreadScheduler.CreateSimulationThread(Component.createPath1(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
-			clock.TheThreadScheduler.CreateSimulationThread(Component.createPath2(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
+			clock.ThreadScheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS);
+			clock.ThreadScheduler.CreateSimulationThread(Component.createPath2(),SimulationThreadType.TYPE_LOG_ON_LPS);
 			int steps = 1;
 			while(clock.SimulationStep()) 
 			{
@@ -73,8 +73,8 @@ namespace nunittests.simulation
 		{
 			clock.MaximumSimulationTime = 8;
 			clock.Reset();
-			clock.TheThreadScheduler.CreateSimulationThread(Component.createPath1(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
-			clock.TheThreadScheduler.CreateSimulationThread(Component.createPath2(),SimulationThread.SimuationThreadType.TYPE_LOG_ON_LPS);
+			clock.ThreadScheduler.CreateSimulationThread(Component.createPath1(),SimulationThreadType.TYPE_LOG_ON_LPS);
+			clock.ThreadScheduler.CreateSimulationThread(Component.createPath2(),SimulationThreadType.TYPE_LOG_ON_LPS);
 			int steps = 1;
 			while(clock.SimulationStep()) 
 			{

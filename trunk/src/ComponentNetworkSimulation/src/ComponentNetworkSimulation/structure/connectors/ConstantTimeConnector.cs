@@ -10,10 +10,18 @@ namespace ComponentNetworkSimulation.structure.connectors
 			this.delayTime = delayTime;
 		}
 
-		public override long getDelayTime()
+
+		public override long ThreadEntered()
 		{
 			return this.delayTime;
 		}
+
+		public override void ThreadExited()
+		{
+
+		}
+
+
 
 		public override System.String getName()
 		{

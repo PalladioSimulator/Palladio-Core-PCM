@@ -1,8 +1,8 @@
 using System;
-using ComponentNetworkSimulation.analysis;
+using ComponentNetworkSimulation.Analysis;
 using ComponentNetworkSimulation.structure;
 
-namespace ComponentNetworkSimulation.simulation
+namespace ComponentNetworkSimulation.Simulation
 {
 	/// <summary>
 	/// Zusammenfassung für ThreadLogEventArgs.
@@ -17,7 +17,7 @@ namespace ComponentNetworkSimulation.simulation
 
 		#region data
 
-		protected SimulationThread theThread;
+		protected ISimulationThread theThread;
 
 		protected ThreadLogEventArgs.EventType type;
 
@@ -27,7 +27,7 @@ namespace ComponentNetworkSimulation.simulation
 
 		#region constructors
 
-		public ThreadLogEventArgs(String message, SimulationThread theThread, ThreadLogEventArgs.EventType type, 
+		public ThreadLogEventArgs(String message, ISimulationThread theThread, ThreadLogEventArgs.EventType type, 
 			ITimeConsumer timeConsumer) : base(message)
 		{
 			this.theThread = theThread;
@@ -39,7 +39,7 @@ namespace ComponentNetworkSimulation.simulation
 
 		#region properties
 
-		public SimulationThread TheThread
+		public ISimulationThread TheThread
 		{
 			get {return this.theThread;}
 		}

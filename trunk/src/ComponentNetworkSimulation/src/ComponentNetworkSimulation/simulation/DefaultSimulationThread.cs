@@ -2,27 +2,27 @@ using System;
 using ComponentNetworkSimulation.structure;
 
 //TODO: logging
-namespace ComponentNetworkSimulation.simulation
+namespace ComponentNetworkSimulation.Simulation
 {
+	#region declarations
+		
+	/// <summary>
+	/// the declaration of the threadtype specifying the logging behavior of this thread.
+	/// </summary>
+	public enum SimulationThreadType {TYPE_LOG_ALL,TYPE_LOG_ON_LPS,TYPE_LOG_NOTHING};
+
 	/// <summary>
 	/// The declaration of the eventhandler for all thread events.
 	/// </summary>	
 	public delegate void NextTCEventHandler(object sender,NextTCEventArgs eventArgs);
 
+	#endregion declarations
+
 	/// <summary>
 	/// This class implements the simulation thread which is representing one request to the component network.
 	/// </summary>
-	public class SimulationThread
+	public class DefaultSimulationThread : ISimulationThread
 	{	
-		#region declarations
-		
-		/// <summary>
-		/// the declaration of the threadtype specifying the logging behavior of this thread.
-		/// </summary>
-		public enum SimuationThreadType {TYPE_LOG_ALL,TYPE_LOG_ON_LPS,TYPE_LOG_NOTHING};
-
-		#endregion declarations
-
 		#region events
 
 		/// <summary>
@@ -53,7 +53,7 @@ namespace ComponentNetworkSimulation.simulation
 		/// <summary>
 		/// holds the type of the thread
 		/// </summary>
-		protected SimuationThreadType type = SimuationThreadType.TYPE_LOG_ON_LPS;
+		protected SimulationThreadType type = SimulationThreadType.TYPE_LOG_ON_LPS;
 
 		/// <summary>
 		/// this field hold an implemented observer if set
@@ -70,11 +70,11 @@ namespace ComponentNetworkSimulation.simulation
 		/// <param name="id">The id of the thread.</param>
 		/// <param name="firstTimeConsumer">The first TimeConsumer.</param>
 		/// <param name="type">The type of the thread.</param>
-		public SimulationThread(int id, ITimeConsumer firstTimeConsumer, SimuationThreadType type)
+		public DefaultSimulationThread(int id, ITimeConsumer firstTimeConsumer, SimulationThreadType type)
 		{
 			this.threadId = id;
 			this.currentTimeConsumer = firstTimeConsumer;
-			this.timeInFuture = currentTimeConsumer.getUsedTime();
+			this.timeInFuture = currentTimeConsumer.ThreadEntered();
 			this.type = type;
 		}
 
@@ -84,12 +84,12 @@ namespace ComponentNetworkSimulation.simulation
 		/// <param name="id">The id of the thread.</param>
 		/// <param name="firstTimeConsumer">The first TimeConsumer.</param>
 		/// <param name="type">The type of the thread.</param>
-		public SimulationThread(int id, ITimeConsumer firstTimeConsumer, SimuationThreadType type,
+		public DefaultSimulationThread(int id, ITimeConsumer firstTimeConsumer, SimulationThreadType type,
 			IThreadObserver observer)
 		{
 			this.threadId = id;
 			this.currentTimeConsumer = firstTimeConsumer;
-			this.timeInFuture = currentTimeConsumer.getUsedTime();
+			this.timeInFuture = currentTimeConsumer.ThreadEntered();
 			this.type = type;
 			this.observer = observer;
 		}
@@ -162,9 +162,10 @@ namespace ComponentNetworkSimulation.simulation
 			}
 
 			ITimeConsumer previous = currentTimeConsumer;
+			currentTimeConsumer.ThreadExited();
 
 			currentTimeConsumer = currentTimeConsumer.getNextTimeConsumer();
-			timeInFuture = currentTimeConsumer.getUsedTime();
+			timeInFuture = currentTimeConsumer.ThreadEntered();
 
 			NotifyNextTCEvent(previous);
 		}
