@@ -67,6 +67,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FTPRequestProcessor", "..\F
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTemplateFileProvider", "..\SimpleTemplateFileProvider\SimpleTemplateFileProvider.csproj", "{3FB631C4-E62A-4AAE-8778-AA34619E70D8}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTemplateFileProviderXML", "..\SimpleTemplateFileProviderXML\SimpleTemplateFileProviderXML.csproj", "{AE27C7C4-267A-344A-A1B8-BFB44149858C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -141,6 +149,14 @@ Global
 		{96D040AA-90D6-4BBD-8F92-4E9F42827245}.Debug.Build.0 = Debug|.NET
 		{96D040AA-90D6-4BBD-8F92-4E9F42827245}.Release.ActiveCfg = Release|.NET
 		{96D040AA-90D6-4BBD-8F92-4E9F42827245}.Release.Build.0 = Release|.NET
+		{3FB631C4-E62A-4AAE-8778-AA34619E70D8}.Debug.ActiveCfg = Debug|.NET
+		{3FB631C4-E62A-4AAE-8778-AA34619E70D8}.Debug.Build.0 = Debug|.NET
+		{3FB631C4-E62A-4AAE-8778-AA34619E70D8}.Release.ActiveCfg = Release|.NET
+		{3FB631C4-E62A-4AAE-8778-AA34619E70D8}.Release.Build.0 = Release|.NET
+		{AE27C7C4-267A-344A-A1B8-BFB44149858C}.Debug.ActiveCfg = Debug|.NET
+		{AE27C7C4-267A-344A-A1B8-BFB44149858C}.Debug.Build.0 = Debug|.NET
+		{AE27C7C4-267A-344A-A1B8-BFB44149858C}.Release.ActiveCfg = Release|.NET
+		{AE27C7C4-267A-344A-A1B8-BFB44149858C}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

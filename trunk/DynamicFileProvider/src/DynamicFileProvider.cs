@@ -16,6 +16,10 @@ namespace Palladio.Webserver.DynamicFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/11/05 16:17:01  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.5  2004/10/30 11:42:08  kelsaka
 	/// Added full support for static websites using the get-method; added several test-documents; changed CoR for HTTP-Processing: dynamic files are delivered first
 	///
@@ -36,12 +40,13 @@ namespace Palladio.Webserver.DynamicFileProvider
 	/// </remarks>
 	public class DynamicFileProvider : IHTTPRequestProcessor
 	{
-
+		private IWebserverMonitor webserverMonitor;
 		private IHTTPRequestProcessor corSuccessor;
 
-		public DynamicFileProvider(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfigurationr)
+		public DynamicFileProvider(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
 			this.corSuccessor = corSuccessor;
+			this.webserverMonitor = webserverMonitor;
 		}
 
 
@@ -51,7 +56,7 @@ namespace Palladio.Webserver.DynamicFileProvider
 		/// <param name="httpRequest">The HTTP-Request.</param>
 		public void handleRequest (IHTTPRequest httpRequest)
 		{
-			
+			webserverMonitor.WriteLogEntry("DynamicFileProvider forwarded request to COR-Successor.");
 			// as no implementation is available no request can be handled and has to be forwarded to successor:
 			corSuccessor.handleRequest(httpRequest);
 

@@ -19,6 +19,10 @@ namespace Palladio.Webserver.StaticFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2004/11/05 16:17:01  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.5  2004/10/30 11:42:08  kelsaka
 	/// Added full support for static websites using the get-method; added several test-documents; changed CoR for HTTP-Processing: dynamic files are delivered first
 	///
@@ -63,41 +67,37 @@ namespace Palladio.Webserver.StaticFileProvider
 
 
 			// Path to the requestedFile:
-			string completePath = BuildCompletePath(httpRequest.RequestedDirectoyName);
+			string completePath = requestProcessorTools.BuildCompletePath(httpRequest.RequestedDirectoyName);
 			if(!Directory.Exists(completePath))
 			{
 				requestProcessorTools.SendHTTPError(httpRequest,
 					"<h1>Error! The requested directory does not exist.</h1>", "404 Not Found");
+				return;
 			}
-			else
+
+
+
+			// The filename effectively requested by the client.
+			// E. g. if only a directoy is specified this is the default filename:
+			string requestedFileName = GetEffectivelyRequestedFilename(httpRequest.RequestedFileName, completePath);	
+			if(!File.Exists(completePath +  requestedFileName))
 			{
-
-				// The filename effectively requested by the client.
-				// E. g. if only a directoy is specified this is the default filename:
-				string requestedFileName = GetEffectivelyRequestedFilename(httpRequest.RequestedFileName, completePath);	
-				if(!File.Exists(completePath +  requestedFileName))
-				{
-					requestProcessorTools.SendHTTPError(httpRequest,
-						"<h1>Error!! The requested file does not exist or the default file for the requested directory does not exist.</h1>", "404 Not Found");
-				}
-				else
-				{
-					webserverMonitor.WriteLogEntry("Full filename and path effectively requested: " + completePath + requestedFileName);
-
-
-
-			
-
-					// The MimeType of the requested File.
-					string fileMimeType = GetFileMimeTypeFor(httpRequest.RequestedFileType);
-					webserverMonitor.WriteLogEntry("Mime Type found: " + fileMimeType);
-
-
-
-					DeliverStaticFile (completePath, requestedFileName, httpRequest, fileMimeType);
-
-				}
+				requestProcessorTools.SendHTTPError(httpRequest,
+					"<h1>Error!! The requested file does not exist or the default file for the requested directory does not exist.</h1>", "404 Not Found");
+				return;
 			}
+
+
+
+			webserverMonitor.WriteLogEntry("Full filename and path effectively requested: " + completePath + requestedFileName);
+			// The MimeType of the requested File.
+			string fileMimeType = requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType);
+			webserverMonitor.WriteLogEntry("Mime Type found: " + fileMimeType);
+
+
+
+
+			DeliverStaticFile (completePath, requestedFileName, httpRequest, fileMimeType);			
 		}
 
 
@@ -111,50 +111,18 @@ namespace Palladio.Webserver.StaticFileProvider
 		/// <param name="httpRequest"></param>
 		/// <param name="fileMimeType"></param>
 		private void DeliverStaticFile (string completePath, string requestedFileName, IHTTPRequest httpRequest, string fileMimeType)
-		{
-			// Size of the response:
-			int totalBytesSize = 0;
+		{			
+			byte[] fileContent = requestProcessorTools.OpenFile (completePath, requestedFileName);
 	
-	
-			FileStream fileStream = new FileStream(completePath + requestedFileName, FileMode.Open, FileAccess.Read, FileShare.Read);
-			
-			// Create a reader that can read bytes from the FileStream: especially required for binary-files.
-			BinaryReader reader = new BinaryReader(fileStream);
-			byte[] bytes = new byte[fileStream.Length];
-			int read;
-	
-			while(true) 
-			{
-				read = reader.Read(bytes, 0, bytes.Length);
-				totalBytesSize = totalBytesSize + read;
-
-				if(read == 0) //file completely read - so break loop.
-				{
-					break;
-				}
-			}
-			reader.Close(); 
-			fileStream.Close();
-	
-			requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, fileMimeType, totalBytesSize, "200 OK", httpRequest.Socket);
-			requestProcessorTools.SendContentToClient(bytes, httpRequest.Socket);
+			requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, fileMimeType, fileContent.Length, "200 OK", httpRequest.Socket);
+			requestProcessorTools.SendContentToClient(fileContent, httpRequest.Socket);
 			webserverMonitor.WriteLogEntry("Successfully sent response to client.");
-
 		}
 
 
 
 
-		/// <summary>
-		/// Build the path to the actually requested file, either relative or absoulte path.
-		/// (Uses the documentRoot from the webserver-configuration to build the complete path.)
-		/// </summary>
-		/// <param name="requestedPath">Build the complete path for this part of the request.</param>
-		/// <returns>Path to file / directory requested.</returns>
-		private string BuildCompletePath(string requestedPath)
-		{
-			return webserverConfiguration.DocumentRoot + requestedPath;
-		}
+
 
 
 
@@ -166,7 +134,7 @@ namespace Palladio.Webserver.StaticFileProvider
 		/// <returns>The Filename. In a case, that only a directory-name is specified
 		/// (httpRequest-filename is empty) the default filename is used (see webserer-configuration (XML)).</returns>
 		private string GetEffectivelyRequestedFilename (string requestedFileName, string completePath)
-		{			
+		{
 			
 
 			// get the filename and add it to the path:
@@ -175,7 +143,7 @@ namespace Palladio.Webserver.StaticFileProvider
 				// Try for default Filenames as the requestedFileName is not specified:
 				for(int x = 0; x < webserverConfiguration.DefaultFileNames.Length; x++)
 				{
-					Console.WriteLine("Check " + completePath + webserverConfiguration.DefaultFileNames[x]);
+					webserverMonitor.WriteLogEntry("Check " + completePath + webserverConfiguration.DefaultFileNames[x]);
 					// Check whether the defaultFileName does exist (in descendend order, as defined in the settings):
 					if (File.Exists(completePath + webserverConfiguration.DefaultFileNames[x]))
 					{
@@ -186,28 +154,6 @@ namespace Palladio.Webserver.StaticFileProvider
 			}
 
 			return requestedFileName;
-		}
-
-
-		/// <summary>
-		/// Returns the the MimeType for the specified file-type.
-		/// </summary>
-		/// <param name="requestedFileType">For this filetype you get the mimetype.</param>
-		/// <returns>The mimetype. If no fitting mimetype was found the default type is returned.</returns>
-		private string GetFileMimeTypeFor (string requestedFileType)
-		{
-
-			string fileMimeType;
-			// Get the MimeType
-			try
-			{
-				fileMimeType = webserverConfiguration.GetMimeTypeFor(requestedFileType);	
-			}
-			catch (ExtensionNotFoundException)
-			{
-				fileMimeType = webserverConfiguration.DefaultMimeType; // default-mimetype from configuration.
-			}
-			return fileMimeType;
 		}
 
 

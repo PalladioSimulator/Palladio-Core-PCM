@@ -17,6 +17,10 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/11/05 16:17:00  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.7  2004/10/23 14:08:35  kelsaka
 	/// first steps on reading xml-config-files
 	///
@@ -44,12 +48,6 @@ namespace Palladio.Webserver.ConfigReader
 	public class XMLConfigReader : IConfigReader
 	{
 
-		/// <summary>
-		/// The configuration root-object.
-		/// </summary>
-		private ConfigType configRoot;
-
-
 
 		public XMLConfigReader()
 		{
@@ -57,13 +55,13 @@ namespace Palladio.Webserver.ConfigReader
 		}
 
 
+
 		/// <summary>
 		/// Read the configuration at the specified path. Afterwards the setting can be accessed by GetValue.
 		/// </summary>
-		/// <param name="configFilePath">Path to XML-config-file</param>
-		public void ReadConfiguration (string configFilePath)
-		{		
-
+		/// <param name="configPathFile">Path to XML-config-file including filename.</param>
+		public ConfigType ReadConfiguration (string configPathFile)
+		{
 			WebserverXMLDoc doc = new WebserverXMLDoc();
 			doc.SetRootElementName("", "Config");
 			
@@ -72,7 +70,7 @@ namespace Palladio.Webserver.ConfigReader
 
 			try 
 			{
-				root = new ConfigType(doc.Load(configFilePath));
+				root = new ConfigType(doc.Load(configPathFile));
 			}
 			catch (FileNotFoundException e)
 			{
@@ -83,21 +81,8 @@ namespace Palladio.Webserver.ConfigReader
 				Debug.WriteLine(e);
 			}
 
-			this.configRoot = root;
-
+			return root;
 		}
-
-
-		/// <summary>
-		/// Deliveres the configuration root-object. First run ReadConfiguration().
-		/// </summary>
-		/// <returns>The ConfigType-root-object.</returns>
-		public ConfigType GetRoot()
-		{
-			return configRoot;
-		}
-
-
 
 
 	}

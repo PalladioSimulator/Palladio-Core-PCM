@@ -18,6 +18,10 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2004/11/05 16:17:01  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.6  2004/10/27 05:52:49  kelsaka
 	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
 	///
@@ -121,9 +125,23 @@ namespace Palladio.Webserver.WebserverFactory
 			return new DefaultRequestParser(webserverMonitor, webserverConfiguration);
 		}
 
+
 		#endregion
 
 		#region RequestProcessors
+		/// <summary>
+		/// Creates a SimpleTemplateFileProvider.
+		/// </summary>
+		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
+		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
+		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
+		/// <returns>SimpleTemplateFileProvider</returns>
+		public IHTTPRequestProcessor CreateSimpleTemplateFileProvider (IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
+		{
+			return new SimpleTemplateFileProvider.SimpleTemplateFileProvider(CorSuccessor, webserverMonitor, webserverConfiguration);
+		}
+
+
 		/// <summary>
 		/// Creates a StaticFileProvider.
 		/// </summary>

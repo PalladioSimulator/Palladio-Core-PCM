@@ -124,6 +124,11 @@
                     Project = "{61580AC2-47F7-4183-B96E-385B39CE5D26}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "FTPRequestProcessor"
+                    Project = "{96D040AA-90D6-4BBD-8F92-4E9F42827245}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

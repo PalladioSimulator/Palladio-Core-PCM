@@ -18,6 +18,10 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/11/05 16:17:01  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.7  2004/10/27 05:52:49  kelsaka
 	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
 	///
@@ -76,7 +80,6 @@ namespace Palladio.Webserver.WebserverFactory
 		IConfigReader CreateConfigReader();
 
 
-
 		#endregion
 
 		#region RequestParsers
@@ -112,10 +115,23 @@ namespace Palladio.Webserver.WebserverFactory
 
 		#region RequestProcessors
 
+
+		/// <summary>
+		/// Creates a SimpleTemplateFileProvider.
+		/// </summary>
+		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
+		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
+		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
+		/// <returns>SimpleTemplateFileProvider</returns>
+		IHTTPRequestProcessor CreateSimpleTemplateFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
+
+
 		/// <summary>
 		/// Creates a StaticFileProvider.
 		/// </summary>
 		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
+		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
+		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
 		/// <returns>StaticFileProvider</returns>
 		IHTTPRequestProcessor CreateStaticFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
 
@@ -123,6 +139,8 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <summary>
 		/// Creates a StaticFileProvider.
 		/// </summary>
+		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
+		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
 		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
 		/// <returns>StaticFileProvider</returns>
 		IHTTPRequestProcessor CreateDynamicFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
@@ -132,6 +150,8 @@ namespace Palladio.Webserver.WebserverFactory
 		/// This processor does not use other components as it catches errors on processing the request in the COR. This
 		/// means that it is a error-handler of streams that cannot be processed. It should be the last link in the COR.
 		/// </summary>
+		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
+		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
 		/// <returns>DefaultRequestProcessor</returns>
 		IHTTPRequestProcessor CreateDefaultRequestProcessor(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
 

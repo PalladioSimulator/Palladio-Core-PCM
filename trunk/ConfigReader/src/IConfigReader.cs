@@ -14,6 +14,10 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/11/05 16:17:00  kelsaka
+	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
+	/// Code refactoring.
+	///
 	/// Revision 1.4  2004/10/23 14:08:35  kelsaka
 	/// first steps on reading xml-config-files
 	///
@@ -35,15 +39,9 @@ namespace Palladio.Webserver.ConfigReader
 		/// <summary>
 		/// Read the configuration at the specified path. Afterwards the setting can be accessed by GetValue.
 		/// </summary>
-		/// <param name="configFilePath">Path to XML-config-file</param>
-		void ReadConfiguration(string configFilePath);
-
-
-		/// <summary>
-		/// Deliveres the configuration root-object. First run ReadConfiguration().
-		/// </summary>
-		/// <returns>The ConfigType-root-object.</returns>
-		ConfigType GetRoot();
+		/// <param name="configPathFile">Path to XML-config-file including filename. All Webserver-Config-XMLs need to have a root-element called "Config".</param>
+		/// <returns>Deliveres the configuration root-object</returns>
+		ConfigType ReadConfiguration (string configPathFile);
 
 	}
 }
