@@ -20,6 +20,30 @@ namespace FSM
 		{
 		}
 		/// <summary>
+		/// Copy Konstruktor
+		/// </summary>
+		/// <param name="state"></param>
+//		public CPState(State state)
+//		{
+////			
+//			this.name = state.getName();
+//			this.finalState = state.getFinal();
+//			this.startState = state.getStart();
+////				throw new InvalidStateException();
+//
+//
+//			
+//			//CPState newState = (CPState) state;
+//		}
+		public CPState(CPState state)
+		{
+			
+			this.one = state.one;
+			this.two = state.two;
+			this.CPname = state.CPname;
+			this.state = state.state;
+		}
+		/// <summary>
 		/// Creates a CPState
 		/// </summary>
 		/// <param name="one">A State</param>
@@ -65,6 +89,34 @@ namespace FSM
 		/// <returns>the name of the state</returns>
 		public override string getName() {
 			return this.one.getName()+"-X-"+this.two.getName();
+		}
+
+		public State oneState
+		{
+			get {return this.one;}
+		}
+		public State twoState
+		{
+			get {return this.two;}
+		}
+		public override bool Equals(object obj) 
+		{
+			CPState state;
+			
+			if (obj is CPState) 
+			{ 
+				state = (CPState)obj;
+				if(this.getName() == state.getName()) 
+				{
+					if(this.getStart() == state.getStart())
+						if(this.getFinal() == state.getFinal())
+							if(this.oneState == state.twoState)
+								if(this.twoState == state.twoState)
+									if(this.state == state.state)
+							return true;
+				}
+			}
+			return false;
 		}
 	}
 }

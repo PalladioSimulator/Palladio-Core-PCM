@@ -40,7 +40,7 @@ namespace FSM
 		/// <summary>
 		/// displays alls Transitions on the console.
 		/// </summary>
-		string transitionsToString();
+//		string transitionsToString();
 
 		/// <summary>
 		/// The errorstate of the FSM.

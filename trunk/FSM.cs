@@ -45,6 +45,10 @@ namespace FSM
 			this.setTransition(tr);
 		}
 
+		public Hashtable getAllTransitionHashtable()
+		{
+			return this.transitions;
+		}
 		/// <summary>
 		/// Find all reachable states from the state aState.
 		/// </summary>
@@ -188,6 +192,7 @@ namespace FSM
 		/// <returns>the next State witch is reachable with the state and the inputcharacter</returns>
 		public State getNextState(State fromState, Input input)
 		{
+
 			/*
 			evtl. schöner:
 			*/
@@ -363,13 +368,37 @@ namespace FSM
 		{
 			string st ="";
 			Transition[] bla = this.getTransitions();
+			Set da = new Set();
+			Transition temp = new Transition();
+
 			foreach(Transition tr in bla)
 			{
-				if(tr.fromState.Equals(this.ErrorState))
-					continue;
-				if(tr.toState.Equals(this.ErrorState))
-					continue;
-				st+= tr.ToString()+"\n";
+				temp = tr;
+				//Console.WriteLine("Aktuelles TransitionsObjekt: "+tr.ToString());
+					
+//				foreach(Transition t in da)
+//				{
+//					if(t.Equals(tr))
+//					{
+//						continue;
+//					}
+//				}
+//				if(!da.Contains(temp))
+//				{
+
+					if(tr.fromState.Equals(this.ErrorState))
+						continue;
+					if(tr.toState.Equals(this.ErrorState))
+						continue;
+					st += tr.ToString() +"\n";
+//					da.Add(tr);
+//				}
+//				else
+//				{
+//					Console.Write("bahnhof");
+//				}
+//				continue;
+
 			}
 			return st;
 

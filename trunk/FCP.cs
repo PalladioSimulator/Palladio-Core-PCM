@@ -84,7 +84,16 @@ namespace FSM
 						{
 							//Console.WriteLine("Both Selfpointing");
 							CPState sps = new CPState(oneNext,twoNext);
+//							if(this.cp.getAllTransitionHashtable().Contains(new Transition(sps.getState(),i,sps.getState())))
+//							{
+//								Console.Write("es geht");
+//								continue;
+//							}
+							Console.WriteLine("in selfpointing folling transition set: "+"\n"
+								+new Transition(sps.getState(),i,sps.getState()));
 							this.cp.setTransition(sps.getState(),i,sps.getState());
+							this.oneStates.Pop();
+							this.twoStates.Pop();
 							continue;
 						}
 						if(!oneNext.Equals(one.ErrorState)&&
@@ -96,7 +105,9 @@ namespace FSM
 								Console.WriteLine("CPState fromState: "+fromState.getState().ToString());
 							CPState toState = new CPState(oneNext,twoNext);
 							if(this.debug)
-								Console.WriteLine("CPState toState is: "+toState.getState().ToString()); 
+								Console.WriteLine("CPState toState is: "+toState.getState().ToString());
+							Console.WriteLine("both sre! ES following transition added: " +"\n" 
+								+ new Transition(fromState.getState(),i,toState.getState()));
 							this.cp.setTransition(fromState.getState(),i,toState.getState());
 							this.oneStates.Push(oneNext);
 							this.twoStates.Push(twoNext);
