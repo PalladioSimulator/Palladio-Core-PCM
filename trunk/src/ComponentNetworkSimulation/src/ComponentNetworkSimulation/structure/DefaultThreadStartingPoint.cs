@@ -1,5 +1,5 @@
 using System;
-using Palladio.FiniteStateMachines;
+using Palladio.Identifier;
 
 namespace ComponentNetworkSimulation.Structure
 {
@@ -9,6 +9,9 @@ namespace ComponentNetworkSimulation.Structure
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2004/06/19 13:48:07  joemal
+	/// - now the startingpoint contains the ids of a component, an interface and a signature
+	///
 	/// Revision 1.1  2004/05/26 16:36:29  joemal
 	/// initial creation
 	///
@@ -17,11 +20,16 @@ namespace ComponentNetworkSimulation.Structure
 	/// </remarks>
 	public class DefaultThreadStartingPoint : IThreadStartingPoint
 	{
-		//TODO: add Component, Interface, and Signature
 		#region data
 
-		//the first service
-		private IFiniteStateMachine fsm;
+		//the component
+		private IIdentifier componentID;
+
+		//the role
+		private IIdentifier ifaceID;
+
+		//the signature
+		private IIdentifier signatureID;
 
 		#endregion
 
@@ -30,21 +38,49 @@ namespace ComponentNetworkSimulation.Structure
 		/// <summary>
 		/// constructs a new DefaultThreadStartingPoint described by the given parameters.
 		/// </summary>
-		/// <param name="fsm"></param>
-		public DefaultThreadStartingPoint(IFiniteStateMachine fsm)
+		/// <param name="component">the id of the component</param>
+		/// <param name="iface">the id of the interface</param>
+		/// <param name="signature">the id of the signature</param>
+		public DefaultThreadStartingPoint(IIdentifier componentID, IIdentifier ifaceID, IIdentifier signatureID)
 		{
-            this.fsm = fsm;			
+			this.componentID = componentID;
+			this.ifaceID = ifaceID;
+			this.signatureID = signatureID;
 		}
-
 		#endregion
 
 		#region Properties
-
-		public IFiniteStateMachine FiniteStateMachine
+		
+		/// <summary>
+		/// The Component, in which the thread has to start.
+		/// </summary>
+		public IIdentifier ComponentID
 		{
 			get
 			{
-				return this.fsm;
+				return this.componentID;
+			}
+		}
+
+		/// <summary>
+		/// return the id of the interface, where the thread has to start.
+		/// </summary>
+		public IIdentifier InterfaceID
+		{
+			get
+			{
+				return this.ifaceID;
+			}
+		}
+
+		/// <summary>
+		/// the id of the signature, where the thread has to be started.
+		/// </summary>
+		public IIdentifier SignatureID
+		{
+			get
+			{
+				return this.signatureID;
 			}
 		}
 
