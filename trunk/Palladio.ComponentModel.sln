@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.ComponentModel", "
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.CM.Example", "..\Palladio.CM.Example\Palladio.CM.Example.csproj", "{9927A6D7-2623-415B-8353-59F655606778}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -45,6 +49,10 @@ Global
 		{6220A06F-242E-47A8-AB82-C3FA1528BD42}.Debug.Build.0 = Debug|.NET
 		{6220A06F-242E-47A8-AB82-C3FA1528BD42}.Release.ActiveCfg = Release|.NET
 		{6220A06F-242E-47A8-AB82-C3FA1528BD42}.Release.Build.0 = Release|.NET
+		{9927A6D7-2623-415B-8353-59F655606778}.Debug.ActiveCfg = Debug|.NET
+		{9927A6D7-2623-415B-8353-59F655606778}.Debug.Build.0 = Debug|.NET
+		{9927A6D7-2623-415B-8353-59F655606778}.Release.ActiveCfg = Release|.NET
+		{9927A6D7-2623-415B-8353-59F655606778}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

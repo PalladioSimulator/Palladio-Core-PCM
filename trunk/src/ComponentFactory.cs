@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2004/05/24 21:57:16  sbecker
+	/// Added Signature Copy Method with role rewriting
+	///
 	/// Revision 1.6  2004/05/24 12:42:34  sbecker
 	/// Added test cases for creating protocol interfaces
 	///
@@ -334,6 +337,11 @@ namespace Palladio.ComponentModel
 			IType returnType = CreateType(aReturnTypeName);
 			IType[] exceptionArray = CreateTypeArray(anExceptionNameArray);
 			return CreateSignature(aRoleID, returnType, aName, exceptionArray);
+		}
+
+		public static ISignature CreateSignatureFromOtherSignature(ISignature other, string newRoleID)
+		{
+			return CreateSignature(newRoleID,other.ReturnType,other.Name,other.Parameters,other.Exceptions);
 		}
 
 		/// <summary>
