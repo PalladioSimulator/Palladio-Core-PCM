@@ -13,6 +13,9 @@ namespace ComponentNetworkSimulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.10  2004/06/19 15:59:03  joemal
+	/// - now the interface for the component architecture is defined
+	///
 	/// Revision 1.9  2004/05/26 16:37:22  joemal
 	/// add cvs log tag
 	///
@@ -28,9 +31,9 @@ namespace ComponentNetworkSimulation
 		private IClock clock = null;
 		
 		/// <summary>
-		/// holds the instance of the componentnetwork
+		/// holds the instance of component architecture
 		/// </summary>
-		private AbstractComponentNetwork componentNetwork = null;
+		private IComponentArchitecture componentArchitecture = null;
 		
 		/// <summary>
 		/// holds the datapool
@@ -108,7 +111,7 @@ namespace ComponentNetworkSimulation
 		public virtual void ResetSimulation()
 		{
 			this.Clock.Reset();
-			this.TheComponentNetwork.reset();
+			this.ComponentArchitecture.reset();
 			this.DataPool.Reset();
 		}
 
@@ -139,15 +142,15 @@ namespace ComponentNetworkSimulation
 		}
 
 		/// <summary>
-		/// return the ComponentNetwork of the environment. The first call to this properties creates a new instance by
-		/// calling CreateComponentEnvironment().
+		/// return the model of the componentarchitecture of the environment. The first call to this properties creates a new instance by
+		/// calling CreateComponentArchitecture().
 		/// </summary>
-		public AbstractComponentNetwork TheComponentNetwork 
+		public IComponentArchitecture ComponentArchitecture
 		{
 			get
 			{ 
-				if (this.componentNetwork == null) this.componentNetwork = CreateComponentNetwork();
-				return this.componentNetwork;
+				if (this.componentArchitecture == null) this.componentArchitecture = CreateComponentArchitecture();
+				return this.componentArchitecture;
 			}
 		}
 
@@ -181,11 +184,11 @@ namespace ComponentNetworkSimulation
 		protected abstract IClock CreateClock();
 
 		/// <summary>
-		/// implement this method to create a new ínstance of AbstractComponentNetwork. Do not any inilizations depending on 
+		/// implement this method to create a new ínstance of IComponentArchitecture. Do not any inilizations depending on 
 		/// other components, use Inilize() instead. This method must not return null.
 		/// </summary>
-		/// <returns>the new instance of AbstractComponentNetwork.</returns>
-		protected abstract AbstractComponentNetwork CreateComponentNetwork();
+		/// <returns>the new instance of IComponentArchitecture.</returns>
+		protected abstract IComponentArchitecture CreateComponentArchitecture();
 
 		/// <summary>
 		/// implement this method to create a new ínstance of IDataPool. Do not any inilizations depending on 

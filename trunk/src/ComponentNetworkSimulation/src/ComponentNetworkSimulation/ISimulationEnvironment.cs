@@ -8,6 +8,9 @@ namespace ComponentNetworkSimulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.4  2004/06/19 15:59:03  joemal
+	/// - now the interface for the component architecture is defined
+	///
 	/// Revision 1.3  2004/05/26 16:37:22  joemal
 	/// add cvs log tag
 	///
@@ -51,9 +54,9 @@ namespace ComponentNetworkSimulation
 		}
 
 		/// <summary>
-		/// return the ComponentNetwork of the environment. 
+		/// return the model of the component architecture of the environment. 
 		/// </summary>
-		ComponentNetworkSimulation.Structure.AbstractComponentNetwork TheComponentNetwork 
+		ComponentNetworkSimulation.Structure.IComponentArchitecture ComponentArchitecture
 		{
 			get;			
 		}
