@@ -109,6 +109,21 @@
                     Project = "{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "Dispatcher"
+                    Project = "{AA3055C5-6108-488B-9EE6-EEA5688ECECC}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "RequestParser"
+                    Project = "{3593CDA9-B1C3-45B6-B630-0041E5200719}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "HTTPRequestProcessor"
+                    Project = "{61580AC2-47F7-4183-B96E-385B39CE5D26}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

@@ -1,4 +1,7 @@
 using System;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.WebserverMonitor;
 using Palladio.Webserver.RequestParser;
@@ -15,6 +18,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/10/27 13:40:43  kelsaka
+	/// added component-interconnections; added tcp-listening
+	///
 	/// Revision 1.4  2004/10/27 05:52:48  kelsaka
 	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
 	///
@@ -35,6 +41,10 @@ namespace Palladio.Webserver.Dispatcher
 
 		
 		private IRequestParser requestParser;
+		private IWebserverMonitor webserverMonitor;
+		private IWebserverConfiguration webserverConfiguration;
+
+		private TcpListener tcpListener;
 
 
 		/// <summary>
@@ -45,6 +55,8 @@ namespace Palladio.Webserver.Dispatcher
 		public DefaultDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
 			this.requestParser = requestParser;
+			this.webserverMonitor = webserverMonitor;
+			this.webserverConfiguration = webserverConfiguration;
 		}
 
 
@@ -55,8 +67,28 @@ namespace Palladio.Webserver.Dispatcher
 		/// </summary>
 		public void Run ()
 		{
-			throw new NotImplementedException ();
+
+			try
+			{
+				//start listing on the given port //TODO: make listen on all specified ports later on.
+				tcpListener = new TcpListener(webserverConfiguration.ListeningPorts[0]);
+				tcpListener.Start();
+
+				//start the thread which calls the method 'StartListen'
+				Thread thread = new Thread(new ThreadStart(StartListen));
+				thread.Start() ;
+
+			}
+			catch(Exception e)
+			{
+				webserverMonitor.WriteDebugMessage("An exception occurred while listening :" + e.ToString(), 1);
+			}
+			
 		}
+
+
+
+
 
 		/// <summary>
 		/// Stops the dispatcher. This includes the service of the webserver.
@@ -65,6 +97,34 @@ namespace Palladio.Webserver.Dispatcher
 		{
 			throw new NotImplementedException ();
 		}
+
+
+
+
+		
+		//This method Accepts new connection and
+		//First it receives the welcome massage from the client,
+		//Then it sends the Current date time to the Client.
+		public void StartListen()
+		{
+
+						
+			while(true)
+			{
+				//Accept a new connection
+				Socket mySocket = tcpListener.AcceptSocket() ;
+
+				webserverMonitor.WriteLogEntry("Socket Type " + mySocket.SocketType ); 
+				
+				if(mySocket.Connected)
+				{
+					webserverMonitor.WriteLogEntry("Client connected on IP:" + mySocket.RemoteEndPoint) ;
+
+					mySocket.Close();						
+				}
+			}
+		}
+	
 
 	}
 }
