@@ -97,15 +97,15 @@ namespace FiniteStateMachines {
 				//E a Hashatabele witch contains the children of CS
 				//write every child on the Stack
 				Transition tempTransition = new Transition();
-//				AbstractState tempState = new State();
+				//				AbstractState tempState = new State();
 				IDictionaryEnumerator iterateOverChildren = nextStates.GetEnumerator();
 				while(iterateOverChildren.MoveNext()) {
 					
 					tempTransition = (Transition) iterateOverChildren.Value;
-					this.states.Push(tempTransition.toState);
+					this.states.Push(tempTransition.DestinationState);
 					this.transitions.Push(tempTransition);
 					if(this.debugOutput)
-						Console.WriteLine(tempTransition.toState.ToString()+" ís pushed on the stack");
+						Console.WriteLine(tempTransition.DestinationState.ToString()+" ís pushed on the stack");
 				}
 				//now all children of CS are no on the stack, and cs is completly explored 
 				this.visited.Add(currentState);

@@ -67,7 +67,7 @@ namespace FiniteStateMachines {
 				Hashtable transitions = GetOutgoingTransitions(aState);
 				if (transitions != null){
 					for (IDictionaryEnumerator e = transitions.GetEnumerator(); e.MoveNext();){
-						GetReachableStatesRecursive(((Transition)e.Value).toState,ref resultSet);
+						GetReachableStatesRecursive(((Transition)e.Value).DestinationState,ref resultSet);
 					}
 				}
 			}
@@ -195,8 +195,8 @@ namespace FiniteStateMachines {
 				IEnumerator transIter = transIterHash.GetEnumerator();
 				while(transIter.MoveNext()) {
 					Transition trans = (Transition)transIter.Current;
-					if (trans.input == input)
-						return trans.toState;
+					if (trans.InputSymbol == input)
+						return trans.DestinationState;
 				}
 			}
 			return ErrorState;
@@ -261,10 +261,10 @@ namespace FiniteStateMachines {
 				if(eda.Current is Transition)
 					tr = (Transition) eda.Current;
 				
-				if(tr.input == inChar)
+				if(tr.InputSymbol == inChar)
 					back = new Transition(tr);
 			}
-			if(back.input == null)
+			if(back.InputSymbol == null)
 				throw new InvalidInputException();
 			return back;
 			/**else
@@ -360,9 +360,9 @@ namespace FiniteStateMachines {
 				//				if(!da.Contains(temp))
 				//				{
 
-				if(tr.fromState.Equals(this.ErrorState))
+				if(tr.SourceState.Equals(this.ErrorState))
 					continue;
-				if(tr.toState.Equals(this.ErrorState))
+				if(tr.DestinationState.Equals(this.ErrorState))
 					continue;
 				st += tr.ToString() +"\n";
 				//					da.Add(tr);
@@ -389,33 +389,33 @@ namespace FiniteStateMachines {
 		/// <param name="tr"></param>
 		public void setTransition(Transition tr) {	
 			//stores only one startState, no exceptionhandling
-			if(tr.fromState.IsStartState==true)
-				this.startState = tr.fromState;
-			if(tr.toState.IsFinalState==true)
-				this.finalSates.Add(tr.toState);
+			if(tr.SourceState.IsStartState==true)
+				this.startState = tr.SourceState;
+			if(tr.DestinationState.IsFinalState==true)
+				this.finalSates.Add(tr.DestinationState);
 
-			this.states.Add(tr.fromState);
+			this.states.Add(tr.SourceState);
 			// The target state must be also considered.
-			this.states.Add(tr.toState);
+			this.states.Add(tr.DestinationState);
 
-			if(this.transitions[tr.fromState] == null) {	
+			if(this.transitions[tr.SourceState] == null) {	
 				Set tmp = new Set();
 				tmp.Add(tr);
-				this.transitions.Add(tr.fromState, tmp);
-				this.inputAl.Add(tr.input);
+				this.transitions.Add(tr.SourceState, tmp);
+				this.inputAl.Add(tr.InputSymbol);
 			}
 			else {
 
-				if(this.transitions[tr.fromState] is  Set) { 
-					Set tmp = (Set) this.transitions[tr.fromState];
+				if(this.transitions[tr.SourceState] is  Set) { 
+					Set tmp = (Set) this.transitions[tr.SourceState];
 					tmp.Add(tr);
-					this.transitions.Remove(tr.fromState);
+					this.transitions.Remove(tr.SourceState);
 					try {
-						this.transitions.Add(tr.fromState,tmp);
+						this.transitions.Add(tr.SourceState,tmp);
 					}
 					catch(ArgumentException) {
 					}
-					this.inputAl.Add(tr.input);
+					this.inputAl.Add(tr.InputSymbol);
 
 				}
 			}

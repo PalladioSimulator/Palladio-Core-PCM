@@ -40,7 +40,7 @@ namespace FiniteStateMachines {
 					IDictionaryEnumerator iterator = tmp.GetEnumerator();
 					while(iterator.MoveNext()) {
 						Transition  t = (Transition)iterator.Value;
-						AbstractState visiting = t.toState;
+						AbstractState visiting = t.DestinationState;
 						if(!this.visitedStates.Contains(visiting)) {
 							this.visitedStates.Add(visiting);
 							this.howMany++;
