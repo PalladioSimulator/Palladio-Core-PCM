@@ -1,7 +1,10 @@
 using System;
+using System.Xml;
 using System.Collections;
 using ReflectionBasedVisitor;
 using Palladio.Attributes;
+using Palladio.ComponentModel.Exceptions;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Connections
 {
@@ -106,22 +109,62 @@ namespace Palladio.ComponentModel.Connections
 			if (IsProvidesMapping) 
 			{
 				writer.WriteStartElement("ProvidesMapping","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("provCompID",this.InnerRole.Component.ID.ToString());
-				writer.WriteAttributeString("provRoleID",this.InnerRole.ID.ToString());
-				writer.WriteAttributeString("reqCompID",this.OuterRole.Component.ID.ToString());
-				writer.WriteAttributeString("reqRoleID",this.OuterRole.ID.ToString());
+				writer.WriteAttributeString("id", this.ID.ToString());
+				writer.WriteStartElement("ProvidingRole","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("guid",this.InnerRole.Component.ID.ToString());
+				writer.WriteAttributeString("id",this.InnerRole.ID.ToString());
+				writer.WriteEndElement();
+				writer.WriteStartElement("RequiringRole","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("guid",this.OuterRole.Component.ID.ToString());
+				writer.WriteAttributeString("id",this.OuterRole.ID.ToString());
+				writer.WriteEndElement();
+				writer.WriteEndElement();
 			}
-			else if (IsRequiresMapping) 
+			else
 			{
 				writer.WriteStartElement("RequiresMapping","http://palladio.informatik.uni-oldenburg.de/XSD");
-				writer.WriteAttributeString("provCompID",this.OuterRole.Component.ID.ToString());
-				writer.WriteAttributeString("provRoleID",this.OuterRole.ID.ToString());
-				writer.WriteAttributeString("reqCompID",this.InnerRole.Component.ID.ToString());
-				writer.WriteAttributeString("reqRoleID",this.InnerRole.ID.ToString());
+				writer.WriteAttributeString("id", this.ID.ToString());
+				writer.WriteStartElement("ProvidingRole","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("guid",this.OuterRole.Component.ID.ToString());
+				writer.WriteAttributeString("id",this.OuterRole.ID.ToString());
+				writer.WriteEndElement();
+				writer.WriteStartElement("RequiringRole","http://palladio.informatik.uni-oldenburg.de/XSD");
+				writer.WriteAttributeString("guid",this.InnerRole.Component.ID.ToString());
+				writer.WriteAttributeString("id",this.InnerRole.ID.ToString());
+				writer.WriteEndElement();
+				writer.WriteEndElement();
 			}
+		}
 
-			writer.WriteEndElement();
+		public override void Deserialize(XmlNode element) 
+		{
+			if (element.Name.Equals("ProvidesMapping")) 
+				this.myType = MappingTypeEnum.PROVIDES_MAPPING;
+			else
+				this.myType = MappingTypeEnum.REQUIRES_MAPPING;
 
+			foreach (XmlNode node in element.ChildNodes)
+			{
+				switch(node.Name)
+				{
+					case "ProvidingRole":
+						IComponent provComp = ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value)) as IComponent;
+						if (provComp == null)
+							throw new DeserializationException("Component "+node.Attributes["guid"].Value+" not found.");
+						this.providingRole = provComp.GetRole(IdentifiableFactory.CreateStringID(node.Attributes["id"].Value));
+						if (this.providingRole == null)
+							throw new DeserializationException("Role "+node.Attributes["id"].Value+" not found in Component "+node.Attributes["guid"].Value);
+						break;
+					case "RequiringRole":
+						IComponent reqComp = ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value)) as IComponent;
+						if (reqComp == null)
+							throw new DeserializationException("Component "+node.Attributes["guid"].Value+" not found.");
+						this.requiringRole = reqComp.GetRole(IdentifiableFactory.CreateStringID(node.Attributes["id"].Value));
+						if (this.requiringRole == null)
+							throw new DeserializationException("Role "+node.Attributes["id"].Value+" not found in Component "+node.Attributes["guid"].Value);
+						break;
+				}
+			}
 		}
 
 		public DefaultMapping(IAttributeHash anAttHash, IRole aReqRole, IRole aProvRole, MappingTypeEnum direction) : base(anAttHash,aReqRole,aProvRole)

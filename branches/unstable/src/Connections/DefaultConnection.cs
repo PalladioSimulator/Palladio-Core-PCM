@@ -3,6 +3,7 @@ using System.Collections;
 using Palladio.Attributes;
 using Palladio.Utils.Collections;
 using ReflectionBasedVisitor;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Connections
 {
@@ -19,6 +20,14 @@ namespace Palladio.ComponentModel.Connections
 		public IAttributeHash Attributes 
 		{ 
 			get { return attributes; }
+		}
+
+		public IIdentifier ID
+		{
+			get
+			{
+				return IdentifiableFactory.CreateStringID(this.GetHashCode().ToString());
+			}
 		}
 
 		public IRole ProvidingRole
@@ -61,7 +70,7 @@ namespace Palladio.ComponentModel.Connections
 		{
 			return (
 				requiringRole.GetHashCode() ^
-				requiringRole.GetHashCode()
+				providingRole.GetHashCode()
 			);
 		}
 		

@@ -1,7 +1,10 @@
 using System;
+using System.Xml;
 using System.Collections;
 using ReflectionBasedVisitor;
 using Palladio.Attributes;
+using Palladio.ComponentModel.Exceptions;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Connections
 {
@@ -31,19 +34,45 @@ namespace Palladio.ComponentModel.Connections
 			return new DefaultBinding(this);
 		}
 
-		public override void Serialize(System.Xml.XmlTextWriter writer) 
+		public override void Serialize(XmlTextWriter writer) 
 		{
 			writer.WriteStartElement("Binding","http://palladio.informatik.uni-oldenburg.de/XSD");
-			writer.WriteAttributeString("provCompID",this.ProvidingRole.Component.ID.ToString());
-			writer.WriteAttributeString("provRoleID",this.ProvidingRole.ID.ToString());
-			writer.WriteAttributeString("reqCompID",this.RequiringRole.Component.ID.ToString());
-			writer.WriteAttributeString("reqRoleID",this.RequiringRole.ID.ToString());
+			writer.WriteAttributeString("id", this.ID.ToString());
+			writer.WriteStartElement("ProvidingRole","http://palladio.informatik.uni-oldenburg.de/XSD");
+			writer.WriteAttributeString("guid",this.ProvidingRole.Component.ID.ToString());
+			writer.WriteAttributeString("id",this.ProvidingRole.ID.ToString());
+			writer.WriteEndElement();
+			writer.WriteStartElement("RequiringRole","http://palladio.informatik.uni-oldenburg.de/XSD");
+			writer.WriteAttributeString("guid",this.RequiringRole.Component.ID.ToString());
+			writer.WriteAttributeString("id",this.RequiringRole.ID.ToString());
+			writer.WriteEndElement();
 			writer.WriteEndElement();
 		}
 
-		public override void Deserialize(System.Xml.XmlNode element) 
+		public override void Deserialize(XmlNode element) 
 		{
-
+			foreach (XmlNode node in element.ChildNodes)
+			{
+				switch(node.Name)
+				{
+					case "ProvidingRole":
+						IComponent provComp = ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value)) as IComponent;
+						if (provComp == null)
+							throw new DeserializationException("Component "+node.Attributes["guid"].Value+" not found.");
+						this.providingRole = provComp.GetRole(IdentifiableFactory.CreateStringID(node.Attributes["id"].Value));
+						if (this.providingRole == null)
+							throw new DeserializationException("Role "+node.Attributes["id"].Value+" not found in Component "+node.Attributes["guid"].Value);
+						break;
+					case "RequiringRole":
+						IComponent reqComp = ModelPersistencyService.Instance.GetEntity(IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value)) as IComponent;
+						if (reqComp == null)
+							throw new DeserializationException("Component "+node.Attributes["guid"].Value+" not found.");
+						this.requiringRole = reqComp.GetRole(IdentifiableFactory.CreateStringID(node.Attributes["id"].Value));
+						if (this.requiringRole == null)
+							throw new DeserializationException("Role "+node.Attributes["id"].Value+" not found in Component "+node.Attributes["guid"].Value);
+						break;
+				}
+			}
 		}
 
 	}

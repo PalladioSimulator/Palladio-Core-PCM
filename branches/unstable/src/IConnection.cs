@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using Palladio.Attributes;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel
 {
 	/// <summary>
 	/// Connects two interfaces of different componetens to each other.
 	/// </summary>
-	public interface IConnection : IAttributable, ICloneable, ISerializable
+	public interface IConnection : IAttributable, ICloneable, ISerializable, IIdentifiable
 	{
 		#region Properties
 

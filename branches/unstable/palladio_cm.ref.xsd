@@ -112,7 +112,9 @@
 								<xs:choice>
 									<xs:element name="Component" type="palladio:FirstClassEntityReference" minOccurs="0" maxOccurs="unbounded"/>
 									<xs:element name="Interface" type="palladio:FirstClassEntityReference" minOccurs="0" maxOccurs="unbounded"/>
-									<xs:element name="Connection" type="palladio:Connection" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="Binding" type="palladio:Connection" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="ProvidesMapping" type="palladio:Connection" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="RequiresMapping" type="palladio:Connection" minOccurs="0" maxOccurs="unbounded"/>
 									<xs:element name="ProvidingRole" type="palladio:Role" maxOccurs="unbounded"/>
 									<xs:element name="RequiringRole" type="palladio:Role" maxOccurs="unbounded"/>
 								</xs:choice>

@@ -21,6 +21,10 @@ namespace Palladio.ComponentModel.Components
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6.2.3  2004/11/26 19:35:39  uffi
+	/// serialization schema changed.
+	/// connection serialization/deserialization added
+	///
 	/// Revision 1.6.2.2  2004/11/26 16:23:44  uffi
 	/// serialization schema changed.
 	/// interfaces added to structure-node.
@@ -542,6 +546,12 @@ namespace Palladio.ComponentModel.Components
 				writer.WriteAttributeString("interface",((IRole)requiresMap[c]).Interface.ID.ToString());
 				writer.WriteEndElement();
 			}
+
+			// add connections
+			foreach(IConnection connection in this.connectionMap.Values)
+			{
+				connection.Serialize(writer);
+			}
 		}
 
 		public override void Deserialize(System.Xml.XmlNode element) 
@@ -575,54 +585,66 @@ namespace Palladio.ComponentModel.Components
 							IdentifiableFactory.CreateGUID(node.Attributes["guid"].Value) as GloballyUniqueIdentifier );
 						this.AddComponents(component as IComponent);
 						break;
-					case "Connections":
-						foreach (XmlNode connNode in node.ChildNodes)
-						{
-							IComponent provComp, reqComp;
-
-							IIdentifier provCompID = NewID(connNode.Attributes["provCompID"].Value.ToString());
-							if (this.ID.ToString() == provCompID.ToString())
-								provComp = this;
-							else
-								provComp = this.GetComponent(provCompID);
-
-							IIdentifier reqCompID = NewID(connNode.Attributes["reqCompID"].Value.ToString());
-							if (this.ID.ToString() == reqCompID.ToString())
-								reqComp = this;
-							else
-								reqComp = this.GetComponent(reqCompID);
-
-							if (provComp == null) 
-								throw new DeserializationException("Could not find providing Component with ID "+connNode.Attributes["provCompID"].Value.ToString());
-							if (reqComp == null) 
-								throw new DeserializationException("Could not find requiring Component with ID "+connNode.Attributes["reqCompID"].Value.ToString());
-
-							switch (connNode.Name)
-							{
-								case "Binding":
-									this.AddBindings( ComponentFactory.CreateBinding(
-										reqComp,
-										NewID(connNode.Attributes["reqRoleID"].Value.ToString()),
-										provComp,
-										NewID(connNode.Attributes["provRoleID"].Value.ToString())));
-									break;
-
-								case "ProvidesMapping":
-									this.AddProvidesMappings( ComponentFactory.CreateProvidesMapping(
-										reqComp,
-										NewID(connNode.Attributes["reqRoleID"].Value.ToString()),
-										provComp,
-										NewID(connNode.Attributes["provRoleID"].Value.ToString())));
-									break;
-								case "RequiresMapping":
-									this.AddRequiresMappings( ComponentFactory.CreateRequiresMapping(
-										reqComp,
-										NewID(connNode.Attributes["reqRoleID"].Value.ToString()),
-										provComp,
-										NewID(connNode.Attributes["provRoleID"].Value.ToString())));
-									break;
-							}
-						}
+					case "Binding":
+						IBinding binding = new Connections.DefaultBinding(AttributesFactory.Default.CreateAttributeHash(),null,null);
+						binding.Deserialize(node);
+						this.AddBindings(binding);
+						break;
+					case "ProvidesMapping":
+						IMapping mapping = new Connections.DefaultMapping(AttributesFactory.Default.CreateAttributeHash(),null,null,MappingTypeEnum.PROVIDES_MAPPING);
+						mapping.Deserialize(node);
+						this.AddProvidesMappings(mapping);
+						break;
+					case "RequiresMapping":
+						mapping = new Connections.DefaultMapping(AttributesFactory.Default.CreateAttributeHash(),null,null,MappingTypeEnum.REQUIRES_MAPPING);
+						mapping.Deserialize(node);
+						this.AddRequiresMappings(mapping);
+						break;
+	
+//						IComponent provComp, reqComp;
+//
+//						IIdentifier provCompID = NewID(connNode.Attributes["provCompID"].Value.ToString());
+//						if (this.ID.ToString() == provCompID.ToString())
+//							provComp = this;
+//						else
+//							provComp = this.GetComponent(provCompID);
+//
+//						IIdentifier reqCompID = NewID(connNode.Attributes["reqCompID"].Value.ToString());
+//						if (this.ID.ToString() == reqCompID.ToString())
+//							reqComp = this;
+//						else
+//							reqComp = this.GetComponent(reqCompID);
+//
+//						if (provComp == null) 
+//							throw new DeserializationException("Could not find providing Component with ID "+connNode.Attributes["provCompID"].Value.ToString());
+//						if (reqComp == null) 
+//							throw new DeserializationException("Could not find requiring Component with ID "+connNode.Attributes["reqCompID"].Value.ToString());
+//
+//						switch (connNode.Name)
+//						{
+//							case "Binding":
+//								this.AddBindings( ComponentFactory.CreateBinding(
+//									reqComp,
+//									NewID(connNode.Attributes["reqRoleID"].Value.ToString()),
+//									provComp,
+//									NewID(connNode.Attributes["provRoleID"].Value.ToString())));
+//								break;
+//
+//							case "ProvidesMapping":
+//								this.AddProvidesMappings( ComponentFactory.CreateProvidesMapping(
+//									reqComp,
+//									NewID(connNode.Attributes["reqRoleID"].Value.ToString()),
+//									provComp,
+//									NewID(connNode.Attributes["provRoleID"].Value.ToString())));
+//								break;
+//							case "RequiresMapping":
+//								this.AddRequiresMappings( ComponentFactory.CreateRequiresMapping(
+//									reqComp,
+//									NewID(connNode.Attributes["reqRoleID"].Value.ToString()),
+//									provComp,
+//									NewID(connNode.Attributes["provRoleID"].Value.ToString())));
+//								break;
+//						}
 						break;
 				}
 				node = node.NextSibling;
