@@ -42,7 +42,7 @@ namespace Palladio.ComponentModel.Components
 		/// <returns>The service effect specification of aSig in role aRole.</returns>
 		public IServiceEffectSpecification GetServiceEffectSpecification(IIdentifier aRoleID, ISignature aSig)
 		{
-			return GetServiceEffectSpecification(ComponentFactory.CreateSignatureWithRole(aRoleID,aSig));
+			return GetServiceEffectSpecification(ComponentFactory.CreateExternalSignature(aRoleID,aSig));
 		}
 
 		/// <summary>
@@ -66,7 +66,7 @@ namespace Palladio.ComponentModel.Components
 		/// <param name="aRoleID">Role of the signature</param>
 		public void ChangeServiceEffectSpecification(IIdentifier aRoleID, ISignature aSignature, IServiceEffectSpecification aServEffSpec)
 		{
-			ChangeServiceEffectSpecification(ComponentFactory.CreateSignatureWithRole(aRoleID,aSignature),aServEffSpec);
+			ChangeServiceEffectSpecification(ComponentFactory.CreateExternalSignature(aRoleID,aSignature),aServEffSpec);
 		}
 
 		/// <summary>
@@ -95,7 +95,7 @@ namespace Palladio.ComponentModel.Components
 		/// <param name="aRoleID">Role of the signature</param>
 		public void AddServiceEffectSpecification(IIdentifier aRoleID, ISignature aSignature, IServiceEffectSpecification aServEffSpec)
 		{
-			AddServiceEffectSpecification(ComponentFactory.CreateSignatureWithRole(aRoleID,aSignature),aServEffSpec);
+			AddServiceEffectSpecification(ComponentFactory.CreateExternalSignature(aRoleID,aSignature),aServEffSpec);
 		}
 
 		public override bool Equals(object obj)
