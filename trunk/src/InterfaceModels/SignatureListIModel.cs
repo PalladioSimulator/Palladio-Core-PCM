@@ -49,7 +49,7 @@ namespace Palladio.ComponentModel
 					IList matchList = new Vector();
 					foreach( ISignature sJ in sigListIM.SignatureList ) 
 					{
-						if (sI.Match(sJ)) 
+						if (sigMatch.Match(sI, sJ)) 
 						{
 							matchList.Add(sJ);
 						}
@@ -85,7 +85,7 @@ namespace Palladio.ComponentModel
 				foreach(ISignature sig in sigListIM.SignatureList)
 				{
 					IList matchList;
-					if (!sig.HasMatches(mergedList,out matchList))
+					if (!sigMatch.HasMatches( sig, mergedList,out matchList))
 					{
 						mergedList.Add(sig);
 					} 
@@ -121,7 +121,7 @@ namespace Palladio.ComponentModel
 
 				foreach (ISignature sig in SignatureList) 
 				{
-					if ( sig.HasOneMatch(sigIModel.SignatureList) )
+					if ( sigMatch.HasOneMatch(sig, sigIModel.SignatureList) )
 					{
 						interList.Add( sig );
 					}
@@ -199,6 +199,7 @@ namespace Palladio.ComponentModel
 		public SignatureListIModel() 
 		{
 			signatureList = new Vector();
+			sigMatch = new EqualsSigMatch();
 		}
 
 		/// <summary>
@@ -210,6 +211,7 @@ namespace Palladio.ComponentModel
 		public SignatureListIModel(IList aSignatureList) 
 		{
 			signatureList = new Vector(aSignatureList);
+			sigMatch = new EqualsSigMatch();
 		}
 
 		/// <summary>
@@ -219,12 +221,14 @@ namespace Palladio.ComponentModel
 		public SignatureListIModel(SignatureListIModel aSigIModel)
 		{
 			signatureList = new Vector(aSigIModel.SignatureList);
+			sigMatch = new EqualsSigMatch();
 		}
 		#endregion
 
 		#region Data
 
 		private IList signatureList;
+		private ISigMatch sigMatch;
 		#endregion
 	}
 }

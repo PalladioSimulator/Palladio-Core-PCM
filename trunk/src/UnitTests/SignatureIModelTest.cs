@@ -31,7 +31,7 @@ namespace Palladio.ComponentModel.UnitTests
 		protected override void Modify(ref IInterfaceModel aModel)
 		{
 			SignatureListIModel sigModel = (SignatureListIModel) aModel;
-			sigModel.SignatureList.Add( new SimpleSignature("sig6") );
+			sigModel.SignatureList.Add( new MethodSignature("sig6") );
 		}
 
 		/// <summary>

@@ -21,7 +21,7 @@ namespace Palladio.ComponentModel
 			IList resultList = new Vector();
 			foreach( Input i in anInputAlphabet)
 			{
-				ISignature sig = new SimpleSignature((string)i.InputSymbol);
+				ISignature sig = new MethodSignature((string)i.InputSymbol);
 				resultList.Add(sig);
 			}
 			return resultList;
@@ -37,7 +37,7 @@ namespace Palladio.ComponentModel
 		public static Service CreateService(string aSigName, string aProtModelFileName)
 		{
 			ProtocolIModel iModel = LoadProtIModel(aProtModelFileName);
-			ISignature sig = new SimpleSignature(aSigName);
+			ISignature sig = new MethodSignature(aSigName);
 			return new Service(iModel, sig);
 		}
 
@@ -64,7 +64,7 @@ namespace Palladio.ComponentModel
 			IList sigList = new Vector();
 			foreach( string str in aList )
 			{
-				sigList.Add( new SimpleSignature(str) );
+				sigList.Add( new MethodSignature(str) );
 			}
 			return new SignatureListIModel(sigList);
 		}
@@ -90,6 +90,16 @@ namespace Palladio.ComponentModel
 		{
 			ProtocolIModel protModel = LoadProtIModel(aFsmFile);
 			return new RequiresInterface(protModel, aName);
+		}
+
+		public static IParameter CreateParameter(System.Type aType, string aName)
+		{
+			return  new Parameter(new ReflectedType(aType), aName);
+		}
+
+		public static MethodSignature CreateSignature(System.Type aType, string aName, params IParameter[] aParamList)
+		{
+			return new MethodSignature(new ReflectedType(aType), aName, aParamList );
 		}
 	}
 }

@@ -1,29 +1,30 @@
 using System;
+using System.Collections;
+using Utils.Collections;
 using System.Reflection;
 
 namespace Palladio.ComponentModel
 {
 	/// <summary>
-	/// Simple implementation of the ISignature interface.
+	/// Implements an equal - match for signatures.
 	/// </summary>
-	public class SimpleSignature : AbstractSignature
+	public class EqualsSigMatch : AbstractSigMatch 
 	{
-		#region Properties
-
-		/// <summary>
-		/// The name of the signature without any additional
-		/// information like the return type or parameters.
-		/// </summary>
-		public override string Name
-		{
-			get
-			{
-				return name;
-			}
-		}
-		#endregion
 
 		#region Methods
+
+		/// <summary>
+		/// Checks whether aSig matches anotherSig. What a match
+		/// means exactly depends on the implementation. The signatures
+		/// can be equal, contravariant or whatever is required.
+		/// </summary>
+		/// <param name="aSig">First signature for the matching.</param>
+		/// <param name="anotherSig">Second signature for the matching.</param>
+		/// <returns>True if both signatures are equal, contravariant or match somehow.</returns>
+		public override bool Match(ISignature aSig, ISignature anotherSig)
+		{
+			return aSig.Equals(anotherSig);
+		}
 
 		/// <summary>
 		/// Creates a copy of the current instance.
@@ -31,7 +32,7 @@ namespace Palladio.ComponentModel
 		/// <returns>A new object with the same values as the current instance.</returns>
 		public override object Clone()
 		{
-			return new SimpleSignature(this);
+			return new EqualsSigMatch(this);
 		}
 
 		/// <summary>
@@ -45,10 +46,9 @@ namespace Palladio.ComponentModel
 		/// are not equal.</returns>
 		public override bool Equals(object obj)
 		{
-			if (obj is SimpleSignature)
+			if (obj is EqualsSigMatch)
 			{
-				SimpleSignature sig = (SimpleSignature)obj;
-				return sig.Match(this);
+				base.Equals(obj);
 			}
 			return false;
 		}
@@ -63,31 +63,36 @@ namespace Palladio.ComponentModel
 		{
 			return base.GetHashCode ();
 		}
+
+		/// <summary>
+		/// Retrieves a string representation of the object.
+		/// </summary>
+		/// <returns>String representation of the object.</returns>
+		public override string ToString()
+		{
+			return "EqualsSigMatch";
+		}
+
 		#endregion
 
 		#region Constructors
 
 		/// <summary>
-		/// Creates a new Signature with the name aName.
+		/// Creates a new EqualsSigMatch.
 		/// </summary>
-		/// <param name="aName">Name of the new Signature.</param>
-		public SimpleSignature(string aName)
+		public EqualsSigMatch ()
 		{
-			name = aName;
 		}
 
 		/// <summary>
 		/// CopyConstructor.
 		/// </summary>
-		/// <param name="aSig">Signature to copy.</param>
-		public SimpleSignature(SimpleSignature  aSig) : this(aSig.Name) 
+		/// <param name="aEqualsSigMatch">EqualsSigMatch to copy.</param>
+		public EqualsSigMatch( EqualsSigMatch aEqualsSigMatch ) :
+			this ( )
 		{
 		}
-		#endregion
 
-		#region Data
-		
-		private string name;
 		#endregion
 	}
 }

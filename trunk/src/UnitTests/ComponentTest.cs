@@ -32,9 +32,9 @@ namespace Palladio.ComponentModel.UnitTests
 			ProtocolIModel modelProvides = new ProtocolIModel(fsmProvides, Helper.SigListFromInputAlphabet(fsmProvides.InputAlphabet));
 			ProtocolIModel modelProvidesTwo = new ProtocolIModel(fsmProvidesTwo, Helper.SigListFromInputAlphabet(fsmProvidesTwo.InputAlphabet));
 
-			ISignature sigOne = new SimpleSignature("d1");
-			ISignature sigTwo = new SimpleSignature("d2");
-			ISignature sigThree = new SimpleSignature("d3");
+			ISignature sigOne = new MethodSignature("d1");
+			ISignature sigTwo = new MethodSignature("d2");
+			ISignature sigThree = new MethodSignature("d3");
 
 			Service srvOne = new Service(modelOne, sigOne);
 			Service srvTwo = new Service(modelTwo, sigTwo);

@@ -100,6 +100,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "DefaultClass.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "data\d1.xml"
                     BuildAction = "Content"
                 />
@@ -136,11 +141,6 @@
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "src\AbstractSignature.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Component.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -161,22 +161,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ISignature.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\MethodSignature.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Serivce.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\SimpleSignature.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -301,6 +286,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\TypeNotFoundException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\InterfaceModels\AbstractComponentInterface.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -337,6 +327,51 @@
                 />
                 <File
                     RelPath = "src\InterfaceModels\SignatureListIModel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signatures\AbstractSigMatch.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signatures\EqualsSigMatch.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signatures\IParameter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signatures\ISigMatch.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signatures\ISignature.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signatures\IType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signatures\MethodSignature.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signatures\Parameter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Signatures\ReflectedType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -386,7 +421,22 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\UnitTests\SignatureTest.cs"
+                    RelPath = "src\UnitTests\Signatures\EqualsSigMatchTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\Signatures\MethodSignatureTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\Signatures\ParameterTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\Signatures\ReflectedTypeTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
