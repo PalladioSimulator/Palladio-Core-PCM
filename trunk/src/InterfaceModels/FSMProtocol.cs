@@ -4,6 +4,7 @@ using Palladio.FiniteStateMachines;
 using Palladio.Utils.Collections;
 using Palladio.Attributes;
 using ReflectionBasedVisitor;
+using Palladio.ComponentModel.Exceptions;
 
 namespace Palladio.ComponentModel.InterfaceModels 
 {
@@ -14,11 +15,34 @@ namespace Palladio.ComponentModel.InterfaceModels
 	/// called protocol. The language accepted by the protocol
 	/// represents the possible call sequences.
 	/// </summary>
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.3  2004/05/19 07:54:24  sbecker
+	/// Added CVS header
+	///
+	///
+	/// </pre>
+	/// </remarks>
 	internal class FSMProtocol : IFSMProtocol  
 	{
+		protected IEditableFiniteStateMachine editFSM = null;
+
+		private IEditableFiniteStateMachine EditFSM
+		{
+			get
+			{
+				if (editFSM == null)
+				{
+					editFSM = FSMFactory.GetEditableFSM(fsm);
+				}
+				return editFSM;
+			}
+		}
 
 		#region Properties
-		
 		/// <summary>
 		/// A Protocol describing
 		/// the possible call sequences of the services.
@@ -35,12 +59,20 @@ namespace Palladio.ComponentModel.InterfaceModels
 		{
 			get
 			{
-				Set result = new Set();
-				foreach (IInput i in fsm.InputAlphabet)
+				try
 				{
-					result.Add(i.ID);
+					ISignature[] result = new ISignature[fsm.InputAlphabet.Length];
+					for (int i = 0; i < fsm.InputAlphabet.Length; i++)
+					{
+						result[i] = (ISignature)fsm.InputAlphabet[i].ID;
+					}
+					return result;
 				}
-				return (ISignature[]) result.ToArray(typeof(ISignature));
+				catch (InvalidCastException ex)
+				{
+					throw new FSMNotProtocolAutomatonException("Protocol FSMs need to have ISignature objects "+
+						"attached to their transitions",ex);
+				}
 			}
 		}
 
@@ -49,7 +81,19 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// </summary>
 		public ISignature this[int index]
 		{
-			get { return (ISignature) fsm.InputAlphabet[index]; }
+			get 
+			{
+				try
+				{
+
+					return (ISignature)fsm.InputAlphabet[index].ID; 
+				}
+				catch (InvalidCastException ex)
+				{
+					throw new FSMNotProtocolAutomatonException("Protocol FSMs need to have ISignature objects "+
+						"attached to their transitions",ex);
+				}
+			}
 		}
 
 		/// <summary>
@@ -77,8 +121,12 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// Adds an array of signatures to the interface.
 		/// </summary>
 		/// <param name="aSigArray">Signatures to add.</param>
-		public void AddSignatures( params ISignature[] aSigArray )
+		public void AddSignatures(params ISignature[] aSigArray )
 		{
+			foreach(ISignature sig in aSigArray)
+			{
+				EditFSM.AddInputSymbols(FSMFactory.CreateDefaultInput(sig));
+			}
 		}
 
 		/// <summary>
@@ -87,6 +135,10 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <param name="aSigArray">Signatures to delete.</param>
 		public void DeleteSignatures( params ISignature[] aSigArray )
 		{
+			foreach(ISignature sig in aSigArray)
+			{
+				EditFSM.DeleteInputSymbols(FSMFactory.CreateDefaultInput(sig));
+			}
 		}
 		
 		/// <summary>
@@ -95,9 +147,7 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// Leave this method's body empty if you don't need data structure driven visiting.
 		/// </summary>
 		/// <param name="visitor">The visitor to accept</param>
-		public void AcceptVisitor (IVisitor visitor)
-		{
-		}
+		public void AcceptVisitor (IVisitor visitor) {}
 
 		/// <summary>
 		/// Creates a copy of the current instance.
@@ -105,12 +155,24 @@ namespace Palladio.ComponentModel.InterfaceModels
 		/// <returns>A new object with the same values as the current instance.</returns>
 		public object Clone()
 		{
-			return null;
+			return new FSMProtocol(fsm,attributes,roleID);
 		}
 		
 		#endregion
 
 		#region Constructors
+		/// <summary>
+		/// Copy constructor
+		/// </summary>
+		/// <param name="fsm">The FSM to be stored in the cloned class</param>
+		/// <param name="hash">The attributes to clone</param>
+		/// <param name="aRole">The role to clone</param>
+		internal FSMProtocol (IFiniteStateMachine fsm, IAttributeHash hash, string aRole)
+		{
+			this.fsm = (IFiniteStateMachine)fsm.Clone();
+			this.attributes = (IAttributeHash)attributes.Clone();
+			this.roleID = roleID;
+		}
 
 		#endregion
 		
