@@ -1,5 +1,8 @@
 % Version history:
 % $Log$
+% Revision 1.1.2.7  2005/03/06 11:10:14  kelsaka
+% finished adding content
+%
 % Revision 1.1.2.6  2005/03/05 16:06:57  kelsaka
 % added content
 %
@@ -74,7 +77,7 @@ As already mentioned the component model is multi-layered. It differs between a 
 As depicted a component can be of two different types. 
 \begin{itemize}
 \item \emph{Basic Component}: A basic component can be seen as a black box entity for the component based system. There is no additional knowledge of the internal structure of those components, e.g. whether they are build from other components or not. A basic component is characterized by its interfaces as described later on.
-\item \emph{Composite Component}: A composite component is a container for other components (basic or composite). It is supposed to offer a set of interfaces belonging together, e.g., by fulfiling a complete domain task. The components which are part of a composite component are wired internally by so called connections (TODO: right name?) which again are introduced later. Composite Components are just logical enitities with no physical representation.
+\item \emph{Composite Component}: A composite component is a container for other components (basic or composite). It is supposed to offer a set of interfaces belonging together, e.g., by fulfiling a complete domain task. The components which are part of a composite component are wired internally by so called connections which again are introduced later. Composite Components are just logical enitities with no physical representation.
 \end{itemize}
 
 \subsection{Roles and Interfaces}
@@ -332,7 +335,7 @@ All entities are put to a relational scheme. So the component model consists of 
 
 Especially it is possible to have entities that are not connected to the rest of a architecture. Although these entities are not part of the entire model (because they are not part of the architecture), they can be caught. For the modeller this gives the possibility to design e. g. a set of components, that can be put to the architecture later on.
 
-The whole component model is part of a kind of "super-entity", which is a central suspension for the model. This super-entity is offering a builder (according to the builder-pattern TODO:cite{gamma}). Therefore building complex parts of the model is fully encapsulated to the model. This makes the creational process easier for users.
+The whole component model is part of a kind of "super-entity", which is a central suspension for the model. This super-entity is offering a builder (according to the builder-pattern \cite{gamma}). Therefore building complex parts of the model is fully encapsulated to the model. This makes the creational process easier for users.
 
 Furthermore the component model centrally "knows" which entities exists and may manage them (e. g. create, load, save, change-events). So the relational access to the entities and consistence-checks (see section \ref{sec:Consistence}) are monitored by the super-entity as well.
 
@@ -340,13 +343,37 @@ Furthermore the component model centrally "knows" which entities exists and may 
 
 \subsection{Consistence}
 \label{sec:Consistence}
-TODO: Prüfung extern, da ADT. Mechanismus in "`Außenobjekt"'. Protokolle, Signaturen. Auch hier Strategie. 
+\textit{External consistence-checks} are not part of the component model itself. As already explained above, the component model is a pure ADT. So consistence-mechanisms are performed through the "super-entity" using \textit{external} methods. This procedure allows to use different strategies (see the "strategie-pattern" in \cite{gamma}) for performing checks. As consistence might be defined quite differently no universal strategie is implemented in the model itself. External consistence-checks have to be started manually. This means that it is possible to build up models that do not fit to all available definitions of consistence. E. g. it is even possible to define contradicted checks, that can not be fulfilled at the same time. It might be easier to differ external consistence from internal consistence if it is called "\textit{validity}".
 
+Validity-checks are imagineable for at least the following entities:
+
+\begin{itemize}
+	\item \emph{Protocols}: E. g. the accepted languages have to be subsets, or the protocols have to be exactly the same.
 	
+	\item \emph{Signatures}: E. g. the signaturelist has to be a subset, or the signaturelist needs to match exactly.
+	
+	\item \emph{QoS-attributes}: E. g. all attribute have to match, or a number of QoS-attributes has to fit.
+	
+	\item \emph{Connectors}: A strict definition might claim, that delegation connectors must be used between the same kinds of interfaces (required or provided), and assembly connector can be defined only between a provided and required interfaces that are directly compatible. Other validity-checks might define interfaces compatible if signatures and protocols are subsets ($provides\ interface \ \supseteq \ requires\ interface$). It should become clear that there is a broad field of possible definitions.
+\end{itemize}
 
-Connectors:
-UML 2.0 defines some sensible but incomplete compatibility constraints over connectors. For example, delegation connectors must be used between the same kinds of ports or interfaces (provided or required), and assembly connectors can be defined only between a provided interface and a required interface that are compatible. The definition of compatible, however, is a semantic variation point, though signature compatibility and complete coverage (i.e., the features in the provided interface must be a superset of those in the required interface) are minimal criteria.
+\textit{Internal consistence} is directly granted by model. This means that interfaces cannot be interconnected, or components have to use interfaces for connections. The model grants a valid architectural structure. Other constructions are not possible.
 
+
+
+\subsection{Strategies}
+\label{sec:Strategies}
+Strategies are used for equals-checks as well. Possible strategies for equals-checks are:
+
+\begin{itemize}
+	\item \emph{Referencial}: The objects reference is checked (like it is default for equals in C\# or Java).
+	
+	\item \emph{GUID}: It is checked whether the GUIDs of two objects match.
+	
+	\item \emph{Deep}: E. g. composite components are recursively checked for identical signaturelists, implemented interfaces, roles, internal SEFFs and so on. Only if all subcomponents fit to objects / components are equal.
+\end{itemize}
+
+E. g. the equals strategie is used for hashtables as well. Only if the actual definition of equals meets objects are returned.
 
 
 
