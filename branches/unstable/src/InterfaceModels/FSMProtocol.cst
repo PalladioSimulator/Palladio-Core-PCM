@@ -2,6 +2,7 @@
 <%@ Property Name="ContainedSignatureType" Type="System.String" Category="Context" Description="The type of the signatures in the SignatureList" %>
 <%@ Property Name="InterfaceDescription" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
 <%@ Property Name="SignatureListType" Type="System.String" Category="Context" Description="Name of the interface to generate" %>
+<%@ Property Name="EventArgType" Type="System.String" Category="Context" Description="Name of the property of the eventargs structure" %>
 
 	/// <summary>
 	/// A ProtocolIModel is an extension of a SignatureListModel. In
@@ -15,6 +16,9 @@
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2.2.2  2005/02/10 18:39:25  joemal
+	/// merge the changes made by uffi with the template
+	///
 	/// Revision 1.2.2.1  2004/12/02 23:39:49  uffi
 	/// IAttributeHash replaced by AttributeHash,
 	/// added attribute serialization
@@ -125,10 +129,10 @@
 				switch (args.ChangeType)
 				{
 					case ChangeTypeEnum.ADD:
-						EditFSM.AddInputSymbols(FSMFactory.CreateInputFromList(args.Signature).StoredInputs);
+						EditFSM.AddInputSymbols(FSMFactory.CreateInputFromList(args.<%= EventArgType %>).StoredInputs);
 						break;
 					case ChangeTypeEnum.DELETE:
-						EditFSM.DeleteInputSymbols(FSMFactory.CreateInputFromList(args.Signature).StoredInputs);
+						EditFSM.DeleteInputSymbols(FSMFactory.CreateInputFromList(args.<%= EventArgType %>).StoredInputs);
 						break;
 				}
 			}

@@ -14,11 +14,13 @@
 			<property name="ContainedSignatureType">ISignature</property>
 			<property name="InterfaceDescription">Interface</property>
 			<property name="SignatureListType">SignatureList</property>
+			<property name="EventArgType">Signature</property>
 		</propertySet>
 		<propertySet>
-			<property name="ContainedSignatureType">IExternalSignature</property>
+			<property name="ContainedSignatureType">IService</property>
 			<property name="InterfaceDescription">ServiceEffect</property>
-			<property name="SignatureListType">ExternalSignatureList</property>
+			<property name="SignatureListType">ServiceList</property>
+			<property name="EventArgType">Service</property>
 		</propertySet>
 	</propertySets>
 	<template path="FSMProtocol.cst" />
