@@ -131,8 +131,6 @@ namespace FiniteStateMachines.Decorators
 				{
 					if(this.IsStartState == state.IsStartState)
 						if(this.IsFinalState == state.IsFinalState)
-//							if(this.oneState == state.twoState)
-//								if(this.twoState == state.twoState)
 										return true;
 				}
 			}

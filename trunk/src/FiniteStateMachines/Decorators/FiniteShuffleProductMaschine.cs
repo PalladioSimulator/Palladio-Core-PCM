@@ -7,10 +7,23 @@ namespace FiniteStateMachines.Decorators
 {
 	/// <summary>
 	/// The FiniteShuffleProductMaschine (FSP) is a specialization of a normal FSM. Is generated out
-	/// of two FSMs. 
-	/// 
-	/// def!!!
-	/// 
+	/// of two FSMs. It looks like:
+	/// FSM A, FSM B 
+	/// FSP(A B)={
+	/// Input: (Input A + Input B);
+	/// StartState: ((Startstate A, StartState B)) 
+	/// FinalState: ((FinalState A, FinalState B))
+	/// FSPState: ((aState of A, aState of B))
+	/// Transition: ((FSPState x, Input i, FSPState y) |
+	///		1. i is in Input A and Input B:  
+	///			FSPState y =(a State of A.next reachable with i),(a State of B.next reachable with i))
+	///		2. i is in Input A and not in Input B:
+	///			FSPState y =(a State of A.next reachable with i),(a State of B))
+	///		3. i is in Input B and not in Input A
+	///			FSPState y =(a State of A),(a State of B.next reachable with i))
+	///		4. i is not in Input A and not in Inptut B
+	///			FSPState Y = ErrorState.
+	///	}
 	/// </summary>
 	public class FiniteShuffleProductMaschine 
 	{

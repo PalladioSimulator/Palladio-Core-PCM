@@ -10,7 +10,7 @@ namespace FiniteStateMachines.Decorators
 	/// When two FSMs should be compared, then the FSMs are minimized, reduce states
 	/// are deleted.
 	/// For the minimzation a verry popluar algorithmen is used. The states of the FSM
-	/// are organized in groups with the behavior. (Huffmann/Mealy) 
+	/// are organized in groups with the same behavior. (Huffmann/Mealy) 
 	/// </summary>
 	public class MinimizedAndEqualsFSM : FiniteTabularMachine 
 	{

@@ -28,13 +28,13 @@ namespace FiniteStateMachines.Decorators
 		/// The first <code>FiniteTabularMachine</code> form whicch the crossproduct shoukd
 		/// be gernerated.
 		/// </summary>
-		protected FiniteTabularMachine one;
+		protected IFiniteStateMachine one;
 
 		/// <summary>
 		/// The second <code>FiniteTabularMachine</code> form which the crossproduct should
 		/// be generated.
 		/// </summary>
-		protected FiniteTabularMachine two;
+		protected IFiniteStateMachine two;
 
 		/// <summary>
 		/// if the Crossinput is gerated this will be set true, so the next time another
@@ -85,7 +85,7 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="one"></param>
 		/// <param name="two"></param>
-		public FiniteCrossProduktMaschineLazy(FiniteTabularMachine one, FiniteTabularMachine two) 
+		public FiniteCrossProduktMaschineLazy(IFiniteStateMachine one, IFiniteStateMachine two) 
 		{
 			this.InputCreated = false;
 			this.TransitionsCreated = false;
@@ -120,7 +120,7 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="one">The first FiniteTabularMachine </param>
 		/// <param name="two">the second FiniteTabularMachine</param>
-		protected void generateCPInput(FiniteTabularMachine one, FiniteTabularMachine two) 
+		protected void generateCPInput(IFiniteStateMachine one, IFiniteStateMachine two) 
 		{
 			this.InputCreated = true;
 			this.inputAl = new Set();
@@ -317,22 +317,9 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="state">The state which should be checked</param>
 		/// <param name="i">the input </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
-		protected bool selfPointing(FiniteTabularMachine fsm, AbstractState state, Input i) 
+		protected bool selfPointing(IFiniteStateMachine fsm, AbstractState state, Input i) 
 		{
-			AbstractState temp = null;
-			foreach(AbstractState s in fsm.States) 
-			{
-				if(s.Equals(state)) 
-				{
-					temp = s;
-					break;
-				}
-			}
-
-			AbstractState t = fsm.GetNextState(temp,i);
-			if (t.Equals(state))
-				return true;
-			return false;
+			return state == fsm.GetNextState(state,i);
 		}
 	}
 }

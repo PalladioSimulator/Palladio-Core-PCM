@@ -57,7 +57,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the other FSM, together with one they are used to
 		/// create the crossprodukt></param>
-		public FiniteCrossProduktMaschine(FiniteTabularMachine aFSM, FiniteTabularMachine anotherFSM) 
+		public FiniteCrossProduktMaschine(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) 
 		{
 			this.cp = GenerateCP(aFSM,anotherFSM);
 		}
@@ -82,7 +82,7 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="one">the first FSM</param>
 		/// <param name="two">the second FSM</param>
 		/// <returns>the cp of the two FSM</returns>
-		public FiniteTabularMachine GenerateCP(FiniteTabularMachine aFSM, FiniteTabularMachine anotherFSM) 
+		public FiniteTabularMachine GenerateCP(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM) 
 		{
 			this.cp = new FiniteTabularMachine();
 			this.oneStates = new Stack();
@@ -96,6 +96,17 @@ namespace FiniteStateMachines.Decorators
 			DualState StartState = new DualState(aFSM.StartState,anotherFSM.StartState);
 			this.oneStates.Push(aFSM.StartState);
 			this.twoStates.Push(anotherFSM.StartState);
+			LookForStatesOfCrossProduct(aFSM, anotherFSM);
+			return this.cp;
+		}
+
+		/// <summary>
+		/// Generates the states of the CrossProductMachine and adds them to the new generated FSM.
+		/// </summary>
+		/// <param name="aFSM">The first FiniteTabularMachine</param>
+		/// <param name="anotherFSM">The other FiniteTabularMachine</param>
+		private void LookForStatesOfCrossProduct(IFiniteStateMachine aFSM, IFiniteStateMachine anotherFSM)
+		{
 			while(this.oneStates.Count!= 0 && this.twoStates.Count!=0) 
 			{
 
@@ -104,17 +115,12 @@ namespace FiniteStateMachines.Decorators
 
 				foreach(Input i in this.CPInput) 
 				{
-
-
 					AbstractState oneNext = aFSM.GetNextState(oneBefore,i);
 					if(this.debug)
 						Console.WriteLine("oneNext is: "+oneNext.ToString());
-
-
 					AbstractState twoNext = anotherFSM.GetNextState(twoBefore,i);
 					if(this.debug)
 						Console.WriteLine("twoNext is: "+twoNext.ToString());
-					
 					if(LoopChecking(aFSM,oneBefore,i)&& LoopChecking(anotherFSM,twoBefore,i)&&
 						!oneNext.Equals(aFSM.ErrorState) && !twoNext.Equals(anotherFSM.ErrorState)) 
 					{
@@ -148,7 +154,6 @@ namespace FiniteStateMachines.Decorators
 				}
 
 			}
-			return this.cp;
 		}
 
 
@@ -160,23 +165,9 @@ namespace FiniteStateMachines.Decorators
 		/// <param name="state">the state which should be checked</param>
 		/// <param name="i">the inpt </param>
 		/// <returns>true if it is selfpointing, false if not</returns>
-		protected bool LoopChecking(FiniteTabularMachine fsm, AbstractState state, Input i) 
+		protected bool LoopChecking(IFiniteStateMachine fsm, AbstractState state, Input i) 
 		{
-//			return state == fsm.GetNextState(state,i);
-			AbstractState temp = null;
-			foreach(AbstractState s in fsm.States) 
-			{
-				if(s.Equals(state)) 
-				{
-					temp = s;
-					break;
-				}
-			}
-
-			AbstractState t = fsm.GetNextState(temp,i);
-			if (t.Equals(state))
-				return true;
-			return false;
+						return state == fsm.GetNextState(state,i);
 		}
 
 
@@ -185,7 +176,7 @@ namespace FiniteStateMachines.Decorators
 		/// </summary>
 		/// <param name="one">The first FSM</param>
 		/// <param name="two">The second FSM</param>
-		protected void GenerateCrossProductInput(FiniteTabularMachine one, FiniteTabularMachine two) 
+		protected void GenerateCrossProductInput(IFiniteStateMachine one, IFiniteStateMachine two) 
 		{
 			this.CPInput = new Set();
 			foreach(Input i in one.InputAlphabet) 
