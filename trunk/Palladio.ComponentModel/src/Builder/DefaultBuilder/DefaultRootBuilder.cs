@@ -1,5 +1,6 @@
 using System;
 using Palladio.ComponentModel.Builder;
+using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -8,13 +9,18 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
 	/// <summary>
 	/// <summary>
-	/// The RootBuilder for the component model. Allows to build sub-builders.
+	/// The RootBuilder for the component model. Allows to build sub-builders. By default
+	/// type-level builders are returned.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/06 19:06:58  kelsaka
+	/// - added new builder interfaces to support the levels of the component model
+	/// - added basic set of methods to interfaces
+	///
 	/// Revision 1.3  2005/03/18 07:36:27  kelsaka
 	/// - corrected errors
 	///
@@ -31,7 +37,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		private ILowLevelBuilder lowLevelBuilder;
 
-		public DefaultRootBuilder(ILowLevelBuilder lowLevelBulder) 
+        public DefaultRootBuilder(ILowLevelBuilder lowLevelBulder) 
 		{
 			this.lowLevelBuilder = lowLevelBuilder;
 		}
@@ -57,7 +63,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			lowLevelBuilder.AddComponent(
 				EntityFactory.CreateComponent(ModelEntities.ComponentType.BASIC, name),
 				identifier.AsComponentIdentifier());
-			return new DefaultBasicComponentBuilder(lowLevelBuilder);
+			return new DefaultBasicComponentTypeLevelBuilder(lowLevelBuilder);
 		}
 
 		public ICompositeComponentBuilder AddCompositeComponent (string name)
@@ -91,12 +97,33 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			throw new NotImplementedException ();
 		}
 
+		/// <summary>
+		/// called to remove the connection that belongs to the given id. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
+		/// </summary>
+		/// <param name="connectionID">the id of the connection that has to be removed</param>
+		public void RemoveConnection (IConnectionIdentifier connectionID)
+		{
+			throw new NotImplementedException ();
+		}
+
 
 		/// <summary>
 		/// Creates a new <see cref="IInterfaceBuilder"/>, which allows to create new interfaces.
 		/// </summary>
 		/// <returns>A new InterfaceBuilder.</returns>
 		public IInterfaceBuilder AddInterface ()
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// called to remove an interface from a component. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
+		/// </summary>
+		/// <param name="ifaceIdentifier">the id of the interface</param>
+		/// <param name="role">the role bound of the interface in the component</param>
+		public void RemoveInterface (IInterfaceIdentifier ifaceIdentifier, InterfaceRole role)
 		{
 			throw new NotImplementedException ();
 		}

@@ -10,10 +10,16 @@ namespace Palladio.ComponentModel.Builder
 	/// to build the structure of the component model.
 	/// </summary>
 	/// <remarks>
+	/// The component model is divided into three levels. Each level has its own builders. To change
+	/// between the levels the upper and / or lower level builder is available.
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/06 19:06:58  kelsaka
+	/// - added new builder interfaces to support the levels of the component model
+	/// - added basic set of methods to interfaces
+	///
 	/// Revision 1.2  2005/03/17 19:54:12  kelsaka
 	/// - added builder-interfaces
 	///
@@ -22,7 +28,7 @@ namespace Palladio.ComponentModel.Builder
 	///
 	/// </pre>
 	/// </remarks>
-	public interface IRootBuilder : ICompositeComponentBuilder
+	public interface IRootBuilder : ICompositeBaseBuilder
 	{
 
 		/// <summary>
@@ -30,6 +36,17 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <returns>A new InterfaceBuilder.</returns>
 		IInterfaceBuilder AddInterface();
+
+		/// <summary>
+		/// called to remove an interface from a component. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
+		/// </summary>
+		/// <param name="ifaceIdentifier">the id of the interface</param>
+		/// <param name="role">the role bound of the interface in the component</param>
+		void RemoveInterface(IInterfaceIdentifier ifaceIdentifier,
+			InterfaceRole role);
+
+
 
 	}
 }

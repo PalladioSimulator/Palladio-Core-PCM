@@ -6,12 +6,17 @@ namespace Palladio.ComponentModel.Builder
 {
 
 	/// <summary>
+	/// Builder for creating Basic Components.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/06 19:06:58  kelsaka
+	/// - added new builder interfaces to support the levels of the component model
+	/// - added basic set of methods to interfaces
+	///
 	/// Revision 1.2  2005/03/17 19:54:12  kelsaka
 	/// - added builder-interfaces
 	///

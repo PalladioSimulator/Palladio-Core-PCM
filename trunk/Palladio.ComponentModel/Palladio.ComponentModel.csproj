@@ -155,12 +155,34 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Builder\DefaultBuilder\DefaultBasicComponentBuilder.cs"
+                    RelPath = "src\Builder\ISignatureBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\Builder\DefaultBuilder\DefaultRootBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <Folder RelPath = "src\Builder\DefaultBuilder\DeploymentLevelBuilder\" />
+                <Folder RelPath = "src\Builder\DefaultBuilder\ImplementationLevelBuilder\" />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultBasicComponentTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DeploymentLevelBuilder\IBasicComponentDeploymentLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\ImplementationLevelBuilder\IBasicComponentImplementationLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\TypeLevelBuilder\IBasicComponentTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

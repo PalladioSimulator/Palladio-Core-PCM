@@ -19,6 +19,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/06 19:06:58  kelsaka
+	/// - added new builder interfaces to support the levels of the component model
+	/// - added basic set of methods to interfaces
+	///
 	/// Revision 1.3  2005/03/18 07:36:27  kelsaka
 	/// - corrected errors
 	///
@@ -77,5 +81,11 @@ namespace Palladio.ComponentModel.Builder
 		void AddAssemblyConnector(IConnection connection, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
 
+		/// <summary>
+		/// called to remove the connection that belongs to the given id. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
+		/// </summary>
+		/// <param name="connectionID">the id of the connection that has to be removed</param>
+		void RemoveConnection(IConnectionIdentifier connectionID);
 	}
 }
