@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.1  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
  * Revision 1.3  2004/09/09 04:07:52  sliver
  * code refactored
  * vs.net project files created
@@ -31,14 +37,14 @@ namespace Palladio.Reliability.Attributes
 	/// 	created by - sliver
 	/// 	created on - 13.07.2004 15:33:17
 	/// </remarks>
-	public class ServiceReliabilityAttribute
+	public class ReliabilityAttribute
 	{
 		#region Properties
 
 		/// <summary>
 		/// The value of the ServiceReliabilityAttribute.
 		/// </summary>
-		public IVariableExpression ServiceReliability
+		public IVariableExpression Reliability
 		{
 			get { return reliability; }
 			set { reliability = value; }
@@ -66,6 +72,17 @@ namespace Palladio.Reliability.Attributes
 			return reliability.ToString();
 		}
 
+		/// <summary>
+		/// Returns the ReliabilityAttribute of the object. If it
+		/// has no ReliabilityAttribute null is returned.
+		/// </summary>
+		/// <param name="obj"></param>
+		/// <returns></returns>
+		public static ReliabilityAttribute Get(IAttributable obj)
+		{
+			return obj.Attributes[AttributeType] as ReliabilityAttribute;
+		}
+
 		#endregion
 
 		#region Constructors
@@ -74,7 +91,7 @@ namespace Palladio.Reliability.Attributes
 		/// Creates a new ServiceReliabilityAttribute and assigns aValue to it. 
 		/// </summary>
 		/// <param name="aValue">Reliability value. It can only be between 0 and 1.</param>
-		public ServiceReliabilityAttribute(double aValue)
+		public ReliabilityAttribute(double aValue)
 		{
 			Trace.Assert(aValue >= 0);
 			Trace.Assert(aValue <= 1);
@@ -86,7 +103,7 @@ namespace Palladio.Reliability.Attributes
 		/// its reliability value.
 		/// </summary>
 		/// <param name="aVarName">Name of the Variable.</param>
-		public ServiceReliabilityAttribute(string aVarName)
+		public ReliabilityAttribute(string aVarName)
 		{
 			reliability = new ServiceReliability(aVarName);
 		}
@@ -97,11 +114,11 @@ namespace Palladio.Reliability.Attributes
 		/// </summary>
 		/// <param name="aMarkovModel">FSM with annotated transition. Each transition 
 		/// must contain a MarkovProbabilityAttribute.</param>
-		/// <param name="anExtReliabilityHash">Hashtable containing information about the reliability of 
+		/// <param name="anExtReliabilityHashmap">Hashtable containing information about the reliability of 
 		/// the external services used by aMarkovModel.</param>
-		public ServiceReliabilityAttribute(IFiniteStateMachine aMarkovModel, ReliabilityHash anExtReliabilityHash)
+		public ReliabilityAttribute(IFiniteStateMachine aMarkovModel, ReliabilityHashmap anExtReliabilityHashmap)
 		{
-			reliability = new ServiceReliability(aMarkovModel, anExtReliabilityHash);
+			reliability = new ServiceReliability(aMarkovModel, anExtReliabilityHashmap);
 		}
 
 		#endregion
@@ -109,7 +126,7 @@ namespace Palladio.Reliability.Attributes
 		#region Data
 
 		private IVariableExpression reliability;
-		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("d3b88ea3-be07-4ee1-959f-a90cf75ca5c8"), "ServiceReliabilityAttribute", typeof (ServiceReliabilityAttribute));
+		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("497F9B65-C4B4-4de6-9B43-D4452B73244C"), "ServiceReliabilityAttribute", typeof (ReliabilityAttribute));
 
 		#endregion		
 	}

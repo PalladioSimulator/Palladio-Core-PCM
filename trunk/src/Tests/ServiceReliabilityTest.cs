@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
  * Revision 1.2  2004/09/09 04:07:53  sliver
  * code refactored
  * vs.net project files created
@@ -34,7 +40,7 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void FSMReliability()
 		{
-			ServiceReliability sr = new ServiceReliability(fsmSeff.FSM, reliabilityHash);
+			ServiceReliability sr = new ServiceReliability(fsmSeff.FSM, reliabilityHashmap);
 			Assert.IsFalse(sr.HasVariables);
 			Assert.AreEqual(1.0, sr.Expression.Calculate(), 0.0000001);
 		}
@@ -54,7 +60,7 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void FSMVarReliability()
 		{
-			ServiceReliability sr = new ServiceReliability(fsmSeff.FSM, varRelHash);
+			ServiceReliability sr = new ServiceReliability(fsmSeff.FSM, varRelHashmap);
 			Assert.IsTrue(sr.HasVariables);
 			Assert.IsTrue(sr.Variables.Length == 1);
 			Assert.IsTrue(sr.VariableSet.Count == 1);
@@ -69,11 +75,11 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void FSMVarReliabilityDeep()
 		{
-			ServiceReliability sr = new ServiceReliability(fsmSeff.FSM, varRelHash);
-			ReliabilityHash deepRelHash = new ReliabilityHash(reliabilityHash);
-			deepRelHash[ fsmSeff.Signatures[0] ] = sr;
+			ServiceReliability sr = new ServiceReliability(fsmSeff.FSM, varRelHashmap);
+			ReliabilityHashmap deepRelHashmap = new ReliabilityHashmap(reliabilityHashmap);
+			deepRelHashmap[ fsmSeff.Signatures[0] ] = sr;
 
-			ServiceReliability sr2 = new ServiceReliability(fsmSeff.FSM, deepRelHash);
+			ServiceReliability sr2 = new ServiceReliability(fsmSeff.FSM, deepRelHashmap);
 
 			Assert.IsTrue(sr2.HasVariables);
 			Assert.IsTrue(sr2.Variables.Length == 1);
@@ -94,27 +100,27 @@ namespace Palladio.Reliability.Tests
 		public void Init()
 		{
 			seff = CMBuilder.CreateServiceEffectD1();
-			reliabilityHash = new ReliabilityHash();
-			foreach (IExternalSignature s in seff.SignatureList)
+			reliabilityHashmap = new ReliabilityHashmap();
+			foreach (IExternalSignature extSig in seff.SignatureList)
 			{
-				reliabilityHash.Add(s, new ServiceReliability(1.0));
+				reliabilityHashmap.Add(extSig, new ServiceReliability(1.0));
 			}
 			fsmSeff = (IFSMServiceEffect) seff.GetAuxiliarySpecification(typeof (IFSMServiceEffect));
 
-			varRelHash = new ReliabilityHash(reliabilityHash);
+			varRelHashmap = new ReliabilityHashmap(reliabilityHashmap);
 			IExternalSignature sig = null;
-			foreach (IExternalSignature s in varRelHash.Keys)
+			foreach (IExternalSignature s in varRelHashmap.Keys)
 			{
 				sig = s;
 				break;
 			}
-			varRelHash.Remove(sig);
-			varRelHash.Add(sig, new ServiceReliability("x"));
+			varRelHashmap.Remove(sig);
+			varRelHashmap.Add(sig, new ServiceReliability("x"));
 		}
 
 		private IServiceEffectSpecification seff;
-		private ReliabilityHash reliabilityHash;
-		private ReliabilityHash varRelHash;
+		private ReliabilityHashmap reliabilityHashmap;
+		private ReliabilityHashmap varRelHashmap;
 		private IFSMServiceEffect fsmSeff;
 	}
 }

@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.5  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
  * Revision 1.4  2004/09/09 04:07:53  sliver
  * code refactored
  * vs.net project files created
@@ -144,10 +150,10 @@ namespace Palladio.Reliability.Tests
 			ISignature[] signatures = ComponentFactory.CreateSignatureArray("e1", "e2", "e3", "e4");
 			ifModel.SignatureList.AddSignatures(signatures);
 
-			signatures[0].Attributes.Add(ServiceReliabilityAttribute.AttributeType, new ServiceReliabilityAttribute(0.9));
-			signatures[1].Attributes.Add(ServiceReliabilityAttribute.AttributeType, new ServiceReliabilityAttribute("x"));
-			signatures[2].Attributes.Add(ServiceReliabilityAttribute.AttributeType, new ServiceReliabilityAttribute(0.7));
-			signatures[3].Attributes.Add(ServiceReliabilityAttribute.AttributeType, new ServiceReliabilityAttribute(0.1));
+			signatures[0].Attributes.Add(ReliabilityAttribute.AttributeType, new ReliabilityAttribute(0.9));
+			signatures[1].Attributes.Add(ReliabilityAttribute.AttributeType, new ReliabilityAttribute("x"));
+			signatures[2].Attributes.Add(ReliabilityAttribute.AttributeType, new ReliabilityAttribute(0.7));
+			signatures[3].Attributes.Add(ReliabilityAttribute.AttributeType, new ReliabilityAttribute(0.1));
 
 			editFSM1 = fsmProtocol.EditFSM;
 
@@ -183,15 +189,15 @@ namespace Palladio.Reliability.Tests
 
 			ITransition t;
 			t = CMBuilder.CreateTransition("1", signatures[0], "2");
-			t.Attributes.Add(MarkovProbabilityAttribute.AttributeType, new MarkovProbabilityAttribute(0.5));
+			t.Attributes.Add(MarkovAttribute.AttributeType, new MarkovAttribute(0.5));
 			editFSM1.AddTransitions(t);
 
 			t = CMBuilder.CreateTransition("2", signatures[1], "1");
-			t.Attributes.Add(MarkovProbabilityAttribute.AttributeType, new MarkovProbabilityAttribute(0.5));
+			t.Attributes.Add(MarkovAttribute.AttributeType, new MarkovAttribute(0.5));
 			editFSM1.AddTransitions(t);
 
 			t = CMBuilder.CreateTransition("1", signatures[2], "3");
-			t.Attributes.Add(MarkovProbabilityAttribute.AttributeType, new MarkovProbabilityAttribute(0.5));
+			t.Attributes.Add(MarkovAttribute.AttributeType, new MarkovAttribute(0.5));
 			editFSM1.AddTransitions(t);
 
 			return seff;
@@ -234,7 +240,7 @@ namespace Palladio.Reliability.Tests
 
 			ITransition t;
 			t = CreateTransition("1", signatures[0], "2");
-			t.Attributes.Add(MarkovProbabilityAttribute.AttributeType, new MarkovProbabilityAttribute(1.0));
+			t.Attributes.Add(MarkovAttribute.AttributeType, new MarkovAttribute(1.0));
 			editFSM1.AddTransitions(t);
 
 			return seff;

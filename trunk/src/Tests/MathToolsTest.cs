@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.5  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
  * Revision 1.4  2004/09/09 04:07:53  sliver
  * code refactored
  * vs.net project files created
@@ -21,7 +27,6 @@
 
 using System;
 using cdrnet.Lib.MathLib.Parsing;
-using cdrnet.Lib.MathLib.Scalar;
 using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
 using NUnit.Framework;
 using Palladio.Reliability.Math;
@@ -48,14 +53,19 @@ namespace Palladio.Reliability.Tests
 		[Test]
 		public void TestMethod()
 		{
-			Parser p = new Parser();
-			p.Provider = new InfixTokenizer();
-			IMatrixExpression orgMat = p.Parse("[[7/10,0,0],[3/10,2/10,0],[0,8/10,0]]") as IMatrixExpression;
-			MatrixIdentity identity = new MatrixIdentity(orgMat.Context, new ScalarExpressionValue(orgMat.Context, orgMat.LengthX));
-			orgMat = new MatrixMatrixSubtraction(orgMat.Context, identity.Expand(), orgMat);
-			ScalarMatrix invers = MatrixTools.Invert(orgMat);
-			Console.WriteLine(invers.Calculate());
+			double val = 0.7872;
+			IVariableExpression e = new VariableExpression(val);
+			Console.WriteLine(e.Expression);
+			Assert.AreEqual(val, e.Expression.Calculate());
+//			Parser p = new Parser();
+//			p.Provider = new InfixTokenizer();
+//			IMatrixExpression orgMat = p.Parse("[[7/10,0,0],[3/10,2/10,0],[0,8/10,0]]") as IMatrixExpression;
+//			MatrixIdentity identity = new MatrixIdentity(orgMat.Context, new ScalarExpressionValue(orgMat.Context, orgMat.LengthX));
+//			orgMat = new MatrixMatrixSubtraction(orgMat.Context, identity.Expand(), orgMat);
+//			ScalarMatrix invers = MatrixTools.Invert(orgMat);
+//			Console.WriteLine(invers.Calculate());
 		}
+
 
 		[TestFixtureSetUp]
 		public void Init()

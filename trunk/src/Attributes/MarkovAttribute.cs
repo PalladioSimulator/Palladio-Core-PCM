@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.1  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
  * Revision 1.3  2004/09/09 04:07:52  sliver
  * code refactored
  * vs.net project files created
@@ -31,14 +37,14 @@ namespace Palladio.Reliability.Attributes
 	/// <summary>
 	/// Attribute containig the Markov Probability of a transition.	
 	/// </summary>
-	public class MarkovProbabilityAttribute
+	public class MarkovAttribute
 	{
 		#region Properties
 
 		/// <summary>
 		/// The value of the MarkovProbabilityAttribute.
 		/// </summary>
-		public IVariableExpression MarkovProbability
+		public IVariableExpression Probability
 		{
 			get { return markovProbability; }
 			set { markovProbability = value; }
@@ -66,6 +72,30 @@ namespace Palladio.Reliability.Attributes
 			return markovProbability.ToString();
 		}
 
+		/// <summary>
+		/// Returns the MarkovAttribute of the object. If it
+		/// has no MarkovAttribute null is returned.
+		/// </summary>
+		/// <param name="obj"></param>
+		/// <returns></returns>
+		public static MarkovAttribute GetAttribute(IAttributable obj)
+		{
+			return obj.Attributes[AttributeType] as MarkovAttribute;
+		}
+
+		public static void SetAttribute(IAttributable obj, double aValue)
+		{
+			MarkovAttribute attr = GetAttribute(obj);
+			if (attr == null)
+			{
+				obj.Attributes.Add(AttributeType, new MarkovAttribute(aValue));
+			}
+			else
+			{
+				attr.Probability = new VariableExpression(aValue);
+			}
+		}
+
 		#endregion
 
 		#region Constructors
@@ -74,7 +104,7 @@ namespace Palladio.Reliability.Attributes
 		/// Create a new MarkovProbabilityAttribute and assigns aValue to it. 
 		/// </summary>
 		/// <param name="aValue">Probability value. It can only be inbetween 0 and 1.</param>
-		public MarkovProbabilityAttribute(double aValue)
+		public MarkovAttribute(double aValue)
 		{
 			Trace.Assert(aValue >= 0);
 			Trace.Assert(aValue <= 1);
@@ -86,7 +116,7 @@ namespace Palladio.Reliability.Attributes
 		#region Data
 
 		private IVariableExpression markovProbability;
-		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("d3b77ea3-be07-4ee1-959f-a90cf75ca5c8"), "MarkovProbabilityAttribute", typeof (MarkovProbabilityAttribute));
+		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("96B433EC-D17C-480c-A35F-AE45D98A0619"), "MarkovProbabilityAttribute", typeof (MarkovAttribute));
 
 		#endregion
 	}

@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.5  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
  * Revision 1.4  2004/09/09 04:07:52  sliver
  * code refactored
  * vs.net project files created
@@ -53,8 +59,8 @@ namespace Palladio.Reliability.Model
 				TreeNode innerNode = tree.Children[m.InnerRole.ComponentID];
 				foreach (ISignature s in m.OuterRole.Role.Interface.SignatureList)
 				{
-					IExternalSignature innerSig = ComponentFactory.CreateExternalSignatureArray(m.InnerRole.RoleID, s) [0];
-					IExternalSignature outerSig = ComponentFactory.CreateExternalSignatureArray(m.OuterRole.RoleID, s) [0];
+					IExternalSignature innerSig = ComponentFactory.CreateExternalSignature(m.InnerRole.RoleID, s);
+					IExternalSignature outerSig = ComponentFactory.CreateExternalSignature(m.OuterRole.RoleID, s);
 
 					// forward reliability information
 					// calculate influences of the mapping here!!
@@ -66,8 +72,8 @@ namespace Palladio.Reliability.Model
 				TreeNode innerNode = tree.Children[m.InnerRole.ComponentID];
 				foreach (ISignature s in m.OuterRole.Role.Interface.SignatureList)
 				{
-					IExternalSignature innerSig = ComponentFactory.CreateExternalSignatureArray(m.InnerRole.RoleID, s) [0];
-					IExternalSignature outerSig = ComponentFactory.CreateExternalSignatureArray(m.OuterRole.RoleID, s) [0];
+					IExternalSignature innerSig = ComponentFactory.CreateExternalSignature(m.InnerRole.RoleID, s);
+					IExternalSignature outerSig = ComponentFactory.CreateExternalSignature(m.OuterRole.RoleID, s);
 
 					// forward reliability information
 					// calculate influences of the mapping here!!
@@ -125,10 +131,10 @@ namespace Palladio.Reliability.Model
 					foreach (ISignature sig in im.SignatureList)
 					{
 						IExternalSignature provSig = ComponentFactory.CreateExternalSignature(id, sig);
-						ServiceReliabilityAttribute srAttribute = sig.Attributes[ServiceReliabilityAttribute.AttributeType] as ServiceReliabilityAttribute;
+						ReliabilityAttribute srAttribute = sig.Attributes[ReliabilityAttribute.AttributeType] as ReliabilityAttribute;
 						if (srAttribute != null)
 						{
-							bcNode.ProvidesReliabilities[ provSig ] = srAttribute.ServiceReliability;
+							bcNode.ProvidesReliabilities[ provSig ] = srAttribute.Reliability;
 						}
 						else
 						{

@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.3  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
  * Revision 1.2  2004/09/09 04:07:52  sliver
  * code refactored
  * vs.net project files created
@@ -26,7 +32,7 @@ namespace Palladio.Reliability.Math
 		/// <summary>
 		/// Represented mathematical expression.
 		/// </summary>
-		IScalarExpression Expression { get; }
+		IScalarExpression Expression { get; set; }
 
 		/// <summary>
 		/// Set of variables used by the expression above.

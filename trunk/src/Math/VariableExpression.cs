@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.4  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
  * Revision 1.3  2004/09/09 04:07:52  sliver
  * code refactored
  * vs.net project files created
@@ -15,8 +21,10 @@
  */
 
 
+using System;
 using System.Collections;
 using cdrnet.Lib.MathLib.Core;
+using cdrnet.Lib.MathLib.Parsing;
 using cdrnet.Lib.MathLib.Scalar;
 using Palladio.Utils.Collections;
 
@@ -36,6 +44,11 @@ namespace Palladio.Reliability.Math
 		public IScalarExpression Expression
 		{
 			get { return expression; }
+			set
+			{
+				expression = value;
+				variableSet = new Set(expression.Context.ContextVariables.Variables);
+			}
 		}
 
 		/// <summary>
@@ -73,8 +86,8 @@ namespace Palladio.Reliability.Math
 		/// <param name="anExpression">Mathematical expression</param>
 		public VariableExpression(IScalarExpression anExpression)
 		{
-			VariableManager vm = new VariableManager(anExpression.Context);
-			variableSet = new Set(vm.Variables);
+			expression = anExpression;
+			variableSet = new Set(expression.Context.ContextVariables.Variables);
 		}
 
 		/// <summary>
@@ -83,7 +96,12 @@ namespace Palladio.Reliability.Math
 		/// <param name="aValue">Value of the new Constant.</param>
 		public VariableExpression(double aValue)
 		{
-			expression = new ScalarExpressionValue(new Context(), aValue);
+			// the conversion to a fraction is needed to make the Math.NET
+			// symbolic math library work. Otherwise it gets confused...
+
+			Parser parser = new Parser();
+			parser.Provider = new InfixTokenizer();
+			expression = (IScalarExpression) parser.Parse(ToFraction(aValue)).ExpressionSimplify();
 			variableSet = new Set();
 		}
 
@@ -96,8 +114,7 @@ namespace Palladio.Reliability.Math
 		{
 			Context context = new Context();
 			expression = (IScalarExpression) context.ContextVariables.GetCreateVariable(aVarName);
-			variableSet = new Set();
-			variableSet.Add(expression);
+			variableSet = new Set(expression.Context.ContextVariables.Variables);
 		}
 
 		/// <summary>
@@ -136,13 +153,33 @@ namespace Palladio.Reliability.Math
 			return vm.Variables;
 		}
 
+		/// <summary>
+		/// Converts a double value to a fraction represented as string
+		/// </summary>
+		/// <param name="aValue"></param>
+		/// <returns></returns>
+		private string ToFraction(double aValue)
+		{
+			long numerator = 0;
+			long denominator = 1;
+			for (int i = 0; i < 50; i++)
+			{
+				numerator = (long) aValue;
+				double rest = aValue%numerator;
+				if (rest.Equals(0.0))
+					break;
+				denominator *= 10;
+				aValue *= 10;
+			}
+			return String.Format("({0}/{1})", numerator, denominator);
+		}
+
 		#endregion
 
 		#region Data
 
 		protected IScalarExpression expression;
 		protected Set variableSet;
-
 		#endregion
 	}
 }

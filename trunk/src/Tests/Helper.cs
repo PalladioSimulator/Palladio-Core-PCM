@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.5  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
  * Revision 1.4  2004/09/09 04:07:53  sliver
  * code refactored
  * vs.net project files created
@@ -35,9 +41,9 @@ namespace Palladio.Reliability.Tests
 		public static double SumUpRow(ScalarMatrix aMatrix, int row)
 		{
 			IScalarExpression result = new ScalarExpressionValue(aMatrix.Context, 0.0);
-			for (int i = 0; i < aMatrix.LengthX; i++)
+			for (int j = 0; j < aMatrix.LengthX; j++)
 			{
-				result = new ScalarAddition(aMatrix.Context, result, aMatrix[i, row]);
+				result = new ScalarAddition(aMatrix.Context, result, aMatrix[row, j]);
 			}
 			return result.Calculate();
 		}

@@ -1,3 +1,16 @@
+/*
+ * $Id$
+ * 
+ * $Log$
+ * Revision 1.3  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
+ */
+
+using System;
 using System.Diagnostics;
 using cdrnet.Lib.MathLib.Scalar;
 using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
@@ -93,5 +106,37 @@ namespace Palladio.Reliability.Math
 			aMatrix.SetRowVector(rowB, tempRow);
 		}
 
+		public static string MatrixToString(ValueMatrix matrix)
+		{
+			string result = "     ";
+			for (int j = 0; j < matrix.LengthY; j++)
+			{
+				result += String.Format("{0,-6}", (j + 1));
+			}
+			result += "\n";
+			for (int i = 0; i < matrix.LengthX; i++)
+			{
+				result += String.Format(" {0,2}  ", (i + 1));
+				for (int j = 0; j < matrix.LengthY; j++)
+				{
+					double val = matrix[i, j];
+					val *= 1000;
+					val = System.Math.Round(val)/1000.0;
+					result += String.Format("{0,-6}", val);
+				}
+				result += "\n";
+			}
+			return result;
+		}
+
+		public static string MatrixToString(double[,] matrix)
+		{
+			return MatrixToString(new ValueMatrix(matrix));
+		}
+
+		public static string MatrixToString(IMatrixExpression matrix)
+		{
+			return MatrixToString(matrix.Expand().Calculate());
+		}
 	}
 }

@@ -27,10 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Identifier", "..\P
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.CM.Example", "..\Palladio.CM.Example\Palladio.CM.Example.csproj", "{9927A6D7-2623-415B-8353-59F655606778}"
-	ProjectSection(ProjectDependencies) = postProject
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -38,6 +34,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfiguration) = postSolution
 		{A94CF4B0-058B-4425-A4AE-0E4CCDD4A284}.Debug.ActiveCfg = Debug|.NET
+		{A94CF4B0-058B-4425-A4AE-0E4CCDD4A284}.Debug.Build.0 = Debug|.NET
 		{A94CF4B0-058B-4425-A4AE-0E4CCDD4A284}.Release.ActiveCfg = Release|.NET
 		{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}.Debug.ActiveCfg = Debug|.NET
 		{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}.Debug.Build.0 = Debug|.NET
@@ -63,10 +60,6 @@ Global
 		{8FCBDED0-6436-4FE6-B99B-13F3BDE8D65C}.Debug.Build.0 = Debug|.NET
 		{8FCBDED0-6436-4FE6-B99B-13F3BDE8D65C}.Release.ActiveCfg = Release|.NET
 		{8FCBDED0-6436-4FE6-B99B-13F3BDE8D65C}.Release.Build.0 = Release|.NET
-		{9927A6D7-2623-415B-8353-59F655606778}.Debug.ActiveCfg = Debug|.NET
-		{9927A6D7-2623-415B-8353-59F655606778}.Debug.Build.0 = Debug|.NET
-		{9927A6D7-2623-415B-8353-59F655606778}.Release.ActiveCfg = Release|.NET
-		{9927A6D7-2623-415B-8353-59F655606778}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		XCSharpSolutionEnabled = False

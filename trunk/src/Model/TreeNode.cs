@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.4  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
  * Revision 1.3  2004/09/09 04:07:52  sliver
  * code refactored
  * vs.net project files created
@@ -17,7 +23,6 @@
 
 using System.Collections;
 using System.Diagnostics;
-using Palladio.ComponentModel;
 using Palladio.Identifier;
 using Palladio.Reliability.Exceptions;
 using Palladio.Reliability.TypedCollections;
@@ -37,7 +42,7 @@ namespace Palladio.Reliability.Model
 			get { return id; }
 		}
 
-		public TreeNodeHash Children
+		public TreeNodeHashmap Children
 		{
 			get { return children; }
 		}
@@ -57,14 +62,14 @@ namespace Palladio.Reliability.Model
 			get { return father == null; }
 		}
 
-		public ReliabilityHash RequiresReliabilities
+		public ReliabilityHashmap RequiresReliabilities
 		{
-			get { return reqRelHash; }
+			get { return reqRelHashmap; }
 		}
 
-		public ReliabilityHash ProvidesReliabilities
+		public ReliabilityHashmap ProvidesReliabilities
 		{
-			get { return provRelHash; }
+			get { return provRelHashmap; }
 		}
 
 		public void AddChild(TreeNode n)
@@ -115,17 +120,17 @@ namespace Palladio.Reliability.Model
 			if (ProvidesReliabilities.Count > 0)
 			{
 				result += "".PadRight(level*2) + "Provides:\n";
-				foreach (IExternalSignature exSig in ProvidesReliabilities.Keys)
+				foreach (IIdentifiable extSig in ProvidesReliabilities.Keys)
 				{
-					result += "".PadRight((level + 1)*2) + exSig + " " + ProvidesReliabilities[exSig] + "\n";
+					result += "".PadRight((level + 1)*2) + extSig + " " + ProvidesReliabilities[extSig] + "\n";
 				}
 			}
 			if (RequiresReliabilities.Count > 0)
 			{
 				result += "".PadRight(level*2) + "Requires:\n";
-				foreach (IExternalSignature exSig in RequiresReliabilities.Keys)
+				foreach (IIdentifiable extSig in RequiresReliabilities.Keys)
 				{
-					result += "".PadRight((level + 1)*2) + exSig + " " + RequiresReliabilities[exSig] + "\n";
+					result += "".PadRight((level + 1)*2) + extSig + " " + RequiresReliabilities[extSig] + "\n";
 				}
 			}
 			foreach (TreeNode n in this.Children.Values)
@@ -139,10 +144,10 @@ namespace Palladio.Reliability.Model
 		public TreeNode(IIdentifier id)
 		{
 			this.id = id;
-			this.children = new TreeNodeHash();
+			this.children = new TreeNodeHashmap();
 			this.father = null;
-			this.provRelHash = new ReliabilityHash();
-			this.reqRelHash = new ReliabilityHash();
+			this.provRelHashmap = new ReliabilityHashmap();
+			this.reqRelHashmap = new ReliabilityHashmap();
 		}
 
 		public TreeNode(IIdentifier id, TreeNode father) : this(id)
@@ -151,10 +156,10 @@ namespace Palladio.Reliability.Model
 		}
 
 		private IIdentifier id;
-		private TreeNodeHash children;
+		private TreeNodeHashmap children;
 		private TreeNode father;
-		private ReliabilityHash provRelHash;
-		private ReliabilityHash reqRelHash;
+		private ReliabilityHashmap provRelHashmap;
+		private ReliabilityHashmap reqRelHashmap;
 
 	}
 }

@@ -80,11 +80,6 @@
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "MathLib"
-                    AssemblyName = "MathLib"
-                    HintPath = "lib\MathLib.dll"
-                />
-                <Reference
                     Name = "log4net"
                     AssemblyName = "log4net"
                     HintPath = "lib\log4net.dll"
@@ -125,6 +120,11 @@
                     HintPath = "..\..\..\..\..\Programme\NUnit V2.1\\bin\nunit.framework.dll"
                     AssemblyFolderKey = "hklm\dn\nunit.framework"
                 />
+                <Reference
+                    Name = "MathLib"
+                    Project = "{0D498555-3056-4E15-8376-EAEBEED3BF17}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
@@ -135,12 +135,17 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Attributes\MarkovProbabilityAttribute.cs"
+                    RelPath = "src\Attributes\MarkovAttribute.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Attributes\ServiceReliabilityAttribute.cs"
+                    RelPath = "src\Attributes\ReliabilityAttribute.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Attributes\TimeAttribute.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -150,12 +155,62 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Math\AbstractMarkovMatrix.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\ExecutionTime.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\IExecutionTime.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\IMarkovMatrix.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\IMarkovModel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\IPotentialMatrix.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\ITransitionMatrix.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Math\IVariableExpression.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Math\MarkovMatrix.cs"
+                    RelPath = "src\Math\IVisitProbabilityMatrix.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\IVisitsOnPathMatrix.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\MarkovModel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\MarkovModelInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -165,12 +220,32 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Math\PotentialMatrix.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Math\ServiceReliability.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Math\TransitionMatrix.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Math\VariableExpression.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\VisitProbabilityMatrix.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Math\VisitsOnPathMatrix.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -195,7 +270,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Tests\MarkovMatrixTest.cs"
+                    RelPath = "src\Tests\MarkovModelInfoTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -215,14 +290,50 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\TypedCollections\ReliabilityHash.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
+                    RelPath = "src\TypedCollections\ArrayList.cst"
+                    BuildAction = "None"
                 />
                 <File
-                    RelPath = "src\TypedCollections\TreeNodeHash.cs"
+                    RelPath = "src\TypedCollections\DictionaryList.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\Hashmap.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\HashmapGenerator.xml"
+                    BuildAction = "Content"
+                    Generator = "CodeSmithGenerator"
+                    LastGenOutput = "HashmapGenerator.cs"
+                />
+                <File
+                    RelPath = "src\TypedCollections\HashmapGenerator.cs"
+                    DependentUpon = "HashmapGenerator.xml"
                     SubType = "Code"
                     BuildAction = "Compile"
+                    DesignTime = "True"
+                    AutoGen = "True"
+                />
+                <File
+                    RelPath = "src\TypedCollections\Hashtable.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\IDictionary.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\IList.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\SortedList.cst"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\TypedCollections\Stack.cst"
+                    BuildAction = "None"
                 />
             </Include>
         </Files>

@@ -2,6 +2,12 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.4  2004/09/23 00:44:14  sliver
+ * - major refactorings
+ * - changed TypedCollections to CodeSmith generated files
+ * - introduced MakrovModel
+ * - added Transition-, Potential-, VisitProbability-, and VisitsOnPath- matrix types
+ *
  * Revision 1.3  2004/09/09 04:07:52  sliver
  * code refactored
  * vs.net project files created
@@ -16,8 +22,6 @@
 
 using System.Diagnostics;
 using cdrnet.Lib.MathLib.Core;
-using cdrnet.Lib.MathLib.Scalar;
-using cdrnet.Lib.MathLib.Scalar.LinearAlgebra;
 using Palladio.FiniteStateMachines;
 using Palladio.Reliability.TypedCollections;
 using Palladio.Utils.Collections;
@@ -59,39 +63,13 @@ namespace Palladio.Reliability.Math
 		/// </summary>
 		/// <param name="aMarkovModel">FSM with annotated transition. Each transition 
 		/// must contain a MarkovProbabilityAttribute.</param>
-		/// <param name="anExtReliabilityHash">Hashtable containing information about the reliability of 
+		/// <param name="anExtReliabilityHashmap">Hashtable containing information about the reliability of 
 		/// the external services used by aMarkovModel.</param>
-		public ServiceReliability(IFiniteStateMachine aMarkovModel, ReliabilityHash anExtReliabilityHash)
+		public ServiceReliability(IFiniteStateMachine aMarkovModel, ReliabilityHashmap anExtReliabilityHashmap)
 		{
-			MarkovMatrix aMarkovMatrix = new MarkovMatrix(new Context(), aMarkovModel, anExtReliabilityHash);
-			expression = CalculateReliability(aMarkovMatrix);
+			MarkovModelInfo markovModelInfo = new MarkovModelInfo(new Context(), aMarkovModel, anExtReliabilityHashmap);
+			expression = markovModelInfo.PotentialMatrix[markovModelInfo.StartStateIndex, markovModelInfo.FinalStateIndex];
 			variableSet = new Set(VariableExpression.GetVariables(expression));
-
-		}
-
-		#endregion
-
-		#region Private Methods
-
-		/// <summary>
-		/// Uses aMarkovMatrix to calculate the reliability of a service. At first aMarkovMatrix
-		/// is substracted from the identity matrix. Then the result is inverted. The service
-		/// reliability is the value at position [start state, final state] of the matrix. It indicates
-		/// the probability of a successful walk through the FSM from the start state to the final
-		/// state.
-		/// </summary>
-		/// <param name="aMarkovMatrix">Makrov matrix describing the probabilities of successful 
-		/// transtions between two states of a FSM.</param>
-		/// <returns>An expression for the reliability of the service associated with aMarkovMatrix.</returns>
-		private IScalarExpression CalculateReliability(MarkovMatrix aMarkovMatrix)
-		{
-			IMatrixExpression matrix = aMarkovMatrix.Matrix.Expand();
-			MatrixIdentity identity = new MatrixIdentity(matrix.Context, new ScalarExpressionValue(matrix.Context, matrix.LengthX));
-			matrix = new MatrixMatrixSubtraction(matrix.Context, identity.Expand(), matrix);
-			ScalarMatrix invers = MatrixTools.Invert(matrix);
-			IScalarExpression result = invers[ aMarkovMatrix.FinalStateIndex, aMarkovMatrix.StartStateIndex].Simplify();
-			ScalarConversionMap.Convert(ref result, "simple");
-			return result;
 		}
 
 		#endregion
