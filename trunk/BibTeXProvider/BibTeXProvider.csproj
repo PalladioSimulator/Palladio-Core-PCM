@@ -159,12 +159,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\BibTexDB.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\BibTeXProvider.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\BibTeXProviderConfiguration.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IBibTexDB.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

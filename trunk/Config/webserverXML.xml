@@ -5,7 +5,7 @@
 	<ListenIP ip="127.0.0.1"></ListenIP>
 
 	<!--DocumentRoot: the path where the documents, that are delivered by the webserver, can be found.-->
-	<DocumentRoot path="../../../documents"></DocumentRoot>
+	<DocumentRoot path="C:/Dokumente und Einstellungen/sliver/Eigene Dateien/Visual Studio Projects/Palladio.Webserver/documents"></DocumentRoot>
 	
 	<LogFile path="log.txt"></LogFile>
 	

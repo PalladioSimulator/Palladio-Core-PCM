@@ -39,6 +39,31 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2004/12/15 00:32:33  sliver
+	/// Thread handling changed:
+	///   Instead of calling the Thread.Abort() method, each
+	///   thread instance contains a variable IsRunning which is
+	///   checked after each iteration through the loop.
+	///   If it is set to false, the tread terminates. This has been introduced to
+	///   establish a clean thread exit. The call of the Abort () method causes
+	///   an exeption in the aborted thread. This execption is forwarded through
+	///   the whole call stack, even if it is catched. So, every method on the stack
+	///   is informed about the thread exit. However, this causes some trouble
+	///   for the logging of the Webserver behaviour. Furthermore, the
+	///   Thread.Abort() and Thread.Interrupt() methods do not terminate
+	///   threads that are blocked. The call of the method TcpListener.AcceptSocket()
+	///   blocks the thread until a new connection is opened. So, the running
+	///   threads are not aborted until a new connection is opened.
+	///
+	///  Now, we proceed as follows to terminate the Webserver. For all
+	///  listening treads, we set the IsRunning variable to false. Next, we need
+	///  to unblock the threads. Therfore, we open a dummy connection to the
+	///  IP and port the tread is listening on. When re-iterating the the loop, the
+	///  check of the IsRunning variable causes the thread to terminate.
+	///
+	/// ListeningTread war renamed to PortListener
+	/// interfaces 'IPortListener' and IBibTexDB' added
+	///
 	/// Revision 1.4  2004/12/06 05:20:21  sliver
 	/// - RequestFactory added
 	/// - Create Methods for IHTTPRequestProcessorTools and IWebserverConfiguration added to the WebserverFactory
@@ -68,13 +93,15 @@ namespace Palladio.Webserver.BibTeXProvider
 		private IHTTPRequestProcessor corSuccessor;
 		private IHTTPRequestProcessorTools requestProcessorTools;
 		private BibTeXProviderConfiguration bibTeXProviderConfiguration;
+		private IBibTexDB bibTexDB;
 
-		public BibTeXProvider(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools )
+		public BibTeXProvider(IBibTexDB bibTexDB, IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools )
 		{
 			this.corSuccessor = corSuccessor;
 			this.webserverMonitor = webserverMonitor;
 			this.webserverConfiguration = webserverConfiguration;
 			this.requestProcessorTools = requestProcessorTools;
+			this.bibTexDB = bibTexDB;
 
 			this.bibTeXProviderConfiguration = readConfiguration();
 		}
@@ -84,7 +111,7 @@ namespace Palladio.Webserver.BibTeXProvider
 		/// Proceeds on creating a answer to the httpRequest.
 		/// </summary>
 		/// <param name="httpRequest">The HTTP-Request.</param>
-		public void handleRequest (IHTTPRequest httpRequest)
+		public void HandleRequest (IHTTPRequest httpRequest)
 		{
 			ArrayList HandledFileExtensionsList = new ArrayList(bibTeXProviderConfiguration.HandledFileExtensions);
 			
@@ -92,7 +119,7 @@ namespace Palladio.Webserver.BibTeXProvider
 			if(!HandledFileExtensionsList.Contains(httpRequest.RequestedFileType)) //from config-file
 			{
 				// the actual request can not be handled by the bibtex-parser, so forward request to corsuccessor.
-				corSuccessor.handleRequest(httpRequest);
+				corSuccessor.HandleRequest(httpRequest);
 				return;
 			}
 
@@ -101,23 +128,19 @@ namespace Palladio.Webserver.BibTeXProvider
 			// Probably this behaviour is not caused by a timeout, but by the frequent use of string-concatenation (=+).
 			StringBuilder responseString = new StringBuilder();
 
-			System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection ();
-			sqlConnection.ConnectionString = 
-				"integrated security=SSPI;data source=" + bibTeXProviderConfiguration.DataSource + ";" + 
-				"persist security info=False;initial catalog=" + bibTeXProviderConfiguration.DatabaseName;
-			try
-			{	
-				sqlConnection.Open();
-
+			try{
+				bibTexDB.ConnectionString = 
+					"integrated security=SSPI;data source=" + bibTeXProviderConfiguration.DataSource + ";" + 
+					"persist security info=False;initial catalog=" + bibTeXProviderConfiguration.DatabaseName;
 				if(httpRequest.GetPOSTVariableValue("showEntry") == "all")
 				{
 					// Case: display all entries
-					responseString = SearchAllEntries(sqlConnection, bibTeXProviderConfiguration.DatabaseTableName);
+					responseString = bibTexDB.AllEntries(bibTeXProviderConfiguration.DatabaseTableName);
 				}
 				else
 				{	
 					// Case: only return the entries that match to the search
-					responseString = SearchEntries(sqlConnection, bibTeXProviderConfiguration.DatabaseTableName, httpRequest, bibTeXProviderConfiguration.SearchedBibTeXFieldNames);
+					responseString = bibTexDB.Search(bibTeXProviderConfiguration.DatabaseTableName, httpRequest, bibTeXProviderConfiguration.SearchedBibTeXFieldNames);
 				}
 
 				requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType), responseString.Length, "200 OK", httpRequest.Socket);
@@ -134,101 +157,6 @@ namespace Palladio.Webserver.BibTeXProvider
 				requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType), responseString.Length, "200 OK", httpRequest.Socket);
 				requestProcessorTools.SendContentToClient(responseString.ToString(), httpRequest.Socket);
 			}
-			finally
-			{
-				sqlConnection.Close();
-			}
-		}
-
-
-		/// <summary>
-		/// All bibTeXFieldNames that occur in the post-request and have values != "" are taken into consideration for
-		/// creating the resultset. The values are matched using the SQL-"LIKE"-Operator.
-		/// </summary>
-		/// <param name="sqlConnection">Connection to execute the sqlCommands on.</param>
-		/// <param name="bibTeXTableName">The name of the sql-table where the results are searched in.</param>
-		/// <param name="httpRequest">The incoming httpRequest.</param>
-		/// <param name="bibTeXFieldNames">The Field-Names, that are searched to match the post-values.</param>
-		/// <returns>String that contains the result: html-table.</returns>
-		private StringBuilder SearchEntries (SqlConnection sqlConnection, string bibTeXTableName, IHTTPRequest httpRequest, string[] bibTeXFieldNames)
-		{
-			StringBuilder responseString = new StringBuilder();
-			StringBuilder sqlRequest = new StringBuilder();
-			sqlRequest.Append("SELECT * FROM " + bibTeXTableName + " ");
-
-			sqlRequest.Append(BuildWhereClause (httpRequest, bibTeXFieldNames)); 
-
-			sqlRequest.Append(";");
-
-
-			SqlCommand sqlCommand = new SqlCommand(sqlRequest.ToString(), sqlConnection);		
-			SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-			responseString.Append(CreateHTMLDataTableFromResult(sqlDataReader));
-
-			sqlDataReader.Close();
-			return responseString;
-		}
-
-
-		/// <summary>
-		/// Returns all Entries from the Database.
-		/// </summary>
-		/// <param name="sqlConnection">SQL-Connections to use for the request.</param>
-		/// <param name="bibTeXTableName">Table-name of the sql-table.</param>
-		/// <returns>String that contains the result: html-table.</returns>
-		private StringBuilder SearchAllEntries (SqlConnection sqlConnection, string bibTeXTableName)
-		{
-			StringBuilder responseString = new StringBuilder();
-
-			SqlCommand sqlCommand = new SqlCommand("SELECT * FROM " + bibTeXTableName + ";", sqlConnection);		
-			SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-	
-			responseString.Append(CreateHTMLDataTableFromResult(sqlDataReader));
-			
-			sqlDataReader.Close();
-			return responseString;
-		}
-
-		/// <summary>
-		/// Print a html-table to the responseString that contains all available values from the bibTeXTableName (including
-		/// the column-names as table-headings). Use CSS to format the table.
-		/// </summary>
-		/// <param name="sqlDataReader">The DataReaders values are put into the table.</param>
-		/// <returns>HTML-Table, that contains the available values. The table isrepresented in valid XHTML 1.0.</returns>
-		private StringBuilder CreateHTMLDataTableFromResult (SqlDataReader sqlDataReader)
-		{
-			StringBuilder responseString = new StringBuilder();
-
-			responseString.Append("<table>\n");
-	
-			// write Table-headings:
-			responseString.Append("<tr>\n");
-			for(int x = 0; x < sqlDataReader.FieldCount; x++)
-			{
-				responseString.Append("<td><strong>");
-				responseString.Append(sqlDataReader.GetName(x));
-				responseString.Append("</strong></td>");
-			}
-			responseString.Append("</tr>\n");
-	
-	
-			// write content:
-			while (sqlDataReader.Read()) 
-			{
-				responseString.Append("<tr>\n");
-				for(int x = 0; x < sqlDataReader.FieldCount; x++)
-				{	
-					responseString.Append("<td>");
-					responseString.Append(sqlDataReader.GetString(x));
-					responseString.Append("</td>");
-				}
-				responseString.Append("</tr>\n");
-			} 
-	
-			responseString.Append("</table>\n");
-			
-			return responseString;
 		}
 
 

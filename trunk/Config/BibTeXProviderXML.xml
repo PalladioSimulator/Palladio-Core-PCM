@@ -3,7 +3,7 @@
 <Config xmlns:xsi="Webserver" xsi:noNamespaceSchemaLocation="BibTeXProviderXML.dtd">
 	
 	<!--Name of the Database-Server.-->
-	<DataSource Name="KUSER_MOBILE" />
+	<DataSource Name="Inspiron" />
 
 	<!--Name of the Database, where the BibTeX-Entries are saved.-->	
 	<DatabaseName Name="BibTeX" />

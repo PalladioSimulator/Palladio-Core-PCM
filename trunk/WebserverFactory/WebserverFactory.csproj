@@ -179,7 +179,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\WebserverConfigurator.cs"
+                    RelPath = "src\Webserver.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
