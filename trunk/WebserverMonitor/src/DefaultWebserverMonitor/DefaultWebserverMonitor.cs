@@ -17,6 +17,9 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2004/10/30 15:24:39  kelsaka
+	/// webserverMonitor-Output on console; documentation (doc) update
+	///
 	/// Revision 1.7  2004/10/27 05:52:49  kelsaka
 	/// fixed xml-parsing for defaultFiles; monitor-functions available; usable webserverconfiguration
 	///
@@ -116,7 +119,8 @@ namespace Palladio.Webserver.WebserverMonitor
 
 			debugStreamWriter.WriteLine(DateTime.Now.Ticks + " | " + debugMessage);
 			debugStreamWriter.Flush();
-			Debug.WriteLine(debugMessage);
+			Debug.WriteLine("! DEBUG: " + debugMessage);
+			Console.WriteLine("! DEBUG: " + debugMessage);
 		}
 
 

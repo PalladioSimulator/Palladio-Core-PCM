@@ -3,31 +3,23 @@
 <head>
 <title>Webserver: Form Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<style type="text/css">
-<!--
-.Stil1 {
-	color: #FF0000;
-	font-weight: bold;
-}
--->
-</style>
 </head>
 <body>
 
 <h1>Form Testsite </h1>
 <p>Page regularly ends with &quot;EOF&quot;.</p>
 <p>&nbsp;</p>
-<p><strong>Form:</strong></p>
-<p>(Target &quot;action&quot;: formpageInterpret.html; fieldname as below using camelCase.)</p>
+<h2>POST-Method:</h2>
+<p>(Target &quot;action&quot;: formpageInterpret.shtml; fieldname as below using camelCase.)</p>
 <table width="100%"  border="1" cellpadding="15" cellspacing="0" bordercolor="#0000FF">
   <tr>
-    <td><form name="form" id="form" method="post" action="formpageInterpret.html">
+    <td><form name="form" id="form" method="post" action="formpageInterpret.shtml">
         <p>HiddenField:
           <input type="hidden" name="hiddenField" value="hiddenTestValue" />
 </p>
         <p>Surname:
             <input name="surname" type="text" id="surname" />
-                </p>
+        </p>
         <p>Age:
             <input name="age" type="text" id="age" />
         </p>
@@ -42,6 +34,32 @@
     </td>
   </tr>
 </table>
+<p>&nbsp;</p>
+<h2>GET-Method:</h2>
+<p>(Target &quot;action&quot;: formpageInterpret.shtml; fieldname as below using camelCase.)</p>
+<table width="100%"  border="1" cellpadding="15" cellspacing="0" bordercolor="#0000FF">
+  <tr>
+    <td><form name="form" id="form" method="get" action="formpageInterpret.shtml">
+        <p>HiddenField:
+            <input type="hidden" name="hiddenField2" value="hiddenTestValue" />
+        </p>
+        <p>Surname:
+            <input name="surname2" type="text" id="surname2" />
+        </p>
+        <p>Age:
+            <input name="age2" type="text" id="age2" />
+        </p>
+        <p> Multiline textfield:
+            <textarea name="textarea" cols="80" rows="4" id="textarea"></textarea>
+        </p>
+        <p>Buttons:
+            <input name="Submit2" type="submit" id="Submit" value="Submit" />
+            <input name="Reset2" type="reset" id="Reset" value="Reset" />
+        </p>
+    </form></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p class="Stil1">EOF</p>
 </body>

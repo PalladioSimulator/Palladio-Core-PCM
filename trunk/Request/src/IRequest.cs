@@ -12,6 +12,9 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2004/10/30 15:24:39  kelsaka
+	/// webserverMonitor-Output on console; documentation (doc) update
+	///
 	/// Revision 1.2  2004/10/27 15:05:06  kelsaka
 	/// added more request handling-abilities
 	///
@@ -25,18 +28,6 @@ namespace Palladio.Webserver.Request
 	public interface IRequest
 	{
 
-		/*string Request{get; set;}
-
-		TcpClient TcpClient{get; set;}
-
-		string URI {get; set;}
-
-		string RequestMethod{get; set;}*/
-
-		/// <summary>
-		/// The client-identification at the tcp-level.
-		/// </summary>
-		TcpClient TcpClient {get; set;}
 
 		/// <summary>
 		/// Observes the connections of TCP-networkclients.
