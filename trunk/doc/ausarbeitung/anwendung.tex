@@ -1,4 +1,134 @@
 \section{Anwendung des Frameworks}
+\label{sec:anw}
+Gemäß der Anforderungsdefinition aus Kapitel \ref{sec:entwurf:anf} besteht das Framework aus einer Reihe vorimplementierter Funktionalität, die sich beliebig austauschen und erweitern läßt. Dieses Kapitel beschreibt im ersten Teil die Nutzung dieser Vorimplementierungen. Im zweiten Teil werden einige Erweiterungsmöglichkeiten und die Stellen des Frameworks, an denen sie ansetzten aufgezeigt. Abschließend geht dieses Kapitel auf die Grenzen des Frameworks ein.
+
 \subsection{Nutzung der vorimplementierten Funktionalität}
+\label{sec:anw:vorimpl}
+
+Das Framework gestattet die Erstellung von Simulationen, ohne auch nur eine Klasse des Frameworks ändern zu müssen. Hierzu muss lediglich Quellcode erstellt werden, welcher unter Verwendung des Frameworks das Modell erstellt, Simulationsthreads erstellt und die Simulation startet. Dieser Vorgang wird im folgenden kurz beschrieben.
+
+\subsubsection{Instanzierung des Frameworks}
+\label{sec:anw:vorimpl:instanz}
+
+Die Instanzierung des Frameworks gestaltet sich denkbar einfach. Hierzu genügt ein einfacher Aufruf des parameterlosen Konstruktors der Vorimplementierung der Simulationsumgebung \quellcode{DefaultSimulationEnvironment}. Eine Konfiguration des Frameworks ist in diesem Fall nicht nötig. Hierfür wird vom Framework die globale Fabrik der Vorimplementierungen benutzt.
+
+\subsubsection{Aufbau eines Modells}
+\label{sec:anw:vorimpl:modell}
+
+Als nächstes benötigt das Framework das Modell der Architektur, auf dem später die Simulation ausgeführt werden soll. Das Hauptinterface des Modellteils, welches zum Aufbau des Modells benötigt wird, wird über das Property \quellcode{ComponentArchitecture} der Simulationsumgebung erreicht. Jede Komponentenarchitektur des Frameworks besteht entweder aus einer Basis- oder einer zusammengesetzten Komponente. Diese kann durch eine der beiden Create-Methoden des Modellteils unter Angabe einer ID und eines Beobachter erzeugt werden. Soll die Erstellung der Komponente nicht überwachbar sein, so kann an Stelle des Beobachters auch \quellcode{null} übergeben werden. Um die neuen Komponenten füllen zu können benutzt man das zurückgegebene Interface der Create-Methoden. Handelt es sich um eine Basiskomponente, so stellt das Interface Methoden zum Füllen der Komponente mit Diensten zur Verfügung.
+Wird ein Dienst hinzugefügt, so erhält man ebenfalls ein Interface, welches zum Füllen dieses Dienstes benutzt werden kann. Das Interface zum Füllen der zusammengesetzten Komponenten dagegen enthält Methoden zum Hinzufügen neuer Komponenten und den Verbindungen dazwischen. Folgener Codeausschnitt verdeutlicht dieses Prinzip anhand der Erzeugung einer Basiskomponente mit einem Dienst.
+
+\footnotesize
+\begin{verbatimtab}
+...
+ISimulationEnvironment env = new DefaultSimulationEnvironment();
+
+//id: the id of the component
+IBasicComponentBuilder bcb = env.ComponentArchitecture.
+	CreateBasicRootComponent(id,obsBC);
+
+//pIfaceID: id of the provides interface
+//sigID: id of the signature for this service 
+IServiceBuilder sb = bcb.AddService(pIfaceID,sigID, obsSV);
+
+//parms1,parms2: the parameters of the states
+sb.AddState(parms1);
+sb.AddState(parms2);
+
+//id1,id2, the ids of the states
+sb.SetStartState(id1);
+sb.SetFinalStates(new String[]{id2});
+
+//extSigID: id of the signature of the external call
+//reqIFaceID: the id of the requires interface
+sb.AddTransition(id1, extSigID, reqIFaceID,id2);
+...
+\end{verbatimtab}
+\normalsize
+
+Die Angebots- und Bedarfsschnittstellen können explizit hinzugefügt werden. Exisitieren sie beim Hinzufügen von beispielsweise einem Dienst noch nicht, so werden sie automatisch passend erzeugt.
+
+\subsubsection{Registrieren von Datenerfassungskomponenten}
+\label{sec:anw:vorimpl:daten}
+
+Als nächstes müssen in der Simulationsumgebung Komponenten zur Datenerfassung hinzugefügt werden. Das Framework bietet hierfür zwei Exemplare an, welche unter Verwendung der Fabrik \quellcode{DataPoolFactory} erzeugt werden können. Die erste Komponente schreibt alle erhaltenen Daten auf die Console. Sie läßt sich mit der Methode \quellcode{CreateConsoleWriterDataPool(...)} erzeugen. Der zweiten Komponente kann ein \quellcode{TextWriter} Objekt übergeben werden, in das die Daten geschrieben werden. Diese läßt sich unter Verwendung der Methode \quellcode{CreateTextWriterDataPool(...)} erstellen. Wurde eine Instanz einer Datenerfassungskomponente erstellt, so kann sie in Simulationsumgebung registriert werden. Die folgenden Codezeilen erzeugen die erste der beiden Komponenten und registriert sie in der Umgebung.
+
+\footnotesize
+\begin{verbatimtab}
+...
+//env: instance of ISimulationEnvironment
+IDataPool dp = DataPoolFactory}.CreateConsoleWriterDataPool(env);
+env.RegisterDataPool(db);
+...
+\end{verbatimtab}
+\normalsize
+
+\subsubsection{Erstellung von Simulationsthreads und Starten der Simulation}
+\label{sec:anw:vorimpl:sim}
+
+Bevor nun die Simulation gestartet werden kann, müssen Simulationsthreads an einer beliebigen Stelle der Architektur erzeugt werden. Hierfür bietet der Scheduler des Simulationsteils verschiedene Methoden an, mit denen normale und periodische Threads mit oder ohne Beobachter erzeugt werden können. Die Stelle, an der der Thread gestartet werden soll, wird hierbei durch eine Instanz des Interfaces \quellcode{IThreadStartingPoint} definiert, die die Komponente, die Angebotsschnittstelle und die Signatur des Dienstes zurückgibt. Folgender Quelltext erzeugt ein normales Simulationsthread in der Komponente 'Comp' an der Signatur 'd1' der Angebotsschnittstelle 'P1' und führt dann unter Verwendung der Methode \quellcode{Simulate()} der Simulationsumgebung die Simulation aus.
+
+\footnotesize
+\begin{verbatimtab}
+...
+//env: instance of ISimulationEnvironment
+IThreadStartingPoint sp = new 
+		DefaultThreadStartingPoint(ID("Comp"),ID("P1"),ID("d1"));
+
+env.Clock.ThreadScheduler.CreateSimulationThread(sp,
+	SimulationThreadType.TYPE_LOG_ALL);
+	
+env.Simulate();
+...
+\end{verbatimtab}
+\normalsize
+
 \subsection{Erweiterungsmöglichkeiten}
+\label{sec:anw:erweit}
+
+Die Erweiterung des Frameworks unterteilt sich, wie in Kapitel \ref{sec:entwurf:fein:konf} angedeutet, in drei Stufen. In der ersten Stufe können dem Framework neue Zeitverbraucher sogar zu Laufzeit hinzugefügt werden. Das dieser Stufe zugrunde liegende Funktionsprinzip ist in Kapitel \ref{sec:entwurf:fein:neuezv} detailiert erläutert worden.
+\par
+Die zweite Stufe erlaubt den Austausch bestimmte Bestandteile des Frameworks. So kann innerhalb dieser Stufe beispielsweise der Scheduler durch eine andere Implementierung ersetzt werden, ohne den eigendlichen Simulationsteil, welcher durch \quellcode{IClock} repräsentiert wird, verändern zu müssen. Hierzu muss nur die zur Konfiguration des Frameworks benötigte Fabrik angepasst werden und der Simulationsumgebung beim Start übergeben werden. Die nun folgenden Zeilen Quellcode zeigen eine Fabrik, welche den Scheduler durch einen anderen ersetzt. Sämtliche andere Funktionalität wird weiterhin durch die Vorimplementierung des Frameworks übernommen. Hierzu werden alle Methoden und Properties, die nicht
+ geändert werden sollen, an eine Instanz der Fabrik des Frameworks deligiert. Ausschließlich die Methode zu Erzeugung des Schedulers gibt die neue Implementierung zurück.
+ 
+\footnotesize
+\begin{verbatimtab}[2]
+public class MyEnvironmentFactory : IEnvironmentFactory
+{
+	//ínstance of the framework factory
+	private IEnvironmentFactory factory = new DefaultEnvironmentFactory();
+
+	...
+		
+	delegates of all unchanged methods and properties
+		
+	...
+
+	/// <summary>
+	/// creates a threadscheduler used by the simulation to 
+	/// schedule the threads
+	/// </summary>
+	public Simulation.IThreadScheduler 
+			CreateSimulationThreadScheduler(ISimulationEnvironment env)
+	{
+		return new MyThreadScheduler(env);
+	}
+}
+\end{verbatimtab}
+\normalsize
+
+Der Zusammenhang aller an der Konfiguration beteidigter Klassen wurde in Kapitel \ref{sec:entwurf:fein:konf} beschrieben.
+\par
+
+In der dritten Stufe wird der gesamte Modell oder Simulationsteil des Frameworks durch einen neuen ersetzt. Hierzu muss eines der Hauptinterface \quellcode {IComponentArchitecture} oder \quellcode{IClock} oder die abstrakte Basisklasse des Modellteils neu implementiert werden. Weiterhin muss die Vorimplementierung der Simulationsumgebung erweitert werden, um die alte Implementierung des Modell- bzw. Simulationsteils durch die neue zu ersetzen. Hierzu wird deren Methode \quellcode{CreateClock()} bzw. \quellcode{CreateComponentArchitecture()} überschrieben um die neue Implementierung zurückzugeben.
+
 \subsection{Grenzen des Frameworks}
+\label{sec:anw:grenzen}
+
+Das Framework stellt in seiner aktuellen Version die in den beiden vorherigen Abschnitten vorgstellte Funktionalität zur Verfügung. Hierzu gehört z.Z. jedoch nur eine begrenzte Auswahl an Zeitverbrauchern, deren Verhalten auschließlich statisch ist. Prinzipiell ist im Design der Zeitverbaucher eine dynamsiche Zeitanpassung vorgesehen. In wieweit diese in Einzelfällen umsetzbar ist, hängt von der Art der Dynamik ab. So besteht beispielsweise im bisherigen Design keinerlei Möglichkeit der Veränderbarkeit der Wartezeit eines Simulationsthreads, welches bereits einen Zeitverbraucher betreten hat. Wird diese Modellierung jedoch benötigt, müssen dem Interface, welches den Zeitverbraucher repräsentiert, zusätzliche Informationen abgefragt werden können. Mit diesen zusätzlichen Informationen und einiger Modifizerungen an den Simulationsthreads und dem Scheduler kann auch diese Modellierung umgesetzt werden. Es handelt sich bei dieser Änderung um eine Erweiterung des Frameworks in der dritten Erweiterungsstufe, wie sie im vorherigen Abschnitt beschrieben wurde.
+\par
+
+Eine weiter Grenze des Frameworks zeigt sich bei der Modellierung von mehrfach instanzierten Komponenten. Hierzu sieht der Modellteil unter Verwendung der Palladio Bibliotheken bisher keine Modellierung vor. Eine Erweiterung dieser Art müsste im Modellteil des Frameworks ansetzen und würde vorraussichtlich der Veränderungsstufe zwei oder drei entsprechen.
+\par
+
+Zwei weitere Grenzen des Frameworks stecken sich beim Aufbau des Modells und bei der Auswertung der Simulationsdaten ab. Das Framework bietet keinerlei programmunabghängige Möglichkeit wie z.B. ein Editor oder eine Schnittstelle zu einer XML-Datei zum Aufbaus des Modells an. Die Umsetzung dieser Schnittstelle ist die Aufgabe der das Framework nutzenden Anwendung. Ebenso verhält sich die Auswertung der Daten. Das Framework ist nicht in der Lage, die Semantik der Simulationsdaten zu erfassen und geeignet zu repräsentieren. Auch dies ist Aufgabe der Anwendung.
