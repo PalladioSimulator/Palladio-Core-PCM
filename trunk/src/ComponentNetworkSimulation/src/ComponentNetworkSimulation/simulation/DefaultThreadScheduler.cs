@@ -14,6 +14,9 @@ namespace ComponentNetworkSimulation.Simulation
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.8  2004/06/26 15:43:35  joemal
+	/// - fix bug in logging method
+	///
 	/// Revision 1.7  2004/06/23 16:34:47  joemal
 	/// - now copy observer from one to the next periodic thread
 	///
@@ -371,8 +374,8 @@ namespace ComponentNetworkSimulation.Simulation
 				}
 
 				if (simulationThread.TheType == SimulationThreadType.TYPE_LOG_ALL || 
-					previousTimeConsumer.LoggingType == LoggingType_t.LOG_ON_ENTER ||
-					previousTimeConsumer.LoggingType == LoggingType_t.LOG_BOTH)
+					currentTimeConsumer.LoggingType == LoggingType_t.LOG_ON_ENTER ||
+					currentTimeConsumer.LoggingType == LoggingType_t.LOG_BOTH)
 				{
 					NotifyThreadLogEvent("Thread entered TimeConsumer.",simulationThread,
 						ThreadLogEventArgs.EventType.THREAD_ENTERED_TIMECONSUMER,currentTimeConsumer);
