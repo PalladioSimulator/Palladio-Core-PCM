@@ -45,8 +45,9 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// <param name="iface"></param>
 		/// <param name="cmdHandler"></param>
 		/// <param name="signatures"></param>
-		public InterfaceProxy(IInterfaceModel iface, CommandHandler cmdHandler, SignatureProxy[] signatures)
-			: base(cmdHandler)
+		/// <param name="attrProvider"></param>
+		public InterfaceProxy(IInterfaceModel iface, CommandHandler cmdHandler, SignatureProxy[] signatures, AttributeProvider attrProvider)
+			: base(cmdHandler, iface, attrProvider)
 		{
 			this._interface = iface;
 			this._signatures = new SignatureProxyCollection();
@@ -210,6 +211,9 @@ namespace Palladio.Editor.Common.EntityProxies
 		{
 			// Create a new collection object PropertyDescriptorCollection
 			PropertyDescriptorCollection pds = new PropertyDescriptorCollection(null);
+
+			foreach (PropertyDescriptor pd in base.GetProperties())
+				pds.Add(pd);
 
 			pds.Add(TypeDescriptor.GetProperties(this, true)["ID"]);
 			pds.Add(TypeDescriptor.GetProperties(this, true)["Name"]);

@@ -23,19 +23,20 @@ using Palladio.Editor.Common.EntityProxies.UITypeEditors;
 namespace Palladio.Editor.Common.EntityProxies
 {
 	/// <summary>
-	/// Zusammenfassung für ComponentProxy.
+	/// A proxy for an IComponent instance.
 	/// </summary>
 	public abstract class ComponentProxy : EntityProxy, ICustomTypeDescriptor
 	{
 		/// <summary>
-		/// </summary>
+		/// The wrapped component</summary>
 		protected Palladio.ComponentModel.IComponent _component;
 
 		/// <summary>
-		/// </summary>
+		/// Proxy collection for roles that the wrapped component provides.</summary>
 		protected RoleProxyCollection _providesRoles;
+
 		/// <summary>
-		/// </summary>
+		/// Proxy collection for roles that the wrapped component requires.</summary>
 		protected RoleProxyCollection _requiresRoles;
 
 		#region Constructors
@@ -46,8 +47,9 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// <param name="cmdHandler"></param>
 		/// <param name="provides"></param>
 		/// <param name="requires"></param>
-		public ComponentProxy(Palladio.ComponentModel.IComponent component, CommandHandler cmdHandler, RoleProxy[] provides, RoleProxy[] requires)
-			: base(cmdHandler)
+		/// <param name="attrProvider"></param>
+		public ComponentProxy(Palladio.ComponentModel.IComponent component, CommandHandler cmdHandler, RoleProxy[] provides, RoleProxy[] requires, AttributeProvider attrProvider)
+			: base(cmdHandler, component, attrProvider)
 		{
 			this._component = component;
 			this._providesRoles = new RoleProxyCollection();
@@ -60,7 +62,7 @@ namespace Palladio.Editor.Common.EntityProxies
 
 		#region Public Properties
 		/// <summary>
-		/// 
+		/// The component's globally unique ID
 		/// </summary>
 		[ ReadOnly(true),
 		  TypeConverter(typeof(StringConverter)),
@@ -75,7 +77,7 @@ namespace Palladio.Editor.Common.EntityProxies
 		}
 
 		/// <summary>
-		/// 
+		/// The component's name
 		/// </summary>
 		[ ReadOnly(false),
 		  TypeConverter(typeof(StringConverter)),
@@ -131,6 +133,8 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="rolename">A name for the new role</param>
+		/// <param name="ifacename">A name for the new interface</param>
 		public void AddProvidesInterface(string rolename, string ifacename)
 		{
 			AddProvidesInterfaceCmd command = new AddProvidesInterfaceCmd(this._component, rolename, ifacename);
@@ -153,6 +157,8 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="rolename">A name for the new role</param>
+		/// <param name="ifacename">A name for the new interface</param>
 		public void AddRequiresInterface(string rolename, string ifacename)
 		{
 			AddRequiresInterfaceCmd command = new AddRequiresInterfaceCmd(this._component, rolename, ifacename);
@@ -172,6 +178,11 @@ namespace Palladio.Editor.Common.EntityProxies
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		public RoleProxy GetProvidesRoleByInterfaceID(IIdentifier id)
 		{
 			foreach (RoleProxy role in this._providesRoles)
@@ -180,6 +191,11 @@ namespace Palladio.Editor.Common.EntityProxies
 			return null;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		public RoleProxy GetRequiresRoleByInterfaceID(IIdentifier id)
 		{
 			foreach (RoleProxy role in this._requiresRoles)
@@ -209,6 +225,9 @@ namespace Palladio.Editor.Common.EntityProxies
 		{
 			// Create a new collection object PropertyDescriptorCollection
 			PropertyDescriptorCollection pds = new PropertyDescriptorCollection(null);
+
+			foreach (PropertyDescriptor pd in base.GetProperties())
+				pds.Add(pd);
 
 			pds.Add(TypeDescriptor.GetProperties(this, true)["ID"]);
 			pds.Add(TypeDescriptor.GetProperties(this, true)["Name"]);

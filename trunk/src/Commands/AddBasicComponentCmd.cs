@@ -40,6 +40,10 @@ namespace Palladio.Editor.Common.Commands
 			if (this._createdComp == null)
 			{
 				IBasicComponent comp = ComponentFactory.CreateBasicComponent(this._name);
+				IInterfaceModel iface = ComponentFactory.CreateInterfaceModel("ProvidesInterface");
+				comp.AddProvidesInterface(iface);
+				IRole role = comp.GetProvidesRoleByInterfaceID(iface.ID);
+				role.Name = "ProvidesRole";
 				this._createdComp = comp;
 			}
 			this._targetComp.AddComponents(this._createdComp);
@@ -68,14 +72,6 @@ namespace Palladio.Editor.Common.Commands
 				this._createdComp.ID.Clone() as IIdentifier);
 
 			return true;
-		}
-
-		public override Palladio.Editor.Common.EntityProxies.EventArgs EventArgs
-		{
-			get
-			{
-				return this._evtArgs;
-			}
 		}
 
 		public override object Receiver

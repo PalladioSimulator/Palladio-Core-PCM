@@ -15,20 +15,26 @@ using System.ComponentModel;
 
 using Palladio.ComponentModel;
 using Palladio.Identifier;
+using Palladio.Editor.Common.EntityProxies.UITypeEditors;
 
 namespace Palladio.Editor.Common.EntityProxies
 {
 	/// <summary>
 	/// Zusammenfassung für BindingProxy.
 	/// </summary>
-	public class BindingProxy : EntityProxy, ICustomTypeDescriptor
+	public class BindingProxy : ConnectionProxy, ICustomTypeDescriptor
 	{
 		protected IBinding _binding;
 
-		public BindingProxy(IBinding binding, CommandHandler cmdHandler)
-			: base(cmdHandler)
+		private RoleProxy _provRole;
+		private RoleProxy _reqRole;
+
+		public BindingProxy(IBinding binding, RoleProxy provRole, RoleProxy reqRole, CommandHandler cmdHandler, AttributeProvider attrProv)
+			: base(cmdHandler, binding, attrProv)
 		{
 			this._binding = binding;
+			this._provRole = provRole;
+			this._reqRole = reqRole;
 		}
 
 		#region Public Properties
@@ -44,6 +50,30 @@ namespace Palladio.Editor.Common.EntityProxies
 			get
 			{
 				return (IIdentifier)this._binding.ID.Clone();
+			}
+		}
+
+		[ ReadOnly(true),
+		TypeConverter(typeof(RoleTypeConverter)),
+		Category("Default"),
+		DescriptionAttribute("The provides role of this binding.") ]
+		public RoleProxy ProvidesRole
+		{
+			get
+			{
+				return this._provRole;
+			}
+		}
+
+		[ ReadOnly(true),
+		TypeConverter(typeof(RoleTypeConverter)),
+		Category("Default"),
+		DescriptionAttribute("The requires role of this binding.") ]
+		public RoleProxy RequiresRole
+		{
+			get
+			{
+				return this._reqRole;
 			}
 		}
 		#endregion
@@ -69,6 +99,8 @@ namespace Palladio.Editor.Common.EntityProxies
 			PropertyDescriptorCollection pds = new PropertyDescriptorCollection(null);
 
 			pds.Add(TypeDescriptor.GetProperties(this, true)["ID"]);
+			pds.Add(TypeDescriptor.GetProperties(this, true)["ProvidesRole"]);
+			pds.Add(TypeDescriptor.GetProperties(this, true)["RequiresRole"]);
 
 			return pds;
 		}

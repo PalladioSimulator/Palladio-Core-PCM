@@ -139,12 +139,37 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\AbstractAttribute.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\AbstractAttributeType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\AbstractPlugin.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\AnalyzePluginSkeleton.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Handler.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IAnalyzePlugin.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IAnalyzePluginHost.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -229,6 +254,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Commands\AddServiceEffectCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Commands\AddServiceToServiceEffectCmd.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Commands\AddSignatureCmd.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -284,6 +319,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\EntityProxies\ConnectionProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\EntityProxies\EntityProxy.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -314,9 +354,24 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\EntityProxies\ServiceEffectSpecificationProxy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\EntityProxies\SignatureProxy.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Collections\AttributeHashtable.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\Collections\AttributeHashtable.resx"
+                    DependentUpon = "AttributeHashtable.cs"
+                    BuildAction = "EmbeddedResource"
                 />
                 <File
                     RelPath = "src\EntityProxies\Collections\BasicComponentProxyCollection.cs"
@@ -364,6 +419,11 @@
                     BuildAction = "EmbeddedResource"
                 />
                 <File
+                    RelPath = "src\EntityProxies\Collections\ServiceEffectSpecificationProxyCollection.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\EntityProxies\Collections\SignatureProxyCollection.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -399,6 +459,11 @@
                     BuildAction = "EmbeddedResource"
                 />
                 <File
+                    RelPath = "src\EntityProxies\UITypeEditors\AttributeCollectionTypeEditor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\EntityProxies\UITypeEditors\ComponentProxyCollectionTypeEditor.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -414,6 +479,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\EntityProxies\UITypeEditors\ServiceEffectSpecificationProxyCollectionTypeEditor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\ServiceListEditor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\EntityProxies\UITypeEditors\SignatureProxyCollectionTypeEditor.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -424,6 +499,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\AttributeCollectionForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\AttributeCollectionForm.resx"
+                    DependentUpon = "AttributeCollectionForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
                     RelPath = "src\EntityProxies\UITypeEditors\Dialogs\ComponentProxyCollectionForm.cs"
                     SubType = "Form"
                     BuildAction = "Compile"
@@ -431,6 +516,16 @@
                 <File
                     RelPath = "src\EntityProxies\UITypeEditors\Dialogs\ComponentProxyCollectionForm.resx"
                     DependentUpon = "ComponentProxyCollectionForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\EntityProxyCollectionForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\EntityProxyCollectionForm.resx"
+                    DependentUpon = "EntityProxyCollectionForm.cs"
                     BuildAction = "EmbeddedResource"
                 />
                 <File
@@ -451,6 +546,26 @@
                 <File
                     RelPath = "src\EntityProxies\UITypeEditors\Dialogs\RoleProxyCollectionForm.resx"
                     DependentUpon = "RoleProxyCollectionForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\ServiceEffectProxyCollectionForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\ServiceEffectProxyCollectionForm.resx"
+                    DependentUpon = "ServiceEffectProxyCollectionForm.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\ServiceListEditorForm.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\EntityProxies\UITypeEditors\Dialogs\ServiceListEditorForm.resx"
+                    DependentUpon = "ServiceListEditorForm.cs"
                     BuildAction = "EmbeddedResource"
                 />
                 <File

@@ -11,6 +11,7 @@
 #endregion
 
 using System;
+using System.Collections;
 using System.Text;
 using System.ComponentModel; 
 
@@ -43,6 +44,21 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors
 			if( destType == typeof(string) && value is ComponentProxy )
 			{
 				return ((ComponentProxy)value).Name;
+			}
+			return base.ConvertTo(context,culture,value,destType);
+		}
+	}
+
+	/// <summary>
+	/// Zusammenfassung für RoleTypeConverter.
+	/// </summary>
+	internal class RoleTypeConverter : TypeConverter
+	{
+		public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destType )
+		{
+			if( destType == typeof(string) && value is RoleProxy )
+			{
+				return ((RoleProxy)value).Name;
 			}
 			return base.ConvertTo(context,culture,value,destType);
 		}
@@ -115,6 +131,48 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors
 			if( destType == typeof(string) && value is ParameterProxy )
 			{
 				return "-";
+			}
+			return base.ConvertTo(context,culture,value,destType);
+		}
+	}
+
+	internal class AttributeHashtableTypeConverter : ExpandableObjectConverter
+	{
+		public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destType )
+		{
+			if( destType == typeof(string) && value is AttributeHashtable )
+			{
+				return "Attached Attributes...";
+			}
+			return base.ConvertTo(context,culture,value,destType);
+		}
+	}
+
+	/// <summary>
+	/// Zusammenfassung für ServiceEffectListTypeConverter.
+	/// </summary>
+	internal class ServiceEffectListTypeConverter : ExpandableObjectConverter
+	{
+		public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destType )
+		{
+			if( destType == typeof(string) && value is ServiceEffectSpecificationProxyCollection )
+			{
+				return "List of Service Effects";
+			}
+			return base.ConvertTo(context,culture,value,destType);
+		}
+	}
+
+	/// <summary>
+	/// Zusammenfassung für ServiceEffectListTypeConverter.
+	/// </summary>
+	internal class ServiceEffectTypeConverter : ExpandableObjectConverter
+	{
+		public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destType )
+		{
+			if( destType == typeof(string) && value is ServiceEffectSpecificationProxyCollection )
+			{
+				return "bluz";
 			}
 			return base.ConvertTo(context,culture,value,destType);
 		}

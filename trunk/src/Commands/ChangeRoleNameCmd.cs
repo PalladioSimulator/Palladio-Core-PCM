@@ -49,7 +49,7 @@ namespace Palladio.Editor.Common.Commands
 		{
 			get
 			{
-				return true;
+				return false;
 			}
 		}
 
@@ -61,14 +61,6 @@ namespace Palladio.Editor.Common.Commands
 				EntityChangeReason.PROPERTY_CHANGED,
 				null);
 			return true;
-		}
-
-		public override Palladio.Editor.Common.EntityProxies.EventArgs EventArgs
-		{
-			get
-			{
-				return this._evtArgs;
-			}
 		}
 
 		public override object Receiver

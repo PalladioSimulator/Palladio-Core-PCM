@@ -64,13 +64,6 @@ namespace Palladio.Editor.Common.Commands
 			return true;
 		}
 
-		public override Palladio.Editor.Common.EntityProxies.EventArgs EventArgs
-		{
-			get
-			{
-				return this._evtArgs;
-			}
-		}
 
 		public override object Receiver
 		{

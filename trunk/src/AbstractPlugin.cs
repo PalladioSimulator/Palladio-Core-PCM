@@ -19,6 +19,9 @@ namespace Palladio.Editor.Common
 	/// </summary>
 	public abstract class AbstractPlugin : MarshalByRefObject, IPlugin
 	{
+		/// <summary>
+		/// 
+		/// </summary>
 		public AbstractPlugin()
 		{
 			this._name			= "undef";
@@ -27,18 +30,45 @@ namespace Palladio.Editor.Common
 			this._version		= "undef";
 		}
 
+		/// <summary>
+		/// Name
+		/// </summary>
 		protected string _name;
+		/// <summary>
+		/// Returns the name
+		/// </summary>
 		public abstract string Name	{ get; }
 
+		/// <summary>
+		/// Description
+		/// </summary>
 		protected string _description;
+		/// <summary>
+		/// Returns the description
+		/// </summary>
 		public abstract string Description { get; }
 
+		/// <summary>
+		/// Author
+		/// </summary>
 		protected string _author;
+		/// <summary>
+		/// Returns the author
+		/// </summary>
 		public abstract string Author {	get; }
 
+		/// <summary>
+		/// Version
+		/// </summary>
 		protected string _version;
+		/// <summary>
+		/// Returns the version
+		/// </summary>
 		public abstract string Version { get; }
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public abstract void Detach();
 	}
 }

@@ -40,8 +40,6 @@ namespace Palladio.Editor.Common.EntityProxies
 
 		private ParameterProxyCollection _parameters;
 
-		private EntityChangedHandler _parameter_EntityChangedHandler;
-
 		#region Constructors
 		/// <summary>
 		/// 
@@ -50,18 +48,14 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// <param name="iface"></param>
 		/// <param name="cmdHandler"></param>
 		/// <param name="parameters"></param>
-		public SignatureProxy(ISignature signature, InterfaceProxy iface, CommandHandler cmdHandler, ParameterProxy[] parameters)
-			: base(cmdHandler)
+		public SignatureProxy(ISignature signature, InterfaceProxy iface, CommandHandler cmdHandler, ParameterProxy[] parameters, AttributeProvider attrProv)
+			: base(cmdHandler, signature, attrProv)
 		{
 			this._signature = signature;
 			this._interface = iface;
 
 			this._parameters = new ParameterProxyCollection();
 			this._parameters.AddRange(parameters);
-
-			//this._parameter_EntityChangedHandler = new EntityChangedHandler(parameter_EntityChanged);
-
-			//this.UpdateParameterList();
 		}
 		#endregion
 
@@ -196,20 +190,19 @@ namespace Palladio.Editor.Common.EntityProxies
 				this._interface, null, null, parameters, null);
 			this.FireCommandIssued( command );
 		}
-		#endregion
 
 		/// <summary>
 		/// 
 		/// </summary>
-//		private void UpdateParameterList()
-//		{
-//			this._parameters.Clear();
-//			foreach (IParameter param in this._signature.Parameters)
-//			{
-//				ParameterProxy parameter = new ParameterProxy(param);
-//				this._parameters.Add(parameter);
-//			}
-//		}
+		public void UpdateParameterList()
+		{
+			ChangeSignatureCmd command = new ChangeSignatureCmd(
+				this._signature,
+				this._interface, null, null, this._parameters, null);
+			this.FireCommandIssued( command );
+		}
+		#endregion
+
 
 		#region ICustomTypeDescriptor Member Overrides
 
@@ -232,6 +225,9 @@ namespace Palladio.Editor.Common.EntityProxies
 			// Create a new collection object PropertyDescriptorCollection
 			PropertyDescriptorCollection pds = new PropertyDescriptorCollection(null);
 
+			foreach (PropertyDescriptor pd in base.GetProperties())
+				pds.Add(pd);
+
 			pds.Add(TypeDescriptor.GetProperties(this, true)["ID"]);
 			pds.Add(TypeDescriptor.GetProperties(this, true)["Name"]);
 			pds.Add(TypeDescriptor.GetProperties(this, true)["ReturnType"]);
@@ -242,28 +238,17 @@ namespace Palladio.Editor.Common.EntityProxies
 		}
 
 		#endregion
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="source"></param>
-		/// <param name="entity"></param>
-		/// <param name="e"></param>
-//		private void parameter_EntityChanged(object source, EntityProxy entity, EventArgs e)
-//		{
-//			this.UpdateParameterList();
-//		}
 	}
 
 	/// <summary>
 	/// 
 	/// </summary>
-	internal class SignatureProxyCollectionDescriptor : PropertyDescriptor
+	internal class SignatureProxyDescriptor : PropertyDescriptor
 	{
 		private SignatureProxyCollection collection = null;
 		private int index = -1;
 
-		public SignatureProxyCollectionDescriptor(SignatureProxyCollection coll, int idx) : 
+		public SignatureProxyDescriptor(SignatureProxyCollection coll, int idx) : 
 			base( "#"+idx.ToString(), null )
 		{
 			this.collection = coll;
@@ -336,7 +321,7 @@ namespace Palladio.Editor.Common.EntityProxies
 				}
 				sb.Append(") ");
 				sb.Append("throws ");
-				return sig.ToString();
+				return sb.ToString();
 			}
 		}
 

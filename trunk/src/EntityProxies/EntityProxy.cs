@@ -11,11 +11,16 @@
 #endregion
 
 using System;
+using System.Drawing.Design;
 using System.ComponentModel;
+using System.Collections;
 
+using Palladio.Attributes;
 using Palladio.Identifier;
 using Palladio.Editor.Common;
 using Palladio.Editor.Common.Commands;
+using Palladio.Editor.Common.EntityProxies.UITypeEditors;
+using Palladio.Editor.Common.EntityProxies.Collections;
 
 namespace Palladio.Editor.Common.EntityProxies
 {
@@ -57,19 +62,32 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// <summary> </summary>
 		REQUIRESMAPPING_REMOVED,
 		/// <summary> </summary>
+		SERVICEEFFECTSPECS_CHANGED,
+		/// <summary> </summary>
+		SERVICE_IN_SEFFSPEC_ADDED,
+		/// <summary> </summary>
+		SERVICE_IN_SEFFSPEC_REMOVED,
+		/// <summary> </summary>
 		UNSPECIFIED
 	}
+
+	public delegate AbstractAttributeType[] AttributeProvider();
 
 	/// <summary>
 	/// Zusammenfassung für EntityProxy.
 	/// </summary>
 	public abstract class EntityProxy : ICustomTypeDescriptor, IIdentifiable
 	{
+		private IAttributable _entity;
+		protected AttributeHashtable _attributes;
+		private AttributeProvider _attrProv;
+
 		/// <summary>
-		/// 
 		/// </summary>
 		protected event CommandHandler CommandIssued;
 
+		/// <summary>
+		/// </summary>
 		public event EntityChangedHandler EntityChanged;
 
 		#region Constructors
@@ -78,6 +96,7 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// </summary>
 		public EntityProxy()
 		{
+			this._attributes = new AttributeHashtable();
 		}
 
 		/// <summary>
@@ -87,8 +106,54 @@ namespace Palladio.Editor.Common.EntityProxies
 		public EntityProxy(CommandHandler cmdHandler)
 		{
 			this.CommandIssued += cmdHandler;
+			this._attributes = new AttributeHashtable();
+		}
+
+		/// <summary>
+		/// Registers a cmdHandler with the <see cref="CommandIssued"/> event.
+		/// </summary>
+		/// <param name="cmdHandler"></param>
+		/// <param name="entity"></param>
+		/// <param name="provider"></param>
+		public EntityProxy(CommandHandler cmdHandler, IAttributable entity, AttributeProvider provider)
+		{
+			this.CommandIssued += cmdHandler;
+			this._entity = entity;
+			this._attributes = new AttributeHashtable();
+			this._attrProv = provider;
 		}
 		#endregion
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[ ReadOnly(false),
+		TypeConverter(typeof(AttributeHashtableTypeConverter)),
+		Editor(typeof(AttributeCollectionTypeEditor), typeof(UITypeEditor)),
+		Category("Attributes"),
+		DescriptionAttribute("A list of attributes attached to this entity") ]
+		public AttributeHashtable Attributes
+		{
+			get
+			{
+				return this._attributes;
+			}
+		}
+
+		public AbstractAttributeType[] AvailableAttributes
+		{
+			get
+			{
+				return this._attrProv();
+			}
+		}
+
+		public void AttachAttribute(AbstractAttributeType attrType)
+		{
+			AbstractAttribute attr = Activator.CreateInstance(attrType.ValueType) as AbstractAttribute;
+			this._attributes[attrType] = attr;
+			this._entity.Attributes.Add(attrType, attr);
+		}
 
 		/// <summary>
 		/// 
@@ -180,7 +245,12 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// <returns></returns>
 		public virtual PropertyDescriptorCollection GetProperties()
 		{
-			return TypeDescriptor.GetProperties(this,true);
+			// Create a new collection object PropertyDescriptorCollection
+			PropertyDescriptorCollection pds = new PropertyDescriptorCollection(null);
+
+			pds.Add(TypeDescriptor.GetProperties(this, true)["Attributes"]);
+
+			return pds;
 		}
 
 		/// <summary>

@@ -6,28 +6,28 @@ using Palladio.Editor.Common.EntityProxies;
 
 namespace Palladio.Editor.Common.EntityProxies.Collections 
 {
-	#region Interface ISignatureProxyCollection
+	#region Interface IServiceEffectSpecificationProxyCollection
 
 	/// <summary>
 	/// Defines size, enumerators, and synchronization methods for strongly
-	/// typed collections of <see cref="SignatureProxy"/> elements.
+	/// typed collections of <see cref="ServiceEffectSpecificationProxy"/> elements.
 	/// </summary>
 	/// <remarks>
-	/// <b>ISignatureProxyCollection</b> provides an <see cref="ICollection"/>
-	/// that is strongly typed for <see cref="SignatureProxy"/> elements.
+	/// <b>IServiceEffectSpecificationProxyCollection</b> provides an <see cref="ICollection"/>
+	/// that is strongly typed for <see cref="ServiceEffectSpecificationProxy"/> elements.
 	/// </remarks>
 
-	public interface ISignatureProxyCollection 
+	public interface IServiceEffectSpecificationProxyCollection 
 	{
 		#region Properties
 		#region Count
 
 		/// <summary>
 		/// Gets the number of elements contained in the
-		/// <see cref="ISignatureProxyCollection"/>.
+		/// <see cref="IServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <value>The number of elements contained in the
-		/// <see cref="ISignatureProxyCollection"/>.</value>
+		/// <see cref="IServiceEffectSpecificationProxyCollection"/>.</value>
 		/// <remarks>Please refer to <see cref="ICollection.Count"/> for details.</remarks>
 
 		int Count { get; }
@@ -37,9 +37,9 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 		/// <summary>
 		/// Gets a value indicating whether access to the
-		/// <see cref="ISignatureProxyCollection"/> is synchronized (thread-safe).
+		/// <see cref="IServiceEffectSpecificationProxyCollection"/> is synchronized (thread-safe).
 		/// </summary>
-		/// <value><c>true</c> if access to the <see cref="ISignatureProxyCollection"/> is
+		/// <value><c>true</c> if access to the <see cref="IServiceEffectSpecificationProxyCollection"/> is
 		/// synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="ICollection.IsSynchronized"/> for details.</remarks>
 
@@ -50,10 +50,10 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 		/// <summary>
 		/// Gets an object that can be used to synchronize access
-		/// to the <see cref="ISignatureProxyCollection"/>.
+		/// to the <see cref="IServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <value>An object that can be used to synchronize access
-		/// to the <see cref="ISignatureProxyCollection"/>.</value>
+		/// to the <see cref="IServiceEffectSpecificationProxyCollection"/>.</value>
 		/// <remarks>Please refer to <see cref="ICollection.SyncRoot"/> for details.</remarks>
 
 		object SyncRoot { get; }
@@ -64,11 +64,11 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region CopyTo
 
 		/// <summary>
-		/// Copies the entire <see cref="ISignatureProxyCollection"/> to a one-dimensional <see cref="Array"/>
-		/// of <see cref="SignatureProxy"/> elements, starting at the specified index of the target array.
+		/// Copies the entire <see cref="IServiceEffectSpecificationProxyCollection"/> to a one-dimensional <see cref="Array"/>
+		/// of <see cref="ServiceEffectSpecificationProxy"/> elements, starting at the specified index of the target array.
 		/// </summary>
 		/// <param name="array">The one-dimensional <see cref="Array"/> that is the destination of the
-		/// <see cref="SignatureProxy"/> elements copied from the <see cref="ISignatureProxyCollection"/>.
+		/// <see cref="ServiceEffectSpecificationProxy"/> elements copied from the <see cref="IServiceEffectSpecificationProxyCollection"/>.
 		/// The <b>Array</b> must have zero-based indexing.</param>
 		/// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
 		/// at which copying begins.</param>
@@ -79,52 +79,52 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <exception cref="ArgumentException"><para>
 		/// <paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.
 		/// </para><para>-or-</para><para>
-		/// The number of elements in the source <see cref="ISignatureProxyCollection"/> is greater
+		/// The number of elements in the source <see cref="IServiceEffectSpecificationProxyCollection"/> is greater
 		/// than the available space from <paramref name="arrayIndex"/> to the end of the destination
 		/// <paramref name="array"/>.</para></exception>
 		/// <remarks>Please refer to <see cref="ICollection.CopyTo"/> for details.</remarks>
 
-		void CopyTo(SignatureProxy[] array, int arrayIndex);
+		void CopyTo(ServiceEffectSpecificationProxy[] array, int arrayIndex);
 
 		#endregion
 		#region GetEnumerator
 
 		/// <summary>
-		/// Returns an <see cref="ISignatureProxyEnumerator"/> that can
-		/// iterate through the <see cref="ISignatureProxyCollection"/>.
+		/// Returns an <see cref="IServiceEffectSpecificationProxyEnumerator"/> that can
+		/// iterate through the <see cref="IServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <returns>An <see cref="ISignatureProxyEnumerator"/>
-		/// for the entire <see cref="ISignatureProxyCollection"/>.</returns>
+		/// <returns>An <see cref="IServiceEffectSpecificationProxyEnumerator"/>
+		/// for the entire <see cref="IServiceEffectSpecificationProxyCollection"/>.</returns>
 		/// <remarks>Please refer to <see cref="IEnumerable.GetEnumerator"/> for details.</remarks>
 
-		ISignatureProxyEnumerator GetEnumerator();
+		IServiceEffectSpecificationProxyEnumerator GetEnumerator();
 
 		#endregion
 		#endregion
 	}
 
 	#endregion
-	#region Interface ISignatureProxyList
+	#region Interface IServiceEffectSpecificationProxyList
 
 	/// <summary>
-	/// Represents a strongly typed collection of <see cref="SignatureProxy"/>
+	/// Represents a strongly typed collection of <see cref="ServiceEffectSpecificationProxy"/>
 	/// objects that can be individually accessed by index.
 	/// </summary>
 	/// <remarks>
-	/// <b>ISignatureProxyList</b> provides an <see cref="IList"/>
-	/// that is strongly typed for <see cref="SignatureProxy"/> elements.
+	/// <b>IServiceEffectSpecificationProxyList</b> provides an <see cref="IList"/>
+	/// that is strongly typed for <see cref="ServiceEffectSpecificationProxy"/> elements.
 	/// </remarks>
 
 	public interface
-		ISignatureProxyList: ISignatureProxyCollection 
+		IServiceEffectSpecificationProxyList: IServiceEffectSpecificationProxyCollection 
 	{
 		#region Properties
 		#region IsFixedSize
 
 		/// <summary>
-		/// Gets a value indicating whether the <see cref="ISignatureProxyList"/> has a fixed size.
+		/// Gets a value indicating whether the <see cref="IServiceEffectSpecificationProxyList"/> has a fixed size.
 		/// </summary>
-		/// <value><c>true</c> if the <see cref="ISignatureProxyList"/> has a fixed size;
+		/// <value><c>true</c> if the <see cref="IServiceEffectSpecificationProxyList"/> has a fixed size;
 		/// otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="IList.IsFixedSize"/> for details.</remarks>
 
@@ -134,9 +134,9 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region IsReadOnly
 
 		/// <summary>
-		/// Gets a value indicating whether the <see cref="ISignatureProxyList"/> is read-only.
+		/// Gets a value indicating whether the <see cref="IServiceEffectSpecificationProxyList"/> is read-only.
 		/// </summary>
-		/// <value><c>true</c> if the <see cref="ISignatureProxyList"/> is read-only;
+		/// <value><c>true</c> if the <see cref="IServiceEffectSpecificationProxyList"/> is read-only;
 		/// otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="IList.IsReadOnly"/> for details.</remarks>
 
@@ -146,24 +146,24 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Item
 
 		/// <summary>
-		/// Gets or sets the <see cref="SignatureProxy"/> element at the specified index.
+		/// Gets or sets the <see cref="ServiceEffectSpecificationProxy"/> element at the specified index.
 		/// </summary>
 		/// <param name="index">The zero-based index of the
-		/// <see cref="SignatureProxy"/> element to get or set.</param>
+		/// <see cref="ServiceEffectSpecificationProxy"/> element to get or set.</param>
 		/// <value>
-		/// The <see cref="SignatureProxy"/> element at the specified <paramref name="index"/>.
+		/// The <see cref="ServiceEffectSpecificationProxy"/> element at the specified <paramref name="index"/>.
 		/// </value>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="index"/> is equal to or greater than
-		/// <see cref="ISignatureProxyCollection.Count"/>.</para>
+		/// <see cref="IServiceEffectSpecificationProxyCollection.Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// The property is set and the <see cref="ISignatureProxyList"/> is read-only.</exception>
+		/// The property is set and the <see cref="IServiceEffectSpecificationProxyList"/> is read-only.</exception>
 		/// <remarks>Please refer to <see cref="IList.this"/> for details.</remarks>
 
-		SignatureProxy this[int index] { get; set; }
+		ServiceEffectSpecificationProxy this[int index] { get; set; }
 
 		#endregion
 		#endregion
@@ -171,33 +171,33 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Add
 
 		/// <summary>
-		/// Adds a <see cref="SignatureProxy"/> to the end
-		/// of the <see cref="ISignatureProxyList"/>.
+		/// Adds a <see cref="ServiceEffectSpecificationProxy"/> to the end
+		/// of the <see cref="IServiceEffectSpecificationProxyList"/>.
 		/// </summary>
-		/// <param name="value">The <see cref="SignatureProxy"/> object
-		/// to be added to the end of the <see cref="ISignatureProxyList"/>.
+		/// <param name="value">The <see cref="ServiceEffectSpecificationProxy"/> object
+		/// to be added to the end of the <see cref="IServiceEffectSpecificationProxyList"/>.
 		/// This argument can be a null reference.
 		/// </param>
-		/// <returns>The <see cref="ISignatureProxyList"/> index at which
+		/// <returns>The <see cref="IServiceEffectSpecificationProxyList"/> index at which
 		/// the <paramref name="value"/> has been added.</returns>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="ISignatureProxyList"/> is read-only.</para>
+		/// <para>The <see cref="IServiceEffectSpecificationProxyList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>ISignatureProxyList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IServiceEffectSpecificationProxyList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.Add"/> for details.</remarks>
 
-		int Add(SignatureProxy value);
+		int Add(ServiceEffectSpecificationProxy value);
 
 		#endregion
 		#region Clear
 
 		/// <summary>
-		/// Removes all elements from the <see cref="ISignatureProxyList"/>.
+		/// Removes all elements from the <see cref="IServiceEffectSpecificationProxyList"/>.
 		/// </summary>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="ISignatureProxyList"/> is read-only.</para>
+		/// <para>The <see cref="IServiceEffectSpecificationProxyList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>ISignatureProxyList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IServiceEffectSpecificationProxyList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.Clear"/> for details.</remarks>
 
 		void Clear();
@@ -206,102 +206,102 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Contains
 
 		/// <summary>
-		/// Determines whether the <see cref="ISignatureProxyList"/>
-		/// contains the specified <see cref="SignatureProxy"/> element.
+		/// Determines whether the <see cref="IServiceEffectSpecificationProxyList"/>
+		/// contains the specified <see cref="ServiceEffectSpecificationProxy"/> element.
 		/// </summary>
-		/// <param name="value">The <see cref="SignatureProxy"/> object
-		/// to locate in the <see cref="ISignatureProxyList"/>.
+		/// <param name="value">The <see cref="ServiceEffectSpecificationProxy"/> object
+		/// to locate in the <see cref="IServiceEffectSpecificationProxyList"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <returns><c>true</c> if <paramref name="value"/> is found in the
-		/// <see cref="ISignatureProxyList"/>; otherwise, <c>false</c>.</returns>
+		/// <see cref="IServiceEffectSpecificationProxyList"/>; otherwise, <c>false</c>.</returns>
 		/// <remarks>Please refer to <see cref="IList.Contains"/> for details.</remarks>
 
-		bool Contains(SignatureProxy value);
+		bool Contains(ServiceEffectSpecificationProxy value);
 
 		#endregion
 		#region IndexOf
 
 		/// <summary>
 		/// Returns the zero-based index of the first occurrence of the specified
-		/// <see cref="SignatureProxy"/> in the <see cref="ISignatureProxyList"/>.
+		/// <see cref="ServiceEffectSpecificationProxy"/> in the <see cref="IServiceEffectSpecificationProxyList"/>.
 		/// </summary>
-		/// <param name="value">The <see cref="SignatureProxy"/> object
-		/// to locate in the <see cref="ISignatureProxyList"/>.
+		/// <param name="value">The <see cref="ServiceEffectSpecificationProxy"/> object
+		/// to locate in the <see cref="IServiceEffectSpecificationProxyList"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <returns>
 		/// The zero-based index of the first occurrence of <paramref name="value"/>
-		/// in the <see cref="ISignatureProxyList"/>, if found; otherwise, -1.
+		/// in the <see cref="IServiceEffectSpecificationProxyList"/>, if found; otherwise, -1.
 		/// </returns>
 		/// <remarks>Please refer to <see cref="IList.IndexOf"/> for details.</remarks>
 
-		int IndexOf(SignatureProxy value);
+		int IndexOf(ServiceEffectSpecificationProxy value);
 
 		#endregion
 		#region Insert
 
 		/// <summary>
-		/// Inserts a <see cref="SignatureProxy"/> element into the
-		/// <see cref="ISignatureProxyList"/> at the specified index.
+		/// Inserts a <see cref="ServiceEffectSpecificationProxy"/> element into the
+		/// <see cref="IServiceEffectSpecificationProxyList"/> at the specified index.
 		/// </summary>
 		/// <param name="index">The zero-based index at which
 		/// <paramref name="value"/> should be inserted.</param>
-		/// <param name="value">The <see cref="SignatureProxy"/> object
-		/// to insert into the <see cref="ISignatureProxyList"/>.
+		/// <param name="value">The <see cref="ServiceEffectSpecificationProxy"/> object
+		/// to insert into the <see cref="IServiceEffectSpecificationProxyList"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="index"/> is greater than
-		/// <see cref="ISignatureProxyCollection.Count"/>.</para>
+		/// <see cref="IServiceEffectSpecificationProxyCollection.Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="ISignatureProxyList"/> is read-only.</para>
+		/// <para>The <see cref="IServiceEffectSpecificationProxyList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>ISignatureProxyList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IServiceEffectSpecificationProxyList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.Insert"/> for details.</remarks>
 
-		void Insert(int index, SignatureProxy value);
+		void Insert(int index, ServiceEffectSpecificationProxy value);
 
 		#endregion
 		#region Remove
 
 		/// <summary>
-		/// Removes the first occurrence of the specified <see cref="SignatureProxy"/>
-		/// from the <see cref="ISignatureProxyList"/>.
+		/// Removes the first occurrence of the specified <see cref="ServiceEffectSpecificationProxy"/>
+		/// from the <see cref="IServiceEffectSpecificationProxyList"/>.
 		/// </summary>
-		/// <param name="value">The <see cref="SignatureProxy"/> object
-		/// to remove from the <see cref="ISignatureProxyList"/>.
+		/// <param name="value">The <see cref="ServiceEffectSpecificationProxy"/> object
+		/// to remove from the <see cref="IServiceEffectSpecificationProxyList"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="ISignatureProxyList"/> is read-only.</para>
+		/// <para>The <see cref="IServiceEffectSpecificationProxyList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>ISignatureProxyList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IServiceEffectSpecificationProxyList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.Remove"/> for details.</remarks>
 
-		void Remove(SignatureProxy value);
+		void Remove(ServiceEffectSpecificationProxy value);
 
 		#endregion
 		#region RemoveAt
 
 		/// <summary>
 		/// Removes the element at the specified index of the
-		/// <see cref="ISignatureProxyList"/>.
+		/// <see cref="IServiceEffectSpecificationProxyList"/>.
 		/// </summary>
 		/// <param name="index">The zero-based index of the element to remove.</param>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="index"/> is equal to or greater than
-		/// <see cref="ISignatureProxyCollection.Count"/>.</para>
+		/// <see cref="IServiceEffectSpecificationProxyCollection.Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="ISignatureProxyList"/> is read-only.</para>
+		/// <para>The <see cref="IServiceEffectSpecificationProxyList"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>ISignatureProxyList</b> has a fixed size.</para></exception>
+		/// <para>The <b>IServiceEffectSpecificationProxyList</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="IList.RemoveAt"/> for details.</remarks>
 
 		void RemoveAt(int index);
@@ -311,26 +311,26 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 	}
 
 	#endregion
-	#region Interface ISignatureProxyEnumerator
+	#region Interface IServiceEffectSpecificationProxyEnumerator
 
 	/// <summary>
 	/// Supports type-safe iteration over a collection that
-	/// contains <see cref="SignatureProxy"/> elements.
+	/// contains <see cref="ServiceEffectSpecificationProxy"/> elements.
 	/// </summary>
 	/// <remarks>
-	/// <b>ISignatureProxyEnumerator</b> provides an <see cref="IEnumerator"/>
-	/// that is strongly typed for <see cref="SignatureProxy"/> elements.
+	/// <b>IServiceEffectSpecificationProxyEnumerator</b> provides an <see cref="IEnumerator"/>
+	/// that is strongly typed for <see cref="ServiceEffectSpecificationProxy"/> elements.
 	/// </remarks>
 
-	public interface ISignatureProxyEnumerator 
+	public interface IServiceEffectSpecificationProxyEnumerator 
 	{
 		#region Properties
 		#region Current
 
 		/// <summary>
-		/// Gets the current <see cref="SignatureProxy"/> element in the collection.
+		/// Gets the current <see cref="ServiceEffectSpecificationProxy"/> element in the collection.
 		/// </summary>
-		/// <value>The current <see cref="SignatureProxy"/> element in the collection.</value>
+		/// <value>The current <see cref="ServiceEffectSpecificationProxy"/> element in the collection.</value>
 		/// <exception cref="InvalidOperationException"><para>The enumerator is positioned
 		/// before the first element of the collection or after the last element.</para>
 		/// <para>-or-</para>
@@ -339,7 +339,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// that <b>Current</b> fails if the collection was modified since the last successful
 		/// call to <see cref="MoveNext"/> or <see cref="Reset"/>.</remarks>
 
-		SignatureProxy Current { get; }
+		ServiceEffectSpecificationProxy Current { get; }
 
 		#endregion
 		#endregion
@@ -375,25 +375,25 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 	}
 
 	#endregion
-	#region Class SignatureProxyCollection
+	#region Class ServiceEffectSpecificationProxyCollection
 
 	/// <summary>
-	/// Implements a strongly typed collection of <see cref="SignatureProxy"/> elements.
+	/// Implements a strongly typed collection of <see cref="ServiceEffectSpecificationProxy"/> elements.
 	/// </summary>
 	/// <remarks><para>
-	/// <b>SignatureProxyCollection</b> provides an <see cref="ArrayList"/>
-	/// that is strongly typed for <see cref="SignatureProxy"/> elements.
+	/// <b>ServiceEffectSpecificationProxyCollection</b> provides an <see cref="ArrayList"/>
+	/// that is strongly typed for <see cref="ServiceEffectSpecificationProxy"/> elements.
 	/// </para></remarks>
 
 	[Serializable]
-	public class SignatureProxyCollection:
-		ISignatureProxyList, IList, ICloneable, ICustomTypeDescriptor
+	public class ServiceEffectSpecificationProxyCollection:
+		IServiceEffectSpecificationProxyList, IList, ICloneable, ICustomTypeDescriptor 
 	{
 		#region Private Fields
 
 		private const int _defaultCapacity = 16;
 
-		private SignatureProxy[] _array = null;
+		private ServiceEffectSpecificationProxy[] _array = null;
 		private int _count = 0;
 
 		[NonSerialized]
@@ -405,91 +405,91 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		// helper type to identify private ctor
 		private enum Tag { Default }
 
-		private SignatureProxyCollection(Tag tag) { }
+		private ServiceEffectSpecificationProxyCollection(Tag tag) { }
 
 		#endregion
 		#region Public Constructors
-		#region SignatureProxyCollection()
+		#region ServiceEffectSpecificationProxyCollection()
 
 		/// <overloads>
-		/// Initializes a new instance of the <see cref="SignatureProxyCollection"/> class.
+		/// Initializes a new instance of the <see cref="ServiceEffectSpecificationProxyCollection"/> class.
 		/// </overloads>
 		/// <summary>
-		/// Initializes a new instance of the <see cref="SignatureProxyCollection"/> class
+		/// Initializes a new instance of the <see cref="ServiceEffectSpecificationProxyCollection"/> class
 		/// that is empty and has the default initial capacity.
 		/// </summary>
 		/// <remarks>Please refer to <see cref="ArrayList()"/> for details.</remarks>
 
-		public SignatureProxyCollection() 
+		public ServiceEffectSpecificationProxyCollection() 
 		{
-			this._array = new SignatureProxy[_defaultCapacity];
+			this._array = new ServiceEffectSpecificationProxy[_defaultCapacity];
 		}
 
 		#endregion
-		#region SignatureProxyCollection(Int32)
+		#region ServiceEffectSpecificationProxyCollection(Int32)
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="SignatureProxyCollection"/> class
+		/// Initializes a new instance of the <see cref="ServiceEffectSpecificationProxyCollection"/> class
 		/// that is empty and has the specified initial capacity.
 		/// </summary>
 		/// <param name="capacity">The number of elements that the new
-		/// <see cref="SignatureProxyCollection"/> is initially capable of storing.</param>
+		/// <see cref="ServiceEffectSpecificationProxyCollection"/> is initially capable of storing.</param>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <paramref name="capacity"/> is less than zero.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList(Int32)"/> for details.</remarks>
 
-		public SignatureProxyCollection(int capacity) 
+		public ServiceEffectSpecificationProxyCollection(int capacity) 
 		{
 			if (capacity < 0)
 				throw new ArgumentOutOfRangeException("capacity",
 					capacity, "Argument cannot be negative.");
 
-			this._array = new SignatureProxy[capacity];
+			this._array = new ServiceEffectSpecificationProxy[capacity];
 		}
 
 		#endregion
-		#region SignatureProxyCollection(SignatureProxyCollection)
+		#region ServiceEffectSpecificationProxyCollection(ServiceEffectSpecificationProxyCollection)
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="SignatureProxyCollection"/> class
+		/// Initializes a new instance of the <see cref="ServiceEffectSpecificationProxyCollection"/> class
 		/// that contains elements copied from the specified collection and
 		/// that has the same initial capacity as the number of elements copied.
 		/// </summary>
-		/// <param name="collection">The <see cref="SignatureProxyCollection"/>
+		/// <param name="collection">The <see cref="ServiceEffectSpecificationProxyCollection"/>
 		/// whose elements are copied to the new collection.</param>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="collection"/> is a null reference.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList(ICollection)"/> for details.</remarks>
 
-		public SignatureProxyCollection(SignatureProxyCollection collection) 
+		public ServiceEffectSpecificationProxyCollection(ServiceEffectSpecificationProxyCollection collection) 
 		{
 			if (collection == null)
 				throw new ArgumentNullException("collection");
 
-			this._array = new SignatureProxy[collection.Count];
+			this._array = new ServiceEffectSpecificationProxy[collection.Count];
 			AddRange(collection);
 		}
 
 		#endregion
-		#region SignatureProxyCollection(SignatureProxy[])
+		#region ServiceEffectSpecificationProxyCollection(ServiceEffectSpecificationProxy[])
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="SignatureProxyCollection"/> class
-		/// that contains elements copied from the specified <see cref="SignatureProxy"/>
+		/// Initializes a new instance of the <see cref="ServiceEffectSpecificationProxyCollection"/> class
+		/// that contains elements copied from the specified <see cref="ServiceEffectSpecificationProxy"/>
 		/// array and that has the same initial capacity as the number of elements copied.
 		/// </summary>
-		/// <param name="array">An <see cref="Array"/> of <see cref="SignatureProxy"/>
+		/// <param name="array">An <see cref="Array"/> of <see cref="ServiceEffectSpecificationProxy"/>
 		/// elements that are copied to the new collection.</param>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="array"/> is a null reference.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList(ICollection)"/> for details.</remarks>
 
-		public SignatureProxyCollection(SignatureProxy[] array) 
+		public ServiceEffectSpecificationProxyCollection(ServiceEffectSpecificationProxy[] array) 
 		{
 			if (array == null)
 				throw new ArgumentNullException("array");
 
-			this._array = new SignatureProxy[array.Length];
+			this._array = new ServiceEffectSpecificationProxy[array.Length];
 			AddRange(array);
 		}
 
@@ -499,19 +499,19 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region InnerArray
         
 		/// <summary>
-		/// Gets the list of elements contained in the <see cref="SignatureProxyCollection"/> instance.
+		/// Gets the list of elements contained in the <see cref="ServiceEffectSpecificationProxyCollection"/> instance.
 		/// </summary>
 		/// <value>
 		/// A one-dimensional <see cref="Array"/> with zero-based indexing that contains all 
-		/// <see cref="SignatureProxy"/> elements in the <see cref="SignatureProxyCollection"/>.
+		/// <see cref="ServiceEffectSpecificationProxy"/> elements in the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </value>
 		/// <remarks>
-		/// Use <b>InnerArray</b> to access the element array of a <see cref="SignatureProxyCollection"/>
+		/// Use <b>InnerArray</b> to access the element array of a <see cref="ServiceEffectSpecificationProxyCollection"/>
 		/// instance that might be a read-only or synchronized wrapper. This is necessary because
 		/// the element array field of wrapper classes is always a null reference.
 		/// </remarks>
 
-		protected virtual SignatureProxy[] InnerArray 
+		protected virtual ServiceEffectSpecificationProxy[] InnerArray 
 		{
 			get { return this._array; }
 		}
@@ -522,10 +522,10 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Capacity
 
 		/// <summary>
-		/// Gets or sets the capacity of the <see cref="SignatureProxyCollection"/>.
+		/// Gets or sets the capacity of the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <value>The number of elements that the
-		/// <see cref="SignatureProxyCollection"/> can contain.</value>
+		/// <see cref="ServiceEffectSpecificationProxyCollection"/> can contain.</value>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <b>Capacity</b> is set to a value that is less than <see cref="Count"/>.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Capacity"/> for details.</remarks>
@@ -543,11 +543,11 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 				if (value == 0) 
 				{
-					this._array = new SignatureProxy[_defaultCapacity];
+					this._array = new ServiceEffectSpecificationProxy[_defaultCapacity];
 					return;
 				}
 
-				SignatureProxy[] newArray = new SignatureProxy[value];
+				ServiceEffectSpecificationProxy[] newArray = new ServiceEffectSpecificationProxy[value];
 				Array.Copy(this._array, newArray, this._count);
 				this._array = newArray;
 			}
@@ -557,10 +557,10 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Count
 
 		/// <summary>
-		/// Gets the number of elements contained in the <see cref="SignatureProxyCollection"/>.
+		/// Gets the number of elements contained in the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <value>
-		/// The number of elements contained in the <see cref="SignatureProxyCollection"/>.
+		/// The number of elements contained in the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </value>
 		/// <remarks>Please refer to <see cref="ArrayList.Count"/> for details.</remarks>
 
@@ -573,9 +573,9 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region IsFixedSize
 
 		/// <summary>
-		/// Gets a value indicating whether the <see cref="SignatureProxyCollection"/> has a fixed size.
+		/// Gets a value indicating whether the <see cref="ServiceEffectSpecificationProxyCollection"/> has a fixed size.
 		/// </summary>
-		/// <value><c>true</c> if the <see cref="SignatureProxyCollection"/> has a fixed size;
+		/// <value><c>true</c> if the <see cref="ServiceEffectSpecificationProxyCollection"/> has a fixed size;
 		/// otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="ArrayList.IsFixedSize"/> for details.</remarks>
 
@@ -588,9 +588,9 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region IsReadOnly
 
 		/// <summary>
-		/// Gets a value indicating whether the <see cref="SignatureProxyCollection"/> is read-only.
+		/// Gets a value indicating whether the <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.
 		/// </summary>
-		/// <value><c>true</c> if the <see cref="SignatureProxyCollection"/> is read-only;
+		/// <value><c>true</c> if the <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only;
 		/// otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="ArrayList.IsReadOnly"/> for details.</remarks>
 
@@ -603,10 +603,10 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region IsSynchronized
 
 		/// <summary>
-		/// Gets a value indicating whether access to the <see cref="SignatureProxyCollection"/>
+		/// Gets a value indicating whether access to the <see cref="ServiceEffectSpecificationProxyCollection"/>
 		/// is synchronized (thread-safe).
 		/// </summary>
-		/// <value><c>true</c> if access to the <see cref="SignatureProxyCollection"/> is
+		/// <value><c>true</c> if access to the <see cref="ServiceEffectSpecificationProxyCollection"/> is
 		/// synchronized (thread-safe); otherwise, <c>false</c>. The default is <c>false</c>.</value>
 		/// <remarks>Please refer to <see cref="ArrayList.IsSynchronized"/> for details.</remarks>
 
@@ -619,15 +619,15 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region IsUnique
 
 		/// <summary>
-		/// Gets a value indicating whether the <see cref="SignatureProxyCollection"/> 
+		/// Gets a value indicating whether the <see cref="ServiceEffectSpecificationProxyCollection"/> 
 		/// ensures that all elements are unique.
 		/// </summary>
 		/// <value>
-		/// <c>true</c> if the <see cref="SignatureProxyCollection"/> ensures that all 
+		/// <c>true</c> if the <see cref="ServiceEffectSpecificationProxyCollection"/> ensures that all 
 		/// elements are unique; otherwise, <c>false</c>. The default is <c>false</c>.
 		/// </value>
 		/// <remarks>
-		/// <b>IsUnique</b> returns <c>true</c> exactly if the <see cref="SignatureProxyCollection"/>
+		/// <b>IsUnique</b> returns <c>true</c> exactly if the <see cref="ServiceEffectSpecificationProxyCollection"/>
 		/// is exposed through a <see cref="Unique"/> wrapper. 
 		/// Please refer to <see cref="Unique"/> for details.
 		/// </remarks>
@@ -638,15 +638,15 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		}
 
 		#endregion
-		#region Item: SignatureProxy
+		#region Item: ServiceEffectSpecificationProxy
 
 		/// <summary>
-		/// Gets or sets the <see cref="SignatureProxy"/> element at the specified index.
+		/// Gets or sets the <see cref="ServiceEffectSpecificationProxy"/> element at the specified index.
 		/// </summary>
 		/// <param name="index">The zero-based index of the
-		/// <see cref="SignatureProxy"/> element to get or set.</param>
+		/// <see cref="ServiceEffectSpecificationProxy"/> element to get or set.</param>
 		/// <value>
-		/// The <see cref="SignatureProxy"/> element at the specified <paramref name="index"/>.
+		/// The <see cref="ServiceEffectSpecificationProxy"/> element at the specified <paramref name="index"/>.
 		/// </value>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
@@ -654,14 +654,14 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <para><paramref name="index"/> is equal to or greater than <see cref="Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException"><para>
-		/// The property is set and the <see cref="SignatureProxyCollection"/> is read-only.
+		/// The property is set and the <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.
 		/// </para><para>-or-</para><para>
-		/// The property is set, the <b>SignatureProxyCollection</b> already contains the
-		/// specified element at a different index, and the <b>SignatureProxyCollection</b>
+		/// The property is set, the <b>ServiceEffectSpecificationProxyCollection</b> already contains the
+		/// specified element at a different index, and the <b>ServiceEffectSpecificationProxyCollection</b>
 		/// ensures that all elements are unique.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.this"/> for details.</remarks>
 
-		public virtual SignatureProxy this[int index] 
+		public virtual ServiceEffectSpecificationProxy this[int index] 
 		{
 			get 
 			{
@@ -685,7 +685,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <param name="index">The zero-based index of the element to get or set.</param>
 		/// <value>
 		/// The element at the specified <paramref name="index"/>. When the property
-		/// is set, this value must be compatible with <see cref="SignatureProxy"/>.
+		/// is set, this value must be compatible with <see cref="ServiceEffectSpecificationProxy"/>.
 		/// </value>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
@@ -693,19 +693,19 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <para><paramref name="index"/> is equal to or greater than <see cref="Count"/>.</para>
 		/// </exception>
 		/// <exception cref="InvalidCastException">The property is set to a value
-		/// that is not compatible with <see cref="SignatureProxy"/>.</exception>
+		/// that is not compatible with <see cref="ServiceEffectSpecificationProxy"/>.</exception>
 		/// <exception cref="NotSupportedException"><para>
-		/// The property is set and the <see cref="SignatureProxyCollection"/> is read-only.
+		/// The property is set and the <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.
 		/// </para><para>-or-</para><para>
-		/// The property is set, the <b>SignatureProxyCollection</b> already contains the
-		/// specified element at a different index, and the <b>SignatureProxyCollection</b>
+		/// The property is set, the <b>ServiceEffectSpecificationProxyCollection</b> already contains the
+		/// specified element at a different index, and the <b>ServiceEffectSpecificationProxyCollection</b>
 		/// ensures that all elements are unique.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.this"/> for details.</remarks>
 
 		object IList.this[int index] 
 		{
 			get { return this[index]; }
-			set { this[index] = (SignatureProxy) value; }
+			set { this[index] = (ServiceEffectSpecificationProxy) value; }
 		}
 
 		#endregion
@@ -713,10 +713,10 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 		/// <summary>
 		/// Gets an object that can be used to synchronize
-		/// access to the <see cref="SignatureProxyCollection"/>.
+		/// access to the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <value>An object that can be used to synchronize
-		/// access to the <see cref="SignatureProxyCollection"/>.
+		/// access to the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </value>
 		/// <remarks>Please refer to <see cref="ArrayList.SyncRoot"/> for details.</remarks>
 
@@ -728,28 +728,28 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#endregion
 		#endregion
 		#region Public Methods
-		#region Add(SignatureProxy)
+		#region Add(ServiceEffectSpecificationProxy)
 
 		/// <summary>
-		/// Adds a <see cref="SignatureProxy"/> to the end of the <see cref="SignatureProxyCollection"/>.
+		/// Adds a <see cref="ServiceEffectSpecificationProxy"/> to the end of the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <param name="value">The <see cref="SignatureProxy"/> object
-		/// to be added to the end of the <see cref="SignatureProxyCollection"/>.
+		/// <param name="value">The <see cref="ServiceEffectSpecificationProxy"/> object
+		/// to be added to the end of the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// This argument can be a null reference.
 		/// </param>
-		/// <returns>The <see cref="SignatureProxyCollection"/> index at which the
+		/// <returns>The <see cref="ServiceEffectSpecificationProxyCollection"/> index at which the
 		/// <paramref name="value"/> has been added.</returns>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> already contains the specified
-		/// <paramref name="value"/>, and the <b>SignatureProxyCollection</b>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> already contains the specified
+		/// <paramref name="value"/>, and the <b>ServiceEffectSpecificationProxyCollection</b>
 		/// ensures that all elements are unique.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Add"/> for details.</remarks>
 
-		public virtual int Add(SignatureProxy value) 
+		public virtual int Add(ServiceEffectSpecificationProxy value) 
 		{
 			if (this._count == this._array.Length)
 				EnsureCapacity(this._count + 1);
@@ -763,56 +763,56 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region IList.Add(Object)
 
 		/// <summary>
-		/// Adds an <see cref="Object"/> to the end of the <see cref="SignatureProxyCollection"/>.
+		/// Adds an <see cref="Object"/> to the end of the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <param name="value">
-		/// The object to be added to the end of the <see cref="SignatureProxyCollection"/>.
-		/// This argument must be compatible with <see cref="SignatureProxy"/>.
+		/// The object to be added to the end of the <see cref="ServiceEffectSpecificationProxyCollection"/>.
+		/// This argument must be compatible with <see cref="ServiceEffectSpecificationProxy"/>.
 		/// This argument can be a null reference.
 		/// </param>
-		/// <returns>The <see cref="SignatureProxyCollection"/> index at which the
+		/// <returns>The <see cref="ServiceEffectSpecificationProxyCollection"/> index at which the
 		/// <paramref name="value"/> has been added.</returns>
 		/// <exception cref="InvalidCastException"><paramref name="value"/>
-		/// is not compatible with <see cref="SignatureProxy"/>.</exception>
+		/// is not compatible with <see cref="ServiceEffectSpecificationProxy"/>.</exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> already contains the specified
-		/// <paramref name="value"/>, and the <b>SignatureProxyCollection</b>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> already contains the specified
+		/// <paramref name="value"/>, and the <b>ServiceEffectSpecificationProxyCollection</b>
 		/// ensures that all elements are unique.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Add"/> for details.</remarks>
 
 		int IList.Add(object value) 
 		{
-			return Add((SignatureProxy) value);
+			return Add((ServiceEffectSpecificationProxy) value);
 		}
 
 		#endregion
-		#region AddRange(SignatureProxyCollection)
+		#region AddRange(ServiceEffectSpecificationProxyCollection)
 
 		/// <overloads>
-		/// Adds a range of elements to the end of the <see cref="SignatureProxyCollection"/>.
+		/// Adds a range of elements to the end of the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </overloads>
 		/// <summary>
-		/// Adds the elements of another collection to the end of the <see cref="SignatureProxyCollection"/>.
+		/// Adds the elements of another collection to the end of the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <param name="collection">The <see cref="SignatureProxyCollection"/> whose elements
+		/// <param name="collection">The <see cref="ServiceEffectSpecificationProxyCollection"/> whose elements
 		/// should be added to the end of the current collection.</param>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="collection"/> is a null reference.</exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> already contains one or more elements
-		/// in the specified <paramref name="collection"/>, and the <b>SignatureProxyCollection</b>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> already contains one or more elements
+		/// in the specified <paramref name="collection"/>, and the <b>ServiceEffectSpecificationProxyCollection</b>
 		/// ensures that all elements are unique.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.AddRange"/> for details.</remarks>
 
-		public virtual void AddRange(SignatureProxyCollection collection) 
+		public virtual void AddRange(ServiceEffectSpecificationProxyCollection collection) 
 		{
 			if (collection == null)
 				throw new ArgumentNullException("collection");
@@ -828,27 +828,27 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		}
 
 		#endregion
-		#region AddRange(SignatureProxy[])
+		#region AddRange(ServiceEffectSpecificationProxy[])
 
 		/// <summary>
-		/// Adds the elements of a <see cref="SignatureProxy"/> array
-		/// to the end of the <see cref="SignatureProxyCollection"/>.
+		/// Adds the elements of a <see cref="ServiceEffectSpecificationProxy"/> array
+		/// to the end of the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <param name="array">An <see cref="Array"/> of <see cref="SignatureProxy"/> elements
-		/// that should be added to the end of the <see cref="SignatureProxyCollection"/>.</param>
+		/// <param name="array">An <see cref="Array"/> of <see cref="ServiceEffectSpecificationProxy"/> elements
+		/// that should be added to the end of the <see cref="ServiceEffectSpecificationProxyCollection"/>.</param>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="array"/> is a null reference.</exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> already contains one or more elements
-		/// in the specified <paramref name="array"/>, and the <b>SignatureProxyCollection</b>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> already contains one or more elements
+		/// in the specified <paramref name="array"/>, and the <b>ServiceEffectSpecificationProxyCollection</b>
 		/// ensures that all elements are unique.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.AddRange"/> for details.</remarks>
 
-		public virtual void AddRange(SignatureProxy[] array) 
+		public virtual void AddRange(ServiceEffectSpecificationProxy[] array) 
 		{
 			if (array == null)
 				throw new ArgumentNullException("array");
@@ -866,25 +866,25 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region BinarySearch
 
 		/// <summary>
-		/// Searches the entire sorted <see cref="SignatureProxyCollection"/> for an
-		/// <see cref="SignatureProxy"/> element using the default comparer
+		/// Searches the entire sorted <see cref="ServiceEffectSpecificationProxyCollection"/> for an
+		/// <see cref="ServiceEffectSpecificationProxy"/> element using the default comparer
 		/// and returns the zero-based index of the element.
 		/// </summary>
-		/// <param name="value">The <see cref="SignatureProxy"/> object
-		/// to locate in the <see cref="SignatureProxyCollection"/>.
+		/// <param name="value">The <see cref="ServiceEffectSpecificationProxy"/> object
+		/// to locate in the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <returns>The zero-based index of <paramref name="value"/> in the sorted
-		/// <see cref="SignatureProxyCollection"/>, if <paramref name="value"/> is found;
+		/// <see cref="ServiceEffectSpecificationProxyCollection"/>, if <paramref name="value"/> is found;
 		/// otherwise, a negative number, which is the bitwise complement of the index
 		/// of the next element that is larger than <paramref name="value"/> or, if there
 		/// is no larger element, the bitwise complement of <see cref="Count"/>.</returns>
 		/// <exception cref="InvalidOperationException">
-		/// Neither <paramref name="value"/> nor the elements of the <see cref="SignatureProxyCollection"/>
+		/// Neither <paramref name="value"/> nor the elements of the <see cref="ServiceEffectSpecificationProxyCollection"/>
 		/// implement the <see cref="IComparable"/> interface.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.BinarySearch"/> for details.</remarks>
 
-		public virtual int BinarySearch(SignatureProxy value) 
+		public virtual int BinarySearch(ServiceEffectSpecificationProxy value) 
 		{
 			return Array.BinarySearch(this._array, 0, this._count, value);
 		}
@@ -893,12 +893,12 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Clear
 
 		/// <summary>
-		/// Removes all elements from the <see cref="SignatureProxyCollection"/>.
+		/// Removes all elements from the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para></exception>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Clear"/> for details.</remarks>
 
 		public virtual void Clear() 
@@ -914,14 +914,14 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Clone
 
 		/// <summary>
-		/// Creates a shallow copy of the <see cref="SignatureProxyCollection"/>.
+		/// Creates a shallow copy of the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <returns>A shallow copy of the <see cref="SignatureProxyCollection"/>.</returns>
+		/// <returns>A shallow copy of the <see cref="ServiceEffectSpecificationProxyCollection"/>.</returns>
 		/// <remarks>Please refer to <see cref="ArrayList.Clone"/> for details.</remarks>
 
 		public virtual object Clone() 
 		{
-			SignatureProxyCollection collection = new SignatureProxyCollection(this._count);
+			ServiceEffectSpecificationProxyCollection collection = new ServiceEffectSpecificationProxyCollection(this._count);
 
 			Array.Copy(this._array, 0, collection._array, 0, this._count);
 			collection._count = this._count;
@@ -931,21 +931,21 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		}
 
 		#endregion
-		#region Contains(SignatureProxy)
+		#region Contains(ServiceEffectSpecificationProxy)
 
 		/// <summary>
-		/// Determines whether the <see cref="SignatureProxyCollection"/>
-		/// contains the specified <see cref="SignatureProxy"/> element.
+		/// Determines whether the <see cref="ServiceEffectSpecificationProxyCollection"/>
+		/// contains the specified <see cref="ServiceEffectSpecificationProxy"/> element.
 		/// </summary>
-		/// <param name="value">The <see cref="SignatureProxy"/> object
-		/// to locate in the <see cref="SignatureProxyCollection"/>.
+		/// <param name="value">The <see cref="ServiceEffectSpecificationProxy"/> object
+		/// to locate in the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <returns><c>true</c> if <paramref name="value"/> is found in the
-		/// <see cref="SignatureProxyCollection"/>; otherwise, <c>false</c>.</returns>
+		/// <see cref="ServiceEffectSpecificationProxyCollection"/>; otherwise, <c>false</c>.</returns>
 		/// <remarks>Please refer to <see cref="ArrayList.Contains"/> for details.</remarks>
 
-		public bool Contains(SignatureProxy value) 
+		public bool Contains(ServiceEffectSpecificationProxy value) 
 		{
 			return (IndexOf(value) >= 0);
 		}
@@ -954,58 +954,58 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region IList.Contains(Object)
 
 		/// <summary>
-		/// Determines whether the <see cref="SignatureProxyCollection"/> contains the specified element.
+		/// Determines whether the <see cref="ServiceEffectSpecificationProxyCollection"/> contains the specified element.
 		/// </summary>
-		/// <param name="value">The object to locate in the <see cref="SignatureProxyCollection"/>.
-		/// This argument must be compatible with <see cref="SignatureProxy"/>.
+		/// <param name="value">The object to locate in the <see cref="ServiceEffectSpecificationProxyCollection"/>.
+		/// This argument must be compatible with <see cref="ServiceEffectSpecificationProxy"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <returns><c>true</c> if <paramref name="value"/> is found in the
-		/// <see cref="SignatureProxyCollection"/>; otherwise, <c>false</c>.</returns>
+		/// <see cref="ServiceEffectSpecificationProxyCollection"/>; otherwise, <c>false</c>.</returns>
 		/// <exception cref="InvalidCastException"><paramref name="value"/>
-		/// is not compatible with <see cref="SignatureProxy"/>.</exception>
+		/// is not compatible with <see cref="ServiceEffectSpecificationProxy"/>.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Contains"/> for details.</remarks>
 
 		bool IList.Contains(object value) 
 		{
-			return Contains((SignatureProxy) value);
+			return Contains((ServiceEffectSpecificationProxy) value);
 		}
 
 		#endregion
-		#region CopyTo(SignatureProxy[])
+		#region CopyTo(ServiceEffectSpecificationProxy[])
 
 		/// <overloads>
-		/// Copies the <see cref="SignatureProxyCollection"/> or a portion of it to a one-dimensional array.
+		/// Copies the <see cref="ServiceEffectSpecificationProxyCollection"/> or a portion of it to a one-dimensional array.
 		/// </overloads>
 		/// <summary>
-		/// Copies the entire <see cref="SignatureProxyCollection"/> to a one-dimensional <see cref="Array"/>
-		/// of <see cref="SignatureProxy"/> elements, starting at the beginning of the target array.
+		/// Copies the entire <see cref="ServiceEffectSpecificationProxyCollection"/> to a one-dimensional <see cref="Array"/>
+		/// of <see cref="ServiceEffectSpecificationProxy"/> elements, starting at the beginning of the target array.
 		/// </summary>
 		/// <param name="array">The one-dimensional <see cref="Array"/> that is the destination of the
-		/// <see cref="SignatureProxy"/> elements copied from the <see cref="SignatureProxyCollection"/>.
+		/// <see cref="ServiceEffectSpecificationProxy"/> elements copied from the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// The <b>Array</b> must have zero-based indexing.</param>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="array"/> is a null reference.</exception>
 		/// <exception cref="ArgumentException">
-		/// The number of elements in the source <see cref="SignatureProxyCollection"/> is greater
+		/// The number of elements in the source <see cref="ServiceEffectSpecificationProxyCollection"/> is greater
 		/// than the available space in the destination <paramref name="array"/>.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.CopyTo"/> for details.</remarks>
 
-		public virtual void CopyTo(SignatureProxy[] array) 
+		public virtual void CopyTo(ServiceEffectSpecificationProxy[] array) 
 		{
 			CheckTargetArray(array, 0);
 			Array.Copy(this._array, array, this._count);
 		}
 
 		#endregion
-		#region CopyTo(SignatureProxy[], Int32)
+		#region CopyTo(ServiceEffectSpecificationProxy[], Int32)
 
 		/// <summary>
-		/// Copies the entire <see cref="SignatureProxyCollection"/> to a one-dimensional <see cref="Array"/>
-		/// of <see cref="SignatureProxy"/> elements, starting at the specified index of the target array.
+		/// Copies the entire <see cref="ServiceEffectSpecificationProxyCollection"/> to a one-dimensional <see cref="Array"/>
+		/// of <see cref="ServiceEffectSpecificationProxy"/> elements, starting at the specified index of the target array.
 		/// </summary>
 		/// <param name="array">The one-dimensional <see cref="Array"/> that is the destination of the
-		/// <see cref="SignatureProxy"/> elements copied from the <see cref="SignatureProxyCollection"/>.
+		/// <see cref="ServiceEffectSpecificationProxy"/> elements copied from the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// The <b>Array</b> must have zero-based indexing.</param>
 		/// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
 		/// at which copying begins.</param>
@@ -1016,12 +1016,12 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <exception cref="ArgumentException"><para>
 		/// <paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.
 		/// </para><para>-or-</para><para>
-		/// The number of elements in the source <see cref="SignatureProxyCollection"/> is greater than the
+		/// The number of elements in the source <see cref="ServiceEffectSpecificationProxyCollection"/> is greater than the
 		/// available space from <paramref name="arrayIndex"/> to the end of the destination
 		/// <paramref name="array"/>.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.CopyTo"/> for details.</remarks>
 
-		public virtual void CopyTo(SignatureProxy[] array, int arrayIndex) 
+		public virtual void CopyTo(ServiceEffectSpecificationProxy[] array, int arrayIndex) 
 		{
 			CheckTargetArray(array, arrayIndex);
 			Array.Copy(this._array, 0, array, arrayIndex, this._count);
@@ -1031,11 +1031,11 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region ICollection.CopyTo(Array, Int32)
 
 		/// <summary>
-		/// Copies the entire <see cref="SignatureProxyCollection"/> to a one-dimensional <see cref="Array"/>,
+		/// Copies the entire <see cref="ServiceEffectSpecificationProxyCollection"/> to a one-dimensional <see cref="Array"/>,
 		/// starting at the specified index of the target array.
 		/// </summary>
 		/// <param name="array">The one-dimensional <see cref="Array"/> that is the destination of the
-		/// <see cref="SignatureProxy"/> elements copied from the <see cref="SignatureProxyCollection"/>.
+		/// <see cref="ServiceEffectSpecificationProxy"/> elements copied from the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// The <b>Array</b> must have zero-based indexing.</param>
 		/// <param name="arrayIndex">The zero-based index in <paramref name="array"/>
 		/// at which copying begins.</param>
@@ -1048,31 +1048,31 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// </para><para>-or-</para><para>
 		/// <paramref name="arrayIndex"/> is equal to or greater than the length of <paramref name="array"/>.
 		/// </para><para>-or-</para><para>
-		/// The number of elements in the source <see cref="SignatureProxyCollection"/> is greater than the
+		/// The number of elements in the source <see cref="ServiceEffectSpecificationProxyCollection"/> is greater than the
 		/// available space from <paramref name="arrayIndex"/> to the end of the destination
 		/// <paramref name="array"/>.</para></exception>
 		/// <exception cref="InvalidCastException">
-		/// The <see cref="SignatureProxy"/> type cannot be cast automatically
+		/// The <see cref="ServiceEffectSpecificationProxy"/> type cannot be cast automatically
 		/// to the type of the destination <paramref name="array"/>.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.CopyTo"/> for details.</remarks>
 
 		void ICollection.CopyTo(Array array, int arrayIndex) 
 		{
-			CopyTo((SignatureProxy[]) array, arrayIndex);
+			CopyTo((ServiceEffectSpecificationProxy[]) array, arrayIndex);
 		}
 
 		#endregion
-		#region GetEnumerator: ISignatureProxyEnumerator
+		#region GetEnumerator: IServiceEffectSpecificationProxyEnumerator
 
 		/// <summary>
-		/// Returns an <see cref="ISignatureProxyEnumerator"/> that can
-		/// iterate through the <see cref="SignatureProxyCollection"/>.
+		/// Returns an <see cref="IServiceEffectSpecificationProxyEnumerator"/> that can
+		/// iterate through the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <returns>An <see cref="ISignatureProxyEnumerator"/>
-		/// for the entire <see cref="SignatureProxyCollection"/>.</returns>
+		/// <returns>An <see cref="IServiceEffectSpecificationProxyEnumerator"/>
+		/// for the entire <see cref="ServiceEffectSpecificationProxyCollection"/>.</returns>
 		/// <remarks>Please refer to <see cref="ArrayList.GetEnumerator"/> for details.</remarks>
 
-		public virtual ISignatureProxyEnumerator GetEnumerator() 
+		public virtual IServiceEffectSpecificationProxyEnumerator GetEnumerator() 
 		{
 			return new Enumerator(this);
 		}
@@ -1082,10 +1082,10 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 		/// <summary>
 		/// Returns an <see cref="IEnumerator"/> that can
-		/// iterate through the <see cref="SignatureProxyCollection"/>.
+		/// iterate through the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <returns>An <see cref="IEnumerator"/>
-		/// for the entire <see cref="SignatureProxyCollection"/>.</returns>
+		/// for the entire <see cref="ServiceEffectSpecificationProxyCollection"/>.</returns>
 		/// <remarks>Please refer to <see cref="ArrayList.GetEnumerator"/> for details.</remarks>
 
 		IEnumerator IEnumerable.GetEnumerator() 
@@ -1094,23 +1094,23 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		}
 
 		#endregion
-		#region IndexOf(SignatureProxy)
+		#region IndexOf(ServiceEffectSpecificationProxy)
 
 		/// <summary>
 		/// Returns the zero-based index of the first occurrence of the specified
-		/// <see cref="SignatureProxy"/> in the <see cref="SignatureProxyCollection"/>.
+		/// <see cref="ServiceEffectSpecificationProxy"/> in the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <param name="value">The <see cref="SignatureProxy"/> object
-		/// to locate in the <see cref="SignatureProxyCollection"/>.
+		/// <param name="value">The <see cref="ServiceEffectSpecificationProxy"/> object
+		/// to locate in the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <returns>
 		/// The zero-based index of the first occurrence of <paramref name="value"/>
-		/// in the <see cref="SignatureProxyCollection"/>, if found; otherwise, -1.
+		/// in the <see cref="ServiceEffectSpecificationProxyCollection"/>, if found; otherwise, -1.
 		/// </returns>
 		/// <remarks>Please refer to <see cref="ArrayList.IndexOf"/> for details.</remarks>
 
-		public virtual int IndexOf(SignatureProxy value) 
+		public virtual int IndexOf(ServiceEffectSpecificationProxy value) 
 		{
 			return Array.IndexOf(this._array, value, 0, this._count);
 		}
@@ -1120,36 +1120,36 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 		/// <summary>
 		/// Returns the zero-based index of the first occurrence of the specified
-		/// <see cref="Object"/> in the <see cref="SignatureProxyCollection"/>.
+		/// <see cref="Object"/> in the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <param name="value">The object to locate in the <see cref="SignatureProxyCollection"/>.
-		/// This argument must be compatible with <see cref="SignatureProxy"/>.
+		/// <param name="value">The object to locate in the <see cref="ServiceEffectSpecificationProxyCollection"/>.
+		/// This argument must be compatible with <see cref="ServiceEffectSpecificationProxy"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <returns>
 		/// The zero-based index of the first occurrence of <paramref name="value"/>
-		/// in the <see cref="SignatureProxyCollection"/>, if found; otherwise, -1.
+		/// in the <see cref="ServiceEffectSpecificationProxyCollection"/>, if found; otherwise, -1.
 		/// </returns>
 		/// <exception cref="InvalidCastException"><paramref name="value"/>
-		/// is not compatible with <see cref="SignatureProxy"/>.</exception>
+		/// is not compatible with <see cref="ServiceEffectSpecificationProxy"/>.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.IndexOf"/> for details.</remarks>
 
 		int IList.IndexOf(object value) 
 		{
-			return IndexOf((SignatureProxy) value);
+			return IndexOf((ServiceEffectSpecificationProxy) value);
 		}
 
 		#endregion
-		#region Insert(Int32, SignatureProxy)
+		#region Insert(Int32, ServiceEffectSpecificationProxy)
 
 		/// <summary>
-		/// Inserts a <see cref="SignatureProxy"/> element into the
-		/// <see cref="SignatureProxyCollection"/> at the specified index.
+		/// Inserts a <see cref="ServiceEffectSpecificationProxy"/> element into the
+		/// <see cref="ServiceEffectSpecificationProxyCollection"/> at the specified index.
 		/// </summary>
 		/// <param name="index">The zero-based index at which <paramref name="value"/>
 		/// should be inserted.</param>
-		/// <param name="value">The <see cref="SignatureProxy"/> object
-		/// to insert into the <see cref="SignatureProxyCollection"/>.
+		/// <param name="value">The <see cref="ServiceEffectSpecificationProxy"/> object
+		/// to insert into the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <exception cref="ArgumentOutOfRangeException">
@@ -1158,16 +1158,16 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <para><paramref name="index"/> is greater than <see cref="Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> already contains the specified
-		/// <paramref name="value"/>, and the <b>SignatureProxyCollection</b>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> already contains the specified
+		/// <paramref name="value"/>, and the <b>ServiceEffectSpecificationProxyCollection</b>
 		/// ensures that all elements are unique.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Insert"/> for details.</remarks>
 
-		public virtual void Insert(int index, SignatureProxy value) 
+		public virtual void Insert(int index, ServiceEffectSpecificationProxy value) 
 		{
 			if (index < 0)
 				throw new ArgumentOutOfRangeException("index",
@@ -1193,12 +1193,12 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region IList.Insert(Int32, Object)
 
 		/// <summary>
-		/// Inserts an element into the <see cref="SignatureProxyCollection"/> at the specified index.
+		/// Inserts an element into the <see cref="ServiceEffectSpecificationProxyCollection"/> at the specified index.
 		/// </summary>
 		/// <param name="index">The zero-based index at which <paramref name="value"/>
 		/// should be inserted.</param>
-		/// <param name="value">The object to insert into the <see cref="SignatureProxyCollection"/>.
-		/// This argument must be compatible with <see cref="SignatureProxy"/>.
+		/// <param name="value">The object to insert into the <see cref="ServiceEffectSpecificationProxyCollection"/>.
+		/// This argument must be compatible with <see cref="ServiceEffectSpecificationProxy"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <exception cref="ArgumentOutOfRangeException">
@@ -1207,35 +1207,35 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <para><paramref name="index"/> is greater than <see cref="Count"/>.</para>
 		/// </exception>
 		/// <exception cref="InvalidCastException"><paramref name="value"/>
-		/// is not compatible with <see cref="SignatureProxy"/>.</exception>
+		/// is not compatible with <see cref="ServiceEffectSpecificationProxy"/>.</exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> already contains the specified
-		/// <paramref name="value"/>, and the <b>SignatureProxyCollection</b>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> already contains the specified
+		/// <paramref name="value"/>, and the <b>ServiceEffectSpecificationProxyCollection</b>
 		/// ensures that all elements are unique.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Insert"/> for details.</remarks>
 
 		void IList.Insert(int index, object value) 
 		{
-			Insert(index, (SignatureProxy) value);
+			Insert(index, (ServiceEffectSpecificationProxy) value);
 		}
 
 		#endregion
 		#region ReadOnly
 
 		/// <summary>
-		/// Returns a read-only wrapper for the specified <see cref="SignatureProxyCollection"/>.
+		/// Returns a read-only wrapper for the specified <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <param name="collection">The <see cref="SignatureProxyCollection"/> to wrap.</param>
+		/// <param name="collection">The <see cref="ServiceEffectSpecificationProxyCollection"/> to wrap.</param>
 		/// <returns>A read-only wrapper around <paramref name="collection"/>.</returns>
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="collection"/> is a null reference.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.ReadOnly"/> for details.</remarks>
 
-		public static SignatureProxyCollection ReadOnly(SignatureProxyCollection collection) 
+		public static ServiceEffectSpecificationProxyCollection ReadOnly(ServiceEffectSpecificationProxyCollection collection) 
 		{
 			if (collection == null)
 				throw new ArgumentNullException("collection");
@@ -1244,23 +1244,23 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		}
 
 		#endregion
-		#region Remove(SignatureProxy)
+		#region Remove(ServiceEffectSpecificationProxy)
 
 		/// <summary>
-		/// Removes the first occurrence of the specified <see cref="SignatureProxy"/>
-		/// from the <see cref="SignatureProxyCollection"/>.
+		/// Removes the first occurrence of the specified <see cref="ServiceEffectSpecificationProxy"/>
+		/// from the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <param name="value">The <see cref="SignatureProxy"/> object
-		/// to remove from the <see cref="SignatureProxyCollection"/>.
+		/// <param name="value">The <see cref="ServiceEffectSpecificationProxy"/> object
+		/// to remove from the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para></exception>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Remove"/> for details.</remarks>
 
-		public virtual void Remove(SignatureProxy value) 
+		public virtual void Remove(ServiceEffectSpecificationProxy value) 
 		{
 			int index = IndexOf(value);
 			if (index >= 0) RemoveAt(index);
@@ -1271,30 +1271,30 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 		/// <summary>
 		/// Removes the first occurrence of the specified <see cref="Object"/>
-		/// from the <see cref="SignatureProxyCollection"/>.
+		/// from the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <param name="value">The object to remove from the <see cref="SignatureProxyCollection"/>.
-		/// This argument must be compatible with <see cref="SignatureProxy"/>.
+		/// <param name="value">The object to remove from the <see cref="ServiceEffectSpecificationProxyCollection"/>.
+		/// This argument must be compatible with <see cref="ServiceEffectSpecificationProxy"/>.
 		/// This argument can be a null reference.
 		/// </param>
 		/// <exception cref="InvalidCastException"><paramref name="value"/>
-		/// is not compatible with <see cref="SignatureProxy"/>.</exception>
+		/// is not compatible with <see cref="ServiceEffectSpecificationProxy"/>.</exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para></exception>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Remove"/> for details.</remarks>
 
 		void IList.Remove(object value) 
 		{
-			Remove((SignatureProxy) value);
+			Remove((ServiceEffectSpecificationProxy) value);
 		}
 
 		#endregion
 		#region RemoveAt
 
 		/// <summary>
-		/// Removes the element at the specified index of the <see cref="SignatureProxyCollection"/>.
+		/// Removes the element at the specified index of the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <param name="index">The zero-based index of the element to remove.</param>
 		/// <exception cref="ArgumentOutOfRangeException">
@@ -1303,9 +1303,9 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <para><paramref name="index"/> is equal to or greater than <see cref="Count"/>.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para></exception>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.RemoveAt"/> for details.</remarks>
 
 		public virtual void RemoveAt(int index) 
@@ -1324,23 +1324,23 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region RemoveRange
 
 		/// <summary>
-		/// Removes the specified range of elements from the <see cref="SignatureProxyCollection"/>.
+		/// Removes the specified range of elements from the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <param name="index">The zero-based starting index of the range
 		/// of elements to remove.</param>
 		/// <param name="count">The number of elements to remove.</param>
 		/// <exception cref="ArgumentException">
 		/// <paramref name="index"/> and <paramref name="count"/> do not denote a
-		/// valid range of elements in the <see cref="SignatureProxyCollection"/>.</exception>
+		/// valid range of elements in the <see cref="ServiceEffectSpecificationProxyCollection"/>.</exception>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="count"/> is less than zero.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para></exception>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.RemoveRange"/> for details.</remarks>
 
 		public virtual void RemoveRange(int index, int count) 
@@ -1374,13 +1374,13 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 		/// <overloads>
 		/// Reverses the order of the elements in the 
-		/// <see cref="SignatureProxyCollection"/> or a portion of it.
+		/// <see cref="ServiceEffectSpecificationProxyCollection"/> or a portion of it.
 		/// </overloads>
 		/// <summary>
-		/// Reverses the order of the elements in the entire <see cref="SignatureProxyCollection"/>.
+		/// Reverses the order of the elements in the entire <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <exception cref="NotSupportedException">
-		/// The <see cref="SignatureProxyCollection"/> is read-only.</exception>
+		/// The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Reverse"/> for details.</remarks>
 
 		public virtual void Reverse() 
@@ -1401,14 +1401,14 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <param name="count">The number of elements to reverse.</param>
 		/// <exception cref="ArgumentException">
 		/// <paramref name="index"/> and <paramref name="count"/> do not denote a
-		/// valid range of elements in the <see cref="SignatureProxyCollection"/>.</exception>
+		/// valid range of elements in the <see cref="ServiceEffectSpecificationProxyCollection"/>.</exception>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="count"/> is less than zero.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// The <see cref="SignatureProxyCollection"/> is read-only.</exception>
+		/// The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Reverse"/> for details.</remarks>
 
 		public virtual void Reverse(int index, int count) 
@@ -1434,14 +1434,14 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Sort()
 
 		/// <overloads>
-		/// Sorts the elements in the <see cref="SignatureProxyCollection"/> or a portion of it.
+		/// Sorts the elements in the <see cref="ServiceEffectSpecificationProxyCollection"/> or a portion of it.
 		/// </overloads>
 		/// <summary>
-		/// Sorts the elements in the entire <see cref="SignatureProxyCollection"/>
+		/// Sorts the elements in the entire <see cref="ServiceEffectSpecificationProxyCollection"/>
 		/// using the <see cref="IComparable"/> implementation of each element.
 		/// </summary>
 		/// <exception cref="NotSupportedException">
-		/// The <see cref="SignatureProxyCollection"/> is read-only.</exception>
+		/// The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Sort"/> for details.</remarks>
 
 		public virtual void Sort() 
@@ -1455,7 +1455,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Sort(IComparer)
 
 		/// <summary>
-		/// Sorts the elements in the entire <see cref="SignatureProxyCollection"/>
+		/// Sorts the elements in the entire <see cref="ServiceEffectSpecificationProxyCollection"/>
 		/// using the specified <see cref="IComparer"/> interface.
 		/// </summary>
 		/// <param name="comparer">
@@ -1464,7 +1464,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <para>A null reference to use the <see cref="IComparable"/> implementation 
 		/// of each element.</para></param>
 		/// <exception cref="NotSupportedException">
-		/// The <see cref="SignatureProxyCollection"/> is read-only.</exception>
+		/// The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Sort"/> for details.</remarks>
 
 		public virtual void Sort(IComparer comparer) 
@@ -1491,14 +1491,14 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// of each element.</para></param>
 		/// <exception cref="ArgumentException">
 		/// <paramref name="index"/> and <paramref name="count"/> do not denote a
-		/// valid range of elements in the <see cref="SignatureProxyCollection"/>.</exception>
+		/// valid range of elements in the <see cref="ServiceEffectSpecificationProxyCollection"/>.</exception>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// <para><paramref name="index"/> is less than zero.</para>
 		/// <para>-or-</para>
 		/// <para><paramref name="count"/> is less than zero.</para>
 		/// </exception>
 		/// <exception cref="NotSupportedException">
-		/// The <see cref="SignatureProxyCollection"/> is read-only.</exception>
+		/// The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Sort"/> for details.</remarks>
 
 		public virtual void Sort(int index, int count, IComparer comparer) 
@@ -1525,9 +1525,9 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 		/// <summary>
 		/// Returns a synchronized (thread-safe) wrapper
-		/// for the specified <see cref="SignatureProxyCollection"/>.
+		/// for the specified <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
-		/// <param name="collection">The <see cref="SignatureProxyCollection"/> to synchronize.</param>
+		/// <param name="collection">The <see cref="ServiceEffectSpecificationProxyCollection"/> to synchronize.</param>
 		/// <returns>
 		/// A synchronized (thread-safe) wrapper around <paramref name="collection"/>.
 		/// </returns>
@@ -1535,7 +1535,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <paramref name="collection"/> is a null reference.</exception>
 		/// <remarks>Please refer to <see cref="ArrayList.Synchronized"/> for details.</remarks>
 
-		public static SignatureProxyCollection Synchronized(SignatureProxyCollection collection) 
+		public static ServiceEffectSpecificationProxyCollection Synchronized(ServiceEffectSpecificationProxyCollection collection) 
 		{
 			if (collection == null)
 				throw new ArgumentNullException("collection");
@@ -1547,16 +1547,16 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region ToArray
 
 		/// <summary>
-		/// Copies the elements of the <see cref="SignatureProxyCollection"/> to a new
-		/// <see cref="Array"/> of <see cref="SignatureProxy"/> elements.
+		/// Copies the elements of the <see cref="ServiceEffectSpecificationProxyCollection"/> to a new
+		/// <see cref="Array"/> of <see cref="ServiceEffectSpecificationProxy"/> elements.
 		/// </summary>
-		/// <returns>A one-dimensional <see cref="Array"/> of <see cref="SignatureProxy"/>
-		/// elements containing copies of the elements of the <see cref="SignatureProxyCollection"/>.</returns>
+		/// <returns>A one-dimensional <see cref="Array"/> of <see cref="ServiceEffectSpecificationProxy"/>
+		/// elements containing copies of the elements of the <see cref="ServiceEffectSpecificationProxyCollection"/>.</returns>
 		/// <remarks>Please refer to <see cref="ArrayList.ToArray"/> for details.</remarks>
 
-		public virtual SignatureProxy[] ToArray() 
+		public virtual ServiceEffectSpecificationProxy[] ToArray() 
 		{
-			SignatureProxy[] array = new SignatureProxy[this._count];
+			ServiceEffectSpecificationProxy[] array = new ServiceEffectSpecificationProxy[this._count];
 			Array.Copy(this._array, array, this._count);
 			return array;
 		}
@@ -1565,12 +1565,12 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region TrimToSize
 
 		/// <summary>
-		/// Sets the capacity to the actual number of elements in the <see cref="SignatureProxyCollection"/>.
+		/// Sets the capacity to the actual number of elements in the <see cref="ServiceEffectSpecificationProxyCollection"/>.
 		/// </summary>
 		/// <exception cref="NotSupportedException">
-		/// <para>The <see cref="SignatureProxyCollection"/> is read-only.</para>
+		/// <para>The <see cref="ServiceEffectSpecificationProxyCollection"/> is read-only.</para>
 		/// <para>-or-</para>
-		/// <para>The <b>SignatureProxyCollection</b> has a fixed size.</para></exception>
+		/// <para>The <b>ServiceEffectSpecificationProxyCollection</b> has a fixed size.</para></exception>
 		/// <remarks>Please refer to <see cref="ArrayList.TrimToSize"/> for details.</remarks>
 
 		public virtual void TrimToSize() 
@@ -1582,10 +1582,10 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Unique
 
 		/// <summary>
-		/// Returns a wrapper for the specified <see cref="SignatureProxyCollection"/>
+		/// Returns a wrapper for the specified <see cref="ServiceEffectSpecificationProxyCollection"/>
 		/// ensuring that all elements are unique.
 		/// </summary>
-		/// <param name="collection">The <see cref="SignatureProxyCollection"/> to wrap.</param>    
+		/// <param name="collection">The <see cref="ServiceEffectSpecificationProxyCollection"/> to wrap.</param>    
 		/// <returns>
 		/// A wrapper around <paramref name="collection"/> ensuring that all elements are unique.
 		/// </returns>
@@ -1595,12 +1595,12 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// <paramref name="collection"/> is a null reference.</exception>
 		/// <remarks><para>
 		/// The <b>Unique</b> wrapper provides a set-like collection by ensuring
-		/// that all elements in the <see cref="SignatureProxyCollection"/> are unique.
+		/// that all elements in the <see cref="ServiceEffectSpecificationProxyCollection"/> are unique.
 		/// </para><para>
 		/// <b>Unique</b> raises an <see cref="ArgumentException"/> if the specified 
 		/// <paramref name="collection"/> contains any duplicate elements. The returned
 		/// wrapper raises a <see cref="NotSupportedException"/> whenever the user attempts 
-		/// to add an element that is already contained in the <b>SignatureProxyCollection</b>.
+		/// to add an element that is already contained in the <b>ServiceEffectSpecificationProxyCollection</b>.
 		/// </para><para>
 		/// <strong>Note:</strong> The <b>Unique</b> wrapper reflects any changes made
 		/// to the underlying <paramref name="collection"/>, including the possible
@@ -1608,7 +1608,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		/// no longer assured if the underlying collection is manipulated directly.
 		/// </para></remarks>
 
-		public static SignatureProxyCollection Unique(SignatureProxyCollection collection) 
+		public static ServiceEffectSpecificationProxyCollection Unique(ServiceEffectSpecificationProxyCollection collection) 
 		{
 			if (collection == null)
 				throw new ArgumentNullException("collection");
@@ -1698,18 +1698,18 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 		[Serializable]
 			private sealed class Enumerator:
-			ISignatureProxyEnumerator, IEnumerator 
+			IServiceEffectSpecificationProxyEnumerator, IEnumerator 
 		{
 			#region Private Fields
 
-			private readonly SignatureProxyCollection _collection;
+			private readonly ServiceEffectSpecificationProxyCollection _collection;
 			private readonly int _version;
 			private int _index;
 
 			#endregion
 			#region Internal Constructors
 
-			internal Enumerator(SignatureProxyCollection collection) 
+			internal Enumerator(ServiceEffectSpecificationProxyCollection collection) 
 			{
 				this._collection = collection;
 				this._version = collection._version;
@@ -1719,7 +1719,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 			#endregion
 			#region Public Properties
 
-			public SignatureProxy Current 
+			public ServiceEffectSpecificationProxy Current 
 			{
 				get 
 				{
@@ -1756,16 +1756,16 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Class ReadOnlyList
 
 		[Serializable]
-			private sealed class ReadOnlyList: SignatureProxyCollection 
+			private sealed class ReadOnlyList: ServiceEffectSpecificationProxyCollection 
 		{
 			#region Private Fields
 
-			private SignatureProxyCollection _collection;
+			private ServiceEffectSpecificationProxyCollection _collection;
 
 			#endregion
 			#region Internal Constructors
 
-			internal ReadOnlyList(SignatureProxyCollection collection):
+			internal ReadOnlyList(ServiceEffectSpecificationProxyCollection collection):
 				base(Tag.Default) 
 			{
 				this._collection = collection;
@@ -1774,7 +1774,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 			#endregion
 			#region Protected Properties
 
-			protected override SignatureProxy[] InnerArray 
+			protected override ServiceEffectSpecificationProxy[] InnerArray 
 			{
 				get { return this._collection.InnerArray; }
 			}
@@ -1816,7 +1816,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 				get { return this._collection.IsUnique; }
 			}
 
-			public override SignatureProxy this[int index] 
+			public override ServiceEffectSpecificationProxy this[int index] 
 			{
 				get { return this._collection[index]; }
 				set 
@@ -1833,25 +1833,25 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 			#endregion
 			#region Public Methods
 
-			public override int Add(SignatureProxy value) 
+			public override int Add(ServiceEffectSpecificationProxy value) 
 			{
 				throw new NotSupportedException(
 					"Read-only collections cannot be modified.");
 			}
 
-			public override void AddRange(SignatureProxyCollection collection) 
+			public override void AddRange(ServiceEffectSpecificationProxyCollection collection) 
 			{
 				throw new NotSupportedException(
 					"Read-only collections cannot be modified.");
 			}
 
-			public override void AddRange(SignatureProxy[] array) 
+			public override void AddRange(ServiceEffectSpecificationProxy[] array) 
 			{
 				throw new NotSupportedException(
 					"Read-only collections cannot be modified.");
 			}
 
-			public override int BinarySearch(SignatureProxy value) 
+			public override int BinarySearch(ServiceEffectSpecificationProxy value) 
 			{
 				return this._collection.BinarySearch(value);
 			}
@@ -1864,36 +1864,36 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 			public override object Clone() 
 			{
-				return new ReadOnlyList((SignatureProxyCollection) this._collection.Clone());
+				return new ReadOnlyList((ServiceEffectSpecificationProxyCollection) this._collection.Clone());
 			}
 
-			public override void CopyTo(SignatureProxy[] array) 
+			public override void CopyTo(ServiceEffectSpecificationProxy[] array) 
 			{
 				this._collection.CopyTo(array);
 			}
 
-			public override void CopyTo(SignatureProxy[] array, int arrayIndex) 
+			public override void CopyTo(ServiceEffectSpecificationProxy[] array, int arrayIndex) 
 			{
 				this._collection.CopyTo(array, arrayIndex);
 			}
 
-			public override ISignatureProxyEnumerator GetEnumerator() 
+			public override IServiceEffectSpecificationProxyEnumerator GetEnumerator() 
 			{
 				return this._collection.GetEnumerator();
 			}
 
-			public override int IndexOf(SignatureProxy value) 
+			public override int IndexOf(ServiceEffectSpecificationProxy value) 
 			{
 				return this._collection.IndexOf(value);
 			}
 
-			public override void Insert(int index, SignatureProxy value) 
+			public override void Insert(int index, ServiceEffectSpecificationProxy value) 
 			{
 				throw new NotSupportedException(
 					"Read-only collections cannot be modified.");
 			}
 
-			public override void Remove(SignatureProxy value) 
+			public override void Remove(ServiceEffectSpecificationProxy value) 
 			{
 				throw new NotSupportedException(
 					"Read-only collections cannot be modified.");
@@ -1941,7 +1941,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 					"Read-only collections cannot be modified.");
 			}
 
-			public override SignatureProxy[] ToArray() 
+			public override ServiceEffectSpecificationProxy[] ToArray() 
 			{
 				return this._collection.ToArray();
 			}
@@ -1959,17 +1959,17 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Class SyncList
 
 		[Serializable]
-			private sealed class SyncList: SignatureProxyCollection 
+			private sealed class SyncList: ServiceEffectSpecificationProxyCollection 
 		{
 			#region Private Fields
 
-			private SignatureProxyCollection _collection;
+			private ServiceEffectSpecificationProxyCollection _collection;
 			private object _root;
 
 			#endregion
 			#region Internal Constructors
 
-			internal SyncList(SignatureProxyCollection collection):
+			internal SyncList(ServiceEffectSpecificationProxyCollection collection):
 				base(Tag.Default) 
 			{
 
@@ -1980,7 +1980,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 			#endregion
 			#region Protected Properties
 
-			protected override SignatureProxy[] InnerArray 
+			protected override ServiceEffectSpecificationProxy[] InnerArray 
 			{
 				get { lock (this._root) return this._collection.InnerArray; }
 			}
@@ -2019,7 +2019,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 				get { return this._collection.IsUnique; }
 			}
 
-			public override SignatureProxy this[int index] 
+			public override ServiceEffectSpecificationProxy this[int index] 
 			{
 				get { lock (this._root) return this._collection[index]; }
 				set { lock (this._root) this._collection[index] = value;  }
@@ -2033,22 +2033,22 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 			#endregion
 			#region Public Methods
 
-			public override int Add(SignatureProxy value) 
+			public override int Add(ServiceEffectSpecificationProxy value) 
 			{
 				lock (this._root) return this._collection.Add(value);
 			}
 
-			public override void AddRange(SignatureProxyCollection collection) 
+			public override void AddRange(ServiceEffectSpecificationProxyCollection collection) 
 			{
 				lock (this._root) this._collection.AddRange(collection);
 			}
 
-			public override void AddRange(SignatureProxy[] array) 
+			public override void AddRange(ServiceEffectSpecificationProxy[] array) 
 			{
 				lock (this._root) this._collection.AddRange(array);
 			}
 
-			public override int BinarySearch(SignatureProxy value) 
+			public override int BinarySearch(ServiceEffectSpecificationProxy value) 
 			{
 				lock (this._root) return this._collection.BinarySearch(value);
 			}
@@ -2061,35 +2061,35 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 			public override object Clone() 
 			{
 				lock (this._root)
-					return new SyncList((SignatureProxyCollection) this._collection.Clone());
+					return new SyncList((ServiceEffectSpecificationProxyCollection) this._collection.Clone());
 			}
 
-			public override void CopyTo(SignatureProxy[] array) 
+			public override void CopyTo(ServiceEffectSpecificationProxy[] array) 
 			{
 				lock (this._root) this._collection.CopyTo(array);
 			}
 
-			public override void CopyTo(SignatureProxy[] array, int arrayIndex) 
+			public override void CopyTo(ServiceEffectSpecificationProxy[] array, int arrayIndex) 
 			{
 				lock (this._root) this._collection.CopyTo(array, arrayIndex);
 			}
 
-			public override ISignatureProxyEnumerator GetEnumerator() 
+			public override IServiceEffectSpecificationProxyEnumerator GetEnumerator() 
 			{
 				lock (this._root) return this._collection.GetEnumerator();
 			}
 
-			public override int IndexOf(SignatureProxy value) 
+			public override int IndexOf(ServiceEffectSpecificationProxy value) 
 			{
 				lock (this._root) return this._collection.IndexOf(value);
 			}
 
-			public override void Insert(int index, SignatureProxy value) 
+			public override void Insert(int index, ServiceEffectSpecificationProxy value) 
 			{
 				lock (this._root) this._collection.Insert(index, value);
 			}
 
-			public override void Remove(SignatureProxy value) 
+			public override void Remove(ServiceEffectSpecificationProxy value) 
 			{
 				lock (this._root) this._collection.Remove(value);
 			}
@@ -2129,7 +2129,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 				lock (this._root) this._collection.Sort(index, count, comparer);
 			}
 
-			public override SignatureProxy[] ToArray() 
+			public override ServiceEffectSpecificationProxy[] ToArray() 
 			{
 				lock (this._root) return this._collection.ToArray();
 			}
@@ -2146,16 +2146,16 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 		#region Class UniqueList
 
 		[Serializable]
-			private sealed class UniqueList: SignatureProxyCollection 
+			private sealed class UniqueList: ServiceEffectSpecificationProxyCollection 
 		{
 			#region Private Fields
 
-			private SignatureProxyCollection _collection;
+			private ServiceEffectSpecificationProxyCollection _collection;
 
 			#endregion
 			#region Internal Constructors
 
-			internal UniqueList(SignatureProxyCollection collection):
+			internal UniqueList(ServiceEffectSpecificationProxyCollection collection):
 				base(Tag.Default) 
 			{
 				this._collection = collection;
@@ -2164,7 +2164,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 			#endregion
 			#region Protected Properties
 
-			protected override SignatureProxy[] InnerArray 
+			protected override ServiceEffectSpecificationProxy[] InnerArray 
 			{
 				get { return this._collection.InnerArray; }
 			}
@@ -2203,7 +2203,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 				get { return true; }
 			}
 
-			public override SignatureProxy this[int index] 
+			public override ServiceEffectSpecificationProxy this[int index] 
 			{
 				get { return this._collection[index]; }
 				set 
@@ -2221,29 +2221,29 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 			#endregion
 			#region Public Methods
 
-			public override int Add(SignatureProxy value) 
+			public override int Add(ServiceEffectSpecificationProxy value) 
 			{
 				CheckUnique(value);
 				return this._collection.Add(value);
 			}
 
-			public override void AddRange(SignatureProxyCollection collection) 
+			public override void AddRange(ServiceEffectSpecificationProxyCollection collection) 
 			{
-				foreach (SignatureProxy value in collection)
+				foreach (ServiceEffectSpecificationProxy value in collection)
 					CheckUnique(value);
             
 				this._collection.AddRange(collection);
 			}
 
-			public override void AddRange(SignatureProxy[] array) 
+			public override void AddRange(ServiceEffectSpecificationProxy[] array) 
 			{
-				foreach (SignatureProxy value in array)
+				foreach (ServiceEffectSpecificationProxy value in array)
 					CheckUnique(value);
             
 				this._collection.AddRange(array);
 			}
 
-			public override int BinarySearch(SignatureProxy value) 
+			public override int BinarySearch(ServiceEffectSpecificationProxy value) 
 			{
 				return this._collection.BinarySearch(value);
 			}
@@ -2255,36 +2255,36 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 			public override object Clone() 
 			{
-				return new UniqueList((SignatureProxyCollection) this._collection.Clone());
+				return new UniqueList((ServiceEffectSpecificationProxyCollection) this._collection.Clone());
 			}
 
-			public override void CopyTo(SignatureProxy[] array) 
+			public override void CopyTo(ServiceEffectSpecificationProxy[] array) 
 			{
 				this._collection.CopyTo(array);
 			}
 
-			public override void CopyTo(SignatureProxy[] array, int arrayIndex) 
+			public override void CopyTo(ServiceEffectSpecificationProxy[] array, int arrayIndex) 
 			{
 				this._collection.CopyTo(array, arrayIndex);
 			}
 
-			public override ISignatureProxyEnumerator GetEnumerator() 
+			public override IServiceEffectSpecificationProxyEnumerator GetEnumerator() 
 			{
 				return this._collection.GetEnumerator();
 			}
 
-			public override int IndexOf(SignatureProxy value) 
+			public override int IndexOf(ServiceEffectSpecificationProxy value) 
 			{
 				return this._collection.IndexOf(value);
 			}
 
-			public override void Insert(int index, SignatureProxy value) 
+			public override void Insert(int index, ServiceEffectSpecificationProxy value) 
 			{
 				CheckUnique(value);
 				this._collection.Insert(index, value);
 			}
 
-			public override void Remove(SignatureProxy value) 
+			public override void Remove(ServiceEffectSpecificationProxy value) 
 			{
 				this._collection.Remove(value);
 			}
@@ -2324,7 +2324,7 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 				this._collection.Sort(index, count, comparer);
 			}
 
-			public override SignatureProxy[] ToArray() 
+			public override ServiceEffectSpecificationProxy[] ToArray() 
 			{
 				return this._collection.ToArray();
 			}
@@ -2337,14 +2337,14 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 			#endregion
 			#region Private Methods
 
-			private void CheckUnique(SignatureProxy value) 
+			private void CheckUnique(ServiceEffectSpecificationProxy value) 
 			{
 				if (IndexOf(value) >= 0)
 					throw new NotSupportedException(
 						"Unique collections cannot contain duplicate elements.");
 			}
 
-			private void CheckUnique(int index, SignatureProxy value) 
+			private void CheckUnique(int index, ServiceEffectSpecificationProxy value) 
 			{
 				int existing = IndexOf(value);
 				if (existing >= 0 && existing != index)
@@ -2435,10 +2435,10 @@ namespace Palladio.Editor.Common.EntityProxies.Collections
 
 			for( int i=0; i<this._array.GetLength(0); i++ )
 			{
-				if (this._array.GetValue(i) is SignatureProxy)
+				if (this._array.GetValue(i) is ServiceEffectSpecificationProxy)
 				{
 					// Create a property descriptor for the signature item and add to the property descriptor collection
-					SignatureProxyDescriptor sd = new SignatureProxyDescriptor(this, i);
+					ServiceEffectSpecificationProxyDescriptor sd = new ServiceEffectSpecificationProxyDescriptor(this, i);
 					pds.Add(sd);
 				}
 			}

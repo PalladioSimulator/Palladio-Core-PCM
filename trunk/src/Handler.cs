@@ -20,6 +20,7 @@ namespace Palladio.Editor.Common
 {
 
 	public delegate void FileEventHandler(object source, System.IO.FileInfo fileInfo);
+	public delegate void StringEventHandler(object source, string str);
 	public delegate void LogMessageAppendedHandler(object source, string level);
 	
 	public delegate void ComponentModelChangedHandler(object source, CompositeComponentProxy newModel);

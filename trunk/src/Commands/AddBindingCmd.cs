@@ -11,6 +11,7 @@
 #endregion
 
 using System;
+using log4net;
 
 using Palladio.Identifier;
 using Palladio.ComponentModel;
@@ -24,6 +25,8 @@ namespace Palladio.Editor.Common.Commands
 	/// </summary>
 	public class AddBindingCmd : AbstractCommand
 	{
+		private static readonly ILog log = LogManager.GetLogger(typeof(AddBindingCmd));
+
 		private ICompositeComponent _targetComp;
 		private IIdentifier _comp1ID;
 		private IIdentifier _role1ID;
@@ -31,6 +34,14 @@ namespace Palladio.Editor.Common.Commands
 		private IIdentifier _role2ID;
 		private IBinding _createdBinding;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="component"></param>
+		/// <param name="comp1ID"></param>
+		/// <param name="role1ID"></param>
+		/// <param name="comp2ID"></param>
+		/// <param name="role2ID"></param>
 		public AddBindingCmd(ICompositeComponent component, IIdentifier comp1ID, IIdentifier role1ID, IIdentifier comp2ID, IIdentifier role2ID)
 		{
 			this._targetComp = component;
@@ -42,6 +53,10 @@ namespace Palladio.Editor.Common.Commands
 
 		#region ICommand Member
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public override bool Execute()
 		{
 			if (this._createdBinding == null)
@@ -56,8 +71,9 @@ namespace Palladio.Editor.Common.Commands
 			{
 				this._targetComp.AddBindings(this._createdBinding);
 			}
-			catch(InvalidRoleException e)
+			catch(Exception e)
 			{
+				log.Error("Unable to create binding.");
 				return false;
 			}
 
@@ -68,6 +84,9 @@ namespace Palladio.Editor.Common.Commands
 			return true;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public override bool CanUndo
 		{
 			get
@@ -87,14 +106,9 @@ namespace Palladio.Editor.Common.Commands
 			return true;
 		}
 
-		public override Palladio.Editor.Common.EntityProxies.EventArgs EventArgs
-		{
-			get
-			{
-				return this._evtArgs;
-			}
-		}
-
+		/// <summary>
+		/// Returns the component to which th binding is added
+		/// </summary>
 		public override object Receiver
 		{
 			get
@@ -103,6 +117,10 @@ namespace Palladio.Editor.Common.Commands
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public override object Clone()
 		{
 			return new AddBindingCmd(this._targetComp, this._comp1ID, this._role1ID, this._comp2ID, this._role2ID);

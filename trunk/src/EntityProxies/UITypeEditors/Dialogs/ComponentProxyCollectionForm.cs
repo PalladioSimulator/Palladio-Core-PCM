@@ -10,7 +10,7 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 	/// <summary>
 	/// Zusammenfassung für EditCompositeComponentProxyCollection.
 	/// </summary>
-	public class ComponentProxyCollectionForm : System.Windows.Forms.Form
+	public class ComponentProxyCollectionForm : EntityProxyCollectionForm
 	{
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel panel2;
@@ -266,6 +266,24 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 		{
 			this.UpdateList();
 			this.listBox.SelectedIndex = this.lastSelectedIndex;
+		}
+
+
+		public override EntityProxy Proxy
+		{
+			get
+			{
+				return this._parentComp;
+			}
+
+			set
+			{
+				if (!(value is CompositeComponentProxy))
+					return;
+
+				this._parentComp = value as CompositeComponentProxy;
+				this.UpdateList();
+			}
 		}
 	}
 }

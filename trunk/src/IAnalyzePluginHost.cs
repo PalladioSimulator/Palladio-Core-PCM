@@ -15,18 +15,10 @@ using System;
 namespace Palladio.Editor.Common
 {
 	/// <summary>
-	/// This is the host interface for view plugins.
+	/// This is the host interface for analysis plugins.
 	/// </summary>
-	public interface IViewPluginHost : IPluginHost
+	public interface IAnalyzePluginHost : IPluginHost
 	{
-		/// <summary>
-		/// Event to notify attached plugins about the component model being changed.</summary>
-		event ComponentModelChangedHandler ComponentModelChanged;
-
-		/// <summary>
-		/// Event to notify attached plugins about changes in the model.</summary>
-		event EntityChangedHandler EntityChanged;
-
 		/// <summary>
 		/// Returns the open component model.
 		/// </summary>

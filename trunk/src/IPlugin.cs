@@ -48,23 +48,23 @@ namespace Palladio.Editor.Common
 	public interface IPlugin
 	{
 		/// <summary>
-		/// </summary>
+		/// Name</summary>
 		string Name				{ get; }
 
 		/// <summary>
-		/// </summary>
+		/// Description</summary>
 		string Description		{ get; }
 
 		/// <summary>
-		/// </summary>
+		/// Author</summary>
 		string Author			{ get; }
 
 		/// <summary>
-		/// </summary>
+		/// Version</summary>
 		string Version			{ get; }
 
 		/// <summary>
-		/// 
+		/// Method that is called when the plugin is detached from the host.
 		/// </summary>
 		void Detach();
 	}

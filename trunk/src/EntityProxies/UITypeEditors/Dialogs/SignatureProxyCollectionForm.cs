@@ -10,7 +10,7 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 	/// <summary>
 	/// Zusammenfassung für EditCompositeComponentProxyCollection.
 	/// </summary>
-	public class SignatureProxyCollectionForm : System.Windows.Forms.Form
+	public class SignatureProxyCollectionForm : EntityProxyCollectionForm
 	{
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel panel2;
@@ -98,7 +98,7 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(224, 376);
+			this.panel1.Size = new System.Drawing.Size(208, 352);
 			this.panel1.TabIndex = 0;
 			// 
 			// groupBoxLeft
@@ -107,7 +107,7 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 			this.groupBoxLeft.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBoxLeft.Location = new System.Drawing.Point(0, 0);
 			this.groupBoxLeft.Name = "groupBoxLeft";
-			this.groupBoxLeft.Size = new System.Drawing.Size(224, 336);
+			this.groupBoxLeft.Size = new System.Drawing.Size(208, 312);
 			this.groupBoxLeft.TabIndex = 1;
 			this.groupBoxLeft.TabStop = false;
 			this.groupBoxLeft.Text = "Signatures";
@@ -118,7 +118,7 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 			this.listBox.HorizontalScrollbar = true;
 			this.listBox.Location = new System.Drawing.Point(3, 16);
 			this.listBox.Name = "listBox";
-			this.listBox.Size = new System.Drawing.Size(218, 316);
+			this.listBox.Size = new System.Drawing.Size(202, 290);
 			this.listBox.Sorted = true;
 			this.listBox.TabIndex = 0;
 			this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
@@ -128,9 +128,9 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 			this.panelLeftBottom.Controls.Add(this.buttonRemove);
 			this.panelLeftBottom.Controls.Add(this.buttonAdd);
 			this.panelLeftBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panelLeftBottom.Location = new System.Drawing.Point(0, 336);
+			this.panelLeftBottom.Location = new System.Drawing.Point(0, 312);
 			this.panelLeftBottom.Name = "panelLeftBottom";
-			this.panelLeftBottom.Size = new System.Drawing.Size(224, 40);
+			this.panelLeftBottom.Size = new System.Drawing.Size(208, 40);
 			this.panelLeftBottom.TabIndex = 0;
 			// 
 			// buttonRemove
@@ -158,9 +158,9 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 			this.panel2.Controls.Add(this.groupBoxRight);
 			this.panel2.Controls.Add(this.panelRightBottom);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel2.Location = new System.Drawing.Point(224, 0);
+			this.panel2.Location = new System.Drawing.Point(208, 0);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(344, 376);
+			this.panel2.Size = new System.Drawing.Size(304, 352);
 			this.panel2.TabIndex = 2;
 			// 
 			// groupBoxRight
@@ -169,7 +169,7 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 			this.groupBoxRight.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBoxRight.Location = new System.Drawing.Point(0, 0);
 			this.groupBoxRight.Name = "groupBoxRight";
-			this.groupBoxRight.Size = new System.Drawing.Size(344, 336);
+			this.groupBoxRight.Size = new System.Drawing.Size(304, 312);
 			this.groupBoxRight.TabIndex = 1;
 			this.groupBoxRight.TabStop = false;
 			this.groupBoxRight.Text = "Properties";
@@ -183,7 +183,7 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 			this.propertyGrid.Location = new System.Drawing.Point(3, 16);
 			this.propertyGrid.Name = "propertyGrid";
 			this.propertyGrid.PropertySort = System.Windows.Forms.PropertySort.Categorized;
-			this.propertyGrid.Size = new System.Drawing.Size(338, 317);
+			this.propertyGrid.Size = new System.Drawing.Size(298, 293);
 			this.propertyGrid.TabIndex = 0;
 			this.propertyGrid.Text = "Properties";
 			this.propertyGrid.ToolbarVisible = false;
@@ -194,15 +194,15 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 			// 
 			this.panelRightBottom.Controls.Add(this.buttonOk);
 			this.panelRightBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panelRightBottom.Location = new System.Drawing.Point(0, 336);
+			this.panelRightBottom.Location = new System.Drawing.Point(0, 312);
 			this.panelRightBottom.Name = "panelRightBottom";
-			this.panelRightBottom.Size = new System.Drawing.Size(344, 40);
+			this.panelRightBottom.Size = new System.Drawing.Size(304, 40);
 			this.panelRightBottom.TabIndex = 0;
 			// 
 			// buttonOk
 			// 
 			this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonOk.Location = new System.Drawing.Point(256, 8);
+			this.buttonOk.Location = new System.Drawing.Point(216, 8);
 			this.buttonOk.Name = "buttonOk";
 			this.buttonOk.Size = new System.Drawing.Size(80, 23);
 			this.buttonOk.TabIndex = 0;
@@ -212,7 +212,7 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 			// SignatureProxyCollectionForm
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(568, 376);
+			this.ClientSize = new System.Drawing.Size(512, 352);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -295,6 +295,23 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 		private void SignatureProxyCollectionForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			this._interface.EntityChanged -= this._interface_EntityChangedHandler;
+		}
+
+		public override EntityProxy Proxy
+		{
+			get
+			{
+				return this._interface;
+			}
+
+			set
+			{
+				if (!(value is InterfaceProxy))
+					return;
+
+				this._interface = value as InterfaceProxy;
+				this.UpdateList();
+			}
 		}
 	}
 }

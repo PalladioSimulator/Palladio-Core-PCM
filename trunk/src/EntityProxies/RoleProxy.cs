@@ -37,6 +37,15 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// <summary>
 		/// A proxy to the component to which this role is attached to.</summary>
 		protected ComponentProxy _component;
+
+		/// <summary>
+		/// The connection that is attached to this role.</summary>
+		protected ConnectionProxy _outerConnection;
+
+		/// <summary>
+		/// The mapping that is attached to this role (only applicable if attached to CompositeComponentProxy)</summary>
+		protected ConnectionProxy _innerMapping;
+
 		#endregion
 
 		#region Constructors
@@ -119,6 +128,30 @@ namespace Palladio.Editor.Common.EntityProxies
 			get
 			{
 				return this._component;
+			}
+		}
+
+		public ConnectionProxy AttachedConnection
+		{
+			get
+			{
+				return this._outerConnection;
+			}
+			set
+			{
+				this._outerConnection = value;
+			}
+		}
+
+		public ConnectionProxy InnerMapping
+		{
+			get
+			{
+				return this._innerMapping;
+			}
+			set
+			{
+				this._innerMapping = value;
 			}
 		}
 		#endregion

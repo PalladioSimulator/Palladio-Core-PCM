@@ -31,6 +31,10 @@ namespace Palladio.Editor.Common.EntityProxies
 
 		/// <summary>
 		/// </summary>
+		protected SignatureProxy _signature;
+
+		/// <summary>
+		/// </summary>
 		private string _name;
 
 		/// <summary>
@@ -42,9 +46,11 @@ namespace Palladio.Editor.Common.EntityProxies
 		/// 
 		/// </summary>
 		/// <param name="param"></param>
-		public ParameterProxy(IParameter param)
+		/// <param name="signature"></param>
+		public ParameterProxy(IParameter param, SignatureProxy signature)
 		{
 			this._parameter = param;
+			this._signature = signature;
 			this._name = param.Name;
 			this._type = param.Type.ToString();
 		}
@@ -78,6 +84,7 @@ namespace Palladio.Editor.Common.EntityProxies
 			set
 			{
 				this._name = value;
+				this._signature.UpdateParameterList();
 			}
 		}
 

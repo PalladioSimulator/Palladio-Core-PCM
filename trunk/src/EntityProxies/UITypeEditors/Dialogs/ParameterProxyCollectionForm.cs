@@ -304,7 +304,7 @@ namespace Palladio.Editor.Common.EntityProxies.UITypeEditors.Dialogs
 				"param"+(this._parameters.Count+1), 
 				ParameterModifierEnum.NONE );
 
-			ParameterProxy paramProxy = new ParameterProxy(param);
+			ParameterProxy paramProxy = new ParameterProxy(param, this._signature);
 
 			this._parameters.Add(paramProxy);
 			this.UpdateList();

@@ -18,7 +18,8 @@ namespace Palladio.Editor.Common
 {
 
 	/// <summary>
-	/// Zusammenfassung für ViewPluginSkeleton.
+	/// This is the base class for all view plugins. Derive from this class if 
+	/// you want to implement a view.
 	/// </summary>
 	public abstract class ViewPluginSkeleton : PluginSkeleton, IViewPlugin
 	{
@@ -28,11 +29,11 @@ namespace Palladio.Editor.Common
 		protected IViewPluginHost _host;
 
 		/// <summary>
-		/// </summary>
+		/// A handler for the ComponentModelChanged event of the parent host.</summary>
 		private ComponentModelChangedHandler _componentModelChangedHandler;
 
 		/// <summary>
-		/// </summary>
+		/// A handler for the EntityChanged event of the parent host.</summary>
 		private EntityChangedHandler _entityChangedHandler;
 		#endregion
 
@@ -47,12 +48,12 @@ namespace Palladio.Editor.Common
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="name"></param>
-		/// <param name="descr"></param>
-		/// <param name="author"></param>
-		/// <param name="version"></param>
-		public ViewPluginSkeleton(string name, string descr, string author, string version) :
-			base(name,descr,author,version)
+		/// <param name="name">Name</param>
+		/// <param name="descr">Description</param>
+		/// <param name="author">Author</param>
+		/// <param name="version">Version</param>
+		public ViewPluginSkeleton(string name, string descr, string author, string version)
+			: base(name,descr,author,version)
 		{
 			this._componentModelChangedHandler = new ComponentModelChangedHandler(host_ComponentModelChanged);
 			this._entityChangedHandler = new EntityChangedHandler(host_EntityChanged);
@@ -61,11 +62,11 @@ namespace Palladio.Editor.Common
 
 		#region IViewPlugin Member
 		/// <summary>
-		/// 
+		/// This method is called by the host when a plugin becomes active.
 		/// </summary>
-		/// <param name="host">The view plugins host</param>
+		/// <param name="host">The host of the view plugin</param>
 		/// <returns>Returns true if initalization process was successful.</returns>
-		/// <remarks>Derived classes that override this method MUST call <code>base.Initialize(host)</code>.</remarks>
+		/// <remarks>Derived classes that override this method should call <code>base.Initialize(host)</code>.</remarks>
 		public virtual bool Initialize(IViewPluginHost host)
 		{
 			this._host = host;
@@ -75,29 +76,29 @@ namespace Palladio.Editor.Common
 		}
 
 		/// <summary>
-		/// Returns a value indicating where to place the usercontrol of this plugin.
-		/// </summary>
-		/// <remarks>If this method is not overriden, the default value 
-		/// <see cref="Palladio.Editor.Common.UserControlPosition.FLOAT"/> will be returned.</remarks>
-		public virtual UserControlPosition UserControlPosition 
-		{ 
-			get { return UserControlPosition.FLOAT; }
-		}
-
-		/// <summary>
-		/// 
+		/// Returns the view control component for presentation and user interaction
 		/// </summary>
 		public abstract System.Windows.Forms.Control ViewControl { get; }
 
 		/// <summary>
-		/// 
+		/// Returns a value that indicates where the ViewControl should be placed within the GUI.
+		/// </summary>
+		/// <remarks>If this method is not overriden, the default value 
+		/// <see cref="Palladio.Editor.Common.UserControlPosition.FLOAT"/> will be returned.</remarks>
+		public virtual ViewControlPosition ViewControlPosition 
+		{ 
+			get { return ViewControlPosition.FLOAT; }
+		}
+
+		/// <summary>
+		/// Returns the toolbox control component for selecting modelling tools.
 		/// </summary>
 		public abstract Object[] ToolboxItems { get; }
 
 		/// <summary>
-		/// 
+		/// Instructs the plugin to select the specified entity
 		/// </summary>
-		/// <param name="entity"></param>
+		/// <param name="entity">The entity that should become selected.</param>
 		public abstract void Select(EntityProxies.EntityProxy entity);
 		#endregion
 
@@ -115,7 +116,7 @@ namespace Palladio.Editor.Common
 		/// </summary>
 		/// <param name="source">Event dispatcher (ViewPluginHost)</param>
 		/// <param name="entity">A proxy representing the changed entity</param>
-		/// <param name="evtArgs"></param>
+		/// <param name="evtArgs">Event parameter</param>
 		protected abstract void host_EntityChanged(object source, EntityProxies.EntityProxy entity, EntityProxies.EventArgs evtArgs);
 	}
 }
