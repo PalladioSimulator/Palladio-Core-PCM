@@ -29,7 +29,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Returns all Transitions from a given State.
 		/// </summary>
-		/// <returns>A Hashtable witch contatins all Transtions from the given State.</returns>
+		/// <returns>A Hashtable which contatins all Transtions from the given State.</returns>
 		Hashtable GetOutgoingTransitions(AbstractState aSourceState);
 		/// <summary>
 		/// Returns all Transitions of the FSM in Transition Array.

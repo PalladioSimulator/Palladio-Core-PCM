@@ -16,7 +16,7 @@ namespace Utils.Collections
 			return new Set.Enumerator(this);
 		}
 		/// <summary>
-		/// class witch helps to iterate over the collection
+		/// class which helps to iterate over the collection
 		/// </summary>
 		private class Enumerator : IEnumerator
 		{

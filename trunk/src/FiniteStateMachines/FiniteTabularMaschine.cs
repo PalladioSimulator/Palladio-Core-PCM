@@ -110,7 +110,7 @@ namespace FiniteStateMachines {
 		}
 
 		/// <summary>
-		/// Another method witch tests the implentation of FSM.
+		/// Another method which tests the implentation of FSM.
 		/// </summary>
 		/// <param name="state"></param>
 		/// <param name="inChar"></param>
@@ -167,7 +167,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Returns the startatate of the FSM
 		/// </summary>
-		/// <returns>State, witch is the startstate of the FSM.</returns>
+		/// <returns>State, which is the startstate of the FSM.</returns>
 		public AbstractState StartState {
 		
 			get {
@@ -197,7 +197,7 @@ namespace FiniteStateMachines {
 		/// </summary>
 		/// <param name="fromState"> from State </param>
 		/// <param name="input">the inputcharacter</param>
-		/// <returns>the next State witch is reachable with the state and the inputcharacter</returns>
+		/// <returns>the next State which is reachable with the state and the inputcharacter</returns>
 		public AbstractState GetNextState(AbstractState fromState, Input input) {
 
 			/*
@@ -258,8 +258,8 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Returns the next possible Transition from a given State and a given Input.
 		/// </summary>
-		/// <param name="fromState">State from witch the next Transition should be delivered.</param>
-		/// <param name="inChar">The inputcharakter witch should be in the delivered Transition.</param>
+		/// <param name="fromState">State from which the next Transition should be delivered.</param>
+		/// <param name="inChar">The inputcharakter which should be in the delivered Transition.</param>
 		/// <returns>The next possible Transition.</returns>
 		public Transition GetNextTransition(AbstractState fromState, Input inChar) {
 			if(this.inputAl.Contains(inChar) ==  false)
@@ -291,7 +291,7 @@ namespace FiniteStateMachines {
 		/// <summary>
 		/// Returns all transitions from a given State in a Hashtable.
 		/// </summary>
-		/// <param name="state">The State from witch all Transitions should be delivered</param>
+		/// <param name="state">The State from which all Transitions should be delivered</param>
 		/// <returns>All transition from the given state</returns>
 		public Hashtable GetOutgoingTransitions(AbstractState state) {
 			Hashtable tmp = new Hashtable();

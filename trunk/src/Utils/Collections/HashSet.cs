@@ -11,7 +11,7 @@ namespace Utils.Collections
 	{
 		private Hashtable data;
 		/// <summary>
-		/// class witch helps to iterate over the collection
+		/// class which helps to iterate over the collection
 		/// </summary>
 		/// <returns>The IEnumerator for the collection.</returns>
 		public virtual IEnumerator GetEnumerator()
@@ -45,7 +45,7 @@ namespace Utils.Collections
 		/// <summary>
 		/// Checks if an given object is part of the HashSet.
 		/// </summary>
-		/// <param name="obj">the object, witch should be checked.</param>
+		/// <param name="obj">the object, which should be checked.</param>
 		/// <returns>bool true, if the object is part of the collection.</returns>
 		public bool Contains(Object obj)
 		{
@@ -68,7 +68,7 @@ namespace Utils.Collections
 			return s;
 		}
 		/// <summary>
-		/// An inner class, witch helps to iterate over the collection.
+		/// An inner class, which helps to iterate over the collection.
 		/// </summary>
 		private class Enumerator : IEnumerator
 		{

@@ -14,14 +14,14 @@ namespace FiniteStateMachines {
 		protected AbstractState returnState;
 		protected Transition currentTransition;
 		protected Stack transitions;
-		//stores the elements witch has been already retruned
+		//stores the elements which has been already retruned
 		protected Set alreadyReturned;
 		protected bool debugOutput = !true;
 		
 		/// <summary>
 		/// Initiates a FSM Iterator.
 		/// </summary>
-		/// <param name="d">The FSM witch should be iterated</param>
+		/// <param name="d">The FSM which should be iterated</param>
 		public StateIterator(IFiniteStateMachine d) {
 			this.getters =  d; // RR: what is if d is NOT a FSM but another class implementing Getters?
 			// please use only the getter interface! 
@@ -105,7 +105,7 @@ namespace FiniteStateMachines {
 				currentState = (AbstractState) this.states.Peek();
 				
 				nextStates = getters.GetOutgoingTransitions(currentState);
-				//E a Hashatabele witch contains the children of CS
+				//E a Hashatabele which contains the children of CS
 				//write every child on the Stack
 				Transition tempTransition = new Transition();
 				//				AbstractState tempState = new State();
@@ -122,7 +122,7 @@ namespace FiniteStateMachines {
 				this.visited.Add(currentState);
 				if(this.debugOutput)
 					Console.WriteLine(currentState.ToString()+ " now has been completly doscovered");
-				//search of the next State witch will be returned
+				//search of the next State which will be returned
 				while(this.alreadyReturned.Contains(this.states.Peek())) {
 					if(this.debugOutput)
 						Console.WriteLine("This State hs already been discovered "+this.states.Peek().ToString());
@@ -131,7 +131,7 @@ namespace FiniteStateMachines {
 					if(this.states.Count==0)
 						return false;
 				}
-				//Now a State is found, witch jet has not been returning
+				//Now a State is found, which jet has not been returning
 				if(this.states.Peek().Equals(new State("ErrorState",false,false))) {
 					states.Pop();
 					this.MoveNext();
