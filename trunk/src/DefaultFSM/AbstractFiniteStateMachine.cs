@@ -26,22 +26,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 
 		public abstract IState[] States { get; }
 
-		public IState[] GetReachableStates ( IState s )
-		{
-			StateVisitor visitor = new StateVisitor(this);
-			visitor.Visit(s);
-			return visitor.VisitedStates;
-		}
-
-		public virtual ITransition[] Transitions
-		{
-			get
-			{
-				TransitionVisitor visitor = new TransitionVisitor(this);
-				visitor.Visit(StartState);
-				return visitor.VisitedTransitions;
-			}
-		}
+		public abstract ITransition[] Transitions { get; }
 
 		#endregion
 
@@ -90,6 +75,20 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			ITransition[] resultTransArray = new ITransition[transList.Count];
 			transList.CopyTo(resultTransArray,0);
 			return resultTransArray;
+		}
+
+		public IState[] GetReachableStates ( IState s )
+		{
+			StateVisitor visitor = new StateVisitor(this);
+			visitor.Visit(s);
+			return visitor.VisitedStates;
+		}
+
+		public ITransition[] GetReachableTransitions(IState aState)
+		{
+			TransitionVisitor visitor = new TransitionVisitor(this);
+			visitor.Visit(aState);
+			return visitor.VisitedTransitions;
 		}
 
 		public override bool Equals(object obj) 

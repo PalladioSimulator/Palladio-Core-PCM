@@ -141,6 +141,17 @@ namespace Palladio.FiniteStateMachines {
 		IState[] GetReachableStates(IState aState);
 
 		/// <summary>
+		///     Searches for all transitions reachable from aState. This means
+		///     there exists a path from aState to every transition contained
+		///     in the result.
+		/// </summary>
+		/// 
+		/// <param name="aState">The search starts here.</param>
+		/// 
+		/// <returns>An IList containing all reachable transitions.</returns>
+		ITransition[] GetReachableTransitions(IState aState);
+
+		/// <summary>
 		/// Checks whether aState is in FinalStates or not.
 		/// </summary>
 		/// <param name="aState">A state of this FSM.</param>
