@@ -3,10 +3,10 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
-namespace RequestClient
+namespace Palladio.Webserver.RequestClient
 {
 	/// <summary>
-	/// ClientRequest.
+	/// ClientRequest. Provides Methods to send requests to a server.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -14,6 +14,9 @@ namespace RequestClient
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/02/27 16:37:58  kelsaka
+	/// Added some comments
+	///
 	/// Revision 1.1  2005/02/27 16:09:11  kelsaka
 	/// - Added the "simultaneous http request client"
 	///  (folder: SimulataneousRequestClient) for testing  the webserver with multiple
@@ -53,7 +56,7 @@ namespace RequestClient
 
 
 		/// <summary>
-		/// Sends a requsts.
+		/// Sends a requests to the specified server. Afterwards reads the full answer of the server.
 		/// </summary>
 		public void SendRequest()
 		{
