@@ -1,9 +1,11 @@
 using System;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder
 {
+	//TODO: All builders have to return type level builders by default.
 
 	/// <summary>
 	/// The RootBuilder for the component model. Allows to build sub-builders. This builder only allows
@@ -16,6 +18,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/07 17:49:32  kelsaka
+	/// - added some unit tests
+	/// - added builder implementation
+	///
 	/// Revision 1.3  2005/04/06 19:06:58  kelsaka
 	/// - added new builder interfaces to support the levels of the component model
 	/// - added basic set of methods to interfaces
@@ -34,8 +40,9 @@ namespace Palladio.ComponentModel.Builder
 		/// <summary>
 		/// Creates a new <see cref="IInterfaceBuilder"/>, which allows to build new interfaces.
 		/// </summary>
+		/// <param name="name">The interfaces name.</param>
 		/// <returns>A new InterfaceBuilder.</returns>
-		IInterfaceBuilder AddInterface();
+		IInterfaceTypeLevelBuilder AddInterface(string name);
 
 		/// <summary>
 		/// called to remove an interface from a component. If the entity could not be found in 

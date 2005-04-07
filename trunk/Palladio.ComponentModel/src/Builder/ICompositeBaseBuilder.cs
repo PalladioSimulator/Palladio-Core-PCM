@@ -1,5 +1,6 @@
 using System;
 using Palladio.ComponentModel.Builder;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 
@@ -19,6 +20,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/07 17:49:32  kelsaka
+	/// - added some unit tests
+	/// - added builder implementation
+	///
 	/// Revision 1.4  2005/04/06 19:06:58  kelsaka
 	/// - added new builder interfaces to support the levels of the component model
 	/// - added basic set of methods to interfaces
@@ -49,7 +54,7 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="name"></param>
 		/// <returns></returns>
-		IBasicComponentBuilder AddBasicComponent(string name);
+		IBasicComponentTypeLevelBuilder AddBasicComponent(string name);
 				
 		/// <summary>
 		/// Adds a <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>) to the component model.

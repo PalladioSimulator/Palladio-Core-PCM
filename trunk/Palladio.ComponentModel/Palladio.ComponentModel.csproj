@@ -160,7 +160,17 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Builder\DefaultBuilder\DefaultRootBuilder.cs"
+                    RelPath = "src\Builder\DefaultBuilder\AbstractBasicComponentBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\AbstractInterfaceBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\AbstractRootBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -172,7 +182,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultInterfaceTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultRootTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\DeploymentLevelBuilder\IBasicComponentDeploymentLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DeploymentLevelBuilder\IInterfaceDeploymentLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DeploymentLevelBuilder\IRootDeploymentLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -182,7 +212,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\ImplementationLevelBuilder\IInterfaceImplementationLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\ImplementationLevelBuilder\IRootImplementationLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\TypeLevelBuilder\IBasicComponentTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\TypeLevelBuilder\IInterfaceTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\TypeLevelBuilder\IRootTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -452,6 +502,11 @@
                 />
                 <File
                     RelPath = "src\ModelEventManagement\StaticViewEvents.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\BuilderTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

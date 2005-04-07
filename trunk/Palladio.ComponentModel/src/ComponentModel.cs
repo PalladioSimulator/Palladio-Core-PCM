@@ -1,5 +1,7 @@
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.DefaultBuilder;
+using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEventManagement;
 
@@ -14,6 +16,10 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/07 17:49:32  kelsaka
+	/// - added some unit tests
+	/// - added builder implementation
+	///
 	/// Revision 1.3  2005/03/29 13:06:11  joemal
 	/// add event support
 	///
@@ -65,18 +71,18 @@ namespace Palladio.ComponentModel
 		#region properties
 
 		/// <summary>
-		/// Creates a new <see cref="IRootBuilder"/>. The builder offers all neccessary sub-builders to
+		/// Creates a new <see cref="IRootTypeLevelBuilder"/>. The builder offers all neccessary sub-builders to
 		/// create a new component model (static structure).
 		/// </summary>
-		/// <returns>A new RootBuilder.</returns>
+		/// <returns>A new RootBuilder for the type level of the component model.</returns>
 		/// <remarks>
 		/// Uses the EntityFactory.
 		/// </remarks>
-		public IRootBuilder RootBuilder
+		public IRootTypeLevelBuilder RootBuilder
 		{
 			get
 			{
-				return new DefaultRootBuilder(modelManager.LowLevelBuilder);
+				return new DefaultRootTypeLevelBuilder(modelManager.LowLevelBuilder);
 			}
 		}
 

@@ -13,6 +13,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/07 17:49:31  kelsaka
+	/// - added some unit tests
+	/// - added builder implementation
+	///
 	/// Revision 1.3  2005/04/06 19:06:58  kelsaka
 	/// - added new builder interfaces to support the levels of the component model
 	/// - added basic set of methods to interfaces
@@ -28,7 +32,7 @@ namespace Palladio.ComponentModel.Builder
 	public interface IBasicComponentBuilder : IComponentBuilder
 	{
 
-
+		//TODO: basic methods that are non level specific for bc.
 
 
 
