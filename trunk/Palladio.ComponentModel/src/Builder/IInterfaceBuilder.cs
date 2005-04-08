@@ -12,6 +12,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/08 15:40:06  kelsaka
+	/// - added SignatureBuilder
+	/// - fixed bug: some new entities were not added to component model
+	///
 	/// Revision 1.3  2005/04/08 10:41:18  kelsaka
 	/// - added return of IDs
 	/// - added implementation of defined interfaces
@@ -30,17 +34,11 @@ namespace Palladio.ComponentModel.Builder
 	public interface IInterfaceBuilder
 	{
 		/// <summary>
-		/// called to add the given signature to the interfaces, specified by the given interface id.
+		/// Adds a new signature with the given name to the actual Interface.
 		/// </summary>
-		/// <param name="signature">the signature to be added</param>
+		/// <param name="signatureName">The new signatures name.</param>
 		/// <returns>SignatureBuilder</returns>
-		ISignatureBuilder AddSignature(ISignature signature);
-
-		/// <summary>
-		/// Adds a new signature to the interface.
-		/// </summary>
-		/// <returns>SignatureBuilder</returns>
-		ISignatureBuilder AddSignature();
+		ISignatureBuilder AddSignature(string signatureName);
 
 		/// <summary>
 		/// called to remove the signature with given id. If the entity could not be found in 
@@ -50,15 +48,10 @@ namespace Palladio.ComponentModel.Builder
 		void RemoveSignature(ISignatureIdentifier signatureID);
 
 		/// <summary>
-		/// called to add a protocol to the interfaces that is specified by the given interface id.
-		/// </summary>
-		/// <param name="protocol">the protocol to be added</param>
-		void AddProtocol(IProtocol protocol);
-
-		/// <summary>
 		/// Adds a new protocol to the interface.
 		/// </summary>
-		void AddProtocol();
+		/// <param name="protocolName">The new protocols name.</param>
+		void AddProtocol(string protocolName);
 
 		/// <summary>
 		/// called to remove the protocol with given id. If the entity could not be found in 

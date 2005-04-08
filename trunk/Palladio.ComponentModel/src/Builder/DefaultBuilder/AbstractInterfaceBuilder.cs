@@ -1,6 +1,5 @@
 using System;
-using Palladio.ComponentModel.Builder.DeploymentLevelBuilder;
-using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
+using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -17,6 +16,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/08 15:40:06  kelsaka
+	/// - added SignatureBuilder
+	/// - fixed bug: some new entities were not added to component model
+	///
 	/// Revision 1.2  2005/04/08 10:41:18  kelsaka
 	/// - added return of IDs
 	/// - added implementation of defined interfaces
@@ -46,24 +49,16 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			this.iInterface = iInterface;
 		}
 
-
 		/// <summary>
-		/// called to add the given signature to the interfaces, specified by the given interface id.
+		/// Adds a new signature with the given name to the actual Interface.
 		/// </summary>
-		/// <param name="signature">the signature to be added</param>
+		/// <param name="signatureName">The new signatures name.</param>
 		/// <returns>SignatureBuilder</returns>
-		public ISignatureBuilder AddSignature (ISignature signature)
+		public ISignatureBuilder AddSignature (string signatureName)
 		{
-			throw new NotImplementedException ();
-		}
-
-		/// <summary>
-		/// Adds a new signature to the interface.
-		/// </summary>
-		/// <returns>SignatureBuilder</returns>
-		public ISignatureBuilder AddSignature ()
-		{
-			throw new NotImplementedException ();
+			ISignature signature = EntityFactory.CreateSignature(signatureName, new SignatureDescription());
+			lowLevelBuilder.AddSignature(signature, this.iInterface.InterfaceID);
+			return new DefaultSignatureTypeLevelBuilder(lowLevelBuilder, signature);
 		}
 
 		/// <summary>
@@ -73,22 +68,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="signatureID">the id of the signature that has to be removed</param>
 		public void RemoveSignature (ISignatureIdentifier signatureID)
 		{
-			throw new NotImplementedException ();
-		}
-
-		/// <summary>
-		/// called to add a protocol to the interfaces that is specified by the given interface id.
-		/// </summary>
-		/// <param name="protocol">the protocol to be added</param>
-		public void AddProtocol (IProtocol protocol)
-		{
-			throw new NotImplementedException ();
+			lowLevelBuilder.RemoveSignature(signatureID);
 		}
 
 		/// <summary>
 		/// Adds a new protocol to the interface.
 		/// </summary>
-		public void AddProtocol ()
+		/// <param name="protocolName">The new protocols name.</param>
+		public void AddProtocol (string protocolName)
 		{
 			throw new NotImplementedException ();
 		}
@@ -100,7 +87,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="protocolID">the id of the protocol that has to be removed</param>
 		public void RemoveProtocol (IProtocolIdentifier protocolID)
 		{
-			throw new NotImplementedException ();
+			lowLevelBuilder.RemoveProtocol(protocolID);
 		}
 
 		/// <summary>

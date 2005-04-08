@@ -150,6 +150,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\IProtocolBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\IRootBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -179,6 +184,11 @@
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\AbstractSignatureBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
                 <Folder RelPath = "src\Builder\DefaultBuilder\DeploymentLevelBuilder\" />
                 <Folder RelPath = "src\Builder\DefaultBuilder\ImplementationLevelBuilder\" />
                 <File
@@ -198,6 +208,11 @@
                 />
                 <File
                     RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultRootTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultSignatureTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -222,6 +237,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\DeploymentLevelBuilder\ISignatureDeploymentLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\ImplementationLevelBuilder\IBasicComponentImplementationLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -242,6 +262,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\ImplementationLevelBuilder\ISignatureImplementationLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\TypeLevelBuilder\IBasicComponentTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -258,6 +283,11 @@
                 />
                 <File
                     RelPath = "src\Builder\TypeLevelBuilder\IRootTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\TypeLevelBuilder\ISignatureTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

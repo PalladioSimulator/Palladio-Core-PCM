@@ -1,10 +1,8 @@
-using System;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
-using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder
-{	//TODO: All (sub-)builders have to return type level builders by default.
+{	
 
 	/// <summary>
 	/// The RootBuilder for the component model. Allows to build sub-builders. This builder only allows
@@ -13,10 +11,15 @@ namespace Palladio.ComponentModel.Builder
 	/// <remarks>
 	/// The component model is divided into three levels. Each level has its own builders. To change
 	/// between the levels the upper and / or lower level builder is available.
+	/// All (sub-)builders return type level builders by default.
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/08 15:40:06  kelsaka
+	/// - added SignatureBuilder
+	/// - fixed bug: some new entities were not added to component model
+	///
 	/// Revision 1.6  2005/04/08 14:40:55  kelsaka
 	/// - added implementation and unit-tests
 	///
