@@ -4,8 +4,7 @@ using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder
-{
-	//TODO: All builders have to return type level builders by default.
+{	//TODO: All (sub-)builders have to return type level builders by default.
 
 	/// <summary>
 	/// The RootBuilder for the component model. Allows to build sub-builders. This builder only allows
@@ -18,6 +17,12 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/08 10:41:18  kelsaka
+	/// - added return of IDs
+	/// - added implementation of defined interfaces
+	/// - redefined interfaces for builder-context
+	/// - added CC-levels
+	///
 	/// Revision 1.4  2005/04/07 17:49:32  kelsaka
 	/// - added some unit tests
 	/// - added builder implementation
@@ -49,11 +54,7 @@ namespace Palladio.ComponentModel.Builder
 		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
-		/// <param name="role">the role bound of the interface in the component</param>
-		void RemoveInterface(IInterfaceIdentifier ifaceIdentifier,
-			InterfaceRole role);
-
-
+		void RemoveInterface(IInterfaceIdentifier ifaceIdentifier);
 
 	}
 }

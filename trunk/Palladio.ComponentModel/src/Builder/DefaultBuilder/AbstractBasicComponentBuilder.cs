@@ -1,6 +1,5 @@
 using System;
-using Palladio.ComponentModel.Builder.DeploymentLevelBuilder;
-using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -17,6 +16,12 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/08 10:41:18  kelsaka
+	/// - added return of IDs
+	/// - added implementation of defined interfaces
+	/// - redefined interfaces for builder-context
+	/// - added CC-levels
+	///
 	/// Revision 1.1  2005/04/07 17:49:32  kelsaka
 	/// - added some unit tests
 	/// - added builder implementation
@@ -30,7 +35,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 
 		/// <summary>
-		/// Initializes the Builder.
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
 		/// </summary>
 		/// <param name="lowLevelBuilder">The model data management.</param>
 		/// <param name="component">The component to build.</param>
@@ -40,14 +45,40 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			this.component = component;
 		}
 
-
+		/// <summary>
+		/// Called to add an existing interface as provided interface to the actual component.
+		/// </summary>
+		/// <param name="ifaceIdentifier">the id of the existing interface</param>
+		public void AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier)
+		{
+			throw new NotImplementedException ();
+		}
 
 		/// <summary>
-		/// called to add an existing interface to a component.
+		/// Called to add an existing interface as required interface to the actual component.
 		/// </summary>
-		/// <param name="ifaceIdentifier">the id of the interface</param>
-		/// <param name="role">determ whether the interface is bound as requires or provides interface</param>
-		public IInterfaceBuilder AddInterface (IInterfaceIdentifier ifaceIdentifier, InterfaceRole role)
+		/// <param name="ifaceIdentifier">the id of the existing interface</param>
+		public void AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Creates a new interface and adds it to the actual component.
+		/// </summary>
+		/// <param name="interfaceName">The name of the newly created interface.</param>
+		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
+		public IInterfaceTypeLevelBuilder AddProvidesInterface (string interfaceName)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Creates a new interface and adds it as required interface to the actual component.
+		/// </summary>
+		/// <param name="interfaceName">The name of the newly created interface.</param>
+		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
+		public IInterfaceTypeLevelBuilder AddRequiresInterface (string interfaceName)
 		{
 			throw new NotImplementedException ();
 		}
@@ -71,5 +102,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			throw new NotImplementedException ();
 		}
+
+		/// <summary>
+		/// Returns the <see cref="IComponentIdentifier"/> of the actual component.
+		/// </summary>
+		public IComponentIdentifier ComponentID
+		{
+			get { return this.component.ComponentID; }
+		}
+
 	}
 }

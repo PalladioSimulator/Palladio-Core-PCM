@@ -12,6 +12,12 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/08 10:41:18  kelsaka
+	/// - added return of IDs
+	/// - added implementation of defined interfaces
+	/// - redefined interfaces for builder-context
+	/// - added CC-levels
+	///
 	/// Revision 1.2  2005/04/06 19:06:58  kelsaka
 	/// - added new builder interfaces to support the levels of the component model
 	/// - added basic set of methods to interfaces
@@ -60,5 +66,13 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="protocolID">the id of the protocol that has to be removed</param>
 		void RemoveProtocol(IProtocolIdentifier protocolID);
+
+		/// <summary>
+		/// Returns the <see cref="IInterfaceIdentifier"/> of the actual interface.
+		/// </summary>
+		IInterfaceIdentifier InterfaceID
+		{
+			get;
+		}
 	}
 }

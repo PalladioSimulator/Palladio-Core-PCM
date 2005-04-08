@@ -20,6 +20,12 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/08 10:41:18  kelsaka
+	/// - added return of IDs
+	/// - added implementation of defined interfaces
+	/// - redefined interfaces for builder-context
+	/// - added CC-levels
+	///
 	/// Revision 1.5  2005/04/07 17:49:32  kelsaka
 	/// - added some unit tests
 	/// - added builder implementation
@@ -43,16 +49,17 @@ namespace Palladio.ComponentModel.Builder
 	{
 
 	
+		//TODO: useful for builder?
 		/// <summary>
 		/// Creates a new <see cref="IBasicComponentBuilder"/>, which allows to create new components.
 		/// </summary>
 		/// <returns>The new ComponentBuilder.</returns		
-		IComponentBuilder AddComponent(IComponent component, IComponentIdentifier parentComponentID);
+		IComponentBuilder AddComponent(IComponent component);
 
 		/// <summary>
 		/// Adds a <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.
 		/// </summary>
-		/// <param name="name"></param>
+		/// <param name="name">The components name.</param>
 		/// <returns></returns>
 		IBasicComponentTypeLevelBuilder AddBasicComponent(string name);
 				
@@ -61,7 +68,7 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="name">The components name</param>
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
-		ICompositeComponentBuilder AddCompositeComponent(string name);
+		ICompositeComponentTypeLevelBuilder AddCompositeComponent(string name);
 				
 		/// <summary>
 		/// Called to remove the component which belongs to the given id. All contained components
@@ -71,19 +78,18 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="componentId">the id of the component to be removed</param>
 		void RemoveComponent(IComponentIdentifier componentId);
 
-
-
 		/// <summary>
 		/// called to add an assemblyConnector from a requires interfaces of a component to a provides interface of 
 		/// another component. Both components must have the same parent component or must be placed at the top level of the
 		/// model.
+		/// This method creates a new connection.
 		/// </summary>
-		/// <param name="connection">the connection to be added</param>
+		/// <param name="connectionName">the new connections name</param>
 		/// <param name="reqCompID">the id of the incoming component</param>
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
-		void AddAssemblyConnector(IConnection connection, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
+		void AddAssemblyConnector(string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
 
 		/// <summary>

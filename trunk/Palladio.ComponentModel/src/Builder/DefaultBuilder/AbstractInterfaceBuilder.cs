@@ -17,6 +17,12 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/08 10:41:18  kelsaka
+	/// - added return of IDs
+	/// - added implementation of defined interfaces
+	/// - redefined interfaces for builder-context
+	/// - added CC-levels
+	///
 	/// Revision 1.1  2005/04/07 17:49:32  kelsaka
 	/// - added some unit tests
 	/// - added builder implementation
@@ -30,7 +36,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 
 		/// <summary>
-		/// Initializes the Builder.
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
 		/// </summary>
 		/// <param name="lowLevelBuilder">The model data management.</param>
 		/// <param name="iInterface">The interface to build.</param>
@@ -96,5 +102,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			throw new NotImplementedException ();
 		}
+
+		/// <summary>
+		/// Returns the <see cref="IInterfaceIdentifier"/> of the actual interface.
+		/// </summary>
+		public IInterfaceIdentifier InterfaceID
+		{
+			get { return this.iInterface.InterfaceID; }
+		}
+
 	}
 }

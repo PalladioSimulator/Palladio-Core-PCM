@@ -13,6 +13,12 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/08 10:41:18  kelsaka
+	/// - added return of IDs
+	/// - added implementation of defined interfaces
+	/// - redefined interfaces for builder-context
+	/// - added CC-levels
+	///
 	/// Revision 1.2  2005/04/08 08:23:30  joemal
 	/// rename class ComponentModel to ComponentModelEnvironment
 	/// due to problems with the namespace
@@ -29,6 +35,7 @@ namespace Palladio.ComponentModel.UnitTests
 		private ComponentModelEnvironment componentModel;
 		private IRootTypeLevelBuilder rootBuilder;
 
+		#region for static use
 		/// <summary>
 		/// For debugging purposes.
 		/// </summary>
@@ -43,12 +50,37 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			InitTest();
 		}
+		#endregion
 
+		#region general tests
 		[Test]
 		public void InitTest()
 		{
 			this.componentModel = new ComponentModelEnvironment();	
 			this.rootBuilder = componentModel.RootBuilder;
+		}
+		#endregion
+
+		#region root-Tests
+		[Test]
+		public void AddBCToRoot()
+		{
+			rootBuilder.AddBasicComponent("BC1");
+		}
+
+		[Test]
+		public void AddCCToRoot()
+		{
+			rootBuilder.AddCompositeComponent("CC1");
+		}
+
+		[Test]
+		public void RemoveCCandBCFromRoot()
+		{
+			Identifier.IComponentIdentifier c1 = rootBuilder.AddCompositeComponent("CC2").ComponentID;
+			Identifier.IComponentIdentifier c2 = rootBuilder.AddCompositeComponent("BC2").ComponentID;
+			rootBuilder.RemoveComponent(c1);
+			rootBuilder.RemoveComponent(c2);
 		}
 
 		[Test]
@@ -58,17 +90,18 @@ namespace Palladio.ComponentModel.UnitTests
 		}
 
 		[Test]
-		public void AddCCToRoot()
+		public void AddCC_BCToRoot()
 		{
-			rootBuilder.AddCompositeComponent("CC-Name1");
+			rootBuilder.AddCompositeComponent("CC3").AddBasicComponent("CC3_BC3");
 		}
 
 		[Test]
-		public void AddBCToRoot()
+		public void RemoveInternalCC_BCFromRoot()
 		{
-			rootBuilder.AddBasicComponent("BC-Name1");
+			Identifier.IComponentIdentifier c4 = rootBuilder.AddCompositeComponent("CC4").AddBasicComponent("CC4_BC4").ComponentID;
+			rootBuilder.RemoveComponent(c4);
 		}
-
+		#endregion
 	}
 }
 
