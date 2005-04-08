@@ -120,7 +120,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\ComponentModel.cs"
+                    RelPath = "src\ComponentModelEnvironment.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

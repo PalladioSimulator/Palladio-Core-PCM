@@ -1,5 +1,3 @@
-using Palladio.ComponentModel.Builder;
-using Palladio.ComponentModel.Builder.DefaultBuilder;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.ModelDataManagement;
@@ -16,6 +14,10 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.1  2005/04/08 08:23:30  joemal
+	/// rename class ComponentModel to ComponentModelEnvironment
+	/// due to problems with the namespace
+	///
 	/// Revision 1.4  2005/04/07 17:49:32  kelsaka
 	/// - added some unit tests
 	/// - added builder implementation
@@ -37,7 +39,7 @@ namespace Palladio.ComponentModel
 	///		  add the navigation
 	///		  add the store and restore functions
 	///		  add ...
-	public class ComponentModel
+	public class ComponentModelEnvironment
 	{
 		#region data
 
@@ -51,7 +53,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// call to create a new componentmodel.
 		/// </summary>
-		public ComponentModel()
+		public ComponentModelEnvironment()
 		{
 			Init();
 		}

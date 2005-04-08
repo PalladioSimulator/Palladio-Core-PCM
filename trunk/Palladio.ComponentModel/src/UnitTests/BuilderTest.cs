@@ -1,10 +1,6 @@
 #if TEST
 using NUnit.Framework;
-using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
-using Palladio.ComponentModel.Exceptions;
-using Palladio.ComponentModel.ModelDataManagement;
-using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.UnitTests
 {
@@ -17,6 +13,10 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/08 08:23:30  joemal
+	/// rename class ComponentModel to ComponentModelEnvironment
+	/// due to problems with the namespace
+	///
 	/// Revision 1.1  2005/04/07 17:49:32  kelsaka
 	/// - added some unit tests
 	/// - added builder implementation
@@ -26,7 +26,7 @@ namespace Palladio.ComponentModel.UnitTests
 	[TestFixture]	
 	public class BuilderTest
 	{
-		private ComponentModel componentModel;
+		private ComponentModelEnvironment componentModel;
 		private IRootTypeLevelBuilder rootBuilder;
 
 		/// <summary>
@@ -47,7 +47,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void InitTest()
 		{
-			this.componentModel = new ComponentModel();	
+			this.componentModel = new ComponentModelEnvironment();	
 			this.rootBuilder = componentModel.RootBuilder;
 		}
 
