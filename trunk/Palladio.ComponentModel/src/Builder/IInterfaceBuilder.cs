@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/08 18:12:01  kelsaka
+	/// - added further method to be able to add an existing signature
+	///
 	/// Revision 1.5  2005/04/08 16:50:31  kelsaka
 	/// - added interface builder implementation
 	///
@@ -37,6 +40,12 @@ namespace Palladio.ComponentModel.Builder
 	/// </remarks>
 	public interface IInterfaceBuilder
 	{
+		/// <summary>
+		/// Adds an existing signature to the actual Interface.
+		/// </summary>
+		/// <param name="signature">The existing signature.</param>
+		void AddSignature(ISignature signature);
+
 		/// <summary>
 		/// Adds a new signature with the given name to the actual Interface.
 		/// </summary>

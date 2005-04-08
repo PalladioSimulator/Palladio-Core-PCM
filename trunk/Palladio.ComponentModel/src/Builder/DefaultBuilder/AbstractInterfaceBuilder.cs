@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/08 18:12:01  kelsaka
+	/// - added further method to be able to add an existing signature
+	///
 	/// Revision 1.4  2005/04/08 16:50:31  kelsaka
 	/// - added interface builder implementation
 	///
@@ -51,6 +54,19 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			this.lowLevelBuilder = lowLevelBuilder;
 			this.iInterface = iInterface;
+		}
+
+		/// <summary>
+		/// Adds an existing signature to the actual Interface.
+		/// </summary>
+		/// <remarks>
+		/// Until the SignatureID can be used to get the signature-instance this method allows to
+		/// add a self defined signature.
+		/// </remarks>
+		/// <param name="signature">The existing signature.</param>
+		public void AddSignature (ISignature signature)
+		{
+			lowLevelBuilder.AddSignature(signature, this.iInterface.InterfaceID);
 		}
 
 		/// <summary>
