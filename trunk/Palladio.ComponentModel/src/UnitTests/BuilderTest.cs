@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/08 14:40:55  kelsaka
+	/// - added implementation and unit-tests
+	///
 	/// Revision 1.3  2005/04/08 10:41:18  kelsaka
 	/// - added return of IDs
 	/// - added implementation of defined interfaces
@@ -100,6 +103,99 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			Identifier.IComponentIdentifier c4 = rootBuilder.AddCompositeComponent("CC4").AddBasicComponent("CC4_BC4").ComponentID;
 			rootBuilder.RemoveComponent(c4);
+		}
+		[Test]
+		public void JustClearAll()
+		{
+			rootBuilder.ClearAll();
+		}
+		[Test]
+		public void AddComponentThenClearAll()
+		{
+			rootBuilder.AddCompositeComponent("Comp");
+			rootBuilder.ClearAll();
+		}
+		#endregion
+
+		#region CC-Builder
+		[Test]
+		public void CC_AddBCToCCAndRemove()
+		{
+			Identifier.IComponentIdentifier c5 = rootBuilder.AddCompositeComponent("CC5").AddBasicComponent("CC4_BC4").ComponentID;
+			rootBuilder.RemoveComponent(c5);
+		}
+
+		[Test]
+		public void CC_AddProvidesInterfaceAndRemove()
+		{
+			Identifier.IInterfaceIdentifier i6 = rootBuilder.AddCompositeComponent("CC6").AddProvidesInterface("IF6").InterfaceID;
+			rootBuilder.RemoveInterface(i6);
+		}
+
+		[Test]
+		public void CC_AddRequiresInterfaceAndRemove()
+		{
+			Identifier.IInterfaceIdentifier i7 = rootBuilder.AddCompositeComponent("CC7").AddRequiresInterface("IF7").InterfaceID;
+			rootBuilder.RemoveInterface(i7);
+		}
+
+		[Test]
+		public void CC_AddInterfacesAndConnections()
+		{
+			ICompositeComponentTypeLevelBuilder sccb = rootBuilder.AddCompositeComponent("SuperCC8");
+			Identifier.IInterfaceIdentifier i8 = rootBuilder.AddInterface("IF8").InterfaceID;
+			
+			ICompositeComponentTypeLevelBuilder ccb1 = sccb.AddCompositeComponent("CC8-1");
+			ICompositeComponentTypeLevelBuilder ccb2 = sccb.AddCompositeComponent("CC8-2");
+
+			ccb1.AddProvidesInterface(i8);
+			ccb2.AddRequiresInterface(i8);
+
+			sccb.AddAssemblyConnector("Connection8", ccb2.ComponentID, i8, ccb1.ComponentID, i8);			
+		}
+
+		[Test]
+		public void CC_RemoveComponentTwice()
+		{
+			Identifier.IComponentIdentifier bc9 = rootBuilder.AddBasicComponent("BC9").ComponentID;
+			rootBuilder.RemoveComponent(bc9);
+			rootBuilder.RemoveComponent(bc9);
+		}
+
+		[Test]
+		public void CC_AddComponentWithOneNameTwice()
+		{
+			rootBuilder.AddBasicComponent("BC9");
+			rootBuilder.AddBasicComponent("BC9");
+		}
+		#endregion
+
+		#region BC-Builder
+		[Test]
+		public void BC_AddInterfacesAndConnections()
+		{
+			ICompositeComponentTypeLevelBuilder sccb = rootBuilder.AddCompositeComponent("SuperCC10");
+			Identifier.IInterfaceIdentifier i10 = rootBuilder.AddInterface("IF10").InterfaceID;
+			
+			IBasicComponentTypeLevelBuilder bcb1 = sccb.AddBasicComponent("BC10-1");
+			IBasicComponentTypeLevelBuilder bcb2 = sccb.AddBasicComponent("BC10-2");
+
+			bcb1.AddProvidesInterface(i10);
+			bcb2.AddRequiresInterface(i10);
+
+			sccb.AddAssemblyConnector("Connection8", bcb2.ComponentID, i10, bcb1.ComponentID, i10);			
+		}
+
+		[Test]
+		public void BC_RemoveInterface()
+		{
+			Identifier.IInterfaceIdentifier i11 =  rootBuilder.AddInterface("IF11").InterfaceID;
+			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");
+			bc11.AddProvidesInterface(i11);
+			bc11.AddRequiresInterface(i11);
+
+			bc11.RemoveProvidesInterface(i11);
+			bc11.RemoveProvidesInterface(i11);
 		}
 		#endregion
 	}

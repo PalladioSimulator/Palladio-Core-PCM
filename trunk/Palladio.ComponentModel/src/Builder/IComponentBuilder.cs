@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/08 14:40:55  kelsaka
+	/// - added implementation and unit-tests
+	///
 	/// Revision 1.3  2005/04/08 10:41:18  kelsaka
 	/// - added return of IDs
 	/// - added implementation of defined interfaces
@@ -35,26 +38,26 @@ namespace Palladio.ComponentModel.Builder
 	public interface IComponentBuilder
 	{
 		/// <summary>
-		/// Called to add an existing interface as provided interface to the actual component.
+		/// Called to add an existing interface as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		void AddProvidesInterface(IInterfaceIdentifier ifaceIdentifier);
 
 		/// <summary>
-		/// Called to add an existing interface as required interface to the actual component.
+		/// Called to add an existing interface as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		void AddRequiresInterface(IInterfaceIdentifier ifaceIdentifier);
 
 		/// <summary>
-		/// Creates a new interface and adds it as provided interface to the actual component.
+		/// Creates a new interface and adds it as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
 		/// </summary>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		IInterfaceTypeLevelBuilder AddProvidesInterface(string interfaceName);
 
 		/// <summary>
-		/// Creates a new interface and adds it as required interface to the actual component.
+		/// Creates a new interface and adds it as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
 		/// </summary>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
@@ -64,9 +67,19 @@ namespace Palladio.ComponentModel.Builder
 		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
 		/// added to the interface are also removed. If the entity could not be found in 
 		/// componentmodel, the method returns without doing anything.
+		/// This method deletes the interface used as provided interface (<see cref="InterfaceRole.PROVIDES"/>).
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
-		void RemoveInterface(IInterfaceIdentifier ifaceID);
+		void RemoveProvidesInterface(IInterfaceIdentifier ifaceID);
+
+		/// <summary>
+		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
+		/// added to the interface are also removed. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
+		/// This method deletes the interface used as requires interface (<see cref="InterfaceRole.REQUIRES"/>).
+		/// </summary>
+		/// <param name="ifaceID">the id of the interface that has to be removed</param>
+		void RemoveRequiresInterface(IInterfaceIdentifier ifaceID);
 
 		/// <summary>
 		/// Returns the <see cref="IComponentIdentifier"/> of the actual component.

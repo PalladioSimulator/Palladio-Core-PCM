@@ -208,6 +208,7 @@
                 />
                 <File
                     RelPath = "src\Builder\DeploymentLevelBuilder\ICompositeComponentDeploymentLevelBuilder.cs"
+                    SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File

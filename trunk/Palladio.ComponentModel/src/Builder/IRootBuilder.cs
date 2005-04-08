@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/08 14:40:55  kelsaka
+	/// - added implementation and unit-tests
+	///
 	/// Revision 1.5  2005/04/08 10:41:18  kelsaka
 	/// - added return of IDs
 	/// - added implementation of defined interfaces
@@ -55,6 +58,11 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
 		void RemoveInterface(IInterfaceIdentifier ifaceIdentifier);
+
+		/// <summary>
+		/// call to remove all entities and there relations from the model
+		/// </summary>
+		void ClearAll(); 
 
 	}
 }

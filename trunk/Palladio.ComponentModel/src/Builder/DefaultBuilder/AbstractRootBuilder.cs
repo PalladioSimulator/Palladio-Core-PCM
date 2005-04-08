@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/08 14:40:55  kelsaka
+	/// - added implementation and unit-tests
+	///
 	/// Revision 1.2  2005/04/08 10:41:18  kelsaka
 	/// - added return of IDs
 	/// - added implementation of defined interfaces
@@ -150,6 +153,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void RemoveInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
 			lowLevelBuilder.RemoveInterface(ifaceIdentifier);
+		}
+
+		/// <summary>
+		/// call to remove all entities and there relations from the model
+		/// </summary>
+		public void ClearAll ()
+		{
+			lowLevelBuilder.ClearAll();
 		}
 
 

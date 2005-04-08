@@ -1,4 +1,5 @@
 using System;
+using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
@@ -16,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/08 14:40:54  kelsaka
+	/// - added implementation and unit-tests
+	///
 	/// Revision 1.2  2005/04/08 10:41:18  kelsaka
 	/// - added return of IDs
 	/// - added implementation of defined interfaces
@@ -51,7 +55,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		public void AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			throw new NotImplementedException ();
+			lowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.PROVIDES);
 		}
 
 		/// <summary>
@@ -60,7 +64,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		public void AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			throw new NotImplementedException ();
+			lowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.REQUIRES);
 		}
 
 		/// <summary>
@@ -70,7 +74,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddProvidesInterface (string interfaceName)
 		{
-			throw new NotImplementedException ();
+			IInterface iInterface = EntityFactory.CreateInterface(interfaceName);
+			lowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.PROVIDES);
+			return new DefaultInterfaceTypeLevelBuilder(lowLevelBuilder, iInterface);
 		}
 
 		/// <summary>
@@ -80,27 +86,33 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (string interfaceName)
 		{
-			throw new NotImplementedException ();
-		}
-
-		/// <summary>
-		/// Creates a new <see cref="IInterfaceBuilder"/>, which allows to build new interfaces.
-		/// </summary>
-		/// <returns>A new InterfaceBuilder.</returns>
-		public IInterfaceBuilder AddInterface ()
-		{
-			throw new NotImplementedException ();
+			IInterface iInterface = EntityFactory.CreateInterface(interfaceName);
+			lowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.REQUIRES);
+			return new DefaultInterfaceTypeLevelBuilder(lowLevelBuilder, iInterface);
 		}
 
 		/// <summary>
 		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
 		/// added to the interface are also removed. If the entity could not be found in 
 		/// componentmodel, the method returns without doing anything.
+		/// This method deletes the interface used as provides interface (<see cref="InterfaceRole.PROVIDES"/>).
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
-		public void RemoveInterface (IInterfaceIdentifier ifaceID)
+		public void RemoveProvidesInterface (IInterfaceIdentifier ifaceID)
 		{
-			throw new NotImplementedException ();
+			lowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.PROVIDES);
+		}
+
+		/// <summary>
+		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
+		/// added to the interface are also removed. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
+		/// This method deletes the interface used as requires interface (<see cref="InterfaceRole.REQUIRES"/>).
+		/// </summary>
+		/// <param name="ifaceID">the id of the interface that has to be removed</param>
+		public void RemoveRequiresInterface (IInterfaceIdentifier ifaceID)
+		{
+			lowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.REQUIRES);
 		}
 
 		/// <summary>

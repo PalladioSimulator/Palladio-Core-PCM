@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/08 14:40:55  kelsaka
+	/// - added implementation and unit-tests
+	///
 	/// Revision 1.1  2005/04/08 10:41:18  kelsaka
 	/// - added return of IDs
 	/// - added implementation of defined interfaces
@@ -64,6 +67,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (string name)
 		{
 			IComponent component = EntityFactory.CreateComponent(ComponentType.BASIC, name);
+			lowLevelBuilder.AddComponent(component, this.component.ComponentID);
 			return new DefaultBasicComponentTypeLevelBuilder(lowLevelBuilder, component);
 		}
 
@@ -75,6 +79,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (string name)
 		{
 			IComponent component = EntityFactory.CreateComponent(ComponentType.COMPOSITE, name);
+			lowLevelBuilder.AddComponent(component, this.component.ComponentID);
 			return new DefaultCompositeComponentTypeLevelBuilder(lowLevelBuilder, component);
 		}
 
@@ -133,6 +138,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IInterfaceTypeLevelBuilder AddProvidesInterface (string interfaceName)
 		{
 			IInterface iInterface = EntityFactory.CreateInterface(interfaceName);
+			lowLevelBuilder.AddInterface(iInterface);
 			lowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.PROVIDES);
 			return new DefaultInterfaceTypeLevelBuilder(lowLevelBuilder, iInterface);
 		}
@@ -145,6 +151,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (string interfaceName)
 		{
 			IInterface iInterface = EntityFactory.CreateInterface(interfaceName);
+			lowLevelBuilder.AddInterface(iInterface);
 			lowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.REQUIRES);
 			return new DefaultInterfaceTypeLevelBuilder(lowLevelBuilder, iInterface);
 		}
@@ -153,11 +160,24 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
 		/// added to the interface are also removed. If the entity could not be found in 
 		/// componentmodel, the method returns without doing anything.
+		/// This method deletes the interface used as provides interface (<see cref="InterfaceRole.PROVIDES"/>).
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
-		public void RemoveInterface (IInterfaceIdentifier ifaceID)
+		public void RemoveProvidesInterface (IInterfaceIdentifier ifaceID)
 		{
-			lowLevelBuilder.RemoveInterface(ifaceID);
+			lowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.PROVIDES);
+		}
+
+		/// <summary>
+		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
+		/// added to the interface are also removed. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
+		/// This method deletes the interface used as requires interface (<see cref="InterfaceRole.REQUIRES"/>).
+		/// </summary>
+		/// <param name="ifaceID">the id of the interface that has to be removed</param>
+		public void RemoveRequiresInterface (IInterfaceIdentifier ifaceID)
+		{
+			lowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.REQUIRES);
 		}
 
 		/// <summary>
