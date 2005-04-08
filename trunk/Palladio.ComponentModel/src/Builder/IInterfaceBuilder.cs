@@ -1,4 +1,5 @@
 using System;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 
@@ -12,6 +13,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/08 16:50:31  kelsaka
+	/// - added interface builder implementation
+	///
 	/// Revision 1.4  2005/04/08 15:40:06  kelsaka
 	/// - added SignatureBuilder
 	/// - fixed bug: some new entities were not added to component model
@@ -38,7 +42,7 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="signatureName">The new signatures name.</param>
 		/// <returns>SignatureBuilder</returns>
-		ISignatureBuilder AddSignature(string signatureName);
+		ISignatureTypeLevelBuilder AddSignature(string signatureName);
 
 		/// <summary>
 		/// called to remove the signature with given id. If the entity could not be found in 
@@ -51,7 +55,13 @@ namespace Palladio.ComponentModel.Builder
 		/// Adds a new protocol to the interface.
 		/// </summary>
 		/// <param name="protocolName">The new protocols name.</param>
-		void AddProtocol(string protocolName);
+		IProtocolTypeLevelBuilder AddProtocol(string protocolName);
+
+		/// <summary>
+		/// called to add a existing protocol to the actual interfaces.
+		/// </summary>
+		/// <param name="protocol">the protocol to be added</param>
+		void AddProtocol(IProtocol protocol);
 
 		/// <summary>
 		/// called to remove the protocol with given id. If the entity could not be found in 

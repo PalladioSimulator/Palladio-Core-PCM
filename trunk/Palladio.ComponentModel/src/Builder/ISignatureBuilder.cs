@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/08 16:50:31  kelsaka
+	/// - added interface builder implementation
+	///
 	/// Revision 1.2  2005/04/08 15:40:06  kelsaka
 	/// - added SignatureBuilder
 	/// - fixed bug: some new entities were not added to component model
@@ -23,8 +26,6 @@ namespace Palladio.ComponentModel.Builder
 	/// </remarks>
 	public interface ISignatureBuilder
 	{
-
-
 		/// <summary>
 		/// Returns the <see cref="ISignatureIdentifier"/> of the actual interface.
 		/// </summary>

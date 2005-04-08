@@ -1,5 +1,6 @@
 using System;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -16,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/08 16:50:31  kelsaka
+	/// - added interface builder implementation
+	///
 	/// Revision 1.3  2005/04/08 15:40:06  kelsaka
 	/// - added SignatureBuilder
 	/// - fixed bug: some new entities were not added to component model
@@ -54,7 +58,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="signatureName">The new signatures name.</param>
 		/// <returns>SignatureBuilder</returns>
-		public ISignatureBuilder AddSignature (string signatureName)
+		public ISignatureTypeLevelBuilder AddSignature (string signatureName)
 		{
 			ISignature signature = EntityFactory.CreateSignature(signatureName, new SignatureDescription());
 			lowLevelBuilder.AddSignature(signature, this.iInterface.InterfaceID);
@@ -75,9 +79,20 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// Adds a new protocol to the interface.
 		/// </summary>
 		/// <param name="protocolName">The new protocols name.</param>
-		public void AddProtocol (string protocolName)
+		public IProtocolTypeLevelBuilder AddProtocol (string protocolName)
 		{
-			throw new NotImplementedException ();
+			//TODO: if ever protocols are integrated use:
+			//new DefaultProtocolTypeLevelBuilder(lowLevelBuilder, iProtocol);
+			throw new NotImplementedException("currently protocols can not be created using a builder.");
+		}
+
+		/// <summary>
+		/// called to add a existing protocol to the actual interfaces.
+		/// </summary>
+		/// <param name="protocol">the protocol to be added</param>
+		public void AddProtocol (IProtocol protocol)
+		{
+			lowLevelBuilder.AddProtocol(protocol, this.iInterface.InterfaceID);
 		}
 
 		/// <summary>

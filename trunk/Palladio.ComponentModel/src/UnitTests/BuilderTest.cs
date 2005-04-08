@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/08 16:50:31  kelsaka
+	/// - added interface builder implementation
+	///
 	/// Revision 1.4  2005/04/08 14:40:55  kelsaka
 	/// - added implementation and unit-tests
 	///
@@ -196,6 +199,16 @@ namespace Palladio.ComponentModel.UnitTests
 
 			bc11.RemoveProvidesInterface(i11);
 			bc11.RemoveProvidesInterface(i11);
+		}
+		#endregion
+
+		#region Interface-Builder
+		[Test]
+		public void IF_AddSignatureAndRemove()
+		{
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			Identifier.ISignatureIdentifier si = iFace.AddSignature("newSignature").SignatureID;
+			iFace.RemoveSignature(si);
 		}
 		#endregion
 	}

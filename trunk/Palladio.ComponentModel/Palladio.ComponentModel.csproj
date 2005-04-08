@@ -180,6 +180,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\DefaultBuilder\AbstractProtocolBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\DefaultBuilder\AbstractRootBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -203,6 +208,11 @@
                 />
                 <File
                     RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultInterfaceTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultProtocolTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -232,6 +242,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\DeploymentLevelBuilder\IProtocolDeploymentLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\DeploymentLevelBuilder\IRootDeploymentLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -257,6 +272,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\ImplementationLevelBuilder\IProtocolImplementationLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\ImplementationLevelBuilder\IRootImplementationLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -278,6 +298,11 @@
                 />
                 <File
                     RelPath = "src\Builder\TypeLevelBuilder\IInterfaceTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\TypeLevelBuilder\IProtocolTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
