@@ -28,11 +28,18 @@ Examples:
       (+) the base class ComponentModel.cs
       (+) the new implementation of the entities
       (+) the typed identifiers of the entities
+??.??. Implementation of the lowLevelBuilder (MH)
+      (+) the implementation
+08.04. Implementation of the Notification(MH)
+      (+) the implementation
 ---
 
 CVS history:
 ---
 $Log$
+Revision 1.4  2005/04/08 12:33:30  joemal
+add notification
+
 Revision 1.3  2005/03/15 12:58:55  joemal
 the refactoring of the componentmodel
 
