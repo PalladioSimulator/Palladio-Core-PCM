@@ -13,6 +13,9 @@ namespace Palladio.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/08 08:11:09  joemal
+	/// fix missing comment
+	///
 	/// Revision 1.2  2005/04/05 14:30:39  joemal
 	/// implement the rest of the notification
 	///
@@ -29,7 +32,9 @@ namespace Palladio.Attributes
 	{
 		#region data
 
-		//holds the hashtable with the attributes
+		/// <summary>
+		/// holds the hashtable with the attributes
+		/// </summary>
 		protected Hashtable hashtable = new Hashtable();
 
 		#endregion
