@@ -10,10 +10,15 @@ namespace Palladio.ComponentModel.Builder
 	/// Builder which is base of all component types.
 	/// </summary>
 	/// <remarks>
+	/// <p>This builder interface contains all non model-level specifical methods of a component
+	/// (basic and composite).</p>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.4  2005/04/08 14:40:55  kelsaka
 	/// - added implementation and unit-tests
 	///
@@ -37,6 +42,8 @@ namespace Palladio.ComponentModel.Builder
 	/// </remarks>
 	public interface IComponentBuilder
 	{
+		#region methods
+
 		/// <summary>
 		/// Called to add an existing interface as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
 		/// </summary>
@@ -81,6 +88,10 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		void RemoveRequiresInterface(IInterfaceIdentifier ifaceID);
 
+		#endregion
+
+		#region Properties
+
 		/// <summary>
 		/// Returns the <see cref="IComponentIdentifier"/> of the actual component.
 		/// </summary>
@@ -89,5 +100,14 @@ namespace Palladio.ComponentModel.Builder
 			get;
 		}
 
+		/// <summary>
+		/// Accesses the created instance.
+		/// </summary>
+		IComponent Component
+		{
+			get;
+		}
+
+		#endregion
 	}
 }

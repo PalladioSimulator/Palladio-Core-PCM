@@ -14,12 +14,16 @@ namespace Palladio.ComponentModel.Builder
 	/// Anyway the <see cref="ICompositeComponentBuilder"/> and the <see cref="IRootBuilder"/> have lot of methods
 	/// in common.
 	/// </summary>
-	/// 
+	/// <p>This builder interface contains all non model-level specifical methods of a composite
+	/// like structures.</p>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.6  2005/04/08 10:41:18  kelsaka
 	/// - added return of IDs
 	/// - added implementation of defined interfaces
@@ -47,8 +51,8 @@ namespace Palladio.ComponentModel.Builder
 	/// </remarks>
 	public interface ICompositeBaseBuilder
 	{
+		#region methods
 
-	
 		//TODO: useful for builder?
 		/// <summary>
 		/// Creates a new <see cref="IBasicComponentBuilder"/>, which allows to create new components.
@@ -90,7 +94,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
 		void AddAssemblyConnector(string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
-			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
+		                          IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
 
 		/// <summary>
 		/// called to remove the connection that belongs to the given id. If the entity could not be found in 
@@ -98,5 +102,7 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="connectionID">the id of the connection that has to be removed</param>
 		void RemoveConnection(IConnectionIdentifier connectionID);
+
+		#endregion
 	}
 }

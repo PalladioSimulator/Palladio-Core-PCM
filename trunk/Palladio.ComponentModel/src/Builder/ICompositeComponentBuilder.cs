@@ -10,10 +10,15 @@ namespace Palladio.ComponentModel.Builder
 	/// Builder for Composite Components.
 	/// </summary>
 	/// <remarks>
+	/// <p>This builder interface contains all non model-level specifical methods of a composite
+	/// component.</p>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.3  2005/04/08 10:41:18  kelsaka
 	/// - added return of IDs
 	/// - added implementation of defined interfaces
@@ -31,6 +36,8 @@ namespace Palladio.ComponentModel.Builder
 	/// </remarks>
 	public interface ICompositeComponentBuilder : IComponentBuilder, ICompositeBaseBuilder
 	{
+		#region methods
+
 		/// <summary>
 		/// called to add a delegationconnector from the provides interface of an component to the provides 
 		/// interface of an inner component.
@@ -41,8 +48,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		void AddProvidesDelegationConnector(string connectionName,  
-			IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
-
+		                                    IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
 
 		/// <summary>
 		/// called to add a delegationconnector from the requires interface of an component to the requires 
@@ -53,7 +59,8 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		/// <param name="outerIFaceID">the id of the outer component</param>
 		void AddRequiresDelegationConnector(string connectionName, IComponentIdentifier innerCompID, 
-			IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID);
+		                                    IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID);
 
+		#endregion
 	}
 }

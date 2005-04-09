@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/09 12:26:28  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.5  2005/04/08 16:50:31  kelsaka
 	/// - added interface builder implementation
 	///
@@ -209,6 +212,7 @@ namespace Palladio.ComponentModel.UnitTests
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
 			Identifier.ISignatureIdentifier si = iFace.AddSignature("newSignature").SignatureID;
 			iFace.RemoveSignature(si);
+			
 		}
 		#endregion
 	}

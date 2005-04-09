@@ -9,10 +9,14 @@ namespace Palladio.ComponentModel.Builder
 	/// IInterfaceBuilder. Builder for creating interfaces including signatures and protocols.
 	/// </summary>
 	/// <remarks>
+	/// <p>This builder interface contains all non model-level specifical methods of a interface.</p>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.6  2005/04/08 18:12:01  kelsaka
 	/// - added further method to be able to add an existing signature
 	///
@@ -40,6 +44,8 @@ namespace Palladio.ComponentModel.Builder
 	/// </remarks>
 	public interface IInterfaceBuilder
 	{
+		#region methods
+
 		/// <summary>
 		/// Adds an existing signature to the actual Interface.
 		/// </summary>
@@ -79,6 +85,10 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="protocolID">the id of the protocol that has to be removed</param>
 		void RemoveProtocol(IProtocolIdentifier protocolID);
 
+		#endregion
+
+		#region Properties
+
 		/// <summary>
 		/// Returns the <see cref="IInterfaceIdentifier"/> of the actual interface.
 		/// </summary>
@@ -86,5 +96,15 @@ namespace Palladio.ComponentModel.Builder
 		{
 			get;
 		}
+
+		/// <summary>
+		/// Accesses the created instance.
+		/// </summary>
+		IInterface Interface
+		{
+			get;
+		}
+
+		#endregion
 	}
 }

@@ -194,8 +194,14 @@
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
-                <Folder RelPath = "src\Builder\DefaultBuilder\DeploymentLevelBuilder\" />
-                <Folder RelPath = "src\Builder\DefaultBuilder\ImplementationLevelBuilder\" />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\DeploymentLevelBuilder\info.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\ImplementationLevelBuilder\info.txt"
+                    BuildAction = "Content"
+                />
                 <File
                     RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultBasicComponentTypeLevelBuilder.cs"
                     SubType = "Code"

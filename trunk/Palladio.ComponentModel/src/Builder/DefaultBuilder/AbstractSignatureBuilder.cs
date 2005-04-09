@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.1  2005/04/08 15:40:06  kelsaka
 	/// - added SignatureBuilder
 	/// - fixed bug: some new entities were not added to component model
@@ -23,9 +26,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// </remarks>
 	public abstract class AbstractSignatureBuilder : ISignatureBuilder
 	{
+		#region data
+
 		private ILowLevelBuilder lowLevelBuilder;
 		private ISignature signature;
 
+		#endregion
+
+		#region methods
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
@@ -38,6 +46,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			this.signature = signature;
 		}
 
+		#endregion
+
+		#region Properties
+
 		/// <summary>
 		/// Returns the <see cref="ISignatureIdentifier"/> of the actual interface.
 		/// </summary>
@@ -45,5 +57,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			get { return signature.SignaturID; }
 		}
+
+		/// <summary>
+		/// Accesses the created instance.
+		/// </summary>
+		public ISignature Signature
+		{
+			get { return this.signature; }
+		}
+
+		#endregion
 	}
 }

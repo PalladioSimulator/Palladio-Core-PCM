@@ -11,11 +11,16 @@ namespace Palladio.ComponentModel.Builder
 	/// <remarks>
 	/// The component model is divided into three levels. Each level has its own builders. To change
 	/// between the levels the upper and / or lower level builder is available.
-	/// All (sub-)builders return type level builders by default.
+	/// All (sub-)builders return type level builders by default for new instances.
+	/// 
+	/// <p>This builder interface contains all non model-level specifical methods of a root.</p>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.7  2005/04/08 15:40:06  kelsaka
 	/// - added SignatureBuilder
 	/// - fixed bug: some new entities were not added to component model
@@ -47,6 +52,7 @@ namespace Palladio.ComponentModel.Builder
 	/// </remarks>
 	public interface IRootBuilder : ICompositeBaseBuilder
 	{
+		#region methods
 
 		/// <summary>
 		/// Creates a new <see cref="IInterfaceBuilder"/>, which allows to build new interfaces.
@@ -65,7 +71,8 @@ namespace Palladio.ComponentModel.Builder
 		/// <summary>
 		/// call to remove all entities and there relations from the model
 		/// </summary>
-		void ClearAll(); 
+		void ClearAll();
 
+		#endregion
 	}
 }

@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.1  2005/04/08 16:50:31  kelsaka
 	/// - added interface builder implementation
 	///
@@ -23,9 +26,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// </remarks>
 	public abstract class AbstractProtocolBuilder : IProtocolBuilder
 	{
+		#region data
+
 		private ILowLevelBuilder lowLevelBuilder;
 		private IProtocol protocol;
 
+		#endregion
+
+		#region methods
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
@@ -38,6 +46,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			this.protocol = protocol;
 		}
 
+		#endregion
+
+		#region Properties
+
 		/// <summary>
 		/// Returns the <see cref="IProtocolIdentifier"/> of the actual protocol.
 		/// </summary>
@@ -45,5 +57,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			get { return this.protocol.ProtocolID; }
 		}
+
+		/// <summary>
+		/// Accesses the created instance.
+		/// </summary>
+		public IProtocol Protocol
+		{
+			get { return this.protocol; }
+		}
+
+		#endregion
 	}
 }

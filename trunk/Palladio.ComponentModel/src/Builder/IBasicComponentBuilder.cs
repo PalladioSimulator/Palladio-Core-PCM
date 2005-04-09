@@ -9,10 +9,15 @@ namespace Palladio.ComponentModel.Builder
 	/// Builder for creating Basic Components.
 	/// </summary>
 	/// <remarks>
+	/// <p>This builder interface contains all non model-level specifical methods of a basic
+	/// component.</p>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.4  2005/04/07 17:49:31  kelsaka
 	/// - added some unit tests
 	/// - added builder implementation
@@ -31,10 +36,10 @@ namespace Palladio.ComponentModel.Builder
 	/// </remarks>
 	public interface IBasicComponentBuilder : IComponentBuilder
 	{
+		#region methods
 
 		//TODO: basic methods that are non level specific for bc.
 
-
-
+		#endregion
 	}
 }

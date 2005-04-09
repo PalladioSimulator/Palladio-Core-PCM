@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.5  2005/04/08 18:12:01  kelsaka
 	/// - added further method to be able to add an existing signature
 	///
@@ -41,9 +44,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// </remarks>
 	public abstract class AbstractInterfaceBuilder : IInterfaceBuilder
 	{
+		#region data
+
 		private ILowLevelBuilder lowLevelBuilder;
 		private IInterface iInterface;
 
+		#endregion
+
+		#region methods
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
@@ -121,6 +129,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			lowLevelBuilder.RemoveProtocol(protocolID);
 		}
 
+		#endregion
+
+		#region Properties
+
 		/// <summary>
 		/// Returns the <see cref="IInterfaceIdentifier"/> of the actual interface.
 		/// </summary>
@@ -129,5 +141,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			get { return this.iInterface.InterfaceID; }
 		}
 
+		/// <summary>
+		/// Accesses the created instance.
+		/// </summary>
+		public IInterface Interface
+		{
+			get { return this.iInterface; }
+		}
+
+		#endregion
 	}
 }

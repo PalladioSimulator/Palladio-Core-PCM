@@ -13,12 +13,17 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// The RootBuilder for the component model. Allows to build sub-builders. By default
 	/// type-level builders are returned from all levels of builders. This means, that for
 	/// each entity the default level is the type-level.
+	/// <p>Abstract implementation of the root builder - methods that are available at all levels of the
+	/// component model.</p>
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.3  2005/04/08 14:40:55  kelsaka
 	/// - added implementation and unit-tests
 	///
@@ -49,9 +54,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// </remarks>
 	public abstract class AbstractRootBuilder : IRootBuilder
 	{
+		#region data
 
 		private ILowLevelBuilder lowLevelBuilder;
 
+		#endregion
+
+		#region methods
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
@@ -78,7 +87,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>The new ComponentBuilder.</returns>
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (string name)
 		{
-			IComponent component = EntityFactory.CreateComponent(ModelEntities.ComponentType.BASIC, name);
+			IComponent component = EntityFactory.CreateComponent(ComponentType.BASIC, name);
 			lowLevelBuilder.AddComponent(component, null);
 			return new DefaultBasicComponentTypeLevelBuilder(lowLevelBuilder, component);
 		}
@@ -90,7 +99,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
 		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (string name)
 		{
-			IComponent component = EntityFactory.CreateComponent(ModelEntities.ComponentType.COMPOSITE, name);
+			IComponent component = EntityFactory.CreateComponent(ComponentType.COMPOSITE, name);
 			lowLevelBuilder.AddComponent(component, null);
 			return new DefaultCompositeComponentTypeLevelBuilder(lowLevelBuilder, component);
 		}
@@ -163,6 +172,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			lowLevelBuilder.ClearAll();
 		}
 
-
+		#endregion
 	}
 }

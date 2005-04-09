@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/09 12:26:28  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.1  2005/04/08 08:23:30  joemal
 	/// rename class ComponentModel to ComponentModelEnvironment
 	/// due to problems with the namespace
@@ -43,7 +46,9 @@ namespace Palladio.ComponentModel
 	{
 		#region data
 
-		//hold the manager of the model
+		/// <summary>
+		/// hold the manager of the model
+		/// </summary>
 		private ModelDataManager modelManager;
 		
 		#endregion
@@ -73,17 +78,22 @@ namespace Palladio.ComponentModel
 		#region properties
 
 		/// <summary>
-		/// Creates a new <see cref="IRootTypeLevelBuilder"/>. The builder offers all neccessary sub-builders to
-		/// create a new component model (static structure).
+		/// <p>Creates a new <see cref="IRootTypeLevelBuilder"/>. The builder offers all neccessary sub-builders to
+		/// create a new component model (static structure).</p>
+		/// <p>To create other model levels of the component model than the type level (implementation, deployment)
+		/// this builder offers methods to change to level specifical builders. Each entity has an property to
+		/// access other level builders.</p>
 		/// </summary>
-		/// <returns>A new RootBuilder for the type level of the component model.</returns>
+		/// <returns>
+		/// A new RootBuilder for the type level of the component model.
+		/// </returns>
 		/// <remarks>
-		/// Uses the EntityFactory.
+		/// Uses the <see cref="ModelEntities.EntityFactory"/> to create new instances. The static structure is created using a <see cref="LowLevelBuilder"/>.
 		/// </remarks>
 		public IRootTypeLevelBuilder RootBuilder
 		{
 			get
-			{
+			{	
 				return new DefaultRootTypeLevelBuilder(modelManager.LowLevelBuilder);
 			}
 		}

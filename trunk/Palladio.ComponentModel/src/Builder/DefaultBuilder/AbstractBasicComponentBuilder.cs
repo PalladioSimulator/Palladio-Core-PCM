@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.3  2005/04/08 14:40:54  kelsaka
 	/// - added implementation and unit-tests
 	///
@@ -34,9 +37,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// </remarks>
 	public abstract class AbstractBasicComponentBuilder : IBasicComponentBuilder
 	{
+		#region data
+
 		private ILowLevelBuilder lowLevelBuilder;
 		private IComponent component;
 
+		#endregion
+
+		#region methods
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
@@ -115,6 +123,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			lowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.REQUIRES);
 		}
 
+		#endregion
+
+		#region Properties
+
 		/// <summary>
 		/// Returns the <see cref="IComponentIdentifier"/> of the actual component.
 		/// </summary>
@@ -123,5 +135,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			get { return this.component.ComponentID; }
 		}
 
+		/// <summary>
+		/// Accesses the created instance.
+		/// </summary>
+		public IComponent Component
+		{
+			get { return this.component; }
+		}
+
+		#endregion
 	}
 }

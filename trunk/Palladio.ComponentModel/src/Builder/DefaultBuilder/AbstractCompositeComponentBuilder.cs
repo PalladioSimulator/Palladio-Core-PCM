@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/09 12:23:20  kelsaka
+	/// - added documentation
+	///
 	/// Revision 1.2  2005/04/08 14:40:55  kelsaka
 	/// - added implementation and unit-tests
 	///
@@ -30,9 +33,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// </remarks>
 	public abstract class AbstractCompositeComponentBuilder : ICompositeComponentBuilder
 	{
+		#region data
+
 		private ILowLevelBuilder lowLevelBuilder;
 		private IComponent component;
 
+		#endregion
+
+		#region methods
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
@@ -44,7 +52,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			this.lowLevelBuilder = lowLevelBuilder;
 			this.component = component;
 		}
-
 
 		/// <summary>
 		/// TODO: useful for builder?
@@ -181,14 +188,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		/// <summary>
-		/// Returns the <see cref="IComponentIdentifier"/> of the actual component.
-		/// </summary>
-		public IComponentIdentifier ComponentID
-		{
-			get { return this.component.ComponentID; }
-		}
-
-		/// <summary>
 		/// called to remove the connection that belongs to the given id. If the entity could not be found in 
 		/// componentmodel, the method returns without doing anything.
 		/// </summary>
@@ -208,11 +207,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		public void AddProvidesDelegationConnector (string connectionName, IInterfaceIdentifier outerIFaceID,
-			IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
+		                                            IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{
 			IConnection connection = EntityFactory.CreateConnection(connectionName);
 			lowLevelBuilder.AddProvidesDelegationConnector(connection, this.component.ComponentID,
-				outerIFaceID, innerCompID, innerIFaceID);
+			                                               outerIFaceID, innerCompID, innerIFaceID);
 		}
 
 		/// <summary>
@@ -224,13 +223,34 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		/// <param name="outerIFaceID">the id of the outer component</param>
 		public void AddRequiresDelegationConnector (string connectionName, IComponentIdentifier innerCompID,
-			IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID)
+		                                            IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID)
 		{
 			IConnection connection = EntityFactory.CreateConnection(connectionName);
 			lowLevelBuilder.AddRequiresDelegationConnector(connection, innerCompID, innerIFaceID,
-				this.component.ComponentID, outerIFaceID);
+			                                               this.component.ComponentID, outerIFaceID);
 		}
 
+		#endregion
+
+		#region Properties
+
+		/// <summary>
+		/// Returns the <see cref="IComponentIdentifier"/> of the actual component.
+		/// </summary>
+		public IComponentIdentifier ComponentID
+		{
+			get { return this.component.ComponentID; }
+		}
+
+		/// <summary>
+		/// Accesses the created instance.
+		/// </summary>
+		public IComponent Component
+		{
+			get { return this.component; }
+		}
+
+		#endregion
 
 	}
 }
