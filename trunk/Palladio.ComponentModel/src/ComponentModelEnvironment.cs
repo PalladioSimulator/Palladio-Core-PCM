@@ -2,6 +2,7 @@ using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEventManagement;
+using Palladio.ComponentModel.Query;
 
 namespace Palladio.ComponentModel
 {
@@ -14,6 +15,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/10 15:34:23  joemal
+	/// add some query methods
+	///
 	/// Revision 1.2  2005/04/09 12:26:28  kelsaka
 	/// - added documentation
 	///
@@ -106,6 +110,17 @@ namespace Palladio.ComponentModel
 			get
 			{
 				return this.modelManager.EventInterface;
+			}
+		}
+
+		/// <summary>
+		/// called to return the interface used to query the entity of the componentmodel.
+		/// </summary>
+		public IQueryInterface QueryInterface
+		{
+			get
+			{
+				return this.modelManager.QueryInterface;
 			}
 		}
 

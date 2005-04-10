@@ -125,6 +125,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ComponentModelIdentifier.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\IBasicComponentBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -588,6 +593,31 @@
                 />
                 <File
                     RelPath = "src\ModelEventManagement\StaticViewEvents.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\IQueryEntities.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\IQueryInterface.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\Impl\BasicQueryImpl.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\Impl\ModelQueryManager.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\Impl\QueryEntitiesImpl.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

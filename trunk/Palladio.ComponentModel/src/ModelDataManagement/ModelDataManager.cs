@@ -1,4 +1,6 @@
 using Palladio.ComponentModel.ModelEventManagement;
+using Palladio.ComponentModel.Query;
+using Palladio.ComponentModel.Query.Impl;
 using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.ModelDataManagement
@@ -12,6 +14,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/10 15:34:23  joemal
+	/// add some query methods
+	///
 	/// Revision 1.3  2005/03/29 13:06:11  joemal
 	/// add event support
 	///
@@ -35,6 +40,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//holds the event manager of the component model
 		private IModelEventManager modelEventManager;
 
+		//holds the query interface of the component model
+		private IQueryInterface  modelQueryInterface;
+
 		//holds the dataset
 		private ModelDataSet modelDataset;
 
@@ -56,6 +64,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		{
 			modelDataset =  new ModelDataSet(); 
 			entityHashtable = new EntityHashtable();
+			
+			modelQueryInterface = new ModelQueryManager(modelDataset,entityHashtable);
+
 			modelEventManager = new ModelEventManager(modelDataset,entityHashtable);
 			lowLevelBuilder = new LowLevelBuilder(modelDataset,entityHashtable,modelEventManager.EntityRegistration);
 		}
@@ -79,6 +90,17 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			get
 			{
 				return this.modelEventManager.EventInterface;
+			}
+		}
+
+		/// <summary>
+		/// called to return the query interface of the model
+		/// </summary>
+		public IQueryInterface QueryInterface
+		{
+			get
+			{
+				return modelQueryInterface;
 			}
 		}
 	}
