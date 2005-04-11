@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/11 17:07:18  joemal
+	/// use [SetUp] Attribute instead of using the constructor
+	///
 	/// Revision 1.6  2005/04/09 12:26:28  kelsaka
 	/// - added documentation
 	///
@@ -57,12 +60,14 @@ namespace Palladio.ComponentModel.UnitTests
 
 		public BuilderTest()
 		{
-			InitTest();
+			//nicht gut, böse!! Hat sich bei mir aufgehangen. Besser mit [SetUp].
+//			InitTest();		
 		}
 		#endregion
 
 		#region general tests
-		[Test]
+
+		[SetUp]		
 		public void InitTest()
 		{
 			this.componentModel = new ComponentModelEnvironment();	

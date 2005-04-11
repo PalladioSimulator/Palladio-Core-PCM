@@ -16,6 +16,12 @@ namespace Palladio.ComponentModel.UnitTests
 
 		public LowLevelBuilderTest()
 		{
+			
+		}
+
+		[SetUp]
+		public void Init()
+		{
 			modelManager = new ModelDataManager();
 		}
 
