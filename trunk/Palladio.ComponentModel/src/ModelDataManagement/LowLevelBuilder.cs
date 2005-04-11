@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/04/11 17:06:26  joemal
+	/// change the ClearAll method
+	///
 	/// Revision 1.8  2005/04/04 16:27:28  joemal
 	/// implement the rest of the notification
 	///
@@ -98,6 +101,13 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			modelDataset.Protocols.ProtocolsRowDeleted += new ModelDataSet.ProtocolsRowChangeEventHandler(ProtocolDeleted);			
 			modelDataset.Connections.ConnectionsRowDeleted += new ModelDataSet.ConnectionsRowChangeEventHandler(ConDeleted);			
 			modelDataset.Roles.RolesRowDeleted +=new ModelDataSet.RolesRowChangeEventHandler(InterfaceUnbound);
+		}
+
+		//clear the given dataset table
+		private void ClearTable(DataTable table)
+		{
+			while(table.Rows.Count != 0)
+				table.Rows.RemoveAt(0);
 		}
 
 		//queries the role by componentid, interfaceid and role
@@ -217,12 +227,18 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		public void ClearAll()
 		{
-			RolesTable.Clear();
+			this.ClearTable(RolesTable);
+			this.ClearTable(ComponentsTable);
+			this.ClearTable(InterfacesTable);
+			this.ClearTable(SignaturesTable);
+			this.ClearTable(ProtocolsTable);
+			this.ClearTable(ConnectionsTable);
+			/*RolesTable.Clear();
 			ComponentsTable.Clear();
 			InterfacesTable.Clear();
 			SignaturesTable.Clear();
 			ProtocolsTable.Clear();
-			ConnectionsTable.Clear();
+			ConnectionsTable.Clear();*/
 			entityHashtable.Clear();
 			idCntr = 0;
 		}
