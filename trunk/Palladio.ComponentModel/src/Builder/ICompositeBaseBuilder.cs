@@ -21,6 +21,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/12 12:32:39  kelsaka
+	/// - removed property to access typed IDs directly from the builders
+	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
+	///
 	/// Revision 1.7  2005/04/09 12:23:20  kelsaka
 	/// - added documentation
 	///
@@ -52,13 +56,6 @@ namespace Palladio.ComponentModel.Builder
 	public interface ICompositeBaseBuilder
 	{
 		#region methods
-
-		//TODO: useful for builder?
-		/// <summary>
-		/// Creates a new <see cref="IBasicComponentBuilder"/>, which allows to create new components.
-		/// </summary>
-		/// <returns>The new ComponentBuilder.</returns		
-		IComponentBuilder AddComponent(IComponent component);
 
 		/// <summary>
 		/// Adds a <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.

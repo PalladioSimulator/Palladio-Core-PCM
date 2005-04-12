@@ -15,6 +15,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/12 12:32:39  kelsaka
+	/// - removed property to access typed IDs directly from the builders
+	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
+	///
 	/// Revision 1.3  2005/04/09 12:23:20  kelsaka
 	/// - added documentation
 	///
@@ -30,14 +34,6 @@ namespace Palladio.ComponentModel.Builder
 	public interface IProtocolBuilder
 	{
 		#region Properties
-
-		/// <summary>
-		/// Returns the <see cref="IProtocolIdentifier"/> of the actual protocol.
-		/// </summary>
-		IProtocolIdentifier ProtocolID
-		{
-			get;
-		}
 
 		/// <summary>
 		/// Accesses the created instance.

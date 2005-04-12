@@ -13,6 +13,10 @@ namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/12 12:32:39  kelsaka
+	/// - removed property to access typed IDs directly from the builders
+	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
+	///
 	/// Revision 1.1  2005/04/08 15:40:06  kelsaka
 	/// - added SignatureBuilder
 	/// - fixed bug: some new entities were not added to component model
@@ -29,10 +33,6 @@ namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 		{
 			get;
 		}
-
-
-
-
 
 	}
 }

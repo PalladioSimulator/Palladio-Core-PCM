@@ -12,6 +12,10 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/12 12:32:39  kelsaka
+	/// - removed property to access typed IDs directly from the builders
+	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
+	///
 	/// Revision 1.2  2005/04/05 14:24:00  joemal
 	/// implement the rest of the notification
 	///
@@ -28,7 +32,7 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 		/// <summary>
 		/// the typed id of the signature
 		/// </summary>
-		public ISignatureIdentifier SignaturID
+		public ISignatureIdentifier SignatureID
 		{
 			get
 			{

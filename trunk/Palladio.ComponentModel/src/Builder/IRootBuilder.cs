@@ -18,6 +18,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/04/12 12:32:39  kelsaka
+	/// - removed property to access typed IDs directly from the builders
+	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
+	///
 	/// Revision 1.8  2005/04/09 12:23:20  kelsaka
 	/// - added documentation
 	///
@@ -69,7 +73,7 @@ namespace Palladio.ComponentModel.Builder
 		void RemoveInterface(IInterfaceIdentifier ifaceIdentifier);
 
 		/// <summary>
-		/// call to remove all entities and there relations from the model
+		/// call to remove all entities and their relations from the model
 		/// </summary>
 		void ClearAll();
 

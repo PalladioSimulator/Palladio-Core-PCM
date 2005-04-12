@@ -14,6 +14,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/12 12:32:39  kelsaka
+	/// - removed property to access typed IDs directly from the builders
+	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
+	///
 	/// Revision 1.7  2005/04/09 12:23:20  kelsaka
 	/// - added documentation
 	///
@@ -88,14 +92,6 @@ namespace Palladio.ComponentModel.Builder
 		#endregion
 
 		#region Properties
-
-		/// <summary>
-		/// Returns the <see cref="IInterfaceIdentifier"/> of the actual interface.
-		/// </summary>
-		IInterfaceIdentifier InterfaceID
-		{
-			get;
-		}
 
 		/// <summary>
 		/// Accesses the created instance.

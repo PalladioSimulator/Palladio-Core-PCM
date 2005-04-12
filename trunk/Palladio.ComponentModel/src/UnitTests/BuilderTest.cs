@@ -13,6 +13,10 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/12 12:32:39  kelsaka
+	/// - removed property to access typed IDs directly from the builders
+	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
+	///
 	/// Revision 1.7  2005/04/11 17:07:18  joemal
 	/// use [SetUp] Attribute instead of using the constructor
 	///
@@ -60,8 +64,7 @@ namespace Palladio.ComponentModel.UnitTests
 
 		public BuilderTest()
 		{
-			//nicht gut, böse!! Hat sich bei mir aufgehangen. Besser mit [SetUp].
-//			InitTest();		
+
 		}
 		#endregion
 
@@ -91,8 +94,8 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void RemoveCCandBCFromRoot()
 		{
-			Identifier.IComponentIdentifier c1 = rootBuilder.AddCompositeComponent("CC2").ComponentID;
-			Identifier.IComponentIdentifier c2 = rootBuilder.AddCompositeComponent("BC2").ComponentID;
+			Identifier.IComponentIdentifier c1 = rootBuilder.AddCompositeComponent("CC2").Component.ComponentID;
+			Identifier.IComponentIdentifier c2 = rootBuilder.AddCompositeComponent("BC2").Component.ComponentID;
 			rootBuilder.RemoveComponent(c1);
 			rootBuilder.RemoveComponent(c2);
 		}
@@ -112,7 +115,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void RemoveInternalCC_BCFromRoot()
 		{
-			Identifier.IComponentIdentifier c4 = rootBuilder.AddCompositeComponent("CC4").AddBasicComponent("CC4_BC4").ComponentID;
+			Identifier.IComponentIdentifier c4 = rootBuilder.AddCompositeComponent("CC4").AddBasicComponent("CC4_BC4").Component.ComponentID;
 			rootBuilder.RemoveComponent(c4);
 		}
 		[Test]
@@ -132,21 +135,21 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void CC_AddBCToCCAndRemove()
 		{
-			Identifier.IComponentIdentifier c5 = rootBuilder.AddCompositeComponent("CC5").AddBasicComponent("CC4_BC4").ComponentID;
+			Identifier.IComponentIdentifier c5 = rootBuilder.AddCompositeComponent("CC5").AddBasicComponent("CC4_BC4").Component.ComponentID;
 			rootBuilder.RemoveComponent(c5);
 		}
 
 		[Test]
 		public void CC_AddProvidesInterfaceAndRemove()
 		{
-			Identifier.IInterfaceIdentifier i6 = rootBuilder.AddCompositeComponent("CC6").AddProvidesInterface("IF6").InterfaceID;
+			Identifier.IInterfaceIdentifier i6 = rootBuilder.AddCompositeComponent("CC6").AddProvidesInterface("IF6").Interface.InterfaceID;
 			rootBuilder.RemoveInterface(i6);
 		}
 
 		[Test]
 		public void CC_AddRequiresInterfaceAndRemove()
 		{
-			Identifier.IInterfaceIdentifier i7 = rootBuilder.AddCompositeComponent("CC7").AddRequiresInterface("IF7").InterfaceID;
+			Identifier.IInterfaceIdentifier i7 = rootBuilder.AddCompositeComponent("CC7").AddRequiresInterface("IF7").Interface.InterfaceID;
 			rootBuilder.RemoveInterface(i7);
 		}
 
@@ -154,7 +157,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void CC_AddInterfacesAndConnections()
 		{
 			ICompositeComponentTypeLevelBuilder sccb = rootBuilder.AddCompositeComponent("SuperCC8");
-			Identifier.IInterfaceIdentifier i8 = rootBuilder.AddInterface("IF8").InterfaceID;
+			Identifier.IInterfaceIdentifier i8 = rootBuilder.AddInterface("IF8").Interface.InterfaceID;
 			
 			ICompositeComponentTypeLevelBuilder ccb1 = sccb.AddCompositeComponent("CC8-1");
 			ICompositeComponentTypeLevelBuilder ccb2 = sccb.AddCompositeComponent("CC8-2");
@@ -162,13 +165,13 @@ namespace Palladio.ComponentModel.UnitTests
 			ccb1.AddProvidesInterface(i8);
 			ccb2.AddRequiresInterface(i8);
 
-			sccb.AddAssemblyConnector("Connection8", ccb2.ComponentID, i8, ccb1.ComponentID, i8);			
+			sccb.AddAssemblyConnector("Connection8", ccb2.Component.ComponentID, i8, ccb1.Component.ComponentID, i8);			
 		}
 
 		[Test]
 		public void CC_RemoveComponentTwice()
 		{
-			Identifier.IComponentIdentifier bc9 = rootBuilder.AddBasicComponent("BC9").ComponentID;
+			Identifier.IComponentIdentifier bc9 = rootBuilder.AddBasicComponent("BC9").Component.ComponentID;
 			rootBuilder.RemoveComponent(bc9);
 			rootBuilder.RemoveComponent(bc9);
 		}
@@ -186,7 +189,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void BC_AddInterfacesAndConnections()
 		{
 			ICompositeComponentTypeLevelBuilder sccb = rootBuilder.AddCompositeComponent("SuperCC10");
-			Identifier.IInterfaceIdentifier i10 = rootBuilder.AddInterface("IF10").InterfaceID;
+			Identifier.IInterfaceIdentifier i10 = rootBuilder.AddInterface("IF10").Interface.InterfaceID;
 			
 			IBasicComponentTypeLevelBuilder bcb1 = sccb.AddBasicComponent("BC10-1");
 			IBasicComponentTypeLevelBuilder bcb2 = sccb.AddBasicComponent("BC10-2");
@@ -194,13 +197,13 @@ namespace Palladio.ComponentModel.UnitTests
 			bcb1.AddProvidesInterface(i10);
 			bcb2.AddRequiresInterface(i10);
 
-			sccb.AddAssemblyConnector("Connection8", bcb2.ComponentID, i10, bcb1.ComponentID, i10);			
+			sccb.AddAssemblyConnector("Connection8", bcb2.Component.ComponentID, i10, bcb1.Component.ComponentID, i10);			
 		}
 
 		[Test]
 		public void BC_RemoveInterface()
 		{
-			Identifier.IInterfaceIdentifier i11 =  rootBuilder.AddInterface("IF11").InterfaceID;
+			Identifier.IInterfaceIdentifier i11 =  rootBuilder.AddInterface("IF11").Interface.InterfaceID;
 			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");
 			bc11.AddProvidesInterface(i11);
 			bc11.AddRequiresInterface(i11);
@@ -215,7 +218,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void IF_AddSignatureAndRemove()
 		{
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
-			Identifier.ISignatureIdentifier si = iFace.AddSignature("newSignature").SignatureID;
+			Identifier.ISignatureIdentifier si = iFace.AddSignature("newSignature").Signature.SignatureID;
 			iFace.RemoveSignature(si);
 			
 		}

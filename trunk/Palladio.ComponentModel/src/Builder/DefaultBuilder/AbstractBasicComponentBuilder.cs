@@ -17,6 +17,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/12 12:32:39  kelsaka
+	/// - removed property to access typed IDs directly from the builders
+	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
+	///
 	/// Revision 1.4  2005/04/09 12:23:20  kelsaka
 	/// - added documentation
 	///
@@ -126,14 +130,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		#endregion
 
 		#region Properties
-
-		/// <summary>
-		/// Returns the <see cref="IComponentIdentifier"/> of the actual component.
-		/// </summary>
-		public IComponentIdentifier ComponentID
-		{
-			get { return this.component.ComponentID; }
-		}
 
 		/// <summary>
 		/// Accesses the created instance.
