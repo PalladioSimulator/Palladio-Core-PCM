@@ -1,6 +1,7 @@
 using Palladio.ComponentModel;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.Identifier;
 
 namespace Palladio.CM.Example
 {
@@ -12,6 +13,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/12 17:36:24  joemal
+	/// implement the creation of a component model
+	///
 	/// Revision 1.1  2005/04/08 10:54:33  joemal
 	/// initial class creation
 	///
@@ -47,11 +51,16 @@ namespace Palladio.CM.Example
 		/// </summary>
 		public void Create()
 		{
-			BuildIFaceIWriter(rootBuilder.AddInterface("IWriter"));
-			BuildIFaceIWriterBackEnd(rootBuilder.AddInterface("IWriterBackEnd"));
-			BuildCC1(rootBuilder.AddCompositeComponent("WriteCC"));
-			BuildBC1(rootBuilder.AddBasicComponent("WriterBackendBC"));
-			//todo: add assembly connector between WriterCC and WriterBackendBC
+			//- zwei interfaces werden erzeugt (rootBuilder.AddInterface("...");)
+			//- AddInterface gibt den Builder zu den Interfaces zurück, BuildIFaceWriter füllt das Interface mit Inhalt
+			//- BuildIFaceWriter gibt die ID des Interfaces zurück, wird noch benötigt
+			IInterfaceIdentifier wrIfaceID = BuildIFaceIWriter(rootBuilder.AddInterface("IWriter"));
+			IInterfaceIdentifier wrbeIfaceID = BuildIFaceIWriterBackEnd(rootBuilder.AddInterface("IWriterBackEnd"));
+
+			//- Auf ähnliche art und weise die Komponenten basteln
+			IComponentIdentifier wrCCID = BuildCC1(rootBuilder.AddCompositeComponent("WriteCC"), wrbeIfaceID,wrIfaceID);
+			IComponentIdentifier wrbeBCID = BuildBC1(rootBuilder.AddBasicComponent("WriterBackendBC"),wrbeIfaceID);
+			rootBuilder.AddAssemblyConnector("WR -> WR_BE",wrCCID,wrbeIfaceID,wrbeBCID,wrbeIfaceID);
 		}
 
 		#endregion
@@ -59,28 +68,55 @@ namespace Palladio.CM.Example
 		#region private methods
 		
 		//creates the composite component cc1
-		private void BuildCC1(ICompositeComponentBuilder compositeComponentBuilder)
+		private IComponentIdentifier BuildCC1(ICompositeComponentBuilder compositeComponentBuilder,
+			IInterfaceIdentifier reqIFace, IInterfaceIdentifier provIFace)
 		{
-			//todo: add interfaces to the component
-			//todo: add delegation connectors to the component
-			//todo: add basic component WriterImplBC
-            //compositeComponentBuilder.AddBasicComponent("WriterImplBC");			
+			IComponentIdentifier bc2ID = BuildBC2(compositeComponentBuilder.AddBasicComponent("WriterImplBC"),
+				provIFace,reqIFace);	
+
+			//Interfaces den der Komponente hinzufügen
+			compositeComponentBuilder.AddProvidesInterface(provIFace);
+			compositeComponentBuilder.AddRequiresInterface(reqIFace);
+
+
+			//delegation connector ziehen
+			compositeComponentBuilder.AddProvidesDelegationConnector("WRCC.Prov -> WRBC.Prov",provIFace,bc2ID,provIFace);
+			compositeComponentBuilder.AddRequiresDelegationConnector("WRCC.Req -> WRBC.Req",bc2ID,reqIFace,reqIFace);
+            			
+            return compositeComponentBuilder.Component.ComponentID;
 		}
 
 		//creates the basic component bc1
-		private void BuildBC1(IBasicComponentTypeLevelBuilder basicComponentTypeLevelBuilder)
+		private IComponentIdentifier BuildBC2(IBasicComponentTypeLevelBuilder basicComponentTypeLevelBuilder,
+			IInterfaceIdentifier provIfaceID,IInterfaceIdentifier reqIFaceID)
 		{
-			//todo: add interfaces to the components
+			basicComponentTypeLevelBuilder.AddProvidesInterface(provIfaceID);
+			basicComponentTypeLevelBuilder.AddRequiresInterface(reqIFaceID);
+			return basicComponentTypeLevelBuilder.Component.ComponentID;
 		}
 
-		private void BuildIFaceIWriter(IInterfaceTypeLevelBuilder levelBuilder)
+		//creates the basic component bc1
+		private IComponentIdentifier BuildBC1(IBasicComponentTypeLevelBuilder basicComponentTypeLevelBuilder,
+			IInterfaceIdentifier provIfaceID)
 		{
-			//todo: add signatures
+			basicComponentTypeLevelBuilder.AddProvidesInterface(provIfaceID);
+			return basicComponentTypeLevelBuilder.Component.ComponentID;
 		}
 
-		private void BuildIFaceIWriterBackEnd(IInterfaceTypeLevelBuilder levelBuilder)
+		//creates the interface IWriter
+		private IInterfaceIdentifier BuildIFaceIWriter(IInterfaceTypeLevelBuilder levelBuilder)
 		{
-			//todo: add signatures
+			//todo: signatures hinzufügen
+			//levelBuilder.AddSignature()
+			return levelBuilder.Interface.InterfaceID;
+		}
+
+		//creates the interface IWriterBackend
+		private IInterfaceIdentifier BuildIFaceIWriterBackEnd(IInterfaceTypeLevelBuilder levelBuilder)
+		{
+			//todo: signatures hinzufügen
+			//levelBuilder.AddSignature()
+			return levelBuilder.Interface.InterfaceID;
 		}
 
 		#endregion

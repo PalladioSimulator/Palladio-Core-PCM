@@ -14,6 +14,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/12 17:36:24  joemal
+	/// implement the creation of a component model
+	///
 	/// Revision 1.1  2005/04/08 10:54:33  joemal
 	/// initial class creation
 	///
@@ -96,7 +99,7 @@ namespace Palladio.CM.Example.Presentation
 		/// </summary>
 		public override void Paint()
 		{
-			Console.WriteLine("Interface "+this.Model.Name+" pained.");
+			Console.WriteLine("Interface "+this.Model.Name+" painted.");
 
 			Console.WriteLine("Paint signatues of the interface: ");
 			foreach(DictionaryEntry entry in signatures)
