@@ -1,6 +1,8 @@
 #if TEST
+using System;
 using NUnit.Framework;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.UnitTests
 {
@@ -13,6 +15,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/04/12 18:08:35  kelsaka
+	/// - added events to builders
+	///
 	/// Revision 1.8  2005/04/12 12:32:39  kelsaka
 	/// - removed property to access typed IDs directly from the builders
 	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
@@ -50,6 +55,7 @@ namespace Palladio.ComponentModel.UnitTests
 	{
 		private ComponentModelEnvironment componentModel;
 		private IRootTypeLevelBuilder rootBuilder;
+		private bool executed;
 
 		#region for static use
 		/// <summary>
@@ -75,6 +81,7 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			this.componentModel = new ComponentModelEnvironment();	
 			this.rootBuilder = componentModel.RootBuilder;
+			this.executed = false;
 		}
 		#endregion
 
@@ -211,6 +218,24 @@ namespace Palladio.ComponentModel.UnitTests
 			bc11.RemoveProvidesInterface(i11);
 			bc11.RemoveProvidesInterface(i11);
 		}
+
+		[Test]
+		public void BC_Event()
+		{
+			IBasicComponentTypeLevelBuilder bc = rootBuilder.AddBasicComponent("BC");
+			bc.NameChangedEvent += new StaticAttributeChangedEventHandler(NameChangedListener);
+
+			bc.Component.Name = "bc2";
+
+			Assert.IsTrue(executed, "event-delegate was not called.");
+		}
+
+		// This will be called whenever the name changes.
+		private void NameChangedListener(object sender) 
+		{
+			executed = true;
+		}
+
 		#endregion
 
 		#region Interface-Builder

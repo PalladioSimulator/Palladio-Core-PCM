@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/12 18:08:35  kelsaka
+	/// - added events to builders
+	///
 	/// Revision 1.6  2005/04/12 12:32:39  kelsaka
 	/// - removed property to access typed IDs directly from the builders
 	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
@@ -44,7 +47,7 @@ namespace Palladio.ComponentModel.Builder
 	///
 	/// </pre>
 	/// </remarks>
-	public interface IComponentBuilder
+	public interface IComponentBuilder : IEntityBuilder
 	{
 		#region methods
 

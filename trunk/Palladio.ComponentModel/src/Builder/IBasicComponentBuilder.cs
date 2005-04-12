@@ -1,6 +1,7 @@
 using System;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.Builder
 {
@@ -15,6 +16,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/12 18:08:35  kelsaka
+	/// - added events to builders
+	///
 	/// Revision 1.5  2005/04/09 12:23:20  kelsaka
 	/// - added documentation
 	///
@@ -41,5 +45,7 @@ namespace Palladio.ComponentModel.Builder
 		//TODO: basic methods that are non level specific for bc.
 
 		#endregion
+
+
 	}
 }

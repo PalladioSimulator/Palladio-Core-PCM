@@ -150,6 +150,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\IEntityBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\IInterfaceBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

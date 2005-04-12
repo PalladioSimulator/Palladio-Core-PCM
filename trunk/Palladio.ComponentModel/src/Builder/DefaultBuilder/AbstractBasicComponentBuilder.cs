@@ -1,9 +1,12 @@
 using System;
+using Palladio.Attributes;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.ModelEventManagement;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
@@ -17,6 +20,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/12 18:08:35  kelsaka
+	/// - added events to builders
+	///
 	/// Revision 1.5  2005/04/12 12:32:39  kelsaka
 	/// - removed property to access typed IDs directly from the builders
 	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
@@ -140,5 +146,19 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		#endregion
+
+		/// <summary>
+		/// The name of the entity
+		/// </summary>
+		public string Name
+		{
+			get { throw new NotImplementedException (); }
+			set { throw new NotImplementedException (); }
+		}
+
+		/// <summary>
+		/// has to be fired when the name is changed
+		/// </summary>
+		public event StaticAttributeChangedEventHandler NameChangedEvent;
 	}
 }
