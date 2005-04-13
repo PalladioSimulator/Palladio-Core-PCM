@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/04/13 17:06:02  kelsaka
+	/// - added further support for building signatures
+	///
 	/// Revision 1.9  2005/04/12 18:08:35  kelsaka
 	/// - added events to builders
 	///
@@ -220,7 +223,7 @@ namespace Palladio.ComponentModel.UnitTests
 		}
 
 		[Test]
-		public void BC_Event()
+		public void BC_Event_NameChanged()
 		{
 			IBasicComponentTypeLevelBuilder bc = rootBuilder.AddBasicComponent("BC");
 			bc.NameChangedEvent += new StaticAttributeChangedEventHandler(NameChangedListener);
@@ -247,7 +250,27 @@ namespace Palladio.ComponentModel.UnitTests
 			iFace.RemoveSignature(si);
 			
 		}
+
 		#endregion
+
+		#region Signature-Builder
+		
+		[Test]
+		public void SIGNATURE_AddDescription()
+		{
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
+			si.AppendParameter("System.String");
+			si.SetReturnType("System.String");
+			si.SetReturnTypeVoid();
+			si.ClearParameterList();			
+			si.AddException("Palladio.ComponentModel.Exceptions.ComponentHierarchyException");
+			si.AddException("Palladio.ComponentModel.Exceptions.ComponentHierarchyException");
+			
+		}
+
+		#endregion
+
 	}
 }
 

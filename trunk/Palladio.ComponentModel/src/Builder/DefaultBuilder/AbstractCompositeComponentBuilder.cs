@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/13 17:06:02  kelsaka
+	/// - added further support for building signatures
+	///
 	/// Revision 1.5  2005/04/12 18:08:35  kelsaka
 	/// - added events to builders
 	///
@@ -39,7 +42,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractCompositeComponentBuilder : ICompositeComponentBuilder
+	public abstract class AbstractCompositeComponentBuilder : AbstractEntityBuilder, ICompositeComponentBuilder
 	{
 		#region data
 
@@ -251,19 +254,5 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		#endregion
-
-		/// <summary>
-		/// The name of the entity
-		/// </summary>
-		public string Name
-		{
-			get { throw new NotImplementedException (); }
-			set { throw new NotImplementedException (); }
-		}
-
-		/// <summary>
-		/// has to be fired when the name is changed
-		/// </summary>
-		public event StaticAttributeChangedEventHandler NameChangedEvent;
 	}
 }

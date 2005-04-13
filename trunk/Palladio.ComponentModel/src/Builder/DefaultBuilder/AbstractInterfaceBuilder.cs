@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/04/13 17:06:02  kelsaka
+	/// - added further support for building signatures
+	///
 	/// Revision 1.9  2005/04/13 09:27:17  kelsaka
 	/// - added builders (including interfaces) for types and parameters of signatures.
 	///
@@ -53,7 +56,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractInterfaceBuilder : IInterfaceBuilder
+	public abstract class AbstractInterfaceBuilder : AbstractEntityBuilder, IInterfaceBuilder
 	{
 		#region data
 
@@ -155,19 +158,5 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		#endregion
-
-		/// <summary>
-		/// The name of the entity
-		/// </summary>
-		public string Name
-		{
-			get { throw new NotImplementedException (); }
-			set { throw new NotImplementedException (); }
-		}
-
-		/// <summary>
-		/// has to be fired when the name is changed
-		/// </summary>
-		public event StaticAttributeChangedEventHandler NameChangedEvent;
 	}
 }

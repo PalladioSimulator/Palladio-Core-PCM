@@ -1,12 +1,10 @@
 using System;
-using Palladio.Attributes;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.ModelEventManagement;
-using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
@@ -20,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/13 17:06:02  kelsaka
+	/// - added further support for building signatures
+	///
 	/// Revision 1.6  2005/04/12 18:08:35  kelsaka
 	/// - added events to builders
 	///
@@ -45,7 +46,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractBasicComponentBuilder : IBasicComponentBuilder
+	public abstract class AbstractBasicComponentBuilder : AbstractEntityBuilder, IBasicComponentBuilder
 	{
 		#region data
 
@@ -146,19 +147,5 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		#endregion
-
-		/// <summary>
-		/// The name of the entity
-		/// </summary>
-		public string Name
-		{
-			get { throw new NotImplementedException (); }
-			set { throw new NotImplementedException (); }
-		}
-
-		/// <summary>
-		/// has to be fired when the name is changed
-		/// </summary>
-		public event StaticAttributeChangedEventHandler NameChangedEvent;
 	}
 }

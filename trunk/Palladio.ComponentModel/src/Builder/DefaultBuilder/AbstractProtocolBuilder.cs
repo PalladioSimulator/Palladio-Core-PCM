@@ -13,10 +13,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// </summary>
 	/// <remarks>
 	/// Currently the protocols can not be created using a builder.
+	/// </remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/13 17:06:02  kelsaka
+	/// - added further support for building signatures
+	///
 	/// Revision 1.4  2005/04/12 18:08:35  kelsaka
 	/// - added events to builders
 	///
@@ -32,7 +36,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractProtocolBuilder : IProtocolBuilder
+	public abstract class AbstractProtocolBuilder : AbstractEntityBuilder, IProtocolBuilder
 	{
 		#region data
 
@@ -67,19 +71,5 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		#endregion
-
-		/// <summary>
-		/// The name of the entity
-		/// </summary>
-		public string Name
-		{
-			get { throw new NotImplementedException (); }
-			set { throw new NotImplementedException (); }
-		}
-
-		/// <summary>
-		/// has to be fired when the name is changed
-		/// </summary>
-		public event StaticAttributeChangedEventHandler NameChangedEvent;
 	}
 }

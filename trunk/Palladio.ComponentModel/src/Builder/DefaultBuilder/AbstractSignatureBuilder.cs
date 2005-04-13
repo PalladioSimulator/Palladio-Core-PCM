@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.ModelEntities.Impl;
 using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
@@ -19,6 +21,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/13 17:06:02  kelsaka
+	/// - added further support for building signatures
+	///
 	/// Revision 1.5  2005/04/13 09:27:17  kelsaka
 	/// - added builders (including interfaces) for types and parameters of signatures.
 	///
@@ -38,7 +43,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractSignatureBuilder : ISignatureBuilder
+	public abstract class AbstractSignatureBuilder : AbstractEntityBuilder, ISignatureBuilder
 	{
 		#region data
 
@@ -79,9 +84,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// Sets the return type of the actual signature.
 		/// </summary>
 		/// <param name="type">The given type is used as return type.</param>
-		public void SetReturnType (IType type)
+		public void SetReturnType (Type type)
 		{
-			this.signature.ReturnType = type;
+			this.signature.ReturnType = EntityFactory.CreateType(type);
 		}
 
 		/// <summary>
@@ -93,18 +98,58 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		/// <summary>
-		/// Appends a new parameter to end of the parameter list of the signature.
+		/// Appends a new parameter to the end of the parameter list of the signature. No modifiers
+		/// (<see cref="ParameterModifierEnum"/> like "out" or "ref") are used.
 		/// </summary>
-		/// <param name="name">The new parameters name.</param>
+		/// <param name="name">The new parameters name and the name of the <see cref="Type"/>
+		/// to add. Both have to be named the same. The name has to be a valid name of a type.</param>
 		/// <returns>A <see cref="IParameterTypeLevelBuilder"/> for the newly created
 		/// parameter.</returns>
+		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (<see cref="name"/>) is not
+		/// a valid type-name.</exception>
 		public IParameterTypeLevelBuilder AppendParameter (string name)
+		{
+			//TODO: create the right parameter: different types.
+			IParameter parameter = EntityFactory.CreateParameter(name, name);			
+			
+			ArrayList parameterList = new ArrayList(this.signature.Parameters);
+			parameterList.Add(parameter);
+			signature.Parameters = (IParameter[])parameterList.ToArray(typeof(IParameter));	
+
+			return new DefaultBuilder.TypeLevelBuilder.DefaultParameterTypeLevelBuilder(lowLevelBuilder, parameter);
+		}
+
+		/// <summary>
+		/// Appends a new parameter to the end of the parameter list of the signature.
+		/// The <see cref="ParameterModifierEnum.NONE"/> is set to <see cref="IParameterTypeLevelBuilder"/>
+		/// by default.
+		/// </summary>
+		/// <param name="type">The type of the new parameter</param>
+		/// <param name="name">The new parameters name.</param>
+		/// <returns>A <see cref="ParameterModifierEnum"/> for the newly created
+		/// parameter.</returns>
+		public IParameterTypeLevelBuilder AppendParameter (Type type, string name)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Appends a new parameter to the end of the parameter list of the signature.
+		/// </summary>
+		/// <param name="type">The type of the new parameter</param>
+		/// <param name="name">The new parameters name.</param>
+		/// <param name="modifiers">The modifier (<see cref="IParameterTypeLevelBuilder"/> like "out"
+		/// or "ref") of the actual parameter.</param>
+		/// <returns>A <see cref="ParameterModifierEnum"/> for the newly created
+		/// parameter.</returns>
+		public IParameterTypeLevelBuilder AppendParameter (Type type, string name, ParameterModifierEnum modifiers)
 		{
 			throw new NotImplementedException ();
 		}
 
 		/// <summary>
 		/// Clears the list of parameters. Afterwards the signature contains no more parameters.
+		/// (Reset to default parameters.)
 		/// </summary>
 		/// <remarks>
 		/// Currently parameters do not have IDs. As parameters might occur multiple times it can
@@ -113,38 +158,73 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </remarks>
 		public void ClearParameterList ()
 		{
-			throw new NotImplementedException ();
+			this.signature.Parameters = SignatureDescription.DEFAULT_PARAMETERS;
 		}
 
 		/// <summary>
 		/// Adds a new exception with the given name to the unordered list of exceptions.
 		/// Exceptions can only occur once in the list.
 		/// </summary>
-		/// <param name="name">The type-name of the new exception. It has to be a valid
-		/// <see cref="IType"/>-name and a <see cref="Exception"/>.</param>
+		/// <param name="typeName">The type-name of the new exception. It has to be a valid
+		/// <see cref="Type"/>-name and a <see cref="Exception"/>.</param>
 		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> for the new exception.</returns>
-		public ITypeTypeLevelBuilder AddException (string name)
+		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (<see cref="typeName"/>) is not
+		/// a valid type-name.</exception>
+		/// <exception cref="TypeNotValidException">Thrown if the created type is not an exception
+		/// (sub-) type.</exception>
+		public ITypeTypeLevelBuilder AddException (string typeName)
 		{
-			throw new NotImplementedException ();
+			IType type = EntityFactory.CreateType(typeName);
+			AddException(type);
+			return new DefaultTypeTypeLevelBuilder(lowLevelBuilder, type);
 		}
 
 		/// <summary>
 		/// Adds the given exception to the signature.
 		/// </summary>
+		/// <remarks>
+		/// Exceptions are only added once. If a exceptions is added multiple times it is added
+		/// only once.
+		/// </remarks>
 		/// <param name="type">The exception to add. It has to be a valid
 		/// <see cref="Exception"/>.</param>
-		public void AddException (IType type)
+		/// <exception cref="TypeNotValidException">Thrown if the created type is not an exception
+		/// (sub-) type.</exception>
+		public void AddException (Type type)
 		{
-			throw new NotImplementedException ();
+			AddException(EntityFactory.CreateType(type));
+		}
+
+		private void AddException (IType type)
+		{
+			// check wether the created type is a valid exception-type:
+			IType exceptionType = EntityFactory.CreateType(typeof(Exception));
+			if(!type.IsSubtypeOf(exceptionType))
+			{
+				throw new TypeNotValidException(type.ToString() + " is not an exception type.");
+			}
+	
+			ArrayList exceptionsList = new ArrayList(this.signature.Exceptions);
+	
+			//TODO: search for double exception-types - currently only equals is used. 
+			if(!exceptionsList.Contains(type))
+			{
+				exceptionsList.Add(type);	
+				signature.Exceptions = (IType[])exceptionsList.ToArray(typeof(IType));			
+			}
 		}
 
 		/// <summary>
 		/// Removes the given exception from the signature.
 		/// </summary>
 		/// <param name="exception">The exception to remove.</param>
-		public void RemoveException (IType exception)
+		public void RemoveException (Type exception)
 		{
-			throw new NotImplementedException ();
+			//TODO: Remove uses wrong equals:
+			IType exceptionType = EntityFactory.CreateType(exception);
+			ArrayList exceptionsList = new ArrayList(this.signature.Exceptions);
+			exceptionsList.Remove(exceptionType);
+			signature.Exceptions = (IType[])exceptionsList.ToArray(typeof(IType));				
 		}
 
 		#endregion
@@ -160,19 +240,5 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		#endregion
-
-		/// <summary>
-		/// The name of the entity
-		/// </summary>
-		public string Name
-		{
-			get { throw new NotImplementedException (); }
-			set { throw new NotImplementedException (); }
-		}
-
-		/// <summary>
-		/// has to be fired when the name is changed
-		/// </summary>
-		public event StaticAttributeChangedEventHandler NameChangedEvent;
 	}
 }
