@@ -1,0 +1,40 @@
+using System;
+using Palladio.ComponentModel.ModelEntities;
+
+namespace Palladio.ComponentModel.Builder
+{
+	/// <summary>
+	/// ITypeBuilder. Builds ITypes.
+	/// </summary>
+	/// <remarks>
+	/// <p>This builder interface contains all non model-level specifical methods of a signature.</p>
+	/// <pre>
+	/// Version history:
+	///
+	/// $Log$
+	/// Revision 1.1  2005/04/13 09:27:17  kelsaka
+	/// - added builders (including interfaces) for types and parameters of signatures.
+	///
+	/// </pre>
+	/// </remarks>
+	public interface ITypeBuilder 
+	{
+		#region Methods
+
+
+		#endregion
+
+		#region Properties
+
+
+		/// <summary>
+		/// Accesses the created instance.
+		/// </summary>
+		IType Type
+		{
+			get;
+		}
+
+		#endregion
+	}
+}

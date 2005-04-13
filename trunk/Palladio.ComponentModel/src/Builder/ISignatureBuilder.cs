@@ -1,4 +1,5 @@
 using System;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 
@@ -15,6 +16,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/13 09:27:17  kelsaka
+	/// - added builders (including interfaces) for types and parameters of signatures.
+	///
 	/// Revision 1.6  2005/04/12 18:08:35  kelsaka
 	/// - added events to builders
 	///
@@ -40,7 +44,73 @@ namespace Palladio.ComponentModel.Builder
 	/// </remarks>
 	public interface ISignatureBuilder : IEntityBuilder
 	{
+		#region Methods
+		
+		/// <summary>
+		/// Sets the return type of the actual signature. The return type is newly created.
+		/// </summary>
+		/// <param name="name">The name of the return-type. It has to be a valid
+		/// <see cref="IType"/>-name. This means that the type needs to exist.</param>
+		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> for the new type.</returns>
+		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given string is not
+		/// a valid type-name.</exception>
+		ITypeTypeLevelBuilder SetReturnType(string name);
+
+		/// <summary>
+		/// Sets the return type of the actual signature.
+		/// </summary>
+		/// <param name="type">The given type is used as return type.</param>
+		void SetReturnType(IType type);
+
+		/// <summary>
+		/// Sets the return type to <see cref="void"/>.
+		/// </summary>
+		void SetReturnTypeVoid();
+
+		/// <summary>
+		/// Appends a new parameter to end of the parameter list of the signature.
+		/// </summary>
+		/// <param name="name">The new parameters name.</param>
+		/// <returns>A <see cref="IParameterTypeLevelBuilder"/> for the newly created
+		/// parameter.</returns>
+		IParameterTypeLevelBuilder AppendParameter(string name);
+
+		/// <summary>
+		/// Clears the list of parameters. Afterwards the signature contains no more parameters.
+		/// </summary>
+		/// <remarks>
+		/// Currently parameters do not have IDs. As parameters might occur multiple times it can
+		/// not be determined which parameter is meant to delete. So always the whole list has to
+		/// be deleted.
+		/// </remarks>
+		void ClearParameterList();
+
+		/// <summary>
+		/// Adds a new exception with the given name to the unordered list of exceptions.
+		/// Exceptions can only occur once in the list.
+		/// </summary>
+		/// <param name="name">The type-name of the new exception. It has to be a valid
+		/// <see cref="IType"/>-name and a <see cref="Exception"/>.</param>
+		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> for the new exception.</returns>
+		ITypeTypeLevelBuilder AddException(string name);
+
+		/// <summary>
+		/// Adds the given exception to the signature.
+		/// </summary>
+		/// <param name="type">The exception to add. It has to be a valid
+		/// <see cref="Exception"/>.</param>
+		void AddException(IType type);
+
+		/// <summary>
+		/// Removes the given exception from the signature.
+		/// </summary>
+		/// <param name="exception">The exception to remove.</param>
+		void RemoveException(IType exception);
+
+		#endregion
+
 		#region Properties
+
 
 		/// <summary>
 		/// Accesses the created instance.

@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/04/13 09:27:17  kelsaka
+	/// - added builders (including interfaces) for types and parameters of signatures.
+	///
 	/// Revision 1.8  2005/04/12 18:08:35  kelsaka
 	/// - added events to builders
 	///
@@ -87,6 +90,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		/// <summary>
 		/// Adds a new signature with the given name to the actual Interface.
+		/// The new signature is initialized with the default signature description, where
+		/// the return type is void and no parameters and exceptions are set.
 		/// </summary>
 		/// <param name="signatureName">The new signatures name.</param>
 		/// <returns>SignatureBuilder</returns>

@@ -7,7 +7,7 @@ using Palladio.ComponentModel.ModelEntities;
 namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 {
 	/// <summary>
-	/// Default implementation of the signature builder at the type level.
+	/// Default implementation of the parameter builder at the type level.
 	/// <summary>
 	/// 
 	/// </summary>
@@ -16,32 +16,28 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
-	/// Revision 1.2  2005/04/13 09:27:17  kelsaka
+	/// Revision 1.1  2005/04/13 09:27:17  kelsaka
 	/// - added builders (including interfaces) for types and parameters of signatures.
-	///
-	/// Revision 1.1  2005/04/08 15:40:06  kelsaka
-	/// - added SignatureBuilder
-	/// - fixed bug: some new entities were not added to component model
 	///
 	/// </pre>
 	/// </remarks>
-	public class DefaultSignatureTypeLevelBuilder : AbstractSignatureBuilder, ISignatureTypeLevelBuilder
+	public class DefaultParameterTypeLevelBuilder : AbstractParameterBuilder, IParameterTypeLevelBuilder
 	{
 
 		/// <summary>
 		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="lowLevelBuilder">The model data management.</param>
-		/// <param name="signature">The signature to build.</param>
-		public DefaultSignatureTypeLevelBuilder(ILowLevelBuilder lowLevelBuilder, ISignature signature) 
+		/// <param name="parameter">The parameter to build.</param>
+		public DefaultParameterTypeLevelBuilder(ILowLevelBuilder lowLevelBuilder, IParameter parameter) 
 		{
-			base.Init(lowLevelBuilder, signature);
+			base.Init(lowLevelBuilder, parameter);
 		}
 
 		/// <summary>
 		/// Offers a possibility to change the model-level at which the actual entity is created.
 		/// </summary>
-		public ISignatureImplementationLevelBuilder ImplementationLevelBuilder
+		public IParameterImplementationLevelBuilder ImplementationLevelBuilder
 		{
 			get { throw new NotImplementedException ("ImplementationLevelBuilder is not done yet."); }
 		}

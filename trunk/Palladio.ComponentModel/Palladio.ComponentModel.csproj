@@ -160,6 +160,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\IParameterBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\IProtocolBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -171,6 +176,11 @@
                 />
                 <File
                     RelPath = "src\Builder\ISignatureBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\ITypeBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -190,6 +200,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\DefaultBuilder\AbstractParameterBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\DefaultBuilder\AbstractProtocolBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -201,6 +216,11 @@
                 />
                 <File
                     RelPath = "src\Builder\DefaultBuilder\AbstractSignatureBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\AbstractTypeBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -228,6 +248,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultParameterTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultProtocolTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -239,6 +264,11 @@
                 />
                 <File
                     RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultSignatureTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultTypeTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -258,6 +288,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\DeploymentLevelBuilder\IParameterDeploymentLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\DeploymentLevelBuilder\IProtocolDeploymentLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -269,6 +304,11 @@
                 />
                 <File
                     RelPath = "src\Builder\DeploymentLevelBuilder\ISignatureDeploymentLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DeploymentLevelBuilder\ITypeDeploymentLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -288,6 +328,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\ImplementationLevelBuilder\IParameterImplementationLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\ImplementationLevelBuilder\IProtocolImplementationLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -299,6 +344,11 @@
                 />
                 <File
                     RelPath = "src\Builder\ImplementationLevelBuilder\ISignatureImplementationLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\ImplementationLevelBuilder\ITypeImplementationLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -318,6 +368,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\TypeLevelBuilder\IParameterTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\TypeLevelBuilder\IProtocolTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -329,6 +384,11 @@
                 />
                 <File
                     RelPath = "src\Builder\TypeLevelBuilder\ISignatureTypeLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\TypeLevelBuilder\ITypeTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

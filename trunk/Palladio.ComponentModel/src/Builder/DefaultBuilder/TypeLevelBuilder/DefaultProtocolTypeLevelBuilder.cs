@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/13 09:27:17  kelsaka
+	/// - added builders (including interfaces) for types and parameters of signatures.
+	///
 	/// Revision 1.1  2005/04/08 16:50:31  kelsaka
 	/// - added interface builder implementation
 	///
@@ -29,7 +32,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="lowLevelBuilder">The model data management.</param>
-		/// <param name="protocol">The interface to build.</param>
+		/// <param name="protocol">The protocol to build.</param>
 		public DefaultProtocolTypeLevelBuilder(ILowLevelBuilder lowLevelBuilder, IProtocol protocol) 
 		{
 			base.Init(lowLevelBuilder, protocol);
