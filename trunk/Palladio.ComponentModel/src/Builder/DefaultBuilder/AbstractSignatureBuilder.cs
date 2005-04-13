@@ -3,11 +3,8 @@ using System.Collections;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
-using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
-using Palladio.ComponentModel.ModelEntities.Impl;
-using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
@@ -21,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/13 17:36:51  kelsaka
+	/// - completed signature builder
+	///
 	/// Revision 1.6  2005/04/13 17:06:02  kelsaka
 	/// - added further support for building signatures
 	///
@@ -84,9 +84,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// Sets the return type of the actual signature.
 		/// </summary>
 		/// <param name="type">The given type is used as return type.</param>
-		public void SetReturnType (Type type)
+		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> of the actual return type.</returns>
+		public ITypeTypeLevelBuilder SetReturnType (Type type)
 		{
 			this.signature.ReturnType = EntityFactory.CreateType(type);
+			return new DefaultTypeTypeLevelBuilder(lowLevelBuilder, this.signature.ReturnType);
 		}
 
 		/// <summary>
@@ -108,15 +110,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (<see cref="name"/>) is not
 		/// a valid type-name.</exception>
 		public IParameterTypeLevelBuilder AppendParameter (string name)
-		{
-			//TODO: create the right parameter: different types.
-			IParameter parameter = EntityFactory.CreateParameter(name, name);			
-			
-			ArrayList parameterList = new ArrayList(this.signature.Parameters);
-			parameterList.Add(parameter);
-			signature.Parameters = (IParameter[])parameterList.ToArray(typeof(IParameter));	
-
-			return new DefaultBuilder.TypeLevelBuilder.DefaultParameterTypeLevelBuilder(lowLevelBuilder, parameter);
+		{			
+			IParameter parameter = EntityFactory.CreateParameter(name, name);
+			return AppendParameter (parameter);
 		}
 
 		/// <summary>
@@ -130,7 +126,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// parameter.</returns>
 		public IParameterTypeLevelBuilder AppendParameter (Type type, string name)
 		{
-			throw new NotImplementedException ();
+			IParameter parameter = EntityFactory.CreateParameter(type, name);
+			return AppendParameter (parameter);
 		}
 
 		/// <summary>
@@ -138,13 +135,23 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="type">The type of the new parameter</param>
 		/// <param name="name">The new parameters name.</param>
-		/// <param name="modifiers">The modifier (<see cref="IParameterTypeLevelBuilder"/> like "out"
+		/// <param name="modifier">The modifier (<see cref="IParameterTypeLevelBuilder"/> like "out"
 		/// or "ref") of the actual parameter.</param>
 		/// <returns>A <see cref="ParameterModifierEnum"/> for the newly created
 		/// parameter.</returns>
-		public IParameterTypeLevelBuilder AppendParameter (Type type, string name, ParameterModifierEnum modifiers)
+		public IParameterTypeLevelBuilder AppendParameter (Type type, string name, ParameterModifierEnum modifier)
 		{
-			throw new NotImplementedException ();
+			IParameter parameter = EntityFactory.CreateParameter(type, name, modifier);
+			return AppendParameter (parameter);
+		}
+
+		private IParameterTypeLevelBuilder AppendParameter (IParameter parameter)
+		{
+			ArrayList parameterList = new ArrayList(this.signature.Parameters);
+			parameterList.Add(parameter);
+			signature.Parameters = (IParameter[])parameterList.ToArray(typeof(IParameter));	
+	
+			return new DefaultParameterTypeLevelBuilder(lowLevelBuilder, parameter);
 		}
 
 		/// <summary>
@@ -174,9 +181,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// (sub-) type.</exception>
 		public ITypeTypeLevelBuilder AddException (string typeName)
 		{
-			IType type = EntityFactory.CreateType(typeName);
-			AddException(type);
-			return new DefaultTypeTypeLevelBuilder(lowLevelBuilder, type);
+			return AddException(EntityFactory.CreateType(typeName));			
 		}
 
 		/// <summary>
@@ -187,15 +192,16 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// only once.
 		/// </remarks>
 		/// <param name="type">The exception to add. It has to be a valid
+		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> of the actual exception.</returns>
 		/// <see cref="Exception"/>.</param>
 		/// <exception cref="TypeNotValidException">Thrown if the created type is not an exception
 		/// (sub-) type.</exception>
-		public void AddException (Type type)
+		public ITypeTypeLevelBuilder AddException (Type type)
 		{
-			AddException(EntityFactory.CreateType(type));
+			return AddException(EntityFactory.CreateType(type));
 		}
 
-		private void AddException (IType type)
+		private ITypeTypeLevelBuilder AddException (IType type)
 		{
 			// check wether the created type is a valid exception-type:
 			IType exceptionType = EntityFactory.CreateType(typeof(Exception));
@@ -212,6 +218,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 				exceptionsList.Add(type);	
 				signature.Exceptions = (IType[])exceptionsList.ToArray(typeof(IType));			
 			}
+			return new DefaultTypeTypeLevelBuilder(lowLevelBuilder, type);
 		}
 
 		/// <summary>
