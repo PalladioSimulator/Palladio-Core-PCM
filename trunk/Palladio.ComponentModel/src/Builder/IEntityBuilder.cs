@@ -1,4 +1,4 @@
-using System;
+using Palladio.Attributes;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.ModelEventManagement;
 
@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/13 20:24:08  kelsaka
+	/// - added enitity methods
+	///
 	/// Revision 1.1  2005/04/12 18:08:35  kelsaka
 	/// - added events to builders
 	///
@@ -20,17 +23,48 @@ namespace Palladio.ComponentModel.Builder
 	public interface IEntityBuilder
 	{
 		#region methods
+		
+		/// <summary>
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// </summary>
+		/// <param name="entity">The enitity instance.</param>
+		void Init(IComponentModelEntity entity);
+
+		/// <summary>
+		/// Adds a <see cref="IAttribute"/> to the AttributeHash.
+		/// </summary>
+		/// <param name="attributeType">The attributes type to add.</param>
+		/// <param name="attribute">The attribute to add.</param>
+		void AddAttribute(IAttributeType attributeType, IAttribute attribute);
+
+		/// <summary>
+		/// Removes a <see cref="IAttribute"/> from the AttributeHash.
+		/// </summary>
+		/// <param name="attributeType">The attribute to remove.</param>
+		void RemoveAttribute(IAttributeType attributeType);
+
+		#endregion
+
+		#region properties
+
+		/// <summary>
+		/// Gets a copy (!) of the value of the attribute with the specified type.
+		/// To change the value, get a copy, change it and then add it again to the table.
+		/// </summary>
+		IAttribute this [IAttributeType type] { get; }
 
 		/// <summary>
 		/// The name of the entity
 		/// </summary>
 		string Name { get; set; }
 
+		#endregion
+
 		/// <summary>
 		/// has to be fired when the name is changed
 		/// </summary>
 		event StaticAttributeChangedEventHandler NameChangedEvent;
 
-		#endregion
+		
 	}
 }

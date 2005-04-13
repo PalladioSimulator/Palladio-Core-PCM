@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/13 20:24:08  kelsaka
+	/// - added enitity methods
+	///
 	/// Revision 1.1  2005/04/13 09:27:17  kelsaka
 	/// - added builders (including interfaces) for types and parameters of signatures.
 	///
@@ -37,7 +40,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void Init(ILowLevelBuilder lowLevelBuilder, IType type)
 		{
 			this.lowLevelBuilder = lowLevelBuilder;
-			this.type = type;			
+			this.type = type;
 		}
 
 		#endregion

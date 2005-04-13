@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/13 20:24:08  kelsaka
+	/// - added enitity methods
+	///
 	/// Revision 1.5  2005/04/12 18:08:35  kelsaka
 	/// - added events to builders
 	///
@@ -34,7 +37,7 @@ namespace Palladio.ComponentModel.Builder
 	///
 	/// </pre>
 	/// </remarks>
-	public interface IProtocolBuilder : IEntityBuilder
+	public interface IProtocolBuilder
 	{
 		#region Properties
 

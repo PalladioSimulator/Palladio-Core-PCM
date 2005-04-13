@@ -8,13 +8,14 @@ namespace Palladio.ComponentModel.Builder
 	/// ISignatureBuilder. Builds ISignatures.
 	/// </summary>
 	/// <remarks>
-	/// Currently the signatures can not be created using a builder.
-	/// 
 	/// <p>This builder interface contains all non model-level specifical methods of a signature.</p>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/04/13 20:24:08  kelsaka
+	/// - added enitity methods
+	///
 	/// Revision 1.9  2005/04/13 17:36:51  kelsaka
 	/// - completed signature builder
 	///

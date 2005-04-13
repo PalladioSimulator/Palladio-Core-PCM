@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/13 20:24:08  kelsaka
+	/// - added enitity methods
+	///
 	/// Revision 1.6  2005/04/13 17:06:02  kelsaka
 	/// - added further support for building signatures
 	///
@@ -62,6 +65,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			this.lowLevelBuilder = lowLevelBuilder;
 			this.component = component;
+			base.Init(component);
 		}
 
 		/// <summary>

@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/13 20:24:08  kelsaka
+	/// - added enitity methods
+	///
 	/// Revision 1.7  2005/04/13 17:36:51  kelsaka
 	/// - completed signature builder
 	///
@@ -62,7 +65,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void Init(ILowLevelBuilder lowLevelBuilder, ISignature signature)
 		{
 			this.lowLevelBuilder = lowLevelBuilder;
-			this.signature = signature;		
+			this.signature = signature;	
+			base.Init(signature);
 		}
 
 		/// <summary>

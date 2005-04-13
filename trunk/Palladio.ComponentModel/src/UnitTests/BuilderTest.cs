@@ -1,7 +1,9 @@
 #if TEST
 using System;
+using System.Collections;
 using NUnit.Framework;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.UnitTests
@@ -15,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/04/13 20:24:08  kelsaka
+	/// - added enitity methods
+	///
 	/// Revision 1.10  2005/04/13 17:06:02  kelsaka
 	/// - added further support for building signatures
 	///
@@ -256,17 +261,64 @@ namespace Palladio.ComponentModel.UnitTests
 		#region Signature-Builder
 		
 		[Test]
-		public void SIGNATURE_AddDescription()
+		public void SIGNATURE_AddAndRemoveParameter()
 		{
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.AppendParameter("System.String");
+			si.AppendParameter(typeof(IEnumerator), "enumer1");
+			si.AppendParameter(typeof(IEnumerator), "enumer2", ParameterModifierEnum.OUT);
+			si.AppendParameter(typeof(IEnumerator), "enumer3", ParameterModifierEnum.NONE);
+			si.ClearParameterList();
+		}
+
+		[Test]
+		public void SIGNATURE_ReturnType()
+		{
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.SetReturnType("System.String");
+			si.SetReturnType(typeof(IEnumerator));
 			si.SetReturnTypeVoid();
-			si.ClearParameterList();			
-			si.AddException("Palladio.ComponentModel.Exceptions.ComponentHierarchyException");
-			si.AddException("Palladio.ComponentModel.Exceptions.ComponentHierarchyException");
-			
+		}
+
+		[Test]
+		public void SIGNATURE_AddAndRemoveException()
+		{
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
+			si.AddException(typeof(Exception));
+			si.AddException(typeof(Palladio.ComponentModel.Exceptions.ComponentHierarchyException));
+			si.RemoveException(typeof(Exception));
+			si.RemoveException(typeof(Palladio.ComponentModel.Exceptions.ComponentHierarchyException));
+		}
+
+		[Test]
+		public void SIGNATURE_AddAndRemoveExceptionsTwice()
+		{
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
+			si.AddException(typeof(Exception));
+			si.AddException(typeof(Exception));
+			si.AddException(typeof(Palladio.ComponentModel.Exceptions.ComponentHierarchyException));
+			si.RemoveException(typeof(Exception));
+			si.RemoveException(typeof(Exception));
+		}
+
+		[Test]
+		public void SIGNATURE_RemoveNonExistingException()
+		{
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
+			si.RemoveException(typeof(Exception));
+		}
+
+		[Test]
+		public void SIGNATURE_ClearWithoutExistingParameters()
+		{
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
+			si.ClearParameterList();
 		}
 
 		#endregion
