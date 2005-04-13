@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using NUnit.Framework;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.ModelEventManagement;
 
@@ -17,6 +18,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/04/13 21:22:40  kelsaka
+	/// - added testcases
+	///
 	/// Revision 1.11  2005/04/13 20:24:08  kelsaka
 	/// - added enitity methods
 	///
@@ -234,7 +238,7 @@ namespace Palladio.ComponentModel.UnitTests
 			bc.NameChangedEvent += new StaticAttributeChangedEventHandler(NameChangedListener);
 
 			bc.Component.Name = "bc2";
-
+			
 			Assert.IsTrue(executed, "event-delegate was not called.");
 		}
 
@@ -280,6 +284,15 @@ namespace Palladio.ComponentModel.UnitTests
 			si.SetReturnType("System.String");
 			si.SetReturnType(typeof(IEnumerator));
 			si.SetReturnTypeVoid();
+		}
+
+		[Test]
+		[ExpectedException(typeof(TypeNotFoundException))]
+		public void SIGNATURE_AddNonExistingTypeAsParameter()
+		{
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
+			si.SetReturnType("does.not.exist");
 		}
 
 		[Test]

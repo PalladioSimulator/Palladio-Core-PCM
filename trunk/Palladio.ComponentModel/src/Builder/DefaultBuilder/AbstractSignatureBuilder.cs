@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/04/13 21:22:40  kelsaka
+	/// - added testcases
+	///
 	/// Revision 1.8  2005/04/13 20:24:08  kelsaka
 	/// - added enitity methods
 	///
@@ -209,7 +212,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			// check wether the created type is a valid exception-type:
 			IType exceptionType = EntityFactory.CreateType(typeof(Exception));
-			if(!type.IsSubtypeOf(exceptionType))
+			//TODO: Equals and subtype dont work currently:
+			if(!type.IsSubtypeOf(exceptionType) || !typeof(Exception).Equals(type) )
 			{
 				throw new TypeNotValidException(type.ToString() + " is not an exception type.");
 			}
