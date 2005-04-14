@@ -146,7 +146,7 @@
                 />
                 <Reference
                     Name = "BibTeXProviderXML"
-                    Project = "{BBEF31B2-055E-7E40-B9FE-B414C8DF54A9}"
+                    Project = "{CBAF9A43-5EE7-7344-934C-7267B94B0310}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>

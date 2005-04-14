@@ -21,6 +21,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/14 13:44:34  sliver
+	/// *** empty log message ***
+	///
 	/// Revision 1.2  2005/01/07 16:58:02  kelsaka
 	/// Added TimeConsumingProcessor including its documentation and configuration.
 	/// Integrated the new processor into the COR.
@@ -188,7 +191,7 @@ namespace Palladio.Webserver
 			webserver.httpRequestProcessors[2] = webserverFactory.CreateBibTeXProvider(webserverFactory.CreateBibTexDB(), webserver.httpRequestProcessors[1], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
 			webserver.httpRequestProcessors[3] = webserverFactory.CreateSimpleTemplateFileProvider(webserver.httpRequestProcessors[2], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
 			webserver.httpRequestProcessors[4] = webserverFactory.CreateDynamicFileProvider(webserver.httpRequestProcessors[3], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
-			webserver.httpRequestProcessors[5] = webserverFactory.CreateTimeConsumingProcessor(webserver.httpRequestProcessors[4], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
+			webserver.httpRequestProcessors[5] = webserverFactory.CreateStaticFileProvider(webserver.httpRequestProcessors[4], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
 
 			// RequestParser-COR: HTTP -> Default (currently FTP is not implemented)
 			webserver.requestParsers = new IRequestParser[2];
