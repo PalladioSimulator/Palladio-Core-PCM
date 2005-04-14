@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2005/04/14 12:54:01  sliver
+ * Adjusted to the current version of the *unstable* tree of the component model
+ *
  * Revision 1.1  2004/12/15 00:05:12  sliver
  * initial checkin after some major refactorings
  *
@@ -49,7 +52,7 @@ namespace Palladio.Reliability.Attributes
 	/// 	created by - sliver
 	/// 	created on - 13.07.2004 15:33:17
 	/// </remarks>
-	public class ReliabilityAttribute
+	public class ReliabilityAttribute : IAttribute
 	{
 		#region Properties
 
@@ -131,5 +134,19 @@ namespace Palladio.Reliability.Attributes
 		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("497F9B65-C4B4-4de6-9B43-D4452B73244C"), "ServiceReliabilityAttribute", typeof (ReliabilityAttribute));
 
 		#endregion		
+
+		#region IAttribute Member
+
+		public void Serialize(System.Xml.XmlTextWriter writer)
+		{
+			// TODO:  Implementierung von ReliabilityAttribute.Serialize hinzufügen
+		}
+
+		public void Deserialize(System.Xml.XmlNode element)
+		{
+			// TODO:  Implementierung von ReliabilityAttribute.Deserialize hinzufügen
+		}
+
+		#endregion
 	}
 }

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2005/04/14 12:54:01  sliver
+ * Adjusted to the current version of the *unstable* tree of the component model
+ *
  * Revision 1.1  2004/12/15 00:05:14  sliver
  * initial checkin after some major refactorings
  *
@@ -23,7 +26,7 @@ namespace Palladio.RegularExpressions.DefaultRegEx
 		private IRegEx alternativeOne;
 		private IRegEx alternativeTwo;
 
-		public Alternative(IAttributeHash attributeHash, IRegEx alternativeOne, IRegEx alternativeTwo) : base(attributeHash)
+		public Alternative(AttributeHash attributeHash, IRegEx alternativeOne, IRegEx alternativeTwo) : base(attributeHash)
 		{
 			this.alternativeOne = alternativeOne;
 			this.alternativeTwo = alternativeTwo;

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2005/04/14 12:54:01  sliver
+ * Adjusted to the current version of the *unstable* tree of the component model
+ *
  * Revision 1.1  2004/12/15 00:05:12  sliver
  * initial checkin after some major refactorings
  *
@@ -16,7 +19,7 @@ namespace Palladio.Reliability.Attributes
 	/// <summary>
 	/// Input symbol associated with the state.
 	/// </summary>
-	public class InputAttribute
+	public class InputAttribute : IAttribute
 	{
 		private IInput inputSymbol;
 
@@ -83,6 +86,20 @@ namespace Palladio.Reliability.Attributes
 		}
 
 		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("B34309B7-499F-4bff-A206-AF2979B1FC31"), "InputAttribute", typeof (InputAttribute));
+
+		#endregion
+
+		#region IAttribute Member
+
+		public void Serialize(System.Xml.XmlTextWriter writer)
+		{
+			// TODO:  Implementierung von InputAttribute.Serialize hinzufügen
+		}
+
+		public void Deserialize(System.Xml.XmlNode element)
+		{
+			// TODO:  Implementierung von InputAttribute.Deserialize hinzufügen
+		}
 
 		#endregion
 	}

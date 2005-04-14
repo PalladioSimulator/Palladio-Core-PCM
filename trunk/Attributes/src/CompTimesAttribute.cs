@@ -8,7 +8,7 @@ namespace Palladio.Reliability.Attributes
 {
 	/// <summary>
 	/// </summary>
-	public class CompTimesAttribute
+	public class CompTimesAttribute : IAttribute
 	{
 
 		public static MeasuredTimeAttribute GetTime(IComponent component, string interfaceName, string methodName)
@@ -85,5 +85,18 @@ namespace Palladio.Reliability.Attributes
 		/// </summary>
 		private Hashtable interfaceHash;
 
+		#region IAttribute Member
+
+		public void Serialize(System.Xml.XmlTextWriter writer)
+		{
+			// TODO:  Implementierung von CompTimesAttribute.Serialize hinzufügen
+		}
+
+		public void Deserialize(System.Xml.XmlNode element)
+		{
+			// TODO:  Implementierung von CompTimesAttribute.Deserialize hinzufügen
+		}
+
+		#endregion
 	}
 }

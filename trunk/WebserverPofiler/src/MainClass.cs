@@ -19,7 +19,7 @@ namespace Palladio.Reliability.WebserverProfiler
 		/// </summary>
 		private const string DEFAULT_XML_CONFIGURATION_FILE = "WebserverXML.xml";
 
-		private const string CONNECTION_STRING = "workstation id=INSPIRON;packet size=4096;integrated security=SSPI;data source=localhost;persist security info=False;initial catalog=ReliabilityDB";
+		private const string CONNECTION_STRING = "workstation id=nb-happe;packet size=4096;integrated security=SSPI;data source=jupiter;persist security info=False;initial catalog=ReliabilityDB; user id=jens";
 
 		/// <summary>
 		/// Main webserver-application start.

@@ -113,7 +113,7 @@ namespace Palladio.Reliability.WebserverAnalyser
 
 			// analyse service effect 
 			ArrayList transitionList = new ArrayList();
-			IFiniteStateMachine fsm = ((IFSMServiceEffect) seff.GetAuxiliarySpecification(typeof (IFSMServiceEffect))).FSM;
+			IFiniteStateMachine fsm = ((IFSMServiceEffect) seff.GetServiceInformation(typeof (IFSMServiceEffect))).FSM;
 
 			IState currentState = fsm.StartState;
 			long stateEntryTime = serviceStartTime; // the start state is entered as soon as the service starts
@@ -125,7 +125,7 @@ namespace Palladio.Reliability.WebserverAnalyser
 				long startTime = reader.GetInt64(4);
 				long stopTime = reader.GetInt64(5);
 
-				IService s = FindService(seff.SignatureList, interfaceName, methodName);
+				IService s = FindService(seff.RequiredServicesList, interfaceName, methodName);
 				if (s == null)
 					throw new ApplicationException("Service '" + interfaceName + "." + methodName + "' not found the Seff '" + serviceInterfaceName + "." + serviceMethodName + "' in component '" + Class2Component.GetBasicComponent(serviceClassName).Name + "'!");
 

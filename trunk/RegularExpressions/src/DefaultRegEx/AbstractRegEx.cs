@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2005/04/14 12:54:01  sliver
+ * Adjusted to the current version of the *unstable* tree of the component model
+ *
  * Revision 1.1  2004/12/15 00:05:14  sliver
  * initial checkin after some major refactorings
  *
@@ -20,7 +23,7 @@ namespace Palladio.RegularExpressions.DefaultRegEx
 	/// </summary>
 	internal abstract class AbstractRegEx : IRegEx
 	{
-		public AbstractRegEx(IAttributeHash attributeHash)
+		public AbstractRegEx(AttributeHash attributeHash)
 		{
 			this.attributeHash = attributeHash;
 		}
@@ -38,7 +41,7 @@ namespace Palladio.RegularExpressions.DefaultRegEx
 		/// <summary>
 		/// A list of attributes attached an object. 
 		/// </summary>
-		public IAttributeHash Attributes
+		public AttributeHash Attributes
 		{
 			get { return attributeHash; }
 		}
@@ -48,7 +51,7 @@ namespace Palladio.RegularExpressions.DefaultRegEx
 			get { return this; }
 		}
 
-		private IAttributeHash attributeHash;
+		private AttributeHash attributeHash;
 
 		/// <summary>
 		/// Added for further development. 

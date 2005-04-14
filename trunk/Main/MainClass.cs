@@ -105,7 +105,7 @@ namespace Palladio.Reliability.WebserverAnalyser
 		{
 			if (seff == null)
 				return null;
-			IFSMServiceEffect fsmSeff = (IFSMServiceEffect) seff.GetAuxiliarySpecification(typeof (IFSMServiceEffect));
+			IFSMServiceEffect fsmSeff = (IFSMServiceEffect) seff.GetServiceInformation(typeof (IFSMServiceEffect));
 			IFiniteStateMachine iFSM = FSMTransformer.FSMTransformer.FSMWithIntermediateState(fsmSeff.FSM);
 			IFiniteStateMachine aFSM = FSMTransformer.FSMTransformer.FSMAcceptingStateSequence(iFSM);
 			IFiniteStateMachine uFSM = FSMTransformer.FSMTransformer.UniqueInputSymbolForTransitions(aFSM);
@@ -142,7 +142,7 @@ namespace Palladio.Reliability.WebserverAnalyser
 		{
 			if (seff == null)
 				return;
-			IFSMServiceEffect fsmSeff = (IFSMServiceEffect) seff.GetAuxiliarySpecification(typeof (IFSMServiceEffect));
+			IFSMServiceEffect fsmSeff = (IFSMServiceEffect) seff.GetServiceInformation(typeof (IFSMServiceEffect));
 			foreach (ITransition transition in fsmSeff.FSM.Transitions)
 			{
 				Console.WriteLine(TransitionWithProbabilityToString(transition));

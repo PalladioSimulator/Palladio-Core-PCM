@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2005/04/14 12:54:01  sliver
+ * Adjusted to the current version of the *unstable* tree of the component model
+ *
  * Revision 1.1  2004/12/15 00:05:14  sliver
  * initial checkin after some major refactorings
  *
@@ -23,7 +26,7 @@ namespace Palladio.RegularExpressions.DefaultRegEx
 		private IRegEx predecessor;
 		private IRegEx successor;
 
-		public Sequence(IAttributeHash attributeHash, IRegEx predecessor, IRegEx successor) : base(attributeHash)
+		public Sequence(AttributeHash attributeHash, IRegEx predecessor, IRegEx successor) : base(attributeHash)
 		{
 			this.predecessor = predecessor;
 			this.successor = successor;

@@ -2,6 +2,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  2005/04/14 12:54:01  sliver
+ * Adjusted to the current version of the *unstable* tree of the component model
+ *
  * Revision 1.1  2004/12/15 00:05:14  sliver
  * initial checkin after some major refactorings
  *
@@ -54,7 +57,7 @@ namespace Palladio.RegularExpressions
 		/// <param name="regExOne"></param>
 		/// <param name="regExTwo"></param>
 		/// <returns></returns>
-		public static IAlternative Alternative(IAttributeHash attributeHash, IRegEx regExOne, IRegEx regExTwo)
+		public static IAlternative Alternative(AttributeHash attributeHash, IRegEx regExOne, IRegEx regExTwo)
 		{
 			return new Alternative(attributeHash, regExOne, regExTwo);
 		}
@@ -77,7 +80,7 @@ namespace Palladio.RegularExpressions
 		/// <param name="regExOne"></param>
 		/// <param name="regExTwo"></param>
 		/// <returns></returns>
-		public static ISequence Sequence(IAttributeHash attributeHash, IRegEx regExOne, IRegEx regExTwo)
+		public static ISequence Sequence(AttributeHash attributeHash, IRegEx regExOne, IRegEx regExTwo)
 		{
 			return new Sequence(attributeHash, regExOne, regExTwo);
 		}
@@ -98,7 +101,7 @@ namespace Palladio.RegularExpressions
 		/// <param name="attributeHash"></param>
 		/// <param name="regEx"></param>
 		/// <returns></returns>
-		public static ILoop Loop(IAttributeHash attributeHash, IRegEx regEx)
+		public static ILoop Loop(AttributeHash attributeHash, IRegEx regEx)
 		{
 			return new Loop(attributeHash, regEx);
 		}
@@ -119,7 +122,7 @@ namespace Palladio.RegularExpressions
 		/// <param name="attributeHash"></param>
 		/// <param name="inputSymbol"></param>
 		/// <returns></returns>
-		public static ISymbol Symbol(IAttributeHash attributeHash, IInput inputSymbol)
+		public static ISymbol Symbol(AttributeHash attributeHash, IInput inputSymbol)
 		{
 			return new Symbol(attributeHash, inputSymbol);
 		}
@@ -128,7 +131,7 @@ namespace Palladio.RegularExpressions
 		/// Creates an empty attribute hash.
 		/// </summary>
 		/// <returns></returns>
-		private static IAttributeHash CreateAttributeHash()
+		private static AttributeHash CreateAttributeHash()
 		{
 			return AttributesFactory.Default.CreateAttributeHash();
 		}

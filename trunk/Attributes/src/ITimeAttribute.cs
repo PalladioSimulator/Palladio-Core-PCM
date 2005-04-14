@@ -1,5 +1,6 @@
 using System;
 using MathNet.Numerics;
+using Palladio.Attributes;
 using Palladio.Reliability.Math;
 
 namespace Palladio.Reliability.Attributes
@@ -7,7 +8,7 @@ namespace Palladio.Reliability.Attributes
 	/// <summary>
 	/// Attribute representing the execution time of an object.
 	/// </summary>
-	public interface ITimeAttribute
+	public interface ITimeAttribute : IAttribute
 	{
 		/// <summary>
 		/// Expected or average execution time.

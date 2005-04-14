@@ -27,17 +27,17 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 			IService service_IWebserverMonitor_WriteDebugMessage = CreateService(iModel_IWebserverMonitor, "WriteDebugMessage");
 			methodHash["service_IWebserverMonitor_WriteDebugMessage"] = service_IWebserverMonitor_WriteDebugMessage;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteDebugMessage);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteDebugMessage);
 			IInterfaceModel iModel_IWebserverConfiguration = WebserverInterfaceFactory.CreateIWebserverConfiguration();
 			IService service_IWebserverConfiguration_get_ListeningPorts = CreateService(iModel_IWebserverConfiguration, "get_ListeningPorts");
 			methodHash["service_IWebserverConfiguration_get_ListeningPorts"] = service_IWebserverConfiguration_get_ListeningPorts;
-			seff.SignatureList.AddSignatures(service_IWebserverConfiguration_get_ListeningPorts);
+			seff.RequiredServicesList.AddServices(service_IWebserverConfiguration_get_ListeningPorts);
 			IService service_IWebserverConfiguration_get_ListenIP = CreateService(iModel_IWebserverConfiguration, "get_ListenIP");
 			methodHash["service_IWebserverConfiguration_get_ListenIP"] = service_IWebserverConfiguration_get_ListenIP;
-			seff.SignatureList.AddSignatures(service_IWebserverConfiguration_get_ListenIP);
+			seff.RequiredServicesList.AddServices(service_IWebserverConfiguration_get_ListenIP);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -53,7 +53,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(111, ref fsm, 105, 105, methodHash["service_IWebserverConfiguration_get_ListeningPorts"]);
 			AddTransition(112, ref fsm, 105, 106, methodHash["service_IWebserverMonitor_WriteDebugMessage"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -70,17 +70,17 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IPortListener = WebserverInterfaceFactory.CreateIPortListener();
 			IService service_IPortListener_set_IsRunning = CreateService(iModel_IPortListener, "set_IsRunning");
 			methodHash["service_IPortListener_set_IsRunning"] = service_IPortListener_set_IsRunning;
-			seff.SignatureList.AddSignatures(service_IPortListener_set_IsRunning);
+			seff.RequiredServicesList.AddServices(service_IPortListener_set_IsRunning);
 			IService service_IPortListener_get_Address = CreateService(iModel_IPortListener, "get_Address");
 			methodHash["service_IPortListener_get_Address"] = service_IPortListener_get_Address;
-			seff.SignatureList.AddSignatures(service_IPortListener_get_Address);
+			seff.RequiredServicesList.AddServices(service_IPortListener_get_Address);
 			IService service_IPortListener_get_Port = CreateService(iModel_IPortListener, "get_Port");
 			methodHash["service_IPortListener_get_Port"] = service_IPortListener_get_Port;
-			seff.SignatureList.AddSignatures(service_IPortListener_get_Port);
+			seff.RequiredServicesList.AddServices(service_IPortListener_get_Port);
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -94,7 +94,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(207, ref fsm, 203, 201, methodHash["service_IPortListener_get_Port"]);
 			AddTransition(208, ref fsm, 201, 204, methodHash["service_IWebserverMonitor_WriteLogEntry"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -111,18 +111,18 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverConfiguration = WebserverInterfaceFactory.CreateIWebserverConfiguration();
 			IService service_IWebserverConfiguration_get_ListenIP = CreateService(iModel_IWebserverConfiguration, "get_ListenIP");
 			methodHash["service_IWebserverConfiguration_get_ListenIP"] = service_IWebserverConfiguration_get_ListenIP;
-			seff.SignatureList.AddSignatures(service_IWebserverConfiguration_get_ListenIP);
+			seff.RequiredServicesList.AddServices(service_IWebserverConfiguration_get_ListenIP);
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 			IService service_IWebserverMonitor_WriteDebugMessage = CreateService(iModel_IWebserverMonitor, "WriteDebugMessage");
 			methodHash["service_IWebserverMonitor_WriteDebugMessage"] = service_IWebserverMonitor_WriteDebugMessage;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteDebugMessage);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteDebugMessage);
 			IInterfaceModel iModel_IRequestParser = WebserverInterfaceFactory.CreateIRequestParser();
 			IService service_IRequestParser_HandleRequest = CreateService(iModel_IRequestParser, "HandleRequest");
 			methodHash["service_IRequestParser_HandleRequest"] = service_IRequestParser_HandleRequest;
-			seff.SignatureList.AddSignatures(service_IRequestParser_HandleRequest);
+			seff.RequiredServicesList.AddServices(service_IRequestParser_HandleRequest);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -141,7 +141,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(316, ref fsm, 308, 306, methodHash["service_IWebserverMonitor_WriteLogEntry"]);
 			AddTransition(317, ref fsm, 308, 304, methodHash["service_IRequestParser_HandleRequest"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -158,11 +158,11 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 			IInterfaceModel iModel_IHTTPRequestProcessor = WebserverInterfaceFactory.CreateIHTTPRequestProcessor();
 			IService service_IHTTPRequestProcessor_HandleRequest = CreateService(iModel_IHTTPRequestProcessor, "HandleRequest");
 			methodHash["service_IHTTPRequestProcessor_HandleRequest"] = service_IHTTPRequestProcessor_HandleRequest;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessor_HandleRequest);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessor_HandleRequest);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -174,7 +174,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(6104, ref fsm, 6101, 6102, methodHash["service_IWebserverMonitor_WriteLogEntry"]);
 			AddTransition(6105, ref fsm, 6102, 6103, methodHash["service_IHTTPRequestProcessor_HandleRequest"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -191,34 +191,34 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 			IService service_IWebserverMonitor_WriteDebugMessage = CreateService(iModel_IWebserverMonitor, "WriteDebugMessage");
 			methodHash["service_IWebserverMonitor_WriteDebugMessage"] = service_IWebserverMonitor_WriteDebugMessage;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteDebugMessage);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteDebugMessage);
 			IInterfaceModel iModel_IHTTPRequestProcessor = WebserverInterfaceFactory.CreateIHTTPRequestProcessor();
 			IService service_IHTTPRequestProcessor_HandleRequest = CreateService(iModel_IHTTPRequestProcessor, "HandleRequest");
 			methodHash["service_IHTTPRequestProcessor_HandleRequest"] = service_IHTTPRequestProcessor_HandleRequest;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessor_HandleRequest);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessor_HandleRequest);
 			IInterfaceModel iModel_IBibTexDB = WebserverInterfaceFactory.CreateIBibTexDB();
 			IService service_IBibTexDB_set_ConnectionString = CreateService(iModel_IBibTexDB, "set_ConnectionString");
 			methodHash["service_IBibTexDB_set_ConnectionString"] = service_IBibTexDB_set_ConnectionString;
-			seff.SignatureList.AddSignatures(service_IBibTexDB_set_ConnectionString);
+			seff.RequiredServicesList.AddServices(service_IBibTexDB_set_ConnectionString);
 			IService service_IBibTexDB_Search = CreateService(iModel_IBibTexDB, "Search");
 			methodHash["service_IBibTexDB_Search"] = service_IBibTexDB_Search;
-			seff.SignatureList.AddSignatures(service_IBibTexDB_Search);
+			seff.RequiredServicesList.AddServices(service_IBibTexDB_Search);
 			IService service_IBibTexDB_AllEntries = CreateService(iModel_IBibTexDB, "AllEntries");
 			methodHash["service_IBibTexDB_AllEntries"] = service_IBibTexDB_AllEntries;
-			seff.SignatureList.AddSignatures(service_IBibTexDB_AllEntries);
+			seff.RequiredServicesList.AddServices(service_IBibTexDB_AllEntries);
 			IInterfaceModel iModel_IHTTPRequestProcessorTools = WebserverInterfaceFactory.CreateIHTTPRequestProcessorTools();
 			IService service_IHTTPRequestProcessorTools_GetFileMimeTypeFor = CreateService(iModel_IHTTPRequestProcessorTools, "GetFileMimeTypeFor");
 			methodHash["service_IHTTPRequestProcessorTools_GetFileMimeTypeFor"] = service_IHTTPRequestProcessorTools_GetFileMimeTypeFor;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_GetFileMimeTypeFor);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_GetFileMimeTypeFor);
 			IService service_IHTTPRequestProcessorTools_SendHTTPHeader = CreateService(iModel_IHTTPRequestProcessorTools, "SendHTTPHeader");
 			methodHash["service_IHTTPRequestProcessorTools_SendHTTPHeader"] = service_IHTTPRequestProcessorTools_SendHTTPHeader;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_SendHTTPHeader);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_SendHTTPHeader);
 			IService service_IHTTPRequestProcessorTools_SendContentToClient = CreateService(iModel_IHTTPRequestProcessorTools, "SendContentToClient");
 			methodHash["service_IHTTPRequestProcessorTools_SendContentToClient"] = service_IHTTPRequestProcessorTools_SendContentToClient;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_SendContentToClient);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_SendContentToClient);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -240,7 +240,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(6221, ref fsm, 6208, 6209, methodHash["service_IHTTPRequestProcessorTools_SendHTTPHeader"]);
 			AddTransition(6222, ref fsm, 6209, 6210, methodHash["service_IHTTPRequestProcessorTools_SendContentToClient"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -257,27 +257,27 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 			IInterfaceModel iModel_IHTTPRequestProcessor = WebserverInterfaceFactory.CreateIHTTPRequestProcessor();
 			IService service_IHTTPRequestProcessor_HandleRequest = CreateService(iModel_IHTTPRequestProcessor, "HandleRequest");
 			methodHash["service_IHTTPRequestProcessor_HandleRequest"] = service_IHTTPRequestProcessor_HandleRequest;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessor_HandleRequest);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessor_HandleRequest);
 			IInterfaceModel iModel_IHTTPRequestProcessorTools = WebserverInterfaceFactory.CreateIHTTPRequestProcessorTools();
 			IService service_IHTTPRequestProcessorTools_BuildCompletePath = CreateService(iModel_IHTTPRequestProcessorTools, "BuildCompletePath");
 			methodHash["service_IHTTPRequestProcessorTools_BuildCompletePath"] = service_IHTTPRequestProcessorTools_BuildCompletePath;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_BuildCompletePath);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_BuildCompletePath);
 			IService service_IHTTPRequestProcessorTools_OpenFile = CreateService(iModel_IHTTPRequestProcessorTools, "OpenFile");
 			methodHash["service_IHTTPRequestProcessorTools_OpenFile"] = service_IHTTPRequestProcessorTools_OpenFile;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_OpenFile);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_OpenFile);
 			IService service_IHTTPRequestProcessorTools_GetFileMimeTypeFor = CreateService(iModel_IHTTPRequestProcessorTools, "GetFileMimeTypeFor");
 			methodHash["service_IHTTPRequestProcessorTools_GetFileMimeTypeFor"] = service_IHTTPRequestProcessorTools_GetFileMimeTypeFor;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_GetFileMimeTypeFor);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_GetFileMimeTypeFor);
 			IService service_IHTTPRequestProcessorTools_SendHTTPHeader = CreateService(iModel_IHTTPRequestProcessorTools, "SendHTTPHeader");
 			methodHash["service_IHTTPRequestProcessorTools_SendHTTPHeader"] = service_IHTTPRequestProcessorTools_SendHTTPHeader;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_SendHTTPHeader);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_SendHTTPHeader);
 			IService service_IHTTPRequestProcessorTools_SendContentToClient = CreateService(iModel_IHTTPRequestProcessorTools, "SendContentToClient");
 			methodHash["service_IHTTPRequestProcessorTools_SendContentToClient"] = service_IHTTPRequestProcessorTools_SendContentToClient;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_SendContentToClient);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_SendContentToClient);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -297,7 +297,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(6318, ref fsm, 6307, 6308, methodHash["service_IHTTPRequestProcessorTools_SendContentToClient"]);
 			AddTransition(6319, ref fsm, 6308, 6309, methodHash["service_IWebserverMonitor_WriteLogEntry"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -314,34 +314,34 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 			IInterfaceModel iModel_IHTTPRequestProcessor = WebserverInterfaceFactory.CreateIHTTPRequestProcessor();
 			IService service_IHTTPRequestProcessor_HandleRequest = CreateService(iModel_IHTTPRequestProcessor, "HandleRequest");
 			methodHash["service_IHTTPRequestProcessor_HandleRequest"] = service_IHTTPRequestProcessor_HandleRequest;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessor_HandleRequest);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessor_HandleRequest);
 			IInterfaceModel iModel_IHTTPRequestProcessorTools = WebserverInterfaceFactory.CreateIHTTPRequestProcessorTools();
 			IService service_IHTTPRequestProcessorTools_BuildCompletePath = CreateService(iModel_IHTTPRequestProcessorTools, "BuildCompletePath");
 			methodHash["service_IHTTPRequestProcessorTools_BuildCompletePath"] = service_IHTTPRequestProcessorTools_BuildCompletePath;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_BuildCompletePath);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_BuildCompletePath);
 			IInterfaceModel iModel_IWebserverConfiguration = WebserverInterfaceFactory.CreateIWebserverConfiguration();
 			IService service_IWebserverConfiguration_get_DefaultFileNames = CreateService(iModel_IWebserverConfiguration, "get_DefaultFileNames");
 			methodHash["service_IWebserverConfiguration_get_DefaultFileNames"] = service_IWebserverConfiguration_get_DefaultFileNames;
-			seff.SignatureList.AddSignatures(service_IWebserverConfiguration_get_DefaultFileNames);
+			seff.RequiredServicesList.AddServices(service_IWebserverConfiguration_get_DefaultFileNames);
 			IService service_IHTTPRequestProcessorTools_OpenFile = CreateService(iModel_IHTTPRequestProcessorTools, "OpenFile");
 			methodHash["service_IHTTPRequestProcessorTools_OpenFile"] = service_IHTTPRequestProcessorTools_OpenFile;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_OpenFile);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_OpenFile);
 			IService service_IHTTPRequestProcessorTools_GetFileMimeTypeFor = CreateService(iModel_IHTTPRequestProcessorTools, "GetFileMimeTypeFor");
 			methodHash["service_IHTTPRequestProcessorTools_GetFileMimeTypeFor"] = service_IHTTPRequestProcessorTools_GetFileMimeTypeFor;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_GetFileMimeTypeFor);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_GetFileMimeTypeFor);
 			IService service_IHTTPRequestProcessorTools_SendHTTPHeader = CreateService(iModel_IHTTPRequestProcessorTools, "SendHTTPHeader");
 			methodHash["service_IHTTPRequestProcessorTools_SendHTTPHeader"] = service_IHTTPRequestProcessorTools_SendHTTPHeader;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_SendHTTPHeader);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_SendHTTPHeader);
 			IService service_IHTTPRequestProcessorTools_SendContentDataToClient = CreateService(iModel_IHTTPRequestProcessorTools, "SendContentDataToClient");
 			methodHash["service_IHTTPRequestProcessorTools_SendContentDataToClient"] = service_IHTTPRequestProcessorTools_SendContentDataToClient;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_SendContentDataToClient);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_SendContentDataToClient);
 			IService service_IHTTPRequestProcessorTools_SendHTTPError = CreateService(iModel_IHTTPRequestProcessorTools, "SendHTTPError");
 			methodHash["service_IHTTPRequestProcessorTools_SendHTTPError"] = service_IHTTPRequestProcessorTools_SendHTTPError;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessorTools_SendHTTPError);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessorTools_SendHTTPError);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -365,7 +365,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(6423, ref fsm, 6408, 6409, methodHash["service_IHTTPRequestProcessorTools_SendContentDataToClient"]);
 			AddTransition(6424, ref fsm, 6409, 6410, methodHash["service_IWebserverMonitor_WriteLogEntry"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -382,15 +382,15 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 			IInterfaceModel iModel_IHTTPRequestProcessor = WebserverInterfaceFactory.CreateIHTTPRequestProcessor();
 			IService service_IHTTPRequestProcessor_HandleRequest = CreateService(iModel_IHTTPRequestProcessor, "HandleRequest");
 			methodHash["service_IHTTPRequestProcessor_HandleRequest"] = service_IHTTPRequestProcessor_HandleRequest;
-			seff.SignatureList.AddSignatures(service_IHTTPRequestProcessor_HandleRequest);
+			seff.RequiredServicesList.AddServices(service_IHTTPRequestProcessor_HandleRequest);
 			IInterfaceModel iModel_IRequestParser = WebserverInterfaceFactory.CreateIRequestParser();
 			IService service_IRequestParser_HandleRequest = CreateService(iModel_IRequestParser, "HandleRequest");
 			methodHash["service_IRequestParser_HandleRequest"] = service_IRequestParser_HandleRequest;
-			seff.SignatureList.AddSignatures(service_IRequestParser_HandleRequest);
+			seff.RequiredServicesList.AddServices(service_IRequestParser_HandleRequest);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -408,7 +408,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(8112, ref fsm, 8104, 8105, methodHash["service_IRequestParser_HandleRequest"]);
 			AddTransition(8113, ref fsm, 8104, 8105, methodHash["service_IHTTPRequestProcessor_HandleRequest"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -425,7 +425,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteDebugMessage = CreateService(iModel_IWebserverMonitor, "WriteDebugMessage");
 			methodHash["service_IWebserverMonitor_WriteDebugMessage"] = service_IWebserverMonitor_WriteDebugMessage;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteDebugMessage);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteDebugMessage);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -436,7 +436,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			fsm.FinalStates = new IState[] {GetState(8202)};
 			AddTransition(8203, ref fsm, 8201, 8202, methodHash["service_IWebserverMonitor_WriteDebugMessage"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -453,10 +453,10 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverConfiguration = WebserverInterfaceFactory.CreateIWebserverConfiguration();
 			IService service_IWebserverConfiguration_get_DebugFile = CreateService(iModel_IWebserverConfiguration, "get_DebugFile");
 			methodHash["service_IWebserverConfiguration_get_DebugFile"] = service_IWebserverConfiguration_get_DebugFile;
-			seff.SignatureList.AddSignatures(service_IWebserverConfiguration_get_DebugFile);
+			seff.RequiredServicesList.AddServices(service_IWebserverConfiguration_get_DebugFile);
 			IService service_IWebserverConfiguration_get_LogFile = CreateService(iModel_IWebserverConfiguration, "get_LogFile");
 			methodHash["service_IWebserverConfiguration_get_LogFile"] = service_IWebserverConfiguration_get_LogFile;
-			seff.SignatureList.AddSignatures(service_IWebserverConfiguration_get_LogFile);
+			seff.RequiredServicesList.AddServices(service_IWebserverConfiguration_get_LogFile);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -468,7 +468,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(4104, ref fsm, 4101, 4102, methodHash["service_IWebserverConfiguration_get_DebugFile"]);
 			AddTransition(4105, ref fsm, 4102, 4103, methodHash["service_IWebserverConfiguration_get_LogFile"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -485,7 +485,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverConfiguration = WebserverInterfaceFactory.CreateIWebserverConfiguration();
 			IService service_IWebserverConfiguration_get_DocumentRoot = CreateService(iModel_IWebserverConfiguration, "get_DocumentRoot");
 			methodHash["service_IWebserverConfiguration_get_DocumentRoot"] = service_IWebserverConfiguration_get_DocumentRoot;
-			seff.SignatureList.AddSignatures(service_IWebserverConfiguration_get_DocumentRoot);
+			seff.RequiredServicesList.AddServices(service_IWebserverConfiguration_get_DocumentRoot);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -496,7 +496,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			fsm.FinalStates = new IState[] {GetState(7102)};
 			AddTransition(7103, ref fsm, 7101, 7102, methodHash["service_IWebserverConfiguration_get_DocumentRoot"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -513,10 +513,10 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteDebugMessage = CreateService(iModel_IWebserverMonitor, "WriteDebugMessage");
 			methodHash["service_IWebserverMonitor_WriteDebugMessage"] = service_IWebserverMonitor_WriteDebugMessage;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteDebugMessage);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteDebugMessage);
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -528,7 +528,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(7203, ref fsm, 7201, 7202, methodHash["service_IWebserverMonitor_WriteDebugMessage"]);
 			AddTransition(7204, ref fsm, 7201, 7202, methodHash["service_IWebserverMonitor_WriteLogEntry"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -545,10 +545,10 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteDebugMessage = CreateService(iModel_IWebserverMonitor, "WriteDebugMessage");
 			methodHash["service_IWebserverMonitor_WriteDebugMessage"] = service_IWebserverMonitor_WriteDebugMessage;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteDebugMessage);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteDebugMessage);
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -560,7 +560,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(7303, ref fsm, 7301, 7302, methodHash["service_IWebserverMonitor_WriteDebugMessage"]);
 			AddTransition(7304, ref fsm, 7301, 7302, methodHash["service_IWebserverMonitor_WriteLogEntry"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -577,10 +577,10 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteDebugMessage = CreateService(iModel_IWebserverMonitor, "WriteDebugMessage");
 			methodHash["service_IWebserverMonitor_WriteDebugMessage"] = service_IWebserverMonitor_WriteDebugMessage;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteDebugMessage);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteDebugMessage);
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -592,7 +592,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(7403, ref fsm, 7401, 7402, methodHash["service_IWebserverMonitor_WriteDebugMessage"]);
 			AddTransition(7404, ref fsm, 7401, 7402, methodHash["service_IWebserverMonitor_WriteLogEntry"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -609,10 +609,10 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverMonitor = WebserverInterfaceFactory.CreateIWebserverMonitor();
 			IService service_IWebserverMonitor_WriteDebugMessage = CreateService(iModel_IWebserverMonitor, "WriteDebugMessage");
 			methodHash["service_IWebserverMonitor_WriteDebugMessage"] = service_IWebserverMonitor_WriteDebugMessage;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteDebugMessage);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteDebugMessage);
 			IService service_IWebserverMonitor_WriteLogEntry = CreateService(iModel_IWebserverMonitor, "WriteLogEntry");
 			methodHash["service_IWebserverMonitor_WriteLogEntry"] = service_IWebserverMonitor_WriteLogEntry;
-			seff.SignatureList.AddSignatures(service_IWebserverMonitor_WriteLogEntry);
+			seff.RequiredServicesList.AddServices(service_IWebserverMonitor_WriteLogEntry);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -627,7 +627,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(7508, ref fsm, 7503, 7504, methodHash["service_IWebserverMonitor_WriteDebugMessage"]);
 			AddTransition(7509, ref fsm, 7503, 7504, methodHash["service_IWebserverMonitor_WriteLogEntry"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 
@@ -644,10 +644,10 @@ namespace Palladio.Reliability.WebserverComponentModel
 			IInterfaceModel iModel_IWebserverConfiguration = WebserverInterfaceFactory.CreateIWebserverConfiguration();
 			IService service_IWebserverConfiguration_GetMimeTypeFor = CreateService(iModel_IWebserverConfiguration, "GetMimeTypeFor");
 			methodHash["service_IWebserverConfiguration_GetMimeTypeFor"] = service_IWebserverConfiguration_GetMimeTypeFor;
-			seff.SignatureList.AddSignatures(service_IWebserverConfiguration_GetMimeTypeFor);
+			seff.RequiredServicesList.AddServices(service_IWebserverConfiguration_GetMimeTypeFor);
 			IService service_IWebserverConfiguration_get_DefaultMimeType = CreateService(iModel_IWebserverConfiguration, "get_DefaultMimeType");
 			methodHash["service_IWebserverConfiguration_get_DefaultMimeType"] = service_IWebserverConfiguration_get_DefaultMimeType;
-			seff.SignatureList.AddSignatures(service_IWebserverConfiguration_get_DefaultMimeType);
+			seff.RequiredServicesList.AddServices(service_IWebserverConfiguration_get_DefaultMimeType);
 
 
 			IFSMServiceEffect fsmSeff = ComponentFactory.CreateFSMProtocolServiceEffect();
@@ -659,7 +659,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 			AddTransition(7604, ref fsm, 7601, 7602, methodHash["service_IWebserverConfiguration_GetMimeTypeFor"]);
 			AddTransition(7605, ref fsm, 7602, 7603, methodHash["service_IWebserverConfiguration_get_DefaultMimeType"]);
 
-			seff.AddAuxiliarySpecification(fsmSeff);
+			seff.AddServiceInformation(fsmSeff);
 			return seff;
 		}
 

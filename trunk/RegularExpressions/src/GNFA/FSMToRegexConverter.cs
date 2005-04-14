@@ -48,7 +48,7 @@ namespace Palladio.RegularExpressions.GNFA
 			{
 				IState source = fsm.Transitions[i].SourceState;
 				IState dest = fsm.Transitions[i].DestinationState;
-				IAttributeHash attributeHash = fsm.Transitions[i].Attributes.Clone() as IAttributeHash;
+				AttributeHash attributeHash = fsm.Transitions[i].Attributes.Clone() as AttributeHash;
 				IInput input = RegexFactory.Symbol(attributeHash, fsm.Transitions[i].InputSymbol);
 				ITransition transition = FSMFactory.CreateDefaultTransition(source, input, dest);
 
@@ -318,7 +318,7 @@ namespace Palladio.RegularExpressions.GNFA
 		/// Creates an empty attribute hash.
 		/// </summary>
 		/// <returns></returns>
-		private static IAttributeHash CreateAttributeHash()
+		private static AttributeHash CreateAttributeHash()
 		{
 			return AttributesFactory.Default.CreateAttributeHash();
 		}

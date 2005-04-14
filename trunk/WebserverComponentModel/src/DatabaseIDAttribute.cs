@@ -6,7 +6,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 	/// <summary>
 	/// Zusammenfassung für IDAttribute.
 	/// </summary>
-	public class DatabaseIDAttribute
+	public class DatabaseIDAttribute : IAttribute
 	{
 		#region Properties
 
@@ -90,5 +90,18 @@ namespace Palladio.Reliability.WebserverComponentModel
 		{
 			return id.GetHashCode();
 		}
+		#region IAttribute Member
+
+		public void Serialize(System.Xml.XmlTextWriter writer)
+		{
+			// TODO:  Implementierung von DatabaseIDAttribute.Serialize hinzufügen
+		}
+
+		public void Deserialize(System.Xml.XmlNode element)
+		{
+			// TODO:  Implementierung von DatabaseIDAttribute.Deserialize hinzufügen
+		}
+
+		#endregion
 	}
 }

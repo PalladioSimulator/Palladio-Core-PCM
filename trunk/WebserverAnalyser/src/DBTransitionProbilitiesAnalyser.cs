@@ -42,7 +42,7 @@ namespace Palladio.Reliability.WebserverAnalyser
 		/// <param name="seff"></param>
 		private static void ComputeTransitionProbabilities(IServiceEffectSpecification seff)
 		{
-			IFSMServiceEffect fsmSeff = (IFSMServiceEffect) seff.GetAuxiliarySpecification(typeof (IFSMServiceEffect));
+			IFSMServiceEffect fsmSeff = (IFSMServiceEffect) seff.GetServiceInformation(typeof (IFSMServiceEffect));
 			if (fsmSeff == null)
 				throw new ApplicationException("No FSM found for the service effect specification!");
 

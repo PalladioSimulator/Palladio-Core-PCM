@@ -202,5 +202,14 @@ namespace Palladio.Reliability.Attributes
 		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("50AC0D03-F05D-4b67-8502-717D7D32B14D"), "MeasuredTimesAttribute", typeof (MeasuredTimeAttribute));
 
 
+		public void Serialize(System.Xml.XmlTextWriter writer)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Deserialize(System.Xml.XmlNode element)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

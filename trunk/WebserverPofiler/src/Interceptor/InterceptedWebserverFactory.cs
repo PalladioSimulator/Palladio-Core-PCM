@@ -90,6 +90,11 @@ namespace Palladio.Reliability.WebserverProfiler.Interceptor
 			return new RequestParserInterceptor(parser);
 		}
 
+		public IHTTPRequestProcessor CreateTimeConsumingProcessor(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
+		{
+			throw new NotImplementedException();
+		}
+
 		/// <summary>
 		/// Creates a BibTeXProvider. This component makes a bibtex-db accessible.
 		/// </summary>

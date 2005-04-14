@@ -146,7 +146,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 		/// <returns></returns>
 		public static IService FindService(IServiceList serviceList, string interfaceName, string methodName)
 		{
-			foreach (IService service in serviceList.GetSignatures())
+			foreach (IService service in serviceList.GetServices())
 			{
 				if (service.Interface.Name.Equals(interfaceName) &&
 					(service.Signature.Name.Equals(methodName)))

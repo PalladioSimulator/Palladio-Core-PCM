@@ -52,7 +52,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIDispatcher(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IDispatcher"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IDispatcher"];
@@ -91,7 +91,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIPortListener(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IPortListener"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IPortListener"];
@@ -119,7 +119,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIConfigReader(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IConfigReader"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IConfigReader"];
@@ -147,7 +147,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIConfiguration(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IConfiguration"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IConfiguration"];
@@ -202,7 +202,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIWebserverConfiguration(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IWebserverConfiguration"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IWebserverConfiguration"];
@@ -225,7 +225,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIFTPRequestProcessor(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IFTPRequestProcessor"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IFTPRequestProcessor"];
@@ -253,7 +253,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIHTTPRequestProcessor(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IHTTPRequestProcessor"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IHTTPRequestProcessor"];
@@ -320,7 +320,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIHTTPRequestProcessorTools(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IHTTPRequestProcessorTools"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IHTTPRequestProcessorTools"];
@@ -348,7 +348,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIRequestParser(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IRequestParser"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IRequestParser"];
@@ -371,7 +371,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIRequestProcessor(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IRequestProcessor"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IRequestProcessor"];
@@ -413,7 +413,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIWebserverMonitor(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IWebserverMonitor"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IWebserverMonitor"];
@@ -454,7 +454,7 @@ namespace Palladio.Reliability.WebserverComponentModel
 				IFSMInterface fsmInterface = ComponentFactory.CreateFSMProtocolInterface();
 				WebserverProvidesFactory.CreateProvidesFsmForIBibTexDB(fsmInterface.EditFSM, methodHash);
 
-				iModel.AddAuxiliarySpecification(fsmInterface);
+				iModel.AddProtocolInformation(fsmInterface);
 				interfaceHash["IBibTexDB"] = iModel;
 			}
 			return (IInterfaceModel) interfaceHash["IBibTexDB"];

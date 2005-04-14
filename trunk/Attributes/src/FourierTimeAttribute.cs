@@ -8,7 +8,7 @@ namespace Palladio.Reliability.Attributes
 	/// <summary>
 	/// Zusammenfassung für FourierTimeAttribute.
 	/// </summary>
-	public class FourierTimeAttribute
+	public class FourierTimeAttribute : IAttribute
 	{
 		public const long DATA_SIZE = 1000;
 		private Complex[] data;
@@ -117,6 +117,20 @@ namespace Palladio.Reliability.Attributes
 		}
 
 		private static IAttributeType attributeType = AttributesFactory.Default.CreateAttributeType(new Guid("BE3E2386-A1C9-4925-9992-283204A3B169"), "FourierTimeAttribute", typeof (FourierTimeAttribute));
+
+		#endregion
+
+		#region IAttribute Member
+
+		public void Serialize(System.Xml.XmlTextWriter writer)
+		{
+			// TODO:  Implementierung von FourierTimeAttribute.Serialize hinzufügen
+		}
+
+		public void Deserialize(System.Xml.XmlNode element)
+		{
+			// TODO:  Implementierung von FourierTimeAttribute.Deserialize hinzufügen
+		}
 
 		#endregion
 	}
