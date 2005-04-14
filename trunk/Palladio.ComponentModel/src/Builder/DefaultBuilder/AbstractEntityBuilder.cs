@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/14 06:16:34  kelsaka
+	/// - fixed bug on listening to name changed events.
+	///
 	/// Revision 1.2  2005/04/13 20:24:08  kelsaka
 	/// - added enitity methods
 	///
@@ -61,6 +64,27 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			entity.Attributes.Remove(attributeType);
 		}
 
+		/// <summary>
+		/// Adds the given EventHandler to listen for NameChangedEvents. These events are
+		/// fired if the entities <see cref="Name"/> changes.
+		/// </summary>
+		/// <param name="nameChangedListener">The
+		/// <see cref="StaticAttributeChangedEventHandler"/> to add.</param>
+		public void AddNameChangedEventHandler(StaticAttributeChangedEventHandler nameChangedListener)
+		{
+			this.entity.NameChangedEvent += new StaticAttributeChangedEventHandler(nameChangedListener);
+		}
+
+		/// <summary>
+		/// Removes the given EventHandler from listening for NameChangedEvents.
+		/// </summary>
+		/// <param name="nameChangedListener">The
+		/// <see cref="StaticAttributeChangedEventHandler"/> to remove.</param>
+		public void RemoveNameChangedEventHandler(StaticAttributeChangedEventHandler nameChangedListener)
+		{
+			this.entity.NameChangedEvent -= new StaticAttributeChangedEventHandler(nameChangedListener);
+		}
+
 		#endregion
 
 		#region Properties
@@ -92,11 +116,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			}
 		}
 
-		#endregion
+		#endregion		
 
-		/// <summary>
-		/// has to be fired when the name is changed
-		/// </summary>
-		public event StaticAttributeChangedEventHandler NameChangedEvent;
 	}
 }

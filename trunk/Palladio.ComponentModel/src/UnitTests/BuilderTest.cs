@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/04/14 06:16:34  kelsaka
+	/// - fixed bug on listening to name changed events.
+	///
 	/// Revision 1.12  2005/04/13 21:22:40  kelsaka
 	/// - added testcases
 	///
@@ -235,8 +238,9 @@ namespace Palladio.ComponentModel.UnitTests
 		public void BC_Event_NameChanged()
 		{
 			IBasicComponentTypeLevelBuilder bc = rootBuilder.AddBasicComponent("BC");
-			bc.NameChangedEvent += new StaticAttributeChangedEventHandler(NameChangedListener);
+			bc.AddNameChangedEventHandler(new StaticAttributeChangedEventHandler(NameChangedListener));
 
+			//provoke event
 			bc.Component.Name = "bc2";
 			
 			Assert.IsTrue(executed, "event-delegate was not called.");
