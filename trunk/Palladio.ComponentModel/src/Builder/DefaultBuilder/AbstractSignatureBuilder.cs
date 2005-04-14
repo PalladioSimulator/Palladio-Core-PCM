@@ -18,6 +18,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/04/14 08:19:28  kelsaka
+	/// - added new Equals semantic for IType
+	/// - added new GetType-method for IType
+	///
 	/// Revision 1.9  2005/04/13 21:22:40  kelsaka
 	/// - added testcases
 	///
@@ -211,16 +215,18 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		private ITypeTypeLevelBuilder AddException (IType type)
 		{
 			// check wether the created type is a valid exception-type:
-			IType exceptionType = EntityFactory.CreateType(typeof(Exception));
+			IType referenceExceptionIType = EntityFactory.CreateType(typeof(Exception));			
+
 			//TODO: Equals and subtype dont work currently:
-			if(!type.IsSubtypeOf(exceptionType) || !typeof(Exception).Equals(type) )
+			if(!type.IsSubtypeOf(referenceExceptionIType) || !referenceExceptionIType.Equals(type) )
 			{
-				throw new TypeNotValidException(type.ToString() + " is not an exception type.");
+				throw new TypeNotValidException(type.ToString() + " is not an exception type." + 
+					" " + referenceExceptionIType.GetType() + " " + type.GetType());
 			}
 	
 			ArrayList exceptionsList = new ArrayList(this.signature.Exceptions);
 	
-			//TODO: search for double exception-types - currently only equals is used. 
+			// search for double exception-types. 
 			if(!exceptionsList.Contains(type))
 			{
 				exceptionsList.Add(type);	
@@ -235,7 +241,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="exception">The exception to remove.</param>
 		public void RemoveException (Type exception)
 		{
-			//TODO: Remove uses wrong equals:
 			IType exceptionType = EntityFactory.CreateType(exception);
 			ArrayList exceptionsList = new ArrayList(this.signature.Exceptions);
 			exceptionsList.Remove(exceptionType);

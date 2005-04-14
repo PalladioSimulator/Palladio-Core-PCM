@@ -18,6 +18,10 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/04/14 08:19:28  kelsaka
+	/// - added new Equals semantic for IType
+	/// - added new GetType-method for IType
+	///
 	/// Revision 1.13  2005/04/14 06:16:34  kelsaka
 	/// - fixed bug on listening to name changed events.
 	///
@@ -240,7 +244,7 @@ namespace Palladio.ComponentModel.UnitTests
 			IBasicComponentTypeLevelBuilder bc = rootBuilder.AddBasicComponent("BC");
 			bc.AddNameChangedEventHandler(new StaticAttributeChangedEventHandler(NameChangedListener));
 
-			//provoke event
+			// provoke event
 			bc.Component.Name = "bc2";
 			
 			Assert.IsTrue(executed, "event-delegate was not called.");
@@ -304,10 +308,10 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
-			si.AddException(typeof(Exception));
 			si.AddException(typeof(Palladio.ComponentModel.Exceptions.ComponentHierarchyException));
-			si.RemoveException(typeof(Exception));
+			si.AddException(typeof(Exception));			
 			si.RemoveException(typeof(Palladio.ComponentModel.Exceptions.ComponentHierarchyException));
+			si.RemoveException(typeof(Exception));
 		}
 
 		[Test]
