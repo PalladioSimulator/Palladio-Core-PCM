@@ -42,4 +42,3 @@
 	<ErrorMessageOnConnectionProblems Message="Error: could not connect to the databaseserver." />
 		
 </Config>
-
