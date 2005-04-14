@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/04/14 13:43:03  kelsaka
+	/// - fixed error in boolean expression for dertermining exception-types
+	///
 	/// Revision 1.10  2005/04/14 08:19:28  kelsaka
 	/// - added new Equals semantic for IType
 	/// - added new GetType-method for IType
@@ -217,15 +220,12 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			// check wether the created type is a valid exception-type:
 			IType referenceExceptionIType = EntityFactory.CreateType(typeof(Exception));			
 
-			//TODO: Equals and subtype dont work currently:
-			if(!type.IsSubtypeOf(referenceExceptionIType) || !referenceExceptionIType.Equals(type) )
+			if(! (referenceExceptionIType.Equals(type) || type.IsSubtypeOf(referenceExceptionIType)) )
 			{
-				throw new TypeNotValidException(type.ToString() + " is not an exception type." + 
-					" " + referenceExceptionIType.GetType() + " " + type.GetType());
+				throw new TypeNotValidException(type.ToString() + " is not an exception type.");
 			}
 	
 			ArrayList exceptionsList = new ArrayList(this.signature.Exceptions);
-	
 			// search for double exception-types. 
 			if(!exceptionsList.Contains(type))
 			{

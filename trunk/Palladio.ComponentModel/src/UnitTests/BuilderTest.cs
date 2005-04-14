@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2005/04/14 13:43:03  kelsaka
+	/// - fixed error in boolean expression for dertermining exception-types
+	///
 	/// Revision 1.14  2005/04/14 08:19:28  kelsaka
 	/// - added new Equals semantic for IType
 	/// - added new GetType-method for IType
@@ -340,6 +343,18 @@ namespace Palladio.ComponentModel.UnitTests
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.ClearParameterList();
+		}
+
+		#endregion
+
+		#region Other tests
+
+		[Test]
+		public void ITypeEquals()
+		{
+			IType type1 = EntityFactory.CreateType(typeof(Exception));
+			IType type2 = EntityFactory.CreateType(typeof(Exception));
+			Assert.IsTrue(type1.Equals(type2));
 		}
 
 		#endregion

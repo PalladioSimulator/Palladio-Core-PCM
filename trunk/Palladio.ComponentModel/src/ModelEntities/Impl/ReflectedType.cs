@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/14 13:43:03  kelsaka
+	/// - fixed error in boolean expression for dertermining exception-types
+	///
 	/// Revision 1.2  2005/04/14 08:19:28  kelsaka
 	/// - added new Equals semantic for IType
 	/// - added new GetType-method for IType
@@ -109,11 +112,8 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 		/// <returns>True, if the underlying Types are the same; otherwise, false.</returns>
 		public bool Equals(IType type)
 		{			
-			if(this.GetType() == type.GetType())
-			{
-				return true;
-			}
-			return false;
+			// uses the Equals of the underlying TYPEs:
+			return this.GetType().Equals(type.GetType());
 		}
 
 		/// <summary>
