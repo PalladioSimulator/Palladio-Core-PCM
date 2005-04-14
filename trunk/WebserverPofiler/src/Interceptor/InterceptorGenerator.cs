@@ -67,6 +67,88 @@ public class DispatcherInterceptor : Palladio.Webserver.Dispatcher.IDispatcher
 
 #endregion
 
+#region IPortListenerFactory
+
+public class PortListenerFactoryInterceptor : Palladio.Webserver.Dispatcher.IPortListenerFactory
+{
+	#region Properties 
+	
+	#endregion 
+	
+	#region Methods
+
+	public Palladio.Webserver.Dispatcher.IPortListener CreatePortListener( Palladio.Webserver.RequestParser.IRequestParser requestParser, Palladio.Webserver.WebserverMonitor.IWebserverMonitor webserverMonitor, Palladio.Webserver.ConfigReader.IWebserverConfiguration webserverConfiguration, System.Int32 port, System.Net.IPAddress address, Palladio.Webserver.Request.IRequestFactory requestFactory)
+	{
+		MethodInfo method = _target.GetType().GetMethod("CreatePortListener", new Type[] {typeof(Palladio.Webserver.RequestParser.IRequestParser), typeof(Palladio.Webserver.WebserverMonitor.IWebserverMonitor), typeof(Palladio.Webserver.ConfigReader.IWebserverConfiguration), typeof(System.Int32), typeof(System.Net.IPAddress), typeof(Palladio.Webserver.Request.IRequestFactory)});
+		long id = InterceptorActions.GetNextCallID();
+		InterceptorActions.BeforeCall(id, "IPortListenerFactory", method);
+		Palladio.Webserver.Dispatcher.IPortListener returnValue;
+		try
+		{
+			 returnValue = _target.CreatePortListener(requestParser, webserverMonitor, webserverConfiguration, port, address, requestFactory);
+		}
+		finally
+		{
+			InterceptorActions.AfterCall();
+		}
+		return returnValue;
+	}                                   
+	#endregion 
+
+	#region Constructor and Data
+	
+	private Palladio.Webserver.Dispatcher.IPortListenerFactory _target;
+	
+	public  PortListenerFactoryInterceptor(Palladio.Webserver.Dispatcher.IPortListenerFactory target)
+	{
+		_target = target;
+	}
+	#endregion
+}
+
+#endregion
+
+#region IRequestHandlerFactory
+
+public class RequestHandlerFactoryInterceptor : Palladio.Webserver.Dispatcher.IRequestHandlerFactory
+{
+	#region Properties 
+	
+	#endregion 
+	
+	#region Methods
+
+	public Palladio.Webserver.Dispatcher.IRequestHandler CreateRequestHandler( Palladio.Webserver.RequestParser.IRequestParser requestParser, Palladio.Webserver.WebserverMonitor.IWebserverMonitor webserverMonitor, Palladio.Webserver.ConfigReader.IWebserverConfiguration webserverConfiguration, System.Int32 port, System.Net.Sockets.Socket clientSocket, Palladio.Webserver.Request.IRequestFactory requestFactory)
+	{
+		MethodInfo method = _target.GetType().GetMethod("CreateRequestHandler", new Type[] {typeof(Palladio.Webserver.RequestParser.IRequestParser), typeof(Palladio.Webserver.WebserverMonitor.IWebserverMonitor), typeof(Palladio.Webserver.ConfigReader.IWebserverConfiguration), typeof(System.Int32), typeof(System.Net.Sockets.Socket), typeof(Palladio.Webserver.Request.IRequestFactory)});
+		long id = InterceptorActions.GetNextCallID();
+		InterceptorActions.BeforeCall(id, "IRequestHandlerFactory", method);
+		Palladio.Webserver.Dispatcher.IRequestHandler returnValue;
+		try
+		{
+			 returnValue = _target.CreateRequestHandler(requestParser, webserverMonitor, webserverConfiguration, port, clientSocket, requestFactory);
+		}
+		finally
+		{
+			InterceptorActions.AfterCall();
+		}
+		return returnValue;
+	}                                   
+	#endregion 
+
+	#region Constructor and Data
+	
+	private Palladio.Webserver.Dispatcher.IRequestHandlerFactory _target;
+	
+	public  RequestHandlerFactoryInterceptor(Palladio.Webserver.Dispatcher.IRequestHandlerFactory target)
+	{
+		_target = target;
+	}
+	#endregion
+}
+
+#endregion
+
 #region IPortListener
 
 public class PortListenerInterceptor : Palladio.Webserver.Dispatcher.IPortListener
@@ -180,39 +262,86 @@ public class PortListenerInterceptor : Palladio.Webserver.Dispatcher.IPortListen
 
 #endregion
 
-#region IPortListenerFactory
+#region IRequestHandler
 
-public class PortListenerFactoryInterceptor : Palladio.Webserver.Dispatcher.IPortListenerFactory
+public class RequestHandlerInterceptor : Palladio.Webserver.Dispatcher.IRequestHandler
 {
 	#region Properties 
+	
+	public System.Net.Sockets.Socket ClientSocket
+	{
+		get 
+		{ 
+			MethodInfo method = _target.GetType().GetMethod("get_ClientSocket");
+			long id = InterceptorActions.GetNextCallID();
+			InterceptorActions.BeforeCall(id, "IRequestHandler", method);
+			System.Net.Sockets.Socket returnValue;
+			try 
+			{
+				returnValue = _target.ClientSocket; 
+			}
+			finally
+			{
+				InterceptorActions.AfterCall();
+			}
+			return returnValue;
+		}
+		set 
+		{ 
+			MethodInfo method = _target.GetType().GetMethod("set_ClientSocket");
+			long id = InterceptorActions.GetNextCallID();
+			InterceptorActions.BeforeCall(id, "IRequestHandler", method);
+			try
+			{
+				_target.ClientSocket = value; 
+			}
+			finally
+			{
+				InterceptorActions.AfterCall();
+			}
+		}
+	}
 	
 	#endregion 
 	
 	#region Methods
 
-	public Palladio.Webserver.Dispatcher.IPortListener CreatePortListener( Palladio.Webserver.RequestParser.IRequestParser requestParser, Palladio.Webserver.WebserverMonitor.IWebserverMonitor webserverMonitor, Palladio.Webserver.ConfigReader.IWebserverConfiguration webserverConfiguration, System.Int32 port, System.Net.IPAddress address, Palladio.Webserver.Request.IRequestFactory requestFactory)
+	public void Stop( )
 	{
-		MethodInfo method = _target.GetType().GetMethod("CreatePortListener", new Type[] {typeof(Palladio.Webserver.RequestParser.IRequestParser), typeof(Palladio.Webserver.WebserverMonitor.IWebserverMonitor), typeof(Palladio.Webserver.ConfigReader.IWebserverConfiguration), typeof(System.Int32), typeof(System.Net.IPAddress), typeof(Palladio.Webserver.Request.IRequestFactory)});
+		MethodInfo method = _target.GetType().GetMethod("Stop", new Type[] {});
 		long id = InterceptorActions.GetNextCallID();
-		InterceptorActions.BeforeCall(id, "IPortListenerFactory", method);
-		Palladio.Webserver.Dispatcher.IPortListener returnValue;
+		InterceptorActions.BeforeCall(id, "IRequestHandler", method);
 		try
 		{
-			 returnValue = _target.CreatePortListener(requestParser, webserverMonitor, webserverConfiguration, port, address, requestFactory);
+			_target.Stop();
 		}
 		finally
 		{
 			InterceptorActions.AfterCall();
 		}
-		return returnValue;
+	}                                   
+
+	public void HandleRequest( )
+	{
+		MethodInfo method = _target.GetType().GetMethod("HandleRequest", new Type[] {});
+		long id = InterceptorActions.GetNextCallID();
+		InterceptorActions.BeforeCall(id, "IRequestHandler", method);
+		try
+		{
+			_target.HandleRequest();
+		}
+		finally
+		{
+			InterceptorActions.AfterCall();
+		}
 	}                                   
 	#endregion 
 
 	#region Constructor and Data
 	
-	private Palladio.Webserver.Dispatcher.IPortListenerFactory _target;
+	private Palladio.Webserver.Dispatcher.IRequestHandler _target;
 	
-	public  PortListenerFactoryInterceptor(Palladio.Webserver.Dispatcher.IPortListenerFactory target)
+	public  RequestHandlerInterceptor(Palladio.Webserver.Dispatcher.IRequestHandler target)
 	{
 		_target = target;
 	}
@@ -642,14 +771,14 @@ public class HTTPRequestProcessorToolsInterceptor : Palladio.Webserver.HTTPReque
 		return returnValue;
 	}                                   
 
-	public void SendContentDataToClient( System.Byte[] contentDataBytes, System.Net.Sockets.Socket socket)
+	public void SendContentDataToClient( System.Byte[] contentDataBytes, System.Net.Sockets.NetworkStream networkStream)
 	{
-		MethodInfo method = _target.GetType().GetMethod("SendContentDataToClient", new Type[] {typeof(System.Byte[]), typeof(System.Net.Sockets.Socket)});
+		MethodInfo method = _target.GetType().GetMethod("SendContentDataToClient", new Type[] {typeof(System.Byte[]), typeof(System.Net.Sockets.NetworkStream)});
 		long id = InterceptorActions.GetNextCallID();
 		InterceptorActions.BeforeCall(id, "IHTTPRequestProcessorTools", method);
 		try
 		{
-			_target.SendContentDataToClient(contentDataBytes, socket);
+			_target.SendContentDataToClient(contentDataBytes, networkStream);
 		}
 		finally
 		{
@@ -657,14 +786,14 @@ public class HTTPRequestProcessorToolsInterceptor : Palladio.Webserver.HTTPReque
 		}
 	}                                   
 
-	public void SendContentToClient( System.String contentData, System.Net.Sockets.Socket socket)
+	public void SendContentToClient( System.String contentData, System.Net.Sockets.NetworkStream networkStream)
 	{
-		MethodInfo method = _target.GetType().GetMethod("SendContentToClient", new Type[] {typeof(System.String), typeof(System.Net.Sockets.Socket)});
+		MethodInfo method = _target.GetType().GetMethod("SendContentToClient", new Type[] {typeof(System.String), typeof(System.Net.Sockets.NetworkStream)});
 		long id = InterceptorActions.GetNextCallID();
 		InterceptorActions.BeforeCall(id, "IHTTPRequestProcessorTools", method);
 		try
 		{
-			_target.SendContentToClient(contentData, socket);
+			_target.SendContentToClient(contentData, networkStream);
 		}
 		finally
 		{
@@ -687,14 +816,14 @@ public class HTTPRequestProcessorToolsInterceptor : Palladio.Webserver.HTTPReque
 		}
 	}                                   
 
-	public void SendHTTPHeader( System.String httpVersion, System.String mimeType, System.Int32 totalBytes, System.String httpStatusCode, System.Net.Sockets.Socket socket)
+	public void SendHTTPHeader( System.String httpVersion, System.String mimeType, System.Int32 totalBytes, System.String httpStatusCode, System.Net.Sockets.NetworkStream networkStream)
 	{
-		MethodInfo method = _target.GetType().GetMethod("SendHTTPHeader", new Type[] {typeof(System.String), typeof(System.String), typeof(System.Int32), typeof(System.String), typeof(System.Net.Sockets.Socket)});
+		MethodInfo method = _target.GetType().GetMethod("SendHTTPHeader", new Type[] {typeof(System.String), typeof(System.String), typeof(System.Int32), typeof(System.String), typeof(System.Net.Sockets.NetworkStream)});
 		long id = InterceptorActions.GetNextCallID();
 		InterceptorActions.BeforeCall(id, "IHTTPRequestProcessorTools", method);
 		try
 		{
-			_target.SendHTTPHeader(httpVersion, mimeType, totalBytes, httpStatusCode, socket);
+			_target.SendHTTPHeader(httpVersion, mimeType, totalBytes, httpStatusCode, networkStream);
 		}
 		finally
 		{
@@ -907,15 +1036,15 @@ public class BibTexDBInterceptor : Palladio.Webserver.BibTeXProvider.IBibTexDB
 	
 	#region Methods
 
-	public System.Text.StringBuilder AllEntries( System.String bibTeXTableName)
+	public System.Text.StringBuilder SearchAllEntries( System.String bibTeXTableName)
 	{
-		MethodInfo method = _target.GetType().GetMethod("AllEntries", new Type[] {typeof(System.String)});
+		MethodInfo method = _target.GetType().GetMethod("SearchAllEntries", new Type[] {typeof(System.String)});
 		long id = InterceptorActions.GetNextCallID();
 		InterceptorActions.BeforeCall(id, "IBibTexDB", method);
 		System.Text.StringBuilder returnValue;
 		try
 		{
-			 returnValue = _target.AllEntries(bibTeXTableName);
+			 returnValue = _target.SearchAllEntries(bibTeXTableName);
 		}
 		finally
 		{
@@ -1029,40 +1158,6 @@ public class HTTPRequestInterceptor : Palladio.Webserver.Request.IHTTPRequest
 		}
 	}
 	
-	public System.Net.Sockets.Socket Socket
-	{
-		get 
-		{ 
-			MethodInfo method = _target.GetType().GetMethod("get_Socket");
-			long id = InterceptorActions.GetNextCallID();
-			InterceptorActions.BeforeCall(id, "IHTTPRequest", method);
-			System.Net.Sockets.Socket returnValue;
-			try 
-			{
-				returnValue = _target.Socket; 
-			}
-			finally
-			{
-				InterceptorActions.AfterCall();
-			}
-			return returnValue;
-		}
-		set 
-		{ 
-			MethodInfo method = _target.GetType().GetMethod("set_Socket");
-			long id = InterceptorActions.GetNextCallID();
-			InterceptorActions.BeforeCall(id, "IHTTPRequest", method);
-			try
-			{
-				_target.Socket = value; 
-			}
-			finally
-			{
-				InterceptorActions.AfterCall();
-			}
-		}
-	}
-	
 	public System.Collections.Hashtable GETHashtable
 	{
 		get 
@@ -1080,6 +1175,40 @@ public class HTTPRequestInterceptor : Palladio.Webserver.Request.IHTTPRequest
 				InterceptorActions.AfterCall();
 			}
 			return returnValue;
+		}
+	}
+	
+	public System.Net.Sockets.NetworkStream NetworkStream
+	{
+		get 
+		{ 
+			MethodInfo method = _target.GetType().GetMethod("get_NetworkStream");
+			long id = InterceptorActions.GetNextCallID();
+			InterceptorActions.BeforeCall(id, "IHTTPRequest", method);
+			System.Net.Sockets.NetworkStream returnValue;
+			try 
+			{
+				returnValue = _target.NetworkStream; 
+			}
+			finally
+			{
+				InterceptorActions.AfterCall();
+			}
+			return returnValue;
+		}
+		set 
+		{ 
+			MethodInfo method = _target.GetType().GetMethod("set_NetworkStream");
+			long id = InterceptorActions.GetNextCallID();
+			InterceptorActions.BeforeCall(id, "IHTTPRequest", method);
+			try
+			{
+				_target.NetworkStream = value; 
+			}
+			finally
+			{
+				InterceptorActions.AfterCall();
+			}
 		}
 	}
 	
@@ -1293,6 +1422,40 @@ public class RequestInterceptor : Palladio.Webserver.Request.IRequest
 {
 	#region Properties 
 	
+	public System.Net.Sockets.NetworkStream NetworkStream
+	{
+		get 
+		{ 
+			MethodInfo method = _target.GetType().GetMethod("get_NetworkStream");
+			long id = InterceptorActions.GetNextCallID();
+			InterceptorActions.BeforeCall(id, "IRequest", method);
+			System.Net.Sockets.NetworkStream returnValue;
+			try 
+			{
+				returnValue = _target.NetworkStream; 
+			}
+			finally
+			{
+				InterceptorActions.AfterCall();
+			}
+			return returnValue;
+		}
+		set 
+		{ 
+			MethodInfo method = _target.GetType().GetMethod("set_NetworkStream");
+			long id = InterceptorActions.GetNextCallID();
+			InterceptorActions.BeforeCall(id, "IRequest", method);
+			try
+			{
+				_target.NetworkStream = value; 
+			}
+			finally
+			{
+				InterceptorActions.AfterCall();
+			}
+		}
+	}
+	
 	public System.Int32 Port
 	{
 		get 
@@ -1319,74 +1482,6 @@ public class RequestInterceptor : Palladio.Webserver.Request.IRequest
 			try
 			{
 				_target.Port = value; 
-			}
-			finally
-			{
-				InterceptorActions.AfterCall();
-			}
-		}
-	}
-	
-	public System.Net.Sockets.Socket Socket
-	{
-		get 
-		{ 
-			MethodInfo method = _target.GetType().GetMethod("get_Socket");
-			long id = InterceptorActions.GetNextCallID();
-			InterceptorActions.BeforeCall(id, "IRequest", method);
-			System.Net.Sockets.Socket returnValue;
-			try 
-			{
-				returnValue = _target.Socket; 
-			}
-			finally
-			{
-				InterceptorActions.AfterCall();
-			}
-			return returnValue;
-		}
-		set 
-		{ 
-			MethodInfo method = _target.GetType().GetMethod("set_Socket");
-			long id = InterceptorActions.GetNextCallID();
-			InterceptorActions.BeforeCall(id, "IRequest", method);
-			try
-			{
-				_target.Socket = value; 
-			}
-			finally
-			{
-				InterceptorActions.AfterCall();
-			}
-		}
-	}
-	
-	public System.Net.Sockets.TcpListener TcpListener
-	{
-		get 
-		{ 
-			MethodInfo method = _target.GetType().GetMethod("get_TcpListener");
-			long id = InterceptorActions.GetNextCallID();
-			InterceptorActions.BeforeCall(id, "IRequest", method);
-			System.Net.Sockets.TcpListener returnValue;
-			try 
-			{
-				returnValue = _target.TcpListener; 
-			}
-			finally
-			{
-				InterceptorActions.AfterCall();
-			}
-			return returnValue;
-		}
-		set 
-		{ 
-			MethodInfo method = _target.GetType().GetMethod("set_TcpListener");
-			long id = InterceptorActions.GetNextCallID();
-			InterceptorActions.BeforeCall(id, "IRequest", method);
-			try
-			{
-				_target.TcpListener = value; 
 			}
 			finally
 			{
