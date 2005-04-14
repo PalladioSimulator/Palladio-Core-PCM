@@ -15,6 +15,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/14 13:21:35  sliver
+	/// l
+	///
 	/// Revision 1.4  2005/02/27 17:51:53  kelsaka
 	/// Added NDoc-Support (doc.xml-files are generated)
 	///
@@ -53,7 +56,7 @@ namespace Palladio.Webserver
 			}
 			catch (IndexOutOfRangeException)
 			{
-				pathToConfigFile = @"..\..\..\Config\"; //use default path
+				pathToConfigFile = @"../../../Config/"; //use default path
 			}
 
 			// The kind of component-configuration:
