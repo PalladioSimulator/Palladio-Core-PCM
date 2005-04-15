@@ -7,13 +7,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
 	/// <summary>
 	/// Abstract implementation of a component model entity.
-	/// <summary>
-	/// 
 	/// </summary>
+	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/15 08:29:46  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.3  2005/04/14 06:16:34  kelsaka
 	/// - fixed bug on listening to name changed events.
 	///

@@ -8,14 +8,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 {
 	/// <summary>
 	/// Default implementation of the type builder at the type level.
-	/// <summary>
-	/// 
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/15 08:29:46  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.1  2005/04/13 09:27:17  kelsaka
 	/// - added builders (including interfaces) for types and parameters of signatures.
 	///

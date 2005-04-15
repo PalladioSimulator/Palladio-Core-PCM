@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/04/15 08:29:46  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.10  2005/04/13 20:24:08  kelsaka
 	/// - added enitity methods
 	///
@@ -72,7 +75,7 @@ namespace Palladio.ComponentModel.Builder
 		ITypeTypeLevelBuilder SetReturnType(Type type);
 
 		/// <summary>
-		/// Sets the return type to <see cref="void"/>.
+		/// Sets the return type to void."/>.
 		/// </summary>
 		void SetReturnTypeVoid();
 
@@ -84,7 +87,7 @@ namespace Palladio.ComponentModel.Builder
 		/// to add. Both have to be named the same. The name has to be a valid name of a type.</param>
 		/// <returns>A <see cref="IParameterTypeLevelBuilder"/> for the newly created
 		/// parameter.</returns>
-		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (<see cref="name"/>) is not
+		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (name) is not
 		/// a valid type-name.</exception>
 		IParameterTypeLevelBuilder AppendParameter(string name);
 
@@ -127,7 +130,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="typeName">The type-name of the new exception. It has to be a valid
 		/// <see cref="Type"/>-name and a <see cref="Exception"/>.</param>
 		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> for the new exception.</returns>
-		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (<see cref="typeName"/>) is not
+		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (typeName) is not
 		/// a valid type-name.</exception>
 		ITypeTypeLevelBuilder AddException(string typeName);
 

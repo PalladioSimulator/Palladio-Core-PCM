@@ -10,14 +10,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
 	/// <summary>
 	/// Abstract implementation of the basic component builder - methods that are available at all levels.
-	/// <summary>
-	/// 
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/04/15 08:29:45  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.8  2005/04/13 20:24:08  kelsaka
 	/// - added enitity methods
 	///

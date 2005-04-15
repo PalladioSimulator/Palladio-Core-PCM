@@ -10,14 +10,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
 	/// <summary>
 	/// Abstract implementation of the Signature builder - methods that are available at all levels.
-	/// <summary>
-	/// 
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/04/15 08:29:46  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.11  2005/04/14 13:43:03  kelsaka
 	/// - fixed error in boolean expression for dertermining exception-types
 	///
@@ -106,7 +107,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		/// <summary>
-		/// Sets the return type to <see cref="void"/> (void).
+		/// Sets the return type to void.
 		/// </summary>
 		public void SetReturnTypeVoid ()
 		{
@@ -121,7 +122,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// to add. Both have to be named the same. The name has to be a valid name of a type.</param>
 		/// <returns>A <see cref="IParameterTypeLevelBuilder"/> for the newly created
 		/// parameter.</returns>
-		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (<see cref="name"/>) is not
+		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (name) is not
 		/// a valid type-name.</exception>
 		public IParameterTypeLevelBuilder AppendParameter (string name)
 		{			
@@ -189,7 +190,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="typeName">The type-name of the new exception. It has to be a valid
 		/// <see cref="Type"/>-name and a <see cref="Exception"/>.</param>
 		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> for the new exception.</returns>
-		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (<see cref="typeName"/>) is not
+		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (typeName) is not
 		/// a valid type-name.</exception>
 		/// <exception cref="TypeNotValidException">Thrown if the created type is not an exception
 		/// (sub-) type.</exception>

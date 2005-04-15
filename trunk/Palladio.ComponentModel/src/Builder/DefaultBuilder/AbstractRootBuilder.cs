@@ -9,7 +9,6 @@ using Palladio.ComponentModel.ModelEntities;
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
 	/// <summary>
-	/// <summary>
 	/// The RootBuilder for the component model. Allows to build sub-builders. By default
 	/// type-level builders are returned from all levels of builders. This means, that for
 	/// each entity the default level is the type-level.
@@ -21,6 +20,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/15 08:29:46  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.4  2005/04/09 12:23:20  kelsaka
 	/// - added documentation
 	///
@@ -72,10 +74,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		/// <summary>
-		/// TODO: useful?
+		/// TODO: useful
 		/// Creates a new <see cref="IBasicComponentBuilder"/>, which allows to create new components.
 		/// </summary>
-		/// <returns>The new ComponentBuilder.</returns		
+		/// <returns>The new ComponentBuilder.</returns>
 		public IComponentBuilder AddComponent (IComponent component)
 		{
 			throw new NotImplementedException ();

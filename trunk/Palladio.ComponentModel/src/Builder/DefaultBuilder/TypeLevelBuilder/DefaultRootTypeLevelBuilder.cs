@@ -6,7 +6,6 @@ using Palladio.ComponentModel.ModelDataManagement;
 namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 {
 	/// <summary>
-	/// <summary>
 	/// The RootBuilder for the component model. Allows to build sub-builders. By default
 	/// type-level builders are returned.
 	/// </summary>
@@ -15,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/15 08:29:46  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.1  2005/04/07 17:49:31  kelsaka
 	/// - added some unit tests
 	/// - added builder implementation

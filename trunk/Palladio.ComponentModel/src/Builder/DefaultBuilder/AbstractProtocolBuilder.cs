@@ -8,16 +8,17 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
 	/// <summary>
 	/// Abstract implementation of the Protocol builder - methods that are available at all levels.
-	/// <summary>
-	/// 
 	/// </summary>
 	/// <remarks>
 	/// Currently the protocols can not be created using a builder.
-	/// </remarks>
+	/// 
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/15 08:29:46  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.6  2005/04/13 20:24:08  kelsaka
 	/// - added enitity methods
 	///

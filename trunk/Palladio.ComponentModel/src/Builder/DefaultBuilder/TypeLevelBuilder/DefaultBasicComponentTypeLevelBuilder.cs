@@ -8,14 +8,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 {
 	/// <summary>
 	/// Default implementation of the basic component builder at the type level.
-	/// <summary>
-	/// 
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/15 08:29:46  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.2  2005/04/07 17:49:31  kelsaka
 	/// - added some unit tests
 	/// - added builder implementation

@@ -5,14 +5,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
 	/// <summary>
 	/// Abstract implementation of the Type builder - methods that are available at all levels.
-	/// <summary>
-	/// 
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/15 08:29:46  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.2  2005/04/13 20:24:08  kelsaka
 	/// - added enitity methods
 	///

@@ -10,14 +10,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
 	/// <summary>
 	/// Abstract implementation of the composite component builder - methods that are available at all levels.
-	/// <summary>
-	/// 
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/15 08:29:45  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.7  2005/04/13 20:24:08  kelsaka
 	/// - added enitity methods
 	///
@@ -66,19 +67,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			this.lowLevelBuilder = lowLevelBuilder;
 			this.component = component;
 			base.Init(component);
-		}
-
-		/// <summary>
-		/// TODO: useful for builder?
-		/// Creates a new <see cref="IComponentBuilder"/>, which allows to create new components.
-		/// </summary>
-		/// <param name="component">The component to add to the actual composite component.</param>
-		/// <returns>The new ComponentBuilder.</returns		
-		public IComponentBuilder AddComponent (IComponent component)
-		{
-			lowLevelBuilder.AddComponent(component, this.component.ComponentID);
-			//TODO: use CC-Builder or own Builder?
-			return new DefaultCompositeComponentTypeLevelBuilder(lowLevelBuilder, component);
 		}
 
 		/// <summary>

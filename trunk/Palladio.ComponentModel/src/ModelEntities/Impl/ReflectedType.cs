@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/15 08:29:46  kelsaka
+	/// - fixed errors on xml-comments
+	///
 	/// Revision 1.3  2005/04/14 13:43:03  kelsaka
 	/// - fixed error in boolean expression for dertermining exception-types
 	///
@@ -80,15 +83,24 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 		}
 
 		/// <summary>
+		/// Returns the base-objects hashcode.
+		/// </summary>
+		/// <returns>Objects hashcode.</returns>
+		public override int GetHashCode()
+		{
+			return base.GetHashCode ();
+		}
+
+		/// <summary>
 		/// Overloaded. Overridden. Determines if the underlying system type of the current
 		/// Type is the same as the underlying system type of the specified Object or Type.
 		/// </summary>
 		/// <remarks>Neccessary to override because collections use Equals.</remarks>
 		/// <param name="obj">The Object whose underlying system type is to be compared
 		/// with the underlying system type of the current Type.</param>
-		/// <returns>true if the underlying system type of <see cref="obj"/> is the same as
+		/// <returns>true if the underlying system type of obj is the same as
 		/// the underlying system type of the current Type; otherwise, false. This method
-		/// also returns false if the object specified by the <see cref="obj"/> parameter
+		/// also returns false if the object specified by the obj parameter
 		/// is not a Type.
 		/// </returns>
 		public override bool Equals(object obj)
@@ -124,7 +136,7 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 		/// </remarks>
 		/// <returns>The Type instance that represents the underlying
 		/// ReflectedType of the current instance.</returns>
-		public Type GetType()
+		public new Type GetType()
 		{
 			return this.reflectedType;
 		}
@@ -147,7 +159,7 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 		/// </summary>
 		/// <param name="aTypeName">Name describing the Type. It has to be a valid
 		/// name of an existing type.</param>
-		/// <exception cref="TypeNotFoundException">Thrown if <see cref="aTypeName"/> is not a
+		/// <exception cref="TypeNotFoundException">Thrown if aTypeName is not a
 		/// valid type.</exception>
 		public ReflectedType ( string aTypeName )
 		{
