@@ -16,10 +16,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// component model.</p>
 	/// </summary>
 	/// <remarks>
+	/// Note: The root is not a component model entity.
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/16 12:37:46  kelsaka
+	/// - added first ideas using constraints with the builders
+	///
 	/// Revision 1.5  2005/04/15 08:29:46  kelsaka
 	/// - fixed errors on xml-comments
 	///

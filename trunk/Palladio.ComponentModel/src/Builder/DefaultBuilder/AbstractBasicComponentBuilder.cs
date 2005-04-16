@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.BuilderConstraints;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -16,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/04/16 12:37:46  kelsaka
+	/// - added first ideas using constraints with the builders
+	///
 	/// Revision 1.9  2005/04/15 08:29:45  kelsaka
 	/// - fixed errors on xml-comments
 	///
@@ -50,7 +55,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractBasicComponentBuilder : AbstractEntityBuilder, IBasicComponentBuilder
+	public abstract class AbstractBasicComponentBuilder : AbstractEntityBuilder, IBasicComponentBuilder, IBuilder
 	{
 		#region data
 
@@ -149,6 +154,37 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IComponent Component
 		{
 			get { return this.component; }
+		}
+
+		#endregion
+
+		#region IBuilder Members
+
+		/// <summary>
+		/// Adds the given builder constraint to the list of constraints for
+		/// this builder.
+		/// </summary>
+		/// <param name="builderConstraint">A constraint for this builder.</param>
+		public void AddBuilderConstraint (IBuilderConstraint builderConstraint)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Removes the given constraints from the list of constraints applied to this builder.
+		/// </summary>
+		/// <param name="builderConstraint">The constraint to remove.</param>
+		public void RemoveBuilderConstraint (IBuilderConstraint builderConstraint)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// The list of actually attached constraints.
+		/// </summary>
+		public IDictionary Constraints
+		{
+			get { throw new NotImplementedException (); }
 		}
 
 		#endregion
