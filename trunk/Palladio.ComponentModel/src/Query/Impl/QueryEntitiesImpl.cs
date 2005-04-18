@@ -1,4 +1,4 @@
-using System;
+using System.Data;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/18 09:45:21  joemal
+	/// implement query methods
+	///
 	/// Revision 1.1  2005/04/18 08:50:50  joemal
 	/// initial creation
 	///
@@ -105,8 +108,17 @@ namespace Palladio.ComponentModel.Query.Impl
 		public IConnection GetAssemblyConnector(IComponentIdentifier reqCompID, IInterfaceIdentifier reqIfaceID, 
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIfaceID)
 		{
-			int a=0;
-			throw new NotImplementedException();
+			ModelDataSet.RolesRow reqRole = QueryRole(reqCompID,reqIfaceID,InterfaceRole.REQUIRES);
+			ModelDataSet.RolesRow provRole = QueryRole(provCompID,provIfaceID,InterfaceRole.PROVIDES);
+
+			if (reqRole == null || provRole == null) return null;
+            ModelDataSet.ConnectionsRow con;
+
+			string query = "incoming = "+provRole.id+" and outgoing = "+reqRole.id;
+			DataRow[] result = Dataset.Connections.Select(query);
+			if (result == null) return null;
+
+			return (IConnection) this.getModelEntity(((ModelDataSet.ConnectionsRow)result[0]).guid);
 		}
 
 	}
