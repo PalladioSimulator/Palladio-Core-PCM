@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/18 17:45:48  joemal
+	/// rename the get methods
+	///
 	/// Revision 1.2  2005/04/18 09:45:21  joemal
 	/// implement query methods
 	///
@@ -33,7 +36,8 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="dataset">the dataset</param>
 		/// <param name="hashtable">the hashtable</param>
-		public QueryEntitiesImpl(ModelDataSet dataset, EntityHashtable hashtable) : base (dataset,hashtable)
+		/// <param name="query">the root of the query tree</param>
+		public QueryEntitiesImpl(ModelDataSet dataset, EntityHashtable hashtable,IQuery query) : base (dataset,hashtable,query)
 		{
 		}
 
@@ -42,7 +46,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="entityID">the id of the entity</param>
 		/// <returns>the entity or null if the entity could not be found in the model</returns>
-		public IComponentModelEntity getEntity(IIdentifier entityID)
+		public IComponentModelEntity GetEntity(IIdentifier entityID)
 		{
 			return this.getModelEntity(entityID);
 		}
@@ -52,7 +56,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="compID">the id of the component</param>
 		/// <returns>the component or null if the component could not be found in the model</returns>
-		public IComponent getComponent(IComponentIdentifier compID)
+		public IComponent GetComponent(IComponentIdentifier compID)
 		{
 			return (IComponent) this.getModelEntity(compID);
 		}
@@ -62,7 +66,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface</param>
 		/// <returns>the interface or null if the interface could not be found in the model</returns>
-		public IInterface getInterface(IInterfaceIdentifier ifaceID)
+		public IInterface GetInterface(IInterfaceIdentifier ifaceID)
 		{
 			return (IInterface) this.getModelEntity(ifaceID);
 		}
@@ -72,7 +76,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="conID">the id of the connection</param>
 		/// <returns>the connection or null if the connection could not be found in the model</returns>
-		public IConnection getConnection(IConnectionIdentifier conID)
+		public IConnection GetConnection(IConnectionIdentifier conID)
 		{
 			return (IConnection) this.getModelEntity(conID);
 		}
@@ -82,7 +86,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="sigID">the id of the signature</param>
 		/// <returns>the signature or null if the signature could not be found in the model</returns>
-		public ISignature getSignature(ISignatureIdentifier sigID)
+		public ISignature GetSignature(ISignatureIdentifier sigID)
 		{
 			return (ISignature) this.getModelEntity(sigID);
 		}
@@ -92,7 +96,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="protID">the id of the protocol</param>
 		/// <returns>the protocol or null if the protocol could not be found in the model</returns>
-		public IProtocol getProtocol(IProtocolIdentifier protID)
+		public IProtocol GetProtocol(IProtocolIdentifier protID)
 		{
 			return (IProtocol) this.getModelEntity(protID);
 		}
@@ -112,7 +116,6 @@ namespace Palladio.ComponentModel.Query.Impl
 			ModelDataSet.RolesRow provRole = QueryRole(provCompID,provIfaceID,InterfaceRole.PROVIDES);
 
 			if (reqRole == null || provRole == null) return null;
-            ModelDataSet.ConnectionsRow con;
 
 			string query = "incoming = "+provRole.id+" and outgoing = "+reqRole.id;
 			DataRow[] result = Dataset.Connections.Select(query);
@@ -120,6 +123,5 @@ namespace Palladio.ComponentModel.Query.Impl
 
 			return (IConnection) this.getModelEntity(((ModelDataSet.ConnectionsRow)result[0]).guid);
 		}
-
 	}
 }
