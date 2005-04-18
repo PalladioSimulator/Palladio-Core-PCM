@@ -727,14 +727,18 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Query\IQuery.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Query\IQueryEntities.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Query\IQueryInterface.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
+                    RelPath = "src\Query\DeploymentLevel\info.txt"
+                    BuildAction = "Content"
                 />
                 <File
                     RelPath = "src\Query\Impl\BasicQueryImpl.cs"
@@ -748,6 +752,45 @@
                 />
                 <File
                     RelPath = "src\Query\Impl\QueryEntitiesImpl.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\ImplementationLevel\info.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "src\Query\TypeLevel\IQueryBasicComponentTypeLevel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\TypeLevel\IQueryComponentTypeLevel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\TypeLevel\IQueryCompositeComponentTypeLevel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\TypeLevel\IQueryConnectionTypeLevel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\TypeLevel\IQueryInterfaceTypeLevel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\TypeLevel\IQueryStaticViewTypeLevel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\TypeLevel\IQueryTypeLevel.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

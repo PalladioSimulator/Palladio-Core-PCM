@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/18 08:51:05  joemal
+	/// add query methods
+	///
 	/// Revision 1.3  2005/04/10 15:34:23  joemal
 	/// add some query methods
 	///
@@ -116,11 +119,11 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// called to return the interface used to query the entity of the componentmodel.
 		/// </summary>
-		public IQueryInterface QueryInterface
+		public IQuery Query
 		{
 			get
 			{
-				return this.modelManager.QueryInterface;
+				return this.modelManager.Query;
 			}
 		}
 
