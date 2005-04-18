@@ -756,6 +756,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Query\Impl\QueryInterfaceImpl.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Query\ImplementationLevel\info.txt"
                     BuildAction = "Content"
                 />
@@ -795,12 +800,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Query\TypeLevel\QueryTypeLevelFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\UnitTests\BuilderTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\UnitTests\LowLevelBuilderTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\QueryTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\StaticComponentModel.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

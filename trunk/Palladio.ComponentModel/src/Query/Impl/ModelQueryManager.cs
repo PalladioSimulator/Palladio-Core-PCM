@@ -1,4 +1,3 @@
-using System;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.Query.TypeLevel;
 using Palladio.Identifier;
@@ -13,6 +12,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/18 17:46:13  joemal
+	/// implement query methods
+	///
 	/// Revision 1.1  2005/04/18 08:50:50  joemal
 	/// initial creation
 	///
@@ -27,10 +29,10 @@ namespace Palladio.ComponentModel.Query.Impl
 		#region data
 
 		//holds the implementation of the query entities interface
-		private IQueryEntities queryEntities;
+		private QueryEntitiesImpl queryEntities;
 
-		//holds the implementation of the query typelevel interface
-		private IQueryTypeLevel queryTypeLevel;
+		//holds the factory that creates all entity specific query implementations
+		private QueryTypeLevelFactory queryTypeLevelFactory;
 
 		#endregion
 
@@ -43,8 +45,8 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <param name="entityHashtable">the hashtable that holds the entities</param>
 		internal ModelQueryManager(ModelDataSet dataset, EntityHashtable entityHashtable)
 		{
-			this.queryEntities = new QueryEntitiesImpl(dataset,entityHashtable);
-			this.queryTypeLevel = null;//new QueryImpl(dataset,entityHashtable);
+			this.queryEntities = new QueryEntitiesImpl(dataset,entityHashtable,this);
+			this.queryTypeLevelFactory = new QueryTypeLevelFactory(dataset,entityHashtable,this);
 		}
 
 		#endregion
@@ -67,7 +69,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		{
 			get 
 			{
-				return this.queryTypeLevel;
+				return this.queryTypeLevelFactory;
 			}
 		}
 	}

@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/18 17:46:13  joemal
+	/// implement query methods
+	///
 	/// Revision 1.2  2005/04/18 09:45:21  joemal
 	/// implement query methods
 	///
@@ -36,6 +39,9 @@ namespace Palladio.ComponentModel.Query.Impl
 		//holds the entities of the model
 		private EntityHashtable entityHashtable;
 
+		//holds the interface of all queries to create cross reference to other query interfaces
+		private IQuery query;
+
 		#endregion
 
 		#region constructor
@@ -45,10 +51,12 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="dataset">the dataset</param>
 		/// <param name="hashtable">the hashtable</param>
-		public BasicQueryImpl(ModelDataSet dataset, EntityHashtable hashtable)
+		/// <param name="query">the basic query implementation</param>
+		public BasicQueryImpl(ModelDataSet dataset, EntityHashtable hashtable, IQuery query)
 		{
 			this.dataset = dataset;
 			this.entityHashtable = hashtable;
+			this.query = query;
 		}
 
 		#endregion
@@ -94,6 +102,33 @@ namespace Palladio.ComponentModel.Query.Impl
 
 		#endregion
 
+		#region protected properties
+
+		/// <summary>
+		/// called to return the dataset of the model
+		/// </summary>
+		protected ModelDataSet Dataset
+		{
+			get
+			{
+				return dataset;
+			}
+		}
+
+		/// <summary>
+		/// called to return the implementation of the all query methods of the componentmodel. 
+		/// This property can be used to create cross references to other query implemenations.
+		/// </summary>
+		protected IQuery Query
+		{
+			get
+			{
+				return this.query;
+			}
+		}
+
+		#endregion
+
 		#region public methods
 
 		/// <summary>
@@ -108,16 +143,16 @@ namespace Palladio.ComponentModel.Query.Impl
 
 		#endregion
 
-		#region protected properties
+		#region public properties
 
 		/// <summary>
-		/// called to return the dataset of the model
+		/// called to return the interface that is used to query the entities of the model
 		/// </summary>
-		protected ModelDataSet Dataset
+		public IQueryEntities QueryEntities
 		{
 			get
 			{
-				return dataset;
+				return this.query.QueryEntities;
 			}
 		}
 

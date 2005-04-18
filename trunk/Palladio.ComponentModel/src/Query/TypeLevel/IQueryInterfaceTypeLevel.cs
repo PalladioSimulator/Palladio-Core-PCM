@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/18 17:46:13  joemal
+	/// implement query methods
+	///
 	/// Revision 1.1  2005/04/18 08:50:50  joemal
 	/// initial creation
 	///
@@ -37,7 +40,7 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// called to return an array with ids of the signatures that belong to the interface
 		/// </summary>
 		/// <returns>an array with signatures that belong to the interface</returns>
-		ISignatureIdentifier GetSignatures();
+		ISignatureIdentifier[] GetSignatures();
 		
 		/// <summary>
 		/// returns true, if the signature with given id exists and belongs to the interface
@@ -50,7 +53,7 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// called to return an array with ids of the protocols that belong to the interface
 		/// </summary>
 		/// <returns>an array with protocols that belong to the interface</returns>
-		IProtocolIdentifier GetProtocols();
+		IProtocolIdentifier[] GetProtocols();
 		
 		/// <summary>
 		/// returns true, if the protocol with given id exists and belongs to the interface
