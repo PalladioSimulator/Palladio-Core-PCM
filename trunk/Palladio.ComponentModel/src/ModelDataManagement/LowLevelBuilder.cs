@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/04/19 16:47:31  joemal
+	/// fix two bugs
+	///
 	/// Revision 1.9  2005/04/11 17:06:26  joemal
 	/// change the ClearAll method
 	///
@@ -142,7 +145,11 @@ namespace Palladio.ComponentModel.ModelDataManagement
 
 			ModelDataSet.ComponentsRow outerCompRow = ComponentsTable.FindByguid(outerCompID.Key);
 	
-			ConnectionsTable.AddConnectionsRow(innerRole, outerRole,connection.ID.Key,outerCompRow);
+			if (role == InterfaceRole.PROVIDES)
+				ConnectionsTable.AddConnectionsRow(outerRole,innerRole,connection.ID.Key,outerCompRow);
+			else
+				ConnectionsTable.AddConnectionsRow(innerRole, outerRole,connection.ID.Key,outerCompRow);
+
 			ConnectionsTable.AcceptChanges();
 		}
 
@@ -233,12 +240,6 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			this.ClearTable(SignaturesTable);
 			this.ClearTable(ProtocolsTable);
 			this.ClearTable(ConnectionsTable);
-			/*RolesTable.Clear();
-			ComponentsTable.Clear();
-			InterfacesTable.Clear();
-			SignaturesTable.Clear();
-			ProtocolsTable.Clear();
-			ConnectionsTable.Clear();*/
 			entityHashtable.Clear();
 			idCntr = 0;
 		}
@@ -412,6 +413,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 
 			ConnectionsTable.AddConnectionsRow(newRow);
 			ConnectionsTable.AcceptChanges();
+			entityHashtable.AddEntity(connection);
 			entityReg.RegisterAssemblyConnection(connection,reqCompID,reqIFaceID,provCompID,provIFaceID);
 		}
 
