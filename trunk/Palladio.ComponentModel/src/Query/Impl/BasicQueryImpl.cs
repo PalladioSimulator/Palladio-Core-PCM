@@ -1,4 +1,5 @@
 using System.Data;
+using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -14,6 +15,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/19 16:47:41  joemal
+	/// implement query methods
+	///
 	/// Revision 1.3  2005/04/18 17:46:13  joemal
 	/// implement query methods
 	///
@@ -93,11 +97,24 @@ namespace Palladio.ComponentModel.Query.Impl
 		protected ModelDataSet.RolesRow QueryRole(IComponentIdentifier compID, IInterfaceIdentifier ifaceID, InterfaceRole role)
 		{
 			DataRow[] result = null;			
-			string query = "fk_comp = '"+compID.Key+"' and fk_iface ='"+ifaceID.Key+"' and type = "+role;
+			string query = "fk_comp = '"+compID.Key+"' and fk_iface ='"+ifaceID.Key+"' and type = "+(byte)role;
 			result = dataset.Roles.Select(query);
-			if (result == null) return null;
+
+			if (result.Length == 0) return null;
 
 			return (ModelDataSet.RolesRow) result[0];
+		}
+
+		/// <summary>
+		/// called to check whether an entity exits in the componentmodel. If it doesn't exits, an EntityNotFoundException is
+		/// thrown 
+		/// </summary>
+		/// <param name="entityID">the entity</param>
+		/// <exception cref="EntityNotFoundException">thrown if the given entity doesn't exists in the cm</exception>
+		protected void CheckEntityExists(IIdentifier entityID)
+		{
+			if (!this.ContainsEntity(entityID))
+				throw new EntityNotFoundException(entityID);
 		}
 
 		#endregion

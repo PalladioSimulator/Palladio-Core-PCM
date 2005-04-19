@@ -34,11 +34,16 @@ Examples:
       (+) the implementation
 09.04. HighLevelBuilder (KK)
       (+) interfaces and basic implementation of the high level builders: ability to build up the static structure
+19.04. Implementation of the Queries(MH)
+      (+) the implementation
 ---
 
 CVS history:
 ---
 $Log$
+Revision 1.6  2005/04/19 16:49:07  joemal
+implement query methods
+
 Revision 1.5  2005/04/09 12:32:14  kelsaka
 - added HighLevelBuilder
 

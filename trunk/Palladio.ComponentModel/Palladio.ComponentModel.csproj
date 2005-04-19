@@ -751,12 +751,32 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Query\Impl\QueryComponentImpl.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\Impl\QueryCompositeComponentImpl.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\Impl\QueryConnectionImpl.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Query\Impl\QueryEntitiesImpl.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\Query\Impl\QueryInterfaceImpl.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\Impl\QueryStaticViewImpl.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

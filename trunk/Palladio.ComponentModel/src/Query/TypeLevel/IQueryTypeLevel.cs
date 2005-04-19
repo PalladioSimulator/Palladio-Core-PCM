@@ -1,3 +1,4 @@
+using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 
 namespace Palladio.ComponentModel.Query.TypeLevel
@@ -10,6 +11,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/19 16:47:41  joemal
+	/// implement query methods
+	///
 	/// Revision 1.1  2005/04/18 08:50:50  joemal
 	/// initial creation
 	///
@@ -30,6 +34,7 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// </summary>
 		/// <param name="componentID">the id of the component</param>
 		/// <returns>the interface</returns>
+		/// <exception cref="EntityNotFoundException">thrown if the component could not be found in the model.</exception>
 		IQueryComponentTypeLevel QueryComponent(IComponentIdentifier componentID);
 
 		/// <summary>
@@ -38,6 +43,7 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// </summary>
 		/// <param name="bcID">the id of the component</param>
 		/// <returns>the interface</returns>
+		/// <exception cref="EntityNotFoundException">thrown if the component could not be found in the model.</exception>
 		IQueryBasicComponentTypeLevel QueryBasicComponent(IComponentIdentifier bcID);
 
 		/// <summary>
@@ -46,6 +52,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// </summary>
 		/// <param name="ccID">the id of the component</param>
 		/// <returns>the interface</returns>
+		/// <exception cref="EntityNotFoundException">thrown if the component could not be found in the model.</exception>
+		/// <exception cref="WrongComponentTypeException">thrown, if the id of the component is 
+		/// not a composite component</exception>
 		IQueryCompositeComponentTypeLevel QueryCompositeComponent(IComponentIdentifier ccID);
 
 		/// <summary>
@@ -54,6 +63,7 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// </summary>
 		/// <param name="connectionID">the id of the connection</param>
 		/// <returns>the interface</returns>
+		/// <exception cref="EntityNotFoundException">thrown if the connection could not be found in the model.</exception>
 		IQueryConnectionTypeLevel QueryConnection(IConnectionIdentifier connectionID);
 
 		/// <summary>
@@ -62,6 +72,7 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface</param>
 		/// <returns>the queryinterface</returns>
+		/// <exception cref="EntityNotFoundException">thrown if the interface could not be found in the model.</exception>
 		IQueryInterfaceTypeLevel QueryInterface(IInterfaceIdentifier ifaceID);
 	}
 }

@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/19 16:47:41  joemal
+	/// implement query methods
+	///
 	/// Revision 1.1  2005/04/18 08:50:50  joemal
 	/// initial creation
 	///
@@ -23,7 +26,7 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// returns the ids of the components that are contained in this component.
 		/// </summary>
 		/// <returns>the ids of the components</returns>
-		IComponentIdentifier GetComponents();
+		IComponentIdentifier[] GetComponents();
 
 		/// <summary>
 		/// returns true, if the component that belongs to given id is part of this component
