@@ -11,6 +11,9 @@ namespace Palladio.Identifier
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/19 16:45:45  joemal
+	/// reimplement the equals method
+	///
 	/// Revision 1.1  2005/03/15 12:34:33  joemal
 	/// initial class creation
 	///
@@ -94,6 +97,27 @@ namespace Palladio.Identifier
 		public bool Match(string key)
 		{
 			return this.guid.ToString().Equals(key);
+		}
+
+		/// <summary>
+		/// called to create a hashcode for this object
+		/// </summary>
+		/// <returns>the hashcode</returns>
+		public override int GetHashCode()
+		{
+			return base.GetHashCode () ^ 0xF0F0;
+		}
+
+
+		/// <summary>
+		/// returns true, if the given object is from type IIdentifier and if the keys of both do match.
+		/// </summary>
+		/// <param name="obj">the object</param>
+		/// <returns>returns true, if the given object is from type IIdentifier and if the keys of both do match.</returns>
+		public override bool Equals(object obj)
+		{
+			if (!(obj is IIdentifier)) return false;
+			return this.Match(((IIdentifier)obj).Key);
 		}
 
 		/// <summary>
