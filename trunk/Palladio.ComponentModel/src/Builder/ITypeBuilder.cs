@@ -5,6 +5,7 @@ namespace Palladio.ComponentModel.Builder
 {
 	/// <summary>
 	/// ITypeBuilder. Builds ITypes.
+	/// Alternatively directly use the signatures methods for creating a new type.
 	/// </summary>
 	/// <remarks>
 	/// <p>This builder interface contains all non model-level specifical methods of a signature.</p>
@@ -12,6 +13,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.2  2005/04/16 12:37:46  kelsaka
 	/// - added first ideas using constraints with the builders
 	///

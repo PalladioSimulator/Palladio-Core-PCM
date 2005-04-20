@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.8  2005/04/12 12:32:39  kelsaka
 	/// - removed property to access typed IDs directly from the builders
 	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
@@ -58,18 +61,36 @@ namespace Palladio.ComponentModel.Builder
 		#region methods
 
 		/// <summary>
-		/// Adds a <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.
+		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.
 		/// </summary>
 		/// <param name="name">The components name.</param>
-		/// <returns></returns>
+		/// <returns>Type level builder of the new basic component.</returns>
 		IBasicComponentTypeLevelBuilder AddBasicComponent(string name);
-				
+
 		/// <summary>
-		/// Adds a <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>) to the component model.
+		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="componentIdentifier">The id for the new component.</param>
+		/// <param name="name">The new components name.</param>
+		/// <returns>Type level builder of the new basic component with the given ID.</returns>
+		IBasicComponentTypeLevelBuilder AddBasicComponent(IComponentIdentifier componentIdentifier, string name);
+
+		/// <summary>
+		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>) to the component model.
 		/// </summary>
 		/// <param name="name">The components name</param>
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
 		ICompositeComponentTypeLevelBuilder AddCompositeComponent(string name);
+
+		/// <summary>
+		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>) to the component model.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="componentIdentifier">The id for the new component.</param>
+		/// <param name="name">The new components name.</param>
+		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
+		ICompositeComponentTypeLevelBuilder AddCompositeComponent(IComponentIdentifier componentIdentifier, string name);
 				
 		/// <summary>
 		/// Called to remove the component which belongs to the given id. All contained components
@@ -92,6 +113,23 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="provIFaceID">the outgoing components interface</param>
 		void AddAssemblyConnector(string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
 		                          IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
+
+		/// <summary>
+		/// called to add an assemblyConnector from a requires interfaces of a component to a provides interface of 
+		/// another component. Both components must have the same parent component or must be placed at the top level of the
+		/// model.
+		/// This method creates a new connection.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="connectionIdentifier">The identifier used for the new connection.</param>
+		/// <param name="connectionName">The new connections name.</param>
+		/// <param name="reqCompID">the id of the incoming component</param>
+		/// <param name="reqIFaceID">the incoming components interface</param>
+		/// <param name="provCompID">the id of the outgoing component</param>
+		/// <param name="provIFaceID">the outgoing components interface</param>
+		void AddAssemblyConnector(IConnectionIdentifier connectionIdentifier, string connectionName,
+			IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
+			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
 
 		/// <summary>
 		/// called to remove the connection that belongs to the given id. If the entity could not be found in 

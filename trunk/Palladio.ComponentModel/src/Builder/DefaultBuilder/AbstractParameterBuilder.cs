@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.4  2005/04/20 16:23:44  joemal
 	/// fix a bug
 	///
@@ -26,7 +29,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractParameterBuilder : IParameterBuilder
+	internal abstract class AbstractParameterBuilder : IParameterBuilder
 	{
 		#region data
 

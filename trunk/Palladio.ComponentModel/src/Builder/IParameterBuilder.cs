@@ -7,6 +7,7 @@ namespace Palladio.ComponentModel.Builder
 {
 	/// <summary>
 	/// IParameterBuilder. Builds IParameters.
+	/// Alternatively directly use the signatures methods for creating a new parameter.
 	/// </summary>
 	/// <remarks>
 	/// <p>This builder interface contains all non model-level specifical methods of a signature.</p>
@@ -14,6 +15,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.3  2005/04/20 13:26:43  kelsaka
 	/// - added new Init-method implementation
 	///

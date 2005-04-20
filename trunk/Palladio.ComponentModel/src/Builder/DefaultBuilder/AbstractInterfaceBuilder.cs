@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.15  2005/04/20 16:23:44  joemal
 	/// fix a bug
 	///
@@ -69,7 +72,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractInterfaceBuilder : AbstractEntityBuilder, IInterfaceBuilder
+	internal abstract class AbstractInterfaceBuilder : AbstractEntityBuilder, IInterfaceBuilder
 	{
 		#region data
 
@@ -149,6 +152,17 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			//TODO: if ever protocols are integrated use:
 			//new DefaultProtocolTypeLevelBuilder(lowLevelBuilder, iProtocol);
 			throw new NotImplementedException("currently protocols can not be created using a builder.");
+		}
+
+		/// <summary>
+		/// Adds a new protocol to the interface.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="protocolIdentifier">The new protocols identifier.</param>
+		/// <param name="protocolName">The new protocols name.</param>
+		public IProtocolTypeLevelBuilder AddProtocol (IProtocolIdentifier protocolIdentifier, string protocolName)
+		{
+			throw new NotImplementedException ();
 		}
 
 		/// <summary>

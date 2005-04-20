@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.12  2005/04/20 13:26:43  kelsaka
 	/// - added new Init-method implementation
 	///
@@ -62,7 +65,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractBasicComponentBuilder : AbstractEntityBuilder, IBasicComponentBuilder
+	internal abstract class AbstractBasicComponentBuilder : AbstractEntityBuilder, IBasicComponentBuilder
 	{
 		#region data
 
@@ -121,7 +124,20 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddProvidesInterface (string interfaceName)
 		{
-			IInterface iInterface = EntityFactory.CreateInterface(interfaceName);
+			return AddProvidesInterface(new InternalEntityIdentifier().AsInterfaceIdentifier(),
+				interfaceName);
+		}
+
+		/// <summary>
+		/// Creates a new interface and adds it as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
+		/// <param name="interfaceName">The name of the newly created interface.</param>
+		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
+		public IInterfaceTypeLevelBuilder AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
+		{
+			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier.Key, interfaceName);
 			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.PROVIDES);
 			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
 		}
@@ -133,7 +149,20 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (string interfaceName)
 		{
-			IInterface iInterface = EntityFactory.CreateInterface(interfaceName);
+			return AddRequiresInterface(new InternalEntityIdentifier().AsInterfaceIdentifier(),
+				interfaceName);
+		}
+
+		/// <summary>
+		/// Creates a new interface and adds it as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
+		/// <param name="interfaceName">The name of the newly created interface.</param>
+		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
+		public IInterfaceTypeLevelBuilder AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
+		{
+			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier.Key, interfaceName);
 			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.REQUIRES);
 			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
 		}
@@ -175,6 +204,5 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		#endregion
-
 	}
 }

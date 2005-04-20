@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.14  2005/04/20 13:26:43  kelsaka
 	/// - added new Init-method implementation
 	///
@@ -65,7 +68,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractSignatureBuilder : AbstractEntityBuilder, ISignatureBuilder
+	internal abstract class AbstractSignatureBuilder : AbstractEntityBuilder, ISignatureBuilder
 	{
 		#region data
 

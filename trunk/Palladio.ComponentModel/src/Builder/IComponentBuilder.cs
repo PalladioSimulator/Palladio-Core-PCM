@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.9  2005/04/20 13:26:43  kelsaka
 	/// - added new Init-method implementation
 	///
@@ -94,11 +97,29 @@ namespace Palladio.ComponentModel.Builder
 		IInterfaceTypeLevelBuilder AddProvidesInterface(string interfaceName);
 
 		/// <summary>
+		/// Creates a new interface and adds it as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
+		/// <param name="interfaceName">The name of the newly created interface.</param>
+		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
+		IInterfaceTypeLevelBuilder AddProvidesInterface(IInterfaceIdentifier ifaceIdentifier, string interfaceName);
+
+		/// <summary>
 		/// Creates a new interface and adds it as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
 		/// </summary>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		IInterfaceTypeLevelBuilder AddRequiresInterface(string interfaceName);
+
+		/// <summary>
+		/// Creates a new interface and adds it as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
+		/// <param name="interfaceName">The name of the newly created interface.</param>
+		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
+		IInterfaceTypeLevelBuilder AddRequiresInterface(IInterfaceIdentifier ifaceIdentifier, string interfaceName);
 
 		/// <summary>
 		/// called to remove the interface from the model. All signatures and protocolinformations that have been 

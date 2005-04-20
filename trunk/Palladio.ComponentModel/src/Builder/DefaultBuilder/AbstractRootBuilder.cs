@@ -1,3 +1,4 @@
+using System;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
@@ -20,6 +21,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.8  2005/04/20 16:23:44  joemal
 	/// fix a bug
 	///
@@ -64,7 +68,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractRootBuilder : IRootBuilder
+	internal abstract class AbstractRootBuilder : IRootBuilder
 	{
 		#region data
 
@@ -90,6 +94,19 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (string name)
 		{
 			IComponent component = EntityFactory.CreateComponent(ComponentType.BASIC, name);
+			return AddBasicComponent(component.ComponentID, name);
+		}
+
+		/// <summary>
+		/// Adds a new <see cref="ComponentType.BASIC"/> (Type <see cref="IComponent"/>) to the component model.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="componentIdentifier">The id for the new component.</param>
+		/// <param name="name">The new components name.</param>
+		/// <returns>Type level builder of the new basic component with the given ID.</returns>
+		public IBasicComponentTypeLevelBuilder AddBasicComponent (IComponentIdentifier componentIdentifier, string name)
+		{
+			IComponent component = EntityFactory.CreateComponent(componentIdentifier.Key, ComponentType.BASIC, name);
 			modelDataManager.LowLevelBuilder.AddComponent(component, null);
 			return new DefaultBasicComponentTypeLevelBuilder(modelDataManager, component);
 		}
@@ -101,7 +118,21 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
 		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (string name)
 		{
+			
 			IComponent component = EntityFactory.CreateComponent(ComponentType.COMPOSITE, name);
+			return AddCompositeComponent(component.ComponentID, name);
+		}
+
+		/// <summary>
+		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>) to the component model.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="componentIdentifier">The id for the new component.</param>
+		/// <param name="name">The new components name.</param>
+		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
+		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (IComponentIdentifier componentIdentifier, string name)
+		{
+			IComponent component = EntityFactory.CreateComponent(componentIdentifier.Key, ComponentType.COMPOSITE, name);
 			modelDataManager.LowLevelBuilder.AddComponent(component, null);
 			return new DefaultCompositeComponentTypeLevelBuilder(modelDataManager, component);
 		}
@@ -135,6 +166,24 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		/// <summary>
+		/// called to add an assemblyConnector from a requires interfaces of a component to a provides interface of 
+		/// another component. Both components must have the same parent component or must be placed at the top level of the
+		/// model.
+		/// This method creates a new connection.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="connectionIdentifier">The identifier used for the new connection.</param>
+		/// <param name="connectionName">The new connections name.</param>
+		/// <param name="reqCompID">the id of the incoming component</param>
+		/// <param name="reqIFaceID">the incoming components interface</param>
+		/// <param name="provCompID">the id of the outgoing component</param>
+		/// <param name="provIFaceID">the outgoing components interface</param>
+		public void AddAssemblyConnector (IConnectionIdentifier connectionIdentifier, string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
 		/// called to remove the connection that belongs to the given id. If the entity could not be found in 
 		/// componentmodel, the method returns without doing anything.
 		/// </summary>
@@ -154,6 +203,17 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			IInterface iInterface = EntityFactory.CreateInterface(name);
 			modelDataManager.LowLevelBuilder.AddInterface(iInterface);
 			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
+		}
+
+		/// <summary>
+		/// Creates a new <see cref="IInterfaceBuilder"/>, which allows to build new interfaces.
+		/// </summary>
+		/// <param name="interfaceIdentifier">The new interfaces identifier.</param>
+		/// <param name="name">The interfaces name.</param>
+		/// <returns>A new InterfaceBuilder.</returns>
+		public IInterfaceTypeLevelBuilder AddInterface (IInterfaceIdentifier interfaceIdentifier, string name)
+		{
+			throw new NotImplementedException ();
 		}
 
 		/// <summary>

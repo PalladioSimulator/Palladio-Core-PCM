@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.3  2005/04/20 13:08:31  kelsaka
 	/// - introduced IModelDataManagement
 	/// - integrated use of the new interface
@@ -40,7 +43,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public class DefaultRootTypeLevelBuilder : AbstractRootBuilder, IRootTypeLevelBuilder
+	internal class DefaultRootTypeLevelBuilder : AbstractRootBuilder, IRootTypeLevelBuilder
 	{
 
 

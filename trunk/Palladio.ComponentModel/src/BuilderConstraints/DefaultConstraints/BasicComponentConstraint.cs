@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.2  2005/04/20 13:08:30  kelsaka
 	/// - introduced IModelDataManagement
 	/// - integrated use of the new interface
@@ -138,11 +141,35 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints
 		}
 
 		/// <summary>
+		/// Creates a new interface and adds it as provided interface (<see cref="IInterfaceTypeLevelBuilder"/>) to the actual component.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
+		/// <param name="interfaceName">The name of the newly created interface.</param>
+		/// <returns>A <see cref="InterfaceRole.PROVIDES"/> to build the new interface.</returns>
+		public IInterfaceTypeLevelBuilder AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
 		/// Creates a new interface and adds it as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
 		/// </summary>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (string interfaceName)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Creates a new interface and adds it as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
+		/// <param name="interfaceName">The name of the newly created interface.</param>
+		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
+		public IInterfaceTypeLevelBuilder AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
 			throw new NotImplementedException ();
 		}

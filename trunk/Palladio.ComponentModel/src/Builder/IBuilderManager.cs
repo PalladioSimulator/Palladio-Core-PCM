@@ -5,13 +5,16 @@ namespace Palladio.ComponentModel.Builder
 {
 
 	/// <summary>
-	/// Interface for support adding constraints to builders.
+	/// Interface to support adding and removing constraints to / from builders.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.1  2005/04/20 13:08:31  kelsaka
 	/// - introduced IModelDataManagement
 	/// - integrated use of the new interface

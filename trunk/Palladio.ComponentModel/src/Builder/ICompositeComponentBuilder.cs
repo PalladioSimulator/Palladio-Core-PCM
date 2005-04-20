@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.4  2005/04/09 12:23:20  kelsaka
 	/// - added documentation
 	///
@@ -48,7 +51,21 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		void AddProvidesDelegationConnector(string connectionName,  
-		                                    IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
+			IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
+
+		/// <summary>
+		/// called to add a delegationconnector from the provides interface of an component to the provides 
+		/// interface of an inner component.
+		/// Creates a new connector.
+		/// (use for deserialization.)
+		/// </summary>
+		/// <param name="connectionIdentifier">the id used for the new connection.</param>
+		/// <param name="connectionName">the new connections name</param>
+		/// <param name="outerIFaceID">the id of the outer component</param>
+		/// <param name="innerCompID">the id of the inner component</param>
+		/// <param name="innerIFaceID">the id of the inner components interface</param>
+		void AddProvidesDelegationConnector(IConnectionIdentifier connectionIdentifier, string connectionName,
+			IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
 
 		/// <summary>
 		/// called to add a delegationconnector from the requires interface of an component to the requires 
@@ -59,7 +76,20 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		/// <param name="outerIFaceID">the id of the outer component</param>
 		void AddRequiresDelegationConnector(string connectionName, IComponentIdentifier innerCompID, 
-		                                    IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID);
+			IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID);
+
+		/// <summary>
+		/// called to add a delegationconnector from the requires interface of an component to the requires 
+		/// interface of its parent component
+		/// (use for deserialization.)
+		/// </summary>
+		/// <param name="connectionIdentifier">the new connections id.</param>
+		/// <param name="connectionName">the new connections name.</param>
+		/// <param name="innerCompID">the id of the inner component</param>
+		/// <param name="innerIFaceID">the id of the inner components interface</param>
+		/// <param name="outerIFaceID">the id of the outer component</param>
+		void AddRequiresDelegationConnector(IConnectionIdentifier connectionIdentifier, string connectionName, IComponentIdentifier innerCompID, 
+			IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID);
 
 		#endregion
 	}

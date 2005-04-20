@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.4  2005/04/15 08:29:46  kelsaka
 	/// - fixed errors on xml-comments
 	///
@@ -27,7 +30,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractEntityBuilder : IEntityBuilder
+	internal abstract class AbstractEntityBuilder : IEntityBuilder
 	{
 		#region data
 

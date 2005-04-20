@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.9  2005/04/12 12:32:39  kelsaka
 	/// - removed property to access typed IDs directly from the builders
 	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
@@ -64,6 +67,14 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="name">The interfaces name.</param>
 		/// <returns>A new InterfaceBuilder.</returns>
 		IInterfaceTypeLevelBuilder AddInterface(string name);
+
+		/// <summary>
+		/// Creates a new <see cref="IInterfaceBuilder"/>, which allows to build new interfaces.
+		/// </summary>
+		/// <param name="interfaceIdentifier">The new interfaces identifier.</param>
+		/// <param name="name">The interfaces name.</param>
+		/// <returns>A new InterfaceBuilder.</returns>
+		IInterfaceTypeLevelBuilder AddInterface(IInterfaceIdentifier interfaceIdentifier, string name);
 
 		/// <summary>
 		/// called to remove an interface from a component. If the entity could not be found in 

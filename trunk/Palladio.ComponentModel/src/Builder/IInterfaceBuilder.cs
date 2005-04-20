@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/04/20 17:55:54  kelsaka
+	/// - added methods for deserialization
+	///
 	/// Revision 1.10  2005/04/20 13:26:43  kelsaka
 	/// - added new Init-method implementation
 	///
@@ -96,6 +99,14 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="protocolName">The new protocols name.</param>
 		IProtocolTypeLevelBuilder AddProtocol(string protocolName);
+
+		/// <summary>
+		/// Adds a new protocol to the interface.
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="protocolIdentifier">The new protocols identifier.</param>
+		/// <param name="protocolName">The new protocols name.</param>
+		IProtocolTypeLevelBuilder AddProtocol(IProtocolIdentifier protocolIdentifier, string protocolName);
 
 		/// <summary>
 		/// called to add a existing protocol to the actual interfaces.
