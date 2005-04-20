@@ -18,6 +18,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/04/20 13:08:30  kelsaka
+	/// - introduced IModelDataManagement
+	/// - integrated use of the new interface
+	///
 	/// Revision 1.10  2005/04/16 12:37:46  kelsaka
 	/// - added first ideas using constraints with the builders
 	///
@@ -55,11 +59,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractBasicComponentBuilder : AbstractEntityBuilder, IBasicComponentBuilder, IBuilder
+	public abstract class AbstractBasicComponentBuilder : AbstractEntityBuilder, IBasicComponentBuilder
 	{
 		#region data
 
-		private ILowLevelBuilder lowLevelBuilder;
+		private IModelDataManager modelDataManager;
 		private IComponent component;
 
 		#endregion
@@ -69,11 +73,21 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
 		/// </summary>
-		/// <param name="lowLevelBuilder">The model data management.</param>
-		/// <param name="component">The component to build.</param>
-		public void Init(ILowLevelBuilder lowLevelBuilder, IComponent component)
+		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="componentIdentifier">The component id of an existing component.</param>
+		public void Init (IModelDataManager modelDataManager, IComponentIdentifier componentIdentifier)
 		{
-			this.lowLevelBuilder = lowLevelBuilder;
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// </summary>
+		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="component">The component to build.</param>
+		public void Init(IModelDataManager modelDataManager, IComponent component)
+		{
+			this.modelDataManager = modelDataManager;
 			this.component = component;
 			base.Init(component);
 		}
@@ -84,7 +98,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		public void AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			lowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.PROVIDES);
+			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.PROVIDES);
 		}
 
 		/// <summary>
@@ -93,7 +107,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		public void AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			lowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.REQUIRES);
+			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.REQUIRES);
 		}
 
 		/// <summary>
@@ -104,8 +118,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IInterfaceTypeLevelBuilder AddProvidesInterface (string interfaceName)
 		{
 			IInterface iInterface = EntityFactory.CreateInterface(interfaceName);
-			lowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.PROVIDES);
-			return new DefaultInterfaceTypeLevelBuilder(lowLevelBuilder, iInterface);
+			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.PROVIDES);
+			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
 		}
 
 		/// <summary>
@@ -116,8 +130,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (string interfaceName)
 		{
 			IInterface iInterface = EntityFactory.CreateInterface(interfaceName);
-			lowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.REQUIRES);
-			return new DefaultInterfaceTypeLevelBuilder(lowLevelBuilder, iInterface);
+			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.REQUIRES);
+			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
 		}
 
 		/// <summary>
@@ -129,7 +143,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		public void RemoveProvidesInterface (IInterfaceIdentifier ifaceID)
 		{
-			lowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.PROVIDES);
+			modelDataManager.LowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.PROVIDES);
 		}
 
 		/// <summary>
@@ -141,7 +155,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		public void RemoveRequiresInterface (IInterfaceIdentifier ifaceID)
 		{
-			lowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.REQUIRES);
+			modelDataManager.LowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.REQUIRES);
 		}
 
 		#endregion
@@ -158,35 +172,5 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		#endregion
 
-		#region IBuilder Members
-
-		/// <summary>
-		/// Adds the given builder constraint to the list of constraints for
-		/// this builder.
-		/// </summary>
-		/// <param name="builderConstraint">A constraint for this builder.</param>
-		public void AddBuilderConstraint (IBuilderConstraint builderConstraint)
-		{
-			throw new NotImplementedException ();
-		}
-
-		/// <summary>
-		/// Removes the given constraints from the list of constraints applied to this builder.
-		/// </summary>
-		/// <param name="builderConstraint">The constraint to remove.</param>
-		public void RemoveBuilderConstraint (IBuilderConstraint builderConstraint)
-		{
-			throw new NotImplementedException ();
-		}
-
-		/// <summary>
-		/// The list of actually attached constraints.
-		/// </summary>
-		public IDictionary Constraints
-		{
-			get { throw new NotImplementedException (); }
-		}
-
-		#endregion
 	}
 }

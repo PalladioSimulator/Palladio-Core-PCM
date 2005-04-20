@@ -3,6 +3,7 @@ using Palladio.Attributes;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.ModelEventManagement;
 
@@ -17,6 +18,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/20 13:08:30  kelsaka
+	/// - introduced IModelDataManagement
+	/// - integrated use of the new interface
+	///
 	/// Revision 1.1  2005/04/16 12:37:46  kelsaka
 	/// - added first ideas using constraints with the builders
 	///
@@ -82,6 +87,26 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints
 		public IAttribute this [IAttributeType type]
 		{
 			get { throw new NotImplementedException (); }
+		}
+
+		/// <summary>
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// </summary>
+		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="componentIdentifier">The component id of an existing component.</param>
+		public void Init (IModelDataManager modelDataManager, IComponentIdentifier componentIdentifier)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// </summary>
+		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="component">The component to build.</param>
+		public void Init (IModelDataManager modelDataManager, IComponent component)
+		{
+			throw new NotImplementedException ();
 		}
 
 		/// <summary>

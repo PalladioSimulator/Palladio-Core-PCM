@@ -14,6 +14,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/20 13:08:31  kelsaka
+	/// - introduced IModelDataManagement
+	/// - integrated use of the new interface
+	///
 	/// Revision 1.3  2005/04/15 08:29:46  kelsaka
 	/// - fixed errors on xml-comments
 	///
@@ -39,11 +43,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// <summary>
 		/// Initializes the Builder.
 		/// </summary>
-		/// <param name="lowLevelBuilder">The model data management.</param>
+		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="component">The component to build.</param>
-		public DefaultBasicComponentTypeLevelBuilder(ILowLevelBuilder lowLevelBuilder, IComponent component) 
+		public DefaultBasicComponentTypeLevelBuilder(IModelDataManager modelDataManager, IComponent component) 
 		{
-			base.Init(lowLevelBuilder, component);
+			base.Init(modelDataManager, component);
 		}
 
 		/// <summary>

@@ -1,6 +1,7 @@
 using System;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder
@@ -16,6 +17,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/20 13:08:31  kelsaka
+	/// - introduced IModelDataManagement
+	/// - integrated use of the new interface
+	///
 	/// Revision 1.7  2005/04/12 18:08:35  kelsaka
 	/// - added events to builders
 	///
@@ -50,6 +55,20 @@ namespace Palladio.ComponentModel.Builder
 	public interface IComponentBuilder : IEntityBuilder
 	{
 		#region methods
+		
+		/// <summary>
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// </summary>
+		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="componentIdentifier">The component id of an existing component.</param>
+		void Init(IModelDataManager modelDataManager, IComponentIdentifier componentIdentifier);
+
+		/// <summary>
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// </summary>
+		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="component">The component to build.</param>
+		void Init(IModelDataManager modelDataManager, IComponent component);
 
 		/// <summary>
 		/// Called to add an existing interface as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.

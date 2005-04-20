@@ -21,6 +21,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/20 13:08:31  kelsaka
+	/// - introduced IModelDataManagement
+	/// - integrated use of the new interface
+	///
 	/// Revision 1.6  2005/04/16 12:37:46  kelsaka
 	/// - added first ideas using constraints with the builders
 	///
@@ -62,7 +66,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private ILowLevelBuilder lowLevelBuilder;
+		private ModelDataManager modelDataManager;
 
 		#endregion
 
@@ -71,20 +75,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
 		/// </summary>
-		/// <param name="lowLevelBuilder">The model data management.</param>
-		public void Init(ILowLevelBuilder lowLevelBuilder)
+		/// <param name="modelDataManager">The model data management.</param>
+		public void Init(IModelDataManager modelDataManager)
 		{
-			this.lowLevelBuilder = lowLevelBuilder;
-		}
-
-		/// <summary>
-		/// TODO: useful
-		/// Creates a new <see cref="IBasicComponentBuilder"/>, which allows to create new components.
-		/// </summary>
-		/// <returns>The new ComponentBuilder.</returns>
-		public IComponentBuilder AddComponent (IComponent component)
-		{
-			throw new NotImplementedException ();
+			this.modelDataManager = this.modelDataManager;
 		}
 
 		/// <summary>
@@ -94,8 +88,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (string name)
 		{
 			IComponent component = EntityFactory.CreateComponent(ComponentType.BASIC, name);
-			lowLevelBuilder.AddComponent(component, null);
-			return new DefaultBasicComponentTypeLevelBuilder(lowLevelBuilder, component);
+			modelDataManager.LowLevelBuilder.AddComponent(component, null);
+			return new DefaultBasicComponentTypeLevelBuilder(modelDataManager, component);
 		}
 
 		/// <summary>
@@ -106,8 +100,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (string name)
 		{
 			IComponent component = EntityFactory.CreateComponent(ComponentType.COMPOSITE, name);
-			lowLevelBuilder.AddComponent(component, null);
-			return new DefaultCompositeComponentTypeLevelBuilder(lowLevelBuilder, component);
+			modelDataManager.LowLevelBuilder.AddComponent(component, null);
+			return new DefaultCompositeComponentTypeLevelBuilder(modelDataManager, component);
 		}
 
 		/// <summary>
@@ -118,7 +112,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="componentId">the id of the component to be removed</param>
 		public void RemoveComponent (IComponentIdentifier componentId)
 		{
-			lowLevelBuilder.RemoveComponent(componentId);
+			modelDataManager.LowLevelBuilder.RemoveComponent(componentId);
 		}
 
 		/// <summary>
@@ -135,7 +129,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
 			IConnection connection = EntityFactory.CreateConnection(connectionName);
-			lowLevelBuilder.AddAssemblyConnector(connection, reqCompID, reqIFaceID, provCompID, provIFaceID);
+			modelDataManager.LowLevelBuilder.AddAssemblyConnector(connection, reqCompID, reqIFaceID, provCompID, provIFaceID);
 		}
 
 		/// <summary>
@@ -145,7 +139,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="connectionID">the id of the connection that has to be removed</param>
 		public void RemoveConnection (IConnectionIdentifier connectionID)
 		{
-			lowLevelBuilder.RemoveConnection(connectionID);
+			modelDataManager.LowLevelBuilder.RemoveConnection(connectionID);
 		}
 
 		/// <summary>
@@ -156,8 +150,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IInterfaceTypeLevelBuilder AddInterface (string name)
 		{
 			IInterface iInterface = EntityFactory.CreateInterface(name);
-			lowLevelBuilder.AddInterface(iInterface);
-			return new DefaultInterfaceTypeLevelBuilder(lowLevelBuilder, iInterface);
+			modelDataManager.LowLevelBuilder.AddInterface(iInterface);
+			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
 		}
 
 		/// <summary>
@@ -167,7 +161,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceIdentifier">the id of the interface</param>
 		public void RemoveInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			lowLevelBuilder.RemoveInterface(ifaceIdentifier);
+			modelDataManager.LowLevelBuilder.RemoveInterface(ifaceIdentifier);
 		}
 
 		/// <summary>
@@ -175,7 +169,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		public void ClearAll ()
 		{
-			lowLevelBuilder.ClearAll();
+			modelDataManager.LowLevelBuilder.ClearAll();
 		}
 
 		#endregion

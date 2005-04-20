@@ -12,19 +12,16 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
-	/// Revision 1.2  2005/04/20 13:08:31  kelsaka
+	/// Revision 1.1  2005/04/20 13:08:31  kelsaka
 	/// - introduced IModelDataManagement
 	/// - integrated use of the new interface
 	///
-	/// Revision 1.1  2005/04/16 12:37:46  kelsaka
-	/// - added first ideas using constraints with the builders
-	///
 	/// </pre>
 	/// </remarks>
-	public interface IBuilder
+	public interface IBuilderManager
 	{
 		#region methods
-		/*
+		
 		/// <summary>
 		/// Adds the given builder constraint to the list of constraints for
 		/// this builder.
@@ -42,14 +39,6 @@ namespace Palladio.ComponentModel.Builder
 
 		#region properties
 
-		/// <summary>
-		/// The list of actually attached constraints.
-		/// </summary>
-		IDictionary Constraints
-		{
-			get;
-		}
-*/
 		#endregion		
 	}
 }

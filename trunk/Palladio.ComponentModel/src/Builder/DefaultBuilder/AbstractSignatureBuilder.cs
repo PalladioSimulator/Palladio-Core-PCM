@@ -16,6 +16,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/04/20 13:08:31  kelsaka
+	/// - introduced IModelDataManagement
+	/// - integrated use of the new interface
+	///
 	/// Revision 1.12  2005/04/15 08:29:46  kelsaka
 	/// - fixed errors on xml-comments
 	///
@@ -61,7 +65,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private ILowLevelBuilder lowLevelBuilder;
+		private IModelDataManager modelDataManager;
 		private ISignature signature;
 
 		#endregion
@@ -71,11 +75,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
 		/// </summary>
-		/// <param name="lowLevelBuilder">The model data management.</param>
+		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="signature">The signature to build.</param>
-		public void Init(ILowLevelBuilder lowLevelBuilder, ISignature signature)
+		public void Init(IModelDataManager modelDataManager, ISignature signature)
 		{
-			this.lowLevelBuilder = lowLevelBuilder;
+			this.modelDataManager = modelDataManager;
 			this.signature = signature;	
 			base.Init(signature);
 		}
@@ -92,7 +96,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			IType type = EntityFactory.CreateType(name);
 			this.signature.ReturnType = type;
-			return new DefaultTypeTypeLevelBuilder(lowLevelBuilder, type);
+			return new DefaultTypeTypeLevelBuilder(modelDataManager, type);
 		}
 
 		/// <summary>
@@ -103,7 +107,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public ITypeTypeLevelBuilder SetReturnType (Type type)
 		{
 			this.signature.ReturnType = EntityFactory.CreateType(type);
-			return new DefaultTypeTypeLevelBuilder(lowLevelBuilder, this.signature.ReturnType);
+			return new DefaultTypeTypeLevelBuilder(modelDataManager, this.signature.ReturnType);
 		}
 
 		/// <summary>
@@ -166,7 +170,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			parameterList.Add(parameter);
 			signature.Parameters = (IParameter[])parameterList.ToArray(typeof(IParameter));	
 	
-			return new DefaultParameterTypeLevelBuilder(lowLevelBuilder, parameter);
+			return new DefaultParameterTypeLevelBuilder(modelDataManager, parameter);
 		}
 
 		/// <summary>
@@ -233,7 +237,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 				exceptionsList.Add(type);	
 				signature.Exceptions = (IType[])exceptionsList.ToArray(typeof(IType));			
 			}
-			return new DefaultTypeTypeLevelBuilder(lowLevelBuilder, type);
+			return new DefaultTypeTypeLevelBuilder(modelDataManager, type);
 		}
 
 		/// <summary>

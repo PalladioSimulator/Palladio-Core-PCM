@@ -14,6 +14,10 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/20 13:08:31  kelsaka
+	/// - introduced IModelDataManagement
+	/// - integrated use of the new interface
+	///
 	/// Revision 1.5  2005/04/18 08:51:05  joemal
 	/// add query methods
 	///
@@ -33,7 +37,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	///
 	/// </pre>
 	/// </remarks>
-	internal class ModelDataManager
+	internal class ModelDataManager : IModelDataManager
 	{
 		#region data
 

@@ -11,6 +11,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/20 13:08:31  kelsaka
+	/// - introduced IModelDataManagement
+	/// - integrated use of the new interface
+	///
 	/// Revision 1.3  2005/04/15 08:29:46  kelsaka
 	/// - fixed errors on xml-comments
 	///
@@ -26,7 +30,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private ILowLevelBuilder lowLevelBuilder;
+		private IModelDataManager modelDataManager;
 		private IType type;
 
 		#endregion
@@ -36,11 +40,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
 		/// </summary>
-		/// <param name="lowLevelBuilder">The model data management.</param>
+		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="type">The type to build.</param>
-		public void Init(ILowLevelBuilder lowLevelBuilder, IType type)
+		public void Init(IModelDataManager modelDataManager, IType type)
 		{
-			this.lowLevelBuilder = lowLevelBuilder;
+			this.modelDataManager = this.modelDataManager;
 			this.type = type;
 		}
 

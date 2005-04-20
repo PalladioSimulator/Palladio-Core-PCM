@@ -140,6 +140,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\IBuilderManager.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\IComponentBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -544,6 +549,11 @@
                 />
                 <File
                     RelPath = "src\ModelDataManagement\ILowLevelBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelDataManagement\IModelDataManager.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
