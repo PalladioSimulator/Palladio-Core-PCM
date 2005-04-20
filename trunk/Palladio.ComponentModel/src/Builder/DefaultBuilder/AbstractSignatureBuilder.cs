@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/04/20 18:55:13  kelsaka
+	/// - removed unused builders for parameters and types
+	///
 	/// Revision 1.16  2005/04/20 18:27:45  kelsaka
 	/// - made classes internal
 	/// - removed unused init-methods
@@ -100,26 +103,23 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// Sets the return type of the actual signature. The return type is newly created.
 		/// </summary>
 		/// <param name="name">The name of the return-type. It has to be a valid
-		/// <see cref="ITypeTypeLevelBuilder"/>-name. This means that the type needs to exist.</param>
+		/// type-name. This means that the type needs to exist.</param>
 		/// <returns>A <see cref="TypeNotFoundException"/> for the new type.</returns>
 		/// <exception cref="IType">Thrown if the given string is not
 		/// a valid type-name.</exception>
-		public ITypeTypeLevelBuilder SetReturnType (string name)
+		public void SetReturnType (string name)
 		{
 			IType type = EntityFactory.CreateType(name);
-			this.signature.ReturnType = type;
-			return new DefaultTypeTypeLevelBuilder(modelDataManager, type);
+			this.signature.ReturnType = type;			
 		}
 
 		/// <summary>
 		/// Sets the return type of the actual signature.
 		/// </summary>
 		/// <param name="type">The given type is used as return type.</param>
-		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> of the actual return type.</returns>
-		public ITypeTypeLevelBuilder SetReturnType (Type type)
+		public void SetReturnType (Type type)
 		{
 			this.signature.ReturnType = EntityFactory.CreateType(type);
-			return new DefaultTypeTypeLevelBuilder(modelDataManager, this.signature.ReturnType);
 		}
 
 		/// <summary>
@@ -136,29 +136,26 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="name">The new parameters name and the name of the <see cref="Type"/>
 		/// to add. Both have to be named the same. The name has to be a valid name of a type.</param>
-		/// <returns>A <see cref="IParameterTypeLevelBuilder"/> for the newly created
-		/// parameter.</returns>
 		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (name) is not
 		/// a valid type-name.</exception>
-		public IParameterTypeLevelBuilder AppendParameter (string name)
+		public void AppendParameter (string name)
 		{			
 			IParameter parameter = EntityFactory.CreateParameter(name, name);
-			return AppendParameter (parameter);
+			AppendParameter (parameter);
 		}
 
 		/// <summary>
 		/// Appends a new parameter to the end of the parameter list of the signature.
-		/// The <see cref="ParameterModifierEnum.NONE"/> is set to <see cref="IParameterTypeLevelBuilder"/>
-		/// by default.
+		/// The <see cref="ParameterModifierEnum.NONE"/> is set to by default.
 		/// </summary>
 		/// <param name="type">The type of the new parameter</param>
 		/// <param name="name">The new parameters name.</param>
 		/// <returns>A <see cref="ParameterModifierEnum"/> for the newly created
 		/// parameter.</returns>
-		public IParameterTypeLevelBuilder AppendParameter (Type type, string name)
+		public void AppendParameter (Type type, string name)
 		{
 			IParameter parameter = EntityFactory.CreateParameter(type, name);
-			return AppendParameter (parameter);
+			AppendParameter (parameter);
 		}
 
 		/// <summary>
@@ -166,23 +163,21 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="type">The type of the new parameter</param>
 		/// <param name="name">The new parameters name.</param>
-		/// <param name="modifier">The modifier (<see cref="IParameterTypeLevelBuilder"/> like "out"
+		/// <param name="modifier">The modifier  like "out"
 		/// or "ref") of the actual parameter.</param>
 		/// <returns>A <see cref="ParameterModifierEnum"/> for the newly created
 		/// parameter.</returns>
-		public IParameterTypeLevelBuilder AppendParameter (Type type, string name, ParameterModifierEnum modifier)
+		public void AppendParameter (Type type, string name, ParameterModifierEnum modifier)
 		{
 			IParameter parameter = EntityFactory.CreateParameter(type, name, modifier);
-			return AppendParameter (parameter);
+			AppendParameter (parameter);
 		}
 
-		private IParameterTypeLevelBuilder AppendParameter (IParameter parameter)
+		private void AppendParameter (IParameter parameter)
 		{
 			ArrayList parameterList = new ArrayList(this.signature.Parameters);
 			parameterList.Add(parameter);
 			signature.Parameters = (IParameter[])parameterList.ToArray(typeof(IParameter));	
-	
-			return new DefaultParameterTypeLevelBuilder(modelDataManager, parameter);
 		}
 
 		/// <summary>
@@ -205,14 +200,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="typeName">The type-name of the new exception. It has to be a valid
 		/// <see cref="Type"/>-name and a <see cref="Exception"/>.</param>
-		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> for the new exception.</returns>
 		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (typeName) is not
 		/// a valid type-name.</exception>
 		/// <exception cref="TypeNotValidException">Thrown if the created type is not an exception
 		/// (sub-) type.</exception>
-		public ITypeTypeLevelBuilder AddException (string typeName)
+		public void AddException (string typeName)
 		{
-			return AddException(EntityFactory.CreateType(typeName));			
+			AddException(EntityFactory.CreateType(typeName));			
 		}
 
 		/// <summary>
@@ -223,16 +217,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// only once.
 		/// </remarks>
 		/// <param name="type">The exception to add. It has to be a valid
-		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> of the actual exception.</returns>
 		/// <see cref="Exception"/>.</param>
 		/// <exception cref="TypeNotValidException">Thrown if the created type is not an exception
 		/// (sub-) type.</exception>
-		public ITypeTypeLevelBuilder AddException (Type type)
+		public void AddException (Type type)
 		{
-			return AddException(EntityFactory.CreateType(type));
+			AddException(EntityFactory.CreateType(type));
 		}
 
-		private ITypeTypeLevelBuilder AddException (IType type)
+		private void AddException (IType type)
 		{
 			// check wether the created type is a valid exception-type:
 			IType referenceExceptionIType = EntityFactory.CreateType(typeof(Exception));			
@@ -249,7 +242,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 				exceptionsList.Add(type);	
 				signature.Exceptions = (IType[])exceptionsList.ToArray(typeof(IType));			
 			}
-			return new DefaultTypeTypeLevelBuilder(modelDataManager, type);
 		}
 
 		/// <summary>

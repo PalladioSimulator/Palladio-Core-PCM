@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/04/20 18:55:13  kelsaka
+	/// - removed unused builders for parameters and types
+	///
 	/// Revision 1.13  2005/04/20 18:27:45  kelsaka
 	/// - made classes internal
 	/// - removed unused init-methods
@@ -77,19 +80,17 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="typeName">The name of the return-type. It has to be a valid
 		/// <see cref="Type"/>-name. This means that the type needs to exist.</param>
-		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> for the new type.</returns>
 		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given string is not
 		/// a valid type-name.</exception>
-		ITypeTypeLevelBuilder SetReturnType(string typeName);
+		void SetReturnType(string typeName);
 
 		/// <summary>
 		/// Sets the return type of the actual signature.
 		/// </summary>
 		/// <param name="type">The given type is used as return type.</param>
-		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> of the actual return type.</returns>
 		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given string is not
 		/// a valid type-name.</exception>
-		ITypeTypeLevelBuilder SetReturnType(Type type);
+		void SetReturnType(Type type);
 
 		/// <summary>
 		/// Sets the return type to void."/>.
@@ -102,11 +103,9 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="name">The new parameters name and the name of the <see cref="Type"/>
 		/// to add. Both have to be named the same. The name has to be a valid name of a type.</param>
-		/// <returns>A <see cref="IParameterTypeLevelBuilder"/> for the newly created
-		/// parameter.</returns>
 		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (name) is not
 		/// a valid type-name.</exception>
-		IParameterTypeLevelBuilder AppendParameter(string name);
+		void AppendParameter(string name);
 
 		/// <summary>
 		/// Appends a new parameter to the end of the parameter list of the signature.
@@ -115,9 +114,7 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="type">The type of the new parameter</param>
 		/// <param name="name">The new parameters name.</param>
-		/// <returns>A <see cref="IParameterTypeLevelBuilder"/> for the newly created
-		/// parameter.</returns>
-		IParameterTypeLevelBuilder AppendParameter(Type type, string name);
+		void AppendParameter(Type type, string name);
 
 		/// <summary>
 		/// Appends a new parameter to the end of the parameter list of the signature.
@@ -126,9 +123,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="name">The new parameters name.</param>
 		/// <param name="modifier">The modifier (<see cref="ParameterModifierEnum"/> like "out"
 		/// or "ref") of the actual parameter.</param>
-		/// <returns>A <see cref="IParameterTypeLevelBuilder"/> for the newly created
-		/// parameter.</returns>
-		IParameterTypeLevelBuilder AppendParameter(Type type, string name, ParameterModifierEnum modifier);
+		void AppendParameter(Type type, string name, ParameterModifierEnum modifier);
 
 		/// <summary>
 		/// Clears the list of parameters. Afterwards the signature contains no more parameters.
@@ -146,20 +141,18 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="typeName">The type-name of the new exception. It has to be a valid
 		/// <see cref="Type"/>-name and a <see cref="Exception"/>.</param>
-		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> for the new exception.</returns>
 		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (typeName) is not
 		/// a valid type-name.</exception>
-		ITypeTypeLevelBuilder AddException(string typeName);
+		void AddException(string typeName);
 
 		/// <summary>
 		/// Adds the given exception to the signature.
 		/// </summary>
 		/// <param name="type">The exception to add. It has to be a valid
 		/// <see cref="Exception"/>.</param>
-		/// <returns>A <see cref="ITypeTypeLevelBuilder"/> of the actual exception.</returns>
 		/// <exception cref="Palladio.ComponentModel.Exceptions.TypeNotValidException">Thrown if the created
 		/// type is not an exception (sub-) type.</exception>
-		ITypeTypeLevelBuilder AddException(Type type);
+		void AddException(Type type);
 
 		/// <summary>
 		/// Removes the given exception from the signature.
