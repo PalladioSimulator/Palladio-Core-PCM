@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/20 16:23:44  joemal
+	/// fix a bug
+	///
 	/// Revision 1.3  2005/04/20 13:08:31  kelsaka
 	/// - introduced IModelDataManagement
 	/// - integrated use of the new interface
@@ -27,7 +30,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private IModelDataManager modelDataManager;
+		/// <summary>
+		/// holds a reference to the modeldatamanager
+		/// </summary>
+		protected IModelDataManager modelDataManager;
 		private IParameter parameter;
 
 		#endregion
@@ -41,7 +47,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="parameter">The parameter to build.</param>
 		public void Init(IModelDataManager modelDataManager, IParameter parameter)
 		{
-			this.modelDataManager = this.modelDataManager;
+			this.modelDataManager = modelDataManager;
 			this.parameter = parameter;
 		}
 

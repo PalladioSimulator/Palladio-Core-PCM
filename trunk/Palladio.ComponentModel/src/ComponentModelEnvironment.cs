@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/20 16:23:44  joemal
+	/// fix a bug
+	///
 	/// Revision 1.5  2005/04/20 13:08:31  kelsaka
 	/// - introduced IModelDataManagement
 	/// - integrated use of the new interface
@@ -60,7 +63,7 @@ namespace Palladio.ComponentModel
 		/// <summary>
 		/// hold the manager of the model
 		/// </summary>
-		private ModelDataManager modelManager;
+		private IModelDataManager modelManager;
 		
 		#endregion
 

@@ -1,8 +1,6 @@
-using System;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
-using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
@@ -16,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/04/20 16:23:44  joemal
+	/// fix a bug
+	///
 	/// Revision 1.9  2005/04/20 13:26:43  kelsaka
 	/// - added new Init-method implementation
 	///
@@ -51,7 +52,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private IModelDataManager modelDataManager;
+		/// <summary>
+		/// holds a reference to the modeldatamanager
+		/// </summary>
+		protected IModelDataManager modelDataManager;
+
 		private IProtocol protocol;
 
 		#endregion

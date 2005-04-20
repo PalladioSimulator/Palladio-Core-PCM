@@ -1,4 +1,3 @@
-using System;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
@@ -21,6 +20,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/20 16:23:44  joemal
+	/// fix a bug
+	///
 	/// Revision 1.7  2005/04/20 13:08:31  kelsaka
 	/// - introduced IModelDataManagement
 	/// - integrated use of the new interface
@@ -66,7 +68,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private ModelDataManager modelDataManager;
+		private IModelDataManager modelDataManager;
 
 		#endregion
 
@@ -78,7 +80,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="modelDataManager">The model data management.</param>
 		public void Init(IModelDataManager modelDataManager)
 		{
-			this.modelDataManager = this.modelDataManager;
+			this.modelDataManager = modelDataManager;
 		}
 
 		/// <summary>
