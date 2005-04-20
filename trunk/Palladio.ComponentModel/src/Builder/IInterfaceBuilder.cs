@@ -15,6 +15,11 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/04/20 18:27:45  kelsaka
+	/// - made classes internal
+	/// - removed unused init-methods
+	/// - use of InternalEntityIdentifier for creating new Identifiers
+	///
 	/// Revision 1.11  2005/04/20 17:55:54  kelsaka
 	/// - added methods for deserialization
 	///
@@ -59,13 +64,6 @@ namespace Palladio.ComponentModel.Builder
 	public interface IInterfaceBuilder : IEntityBuilder
 	{
 		#region methods
-		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
-		/// (use for deserialization.)
-		/// </summary>
-		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="interfaceIdentifier">The interface id of an existing interface.</param>
-		void Init(IModelDataManager modelDataManager, IInterfaceIdentifier interfaceIdentifier);
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.

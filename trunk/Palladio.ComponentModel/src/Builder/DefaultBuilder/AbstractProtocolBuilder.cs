@@ -14,6 +14,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/04/20 18:27:45  kelsaka
+	/// - made classes internal
+	/// - removed unused init-methods
+	/// - use of InternalEntityIdentifier for creating new Identifiers
+	///
 	/// Revision 1.11  2005/04/20 17:55:54  kelsaka
 	/// - added methods for deserialization
 	///
@@ -65,17 +70,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		#endregion
 
 		#region methods
-
-		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
-		/// (use for deserialization.)
-		/// </summary>
-		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="protocolIdentifier">The protocol id of an existing protocl.</param>
-		public void Init (IModelDataManager modelDataManager, IProtocolIdentifier protocolIdentifier)
-		{
-			Init(modelDataManager, modelDataManager.Query.QueryEntities.GetProtocol(protocolIdentifier));
-		}
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.

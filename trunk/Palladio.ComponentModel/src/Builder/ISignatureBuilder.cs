@@ -15,6 +15,11 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/04/20 18:27:45  kelsaka
+	/// - made classes internal
+	/// - removed unused init-methods
+	/// - use of InternalEntityIdentifier for creating new Identifiers
+	///
 	/// Revision 1.12  2005/04/20 13:26:43  kelsaka
 	/// - added new Init-method implementation
 	///
@@ -60,13 +65,6 @@ namespace Palladio.ComponentModel.Builder
 	{
 		#region Methods
 		
-		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
-		/// </summary>
-		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="signatureIdentifier">The signature id of an existing signature.</param>
-		void Init(IModelDataManager modelDataManager, ISignatureIdentifier signatureIdentifier);
-
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
 		/// </summary>

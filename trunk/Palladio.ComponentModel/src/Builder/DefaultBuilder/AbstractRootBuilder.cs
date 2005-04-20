@@ -21,6 +21,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/04/20 18:27:45  kelsaka
+	/// - made classes internal
+	/// - removed unused init-methods
+	/// - use of InternalEntityIdentifier for creating new Identifiers
+	///
 	/// Revision 1.9  2005/04/20 17:55:54  kelsaka
 	/// - added methods for deserialization
 	///
@@ -92,9 +97,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <returns>The new ComponentBuilder.</returns>
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (string name)
-		{
-			IComponent component = EntityFactory.CreateComponent(ComponentType.BASIC, name);
-			return AddBasicComponent(component.ComponentID, name);
+		{			
+			return AddBasicComponent(new InternalEntityIdentifier().AsComponentIdentifier(), name);
 		}
 
 		/// <summary>
@@ -106,7 +110,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Type level builder of the new basic component with the given ID.</returns>
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (IComponentIdentifier componentIdentifier, string name)
 		{
-			IComponent component = EntityFactory.CreateComponent(componentIdentifier.Key, ComponentType.BASIC, name);
+			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.BASIC, name);
 			modelDataManager.LowLevelBuilder.AddComponent(component, null);
 			return new DefaultBasicComponentTypeLevelBuilder(modelDataManager, component);
 		}
@@ -118,9 +122,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
 		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (string name)
 		{
-			
-			IComponent component = EntityFactory.CreateComponent(ComponentType.COMPOSITE, name);
-			return AddCompositeComponent(component.ComponentID, name);
+			return AddCompositeComponent(new InternalEntityIdentifier().AsComponentIdentifier(), name);
 		}
 
 		/// <summary>
@@ -132,7 +134,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
 		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (IComponentIdentifier componentIdentifier, string name)
 		{
-			IComponent component = EntityFactory.CreateComponent(componentIdentifier.Key, ComponentType.COMPOSITE, name);
+			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.COMPOSITE, name);
 			modelDataManager.LowLevelBuilder.AddComponent(component, null);
 			return new DefaultCompositeComponentTypeLevelBuilder(modelDataManager, component);
 		}
@@ -159,10 +161,12 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
-		public void AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
+		public void AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID,
+			IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
+			IInterfaceIdentifier provIFaceID)
 		{
-			IConnection connection = EntityFactory.CreateConnection(connectionName);
-			modelDataManager.LowLevelBuilder.AddAssemblyConnector(connection, reqCompID, reqIFaceID, provCompID, provIFaceID);
+			AddAssemblyConnector(new InternalEntityIdentifier().AsConnectionIdentifier(),
+				connectionName, reqCompID, reqIFaceID, provCompID, provIFaceID);
 		}
 
 		/// <summary>
@@ -178,9 +182,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
-		public void AddAssemblyConnector (IConnectionIdentifier connectionIdentifier, string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
+		public void AddAssemblyConnector (IConnectionIdentifier connectionIdentifier,
+			string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
+			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
-			throw new NotImplementedException ();
+			IConnection connection = EntityFactory.CreateConnection(connectionName);
+			modelDataManager.LowLevelBuilder.AddAssemblyConnector(connection, reqCompID,
+				reqIFaceID, provCompID, provIFaceID);
 		}
 
 		/// <summary>
@@ -200,9 +208,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A new InterfaceBuilder.</returns>
 		public IInterfaceTypeLevelBuilder AddInterface (string name)
 		{
-			IInterface iInterface = EntityFactory.CreateInterface(name);
-			modelDataManager.LowLevelBuilder.AddInterface(iInterface);
-			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
+			return AddInterface(new InternalEntityIdentifier().AsInterfaceIdentifier(), name);
 		}
 
 		/// <summary>
@@ -213,7 +219,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A new InterfaceBuilder.</returns>
 		public IInterfaceTypeLevelBuilder AddInterface (IInterfaceIdentifier interfaceIdentifier, string name)
 		{
-			throw new NotImplementedException ();
+			IInterface iInterface = EntityFactory.CreateInterface(name);
+			modelDataManager.LowLevelBuilder.AddInterface(iInterface);
+			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
 		}
 
 		/// <summary>

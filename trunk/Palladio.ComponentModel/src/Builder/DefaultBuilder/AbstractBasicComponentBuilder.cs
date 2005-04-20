@@ -18,6 +18,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/04/20 18:27:45  kelsaka
+	/// - made classes internal
+	/// - removed unused init-methods
+	/// - use of InternalEntityIdentifier for creating new Identifiers
+	///
 	/// Revision 1.13  2005/04/20 17:55:54  kelsaka
 	/// - added methods for deserialization
 	///
@@ -78,17 +83,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
-		/// (use for deserialization.)
-		/// </summary>
-		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="componentIdentifier">The component id of an existing component.</param>
-		public void Init (IModelDataManager modelDataManager, IComponentIdentifier componentIdentifier)
-		{
-			Init(modelDataManager.Query.QueryEntities.GetComponent(componentIdentifier));
-		}
-
-		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="component">The component to build.</param>
@@ -137,7 +131,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
-			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier.Key, interfaceName);
+			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier, interfaceName);
 			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.PROVIDES);
 			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
 		}
@@ -162,7 +156,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
-			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier.Key, interfaceName);
+			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier, interfaceName);
 			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.REQUIRES);
 			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
 		}

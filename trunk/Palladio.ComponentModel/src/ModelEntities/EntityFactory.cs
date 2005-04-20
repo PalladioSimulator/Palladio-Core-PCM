@@ -12,6 +12,11 @@ namespace Palladio.ComponentModel.ModelEntities
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/20 18:27:45  kelsaka
+	/// - made classes internal
+	/// - removed unused init-methods
+	/// - use of InternalEntityIdentifier for creating new Identifiers
+	///
 	/// Revision 1.1  2005/03/15 12:31:23  joemal
 	/// initial class creation
 	///
@@ -37,13 +42,13 @@ namespace Palladio.ComponentModel.ModelEntities
 		/// <summary>
 		/// called to create a new component that is using the given identifier key. Use this to restore an existing component.
 		/// </summary>
-		/// <param name="identifierKey">the key of the components identifier</param>
+		/// <param name="identifier">the components identifier</param>
 		/// <param name="type">the type of the component</param>
 		/// <param name="name">the name of the component</param>
 		/// <returns>the component</returns>
-		public static IComponent CreateComponent(string identifierKey, ComponentType type, string name)
+		public static IComponent CreateComponent(IComponentIdentifier identifier, ComponentType type, string name)
 		{
-			return new DefaultComponent(new InternalEntityIdentifier(identifierKey),type,name);
+			return new DefaultComponent(new InternalEntityIdentifier(identifier.Key),type,name);
 		}
 
 		#endregion
@@ -63,12 +68,12 @@ namespace Palladio.ComponentModel.ModelEntities
 		/// <summary>
 		/// called to create a new interface that is using the given identifier key. Use this to restore an existing interface.
 		/// </summary>
- 		/// <param name="identifierKey">the key of the components identifier</param>
+		/// <param name="identifier">the key of the components identifier</param>
 		/// <param name="name">the name of the interface</param>
 		/// <returns>the interface</returns>
-		public static IInterface CreateInterface(string identifierKey, string name)
+		public static IInterface CreateInterface(IInterfaceIdentifier identifier, string name)
 		{
-			return new DefaultInterface(new InternalEntityIdentifier(identifierKey),name);
+			return new DefaultInterface(new InternalEntityIdentifier(identifier.Key),name);
 		}
 
 		#endregion 
@@ -88,12 +93,12 @@ namespace Palladio.ComponentModel.ModelEntities
 		/// <summary>
 		/// called to create a new connection that is using the given identifier key. Use this to restore an existing connection.
 		/// </summary>
-		/// <param name="identifierKey">the key of the components identifier</param>
+		/// <param name="identifier">the components identifier</param>
 		/// <param name="name">the name of the connection</param>
 		/// <returns>the connection</returns>
-		public static IConnection CreateConnection(string identifierKey, string name)
+		public static IConnection CreateConnection(IConnectionIdentifier identifier, string name)
 		{
-			return new DefaultConnection(new InternalEntityIdentifier(identifierKey),name);
+			return new DefaultConnection(new InternalEntityIdentifier(identifier.Key),name);
 		}
 
 		#endregion
@@ -114,13 +119,13 @@ namespace Palladio.ComponentModel.ModelEntities
 		/// <summary>
 		/// called to create a new signature that is using the given identifier key. Use this to restore an existing signature.
 		/// </summary>
-		/// <param name="identifierKey">the key of the components identifier</param>
+		/// <param name="identifier">the key of the components identifier</param>
 		/// <param name="aName">Name of the Signature.</param>
 		/// <param name="description">the description of the signature</param>
 		/// <returns>A new ISignature.</returns>
-		public static ISignature CreateSignature(string identifierKey,string aName, SignatureDescription description)
+		public static ISignature CreateSignature(ISignatureIdentifier identifier, string aName, SignatureDescription description)
 		{
-			return new DefaultSignature(new InternalEntityIdentifier(identifierKey),aName,description);
+			return new DefaultSignature(new InternalEntityIdentifier(identifier.Key),aName,description);
 		}
 
 		#endregion

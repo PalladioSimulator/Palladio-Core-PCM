@@ -17,6 +17,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/04/20 18:27:45  kelsaka
+	/// - made classes internal
+	/// - removed unused init-methods
+	/// - use of InternalEntityIdentifier for creating new Identifiers
+	///
 	/// Revision 1.11  2005/04/20 17:55:54  kelsaka
 	/// - added methods for deserialization
 	///
@@ -70,17 +75,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
-		/// (use for deserialization.)
-		/// </summary>
-		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="componentIdentifier">The component id of an existing component.</param>
-		public void Init (IModelDataManager modelDataManager, IComponentIdentifier componentIdentifier)
-		{
-			Init(modelDataManager.Query.QueryEntities.GetComponent(componentIdentifier));
-		}
-
-		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="component">The component to build.</param>
@@ -110,7 +104,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Type level builder of the new basic component with the given ID.</returns>
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (IComponentIdentifier componentIdentifier, string name)
 		{
-			IComponent component = EntityFactory.CreateComponent(componentIdentifier.Key, ComponentType.BASIC, name);
+			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.BASIC, name);
 			modelDataManager.LowLevelBuilder.AddComponent(component, this.component.ComponentID);
 			return new DefaultBasicComponentTypeLevelBuilder(modelDataManager, component);
 		}
@@ -134,7 +128,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="IComponent"/> to build the further component.</returns>
 		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (IComponentIdentifier componentIdentifier, string name)
 		{
-			IComponent component = EntityFactory.CreateComponent(componentIdentifier.Key, ComponentType.COMPOSITE, name);
+			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.COMPOSITE, name);
 			modelDataManager.LowLevelBuilder.AddComponent(component, this.component.ComponentID);
 			return new DefaultCompositeComponentTypeLevelBuilder(modelDataManager, component);
 		}
@@ -185,7 +179,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="provIFaceID">the outgoing components interface</param>
 		public void AddAssemblyConnector (IConnectionIdentifier connectionIdentifier, string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
-			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier.Key, connectionName);
+			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier, connectionName);
 			modelDataManager.LowLevelBuilder.AddAssemblyConnector(connection, reqCompID, reqIFaceID, provCompID, provIFaceID);
 		}
 
@@ -227,7 +221,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
-			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier.Key, interfaceName);
+			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier, interfaceName);
 			modelDataManager.LowLevelBuilder.AddInterface(iInterface);
 			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.PROVIDES);
 			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
@@ -253,7 +247,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
-			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier.Key, interfaceName);
+			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier, interfaceName);
 			modelDataManager.LowLevelBuilder.AddInterface(iInterface);
 			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.REQUIRES);
 			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
@@ -323,7 +317,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void AddProvidesDelegationConnector (IConnectionIdentifier connectionIdentifier, string connectionName,
 			IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{
-			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier.Key, connectionName);
+			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier, connectionName);
 			modelDataManager.LowLevelBuilder.AddProvidesDelegationConnector(connection,
 				this.component.ComponentID, outerIFaceID, innerCompID, innerIFaceID);
 		}

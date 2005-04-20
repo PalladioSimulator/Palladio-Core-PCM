@@ -16,6 +16,11 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/20 18:27:45  kelsaka
+	/// - made classes internal
+	/// - removed unused init-methods
+	/// - use of InternalEntityIdentifier for creating new Identifiers
+	///
 	/// Revision 1.7  2005/04/20 13:26:43  kelsaka
 	/// - added new Init-method implementation
 	///
@@ -44,14 +49,6 @@ namespace Palladio.ComponentModel.Builder
 	public interface IProtocolBuilder
 	{
 		#region methods
-
-		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
-		/// (use for deserialization.)
-		/// </summary>
-		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="protocolIdentifier">The protocol id of an existing protocl.</param>
-		void Init(IModelDataManager modelDataManager, IProtocolIdentifier protocolIdentifier);
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.

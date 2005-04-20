@@ -15,6 +15,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/04/20 18:27:45  kelsaka
+	/// - made classes internal
+	/// - removed unused init-methods
+	/// - use of InternalEntityIdentifier for creating new Identifiers
+	///
 	/// Revision 1.16  2005/04/20 17:55:54  kelsaka
 	/// - added methods for deserialization
 	///
@@ -85,17 +90,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
-		/// (use for deserialization.)
-		/// </summary>
-		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="interfaceIdentifier">The interface id of an existing interface.</param>
-		public void Init (IModelDataManager modelDataManager, IInterfaceIdentifier interfaceIdentifier)
-		{
-			Init(modelDataManager.Query.QueryEntities.GetInterface(interfaceIdentifier));
-		}
-
-		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="iInterface">The interface to build.</param>
@@ -162,7 +156,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="protocolName">The new protocols name.</param>
 		public IProtocolTypeLevelBuilder AddProtocol (IProtocolIdentifier protocolIdentifier, string protocolName)
 		{
-			throw new NotImplementedException ();
+			throw new NotImplementedException("currently protocols can not be created using a builder.");
 		}
 
 		/// <summary>
