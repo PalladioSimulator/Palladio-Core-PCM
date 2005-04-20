@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2005/04/20 21:02:35  kelsaka
+	/// - added first methods for constraints
+	///
 	/// Revision 1.14  2005/04/20 18:55:13  kelsaka
 	/// - removed unused builders for parameters and types
 	///
@@ -67,13 +70,6 @@ namespace Palladio.ComponentModel.Builder
 	public interface ISignatureBuilder : IEntityBuilder
 	{
 		#region Methods
-		
-		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
-		/// </summary>
-		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="signature">The signature to build.</param>
-		void Init(IModelDataManager modelDataManager, ISignature signature);
 
 		/// <summary>
 		/// Sets the return type of the actual signature. The return type is newly created.

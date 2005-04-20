@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/20 21:02:35  kelsaka
+	/// - added first methods for constraints
+	///
 	/// Revision 1.3  2005/04/12 12:32:39  kelsaka
 	/// - removed property to access typed IDs directly from the builders
 	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
@@ -37,6 +40,15 @@ namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 		IBasicComponentImplementationLevelBuilder ImplementationLevelBuilder
 		{
 			get;
+		}
+
+		/// <summary>
+		/// The child builder to call for each method defined in the builder interface.
+		/// </summary>
+		IBasicComponentTypeLevelBuilder ChildBuilder
+		{
+			get;
+			set;
 		}
 
 	}

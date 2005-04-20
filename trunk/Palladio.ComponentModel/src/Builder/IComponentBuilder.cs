@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/04/20 21:02:35  kelsaka
+	/// - added first methods for constraints
+	///
 	/// Revision 1.11  2005/04/20 18:27:45  kelsaka
 	/// - made classes internal
 	/// - removed unused init-methods
@@ -67,13 +70,6 @@ namespace Palladio.ComponentModel.Builder
 	{
 		#region methods
 		
-		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
-		/// </summary>
-		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="component">The component to build.</param>
-		void Init(IModelDataManager modelDataManager, IComponent component);
-
 		/// <summary>
 		/// Called to add an existing interface as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
 		/// </summary>

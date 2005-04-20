@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/20 21:02:35  kelsaka
+	/// - added first methods for constraints
+	///
 	/// Revision 1.4  2005/04/15 08:29:46  kelsaka
 	/// - fixed errors on xml-comments
 	///
@@ -30,12 +33,6 @@ namespace Palladio.ComponentModel.Builder
 	public interface IEntityBuilder
 	{
 		#region methods
-		
-		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
-		/// </summary>
-		/// <param name="entity">The enitity instance.</param>
-		void Init(IComponentModelEntity entity);
 
 		/// <summary>
 		/// Adds a <see cref="IAttribute"/> to the AttributeHash.

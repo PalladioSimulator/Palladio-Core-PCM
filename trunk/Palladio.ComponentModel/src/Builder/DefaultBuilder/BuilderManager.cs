@@ -7,14 +7,18 @@ using Palladio.ComponentModel.ModelDataManagement;
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
 	/// <summary>
+	/// The default implementation of the builder manager.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/04/20 21:02:35  kelsaka
+	/// - added first methods for constraints
+	///
 	/// Revision 1.1  2005/04/20 19:54:22  kelsaka
-	/// - Example and CM-Environment are now using the IBuilderManger
+	/// - Example and CM-Environment are now using the IBuilderManager
 	///
 	/// </pre>
 	/// </remarks>
@@ -57,6 +61,25 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="builderConstraint">The constraint to remove.</param>
 		public void RemoveBuilderConstraint (IBuilderConstraint builderConstraint)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Adds the given builder constraint to the list of constraints for
+		/// this builder.
+		/// </summary>
+		/// <param name="builderConstraint">A constraint for this builder.</param>
+		public void AddBuilderConstraint (IBasicComponentTypeLevelBuilder builderConstraint)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Removes the given constraints from the list of constraints applied to this builder.
+		/// </summary>
+		/// <param name="builderConstraint">The constraint to remove.</param>
+		public void RemoveBuilderConstraint (IBasicComponentTypeLevelBuilder builderConstraint)
 		{
 			throw new NotImplementedException ();
 		}

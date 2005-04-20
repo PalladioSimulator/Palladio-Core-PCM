@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/20 21:02:35  kelsaka
+	/// - added first methods for constraints
+	///
 	/// Revision 1.5  2005/04/20 17:55:54  kelsaka
 	/// - added methods for deserialization
 	///
@@ -42,6 +45,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// </remarks>
 	internal class DefaultBasicComponentTypeLevelBuilder : AbstractBasicComponentBuilder, IBasicComponentTypeLevelBuilder
 	{
+		private IBasicComponentTypeLevelBuilder childBuilder;
 
 		/// <summary>
 		/// Initializes the Builder.
@@ -60,5 +64,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		{
 			get { throw new NotImplementedException ("ImplementationLevelBuilder is not done yet."); }
 		}
+
+		/// <summary>
+		/// The child builder to call for each method defined in the builder interface.
+		/// </summary>
+		public IBasicComponentTypeLevelBuilder ChildBuilder
+		{
+			get { throw new NotImplementedException (); }
+			set { throw new NotImplementedException (); }
+		}
+
 	}
 }
