@@ -113,7 +113,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void QueryInterfacesTest()
 		{
-			IInterfaceBuilder ifaceB = model.RootBuilder.AddInterface("IWriter");
+			IInterfaceBuilder ifaceB = model.BuilderManager.RootBuilder.AddInterface("IWriter");
 			ISignatureIdentifier sig1ID = ifaceB.AddSignature("Write1").Signature.SignatureID;
 			ISignatureIdentifier sig2ID = ifaceB.AddSignature("Write2").Signature.SignatureID;
 			ISignatureIdentifier sig3ID = ifaceB.AddSignature("Write3").Signature.SignatureID;

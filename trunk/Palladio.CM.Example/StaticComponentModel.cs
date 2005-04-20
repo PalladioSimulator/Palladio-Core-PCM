@@ -13,6 +13,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/20 19:53:19  kelsaka
+	/// - Example and CM-Environment are now using the IBuilderManger
+	///
 	/// Revision 1.2  2005/04/12 17:36:24  joemal
 	/// implement the creation of a component model
 	///
@@ -39,7 +42,7 @@ namespace Palladio.CM.Example
 		/// <param name="modelEnvironment">the model environment</param>
 		public StaticComponentModel(ComponentModelEnvironment modelEnvironment)
 		{
-			this.rootBuilder = modelEnvironment.RootBuilder;
+			this.rootBuilder = modelEnvironment.BuilderManager.RootBuilder;
 		}
 
 		#endregion

@@ -215,6 +215,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\DefaultBuilder\BuilderManager.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\DefaultBuilder\DeploymentLevelBuilder\info.txt"
                     BuildAction = "Content"
                 />
@@ -379,6 +384,11 @@
                 />
                 <File
                     RelPath = "src\BuilderConstraints\DefaultConstraints\BasicComponentConstraint.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\BuilderConstraints\TypeLevelConstraints\IBasicComponentTypeLevelConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

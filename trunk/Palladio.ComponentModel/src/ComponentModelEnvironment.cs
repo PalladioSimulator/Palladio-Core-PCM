@@ -1,3 +1,5 @@
+using Palladio.ComponentModel.Builder;
+using Palladio.ComponentModel.Builder.DefaultBuilder;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.ModelDataManagement;
@@ -15,6 +17,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/20 19:53:20  kelsaka
+	/// - Example and CM-Environment are now using the IBuilderManger
+	///
 	/// Revision 1.6  2005/04/20 16:23:44  joemal
 	/// fix a bug
 	///
@@ -64,6 +69,7 @@ namespace Palladio.ComponentModel
 		/// hold the manager of the model
 		/// </summary>
 		private IModelDataManager modelManager;
+		private IBuilderManager builderManager;
 		
 		#endregion
 
@@ -85,6 +91,7 @@ namespace Palladio.ComponentModel
 		private void Init()
 		{
 			this.modelManager = new ModelDataManager();
+			this.builderManager = new BuilderManager(modelManager);
 		}
 
 		#endregion
@@ -92,23 +99,25 @@ namespace Palladio.ComponentModel
 		#region properties
 
 		/// <summary>
-		/// <p>Creates a new <see cref="IRootTypeLevelBuilder"/>. The builder offers all neccessary sub-builders to
+		/// <p>Accesse the <see cref="IBuilderManager"/>. The builder manager offers all neccessary sub-builders to
 		/// create a new component model (static structure).</p>
 		/// <p>To create other model levels of the component model than the type level (implementation, deployment)
-		/// this builder offers methods to change to level specifical builders. Each entity has an property to
+		/// this builder offers methods to change to level specifical builders. Each entity has a property to
 		/// access other level builders.</p>
 		/// </summary>
 		/// <returns>
-		/// A new RootBuilder for the type level of the component model.
+		/// A new builder manager which offers access to the <see cref="IRootTypeLevelBuilder"/> and
+		/// methods to add constraints.
 		/// </returns>
 		/// <remarks>
-		/// Uses the <see cref="ModelEntities.EntityFactory"/> to create new instances. The static structure is created using a <see cref="LowLevelBuilder"/>.
+		/// Uses the <see cref="ModelEntities.EntityFactory"/> to create new instances. The static structure
+		/// is created using a <see cref="LowLevelBuilder"/>.
 		/// </remarks>
-		public IRootTypeLevelBuilder RootBuilder
+		public IBuilderManager BuilderManager
 		{
 			get
-			{	
-				return new DefaultRootTypeLevelBuilder(modelManager);
+			{
+				return builderManager;
 			}
 		}
 

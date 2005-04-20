@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2005/04/20 19:53:20  kelsaka
+	/// - Example and CM-Environment are now using the IBuilderManger
+	///
 	/// Revision 1.15  2005/04/14 13:43:03  kelsaka
 	/// - fixed error in boolean expression for dertermining exception-types
 	///
@@ -102,7 +105,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void InitTest()
 		{
 			this.componentModel = new ComponentModelEnvironment();	
-			this.rootBuilder = componentModel.RootBuilder;
+			this.rootBuilder = componentModel.BuilderManager.RootBuilder;
 			this.executed = false;
 		}
 		#endregion

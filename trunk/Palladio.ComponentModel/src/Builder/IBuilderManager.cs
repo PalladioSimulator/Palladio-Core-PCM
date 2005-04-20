@@ -1,4 +1,5 @@
 using System.Collections;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.BuilderConstraints;
 
 namespace Palladio.ComponentModel.Builder
@@ -12,6 +13,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/20 19:53:20  kelsaka
+	/// - Example and CM-Environment are now using the IBuilderManger
+	///
 	/// Revision 1.2  2005/04/20 17:55:54  kelsaka
 	/// - added methods for deserialization
 	///
@@ -41,6 +45,15 @@ namespace Palladio.ComponentModel.Builder
 		#endregion
 
 		#region properties
+
+		/// <summary>
+		/// The root builder of the actual component model. Root builder for the type level.
+		/// Use this builder to set up the static structure of the component model.
+		/// </summary>
+		IRootTypeLevelBuilder RootBuilder
+		{
+			get;
+		}
 
 		#endregion		
 	}
