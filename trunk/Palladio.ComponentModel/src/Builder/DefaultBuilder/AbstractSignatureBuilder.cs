@@ -3,6 +3,7 @@ using System.Collections;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
+using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 
@@ -16,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/04/20 13:26:43  kelsaka
+	/// - added new Init-method implementation
+	///
 	/// Revision 1.13  2005/04/20 13:08:31  kelsaka
 	/// - introduced IModelDataManagement
 	/// - integrated use of the new interface
@@ -76,9 +80,19 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="signatureIdentifier">The signature id of an existing signature.</param>
+		public void Init (IModelDataManager modelDataManager, ISignatureIdentifier signatureIdentifier)
+		{
+			Init(modelDataManager, modelDataManager.Query.QueryEntities.GetSignature(signatureIdentifier));
+		}
+
+		/// <summary>
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// </summary>
+		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="signature">The signature to build.</param>
 		public void Init(IModelDataManager modelDataManager, ISignature signature)
-		{
+		{	
 			this.modelDataManager = modelDataManager;
 			this.signature = signature;	
 			base.Init(signature);

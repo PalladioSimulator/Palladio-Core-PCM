@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/04/20 13:26:43  kelsaka
+	/// - added new Init-method implementation
+	///
 	/// Revision 1.11  2005/04/20 13:08:30  kelsaka
 	/// - introduced IModelDataManagement
 	/// - integrated use of the new interface
@@ -72,12 +75,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// (use for deserialization.)
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="componentIdentifier">The component id of an existing component.</param>
 		public void Init (IModelDataManager modelDataManager, IComponentIdentifier componentIdentifier)
 		{
-			throw new NotImplementedException ();
+			Init(modelDataManager.Query.QueryEntities.GetComponent(componentIdentifier));
 		}
 
 		/// <summary>

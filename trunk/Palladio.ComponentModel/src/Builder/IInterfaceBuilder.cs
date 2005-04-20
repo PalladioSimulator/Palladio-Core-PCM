@@ -1,6 +1,7 @@
 using System;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder
@@ -14,6 +15,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/04/20 13:26:43  kelsaka
+	/// - added new Init-method implementation
+	///
 	/// Revision 1.9  2005/04/12 18:08:35  kelsaka
 	/// - added events to builders
 	///
@@ -52,6 +56,20 @@ namespace Palladio.ComponentModel.Builder
 	public interface IInterfaceBuilder : IEntityBuilder
 	{
 		#region methods
+		/// <summary>
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// (use for deserialization.)
+		/// </summary>
+		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="interfaceIdentifier">The interface id of an existing interface.</param>
+		void Init(IModelDataManager modelDataManager, IInterfaceIdentifier interfaceIdentifier);
+
+		/// <summary>
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// </summary>
+		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="iInterface">The interface to build.</param>
+		void Init(IModelDataManager modelDataManager, IInterface iInterface);
 
 		/// <summary>
 		/// Adds an existing signature to the actual Interface.

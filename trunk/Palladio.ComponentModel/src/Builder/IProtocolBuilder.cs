@@ -1,5 +1,6 @@
 using System;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder
@@ -15,6 +16,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/20 13:26:43  kelsaka
+	/// - added new Init-method implementation
+	///
 	/// Revision 1.6  2005/04/13 20:24:08  kelsaka
 	/// - added enitity methods
 	///
@@ -39,6 +43,25 @@ namespace Palladio.ComponentModel.Builder
 	/// </remarks>
 	public interface IProtocolBuilder
 	{
+		#region methods
+
+		/// <summary>
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// (use for deserialization.)
+		/// </summary>
+		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="protocolIdentifier">The protocol id of an existing protocl.</param>
+		void Init(IModelDataManager modelDataManager, IProtocolIdentifier protocolIdentifier);
+
+		/// <summary>
+		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// </summary>
+		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="protocol">The protocol to build.</param>
+		void Init(IModelDataManager modelDataManager, IProtocol protocol);
+
+		#endregion
+
 		#region Properties
 
 		/// <summary>

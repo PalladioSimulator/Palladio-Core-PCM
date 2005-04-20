@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/04/20 13:26:43  kelsaka
+	/// - added new Init-method implementation
+	///
 	/// Revision 1.8  2005/04/20 13:08:31  kelsaka
 	/// - introduced IModelDataManagement
 	/// - integrated use of the new interface
@@ -58,6 +61,7 @@ namespace Palladio.ComponentModel.Builder
 		
 		/// <summary>
 		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// (use for deserialization.)
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="componentIdentifier">The component id of an existing component.</param>
