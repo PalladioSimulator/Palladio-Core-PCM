@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/04/23 14:56:44  kelsaka
+	/// - enhanced constraints management
+	///
 	/// Revision 1.11  2005/04/23 11:00:44  kelsaka
 	/// - removed Init-Methods from AbstractBuilder - created constructors
 	///
@@ -90,7 +93,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
-		public AbstractRootBuilder(IModelDataManager modelDataManager)
+		public AbstractRootBuilder(IModelDataManager modelDataManager, IBuilderFactory builderFactory)
 		{
 			this.modelDataManager = modelDataManager;
 		}

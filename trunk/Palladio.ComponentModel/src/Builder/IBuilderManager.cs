@@ -6,14 +6,19 @@ namespace Palladio.ComponentModel.Builder
 {
 
 	/// <summary>
-	/// Interface to support adding and removing constraints to / from builders.
-	/// Manages the wrappers/decorators for the builders which are used for the constraints.
+	/// Interface to support adding and removing constraints to / from builders and accessing
+	/// the root builder for the static structure.
+	/// Facade: Reduces the usable interface for external users of the builder. Limits the use
+	/// to removing / adding constraints and accessing the root builder.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/23 14:56:44  kelsaka
+	/// - enhanced constraints management
+	///
 	/// Revision 1.4  2005/04/20 21:02:35  kelsaka
 	/// - added first methods for constraints
 	///
@@ -38,19 +43,6 @@ namespace Palladio.ComponentModel.Builder
 		/// this builder.
 		/// </summary>
 		/// <param name="builderConstraint">A constraint for this builder.</param>
-		void AddBuilderConstraint(IBuilderConstraint builderConstraint);
-
-		/// <summary>
-		/// Removes the given constraints from the list of constraints applied to this builder.
-		/// </summary>
-		/// <param name="builderConstraint">The constraint to remove.</param>
-		void RemoveBuilderConstraint(IBuilderConstraint builderConstraint);
-
-		/// <summary>
-		/// Adds the given builder constraint to the list of constraints for
-		/// this builder.
-		/// </summary>
-		/// <param name="builderConstraint">A constraint for this builder.</param>
 		void AddBuilderConstraint(IBasicComponentTypeLevelBuilder builderConstraint);
 
 		/// <summary>
@@ -67,6 +59,8 @@ namespace Palladio.ComponentModel.Builder
 		/// The root builder of the actual component model. Root builder for the type level.
 		/// Use this builder to set up the static structure of the component model.
 		/// </summary>
+		/// <remarks>Only the root builder is directly accessible. All other builders
+		/// are available after creating new structures.</remarks>
 		IRootTypeLevelBuilder RootBuilder
 		{
 			get;

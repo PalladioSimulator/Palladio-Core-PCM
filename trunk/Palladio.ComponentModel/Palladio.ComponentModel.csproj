@@ -135,6 +135,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Builder\IBuilderFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\IBuilderManager.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -211,6 +216,11 @@
                 />
                 <File
                     RelPath = "src\Builder\DefaultBuilder\AbstractSignatureBuilder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\BuilderFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -348,46 +358,10 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\BuilderConstraints\IBasicComponentBuilderConstraint.cs"
+                    RelPath = "src\BuilderConstraints\DefaultConstraints\TypeLevelConstraints\BasicComponentTypeLevelConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
-                <File
-                    RelPath = "src\BuilderConstraints\IBuilderConstraint.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\BuilderConstraints\ICompositeComponentBuilderConstraint.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\BuilderConstraints\IInterfaceBuilderConstraint.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\BuilderConstraints\IProtocolBuilderConstraint.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\BuilderConstraints\IRootBuilderConstraint.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\BuilderConstraints\ISignatureBuilderConstraint.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\BuilderConstraints\DefaultConstraints\BasicComponentConstraint.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <Folder RelPath = "src\BuilderConstraints\TypeLevelConstraints\" />
                 <File
                     RelPath = "src\Exceptions\ComponentHierarchyException.cs"
                     SubType = "Code"

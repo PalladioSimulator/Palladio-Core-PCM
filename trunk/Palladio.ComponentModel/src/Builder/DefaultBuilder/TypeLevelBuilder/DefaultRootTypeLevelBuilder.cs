@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/23 14:56:44  kelsaka
+	/// - enhanced constraints management
+	///
 	/// Revision 1.6  2005/04/23 11:00:44  kelsaka
 	/// - removed Init-Methods from AbstractBuilder - created constructors
 	///
@@ -57,7 +60,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
-		public DefaultRootTypeLevelBuilder(IModelDataManager modelDataManager) : base(modelDataManager)
+		public DefaultRootTypeLevelBuilder(IModelDataManager modelDataManager, IBuilderFactory builderFactory)
+			: base(modelDataManager, builderFactory)
 		{
 		}
 
