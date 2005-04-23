@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/04/23 17:42:08  kelsaka
+	/// - added further methods for constraint-support
+	///
 	/// Revision 1.12  2005/04/23 14:56:44  kelsaka
 	/// - enhanced constraints management
 	///
@@ -84,6 +87,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		#region data
 
 		private IModelDataManager modelDataManager;
+		private IBuilderFactory builderFactory;
 
 		#endregion
 
@@ -96,6 +100,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public AbstractRootBuilder(IModelDataManager modelDataManager, IBuilderFactory builderFactory)
 		{
 			this.modelDataManager = modelDataManager;
+			this.builderFactory = builderFactory;
 		}
 		
 		#endregion
@@ -122,7 +127,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.BASIC, name);
 			modelDataManager.LowLevelBuilder.AddComponent(component, null);
-			return new DefaultBasicComponentTypeLevelBuilder(modelDataManager, component);
+			return builderFactory.GetBasicComponentTypeLevelBuilder(component);
 		}
 
 		/// <summary>
@@ -146,7 +151,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.COMPOSITE, name);
 			modelDataManager.LowLevelBuilder.AddComponent(component, null);
-			return new DefaultCompositeComponentTypeLevelBuilder(modelDataManager, component);
+			return builderFactory.GetCompositeComponentTypeLevelBuilder(component);
 		}
 
 		/// <summary>
@@ -212,6 +217,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		/// <summary>
+		/// Copies the actual element.
+		/// </summary>
+		/// <returns>A copy of the actual instance.</returns>
+		public IRootBuilder Copy ()
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
 		/// Creates a new <see cref="IInterfaceBuilder"/>, which allows to build new interfaces.
 		/// </summary>
 		/// <param name="name">The interfaces name.</param>
@@ -231,7 +245,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			IInterface iInterface = EntityFactory.CreateInterface(name);
 			modelDataManager.LowLevelBuilder.AddInterface(iInterface);
-			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
+			return builderFactory.GetInterfaceTypeLevelBuilder(iInterface);
 		}
 
 		/// <summary>

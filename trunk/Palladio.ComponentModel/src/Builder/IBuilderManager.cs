@@ -12,10 +12,18 @@ namespace Palladio.ComponentModel.Builder
 	/// to removing / adding constraints and accessing the root builder.
 	/// </summary>
 	/// <remarks>
+	/// <p>NOTE: Constraints have to be added before building the static structure. If constraints are
+	/// added after building a component model entity they are disregarded.</p>
+	/// <p>In the same way constraints, that are removed afterwards, do not affect the further building
+	/// process of existing entities.
+	/// </p>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/23 17:42:08  kelsaka
+	/// - added further methods for constraint-support
+	///
 	/// Revision 1.5  2005/04/23 14:56:44  kelsaka
 	/// - enhanced constraints management
 	///
@@ -38,6 +46,19 @@ namespace Palladio.ComponentModel.Builder
 	{
 		#region methods
 		
+		/// <summary>
+		/// Adds the given builder constraint to the list of constraints for
+		/// this builder.
+		/// </summary>
+		/// <param name="builderConstraint">A constraint for this builder.</param>
+		void AddBuilderConstraint(IRootTypeLevelBuilder builderConstraint);
+
+		/// <summary>
+		/// Removes the given constraints from the list of constraints applied to this builder.
+		/// </summary>
+		/// <param name="builderConstraint">The constraint to remove.</param>
+		void RemoveBuilderConstraint(IRootTypeLevelBuilder builderConstraint);
+
 		/// <summary>
 		/// Adds the given builder constraint to the list of constraints for
 		/// this builder.

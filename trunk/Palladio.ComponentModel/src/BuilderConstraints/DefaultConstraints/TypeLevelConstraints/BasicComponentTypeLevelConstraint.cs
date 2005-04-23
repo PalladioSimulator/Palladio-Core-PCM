@@ -8,12 +8,16 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 {
 
 	/// <summary>
-	/// .
+	/// Default constraints for basic components at the type level. This constraints are used always
+	/// as they are the neccessary for a valid and consistent static structure of the component model.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.2  2005/04/23 17:42:08  kelsaka
+	/// - added further methods for constraint-support
+	///
 	/// Revision 1.1  2005/04/23 14:56:44  kelsaka
 	/// - enhanced constraints management
 	///

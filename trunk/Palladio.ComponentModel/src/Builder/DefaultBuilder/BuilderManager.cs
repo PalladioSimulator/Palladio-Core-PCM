@@ -8,14 +8,18 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
 	/// <summary>
 	/// The default implementation of the builder manager.
-	/// Reduces the usable interface for external users of the builder. Limits the use
+	/// Facade: Reduces the usable interface for external users of the builder. Limits the use
 	/// to removing / adding constraints and accessing the root builder.
 	/// </summary>
 	/// <remarks>
+	/// Method calls are delegated to internal <see cref="IBuilderFactory"/>.
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/23 17:42:08  kelsaka
+	/// - added further methods for constraint-support
+	///
 	/// Revision 1.4  2005/04/23 14:56:44  kelsaka
 	/// - enhanced constraints management
 	///
@@ -34,7 +38,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		private IModelDataManager modelDataManager;
 		private IBuilderFactory builderFactory;
-		private IRootTypeLevelBuilder rootBuilder;
 
 		/// <summary>
 		/// The default constructor.
@@ -52,10 +55,28 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		private void Init ()
 		{
 			this.builderFactory = new BuilderFactory(modelDataManager);
-
 		}
 
 		#region constraint-methods
+
+		/// <summary>
+		/// Adds the given builder constraint to the list of constraints for
+		/// this builder.
+		/// </summary>
+		/// <param name="builderConstraint">A constraint for this builder.</param>
+		public void AddBuilderConstraint (IRootTypeLevelBuilder builderConstraint)
+		{
+			this.builderFactory.AddBuilderConstraint(builderConstraint);
+		}
+
+		/// <summary>
+		/// Removes the given constraints from the list of constraints applied to this builder.
+		/// </summary>
+		/// <param name="builderConstraint">The constraint to remove.</param>
+		public void RemoveBuilderConstraint (IRootTypeLevelBuilder builderConstraint)
+		{
+			this.builderFactory.RemoveBuilderConstraint(builderConstraint);
+		}
 
 		/// <summary>
 		/// Adds the given builder constraint to the list of constraints for
@@ -88,7 +109,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			get
 			{	
-				return rootBuilder;
+				return this.builderFactory.RootBuilder;
 			}			
 		}
 

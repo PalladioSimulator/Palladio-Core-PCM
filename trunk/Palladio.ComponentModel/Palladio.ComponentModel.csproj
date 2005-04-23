@@ -238,6 +238,11 @@
                     BuildAction = "Content"
                 />
                 <File
+                    RelPath = "src\Builder\DefaultBuilder\TypedBuilderLists\RootTypeLevelBuilderList.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultBasicComponentTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -359,6 +364,11 @@
                 />
                 <File
                     RelPath = "src\BuilderConstraints\DefaultConstraints\TypeLevelConstraints\BasicComponentTypeLevelConstraint.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\BuilderConstraints\DefaultConstraints\TypeLevelConstraints\RootTypeLevelConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
