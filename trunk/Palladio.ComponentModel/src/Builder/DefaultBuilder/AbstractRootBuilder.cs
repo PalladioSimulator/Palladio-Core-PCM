@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/04/23 11:00:44  kelsaka
+	/// - removed Init-Methods from AbstractBuilder - created constructors
+	///
 	/// Revision 1.10  2005/04/20 18:27:45  kelsaka
 	/// - made classes internal
 	/// - removed unused init-methods
@@ -81,16 +84,20 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		#endregion
 
-		#region methods
+		#region constructors
 
 		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
-		public void Init(IModelDataManager modelDataManager)
+		public AbstractRootBuilder(IModelDataManager modelDataManager)
 		{
 			this.modelDataManager = modelDataManager;
 		}
+		
+		#endregion
+
+		#region methods
 
 		/// <summary>
 		/// Creates a new <see cref="IBasicComponentBuilder"/>, which allows to create new components.

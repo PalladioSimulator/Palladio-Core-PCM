@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/23 11:00:44  kelsaka
+	/// - removed Init-Methods from AbstractBuilder - created constructors
+	///
 	/// Revision 1.6  2005/04/20 21:02:35  kelsaka
 	/// - added first methods for constraints
 	///
@@ -44,9 +47,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="signature">The signature to build.</param>
-		public DefaultSignatureTypeLevelBuilder(IModelDataManager modelDataManager, ISignature signature) 
+		public DefaultSignatureTypeLevelBuilder(IModelDataManager modelDataManager, ISignature signature)
+			: base(modelDataManager, signature) 
 		{
-			base.Init(modelDataManager, signature);
+			
 		}
 
 		/// <summary>

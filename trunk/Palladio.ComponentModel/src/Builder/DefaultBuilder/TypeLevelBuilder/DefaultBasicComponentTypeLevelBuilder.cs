@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/23 11:00:44  kelsaka
+	/// - removed Init-Methods from AbstractBuilder - created constructors
+	///
 	/// Revision 1.6  2005/04/20 21:02:35  kelsaka
 	/// - added first methods for constraints
 	///
@@ -53,8 +56,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="component">The component to build.</param>
 		public DefaultBasicComponentTypeLevelBuilder(IModelDataManager modelDataManager, IComponent component) 
+			: base(modelDataManager, component)
 		{
-			base.Init(modelDataManager, component);
+			
 		}
 
 		/// <summary>

@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/04/23 11:00:44  kelsaka
+	/// - removed Init-Methods from AbstractBuilder - created constructors
+	///
 	/// Revision 1.16  2005/04/20 19:53:20  kelsaka
 	/// - Example and CM-Environment are now using the IBuilderManger
 	///
@@ -248,7 +251,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void BC_Event_NameChanged()
 		{
 			IBasicComponentTypeLevelBuilder bc = rootBuilder.AddBasicComponent("BC");
-			bc.AddNameChangedEventHandler(new StaticAttributeChangedEventHandler(NameChangedListener));
+			//bc.Component. //.AddNameChangedEventHandler(new StaticAttributeChangedEventHandler(NameChangedListener));
 
 			// provoke event
 			bc.Component.Name = "bc2";

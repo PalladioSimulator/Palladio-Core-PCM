@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.18  2005/04/23 11:00:44  kelsaka
+	/// - removed Init-Methods from AbstractBuilder - created constructors
+	///
 	/// Revision 1.17  2005/04/20 18:55:13  kelsaka
 	/// - removed unused builders for parameters and types
 	///
@@ -85,19 +88,23 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		#endregion
 
-		#region methods
+		#region constructors
 
 		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="signature">The signature to build.</param>
-		public void Init(IModelDataManager modelDataManager, ISignature signature)
-		{	
+		public AbstractSignatureBuilder(IModelDataManager modelDataManager, ISignature signature)
+			: base(signature)
+		{
 			this.modelDataManager = modelDataManager;
 			this.signature = signature;	
-			base.Init(signature);
 		}
+
+		#endregion
+
+		#region methods
 
 		/// <summary>
 		/// Sets the return type of the actual signature. The return type is newly created.

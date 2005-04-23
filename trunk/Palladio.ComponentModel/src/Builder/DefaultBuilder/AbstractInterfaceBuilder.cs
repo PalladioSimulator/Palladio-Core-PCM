@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.18  2005/04/23 11:00:44  kelsaka
+	/// - removed Init-Methods from AbstractBuilder - created constructors
+	///
 	/// Revision 1.17  2005/04/20 18:27:45  kelsaka
 	/// - made classes internal
 	/// - removed unused init-methods
@@ -86,19 +89,23 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		#endregion
 
-		#region methods
+		#region constraints
 
 		/// <summary>
-		/// Initializes the Builder. Has to be called by implementing members at construction time.
+		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="iInterface">The interface to build.</param>
-		public void Init(IModelDataManager modelDataManager, IInterface iInterface)
+		public AbstractInterfaceBuilder(IModelDataManager modelDataManager, IInterface iInterface)
+			: base(iInterface)
 		{
 			this.modelDataManager = modelDataManager;
 			this.iInterface = iInterface;
-			base.Init(iInterface);
 		}
+
+		#endregion
+
+		#region methods
 
 		/// <summary>
 		/// Adds an existing signature to the actual Interface.
@@ -137,16 +144,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			modelDataManager.LowLevelBuilder.RemoveSignature(signatureID);
 		}
 
-		/// <summary>
-		/// Adds a new protocol to the interface.
-		/// </summary>
-		/// <param name="protocolName">The new protocols name.</param>
-		public IProtocolTypeLevelBuilder AddProtocol (string protocolName)
-		{
-			//TODO: if ever protocols are integrated use:
-			//new DefaultProtocolTypeLevelBuilder(lowLevelBuilder, iProtocol);
-			throw new NotImplementedException("currently protocols can not be created using a builder.");
-		}
 
 		/// <summary>
 		/// Adds a new protocol to the interface.

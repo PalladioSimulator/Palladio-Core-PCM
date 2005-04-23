@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/23 11:00:44  kelsaka
+	/// - removed Init-Methods from AbstractBuilder - created constructors
+	///
 	/// Revision 1.5  2005/04/20 21:02:35  kelsaka
 	/// - added first methods for constraints
 	///
@@ -34,43 +37,9 @@ namespace Palladio.ComponentModel.Builder
 	{
 		#region methods
 
-		/// <summary>
-		/// Adds a <see cref="IAttribute"/> to the AttributeHash.
-		/// </summary>
-		/// <param name="attributeType">The attributes type to add.</param>
-		/// <param name="attribute">The attribute to add.</param>
-		void AddAttribute(IAttributeType attributeType, IAttribute attribute);
-
-		/// <summary>
-		/// Removes a <see cref="IAttribute"/> from the AttributeHash.
-		/// </summary>
-		/// <param name="attributeType">The attribute to remove.</param>
-		void RemoveAttribute(IAttributeType attributeType);
-
-		/// <summary>
-		/// Adds the given EventHandler to listen for NameChangedEvents. These events are
-		/// fired if the entities <see cref="Name"/> changes.
-		/// </summary>
-		/// <param name="nameChangedListener">The
-		/// <see cref="StaticAttributeChangedEventHandler"/> to add.</param>
-		void AddNameChangedEventHandler(StaticAttributeChangedEventHandler nameChangedListener);
-
-		/// <summary>
-		/// Removes the given EventHandler from listening for NameChangedEvents.
-		/// </summary>
-		/// <param name="nameChangedListener">The
-		/// <see cref="StaticAttributeChangedEventHandler"/> to remove.</param>
-		void RemoveNameChangedEventHandler(StaticAttributeChangedEventHandler nameChangedListener);
-
 		#endregion
 
 		#region properties
-
-		/// <summary>
-		/// Gets a copy (!) of the value of the attribute with the specified type.
-		/// To change the value, get a copy, change it and then add it again to the table.
-		/// </summary>
-		IAttribute this [IAttributeType type] { get; }
 
 		/// <summary>
 		/// The name of the entity

@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/23 11:00:44  kelsaka
+	/// - removed Init-Methods from AbstractBuilder - created constructors
+	///
 	/// Revision 1.2  2005/04/20 21:02:35  kelsaka
 	/// - added first methods for constraints
 	///
@@ -34,14 +37,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public BuilderManager(IModelDataManager modelDataManager)
 		{
 			this.modelDataManager = modelDataManager;
-			Init (modelDataManager);
+			Init ();
 		}
 
 		/// <summary>
 		/// Initialisation.
 		/// </summary>
-		/// <param name="modelDataManager">Data management.</param>
-		private void Init (IModelDataManager modelDataManager)
+		private void Init ()
 		{
 			this.rootBuilder = new DefaultRootTypeLevelBuilder(modelDataManager);
 		}

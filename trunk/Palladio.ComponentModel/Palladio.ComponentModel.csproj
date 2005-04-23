@@ -387,11 +387,7 @@
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
-                <File
-                    RelPath = "src\BuilderConstraints\TypeLevelConstraints\IBasicComponentTypeLevelConstraint.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
+                <Folder RelPath = "src\BuilderConstraints\TypeLevelConstraints\" />
                 <File
                     RelPath = "src\Exceptions\ComponentHierarchyException.cs"
                     SubType = "Code"
