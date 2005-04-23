@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.18  2005/04/23 11:49:54  kelsaka
+	/// - refactored enity-builder interface: currently no methods.
+	///
 	/// Revision 1.17  2005/04/23 11:00:44  kelsaka
 	/// - removed Init-Methods from AbstractBuilder - created constructors
 	///
@@ -251,7 +254,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void BC_Event_NameChanged()
 		{
 			IBasicComponentTypeLevelBuilder bc = rootBuilder.AddBasicComponent("BC");
-			//bc.Component. //.AddNameChangedEventHandler(new StaticAttributeChangedEventHandler(NameChangedListener));
+			bc.Component.NameChangedEvent += new StaticAttributeChangedEventHandler(NameChangedListener);
 
 			// provoke event
 			bc.Component.Name = "bc2";
@@ -349,6 +352,24 @@ namespace Palladio.ComponentModel.UnitTests
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.ClearParameterList();
+		}
+
+		[Test]
+		public void SIGNATURE_Event_ExceptionsChanged()
+		{
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
+			si.Signature.ExceptionsChanged += new StaticAttributeChangedEventHandler(ExceptionsChangedListener);
+
+			// provoke event
+			si.AddException(typeof(Exception));
+
+			Assert.IsTrue(executed, "event-delegate was not called.");
+		}
+
+		private void ExceptionsChangedListener(object sender)
+		{
+			executed = true;
 		}
 
 		#endregion

@@ -9,10 +9,14 @@ namespace Palladio.ComponentModel.Builder
 	/// Interface implemented by all component model builders that create entities.
 	/// </summary>
 	/// <remarks>
+	/// NOTE: currently this interface is empty.
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/23 11:49:54  kelsaka
+	/// - refactored enity-builder interface: currently no methods.
+	///
 	/// Revision 1.6  2005/04/23 11:00:44  kelsaka
 	/// - removed Init-Methods from AbstractBuilder - created constructors
 	///
@@ -40,11 +44,6 @@ namespace Palladio.ComponentModel.Builder
 		#endregion
 
 		#region properties
-
-		/// <summary>
-		/// The name of the entity
-		/// </summary>
-		string Name { get; set; }
 
 		#endregion		
 	}

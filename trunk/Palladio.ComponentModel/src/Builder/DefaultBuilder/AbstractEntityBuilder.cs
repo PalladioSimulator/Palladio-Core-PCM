@@ -9,10 +9,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Abstract implementation of a component model entity.
 	/// </summary>
 	/// <remarks>
+	/// NOTE: currently this abstract builder is empty.
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/23 11:49:54  kelsaka
+	/// - refactored enity-builder interface: currently no methods.
+	///
 	/// Revision 1.6  2005/04/23 11:00:44  kelsaka
 	/// - removed Init-Methods from AbstractBuilder - created constructors
 	///
@@ -37,7 +41,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private string name;
 		private IComponentModelEntity entity;
 
 		#endregion
@@ -60,21 +63,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		#endregion
 
 		#region Properties
-
-		/// <summary>
-		/// The name of the entity
-		/// </summary>
-		public string Name
-		{
-			get
-			{
-				return this.name;
-			}
-			set
-			{
-				this.name = value;
-			}
-		}
 
 		#endregion		
 

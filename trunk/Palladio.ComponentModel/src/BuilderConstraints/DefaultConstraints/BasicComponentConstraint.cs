@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/23 11:49:54  kelsaka
+	/// - refactored enity-builder interface: currently no methods.
+	///
 	/// Revision 1.3  2005/04/20 17:55:54  kelsaka
 	/// - added methods for deserialization
 	///
@@ -64,7 +67,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints
 
 		/// <summary>
 		/// Adds the given EventHandler to listen for NameChangedEvents. These events are
-		/// fired if the entities <see cref="IEntityBuilder.Name"/> changes.
+		/// fired if the entities changes.
 		/// </summary>
 		/// <param name="nameChangedListener">The
 		/// <see cref="StaticAttributeChangedEventHandler"/> to add.</param>
