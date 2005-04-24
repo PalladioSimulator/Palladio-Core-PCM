@@ -170,11 +170,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Builder\IProtocolBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Builder\IRootBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -413,6 +408,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\ModelSerializationException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\NotAProvidesIFaceException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -423,12 +423,22 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\OpenLocationException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\TypeNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\Exceptions\TypeNotValidException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Exceptions\UnknownTypeException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -751,6 +761,26 @@
                 />
                 <File
                     RelPath = "src\Query\TypeLevel\QueryTypeLevelFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\DefaultSerializationManager.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\ISerializationLocation.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\ISerializationManager.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\ISerializer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

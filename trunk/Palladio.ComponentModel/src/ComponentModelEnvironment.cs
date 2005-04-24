@@ -1,10 +1,10 @@
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.DefaultBuilder;
-using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEventManagement;
 using Palladio.ComponentModel.Query;
+using Palladio.ComponentModel.Serialization;
 
 namespace Palladio.ComponentModel
 {
@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/24 19:15:42  joemal
+	/// add serialization manager
+	///
 	/// Revision 1.7  2005/04/20 19:53:20  kelsaka
 	/// - Example and CM-Environment are now using the IBuilderManger
 	///
@@ -57,19 +60,22 @@ namespace Palladio.ComponentModel
 	///
 	/// </pre>
 	/// </remarks>
-	/// Todo: add the builder
-	///		  add the navigation
-	///		  add the store and restore functions
+	/// Todo: add the navigation
 	///		  add ...
 	public class ComponentModelEnvironment
 	{
 		#region data
 
-		/// <summary>
-		/// hold the manager of the model
-		/// </summary>
+		// hold the manager of the model
 		private IModelDataManager modelManager;
+		
+		//holds the buildermanager
+		//don't use this attribute directly, lazy loading is used to set this attribute
 		private IBuilderManager builderManager;
+
+		//holds the serializationmanager
+		//don't use this attribute directly, lazy loading is used to set this attribute
+		private ISerializationManager serializationManager;
 		
 		#endregion
 
@@ -91,7 +97,6 @@ namespace Palladio.ComponentModel
 		private void Init()
 		{
 			this.modelManager = new ModelDataManager();
-			this.builderManager = new BuilderManager(modelManager);
 		}
 
 		#endregion
@@ -117,6 +122,9 @@ namespace Palladio.ComponentModel
 		{
 			get
 			{
+				//lazy loading
+				if (this.builderManager==null)
+					this.builderManager = new BuilderManager(modelManager);
 				return builderManager;
 			}
 		}
@@ -140,6 +148,20 @@ namespace Palladio.ComponentModel
 			get
 			{
 				return this.modelManager.Query;
+			}
+		}
+
+		/// <summary>
+		/// called to return the manager that can be used to load and store the model
+		/// </summary>
+		public ISerializationManager SerializationManager
+		{
+			get
+			{
+				//lazy loading
+				if (this.serializationManager == null) 
+					this.serializationManager = new DefaultSerializationManager(this.BuilderManager,this.Query);
+				return serializationManager;
 			}
 		}
 
