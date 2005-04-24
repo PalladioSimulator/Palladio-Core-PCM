@@ -18,6 +18,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.15  2005/04/23 11:00:44  kelsaka
 	/// - removed Init-Methods from AbstractBuilder - created constructors
 	///
@@ -77,8 +82,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private IModelDataManager modelDataManager;
-		private IComponent component;
+		protected IModelDataManager modelDataManager;
+		protected IComponent component;
+		protected IBuilderFactory builderFactory;
 
 		#endregion
 
@@ -89,11 +95,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="component">The component to build.</param>
-		public AbstractBasicComponentBuilder(IModelDataManager modelDataManager, IComponent component)
+		/// <param name="builderFactory">The factory to use for creating other builders.</param>
+		public AbstractBasicComponentBuilder(IModelDataManager modelDataManager, IComponent component, IBuilderFactory builderFactory)
 			: base(component)
 		{
 			this.modelDataManager = modelDataManager;
 			this.component = component;	
+			this.builderFactory = builderFactory;
 		}
 
 		#endregion
@@ -140,7 +148,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier, interfaceName);
 			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.PROVIDES);
-			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
+			return builderFactory.GetInterfaceTypeLevelBuilder(iInterface);
 		}
 
 		/// <summary>
@@ -165,7 +173,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier, interfaceName);
 			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.REQUIRES);
-			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface);
+			return builderFactory.GetInterfaceTypeLevelBuilder(iInterface);
 		}
 
 		/// <summary>

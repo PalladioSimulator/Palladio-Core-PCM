@@ -14,6 +14,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.7  2005/04/23 14:56:44  kelsaka
 	/// - enhanced constraints management
 	///
@@ -60,6 +65,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="builderFactory">The factory to use for creating new builders.</param>
 		public DefaultRootTypeLevelBuilder(IModelDataManager modelDataManager, IBuilderFactory builderFactory)
 			: base(modelDataManager, builderFactory)
 		{
@@ -74,14 +80,26 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 			get { throw new NotImplementedException ("ImplementationLevelBuilder is not done yet."); }
 		}
 
+		#region constraint-management
+
 		/// <summary>
 		/// The child builder to call for each method defined in the builder interface.
 		/// </summary>
 		public IRootTypeLevelBuilder ChildBuilder
 		{
-			get { throw new NotImplementedException (); }
 			set { throw new NotImplementedException (); }
 		}
+
+		/// <summary>
+		/// Clones the actual builder / constraints instance.
+		/// </summary>
+		/// <returns>A copy of the actual builder / constraint.</returns>
+		public IRootTypeLevelBuilder Clone ()
+		{
+			return new DefaultRootTypeLevelBuilder(modelDataManager, builderFactory);
+		}
+
+		#endregion
 
 	}
 }

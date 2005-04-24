@@ -15,6 +15,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.19  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.18  2005/04/23 11:00:44  kelsaka
 	/// - removed Init-Methods from AbstractBuilder - created constructors
 	///
@@ -84,8 +89,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private IModelDataManager modelDataManager;
-		private IInterface iInterface;
+		protected IModelDataManager modelDataManager;
+		protected IInterface iInterface;
+		protected IBuilderFactory builderFactory;
 
 		#endregion
 
@@ -96,11 +102,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="iInterface">The interface to build.</param>
-		public AbstractInterfaceBuilder(IModelDataManager modelDataManager, IInterface iInterface)
+		/// <param name="builderFactory">The factory to use for creating other builders.</param>
+		public AbstractInterfaceBuilder(IModelDataManager modelDataManager, IInterface iInterface, IBuilderFactory builderFactory)
 			: base(iInterface)
 		{
 			this.modelDataManager = modelDataManager;
 			this.iInterface = iInterface;
+			this.builderFactory = builderFactory;
 		}
 
 		#endregion
@@ -131,7 +139,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			ISignature signature = EntityFactory.CreateSignature(signatureName, new SignatureDescription());
 			modelDataManager.LowLevelBuilder.AddSignature(signature, this.iInterface.InterfaceID);
-			return new DefaultSignatureTypeLevelBuilder(modelDataManager, signature);
+			return builderFactory.GetSignatureTypeLevelBuilder(signature);
 		}
 
 		/// <summary>
@@ -142,18 +150,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void RemoveSignature (ISignatureIdentifier signatureID)
 		{
 			modelDataManager.LowLevelBuilder.RemoveSignature(signatureID);
-		}
-
-
-		/// <summary>
-		/// Adds a new protocol to the interface.
-		/// (for use in deserialization.)
-		/// </summary>
-		/// <param name="protocolIdentifier">The new protocols identifier.</param>
-		/// <param name="protocolName">The new protocols name.</param>
-		public IProtocolTypeLevelBuilder AddProtocol (IProtocolIdentifier protocolIdentifier, string protocolName)
-		{
-			throw new NotImplementedException("currently protocols can not be created using a builder.");
 		}
 
 		/// <summary>

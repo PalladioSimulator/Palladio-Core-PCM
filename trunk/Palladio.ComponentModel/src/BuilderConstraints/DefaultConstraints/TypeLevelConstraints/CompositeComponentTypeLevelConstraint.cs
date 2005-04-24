@@ -1,117 +1,75 @@
 using System;
 using Palladio.ComponentModel.Builder;
-using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
+using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
-using Palladio.ComponentModel.ModelEventManagement;
 
-namespace Palladio.ComponentModel.Builder.DefaultBuilder
+namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLevelConstraints
 {
+
 	/// <summary>
-	/// Abstract implementation of the composite component builder - methods that are available at all levels.
+	/// Default constraints for composite components at the type level. This constraints are used always
+	/// as they are the neccessary for a valid and consistent static structure of the component model.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
-	///
 	/// $Log$
-	/// Revision 1.14  2005/04/24 14:50:14  kelsaka
+	/// Revision 1.1  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
 	/// - removed protocol builder
 	///
-	/// Revision 1.13  2005/04/23 11:00:44  kelsaka
-	/// - removed Init-Methods from AbstractBuilder - created constructors
-	///
-	/// Revision 1.12  2005/04/20 18:27:45  kelsaka
-	/// - made classes internal
-	/// - removed unused init-methods
-	/// - use of InternalEntityIdentifier for creating new Identifiers
-	///
-	/// Revision 1.11  2005/04/20 17:55:54  kelsaka
-	/// - added methods for deserialization
-	///
-	/// Revision 1.10  2005/04/20 13:26:43  kelsaka
-	/// - added new Init-method implementation
-	///
-	/// Revision 1.9  2005/04/20 13:08:30  kelsaka
-	/// - introduced IModelDataManagement
-	/// - integrated use of the new interface
-	///
-	/// Revision 1.8  2005/04/15 08:29:45  kelsaka
-	/// - fixed errors on xml-comments
-	///
-	/// Revision 1.7  2005/04/13 20:24:08  kelsaka
-	/// - added enitity methods
-	///
-	/// Revision 1.6  2005/04/13 17:06:02  kelsaka
-	/// - added further support for building signatures
-	///
-	/// Revision 1.5  2005/04/12 18:08:35  kelsaka
-	/// - added events to builders
-	///
-	/// Revision 1.4  2005/04/12 12:32:39  kelsaka
-	/// - removed property to access typed IDs directly from the builders
-	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
-	///
-	/// Revision 1.3  2005/04/09 12:23:20  kelsaka
-	/// - added documentation
-	///
-	/// Revision 1.2  2005/04/08 14:40:55  kelsaka
-	/// - added implementation and unit-tests
-	///
-	/// Revision 1.1  2005/04/08 10:41:18  kelsaka
-	/// - added return of IDs
-	/// - added implementation of defined interfaces
-	/// - redefined interfaces for builder-context
-	/// - added CC-levels
-	///
 	/// </pre>
 	/// </remarks>
-	internal abstract class AbstractCompositeComponentBuilder : AbstractEntityBuilder, ICompositeComponentBuilder
+	public class CompositeComponentTypeLevelConstraint : ICompositeComponentTypeLevelBuilder
 	{
 		#region data
-
-		protected IModelDataManager modelDataManager;
-		protected IComponent component;
-		protected IBuilderFactory builderFactory;
+		
+		private ICompositeComponentTypeLevelBuilder compositeComponentBuilderSuccessor;
+		private IModelDataManager modelDataManager;
+		private IComponent component;
 
 		#endregion
 
 		#region constructors
 
 		/// <summary>
-		/// Initializes the Builder.
+		/// Default constructor.
 		/// </summary>
-		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="component">The component to build.</param>
-		/// <param name="builderFactory">The factory to use for creating other builders.</param>
-		public AbstractCompositeComponentBuilder(IModelDataManager modelDataManager, IComponent component, IBuilderFactory builderFactory)
-			: base(component)
+		/// <param name="modelDataManager">The model data manager to use for executing e. g. queries.</param>
+		public CompositeComponentTypeLevelConstraint(IModelDataManager modelDataManager)
+		{
+			this.modelDataManager = modelDataManager;
+		}
+
+		/// <summary>
+		/// Internal constructor.
+		/// </summary>
+		/// <param name="modelDataManager">The model data manager to use for executing e. g. queries.</param>
+		/// <param name="component">The component this instance is constraint for.</param>
+		private CompositeComponentTypeLevelConstraint(IModelDataManager modelDataManager, IComponent component)
 		{
 			this.modelDataManager = modelDataManager;
 			this.component = component;
-			this.builderFactory = builderFactory;
 		}
 
 		#endregion
 
-		#region methods
-
 		/// <summary>
-		/// Adds a <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.
+		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.
 		/// </summary>
 		/// <param name="name">The components name.</param>
-		/// <returns>The builder for the newly created basic component.</returns>
+		/// <returns>Type level builder of the new basic component.</returns>
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (string name)
 		{
-			return AddBasicComponent(new InternalEntityIdentifier().AsComponentIdentifier(), name);
+			return compositeComponentBuilderSuccessor.AddBasicComponent(name);
 		}
 
 		/// <summary>
-		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.
+		/// Adds a new <see cref="ComponentType.BASIC"/> (Type <see cref="IComponent"/>) to the component model.
 		/// (for use in deserialization.)
 		/// </summary>
 		/// <param name="componentIdentifier">The id for the new component.</param>
@@ -119,33 +77,29 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Type level builder of the new basic component with the given ID.</returns>
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (IComponentIdentifier componentIdentifier, string name)
 		{
-			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.BASIC, name);
-			modelDataManager.LowLevelBuilder.AddComponent(component, this.component.ComponentID);
-			return builderFactory.GetBasicComponentTypeLevelBuilder(component);
-		}
-
-		/// <summary>
-		/// Adds a <see cref="ComponentType.COMPOSITE"/> (Type <see cref="ICompositeComponentBuilder"/>) to the component model.
-		/// </summary>
-		/// <param name="name">The components name</param>
-		/// <returns>A <see cref="ICompositeComponentTypeLevelBuilder"/> to build the further component.</returns>
-		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (string name)
-		{
-			return AddCompositeComponent(new InternalEntityIdentifier().AsComponentIdentifier(), name);
+			return compositeComponentBuilderSuccessor.AddBasicComponent(componentIdentifier, name);
 		}
 
 		/// <summary>
 		/// Adds a new <see cref="ComponentType.COMPOSITE"/> (Type <see cref="ICompositeComponentBuilder"/>) to the component model.
+		/// </summary>
+		/// <param name="name">The components name</param>
+		/// <returns>A <see cref="IComponent"/> to build the further component.</returns>
+		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (string name)
+		{
+			return compositeComponentBuilderSuccessor.AddCompositeComponent(name);
+		}
+
+		/// <summary>
+		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>) to the component model.
 		/// (for use in deserialization.)
 		/// </summary>
 		/// <param name="componentIdentifier">The id for the new component.</param>
 		/// <param name="name">The new components name.</param>
-		/// <returns>A <see cref="IComponent"/> to build the further component.</returns>
+		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
 		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (IComponentIdentifier componentIdentifier, string name)
 		{
-			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.COMPOSITE, name);
-			modelDataManager.LowLevelBuilder.AddComponent(component, this.component.ComponentID);
-			return builderFactory.GetCompositeComponentTypeLevelBuilder(component);
+			return compositeComponentBuilderSuccessor.AddCompositeComponent(componentIdentifier, name);
 		}
 
 		/// <summary>
@@ -156,7 +110,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="componentId">the id of the component to be removed</param>
 		public void RemoveComponent (IComponentIdentifier componentId)
 		{
-			modelDataManager.LowLevelBuilder.RemoveComponent(componentId);
+			compositeComponentBuilderSuccessor.RemoveComponent(componentId);
 		}
 
 		/// <summary>
@@ -165,7 +119,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// model.
 		/// This method creates a new connection.
 		/// </summary>
-		/// <param name="connectionName">the connections name to be added</param>
+		/// <param name="connectionName">the new connections name</param>
 		/// <param name="reqCompID">the id of the incoming component</param>
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
@@ -174,8 +128,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
 			IInterfaceIdentifier provIFaceID)
 		{
-			AddAssemblyConnector(new InternalEntityIdentifier().AsConnectionIdentifier(),
-				connectionName, reqCompID, reqIFaceID, provCompID, provIFaceID);
+			compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionName, reqCompID, reqIFaceID,
+				provCompID, provIFaceID);
 		}
 
 		/// <summary>
@@ -191,39 +145,40 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
-		public void AddAssemblyConnector (IConnectionIdentifier connectionIdentifier, string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
+		public void AddAssemblyConnector (IConnectionIdentifier connectionIdentifier, string connectionName,
+			IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
+			IInterfaceIdentifier provIFaceID)
 		{
-			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier, connectionName);
-			modelDataManager.LowLevelBuilder.AddAssemblyConnector(connection, reqCompID, reqIFaceID, provCompID, provIFaceID);
+			compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionIdentifier, connectionName,
+				reqCompID, reqIFaceID, provCompID, provIFaceID);
 		}
 
 		/// <summary>
-		/// Called to add an existing interface as provided interface  to the actual component.
+		/// Called to add an existing interface as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		public void AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier)
-		{			
-			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.PROVIDES);
+		{
+			compositeComponentBuilderSuccessor.AddProvidesInterface(ifaceIdentifier);
 		}
 
 		/// <summary>
-		/// Called to add an existing interface as required interface to the actual component.
+		/// Called to add an existing interface as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		public void AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.REQUIRES);
+			compositeComponentBuilderSuccessor.AddRequiresInterface(ifaceIdentifier);
 		}
 
 		/// <summary>
-		/// Creates a new interface and adds it as provided interface to the actual component.
+		/// Creates a new interface and adds it as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
 		/// </summary>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddProvidesInterface (string interfaceName)
 		{
-			return AddProvidesInterface(new InternalEntityIdentifier().AsInterfaceIdentifier(),
-				interfaceName);
+			return compositeComponentBuilderSuccessor.AddProvidesInterface(interfaceName);
 		}
 
 		/// <summary>
@@ -235,48 +190,41 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
-			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier, interfaceName);
-			modelDataManager.LowLevelBuilder.AddInterface(iInterface);
-			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.PROVIDES);
-			return builderFactory.GetInterfaceTypeLevelBuilder(iInterface);
+			return compositeComponentBuilderSuccessor.AddProvidesInterface(ifaceIdentifier, interfaceName);
 		}
 
 		/// <summary>
-		/// Creates a new interface and adds it as required interface to the actual component.
+		/// Creates a new interface and adds it as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
 		/// </summary>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (string interfaceName)
 		{
-			return AddRequiresInterface(new InternalEntityIdentifier().AsInterfaceIdentifier(), 
-				interfaceName);
+			return compositeComponentBuilderSuccessor.AddRequiresInterface(interfaceName);
 		}
 
 		/// <summary>
-		/// Creates a new interface and adds it as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
+		/// Creates a new interface and adds it as required interface (<see cref="IInterfaceTypeLevelBuilder"/>) to the actual component.
 		/// (for use in deserialization.)
 		/// </summary>
 		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
-		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
+		/// <returns>A <see cref="InterfaceRole.REQUIRES"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
-			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier, interfaceName);
-			modelDataManager.LowLevelBuilder.AddInterface(iInterface);
-			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.REQUIRES);
-			return builderFactory.GetInterfaceTypeLevelBuilder(iInterface);
+			return compositeComponentBuilderSuccessor.AddRequiresInterface(ifaceIdentifier, interfaceName);
 		}
 
 		/// <summary>
 		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
 		/// added to the interface are also removed. If the entity could not be found in 
 		/// componentmodel, the method returns without doing anything.
-		/// This method deletes the interface used as provides interface (<see cref="InterfaceRole.PROVIDES"/>).
+		/// This method deletes the interface used as provided interface (<see cref="InterfaceRole.PROVIDES"/>).
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		public void RemoveProvidesInterface (IInterfaceIdentifier ifaceID)
 		{
-			modelDataManager.LowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.PROVIDES);
+			compositeComponentBuilderSuccessor.RemoveProvidesInterface(ifaceID);
 		}
 
 		/// <summary>
@@ -288,17 +236,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		public void RemoveRequiresInterface (IInterfaceIdentifier ifaceID)
 		{
-			modelDataManager.LowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.REQUIRES);
-		}
-
-		/// <summary>
-		/// called to remove the connection that belongs to the given id. If the entity could not be found in 
-		/// componentmodel, the method returns without doing anything.
-		/// </summary>
-		/// <param name="connectionID">the id of the connection that has to be removed</param>
-		public void RemoveConnection (IConnectionIdentifier connectionID)
-		{
-			modelDataManager.LowLevelBuilder.RemoveConnection(connectionID);
+			compositeComponentBuilderSuccessor.RemoveRequiresInterface(ifaceID);
 		}
 
 		/// <summary>
@@ -313,8 +251,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void AddProvidesDelegationConnector (string connectionName, IInterfaceIdentifier outerIFaceID,
 			IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{
-			AddProvidesDelegationConnector(new InternalEntityIdentifier().AsConnectionIdentifier(),
-				connectionName, outerIFaceID, innerCompID, innerIFaceID);
+			compositeComponentBuilderSuccessor.AddProvidesDelegationConnector(connectionName, outerIFaceID,
+				innerCompID, innerIFaceID);
 		}
 
 		/// <summary>
@@ -328,12 +266,12 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="outerIFaceID">the id of the outer component</param>
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
-		public void AddProvidesDelegationConnector (IConnectionIdentifier connectionIdentifier, string connectionName,
-			IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
+		public void AddProvidesDelegationConnector (IConnectionIdentifier connectionIdentifier, 
+			string connectionName, IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID,
+			IInterfaceIdentifier innerIFaceID)
 		{
-			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier, connectionName);
-			modelDataManager.LowLevelBuilder.AddProvidesDelegationConnector(connection,
-				this.component.ComponentID, outerIFaceID, innerCompID, innerIFaceID);
+			compositeComponentBuilderSuccessor.AddProvidesDelegationConnector(connectionIdentifier, connectionName,
+				outerIFaceID, innerCompID, innerIFaceID);
 		}
 
 		/// <summary>
@@ -347,9 +285,19 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void AddRequiresDelegationConnector (string connectionName, IComponentIdentifier innerCompID,
 			IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID)
 		{
-			IConnection connection = EntityFactory.CreateConnection(connectionName);
-			modelDataManager.LowLevelBuilder.AddRequiresDelegationConnector(connection, innerCompID,
-				innerIFaceID, this.component.ComponentID, outerIFaceID);
+			compositeComponentBuilderSuccessor.AddRequiresDelegationConnector(connectionName, innerCompID,
+				innerIFaceID, outerIFaceID);
+		}
+
+		/// <summary>
+		/// Offers a possibility to change the model-level at which the actual entity is created.
+		/// </summary>
+		public ICompositeComponentImplementationLevelBuilder ImplementationLevelBuilder
+		{
+			get
+			{
+				return compositeComponentBuilderSuccessor.ImplementationLevelBuilder;
+			}
 		}
 
 		/// <summary>
@@ -366,19 +314,54 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			string connectionName, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID,
 			IInterfaceIdentifier outerIFaceID)
 		{
-			throw new NotImplementedException ();
+			compositeComponentBuilderSuccessor.AddRequiresDelegationConnector(connectionIdentifier,
+				connectionName, innerCompID, innerIFaceID, outerIFaceID);
 		}
-
-		#endregion
-
-		#region Properties
 
 		/// <summary>
 		/// Accesses the created instance.
 		/// </summary>
 		public IComponent Component
 		{
-			get { return this.component; }
+			get
+			{
+				return compositeComponentBuilderSuccessor.Component;
+			}
+		}
+
+		/// <summary>
+		/// called to remove the connection that belongs to the given id. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
+		/// </summary>
+		/// <param name="connectionID">the id of the connection that has to be removed</param>
+		public void RemoveConnection (IConnectionIdentifier connectionID)
+		{
+			compositeComponentBuilderSuccessor.RemoveConnection(connectionID);
+		}
+
+		#region constraint-management
+		
+		/// <summary>
+		/// The child builder to call for each method defined in the builder interface.
+		/// </summary>
+		public ICompositeComponentTypeLevelBuilder ChildBuilder
+		{
+			set
+			{
+				this.compositeComponentBuilderSuccessor = value;
+			}
+		}
+
+		/// <summary>
+		/// Clones the actual builder / constraints instance except the created / supervised
+		/// component model entity.
+		/// </summary>
+		/// <param name="component">The component model entity that has to be builder /
+		/// supervised.</param>
+		/// <returns>A copy of the actual builder / constraint.</returns>
+		public ICompositeComponentTypeLevelBuilder Clone (IComponent component)
+		{
+			return new CompositeComponentTypeLevelConstraint(modelDataManager, component);
 		}
 
 		#endregion

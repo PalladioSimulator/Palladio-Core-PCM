@@ -3,6 +3,7 @@ using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLevelConstraints
@@ -16,6 +17,11 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.2  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.1  2005/04/23 17:42:08  kelsaka
 	/// - added further methods for constraint-support
 	///
@@ -24,6 +30,26 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// </remarks>
 	public class RootTypeLevelConstraint : IRootTypeLevelBuilder
 	{
+		#region data
+		
+		private IRootTypeLevelBuilder rootBuilderSuccessor;
+		private IModelDataManager modelDataManager;
+
+		#endregion
+
+		#region constructors
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		/// <param name="modelDataManager">The model data manager to use for executing e. g. queries.</param>
+		public RootTypeLevelConstraint(IModelDataManager modelDataManager)
+		{
+			this.modelDataManager = modelDataManager;
+		}
+
+		#endregion
+
 		/// <summary>
 		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.
 		/// </summary>
@@ -31,7 +57,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <returns>Type level builder of the new basic component.</returns>
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (string name)
 		{
-			throw new NotImplementedException ();
+			return this.rootBuilderSuccessor.AddBasicComponent(name);
 		}
 
 		/// <summary>
@@ -43,7 +69,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <returns>Type level builder of the new basic component with the given ID.</returns>
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (IComponentIdentifier componentIdentifier, string name)
 		{
-			throw new NotImplementedException ();
+			return this.rootBuilderSuccessor.AddBasicComponent(componentIdentifier, name);
 		}
 
 		/// <summary>
@@ -53,7 +79,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
 		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (string name)
 		{
-			throw new NotImplementedException ();
+			return this.rootBuilderSuccessor.AddCompositeComponent(name);
 		}
 
 		/// <summary>
@@ -65,7 +91,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <returns>A <see cref="IComponent"/> to build the further component.</returns>
 		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (IComponentIdentifier componentIdentifier, string name)
 		{
-			throw new NotImplementedException ();
+			return this.rootBuilderSuccessor.AddCompositeComponent(componentIdentifier, name);
 		}
 
 		/// <summary>
@@ -76,7 +102,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="componentId">the id of the component to be removed</param>
 		public void RemoveComponent (IComponentIdentifier componentId)
 		{
-			throw new NotImplementedException ();
+			this.rootBuilderSuccessor.RemoveComponent(componentId);
 		}
 
 		/// <summary>
@@ -90,9 +116,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
-		public void AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
+		public void AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID,
+			IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
-			throw new NotImplementedException ();
+			this.rootBuilderSuccessor.AddAssemblyConnector(connectionName, reqCompID, reqIFaceID, provCompID, provIFaceID);
 		}
 
 		/// <summary>
@@ -108,18 +135,12 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
-		public void AddAssemblyConnector (IConnectionIdentifier connectionIdentifier, string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
+		public void AddAssemblyConnector (IConnectionIdentifier connectionIdentifier, string connectionName,
+			IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
+			IInterfaceIdentifier provIFaceID)
 		{
-			throw new NotImplementedException ();
-		}
-
-		/// <summary>
-		/// Copies the actual element.
-		/// </summary>
-		/// <returns>A copy of the actual instance.</returns>
-		public IRootBuilder Copy ()
-		{
-			return new RootTypeLevelConstraint();
+			this.rootBuilderSuccessor.AddAssemblyConnector(connectionIdentifier, connectionName, reqCompID,
+				reqIFaceID, provCompID, provIFaceID);
 		}
 
 		/// <summary>
@@ -129,7 +150,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <returns>A new InterfaceBuilder.</returns>
 		public IInterfaceTypeLevelBuilder AddInterface (string name)
 		{
-			throw new NotImplementedException ();
+			return this.rootBuilderSuccessor.AddInterface(name);
 		}
 
 		/// <summary>
@@ -140,7 +161,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <returns>A new InterfaceBuilder.</returns>
 		public IInterfaceTypeLevelBuilder AddInterface (IInterfaceIdentifier interfaceIdentifier, string name)
 		{
-			throw new NotImplementedException ();
+			return this.rootBuilderSuccessor.AddInterface(interfaceIdentifier, name);
 		}
 
 		/// <summary>
@@ -150,7 +171,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="ifaceIdentifier">the id of the interface</param>
 		public void RemoveInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			throw new NotImplementedException ();
+			this.rootBuilderSuccessor.RemoveInterface(ifaceIdentifier);
 		}
 
 		/// <summary>
@@ -158,16 +179,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// </summary>
 		public IRootImplementationLevelBuilder ImplementationLevelBuilder
 		{
-			get { throw new NotImplementedException (); }
-		}
-
-		/// <summary>
-		/// The child builder to call for each method defined in the builder interface.
-		/// </summary>
-		public IRootTypeLevelBuilder ChildBuilder
-		{
-			get { throw new NotImplementedException (); }
-			set { throw new NotImplementedException (); }
+			get
+			{
+				return this.rootBuilderSuccessor.ImplementationLevelBuilder;
+			}
 		}
 
 		/// <summary>
@@ -175,7 +190,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// </summary>
 		public void ClearAll ()
 		{
-			throw new NotImplementedException ();
+			this.rootBuilderSuccessor.ClearAll();
 		}
 
 		/// <summary>
@@ -185,7 +200,31 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="connectionID">the id of the connection that has to be removed</param>
 		public void RemoveConnection (IConnectionIdentifier connectionID)
 		{
-			throw new NotImplementedException ();
+			this.rootBuilderSuccessor.RemoveConnection(connectionID);
 		}
+
+		#region constraint-management
+
+		/// <summary>
+		/// The child builder to call for each method defined in the builder interface.
+		/// </summary>
+		public IRootTypeLevelBuilder ChildBuilder
+		{
+			set
+			{
+				this.rootBuilderSuccessor = value;
+			}
+		}
+
+		/// <summary>
+		/// Clones the actual builder / constraints instance.
+		/// </summary>
+		/// <returns>A copy of the actual builder / constraint.</returns>
+		public IRootTypeLevelBuilder Clone ()
+		{
+			return new RootTypeLevelConstraint(modelDataManager);
+		}
+
+		#endregion
 	}
 }

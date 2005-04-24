@@ -18,6 +18,11 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.19  2005/04/24 14:50:15  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.18  2005/04/23 11:49:54  kelsaka
 	/// - refactored enity-builder interface: currently no methods.
 	///
@@ -117,6 +122,12 @@ namespace Palladio.ComponentModel.UnitTests
 		#endregion
 
 		#region root-Tests
+		[Test]
+		public void RootInit()
+		{
+			Assert.IsNotNull(this.rootBuilder, "Root is not initialized");
+		}
+
 		[Test]
 		public void AddBCToRoot()
 		{

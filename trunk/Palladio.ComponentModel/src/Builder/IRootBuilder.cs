@@ -18,6 +18,11 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.11  2005/04/23 17:42:08  kelsaka
 	/// - added further methods for constraint-support
 	///
@@ -63,12 +68,6 @@ namespace Palladio.ComponentModel.Builder
 	public interface IRootBuilder : ICompositeBaseBuilder
 	{
 		#region methods
-
-		/// <summary>
-		/// Copies the actual element.
-		/// </summary>
-		/// <returns>A copy of the actual instance.</returns>
-		IRootBuilder Copy();
 
 		/// <summary>
 		/// Creates a new <see cref="IInterfaceBuilder"/>, which allows to build new interfaces.

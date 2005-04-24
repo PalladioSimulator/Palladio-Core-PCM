@@ -205,11 +205,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Builder\DefaultBuilder\AbstractProtocolBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Builder\DefaultBuilder\AbstractRootBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -238,7 +233,27 @@
                     BuildAction = "Content"
                 />
                 <File
+                    RelPath = "src\Builder\DefaultBuilder\TypedBuilderLists\BasicComponentTypeLevelBuilderList.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\TypedBuilderLists\CompositeComponentTypeLevelBuilderList.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\TypedBuilderLists\InterfaceTypeLevelBuilderList.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Builder\DefaultBuilder\TypedBuilderLists\RootTypeLevelBuilderList.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Builder\DefaultBuilder\TypedBuilderLists\SignatureTypeLevelBuilderList.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -254,11 +269,6 @@
                 />
                 <File
                     RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultInterfaceTypeLevelBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Builder\DefaultBuilder\TypeLevelBuilder\DefaultProtocolTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -288,11 +298,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Builder\DeploymentLevelBuilder\IProtocolDeploymentLevelBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Builder\DeploymentLevelBuilder\IRootDeploymentLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -314,11 +319,6 @@
                 />
                 <File
                     RelPath = "src\Builder\ImplementationLevelBuilder\IInterfaceImplementationLevelBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Builder\ImplementationLevelBuilder\IProtocolImplementationLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -348,11 +348,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Builder\TypeLevelBuilder\IProtocolTypeLevelBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Builder\TypeLevelBuilder\IRootTypeLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -364,6 +359,16 @@
                 />
                 <File
                     RelPath = "src\BuilderConstraints\DefaultConstraints\TypeLevelConstraints\BasicComponentTypeLevelConstraint.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\BuilderConstraints\DefaultConstraints\TypeLevelConstraints\CompositeComponentTypeLevelConstraint.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\BuilderConstraints\DefaultConstraints\TypeLevelConstraints\InterfaceTypeLevelConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

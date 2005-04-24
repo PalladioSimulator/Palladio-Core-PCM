@@ -15,6 +15,11 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.14  2005/04/23 11:00:44  kelsaka
 	/// - removed Init-Methods from AbstractBuilder - created constructors
 	///
@@ -90,14 +95,6 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="signatureID">the id of the signature that has to be removed</param>
 		void RemoveSignature(ISignatureIdentifier signatureID);
-
-		/// <summary>
-		/// Adds a new protocol to the interface.
-		/// (for use in deserialization.)
-		/// </summary>
-		/// <param name="protocolIdentifier">The new protocols identifier.</param>
-		/// <param name="protocolName">The new protocols name.</param>
-		IProtocolTypeLevelBuilder AddProtocol(IProtocolIdentifier protocolIdentifier, string protocolName);
 
 		/// <summary>
 		/// called to add a existing protocol to the actual interfaces.

@@ -14,6 +14,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.7  2005/04/23 11:00:44  kelsaka
 	/// - removed Init-Methods from AbstractBuilder - created constructors
 	///
@@ -47,10 +52,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="signature">The signature to build.</param>
-		public DefaultSignatureTypeLevelBuilder(IModelDataManager modelDataManager, ISignature signature)
-			: base(modelDataManager, signature) 
-		{
-			
+		/// <param name="builderFactory">The factory to use for creating new builders.</param>
+		public DefaultSignatureTypeLevelBuilder(IModelDataManager modelDataManager, ISignature signature, IBuilderFactory builderFactory)
+			: base(modelDataManager, signature, builderFactory) 
+		{			
 		}
 
 		/// <summary>
@@ -61,14 +66,28 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 			get { throw new NotImplementedException ("ImplementationLevelBuilder is not done yet."); }
 		}
 
+		#region constraint-management
+
 		/// <summary>
 		/// The child builder to call for each method defined in the builder interface.
 		/// </summary>
 		public ISignatureTypeLevelBuilder ChildBuilder
 		{
-			get { throw new NotImplementedException (); }
-			set { throw new NotImplementedException (); }
+			set {} //in constrast to constraints the builder itself has no child. 
 		}
 
+		/// <summary>
+		/// Clones the actual builder / constraints instance except the created / supervised
+		/// component model entity.
+		/// </summary>
+		/// <param name="signature">The component model entity that has to be builder /
+		/// supervised.</param>
+		/// <returns>A copy of the actual builder / constraint.</returns>
+		public ISignatureTypeLevelBuilder Clone (ISignature signature)
+		{
+			return new DefaultSignatureTypeLevelBuilder(modelDataManager, signature, builderFactory);
+		}
+
+		#endregion
 	}
 }

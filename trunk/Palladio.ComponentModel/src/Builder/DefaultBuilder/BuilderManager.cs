@@ -17,6 +17,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.5  2005/04/23 17:42:08  kelsaka
 	/// - added further methods for constraint-support
 	///
@@ -93,6 +98,63 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="builderConstraint">The constraint to remove.</param>
 		public void RemoveBuilderConstraint (IBasicComponentTypeLevelBuilder builderConstraint)
+		{
+			this.builderFactory.RemoveBuilderConstraint(builderConstraint);
+		}
+
+		/// <summary>
+		/// Adds the given builder constraint to the list of constraints for
+		/// this builder.
+		/// </summary>
+		/// <param name="builderConstraint">A constraint for this builder.</param>
+		public void AddBuilderConstraint (ICompositeComponentTypeLevelBuilder builderConstraint)
+		{
+			this.builderFactory.AddBuilderConstraint(builderConstraint);
+		}
+
+		/// <summary>
+		/// Removes the given constraints from the list of constraints applied to this builder.
+		/// </summary>
+		/// <param name="builderConstraint">The constraint to remove.</param>
+		public void RemoveBuilderConstraint (ICompositeComponentTypeLevelBuilder builderConstraint)
+		{
+			this.builderFactory.RemoveBuilderConstraint(builderConstraint);
+		}
+
+		/// <summary>
+		/// Adds the given builder constraint to the list of constraints for
+		/// this builder.
+		/// </summary>
+		/// <param name="builderConstraint">A constraint for this builder.</param>
+		public void AddBuilderConstraint (IInterfaceTypeLevelBuilder builderConstraint)
+		{
+			this.builderFactory.AddBuilderConstraint(builderConstraint);
+		}
+
+		/// <summary>
+		/// Removes the given constraints from the list of constraints applied to this builder.
+		/// </summary>
+		/// <param name="builderConstraint">The constraint to remove.</param>
+		public void RemoveBuilderConstraint (IInterfaceTypeLevelBuilder builderConstraint)
+		{
+			this.builderFactory.RemoveBuilderConstraint(builderConstraint);
+		}
+
+		/// <summary>
+		/// Adds the given builder constraint to the list of constraints for
+		/// this builder.
+		/// </summary>
+		/// <param name="builderConstraint">A constraint for this builder.</param>
+		public void AddBuilderConstraint (ISignatureTypeLevelBuilder builderConstraint)
+		{
+			this.builderFactory.AddBuilderConstraint(builderConstraint);
+		}
+
+		/// <summary>
+		/// Removes the given constraints from the list of constraints applied to this builder.
+		/// </summary>
+		/// <param name="builderConstraint">The constraint to remove.</param>
+		public void RemoveBuilderConstraint (ISignatureTypeLevelBuilder builderConstraint)
 		{
 			this.builderFactory.RemoveBuilderConstraint(builderConstraint);
 		}

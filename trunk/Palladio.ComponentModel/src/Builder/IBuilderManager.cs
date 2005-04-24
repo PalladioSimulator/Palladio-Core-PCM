@@ -17,10 +17,19 @@ namespace Palladio.ComponentModel.Builder
 	/// <p>In the same way constraints, that are removed afterwards, do not affect the further building
 	/// process of existing entities.
 	/// </p>
+	/// <p>Constraints are always applied to a certain level of the builder interface. This means that
+	/// one builder can only be applied to e. g. the type level but not to the implementation level. If
+	/// constraints shall build a hierarchie this is task of the constraints.
+	/// </p>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.6  2005/04/23 17:42:08  kelsaka
 	/// - added further methods for constraint-support
 	///
@@ -71,6 +80,45 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="builderConstraint">The constraint to remove.</param>
 		void RemoveBuilderConstraint(IBasicComponentTypeLevelBuilder builderConstraint);
+
+		/// <summary>
+		/// Adds the given builder constraint to the list of constraints for
+		/// this builder.
+		/// </summary>
+		/// <param name="builderConstraint">A constraint for this builder.</param>
+		void AddBuilderConstraint(ICompositeComponentTypeLevelBuilder builderConstraint);
+
+		/// <summary>
+		/// Removes the given constraints from the list of constraints applied to this builder.
+		/// </summary>
+		/// <param name="builderConstraint">The constraint to remove.</param>
+		void RemoveBuilderConstraint(ICompositeComponentTypeLevelBuilder builderConstraint);
+
+		/// <summary>
+		/// Adds the given builder constraint to the list of constraints for
+		/// this builder.
+		/// </summary>
+		/// <param name="builderConstraint">A constraint for this builder.</param>
+		void AddBuilderConstraint(IInterfaceTypeLevelBuilder builderConstraint);
+
+		/// <summary>
+		/// Removes the given constraints from the list of constraints applied to this builder.
+		/// </summary>
+		/// <param name="builderConstraint">The constraint to remove.</param>
+		void RemoveBuilderConstraint(IInterfaceTypeLevelBuilder builderConstraint);
+
+		/// <summary>
+		/// Adds the given builder constraint to the list of constraints for
+		/// this builder.
+		/// </summary>
+		/// <param name="builderConstraint">A constraint for this builder.</param>
+		void AddBuilderConstraint(ISignatureTypeLevelBuilder builderConstraint);
+
+		/// <summary>
+		/// Removes the given constraints from the list of constraints applied to this builder.
+		/// </summary>
+		/// <param name="builderConstraint">The constraint to remove.</param>
+		void RemoveBuilderConstraint(ISignatureTypeLevelBuilder builderConstraint);
 
 		#endregion
 

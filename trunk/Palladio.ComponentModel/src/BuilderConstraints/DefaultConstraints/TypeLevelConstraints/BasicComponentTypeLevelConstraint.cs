@@ -2,6 +2,7 @@ using System;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLevelConstraints
@@ -15,6 +16,11 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.3  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.2  2005/04/23 17:42:08  kelsaka
 	/// - added further methods for constraint-support
 	///
@@ -28,6 +34,32 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		#region data
 		
 		private IBasicComponentTypeLevelBuilder basicComponentBuilderSuccessor;
+		private IModelDataManager modelDataManager;
+		private IComponent component;
+
+		#endregion
+
+		#region constructors
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		/// <param name="modelDataManager">The model data manager to use for executing e. g. queries.</param>
+		public BasicComponentTypeLevelConstraint(IModelDataManager modelDataManager)
+		{
+			this.modelDataManager = modelDataManager;
+		}
+
+		/// <summary>
+		/// Internal constructor.
+		/// </summary>
+		/// <param name="modelDataManager">The model data manager to use for executing e. g. queries.</param>
+		/// <param name="component">The component this instance is constraint for.</param>
+		private BasicComponentTypeLevelConstraint(IModelDataManager modelDataManager, IComponent component)
+		{
+			this.modelDataManager = modelDataManager;
+			this.component = component;
+		}
 
 		#endregion
 
@@ -118,28 +150,52 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		}
 
 		/// <summary>
+		/// Accesses the created instance.
+		/// </summary>
+		public IComponent Component
+		{
+			get
+			{
+				return basicComponentBuilderSuccessor.Component;
+			}
+		}
+
+		/// <summary>
 		/// Offers a possibility to change the model-level at which the actual entity is created.
 		/// </summary>
 		public IBasicComponentImplementationLevelBuilder ImplementationLevelBuilder
 		{
-			get { return this.basicComponentBuilderSuccessor.ImplementationLevelBuilder; }
+			get
+			{
+				return this.basicComponentBuilderSuccessor.ImplementationLevelBuilder;
+			}
 		}
+
+		#region constraint-management
 
 		/// <summary>
 		/// The child builder to call for each method defined in the builder interface.
 		/// </summary>
 		public IBasicComponentTypeLevelBuilder ChildBuilder
 		{
-			get { return this.basicComponentBuilderSuccessor; }
-			set { this.basicComponentBuilderSuccessor = value; }
+			set
+			{
+				this.basicComponentBuilderSuccessor = value;
+			}
 		}
 
 		/// <summary>
-		/// Accesses the created instance.
+		/// Clones the actual builder / constraints instance except the created / supervised
+		/// component model entity.
 		/// </summary>
-		public IComponent Component
+		/// <param name="component">The component model entity that has to be builder /
+		/// supervised.</param>
+		/// <returns>A copy of the actual builder / constraint.</returns>
+		public IBasicComponentTypeLevelBuilder Clone (IComponent component)
 		{
-			get { return basicComponentBuilderSuccessor.Component; }
+			return new BasicComponentTypeLevelConstraint(modelDataManager, component);
 		}
+
+		#endregion
 	}
 }

@@ -17,6 +17,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.19  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.18  2005/04/23 11:00:44  kelsaka
 	/// - removed Init-Methods from AbstractBuilder - created constructors
 	///
@@ -83,8 +88,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private IModelDataManager modelDataManager;
-		private ISignature signature;
+		protected IModelDataManager modelDataManager;
+		protected ISignature signature;
+		protected IBuilderFactory builderFactory;
 
 		#endregion
 
@@ -95,11 +101,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="signature">The signature to build.</param>
-		public AbstractSignatureBuilder(IModelDataManager modelDataManager, ISignature signature)
+		/// <param name="builderFactory">The factory to use for creating other builders.</param>
+		public AbstractSignatureBuilder(IModelDataManager modelDataManager, ISignature signature, IBuilderFactory builderFactory)
 			: base(signature)
 		{
 			this.modelDataManager = modelDataManager;
 			this.signature = signature;	
+			this.builderFactory = builderFactory;
 		}
 
 		#endregion

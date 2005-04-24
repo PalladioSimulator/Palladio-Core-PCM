@@ -14,6 +14,11 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.2  2005/04/23 17:42:08  kelsaka
 	/// - added further methods for constraint-support
 	///
@@ -47,6 +52,13 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="iInterface">The interface to build</param>
 		/// <returns>interface builder for the type level.</returns>
 		IInterfaceTypeLevelBuilder GetInterfaceTypeLevelBuilder(IInterface iInterface);
+
+		/// <summary>
+		/// Creates a new builder including all actually defined constraints for this builder.
+		/// </summary>
+		/// <param name="signature">The signature to build</param>
+		/// <returns>signature builder for the type level.</returns>
+		ISignatureTypeLevelBuilder GetSignatureTypeLevelBuilder(ISignature signature);
 
 		#endregion		
 	}

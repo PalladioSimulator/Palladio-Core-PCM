@@ -21,6 +21,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/04/24 14:50:14  kelsaka
+	/// - added full support for constraints
+	/// - added typed lists for builders
+	/// - removed protocol builder
+	///
 	/// Revision 1.13  2005/04/23 17:42:08  kelsaka
 	/// - added further methods for constraint-support
 	///
@@ -86,8 +91,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private IModelDataManager modelDataManager;
-		private IBuilderFactory builderFactory;
+		protected IModelDataManager modelDataManager;
+		protected IBuilderFactory builderFactory;
 
 		#endregion
 
@@ -97,6 +102,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
+		/// <param name="builderFactory">The factory to use for creating other builders.</param>
 		public AbstractRootBuilder(IModelDataManager modelDataManager, IBuilderFactory builderFactory)
 		{
 			this.modelDataManager = modelDataManager;
