@@ -13,6 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Utils", "Palladio.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.FiniteStateMachines", "Palladio.FiniteStateMachines\Palladio.FiniteStateMachines.csproj", "{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}"
 	ProjectSection(ProjectDependencies) = postProject
+		{D060F299-7C13-4834-882D-DDFC044A78B1} = {D060F299-7C13-4834-882D-DDFC044A78B1}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Attributes", "Palladio.Attributes\Palladio.Attributes.csproj", "{7726B451-F155-4534-986E-8960C7BA4D97}"
@@ -20,6 +21,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Attributes", "Pall
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.ComponentModel", "Palladio.ComponentModel\Palladio.ComponentModel.csproj", "{6220A06F-242E-47A8-AB82-C3FA1528BD42}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D060F299-7C13-4834-882D-DDFC044A78B1} = {D060F299-7C13-4834-882D-DDFC044A78B1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Serialization", "Palladio.Serialization\Palladio.Serialization.csproj", "{D060F299-7C13-4834-882D-DDFC044A78B1}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -53,6 +59,10 @@ Global
 		{6220A06F-242E-47A8-AB82-C3FA1528BD42}.Debug.Build.0 = Debug|.NET
 		{6220A06F-242E-47A8-AB82-C3FA1528BD42}.Release.ActiveCfg = Release|.NET
 		{6220A06F-242E-47A8-AB82-C3FA1528BD42}.Release.Build.0 = Release|.NET
+		{D060F299-7C13-4834-882D-DDFC044A78B1}.Debug.ActiveCfg = Debug|.NET
+		{D060F299-7C13-4834-882D-DDFC044A78B1}.Debug.Build.0 = Debug|.NET
+		{D060F299-7C13-4834-882D-DDFC044A78B1}.Release.ActiveCfg = Release|.NET
+		{D060F299-7C13-4834-882D-DDFC044A78B1}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

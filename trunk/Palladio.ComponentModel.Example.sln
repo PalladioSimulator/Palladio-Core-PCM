@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionBasedVisitor", "R
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Serialization", "Palladio.Serialization\Palladio.Serialization.csproj", "{D060F299-7C13-4834-882D-DDFC044A78B1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -61,6 +65,10 @@ Global
 		{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}.Debug.Build.0 = Debug|.NET
 		{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}.Release.ActiveCfg = Release|.NET
 		{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}.Release.Build.0 = Release|.NET
+		{D060F299-7C13-4834-882D-DDFC044A78B1}.Debug.ActiveCfg = Debug|.NET
+		{D060F299-7C13-4834-882D-DDFC044A78B1}.Debug.Build.0 = Debug|.NET
+		{D060F299-7C13-4834-882D-DDFC044A78B1}.Release.ActiveCfg = Release|.NET
+		{D060F299-7C13-4834-882D-DDFC044A78B1}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
