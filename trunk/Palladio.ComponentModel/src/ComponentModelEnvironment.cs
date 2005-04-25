@@ -4,7 +4,7 @@ using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEventManagement;
 using Palladio.ComponentModel.Query;
-using Palladio.ComponentModel.Serialization;
+using Palladio.Serialization;
 
 namespace Palladio.ComponentModel
 {
@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/04/25 16:37:39  joemal
+	/// move serialization to own project
+	///
 	/// Revision 1.8  2005/04/24 19:15:42  joemal
 	/// add serialization manager
 	///
@@ -159,8 +162,8 @@ namespace Palladio.ComponentModel
 			get
 			{
 				//lazy loading
-				if (this.serializationManager == null) 
-					this.serializationManager = new DefaultSerializationManager(this.BuilderManager,this.Query);
+				if (this.serializationManager == null)
+					this.serializationManager = new DefaultSerializationManager();
 				return serializationManager;
 			}
 		}
