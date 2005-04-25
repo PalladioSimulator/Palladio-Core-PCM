@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 8.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.Webserver", "Palladio.Webserver.csproj", "{0A6ACCF9-ED9F-476E-B68B-D1467791490F}"
 	ProjectSection(ProjectDependencies) = postProject
+		{8A2CD829-4510-4CB9-838C-F8C769763095} = {8A2CD829-4510-4CB9-838C-F8C769763095}
+		{BBEF31B2-055E-7E40-B9FE-B414C8DF54A9} = {BBEF31B2-055E-7E40-B9FE-B414C8DF54A9}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebserverFactory", "..\WebserverFactory\WebserverFactory.csproj", "{8C8F753B-2C8D-4908-A09E-B7DB7869A830}"

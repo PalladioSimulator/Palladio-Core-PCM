@@ -5,6 +5,7 @@ using BibTeXProviderXML;
 namespace Palladio.Webserver.BibTeXProvider
 {
 	/// <summary>
+	/// Represents the configuration of the BibTeXProvider component.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -12,6 +13,9 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/25 13:20:27  kelsaka
+	/// - fixed wrong order in CoR: Templates were not handled any more
+	///
 	/// Revision 1.2  2005/01/22 16:42:56  kelsaka
 	/// added configureable (XML) connection-string for the database;
 	/// added thread-name for the main thread;

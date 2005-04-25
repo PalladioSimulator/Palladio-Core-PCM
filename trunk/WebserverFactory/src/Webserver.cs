@@ -21,6 +21,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/04/25 13:20:27  kelsaka
+	/// - fixed wrong order in CoR: Templates were not handled any more
+	///
 	/// Revision 1.3  2005/04/14 13:44:34  sliver
 	/// *** empty log message ***
 	///
@@ -187,16 +190,15 @@ namespace Palladio.Webserver
 			webserver.httpRequestProcessors = new IHTTPRequestProcessor[6];
 			webserver.httpRequestProcessors[0] = webserverFactory.CreateDefaultRequestProcessor(webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
 			webserver.httpRequestProcessors[1] = webserverFactory.CreateStaticFileProvider(webserver.httpRequestProcessors[0], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
-
 			webserver.httpRequestProcessors[2] = webserverFactory.CreateBibTeXProvider(webserverFactory.CreateBibTexDB(), webserver.httpRequestProcessors[1], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
 			webserver.httpRequestProcessors[3] = webserverFactory.CreateSimpleTemplateFileProvider(webserver.httpRequestProcessors[2], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
 			webserver.httpRequestProcessors[4] = webserverFactory.CreateDynamicFileProvider(webserver.httpRequestProcessors[3], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
-			webserver.httpRequestProcessors[5] = webserverFactory.CreateStaticFileProvider(webserver.httpRequestProcessors[4], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
+
 
 			// RequestParser-COR: HTTP -> Default (currently FTP is not implemented)
 			webserver.requestParsers = new IRequestParser[2];
 			webserver.requestParsers[0] = webserverFactory.CreateDefaultRequestParser(webserver.webserverMonitor, webserver.webserverConfiguration);
-			webserver.requestParsers[1] = webserverFactory.CreateHTTPRequestParser(webserver.httpRequestProcessors[5], webserver.requestParsers[0], webserver.webserverMonitor, webserver.webserverConfiguration, requestFactory);
+			webserver.requestParsers[1] = webserverFactory.CreateHTTPRequestParser(webserver.httpRequestProcessors[4], webserver.requestParsers[0], webserver.webserverMonitor, webserver.webserverConfiguration, requestFactory);
 
 			webserver.dispatcher = webserverFactory.CreateDispatcher(webserver.requestParsers[1], webserver.webserverMonitor, webserver.webserverConfiguration, requestFactory, portListenerFactory);
 			return webserver;
