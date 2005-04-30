@@ -93,6 +93,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibTeXProviderXML", "..\Bib
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipHTTPRequestProcessorTools", "..\ZipHTTPRequestProcessorTools\ZipHTTPRequestProcessorTools.csproj", "{E38E5EE8-C912-4C58-A20E-463CA33D674A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -191,6 +195,10 @@ Global
 		{BBEF31B2-055E-7E40-B9FE-B414C8DF54A9}.Debug.Build.0 = Debug|.NET
 		{BBEF31B2-055E-7E40-B9FE-B414C8DF54A9}.Release.ActiveCfg = Release|.NET
 		{BBEF31B2-055E-7E40-B9FE-B414C8DF54A9}.Release.Build.0 = Release|.NET
+		{E38E5EE8-C912-4C58-A20E-463CA33D674A}.Debug.ActiveCfg = Debug|.NET
+		{E38E5EE8-C912-4C58-A20E-463CA33D674A}.Debug.Build.0 = Debug|.NET
+		{E38E5EE8-C912-4C58-A20E-463CA33D674A}.Release.ActiveCfg = Release|.NET
+		{E38E5EE8-C912-4C58-A20E-463CA33D674A}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

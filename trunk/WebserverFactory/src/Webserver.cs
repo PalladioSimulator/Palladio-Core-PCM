@@ -21,6 +21,10 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/04/30 12:38:24  kelsaka
+	/// - extended cvs ignore lists
+	/// - added first version of zip compressing request processor tools
+	///
 	/// Revision 1.4  2005/04/25 13:20:27  kelsaka
 	/// - fixed wrong order in CoR: Templates were not handled any more
 	///
@@ -183,6 +187,7 @@ namespace Palladio.Webserver
 			webserver.webserverConfiguration = webserverFactory.CreateWebserverConfiguration(webserver.configReader, pathToConfigFile, xmlConfigFile);
 			webserver.webserverMonitor = webserverFactory.CreateWebserverMonitor(webserver.webserverConfiguration);
 
+			
 			webserver.requestProcessorTools = webserverFactory.CreateRequestProcessorTools(webserver.webserverMonitor, webserver.webserverConfiguration);
 
 

@@ -12,6 +12,10 @@ namespace Palladio.Webserver.Request
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/04/30 12:38:24  kelsaka
+	/// - extended cvs ignore lists
+	/// - added first version of zip compressing request processor tools
+	///
 	/// Revision 1.2  2005/01/29 21:47:44  kelsaka
 	/// Added continuous use of NetworkStream (instead of Socket)
 	///
@@ -29,15 +33,15 @@ namespace Palladio.Webserver.Request
 		/// <summary>
 		/// Creates new request.
 		/// </summary>
-		/// <param name="webserverMonitor"></param>
-		/// <returns></returns>
+		/// <param name="webserverMonitor">The monitor to use.</param>
+		/// <returns>A new <see cref="IRequest"/>.</returns>
 		IRequest CreateRequest(IWebserverMonitor webserverMonitor);
 
 
 		/// <summary>
 		/// Creates new HTTPRequest.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>The new instance.</returns>
 		IHTTPRequest CreateHTTPRequest();
 	}
 }
