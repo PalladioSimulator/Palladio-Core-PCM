@@ -20,6 +20,10 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/04/30 12:38:24  kelsaka
+	/// - extended cvs ignore lists
+	/// - added first version of zip compressing request processor tools
+	///
 	/// Revision 1.12  2005/01/07 16:58:02  kelsaka
 	/// Added TimeConsumingProcessor including its documentation and configuration.
 	/// Integrated the new processor into the COR.
@@ -95,6 +99,10 @@ namespace Palladio.Webserver.WebserverFactory
 		/// Creates the DefaultDispatcher.
 		/// </summary>
 		/// <param name="requestParser">A component that fullfills the required-interface.</param>
+		/// <param name="webserverMonitor">The monitor to use.</param>
+		/// <param name="webserverConfiguration">The webser configuration to use.</param>
+		/// <param name="requestFactory">The factory to create new requests with.</param>
+		/// <param name="portListenerFactory">The factory to create new port listeners with.</param>
 		/// <returns>IDispatcher, using the services from the reqestParser.</returns>
 		IDispatcher CreateDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory, IPortListenerFactory portListenerFactory);
 
@@ -105,7 +113,8 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <summary>
 		/// Creates a WebserverMonitor: a component for logging- and debuggin-features. 
 		/// </summary>
-		/// <returns></returns>
+		/// <param name="webserverConfiguration">The webserver configuration.</param>
+		/// <returns>a new <see cref="IWebserverMonitor"/>.</returns>
 		IWebserverMonitor CreateWebserverMonitor(IWebserverConfiguration webserverConfiguration);
 
 		#endregion
@@ -115,7 +124,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <summary>
 		/// Creates a ConfigReader to get settings for the webserver.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>new instance of <see cref="IConfigReader"/></returns>
 		IConfigReader CreateConfigReader();
 
 
@@ -167,9 +176,11 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <summary>
 		/// Creates a BibTeXProvider. This component makes a bibtex-db accessible.
 		/// </summary>
+		/// <param name="bibTexDB">The bibtex db to use.</param>
 		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
 		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
+		/// <param name="requestProcessorTools">Tools to use for processing the request.</param>
 		/// <returns>BibTeXProvider</returns>
 		IHTTPRequestProcessor CreateBibTeXProvider(IBibTexDB bibTexDB, IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools);
 
@@ -180,6 +191,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
 		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
+		/// <param name="requestProcessorTools">Tools to use for processing the request.</param>
 		/// <returns>SimpleTemplateFileProvider</returns>
 		IHTTPRequestProcessor CreateSimpleTemplateFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools);
 
@@ -190,6 +202,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
 		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
+		/// <param name="requestProcessorTools">Tools to use for processing the request.</param>
 		/// <returns>StaticFileProvider</returns>
 		IHTTPRequestProcessor CreateStaticFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools);
 
@@ -200,6 +213,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
 		/// <param name="CorSuccessor">COR-Successor to process HTTPRequest.</param>
+		/// <param name="requestProcessorTools">Tools to use for processing the request.</param>
 		/// <returns>StaticFileProvider</returns>
 		IHTTPRequestProcessor CreateDynamicFileProvider(IHTTPRequestProcessor CorSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools);
 
@@ -210,6 +224,7 @@ namespace Palladio.Webserver.WebserverFactory
 		/// </summary>
 		/// <param name="webserverMonitor">Writes Log-Information to this monitor.</param>
 		/// <param name="webserverConfiguration">The Configuration of the actual webserver.</param>
+		/// <param name="requestProcessorTools">Tools to use for processing the request.</param>
 		/// <returns>DefaultRequestProcessor</returns>
 		IHTTPRequestProcessor CreateDefaultRequestProcessor(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools);
 
@@ -220,10 +235,19 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <summary>
 		/// Creates new <c>IHTTPRequestProcessorTools</c>.
 		/// </summary>
-		/// <param name="webserverMonitor"></param>
-		/// <param name="webserverConfiguration"></param>
-		/// <returns></returns>
+		/// <param name="webserverMonitor">The monitor to use.</param>
+		/// <param name="webserverConfiguration">The configuration to use.</param>
+		/// <returns>Default implementation that returns data to the client.</returns>
 		IHTTPRequestProcessorTools CreateRequestProcessorTools(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration);
+
+		/// <summary>
+		/// Creates IHTTPRequestProcessorTools that compresses the content to be sent to the client
+		/// before passing it to the successor.
+		/// </summary>
+		/// <param name="successor">The successor to pass zipped content to.</param>
+		/// <param name="webserverMonitor">The monitor zu use.</param>
+		/// <returns>Content compressing IHTTPRequestProcessorTools.</returns>
+		IHTTPRequestProcessorTools CreateZipRequestProcessorTools(IHTTPRequestProcessorTools successor, IWebserverMonitor webserverMonitor);
 
 		#endregion
 
@@ -232,9 +256,9 @@ namespace Palladio.Webserver.WebserverFactory
 		/// <summary>
 		/// Creates new <c>IWebserverConfiguration</c>.
 		/// </summary>
-		/// <param name="configReader"></param>
-		/// <param name="pathToConfigFile"></param>
-		/// <param name="xmlConfigFile"></param>
+		/// <param name="configReader">The component to use for reading xml config files.</param>
+		/// <param name="pathToConfigFile">The path to the config file of the webserver.</param>
+		/// <param name="xmlConfigFile">The filename of the config file of the webserver.</param>
 		/// <returns></returns>
 		IWebserverConfiguration CreateWebserverConfiguration(IConfigReader configReader, string pathToConfigFile, string xmlConfigFile);
 
@@ -242,6 +266,10 @@ namespace Palladio.Webserver.WebserverFactory
 
 		#region BibTexDB
 
+		/// <summary>
+		/// Creates a new <see cref="IBibTexDB"/>, which offers acces to bibtex data.
+		/// </summary>
+		/// <returns>A new IBibTexDB instance.</returns>
 		IBibTexDB CreateBibTexDB();
 
 		#endregion

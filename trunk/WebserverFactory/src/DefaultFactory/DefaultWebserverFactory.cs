@@ -20,6 +20,10 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/04/30 12:38:24  kelsaka
+	/// - extended cvs ignore lists
+	/// - added first version of zip compressing request processor tools
+	///
 	/// Revision 1.12  2005/01/07 16:58:02  kelsaka
 	/// Added TimeConsumingProcessor including its documentation and configuration.
 	/// Integrated the new processor into the COR.
@@ -252,6 +256,18 @@ namespace Palladio.Webserver.WebserverFactory
 		public IHTTPRequestProcessorTools CreateRequestProcessorTools(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
 			return new DefaultHTTPRequestProcessorTools(webserverMonitor, webserverConfiguration);
+		}
+
+		/// <summary>
+		/// Creates IHTTPRequestProcessorTools that compresses the content to be sent to the client
+		/// before passing it to the successor.
+		/// </summary>
+		/// <param name="successor">The successor to pass zipped content to.</param>
+		/// <param name="webserverMonitor">The monitor zu use.</param>
+		/// <returns>Content compressing IHTTPRequestProcessorTools.</returns>
+		public IHTTPRequestProcessorTools CreateZipRequestProcessorTools (IHTTPRequestProcessorTools successor, IWebserverMonitor webserverMonitor)
+		{
+			return new ZipHTTPRequestProcessorTools.ZipHTTPRequestProcessorTools(successor, webserverMonitor);
 		}
 
 		#endregion

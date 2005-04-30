@@ -9,7 +9,9 @@ using Palladio.Webserver.WebserverMonitor;
 namespace Palladio.Webserver.HTTPRequestProcessor
 {
 	/// <summary>
-	/// DefaultHTTPRequestProcessorTools.
+	/// DefaultHTTPRequestProcessorTools. The default implementation.
+	/// This implementation should be the last entry in pipe and filter architecture as it
+	/// sends content to the client.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -17,6 +19,10 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/04/30 12:38:24  kelsaka
+	/// - extended cvs ignore lists
+	/// - added first version of zip compressing request processor tools
+	///
 	/// Revision 1.7  2005/01/29 21:47:44  kelsaka
 	/// Added continuous use of NetworkStream (instead of Socket)
 	///
@@ -72,9 +78,6 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 			this.webserverMonitor = webserverMonitor;
 		}
 
-
-
-
 		/// <summary>
 		/// This method sends the header information to the client.
 		/// </summary>
@@ -90,7 +93,6 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 				httpStatusCode = " " + httpStatusCode; //add space between httpVersion and httpStatusCode
 			}
 
-
 			String headerContent = "";
 
 			headerContent += httpVersion + httpStatusCode + "\r\n";
@@ -102,11 +104,6 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 			SendContentToClient(headerContent, networkStream);
 		}
 
-
-
-
-
-
 		/// <summary>
 		/// Generates a standard HTTP-Error and sends it to the client.
 		/// </summary>
@@ -117,7 +114,6 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 		{
 			webserverMonitor.WriteLogEntry("HTTP-Error Code " + errorCode + " | " + errorMessage);
 
-
 			//Format The Message
 			SendHTTPHeader(httpRequest.HttpVersion, "", errorMessage.Length, errorCode, httpRequest.NetworkStream);
 
@@ -125,8 +121,6 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 			SendContentToClient(errorMessage, httpRequest.NetworkStream);
 
 		}
-
-
 
 		/// <summary>
 		/// Sends the data to the client.
@@ -138,7 +132,6 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 			// convert string into byte-array so that it can be sent.			
 			SendContentDataToClient(Encoding.ASCII.GetBytes(contentData), networkStream);
 		}
-
 
 		/// <summary>
 		/// Sends the data to the client.
@@ -154,8 +147,7 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 				{
 					// send data to client:
 					networkStream.Write(contentDataBytes, 0, contentDataBytes.Length);
-				}
-				
+				}			
 				catch (IOException e)
 				{
 					webserverMonitor.WriteDebugMessage("Error: There is a failure while writing to the network: " + e, 1);	
@@ -172,15 +164,12 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 				{
 					webserverMonitor.WriteDebugMessage("Error: Error on sending data to client: " + e, 1);							
 				}
-				
 			}
 			else
 			{
 				webserverMonitor.WriteDebugMessage("Error: Can not write to NetworkStream.", 1);
 			}				
 		}
-
-
 
 		/// <summary>
 		/// Build the path to the actually requested file, either a relative or absolute path.
@@ -193,8 +182,6 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 			return webserverConfiguration.DocumentRoot + requestedPath;
 		}
 
-
-
 		/// <summary>
 		/// Returns the the MimeType for the specified file-type.
 		/// </summary>
@@ -202,7 +189,6 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 		/// <returns>The mimetype. If no fitting mimetype was found the default type is returned.</returns>
 		public string GetFileMimeTypeFor (string requestedFileType)
 		{
-
 			string fileMimeType;
 			// Get the MimeType
 			try
@@ -215,8 +201,6 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 			}
 			return fileMimeType;
 		}
-
-
 
 		/// <summary>
 		/// Opens the file given by the path and the filename.
@@ -246,8 +230,5 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 			fileStream.Close();
 			return bytes;
 		}
-
-
-
 	}
 }
