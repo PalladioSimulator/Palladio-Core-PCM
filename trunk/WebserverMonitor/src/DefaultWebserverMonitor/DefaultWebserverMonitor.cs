@@ -17,6 +17,9 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.10  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -84,7 +87,6 @@ namespace Palladio.Webserver.WebserverMonitor
 		{			
 			this.webserverConfiguration = webserverConfiguration;
 		}
-
 
 		/// <summary>
 		/// Prepares the write access (e. g. file handles) for further access.

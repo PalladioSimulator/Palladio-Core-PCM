@@ -25,6 +25,9 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/05/01 18:27:43  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.10  2005/05/01 17:23:25  kelsaka
 	/// - added further documentation
 	/// - extracted IHTTPRequestProcessorTools as own project
@@ -99,7 +102,16 @@ namespace Palladio.Webserver.BibTeXProvider
 		private IHTTPRequestProcessorTools requestProcessorTools;
 		private BibTeXProviderConfiguration bibTeXProviderConfiguration;
 		private IBibTexDB bibTexDB;
-
+	
+		/// <summary>
+		/// default constructor.
+		/// </summary>
+		/// <param name="bibTexDB">The database to use.</param>
+		/// <param name="corSuccessor">Forwards unhandled requests to this successor in the chain of
+		/// IHTTPRequestProcessors.</param>
+		/// <param name="webserverMonitor">The monitor to use.</param>
+		/// <param name="webserverConfiguration">The configuration to use.</param>
+		/// <param name="requestProcessorTools">The tools to use for processing.</param>
 		public BibTeXProvider(IBibTexDB bibTexDB, IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools )
 		{
 			this.corSuccessor = corSuccessor;
@@ -127,7 +139,6 @@ namespace Palladio.Webserver.BibTeXProvider
 				corSuccessor.HandleRequest(httpRequest);
 				return;
 			}
-
 
 			// Use of the StringBuilder as the string-concatenation (+=) is very little performant.
 			StringBuilder responseString = new StringBuilder();
@@ -163,12 +174,11 @@ namespace Palladio.Webserver.BibTeXProvider
 			}
 		}
 
-
 		/// <summary>
 		/// Reads the configuration at the specified path and creates a BibTeXProviderConfiguration out of the
 		/// information read.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>The components configuration.</returns>
 		private BibTeXProviderConfiguration readConfiguration ()
 		{
 			BibTeXProviderXMLDoc doc = new BibTeXProviderXMLDoc();
@@ -191,7 +201,6 @@ namespace Palladio.Webserver.BibTeXProvider
 
 			return new BibTeXProviderConfiguration(root);
 		}
-
 
 	}
 }

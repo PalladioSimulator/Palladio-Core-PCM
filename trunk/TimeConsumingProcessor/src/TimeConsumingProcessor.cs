@@ -27,6 +27,9 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.3  2005/05/01 17:23:26  kelsaka
 	/// - added further documentation
 	/// - extracted IHTTPRequestProcessorTools as own project
@@ -58,8 +61,16 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 		private const string DEFAULT_XML_CONFIGURATION_FILE = "TimeConsumingProcessorXML.xml";
 		
 
-
-		public TimeConsumingProcessor(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		/// <param name="corSuccessor">Forwards unhandled requests to this successor in the chain of
+		/// IHTTPRequestProcessors.</param>
+		/// <param name="webserverMonitor">The monitor to use.</param>
+		/// <param name="webserverConfiguration">The configuration to use.</param>
+		/// <param name="requestProcessorTools">The tools to use for processing.</param>
+		public TimeConsumingProcessor(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor,
+			IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
 		{
 			this.corSuccessor = corSuccessor;
 			this.webserverMonitor = webserverMonitor;
@@ -68,7 +79,6 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 			this.requestProcessorTools = requestProcessorTools;
 		}
 
-
 		/// <summary>
 		/// This method doesn't processes the given IHTTPRequest. As an early part of the COR that handles the IHTTPRequests
 		/// this methods consumes a specified amount of time, until it forwards the request to the COR-Successor.
@@ -76,7 +86,6 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 		/// <param name="httpRequest">The Request that is forwarded to the COR-Successor.</param>
 		public void HandleRequest(IHTTPRequest httpRequest)
 		{
-
 			// check for component activation:
 			if(timeConsumingConfiguration.Active)
 			{
@@ -116,7 +125,6 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 			corSuccessor.HandleRequest(httpRequest);
 		}
 
-
 		/// <summary>
 		/// Consumes the the given time by busy waiting.
 		/// </summary>
@@ -141,8 +149,6 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 			Thread.Sleep(waitTimeInMillis);
 		}
 
-
-
 		/// <summary>
 		/// Reads the configuration at the specified path and creates a TimeConsumingProcessorConfiguration out of the
 		/// information read.
@@ -150,7 +156,6 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 		/// <returns>Representation of the XML-configuration-files.</returns>
 		private TimeConsumingProcessorConfiguration readConfiguration ()
 		{		
-	
 			TimeConsumingProcessorXMLDoc doc = new TimeConsumingProcessorXMLDoc();
 			doc.SetRootElementName("", "Config");
 

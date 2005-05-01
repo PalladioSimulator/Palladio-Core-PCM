@@ -5,20 +5,30 @@ using SimpleTemplateFileProviderXML;
 namespace Palladio.Webserver.SimpleTemplateFileProvider
 {
 	/// <summary>
-	/// SimpleTemplateFileProviderConfiguration
+	/// SimpleTemplateFileProviderConfiguration. Configuration for the SimpleTemplateFileProvider.
 	/// </summary>
+	/// 
+	/// <remarks>
+	/// <pre>
+	/// Version history:
+	/// $Log$
+	/// Revision 1.3  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
+	/// </pre>
+	/// </remarks>
 	public class SimpleTemplateFileProviderConfiguration
 	{
-
-		
 		private ConfigType configRoot;
 
-
+		/// <summary>
+		/// default constructor.
+		/// </summary>
+		/// <param name="configRoot">The configurtaion documents root.</param>
 		public SimpleTemplateFileProviderConfiguration(ConfigType configRoot)
 		{
 			this.configRoot = configRoot;
 		}
-
 
 		/// <summary>
 		/// The File-Extensions the SimpleTemplateFileProvider handles.
@@ -38,8 +48,6 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 				return fileExtensions;
 			}
 		}
-
-
 
 		/// <summary>
 		/// String that delimits variables-names.

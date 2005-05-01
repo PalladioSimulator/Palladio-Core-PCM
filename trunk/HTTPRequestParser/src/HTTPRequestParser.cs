@@ -12,15 +12,18 @@ using Palladio.Webserver.WebserverMonitor;
 namespace Palladio.Webserver.HTTPRequestParser
 {
 	/// <summary>
-	/// HTTPRequestParser.
+	/// HTTPRequestParser. This component parses HTTP requests. If the given request is not a valid
+	/// request it is passes to the Chain of Responsibility (COR) Successor.
 	/// </summary>
-	/// 
 	/// 
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.19  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.18  2005/01/29 21:47:44  kelsaka
 	/// Added continuous use of NetworkStream (instead of Socket)
 	///
@@ -99,8 +102,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 	///
 	/// Revision 1.1  2004/10/17 17:25:09  kelsaka
 	/// initial cvs-version; added general project structure
-	///
-	///
 	/// </pre>
 	/// </remarks>
 	public class HTTPRequestParser : IRequestParser
@@ -112,6 +113,15 @@ namespace Palladio.Webserver.HTTPRequestParser
 		private IRequestParser corSuccessor;
 		private IRequestFactory requestFactory;
 
+		/// <summary>
+		/// Default constructor. Creates a parser for HTTP requests.
+		/// </summary>
+		/// <param name="requestProcessor">First chain link of the COR for request processors. If the 
+		/// request is parsed successfully this processor is called.</param>
+		/// <param name="corSuccessor">The directly following chain link. Called if the
+		/// request is not a ftp request.</param>
+		/// <param name="webserverMonitor">The monitor to use.</param>
+		/// <param name="webserverConfiguration">The configuration to use.</param>
 		public HTTPRequestParser(IHTTPRequestProcessor requestProcessor, IRequestParser corSuccessor, IWebserverMonitor webserverMonitor,  IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory)
 		{
 			this.webserverMonitor = webserverMonitor;
@@ -120,8 +130,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 			this.corSuccessor = corSuccessor;
 			this.requestFactory = requestFactory;
 		}
-
-
 
 		/// <summary>
 		/// Starts the Parsing-Process of the given request.
@@ -139,7 +147,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 			IHTTPRequest httpRequest = requestFactory.CreateHTTPRequest();
 			httpRequest.NetworkStream = request.NetworkStream;
 
-
 			// Read the content-data of the request
 			try {				
 				requestString = ReadRequestHTTPData(request);	 // IF post: WebLogEntry*
@@ -150,9 +157,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 				corSuccessor.HandleRequest(request);
 				return;
 			}
-
-
-
 
 
 			// FIRST: HTTP-Request? 
@@ -173,8 +177,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 			webserverMonitor.WriteLogEntry("HTTP-request has version " + httpRequest.HttpVersion);
 
 
-
-
 			// SECOND: GET / POST?
 			// get the http-request-type (e. g. post, get):
 			try
@@ -189,14 +191,12 @@ namespace Palladio.Webserver.HTTPRequestParser
 			}
 
 
-
 			// THIRD: Parse
 			// POST-Method:
 			if(httpRequest.RequestedMethodType == (int)RequestTypes.HTTPMethodType.POST_METHOD)
 			{				
 				ParsePostRequest(requestString, httpStartPos, httpRequest);	 // WriteLogEntry*
 			}
-
 			// GET-Method:
 			else if(httpRequest.RequestedMethodType == (int)RequestTypes.HTTPMethodType.GET_METHOD) 
 			{
@@ -204,15 +204,10 @@ namespace Palladio.Webserver.HTTPRequestParser
 			}
 
 
-
-	
-	
 			// FOURTH: Call the RequestProcessor
 			// Handle IHTTPRequest in the requestProcessor. The httpRequest contains all necessary (parsed) data.
 			requestProcessor.HandleRequest(httpRequest);
 		}
-
-
 
 		/// <summary>
 		/// Parses the request and determines, whether it is a HTTP-Request.
@@ -243,7 +238,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 			return httpStartPos;
 		}
 
-
 		/// <summary>
 		/// As the request-structure of a http-request is very special it is neccessary to get it with a method
 		/// which minds about this special features of the request-type.
@@ -252,7 +246,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 		/// <returns>The request-content as a string.</returns>
 		private string ReadRequestHTTPData (IRequest request)
 		{
-			
 			StreamReader reader = new StreamReader(request.NetworkStream);
 			string requestStringBuffer = "";
 			string buffer = "";
@@ -270,14 +263,12 @@ namespace Palladio.Webserver.HTTPRequestParser
 					{
 						buffer = reader.ReadLine();
 					}
-					
 					// break looping if teh is buffer emtpy or the content (from post-requests) has been read:
 					if (buffer == null || buffer.Length <= 0 || contentRead)
 					{
 						break;
 					}
 					
-
 					// for the POST-Variables; that section start with "Content-Length:", so search for it.
 					// This part of the request can not be read by using ReadLine, because its size depends on each request.
 					// The size has to be read from the request itself.
@@ -314,7 +305,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 			return requestStringBuffer;
 		}
 
-
 		/// <summary>
 		/// Parses the rest (httpStartPos) of a get-method-request.
 		/// </summary>
@@ -331,8 +321,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 			httpRequest.RequestedFileType = parseFileType(httpRequest.RequestedFileName);
 		}
 
-
-
 		/// <summary>
 		/// Parses the rest (httpStartPos) of a post-method-request.
 		/// </summary>
@@ -341,8 +329,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 		/// <param name="httpRequest">The http-request that has to be created.</param>
 		private void ParsePostRequest (string requestStringBuffer, int httpStartPos, IHTTPRequest httpRequest)
 		{	
-			
-
 			// sets the filename and the directory of the requested file in the httpRequest as well as
 			// the variabels:
 			setFilenameDirectoryAndGETVariablesInRequest (requestStringBuffer, httpStartPos, httpRequest);
@@ -350,7 +336,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 			// parse file-type (e. g. ".html") out of the filename.
 			httpRequest.RequestedFileType = parseFileType(httpRequest.RequestedFileName);
 
-			
 			// Extract the request-part, that contains the variables-names and values:
 			int contentIndex = requestStringBuffer.IndexOf("Content-Length:");
 			string contentStringPart = requestStringBuffer.Substring(contentIndex, requestStringBuffer.Length - contentIndex);
@@ -362,7 +347,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 			// seperates the string into variables and set as POST-Variables (false):
 			this.parseVariablesAndAddToHTTPRequest(contentStringPart, httpRequest, false);		
 		}
-
 
 		/// <summary>
 		/// Parses the FileType out of the given FileName (file-extension) and returns it.
@@ -384,7 +368,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 			}
 		}
 
-
 		/// <summary>
 		/// Parses the requeststring for the requested filename and directory and sets it in the httpRequest.
 		/// Extracts the GET-Variables from the RequestString and sets it in the HTTPRequest.
@@ -397,19 +380,15 @@ namespace Palladio.Webserver.HTTPRequestParser
 			string requestedFileOrDirectory;
 			string variables;
 
-			
 			// Extract the Requested Type and Requested file/directory
 			// Typical part of the request: "POST /[directory/ies]/[filename] HTTP/1.1"
 			// Positions: after "POST " / "GET "; Length: letters until httpStartPos minus the starting-position of "/" and space
 			int slashIndex = requestStringBuffer.IndexOf("/");
 			requestedFileOrDirectory = requestStringBuffer.Substring(slashIndex, httpStartPos - (1 + slashIndex) );
-
 	
 			// Replace backslashes by forwardslashes
 			requestedFileOrDirectory.Replace("\\", "/");
 				
-
-
 			// If file name is not supplied add forward slash to indicate 
 			// that it is a directory and then we will look for the 
 			// default file name..
@@ -418,11 +397,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 				requestedFileOrDirectory = requestedFileOrDirectory + "/"; 
 			}
 	
-	
 			//Extract the requested file name, in this step including "?xxxxx=aaaaa".
 			httpStartPos = requestedFileOrDirectory.LastIndexOf("/") + 1;
 			httpRequest.RequestedFileName = requestedFileOrDirectory.Substring(httpStartPos);
-
 
 			// remove "?xxxxxx=aaaa.." from the string and save this part to variables.
 			int qmarkPosition = httpRequest.RequestedFileName.IndexOf('?');
@@ -435,16 +412,12 @@ namespace Palladio.Webserver.HTTPRequestParser
 				// second: remove variables-part from the RequestedFileName-string:
 				httpRequest.RequestedFileName = httpRequest.RequestedFileName.Substring(0, qmarkPosition);
 			}
-
-
-
 				
 			//Extract The directory Name
 			httpRequest.RequestedDirectoryName = requestedFileOrDirectory.Substring(0, requestedFileOrDirectory.LastIndexOf("/") + 1);
 	
 			webserverMonitor.WriteLogEntry("Requested directory | file: " + httpRequest.RequestedDirectoryName + " | " + httpRequest.RequestedFileName);
 		}
-
 
 		/// <summary>
 		/// Parses the string containing the variables of a GET-request (like e. g. "?xxxxx=aaaaa&yyyyy=bbbbb&..".
@@ -460,7 +433,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 			{
 				variables = variables.Remove(0, 1);
 			}
-
 
 			string keyValuePair;
 			string key;
@@ -486,7 +458,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 				}
 				
 
-
 				// SECOND: split the Key/Value-Pairs found into key and value.
 				equalsIndex = keyValuePair.IndexOf('=');				
 				if(equalsIndex == -1) //otherwise empty variable-value without "=" (last variable-position)
@@ -503,7 +474,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 				key = keyValuePair.Substring(0, equalsIndex); //remove rest (value-part) including "="-position
 
 
-
 				// THIRD: save key-value-pairs.
 				if(setGETVariables) 
 				{
@@ -516,10 +486,7 @@ namespace Palladio.Webserver.HTTPRequestParser
 					webserverMonitor.WriteLogEntry("POST-Variables, Key | Value: " + key + " | " + value);									
 				}
 			}
-
-			
 		}
-
 
 		/// <summary>
 		/// Searches in the request for the http-request-type (e. g. post or get)
@@ -528,7 +495,6 @@ namespace Palladio.Webserver.HTTPRequestParser
 		/// <returns>The type of request represented in int (see DefaultHTTPRequest).</returns>
 		private int parseRequestMethod (string requestStringBuffer)
 		{
-
 			// Get the request-method:
 			if(requestStringBuffer.Substring(0,3) == "GET")
 			{
@@ -542,10 +508,8 @@ namespace Palladio.Webserver.HTTPRequestParser
 				return  (int)RequestTypes.HTTPMethodType.POST_METHOD;
 			}
 
-
 			throw new NoValidRequestTypeException();	
 		}
-
 
 	}
 }

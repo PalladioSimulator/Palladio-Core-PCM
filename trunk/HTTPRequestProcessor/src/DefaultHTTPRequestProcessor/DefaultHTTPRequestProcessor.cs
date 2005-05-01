@@ -17,6 +17,9 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.8  2005/05/01 17:23:26  kelsaka
 	/// - added further documentation
 	/// - extracted IHTTPRequestProcessorTools as own project
@@ -69,13 +72,19 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// </remarks>
 	public class DefaultHTTPRequestProcessor : IHTTPRequestProcessor
 	{
+		/// <summary>
+		/// default constructor.
+		/// </summary>
+		/// <param name="webserverMonitor">the monitor to use.</param>
+		/// <param name="webserverConfiguration">the configuration to use.</param>
+		/// <param name="requestProcessorTools">the tools to use. specify the first </param>
 		public DefaultHTTPRequestProcessor(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
 		{
-
 		}
 
 		/// <summary>
-		/// Proceeds on creating a answer to the httpRequest.
+		/// Proceeds on creating a answer to the httpRequest. This method will always cause
+		/// a <see cref="NotImplementedException"/>.
 		/// </summary>
 		/// <param name="httpRequest">The HTTP-Request.</param>
 		public void HandleRequest (IHTTPRequest httpRequest)

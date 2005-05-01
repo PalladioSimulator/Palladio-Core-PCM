@@ -12,6 +12,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.1  2004/11/01 07:42:16  kelsaka
 	/// *** empty log message ***
 	///
@@ -19,6 +22,9 @@ namespace Palladio.Webserver.HTTPRequestParser
 	/// </remarks>
 	public class NoValidRequestTypeException : Exception
 	{
+		/// <summary>
+		/// default constructor.
+		/// </summary>
 		public NoValidRequestTypeException()
 		{
 

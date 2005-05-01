@@ -13,6 +13,9 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.1  2005/01/07 16:58:02  kelsaka
 	/// Added TimeConsumingProcessor including its documentation and configuration.
 	/// Integrated the new processor into the COR.
@@ -32,16 +35,18 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 		
 		private ConfigType configRoot;
 
-
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		/// <param name="configRoot">The documents root.</param>
 		public TimeConsumingProcessorConfiguration(ConfigType configRoot)
 		{
 			this.configRoot = configRoot;
 		}
 
-
-
 		/// <summary>
-		/// Returns, wether the component is activated.
+		/// Returns, wether the component is activated (if true it consumes time; else it simply delegates
+		/// to COR-Successor).
 		/// </summary>
 		public bool Active
 		{
@@ -113,8 +118,6 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 				return configRoot.Seed.InitialSeed.IntValue();
 			}
 		}
-
-
 
 	}
 }

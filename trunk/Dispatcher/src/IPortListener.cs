@@ -19,6 +19,9 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/05/01 18:27:43  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.3  2005/05/01 17:23:26  kelsaka
 	/// - added further documentation
 	/// - extracted IHTTPRequestProcessorTools as own project
@@ -34,7 +37,7 @@ namespace Palladio.Webserver.Dispatcher
 	{
 
 		/// <summary>
-		/// Set to true
+		/// Set to true if the port listener shall continue listening; false else
 		/// </summary>
 		bool IsRunning { get; set; }
 

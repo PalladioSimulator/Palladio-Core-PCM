@@ -3,15 +3,17 @@ using System;
 namespace Palladio.Webserver.WebserverMonitor
 {
 	/// <summary>
-	/// IWebserverMonitor.
+	/// IWebserverMonitor. Interface used by the monitor. Offers methods to supervise the webserver.
 	/// </summary>
-	/// 
 	/// 
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.5  2004/10/25 06:35:51  kelsaka
 	/// added XML-reading-abilities
 	///

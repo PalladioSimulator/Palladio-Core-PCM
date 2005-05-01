@@ -16,6 +16,9 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/05/01 18:27:43  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.3  2004/12/18 10:06:48  kelsaka
 	/// Added CVS-logs and some comments.
 	///
@@ -26,11 +29,18 @@ namespace Palladio.Webserver.BibTeXProvider
 	{
 		private string connectionString;
 
+		/// <summary>
+		/// default constructor.
+		/// </summary>
+		/// <param name="connectionString">The connection to the database to use.</param>
 		public BibTexDB(string connectionString)
 		{
 			this.connectionString = connectionString;
 		}
 
+		/// <summary>
+		/// Connection string used for the retrieval of the BibTex Entries.
+		/// </summary>
 		public string ConnectionString
 		{
 			set { connectionString = value; }
@@ -61,7 +71,6 @@ namespace Palladio.Webserver.BibTeXProvider
 				sqlRequest.Append(BuildWhereClause (httpRequest, bibTeXFieldNames)); 
 
 				sqlRequest.Append(";");
-
 
 				SqlCommand sqlCommand = new SqlCommand(sqlRequest.ToString(), connection);		
 				sqlDataReader = sqlCommand.ExecuteReader();
@@ -127,7 +136,6 @@ namespace Palladio.Webserver.BibTeXProvider
 			}
 			responseString.Append("</tr>\n");
 	
-	
 			// write content:
 			while (sqlDataReader.Read()) 
 			{
@@ -167,7 +175,6 @@ namespace Palladio.Webserver.BibTeXProvider
 				// convert SQL-Escape-Characters:
 				value = value.Replace("\"", "\\\""); //  " to \"
 				value = value.Replace("\'", "\\\'"); //  ' to \'
-
 
 				if(value != "")
 				{

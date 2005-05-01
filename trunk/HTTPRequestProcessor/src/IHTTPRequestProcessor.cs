@@ -1,5 +1,6 @@
 using System;
 using Palladio.Webserver.Request;
+using Palladio.Webserver.RequestProcessor;
 
 namespace Palladio.Webserver.HTTPRequestProcessor
 {
@@ -14,6 +15,9 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.5  2005/01/22 16:42:56  kelsaka
 	/// added configureable (XML) connection-string for the database;
 	/// added thread-name for the main thread;
@@ -53,10 +57,8 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// 
 	/// </pre>
 	/// </remarks>
-	public interface IHTTPRequestProcessor
+	public interface IHTTPRequestProcessor : IRequestProcessor
 	{
-		
-
 		/// <summary>
 		/// Proceeds on creating a answer to the httpRequest.
 		/// </summary>
