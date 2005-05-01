@@ -43,7 +43,16 @@ namespace Palladio.Webserver.Dispatcher
 		private IPAddress address;
 		private bool isRunning;
 
-
+		/// <summary>
+		/// default constructor.
+		/// </summary>
+		/// <param name="requestParser">The first request parser from the CoR.</param>
+		/// <param name="webserverMonitor">The monitor to use.</param>
+		/// <param name="webserverConfiguration">The configuration to use.</param>
+		/// <param name="port">The port to listen on.</param>
+		/// <param name="address">The ip-address to listen on.</param>
+		/// <param name="requestFactory">The factory to create requests with.</param>
+		/// <returns>A new port listener.</returns>
 		public PortListener(IRequestParser requestParser, IWebserverMonitor webserverMonitor,
 		                       IWebserverConfiguration webserverConfiguration, int port, IPAddress address, IRequestFactory requestFactory)
 		{
@@ -106,7 +115,6 @@ namespace Palladio.Webserver.Dispatcher
 
 			try
 			{
-
 				// Thread handling changed:
 				//  Instead of calling the Thread.Abort() method, each
 				//  thread instance contains a variable IsRunning which is
@@ -145,7 +153,6 @@ namespace Palladio.Webserver.Dispatcher
 						+ ", Socket-RemoteEndPoint: " + clientSocket.RemoteEndPoint;
 					threadInfo.ExecutingThread.Start();
 
-
 					// save reference to the ThreadInfo
 					threadList.Add(threadInfo);
 				}
@@ -165,7 +172,6 @@ namespace Palladio.Webserver.Dispatcher
 			}
 		}
 
-
 		/// <summary>
 		/// Adjusts the size of the ThreadPool. If to little unused threads are available the size
 		/// will be increased.
@@ -184,10 +190,11 @@ namespace Palladio.Webserver.Dispatcher
 
 			if(workerThreads < 3 || completionPortThreads < 3)
 			{
-				// adjust size
-				// CorSetMaxThreads	
+				// Maybe: adjust size
+				// At the moment the .net framework adjusts the size of the thread pool. Even
+				// with a lot of simultaneous requests there seem to be no problems concerning 
+				// the creation of threads.
 			}
-			
 		}
 	}
 }

@@ -19,12 +19,14 @@ namespace Palladio.Webserver.StaticFileProvider
 	/// file will be returned.
 	/// </summary>
 	/// 
-	/// 
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.13  2005/05/01 17:23:26  kelsaka
 	/// - added further documentation
 	/// - extracted IHTTPRequestProcessorTools as own project
@@ -96,12 +98,19 @@ namespace Palladio.Webserver.StaticFileProvider
 	/// </remarks>
 	public class StaticFileProvider : IHTTPRequestProcessor
 	{
-
 		IWebserverMonitor webserverMonitor;
 		IWebserverConfiguration webserverConfiguration;
 		IHTTPRequestProcessor corSuccessor;
 		IHTTPRequestProcessorTools requestProcessorTools;
-
+	
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		/// <param name="corSuccessor">Forwards unhandled requests to this successor in the chain of
+		/// IHTTPRequestProcessors.</param>
+		/// <param name="webserverMonitor">The monitor to use.</param>
+		/// <param name="webserverConfiguration">The configuration to use.</param>
+		/// <param name="requestProcessorTools">The tools to use for processing.</param>
 		public StaticFileProvider(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
 		{
 			this.webserverMonitor = webserverMonitor;
@@ -117,8 +126,6 @@ namespace Palladio.Webserver.StaticFileProvider
 		/// <param name="httpRequest">The HTTP-Request.</param>
 		public void HandleRequest (IHTTPRequest httpRequest)
 		{
-
-
 			// Path to the requestedFile:
 			string completePath = requestProcessorTools.BuildCompletePath(httpRequest.RequestedDirectoryName);
 			if(!Directory.Exists(completePath))
@@ -127,8 +134,6 @@ namespace Palladio.Webserver.StaticFileProvider
 					"<h1>Error! The requested directory does not exist.</h1>", "404 Not Found");
 				return;
 			}
-
-
 
 			// The filename effectively requested by the client.
 			// E. g. if only a directoy is specified this is the default filename:
@@ -140,21 +145,13 @@ namespace Palladio.Webserver.StaticFileProvider
 				return;
 			}
 
-
-
 			webserverMonitor.WriteLogEntry("Full filename and path effectively requested: " + completePath + requestedFileName);
 			// The MimeType of the requested File.
 			string fileMimeType = requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType);
 			webserverMonitor.WriteLogEntry("Mime Type found: " + fileMimeType);
 
-
-
-
 			DeliverStaticFile (completePath, requestedFileName, httpRequest, fileMimeType);			
 		}
-
-
-
 
 		/// <summary>
 		/// Sends the specified file to the client.
@@ -171,13 +168,6 @@ namespace Palladio.Webserver.StaticFileProvider
 			webserverMonitor.WriteLogEntry("Successfully sent response to client.");
 		}
 
-
-
-
-
-
-
-
 		/// <summary>
 		/// Get the filename that will be delivered after all; using the default-filename-settings.
 		/// </summary>
@@ -186,13 +176,10 @@ namespace Palladio.Webserver.StaticFileProvider
 		/// <returns>The Filename. In a case, that only a directory-name is specified
 		/// (httpRequest-filename is empty) the default filename is used (see webserer-configuration (XML)).</returns>
 		private string GetEffectivelyRequestedFilename (string requestedFileName, string completePath)
-		{
-			
-
+		{		
 			// get the filename and add it to the path:
 			if(requestedFileName == "")
-			{
-				
+			{			
 				// Try for default Filenames as the requestedFileName is not specified:
 				// JH: foreach is nicer, especially for the Seffs
 				foreach (string defaultFileName in webserverConfiguration.DefaultFileNames)
@@ -206,11 +193,8 @@ namespace Palladio.Webserver.StaticFileProvider
 					}				
 				}
 			}
-
 			return requestedFileName;
 		}
-
-
 
 	}
 }

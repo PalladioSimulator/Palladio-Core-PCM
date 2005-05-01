@@ -14,7 +14,8 @@ using WebserverXML;
 namespace Palladio.Webserver
 {
 	/// <summary>
-	/// This is the main webserver-component which provides the ability to create a default configuration of the webserver.
+	/// This is the main webserver-component which provides the ability to create a default
+	/// configuration of the webserver.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -22,6 +23,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.7  2005/05/01 17:23:26  kelsaka
 	/// - added further documentation
 	/// - extracted IHTTPRequestProcessorTools as own project
@@ -122,7 +126,6 @@ namespace Palladio.Webserver
 	/// </remarks>
 	public class Webserver
 	{
-
 		private IConfigReader configReader;
 		private IWebserverConfiguration webserverConfiguration;
 		private IWebserverMonitor webserverMonitor;
@@ -131,6 +134,10 @@ namespace Palladio.Webserver
 		private IRequestParser[] requestParsers;
 		public IDispatcher dispatcher;
 
+		/// <summary>
+		/// Hide the default constructor.
+		/// </summary>
+		private Webserver() {}
 
 		/// <summary>
 		/// accesses the default webserver monitor.
@@ -140,41 +147,53 @@ namespace Palladio.Webserver
 			get { return webserverMonitor; }
 		}
 
+		/// <summary>
+		/// accesses the config reader 
+		/// </summary>
 		public IConfigReader ConfigReader
 		{
 			get { return configReader; }
 		}
 
+		/// <summary>
+		/// accesses the conf.
+		/// </summary>
 		public IWebserverConfiguration WebserverConfiguration
 		{
 			get { return webserverConfiguration; }
 		}
 
+		/// <summary>
+		/// accesses the chain of IHTTPRequestProcessorTools
+		/// </summary>
 		public IHTTPRequestProcessorTools[] RequestProcessorTools
 		{
 			get { return requestProcessorTools; }
 		}
 
+		/// <summary>
+		/// accesses the chain of IHTTPRequestProcessors
+		/// </summary>
 		public IHTTPRequestProcessor[] HttpRequestProcessors
 		{
 			get { return httpRequestProcessors; }
 		}
 
+		/// <summary>
+		/// accesses the chain of IRequestParsers
+		/// </summary>
 		public IRequestParser[] RequestParsers
 		{
 			get { return requestParsers; }
 		}
 
+		/// <summary>
+		/// accesses the dispatcher
+		/// </summary>
 		public IDispatcher Dispatcher
 		{
 			get { return dispatcher; }
 		}
-
-		/// <summary>
-		/// Hide the default constructor.
-		/// </summary>
-		private Webserver() {}
-
 
 		/// <summary>
 		/// Starts the server.
@@ -194,6 +213,16 @@ namespace Palladio.Webserver
 			webserverMonitor.FinishWriteAccess();
 		}
 
+		/// <summary>
+		/// Creates a default configuration of the webserver. If no other configuration is selected this
+		/// one should be used.
+		/// </summary>
+		/// <param name="webserverFactory">Factory to build the webserver with.</param>
+		/// <param name="requestFactory">Factory for building requests.</param>
+		/// <param name="portListenerFactory">Factory for the port listeners</param>
+		/// <param name="pathToConfigFile">The path to the configurations file(s).</param>
+		/// <param name="xmlConfigFile">The base configuration file.</param>
+		/// <returns>A new default webserver instance.</returns>
 		public static Webserver CreateDefaultConfiguration(IWebserverFactory webserverFactory, IRequestFactory requestFactory, IPortListenerFactory portListenerFactory, string pathToConfigFile, string xmlConfigFile)
 		{
 			Webserver webserver = new Webserver();

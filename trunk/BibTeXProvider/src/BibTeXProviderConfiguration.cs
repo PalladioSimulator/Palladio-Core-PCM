@@ -13,6 +13,9 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/05/01 18:27:43  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.3  2005/04/25 13:20:27  kelsaka
 	/// - fixed wrong order in CoR: Templates were not handled any more
 	///
@@ -31,13 +34,15 @@ namespace Palladio.Webserver.BibTeXProvider
 
 		private ConfigType configRoot;
 
-
+		/// <summary>
+		/// default constructor
+		/// </summary>
+		/// <param name="configRoot">the root for the config document.</param>
 		public BibTeXProviderConfiguration(ConfigType configRoot)
 		{
 			this.configRoot = configRoot;
 			
 		}
-
 
 		/// <summary>
 		/// Name of the Database-Server.
@@ -104,7 +109,6 @@ namespace Palladio.Webserver.BibTeXProvider
 				return configRoot.GetDatabaseAdditionalConnectionString().GetValue().Value;
 			}
 		}
-
 
 		/// <summary>
 		/// The following FieldNames are taken into consideration to search for BibTeX-Entries in the DB. This means

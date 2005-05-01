@@ -21,6 +21,9 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2005/05/01 18:27:44  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.15  2005/05/01 17:23:26  kelsaka
 	/// - added further documentation
 	/// - extracted IHTTPRequestProcessorTools as own project
@@ -151,8 +154,6 @@ namespace Palladio.Webserver.WebserverFactory
 
 		#region RequestParsers
 
-
-
 		/// <summary>
 		/// Creates a HTTPRequestParser. This component can handle requests in a Chain Of Responsibility (COR).
 		/// </summary>
@@ -186,8 +187,6 @@ namespace Palladio.Webserver.WebserverFactory
 			return new DefaultRequestParser(webserverMonitor, webserverConfiguration);
 		}
 
-
-
 		#endregion
 
 		#region RequestProcessors
@@ -204,7 +203,6 @@ namespace Palladio.Webserver.WebserverFactory
 		{
 			return new TimeConsumingProcessor.TimeConsumingProcessor(corSuccessor, webserverMonitor, webserverConfiguration, requestProcessorTools);
 		}
-
 
 		/// <summary>
 		/// Creates a BibTeXProvider. This component makes a bibtex-db accessible.
@@ -231,7 +229,6 @@ namespace Palladio.Webserver.WebserverFactory
 		{
 			return new SimpleTemplateFileProvider.SimpleTemplateFileProvider(CorSuccessor, webserverMonitor, webserverConfiguration, requestProcessorTools);
 		}
-
 
 		/// <summary>
 		/// Creates a StaticFileProvider.
@@ -293,6 +290,13 @@ namespace Palladio.Webserver.WebserverFactory
 
 		#region WebserverConfiguration
 
+		/// <summary>
+		/// Creates new <c>IWebserverConfiguration</c>.
+		/// </summary>
+		/// <param name="configReader">The component to use for reading xml config files.</param>
+		/// <param name="pathToConfigFile">The path to the config file of the webserver.</param>
+		/// <param name="xmlConfigFile">The filename of the config file of the webserver.</param>
+		/// <returns>The configuration.</returns>
 		public IWebserverConfiguration CreateWebserverConfiguration(IConfigReader configReader, string pathToConfigFile, string xmlConfigFile)
 		{
 			IWebserverConfiguration webserverConfiguration = new WebserverConfiguration(
@@ -307,6 +311,10 @@ namespace Palladio.Webserver.WebserverFactory
 
 		#region BibTexDB
 
+		/// <summary>
+		/// Creates a new empty IBibTexDB.
+		/// </summary>
+		/// <returns>A new instance of the bibtex DB.</returns>
 		public IBibTexDB CreateBibTexDB()
 		{
 			return new BibTexDB("");

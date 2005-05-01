@@ -13,6 +13,9 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/05/01 18:27:43  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.6  2005/05/01 17:23:25  kelsaka
 	/// - added further documentation
 	/// - extracted IHTTPRequestProcessorTools as own project
@@ -46,6 +49,5 @@ namespace Palladio.Webserver.ConfigReader
 		/// <param name="configPathFile">Path to XML-config-file including filename. All Webserver-Config-XMLs need to have a root-element called "Config".</param>
 		/// <returns>Deliveres the configuration root-object</returns>
 		ConfigType ReadConfiguration (string configPathFile);
-
 	}
 }
