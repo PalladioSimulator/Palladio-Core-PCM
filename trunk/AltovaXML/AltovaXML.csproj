@@ -29,7 +29,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = "doc.xml"
+                    DocumentationFile = ""
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "true"
@@ -107,4 +107,3 @@
         </Files>
     </CSHARP>
 </VisualStudioProject>
-

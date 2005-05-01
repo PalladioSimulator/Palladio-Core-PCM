@@ -10,6 +10,11 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/05/01 17:23:26  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.5  2005/01/22 16:42:56  kelsaka
 	/// added configureable (XML) connection-string for the database;
 	/// added thread-name for the main thread;
@@ -56,20 +61,15 @@ namespace Palladio.Webserver.Dispatcher
 	/// </remarks>
 	public interface IDispatcher
 	{
-
 		/// <summary>
 		/// Starts the dispatcher which is using threads to handle requests. This means that the webserver starts
 		/// listening at the defined ports.
 		/// </summary>
 		void Start();
 
-
 		/// <summary>
 		/// Stops the dispatcher. This includes the service of the webserver.
 		/// </summary>
 		void Stop();
-
-
-
 	}
 }

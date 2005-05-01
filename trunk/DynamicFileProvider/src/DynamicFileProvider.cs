@@ -1,21 +1,27 @@
 using System;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.HTTPRequestProcessor;
+using Palladio.Webserver.HTTPRequestProcessorTools;
 using Palladio.Webserver.Request;
 using Palladio.Webserver.WebserverMonitor;
 
 namespace Palladio.Webserver.DynamicFileProvider
 {
 	/// <summary>
-	/// DynamicFileProvider.
-	/// </summary>
-	/// 
-	/// 
+	/// DynamicFileProvider. This component currently only calls its CoR-Successor. No dynamic content
+	/// will be delivered. All requests will be forwarded.
+	/// </summary> 
 	/// <remarks>
+	/// Use this component for future extensions like mighty dynamic functionionality.
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/05/01 17:23:26  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.8  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -73,7 +79,8 @@ namespace Palladio.Webserver.DynamicFileProvider
 		private IWebserverMonitor webserverMonitor;
 		private IHTTPRequestProcessor corSuccessor;
 
-		public DynamicFileProvider(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
+		public DynamicFileProvider(IHTTPRequestProcessor corSuccessor, IWebserverMonitor webserverMonitor,
+			IWebserverConfiguration webserverConfiguration, IHTTPRequestProcessorTools requestProcessorTools)
 		{
 			this.corSuccessor = corSuccessor;
 			this.webserverMonitor = webserverMonitor;

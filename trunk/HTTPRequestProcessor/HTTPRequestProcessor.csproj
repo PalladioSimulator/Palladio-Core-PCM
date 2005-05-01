@@ -99,6 +99,11 @@
                     AssemblyName = "System.Web"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.dll"
                 />
+                <Reference
+                    Name = "HTTPRequestProcessorTools"
+                    Project = "{A2F658E0-F247-48BE-B9AE-FF00FBD32A61}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
@@ -114,17 +119,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\IHTTPRequestProcessorTools.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\DefaultHTTPRequestProcessor\DefaultHTTPRequestProcessor.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\DefaultHTTPRequestProcessor\DefaultHTTPRequestProcessorTools.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

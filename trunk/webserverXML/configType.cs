@@ -49,6 +49,12 @@ namespace WebserverXML
 				new ListenIPType(DOMNode).AdjustPrefix();
 			}
 
+			for (int i = 0; i < DomChildCount(NodeType.Element, "", "ServerName"); i++)
+			{
+				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "ServerName", i);
+				InternalAdjustPrefix(DOMNode, false);
+			}
+
 			for (int i = 0; i < DomChildCount(NodeType.Element, "", "DocumentRoot"); i++)
 			{
 				XmlNode DOMNode = GetDomChildAt(NodeType.Element, "", "DocumentRoot", i);
@@ -542,6 +548,156 @@ namespace WebserverXML
     	}
 
         #endregion // ListenIP collection
+
+		#region ServerName accessor methods
+		public int GetServerNameMinCount()
+		{
+			return 1;
+		}
+
+		public int ServerNameMinCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetServerNameMaxCount()
+		{
+			return 1;
+		}
+
+		public int ServerNameMaxCount
+		{
+			get
+			{
+				return 1;
+			}
+		}
+
+		public int GetServerNameCount()
+		{
+			return DomChildCount(NodeType.Element, "", "ServerName");
+		}
+
+		public int ServerNameCount
+		{
+			get
+			{
+				return DomChildCount(NodeType.Element, "", "ServerName");
+			}
+		}
+
+		public bool HasServerName()
+		{
+			return HasDomChild(NodeType.Element, "", "ServerName");
+		}
+
+		public SchemaString GetServerNameAt(int index)
+		{
+			return new SchemaString(GetDomNodeValue(GetDomChildAt(NodeType.Element, "", "ServerName", index)));
+		}
+
+		public SchemaString GetServerName()
+		{
+			return GetServerNameAt(0);
+		}
+
+		public SchemaString ServerName
+		{
+			get
+			{
+				return GetServerNameAt(0);
+			}
+		}
+
+		public void RemoveServerNameAt(int index)
+		{
+			RemoveDomChildAt(NodeType.Element, "", "ServerName", index);
+		}
+
+		public void RemoveServerName()
+		{
+			while (HasServerName())
+				RemoveServerNameAt(0);
+		}
+
+		public void AddServerName(SchemaString newValue)
+		{
+			AppendDomChild(NodeType.Element, "", "ServerName", newValue.ToString());
+		}
+
+		public void InsertServerNameAt(SchemaString newValue, int index)
+		{
+			InsertDomChildAt(NodeType.Element, "", "ServerName", index, newValue.ToString());
+		}
+
+		public void ReplaceServerNameAt(SchemaString newValue, int index)
+		{
+			ReplaceDomChildAt(NodeType.Element, "", "ServerName", index, newValue.ToString());
+		}
+		#endregion // ServerName accessor methods
+
+		#region ServerName collection
+        public ServerNameCollection	MyServerNames = new ServerNameCollection( );
+
+        public class ServerNameCollection: IEnumerable
+        {
+            ConfigType parent;
+            public ConfigType Parent
+			{
+				set
+				{
+					parent = value;
+				}
+			}
+			public ServerNameEnumerator GetEnumerator() 
+			{
+				return new ServerNameEnumerator(parent);
+			}
+		
+			IEnumerator IEnumerable.GetEnumerator() 
+			{
+				return GetEnumerator();
+			}
+        }
+
+        public class ServerNameEnumerator: IEnumerator 
+        {
+			int nIndex;
+			ConfigType parent;
+			public ServerNameEnumerator(ConfigType par) 
+			{
+				parent = par;
+				nIndex = -1;
+			}
+			public void Reset() 
+			{
+				nIndex = -1;
+			}
+			public bool MoveNext() 
+			{
+				nIndex++;
+				return(nIndex < parent.ServerNameCount );
+			}
+			public SchemaString  Current 
+			{
+				get 
+				{
+					return(parent.GetServerNameAt(nIndex));
+				}
+			}
+			object IEnumerator.Current 
+			{
+				get 
+				{
+					return(Current);
+				}
+			}
+    	}
+
+        #endregion // ServerName collection
 
 		#region DocumentRoot accessor methods
 		public int GetDocumentRootMinCount()
@@ -1448,6 +1604,7 @@ namespace WebserverXML
             Myxmlns_xsis.Parent = this; 
             Myxsi_noNamespaceSchemaLocations.Parent = this; 
             MyListenIPs.Parent = this; 
+            MyServerNames.Parent = this; 
             MyDocumentRoots.Parent = this; 
             MyLogFiles.Parent = this; 
             MyDebugFiles.Parent = this; 

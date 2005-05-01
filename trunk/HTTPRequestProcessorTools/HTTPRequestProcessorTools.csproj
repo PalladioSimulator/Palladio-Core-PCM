@@ -3,13 +3,13 @@
         ProjectType = "Local"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{9D7EC984-BE9F-1843-B6D4-74ED3BFCBF64}"
+        ProjectGuid = "{A2F658E0-F247-48BE-B9AE-FF00FBD32A61}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "WebserverXML"
+                AssemblyName = "HTTPRequestProcessorTools"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "WebserverXML"
+                RootNamespace = "HTTPRequestProcessorTools"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -32,7 +32,7 @@
                     DocumentationFile = ""
                     DebugSymbols = "true"
                     FileAlignment = "4096"
-                    IncrementalBuild = "true"
+                    IncrementalBuild = "false"
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "false"
@@ -67,27 +67,32 @@
                 <Reference
                     Name = "System"
                     AssemblyName = "System"
-                    HintPath = "..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
                 />
                 <Reference
                     Name = "System.Data"
                     AssemblyName = "System.Data"
-                    HintPath = "..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
                 />
                 <Reference
                     Name = "System.XML"
-                    AssemblyName = "System.Xml"
-                    HintPath = "..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                    AssemblyName = "System.XML"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "Altova.XML"
-                    Project = "{03AAA791-EC2D-4A90-ABBF-45337E52DFD6}"
-                    Package = "{5D458EA4-4826-4648-A52F-CF3D0787600F}"
+                    Name = "ConfigReader"
+                    Project = "{749CB836-B6B7-42F5-9998-11B21736E143}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "Altova"
-                    Project = "{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}"
-                    Package = "{5D458EA4-4826-4648-A52F-CF3D0787600F}"
+                    Name = "Request"
+                    Project = "{CA375D44-037E-4023-8FC7-4E61C73D778E}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "WebserverMonitor"
+                    Project = "{17051EB1-494F-4029-AE3B-BA4334E9EB0F}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>
@@ -99,62 +104,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "WebserverXMLDoc.cs"
+                    RelPath = "src\IHTTPRequestProcessorTools.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "ConfigType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "DebugFileType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "DefaultFilesType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "DocumentRootType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "FileNameType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ListenIPType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "LogFileType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "MimeTypeType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "MimeTypesType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "PortType.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "PortsType.cs"
+                    RelPath = "src\DefaultHTTPRequestProcessorTools\DefaultHTTPRequestProcessorTools.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

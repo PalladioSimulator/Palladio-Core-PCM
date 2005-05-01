@@ -4,6 +4,9 @@
 	<!--ListenIP: The IP the webserver shall be listening on. By default (and only local use) you may use "127.0.0.1". Otherwise use the IP-address for the used network-interface.-->
 	<ListenIP ip="127.0.0.1"></ListenIP>
 
+	<!--Name of the webserver that is sent in the http-header.-->
+	<ServerName>Palladio.Webserver/v0.1</ServerName>
+
 	<!--DocumentRoot: the path where the documents, that are delivered by the webserver, can be found. (default: "../../../documents")-->
 	<DocumentRoot path="../../../documents"></DocumentRoot>
 	

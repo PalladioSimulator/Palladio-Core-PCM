@@ -18,6 +18,11 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/05/01 17:23:25  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.9  2004/12/08 16:07:11  kelsaka
 	/// - added: the webserver halts if the config-file can not be found. To make the webserver
 	///  use easier the error-message describes how to set the paths (commandline and VS.NET)
@@ -53,13 +58,12 @@ namespace Palladio.Webserver.ConfigReader
 	public class XMLConfigReader : IConfigReader
 	{
 
-
+		/// <summary>
+		/// default constructor
+		/// </summary>
 		public XMLConfigReader()
 		{
-
 		}
-
-
 
 		/// <summary>
 		/// Read the configuration at the specified path. Afterwards the setting can be accessed by GetValue.

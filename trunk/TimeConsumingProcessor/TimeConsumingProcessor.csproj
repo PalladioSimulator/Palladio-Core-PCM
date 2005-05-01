@@ -114,6 +114,11 @@
                     Project = "{D43E6C54-2DF5-454E-9566-DFFE2F3A6946}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "HTTPRequestProcessorTools"
+                    Project = "{A2F658E0-F247-48BE-B9AE-FF00FBD32A61}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

@@ -17,6 +17,11 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/01 17:23:26  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.1  2005/02/02 17:34:57  kelsaka
 	/// Added multi-threading to handle requests.
 	/// Added short architectural description.
@@ -26,8 +31,6 @@ namespace Palladio.Webserver.Dispatcher
 	/// </remarks>
 	public interface IRequestHandlerFactory
 	{
-
-
 		/// <summary>
 		/// Offers methods to create IPortListeners.
 		/// </summary>

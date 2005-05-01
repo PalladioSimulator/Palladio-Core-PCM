@@ -15,6 +15,11 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/05/01 17:23:26  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.5  2005/04/14 13:21:35  sliver
 	/// l
 	///
@@ -81,7 +86,7 @@ namespace Palladio.Webserver
 			// Check for the desired configuration type:
 			switch (configType)
 			{
-					// default case; no special config-advices:
+				// default case; no special config-advices:
 				case "":
 					webserver = Webserver.CreateDefaultConfiguration(webserverFactory, requestFactory, portListenerFactory, pathToConfigFile, DEFAULT_XML_CONFIGURATION_FILE);
 					break;

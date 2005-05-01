@@ -64,9 +64,21 @@ Feel free to customize the other xml-files as well. Each option is descripted/ex
 
 
 =======================
+==== Benchmarking: ====
+=======================
+If you want to benchmark the Palladio.Webserver you might want to use "ApacheBench" instead of the SimulataneousRequestClient (which indeed has a much more beautiful GUI, and might be used as an example how to send requests using a self written client.). The ApacheBench (http://perl.apache.org/download/third_party.html#ab____ApacheBench) is included in the Apache Webserver (/bin/ap.exe).
+
+
+
+=======================
 ==== Version-Logs: ====
 =======================
 $Log$
+Revision 1.10  2005/05/01 17:23:26  kelsaka
+- added further documentation
+- extracted IHTTPRequestProcessorTools as own project
+- made server name configureable by config files
+
 Revision 1.9  2005/02/27 16:37:58  kelsaka
 Added some comments
 

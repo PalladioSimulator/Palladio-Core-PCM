@@ -1,12 +1,15 @@
 using System;
 using Palladio.Webserver.ConfigReader;
+using Palladio.Webserver.HTTPRequestProcessorTools;
 using Palladio.Webserver.Request;
 using Palladio.Webserver.WebserverMonitor;
 
 namespace Palladio.Webserver.HTTPRequestProcessor
 {
 	/// <summary>
-	/// DefaultHTTPRequestProcessor.
+	/// DefaultHTTPRequestProcessor. Causes a <see cref="NotImplementedException"/> as there
+	/// should be a chain link which already has handled processing the request.
+	/// Use this processor as the last link of the chain.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -14,6 +17,11 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/05/01 17:23:26  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.7  2004/12/15 00:32:33  sliver
 	/// Thread handling changed:
 	///   Instead of calling the Thread.Abort() method, each
@@ -72,11 +80,7 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 		/// <param name="httpRequest">The HTTP-Request.</param>
 		public void HandleRequest (IHTTPRequest httpRequest)
 		{
-
-
-			throw new NotImplementedException ();
-
-				
+			throw new NotImplementedException ();			
 		}
 	}
 }
