@@ -21,6 +21,11 @@ namespace Palladio.Webserver.Dispatcher
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.19  2005/05/01 17:23:26  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.18  2005/01/22 16:42:56  kelsaka
 	/// added configureable (XML) connection-string for the database;
 	/// added thread-name for the main thread;
@@ -137,7 +142,13 @@ namespace Palladio.Webserver.Dispatcher
 		/// </summary>
 		/// <param name="requestParser">The delegate that is used as the proceeding component (RequestParser)
 		/// on processing the client-request.</param>
-		public DefaultDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory, IPortListenerFactory portListenerFactory)
+		/// <param name="webserverMonitor">the monitor to use.</param>
+		/// <param name="webserverConfiguration">the configuration to use.</param>
+		/// <param name="requestFactory">Factory used to create requests.</param>
+		/// <param name="portListenerFactory">Factory used to create new port listeners.</param>
+		public DefaultDispatcher(IRequestParser requestParser, IWebserverMonitor webserverMonitor,
+			IWebserverConfiguration webserverConfiguration, IRequestFactory requestFactory,
+			IPortListenerFactory portListenerFactory)
 		{
 			this.requestParser = requestParser;
 			this.webserverMonitor = webserverMonitor;
@@ -145,8 +156,6 @@ namespace Palladio.Webserver.Dispatcher
 			this.requestFactory = requestFactory;
 			this.portListenerFactory = portListenerFactory;
 		}
-
-
 		
 		/// <summary>
 		/// Starts the dispatcher which is using threads to handle requests. This means that the webserver starts
@@ -155,7 +164,6 @@ namespace Palladio.Webserver.Dispatcher
 		/// </summary>
 		public void Start ()
 		{
-			
 			webserverMonitor.WriteLogEntry("----------------------------");
 			webserverMonitor.WriteLogEntry("Webserver-Dispatcher started.");
 
@@ -180,16 +188,12 @@ namespace Palladio.Webserver.Dispatcher
 
 					listenerThreads[i] = threadInfo;
 				}
-
 			}
 			catch(Exception e)
 			{
 				webserverMonitor.WriteDebugMessage("An exception occurred while listening: " + e.ToString(), 1);
 			}
 		}
-
-
-		
 
 		/// <summary>
 		/// Stops the dispatcher. This includes the service of the webserver.

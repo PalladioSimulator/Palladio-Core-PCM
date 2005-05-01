@@ -5,15 +5,19 @@ using WebserverXML;
 namespace Palladio.Webserver.ConfigReader
 {
 	/// <summary>
-	/// IConfigReader.
+	/// IConfigReader. Interface for the configuration reader.
 	/// </summary>
-	/// 
 	/// 
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/05/01 17:23:25  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.5  2004/11/05 16:17:00  kelsaka
 	/// Added support for simple dynamic content (SimpleTemplateFileProvider). For this added a new xml-config-file and auto-generated XML-classes.
 	/// Code refactoring.

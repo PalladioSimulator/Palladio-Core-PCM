@@ -4,6 +4,7 @@ using System.Threading;
 using System.Xml;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.HTTPRequestProcessor;
+using Palladio.Webserver.HTTPRequestProcessorTools;
 using Palladio.Webserver.Request;
 using Palladio.Webserver.WebserverMonitor;
 using TimeConsumingProcessorXML;
@@ -26,6 +27,11 @@ namespace Palladio.Webserver.TimeConsumingProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/05/01 17:23:26  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.2  2005/01/22 16:42:56  kelsaka
 	/// added configureable (XML) connection-string for the database;
 	/// added thread-name for the main thread;

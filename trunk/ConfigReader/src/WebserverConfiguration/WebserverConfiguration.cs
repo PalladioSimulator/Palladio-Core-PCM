@@ -16,6 +16,11 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/05/01 17:23:26  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.6  2005/02/02 17:34:56  kelsaka
 	/// Added multi-threading to handle requests.
 	/// Added short architectural description.
@@ -47,6 +52,10 @@ namespace Palladio.Webserver.ConfigReader
 		private ConfigType configRoot;
 		private string configFilesPath;
 
+		/// <summary>
+		/// The default constructor.
+		/// </summary>
+		/// <param name="configRoot">config to use.</param>
 		public WebserverConfiguration(Altova.Xml.Node configRoot)
 		{
 			this.configRoot = (ConfigType)configRoot;
@@ -73,6 +82,17 @@ namespace Palladio.Webserver.ConfigReader
 			get 
 			{
 				return configRoot.ListenIP.Getip().Value;
+			}
+		}
+
+		/// <summary>
+		/// The name of the webserver. This name is sent with the http-header.
+		/// </summary>
+		public string ServerName
+		{
+			get
+			{
+				return configRoot.ServerName.Value;
 			}
 		}
 

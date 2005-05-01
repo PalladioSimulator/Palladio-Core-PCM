@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!ELEMENT Config (ListenIP, DocumentRoot,LogFile,DebugFile, Ports,MimeTypes,DefaultFiles)>
+<!ELEMENT Config (ListenIP, ServerName, DocumentRoot,LogFile,DebugFile, Ports,MimeTypes,DefaultFiles)>
 <!ATTLIST Config
 	xmlns:xsi CDATA #REQUIRED
 	xsi:noNamespaceSchemaLocation CDATA #REQUIRED
@@ -10,6 +10,8 @@
 <!ATTLIST ListenIP
 	ip CDATA #REQUIRED
 >
+
+<!ELEMENT ServerName (#PCDATA)>
 
 <!ELEMENT DocumentRoot EMPTY>
 <!ATTLIST DocumentRoot

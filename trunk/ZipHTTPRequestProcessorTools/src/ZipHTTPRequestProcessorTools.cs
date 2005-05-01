@@ -6,6 +6,7 @@ using ICSharpCode.SharpZipLib.GZip;
 using ICSharpCode.SharpZipLib.Zip;
 using ICSharpCode.SharpZipLib.Zip.Compression;
 using Palladio.Webserver.HTTPRequestProcessor;
+using Palladio.Webserver.HTTPRequestProcessorTools;
 using Palladio.Webserver.Request;
 using Palladio.Webserver.WebserverMonitor;
 
@@ -20,6 +21,11 @@ namespace Palladio.Webserver.ZipHTTPRequestProcessorTools
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.3  2005/05/01 17:23:26  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.2  2005/05/01 10:41:05  kelsaka
 	/// - added gzip file compression
 	///
@@ -29,7 +35,7 @@ namespace Palladio.Webserver.ZipHTTPRequestProcessorTools
 	///
 	/// </pre>
 	/// </remarks>
-	public class ZipHTTPRequestProcessorTools : Palladio.Webserver.HTTPRequestProcessor.IHTTPRequestProcessorTools
+	public class ZipHTTPRequestProcessorTools : Palladio.Webserver.HTTPRequestProcessorTools.IHTTPRequestProcessorTools
 	{
 		private IHTTPRequestProcessorTools successor;
 		private IWebserverMonitor webserverMonitor;

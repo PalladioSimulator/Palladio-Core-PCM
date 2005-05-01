@@ -2,6 +2,7 @@ using System;
 using Palladio.Webserver.BibTeXProvider;
 using Palladio.Webserver.Dispatcher;
 using Palladio.Webserver.FTPRequestProcessor;
+using Palladio.Webserver.HTTPRequestProcessorTools;
 using Palladio.Webserver.Request;
 using Palladio.Webserver.RequestParser;
 using Palladio.Webserver.WebserverMonitor;
@@ -20,6 +21,11 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/05/01 17:23:26  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.13  2005/04/30 12:38:24  kelsaka
 	/// - extended cvs ignore lists
 	/// - added first version of zip compressing request processor tools

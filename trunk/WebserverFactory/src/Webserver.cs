@@ -4,6 +4,7 @@ using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.Dispatcher;
 using Palladio.Webserver.FTPRequestProcessor;
 using Palladio.Webserver.HTTPRequestProcessor;
+using Palladio.Webserver.HTTPRequestProcessorTools;
 using Palladio.Webserver.Request;
 using Palladio.Webserver.RequestParser;
 using Palladio.Webserver.WebserverFactory;
@@ -21,6 +22,11 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/05/01 17:23:26  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.6  2005/05/01 10:41:05  kelsaka
 	/// - added gzip file compression
 	///
@@ -207,7 +213,6 @@ namespace Palladio.Webserver
 			webserver.httpRequestProcessors[2] = webserverFactory.CreateBibTeXProvider(webserverFactory.CreateBibTexDB(), webserver.httpRequestProcessors[1], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools[1]);
 			webserver.httpRequestProcessors[3] = webserverFactory.CreateSimpleTemplateFileProvider(webserver.httpRequestProcessors[2], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools[1]);
 			webserver.httpRequestProcessors[4] = webserverFactory.CreateDynamicFileProvider(webserver.httpRequestProcessors[3], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools[1]);
-
 
 			// RequestParser-COR: HTTP -> Default (currently FTP is not implemented)
 			webserver.requestParsers = new IRequestParser[2];

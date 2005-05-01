@@ -3,7 +3,8 @@ using System;
 namespace Palladio.Webserver.ConfigReader
 {
 	/// <summary>
-	/// IConfiguration.
+	/// The interface of the webserver base configuration. Other components have their own
+	/// configurations.
 	/// </summary>
 	/// 
 	/// <remarks>
@@ -11,6 +12,11 @@ namespace Palladio.Webserver.ConfigReader
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/05/01 17:23:25  kelsaka
+	/// - added further documentation
+	/// - extracted IHTTPRequestProcessorTools as own project
+	/// - made server name configureable by config files
+	///
 	/// Revision 1.4  2004/11/14 10:55:51  kelsaka
 	/// Completed listening on IP-Addresses. Now the IP the server is listening on defineable in the WebserverXML.xml. Pay attention that there might be some problems with the project-name of WebserverXML as XMLSpy sometimes produces lower-case-versions that cause problems on windows-systems.
 	///
@@ -43,29 +49,30 @@ namespace Palladio.Webserver.ConfigReader
 		string ListenIP{get;}
 
 		/// <summary>
+		/// The name of the webserver. This name is sent with the http-header.
+		/// </summary>
+		string ServerName{get;}
+
+		/// <summary>
 		/// The root-path of documents (e. g. html-sites) delivered.
 		/// </summary>
 		string DocumentRoot{get;}
-
 
 		/// <summary>
 		/// Path and filename of the logfile.
 		/// </summary>
 		string LogFile{get;}
 
-
 		/// <summary>
 		/// Path and filenae of the debug-logfile.
 		/// </summary>
 		string DebugFile{get;}
-
 
 		/// <summary>
 		/// Ports the webserver is listening on.
 		/// </summary>
 		int[] ListeningPorts{get;}
 
-		
 		/// <summary>
 		/// Deliveres the mimetype for requested files. E. g. for use in webserver-headers.
 		/// </summary>
@@ -73,18 +80,14 @@ namespace Palladio.Webserver.ConfigReader
 		/// <returns>Returns the mimetype for the requested extension. If no mimetype is defined "" should be returned.</returns>
 		string GetMimeTypeFor(string fileExtension);
 
-
 		/// <summary>
 		/// If no fitting Mimetype can be found for a given extension, this should be used. (see GetMimeTypeFor(string fileExtension))
 		/// </summary>
 		string DefaultMimeType{get;}
 		
-
 		/// <summary>
 		/// Descendend priority of filenames that are delivered by default.
 		/// </summary>
 		string[] DefaultFileNames{get;}
-
-
 	}
 }
