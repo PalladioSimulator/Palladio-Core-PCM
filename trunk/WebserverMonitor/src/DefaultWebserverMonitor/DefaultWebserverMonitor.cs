@@ -8,7 +8,8 @@ using WebserverXML;
 namespace Palladio.Webserver.WebserverMonitor
 {
 	/// <summary>
-	/// DefaultWebserverMonitor.
+	/// DefaultWebserverMonitor. Offers methods to monitor the webserver like the management of the
+	/// log-files.
 	/// </summary>
 	/// 
 	/// 
@@ -17,6 +18,9 @@ namespace Palladio.Webserver.WebserverMonitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/05/01 19:16:35  kelsaka
+	/// - update: codestyle + documentation
+	///
 	/// Revision 1.11  2005/05/01 18:27:44  kelsaka
 	/// - update: codestyle + documentation
 	///
@@ -83,6 +87,10 @@ namespace Palladio.Webserver.WebserverMonitor
 		private StreamWriter debugStreamWriter;
 		private StreamWriter logStreamWriter;
 
+		/// <summary>
+		/// The default constructor.
+		/// </summary>
+		/// <param name="webserverConfiguration">The configuration to use (where to write debug-files etc.)</param>
 		public DefaultWebserverMonitor(IWebserverConfiguration webserverConfiguration)
 		{			
 			this.webserverConfiguration = webserverConfiguration;
@@ -114,7 +122,6 @@ namespace Palladio.Webserver.WebserverMonitor
 				Console.WriteLine("ERROR: Error on accessing File " + debugFile + ". " + e + ". " + e.StackTrace);
 			}
 
-
 			//log-file:
 			string logFile = webserverConfiguration.LogFile;
 			try 
@@ -129,10 +136,7 @@ namespace Palladio.Webserver.WebserverMonitor
 			{
 				Console.WriteLine("ERROR: Error on accessing File " + logFile + ". " + e + ". " + e.StackTrace);
 			}
-
-			
 		}
-
 
 		/// <summary>
 		/// Closes e. g. file handles and commits changes. Execute finally.
@@ -142,7 +146,6 @@ namespace Palladio.Webserver.WebserverMonitor
 			debugStreamWriter.Close();
 			logStreamWriter.Close();
 		}
-
 
 		/// <summary>
 		/// Method to write debug-messages to the debug-file (see xml-config-file). Another output is put to the debug-console.
@@ -178,7 +181,6 @@ namespace Palladio.Webserver.WebserverMonitor
 			logStreamWriter.Flush();
 			Console.WriteLine(logMessage);
 		}
-
 
 	}
 }
