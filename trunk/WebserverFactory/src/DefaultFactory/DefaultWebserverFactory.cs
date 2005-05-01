@@ -20,6 +20,9 @@ namespace Palladio.Webserver.WebserverFactory
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/05/01 10:41:05  kelsaka
+	/// - added gzip file compression
+	///
 	/// Revision 1.13  2005/04/30 12:38:24  kelsaka
 	/// - extended cvs ignore lists
 	/// - added first version of zip compressing request processor tools
@@ -253,6 +256,12 @@ namespace Palladio.Webserver.WebserverFactory
 
 		#region IHTTPRequestProcessorTools
 
+		/// <summary>
+		/// Creates new <c>IHTTPRequestProcessorTools</c>.
+		/// </summary>
+		/// <param name="webserverMonitor">The monitor to use.</param>
+		/// <param name="webserverConfiguration">The configuration to use.</param>
+		/// <returns>Default implementation that returns data to the client.</returns>
 		public IHTTPRequestProcessorTools CreateRequestProcessorTools(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
 			return new DefaultHTTPRequestProcessorTools(webserverMonitor, webserverConfiguration);

@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
+using System.Web;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.Request;
 using Palladio.Webserver.WebserverMonitor;
@@ -19,6 +21,9 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/05/01 10:41:05  kelsaka
+	/// - added gzip file compression
+	///
 	/// Revision 1.8  2005/04/30 12:38:24  kelsaka
 	/// - extended cvs ignore lists
 	/// - added first version of zip compressing request processor tools
@@ -71,38 +76,83 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 
 		private IWebserverConfiguration webserverConfiguration;
 		private IWebserverMonitor webserverMonitor;
+		private String headerExtensionsString;
+		private Hashtable headerExtensionsTable;
 
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		/// <param name="webserverMonitor">monitor to use.</param>
+		/// <param name="webserverConfiguration">the actual webserver configuration.</param>
 		public DefaultHTTPRequestProcessorTools(IWebserverMonitor webserverMonitor, IWebserverConfiguration webserverConfiguration)
 		{
 			this.webserverConfiguration = webserverConfiguration;
 			this.webserverMonitor = webserverMonitor;
+
+			Init ();
 		}
 
 		/// <summary>
-		/// This method sends the header information to the client.
+		/// Sets the default header information.
 		/// </summary>
-		/// <param name="httpVersion">HTTP Version</param>
-		/// <param name="mimeType">Mime Type of the content</param>
-		/// <param name="totalBytes">Total Bytes to be sent in the body</param>
-		/// <param name="httpStatusCode">Status Code of the HTTP-Answer.</param>
-		/// <param name="networkStream">networkStream reference</param>
-		public void SendHTTPHeader(string httpVersion, string mimeType, int totalBytes, string httpStatusCode, NetworkStream networkStream)
+		private void Init ()
 		{
-			if(httpStatusCode != "")
-			{
-				httpStatusCode = " " + httpStatusCode; //add space between httpVersion and httpStatusCode
-			}
+			this.headerExtensionsString = String.Empty;
+			this.headerExtensionsTable = new Hashtable();
 
-			String headerContent = "";
-
-			headerContent += httpVersion + httpStatusCode + "\r\n";
-			headerContent += "Server: cx1193719-b\r\n"; //TODO: explain meaning
-			headerContent += "Content-Type: " + mimeType + "\r\n";
-			headerContent += "Accept-Ranges: bytes\r\n";
-			headerContent += "Content-Length: " + totalBytes + "\r\n\r\n";			
-
-			SendContentToClient(headerContent, networkStream);
+			// default header settings
+			AppendToHeader("Server", "Palladio.Webserver/v0.1"); //the servers name
+			AppendToHeader("Accept-Ranges", "bytes");
 		}
+
+		#region http header and content
+
+		#region extra header information
+
+		/// <summary>
+		/// Append the given key value pair to the HTTP-header. Only extra information is allowed
+		/// as a default header is already set. See <a href="http://www.faqs.org/rfcs/rfc2616.html">RFC</a>
+		/// for more information.
+		/// </summary>
+		/// <param name="key">The key to use.</param>
+		/// <param name="value">The value to set.</param>
+		/// <remarks>Appends a line like "key: value". If a key already exists it will be overwritten.</remarks>
+		public void AppendToHeader(string key, string value)
+		{
+			if(headerExtensionsTable.ContainsKey(key))
+			{
+				headerExtensionsTable.Remove(key);
+			}
+			headerExtensionsTable.Add(key, value);
+		}
+
+		/// <summary>
+		/// Removes a key value pair from the HTTP header.
+		/// </summary>
+		/// <param name="key">The key of the key value pair to remove.</param>
+		public void RemoveFromHeader(string key)
+		{
+			headerExtensionsTable.Remove(key);
+		}
+
+		/// <summary>
+		/// builds a string of key value pairs for the http header.
+		/// </summary>
+		private string HeaderExtensions
+		{
+			get
+			{
+				this.headerExtensionsString = "";
+				foreach(DictionaryEntry e in headerExtensionsTable)
+				{
+					this.headerExtensionsString += e.Key + ": " + e.Value + "\r\n";
+				}
+				this.headerExtensionsString += "\r\n"; //required to end header
+				return this.headerExtensionsString;
+			}
+		}
+
+		#endregion
 
 		/// <summary>
 		/// Generates a standard HTTP-Error and sends it to the client.
@@ -118,36 +168,76 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 			SendHTTPHeader(httpRequest.HttpVersion, "", errorMessage.Length, errorCode, httpRequest.NetworkStream);
 
 			//Send to the browser
-			SendContentToClient(errorMessage, httpRequest.NetworkStream);
-
+			SendContentToClient(errorMessage, httpRequest.HttpVersion, GetFileMimeTypeFor(""), httpRequest.NetworkStream);
 		}
 
 		/// <summary>
 		/// Sends the data to the client.
 		/// </summary>
 		/// <param name="contentData">String that contains the answer to the client request.</param>
-		/// <param name="networkStream">networkStream reference</param>
-		public void SendContentToClient(string contentData, NetworkStream networkStream)
+		/// <param name="httpVersion">HTTP Version</param>
+		/// <param name="mimeType">Mime Type of the content</param>
+		/// <param name="networkStream">NetworkStream reference</param>
+		public void SendContentToClient (string contentData, string httpVersion, string mimeType, Stream networkStream)
 		{
 			// convert string into byte-array so that it can be sent.			
-			SendContentDataToClient(Encoding.ASCII.GetBytes(contentData), networkStream);
+			SendContentToClient(Encoding.ASCII.GetBytes(contentData), httpVersion, mimeType, networkStream);
 		}
 
 		/// <summary>
-		/// Sends the data to the client.
+		/// Sends the data to the client. The byte-array might be used for binary data.
 		/// </summary>
 		/// <param name="contentDataBytes">Byte-array that contains the answer to the client request.</param>
-		/// <param name="networkStream">Socket reference</param>
-		public void SendContentDataToClient(byte[] contentDataBytes, NetworkStream networkStream)
+		/// <param name="httpVersion">HTTP Version</param>
+		/// <param name="mimeType">Mime Type of the content</param>
+		/// <param name="networkStream">NetworkStream reference</param>
+		public void SendContentToClient (byte[] contentDataBytes, string httpVersion, string mimeType, Stream networkStream)
 		{				
+			this.SendHTTPHeader(httpVersion, mimeType, contentDataBytes.Length, "200 OK", networkStream);
+			SendDataToClient (contentDataBytes, networkStream);
+		}
 
+		/// <summary>
+		/// This method sends the header information to the client.
+		/// </summary>
+		/// <param name="httpVersion">HTTP Version</param>
+		/// <param name="mimeType">Mime Type of the content</param>
+		/// <param name="totalBytes">Total Bytes to be sent in the body</param>
+		/// <param name="httpStatusCode">Status Code of the HTTP-Answer.</param>
+		/// <param name="networkStream">networkStream reference</param>
+		private void SendHTTPHeader(string httpVersion, string mimeType, int totalBytes, string httpStatusCode, Stream networkStream)
+		{
+			// the default preamble - not a key value pair:
+			if(httpStatusCode != "")
+			{
+				httpStatusCode = " " + httpStatusCode; //add space between httpVersion and httpStatusCode
+			}
+			string headerContent = "";
+			headerContent += httpVersion + httpStatusCode + "\r\n";
+
+			// put further content information to the header:
+			AppendToHeader("Content-Type", mimeType);
+			AppendToHeader("Content-Length", totalBytes.ToString());
+			headerContent += HeaderExtensions;
+
+			SendDataToClient(Encoding.ASCII.GetBytes(headerContent), networkStream);
+		}
+
+		/// <summary>
+		/// Sends data to the client.
+		/// </summary>
+		/// <param name="contentDataBytes">The data to send.</param>
+		/// <param name="networkStream">The stream to write on.</param>
+		private void SendDataToClient (byte[] contentDataBytes, Stream networkStream)
+		{
 			if (networkStream.CanWrite)
 			{
 				try
 				{
 					// send data to client:
 					networkStream.Write(contentDataBytes, 0, contentDataBytes.Length);
-				}			
+					webserverMonitor.WriteLogEntry("HIER: " + contentDataBytes.Length);
+				}
 				catch (IOException e)
 				{
 					webserverMonitor.WriteDebugMessage("Error: There is a failure while writing to the network: " + e, 1);	
@@ -168,8 +258,11 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 			else
 			{
 				webserverMonitor.WriteDebugMessage("Error: Can not write to NetworkStream.", 1);
-			}				
+			}
 		}
+
+		#endregion
+
 
 		/// <summary>
 		/// Build the path to the actually requested file, either a relative or absolute path.

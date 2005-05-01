@@ -24,6 +24,9 @@ namespace Palladio.Webserver.BibTeXProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/05/01 10:41:05  kelsaka
+	/// - added gzip file compression
+	///
 	/// Revision 1.8  2005/01/29 21:47:44  kelsaka
 	/// Added continuous use of NetworkStream (instead of Socket)
 	///
@@ -140,9 +143,7 @@ namespace Palladio.Webserver.BibTeXProvider
 					// Case: only return the entries that match to the search
 					responseString = bibTexDB.Search(bibTeXProviderConfiguration.DatabaseTableName, httpRequest, bibTeXProviderConfiguration.SearchedBibTeXFieldNames);
 				}
-
-				requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType), responseString.Length, "200 OK", httpRequest.NetworkStream);
-				requestProcessorTools.SendContentToClient(responseString.ToString(), httpRequest.NetworkStream);
+				requestProcessorTools.SendContentToClient(responseString.ToString(), httpRequest.HttpVersion, requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType), httpRequest.NetworkStream);
 				webserverMonitor.WriteLogEntry("Successfully sent response to client.");
 			}
 			catch (Exception ex)
@@ -152,8 +153,7 @@ namespace Palladio.Webserver.BibTeXProvider
 				// Send error message to client: server not avaiable:
 				responseString.Append(bibTeXProviderConfiguration.ErrorMessageOnConnectionProblems);
 				responseString.Append(" (Servername: " + bibTeXProviderConfiguration.DataSource + ")");
-				requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType), responseString.Length, "200 OK", httpRequest.NetworkStream);
-				requestProcessorTools.SendContentToClient(responseString.ToString(), httpRequest.NetworkStream);
+				requestProcessorTools.SendContentToClient(responseString.ToString(), httpRequest.HttpVersion, requestProcessorTools.GetFileMimeTypeFor(httpRequest.RequestedFileType), httpRequest.NetworkStream);
 			}
 		}
 

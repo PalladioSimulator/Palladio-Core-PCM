@@ -24,6 +24,9 @@ namespace Palladio.Webserver.StaticFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/05/01 10:41:05  kelsaka
+	/// - added gzip file compression
+	///
 	/// Revision 1.11  2005/01/29 21:47:45  kelsaka
 	/// Added continuous use of NetworkStream (instead of Socket)
 	///
@@ -158,8 +161,7 @@ namespace Palladio.Webserver.StaticFileProvider
 		{			
 			byte[] fileContent = requestProcessorTools.OpenFile (completePath, requestedFileName);
 	
-			requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, fileMimeType, fileContent.Length, "200 OK", httpRequest.NetworkStream);
-			requestProcessorTools.SendContentDataToClient(fileContent, httpRequest.NetworkStream);
+			requestProcessorTools.SendContentToClient(fileContent, httpRequest.HttpVersion, fileMimeType, httpRequest.NetworkStream);
 			webserverMonitor.WriteLogEntry("Successfully sent response to client.");
 		}
 

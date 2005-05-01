@@ -21,6 +21,9 @@ namespace Palladio.Webserver
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/05/01 10:41:05  kelsaka
+	/// - added gzip file compression
+	///
 	/// Revision 1.5  2005/04/30 12:38:24  kelsaka
 	/// - extended cvs ignore lists
 	/// - added first version of zip compressing request processor tools
@@ -117,11 +120,19 @@ namespace Palladio.Webserver
 		private IConfigReader configReader;
 		private IWebserverConfiguration webserverConfiguration;
 		private IWebserverMonitor webserverMonitor;
-		private IHTTPRequestProcessorTools requestProcessorTools;
+		private IHTTPRequestProcessorTools[] requestProcessorTools;
 		private IHTTPRequestProcessor[] httpRequestProcessors;
 		private IRequestParser[] requestParsers;
 		public IDispatcher dispatcher;
 
+
+		/// <summary>
+		/// accesses the default webserver monitor.
+		/// </summary>
+		public IWebserverMonitor WebserverMonitor
+		{
+			get { return webserverMonitor; }
+		}
 
 		public IConfigReader ConfigReader
 		{
@@ -133,12 +144,7 @@ namespace Palladio.Webserver
 			get { return webserverConfiguration; }
 		}
 
-		public IWebserverMonitor WebserverMonitor
-		{
-			get { return webserverMonitor; }
-		}
-
-		public IHTTPRequestProcessorTools RequestProcessorTools
+		public IHTTPRequestProcessorTools[] RequestProcessorTools
 		{
 			get { return requestProcessorTools; }
 		}
@@ -158,7 +164,6 @@ namespace Palladio.Webserver
 			get { return dispatcher; }
 		}
 
-
 		/// <summary>
 		/// Hide the default constructor.
 		/// </summary>
@@ -174,6 +179,9 @@ namespace Palladio.Webserver
 			dispatcher.Start();
 		}
 
+		/// <summary>
+		/// Stops the webserver.
+		/// </summary>
 		public void Stop()
 		{
 			dispatcher.Stop();
@@ -187,17 +195,18 @@ namespace Palladio.Webserver
 			webserver.webserverConfiguration = webserverFactory.CreateWebserverConfiguration(webserver.configReader, pathToConfigFile, xmlConfigFile);
 			webserver.webserverMonitor = webserverFactory.CreateWebserverMonitor(webserver.webserverConfiguration);
 
-			
-			webserver.requestProcessorTools = webserverFactory.CreateRequestProcessorTools(webserver.webserverMonitor, webserver.webserverConfiguration);
-
+			// Tools: Pipe & Filter structure: ZIP-compression Tools -> Default Tools
+			webserver.requestProcessorTools = new IHTTPRequestProcessorTools[2];
+			webserver.requestProcessorTools[0] = webserverFactory.CreateRequestProcessorTools(webserver.webserverMonitor, webserver.webserverConfiguration);
+			webserver.requestProcessorTools[1] = webserverFactory.CreateZipRequestProcessorTools(webserver.requestProcessorTools[0], webserver.webserverMonitor);
 
 			// RequestProcessor-COR: TimeConsuming -> Dynamic -> SimpleTemplate -> BibTeX -> Static -> Default.
 			webserver.httpRequestProcessors = new IHTTPRequestProcessor[6];
-			webserver.httpRequestProcessors[0] = webserverFactory.CreateDefaultRequestProcessor(webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
-			webserver.httpRequestProcessors[1] = webserverFactory.CreateStaticFileProvider(webserver.httpRequestProcessors[0], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
-			webserver.httpRequestProcessors[2] = webserverFactory.CreateBibTeXProvider(webserverFactory.CreateBibTexDB(), webserver.httpRequestProcessors[1], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
-			webserver.httpRequestProcessors[3] = webserverFactory.CreateSimpleTemplateFileProvider(webserver.httpRequestProcessors[2], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
-			webserver.httpRequestProcessors[4] = webserverFactory.CreateDynamicFileProvider(webserver.httpRequestProcessors[3], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools);
+			webserver.httpRequestProcessors[0] = webserverFactory.CreateDefaultRequestProcessor(webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools[1]);
+			webserver.httpRequestProcessors[1] = webserverFactory.CreateStaticFileProvider(webserver.httpRequestProcessors[0], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools[1]);
+			webserver.httpRequestProcessors[2] = webserverFactory.CreateBibTeXProvider(webserverFactory.CreateBibTexDB(), webserver.httpRequestProcessors[1], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools[1]);
+			webserver.httpRequestProcessors[3] = webserverFactory.CreateSimpleTemplateFileProvider(webserver.httpRequestProcessors[2], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools[1]);
+			webserver.httpRequestProcessors[4] = webserverFactory.CreateDynamicFileProvider(webserver.httpRequestProcessors[3], webserver.webserverMonitor, webserver.webserverConfiguration, webserver.requestProcessorTools[1]);
 
 
 			// RequestParser-COR: HTTP -> Default (currently FTP is not implemented)

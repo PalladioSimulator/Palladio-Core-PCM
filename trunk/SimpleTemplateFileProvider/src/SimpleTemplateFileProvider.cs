@@ -32,6 +32,9 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/05/01 10:41:05  kelsaka
+	/// - added gzip file compression
+	///
 	/// Revision 1.9  2005/01/29 21:47:44  kelsaka
 	/// Added continuous use of NetworkStream (instead of Socket)
 	///
@@ -181,8 +184,7 @@ namespace Palladio.Webserver.SimpleTemplateFileProvider
 			enumer = httpRequest.GETHashtable.GetEnumerator();
 			fileContentString = SearchAndReplaceKeysByValues (enumer, fileContentString);
 
-			requestProcessorTools.SendHTTPHeader(httpRequest.HttpVersion, fileMimeType, fileContentString.Length, "200 OK", httpRequest.NetworkStream);
-			requestProcessorTools.SendContentToClient(fileContentString, httpRequest.NetworkStream);
+			requestProcessorTools.SendContentToClient(fileContentString, httpRequest.HttpVersion, fileMimeType, httpRequest.NetworkStream);
 			webserverMonitor.WriteLogEntry("Successfully sent response to client.");
 		}
 
