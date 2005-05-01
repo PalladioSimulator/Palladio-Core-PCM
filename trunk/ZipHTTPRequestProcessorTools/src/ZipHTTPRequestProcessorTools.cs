@@ -1,5 +1,10 @@
 using System;
+using System.IO;
 using System.Net.Sockets;
+using System.Text;
+using ICSharpCode.SharpZipLib.GZip;
+using ICSharpCode.SharpZipLib.Zip;
+using ICSharpCode.SharpZipLib.Zip.Compression;
 using Palladio.Webserver.HTTPRequestProcessor;
 using Palladio.Webserver.Request;
 using Palladio.Webserver.WebserverMonitor;
@@ -8,12 +13,16 @@ namespace Palladio.Webserver.ZipHTTPRequestProcessorTools
 {
 	/// <summary>
 	/// This component compresses the content data before sending it to its successor.
+	/// Excluding the SendContentToClient-methods all requests are directly delegated to successor.
 	/// </summary>
 	/// 
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.2  2005/05/01 10:41:05  kelsaka
+	/// - added gzip file compression
+	///
 	/// Revision 1.1  2005/04/30 12:38:24  kelsaka
 	/// - extended cvs ignore lists
 	/// - added first version of zip compressing request processor tools
@@ -25,6 +34,12 @@ namespace Palladio.Webserver.ZipHTTPRequestProcessorTools
 		private IHTTPRequestProcessorTools successor;
 		private IWebserverMonitor webserverMonitor;
 
+
+		/// <summary>
+		/// Default constructor
+		/// </summary>
+		/// <param name="successor">The successor to call after compressing content</param>
+		/// <param name="webserverMonitor">The monitor to use.</param>
 		public ZipHTTPRequestProcessorTools(IHTTPRequestProcessorTools successor, IWebserverMonitor webserverMonitor)
 		{
 			this.successor = successor;
@@ -32,16 +47,25 @@ namespace Palladio.Webserver.ZipHTTPRequestProcessorTools
 		}
 
 		/// <summary>
-		/// This method sends the header information to the client.
+		/// Append the given key value pair to the HTTP-header. Only extra information is allowed
+		/// as a default header is already set. See <a href="http://www.faqs.org/rfcs/rfc2616.html">RFC</a>
+		/// for more information.
 		/// </summary>
-		/// <param name="httpVersion">HTTP Version</param>
-		/// <param name="mimeType">Mime Type of the content</param>
-		/// <param name="totalBytes">Total Bytes to be sent in the body</param>
-		/// <param name="httpStatusCode">Status Code of the HTTP-Answer.</param>
-		/// <param name="networkStream">NetworkStream reference</param>
-		public void SendHTTPHeader (string httpVersion, string mimeType, int totalBytes, string httpStatusCode, NetworkStream networkStream)
+		/// <param name="key">The key to use.</param>
+		/// <param name="value">The value to set.</param>
+		/// <remarks>Appends a line like "key: value".</remarks>
+		public void AppendToHeader (string key, string value)
 		{
-			successor.SendHTTPHeader(httpVersion, mimeType, totalBytes, httpStatusCode, networkStream);
+			successor.AppendToHeader(key, value);
+		}
+
+		/// <summary>
+		/// Removes a key value pair from the HTTP header.
+		/// </summary>
+		/// <param name="key">The key of the key value pair to remove.</param>
+		public void RemoveFromHeader (string key)
+		{
+			successor.RemoveFromHeader(key);
 		}
 
 		/// <summary>
@@ -59,20 +83,38 @@ namespace Palladio.Webserver.ZipHTTPRequestProcessorTools
 		/// Sends the data to the client.
 		/// </summary>
 		/// <param name="contentData">String that contains the answer to the client request.</param>
+		/// <param name="httpVersion">HTTP Version</param>
+		/// <param name="mimeType">Mime Type of the content</param>
 		/// <param name="networkStream">NetworkStream reference</param>
-		public void SendContentToClient (string contentData, NetworkStream networkStream)
+		public void SendContentToClient (string contentData, string httpVersion, string mimeType, Stream networkStream)
 		{
-			successor.SendContentToClient(contentData, networkStream);
+			SendContentToClient(Encoding.ASCII.GetBytes(contentData), httpVersion, mimeType, networkStream);
 		}
 
 		/// <summary>
 		/// Sends the data to the client. The byte-array might be used for binary data.
 		/// </summary>
 		/// <param name="contentDataBytes">Byte-array that contains the answer to the client request.</param>
+		/// <param name="httpVersion">HTTP Version</param>
+		/// <param name="mimeType">Mime Type of the content</param>
 		/// <param name="networkStream">NetworkStream reference</param>
-		public void SendContentDataToClient (byte[] contentDataBytes, NetworkStream networkStream)
-		{
-			successor.SendContentDataToClient(contentDataBytes, networkStream);
+		public void SendContentToClient (byte[] contentDataBytes, string httpVersion, string mimeType, Stream networkStream)
+		{		
+			MemoryStream memoryStream = new MemoryStream();
+			GZipOutputStream zipOutputStream = new GZipOutputStream(memoryStream);
+
+			zipOutputStream.Write(contentDataBytes, 0, contentDataBytes.Length);
+			zipOutputStream.Close();
+
+			successor.AppendToHeader("Content-Encoding", "gzip");
+
+			float compressionRatio = (float)contentDataBytes.Length / (float)memoryStream.ToArray().Length;
+			webserverMonitor.WriteLogEntry("ZipHTTPRequestProcessorTools compression ratio: 1:"
+				+ compressionRatio.ToString("N5"));
+			// pass content to successor:
+			successor.SendContentToClient(memoryStream.ToArray(), httpVersion, mimeType, networkStream);
+
+			memoryStream.Close();
 		}
 
 		/// <summary>

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Net.Sockets;
 using Palladio.Webserver.Request;
 
@@ -13,6 +14,9 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/05/01 10:41:05  kelsaka
+	/// - added gzip file compression
+	///
 	/// Revision 1.5  2005/01/29 21:47:44  kelsaka
 	/// Added continuous use of NetworkStream (instead of Socket)
 	///
@@ -53,18 +57,21 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 	public interface IHTTPRequestProcessorTools
 	{
 
+		/// <summary>
+		/// Append the given key value pair to the HTTP-header. Only extra information is allowed
+		/// as a default header is already set. See <a href="http://www.faqs.org/rfcs/rfc2616.html">RFC</a>
+		/// for more information.
+		/// </summary>
+		/// <param name="key">The key to use.</param>
+		/// <param name="value">The value to set.</param>
+		/// <remarks>Appends a line like "key: value".</remarks>
+		void AppendToHeader(string key, string value);
 
 		/// <summary>
-		/// This method sends the header information to the client.
+		/// Removes a key value pair from the HTTP header.
 		/// </summary>
-		/// <param name="httpVersion">HTTP Version</param>
-		/// <param name="mimeType">Mime Type of the content</param>
-		/// <param name="totalBytes">Total Bytes to be sent in the body</param>
-		/// <param name="httpStatusCode">Status Code of the HTTP-Answer.</param>
-		/// <param name="networkStream">NetworkStream reference</param>
-		void SendHTTPHeader(string httpVersion, string mimeType, int totalBytes, string httpStatusCode, NetworkStream networkStream);
-
-
+		/// <param name="key">The key of the key value pair to remove.</param>
+		void RemoveFromHeader(string key);
 
 		/// <summary>
 		/// Generates a standard HTTP-Error and sends it to the client.
@@ -79,16 +86,20 @@ namespace Palladio.Webserver.HTTPRequestProcessor
 		/// Sends the data to the client.
 		/// </summary>
 		/// <param name="contentData">String that contains the answer to the client request.</param>
+		/// <param name="httpVersion">HTTP Version</param>
+		/// <param name="mimeType">Mime Type of the content</param>
 		/// <param name="networkStream">NetworkStream reference</param>
-		void SendContentToClient(string contentData, NetworkStream networkStream);
+		void SendContentToClient(string contentData, string httpVersion, string mimeType, Stream networkStream);
 
 
 		/// <summary>
 		/// Sends the data to the client. The byte-array might be used for binary data.
 		/// </summary>
 		/// <param name="contentDataBytes">Byte-array that contains the answer to the client request.</param>
+		/// <param name="httpVersion">HTTP Version</param>
+		/// <param name="mimeType">Mime Type of the content</param>
 		/// <param name="networkStream">NetworkStream reference</param>
-		void SendContentDataToClient(byte[] contentDataBytes, NetworkStream networkStream);
+		void SendContentToClient(byte[] contentDataBytes, string httpVersion, string mimeType, Stream networkStream);
 
 
 		/// <summary>
