@@ -2,7 +2,7 @@
 <!DOCTYPE config SYSTEM "WebserverXML.dtd">
 <Config xmlns:xsi="Webserver" xsi:noNamespaceSchemaLocation="WebserverXML.dtd">
 	<!--ListenIP: The IP the webserver shall be listening on. By default (and only local use) you may use "127.0.0.1". Otherwise use the IP-address for the used network-interface.-->
-	<ListenIP ip="10.10.20.11"></ListenIP>
+	<ListenIP ip="127.0.0.1"></ListenIP>
 
 	<!--DocumentRoot: the path where the documents, that are delivered by the webserver, can be found. (default: "../../../documents")-->
 	<DocumentRoot path="../../../documents"></DocumentRoot>
