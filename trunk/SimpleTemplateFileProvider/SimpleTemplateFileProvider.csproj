@@ -124,6 +124,11 @@
                     Project = "{A2F658E0-F247-48BE-B9AE-FF00FBD32A61}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "RequestProcessor"
+                    Project = "{12C3C0FE-89E5-4C23-886D-99F65852C7F9}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
