@@ -86,11 +86,6 @@
                     AssemblyFolderKey = "hklm\dn\nunit.framework"
                 />
                 <Reference
-                    Name = "Palladio.FiniteStateMachines"
-                    Project = "{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "Palladio.Attributes"
                     Project = "{7726B451-F155-4534-986E-8960C7BA4D97}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
@@ -98,16 +93,6 @@
                 <Reference
                     Name = "Palladio.Identifier"
                     Project = "{8FCBDED0-6436-4FE6-B99B-13F3BDE8D65C}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "Palladio.Utils"
-                    Project = "{AEA33F47-FDF0-4A90-A95C-BABBFE19D2E6}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "ReflectionBasedVisitor"
-                    Project = "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
@@ -463,6 +448,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Identifier\IProtocolTypeIdentifier.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Identifier\ISignatureIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -751,6 +741,60 @@
                 />
                 <File
                     RelPath = "src\Query\TypeLevel\QueryTypeLevelFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\DefaultSerializerFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\IXmlAttributePlugIn.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\IXmlPlugIn.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\IXmlProtocolPlugIn.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\IXmlSerializer.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\Palladio.ComponentModel.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\Palladio.ComponentModel.xsx"
+                    DependentUpon = "Palladio.ComponentModel.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\XmlCMWriter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\XmlFileLocation.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\XmlNodeLocation.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\XmlSerializer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

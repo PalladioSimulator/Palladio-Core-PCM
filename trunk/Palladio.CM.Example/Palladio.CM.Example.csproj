@@ -80,28 +80,13 @@
                     HintPath = "..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "Palladio.Attributes"
-                    Project = "{7726B451-F155-4534-986E-8960C7BA4D97}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "Palladio.ComponentModel"
                     Project = "{6220A06F-242E-47A8-AB82-C3FA1528BD42}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "Palladio.FiniteStateMachines"
-                    Project = "{2C7A9FEC-12AF-4F5B-82DF-70EA6BA2BECE}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "Palladio.Utils"
-                    Project = "{AEA33F47-FDF0-4A90-A95C-BABBFE19D2E6}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "ReflectionBasedVisitor"
-                    Project = "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
+                    Name = "Palladio.Attributes"
+                    Project = "{7726B451-F155-4534-986E-8960C7BA4D97}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
