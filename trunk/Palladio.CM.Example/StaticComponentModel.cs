@@ -1,7 +1,9 @@
+using System;
 using Palladio.ComponentModel;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.CM.Example
 {
@@ -13,6 +15,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/05/08 17:24:02  joemal
+	/// add xml serialization to example
+	///
 	/// Revision 1.3  2005/04/20 19:53:19  kelsaka
 	/// - Example and CM-Environment are now using the IBuilderManger
 	///
@@ -109,16 +114,14 @@ namespace Palladio.CM.Example
 		//creates the interface IWriter
 		private IInterfaceIdentifier BuildIFaceIWriter(IInterfaceTypeLevelBuilder levelBuilder)
 		{
-			//todo: signatures hinzufügen
-			//levelBuilder.AddSignature()
+			levelBuilder.AddSignature("WriteSomething");
 			return levelBuilder.Interface.InterfaceID;
 		}
 
 		//creates the interface IWriterBackend
 		private IInterfaceIdentifier BuildIFaceIWriterBackEnd(IInterfaceTypeLevelBuilder levelBuilder)
 		{
-			//todo: signatures hinzufügen
-			//levelBuilder.AddSignature()
+			levelBuilder.AddSignature("WriteToDisk");
 			return levelBuilder.Interface.InterfaceID;
 		}
 
