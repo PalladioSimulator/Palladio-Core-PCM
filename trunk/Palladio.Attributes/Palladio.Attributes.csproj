@@ -79,11 +79,6 @@
                     AssemblyName = "System.Xml"
                     HintPath = "..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
-                <Reference
-                    Name = "ReflectionBasedVisitor"
-                    Project = "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
             </References>
         </Build>
         <Files>
