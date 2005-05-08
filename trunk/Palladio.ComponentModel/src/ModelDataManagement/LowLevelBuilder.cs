@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/05/08 17:23:40  joemal
+	/// fix a bug
+	///
 	/// Revision 1.10  2005/04/19 16:47:31  joemal
 	/// fix two bugs
 	///
@@ -151,6 +154,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 				ConnectionsTable.AddConnectionsRow(innerRole, outerRole,connection.ID.Key,outerCompRow);
 
 			ConnectionsTable.AcceptChanges();
+			entityHashtable.AddEntity(connection);
 		}
 
 		//called when a component has been removed from dataset

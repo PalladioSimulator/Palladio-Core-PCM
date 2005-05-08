@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/08 17:23:40  joemal
+	/// fix a bug
+	///
 	/// Revision 1.1  2005/05/08 12:02:16  joemal
 	/// initial creation
 	///
@@ -92,17 +95,18 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		//called to write the document
 		private void Write(XmlWriter writer)
 		{
-			try
-			{
+//			try
+//			{
 				writer.WriteStartElement("ComponentModel",XmlSerializer.XMLNAMESPACE);
 				WriteTLModel(writer);
 				WriteILModel(writer);
 				WriteDLModel(writer);
-			}
-			catch(Exception exc)
-			{
-				throw new SerializationException("Unable to write to the xml file.",exc);
-			}
+//			}
+//			catch(Exception exc)
+//			{
+//				Console.WriteLine("Error: "+exc);
+//				throw new SerializationException("Unable to write to the xml file.",exc);
+//			}
 		}
 
 		#endregion
@@ -119,7 +123,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			IComponentIdentifier[] basicCompIDs = query.QueryTypeLevel.QueryStaticView().GetBasicComponents();
 			WriteEntityGuids(writer,"Component",basicCompIDs);
 			IComponentIdentifier[] compositeCompIDs = query.QueryTypeLevel.QueryStaticView().GetCompositeComponents();
-			WriteEntityGuids(writer,"Component",basicCompIDs);
+			WriteEntityGuids(writer,"Component",compositeCompIDs);
 			IConnectionIdentifier[] conIDs = query.QueryTypeLevel.QueryStaticView().GetConnections();
 			WriteConnectionRef(writer,conIDs);
 			writer.WriteEndElement();
@@ -173,7 +177,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				WriteEntityGuids(writer,"Component",bcIDs);
 				WriteEntityGuids(writer,"Component",ccIDs);
 				IConnectionIdentifier[] conIDs = query.QueryTypeLevel.QueryCompositeComponent(compID).GetConnections();
-				WriteEntityGuids(writer,"Connection",conIDs);
+				WriteConnectionRef(writer,conIDs);
 				writer.WriteEndElement();					
 			
 				writer.WriteStartElement("Entities");
@@ -217,7 +221,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			foreach(IConnectionIdentifier conID in conIDs)
 			{
 				IConnection con = query.QueryEntities.GetConnection(conID);
-				writer.WriteStartElement("Connection");
+				writer.WriteStartElement("Connector");
 				WriteEntityBaseAttributes(writer,con);
 				writer.WriteEndElement();
 			}						
@@ -231,13 +235,13 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				IComponentIdentifier outgoingCompID = query.QueryTypeLevel.QueryConnection(conID).GetProvidingComponent();
 				IInterfaceIdentifier incomingIfaceID = query.QueryTypeLevel.QueryConnection(conID).GetRequiringInterface();
 				IInterfaceIdentifier outgoingIfaceID = query.QueryTypeLevel.QueryConnection(conID).GetProvidingInterface();
-				writer.WriteStartElement("Connection");
+				writer.WriteStartElement("Connector");
 
 				writer.WriteAttributeString("guid",conID.Key);
-				writer.WriteElementString("incomingComponent",incomingCompID.Key);
-				writer.WriteElementString("incomingInterface",incomingIfaceID.Key);
-				writer.WriteElementString("outgoingComponent",outgoingCompID.Key);
-				writer.WriteElementString("outgoingInterface",outgoingIfaceID.Key);
+				writer.WriteElementString("incomingCompID",incomingCompID.Key);
+				writer.WriteElementString("incomingIFaceID",incomingIfaceID.Key);
+				writer.WriteElementString("outgoingCompID",outgoingCompID.Key);
+				writer.WriteElementString("outgoingIFaceID",outgoingIfaceID.Key);
 
 				writer.WriteEndElement();
 			}
@@ -261,6 +265,8 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				writer.WriteStartElement("Entities");
 				WriteSignatures(writer,sigIDs);
 				WriteProtocols(writer,protIDs);
+				writer.WriteEndElement();
+
 				writer.WriteEndElement();
 			}
 		}
@@ -298,6 +304,8 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				writer.WriteAttributeString("type",prot.ProtocolTypeID.Key);
 				writer.WriteAttributeString("guid",prot.ProtocolID.Key);
 				IXmlProtocolPlugIn protocolPlugIn = (IXmlProtocolPlugIn) plugins[prot.ProtocolTypeID];
+				if (protocolPlugIn == null)
+					throw new SerializationException("No plugin found for protocoltype \""+prot.ProtocolTypeID.Key+"\".");
                 protocolPlugIn.SaveProtocol(writer, prot);
 				writer.WriteEndElement();
 			}

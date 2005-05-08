@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/05/08 17:23:40  joemal
+	/// fix a bug
+	///
 	/// Revision 1.2  2005/05/08 12:04:23  joemal
 	/// implementation of xml serialization
 	///
@@ -173,7 +176,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the ids</returns>
 		public IComponentIdentifier[] getBasicComponents()
 		{
-			return this.QueryComponents("parentComponent = '"+this.componentID.Key+"' and type = "+ComponentType.BASIC);
+			return this.QueryComponents("parentComponent = '"+this.componentID.Key+"' and type="+(byte)ComponentType.BASIC);
 		}
 
 		/// <summary>
@@ -182,7 +185,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the ids</returns>
 		public IComponentIdentifier[] getCompositeComponents()
 		{
-			return this.QueryComponents("parentComponent = '"+this.componentID.Key+"' and type = "+ComponentType.COMPOSITE);
+			return this.QueryComponents("parentComponent = '"+this.componentID.Key+"' and type="+(byte)ComponentType.COMPOSITE);
 		}
 
 		//called to query the components of the static view
