@@ -156,6 +156,10 @@ namespace Palladio.ComponentModel.UnitTests
 		//the protocolIdentifier
 		private IProtocolIdentifier id = ComponentModelIdentifier.CreateProtocolID(Guid.NewGuid().ToString());
 
+		//the guid for the typeid of this protocol
+		private static IProtocolTypeIdentifier TYPE_ID = 
+			ComponentModelIdentifier.CreateProtocolTypeID("43DD8A47-97D7-4643-AB7C-C4CA389BAECD");
+
 		/// <summary>
 		/// returns the typed id of the protocol
 		/// </summary>
@@ -164,6 +168,17 @@ namespace Palladio.ComponentModel.UnitTests
 			get
 			{
 				return this.id;
+			}
+		}
+
+		/// <summary>
+		/// returns the id of the type of protocol (fsm, ...)
+		/// </summary>
+		public IProtocolTypeIdentifier ProtocolTypeID
+		{
+			get
+			{
+				return TYPE_ID;
 			}
 		}
 

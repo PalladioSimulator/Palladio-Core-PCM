@@ -1,10 +1,9 @@
+using System;
 using System.Data;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
-using Palladio.ComponentModel.Query;
-using Palladio.ComponentModel.Query.Impl;
 using Palladio.ComponentModel.Query.TypeLevel;
 using Palladio.Identifier;
 
@@ -18,6 +17,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/08 12:04:23  joemal
+	/// implementation of xml serialization
+	///
 	/// Revision 1.1  2005/04/19 16:47:13  joemal
 	/// initial creation
 	///
@@ -56,15 +58,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the ids of the components</returns>
 		public IComponentIdentifier[] GetComponents()
 		{
-			string query = "parentComponent = '"+this.componentID.Key+"'";
-			DataRow[] compRows = this.Dataset.Components.Select(query);
-
-			IComponentIdentifier[] compIds = new IComponentIdentifier[compRows.Length];
-
-			for (int a=0;a<compRows.Length;a++)
-				compIds[a] = ComponentModelIdentifier.CreateComponentID(((ModelDataSet.ComponentsRow)compRows[a]).guid);
-
-			return compIds;
+			return this.QueryComponents("parentComponent = '"+this.componentID.Key+"'");
 		}
 
 		/// <summary>
@@ -148,7 +142,7 @@ namespace Palladio.ComponentModel.Query.Impl
 			string query = "incoming = "+incomingRole.id+" and outgoing = "+outgoingRole.id;
 			DataRow[] result = this.Dataset.Connections.Select(query);
 			if (result.Length==0) return null;
-			System.Console.WriteLine("connection found");
+			Console.WriteLine("connection found");
 			return ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.ConnectionsRow)result[0]).guid);
 		}
 
@@ -171,6 +165,36 @@ namespace Palladio.ComponentModel.Query.Impl
 			DataRow[] result = this.Dataset.Connections.Select(query);
 			if (result.Length==0) return null;
 			return ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.ConnectionsRow)result[0]).guid);
+		}
+
+		/// <summary>
+		/// returns the ids of all basic components that are contained in this composite component
+		/// </summary>
+		/// <returns>the ids</returns>
+		public IComponentIdentifier[] getBasicComponents()
+		{
+			return this.QueryComponents("parentComponent = '"+this.componentID.Key+"' and type = "+ComponentType.BASIC);
+		}
+
+		/// <summary>
+		/// returns the ids of all composite components that are contained in this composite component
+		/// </summary>
+		/// <returns>the ids</returns>
+		public IComponentIdentifier[] getCompositeComponents()
+		{
+			return this.QueryComponents("parentComponent = '"+this.componentID.Key+"' and type = "+ComponentType.COMPOSITE);
+		}
+
+		//called to query the components of the static view
+		private IComponentIdentifier[] QueryComponents(string query)
+		{
+			DataRow[] compRows = this.Dataset.Components.Select(query);
+	
+			IComponentIdentifier[] compIds = new IComponentIdentifier[compRows.Length];
+	
+			for (int a=0;a<compRows.Length;a++)
+				compIds[a] = ComponentModelIdentifier.CreateComponentID(((ModelDataSet.ComponentsRow)compRows[a]).guid);
+			return compIds;
 		}
 
 		#endregion

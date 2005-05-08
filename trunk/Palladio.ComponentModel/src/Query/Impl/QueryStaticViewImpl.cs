@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/08 12:04:23  joemal
+	/// implementation of xml serialization
+	///
 	/// Revision 1.1  2005/04/19 16:47:13  joemal
 	/// initial creation
 	///
@@ -49,15 +52,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the ids of the components</returns>
 		public IComponentIdentifier[] GetComponents()
 		{
-			string query = "parentComponent is null";
-			DataRow[] compRows = this.Dataset.Components.Select(query);
-
-			IComponentIdentifier[] compIds = new IComponentIdentifier[compRows.Length];
-
-			for (int a=0;a<compRows.Length;a++)
-				compIds[a] = ComponentModelIdentifier.CreateComponentID(((ModelDataSet.ComponentsRow)compRows[a]).guid);
-
-			return compIds;
+			return QueryComponents("parentComponent is null");
 		}
 
 		/// <summary>
@@ -87,6 +82,22 @@ namespace Palladio.ComponentModel.Query.Impl
 				conIds[a] = ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.ConnectionsRow)conRows[a]).guid);
 
 			return conIds;
+		}
+
+		/// <summary>
+		/// returns the ids of all interfaces that are contained in the type level of the componentmodel
+		/// </summary>
+		/// <returns>the ids of the interfaces</returns>
+		public IInterfaceIdentifier[] GetInterfaces()
+		{
+			IInterfaceIdentifier[] ifaceIDs = new IInterfaceIdentifier[this.Dataset.Interfaces.Count];
+			for(int a=0;a<ifaceIDs.Length;a++)
+			{
+				ModelDataSet.InterfacesRow row = (ModelDataSet.InterfacesRow) this.Dataset.Interfaces.Rows[a];
+				ifaceIDs[a] = ComponentModelIdentifier.CreateInterfaceID(row.guid);
+			}
+
+			return ifaceIDs;
 		}
 
 		/// <summary>
@@ -120,6 +131,36 @@ namespace Palladio.ComponentModel.Query.Impl
 			DataRow[] result = this.Dataset.Connections.Select(query);
 			if (result.Length==0) return null;
 			return ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.ConnectionsRow)result[0]).guid);
+		}
+
+		/// <summary>
+		/// returns the ids of all basic components which are placed directly in the static view root.
+		/// </summary>
+		/// <returns>the ids</returns>
+		public IComponentIdentifier[] GetBasicComponents()
+		{
+			return QueryComponents("parentComponent is null and type = "+ComponentType.BASIC);
+		}
+
+		/// <summary>
+		/// returns the ids of all composite components which are placed directly in the static view root.
+		/// </summary>
+		/// <returns>the ids</returns>
+		public IComponentIdentifier[] GetCompositeComponents()
+		{
+			return QueryComponents("parentComponent is null and type = "+ComponentType.COMPOSITE);
+		}
+
+		//called to query the components of the static view
+		private IComponentIdentifier[] QueryComponents(string query)
+		{
+			DataRow[] compRows = this.Dataset.Components.Select(query);
+	
+			IComponentIdentifier[] compIds = new IComponentIdentifier[compRows.Length];
+	
+			for (int a=0;a<compRows.Length;a++)
+				compIds[a] = ComponentModelIdentifier.CreateComponentID(((ModelDataSet.ComponentsRow)compRows[a]).guid);
+			return compIds;
 		}
 
 		#endregion

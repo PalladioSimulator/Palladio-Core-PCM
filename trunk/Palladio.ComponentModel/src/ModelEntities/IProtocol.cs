@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.ModelEntities
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2005/05/08 12:04:23  joemal
+	/// implementation of xml serialization
+	///
 	/// Revision 1.1  2005/03/15 12:31:23  joemal
 	/// initial class creation
 	///
@@ -27,6 +30,14 @@ namespace Palladio.ComponentModel.ModelEntities
 		/// returns the typed id of the protocol
 		/// </summary>
 		IProtocolIdentifier ProtocolID
+		{
+			get;
+		}
+
+		/// <summary>
+		/// returns the id of the type of protocol (fsm, ...)
+		/// </summary>
+		IProtocolTypeIdentifier ProtocolTypeID
 		{
 			get;
 		}

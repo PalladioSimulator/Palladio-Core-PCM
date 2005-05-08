@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Identifier
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/08 12:04:23  joemal
+	/// implementation of xml serialization
+	///
 	/// Revision 1.1  2005/04/06 21:01:28  joemal
 	/// rename filename EntityIdentifier.cs to InternalEntityIdentifier.cs
 	///
@@ -25,7 +28,7 @@ namespace Palladio.ComponentModel.Identifier
 	/// </pre>
 	/// </remarks>
 	internal class InternalEntityIdentifier : DefaultGUIDIdentifier, IComponentIdentifier, IConnectionIdentifier,
-		ISignatureIdentifier,IInterfaceIdentifier, IProtocolIdentifier
+		ISignatureIdentifier,IInterfaceIdentifier, IProtocolIdentifier,IProtocolTypeIdentifier
 	{
 		#region constructors
 		
@@ -107,6 +110,15 @@ namespace Palladio.ComponentModel.Identifier
 		/// </summary>
 		/// <returns>the protocol identifier</returns>
 		public IProtocolIdentifier AsProtocolIdentifier()
+		{
+			return this;
+		}
+
+		/// <summary>
+		/// called to create a protocoltype identifier from this identifier.
+		/// </summary>
+		/// <returns>the protocol identifier</returns>
+		public IProtocolTypeIdentifier AsProtocolTypeIdentifier()
 		{
 			return this;
 		}

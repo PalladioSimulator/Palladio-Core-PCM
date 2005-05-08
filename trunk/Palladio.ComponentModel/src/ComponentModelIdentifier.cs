@@ -10,6 +10,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/08 12:04:23  joemal
+	/// implementation of xml serialization
+	///
 	/// Revision 1.1  2005/04/10 15:32:44  joemal
 	/// initial class creation
 	///
@@ -65,6 +68,16 @@ namespace Palladio.ComponentModel
 		public static IProtocolIdentifier CreateProtocolID(string guid)
 		{
 			return new InternalEntityIdentifier(guid).AsProtocolIdentifier();
+		}
+
+		/// <summary>
+		/// called to create a new protocoltype identifier using the given guid as key
+		/// </summary>
+		/// <param name="guid">the guid</param>
+		/// <returns>the identifier</returns>
+		public static IProtocolTypeIdentifier CreateProtocolTypeID(string guid)
+		{
+			return new InternalEntityIdentifier(guid).AsProtocolTypeIdentifier();
 		}
 	}
 }

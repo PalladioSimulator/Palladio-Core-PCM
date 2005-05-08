@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/05/08 12:04:23  joemal
+	/// implementation of xml serialization
+	///
 	/// Revision 1.2  2005/04/19 16:47:41  joemal
 	/// implement query methods
 	///
@@ -80,5 +83,17 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// <returns>the id of the connection</returns>
 		IConnectionIdentifier GetAssemblyConnector(IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
+
+		/// <summary>
+		/// returns the ids of all basic components that are contained in this composite component
+		/// </summary>
+		/// <returns>the ids</returns>
+		IComponentIdentifier[] getBasicComponents();
+
+		/// <summary>
+		/// returns the ids of all composite components that are contained in this composite component
+		/// </summary>
+		/// <returns>the ids</returns>
+		IComponentIdentifier[] getCompositeComponents();
 	}
 }
