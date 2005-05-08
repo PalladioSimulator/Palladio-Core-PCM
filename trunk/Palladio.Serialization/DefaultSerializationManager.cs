@@ -12,6 +12,9 @@ namespace Palladio.Serialization
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/08 12:07:09  joemal
+	/// add exception clause in comments
+	///
 	/// Revision 1.1  2005/04/25 16:34:34  joemal
 	/// initial creation
 	///
@@ -55,8 +58,8 @@ namespace Palladio.Serialization
 			{
 				CheckUnusedSerializers(t);
 				serializers[t] = serializer;
-				serializer.Registered();
 			}
+			serializer.Registered();
 		}
 
 		/// <summary>

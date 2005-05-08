@@ -11,6 +11,9 @@ namespace Palladio.Serialization
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/08 12:07:09  joemal
+	/// add exception clause in comments
+	///
 	/// Revision 1.1  2005/04/25 16:34:34  joemal
 	/// initial creation
 	///
@@ -33,6 +36,7 @@ namespace Palladio.Serialization
 		/// <param name="location">the location</param>
 		/// <exception cref="OpenLocationException">thrown if the location can't be opened.</exception>
 		/// <exception cref="ModelSerializationException">thrown if an error occurs while reading the model.</exception>
+ 		/// <exception cref="ArgumentException">thrown, if the type of the location is not one of the supported ones.</exception>
 		void Load(ISerializationLocation location);
 
 		/// <summary>
@@ -42,6 +46,7 @@ namespace Palladio.Serialization
 		/// <param name="location">the location</param>
  		/// <exception cref="OpenLocationException">thrown if the location can't be opened.</exception>
 		/// <exception cref="ModelSerializationException">thrown if an error occurs while writing the model.</exception>
+		/// <exception cref="ArgumentException">thrown, if the type of the location is not one of the supported ones.</exception>
 		void Store(ISerializationLocation location);
 
 		/// <summary>
