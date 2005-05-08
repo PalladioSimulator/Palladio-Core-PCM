@@ -94,6 +94,11 @@
                     Project = "{8FCBDED0-6436-4FE6-B99B-13F3BDE8D65C}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "Palladio.Serialization"
+                    Project = "{D060F299-7C13-4834-882D-DDFC044A78B1}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
