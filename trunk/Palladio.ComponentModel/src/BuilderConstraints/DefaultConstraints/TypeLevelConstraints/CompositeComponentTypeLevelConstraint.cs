@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.4  2005/05/18 13:45:36  kelsaka
+	/// - added further constraint
+	///
 	/// Revision 1.3  2005/05/18 10:33:46  kelsaka
 	/// - added default constraints implementation
 	/// - added new test-case
@@ -200,12 +203,24 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
+		/// <remarks>The assembly connector is only added if the given identifier is new to the
+		/// component model. Otherwise an exception will be thrown.</remarks>
+		/// <exception cref="EntityAlreadyExistsException">Thrown if the given connection identifier
+		/// already exists in the component model.</exception>
 		public void AddAssemblyConnector (IConnectionIdentifier connectionIdentifier, string connectionName,
 			IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
 			IInterfaceIdentifier provIFaceID)
 		{
-			compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionIdentifier, connectionName,
-				reqCompID, reqIFaceID, provCompID, provIFaceID);
+			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(connectionIdentifier))
+			{
+				throw new EntityAlreadyExistsException(connectionIdentifier, "The connection " +
+					"already exists in the component model.");
+			}
+			else
+			{
+				compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionIdentifier, connectionName,
+					reqCompID, reqIFaceID, provCompID, provIFaceID);
+			}
 		}
 
 		/// <summary>
@@ -214,6 +229,18 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		public void AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
+
+			/*if(this.modelDataManager.Query.QueryEntities.ContainsEntity(connectionIdentifier))
+			{
+				throw new EntityAlreadyExistsException(connectionIdentifier, "The connection " +
+					"already exists in the component model.");
+			}
+			else
+			{
+				compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionIdentifier, connectionName,
+					reqCompID, reqIFaceID, provCompID, provIFaceID);
+			}*/
+
 			compositeComponentBuilderSuccessor.AddProvidesInterface(ifaceIdentifier);
 		}
 
