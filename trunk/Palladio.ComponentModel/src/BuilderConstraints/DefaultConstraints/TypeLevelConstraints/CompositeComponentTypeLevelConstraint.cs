@@ -3,6 +3,7 @@ using System.Collections;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -18,6 +19,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.3  2005/05/18 10:33:46  kelsaka
+	/// - added default constraints implementation
+	/// - added new test-case
+	///
 	/// Revision 1.2  2005/05/18 09:47:38  kelsaka
 	/// - added BC default constraints implementation
 	/// - fixed error in unit tests / added new test-case
@@ -70,22 +75,6 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <returns>Type level builder of the new basic component.</returns>
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (string name)
 		{
-			//this.modelDataManager.Query.
-
-			/*// create a arraylist from the list im required interfaces to allow
-			// easy searching.
-			ArrayList interfaceIdentifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
-							.QueryBasicComponent(component.ComponentID).GetRequiresInterfaceIDs());
-			
-			if(!interfaceIdentifierList.Contains(ifaceID))
-			{			
-				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID);
-			}
-			else
-			{
-				this.basicComponentBuilderSuccessor.RemoveRequiresInterface(ifaceID);
-			}*/	
-
 			return compositeComponentBuilderSuccessor.AddBasicComponent(name);
 		}
 
@@ -96,9 +85,22 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="componentIdentifier">The id for the new component.</param>
 		/// <param name="name">The new components name.</param>
 		/// <returns>Type level builder of the new basic component with the given ID.</returns>
+		/// <remarks>Grants that the component identifier is used nowhere else. The given
+		/// identifier is not allowed to exits in the component model, otherwise a exception
+		/// will be thrown.</remarks>
+		/// <exception cref="EntityAlreadyExistsException">Is thrown if the component identifier
+		/// already exists in the component model (the id is not new).</exception>
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (IComponentIdentifier componentIdentifier, string name)
-		{
-			return compositeComponentBuilderSuccessor.AddBasicComponent(componentIdentifier, name);
+		{			
+			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(componentIdentifier))
+			{			
+				throw new EntityAlreadyExistsException(componentIdentifier,
+					"The component can not be created with the given identifier as is the identifier already exists.");
+			}
+			else
+			{
+				return compositeComponentBuilderSuccessor.AddBasicComponent(componentIdentifier, name);
+			}
 		}
 
 		/// <summary>
@@ -118,9 +120,22 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="componentIdentifier">The id for the new component.</param>
 		/// <param name="name">The new components name.</param>
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
+		/// <remarks>Grants that the component identifier is used nowhere else. The given
+		/// identifier is not allowed to exits in the component model, otherwise a exception
+		/// will be thrown.</remarks>
+		/// <exception cref="EntityAlreadyExistsException">Is thrown if the component identifier
+		/// already exists in the component model (the id is not new).</exception>
 		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (IComponentIdentifier componentIdentifier, string name)
 		{
-			return compositeComponentBuilderSuccessor.AddCompositeComponent(componentIdentifier, name);
+			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(componentIdentifier))
+			{			
+				throw new EntityAlreadyExistsException(componentIdentifier,
+					"The component can not be created with the given identifier as is the identifier already exists.");
+			}
+			else
+			{
+				return compositeComponentBuilderSuccessor.AddCompositeComponent(componentIdentifier, name);
+			}			
 		}
 
 		/// <summary>
@@ -129,9 +144,28 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// all connections to and from this components are also removed.
 		/// </summary>
 		/// <param name="componentId">the id of the component to be removed</param>
+		/// <remarks>Only internal components of the actual composite component can be removed.
+		/// Otherwise a exception will be thrown.</remarks>
+		/// <exception cref="ComponentNotFoundException">Thrown if the actual composite
+		/// component does not have a internal component with the given component identifier.
+		/// </exception>
 		public void RemoveComponent (IComponentIdentifier componentId)
 		{
-			compositeComponentBuilderSuccessor.RemoveComponent(componentId);
+			// create a arraylist from the list im required interfaces to allow
+			// easy searching.
+			ArrayList identifierList = new ArrayList(this.modelDataManager.Query.
+				QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).GetComponents());
+
+			if(!identifierList.Contains(componentId))
+			{			
+				throw new ComponentNotFoundException(componentId,
+					"The given component can not be removed from the actual composite component as the"
+					+ " composite component does not have a interal component with the given identifier.");
+			}
+			else
+			{
+				compositeComponentBuilderSuccessor.RemoveComponent(componentId);
+			}			
 		}
 
 		/// <summary>

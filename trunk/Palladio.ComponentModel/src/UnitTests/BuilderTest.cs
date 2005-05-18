@@ -18,6 +18,10 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.21  2005/05/18 10:33:46  kelsaka
+	/// - added default constraints implementation
+	/// - added new test-case
+	///
 	/// Revision 1.20  2005/05/18 09:47:38  kelsaka
 	/// - added BC default constraints implementation
 	/// - fixed error in unit tests / added new test-case
@@ -267,16 +271,28 @@ namespace Palladio.ComponentModel.UnitTests
 
 		[Test]
 		[ExpectedException(typeof(InterfaceNotFromComponentException))]
-		public void BC_RemoveInterfaceTwice()
+		public void BC_RemoveProvidesInterfaceTwice()
 		{
 			Identifier.IInterfaceIdentifier i11 =  rootBuilder.AddInterface("IF11").Interface.InterfaceID;
 			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");
 			bc11.AddProvidesInterface(i11);
-			bc11.AddRequiresInterface(i11);
 
 			bc11.RemoveProvidesInterface(i11);
 			bc11.RemoveProvidesInterface(i11);
 		}
+
+		[Test]
+		[ExpectedException(typeof(InterfaceNotFromComponentException))]
+		public void BC_RemoveRequiresInterfaceTwice()
+		{
+			Identifier.IInterfaceIdentifier i11 =  rootBuilder.AddInterface("IF11").Interface.InterfaceID;
+			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");
+			bc11.AddRequiresInterface(i11);
+
+			bc11.RemoveRequiresInterface(i11);
+			bc11.RemoveRequiresInterface(i11);
+		}
+
 
 		[Test]
 		public void BC_Event_NameChanged()
