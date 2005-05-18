@@ -18,6 +18,10 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.20  2005/05/18 09:47:38  kelsaka
+	/// - added BC default constraints implementation
+	/// - fixed error in unit tests / added new test-case
+	///
 	/// Revision 1.19  2005/04/24 14:50:15  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -251,6 +255,19 @@ namespace Palladio.ComponentModel.UnitTests
 
 		[Test]
 		public void BC_RemoveInterface()
+		{
+			Identifier.IInterfaceIdentifier i11 =  rootBuilder.AddInterface("IF11").Interface.InterfaceID;
+			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");
+			bc11.AddProvidesInterface(i11);
+			bc11.AddRequiresInterface(i11);
+
+			bc11.RemoveProvidesInterface(i11);
+			bc11.RemoveRequiresInterface(i11);
+		}
+
+		[Test]
+		[ExpectedException(typeof(InterfaceNotFromComponentException))]
+		public void BC_RemoveInterfaceTwice()
 		{
 			Identifier.IInterfaceIdentifier i11 =  rootBuilder.AddInterface("IF11").Interface.InterfaceID;
 			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");

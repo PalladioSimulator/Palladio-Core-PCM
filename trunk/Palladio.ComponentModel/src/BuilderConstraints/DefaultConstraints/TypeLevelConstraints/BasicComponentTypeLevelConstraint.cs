@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -16,6 +18,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.4  2005/05/18 09:47:38  kelsaka
+	/// - added BC default constraints implementation
+	/// - fixed error in unit tests / added new test-case
+	///
 	/// Revision 1.3  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -132,9 +138,26 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// This method deletes the interface used as provided interface (<see cref="InterfaceRole.PROVIDES"/>).
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
+		/// <remarks>Only if the given interface is provided by the actual component the
+		/// interface will be deleted. Other a exception will be thrown.</remarks>
+		/// <exception cref="InterfaceNotFromComponentException">Will be thrown if
+		/// the actual component does not provide the given interface.</exception>
 		public void RemoveProvidesInterface (IInterfaceIdentifier ifaceID)
 		{
-			this.basicComponentBuilderSuccessor.RemoveProvidesInterface(ifaceID);
+			// create a arraylist from the list im required interfaces to allow
+			// easy searching.
+			ArrayList interfaceIdentifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
+				.QueryBasicComponent(this.component.ComponentID).GetProvidesInterfaceIDs());
+			
+			if(!interfaceIdentifierList.Contains(ifaceID))
+			{			
+				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID,
+					"The interface to delete is not provided by the component.");
+			}
+			else
+			{
+				this.basicComponentBuilderSuccessor.RemoveProvidesInterface(ifaceID);
+			}		
 		}
 
 		/// <summary>
@@ -144,9 +167,26 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// This method deletes the interface used as requires interface (<see cref="InterfaceRole.REQUIRES"/>).
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
+		/// <remarks>Only if the given interface is required by the actual component the
+		/// interface will be deleted. Other a exception will be thrown.</remarks>
+		/// <exception cref="InterfaceNotFromComponentException">Will be thrown if
+		/// the actual component does not require the given interface.</exception>
 		public void RemoveRequiresInterface (IInterfaceIdentifier ifaceID)
 		{
-			this.basicComponentBuilderSuccessor.RemoveRequiresInterface(ifaceID);
+			// create a arraylist from the list im required interfaces to allow
+			// easy searching.
+			ArrayList interfaceIdentifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
+				.QueryBasicComponent(this.component.ComponentID).GetRequiresInterfaceIDs());
+			
+			if(!interfaceIdentifierList.Contains(ifaceID))
+			{			
+				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID,
+					"The interface to delete is not required by the component.");
+			}
+			else
+			{
+				this.basicComponentBuilderSuccessor.RemoveRequiresInterface(ifaceID);
+			}	
 		}
 
 		/// <summary>

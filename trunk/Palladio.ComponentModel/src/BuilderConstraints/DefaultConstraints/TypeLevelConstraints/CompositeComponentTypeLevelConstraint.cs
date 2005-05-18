@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
@@ -17,6 +18,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.2  2005/05/18 09:47:38  kelsaka
+	/// - added BC default constraints implementation
+	/// - fixed error in unit tests / added new test-case
+	///
 	/// Revision 1.1  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -65,6 +70,22 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <returns>Type level builder of the new basic component.</returns>
 		public IBasicComponentTypeLevelBuilder AddBasicComponent (string name)
 		{
+			//this.modelDataManager.Query.
+
+			/*// create a arraylist from the list im required interfaces to allow
+			// easy searching.
+			ArrayList interfaceIdentifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
+							.QueryBasicComponent(component.ComponentID).GetRequiresInterfaceIDs());
+			
+			if(!interfaceIdentifierList.Contains(ifaceID))
+			{			
+				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID);
+			}
+			else
+			{
+				this.basicComponentBuilderSuccessor.RemoveRequiresInterface(ifaceID);
+			}*/	
+
 			return compositeComponentBuilderSuccessor.AddBasicComponent(name);
 		}
 
