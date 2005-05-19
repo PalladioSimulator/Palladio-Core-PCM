@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/05/19 18:09:40  joemal
+	/// fix some bugs
+	///
 	/// Revision 1.11  2005/05/08 17:23:40  joemal
 	/// fix a bug
 	///
@@ -113,7 +116,12 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		private void ClearTable(DataTable table)
 		{
 			while(table.Rows.Count != 0)
+			{
+				System.Console.WriteLine("Try to remove: "+table.Rows[0]);
+				System.Console.ReadLine();
 				table.Rows.RemoveAt(0);
+				modelDataset.AcceptChanges();
+			}
 		}
 
 		//queries the role by componentid, interfaceid and role
@@ -160,6 +168,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//called when a component has been removed from dataset
 		private void CompDeleted(object sender, ModelDataSet.ComponentsRowChangeEvent e)
 		{
+			Console.WriteLine("Component removed");
 			string compKey = (string)e.Row["guid",DataRowVersion.Original];
 			object parentKey = e.Row["parentComponent",DataRowVersion.Original];
 
@@ -176,6 +185,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//called when an interface has been removed from dataset
 		private void IfaceDeleted(object sender, ModelDataSet.InterfacesRowChangeEvent e)
 		{
+			Console.WriteLine("IFace removed");
 			string ifaceKey = (string)e.Row["guid",DataRowVersion.Original];
 			entityReg.UnregisterInterface((IInterface) entityHashtable[ifaceKey]);
 			entityHashtable.RemoveEntity(ifaceKey);
@@ -196,12 +206,13 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//called when a connection has been removed from dataset
 		private void ConDeleted(object sender, ModelDataSet.ConnectionsRowChangeEvent e)
 		{
+			Console.WriteLine("Con removed");
 			string conKey = (string)e.Row["guid",DataRowVersion.Original];
 			object parentCKey = e.Row["fk_comp",DataRowVersion.Original];
 			IComponentIdentifier parentCompID = null;
 
 			if (!(parentCKey is DBNull))
-				parentCompID = (IComponentIdentifier) entityHashtable[(string)parentCKey];
+				parentCompID = new InternalEntityIdentifier((string)parentCKey);
 			
 			entityReg.UnregisterConnection((IConnection) entityHashtable[conKey],parentCompID);
 
@@ -211,6 +222,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//called when a signature has been removed from dataset
 		private void SigDeleted(object sender, ModelDataSet.SignaturesRowChangeEvent e)
 		{
+			Console.Out.WriteLine("Signature deleted");
 			string sigKey = (string)e.Row["guid",DataRowVersion.Original];
 			string ifaceKey = (string)e.Row["fk_iface",DataRowVersion.Original];
 
@@ -223,10 +235,11 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//called when an interface has been unbound from a component
 		private void InterfaceUnbound(object sender, ModelDataSet.RolesRowChangeEvent e)
 		{
+			Console.WriteLine("IFace unbounded");
 			string compKey = (string)e.Row["fk_comp",DataRowVersion.Original];
 			string ifaceKey = (string)e.Row["fk_iface",DataRowVersion.Original];
-			entityReg.UnregisterInterfaceFromComponent((IComponentIdentifier) entityHashtable[compKey],
-			                                           (IInterfaceIdentifier) entityHashtable[ifaceKey]);
+			entityReg.UnregisterInterfaceFromComponent(new InternalEntityIdentifier(compKey),
+				new InternalEntityIdentifier(ifaceKey));
 		}
 
 		#endregion
@@ -238,12 +251,12 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		public void ClearAll()
 		{
-			this.ClearTable(RolesTable);
 			this.ClearTable(ComponentsTable);
 			this.ClearTable(InterfacesTable);
-			this.ClearTable(SignaturesTable);
 			this.ClearTable(ProtocolsTable);
-			this.ClearTable(ConnectionsTable);
+			this.ClearTable(RolesTable);
+			this.ClearTable(ConnectionsTable);			
+			this.ClearTable(SignaturesTable);
 			entityHashtable.Clear();
 			idCntr = 0;
 		}
@@ -288,7 +301,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			if (row == null) return;
 			
 			row.Delete();
-			ComponentsTable.AcceptChanges();
+			modelDataset.AcceptChanges();
 		}
 
 		/// <summary>
@@ -335,7 +348,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			if (rolesRow == null) return;
 
 			rolesRow.Delete();
-			RolesTable.AcceptChanges();
+			modelDataset.AcceptChanges();
 		}
 
 		/// <summary>
@@ -431,7 +444,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			ModelDataSet.ConnectionsRow row = ConnectionsTable.FindByguid(connectionID.Key);
 			if (row == null) return;
 			row.Delete();
-			ConnectionsTable.AcceptChanges();
+			modelDataset.AcceptChanges();
 		}
 
 		/// <summary>
@@ -459,7 +472,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			ModelDataSet.InterfacesRow row = InterfacesTable.FindByguid(ifaceID.Key);
 			if (row == null) return;
 			row.Delete();
-			InterfacesTable.AcceptChanges();
+			modelDataset.AcceptChanges();
 		}
 
 		/// <summary>
@@ -474,6 +487,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			modelCheck.AddSignatureCheck(signature, ifaceID);
 			ModelDataSet.InterfacesRow ifaceRow = InterfacesTable.FindByguid(ifaceID.Key);
 			SignaturesTable.AddSignaturesRow(signature.ID.Key,ifaceRow);
+			SignaturesTable.AcceptChanges();
 			entityHashtable.AddEntity(signature);
 			entityReg.RegisterSignature(signature,ifaceID);
 		}
@@ -488,7 +502,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			ModelDataSet.SignaturesRow row = SignaturesTable.FindByguid(signatureID.Key);
 			if (row == null) return;
 			row.Delete();
-			SignaturesTable.AcceptChanges();
+			modelDataset.AcceptChanges();
 		}
 
 		/// <summary>
@@ -520,7 +534,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			ModelDataSet.ProtocolsRow row = ProtocolsTable.FindByguid(protocolID.Key);
 			if (row == null) return;
 			row.Delete();
-			ProtocolsTable.AcceptChanges();
+			modelDataset.AcceptChanges();
 		}
 
 		#endregion
