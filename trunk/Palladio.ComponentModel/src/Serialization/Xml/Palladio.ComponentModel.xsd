@@ -128,23 +128,20 @@
 							<xs:sequence>
 								<xs:element name="ProvidesInterface" minOccurs="0" maxOccurs="unbounded">
 									<xs:complexType>
-										<xs:sequence>
-											<xs:element name="guid" type="GUID" />
-										</xs:sequence>
+										<xs:sequence></xs:sequence>
+										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
 								<xs:element name="RequiresInterface" minOccurs="0" maxOccurs="unbounded">
 									<xs:complexType>
-										<xs:sequence>
-											<xs:element name="guid" type="GUID" />
-										</xs:sequence>
+										<xs:sequence></xs:sequence>
+										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
 								<xs:element name="Component" minOccurs="0" maxOccurs="unbounded">
 									<xs:complexType>
-										<xs:sequence>
-											<xs:element name="guid" type="GUID" />
-										</xs:sequence>
+										<xs:sequence></xs:sequence>
+										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
 								<xs:element name="Connector" maxOccurs="unbounded" minOccurs="0">
@@ -183,16 +180,14 @@
 							<xs:sequence>
 								<xs:element name="ProvidesInterface" minOccurs="0" maxOccurs="unbounded">
 									<xs:complexType>
-										<xs:sequence>
-											<xs:element name="guid" type="GUID" />
-										</xs:sequence>
+										<xs:sequence></xs:sequence>
+										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
 								<xs:element name="RequiresInterface" minOccurs="0" maxOccurs="unbounded">
 									<xs:complexType>
-										<xs:sequence>
-											<xs:element name="guid" type="GUID" />
-										</xs:sequence>
+										<xs:sequence></xs:sequence>
+										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
 							</xs:sequence>
@@ -207,7 +202,15 @@
 			<xs:extension base="Entity">
 				<xs:sequence>
 					<xs:element name="ReturnType" type="xs:string" minOccurs="0" />
-					<xs:element name="Parameter" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+					<xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Name" type="xs:string" />
+								<xs:element name="Type" type="xs:string" />
+								<xs:element name="Modifier" type="xs:byte" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
 					<xs:element name="Exception" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
 				</xs:sequence>
 			</xs:extension>

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Runtime.Serialization;
 using System.Xml;
+using Palladio.Attributes;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.Query;
@@ -17,6 +18,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/05/19 18:07:19  joemal
+	/// add parameter and attribute serialization
+	///
 	/// Revision 1.2  2005/05/08 17:23:40  joemal
 	/// fix a bug
 	///
@@ -95,28 +99,30 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		//called to write the document
 		private void Write(XmlWriter writer)
 		{
-//			try
-//			{
+			try
+			{
 				writer.WriteStartElement("ComponentModel",XmlSerializer.XMLNAMESPACE);
 				WriteTLModel(writer);
 				WriteILModel(writer);
 				WriteDLModel(writer);
-//			}
-//			catch(Exception exc)
-//			{
-//				Console.WriteLine("Error: "+exc);
-//				throw new SerializationException("Unable to write to the xml file.",exc);
-//			}
+			}
+			catch(Exception exc)
+			{
+				Console.WriteLine("Error: "+exc);
+				throw new SerializationException("Unable to write to the xml file.",exc);
+			}
 		}
 
 		#endregion
 
 		#region typelevel methods
 
+		//write the type level part of the model
 		private void WriteTLModel(XmlWriter writer)
 		{
 			writer.WriteStartElement("StaticViewRootTL");
 			
+			//structure
 			writer.WriteStartElement("Structure");
 			IInterfaceIdentifier[] ifaceIDs = query.QueryTypeLevel.QueryStaticView().GetInterfaces();
 			WriteEntityGuids(writer,"Interface",ifaceIDs);
@@ -128,6 +134,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			WriteConnectionRef(writer,conIDs);
 			writer.WriteEndElement();
 
+			//entities
 			writer.WriteStartElement("Entities");
 			WriteInterfaces(writer,ifaceIDs);
 			WriteBasicComponentsTL(writer,basicCompIDs);
@@ -138,6 +145,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			writer.WriteEndElement();
 		}
 
+		//write the given type level basic components
 		private void WriteBasicComponentsTL(XmlWriter writer, params IComponentIdentifier[] compIDs)
 		{
 			foreach (IComponentIdentifier compID in compIDs)
@@ -147,6 +155,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				IComponent comp = query.QueryEntities.GetComponent(compID);				
 				WriteEntityBaseAttributes(writer,comp);
 				
+				//structure
 				writer.WriteStartElement("Structure");
 				IInterfaceIdentifier[] ifaceIDs = query.QueryTypeLevel.QueryComponent(compID).GetProvidesInterfaceIDs();
 				WriteEntityGuids(writer,"ProvidesInterface",ifaceIDs);
@@ -158,6 +167,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			}
 		}
 
+		//write the given type level composite component 
 		private void WriteCompositeComponentsTL(XmlWriter writer, params IComponentIdentifier[] compIDs)
 		{
 			foreach (IComponentIdentifier compID in compIDs)
@@ -167,6 +177,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				IComponent comp = query.QueryEntities.GetComponent(compID);				
 				WriteEntityBaseAttributes(writer,comp);
 				
+				//structure
 				writer.WriteStartElement("Structure");
 				IInterfaceIdentifier[] ifaceIDs = query.QueryTypeLevel.QueryComponent(compID).GetProvidesInterfaceIDs();
 				WriteEntityGuids(writer,"ProvidesInterface",ifaceIDs);
@@ -180,6 +191,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				WriteConnectionRef(writer,conIDs);
 				writer.WriteEndElement();					
 			
+				//entities
 				writer.WriteStartElement("Entities");
 				WriteBasicComponentsTL(writer,bcIDs);
 				WriteCompositeComponentsTL(writer,ccIDs);
@@ -194,6 +206,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 
 		#region implementationlevel methods 
 
+		//writes the implementation part of the model
 		private void WriteILModel(XmlWriter writer)
 		{
 			writer.WriteStartElement("StaticViewRootIL");
@@ -205,6 +218,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 
 		#region deploymentlevel methods 
 
+		//writes the deployment part of the model
 		private void WriteDLModel(XmlWriter writer)
 		{
 			writer.WriteStartElement("StaticViewRootDL");
@@ -216,6 +230,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 
 		#region entity write methods
 
+		//writes the given connections
 		private void WriteConnections(XmlWriter writer, params IConnectionIdentifier[] conIDs)
 		{
 			foreach(IConnectionIdentifier conID in conIDs)
@@ -227,6 +242,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			}						
 		}
 
+		//writes the structure of the given connections
 		private void WriteConnectionRef(XmlWriter writer, IConnectionIdentifier[] conIDs)
 		{
 			foreach(IConnectionIdentifier conID in conIDs)
@@ -247,6 +263,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			}
 		}
 
+		//writes the given interfaces
 		private void WriteInterfaces(XmlWriter writer, params IInterfaceIdentifier[] ifaceIDs)
 		{
 			foreach(IInterfaceIdentifier ifaceID in ifaceIDs)
@@ -255,6 +272,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				writer.WriteStartElement("Interface");
 				WriteEntityBaseAttributes(writer,iface);
 
+				//structure
 				writer.WriteStartElement("Structure");
 				ISignatureIdentifier[] sigIDs = query.QueryTypeLevel.QueryInterface(ifaceID).GetSignatures();
 				WriteEntityGuids(writer,"Signature",sigIDs);
@@ -262,6 +280,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				WriteEntityGuids(writer,"Protocol",protIDs);
 				writer.WriteEndElement();
 
+				//entities
 				writer.WriteStartElement("Entities");
 				WriteSignatures(writer,sigIDs);
 				WriteProtocols(writer,protIDs);
@@ -271,6 +290,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			}
 		}
 
+		//writes the given signatures
 		private void WriteSignatures(XmlWriter writer, params ISignatureIdentifier[] sigIDs)
 		{
 			foreach(ISignatureIdentifier sigID in sigIDs)
@@ -287,14 +307,20 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			}
 		}
 
+		//writes the given parameters
 		private void WriteParameters(XmlWriter writer, params IParameter[] parms)
 		{
-			//todo: modify schema 
-			//parms[0].
 			foreach(IParameter parm in parms)
-				writer.WriteElementString("Parameter",parm.Name);
+			{
+				writer.WriteStartElement("Parameter");
+				writer.WriteElementString("Name",parm.Name);
+				writer.WriteElementString("Type",parm.Type.ToString());
+				writer.WriteElementString("Modifier",""+(byte)parm.Modifier);
+				writer.WriteEndElement();
+			}
 		}
 
+		//writes the given protocols
 		private void WriteProtocols(XmlWriter writer, params IProtocolIdentifier[] protIDs)
 		{
 			foreach(IProtocolIdentifier protID in protIDs)
@@ -311,17 +337,29 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			}
 		}
 
+		//writes the basic attributes of each entity
 		private void WriteEntityBaseAttributes(XmlWriter writer, IComponentModelEntity entity)
 		{
 			writer.WriteAttributeString("guid",entity.ID.Key);			
 			writer.WriteElementString("Name",entity.Name);
 			writer.WriteStartElement("Attributes");
-			//todo: write attributes
-			//			foreach(IAttribute attr in entity.Attributes)
+			foreach(IAttributeType attrType in entity.Attributes.AttributeTypes)
+			{
+				IXmlAttributePlugIn attrPlugIn = (IXmlAttributePlugIn) plugins[attrType];
+				if (attrPlugIn == null)
+					throw new SerializationException("No plugin found for attributetype \""+attrType.DisplayName+"\".");				
+
+				IAttribute attr = entity.Attributes[attrType];
+				writer.WriteStartElement("Attribute");
+				writer.WriteAttributeString("type",attrType.GUID.ToString());
+				attrPlugIn.SaveAttribute(writer,attr);
+				writer.WriteEndElement();
+			}
 
 			writer.WriteEndElement();
 		}
 
+		//writes the guid reference of an entity. Used in structure parts of composite components etc.
 		private void WriteEntityGuids(XmlWriter writer,string entityTag, params IIdentifier[] entities)
 		{
 			foreach(IIdentifier entityID in entities)

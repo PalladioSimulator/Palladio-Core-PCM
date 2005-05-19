@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/19 18:07:19  joemal
+	/// add parameter and attribute serialization
+	///
 	/// Revision 1.1  2005/05/08 12:02:17  joemal
 	/// initial creation
 	///
@@ -20,20 +23,20 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	public interface IXmlAttributePlugIn:IXmlPlugIn
 	{
 		/// <summary>
-		/// called by the serializer, when an attribute has to be loaded from given xml node. The type of the attribute is
+		/// called by the serializer, when an attribute has to be loaded from given xml reader. The type of the attribute is
 		/// one of the supported ones.
 		/// </summary>
-		/// <param name="attributeNode">the xml node</param>
+		/// <param name="xmlReader">the xml reader</param>
 		/// <returns>the attribute</returns>
-		IAttribute LoadAttribute(XmlNode attributeNode);
+		IAttribute LoadAttribute(XmlReader xmlReader);
 
 		/// <summary>
-		/// called by the serializer, when an attribute has to be saved to the given xml node. The type of the attribute is
+		/// called by the serializer, when an attribute has to be saved to the given xmlwriter. The type of the attribute is
 		/// one of the supported ones.
 		/// </summary>
-		/// <param name="attributeNode">the xml node</param>
+		/// <param name="xmlWriter">the xml writer</param>
 		/// <param name="attribute">the attribute</param>
-		void SaveProtocol(XmlNode attributeNode, IAttribute attribute);
+		void SaveAttribute(XmlWriter xmlWriter, IAttribute attribute);
 
 		/// <summary>
 		/// returns an array of supported attribute types
