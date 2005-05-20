@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.6  2005/05/20 18:08:39  kelsaka
+	/// - added comments
+	///
 	/// Revision 1.5  2005/05/20 17:27:23  kelsaka
 	/// - added further constraints
 	/// - added new exception - for use in constraints
@@ -231,6 +234,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// Called to add an existing interface as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
+		/// <remarks>Checks wether the interface is already provided. If it is already provides an
+		/// exception is thrown.</remarks>
+		/// <exception cref="InterfaceAlreadyAddedException">Thrown if the same interface has
+		/// previously been added (as provided) to the component.</exception>
 		public void AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
 			ArrayList identifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel.
@@ -250,6 +257,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// Called to add an existing interface as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
+		/// <remarks>Checks wether the interface is already required. If it is already provided an
+		/// exception is thrown.</remarks>
+		/// <exception cref="InterfaceAlreadyAddedException">Thrown if the same interface has
+		/// previously been added (as required) to the component.</exception>
 		public void AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
 			ArrayList identifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel.
@@ -262,8 +273,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			else
 			{
 				compositeComponentBuilderSuccessor.AddRequiresInterface(ifaceIdentifier);;
-			}
-			
+			}			
 		}
 
 		/// <summary>
@@ -283,6 +293,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
+		/// <exception cref="EntityAlreadyExistsException">Thrown if the interface identifier to add
+		/// already exists in the component model.</exception>
 		public IInterfaceTypeLevelBuilder AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
 			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(ifaceIdentifier))
@@ -312,6 +324,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="InterfaceRole.REQUIRES"/> to build the new interface.</returns>
+		/// <exception cref="EntityAlreadyExistsException">Thrown if the interface identifier to add
+		/// already exists in the component model.</exception>
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
 			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(ifaceIdentifier))
@@ -331,6 +345,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// This method deletes the interface used as provided interface (<see cref="InterfaceRole.PROVIDES"/>).
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
+		/// <exception cref="InterfaceNotFromComponentException">Thrown if the specified interface
+		/// is not provided by the actual component.</exception>
 		public void RemoveProvidesInterface (IInterfaceIdentifier ifaceID)
 		{
 			// create a arraylist from the list im required interfaces to allow
@@ -356,6 +372,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// This method deletes the interface used as requires interface (<see cref="InterfaceRole.REQUIRES"/>).
 		/// </summary>
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
+		/// <exception cref="InterfaceNotFromComponentException">Thrown if the specified interface
+		/// is not provided by the actual component.</exception>
 		public void RemoveRequiresInterface (IInterfaceIdentifier ifaceID)
 		{
 			// create a arraylist from the list im required interfaces to allow
@@ -386,6 +404,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		public void AddProvidesDelegationConnector (string connectionName, IInterfaceIdentifier outerIFaceID,
 			IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{
+			//this.modelDataManager.Query
+
 			compositeComponentBuilderSuccessor.AddProvidesDelegationConnector(connectionName, outerIFaceID,
 				innerCompID, innerIFaceID);
 		}
