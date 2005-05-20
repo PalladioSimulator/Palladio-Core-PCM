@@ -388,6 +388,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\InterfaceAlreadyAddedException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\InterfaceNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

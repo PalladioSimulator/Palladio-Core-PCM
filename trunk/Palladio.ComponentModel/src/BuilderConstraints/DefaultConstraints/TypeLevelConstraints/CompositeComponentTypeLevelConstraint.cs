@@ -19,6 +19,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.5  2005/05/20 17:27:23  kelsaka
+	/// - added further constraints
+	/// - added new exception - for use in constraints
+	///
 	/// Revision 1.4  2005/05/18 13:45:36  kelsaka
 	/// - added further constraint
 	///
@@ -229,19 +233,17 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		public void AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
+			ArrayList identifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel.
+				QueryCompositeComponent(this.component.ComponentID).GetProvidesInterfaceIDs());
 
-			/*if(this.modelDataManager.Query.QueryEntities.ContainsEntity(connectionIdentifier))
+			if(identifierList.Contains(ifaceIdentifier))
 			{
-				throw new EntityAlreadyExistsException(connectionIdentifier, "The connection " +
-					"already exists in the component model.");
+				throw new InterfaceAlreadyAddedException(this.component.ComponentID, ifaceIdentifier);
 			}
 			else
 			{
-				compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionIdentifier, connectionName,
-					reqCompID, reqIFaceID, provCompID, provIFaceID);
-			}*/
-
-			compositeComponentBuilderSuccessor.AddProvidesInterface(ifaceIdentifier);
+				compositeComponentBuilderSuccessor.AddProvidesInterface(ifaceIdentifier);
+			}
 		}
 
 		/// <summary>
@@ -250,7 +252,18 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		public void AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			compositeComponentBuilderSuccessor.AddRequiresInterface(ifaceIdentifier);
+			ArrayList identifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel.
+				QueryCompositeComponent(this.component.ComponentID).GetRequiresInterfaceIDs());
+
+			if(identifierList.Contains(ifaceIdentifier))
+			{
+				throw new InterfaceAlreadyAddedException(this.component.ComponentID, ifaceIdentifier);
+			}
+			else
+			{
+				compositeComponentBuilderSuccessor.AddRequiresInterface(ifaceIdentifier);;
+			}
+			
 		}
 
 		/// <summary>
@@ -272,7 +285,14 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
-			return compositeComponentBuilderSuccessor.AddProvidesInterface(ifaceIdentifier, interfaceName);
+			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(ifaceIdentifier))
+			{
+				throw new EntityAlreadyExistsException(ifaceIdentifier);
+			}
+			else
+			{
+				return compositeComponentBuilderSuccessor.AddProvidesInterface(ifaceIdentifier, interfaceName);
+			}			
 		}
 
 		/// <summary>
@@ -294,7 +314,14 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <returns>A <see cref="InterfaceRole.REQUIRES"/> to build the new interface.</returns>
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
-			return compositeComponentBuilderSuccessor.AddRequiresInterface(ifaceIdentifier, interfaceName);
+			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(ifaceIdentifier))
+			{
+				throw new EntityAlreadyExistsException(ifaceIdentifier);
+			}
+			else
+			{
+				return compositeComponentBuilderSuccessor.AddRequiresInterface(ifaceIdentifier, interfaceName);
+			}					
 		}
 
 		/// <summary>
@@ -306,7 +333,20 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		public void RemoveProvidesInterface (IInterfaceIdentifier ifaceID)
 		{
-			compositeComponentBuilderSuccessor.RemoveProvidesInterface(ifaceID);
+			// create a arraylist from the list im required interfaces to allow
+			// easy searching.
+			ArrayList interfaceIdentifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
+				.QueryCompositeComponent(this.component.ComponentID).GetProvidesInterfaceIDs());
+			
+			if(!interfaceIdentifierList.Contains(ifaceID))
+			{			
+				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID,
+					"The interface to delete is not provided by the component.");
+			}
+			else
+			{
+				compositeComponentBuilderSuccessor.RemoveProvidesInterface(ifaceID);
+			}			
 		}
 
 		/// <summary>
@@ -318,7 +358,20 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		public void RemoveRequiresInterface (IInterfaceIdentifier ifaceID)
 		{
-			compositeComponentBuilderSuccessor.RemoveRequiresInterface(ifaceID);
+			// create a arraylist from the list im required interfaces to allow
+			// easy searching.
+			ArrayList interfaceIdentifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
+				.QueryCompositeComponent(this.component.ComponentID).GetRequiresInterfaceIDs());
+			
+			if(!interfaceIdentifierList.Contains(ifaceID))
+			{			
+				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID,
+					"The interface to delete is not required by the component.");
+			}
+			else
+			{
+				compositeComponentBuilderSuccessor.RemoveRequiresInterface(ifaceID);
+			}
 		}
 
 		/// <summary>
