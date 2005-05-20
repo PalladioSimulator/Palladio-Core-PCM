@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 
 namespace Palladio.Attributes
 {
@@ -12,6 +13,9 @@ namespace Palladio.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/05/20 11:11:10  joemal
+	/// add methods
+	///
 	/// Revision 1.2  2005/04/05 14:26:06  joemal
 	/// add event notification
 	///
@@ -47,6 +51,11 @@ namespace Palladio.Attributes
 		/// To change the value, get a copy, change it and then add it again to the table.
 		/// </summary>
 		IAttribute this [IAttributeType type] { get; }
+
+		/// <summary>
+		/// called to return the collection of all contained attribute types
+		/// </summary>
+		ICollection AttributeTypes {get;}
 	}
 
 	/// <summary>

@@ -13,6 +13,9 @@ namespace Palladio.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/05/20 11:11:10  joemal
+	/// add methods
+	///
 	/// Revision 1.3  2005/04/08 08:11:09  joemal
 	/// fix missing comment
 	///
@@ -94,6 +97,17 @@ namespace Palladio.Attributes
 			get
 			{
 				return (IAttribute) ((ICloneable)hashtable[type]).Clone();
+			}
+		}
+
+		/// <summary>
+		/// called to return the collection of all contained attribute types
+		/// </summary>
+		public ICollection AttributeTypes
+		{
+			get
+			{
+				return hashtable.Keys;
 			}
 		}
 
