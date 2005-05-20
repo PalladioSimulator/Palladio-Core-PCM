@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/05/20 10:40:02  joemal
+	/// remove some debug rubish
+	///
 	/// Revision 1.12  2005/05/19 18:09:40  joemal
 	/// fix some bugs
 	///
@@ -117,8 +120,6 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		{
 			while(table.Rows.Count != 0)
 			{
-				System.Console.WriteLine("Try to remove: "+table.Rows[0]);
-				System.Console.ReadLine();
 				table.Rows.RemoveAt(0);
 				modelDataset.AcceptChanges();
 			}
@@ -168,7 +169,6 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//called when a component has been removed from dataset
 		private void CompDeleted(object sender, ModelDataSet.ComponentsRowChangeEvent e)
 		{
-			Console.WriteLine("Component removed");
 			string compKey = (string)e.Row["guid",DataRowVersion.Original];
 			object parentKey = e.Row["parentComponent",DataRowVersion.Original];
 
@@ -185,7 +185,6 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//called when an interface has been removed from dataset
 		private void IfaceDeleted(object sender, ModelDataSet.InterfacesRowChangeEvent e)
 		{
-			Console.WriteLine("IFace removed");
 			string ifaceKey = (string)e.Row["guid",DataRowVersion.Original];
 			entityReg.UnregisterInterface((IInterface) entityHashtable[ifaceKey]);
 			entityHashtable.RemoveEntity(ifaceKey);
@@ -206,7 +205,6 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//called when a connection has been removed from dataset
 		private void ConDeleted(object sender, ModelDataSet.ConnectionsRowChangeEvent e)
 		{
-			Console.WriteLine("Con removed");
 			string conKey = (string)e.Row["guid",DataRowVersion.Original];
 			object parentCKey = e.Row["fk_comp",DataRowVersion.Original];
 			IComponentIdentifier parentCompID = null;
@@ -222,7 +220,6 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//called when a signature has been removed from dataset
 		private void SigDeleted(object sender, ModelDataSet.SignaturesRowChangeEvent e)
 		{
-			Console.Out.WriteLine("Signature deleted");
 			string sigKey = (string)e.Row["guid",DataRowVersion.Original];
 			string ifaceKey = (string)e.Row["fk_iface",DataRowVersion.Original];
 
@@ -235,7 +232,6 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//called when an interface has been unbound from a component
 		private void InterfaceUnbound(object sender, ModelDataSet.RolesRowChangeEvent e)
 		{
-			Console.WriteLine("IFace unbounded");
 			string compKey = (string)e.Row["fk_comp",DataRowVersion.Original];
 			string ifaceKey = (string)e.Row["fk_iface",DataRowVersion.Original];
 			entityReg.UnregisterInterfaceFromComponent(new InternalEntityIdentifier(compKey),
