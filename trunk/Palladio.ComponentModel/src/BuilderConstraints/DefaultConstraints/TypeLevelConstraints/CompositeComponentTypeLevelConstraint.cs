@@ -19,6 +19,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.8  2005/05/21 17:12:17  kelsaka
+	/// - added new exception for use with signatures
+	/// - finished adding constraints for the type level
+	///
 	/// Revision 1.7  2005/05/21 15:23:29  kelsaka
 	/// - added further constraints
 	///
@@ -164,12 +168,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// </exception>
 		public void RemoveComponent (IComponentIdentifier componentId)
 		{
-			// create a arraylist from the list im required interfaces to allow
-			// easy searching.
-			ArrayList identifierList = new ArrayList(this.modelDataManager.Query.
-				QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).GetComponents());
-
-			if(!identifierList.Contains(componentId))
+			if(!this.modelDataManager.Query.
+				QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).IsChildren(componentId))
 			{			
 				throw new ComponentNotFoundException(componentId,
 					"The given component can not be removed from the actual composite component as the"
@@ -192,6 +192,12 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
+		/// <exception cref="ComponentNotFoundException">Thrown if the specified component (provCompID
+		/// or reqCompID) is not a child of the actual composite component.
+		/// </exception>
+		/// <exception cref="InterfaceNotFromComponentException">Thrown if the given interfaces are not
+		/// required / provided by the specified component. reqCompID has to require reqIFaceID;
+		/// provCompID has to provide provIFaceID.</exception>
 		public void AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID,
 			IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
 			IInterfaceIdentifier provIFaceID)
@@ -199,13 +205,13 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			if(!modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).IsChildren(reqCompID))
 			{
 				throw new ComponentNotFoundException(reqCompID,
-					"The component is not a child of the actual composite component");
+					"The component (reqCompID) is not a child of the actual composite component");
 			}
 
 			if(!modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).IsChildren(provCompID))
 			{
 				throw new ComponentNotFoundException(provCompID,
-					"The component is not a child of the actual composite component");
+					"The component (provCompID) is not a child of the actual composite component");
 			}
 
 			if(!modelDataManager.Query.QueryTypeLevel.QueryComponent(provCompID).IsProvidesInterface(provIFaceID))
@@ -219,7 +225,6 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 				throw new InterfaceNotFromComponentException(reqCompID, reqIFaceID,
 					"The specified interface is not required by the component.");
 			}
-
 
 			compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionName, reqCompID, reqIFaceID,
 				provCompID, provIFaceID);
@@ -240,22 +245,50 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="provIFaceID">the outgoing components interface</param>
 		/// <remarks>The assembly connector is only added if the given identifier is new to the
 		/// component model. Otherwise an exception will be thrown.</remarks>
+		/// <exception cref="ComponentNotFoundException">Thrown if the specified component (provCompID
+		/// or reqCompID) is not a child of the actual composite component.
+		/// </exception>
+		/// <exception cref="InterfaceNotFromComponentException">Thrown if the given interfaces are not
+		/// required / provided by the specified component. reqCompID has to require reqIFaceID;
+		/// provCompID has to provide provIFaceID.</exception>
 		/// <exception cref="EntityAlreadyExistsException">Thrown if the given connection identifier
 		/// already exists in the component model.</exception>
 		public void AddAssemblyConnector (IConnectionIdentifier connectionIdentifier, string connectionName,
 			IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
 			IInterfaceIdentifier provIFaceID)
 		{
-			//TODO: more constraints
 			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(connectionIdentifier))
 			{
 				throw new EntityAlreadyExistsException(connectionIdentifier, "The connection " +
 					"already exists in the component model.");
 			}
 
+			if(!modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).IsChildren(reqCompID))
+			{
+				throw new ComponentNotFoundException(reqCompID,
+					"The component (reqCompID) is not a child of the actual composite component");
+			}
+
+			if(!modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).IsChildren(provCompID))
+			{
+				throw new ComponentNotFoundException(provCompID,
+					"The component (provCompID) is not a child of the actual composite component");
+			}
+
+			if(!modelDataManager.Query.QueryTypeLevel.QueryComponent(provCompID).IsProvidesInterface(provIFaceID))
+			{
+				throw new InterfaceNotFromComponentException(provCompID, provIFaceID,
+					"The specified interface is not provided by the component.");
+			}
+
+			if(!modelDataManager.Query.QueryTypeLevel.QueryComponent(reqCompID).IsRequiresInterface(reqIFaceID))
+			{
+				throw new InterfaceNotFromComponentException(reqCompID, reqIFaceID,
+					"The specified interface is not required by the component.");
+			}
+
 			compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionIdentifier, connectionName,
 				reqCompID, reqIFaceID, provCompID, provIFaceID);
-			
 		}
 
 		/// <summary>
@@ -268,10 +301,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// previously been added (as provided) to the component.</exception>
 		public void AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			ArrayList identifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel.
-				QueryCompositeComponent(this.component.ComponentID).GetProvidesInterfaceIDs());
-
-			if(identifierList.Contains(ifaceIdentifier))
+			if(this.modelDataManager.Query.QueryTypeLevel.
+				QueryCompositeComponent(this.component.ComponentID).IsProvidesInterface(ifaceIdentifier))
 			{
 				throw new InterfaceAlreadyAddedException(this.component.ComponentID, ifaceIdentifier);
 			}
@@ -291,10 +322,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// previously been added (as required) to the component.</exception>
 		public void AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			ArrayList identifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel.
-				QueryCompositeComponent(this.component.ComponentID).GetRequiresInterfaceIDs());
-
-			if(identifierList.Contains(ifaceIdentifier))
+			if(this.modelDataManager.Query.QueryTypeLevel.
+				QueryCompositeComponent(this.component.ComponentID).IsRequiresInterface(ifaceIdentifier))
 			{
 				throw new InterfaceAlreadyAddedException(this.component.ComponentID, ifaceIdentifier);
 			}
@@ -377,12 +406,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// is not provided by the actual component.</exception>
 		public void RemoveProvidesInterface (IInterfaceIdentifier ifaceID)
 		{
-			// create a arraylist from the list im required interfaces to allow
-			// easy searching.
-			ArrayList interfaceIdentifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
-				.QueryCompositeComponent(this.component.ComponentID).GetProvidesInterfaceIDs());
-			
-			if(!interfaceIdentifierList.Contains(ifaceID))
+			if(!this.modelDataManager.Query.QueryTypeLevel
+				.QueryCompositeComponent(this.component.ComponentID).IsProvidesInterface(ifaceID))
 			{			
 				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID,
 					"The interface to delete is not provided by the component.");
@@ -404,12 +429,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// is not provided by the actual component.</exception>
 		public void RemoveRequiresInterface (IInterfaceIdentifier ifaceID)
 		{
-			// create a arraylist from the list im required interfaces to allow
-			// easy searching.
-			ArrayList interfaceIdentifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
-				.QueryCompositeComponent(this.component.ComponentID).GetRequiresInterfaceIDs());
-			
-			if(!interfaceIdentifierList.Contains(ifaceID))
+			if(!this.modelDataManager.Query.QueryTypeLevel
+				.QueryCompositeComponent(this.component.ComponentID).IsRequiresInterface(ifaceID))
 			{			
 				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID,
 					"The interface to delete is not required by the component.");
@@ -436,7 +457,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		public void AddProvidesDelegationConnector (string connectionName, IInterfaceIdentifier outerIFaceID,
 			IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{
-			if(!HasComponentOuterProvidesInterface (outerIFaceID))
+			if(!this.modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID)
+				.IsProvidesInterface(outerIFaceID))
 			{
 				throw new InterfaceNotFromComponentException(this.component.ComponentID, outerIFaceID,
 					"The outer interface is not provided by the composite component.");
@@ -473,7 +495,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			string connectionName, IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID,
 			IInterfaceIdentifier innerIFaceID)
 		{
-			if(!HasComponentOuterProvidesInterface (outerIFaceID))
+			if(!this.modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID)
+				.IsProvidesInterface(outerIFaceID))
 			{
 				throw new InterfaceNotFromComponentException(this.component.ComponentID, outerIFaceID,
 					"The outer interface is not provided by the composite component.");
@@ -509,7 +532,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		public void AddRequiresDelegationConnector (string connectionName, IComponentIdentifier innerCompID,
 			IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID)
 		{
-			if(!HasComponentOuterRequiresInterface (outerIFaceID))
+			
+			if(!this.modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID)
+				.IsRequiresInterface(outerIFaceID))
 			{
 				throw new InterfaceNotFromComponentException(this.component.ComponentID, outerIFaceID,
 					"The outer interface is not required by the composite component.");
@@ -546,7 +571,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			string connectionName, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID,
 			IInterfaceIdentifier outerIFaceID)
 		{
-			if(!HasComponentOuterRequiresInterface (outerIFaceID))
+			if(this.modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID)
+				.IsRequiresInterface(outerIFaceID))
 			{
 				throw new InterfaceNotFromComponentException(this.component.ComponentID, outerIFaceID,
 					"The outer interface is not required by the composite component.");
@@ -590,15 +616,19 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		}
 
 		/// <summary>
-		/// called to remove the connection that belongs to the given id. If the entity could not be found in 
-		/// componentmodel, the method returns without doing anything.
+		/// called to remove the connection that belongs to the given id.
 		/// </summary>
 		/// <param name="connectionID">the id of the connection that has to be removed</param>
-		/// <remarks>Due to a consistent documentation and functionality this constraint does not
-		/// throw any exception if the connectionID is not associated with the actual composite
-		/// component.</remarks>
+		/// <exception cref="EntityNotFoundException">Thrown if the connection is not contained
+		/// in the actual composite component.</exception>
 		public void RemoveConnection (IConnectionIdentifier connectionID)
 		{
+			if(!this.modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID)
+				.IsConnectionFromComponent(connectionID))
+			{
+				throw new EntityNotFoundException(connectionID,
+					"The actual composite component does not contain the specified connection.");
+			}
 			compositeComponentBuilderSuccessor.RemoveConnection(connectionID);
 		}
 
@@ -666,27 +696,6 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		}
 
 		/// <summary>
-		/// Checks wether the outer interface is provided by actual component.
-		/// </summary>
-		/// <param name="outerIFaceID">The interface to check for.</param>
-		/// <returns>True, if the given interface is provided; false otherwise.</returns>
-		private bool HasComponentOuterProvidesInterface (IInterfaceIdentifier outerIFaceID)
-		{
-			ArrayList identifierList;
-
-			identifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
-				.QueryCompositeComponent(this.component.ComponentID).GetProvidesInterfaceIDs());
-			if(!identifierList.Contains(outerIFaceID))
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-		}
-
-		/// <summary>
 		/// Checks wether the inner interface is provided by an inner component of the actual one. This 
 		/// includes two checks:
 		/// <li>check for existance of inner component.</li>
@@ -711,27 +720,6 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 				}
 			}
 			if(!foundMatchingComponent)
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-		}
-
-		/// <summary>
-		/// Checks wether the outer interface is required by actual component.
-		/// </summary>
-		/// <param name="outerIFaceID">The interface to check for.</param>
-		/// <returns>True, if the given interface is provided; false otherwise.</returns>
-		private bool HasComponentOuterRequiresInterface (IInterfaceIdentifier outerIFaceID)
-		{
-			ArrayList identifierList;
-
-			identifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
-				.QueryCompositeComponent(this.component.ComponentID).GetRequiresInterfaceIDs());
-			if(!identifierList.Contains(outerIFaceID))
 			{
 				return false;
 			}

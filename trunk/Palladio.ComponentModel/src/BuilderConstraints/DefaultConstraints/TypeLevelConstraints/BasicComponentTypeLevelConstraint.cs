@@ -18,6 +18,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.5  2005/05/21 17:12:17  kelsaka
+	/// - added new exception for use with signatures
+	/// - finished adding constraints for the type level
+	///
 	/// Revision 1.4  2005/05/18 09:47:38  kelsaka
 	/// - added BC default constraints implementation
 	/// - fixed error in unit tests / added new test-case
@@ -144,12 +148,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// the actual component does not provide the given interface.</exception>
 		public void RemoveProvidesInterface (IInterfaceIdentifier ifaceID)
 		{
-			// create a arraylist from the list im required interfaces to allow
-			// easy searching.
-			ArrayList interfaceIdentifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
-				.QueryBasicComponent(this.component.ComponentID).GetProvidesInterfaceIDs());
-			
-			if(!interfaceIdentifierList.Contains(ifaceID))
+			if(!this.modelDataManager.Query.QueryTypeLevel
+				.QueryBasicComponent(this.component.ComponentID).IsProvidesInterface(ifaceID))
 			{			
 				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID,
 					"The interface to delete is not provided by the component.");
@@ -173,12 +173,8 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// the actual component does not require the given interface.</exception>
 		public void RemoveRequiresInterface (IInterfaceIdentifier ifaceID)
 		{
-			// create a arraylist from the list im required interfaces to allow
-			// easy searching.
-			ArrayList interfaceIdentifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
-				.QueryBasicComponent(this.component.ComponentID).GetRequiresInterfaceIDs());
-			
-			if(!interfaceIdentifierList.Contains(ifaceID))
+			if(!this.modelDataManager.Query.QueryTypeLevel
+				.QueryBasicComponent(this.component.ComponentID).IsRequiresInterface(ifaceID))
 			{			
 				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID,
 					"The interface to delete is not required by the component.");

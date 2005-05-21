@@ -2,6 +2,7 @@ using System;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -17,6 +18,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.2  2005/05/21 17:12:17  kelsaka
+	/// - added new exception for use with signatures
+	/// - finished adding constraints for the type level
+	///
 	/// Revision 1.1  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -78,12 +83,19 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		}
 
 		/// <summary>
-		/// called to remove the signature with given id. If the entity could not be found in 
-		/// componentmodel, the method returns without doing anything.
+		/// called to remove the signature with given id. 
 		/// </summary>
 		/// <param name="signatureID">the id of the signature that has to be removed</param>
+		/// <exception cref="SignatureNotFoundException">Thrown if the signature is not
+		/// associated to the actual interface.</exception>
 		public void RemoveSignature (ISignatureIdentifier signatureID)
 		{
+			if(!this.modelDataManager.Query.QueryTypeLevel.QueryInterface(this.iInterface
+				.InterfaceID).IsSignatureFromInterface(signatureID))
+			{
+				throw new SignatureNotFoundException(signatureID, this.iInterface.InterfaceID,
+					"The signature is not part of this ");
+			}
 			this.interfaceBuilderSuccessor.RemoveSignature(signatureID);
 		}
 
@@ -101,8 +113,16 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="protocolID">the id of the protocol that has to be removed</param>
+		/// <exception cref="EntityNotFoundException">Thrown if the given protocol is not
+		/// attached to the actual interface.</exception>
 		public void RemoveProtocol (IProtocolIdentifier protocolID)
 		{
+			if(!this.modelDataManager.Query.QueryTypeLevel.QueryInterface(this.iInterface.InterfaceID)
+				.IsProtocolFromInterface(protocolID))
+			{
+				throw new EntityNotFoundException(protocolID,
+					"The given protocol is not associated with the actual component.");
+			}
 			this.interfaceBuilderSuccessor.RemoveProtocol(protocolID);
 		}
 
