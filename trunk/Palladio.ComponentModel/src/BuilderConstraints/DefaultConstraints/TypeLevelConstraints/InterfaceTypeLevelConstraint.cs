@@ -1,5 +1,3 @@
-using System;
-using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
@@ -18,6 +16,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.3  2005/05/21 17:13:40  kelsaka
+	/// - removed unused using statements
+	///
 	/// Revision 1.2  2005/05/21 17:12:17  kelsaka
 	/// - added new exception for use with signatures
 	/// - finished adding constraints for the type level
