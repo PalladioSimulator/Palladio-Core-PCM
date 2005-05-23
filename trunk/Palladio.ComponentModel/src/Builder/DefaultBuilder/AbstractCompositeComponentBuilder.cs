@@ -17,6 +17,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2005/05/23 09:16:38  kelsaka
+	/// - fix: not all builder methods for use in the deserialisation used the given
+	/// identifier
+	///
 	/// Revision 1.14  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -366,7 +370,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			string connectionName, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID,
 			IInterfaceIdentifier outerIFaceID)
 		{
-			throw new NotImplementedException ();
+			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier, connectionName);
+			modelDataManager.LowLevelBuilder.AddRequiresDelegationConnector(connection, innerCompID,
+				innerIFaceID, this.component.ComponentID, outerIFaceID);
 		}
 
 		#endregion

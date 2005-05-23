@@ -25,6 +25,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/05/23 09:16:38  kelsaka
+	/// - fix: not all builder methods for use in the deserialisation used the given
+	/// identifier
+	///
 	/// Revision 1.3  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -97,7 +101,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 			this.signatureTypeLevelBuilderConstraints = new SignatureTypeLevelBuilderList();
 			this.signatureTypeLevelBuilderConstraints.Add(new DefaultSignatureTypeLevelBuilder(modelDataManager, null, this));
-			//this.signatureTypeLevelBuilderConstraints.Add(new SignatureTypeLevelConstraint(modelDataManager));
+			//this.signatureTypeLevelBuilderConstraints.Add(new SignatureTypeLevelConstraint(modelDataManager)); // currently there are no signature constraints (necessary)
 		}
 	
 		#region IBuilderFactory members

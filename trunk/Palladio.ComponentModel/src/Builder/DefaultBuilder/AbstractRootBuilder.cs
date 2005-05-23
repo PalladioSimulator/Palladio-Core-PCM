@@ -21,6 +21,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2005/05/23 09:16:38  kelsaka
+	/// - fix: not all builder methods for use in the deserialisation used the given
+	/// identifier
+	///
 	/// Revision 1.14  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -207,7 +211,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
-			IConnection connection = EntityFactory.CreateConnection(connectionName);
+			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier, connectionName);
 			modelDataManager.LowLevelBuilder.AddAssemblyConnector(connection, reqCompID,
 				reqIFaceID, provCompID, provIFaceID);
 		}
@@ -249,7 +253,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A new InterfaceBuilder.</returns>
 		public IInterfaceTypeLevelBuilder AddInterface (IInterfaceIdentifier interfaceIdentifier, string name)
 		{
-			IInterface iInterface = EntityFactory.CreateInterface(name);
+			IInterface iInterface = EntityFactory.CreateInterface(interfaceIdentifier, name);
 			modelDataManager.LowLevelBuilder.AddInterface(iInterface);
 			return builderFactory.GetInterfaceTypeLevelBuilder(iInterface);
 		}
