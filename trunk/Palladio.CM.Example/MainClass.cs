@@ -1,8 +1,12 @@
 using System;
+using System.Collections;
+using System.IO;
 using Palladio.CM.Example.Presentation;
 using Palladio.ComponentModel;
+using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.Serialization;
 using Palladio.ComponentModel.Serialization.Xml;
+using Palladio.Serialization;
 
 namespace Palladio.CM.Example
 {
@@ -14,6 +18,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/05/24 16:51:26  joemal
+	/// xxx
+	///
 	/// Revision 1.4  2005/05/08 17:24:02  joemal
 	/// add xml serialization to example
 	///
@@ -68,6 +75,19 @@ namespace Palladio.CM.Example
 			Console.WriteLine("Try to store the model to file test.xml");
 			modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation("test.xml"));
 			Console.WriteLine("[Done]");
+			Console.WriteLine("Clear the model.");			
+			modelEnvironment.BuilderManager.RootBuilder.ClearAll();
+			Console.WriteLine("[Done]");
+/*			Console.WriteLine("Try to load the xmlfile ..");
+			try 
+			{
+				modelEnvironment.SerializationManager.Load(DefaultSerializerFactory.CreateXmlLocation("test.xml"));				
+			}
+			catch(ModelSerializationException exc)
+			{
+				Console.WriteLine("Exc: "+exc.InnerException);
+			}
+			Console.WriteLine("[Done]");*/
 
 			Console.WriteLine("Press any key to exit the application.");
 			Console.ReadLine();

@@ -15,6 +15,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/05/24 16:51:26  joemal
+	/// xxx
+	///
 	/// Revision 1.4  2005/05/08 17:24:02  joemal
 	/// add xml serialization to example
 	///
@@ -114,14 +117,14 @@ namespace Palladio.CM.Example
 		//creates the interface IWriter
 		private IInterfaceIdentifier BuildIFaceIWriter(IInterfaceTypeLevelBuilder levelBuilder)
 		{
-			levelBuilder.AddSignature("WriteSomething");
+			levelBuilder.AddSignature("WriteSomething").AppendParameter(typeof(string),"filename",ParameterModifierEnum.REF);
 			return levelBuilder.Interface.InterfaceID;
 		}
 
 		//creates the interface IWriterBackend
 		private IInterfaceIdentifier BuildIFaceIWriterBackEnd(IInterfaceTypeLevelBuilder levelBuilder)
 		{
-			levelBuilder.AddSignature("WriteToDisk");
+			levelBuilder.AddSignature("WriteToDisk").AppendParameter(typeof(string),"filename",ParameterModifierEnum.REF);
 			return levelBuilder.Interface.InterfaceID;
 		}
 
