@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/05/24 16:48:58  joemal
+	/// connect the reader
+	///
 	/// Revision 1.1  2005/05/08 12:02:16  joemal
 	/// initial creation
 	///
@@ -79,7 +82,12 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		/// <exception cref="ArgumentException">thrown, if the type of the location is not one of the supported ones.</exception>
 		public void Load(ISerializationLocation location)
 		{
-			//new XmlCMReader(location,builderManager).Read();
+			if (location is XmlFileLocation)
+				new XmlCMReader(builderManager,plugins).Read((XmlFileLocation)location);
+			else if (location is XmlNodeLocation)
+				new XmlCMReader(builderManager,plugins).Read((XmlNodeLocation)location);
+			else
+				throw new ArgumentException("Unsupported type of location");
 		}
 
 		/// <summary>
