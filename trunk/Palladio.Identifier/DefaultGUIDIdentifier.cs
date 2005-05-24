@@ -11,6 +11,9 @@ namespace Palladio.Identifier
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/05/24 16:53:15  joemal
+	/// fix bug in method gethashkey
+	///
 	/// Revision 1.2  2005/04/19 16:45:45  joemal
 	/// reimplement the equals method
 	///
@@ -105,7 +108,7 @@ namespace Palladio.Identifier
 		/// <returns>the hashcode</returns>
 		public override int GetHashCode()
 		{
-			return base.GetHashCode () ^ 0xF0F0;
+			return guid.GetHashCode() & 0x70F0F0F0;
 		}
 
 
