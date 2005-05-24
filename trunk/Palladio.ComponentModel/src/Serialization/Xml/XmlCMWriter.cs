@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
-using System.Runtime.Serialization;
 using System.Xml;
 using Palladio.Attributes;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.Query;
 using Palladio.Identifier;
+using Palladio.Serialization;
 
 namespace Palladio.ComponentModel.Serialization.Xml
 {
@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/05/24 16:49:41  joemal
+	/// change the exceptions
+	///
 	/// Revision 1.3  2005/05/19 18:07:19  joemal
 	/// add parameter and attribute serialization
 	///
@@ -72,7 +75,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			}
 			catch(Exception exception)
 			{
-				throw new SerializationException("Unable to create the xml file "+location.XmlFile+".",exception);
+				throw new ModelSerializationException("Unable to create the xml file "+location.XmlFile+".",exception);
 			}
 
 			writer.Formatting = Formatting.Indented;
@@ -109,7 +112,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			catch(Exception exc)
 			{
 				Console.WriteLine("Error: "+exc);
-				throw new SerializationException("Unable to write to the xml file.",exc);
+				throw new ModelSerializationException("Unable to write to the xml file.",exc);
 			}
 		}
 
@@ -331,7 +334,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				writer.WriteAttributeString("guid",prot.ProtocolID.Key);
 				IXmlProtocolPlugIn protocolPlugIn = (IXmlProtocolPlugIn) plugins[prot.ProtocolTypeID];
 				if (protocolPlugIn == null)
-					throw new SerializationException("No plugin found for protocoltype \""+prot.ProtocolTypeID.Key+"\".");
+					throw new ModelSerializationException("No plugin found for protocoltype \""+prot.ProtocolTypeID.Key+"\".");
                 protocolPlugIn.SaveProtocol(writer, prot);
 				writer.WriteEndElement();
 			}
@@ -347,7 +350,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			{
 				IXmlAttributePlugIn attrPlugIn = (IXmlAttributePlugIn) plugins[attrType];
 				if (attrPlugIn == null)
-					throw new SerializationException("No plugin found for attributetype \""+attrType.DisplayName+"\".");				
+					throw new ModelSerializationException("No plugin found for attributetype \""+attrType.DisplayName+"\".");				
 
 				IAttribute attr = entity.Attributes[attrType];
 				writer.WriteStartElement("Attribute");
