@@ -1,7 +1,4 @@
-using System;
 using Palladio.ComponentModel.Identifier;
-using Palladio.ComponentModel.ModelEntities;
-
 
 namespace Palladio.ComponentModel.Builder
 {
@@ -16,6 +13,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/05/25 19:44:54  kelsaka
+	/// - optimized usings
+	/// - builders are now returning identifiers again
+	///
 	/// Revision 1.5  2005/04/20 17:55:54  kelsaka
 	/// - added methods for deserialization
 	///
@@ -51,7 +52,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		void AddProvidesDelegationConnector(string connectionName,  
-			IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
+		                                    IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
 
 		/// <summary>
 		/// called to add a delegationconnector from the provides interface of an component to the provides 

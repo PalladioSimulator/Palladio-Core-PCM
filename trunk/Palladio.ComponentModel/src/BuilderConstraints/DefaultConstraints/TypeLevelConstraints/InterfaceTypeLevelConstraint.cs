@@ -1,3 +1,4 @@
+using System;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
@@ -16,6 +17,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.4  2005/05/25 19:44:54  kelsaka
+	/// - optimized usings
+	/// - builders are now returning identifiers again
+	///
 	/// Revision 1.3  2005/05/21 17:13:40  kelsaka
 	/// - removed unused using statements
 	///
@@ -147,6 +152,14 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			{
 				return this.interfaceBuilderSuccessor.Interface;
 			}
+		}
+
+		/// <summary>
+		/// Accesses the identifier of the actual instance.
+		/// </summary>
+		public IInterfaceIdentifier InterfaceIdentifier
+		{
+			get { throw new NotImplementedException (); }
 		}
 
 		#region constraint-management

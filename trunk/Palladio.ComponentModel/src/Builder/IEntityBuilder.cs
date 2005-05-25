@@ -1,7 +1,3 @@
-using Palladio.Attributes;
-using Palladio.ComponentModel.ModelEntities;
-using Palladio.ComponentModel.ModelEventManagement;
-
 namespace Palladio.ComponentModel.Builder
 {
 
@@ -14,6 +10,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/05/25 19:44:54  kelsaka
+	/// - optimized usings
+	/// - builders are now returning identifiers again
+	///
 	/// Revision 1.7  2005/04/23 11:49:54  kelsaka
 	/// - refactored enity-builder interface: currently no methods.
 	///

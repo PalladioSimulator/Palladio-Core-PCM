@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
@@ -18,6 +17,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.6  2005/05/25 19:44:54  kelsaka
+	/// - optimized usings
+	/// - builders are now returning identifiers again
+	///
 	/// Revision 1.5  2005/05/21 17:12:17  kelsaka
 	/// - added new exception for use with signatures
 	/// - finished adding constraints for the type level
@@ -194,6 +197,14 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			{
 				return basicComponentBuilderSuccessor.Component;
 			}
+		}
+
+		/// <summary>
+		/// Accesses the identifier of the actual instance.
+		/// </summary>
+		public IComponentIdentifier ComponentIdentifier
+		{
+			get { throw new NotImplementedException (); }
 		}
 
 		/// <summary>

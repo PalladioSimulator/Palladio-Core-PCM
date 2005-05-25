@@ -1,8 +1,3 @@
-using System;
-using Palladio.ComponentModel.Identifier;
-using Palladio.ComponentModel.ModelEntities;
-using Palladio.ComponentModel.ModelEventManagement;
-
 namespace Palladio.ComponentModel.Builder
 {
 
@@ -16,6 +11,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/05/25 19:44:54  kelsaka
+	/// - optimized usings
+	/// - builders are now returning identifiers again
+	///
 	/// Revision 1.6  2005/04/12 18:08:35  kelsaka
 	/// - added events to builders
 	///

@@ -19,6 +19,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.10  2005/05/25 19:44:54  kelsaka
+	/// - optimized usings
+	/// - builders are now returning identifiers again
+	///
 	/// Revision 1.9  2005/05/25 18:15:27  kelsaka
 	/// - added new methods to BuilderManager
 	/// - use of new methods in example
@@ -626,6 +630,14 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			{
 				return compositeComponentBuilderSuccessor.Component;
 			}
+		}
+
+		/// <summary>
+		/// Accesses the identifier of the actual instance.
+		/// </summary>
+		public IComponentIdentifier ComponentIdentifier
+		{
+			get { throw new NotImplementedException (); }
 		}
 
 		/// <summary>

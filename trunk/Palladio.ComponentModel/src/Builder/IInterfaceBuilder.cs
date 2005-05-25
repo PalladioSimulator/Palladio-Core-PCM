@@ -1,7 +1,5 @@
-using System;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
-using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder
@@ -15,6 +13,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2005/05/25 19:44:54  kelsaka
+	/// - optimized usings
+	/// - builders are now returning identifiers again
+	///
 	/// Revision 1.15  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -120,6 +122,15 @@ namespace Palladio.ComponentModel.Builder
 		{
 			get;
 		}
+
+		/// <summary>
+		/// Accesses the identifier of the actual instance.
+		/// </summary>
+		IInterfaceIdentifier InterfaceIdentifier
+		{
+			get;
+		}
+
 
 		#endregion
 	}

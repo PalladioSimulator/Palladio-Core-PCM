@@ -1,5 +1,4 @@
 using System;
-using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
@@ -15,6 +14,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.21  2005/05/25 19:44:54  kelsaka
+	/// - optimized usings
+	/// - builders are now returning identifiers again
+	///
 	/// Revision 1.20  2005/05/25 16:27:10  kelsaka
 	/// - renamed former BuilderFactory / therefore removed former BuilderManager
 	///
@@ -94,7 +97,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		protected IModelDataManager modelDataManager;
 		protected IInterface iInterface;
-		protected Palladio.ComponentModel.Builder.IBuilderManager builderManager;
+		protected IBuilderManager builderManager;
 
 		#endregion
 
@@ -106,7 +109,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="iInterface">The interface to build.</param>
 		/// <param name="builderManager">The factory to use for creating other builders.</param>
-		public AbstractInterfaceBuilder(IModelDataManager modelDataManager, IInterface iInterface, Palladio.ComponentModel.Builder.IBuilderManager builderManager)
+		public AbstractInterfaceBuilder(IModelDataManager modelDataManager, IInterface iInterface, IBuilderManager builderManager)
 			: base(iInterface)
 		{
 			this.modelDataManager = modelDataManager;
@@ -184,6 +187,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IInterface Interface
 		{
 			get { return this.iInterface; }
+		}
+
+		/// <summary>
+		/// Accesses the identifier of the actual instance.
+		/// </summary>
+		public IInterfaceIdentifier InterfaceIdentifier
+		{
+			get { throw new NotImplementedException (); }
 		}
 
 		#endregion

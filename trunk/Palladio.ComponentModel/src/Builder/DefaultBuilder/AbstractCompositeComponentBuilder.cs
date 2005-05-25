@@ -1,11 +1,8 @@
 using System;
-using Palladio.ComponentModel.Builder;
-using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
-using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
@@ -17,6 +14,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.18  2005/05/25 19:44:54  kelsaka
+	/// - optimized usings
+	/// - builders are now returning identifiers again
+	///
 	/// Revision 1.17  2005/05/25 18:15:27  kelsaka
 	/// - added new methods to BuilderManager
 	/// - use of new methods in example
@@ -87,7 +88,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		protected IModelDataManager modelDataManager;
 		protected IComponent component;
-		protected Palladio.ComponentModel.Builder.IBuilderManager builderManager;
+		protected IBuilderManager builderManager;
 
 		#endregion
 
@@ -99,7 +100,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="component">The component to build.</param>
 		/// <param name="builderManager">The factory to use for creating other builders.</param>
-		public AbstractCompositeComponentBuilder(IModelDataManager modelDataManager, IComponent component, Palladio.ComponentModel.Builder.IBuilderManager builderManager)
+		public AbstractCompositeComponentBuilder(IModelDataManager modelDataManager, IComponent component, IBuilderManager builderManager)
 			: base(component)
 		{
 			this.modelDataManager = modelDataManager;
@@ -412,6 +413,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IComponent Component
 		{
 			get { return this.component; }
+		}
+
+		/// <summary>
+		/// Accesses the identifier of the actual instance.
+		/// </summary>
+		public IComponentIdentifier ComponentIdentifier
+		{
+			get { throw new NotImplementedException (); }
 		}
 
 		#endregion

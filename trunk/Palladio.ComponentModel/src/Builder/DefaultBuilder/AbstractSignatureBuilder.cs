@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
-using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
@@ -17,6 +15,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.21  2005/05/25 19:44:54  kelsaka
+	/// - optimized usings
+	/// - builders are now returning identifiers again
+	///
 	/// Revision 1.20  2005/05/25 16:27:10  kelsaka
 	/// - renamed former BuilderFactory / therefore removed former BuilderManager
 	///
@@ -93,7 +95,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		protected IModelDataManager modelDataManager;
 		protected ISignature signature;
-		protected Palladio.ComponentModel.Builder.IBuilderManager builderManager;
+		protected IBuilderManager builderManager;
 
 		#endregion
 
@@ -105,7 +107,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="signature">The signature to build.</param>
 		/// <param name="builderManager">The factory to use for creating other builders.</param>
-		public AbstractSignatureBuilder(IModelDataManager modelDataManager, ISignature signature, Palladio.ComponentModel.Builder.IBuilderManager builderManager)
+		public AbstractSignatureBuilder(IModelDataManager modelDataManager, ISignature signature, IBuilderManager builderManager)
 			: base(signature)
 		{
 			this.modelDataManager = modelDataManager;
@@ -284,6 +286,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public ISignature Signature
 		{
 			get { return this.signature; }
+		}
+
+		/// <summary>
+		/// Accesses the identifier of the actual instance.
+		/// </summary>
+		public ISignatureIdentifier SignatureIdentifier
+		{
+			get { throw new NotImplementedException (); }
 		}
 
 		#endregion
