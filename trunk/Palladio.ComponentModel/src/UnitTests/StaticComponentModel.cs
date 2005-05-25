@@ -34,8 +34,8 @@ namespace Palladio.ComponentModel.UnitTests
 			//- zwei interfaces werden erzeugt (rootBuilder.AddInterface("...");)
 			//- AddInterface gibt den Builder zu den Interfaces zurück, BuildIFaceWriter füllt das Interface mit Inhalt
 			//- BuildIFaceWriter gibt die ID des Interfaces zurück, wird noch benötigt
-			IWRITERID = BuildIFaceIWriter(rootBuilder.AddInterface("IWriter"));
-			IWRITERBEID = BuildIFaceIWriterBackEnd(rootBuilder.AddInterface("IWriterBackEnd"));
+			IWRITERID = BuildIFaceIWriter(rootBuilder.CreateInterface("IWriter"));
+			IWRITERBEID = BuildIFaceIWriterBackEnd(rootBuilder.CreateInterface("IWriterBackEnd"));
 
 			//- Auf ähnliche art und weise die Komponenten basteln
 			CCWRITEID = BuildCC1(rootBuilder.AddCompositeComponent("WriteCC"), IWRITERBEID,IWRITERID);

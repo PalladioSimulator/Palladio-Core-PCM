@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/05/25 16:27:10  kelsaka
+	/// - renamed former BuilderFactory / therefore removed former BuilderManager
+	///
 	/// Revision 1.7  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -49,9 +52,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="iInterface">The interface to build.</param>
-		/// <param name="builderFactory">The factory to use for creating new builders.</param>
-		public DefaultInterfaceTypeLevelBuilder(IModelDataManager modelDataManager, IInterface iInterface, IBuilderFactory builderFactory) 
-			: base(modelDataManager, iInterface, builderFactory)
+		/// <param name="builderManager">The factory to use for creating new builders.</param>
+		public DefaultInterfaceTypeLevelBuilder(IModelDataManager modelDataManager, IInterface iInterface, Palladio.ComponentModel.Builder.IBuilderManager builderManager) 
+			: base(modelDataManager, iInterface, builderManager)
 		{
 		}
 
@@ -83,7 +86,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// <returns>A copy of the actual builder / constraint.</returns>
 		public IInterfaceTypeLevelBuilder Clone (IInterface iInterface)
 		{
-			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface, builderFactory);
+			return new DefaultInterfaceTypeLevelBuilder(modelDataManager, iInterface, builderManager);
 		}
 
 		#endregion

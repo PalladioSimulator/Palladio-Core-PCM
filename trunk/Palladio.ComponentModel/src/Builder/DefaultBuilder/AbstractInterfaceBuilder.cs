@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.20  2005/05/25 16:27:10  kelsaka
+	/// - renamed former BuilderFactory / therefore removed former BuilderManager
+	///
 	/// Revision 1.19  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -91,7 +94,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		protected IModelDataManager modelDataManager;
 		protected IInterface iInterface;
-		protected IBuilderFactory builderFactory;
+		protected Palladio.ComponentModel.Builder.IBuilderManager builderManager;
 
 		#endregion
 
@@ -102,13 +105,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="iInterface">The interface to build.</param>
-		/// <param name="builderFactory">The factory to use for creating other builders.</param>
-		public AbstractInterfaceBuilder(IModelDataManager modelDataManager, IInterface iInterface, IBuilderFactory builderFactory)
+		/// <param name="builderManager">The factory to use for creating other builders.</param>
+		public AbstractInterfaceBuilder(IModelDataManager modelDataManager, IInterface iInterface, Palladio.ComponentModel.Builder.IBuilderManager builderManager)
 			: base(iInterface)
 		{
 			this.modelDataManager = modelDataManager;
 			this.iInterface = iInterface;
-			this.builderFactory = builderFactory;
+			this.builderManager = builderManager;
 		}
 
 		#endregion
@@ -139,7 +142,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			ISignature signature = EntityFactory.CreateSignature(signatureName, new SignatureDescription());
 			modelDataManager.LowLevelBuilder.AddSignature(signature, this.iInterface.InterfaceID);
-			return builderFactory.GetSignatureTypeLevelBuilder(signature);
+			return builderManager.GetSignatureTypeLevelBuilder(signature);
 		}
 
 		/// <summary>

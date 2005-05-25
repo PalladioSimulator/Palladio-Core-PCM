@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/05/25 16:27:10  kelsaka
+	/// - renamed former BuilderFactory / therefore removed former BuilderManager
+	///
 	/// Revision 1.12  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -74,7 +77,7 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="name">The interfaces name.</param>
 		/// <returns>A new InterfaceBuilder.</returns>
-		IInterfaceTypeLevelBuilder AddInterface(string name);
+		IInterfaceTypeLevelBuilder CreateInterface(string name);
 
 		/// <summary>
 		/// Creates a new <see cref="IInterfaceBuilder"/>, which allows to build new interfaces.
@@ -82,7 +85,15 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="interfaceIdentifier">The new interfaces identifier.</param>
 		/// <param name="name">The interfaces name.</param>
 		/// <returns>A new InterfaceBuilder.</returns>
-		IInterfaceTypeLevelBuilder AddInterface(IInterfaceIdentifier interfaceIdentifier, string name);
+		IInterfaceTypeLevelBuilder CreateInterface(IInterfaceIdentifier interfaceIdentifier, string name);
+
+		/// <summary>
+		/// Adds an existing interface with the given identifier to the component model. Returns a
+		/// <see cref="IInterfaceBuilder"/>, which allows to customize the added interfaces.
+		/// </summary>
+		/// <param name="interfaceIdentifier">The existing interfaces identifier.</param>
+		/// <returns>A InterfaceBuilder for the existing interface Identifier.</returns>
+		IInterfaceTypeLevelBuilder AddExistingInterface(IInterfaceIdentifier interfaceIdentifier);
 
 		/// <summary>
 		/// called to remove an interface from a component. If the entity could not be found in 

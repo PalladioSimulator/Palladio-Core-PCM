@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2005/05/25 16:27:10  kelsaka
+	/// - renamed former BuilderFactory / therefore removed former BuilderManager
+	///
 	/// Revision 1.15  2005/05/23 09:16:38  kelsaka
 	/// - fix: not all builder methods for use in the deserialisation used the given
 	/// identifier
@@ -96,7 +99,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		#region data
 
 		protected IModelDataManager modelDataManager;
-		protected IBuilderFactory builderFactory;
+		protected Palladio.ComponentModel.Builder.IBuilderManager builderManager;
 
 		#endregion
 
@@ -106,11 +109,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="builderFactory">The factory to use for creating other builders.</param>
-		public AbstractRootBuilder(IModelDataManager modelDataManager, IBuilderFactory builderFactory)
+		/// <param name="builderManager">The factory to use for creating other builders.</param>
+		public AbstractRootBuilder(IModelDataManager modelDataManager, Palladio.ComponentModel.Builder.IBuilderManager builderManager)
 		{
 			this.modelDataManager = modelDataManager;
-			this.builderFactory = builderFactory;
+			this.builderManager = builderManager;
 		}
 		
 		#endregion
@@ -137,7 +140,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.BASIC, name);
 			modelDataManager.LowLevelBuilder.AddComponent(component, null);
-			return builderFactory.GetBasicComponentTypeLevelBuilder(component);
+			return builderManager.GetBasicComponentTypeLevelBuilder(component);
 		}
 
 		/// <summary>
@@ -161,7 +164,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		{
 			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.COMPOSITE, name);
 			modelDataManager.LowLevelBuilder.AddComponent(component, null);
-			return builderFactory.GetCompositeComponentTypeLevelBuilder(component);
+			return builderManager.GetCompositeComponentTypeLevelBuilder(component);
 		}
 
 		/// <summary>
@@ -240,9 +243,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="name">The interfaces name.</param>
 		/// <returns>A new InterfaceBuilder.</returns>
-		public IInterfaceTypeLevelBuilder AddInterface (string name)
+		public IInterfaceTypeLevelBuilder CreateInterface (string name)
 		{
-			return AddInterface(new InternalEntityIdentifier().AsInterfaceIdentifier(), name);
+			return CreateInterface(new InternalEntityIdentifier().AsInterfaceIdentifier(), name);
 		}
 
 		/// <summary>
@@ -251,11 +254,22 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="interfaceIdentifier">The new interfaces identifier.</param>
 		/// <param name="name">The interfaces name.</param>
 		/// <returns>A new InterfaceBuilder.</returns>
-		public IInterfaceTypeLevelBuilder AddInterface (IInterfaceIdentifier interfaceIdentifier, string name)
+		public IInterfaceTypeLevelBuilder CreateInterface (IInterfaceIdentifier interfaceIdentifier, string name)
 		{
 			IInterface iInterface = EntityFactory.CreateInterface(interfaceIdentifier, name);
 			modelDataManager.LowLevelBuilder.AddInterface(iInterface);
-			return builderFactory.GetInterfaceTypeLevelBuilder(iInterface);
+			return builderManager.GetInterfaceTypeLevelBuilder(iInterface);
+		}
+
+		/// <summary>
+		/// Adds an existing interface with the given identifier to the component model. Returns a
+		/// <see cref="IInterfaceBuilder"/>, which allows to customize the added interfaces.
+		/// </summary>
+		/// <param name="interfaceIdentifier">The existing interfaces identifier.</param>
+		/// <returns>A InterfaceBuilder for the existing interface Identifier.</returns>
+		public IInterfaceTypeLevelBuilder AddExistingInterface (IInterfaceIdentifier interfaceIdentifier)
+		{
+			throw new NotImplementedException ();
 		}
 
 		/// <summary>

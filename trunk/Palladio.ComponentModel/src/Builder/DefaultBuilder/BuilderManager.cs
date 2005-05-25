@@ -1,68 +1,113 @@
 using System;
+using System.Collections;
+using System.Reflection.Emit;
+using Palladio.ComponentModel.Builder.DefaultBuilder.TypedBuilderLists;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.BuilderConstraints;
+using Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLevelConstraints;
 using Palladio.ComponentModel.ModelDataManagement;
+using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
 	/// <summary>
-	/// The default implementation of the builder manager.
-	/// Facade: Reduces the usable interface for external users of the builder. Limits the use
-	/// to removing / adding constraints and accessing the root builder.
+	/// <p>The default implementation of the builder factory.
+	/// Manages the wrappers/decorators for the builders which are used for the constraints.
+	/// Default builders and constraints are initialized.</p>
 	/// </summary>
 	/// <remarks>
-	/// Method calls are delegated to internal <see cref="IBuilderFactory"/>.
+	/// Only constraints that are attached by a client should be removed.
+	/// <p>
+	/// Internally lets create duplicates of builders and constraints before returning them.
+	/// </p>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
-	/// Revision 1.6  2005/04/24 14:50:14  kelsaka
+	/// Revision 1.7  2005/05/25 16:27:10  kelsaka
+	/// - renamed former BuilderFactory / therefore removed former BuilderManager
+	///
+	/// Revision 1.4  2005/05/23 09:16:38  kelsaka
+	/// - fix: not all builder methods for use in the deserialisation used the given
+	/// identifier
+	///
+	/// Revision 1.3  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
 	/// - removed protocol builder
 	///
-	/// Revision 1.5  2005/04/23 17:42:08  kelsaka
+	/// Revision 1.2  2005/04/23 17:42:08  kelsaka
 	/// - added further methods for constraint-support
 	///
-	/// Revision 1.4  2005/04/23 14:56:44  kelsaka
+	/// Revision 1.1  2005/04/23 14:56:44  kelsaka
 	/// - enhanced constraints management
-	///
-	/// Revision 1.3  2005/04/23 11:00:44  kelsaka
-	/// - removed Init-Methods from AbstractBuilder - created constructors
-	///
-	/// Revision 1.2  2005/04/20 21:02:35  kelsaka
-	/// - added first methods for constraints
-	///
-	/// Revision 1.1  2005/04/20 19:54:22  kelsaka
-	/// - Example and CM-Environment are now using the IBuilderManager
 	///
 	/// </pre>
 	/// </remarks>
 	internal class BuilderManager : IBuilderManager
 	{
-		private IModelDataManager modelDataManager;
-		private IBuilderFactory builderFactory;
+		#region data
 
 		/// <summary>
-		/// The default constructor.
+		/// general modelDataManager
 		/// </summary>
-		/// <param name="modelDataManager">Model data management.</param>
+		IModelDataManager modelDataManager;
+
+		// ArrayLists of Constraints
+		RootTypeLevelBuilderList rootTypeLevelBuilderConstraints;
+		BasicComponentTypeLevelBuilderList basicComponentTypeLevelBuilderConstraints;
+		CompositeComponentTypeLevelBuilderList compositeComponentTypeLevelBuilderConstraints;
+		InterfaceTypeLevelBuilderList interfaceTypeLevelBuilderConstraints;
+		SignatureTypeLevelBuilderList signatureTypeLevelBuilderConstraints;
+	
+		#endregion
+
+		#region constructors
+
+		/// <summary>
+		/// Default constructor. Initializes all builders without any constraints than
+		/// default constraints and the the default builders.
+		/// </summary>
+		/// <param name="modelDataManager"></param>
 		public BuilderManager(IModelDataManager modelDataManager)
 		{
 			this.modelDataManager = modelDataManager;
-			Init ();
+			Init();
 		}
+
+		#endregion
+
+		#region methods
 
 		/// <summary>
-		/// Initialisation.
+		/// Adds builders and default constraints to the lists of constraints.
 		/// </summary>
-		private void Init ()
+		private void Init()
 		{
-			this.builderFactory = new BuilderFactory(modelDataManager);
-		}
+			// initialize builder/constraints-lists with empty entities.
+			this.rootTypeLevelBuilderConstraints = new RootTypeLevelBuilderList();
+			this.rootTypeLevelBuilderConstraints.Add(new DefaultRootTypeLevelBuilder(modelDataManager, this));
+			this.rootTypeLevelBuilderConstraints.Add(new RootTypeLevelConstraint(modelDataManager));
 
-		#region constraint-methods
+			this.basicComponentTypeLevelBuilderConstraints = new BasicComponentTypeLevelBuilderList();
+			this.basicComponentTypeLevelBuilderConstraints.Add(new DefaultBasicComponentTypeLevelBuilder(modelDataManager, null, this));
+			this.basicComponentTypeLevelBuilderConstraints.Add(new BasicComponentTypeLevelConstraint(modelDataManager));
+		
+			this.compositeComponentTypeLevelBuilderConstraints = new CompositeComponentTypeLevelBuilderList();
+			this.compositeComponentTypeLevelBuilderConstraints.Add(new DefaultCompositeComponentTypeLevelBuilder(modelDataManager, null, this));
+			this.compositeComponentTypeLevelBuilderConstraints.Add(new CompositeComponentTypeLevelConstraint(modelDataManager));
+
+			this.interfaceTypeLevelBuilderConstraints = new InterfaceTypeLevelBuilderList();
+			this.interfaceTypeLevelBuilderConstraints.Add(new DefaultInterfaceTypeLevelBuilder(modelDataManager, null, this));
+			this.interfaceTypeLevelBuilderConstraints.Add(new InterfaceTypeLevelConstraint(modelDataManager));
+
+			this.signatureTypeLevelBuilderConstraints = new SignatureTypeLevelBuilderList();
+			this.signatureTypeLevelBuilderConstraints.Add(new DefaultSignatureTypeLevelBuilder(modelDataManager, null, this));
+			//this.signatureTypeLevelBuilderConstraints.Add(new SignatureTypeLevelConstraint(modelDataManager)); // currently there are no signature constraints (necessary)
+		}
+	
+		#region IBuilderFactory members
 
 		/// <summary>
 		/// Adds the given builder constraint to the list of constraints for
@@ -71,7 +116,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="builderConstraint">A constraint for this builder.</param>
 		public void AddBuilderConstraint (IRootTypeLevelBuilder builderConstraint)
 		{
-			this.builderFactory.AddBuilderConstraint(builderConstraint);
+			this.rootTypeLevelBuilderConstraints.Add(builderConstraint);
 		}
 
 		/// <summary>
@@ -80,7 +125,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="builderConstraint">The constraint to remove.</param>
 		public void RemoveBuilderConstraint (IRootTypeLevelBuilder builderConstraint)
 		{
-			this.builderFactory.RemoveBuilderConstraint(builderConstraint);
+			this.rootTypeLevelBuilderConstraints.Remove(builderConstraint);
 		}
 
 		/// <summary>
@@ -90,7 +135,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="builderConstraint">A constraint for this builder.</param>
 		public void AddBuilderConstraint (IBasicComponentTypeLevelBuilder builderConstraint)
 		{
-			this.builderFactory.AddBuilderConstraint(builderConstraint);
+			this.basicComponentTypeLevelBuilderConstraints.Add(builderConstraint);
 		}
 
 		/// <summary>
@@ -99,7 +144,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="builderConstraint">The constraint to remove.</param>
 		public void RemoveBuilderConstraint (IBasicComponentTypeLevelBuilder builderConstraint)
 		{
-			this.builderFactory.RemoveBuilderConstraint(builderConstraint);
+			this.basicComponentTypeLevelBuilderConstraints.Remove(builderConstraint);
 		}
 
 		/// <summary>
@@ -109,7 +154,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="builderConstraint">A constraint for this builder.</param>
 		public void AddBuilderConstraint (ICompositeComponentTypeLevelBuilder builderConstraint)
 		{
-			this.builderFactory.AddBuilderConstraint(builderConstraint);
+			this.compositeComponentTypeLevelBuilderConstraints.Add(builderConstraint);
 		}
 
 		/// <summary>
@@ -118,7 +163,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="builderConstraint">The constraint to remove.</param>
 		public void RemoveBuilderConstraint (ICompositeComponentTypeLevelBuilder builderConstraint)
 		{
-			this.builderFactory.RemoveBuilderConstraint(builderConstraint);
+			this.compositeComponentTypeLevelBuilderConstraints.Remove(builderConstraint);
 		}
 
 		/// <summary>
@@ -128,7 +173,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="builderConstraint">A constraint for this builder.</param>
 		public void AddBuilderConstraint (IInterfaceTypeLevelBuilder builderConstraint)
 		{
-			this.builderFactory.AddBuilderConstraint(builderConstraint);
+			this.interfaceTypeLevelBuilderConstraints.Add(builderConstraint);
 		}
 
 		/// <summary>
@@ -137,7 +182,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="builderConstraint">The constraint to remove.</param>
 		public void RemoveBuilderConstraint (IInterfaceTypeLevelBuilder builderConstraint)
 		{
-			this.builderFactory.RemoveBuilderConstraint(builderConstraint);
+			this.interfaceTypeLevelBuilderConstraints.Remove(builderConstraint);
 		}
 
 		/// <summary>
@@ -147,7 +192,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="builderConstraint">A constraint for this builder.</param>
 		public void AddBuilderConstraint (ISignatureTypeLevelBuilder builderConstraint)
 		{
-			this.builderFactory.AddBuilderConstraint(builderConstraint);
+			this.signatureTypeLevelBuilderConstraints.Add(builderConstraint);
 		}
 
 		/// <summary>
@@ -156,8 +201,50 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="builderConstraint">The constraint to remove.</param>
 		public void RemoveBuilderConstraint (ISignatureTypeLevelBuilder builderConstraint)
 		{
-			this.builderFactory.RemoveBuilderConstraint(builderConstraint);
+			this.signatureTypeLevelBuilderConstraints.Remove(builderConstraint);
 		}
+
+		/// <summary>
+		/// Creates a new builder including all actually defined constraints for this builder.
+		/// </summary>
+		/// <param name="component">The component to build</param>
+		/// <returns>Basic component builder for the type level.</returns>
+		public IBasicComponentTypeLevelBuilder GetBasicComponentTypeLevelBuilder (IComponent component)
+		{
+			return this.basicComponentTypeLevelBuilderConstraints.GetOuterBuilder(component);
+		}
+
+		/// <summary>
+		/// Creates a new builder including all actually defined constraints for this builder.
+		/// </summary>
+		/// <param name="component">The component to build</param>
+		/// <returns>Composite component builder for the type level.</returns>
+		public ICompositeComponentTypeLevelBuilder GetCompositeComponentTypeLevelBuilder (IComponent component)
+		{
+			return this.compositeComponentTypeLevelBuilderConstraints.GetOuterBuilder(component);
+		}
+
+		/// <summary>
+		/// Creates a new builder including all actually defined constraints for this builder.
+		/// </summary>
+		/// <param name="iInterface">The interface to build</param>
+		/// <returns>interface builder for the type level.</returns>
+		public IInterfaceTypeLevelBuilder GetInterfaceTypeLevelBuilder (IInterface iInterface)
+		{
+			return this.interfaceTypeLevelBuilderConstraints.GetOuterBuilder(iInterface);
+		}
+
+		/// <summary>
+		/// Creates a new builder including all actually defined constraints for this builder.
+		/// </summary>
+		/// <param name="signature">The signature to build</param>
+		/// <returns>signature builder for the type level.</returns>
+		public ISignatureTypeLevelBuilder GetSignatureTypeLevelBuilder (ISignature signature)
+		{
+			return this.signatureTypeLevelBuilderConstraints.GetOuterBuilder(signature);
+		}
+
+		#endregion
 
 		#endregion
 
@@ -170,9 +257,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IRootTypeLevelBuilder RootBuilder
 		{
 			get
-			{	
-				return this.builderFactory.RootBuilder;
-			}			
+			{
+				return this.rootTypeLevelBuilderConstraints.GetOuterBuilder();
+			}
 		}
 
 		#endregion

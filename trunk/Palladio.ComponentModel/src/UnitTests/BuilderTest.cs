@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.22  2005/05/25 16:27:10  kelsaka
+	/// - renamed former BuilderFactory / therefore removed former BuilderManager
+	///
 	/// Revision 1.21  2005/05/18 10:33:46  kelsaka
 	/// - added default constraints implementation
 	/// - added new test-case
@@ -160,7 +163,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void AddInterfaceToRoot()
 		{
-			rootBuilder.AddInterface("Interface-Name1");
+			rootBuilder.CreateInterface("Interface-Name1");
 		}
 
 		[Test]
@@ -214,7 +217,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void CC_AddInterfacesAndConnections()
 		{
 			ICompositeComponentTypeLevelBuilder sccb = rootBuilder.AddCompositeComponent("SuperCC8");
-			Identifier.IInterfaceIdentifier i8 = rootBuilder.AddInterface("IF8").Interface.InterfaceID;
+			Identifier.IInterfaceIdentifier i8 = rootBuilder.CreateInterface("IF8").Interface.InterfaceID;
 			
 			ICompositeComponentTypeLevelBuilder ccb1 = sccb.AddCompositeComponent("CC8-1");
 			ICompositeComponentTypeLevelBuilder ccb2 = sccb.AddCompositeComponent("CC8-2");
@@ -246,7 +249,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void BC_AddInterfacesAndConnections()
 		{
 			ICompositeComponentTypeLevelBuilder sccb = rootBuilder.AddCompositeComponent("SuperCC10");
-			Identifier.IInterfaceIdentifier i10 = rootBuilder.AddInterface("IF10").Interface.InterfaceID;
+			Identifier.IInterfaceIdentifier i10 = rootBuilder.CreateInterface("IF10").Interface.InterfaceID;
 			
 			IBasicComponentTypeLevelBuilder bcb1 = sccb.AddBasicComponent("BC10-1");
 			IBasicComponentTypeLevelBuilder bcb2 = sccb.AddBasicComponent("BC10-2");
@@ -260,7 +263,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void BC_RemoveInterface()
 		{
-			Identifier.IInterfaceIdentifier i11 =  rootBuilder.AddInterface("IF11").Interface.InterfaceID;
+			Identifier.IInterfaceIdentifier i11 =  rootBuilder.CreateInterface("IF11").Interface.InterfaceID;
 			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");
 			bc11.AddProvidesInterface(i11);
 			bc11.AddRequiresInterface(i11);
@@ -273,7 +276,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[ExpectedException(typeof(InterfaceNotFromComponentException))]
 		public void BC_RemoveProvidesInterfaceTwice()
 		{
-			Identifier.IInterfaceIdentifier i11 =  rootBuilder.AddInterface("IF11").Interface.InterfaceID;
+			Identifier.IInterfaceIdentifier i11 =  rootBuilder.CreateInterface("IF11").Interface.InterfaceID;
 			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");
 			bc11.AddProvidesInterface(i11);
 
@@ -285,7 +288,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[ExpectedException(typeof(InterfaceNotFromComponentException))]
 		public void BC_RemoveRequiresInterfaceTwice()
 		{
-			Identifier.IInterfaceIdentifier i11 =  rootBuilder.AddInterface("IF11").Interface.InterfaceID;
+			Identifier.IInterfaceIdentifier i11 =  rootBuilder.CreateInterface("IF11").Interface.InterfaceID;
 			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");
 			bc11.AddRequiresInterface(i11);
 
@@ -318,7 +321,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void IF_AddSignatureAndRemove()
 		{
-			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			Identifier.ISignatureIdentifier si = iFace.AddSignature("newSignature").Signature.SignatureID;
 			iFace.RemoveSignature(si);
 			
@@ -331,7 +334,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void SIGNATURE_AddAndRemoveParameter()
 		{
-			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.AppendParameter("System.String");
 			si.AppendParameter(typeof(IEnumerator), "enumer1");
@@ -343,7 +346,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void SIGNATURE_ReturnType()
 		{
-			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.SetReturnType("System.String");
 			si.SetReturnType(typeof(IEnumerator));
@@ -354,7 +357,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[ExpectedException(typeof(TypeNotFoundException))]
 		public void SIGNATURE_AddNonExistingTypeAsParameter()
 		{
-			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.SetReturnType("does.not.exist");
 		}
@@ -362,7 +365,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void SIGNATURE_AddAndRemoveException()
 		{
-			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.AddException(typeof(Palladio.ComponentModel.Exceptions.ComponentHierarchyException));
 			si.AddException(typeof(Exception));			
@@ -373,7 +376,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void SIGNATURE_AddAndRemoveExceptionsTwice()
 		{
-			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.AddException(typeof(Exception));
 			si.AddException(typeof(Exception));
@@ -385,7 +388,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void SIGNATURE_RemoveNonExistingException()
 		{
-			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.RemoveException(typeof(Exception));
 		}
@@ -393,7 +396,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void SIGNATURE_ClearWithoutExistingParameters()
 		{
-			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.ClearParameterList();
 		}
@@ -401,7 +404,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void SIGNATURE_Event_ExceptionsChanged()
 		{
-			IInterfaceTypeLevelBuilder iFace = rootBuilder.AddInterface("newInterface");
+			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
 			si.Signature.ExceptionsChanged += new StaticAttributeChangedEventHandler(ExceptionsChangedListener);
 

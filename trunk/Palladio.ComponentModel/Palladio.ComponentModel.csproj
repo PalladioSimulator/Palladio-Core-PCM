@@ -125,11 +125,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Builder\IBuilderFactory.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\Builder\IBuilderManager.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -196,11 +191,6 @@
                 />
                 <File
                     RelPath = "src\Builder\DefaultBuilder\AbstractSignatureBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\Builder\DefaultBuilder\BuilderFactory.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

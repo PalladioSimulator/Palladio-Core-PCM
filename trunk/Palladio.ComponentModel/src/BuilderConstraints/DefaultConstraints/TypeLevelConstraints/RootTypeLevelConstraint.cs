@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.3  2005/05/25 16:27:09  kelsaka
+	/// - renamed former BuilderFactory / therefore removed former BuilderManager
+	///
 	/// Revision 1.2  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -148,9 +151,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// </summary>
 		/// <param name="name">The interfaces name.</param>
 		/// <returns>A new InterfaceBuilder.</returns>
-		public IInterfaceTypeLevelBuilder AddInterface (string name)
+		public IInterfaceTypeLevelBuilder CreateInterface (string name)
 		{
-			return this.rootBuilderSuccessor.AddInterface(name);
+			return this.rootBuilderSuccessor.CreateInterface(name);
 		}
 
 		/// <summary>
@@ -159,9 +162,20 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="interfaceIdentifier">The new interfaces identifier.</param>
 		/// <param name="name">The interfaces name.</param>
 		/// <returns>A new InterfaceBuilder.</returns>
-		public IInterfaceTypeLevelBuilder AddInterface (IInterfaceIdentifier interfaceIdentifier, string name)
+		public IInterfaceTypeLevelBuilder CreateInterface (IInterfaceIdentifier interfaceIdentifier, string name)
 		{
-			return this.rootBuilderSuccessor.AddInterface(interfaceIdentifier, name);
+			return this.rootBuilderSuccessor.CreateInterface(interfaceIdentifier, name);
+		}
+
+		/// <summary>
+		/// Adds an existing interface with the given identifier to the component model. Returns a
+		/// <see cref="IInterfaceBuilder"/>, which allows to customize the added interfaces.
+		/// </summary>
+		/// <param name="interfaceIdentifier">The existing interfaces identifier.</param>
+		/// <returns>A InterfaceBuilder for the existing interface Identifier.</returns>
+		public IInterfaceTypeLevelBuilder AddExistingInterface (IInterfaceIdentifier interfaceIdentifier)
+		{
+			throw new NotImplementedException ();
 		}
 
 		/// <summary>

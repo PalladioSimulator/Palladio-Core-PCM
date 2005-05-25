@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.20  2005/05/25 16:27:10  kelsaka
+	/// - renamed former BuilderFactory / therefore removed former BuilderManager
+	///
 	/// Revision 1.19  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -90,7 +93,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		protected IModelDataManager modelDataManager;
 		protected ISignature signature;
-		protected IBuilderFactory builderFactory;
+		protected Palladio.ComponentModel.Builder.IBuilderManager builderManager;
 
 		#endregion
 
@@ -101,13 +104,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
 		/// <param name="signature">The signature to build.</param>
-		/// <param name="builderFactory">The factory to use for creating other builders.</param>
-		public AbstractSignatureBuilder(IModelDataManager modelDataManager, ISignature signature, IBuilderFactory builderFactory)
+		/// <param name="builderManager">The factory to use for creating other builders.</param>
+		public AbstractSignatureBuilder(IModelDataManager modelDataManager, ISignature signature, Palladio.ComponentModel.Builder.IBuilderManager builderManager)
 			: base(signature)
 		{
 			this.modelDataManager = modelDataManager;
 			this.signature = signature;	
-			this.builderFactory = builderFactory;
+			this.builderManager = builderManager;
 		}
 
 		#endregion
