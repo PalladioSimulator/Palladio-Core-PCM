@@ -21,6 +21,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/05/25 18:15:27  kelsaka
+	/// - added new methods to BuilderManager
+	/// - use of new methods in example
+	///
 	/// Revision 1.16  2005/05/25 16:27:10  kelsaka
 	/// - renamed former BuilderFactory / therefore removed former BuilderManager
 	///
@@ -144,6 +148,16 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		/// <summary>
+		/// Adds an existing basic component <see cref="IComponent"/> (identified by component identifier).
+		/// </summary>
+		/// <param name="componentIdentifier">The id of the existing component.</param>
+		/// <returns>Type level builder of the basic component with the given ID.</returns>
+		public IBasicComponentTypeLevelBuilder AddExistingBasicComponent (IComponentIdentifier componentIdentifier)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
 		/// Adds a <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>) to the component model.
 		/// </summary>
 		/// <param name="name">The components name</param>
@@ -165,6 +179,16 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.COMPOSITE, name);
 			modelDataManager.LowLevelBuilder.AddComponent(component, null);
 			return builderManager.GetCompositeComponentTypeLevelBuilder(component);
+		}
+
+		/// <summary>
+		/// Adds an existing Composite Component <see cref="IComponent"/> (identified by component identifier).
+		/// </summary>
+		/// <param name="componentIdentifier">The id of the existing component.</param>
+		/// <returns>Type level builder of the basic component with the given ID.</returns>
+		public ICompositeComponentTypeLevelBuilder AddExistingCompositeComponent (IComponentIdentifier componentIdentifier)
+		{
+			throw new NotImplementedException ();
 		}
 
 		/// <summary>

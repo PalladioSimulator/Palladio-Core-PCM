@@ -18,6 +18,10 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/05/25 18:15:27  kelsaka
+	/// - added new methods to BuilderManager
+	/// - use of new methods in example
+	///
 	/// Revision 1.2  2005/05/25 16:27:10  kelsaka
 	/// - renamed former BuilderFactory / therefore removed former BuilderManager
 	///
@@ -167,7 +171,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		private void ExtractInterface(string guid, string name, XmlNode entityContent,XmlNamespaceManager mgr)
 		{
 			IInterfaceIdentifier ifaceID = ComponentModelIdentifier.CreateInterfaceID(guid);
-			IInterfaceTypeLevelBuilder ifaceBuilder = builderManager.RootBuilder.CreateInterface(ifaceID,name);
+			IInterfaceTypeLevelBuilder ifaceBuilder = builderManager.RootTypeLevelBuilder.CreateInterface(ifaceID,name);
 			ExtractAttributes(ifaceBuilder.Interface.Attributes,entityContent.ChildNodes[1]);
 			ExtractStructuredEntityTL(entityContent,mgr);
 		}

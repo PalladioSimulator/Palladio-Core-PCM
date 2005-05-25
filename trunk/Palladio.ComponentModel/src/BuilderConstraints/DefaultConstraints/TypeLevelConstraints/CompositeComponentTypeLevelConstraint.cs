@@ -19,6 +19,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.9  2005/05/25 18:15:27  kelsaka
+	/// - added new methods to BuilderManager
+	/// - use of new methods in example
+	///
 	/// Revision 1.8  2005/05/21 17:12:17  kelsaka
 	/// - added new exception for use with signatures
 	/// - finished adding constraints for the type level
@@ -121,6 +125,16 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		}
 
 		/// <summary>
+		/// Adds an existing basic component <see cref="IComponent"/> (identified by component identifier).
+		/// </summary>
+		/// <param name="componentIdentifier">The id of the existing component.</param>
+		/// <returns>Type level builder of the basic component with the given ID.</returns>
+		public IBasicComponentTypeLevelBuilder AddExistingBasicComponent (IComponentIdentifier componentIdentifier)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
 		/// Adds a new <see cref="ComponentType.COMPOSITE"/> (Type <see cref="ICompositeComponentBuilder"/>) to the component model.
 		/// </summary>
 		/// <param name="name">The components name</param>
@@ -153,6 +167,16 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			{
 				return compositeComponentBuilderSuccessor.AddCompositeComponent(componentIdentifier, name);
 			}			
+		}
+
+		/// <summary>
+		/// Adds an existing Composite Component <see cref="IComponent"/> (identified by component identifier).
+		/// </summary>
+		/// <param name="componentIdentifier">The id of the existing component.</param>
+		/// <returns>Type level builder of the basic component with the given ID.</returns>
+		public ICompositeComponentTypeLevelBuilder AddExistingCompositeComponent (IComponentIdentifier componentIdentifier)
+		{
+			throw new NotImplementedException ();
 		}
 
 		/// <summary>
@@ -730,6 +754,5 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		}
 
 		#endregion
-
 	}
 }

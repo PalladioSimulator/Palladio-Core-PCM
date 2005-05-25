@@ -30,7 +30,7 @@ namespace Palladio.ComponentModel.UnitTests
 		/// </summary>
 		public static void Create(ComponentModelEnvironment env)
 		{
-			rootBuilder = env.BuilderManager.RootBuilder;
+			rootBuilder = env.BuilderManager.RootTypeLevelBuilder;
 			//- zwei interfaces werden erzeugt (rootBuilder.AddInterface("...");)
 			//- AddInterface gibt den Builder zu den Interfaces zurück, BuildIFaceWriter füllt das Interface mit Inhalt
 			//- BuildIFaceWriter gibt die ID des Interfaces zurück, wird noch benötigt

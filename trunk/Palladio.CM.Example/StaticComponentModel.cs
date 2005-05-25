@@ -15,6 +15,10 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/05/25 18:15:27  kelsaka
+	/// - added new methods to BuilderManager
+	/// - use of new methods in example
+	///
 	/// Revision 1.5  2005/05/24 16:51:26  joemal
 	/// xxx
 	///
@@ -50,7 +54,7 @@ namespace Palladio.CM.Example
 		/// <param name="modelEnvironment">the model environment</param>
 		public StaticComponentModel(ComponentModelEnvironment modelEnvironment)
 		{
-			this.rootBuilder = modelEnvironment.BuilderManager.RootBuilder;
+			this.rootBuilder = modelEnvironment.BuilderManager.RootTypeLevelBuilder;			
 		}
 
 		#endregion
@@ -65,8 +69,8 @@ namespace Palladio.CM.Example
 			//- zwei interfaces werden erzeugt (rootBuilder.AddInterface("...");)
 			//- AddInterface gibt den Builder zu den Interfaces zurück, BuildIFaceWriter füllt das Interface mit Inhalt
 			//- BuildIFaceWriter gibt die ID des Interfaces zurück, wird noch benötigt
-			IInterfaceIdentifier wrIfaceID = BuildIFaceIWriter(rootBuilder.AddInterface("IWriter"));
-			IInterfaceIdentifier wrbeIfaceID = BuildIFaceIWriterBackEnd(rootBuilder.AddInterface("IWriterBackEnd"));
+			IInterfaceIdentifier wrIfaceID = BuildIFaceIWriter(rootBuilder.CreateInterface("IWriter"));
+			IInterfaceIdentifier wrbeIfaceID = BuildIFaceIWriterBackEnd(rootBuilder.CreateInterface("IWriterBackEnd"));
 
 			//- Auf ähnliche art und weise die Komponenten basteln
 			IComponentIdentifier wrCCID = BuildCC1(rootBuilder.AddCompositeComponent("WriteCC"), wrbeIfaceID,wrIfaceID);

@@ -18,6 +18,10 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/05/25 18:15:27  kelsaka
+	/// - added new methods to BuilderManager
+	/// - use of new methods in example
+	///
 	/// Revision 1.5  2005/05/24 16:51:26  joemal
 	/// xxx
 	///
@@ -76,7 +80,7 @@ namespace Palladio.CM.Example
 			modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation("test.xml"));
 			Console.WriteLine("[Done]");
 			Console.WriteLine("Clear the model.");			
-			modelEnvironment.BuilderManager.RootBuilder.ClearAll();
+			modelEnvironment.BuilderManager.RootTypeLevelBuilder.ClearAll();
 			Console.WriteLine("[Done]");
 /*			Console.WriteLine("Try to load the xmlfile ..");
 			try 

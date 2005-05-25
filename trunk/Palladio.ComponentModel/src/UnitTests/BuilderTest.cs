@@ -18,6 +18,10 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.23  2005/05/25 18:15:27  kelsaka
+	/// - added new methods to BuilderManager
+	/// - use of new methods in example
+	///
 	/// Revision 1.22  2005/05/25 16:27:10  kelsaka
 	/// - renamed former BuilderFactory / therefore removed former BuilderManager
 	///
@@ -127,7 +131,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void InitTest()
 		{
 			this.componentModel = new ComponentModelEnvironment();	
-			this.rootBuilder = componentModel.BuilderManager.RootBuilder;
+			this.rootBuilder = componentModel.BuilderManager.RootTypeLevelBuilder;
 			this.executed = false;
 		}
 		#endregion

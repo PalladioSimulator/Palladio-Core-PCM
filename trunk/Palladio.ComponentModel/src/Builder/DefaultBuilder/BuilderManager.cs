@@ -1,11 +1,9 @@
 using System;
-using System.Collections;
-using System.Reflection.Emit;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypedBuilderLists;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
-using Palladio.ComponentModel.BuilderConstraints;
 using Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLevelConstraints;
+using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 
@@ -25,6 +23,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/05/25 18:15:27  kelsaka
+	/// - added new methods to BuilderManager
+	/// - use of new methods in example
+	///
 	/// Revision 1.7  2005/05/25 16:27:10  kelsaka
 	/// - renamed former BuilderFactory / therefore removed former BuilderManager
 	///
@@ -244,6 +246,46 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			return this.signatureTypeLevelBuilderConstraints.GetOuterBuilder(signature);
 		}
 
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="componentID">The component to build</param>
+		/// <returns>Basic component builder for the type level.</returns>
+		public IBasicComponentTypeLevelBuilder GetBasicComponentTypeLevelBuilder (IComponentIdentifier componentID)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="componentID">The component to build</param>
+		/// <returns>Composite component builder for the type level.</returns>
+		public ICompositeComponentTypeLevelBuilder GetCompositeComponentTypeLevelBuilder (IComponentIdentifier componentID)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="iInterfaceID">The interface to build</param>
+		/// <returns>interface builder for the type level.</returns>
+		public IInterfaceTypeLevelBuilder GetInterfaceTypeLevelBuilder (IInterfaceIdentifier iInterfaceID)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="signatureID">The signature to build</param>
+		/// <returns>signature builder for the type level.</returns>
+		public ISignatureTypeLevelBuilder GetSignatureTypeLevelBuilder (ISignatureIdentifier signatureID)
+		{
+			throw new NotImplementedException ();
+		}
+
 		#endregion
 
 		#endregion
@@ -254,7 +296,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// The root builder of the actual component model. Root builder for the type level.
 		/// Use this builder to set up the static structure of the component model.
 		/// </summary>
-		public IRootTypeLevelBuilder RootBuilder
+		public IRootTypeLevelBuilder RootTypeLevelBuilder
 		{
 			get
 			{
