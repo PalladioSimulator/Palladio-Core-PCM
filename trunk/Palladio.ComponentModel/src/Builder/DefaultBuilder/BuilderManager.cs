@@ -1,6 +1,7 @@
 using System;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypedBuilderLists;
 using Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder;
+using Palladio.ComponentModel.Builder.DeploymentLevelBuilder;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLevelConstraints;
@@ -24,6 +25,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/05/27 11:56:48  kelsaka
+	/// - added access to builders at deployment level
+	///
 	/// Revision 1.9  2005/05/27 11:20:20  kelsaka
 	/// - added methods for accessing builders of implementation and deployment level to BuilderManager.
 	///
@@ -112,8 +116,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			this.signatureTypeLevelBuilderConstraints.Add(new DefaultSignatureTypeLevelBuilder(modelDataManager, null, this));
 			//this.signatureTypeLevelBuilderConstraints.Add(new SignatureTypeLevelConstraint(modelDataManager)); // currently there are no signature constraints (necessary)
 		}
-	
-		#region IBuilderFactory members
 
 		/// <summary>
 		/// Adds the given builder constraint to the list of constraints for
@@ -250,6 +252,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			return this.signatureTypeLevelBuilderConstraints.GetOuterBuilder(signature);
 		}
 
+		#region type level
+
 		/// <summary>
 		/// Creates a builder (including all actually defined constraints) for the given identifiert.
 		/// </summary>
@@ -290,6 +294,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			throw new NotImplementedException ();
 		}
 
+		#endregion
+
+		#region implementation level
+
 		/// <summary>
 		/// Creates a builder (including all actually defined constraints) for the given identifiert.
 		/// </summary>
@@ -326,6 +334,50 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="signatureID">The signature to build</param>
 		/// <returns>signature builder for the type level.</returns>
 		public ISignatureImplementationLevelBuilder GetSignatureImplementationLevelBuilder (ISignatureIdentifier signatureID)
+		{
+			throw new NotImplementedException ();
+		}
+
+		#endregion
+
+		#region deployment level
+
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="componentID">The component to build</param>
+		/// <returns>Basic component builder for the type level.</returns>
+		public IBasicComponentDeploymentLevelBuilder GetBasicComponentDeploymentLevelBuilder (IComponentIdentifier componentID)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="componentID">The component to build</param>
+		/// <returns>Composite component builder for the type level.</returns>
+		public ICompositeComponentDeploymentLevelBuilder GetCompositeComponentDeploymentLevelBuilder (IComponentIdentifier componentID)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="iInterfaceID">The interface to build</param>
+		/// <returns>interface builder for the type level.</returns>
+		public IInterfaceDeploymentLevelBuilder GetInterfaceDeploymentLevelBuilder (IInterfaceIdentifier iInterfaceID)
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="signatureID">The signature to build</param>
+		/// <returns>signature builder for the type level.</returns>
+		public ISignatureDeploymentLevelBuilder GetSignatureDeploymentLevelBuilder (ISignatureIdentifier signatureID)
 		{
 			throw new NotImplementedException ();
 		}

@@ -1,3 +1,4 @@
+using Palladio.ComponentModel.Builder.DeploymentLevelBuilder;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
@@ -19,6 +20,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/05/27 11:56:48  kelsaka
+	/// - added access to builders at deployment level
+	///
 	/// Revision 1.10  2005/05/27 11:20:20  kelsaka
 	/// - added methods for accessing builders of implementation and deployment level to BuilderManager.
 	///
@@ -143,12 +147,52 @@ namespace Palladio.ComponentModel.Builder
 
 		#endregion
 
+		#region deployment level
+
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="componentID">The component to build</param>
+		/// <returns>Basic component builder for the type level.</returns>
+		IBasicComponentDeploymentLevelBuilder GetBasicComponentDeploymentLevelBuilder(IComponentIdentifier componentID);
+
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="componentID">The component to build</param>
+		/// <returns>Composite component builder for the type level.</returns>
+		ICompositeComponentDeploymentLevelBuilder GetCompositeComponentDeploymentLevelBuilder(IComponentIdentifier componentID);
+
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="iInterfaceID">The interface to build</param>
+		/// <returns>interface builder for the type level.</returns>
+		IInterfaceDeploymentLevelBuilder GetInterfaceDeploymentLevelBuilder(IInterfaceIdentifier iInterfaceID);
+
+		/// <summary>
+		/// Creates a builder (including all actually defined constraints) for the given identifiert.
+		/// </summary>
+		/// <param name="signatureID">The signature to build</param>
+		/// <returns>signature builder for the type level.</returns>
+		ISignatureDeploymentLevelBuilder GetSignatureDeploymentLevelBuilder(ISignatureIdentifier signatureID);
+
+		#endregion
+
 		#endregion		
 
 		/// <summary>
+		/// <p>
 		/// The root builder of the actual component model. Root builder for the type level.
 		/// Use this builder to set up the static structure of the component model.
 		/// The root builder that is returned applies all actually defined constraints.
+		/// </p>
+		/// <p>
+		/// As architectures in the component model should be modelled top down in the
+		/// component model you have to start with the type level. If entities at the
+		/// type level are created you can add implementation and deployment level
+		/// instances of them.
+		/// </p>
 		/// </summary>
 		/// <remarks>Formerly this property was called "RootBuilder".</remarks>
 		IRootTypeLevelBuilder RootTypeLevelBuilder
