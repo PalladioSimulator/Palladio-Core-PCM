@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/05/27 11:20:20  kelsaka
+	/// - added methods for accessing builders of implementation and deployment level to BuilderManager.
+	///
 	/// Revision 1.8  2005/05/25 16:27:10  kelsaka
 	/// - renamed former BuilderFactory / therefore removed former BuilderManager
 	///
@@ -48,7 +51,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// </remarks>
 	internal class DefaultCompositeComponentTypeLevelBuilder : AbstractCompositeComponentBuilder, ICompositeComponentTypeLevelBuilder
 	{
-		private ICompositeComponentTypeLevelBuilder childBuilder;
 
 		/// <summary>
 		/// Initializes the Builder.
