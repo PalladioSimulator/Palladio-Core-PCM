@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/05/27 10:30:12  kelsaka
+	/// - updated some documentation
+	///
 	/// Revision 1.4  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -49,6 +52,12 @@ namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 		/// <summary>
 		/// The child builder to call for each method defined in the builder interface.
 		/// </summary>
+		/// <remarks>This property should only be used for constraints management. Constraints
+		/// in the component model are organized as an kind of pipe and filter architecture.
+		/// For this the ChildBuilder property allows to set the successor (child) that is
+		/// called after executing the acutal constraint. If there is no violation of a constraint
+		/// each constraint-class delegates the request to its child; otherwise exceptions
+		/// will be thrown.</remarks>
 		ICompositeComponentTypeLevelBuilder ChildBuilder
 		{
 			set;
@@ -61,6 +70,7 @@ namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 		/// <param name="component">The component model entity that has to be builder /
 		/// supervised.</param>
 		/// <returns>A copy of the actual builder / constraint.</returns>
+		/// <remarks>This method should only be used for constraints management.</remarks>
 		ICompositeComponentTypeLevelBuilder Clone(IComponent component);
 
 		#endregion

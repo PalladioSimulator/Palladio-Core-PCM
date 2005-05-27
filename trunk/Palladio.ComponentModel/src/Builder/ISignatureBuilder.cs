@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/05/27 10:30:12  kelsaka
+	/// - updated some documentation
+	///
 	/// Revision 1.16  2005/05/25 19:44:54  kelsaka
 	/// - optimized usings
 	/// - builders are now returning identifiers again
@@ -99,11 +102,12 @@ namespace Palladio.ComponentModel.Builder
 		/// Appends a new parameter to the end of the parameter list of the signature. No modifiers
 		/// (<see cref="ParameterModifierEnum"/> like "out" or "ref") are used.
 		/// </summary>
-		/// <param name="name">The new parameters name and the name of the <see cref="Type"/>
-		/// to add. Both have to be named the same. The name has to be a valid name of a type.</param>
+		/// <param name="parameterName">The new parameters name and the name of the <see cref="Type"/>
+		/// to add. The name is used for the typename and the parametername. The name has to be a valid
+		/// name of a type (e. g. "System.Exception" or "System.Collections.ArrayList").</param>
 		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (name) is not
 		/// a valid type-name.</exception>
-		void AppendParameter(string name);
+		void AppendParameter(string parameterName);
 
 		/// <summary>
 		/// Appends a new parameter to the end of the parameter list of the signature.
