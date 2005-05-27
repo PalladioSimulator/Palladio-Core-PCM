@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.23  2005/05/27 15:22:51  kelsaka
+	/// - added return of entity ids
+	///
 	/// Revision 1.22  2005/05/27 13:34:41  kelsaka
 	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
 	///
@@ -292,7 +295,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		public ISignatureIdentifier SignatureIdentifier
 		{
-			get { throw new NotImplementedException (); }
+			get { return this.signature.SignatureID; }
 		}
 
 		#endregion

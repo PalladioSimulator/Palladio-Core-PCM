@@ -7,10 +7,14 @@ namespace Palladio.ComponentModel.Builder
 	/// <remarks>
 	/// <p>This builder interface contains all non model-level specifical methods of a basic
 	/// component.</p>
+	/// Probably currently no methods exist.
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/05/27 15:22:51  kelsaka
+	/// - added return of entity ids
+	///
 	/// Revision 1.7  2005/05/25 19:44:54  kelsaka
 	/// - optimized usings
 	/// - builders are now returning identifiers again
@@ -41,7 +45,7 @@ namespace Palladio.ComponentModel.Builder
 	{
 		#region methods
 
-		//TODO: basic methods that are non level specific for bc.
+		//basic methods that are non level specific for bc. probably currently no methods exist.
 
 		#endregion
 

@@ -25,6 +25,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/05/27 15:22:51  kelsaka
+	/// - added return of entity ids
+	///
 	/// Revision 1.10  2005/05/27 11:56:48  kelsaka
 	/// - added access to builders at deployment level
 	///
@@ -261,6 +264,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Basic component builder for the type level.</returns>
 		public IBasicComponentTypeLevelBuilder GetBasicComponentTypeLevelBuilder (IComponentIdentifier componentID)
 		{
+			//this.modelDataManager.Query.QueryEntities.GetComponent(componentID);
 			throw new NotImplementedException ();
 		}
 
@@ -305,7 +309,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Basic component builder for the type level.</returns>
 		public IBasicComponentImplementationLevelBuilder GetBasicComponentImplementationLevelBuilder (IComponentIdentifier componentID)
 		{
-			throw new NotImplementedException ();
+			throw new NotImplementedException ("The implementation level is not done yet.");
 		}
 
 		/// <summary>
@@ -315,7 +319,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Composite component builder for the type level.</returns>
 		public ICompositeComponentImplementationLevelBuilder GetCompositeComponentImplementationLevelBuilder (IComponentIdentifier componentID)
 		{
-			throw new NotImplementedException ();
+			throw new NotImplementedException ("The implementation level is not done yet.");
 		}
 
 		/// <summary>
@@ -325,7 +329,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>interface builder for the type level.</returns>
 		public IInterfaceImplementationLevelBuilder GetInterfaceImplementationLevelBuilder (IInterfaceIdentifier iInterfaceID)
 		{
-			throw new NotImplementedException ();
+			throw new NotImplementedException ("The implementation level is not done yet.");
 		}
 
 		/// <summary>
@@ -335,7 +339,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>signature builder for the type level.</returns>
 		public ISignatureImplementationLevelBuilder GetSignatureImplementationLevelBuilder (ISignatureIdentifier signatureID)
 		{
-			throw new NotImplementedException ();
+			throw new NotImplementedException ("The implementation level is not done yet.");
 		}
 
 		#endregion
@@ -349,7 +353,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Basic component builder for the type level.</returns>
 		public IBasicComponentDeploymentLevelBuilder GetBasicComponentDeploymentLevelBuilder (IComponentIdentifier componentID)
 		{
-			throw new NotImplementedException ();
+			throw new NotImplementedException ("The deployment level is not done yet.");
 		}
 
 		/// <summary>
@@ -359,7 +363,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Composite component builder for the type level.</returns>
 		public ICompositeComponentDeploymentLevelBuilder GetCompositeComponentDeploymentLevelBuilder (IComponentIdentifier componentID)
 		{
-			throw new NotImplementedException ();
+			throw new NotImplementedException ("The deployment level is not done yet.");
 		}
 
 		/// <summary>
@@ -369,7 +373,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>interface builder for the type level.</returns>
 		public IInterfaceDeploymentLevelBuilder GetInterfaceDeploymentLevelBuilder (IInterfaceIdentifier iInterfaceID)
 		{
-			throw new NotImplementedException ();
+			throw new NotImplementedException ("The deployment level is not done yet.");
 		}
 
 		/// <summary>
@@ -379,7 +383,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>signature builder for the type level.</returns>
 		public ISignatureDeploymentLevelBuilder GetSignatureDeploymentLevelBuilder (ISignatureIdentifier signatureID)
 		{
-			throw new NotImplementedException ();
+			throw new NotImplementedException ("The deployment level is not done yet.");
 		}
 
 		#endregion

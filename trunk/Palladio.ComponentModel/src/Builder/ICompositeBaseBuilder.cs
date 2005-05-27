@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/05/27 15:22:51  kelsaka
+	/// - added return of entity ids
+	///
 	/// Revision 1.11  2005/05/25 19:44:54  kelsaka
 	/// - optimized usings
 	/// - builders are now returning identifiers again
@@ -132,7 +135,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
 		void AddAssemblyConnector(string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
-		                          IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
+			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
 
 		/// <summary>
 		/// called to add an assemblyConnector from a requires interfaces of a component to a provides interface of 

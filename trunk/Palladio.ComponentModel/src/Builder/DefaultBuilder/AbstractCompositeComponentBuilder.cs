@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.20  2005/05/27 15:22:51  kelsaka
+	/// - added return of entity ids
+	///
 	/// Revision 1.19  2005/05/27 13:34:41  kelsaka
 	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
 	///
@@ -419,7 +422,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		public IComponentIdentifier ComponentIdentifier
 		{
-			get { throw new NotImplementedException (); }
+			get { return this.component.ComponentID; }
 		}
 
 		#endregion
