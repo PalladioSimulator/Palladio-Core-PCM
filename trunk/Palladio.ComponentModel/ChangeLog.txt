@@ -36,11 +36,15 @@ Examples:
       (+) interfaces and basic implementation of the high level builders: ability to build up the static structure
 19.04. Implementation of the Queries(MH)
       (+) the implementation
+27.05 (SC) not a real semantic change, but the RootBuilder in the BuilderManager is now called RootTypeLevelBuilder (KK)
 ---
 
 CVS history:
 ---
 $Log$
+Revision 1.7  2005/05/27 09:07:12  kelsaka
+- RootBuilder --> RootTypeLevelBuilder
+
 Revision 1.6  2005/04/19 16:49:07  joemal
 implement query methods
 
