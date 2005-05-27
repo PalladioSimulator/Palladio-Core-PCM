@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/05/27 13:34:41  kelsaka
+	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
+	///
 	/// Revision 1.9  2005/05/27 11:20:20  kelsaka
 	/// - added methods for accessing builders of implementation and deployment level to BuilderManager.
 	///
@@ -91,7 +94,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// <returns>A copy of the actual builder / constraint.</returns>
 		public ICompositeComponentTypeLevelBuilder Clone (IComponent component)
 		{
-			return new DefaultCompositeComponentTypeLevelBuilder(modelDataManager, component, builderManager);
+			return new DefaultCompositeComponentTypeLevelBuilder(base.ModelDataManager, component, base.BuilderManager);
 		}
 
 		#endregion

@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.22  2005/05/27 13:34:41  kelsaka
+	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
+	///
 	/// Revision 1.21  2005/05/25 19:44:54  kelsaka
 	/// - optimized usings
 	/// - builders are now returning identifiers again
@@ -93,9 +96,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		protected IModelDataManager modelDataManager;
-		protected ISignature signature;
-		protected IBuilderManager builderManager;
+		private ISignature signature;
 
 		#endregion
 
@@ -108,11 +109,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="signature">The signature to build.</param>
 		/// <param name="builderManager">The factory to use for creating other builders.</param>
 		public AbstractSignatureBuilder(IModelDataManager modelDataManager, ISignature signature, IBuilderManager builderManager)
-			: base(signature)
+			: base(builderManager, modelDataManager)
 		{
-			this.modelDataManager = modelDataManager;
 			this.signature = signature;	
-			this.builderManager = builderManager;
 		}
 
 		#endregion

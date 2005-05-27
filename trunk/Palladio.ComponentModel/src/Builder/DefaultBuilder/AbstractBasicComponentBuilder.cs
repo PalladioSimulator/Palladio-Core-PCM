@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.19  2005/05/27 13:34:41  kelsaka
+	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
+	///
 	/// Revision 1.18  2005/05/25 19:44:54  kelsaka
 	/// - optimized usings
 	/// - builders are now returning identifiers again
@@ -85,9 +88,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		protected IModelDataManager modelDataManager;
-		protected IComponent component;
-		protected IBuilderManager builderManager;
+		private IComponent component;
 
 		#endregion
 
@@ -100,11 +101,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="component">The component to build.</param>
 		/// <param name="builderManager">The factory to use for creating other builders.</param>
 		public AbstractBasicComponentBuilder(IModelDataManager modelDataManager, IComponent component, IBuilderManager builderManager)
-			: base(component)
+			: base(builderManager, modelDataManager)
 		{
-			this.modelDataManager = modelDataManager;
 			this.component = component;	
-			this.builderManager = builderManager;
 		}
 
 		#endregion
@@ -117,7 +116,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		public void AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.PROVIDES);
+			base.ModelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.PROVIDES);
 		}
 
 		/// <summary>
@@ -126,7 +125,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
 		public void AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.REQUIRES);
+			base.ModelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, ifaceIdentifier, InterfaceRole.REQUIRES);
 		}
 
 		/// <summary>
@@ -150,8 +149,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IInterfaceTypeLevelBuilder AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
 			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier, interfaceName);
-			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.PROVIDES);
-			return builderManager.GetInterfaceTypeLevelBuilder(iInterface);
+			base.ModelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.PROVIDES);
+			return base.BuilderManager.GetInterfaceTypeLevelBuilder(iInterface);
 		}
 
 		/// <summary>
@@ -175,8 +174,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public IInterfaceTypeLevelBuilder AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
 		{
 			IInterface iInterface = EntityFactory.CreateInterface(ifaceIdentifier, interfaceName);
-			modelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.REQUIRES);
-			return builderManager.GetInterfaceTypeLevelBuilder(iInterface);
+			base.ModelDataManager.LowLevelBuilder.AddInterfaceToComponent(this.component.ComponentID, iInterface.InterfaceID, InterfaceRole.REQUIRES);
+			return base.BuilderManager.GetInterfaceTypeLevelBuilder(iInterface);
 		}
 
 		/// <summary>
@@ -188,7 +187,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		public void RemoveProvidesInterface (IInterfaceIdentifier ifaceID)
 		{
-			modelDataManager.LowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.PROVIDES);
+			base.ModelDataManager.LowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.PROVIDES);
 		}
 
 		/// <summary>
@@ -200,7 +199,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="ifaceID">the id of the interface that has to be removed</param>
 		public void RemoveRequiresInterface (IInterfaceIdentifier ifaceID)
 		{
-			modelDataManager.LowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.REQUIRES);
+			base.ModelDataManager.LowLevelBuilder.RemoveInterfaceFromComponent(this.component.ComponentID, ifaceID, InterfaceRole.REQUIRES);
 		}
 
 		#endregion
@@ -220,7 +219,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		public IComponentIdentifier ComponentIdentifier
 		{
-			get { throw new NotImplementedException (); }
+			get { return this.component.ComponentID; }
 		}
 
 		#endregion

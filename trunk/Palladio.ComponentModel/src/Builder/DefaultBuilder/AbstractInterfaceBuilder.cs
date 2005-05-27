@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.22  2005/05/27 13:34:41  kelsaka
+	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
+	///
 	/// Revision 1.21  2005/05/25 19:44:54  kelsaka
 	/// - optimized usings
 	/// - builders are now returning identifiers again
@@ -95,9 +98,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		protected IModelDataManager modelDataManager;
-		protected IInterface iInterface;
-		protected IBuilderManager builderManager;
+		private IInterface iInterface;
 
 		#endregion
 
@@ -110,11 +111,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="iInterface">The interface to build.</param>
 		/// <param name="builderManager">The factory to use for creating other builders.</param>
 		public AbstractInterfaceBuilder(IModelDataManager modelDataManager, IInterface iInterface, IBuilderManager builderManager)
-			: base(iInterface)
+			: base(builderManager, modelDataManager)
 		{
-			this.modelDataManager = modelDataManager;
 			this.iInterface = iInterface;
-			this.builderManager = builderManager;
 		}
 
 		#endregion
@@ -131,7 +130,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="signature">The existing signature.</param>
 		public void AddSignature (ISignature signature)
 		{
-			modelDataManager.LowLevelBuilder.AddSignature(signature, this.iInterface.InterfaceID);
+			base.ModelDataManager.LowLevelBuilder.AddSignature(signature, this.iInterface.InterfaceID);
 		}
 
 		/// <summary>
@@ -144,8 +143,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public ISignatureTypeLevelBuilder AddSignature (string signatureName)
 		{
 			ISignature signature = EntityFactory.CreateSignature(signatureName, new SignatureDescription());
-			modelDataManager.LowLevelBuilder.AddSignature(signature, this.iInterface.InterfaceID);
-			return builderManager.GetSignatureTypeLevelBuilder(signature);
+			base.ModelDataManager.LowLevelBuilder.AddSignature(signature, this.iInterface.InterfaceID);
+			return base.BuilderManager.GetSignatureTypeLevelBuilder(signature);
 		}
 
 		/// <summary>
@@ -155,7 +154,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="signatureID">the id of the signature that has to be removed</param>
 		public void RemoveSignature (ISignatureIdentifier signatureID)
 		{
-			modelDataManager.LowLevelBuilder.RemoveSignature(signatureID);
+			base.ModelDataManager.LowLevelBuilder.RemoveSignature(signatureID);
 		}
 
 		/// <summary>
@@ -164,7 +163,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="protocol">the protocol to be added</param>
 		public void AddProtocol (IProtocol protocol)
 		{
-			modelDataManager.LowLevelBuilder.AddProtocol(protocol, this.iInterface.InterfaceID);
+			base.ModelDataManager.LowLevelBuilder.AddProtocol(protocol, this.iInterface.InterfaceID);
 		}
 
 		/// <summary>
@@ -174,7 +173,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="protocolID">the id of the protocol that has to be removed</param>
 		public void RemoveProtocol (IProtocolIdentifier protocolID)
 		{
-			modelDataManager.LowLevelBuilder.RemoveProtocol(protocolID);
+			base.ModelDataManager.LowLevelBuilder.RemoveProtocol(protocolID);
 		}
 
 		#endregion

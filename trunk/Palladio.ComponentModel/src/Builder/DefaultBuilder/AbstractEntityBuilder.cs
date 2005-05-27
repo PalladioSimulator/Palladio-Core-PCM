@@ -1,7 +1,6 @@
 using System;
-using Palladio.Attributes;
+using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
-using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
@@ -9,11 +8,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Abstract implementation of a component model entity.
 	/// </summary>
 	/// <remarks>
-	/// NOTE: currently this abstract builder is empty.
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/05/27 13:34:41  kelsaka
+	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
+	///
 	/// Revision 1.7  2005/04/23 11:49:54  kelsaka
 	/// - refactored enity-builder interface: currently no methods.
 	///
@@ -41,7 +42,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		private IComponentModelEntity entity;
+		//private IComponentModelEntity entity;
+		private IBuilderManager builderManager;
+		private IModelDataManager modelDataManager;
 
 		#endregion
 
@@ -51,9 +54,20 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="entity">The enitity instance.</param>
-		public AbstractEntityBuilder(IComponentModelEntity entity)
+		/*public AbstractEntityBuilder(IComponentModelEntity entity)
 		{
 			this.entity = entity;
+		}*/
+
+		/// <summary>
+		/// Initializes the Builder.
+		/// </summary>
+		/// <param name="builderManager">The manger to use for getting constrained builders.</param>
+		/// <param name="modelDataManager">The model data manager e. g. for use of the <see cref="LowLevelBuilder"/></param>
+		public AbstractEntityBuilder(IBuilderManager builderManager, IModelDataManager modelDataManager)
+		{
+			this.builderManager = builderManager;
+			this.modelDataManager = modelDataManager;
 		}
 
 		#endregion
@@ -62,9 +76,26 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		#endregion
 
-		#region Properties
+		#region Properties (not inherited from the IEntityBuilder)
+
+		/// <summary>
+		/// Accesses the builder manager (including the builders constraints)
+		/// </summary>
+		public IBuilderManager BuilderManager
+		{
+			get { return this.builderManager; }
+		}
+
+		/// <summary>
+		/// Accesses the model data manager of the component model (e. g. <see cref="LowLevelBuilder"/>).
+		/// </summary>
+		public IModelDataManager ModelDataManager
+		{
+			get { return this.modelDataManager; }
+		}
 
 		#endregion		
+
 
 	}
 }

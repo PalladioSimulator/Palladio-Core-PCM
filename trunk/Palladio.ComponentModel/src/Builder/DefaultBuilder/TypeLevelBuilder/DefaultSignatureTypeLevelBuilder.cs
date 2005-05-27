@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/05/27 13:34:41  kelsaka
+	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
+	///
 	/// Revision 1.9  2005/05/25 16:27:10  kelsaka
 	/// - renamed former BuilderFactory / therefore removed former BuilderManager
 	///
@@ -88,7 +91,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// <returns>A copy of the actual builder / constraint.</returns>
 		public ISignatureTypeLevelBuilder Clone (ISignature signature)
 		{
-			return new DefaultSignatureTypeLevelBuilder(modelDataManager, signature, builderManager);
+			return new DefaultSignatureTypeLevelBuilder(base.ModelDataManager, signature, base.BuilderManager);
 		}
 
 		#endregion

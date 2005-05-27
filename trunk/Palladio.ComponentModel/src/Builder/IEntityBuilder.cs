@@ -1,3 +1,5 @@
+using Palladio.ComponentModel.ModelDataManagement;
+
 namespace Palladio.ComponentModel.Builder
 {
 
@@ -10,6 +12,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/05/27 13:34:41  kelsaka
+	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
+	///
 	/// Revision 1.8  2005/05/25 19:44:54  kelsaka
 	/// - optimized usings
 	/// - builders are now returning identifiers again
@@ -44,7 +49,7 @@ namespace Palladio.ComponentModel.Builder
 		#endregion
 
 		#region properties
-
+		
 		#endregion		
 	}
 }
