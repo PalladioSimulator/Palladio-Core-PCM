@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.5  2005/05/30 13:09:35  kelsaka
+	/// - methods for adding connections are now returning ids.
+	///
 	/// Revision 1.4  2005/05/25 18:15:27  kelsaka
 	/// - added new methods to BuilderManager
 	/// - use of new methods in example
@@ -143,10 +146,11 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
-		public void AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID,
+		/// <returns>The identifier of the new connection, created by this method.</returns>
+		public IConnectionIdentifier AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID,
 			IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
-			this.rootBuilderSuccessor.AddAssemblyConnector(connectionName, reqCompID, reqIFaceID, provCompID, provIFaceID);
+			return this.rootBuilderSuccessor.AddAssemblyConnector(connectionName, reqCompID, reqIFaceID, provCompID, provIFaceID);
 		}
 
 		/// <summary>

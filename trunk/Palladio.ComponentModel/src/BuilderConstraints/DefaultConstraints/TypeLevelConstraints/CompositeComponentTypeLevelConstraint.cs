@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.11  2005/05/30 13:09:35  kelsaka
+	/// - methods for adding connections are now returning ids.
+	///
 	/// Revision 1.10  2005/05/25 19:44:54  kelsaka
 	/// - optimized usings
 	/// - builders are now returning identifiers again
@@ -220,13 +223,14 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
+		/// <returns>The identifier of the new connection, created by this method.</returns>
 		/// <exception cref="ComponentNotFoundException">Thrown if the specified component (provCompID
 		/// or reqCompID) is not a child of the actual composite component.
 		/// </exception>
 		/// <exception cref="InterfaceNotFromComponentException">Thrown if the given interfaces are not
 		/// required / provided by the specified component. reqCompID has to require reqIFaceID;
 		/// provCompID has to provide provIFaceID.</exception>
-		public void AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID,
+		public IConnectionIdentifier AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID,
 			IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
 			IInterfaceIdentifier provIFaceID)
 		{
@@ -254,7 +258,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 					"The specified interface is not required by the component.");
 			}
 
-			compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionName, reqCompID, reqIFaceID,
+			return compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionName, reqCompID, reqIFaceID,
 				provCompID, provIFaceID);
 		}
 
@@ -478,11 +482,12 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="outerIFaceID">the id of the outer component</param>
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
+		/// <returns>The identifier of the new connection, created by this method.</returns>
 		/// <exception cref="InterfaceNotFromComponentException">Thrown, if
 		/// <li>the outer interface is not provided by the actual composite component</li>
 		/// <li>the inner interface is not provided by any inner component.</li>
 		/// </exception>
-		public void AddProvidesDelegationConnector (string connectionName, IInterfaceIdentifier outerIFaceID,
+		public IConnectionIdentifier AddProvidesDelegationConnector (string connectionName, IInterfaceIdentifier outerIFaceID,
 			IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{
 			if(!this.modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID)
@@ -498,7 +503,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 					"The inner interface is not provided by an inner component.");
 			}
 
-			compositeComponentBuilderSuccessor.AddProvidesDelegationConnector(connectionName, outerIFaceID,
+			return compositeComponentBuilderSuccessor.AddProvidesDelegationConnector(connectionName, outerIFaceID,
 				innerCompID, innerIFaceID);
 		}
 
@@ -553,11 +558,12 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		/// <param name="outerIFaceID">the id of the outer component</param>
+		/// <returns>The identifier of the new connection, created by this method.</returns>
 		/// <exception cref="InterfaceNotFromComponentException">Thrown, if
 		/// <li>the outer interface is not required by the actual composite component</li>
 		/// <li>the inner interface is not required by any inner component.</li>
 		/// </exception>
-		public void AddRequiresDelegationConnector (string connectionName, IComponentIdentifier innerCompID,
+		public IConnectionIdentifier AddRequiresDelegationConnector (string connectionName, IComponentIdentifier innerCompID,
 			IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID)
 		{
 			
@@ -574,7 +580,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 					"The inner interface is not required by an inner component.");
 			}
 
-			compositeComponentBuilderSuccessor.AddRequiresDelegationConnector(connectionName, innerCompID,
+			return compositeComponentBuilderSuccessor.AddRequiresDelegationConnector(connectionName, innerCompID,
 				innerIFaceID, outerIFaceID);
 		}
 

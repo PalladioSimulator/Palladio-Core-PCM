@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.19  2005/05/30 13:09:35  kelsaka
+	/// - methods for adding connections are now returning ids.
+	///
 	/// Revision 1.18  2005/05/27 13:34:41  kelsaka
 	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
 	///
@@ -210,12 +213,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
-		public void AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID,
+		/// <returns>The identifier of the new connection, created by this method.</returns>
+		public IConnectionIdentifier AddAssemblyConnector (string connectionName, IComponentIdentifier reqCompID,
 			IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
 			IInterfaceIdentifier provIFaceID)
 		{
-			AddAssemblyConnector(new InternalEntityIdentifier().AsConnectionIdentifier(),
+			IConnectionIdentifier identifier = new InternalEntityIdentifier().AsConnectionIdentifier();
+			AddAssemblyConnector(identifier,
 				connectionName, reqCompID, reqIFaceID, provCompID, provIFaceID);
+			return identifier;
 		}
 
 		/// <summary>

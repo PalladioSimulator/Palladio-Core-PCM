@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/05/30 13:09:35  kelsaka
+	/// - methods for adding connections are now returning ids.
+	///
 	/// Revision 1.12  2005/05/27 15:22:51  kelsaka
 	/// - added return of entity ids
 	///
@@ -134,7 +137,8 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
-		void AddAssemblyConnector(string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
+		/// <returns>The identifier of the new connection, created by this method.</returns>
+		IConnectionIdentifier AddAssemblyConnector(string connectionName, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
 
 		/// <summary>

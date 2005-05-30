@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/05/30 13:09:35  kelsaka
+	/// - methods for adding connections are now returning ids.
+	///
 	/// Revision 1.7  2005/05/27 15:22:51  kelsaka
 	/// - added return of entity ids
 	///
@@ -54,7 +57,8 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="outerIFaceID">the id of the outer component</param>
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
-		void AddProvidesDelegationConnector(string connectionName,  
+		/// <returns>The identifier of the new connection, created by this method.</returns>
+		IConnectionIdentifier AddProvidesDelegationConnector(string connectionName,  
 			IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
 
 		/// <summary>
@@ -79,7 +83,8 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		/// <param name="outerIFaceID">the id of the outer component</param>
-		void AddRequiresDelegationConnector(string connectionName, IComponentIdentifier innerCompID, 
+		/// <returns>The identifier of the new connection, created by this method.</returns>
+		IConnectionIdentifier AddRequiresDelegationConnector(string connectionName, IComponentIdentifier innerCompID, 
 			IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID);
 
 		/// <summary>
