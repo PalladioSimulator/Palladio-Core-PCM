@@ -18,6 +18,10 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.25  2005/06/05 11:06:52  joemal
+	/// - add method DestroyComponent
+	/// - rename method RemoveInterface to DestroyInterface
+	///
 	/// Revision 1.24  2005/06/05 10:40:41  joemal
 	/// - components now can be added to more than one container
 	///
@@ -210,14 +214,14 @@ namespace Palladio.ComponentModel.UnitTests
 		public void CC_AddProvidesInterfaceAndRemove()
 		{
 			Identifier.IInterfaceIdentifier i6 = rootBuilder.AddNewCompositeComponent("CC6").AddNewInterfaceAsProvides("IF6").Interface.InterfaceID;
-			rootBuilder.RemoveInterface(i6);
+			rootBuilder.DestroyInterface(i6);
 		}
 
 		[Test]
 		public void CC_AddRequiresInterfaceAndRemove()
 		{
 			Identifier.IInterfaceIdentifier i7 = rootBuilder.AddNewCompositeComponent("CC7").AddNewInterfaceAsRequires("IF7").Interface.InterfaceID;
-			rootBuilder.RemoveInterface(i7);
+			rootBuilder.DestroyInterface(i7);
 		}
 
 		[Test]

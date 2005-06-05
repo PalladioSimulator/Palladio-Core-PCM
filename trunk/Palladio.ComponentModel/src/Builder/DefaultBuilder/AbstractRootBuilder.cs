@@ -1,4 +1,3 @@
-using System;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
@@ -20,6 +19,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.21  2005/06/05 11:06:52  joemal
+	/// - add method DestroyComponent
+	/// - rename method RemoveInterface to DestroyInterface
+	///
 	/// Revision 1.20  2005/06/05 10:37:33  joemal
 	/// - replace the entities by the ids
 	/// - components now can be added to more than one container
@@ -198,7 +201,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="componentId">the id of the component to be removed</param>
 		public void RemoveComponent (IComponentIdentifier componentId)
 		{
-			this.ModelDataManager.LowLevelBuilder.RemoveComponent(componentId);
+			this.ModelDataManager.LowLevelBuilder.RemoveComponentFromComponent(componentId,null);
 		}
 
 		/// <summary>
@@ -282,7 +285,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
-		public void RemoveInterface (IInterfaceIdentifier ifaceIdentifier)
+		public void DestroyInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
 			this.ModelDataManager.LowLevelBuilder.RemoveInterface(ifaceIdentifier);
 		}
@@ -318,7 +321,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>A <see cref="ComponentType.COMPOSITE"/> to build the further component.</returns>
 		public ICompositeComponentTypeLevelBuilder CreateCompositeComponent(string name)
 		{
-			throw new NotImplementedException();
+			return this.CreateCompositeComponent(new InternalEntityIdentifier().AsComponentIdentifier(),name);
 		}
 
 		/// <summary>
@@ -333,6 +336,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			IComponent component = EntityFactory.CreateComponent(componentIdentifier, ComponentType.COMPOSITE, name);
 			this.ModelDataManager.LowLevelBuilder.CreateComponent(component);
 			return this.BuilderManager.GetCompositeComponentTypeLevelBuilder(component);			
+		}
+
+		/// <summary>
+		/// called to destroy a component. All references and all contained entities are also removed. 
+		/// </summary>
+		/// <param name="componentIdentifier"></param>
+		public void DestroyComponent(IComponentIdentifier componentIdentifier)
+		{
+			this.ModelDataManager.LowLevelBuilder.RemoveComponent(componentIdentifier);
 		}
 
 		/// <summary>

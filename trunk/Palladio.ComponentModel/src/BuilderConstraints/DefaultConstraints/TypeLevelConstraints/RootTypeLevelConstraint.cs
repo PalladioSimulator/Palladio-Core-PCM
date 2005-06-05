@@ -16,6 +16,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.7  2005/06/05 11:06:52  joemal
+	/// - add method DestroyComponent
+	/// - rename method RemoveInterface to DestroyInterface
+	///
 	/// Revision 1.6  2005/06/05 10:38:31  joemal
 	/// - replace the entities by the ids
 	/// - components now can be added to more than one container
@@ -207,9 +211,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
-		public void RemoveInterface (IInterfaceIdentifier ifaceIdentifier)
+		public void DestroyInterface (IInterfaceIdentifier ifaceIdentifier)
 		{
-			this.rootBuilderSuccessor.RemoveInterface(ifaceIdentifier);
+			this.rootBuilderSuccessor.DestroyInterface(ifaceIdentifier);
 		}
 
 		/// <summary>
@@ -254,6 +258,15 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		public ICompositeComponentTypeLevelBuilder CreateCompositeComponent(IComponentIdentifier componentIdentifier, string name)
 		{
 			return this.rootBuilderSuccessor.CreateCompositeComponent(componentIdentifier,name);
+		}
+
+		/// <summary>
+		/// called to destroy a component. All references and all contained entities are also removed. 
+		/// </summary>
+		/// <param name="componentIdentifier"></param>
+		public void DestroyComponent(IComponentIdentifier componentIdentifier)
+		{
+			this.rootBuilderSuccessor.DestroyComponent(componentIdentifier);
 		}
 
 		/// <summary>

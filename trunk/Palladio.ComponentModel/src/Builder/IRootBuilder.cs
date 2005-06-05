@@ -19,6 +19,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2005/06/05 11:06:52  joemal
+	/// - add method DestroyComponent
+	/// - rename method RemoveInterface to DestroyInterface
+	///
 	/// Revision 1.14  2005/06/05 10:36:34  joemal
 	/// - replace the entities by the ids
 	/// - components now can be added to more than one container
@@ -97,7 +101,7 @@ namespace Palladio.ComponentModel.Builder
 		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
-		void RemoveInterface(IInterfaceIdentifier ifaceIdentifier);
+		void DestroyInterface(IInterfaceIdentifier ifaceIdentifier);
 
 		/// <summary>
 		/// Creates a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>).
@@ -130,6 +134,13 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="name">The new components name.</param>
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
 		ICompositeComponentTypeLevelBuilder CreateCompositeComponent(IComponentIdentifier componentIdentifier, string name);
+
+
+		/// <summary>
+		/// called to destroy a component. All references and all contained entities are also removed. 
+		/// </summary>
+		/// <param name="componentIdentifier"></param>
+		void DestroyComponent(IComponentIdentifier componentIdentifier);
 
 		/// <summary>
 		/// call to remove all entities and their relations from the model
