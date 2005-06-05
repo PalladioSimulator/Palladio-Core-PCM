@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/06/05 10:30:26  joemal
+	/// temporary disabled
+	///
 	/// Revision 1.4  2005/05/24 16:49:41  joemal
 	/// change the exceptions
 	///
@@ -186,8 +189,8 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				WriteEntityGuids(writer,"ProvidesInterface",ifaceIDs);
 				ifaceIDs = query.QueryTypeLevel.QueryComponent(compID).GetRequiresInterfaceIDs();
 				WriteEntityGuids(writer,"RequiresInterface",ifaceIDs);
-				IComponentIdentifier[] bcIDs = query.QueryTypeLevel.QueryCompositeComponent(compID).getBasicComponents();
-				IComponentIdentifier[] ccIDs = query.QueryTypeLevel.QueryCompositeComponent(compID).getCompositeComponents();
+				IComponentIdentifier[] bcIDs = query.QueryTypeLevel.QueryCompositeComponent(compID).GetBasicComponents();
+				IComponentIdentifier[] ccIDs = query.QueryTypeLevel.QueryCompositeComponent(compID).GetCompositeComponents();
 				WriteEntityGuids(writer,"Component",bcIDs);
 				WriteEntityGuids(writer,"Component",ccIDs);
 				IConnectionIdentifier[] conIDs = query.QueryTypeLevel.QueryCompositeComponent(compID).GetConnections();
