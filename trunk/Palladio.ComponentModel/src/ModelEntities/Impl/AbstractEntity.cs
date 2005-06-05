@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/05 10:39:51  joemal
+	/// remove unused method
+	///
 	/// Revision 1.2  2005/04/05 14:24:00  joemal
 	/// implement the rest of the notification
 	///
@@ -49,19 +52,6 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 			this.id = id;
 			this.name = name;
 			this.attributeHash = new DefaultAttributeHash();
-		}
-
-		#endregion
-
-		#region methods
-
-		/// <summary>
-		/// This methods has ever to be called, when attributes have been changed to update all observer of the models
-		/// changes.
-		/// </summary>
-		public virtual void AttributesChanged()
-		{
-			//todo: implement notification
 		}
 
 		#endregion
