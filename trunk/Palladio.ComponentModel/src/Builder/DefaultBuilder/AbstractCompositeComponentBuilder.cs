@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.23  2005/06/05 11:06:18  joemal
+	/// - fix bug in RemoveComponent
+	///
 	/// Revision 1.22  2005/06/05 10:37:33  joemal
 	/// - replace the entities by the ids
 	/// - components now can be added to more than one container
@@ -181,7 +184,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="componentId">the id of the component to be removed</param>
 		public void RemoveComponent (IComponentIdentifier componentId)
 		{
-			this.ModelDataManager.LowLevelBuilder.RemoveComponent(componentId);
+			this.ModelDataManager.LowLevelBuilder.RemoveComponentFromComponent(componentId,this.ComponentId);
 		}
 
 		/// <summary>
