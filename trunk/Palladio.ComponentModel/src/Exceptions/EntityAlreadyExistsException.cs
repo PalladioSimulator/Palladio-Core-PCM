@@ -10,6 +10,9 @@ namespace Palladio.ComponentModel.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/05 10:39:03  joemal
+	/// add second constructor
+	///
 	/// Revision 1.2  2005/05/18 10:33:46  kelsaka
 	/// - added default constraints implementation
 	/// - added new test-case
@@ -35,10 +38,9 @@ namespace Palladio.ComponentModel.Exceptions
 		/// <summary>
 		/// Error indicating, that an entity with same id already exists in current model.
 		/// </summary>
-		/// <param name="entityId">the id of the entity</param>
 		/// <param name="message">The error message.</param>
-		public EntityAlreadyExistsException(IIdentifier entityId, string message) : 
-			base( "Entity with id " + (entityId != null ? entityId.ToString() : "<NULL>" )+ " already exists! Error message " + message)
+		public EntityAlreadyExistsException(string message) : 
+			base(message)
 		{
 		}
 	}
