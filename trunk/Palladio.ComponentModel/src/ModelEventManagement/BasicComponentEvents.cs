@@ -10,6 +10,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/05 10:40:06  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.2  2005/04/05 14:23:59  joemal
 	/// implement the rest of the notification
 	///
@@ -26,7 +29,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to create a eventstructure for a basic component
 		/// </summary>
 		/// <param name="component">the component</param>
-		public BasicComponentEvents(IComponent component) : base(component)
+		internal BasicComponentEvents(IComponent component) : base(component)
 		{
 		}
 

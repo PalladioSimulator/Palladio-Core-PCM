@@ -54,6 +54,8 @@ namespace Palladio.ComponentModel.UnitTests
 			IQueryBasicComponentTypeLevel bc2Query = model.Query.QueryTypeLevel.
 				QueryBasicComponent(StaticComponentModel.BCWRITEBEID);
 
+			Assert.AreEqual(ccQuery.GetBasicComponents().Length,1);
+			Assert.AreEqual(ccQuery.GetCompositeComponents().Length,0);
             
 			Assert.AreEqual(ccQuery.GetProvidesInterfaceIDs().Length,1);
 			Assert.AreEqual(ccQuery.GetProvidesInterfaceIDs()[0],StaticComponentModel.IWRITERID);
@@ -86,11 +88,13 @@ namespace Palladio.ComponentModel.UnitTests
 			IConnectionIdentifier[] conIDs = query.GetConnections();
 
 			Assert.AreEqual(query.GetComponents().Length,2);
+			Assert.AreEqual(query.GetBasicComponents().Length,1);
+			Assert.AreEqual(query.GetCompositeComponents().Length,1);
 			Assert.AreEqual(conIDs.Length,1);
 
-			Assert.IsTrue(query.IsChildren(StaticComponentModel.CCWRITEID));
-			Assert.IsTrue(query.IsChildren(StaticComponentModel.BCWRITEBEID));
-			Assert.IsFalse(query.IsChildren(StaticComponentModel.BCWRITEID));
+			Assert.IsTrue(query.IsChild(StaticComponentModel.CCWRITEID));
+			Assert.IsTrue(query.IsChild(StaticComponentModel.BCWRITEBEID));
+			Assert.IsFalse(query.IsChild(StaticComponentModel.BCWRITEID));
 
 			Assert.IsTrue(query.IsConnectionFromComponent(conIDs[0]));
 		}
@@ -123,7 +127,6 @@ namespace Palladio.ComponentModel.UnitTests
 			IProtocol pro2 = new TestProtocol();
 			ifaceB.AddProtocol(pro2);
 
-			Console.Out.WriteLine("The interface: "+ifaceB.Interface.InterfaceID.Key);
 			IQueryInterfaceTypeLevel query = model.Query.QueryTypeLevel.QueryInterface(ifaceB.Interface.InterfaceID);
 			Assert.AreEqual(query.GetSignatures().Length,3);
 			Assert.AreEqual(query.GetProtocols().Length,2);

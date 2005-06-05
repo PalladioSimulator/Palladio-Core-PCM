@@ -18,6 +18,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/06/05 10:40:56  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.6  2005/05/25 18:15:27  kelsaka
 	/// - added new methods to BuilderManager
 	/// - use of new methods in example
@@ -76,9 +79,9 @@ namespace Palladio.CM.Example
 
 			Console.ReadLine();
 
-			Console.WriteLine("Try to store the model to file test.xml");
+	/*		Console.WriteLine("Try to store the model to file test.xml");
 			modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation("test.xml"));
-			Console.WriteLine("[Done]");
+			Console.WriteLine("[Done]");*/
 			Console.WriteLine("Clear the model.");			
 			modelEnvironment.BuilderManager.RootTypeLevelBuilder.ClearAll();
 			Console.WriteLine("[Done]");

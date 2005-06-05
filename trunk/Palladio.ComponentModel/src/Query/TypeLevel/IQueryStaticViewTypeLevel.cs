@@ -10,6 +10,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/06/05 10:40:28  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.3  2005/05/08 12:04:23  joemal
 	/// implementation of xml serialization
 	///
@@ -35,7 +38,7 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// </summary>
 		/// <param name="compID">the id of the component</param>
 		/// <returns>true, if the component that belongs to the given id is part of this component.</returns>
-		bool IsChildren(IComponentIdentifier compID);
+		bool IsChild(IComponentIdentifier compID);
 
 		/// <summary>
 		/// returns the ids of the connections that are contained in this component.

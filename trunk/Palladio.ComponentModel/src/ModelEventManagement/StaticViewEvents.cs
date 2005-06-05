@@ -8,6 +8,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/05 10:40:06  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.2  2005/04/04 16:27:28  joemal
 	/// implement the rest of the notification
 	///
@@ -22,28 +25,6 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	{
 		#region internal notify methods
 		
-		/// <summary>
-		/// called to fire the event
-		/// </summary>
-		/// <param name="sender">the sender</param>
-		/// <param name="args">the arguments</param>
-		internal void NotifyInterfaceAdded(object sender, InterfaceBuildEventArgs args)
-		{
-			if (InterfaceAddedEvent != null)
-				InterfaceAddedEvent(sender, args);
-		}
-
-		/// <summary>
-		/// called to fire the event
-		/// </summary>
-		/// <param name="sender">the sender</param>
-		/// <param name="args">the arguments</param>
-		internal void NotifyInterfaceRemoved(object sender, InterfaceBuildEventArgs args)
-		{
-			if (InterfaceRemovedEvent != null)
-				InterfaceRemovedEvent(sender, args);
-		}
-
 		/// <summary>
 		/// called to fire the event
 		/// </summary>
@@ -71,7 +52,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// </summary>
 		/// <param name="sender">the sender</param>
 		/// <param name="args">the arguments</param>
-		internal void NotifyComponentAdded(object sender, ComponentBuildEventArgs args)
+		internal void NotifyComponentAdded(object sender, ComponentUseEventArgs args)
 		{
 			if (ComponentAddedEvent != null)
 				ComponentAddedEvent(sender, args);
@@ -82,7 +63,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// </summary>
 		/// <param name="sender">the sender</param>
 		/// <param name="args">the arguments</param>
-		internal void NotifyComponentRemoved(object sender, ComponentBuildEventArgs args)
+		internal void NotifyComponentRemoved(object sender, ComponentUseEventArgs args)
 		{
 			if (ComponentRemovedEvent != null)
 				ComponentRemovedEvent(sender, args);
@@ -102,24 +83,14 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		#region events
 
 		/// <summary>
-		/// fired, when an interfaces has been added to the static view
-		/// </summary>
-		public event InterfaceBuildEventHandler InterfaceAddedEvent;
-
-		/// <summary>
-		/// fired, when an interface has been removed from the static view
-		/// </summary>
-		public event InterfaceBuildEventHandler InterfaceRemovedEvent;
-
-		/// <summary>
 		/// fired, when a component has been added to the static view
 		/// </summary>
-		public event ComponentBuildEventHandler ComponentAddedEvent;
+		public event ComponentUseEventHandler ComponentAddedEvent;
 
 		/// <summary>
 		/// fired, when a component has been removed from the static view
 		/// </summary>
-		public event ComponentBuildEventHandler ComponentRemovedEvent;
+		public event ComponentUseEventHandler ComponentRemovedEvent;
 
 		/// <summary>
 		/// fired, when an assembly connector has been added to the static view

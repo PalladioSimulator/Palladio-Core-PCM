@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/05 10:40:06  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.1  2005/03/29 13:05:37  joemal
 	/// initial class creation
 	///
@@ -20,6 +23,12 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// </remarks>
 	public interface IEventInterface
 	{
+		/// <summary>
+		/// called to register to one of the repository events
+		/// </summary>
+		/// <returns>the class that holds the events of the repository</returns>
+		RepositoryEvents GetRepositoryEvents();
+
 		/// <summary>
 		/// called to register to one of the static view's events
 		/// </summary>

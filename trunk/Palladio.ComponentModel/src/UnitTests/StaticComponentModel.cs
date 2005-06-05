@@ -38,8 +38,8 @@ namespace Palladio.ComponentModel.UnitTests
 			IWRITERBEID = BuildIFaceIWriterBackEnd(rootBuilder.CreateInterface("IWriterBackEnd"));
 
 			//- Auf ähnliche art und weise die Komponenten basteln
-			CCWRITEID = BuildCC1(rootBuilder.AddCompositeComponent("WriteCC"), IWRITERBEID,IWRITERID);
-			BCWRITEBEID = BuildBC1(rootBuilder.AddBasicComponent("WriterBackendBC"),IWRITERBEID);
+			CCWRITEID = BuildCC1(rootBuilder.AddNewCompositeComponent("WriteCC"), IWRITERBEID,IWRITERID);
+			BCWRITEBEID = BuildBC1(rootBuilder.AddNewBasicComponent("WriterBackendBC"),IWRITERBEID);
 			rootBuilder.AddAssemblyConnector("WR -> WR_BE",CCWRITEID,IWRITERBEID,BCWRITEBEID,IWRITERBEID);
 		}
 
@@ -51,12 +51,12 @@ namespace Palladio.ComponentModel.UnitTests
 		private static IComponentIdentifier BuildCC1(ICompositeComponentBuilder compositeComponentBuilder,
 			IInterfaceIdentifier reqIFace, IInterfaceIdentifier provIFace)
 		{
-			BCWRITEID = BuildBC2(compositeComponentBuilder.AddBasicComponent("WriterImplBC"),
+			BCWRITEID = BuildBC2(compositeComponentBuilder.AddNewBasicComponent("WriterImplBC"),
 				provIFace,reqIFace);	
 
 			//Interfaces den der Komponente hinzufügen
-			compositeComponentBuilder.AddProvidesInterface(provIFace);
-			compositeComponentBuilder.AddRequiresInterface(reqIFace);
+			compositeComponentBuilder.AddExistingInterfaceAsProvides(provIFace);
+			compositeComponentBuilder.AddExistingInterfaceAsRequires(reqIFace);
 
 
 			//delegation connector ziehen
@@ -70,16 +70,16 @@ namespace Palladio.ComponentModel.UnitTests
 		private static IComponentIdentifier BuildBC2(IBasicComponentTypeLevelBuilder basicComponentTypeLevelBuilder,
 			IInterfaceIdentifier provIfaceID,IInterfaceIdentifier reqIFaceID)
 		{
-			basicComponentTypeLevelBuilder.AddProvidesInterface(provIfaceID);
-			basicComponentTypeLevelBuilder.AddRequiresInterface(reqIFaceID);
-			return basicComponentTypeLevelBuilder.Component.ComponentID;
+			basicComponentTypeLevelBuilder.AddExistingInterfaceAsProvides(provIfaceID);
+			basicComponentTypeLevelBuilder.AddExistingInterfaceAsRequires(reqIFaceID);
+			return basicComponentTypeLevelBuilder.ComponentId;
 		}
 
 		//creates the basic component bc1
 		private static IComponentIdentifier BuildBC1(IBasicComponentTypeLevelBuilder basicComponentTypeLevelBuilder,
 			IInterfaceIdentifier provIfaceID)
 		{
-			basicComponentTypeLevelBuilder.AddProvidesInterface(provIfaceID);
+			basicComponentTypeLevelBuilder.AddExistingInterfaceAsProvides(provIfaceID);
 			return basicComponentTypeLevelBuilder.Component.ComponentID;
 		}
 

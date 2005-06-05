@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.24  2005/06/05 10:40:41  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.23  2005/05/25 18:15:27  kelsaka
 	/// - added new methods to BuilderManager
 	/// - use of new methods in example
@@ -146,20 +149,20 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void AddBCToRoot()
 		{
-			rootBuilder.AddBasicComponent("BC1");
+			rootBuilder.AddNewBasicComponent("BC1");
 		}
 
 		[Test]
 		public void AddCCToRoot()
 		{
-			rootBuilder.AddCompositeComponent("CC1");
+			rootBuilder.AddNewCompositeComponent("CC1");
 		}
 
 		[Test]
 		public void RemoveCCandBCFromRoot()
 		{
-			Identifier.IComponentIdentifier c1 = rootBuilder.AddCompositeComponent("CC2").Component.ComponentID;
-			Identifier.IComponentIdentifier c2 = rootBuilder.AddCompositeComponent("BC2").Component.ComponentID;
+			Identifier.IComponentIdentifier c1 = rootBuilder.AddNewCompositeComponent("CC2").Component.ComponentID;
+			Identifier.IComponentIdentifier c2 = rootBuilder.AddNewCompositeComponent("BC2").Component.ComponentID;
 			rootBuilder.RemoveComponent(c1);
 			rootBuilder.RemoveComponent(c2);
 		}
@@ -173,13 +176,13 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void AddCC_BCToRoot()
 		{
-			rootBuilder.AddCompositeComponent("CC3").AddBasicComponent("CC3_BC3");
+			rootBuilder.AddNewCompositeComponent("CC3").AddNewBasicComponent("CC3_BC3");
 		}
 
 		[Test]
 		public void RemoveInternalCC_BCFromRoot()
 		{
-			Identifier.IComponentIdentifier c4 = rootBuilder.AddCompositeComponent("CC4").AddBasicComponent("CC4_BC4").Component.ComponentID;
+			Identifier.IComponentIdentifier c4 = rootBuilder.AddNewCompositeComponent("CC4").AddNewBasicComponent("CC4_BC4").Component.ComponentID;
 			rootBuilder.RemoveComponent(c4);
 		}
 		[Test]
@@ -190,7 +193,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void AddComponentThenClearAll()
 		{
-			rootBuilder.AddCompositeComponent("Comp");
+			rootBuilder.AddNewCompositeComponent("Comp");
 			rootBuilder.ClearAll();
 		}
 		#endregion
@@ -199,35 +202,35 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void CC_AddBCToCCAndRemove()
 		{
-			Identifier.IComponentIdentifier c5 = rootBuilder.AddCompositeComponent("CC5").AddBasicComponent("CC4_BC4").Component.ComponentID;
+			Identifier.IComponentIdentifier c5 = rootBuilder.AddNewCompositeComponent("CC5").AddNewBasicComponent("CC4_BC4").Component.ComponentID;
 			rootBuilder.RemoveComponent(c5);
 		}
 
 		[Test]
 		public void CC_AddProvidesInterfaceAndRemove()
 		{
-			Identifier.IInterfaceIdentifier i6 = rootBuilder.AddCompositeComponent("CC6").AddProvidesInterface("IF6").Interface.InterfaceID;
+			Identifier.IInterfaceIdentifier i6 = rootBuilder.AddNewCompositeComponent("CC6").AddNewInterfaceAsProvides("IF6").Interface.InterfaceID;
 			rootBuilder.RemoveInterface(i6);
 		}
 
 		[Test]
 		public void CC_AddRequiresInterfaceAndRemove()
 		{
-			Identifier.IInterfaceIdentifier i7 = rootBuilder.AddCompositeComponent("CC7").AddRequiresInterface("IF7").Interface.InterfaceID;
+			Identifier.IInterfaceIdentifier i7 = rootBuilder.AddNewCompositeComponent("CC7").AddNewInterfaceAsRequires("IF7").Interface.InterfaceID;
 			rootBuilder.RemoveInterface(i7);
 		}
 
 		[Test]
 		public void CC_AddInterfacesAndConnections()
 		{
-			ICompositeComponentTypeLevelBuilder sccb = rootBuilder.AddCompositeComponent("SuperCC8");
+			ICompositeComponentTypeLevelBuilder sccb = rootBuilder.AddNewCompositeComponent("SuperCC8");
 			Identifier.IInterfaceIdentifier i8 = rootBuilder.CreateInterface("IF8").Interface.InterfaceID;
 			
-			ICompositeComponentTypeLevelBuilder ccb1 = sccb.AddCompositeComponent("CC8-1");
-			ICompositeComponentTypeLevelBuilder ccb2 = sccb.AddCompositeComponent("CC8-2");
+			ICompositeComponentTypeLevelBuilder ccb1 = sccb.AddNewCompositeComponent("CC8-1");
+			ICompositeComponentTypeLevelBuilder ccb2 = sccb.AddNewCompositeComponent("CC8-2");
 
-			ccb1.AddProvidesInterface(i8);
-			ccb2.AddRequiresInterface(i8);
+			ccb1.AddExistingInterfaceAsProvides(i8);
+			ccb2.AddExistingInterfaceAsRequires(i8);
 
 			sccb.AddAssemblyConnector("Connection8", ccb2.Component.ComponentID, i8, ccb1.Component.ComponentID, i8);			
 		}
@@ -235,7 +238,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void CC_RemoveComponentTwice()
 		{
-			Identifier.IComponentIdentifier bc9 = rootBuilder.AddBasicComponent("BC9").Component.ComponentID;
+			Identifier.IComponentIdentifier bc9 = rootBuilder.AddNewBasicComponent("BC9").Component.ComponentID;
 			rootBuilder.RemoveComponent(bc9);
 			rootBuilder.RemoveComponent(bc9);
 		}
@@ -243,8 +246,8 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void CC_AddComponentWithOneNameTwice()
 		{
-			rootBuilder.AddBasicComponent("BC9");
-			rootBuilder.AddBasicComponent("BC9");
+			rootBuilder.AddNewBasicComponent("BC9");
+			rootBuilder.AddNewBasicComponent("BC9");
 		}
 		#endregion
 
@@ -252,25 +255,25 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void BC_AddInterfacesAndConnections()
 		{
-			ICompositeComponentTypeLevelBuilder sccb = rootBuilder.AddCompositeComponent("SuperCC10");
+			ICompositeComponentTypeLevelBuilder sccb = rootBuilder.AddNewCompositeComponent("SuperCC10");
 			Identifier.IInterfaceIdentifier i10 = rootBuilder.CreateInterface("IF10").Interface.InterfaceID;
 			
-			IBasicComponentTypeLevelBuilder bcb1 = sccb.AddBasicComponent("BC10-1");
-			IBasicComponentTypeLevelBuilder bcb2 = sccb.AddBasicComponent("BC10-2");
+			IBasicComponentTypeLevelBuilder bcb1 = sccb.AddNewBasicComponent("BC10-1");
+			IBasicComponentTypeLevelBuilder bcb2 = sccb.AddNewBasicComponent("BC10-2");
 
-			bcb1.AddProvidesInterface(i10);
-			bcb2.AddRequiresInterface(i10);
+			bcb1.AddExistingInterfaceAsProvides(i10);
+			bcb2.AddExistingInterfaceAsRequires(i10);
 
-			sccb.AddAssemblyConnector("Connection8", bcb2.Component.ComponentID, i10, bcb1.Component.ComponentID, i10);			
+			sccb.AddAssemblyConnector("Connection8", bcb2.ComponentId, i10, bcb1.ComponentId, i10);			
 		}
 
 		[Test]
 		public void BC_RemoveInterface()
 		{
 			Identifier.IInterfaceIdentifier i11 =  rootBuilder.CreateInterface("IF11").Interface.InterfaceID;
-			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");
-			bc11.AddProvidesInterface(i11);
-			bc11.AddRequiresInterface(i11);
+			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddNewBasicComponent("BC11");
+			bc11.AddExistingInterfaceAsProvides(i11);
+			bc11.AddExistingInterfaceAsRequires(i11);
 
 			bc11.RemoveProvidesInterface(i11);
 			bc11.RemoveRequiresInterface(i11);
@@ -281,8 +284,8 @@ namespace Palladio.ComponentModel.UnitTests
 		public void BC_RemoveProvidesInterfaceTwice()
 		{
 			Identifier.IInterfaceIdentifier i11 =  rootBuilder.CreateInterface("IF11").Interface.InterfaceID;
-			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");
-			bc11.AddProvidesInterface(i11);
+			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddNewBasicComponent("BC11");
+			bc11.AddExistingInterfaceAsProvides(i11);
 
 			bc11.RemoveProvidesInterface(i11);
 			bc11.RemoveProvidesInterface(i11);
@@ -293,8 +296,8 @@ namespace Palladio.ComponentModel.UnitTests
 		public void BC_RemoveRequiresInterfaceTwice()
 		{
 			Identifier.IInterfaceIdentifier i11 =  rootBuilder.CreateInterface("IF11").Interface.InterfaceID;
-			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddBasicComponent("BC11");
-			bc11.AddRequiresInterface(i11);
+			IBasicComponentTypeLevelBuilder bc11 = rootBuilder.AddNewBasicComponent("BC11");
+			bc11.AddExistingInterfaceAsRequires(i11);
 
 			bc11.RemoveRequiresInterface(i11);
 			bc11.RemoveRequiresInterface(i11);
@@ -304,7 +307,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void BC_Event_NameChanged()
 		{
-			IBasicComponentTypeLevelBuilder bc = rootBuilder.AddBasicComponent("BC");
+			IBasicComponentTypeLevelBuilder bc = rootBuilder.AddNewBasicComponent("BC");
 			bc.Component.NameChangedEvent += new StaticAttributeChangedEventHandler(NameChangedListener);
 
 			// provoke event

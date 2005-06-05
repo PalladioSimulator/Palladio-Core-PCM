@@ -7,14 +7,24 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	#region event delegates 
 	
 	/// <summary>
-	/// defines the eventhandler, that is called, when an interface has been added or removed.
+	/// defines the eventhandler, that is called, when an interface has been created or destroyed.
 	/// </summary>
 	public delegate void InterfaceBuildEventHandler(object sender, InterfaceBuildEventArgs args);
+
+	/// <summary>
+	/// defines the eventhandler, that is called, when an interface has been added or removed.
+	/// </summary>
+	public delegate void InterfaceUseEventHandler(object sender, InterfaceUseEventArgs args);
 	
+	/// <summary>
+	/// defines the eventhandler, that is called, when an component has been created or destroyed.
+	/// </summary>
+	public delegate void ComponentBuildEventHandler(object sender, ComponentBuildEventArgs args);
+
 	/// <summary>
 	/// defines the eventhandler, that is called, when an component has been added or removed.
 	/// </summary>
-	public delegate void ComponentBuildEventHandler(object sender, ComponentBuildEventArgs args);
+	public delegate void ComponentUseEventHandler(object sender, ComponentUseEventArgs args);
 
 	/// <summary>
 	/// defines the eventhandler, that is called, when an assembly connector has been added or removed.
@@ -86,11 +96,40 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	}
 
 	/// <summary>
+	/// This is the event argument structure of the InterfaceAddedEventHandler.
+	/// </summary>
+	public class InterfaceUseEventArgs
+	{
+		//the the interface
+		private IInterfaceIdentifier ifaceID;
+
+		/// <summary>
+		/// called to create a new event argument structure
+		/// </summary>
+		/// <param name="ifaceID">the interface</param>
+		internal InterfaceUseEventArgs(IInterfaceIdentifier ifaceID)
+		{
+			this.ifaceID = ifaceID;
+		}
+
+		/// <summary>
+		/// returns the id of the interface that has been added or removed
+		/// </summary>
+		public IInterfaceIdentifier InterfaceID
+		{
+			get
+			{
+				return this.ifaceID;
+			}
+		}
+	}
+
+	/// <summary>
 	/// This is the event argument structure of the ComponentBuildEventHandler.
 	/// </summary>
 	public class ComponentBuildEventArgs
 	{
-		//the component
+		//the component 
 		private IComponent component;
 
 		/// <summary>
@@ -110,6 +149,35 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			get
 			{
 				return this.component;
+			}
+		}
+	}
+
+	/// <summary>
+	/// This is the event argument structure of the ComponentBuildEventHandler.
+	/// </summary>
+	public class ComponentUseEventArgs
+	{
+		//the component 
+		private IComponentIdentifier componentID;
+
+		/// <summary>
+		/// called to create a new event argument structure
+		/// </summary>
+		/// <param name="compID">the id of the component</param>
+		internal ComponentUseEventArgs(IComponentIdentifier compID)
+		{
+			this.componentID = compID;
+		}
+
+		/// <summary>
+		/// returns the component that has been added or removed
+		/// </summary>
+		public IComponentIdentifier ComponentID
+		{
+			get
+			{
+				return this.componentID;
 			}
 		}
 	}

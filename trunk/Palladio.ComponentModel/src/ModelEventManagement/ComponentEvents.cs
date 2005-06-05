@@ -10,6 +10,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/05 10:40:06  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.2  2005/04/05 14:23:59  joemal
 	/// implement the rest of the notification
 	///
@@ -28,7 +31,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to create a eventstructure for a component
 		/// </summary>
 		/// <param name="component">the component</param>
-		public ComponentEvents(IComponent component) : base(component)
+		internal ComponentEvents(IComponent component) : base(component)
 		{
 		}
 
@@ -42,7 +45,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// </summary>
 		/// <param name="sender">the sender</param>
 		/// <param name="args">the arguments</param>
-		internal void NotifyProvidesInterfaceAdded(object sender, InterfaceBuildEventArgs args)
+		internal void NotifyProvidesInterfaceAdded(object sender, InterfaceUseEventArgs args)
 		{
 			if (ProvidesInterfaceAddedEvent != null)
 				ProvidesInterfaceAddedEvent(sender, args);
@@ -53,7 +56,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// </summary>
 		/// <param name="sender">the sender</param>
 		/// <param name="args">the arguments</param>
-		internal void NotifyRequiresInterfaceAdded(object sender, InterfaceBuildEventArgs args)
+		internal void NotifyRequiresInterfaceAdded(object sender, InterfaceUseEventArgs args)
 		{
 			if (RequiresInterfaceAddedEvent != null)
 				RequiresInterfaceAddedEvent(sender, args);
@@ -64,7 +67,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// </summary>
 		/// <param name="sender">the sender</param>
 		/// <param name="args">the arguments</param>
-		internal void NotifyInterfaceRemoved(object sender, InterfaceBuildEventArgs args)
+		internal void NotifyInterfaceRemoved(object sender, InterfaceUseEventArgs args)
 		{
 			if (InterfaceRemovedEvent != null)
 				InterfaceRemovedEvent(sender, args);
@@ -77,17 +80,17 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <summary>
 		/// fired, when an interfaces has been added to the requires side of a component
 		/// </summary>
-		public event InterfaceBuildEventHandler ProvidesInterfaceAddedEvent;
+		public event InterfaceUseEventHandler ProvidesInterfaceAddedEvent;
 
 		/// <summary>
 		/// fired, when an interfaces has been added to the provides side of a component
 		/// </summary>
-		public event InterfaceBuildEventHandler RequiresInterfaceAddedEvent;
+		public event InterfaceUseEventHandler RequiresInterfaceAddedEvent;
 
 		/// <summary>
 		/// fired, when an interface has been removed from the component
 		/// </summary>
-		public event InterfaceBuildEventHandler InterfaceRemovedEvent;
+		public event InterfaceUseEventHandler InterfaceRemovedEvent;
 
 		#endregion
 	}

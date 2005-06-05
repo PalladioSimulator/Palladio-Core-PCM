@@ -1,7 +1,6 @@
 using System.Collections;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
-using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.Identifier;
 
@@ -17,6 +16,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/06/05 10:40:06  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.4  2005/04/05 14:23:59  joemal
 	/// implement the rest of the notification
 	///
@@ -40,11 +42,12 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		//holds the events of the static view
 		private StaticViewEvents staticViewEvents;
 
+		//Holds the events of the repository
+		private RepositoryEvents repositoryEvents;
+
+
 		//holds the event structures for the entities
 		private Hashtable eventStructures;
-
-		//holds the dataset
-		private ModelDataSet modelDataset;
 
 		//holds the hashtable with the entities
 		private EntityHashtable entityHashtable;
@@ -56,14 +59,13 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <summary>
 		/// called to create a new ModelEventManager using the given dataset and hashtable.
 		/// </summary>
-		/// <param name="modelDataset">the dataset</param>
 		/// <param name="ht">the hashtable</param>
-		public ModelEventManager(ModelDataSet modelDataset,EntityHashtable ht)
+		public ModelEventManager(EntityHashtable ht)
 		{
-            this.modelDataset = modelDataset;
 			this.entityHashtable = ht;
 			this.eventStructures = new Hashtable();
 			this.staticViewEvents = new StaticViewEvents();
+			this.repositoryEvents = new RepositoryEvents();
 		}
 
 		#endregion
@@ -74,9 +76,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to register a component.
 		/// </summary>
 		/// <param name="component">the component which has to be registerted</param>
-		/// <param name="parentComponent">the parent component</param>
-		/// <exception cref="EntityNotFoundException">the parent component could not be found in cm.</exception>
-		public void RegisterComponent(IComponent component, IComponentIdentifier parentComponent)
+		public void RegisterComponent(IComponent component)
 		{
 			ComponentEvents compEv;
 			if (component.Type == ComponentType.BASIC)
@@ -86,28 +86,48 @@ namespace Palladio.ComponentModel.ModelEventManagement
 
 			eventStructures.Add(component.ID,compEv);
 
-            if (parentComponent != null)
-				GetCompositeComponentEvents(parentComponent).
-					NotifyComponentAdded(this,new ComponentBuildEventArgs(component));
-			else
-				this.staticViewEvents.NotifyComponentAdded(this,new ComponentBuildEventArgs(component));
+			GetRepositoryEvents().NotifyComponentAdded(this,new ComponentBuildEventArgs(component));
 		}
 
 		/// <summary>
 		/// called to unregister the given component from the event manager 
 		/// </summary>
 		/// <param name="component">the component</param>
-		/// <param name="parentComponentID">the parent component or null, if the component is placed 
-		/// in the top level of the model</param>
-		/// <exception cref="EntityNotFoundException">the parent component could not be found in cm.</exception>
-		public void UnregisterComponent(IComponent component, IComponentIdentifier parentComponentID)
+		public void UnregisterComponent(IComponent component)
 		{
 			this.eventStructures.Remove(component.ID);
-			if (parentComponentID == null)
-				this.GetStaticViewEvents().NotifyComponentRemoved(this,new ComponentBuildEventArgs(component));
+			this.GetRepositoryEvents().NotifyComponentRemoved(this,new ComponentBuildEventArgs(component));			
+		}
+
+		/// <summary>
+		/// called to register the relation of one component to another
+		/// </summary>
+		/// <param name="componentId">the component</param>
+		/// <param name="parentComponentId">the parent component</param>
+		public void RegisterComponentToComponent(IComponentIdentifier componentId, IComponentIdentifier parentComponentId)
+		{
+			if (parentComponentId == null)
+				this.GetStaticViewEvents().NotifyComponentAdded(this,
+					new ComponentUseEventArgs(componentId));
 			else
-				this.GetCompositeComponentEvents(parentComponentID).
-					NotifyComponentRemoved(this,new ComponentBuildEventArgs(component));			
+                this.GetCompositeComponentEvents(parentComponentId).NotifyComponentAdded(this,
+					new ComponentUseEventArgs(componentId));
+		}
+
+		/// <summary>
+		/// called to unregister the relation from component to another one or to the static view.
+		/// </summary>
+		/// <param name="child">the id of component to be removed</param>
+		/// <param name="parent">the id of the components parent component or null if the component has 
+		/// to be removed from the static view.</param>
+		public void UnregisterComponentRelation(IComponentIdentifier child, IComponentIdentifier parent)
+		{
+			if (parent == null)
+				this.GetStaticViewEvents().NotifyComponentRemoved(this,
+					new ComponentUseEventArgs(child));
+			else
+                this.GetCompositeComponentEvents(parent).NotifyComponentRemoved(this,
+					new ComponentUseEventArgs(child));
 		}
 
 		/// <summary>
@@ -117,7 +137,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void RegisterInterface(IInterface iface)
 		{
 			eventStructures.Add(iface.ID,new InterfaceEvents(iface));
-			this.staticViewEvents.NotifyInterfaceAdded(this,new InterfaceBuildEventArgs(iface));
+			this.GetRepositoryEvents().NotifyInterfaceAdded(this,new InterfaceBuildEventArgs(iface));
 		}
 
 		/// <summary>
@@ -127,7 +147,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void UnregisterInterface(IInterface iface)
 		{
 			this.eventStructures.Remove(iface.ID);
-			this.GetStaticViewEvents().NotifyInterfaceRemoved(this,new InterfaceBuildEventArgs(iface));
+			this.GetRepositoryEvents().NotifyInterfaceRemoved(this,new InterfaceBuildEventArgs(iface));
 		}
 
 		/// <summary>
@@ -145,10 +165,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 
 			if (role == InterfaceRole.PROVIDES)
 				this.GetComponentEvents(componentIdentifier).NotifyProvidesInterfaceAdded(this,
-					new InterfaceBuildEventArgs((IInterface) entityHashtable[ifaceIdentifier]));
+					new InterfaceUseEventArgs(ifaceIdentifier));
 			else
 				this.GetComponentEvents(componentIdentifier).NotifyRequiresInterfaceAdded(this,
-					new InterfaceBuildEventArgs((IInterface) entityHashtable[ifaceIdentifier]));
+					new InterfaceUseEventArgs(ifaceIdentifier));
 
 		}
 
@@ -159,8 +179,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="ifaceID">the id of the interface</param>
 		public void UnregisterInterfaceFromComponent(IComponentIdentifier compID, IInterfaceIdentifier ifaceID)
 		{
-			IInterface iface = (IInterface) entityHashtable[ifaceID];
-			this.GetComponentEvents(compID).NotifyInterfaceRemoved(this,new InterfaceBuildEventArgs(iface));
+			if (!entityHashtable.ContainsKey(compID.Key))
+				throw new EntityNotFoundException(compID);
+
+			this.GetComponentEvents(compID).NotifyInterfaceRemoved(this,new InterfaceUseEventArgs(ifaceID));
 		}
 
 		/// <summary>
@@ -246,22 +268,23 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to register a new assembly connector.
 		/// </summary>
 		/// <param name="connection">the connector</param>
+		/// <param name="parentID">the id of the component that contains the connector</param>
 		/// <param name="reqCompID">the id of the requiring component</param>
 		/// <param name="reqIFaceID">the id of the requiring components interface</param>
 		/// <param name="provCompID">the id of the providing component</param>
 		/// <param name="provIFaceID">the id of the providing components interface</param>
 		/// <exception cref="EntityNotFoundException">the parent component could not be found.</exception>
-		public void RegisterAssemblyConnection(IConnection connection, IComponentIdentifier reqCompID, 
-							IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
+		public void RegisterAssemblyConnection(IConnection connection, IComponentIdentifier parentID,
+			IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, 
+			IInterfaceIdentifier provIFaceID)
 		{
 			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
-			ModelDataSet.ComponentsRow compRow = modelDataset.Components.FindByguid(reqCompID.Key);
-			if (compRow.parentComponent == null)
+			if (parentID == null)
 				this.staticViewEvents.NotifyAssemblyConnectorAdded(this,
 					new AssemblyConnectorBuildEventArgs(connection,provCompID,provIFaceID,reqCompID,reqIFaceID));
 			else
 			{
-				IComponent parentC = (IComponent) entityHashtable[compRow.parentComponent];
+				IComponent parentC = (IComponent) entityHashtable[parentID];
 				this.GetCompositeComponentEvents(parentC.ComponentID).NotifyAssemblyConnectorAdded(this,
 					new AssemblyConnectorBuildEventArgs(connection,provCompID,provIFaceID,reqCompID,reqIFaceID));
 			}
@@ -286,6 +309,15 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		#endregion
 
 		#region member of IEventInterface
+
+		/// <summary>
+		/// called to register to one of the repository events
+		/// </summary>
+		/// <returns>the class that holds the events of the repository</returns>
+		public RepositoryEvents GetRepositoryEvents()
+		{
+			return this.repositoryEvents;			
+		}
 
 		/// <summary>
 		/// called to register to one of the static view's events

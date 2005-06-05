@@ -11,7 +11,6 @@
 						<xs:sequence></xs:sequence>
 						<xs:attribute name="guid" type="xs:string" />
 						<xs:attribute name="type" type="xs:byte" />
-						<xs:attribute name="parentComponent" type="xs:string" msprop:nullValue="_null" />
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="Interfaces">
@@ -52,13 +51,15 @@
 						<xs:attribute name="fk_iface" type="xs:string" msprop:nullValue="-1" />
 					</xs:complexType>
 				</xs:element>
+				<xs:element name="CompRelations">
+					<xs:complexType>
+						<xs:sequence></xs:sequence>
+						<xs:attribute name="fk_child" type="xs:string" msprop:nullValue="_throw" />
+						<xs:attribute name="fk_parent" type="xs:string" msprop:nullValue="_null" />
+					</xs:complexType>
+				</xs:element>
 			</xs:choice>
 		</xs:complexType>
-		<xs:keyref name="ComponentsComponents" refer="PK_COMP" msdata:AcceptRejectRule="None" msdata:DeleteRule="Cascade"
-			msdata:UpdateRule="Cascade">
-			<xs:selector xpath=".//mstns:Components" />
-			<xs:field xpath="@mstns:parentComponent" />
-		</xs:keyref>
 		<xs:key name="CON_PK">
 			<xs:selector xpath=".//mstns:Connections" />
 			<xs:field xpath="@mstns:incoming" />
@@ -116,5 +117,26 @@
 			<xs:selector xpath=".//mstns:Connections" />
 			<xs:field xpath="@mstns:fk_comp" />
 		</xs:keyref>
+		<xs:keyref name="ComponentsCompRelations" refer="PK_COMP" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade"
+			msdata:AcceptRejectRule="Cascade">
+			<xs:selector xpath=".//mstns:CompRelations" />
+			<xs:field xpath="@mstns:fk_child" />
+		</xs:keyref>
+		<xs:keyref name="ComponentsCompRelations1" refer="PK_COMP" msdata:AcceptRejectRule="Cascade"
+			msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
+			<xs:selector xpath=".//mstns:CompRelations" />
+			<xs:field xpath="@mstns:fk_parent" />
+		</xs:keyref>
+		<xs:key name="FK_IFACE_KEY">
+			<xs:selector xpath=".//mstns:Roles" />
+			<xs:field xpath="@mstns:fk_comp" />
+			<xs:field xpath="@mstns:fk_iface" />
+			<xs:field xpath="@mstns:type" />
+		</xs:key>
+		<xs:unique name="COMPRELATIONS_PK">
+			<xs:selector xpath=".//mstns:CompRelations" />
+			<xs:field xpath="@mstns:fk_child" />
+			<xs:field xpath="@mstns:fk_parent" />
+		</xs:unique>
 	</xs:element>
 </xs:schema>

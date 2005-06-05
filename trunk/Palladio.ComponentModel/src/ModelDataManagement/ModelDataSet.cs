@@ -33,7 +33,7 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         
         private ProtocolsDataTable tableProtocols;
         
-        private DataRelation relationComponentsComponents;
+        private CompRelationsDataTable tableCompRelations;
         
         private DataRelation relationRolesConnections;
         
@@ -48,6 +48,10 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         private DataRelation relationInterfacesProtocols;
         
         private DataRelation relationComponentsConnections;
+        
+        private DataRelation relationComponentsCompRelations;
+        
+        private DataRelation relationComponentsCompRelations1;
         
         public ModelDataSet() {
             this.InitClass();
@@ -78,6 +82,9 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
                 if ((ds.Tables["Protocols"] != null)) {
                     this.Tables.Add(new ProtocolsDataTable(ds.Tables["Protocols"]));
+                }
+                if ((ds.Tables["CompRelations"] != null)) {
+                    this.Tables.Add(new CompRelationsDataTable(ds.Tables["CompRelations"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -145,6 +152,14 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
         }
         
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public CompRelationsDataTable CompRelations {
+            get {
+                return this.tableCompRelations;
+            }
+        }
+        
         public override DataSet Clone() {
             ModelDataSet cln = ((ModelDataSet)(base.Clone()));
             cln.InitVars();
@@ -180,6 +195,9 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
             if ((ds.Tables["Protocols"] != null)) {
                 this.Tables.Add(new ProtocolsDataTable(ds.Tables["Protocols"]));
+            }
+            if ((ds.Tables["CompRelations"] != null)) {
+                this.Tables.Add(new CompRelationsDataTable(ds.Tables["CompRelations"]));
             }
             this.DataSetName = ds.DataSetName;
             this.Prefix = ds.Prefix;
@@ -223,7 +241,10 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             if ((this.tableProtocols != null)) {
                 this.tableProtocols.InitVars();
             }
-            this.relationComponentsComponents = this.Relations["ComponentsComponents"];
+            this.tableCompRelations = ((CompRelationsDataTable)(this.Tables["CompRelations"]));
+            if ((this.tableCompRelations != null)) {
+                this.tableCompRelations.InitVars();
+            }
             this.relationRolesConnections = this.Relations["RolesConnections"];
             this.relationRolesConnections1 = this.Relations["RolesConnections1"];
             this.relationComponentsRoles = this.Relations["ComponentsRoles"];
@@ -231,6 +252,8 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             this.relationInterfacesSignatures = this.Relations["InterfacesSignatures"];
             this.relationInterfacesProtocols = this.Relations["InterfacesProtocols"];
             this.relationComponentsConnections = this.Relations["ComponentsConnections"];
+            this.relationComponentsCompRelations = this.Relations["ComponentsCompRelations"];
+            this.relationComponentsCompRelations1 = this.Relations["ComponentsCompRelations1"];
         }
         
         private void InitClass() {
@@ -252,14 +275,9 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             this.Tables.Add(this.tableRoles);
             this.tableProtocols = new ProtocolsDataTable();
             this.Tables.Add(this.tableProtocols);
+            this.tableCompRelations = new CompRelationsDataTable();
+            this.Tables.Add(this.tableCompRelations);
             ForeignKeyConstraint fkc;
-            fkc = new ForeignKeyConstraint("ComponentsComponents", new DataColumn[] {
-                        this.tableComponents.guidColumn}, new DataColumn[] {
-                        this.tableComponents.parentComponentColumn});
-            this.tableComponents.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = System.Data.Rule.Cascade;
-            fkc.UpdateRule = System.Data.Rule.Cascade;
             fkc = new ForeignKeyConstraint("RolesConnections", new DataColumn[] {
                         this.tableRoles.idColumn}, new DataColumn[] {
                         this.tableConnections.incomingColumn});
@@ -309,10 +327,20 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = System.Data.Rule.Cascade;
             fkc.UpdateRule = System.Data.Rule.Cascade;
-            this.relationComponentsComponents = new DataRelation("ComponentsComponents", new DataColumn[] {
+            fkc = new ForeignKeyConstraint("ComponentsCompRelations", new DataColumn[] {
                         this.tableComponents.guidColumn}, new DataColumn[] {
-                        this.tableComponents.parentComponentColumn}, false);
-            this.Relations.Add(this.relationComponentsComponents);
+                        this.tableCompRelations.fk_childColumn});
+            this.tableCompRelations.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.Cascade;
+            fkc.DeleteRule = System.Data.Rule.Cascade;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
+            fkc = new ForeignKeyConstraint("ComponentsCompRelations1", new DataColumn[] {
+                        this.tableComponents.guidColumn}, new DataColumn[] {
+                        this.tableCompRelations.fk_parentColumn});
+            this.tableCompRelations.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.Cascade;
+            fkc.DeleteRule = System.Data.Rule.Cascade;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
             this.relationRolesConnections = new DataRelation("RolesConnections", new DataColumn[] {
                         this.tableRoles.idColumn}, new DataColumn[] {
                         this.tableConnections.incomingColumn}, false);
@@ -341,6 +369,14 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                         this.tableComponents.guidColumn}, new DataColumn[] {
                         this.tableConnections.fk_compColumn}, false);
             this.Relations.Add(this.relationComponentsConnections);
+            this.relationComponentsCompRelations = new DataRelation("ComponentsCompRelations", new DataColumn[] {
+                        this.tableComponents.guidColumn}, new DataColumn[] {
+                        this.tableCompRelations.fk_childColumn}, false);
+            this.Relations.Add(this.relationComponentsCompRelations);
+            this.relationComponentsCompRelations1 = new DataRelation("ComponentsCompRelations1", new DataColumn[] {
+                        this.tableComponents.guidColumn}, new DataColumn[] {
+                        this.tableCompRelations.fk_parentColumn}, false);
+            this.Relations.Add(this.relationComponentsCompRelations1);
         }
         
         private bool ShouldSerializeComponents() {
@@ -367,6 +403,10 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             return false;
         }
         
+        private bool ShouldSerializeCompRelations() {
+            return false;
+        }
+        
         private void SchemaChanged(object sender, System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -385,14 +425,14 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         
         public delegate void ProtocolsRowChangeEventHandler(object sender, ProtocolsRowChangeEvent e);
         
+        public delegate void CompRelationsRowChangeEventHandler(object sender, CompRelationsRowChangeEvent e);
+        
         [System.Diagnostics.DebuggerStepThrough()]
         public class ComponentsDataTable : DataTable, System.Collections.IEnumerable {
             
             private DataColumn columnguid;
             
             private DataColumn columntype;
-            
-            private DataColumn columnparentComponent;
             
             internal ComponentsDataTable() : 
                     base("Components") {
@@ -434,12 +474,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
-            internal DataColumn parentComponentColumn {
-                get {
-                    return this.columnparentComponent;
-                }
-            }
-            
             public ComponentsRow this[int index] {
                 get {
                     return ((ComponentsRow)(this.Rows[index]));
@@ -458,12 +492,11 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.Rows.Add(row);
             }
             
-            public ComponentsRow AddComponentsRow(string guid, System.SByte type, ComponentsRow parentComponentsRowByComponentsComponents) {
+            public ComponentsRow AddComponentsRow(string guid, System.SByte type) {
                 ComponentsRow rowComponentsRow = ((ComponentsRow)(this.NewRow()));
                 rowComponentsRow.ItemArray = new object[] {
                         guid,
-                        type,
-                        parentComponentsRowByComponentsComponents[0]};
+                        type};
                 this.Rows.Add(rowComponentsRow);
                 return rowComponentsRow;
             }
@@ -490,7 +523,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             internal void InitVars() {
                 this.columnguid = this.Columns["guid"];
                 this.columntype = this.Columns["type"];
-                this.columnparentComponent = this.Columns["parentComponent"];
             }
             
             private void InitClass() {
@@ -498,15 +530,12 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.Columns.Add(this.columnguid);
                 this.columntype = new DataColumn("type", typeof(System.SByte), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columntype);
-                this.columnparentComponent = new DataColumn("parentComponent", typeof(string), null, System.Data.MappingType.Attribute);
-                this.Columns.Add(this.columnparentComponent);
                 this.Constraints.Add(new UniqueConstraint("PK_COMP", new DataColumn[] {
                                 this.columnguid}, true));
                 this.columnguid.AllowDBNull = false;
                 this.columnguid.Unique = true;
                 this.columnguid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
                 this.columntype.Namespace = "http://tempuri.org/ModelDataSet.xsd";
-                this.columnparentComponent.Namespace = "http://tempuri.org/ModelDataSet.xsd";
             }
             
             public ComponentsRow NewComponentsRow() {
@@ -587,29 +616,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
-            public string parentComponent {
-                get {
-                    if (this.IsparentComponentNull()) {
-                        return null;
-                    }
-                    else {
-                        return ((string)(this[this.tableComponents.parentComponentColumn]));
-                    }
-                }
-                set {
-                    this[this.tableComponents.parentComponentColumn] = value;
-                }
-            }
-            
-            public ComponentsRow ComponentsRowParent {
-                get {
-                    return ((ComponentsRow)(this.GetParentRow(this.Table.ParentRelations["ComponentsComponents"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["ComponentsComponents"]);
-                }
-            }
-            
             public bool IstypeNull() {
                 return this.IsNull(this.tableComponents.typeColumn);
             }
@@ -618,24 +624,20 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this[this.tableComponents.typeColumn] = System.Convert.DBNull;
             }
             
-            public bool IsparentComponentNull() {
-                return this.IsNull(this.tableComponents.parentComponentColumn);
-            }
-            
-            public void SetparentComponentNull() {
-                this[this.tableComponents.parentComponentColumn] = System.Convert.DBNull;
-            }
-            
-            public ComponentsRow[] GetComponentsRows() {
-                return ((ComponentsRow[])(this.GetChildRows(this.Table.ChildRelations["ComponentsComponents"])));
-            }
-            
             public RolesRow[] GetRolesRows() {
                 return ((RolesRow[])(this.GetChildRows(this.Table.ChildRelations["ComponentsRoles"])));
             }
             
             public ConnectionsRow[] GetConnectionsRows() {
                 return ((ConnectionsRow[])(this.GetChildRows(this.Table.ChildRelations["ComponentsConnections"])));
+            }
+            
+            public CompRelationsRow[] GetCompRelationsRowsByComponentsCompRelations() {
+                return ((CompRelationsRow[])(this.GetChildRows(this.Table.ChildRelations["ComponentsCompRelations"])));
+            }
+            
+            public CompRelationsRow[] GetCompRelationsRowsByComponentsCompRelations1() {
+                return ((CompRelationsRow[])(this.GetChildRows(this.Table.ChildRelations["ComponentsCompRelations1"])));
             }
         }
         
@@ -1524,11 +1526,18 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.Columns.Add(this.columntype);
                 this.Constraints.Add(new UniqueConstraint("ROLES_PK", new DataColumn[] {
                                 this.columnid}, true));
+                this.Constraints.Add(new UniqueConstraint("FK_IFACE_KEY", new DataColumn[] {
+                                this.columnfk_comp,
+                                this.columnfk_iface,
+                                this.columntype}, false));
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columnid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnfk_comp.AllowDBNull = false;
                 this.columnfk_comp.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnfk_iface.AllowDBNull = false;
                 this.columnfk_iface.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columntype.AllowDBNull = false;
                 this.columntype.Namespace = "http://tempuri.org/ModelDataSet.xsd";
             }
             
@@ -1598,12 +1607,7 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             
             public string fk_comp {
                 get {
-                    if (this.Isfk_compNull()) {
-                        return "-1";
-                    }
-                    else {
-                        return ((string)(this[this.tableRoles.fk_compColumn]));
-                    }
+                    return ((string)(this[this.tableRoles.fk_compColumn]));
                 }
                 set {
                     this[this.tableRoles.fk_compColumn] = value;
@@ -1612,12 +1616,7 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             
             public string fk_iface {
                 get {
-                    if (this.Isfk_ifaceNull()) {
-                        return "-1";
-                    }
-                    else {
-                        return ((string)(this[this.tableRoles.fk_ifaceColumn]));
-                    }
+                    return ((string)(this[this.tableRoles.fk_ifaceColumn]));
                 }
                 set {
                     this[this.tableRoles.fk_ifaceColumn] = value;
@@ -1626,12 +1625,7 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             
             public System.SByte type {
                 get {
-                    try {
-                        return ((System.SByte)(this[this.tableRoles.typeColumn]));
-                    }
-                    catch (InvalidCastException e) {
-                        throw new StrongTypingException("Der Wert kann nicht ermittelt werden, da er DBNull ist.", e);
-                    }
+                    return ((System.SByte)(this[this.tableRoles.typeColumn]));
                 }
                 set {
                     this[this.tableRoles.typeColumn] = value;
@@ -1654,30 +1648,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["InterfacesRoles"]);
                 }
-            }
-            
-            public bool Isfk_compNull() {
-                return this.IsNull(this.tableRoles.fk_compColumn);
-            }
-            
-            public void Setfk_compNull() {
-                this[this.tableRoles.fk_compColumn] = System.Convert.DBNull;
-            }
-            
-            public bool Isfk_ifaceNull() {
-                return this.IsNull(this.tableRoles.fk_ifaceColumn);
-            }
-            
-            public void Setfk_ifaceNull() {
-                this[this.tableRoles.fk_ifaceColumn] = System.Convert.DBNull;
-            }
-            
-            public bool IstypeNull() {
-                return this.IsNull(this.tableRoles.typeColumn);
-            }
-            
-            public void SettypeNull() {
-                this[this.tableRoles.typeColumn] = System.Convert.DBNull;
             }
             
             public ConnectionsRow[] GetConnectionsRowsByRolesConnections() {
@@ -1934,6 +1904,254 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
             
             public ProtocolsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            public DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class CompRelationsDataTable : DataTable, System.Collections.IEnumerable {
+            
+            private DataColumn columnfk_child;
+            
+            private DataColumn columnfk_parent;
+            
+            internal CompRelationsDataTable() : 
+                    base("CompRelations") {
+                this.InitClass();
+            }
+            
+            internal CompRelationsDataTable(DataTable table) : 
+                    base(table.TableName) {
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+                this.DisplayExpression = table.DisplayExpression;
+            }
+            
+            [System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            internal DataColumn fk_childColumn {
+                get {
+                    return this.columnfk_child;
+                }
+            }
+            
+            internal DataColumn fk_parentColumn {
+                get {
+                    return this.columnfk_parent;
+                }
+            }
+            
+            public CompRelationsRow this[int index] {
+                get {
+                    return ((CompRelationsRow)(this.Rows[index]));
+                }
+            }
+            
+            public event CompRelationsRowChangeEventHandler CompRelationsRowChanged;
+            
+            public event CompRelationsRowChangeEventHandler CompRelationsRowChanging;
+            
+            public event CompRelationsRowChangeEventHandler CompRelationsRowDeleted;
+            
+            public event CompRelationsRowChangeEventHandler CompRelationsRowDeleting;
+            
+            public void AddCompRelationsRow(CompRelationsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            public CompRelationsRow AddCompRelationsRow(ComponentsRow parentComponentsRowByComponentsCompRelations, ComponentsRow parentComponentsRowByComponentsCompRelations1) {
+                CompRelationsRow rowCompRelationsRow = ((CompRelationsRow)(this.NewRow()));
+                rowCompRelationsRow.ItemArray = new object[] {
+                        parentComponentsRowByComponentsCompRelations[0],
+                        parentComponentsRowByComponentsCompRelations1[0]};
+                this.Rows.Add(rowCompRelationsRow);
+                return rowCompRelationsRow;
+            }
+            
+            public System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            
+            public override DataTable Clone() {
+                CompRelationsDataTable cln = ((CompRelationsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            protected override DataTable CreateInstance() {
+                return new CompRelationsDataTable();
+            }
+            
+            internal void InitVars() {
+                this.columnfk_child = this.Columns["fk_child"];
+                this.columnfk_parent = this.Columns["fk_parent"];
+            }
+            
+            private void InitClass() {
+                this.columnfk_child = new DataColumn("fk_child", typeof(string), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_child);
+                this.columnfk_parent = new DataColumn("fk_parent", typeof(string), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_parent);
+                this.Constraints.Add(new UniqueConstraint("COMPRELATIONS_PK", new DataColumn[] {
+                                this.columnfk_child,
+                                this.columnfk_parent}, false));
+                this.columnfk_child.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnfk_parent.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+            }
+            
+            public CompRelationsRow NewCompRelationsRow() {
+                return ((CompRelationsRow)(this.NewRow()));
+            }
+            
+            protected override DataRow NewRowFromBuilder(DataRowBuilder builder) {
+                return new CompRelationsRow(builder);
+            }
+            
+            protected override System.Type GetRowType() {
+                return typeof(CompRelationsRow);
+            }
+            
+            protected override void OnRowChanged(DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.CompRelationsRowChanged != null)) {
+                    this.CompRelationsRowChanged(this, new CompRelationsRowChangeEvent(((CompRelationsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowChanging(DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.CompRelationsRowChanging != null)) {
+                    this.CompRelationsRowChanging(this, new CompRelationsRowChangeEvent(((CompRelationsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowDeleted(DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.CompRelationsRowDeleted != null)) {
+                    this.CompRelationsRowDeleted(this, new CompRelationsRowChangeEvent(((CompRelationsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowDeleting(DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.CompRelationsRowDeleting != null)) {
+                    this.CompRelationsRowDeleting(this, new CompRelationsRowChangeEvent(((CompRelationsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            public void RemoveCompRelationsRow(CompRelationsRow row) {
+                this.Rows.Remove(row);
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class CompRelationsRow : DataRow {
+            
+            private CompRelationsDataTable tableCompRelations;
+            
+            internal CompRelationsRow(DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCompRelations = ((CompRelationsDataTable)(this.Table));
+            }
+            
+            public string fk_child {
+                get {
+                    try {
+                        return ((string)(this[this.tableCompRelations.fk_childColumn]));
+                    }
+                    catch (InvalidCastException e) {
+                        throw new StrongTypingException("Der Wert kann nicht ermittelt werden, da er DBNull ist.", e);
+                    }
+                }
+                set {
+                    this[this.tableCompRelations.fk_childColumn] = value;
+                }
+            }
+            
+            public string fk_parent {
+                get {
+                    if (this.Isfk_parentNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tableCompRelations.fk_parentColumn]));
+                    }
+                }
+                set {
+                    this[this.tableCompRelations.fk_parentColumn] = value;
+                }
+            }
+            
+            public ComponentsRow ComponentsRowByComponentsCompRelations {
+                get {
+                    return ((ComponentsRow)(this.GetParentRow(this.Table.ParentRelations["ComponentsCompRelations"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ComponentsCompRelations"]);
+                }
+            }
+            
+            public ComponentsRow ComponentsRowByComponentsCompRelations1 {
+                get {
+                    return ((ComponentsRow)(this.GetParentRow(this.Table.ParentRelations["ComponentsCompRelations1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ComponentsCompRelations1"]);
+                }
+            }
+            
+            public bool Isfk_childNull() {
+                return this.IsNull(this.tableCompRelations.fk_childColumn);
+            }
+            
+            public void Setfk_childNull() {
+                this[this.tableCompRelations.fk_childColumn] = System.Convert.DBNull;
+            }
+            
+            public bool Isfk_parentNull() {
+                return this.IsNull(this.tableCompRelations.fk_parentColumn);
+            }
+            
+            public void Setfk_parentNull() {
+                this[this.tableCompRelations.fk_parentColumn] = System.Convert.DBNull;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class CompRelationsRowChangeEvent : EventArgs {
+            
+            private CompRelationsRow eventRow;
+            
+            private DataRowAction eventAction;
+            
+            public CompRelationsRowChangeEvent(CompRelationsRow row, DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            public CompRelationsRow Row {
                 get {
                     return this.eventRow;
                 }

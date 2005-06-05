@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/06/05 10:39:23  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.13  2005/05/20 10:40:02  joemal
 	/// remove some debug rubish
 	///
@@ -113,6 +116,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			modelDataset.Protocols.ProtocolsRowDeleted += new ModelDataSet.ProtocolsRowChangeEventHandler(ProtocolDeleted);			
 			modelDataset.Connections.ConnectionsRowDeleted += new ModelDataSet.ConnectionsRowChangeEventHandler(ConDeleted);			
 			modelDataset.Roles.RolesRowDeleted +=new ModelDataSet.RolesRowChangeEventHandler(InterfaceUnbound);
+			modelDataset.CompRelations.CompRelationsRowDeleted +=new ModelDataSet.CompRelationsRowChangeEventHandler(CompRelationsDeleted);
 		}
 
 		//clear the given dataset table
@@ -128,12 +132,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		//queries the role by componentid, interfaceid and role
 		private ModelDataSet.RolesRow QueryRole(IComponentIdentifier compId, IInterfaceIdentifier iFaceId, InterfaceRole role)
 		{
-			ModelDataSet.ComponentsRow compRow = ComponentsTable.FindByguid(compId.Key);
-			ModelDataSet.InterfacesRow ifaceRow = InterfacesTable.FindByguid(iFaceId.Key);
-
-			if (compRow == null || ifaceRow == null) return null;
-
-			string query = "fk_comp = '"+compRow.guid+"' and fk_iface = '"+ifaceRow.guid+"' and type = "+(sbyte)role;
+			string query = "fk_comp = '"+compId.Key+"' and fk_iface = '"+iFaceId.Key+"' and type = "+(sbyte)role;
 			DataRow[] result = modelDataset.Roles.Select(query);
 
 			if (result.Length == 0) return null;	
@@ -141,19 +140,35 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			return (ModelDataSet.RolesRow) result[0];
 		}
 
+		//queries the parent relation between to components if exists
+		private ModelDataSet.CompRelationsRow QueryParent(IComponentIdentifier childId, IComponentIdentifier parentId)
+		{
+			string query = "fk_child = '"+childId.Key+"' and fk_parent";
+			if (parentId == null)
+				query += " is null";
+			else
+				query += " = '"+parentId.Key+"'";
+
+			DataRow[] result = modelDataset.CompRelations.Select(query);
+
+			if (result.Length == 0) return null;	
+
+			return (ModelDataSet.CompRelationsRow) result[0];			
+		}
+
 		//add a connection
 		private void AddDelegation(IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID, IComponentIdentifier outerCompID, 
 			IInterfaceIdentifier outerIFaceID, IConnection connection, InterfaceRole role)
 		{
 			modelCheck.EntityAlreadyExistsCheck(connection.ID);
-			
-			ModelDataSet.RolesRow innerRole = QueryRole(innerCompID,innerIFaceID,role);
-			ModelDataSet.RolesRow outerRole = QueryRole(outerCompID,outerIFaceID,role);
 
 			if (role == InterfaceRole.PROVIDES)
-				modelCheck.AddProvidesDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,innerRole,outerRole);
+				modelCheck.AddProvidesDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,role);
 			else
-				modelCheck.AddRequiresDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,innerRole,outerRole);
+				modelCheck.AddRequiresDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,role);
+
+			ModelDataSet.RolesRow innerRole = QueryRole(innerCompID,innerIFaceID,role);
+			ModelDataSet.RolesRow outerRole = QueryRole(outerCompID,outerIFaceID,role);
 
 			ModelDataSet.ComponentsRow outerCompRow = ComponentsTable.FindByguid(outerCompID.Key);
 	
@@ -170,15 +185,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		private void CompDeleted(object sender, ModelDataSet.ComponentsRowChangeEvent e)
 		{
 			string compKey = (string)e.Row["guid",DataRowVersion.Original];
-			object parentKey = e.Row["parentComponent",DataRowVersion.Original];
 
 			IComponent comp = (IComponent) entityHashtable[compKey];
-			IComponentIdentifier parentID=null;
-
-			if (!(parentKey is DBNull))
-				parentID = ((IComponent)entityHashtable[(string)parentKey]).ComponentID;
-
-			entityReg.UnregisterComponent(comp,parentID);
+			entityReg.UnregisterComponent(comp);
 			entityHashtable.RemoveEntity(compKey);
 		}
 
@@ -238,6 +247,18 @@ namespace Palladio.ComponentModel.ModelDataManagement
 				new InternalEntityIdentifier(ifaceKey));
 		}
 
+		//called when a component relation 
+		private void CompRelationsDeleted(object sender, ModelDataSet.CompRelationsRowChangeEvent e)
+		{
+			IComponentIdentifier child = new InternalEntityIdentifier((string)e.Row["fk_child",DataRowVersion.Original]);
+			IComponentIdentifier parent = null;
+
+			if (!e.Row["fk_parent",DataRowVersion.Original].Equals(System.DBNull.Value))
+				parent = new InternalEntityIdentifier((string)e.Row["fk_parent",DataRowVersion.Original]);
+
+			entityReg.UnregisterComponentRelation(child,parent);
+		}
+
 		#endregion
 
 		#region public methods
@@ -248,6 +269,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		public void ClearAll()
 		{
 			this.ClearTable(ComponentsTable);
+			this.ClearTable(CompRelationTable);
 			this.ClearTable(InterfacesTable);
 			this.ClearTable(ProtocolsTable);
 			this.ClearTable(RolesTable);
@@ -261,34 +283,64 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// call to add a component to the dataset.
 		/// </summary>
 		/// <param name="component">the component which has to be added</param>
-		/// <param name="parentComponentID">the id of the parent component of this one. 
-		/// Set this value to null if the component belongs to the top level of the static view.</param>
-		/// <exception cref="ComponentNotFoundException">the parent component could not be found in the model.</exception>
-		/// <exception cref="WrongComponentTypeException">the parent component is not a composite component.</exception>
 		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
-		public void AddComponent(IComponent component, IComponentIdentifier parentComponentID)
+		public void CreateComponent(IComponent component)
 		{	
-			modelCheck.AddComponentCheck(component,parentComponentID);
+			modelCheck.CreateComponentCheck(component);
 		
-			ModelDataSet.ComponentsRow newRow = ComponentsTable.NewComponentsRow();
-			newRow.guid = component.ID.Key;
-			newRow.type = (sbyte) component.Type;
-
-			if (parentComponentID != null)
-				newRow.parentComponent = parentComponentID.Key;
-
-			ComponentsTable.AddComponentsRow(newRow);
+			ComponentsTable.AddComponentsRow(component.ID.Key,(sbyte)component.Type);
 			ComponentsTable.AcceptChanges();
 
 			entityHashtable.AddEntity(component);
-
-			entityReg.RegisterComponent(component,parentComponentID);			
+			entityReg.RegisterComponent(component);			
 		}
 
 		/// <summary>
-		/// called to remove the component which belongs to the given id. All contained components and
-		/// all connections to and from this components are also removed. If the entity could not be found in 
+		/// called to add an existing component to a composite component or to the static view. 
+		/// </summary>
+		/// <param name="componentId">the id of the component to be added</param>
+		/// <param name="parentComponentId">the parent id or null if the component has 
+		/// to be added to the static view.</param>
+		/// <exception cref="ComponentNotFoundException">the component or the parent component doesn't exist in cm</exception>
+		/// <exception cref="WrongComponentTypeException">the parent component is not a composite component.</exception>
+		/// <exception cref="EntityAlreadyExistsException">the component is still a child of the parent component</exception>
+		public void AddComponent(IComponentIdentifier componentId, IComponentIdentifier parentComponentId)
+		{
+			modelCheck.AddCompToCompCheck(componentId,parentComponentId);
+
+			ModelDataSet.CompRelationsRow newRow = CompRelationTable.NewCompRelationsRow();
+			newRow.fk_child = componentId.Key;
+			if (parentComponentId != null)
+				newRow.fk_parent = parentComponentId.Key;
+
+			CompRelationTable.AddCompRelationsRow(newRow);
+
+			RolesTable.AcceptChanges();
+
+			entityReg.RegisterComponentToComponent(componentId,parentComponentId);
+		}
+
+		/// <summary>
+		/// called to remove the component which belongs to the given id from the given parent component. 
+		/// All connections to and from this components are also removed. If the entity could not be found in 
 		/// componentmodel, the method returns without doing anything.
+		/// </summary>
+		/// <param name="componentId">the id of the component to be removed</param>
+		/// <param name="parentComponentId">the id of the parent component of the one that
+		/// has to be removed. Set null if the component has to be removed from the static view.</param>
+		public void RemoveComponentFromComponent(IComponentIdentifier componentId, IComponentIdentifier parentComponentId)
+		{
+			ModelDataSet.CompRelationsRow compRelRow = QueryParent(componentId,parentComponentId);
+			if (compRelRow == null) return;
+
+			compRelRow.Delete();
+			modelDataset.AcceptChanges();
+		}
+
+		/// <summary>
+		/// called to remove the component which belongs to the given id from the model. All references of 
+		/// this components and the connections to them are also removed. 
+		/// If the entity could not be found in the componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="componentId">the id of the component to be removed</param>
 		public void RemoveComponent(IComponentIdentifier componentId)
@@ -301,33 +353,55 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		}
 
 		/// <summary>
-		/// called to add an existing interface to a component.
+		/// called to add an existing interface to a component. 
 		/// </summary>
 		/// <param name="componentIdentifier">the id of component</param>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
 		/// <param name="role">determ whether the interface is bound as requires or provides interface</param>
 		/// <exception cref="InterfaceNotFoundException">the interface could not be found in cm</exception>
 		/// <exception cref="ComponentNotFoundException">the component could not be found in cm</exception>
-		public void AddInterfaceToComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier, 
+		/// <exception cref="EntityAlreadyExistsException">the interface is still bound with the component 
+		/// at given role</exception>
+		public void AddInterface(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier, 
 			InterfaceRole role)
 		{
 			modelCheck.AddIFaceToCompCheck(componentIdentifier,ifaceIdentifier,role);
 
 			ModelDataSet.ComponentsRow compRow = ComponentsTable.FindByguid(componentIdentifier.Key);
 			ModelDataSet.InterfacesRow ifaceRow = InterfacesTable.FindByguid(ifaceIdentifier.Key);
-
-			string query = "fk_comp = '"+componentIdentifier+"' and fk_iface = '"+ifaceIdentifier+"'";
-			DataRow[] result = modelDataset.Roles.Select(query);
-
-			//still exists
-			if (result.Length == 2) return;
-			if (result.Length == 1)
-				if (((ModelDataSet.RolesRow)result[0]).type == (sbyte)role) return;
-            
+          
 			RolesTable.AddRolesRow(this.NextID,compRow,ifaceRow,(sbyte) role);
 			RolesTable.AcceptChanges();
 
 			entityReg.RegisterInterfaceToComponent(componentIdentifier,ifaceIdentifier,role);
+		}
+
+		/// <summary>
+		/// called to add an interface to the model. 
+		/// </summary>
+		/// <param name="iface">the interface to be added</param>
+		/// <exception cref="EntityAlreadyExistsException">an interface with given id already exists in cm</exception>
+		public void CreateInterface(IInterface iface)
+		{
+			this.modelCheck.CreateInterfaceCheck(iface);
+			this.InterfacesTable.AddInterfacesRow(iface.ID.Key);
+			this.InterfacesTable.AcceptChanges();
+			this.entityHashtable.AddEntity(iface);
+			entityReg.RegisterInterface(iface);
+		}
+
+		/// <summary>
+		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
+		/// added to the interface are also removed. If the entity could not be found in 
+		/// componentmodel, the method returns without doing anything.
+		/// </summary>
+		/// <param name="ifaceID">the id of the interface that has to be removed</param>
+		public void RemoveInterface(IInterfaceIdentifier ifaceID)
+		{
+			ModelDataSet.InterfacesRow row = InterfacesTable.FindByguid(ifaceID.Key);
+			if (row == null) return;
+			row.Delete();
+			modelDataset.AcceptChanges();
 		}
 
 		/// <summary>
@@ -357,6 +431,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
+		/// <exception cref="InterfaceNotFromComponentException">the interface is not bound to the component</exception>
 		/// <exception cref="ComponentNotFoundException">a component could not be found in cm</exception>
 		/// <exception cref="ComponentHierarchyException">the outer component is not the parent of the inner component</exception>
 		/// <exception cref="NotAProvidesIFaceException">one of the given interfaces is not a provides
@@ -395,39 +470,41 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// model.
 		/// </summary>
 		/// <param name="connection">the connection to be added</param>
+		/// <param name="parentCompID">the id of component that should contain the connection</param>
 		/// <param name="reqCompID">the id of the incoming component</param>
 		/// <param name="reqIFaceID">the incoming components interface</param>
 		/// <param name="provCompID">the id of the outgoing component</param>
 		/// <param name="provIFaceID">the outgoing components interface</param>
 		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
 		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
-		/// <exception cref="ComponentNotFoundException">a component could not be found in cm</exception>
-		/// <exception cref="ComponentHierarchyException">both components have not the same parent id</exception>
-		/// <exception cref="NotARequiresIFaceException">one of the given interfaces is not a requires</exception> 
-		/// <exception cref="NotAProvidesIFaceException">one of the given interfaces is not a provides </exception>
-		public void AddAssemblyConnector(IConnection connection, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
+		/// <exception cref="InterfaceNotFromComponentException">the interface is not bound with the component</exception>
+		/// <exception cref="ComponentNotFoundException">one of the components could not be found in cm</exception>
+		/// <exception cref="NotARequiresIFaceException">the first given interface is not a requires</exception> 
+		/// <exception cref="NotAProvidesIFaceException">the second given interface is not a provides </exception>
+		/// <exception cref="ComponentHierarchyException">one of the components is not a child of the parent component.</exception>
+		public void AddAssemblyConnector(IConnection connection, IComponentIdentifier parentCompID, 
+			IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, 
+			IInterfaceIdentifier provIFaceID)
 		{
 			modelCheck.EntityAlreadyExistsCheck(connection.ID);
 
 			ModelDataSet.RolesRow reqRole = QueryRole(reqCompID,reqIFaceID,InterfaceRole.REQUIRES);
 			ModelDataSet.RolesRow provRole = QueryRole(provCompID,provIFaceID,InterfaceRole.PROVIDES);
 
-			modelCheck.AddAssemblyConnectorCheck(reqCompID,reqIFaceID,provCompID,provIFaceID,reqRole,provRole);
-
-            ModelDataSet.ComponentsRow provComp = ComponentsTable.FindByguid(provCompID.Key);
+			modelCheck.AddAssemblyConnectorCheck(parentCompID,reqCompID,reqIFaceID,provCompID,provIFaceID);
 
 			ModelDataSet.ConnectionsRow newRow = ConnectionsTable.NewConnectionsRow();
 			newRow.incoming = reqRole.id;
 			newRow.outgoing = provRole.id;
 			newRow.guid = connection.ID.Key;
 
-			if (provComp.parentComponent != null)
-				newRow.fk_comp = provComp.parentComponent;
+			if (parentCompID != null)
+				newRow.fk_comp = parentCompID.Key;
 
 			ConnectionsTable.AddConnectionsRow(newRow);
 			ConnectionsTable.AcceptChanges();
 			entityHashtable.AddEntity(connection);
-			entityReg.RegisterAssemblyConnection(connection,reqCompID,reqIFaceID,provCompID,provIFaceID);
+			entityReg.RegisterAssemblyConnection(connection,parentCompID,reqCompID,reqIFaceID,provCompID,provIFaceID);
 		}
 
 		/// <summary>
@@ -438,34 +515,6 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		public void RemoveConnection(IConnectionIdentifier connectionID)
 		{
 			ModelDataSet.ConnectionsRow row = ConnectionsTable.FindByguid(connectionID.Key);
-			if (row == null) return;
-			row.Delete();
-			modelDataset.AcceptChanges();
-		}
-
-		/// <summary>
-		/// called to add an interface to the model. 
-		/// </summary>
-		/// <param name="iface">the interface to be added</param>
-		/// <exception cref="EntityAlreadyExistsException">an interface with given id already exists in cm</exception>
-		public void AddInterface(IInterface iface)
-		{
-			this.modelCheck.AddInterfaceCheck(iface);
-			this.InterfacesTable.AddInterfacesRow(iface.ID.Key);
-			this.InterfacesTable.AcceptChanges();
-			this.entityHashtable.AddEntity(iface);
-			entityReg.RegisterInterface(iface);
-		}
-
-		/// <summary>
-		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
-		/// added to the interface are also removed. If the entity could not be found in 
-		/// componentmodel, the method returns without doing anything.
-		/// </summary>
-		/// <param name="ifaceID">the id of the interface that has to be removed</param>
-		public void RemoveInterface(IInterfaceIdentifier ifaceID)
-		{
-			ModelDataSet.InterfacesRow row = InterfacesTable.FindByguid(ifaceID.Key);
 			if (row == null) return;
 			row.Delete();
 			modelDataset.AcceptChanges();
@@ -588,6 +637,15 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			get
 			{
 				return modelDataset.Connections;
+			}
+		}
+
+		//returns the table that contains the relations between the components
+		private ModelDataSet.CompRelationsDataTable CompRelationTable
+		{
+			get
+			{
+				return modelDataset.CompRelations;
 			}
 		}
 

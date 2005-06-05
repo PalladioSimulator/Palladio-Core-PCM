@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/06/05 10:39:23  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.6  2005/04/20 13:08:31  kelsaka
 	/// - introduced IModelDataManagement
 	/// - integrated use of the new interface
@@ -74,7 +77,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			
 			modelQuery = new ModelQueryManager(modelDataset,entityHashtable);
 
-			modelEventManager = new ModelEventManager(modelDataset,entityHashtable);
+			modelEventManager = new ModelEventManager(entityHashtable);
 			lowLevelBuilder = new LowLevelBuilder(modelDataset,entityHashtable,modelEventManager.EntityRegistration);
 		}
 

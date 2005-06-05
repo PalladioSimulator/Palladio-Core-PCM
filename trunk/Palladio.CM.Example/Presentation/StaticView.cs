@@ -14,6 +14,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/05 10:41:04  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.1  2005/04/08 10:54:33  joemal
 	/// initial class creation
 	///
@@ -73,10 +76,14 @@ namespace Palladio.CM.Example.Presentation
 			StaticViewEvents events = modelEnvironment.EventInterface.GetStaticViewEvents();
 			events.AssemblyConnectorAddedEvent += new AssemblyConnectorBuildEventHandler(events_AssemblyConnectorAddedEvent);
 			events.AssembyConnectorRemovedEvent += new ConnectorRemovedEventHandler(events_AssembyConnectorRemovedEvent);
-			events.ComponentAddedEvent += new ComponentBuildEventHandler(events_ComponentAddedEvent);
-			events.ComponentRemovedEvent += new ComponentBuildEventHandler(events_ComponentRemovedEvent);
-			events.InterfaceAddedEvent += new InterfaceBuildEventHandler(events_InterfaceAddedEvent);
-			events.InterfaceRemovedEvent += new InterfaceBuildEventHandler(events_InterfaceRemovedEvent);
+			events.ComponentAddedEvent +=new ComponentUseEventHandler(events_ComponentAddedEvent);
+			events.ComponentRemovedEvent +=new ComponentUseEventHandler(events_ComponentRemovedEvent);
+
+			RepositoryEvents repEvents = modelEnvironment.EventInterface.GetRepositoryEvents();
+			repEvents.ComponentAddedEvent += new ComponentBuildEventHandler(events_ComponentCreatedEvent);
+			repEvents.ComponentRemovedEvent += new ComponentBuildEventHandler(events_ComponentDestroyedEvent);
+			repEvents.InterfaceAddedEvent +=new InterfaceBuildEventHandler(events_InterfaceCreatedEvent);
+			repEvents.InterfaceRemovedEvent +=new InterfaceBuildEventHandler(events_InterfaceDestroyedEvent);
 		}
 
 		//called when an assembly connector has been added to the static view
@@ -105,48 +112,56 @@ namespace Palladio.CM.Example.Presentation
 		}
 
 		//called when a component has been added to the static view
-		private void events_ComponentAddedEvent(object sender, ComponentBuildEventArgs args)
+		private void events_ComponentCreatedEvent(object sender, ComponentBuildEventArgs args)
 		{
-			Component comp;
-			if (args.Component.Type == ComponentType.BASIC)
-				comp = new BasicComponent(args.Component,modelEnvironment);
-			else
-				comp = new CompositeComponent(args.Component,modelEnvironment);
-
-			childs.Add(args.Component.ID,comp);
-			Console.WriteLine("Component "+args.Component.Name+" added to the static view.");
-
-			comp.Paint();					
+			Console.WriteLine("Component "+args.Component.Name+" created.");
 		}
 
 		//called when a component has been removed from the static view
-		private void events_ComponentRemovedEvent(object sender, ComponentBuildEventArgs args)
+		private void events_ComponentDestroyedEvent(object sender, ComponentBuildEventArgs args)
 		{
-			if (!childs.ContainsKey(args.Component.ID)) return;
-			childs.Remove(args.Component.ID);
-			Console.WriteLine("Remove Component "+args.Component.Name+" from the static view.");
+			Console.WriteLine("Component "+args.Component.Name+" destroyed.");
+		}
+
+		//called when an interface has been added to the static view
+		private void events_InterfaceCreatedEvent(object sender, InterfaceBuildEventArgs args)
+		{
+			Console.WriteLine("Interface "+args.Interface.Name+" created.");
+		}
+
+		//called when an interface has been removed from the static view
+		private void events_InterfaceDestroyedEvent(object sender, InterfaceBuildEventArgs args)
+		{
+			Console.WriteLine("Interface "+args.Interface.Name+" destroyed.");
+		}
+
+		//called when a component as been added to the static view
+		private void events_ComponentAddedEvent(object sender, ComponentUseEventArgs args)
+		{
+			IComponent comp = modelEnvironment.Query.QueryEntities.GetComponent(args.ComponentID);
+			Component comp_gui;
+			if (comp.Type == ComponentType.BASIC)
+				comp_gui = new BasicComponent(comp,modelEnvironment);
+			else
+				comp_gui = new CompositeComponent(comp,modelEnvironment);
+
+			childs.Add(args.ComponentID,comp_gui);
+			Console.WriteLine("Component "+comp.Name+" added to the static view.");
+
+			comp_gui.Paint();									
+		}
+
+		//called when a component as been removed from the static view
+		private void events_ComponentRemovedEvent(object sender, ComponentUseEventArgs args)
+		{
+			IComponent comp = modelEnvironment.Query.QueryEntities.GetComponent(args.ComponentID);
+			if (!childs.ContainsKey(args.ComponentID)) return;
+			childs.Remove(args.ComponentID);
+			Console.WriteLine("Remove Component "+comp.Name+" from the static view.");
 			Console.WriteLine("Repaint component the static view.");
 			this.Paint();				
 		}
 
-		//called when an interface has been added to the static view
-		private void events_InterfaceAddedEvent(object sender, InterfaceBuildEventArgs args)
-		{
-            IFace iface = new IFace(args.Interface,this.modelEnvironment);
-			childs.Add(args.Interface.ID, iface);
-			Console.WriteLine("Interface "+args.Interface.Name+" added to the static view.");
-			iface.Paint();
-		}
-
-		//called when an interface has been removed from the static view
-		private void events_InterfaceRemovedEvent(object sender, InterfaceBuildEventArgs args)
-		{
-			if (!childs.ContainsKey(args.Interface.ID)) return;
-			childs.Remove(args.Interface.ID);
-			Console.WriteLine("Remove Interface "+args.Interface.Name+" from the static view.");
-			Console.WriteLine("Repaint the static view.");
-			this.Paint();				
-		}
 
 		#endregion
 	}

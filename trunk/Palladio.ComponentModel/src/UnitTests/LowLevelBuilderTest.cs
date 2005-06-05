@@ -30,17 +30,18 @@ namespace Palladio.ComponentModel.UnitTests
 		public void ParentComponentNotFound()
 		{
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
-			modelManager.LowLevelBuilder.AddComponent(cc,cc.ComponentID);
+			modelManager.LowLevelBuilder.AddComponent(cc.ComponentID,cc.ComponentID);
 		}
+
 		[Test]
 		[ExpectedException(typeof(WrongComponentTypeException))]
 		public void ComponentFromWrongType()
 		{
-			IComponent cc = EntityFactory.CreateComponent(ComponentType.BASIC,"CC");
-			modelManager.LowLevelBuilder.AddComponent(cc,null);
-
-			IComponent bc = EntityFactory.CreateComponent(ComponentType.BASIC,"BC");
-			modelManager.LowLevelBuilder.AddComponent(bc,cc.ComponentID);
+			IComponent bc1 = EntityFactory.CreateComponent(ComponentType.BASIC,"BC1");
+			IComponent bc2 = EntityFactory.CreateComponent(ComponentType.BASIC,"BC2");
+			modelManager.LowLevelBuilder.CreateComponent(bc1);
+			modelManager.LowLevelBuilder.CreateComponent(bc2);
+			modelManager.LowLevelBuilder.AddComponent(bc1.ComponentID,bc2.ComponentID);
 		}
 
 		[Test]
@@ -48,8 +49,9 @@ namespace Palladio.ComponentModel.UnitTests
 		public void AddSameComponentTwice()
 		{
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.BASIC,"CC");
-			modelManager.LowLevelBuilder.AddComponent(cc,null);
-			modelManager.LowLevelBuilder.AddComponent(cc,null);
+			modelManager.LowLevelBuilder.CreateComponent(cc);
+			modelManager.LowLevelBuilder.AddComponent(cc.ComponentID,null);
+			modelManager.LowLevelBuilder.AddComponent(cc.ComponentID,null);
 		}
 
 		[Test]
@@ -57,30 +59,32 @@ namespace Palladio.ComponentModel.UnitTests
 		public void RemoveComponent()
 		{
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
-			modelManager.LowLevelBuilder.AddComponent(cc,null);
+			modelManager.LowLevelBuilder.CreateComponent(cc);
+			modelManager.LowLevelBuilder.AddComponent(cc.ComponentID,null);
 
 			IComponent bc = EntityFactory.CreateComponent(ComponentType.BASIC,"BC");
-			modelManager.LowLevelBuilder.AddComponent(bc,cc.ComponentID);
-			modelManager.LowLevelBuilder.RemoveComponent(bc.ComponentID);
-			modelManager.LowLevelBuilder.AddComponent(bc,cc.ComponentID);
+			modelManager.LowLevelBuilder.CreateComponent(bc);
+			modelManager.LowLevelBuilder.AddComponent(bc.ComponentID,cc.ComponentID);
+			modelManager.LowLevelBuilder.RemoveComponentFromComponent(bc.ComponentID,cc.ComponentID);
+			modelManager.LowLevelBuilder.AddComponent(bc.ComponentID,cc.ComponentID);
 			//remove with cascade
 			modelManager.LowLevelBuilder.RemoveComponent(cc.ComponentID);
 			//ComponentNotFoundException expected 
-			modelManager.LowLevelBuilder.AddComponent(bc,cc.ComponentID);
+			modelManager.LowLevelBuilder.AddComponent(bc.ComponentID,cc.ComponentID);
 		}
 
 		[Test]
 		public void AddInterfaceTest()
 		{
 			IInterface iface = EntityFactory.CreateInterface("ICloneable");
-            modelManager.LowLevelBuilder.AddInterface(iface);
+			modelManager.LowLevelBuilder.CreateInterface(iface);
 		}
 
 		[Test]
 		public void AddSignature()
 		{
 			IInterface iface = EntityFactory.CreateInterface("ICloneable");
-			modelManager.LowLevelBuilder.AddInterface(iface);
+			modelManager.LowLevelBuilder.CreateInterface(iface);
 			ISignature sig = EntityFactory.CreateSignature("Clone",new SignatureDescription());
 			modelManager.LowLevelBuilder.AddSignature(sig,iface.InterfaceID);
 		}
@@ -101,8 +105,8 @@ namespace Palladio.ComponentModel.UnitTests
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
 			IInterface iface = EntityFactory.CreateInterface("ICloneable");
 
-			modelManager.LowLevelBuilder.AddComponent(cc,null);
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.PROVIDES);
+			modelManager.LowLevelBuilder.CreateComponent(cc);
+			modelManager.LowLevelBuilder.AddInterface(cc.ComponentID,iface.InterfaceID,InterfaceRole.PROVIDES);
 		}
 
 		[Test]
@@ -112,8 +116,8 @@ namespace Palladio.ComponentModel.UnitTests
 			IInterface iface = EntityFactory.CreateInterface("ICloneable");
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
 			
-			modelManager.LowLevelBuilder.AddInterface(iface);
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.CreateInterface(iface);
+			modelManager.LowLevelBuilder.AddInterface(cc.ComponentID,iface.InterfaceID,InterfaceRole.REQUIRES);
 		}
 
 		[Test]
@@ -122,10 +126,10 @@ namespace Palladio.ComponentModel.UnitTests
 			IInterface iface = EntityFactory.CreateInterface("ICloneable");
 			IComponent cc = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"CC");
 
-			modelManager.LowLevelBuilder.AddInterface(iface);
-			modelManager.LowLevelBuilder.AddComponent(cc,null);
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.PROVIDES);
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc.ComponentID,iface.InterfaceID,InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.CreateInterface(iface);
+			modelManager.LowLevelBuilder.CreateComponent(cc);
+			modelManager.LowLevelBuilder.AddInterface(cc.ComponentID,iface.InterfaceID,InterfaceRole.PROVIDES);
+			modelManager.LowLevelBuilder.AddInterface(cc.ComponentID,iface.InterfaceID,InterfaceRole.REQUIRES);
 		}
 
 		[Test]
@@ -142,27 +146,32 @@ namespace Palladio.ComponentModel.UnitTests
 			IConnection assCon = EntityFactory.CreateConnection("cc->bc2");
 
 			//add the components to the model
-			modelManager.LowLevelBuilder.AddComponent(cc1,null);
-			modelManager.LowLevelBuilder.AddComponent(bc2, null);
-			modelManager.LowLevelBuilder.AddComponent(bc1, cc1.ComponentID);
+			modelManager.LowLevelBuilder.CreateComponent(cc1);
+			modelManager.LowLevelBuilder.CreateComponent(bc2);
+			modelManager.LowLevelBuilder.CreateComponent(bc1);
+
+			//add them to the static view
+			modelManager.LowLevelBuilder.AddComponent(cc1.ComponentID,null);
+			modelManager.LowLevelBuilder.AddComponent(bc2.ComponentID, null);
+			modelManager.LowLevelBuilder.AddComponent(bc1.ComponentID, cc1.ComponentID);
 
 			//add the interfaces to the model
-			modelManager.LowLevelBuilder.AddInterface(ifaceWBE);
-			modelManager.LowLevelBuilder.AddInterface(ifaceW);
+			modelManager.LowLevelBuilder.CreateInterface(ifaceWBE);
+			modelManager.LowLevelBuilder.CreateInterface(ifaceW);
 
 			//bind the interfaces to the component
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc1.ComponentID,ifaceW.InterfaceID, InterfaceRole.PROVIDES);
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc1.ComponentID,ifaceW.InterfaceID, InterfaceRole.PROVIDES);
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
+			modelManager.LowLevelBuilder.AddInterface(cc1.ComponentID,ifaceW.InterfaceID, InterfaceRole.PROVIDES);
+			modelManager.LowLevelBuilder.AddInterface(cc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterface(bc1.ComponentID,ifaceW.InterfaceID, InterfaceRole.PROVIDES);
+			modelManager.LowLevelBuilder.AddInterface(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterface(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
 
 			//add the connections
 			modelManager.LowLevelBuilder.AddProvidesDelegationConnector(delProv,cc1.ComponentID,ifaceW.InterfaceID,
 				bc1.ComponentID,ifaceW.InterfaceID);
 			modelManager.LowLevelBuilder.AddRequiresDelegationConnector(delReq,bc1.ComponentID,ifaceWBE.InterfaceID,
 				cc1.ComponentID,ifaceWBE.InterfaceID);
-			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,cc1.ComponentID,ifaceWBE.InterfaceID,
+			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,null,cc1.ComponentID,ifaceWBE.InterfaceID,
 				bc2.ComponentID,ifaceWBE.InterfaceID);
 		}
 
@@ -176,17 +185,19 @@ namespace Palladio.ComponentModel.UnitTests
 			IComponent bc2 = EntityFactory.CreateComponent(ComponentType.BASIC,"WriterBackEnd");
 			IConnection assCon = EntityFactory.CreateConnection("bc1->bc2");
 
-			modelManager.LowLevelBuilder.AddComponent(bc1, null);
-			modelManager.LowLevelBuilder.AddComponent(bc2, null);
+			modelManager.LowLevelBuilder.CreateComponent(bc1);
+			modelManager.LowLevelBuilder.CreateComponent(bc2);
 
-			modelManager.LowLevelBuilder.AddInterface(ifaceWBE);
+			modelManager.LowLevelBuilder.CreateInterface(ifaceWBE);
 
+			modelManager.LowLevelBuilder.AddComponent(bc1.ComponentID,null);
+			modelManager.LowLevelBuilder.AddComponent(bc2.ComponentID,null);
 			//the error
-		//	modelManager.LowLevelBuilder.AddInterfaceToComponent(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
+		//	modelManager.LowLevelBuilder.AddInterface(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterface(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
 
 			//add the connections
-			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,bc1.ComponentID,ifaceWBE.InterfaceID,
+			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,null,bc1.ComponentID,ifaceWBE.InterfaceID,
 				bc2.ComponentID,ifaceWBE.InterfaceID);
 		}
 
@@ -201,18 +212,22 @@ namespace Palladio.ComponentModel.UnitTests
 			IComponent cc1 = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"Writer");
 			IConnection assCon = EntityFactory.CreateConnection("cc->bc2");
 
-			modelManager.LowLevelBuilder.AddComponent(cc1, null);
-			modelManager.LowLevelBuilder.AddComponent(bc1, cc1.ComponentID);
-			modelManager.LowLevelBuilder.AddComponent(bc2, null);
+			modelManager.LowLevelBuilder.CreateComponent(cc1);
+			modelManager.LowLevelBuilder.CreateComponent(bc1);
+			modelManager.LowLevelBuilder.CreateComponent(bc2);
 
-			modelManager.LowLevelBuilder.AddInterface(ifaceWBE);
+			modelManager.LowLevelBuilder.AddComponent(cc1.ComponentID, null);
+			modelManager.LowLevelBuilder.AddComponent(bc1.ComponentID, cc1.ComponentID);
+			modelManager.LowLevelBuilder.AddComponent(bc2.ComponentID, null);
+
+			modelManager.LowLevelBuilder.CreateInterface(ifaceWBE);
 
 			//bind the interfaces to the component
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
+			modelManager.LowLevelBuilder.AddInterface(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterface(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
 
 			//add the connections
-			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,bc1.ComponentID,ifaceWBE.InterfaceID,
+			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,null,bc1.ComponentID,ifaceWBE.InterfaceID,
 				bc2.ComponentID,ifaceWBE.InterfaceID);
 		}
 
@@ -226,14 +241,17 @@ namespace Palladio.ComponentModel.UnitTests
 			IComponent cc1 = EntityFactory.CreateComponent(ComponentType.COMPOSITE,"Writer");
 			IConnection assCon = EntityFactory.CreateConnection("bc1->cc1");
 
-			modelManager.LowLevelBuilder.AddComponent(cc1, null);
-			modelManager.LowLevelBuilder.AddComponent(bc1, null);
+			modelManager.LowLevelBuilder.CreateComponent(cc1);
+			modelManager.LowLevelBuilder.CreateComponent(bc1);
 
-			modelManager.LowLevelBuilder.AddInterface(ifaceWBE);
+			modelManager.LowLevelBuilder.AddComponent(cc1.ComponentID, null);
+			modelManager.LowLevelBuilder.AddComponent(bc1.ComponentID, null);
+
+			modelManager.LowLevelBuilder.CreateInterface(ifaceWBE);
 
 			//bind the interfaces to the component
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
-			modelManager.LowLevelBuilder.AddInterfaceToComponent(cc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterface(bc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
+			modelManager.LowLevelBuilder.AddInterface(cc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
 
 			//add the connections
 			modelManager.LowLevelBuilder.AddRequiresDelegationConnector(assCon,bc1.ComponentID,ifaceWBE.InterfaceID,

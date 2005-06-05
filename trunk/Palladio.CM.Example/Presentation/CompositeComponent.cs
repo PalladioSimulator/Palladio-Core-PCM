@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Palladio.ComponentModel;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.ModelEventManagement;
@@ -14,6 +13,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/05 10:41:04  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.1  2005/04/08 10:54:33  joemal
 	/// initial class creation
 	///
@@ -23,13 +25,6 @@ namespace Palladio.CM.Example.Presentation
 	/// </remarks>
 	public class CompositeComponent : Component
 	{
-		#region data
-
-		//holds the hashtable for the childs
-		private Hashtable childs = new Hashtable();
-
-		#endregion
-
 		#region constructor 
 
 		/// <summary>
@@ -50,34 +45,37 @@ namespace Palladio.CM.Example.Presentation
 		private void Init()
 		{
 			CompositeComponentEvents events = modelEnvironment.EventInterface.GetCompositeComponentEvents(Model.ComponentID);
-			events.ComponentAddedEvent += new ComponentBuildEventHandler(events_ComponentAddedEvent);
-			events.ComponentRemovedEvent += new ComponentBuildEventHandler(events_ComponentRemovedEvent);
+			events.ComponentAddedEvent += new ComponentUseEventHandler(events_ComponentAddedEvent);
+			events.ComponentRemovedEvent += new ComponentUseEventHandler(events_ComponentRemovedEvent);
 			events.ConnectorRemovedEvent += new ConnectorRemovedEventHandler(events_ConnectorRemovedEvent);
 			events.AssemblyConnectorAddedEvent += new AssemblyConnectorBuildEventHandler(events_AssemblyConnectorAddedEvent);
 			events.DelegationConnectorAddedEvent += new DelegationConnectorBuildEventHandler(events_DelegationConnectorAddedEvent);
 		}
 		
 		//called when a component has been added to this one
-		private void events_ComponentAddedEvent(object sender, ComponentBuildEventArgs args)
+		private void events_ComponentAddedEvent(object sender, ComponentUseEventArgs args)
 		{
-			Component comp;
-			if (args.Component.Type == ComponentType.BASIC)
-				comp = new BasicComponent(args.Component,modelEnvironment);
+			IComponent comp = modelEnvironment.Query.QueryEntities.GetComponent(args.ComponentID);
+			Component comp_gui;
+			if (comp.Type == ComponentType.BASIC)
+				comp_gui = new BasicComponent(comp,modelEnvironment);
 			else
-				comp = new CompositeComponent(args.Component,modelEnvironment);
+				comp_gui = new CompositeComponent(comp,modelEnvironment);
 
-			childs.Add(args.Component.ID,comp);
-			Console.WriteLine("Component "+args.Component.Name+" added to component "+this.Model.Name+".");
+			childs.Add(args.ComponentID,comp_gui);
+			Console.WriteLine("Component "+comp.Name+" added to component "+this.Model.Name+".");
 
-			comp.Paint();			
+			comp_gui.Paint();			
 		}
 
 		//called when a component has been removed from this one
-		private void events_ComponentRemovedEvent(object sender, ComponentBuildEventArgs args)
+		private void events_ComponentRemovedEvent(object sender, ComponentUseEventArgs args)
 		{
-			if (!childs.ContainsKey(args.Component.ID)) return;
-			childs.Remove(args.Component.ID);
-			Console.WriteLine("Remove Component "+args.Component.Name+" from Component "+Model.Name+".");
+			if (!childs.ContainsKey(args.ComponentID)) return;
+			childs.Remove(args.ComponentID);
+
+			IComponent comp = modelEnvironment.Query.QueryEntities.GetComponent(args.ComponentID);
+			Console.WriteLine("Remove Component "+comp.Name+" from Component "+Model.Name+".");
 			Console.WriteLine("Repaint component "+Model.Name+".");
 			this.Paint();
 		}
@@ -119,24 +117,6 @@ namespace Palladio.CM.Example.Presentation
 			Console.WriteLine("Remove Connection "+args.Connection.Name+" from Component "+Model.Name+".");
 			Console.WriteLine("Repaint component "+Model.Name+".");
 			this.Paint();
-		}
-
-		#endregion
-
-		#region public methods 
-
-		/// <summary>
-		/// called to paint the component
-		/// </summary>
-		public override void Paint()
-		{			
-			Console.WriteLine("CompsiteComponent "+this.Model.Name+" painted.");
-			Console.WriteLine("Paint the childs ... ");
-
-			foreach(DictionaryEntry entry in childs)
-				((AbstractEntity)entry.Value).Paint();
-
-			Console.WriteLine("Childs painted.");
 		}
 
 		#endregion

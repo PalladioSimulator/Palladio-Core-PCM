@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/05 10:40:06  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.2  2005/04/04 16:27:28  joemal
 	/// implement the rest of the notification
 	///
@@ -29,17 +32,29 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to register a component.
 		/// </summary>
 		/// <param name="component">the component which has to be registerted</param>
-		/// <param name="parentComponent">the parent component</param>
-		void RegisterComponent(IComponent component,IComponentIdentifier parentComponent);
+		void RegisterComponent(IComponent component);
 
 		/// <summary>
 		/// called to unregister the given component from the event manager 
 		/// </summary>
 		/// <param name="component">the component</param>
-		/// <param name="parentComponentID">the parent component or null, if the component is placed 
-		/// in the top level of the model</param>
 		/// <exception cref="EntityNotFoundException">the parent component could not be found in cm.</exception>
-		void UnregisterComponent(IComponent component, IComponentIdentifier parentComponentID);
+		void UnregisterComponent(IComponent component);
+
+		/// <summary>
+		/// called to register the relation of one component to another
+		/// </summary>
+		/// <param name="componentId">the component</param>
+		/// <param name="parentComponentId">the parent component</param>
+		void RegisterComponentToComponent(IComponentIdentifier componentId, IComponentIdentifier parentComponentId);
+
+		/// <summary>
+		/// called to unregister the relation from component to another one or to the static view.
+		/// </summary>
+		/// <param name="child">the id of component to be removed</param>
+		/// <param name="parent">the id of the components parent component or null if the component has 
+		/// to be removed from the static view.</param>
+		void UnregisterComponentRelation(IComponentIdentifier child, IComponentIdentifier parent);
 
 		/// <summary>
 		/// called to register an interface.
@@ -123,11 +138,12 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to register a new assembly connector.
 		/// </summary>
 		/// <param name="connection">the connector</param>
+		/// <param name="parentID">the id of the component that contains the connection</param>
 		/// <param name="reqCompID">the id of the requiring component</param>
 		/// <param name="reqIFaceID">the id of the requiring components interface</param>
 		/// <param name="provCompID">the id of the providing component</param>
 		/// <param name="provIFaceID">the id of the providing components interface</param>
-		void RegisterAssemblyConnection(IConnection connection, IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
+		void RegisterAssemblyConnection(IConnection connection, IComponentIdentifier parentID,IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
 
 		/// <summary>

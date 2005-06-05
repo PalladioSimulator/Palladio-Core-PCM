@@ -1,4 +1,3 @@
-using System;
 using Palladio.ComponentModel;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
@@ -15,6 +14,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/06/05 10:40:56  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.6  2005/05/25 18:15:27  kelsaka
 	/// - added new methods to BuilderManager
 	/// - use of new methods in example
@@ -73,8 +75,8 @@ namespace Palladio.CM.Example
 			IInterfaceIdentifier wrbeIfaceID = BuildIFaceIWriterBackEnd(rootBuilder.CreateInterface("IWriterBackEnd"));
 
 			//- Auf ähnliche art und weise die Komponenten basteln
-			IComponentIdentifier wrCCID = BuildCC1(rootBuilder.AddCompositeComponent("WriteCC"), wrbeIfaceID,wrIfaceID);
-			IComponentIdentifier wrbeBCID = BuildBC1(rootBuilder.AddBasicComponent("WriterBackendBC"),wrbeIfaceID);
+			IComponentIdentifier wrCCID = BuildCC1(rootBuilder.AddNewCompositeComponent("WriteCC"), wrbeIfaceID,wrIfaceID);
+			IComponentIdentifier wrbeBCID = BuildBC1(rootBuilder.AddNewBasicComponent("WriterBackendBC"),wrbeIfaceID);
 			rootBuilder.AddAssemblyConnector("WR -> WR_BE",wrCCID,wrbeIfaceID,wrbeBCID,wrbeIfaceID);
 		}
 
@@ -86,12 +88,12 @@ namespace Palladio.CM.Example
 		private IComponentIdentifier BuildCC1(ICompositeComponentBuilder compositeComponentBuilder,
 			IInterfaceIdentifier reqIFace, IInterfaceIdentifier provIFace)
 		{
-			IComponentIdentifier bc2ID = BuildBC2(compositeComponentBuilder.AddBasicComponent("WriterImplBC"),
+			IComponentIdentifier bc2ID = BuildBC2(compositeComponentBuilder.AddNewBasicComponent("WriterImplBC"),
 				provIFace,reqIFace);	
 
 			//Interfaces den der Komponente hinzufügen
-			compositeComponentBuilder.AddProvidesInterface(provIFace);
-			compositeComponentBuilder.AddRequiresInterface(reqIFace);
+			compositeComponentBuilder.AddExistingInterfaceAsProvides(provIFace);
+			compositeComponentBuilder.AddExistingInterfaceAsRequires(reqIFace);
 
 
 			//delegation connector ziehen
@@ -105,8 +107,8 @@ namespace Palladio.CM.Example
 		private IComponentIdentifier BuildBC2(IBasicComponentTypeLevelBuilder basicComponentTypeLevelBuilder,
 			IInterfaceIdentifier provIfaceID,IInterfaceIdentifier reqIFaceID)
 		{
-			basicComponentTypeLevelBuilder.AddProvidesInterface(provIfaceID);
-			basicComponentTypeLevelBuilder.AddRequiresInterface(reqIFaceID);
+			basicComponentTypeLevelBuilder.AddExistingInterfaceAsProvides(provIfaceID);
+			basicComponentTypeLevelBuilder.AddExistingInterfaceAsRequires(reqIFaceID);
 			return basicComponentTypeLevelBuilder.Component.ComponentID;
 		}
 
@@ -114,7 +116,7 @@ namespace Palladio.CM.Example
 		private IComponentIdentifier BuildBC1(IBasicComponentTypeLevelBuilder basicComponentTypeLevelBuilder,
 			IInterfaceIdentifier provIfaceID)
 		{
-			basicComponentTypeLevelBuilder.AddProvidesInterface(provIfaceID);
+			basicComponentTypeLevelBuilder.AddExistingInterfaceAsProvides(provIfaceID);
 			return basicComponentTypeLevelBuilder.Component.ComponentID;
 		}
 

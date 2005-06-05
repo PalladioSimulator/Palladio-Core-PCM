@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Data;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
@@ -17,6 +18,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/06/05 10:40:19  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.3  2005/05/08 17:23:40  joemal
 	/// fix a bug
 	///
@@ -55,7 +59,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the ids of the components</returns>
 		public IComponentIdentifier[] GetComponents()
 		{
-			return QueryComponents("parentComponent is null");
+			return QueryComponents();
 		}
 
 		/// <summary>
@@ -63,11 +67,10 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="compID">the id of the component</param>
 		/// <returns>true, if the component that belongs to the given id is part of this component.</returns>
-		public bool IsChildren(IComponentIdentifier compID)
+		public bool IsChild(IComponentIdentifier compID)
 		{
-			ModelDataSet.ComponentsRow row = this.Dataset.Components.FindByguid(compID.Key);
-			if (row == null) return false;
-			return row.IsparentComponentNull();
+			string query = "fk_parent is null and fk_child = '"+compID.Key+"'";
+			return (this.Dataset.CompRelations.Select(query).Length != 0);
 		}
 
 		/// <summary>
@@ -142,7 +145,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the ids</returns>
 		public IComponentIdentifier[] GetBasicComponents()
 		{
-			return QueryComponents("parentComponent is null and type="+(byte)ComponentType.BASIC);
+			return QueryComponents(ComponentType.BASIC);
 		}
 
 		/// <summary>
@@ -151,19 +154,33 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the ids</returns>
 		public IComponentIdentifier[] GetCompositeComponents()
 		{
-			return QueryComponents("parentComponent is null and type="+(byte)ComponentType.COMPOSITE);
+			return QueryComponents(ComponentType.COMPOSITE);
 		}
 
 		//called to query the components of the static view
-		private IComponentIdentifier[] QueryComponents(string query)
+		private IComponentIdentifier[] QueryComponents()
 		{
-			DataRow[] compRows = this.Dataset.Components.Select(query);
-	
+			string query = "fk_parent is null";
+			DataRow[] compRows = this.Dataset.CompRelations.Select(query);
+			
 			IComponentIdentifier[] compIds = new IComponentIdentifier[compRows.Length];
 	
 			for (int a=0;a<compRows.Length;a++)
-				compIds[a] = ComponentModelIdentifier.CreateComponentID(((ModelDataSet.ComponentsRow)compRows[a]).guid);
+				compIds[a] = ComponentModelIdentifier.CreateComponentID(((ModelDataSet.CompRelationsRow)compRows[a]).fk_child);
+			
 			return compIds;
+		}
+
+		//called to query the components of the static view
+		private IComponentIdentifier[] QueryComponents(ComponentType type)
+		{
+			IComponentIdentifier[] compIDs = QueryComponents();
+			ArrayList cIDs = new ArrayList();
+			foreach(IComponentIdentifier compID in compIDs)
+				if (this.QueryEntities.GetComponent(compID).Type == type)
+					cIDs.Add(compID);
+
+			return (IComponentIdentifier[]) cIDs.ToArray(typeof(IComponentIdentifier));
 		}
 
 		#endregion

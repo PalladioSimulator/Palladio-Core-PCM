@@ -12,6 +12,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/05 10:41:04  joemal
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.1  2005/04/08 10:54:33  joemal
 	/// initial class creation
 	///
@@ -28,14 +31,6 @@ namespace Palladio.CM.Example.Presentation
 		/// <param name="modelEnvironment">the model</param>
 		public BasicComponent(IComponent comp, ComponentModelEnvironment modelEnvironment) : base(comp, modelEnvironment)
 		{
-		}
-
-		/// <summary>
-		/// called to paint the component
-		/// </summary>
-		public override void Paint()
-		{			
-			Console.WriteLine("BasicComponent "+this.Model.Name+" painted.");
 		}
 	}
 }
