@@ -13,6 +13,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/06/05 10:36:34  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.16  2005/05/25 19:44:54  kelsaka
 	/// - optimized usings
 	/// - builders are now returning identifiers again
@@ -126,7 +130,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <summary>
 		/// Accesses the identifier of the actual instance.
 		/// </summary>
-		IInterfaceIdentifier InterfaceIdentifier
+		IInterfaceIdentifier InterfaceId
 		{
 			get;
 		}

@@ -1,4 +1,3 @@
-using System;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
@@ -14,6 +13,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.24  2005/06/05 10:37:33  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.23  2005/05/27 15:22:51  kelsaka
 	/// - added return of entity ids
 	///
@@ -99,24 +102,17 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// </remarks>
 	internal abstract class AbstractInterfaceBuilder : AbstractEntityBuilder, IInterfaceBuilder
 	{
-		#region data
-
-		private IInterface iInterface;
-
-		#endregion
-
 		#region constraints
 
 		/// <summary>
 		/// Initializes the Builder.
 		/// </summary>
 		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="iInterface">The interface to build.</param>
 		/// <param name="builderManager">The factory to use for creating other builders.</param>
-		public AbstractInterfaceBuilder(IModelDataManager modelDataManager, IInterface iInterface, IBuilderManager builderManager)
-			: base(builderManager, modelDataManager)
+		/// <param name="ifaceId">the id of the builders interface</param>
+		public AbstractInterfaceBuilder(IInterfaceIdentifier ifaceId, IModelDataManager modelDataManager, IBuilderManager builderManager)
+			: base(ifaceId,builderManager, modelDataManager)
 		{
-			this.iInterface = iInterface;
 		}
 
 		#endregion
@@ -133,7 +129,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="signature">The existing signature.</param>
 		public void AddSignature (ISignature signature)
 		{
-			base.ModelDataManager.LowLevelBuilder.AddSignature(signature, this.iInterface.InterfaceID);
+			base.ModelDataManager.LowLevelBuilder.AddSignature(signature, this.InterfaceId);
 		}
 
 		/// <summary>
@@ -146,7 +142,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public ISignatureTypeLevelBuilder AddSignature (string signatureName)
 		{
 			ISignature signature = EntityFactory.CreateSignature(signatureName, new SignatureDescription());
-			base.ModelDataManager.LowLevelBuilder.AddSignature(signature, this.iInterface.InterfaceID);
+			base.ModelDataManager.LowLevelBuilder.AddSignature(signature, this.InterfaceId);
 			return base.BuilderManager.GetSignatureTypeLevelBuilder(signature);
 		}
 
@@ -166,7 +162,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="protocol">the protocol to be added</param>
 		public void AddProtocol (IProtocol protocol)
 		{
-			base.ModelDataManager.LowLevelBuilder.AddProtocol(protocol, this.iInterface.InterfaceID);
+			base.ModelDataManager.LowLevelBuilder.AddProtocol(protocol, this.InterfaceId);
 		}
 
 		/// <summary>
@@ -188,15 +184,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		public IInterface Interface
 		{
-			get { return this.iInterface; }
+			get { return ModelDataManager.Query.QueryEntities.GetInterface(this.InterfaceId); }
 		}
 
 		/// <summary>
 		/// Accesses the identifier of the actual instance.
 		/// </summary>
-		public IInterfaceIdentifier InterfaceIdentifier
+		public IInterfaceIdentifier InterfaceId
 		{
-			get { return this.iInterface.InterfaceID; }
+			get { return (IInterfaceIdentifier) this.Id; }
 		}
 
 		#endregion

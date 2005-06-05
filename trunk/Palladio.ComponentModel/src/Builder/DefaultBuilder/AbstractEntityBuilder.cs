@@ -1,6 +1,5 @@
-using System;
 using Palladio.ComponentModel.ModelDataManagement;
-using Palladio.ComponentModel.ModelEntities;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
@@ -12,6 +11,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/06/05 10:37:33  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.8  2005/05/27 13:34:41  kelsaka
 	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
 	///
@@ -42,9 +45,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	{
 		#region data
 
-		//private IComponentModelEntity entity;
 		private IBuilderManager builderManager;
 		private IModelDataManager modelDataManager;
+		private IIdentifier entity_id;
 
 		#endregion
 
@@ -53,21 +56,14 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <summary>
 		/// Initializes the Builder.
 		/// </summary>
-		/// <param name="entity">The enitity instance.</param>
-		/*public AbstractEntityBuilder(IComponentModelEntity entity)
-		{
-			this.entity = entity;
-		}*/
-
-		/// <summary>
-		/// Initializes the Builder.
-		/// </summary>
 		/// <param name="builderManager">The manger to use for getting constrained builders.</param>
 		/// <param name="modelDataManager">The model data manager e. g. for use of the <see cref="LowLevelBuilder"/></param>
-		public AbstractEntityBuilder(IBuilderManager builderManager, IModelDataManager modelDataManager)
+		/// <param name="entity_id">the id of the entity that belongs to this builder</param>
+		public AbstractEntityBuilder(IIdentifier entity_id, IBuilderManager builderManager, IModelDataManager modelDataManager)
 		{
 			this.builderManager = builderManager;
 			this.modelDataManager = modelDataManager;
+			this.entity_id = entity_id;
 		}
 
 		#endregion
@@ -76,12 +72,12 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		#endregion
 
-		#region Properties (not inherited from the IEntityBuilder)
+		#region Properties
 
 		/// <summary>
 		/// Accesses the builder manager (including the builders constraints)
 		/// </summary>
-		public IBuilderManager BuilderManager
+		protected IBuilderManager BuilderManager
 		{
 			get { return this.builderManager; }
 		}
@@ -89,13 +85,23 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <summary>
 		/// Accesses the model data manager of the component model (e. g. <see cref="LowLevelBuilder"/>).
 		/// </summary>
-		public IModelDataManager ModelDataManager
+		protected IModelDataManager ModelDataManager
 		{
 			get { return this.modelDataManager; }
 		}
 
-		#endregion		
+		/// <summary>
+		/// called to returns the id of the entity that belongs to this builder
+		/// </summary>
+		public IIdentifier Id
+		{
+			get
+			{
+				return this.entity_id;
+			}
+		}
 
+		#endregion		
 
 	}
 }

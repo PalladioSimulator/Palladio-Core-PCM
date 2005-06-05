@@ -165,7 +165,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Builder\DefaultBuilder\AbstractBasicComponentBuilder.cs"
+                    RelPath = "src\Builder\DefaultBuilder\AbstractComponentBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -333,7 +333,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\BuilderConstraints\DefaultConstraints\AbstractEntityConstraint.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\BuilderConstraints\DefaultConstraints\TypeLevelConstraints\BasicComponentTypeLevelConstraint.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\BuilderConstraints\DefaultConstraints\TypeLevelConstraints\ComponentTypeLevelConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -633,6 +643,11 @@
                 />
                 <File
                     RelPath = "src\ModelEventManagement\ModelEventManager.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEventManagement\RepositoryEvents.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

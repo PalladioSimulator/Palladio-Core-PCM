@@ -15,6 +15,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.24  2005/06/05 10:37:33  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.23  2005/05/27 15:22:51  kelsaka
 	/// - added return of entity ids
 	///
@@ -97,24 +101,17 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// </remarks>
 	internal abstract class AbstractSignatureBuilder : AbstractEntityBuilder, ISignatureBuilder
 	{
-		#region data
-
-		private ISignature signature;
-
-		#endregion
-
 		#region constructors
 
 		/// <summary>
 		/// Initializes the Builder.
 		/// </summary>
+		/// <param name="sigId">the id of the builders signature</param>
 		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="signature">The signature to build.</param>
 		/// <param name="builderManager">The factory to use for creating other builders.</param>
-		public AbstractSignatureBuilder(IModelDataManager modelDataManager, ISignature signature, IBuilderManager builderManager)
-			: base(builderManager, modelDataManager)
+		public AbstractSignatureBuilder(ISignatureIdentifier sigId, IModelDataManager modelDataManager, IBuilderManager builderManager)
+			: base(sigId,builderManager, modelDataManager)
 		{
-			this.signature = signature;	
 		}
 
 		#endregion
@@ -132,7 +129,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void SetReturnType (string name)
 		{
 			IType type = EntityFactory.CreateType(name);
-			this.signature.ReturnType = type;			
+			this.Signature.ReturnType = type;			
 		}
 
 		/// <summary>
@@ -141,7 +138,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="type">The given type is used as return type.</param>
 		public void SetReturnType (Type type)
 		{
-			this.signature.ReturnType = EntityFactory.CreateType(type);
+			this.Signature.ReturnType = EntityFactory.CreateType(type);
 		}
 
 		/// <summary>
@@ -149,7 +146,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		public void SetReturnTypeVoid ()
 		{
-			this.signature.ReturnType = EntityFactory.CreateType(typeof(void));
+			this.Signature.ReturnType = EntityFactory.CreateType(typeof(void));
 		}
 
 		/// <summary>
@@ -197,9 +194,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 
 		private void AppendParameter (IParameter parameter)
 		{
-			ArrayList parameterList = new ArrayList(this.signature.Parameters);
+			ArrayList parameterList = new ArrayList(this.Signature.Parameters);
 			parameterList.Add(parameter);
-			signature.Parameters = (IParameter[])parameterList.ToArray(typeof(IParameter));	
+			Signature.Parameters = (IParameter[])parameterList.ToArray(typeof(IParameter));	
 		}
 
 		/// <summary>
@@ -213,7 +210,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </remarks>
 		public void ClearParameterList ()
 		{
-			this.signature.Parameters = SignatureDescription.DEFAULT_PARAMETERS;
+			this.Signature.Parameters = SignatureDescription.DEFAULT_PARAMETERS;
 		}
 
 		/// <summary>
@@ -257,12 +254,12 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 				throw new TypeNotValidException(type.ToString() + " is not an exception type.");
 			}
 	
-			ArrayList exceptionsList = new ArrayList(this.signature.Exceptions);
+			ArrayList exceptionsList = new ArrayList(this.Signature.Exceptions);
 			// search for double exception-types. 
 			if(!exceptionsList.Contains(type))
 			{
 				exceptionsList.Add(type);	
-				signature.Exceptions = (IType[])exceptionsList.ToArray(typeof(IType));			
+				Signature.Exceptions = (IType[])exceptionsList.ToArray(typeof(IType));			
 			}
 		}
 
@@ -273,9 +270,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void RemoveException (Type exception)
 		{
 			IType exceptionType = EntityFactory.CreateType(exception);
-			ArrayList exceptionsList = new ArrayList(this.signature.Exceptions);
+			ArrayList exceptionsList = new ArrayList(this.Signature.Exceptions);
 			exceptionsList.Remove(exceptionType);
-			signature.Exceptions = (IType[])exceptionsList.ToArray(typeof(IType));				
+			Signature.Exceptions = (IType[])exceptionsList.ToArray(typeof(IType));				
 		}
 
 		#endregion
@@ -287,15 +284,15 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		public ISignature Signature
 		{
-			get { return this.signature; }
+			get { return this.ModelDataManager.Query.QueryEntities.GetSignature(this.SignatureId); }
 		}
 
 		/// <summary>
 		/// Accesses the identifier of the actual instance.
 		/// </summary>
-		public ISignatureIdentifier SignatureIdentifier
+		public ISignatureIdentifier SignatureId
 		{
-			get { return this.signature.SignatureID; }
+			get { return (ISignatureIdentifier) this.Id; }
 		}
 
 		#endregion

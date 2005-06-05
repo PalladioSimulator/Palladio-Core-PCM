@@ -15,6 +15,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/06/05 10:36:34  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.13  2005/05/25 19:44:54  kelsaka
 	/// - optimized usings
 	/// - builders are now returning identifiers again
@@ -76,20 +80,20 @@ namespace Palladio.ComponentModel.Builder
 		/// Called to add an existing interface as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
-		void AddProvidesInterface(IInterfaceIdentifier ifaceIdentifier);
+		void AddExistingInterfaceAsProvides(IInterfaceIdentifier ifaceIdentifier);
 
 		/// <summary>
 		/// Called to add an existing interface as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the existing interface</param>
-		void AddRequiresInterface(IInterfaceIdentifier ifaceIdentifier);
+		void AddExistingInterfaceAsRequires(IInterfaceIdentifier ifaceIdentifier);
 
 		/// <summary>
 		/// Creates a new interface and adds it as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
 		/// </summary>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
-		IInterfaceTypeLevelBuilder AddProvidesInterface(string interfaceName);
+		IInterfaceTypeLevelBuilder AddNewInterfaceAsProvides(string interfaceName);
 
 		/// <summary>
 		/// Creates a new interface and adds it as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
@@ -98,14 +102,14 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
-		IInterfaceTypeLevelBuilder AddProvidesInterface(IInterfaceIdentifier ifaceIdentifier, string interfaceName);
+		IInterfaceTypeLevelBuilder AddNewInterfaceAsProvides(IInterfaceIdentifier ifaceIdentifier, string interfaceName);
 
 		/// <summary>
 		/// Creates a new interface and adds it as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
 		/// </summary>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
-		IInterfaceTypeLevelBuilder AddRequiresInterface(string interfaceName);
+		IInterfaceTypeLevelBuilder AddNewInterfaceAsRequires(string interfaceName);
 
 		/// <summary>
 		/// Creates a new interface and adds it as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
@@ -114,7 +118,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
 		/// <param name="interfaceName">The name of the newly created interface.</param>
 		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
-		IInterfaceTypeLevelBuilder AddRequiresInterface(IInterfaceIdentifier ifaceIdentifier, string interfaceName);
+		IInterfaceTypeLevelBuilder AddNewInterfaceAsRequires(IInterfaceIdentifier ifaceIdentifier, string interfaceName);
 
 		/// <summary>
 		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
@@ -149,7 +153,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <summary>
 		/// Accesses the identifier of the actual instance.
 		/// </summary>
-		IComponentIdentifier ComponentIdentifier
+		IComponentIdentifier ComponentId
 		{
 			get;
 		}

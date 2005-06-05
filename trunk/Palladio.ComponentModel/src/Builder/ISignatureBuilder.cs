@@ -13,6 +13,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.18  2005/06/05 10:36:34  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.17  2005/05/27 10:30:12  kelsaka
 	/// - updated some documentation
 	///
@@ -177,7 +181,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <summary>
 		/// Accesses the identifier of the actual instance.
 		/// </summary>
-		ISignatureIdentifier SignatureIdentifier
+		ISignatureIdentifier SignatureId
 		{
 			get;
 		}

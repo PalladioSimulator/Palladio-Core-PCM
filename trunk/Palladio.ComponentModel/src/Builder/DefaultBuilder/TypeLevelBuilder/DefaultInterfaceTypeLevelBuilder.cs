@@ -1,8 +1,8 @@
 using System;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
-using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 {
@@ -14,6 +14,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/06/05 10:37:57  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.9  2005/05/27 13:34:41  kelsaka
 	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
 	///
@@ -53,11 +57,11 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// <summary>
 		/// Initializes the Builder.
 		/// </summary>
+		/// <param name="ifaceId">the id of the builders interface</param>
 		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="iInterface">The interface to build.</param>
 		/// <param name="builderManager">The factory to use for creating new builders.</param>
-		public DefaultInterfaceTypeLevelBuilder(IModelDataManager modelDataManager, IInterface iInterface, Palladio.ComponentModel.Builder.IBuilderManager builderManager) 
-			: base(modelDataManager, iInterface, builderManager)
+		public DefaultInterfaceTypeLevelBuilder(IInterfaceIdentifier ifaceId, IModelDataManager modelDataManager, IBuilderManager builderManager) 
+			: base(ifaceId,modelDataManager, builderManager)
 		{
 		}
 
@@ -84,12 +88,12 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// Clones the actual builder / constraints instance except the created / supervised
 		/// component model entity.
 		/// </summary>
-		/// <param name="iInterface">The component model entity that has to be builder /
+		/// <param name="ifaceId">The id of the component model entity that has to be builder /
 		/// supervised.</param>
 		/// <returns>A copy of the actual builder / constraint.</returns>
-		public IInterfaceTypeLevelBuilder Clone (IInterface iInterface)
+		public IInterfaceTypeLevelBuilder Clone (IInterfaceIdentifier ifaceId)
 		{
-			return new DefaultInterfaceTypeLevelBuilder(base.ModelDataManager, iInterface, base.BuilderManager);
+			return new DefaultInterfaceTypeLevelBuilder(ifaceId,base.ModelDataManager, base.BuilderManager);
 		}
 
 		#endregion

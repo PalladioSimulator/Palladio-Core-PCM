@@ -19,6 +19,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/06/05 10:36:34  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.13  2005/05/30 13:09:35  kelsaka
 	/// - methods for adding connections are now returning ids.
 	///
@@ -73,34 +77,27 @@ namespace Palladio.ComponentModel.Builder
 		#region methods
 
 		/// <summary>
-		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.
+		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the model.
 		/// </summary>
 		/// <param name="name">The components name.</param>
 		/// <returns>Type level builder of the new basic component.</returns>
-		IBasicComponentTypeLevelBuilder AddBasicComponent(string name);
+		IBasicComponentTypeLevelBuilder AddNewBasicComponent(string name);
 
 		/// <summary>
-		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.
+		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the model.
 		/// (for use in deserialization.)
 		/// </summary>
 		/// <param name="componentIdentifier">The id for the new component.</param>
 		/// <param name="name">The new components name.</param>
 		/// <returns>Type level builder of the new basic component with the given ID.</returns>
-		IBasicComponentTypeLevelBuilder AddBasicComponent(IComponentIdentifier componentIdentifier, string name);
-
-		/// <summary>
-		/// Adds an existing basic component <see cref="IComponent"/> (identified by component identifier).
-		/// </summary>
-		/// <param name="componentIdentifier">The id of the existing component.</param>
-		/// <returns>Type level builder of the basic component with the given ID.</returns>
-		IBasicComponentTypeLevelBuilder AddExistingBasicComponent(IComponentIdentifier componentIdentifier);
+		IBasicComponentTypeLevelBuilder AddNewBasicComponent(IComponentIdentifier componentIdentifier, string name);
 
 		/// <summary>
 		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>) to the component model.
 		/// </summary>
 		/// <param name="name">The components name</param>
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
-		ICompositeComponentTypeLevelBuilder AddCompositeComponent(string name);
+		ICompositeComponentTypeLevelBuilder AddNewCompositeComponent(string name);
 
 		/// <summary>
 		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>) to the component model.
@@ -109,19 +106,17 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="componentIdentifier">The id for the new component.</param>
 		/// <param name="name">The new components name.</param>
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
-		ICompositeComponentTypeLevelBuilder AddCompositeComponent(IComponentIdentifier componentIdentifier, string name);
-				
-		/// <summary>
-		/// Adds an existing Composite Component <see cref="IComponent"/> (identified by component identifier).
-		/// </summary>
-		/// <param name="componentIdentifier">The id of the existing component.</param>
-		/// <returns>Type level builder of the basic component with the given ID.</returns>
-		ICompositeComponentTypeLevelBuilder AddExistingCompositeComponent(IComponentIdentifier componentIdentifier);
+		ICompositeComponentTypeLevelBuilder AddNewCompositeComponent(IComponentIdentifier componentIdentifier, string name);
 
 		/// <summary>
-		/// Called to remove the component which belongs to the given id. All contained components
-		/// (Type <see cref="ComponentType.COMPOSITE"/>) and
-		/// all connections to and from this components are also removed.
+		/// Adds an existing basic component <see cref="IComponent"/> (identified by component identifier) to the model.
+		/// </summary>
+		/// <param name="componentIdentifier">The id of the existing component.</param>
+		void AddExistingComponent(IComponentIdentifier componentIdentifier);
+		
+		/// <summary>
+		/// Called to remove the component which belongs to the given id. All
+		/// connections to and from this components are also removed.
 		/// </summary>
 		/// <param name="componentId">the id of the component to be removed</param>
 		void RemoveComponent(IComponentIdentifier componentId);

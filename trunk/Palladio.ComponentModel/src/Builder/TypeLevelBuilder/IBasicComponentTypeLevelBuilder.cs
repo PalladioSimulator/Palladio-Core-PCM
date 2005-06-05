@@ -1,5 +1,5 @@
-using System;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
+using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
@@ -13,6 +13,10 @@ namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/06/05 10:36:55  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.6  2005/05/27 10:30:12  kelsaka
 	/// - updated some documentation
 	///
@@ -70,11 +74,11 @@ namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 		/// Clones the actual builder / constraints instance except the created / supervised
 		/// component model entity.
 		/// </summary>
-		/// <param name="component">The component model entity that has to be builder /
+		/// <param name="compId">The id of the component model entity that has to be builder /
 		/// supervised.</param>
 		/// <returns>A copy of the actual builder / constraint.</returns>
 		/// <remarks>This method should only be used for constraints management.</remarks>
-		IBasicComponentTypeLevelBuilder Clone(IComponent component);
+		IBasicComponentTypeLevelBuilder Clone(IComponentIdentifier compId);
 
 		#endregion
 	}

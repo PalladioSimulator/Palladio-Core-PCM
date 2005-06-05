@@ -1,10 +1,9 @@
-using System;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
-using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.Query;
 
 namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLevelConstraints
 {
@@ -17,6 +16,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.5  2005/06/05 10:38:31  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.4  2005/05/25 19:44:54  kelsaka
 	/// - optimized usings
 	/// - builders are now returning identifiers again
@@ -35,13 +38,11 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	///
 	/// </pre>
 	/// </remarks>
-	public class InterfaceTypeLevelConstraint : IInterfaceTypeLevelBuilder
+	public class InterfaceTypeLevelConstraint : AbstractEntityConstraint,IInterfaceTypeLevelBuilder
 	{
 		#region data
 		
 		private IInterfaceTypeLevelBuilder interfaceBuilderSuccessor;
-		private IModelDataManager modelDataManager;
-		private IInterface iInterface;
 
 		#endregion
 
@@ -50,21 +51,19 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		/// <param name="modelDataManager">The model data manager to use for executing e. g. queries.</param>
-		public InterfaceTypeLevelConstraint(IModelDataManager modelDataManager)
+		/// <param name="query">the query interface of the componentmodel</param>
+		public InterfaceTypeLevelConstraint(IQuery query): base (query)
 		{
-			this.modelDataManager = modelDataManager;
 		}
 
 		/// <summary>
 		/// Internal constructor.
 		/// </summary>
-		/// <param name="modelDataManager">The model data manager to use for executing e. g. queries.</param>
-		/// <param name="iInterface">The interface this instance is constraint for.</param>
-		private InterfaceTypeLevelConstraint(IModelDataManager modelDataManager, IInterface iInterface)
+		/// <param name="query">the query of the componentmodel</param>
+		/// <param name="ifaceId">The id of the interface this instance is constraint for.</param>
+		private InterfaceTypeLevelConstraint(IInterfaceIdentifier ifaceId,IQuery query) : 
+			base(ifaceId, query)
 		{
-			this.modelDataManager = modelDataManager;
-			this.iInterface = iInterface;
 		}
 
 		#endregion
@@ -96,12 +95,11 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// associated to the actual interface.</exception>
 		public void RemoveSignature (ISignatureIdentifier signatureID)
 		{
-			if(!this.modelDataManager.Query.QueryTypeLevel.QueryInterface(this.iInterface
-				.InterfaceID).IsSignatureFromInterface(signatureID))
+			if(!this.Query.QueryTypeLevel.QueryInterface(this.InterfaceId).IsSignatureFromInterface(signatureID))
 			{
-				throw new SignatureNotFoundException(signatureID, this.iInterface.InterfaceID,
-					"The signature is not part of this ");
+				throw new SignatureNotFoundException(signatureID, this.InterfaceId,"The signature is not part of this ");
 			}
+
 			this.interfaceBuilderSuccessor.RemoveSignature(signatureID);
 		}
 
@@ -123,8 +121,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// attached to the actual interface.</exception>
 		public void RemoveProtocol (IProtocolIdentifier protocolID)
 		{
-			if(!this.modelDataManager.Query.QueryTypeLevel.QueryInterface(this.iInterface.InterfaceID)
-				.IsProtocolFromInterface(protocolID))
+			if(!this.Query.QueryTypeLevel.QueryInterface(this.InterfaceId).IsProtocolFromInterface(protocolID))
 			{
 				throw new EntityNotFoundException(protocolID,
 					"The given protocol is not associated with the actual component.");
@@ -157,9 +154,12 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <summary>
 		/// Accesses the identifier of the actual instance.
 		/// </summary>
-		public IInterfaceIdentifier InterfaceIdentifier
+		public IInterfaceIdentifier InterfaceId
 		{
-			get { throw new NotImplementedException (); }
+			get
+			{
+				return this.interfaceBuilderSuccessor.InterfaceId;
+			}
 		}
 
 		#region constraint-management
@@ -182,9 +182,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <param name="iInterface">The component model entity that has to be builder /
 		/// supervised.</param>
 		/// <returns>A copy of the actual builder / constraint.</returns>
-		public IInterfaceTypeLevelBuilder Clone (IInterface iInterface)
+		/// <remarks>This method should only be used for constraints management.</remarks>
+		public IInterfaceTypeLevelBuilder Clone(IInterfaceIdentifier iInterface)
 		{
-			return new InterfaceTypeLevelConstraint(modelDataManager, iInterface);
+			return new InterfaceTypeLevelConstraint(iInterface, this.Query);
 		}
 
 		#endregion

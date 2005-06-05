@@ -1,5 +1,6 @@
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder
 {	
@@ -18,6 +19,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/06/05 10:36:34  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.13  2005/05/25 16:27:10  kelsaka
 	/// - renamed former BuilderFactory / therefore removed former BuilderManager
 	///
@@ -88,19 +93,43 @@ namespace Palladio.ComponentModel.Builder
 		IInterfaceTypeLevelBuilder CreateInterface(IInterfaceIdentifier interfaceIdentifier, string name);
 
 		/// <summary>
-		/// Adds an existing interface with the given identifier to the component model. Returns a
-		/// <see cref="IInterfaceBuilder"/>, which allows to customize the added interfaces.
-		/// </summary>
-		/// <param name="interfaceIdentifier">The existing interfaces identifier.</param>
-		/// <returns>A InterfaceBuilder for the existing interface Identifier.</returns>
-		IInterfaceTypeLevelBuilder AddExistingInterface(IInterfaceIdentifier interfaceIdentifier);
-
-		/// <summary>
 		/// called to remove an interface from a component. If the entity could not be found in 
 		/// componentmodel, the method returns without doing anything.
 		/// </summary>
 		/// <param name="ifaceIdentifier">the id of the interface</param>
 		void RemoveInterface(IInterfaceIdentifier ifaceIdentifier);
+
+		/// <summary>
+		/// Creates a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>).
+		/// </summary>
+		/// <param name="name">The components name.</param>
+		/// <returns>Type level builder of the new basic component.</returns>
+		IBasicComponentTypeLevelBuilder CreateBasicComponent(string name);
+
+		/// <summary>
+		/// Creates a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>).
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="componentIdentifier">The id for the new component.</param>
+		/// <param name="name">The new components name.</param>
+		/// <returns>Type level builder of the new basic component with the given ID.</returns>
+		IBasicComponentTypeLevelBuilder CreateBasicComponent(IComponentIdentifier componentIdentifier, string name);
+
+		/// <summary>
+		/// Creates a new <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>).
+		/// </summary>
+		/// <param name="name">The components name</param>
+		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
+		ICompositeComponentTypeLevelBuilder CreateCompositeComponent(string name);
+
+		/// <summary>
+		/// Creates a new <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>).
+		/// (for use in deserialization.)
+		/// </summary>
+		/// <param name="componentIdentifier">The id for the new component.</param>
+		/// <param name="name">The new components name.</param>
+		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
+		ICompositeComponentTypeLevelBuilder CreateCompositeComponent(IComponentIdentifier componentIdentifier, string name);
 
 		/// <summary>
 		/// call to remove all entities and their relations from the model

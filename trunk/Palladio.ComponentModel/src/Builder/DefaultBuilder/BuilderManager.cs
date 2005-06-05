@@ -25,6 +25,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/06/05 10:37:33  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.11  2005/05/27 15:22:51  kelsaka
 	/// - added return of entity ids
 	///
@@ -101,22 +105,22 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			// initialize builder/constraints-lists with empty entities.
 			this.rootTypeLevelBuilderConstraints = new RootTypeLevelBuilderList();
 			this.rootTypeLevelBuilderConstraints.Add(new DefaultRootTypeLevelBuilder(modelDataManager, this));
-			this.rootTypeLevelBuilderConstraints.Add(new RootTypeLevelConstraint(modelDataManager));
+			this.rootTypeLevelBuilderConstraints.Add(new RootTypeLevelConstraint(modelDataManager.Query));
 
 			this.basicComponentTypeLevelBuilderConstraints = new BasicComponentTypeLevelBuilderList();
-			this.basicComponentTypeLevelBuilderConstraints.Add(new DefaultBasicComponentTypeLevelBuilder(modelDataManager, null, this));
-			this.basicComponentTypeLevelBuilderConstraints.Add(new BasicComponentTypeLevelConstraint(modelDataManager));
+			this.basicComponentTypeLevelBuilderConstraints.Add(new DefaultBasicComponentTypeLevelBuilder(null,modelDataManager, this));
+			this.basicComponentTypeLevelBuilderConstraints.Add(new BasicComponentTypeLevelConstraint(modelDataManager.Query));
 		
 			this.compositeComponentTypeLevelBuilderConstraints = new CompositeComponentTypeLevelBuilderList();
-			this.compositeComponentTypeLevelBuilderConstraints.Add(new DefaultCompositeComponentTypeLevelBuilder(modelDataManager, null, this));
-			this.compositeComponentTypeLevelBuilderConstraints.Add(new CompositeComponentTypeLevelConstraint(modelDataManager));
+			this.compositeComponentTypeLevelBuilderConstraints.Add(new DefaultCompositeComponentTypeLevelBuilder(null,modelDataManager, this));
+			this.compositeComponentTypeLevelBuilderConstraints.Add(new CompositeComponentTypeLevelConstraint(modelDataManager.Query));
 
 			this.interfaceTypeLevelBuilderConstraints = new InterfaceTypeLevelBuilderList();
-			this.interfaceTypeLevelBuilderConstraints.Add(new DefaultInterfaceTypeLevelBuilder(modelDataManager, null, this));
-			this.interfaceTypeLevelBuilderConstraints.Add(new InterfaceTypeLevelConstraint(modelDataManager));
+			this.interfaceTypeLevelBuilderConstraints.Add(new DefaultInterfaceTypeLevelBuilder( null,modelDataManager, this));
+			this.interfaceTypeLevelBuilderConstraints.Add(new InterfaceTypeLevelConstraint(modelDataManager.Query));
 
 			this.signatureTypeLevelBuilderConstraints = new SignatureTypeLevelBuilderList();
-			this.signatureTypeLevelBuilderConstraints.Add(new DefaultSignatureTypeLevelBuilder(modelDataManager, null, this));
+			this.signatureTypeLevelBuilderConstraints.Add(new DefaultSignatureTypeLevelBuilder( null,modelDataManager,this));
 			//this.signatureTypeLevelBuilderConstraints.Add(new SignatureTypeLevelConstraint(modelDataManager)); // currently there are no signature constraints (necessary)
 		}
 
@@ -222,7 +226,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Basic component builder for the type level.</returns>
 		public IBasicComponentTypeLevelBuilder GetBasicComponentTypeLevelBuilder (IComponent component)
 		{
-			return this.basicComponentTypeLevelBuilderConstraints.GetOuterBuilder(component);
+			return this.GetBasicComponentTypeLevelBuilder(component.ComponentID);
 		}
 
 		/// <summary>
@@ -232,7 +236,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Composite component builder for the type level.</returns>
 		public ICompositeComponentTypeLevelBuilder GetCompositeComponentTypeLevelBuilder (IComponent component)
 		{
-			return this.compositeComponentTypeLevelBuilderConstraints.GetOuterBuilder(component);
+			return this.GetCompositeComponentTypeLevelBuilder(component.ComponentID);
 		}
 
 		/// <summary>
@@ -242,7 +246,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>interface builder for the type level.</returns>
 		public IInterfaceTypeLevelBuilder GetInterfaceTypeLevelBuilder (IInterface iInterface)
 		{
-			return this.interfaceTypeLevelBuilderConstraints.GetOuterBuilder(iInterface);
+			return this.GetInterfaceTypeLevelBuilder(iInterface.InterfaceID);
 		}
 
 		/// <summary>
@@ -252,7 +256,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>signature builder for the type level.</returns>
 		public ISignatureTypeLevelBuilder GetSignatureTypeLevelBuilder (ISignature signature)
 		{
-			return this.signatureTypeLevelBuilderConstraints.GetOuterBuilder(signature);
+			return this.GetSignatureTypeLevelBuilder(signature.SignatureID);
 		}
 
 		#region type level
@@ -264,8 +268,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Basic component builder for the type level.</returns>
 		public IBasicComponentTypeLevelBuilder GetBasicComponentTypeLevelBuilder (IComponentIdentifier componentID)
 		{
-			//this.modelDataManager.Query.QueryEntities.GetComponent(componentID);
-			throw new NotImplementedException ();
+			return this.basicComponentTypeLevelBuilderConstraints.GetOuterBuilder(componentID);
 		}
 
 		/// <summary>
@@ -275,7 +278,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>Composite component builder for the type level.</returns>
 		public ICompositeComponentTypeLevelBuilder GetCompositeComponentTypeLevelBuilder (IComponentIdentifier componentID)
 		{
-			throw new NotImplementedException ();
+			return this.compositeComponentTypeLevelBuilderConstraints.GetOuterBuilder(componentID);
 		}
 
 		/// <summary>
@@ -285,7 +288,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>interface builder for the type level.</returns>
 		public IInterfaceTypeLevelBuilder GetInterfaceTypeLevelBuilder (IInterfaceIdentifier iInterfaceID)
 		{
-			throw new NotImplementedException ();
+			return this.interfaceTypeLevelBuilderConstraints.GetOuterBuilder(iInterfaceID);
 		}
 
 		/// <summary>
@@ -295,7 +298,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <returns>signature builder for the type level.</returns>
 		public ISignatureTypeLevelBuilder GetSignatureTypeLevelBuilder (ISignatureIdentifier signatureID)
 		{
-			throw new NotImplementedException ();
+			return this.signatureTypeLevelBuilderConstraints.GetOuterBuilder(signatureID);
 		}
 
 		#endregion

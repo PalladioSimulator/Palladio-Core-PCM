@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
-using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.Query;
 
 namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLevelConstraints
 {
@@ -19,6 +17,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.12  2005/06/05 10:38:31  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.11  2005/05/30 13:09:35  kelsaka
 	/// - methods for adding connections are now returning ids.
 	///
@@ -62,48 +64,39 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	///
 	/// </pre>
 	/// </remarks>
-	public class CompositeComponentTypeLevelConstraint : ICompositeComponentTypeLevelBuilder
+	public class CompositeComponentTypeLevelConstraint : ComponentTypeLevelConstraint,ICompositeComponentTypeLevelBuilder
 	{
-		#region data
-		
-		private ICompositeComponentTypeLevelBuilder compositeComponentBuilderSuccessor;
-		private IModelDataManager modelDataManager;
-		private IComponent component;
-
-		#endregion
-
 		#region constructors
 
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
-		/// <param name="modelDataManager">The model data manager to use for executing e. g. queries.</param>
-		public CompositeComponentTypeLevelConstraint(IModelDataManager modelDataManager)
+		/// <param name="query">The query interface of the model.</param>
+		public CompositeComponentTypeLevelConstraint(IQuery query) : base(query)
 		{
-			this.modelDataManager = modelDataManager;
 		}
 
 		/// <summary>
 		/// Internal constructor.
 		/// </summary>
-		/// <param name="modelDataManager">The model data manager to use for executing e. g. queries.</param>
-		/// <param name="component">The component this instance is constraint for.</param>
-		private CompositeComponentTypeLevelConstraint(IModelDataManager modelDataManager, IComponent component)
+		/// <param name="compId">the id of the component</param>
+		/// <param name="query">The query interface of the model.</param>
+		private CompositeComponentTypeLevelConstraint(IComponentIdentifier compId, IQuery query):base(compId,query)
 		{
-			this.modelDataManager = modelDataManager;
-			this.component = component;
 		}
 
 		#endregion
 
+		#region methods 
+
 		/// <summary>
-		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the component model.
+		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.BASIC"/>) to the model.
 		/// </summary>
 		/// <param name="name">The components name.</param>
 		/// <returns>Type level builder of the new basic component.</returns>
-		public IBasicComponentTypeLevelBuilder AddBasicComponent (string name)
+		public IBasicComponentTypeLevelBuilder AddNewBasicComponent(string name)
 		{
-			return compositeComponentBuilderSuccessor.AddBasicComponent(name);
+			return CompositeComponentBuilderSuccessor.AddNewBasicComponent(name);
 		}
 
 		/// <summary>
@@ -118,37 +111,24 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// will be thrown.</remarks>
 		/// <exception cref="EntityAlreadyExistsException">Is thrown if the component identifier
 		/// already exists in the component model (the id is not new).</exception>
-		public IBasicComponentTypeLevelBuilder AddBasicComponent (IComponentIdentifier componentIdentifier, string name)
-		{			
-			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(componentIdentifier))
-			{			
-				throw new EntityAlreadyExistsException(componentIdentifier,
-					"The component can not be created with the given identifier as is the identifier already exists.");
-			}
-			else
-			{
-				return compositeComponentBuilderSuccessor.AddBasicComponent(componentIdentifier, name);
-			}
-		}
-
-		/// <summary>
-		/// Adds an existing basic component <see cref="IComponent"/> (identified by component identifier).
-		/// </summary>
-		/// <param name="componentIdentifier">The id of the existing component.</param>
-		/// <returns>Type level builder of the basic component with the given ID.</returns>
-		public IBasicComponentTypeLevelBuilder AddExistingBasicComponent (IComponentIdentifier componentIdentifier)
+		public IBasicComponentTypeLevelBuilder AddNewBasicComponent(IComponentIdentifier componentIdentifier, string name)
 		{
-			throw new NotImplementedException ();
+			if(this.Query.QueryEntities.ContainsEntity(componentIdentifier))
+			{			
+				throw new EntityAlreadyExistsException("The component can not be created with the "+
+					"given identifier as is the identifier already exists.");
+			}
+			return CompositeComponentBuilderSuccessor.AddNewBasicComponent(componentIdentifier, name);
 		}
 
 		/// <summary>
-		/// Adds a new <see cref="ComponentType.COMPOSITE"/> (Type <see cref="ICompositeComponentBuilder"/>) to the component model.
+		/// Adds a new <see cref="IComponent"/> (Type <see cref="ComponentType.COMPOSITE"/>) to the component model.
 		/// </summary>
 		/// <param name="name">The components name</param>
-		/// <returns>A <see cref="IComponent"/> to build the further component.</returns>
-		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (string name)
+		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
+		public ICompositeComponentTypeLevelBuilder AddNewCompositeComponent(string name)
 		{
-			return compositeComponentBuilderSuccessor.AddCompositeComponent(name);
+			return CompositeComponentBuilderSuccessor.AddNewCompositeComponent(name);
 		}
 
 		/// <summary>
@@ -163,27 +143,24 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// will be thrown.</remarks>
 		/// <exception cref="EntityAlreadyExistsException">Is thrown if the component identifier
 		/// already exists in the component model (the id is not new).</exception>
-		public ICompositeComponentTypeLevelBuilder AddCompositeComponent (IComponentIdentifier componentIdentifier, string name)
+		public ICompositeComponentTypeLevelBuilder AddNewCompositeComponent(IComponentIdentifier componentIdentifier, string name)
 		{
-			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(componentIdentifier))
+			if(this.Query.QueryEntities.ContainsEntity(componentIdentifier))
 			{			
-				throw new EntityAlreadyExistsException(componentIdentifier,
-					"The component can not be created with the given identifier as is the identifier already exists.");
+				throw new EntityAlreadyExistsException("The component can not be created with "+
+					"the given identifier as is the identifier already exists.");
 			}
-			else
-			{
-				return compositeComponentBuilderSuccessor.AddCompositeComponent(componentIdentifier, name);
-			}			
+			return CompositeComponentBuilderSuccessor.AddNewCompositeComponent(componentIdentifier, name);
 		}
 
 		/// <summary>
-		/// Adds an existing Composite Component <see cref="IComponent"/> (identified by component identifier).
+		/// Adds an existing basic component <see cref="IComponent"/> (identified by component identifier) to the model.
 		/// </summary>
 		/// <param name="componentIdentifier">The id of the existing component.</param>
-		/// <returns>Type level builder of the basic component with the given ID.</returns>
-		public ICompositeComponentTypeLevelBuilder AddExistingCompositeComponent (IComponentIdentifier componentIdentifier)
+		public void AddExistingComponent(IComponentIdentifier componentIdentifier)
 		{
-			throw new NotImplementedException ();
+			//todo: Constrains??
+			CompositeComponentBuilderSuccessor.AddExistingComponent(componentIdentifier);
 		}
 
 		/// <summary>
@@ -197,20 +174,16 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <exception cref="ComponentNotFoundException">Thrown if the actual composite
 		/// component does not have a internal component with the given component identifier.
 		/// </exception>
-		public void RemoveComponent (IComponentIdentifier componentId)
+		public void RemoveComponent(IComponentIdentifier componentId)
 		{
-			if(!this.modelDataManager.Query.
-				QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).IsChildren(componentId))
+			if(!this.Query.QueryTypeLevel.QueryCompositeComponent(this.ComponentId).IsChild(componentId))
 			{			
 				throw new ComponentNotFoundException(componentId,
 					"The given component can not be removed from the actual composite component as the"
 					+ " composite component does not have a interal component with the given identifier.");
 			}
-			else
-			{
-				compositeComponentBuilderSuccessor.RemoveComponent(componentId);
-			}			
-		}
+			CompositeComponentBuilderSuccessor.RemoveComponent(componentId);
+		}	
 
 		/// <summary>
 		/// called to add an assemblyConnector from a requires interfaces of a component to a provides interface of 
@@ -234,31 +207,31 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
 			IInterfaceIdentifier provIFaceID)
 		{
-			if(!modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).IsChildren(reqCompID))
+			if(!Query.QueryTypeLevel.QueryCompositeComponent(this.ComponentId).IsChild(reqCompID))
 			{
 				throw new ComponentNotFoundException(reqCompID,
 					"The component (reqCompID) is not a child of the actual composite component");
 			}
 
-			if(!modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).IsChildren(provCompID))
+			if(!this.Query.QueryTypeLevel.QueryCompositeComponent(this.ComponentId).IsChild(provCompID))
 			{
 				throw new ComponentNotFoundException(provCompID,
 					"The component (provCompID) is not a child of the actual composite component");
 			}
 
-			if(!modelDataManager.Query.QueryTypeLevel.QueryComponent(provCompID).IsProvidesInterface(provIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(provCompID).IsProvidesInterface(provIFaceID))
 			{
 				throw new InterfaceNotFromComponentException(provCompID, provIFaceID,
 					"The specified interface is not provided by the component.");
 			}
 
-			if(!modelDataManager.Query.QueryTypeLevel.QueryComponent(reqCompID).IsRequiresInterface(reqIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(reqCompID).IsRequiresInterface(reqIFaceID))
 			{
 				throw new InterfaceNotFromComponentException(reqCompID, reqIFaceID,
 					"The specified interface is not required by the component.");
 			}
 
-			return compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionName, reqCompID, reqIFaceID,
+			return CompositeComponentBuilderSuccessor.AddAssemblyConnector(connectionName, reqCompID, reqIFaceID,
 				provCompID, provIFaceID);
 		}
 
@@ -289,188 +262,38 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
 			IInterfaceIdentifier provIFaceID)
 		{
-			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(connectionIdentifier))
+			if(this.Query.QueryEntities.ContainsEntity(connectionIdentifier))
 			{
-				throw new EntityAlreadyExistsException(connectionIdentifier, "The connection " +
+				throw new EntityAlreadyExistsException("The connection " +
 					"already exists in the component model.");
 			}
 
-			if(!modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).IsChildren(reqCompID))
+			if(!this.Query.QueryTypeLevel.QueryCompositeComponent(this.ComponentId).IsChild(reqCompID))
 			{
 				throw new ComponentNotFoundException(reqCompID,
 					"The component (reqCompID) is not a child of the actual composite component");
 			}
 
-			if(!modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID).IsChildren(provCompID))
+			if(!this.Query.QueryTypeLevel.QueryCompositeComponent(this.ComponentId).IsChild(provCompID))
 			{
 				throw new ComponentNotFoundException(provCompID,
 					"The component (provCompID) is not a child of the actual composite component");
 			}
 
-			if(!modelDataManager.Query.QueryTypeLevel.QueryComponent(provCompID).IsProvidesInterface(provIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(provCompID).IsProvidesInterface(provIFaceID))
 			{
 				throw new InterfaceNotFromComponentException(provCompID, provIFaceID,
 					"The specified interface is not provided by the component.");
 			}
 
-			if(!modelDataManager.Query.QueryTypeLevel.QueryComponent(reqCompID).IsRequiresInterface(reqIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(reqCompID).IsRequiresInterface(reqIFaceID))
 			{
 				throw new InterfaceNotFromComponentException(reqCompID, reqIFaceID,
 					"The specified interface is not required by the component.");
 			}
 
-			compositeComponentBuilderSuccessor.AddAssemblyConnector(connectionIdentifier, connectionName,
+			CompositeComponentBuilderSuccessor.AddAssemblyConnector(connectionIdentifier, connectionName,
 				reqCompID, reqIFaceID, provCompID, provIFaceID);
-		}
-
-		/// <summary>
-		/// Called to add an existing interface as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
-		/// </summary>
-		/// <param name="ifaceIdentifier">the id of the existing interface</param>
-		/// <remarks>Checks wether the interface is already provided. If it is already provides an
-		/// exception is thrown.</remarks>
-		/// <exception cref="InterfaceAlreadyAddedException">Thrown if the same interface has
-		/// previously been added (as provided) to the component.</exception>
-		public void AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier)
-		{
-			if(this.modelDataManager.Query.QueryTypeLevel.
-				QueryCompositeComponent(this.component.ComponentID).IsProvidesInterface(ifaceIdentifier))
-			{
-				throw new InterfaceAlreadyAddedException(this.component.ComponentID, ifaceIdentifier);
-			}
-			else
-			{
-				compositeComponentBuilderSuccessor.AddProvidesInterface(ifaceIdentifier);
-			}
-		}
-
-		/// <summary>
-		/// Called to add an existing interface as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
-		/// </summary>
-		/// <param name="ifaceIdentifier">the id of the existing interface</param>
-		/// <remarks>Checks wether the interface is already required. If it is already provided an
-		/// exception is thrown.</remarks>
-		/// <exception cref="InterfaceAlreadyAddedException">Thrown if the same interface has
-		/// previously been added (as required) to the component.</exception>
-		public void AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier)
-		{
-			if(this.modelDataManager.Query.QueryTypeLevel.
-				QueryCompositeComponent(this.component.ComponentID).IsRequiresInterface(ifaceIdentifier))
-			{
-				throw new InterfaceAlreadyAddedException(this.component.ComponentID, ifaceIdentifier);
-			}
-			else
-			{
-				compositeComponentBuilderSuccessor.AddRequiresInterface(ifaceIdentifier);;
-			}			
-		}
-
-		/// <summary>
-		/// Creates a new interface and adds it as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
-		/// </summary>
-		/// <param name="interfaceName">The name of the newly created interface.</param>
-		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
-		public IInterfaceTypeLevelBuilder AddProvidesInterface (string interfaceName)
-		{
-			return compositeComponentBuilderSuccessor.AddProvidesInterface(interfaceName);
-		}
-
-		/// <summary>
-		/// Creates a new interface and adds it as provided interface (<see cref="InterfaceRole.PROVIDES"/>) to the actual component.
-		/// (for use in deserialization.)
-		/// </summary>
-		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
-		/// <param name="interfaceName">The name of the newly created interface.</param>
-		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
-		/// <exception cref="EntityAlreadyExistsException">Thrown if the interface identifier to add
-		/// already exists in the component model.</exception>
-		public IInterfaceTypeLevelBuilder AddProvidesInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
-		{
-			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(ifaceIdentifier))
-			{
-				throw new EntityAlreadyExistsException(ifaceIdentifier);
-			}
-			else
-			{
-				return compositeComponentBuilderSuccessor.AddProvidesInterface(ifaceIdentifier, interfaceName);
-			}			
-		}
-
-		/// <summary>
-		/// Creates a new interface and adds it as required interface (<see cref="InterfaceRole.REQUIRES"/>) to the actual component.
-		/// </summary>
-		/// <param name="interfaceName">The name of the newly created interface.</param>
-		/// <returns>A <see cref="IInterfaceTypeLevelBuilder"/> to build the new interface.</returns>
-		public IInterfaceTypeLevelBuilder AddRequiresInterface (string interfaceName)
-		{
-			return compositeComponentBuilderSuccessor.AddRequiresInterface(interfaceName);
-		}
-
-		/// <summary>
-		/// Creates a new interface and adds it as required interface (<see cref="IInterfaceTypeLevelBuilder"/>) to the actual component.
-		/// (for use in deserialization.)
-		/// </summary>
-		/// <param name="ifaceIdentifier">The new interfaces identifier.</param>
-		/// <param name="interfaceName">The name of the newly created interface.</param>
-		/// <returns>A <see cref="InterfaceRole.REQUIRES"/> to build the new interface.</returns>
-		/// <exception cref="EntityAlreadyExistsException">Thrown if the interface identifier to add
-		/// already exists in the component model.</exception>
-		public IInterfaceTypeLevelBuilder AddRequiresInterface (IInterfaceIdentifier ifaceIdentifier, string interfaceName)
-		{
-			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(ifaceIdentifier))
-			{
-				throw new EntityAlreadyExistsException(ifaceIdentifier);
-			}
-			else
-			{
-				return compositeComponentBuilderSuccessor.AddRequiresInterface(ifaceIdentifier, interfaceName);
-			}					
-		}
-
-		/// <summary>
-		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
-		/// added to the interface are also removed. If the entity could not be found in 
-		/// componentmodel, the method returns without doing anything.
-		/// This method deletes the interface used as provided interface (<see cref="InterfaceRole.PROVIDES"/>).
-		/// </summary>
-		/// <param name="ifaceID">the id of the interface that has to be removed</param>
-		/// <exception cref="InterfaceNotFromComponentException">Thrown if the specified interface
-		/// is not provided by the actual component.</exception>
-		public void RemoveProvidesInterface (IInterfaceIdentifier ifaceID)
-		{
-			if(!this.modelDataManager.Query.QueryTypeLevel
-				.QueryCompositeComponent(this.component.ComponentID).IsProvidesInterface(ifaceID))
-			{			
-				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID,
-					"The interface to delete is not provided by the component.");
-			}
-			else
-			{
-				compositeComponentBuilderSuccessor.RemoveProvidesInterface(ifaceID);
-			}			
-		}
-
-		/// <summary>
-		/// called to remove the interface from the model. All signatures and protocolinformations that have been 
-		/// added to the interface are also removed. If the entity could not be found in 
-		/// componentmodel, the method returns without doing anything.
-		/// This method deletes the interface used as requires interface (<see cref="InterfaceRole.REQUIRES"/>).
-		/// </summary>
-		/// <param name="ifaceID">the id of the interface that has to be removed</param>
-		/// <exception cref="InterfaceNotFromComponentException">Thrown if the specified interface
-		/// is not provided by the actual component.</exception>
-		public void RemoveRequiresInterface (IInterfaceIdentifier ifaceID)
-		{
-			if(!this.modelDataManager.Query.QueryTypeLevel
-				.QueryCompositeComponent(this.component.ComponentID).IsRequiresInterface(ifaceID))
-			{			
-				throw new InterfaceNotFromComponentException(this.component.ComponentID, ifaceID,
-					"The interface to delete is not required by the component.");
-			}
-			else
-			{
-				compositeComponentBuilderSuccessor.RemoveRequiresInterface(ifaceID);
-			}
 		}
 
 		/// <summary>
@@ -490,20 +313,19 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		public IConnectionIdentifier AddProvidesDelegationConnector (string connectionName, IInterfaceIdentifier outerIFaceID,
 			IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{
-			if(!this.modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID)
-				.IsProvidesInterface(outerIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(this.ComponentId).IsProvidesInterface(outerIFaceID))
 			{
-				throw new InterfaceNotFromComponentException(this.component.ComponentID, outerIFaceID,
+				throw new InterfaceNotFromComponentException(this.ComponentId, outerIFaceID,
 					"The outer interface is not provided by the composite component.");
 			}
 
-			if(!HasComponentInnerComponentWithProvidesInterface (innerIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(innerCompID).IsProvidesInterface(innerIFaceID))
 			{
-				throw new InterfaceNotFromComponentException(this.component.ComponentID, innerIFaceID,
+				throw new InterfaceNotFromComponentException(this.ComponentId, innerIFaceID,
 					"The inner interface is not provided by an inner component.");
 			}
 
-			return compositeComponentBuilderSuccessor.AddProvidesDelegationConnector(connectionName, outerIFaceID,
+			return CompositeComponentBuilderSuccessor.AddProvidesDelegationConnector(connectionName, outerIFaceID,
 				innerCompID, innerIFaceID);
 		}
 
@@ -528,25 +350,24 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			string connectionName, IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID,
 			IInterfaceIdentifier innerIFaceID)
 		{
-			if(!this.modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID)
-				.IsProvidesInterface(outerIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(this.ComponentId).IsProvidesInterface(outerIFaceID))
 			{
-				throw new InterfaceNotFromComponentException(this.component.ComponentID, outerIFaceID,
+				throw new InterfaceNotFromComponentException(this.ComponentId, outerIFaceID,
 					"The outer interface is not provided by the composite component.");
 			}
 
-			if(!HasComponentInnerComponentWithProvidesInterface (innerIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(innerCompID).IsProvidesInterface(innerIFaceID))
 			{
-				throw new InterfaceNotFromComponentException(this.component.ComponentID, innerIFaceID,
+				throw new InterfaceNotFromComponentException(this.ComponentId, innerIFaceID,
 					"The inner interface is not provided by an inner component.");
 			}
 
-			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(connectionIdentifier))
+			if(this.Query.QueryEntities.ContainsEntity(connectionIdentifier))
 			{
 				throw new EntityAlreadyExistsException(connectionIdentifier);
 			}
 
-			compositeComponentBuilderSuccessor.AddProvidesDelegationConnector(connectionIdentifier, connectionName,
+			CompositeComponentBuilderSuccessor.AddProvidesDelegationConnector(connectionIdentifier, connectionName,
 				outerIFaceID, innerCompID, innerIFaceID);
 		}
 
@@ -567,20 +388,20 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID)
 		{
 			
-			if(!this.modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID)
+			if(!this.Query.QueryTypeLevel.QueryComponent(this.ComponentId)
 				.IsRequiresInterface(outerIFaceID))
 			{
-				throw new InterfaceNotFromComponentException(this.component.ComponentID, outerIFaceID,
+				throw new InterfaceNotFromComponentException(this.ComponentId, outerIFaceID,
 					"The outer interface is not required by the composite component.");
 			}
 
-			if(!HasComponentInnerComponentWithRequiresInterface (innerIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(innerCompID).IsRequiresInterface(innerIFaceID))
 			{
-				throw new InterfaceNotFromComponentException(this.component.ComponentID, innerIFaceID,
+				throw new InterfaceNotFromComponentException(this.ComponentId, innerIFaceID,
 					"The inner interface is not required by an inner component.");
 			}
 
-			return compositeComponentBuilderSuccessor.AddRequiresDelegationConnector(connectionName, innerCompID,
+			return CompositeComponentBuilderSuccessor.AddRequiresDelegationConnector(connectionName, innerCompID,
 				innerIFaceID, outerIFaceID);
 		}
 
@@ -605,56 +426,25 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			string connectionName, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID,
 			IInterfaceIdentifier outerIFaceID)
 		{
-			if(this.modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID)
-				.IsRequiresInterface(outerIFaceID))
+			if(this.Query.QueryTypeLevel.QueryComponent(this.ComponentId).IsRequiresInterface(outerIFaceID))
 			{
-				throw new InterfaceNotFromComponentException(this.component.ComponentID, outerIFaceID,
+				throw new InterfaceNotFromComponentException(this.ComponentId, outerIFaceID,
 					"The outer interface is not required by the composite component.");
 			}
 
-			if(!HasComponentInnerComponentWithRequiresInterface (innerIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(innerCompID).IsProvidesInterface(innerIFaceID))
 			{
-				throw new InterfaceNotFromComponentException(this.component.ComponentID, innerIFaceID,
+				throw new InterfaceNotFromComponentException(this.ComponentId, innerIFaceID,
 					"The inner interface is not required by an inner component.");
 			}
 
-			if(this.modelDataManager.Query.QueryEntities.ContainsEntity(connectionIdentifier))
+			if(this.Query.QueryEntities.ContainsEntity(connectionIdentifier))
 			{
 				throw new EntityAlreadyExistsException(connectionIdentifier);
 			}
 
-			compositeComponentBuilderSuccessor.AddRequiresDelegationConnector(connectionIdentifier,
+			CompositeComponentBuilderSuccessor.AddRequiresDelegationConnector(connectionIdentifier,
 				connectionName, innerCompID, innerIFaceID, outerIFaceID);
-		}
-
-		/// <summary>
-		/// Accesses the created instance.
-		/// </summary>
-		public IComponent Component
-		{
-			get
-			{
-				return compositeComponentBuilderSuccessor.Component;
-			}
-		}
-
-		/// <summary>
-		/// Accesses the identifier of the actual instance.
-		/// </summary>
-		public IComponentIdentifier ComponentIdentifier
-		{
-			get { throw new NotImplementedException (); }
-		}
-
-		/// <summary>
-		/// Offers a possibility to change the model-level at which the actual entity is created.
-		/// </summary>
-		public ICompositeComponentImplementationLevelBuilder ImplementationLevelBuilder
-		{
-			get
-			{
-				return compositeComponentBuilderSuccessor.ImplementationLevelBuilder;
-			}
 		}
 
 		/// <summary>
@@ -665,17 +455,30 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// in the actual composite component.</exception>
 		public void RemoveConnection (IConnectionIdentifier connectionID)
 		{
-			if(!this.modelDataManager.Query.QueryTypeLevel.QueryCompositeComponent(this.component.ComponentID)
+			if(!this.Query.QueryTypeLevel.QueryCompositeComponent(this.ComponentId)
 				.IsConnectionFromComponent(connectionID))
 			{
 				throw new EntityNotFoundException(connectionID,
 					"The actual composite component does not contain the specified connection.");
 			}
-			compositeComponentBuilderSuccessor.RemoveConnection(connectionID);
+			CompositeComponentBuilderSuccessor.RemoveConnection(connectionID);
 		}
 
+		#endregion
+
 		#region constraint-management
-		
+
+		/// <summary>
+		/// Offers a possibility to change the model-level at which the actual entity is created.
+		/// </summary>
+		public ICompositeComponentImplementationLevelBuilder ImplementationLevelBuilder
+		{
+			get
+			{
+				return CompositeComponentBuilderSuccessor.ImplementationLevelBuilder;
+			}
+		}
+
 		/// <summary>
 		/// The child builder to call for each method defined in the builder interface.
 		/// </summary>
@@ -683,8 +486,21 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		{
 			set
 			{
-				this.compositeComponentBuilderSuccessor = value;
+				this.componentBuilderSuccessor = value;
 			}
+		}
+
+		/// <summary>
+		/// Clones the actual builder / constraints instance except the created / supervised
+		/// component model entity.
+		/// </summary>
+		/// <param name="compId">The id of component model entity that has to be builder 
+		/// supervised.</param>
+		/// <returns>A copy of the actual builder / constraint.</returns>
+		/// <remarks>This method should only be used for constraints management.</remarks>
+		public ICompositeComponentTypeLevelBuilder Clone(IComponentIdentifier compId)
+		{
+			return new CompositeComponentTypeLevelConstraint(compId,this.Query);
 		}
 
 		/// <summary>
@@ -696,81 +512,22 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <returns>A copy of the actual builder / constraint.</returns>
 		public ICompositeComponentTypeLevelBuilder Clone (IComponent component)
 		{
-			return new CompositeComponentTypeLevelConstraint(modelDataManager, component);
+			return new CompositeComponentTypeLevelConstraint(this.ComponentId,this.Query);
 		}
 
 		#endregion
 
-		#region private methods
+		#region properties
 
-		/// <summary>
-		/// Checks wether the inner interface is provided by an inner component of the actual one. This 
-		/// includes two checks:
-		/// <li>check for existance of inner component.</li>
-		/// <li>check for provides-relation between the given interface and the inner components.</li>
-		/// </summary>
-		/// <param name="innerIFaceID">The interface to check for.</param>
-		/// <returns>true, if the interface is provided by an inner component; false otherwise.</returns>
-		private bool HasComponentInnerComponentWithProvidesInterface (IInterfaceIdentifier innerIFaceID)
+		//cast the succesor of the base class to this one
+		private ICompositeComponentTypeLevelBuilder CompositeComponentBuilderSuccessor
 		{
-			ArrayList identifierList;
-			ArrayList innerInterfacesList;
-			identifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
-				.QueryCompositeComponent(this.component.ComponentID).GetComponents());
-			bool foundMatchingComponent = false;
-			foreach(IComponentIdentifier c in identifierList)
+			get
 			{
-				innerInterfacesList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
-					.QueryComponent(c).GetProvidesInterfaceIDs());
-				if(innerInterfacesList.Contains(innerIFaceID))
-				{
-					foundMatchingComponent = true;
-				}
-			}
-			if(!foundMatchingComponent)
-			{
-				return false;
-			}
-			else
-			{
-				return true;
+				return (ICompositeComponentTypeLevelBuilder) this.componentBuilderSuccessor;
 			}
 		}
-
-		/// <summary>
-		/// Checks wether the inner interface is provided by an inner component of the actual one. This 
-		/// includes two checks:
-		/// <li>check for existance of inner component.</li>
-		/// <li>check for requires-relation between the given interface and the inner components.</li>
-		/// </summary>
-		/// <param name="innerIFaceID">The interface to check for.</param>
-		/// <returns>true, if the interface is required by an inner component; false otherwise.</returns>
-		private bool HasComponentInnerComponentWithRequiresInterface (IInterfaceIdentifier innerIFaceID)
-		{
-			ArrayList identifierList;
-			ArrayList innerInterfacesList;
-			identifierList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
-				.QueryCompositeComponent(this.component.ComponentID).GetComponents());
-			bool foundMatchingComponent = false;
-			foreach(IComponentIdentifier c in identifierList)
-			{
-				innerInterfacesList = new ArrayList(this.modelDataManager.Query.QueryTypeLevel
-					.QueryComponent(c).GetRequiresInterfaceIDs());
-				if(innerInterfacesList.Contains(innerIFaceID))
-				{
-					foundMatchingComponent = true;
-				}
-			}
-			if(!foundMatchingComponent)
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-		}
-
+        
 		#endregion
 	}
 }

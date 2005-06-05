@@ -1,4 +1,5 @@
 using Palladio.ComponentModel.ModelDataManagement;
+using Palladio.Identifier;
 
 namespace Palladio.ComponentModel.Builder
 {
@@ -12,6 +13,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/06/05 10:36:34  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.9  2005/05/27 13:34:41  kelsaka
 	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
 	///
@@ -49,6 +54,11 @@ namespace Palladio.ComponentModel.Builder
 		#endregion
 
 		#region properties
+
+		/// <summary>
+		/// called to returns the id of the entity that belongs to this builder
+		/// </summary>
+		IIdentifier Id{get;}
 		
 		#endregion		
 	}

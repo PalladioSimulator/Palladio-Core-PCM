@@ -1,6 +1,6 @@
 using System.Collections;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
-using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.Identifier;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypedBuilderLists
 {
@@ -12,6 +12,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypedBuilderLists
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/05 10:37:48  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.1  2005/04/24 14:50:14  kelsaka
 	/// - added full support for constraints
 	/// - added typed lists for builders
@@ -62,16 +66,16 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypedBuilderLists
 		/// Starting with the first element of the list the all further elements wrap inner ones.
 		/// This method returns a copies of the elements of the internal lists of builder / constraints.
 		/// </summary>
-		/// <param name="iInterface">The component to build and to apply the constraints to.</param>
+		/// <param name="ifaceId">The id of the interface to build and to apply the constraints to.</param>
 		/// <returns>The very most outer wrapper of the chain.</returns>
-		public IInterfaceTypeLevelBuilder GetOuterBuilder(IInterface iInterface)
+		public IInterfaceTypeLevelBuilder GetOuterBuilder(IInterfaceIdentifier ifaceId)
 		{
 			IInterfaceTypeLevelBuilder[] outBuilders = new IInterfaceTypeLevelBuilder[builderList.Count];
 
 			// make a copy using the clone-method of the builders
 			for(int x = 0; x < builderList.Count; x++)
 			{
-				outBuilders[x] = ((IInterfaceTypeLevelBuilder)builderList[x]).Clone(iInterface);
+				outBuilders[x] = ((IInterfaceTypeLevelBuilder)builderList[x]).Clone(ifaceId);
 			}
 
 			for(int x = 0; x < builderList.Count; x++)

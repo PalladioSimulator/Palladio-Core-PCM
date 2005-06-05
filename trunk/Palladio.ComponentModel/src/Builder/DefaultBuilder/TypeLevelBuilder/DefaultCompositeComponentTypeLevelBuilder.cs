@@ -1,8 +1,8 @@
 using System;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
-using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 {
@@ -14,6 +14,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/06/05 10:37:57  joemal
+	/// - replace the entities by the ids
+	/// - components now can be added to more than one container
+	///
 	/// Revision 1.10  2005/05/27 13:34:41  kelsaka
 	/// - AbstractEntity now holds the ModelDataManger and the BuilderManager
 	///
@@ -58,13 +62,12 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// <summary>
 		/// Initializes the Builder.
 		/// </summary>
+		/// <param name="compId">the id of the bulders component</param>
 		/// <param name="modelDataManager">The model data management.</param>
-		/// <param name="component">The component to build.</param>
 		/// <param name="builderManager">The factory to use for creating new builders.</param>
-		public DefaultCompositeComponentTypeLevelBuilder(IModelDataManager modelDataManager, IComponent component, Palladio.ComponentModel.Builder.IBuilderManager builderManager) 
-			: base(modelDataManager, component, builderManager)
+		public DefaultCompositeComponentTypeLevelBuilder(IComponentIdentifier compId, IModelDataManager modelDataManager, Palladio.ComponentModel.Builder.IBuilderManager builderManager) 
+			: base(compId,modelDataManager, builderManager)
 		{
-			
 		}
 
 		/// <summary>
@@ -89,12 +92,12 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		/// Clones the actual builder / constraints instance except the created / supervised
 		/// component model entity.
 		/// </summary>
-		/// <param name="component">The component model entity that has to be builder /
+		/// <param name="compId">The component model entity that has to be builder /
 		/// supervised.</param>
 		/// <returns>A copy of the actual builder / constraint.</returns>
-		public ICompositeComponentTypeLevelBuilder Clone (IComponent component)
+		public ICompositeComponentTypeLevelBuilder Clone (IComponentIdentifier compId)
 		{
-			return new DefaultCompositeComponentTypeLevelBuilder(base.ModelDataManager, component, base.BuilderManager);
+			return new DefaultCompositeComponentTypeLevelBuilder(compId, base.ModelDataManager, base.BuilderManager);
 		}
 
 		#endregion
