@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/12 17:07:31  joemal
+	/// renamed from QueryEntity to QueryRepository
+	///
 	/// Revision 1.2  2005/04/18 17:46:13  joemal
 	/// implement query methods
 	///
@@ -29,7 +32,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		#region data
 
 		//holds the implementation of the query entities interface
-		private QueryEntitiesImpl queryEntities;
+		private QueryRepositoryImpl queryRepository;
 
 		//holds the factory that creates all entity specific query implementations
 		private QueryTypeLevelFactory queryTypeLevelFactory;
@@ -45,7 +48,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <param name="entityHashtable">the hashtable that holds the entities</param>
 		internal ModelQueryManager(ModelDataSet dataset, EntityHashtable entityHashtable)
 		{
-			this.queryEntities = new QueryEntitiesImpl(dataset,entityHashtable,this);
+			this.queryRepository = new QueryRepositoryImpl(dataset,entityHashtable,this);
 			this.queryTypeLevelFactory = new QueryTypeLevelFactory(dataset,entityHashtable,this);
 		}
 
@@ -54,11 +57,11 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <summary>
 		/// returns an interface that contains several methods to query all entities of the componentmodel
 		/// </summary>
-		public IQueryEntities QueryEntities
+		public IQueryRepository QueryRepository
 		{
 			get
 			{
-				return queryEntities;
+				return queryRepository;
 			}
 		}
 

@@ -29,7 +29,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void QueryEntities()
 		{
 			StaticComponentModel.Create(model);
-			IQueryEntities query = model.Query.QueryEntities;
+			IQueryRepository query = model.Query.QueryRepository;
 			Assert.IsTrue(query.ContainsEntity(StaticComponentModel.BCWRITEBEID));
 			Assert.IsTrue(query.ContainsEntity(StaticComponentModel.CCWRITEID));
 			Assert.IsTrue(query.ContainsEntity(StaticComponentModel.BCWRITEID));

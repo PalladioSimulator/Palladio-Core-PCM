@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/06/12 17:07:31  joemal
+	/// renamed from QueryEntity to QueryRepository
+	///
 	/// Revision 1.4  2005/06/05 10:40:19  joemal
 	/// - components now can be added to more than one container
 	///
@@ -210,7 +213,7 @@ namespace Palladio.ComponentModel.Query.Impl
 			IComponentIdentifier[] compIDs = QueryComponents();
 			ArrayList bcIDs = new ArrayList(compIDs.Length);
 			foreach(IComponentIdentifier compID in compIDs)
-				if (this.QueryEntities.GetComponent(compID).Type == type)
+				if (this.QueryRepository.GetComponent(compID).Type == type)
 					bcIDs.Add(compID);
 
 			return (IComponentIdentifier[]) bcIDs.ToArray(typeof(IComponentIdentifier));

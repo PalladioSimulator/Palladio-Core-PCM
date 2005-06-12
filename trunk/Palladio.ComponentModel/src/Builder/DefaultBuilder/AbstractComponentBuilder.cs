@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/12 17:07:31  joemal
+	/// renamed from QueryEntity to QueryRepository
+	///
 	/// Revision 1.1  2005/06/05 10:28:35  joemal
 	/// initial creation
 	///
@@ -139,7 +142,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		public IComponent Component
 		{
-			get { return this.ModelDataManager.Query.QueryEntities.GetComponent(this.ComponentId); }
+			get { return this.ModelDataManager.Query.QueryRepository.GetComponent(this.ComponentId); }
 		}
 
 		/// <summary>

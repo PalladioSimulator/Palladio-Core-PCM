@@ -14,6 +14,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/12 17:07:31  joemal
+	/// renamed from QueryEntity to QueryRepository
+	///
 	/// Revision 1.2  2005/06/05 10:41:04  joemal
 	/// - components now can be added to more than one container
 	///
@@ -61,7 +64,7 @@ namespace Palladio.CM.Example.Presentation
 		//called when an interface was added to the component as provides interface
 		private void events_ProvidesInterfaceAddedEvent(object sender, InterfaceUseEventArgs args)
 		{
-			IInterface iface = modelEnvironment.Query.QueryEntities.GetInterface(args.InterfaceID);
+			IInterface iface = modelEnvironment.Query.QueryRepository.GetInterface(args.InterfaceID);
 			IFace iface_gui = new IFace(iface,modelEnvironment);
 			childs.Add(args.InterfaceID,iface_gui);
 			Console.WriteLine("Interface "+iface.Name+" added as provides interface to the component "+Model.Name+".");
@@ -72,7 +75,7 @@ namespace Palladio.CM.Example.Presentation
 		//called when an interface was added to the component as requires interface
 		private void events_RequiresInterfaceAddedEvent(object sender, InterfaceUseEventArgs args)
 		{
-			IInterface iface = modelEnvironment.Query.QueryEntities.GetInterface(args.InterfaceID);
+			IInterface iface = modelEnvironment.Query.QueryRepository.GetInterface(args.InterfaceID);
 			IFace iface_gui = new IFace(iface,modelEnvironment);
 			childs.Add(args.InterfaceID,iface_gui);
 			Console.WriteLine("Interface "+iface.Name+" added as requires interface to the component "+Model.Name+".");
@@ -86,7 +89,7 @@ namespace Palladio.CM.Example.Presentation
 			if (!childs.ContainsKey(args.InterfaceID)) return;
 			childs.Remove(args.InterfaceID);
 
-			IInterface iface = modelEnvironment.Query.QueryEntities.GetInterface(args.InterfaceID);
+			IInterface iface = modelEnvironment.Query.QueryRepository.GetInterface(args.InterfaceID);
 			Console.WriteLine("Remove Interface "+iface.Name+" from the component.");
 			Console.WriteLine("Repaint the component.");
 			this.Paint();

@@ -14,6 +14,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/12 17:07:31  joemal
+	/// renamed from QueryEntity to QueryRepository
+	///
 	/// Revision 1.2  2005/06/05 10:41:04  joemal
 	/// - components now can be added to more than one container
 	///
@@ -138,7 +141,7 @@ namespace Palladio.CM.Example.Presentation
 		//called when a component as been added to the static view
 		private void events_ComponentAddedEvent(object sender, ComponentUseEventArgs args)
 		{
-			IComponent comp = modelEnvironment.Query.QueryEntities.GetComponent(args.ComponentID);
+			IComponent comp = modelEnvironment.Query.QueryRepository.GetComponent(args.ComponentID);
 			Component comp_gui;
 			if (comp.Type == ComponentType.BASIC)
 				comp_gui = new BasicComponent(comp,modelEnvironment);
@@ -154,7 +157,7 @@ namespace Palladio.CM.Example.Presentation
 		//called when a component as been removed from the static view
 		private void events_ComponentRemovedEvent(object sender, ComponentUseEventArgs args)
 		{
-			IComponent comp = modelEnvironment.Query.QueryEntities.GetComponent(args.ComponentID);
+			IComponent comp = modelEnvironment.Query.QueryRepository.GetComponent(args.ComponentID);
 			if (!childs.ContainsKey(args.ComponentID)) return;
 			childs.Remove(args.ComponentID);
 			Console.WriteLine("Remove Component "+comp.Name+" from the static view.");

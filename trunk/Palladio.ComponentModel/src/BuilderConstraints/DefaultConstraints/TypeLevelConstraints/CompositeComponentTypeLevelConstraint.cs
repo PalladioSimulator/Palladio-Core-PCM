@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.13  2005/06/12 17:07:31  joemal
+	/// renamed from QueryEntity to QueryRepository
+	///
 	/// Revision 1.12  2005/06/05 10:38:31  joemal
 	/// - replace the entities by the ids
 	/// - components now can be added to more than one container
@@ -113,7 +116,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// already exists in the component model (the id is not new).</exception>
 		public IBasicComponentTypeLevelBuilder AddNewBasicComponent(IComponentIdentifier componentIdentifier, string name)
 		{
-			if(this.Query.QueryEntities.ContainsEntity(componentIdentifier))
+			if(this.Query.QueryRepository.ContainsEntity(componentIdentifier))
 			{			
 				throw new EntityAlreadyExistsException("The component can not be created with the "+
 					"given identifier as is the identifier already exists.");
@@ -145,7 +148,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// already exists in the component model (the id is not new).</exception>
 		public ICompositeComponentTypeLevelBuilder AddNewCompositeComponent(IComponentIdentifier componentIdentifier, string name)
 		{
-			if(this.Query.QueryEntities.ContainsEntity(componentIdentifier))
+			if(this.Query.QueryRepository.ContainsEntity(componentIdentifier))
 			{			
 				throw new EntityAlreadyExistsException("The component can not be created with "+
 					"the given identifier as is the identifier already exists.");
@@ -262,7 +265,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID,
 			IInterfaceIdentifier provIFaceID)
 		{
-			if(this.Query.QueryEntities.ContainsEntity(connectionIdentifier))
+			if(this.Query.QueryRepository.ContainsEntity(connectionIdentifier))
 			{
 				throw new EntityAlreadyExistsException("The connection " +
 					"already exists in the component model.");
@@ -362,7 +365,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 					"The inner interface is not provided by an inner component.");
 			}
 
-			if(this.Query.QueryEntities.ContainsEntity(connectionIdentifier))
+			if(this.Query.QueryRepository.ContainsEntity(connectionIdentifier))
 			{
 				throw new EntityAlreadyExistsException(connectionIdentifier);
 			}
@@ -438,7 +441,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 					"The inner interface is not required by an inner component.");
 			}
 
-			if(this.Query.QueryEntities.ContainsEntity(connectionIdentifier))
+			if(this.Query.QueryRepository.ContainsEntity(connectionIdentifier))
 			{
 				throw new EntityAlreadyExistsException(connectionIdentifier);
 			}

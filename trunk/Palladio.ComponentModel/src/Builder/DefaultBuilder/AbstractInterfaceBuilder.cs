@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.25  2005/06/12 17:07:31  joemal
+	/// renamed from QueryEntity to QueryRepository
+	///
 	/// Revision 1.24  2005/06/05 10:37:33  joemal
 	/// - replace the entities by the ids
 	/// - components now can be added to more than one container
@@ -184,7 +187,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		public IInterface Interface
 		{
-			get { return ModelDataManager.Query.QueryEntities.GetInterface(this.InterfaceId); }
+			get { return ModelDataManager.Query.QueryRepository.GetInterface(this.InterfaceId); }
 		}
 
 		/// <summary>

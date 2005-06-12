@@ -19,6 +19,9 @@ namespace Steffen.Tests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/12 17:07:31  joemal
+	/// renamed from QueryEntity to QueryRepository
+	///
 	/// Revision 1.1  2005/06/08 15:23:16  sbecker
 	/// Added a test suite with random tests
 	/// Currently one fails
@@ -45,14 +48,14 @@ namespace Steffen.Tests
 			IInterfaceIdentifier[] interfaces = tlQuery.GetInterfaces();
 			foreach(IInterfaceIdentifier i in interfaces)
 			{
-				if ( cm.Query.QueryEntities.GetInterface(i).Name == "P1")
+				if ( cm.Query.QueryRepository.GetInterface(i).Name == "P1")
 				{
-					p1 = cm.Query.QueryEntities.GetInterface(i);
+					p1 = cm.Query.QueryRepository.GetInterface(i);
 					break;
 				}
 			}
 			Assert.IsNotNull(p1);
-			Assert.IsTrue(cm.Query.QueryEntities.ContainsEntity(p1.ID));
+			Assert.IsTrue(cm.Query.QueryRepository.ContainsEntity(p1.ID));
 			Assert.IsTrue(cm.Query.QueryTypeLevel.QueryInterface(p1.InterfaceID).GetSignatures().Length == 2);
 		}
 
@@ -60,7 +63,7 @@ namespace Steffen.Tests
 		public void GetCon1()
 		{
 			IConnectionIdentifier con1ID = cm.Query.QueryTypeLevel.QueryStaticView().GetConnections()[0];
-			IConnection con1 = cm.Query.QueryEntities.GetConnection(con1ID);
+			IConnection con1 = cm.Query.QueryRepository.GetConnection(con1ID);
 
 			Assert.IsNotNull(con1);
 			Assert.IsTrue(con1.Name == "Con1");
@@ -72,9 +75,9 @@ namespace Steffen.Tests
 			IConnectionIdentifier con1ID = cm.Query.QueryTypeLevel.QueryStaticView().GetConnections()[0];
 
 			cm.BuilderManager.RootTypeLevelBuilder.RemoveComponent(C1ID);
-			Assert.IsTrue(cm.Query.QueryEntities.ContainsEntity(P1ID));
-			Assert.IsFalse(cm.Query.QueryEntities.ContainsEntity(con1ID));
-			Assert.IsFalse(cm.Query.QueryEntities.ContainsEntity(C1ID));
+			Assert.IsTrue(cm.Query.QueryRepository.ContainsEntity(P1ID));
+			Assert.IsFalse(cm.Query.QueryRepository.ContainsEntity(con1ID));
+			Assert.IsFalse(cm.Query.QueryRepository.ContainsEntity(C1ID));
 		}
 
 		private void Init()

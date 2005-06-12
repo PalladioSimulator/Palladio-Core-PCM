@@ -667,7 +667,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Query\IQueryEntities.cs"
+                    RelPath = "src\Query\IQueryRepository.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -701,12 +701,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Query\Impl\QueryEntitiesImpl.cs"
+                    RelPath = "src\Query\Impl\QueryInterfaceImpl.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Query\Impl\QueryInterfaceImpl.cs"
+                    RelPath = "src\Query\Impl\QueryRepositoryImpl.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/06/12 17:07:31  joemal
+	/// renamed from QueryEntity to QueryRepository
+	///
 	/// Revision 1.5  2005/06/05 10:30:26  joemal
 	/// temporary disabled
 	///
@@ -158,7 +161,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			{				
 				writer.WriteStartElement("BasicComponent");
 				
-				IComponent comp = query.QueryEntities.GetComponent(compID);				
+				IComponent comp = query.QueryRepository.GetComponent(compID);				
 				WriteEntityBaseAttributes(writer,comp);
 				
 				//structure
@@ -180,7 +183,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			{				
 				writer.WriteStartElement("CompositeComponent");
 				
-				IComponent comp = query.QueryEntities.GetComponent(compID);				
+				IComponent comp = query.QueryRepository.GetComponent(compID);				
 				WriteEntityBaseAttributes(writer,comp);
 				
 				//structure
@@ -241,7 +244,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		{
 			foreach(IConnectionIdentifier conID in conIDs)
 			{
-				IConnection con = query.QueryEntities.GetConnection(conID);
+				IConnection con = query.QueryRepository.GetConnection(conID);
 				writer.WriteStartElement("Connector");
 				WriteEntityBaseAttributes(writer,con);
 				writer.WriteEndElement();
@@ -274,7 +277,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		{
 			foreach(IInterfaceIdentifier ifaceID in ifaceIDs)
 			{
-				IInterface iface = query.QueryEntities.GetInterface(ifaceID);
+				IInterface iface = query.QueryRepository.GetInterface(ifaceID);
 				writer.WriteStartElement("Interface");
 				WriteEntityBaseAttributes(writer,iface);
 
@@ -301,7 +304,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		{
 			foreach(ISignatureIdentifier sigID in sigIDs)
 			{
-				ISignature sig = query.QueryEntities.GetSignature(sigID);
+				ISignature sig = query.QueryRepository.GetSignature(sigID);
 				writer.WriteStartElement("Signature");
 				WriteEntityBaseAttributes(writer,sig);
 				
@@ -331,7 +334,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		{
 			foreach(IProtocolIdentifier protID in protIDs)
 			{
-				IProtocol prot = query.QueryEntities.GetProtocol(protID);
+				IProtocol prot = query.QueryRepository.GetProtocol(protID);
 				writer.WriteStartElement("Protocol");
 				writer.WriteAttributeString("type",prot.ProtocolTypeID.Key);
 				writer.WriteAttributeString("guid",prot.ProtocolID.Key);

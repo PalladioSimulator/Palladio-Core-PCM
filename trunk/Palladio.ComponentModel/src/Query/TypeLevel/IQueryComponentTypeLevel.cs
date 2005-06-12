@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/12 17:07:31  joemal
+	/// renamed from QueryEntity to QueryRepository
+	///
 	/// Revision 1.1  2005/04/18 08:50:50  joemal
 	/// initial creation
 	///
@@ -24,7 +27,7 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// <summary>
 		/// called to return the interface used to query the entities of the component model
 		/// </summary>
-		IQueryEntities QueryEntities
+		IQueryRepository QueryRepository
 		{
 			get;
 		}

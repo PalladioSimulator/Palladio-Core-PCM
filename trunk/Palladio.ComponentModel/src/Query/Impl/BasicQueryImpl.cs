@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/06/12 17:07:31  joemal
+	/// renamed from QueryEntity to QueryRepository
+	///
 	/// Revision 1.4  2005/04/19 16:47:41  joemal
 	/// implement query methods
 	///
@@ -165,11 +168,11 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <summary>
 		/// called to return the interface that is used to query the entities of the model
 		/// </summary>
-		public IQueryEntities QueryEntities
+		public IQueryRepository QueryRepository
 		{
 			get
 			{
-				return this.query.QueryEntities;
+				return this.query.QueryRepository;
 			}
 		}
 
