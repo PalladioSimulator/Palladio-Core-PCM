@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2005/06/17 18:31:43  joemal
+	/// changes in the connection tables
+	///
 	/// Revision 1.14  2005/06/05 10:39:23  joemal
 	/// - components now can be added to more than one container
 	///
@@ -68,8 +71,11 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	{
 		#region data
 
-		//the counter of the ids
-		private long idCntr=0;
+		//the counter of the role ids
+		private long roleIdCntr=0;
+
+		//the counter of the component relation ids
+		private long compRelIdCntr=0;
 
 		//holds the database of the model
 		private ModelDataSet modelDataset;
@@ -114,7 +120,10 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			modelDataset.Interfaces.InterfacesRowDeleted += new ModelDataSet.InterfacesRowChangeEventHandler(IfaceDeleted);			
 			modelDataset.Signatures.SignaturesRowDeleted += new ModelDataSet.SignaturesRowChangeEventHandler(SigDeleted);			
 			modelDataset.Protocols.ProtocolsRowDeleted += new ModelDataSet.ProtocolsRowChangeEventHandler(ProtocolDeleted);			
-			modelDataset.Connections.ConnectionsRowDeleted += new ModelDataSet.ConnectionsRowChangeEventHandler(ConDeleted);			
+			modelDataset.DelegationConnectors.DelegationConnectorsRowDeleted += 
+				new ModelDataSet.DelegationConnectorsRowChangeEventHandler(DelegationConnectorDeleted);	
+			modelDataset.AssemblyConnectors.AssemblyConnectorsRowDeleted += 
+				new ModelDataSet.AssemblyConnectorsRowChangeEventHandler(AssemblyConnectorDeleted);
 			modelDataset.Roles.RolesRowDeleted +=new ModelDataSet.RolesRowChangeEventHandler(InterfaceUnbound);
 			modelDataset.CompRelations.CompRelationsRowDeleted +=new ModelDataSet.CompRelationsRowChangeEventHandler(CompRelationsDeleted);
 		}
@@ -130,9 +139,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		}
 
 		//queries the role by componentid, interfaceid and role
-		private ModelDataSet.RolesRow QueryRole(IComponentIdentifier compId, IInterfaceIdentifier iFaceId, InterfaceRole role)
+		private ModelDataSet.RolesRow QueryRole(ConnectionPoint point, InterfaceRole role)
 		{
-			string query = "fk_comp = '"+compId.Key+"' and fk_iface = '"+iFaceId.Key+"' and type = "+(sbyte)role;
+			string query = "fk_comp = '"+point.componentID.Key+"' and fk_iface = '"+point.ifaceID.Key+"' and type = "+(sbyte)role;
 			DataRow[] result = modelDataset.Roles.Select(query);
 
 			if (result.Length == 0) return null;	
@@ -157,27 +166,29 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		}
 
 		//add a connection
-		private void AddDelegation(IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID, IComponentIdentifier outerCompID, 
-			IInterfaceIdentifier outerIFaceID, IConnection connection, InterfaceRole role)
+		private void AddDelegation(ConnectionPoint innerPoint, ConnectionPoint outerPoint, IConnection connection, 
+			InterfaceRole role)
 		{
 			modelCheck.EntityAlreadyExistsCheck(connection.ID);
 
 			if (role == InterfaceRole.PROVIDES)
-				modelCheck.AddProvidesDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,role);
+				modelCheck.AddProvidesDelegationCheck(innerPoint,outerPoint,role);
 			else
-				modelCheck.AddRequiresDelegationCheck(innerCompID,innerIFaceID,outerCompID,outerIFaceID,role);
+				modelCheck.AddRequiresDelegationCheck(innerPoint,outerPoint,role);
 
-			ModelDataSet.RolesRow innerRole = QueryRole(innerCompID,innerIFaceID,role);
-			ModelDataSet.RolesRow outerRole = QueryRole(outerCompID,outerIFaceID,role);
+			ModelDataSet.RolesRow innerRole = QueryRole(innerPoint,role);
+			ModelDataSet.RolesRow outerRole = QueryRole(outerPoint,role);
 
-			ModelDataSet.ComponentsRow outerCompRow = ComponentsTable.FindByguid(outerCompID.Key);
+			ModelDataSet.CompRelationsRow innerCompRel = QueryParent(innerPoint.componentID,outerPoint.componentID);
 	
-			if (role == InterfaceRole.PROVIDES)
-				ConnectionsTable.AddConnectionsRow(outerRole,innerRole,connection.ID.Key,outerCompRow);
-			else
-				ConnectionsTable.AddConnectionsRow(innerRole, outerRole,connection.ID.Key,outerCompRow);
-
-			ConnectionsTable.AcceptChanges();
+			ModelDataSet.DelegationConnectorsRow newRow = DelegationConnectorsTable.NewDelegationConnectorsRow();
+			newRow.guid = connection.ID.Key;
+			newRow.fk_inner_comp_rel = innerCompRel.id;
+			newRow.fk_inner_role = innerRole.id;
+			newRow.fk_outer_role = outerRole.id;
+	
+			DelegationConnectorsTable.AddDelegationConnectorsRow(newRow);
+			DelegationConnectorsTable.AcceptChanges();
 			entityHashtable.AddEntity(connection);
 		}
 
@@ -211,19 +222,37 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			entityHashtable.RemoveEntity(protKey);
 		}
 
-		//called when a connection has been removed from dataset
-		private void ConDeleted(object sender, ModelDataSet.ConnectionsRowChangeEvent e)
+		//called when a delegation connector has been removed from dataset
+		private void DelegationConnectorDeleted(object sender, ModelDataSet.DelegationConnectorsRowChangeEvent e)
 		{
 			string conKey = (string)e.Row["guid",DataRowVersion.Original];
-			object parentCKey = e.Row["fk_comp",DataRowVersion.Original];
+			long compRelID = (long) e.Row["fk_inner_comp_rel",DataRowVersion.Original];
+			object parentCompKey = CompRelationTable.FindByid(compRelID).fk_parent;
+
 			IComponentIdentifier parentCompID = null;
 
-			if (!(parentCKey is DBNull))
-				parentCompID = new InternalEntityIdentifier((string)parentCKey);
+			if (!(parentCompKey is DBNull))
+				parentCompID = new InternalEntityIdentifier((string)parentCompKey);
 			
 			entityReg.UnregisterConnection((IConnection) entityHashtable[conKey],parentCompID);
 
             entityHashtable.RemoveEntity(conKey);
+		}
+
+		//called when an assembly connector has been removed from dataset
+		private void AssemblyConnectorDeleted(object sender, ModelDataSet.AssemblyConnectorsRowChangeEvent e)
+		{
+			string conKey = (string)e.Row["guid",DataRowVersion.Original];
+			long compRelID = (long) e.Row["fk_prov_comp_rel",DataRowVersion.Original];
+			object parentCompKey = CompRelationTable.FindByid(compRelID).fk_parent;
+			IComponentIdentifier parentCompID = null;
+
+			if (parentCompKey != null)
+				parentCompID = new InternalEntityIdentifier((string)parentCompKey);
+            
+			entityReg.UnregisterConnection((IConnection)entityHashtable[conKey],parentCompID);
+
+			entityHashtable.RemoveEntity(conKey);
 		}
 
 		//called when a signature has been removed from dataset
@@ -273,10 +302,12 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			this.ClearTable(InterfacesTable);
 			this.ClearTable(ProtocolsTable);
 			this.ClearTable(RolesTable);
-			this.ClearTable(ConnectionsTable);			
+			this.ClearTable(DelegationConnectorsTable);			
+			this.ClearTable(AssemblyConnectorsTable);			
 			this.ClearTable(SignaturesTable);
 			entityHashtable.Clear();
-			idCntr = 0;
+			compRelIdCntr = 0;
+			roleIdCntr = 0;
 		}
 
 		/// <summary>
@@ -309,6 +340,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			modelCheck.AddCompToCompCheck(componentId,parentComponentId);
 
 			ModelDataSet.CompRelationsRow newRow = CompRelationTable.NewCompRelationsRow();
+			newRow.id = this.NextCompRelID;
 			newRow.fk_child = componentId.Key;
 			if (parentComponentId != null)
 				newRow.fk_parent = parentComponentId.Key;
@@ -370,7 +402,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			ModelDataSet.ComponentsRow compRow = ComponentsTable.FindByguid(componentIdentifier.Key);
 			ModelDataSet.InterfacesRow ifaceRow = InterfacesTable.FindByguid(ifaceIdentifier.Key);
           
-			RolesTable.AddRolesRow(this.NextID,compRow,ifaceRow,(sbyte) role);
+			RolesTable.AddRolesRow(this.NextRoleID,compRow,ifaceRow,(sbyte) role);
 			RolesTable.AcceptChanges();
 
 			entityReg.RegisterInterfaceToComponent(componentIdentifier,ifaceIdentifier,role);
@@ -414,7 +446,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		public void RemoveInterfaceFromComponent(IComponentIdentifier componentIdentifier, IInterfaceIdentifier ifaceIdentifier,
 			InterfaceRole role)
 		{
-			ModelDataSet.RolesRow rolesRow = QueryRole(componentIdentifier,ifaceIdentifier,role);
+			ModelDataSet.RolesRow rolesRow = QueryRole(new ConnectionPoint(ifaceIdentifier,componentIdentifier), role);
 			if (rolesRow == null) return;
 
 			rolesRow.Delete();
@@ -426,21 +458,18 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// interface of an inner component.
 		/// </summary>
 		/// <param name="connection">the connection to be added</param>
-		/// <param name="outerCompID">the id of the outer component</param>
-		/// <param name="outerIFaceID">the id of the outer component</param>
-		/// <param name="innerCompID">the id of the inner component</param>
-		/// <param name="innerIFaceID">the id of the inner components interface</param>
-		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
-		/// <exception cref="InterfaceNotFromComponentException">the interface is not bound to the component</exception>
-		/// <exception cref="ComponentNotFoundException">a component could not be found in cm</exception>
+		/// <param name="outerPoint">the connecting point of the outer component</param>
+		/// <param name="innerPoint">the connecting point of the inner component</param>
+		/// <exception cref="EntityAlreadyExistsException">an interface could not be found in cm</exception>
+		/// <exception cref="InterfaceNotFoundException">a component could not be found in cm</exception>
 		/// <exception cref="ComponentHierarchyException">the outer component is not the parent of the inner component</exception>
 		/// <exception cref="NotAProvidesIFaceException">one of the given interfaces is not a provides
 		/// interface of the component</exception>
-		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
-		public void AddProvidesDelegationConnector(IConnection connection, IComponentIdentifier outerCompID, IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
-		{			
-			AddDelegation(innerCompID, innerIFaceID, outerCompID, outerIFaceID, connection, InterfaceRole.PROVIDES);
-			entityReg.RegisterProvidesDelegation(connection,outerCompID,outerIFaceID,innerCompID,innerIFaceID);
+		/// <exception cref="ComponentNotFoundException">an entity with given id already exists in cm</exception>
+		public void AddProvidesDelegationConnector(IConnection connection, ConnectionPoint outerPoint, ConnectionPoint innerPoint)
+		{
+			AddDelegation(innerPoint, outerPoint, connection, InterfaceRole.PROVIDES);
+			entityReg.RegisterProvidesDelegation(connection,outerPoint,innerPoint);
 		}
 
 		/// <summary>
@@ -448,20 +477,18 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// interface of its parent component
 		/// </summary>
 		/// <param name="connection">the connection to be added</param>
-		/// <param name="innerCompID">the id of the inner component</param>
-		/// <param name="innerIFaceID">the id of the inner components interface</param>
-		/// <param name="outerCompID">the id of the outer component</param>
-		/// <param name="outerIFaceID">the id of the outer component</param>
-		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
-		/// <exception cref="ComponentNotFoundException">a component could not be found in cm</exception>
-		/// <exception cref="ComponentHierarchyException">the outer component is not the parent of the inner component</exception>
-		/// <exception cref="NotARequiresIFaceException">one of the given interfaces is not a requires 
+		/// <param name="outerPoint">the connecting point of the outer component</param>
+		/// <param name="innerPoint">the connecting point of the inner component</param>
+		/// <exception cref="ComponentNotFoundException">an interface could not be found in cm</exception>
+		/// <exception cref="ComponentHierarchyException">a component could not be found in cm</exception>
+		/// <exception cref="NotARequiresIFaceException">the outer component is not the parent of the inner component</exception>
+		/// <exception cref="EntityAlreadyExistsException">one of the given interfaces is not a requires 
 		/// interface of the component</exception>
-		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
-		public void AddRequiresDelegationConnector(IConnection connection, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID, IComponentIdentifier outerCompID, IInterfaceIdentifier outerIFaceID)
+		/// <exception cref="InterfaceNotFoundException">an entity with given id already exists in cm</exception>
+		public void AddRequiresDelegationConnector(IConnection connection, ConnectionPoint innerPoint, ConnectionPoint outerPoint)
 		{
-			AddDelegation(innerCompID, innerIFaceID, outerCompID, outerIFaceID, connection, InterfaceRole.REQUIRES);
-			entityReg.RegisterRequiresDelegation(connection,innerCompID,innerIFaceID,outerCompID,outerIFaceID);
+			AddDelegation(innerPoint, outerPoint, connection, InterfaceRole.REQUIRES);
+			entityReg.RegisterProvidesDelegation(connection,outerPoint,innerPoint);
 		}
 
 		/// <summary>
@@ -471,40 +498,37 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		/// <param name="connection">the connection to be added</param>
 		/// <param name="parentCompID">the id of component that should contain the connection</param>
-		/// <param name="reqCompID">the id of the incoming component</param>
-		/// <param name="reqIFaceID">the incoming components interface</param>
-		/// <param name="provCompID">the id of the outgoing component</param>
-		/// <param name="provIFaceID">the outgoing components interface</param>
-		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
-		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
-		/// <exception cref="InterfaceNotFromComponentException">the interface is not bound with the component</exception>
-		/// <exception cref="ComponentNotFoundException">one of the components could not be found in cm</exception>
-		/// <exception cref="NotARequiresIFaceException">the first given interface is not a requires</exception> 
-		/// <exception cref="NotAProvidesIFaceException">the second given interface is not a provides </exception>
-		/// <exception cref="ComponentHierarchyException">one of the components is not a child of the parent component.</exception>
-		public void AddAssemblyConnector(IConnection connection, IComponentIdentifier parentCompID, 
-			IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, 
-			IInterfaceIdentifier provIFaceID)
+		/// <param name="requiresPoint">the point of the requiring component</param>
+		/// <param name="providesPoint">the point of the providing component</param>
+		/// <exception cref="InterfaceNotFoundException">an entity with given id already exists in cm</exception>
+		/// <exception cref="ComponentNotFoundException">an interface could not be found in cm</exception>
+		/// <exception cref="ComponentHierarchyException">a component could not be found in cm</exception>
+		/// <exception cref="NotARequiresIFaceException">both components have not the same parent id</exception>
+		/// <exception cref="EntityAlreadyExistsException">one of the first given interface is not a requires</exception> 
+		/// <exception cref="NotAProvidesIFaceException">one of the second given interface is not a provides </exception>
+		public void AddAssemblyConnector(IConnection connection, IComponentIdentifier parentCompID, ConnectionPoint requiresPoint, ConnectionPoint providesPoint)
 		{
 			modelCheck.EntityAlreadyExistsCheck(connection.ID);
 
-			ModelDataSet.RolesRow reqRole = QueryRole(reqCompID,reqIFaceID,InterfaceRole.REQUIRES);
-			ModelDataSet.RolesRow provRole = QueryRole(provCompID,provIFaceID,InterfaceRole.PROVIDES);
+			ModelDataSet.RolesRow reqRole = QueryRole(requiresPoint,InterfaceRole.REQUIRES);
+			ModelDataSet.RolesRow provRole = QueryRole(providesPoint,InterfaceRole.PROVIDES);
 
-			modelCheck.AddAssemblyConnectorCheck(parentCompID,reqCompID,reqIFaceID,provCompID,provIFaceID);
+			ModelDataSet.CompRelationsRow reqCompRel = QueryParent(requiresPoint.componentID,parentCompID);
+			ModelDataSet.CompRelationsRow provCompRel = QueryParent(providesPoint.componentID,parentCompID);
 
-			ModelDataSet.ConnectionsRow newRow = ConnectionsTable.NewConnectionsRow();
-			newRow.incoming = reqRole.id;
-			newRow.outgoing = provRole.id;
+			modelCheck.AddAssemblyConnectorCheck(parentCompID,requiresPoint,providesPoint);
+
+			ModelDataSet.AssemblyConnectorsRow newRow = AssemblyConnectorsTable.NewAssemblyConnectorsRow();
+			newRow.fk_req_comp_rel = reqCompRel.id;
+			newRow.fk_req_role = reqRole.id;			
+			newRow.fk_prov_comp_rel = provCompRel.id;
+			newRow.fk_prov_role = provRole.id;			
 			newRow.guid = connection.ID.Key;
 
-			if (parentCompID != null)
-				newRow.fk_comp = parentCompID.Key;
-
-			ConnectionsTable.AddConnectionsRow(newRow);
-			ConnectionsTable.AcceptChanges();
+			AssemblyConnectorsTable.AddAssemblyConnectorsRow(newRow);
+			AssemblyConnectorsTable.AcceptChanges();
 			entityHashtable.AddEntity(connection);
-			entityReg.RegisterAssemblyConnection(connection,parentCompID,reqCompID,reqIFaceID,provCompID,provIFaceID);
+			entityReg.RegisterAssemblyConnection(connection,parentCompID,requiresPoint,providesPoint);
 		}
 
 		/// <summary>
@@ -514,8 +538,13 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="connectionID">the id of the connection that has to be removed</param>
 		public void RemoveConnection(IConnectionIdentifier connectionID)
 		{
-			ModelDataSet.ConnectionsRow row = ConnectionsTable.FindByguid(connectionID.Key);
-			if (row == null) return;
+			DataRow row = DelegationConnectorsTable.FindByguid(connectionID.Key);
+			if (row == null) 
+				row = AssemblyConnectorsTable.FindByguid(connectionID.Key);
+
+			if (row == null)
+				return;
+
 			row.Delete();
 			modelDataset.AcceptChanges();
 		}
@@ -631,12 +660,21 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			}
 		}
 		
-		//returns the table of the connections
-		private ModelDataSet.ConnectionsDataTable ConnectionsTable
+		//returns the table of the delegation connectors
+		private ModelDataSet.DelegationConnectorsDataTable DelegationConnectorsTable
 		{
 			get
 			{
-				return modelDataset.Connections;
+				return modelDataset.DelegationConnectors;
+			}
+		}
+
+		//returns the table of the assembly connectors
+		private ModelDataSet.AssemblyConnectorsDataTable AssemblyConnectorsTable
+		{
+			get
+			{
+				return modelDataset.AssemblyConnectors;
 			}
 		}
 
@@ -649,12 +687,21 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			}
 		}
 
-		//call return a new id
-		private long NextID
+		//a call returns a new role id
+		private long NextRoleID
 		{
 			get
 			{
-				return idCntr++;
+				return roleIdCntr++;
+			}
+		}
+
+		//a call returns a new component relation id
+		private long NextCompRelID
+		{
+			get
+			{
+				return compRelIdCntr++;
 			}
 		}
 		#endregion

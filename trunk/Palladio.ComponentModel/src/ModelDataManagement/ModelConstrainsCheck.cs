@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/06/17 18:31:43  joemal
+	/// changes in the connection tables
+	///
 	/// Revision 1.5  2005/06/05 10:39:23  joemal
 	/// - components now can be added to more than one container
 	///
@@ -126,7 +129,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		{
 			InterfaceExitsCheck(ifaceId);
 			ComponentExitsCheck(compId);
-			if (QueryRole(compId,ifaceId,role)!=null)
+			if (QueryRole(new ConnectionPoint(ifaceId,compId),role)!=null)
 				throw new EntityAlreadyExistsException("The interface is still bound with the component.");
 		}
 
@@ -159,10 +162,8 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <summary>
 		/// check the constrains before adding a provides delegation connector
 		/// </summary>
-		/// <param name="innerCompId">a component id</param>
-		/// <param name="innerIFaceId">an interface id</param>
-		/// <param name="outerCompId">a component id</param>
-		/// <param name="outerIFaceId">an interface id</param>
+		/// <param name="innerPoint">the connecting point of the inner component</param>
+		/// <param name="outerPoint">the connecting point of the outer component</param>
 		/// <param name="role">the side of the component to connect to</param>
 		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
 		/// <exception cref="InterfaceNotFromComponentException">the interface is not bound to the component</exception>
@@ -170,30 +171,27 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <exception cref="ComponentHierarchyException">the outer component is not the parent of the inner component</exception>
 		/// <exception cref="NotAProvidesIFaceException">one of the given interfaces is not a provides
 		/// interface of the component</exception>
-		public void AddProvidesDelegationCheck(IComponentIdentifier innerCompId, IInterfaceIdentifier innerIFaceId,
-			IComponentIdentifier outerCompId, IInterfaceIdentifier outerIFaceId,InterfaceRole role)
+		public void AddProvidesDelegationCheck(ConnectionPoint innerPoint,ConnectionPoint outerPoint,InterfaceRole role)
 		{
-			ComponentExitsCheck(innerCompId);
-			ComponentExitsCheck(outerCompId);
-			InterfaceExitsCheck(innerIFaceId);
-			InterfaceExitsCheck(outerIFaceId);
+			ComponentExitsCheck(innerPoint.componentID);
+			ComponentExitsCheck(outerPoint.componentID);
+			InterfaceExitsCheck(innerPoint.ifaceID);
+			InterfaceExitsCheck(outerPoint.ifaceID);
 
 			if (role != InterfaceRole.PROVIDES)
-				throw new NotAProvidesIFaceException(innerCompId,innerIFaceId);
+				throw new NotAProvidesIFaceException(innerPoint.componentID,innerPoint.ifaceID);
 
-			RoleExitsCheck(innerCompId,innerIFaceId,role);
-			RoleExitsCheck(outerCompId,outerIFaceId,role);
+			RoleExitsCheck(innerPoint,role);
+			RoleExitsCheck(outerPoint,role);
 
-			ParentCheck(innerCompId,outerCompId,"The outer component is not the parent of the inner one.");
+			ParentCheck(innerPoint.componentID,outerPoint.componentID,"The outer component is not the parent of the inner one.");
 		}
 		
 		/// <summary>
 		/// check the constrains before adding a requires delegation connector
 		/// </summary>
-		/// <param name="innerCompId">a component id</param>
-		/// <param name="innerIFaceId">an interface id</param>
-		/// <param name="outerCompId">a component id</param>
-		/// <param name="outerIFaceId">an interface id</param>
+		/// <param name="innerPoint">the connecting point of the inner component</param>
+		/// <param name="outerPoint">the connecting point of the outer component</param>
 		/// <param name="role">the side of the component to connect to</param>
 		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
 		/// <exception cref="ComponentNotFoundException">a component could not be found in cm</exception>
@@ -201,50 +199,47 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <exception cref="ComponentHierarchyException">the outer component is not the parent of the inner component</exception>
 		/// <exception cref="NotARequiresIFaceException">one of the given interfaces is not a requires 
 		/// interface of the component</exception>
-		public void AddRequiresDelegationCheck(IComponentIdentifier innerCompId, IInterfaceIdentifier innerIFaceId,
-			IComponentIdentifier outerCompId, IInterfaceIdentifier outerIFaceId,InterfaceRole role)
+		public void AddRequiresDelegationCheck(ConnectionPoint innerPoint,ConnectionPoint outerPoint,InterfaceRole role)
 		{
-			ComponentExitsCheck(innerCompId);
-			ComponentExitsCheck(outerCompId);
-			InterfaceExitsCheck(innerIFaceId);
-			InterfaceExitsCheck(outerIFaceId);
+			ComponentExitsCheck(innerPoint.componentID);
+			ComponentExitsCheck(outerPoint.componentID);
+			InterfaceExitsCheck(innerPoint.ifaceID);
+			InterfaceExitsCheck(outerPoint.ifaceID);
 
 			if (role != InterfaceRole.REQUIRES)
-				throw new NotARequiresIFaceException(innerCompId,innerIFaceId);
+				throw new NotARequiresIFaceException(innerPoint.componentID,innerPoint.ifaceID);
 
-			RoleExitsCheck(innerCompId,innerIFaceId,role);
-			RoleExitsCheck(outerCompId,outerIFaceId,role);
+			RoleExitsCheck(innerPoint,role);
+			RoleExitsCheck(outerPoint,role);
 
-			ParentCheck(innerCompId,outerCompId,"The outer component is not the parent of the inner one.");
+			ParentCheck(innerPoint.componentID,outerPoint.componentID,"The outer component is not the parent of the inner one.");
 		}
 
 		/// <summary>
 		/// checks the constrains before adding the assembly connector.
 		/// </summary>
 		/// <param name="parentCompID">the id of the components parent component</param>
-		/// <param name="reqCompId">a component id</param>
-		/// <param name="reqIFaceId">an interface id</param>
-		/// <param name="provCompId">a component id</param>
-		/// <param name="provIFaceId">an interface id</param>
+		/// <param name="requiresPoint">the connecting point of the providing component</param>
+		/// <param name="providesPoint">the connecting point of the providing component</param>
 		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
 		/// <exception cref="InterfaceNotFromComponentException">the interface is not bound with the component</exception>
 		/// <exception cref="ComponentNotFoundException">one of the components could not be found in cm</exception>
 		/// <exception cref="NotARequiresIFaceException">the first given interface is not a requires</exception> 
 		/// <exception cref="NotAProvidesIFaceException">the second given interface is not a provides </exception>
 		/// <exception cref="ComponentHierarchyException">one of the components is not a child of the parent component.</exception>
-		public void AddAssemblyConnectorCheck(IComponentIdentifier parentCompID,IComponentIdentifier reqCompId, 
-			IInterfaceIdentifier reqIFaceId, IComponentIdentifier provCompId, IInterfaceIdentifier provIFaceId)
+		public void AddAssemblyConnectorCheck(IComponentIdentifier parentCompID,ConnectionPoint requiresPoint,
+			ConnectionPoint providesPoint)
 		{
-			ComponentExitsCheck(reqCompId);
-			ComponentExitsCheck(provCompId);
-			InterfaceExitsCheck(reqIFaceId);
-			InterfaceExitsCheck(provIFaceId);
+			ComponentExitsCheck(requiresPoint.componentID);
+			ComponentExitsCheck(providesPoint.componentID);
+			InterfaceExitsCheck(requiresPoint.ifaceID);
+			InterfaceExitsCheck(providesPoint.ifaceID);
 
-			RoleExitsCheck(reqCompId,reqIFaceId,InterfaceRole.REQUIRES);
-			RoleExitsCheck(provCompId,provIFaceId,InterfaceRole.PROVIDES);
+			RoleExitsCheck(requiresPoint,InterfaceRole.REQUIRES);
+			RoleExitsCheck(providesPoint,InterfaceRole.PROVIDES);
 
-			ParentCheck(reqCompId,parentCompID,"The requiring component is not a child of the parent component.");
-			ParentCheck(provCompId,parentCompID,"The providing component is not a child of the parent component.");
+			ParentCheck(requiresPoint.componentID,parentCompID,"The requiring component is not a child of the parent component.");
+			ParentCheck(providesPoint.componentID,parentCompID,"The providing component is not a child of the parent component.");
 		}
 
 		/// <summary>
@@ -277,9 +272,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		}
 
 		//queries the role by componentid, interfaceid and role
-		private ModelDataSet.RolesRow QueryRole(IComponentIdentifier compId, IInterfaceIdentifier iFaceId, InterfaceRole role)
+		private ModelDataSet.RolesRow QueryRole(ConnectionPoint point, InterfaceRole role)
 		{
-			string query = "fk_comp = '"+compId.Key+"' and fk_iface = '"+iFaceId.Key+"' and type = "+(sbyte)role;
+			string query = "fk_comp = '"+point.componentID.Key+"' and fk_iface = '"+point.ifaceID.Key+"' and type = "+(sbyte)role;
 			DataRow[] result = dataset.Roles.Select(query);
 
 			if (result.Length == 0) return null;	
@@ -288,10 +283,10 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		}
 
 		//check wether the given interface belongs to the component at given role
-		private void RoleExitsCheck(IComponentIdentifier compId, IInterfaceIdentifier ifaceId, InterfaceRole role)
+		private void RoleExitsCheck(ConnectionPoint point, InterfaceRole role)
 		{
-			if (QueryRole(compId,ifaceId,role)==null)
-				throw new InterfaceNotFromComponentException(compId,ifaceId);
+			if (QueryRole(point,role)==null)
+				throw new InterfaceNotFromComponentException(point.componentID,point.ifaceID);
 		}
 
 		// checks wether the component with the given parent id is the parent of the compIDs one.

@@ -19,15 +19,6 @@
 						<xs:attribute name="guid" type="xs:string" />
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Connections">
-					<xs:complexType>
-						<xs:sequence></xs:sequence>
-						<xs:attribute name="incoming" type="xs:long" msprop:nullValue="-1" />
-						<xs:attribute name="outgoing" type="xs:long" msprop:nullValue="-1" />
-						<xs:attribute name="guid" type="xs:string" />
-						<xs:attribute name="fk_comp" type="xs:string" />
-					</xs:complexType>
-				</xs:element>
 				<xs:element name="Signatures">
 					<xs:complexType>
 						<xs:sequence />
@@ -56,27 +47,34 @@
 						<xs:sequence></xs:sequence>
 						<xs:attribute name="fk_child" type="xs:string" msprop:nullValue="_throw" />
 						<xs:attribute name="fk_parent" type="xs:string" msprop:nullValue="_null" />
+						<xs:attribute name="id" type="xs:long" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="DelegationConnectors">
+					<xs:complexType>
+						<xs:sequence></xs:sequence>
+						<xs:attribute name="fk_outer_role" type="xs:long" />
+						<xs:attribute name="fk_inner_comp_rel" type="xs:long" />
+						<xs:attribute name="fk_inner_role" type="xs:long" />
+						<xs:attribute name="guid" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="AssemblyConnectors">
+					<xs:complexType>
+						<xs:sequence></xs:sequence>
+						<xs:attribute name="fk_prov_role" type="xs:long" />
+						<xs:attribute name="fk_prov_comp_rel" type="xs:long" />
+						<xs:attribute name="fk_req_role" type="xs:long" />
+						<xs:attribute name="fk_req_comp_rel" type="xs:long" />
+						<xs:attribute name="guid" type="xs:string" />
 					</xs:complexType>
 				</xs:element>
 			</xs:choice>
 		</xs:complexType>
-		<xs:key name="CON_PK">
-			<xs:selector xpath=".//mstns:Connections" />
-			<xs:field xpath="@mstns:incoming" />
-			<xs:field xpath="@mstns:outgoing" />
-		</xs:key>
 		<xs:key name="ROLES_PK" msdata:PrimaryKey="true">
 			<xs:selector xpath=".//mstns:Roles" />
 			<xs:field xpath="@mstns:id" />
 		</xs:key>
-		<xs:keyref name="RolesConnections" refer="ROLES_PK" msdata:DeleteRule="Cascade">
-			<xs:selector xpath=".//mstns:Connections" />
-			<xs:field xpath="@mstns:incoming" />
-		</xs:keyref>
-		<xs:keyref name="RolesConnections1" refer="ROLES_PK" msdata:DeleteRule="Cascade">
-			<xs:selector xpath=".//mstns:Connections" />
-			<xs:field xpath="@mstns:outgoing" />
-		</xs:keyref>
 		<xs:keyref name="ComponentsRoles" refer="PK_COMP" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
 			<xs:selector xpath=".//mstns:Roles" />
 			<xs:field xpath="@mstns:fk_comp" />
@@ -85,10 +83,6 @@
 			<xs:selector xpath=".//mstns:Roles" />
 			<xs:field xpath="@mstns:fk_iface" />
 		</xs:keyref>
-		<xs:key name="CON_SK" msdata:PrimaryKey="true">
-			<xs:selector xpath=".//mstns:Connections" />
-			<xs:field xpath="@mstns:guid" />
-		</xs:key>
 		<xs:key name="PK_IFACE" msdata:PrimaryKey="true">
 			<xs:selector xpath=".//mstns:Interfaces" />
 			<xs:field xpath="@mstns:guid" />
@@ -113,10 +107,6 @@
 			<xs:selector xpath=".//mstns:Components" />
 			<xs:field xpath="@mstns:guid" />
 		</xs:key>
-		<xs:keyref name="ComponentsConnections" refer="PK_COMP" msdata:DeleteRule="SetNull" msdata:UpdateRule="SetNull">
-			<xs:selector xpath=".//mstns:Connections" />
-			<xs:field xpath="@mstns:fk_comp" />
-		</xs:keyref>
 		<xs:keyref name="ComponentsCompRelations" refer="PK_COMP" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade"
 			msdata:AcceptRejectRule="Cascade">
 			<xs:selector xpath=".//mstns:CompRelations" />
@@ -133,10 +123,63 @@
 			<xs:field xpath="@mstns:fk_iface" />
 			<xs:field xpath="@mstns:type" />
 		</xs:key>
-		<xs:unique name="COMPRELATIONS_PK">
+		<xs:unique name="SK_COMPREL">
 			<xs:selector xpath=".//mstns:CompRelations" />
 			<xs:field xpath="@mstns:fk_child" />
 			<xs:field xpath="@mstns:fk_parent" />
 		</xs:unique>
+		<xs:key name="PK_COMPREL" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:CompRelations" />
+			<xs:field xpath="@mstns:id" />
+		</xs:key>
+		<xs:key name="PK_ASS" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:AssemblyConnectors" />
+			<xs:field xpath="@mstns:guid" />
+		</xs:key>
+		<xs:key name="PK_DEL" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:DelegationConnectors" />
+			<xs:field xpath="@mstns:guid" />
+		</xs:key>
+		<xs:key name="SK_DEL">
+			<xs:selector xpath=".//mstns:DelegationConnectors" />
+			<xs:field xpath="@mstns:fk_outer_role" />
+			<xs:field xpath="@mstns:fk_inner_comp_rel" />
+			<xs:field xpath="@mstns:fk_inner_role" />
+		</xs:key>
+		<xs:key name="SK_ASS">
+			<xs:selector xpath=".//mstns:AssemblyConnectors" />
+			<xs:field xpath="@mstns:fk_prov_role" />
+			<xs:field xpath="@mstns:fk_prov_comp_rel" />
+			<xs:field xpath="@mstns:fk_req_role" />
+			<xs:field xpath="@mstns:fk_req_comp_rel" />
+		</xs:key>
+		<xs:keyref name="RolesDelegationConnectors" refer="ROLES_PK" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
+			<xs:selector xpath=".//mstns:DelegationConnectors" />
+			<xs:field xpath="@mstns:fk_outer_role" />
+		</xs:keyref>
+		<xs:keyref name="RolesDelegationConnectors1" refer="ROLES_PK" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
+			<xs:selector xpath=".//mstns:DelegationConnectors" />
+			<xs:field xpath="@mstns:fk_inner_role" />
+		</xs:keyref>
+		<xs:keyref name="CompRelDelCon" refer="PK_COMPREL" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
+			<xs:selector xpath=".//mstns:DelegationConnectors" />
+			<xs:field xpath="@mstns:fk_inner_comp_rel" />
+		</xs:keyref>
+		<xs:keyref name="RolesAssemblyConnectors" refer="ROLES_PK" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
+			<xs:selector xpath=".//mstns:AssemblyConnectors" />
+			<xs:field xpath="@mstns:fk_prov_role" />
+		</xs:keyref>
+		<xs:keyref name="RolesAssemblyConnectors1" refer="ROLES_PK" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
+			<xs:selector xpath=".//mstns:AssemblyConnectors" />
+			<xs:field xpath="@mstns:fk_req_role" />
+		</xs:keyref>
+		<xs:keyref name="CompRelAsmConProv" refer="PK_COMPREL" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
+			<xs:selector xpath=".//mstns:AssemblyConnectors" />
+			<xs:field xpath="@mstns:fk_prov_comp_rel" />
+		</xs:keyref>
+		<xs:keyref name="CompRelAsmConReq" refer="PK_COMPREL" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
+			<xs:selector xpath=".//mstns:AssemblyConnectors" />
+			<xs:field xpath="@mstns:fk_req_comp_rel" />
+		</xs:keyref>
 	</xs:element>
 </xs:schema>

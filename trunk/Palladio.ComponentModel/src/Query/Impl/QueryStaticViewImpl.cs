@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/06/17 18:33:09  joemal
+	/// changes in the connection tables
+	///
 	/// Revision 1.5  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository
 	///
@@ -82,15 +85,17 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the ids of the connections</returns>
 		public IConnectionIdentifier[] GetConnections()
 		{
-			string query = "fk_comp is null";
-			DataRow[] conRows = this.Dataset.Connections.Select(query);
+			ModelDataSet.CompRelationsRow[] compRelRows = (ModelDataSet.CompRelationsRow[]) 
+				this.Dataset.CompRelations.Select("fk_parent is null");
 
-			IConnectionIdentifier[] conIds = new IConnectionIdentifier[conRows.Length];
+			ArrayList conIDs = new ArrayList();
+			foreach(ModelDataSet.CompRelationsRow compRelRow in compRelRows)
+			{
+				foreach(ModelDataSet.AssemblyConnectorsRow conRow in compRelRow.GetAssemblyConnectorsRowsByCompRelAsmConReq())
+					conIDs.Add(ComponentModelIdentifier.CreateConnectionID(conRow.guid));
+			}
 
-			for (int a=0;a<conRows.Length;a++)
-				conIds[a] = ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.ConnectionsRow)conRows[a]).guid);
-
-			return conIds;
+			return (IConnectionIdentifier[]) conIDs.ToArray(typeof(IConnectionIdentifier));
 		}
 
 		/// <summary>
@@ -116,13 +121,13 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>true, if the connection that belongs to given id is part of this component</returns>
 		public bool IsConnectionFromComponent(IConnectionIdentifier connectionID)
 		{
-			ModelDataSet.ConnectionsRow row = this.Dataset.Connections.FindByguid(connectionID.Key);
-			if (row == null) return false;
-			return row.Isfk_compNull();
+			ModelDataSet.AssemblyConnectorsRow conRow = this.Dataset.AssemblyConnectors.FindByguid(connectionID.Key);
+			if (conRow == null) return false;
+			return conRow.CompRelationsRowByCompRelAsmConProv.Isfk_parentNull();
 		}
 
 		/// <summary>
-		/// called to return the assembly connector that connects the two given components.
+		/// called to return the assembly connector that connects the given two components.
 		/// </summary>
 		/// <param name="reqCompID">the id of the requiring component</param>
 		/// <param name="reqIFaceID">the id of the requires interface</param>
@@ -131,15 +136,19 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the id of the connection</returns>
 		public IConnectionIdentifier GetAssemblyConnector(IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
-			ModelDataSet.RolesRow incomingRole = this.QueryRole(reqCompID,reqIFaceID,InterfaceRole.REQUIRES);
-			if (incomingRole == null) return null;
-			ModelDataSet.RolesRow outgoingRole = this.QueryRole(provCompID,provIFaceID,InterfaceRole.PROVIDES);
-			if (outgoingRole == null) return null;
+			ModelDataSet.RolesRow reqRole = this.QueryRole(reqCompID,reqIFaceID,InterfaceRole.REQUIRES);
+			if (reqRole == null) return null;
+			ModelDataSet.RolesRow provRole = this.QueryRole(provCompID,provIFaceID,InterfaceRole.PROVIDES);
+			if (provRole == null) return null;
 
-			string query = "incoming = "+incomingRole.id+" and outgoing = "+outgoingRole.id;
-			DataRow[] result = this.Dataset.Connections.Select(query);
-			if (result.Length==0) return null;
-			return ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.ConnectionsRow)result[0]).guid);
+			string query = "fk_prov_role = "+provRole.id+" and fk_req_role = "+reqRole.id;
+			DataRow[] result = this.Dataset.AssemblyConnectors.Select(query);
+
+			foreach(ModelDataSet.AssemblyConnectorsRow conRow in result)
+				if (conRow.CompRelationsRowByCompRelAsmConProv.Isfk_parentNull()) 
+					return ComponentModelIdentifier.CreateConnectionID(conRow.guid);
+
+			return null;
 		}
 
 		/// <summary>
@@ -160,12 +169,14 @@ namespace Palladio.ComponentModel.Query.Impl
 			return QueryComponents(ComponentType.COMPOSITE);
 		}
 
+		#endregion
+
+		#region private 
+
 		//called to query the components of the static view
 		private IComponentIdentifier[] QueryComponents()
 		{
-			string query = "fk_parent is null";
-			DataRow[] compRows = this.Dataset.CompRelations.Select(query);
-			
+			DataRow[] compRows = this.QueryChildComponents();
 			IComponentIdentifier[] compIds = new IComponentIdentifier[compRows.Length];
 	
 			for (int a=0;a<compRows.Length;a++)
@@ -177,13 +188,22 @@ namespace Palladio.ComponentModel.Query.Impl
 		//called to query the components of the static view
 		private IComponentIdentifier[] QueryComponents(ComponentType type)
 		{
-			IComponentIdentifier[] compIDs = QueryComponents();
+			DataRow[] compRows = this.QueryChildComponents();
 			ArrayList cIDs = new ArrayList();
-			foreach(IComponentIdentifier compID in compIDs)
-				if (this.QueryRepository.GetComponent(compID).Type == type)
-					cIDs.Add(compID);
+			foreach(ModelDataSet.CompRelationsRow compRelRow in compRows)
+			{
+				IComponentIdentifier compID = ComponentModelIdentifier.CreateComponentID(compRelRow.fk_child);
+				if (this.QueryRepository.GetComponent(compID).Type == type) cIDs.Add(compID);
+			}
 
 			return (IComponentIdentifier[]) cIDs.ToArray(typeof(IComponentIdentifier));
+		}
+
+		//called to return a list of componentrelation rows that have the static view root as parent
+		private DataRow[] QueryChildComponents()
+		{
+			string query = "fk_parent is null";
+			return this.Dataset.CompRelations.Select(query);						
 		}
 
 		#endregion

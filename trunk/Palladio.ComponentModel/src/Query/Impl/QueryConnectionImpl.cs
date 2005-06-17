@@ -1,6 +1,7 @@
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
+using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.Query;
 using Palladio.ComponentModel.Query.Impl;
 using Palladio.ComponentModel.Query.TypeLevel;
@@ -16,6 +17,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/17 18:33:10  joemal
+	/// changes in the connection tables
+	///
 	/// Revision 1.1  2005/04/19 16:47:13  joemal
 	/// initial creation
 	///
@@ -29,6 +33,11 @@ namespace Palladio.ComponentModel.Query.Impl
 
 		//holds the id of the connection
 		private IConnectionIdentifier connectionID;
+
+		//holds the requiring role of the connection
+		private ModelDataSet.RolesRow  requiringRole;
+		//holds the providing role of the connection
+		private ModelDataSet.RolesRow  providingRole;
 
 		#endregion
 
@@ -81,9 +90,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the id of the component</returns>
 		public IComponentIdentifier GetRequiringComponent()
 		{
-			long rolesID = this.Dataset.Connections.FindByguid(this.connectionID.Key).incoming;
-			string compGuid = this.Dataset.Roles.FindByid(rolesID).fk_comp;
-			return ComponentModelIdentifier.CreateComponentID(compGuid);
+			return ComponentModelIdentifier.CreateComponentID(this.RequiringRole.fk_comp);
 		}
 
 		/// <summary>
@@ -92,9 +99,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the id of the interface</returns>
 		public IInterfaceIdentifier GetRequiringInterface()
 		{
-			long rolesID = this.Dataset.Connections.FindByguid(this.connectionID.Key).incoming;
-			string ifaceGuid = this.Dataset.Roles.FindByid(rolesID).fk_iface;
-			return ComponentModelIdentifier.CreateInterfaceID(ifaceGuid);
+			return ComponentModelIdentifier.CreateInterfaceID(this.RequiringRole.fk_iface);
 		}
 
 		/// <summary>
@@ -103,9 +108,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the id of the component</returns>
 		public IComponentIdentifier GetProvidingComponent()
 		{
-			long rolesID = this.Dataset.Connections.FindByguid(this.connectionID.Key).outgoing;
-			string compGuid = this.Dataset.Roles.FindByid(rolesID).fk_comp;
-			return ComponentModelIdentifier.CreateComponentID(compGuid);
+			return ComponentModelIdentifier.CreateComponentID(this.ProvidingRole.fk_comp);
 		}
 
 		/// <summary>
@@ -114,9 +117,97 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the id of the interface</returns>
 		public IInterfaceIdentifier GetProvidingInterface()
 		{
-			long rolesID = this.Dataset.Connections.FindByguid(this.connectionID.Key).outgoing;
-			string ifaceGuid = this.Dataset.Roles.FindByid(rolesID).fk_iface;
-			return ComponentModelIdentifier.CreateInterfaceID(ifaceGuid);
+			return ComponentModelIdentifier.CreateInterfaceID(this.ProvidingRole.fk_iface);
+		}
+
+		#endregion
+
+		#region private
+
+		//returns the requiring role of the connection (lazy loading)
+		private ModelDataSet.RolesRow RequiringRole
+		{
+			get
+			{
+				if (this.requiringRole == null)
+					this.requiringRole = GetAssemblyConnectorRequiringRole();
+				if (this.requiringRole == null)
+					this.requiringRole = GetDelegationConnectorRequiringRole();
+
+				return this.requiringRole;
+			}
+		}
+
+		//returns the providing role of the connection (lazy loading)
+		private ModelDataSet.RolesRow ProvidingRole
+		{
+			get
+			{
+				if (this.providingRole == null)
+					this.providingRole = GetAssemblyConnectorProvidingRole();
+				if (this.providingRole == null)
+					this.providingRole = GetDelegationConnectorProvidingRole();
+
+				return this.providingRole;
+			}
+		}
+
+		//try to find the connection in the delegation connector table and returns its providing role
+		private ModelDataSet.RolesRow GetDelegationConnectorProvidingRole()
+		{
+			ModelDataSet.DelegationConnectorsRow conRow = 
+				this.Dataset.DelegationConnectors.FindByguid(this.connectionID.Key);
+
+			if (conRow == null) return null;
+
+			ModelDataSet.RolesRow innerRole = this.Dataset.Roles.FindByid(conRow.fk_inner_role);
+			ModelDataSet.RolesRow outerRole = this.Dataset.Roles.FindByid(conRow.fk_outer_role);
+            
+			if (outerRole.type == (sbyte)InterfaceRole.PROVIDES)
+				//we have a delegation on the provides side. The providing part is the inner components one
+				return innerRole;
+			else
+				//we have a delegation on the requires side. The providing part is the outer components one
+				return outerRole;
+		}
+
+		//try to find the connection in the delegation connector table and returns its requiring role
+		private ModelDataSet.RolesRow GetDelegationConnectorRequiringRole()
+		{
+			ModelDataSet.DelegationConnectorsRow conRow = 
+				this.Dataset.DelegationConnectors.FindByguid(this.connectionID.Key);
+
+			if (conRow == null) return null;
+
+			ModelDataSet.RolesRow innerRole = this.Dataset.Roles.FindByid(conRow.fk_inner_role);
+			ModelDataSet.RolesRow outerRole = this.Dataset.Roles.FindByid(conRow.fk_outer_role);
+            
+			if (outerRole.type == (sbyte)InterfaceRole.PROVIDES)
+				//we have a delegation on the provides side. The requiring part is the outer components one
+				return outerRole;
+			else
+				//we have a delegation on the requires side. The requiring part is the inner components one
+				return innerRole;
+		}
+
+		//try to find the connection in the assembly connector table and returns its providing role
+		private ModelDataSet.RolesRow GetAssemblyConnectorProvidingRole()
+		{
+			ModelDataSet.AssemblyConnectorsRow conRow = 
+				this.Dataset.AssemblyConnectors.FindByguid(this.connectionID.Key);
+			if (conRow == null) return null;
+
+			return this.Dataset.Roles.FindByid(conRow.fk_prov_role);
+		}
+
+		//try to find the connection in the assembly connector table and returns its requiring role
+		private ModelDataSet.RolesRow GetAssemblyConnectorRequiringRole()
+		{
+			ModelDataSet.AssemblyConnectorsRow conRow = 
+				this.Dataset.AssemblyConnectors.FindByguid(this.connectionID.Key);
+			if (conRow == null) return null;
+
+			return this.Dataset.Roles.FindByid(conRow.fk_req_role);
 		}
 
 		#endregion

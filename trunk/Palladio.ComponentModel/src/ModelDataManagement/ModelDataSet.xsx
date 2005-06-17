@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Diese Datei wird automatisch vom XML-Schema-Designer generiert. Sie enthält Layoutinformationen für Komponenten auf der Designeroberfläche.-->
-<XSDDesignerLayout layoutVersion="2" viewPortLeft="-5844" viewPortTop="-3445" zoom="100">
-    <Components_XmlElement left="1799" top="1561" width="5715" height="2540" selected="0" zOrder="1" index="0" expanded="1" />
+<XSDDesignerLayout layoutVersion="2" viewPortLeft="1822" viewPortTop="-4207" zoom="100">
+    <Components_XmlElement left="1799" top="1561" width="5715" height="2117" selected="0" zOrder="1" index="0" expanded="1" />
     <Interfaces_XmlElement left="2143" top="6191" width="5292" height="1693" selected="0" zOrder="2" index="1" expanded="1" />
-    <Connections_XmlElement left="9022" top="-926" width="7303" height="2963" selected="0" zOrder="4" index="2" expanded="1" />
-    <Signatures_XmlElement left="11562" top="8652" width="5292" height="2116" selected="0" zOrder="6" index="3" expanded="1" />
-    <Roles_XmlElement left="10051" top="3718" width="5292" height="2963" selected="0" zOrder="8" index="4" expanded="1" />
-    <Protocols_XmlElement left="2170" top="10980" width="5291" height="2117" selected="0" zOrder="10" index="5" expanded="1" />
-    <CompRelations_XmlElement left="767" top="-2618" width="6562" height="2117" selected="0" zOrder="12" index="6" expanded="1" />
-    <InterfacesRoles_XmlKeyref left="8491" top="6179" width="503" height="503" selected="0" zOrder="26" />
-    <ComponentsConnections_XmlKeyref left="7038" top="317" width="503" height="503" selected="0" zOrder="38" />
-    <ComponentsRoles_XmlKeyref left="8531" top="3909" width="503" height="503" selected="0" zOrder="22" />
-    <InterfacesSignatures_XmlKeyref left="9246" top="8641" width="503" height="503" selected="0" zOrder="30" />
-    <RolesConnections_XmlKeyref left="15912" top="2595" width="503" height="503" selected="0" zOrder="14" />
-    <RolesConnections1_XmlKeyref left="8822" top="2504" width="503" height="503" selected="0" zOrder="18" />
-    <ComponentsCompRelations_XmlKeyref left="-537" top="621" width="503" height="503" selected="0" zOrder="42" />
-    <ComponentsCompRelations1_XmlKeyref left="-3016" top="595" width="503" height="503" selected="0" zOrder="46" />
-    <InterfacesProtocols_XmlKeyref left="1073" top="9779" width="503" height="503" selected="0" zOrder="34" />
+    <Signatures_XmlElement left="11562" top="8652" width="5292" height="2116" selected="0" zOrder="4" index="2" expanded="1" />
+    <Roles_XmlElement left="9443" top="3295" width="5292" height="2963" selected="0" zOrder="6" index="3" expanded="1" />
+    <Protocols_XmlElement left="2170" top="10980" width="5291" height="2117" selected="0" zOrder="8" index="4" expanded="1" />
+    <CompRelations_XmlElement left="767" top="-2619" width="6562" height="2540" selected="0" zOrder="10" index="5" expanded="1" />
+    <DelegationConnectors_XmlElement left="16325" top="-344" width="8308" height="2963" selected="0" zOrder="12" index="6" expanded="1" />
+    <AssemblyConnectors_XmlElement left="16352" top="4155" width="8308" height="3386" selected="0" zOrder="14" index="7" expanded="1" />
+    <RolesDelegationConnectors_XmlKeyref left="15279" top="2705" width="503" height="503" selected="0" zOrder="40" />
+    <RolesDelegationConnectors1_XmlKeyref left="15279" top="3460" width="503" height="503" selected="0" zOrder="44" />
+    <CompRelAsmConProv_XmlKeyref left="11906" top="93" width="503" height="503" selected="0" zOrder="60" />
+    <ComponentsRoles_XmlKeyref left="8320" top="3142" width="503" height="503" selected="0" zOrder="16" />
+    <InterfacesProtocols_XmlKeyref left="1073" top="9779" width="503" height="503" selected="0" zOrder="28" />
+    <ComponentsCompRelations_XmlKeyref left="-537" top="621" width="503" height="503" selected="0" zOrder="32" />
+    <InterfacesRoles_XmlKeyref left="8333" top="5941" width="503" height="503" selected="0" zOrder="20" />
+    <InterfacesSignatures_XmlKeyref left="9246" top="8641" width="503" height="503" selected="0" zOrder="24" />
+    <RolesAssemblyConnectors_XmlKeyref left="15292" top="5061" width="503" height="503" selected="0" zOrder="52" />
+    <RolesAssemblyConnectors1_XmlKeyref left="15292" top="5816" width="503" height="503" selected="0" zOrder="56" />
+    <CompRelDelCon_XmlKeyref left="11920" top="-1574" width="503" height="503" selected="0" zOrder="48" />
+    <ComponentsCompRelations1_XmlKeyref left="-3016" top="595" width="503" height="503" selected="0" zOrder="36" />
+    <CompRelAsmConReq_XmlKeyref left="11933" top="1114" width="503" height="503" selected="0" zOrder="64" />
 </XSDDesignerLayout>

@@ -1,4 +1,3 @@
-using System.Data;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -14,6 +13,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/17 18:33:10  joemal
+	/// changes in the connection tables
+	///
 	/// Revision 1.1  2005/06/12 17:06:18  joemal
 	/// renamed from QueryEntityImpl
 	///
@@ -91,29 +93,6 @@ namespace Palladio.ComponentModel.Query.Impl
 		public IProtocol GetProtocol(IProtocolIdentifier protID)
 		{
 			return (IProtocol) this.getModelEntity(protID);
-		}
-
-		/// <summary>
-		/// called to return the assembly connector between to components 
-		/// </summary>
-		/// <param name="reqCompID">the id of the requiring component</param>
-		/// <param name="reqIfaceID">the id of the requiring components interface</param>
-		/// <param name="provCompID">the id of the providing component</param>
-		/// <param name="provIfaceID">the id of the providing components interface</param>
-		/// <returns></returns>
-		public IConnection GetAssemblyConnector(IComponentIdentifier reqCompID, IInterfaceIdentifier reqIfaceID, 
-			IComponentIdentifier provCompID, IInterfaceIdentifier provIfaceID)
-		{
-			ModelDataSet.RolesRow reqRole = QueryRole(reqCompID,reqIfaceID,InterfaceRole.REQUIRES);
-			ModelDataSet.RolesRow provRole = QueryRole(provCompID,provIfaceID,InterfaceRole.PROVIDES);
-
-			if (reqRole == null || provRole == null) return null;
-
-			string query = "incoming = "+provRole.id+" and outgoing = "+reqRole.id;
-			DataRow[] result = Dataset.Connections.Select(query);
-			if (result == null) return null;
-
-			return (IConnection) this.getModelEntity(((ModelDataSet.ConnectionsRow)result[0]).guid);
 		}
 	}
 }

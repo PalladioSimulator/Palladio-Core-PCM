@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/06/17 18:31:43  joemal
+	/// changes in the connection tables
+	///
 	/// Revision 1.4  2005/06/05 10:39:23  joemal
 	/// - components now can be added to more than one container
 	///
@@ -115,36 +118,30 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// interface of an inner component.
 		/// </summary>
 		/// <param name="connection">the connection to be added</param>
-		/// <param name="outerCompID">the id of the outer component</param>
-		/// <param name="outerIFaceID">the id of the outer component</param>
-		/// <param name="innerCompID">the id of the inner component</param>
-		/// <param name="innerIFaceID">the id of the inner components interface</param>
+		/// <param name="outerPoint">the connecting point of the outer component</param>
+		/// <param name="innerPoint">the connecting point of the inner component</param>
 		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
 		/// <exception cref="ComponentNotFoundException">a component could not be found in cm</exception>
 		/// <exception cref="ComponentHierarchyException">the outer component is not the parent of the inner component</exception>
 		/// <exception cref="NotAProvidesIFaceException">one of the given interfaces is not a provides
 		/// interface of the component</exception>
 		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
-		void AddProvidesDelegationConnector(IConnection connection, IComponentIdentifier outerCompID, 
-			IInterfaceIdentifier outerIFaceID,IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
+		void AddProvidesDelegationConnector(IConnection connection, ConnectionPoint outerPoint,ConnectionPoint innerPoint);
 
 		/// <summary>
 		/// called to add a delegationconnector from the requires interface of an component to the requires 
 		/// interface of its parent component
 		/// </summary>
 		/// <param name="connection">the connection to be added</param>
-		/// <param name="innerCompID">the id of the inner component</param>
-		/// <param name="innerIFaceID">the id of the inner components interface</param>
-		/// <param name="outerCompID">the id of the outer component</param>
-		/// <param name="outerIFaceID">the id of the outer component</param>
+		/// <param name="outerPoint">the connecting point of the outer component</param>
+		/// <param name="innerPoint">the connecting point of the inner component</param>
 		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
 		/// <exception cref="ComponentNotFoundException">a component could not be found in cm</exception>
 		/// <exception cref="ComponentHierarchyException">the outer component is not the parent of the inner component</exception>
 		/// <exception cref="NotARequiresIFaceException">one of the given interfaces is not a requires 
 		/// interface of the component</exception>
 		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
-		void AddRequiresDelegationConnector(IConnection connection, IComponentIdentifier innerCompID, 
-			IInterfaceIdentifier innerIFaceID,IComponentIdentifier outerCompID,IInterfaceIdentifier outerIFaceID);
+		void AddRequiresDelegationConnector(IConnection connection, ConnectionPoint innerPoint,ConnectionPoint outerPoint);
 
 		/// <summary>
 		/// called to add an assemblyConnector from a requires interfaces of a component to a provides interface of 
@@ -153,18 +150,16 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		/// <param name="connection">the connection to be added</param>
 		/// <param name="parentCompID">the id of component that should contain the connection</param>
-		/// <param name="reqCompID">the id of the incoming component</param>
-		/// <param name="reqIFaceID">the incoming components interface</param>
-		/// <param name="provCompID">the id of the outgoing component</param>
-		/// <param name="provIFaceID">the outgoing components interface</param>
+		/// <param name="requiresPoint">the point of the requiring component</param>
+		/// <param name="providesPoint">the point of the providing component</param>
 		/// <exception cref="EntityAlreadyExistsException">an entity with given id already exists in cm</exception>
 		/// <exception cref="InterfaceNotFoundException">an interface could not be found in cm</exception>
 		/// <exception cref="ComponentNotFoundException">a component could not be found in cm</exception>
 		/// <exception cref="ComponentHierarchyException">both components have not the same parent id</exception>
 		/// <exception cref="NotARequiresIFaceException">one of the first given interface is not a requires</exception> 
 		/// <exception cref="NotAProvidesIFaceException">one of the second given interface is not a provides </exception>
-		void AddAssemblyConnector(IConnection connection, IComponentIdentifier parentCompID, IComponentIdentifier reqCompID, 
-			IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
+		void AddAssemblyConnector(IConnection connection, IComponentIdentifier parentCompID, 
+			ConnectionPoint requiresPoint,ConnectionPoint providesPoint);
 
 		/// <summary>
 		/// called to remove the connection that belongs to the given id. If the entity could not be found in 
@@ -204,5 +199,33 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		/// <param name="protocolID">the id of the protocol that has to be removed</param>
 		void RemoveProtocol(IProtocolIdentifier protocolID);
+	}
+
+	/// <summary>
+	/// describes the start or end point of a connector
+	/// </summary>
+	public struct ConnectionPoint
+	{
+		/// <summary>
+		/// called to create a new connection point only using the ifaceid and the componentid.
+		/// </summary>
+		/// <param name="ifaceId">the id of the interface</param>
+		/// <param name="componentId">the id of the component</param>
+		public ConnectionPoint(IInterfaceIdentifier ifaceId, IComponentIdentifier componentId)
+		{
+			ifaceID = ifaceId;
+			componentID = componentId;
+		}
+
+		/// <summary>
+		/// the id of the interface
+		/// </summary>
+		public IInterfaceIdentifier ifaceID;
+
+		/// <summary>
+		/// the id of the component
+		/// </summary>
+		public IComponentIdentifier componentID;
+
 	}
 }

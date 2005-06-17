@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/06/17 18:33:10  joemal
+	/// changes in the connection tables
+	///
 	/// Revision 1.5  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository
 	///
@@ -123,6 +126,23 @@ namespace Palladio.ComponentModel.Query.Impl
 		#endregion
 
 		#region protected properties
+
+		/// <summary>
+		/// called to return the component relation row between two component if present
+		/// </summary>
+		/// <returns>the row of the component relation table</returns>
+		protected ModelDataSet.CompRelationsRow QueryParent(IComponentIdentifier parentComponentID, 
+			IComponentIdentifier childComponentID)
+		{
+            string query = "fk_parent='"+parentComponentID.Key+"' and fk_child";
+			if (parentComponentID == null)
+				query += " is null";
+			else
+				query += "='"+childComponentID.Key+"'";
+			DataRow[] result = this.Dataset.CompRelations.Select(query);
+			if (result.Length == 0) return null;
+			return (ModelDataSet.CompRelationsRow) result[0];
+		}
 
 		/// <summary>
 		/// called to return the dataset of the model

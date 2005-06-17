@@ -167,12 +167,12 @@ namespace Palladio.ComponentModel.UnitTests
 			modelManager.LowLevelBuilder.AddInterface(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
 
 			//add the connections
-			modelManager.LowLevelBuilder.AddProvidesDelegationConnector(delProv,cc1.ComponentID,ifaceW.InterfaceID,
-				bc1.ComponentID,ifaceW.InterfaceID);
-			modelManager.LowLevelBuilder.AddRequiresDelegationConnector(delReq,bc1.ComponentID,ifaceWBE.InterfaceID,
-				cc1.ComponentID,ifaceWBE.InterfaceID);
-			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,null,cc1.ComponentID,ifaceWBE.InterfaceID,
-				bc2.ComponentID,ifaceWBE.InterfaceID);
+			modelManager.LowLevelBuilder.AddProvidesDelegationConnector(delProv,new ConnectionPoint(ifaceW.InterfaceID,cc1.ComponentID),
+				new ConnectionPoint(ifaceW.InterfaceID,bc1.ComponentID));
+			modelManager.LowLevelBuilder.AddRequiresDelegationConnector(delReq,new ConnectionPoint(ifaceWBE.InterfaceID,bc1.ComponentID),
+				new ConnectionPoint(ifaceWBE.InterfaceID,cc1.ComponentID));
+			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,null,new ConnectionPoint(ifaceWBE.InterfaceID,cc1.ComponentID),
+				new ConnectionPoint(ifaceWBE.InterfaceID,bc2.ComponentID));
 		}
 
 		[Test]
@@ -197,8 +197,8 @@ namespace Palladio.ComponentModel.UnitTests
 			modelManager.LowLevelBuilder.AddInterface(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
 
 			//add the connections
-			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,null,bc1.ComponentID,ifaceWBE.InterfaceID,
-				bc2.ComponentID,ifaceWBE.InterfaceID);
+			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,null,new ConnectionPoint(ifaceWBE.InterfaceID,bc1.ComponentID),
+				new ConnectionPoint(ifaceWBE.InterfaceID,bc2.ComponentID));
 		}
 
 		[Test]
@@ -227,8 +227,8 @@ namespace Palladio.ComponentModel.UnitTests
 			modelManager.LowLevelBuilder.AddInterface(bc2.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.PROVIDES);
 
 			//add the connections
-			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,null,bc1.ComponentID,ifaceWBE.InterfaceID,
-				bc2.ComponentID,ifaceWBE.InterfaceID);
+			modelManager.LowLevelBuilder.AddAssemblyConnector(assCon,null,new ConnectionPoint(ifaceWBE.InterfaceID,bc1.ComponentID),
+				new ConnectionPoint(ifaceWBE.InterfaceID,bc2.ComponentID));
 		}
 
 		[Test]
@@ -254,8 +254,8 @@ namespace Palladio.ComponentModel.UnitTests
 			modelManager.LowLevelBuilder.AddInterface(cc1.ComponentID,ifaceWBE.InterfaceID, InterfaceRole.REQUIRES);
 
 			//add the connections
-			modelManager.LowLevelBuilder.AddRequiresDelegationConnector(assCon,bc1.ComponentID,ifaceWBE.InterfaceID,
-				cc1.ComponentID,ifaceWBE.InterfaceID);
+			modelManager.LowLevelBuilder.AddRequiresDelegationConnector(assCon,new ConnectionPoint(ifaceWBE.InterfaceID,bc1.ComponentID),
+				new ConnectionPoint(ifaceWBE.InterfaceID,cc1.ComponentID));
 		}
 	}
 }

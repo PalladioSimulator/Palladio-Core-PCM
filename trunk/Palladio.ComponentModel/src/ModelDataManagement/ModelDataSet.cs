@@ -25,8 +25,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         
         private InterfacesDataTable tableInterfaces;
         
-        private ConnectionsDataTable tableConnections;
-        
         private SignaturesDataTable tableSignatures;
         
         private RolesDataTable tableRoles;
@@ -35,9 +33,9 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         
         private CompRelationsDataTable tableCompRelations;
         
-        private DataRelation relationRolesConnections;
+        private DelegationConnectorsDataTable tableDelegationConnectors;
         
-        private DataRelation relationRolesConnections1;
+        private AssemblyConnectorsDataTable tableAssemblyConnectors;
         
         private DataRelation relationComponentsRoles;
         
@@ -47,11 +45,23 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         
         private DataRelation relationInterfacesProtocols;
         
-        private DataRelation relationComponentsConnections;
-        
         private DataRelation relationComponentsCompRelations;
         
         private DataRelation relationComponentsCompRelations1;
+        
+        private DataRelation relationRolesDelegationConnectors;
+        
+        private DataRelation relationRolesDelegationConnectors1;
+        
+        private DataRelation relationCompRelDelCon;
+        
+        private DataRelation relationRolesAssemblyConnectors;
+        
+        private DataRelation relationRolesAssemblyConnectors1;
+        
+        private DataRelation relationCompRelAsmConProv;
+        
+        private DataRelation relationCompRelAsmConReq;
         
         public ModelDataSet() {
             this.InitClass();
@@ -71,9 +81,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 if ((ds.Tables["Interfaces"] != null)) {
                     this.Tables.Add(new InterfacesDataTable(ds.Tables["Interfaces"]));
                 }
-                if ((ds.Tables["Connections"] != null)) {
-                    this.Tables.Add(new ConnectionsDataTable(ds.Tables["Connections"]));
-                }
                 if ((ds.Tables["Signatures"] != null)) {
                     this.Tables.Add(new SignaturesDataTable(ds.Tables["Signatures"]));
                 }
@@ -85,6 +92,12 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
                 if ((ds.Tables["CompRelations"] != null)) {
                     this.Tables.Add(new CompRelationsDataTable(ds.Tables["CompRelations"]));
+                }
+                if ((ds.Tables["DelegationConnectors"] != null)) {
+                    this.Tables.Add(new DelegationConnectorsDataTable(ds.Tables["DelegationConnectors"]));
+                }
+                if ((ds.Tables["AssemblyConnectors"] != null)) {
+                    this.Tables.Add(new AssemblyConnectorsDataTable(ds.Tables["AssemblyConnectors"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -122,14 +135,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         
         [System.ComponentModel.Browsable(false)]
         [System.ComponentModel.DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ConnectionsDataTable Connections {
-            get {
-                return this.tableConnections;
-            }
-        }
-        
-        [System.ComponentModel.Browsable(false)]
-        [System.ComponentModel.DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Content)]
         public SignaturesDataTable Signatures {
             get {
                 return this.tableSignatures;
@@ -160,6 +165,22 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
         }
         
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DelegationConnectorsDataTable DelegationConnectors {
+            get {
+                return this.tableDelegationConnectors;
+            }
+        }
+        
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public AssemblyConnectorsDataTable AssemblyConnectors {
+            get {
+                return this.tableAssemblyConnectors;
+            }
+        }
+        
         public override DataSet Clone() {
             ModelDataSet cln = ((ModelDataSet)(base.Clone()));
             cln.InitVars();
@@ -184,9 +205,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             if ((ds.Tables["Interfaces"] != null)) {
                 this.Tables.Add(new InterfacesDataTable(ds.Tables["Interfaces"]));
             }
-            if ((ds.Tables["Connections"] != null)) {
-                this.Tables.Add(new ConnectionsDataTable(ds.Tables["Connections"]));
-            }
             if ((ds.Tables["Signatures"] != null)) {
                 this.Tables.Add(new SignaturesDataTable(ds.Tables["Signatures"]));
             }
@@ -198,6 +216,12 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
             if ((ds.Tables["CompRelations"] != null)) {
                 this.Tables.Add(new CompRelationsDataTable(ds.Tables["CompRelations"]));
+            }
+            if ((ds.Tables["DelegationConnectors"] != null)) {
+                this.Tables.Add(new DelegationConnectorsDataTable(ds.Tables["DelegationConnectors"]));
+            }
+            if ((ds.Tables["AssemblyConnectors"] != null)) {
+                this.Tables.Add(new AssemblyConnectorsDataTable(ds.Tables["AssemblyConnectors"]));
             }
             this.DataSetName = ds.DataSetName;
             this.Prefix = ds.Prefix;
@@ -225,10 +249,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             if ((this.tableInterfaces != null)) {
                 this.tableInterfaces.InitVars();
             }
-            this.tableConnections = ((ConnectionsDataTable)(this.Tables["Connections"]));
-            if ((this.tableConnections != null)) {
-                this.tableConnections.InitVars();
-            }
             this.tableSignatures = ((SignaturesDataTable)(this.Tables["Signatures"]));
             if ((this.tableSignatures != null)) {
                 this.tableSignatures.InitVars();
@@ -245,15 +265,27 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             if ((this.tableCompRelations != null)) {
                 this.tableCompRelations.InitVars();
             }
-            this.relationRolesConnections = this.Relations["RolesConnections"];
-            this.relationRolesConnections1 = this.Relations["RolesConnections1"];
+            this.tableDelegationConnectors = ((DelegationConnectorsDataTable)(this.Tables["DelegationConnectors"]));
+            if ((this.tableDelegationConnectors != null)) {
+                this.tableDelegationConnectors.InitVars();
+            }
+            this.tableAssemblyConnectors = ((AssemblyConnectorsDataTable)(this.Tables["AssemblyConnectors"]));
+            if ((this.tableAssemblyConnectors != null)) {
+                this.tableAssemblyConnectors.InitVars();
+            }
             this.relationComponentsRoles = this.Relations["ComponentsRoles"];
             this.relationInterfacesRoles = this.Relations["InterfacesRoles"];
             this.relationInterfacesSignatures = this.Relations["InterfacesSignatures"];
             this.relationInterfacesProtocols = this.Relations["InterfacesProtocols"];
-            this.relationComponentsConnections = this.Relations["ComponentsConnections"];
             this.relationComponentsCompRelations = this.Relations["ComponentsCompRelations"];
             this.relationComponentsCompRelations1 = this.Relations["ComponentsCompRelations1"];
+            this.relationRolesDelegationConnectors = this.Relations["RolesDelegationConnectors"];
+            this.relationRolesDelegationConnectors1 = this.Relations["RolesDelegationConnectors1"];
+            this.relationCompRelDelCon = this.Relations["CompRelDelCon"];
+            this.relationRolesAssemblyConnectors = this.Relations["RolesAssemblyConnectors"];
+            this.relationRolesAssemblyConnectors1 = this.Relations["RolesAssemblyConnectors1"];
+            this.relationCompRelAsmConProv = this.Relations["CompRelAsmConProv"];
+            this.relationCompRelAsmConReq = this.Relations["CompRelAsmConReq"];
         }
         
         private void InitClass() {
@@ -267,8 +299,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             this.Tables.Add(this.tableComponents);
             this.tableInterfaces = new InterfacesDataTable();
             this.Tables.Add(this.tableInterfaces);
-            this.tableConnections = new ConnectionsDataTable();
-            this.Tables.Add(this.tableConnections);
             this.tableSignatures = new SignaturesDataTable();
             this.Tables.Add(this.tableSignatures);
             this.tableRoles = new RolesDataTable();
@@ -277,28 +307,11 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             this.Tables.Add(this.tableProtocols);
             this.tableCompRelations = new CompRelationsDataTable();
             this.Tables.Add(this.tableCompRelations);
+            this.tableDelegationConnectors = new DelegationConnectorsDataTable();
+            this.Tables.Add(this.tableDelegationConnectors);
+            this.tableAssemblyConnectors = new AssemblyConnectorsDataTable();
+            this.Tables.Add(this.tableAssemblyConnectors);
             ForeignKeyConstraint fkc;
-            fkc = new ForeignKeyConstraint("RolesConnections", new DataColumn[] {
-                        this.tableRoles.idColumn}, new DataColumn[] {
-                        this.tableConnections.incomingColumn});
-            this.tableConnections.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = System.Data.Rule.Cascade;
-            fkc.UpdateRule = System.Data.Rule.Cascade;
-            fkc = new ForeignKeyConstraint("RolesConnections1", new DataColumn[] {
-                        this.tableRoles.idColumn}, new DataColumn[] {
-                        this.tableConnections.outgoingColumn});
-            this.tableConnections.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = System.Data.Rule.Cascade;
-            fkc.UpdateRule = System.Data.Rule.Cascade;
-            fkc = new ForeignKeyConstraint("ComponentsConnections", new DataColumn[] {
-                        this.tableComponents.guidColumn}, new DataColumn[] {
-                        this.tableConnections.fk_compColumn});
-            this.tableConnections.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = System.Data.Rule.SetNull;
-            fkc.UpdateRule = System.Data.Rule.SetNull;
             fkc = new ForeignKeyConstraint("InterfacesSignatures", new DataColumn[] {
                         this.tableInterfaces.guidColumn}, new DataColumn[] {
                         this.tableSignatures.fk_ifaceColumn});
@@ -341,14 +354,55 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             fkc.AcceptRejectRule = System.Data.AcceptRejectRule.Cascade;
             fkc.DeleteRule = System.Data.Rule.Cascade;
             fkc.UpdateRule = System.Data.Rule.Cascade;
-            this.relationRolesConnections = new DataRelation("RolesConnections", new DataColumn[] {
+            fkc = new ForeignKeyConstraint("RolesDelegationConnectors", new DataColumn[] {
                         this.tableRoles.idColumn}, new DataColumn[] {
-                        this.tableConnections.incomingColumn}, false);
-            this.Relations.Add(this.relationRolesConnections);
-            this.relationRolesConnections1 = new DataRelation("RolesConnections1", new DataColumn[] {
+                        this.tableDelegationConnectors.fk_outer_roleColumn});
+            this.tableDelegationConnectors.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = System.Data.Rule.Cascade;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
+            fkc = new ForeignKeyConstraint("RolesDelegationConnectors1", new DataColumn[] {
                         this.tableRoles.idColumn}, new DataColumn[] {
-                        this.tableConnections.outgoingColumn}, false);
-            this.Relations.Add(this.relationRolesConnections1);
+                        this.tableDelegationConnectors.fk_inner_roleColumn});
+            this.tableDelegationConnectors.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = System.Data.Rule.Cascade;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
+            fkc = new ForeignKeyConstraint("CompRelDelCon", new DataColumn[] {
+                        this.tableCompRelations.idColumn}, new DataColumn[] {
+                        this.tableDelegationConnectors.fk_inner_comp_relColumn});
+            this.tableDelegationConnectors.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = System.Data.Rule.Cascade;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
+            fkc = new ForeignKeyConstraint("RolesAssemblyConnectors", new DataColumn[] {
+                        this.tableRoles.idColumn}, new DataColumn[] {
+                        this.tableAssemblyConnectors.fk_prov_roleColumn});
+            this.tableAssemblyConnectors.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = System.Data.Rule.Cascade;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
+            fkc = new ForeignKeyConstraint("RolesAssemblyConnectors1", new DataColumn[] {
+                        this.tableRoles.idColumn}, new DataColumn[] {
+                        this.tableAssemblyConnectors.fk_req_roleColumn});
+            this.tableAssemblyConnectors.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = System.Data.Rule.Cascade;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
+            fkc = new ForeignKeyConstraint("CompRelAsmConProv", new DataColumn[] {
+                        this.tableCompRelations.idColumn}, new DataColumn[] {
+                        this.tableAssemblyConnectors.fk_prov_comp_relColumn});
+            this.tableAssemblyConnectors.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = System.Data.Rule.Cascade;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
+            fkc = new ForeignKeyConstraint("CompRelAsmConReq", new DataColumn[] {
+                        this.tableCompRelations.idColumn}, new DataColumn[] {
+                        this.tableAssemblyConnectors.fk_req_comp_relColumn});
+            this.tableAssemblyConnectors.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = System.Data.Rule.Cascade;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
             this.relationComponentsRoles = new DataRelation("ComponentsRoles", new DataColumn[] {
                         this.tableComponents.guidColumn}, new DataColumn[] {
                         this.tableRoles.fk_compColumn}, false);
@@ -365,10 +419,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                         this.tableInterfaces.guidColumn}, new DataColumn[] {
                         this.tableProtocols.fk_ifaceColumn}, false);
             this.Relations.Add(this.relationInterfacesProtocols);
-            this.relationComponentsConnections = new DataRelation("ComponentsConnections", new DataColumn[] {
-                        this.tableComponents.guidColumn}, new DataColumn[] {
-                        this.tableConnections.fk_compColumn}, false);
-            this.Relations.Add(this.relationComponentsConnections);
             this.relationComponentsCompRelations = new DataRelation("ComponentsCompRelations", new DataColumn[] {
                         this.tableComponents.guidColumn}, new DataColumn[] {
                         this.tableCompRelations.fk_childColumn}, false);
@@ -377,6 +427,34 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                         this.tableComponents.guidColumn}, new DataColumn[] {
                         this.tableCompRelations.fk_parentColumn}, false);
             this.Relations.Add(this.relationComponentsCompRelations1);
+            this.relationRolesDelegationConnectors = new DataRelation("RolesDelegationConnectors", new DataColumn[] {
+                        this.tableRoles.idColumn}, new DataColumn[] {
+                        this.tableDelegationConnectors.fk_outer_roleColumn}, false);
+            this.Relations.Add(this.relationRolesDelegationConnectors);
+            this.relationRolesDelegationConnectors1 = new DataRelation("RolesDelegationConnectors1", new DataColumn[] {
+                        this.tableRoles.idColumn}, new DataColumn[] {
+                        this.tableDelegationConnectors.fk_inner_roleColumn}, false);
+            this.Relations.Add(this.relationRolesDelegationConnectors1);
+            this.relationCompRelDelCon = new DataRelation("CompRelDelCon", new DataColumn[] {
+                        this.tableCompRelations.idColumn}, new DataColumn[] {
+                        this.tableDelegationConnectors.fk_inner_comp_relColumn}, false);
+            this.Relations.Add(this.relationCompRelDelCon);
+            this.relationRolesAssemblyConnectors = new DataRelation("RolesAssemblyConnectors", new DataColumn[] {
+                        this.tableRoles.idColumn}, new DataColumn[] {
+                        this.tableAssemblyConnectors.fk_prov_roleColumn}, false);
+            this.Relations.Add(this.relationRolesAssemblyConnectors);
+            this.relationRolesAssemblyConnectors1 = new DataRelation("RolesAssemblyConnectors1", new DataColumn[] {
+                        this.tableRoles.idColumn}, new DataColumn[] {
+                        this.tableAssemblyConnectors.fk_req_roleColumn}, false);
+            this.Relations.Add(this.relationRolesAssemblyConnectors1);
+            this.relationCompRelAsmConProv = new DataRelation("CompRelAsmConProv", new DataColumn[] {
+                        this.tableCompRelations.idColumn}, new DataColumn[] {
+                        this.tableAssemblyConnectors.fk_prov_comp_relColumn}, false);
+            this.Relations.Add(this.relationCompRelAsmConProv);
+            this.relationCompRelAsmConReq = new DataRelation("CompRelAsmConReq", new DataColumn[] {
+                        this.tableCompRelations.idColumn}, new DataColumn[] {
+                        this.tableAssemblyConnectors.fk_req_comp_relColumn}, false);
+            this.Relations.Add(this.relationCompRelAsmConReq);
         }
         
         private bool ShouldSerializeComponents() {
@@ -384,10 +462,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         }
         
         private bool ShouldSerializeInterfaces() {
-            return false;
-        }
-        
-        private bool ShouldSerializeConnections() {
             return false;
         }
         
@@ -407,6 +481,14 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             return false;
         }
         
+        private bool ShouldSerializeDelegationConnectors() {
+            return false;
+        }
+        
+        private bool ShouldSerializeAssemblyConnectors() {
+            return false;
+        }
+        
         private void SchemaChanged(object sender, System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -417,8 +499,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         
         public delegate void InterfacesRowChangeEventHandler(object sender, InterfacesRowChangeEvent e);
         
-        public delegate void ConnectionsRowChangeEventHandler(object sender, ConnectionsRowChangeEvent e);
-        
         public delegate void SignaturesRowChangeEventHandler(object sender, SignaturesRowChangeEvent e);
         
         public delegate void RolesRowChangeEventHandler(object sender, RolesRowChangeEvent e);
@@ -426,6 +506,10 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         public delegate void ProtocolsRowChangeEventHandler(object sender, ProtocolsRowChangeEvent e);
         
         public delegate void CompRelationsRowChangeEventHandler(object sender, CompRelationsRowChangeEvent e);
+        
+        public delegate void DelegationConnectorsRowChangeEventHandler(object sender, DelegationConnectorsRowChangeEvent e);
+        
+        public delegate void AssemblyConnectorsRowChangeEventHandler(object sender, AssemblyConnectorsRowChangeEvent e);
         
         [System.Diagnostics.DebuggerStepThrough()]
         public class ComponentsDataTable : DataTable, System.Collections.IEnumerable {
@@ -626,10 +710,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             
             public RolesRow[] GetRolesRows() {
                 return ((RolesRow[])(this.GetChildRows(this.Table.ChildRelations["ComponentsRoles"])));
-            }
-            
-            public ConnectionsRow[] GetConnectionsRows() {
-                return ((ConnectionsRow[])(this.GetChildRows(this.Table.ChildRelations["ComponentsConnections"])));
             }
             
             public CompRelationsRow[] GetCompRelationsRowsByComponentsCompRelations() {
@@ -854,305 +934,6 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
             
             public InterfacesRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            public DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        [System.Diagnostics.DebuggerStepThrough()]
-        public class ConnectionsDataTable : DataTable, System.Collections.IEnumerable {
-            
-            private DataColumn columnincoming;
-            
-            private DataColumn columnoutgoing;
-            
-            private DataColumn columnguid;
-            
-            private DataColumn columnfk_comp;
-            
-            internal ConnectionsDataTable() : 
-                    base("Connections") {
-                this.InitClass();
-            }
-            
-            internal ConnectionsDataTable(DataTable table) : 
-                    base(table.TableName) {
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-                this.DisplayExpression = table.DisplayExpression;
-            }
-            
-            [System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            internal DataColumn incomingColumn {
-                get {
-                    return this.columnincoming;
-                }
-            }
-            
-            internal DataColumn outgoingColumn {
-                get {
-                    return this.columnoutgoing;
-                }
-            }
-            
-            internal DataColumn guidColumn {
-                get {
-                    return this.columnguid;
-                }
-            }
-            
-            internal DataColumn fk_compColumn {
-                get {
-                    return this.columnfk_comp;
-                }
-            }
-            
-            public ConnectionsRow this[int index] {
-                get {
-                    return ((ConnectionsRow)(this.Rows[index]));
-                }
-            }
-            
-            public event ConnectionsRowChangeEventHandler ConnectionsRowChanged;
-            
-            public event ConnectionsRowChangeEventHandler ConnectionsRowChanging;
-            
-            public event ConnectionsRowChangeEventHandler ConnectionsRowDeleted;
-            
-            public event ConnectionsRowChangeEventHandler ConnectionsRowDeleting;
-            
-            public void AddConnectionsRow(ConnectionsRow row) {
-                this.Rows.Add(row);
-            }
-            
-            public ConnectionsRow AddConnectionsRow(RolesRow parentRolesRowByRolesConnections, RolesRow parentRolesRowByRolesConnections1, string guid, ComponentsRow parentComponentsRowByComponentsConnections) {
-                ConnectionsRow rowConnectionsRow = ((ConnectionsRow)(this.NewRow()));
-                rowConnectionsRow.ItemArray = new object[] {
-                        parentRolesRowByRolesConnections[0],
-                        parentRolesRowByRolesConnections1[0],
-                        guid,
-                        parentComponentsRowByComponentsConnections[0]};
-                this.Rows.Add(rowConnectionsRow);
-                return rowConnectionsRow;
-            }
-            
-            public ConnectionsRow FindByguid(string guid) {
-                return ((ConnectionsRow)(this.Rows.Find(new object[] {
-                            guid})));
-            }
-            
-            public System.Collections.IEnumerator GetEnumerator() {
-                return this.Rows.GetEnumerator();
-            }
-            
-            public override DataTable Clone() {
-                ConnectionsDataTable cln = ((ConnectionsDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            protected override DataTable CreateInstance() {
-                return new ConnectionsDataTable();
-            }
-            
-            internal void InitVars() {
-                this.columnincoming = this.Columns["incoming"];
-                this.columnoutgoing = this.Columns["outgoing"];
-                this.columnguid = this.Columns["guid"];
-                this.columnfk_comp = this.Columns["fk_comp"];
-            }
-            
-            private void InitClass() {
-                this.columnincoming = new DataColumn("incoming", typeof(long), null, System.Data.MappingType.Attribute);
-                this.Columns.Add(this.columnincoming);
-                this.columnoutgoing = new DataColumn("outgoing", typeof(long), null, System.Data.MappingType.Attribute);
-                this.Columns.Add(this.columnoutgoing);
-                this.columnguid = new DataColumn("guid", typeof(string), null, System.Data.MappingType.Attribute);
-                this.Columns.Add(this.columnguid);
-                this.columnfk_comp = new DataColumn("fk_comp", typeof(string), null, System.Data.MappingType.Attribute);
-                this.Columns.Add(this.columnfk_comp);
-                this.Constraints.Add(new UniqueConstraint("CON_PK", new DataColumn[] {
-                                this.columnincoming,
-                                this.columnoutgoing}, false));
-                this.Constraints.Add(new UniqueConstraint("CON_SK", new DataColumn[] {
-                                this.columnguid}, true));
-                this.columnincoming.AllowDBNull = false;
-                this.columnincoming.Namespace = "http://tempuri.org/ModelDataSet.xsd";
-                this.columnoutgoing.AllowDBNull = false;
-                this.columnoutgoing.Namespace = "http://tempuri.org/ModelDataSet.xsd";
-                this.columnguid.AllowDBNull = false;
-                this.columnguid.Unique = true;
-                this.columnguid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
-                this.columnfk_comp.Namespace = "http://tempuri.org/ModelDataSet.xsd";
-            }
-            
-            public ConnectionsRow NewConnectionsRow() {
-                return ((ConnectionsRow)(this.NewRow()));
-            }
-            
-            protected override DataRow NewRowFromBuilder(DataRowBuilder builder) {
-                return new ConnectionsRow(builder);
-            }
-            
-            protected override System.Type GetRowType() {
-                return typeof(ConnectionsRow);
-            }
-            
-            protected override void OnRowChanged(DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.ConnectionsRowChanged != null)) {
-                    this.ConnectionsRowChanged(this, new ConnectionsRowChangeEvent(((ConnectionsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            protected override void OnRowChanging(DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ConnectionsRowChanging != null)) {
-                    this.ConnectionsRowChanging(this, new ConnectionsRowChangeEvent(((ConnectionsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            protected override void OnRowDeleted(DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ConnectionsRowDeleted != null)) {
-                    this.ConnectionsRowDeleted(this, new ConnectionsRowChangeEvent(((ConnectionsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            protected override void OnRowDeleting(DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ConnectionsRowDeleting != null)) {
-                    this.ConnectionsRowDeleting(this, new ConnectionsRowChangeEvent(((ConnectionsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            public void RemoveConnectionsRow(ConnectionsRow row) {
-                this.Rows.Remove(row);
-            }
-        }
-        
-        [System.Diagnostics.DebuggerStepThrough()]
-        public class ConnectionsRow : DataRow {
-            
-            private ConnectionsDataTable tableConnections;
-            
-            internal ConnectionsRow(DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableConnections = ((ConnectionsDataTable)(this.Table));
-            }
-            
-            public long incoming {
-                get {
-                    return ((long)(this[this.tableConnections.incomingColumn]));
-                }
-                set {
-                    this[this.tableConnections.incomingColumn] = value;
-                }
-            }
-            
-            public long outgoing {
-                get {
-                    return ((long)(this[this.tableConnections.outgoingColumn]));
-                }
-                set {
-                    this[this.tableConnections.outgoingColumn] = value;
-                }
-            }
-            
-            public string guid {
-                get {
-                    return ((string)(this[this.tableConnections.guidColumn]));
-                }
-                set {
-                    this[this.tableConnections.guidColumn] = value;
-                }
-            }
-            
-            public string fk_comp {
-                get {
-                    try {
-                        return ((string)(this[this.tableConnections.fk_compColumn]));
-                    }
-                    catch (InvalidCastException e) {
-                        throw new StrongTypingException("Der Wert kann nicht ermittelt werden, da er DBNull ist.", e);
-                    }
-                }
-                set {
-                    this[this.tableConnections.fk_compColumn] = value;
-                }
-            }
-            
-            public RolesRow RolesRowByRolesConnections {
-                get {
-                    return ((RolesRow)(this.GetParentRow(this.Table.ParentRelations["RolesConnections"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["RolesConnections"]);
-                }
-            }
-            
-            public RolesRow RolesRowByRolesConnections1 {
-                get {
-                    return ((RolesRow)(this.GetParentRow(this.Table.ParentRelations["RolesConnections1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["RolesConnections1"]);
-                }
-            }
-            
-            public ComponentsRow ComponentsRow {
-                get {
-                    return ((ComponentsRow)(this.GetParentRow(this.Table.ParentRelations["ComponentsConnections"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["ComponentsConnections"]);
-                }
-            }
-            
-            public bool Isfk_compNull() {
-                return this.IsNull(this.tableConnections.fk_compColumn);
-            }
-            
-            public void Setfk_compNull() {
-                this[this.tableConnections.fk_compColumn] = System.Convert.DBNull;
-            }
-        }
-        
-        [System.Diagnostics.DebuggerStepThrough()]
-        public class ConnectionsRowChangeEvent : EventArgs {
-            
-            private ConnectionsRow eventRow;
-            
-            private DataRowAction eventAction;
-            
-            public ConnectionsRowChangeEvent(ConnectionsRow row, DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            public ConnectionsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1650,12 +1431,20 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
-            public ConnectionsRow[] GetConnectionsRowsByRolesConnections() {
-                return ((ConnectionsRow[])(this.GetChildRows(this.Table.ChildRelations["RolesConnections"])));
+            public DelegationConnectorsRow[] GetDelegationConnectorsRowsByRolesDelegationConnectors() {
+                return ((DelegationConnectorsRow[])(this.GetChildRows(this.Table.ChildRelations["RolesDelegationConnectors"])));
             }
             
-            public ConnectionsRow[] GetConnectionsRowsByRolesConnections1() {
-                return ((ConnectionsRow[])(this.GetChildRows(this.Table.ChildRelations["RolesConnections1"])));
+            public DelegationConnectorsRow[] GetDelegationConnectorsRowsByRolesDelegationConnectors1() {
+                return ((DelegationConnectorsRow[])(this.GetChildRows(this.Table.ChildRelations["RolesDelegationConnectors1"])));
+            }
+            
+            public AssemblyConnectorsRow[] GetAssemblyConnectorsRowsByRolesAssemblyConnectors() {
+                return ((AssemblyConnectorsRow[])(this.GetChildRows(this.Table.ChildRelations["RolesAssemblyConnectors"])));
+            }
+            
+            public AssemblyConnectorsRow[] GetAssemblyConnectorsRowsByRolesAssemblyConnectors1() {
+                return ((AssemblyConnectorsRow[])(this.GetChildRows(this.Table.ChildRelations["RolesAssemblyConnectors1"])));
             }
         }
         
@@ -1923,6 +1712,8 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             
             private DataColumn columnfk_parent;
             
+            private DataColumn columnid;
+            
             internal CompRelationsDataTable() : 
                     base("CompRelations") {
                 this.InitClass();
@@ -1963,6 +1754,12 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
+            internal DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
             public CompRelationsRow this[int index] {
                 get {
                     return ((CompRelationsRow)(this.Rows[index]));
@@ -1981,13 +1778,19 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.Rows.Add(row);
             }
             
-            public CompRelationsRow AddCompRelationsRow(ComponentsRow parentComponentsRowByComponentsCompRelations, ComponentsRow parentComponentsRowByComponentsCompRelations1) {
+            public CompRelationsRow AddCompRelationsRow(ComponentsRow parentComponentsRowByComponentsCompRelations, ComponentsRow parentComponentsRowByComponentsCompRelations1, long id) {
                 CompRelationsRow rowCompRelationsRow = ((CompRelationsRow)(this.NewRow()));
                 rowCompRelationsRow.ItemArray = new object[] {
                         parentComponentsRowByComponentsCompRelations[0],
-                        parentComponentsRowByComponentsCompRelations1[0]};
+                        parentComponentsRowByComponentsCompRelations1[0],
+                        id};
                 this.Rows.Add(rowCompRelationsRow);
                 return rowCompRelationsRow;
+            }
+            
+            public CompRelationsRow FindByid(long id) {
+                return ((CompRelationsRow)(this.Rows.Find(new object[] {
+                            id})));
             }
             
             public System.Collections.IEnumerator GetEnumerator() {
@@ -2007,6 +1810,7 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             internal void InitVars() {
                 this.columnfk_child = this.Columns["fk_child"];
                 this.columnfk_parent = this.Columns["fk_parent"];
+                this.columnid = this.Columns["id"];
             }
             
             private void InitClass() {
@@ -2014,11 +1818,18 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 this.Columns.Add(this.columnfk_child);
                 this.columnfk_parent = new DataColumn("fk_parent", typeof(string), null, System.Data.MappingType.Attribute);
                 this.Columns.Add(this.columnfk_parent);
-                this.Constraints.Add(new UniqueConstraint("COMPRELATIONS_PK", new DataColumn[] {
+                this.columnid = new DataColumn("id", typeof(long), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnid);
+                this.Constraints.Add(new UniqueConstraint("SK_COMPREL", new DataColumn[] {
                                 this.columnfk_child,
                                 this.columnfk_parent}, false));
+                this.Constraints.Add(new UniqueConstraint("PK_COMPREL", new DataColumn[] {
+                                this.columnid}, true));
                 this.columnfk_child.Namespace = "http://tempuri.org/ModelDataSet.xsd";
                 this.columnfk_parent.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnid.AllowDBNull = false;
+                this.columnid.Unique = true;
+                this.columnid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
             }
             
             public CompRelationsRow NewCompRelationsRow() {
@@ -2104,6 +1915,15 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
             }
             
+            public long id {
+                get {
+                    return ((long)(this[this.tableCompRelations.idColumn]));
+                }
+                set {
+                    this[this.tableCompRelations.idColumn] = value;
+                }
+            }
+            
             public ComponentsRow ComponentsRowByComponentsCompRelations {
                 get {
                     return ((ComponentsRow)(this.GetParentRow(this.Table.ParentRelations["ComponentsCompRelations"])));
@@ -2137,6 +1957,18 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             public void Setfk_parentNull() {
                 this[this.tableCompRelations.fk_parentColumn] = System.Convert.DBNull;
             }
+            
+            public DelegationConnectorsRow[] GetDelegationConnectorsRows() {
+                return ((DelegationConnectorsRow[])(this.GetChildRows(this.Table.ChildRelations["CompRelDelCon"])));
+            }
+            
+            public AssemblyConnectorsRow[] GetAssemblyConnectorsRowsByCompRelAsmConProv() {
+                return ((AssemblyConnectorsRow[])(this.GetChildRows(this.Table.ChildRelations["CompRelAsmConProv"])));
+            }
+            
+            public AssemblyConnectorsRow[] GetAssemblyConnectorsRowsByCompRelAsmConReq() {
+                return ((AssemblyConnectorsRow[])(this.GetChildRows(this.Table.ChildRelations["CompRelAsmConReq"])));
+            }
         }
         
         [System.Diagnostics.DebuggerStepThrough()]
@@ -2152,6 +1984,615 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
             
             public CompRelationsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            public DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class DelegationConnectorsDataTable : DataTable, System.Collections.IEnumerable {
+            
+            private DataColumn columnfk_outer_role;
+            
+            private DataColumn columnfk_inner_comp_rel;
+            
+            private DataColumn columnfk_inner_role;
+            
+            private DataColumn columnguid;
+            
+            internal DelegationConnectorsDataTable() : 
+                    base("DelegationConnectors") {
+                this.InitClass();
+            }
+            
+            internal DelegationConnectorsDataTable(DataTable table) : 
+                    base(table.TableName) {
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+                this.DisplayExpression = table.DisplayExpression;
+            }
+            
+            [System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            internal DataColumn fk_outer_roleColumn {
+                get {
+                    return this.columnfk_outer_role;
+                }
+            }
+            
+            internal DataColumn fk_inner_comp_relColumn {
+                get {
+                    return this.columnfk_inner_comp_rel;
+                }
+            }
+            
+            internal DataColumn fk_inner_roleColumn {
+                get {
+                    return this.columnfk_inner_role;
+                }
+            }
+            
+            internal DataColumn guidColumn {
+                get {
+                    return this.columnguid;
+                }
+            }
+            
+            public DelegationConnectorsRow this[int index] {
+                get {
+                    return ((DelegationConnectorsRow)(this.Rows[index]));
+                }
+            }
+            
+            public event DelegationConnectorsRowChangeEventHandler DelegationConnectorsRowChanged;
+            
+            public event DelegationConnectorsRowChangeEventHandler DelegationConnectorsRowChanging;
+            
+            public event DelegationConnectorsRowChangeEventHandler DelegationConnectorsRowDeleted;
+            
+            public event DelegationConnectorsRowChangeEventHandler DelegationConnectorsRowDeleting;
+            
+            public void AddDelegationConnectorsRow(DelegationConnectorsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            public DelegationConnectorsRow AddDelegationConnectorsRow(RolesRow parentRolesRowByRolesDelegationConnectors, CompRelationsRow parentCompRelationsRowByCompRelDelCon, RolesRow parentRolesRowByRolesDelegationConnectors1, string guid) {
+                DelegationConnectorsRow rowDelegationConnectorsRow = ((DelegationConnectorsRow)(this.NewRow()));
+                rowDelegationConnectorsRow.ItemArray = new object[] {
+                        parentRolesRowByRolesDelegationConnectors[0],
+                        parentCompRelationsRowByCompRelDelCon[2],
+                        parentRolesRowByRolesDelegationConnectors1[0],
+                        guid};
+                this.Rows.Add(rowDelegationConnectorsRow);
+                return rowDelegationConnectorsRow;
+            }
+            
+            public DelegationConnectorsRow FindByguid(string guid) {
+                return ((DelegationConnectorsRow)(this.Rows.Find(new object[] {
+                            guid})));
+            }
+            
+            public System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            
+            public override DataTable Clone() {
+                DelegationConnectorsDataTable cln = ((DelegationConnectorsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            protected override DataTable CreateInstance() {
+                return new DelegationConnectorsDataTable();
+            }
+            
+            internal void InitVars() {
+                this.columnfk_outer_role = this.Columns["fk_outer_role"];
+                this.columnfk_inner_comp_rel = this.Columns["fk_inner_comp_rel"];
+                this.columnfk_inner_role = this.Columns["fk_inner_role"];
+                this.columnguid = this.Columns["guid"];
+            }
+            
+            private void InitClass() {
+                this.columnfk_outer_role = new DataColumn("fk_outer_role", typeof(long), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_outer_role);
+                this.columnfk_inner_comp_rel = new DataColumn("fk_inner_comp_rel", typeof(long), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_inner_comp_rel);
+                this.columnfk_inner_role = new DataColumn("fk_inner_role", typeof(long), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_inner_role);
+                this.columnguid = new DataColumn("guid", typeof(string), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnguid);
+                this.Constraints.Add(new UniqueConstraint("PK_DEL", new DataColumn[] {
+                                this.columnguid}, true));
+                this.Constraints.Add(new UniqueConstraint("SK_DEL", new DataColumn[] {
+                                this.columnfk_outer_role,
+                                this.columnfk_inner_comp_rel,
+                                this.columnfk_inner_role}, false));
+                this.columnfk_outer_role.AllowDBNull = false;
+                this.columnfk_outer_role.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnfk_inner_comp_rel.AllowDBNull = false;
+                this.columnfk_inner_comp_rel.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnfk_inner_role.AllowDBNull = false;
+                this.columnfk_inner_role.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnguid.AllowDBNull = false;
+                this.columnguid.Unique = true;
+                this.columnguid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+            }
+            
+            public DelegationConnectorsRow NewDelegationConnectorsRow() {
+                return ((DelegationConnectorsRow)(this.NewRow()));
+            }
+            
+            protected override DataRow NewRowFromBuilder(DataRowBuilder builder) {
+                return new DelegationConnectorsRow(builder);
+            }
+            
+            protected override System.Type GetRowType() {
+                return typeof(DelegationConnectorsRow);
+            }
+            
+            protected override void OnRowChanged(DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DelegationConnectorsRowChanged != null)) {
+                    this.DelegationConnectorsRowChanged(this, new DelegationConnectorsRowChangeEvent(((DelegationConnectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowChanging(DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DelegationConnectorsRowChanging != null)) {
+                    this.DelegationConnectorsRowChanging(this, new DelegationConnectorsRowChangeEvent(((DelegationConnectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowDeleted(DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DelegationConnectorsRowDeleted != null)) {
+                    this.DelegationConnectorsRowDeleted(this, new DelegationConnectorsRowChangeEvent(((DelegationConnectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowDeleting(DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DelegationConnectorsRowDeleting != null)) {
+                    this.DelegationConnectorsRowDeleting(this, new DelegationConnectorsRowChangeEvent(((DelegationConnectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            public void RemoveDelegationConnectorsRow(DelegationConnectorsRow row) {
+                this.Rows.Remove(row);
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class DelegationConnectorsRow : DataRow {
+            
+            private DelegationConnectorsDataTable tableDelegationConnectors;
+            
+            internal DelegationConnectorsRow(DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDelegationConnectors = ((DelegationConnectorsDataTable)(this.Table));
+            }
+            
+            public long fk_outer_role {
+                get {
+                    return ((long)(this[this.tableDelegationConnectors.fk_outer_roleColumn]));
+                }
+                set {
+                    this[this.tableDelegationConnectors.fk_outer_roleColumn] = value;
+                }
+            }
+            
+            public long fk_inner_comp_rel {
+                get {
+                    return ((long)(this[this.tableDelegationConnectors.fk_inner_comp_relColumn]));
+                }
+                set {
+                    this[this.tableDelegationConnectors.fk_inner_comp_relColumn] = value;
+                }
+            }
+            
+            public long fk_inner_role {
+                get {
+                    return ((long)(this[this.tableDelegationConnectors.fk_inner_roleColumn]));
+                }
+                set {
+                    this[this.tableDelegationConnectors.fk_inner_roleColumn] = value;
+                }
+            }
+            
+            public string guid {
+                get {
+                    return ((string)(this[this.tableDelegationConnectors.guidColumn]));
+                }
+                set {
+                    this[this.tableDelegationConnectors.guidColumn] = value;
+                }
+            }
+            
+            public RolesRow RolesRowByRolesDelegationConnectors {
+                get {
+                    return ((RolesRow)(this.GetParentRow(this.Table.ParentRelations["RolesDelegationConnectors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["RolesDelegationConnectors"]);
+                }
+            }
+            
+            public RolesRow RolesRowByRolesDelegationConnectors1 {
+                get {
+                    return ((RolesRow)(this.GetParentRow(this.Table.ParentRelations["RolesDelegationConnectors1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["RolesDelegationConnectors1"]);
+                }
+            }
+            
+            public CompRelationsRow CompRelationsRow {
+                get {
+                    return ((CompRelationsRow)(this.GetParentRow(this.Table.ParentRelations["CompRelDelCon"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["CompRelDelCon"]);
+                }
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class DelegationConnectorsRowChangeEvent : EventArgs {
+            
+            private DelegationConnectorsRow eventRow;
+            
+            private DataRowAction eventAction;
+            
+            public DelegationConnectorsRowChangeEvent(DelegationConnectorsRow row, DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            public DelegationConnectorsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            public DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class AssemblyConnectorsDataTable : DataTable, System.Collections.IEnumerable {
+            
+            private DataColumn columnfk_prov_role;
+            
+            private DataColumn columnfk_prov_comp_rel;
+            
+            private DataColumn columnfk_req_role;
+            
+            private DataColumn columnfk_req_comp_rel;
+            
+            private DataColumn columnguid;
+            
+            internal AssemblyConnectorsDataTable() : 
+                    base("AssemblyConnectors") {
+                this.InitClass();
+            }
+            
+            internal AssemblyConnectorsDataTable(DataTable table) : 
+                    base(table.TableName) {
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+                this.DisplayExpression = table.DisplayExpression;
+            }
+            
+            [System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            internal DataColumn fk_prov_roleColumn {
+                get {
+                    return this.columnfk_prov_role;
+                }
+            }
+            
+            internal DataColumn fk_prov_comp_relColumn {
+                get {
+                    return this.columnfk_prov_comp_rel;
+                }
+            }
+            
+            internal DataColumn fk_req_roleColumn {
+                get {
+                    return this.columnfk_req_role;
+                }
+            }
+            
+            internal DataColumn fk_req_comp_relColumn {
+                get {
+                    return this.columnfk_req_comp_rel;
+                }
+            }
+            
+            internal DataColumn guidColumn {
+                get {
+                    return this.columnguid;
+                }
+            }
+            
+            public AssemblyConnectorsRow this[int index] {
+                get {
+                    return ((AssemblyConnectorsRow)(this.Rows[index]));
+                }
+            }
+            
+            public event AssemblyConnectorsRowChangeEventHandler AssemblyConnectorsRowChanged;
+            
+            public event AssemblyConnectorsRowChangeEventHandler AssemblyConnectorsRowChanging;
+            
+            public event AssemblyConnectorsRowChangeEventHandler AssemblyConnectorsRowDeleted;
+            
+            public event AssemblyConnectorsRowChangeEventHandler AssemblyConnectorsRowDeleting;
+            
+            public void AddAssemblyConnectorsRow(AssemblyConnectorsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            public AssemblyConnectorsRow AddAssemblyConnectorsRow(RolesRow parentRolesRowByRolesAssemblyConnectors, CompRelationsRow parentCompRelationsRowByCompRelAsmConProv, RolesRow parentRolesRowByRolesAssemblyConnectors1, CompRelationsRow parentCompRelationsRowByCompRelAsmConReq, string guid) {
+                AssemblyConnectorsRow rowAssemblyConnectorsRow = ((AssemblyConnectorsRow)(this.NewRow()));
+                rowAssemblyConnectorsRow.ItemArray = new object[] {
+                        parentRolesRowByRolesAssemblyConnectors[0],
+                        parentCompRelationsRowByCompRelAsmConProv[2],
+                        parentRolesRowByRolesAssemblyConnectors1[0],
+                        parentCompRelationsRowByCompRelAsmConReq[2],
+                        guid};
+                this.Rows.Add(rowAssemblyConnectorsRow);
+                return rowAssemblyConnectorsRow;
+            }
+            
+            public AssemblyConnectorsRow FindByguid(string guid) {
+                return ((AssemblyConnectorsRow)(this.Rows.Find(new object[] {
+                            guid})));
+            }
+            
+            public System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            
+            public override DataTable Clone() {
+                AssemblyConnectorsDataTable cln = ((AssemblyConnectorsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            protected override DataTable CreateInstance() {
+                return new AssemblyConnectorsDataTable();
+            }
+            
+            internal void InitVars() {
+                this.columnfk_prov_role = this.Columns["fk_prov_role"];
+                this.columnfk_prov_comp_rel = this.Columns["fk_prov_comp_rel"];
+                this.columnfk_req_role = this.Columns["fk_req_role"];
+                this.columnfk_req_comp_rel = this.Columns["fk_req_comp_rel"];
+                this.columnguid = this.Columns["guid"];
+            }
+            
+            private void InitClass() {
+                this.columnfk_prov_role = new DataColumn("fk_prov_role", typeof(long), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_prov_role);
+                this.columnfk_prov_comp_rel = new DataColumn("fk_prov_comp_rel", typeof(long), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_prov_comp_rel);
+                this.columnfk_req_role = new DataColumn("fk_req_role", typeof(long), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_req_role);
+                this.columnfk_req_comp_rel = new DataColumn("fk_req_comp_rel", typeof(long), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_req_comp_rel);
+                this.columnguid = new DataColumn("guid", typeof(string), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnguid);
+                this.Constraints.Add(new UniqueConstraint("PK_ASS", new DataColumn[] {
+                                this.columnguid}, true));
+                this.Constraints.Add(new UniqueConstraint("SK_ASS", new DataColumn[] {
+                                this.columnfk_prov_role,
+                                this.columnfk_prov_comp_rel,
+                                this.columnfk_req_role,
+                                this.columnfk_req_comp_rel}, false));
+                this.columnfk_prov_role.AllowDBNull = false;
+                this.columnfk_prov_role.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnfk_prov_comp_rel.AllowDBNull = false;
+                this.columnfk_prov_comp_rel.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnfk_req_role.AllowDBNull = false;
+                this.columnfk_req_role.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnfk_req_comp_rel.AllowDBNull = false;
+                this.columnfk_req_comp_rel.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnguid.AllowDBNull = false;
+                this.columnguid.Unique = true;
+                this.columnguid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+            }
+            
+            public AssemblyConnectorsRow NewAssemblyConnectorsRow() {
+                return ((AssemblyConnectorsRow)(this.NewRow()));
+            }
+            
+            protected override DataRow NewRowFromBuilder(DataRowBuilder builder) {
+                return new AssemblyConnectorsRow(builder);
+            }
+            
+            protected override System.Type GetRowType() {
+                return typeof(AssemblyConnectorsRow);
+            }
+            
+            protected override void OnRowChanged(DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.AssemblyConnectorsRowChanged != null)) {
+                    this.AssemblyConnectorsRowChanged(this, new AssemblyConnectorsRowChangeEvent(((AssemblyConnectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowChanging(DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.AssemblyConnectorsRowChanging != null)) {
+                    this.AssemblyConnectorsRowChanging(this, new AssemblyConnectorsRowChangeEvent(((AssemblyConnectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowDeleted(DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.AssemblyConnectorsRowDeleted != null)) {
+                    this.AssemblyConnectorsRowDeleted(this, new AssemblyConnectorsRowChangeEvent(((AssemblyConnectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowDeleting(DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.AssemblyConnectorsRowDeleting != null)) {
+                    this.AssemblyConnectorsRowDeleting(this, new AssemblyConnectorsRowChangeEvent(((AssemblyConnectorsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            public void RemoveAssemblyConnectorsRow(AssemblyConnectorsRow row) {
+                this.Rows.Remove(row);
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class AssemblyConnectorsRow : DataRow {
+            
+            private AssemblyConnectorsDataTable tableAssemblyConnectors;
+            
+            internal AssemblyConnectorsRow(DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableAssemblyConnectors = ((AssemblyConnectorsDataTable)(this.Table));
+            }
+            
+            public long fk_prov_role {
+                get {
+                    return ((long)(this[this.tableAssemblyConnectors.fk_prov_roleColumn]));
+                }
+                set {
+                    this[this.tableAssemblyConnectors.fk_prov_roleColumn] = value;
+                }
+            }
+            
+            public long fk_prov_comp_rel {
+                get {
+                    return ((long)(this[this.tableAssemblyConnectors.fk_prov_comp_relColumn]));
+                }
+                set {
+                    this[this.tableAssemblyConnectors.fk_prov_comp_relColumn] = value;
+                }
+            }
+            
+            public long fk_req_role {
+                get {
+                    return ((long)(this[this.tableAssemblyConnectors.fk_req_roleColumn]));
+                }
+                set {
+                    this[this.tableAssemblyConnectors.fk_req_roleColumn] = value;
+                }
+            }
+            
+            public long fk_req_comp_rel {
+                get {
+                    return ((long)(this[this.tableAssemblyConnectors.fk_req_comp_relColumn]));
+                }
+                set {
+                    this[this.tableAssemblyConnectors.fk_req_comp_relColumn] = value;
+                }
+            }
+            
+            public string guid {
+                get {
+                    return ((string)(this[this.tableAssemblyConnectors.guidColumn]));
+                }
+                set {
+                    this[this.tableAssemblyConnectors.guidColumn] = value;
+                }
+            }
+            
+            public RolesRow RolesRowByRolesAssemblyConnectors {
+                get {
+                    return ((RolesRow)(this.GetParentRow(this.Table.ParentRelations["RolesAssemblyConnectors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["RolesAssemblyConnectors"]);
+                }
+            }
+            
+            public RolesRow RolesRowByRolesAssemblyConnectors1 {
+                get {
+                    return ((RolesRow)(this.GetParentRow(this.Table.ParentRelations["RolesAssemblyConnectors1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["RolesAssemblyConnectors1"]);
+                }
+            }
+            
+            public CompRelationsRow CompRelationsRowByCompRelAsmConProv {
+                get {
+                    return ((CompRelationsRow)(this.GetParentRow(this.Table.ParentRelations["CompRelAsmConProv"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["CompRelAsmConProv"]);
+                }
+            }
+            
+            public CompRelationsRow CompRelationsRowByCompRelAsmConReq {
+                get {
+                    return ((CompRelationsRow)(this.GetParentRow(this.Table.ParentRelations["CompRelAsmConReq"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["CompRelAsmConReq"]);
+                }
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class AssemblyConnectorsRowChangeEvent : EventArgs {
+            
+            private AssemblyConnectorsRow eventRow;
+            
+            private DataRowAction eventAction;
+            
+            public AssemblyConnectorsRowChangeEvent(AssemblyConnectorsRow row, DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            public AssemblyConnectorsRow Row {
                 get {
                     return this.eventRow;
                 }

@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/06/17 18:33:10  joemal
+	/// changes in the connection tables
+	///
 	/// Revision 1.5  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository
 	///
@@ -88,15 +91,21 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the ids of the connections</returns>
 		public IConnectionIdentifier[] GetConnections()
 		{
-			string query = "fk_comp = '"+this.componentID.Key+"'";
-			DataRow[] conRows = this.Dataset.Connections.Select(query);
+			ModelDataSet.CompRelationsRow[] compRelRows = (ModelDataSet.CompRelationsRow[]) 
+				this.Dataset.CompRelations.Select("fk_parent = '"+this.componentID.Key+"'");
 
-			IConnectionIdentifier[] conIds = new IConnectionIdentifier[conRows.Length];
+			ArrayList conIDs = new ArrayList();
 
-			for (int a=0;a<conRows.Length;a++)
-				conIds[a] = ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.ConnectionsRow)conRows[a]).guid);
+			foreach(ModelDataSet.CompRelationsRow compRelRow in compRelRows)
+			{
+				foreach(ModelDataSet.AssemblyConnectorsRow conRow in compRelRow.GetAssemblyConnectorsRowsByCompRelAsmConReq())
+					conIDs.Add(ComponentModelIdentifier.CreateConnectionID(conRow.guid));
+			
+				foreach(ModelDataSet.DelegationConnectorsRow conRow in compRelRow.GetDelegationConnectorsRows())
+					conIDs.Add(ComponentModelIdentifier.CreateConnectionID(conRow.guid));			
+			}
 
-			return conIds;
+			return (IConnectionIdentifier[]) conIDs.ToArray(typeof(IConnectionIdentifier));
 		}
 
 		/// <summary>
@@ -106,9 +115,15 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>true, if the connection that belongs to given id is part of this component</returns>
 		public bool IsConnectionFromComponent(IConnectionIdentifier connectionID)
 		{
-			ModelDataSet.ConnectionsRow row = this.Dataset.Connections.FindByguid(connectionID.Key);
-			if (row == null) return false;
-			return row.fk_comp.Equals(this.componentID.Key);
+			ModelDataSet.AssemblyConnectorsRow asmRow = this.Dataset.AssemblyConnectors.FindByguid(connectionID.Key);
+			if (asmRow != null)
+				return (asmRow.CompRelationsRowByCompRelAsmConProv.fk_parent.Equals(this.componentID.Key));
+			
+			ModelDataSet.DelegationConnectorsRow delRow = this.Dataset.DelegationConnectors.FindByguid(connectionID.Key);
+			if (delRow != null)
+				return (delRow.CompRelationsRow.fk_parent.Equals(this.componentID.Key));
+
+			return false;
 		}
 
 		/// <summary>
@@ -121,15 +136,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the id of the connection</returns>
 		public IConnectionIdentifier GetProvidesDelegationConnector(IInterfaceIdentifier outerIfaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIfaceID)
 		{
-			ModelDataSet.RolesRow incomingRole = this.QueryRole(this.componentID,outerIfaceID,InterfaceRole.PROVIDES);
-			if (incomingRole == null) return null;
-			ModelDataSet.RolesRow outgoingRole = this.QueryRole(innerCompID,innerIfaceID,InterfaceRole.PROVIDES);
-			if (outgoingRole == null) return null;
-
-			string query = "incoming = "+incomingRole.id+" and outgoing = "+outgoingRole.id;
-			DataRow[] result = this.Dataset.Connections.Select(query);
-			if (result.Length==0) return null;
-			return ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.ConnectionsRow)result[0]).guid);
+			return GetDelegationConnector(outerIfaceID, innerCompID, innerIfaceID,InterfaceRole.PROVIDES);
 		}
 
 		/// <summary>
@@ -143,15 +150,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		public IConnectionIdentifier GetRequiresDelegationConnector(IInterfaceIdentifier outerIfaceID, 
 			IComponentIdentifier innerCompID, IInterfaceIdentifier innerIfaceID)
 		{
-			ModelDataSet.RolesRow outgoingRole = this.QueryRole(this.componentID,outerIfaceID,InterfaceRole.REQUIRES);
-			if (outgoingRole == null) return null;
-			ModelDataSet.RolesRow incomingRole = this.QueryRole(innerCompID,innerIfaceID,InterfaceRole.REQUIRES);
-			if (incomingRole == null) return null;
-
-			string query = "incoming = "+incomingRole.id+" and outgoing = "+outgoingRole.id;
-			DataRow[] result = this.Dataset.Connections.Select(query);
-			if (result.Length==0) return null;
-			return ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.ConnectionsRow)result[0]).guid);
+			return GetDelegationConnector(outerIfaceID, innerCompID, innerIfaceID,InterfaceRole.REQUIRES);
 		}
 
 		/// <summary>
@@ -164,15 +163,20 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the id of the connection</returns>
 		public IConnectionIdentifier GetAssemblyConnector(IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
-			ModelDataSet.RolesRow incomingRole = this.QueryRole(reqCompID,reqIFaceID,InterfaceRole.REQUIRES);
-			if (incomingRole == null) return null;
-			ModelDataSet.RolesRow outgoingRole = this.QueryRole(provCompID,provIFaceID,InterfaceRole.PROVIDES);
-			if (outgoingRole == null) return null;
+			ModelDataSet.RolesRow reqRole = this.QueryRole(reqCompID,reqIFaceID,InterfaceRole.REQUIRES);
+			if (reqRole == null) return null;
+			ModelDataSet.RolesRow provRole = this.QueryRole(provCompID,provIFaceID,InterfaceRole.PROVIDES);
+			if (provRole == null) return null;
+			ModelDataSet.CompRelationsRow reqCompRelRow = this.QueryParent(this.componentID,reqCompID);
+			if (reqCompRelRow == null) return null;
+			ModelDataSet.CompRelationsRow provCompRelRow = this.QueryParent(this.componentID,provCompID);
+			if (provCompRelRow == null) return null;
 
-			string query = "incoming = "+incomingRole.id+" and outgoing = "+outgoingRole.id;
-			DataRow[] result = this.Dataset.Connections.Select(query);
+			string query = "fk_req_role="+reqRole.id+" and fk_prov_role="+provRole.id+
+						   " and fk_req_comp_rel="+reqCompRelRow.id+" and fk_prov_comp_rel="+provCompRelRow.id;
+			DataRow[] result = this.Dataset.AssemblyConnectors.Select(query);
 			if (result.Length==0) return null;
-			return ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.ConnectionsRow)result[0]).guid);
+			return ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.AssemblyConnectorsRow)result[0]).guid);
 		}
 
 		/// <summary>
@@ -219,6 +223,25 @@ namespace Palladio.ComponentModel.Query.Impl
 			return (IComponentIdentifier[]) bcIDs.ToArray(typeof(IComponentIdentifier));
 		}
 
-		#endregion
+		//called to get the delegation connector to the component with given id on given interfaces
+		private IConnectionIdentifier GetDelegationConnector(IInterfaceIdentifier outerIfaceID, IComponentIdentifier innerCompID, 
+			IInterfaceIdentifier innerIfaceID,InterfaceRole ifaceRole)
+		{
+			ModelDataSet.RolesRow outerRoleRow = this.QueryRole(this.componentID,outerIfaceID,ifaceRole);
+			if (outerRoleRow == null) return null;
+			ModelDataSet.RolesRow innerRoleRow = this.QueryRole(innerCompID,innerIfaceID,ifaceRole);
+			if (innerRoleRow == null) return null;
+			ModelDataSet.CompRelationsRow compRelRow = this.QueryParent(this.componentID,innerCompID);
+			if (compRelRow == null) return null;
+
+			string query = "fk_inner_role="+innerRoleRow.id+" and fk_outer_role="+outerRoleRow.id+
+				" and fk_inner_comp_rel="+compRelRow.id;
+			DataRow[] result = this.Dataset.DelegationConnectors.Select(query);
+			if (result.Length == 0) return null;
+
+			return ComponentModelIdentifier.CreateConnectionID(((ModelDataSet.DelegationConnectorsRow)result[0]).guid);
+		}
+
+		#endregion		
 	}
 }

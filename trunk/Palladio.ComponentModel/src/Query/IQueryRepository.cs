@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Query
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/17 18:33:10  joemal
+	/// changes in the connection tables
+	///
 	/// Revision 1.1  2005/06/12 17:06:18  joemal
 	/// renamed from QueryEntityImpl
 	///
@@ -68,16 +71,5 @@ namespace Palladio.ComponentModel.Query
 		/// <param name="protID">the id of the protocol</param>
 		/// <returns>the protocol or null if the protocol could not be found in the model</returns>
 		IProtocol GetProtocol(IProtocolIdentifier protID);
-
-		/// <summary>
-		/// called to return the assembly connector between to components 
-		/// </summary>
-		/// <param name="reqCompID"></param>
-		/// <param name="reqIfaceID"></param>
-		/// <param name="provCompID"></param>
-		/// <param name="provIfaceID"></param>
-		/// <returns></returns>
-		IConnection GetAssemblyConnector(IComponentIdentifier reqCompID, IInterfaceIdentifier reqIfaceID,
-			IComponentIdentifier provCompID, IInterfaceIdentifier provIfaceID);
 	}
 }
