@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.22  2005/06/17 18:31:12  joemal
+	/// new methods to add connections in low level builder
+	///
 	/// Revision 1.21  2005/06/05 11:06:52  joemal
 	/// - add method DestroyComponent
 	/// - rename method RemoveInterface to DestroyInterface
@@ -243,8 +246,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
 			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier, connectionName);
-			this.ModelDataManager.LowLevelBuilder.AddAssemblyConnector(connection,null, reqCompID,reqIFaceID, 
-				provCompID, provIFaceID);
+			ConnectionPoint reqPoint = new ConnectionPoint(reqIFaceID,reqCompID);
+			ConnectionPoint provPoint = new ConnectionPoint(provIFaceID,provCompID);			
+			this.ModelDataManager.LowLevelBuilder.AddAssemblyConnector(connection,null, reqPoint, provPoint);
 		}
 
 		/// <summary>

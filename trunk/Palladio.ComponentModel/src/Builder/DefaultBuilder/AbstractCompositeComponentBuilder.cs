@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.24  2005/06/17 18:31:12  joemal
+	/// new methods to add connections in low level builder
+	///
 	/// Revision 1.23  2005/06/05 11:06:18  joemal
 	/// - fix bug in RemoveComponent
 	///
@@ -226,8 +229,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID)
 		{
 			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier, connectionName);
-			this.ModelDataManager.LowLevelBuilder.AddAssemblyConnector(connection,this.ComponentId, reqCompID,reqIFaceID, 
-				provCompID, provIFaceID);
+			ConnectionPoint reqPoint = new ConnectionPoint(reqIFaceID,reqCompID); 
+			ConnectionPoint provPoint = new ConnectionPoint(provIFaceID,provCompID);
+			this.ModelDataManager.LowLevelBuilder.AddAssemblyConnector(connection,this.ComponentId, reqPoint,provPoint);
 		}
 
 		/// <summary>
@@ -272,8 +276,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void AddProvidesDelegationConnector(IConnectionIdentifier connectionIdentifier, string connectionName, IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{
 			IConnection connection = EntityFactory.CreateConnection(connectionName);
-			base.ModelDataManager.LowLevelBuilder.AddProvidesDelegationConnector(connection, this.ComponentId,
-				outerIFaceID, innerCompID, innerIFaceID);
+			ConnectionPoint innerPoint = new ConnectionPoint(innerIFaceID,innerCompID);
+			ConnectionPoint outerPoint = new ConnectionPoint(outerIFaceID,this.ComponentId);
+			base.ModelDataManager.LowLevelBuilder.AddProvidesDelegationConnector(connection,outerPoint,innerPoint);
 		}
 
 		/// <summary>
@@ -306,8 +311,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		                                           IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID)
 		{
 			IConnection connection = EntityFactory.CreateConnection(connectionName);
-			base.ModelDataManager.LowLevelBuilder.AddRequiresDelegationConnector(connection, innerCompID,
-				innerIFaceID, this.ComponentId, outerIFaceID);
+			ConnectionPoint innerPoint = new ConnectionPoint(innerIFaceID,innerCompID);
+			ConnectionPoint outerPoint = new ConnectionPoint(outerIFaceID,this.ComponentId);
+			base.ModelDataManager.LowLevelBuilder.AddRequiresDelegationConnector(connection,innerPoint,outerPoint);
 		}
 
 		#endregion
