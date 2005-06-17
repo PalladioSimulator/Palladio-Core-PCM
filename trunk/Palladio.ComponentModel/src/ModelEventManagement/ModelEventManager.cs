@@ -1,6 +1,7 @@
 using System.Collections;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.Identifier;
 
@@ -16,6 +17,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/06/17 18:32:57  joemal
+	/// data structure connection point replace ifaceid and componentid
+	///
 	/// Revision 1.5  2005/06/05 10:40:06  joemal
 	/// - components now can be added to more than one container
 	///
@@ -234,6 +238,57 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to register a reguires delegation connector.
 		/// </summary>
 		/// <param name="connection">the connector</param>
+		/// <param name="outerPoint">the connecting point of the outer component</param>
+		/// <param name="innerPoint">the connecting point of the inner component</param>
+		public void RegisterRequiresDelegation(IConnection connection, ConnectionPoint innerPoint, ConnectionPoint outerPoint)
+		{
+			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
+			this.GetCompositeComponentEvents(outerPoint.componentID).NotifyDelegationConnectorAdded(this,
+				new DelegationConnectorBuildEventArgs(connection,innerPoint.componentID,innerPoint.ifaceID,
+				outerPoint.componentID,outerPoint.ifaceID,InterfaceRole.REQUIRES));
+		}
+
+		/// <summary>
+		/// called to register a provides delegation connector.
+		/// </summary>
+		/// <param name="connection">the connector</param>
+		/// <param name="outerPoint">the connecting point of the outer component</param>
+		/// <param name="innerPoint">the connecting point of the inner component</param>
+		public void RegisterProvidesDelegation(IConnection connection, ConnectionPoint outerPoint, ConnectionPoint innerPoint)
+		{
+			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
+			this.GetCompositeComponentEvents(outerPoint.componentID).NotifyDelegationConnectorAdded(this,
+				new DelegationConnectorBuildEventArgs(connection,innerPoint.componentID,innerPoint.ifaceID,
+				outerPoint.componentID,outerPoint.ifaceID,InterfaceRole.PROVIDES));
+		}
+
+		/// <summary>
+		/// called to register a new assembly connector.
+		/// </summary>
+		/// <param name="connection">the connector</param>
+		/// <param name="parentID">the id of the component that contains the connection</param>
+		/// <param name="requiresPoint">the connecting point of the requiring component</param>
+		/// <param name="providesPoint">the connecting point of the providing component</param>
+		public void RegisterAssemblyConnection(IConnection connection, IComponentIdentifier parentID, ConnectionPoint requiresPoint, ConnectionPoint providesPoint)
+		{
+			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
+			if (parentID == null)
+				this.staticViewEvents.NotifyAssemblyConnectorAdded(this,
+					new AssemblyConnectorBuildEventArgs(connection,providesPoint.componentID,providesPoint.ifaceID,
+					requiresPoint.componentID,requiresPoint.ifaceID));
+			else
+			{
+				IComponent parentC = (IComponent) entityHashtable[parentID];
+				this.GetCompositeComponentEvents(parentC.ComponentID).NotifyAssemblyConnectorAdded(this,
+					new AssemblyConnectorBuildEventArgs(connection,providesPoint.componentID,providesPoint.ifaceID,
+					requiresPoint.componentID,requiresPoint.ifaceID));
+			}
+		}
+
+/*		/// <summary>
+		/// called to register a reguires delegation connector.
+		/// </summary>
+		/// <param name="connection">the connector</param>
 		/// <param name="innerCompID">the id of the inner component</param>
 		/// <param name="innerIFaceID">the id of the interface of the inner component</param>
 		/// <param name="outerCompID">the id of the outer component</param>
@@ -288,7 +343,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 				this.GetCompositeComponentEvents(parentC.ComponentID).NotifyAssemblyConnectorAdded(this,
 					new AssemblyConnectorBuildEventArgs(connection,provCompID,provIFaceID,reqCompID,reqIFaceID));
 			}
-		}
+		}*/
 
 		/// <summary>
 		/// called to unregister an assembly connector.

@@ -1,5 +1,6 @@
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.ModelEventManagement
@@ -13,6 +14,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/06/17 18:32:57  joemal
+	/// data structure connection point replace ifaceid and componentid
+	///
 	/// Revision 1.3  2005/06/05 10:40:06  joemal
 	/// - components now can be added to more than one container
 	///
@@ -116,35 +120,27 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to register a reguires delegation connector.
 		/// </summary>
 		/// <param name="connection">the connector</param>
-		/// <param name="innerCompID">the id of the inner component</param>
-		/// <param name="innerIFaceID">the id of the interface of the inner component</param>
-		/// <param name="outerCompID">the id of the outer component</param>
-		/// <param name="outerIFaceID">the id of the interface of the outer component</param>
-		void RegisterRequiresDelegation(IConnection connection,IComponentIdentifier innerCompID, 
-			IInterfaceIdentifier innerIFaceID,IComponentIdentifier outerCompID,IInterfaceIdentifier outerIFaceID);
+		/// <param name="outerPoint">the connecting point of the outer component</param>
+		/// <param name="innerPoint">the connecting point of the inner component</param>
+		void RegisterRequiresDelegation(IConnection connection,ConnectionPoint innerPoint,ConnectionPoint outerPoint);
 
 		/// <summary>
 		/// called to register a provides delegation connector.
 		/// </summary>
 		/// <param name="connection">the connector</param>
-		/// <param name="innerCompID">the id of the inner component</param>
-		/// <param name="innerIFaceID">the id of the interface of the inner component</param>
-		/// <param name="outerCompID">the id of the outer component</param>
-		/// <param name="outerIFaceID">the id of the interface of the outer component</param>
-		void RegisterProvidesDelegation(IConnection connection, IComponentIdentifier outerCompID, 
-			IInterfaceIdentifier outerIFaceID,IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID);
+		/// <param name="outerPoint">the connecting point of the outer component</param>
+		/// <param name="innerPoint">the connecting point of the inner component</param>
+		void RegisterProvidesDelegation(IConnection connection, ConnectionPoint outerPoint,ConnectionPoint innerPoint);
 
 		/// <summary>
 		/// called to register a new assembly connector.
 		/// </summary>
 		/// <param name="connection">the connector</param>
 		/// <param name="parentID">the id of the component that contains the connection</param>
-		/// <param name="reqCompID">the id of the requiring component</param>
-		/// <param name="reqIFaceID">the id of the requiring components interface</param>
-		/// <param name="provCompID">the id of the providing component</param>
-		/// <param name="provIFaceID">the id of the providing components interface</param>
-		void RegisterAssemblyConnection(IConnection connection, IComponentIdentifier parentID,IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
-			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
+		/// <param name="requiresPoint">the connecting point of the requiring component</param>
+		/// <param name="providesPoint">the connecting point of the providing component</param>
+		void RegisterAssemblyConnection(IConnection connection, IComponentIdentifier parentID,ConnectionPoint requiresPoint,
+			ConnectionPoint providesPoint);
 
 		/// <summary>
 		/// called to unregister a connection.
