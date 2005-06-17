@@ -1,8 +1,6 @@
 #if TEST
-using System;
 using Palladio.ComponentModel;
 using Palladio.ComponentModel.Builder;
-using Palladio.ComponentModel.Query;
 using Palladio.ComponentModel.Query.TypeLevel;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
@@ -19,6 +17,9 @@ namespace Steffen.Tests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/17 18:30:43  joemal
+	/// fix a bug in the test
+	///
 	/// Revision 1.2  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository
 	///
@@ -77,6 +78,8 @@ namespace Steffen.Tests
 			cm.BuilderManager.RootTypeLevelBuilder.RemoveComponent(C1ID);
 			Assert.IsTrue(cm.Query.QueryRepository.ContainsEntity(P1ID));
 			Assert.IsFalse(cm.Query.QueryRepository.ContainsEntity(con1ID));
+			Assert.IsTrue(cm.Query.QueryRepository.ContainsEntity(C1ID));
+			cm.BuilderManager.RootTypeLevelBuilder.DestroyComponent(C1ID);
 			Assert.IsFalse(cm.Query.QueryRepository.ContainsEntity(C1ID));
 		}
 
