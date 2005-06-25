@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Query
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/25 16:54:44  joemal
+	/// some more queries are need for the xml serlialization
+	///
 	/// Revision 1.2  2005/06/17 18:33:10  joemal
 	/// changes in the connection tables
 	///
@@ -71,5 +74,35 @@ namespace Palladio.ComponentModel.Query
 		/// <param name="protID">the id of the protocol</param>
 		/// <returns>the protocol or null if the protocol could not be found in the model</returns>
 		IProtocol GetProtocol(IProtocolIdentifier protID);
+
+		/// <summary>
+		/// called to return all components of the componentmodel
+		/// </summary>
+		/// <returns>an array with components</returns>
+		IComponent[] GetComponents();
+
+		/// <summary>
+		/// called to return all interfaces of the componentmodel
+		/// </summary>
+		/// <returns>an array with interfaces</returns>
+		IInterface[] GetInterfaces();
+
+		/// <summary>
+		/// called to return all connections of the componentmodel
+		/// </summary>
+		/// <returns>an array with connections</returns>
+		IConnection[] GetConnections();
+
+		/// <summary>
+		/// called to return all signatures of the componentmodel
+		/// </summary>
+		/// <returns>an array with signatures</returns>
+		ISignature[] GetSignatures();
+
+		/// <summary>
+		/// called to return all protocols of the componentmodel
+		/// </summary>
+		/// <returns>an array with protocols</returns>
+		IProtocol[] GetProtocols();
 	}
 }

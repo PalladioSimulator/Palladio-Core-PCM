@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/06/25 16:54:44  joemal
+	/// some more queries are need for the xml serlialization
+	///
 	/// Revision 1.6  2005/06/17 18:33:10  joemal
 	/// changes in the connection tables
 	///
@@ -164,6 +167,17 @@ namespace Palladio.ComponentModel.Query.Impl
 			get
 			{
 				return this.query;
+			}
+		}
+
+		/// <summary>
+		/// called to return the refenence to the hashtable that holds the entities of the componentmodel
+		/// </summary>
+		protected EntityHashtable Entities
+		{
+			get
+			{
+				return this.entityHashtable;
 			}
 		}
 

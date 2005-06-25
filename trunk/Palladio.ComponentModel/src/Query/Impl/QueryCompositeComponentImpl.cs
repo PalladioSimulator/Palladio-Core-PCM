@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Data;
 using Palladio.ComponentModel.Exceptions;
@@ -18,6 +17,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/06/25 16:54:44  joemal
+	/// some more queries are need for the xml serlialization
+	///
 	/// Revision 1.6  2005/06/17 18:33:10  joemal
 	/// changes in the connection tables
 	///
@@ -103,6 +105,46 @@ namespace Palladio.ComponentModel.Query.Impl
 			
 				foreach(ModelDataSet.DelegationConnectorsRow conRow in compRelRow.GetDelegationConnectorsRows())
 					conIDs.Add(ComponentModelIdentifier.CreateConnectionID(conRow.guid));			
+			}
+
+			return (IConnectionIdentifier[]) conIDs.ToArray(typeof(IConnectionIdentifier));
+		}
+
+		/// <summary>
+		/// returns the ids of all delegation connectors that are contained in this composite component 
+		/// </summary>
+		/// <returns>the ids</returns>
+		public IConnectionIdentifier[] GetDelegationConnectors()
+		{
+			ModelDataSet.CompRelationsRow[] compRelRows = (ModelDataSet.CompRelationsRow[]) 
+				this.Dataset.CompRelations.Select("fk_parent = '"+this.componentID.Key+"'");
+
+			ArrayList conIDs = new ArrayList();
+
+			foreach(ModelDataSet.CompRelationsRow compRelRow in compRelRows)
+			{
+				foreach(ModelDataSet.DelegationConnectorsRow conRow in compRelRow.GetDelegationConnectorsRows())
+					conIDs.Add(ComponentModelIdentifier.CreateConnectionID(conRow.guid));			
+			}
+
+			return (IConnectionIdentifier[]) conIDs.ToArray(typeof(IConnectionIdentifier));
+		}
+
+		/// <summary>
+		/// returns the ids of all assembly connectors that are contained in this composite component 
+		/// </summary>
+		/// <returns>the ids</returns>
+		public IConnectionIdentifier[] GetAssemblyConnectors()
+		{
+			ModelDataSet.CompRelationsRow[] compRelRows = (ModelDataSet.CompRelationsRow[]) 
+				this.Dataset.CompRelations.Select("fk_parent = '"+this.componentID.Key+"'");
+
+			ArrayList conIDs = new ArrayList();
+
+			foreach(ModelDataSet.CompRelationsRow compRelRow in compRelRows)
+			{
+				foreach(ModelDataSet.AssemblyConnectorsRow conRow in compRelRow.GetAssemblyConnectorsRowsByCompRelAsmConReq())
+					conIDs.Add(ComponentModelIdentifier.CreateConnectionID(conRow.guid));
 			}
 
 			return (IConnectionIdentifier[]) conIDs.ToArray(typeof(IConnectionIdentifier));

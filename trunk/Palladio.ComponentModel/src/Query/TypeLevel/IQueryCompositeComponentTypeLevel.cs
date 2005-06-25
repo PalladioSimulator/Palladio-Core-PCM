@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/06/25 16:54:44  joemal
+	/// some more queries are need for the xml serlialization
+	///
 	/// Revision 1.4  2005/06/05 10:40:28  joemal
 	/// - components now can be added to more than one container
 	///
@@ -46,6 +49,18 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// </summary>
 		/// <returns>the ids of the connections</returns>
 		IConnectionIdentifier[] GetConnections();
+
+		/// <summary>
+		/// returns the ids of all delegation connectors that are contained in this composite component 
+		/// </summary>
+		/// <returns>the ids</returns>
+		IConnectionIdentifier[] GetDelegationConnectors();
+
+		/// <summary>
+		/// returns the ids of all assembly connectors that are contained in this composite component 
+		/// </summary>
+		/// <returns>the ids</returns>
+		IConnectionIdentifier[] GetAssemblyConnectors();
 
 		/// <summary>
 		/// returns true, if the connection that belongs to given id is part of this component.

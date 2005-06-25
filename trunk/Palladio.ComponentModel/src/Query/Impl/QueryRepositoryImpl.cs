@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -13,6 +15,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/25 16:54:44  joemal
+	/// some more queries are need for the xml serlialization
+	///
 	/// Revision 1.2  2005/06/17 18:33:10  joemal
 	/// changes in the connection tables
 	///
@@ -94,5 +99,65 @@ namespace Palladio.ComponentModel.Query.Impl
 		{
 			return (IProtocol) this.getModelEntity(protID);
 		}
+
+		/// <summary>
+		/// called to return all components of the componentmodel
+		/// </summary>
+		/// <returns>an array with components</returns>
+		public IComponent[] GetComponents()
+		{
+			ArrayList result = this.AllEntities(typeof(IComponent));
+			return (IComponent[]) result.ToArray(typeof(IComponent));
+		}
+
+		/// <summary>
+		/// called to return all interfaces of the componentmodel
+		/// </summary>
+		/// <returns>an array with interfaces</returns>
+		public IInterface[] GetInterfaces()
+		{
+			ArrayList result = this.AllEntities(typeof(IInterface));
+			return (IInterface[]) result.ToArray(typeof(IInterface));
+		}
+
+		/// <summary>
+		/// called to return all connections of the componentmodel
+		/// </summary>
+		/// <returns>an array with connections</returns>
+		public IConnection[] GetConnections()
+		{
+			ArrayList result = this.AllEntities(typeof(IConnection));
+			return (IConnection[]) result.ToArray(typeof(IConnection));
+		}
+
+		/// <summary>
+		/// called to return all signatures of the componentmodel
+		/// </summary>
+		/// <returns>an array with signatures</returns>
+		public ISignature[] GetSignatures()
+		{
+			ArrayList result = this.AllEntities(typeof(ISignature));
+			return (ISignature[]) result.ToArray(typeof(ISignature));
+		}
+
+		/// <summary>
+		/// called to return all protocols of the componentmodel
+		/// </summary>
+		/// <returns>an array with protocols</returns>
+		public IProtocol[] GetProtocols()
+		{
+			ArrayList result = this.AllEntities(typeof(IProtocol));
+			return (IProtocol[]) result.ToArray(typeof(IProtocol));
+		}
+
+		//returns an array with all entities from given type
+		private ArrayList AllEntities(Type type)
+		{
+			ArrayList result = new ArrayList();
+			foreach(IComponentModelEntity entity in this.Entities)
+				if (type.IsInstanceOfType(entity)) result.Add(entity);				
+
+			return result;
+		}	
 	}
 }
