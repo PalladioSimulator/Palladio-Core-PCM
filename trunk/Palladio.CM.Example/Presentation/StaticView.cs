@@ -14,6 +14,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/06/25 16:52:20  joemal
+	/// changes in the example
+	///
 	/// Revision 1.3  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository
 	///
@@ -130,6 +133,9 @@ namespace Palladio.CM.Example.Presentation
 		private void events_InterfaceCreatedEvent(object sender, InterfaceBuildEventArgs args)
 		{
 			Console.WriteLine("Interface "+args.Interface.Name+" created.");
+			InterfaceEvents  ifaceEv = modelEnvironment.EventInterface.GetInterfaceEvents(args.Interface.InterfaceID);
+			ifaceEv.SignatureAddedEvent += new SignatureBuildEventHandler(ifaceEv_SignatureAddedEvent);
+			ifaceEv.ProtocolAddedEvent += new ProtocolBuildEventHandler(ifaceEv_ProtocolAddedEvent);
 		}
 
 		//called when an interface has been removed from the static view
@@ -167,5 +173,17 @@ namespace Palladio.CM.Example.Presentation
 
 
 		#endregion
+
+		//called when a signature has been added to an interface
+		private void ifaceEv_SignatureAddedEvent(object sender, SignatureBuildEventArgs args)
+		{
+			Console.WriteLine("Signature "+args.Signature.Name+" added.");
+		}
+
+		//called when a protocol has been added to an interface
+		private void ifaceEv_ProtocolAddedEvent(object sender, ProtocolBuildEventArgs args)
+		{
+			Console.WriteLine("Protocol "+args.Protocol.ProtocolID+" added.");
+		}
 	}
 }

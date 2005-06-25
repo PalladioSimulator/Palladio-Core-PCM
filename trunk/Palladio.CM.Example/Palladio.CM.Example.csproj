@@ -122,6 +122,7 @@
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
+                <Folder RelPath = "bin\Debug\" />
                 <File
                     RelPath = "Presentation\AbstractEntity.cs"
                     SubType = "Code"

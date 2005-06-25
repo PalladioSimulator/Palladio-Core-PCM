@@ -14,6 +14,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/06/25 16:52:20  joemal
+	/// changes in the example
+	///
 	/// Revision 1.2  2005/04/12 17:36:24  joemal
 	/// implement the creation of a component model
 	///
@@ -74,6 +77,7 @@ namespace Palladio.CM.Example.Presentation
 		//called when a signature has been added to the interface
 		private void events_SignatureAddedEvent(object sender, SignatureBuildEventArgs args)
 		{
+			Console.WriteLine("Sig Add");
 			Signature signature = new Signature(args.Signature,this.modelEnvironment);
 			signatures.Add(args.Signature.ID,signature);
 			Console.WriteLine("Signature "+args.Signature.Name+" added to the interface "+this.Model.Name+".");
