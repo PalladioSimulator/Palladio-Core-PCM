@@ -6,6 +6,9 @@ using Palladio.Attributes;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.ModelEntities.Impl;
+using Palladio.Identifier;
 using Palladio.Serialization;
 
 namespace Palladio.ComponentModel.Serialization.Xml
@@ -18,6 +21,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/06/25 16:53:29  joemal
+	/// merge the implementation with the changed xsd
+	///
 	/// Revision 1.3  2005/05/25 18:15:27  kelsaka
 	/// - added new methods to BuilderManager
 	/// - use of new methods in example
@@ -100,7 +106,6 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		//read the model from the reader
 		private void Read(XmlReader reader)
 		{
-			throw new NotImplementedException();
 			XmlValidatingReader validator=null;
 			try 
 			{
@@ -141,50 +146,91 @@ namespace Palladio.ComponentModel.Serialization.Xml
 
 		private void ReadTLModel(XmlElement rootElement,XmlNamespaceManager mgr)
 		{
-			ExtractStructuredEntityTL(rootElement.SelectSingleNode("//cm:StaticViewRootTL",mgr),mgr);
+			XmlNode typeLevelNode = rootElement.SelectSingleNode("//cm:TypeLevel",mgr);
+            ExtractInterfaces(typeLevelNode, mgr);
 		}
 
 		#endregion
 
-		#region private methods
+		#region entity methods
 
-		private void ExtractStructuredEntityTL(XmlNode entityNode,XmlNamespaceManager mgr)
+		private void ExtractInterfaces(XmlNode typelevelNode, XmlNamespaceManager mgr)
 		{
-			XmlNodeList entities = entityNode.SelectNodes("cm:Structure/*",mgr);
-			string parentGuid = null;
-			if (entityNode.Attributes["guid"]!=null)
-				parentGuid = entityNode.Attributes["guid"].Value;
-
-			foreach(XmlNode entityStructure in entities)
+			IRootTypeLevelBuilder typeLevelBuilder = builderManager.RootTypeLevelBuilder;
+			
+			XmlNodeList ifaceNodes = typelevelNode.SelectNodes("cm:Interface",mgr);
+			foreach(XmlNode ifaceNode in ifaceNodes)
 			{
-				string guid = entityStructure.Attributes["guid"].Value;
-				XmlNode entityContent = entityNode.SelectSingleNode("cm:Entities/*[@guid=\""+guid+"\"]",mgr);
-				string name = entityContent.ChildNodes[0].InnerText;
+				IInterfaceIdentifier ifaceID = (IInterfaceIdentifier)ExtractEntityIdentifier(ifaceNode);
+				string name = ExtractEntityName(ifaceNode,mgr);
 
-				if (entityStructure.Name.Equals("Interface"))
-					ExtractInterface(guid, name,entityContent,mgr);
-				else if (entityStructure.Name.Equals("Signature"))
-					ExtractSignature(parentGuid,guid, name,entityContent);
-			}			
+				IInterfaceBuilder ifaceBuilder = typeLevelBuilder.CreateInterface(ifaceID,name);
+				ExtractSignatures(ifaceBuilder,typelevelNode,ifaceNode, mgr);
+				ExtractProtocols(ifaceBuilder,typelevelNode,ifaceNode, mgr);
+			}
 		}
 
-		private void ExtractInterface(string guid, string name, XmlNode entityContent,XmlNamespaceManager mgr)
+		private void ExtractSignatures(IInterfaceBuilder ifaceBuilder, XmlNode typelevelNode,XmlNode ifaceNode,
+			XmlNamespaceManager mgr)
 		{
-			IInterfaceIdentifier ifaceID = ComponentModelIdentifier.CreateInterfaceID(guid);
-			IInterfaceTypeLevelBuilder ifaceBuilder = builderManager.RootTypeLevelBuilder.CreateInterface(ifaceID,name);
-			ExtractAttributes(ifaceBuilder.Interface.Attributes,entityContent.ChildNodes[1]);
-			ExtractStructuredEntityTL(entityContent,mgr);
+			XmlNodeList sigRefNodes = ifaceNode.SelectNodes("cm:Structure/cm:Signature",mgr);
+			foreach(XmlNode sigRefNode in sigRefNodes)
+			{
+				string guid = sigRefNode.Attributes["guid"].Value;
+				XmlNode sigNode = typelevelNode.SelectSingleNode("cm:Signature[@guid=\""+guid+"\"]",mgr);
+				string name = ExtractEntityName(sigNode,mgr);
+				ISignatureBuilder sigBuilder = ifaceBuilder.AddSignature(new InternalEntityIdentifier(guid),name);
+				ExtractSignature(sigBuilder,sigNode,mgr);
+			}
 		}
 
-		private void ExtractAttributes(IAttributeHash attributes, XmlNode attributesNode)
+		private void ExtractSignature(ISignatureBuilder builder, XmlNode sigNode, XmlNamespaceManager mgr)
 		{
-			//todo: to be implemented
-			//throw new NotImplementedException();
+			XmlNode retType = sigNode.SelectSingleNode("cm:ReturnType",mgr);
+			if (retType != null)
+				builder.SetReturnType(retType.InnerText);
+
+            XmlNodeList parameters = sigNode.SelectNodes("cm:Parameter",mgr);
+			foreach(XmlNode parameter in parameters)
+			{
+				Type type = new ReflectedType(parameter.SelectSingleNode("cm:Type",mgr).InnerText).GetType();
+				string name = parameter.SelectSingleNode("cm:Name",mgr).InnerText;
+				ParameterModifierEnum modifier = (ParameterModifierEnum) 
+					byte.Parse(parameter.SelectSingleNode("cm:Modifier",mgr).InnerText);
+				builder.AppendParameter(type,name,modifier);
+			}
+
+			XmlNodeList exceptions = sigNode.SelectNodes("cm:Exception",mgr);
+			foreach(XmlNode exception in exceptions)
+				builder.AddException(exception.InnerText);
 		}
 
-		private void ExtractSignature(string parentGuid, string guid, string name, XmlNode content)
+		private void ExtractProtocols(IInterfaceBuilder builder,XmlNode typelevelNode ,XmlNode ifaceNode, XmlNamespaceManager mgr)
 		{
-			Console.WriteLine("Signature found: "+name);
+		/*	XmlNodeList protRefNodes = ifaceNode.SelectNodes("cm:Structure/cm:Protocol",mgr);
+			foreach(XmlNode protRefNode in protRefNodes)
+			{
+
+				IProtocolIdentifier protID = new InternalEntityIdentifier(protRefNode.Attributes["guid"].Value);				
+				XmlNode sigNode = typelevelNode.SelectSingleNode("cm:Signature[@guid=\""+guid+"\"]",mgr);
+				IProtocolTypeIdentifier protTypeID = new InternalEntityIdentifier(protRefNode.Attributes["type"].Value);
+
+				IXmlProtocolPlugIn protocolPlugIn = (IXmlProtocolPlugIn) plugins[protTypeID];
+				if (protocolPlugIn == null)
+					throw new ModelSerializationException("No plugin found for protocoltype \""+protTypeID.Key+"\".");
+				protocolPlugIn.LoadProtocol()
+				writer.WriteEndElement();
+			}	*/
+		}
+
+		private IIdentifier ExtractEntityIdentifier(XmlNode node)
+		{
+			return new InternalEntityIdentifier(node.Attributes["guid"].Value);
+		}
+
+		private string ExtractEntityName(XmlNode entityNode, XmlNamespaceManager mgr)
+		{
+			return entityNode.SelectSingleNode("cm:Name",mgr).InnerText;
 		}
 
 		#endregion

@@ -5,6 +5,7 @@ using Palladio.Attributes;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.Query;
+using Palladio.ComponentModel.Query.TypeLevel;
 using Palladio.Identifier;
 using Palladio.Serialization;
 
@@ -18,6 +19,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/06/25 16:53:28  joemal
+	/// merge the implementation with the changed xsd
+	///
 	/// Revision 1.6  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository
 	///
@@ -129,86 +133,66 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		//write the type level part of the model
 		private void WriteTLModel(XmlWriter writer)
 		{
-			writer.WriteStartElement("StaticViewRootTL");
-			
-			//structure
-			writer.WriteStartElement("Structure");
-			IInterfaceIdentifier[] ifaceIDs = query.QueryTypeLevel.QueryStaticView().GetInterfaces();
-			WriteEntityGuids(writer,"Interface",ifaceIDs);
-			IComponentIdentifier[] basicCompIDs = query.QueryTypeLevel.QueryStaticView().GetBasicComponents();
-			WriteEntityGuids(writer,"Component",basicCompIDs);
-			IComponentIdentifier[] compositeCompIDs = query.QueryTypeLevel.QueryStaticView().GetCompositeComponents();
-			WriteEntityGuids(writer,"Component",compositeCompIDs);
-			IConnectionIdentifier[] conIDs = query.QueryTypeLevel.QueryStaticView().GetConnections();
-			WriteConnectionRef(writer,conIDs);
-			writer.WriteEndElement();
+			writer.WriteStartElement("TypeLevel");
 
-			//entities
-			writer.WriteStartElement("Entities");
-			WriteInterfaces(writer,ifaceIDs);
-			WriteBasicComponentsTL(writer,basicCompIDs);
-			WriteCompositeComponentsTL(writer,compositeCompIDs);
-			WriteConnections(writer,conIDs);
-			writer.WriteEndElement();
+			WriteStaticViewTL(writer);
+			IComponent[] comps = query.QueryRepository.GetComponents();
+			WriteBasicComponentTL(writer,comps);
+			WriteCompositeComponentTL(writer,comps);
+			WriteInterfaces(writer,query.QueryRepository.GetInterfaces());
+			WriteSignatures(writer,query.QueryRepository.GetSignatures());
+			WriteProtocols(writer,query.QueryRepository.GetProtocols());
+			WriteConnections(writer,query.QueryRepository.GetConnections());
 
 			writer.WriteEndElement();
 		}
 
-		//write the given type level basic components
-		private void WriteBasicComponentsTL(XmlWriter writer, params IComponentIdentifier[] compIDs)
+		//writes the static view root
+		private void WriteStaticViewTL(XmlWriter writer)
 		{
-			foreach (IComponentIdentifier compID in compIDs)
-			{				
-				writer.WriteStartElement("BasicComponent");
-				
-				IComponent comp = query.QueryRepository.GetComponent(compID);				
-				WriteEntityBaseAttributes(writer,comp);
-				
-				//structure
-				writer.WriteStartElement("Structure");
-				IInterfaceIdentifier[] ifaceIDs = query.QueryTypeLevel.QueryComponent(compID).GetProvidesInterfaceIDs();
-				WriteEntityGuids(writer,"ProvidesInterface",ifaceIDs);
-				ifaceIDs = query.QueryTypeLevel.QueryComponent(compID).GetRequiresInterfaceIDs();
-				WriteEntityGuids(writer,"RequiresInterface",ifaceIDs);
-				writer.WriteEndElement();								
+			writer.WriteStartElement("StaticViewRoot");			
+			writer.WriteStartElement("Structure");			
+			WriteRefs(writer,"Component",query.QueryTypeLevel.QueryStaticView().GetComponents());
+			WriteConnectorRefs(writer);
+			writer.WriteEndElement();
+			writer.WriteEndElement();
+		}
 
-				writer.WriteEndElement();	
+		//writes the list of typelevel basic components
+		private void WriteBasicComponentTL(XmlWriter writer, params IComponent[] comps)
+		{
+			foreach(IComponent comp in comps)
+			{
+				if (comp.Type != ComponentType.BASIC) continue;
+				
+				writer.WriteStartElement("BasicComponent");
+				WriteEntityBaseAttributes(writer,comp);
+				writer.WriteStartElement("Structure");			
+				WriteRefs(writer,"ProvidesInterface",query.QueryTypeLevel.QueryComponent(comp.ComponentID).GetProvidesInterfaceIDs());
+				WriteRefs(writer,"RequiresInterface",query.QueryTypeLevel.QueryComponent(comp.ComponentID).GetRequiresInterfaceIDs());
+				writer.WriteEndElement();
+				writer.WriteEndElement();				
 			}
 		}
 
-		//write the given type level composite component 
-		private void WriteCompositeComponentsTL(XmlWriter writer, params IComponentIdentifier[] compIDs)
+		//writes the list of typelevel composite components
+		private void WriteCompositeComponentTL(XmlWriter writer, params IComponent[] comps)
 		{
-			foreach (IComponentIdentifier compID in compIDs)
-			{				
-				writer.WriteStartElement("CompositeComponent");
-				
-				IComponent comp = query.QueryRepository.GetComponent(compID);				
-				WriteEntityBaseAttributes(writer,comp);
-				
-				//structure
-				writer.WriteStartElement("Structure");
-				IInterfaceIdentifier[] ifaceIDs = query.QueryTypeLevel.QueryComponent(compID).GetProvidesInterfaceIDs();
-				WriteEntityGuids(writer,"ProvidesInterface",ifaceIDs);
-				ifaceIDs = query.QueryTypeLevel.QueryComponent(compID).GetRequiresInterfaceIDs();
-				WriteEntityGuids(writer,"RequiresInterface",ifaceIDs);
-				IComponentIdentifier[] bcIDs = query.QueryTypeLevel.QueryCompositeComponent(compID).GetBasicComponents();
-				IComponentIdentifier[] ccIDs = query.QueryTypeLevel.QueryCompositeComponent(compID).GetCompositeComponents();
-				WriteEntityGuids(writer,"Component",bcIDs);
-				WriteEntityGuids(writer,"Component",ccIDs);
-				IConnectionIdentifier[] conIDs = query.QueryTypeLevel.QueryCompositeComponent(compID).GetConnections();
-				WriteConnectionRef(writer,conIDs);
-				writer.WriteEndElement();					
-			
-				//entities
-				writer.WriteStartElement("Entities");
-				WriteBasicComponentsTL(writer,bcIDs);
-				WriteCompositeComponentsTL(writer,ccIDs);
-				WriteConnections(writer,conIDs);
-				writer.WriteEndElement();
+			foreach(IComponent comp in comps)
+			{
+				if (comp.Type != ComponentType.COMPOSITE) continue;
 
-				writer.WriteEndElement();	
-			}			
+				writer.WriteStartElement("CompositeComponent");
+				WriteEntityBaseAttributes(writer,comp);
+				writer.WriteStartElement("Structure");	
+				IQueryCompositeComponentTypeLevel queryComp = query.QueryTypeLevel.QueryCompositeComponent(comp.ComponentID);
+				WriteRefs(writer,"ProvidesInterface",queryComp.GetProvidesInterfaceIDs());
+				WriteRefs(writer,"RequiresInterface",queryComp.GetRequiresInterfaceIDs());
+				WriteRefs(writer,"Component",queryComp.GetComponents());
+				WriteConnectorRefs(writer,comp.ComponentID);
+				writer.WriteEndElement();
+				writer.WriteEndElement();				
+			}
 		}
 
 		#endregion
@@ -218,7 +202,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		//writes the implementation part of the model
 		private void WriteILModel(XmlWriter writer)
 		{
-			writer.WriteStartElement("StaticViewRootIL");
+			writer.WriteStartElement("ImplementationLevel");
 
 			writer.WriteEndElement();
 		}
@@ -230,7 +214,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		//writes the deployment part of the model
 		private void WriteDLModel(XmlWriter writer)
 		{
-			writer.WriteStartElement("StaticViewRootDL");
+			writer.WriteStartElement("DeploymentLevel");
 
 			writer.WriteEndElement();
 		}
@@ -240,59 +224,28 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		#region entity write methods
 
 		//writes the given connections
-		private void WriteConnections(XmlWriter writer, params IConnectionIdentifier[] conIDs)
+		private void WriteConnections(XmlWriter writer, params IConnection[] cons)
 		{
-			foreach(IConnectionIdentifier conID in conIDs)
+			foreach(IConnection con in cons)
 			{
-				IConnection con = query.QueryRepository.GetConnection(conID);
 				writer.WriteStartElement("Connector");
 				WriteEntityBaseAttributes(writer,con);
 				writer.WriteEndElement();
 			}						
 		}
 
-		//writes the structure of the given connections
-		private void WriteConnectionRef(XmlWriter writer, IConnectionIdentifier[] conIDs)
-		{
-			foreach(IConnectionIdentifier conID in conIDs)
-			{
-				IComponentIdentifier incomingCompID = query.QueryTypeLevel.QueryConnection(conID).GetRequiringComponent();
-				IComponentIdentifier outgoingCompID = query.QueryTypeLevel.QueryConnection(conID).GetProvidingComponent();
-				IInterfaceIdentifier incomingIfaceID = query.QueryTypeLevel.QueryConnection(conID).GetRequiringInterface();
-				IInterfaceIdentifier outgoingIfaceID = query.QueryTypeLevel.QueryConnection(conID).GetProvidingInterface();
-				writer.WriteStartElement("Connector");
-
-				writer.WriteAttributeString("guid",conID.Key);
-				writer.WriteElementString("incomingCompID",incomingCompID.Key);
-				writer.WriteElementString("incomingIFaceID",incomingIfaceID.Key);
-				writer.WriteElementString("outgoingCompID",outgoingCompID.Key);
-				writer.WriteElementString("outgoingIFaceID",outgoingIfaceID.Key);
-
-				writer.WriteEndElement();
-			}
-		}
-
 		//writes the given interfaces
-		private void WriteInterfaces(XmlWriter writer, params IInterfaceIdentifier[] ifaceIDs)
+		private void WriteInterfaces(XmlWriter writer, params IInterface[] ifaces)
 		{
-			foreach(IInterfaceIdentifier ifaceID in ifaceIDs)
+			foreach(IInterface iface in ifaces)
 			{
-				IInterface iface = query.QueryRepository.GetInterface(ifaceID);
 				writer.WriteStartElement("Interface");
 				WriteEntityBaseAttributes(writer,iface);
 
 				//structure
 				writer.WriteStartElement("Structure");
-				ISignatureIdentifier[] sigIDs = query.QueryTypeLevel.QueryInterface(ifaceID).GetSignatures();
-				WriteEntityGuids(writer,"Signature",sigIDs);
-				IProtocolIdentifier[] protIDs = query.QueryTypeLevel.QueryInterface(ifaceID).GetProtocols();
-				WriteEntityGuids(writer,"Protocol",protIDs);
-				writer.WriteEndElement();
-
-				//entities
-				writer.WriteStartElement("Entities");
-				WriteSignatures(writer,sigIDs);
-				WriteProtocols(writer,protIDs);
+				WriteRefs(writer,"Signature",query.QueryTypeLevel.QueryInterface(iface.InterfaceID).GetSignatures());
+				WriteRefs(writer,"Protocol",query.QueryTypeLevel.QueryInterface(iface.InterfaceID).GetProtocols());
 				writer.WriteEndElement();
 
 				writer.WriteEndElement();
@@ -300,11 +253,10 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		}
 
 		//writes the given signatures
-		private void WriteSignatures(XmlWriter writer, params ISignatureIdentifier[] sigIDs)
+		private void WriteSignatures(XmlWriter writer, params ISignature[] sigs)
 		{
-			foreach(ISignatureIdentifier sigID in sigIDs)
+			foreach(ISignature sig in sigs)
 			{
-				ISignature sig = query.QueryRepository.GetSignature(sigID);
 				writer.WriteStartElement("Signature");
 				WriteEntityBaseAttributes(writer,sig);
 				
@@ -330,11 +282,10 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		}
 
 		//writes the given protocols
-		private void WriteProtocols(XmlWriter writer, params IProtocolIdentifier[] protIDs)
+		private void WriteProtocols(XmlWriter writer, params IProtocol[] prots)
 		{
-			foreach(IProtocolIdentifier protID in protIDs)
+			foreach(IProtocol prot in prots)
 			{
-				IProtocol prot = query.QueryRepository.GetProtocol(protID);
 				writer.WriteStartElement("Protocol");
 				writer.WriteAttributeString("type",prot.ProtocolTypeID.Key);
 				writer.WriteAttributeString("guid",prot.ProtocolID.Key);
@@ -368,18 +319,102 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			writer.WriteEndElement();
 		}
 
-		//writes the guid reference of an entity. Used in structure parts of composite components etc.
-		private void WriteEntityGuids(XmlWriter writer,string entityTag, params IIdentifier[] entities)
+		//writes the references to the listed entities
+		private void WriteRefs(XmlWriter writer,string type, params IIdentifier[] identifiers)
 		{
-			foreach(IIdentifier entityID in entities)
+			foreach(IIdentifier entityID in identifiers)
 			{
-				writer.WriteStartElement(entityTag);
+				writer.WriteStartElement(type);
 				writer.WriteAttributeString("guid",entityID.Key);
 				writer.WriteEndElement();
 			}
 		}
 
-		#endregion
+		//writes the references of the static views connectors
+		private void WriteConnectorRefs(XmlWriter writer)
+		{
+			IConnectionIdentifier[] conIDs=query.QueryTypeLevel.QueryStaticView().GetConnections();
 
+			foreach(IConnectionIdentifier conID in conIDs)
+			{
+				IQueryConnectionTypeLevel conQuery = query.QueryTypeLevel.QueryConnection(conID);
+				writer.WriteStartElement("AssemblyConnector");
+				writer.WriteAttributeString("guid",conID.Key);
+
+				writer.WriteStartElement("ProvidingIFace");
+				writer.WriteAttributeString("guid",conQuery.GetProvidingInterface().Key);
+				writer.WriteEndElement();
+
+				writer.WriteStartElement("ProvidingComponent");
+				writer.WriteAttributeString("guid",conQuery.GetProvidingComponent().Key);
+				writer.WriteEndElement();
+
+				writer.WriteStartElement("RequireingIFace");
+				writer.WriteAttributeString("guid",conQuery.GetRequiringInterface().Key);
+				writer.WriteEndElement();
+
+				writer.WriteStartElement("RequireingComponent");
+				writer.WriteAttributeString("guid",conQuery.GetRequiringComponent().Key);
+				writer.WriteEndElement();
+
+				writer.WriteEndElement();
+
+			}						
+		}
+
+		//writes the references of the components connectors
+		private void WriteConnectorRefs(XmlWriter writer, IComponentIdentifier compID)
+		{
+			IConnectionIdentifier[] conIDs=query.QueryTypeLevel.QueryCompositeComponent(compID).GetAssemblyConnectors();			
+
+			foreach(IConnectionIdentifier conID in conIDs)
+			{
+				IQueryConnectionTypeLevel conQuery = query.QueryTypeLevel.QueryConnection(conID);
+				writer.WriteStartElement("AssemblyConnector");
+				writer.WriteAttributeString("guid",conID.Key);
+
+				writer.WriteStartElement("ProvidingIFace");
+				writer.WriteAttributeString("guid",conQuery.GetProvidingInterface().Key);
+				writer.WriteStartElement("ProvidingComponent");
+				writer.WriteAttributeString("guid",conQuery.GetProvidingComponent().Key);
+				writer.WriteStartElement("RequireingIFace");
+				writer.WriteAttributeString("guid",conQuery.GetRequiringInterface().Key);
+				writer.WriteStartElement("RequireingComponent");
+				writer.WriteAttributeString("guid",conQuery.GetRequiringComponent().Key);
+				writer.WriteEndElement();
+			}			
+
+			conIDs=query.QueryTypeLevel.QueryCompositeComponent(compID).GetDelegationConnectors();
+
+			foreach(IConnectionIdentifier conID in conIDs)
+			{
+				IQueryConnectionTypeLevel conQuery = query.QueryTypeLevel.QueryConnection(conID);
+				IInterfaceIdentifier reqIfaceID = conQuery.GetRequiringInterface();
+				IComponentIdentifier reqCompID = conQuery.GetRequiringComponent();
+				IInterfaceIdentifier provIfaceID = conQuery.GetProvidingInterface();
+				IComponentIdentifier provCompID = conQuery.GetProvidingComponent();
+
+				writer.WriteStartElement("DelegationConnector");
+				writer.WriteAttributeString("guid",conID.Key);
+				if (query.QueryTypeLevel.QueryComponent(compID).IsProvidesInterface(reqIfaceID))
+				{
+					writer.WriteElementString("Type","Provides");
+					WriteRefs(writer,"InnerIFace",provIfaceID);
+					WriteRefs(writer,"InnerComponent",provCompID);
+					WriteRefs(writer,"OuterIFace",reqIfaceID);
+				}
+				else
+				{
+					writer.WriteElementString("Type","Requires");										
+					WriteRefs(writer,"InnerIFace",reqIfaceID);
+					WriteRefs(writer,"InnerComponent",reqCompID);
+					WriteRefs(writer,"OuterIFace",provIfaceID);
+				}
+
+				writer.WriteEndElement();
+			}			
+		}
+
+		#endregion
 	}
 }
