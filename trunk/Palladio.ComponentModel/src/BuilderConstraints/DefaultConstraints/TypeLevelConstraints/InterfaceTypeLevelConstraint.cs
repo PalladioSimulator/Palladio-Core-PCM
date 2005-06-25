@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.6  2005/06/25 16:54:09  joemal
+	/// fix bug in signaturebuilder
+	///
 	/// Revision 1.5  2005/06/05 10:38:31  joemal
 	/// - replace the entities by the ids
 	/// - components now can be added to more than one container
@@ -71,10 +74,11 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		/// <summary>
 		/// Adds an existing signature to the actual Interface.
 		/// </summary>
-		/// <param name="signature">The existing signature.</param>
-		public void AddSignature (ISignature signature)
+		/// <param name="sigId">The existing signature.</param>
+		/// <param name="signatureName">The new signatures name.</param>
+		public ISignatureTypeLevelBuilder AddSignature(ISignatureIdentifier sigId, string signatureName)
 		{
-			this.interfaceBuilderSuccessor.AddSignature(signature);
+			return this.interfaceBuilderSuccessor.AddSignature(sigId,signatureName);
 		}
 
 		/// <summary>

@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.26  2005/06/25 16:53:53  joemal
+	/// fix bug in signaturebuilder
+	///
 	/// Revision 1.25  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository
 	///
@@ -125,14 +128,13 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <summary>
 		/// Adds an existing signature to the actual Interface.
 		/// </summary>
-		/// <remarks>
-		/// Until the SignatureID can be used to get the signature-instance this method allows to
-		/// add a self defined signature.
-		/// </remarks>
-		/// <param name="signature">The existing signature.</param>
-		public void AddSignature (ISignature signature)
+		/// <param name="sigId">The existing signature.</param>
+		/// <param name="signatureName">The new signatures name.</param>
+		public ISignatureTypeLevelBuilder AddSignature(ISignatureIdentifier sigId, string signatureName)
 		{
+			ISignature signature = EntityFactory.CreateSignature(sigId,signatureName, new SignatureDescription());
 			base.ModelDataManager.LowLevelBuilder.AddSignature(signature, this.InterfaceId);
+			return base.BuilderManager.GetSignatureTypeLevelBuilder(signature);
 		}
 
 		/// <summary>
