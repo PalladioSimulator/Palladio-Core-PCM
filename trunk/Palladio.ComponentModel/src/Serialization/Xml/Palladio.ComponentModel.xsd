@@ -1,61 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema targetNamespace="http://palladio.informatik.uni-oldenburg.de/XSD" elementFormDefault="qualified"
-	xmlns="http://palladio.informatik.uni-oldenburg.de/XSD" xmlns:mstns="http://palladio.informatik.uni-oldenburg.de/XSD"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema id="XMLSchema1" targetNamespace="http://palladio.informatik.uni-oldenburg.de/XSD"
+	elementFormDefault="qualified" xmlns="http://palladio.informatik.uni-oldenburg.de/XSD"
+	xmlns:mstns="http://palladio.informatik.uni-oldenburg.de/XSD" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:element name="ComponentModel">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="StaticViewRootTL">
+				<xs:element name="TypeLevel">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Structure">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="Interface" minOccurs="0" maxOccurs="unbounded">
-											<xs:complexType>
-												<xs:sequence />
-												<xs:attribute name="guid" type="GUID" />
-											</xs:complexType>
-										</xs:element>
-										<xs:element name="Component" minOccurs="0" maxOccurs="unbounded">
-											<xs:complexType>
-												<xs:sequence></xs:sequence>
-												<xs:attribute name="guid" type="GUID" />
-											</xs:complexType>
-										</xs:element>
-										<xs:element name="Connector" minOccurs="0" maxOccurs="unbounded">
-											<xs:complexType>
-												<xs:sequence>
-													<xs:element name="incomingCompID" type="GUID" />
-													<xs:element name="incomingIFaceID" type="GUID" />
-													<xs:element name="outgoingCompID" type="GUID" />
-													<xs:element name="outgoingIFaceID" type="GUID"></xs:element>
-												</xs:sequence>
-												<xs:attribute name="guid" type="GUID" />
-											</xs:complexType>
-										</xs:element>
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="Entities">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="Interface" type="Interface" minOccurs="0" maxOccurs="unbounded" />
-										<xs:element name="BasicComponent" type="BasicComponentTL" minOccurs="0" maxOccurs="unbounded" />
-										<xs:element name="CompositeComponent" type="CompositeComponentTL" minOccurs="0" maxOccurs="unbounded" />
-										<xs:element name="Connector" type="Connector" minOccurs="0" maxOccurs="unbounded" />
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
+							<xs:choice maxOccurs="unbounded" minOccurs="1">
+								<xs:element name="StaticViewRoot" maxOccurs="1" minOccurs="1" type="StaticViewRootTL"></xs:element>
+								<xs:element name="BasicComponent" maxOccurs="unbounded" minOccurs="0" type="BasicComponentTL"></xs:element>
+								<xs:element name="CompositeComponent" maxOccurs="unbounded" minOccurs="0" type="CompositeComponent"></xs:element>
+								<xs:element name="Interface" maxOccurs="unbounded" minOccurs="0" type="Interface"></xs:element>
+								<xs:element name="Signature" maxOccurs="unbounded" minOccurs="0" type="Signature"></xs:element>
+								<xs:element name="Protocol" maxOccurs="unbounded" minOccurs="0" type="Protocol"></xs:element>
+								<xs:element name="Connector" maxOccurs="unbounded" minOccurs="0" type="Connector"></xs:element>
+							</xs:choice>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="StaticViewRootIL">
+				<xs:element name="ImplementationLevel">
 					<xs:complexType>
 						<xs:sequence />
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="StaticViewRootDL">
+				<xs:element name="DeploymentLevel">
 					<xs:complexType>
 						<xs:sequence />
 					</xs:complexType>
@@ -64,49 +34,8 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:simpleType name="GUID">
-		<xs:restriction base="xs:string"></xs:restriction>
+		<xs:restriction base="xs:string" />
 	</xs:simpleType>
-	<xs:complexType name="Interface">
-		<xs:complexContent>
-			<xs:extension base="Entity">
-				<xs:sequence>
-					<xs:element name="Structure">
-						<xs:complexType>
-							<xs:sequence>
-								<xs:element name="Signature" minOccurs="0" maxOccurs="unbounded">
-									<xs:complexType>
-										<xs:sequence></xs:sequence>
-										<xs:attribute name="guid" type="GUID" />
-									</xs:complexType>
-								</xs:element>
-								<xs:element name="Protocol" minOccurs="0" maxOccurs="unbounded">
-									<xs:complexType>
-										<xs:sequence></xs:sequence>
-										<xs:attribute name="guid" type="GUID" />
-									</xs:complexType>
-								</xs:element>
-							</xs:sequence>
-						</xs:complexType>
-					</xs:element>
-					<xs:element name="Entities">
-						<xs:complexType>
-							<xs:sequence>
-								<xs:element name="Signature" type="Signature" minOccurs="0" maxOccurs="unbounded" />
-								<xs:element name="Protocol" type="Protocol" minOccurs="0" maxOccurs="unbounded" />
-							</xs:sequence>
-						</xs:complexType>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="Connector" final="#all" block="#all">
-		<xs:complexContent>
-			<xs:extension base="Entity">
-				<xs:sequence></xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:complexType name="Attributes">
 		<xs:sequence>
 			<xs:element name="Attribute" minOccurs="0" maxOccurs="unbounded">
@@ -119,7 +48,61 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CompositeComponentTL">
+	<xs:complexType name="Entity">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string" />
+			<xs:element name="Attributes" type="Attributes" />
+		</xs:sequence>
+		<xs:attribute name="guid" type="GUID" />
+	</xs:complexType>
+	<xs:complexType name="StaticViewRootTL">
+		<xs:sequence>
+			<xs:element name="Structure">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Component" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence />
+								<xs:attribute name="guid" type="GUID" />
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AssemblyConnector" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ProvidingIFace">
+										<xs:complexType>
+											<xs:sequence />
+											<xs:attribute name="guid" type="GUID" />
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ProvidingComponent">
+										<xs:complexType>
+											<xs:sequence />
+											<xs:attribute name="guid" type="GUID" />
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="RequireingIFace">
+										<xs:complexType>
+											<xs:sequence />
+											<xs:attribute name="guid" type="GUID" />
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="RequireingComponent">
+										<xs:complexType>
+											<xs:sequence />
+											<xs:attribute name="guid" type="GUID" />
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="guid" type="GUID" />
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CompositeComponent">
 		<xs:complexContent>
 			<xs:extension base="Entity">
 				<xs:sequence>
@@ -128,42 +111,86 @@
 							<xs:sequence>
 								<xs:element name="ProvidesInterface" minOccurs="0" maxOccurs="unbounded">
 									<xs:complexType>
-										<xs:sequence></xs:sequence>
+										<xs:sequence />
 										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
 								<xs:element name="RequiresInterface" minOccurs="0" maxOccurs="unbounded">
 									<xs:complexType>
-										<xs:sequence></xs:sequence>
+										<xs:sequence />
 										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
 								<xs:element name="Component" minOccurs="0" maxOccurs="unbounded">
 									<xs:complexType>
-										<xs:sequence></xs:sequence>
+										<xs:sequence />
 										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
-								<xs:element name="Connector" maxOccurs="unbounded" minOccurs="0">
+								<xs:element name="DelegationConnector" minOccurs="0" maxOccurs="unbounded">
 									<xs:complexType>
 										<xs:sequence>
-											<xs:element name="incomingCompID" type="GUID" />
-											<xs:element name="incomingIFaceID" type="GUID" />
-											<xs:element name="outgoingCompID" type="GUID" />
-											<xs:element name="outgoingIFaceID" type="GUID" />
+											<xs:element name="Type">
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="Requires" />
+														<xs:enumeration value="Provides" />
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+											<xs:element name="InnerIFace">
+												<xs:complexType>
+													<xs:sequence />
+													<xs:attribute name="guid" type="GUID" />
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="InnerComponent">
+												<xs:complexType>
+													<xs:sequence />
+													<xs:attribute name="guid" type="GUID" />
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="OuterIFace">
+												<xs:complexType>
+													<xs:sequence />
+													<xs:attribute name="guid" type="GUID" />
+												</xs:complexType>
+											</xs:element>
 										</xs:sequence>
 										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
-							</xs:sequence>
-						</xs:complexType>
-					</xs:element>
-					<xs:element name="Entities">
-						<xs:complexType>
-							<xs:sequence>
-								<xs:element name="BasicComponent" type="BasicComponentTL" maxOccurs="unbounded" minOccurs="0" />
-								<xs:element name="CompositeComponent" type="CompositeComponentTL" maxOccurs="unbounded" minOccurs="0" />
-								<xs:element name="Connector" type="Connector" maxOccurs="unbounded" minOccurs="0" />
+								<xs:element name="AssemblyConnector" maxOccurs="unbounded" minOccurs="0">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="ProvidingIFace">
+												<xs:complexType>
+													<xs:sequence />
+													<xs:attribute name="guid" type="GUID" />
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="ProvidingComponent">
+												<xs:complexType>
+													<xs:sequence />
+													<xs:attribute name="guid" type="GUID" />
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="RequireingIFace">
+												<xs:complexType>
+													<xs:sequence />
+													<xs:attribute name="guid" type="GUID" />
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="RequireingComponent">
+												<xs:complexType>
+													<xs:sequence />
+													<xs:attribute name="guid" type="GUID" />
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+										<xs:attribute name="guid" type="GUID" />
+									</xs:complexType>
+								</xs:element>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -180,13 +207,13 @@
 							<xs:sequence>
 								<xs:element name="ProvidesInterface" minOccurs="0" maxOccurs="unbounded">
 									<xs:complexType>
-										<xs:sequence></xs:sequence>
+										<xs:sequence />
 										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
 								<xs:element name="RequiresInterface" minOccurs="0" maxOccurs="unbounded">
 									<xs:complexType>
-										<xs:sequence></xs:sequence>
+										<xs:sequence />
 										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
@@ -194,6 +221,50 @@
 						</xs:complexType>
 					</xs:element>
 				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Interface">
+		<xs:complexContent>
+			<xs:extension base="Entity">
+				<xs:sequence>
+					<xs:element name="Structure">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Signature" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence />
+										<xs:attribute name="guid" type="GUID" />
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="Protocol" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence />
+										<xs:attribute name="guid" type="GUID" />
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Connector">
+		<xs:complexContent>
+			<xs:extension base="Entity">
+				<xs:sequence />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Protocol">
+		<xs:complexContent>
+			<xs:extension base="xs:anyType">
+				<xs:sequence>
+					<xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+				<xs:attribute name="type" type="GUID" />
+				<xs:attribute name="guid" type="GUID" />
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -215,19 +286,5 @@
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="Protocol">
-		<xs:sequence>
-			<xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded" />
-		</xs:sequence>
-		<xs:attribute name="type" type="GUID" />
-		<xs:attribute name="guid" type="GUID" />
-	</xs:complexType>
-	<xs:complexType name="Entity">
-		<xs:sequence>
-			<xs:element name="Name" type="xs:string" />
-			<xs:element name="Attributes" type="Attributes" />
-		</xs:sequence>
-		<xs:attribute name="guid" type="GUID" />
 	</xs:complexType>
 </xs:schema>

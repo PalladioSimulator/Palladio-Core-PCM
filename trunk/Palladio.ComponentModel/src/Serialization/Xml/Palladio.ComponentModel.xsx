@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Diese Datei wird automatisch vom XML-Schema-Designer generiert. Sie enthält Layoutinformationen für Komponenten auf der Designeroberfläche.-->
-<XSDDesignerLayout layoutVersion="2" viewPortLeft="-19476" viewPortTop="-899" zoom="100">
-    <ComponentModel_XmlElement left="-15775" top="153" width="8202" height="2540" selected="0" zOrder="1" index="0" expanded="0" />
-    <GUID_XmlSimpleType left="-6118" top="101" width="5291" height="1270" selected="0" zOrder="2" index="1" expanded="1" />
-    <Interface_XmlComplexType left="-5723" top="5102" width="5292" height="2117" selected="0" zOrder="4" index="2" expanded="0" />
-    <Connector_XmlComplexType left="-13730" top="4228" width="5292" height="2963" selected="0" zOrder="6" index="3" expanded="1" />
-    <Attributes_XmlComplexType left="-6096" top="1582" width="5291" height="1693" selected="0" zOrder="8" index="4" expanded="0" />
-    <CompositeComponentTL_XmlComplexType left="-14467" top="11662" width="7779" height="2116" selected="0" zOrder="10" index="5" expanded="0" />
-    <BasicComponentTL_XmlComplexType left="-6054" top="11662" width="7515" height="1693" selected="0" zOrder="12" index="6" expanded="0" />
-    <Signature_XmlComplexType left="-5578" top="7694" width="5292" height="2540" selected="0" zOrder="14" index="7" expanded="0" />
-    <Protocol_XmlComplexType left="771" top="5180" width="5292" height="2540" selected="0" zOrder="16" index="8" expanded="1" />
-    <Entity_XmlComplexType left="3020" top="9678" width="5291" height="2540" selected="0" zOrder="18" index="9" expanded="0" />
+<XSDDesignerLayout layoutVersion="2" viewPortLeft="-12457" viewPortTop="3498" zoom="100">
+    <ComponentModel_XmlElement left="7938" top="4498" width="11059" height="2540" selected="0" zOrder="1" index="0" expanded="0" />
+    <GUID_XmlSimpleType left="-11113" top="4657" width="5291" height="1270" selected="0" zOrder="2" index="1" expanded="1" />
+    <Attributes_XmlComplexType left="-5160" top="4657" width="5292" height="1693" selected="0" zOrder="4" index="2" expanded="0" />
+    <Entity_XmlComplexType left="-11114" top="6509" width="5292" height="2540" selected="0" zOrder="6" index="3" expanded="0" />
+    <StaticViewRootTL_XmlComplexType left="-11219" top="17939" width="6933" height="1693" selected="0" zOrder="8" index="4" expanded="0" />
+    <CompositeComponent_XmlComplexType left="-11457" top="21246" width="7303" height="1694" selected="0" zOrder="10" index="5" expanded="0" />
+    <BasicComponentTL_XmlComplexType left="-11298" top="15929" width="6879" height="1693" selected="0" zOrder="12" index="6" expanded="0" />
+    <Interface_XmlComplexType left="-11324" top="13679" width="5291" height="1693" selected="0" zOrder="14" index="7" expanded="0" />
+    <Connector_XmlComplexType left="-5337" top="10673" width="5292" height="1270" selected="0" zOrder="16" index="8" expanded="1" />
+    <Protocol_XmlComplexType left="-5389" top="12552" width="5292" height="2540" selected="0" zOrder="18" index="9" expanded="1" />
+    <Signature_XmlComplexType left="-11290" top="10593" width="5292" height="2540" selected="0" zOrder="20" index="10" expanded="1">
+        <Parameter_XmlElement left="-11290" top="13641" width="5292" height="2963" selected="0" zOrder="21" index="1" expanded="0" />
+    </Signature_XmlComplexType>
 </XSDDesignerLayout>
