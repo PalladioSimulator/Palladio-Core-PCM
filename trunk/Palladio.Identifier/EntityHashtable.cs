@@ -11,6 +11,9 @@ namespace Palladio.Identifier
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/06/25 16:51:50  joemal
+	/// the enumerator now returns the values of the hastable
+	///
 	/// Revision 1.1  2005/03/15 12:34:33  joemal
 	/// initial class creation
 	///
@@ -98,7 +101,7 @@ namespace Palladio.Identifier
 		/// <returns>the enumerator</returns>
 		public IEnumerator GetEnumerator()
 		{
-			return hashTable.GetEnumerator();
+			return hashTable.Values.GetEnumerator();
 		}
 
 		/// <summary>
