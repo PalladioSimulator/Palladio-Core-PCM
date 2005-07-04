@@ -3,6 +3,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILBenchmark", "ILBenchmark.
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILBenchmark.Common", "..\ILBenchmark.Interfaces\ILBenchmark.Common.csproj", "{D284AE21-2FEF-46D1-954F-325E8EDFEF2F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -13,6 +17,10 @@ Global
 		{01D15DA9-9AB0-4694-918A-9BB6FEA6D826}.Debug.Build.0 = Debug|.NET
 		{01D15DA9-9AB0-4694-918A-9BB6FEA6D826}.Release.ActiveCfg = Release|.NET
 		{01D15DA9-9AB0-4694-918A-9BB6FEA6D826}.Release.Build.0 = Release|.NET
+		{D284AE21-2FEF-46D1-954F-325E8EDFEF2F}.Debug.ActiveCfg = Debug|.NET
+		{D284AE21-2FEF-46D1-954F-325E8EDFEF2F}.Debug.Build.0 = Debug|.NET
+		{D284AE21-2FEF-46D1-954F-325E8EDFEF2F}.Release.ActiveCfg = Release|.NET
+		{D284AE21-2FEF-46D1-954F-325E8EDFEF2F}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

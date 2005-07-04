@@ -79,6 +79,21 @@
                     AssemblyName = "System.Xml"
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
+                <Reference
+                    Name = "ILBenchmark.Common"
+                    Project = "{D284AE21-2FEF-46D1-954F-325E8EDFEF2F}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Nini"
+                    AssemblyName = "Nini"
+                    HintPath = "..\..\..\..\..\Develop\Nini\Bin\DotNet\1.1\Release\Nini.dll"
+                />
+                <Reference
+                    Name = "System.Management"
+                    AssemblyName = "System.Management"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Management.dll"
+                />
             </References>
         </Build>
         <Files>
@@ -98,47 +113,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "ILBenchmark.BenchBaseClassFunction.cs"
+                    RelPath = "Helper.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "ILBenchmark.Benchmark.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ILBenchmark.BenchmarkContainer.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ILBenchmark.BenchmarkSuite.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ILBenchmark.BenchmarkSuiteInit.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ILBenchmark.BenchStaticBaseClassFunction.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ILBenchmark.Helper.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ILBenchmark.ILFunktion.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ILBenchmark.OpCodeAndValue.cs"
+                    RelPath = "HiResTimer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -148,9 +128,8 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "ILBenchmark.StandartBenchmark.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
+                    RelPath = "MinParameter.xml"
+                    BuildAction = "EmbeddedResource"
                 />
                 <File
                     RelPath = "StandartTimer.cs"
@@ -158,17 +137,12 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "SysInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "TXTFileOutput.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Interfaces\ILBenchmark.Interfaces.IOutput.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Interfaces\ILBenchmark.Interfaces.ITimer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

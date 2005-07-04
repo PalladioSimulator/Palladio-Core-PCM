@@ -1,15 +1,15 @@
 using System;
-using ILBenchmark.Interfaces;
+using ILBenchmark.Common.Interfaces;
 
 namespace ILBenchmark
 {
 	/// <summary>
 	/// Zusammenfassung für StandartTimer.
 	/// </summary>
-	public class StandartTimer : ITimer
+	public class StandartTimer : MarshalByRefObject, ITimer
 	{
-		private long _start;
-		private long _timer;
+		private int _start;
+		private int _timer;
 
 		public StandartTimer()
 		{
@@ -21,16 +21,17 @@ namespace ILBenchmark
 			_start = Environment.TickCount;
 		}
 
-		public void Stop()
+		public ulong Stop()
 		{
 			_timer = Environment.TickCount - _start;
+			return (ulong)_timer;
 		}
 
-		public long getElapsedTime
+		public ulong ElapsedMicroseconds
 		{
 			get
 			{
-				return _timer;
+				return (ulong)_timer;
 			}
 		}
 
