@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.14  2005/07/13 11:09:08  joemal
+	/// fix two bugs in method AddRequiresDelegationConnector
+	///
 	/// Revision 1.13  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository
 	///
@@ -429,13 +432,13 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			string connectionName, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID,
 			IInterfaceIdentifier outerIFaceID)
 		{
-			if(this.Query.QueryTypeLevel.QueryComponent(this.ComponentId).IsRequiresInterface(outerIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(this.ComponentId).IsRequiresInterface(outerIFaceID))
 			{
 				throw new InterfaceNotFromComponentException(this.ComponentId, outerIFaceID,
 					"The outer interface is not required by the composite component.");
 			}
 
-			if(!this.Query.QueryTypeLevel.QueryComponent(innerCompID).IsProvidesInterface(innerIFaceID))
+			if(!this.Query.QueryTypeLevel.QueryComponent(innerCompID).IsRequiresInterface(innerIFaceID))
 			{
 				throw new InterfaceNotFromComponentException(this.ComponentId, innerIFaceID,
 					"The inner interface is not required by an inner component.");
