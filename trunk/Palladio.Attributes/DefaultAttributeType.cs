@@ -12,6 +12,9 @@ namespace Palladio.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/07/13 11:11:07  joemal
+	/// now public
+	///
 	/// Revision 1.2  2005/02/24 20:13:06  joemal
 	/// remove serilization and equals methods
 	///
@@ -21,11 +24,26 @@ namespace Palladio.Attributes
 	///
 	/// </pre>
 	/// </remarks>
-	internal class DefaultAttributeType : IAttributeType
+	public class DefaultAttributeType : IAttributeType
 	{
+		/// <summary>
+		/// the dislayed name of attribute type
+		/// </summary>
 		protected string displayname = "";
+
+		/// <summary>
+		/// the description of the atribute type 
+		/// </summary>
 		protected string description = "";
+
+		/// <summary>
+		/// the guid of the attribute type
+		/// </summary>
 		protected Guid guid = Guid.Empty;
+
+		/// <summary>
+		/// the type of the attribute value  
+		/// </summary>
 		protected Type type = null;
 
 		/// <summary>
@@ -77,11 +95,13 @@ namespace Palladio.Attributes
 		/// Default constructor
 		/// </summary>
 		/// <param name="guid">The identifier of this attribute type</param>
+		/// <param name="displayName">the displayed name of the attribute</param>
 		/// <param name="description">A description of the attribute type</param>
 		/// <param name="type">The type of the attribute</param>
-		public DefaultAttributeType(Guid guid, string description, Type type)
+		public DefaultAttributeType(Guid guid, string displayName, string description, Type type)
 		{
 			this.guid = guid;
+			this.displayname = displayName;
 			this.description = description;
 			this.type = type;
 		}
