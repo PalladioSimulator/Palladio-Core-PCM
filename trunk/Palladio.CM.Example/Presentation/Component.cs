@@ -14,6 +14,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/07/13 11:09:47  joemal
+	/// add clone methods
+	///
 	/// Revision 1.3  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository
 	///
@@ -34,6 +37,9 @@ namespace Palladio.CM.Example.Presentation
 		//holds the childs of the static view
 		protected Hashtable childs = new Hashtable();
 
+		//the repository
+		protected Repository repository;
+
 		#endregion
 
 		#region constructor
@@ -42,9 +48,22 @@ namespace Palladio.CM.Example.Presentation
 		/// called to create a new representation for the given component
 		/// </summary>
 		/// <param name="comp">the component</param>
-		/// <param name="modelEnvironment">the model</param>
-		public Component(IComponent comp, ComponentModelEnvironment modelEnvironment):base(comp,modelEnvironment)
+		/// <param name="repository">the repository</param>
+		public Component(IComponent comp, Repository repository):base(comp,repository.ModelEnvironment)
 		{
+			this.repository = repository;
+			Init();
+		}
+
+		/// <summary>
+		/// called to create a new component as a copy of the given one
+		/// </summary>
+		/// <param name="component">the component to be copied</param>
+		protected Component(Component component) : base (component)
+		{
+			foreach(DictionaryEntry entry in component.childs)
+				this.childs.Add(entry.Key,entry.Value);
+			this.repository = component.repository;
 			Init();
 		}
 
@@ -64,23 +83,19 @@ namespace Palladio.CM.Example.Presentation
 		//called when an interface was added to the component as provides interface
 		private void events_ProvidesInterfaceAddedEvent(object sender, InterfaceUseEventArgs args)
 		{
-			IInterface iface = modelEnvironment.Query.QueryRepository.GetInterface(args.InterfaceID);
-			IFace iface_gui = new IFace(iface,modelEnvironment);
+			IInterface iface = this.modelEnvironment.Query.QueryRepository.GetInterface(args.InterfaceID);
+			IFace iface_gui = this.repository.CreateIfaceUsage(args.InterfaceID);
 			childs.Add(args.InterfaceID,iface_gui);
 			Console.WriteLine("Interface "+iface.Name+" added as provides interface to the component "+Model.Name+".");
-
-			iface_gui.Paint();									
 		}
 
 		//called when an interface was added to the component as requires interface
 		private void events_RequiresInterfaceAddedEvent(object sender, InterfaceUseEventArgs args)
 		{
 			IInterface iface = modelEnvironment.Query.QueryRepository.GetInterface(args.InterfaceID);
-			IFace iface_gui = new IFace(iface,modelEnvironment);
+			IFace iface_gui = this.repository.CreateIfaceUsage(args.InterfaceID);
 			childs.Add(args.InterfaceID,iface_gui);
 			Console.WriteLine("Interface "+iface.Name+" added as requires interface to the component "+Model.Name+".");
-
-			iface_gui.Paint();									
 		}
 
 		//called when an interface was removed from the component
@@ -91,8 +106,6 @@ namespace Palladio.CM.Example.Presentation
 
 			IInterface iface = modelEnvironment.Query.QueryRepository.GetInterface(args.InterfaceID);
 			Console.WriteLine("Remove Interface "+iface.Name+" from the component.");
-			Console.WriteLine("Repaint the component.");
-			this.Paint();
 		}
 
 		/// <summary>

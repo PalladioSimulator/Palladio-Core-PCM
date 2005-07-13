@@ -14,6 +14,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/07/13 11:09:47  joemal
+	/// add clone methods
+	///
 	/// Revision 1.3  2005/06/25 16:52:20  joemal
 	/// changes in the example
 	///
@@ -48,6 +51,17 @@ namespace Palladio.CM.Example.Presentation
 			Init();
 		}
 
+		/// <summary>
+		/// call to create a copy of this interface
+		/// </summary>
+		/// <param name="iface"></param>
+		private IFace(IFace iface) : base(iface)
+		{
+			foreach(DictionaryEntry entry in iface.signatures)
+				this.signatures.Add(entry.Key,entry.Value);
+			Init();
+		}
+
 		#endregion
 
 		#region private methods
@@ -77,11 +91,9 @@ namespace Palladio.CM.Example.Presentation
 		//called when a signature has been added to the interface
 		private void events_SignatureAddedEvent(object sender, SignatureBuildEventArgs args)
 		{
-			Console.WriteLine("Sig Add");
 			Signature signature = new Signature(args.Signature,this.modelEnvironment);
 			signatures.Add(args.Signature.ID,signature);
 			Console.WriteLine("Signature "+args.Signature.Name+" added to the interface "+this.Model.Name+".");
-			signature.Paint();
 		}
 
 		//called when a signature has been removed from the interface
@@ -91,7 +103,6 @@ namespace Palladio.CM.Example.Presentation
 			signatures.Remove(args.Signature.ID);
 			Console.WriteLine("Remove Signature "+args.Signature.Name+" from Interface "+Model.Name+".");
 			Console.WriteLine("Repaint interface "+Model.Name+".");
-			this.Paint();
 		}
 
 		#endregion
@@ -111,6 +122,15 @@ namespace Palladio.CM.Example.Presentation
             Console.WriteLine("Signatures painted.");
 		}
 
+		/// <summary>
+		/// called to create a copy of this entity
+		/// </summary>
+		/// <returns></returns>
+		public override object Clone()
+		{
+			return new IFace(this);	
+		}
+
 		#endregion
 
 		#region properties
@@ -127,5 +147,5 @@ namespace Palladio.CM.Example.Presentation
 		}
 
 		#endregion
-	}
+	}	
 }

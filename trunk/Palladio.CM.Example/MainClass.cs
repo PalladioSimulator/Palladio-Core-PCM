@@ -18,6 +18,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/07/13 11:09:47  joemal
+	/// add clone methods
+	///
 	/// Revision 1.8  2005/06/25 16:52:20  joemal
 	/// changes in the example
 	///
@@ -85,7 +88,7 @@ namespace Palladio.CM.Example
 			Console.WriteLine("Try to store the model to file test.xml");
 			modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation("test.xml"));
 			Console.WriteLine("[Done]");
-/*			Console.WriteLine("Clear the model.");			
+			Console.WriteLine("Clear the model.");			
 			modelEnvironment.BuilderManager.RootTypeLevelBuilder.ClearAll();
 			Console.WriteLine("[Done]");
 			Console.WriteLine("Try to load the xmlfile ..");
@@ -98,7 +101,12 @@ namespace Palladio.CM.Example
 				Console.WriteLine("Exc: "+exc.InnerException.Message);
 			}
 			Console.WriteLine("[Done]");
-*/
+
+			Console.ReadLine();
+
+			Console.WriteLine("Repaint the model.");			
+			view.Paint();
+			Console.WriteLine("Model repainted.");			
 			Console.WriteLine("Press any key to exit the application.");
 			Console.ReadLine();
 		}

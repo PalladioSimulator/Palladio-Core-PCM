@@ -13,6 +13,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/07/13 11:09:47  joemal
+	/// add clone methods
+	///
 	/// Revision 1.1  2005/04/08 10:54:33  joemal
 	/// initial class creation
 	///
@@ -20,7 +23,7 @@ namespace Palladio.CM.Example.Presentation
 	///
 	/// </pre>
 	/// </remarks>
-	public abstract class AbstractEntity
+	public abstract class AbstractEntity : ICloneable
 	{
 		#region data
 
@@ -48,6 +51,16 @@ namespace Palladio.CM.Example.Presentation
 			this.entity = entity;
 			this.modelEnvironment = modelEnvironment;
 			Init();
+		}
+
+		/// <summary>
+		/// called to create a copy of the given entity
+		/// </summary>
+		/// <param name="entity">the entity to be copied</param>
+		protected AbstractEntity(AbstractEntity entity)
+		{
+			this.entity = entity.entity;
+			this.modelEnvironment = entity.modelEnvironment;
 		}
 
 		#endregion
@@ -84,5 +97,11 @@ namespace Palladio.CM.Example.Presentation
 		public abstract void Paint();
 
 		#endregion
+
+		/// <summary>
+		/// called to create a copy of this entity
+		/// </summary>
+		/// <returns></returns>
+		public abstract object Clone();
 	}
 }

@@ -14,6 +14,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/07/13 11:09:47  joemal
+	/// add clone methods
+	///
 	/// Revision 1.4  2005/06/25 16:52:20  joemal
 	/// changes in the example
 	///
@@ -40,6 +43,8 @@ namespace Palladio.CM.Example.Presentation
 		//holds the childs of the static view
 		private	Hashtable childs = new Hashtable();
 
+		private Repository repository;
+
 		#endregion
 
 		#region constructor 
@@ -51,6 +56,7 @@ namespace Palladio.CM.Example.Presentation
 		public StaticView(ComponentModelEnvironment modelEnvironment)
 		{
 			this.modelEnvironment = modelEnvironment;
+			this.repository = new Repository(modelEnvironment);
 			Init();
 		}
 
@@ -84,12 +90,6 @@ namespace Palladio.CM.Example.Presentation
 			events.AssembyConnectorRemovedEvent += new ConnectorRemovedEventHandler(events_AssembyConnectorRemovedEvent);
 			events.ComponentAddedEvent +=new ComponentUseEventHandler(events_ComponentAddedEvent);
 			events.ComponentRemovedEvent +=new ComponentUseEventHandler(events_ComponentRemovedEvent);
-
-			RepositoryEvents repEvents = modelEnvironment.EventInterface.GetRepositoryEvents();
-			repEvents.ComponentAddedEvent += new ComponentBuildEventHandler(events_ComponentCreatedEvent);
-			repEvents.ComponentRemovedEvent += new ComponentBuildEventHandler(events_ComponentDestroyedEvent);
-			repEvents.InterfaceAddedEvent +=new InterfaceBuildEventHandler(events_InterfaceCreatedEvent);
-			repEvents.InterfaceRemovedEvent +=new InterfaceBuildEventHandler(events_InterfaceDestroyedEvent);
 		}
 
 		//called when an assembly connector has been added to the static view
@@ -103,8 +103,6 @@ namespace Palladio.CM.Example.Presentation
 			IComponent provComp = ((Component)childs[args.ProvCompId]).Model;
 
 			Console.WriteLine("Connected from component "+reqComp.Name+" to component "+provComp.Name+".");
-
-			con.Paint();	
 		}
 
 		//called when an assembly connector has been removed from the static view
@@ -114,50 +112,16 @@ namespace Palladio.CM.Example.Presentation
 			childs.Remove(args.Connection.ID);
 			Console.WriteLine("Remove Connection "+args.Connection.Name+" from the static view.");
 			Console.WriteLine("Repaint the static view.");
-			this.Paint();
-		}
-
-		//called when a component has been added to the static view
-		private void events_ComponentCreatedEvent(object sender, ComponentBuildEventArgs args)
-		{
-			Console.WriteLine("Component "+args.Component.Name+" created.");
-		}
-
-		//called when a component has been removed from the static view
-		private void events_ComponentDestroyedEvent(object sender, ComponentBuildEventArgs args)
-		{
-			Console.WriteLine("Component "+args.Component.Name+" destroyed.");
-		}
-
-		//called when an interface has been added to the static view
-		private void events_InterfaceCreatedEvent(object sender, InterfaceBuildEventArgs args)
-		{
-			Console.WriteLine("Interface "+args.Interface.Name+" created.");
-			InterfaceEvents  ifaceEv = modelEnvironment.EventInterface.GetInterfaceEvents(args.Interface.InterfaceID);
-			ifaceEv.SignatureAddedEvent += new SignatureBuildEventHandler(ifaceEv_SignatureAddedEvent);
-			ifaceEv.ProtocolAddedEvent += new ProtocolBuildEventHandler(ifaceEv_ProtocolAddedEvent);
-		}
-
-		//called when an interface has been removed from the static view
-		private void events_InterfaceDestroyedEvent(object sender, InterfaceBuildEventArgs args)
-		{
-			Console.WriteLine("Interface "+args.Interface.Name+" destroyed.");
 		}
 
 		//called when a component as been added to the static view
 		private void events_ComponentAddedEvent(object sender, ComponentUseEventArgs args)
 		{
 			IComponent comp = modelEnvironment.Query.QueryRepository.GetComponent(args.ComponentID);
-			Component comp_gui;
-			if (comp.Type == ComponentType.BASIC)
-				comp_gui = new BasicComponent(comp,modelEnvironment);
-			else
-				comp_gui = new CompositeComponent(comp,modelEnvironment);
+			Component comp_gui=repository.CreateComponentUsage(args.ComponentID);
 
 			childs.Add(args.ComponentID,comp_gui);
 			Console.WriteLine("Component "+comp.Name+" added to the static view.");
-
-			comp_gui.Paint();									
 		}
 
 		//called when a component as been removed from the static view
@@ -168,22 +132,8 @@ namespace Palladio.CM.Example.Presentation
 			childs.Remove(args.ComponentID);
 			Console.WriteLine("Remove Component "+comp.Name+" from the static view.");
 			Console.WriteLine("Repaint component the static view.");
-			this.Paint();				
 		}
-
-
+	
 		#endregion
-
-		//called when a signature has been added to an interface
-		private void ifaceEv_SignatureAddedEvent(object sender, SignatureBuildEventArgs args)
-		{
-			Console.WriteLine("Signature "+args.Signature.Name+" added.");
-		}
-
-		//called when a protocol has been added to an interface
-		private void ifaceEv_ProtocolAddedEvent(object sender, ProtocolBuildEventArgs args)
-		{
-			Console.WriteLine("Protocol "+args.Protocol.ProtocolID+" added.");
-		}
 	}
 }

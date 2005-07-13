@@ -13,6 +13,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/07/13 11:09:47  joemal
+	/// add clone methods
+	///
 	/// Revision 1.3  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository
 	///
@@ -34,9 +37,18 @@ namespace Palladio.CM.Example.Presentation
 		/// called to create a visual representation of a basic component
 		/// </summary>
 		/// <param name="comp"></param>
-		/// <param name="modelEnvironment"></param>
-		public CompositeComponent(IComponent comp, ComponentModelEnvironment modelEnvironment) : base(comp, modelEnvironment)
+		/// <param name="repository"></param>
+		public CompositeComponent(IComponent comp, Repository repository) : base(comp, repository)
 		{
+			Init();
+		}
+
+		/// <summary>
+		/// called to create a copy of this given component
+		/// </summary>
+		/// <param name="component">the component to be copied</param>
+		private CompositeComponent(CompositeComponent component):base(component)
+		{	
 			Init();
 		}
 
@@ -59,16 +71,10 @@ namespace Palladio.CM.Example.Presentation
 		private void events_ComponentAddedEvent(object sender, ComponentUseEventArgs args)
 		{
 			IComponent comp = modelEnvironment.Query.QueryRepository.GetComponent(args.ComponentID);
-			Component comp_gui;
-			if (comp.Type == ComponentType.BASIC)
-				comp_gui = new BasicComponent(comp,modelEnvironment);
-			else
-				comp_gui = new CompositeComponent(comp,modelEnvironment);
+			Component comp_gui = repository.CreateComponentUsage(args.ComponentID);
 
 			childs.Add(args.ComponentID,comp_gui);
 			Console.WriteLine("Component "+comp.Name+" added to component "+this.Model.Name+".");
-
-			comp_gui.Paint();			
 		}
 
 		//called when a component has been removed from this one
@@ -80,7 +86,6 @@ namespace Palladio.CM.Example.Presentation
 			IComponent comp = modelEnvironment.Query.QueryRepository.GetComponent(args.ComponentID);
 			Console.WriteLine("Remove Component "+comp.Name+" from Component "+Model.Name+".");
 			Console.WriteLine("Repaint component "+Model.Name+".");
-			this.Paint();
 		}
 
 		//called when an assembly connector has been added to the model
@@ -93,9 +98,7 @@ namespace Palladio.CM.Example.Presentation
 			IComponent reqComp = ((Component)childs[args.ReqCompId]).Model;
 			IComponent provComp = ((Component)childs[args.ProvCompId]).Model;
 
-			Console.WriteLine("Connected from component "+reqComp.Name+" to component "+provComp.Name+".");
-
-			con.Paint();
+			Console.WriteLine("Connection from component "+reqComp.Name+" to component "+provComp.Name+".");
 		}
 
 		//called when a delegation connector has been added to the model
@@ -107,9 +110,7 @@ namespace Palladio.CM.Example.Presentation
 
 			IComponent innerComp = ((Component)childs[args.InnerCompId]).Model;
 
-			Console.WriteLine("Connected from component "+Model.Name+" to component "+innerComp.Name+".");
-
-			con.Paint();
+			Console.WriteLine("Connection from component "+Model.Name+" to component "+innerComp.Name+".");
 		}
 
 		//called when a connector has been removed from the model
@@ -119,9 +120,17 @@ namespace Palladio.CM.Example.Presentation
 			childs.Remove(args.Connection.ID);
 			Console.WriteLine("Remove Connection "+args.Connection.Name+" from Component "+Model.Name+".");
 			Console.WriteLine("Repaint component "+Model.Name+".");
-			this.Paint();
 		}
 
 		#endregion
+
+		/// <summary>
+		/// called to create a copy of this entity
+		/// </summary>
+		/// <returns></returns>
+		public override object Clone()
+		{
+			return new CompositeComponent(this);
+		}
 	}
 }
