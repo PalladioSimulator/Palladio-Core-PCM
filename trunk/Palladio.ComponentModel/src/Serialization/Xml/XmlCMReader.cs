@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/07/13 11:10:05  joemal
+	/// implement
+	///
 	/// Revision 1.4  2005/06/25 16:53:29  joemal
 	/// merge the implementation with the changed xsd
 	///
@@ -144,16 +147,147 @@ namespace Palladio.ComponentModel.Serialization.Xml
 
 		#region type level read methods
 
+		//reads the model of the typelevel
 		private void ReadTLModel(XmlElement rootElement,XmlNamespaceManager mgr)
 		{
 			XmlNode typeLevelNode = rootElement.SelectSingleNode("//cm:TypeLevel",mgr);
             ExtractInterfaces(typeLevelNode, mgr);
+			ExtractTLComponents(typeLevelNode, mgr);
+			ExtractTLStaticViewRoot(typeLevelNode,mgr);
+		}
+
+		//adds components and connections to the static 
+		private void ExtractTLStaticViewRoot(XmlNode typeLevelNode, XmlNamespaceManager mgr)
+		{
+			XmlNodeList nodeList = typeLevelNode.SelectNodes("cm:StaticViewRoot/cm:Structure/cm:Component",mgr);									
+			IRootTypeLevelBuilder builder = this.builderManager.RootTypeLevelBuilder;
+			foreach(XmlNode compNode in nodeList)
+				builder.AddExistingComponent((IComponentIdentifier) this.ExtractEntityIdentifier(compNode));
+
+			nodeList = typeLevelNode.SelectNodes("cm:StaticViewRoot/cm:Structure/cm:AssemblyConnector",mgr);									
+			foreach(XmlNode conRefNode in nodeList)
+			{
+				IConnectionIdentifier conID =(IConnectionIdentifier) this.ExtractEntityIdentifier(conRefNode);
+				XmlNode conNode = this.GetEntityNode(conID.Key,typeLevelNode,mgr);
+				string name = this.ExtractEntityName(conNode,mgr);
+				IInterfaceIdentifier provIFaceID = (IInterfaceIdentifier)this.
+					ExtractEntityIdentifier(conRefNode.SelectSingleNode("cm:ProvidingIFace",mgr));
+				IComponentIdentifier provCompID = (IComponentIdentifier) this.
+					ExtractEntityIdentifier(conRefNode.SelectSingleNode("cm:ProvidingComponent",mgr));
+				IInterfaceIdentifier reqIFaceID = (IInterfaceIdentifier)this.
+					ExtractEntityIdentifier(conRefNode.SelectSingleNode("cm:RequireingIFace",mgr));
+				IComponentIdentifier reqCompID = (IComponentIdentifier) this.
+					ExtractEntityIdentifier(conRefNode.SelectSingleNode("cm:RequireingComponent",mgr));
+
+				builder.AddAssemblyConnector(conID,name,reqCompID,reqIFaceID,provCompID,provIFaceID);
+
+				ExtractEntityAttributes(builder.QueryRepository.GetConnection(conID),conNode,mgr);
+			}
+		}
+
+		//creates all components (basic and composite)
+		private void ExtractTLComponents(XmlNode typeLevelNode, XmlNamespaceManager mgr)
+		{
+			IRootTypeLevelBuilder typeLevelBuilder = builderManager.RootTypeLevelBuilder;
+			
+			//create all basic components
+			XmlNodeList compNodes = typeLevelNode.SelectNodes("cm:BasicComponent",mgr);
+			foreach(XmlNode compNode in compNodes)
+			{
+				IComponentIdentifier compID = (IComponentIdentifier) ExtractEntityIdentifier(compNode);
+				string name = ExtractEntityName(compNode,mgr);
+				IBasicComponentBuilder compBuilder = typeLevelBuilder.CreateBasicComponent(compID,name);
+				ExtractComponentIfaces(compBuilder,compNode,mgr);
+				ExtractEntityAttributes(compBuilder.Component,compNode,mgr);
+			}		
+
+			//create empty composite components and bind their interfaces to them
+			compNodes = typeLevelNode.SelectNodes("cm:CompositeComponent",mgr);
+			foreach(XmlNode compNode in compNodes)
+			{
+				IComponentIdentifier compID = (IComponentIdentifier) ExtractEntityIdentifier(compNode);
+				string name = ExtractEntityName(compNode,mgr);
+				ICompositeComponentBuilder compBuilder = typeLevelBuilder.CreateCompositeComponent(compID,name);
+				ExtractComponentIfaces(compBuilder,compNode,mgr);
+				ExtractEntityAttributes(compBuilder.Component,compNode,mgr);
+			}		
+
+			//now all components are present, fill the composite components 
+			foreach(XmlNode compNode in compNodes)
+			{
+				IComponentIdentifier compID = (IComponentIdentifier) ExtractEntityIdentifier(compNode);
+				ICompositeComponentBuilder compBuilder = this.builderManager.GetCompositeComponentTypeLevelBuilder(compID);
+				BuildCompositeComponent(compBuilder,typeLevelNode,compNode,mgr);
+			}		
 		}
 
 		#endregion
 
 		#region entity methods
 
+		//fills a composite component with components and connections
+		private void BuildCompositeComponent(ICompositeComponentBuilder builder, XmlNode typeLevelNode, XmlNode node, XmlNamespaceManager mgr)
+		{
+			XmlNodeList nodeList = node.SelectNodes("cm:Structure/cm:Component",mgr);									
+			foreach(XmlNode compNode in nodeList)
+				builder.AddExistingComponent((IComponentIdentifier) this.ExtractEntityIdentifier(compNode));
+
+			nodeList = node.SelectNodes("cm:Structure/cm:DelegationConnector",mgr);									
+			foreach(XmlNode conRefNode in nodeList)
+			{
+				IConnectionIdentifier conID =(IConnectionIdentifier) this.ExtractEntityIdentifier(conRefNode);
+				XmlNode conNode = this.GetEntityNode(conID.Key,typeLevelNode,mgr);
+				
+				string name = this.ExtractEntityName(conNode,mgr);
+				IInterfaceIdentifier innerIfaceID = (IInterfaceIdentifier)this.
+					ExtractEntityIdentifier(conRefNode.SelectSingleNode("cm:InnerIFace",mgr));
+				IComponentIdentifier innerCompID = (IComponentIdentifier) this.
+					ExtractEntityIdentifier(conRefNode.SelectSingleNode("cm:InnerComponent",mgr));
+				IInterfaceIdentifier outerIfaceID = (IInterfaceIdentifier)this.
+					ExtractEntityIdentifier(conRefNode.SelectSingleNode("cm:OuterIFace",mgr));
+
+				if (conRefNode.SelectSingleNode("cm:Type",mgr).InnerText.Equals("Provides"))
+					builder.AddProvidesDelegationConnector(conID,name,outerIfaceID,innerCompID,innerIfaceID);
+				else
+					builder.AddRequiresDelegationConnector(conID,name,innerCompID,innerIfaceID,outerIfaceID);
+			}				
+
+			nodeList = node.SelectNodes("cm:Structure/cm:AssemblyConnector",mgr);									
+			foreach(XmlNode conNode in nodeList)
+			{
+				IConnectionIdentifier conID =(IConnectionIdentifier) this.ExtractEntityIdentifier(conNode);
+				string name = this.ExtractEntityName(conNode,mgr);
+				IInterfaceIdentifier provIFaceID = (IInterfaceIdentifier)this.
+					ExtractEntityIdentifier(conNode.SelectSingleNode("cm:ProvidingIFace",mgr));
+				IComponentIdentifier provCompID = (IComponentIdentifier) this.
+					ExtractEntityIdentifier(conNode.SelectSingleNode("cm:ProvidingComponent",mgr));
+				IInterfaceIdentifier reqIFaceID = (IInterfaceIdentifier)this.
+					ExtractEntityIdentifier(conNode.SelectSingleNode("cm:RequiringIFace",mgr));
+				IComponentIdentifier reqCompID = (IComponentIdentifier) this.
+					ExtractEntityIdentifier(conNode.SelectSingleNode("cm:RequiringComponent",mgr));
+
+				builder.AddAssemblyConnector(conID,name,reqCompID,reqIFaceID,provCompID,provIFaceID);
+			}
+		}
+
+        //adds interfaces to the components
+		private void ExtractComponentIfaces(IComponentBuilder builder, XmlNode compNode, XmlNamespaceManager mgr)
+		{
+			XmlNodeList provIfaces = compNode.SelectNodes("cm:Structure/cm:ProvidesInterface",mgr);
+			foreach(XmlNode ifaceNode in provIfaces)
+			{
+				string guid=ifaceNode.Attributes["guid"].Value;
+				builder.AddExistingInterfaceAsProvides(new InternalEntityIdentifier(guid));
+			}
+			XmlNodeList reqIfaces = compNode.SelectNodes("cm:Structure/cm:RequiresInterface",mgr);
+			foreach(XmlNode ifaceNode in reqIfaces)
+			{
+				string guid=ifaceNode.Attributes["guid"].Value;
+				builder.AddExistingInterfaceAsRequires(new InternalEntityIdentifier(guid));
+			}
+		}
+
+		//creates all interfaces
 		private void ExtractInterfaces(XmlNode typelevelNode, XmlNamespaceManager mgr)
 		{
 			IRootTypeLevelBuilder typeLevelBuilder = builderManager.RootTypeLevelBuilder;
@@ -163,13 +297,14 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			{
 				IInterfaceIdentifier ifaceID = (IInterfaceIdentifier)ExtractEntityIdentifier(ifaceNode);
 				string name = ExtractEntityName(ifaceNode,mgr);
-
 				IInterfaceBuilder ifaceBuilder = typeLevelBuilder.CreateInterface(ifaceID,name);
 				ExtractSignatures(ifaceBuilder,typelevelNode,ifaceNode, mgr);
 				ExtractProtocols(ifaceBuilder,typelevelNode,ifaceNode, mgr);
+				ExtractEntityAttributes(ifaceBuilder.Interface,ifaceNode,mgr);
 			}
 		}
 
+		//add the signatures to an interface
 		private void ExtractSignatures(IInterfaceBuilder ifaceBuilder, XmlNode typelevelNode,XmlNode ifaceNode,
 			XmlNamespaceManager mgr)
 		{
@@ -177,13 +312,14 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			foreach(XmlNode sigRefNode in sigRefNodes)
 			{
 				string guid = sigRefNode.Attributes["guid"].Value;
-				XmlNode sigNode = typelevelNode.SelectSingleNode("cm:Signature[@guid=\""+guid+"\"]",mgr);
-				string name = ExtractEntityName(sigNode,mgr);
+				XmlNode entityNode = GetEntityNode(guid, typelevelNode,mgr);
+				string name = ExtractEntityName(entityNode,mgr);
 				ISignatureBuilder sigBuilder = ifaceBuilder.AddSignature(new InternalEntityIdentifier(guid),name);
-				ExtractSignature(sigBuilder,sigNode,mgr);
+				ExtractSignature(sigBuilder,entityNode,mgr);
 			}
 		}
 
+		//extract a signature
 		private void ExtractSignature(ISignatureBuilder builder, XmlNode sigNode, XmlNamespaceManager mgr)
 		{
 			XmlNode retType = sigNode.SelectSingleNode("cm:ReturnType",mgr);
@@ -203,36 +339,74 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			XmlNodeList exceptions = sigNode.SelectNodes("cm:Exception",mgr);
 			foreach(XmlNode exception in exceptions)
 				builder.AddException(exception.InnerText);
+
+			ExtractEntityAttributes(builder.Signature,sigNode,mgr);
 		}
 
+		//adds the protocols to an interface
 		private void ExtractProtocols(IInterfaceBuilder builder,XmlNode typelevelNode ,XmlNode ifaceNode, XmlNamespaceManager mgr)
 		{
-		/*	XmlNodeList protRefNodes = ifaceNode.SelectNodes("cm:Structure/cm:Protocol",mgr);
+			XmlNodeList protRefNodes = ifaceNode.SelectNodes("cm:Structure/cm:Protocol",mgr);
 			foreach(XmlNode protRefNode in protRefNodes)
 			{
-
-				IProtocolIdentifier protID = new InternalEntityIdentifier(protRefNode.Attributes["guid"].Value);				
-				XmlNode sigNode = typelevelNode.SelectSingleNode("cm:Signature[@guid=\""+guid+"\"]",mgr);
-				IProtocolTypeIdentifier protTypeID = new InternalEntityIdentifier(protRefNode.Attributes["type"].Value);
-
-				IXmlProtocolPlugIn protocolPlugIn = (IXmlProtocolPlugIn) plugins[protTypeID];
-				if (protocolPlugIn == null)
-					throw new ModelSerializationException("No plugin found for protocoltype \""+protTypeID.Key+"\".");
-				protocolPlugIn.LoadProtocol()
-				writer.WriteEndElement();
-			}	*/
+				string guid = protRefNode.Attributes["guid"].Value;
+				XmlNode entityNode = GetEntityNode(guid, typelevelNode,mgr);
+				IProtocol protocol = ExtractProtocol(entityNode);
+				builder.AddProtocol(protocol);
+			}	
 		}
 
+		//extract a protocol
+		private IProtocol ExtractProtocol(XmlNode protocolNode)
+		{
+			string typeGuid = protocolNode.Attributes["type"].Value;
+			IXmlProtocolPlugIn plugIn = (IXmlProtocolPlugIn) this.plugins[typeGuid];
+			if (plugIn == null)
+				throw new ModelSerializationException("No plugin found for protocoltype "+typeGuid+".");
+			return plugIn.LoadProtocol(protocolNode);
+		}
+
+		//extract the identifier of an entity or entity reference
 		private IIdentifier ExtractEntityIdentifier(XmlNode node)
 		{
 			return new InternalEntityIdentifier(node.Attributes["guid"].Value);
 		}
 
+		//extract the name of an entity
 		private string ExtractEntityName(XmlNode entityNode, XmlNamespaceManager mgr)
 		{
 			return entityNode.SelectSingleNode("cm:Name",mgr).InnerText;
 		}
 
-		#endregion
+		//called to add the attributes to an entity
+		private void ExtractEntityAttributes(IComponentModelEntity entity,XmlNode entityNode, XmlNamespaceManager mgr)
+		{
+			XmlNodeList attrNodeList = entityNode.SelectNodes("cm:Attributes/cm:Attribute",mgr);
+			foreach(XmlNode attrNode in attrNodeList)
+			{
+				Guid guid = new Guid(attrNode.Attributes["type"].Value);
+				string descr = attrNode.SelectSingleNode("cm:Description",mgr).InnerText;
+				string name = attrNode.SelectSingleNode("cm:Name",mgr).InnerText;
+				Type type = new ReflectedType(attrNode.SelectSingleNode("cm:ValueType",mgr).InnerText).GetType();
+				IAttributeType attrType = new DefaultAttributeType(guid,name,descr,type);
+				IXmlAttributePlugIn attrPlugIn = (IXmlAttributePlugIn) plugins[attrType];
+				if (attrPlugIn == null)
+					throw new ModelSerializationException("No plugin found for attributetype \""+attrType.DisplayName+"\".");
+				IAttribute attr = attrPlugIn.LoadAttribute(attrNode);
+				entity.Attributes.Add(attrType,attr);
+			}
+		}
+
+		//returns the xml-node that belongs to the entity that is referenced by the given guid 
+		private XmlNode GetEntityNode(string guid,XmlNode levelNode, XmlNamespaceManager mgr)
+		{
+			XmlNode entityNode = levelNode.SelectSingleNode("*[@guid=\""+guid+"\"]",mgr);
+			if (entityNode == null)
+				throw new ModelSerializationException("Unable to find the referenced entity with guid \""+guid+"\".");
+
+			return entityNode;
+		}
+
+		#endregion		
 	}
 }
