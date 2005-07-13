@@ -1,3 +1,4 @@
+using System;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
@@ -16,6 +17,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.8  2005/07/13 11:08:30  joemal
+	/// add query property
+	///
 	/// Revision 1.7  2005/06/05 11:06:52  joemal
 	/// - add method DestroyComponent
 	/// - rename method RemoveInterface to DestroyInterface
@@ -275,6 +279,17 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		public void ClearAll ()
 		{
 			this.rootBuilderSuccessor.ClearAll();
+		}
+
+		/// <summary>
+		/// called to query the repository of the componentmodel
+		/// </summary>
+		public IQueryRepository QueryRepository
+		{
+			get
+			{
+				return this.rootBuilderSuccessor.QueryRepository;
+			}
 		}
 
 		/// <summary>

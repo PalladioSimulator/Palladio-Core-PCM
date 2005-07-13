@@ -1,6 +1,7 @@
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.Query;
 
 namespace Palladio.ComponentModel.Builder
 {	
@@ -19,6 +20,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2005/07/13 11:08:30  joemal
+	/// add query property
+	///
 	/// Revision 1.15  2005/06/05 11:06:52  joemal
 	/// - add method DestroyComponent
 	/// - rename method RemoveInterface to DestroyInterface
@@ -146,6 +150,18 @@ namespace Palladio.ComponentModel.Builder
 		/// call to remove all entities and their relations from the model
 		/// </summary>
 		void ClearAll();
+
+		#endregion
+
+		#region properties
+
+		/// <summary>
+		/// called to query the repository of the componentmodel
+		/// </summary>
+		IQueryRepository QueryRepository
+		{
+			get;
+		}
 
 		#endregion
 	}

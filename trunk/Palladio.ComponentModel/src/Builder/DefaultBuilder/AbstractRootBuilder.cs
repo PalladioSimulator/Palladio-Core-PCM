@@ -1,8 +1,10 @@
+using System;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.Query;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder
 {
@@ -19,6 +21,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.23  2005/07/13 11:08:30  joemal
+	/// add query property
+	///
 	/// Revision 1.22  2005/06/17 18:31:12  joemal
 	/// new methods to add connections in low level builder
 	///
@@ -357,6 +362,17 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void ClearAll ()
 		{
 			this.ModelDataManager.LowLevelBuilder.ClearAll();
+		}
+
+		/// <summary>
+		/// called to query the repository of the componentmodel
+		/// </summary>
+		public IQueryRepository QueryRepository
+		{
+			get
+			{
+				return this.modelDataManager.Query.QueryRepository;
+			}
 		}
 
 		#endregion
