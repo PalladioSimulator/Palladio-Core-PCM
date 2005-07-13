@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/07/13 11:10:44  joemal
+	/// replace xmlreader with xmlnode in load method
+	///
 	/// Revision 1.1  2005/05/08 12:02:17  joemal
 	/// initial creation
 	///
@@ -24,9 +27,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		/// called by the serializer, when a protocol has to be loaded from given xml reader. The type of the protocol is
 		/// one of the supported ones.
 		/// </summary>
-		/// <param name="xmlReader">the xml reader</param>
+		/// <param name="protocolNode">the xml node with the protocol</param>
 		/// <returns>the protocol</returns>
-		IProtocol LoadProtocol(XmlReader xmlReader);
+		IProtocol LoadProtocol(XmlNode protocolNode);
 
 		/// <summary>
 		/// called by the serializer, when a protocol has to be saved to the given xml writer. The type of the protocol is

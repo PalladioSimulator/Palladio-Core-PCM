@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/07/13 11:10:44  joemal
+	/// replace xmlreader with xmlnode in load method
+	///
 	/// Revision 1.2  2005/05/19 18:07:19  joemal
 	/// add parameter and attribute serialization
 	///
@@ -26,9 +29,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		/// called by the serializer, when an attribute has to be loaded from given xml reader. The type of the attribute is
 		/// one of the supported ones.
 		/// </summary>
-		/// <param name="xmlReader">the xml reader</param>
+		/// <param name="attributeNode">the xml node that contains the attribute</param>
 		/// <returns>the attribute</returns>
-		IAttribute LoadAttribute(XmlReader xmlReader);
+		IAttribute LoadAttribute(XmlNode attributeNode);
 
 		/// <summary>
 		/// called by the serializer, when an attribute has to be saved to the given xmlwriter. The type of the attribute is
