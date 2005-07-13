@@ -41,7 +41,10 @@
 			<xs:element name="Attribute" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+						<xs:element name="Description" type="xs:string"></xs:element>
+						<xs:element name="Name" type="xs:string"></xs:element>
+						<xs:element name="ValueType" type="xs:string"></xs:element>
+						<xs:any />
 					</xs:sequence>
 					<xs:attribute name="type" type="GUID" />
 				</xs:complexType>

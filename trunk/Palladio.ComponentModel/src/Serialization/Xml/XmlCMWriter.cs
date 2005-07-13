@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/07/13 11:06:01  joemal
+	/// some changes of the entities attributes
+	///
 	/// Revision 1.7  2005/06/25 16:53:28  joemal
 	/// merge the implementation with the changed xsd
 	///
@@ -312,6 +315,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				IAttribute attr = entity.Attributes[attrType];
 				writer.WriteStartElement("Attribute");
 				writer.WriteAttributeString("type",attrType.GUID.ToString());
+				writer.WriteElementString("Description",attrType.Description);
+				writer.WriteElementString("Name",attrType.DisplayName);
+				writer.WriteElementString("ValueType",attrType.ValueType.ToString());
 				attrPlugIn.SaveAttribute(writer,attr);
 				writer.WriteEndElement();
 			}
