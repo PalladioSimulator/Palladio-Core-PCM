@@ -3,6 +3,7 @@ using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.Types;
 
 namespace Palladio.CM.Example
 {
@@ -14,6 +15,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/07/23 18:57:26  joemal
+	/// new implementation of IType
+	///
 	/// Revision 1.7  2005/06/05 10:40:56  joemal
 	/// - components now can be added to more than one container
 	///
@@ -123,14 +127,16 @@ namespace Palladio.CM.Example
 		//creates the interface IWriter
 		private IInterfaceIdentifier BuildIFaceIWriter(IInterfaceTypeLevelBuilder levelBuilder)
 		{
-			levelBuilder.AddSignature("WriteSomething").AppendParameter(typeof(string),"filename",ParameterModifierEnum.REF);
+			levelBuilder.AddSignature("WriteSomething").AppendParameter(TypesFactory.CreateStringType("System.string")
+				,"filename",ParameterModifierEnum.REF);
 			return levelBuilder.Interface.InterfaceID;
 		}
 
 		//creates the interface IWriterBackend
 		private IInterfaceIdentifier BuildIFaceIWriterBackEnd(IInterfaceTypeLevelBuilder levelBuilder)
 		{
-			levelBuilder.AddSignature("WriteToDisk").AppendParameter(typeof(string),"filename",ParameterModifierEnum.REF);
+			levelBuilder.AddSignature("WriteToDisk").AppendParameter(TypesFactory.CreateStringType("System.string"),
+				"filename",ParameterModifierEnum.REF);
 			return levelBuilder.Interface.InterfaceID;
 		}
 

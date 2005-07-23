@@ -7,6 +7,7 @@ using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.Serialization;
 using Palladio.ComponentModel.Serialization.Xml;
 using Palladio.Serialization;
+using Palladio.Types;
 
 namespace Palladio.CM.Example
 {
@@ -18,6 +19,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/07/23 18:57:26  joemal
+	/// new implementation of IType
+	///
 	/// Revision 1.9  2005/07/13 11:09:47  joemal
 	/// add clone methods
 	///
@@ -67,12 +71,13 @@ namespace Palladio.CM.Example
 			//here the chance to register xml serializerplugins that are used to serialize protocols,
 			//attributes and service effect specifications
 			//xmlSerializer.RegisterAttributePlugin(xxx);
+			xmlSerializer.RegisterTypePlugin(TypesFactory.CreateStringTypeXMLSerializerPlugin());
 			modelEnvironment.SerializationManager.RegisterSerializer(xmlSerializer);
 
 			//create the static view for the model
 			StaticView view = new StaticView(modelEnvironment);
 
-			Console.WriteLine("Start creating the model.");
+/*			Console.WriteLine("Start creating the model.");
 			//use the models builder to create a model
             new StaticComponentModel(modelEnvironment).Create();
 			Console.WriteLine("Model created. Press any key to repaint the model.");
@@ -80,8 +85,8 @@ namespace Palladio.CM.Example
 			Console.ReadLine();
 
 			Console.WriteLine("Repaint the model.");			
-			view.Paint();
-			Console.WriteLine("Model repainted.");			
+//			view.Paint();
+//			Console.WriteLine("Model repainted.");			
 
 			Console.ReadLine();
 
@@ -90,7 +95,7 @@ namespace Palladio.CM.Example
 			Console.WriteLine("[Done]");
 			Console.WriteLine("Clear the model.");			
 			modelEnvironment.BuilderManager.RootTypeLevelBuilder.ClearAll();
-			Console.WriteLine("[Done]");
+			Console.WriteLine("[Done]");*/
 			Console.WriteLine("Try to load the xmlfile ..");
 			try 
 			{
