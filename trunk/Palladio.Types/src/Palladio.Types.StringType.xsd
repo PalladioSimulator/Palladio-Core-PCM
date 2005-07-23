@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="XMLSchema1" targetNamespace="http://palladio.informatik.uni-oldenburg.de/Types/StringType"
+	elementFormDefault="qualified" xmlns="http://palladio.informatik.uni-oldenburg.de/Types/StringType"
+	xmlns:mstns="http://palladio.informatik.uni-oldenburg.de/Types/StringType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Name" type="xs:string"></xs:element>
+</xs:schema>
