@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/07/23 18:59:57  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.5  2005/07/13 11:10:05  joemal
 	/// implement
 	///
@@ -118,11 +121,16 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
 				schemaCollection.Add(XmlSerializer.XMLNAMESPACE,
 					System.AppDomain.CurrentDomain.BaseDirectory+"\\Palladio.ComponentModel.xsd");
+
+				foreach(IXmlPlugIn plugin in plugins.Values)
+					schemaCollection.Add(plugin.XmlNameSpace,plugin.XmlSchema);
+
 				validator.Schemas.Add(schemaCollection);
 			}
 			catch(Exception exc)
 			{
-				throw new ModelSerializationException("Unable to load the xml schema Palladio.ComponentModel.xsd.",exc);
+				throw new ModelSerializationException("Unable to load the xml schema Palladio.ComponentModel.xsd "+
+					"or one of the plugins once.",exc);
 			}
 
 			XmlDocument xmlDoc = null;
@@ -322,14 +330,13 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		//extract a signature
 		private void ExtractSignature(ISignatureBuilder builder, XmlNode sigNode, XmlNamespaceManager mgr)
 		{
-			XmlNode retType = sigNode.SelectSingleNode("cm:ReturnType",mgr);
-			if (retType != null)
-				builder.SetReturnType(retType.InnerText);
+			XmlNode retTypeNode = sigNode.SelectSingleNode("cm:ReturnType",mgr);
+			builder.SetReturnType(ExtractType(retTypeNode));
 
             XmlNodeList parameters = sigNode.SelectNodes("cm:Parameter",mgr);
 			foreach(XmlNode parameter in parameters)
 			{
-				Type type = new ReflectedType(parameter.SelectSingleNode("cm:Type",mgr).InnerText).GetType();
+				IType type = ExtractType(parameter.SelectSingleNode("cm:Type",mgr));
 				string name = parameter.SelectSingleNode("cm:Name",mgr).InnerText;
 				ParameterModifierEnum modifier = (ParameterModifierEnum) 
 					byte.Parse(parameter.SelectSingleNode("cm:Modifier",mgr).InnerText);
@@ -338,9 +345,22 @@ namespace Palladio.ComponentModel.Serialization.Xml
 
 			XmlNodeList exceptions = sigNode.SelectNodes("cm:Exception",mgr);
 			foreach(XmlNode exception in exceptions)
-				builder.AddException(exception.InnerText);
+				builder.AddException(ExtractType(exception));
 
 			ExtractEntityAttributes(builder.Signature,sigNode,mgr);
+		}
+        
+		//extract the type from given node
+		private IType ExtractType(XmlNode typeNode)
+		{
+			ITypeIdentifier typeID = new InternalEntityIdentifier(typeNode.Attributes["typeid"].Value);
+			
+			if (typeID.Equals(VoidType.TYPEID)) return new VoidType();
+			
+			IXmlTypePlugIn typePlugIn = (IXmlTypePlugIn) plugins[typeID];
+			if (typePlugIn == null)
+				throw new ModelSerializationException("No plugin found for the type with id \""+typeID.Key+"\".");
+			return typePlugIn.LoadType(typeNode);
 		}
 
 		//adds the protocols to an interface
@@ -360,7 +380,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		private IProtocol ExtractProtocol(XmlNode protocolNode)
 		{
 			string typeGuid = protocolNode.Attributes["type"].Value;
-			IXmlProtocolPlugIn plugIn = (IXmlProtocolPlugIn) this.plugins[typeGuid];
+			IXmlProtocolPlugIn plugIn = (IXmlProtocolPlugIn) this.plugins[new InternalEntityIdentifier(typeGuid)];
 			if (plugIn == null)
 				throw new ModelSerializationException("No plugin found for protocoltype "+typeGuid+".");
 			return plugIn.LoadProtocol(protocolNode);

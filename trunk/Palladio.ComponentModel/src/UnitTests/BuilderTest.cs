@@ -5,6 +5,7 @@ using NUnit.Framework;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.ModelEntities.Impl;
 using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.UnitTests
@@ -18,6 +19,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.26  2005/07/23 18:59:57  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.25  2005/06/05 11:06:52  joemal
 	/// - add method DestroyComponent
 	/// - rename method RemoveInterface to DestroyInterface
@@ -347,10 +351,10 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
-			si.AppendParameter("System.String");
-			si.AppendParameter(typeof(IEnumerator), "enumer1");
-			si.AppendParameter(typeof(IEnumerator), "enumer2", ParameterModifierEnum.OUT);
-			si.AppendParameter(typeof(IEnumerator), "enumer3", ParameterModifierEnum.NONE);
+			si.AppendParameter(new ReflectedType("System.String"),"param");
+			si.AppendParameter(new ReflectedType(typeof(IEnumerator)), "enumer1");
+			si.AppendParameter(new ReflectedType(typeof(IEnumerator)), "enumer2",ParameterModifierEnum.OUT);
+			si.AppendParameter(new ReflectedType(typeof(IEnumerator)), "enumer3", ParameterModifierEnum.NONE);
 			si.ClearParameterList();
 		}
 
@@ -359,9 +363,8 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
-			si.SetReturnType("System.String");
-			si.SetReturnType(typeof(IEnumerator));
-			si.SetReturnTypeVoid();
+			si.SetReturnType(new ReflectedType("System.String"));
+			si.SetReturnType(new ReflectedType(typeof(IEnumerator)));
 		}
 
 		[Test]
@@ -370,7 +373,7 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
-			si.SetReturnType("does.not.exist");
+			si.SetReturnType(new ReflectedType("does.not.exist"));
 		}
 
 		[Test]
@@ -378,10 +381,12 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
-			si.AddException(typeof(Palladio.ComponentModel.Exceptions.ComponentHierarchyException));
-			si.AddException(typeof(Exception));			
-			si.RemoveException(typeof(Palladio.ComponentModel.Exceptions.ComponentHierarchyException));
-			si.RemoveException(typeof(Exception));
+			IType exc1 = new ReflectedType(typeof(Palladio.ComponentModel.Exceptions.ComponentHierarchyException));
+			IType exc2 = new ReflectedType(typeof(Exception));
+			si.AddException(exc1);
+			si.AddException(exc2);			
+			si.RemoveException(exc1);
+			si.RemoveException(exc2);
 		}
 
 		[Test]
@@ -389,11 +394,11 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
-			si.AddException(typeof(Exception));
-			si.AddException(typeof(Exception));
-			si.AddException(typeof(Palladio.ComponentModel.Exceptions.ComponentHierarchyException));
-			si.RemoveException(typeof(Exception));
-			si.RemoveException(typeof(Exception));
+			si.AddException(new ReflectedType(typeof(Exception)));
+			si.AddException(new ReflectedType(typeof(Exception)));
+			si.AddException(new ReflectedType(typeof(Palladio.ComponentModel.Exceptions.ComponentHierarchyException)));
+			si.RemoveException(new ReflectedType(typeof(Exception)));
+			si.RemoveException(new ReflectedType(typeof(Exception)));
 		}
 
 		[Test]
@@ -401,7 +406,7 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			IInterfaceTypeLevelBuilder iFace = rootBuilder.CreateInterface("newInterface");
 			ISignatureTypeLevelBuilder si = iFace.AddSignature("newSignature");
-			si.RemoveException(typeof(Exception));
+			si.RemoveException(new ReflectedType(typeof(Exception)));
 		}
 
 		[Test]
@@ -420,7 +425,7 @@ namespace Palladio.ComponentModel.UnitTests
 			si.Signature.ExceptionsChanged += new StaticAttributeChangedEventHandler(ExceptionsChangedListener);
 
 			// provoke event
-			si.AddException(typeof(Exception));
+			si.AddException(new ReflectedType(typeof(Exception)));
 
 			Assert.IsTrue(executed, "event-delegate was not called.");
 		}
@@ -437,8 +442,8 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void ITypeEquals()
 		{
-			IType type1 = EntityFactory.CreateType(typeof(Exception));
-			IType type2 = EntityFactory.CreateType(typeof(Exception));
+			IType type1 = new ReflectedType(typeof(Exception));
+			IType type2 = new ReflectedType(typeof(Exception));
 			Assert.IsTrue(type1.Equals(type2));
 		}
 

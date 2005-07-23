@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.19  2005/07/23 18:59:57  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.18  2005/06/05 10:36:34  joemal
 	/// - replace the entities by the ids
 	/// - components now can be added to more than one container
@@ -81,37 +84,17 @@ namespace Palladio.ComponentModel.Builder
 		#region Methods
 
 		/// <summary>
-		/// Sets the return type of the actual signature. The return type is newly created.
-		/// </summary>
-		/// <param name="typeName">The name of the return-type. It has to be a valid
-		/// <see cref="Type"/>-name. This means that the type needs to exist.</param>
-		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given string is not
-		/// a valid type-name.</exception>
-		void SetReturnType(string typeName);
-
-		/// <summary>
 		/// Sets the return type of the actual signature.
 		/// </summary>
 		/// <param name="type">The given type is used as return type.</param>
 		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given string is not
 		/// a valid type-name.</exception>
-		void SetReturnType(Type type);
+		void SetReturnType(IType type);
 
 		/// <summary>
-		/// Sets the return type to void."/>.
+		/// called to set "void" es return type.
 		/// </summary>
-		void SetReturnTypeVoid();
-
-		/// <summary>
-		/// Appends a new parameter to the end of the parameter list of the signature. No modifiers
-		/// (<see cref="ParameterModifierEnum"/> like "out" or "ref") are used.
-		/// </summary>
-		/// <param name="parameterName">The new parameters name and the name of the <see cref="Type"/>
-		/// to add. The name is used for the typename and the parametername. The name has to be a valid
-		/// name of a type (e. g. "System.Exception" or "System.Collections.ArrayList").</param>
-		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (name) is not
-		/// a valid type-name.</exception>
-		void AppendParameter(string parameterName);
+		void SetVoidReturnType();
 
 		/// <summary>
 		/// Appends a new parameter to the end of the parameter list of the signature.
@@ -120,7 +103,7 @@ namespace Palladio.ComponentModel.Builder
 		/// </summary>
 		/// <param name="type">The type of the new parameter</param>
 		/// <param name="name">The new parameters name.</param>
-		void AppendParameter(Type type, string name);
+		void AppendParameter(IType type, string name);
 
 		/// <summary>
 		/// Appends a new parameter to the end of the parameter list of the signature.
@@ -129,7 +112,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <param name="name">The new parameters name.</param>
 		/// <param name="modifier">The modifier (<see cref="ParameterModifierEnum"/> like "out"
 		/// or "ref") of the actual parameter.</param>
-		void AppendParameter(Type type, string name, ParameterModifierEnum modifier);
+		void AppendParameter(IType type, string name, ParameterModifierEnum modifier);
 
 		/// <summary>
 		/// Clears the list of parameters. Afterwards the signature contains no more parameters.
@@ -142,29 +125,19 @@ namespace Palladio.ComponentModel.Builder
 		void ClearParameterList();
 
 		/// <summary>
-		/// Adds a new exception with the given name to the unordered list of exceptions.
-		/// Exceptions can only occur once in the list.
-		/// </summary>
-		/// <param name="typeName">The type-name of the new exception. It has to be a valid
-		/// <see cref="Type"/>-name and a <see cref="Exception"/>.</param>
-		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (typeName) is not
-		/// a valid type-name.</exception>
-		void AddException(string typeName);
-
-		/// <summary>
 		/// Adds the given exception to the signature.
 		/// </summary>
 		/// <param name="type">The exception to add. It has to be a valid
 		/// <see cref="Exception"/>.</param>
 		/// <exception cref="Palladio.ComponentModel.Exceptions.TypeNotValidException">Thrown if the created
 		/// type is not an exception (sub-) type.</exception>
-		void AddException(Type type);
+		void AddException(IType type);
 
 		/// <summary>
 		/// Removes the given exception from the signature.
 		/// </summary>
 		/// <param name="exception">The exception to remove.</param>
-		void RemoveException(Type exception);
+		void RemoveException(IType exception);
 
 		#endregion
 

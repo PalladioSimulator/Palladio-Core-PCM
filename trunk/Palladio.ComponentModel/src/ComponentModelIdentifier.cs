@@ -1,3 +1,4 @@
+using System;
 using Palladio.ComponentModel.Identifier;
 
 namespace Palladio.ComponentModel
@@ -10,6 +11,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/07/23 18:59:57  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.2  2005/05/08 12:04:23  joemal
 	/// implementation of xml serialization
 	///
@@ -78,6 +82,16 @@ namespace Palladio.ComponentModel
 		public static IProtocolTypeIdentifier CreateProtocolTypeID(string guid)
 		{
 			return new InternalEntityIdentifier(guid).AsProtocolTypeIdentifier();
+		}
+
+		/// <summary>
+		/// called to create a new type identifier using the given guid as key
+		/// </summary>
+		/// <param name="guid">the guid</param>
+		/// <returns>the identifier</returns>
+		public static ITypeIdentifier CreateTypeID(string guid)
+		{
+			return new InternalEntityIdentifier(guid);
 		}
 	}
 }

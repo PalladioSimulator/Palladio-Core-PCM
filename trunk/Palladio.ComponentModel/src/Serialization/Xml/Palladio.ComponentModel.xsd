@@ -275,19 +275,25 @@
 		<xs:complexContent>
 			<xs:extension base="Entity">
 				<xs:sequence>
-					<xs:element name="ReturnType" type="xs:string" minOccurs="0" />
+					<xs:element name="ReturnType" type="Type" minOccurs="0" />
 					<xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded">
 						<xs:complexType>
 							<xs:sequence>
 								<xs:element name="Name" type="xs:string" />
-								<xs:element name="Type" type="xs:string" />
+								<xs:element name="Type" type="Type" />
 								<xs:element name="Modifier" type="xs:byte" />
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
-					<xs:element name="Exception" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+					<xs:element name="Exception" type="Type" minOccurs="0" maxOccurs="unbounded" />
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Type">
+		<xs:sequence>
+			<xs:any minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="typeid" type="xs:string" />
 	</xs:complexType>
 </xs:schema>

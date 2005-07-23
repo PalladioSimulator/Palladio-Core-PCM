@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -15,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.26  2005/07/23 18:59:57  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.25  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository
 	///
@@ -122,60 +124,31 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		#region methods
 
 		/// <summary>
-		/// Sets the return type of the actual signature. The return type is newly created.
+		/// Sets the return type of the actual signature. 
 		/// </summary>
-		/// <param name="name">The name of the return-type. It has to be a valid
-		/// type-name. This means that the type needs to exist.</param>
-		/// <returns>A <see cref="TypeNotFoundException"/> for the new type.</returns>
-		/// <exception cref="IType">Thrown if the given string is not
-		/// a valid type-name.</exception>
-		public void SetReturnType (string name)
+		/// <param name="type">the return type to be set.</param>
+		public void SetReturnType (IType type)
 		{
-			IType type = EntityFactory.CreateType(name);
 			this.Signature.ReturnType = type;			
 		}
 
 		/// <summary>
-		/// Sets the return type of the actual signature.
+		/// called to set "void" es return type.
 		/// </summary>
-		/// <param name="type">The given type is used as return type.</param>
-		public void SetReturnType (Type type)
+		public void SetVoidReturnType()
 		{
-			this.Signature.ReturnType = EntityFactory.CreateType(type);
-		}
-
-		/// <summary>
-		/// Sets the return type to void.
-		/// </summary>
-		public void SetReturnTypeVoid ()
-		{
-			this.Signature.ReturnType = EntityFactory.CreateType(typeof(void));
-		}
-
-		/// <summary>
-		/// Appends a new parameter to the end of the parameter list of the signature. No modifiers
-		/// (<see cref="ParameterModifierEnum"/> like "out" or "ref") are used.
-		/// </summary>
-		/// <param name="name">The new parameters name and the name of the <see cref="Type"/>
-		/// to add. Both have to be named the same. The name has to be a valid name of a type.</param>
-		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (name) is not
-		/// a valid type-name.</exception>
-		public void AppendParameter (string name)
-		{			
-			IParameter parameter = EntityFactory.CreateParameter(name, name);
-			AppendParameter (parameter);
+			this.Signature.ReturnType = EntityFactory.CreateVoidType();
 		}
 
 		/// <summary>
 		/// Appends a new parameter to the end of the parameter list of the signature.
-		/// The <see cref="ParameterModifierEnum.NONE"/> is set to by default.
+		/// The <see cref="ParameterModifierEnum"/> is set to <see cref="ParameterModifierEnum.NONE"/>
+		/// by default.
 		/// </summary>
 		/// <param name="type">The type of the new parameter</param>
 		/// <param name="name">The new parameters name.</param>
-		/// <returns>A <see cref="ParameterModifierEnum"/> for the newly created
-		/// parameter.</returns>
-		public void AppendParameter (Type type, string name)
-		{
+		public void AppendParameter(IType type, string name)
+		{			
 			IParameter parameter = EntityFactory.CreateParameter(type, name);
 			AppendParameter (parameter);
 		}
@@ -185,14 +158,23 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </summary>
 		/// <param name="type">The type of the new parameter</param>
 		/// <param name="name">The new parameters name.</param>
-		/// <param name="modifier">The modifier  like "out"
+		/// <param name="modifier">The modifier (<see cref="ParameterModifierEnum"/> like "out"
 		/// or "ref") of the actual parameter.</param>
-		/// <returns>A <see cref="ParameterModifierEnum"/> for the newly created
-		/// parameter.</returns>
-		public void AppendParameter (Type type, string name, ParameterModifierEnum modifier)
+		public void AppendParameter(IType type, string name, ParameterModifierEnum modifier)
 		{
-			IParameter parameter = EntityFactory.CreateParameter(type, name, modifier);
+			IParameter parameter = EntityFactory.CreateParameter(type, name,modifier);
 			AppendParameter (parameter);
+		}
+
+		/// <summary>
+		/// Appends a new parameter to the end of the parameter list of the signature.
+		/// </summary>
+		/// <param name="type">The type of the new parameter</param>
+		/// <param name="modifier">The modifier (<see cref="ParameterModifierEnum"/> like "out"
+		/// or "ref") of the actual parameter.</param>
+		public void AppendParameter(IType type, ParameterModifierEnum modifier)
+		{
+			throw new NotImplementedException();
 		}
 
 		private void AppendParameter (IParameter parameter)
@@ -217,21 +199,6 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		}
 
 		/// <summary>
-		/// Adds a new exception with the given name to the unordered list of exceptions.
-		/// Exceptions can only occur once in the list.
-		/// </summary>
-		/// <param name="typeName">The type-name of the new exception. It has to be a valid
-		/// <see cref="Type"/>-name and a <see cref="Exception"/>.</param>
-		/// <exception cref="Exceptions.TypeNotFoundException">Thrown if the given type-name (typeName) is not
-		/// a valid type-name.</exception>
-		/// <exception cref="TypeNotValidException">Thrown if the created type is not an exception
-		/// (sub-) type.</exception>
-		public void AddException (string typeName)
-		{
-			AddException(EntityFactory.CreateType(typeName));			
-		}
-
-		/// <summary>
 		/// Adds the given exception to the signature.
 		/// </summary>
 		/// <remarks>
@@ -240,23 +207,8 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// </remarks>
 		/// <param name="type">The exception to add. It has to be a valid
 		/// <see cref="Exception"/>.</param>
-		/// <exception cref="TypeNotValidException">Thrown if the created type is not an exception
-		/// (sub-) type.</exception>
-		public void AddException (Type type)
+		public void AddException (IType type)
 		{
-			AddException(EntityFactory.CreateType(type));
-		}
-
-		private void AddException (IType type)
-		{
-			// check wether the created type is a valid exception-type:
-			IType referenceExceptionIType = EntityFactory.CreateType(typeof(Exception));			
-
-			if(! (referenceExceptionIType.Equals(type) || type.IsSubtypeOf(referenceExceptionIType)) )
-			{
-				throw new TypeNotValidException(type.ToString() + " is not an exception type.");
-			}
-	
 			ArrayList exceptionsList = new ArrayList(this.Signature.Exceptions);
 			// search for double exception-types. 
 			if(!exceptionsList.Contains(type))
@@ -270,11 +222,10 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// Removes the given exception from the signature.
 		/// </summary>
 		/// <param name="exception">The exception to remove.</param>
-		public void RemoveException (Type exception)
+		public void RemoveException (IType exception)
 		{
-			IType exceptionType = EntityFactory.CreateType(exception);
 			ArrayList exceptionsList = new ArrayList(this.Signature.Exceptions);
-			exceptionsList.Remove(exceptionType);
+			exceptionsList.Remove(exception);
 			Signature.Exceptions = (IType[])exceptionsList.ToArray(typeof(IType));				
 		}
 

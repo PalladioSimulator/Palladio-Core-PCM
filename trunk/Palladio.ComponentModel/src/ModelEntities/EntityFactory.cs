@@ -1,3 +1,4 @@
+using System;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities.Impl;
 
@@ -12,6 +13,9 @@ namespace Palladio.ComponentModel.ModelEntities
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/07/23 18:59:57  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.2  2005/04/20 18:27:45  kelsaka
 	/// - made classes internal
 	/// - removed unused init-methods
@@ -130,31 +134,6 @@ namespace Palladio.ComponentModel.ModelEntities
 
 		#endregion
 
-		#region CreateType
-
-		/// <summary>
-		/// Create an IType instance using System.Type of the .Net Reflection API.
-		/// </summary>
-		/// <param name="aType">Type instance of the .Net Reflection API.</param>
-		/// <returns>A Palladio IType instance equivalent to aType.</returns>
-		public static IType CreateType(System.Type aType)
-		{
-			return new ReflectedType(aType);
-		}
-
-		/// <summary>
-		/// Create an IType instance by using the .Net Reflection API to
-		/// resolve aTypeName.
-		/// </summary>
-		/// <param name="aTypeName">Name of an existing type.</param>
-		/// <returns>A Palladio IType instance representing aTypeName.</returns>
-		public static IType CreateType(string aTypeName)
-		{
-			return new ReflectedType(aTypeName);
-		}
-
-		#endregion
-
 		#region CreateParameter
 
 		/// <summary>
@@ -174,63 +153,25 @@ namespace Palladio.ComponentModel.ModelEntities
 		/// </summary>
 		/// <param name="aType">Type of the parameter.</param>
 		/// <param name="aName">Name of the parameter.</param>
-		/// <param name="modifier">Modifier of the parameter.</param>
-		/// <returns>A new IParameter instance.</returns>
-		public static IParameter CreateParameter(System.Type aType, string aName, ParameterModifierEnum modifier)
-		{
-			IType itype = CreateType(aType);
-			return CreateParameter(itype,aName,modifier);
-		}
-
-		/// <summary>
-		/// Create a new parameter for a signature. 
-		/// </summary>
-		/// <param name="aTypeName">Name of the type of the parameter.</param>
-		/// <param name="aName">Name of the parameter.</param>
-		/// <param name="modifier">Modifier of the parameter.</param>
-		/// <returns>A new IParameter instance.</returns>
-		public static IParameter CreateParameter(string aTypeName, string aName, ParameterModifierEnum modifier)
-		{
-			IType itype = CreateType(aTypeName);
-			return CreateParameter(itype,aName,modifier);
-		}
-
-		/// <summary>
-		/// Create a new parameter for a signature. 
-		/// </summary>
-		/// <param name="aType">Type of the parameter.</param>
-		/// <param name="aName">Name of the parameter.</param>
 		/// <returns>A new IParameter instance.</returns>
 		public static IParameter CreateParameter(IType aType, string aName)
 		{
 			return CreateParameter(aType,aName,ParameterModifierEnum.NONE);
 		}
 
-		/// <summary>
-		/// Create a new parameter for a signature. 
-		/// </summary>
-		/// <param name="aType">Type of the parameter.</param>
-		/// <param name="aName">Name of the parameter.</param>
-		/// <returns>A new IParameter instance.</returns>
-		public static IParameter CreateParameter(System.Type aType, string aName)
-		{
-			IType itype = CreateType(aType);
-			return CreateParameter(itype,aName);
-		}
+		#endregion
+
+		#region create void type 
 
 		/// <summary>
-		/// Create a new parameter for a signature. 
+		/// called to create a void type that is used as return type void
 		/// </summary>
-		/// <param name="aTypeName">Name of the type of the parameter.</param>
-		/// <param name="aName">Name of the parameter.</param>
-		/// <returns>A new IParameter instance.</returns>
-		public static IParameter CreateParameter(string aTypeName, string aName)
+		/// <returns>the void type</returns>
+		public static IType CreateVoidType()
 		{
-			IType itype = CreateType(aTypeName);
-			return CreateParameter(itype,aName);
+			return new VoidType();
 		}
 
 		#endregion
-
 	}
 }

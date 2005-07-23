@@ -1,15 +1,19 @@
 using System;
+using Palladio.ComponentModel.Identifier;
 
 namespace Palladio.ComponentModel.ModelEntities
 {
 	/// <summary>
-	/// IType is defines a wrapper class for a general type.
+	/// IType is defines general type used by signatures to specify the parameters, the return type and the exceptions.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/07/23 18:59:57  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.2  2005/04/14 08:19:28  kelsaka
 	/// - added new Equals semantic for IType
 	/// - added new GetType-method for IType
@@ -20,36 +24,22 @@ namespace Palladio.ComponentModel.ModelEntities
 	///
 	/// </pre>
 	/// </remarks>
-	public interface IType: ICloneable
+	public interface IType
 	{
-		#region Methods
+		/// <summary>
+		/// returns the id of the type. This id is unique for an implementation of IType.
+		/// </summary>
+		ITypeIdentifier TypeID
+		{
+			get;
+		}
 
 		/// <summary>
-		/// Checks if this type is a subtype of aType.
+		/// returns the name of the type
 		/// </summary>
-		/// <param name="aType">Another type.</param>
-		/// <returns>True, if this instance is a subtye of aType, false otherwise.</returns>
-		bool IsSubtypeOf (IType aType);
-
-		/// <summary>
-		/// Overloaded. Overridden. Determines if the underlying system type of the current
-		/// Type is the same as the underlying system type of the specified Object or Type.
-		/// </summary>
-		/// <param name="type">The Type whose underlying system type is to be compared
-		/// with the underlying system type of the current Type.</param>
-		/// <returns>True, if the underlying Types are the same; otherwise, false.</returns>
-		bool Equals(IType type);
-		
-		/// <summary>
-		/// Gets the underlying <see cref="Type"/> of the current instance.
-		/// </summary>
-		/// <remarks>
-		/// Does not return an <see cref="IType"/>.
-		/// </remarks>
-		/// <returns>The Type instance that represents the underlying
-		/// ReflectedType of the current instance.</returns>
-		Type GetType();
-
-		#endregion
+		string Name
+		{
+			get;
+		}
 	}
 }

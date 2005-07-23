@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/07/23 18:59:57  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.2  2005/05/24 16:48:58  joemal
 	/// connect the reader
 	///
@@ -136,6 +139,25 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		}
 
 		/// <summary>
+		/// called to register a plugin that can be used to load and store types.
+		/// </summary>
+		/// <param name="plugIn">the plugin</param>
+		public void RegisterTypePlugin(IXmlTypePlugIn plugIn)
+		{
+			RegisterPlugIn(plugIn,plugIn.SupportedTypes);
+		}
+
+		/// <summary>
+		/// called to unregister plugins that are used to load and store implementations from <code>IType</code>
+		/// that match to given type ids.
+		/// </summary>
+		/// <param name="typeIds">the ids</param>
+		public void UnregisterTypePlugin(params ITypeIdentifier[] typeIds)
+		{
+			this.UnregisterPlugIn(typeIds);
+		}
+
+		/// <summary>
 		/// called to register a plugin that can be used to load and store attributes.
 		/// </summary>
 		/// <param name="plugIn"></param>
@@ -158,29 +180,29 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		#region private methods
 
 		//called to register the given plugin for the given types
-		private void RegisterPlugIn(IXmlPlugIn plugIn, object[] supportedTypes)
+		private void RegisterPlugIn(IXmlPlugIn plugIn, object[] supportedTypeIds)
 		{
-			foreach (Type t in supportedTypes)
+			foreach (object typeId in supportedTypeIds)
 			{
-				CheckUnusedSerializers(t);
-				plugins[t] = plugIn;
+				CheckUnusedSerializers(typeId);
+				plugins[typeId] = plugIn;
 			}		
 			plugIn.Registered();			
 		}
 
 		//called to unregister a plugin for the given types
-		private void UnregisterPlugIn(object[] types)
+		private void UnregisterPlugIn(object[] typeIds)
 		{
-			foreach(Type t in types)
+			foreach(object typeid in typeIds)
 			{
-				CheckUnusedSerializers(t);
-				plugins.Remove(t);
+				CheckUnusedSerializers(typeid);
+				plugins.Remove(typeid);
 			}			
 		}
 
 		//called to check, whether a plugin is registered for the given type. If one has been found, its
 		//unregister method is called, if its is only registered for the given type.
-		private void CheckUnusedSerializers(Type type)
+		private void CheckUnusedSerializers(object type)
 		{
 			if (!plugins.ContainsKey(type)) return;
 			IXmlPlugIn plugin = (IXmlPlugIn) plugins[type];

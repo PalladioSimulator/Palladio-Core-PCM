@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.ModelEntities
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/07/23 18:59:57  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.3  2005/04/12 12:32:39  kelsaka
 	/// - removed property to access typed IDs directly from the builders
 	/// - renamed the property from 'SignaturID' to 'SignatureID' in ISignature
@@ -86,7 +89,7 @@ namespace Palladio.ComponentModel.ModelEntities
 		/// <summary>
 		/// the default value of the return value
 		/// </summary>
-		public readonly static IType DEFAULT_RETURNTYPE = new ReflectedType(typeof(void));
+		public readonly static IType DEFAULT_RETURNTYPE = EntityFactory.CreateVoidType();
 
 		/// <summary>
 		/// the default value of the parameter list

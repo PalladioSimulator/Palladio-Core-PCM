@@ -468,6 +468,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Identifier\ITypeIdentifier.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ModelDataManagement\ILowLevelBuilder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -588,6 +593,11 @@
                 />
                 <File
                     RelPath = "src\ModelEntities\Impl\ReflectedType.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEntities\Impl\VoidType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -781,6 +791,11 @@
                 />
                 <File
                     RelPath = "src\Serialization\Xml\IXmlSerializer.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\IXmlTypePlugIn.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

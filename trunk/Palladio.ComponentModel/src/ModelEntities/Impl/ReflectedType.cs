@@ -1,5 +1,6 @@
 using System;
 using Palladio.ComponentModel.Exceptions;
+using Palladio.ComponentModel.Identifier;
 
 namespace Palladio.ComponentModel.ModelEntities.Impl
 {
@@ -12,6 +13,9 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/07/23 19:00:20  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.4  2005/04/15 08:29:46  kelsaka
 	/// - fixed errors on xml-comments
 	///
@@ -106,12 +110,8 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 		public override bool Equals(object obj)
 		{		
 			if(obj is IType)
-			{
-				if(this.Equals((IType)obj))
-				{
-					return true;
-				}
-			}
+				return this.reflectedType.Equals(((ReflectedType)obj).reflectedType);
+
 			return false;
 		}
 
@@ -183,7 +183,36 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 
 		//holds the type
 		private Type reflectedType;
+
+		//the type id of reflected type
+		private static ITypeIdentifier TYPEID = new InternalEntityIdentifier("063FACE5-0EDB-48b1-A51E-6A108FEEDC07");
+
 		#endregion
 
+		#region properties 
+
+		/// <summary>
+		/// returns the id of the type. This id is unique for an implementation of IType.
+		/// </summary>
+		public ITypeIdentifier TypeID
+		{
+			get
+			{
+				return ReflectedType.TYPEID;
+			}
+		}
+
+		/// <summary>
+		/// returns the name of the type
+		/// </summary>
+		public string Name
+		{
+			get
+			{
+				return reflectedType.FullName;
+			}
+		}
+
+		#endregion
 	}
 }

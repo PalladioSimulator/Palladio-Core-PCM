@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Identifier
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/07/23 18:59:57  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.2  2005/05/08 12:04:23  joemal
 	/// implementation of xml serialization
 	///
@@ -28,7 +31,7 @@ namespace Palladio.ComponentModel.Identifier
 	/// </pre>
 	/// </remarks>
 	internal class InternalEntityIdentifier : DefaultGUIDIdentifier, IComponentIdentifier, IConnectionIdentifier,
-		ISignatureIdentifier,IInterfaceIdentifier, IProtocolIdentifier,IProtocolTypeIdentifier
+		ISignatureIdentifier,IInterfaceIdentifier, IProtocolIdentifier,IProtocolTypeIdentifier,ITypeIdentifier
 	{
 		#region constructors
 		

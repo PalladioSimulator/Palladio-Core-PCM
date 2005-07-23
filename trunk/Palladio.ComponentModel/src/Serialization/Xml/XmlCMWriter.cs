@@ -4,6 +4,7 @@ using System.Xml;
 using Palladio.Attributes;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.ModelEntities.Impl;
 using Palladio.ComponentModel.Query;
 using Palladio.ComponentModel.Query.TypeLevel;
 using Palladio.Identifier;
@@ -19,6 +20,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/07/23 18:59:57  joemal
+	/// IType now is implemented in external object. Plugins for serializer are created.
+	///
 	/// Revision 1.8  2005/07/13 11:06:01  joemal
 	/// some changes of the entities attributes
 	///
@@ -263,10 +267,10 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				writer.WriteStartElement("Signature");
 				WriteEntityBaseAttributes(writer,sig);
 				
-				writer.WriteElementString("ReturnType",sig.ReturnType.ToString());				
+				WriteType(writer,"ReturnType",sig.ReturnType);				
 				WriteParameters(writer,sig.Parameters);
-				foreach(Type t in sig.Exceptions)
-					writer.WriteElementString("Exception",t.ToString());
+				foreach(IType t in sig.Exceptions)
+					WriteType(writer,"Exception",t);
 				writer.WriteEndElement();
 			}
 		}
@@ -278,10 +282,24 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			{
 				writer.WriteStartElement("Parameter");
 				writer.WriteElementString("Name",parm.Name);
-				writer.WriteElementString("Type",parm.Type.ToString());
+				WriteType(writer,"Type",parm.Type);
 				writer.WriteElementString("Modifier",""+(byte)parm.Modifier);
 				writer.WriteEndElement();
 			}
+		}
+
+		//called to write a type
+		void WriteType(XmlWriter writer, string nodeName, IType type)
+		{
+			IXmlTypePlugIn typePlugIn = (IXmlTypePlugIn) plugins[type.TypeID];
+			if (typePlugIn == null && !type.TypeID.Equals(VoidType.TYPEID))
+				throw new ModelSerializationException("No plugin found for type \""+type.Name+"\".");				
+
+			writer.WriteStartElement(nodeName);
+			writer.WriteAttributeString("typeid",type.TypeID.Key);
+			if (typePlugIn != null) 
+				typePlugIn.SaveType(writer,type);
+			writer.WriteEndElement();
 		}
 
 		//writes the given protocols
