@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/07/29 16:03:50  joemal
+	/// remove comment
+	///
 	/// Revision 1.9  2005/04/25 16:37:39  joemal
 	/// move serialization to own project
 	///
@@ -63,8 +66,6 @@ namespace Palladio.ComponentModel
 	///
 	/// </pre>
 	/// </remarks>
-	/// Todo: add the navigation
-	///		  add ...
 	public class ComponentModelEnvironment
 	{
 		#region data
