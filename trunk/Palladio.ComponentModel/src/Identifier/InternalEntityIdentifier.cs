@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Identifier
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/07/29 16:02:00  joemal
+	/// add seff identifier
+	///
 	/// Revision 1.3  2005/07/23 18:59:57  joemal
 	/// IType now is implemented in external object. Plugins for serializer are created.
 	///
@@ -31,7 +34,8 @@ namespace Palladio.ComponentModel.Identifier
 	/// </pre>
 	/// </remarks>
 	internal class InternalEntityIdentifier : DefaultGUIDIdentifier, IComponentIdentifier, IConnectionIdentifier,
-		ISignatureIdentifier,IInterfaceIdentifier, IProtocolIdentifier,IProtocolTypeIdentifier,ITypeIdentifier
+		ISignatureIdentifier,IInterfaceIdentifier, IProtocolIdentifier,IProtocolTypeIdentifier,ITypeIdentifier,
+		ISeffIdentifier,ISeffTypeIdentifier
 	{
 		#region constructors
 		
