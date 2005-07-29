@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 
 namespace Palladio.FiniteStateMachines
@@ -13,6 +12,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/07/29 16:04:42  joemal
+	/// remove unused import
+	///
 	/// Revision 1.1  2005/02/21 13:19:38  joemal
 	/// initial import
 	///
