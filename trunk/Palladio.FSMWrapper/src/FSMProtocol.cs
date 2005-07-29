@@ -15,6 +15,9 @@ namespace Palladio.FSMWrapper
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/07/29 16:29:17  joemal
+	/// move #endregion a view lines
+	///
 	/// Revision 1.1  2005/07/29 15:59:16  joemal
 	/// initial creation
 	///
@@ -73,8 +76,6 @@ namespace Palladio.FSMWrapper
 			get { return fsm; }
 		}
 
-		#endregion
-
 		/// <summary>
 		/// returns the typed id of the protocol
 		/// </summary>
@@ -98,5 +99,7 @@ namespace Palladio.FSMWrapper
 		{
 			get { return this.protId; }
 		}
+
+		#endregion
 	}
 }
