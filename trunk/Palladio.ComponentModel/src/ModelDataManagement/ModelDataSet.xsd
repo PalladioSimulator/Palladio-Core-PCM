@@ -69,6 +69,14 @@
 						<xs:attribute name="guid" type="xs:string" />
 					</xs:complexType>
 				</xs:element>
+				<xs:element name="Seffs">
+					<xs:complexType>
+						<xs:sequence />
+						<xs:attribute name="guid" type="xs:string" />
+						<xs:attribute name="fk_role" type="xs:long" />
+						<xs:attribute name="fk_signature" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
 			</xs:choice>
 		</xs:complexType>
 		<xs:key name="ROLES_PK" msdata:PrimaryKey="true">
@@ -180,6 +188,20 @@
 		<xs:keyref name="CompRelAsmConReq" refer="PK_COMPREL" msdata:DeleteRule="Cascade" msdata:UpdateRule="Cascade">
 			<xs:selector xpath=".//mstns:AssemblyConnectors" />
 			<xs:field xpath="@mstns:fk_req_comp_rel" />
+		</xs:keyref>
+		<xs:key name="PK_SEFF" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Seffs" />
+			<xs:field xpath="@mstns:guid" />
+		</xs:key>
+		<xs:keyref name="RolesSeffs" refer="ROLES_PK" msdata:AcceptRejectRule="Cascade" msdata:DeleteRule="Cascade"
+			msdata:UpdateRule="Cascade">
+			<xs:selector xpath=".//mstns:Seffs" />
+			<xs:field xpath="@mstns:fk_role" />
+		</xs:keyref>
+		<xs:keyref name="SignaturesSeffs" refer="PK_SIG" msdata:AcceptRejectRule="Cascade" msdata:DeleteRule="Cascade"
+			msdata:UpdateRule="Cascade">
+			<xs:selector xpath=".//mstns:Seffs" />
+			<xs:field xpath="@mstns:fk_signature" />
 		</xs:keyref>
 	</xs:element>
 </xs:schema>

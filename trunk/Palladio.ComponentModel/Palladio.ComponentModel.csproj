@@ -463,6 +463,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Identifier\ISeffIdentifier.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Identifier\ISeffTypeIdentifier.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Identifier\ISignatureIdentifier.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -548,6 +558,11 @@
                 />
                 <File
                     RelPath = "src\ModelEntities\IProtocol.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEntities\IServiceEffectSpecification.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -786,6 +801,11 @@
                 />
                 <File
                     RelPath = "src\Serialization\Xml\IXmlProtocolPlugIn.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Serialization\Xml\IXmlSeffPlugIn.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

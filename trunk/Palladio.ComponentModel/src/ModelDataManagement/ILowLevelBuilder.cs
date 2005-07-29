@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/07/29 16:02:10  joemal
+	/// now service effect specifications can be added ...
+	///
 	/// Revision 1.5  2005/06/17 18:31:43  joemal
 	/// changes in the connection tables
 	///
@@ -183,6 +186,22 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// </summary>
 		/// <param name="signatureID">the id of the signature that has to be removed</param>
 		void RemoveSignature(ISignatureIdentifier signatureID);
+
+		/// <summary>
+		/// called to add a service effect specification to a basic component. The seff belongs to a signature of
+		/// an interface that is connected as provides interface to the component.
+		/// </summary>
+		/// <param name="seff">the service effect specification</param>
+		/// <param name="conPoint">the combination of an interface and a component</param>
+		/// <param name="sigId">the signature of the interface</param>
+		void AddServiceEffectSpecification(IServiceEffectSpecification seff, ConnectionPoint conPoint,
+			 ISignatureIdentifier sigId);
+
+		/// <summary>
+		/// called to remove a service effect specification from componentmodel.
+		/// </summary>
+		/// <param name="seffId">the id of the seff</param>
+		void RemoveServiceEffectSpecification(ISeffIdentifier seffId);
 
 		/// <summary>
 		/// called to add a protocol to the interfaces that is specified by the given interface id.

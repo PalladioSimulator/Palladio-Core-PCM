@@ -37,6 +37,8 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         
         private AssemblyConnectorsDataTable tableAssemblyConnectors;
         
+        private SeffsDataTable tableSeffs;
+        
         private DataRelation relationComponentsRoles;
         
         private DataRelation relationInterfacesRoles;
@@ -62,6 +64,10 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         private DataRelation relationCompRelAsmConProv;
         
         private DataRelation relationCompRelAsmConReq;
+        
+        private DataRelation relationRolesSeffs;
+        
+        private DataRelation relationSignaturesSeffs;
         
         public ModelDataSet() {
             this.InitClass();
@@ -98,6 +104,9 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                 }
                 if ((ds.Tables["AssemblyConnectors"] != null)) {
                     this.Tables.Add(new AssemblyConnectorsDataTable(ds.Tables["AssemblyConnectors"]));
+                }
+                if ((ds.Tables["Seffs"] != null)) {
+                    this.Tables.Add(new SeffsDataTable(ds.Tables["Seffs"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -181,6 +190,14 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
         }
         
+        [System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SeffsDataTable Seffs {
+            get {
+                return this.tableSeffs;
+            }
+        }
+        
         public override DataSet Clone() {
             ModelDataSet cln = ((ModelDataSet)(base.Clone()));
             cln.InitVars();
@@ -222,6 +239,9 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
             if ((ds.Tables["AssemblyConnectors"] != null)) {
                 this.Tables.Add(new AssemblyConnectorsDataTable(ds.Tables["AssemblyConnectors"]));
+            }
+            if ((ds.Tables["Seffs"] != null)) {
+                this.Tables.Add(new SeffsDataTable(ds.Tables["Seffs"]));
             }
             this.DataSetName = ds.DataSetName;
             this.Prefix = ds.Prefix;
@@ -273,6 +293,10 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             if ((this.tableAssemblyConnectors != null)) {
                 this.tableAssemblyConnectors.InitVars();
             }
+            this.tableSeffs = ((SeffsDataTable)(this.Tables["Seffs"]));
+            if ((this.tableSeffs != null)) {
+                this.tableSeffs.InitVars();
+            }
             this.relationComponentsRoles = this.Relations["ComponentsRoles"];
             this.relationInterfacesRoles = this.Relations["InterfacesRoles"];
             this.relationInterfacesSignatures = this.Relations["InterfacesSignatures"];
@@ -286,6 +310,8 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             this.relationRolesAssemblyConnectors1 = this.Relations["RolesAssemblyConnectors1"];
             this.relationCompRelAsmConProv = this.Relations["CompRelAsmConProv"];
             this.relationCompRelAsmConReq = this.Relations["CompRelAsmConReq"];
+            this.relationRolesSeffs = this.Relations["RolesSeffs"];
+            this.relationSignaturesSeffs = this.Relations["SignaturesSeffs"];
         }
         
         private void InitClass() {
@@ -311,6 +337,8 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             this.Tables.Add(this.tableDelegationConnectors);
             this.tableAssemblyConnectors = new AssemblyConnectorsDataTable();
             this.Tables.Add(this.tableAssemblyConnectors);
+            this.tableSeffs = new SeffsDataTable();
+            this.Tables.Add(this.tableSeffs);
             ForeignKeyConstraint fkc;
             fkc = new ForeignKeyConstraint("InterfacesSignatures", new DataColumn[] {
                         this.tableInterfaces.guidColumn}, new DataColumn[] {
@@ -403,6 +431,20 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             fkc.AcceptRejectRule = System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = System.Data.Rule.Cascade;
             fkc.UpdateRule = System.Data.Rule.Cascade;
+            fkc = new ForeignKeyConstraint("RolesSeffs", new DataColumn[] {
+                        this.tableRoles.idColumn}, new DataColumn[] {
+                        this.tableSeffs.fk_roleColumn});
+            this.tableSeffs.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.Cascade;
+            fkc.DeleteRule = System.Data.Rule.Cascade;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
+            fkc = new ForeignKeyConstraint("SignaturesSeffs", new DataColumn[] {
+                        this.tableSignatures.guidColumn}, new DataColumn[] {
+                        this.tableSeffs.fk_signatureColumn});
+            this.tableSeffs.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = System.Data.AcceptRejectRule.Cascade;
+            fkc.DeleteRule = System.Data.Rule.Cascade;
+            fkc.UpdateRule = System.Data.Rule.Cascade;
             this.relationComponentsRoles = new DataRelation("ComponentsRoles", new DataColumn[] {
                         this.tableComponents.guidColumn}, new DataColumn[] {
                         this.tableRoles.fk_compColumn}, false);
@@ -455,6 +497,14 @@ namespace Palladio.ComponentModel.ModelDataManagement {
                         this.tableCompRelations.idColumn}, new DataColumn[] {
                         this.tableAssemblyConnectors.fk_req_comp_relColumn}, false);
             this.Relations.Add(this.relationCompRelAsmConReq);
+            this.relationRolesSeffs = new DataRelation("RolesSeffs", new DataColumn[] {
+                        this.tableRoles.idColumn}, new DataColumn[] {
+                        this.tableSeffs.fk_roleColumn}, false);
+            this.Relations.Add(this.relationRolesSeffs);
+            this.relationSignaturesSeffs = new DataRelation("SignaturesSeffs", new DataColumn[] {
+                        this.tableSignatures.guidColumn}, new DataColumn[] {
+                        this.tableSeffs.fk_signatureColumn}, false);
+            this.Relations.Add(this.relationSignaturesSeffs);
         }
         
         private bool ShouldSerializeComponents() {
@@ -489,6 +539,10 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             return false;
         }
         
+        private bool ShouldSerializeSeffs() {
+            return false;
+        }
+        
         private void SchemaChanged(object sender, System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -510,6 +564,8 @@ namespace Palladio.ComponentModel.ModelDataManagement {
         public delegate void DelegationConnectorsRowChangeEventHandler(object sender, DelegationConnectorsRowChangeEvent e);
         
         public delegate void AssemblyConnectorsRowChangeEventHandler(object sender, AssemblyConnectorsRowChangeEvent e);
+        
+        public delegate void SeffsRowChangeEventHandler(object sender, SeffsRowChangeEvent e);
         
         [System.Diagnostics.DebuggerStepThrough()]
         public class ComponentsDataTable : DataTable, System.Collections.IEnumerable {
@@ -1151,6 +1207,10 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             public void Setfk_ifaceNull() {
                 this[this.tableSignatures.fk_ifaceColumn] = System.Convert.DBNull;
             }
+            
+            public SeffsRow[] GetSeffsRows() {
+                return ((SeffsRow[])(this.GetChildRows(this.Table.ChildRelations["SignaturesSeffs"])));
+            }
         }
         
         [System.Diagnostics.DebuggerStepThrough()]
@@ -1445,6 +1505,10 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             
             public AssemblyConnectorsRow[] GetAssemblyConnectorsRowsByRolesAssemblyConnectors1() {
                 return ((AssemblyConnectorsRow[])(this.GetChildRows(this.Table.ChildRelations["RolesAssemblyConnectors1"])));
+            }
+            
+            public SeffsRow[] GetSeffsRows() {
+                return ((SeffsRow[])(this.GetChildRows(this.Table.ChildRelations["RolesSeffs"])));
             }
         }
         
@@ -2593,6 +2657,282 @@ namespace Palladio.ComponentModel.ModelDataManagement {
             }
             
             public AssemblyConnectorsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            public DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class SeffsDataTable : DataTable, System.Collections.IEnumerable {
+            
+            private DataColumn columnguid;
+            
+            private DataColumn columnfk_role;
+            
+            private DataColumn columnfk_signature;
+            
+            internal SeffsDataTable() : 
+                    base("Seffs") {
+                this.InitClass();
+            }
+            
+            internal SeffsDataTable(DataTable table) : 
+                    base(table.TableName) {
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+                this.DisplayExpression = table.DisplayExpression;
+            }
+            
+            [System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            internal DataColumn guidColumn {
+                get {
+                    return this.columnguid;
+                }
+            }
+            
+            internal DataColumn fk_roleColumn {
+                get {
+                    return this.columnfk_role;
+                }
+            }
+            
+            internal DataColumn fk_signatureColumn {
+                get {
+                    return this.columnfk_signature;
+                }
+            }
+            
+            public SeffsRow this[int index] {
+                get {
+                    return ((SeffsRow)(this.Rows[index]));
+                }
+            }
+            
+            public event SeffsRowChangeEventHandler SeffsRowChanged;
+            
+            public event SeffsRowChangeEventHandler SeffsRowChanging;
+            
+            public event SeffsRowChangeEventHandler SeffsRowDeleted;
+            
+            public event SeffsRowChangeEventHandler SeffsRowDeleting;
+            
+            public void AddSeffsRow(SeffsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            public SeffsRow AddSeffsRow(string guid, RolesRow parentRolesRowByRolesSeffs, SignaturesRow parentSignaturesRowBySignaturesSeffs) {
+                SeffsRow rowSeffsRow = ((SeffsRow)(this.NewRow()));
+                rowSeffsRow.ItemArray = new object[] {
+                        guid,
+                        parentRolesRowByRolesSeffs[0],
+                        parentSignaturesRowBySignaturesSeffs[0]};
+                this.Rows.Add(rowSeffsRow);
+                return rowSeffsRow;
+            }
+            
+            public SeffsRow FindByguid(string guid) {
+                return ((SeffsRow)(this.Rows.Find(new object[] {
+                            guid})));
+            }
+            
+            public System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            
+            public override DataTable Clone() {
+                SeffsDataTable cln = ((SeffsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            protected override DataTable CreateInstance() {
+                return new SeffsDataTable();
+            }
+            
+            internal void InitVars() {
+                this.columnguid = this.Columns["guid"];
+                this.columnfk_role = this.Columns["fk_role"];
+                this.columnfk_signature = this.Columns["fk_signature"];
+            }
+            
+            private void InitClass() {
+                this.columnguid = new DataColumn("guid", typeof(string), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnguid);
+                this.columnfk_role = new DataColumn("fk_role", typeof(long), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_role);
+                this.columnfk_signature = new DataColumn("fk_signature", typeof(string), null, System.Data.MappingType.Attribute);
+                this.Columns.Add(this.columnfk_signature);
+                this.Constraints.Add(new UniqueConstraint("PK_SEFF", new DataColumn[] {
+                                this.columnguid}, true));
+                this.columnguid.AllowDBNull = false;
+                this.columnguid.Unique = true;
+                this.columnguid.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnfk_role.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+                this.columnfk_signature.Namespace = "http://tempuri.org/ModelDataSet.xsd";
+            }
+            
+            public SeffsRow NewSeffsRow() {
+                return ((SeffsRow)(this.NewRow()));
+            }
+            
+            protected override DataRow NewRowFromBuilder(DataRowBuilder builder) {
+                return new SeffsRow(builder);
+            }
+            
+            protected override System.Type GetRowType() {
+                return typeof(SeffsRow);
+            }
+            
+            protected override void OnRowChanged(DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SeffsRowChanged != null)) {
+                    this.SeffsRowChanged(this, new SeffsRowChangeEvent(((SeffsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowChanging(DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SeffsRowChanging != null)) {
+                    this.SeffsRowChanging(this, new SeffsRowChangeEvent(((SeffsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowDeleted(DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SeffsRowDeleted != null)) {
+                    this.SeffsRowDeleted(this, new SeffsRowChangeEvent(((SeffsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            protected override void OnRowDeleting(DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SeffsRowDeleting != null)) {
+                    this.SeffsRowDeleting(this, new SeffsRowChangeEvent(((SeffsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            public void RemoveSeffsRow(SeffsRow row) {
+                this.Rows.Remove(row);
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class SeffsRow : DataRow {
+            
+            private SeffsDataTable tableSeffs;
+            
+            internal SeffsRow(DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSeffs = ((SeffsDataTable)(this.Table));
+            }
+            
+            public string guid {
+                get {
+                    return ((string)(this[this.tableSeffs.guidColumn]));
+                }
+                set {
+                    this[this.tableSeffs.guidColumn] = value;
+                }
+            }
+            
+            public long fk_role {
+                get {
+                    try {
+                        return ((long)(this[this.tableSeffs.fk_roleColumn]));
+                    }
+                    catch (InvalidCastException e) {
+                        throw new StrongTypingException("Der Wert kann nicht ermittelt werden, da er DBNull ist.", e);
+                    }
+                }
+                set {
+                    this[this.tableSeffs.fk_roleColumn] = value;
+                }
+            }
+            
+            public string fk_signature {
+                get {
+                    try {
+                        return ((string)(this[this.tableSeffs.fk_signatureColumn]));
+                    }
+                    catch (InvalidCastException e) {
+                        throw new StrongTypingException("Der Wert kann nicht ermittelt werden, da er DBNull ist.", e);
+                    }
+                }
+                set {
+                    this[this.tableSeffs.fk_signatureColumn] = value;
+                }
+            }
+            
+            public RolesRow RolesRow {
+                get {
+                    return ((RolesRow)(this.GetParentRow(this.Table.ParentRelations["RolesSeffs"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["RolesSeffs"]);
+                }
+            }
+            
+            public SignaturesRow SignaturesRow {
+                get {
+                    return ((SignaturesRow)(this.GetParentRow(this.Table.ParentRelations["SignaturesSeffs"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["SignaturesSeffs"]);
+                }
+            }
+            
+            public bool Isfk_roleNull() {
+                return this.IsNull(this.tableSeffs.fk_roleColumn);
+            }
+            
+            public void Setfk_roleNull() {
+                this[this.tableSeffs.fk_roleColumn] = System.Convert.DBNull;
+            }
+            
+            public bool Isfk_signatureNull() {
+                return this.IsNull(this.tableSeffs.fk_signatureColumn);
+            }
+            
+            public void Setfk_signatureNull() {
+                this[this.tableSeffs.fk_signatureColumn] = System.Convert.DBNull;
+            }
+        }
+        
+        [System.Diagnostics.DebuggerStepThrough()]
+        public class SeffsRowChangeEvent : EventArgs {
+            
+            private SeffsRow eventRow;
+            
+            private DataRowAction eventAction;
+            
+            public SeffsRowChangeEvent(SeffsRow row, DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            public SeffsRow Row {
                 get {
                     return this.eventRow;
                 }

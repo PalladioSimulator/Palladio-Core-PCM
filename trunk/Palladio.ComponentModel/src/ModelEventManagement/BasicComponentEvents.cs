@@ -10,6 +10,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/07/29 16:02:47  joemal
+	/// now service effect specifications can be added ...
+	///
 	/// Revision 1.3  2005/06/05 10:40:06  joemal
 	/// - components now can be added to more than one container
 	///
@@ -25,6 +28,8 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// </remarks>
 	public class BasicComponentEvents : ComponentEvents
 	{
+		#region constructor
+
 		/// <summary>
 		/// called to create a eventstructure for a basic component
 		/// </summary>
@@ -33,5 +38,46 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		{
 		}
 
+		#endregion
+
+		#region notify methods
+
+		/// <summary>
+		/// called to fire the event
+		/// </summary>
+		/// <param name="sender">the sender</param>
+		/// <param name="args">the arguments</param>
+		internal void NotifySeffAdded(object sender, SeffBuildEventArgs args)
+		{
+			if (SeffAddedEvent != null)
+				SeffAddedEvent(sender, args);
+		}
+
+		/// <summary>
+		/// called to fire the event
+		/// </summary>
+		/// <param name="sender">the sender</param>
+		/// <param name="args">the arguments</param>
+		internal void NotifySeffRemoved(object sender, SeffBuildEventArgs args)
+		{
+			if (SeffRemovedEvent != null)
+				SeffRemovedEvent(sender, args);
+		}
+
+		#endregion
+		
+		#region events
+
+		/// <summary>
+		/// fired, when a seff has been added to the basic component
+		/// </summary>
+		public event SeffBuildEventHandler SeffAddedEvent;
+
+		/// <summary>
+		/// fired, when a seff has been removed from a basic component
+		/// </summary>
+		public event SeffBuildEventHandler SeffRemovedEvent;
+
+		#endregion
 	}
 }

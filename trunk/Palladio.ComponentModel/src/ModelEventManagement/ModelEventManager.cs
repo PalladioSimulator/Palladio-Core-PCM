@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/07/29 16:02:47  joemal
+	/// now service effect specifications can be added ...
+	///
 	/// Revision 1.6  2005/06/17 18:32:57  joemal
 	/// data structure connection point replace ifaceid and componentid
 	///
@@ -230,7 +233,6 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="ifaceID">the interface, to which the protocol belongs</param>
 		public void UnregisterProtocol(IProtocol protocol, IInterfaceIdentifier ifaceID)
 		{
-			this.eventStructures.Remove(protocol.ID);
 			this.GetInterfaceEvents(ifaceID).NotifyProtocolRemovedEvent(this,new ProtocolBuildEventArgs(protocol));
 		}
 
@@ -285,66 +287,6 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			}
 		}
 
-/*		/// <summary>
-		/// called to register a reguires delegation connector.
-		/// </summary>
-		/// <param name="connection">the connector</param>
-		/// <param name="innerCompID">the id of the inner component</param>
-		/// <param name="innerIFaceID">the id of the interface of the inner component</param>
-		/// <param name="outerCompID">the id of the outer component</param>
-		/// <param name="outerIFaceID">the id of the interface of the outer component</param>
-		/// <exception cref="EntityNotFoundException">one of the entities could not be found.</exception>
-		public void RegisterRequiresDelegation(IConnection connection, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID, IComponentIdentifier outerCompID, IInterfaceIdentifier outerIFaceID)
-		{
-			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
-			this.GetCompositeComponentEvents(outerCompID).NotifyDelegationConnectorAdded(this,
-				new DelegationConnectorBuildEventArgs(connection,innerCompID,innerIFaceID,outerCompID,outerIFaceID,
-				InterfaceRole.REQUIRES));
-		}
-
-		/// <summary>
-		/// called to register a provides delegation connector.
-		/// </summary>
-		/// <param name="connection">the connector</param>
-		/// <param name="innerCompID">the id of the inner component</param>
-		/// <param name="innerIFaceID">the id of the interface of the inner component</param>
-		/// <param name="outerCompID">the id of the outer component</param>
-		/// <param name="outerIFaceID">the id of the interface of the outer component</param>
-		/// <exception cref="EntityNotFoundException">one of the entities could not be found.</exception>
-		public void RegisterProvidesDelegation(IConnection connection, IComponentIdentifier outerCompID, IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
-		{
-			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
-			this.GetCompositeComponentEvents(outerCompID).NotifyDelegationConnectorAdded(this,
-				new DelegationConnectorBuildEventArgs(connection,innerCompID,innerIFaceID,outerCompID,outerIFaceID,
-				InterfaceRole.PROVIDES));
-		}
-
-		/// <summary>
-		/// called to register a new assembly connector.
-		/// </summary>
-		/// <param name="connection">the connector</param>
-		/// <param name="parentID">the id of the component that contains the connector</param>
-		/// <param name="reqCompID">the id of the requiring component</param>
-		/// <param name="reqIFaceID">the id of the requiring components interface</param>
-		/// <param name="provCompID">the id of the providing component</param>
-		/// <param name="provIFaceID">the id of the providing components interface</param>
-		/// <exception cref="EntityNotFoundException">the parent component could not be found.</exception>
-		public void RegisterAssemblyConnection(IConnection connection, IComponentIdentifier parentID,
-			IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID, IComponentIdentifier provCompID, 
-			IInterfaceIdentifier provIFaceID)
-		{
-			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
-			if (parentID == null)
-				this.staticViewEvents.NotifyAssemblyConnectorAdded(this,
-					new AssemblyConnectorBuildEventArgs(connection,provCompID,provIFaceID,reqCompID,reqIFaceID));
-			else
-			{
-				IComponent parentC = (IComponent) entityHashtable[parentID];
-				this.GetCompositeComponentEvents(parentC.ComponentID).NotifyAssemblyConnectorAdded(this,
-					new AssemblyConnectorBuildEventArgs(connection,provCompID,provIFaceID,reqCompID,reqIFaceID));
-			}
-		}*/
-
 		/// <summary>
 		/// called to unregister an assembly connector.
 		/// </summary>
@@ -359,6 +301,32 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			else
 				this.GetCompositeComponentEvents(compositeCompID).
 					NotifyConnectorRemoved(this,new ConnectorRemovedEventArgs(connection));
+		}
+
+		/// <summary>
+		/// called to register a new seff
+		/// </summary>
+		/// <param name="seff">the service effect specification</param>
+		/// <param name="conPoint">the component and interface</param>
+		/// <param name="sigId">the signature</param>
+		public void RegisterSeff(IServiceEffectSpecification seff, ConnectionPoint conPoint,
+			ISignatureIdentifier sigId)
+		{
+			this.GetBasicComponentEvents(conPoint.componentID).NotifySeffAdded(this,
+				new SeffBuildEventArgs(seff,conPoint.ifaceID,sigId));			
+		}
+
+		/// <summary>
+		/// called to unregister a service effect specification.
+		/// </summary>
+		/// <param name="seff">the seff to be unregistered</param>
+		/// <param name="conPoint">the component and interface</param>
+		/// <param name="sigId">the signature</param>
+		public void UnregisterSeff(IServiceEffectSpecification seff, ConnectionPoint conPoint, 
+			ISignatureIdentifier sigId)
+		{
+			this.GetBasicComponentEvents(conPoint.componentID).NotifySeffRemoved(this,
+				new SeffBuildEventArgs(seff,conPoint.ifaceID,sigId));			
 		}
 
 		#endregion

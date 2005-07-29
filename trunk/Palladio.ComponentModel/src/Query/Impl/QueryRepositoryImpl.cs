@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/07/29 16:02:57  joemal
+	/// now service effect specifications can be added ...
+	///
 	/// Revision 1.3  2005/06/25 16:54:44  joemal
 	/// some more queries are need for the xml serlialization
 	///
@@ -45,7 +48,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="entityID">the id of the entity</param>
 		/// <returns>the entity or null if the entity could not be found in the model</returns>
-		public IComponentModelEntity GetEntity(IIdentifier entityID)
+		public IIdentifiable GetEntity(IIdentifier entityID)
 		{
 			return this.getModelEntity(entityID);
 		}
@@ -154,7 +157,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		private ArrayList AllEntities(Type type)
 		{
 			ArrayList result = new ArrayList();
-			foreach(IComponentModelEntity entity in this.Entities)
+			foreach(IIdentifiable entity in this.Entities)
 				if (type.IsInstanceOfType(entity)) result.Add(entity);				
 
 			return result;

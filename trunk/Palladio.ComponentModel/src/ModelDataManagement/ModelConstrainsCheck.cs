@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/07/29 16:02:10  joemal
+	/// now service effect specifications can be added ...
+	///
 	/// Revision 1.6  2005/06/17 18:31:43  joemal
 	/// changes in the connection tables
 	///
@@ -147,6 +150,34 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		}
 
 		/// <summary>
+		/// called to check the constrains before adding a seff to a basic component
+		/// </summary>
+		/// <param name="seff">the seff to be added</param>
+		/// <param name="conPoint">the combination of interface and component</param>
+		/// <param name="sigId">the id of the signature</param>
+		/// <exception cref="EntityAlreadyExistsException">a seff with given id already exists in cm</exception>
+		/// <exception cref="InterfaceNotFoundException">the interface could not be found in cm</exception>
+		/// <exception cref="ComponentNotFoundException">the component could not be found in cm</exception>
+		/// <exception cref="SignatureNotFoundException">the signature could not be found in cm</exception>
+		/// <exception cref="InterfaceNotFromComponentException">the interface is not bound to the component</exception>
+		public void AddSeffCheck(IServiceEffectSpecification seff, ConnectionPoint conPoint, 
+			ISignatureIdentifier sigId)
+		{
+			EntityAlreadyExistsCheck(seff.SeffID);
+			InterfaceExitsCheck(conPoint.ifaceID);
+			ComponentExitsCheck(conPoint.componentID);
+
+			IComponent comp = (IComponent) entities[conPoint.componentID];
+			//component is not from type basic
+			if (comp.Type != ComponentType.BASIC)
+				throw new WrongComponentTypeException(comp.ComponentID);
+
+			SignatureExitsCheck(sigId);
+			if (QueryRole(conPoint,InterfaceRole.PROVIDES)==null)
+				throw new InterfaceNotFromComponentException(conPoint.componentID,conPoint.ifaceID);
+		}
+
+		/// <summary>
 		/// check the constrains before adding a protocol an interface
 		/// </summary>
 		/// <param name="ifaceId">the id of the interface</param>
@@ -262,6 +293,13 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		{
 			if (!entities.ContainsKey(ifaceID.Key))
 				throw new InterfaceNotFoundException(ifaceID);			
+		}
+
+		//check whether the given signature exits in cm
+		private void SignatureExitsCheck(ISignatureIdentifier sigID)
+		{
+			if (!entities.ContainsKey(sigID.Key))
+				throw new SignatureNotFoundException(sigID);			
 		}
 
 		//check whether the given component exits in cm

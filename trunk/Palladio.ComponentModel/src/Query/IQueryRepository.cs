@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Query
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/07/29 16:02:57  joemal
+	/// now service effect specifications can be added ...
+	///
 	/// Revision 1.3  2005/06/25 16:54:44  joemal
 	/// some more queries are need for the xml serlialization
 	///
@@ -31,7 +34,7 @@ namespace Palladio.ComponentModel.Query
 		/// </summary>
 		/// <param name="entityID">the id of the entity</param>
 		/// <returns>the entity or null if the entity could not be found in the model</returns>
-		IComponentModelEntity GetEntity(IIdentifier entityID);
+		IIdentifiable GetEntity(IIdentifier entityID);
 
 		/// <summary>
 		/// returns true, if an entity with given id could be found in the model.

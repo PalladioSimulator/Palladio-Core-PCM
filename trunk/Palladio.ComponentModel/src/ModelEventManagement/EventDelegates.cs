@@ -62,6 +62,11 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// </summary>
 	public delegate void ProtocolBuildEventHandler(object sender, ProtocolBuildEventArgs args);
 
+	/// <summary>
+	/// defines the eventhandler, that is called, when a seff has been added to or removed from a component
+	/// </summary>
+	public delegate void SeffBuildEventHandler(object sender, SeffBuildEventArgs args);
+
 	#endregion
 
 	#region eventargs
@@ -440,6 +445,58 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			{
 				return this.protocol;
 			}
+		}
+	}
+
+	/// <summary>
+	/// This is the event argument structure of the SeffBuildEventHandler.
+	/// </summary>
+	public class SeffBuildEventArgs
+	{
+		//the protocol
+		private IServiceEffectSpecification seff;
+
+		//the component and interface
+		private IInterfaceIdentifier ifaceID;
+
+		//the signature
+		private ISignatureIdentifier sigId;
+
+		/// <summary>
+		/// called to create new args
+		/// </summary>
+		/// <param name="seff">the seff</param>
+		/// <param name="ifaceID">the id of the interface</param>
+		/// <param name="sigId">the signature</param>
+		internal SeffBuildEventArgs(IServiceEffectSpecification seff, IInterfaceIdentifier ifaceID, ISignatureIdentifier sigId)
+		{
+			this.seff = seff;
+			this.ifaceID = ifaceID;
+			this.sigId = sigId;
+		}
+
+		/// <summary>
+		/// returns the service effectspecification
+		/// </summary>
+		public IServiceEffectSpecification Seff
+		{
+			get { return seff; }
+		}
+
+		/// <summary>
+		/// returns the id of the interface
+		/// </summary>
+		public IInterfaceIdentifier IfaceId
+		{
+			get { return ifaceID; }
+		}
+
+		/// <summary>
+		/// the id of the signature
+		/// </summary>
+		public ISignatureIdentifier SigId
+		{
+			get { return sigId; }
 		}
 	}
 	#endregion

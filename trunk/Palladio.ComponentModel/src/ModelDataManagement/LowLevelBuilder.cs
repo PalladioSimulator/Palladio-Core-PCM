@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2005/07/29 16:02:10  joemal
+	/// now service effect specifications can be added ...
+	///
 	/// Revision 1.15  2005/06/17 18:31:43  joemal
 	/// changes in the connection tables
 	///
@@ -126,6 +129,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 				new ModelDataSet.AssemblyConnectorsRowChangeEventHandler(AssemblyConnectorDeleted);
 			modelDataset.Roles.RolesRowDeleted +=new ModelDataSet.RolesRowChangeEventHandler(InterfaceUnbound);
 			modelDataset.CompRelations.CompRelationsRowDeleted +=new ModelDataSet.CompRelationsRowChangeEventHandler(CompRelationsDeleted);
+			modelDataset.Seffs.SeffsRowDeleted +=new Palladio.ComponentModel.ModelDataManagement.ModelDataSet.SeffsRowChangeEventHandler(Seffs_SeffsRowDeleted);
 		}
 
 		//clear the given dataset table
@@ -276,7 +280,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 				new InternalEntityIdentifier(ifaceKey));
 		}
 
-		//called when a component relation 
+		//called when a component relation has been removed
 		private void CompRelationsDeleted(object sender, ModelDataSet.CompRelationsRowChangeEvent e)
 		{
 			IComponentIdentifier child = new InternalEntityIdentifier((string)e.Row["fk_child",DataRowVersion.Original]);
@@ -286,6 +290,24 @@ namespace Palladio.ComponentModel.ModelDataManagement
 				parent = new InternalEntityIdentifier((string)e.Row["fk_parent",DataRowVersion.Original]);
 
 			entityReg.UnregisterComponentRelation(child,parent);
+		}
+
+		//called when a seff has been removed
+		private void Seffs_SeffsRowDeleted(object sender, ModelDataSet.SeffsRowChangeEvent e)
+		{
+			string seffKey = (string)e.Row["guid",DataRowVersion.Original];
+			string sigKey = (string)e.Row["fk_signature",DataRowVersion.Original];
+			long roleKey = (long)e.Row["fk_role",DataRowVersion.Original];
+
+			ModelDataSet.RolesRow rolesRow = modelDataset.Roles.FindByid(roleKey);
+			IComponentIdentifier compID = new InternalEntityIdentifier(rolesRow.fk_comp);
+			IInterfaceIdentifier ifaceID = new InternalEntityIdentifier(rolesRow.fk_iface);
+			ISignatureIdentifier sigID = new InternalEntityIdentifier(sigKey);
+
+			ConnectionPoint conPoint = new ConnectionPoint(ifaceID,compID);
+
+			entityReg.UnregisterSeff((IServiceEffectSpecification)entityHashtable[seffKey],conPoint,sigID);			
+			entityHashtable.RemoveEntity(seffKey);			
 		}
 
 		#endregion
@@ -580,6 +602,49 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		}
 
 		/// <summary>
+		/// called to add a service effect specification to a basic component. The seff belongs to a signature of
+		/// an interface that is connected as provides interface to the component.
+		/// </summary>
+		/// <param name="seff">the service effect specification</param>
+		/// <param name="conPoint">the combination of an interface and a component</param>
+		/// <param name="sigId">the signature of the interface</param>
+		/// <exception cref="EntityAlreadyExistsException">a seff with given id already exists in cm</exception>
+		/// <exception cref="InterfaceNotFoundException">the interface could not be found in cm</exception>
+		/// <exception cref="ComponentNotFoundException">the component could not be found in cm</exception>
+		/// <exception cref="SignatureNotFoundException">the signature could not be found in cm</exception>
+		/// <exception cref="InterfaceNotFromComponentException">the interface is not bound to the component</exception>		
+		public void AddServiceEffectSpecification(IServiceEffectSpecification seff, ConnectionPoint conPoint, 
+			ISignatureIdentifier sigId)
+		{
+			modelCheck.AddSeffCheck(seff,conPoint,sigId);
+			ModelDataSet.RolesRow rolesRow = QueryRole(conPoint, InterfaceRole.PROVIDES);
+
+			ModelDataSet.SeffsRow newRow = (ModelDataSet.SeffsRow) SeffsTable.NewRow();
+			newRow.guid = seff.SeffID.Key;
+			newRow.fk_role = rolesRow.id;
+			newRow.fk_signature = sigId.Key;
+
+			SeffsTable.AddSeffsRow(newRow);
+
+			SeffsTable.AcceptChanges();
+
+			entityHashtable.AddEntity(seff);
+			entityReg.RegisterSeff(seff,conPoint,sigId);
+		}
+
+		/// <summary>
+		/// called to remove a service effect specification from componentmodel.
+		/// </summary>
+		/// <param name="seffId">the id of the seff</param>
+		public void RemoveServiceEffectSpecification(ISeffIdentifier seffId)
+		{
+			ModelDataSet.ProtocolsRow row = ProtocolsTable.FindByguid(seffId.Key);
+			if (row == null) return;
+			row.Delete();
+			modelDataset.AcceptChanges();
+		}
+
+		/// <summary>
 		/// called to add a protocol to the interfaces that is specified by the given interface id.
 		/// </summary>
 		/// <param name="protocol">the protocol to be added</param>
@@ -651,6 +716,15 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			}
 		}
 		
+		//returns the table of the protocols
+		private ModelDataSet.SeffsDataTable SeffsTable
+		{
+			get
+			{
+				return modelDataset.Seffs;
+			}
+		}
+		
 		//returns the table of the roles
 		private ModelDataSet.RolesDataTable RolesTable
 		{
@@ -705,5 +779,6 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			}
 		}
 		#endregion
+
 	}
 }

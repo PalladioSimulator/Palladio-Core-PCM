@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/07/29 16:02:57  joemal
+	/// now service effect specifications can be added ...
+	///
 	/// Revision 1.7  2005/06/25 16:54:44  joemal
 	/// some more queries are need for the xml serlialization
 	///
@@ -81,9 +84,9 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="entityId">the identifier</param>
 		/// <returns>the entity or null if the entity could not be found</returns>
-		protected IComponentModelEntity getModelEntity(IIdentifier entityId)
+		protected IIdentifiable getModelEntity(IIdentifier entityId)
 		{
-			return (IComponentModelEntity) entityHashtable[entityId];
+			return entityHashtable[entityId];
 		}
 
 		/// <summary>
@@ -91,9 +94,9 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// </summary>
 		/// <param name="entitykey">the key of the identifier</param>
 		/// <returns>the entity or null if the entity could not be found</returns>
-		protected IComponentModelEntity getModelEntity(string entitykey)
+		protected IIdentifiable getModelEntity(string entitykey)
 		{
-			return (IComponentModelEntity) entityHashtable[entitykey];
+			return entityHashtable[entitykey];
 		}
 
 		/// <summary>

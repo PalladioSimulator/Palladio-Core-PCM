@@ -1,8 +1,10 @@
 using System;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
+using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 {
@@ -14,6 +16,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/07/29 16:01:33  joemal
+	/// now service effect specifications can be added ...
+	///
 	/// Revision 1.11  2005/06/05 10:37:57  joemal
 	/// - replace the entities by the ids
 	/// - components now can be added to more than one container
@@ -106,5 +111,31 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder.TypeLevelBuilder
 		}
 
 		#endregion
+
+		/// <summary>
+		/// call to add a service effect specification to the builders basic component.
+		/// </summary>
+		/// <param name="seff">the service effect specification</param>
+		/// <param name="ifaceID">the id of the interface that holds the signature of the seff.</param>
+		/// <param name="sigID">the id of the signature</param>
+		/// <exception cref="InterfaceNotFromComponentException">a seff with given id already exists in cm</exception>
+		/// <exception cref="EntityAlreadyExistsException">the interface could not be found in cm</exception>
+		/// <exception cref="InterfaceNotFoundException">the signature could not be found in cm</exception>
+		/// <exception cref="SignatureNotFoundException">the interface is not bound to the component</exception>		
+		public void AddServiceEffectSpecification(IServiceEffectSpecification seff, IInterfaceIdentifier ifaceID, 
+			ISignatureIdentifier sigID)
+		{
+			base.ModelDataManager.LowLevelBuilder.
+				AddServiceEffectSpecification(seff,new ConnectionPoint(ifaceID,ComponentId),sigID);
+		}
+
+		/// <summary>
+		/// called to remove the service effect specification that matchs to given id.
+		/// </summary>
+		/// <param name="seffId">the id of the seff to be removed</param>
+		public void RemoveServiceEffectSpecification(ISeffIdentifier seffId)
+		{
+			base.ModelDataManager.LowLevelBuilder.RemoveServiceEffectSpecification(seffId);
+		}
 	}
 }

@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/07/29 16:02:47  joemal
+	/// now service effect specifications can be added ...
+	///
 	/// Revision 1.4  2005/06/17 18:32:57  joemal
 	/// data structure connection point replace ifaceid and componentid
 	///
@@ -149,5 +152,21 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="compositeCompID">the composite component, in which this connection is placed or null,
 		/// if this connection belongs to the top level of the model.</param>
 		void UnregisterConnection(IConnection connection, IComponentIdentifier compositeCompID);
+
+		/// <summary>
+		/// called to register a new seff
+		/// </summary>
+		/// <param name="seff">the service effect specification</param>
+		/// <param name="conPoint">the component and interface</param>
+		/// <param name="sigId">the signature</param>
+		void RegisterSeff(IServiceEffectSpecification seff, ConnectionPoint conPoint, ISignatureIdentifier sigId);
+
+		/// <summary>
+		/// called to unregister a service effect specification.
+		/// </summary>
+		/// <param name="seff">the seff to be unregistered</param>
+		/// <param name="conPoint">the component and interface</param>
+		/// <param name="sigId">the signature</param>
+		void UnregisterSeff(IServiceEffectSpecification seff, ConnectionPoint conPoint, ISignatureIdentifier sigId);
 	}
 }
