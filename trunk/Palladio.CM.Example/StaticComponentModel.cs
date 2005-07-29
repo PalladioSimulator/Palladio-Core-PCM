@@ -3,6 +3,9 @@ using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.Query.TypeLevel;
+using Palladio.FiniteStateMachines;
+using Palladio.FSMWrapper;
 using Palladio.Types;
 
 namespace Palladio.CM.Example
@@ -15,6 +18,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/07/29 16:00:12  joemal
+	/// add fsm wrapper project
+	///
 	/// Revision 1.8  2005/07/23 18:57:26  joemal
 	/// new implementation of IType
 	///
@@ -48,7 +54,7 @@ namespace Palladio.CM.Example
 		#region data
 
 		//holds the model environment
-		private IRootTypeLevelBuilder rootBuilder;
+		private ComponentModelEnvironment modelEnvironment;
 
 		#endregion
 
@@ -60,7 +66,7 @@ namespace Palladio.CM.Example
 		/// <param name="modelEnvironment">the model environment</param>
 		public StaticComponentModel(ComponentModelEnvironment modelEnvironment)
 		{
-			this.rootBuilder = modelEnvironment.BuilderManager.RootTypeLevelBuilder;			
+			this.modelEnvironment = modelEnvironment;			
 		}
 
 		#endregion
@@ -75,18 +81,40 @@ namespace Palladio.CM.Example
 			//- zwei interfaces werden erzeugt (rootBuilder.AddInterface("...");)
 			//- AddInterface gibt den Builder zu den Interfaces zurück, BuildIFaceWriter füllt das Interface mit Inhalt
 			//- BuildIFaceWriter gibt die ID des Interfaces zurück, wird noch benötigt
-			IInterfaceIdentifier wrIfaceID = BuildIFaceIWriter(rootBuilder.CreateInterface("IWriter"));
-			IInterfaceIdentifier wrbeIfaceID = BuildIFaceIWriterBackEnd(rootBuilder.CreateInterface("IWriterBackEnd"));
+			IInterfaceIdentifier wrIfaceID = BuildIFaceIWriter(RootBuilder.CreateInterface("IWriter"));
+			IInterfaceIdentifier wrbeIfaceID = BuildIFaceIWriterBackEnd(RootBuilder.CreateInterface("IWriterBackEnd"));
 
 			//- Auf ähnliche art und weise die Komponenten basteln
-			IComponentIdentifier wrCCID = BuildCC1(rootBuilder.AddNewCompositeComponent("WriteCC"), wrbeIfaceID,wrIfaceID);
-			IComponentIdentifier wrbeBCID = BuildBC1(rootBuilder.AddNewBasicComponent("WriterBackendBC"),wrbeIfaceID);
-			rootBuilder.AddAssemblyConnector("WR -> WR_BE",wrCCID,wrbeIfaceID,wrbeBCID,wrbeIfaceID);
+			IComponentIdentifier wrCCID = BuildCC1(RootBuilder.AddNewCompositeComponent("WriteCC"), wrbeIfaceID,wrIfaceID);
+			IComponentIdentifier wrbeBCID = BuildBC1(RootBuilder.AddNewBasicComponent("WriterBackendBC"),wrbeIfaceID);
+			RootBuilder.AddAssemblyConnector("WR -> WR_BE",wrCCID,wrbeIfaceID,wrbeBCID,wrbeIfaceID);
 		}
 
 		#endregion
 
 		#region private methods
+
+		/// <summary>
+		/// returns the root builder 
+		/// </summary>
+		private IRootBuilder RootBuilder
+		{
+			get
+			{
+				return this.modelEnvironment.BuilderManager.RootTypeLevelBuilder;
+			}
+		}
+
+		/// <summary>
+		/// called to return the type level query interface
+		/// </summary>
+		private IQueryTypeLevel Query
+		{
+			get
+			{
+				return this.modelEnvironment.Query.QueryTypeLevel;
+			}
+		}
 		
 		//creates the composite component cc1
 		private IComponentIdentifier BuildCC1(ICompositeComponentBuilder compositeComponentBuilder,
@@ -113,6 +141,8 @@ namespace Palladio.CM.Example
 		{
 			basicComponentTypeLevelBuilder.AddExistingInterfaceAsProvides(provIfaceID);
 			basicComponentTypeLevelBuilder.AddExistingInterfaceAsRequires(reqIFaceID);
+			ISignatureIdentifier sigId = this.Query.QueryInterface(provIfaceID).GetSignatures()[0];
+			basicComponentTypeLevelBuilder.AddServiceEffectSpecification(CreateSeffBC2(sigId,reqIFaceID),provIfaceID,sigId);
 			return basicComponentTypeLevelBuilder.Component.ComponentID;
 		}
 
@@ -121,6 +151,8 @@ namespace Palladio.CM.Example
 			IInterfaceIdentifier provIfaceID)
 		{
 			basicComponentTypeLevelBuilder.AddExistingInterfaceAsProvides(provIfaceID);
+			ISignatureIdentifier sigId = this.Query.QueryInterface(provIfaceID).GetSignatures()[0];
+			basicComponentTypeLevelBuilder.AddServiceEffectSpecification(CreateSeffBC1(),provIfaceID,sigId);
 			return basicComponentTypeLevelBuilder.Component.ComponentID;
 		}
 
@@ -138,6 +170,31 @@ namespace Palladio.CM.Example
 			levelBuilder.AddSignature("WriteToDisk").AppendParameter(TypesFactory.CreateStringType("System.string"),
 				"filename",ParameterModifierEnum.REF);
 			return levelBuilder.Interface.InterfaceID;
+		}
+
+		//called to create the seff of bc2
+		//the id of the signature and the id of the requires interface are used to create an input symbol for
+		//the FSMs transition between "StateA" and "StateB"
+		private IServiceEffectSpecification CreateSeffBC2(ISignatureIdentifier extSigIds, IInterfaceIdentifier reqIfaceIds)
+		{			
+			IEditableFiniteStateMachine fsm = FSMFactory.GetEditableFSM(FSMFactory.CreateEmptyFSM());
+			IState startState = FSMFactory.CreateDefaultState("StateA");
+			IState finalState = FSMFactory.CreateDefaultState("StateB");
+			IInput transitionInpKey = FSMWrapperFactory.CreateSignatureCall(reqIfaceIds,extSigIds);
+			fsm.AddInputSymbols(transitionInpKey);
+			fsm.AddStates(startState,finalState);
+			fsm.StartState = startState;
+			fsm.FinalStates = new IState[]{finalState};
+			fsm.AddTransition(startState.ID,transitionInpKey.ID,finalState.ID);
+
+			return FSMWrapperFactory.CreateFSMServiceEffectSpecification(fsm);
+		}
+
+		//called to create the seff of bc2
+		private IServiceEffectSpecification CreateSeffBC1()
+		{
+			IFiniteStateMachine fsm = FSMFactory.CreateFSM(FSMFactory.CreateDefaultState("StateA"));
+			return FSMWrapperFactory.CreateFSMServiceEffectSpecification(fsm);			
 		}
 
 		#endregion

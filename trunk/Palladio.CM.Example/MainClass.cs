@@ -19,6 +19,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/07/29 16:00:12  joemal
+	/// add fsm wrapper project
+	///
 	/// Revision 1.10  2005/07/23 18:57:26  joemal
 	/// new implementation of IType
 	///
@@ -77,7 +80,7 @@ namespace Palladio.CM.Example
 			//create the static view for the model
 			StaticView view = new StaticView(modelEnvironment);
 
-/*			Console.WriteLine("Start creating the model.");
+			Console.WriteLine("Start creating the model.");
 			//use the models builder to create a model
             new StaticComponentModel(modelEnvironment).Create();
 			Console.WriteLine("Model created. Press any key to repaint the model.");
@@ -95,7 +98,7 @@ namespace Palladio.CM.Example
 			Console.WriteLine("[Done]");
 			Console.WriteLine("Clear the model.");			
 			modelEnvironment.BuilderManager.RootTypeLevelBuilder.ClearAll();
-			Console.WriteLine("[Done]");*/
+			Console.WriteLine("[Done]");
 			Console.WriteLine("Try to load the xmlfile ..");
 			try 
 			{
