@@ -1,4 +1,6 @@
+using System;
 using Palladio.ComponentModel.ModelEntities;
+using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.CM.Example.Presentation
 {
@@ -10,6 +12,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/07/29 16:29:30  joemal
+	/// add protocols to example
+	///
 	/// Revision 1.3  2005/07/13 11:09:47  joemal
 	/// add clone methods
 	///
@@ -32,6 +37,7 @@ namespace Palladio.CM.Example.Presentation
 		/// <param name="repository">the repository</param>
 		public BasicComponent(IComponent comp, Repository repository) : base(comp, repository)
 		{
+			Init();
 		}
 
 		/// <summary>
@@ -39,7 +45,15 @@ namespace Palladio.CM.Example.Presentation
 		/// </summary>
 		/// <param name="component">the component to be copied</param>
 		private BasicComponent(BasicComponent component) : base(component)
-		{			
+		{		
+			Init();
+		}
+
+		private void Init()
+		{
+			BasicComponentEvents events = modelEnvironment.EventInterface.GetBasicComponentEvents(Model.ComponentID);
+			events.SeffAddedEvent +=new SeffBuildEventHandler(events_SeffAddedEvent);
+			events.SeffRemovedEvent += new SeffBuildEventHandler(events_SeffRemovedEvent);
 		}
 
 		/// <summary>
@@ -49,6 +63,18 @@ namespace Palladio.CM.Example.Presentation
 		public override object Clone()
 		{
 			return new BasicComponent(this);
+		}
+
+		//called when a seff has been added to the component
+		private void events_SeffAddedEvent(object sender, SeffBuildEventArgs args)
+		{
+			Console.WriteLine("Service effect specification added to the basic component "+this.Model.Name+".");
+		}
+
+		//called when a seff has been removed from the component
+		private void events_SeffRemovedEvent(object sender, SeffBuildEventArgs args)
+		{
+			Console.WriteLine("Service effect specification removed from the basic component "+this.Model.Name+".");
 		}
 	}
 }

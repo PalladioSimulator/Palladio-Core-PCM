@@ -19,6 +19,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/07/29 16:29:30  joemal
+	/// add protocols to example
+	///
 	/// Revision 1.11  2005/07/29 16:00:12  joemal
 	/// add fsm wrapper project
 	///
@@ -87,19 +90,19 @@ namespace Palladio.CM.Example
 
 			Console.ReadLine();
 
-			Console.WriteLine("Repaint the model.");			
+//			Console.WriteLine("Repaint the model.");			
 //			view.Paint();
 //			Console.WriteLine("Model repainted.");			
 
-			Console.ReadLine();
+//			Console.ReadLine();
 
-			Console.WriteLine("Try to store the model to file test.xml");
-			modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation("test.xml"));
-			Console.WriteLine("[Done]");
+//			Console.WriteLine("Try to store the model to file test.xml");
+//			modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation("test.xml"));
+//			Console.WriteLine("[Done]");
 			Console.WriteLine("Clear the model.");			
 			modelEnvironment.BuilderManager.RootTypeLevelBuilder.ClearAll();
 			Console.WriteLine("[Done]");
-			Console.WriteLine("Try to load the xmlfile ..");
+/*			Console.WriteLine("Try to load the xmlfile ..");
 			try 
 			{
 				modelEnvironment.SerializationManager.Load(DefaultSerializerFactory.CreateXmlLocation("test.xml"));				
@@ -114,7 +117,7 @@ namespace Palladio.CM.Example
 
 			Console.WriteLine("Repaint the model.");			
 			view.Paint();
-			Console.WriteLine("Model repainted.");			
+			Console.WriteLine("Model repainted.");			*/
 			Console.WriteLine("Press any key to exit the application.");
 			Console.ReadLine();
 		}

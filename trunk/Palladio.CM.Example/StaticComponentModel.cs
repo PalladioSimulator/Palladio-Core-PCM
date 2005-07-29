@@ -1,3 +1,4 @@
+using System;
 using Palladio.ComponentModel;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
@@ -18,6 +19,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/07/29 16:29:30  joemal
+	/// add protocols to example
+	///
 	/// Revision 1.9  2005/07/29 16:00:12  joemal
 	/// add fsm wrapper project
 	///
@@ -159,16 +163,18 @@ namespace Palladio.CM.Example
 		//creates the interface IWriter
 		private IInterfaceIdentifier BuildIFaceIWriter(IInterfaceTypeLevelBuilder levelBuilder)
 		{
-			levelBuilder.AddSignature("WriteSomething").AppendParameter(TypesFactory.CreateStringType("System.string")
-				,"filename",ParameterModifierEnum.REF);
+			ISignatureBuilder sigBuilder = levelBuilder.AddSignature("WriteSomething");
+			sigBuilder.AppendParameter(TypesFactory.CreateStringType("System.string"),"filename",ParameterModifierEnum.REF);
+			levelBuilder.AddProtocol(CreateSimpleProtocol(levelBuilder.InterfaceId,sigBuilder.SignatureId));
 			return levelBuilder.Interface.InterfaceID;
 		}
 
 		//creates the interface IWriterBackend
 		private IInterfaceIdentifier BuildIFaceIWriterBackEnd(IInterfaceTypeLevelBuilder levelBuilder)
 		{
-			levelBuilder.AddSignature("WriteToDisk").AppendParameter(TypesFactory.CreateStringType("System.string"),
-				"filename",ParameterModifierEnum.REF);
+			ISignatureBuilder sigBuilder = levelBuilder.AddSignature("WriteToDisk");
+			sigBuilder.AppendParameter(TypesFactory.CreateStringType("System.string"),"filename",ParameterModifierEnum.REF);
+			levelBuilder.AddProtocol(CreateSimpleProtocol(levelBuilder.InterfaceId,sigBuilder.SignatureId));
 			return levelBuilder.Interface.InterfaceID;
 		}
 
@@ -195,6 +201,22 @@ namespace Palladio.CM.Example
 		{
 			IFiniteStateMachine fsm = FSMFactory.CreateFSM(FSMFactory.CreateDefaultState("StateA"));
 			return FSMWrapperFactory.CreateFSMServiceEffectSpecification(fsm);			
+		}
+
+		//called to create a simple fsm protocol. 
+		private IProtocol CreateSimpleProtocol(IInterfaceIdentifier ifaceId, ISignatureIdentifier sigId)
+		{
+			IEditableFiniteStateMachine fsm = FSMFactory.GetEditableFSM(FSMFactory.CreateEmptyFSM());
+			IState startState = FSMFactory.CreateDefaultState("StateA");
+			fsm.AddStates(startState);
+			fsm.StartState = startState;
+			fsm.FinalStates = new IState[]{startState};
+
+			IInput inpSym = FSMWrapperFactory.CreateSignatureCall(ifaceId,sigId);
+			fsm.AddInputSymbols(inpSym);
+			fsm.AddTransition(startState.ID,inpSym.ID,startState.ID);
+
+			return FSMWrapperFactory.CreateFSMProtocol(fsm);
 		}
 
 		#endregion
