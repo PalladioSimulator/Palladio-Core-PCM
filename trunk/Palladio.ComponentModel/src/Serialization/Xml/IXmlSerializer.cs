@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/07/29 16:03:14  joemal
+	/// plugins for seffs can be added
+	///
 	/// Revision 1.2  2005/07/23 18:59:57  joemal
 	/// IType now is implemented in external object. Plugins for serializer are created.
 	///
@@ -34,6 +37,18 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		/// </summary>
 		/// <param name="protocolsTypes">the types of the protocols</param>
 		void UnregisterProtocolPlugin(params IProtocolTypeIdentifier[] protocolsTypes);
+
+		/// <summary>
+		/// called to register a plugin that can be used to load and store service effect specifications.
+		/// </summary>
+		/// <param name="plugIn">the plugin</param>
+		void RegisterSeffPlugin(IXmlSeffPlugIn plugIn);
+
+		/// <summary>
+		/// called to unregister plugins that are used to load and store service effect specification from given types.
+		/// </summary>
+		/// <param name="seffTypes">the types of the seffs</param>
+		void UnregisterSeffPlugin(params ISeffTypeIdentifier[] seffTypes);
 
 		/// <summary>
 		/// called to register a plugin that can be used to load and store types.
