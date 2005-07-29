@@ -1,4 +1,3 @@
-using System;
 using Palladio.ComponentModel.Identifier;
 
 namespace Palladio.ComponentModel
@@ -11,6 +10,9 @@ namespace Palladio.ComponentModel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/07/29 16:04:13  joemal
+	/// add identifier of seffs and sefftypes
+	///
 	/// Revision 1.3  2005/07/23 18:59:57  joemal
 	/// IType now is implemented in external object. Plugins for serializer are created.
 	///
@@ -90,6 +92,26 @@ namespace Palladio.ComponentModel
 		/// <param name="guid">the guid</param>
 		/// <returns>the identifier</returns>
 		public static ITypeIdentifier CreateTypeID(string guid)
+		{
+			return new InternalEntityIdentifier(guid);
+		}
+		
+		/// <summary>
+		/// called to create a new seff identifier using the given guid as key
+		/// </summary>
+		/// <param name="guid">the guid</param>
+		/// <returns>the identifier</returns>
+		public static ISeffIdentifier CreateSeffID(string guid)
+		{
+			return new InternalEntityIdentifier(guid);
+		}
+
+		/// <summary>
+		/// called to create a new type identifier for seffs using the given guid as key
+		/// </summary>
+		/// <param name="guid">the guid</param>
+		/// <returns>the identifier</returns>
+		public static ISeffTypeIdentifier CreateSeffTypeID(string guid)
 		{
 			return new InternalEntityIdentifier(guid);
 		}
