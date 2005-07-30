@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.Query
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/07/30 15:43:48  joemal
+	/// add basiccomponent queries (for seffs)
+	///
 	/// Revision 1.1  2005/04/19 16:47:13  joemal
 	/// initial creation
 	///
@@ -86,7 +89,7 @@ namespace Palladio.ComponentModel.Query
 		/// <exception cref="EntityNotFoundException">thrown if the component could not be found in the model.</exception>
 		public IQueryBasicComponentTypeLevel QueryBasicComponent(IComponentIdentifier bcID)
 		{
-			return new QueryComponentImpl(bcID,this.dataset,this.entities,this.query);
+			return new QueryBasicComponentImpl(bcID,this.dataset,this.entities,this.query);
 		}
 
 		/// <summary>

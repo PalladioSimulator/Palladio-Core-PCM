@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
@@ -18,13 +19,16 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/07/30 15:43:48  joemal
+	/// add basiccomponent queries (for seffs)
+	///
 	/// Revision 1.1  2005/04/19 16:47:13  joemal
 	/// initial creation
 	///
 	///
 	/// </pre>
 	/// </remarks>
-	internal class QueryComponentImpl : BasicQueryImpl,IQueryBasicComponentTypeLevel
+	internal class QueryComponentImpl : BasicQueryImpl,IQueryComponentTypeLevel
 		//todo: add query methods of the other layers
 	{
 		#region data

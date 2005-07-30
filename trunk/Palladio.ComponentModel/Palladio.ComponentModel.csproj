@@ -711,6 +711,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Query\Impl\QueryBasicComponentImpl.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Query\Impl\QueryComponentImpl.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

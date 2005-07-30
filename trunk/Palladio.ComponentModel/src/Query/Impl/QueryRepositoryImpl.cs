@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/07/30 15:43:48  joemal
+	/// add basiccomponent queries (for seffs)
+	///
 	/// Revision 1.4  2005/07/29 16:02:57  joemal
 	/// now service effect specifications can be added ...
 	///
@@ -104,6 +107,16 @@ namespace Palladio.ComponentModel.Query.Impl
 		}
 
 		/// <summary>
+		/// called to return the service effect specification with given id from the componentmodel
+		/// </summary>
+		/// <param name="seffID">the id of the service effect specification</param>
+		/// <returns>the seff or null if the seff could not be found in the model</returns>
+		public IServiceEffectSpecification GetServiceEffectSpecification(ISeffIdentifier seffID)
+		{
+			return (IServiceEffectSpecification) this.getModelEntity(seffID);
+		}
+
+		/// <summary>
 		/// called to return all components of the componentmodel
 		/// </summary>
 		/// <returns>an array with components</returns>
@@ -161,6 +174,6 @@ namespace Palladio.ComponentModel.Query.Impl
 				if (type.IsInstanceOfType(entity)) result.Add(entity);				
 
 			return result;
-		}	
+		}
 	}
 }

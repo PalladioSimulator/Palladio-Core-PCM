@@ -115,6 +115,37 @@ namespace Palladio.ComponentModel.UnitTests
 		}
 
 		[Test]
+		public void QueryBasicComponentTest()
+		{
+			StaticComponentModel.Create(model);
+			IQueryBasicComponentTypeLevel bc1Query = model.Query.QueryTypeLevel.
+				QueryBasicComponent(StaticComponentModel.BCWRITEBEID);
+			IQueryBasicComponentTypeLevel bc2Query = model.Query.QueryTypeLevel.
+				QueryBasicComponent(StaticComponentModel.BCWRITEID);
+
+			ISeffIdentifier[] seffs = bc2Query.GetServiceEffectSpecifications();
+			Assert.IsTrue(seffs.Length==0);
+			seffs = bc1Query.GetServiceEffectSpecifications();
+			Assert.IsTrue(seffs.Length==1);
+
+			IServiceEffectSpecification seff = model.Query.QueryRepository.GetServiceEffectSpecification(seffs[0]);
+
+			Assert.IsFalse(bc2Query.IsSeffFromBasicComponent(seff.SeffID));
+			Assert.IsTrue(bc1Query.IsSeffFromBasicComponent(seff.SeffID));
+
+			model.BuilderManager.GetBasicComponentTypeLevelBuilder(StaticComponentModel.BCWRITEBEID).
+				RemoveServiceEffectSpecification(seff.SeffID);
+
+			Assert.IsFalse(bc2Query.IsSeffFromBasicComponent(seff.SeffID));
+			Assert.IsFalse(bc1Query.IsSeffFromBasicComponent(seff.SeffID));
+
+			seffs = bc2Query.GetServiceEffectSpecifications();
+			Assert.IsTrue(seffs.Length==0);
+			seffs = bc1Query.GetServiceEffectSpecifications();
+			Assert.IsTrue(seffs.Length==0);
+		}
+
+		[Test]
 		public void QueryInterfacesTest()
 		{
 			IInterfaceBuilder ifaceB = model.BuilderManager.RootTypeLevelBuilder.CreateInterface("IWriter");
