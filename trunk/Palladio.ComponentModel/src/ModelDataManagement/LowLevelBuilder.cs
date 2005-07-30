@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/07/30 15:42:54  joemal
+	/// fix a bug in method RemoveSeff
+	///
 	/// Revision 1.16  2005/07/29 16:02:10  joemal
 	/// now service effect specifications can be added ...
 	///
@@ -638,7 +641,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		/// <param name="seffId">the id of the seff</param>
 		public void RemoveServiceEffectSpecification(ISeffIdentifier seffId)
 		{
-			ModelDataSet.ProtocolsRow row = ProtocolsTable.FindByguid(seffId.Key);
+			ModelDataSet.SeffsRow row = SeffsTable.FindByguid(seffId.Key);
 			if (row == null) return;
 			row.Delete();
 			modelDataset.AcceptChanges();
