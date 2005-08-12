@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<Performance name="Palladio.Webserver.HTTPRequestProcessor.DefaultHTTPRequestProcessorTools_IHTTPRequestProcessorTools_BuildCompletePath">
+  <service_timeConsumtion name="IWebserverConfiguration_get_DocumentRoot" transitionProbability="1">
+    <pdf>
+      <entry time="1000" probability="0,9" />
+      <entry time="2000" probability="0" />
+      <entry time="3000" probability="0" />
+      <entry time="4000" probability="0" />
+      <entry time="5000" probability="0" />
+      <entry time="6000" probability="0" />
+      <entry time="7000" probability="0,1" />
+    </pdf>
+  </service_timeConsumtion>
+  <state_timeConsumtion name="7102">
+    <pdf>
+      <entry time="1000" probability="1" />
+    </pdf>
+  </state_timeConsumtion>
+  <state_timeConsumtion name="7101">
+    <pdf>
+      <entry time="1000" probability="0,9" />
+      <entry time="2000" probability="0,1" />
+    </pdf>
+  </state_timeConsumtion>
+  <measured_timeConsumtion name="Palladio.Webserver.HTTPRequestProcessor.DefaultHTTPRequestProcessorTools_IHTTPRequestProcessorTools_BuildCompletePath">
+    <pdf>
+      <entry time="1000" probability="0,9" />
+      <entry time="2000" probability="0" />
+      <entry time="3000" probability="0" />
+      <entry time="4000" probability="0" />
+      <entry time="5000" probability="0" />
+      <entry time="6000" probability="0" />
+      <entry time="7000" probability="0" />
+      <entry time="8000" probability="0" />
+      <entry time="9000" probability="0,1" />
+    </pdf>
+  </measured_timeConsumtion>
+  <calculated_timeConsumtion name="Palladio.Webserver.HTTPRequestProcessor.DefaultHTTPRequestProcessorTools_IHTTPRequestProcessorTools_BuildCompletePath">
+    <pdf>
+      <entry time="0" probability="-5,20417042793042E-18" />
+      <entry time="1000" probability="8,32667268468867E-17" />
+      <entry time="2000" probability="-1,21430643318376E-17" />
+      <entry time="3000" probability="0,81" />
+      <entry time="4000" probability="0,09" />
+      <entry time="5000" probability="-1,89970886360057E-17" />
+      <entry time="6000" probability="2,85612958528027E-18" />
+      <entry time="7000" probability="-1,02484195120359E-16" />
+      <entry time="8000" probability="-1,73472347597681E-18" />
+      <entry time="9000" probability="0,0899999999999999" />
+      <entry time="10000" probability="0,01" />
+      <entry time="11000" probability="0" />
+      <entry time="12000" probability="1,38777878078145E-17" />
+      <entry time="13000" probability="-1,56973808835305E-17" />
+      <entry time="14000" probability="4,08276431862696E-18" />
+      <entry time="15000" probability="4,6973043889101E-17" />
+    </pdf>
+  </calculated_timeConsumtion>
+</Performance>

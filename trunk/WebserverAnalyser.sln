@@ -1,0 +1,85 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.RegularExpressions", "Palladio.Performance.RegularExpressions\Palladio.RegularExpressions.csproj", "{BEF536BF-20F0-40C3-A5AC-B131FD43CED7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attributes", "Attributes\Attributes.csproj", "{46E78B57-B71A-4BC4-86EB-839720A4F339}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Math", "Math\Math.csproj", "{F604387D-7009-4FC0-B27B-BC2E0D37D684}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegExASTVisitor", "RegExVisitor\RegExASTVisitor.csproj", "{035D97A6-D6E6-44DC-A937-0154DA33E0B5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSMTransformer", "FSMTransformer\FSMTransformer.csproj", "{F140B831-285C-4B08-B475-B0D9EBD90480}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceCalculator", "PerformanceCalculator\PerformanceCalculator.csproj", "{929F403B-AD21-4E69-80D1-D0F23F517D52}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebserverAnalyser", "WebserverAnalyser\WebserverAnalyser.csproj", "{4A00CF95-A07D-4985-A549-B3BBB7889B47}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebserverSeff", "WebserverSeff\WebserverSeff.csproj", "{DC0A5FB5-5068-4CC4-BC3F-FEDD17019243}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Measurement", "Measurement\Measurement.csproj", "{CB4A028B-3835-4996-95E3-B64F6AE576FD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{BEF536BF-20F0-40C3-A5AC-B131FD43CED7}.Debug.ActiveCfg = Debug|.NET
+		{BEF536BF-20F0-40C3-A5AC-B131FD43CED7}.Debug.Build.0 = Debug|.NET
+		{BEF536BF-20F0-40C3-A5AC-B131FD43CED7}.Release.ActiveCfg = Release|.NET
+		{BEF536BF-20F0-40C3-A5AC-B131FD43CED7}.Release.Build.0 = Release|.NET
+		{46E78B57-B71A-4BC4-86EB-839720A4F339}.Debug.ActiveCfg = Debug|.NET
+		{46E78B57-B71A-4BC4-86EB-839720A4F339}.Debug.Build.0 = Debug|.NET
+		{46E78B57-B71A-4BC4-86EB-839720A4F339}.Release.ActiveCfg = Release|.NET
+		{46E78B57-B71A-4BC4-86EB-839720A4F339}.Release.Build.0 = Release|.NET
+		{F604387D-7009-4FC0-B27B-BC2E0D37D684}.Debug.ActiveCfg = Debug|.NET
+		{F604387D-7009-4FC0-B27B-BC2E0D37D684}.Debug.Build.0 = Debug|.NET
+		{F604387D-7009-4FC0-B27B-BC2E0D37D684}.Release.ActiveCfg = Release|.NET
+		{F604387D-7009-4FC0-B27B-BC2E0D37D684}.Release.Build.0 = Release|.NET
+		{035D97A6-D6E6-44DC-A937-0154DA33E0B5}.Debug.ActiveCfg = Debug|.NET
+		{035D97A6-D6E6-44DC-A937-0154DA33E0B5}.Debug.Build.0 = Debug|.NET
+		{035D97A6-D6E6-44DC-A937-0154DA33E0B5}.Release.ActiveCfg = Release|.NET
+		{035D97A6-D6E6-44DC-A937-0154DA33E0B5}.Release.Build.0 = Release|.NET
+		{F140B831-285C-4B08-B475-B0D9EBD90480}.Debug.ActiveCfg = Debug|.NET
+		{F140B831-285C-4B08-B475-B0D9EBD90480}.Debug.Build.0 = Debug|.NET
+		{F140B831-285C-4B08-B475-B0D9EBD90480}.Release.ActiveCfg = Release|.NET
+		{F140B831-285C-4B08-B475-B0D9EBD90480}.Release.Build.0 = Release|.NET
+		{929F403B-AD21-4E69-80D1-D0F23F517D52}.Debug.ActiveCfg = Debug|.NET
+		{929F403B-AD21-4E69-80D1-D0F23F517D52}.Debug.Build.0 = Debug|.NET
+		{929F403B-AD21-4E69-80D1-D0F23F517D52}.Release.ActiveCfg = Release|.NET
+		{929F403B-AD21-4E69-80D1-D0F23F517D52}.Release.Build.0 = Release|.NET
+		{4A00CF95-A07D-4985-A549-B3BBB7889B47}.Debug.ActiveCfg = Debug|.NET
+		{4A00CF95-A07D-4985-A549-B3BBB7889B47}.Debug.Build.0 = Debug|.NET
+		{4A00CF95-A07D-4985-A549-B3BBB7889B47}.Release.ActiveCfg = Release|.NET
+		{4A00CF95-A07D-4985-A549-B3BBB7889B47}.Release.Build.0 = Release|.NET
+		{DC0A5FB5-5068-4CC4-BC3F-FEDD17019243}.Debug.ActiveCfg = Debug|.NET
+		{DC0A5FB5-5068-4CC4-BC3F-FEDD17019243}.Debug.Build.0 = Debug|.NET
+		{DC0A5FB5-5068-4CC4-BC3F-FEDD17019243}.Release.ActiveCfg = Release|.NET
+		{DC0A5FB5-5068-4CC4-BC3F-FEDD17019243}.Release.Build.0 = Release|.NET
+		{CB4A028B-3835-4996-95E3-B64F6AE576FD}.Debug.ActiveCfg = Debug|.NET
+		{CB4A028B-3835-4996-95E3-B64F6AE576FD}.Debug.Build.0 = Debug|.NET
+		{CB4A028B-3835-4996-95E3-B64F6AE576FD}.Release.ActiveCfg = Release|.NET
+		{CB4A028B-3835-4996-95E3-B64F6AE576FD}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

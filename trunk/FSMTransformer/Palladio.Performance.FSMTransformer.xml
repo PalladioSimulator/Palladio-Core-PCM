@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.Performance.FSMTransformer</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.Performance.FSMTransformer.FSMTransformer">
+            <summary>
+            Transformer for FSMs. Introduces an intermediate sate a' for each state a that contains a
+            RandomVariable. The transition a'->a gets the RandomVariable of a. The probability of
+            the new transition is 1. After the transformation all RandomVariables are accessible over the
+            transitions.
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log$
+            Revision 1.1  2005/08/12 07:59:19  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.FSMWithIntermediateState(Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Creates a new FSM where all Attributes holded by transitions.
+            For each state s containing a QMLAttribute or RandomVariable a new intermediate state  s' is created.
+            The new transition s->s' holds the time consumption. For each state m with transition m->s, the transition
+            is replaced by a transition m->s'.
+            </summary>
+            <param name="fsm">FSM which states contain attributes.</param>
+            <returns>New FSM with intermediate Sates.</returns>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.CreateCopyWithoutTrnasitions(Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Creates a copy of the FSM without transitions.
+            </summary>
+            <param name="fsm">FSM to copy.</param>
+            <returns>Copy of the FSM without transitions.</returns>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.AddIntermediateState(Palladio.FiniteStateMachines.IState,Palladio.FiniteStateMachines.IEditableFiniteStateMachine)">
+            <summary>
+            Adds an intermediate state for a state.
+            </summary>
+            <param name="state">State for which the intermediate shall be created.</param>
+            <param name="resultFSM">FSM with intermediate state.</param>
+            <returns>The intermediate state.</returns>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.AddIntermediateTransition(Palladio.FiniteStateMachines.IState,Palladio.FiniteStateMachines.IState,Palladio.FiniteStateMachines.IEditableFiniteStateMachine)">
+            <summary>
+            Adds a transition from <c>intermediateState</c> to <c>state</c>. The transition gets the <c>RandomVariable</c>
+            from <c>state</c> and a <c>ProbabilityAttribute</c> with a probability of 1. The ID of the new transition is the
+            ID of the state.
+            </summary>
+            <param name="state">State for which the intermediate state was created.</param>
+            <param name="intermediateState">Intermediate state.</param>
+            <param name="resultFSM">FSM with intermediate state.</param>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.RedirectTransitions(Palladio.FiniteStateMachines.ITransition[],Palladio.FiniteStateMachines.IState,Palladio.FiniteStateMachines.IEditableFiniteStateMachine)">
+            <summary>
+            Each incoming transition is directed to the intermediate state.
+            </summary>
+            <param name="incomingTransitions">Transitions that have to be directed to the intermediate state.</param>
+            <param name="intermediateState">The intermediate state.</param>
+            <param name="resultFSM">FSM with intermediate state.</param>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.GetIncomingTransitions(Palladio.FiniteStateMachines.IState,Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Returns all incoming transitions of a state.
+            </summary>
+            <param name="state">State for which the incoming transitions are searched.</param>
+            <param name="fsm">FSM of the state.</param>
+            <returns>All incoming transitions of <c>state</c>.</returns>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.SEFFValidity(Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Check wheter all states and all transitions have a QMLAttribute or a RandomVariable and
+            whether the sum of probabilities of all outgoing transitions is 1. If sum > 1 an exception 
+            is thrown. If  sum is smaller than 1, the user gets a warning.
+            The remaining probability is shared to  all transitions with no ProbabilityAttribute.
+            All QMLAttributes are converted to RandomVariables.
+            </summary>
+            <param name="fsm"><c>IFiniteStateMachine</c> to be validated.</param>
+            <returns>A new <c>IFiniteStateMachine</c> where all states, except start state and
+            final states, contain a <c>RandomVariable</c> and all transitions contain a <c>RandomVariable</c> and a
+            <c>ProbabilityAttribute</c>. </returns>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.CheckForProbabilityAttributes(Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Checks whether the sum of probabilities for each state of all outgoing transitions is 1.
+            If sum > 1 an exception is thrown. If  sum is smaller than 1, the user gets a warning.
+            The remaining probability is shared to  all transitions with no ProbabilityAttribute.
+            </summary>
+            <param name="fsm"></param>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.DistributeRemainingProbabilitiy(Palladio.FiniteStateMachines.IState,System.Collections.ArrayList,System.Double)">
+            <summary>
+            Distributes the remaining probability (<c>1-sum</c>) in equal shares on all outgoing transitions,
+            that do not have  a ProbabilityAttribute.
+            </summary>
+            <param name="state">Source state of the transitions.</param>
+            <param name="withoutProbability">A list of transitions without a ProbabilityAttribute.</param>
+            <param name="sum">The total sum of probabilities of all outgoing transitions. The remaining
+            probability is <c>1-sum</c>.</param>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.CheckForTimeAttributes(Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Checks all states and transitions on containing a <c>RandomVariable</c> or a <c>QMLAttribute</c>.
+            <c>QMLAttribute</c>s are converted to <c>RandomVariable</c>s.
+            </summary>
+            <param name="fsm">IFiniteStateMachine to be checked.</param>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.CheckForTimeAttributesOnTransitions(Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Checks whether all transitions have a <c>RandomVariable</c> or a <c>QMLAttribute</c>.
+            If a transition does not contain either of both an exception is thrown.
+            If the transition does not contain a <c>RandomVariable</c> but contain a <c>QMLAttribute</c>,
+            a <c>RandomVariable</c> is created using the <c>QMLAttribute</c>.
+            </summary>
+            <param name="fsm">IFiniteStateMachine to be checked.</param>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.CheckForTimeAttributeOnStates(Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Checks whether all states have a <c>RandomVariable</c> or a <c>QMLAttribute</c>.
+            If a state does not contain either of both an exception is thrown.
+            If the state does not contain a <c>RandomVariable</c> but contain a <c>QMLAttribute</c>,
+            a <c>RandomVariable</c> is creted using the <c>QMLAttribute</c>.
+            </summary>
+            <param name="fsm">IFiniteStateMachine to be checked.</param>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.CheckForTimeAttributeOnAttributable(Palladio.Attributes.IAttributable)">
+            <summary>
+            Checks whether the <c>IAttributable</c> has a <c>RandomVariable</c> or a <c>QMLAttribute</c>.
+            If it does not contain either of both an exception is thrown.
+            If the <c>IAttributable</c> does not contain a <c>RandomVariable</c> but contain a <c>QMLAttribute</c>,
+            a <c>RandomVariable</c> is creted using the <c>QMLAttribute</c>.
+            </summary>
+            <param name="attributable"><c>IAttributable to check.</c></param>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.FSMTimeConsumptionToString(Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Creates a string representation of of the FSM including the time consumption.
+            </summary>
+            <param name="fsm">FSM with <c>RandomVariables</c>.</param>
+            <returns>String representation of the FSM.</returns>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.StatesTimeConsumptionToString(Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Creates a string representation of of the FSMs states including the time consumption.
+            </summary>
+            <param name="fsm">FSM with <c>RandomVariables</c>.</param>
+            <returns>String representation of the states.</returns>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.TransitionsTimeConsumptionToString(Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Creates a string representation of of the FSMs transitions including the time consumption.
+            </summary>
+            <param name="fsm">FSM with <c>RandomVariables</c>.</param>
+            <returns>String representation of the transitions.</returns>
+        </member>
+        <member name="M:Palladio.Performance.FSMTransformer.FSMTransformer.CreateUniqueState">
+            <summary>
+            Creates a state with a unique id.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,79 @@
+<Configuration>
+  <RecentFilesTracker>
+    <RecentFilesTracker>
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\WebserverSeff\src\Test\TestSeffWithAttributeCreator.cs" offset="304" line="0" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\WebserverSeff\src\WebserverSeffFactory.cs" offset="357" line="0" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\WebserverSeff\src\WebserverModelHelper.cs" offset="464" line="0" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\WebserverSeff\src\SeffWithAttributeCreator.cs" offset="2949" line="58" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\WebserverSeff\src\IWebserverSeffFactory.cs" offset="327" line="0" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\WebserverAnalyser\src\XmlFileCreator.cs" offset="464" line="0" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\WebserverAnalyser\src\Main.cs" offset="585" line="0" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\WebserverAnalyser\src\ConfigReader.cs" offset="291" line="4" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\WebserverAnalyser\src\Config.cs" offset="279" line="0" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\Measurement\src\Measure.cs" offset="297" line="0" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\Measurement\src\HiResTimer.cs" offset="1288" line="18" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\Attributes\src\AttributeTransformer.cs" offset="402" line="-1" column="-1" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\RegExVisitor\src\Visitor\RegExASTVisitorFrequencyDomain.cs" offset="1491" line="58" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\PerformanceCalculator\src\Calculator.cs" offset="2289" line="-1" column="-1" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\Math\src\Functions\Discrete\DiscreteFactory.cs" offset="5161" line="84" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\Math\src\Functions\Fourier\FastFourierTransformation.cs" offset="1126" line="63" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\Math\src\Functions\Discrete\DiscreteFunction.cs" offset="9618" line="5" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\Attributes\src\MeasureAttribute.cs" offset="2469" line="0" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\WebserverSeff\Test\SeffWithAttributeCreatorTest.cs" offset="1671" line="-1" column="-1" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\Attributes\src\Test\AttributeTransformerTest.cs" offset="5287" line="0" column="0" />
+      <TrackedFile location="L:\Helges Dateien\Visual Studio Projects\Performance\PerformanceCalculator\src\CalculatorFactory.cs" offset="0" line="-1" column="-1" />
+    </RecentFilesTracker>
+  </RecentFilesTracker>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:@Palladio.Performance.Attributes.MeasureAttribute">
+      <Item value="AddMeasure" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework">
+      <Item value="TestFixture" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Palladio.Performance.Calculator.CalculatorFactory">
+      <Item value="CalculatorTimeDomain" priority="0" />
+      <Item value="CalculatorFrequencyDomain" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit">
+      <Item value="Framework" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.XmlDocument">
+      <Item value="GetElementById" priority="0" />
+      <Item value="GetElementsByTagName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@">
+      <Item value="Save" priority="0" />
+      <Item value="TestBuildCompletePath" priority="0" />
+      <Item value="Aspects" priority="3" />
+      <Item value="FrequencyDomain" priority="0" />
+      <Item value="ServiceName" priority="5" />
+      <Item value="StoreFile" priority="2" />
+      <Item value="Epsilon" priority="1" />
+      <Item value="Samplingrate" priority="5" />
+      <Item value="Invoke" priority="0" />
+      <Item value="MeasureFile" priority="2" />
+      <Item value="NumberOfFunctionValues" priority="2" />
+      <Item value="CreateElement" priority="0" />
+      <Item value="Init" priority="0" />
+      <Item value="SeffOutputFile" priority="0" />
+      <Item value="GetMethod" priority="0" />
+      <Item value="SeffName" priority="0" />
+      <Item value="AppendChild" priority="0" />
+      <Item value="InnerText" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Palladio.Performance.WebserverAnalyser.XmlFileCreator">
+      <Item value="CreateXmlFile" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="ReSharper.FindMemberDialog.checkBoxSearchLibraries">False</setting>
+    </boolean>
+  </SettingsComponent>
+</Configuration>

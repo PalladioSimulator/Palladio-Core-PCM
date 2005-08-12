@@ -1,0 +1,494 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebserverAnalyser</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.Performance.WebserverAnalyser.MainClass">
+            <summary>
+            Zusammenfassung für Class1.
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log$
+            Revision 1.1  2005/08/12 07:59:25  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.MainClass.Main">
+            <summary>
+            Der Haupteinstiegspunkt für die Anwendung.
+            </summary>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.MainClass.CreateSeffWithAttributes(Palladio.Performance.WebserverAnalyser.Config)">
+            <summary>
+            Creates the seff with attributes.
+            </summary>
+            <param name="configuration">Configuration of the WebserverAnalyser.</param>
+            <returns>Seff with attributes.</returns>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.MainClass.ComputeAndWriteFile(Palladio.FiniteStateMachines.IFiniteStateMachine,Palladio.Performance.WebserverAnalyser.Config)">
+            <summary>
+            Computes the performance of the Seff and stores the result.
+            </summary>
+            <param name="fsm"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.MainClass.StoreResult(Palladio.Performance.Attributes.RandomVariable,Palladio.Performance.WebserverAnalyser.Config,Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Stores the result.
+            </summary>
+            <param name="result"></param>
+            <param name="configuration"></param>
+            <param name="fsm"></param>
+        </member>
+        <member name="T:Palladio.Performance.WebserverAnalyser.XmlFileCreator">
+            <summary>
+            This class provides functions for saving service effect automatons. 
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log$
+            Revision 1.1  2005/08/12 07:59:25  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.CreateXmlFile(Palladio.Performance.WebserverAnalyser.Config,Palladio.FiniteStateMachines.IFiniteStateMachine,Palladio.Performance.Attributes.RandomVariable)">
+            <summary>
+            Creates an XML file which includes all probability density functions of a service effect automaton plus
+            the measured and calculated functions of the service. 
+            </summary>
+            <param name="configuration">Configuration of the WebserverAnalyser.</param>
+            <param name="seff">The service effect automaton annotated by RandomVariables.</param>
+            <param name="calculatedPerformance">The result of the calculation.</param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.AddCalculatedService(Palladio.Performance.Attributes.RandomVariable,Palladio.Performance.WebserverAnalyser.Config,System.Xml.XmlDocument,System.Xml.XmlElement)">
+            <summary>
+            Adds the computed time  consumption of the service.
+            </summary>
+            <param name="calculatedPerformance"></param>
+            <param name="configuration"></param>
+            <param name="document"></param>
+            <param name="rootElem"></param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.AddMeasuredService(Palladio.Performance.WebserverAnalyser.Config,System.Xml.XmlDocument,System.Xml.XmlElement)">
+            <summary>
+            Adds the time measured consumption of the service.
+            </summary>
+            <param name="configuration"></param>
+            <param name="document"></param>
+            <param name="rootElem"></param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.CreateMeasureAttribute(Palladio.Performance.WebserverAnalyser.Config)">
+            <summary>
+            Creates a MeasureAttribute from the measured data for the service to analyse.
+            </summary>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.AddStates(Palladio.FiniteStateMachines.IFiniteStateMachine,Palladio.Performance.WebserverAnalyser.Config,System.Xml.XmlDocument,System.Xml.XmlElement)">
+            <summary>
+            Add states.
+            </summary>
+            <param name="seff"></param>
+            <param name="configuration"></param>
+            <param name="document"></param>
+            <param name="rootElem"></param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.AddPDF(Palladio.Attributes.IAttributable,Palladio.Performance.WebserverAnalyser.Config,System.Xml.XmlDocument,System.Xml.XmlElement)">
+            <summary>
+            Adds the PDF of the <c>IAttributable</c> to the father.
+            </summary>
+            <param name="attributable"></param>
+            <param name="configuration"></param>
+            <param name="document"></param>
+            <param name="father"></param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.AddTransitions(Palladio.FiniteStateMachines.IFiniteStateMachine,Palladio.Performance.WebserverAnalyser.Config,System.Xml.XmlDocument,System.Xml.XmlElement)">
+            <summary>
+            Add transitions.
+            </summary>
+            <param name="seff"></param>
+            <param name="configuration"></param>
+            <param name="document"></param>
+            <param name="rootElem"></param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.GetPDFWithNewSamplingRate(Palladio.Attributes.IAttributable,Palladio.Performance.WebserverAnalyser.Config)">
+            <summary>
+            Returns the probability density function of the <c>IAttributable</c>. The samplingrate is adjusted to
+            the value of the config.
+            </summary>
+            <param name="attributable"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.GetPDFWithNewSamplingRate(Palladio.Performance.Attributes.RandomVariable,Palladio.Performance.WebserverAnalyser.Config)">
+            <summary>
+            Returns the probability density function of the <c>RandomVariable</c>. The samplingrate is adjusted to
+            the value of the config.
+            </summary>
+            <param name="measuredRand"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.CreatePDFAsXml(System.Xml.XmlDocument,Palladio.Performance.Math.IDiscreteFunction)">
+            <summary>
+            Creates a <c>XmlElement</c> which holds the values of the PDF.
+            </summary>
+            <param name="document"></param>
+            <param name="pdf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.SavesSeffAsXml(System.String,Palladio.FiniteStateMachines.IFiniteStateMachine)">
+            <summary>
+            Creates an xml file for a service effect automaton, which can be used 
+            as input for perfromance calculation.
+            </summary>
+            <param name="savepoint">Location of the xml file to create.</param>
+            <param name="seff">Seff which shall be stored.</param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.AddTransitionList(System.Xml.XmlDocument,Palladio.FiniteStateMachines.IFiniteStateMachine,System.Xml.XmlElement)">
+            <summary>
+            Adds the transition list.
+            </summary>
+            <param name="document"></param>
+            <param name="seff"></param>
+            <param name="father"></param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.AddElement(System.Xml.XmlDocument,System.Xml.XmlElement,System.String,System.String)">
+            <summary>
+            Adds a new Element with the specified name and value to the destination.
+            </summary>
+            <param name="doc"></param>
+            <param name="destination"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.AddInputList(System.Xml.XmlDocument,Palladio.FiniteStateMachines.IFiniteStateMachine,System.Xml.XmlElement)">
+            <summary>
+            Adds the Input list.
+            </summary>
+            <param name="document"></param>
+            <param name="seff"></param>
+            <param name="father">father tag of the new xml tags.</param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.AddStateList(System.Xml.XmlDocument,Palladio.FiniteStateMachines.IFiniteStateMachine,System.Xml.XmlElement)">
+            <summary>
+            Adds the state list.
+            </summary>
+            <param name="document"></param>
+            <param name="seff"></param>
+            <param name="father"></param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.AddTimeConsumptionToXML(Palladio.Attributes.IAttributable,System.Xml.XmlDocument,System.Xml.XmlElement)">
+            <summary>
+            Adds the qml aspects of the <c>QMLAttribute</c> of the <c>IAttributable</c>.
+            </summary>
+            <param name="attributable"><c>IAttributable</c> that contains a <c>QMLAttribute</c>.</param>
+            <param name="document">The XML document.</param>
+            <param name="father">The father element of the new xml tags. </param>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.XmlFileCreator.AddQmlAttribut(Palladio.Attributes.IAttributable)">
+            <summary>
+            Adds a <c>QMLAttribute</c> if the <c>IAttributable</c> does not contain one. The attribute is
+            generated from the <c>RandomVariable</c>.
+            </summary>
+            <param name="attributable">Object which shall get a <c>QMLAttribute</c>.</param>
+        </member>
+        <member name="T:Palladio.Performance.WebserverAnalyser.Config">
+            <summary>
+            Class containing the configuration data for the WebserverAnalyser.
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log$
+            Revision 1.1  2005/08/12 07:59:25  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="F:Palladio.Performance.WebserverAnalyser.Config.samplingrate">
+            <summary>
+            Samplingrate of the generated <c>RandomVariable</c>s.
+            </summary>
+        </member>
+        <member name="F:Palladio.Performance.WebserverAnalyser.Config.filepath">
+            <summary>
+            Path to all files.
+            </summary>
+        </member>
+        <member name="F:Palladio.Performance.WebserverAnalyser.Config.serviceName">
+            <summary>
+            Name of the service to analyse.
+            </summary>
+        </member>
+        <member name="F:Palladio.Performance.WebserverAnalyser.Config.seffName">
+            <summary>
+            Name of the service effect automaton.
+            </summary>
+        </member>
+        <member name="F:Palladio.Performance.WebserverAnalyser.Config.seffOutputFile">
+            <summary>
+            File for saving the generated service effect automaton.
+            </summary>
+        </member>
+        <member name="F:Palladio.Performance.WebserverAnalyser.Config.epsilon">
+            <summary>
+            Precision of the loop calculation.
+            </summary>
+        </member>
+        <member name="F:Palladio.Performance.WebserverAnalyser.Config.measureFile">
+            <summary>
+            File containing the measured data.
+            </summary>
+        </member>
+        <member name="F:Palladio.Performance.WebserverAnalyser.Config.storeFile">
+            <summary>
+            File for saving the the time consumption of all states and transitions and result
+            of the calculation.
+            </summary>
+        </member>
+        <member name="F:Palladio.Performance.WebserverAnalyser.Config.frequencyDomain">
+            <summary>
+            Boolean for determine domain of the calculation. True means a calculation in frequency domain.
+            False means a calculation in time domain.
+            </summary>
+        </member>
+        <member name="F:Palladio.Performance.WebserverAnalyser.Config.numberOfFunctionValues">
+            <summary>
+            Number of function values for the resultinf function.
+            </summary>
+        </member>
+        <member name="P:Palladio.Performance.WebserverAnalyser.Config.Samplingrate">
+            <summary>
+            Samplingrate of the generated <c>RandomVariable</c>s.
+            </summary>
+        </member>
+        <member name="P:Palladio.Performance.WebserverAnalyser.Config.Filepath">
+            <summary>
+            Path to all files.
+            </summary>
+        </member>
+        <member name="P:Palladio.Performance.WebserverAnalyser.Config.SeffOutputFile">
+            <summary>
+            File for saving the generated service effect automaton.
+            </summary>
+        </member>
+        <member name="P:Palladio.Performance.WebserverAnalyser.Config.Epsilon">
+            <summary>
+            Precision of the loop calculation.
+            </summary>
+        </member>
+        <member name="P:Palladio.Performance.WebserverAnalyser.Config.MeasureFile">
+            <summary>
+            File containing the measured data.
+            </summary>
+        </member>
+        <member name="P:Palladio.Performance.WebserverAnalyser.Config.StoreFile">
+            <summary>
+            File for saving the the time consumption of all states and transitions and result
+            of the calculation.
+            </summary>
+        </member>
+        <member name="P:Palladio.Performance.WebserverAnalyser.Config.FrequencyDomain">
+            <summary>
+            Boolean for determine domain of the calculation. True means a calculation in frequency domain.
+            False means a calculation in time domain.
+            </summary>
+        </member>
+        <member name="P:Palladio.Performance.WebserverAnalyser.Config.ServiceName">
+            <summary>
+            Name of the service to analyse.
+            </summary>
+        </member>
+        <member name="P:Palladio.Performance.WebserverAnalyser.Config.SeffName">
+            <summary>
+            Name of the service effect automaton.
+            </summary>
+        </member>
+        <member name="P:Palladio.Performance.WebserverAnalyser.Config.NumberOfFunctionValues">
+            <summary>
+            Number of function values for the resultinf function.
+            </summary>
+        </member>
+        <member name="T:Palladio.Performance.WebserverAnalyser.ConfigReader">
+            <summary>
+            Class for reading the configuration.
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log$
+            Revision 1.1  2005/08/12 07:59:25  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.ConfigReader.ReadConfig">
+            <summary>
+            Reads the configuration file and returns the configuration.
+            </summary>
+            <returns>Configuration of the XmlSeffParser.</returns>
+        </member>
+        <member name="M:Palladio.Performance.WebserverAnalyser.ConfigReader.GetValueOfTag(System.String)">
+            <summary>
+            Returns the value of the specified tag.
+            </summary>
+            <param name="tag">Tag for which the value is requested.</param>
+            <returns>Value of the tag.</returns>
+        </member>
+    </members>
+</doc>

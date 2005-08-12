@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE WebserverMeasure SYSTEM "XmlSeffParser.dtd">
+<ServiceEffectAutomaton>
+  <statelist startstate="7101">
+    <state isFinalState="true">
+      <name>7102</name>
+      <time_consumption percentile="100" time="1000" />
+    </state>
+    <state>
+      <name>7101</name>
+      <time_consumption percentile="90" time="1000" />
+      <time_consumption percentile="100" time="2000" />
+    </state>
+  </statelist>
+  <inputlist>
+    <input>IWebserverConfiguration_get_DocumentRoot</input>
+  </inputlist>
+  <transitionlist>
+    <transition>
+      <sourcestate>7101</sourcestate>
+      <input>IWebserverConfiguration_get_DocumentRoot</input>
+      <destinationstate>7102</destinationstate>
+      <probability>1</probability>
+      <time_consumption percentile="90" time="1000" />
+      <time_consumption percentile="90" time="2000" />
+      <time_consumption percentile="90" time="3000" />
+      <time_consumption percentile="90" time="4000" />
+      <time_consumption percentile="90" time="5000" />
+      <time_consumption percentile="90" time="6000" />
+      <time_consumption percentile="100" time="7000" />
+    </transition>
+  </transitionlist>
+</ServiceEffectAutomaton>

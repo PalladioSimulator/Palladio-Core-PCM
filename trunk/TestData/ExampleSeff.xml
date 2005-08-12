@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ServiceEffectAutomaton SYSTEM "XmlSeffParser.dtd">
+<ServiceEffectAutomaton>
+        <statelist startstate="Start">
+        <state>
+                <name>Start</name>
+                <time_consumption percentile="100" time="100"></time_consumption>
+        </state>
+        <state isFinalState="true">
+                <name>ServicesKnown</name>
+                <time_consumption percentile="100" time="100"></time_consumption>
+        </state>
+        <state>
+                <name>AirlineInformationObtained</name>
+                <time_consumption percentile="100" time="100"></time_consumption>
+	</state>
+        <state>
+                <name>GotFirstDetails</name>
+                <time_consumption percentile="100" time="100"></time_consumption>
+	</state>
+	<state>
+                <name>GotSecondDetails</name>
+                <time_consumption percentile="100" time="100"></time_consumption>
+	</state>
+	<state isFinalState="true">
+                <name>GotThirdDetails</name>
+                <time_consumption percentile="100" time="100"></time_consumption>
+        </state>
+        </statelist>
+        <inputlist>
+                <input>GetAirlineWebServices</input><input>GetFlights1</input><input>GetFlights2</input><input>GetAirlineInformation</input>
+		<input>GetDetails1</input>
+		<input>GetDetails2</input>
+		<input>GetDetails3</input>
+        </inputlist>
+        <transitionlist>
+                        <transition>
+                                <sourcestate>Start</sourcestate>
+                                <input>GetAirlineWebServices</input>
+                                <destinationstate>ServicesKnown</destinationstate>
+                                <probability>1</probability>
+                                <time_consumption percentile="40" time="500"></time_consumption>
+                                <time_consumption percentile="75" time="1000"></time_consumption>
+                                <time_consumption percentile="100" time="2000"></time_consumption>
+                        </transition>
+        <!--transition>
+                <sourcestate>ServicesKnown</sourcestate>
+                <input>GetFlights1</input>
+                <destinationstate>ServicesKnown</destinationstate>
+                <probability>0.72</probability>
+                                <time_consumption percentile="50" time="1500"></time_consumption>
+                                <time_consumption percentile="75" time="2000"></time_consumption>
+                                <time_consumption percentile="100" time="4000"></time_consumption>
+        </transition-->
+        <transition>
+                <sourcestate>AirlineInformationObtained</sourcestate>
+                <input>GetFlights2</input>
+                <destinationstate>ServicesKnown</destinationstate>
+                <probability>1</probability>
+                                <time_consumption percentile="50" time="1500"></time_consumption>
+                                <time_consumption percentile="75" time="2000"></time_consumption>
+                                <time_consumption percentile="100" time="4000"></time_consumption>
+        </transition>
+        <transition>
+                <sourcestate>ServicesKnown</sourcestate>
+                <input>GetAirlineInformation</input>
+                <destinationstate>AirlineInformationObtained</destinationstate>
+                <probability>0.8</probability>
+                <time_consumption percentile="50" time="400"></time_consumption>
+                <time_consumption percentile="75" time="1000"></time_consumption>
+                <time_consumption percentile="100" time="2000"></time_consumption>
+        </transition>
+        <transition>
+                <sourcestate>ServicesKnown</sourcestate>
+                <input>GetDetails1</input>
+                <destinationstate>GotFirstDetails</destinationstate>
+                <probability>0.198</probability>
+                <time_consumption percentile="70" time="500"></time_consumption>
+                <time_consumption percentile="100" time="1500"></time_consumption>
+        </transition>
+        <transition>
+                <sourcestate>GotFirstDetails</sourcestate>
+                <input>GetDetails2</input>
+                <destinationstate>GotSecondDetails</destinationstate>
+                <probability>1</probability>
+                <time_consumption percentile="70" time="500"></time_consumption>
+                <time_consumption percentile="100" time="1500"></time_consumption>
+        </transition>
+        <transition>
+                <sourcestate>GotSecondDetails</sourcestate>
+                <input>GetDetails3</input>
+                <destinationstate>GotThirdDetails</destinationstate>
+                <probability>1</probability>
+                <time_consumption percentile="70" time="500"></time_consumption>
+                <time_consumption percentile="100" time="1500"></time_consumption>
+        </transition>
+        </transitionlist>
+</ServiceEffectAutomaton> 
