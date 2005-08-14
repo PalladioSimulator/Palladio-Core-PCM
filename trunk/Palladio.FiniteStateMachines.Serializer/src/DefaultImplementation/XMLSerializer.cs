@@ -15,6 +15,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/08/14 18:18:50  kelsaka
+	/// - changed method signature for saving into files
+	///
 	/// Revision 1.2  2005/08/14 16:22:46  kelsaka
 	/// - added writing to xml without use of plugins.
 	///
@@ -195,9 +198,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// </summary>
 		/// <param name="xmlFilePath">The xml file location to save the FSM in.</param>
 		/// <param name="fsm">The FSM to serialize.</param>
-		public void Save (Path xmlFilePath, IFiniteStateMachine fsm)
+		public void Save (FileInfo xmlFilePath, IFiniteStateMachine fsm)
 		{
-			XmlTextWriter xmlWriter = new XmlTextWriter("", Encoding.UTF8);
+			XmlTextWriter xmlWriter = new XmlTextWriter(xmlFilePath.Name, Encoding.UTF8);
 			xmlWriter.Formatting = Formatting.Indented;
 			xmlWriter.Indentation= 4;
 			xmlWriter.Namespaces = true;

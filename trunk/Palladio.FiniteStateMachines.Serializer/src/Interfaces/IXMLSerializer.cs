@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/14 18:18:50  kelsaka
+	/// - changed method signature for saving into files
+	///
 	/// Revision 1.1  2005/08/14 13:43:22  kelsaka
 	/// - initial creation of FSM serialization
 	///
@@ -59,7 +62,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// </summary>
 		/// <param name="xmlFilePath">The xml file location to save the FSM in.</param>
 		/// <param name="fsm">The FSM to serialize.</param>
-		void Save(Path xmlFilePath, IFiniteStateMachine fsm);
+		void Save(FileInfo xmlFilePath, IFiniteStateMachine fsm);
 
 		#endregion
 
