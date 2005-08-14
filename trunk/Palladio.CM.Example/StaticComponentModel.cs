@@ -19,6 +19,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/08/14 13:43:22  kelsaka
+	/// - initial creation of FSM serialization
+	///
 	/// Revision 1.10  2005/07/29 16:29:30  joemal
 	/// add protocols to example
 	///
@@ -92,6 +95,15 @@ namespace Palladio.CM.Example
 			IComponentIdentifier wrCCID = BuildCC1(RootBuilder.AddNewCompositeComponent("WriteCC"), wrbeIfaceID,wrIfaceID);
 			IComponentIdentifier wrbeBCID = BuildBC1(RootBuilder.AddNewBasicComponent("WriterBackendBC"),wrbeIfaceID);
 			RootBuilder.AddAssemblyConnector("WR -> WR_BE",wrCCID,wrbeIfaceID,wrbeBCID,wrbeIfaceID);
+
+
+			//Console.WriteLine("**** " + wrbeBCID);
+			//modelEnvironment.BuilderManager.RootTypeLevelBuilder.AddExistingComponent(wrbeBCID);
+			//modelEnvironment.BuilderManager.RootTypeLevelBuilder.AddNewBasicComponent(wrbeBCID, "NEU");
+			
+			//IComponentIdentifier wrCCID2 = BuildCC1(RootBuilder.AddNewCompositeComponent("WriteCC"), wrbeIfaceID,wrIfaceID);
+			RootBuilder.AddNewCompositeComponent("WriteCC2").AddExistingComponent(wrbeBCID);
+			
 		}
 
 		#endregion
