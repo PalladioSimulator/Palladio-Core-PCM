@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text;
 using System.Xml;
 using Palladio.Attributes;
 
@@ -14,6 +15,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/14 16:22:46  kelsaka
+	/// - added writing to xml without use of plugins.
+	///
 	/// Revision 1.1  2005/08/14 13:43:22  kelsaka
 	/// - initial creation of FSM serialization
 	///
@@ -21,6 +25,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// </remarks>
 	public class XMLSerializer : IXMLSerializer
 	{
+
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
@@ -28,6 +33,10 @@ namespace Palladio.FiniteStateMachines.Serializer
 		{
 			
 		}
+
+		#region public methods
+
+		#region Load methods
 
 		/// <summary>
 		/// Loads a <see cref="IFiniteStateMachine"/> from a <see cref="XmlNode"/>.
@@ -51,25 +60,157 @@ namespace Palladio.FiniteStateMachines.Serializer
 			throw new NotImplementedException ();
 		}
 
+		#endregion
+
+		#region Save methods
+
 		/// <summary>
 		/// Saves the given <see cref="IFiniteStateMachine"/> using the given <see cref="xmlWriter"/>.
 		/// </summary>
 		/// <param name="xmlWriter">Used to save the FSM.</param>
 		/// <param name="fsm">The FSM to serialize.</param>
+		/// <remarks>Note: The xmlWriter is NOT closed after writing.</remarks>
 		public void Save (XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
-			throw new NotImplementedException ();
+			xmlWriter.WriteComment("Finite State Machine - Palladio Research Group, Software Engineering, University of Oldenburg, Germany");
+			xmlWriter.WriteStartElement("Palladio.FiniteStateMachine");
+
+			this.writeStates(xmlWriter, fsm);
+			this.writeStartState(xmlWriter, fsm);
+			this.writeFinalStates(xmlWriter, fsm);
+			this.writeTransitions(xmlWriter, fsm);
+			this.writeInputAlphabet(xmlWriter, fsm);
+
+			xmlWriter.WriteEndElement();
+		}
+
+		private void writeStates(XmlWriter xmlWriter, IFiniteStateMachine fsm)
+		{
+			xmlWriter.WriteComment("List of states of the FSM:");
+			xmlWriter.WriteStartElement("states");
+
+			foreach(IState state in fsm.States)
+			{
+				xmlWriter.WriteStartElement("state");
+
+				xmlWriter.WriteAttributeString("id", state.ID);
+				xmlWriter.WriteAttributeString("isErrorState", state.IsErrorState.ToString());
+
+				writeAttributes (xmlWriter, state.Attributes);
+
+				xmlWriter.WriteEndElement();
+			}
+
+			xmlWriter.WriteEndElement();
+		}
+
+		private void writeAttributes (XmlWriter xmlWriter, IAttributeHash attributeHash)
+		{
+			xmlWriter.WriteComment("List of IAttributes:");
+			xmlWriter.WriteStartElement("attributes");
+	
+			foreach(IAttribute attribute in attributeHash.AttributeTypes)
+			{
+				xmlWriter.WriteStartElement("attribute");
+				xmlWriter.WriteAttributeString("type", attribute.ToString());
+				//TODO: here plugin.
+				xmlWriter.WriteEndElement();
+			}
+	
+			xmlWriter.WriteEndElement();
+		}
+
+		private void writeStartState(XmlWriter xmlWriter, IFiniteStateMachine fsm)
+		{
+			xmlWriter.WriteComment("The start state of the FSM:");
+			xmlWriter.WriteStartElement("startState");
+			xmlWriter.WriteAttributeString("idref", fsm.StartState.ID);
+			xmlWriter.WriteEndElement();
+		}
+
+		private void writeFinalStates(XmlWriter xmlWriter, IFiniteStateMachine fsm)
+		{
+			xmlWriter.WriteComment("List of final states:");
+			xmlWriter.WriteStartElement("finalStates");
+
+			foreach(IState state in fsm.FinalStates)
+			{
+				xmlWriter.WriteStartElement("finalState");
+				xmlWriter.WriteAttributeString("idref", state.ID);
+				xmlWriter.WriteEndElement();
+			}
+
+			xmlWriter.WriteEndElement();
+		}
+
+		private void writeTransitions(XmlWriter xmlWriter, IFiniteStateMachine fsm)
+		{
+			xmlWriter.WriteComment("List of transitions:");
+			xmlWriter.WriteStartElement("transitions");
+
+			foreach(ITransition transition in fsm.Transitions)
+			{
+				xmlWriter.WriteStartElement("transition");
+				
+				xmlWriter.WriteAttributeString("sourceStateIdRef", transition.SourceState.ID);
+				xmlWriter.WriteAttributeString("destinationStateIdRef", transition.DestinationState.ID);
+				writeInputSymbol(xmlWriter, transition);
+				writeAttributes(xmlWriter, transition.Attributes);
+
+				xmlWriter.WriteEndElement();
+			}
+
+			xmlWriter.WriteEndElement();
+		}
+
+		private void writeInputSymbol (XmlWriter xmlWriter, ITransition transition)
+		{
+			xmlWriter.WriteStartElement("inputSymbol");
+
+			//TODO: check use of ToString()
+			xmlWriter.WriteAttributeString("inputSymbolIdRef", transition.InputSymbol.ID.ToString());
+			
+			xmlWriter.WriteEndElement();
+		}
+
+		private void writeInputAlphabet (XmlWriter xmlWriter, IFiniteStateMachine fsm)
+		{
+			xmlWriter.WriteStartElement("inputSymbolAlphabet");
+
+			foreach (IInput input in fsm.InputAlphabet)
+			{
+				xmlWriter.WriteStartElement("inputSymbol");
+				//TODO: check use of ToString()
+				xmlWriter.WriteAttributeString("inputSymbolId", input.ID.ToString());
+				//TODO: plugin use here.
+				xmlWriter.WriteEndElement();
+			}
+
+			xmlWriter.WriteEndElement();
 		}
 
 		/// <summary>
-		/// Saves the given <see cref="IFiniteStateMachine"/> in a file.
+		/// Saves the given <see cref="IFiniteStateMachine"/> in a file. For the document
+		/// UTF8 encoding is used. The text indent is 4.
 		/// </summary>
 		/// <param name="xmlFilePath">The xml file location to save the FSM in.</param>
 		/// <param name="fsm">The FSM to serialize.</param>
 		public void Save (Path xmlFilePath, IFiniteStateMachine fsm)
 		{
-			throw new NotImplementedException ();
+			XmlTextWriter xmlWriter = new XmlTextWriter("", Encoding.UTF8);
+			xmlWriter.Formatting = Formatting.Indented;
+			xmlWriter.Indentation= 4;
+			xmlWriter.Namespaces = true;
+			xmlWriter.WriteStartDocument();
+			
+			this.Save(xmlWriter, fsm);
+
+			xmlWriter.Close();
 		}
+
+		#endregion
+
+		#region Plugin handling
 
 		/// <summary>
 		/// Adds a serializer for an <see cref="IAttribute"/>.
@@ -108,5 +249,11 @@ namespace Palladio.FiniteStateMachines.Serializer
 		{
 			throw new NotImplementedException ();
 		}
+
+		#endregion
+
+		#endregion
+
+
 	}
 }
