@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/08/15 07:59:24  kelsaka
+	/// - added futher tests (including test classes)
+	///
 	/// Revision 1.2  2005/08/15 06:44:39  kelsaka
 	/// - added handling for attribute serializer plugins
 	///
@@ -27,9 +30,11 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// <summary>
 		/// Serializes the given attribute and writes the results to the given xmlwriter.
 		/// </summary>
+		/// <param name="attributeType">The attributes type to serialize. This information has be serialized
+		/// as well.</param>
 		/// <param name="attribute">The attribute to serialize.</param>
 		/// <param name="xmlWriter">The writer to use for serializing attributes.</param>
-		void SerializeAttribute(IAttribute attribute, XmlWriter xmlWriter);
+		void SerializeAttribute(IAttributeType attributeType, IAttribute attribute, XmlWriter xmlWriter);
 
 		#endregion
 	}

@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 using Palladio.Attributes;
+using Palladio.FiniteStateMachines.Serializer;
 
 namespace Palladio.FiniteStateMachines.Serializer
 {
@@ -12,10 +13,70 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// FSMs including <see cref="IAttribute"/>s and <see cref="IInput"/>s.
 	/// </summary>
 	/// <remarks>
+	/// Typical output of the serializer looks like this:
 	/// <code>
+	///		<?xml version="1.0" encoding="utf-8"?>
+	///		<!--Finite State Machine - Palladio Research Group, Software Engineering, University of Oldenburg, Germany-->
+	///		<Palladio.FiniteStateMachine>
+	///		<!--List of states of the FSM:-->
+	///		<states>
+	///		<state id="2" isErrorState="False">
+	///		<!--List of IAttributes:-->
+	///		<attributes />
+	///		</state>
+	///		<state id="3" isErrorState="False">
+	///		<!--List of IAttributes:-->
+	///		<attributes />
+	///		</state>
+	///		<state id="1" isErrorState="False">
+	///		<!--List of IAttributes:-->
+	///		<attributes />
+	///		</state>
+	///		</states>
+	///		<!--The start state of the FSM:-->
+	///		<startState idref="1" />
+	///		<!--List of final states:-->
+	///		<finalStates>
+	///		<finalState idref="1" />
+	///		<finalState idref="3" />
+	///		</finalStates>
+	///		<!--List of transitions:-->
+	///		<transitions>
+	///		<transition sourceStateIdRef="2" destinationStateIdRef="3">
+	///		<inputSymbol inputSymbolIdRef="c" />
+	///		<!--List of IAttributes:-->
+	///		<attributes />
+	///		</transition>
+	///		<transition sourceStateIdRef="3" destinationStateIdRef="1">
+	///		<inputSymbol inputSymbolIdRef="eps" />
+	///		<!--List of IAttributes:-->
+	///		<attributes />
+	///		</transition>
+	///		<transition sourceStateIdRef="1" destinationStateIdRef="1">
+	///		<inputSymbol inputSymbolIdRef="a" />
+	///		<!--List of IAttributes:-->
+	///		<attributes />
+	///		</transition>
+	///		<transition sourceStateIdRef="1" destinationStateIdRef="2">
+	///		<inputSymbol inputSymbolIdRef="b" />
+	///		<!--List of IAttributes:-->
+	///		<attributes />
+	///		</transition>
+	///		</transitions>
+	///		<inputSymbolAlphabet>
+	///		<inputSymbol inputSymbolId="a" />
+	///		<inputSymbol inputSymbolId="eps" />
+	///		<inputSymbol inputSymbolId="b" />
+	///		<inputSymbol inputSymbolId="c" />
+	///		</inputSymbolAlphabet>
+	///		</Palladio.FiniteStateMachine>
+	///	-----------------
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/08/15 07:59:24  kelsaka
+	/// - added futher tests (including test classes)
+	///
 	/// Revision 1.4  2005/08/15 06:44:39  kelsaka
 	/// - added handling for attribute serializer plugins
 	///
@@ -117,19 +178,22 @@ namespace Palladio.FiniteStateMachines.Serializer
 			xmlWriter.WriteComment("List of IAttributes:");
 			xmlWriter.WriteStartElement("attributes");
 	
-			foreach(IAttribute attribute in attributeHash.AttributeTypes)
+			foreach(IAttributeType attributeType in attributeHash.AttributeTypes)
 			{
 				xmlWriter.WriteStartElement("attribute");
-				xmlWriter.WriteAttributeString("type", attribute.ToString());
+				xmlWriter.WriteComment("Written by plugin:");
 				
-				if(attributeSerializers.ContainsKey(attribute))
+				// use Plugin for serialization:
+				if(attributeSerializers.ContainsKey(attributeType))
 				{
-					((IAttributeSerializerPlugin)attributeSerializers[attribute]).SerializeAttribute(attribute, xmlWriter);
+					((IAttributeSerializerPlugin)attributeSerializers[attributeType])
+						.SerializeAttribute(attributeType, attributeHash[attributeType], xmlWriter);
 				}
 				else
 				{
 					throw new AttributeNotSupportedException(
-						"There is no serializer plugin registered for the attribute type " + attribute.ToString());
+						"There is no serializer plugin registered for the attribute type "
+						+ attributeType.GUID.ToString() + "; " + attributeType.DisplayName);
 				}
 
 				xmlWriter.WriteEndElement();
@@ -215,16 +279,27 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// <param name="fsm">The FSM to serialize.</param>
 		public void Save (FileInfo xmlFilePath, IFiniteStateMachine fsm)
 		{
-			XmlTextWriter xmlWriter = new XmlTextWriter(xmlFilePath.Name, Encoding.UTF8);
-			xmlWriter.Formatting = Formatting.Indented;
-			xmlWriter.Indentation= 4;
-			xmlWriter.Namespaces = true;
-			xmlWriter.WriteStartDocument();
-			xmlWriter.WriteProcessingInstruction("xml-stylesheet", "type='text/xsl' href='PalladioFSM.xsl'");
+			XmlTextWriter xmlWriter = null;
+			try 
+			{
+				xmlWriter = new XmlTextWriter(xmlFilePath.Name, Encoding.UTF8);
+				xmlWriter.Formatting = Formatting.Indented;
+				xmlWriter.Indentation= 4;
+				xmlWriter.Namespaces = true;
+				xmlWriter.WriteStartDocument();
+				xmlWriter.WriteProcessingInstruction("xml-stylesheet", "type='text/xsl' href='PalladioFSM.xsl'");
 
-			this.Save(xmlWriter, fsm);
-
-			xmlWriter.Close();
+				this.Save(xmlWriter, fsm);
+			}
+			catch (Exception e)
+			{
+				xmlWriter.WriteComment("### !!!There occured errors on writing the XML-file!!! This file might be invalid. ###");
+				throw e;
+			}
+			finally
+			{
+				xmlWriter.Close();
+			}
 		}
 
 		#endregion
@@ -235,24 +310,24 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// Adds a serializer for an <see cref="IAttribute"/>.
 		/// </summary>
 		/// <param name="plugin">The serializer for the attribute.</param>
-		/// <param name="attribute">The attribute to register for. If there is already an plugin registered
-		/// for the <see cref="IAttribute"/> the new one is used.</param>
-		public void AddAttributeSerializerPlugin (IAttributeSerializerPlugin plugin, IAttribute attribute)
+		/// <param name="attributeType">The attribute type to register for. If there is already an plugin registered
+		/// for the <see cref="IAttributeType"/> the new one is used.</param>
+		public void AddAttributeSerializerPlugin (IAttributeSerializerPlugin plugin, IAttributeType attributeType)
 		{
-			if(attributeSerializers.ContainsKey(attribute))
+			if(attributeSerializers.ContainsKey(attributeType))
 			{
-				attributeSerializers.Remove(attribute);
+				attributeSerializers.Remove(attributeType);
 			}
-			attributeSerializers.Add(attribute, plugin);
+			attributeSerializers.Add(attributeType, plugin);
 		}
 
 		/// <summary>
 		/// Removes an existing attribute serialiser plugin for the given <see cref="IAttribute"/>.
 		/// </summary>
-		/// <param name="attribute">The attribute registration to be removed.</param>
-		public void RemoveAttributeSerializerPlugin (IAttribute attribute)
+		/// <param name="attributeType">The attribute registration to be removed.</param>
+		public void RemoveAttributeSerializerPlugin (IAttributeType attributeType)
 		{
-			attributeSerializers.Remove(attribute);
+			attributeSerializers.Remove(attributeType);
 		}
 
 		/// <summary>

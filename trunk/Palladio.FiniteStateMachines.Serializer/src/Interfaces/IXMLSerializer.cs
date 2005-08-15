@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/08/15 07:59:24  kelsaka
+	/// - added futher tests (including test classes)
+	///
 	/// Revision 1.2  2005/08/14 18:18:50  kelsaka
 	/// - changed method signature for saving into files
 	///
@@ -72,14 +75,14 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// Adds a serializer for an <see cref="IAttribute"/>.
 		/// </summary>
 		/// <param name="plugin">The serializer for the attribute.</param>
-		/// <param name="attribute">The attribute to register for.</param>
-		void AddAttributeSerializerPlugin(IAttributeSerializerPlugin plugin, IAttribute attribute);
+		/// <param name="attributeType">The attribute type to register for.</param>
+		void AddAttributeSerializerPlugin(IAttributeSerializerPlugin plugin, IAttributeType attributeType);
 
 		/// <summary>
 		/// Removes an existing attribute serialiser plugin for the given <see cref="IAttribute"/>.
 		/// </summary>
-		/// <param name="attribute">The attribute registration to be removed.</param>
-		void RemoveAttributeSerializerPlugin(IAttribute attribute);
+		/// <param name="attributeType">The attribute registration to be removed.</param>
+		void RemoveAttributeSerializerPlugin(IAttributeType attributeType);
 
 		/// <summary>
 		/// Adds a serializer for an <see cref="IInput"/>.
