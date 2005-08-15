@@ -1,5 +1,8 @@
 % Version history:
 % $Log$
+% Revision 1.5  2005/08/15 15:53:50  sliver
+% no message
+%
 % Revision 1.4  2005/08/15 12:13:40  sbecker
 % Review done by Jens, most changes committed
 %
@@ -109,8 +112,14 @@ A three tier architecture which is used for QoS studies in our group is an exper
 % * Versch. Implementierungen eines Komponententyps, HTTP-Request Processor (Basic Component vs. Composite), Verweis auf UML 2.0 Komponentenbegriff
 % * Plugin-Konzept: Erst schnittstellen dann Komponenten (webserver plugins)
 
+\begin{definition}[Software Component]
+\label{def:component} A component represents a modular part of a system that encapsulates its contents and whose manifestation is replaceable within its environment. A component defines its behaviour in terms of provides- and requires interfaces. As such, a component serves as a \emph{type}, whose conformance is defined by these provides- and requires interfaces (encompassing both their static as well as their dynamic semantics). One component may therefore be substituted by another only if the two are type conformant \cite[p. 136]{omg04}.
+\end{definition}
+
+
 \subsection{Scenarios to be Supported}
 \label{sec:scenarios}
+
 \subsection{Problems of Current Component Meta Models}
 
 \section{Concepts of the Palladio Meta Model}
