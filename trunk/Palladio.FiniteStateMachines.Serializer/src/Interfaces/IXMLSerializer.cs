@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Xml;
 using Palladio.Attributes;
@@ -14,6 +13,10 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/08/15 09:51:50  kelsaka
+	/// - added further test cases
+	/// - use of GUID to identify attribute types
+	///
 	/// Revision 1.3  2005/08/15 07:59:24  kelsaka
 	/// - added futher tests (including test classes)
 	///
@@ -47,7 +50,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// <param name="xmlFilePath">Location of the xml file, that contains a FSM.</param>
 		/// <returns>The deserialized <see cref="IFiniteStateMachine"/>, that was represented
 		/// by the xml file.</returns>
-		IFiniteStateMachine Load(Path xmlFilePath);
+		IFiniteStateMachine Load(FileInfo xmlFilePath);
 
 		#endregion
 

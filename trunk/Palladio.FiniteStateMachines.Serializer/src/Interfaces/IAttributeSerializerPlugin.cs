@@ -12,6 +12,10 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/08/15 09:51:50  kelsaka
+	/// - added further test cases
+	/// - use of GUID to identify attribute types
+	///
 	/// Revision 1.3  2005/08/15 07:59:24  kelsaka
 	/// - added futher tests (including test classes)
 	///
@@ -34,6 +38,8 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// as well.</param>
 		/// <param name="attribute">The attribute to serialize.</param>
 		/// <param name="xmlWriter">The writer to use for serializing attributes.</param>
+		/// <remarks>The serializer plugin has to start with a <code>xmlWriter.WriteStartElement("attribute").</code>
+		/// The element name "attribute" should be used.</remarks>
 		void SerializeAttribute(IAttributeType attributeType, IAttribute attribute, XmlWriter xmlWriter);
 
 		#endregion

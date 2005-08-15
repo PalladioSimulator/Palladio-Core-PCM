@@ -74,6 +74,10 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/08/15 09:51:50  kelsaka
+	/// - added further test cases
+	/// - use of GUID to identify attribute types
+	///
 	/// Revision 1.5  2005/08/15 07:59:24  kelsaka
 	/// - added futher tests (including test classes)
 	///
@@ -93,14 +97,17 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// </remarks>
 	public class XMLSerializer : IXMLSerializer
 	{
-		private Hashtable attributeSerializers;
+		/// <summary>
+		/// Use the attribute type GUID as key.
+		/// </summary>
+		private Hashtable attributeSerializerPlugins;
 
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
 		public XMLSerializer()
 		{
-			attributeSerializers = new Hashtable();
+			attributeSerializerPlugins = new Hashtable();
 		}
 
 		#region public methods
@@ -124,7 +131,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// <param name="xmlFilePath">Location of the xml file, that contains a FSM.</param>
 		/// <returns>The deserialized <see cref="IFiniteStateMachine"/>, that was represented
 		/// by the xml file.</returns>
-		public IFiniteStateMachine Load (Path xmlFilePath)
+		public IFiniteStateMachine Load (FileInfo xmlFilePath)
 		{
 			throw new NotImplementedException ();
 		}
@@ -153,6 +160,11 @@ namespace Palladio.FiniteStateMachines.Serializer
 			xmlWriter.WriteEndElement();
 		}
 
+		/// <summary>
+		/// Writes a list of states. For serialization of attribute the according method is used.
+		/// </summary>
+		/// <param name="xmlWriter">Writer to use.</param>
+		/// <param name="fsm">FSM to serialize.</param>
 		private void writeStates(XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
 			xmlWriter.WriteComment("List of states of the FSM:");
@@ -173,35 +185,41 @@ namespace Palladio.FiniteStateMachines.Serializer
 			xmlWriter.WriteEndElement();
 		}
 
+		/// <summary>
+		/// Writes a list of attributes.
+		/// </summary>
+		/// <param name="xmlWriter">The writer to use.</param>
+		/// <param name="attributeHash">The Hash of attributes to serialize.</param>
 		private void writeAttributes (XmlWriter xmlWriter, IAttributeHash attributeHash)
 		{
 			xmlWriter.WriteComment("List of IAttributes:");
 			xmlWriter.WriteStartElement("attributes");
+			xmlWriter.WriteComment("Written by plugin:");
 	
 			foreach(IAttributeType attributeType in attributeHash.AttributeTypes)
 			{
-				xmlWriter.WriteStartElement("attribute");
-				xmlWriter.WriteComment("Written by plugin:");
-				
 				// use Plugin for serialization:
-				if(attributeSerializers.ContainsKey(attributeType))
+				if(attributeSerializerPlugins.ContainsKey(attributeType.GUID))
 				{
-					((IAttributeSerializerPlugin)attributeSerializers[attributeType])
+					((IAttributeSerializerPlugin)attributeSerializerPlugins[attributeType.GUID])
 						.SerializeAttribute(attributeType, attributeHash[attributeType], xmlWriter);
 				}
 				else
 				{
 					throw new AttributeNotSupportedException(
-						"There is no serializer plugin registered for the attribute type "
-						+ attributeType.GUID.ToString() + "; " + attributeType.DisplayName);
+						"There is no serializer plugin registered for the attribute type " +
+						attributeType.GUID.ToString() + "; " + attributeType.DisplayName);
 				}
-
-				xmlWriter.WriteEndElement();
 			}
 	
 			xmlWriter.WriteEndElement();
 		}
 
+		/// <summary>
+		/// Write a XML node describing the start state.
+		/// </summary>
+		/// <param name="xmlWriter">Writer to use.</param>
+		/// <param name="fsm">FSM to serialize.</param>
 		private void writeStartState(XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
 			xmlWriter.WriteComment("The start state of the FSM:");
@@ -210,6 +228,11 @@ namespace Palladio.FiniteStateMachines.Serializer
 			xmlWriter.WriteEndElement();
 		}
 
+		/// <summary>
+		/// Writes a list of final states.
+		/// </summary>
+		/// <param name="xmlWriter">Writer to use.</param>
+		/// <param name="fsm">FSM to serialize.</param>
 		private void writeFinalStates(XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
 			xmlWriter.WriteComment("List of final states:");
@@ -225,6 +248,11 @@ namespace Palladio.FiniteStateMachines.Serializer
 			xmlWriter.WriteEndElement();
 		}
 
+		/// <summary>
+		/// Writes a list of transitions.
+		/// </summary>
+		/// <param name="xmlWriter">Writer to use.</param>
+		/// <param name="fsm">FSM to serialize.</param>
 		private void writeTransitions(XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
 			xmlWriter.WriteComment("List of transitions:");
@@ -245,6 +273,11 @@ namespace Palladio.FiniteStateMachines.Serializer
 			xmlWriter.WriteEndElement();
 		}
 
+		/// <summary>
+		/// Writes the input symbol for a given transition.
+		/// </summary>
+		/// <param name="xmlWriter">The writer to use.</param>
+		/// <param name="transition">The transition whose input symbol shall be serialized.</param>
 		private void writeInputSymbol (XmlWriter xmlWriter, ITransition transition)
 		{
 			xmlWriter.WriteStartElement("inputSymbol");
@@ -255,6 +288,11 @@ namespace Palladio.FiniteStateMachines.Serializer
 			xmlWriter.WriteEndElement();
 		}
 
+		/// <summary>
+		/// Writes a list of input symbol for the given FSM.
+		/// </summary>
+		/// <param name="xmlWriter">Writer to use.</param>
+		/// <param name="fsm">FSM to serialize.</param>
 		private void writeInputAlphabet (XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
 			xmlWriter.WriteStartElement("inputSymbolAlphabet");
@@ -293,7 +331,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 			}
 			catch (Exception e)
 			{
-				xmlWriter.WriteComment("### !!!There occured errors on writing the XML-file!!! This file might be invalid. ###");
+				xmlWriter.WriteComment("*** !!!There occured errors on writing this XML-file!!! This file might be invalid. ***");
 				throw e;
 			}
 			finally
@@ -311,23 +349,25 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// </summary>
 		/// <param name="plugin">The serializer for the attribute.</param>
 		/// <param name="attributeType">The attribute type to register for. If there is already an plugin registered
-		/// for the <see cref="IAttributeType"/> the new one is used.</param>
+		/// for the <see cref="IAttributeType"/> the new one is used. The GUID is used to identify the attribute
+		/// type.</param>
 		public void AddAttributeSerializerPlugin (IAttributeSerializerPlugin plugin, IAttributeType attributeType)
 		{
-			if(attributeSerializers.ContainsKey(attributeType))
+			if(attributeSerializerPlugins.ContainsKey(attributeType.GUID))
 			{
-				attributeSerializers.Remove(attributeType);
+				attributeSerializerPlugins.Remove(attributeType.GUID);
 			}
-			attributeSerializers.Add(attributeType, plugin);
+			attributeSerializerPlugins.Add(attributeType.GUID, plugin);
 		}
 
 		/// <summary>
 		/// Removes an existing attribute serialiser plugin for the given <see cref="IAttribute"/>.
 		/// </summary>
-		/// <param name="attributeType">The attribute registration to be removed.</param>
+		/// <param name="attributeType">The attribute registration to be removed. The GUID is
+		/// used to identify the attribute type.</param>
 		public void RemoveAttributeSerializerPlugin (IAttributeType attributeType)
 		{
-			attributeSerializers.Remove(attributeType);
+			attributeSerializerPlugins.Remove(attributeType.GUID);
 		}
 
 		/// <summary>
