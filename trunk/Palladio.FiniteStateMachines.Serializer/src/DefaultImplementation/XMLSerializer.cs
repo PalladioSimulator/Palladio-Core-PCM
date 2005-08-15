@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -15,6 +16,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/08/15 06:44:39  kelsaka
+	/// - added handling for attribute serializer plugins
+	///
 	/// Revision 1.3  2005/08/14 18:18:50  kelsaka
 	/// - changed method signature for saving into files
 	///
@@ -28,13 +32,14 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// </remarks>
 	public class XMLSerializer : IXMLSerializer
 	{
+		private Hashtable attributeSerializers;
 
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
 		public XMLSerializer()
 		{
-			
+			attributeSerializers = new Hashtable();
 		}
 
 		#region public methods
@@ -116,7 +121,17 @@ namespace Palladio.FiniteStateMachines.Serializer
 			{
 				xmlWriter.WriteStartElement("attribute");
 				xmlWriter.WriteAttributeString("type", attribute.ToString());
-				//TODO: here plugin.
+				
+				if(attributeSerializers.ContainsKey(attribute))
+				{
+					((IAttributeSerializerPlugin)attributeSerializers[attribute]).SerializeAttribute(attribute, xmlWriter);
+				}
+				else
+				{
+					throw new AttributeNotSupportedException(
+						"There is no serializer plugin registered for the attribute type " + attribute.ToString());
+				}
+
 				xmlWriter.WriteEndElement();
 			}
 	
@@ -205,7 +220,8 @@ namespace Palladio.FiniteStateMachines.Serializer
 			xmlWriter.Indentation= 4;
 			xmlWriter.Namespaces = true;
 			xmlWriter.WriteStartDocument();
-			
+			xmlWriter.WriteProcessingInstruction("xml-stylesheet", "type='text/xsl' href='PalladioFSM.xsl'");
+
 			this.Save(xmlWriter, fsm);
 
 			xmlWriter.Close();
@@ -219,10 +235,15 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// Adds a serializer for an <see cref="IAttribute"/>.
 		/// </summary>
 		/// <param name="plugin">The serializer for the attribute.</param>
-		/// <param name="attribute">The attribute to register for.</param>
+		/// <param name="attribute">The attribute to register for. If there is already an plugin registered
+		/// for the <see cref="IAttribute"/> the new one is used.</param>
 		public void AddAttributeSerializerPlugin (IAttributeSerializerPlugin plugin, IAttribute attribute)
 		{
-			throw new NotImplementedException ();
+			if(attributeSerializers.ContainsKey(attribute))
+			{
+				attributeSerializers.Remove(attribute);
+			}
+			attributeSerializers.Add(attribute, plugin);
 		}
 
 		/// <summary>
@@ -231,7 +252,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// <param name="attribute">The attribute registration to be removed.</param>
 		public void RemoveAttributeSerializerPlugin (IAttribute attribute)
 		{
-			throw new NotImplementedException ();
+			attributeSerializers.Remove(attribute);
 		}
 
 		/// <summary>
@@ -256,7 +277,5 @@ namespace Palladio.FiniteStateMachines.Serializer
 		#endregion
 
 		#endregion
-
-
 	}
 }
