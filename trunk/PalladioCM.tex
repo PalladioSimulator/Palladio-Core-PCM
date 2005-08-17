@@ -1,5 +1,11 @@
 % Version history:
 % $Log$
+% Revision 1.7  2005/08/17 15:19:44  sliver
+% added Outline.Tex. Its purpose is the creation of a thread (roter Faden) for the paper.
+% The file cantains a slightly different structure of the original paper.
+% For each section an (often incomplete but nevertheless useful) outline was added.
+% Its a basis of discussion. Refinement follows.
+%
 % Revision 1.6  2005/08/17 11:20:52  sbecker
 % Jens und Steffens Gliederungserweiterung
 %
@@ -95,11 +101,11 @@ This paper is organised as follows. First we introduce typical modelling scenari
 % * Komponenten eingekauft bzw. bereits implementiert
 % * Deploytes 3-Tier architecture zur QoS Vorhersage
 
-In the following, we give examples of common component based software architectures. These architectures are used later to highlight the types of analysis which can be performed with the Palladio component meta model. In so doing, we demonstrate the advantages of our model compared to common enterprise scale or selected scientific component models.
+In the following, we give examples of common component based software architectures. These architectures are used later to highlight the types of analysis, which can be performed with the Palladio component meta model. In doing so, we demonstrate the advantages of our model compared to common enterprise scale or selected scientific component models.
 
-The most common type of architecture for business information systems is a three tier architecture consisting of a graphical user interface (GUI) tier, a business logic tier and a database back-end tier. In component based software design, we can model each tier as a single component, which contains the sub-architecture best fitted for its requirements.
+The most common type of architecture for business information systems is a three tier architecture consisting of a graphical user interface (GUI) tier, a business logic tier, and a database back-end tier. In component based software design, we can model each tier as a single component, which contains the sub-architecture best fitted for its requirements.
 
-In the GUI tier, we can identify components responsible for controlling certain workflows, e.g. wizard frames or sequential form-based masks. Additionally, components with a GUI part are used which are called controls in some frameworks. Examples are reusable calendar controls, database grids or reporting views. The controls are used the design a common look and feel for the interface and they often implement only functionality to coordinate the display of their graphical representation and methods to get and set the data to be displayed. With a focus on architectural evaluation this type of components is normally not being specified in the architectural description.
+In the GUI tier, we can identify components responsible for controlling certain workflows, e.g. wizard frames or sequential form-based masks. Additionally, components with a GUI part are used, which are called controls in some frameworks. Examples are reusable calendar controls, database grids or reporting views. The controls are used the design a common look and feel for the interface and they often implement only functionality to coordinate the display of their graphical representation and methods to get and set the data to be displayed. With a focus on architectural evaluation, this type of components is normally not being specified in the architectural description.
 
 The implementation of the identified and modelled processes supported by the software system resides in the business logic. The components in this tier mainly implement the domain tasks of the respective enterprise. Often the components are separated using their logical functionality, e.g. a component for accounting and one for customer relationship management. Note, that these components might be assembled from components again. 
 
@@ -115,9 +121,37 @@ A three tier architecture which is used for QoS studies in our group is an exper
 % * Versch. Implementierungen eines Komponententyps, HTTP-Request Processor (Basic Component vs. Composite), Verweis auf UML 2.0 Komponentenbegriff
 % * Plugin-Konzept: Erst schnittstellen dann Komponenten (webserver plugins)
 
-\begin{definition}[Software Component]
-\label{def:component} A component represents a modular part of a system that encapsulates its contents and whose manifestation is replaceable within its environment. A component defines its behaviour in terms of provides- and requires interfaces. As such, a component serves as a \emph{type}, whose conformance is defined by these provides- and requires interfaces (encompassing both their static as well as their dynamic semantics). One component may therefore be substituted by another only if the two are type conformant \cite[p. 136]{omg04}.
-\end{definition}
+Another typical scenario for component-based software development can be found in the prototypical web server developed in our group. The processing of each incoming HTTP request is realised by a Chain of Responsibility (CoR) \cite{gamma1995a}. A part of the chain is shown in figure \ref{fig:part_CoR}.
+
+
+Each element of the chain is a software component as shown in figure \ref{fig:CoR_Component}. The component provides and requires an interface called \texttt{IHttpRequestProcessor}, which contains a single service \texttt{HandleRequest}. Thus, it is possible to extend the functionality of the webserver by simply adding a new component to the CoR, which is conformant to the one shown in figure \ref{fig:CoR_Component}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\columnwidth]{images/CoR_Part.pdf}
+  \caption{Part of the Chain of Responsibility.}
+  \label{fig:CoR_Part}
+\end{figure}
+
+Here, a single component shall not be replaced by another implementation of the same functionality, but the functionality of the system can be extended by adding components of the same type to the chain. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\columnwidth]{images/CoR.pdf}
+  \caption{One Component of the Chain of Responsibility.}
+  \label{fig:CoR_Component}
+\end{figure}
+
+
+
+%Die OMG schreibt über Komponenten (p.150, http://www.omg.org/docs/ptc/04-10-02.pdf):
+A component represents a modular part of a system that encapsulates its contents and whose manifestation is replaceable within its environment.
+
+A component defines its behaviour in terms of provided and required interfaces. As such, a component serves as a type, whose conformance is defined by these provided and required interfaces (encompassing both their static as well as dynamic semantics). One component may therefore be substituted by another only if the two are type conformant. Larger pieces of a system's functionality may be assembled by reusing components as parts in an encompassing component or assembly of components, and wiring together their required and provided interfaces.
+
+A component is modeled throughout the development life cycle and successively refined into deployment and run-time. A component may be manifest by one or more artifacts, and in turn, that artifact may be deployed to its execution environment. A deployment specification may define values that parameterize the component’s execution.
+
+
 
 
 \subsection{Scenarios to be Supported}
