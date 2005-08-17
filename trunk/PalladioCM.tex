@@ -1,5 +1,8 @@
 % Version history:
 % $Log$
+% Revision 1.6  2005/08/17 11:20:52  sbecker
+% Jens und Steffens Gliederungserweiterung
+%
 % Revision 1.5  2005/08/15 15:53:50  sliver
 % no message
 %
@@ -119,12 +122,36 @@ A three tier architecture which is used for QoS studies in our group is an exper
 
 \subsection{Scenarios to be Supported}
 \label{sec:scenarios}
+Entwurf:
+-> Top Down/Bottom Up Iterativ (Neuentwicklung, COTS-integration)
+-> Interfaces first / Components first
+Wartung:
+-> Änderungsunterstützung
+Qualität:
+-> Vorhersagen von QoS Eignenschaften
+-> Validation
 
 \subsection{Problems of Current Component Meta Models}
+-> UML2, CCM
+	-> Keine/rudimentäre Protokolle
+	-> Parm. Verträge, SEFFs
+	-> Analysierbare Qualitätsannotation
+	-> Trennung der Komponentenebenen
+	-> Subtype nicht klar definiert
+-> ADLs? -- Sidenote
 
 \section{Concepts of the Palladio Meta Model}
 \label{sec:concepts}
 \subsection{Terms as UML Stereotypes}
+-> Protocol
+-> Interface
+
+\subsection{Abstraction Levels of Components}  
+
+\subsection{Relationships}
+-> Association / Constrainsts: <Implements>, <Deploys>, <Executes>
+   OCL, Zusatzattibute
+
 \subsection{A Classification of Interface Models}
 
 % CBSE 7 paper klassification von Schnittstellen modellen anhand der KLassifikation von Interoperarbilitätsproblemen
@@ -138,7 +165,6 @@ A three tier architecture which is used for QoS studies in our group is an exper
 % free floating interfaces
 % provided and required interface as stereotypes
 % computation of deployment specific interfaces
-\subsection{Abstraction Levels of Components}  
 \subsection{Scenarios revisited}
 \section{Conclusions}
 
