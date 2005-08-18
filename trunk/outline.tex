@@ -65,11 +65,12 @@ CBSE as solution:
 TODO: hier noch etwas genauer werden.
 - modelling of the relationship between provided and required interfaces (realisation of parametric contracts)
 - different considerations of a component depending on the view of the system: type, implementation, deployment, runtime (based on ...) 
-- Kurzer Satz zur Motivation für die Einführung der Ebenen
+   Motivation der Ebenen: QoS (Einfluss der Implementierung auf QoS)
 - (formal) definition of the relationship between the layers
+- Weiterentwicklung bestehender Component Meta Models (UML2, CCM)
 
 Benefits:
- - prediction of component properties (functional (Hä?) and QoS) for components and system wide
+ - prediction of component properties (functional (PC) and QoS) for components and system wide
  - discussion on components: helping clarify the term
  -> closeness to UML2
  - defined as UML stereotypes
@@ -101,8 +102,8 @@ TODO. kommt wenn paper fertig.
 - Versch. Implementierungen eines Komponententyps, HTTP-Request Processor (Basic Component vs. Composite), Verweis auf UML 2.0 Komponentenbegriff
 - Plugin-Konzept: Erst schnittstellen dann Komponenten (webserver plugins)
 
-\subsection{Development Strategies to be Supported}
-\label{sec:scenarios}
+\subsection{Engineering Tasks to be Supported}
+\label{sec:tasks}
 Entwurf:
 -> Top Down/Bottom Up Iterativ (Neuentwicklung, COTS-integration)
 -> Interfaces first / Components first
@@ -141,13 +142,15 @@ Type
 - provided relation (comp,int)
 - required relation (comp,int)
  - nur wenn das Interface verwendet werden MUSS
-   Bsp: CoR, Decorator, PlugIn muss sich beim System an und abmelden
+   Bsp: CoR, Decorator, PlugIn (Grafikbibliothek)
  
 Implementation
 - das gleiche wie Type +
 - basic components
  - Service Effect Specification (bc)
   - Signature List
+  	- Parameter sind entweder Wertetypen oder Schnittstellen zu anderen Komponenten
+  	  -> zusätzliche Requires schnittstellen, Heiko: Zustand externer Komponenten
   - Protocol
 - composite components
  - interne Struktur, ``Verkabelung''
@@ -155,11 +158,18 @@ Implementation
  - alle Abhängigkeiten, die durch die Implementierung erzeugt werden
  - Protocol aus SEFF oder interner Struktur
 - evtl.: Implementierung der Architektur (System als Composite Component)
+- modellierung von required interfaces und seff: detailierungsgrad 
+
 
 Deployment
 - Allocation von Komponenten auf HW und SW Resourcen
 - deployed-on relation (comp, res)
 - HW und SW Resourcen als Entitäten
+- Modellierung der Deploymentumgebung -> einfluss auf die Performance?
+	- Zeitmessung bei den Basisoperatoren
+	- interner Zustand ist Mini-SEFF auf Basisoperatoren (Schleifen und IFs selten??)
+
+
 
 Runtime
 ??
@@ -190,6 +200,7 @@ Runtime
 - Welche Required-Interfaces sollen spezifiziert werden? Keine, Alle?
 - Beziehung Typ -> Impl. Co- oder Contravariant?
 - QoS Attribute für Typen?
+
 
 \section{Conclusions}
 - major contribution
