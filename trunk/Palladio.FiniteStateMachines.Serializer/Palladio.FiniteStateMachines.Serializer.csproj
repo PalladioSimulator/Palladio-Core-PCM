@@ -111,6 +111,21 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ModelSerializationException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\DefaultImplementation\FSMLoader.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\DefaultImplementation\FSMWriter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\DefaultImplementation\XMLSerializer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

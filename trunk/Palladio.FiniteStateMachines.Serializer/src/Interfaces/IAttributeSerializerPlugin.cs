@@ -12,6 +12,10 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/08/18 09:30:47  kelsaka
+	/// - extraced load and save into separate classes
+	/// - started implementation of loading from xml
+	///
 	/// Revision 1.4  2005/08/15 09:51:50  kelsaka
 	/// - added further test cases
 	/// - use of GUID to identify attribute types
@@ -41,6 +45,13 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// <remarks>The serializer plugin has to start with a <code>xmlWriter.WriteStartElement("attribute").</code>
 		/// The element name "attribute" should be used.</remarks>
 		void SerializeAttribute(IAttributeType attributeType, IAttribute attribute, XmlWriter xmlWriter);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		string XmlNamespace { get; }
+
+		string XmlSchemaURI { get; }
 
 		#endregion
 	}
