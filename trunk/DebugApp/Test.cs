@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/19 07:20:05  kelsaka
+	/// - added "console out" to give a hint on the running program
+	///
 	/// Revision 1.1  2005/08/15 09:51:50  kelsaka
 	/// - added further test cases
 	/// - use of GUID to identify attribute types
@@ -30,6 +33,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			st.Init();
 			st.AttributeSerialize();
 
+			Console.WriteLine("Press ENTER to close program.");
 			Console.ReadLine();
 		}
 	}
