@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/08/19 09:50:31  kelsaka
+	/// - added XPath statements
+	///
 	/// Revision 1.2  2005/08/19 07:20:05  kelsaka
 	/// - added "console out" to give a hint on the running program
 	///
@@ -31,7 +34,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		{
 			SerializationTest st = new SerializationTest();
 			st.Init();
+			st.XMLFilenameSaveTest();
 			st.AttributeSerialize();
+			st.LoadFromFile();
 
 			Console.WriteLine("Press ENTER to close program.");
 			Console.ReadLine();

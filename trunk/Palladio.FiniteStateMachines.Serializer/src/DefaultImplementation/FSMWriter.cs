@@ -73,6 +73,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/19 09:50:31  kelsaka
+	/// - added XPath statements
+	///
 	/// Revision 1.1  2005/08/18 09:30:47  kelsaka
 	/// - extraced load and save into separate classes
 	/// - started implementation of loading from xml
@@ -101,6 +104,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// </summary>
 		/// <param name="xmlWriter">Used to save the FSM.</param>
 		/// <param name="fsm">The FSM to serialize.</param>
+		/// <param name="attributeSerializerPlugins">A List of registered serializer plugins for <see cref="IAttribute"/>s.</param>
 		/// <remarks>Note: The xmlWriter is NOT closed after writing.</remarks>
 		public void Save (XmlWriter xmlWriter, IFiniteStateMachine fsm, Hashtable attributeSerializerPlugins)
 		{
@@ -123,6 +127,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// </summary>
 		/// <param name="xmlFilePath">The xml file location to save the FSM in.</param>
 		/// <param name="fsm">The FSM to serialize.</param>
+		/// <param name="attributeSerializerPlugins">A List of registered serializer plugins for <see cref="IAttribute"/>s.</param>
 		public void Save (FileInfo xmlFilePath, IFiniteStateMachine fsm, Hashtable attributeSerializerPlugins)
 		{
 			this.attributeSerializerPlugins = attributeSerializerPlugins;
@@ -135,6 +140,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 				xmlWriter.Namespaces = true;
 				xmlWriter.WriteStartDocument();
 				xmlWriter.WriteProcessingInstruction("xml-stylesheet", "type='text/xsl' href='PalladioFSM.xsl'");
+				//TODO: write XSD instead of XSL.
 
 				this.Save(xmlWriter, fsm, attributeSerializerPlugins);
 			}

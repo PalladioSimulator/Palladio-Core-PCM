@@ -1,12 +1,8 @@
 using System;
 using System.Collections;
 using System.IO;
-using System.Text;
 using System.Xml;
-using System.Xml.Schema;
-using System.Xml.Serialization;
 using Palladio.Attributes;
-using Palladio.FiniteStateMachines.Serializer;
 
 namespace Palladio.FiniteStateMachines.Serializer
 {
@@ -76,6 +72,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/08/19 09:50:31  kelsaka
+	/// - added XPath statements
+	///
 	/// Revision 1.7  2005/08/18 09:30:47  kelsaka
 	/// - extraced load and save into separate classes
 	/// - started implementation of loading from xml
@@ -107,7 +106,15 @@ namespace Palladio.FiniteStateMachines.Serializer
 		{
 			get
 			{
-				return "Palladio.FiniteStateMachine";
+				return "http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine";
+			}
+		}
+
+		public static string XMLPREFIX
+		{
+			get
+			{
+				return "fsm";
 			}
 		}
 
