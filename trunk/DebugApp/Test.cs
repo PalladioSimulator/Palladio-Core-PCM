@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/08/19 16:11:38  kelsaka
+	/// - added further deserialisation
+	///
 	/// Revision 1.3  2005/08/19 09:50:31  kelsaka
 	/// - added XPath statements
 	///
@@ -34,8 +37,8 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		{
 			SerializationTest st = new SerializationTest();
 			st.Init();
-			st.XMLFilenameSaveTest();
-			st.AttributeSerialize();
+			//st.XMLFilenameSaveTest();
+			//st.AttributeSerialize();
 			st.LoadFromFile();
 
 			Console.WriteLine("Press ENTER to close program.");

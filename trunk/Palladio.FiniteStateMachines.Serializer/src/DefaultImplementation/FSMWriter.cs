@@ -73,6 +73,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/08/19 16:11:38  kelsaka
+	/// - added further deserialisation
+	///
 	/// Revision 1.2  2005/08/19 09:50:31  kelsaka
 	/// - added XPath statements
 	///
@@ -200,8 +203,13 @@ namespace Palladio.FiniteStateMachines.Serializer
 				// use Plugin for serialization:
 				if(attributeSerializerPlugins.ContainsKey(attributeType.GUID))
 				{
+					xmlWriter.WriteStartElement("attribute");
+					xmlWriter.WriteAttributeString("attributeType", attributeType.GUID.ToString());
+
 					((IAttributeSerializerPlugin)attributeSerializerPlugins[attributeType.GUID])
 						.SerializeAttribute(attributeType, attributeHash[attributeType], xmlWriter);
+
+					xmlWriter.WriteEndElement();
 				}
 				else
 				{

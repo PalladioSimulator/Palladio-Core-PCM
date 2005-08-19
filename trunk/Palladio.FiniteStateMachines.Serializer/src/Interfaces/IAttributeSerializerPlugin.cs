@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/08/19 16:11:38  kelsaka
+	/// - added further deserialisation
+	///
 	/// Revision 1.5  2005/08/18 09:30:47  kelsaka
 	/// - extraced load and save into separate classes
 	/// - started implementation of loading from xml
@@ -42,15 +45,19 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// as well.</param>
 		/// <param name="attribute">The attribute to serialize.</param>
 		/// <param name="xmlWriter">The writer to use for serializing attributes.</param>
-		/// <remarks>The serializer plugin has to start with a <code>xmlWriter.WriteStartElement("attribute").</code>
-		/// The element name "attribute" should be used.</remarks>
+		/// <remarks>The output is automatically surrounded by a
+		/// <code>&lt;attribut attributeType="abcde"&gt;&lt;/attribut&gt;</code> Tag.</remarks>
 		void SerializeAttribute(IAttributeType attributeType, IAttribute attribute, XmlWriter xmlWriter);
 
 		/// <summary>
-		/// 
+		/// The namespace of the IAttribute elements. (read)
 		/// </summary>
 		string XmlNamespace { get; }
 
+		/// <summary>
+		/// The URI of the XSD-File that describes the XML-Scheme of the Plugin output. This XSD is used
+		/// for validation. (read)
+		/// </summary>
 		string XmlSchemaURI { get; }
 
 		#endregion
