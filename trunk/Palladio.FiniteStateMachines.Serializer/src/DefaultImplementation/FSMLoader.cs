@@ -15,6 +15,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/08/20 12:27:55  kelsaka
+	/// - added further attribute handling
+	///
 	/// Revision 1.3  2005/08/19 16:11:38  kelsaka
 	/// - added further deserialisation
 	///
@@ -202,7 +205,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 				);
 				
 				//TODO
-				//
+				// XPATH!
 				IAttribute[] attributes = ExtractAttribute(node.SelectSingleNode("attributes"), mgr);
 
 				foreach(IAttribute attribute in attributes)
@@ -212,6 +215,46 @@ namespace Palladio.FiniteStateMachines.Serializer
 				
 				efsm.AddTransitions(transition);
 			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="node">The "attributes"-node who's child-nodes are "attribute"-nodes.</param>
+		/// <param name="mgr"></param>
+		/// <returns></returns>
+		private IAttribute[] ExtractAttribute(XmlNode node, XmlNamespaceManager mgr)
+		{
+			ArrayList attributes = new ArrayList();
+
+			//Console.Out.WriteLine ("***1" + node.InnerXml);
+
+			XmlNodeList attributeNodes = node.SelectNodes("attribute", mgr);
+
+			Console.Out.WriteLine ("Anzahl: " + attributeNodes.Count);
+			foreach(XmlNode attributeNode in attributeNodes)
+			{
+				//Console.Out.WriteLine ("2:" + attributeNode.LocalName);
+				string attributeTypeGUID = attributeNode.Attributes.GetNamedItem("attributeType").Value;
+
+				//Console.Out.WriteLine ("*" + attributeNode.InnerText);
+
+				if(attributeTypeGUID != null)
+				{
+					Console.Out.WriteLine ("*" + attributeTypeGUID);
+				}
+				//Console.Out.WriteLine (attributeNode.InnerXml + attributeNode.Value);
+				
+				
+
+				//attributeSerializerPlugins[attributeTypeGUID].ToString();
+
+				//((IAttributeSerializerPlugin)attributeSerializerPlugins[attributeType.GUID])
+				//	.SerializeAttribute(attributeType, attributeHash[attributeType], xmlWriter);
+				
+			}
+
+			return (IAttribute[])attributes.ToArray(typeof(IAttribute));
 		}
 
 		/// <summary>
@@ -227,37 +270,6 @@ namespace Palladio.FiniteStateMachines.Serializer
 				efsm.AddInputSymbols(
 					FSMFactory.CreateDefaultInput(node.Attributes.GetNamedItem("inputSymbolId").Value));
 			}
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="node">The "attributes"-node who's child-nodes are "attribute"-nodes.</param>
-		/// <param name="mgr"></param>
-		/// <returns></returns>
-		private IAttribute[] ExtractAttribute(XmlNode node, XmlNamespaceManager mgr)
-		{
-			ArrayList attributes = new ArrayList();
-
-			Console.Out.WriteLine ("***1" + node.InnerXml);
-			//Console.Out.WriteLine ("***2" + node.OuterXml);
-			XmlNodeList attributeNodes = node.SelectNodes("attribute", mgr);
-			foreach(XmlNode attributeNode in attributeNodes)
-			{
-				Console.Out.WriteLine ("*" + attributeNode.InnerText);
-				//Console.Out.WriteLine ("*" + attributeNode.Attributes.GetNamedItem("attributeType").Value);
-				//Console.Out.WriteLine (attributeNode.InnerXml + attributeNode.Value);
-				
-				//string attributeTypeGUID = attributeNode.Attributes.GetNamedItem("attributeType").Value;
-
-				//attributeSerializerPlugins[attributeTypeGUID].ToString();
-
-				//((IAttributeSerializerPlugin)attributeSerializerPlugins[attributeType.GUID])
-				//	.SerializeAttribute(attributeType, attributeHash[attributeType], xmlWriter);
-				
-			}
-
-			return (IAttribute[])attributes.ToArray(typeof(IAttribute));
 		}
 
 		/// <summary>
