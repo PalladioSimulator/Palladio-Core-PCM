@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/08/21 13:58:17  kelsaka
+	/// - added use of plugins for deserialisation
+	///
 	/// Revision 1.5  2005/08/20 12:27:55  kelsaka
 	/// - added further attribute handling
 	///
@@ -41,8 +44,8 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			SerializationTest st = new SerializationTest();
 			//st.Init();
 			//st.XMLFilenameSaveTest();
-			//st.AttributeSerialize();
-			st.LoadFromFile();
+			st.AttributeSerialize();
+			st.LoadFromFileWithAttributes();
 
 			Console.WriteLine("Press ENTER to close program.");
 			Console.ReadLine();

@@ -1,3 +1,4 @@
+using System;
 using System.Xml;
 using Palladio.Attributes;
 
@@ -12,6 +13,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/08/21 13:58:17  kelsaka
+	/// - added use of plugins for deserialisation
+	///
 	/// Revision 1.6  2005/08/19 16:11:38  kelsaka
 	/// - added further deserialisation
 	///
@@ -48,6 +52,8 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// <remarks>The output is automatically surrounded by a
 		/// <code>&lt;attribut attributeType="abcde"&gt;&lt;/attribut&gt;</code> Tag.</remarks>
 		void SerializeAttribute(IAttributeType attributeType, IAttribute attribute, XmlWriter xmlWriter);
+		
+		IAttribute DeserializeAttribute(XmlNode xmlNode);
 
 		/// <summary>
 		/// The namespace of the IAttribute elements. (read)

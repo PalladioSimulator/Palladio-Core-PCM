@@ -15,6 +15,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/08/21 13:58:17  kelsaka
+	/// - added use of plugins for deserialisation
+	///
 	/// Revision 1.4  2005/08/20 12:27:55  kelsaka
 	/// - added further attribute handling
 	///
@@ -204,13 +207,12 @@ namespace Palladio.FiniteStateMachines.Serializer
 					efsm.GetState(node.Attributes.GetNamedItem("destinationStateIdRef").Value)
 				);
 				
-				//TODO
-				// XPATH!
 				IAttribute[] attributes = ExtractAttribute(node.SelectSingleNode("attributes"), mgr);
 
 				foreach(IAttribute attribute in attributes)
 				{
-					//transition.Attributes.Add
+					//TODO
+					//transition.Attributes.Add(null, attribute);
 				}
 				
 				efsm.AddTransitions(transition);
@@ -218,40 +220,36 @@ namespace Palladio.FiniteStateMachines.Serializer
 		}
 
 		/// <summary>
-		/// 
+		/// Get the IAttributes from the given XML node.
 		/// </summary>
 		/// <param name="node">The "attributes"-node who's child-nodes are "attribute"-nodes.</param>
-		/// <param name="mgr"></param>
-		/// <returns></returns>
+		/// <param name="mgr">Actual namespace manager to use.</param>
+		/// <returns>Array of IAttributes that were found in the given node.</returns>
 		private IAttribute[] ExtractAttribute(XmlNode node, XmlNamespaceManager mgr)
 		{
 			ArrayList attributes = new ArrayList();
 
-			//Console.Out.WriteLine ("***1" + node.InnerXml);
-
 			XmlNodeList attributeNodes = node.SelectNodes("attribute", mgr);
-
-			Console.Out.WriteLine ("Anzahl: " + attributeNodes.Count);
 			foreach(XmlNode attributeNode in attributeNodes)
 			{
-				//Console.Out.WriteLine ("2:" + attributeNode.LocalName);
 				string attributeTypeGUID = attributeNode.Attributes.GetNamedItem("attributeType").Value;
 
-				//Console.Out.WriteLine ("*" + attributeNode.InnerText);
-
-				if(attributeTypeGUID != null)
+				try 
 				{
-					Console.Out.WriteLine ("*" + attributeTypeGUID);
+					if(attributeTypeGUID != null)
+					{
+						Guid guid = new Guid(attributeTypeGUID);
+						// load by plugins:
+						attributes.Add(((IAttributeSerializerPlugin)attributeSerializerPlugins[guid])
+							.DeserializeAttribute(attributeNode));
+					}
 				}
-				//Console.Out.WriteLine (attributeNode.InnerXml + attributeNode.Value);
-				
-				
-
-				//attributeSerializerPlugins[attributeTypeGUID].ToString();
-
-				//((IAttributeSerializerPlugin)attributeSerializerPlugins[attributeType.GUID])
-				//	.SerializeAttribute(attributeType, attributeHash[attributeType], xmlWriter);
-				
+				catch (Exception e)
+				{
+					throw new AttributeNotSupportedException(
+						"Could not find attributeTypeGUID for attribute OR no plugin loaded for attributeTypeGUID: " +
+						attributeTypeGUID + "\nInner Exception Message: " + e.Message + "; " + e.StackTrace);
+				}
 			}
 
 			return (IAttribute[])attributes.ToArray(typeof(IAttribute));

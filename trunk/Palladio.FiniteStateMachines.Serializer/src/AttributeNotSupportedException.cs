@@ -11,6 +11,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/21 13:58:17  kelsaka
+	/// - added use of plugins for deserialisation
+	///
 	/// Revision 1.1  2005/08/15 06:55:34  kelsaka
 	/// - initial creation
 	///
@@ -41,7 +44,6 @@ namespace Palladio.FiniteStateMachines.Serializer
 		{
 			return base.ToString () + " " + errorMessage;;
 		}
-
 
 	}
 }
