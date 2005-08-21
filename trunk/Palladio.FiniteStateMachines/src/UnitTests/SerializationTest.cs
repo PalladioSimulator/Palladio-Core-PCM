@@ -1,9 +1,12 @@
 #if TEST
+using System;
 using System.IO;
 using System.Text;
 using System.Xml;
 using NUnit.Framework;
 using Palladio.FiniteStateMachines.Serializer;
+using Palladio.FiniteStateMachines.Serializer.DefaultImplementation;
+using Palladio.FiniteStateMachines.Serializer.Interfaces;
 using Palladio.FiniteStateMachines.UnitTests.TestClasses;
 
 namespace Palladio.FiniteStateMachines.UnitTests
@@ -16,6 +19,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/08/21 18:00:45  kelsaka
+	/// - added further tests
+	///
 	/// Revision 1.2  2005/08/21 10:04:44  kelsaka
 	/// - REadded test cases
 	///
@@ -73,7 +79,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		[Test]
 		public void AttributeSerialize()
 		{
-			IFiniteStateMachine fsm = BuildExampleFSMAttributes();;
+			IFiniteStateMachine fsm = BuildExampleFSMAttributes();
 			IXMLSerializer serializer = new XMLSerializer();
 			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer(), new Test1AttributeType());
 			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer(), new Test1AttributeType());
@@ -89,10 +95,35 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		}
 
 		[Test]
-		public void LoadFromFile()
+		[ExpectedException(typeof(AttributeNotSupportedException))]
+		public void LoadFromFileNoAttributesPluginsLoaded()
 		{
 			IXMLSerializer serializer = new XMLSerializer();
-			IFiniteStateMachine fsm = serializer.Load(new FileInfo(".\\testFSM.xml"));
+			serializer.Load(new FileInfo(".\\testFSM.xml"));
+		}
+
+		[Test]
+		public void LoadFromFileWithAttributes()
+		{
+			
+			IFiniteStateMachine fsm = BuildExampleFSMAttributes();
+			IXMLSerializer serializer = new XMLSerializer();
+			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer(), new Test1AttributeType());
+			serializer.Save(new FileInfo(".\\testFSM.xml"), fsm);
+
+			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer(), new Test1AttributeType());
+			fsm = serializer.Load(new FileInfo(".\\testFSM.xml"));
+			Assert.IsTrue(fsm.HasFinalStates);
+			Assert.IsTrue(fsm.HasStartState);
+			Assert.IsTrue(fsm.States.Length.Equals(3));
+			Assert.IsTrue(fsm.InputAlphabet.Length.Equals(4));
+			Assert.IsTrue(fsm.Transitions.Length.Equals(4));
+			Assert.IsTrue(fsm.StartState.ID.Equals("1"));
+			
+			IEditableFiniteStateMachine efsm = FSMFactory.GetEditableFSM(fsm);
+			//Assert.IsTrue(((Test1Attribute)efsm.GetState("2").Attributes[new Test1AttributeType()]).TestProperty.Equals(new Test1Attribute().TestProperty));
+			//Console.Out.WriteLine ("***" + efsm.GetState("2").Attributes.AttributeTypes.Count);
+			//Console.Out.WriteLine ("***" + efsm.GetState("2").Attributes[new Test1AttributeType()]);
 		}
 
 		private IFiniteStateMachine BuildExampleFSM()
