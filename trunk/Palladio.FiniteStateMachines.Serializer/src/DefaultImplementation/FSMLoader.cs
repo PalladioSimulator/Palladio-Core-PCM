@@ -16,6 +16,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/08/21 18:08:11  kelsaka
+	/// - added comments
+	///
 	/// Revision 1.6  2005/08/21 15:34:54  kelsaka
 	/// - completed handling of attributes (deserialisation)
 	///
@@ -77,9 +80,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			
 			ExtractStates(rootNode, mgr);
 			ExtractStartState(rootNode, mgr);
-			ExtractFinalState(rootNode, mgr);
+			ExtractFinalStates(rootNode, mgr);
 			ExtractInputAlphabet(rootNode, mgr);
-			ExtractTransition(rootNode, mgr);
+			ExtractTransitions(rootNode, mgr);
 
 			return efsm;
 		}
@@ -185,7 +188,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// </summary>
 		/// <param name="rootNode">base node</param>
 		/// <param name="mgr">namespace management to be applied</param>
-		private void ExtractFinalState(XmlNode rootNode, XmlNamespaceManager mgr)
+		private void ExtractFinalStates(XmlNode rootNode, XmlNamespaceManager mgr)
 		{
 			ArrayList finalStates = new ArrayList();
 			XmlNodeList nodes = rootNode.SelectSingleNode("//finalStates", mgr).ChildNodes;
@@ -202,7 +205,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// </summary>
 		/// <param name="rootNode">base node</param>
 		/// <param name="mgr">namespace management to be applied</param>
-		private void ExtractTransition(XmlNode rootNode, XmlNamespaceManager mgr)
+		private void ExtractTransitions(XmlNode rootNode, XmlNamespaceManager mgr)
 		{
 			XmlNodeList nodes = rootNode.SelectSingleNode("//transitions", mgr).ChildNodes;
 			foreach(XmlNode node in nodes)
