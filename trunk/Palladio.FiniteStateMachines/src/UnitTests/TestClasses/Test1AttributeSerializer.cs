@@ -13,6 +13,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/21 10:05:01  kelsaka
+	/// - REadded test cases
+	///
 	/// Revision 1.1  2005/08/15 09:53:20  kelsaka
 	/// - added further test cases
 	/// - use of GUID to identify attribute types
@@ -38,12 +41,29 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// <param name="xmlWriter">The writer to use for serializing attributes.</param>
 		public void SerializeAttribute (IAttributeType attributeType, IAttribute attribute, XmlWriter xmlWriter)
 		{
-			xmlWriter.WriteStartElement("attribute");
 			xmlWriter.WriteAttributeString("GUID", attributeType.GUID.ToString());
 			xmlWriter.WriteAttributeString("displayName", attributeType.DisplayName);
 			xmlWriter.WriteAttributeString("description", attributeType.Description);
 			xmlWriter.WriteAttributeString("valueType", attributeType.ValueType.ToString());
-			xmlWriter.WriteEndElement();
 		}
+
+		/// <summary>
+		/// The namespace of the IAttribute elements. (read)
+		/// </summary>
+		public string XmlNamespace
+		{
+			get { throw new NotImplementedException (); }
+		}
+
+		/// <summary>
+		/// The URI of the XSD-File that describes the XML-Scheme of the Plugin output. This XSD is used
+		/// for validation. (read)
+		/// </summary>
+		public string XmlSchemaURI
+		{
+			get { throw new NotImplementedException (); }
+		}
+
+
 	}
 }
