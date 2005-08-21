@@ -1,8 +1,7 @@
-using System;
 using System.Xml;
 using Palladio.Attributes;
 
-namespace Palladio.FiniteStateMachines.Serializer
+namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 {
 	/// <summary>
 	/// The interface of plugins that serialize <see cref="IAttribute"/>s. Such a plugin can be registered
@@ -13,6 +12,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/08/21 15:34:54  kelsaka
+	/// - completed handling of attributes (deserialisation)
+	///
 	/// Revision 1.7  2005/08/21 13:58:17  kelsaka
 	/// - added use of plugins for deserialisation
 	///
@@ -53,7 +55,13 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// <code>&lt;attribut attributeType="abcde"&gt;&lt;/attribut&gt;</code> Tag.</remarks>
 		void SerializeAttribute(IAttributeType attributeType, IAttribute attribute, XmlWriter xmlWriter);
 		
-		IAttribute DeserializeAttribute(XmlNode xmlNode);
+		/// <summary>
+		/// Deserializes the given xmlNode, that represents an <see cref="IAttribute"/>
+		/// including an <see cref="IAttributeType"/>.
+		/// </summary>
+		/// <param name="xmlNode">The node to deserialize.</param>
+		/// <returns>The deserialized attribute information.</returns>
+		AttributeInfo DeserializeAttribute(XmlNode xmlNode);
 
 		/// <summary>
 		/// The namespace of the IAttribute elements. (read)

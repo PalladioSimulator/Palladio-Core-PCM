@@ -3,8 +3,9 @@ using System.Collections;
 using System.IO;
 using System.Xml;
 using Palladio.Attributes;
+using Palladio.FiniteStateMachines.Serializer.Interfaces;
 
-namespace Palladio.FiniteStateMachines.Serializer
+namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 {
 	/// <summary>
 	/// Serializer for the Palladio Finite State Machines (FSMs). Handles laoding and saving of
@@ -72,6 +73,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/08/21 15:34:54  kelsaka
+	/// - completed handling of attributes (deserialisation)
+	///
 	/// Revision 1.8  2005/08/19 09:50:31  kelsaka
 	/// - added XPath statements
 	///
@@ -143,7 +147,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// by the xmlNode.</returns>
 		public IFiniteStateMachine Load (XmlNode xmlNode)
 		{
-			throw new NotImplementedException ();
+			FSMLoader loader = new FSMLoader();
+			//return loader.Load(, attributeSerializerPlugins);
+			throw new NotImplementedException();
 		}
 
 		/// <summary>

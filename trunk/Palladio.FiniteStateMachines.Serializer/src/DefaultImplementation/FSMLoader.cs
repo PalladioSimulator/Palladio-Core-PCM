@@ -3,8 +3,9 @@ using System.Collections;
 using System.IO;
 using System.Xml;
 using Palladio.Attributes;
+using Palladio.FiniteStateMachines.Serializer.Interfaces;
 
-namespace Palladio.FiniteStateMachines.Serializer
+namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 {
 	/// <summary>
 	/// Serializer for the Palladio Finite State Machines (FSMs). Handles laoding and saving of
@@ -15,6 +16,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/08/21 15:34:54  kelsaka
+	/// - completed handling of attributes (deserialisation)
+	///
 	/// Revision 1.5  2005/08/21 13:58:17  kelsaka
 	/// - added use of plugins for deserialisation
 	///
@@ -153,11 +157,15 @@ namespace Palladio.FiniteStateMachines.Serializer
 					state.IsErrorState = false;	
 				}
 				
+				// handle attributes:
+				AttributeInfo[] attributes = ExtractAttribute(node.SelectSingleNode("attributes"), mgr);
+				foreach(AttributeInfo attributeInfo in attributes)
+				{
+					state.Attributes.Add(attributeInfo.AttributeType, attributeInfo.Attribute);
+				}
+
 				efsm.AddStates(state);
 			}
-
-
-			//TODO: serialize IAttributes by plugins.
 		}
 
 		/// <summary>
@@ -207,12 +215,11 @@ namespace Palladio.FiniteStateMachines.Serializer
 					efsm.GetState(node.Attributes.GetNamedItem("destinationStateIdRef").Value)
 				);
 				
-				IAttribute[] attributes = ExtractAttribute(node.SelectSingleNode("attributes"), mgr);
-
-				foreach(IAttribute attribute in attributes)
+				// handle attributes:
+				AttributeInfo[] attributes = ExtractAttribute(node.SelectSingleNode("attributes"), mgr);
+				foreach(AttributeInfo attributeInfo in attributes)
 				{
-					//TODO
-					//transition.Attributes.Add(null, attribute);
+					transition.Attributes.Add(attributeInfo.AttributeType, attributeInfo.Attribute);
 				}
 				
 				efsm.AddTransitions(transition);
@@ -225,7 +232,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 		/// <param name="node">The "attributes"-node who's child-nodes are "attribute"-nodes.</param>
 		/// <param name="mgr">Actual namespace manager to use.</param>
 		/// <returns>Array of IAttributes that were found in the given node.</returns>
-		private IAttribute[] ExtractAttribute(XmlNode node, XmlNamespaceManager mgr)
+		private AttributeInfo[] ExtractAttribute(XmlNode node, XmlNamespaceManager mgr)
 		{
 			ArrayList attributes = new ArrayList();
 
@@ -252,7 +259,7 @@ namespace Palladio.FiniteStateMachines.Serializer
 				}
 			}
 
-			return (IAttribute[])attributes.ToArray(typeof(IAttribute));
+			return (AttributeInfo[])attributes.ToArray(typeof(AttributeInfo));
 		}
 
 		/// <summary>

@@ -5,8 +5,9 @@ using System.Text;
 using System.Xml;
 using Palladio.Attributes;
 using Palladio.FiniteStateMachines.Serializer;
+using Palladio.FiniteStateMachines.Serializer.Interfaces;
 
-namespace Palladio.FiniteStateMachines.Serializer
+namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 {
 	/// <summary>
 	/// Serializer for the Palladio Finite State Machines (FSMs).
@@ -73,6 +74,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/08/21 15:34:54  kelsaka
+	/// - completed handling of attributes (deserialisation)
+	///
 	/// Revision 1.3  2005/08/19 16:11:38  kelsaka
 	/// - added further deserialisation
 	///

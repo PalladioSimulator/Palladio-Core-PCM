@@ -2,7 +2,7 @@ using System.IO;
 using System.Xml;
 using Palladio.Attributes;
 
-namespace Palladio.FiniteStateMachines.Serializer
+namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 {
 	/// <summary>
 	/// Serializer for the Palladio Finite State Machines (FSMs). Handles laoding and saving of
@@ -13,6 +13,9 @@ namespace Palladio.FiniteStateMachines.Serializer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/08/21 15:34:54  kelsaka
+	/// - completed handling of attributes (deserialisation)
+	///
 	/// Revision 1.4  2005/08/15 09:51:50  kelsaka
 	/// - added further test cases
 	/// - use of GUID to identify attribute types

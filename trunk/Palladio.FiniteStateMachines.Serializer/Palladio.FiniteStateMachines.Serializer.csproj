@@ -131,6 +131,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Interfaces\AttributeInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Interfaces\IAttributeSerializerPlugin.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
