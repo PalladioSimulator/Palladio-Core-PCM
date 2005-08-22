@@ -18,6 +18,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/08/22 13:44:50  kelsaka
+	/// - removed validation temporarily
+	///
 	/// Revision 1.11  2005/08/22 13:23:32  kelsaka
 	/// - added support of XSD schema for plugins
 	///
@@ -127,7 +130,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			try 
 			{
 				validatingReader = new XmlValidatingReader(xmlTextReader);
-				validatingReader.ValidationType = ValidationType.Schema;			
+				/*validatingReader.ValidationType = ValidationType.Schema;			
 	
 				XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
 				schemaCollection.Add(XMLSerializer.XMLNAMESPACE,
@@ -137,7 +140,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
 					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
 
-				validatingReader.Schemas.Add(schemaCollection);
+				validatingReader.Schemas.Add(schemaCollection);*/
 			}
 			catch(Exception exc)
 			{
