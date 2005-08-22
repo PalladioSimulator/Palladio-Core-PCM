@@ -17,6 +17,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/08/22 09:38:52  kelsaka
+	/// - update of xsd-file
+	///
 	/// Revision 1.9  2005/08/22 08:46:33  kelsaka
 	/// - added use of prefixes and namespaces to loader and writer
 	///
@@ -112,7 +115,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		}
 
 
-		private static XmlDocument LoadFromFileAndValidate (FileInfo xmlFilePath)
+		private XmlDocument LoadFromFileAndValidate (FileInfo xmlFilePath)
 		{
 			XmlTextReader xmlTextReader = new XmlTextReader(xmlFilePath.Name);
 			XmlValidatingReader validatingReader = null;
@@ -123,17 +126,20 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				validatingReader.ValidationType = ValidationType.Schema;			
 	
 				// TODO: add validation schemas
-				/*XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
+				XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
+				Console.Out.WriteLine (System.AppDomain.CurrentDomain.BaseDirectory + "\\" + XMLSerializer.XSDSchemeFileName);
+				
 				schemaCollection.Add(XMLSerializer.XMLNAMESPACE,
 					System.AppDomain.CurrentDomain.BaseDirectory + "\\" + XMLSerializer.XSDSchemeFileName);
-*/
+
 				/*foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
 					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);*/
 
-				//validatingReader.Schemas.Add(schemaCollection);
+				validatingReader.Schemas.Add(schemaCollection);
 			}
 			catch(Exception exc)
 			{
+				throw exc;
 				throw new ModelSerializationException("Unable to load the xml schema " + XMLSerializer.XSDSchemeFileName +
 					" or one of the plugins'.", exc);
 			}
@@ -154,10 +160,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			IState state;
 			foreach(XmlNode node in stateList)
 			{
-				state = FSMFactory.CreateDefaultState(node.Attributes.GetNamedItem(""+XMLSerializer.XMLPREFIX+":id").Value);
+				state = FSMFactory.CreateDefaultState(node.Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":id").Value);
 
 				// set error states:
-				if(node.Attributes.GetNamedItem(""+XMLSerializer.XMLPREFIX+":isErrorState").Value.Equals("True"))
+				if(node.Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":isErrorState").Value.Equals("True"))
 				{
 					state.IsErrorState = true;
 				}
@@ -186,7 +192,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		{
 			efsm.StartState = efsm.
 				GetState(rootNode.SelectSingleNode("//"+XMLSerializer.XMLPREFIX+":startState", mgr).
-				Attributes.GetNamedItem(""+XMLSerializer.XMLPREFIX+":idref").Value);	
+				Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":idref").Value);	
 		}
 
 		/// <summary>
@@ -217,11 +223,11 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			foreach(XmlNode node in nodes)
 			{
 				ITransition transition = FSMFactory.CreateDefaultTransition(
-					efsm.GetState(node.Attributes.GetNamedItem(""+XMLSerializer.XMLPREFIX+":sourceStateIdRef").Value),
+					efsm.GetState(node.Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":sourceStateIdRef").Value),
 					FSMFactory.CreateDefaultInput(
 						node.SelectSingleNode("//"+XMLSerializer.XMLPREFIX+":inputSymbol", mgr).Attributes.GetNamedItem(""+XMLSerializer.XMLPREFIX+":inputSymbolIdRef").Value
 					),
-					efsm.GetState(node.Attributes.GetNamedItem(""+XMLSerializer.XMLPREFIX+":destinationStateIdRef").Value)
+					efsm.GetState(node.Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":destinationStateIdRef").Value)
 				);
 				
 				// handle attributes:
@@ -282,7 +288,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			foreach(XmlNode node in nodes)
 			{
 				efsm.AddInputSymbols(
-					FSMFactory.CreateDefaultInput(node.Attributes.GetNamedItem(""+XMLSerializer.XMLPREFIX+":inputSymbolId").Value));
+					FSMFactory.CreateDefaultInput(node.Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":inputSymbolId").Value));
 			}
 		}
 

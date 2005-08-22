@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Palladio FSM - Scheme -->
-<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine" xmlns="http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine">
 	<xs:element name="Palladio.FiniteStateMachine">
 		<xs:complexType>
 			<xs:sequence>
