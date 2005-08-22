@@ -74,6 +74,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/08/22 06:45:57  kelsaka
+	/// - added XSD-Scheme for validation purposes
+	///
 	/// Revision 1.4  2005/08/21 15:34:54  kelsaka
 	/// - completed handling of attributes (deserialisation)
 	///
@@ -118,6 +121,8 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			this.attributeSerializerPlugins = attributeSerializerPlugins;
 			xmlWriter.WriteComment("Finite State Machine - Palladio Research Group, Software Engineering, University of Oldenburg, Germany");
 			xmlWriter.WriteStartElement("Palladio.FiniteStateMachine");
+			xmlWriter.WriteAttributeString("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+			xmlWriter.WriteAttributeString("xsi:noNamespaceSchemaLocation", XMLSerializer.XSDSchemeFileName);
 
 			this.writeStates(xmlWriter, fsm);
 			this.writeStartState(xmlWriter, fsm);
@@ -146,8 +151,6 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				xmlWriter.Indentation= 4;
 				xmlWriter.Namespaces = true;
 				xmlWriter.WriteStartDocument();
-				xmlWriter.WriteProcessingInstruction("xml-stylesheet", "type='text/xsl' href='PalladioFSM.xsl'");
-				//TODO: write XSD instead of XSL.
 
 				this.Save(xmlWriter, fsm, attributeSerializerPlugins);
 			}

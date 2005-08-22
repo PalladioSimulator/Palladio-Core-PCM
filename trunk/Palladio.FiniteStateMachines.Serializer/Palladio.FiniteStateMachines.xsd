@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Palladio FSM - Scheme -->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Palladio.FiniteStateMachine">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="states"/>
+				<xs:element ref="startState"/>
+				<xs:element ref="finalStates"/>
+				<xs:element ref="transitions"/>
+				<xs:element ref="inputSymbolAlphabet"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attribute">
+		<xs:complexType>
+			<xs:attribute name="attributeType" type="xs:string" use="required"/>
+			<xs:attribute name="GUID" type="xs:string" use="required"/>
+			<xs:attribute name="displayName" type="xs:string" use="required"/>
+			<xs:attribute name="description" type="xs:string" use="required"/>
+			<xs:attribute name="valueType" type="xs:string" use="required"/>
+			<!-- TODO: -->
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attributes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="attribute" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="finalState">
+		<xs:complexType>
+			<xs:attribute name="idref" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="finalStates">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="finalState" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="inputSymbol">
+		<xs:complexType>
+			<xs:attribute name="inputSymbolIdRef" type="xs:string"/>
+			<xs:attribute name="inputSymbolId" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="inputSymbolAlphabet">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="inputSymbol" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="startState">
+		<xs:complexType>
+			<xs:attribute name="idref" type="xs:boolean" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="state">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="attributes"/>
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:string"/>
+			<xs:attribute name="isErrorState" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="states">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="state" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="transition">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="inputSymbol"/>
+				<xs:element ref="attributes"/>
+			</xs:sequence>
+			<xs:attribute name="sourceStateIdRef" use="required" type="xs:string"/>
+			<xs:attribute name="destinationStateIdRef" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="transitions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="transition" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

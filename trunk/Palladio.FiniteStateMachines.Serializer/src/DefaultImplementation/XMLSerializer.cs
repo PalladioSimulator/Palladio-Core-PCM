@@ -73,6 +73,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/08/22 06:45:57  kelsaka
+	/// - added XSD-Scheme for validation purposes
+	///
 	/// Revision 1.9  2005/08/21 15:34:54  kelsaka
 	/// - completed handling of attributes (deserialisation)
 	///
@@ -119,6 +122,14 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			get
 			{
 				return "fsm";
+			}
+		}
+
+		public static string XSDSchemeFileName
+		{
+			get
+			{
+				return "Palladio.FiniteStateMachines.xsd";
 			}
 		}
 

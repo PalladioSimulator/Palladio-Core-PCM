@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Xml;
+using System.Xml.Schema;
 using Palladio.Attributes;
 using Palladio.FiniteStateMachines.Serializer.Interfaces;
 
@@ -16,6 +17,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/08/22 06:45:57  kelsaka
+	/// - added XSD-Scheme for validation purposes
+	///
 	/// Revision 1.7  2005/08/21 18:08:11  kelsaka
 	/// - added comments
 	///
@@ -117,19 +121,19 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	
 
 				// TODO: add validation schemas
-				/* XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
+				XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
 				schemaCollection.Add(XMLSerializer.XMLNAMESPACE,
-					System.AppDomain.CurrentDomain.BaseDirectory + "\\Palladio.FiniteStateMachines.xsd");
+					System.AppDomain.CurrentDomain.BaseDirectory + "\\" + XMLSerializer.XSDSchemeFileName);
 
-				foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
-					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
+				/*foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
+					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);*/
 
-				validatingReader.Schemas.Add(schemaCollection);*/
+				//validatingReader.Schemas.Add(schemaCollection);
 			}
 			catch(Exception exc)
 			{
-				throw new ModelSerializationException("Unable to load the xml schema Palladio.FiniteStateMachine.xsd "+
-					"or one of the plugins once.",exc);
+				throw new ModelSerializationException("Unable to load the xml schema " + XMLSerializer.XSDSchemeFileName +
+					" or one of the plugins'.", exc);
 			}
 
 			return LoadXMLDocument (validatingReader);
