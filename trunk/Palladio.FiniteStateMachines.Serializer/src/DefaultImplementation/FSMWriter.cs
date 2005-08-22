@@ -10,7 +10,8 @@ using Palladio.FiniteStateMachines.Serializer.Interfaces;
 namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 {
 	/// <summary>
-	/// Serializer for the Palladio Finite State Machines (FSMs).
+	/// Serializer for the Palladio Finite State Machines (FSMs). All elements and attributes use the
+	/// namespace definition and prefix defined in <see cref="XMLSerializer"/>.
 	/// </summary>
 	/// <remarks>
 	/// Typical output of the serializer looks like this:
@@ -74,6 +75,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/08/22 08:46:33  kelsaka
+	/// - added use of prefixes and namespaces to loader and writer
+	///
 	/// Revision 1.5  2005/08/22 06:45:57  kelsaka
 	/// - added XSD-Scheme for validation purposes
 	///
@@ -120,9 +124,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		{
 			this.attributeSerializerPlugins = attributeSerializerPlugins;
 			xmlWriter.WriteComment("Finite State Machine - Palladio Research Group, Software Engineering, University of Oldenburg, Germany");
-			xmlWriter.WriteStartElement("Palladio.FiniteStateMachine");
-			xmlWriter.WriteAttributeString("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
-			xmlWriter.WriteAttributeString("xsi:noNamespaceSchemaLocation", XMLSerializer.XSDSchemeFileName);
+			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "Palladio.FiniteStateMachine", XMLSerializer.XMLNAMESPACE);
+			//xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "xmlns:xsi", XMLSerializer.XMLNAMESPACE, "http://www.w3.org/2001/XMLSchema-instance");
+			//xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "xsi:noNamespaceSchemaLocation", XMLSerializer.XMLNAMESPACE, XMLSerializer.XSDSchemeFileName);
 
 			this.writeStates(xmlWriter, fsm);
 			this.writeStartState(xmlWriter, fsm);
@@ -177,14 +181,14 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		private void writeStates(XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
 			xmlWriter.WriteComment("List of states of the FSM:");
-			xmlWriter.WriteStartElement("states");
+			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "states", XMLSerializer.XMLNAMESPACE);
 
 			foreach(IState state in fsm.States)
 			{
-				xmlWriter.WriteStartElement("state");
+				xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "state", XMLSerializer.XMLNAMESPACE);
 
-				xmlWriter.WriteAttributeString("id", state.ID);
-				xmlWriter.WriteAttributeString("isErrorState", state.IsErrorState.ToString());
+				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "id", XMLSerializer.XMLNAMESPACE, state.ID);
+				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "isErrorState", XMLSerializer.XMLNAMESPACE, state.IsErrorState.ToString());
 
 				writeAttributes (xmlWriter, state.Attributes);
 
@@ -202,7 +206,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		private void writeAttributes (XmlWriter xmlWriter, IAttributeHash attributeHash)
 		{
 			xmlWriter.WriteComment("List of IAttributes:");
-			xmlWriter.WriteStartElement("attributes");
+			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "attributes", XMLSerializer.XMLNAMESPACE);
 			xmlWriter.WriteComment("Written by plugin:");
 	
 			foreach(IAttributeType attributeType in attributeHash.AttributeTypes)
@@ -210,8 +214,8 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				// use Plugin for serialization:
 				if(attributeSerializerPlugins.ContainsKey(attributeType.GUID))
 				{
-					xmlWriter.WriteStartElement("attribute");
-					xmlWriter.WriteAttributeString("attributeType", attributeType.GUID.ToString());
+					xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "attribute", XMLSerializer.XMLNAMESPACE);
+					xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "attributeType", XMLSerializer.XMLNAMESPACE, attributeType.GUID.ToString());
 
 					((IAttributeSerializerPlugin)attributeSerializerPlugins[attributeType.GUID])
 						.SerializeAttribute(attributeType, attributeHash[attributeType], xmlWriter);
@@ -237,8 +241,8 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		private void writeStartState(XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
 			xmlWriter.WriteComment("The start state of the FSM:");
-			xmlWriter.WriteStartElement("startState");
-			xmlWriter.WriteAttributeString("idref", fsm.StartState.ID);
+			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "startState", XMLSerializer.XMLNAMESPACE);
+			xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "idref", XMLSerializer.XMLNAMESPACE, fsm.StartState.ID);
 			xmlWriter.WriteEndElement();
 		}
 
@@ -250,12 +254,12 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		private void writeFinalStates(XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
 			xmlWriter.WriteComment("List of final states:");
-			xmlWriter.WriteStartElement("finalStates");
+			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "finalStates", XMLSerializer.XMLNAMESPACE);
 
 			foreach(IState state in fsm.FinalStates)
 			{
-				xmlWriter.WriteStartElement("finalState");
-				xmlWriter.WriteAttributeString("idref", state.ID);
+				xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "finalState", XMLSerializer.XMLNAMESPACE);
+				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "idref", XMLSerializer.XMLNAMESPACE, state.ID);
 				xmlWriter.WriteEndElement();
 			}
 
@@ -270,14 +274,14 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		private void writeTransitions(XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
 			xmlWriter.WriteComment("List of transitions:");
-			xmlWriter.WriteStartElement("transitions");
+			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "transitions", XMLSerializer.XMLNAMESPACE);
 
 			foreach(ITransition transition in fsm.Transitions)
 			{
-				xmlWriter.WriteStartElement("transition");
+				xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "transition", XMLSerializer.XMLNAMESPACE);
 				
-				xmlWriter.WriteAttributeString("sourceStateIdRef", transition.SourceState.ID);
-				xmlWriter.WriteAttributeString("destinationStateIdRef", transition.DestinationState.ID);
+				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "sourceStateIdRef", XMLSerializer.XMLNAMESPACE, transition.SourceState.ID);
+				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "destinationStateIdRef", XMLSerializer.XMLNAMESPACE, transition.DestinationState.ID);
 				writeInputSymbol(xmlWriter, transition);
 				writeAttributes(xmlWriter, transition.Attributes);
 
@@ -294,10 +298,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <param name="transition">The transition whose input symbol shall be serialized.</param>
 		private void writeInputSymbol (XmlWriter xmlWriter, ITransition transition)
 		{
-			xmlWriter.WriteStartElement("inputSymbol");
+			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "inputSymbol", XMLSerializer.XMLNAMESPACE);
 
-			//TODO: check use of ToString()
-			xmlWriter.WriteAttributeString("inputSymbolIdRef", transition.InputSymbol.ID.ToString());
+			xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "inputSymbolIdRef", XMLSerializer.XMLNAMESPACE, transition.InputSymbol.ID.ToString());
 			
 			xmlWriter.WriteEndElement();
 		}
@@ -309,13 +312,13 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <param name="fsm">FSM to serialize.</param>
 		private void writeInputAlphabet (XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
-			xmlWriter.WriteStartElement("inputSymbolAlphabet");
+			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "inputSymbolAlphabet", XMLSerializer.XMLNAMESPACE);
 
 			foreach (IInput input in fsm.InputAlphabet)
 			{
-				xmlWriter.WriteStartElement("inputSymbol");
+				xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "inputSymbol", XMLSerializer.XMLNAMESPACE);
 				//TODO: check use of ToString()
-				xmlWriter.WriteAttributeString("inputSymbolId", input.ID.ToString());
+				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "inputSymbolId", XMLSerializer.XMLNAMESPACE, input.ID.ToString());
 				//TODO: plugin use here.
 				xmlWriter.WriteEndElement();
 			}

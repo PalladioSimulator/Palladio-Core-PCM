@@ -73,6 +73,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/08/22 08:46:33  kelsaka
+	/// - added use of prefixes and namespaces to loader and writer
+	///
 	/// Revision 1.10  2005/08/22 06:45:57  kelsaka
 	/// - added XSD-Scheme for validation purposes
 	///
@@ -109,6 +112,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// </remarks>
 	public class XMLSerializer : IXMLSerializer
 	{
+		/// <summary>
+		/// The namespace for the Palladio.FSM (URI).
+		/// </summary>
 		public static string XMLNAMESPACE
 		{
 			get
@@ -117,6 +123,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			}
 		}
 
+		/// <summary>
+		/// The prefix of XML-elements.
+		/// </summary>
 		public static string XMLPREFIX
 		{
 			get
@@ -125,6 +134,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			}
 		}
 
+		/// <summary>
+		/// The file name (without location) of the XSD-Scheme of the FSM serialization.
+		/// </summary>
 		public static string XSDSchemeFileName
 		{
 			get
@@ -160,6 +172,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		{
 			FSMLoader loader = new FSMLoader();
 			//return loader.Load(, attributeSerializerPlugins);
+			//TODO: change xmlNode to xmlDocument?
 			throw new NotImplementedException();
 		}
 

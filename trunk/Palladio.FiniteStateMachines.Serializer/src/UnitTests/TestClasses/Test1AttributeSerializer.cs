@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/22 08:46:33  kelsaka
+	/// - added use of prefixes and namespaces to loader and writer
+	///
 	/// Revision 1.1  2005/08/21 18:07:42  kelsaka
 	/// - added further tests
 	///
@@ -45,10 +48,10 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// <param name="xmlWriter">The writer to use for serializing attributes.</param>
 		public void SerializeAttribute (IAttributeType attributeType, IAttribute attribute, XmlWriter xmlWriter)
 		{
-			xmlWriter.WriteAttributeString("GUID", attributeType.GUID.ToString());
-			xmlWriter.WriteAttributeString("displayName", attributeType.DisplayName);
-			xmlWriter.WriteAttributeString("description", attributeType.Description);
-			xmlWriter.WriteAttributeString("valueType", attributeType.ValueType.ToString());
+			xmlWriter.WriteAttributeString(this.XmlPrefix, "GUID", this.XmlNamespace, attributeType.GUID.ToString());
+			xmlWriter.WriteAttributeString(this.XmlPrefix, "displayName", this.XmlNamespace, attributeType.DisplayName);
+			xmlWriter.WriteAttributeString(this.XmlPrefix, "description", this.XmlNamespace, attributeType.Description);
+			xmlWriter.WriteAttributeString(this.XmlPrefix, "valueType", this.XmlNamespace, attributeType.ValueType.ToString());
 		}
 
 		/// <summary>
@@ -60,7 +63,7 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		public AttributeInfo DeserializeAttribute (XmlNode xmlNode)
 		{
 			Test1AttributeType at = new Test1AttributeType();
-			if (!xmlNode.Attributes.GetNamedItem("displayName").Value.Equals(at.DisplayName))
+			if (!xmlNode.Attributes.GetNamedItem(this.XmlPrefix+":displayName").Value.Equals(at.DisplayName))
 			{
 				throw new ModelSerializationException("displayName was incorrect or not found");
 			}
@@ -73,7 +76,7 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// </summary>
 		public string XmlNamespace
 		{
-			get { return "Test2-Namespace.com"; }
+			get { return "http://Test1-Namespace.com"; }
 		}
 
 		/// <summary>
@@ -83,6 +86,14 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		public string XmlSchemaURI
 		{
 			get { return "Test1.xsd"; }
+		}
+
+		/// <summary>
+		/// The prefix to identify XML elements written by the plugin.
+		/// </summary>
+		public string XmlPrefix
+		{
+			get { return "t1pre"; }
 		}
 
 

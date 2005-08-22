@@ -31,7 +31,7 @@
 	</xs:element>
 	<xs:element name="finalState">
 		<xs:complexType>
-			<xs:attribute name="idref" use="required" type="xs:string"/>
+			<xs:attribute name="idref" type="xs:string" use="required"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="finalStates">
@@ -64,7 +64,7 @@
 			<xs:sequence>
 				<xs:element ref="attributes"/>
 			</xs:sequence>
-			<xs:attribute name="id" use="required" type="xs:string"/>
+			<xs:attribute name="id" type="xs:string" use="required"/>
 			<xs:attribute name="isErrorState" type="xs:string" use="required"/>
 		</xs:complexType>
 	</xs:element>
@@ -81,8 +81,8 @@
 				<xs:element ref="inputSymbol"/>
 				<xs:element ref="attributes"/>
 			</xs:sequence>
-			<xs:attribute name="sourceStateIdRef" use="required" type="xs:string"/>
-			<xs:attribute name="destinationStateIdRef" use="required" type="xs:string"/>
+			<xs:attribute name="sourceStateIdRef" type="xs:string" use="required"/>
+			<xs:attribute name="destinationStateIdRef" type="xs:string" use="required"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="transitions">

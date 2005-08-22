@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/08/22 08:46:33  kelsaka
+	/// - added use of prefixes and namespaces to loader and writer
+	///
 	/// Revision 1.8  2005/08/21 15:34:54  kelsaka
 	/// - completed handling of attributes (deserialisation)
 	///
@@ -73,6 +76,11 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 		/// for validation. (read)
 		/// </summary>
 		string XmlSchemaURI { get; }
+
+		/// <summary>
+		/// The prefix to identify XML elements written by the plugin.
+		/// </summary>
+		string XmlPrefix { get; }
 
 		#endregion
 	}
