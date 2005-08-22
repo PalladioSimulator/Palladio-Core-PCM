@@ -19,6 +19,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/08/22 16:39:02  kelsaka
+	/// - load: validation against xsd added
+	///
 	/// Revision 1.12  2005/07/29 16:29:30  joemal
 	/// add protocols to example
 	///
@@ -97,7 +100,7 @@ namespace Palladio.CM.Example
 //			Console.ReadLine();
 
 //			Console.WriteLine("Try to store the model to file test.xml");
-//			modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation("test.xml"));
+			modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation("test.xml"));
 //			Console.WriteLine("[Done]");
 			Console.WriteLine("Clear the model.");			
 			modelEnvironment.BuilderManager.RootTypeLevelBuilder.ClearAll();

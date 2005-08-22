@@ -75,6 +75,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/08/22 16:39:02  kelsaka
+	/// - load: validation against xsd added
+	///
 	/// Revision 1.6  2005/08/22 08:46:33  kelsaka
 	/// - added use of prefixes and namespaces to loader and writer
 	///
@@ -124,9 +127,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		{
 			this.attributeSerializerPlugins = attributeSerializerPlugins;
 			xmlWriter.WriteComment("Finite State Machine - Palladio Research Group, Software Engineering, University of Oldenburg, Germany");
+			// declare namespaces, schemas and prefixes:
 			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "Palladio.FiniteStateMachine", XMLSerializer.XMLNAMESPACE);
-			//xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "xmlns:xsi", XMLSerializer.XMLNAMESPACE, "http://www.w3.org/2001/XMLSchema-instance");
-			//xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "xsi:noNamespaceSchemaLocation", XMLSerializer.XMLNAMESPACE, XMLSerializer.XSDSchemeFileName);
+			xmlWriter.WriteAttributeString("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");			
+			xmlWriter.WriteAttributeString("xsi:schemaLocation", XMLSerializer.XMLNAMESPACE + " " + XMLSerializer.XSDSchemeFileName);
 
 			this.writeStates(xmlWriter, fsm);
 			this.writeStartState(xmlWriter, fsm);

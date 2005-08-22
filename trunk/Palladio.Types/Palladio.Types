@@ -13,8 +13,8 @@
             Version history:
             
             $Log$
-            Revision 1.1  2005/08/14 13:43:22  kelsaka
-            - initial creation of FSM serialization
+            Revision 1.2  2005/08/22 16:39:02  kelsaka
+            - load: validation against xsd added
 
             Revision 1.1  2005/07/23 18:53:57  joemal
             initial creation
@@ -61,8 +61,8 @@
             Version history:
             
             $Log$
-            Revision 1.1  2005/08/14 13:43:22  kelsaka
-            - initial creation of FSM serialization
+            Revision 1.2  2005/08/22 16:39:02  kelsaka
+            - load: validation against xsd added
 
             Revision 1.1  2005/07/23 18:53:57  joemal
             initial creation
@@ -123,8 +123,8 @@
             Version history:
             
             $Log$
-            Revision 1.1  2005/08/14 13:43:22  kelsaka
-            - initial creation of FSM serialization
+            Revision 1.2  2005/08/22 16:39:02  kelsaka
+            - load: validation against xsd added
 
             Revision 1.1  2005/07/23 18:53:57  joemal
             initial creation

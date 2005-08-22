@@ -13,6 +13,9 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/08/22 16:39:02  kelsaka
+	/// - load: validation against xsd added
+	///
 	/// Revision 1.5  2005/08/21 15:34:54  kelsaka
 	/// - completed handling of attributes (deserialisation)
 	///
@@ -42,11 +45,14 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 		/// <summary>
 		/// Loads a <see cref="IFiniteStateMachine"/> from a <see cref="XmlNode"/>.
 		/// </summary>
-		/// <param name="xmlNode">A xmlNode that represents a FSM.</param>
+		/// <param name="xmlDocument">A xml document that represents a FSM.</param>
 		/// <returns>The deserialized <see cref="IFiniteStateMachine"/>, that was represented
 		/// by the xmlNode.</returns>
-		IFiniteStateMachine Load(XmlNode xmlNode);
-
+		IFiniteStateMachine Load(XmlDocument xmlDocument);
+		/// <summary>
+		/// Loads a <see cref="IFiniteStateMachine"/> from a <see cref="XmlNode"/>.
+		/// </summary>
+		/// 
 		/// <summary>
 		/// Loads a <see cref="IFiniteStateMachine"/> from a file.
 		/// </summary>

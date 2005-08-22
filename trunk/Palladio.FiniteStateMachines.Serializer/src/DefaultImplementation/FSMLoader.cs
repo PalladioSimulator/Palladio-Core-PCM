@@ -18,6 +18,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/08/22 16:39:02  kelsaka
+	/// - load: validation against xsd added
+	///
 	/// Revision 1.12  2005/08/22 13:44:50  kelsaka
 	/// - removed validation temporarily
 	///
@@ -130,7 +133,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			try 
 			{
 				validatingReader = new XmlValidatingReader(xmlTextReader);
-				/*validatingReader.ValidationType = ValidationType.Schema;			
+				validatingReader.ValidationType = ValidationType.None;//ValidationType.Schema;			
 	
 				XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
 				schemaCollection.Add(XMLSerializer.XMLNAMESPACE,
@@ -140,7 +143,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
 					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
 
-				validatingReader.Schemas.Add(schemaCollection);*/
+				validatingReader.Schemas.Add(schemaCollection);
 			}
 			catch(Exception exc)
 			{
@@ -313,7 +316,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			}
 			catch(Exception exc)
 			{
-				throw exc;
+				Console.Out.WriteLine ("****" + exc.Message);
+				Console.Out.WriteLine (exc.StackTrace);
+				
+
 				throw new ModelSerializationException("Unable to load the xml document.", exc);
 			}
 			return xmlDoc;

@@ -73,6 +73,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/08/22 16:39:02  kelsaka
+	/// - load: validation against xsd added
+	///
 	/// Revision 1.11  2005/08/22 08:46:33  kelsaka
 	/// - added use of prefixes and namespaces to loader and writer
 	///
@@ -112,6 +115,8 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// </remarks>
 	public class XMLSerializer : IXMLSerializer
 	{
+		#region static properties
+
 		/// <summary>
 		/// The namespace for the Palladio.FSM (URI).
 		/// </summary>
@@ -145,17 +150,25 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			}
 		}
 
+		#endregion
+
 		/// <summary>
 		/// Use the attribute type GUID as key.
 		/// </summary>
 		private Hashtable attributeSerializerPlugins;
 
 		/// <summary>
+		/// ...
+		/// </summary>
+		private Hashtable inputSerializerPlugins;
+
+		/// <summary>
 		/// Default constructor.
 		/// </summary>
 		public XMLSerializer()
 		{
-			attributeSerializerPlugins = new Hashtable();
+			this.attributeSerializerPlugins = new Hashtable();
+			this.inputSerializerPlugins = new Hashtable();
 		}
 
 		#region public methods
@@ -165,15 +178,13 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <summary>
 		/// Loads a <see cref="IFiniteStateMachine"/> from a <see cref="XmlNode"/>.
 		/// </summary>
-		/// <param name="xmlNode">A xmlNode that represents a FSM.</param>
+		/// <param name="xmlDocument">A xml document that represents a FSM.</param>
 		/// <returns>The deserialized <see cref="IFiniteStateMachine"/>, that was represented
 		/// by the xmlNode.</returns>
-		public IFiniteStateMachine Load (XmlNode xmlNode)
+		public IFiniteStateMachine Load (XmlDocument xmlDocument)
 		{
 			FSMLoader loader = new FSMLoader();
-			//return loader.Load(, attributeSerializerPlugins);
-			//TODO: change xmlNode to xmlDocument?
-			throw new NotImplementedException();
+			return loader.Load(xmlDocument, attributeSerializerPlugins);
 		}
 
 		/// <summary>
@@ -253,7 +264,12 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <param name="input">The input to register for.</param>
 		public void AddInputSerializerPlugin (IInputSerializerPlugin plugin, IInput input)
 		{
-			throw new NotImplementedException ();
+			//TODO type identification:
+			if(inputSerializerPlugins.ContainsKey(input))
+			{
+				inputSerializerPlugins.Remove(input);
+			}
+			inputSerializerPlugins.Add(input, plugin);
 		}
 
 		/// <summary>
@@ -262,7 +278,8 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <param name="input">The input registration to be removed.</param>
 		public void RemoveAttributeInputPlugin (IInput input)
 		{
-			throw new NotImplementedException ();
+			//TODO type identification:
+			inputSerializerPlugins.Remove(input);
 		}
 
 		#endregion

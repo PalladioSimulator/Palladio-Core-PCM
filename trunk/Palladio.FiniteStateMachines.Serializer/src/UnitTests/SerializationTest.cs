@@ -19,6 +19,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/22 16:39:02  kelsaka
+	/// - load: validation against xsd added
+	///
 	/// Revision 1.1  2005/08/21 18:07:42  kelsaka
 	/// - added further tests
 	///
@@ -108,7 +111,6 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		[Test]
 		public void LoadFromFileWithAttributes()
 		{
-			
 			IFiniteStateMachine fsm = BuildExampleFSMAttributes();
 			IXMLSerializer serializer = new XMLSerializer();
 			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer(), new Test1AttributeType());
@@ -124,9 +126,33 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			Assert.IsTrue(fsm.StartState.ID.Equals("1"));
 			
 			IEditableFiniteStateMachine efsm = FSMFactory.GetEditableFSM(fsm);
+			//TODO: test for attributes
 			//Assert.IsTrue(((Test1Attribute)efsm.GetState("2").Attributes[new Test1AttributeType()]).TestProperty.Equals(new Test1Attribute().TestProperty));
 			//Console.Out.WriteLine ("***" + efsm.GetState("2").Attributes.AttributeTypes.Count);
 			//Console.Out.WriteLine ("***" + efsm.GetState("2").Attributes[new Test1AttributeType()]);
+		}
+
+		[Test]
+		public void LoadFromXmlDocument()
+		{
+			IFiniteStateMachine fsm = BuildExampleFSM();
+			IXMLSerializer serializer = new XMLSerializer();
+			serializer.Save(new FileInfo(".\\testFSM.xml"), fsm);
+			
+			XmlTextReader xmlTextReader = new XmlTextReader(".\\testFSM.xml");
+			XmlValidatingReader validatingReader = new XmlValidatingReader(xmlTextReader);
+			XmlDocument xmlDoc = new XmlDocument();	
+			xmlDoc.Load(validatingReader);
+			validatingReader.Close();
+
+			serializer.Load(xmlDoc);
+
+			Assert.IsTrue(fsm.HasFinalStates);
+			Assert.IsTrue(fsm.HasStartState);
+			Assert.IsTrue(fsm.States.Length.Equals(3));
+			Assert.IsTrue(fsm.InputAlphabet.Length.Equals(4));
+			Assert.IsTrue(fsm.Transitions.Length.Equals(4));
+			Assert.IsTrue(fsm.StartState.ID.Equals("1"));
 		}
 
 		private IFiniteStateMachine BuildExampleFSM()
