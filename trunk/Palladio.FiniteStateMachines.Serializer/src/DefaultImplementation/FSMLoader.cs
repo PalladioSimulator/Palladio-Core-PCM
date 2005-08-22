@@ -11,12 +11,16 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// <summary>
 	/// Serializer for the Palladio Finite State Machines (FSMs). Handles laoding and saving of
 	/// FSMs including <see cref="IAttribute"/>s and <see cref="IInput"/>s.
+	/// Uses prefix and namespace as specified in <see cref="XMLSerializer"/>.
 	/// </summary>
 	/// <remarks>
 	/// <code>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/08/22 13:23:32  kelsaka
+	/// - added support of XSD schema for plugins
+	///
 	/// Revision 1.10  2005/08/22 09:38:52  kelsaka
 	/// - update of xsd-file
 	///
@@ -125,23 +129,20 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				validatingReader = new XmlValidatingReader(xmlTextReader);
 				validatingReader.ValidationType = ValidationType.Schema;			
 	
-				// TODO: add validation schemas
 				XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
-				Console.Out.WriteLine (System.AppDomain.CurrentDomain.BaseDirectory + "\\" + XMLSerializer.XSDSchemeFileName);
-				
 				schemaCollection.Add(XMLSerializer.XMLNAMESPACE,
 					System.AppDomain.CurrentDomain.BaseDirectory + "\\" + XMLSerializer.XSDSchemeFileName);
-
-				/*foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
-					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);*/
+				
+				//add plugins schemas for their namespaces:
+				foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
+					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
 
 				validatingReader.Schemas.Add(schemaCollection);
 			}
 			catch(Exception exc)
 			{
-				throw exc;
 				throw new ModelSerializationException("Unable to load the xml schema " + XMLSerializer.XSDSchemeFileName +
-					" or one of the plugins'.", exc);
+					" or one of the plugins' schemas.", exc);
 			}
 
 			return LoadXMLDocument (validatingReader);
@@ -309,6 +310,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			}
 			catch(Exception exc)
 			{
+				throw exc;
 				throw new ModelSerializationException("Unable to load the xml document.", exc);
 			}
 			return xmlDoc;
