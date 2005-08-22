@@ -16,7 +16,7 @@
                 DefaultTargetSchema = "IE50"
                 DelaySign = "false"
                 OutputType = "Library"
-                PreBuildEvent = ""
+                PreBuildEvent = 'copy "$(ProjectDir)src\UnitTests\TestClasses\Test1.xsd" "$(ProjectDir)$(OutDir)"'
                 PostBuildEvent = ""
                 RootNamespace = "Palladio.FiniteStateMachines.Serializer"
                 RunPostBuildEvent = "OnBuildSuccess"
