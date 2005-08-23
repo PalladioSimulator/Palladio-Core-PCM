@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.18  2005/08/23 15:21:17  gudi11
+	/// fix bug in method AddComponent
+	///
 	/// Revision 1.17  2005/07/30 15:42:54  joemal
 	/// fix a bug in method RemoveSeff
 	///
@@ -372,7 +375,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 
 			CompRelationTable.AddCompRelationsRow(newRow);
 
-			RolesTable.AcceptChanges();
+			CompRelationTable.AcceptChanges();
 
 			entityReg.RegisterComponentToComponent(componentId,parentComponentId);
 		}
