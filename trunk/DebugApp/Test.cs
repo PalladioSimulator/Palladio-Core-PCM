@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/08/24 08:38:22  kelsaka
+	/// - added TypeID for IInputs
+	///
 	/// Revision 1.6  2005/08/21 13:58:17  kelsaka
 	/// - added use of plugins for deserialisation
 	///
@@ -44,8 +47,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			SerializationTest st = new SerializationTest();
 			//st.Init();
 			//st.XMLFilenameSaveTest();
-			st.AttributeSerialize();
-			st.LoadFromFileWithAttributes();
+			//st.AttributeSerialize();
+			//st.LoadFromFileWithAttributes();
+			st.LoadFromFileNoAttributesPluginsLoaded();
 
 			Console.WriteLine("Press ENTER to close program.");
 			Console.ReadLine();

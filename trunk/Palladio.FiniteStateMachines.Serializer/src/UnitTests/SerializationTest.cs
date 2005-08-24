@@ -19,6 +19,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/08/24 08:38:22  kelsaka
+	/// - added TypeID for IInputs
+	///
 	/// Revision 1.2  2005/08/22 16:39:02  kelsaka
 	/// - load: validation against xsd added
 	///
@@ -105,6 +108,8 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		public void LoadFromFileNoAttributesPluginsLoaded()
 		{
 			IXMLSerializer serializer = new XMLSerializer();
+			IFiniteStateMachine fsm = BuildExampleFSM();
+			serializer.Save(new FileInfo(".\\testFSM.xml"), fsm);
 			serializer.Load(new FileInfo(".\\testFSM.xml"));
 		}
 

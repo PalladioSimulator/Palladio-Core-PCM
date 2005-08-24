@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Xml;
 using Palladio.Attributes;
@@ -13,6 +14,9 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/08/24 08:38:22  kelsaka
+	/// - added TypeID for IInputs
+	///
 	/// Revision 1.6  2005/08/22 16:39:02  kelsaka
 	/// - load: validation against xsd added
 	///
@@ -97,17 +101,18 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 		void RemoveAttributeSerializerPlugin(IAttributeType attributeType);
 
 		/// <summary>
-		/// Adds a serializer for an <see cref="IInput"/>.
+		/// Adds a serializer for an <see cref="IInput"/>. If there
+		/// already is an registered plugin for the type it will be removed.
 		/// </summary>
 		/// <param name="plugin">The serializer for the input.</param>
-		/// <param name="input">The input to register for.</param>
-		void AddInputSerializerPlugin(IInputSerializerPlugin plugin, IInput input);
+		/// <param name="inputType">The input type (GUID) to register for.</param>
+		void AddInputSerializerPlugin(IInputSerializerPlugin plugin, Guid inputType);
 
 		/// <summary>
 		/// Removes an existing input serialiser plugin for the given <see cref="IInput"/>.
 		/// </summary>
-		/// <param name="input">The input registration to be removed.</param>
-		void RemoveAttributeInputPlugin(IInput input);
+		/// <param name="inputType">The input type registration to be removed.</param>
+		void RemoveAttributeInputPlugin(Guid inputType);
 
 		#endregion
 

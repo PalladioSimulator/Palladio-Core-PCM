@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/24 08:38:22  kelsaka
+	/// - added TypeID for IInputs
+	///
 	/// Revision 1.1  2005/02/21 13:19:37  joemal
 	/// initial import
 	///
@@ -30,6 +33,20 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			get
 			{
 				return id;
+			}
+		}
+
+		/// <summary>
+		/// Defines the type of the actual input symbol. A set of input
+		/// symbol can belong to one type.
+		/// </summary>
+		/// <remarks>The GUID for this type is
+		/// 12345678-1111-0815-4711-007008009010.</remarks>
+		public Guid TypeID
+		{
+			get
+			{
+				return new Guid("12345678-1111-0815-4711-007008009010");
 			}
 		}
 

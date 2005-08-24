@@ -73,6 +73,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/08/24 08:38:22  kelsaka
+	/// - added TypeID for IInputs
+	///
 	/// Revision 1.12  2005/08/22 16:39:02  kelsaka
 	/// - load: validation against xsd added
 	///
@@ -258,28 +261,27 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		}
 
 		/// <summary>
-		/// Adds a serializer for an <see cref="IInput"/>.
+		/// Adds a serializer for an <see cref="IInput"/>. If there
+		/// already is an registered plugin for the type it will be removed.
 		/// </summary>
 		/// <param name="plugin">The serializer for the input.</param>
-		/// <param name="input">The input to register for.</param>
-		public void AddInputSerializerPlugin (IInputSerializerPlugin plugin, IInput input)
+		/// <param name="inputType">The InputType (GUID) to register for.</param>
+		public void AddInputSerializerPlugin (IInputSerializerPlugin plugin, Guid inputType)
 		{
-			//TODO type identification:
-			if(inputSerializerPlugins.ContainsKey(input))
+			if(inputSerializerPlugins.ContainsKey(inputType))
 			{
-				inputSerializerPlugins.Remove(input);
+				inputSerializerPlugins.Remove(inputType);
 			}
-			inputSerializerPlugins.Add(input, plugin);
+			inputSerializerPlugins.Add(inputType, plugin);
 		}
 
 		/// <summary>
 		/// Removes an existing input serialiser plugin for the given <see cref="IInput"/>.
 		/// </summary>
-		/// <param name="input">The input registration to be removed.</param>
-		public void RemoveAttributeInputPlugin (IInput input)
+		/// <param name="inputType">The inputType registration to be removed.</param>
+		public void RemoveAttributeInputPlugin (Guid inputType)
 		{
-			//TODO type identification:
-			inputSerializerPlugins.Remove(input);
+			inputSerializerPlugins.Remove(inputType);
 		}
 
 		#endregion

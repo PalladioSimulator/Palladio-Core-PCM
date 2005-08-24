@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by University pf Oldenburg (University pf Oldenburg) -->
 <!-- Palladio FSM - Scheme -->
 <xs:schema targetNamespace="http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine" xmlns:fsm="http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine">
-<!--  xmlns="http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine" -->
+	<!--  xmlns="http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine" -->
 	<xs:element name="Palladio.FiniteStateMachine">
 		<xs:complexType>
 			<xs:sequence>
@@ -17,7 +17,7 @@
 	<xs:element name="attribute">
 		<xs:complexType>
 			<xs:attribute name="attributeType" type="xs:string" use="required"/>
-			<!-- TODO: PLUGIN HERE -->
+			<!-- Plugin write further elements of the attribute element.-->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="attributes">
