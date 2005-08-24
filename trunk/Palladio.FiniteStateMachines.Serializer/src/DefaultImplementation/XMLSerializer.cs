@@ -73,6 +73,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2005/08/24 10:24:07  kelsaka
+	/// - added serialization support for default input
+	///
 	/// Revision 1.14  2005/08/24 09:25:40  kelsaka
 	/// - created serializer for the default input
 	/// - added methods for the IInputSerializerPlugin
@@ -170,12 +173,16 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		private Hashtable inputSerializerPlugins;
 
 		/// <summary>
-		/// Default constructor.
+		/// Default constructor. A serializer for the default <see cref="IInput"/> is registered to TypeID
+		/// 12345678-1111-0815-4711-007008009010.
 		/// </summary>
 		public XMLSerializer()
 		{
 			this.attributeSerializerPlugins = new Hashtable();
 			this.inputSerializerPlugins = new Hashtable();
+
+			//register default serializer for default IInputs:
+			AddInputSerializerPlugin(new DefaultInputSerializerPlugin(), FSMFactory.CreateDefaultInput("").TypeID);
 		}
 
 		#region public methods
@@ -219,7 +226,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		public void Save (XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
 			FSMWriter writer = new FSMWriter();
-			writer.Save(xmlWriter, fsm, attributeSerializerPlugins);
+			writer.Save(xmlWriter, fsm, attributeSerializerPlugins, inputSerializerPlugins);
 		}
 
 		/// <summary>
@@ -231,7 +238,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		public void Save (FileInfo xmlFilePath, IFiniteStateMachine fsm)
 		{
 			FSMWriter writer = new FSMWriter();
-			writer.Save(xmlFilePath, fsm, attributeSerializerPlugins);
+			writer.Save(xmlFilePath, fsm, attributeSerializerPlugins, inputSerializerPlugins);
 		}
 
 		#endregion

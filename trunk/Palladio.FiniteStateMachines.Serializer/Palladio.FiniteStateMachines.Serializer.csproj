@@ -111,6 +111,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\InputNotSupportedException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ModelSerializationException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

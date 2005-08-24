@@ -43,6 +43,7 @@
 		<xs:complexType>
 			<xs:attribute name="inputSymbolIdRef" type="xs:string"/>
 			<xs:attribute name="inputSymbolId" type="xs:string"/>
+			<xs:attribute name="inputSymbolTypeID" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="inputSymbolAlphabet">

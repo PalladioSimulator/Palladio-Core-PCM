@@ -75,6 +75,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/08/24 10:24:07  kelsaka
+	/// - added serialization support for default input
+	///
 	/// Revision 1.8  2005/08/24 09:25:40  kelsaka
 	/// - created serializer for the default input
 	/// - added methods for the IInputSerializerPlugin
@@ -111,6 +114,11 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		private Hashtable attributeSerializerPlugins;
 
 		/// <summary>
+		/// Use the input type GUID as key.
+		/// </summary>
+		private Hashtable inputSerializerPlugins;
+
+		/// <summary>
 		/// Default constructor.
 		/// </summary>
 		public FSMWriter()
@@ -126,10 +134,13 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <param name="xmlWriter">Used to save the FSM.</param>
 		/// <param name="fsm">The FSM to serialize.</param>
 		/// <param name="attributeSerializerPlugins">A List of registered serializer plugins for <see cref="IAttribute"/>s.</param>
+		/// <param name="inputSerializerPlugins">A list of registered serializer plugins for <see cref="IInput"/>s.</param>
 		/// <remarks>Note: The xmlWriter is NOT closed after writing.</remarks>
-		public void Save (XmlWriter xmlWriter, IFiniteStateMachine fsm, Hashtable attributeSerializerPlugins)
+		public void Save (XmlWriter xmlWriter, IFiniteStateMachine fsm, Hashtable attributeSerializerPlugins, Hashtable inputSerializerPlugins)
 		{
 			this.attributeSerializerPlugins = attributeSerializerPlugins;
+			this.inputSerializerPlugins = inputSerializerPlugins;
+
 			xmlWriter.WriteComment("Finite State Machine - Palladio Research Group, Software Engineering, University of Oldenburg, Germany");
 			// declare namespaces, schemas and prefixes:
 			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "Palladio.FiniteStateMachine", XMLSerializer.XMLNAMESPACE);
@@ -151,10 +162,13 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// </summary>
 		/// <param name="xmlFilePath">The xml file location to save the FSM in.</param>
 		/// <param name="fsm">The FSM to serialize.</param>
-		/// <param name="attributeSerializerPlugins">A List of registered serializer plugins for <see cref="IAttribute"/>s.</param>
-		public void Save (FileInfo xmlFilePath, IFiniteStateMachine fsm, Hashtable attributeSerializerPlugins)
+		/// <param name="attributeSerializerPlugins">A list of registered serializer plugins for <see cref="IAttribute"/>s.</param>
+		/// <param name="inputSerializerPlugins">A list of registered serializer plugins for <see cref="IInput"/>s.</param>
+		public void Save (FileInfo xmlFilePath, IFiniteStateMachine fsm, Hashtable attributeSerializerPlugins, Hashtable inputSerializerPlugins)
 		{
 			this.attributeSerializerPlugins = attributeSerializerPlugins;
+			this.inputSerializerPlugins = inputSerializerPlugins;
+
 			XmlTextWriter xmlWriter = null;
 			try 
 			{
@@ -164,11 +178,13 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				xmlWriter.Namespaces = true;
 				xmlWriter.WriteStartDocument();
 
-				this.Save(xmlWriter, fsm, attributeSerializerPlugins);
+				this.Save(xmlWriter, fsm, attributeSerializerPlugins, inputSerializerPlugins);
 			}
 			catch (Exception e)
 			{
+				xmlWriter.WriteComment("***+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++***");
 				xmlWriter.WriteComment("*** !!!There occured errors on writing this XML-file!!! This file might be invalid. ***");
+				xmlWriter.WriteComment("***+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++***");
 				throw e;
 			}
 			finally
@@ -325,14 +341,26 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			foreach (IInput input in fsm.InputAlphabet)
 			{
 				xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "inputSymbol", XMLSerializer.XMLNAMESPACE);
-				
 				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "inputSymbolId", XMLSerializer.XMLNAMESPACE, input.ID.ToString());
-				//TODO: plugin use here.
+				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "inputSymbolTypeID", XMLSerializer.XMLNAMESPACE, input.TypeID.ToString());
 
-				xmlWriter.WriteEndElement();
+				// use Plugin for serialization:
+				if(inputSerializerPlugins.ContainsKey(input.TypeID))
+				{
+					((IInputSerializerPlugin)inputSerializerPlugins[input.TypeID])
+						.SerializeInput(input, xmlWriter);
+				}
+				else
+				{
+					throw new InputNotSupportedException(
+						"There is no serializer plugin registered for the input type " +
+						input.TypeID.ToString());
+				}
+				
+				xmlWriter.WriteEndElement(); //end inputSymbol
 			}
 
-			xmlWriter.WriteEndElement();
+			xmlWriter.WriteEndElement(); //end alphabet
 		}
 
 		#endregion

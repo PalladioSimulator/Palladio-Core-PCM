@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/08/24 10:24:07  kelsaka
+	/// - added serialization support for default input
+	///
 	/// Revision 1.7  2005/08/24 08:38:22  kelsaka
 	/// - added TypeID for IInputs
 	///
@@ -49,7 +52,8 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			//st.XMLFilenameSaveTest();
 			//st.AttributeSerialize();
 			//st.LoadFromFileWithAttributes();
-			st.LoadFromFileNoAttributesPluginsLoaded();
+			//st.LoadFromFileNoAttributesPluginsLoaded();
+			st.XMLWriterSaveTest();
 
 			Console.WriteLine("Press ENTER to close program.");
 			Console.ReadLine();

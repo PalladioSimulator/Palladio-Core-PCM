@@ -13,6 +13,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2005/08/24 10:24:07  kelsaka
+	/// - added serialization support for default input
+	///
 	/// Revision 1.1  2005/08/24 09:25:40  kelsaka
 	/// - created serializer for the default input
 	/// - added methods for the IInputSerializerPlugin
@@ -30,7 +33,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <code>&lt;input inputType="abcde"&gt;&lt;/input&gt;</code> Tag.</remarks>
 		public void SerializeInput (IInput input, XmlWriter xmlWriter)
 		{
-			throw new NotImplementedException ();
+			xmlWriter.WriteAttributeString(this.XmlPrefix, "test", this.XmlNamespace, "value");
 		}
 
 		/// <summary>
