@@ -19,6 +19,10 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/08/24 08:48:19  kelsaka
+	/// - fixed error in test suite
+	/// - added pre build event to copy XSD to bin directory
+	///
 	/// Revision 1.3  2005/08/24 08:38:22  kelsaka
 	/// - added TypeID for IInputs
 	///
@@ -108,7 +112,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		public void LoadFromFileNoAttributesPluginsLoaded()
 		{
 			IXMLSerializer serializer = new XMLSerializer();
-			IFiniteStateMachine fsm = BuildExampleFSM();
+			IFiniteStateMachine fsm = BuildExampleFSMAttributes();
 			serializer.Save(new FileInfo(".\\testFSM.xml"), fsm);
 			serializer.Load(new FileInfo(".\\testFSM.xml"));
 		}
