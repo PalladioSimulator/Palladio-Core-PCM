@@ -73,6 +73,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/08/24 09:25:40  kelsaka
+	/// - created serializer for the default input
+	/// - added methods for the IInputSerializerPlugin
+	///
 	/// Revision 1.13  2005/08/24 08:38:22  kelsaka
 	/// - added TypeID for IInputs
 	///
@@ -264,7 +268,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// Adds a serializer for an <see cref="IInput"/>. If there
 		/// already is an registered plugin for the type it will be removed.
 		/// </summary>
-		/// <param name="plugin">The serializer for the input.</param>
+		/// <param name="plugin">The serializer for the input type.</param>
 		/// <param name="inputType">The InputType (GUID) to register for.</param>
 		public void AddInputSerializerPlugin (IInputSerializerPlugin plugin, Guid inputType)
 		{

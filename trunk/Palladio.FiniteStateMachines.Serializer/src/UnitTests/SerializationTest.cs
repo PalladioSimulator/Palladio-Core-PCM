@@ -1,5 +1,5 @@
 #if TEST
-using System;
+
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -19,6 +19,10 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/08/24 09:25:40  kelsaka
+	/// - created serializer for the default input
+	/// - added methods for the IInputSerializerPlugin
+	///
 	/// Revision 1.4  2005/08/24 08:48:19  kelsaka
 	/// - fixed error in test suite
 	/// - added pre build event to copy XSD to bin directory

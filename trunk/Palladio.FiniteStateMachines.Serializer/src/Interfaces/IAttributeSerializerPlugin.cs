@@ -12,6 +12,10 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/08/24 09:25:40  kelsaka
+	/// - created serializer for the default input
+	/// - added methods for the IInputSerializerPlugin
+	///
 	/// Revision 1.9  2005/08/22 08:46:33  kelsaka
 	/// - added use of prefixes and namespaces to loader and writer
 	///
@@ -54,7 +58,7 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 		/// as well.</param>
 		/// <param name="attribute">The attribute to serialize.</param>
 		/// <param name="xmlWriter">The writer to use for serializing attributes.</param>
-		/// <remarks>The output is automatically surrounded by a
+		/// <remarks>The output is automatically surrounded by the calling class by a
 		/// <code>&lt;attribut attributeType="abcde"&gt;&lt;/attribut&gt;</code> Tag.</remarks>
 		void SerializeAttribute(IAttributeType attributeType, IAttribute attribute, XmlWriter xmlWriter);
 		
@@ -62,7 +66,8 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 		/// Deserializes the given xmlNode, that represents an <see cref="IAttribute"/>
 		/// including an <see cref="IAttributeType"/>.
 		/// </summary>
-		/// <param name="xmlNode">The node to deserialize.</param>
+		/// <param name="xmlNode">The node to deserialize, that contains the attribute
+		/// xml element.</param>
 		/// <returns>The deserialized attribute information.</returns>
 		AttributeInfo DeserializeAttribute(XmlNode xmlNode);
 

@@ -75,6 +75,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/08/24 09:25:40  kelsaka
+	/// - created serializer for the default input
+	/// - added methods for the IInputSerializerPlugin
+	///
 	/// Revision 1.7  2005/08/22 16:39:02  kelsaka
 	/// - load: validation against xsd added
 	///
@@ -321,9 +325,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			foreach (IInput input in fsm.InputAlphabet)
 			{
 				xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "inputSymbol", XMLSerializer.XMLNAMESPACE);
-				//TODO: check use of ToString()
+				
 				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "inputSymbolId", XMLSerializer.XMLNAMESPACE, input.ID.ToString());
 				//TODO: plugin use here.
+
 				xmlWriter.WriteEndElement();
 			}
 

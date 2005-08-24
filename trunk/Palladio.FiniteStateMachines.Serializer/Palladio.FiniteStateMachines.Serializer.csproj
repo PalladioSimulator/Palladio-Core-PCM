@@ -116,6 +116,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\DefaultImplementation\DefaultInputSerializerPlugin.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\DefaultImplementation\FSMLoader.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
