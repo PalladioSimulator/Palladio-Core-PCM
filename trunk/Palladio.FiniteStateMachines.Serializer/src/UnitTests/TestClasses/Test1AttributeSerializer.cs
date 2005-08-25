@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/08/25 09:41:20  kelsaka
+	/// - prepared support for "test1" input serialization test
+	///
 	/// Revision 1.2  2005/08/22 08:46:33  kelsaka
 	/// - added use of prefixes and namespaces to loader and writer
 	///
@@ -76,7 +79,7 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// </summary>
 		public string XmlNamespace
 		{
-			get { return "http://Test1-Namespace.com"; }
+			get { return "http://Test1-Namespace.com/attribute"; }
 		}
 
 		/// <summary>
@@ -85,7 +88,7 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// </summary>
 		public string XmlSchemaURI
 		{
-			get { return "Test1.xsd"; }
+			get { return "Test1-attribute.xsd"; }
 		}
 
 		/// <summary>
@@ -93,7 +96,7 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// </summary>
 		public string XmlPrefix
 		{
-			get { return "t1pre"; }
+			get { return "t1pre-attrib"; }
 		}
 
 

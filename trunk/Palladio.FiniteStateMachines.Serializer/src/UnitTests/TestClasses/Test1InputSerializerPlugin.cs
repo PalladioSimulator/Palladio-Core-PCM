@@ -2,31 +2,22 @@ using System;
 using System.Xml;
 using Palladio.FiniteStateMachines.Serializer.Interfaces;
 
-namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
+namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 {
 	/// <summary>
-	/// Serializes the default input implementation that is returned
-	/// by the <see cref="FSMFactory"/>.
+	/// Serializes "test1" inputs of the FSM.
 	/// </summary>
 	/// <remarks>
-	/// There is no content data written or read - the default input has no special data.
 	/// <code>
 	/// Version history:
 	/// 
 	/// $Log$
-	/// Revision 1.3  2005/08/25 09:41:20  kelsaka
+	/// Revision 1.1  2005/08/25 09:41:20  kelsaka
 	/// - prepared support for "test1" input serialization test
-	///
-	/// Revision 1.2  2005/08/24 10:24:07  kelsaka
-	/// - added serialization support for default input
-	///
-	/// Revision 1.1  2005/08/24 09:25:40  kelsaka
-	/// - created serializer for the default input
-	/// - added methods for the IInputSerializerPlugin
 	///
 	/// </code>
 	/// </remarks>
-	public class DefaultInputSerializerPlugin : IInputSerializerPlugin
+	public class Test1InputSerializerPlugin : IInputSerializerPlugin
 	{
 		/// <summary>
 		/// Serializes the given input and writes the results to the given xmlwriter.
@@ -37,7 +28,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <code>&lt;input inputType="abcde"&gt;&lt;/input&gt;</code> Tag.</remarks>
 		public void SerializeInput (IInput input, XmlWriter xmlWriter)
 		{
-			//does not need to write data.
+			xmlWriter.WriteAttributeString(this.XmlPrefix, "test", this.XmlNamespace, "value");
 		}
 
 		/// <summary>
@@ -58,7 +49,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		{
 			get
 			{
-				return XMLSerializer.XMLNAMESPACE + "/DefaultInputSerializerPlugin";
+				return "http://Test1-Namespace.com/input";
 			}
 		}
 
@@ -70,7 +61,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		{
 			get
 			{
-				return "DefaultInputSerializerPlugin.xsd";
+				return "Test1-input.xsd";
 			}
 		}
 
@@ -81,7 +72,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		{
 			get
 			{
-				return "disp";
+				return "t1pre-input";
 			}
 		}
 	}
