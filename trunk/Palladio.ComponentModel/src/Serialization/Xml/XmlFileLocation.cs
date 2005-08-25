@@ -1,5 +1,3 @@
-using System.IO;
-using System.Xml;
 using Palladio.Serialization;
 
 namespace Palladio.ComponentModel.Serialization.Xml
@@ -12,6 +10,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/25 16:45:19  joemal
+	/// remove not used import statements
+	///
 	/// Revision 1.1  2005/05/08 12:02:16  joemal
 	/// initial creation
 	///
