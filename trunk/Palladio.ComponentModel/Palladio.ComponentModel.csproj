@@ -859,6 +859,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Serialization\Xml\XmlStreamLocation.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\UnitTests\BuilderTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

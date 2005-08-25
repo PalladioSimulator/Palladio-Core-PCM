@@ -19,6 +19,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/08/25 16:45:38  joemal
+	/// add stream location to serializer
+	///
 	/// Revision 1.13  2005/08/22 16:39:02  kelsaka
 	/// - load: validation against xsd added
 	///
@@ -65,15 +68,46 @@ namespace Palladio.CM.Example
 	/// </remarks>
 	class MainClass
 	{
+		//holds the model environment
+		private ComponentModelEnvironment modelEnvironment;
+        
+		//holds the view
+		private StaticView view;
+
+		//the stack that holds the models
+		private Stack modelStack = new Stack();
+
 		/// <summary>
 		/// the entry for the applications main thead
 		/// </summary>
 		[STAThread]
 		static void Main(string[] args)
 		{
-			//create new model
-			ComponentModelEnvironment modelEnvironment = new ComponentModelEnvironment();
+			MainClass test = new MainClass();
+			Console.WriteLine("Push empty model to stack ...");
+			test.PushModelToStack();
+            test.BuildModel();
+			Console.WriteLine("Push a model with three components to stack.");
+			test.PushModelToStack();
+			test.ClearModel();
+			test.PopModelFromStack();
+			test.Paint();
+			test.PopModelFromStack();
+			test.Paint();
+		}
 
+		/// <summary>
+		/// constructor
+		/// </summary>
+		public MainClass()
+		{
+			Init();
+		}
+
+		//does some initial work
+		private void Init()
+		{
+			modelEnvironment = new ComponentModelEnvironment();
 			//register the xml serializer
 			IXmlSerializer xmlSerializer = DefaultSerializerFactory.
 				CreateXMLSerializer(modelEnvironment.Query,modelEnvironment.BuilderManager);
@@ -84,45 +118,126 @@ namespace Palladio.CM.Example
 			modelEnvironment.SerializationManager.RegisterSerializer(xmlSerializer);
 
 			//create the static view for the model
-			StaticView view = new StaticView(modelEnvironment);
+			this.view = new StaticView(modelEnvironment);			
+		}
 
+		/// <summary>
+		/// call to build a hard coded model 
+		/// </summary>
+		public void BuildModel()
+		{
 			Console.WriteLine("Start creating the model.");
-			//use the models builder to create a model
-            new StaticComponentModel(modelEnvironment).Create();
-			Console.WriteLine("Model created. Press any key to repaint the model.");
+			new StaticComponentModel(modelEnvironment).Create();
+			Done();			
+		}
 
-			Console.ReadLine();
+		/// <summary>
+		/// call to save the current model to disk (test.xml in execution directory)
+		/// </summary>
+		public void SaveModel()
+		{
+			Console.WriteLine("Try to store the model to file test.xml");
+			try
+			{
+				modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation("test.xml"));			
+			}
+			catch(ModelSerializationException exc)
+			{
+				Console.WriteLine("Save model: "+exc.InnerException.Message);
+			}
+			Done();
+		}
 
-//			Console.WriteLine("Repaint the model.");			
-//			view.Paint();
-//			Console.WriteLine("Model repainted.");			
-
-//			Console.ReadLine();
-
-//			Console.WriteLine("Try to store the model to file test.xml");
-			modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation("test.xml"));
-//			Console.WriteLine("[Done]");
-			Console.WriteLine("Clear the model.");			
-			modelEnvironment.BuilderManager.RootTypeLevelBuilder.ClearAll();
-			Console.WriteLine("[Done]");
-/*			Console.WriteLine("Try to load the xmlfile ..");
+		/// <summary>
+		/// call to load the current model from disk (test.xml in execution directory)
+		/// </summary>
+		public void LoadModel()
+		{
+			Console.WriteLine("Try to load the xmlfile ..");
 			try 
 			{
 				modelEnvironment.SerializationManager.Load(DefaultSerializerFactory.CreateXmlLocation("test.xml"));				
 			}
 			catch(ModelSerializationException exc)
 			{
-				Console.WriteLine("Exc: "+exc.InnerException.Message);
+				Console.WriteLine("Load model: "+exc.InnerException.Message);
 			}
+			Done();
+		}
+
+		//called to display done message and wait for user input
+		private static void Done()
+		{
 			Console.WriteLine("[Done]");
+			Console.WriteLine("Press 'Return' to continue.");
+			Console.ReadLine();			
+		}
 
-			Console.ReadLine();
+		/// <summary>
+		/// call to clear the current model
+		/// </summary>
+		public void ClearModel()
+		{
+			Console.WriteLine("Clear the model.");			
+			modelEnvironment.BuilderManager.RootTypeLevelBuilder.ClearAll();
+			Done();
+		}
 
+		/// <summary>
+		/// call to "repaint" the model 
+		/// </summary>
+		public void Paint()
+		{
 			Console.WriteLine("Repaint the model.");			
 			view.Paint();
-			Console.WriteLine("Model repainted.");			*/
-			Console.WriteLine("Press any key to exit the application.");
-			Console.ReadLine();
+			Done();		
+		}
+
+		/// <summary>
+		/// call to push the current model to a stack
+		/// </summary>
+		public void PushModelToStack()
+		{
+			Console.WriteLine("Push the current model to the stack.");
+			try
+			{
+				Stream stream = new MemoryStream();
+				modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation(stream));
+				modelStack.Push(stream);
+			}
+			catch(ModelSerializationException exc)
+			{
+				Console.WriteLine("Store model: "+exc.InnerException.Message);
+			}
+			Done();
+		}
+
+		/// <summary>
+		/// call to restore the model from top of the stack
+		/// </summary>
+		public void PopModelFromStack()
+		{
+			Console.WriteLine("Restore the model on top of the stack.");
+			if (modelStack.Count==0)
+			{
+				Console.WriteLine("No model on top of the stack found.");
+				Done();
+				return;
+			}
+
+			try 
+			{
+				Stream stream = (Stream) modelStack.Pop();
+				stream.Seek(0,SeekOrigin.Begin);
+				modelEnvironment.SerializationManager.Load(DefaultSerializerFactory.CreateXmlLocation(stream));				
+				stream.Close();
+			}
+			catch(ModelSerializationException exc)
+			{
+				Console.WriteLine("Restore model: "+exc.InnerException.Message);
+			}
+
+			Done();
 		}
 	}
 }

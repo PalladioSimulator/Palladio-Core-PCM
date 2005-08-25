@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/08/25 16:45:38  joemal
+	/// add stream location to serializer
+	///
 	/// Revision 1.4  2005/07/29 16:03:14  joemal
 	/// plugins for seffs can be added
 	///
@@ -38,7 +41,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		public const string XMLNAMESPACE = "http://palladio.informatik.uni-oldenburg.de/XSD";
 
 		//holds the supported types of the serializer
-		private static Type[] SUPPORTED_TYPES = {typeof(XmlFileLocation),typeof(XmlNodeLocation)};
+		private static Type[] SUPPORTED_TYPES = {typeof(XmlFileLocation),typeof(XmlNodeLocation),typeof(XmlStreamLocation)};
 
 		//holds the query interface of the componentmodel
 		private IQuery query;
@@ -92,6 +95,8 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				new XmlCMReader(builderManager,plugins).Read((XmlFileLocation)location);
 			else if (location is XmlNodeLocation)
 				new XmlCMReader(builderManager,plugins).Read((XmlNodeLocation)location);
+			else if (location is XmlStreamLocation)
+				new XmlCMReader(builderManager,plugins).Read((XmlStreamLocation)location);
 			else
 				throw new ArgumentException("Unsupported type of location");
 		}
@@ -110,6 +115,8 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				new XmlCMWriter(query, plugins).Write((XmlFileLocation)location);
 			else if (location is XmlNodeLocation)
 				new XmlCMWriter(query, plugins).Write((XmlNodeLocation)location);
+			else if (location is XmlStreamLocation)
+				new XmlCMWriter(query, plugins).Write((XmlStreamLocation)location);
 			else
 				throw new ArgumentException("Unsupported type of location");
 		}

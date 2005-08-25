@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/08/25 16:45:38  joemal
+	/// add stream location to serializer
+	///
 	/// Revision 1.9  2005/07/23 18:59:57  joemal
 	/// IType now is implemented in external object. Plugins for serializer are created.
 	///
@@ -100,7 +103,24 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			writer.Namespaces = true;
 			writer.WriteStartDocument();
 			Write(writer);
+			writer.WriteEndDocument();
 			writer.Close();
+		}
+
+		/// <summary>
+		/// called to write the serialized model to a stream.
+		/// </summary>
+		/// <param name="location">the location that contains the stream</param>
+		public void Write(XmlStreamLocation location)
+		{
+			XmlTextWriter writer = new XmlTextWriter(location.Stream,System.Text.Encoding.UTF8);
+			writer.Formatting = Formatting.Indented;
+			writer.Indentation= 3;
+			writer.Namespaces = true;
+			writer.WriteStartDocument();
+			Write(writer);
+			writer.WriteEndDocument();
+			writer.Flush();
 		}
 
 		/// <summary>

@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Serialization
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/25 16:45:38  joemal
+	/// add stream location to serializer
+	///
 	/// Revision 1.1  2005/05/08 12:02:33  joemal
 	/// initial creation
 	///
@@ -56,6 +59,17 @@ namespace Palladio.ComponentModel.Serialization
 		public static XmlFileLocation CreateXmlLocation(string file)
 		{
 			return new XmlFileLocation(file);
+		}
+
+		/// <summary>
+		/// called to create a new location that can be used to load the componentmodel from or store it to a stream object.
+		/// This location is supported by the xml serializer that can be created by this factory.
+		/// </summary>
+		/// <param name="stream">the stream</param>
+		/// <returns>the location</returns>
+		public static XmlStreamLocation CreateXmlLocation(Stream stream)
+		{
+			return new XmlStreamLocation(stream);
 		}
 	}
 }

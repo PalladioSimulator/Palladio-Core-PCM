@@ -12,6 +12,9 @@ namespace Palladio.FSMWrapper
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/25 16:45:38  joemal
+	/// add stream location to serializer
+	///
 	/// Revision 1.1  2005/07/29 15:59:16  joemal
 	/// initial creation
 	///
@@ -21,6 +24,9 @@ namespace Palladio.FSMWrapper
 	/// </remarks>
 	internal class FSMSignatureCall : IFSMSignatureCall,IMatchable
 	{
+		//holds the typeguid of this type of IInput
+		public static Guid TYPE_GUID = new Guid("1FE67133-5698-42d5-9242-B939FD0EA499");
+
 		//holds the interface id 
 		private IInterfaceIdentifier iFaceId;
 
@@ -82,5 +88,18 @@ namespace Palladio.FSMWrapper
 				return this;
 			}
 		}
+
+		/// <summary>
+		/// Defines the type of the actual input symbol. A set of input
+		/// symbol can belong to one type.
+		/// </summary>
+		public Guid TypeID
+		{
+			get
+			{
+				return TYPE_GUID;
+			}
+		}
+
 	}
 }

@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/08/25 16:45:38  joemal
+	/// add stream location to serializer
+	///
 	/// Revision 1.6  2005/07/23 18:59:57  joemal
 	/// IType now is implemented in external object. Plugins for serializer are created.
 	///
@@ -105,6 +108,20 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			Read(location.XmlReader);
 		}
 
+		/// <summary>
+		/// called to read a serialized model from a stream.
+		/// </summary>
+		/// <param name="location">the location that contains the stream</param>
+		/// <exception cref="ModelSerializationException">thrown if any reading error occurs during the deserialization</exception>
+		public void Read(XmlStreamLocation location)
+		{
+			XmlReader reader = null;
+
+			reader = new XmlTextReader(location.Stream);	
+			Read(reader);
+			reader.Close();
+		}
+
 		#endregion
 
 		#region private methods
@@ -148,6 +165,8 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			XmlNamespaceManager mgr = new XmlNamespaceManager(xmlDoc.NameTable);
 			mgr.AddNamespace("cm",XmlSerializer.XMLNAMESPACE);
 
+            //model validated, clear old model
+			this.builderManager.RootTypeLevelBuilder.ClearAll();
 			ReadTLModel(xmlDoc.DocumentElement,mgr);
 		}
 
