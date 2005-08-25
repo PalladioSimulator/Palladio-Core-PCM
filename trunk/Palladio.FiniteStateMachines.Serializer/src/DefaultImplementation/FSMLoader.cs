@@ -18,6 +18,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/08/25 18:43:47  kelsaka
+	/// - support for default input serialization.
+	///
 	/// Revision 1.13  2005/08/22 16:39:02  kelsaka
 	/// - load: validation against xsd added
 	///
@@ -66,6 +69,11 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// Use the attribute type GUID as key.
 		/// </summary>
 		private Hashtable attributeSerializerPlugins;
+
+		/// <summary>
+		/// Use the input type GUID as key.
+		/// </summary>
+		private Hashtable inputSerializerPlugins;
 		
 		/// <summary>
 		/// The FSM to build on loading.
@@ -87,11 +95,13 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// </summary>
 		/// <param name="xmlDocument">A xmlDocument that represents a FSM.</param>
 		/// <param name="attributeSerializerPlugins">A List of registered serializer plugins for <see cref="IAttribute"/>s.</param>
+		/// <param name="inputSerializerPlugins">A list of registered serializer plugins for <see cref="IInput"/>s.</param>
 		/// <returns>The deserialized <see cref="IFiniteStateMachine"/>, that was represented
 		/// by the xmlNode.</returns>
-		public IFiniteStateMachine Load (XmlDocument xmlDocument, Hashtable attributeSerializerPlugins)
+		public IFiniteStateMachine Load (XmlDocument xmlDocument, Hashtable attributeSerializerPlugins, Hashtable inputSerializerPlugins)
 		{
 			this.attributeSerializerPlugins = attributeSerializerPlugins;
+			this.inputSerializerPlugins = inputSerializerPlugins;
 
 			XmlNamespaceManager mgr = new XmlNamespaceManager(xmlDocument.NameTable);
 			mgr.AddNamespace(XMLSerializer.XMLPREFIX, XMLSerializer.XMLNAMESPACE);
@@ -112,16 +122,18 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// </summary>
 		/// <param name="xmlFilePath">Location of the xml file, that contains a FSM.</param>
 		/// <param name="attributeSerializerPlugins">A List of registered serializer plugins for <see cref="IAttribute"/>s.</param>
+		/// <param name="inputSerializerPlugins">A list of registered serializer plugins for <see cref="IInput"/>s.</param>
 		/// <returns>The deserialized <see cref="IFiniteStateMachine"/>, that was represented
 		/// by the xml file.</returns>
-		public IFiniteStateMachine Load (FileInfo xmlFilePath, Hashtable attributeSerializerPlugins)
+		public IFiniteStateMachine Load (FileInfo xmlFilePath, Hashtable attributeSerializerPlugins, Hashtable inputSerializerPlugins)
 		{
 			this.attributeSerializerPlugins = attributeSerializerPlugins;
+			this.inputSerializerPlugins = inputSerializerPlugins;
 
 			// get a validated xmlDocument:
 			XmlDocument xmlDocument = LoadFromFileAndValidate (xmlFilePath);
 
-			return Load(xmlDocument, attributeSerializerPlugins);
+			return Load(xmlDocument, attributeSerializerPlugins, inputSerializerPlugins);
 		}
 
 
@@ -141,6 +153,8 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				
 				//add plugins schemas for their namespaces:
 				foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
+					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
+				foreach(IInputSerializerPlugin plugin in inputSerializerPlugins.Values)
 					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
 
 				validatingReader.Schemas.Add(schemaCollection);
@@ -294,8 +308,25 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			XmlNodeList nodes = rootNode.SelectSingleNode("//"+XMLSerializer.XMLPREFIX+":inputSymbolAlphabet", mgr).ChildNodes;
 			foreach(XmlNode node in nodes)
 			{
-				efsm.AddInputSymbols(
-					FSMFactory.CreateDefaultInput(node.Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":inputSymbolId").Value));
+
+				string inputSymbolTypeGUID = node.Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":inputSymbolTypeID").Value;
+
+				try 
+				{
+					if(inputSymbolTypeGUID != null)
+					{
+						Guid guid = new Guid(inputSymbolTypeGUID);
+						// load by plugins:
+						efsm.AddInputSymbols(
+							((IInputSerializerPlugin)this.inputSerializerPlugins[guid]).DeserializeInput(node));
+					}
+				}
+				catch (Exception e)
+				{
+					throw new AttributeNotSupportedException(
+						"Could not find inputSymbolTypeGUID for attribute OR no plugin loaded for inputSymbolTypeGUID: " +
+						inputSymbolTypeGUID + "\nInner Exception Message: " + e.Message + "; " + e.StackTrace);
+				}
 			}
 		}
 
@@ -316,10 +347,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			}
 			catch(Exception exc)
 			{
-				Console.Out.WriteLine ("****" + exc.Message);
-				Console.Out.WriteLine (exc.StackTrace);
+				Console.Error.WriteLine ("****" + exc.Message);
+				Console.Error.WriteLine (exc.StackTrace);
 				
-
 				throw new ModelSerializationException("Unable to load the xml document.", exc);
 			}
 			return xmlDoc;

@@ -73,6 +73,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2005/08/25 18:43:47  kelsaka
+	/// - support for default input serialization.
+	///
 	/// Revision 1.15  2005/08/24 10:24:07  kelsaka
 	/// - added serialization support for default input
 	///
@@ -198,7 +201,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		public IFiniteStateMachine Load (XmlDocument xmlDocument)
 		{
 			FSMLoader loader = new FSMLoader();
-			return loader.Load(xmlDocument, attributeSerializerPlugins);
+			return loader.Load(xmlDocument, attributeSerializerPlugins, inputSerializerPlugins);
 		}
 
 		/// <summary>
@@ -210,7 +213,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		public IFiniteStateMachine Load (FileInfo xmlFilePath)
 		{
 			FSMLoader loader = new FSMLoader();
-			return loader.Load(xmlFilePath, attributeSerializerPlugins);
+			return loader.Load(xmlFilePath, attributeSerializerPlugins, inputSerializerPlugins);
 		}
 
 		#endregion
