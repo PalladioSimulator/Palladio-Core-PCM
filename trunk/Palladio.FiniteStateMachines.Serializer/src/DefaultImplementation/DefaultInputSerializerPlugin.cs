@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.5  2005/08/26 09:45:27  kelsaka
+	/// - validation fails
+	///
 	/// Revision 1.4  2005/08/25 18:43:47  kelsaka
 	/// - support for default input serialization.
 	///
@@ -40,8 +43,8 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <code>&lt;input inputType="abcde"&gt;&lt;/input&gt;</code> Tag.</remarks>
 		public void SerializeInput (IInput input, XmlWriter xmlWriter)
 		{
-			xmlWriter.WriteAttributeString(
-				this.XmlPrefix, "symbolID", this.XmlNamespace, input.ID.ToString());
+			//xmlWriter.WriteAttributeString(
+			//	this.XmlPrefix, "symbolID", this.XmlNamespace, input.ID.ToString());
 		}
 
 		/// <summary>
@@ -52,8 +55,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <returns>The deserialized input information.</returns>
 		public IInput DeserializeInput (XmlNode xmlNode)
 		{			
-			return FSMFactory.CreateDefaultInput(
-				xmlNode.Attributes.GetNamedItem(this.XmlPrefix+":symbolID").Value);
+			//return FSMFactory.CreateDefaultInput(
+			//	xmlNode.Attributes.GetNamedItem(this.XmlPrefix+":symbolID").Value);
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -63,7 +67,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		{
 			get
 			{
-				return XMLSerializer.XMLNAMESPACE + "/DefaultInputSerializerPlugin";
+				return XMLSerializer.XMLNAMESPACE + "/DefaultInputSerializerPlugin/";
 			}
 		}
 

@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/08/26 09:45:27  kelsaka
+	/// - validation fails
+	///
 	/// Revision 1.3  2005/08/25 09:41:20  kelsaka
 	/// - prepared support for "test1" input serialization test
 	///
@@ -79,7 +82,7 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// </summary>
 		public string XmlNamespace
 		{
-			get { return "http://Test1-Namespace.com/attribute"; }
+			get { return "http://Test1-Namespace.com/attribute/"; }
 		}
 
 		/// <summary>

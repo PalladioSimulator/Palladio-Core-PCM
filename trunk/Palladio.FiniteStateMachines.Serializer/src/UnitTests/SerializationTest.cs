@@ -20,6 +20,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/08/26 09:45:27  kelsaka
+	/// - validation fails
+	///
 	/// Revision 1.6  2005/08/25 18:43:47  kelsaka
 	/// - support for default input serialization.
 	///
@@ -170,6 +173,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			catch (Exception e)
 			{
 				Console.Out.WriteLine ("*** " + e.Message + e.StackTrace);
+				throw e;
 			}
 
 			Assert.IsTrue(fsm.HasFinalStates);

@@ -18,6 +18,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2005/08/26 09:45:27  kelsaka
+	/// - validation fails
+	///
 	/// Revision 1.14  2005/08/25 18:43:47  kelsaka
 	/// - support for default input serialization.
 	///
@@ -145,7 +148,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			try 
 			{
 				validatingReader = new XmlValidatingReader(xmlTextReader);
-				validatingReader.ValidationType = ValidationType.None;//ValidationType.Schema;			
+				validatingReader.ValidationType = ValidationType.Schema;			
 	
 				XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
 				schemaCollection.Add(XMLSerializer.XMLNAMESPACE,
@@ -323,7 +326,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				}
 				catch (Exception e)
 				{
-					throw new AttributeNotSupportedException(
+					throw new InputNotSupportedException(
 						"Could not find inputSymbolTypeGUID for attribute OR no plugin loaded for inputSymbolTypeGUID: " +
 						inputSymbolTypeGUID + "\nInner Exception Message: " + e.Message + "; " + e.StackTrace);
 				}
