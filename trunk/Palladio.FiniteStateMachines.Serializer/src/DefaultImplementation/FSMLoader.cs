@@ -18,6 +18,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/08/26 13:31:48  kelsaka
+	/// - temporarily deactivated validation on load
+	///
 	/// Revision 1.16  2005/08/26 12:33:50  kelsaka
 	/// - workaround for validation error
 	///
@@ -151,22 +154,18 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			try 
 			{
 				validatingReader = new XmlValidatingReader(xmlTextReader);
-				validatingReader.ValidationType = ValidationType.Schema;			
+				validatingReader.ValidationType = ValidationType.None; //TODO ValidationType.Schema;
+			
 	
 				XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
 				schemaCollection.Add(XMLSerializer.XMLNAMESPACE,
 					System.AppDomain.CurrentDomain.BaseDirectory + "\\" + XMLSerializer.XSDSchemeFileName);
 				
 				//add plugins schemas for their namespaces:
-				/*foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
+				foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
 					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
 				foreach(IInputSerializerPlugin plugin in inputSerializerPlugins.Values)
-					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);*/
-
-				foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
-					schemaCollection.Add(null, plugin.XmlSchemaURI);
-				foreach(IInputSerializerPlugin plugin in inputSerializerPlugins.Values)
-					schemaCollection.Add(null, plugin.XmlSchemaURI);
+					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
 				
 				validatingReader.Schemas.Add(schemaCollection);
 			}

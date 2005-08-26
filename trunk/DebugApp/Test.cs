@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/08/26 13:31:48  kelsaka
+	/// - temporarily deactivated validation on load
+	///
 	/// Revision 1.11  2005/08/26 12:33:49  kelsaka
 	/// - workaround for validation error
 	///
@@ -59,11 +62,11 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			SerializationTest st = new SerializationTest();
 			/*st.Init();
 			st.XMLFilenameSaveTest();
-			st.AttributeSerialize();
+			st.AttributeSerialize();*/
 			st.LoadFromFileWithAttributes();
-			st.LoadFromFileNoAttributesPluginsLoaded();*/
-			//st.XMLWriterSaveTest();
-			st.LoadFromXmlDocument();
+			/*st.LoadFromFileNoAttributesPluginsLoaded();
+			st.XMLWriterSaveTest();*/
+			//st.LoadFromXmlDocument();
 
 			Console.WriteLine("Press ENTER to close program.");
 			Console.ReadLine();
