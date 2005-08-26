@@ -6,6 +6,7 @@ using System.Xml;
 using Palladio.Attributes;
 using Palladio.FiniteStateMachines.Serializer;
 using Palladio.FiniteStateMachines.Serializer.Interfaces;
+using Palladio.FiniteStateMachines.UnitTests.TestClasses;
 
 namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 {
@@ -75,6 +76,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/08/26 12:33:50  kelsaka
+	/// - workaround for validation error
+	///
 	/// Revision 1.9  2005/08/24 10:24:07  kelsaka
 	/// - added serialization support for default input
 	///
@@ -145,7 +149,8 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			// declare namespaces, schemas and prefixes:
 			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "Palladio.FiniteStateMachine", XMLSerializer.XMLNAMESPACE);
 			xmlWriter.WriteAttributeString("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");			
-			xmlWriter.WriteAttributeString("xsi:schemaLocation", XMLSerializer.XMLNAMESPACE + " " + XMLSerializer.XSDSchemeFileName);
+			//xmlWriter.WriteAttributeString("xsi:schemaLocation", XMLSerializer.XMLNAMESPACE + " " + XMLSerializer.XSDSchemeFileName);
+			//xmlWriter.WriteAttributeString("xsi:schemaLocation",  XMLSerializer.XMLNAMESPACE + " " + XMLSerializer.XSDSchemeFileName + " http://Test1-Namespace.com/attribute" + " " + "Test1-attribute.xsd");
 
 			this.writeStates(xmlWriter, fsm);
 			this.writeStartState(xmlWriter, fsm);

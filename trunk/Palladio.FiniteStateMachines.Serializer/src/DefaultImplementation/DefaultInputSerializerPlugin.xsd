@@ -2,8 +2,8 @@
 <!-- Palladio FSM - Scheme for Test1 -->
 <!-- Pay attention that attributeFormDefault MUST be qualified! -->
 <xs:schema elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-targetNamespace="http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine/DefaultInputSerializerPlugin/"
-xmlns="http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine/DefaultInputSerializerPlugin/">
+targetNamespace="http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine/DefaultInputSerializerPlugin"
+xmlns="http://palladio.informatik.uni-oldenburg.de/Palladio.FiniteStateMachine/DefaultInputSerializerPlugin">
 
 	<xs:element name="inputSymbol">
 		<xs:complexType>

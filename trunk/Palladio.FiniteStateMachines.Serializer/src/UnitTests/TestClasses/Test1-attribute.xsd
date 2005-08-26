@@ -2,7 +2,7 @@
 <!-- Palladio FSM - Scheme for Test1 -->
 <!-- Pay attention that attributeFormDefault MUST be qualified! -->
 <xs:schema elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-targetNamespace="http://Test1-Namespace.com/attribute/" xmlns="http://Test1-Namespace.com/attribute/">
+targetNamespace="http://Test1-Namespace.com/attribute" xmlns="http://Test1-Namespace.com/attribute">
 
 	<xs:element name="attribute">
 		<xs:complexType>

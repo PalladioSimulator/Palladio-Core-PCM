@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/08/26 12:33:50  kelsaka
+	/// - workaround for validation error
+	///
 	/// Revision 1.4  2005/08/26 09:45:27  kelsaka
 	/// - validation fails
 	///
@@ -82,7 +85,7 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// </summary>
 		public string XmlNamespace
 		{
-			get { return "http://Test1-Namespace.com/attribute/"; }
+			get { return "http://Test1-Namespace.com/attribute"; }
 		}
 
 		/// <summary>
@@ -99,7 +102,7 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// </summary>
 		public string XmlPrefix
 		{
-			get { return "t1pre-attrib"; }
+			get { return "t1pre-Attrib"; }
 		}
 
 

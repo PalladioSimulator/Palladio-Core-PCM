@@ -85,21 +85,14 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "nunit.framework"
-                    AssemblyName = "nunit.framework"
-                    HintPath = "C:\Programme\NUnit V2.1\\bin\nunit.framework.dll"
-                    AssemblyFolderKey = "hklm\dn\nunit.framework"
-                />
-                <Reference
-                    Name = "nunit.util"
-                    AssemblyName = "nunit.util"
-                    HintPath = "C:\Programme\NUnit V2.1\\bin\nunit.util.dll"
-                    AssemblyFolderKey = "hklm\dn\nunit.framework"
-                />
-                <Reference
                     Name = "ReflectionBasedVisitor"
                     Project = "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "nunit.framework"
+                    AssemblyName = "nunit.framework"
+                    HintPath = "C:\Programme\NUnit 2.2\bin\nunit.framework.dll"
                 />
             </References>
         </Build>

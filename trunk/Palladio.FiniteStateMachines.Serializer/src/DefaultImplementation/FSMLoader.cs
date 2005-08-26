@@ -18,6 +18,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2005/08/26 12:33:50  kelsaka
+	/// - workaround for validation error
+	///
 	/// Revision 1.15  2005/08/26 09:45:27  kelsaka
 	/// - validation fails
 	///
@@ -155,11 +158,16 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 					System.AppDomain.CurrentDomain.BaseDirectory + "\\" + XMLSerializer.XSDSchemeFileName);
 				
 				//add plugins schemas for their namespaces:
-				foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
+				/*foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
 					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
 				foreach(IInputSerializerPlugin plugin in inputSerializerPlugins.Values)
-					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
+					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);*/
 
+				foreach(IAttributeSerializerPlugin plugin in attributeSerializerPlugins.Values)
+					schemaCollection.Add(null, plugin.XmlSchemaURI);
+				foreach(IInputSerializerPlugin plugin in inputSerializerPlugins.Values)
+					schemaCollection.Add(null, plugin.XmlSchemaURI);
+				
 				validatingReader.Schemas.Add(schemaCollection);
 			}
 			catch(Exception exc)
