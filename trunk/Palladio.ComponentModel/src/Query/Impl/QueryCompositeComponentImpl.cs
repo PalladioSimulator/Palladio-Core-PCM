@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/08/30 15:01:12  kelsaka
+	/// - removed console.outs
+	///
 	/// Revision 1.8  2005/08/30 14:59:41  kelsaka
 	/// - fixed bugs
 	///
@@ -160,7 +163,6 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>true, if the connection that belongs to given id is part of this component</returns>
 		public bool IsConnectionFromComponent(IConnectionIdentifier connectionID)
 		{
-			System.Console.WriteLine("ID: "+connectionID);
 			ModelDataSet.AssemblyConnectorsRow asmRow = this.Dataset.AssemblyConnectors.FindByguid(connectionID.Key);
 			if (asmRow != null)
 				return (asmRow.CompRelationsRowByCompRelAsmConProv.fk_parent.Equals(this.componentID.Key));
@@ -168,7 +170,6 @@ namespace Palladio.ComponentModel.Query.Impl
 			ModelDataSet.DelegationConnectorsRow delRow = this.Dataset.DelegationConnectors.FindByguid(connectionID.Key);
 			if (delRow != null)
 				return (delRow.CompRelationsRow.fk_parent.Equals(this.componentID.Key));
-			System.Console.WriteLine("Not found ...");
 
 			return false;
 		}
