@@ -15,6 +15,10 @@ namespace Palladio.FSMWrapper
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/30 13:42:34  kelsaka
+	/// - FSMWrappers are returning new public interface
+	/// - added query for all existing SEFFs in CM
+	///
 	/// Revision 1.1  2005/07/29 15:59:16  joemal
 	/// initial creation
 	///
@@ -22,7 +26,7 @@ namespace Palladio.FSMWrapper
 	///
 	/// </pre>
 	/// </remarks>
-	internal class FSMServiceEffectSpecification : IServiceEffectSpecification
+	internal class FSMServiceEffectSpecification : IFSMServiceEffectSpecification
 	{
 		#region data
 		

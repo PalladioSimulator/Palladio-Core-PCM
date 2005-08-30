@@ -15,6 +15,10 @@ namespace Palladio.FSMWrapper
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/08/30 13:42:34  kelsaka
+	/// - FSMWrappers are returning new public interface
+	/// - added query for all existing SEFFs in CM
+	///
 	/// Revision 1.1  2005/07/29 15:59:16  joemal
 	/// initial creation
 	///
@@ -50,7 +54,7 @@ namespace Palladio.FSMWrapper
 		/// </summary>
 		/// <param name="fsm">the fsm</param>
 		/// <returns>the seff</returns>
-		public static IServiceEffectSpecification CreateFSMServiceEffectSpecification(IFiniteStateMachine fsm)
+		public static IFSMServiceEffectSpecification CreateFSMServiceEffectSpecification(IFiniteStateMachine fsm)
 		{
 			return new FSMServiceEffectSpecification(fsm);
 		}
@@ -61,7 +65,7 @@ namespace Palladio.FSMWrapper
 		/// <param name="fsm">the fsm</param>
 		/// <param name="seffId">the id of the seff</param>
 		/// <returns>the seff</returns>
-		public static IServiceEffectSpecification CreateFSMServiceEffectSpecification(ISeffIdentifier seffId,
+		public static IFSMServiceEffectSpecification CreateFSMServiceEffectSpecification(ISeffIdentifier seffId,
 			IFiniteStateMachine fsm)
 		{
 			return new FSMServiceEffectSpecification(fsm,seffId);

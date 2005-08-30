@@ -12,6 +12,10 @@ namespace Palladio.ComponentModel.Query
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/08/30 13:42:34  kelsaka
+	/// - FSMWrappers are returning new public interface
+	/// - added query for all existing SEFFs in CM
+	///
 	/// Revision 1.5  2005/07/30 15:43:48  joemal
 	/// add basiccomponent queries (for seffs)
 	///
@@ -117,5 +121,11 @@ namespace Palladio.ComponentModel.Query
 		/// </summary>
 		/// <returns>an array with protocols</returns>
 		IProtocol[] GetProtocols();
+
+		/// <summary>
+		/// calles to return all service effect specifications of the component model
+		/// </summary>
+		/// <returns>an array of SEFFs</returns>
+		IServiceEffectSpecification[] GetServiceEffectSpecifications();
 	}
 }

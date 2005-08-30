@@ -15,6 +15,10 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/08/30 13:42:34  kelsaka
+	/// - FSMWrappers are returning new public interface
+	/// - added query for all existing SEFFs in CM
+	///
 	/// Revision 1.5  2005/07/30 15:43:48  joemal
 	/// add basiccomponent queries (for seffs)
 	///
@@ -164,6 +168,16 @@ namespace Palladio.ComponentModel.Query.Impl
 		{
 			ArrayList result = this.AllEntities(typeof(IProtocol));
 			return (IProtocol[]) result.ToArray(typeof(IProtocol));
+		}
+
+		/// <summary>
+		/// calles to return all service effect specifications of the component model
+		/// </summary>
+		/// <returns>an array of SEFFs</returns>
+		public IServiceEffectSpecification[] GetServiceEffectSpecifications ()
+		{
+			ArrayList result = this.AllEntities(typeof(IServiceEffectSpecification));
+			return (IServiceEffectSpecification[]) result.ToArray(typeof(IServiceEffectSpecification));
 		}
 
 		//returns an array with all entities from given type
