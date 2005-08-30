@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.25  2005/08/30 14:59:41  kelsaka
+	/// - fixed bugs
+	///
 	/// Revision 1.24  2005/06/17 18:31:12  joemal
 	/// new methods to add connections in low level builder
 	///
@@ -275,7 +278,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		/// <param name="innerIFaceID">the id of the inner components interface</param>
 		public void AddProvidesDelegationConnector(IConnectionIdentifier connectionIdentifier, string connectionName, IInterfaceIdentifier outerIFaceID, IComponentIdentifier innerCompID, IInterfaceIdentifier innerIFaceID)
 		{
-			IConnection connection = EntityFactory.CreateConnection(connectionName);
+			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier,connectionName);
 			ConnectionPoint innerPoint = new ConnectionPoint(innerIFaceID,innerCompID);
 			ConnectionPoint outerPoint = new ConnectionPoint(outerIFaceID,this.ComponentId);
 			base.ModelDataManager.LowLevelBuilder.AddProvidesDelegationConnector(connection,outerPoint,innerPoint);

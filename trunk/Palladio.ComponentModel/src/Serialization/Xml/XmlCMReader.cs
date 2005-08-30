@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/08/30 14:59:41  kelsaka
+	/// - fixed bugs
+	///
 	/// Revision 1.7  2005/08/25 16:45:38  joemal
 	/// add stream location to serializer
 	///
@@ -140,7 +143,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 					System.AppDomain.CurrentDomain.BaseDirectory+"\\Palladio.ComponentModel.xsd");
 
 				foreach(IXmlPlugIn plugin in plugins.Values)
-					schemaCollection.Add(plugin.XmlNameSpace,plugin.XmlSchema);
+					schemaCollection.Add(plugin.XmlNameSpace,System.AppDomain.CurrentDomain.BaseDirectory+"\\"+plugin.XmlSchema);
 
 				validator.Schemas.Add(schemaCollection);
 			}

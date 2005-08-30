@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.27  2005/08/30 14:59:41  kelsaka
+	/// - fixed bugs
+	///
 	/// Revision 1.26  2005/07/23 18:59:57  joemal
 	/// IType now is implemented in external object. Plugins for serializer are created.
 	///
@@ -311,6 +314,19 @@ namespace Palladio.ComponentModel.UnitTests
 			bc11.RemoveRequiresInterface(i11);
 		}
 
+		[Test]
+		public void AddProvDelToCC()
+		{
+			Identifier.IInterfaceIdentifier ifaceID =  rootBuilder.CreateInterface("IF1").Interface.InterfaceID;
+			ICompositeComponentTypeLevelBuilder ccB = rootBuilder.AddNewCompositeComponent("C1");
+			IBasicComponentTypeLevelBuilder bcB = ccB.AddNewBasicComponent("B1");
+			ccB.AddExistingInterfaceAsProvides(ifaceID);
+			bcB.AddExistingInterfaceAsProvides(ifaceID);
+
+			Identifier.IConnectionIdentifier conID = ccB.AddProvidesDelegationConnector("ProvDelCon1",ifaceID,bcB.ComponentId,ifaceID);
+
+			ccB.RemoveConnection(conID);
+		}
 
 		[Test]
 		public void BC_Event_NameChanged()

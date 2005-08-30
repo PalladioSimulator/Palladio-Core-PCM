@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.19  2005/08/30 14:59:41  kelsaka
+	/// - fixed bugs
+	///
 	/// Revision 1.18  2005/08/23 15:21:17  gudi11
 	/// fix bug in method AddComponent
 	///
@@ -197,6 +200,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 			newRow.fk_inner_role = innerRole.id;
 			newRow.fk_outer_role = outerRole.id;
 	
+			Console.WriteLine("bu: "+connection.ID.Key);
 			DelegationConnectorsTable.AddDelegationConnectorsRow(newRow);
 			DelegationConnectorsTable.AcceptChanges();
 			entityHashtable.AddEntity(connection);
