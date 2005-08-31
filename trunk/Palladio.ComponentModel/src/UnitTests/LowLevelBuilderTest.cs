@@ -32,6 +32,7 @@ namespace Palladio.ComponentModel.UnitTests
 			// new
 			Identifier.IComponentIdentifier ci = new Identifier.InternalEntityIdentifier();
 			IComponent component = EntityFactory.CreateComponent(ci, ComponentType.BASIC, "test");
+			modelManager.LowLevelBuilder.CreateComponent(component);
 			modelManager.LowLevelBuilder.AddComponent(component.ComponentID,null);
 		}
 
