@@ -1,5 +1,6 @@
 #if TEST
 using NUnit.Framework;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -23,6 +24,15 @@ namespace Palladio.ComponentModel.UnitTests
 		public void Init()
 		{
 			modelManager = new ModelDataManager();
+		}
+
+		[Test]
+		public void NewBCWithoutParent()
+		{
+			// new
+			Identifier.IComponentIdentifier ci = new Identifier.InternalEntityIdentifier();
+			IComponent component = EntityFactory.CreateComponent(ci, ComponentType.BASIC, "test");
+			modelManager.LowLevelBuilder.AddComponent(component.ComponentID,null);
 		}
 
 		[Test]
