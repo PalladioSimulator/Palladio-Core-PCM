@@ -2,6 +2,7 @@ using System;
 using System.Xml;
 using Palladio.Attributes;
 using Palladio.FiniteStateMachines.Serializer;
+using Palladio.FiniteStateMachines.Serializer.DefaultImplementation;
 using Palladio.FiniteStateMachines.Serializer.Interfaces;
 
 namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
@@ -14,6 +15,10 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/09/01 09:02:52  kelsaka
+	/// - fixed bug: validating reader was not closed
+	/// - added nunit project
+	///
 	/// Revision 1.5  2005/08/26 12:33:50  kelsaka
 	/// - workaround for validation error
 	///
@@ -85,7 +90,10 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// </summary>
 		public string XmlNamespace
 		{
-			get { return "http://Test1-Namespace.com/attribute"; }
+			get
+			{
+				return "http://Test1-Namespace.com/attribute";
+			}
 		}
 
 		/// <summary>

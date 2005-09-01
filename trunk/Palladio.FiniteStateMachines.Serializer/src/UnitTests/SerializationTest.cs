@@ -20,6 +20,10 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/09/01 09:02:52  kelsaka
+	/// - fixed bug: validating reader was not closed
+	/// - added nunit project
+	///
 	/// Revision 1.8  2005/08/26 12:33:50  kelsaka
 	/// - workaround for validation error
 	///
@@ -129,6 +133,22 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			IFiniteStateMachine fsm = BuildExampleFSMAttributes();
 			serializer.Save(new FileInfo(".\\testFSM.xml"), fsm);
 			serializer.Load(new FileInfo(".\\testFSM.xml"));
+		}
+
+		[Test]
+		public void LoadFromFile()
+		{
+			IFiniteStateMachine fsm = BuildExampleFSM();
+			IXMLSerializer serializer = new XMLSerializer();
+			serializer.Save(new FileInfo(".\\testFSM.xml"), fsm);
+
+			fsm = serializer.Load(new FileInfo(".\\testFSM.xml"));
+			Assert.IsTrue(fsm.HasFinalStates);
+			Assert.IsTrue(fsm.HasStartState);
+			Assert.IsTrue(fsm.States.Length.Equals(3));
+			Assert.IsTrue(fsm.InputAlphabet.Length.Equals(4));
+			Assert.IsTrue(fsm.Transitions.Length.Equals(4));
+			Assert.IsTrue(fsm.StartState.ID.Equals("1"));
 		}
 
 		[Test]

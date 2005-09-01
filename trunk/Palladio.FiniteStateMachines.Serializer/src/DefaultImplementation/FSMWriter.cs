@@ -76,6 +76,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/09/01 09:02:52  kelsaka
+	/// - fixed bug: validating reader was not closed
+	/// - added nunit project
+	///
 	/// Revision 1.10  2005/08/26 12:33:50  kelsaka
 	/// - workaround for validation error
 	///
@@ -187,9 +191,12 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			}
 			catch (Exception e)
 			{
-				xmlWriter.WriteComment("***+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++***");
-				xmlWriter.WriteComment("*** !!!There occured errors on writing this XML-file!!! This file might be invalid. ***");
-				xmlWriter.WriteComment("***+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++***");
+				if(xmlWriter != null) //Write message if possible:
+				{
+					xmlWriter.WriteComment("***+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++***");
+					xmlWriter.WriteComment("*** !!!There occured errors on writing this XML-file!!! This file might be invalid. ***");
+					xmlWriter.WriteComment("***+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++***");
+				}
 				throw e;
 			}
 			finally

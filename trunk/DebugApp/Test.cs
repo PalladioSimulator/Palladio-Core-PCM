@@ -12,6 +12,10 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/09/01 09:02:52  kelsaka
+	/// - fixed bug: validating reader was not closed
+	/// - added nunit project
+	///
 	/// Revision 1.12  2005/08/26 13:31:48  kelsaka
 	/// - temporarily deactivated validation on load
 	///
@@ -60,13 +64,51 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		public static void Main(string[] args)
 		{
 			SerializationTest st = new SerializationTest();
-			/*st.Init();
+			st.Init();
+			try
+			{
+				st.AddMultipleAttributeSerializersForSameAttributeType();
+			}
+			catch (Exception e)
+			{
+				//Console.Write (e);
+			}
+			try
+			{
+				st.AttributeNotSerializeable();
+			}
+			catch (Exception e)
+			{
+				//Console.Write (e);
+			}
+			st.AttributeSerialize();
+			try
+			{
+				st.LoadFromFileNoAttributesPluginsLoaded();
+			}
+			catch (Exception e)
+			{
+				//Console.WriteLine ("1" + e);
+			}
+			try
+			{
+				st.LoadFromFileWithAttributes();
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine ("1\n\n\n\n" + e);
+			}
+			try
+			{
+				st.LoadFromFile();
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine ("2\n\n\n\n" + e);
+			}
+			st.LoadFromXmlDocument();
 			st.XMLFilenameSaveTest();
-			st.AttributeSerialize();*/
-			st.LoadFromFileWithAttributes();
-			/*st.LoadFromFileNoAttributesPluginsLoaded();
-			st.XMLWriterSaveTest();*/
-			//st.LoadFromXmlDocument();
+			st.XMLWriterSaveTest();
 
 			Console.WriteLine("Press ENTER to close program.");
 			Console.ReadLine();

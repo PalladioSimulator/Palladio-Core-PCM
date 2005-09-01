@@ -18,6 +18,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.18  2005/09/01 09:02:52  kelsaka
+	/// - fixed bug: validating reader was not closed
+	/// - added nunit project
+	///
 	/// Revision 1.17  2005/08/26 13:31:48  kelsaka
 	/// - temporarily deactivated validation on load
 	///
@@ -154,7 +158,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			try 
 			{
 				validatingReader = new XmlValidatingReader(xmlTextReader);
-				validatingReader.ValidationType = ValidationType.None; //TODO ValidationType.Schema;
+				validatingReader.ValidationType = ValidationType.None; //TODO: ValidationType.Schema;
 			
 	
 				XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
@@ -166,16 +170,20 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
 				foreach(IInputSerializerPlugin plugin in inputSerializerPlugins.Values)
 					schemaCollection.Add(plugin.XmlNamespace, plugin.XmlSchemaURI);
-				
+
 				validatingReader.Schemas.Add(schemaCollection);
+				
+				return LoadXMLDocument (validatingReader);
 			}
 			catch(Exception exc)
 			{
 				throw new ModelSerializationException("Unable to load the xml schema " + XMLSerializer.XSDSchemeFileName +
 					" or one of the plugins' schemas.", exc);
 			}
-
-			return LoadXMLDocument (validatingReader);
+			finally
+			{
+				validatingReader.Close();
+			}
 		}
 
 		/// <summary>
@@ -361,6 +369,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				Console.Error.WriteLine (exc.StackTrace);
 				
 				throw new ModelSerializationException("Unable to load the xml document.", exc);
+			}
+			if (xmlDoc.DocumentElement == null)
+			{
+				Console.Out.WriteLine ("");
 			}
 			return xmlDoc;
 		}
