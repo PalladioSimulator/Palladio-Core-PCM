@@ -4,6 +4,7 @@ using System.Collections;
 using NUnit.Framework;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Exceptions;
+using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.ModelEntities.Impl;
 using Palladio.ComponentModel.ModelEventManagement;
@@ -19,6 +20,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.28  2005/09/02 18:08:15  joemal
+	/// fix bug in cc-builder
+	///
 	/// Revision 1.27  2005/08/30 14:59:41  kelsaka
 	/// - fixed bugs
 	///
@@ -244,6 +248,28 @@ namespace Palladio.ComponentModel.UnitTests
 			ccb2.AddExistingInterfaceAsRequires(i8);
 
 			sccb.AddAssemblyConnector("Connection8", ccb2.Component.ComponentID, i8, ccb1.Component.ComponentID, i8);			
+		}
+
+		[Test]
+		public void CC_AddRMDelegationConnections()
+		{
+			ICompositeComponentTypeLevelBuilder ccb = rootBuilder.AddNewCompositeComponent("cc1");
+			IBasicComponentTypeLevelBuilder bcb = ccb.AddNewBasicComponent("bc1");
+
+			Identifier.IInterfaceIdentifier ip = (IInterfaceIdentifier) rootBuilder.CreateInterface("IF1").Id;
+			Identifier.IInterfaceIdentifier ir = (IInterfaceIdentifier) rootBuilder.CreateInterface("IF2").Id;
+			ccb.AddExistingInterfaceAsProvides(ip);
+			ccb.AddExistingInterfaceAsRequires(ir);
+			bcb.AddExistingInterfaceAsProvides(ip);
+			bcb.AddExistingInterfaceAsRequires(ir);
+
+			IConnectionIdentifier conProvId = ccb.AddProvidesDelegationConnector("provCon",ip,bcb.ComponentId,
+				ip);
+			IConnectionIdentifier conReqId = ccb.AddRequiresDelegationConnector("reqCon",bcb.ComponentId,ir,
+				ir);
+
+			ccb.RemoveConnection(conProvId);
+			ccb.RemoveConnection((conReqId));
 		}
 
 		[Test]

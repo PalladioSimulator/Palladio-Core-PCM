@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.26  2005/09/02 18:08:15  joemal
+	/// fix bug in cc-builder
+	///
 	/// Revision 1.25  2005/08/30 14:59:41  kelsaka
 	/// - fixed bugs
 	///
@@ -313,7 +316,7 @@ namespace Palladio.ComponentModel.Builder.DefaultBuilder
 		public void AddRequiresDelegationConnector(IConnectionIdentifier connectionIdentifier, string connectionName, IComponentIdentifier innerCompID,
 		                                           IInterfaceIdentifier innerIFaceID, IInterfaceIdentifier outerIFaceID)
 		{
-			IConnection connection = EntityFactory.CreateConnection(connectionName);
+			IConnection connection = EntityFactory.CreateConnection(connectionIdentifier,connectionName);
 			ConnectionPoint innerPoint = new ConnectionPoint(innerIFaceID,innerCompID);
 			ConnectionPoint outerPoint = new ConnectionPoint(outerIFaceID,this.ComponentId);
 			base.ModelDataManager.LowLevelBuilder.AddRequiresDelegationConnector(connection,innerPoint,outerPoint);
