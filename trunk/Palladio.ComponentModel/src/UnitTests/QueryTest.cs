@@ -133,8 +133,18 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.IsFalse(bc2Query.IsSeffFromBasicComponent(seff.SeffID));
 			Assert.IsTrue(bc1Query.IsSeffFromBasicComponent(seff.SeffID));
 
+			Assert.AreEqual(bc1Query.GetServiceEffectSpecification(
+				StaticComponentModel.IWRITERBEID,StaticComponentModel.SIG2ID),seffs[0]);
+			Assert.AreEqual(bc1Query.GetServiceEffectSpecification(
+				StaticComponentModel.IWRITERBEID,StaticComponentModel.SIG1ID),null);
+
 			model.BuilderManager.GetBasicComponentTypeLevelBuilder(StaticComponentModel.BCWRITEBEID).
 				RemoveServiceEffectSpecification(seff.SeffID);
+
+			Assert.AreEqual(bc1Query.GetServiceEffectSpecification(
+				StaticComponentModel.IWRITERBEID,StaticComponentModel.SIG2ID),null);
+			Assert.AreEqual(bc1Query.GetServiceEffectSpecification(
+				StaticComponentModel.IWRITERBEID,StaticComponentModel.SIG1ID),null);
 
 			Assert.IsFalse(bc2Query.IsSeffFromBasicComponent(seff.SeffID));
 			Assert.IsFalse(bc1Query.IsSeffFromBasicComponent(seff.SeffID));

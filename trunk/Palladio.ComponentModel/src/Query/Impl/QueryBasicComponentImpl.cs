@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Data;
 using Palladio.ComponentModel.Exceptions;
@@ -17,6 +18,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/06 15:01:05  joemal
+	/// add query method for seffs
+	///
 	/// Revision 1.1  2005/07/30 15:43:15  joemal
 	/// initial creation
 	///
@@ -69,6 +73,25 @@ namespace Palladio.ComponentModel.Query.Impl
 			}
 
 			return (ISeffIdentifier[]) results.ToArray(typeof(ISeffIdentifier));
+		}
+
+		/// <summary>
+		/// called to query a seff from this basic component. The interface and signature must be specified. If no service
+		/// effect specification can be found, null is returned. 
+		/// </summary>
+		/// <param name="ifaceId">the interface</param>
+		/// <param name="sigId">the signature</param>
+		/// <returns>the identifier of the service effect specification</returns>
+		public ISeffIdentifier GetServiceEffectSpecification(IInterfaceIdentifier ifaceId, ISignatureIdentifier sigId)
+		{
+			ModelDataSet.RolesRow rolesRow=QueryRole(this.componentID,ifaceId,InterfaceRole.PROVIDES);
+            if (rolesRow == null) return null;
+			
+			string query = "fk_role="+rolesRow.id+" and fk_signature='"+sigId.Key+"'";
+			DataRow[] result = this.Dataset.Seffs.Select(query);
+			if (result.Length==0) return null;
+
+			return new InternalEntityIdentifier(((ModelDataSet.SeffsRow)result[0]).guid);
 		}
 
 		/// <summary>
