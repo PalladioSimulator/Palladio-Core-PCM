@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.QoSAdaptor.PatternDescription</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.QoSAdaptor.Pattern.PatternDescription">
+            <summary>
+            A PatternDescription has a number of attributes to 
+            describe all aspects of a design pattern that may be 
+            helpful to choose a certain pattern for adaptation. 
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.#ctor">
+            <summary>
+            Constructs a new empty PatternDescription.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.AddQoSAttribute(Palladio.QoSAdaptor.Pattern.QoSAttribute)">
+            <summary>
+            Adds a QoSattribute to the list of attributes the 
+            description holds. 
+            </summary>
+            <param name="attribute">A new QoSAttribute</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.AddAdaptorTemplate(System.String)">
+            <summary>
+            Adds a template to the descriptions list of adapter 
+            templates. The filename of the template has to be 
+            given as a parameter. 
+            By default the templates should 
+            available in the same directory as the xml pattern 
+            description. 
+            </summary>
+            <param name="template">The filename of the template
+            </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.AddPredictionTemplate(System.String)">
+            <summary>
+            Adds a template to the descriptions list of prediction 
+            templates. The filename of the template has to be 
+            given as a parameter. 
+            By default the templates should 
+            available in the same directory as the xml pattern 
+            description. 
+            </summary>
+            <param name="template">The filename of the template
+            </param>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser">
+            <summary>
+            This class implements a parser for design pattern 
+            descriptions in XML. 
+            Some parts of the parser were taken from XmlSeffParser.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.GetValueOfChild(System.Xml.XPath.XPathNodeIterator,System.String)">
+            <summary>
+            This method was copied from XmlSeffParser.
+            </summary>
+            <param name="it"></param>
+            <param name="child"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.OnValidateError(System.Object,System.Xml.Schema.ValidationEventArgs)">
+            <summary>
+            This method was copied from XmlSeffParser.
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.XmlValid(System.String)">
+            <summary>
+            This method was copied from XmlSeffParser.
+            </summary>
+            <param name="file"></param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.ParseDescription(System.String)">
+            <summary>
+            This is the main parsing method. The XML-file 
+            containing the pattern description is validated 
+            against the DTD and other initialisations are made. 
+            After that the methods for parsing the separate parts
+            of the XML-file are called. 
+            </summary>
+            <param name="file">The XML file containing the pattern
+            description</param>
+            <returns>A PatternDescription object containing the 
+            same information as the given XML file.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.ReadGeneralDescription(System.Xml.XPath.XPathNavigator,Palladio.QoSAdaptor.Pattern.PatternDescription)">
+            <summary>
+            This method parses the general information of the 
+            pattern description, including the name, general 
+            description and the source of the pattern. 
+            </summary>
+            <param name="nav">An XPathNavigator for the parsed XML
+            file</param>
+            <param name="pattern">The final PatternDescription 
+            object.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.ReadQoSEffects(System.Xml.XPath.XPathNavigator,Palladio.QoSAdaptor.Pattern.PatternDescription)">
+            <summary>
+            This methods parses the QoS effects described in the 
+            XML file.
+            </summary>
+            <param name="nav">An XPathNavigator for the parsed XML
+            file</param>
+            <param name="pattern">The final PatternDescription 
+            object.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.ReadAdapterTemplates(System.Xml.XPath.XPathNavigator,Palladio.QoSAdaptor.Pattern.PatternDescription)">
+            <summary>
+            This methods parses the list of templates needed to 
+            created the adapter that can be used to adjust the 
+            QoS mismatches of the pattern. 
+            </summary>
+            /// <param name="nav">An XPathNavigator for the parsed XML
+            file</param>
+            <param name="pattern">The final PatternDescription 
+            object.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.ReadPredictionTemplates(System.Xml.XPath.XPathNavigator,Palladio.QoSAdaptor.Pattern.PatternDescription)">
+            <summary>
+            This method parses the list of templates that can be 
+            used to created the prediction model for the 
+            performance of the generated adapter. 
+            </summary>
+            <param name="nav">An XPathNavigator for the parsed XML
+            file</param>
+            <param name="pattern">The final PatternDescription 
+            object.</param>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Pattern.QoSAttribute">
+            <summary>
+            A QoSAttribute describes the suitability of a design 
+            pattern for solving problems with certain QoS attributes.
+            The class has the attributes name and suitability, where
+            "suitability" describes the suitability of the pattern to
+            solve a problem with the QoS attribute referred to by 
+            "name". 
+            Suitability is a string which at the moment should have
+            one of the following values: ++, +, 0, -, --
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.QoSAttribute.#ctor(System.String)">
+            <summary>
+            Constructs a new QoSAttribute with the given name.
+            </summary>
+            <param name="name">The name of the QoSAttribute</param>
+        </member>
+    </members>
+</doc>

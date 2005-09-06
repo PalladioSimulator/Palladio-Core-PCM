@@ -1,0 +1,210 @@
+<%@ CodeTemplate Src="CSLAHelper.cs" Inherits="CSLAHelper" Language="C#" TargetLanguage="C#" Description="Generates a CSLA Read-Only Collection Object." %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<%@ Property Name="CollectionName" Type="System.String" Optional="false" Default="" Category="1. Common Required Template Options" Description="Required - The Name of the Business Object Collection to Generate." %>
+<%@ Property Name="ChildCollectionName" Type="System.String" Default="" Optional="true" Category="2. Child Collection Business Object" Description="The Child Collection's Name. Used for the memeber variable and collection name." %>
+<%@ Property Name="ChildMemberName" Type="System.String" Default="" Optional="true" Category="2. Child Collection Business Object" Description="The Child Collection's member variable name." %>
+<%@ Property Name="AllowSort" Type="System.Boolean" Optional="true" Default="true" Category="3. Collection Business Object" Description="Insert the code for the AllowSorting = True in constructor. In the Custom Code collecion class." %>
+<%@ Property Name="AllowFind" Type="System.Boolean" Optional="true" Default="true" Category="3. Collection Business Object" Description="Insert the code for the AllowFind = True in constructor. In the Custom Code collecion class." %>
+<% HiddenCollectionName = CollectionName; %>
+<%-- Generic Variables for code to use --%>
+<% int i = 0; %>
+<% ColumnSchema Col; %>
+<% ColumnSchemaCollection PKs = RootTable.PrimaryKey.MemberColumns; %>
+<% ColumnSchemaCollection NPKs = RootTable.NonPrimaryKeyColumns; %> 
+<% int PKOrd = PKs.Count - 1; %>
+<% int OrdinalColCount = RootTable.Columns.Count - 1; %> 
+<%=Level(i,false)%>using System;
+<%=Level(i,false)%>using System.Data;
+<%=Level(i,false)%>using System.Data.SqlClient;
+<%=Level(i,false)%>using CSLA;
+<%=Level(i,false)%>using CSLA.Data;
+
+<% if (ClassNamespace != null && ClassNamespace.Length > 0) { %>namespace <%= ClassNamespace %>
+<%=Level(i++,false)%>{ 
+<% } %> 
+<%=Level(i,false)%>/// <summary> 
+<%=Level(i,false)%>/// This business object represents the properties and methods of the <%= RootTable %> Table. 
+<%=Level(i,false)%>/// It corresponds to the READ-ONLY COLLECTION OBJECT as outlined in the Book "Expert One-on-One VB.NET Business Objects" 
+<%=Level(i,false)%>/// Object was generated on <%= DateTime.Now.ToString() %> - By <%=Environment.UserName %> 
+<%=Level(i,false)%>/// </summary> 
+<%=Level(i,false)%>/// <remarks> 
+<%=Level(i,false)%>/// Parameters used to generate this class.
+<%=Level(i,false)%>/// Business Object
+<%=Level(i,false)%>///		ClassNamespace      = <%= ClassNamespace %>
+<%=Level(i,false)%>///		CollectionName      = <%= CollectionName %>
+<%=Level(i,false)%>///		ObjectName          = <%= ObjectName %>
+<%=Level(i,false)%>///		RootTable           = <%= RootTable.Database.Name %>.<%= RootTable %>
+<%=Level(i,false)%>///
+<%=Level(i,false)%>/// Options
+<%=Level(i,false)%>///		MemberPrefix        = <%= MemberPrefix %>
+<%=Level(i,false)%>///		Accessibility       = <%= Accessibility.ToString() %>
+<%=Level(i,false)%>///		Serializable        = <%= Serializable %>
+<%=Level(i,false)%>///		MustBeInherited     = <%= MustBeInherited %>
+<%=Level(i,false)%>///		TransactionType     = <%= TransactionType.ToString() %>
+<%=Level(i,false)%>/// 
+<%=Level(i,false)%>/// Stored Procedure Style
+<%=Level(i,false)%>///		GeneralSPPrefix     = <%= GeneralSPPrefix %>
+<%=Level(i,false)%>///		InsertPrefix        = <%= InsertPrefix %>
+<%=Level(i,false)%>///		UpdatePrefix        = <%= UpdatePrefix %>
+<%=Level(i,false)%>///		DeletePrefix        = <%= DeletePrefix %>
+<%=Level(i,false)%>///		SelectPrefix        = <%= SelectPrefix %>
+<%=Level(i,false)%>/// </remarks>
+<% if(Serializable) { %>
+<%=Level(i,false)%>[Serializable] 
+<% } %> 
+<%=Level(i,false)%><%= GetAccessModifier(Accessibility) %> <%= GetMustInherit(MustBeInherited) %>class <%= GetBaseCollectionName %> : CSLA.ReadOnlyCollectionBase
+<%=Level(i++,false)%>{
+
+<%=Level(i,false)%>#region Data Structure
+<% if(Serializable) { %>
+<%=Level(i,false)%>[Serializable] 
+<% } %> 
+<%=Level(i,false)%>public struct <%= GetCustomClassName %>
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>// This has private members, public properties because
+<%=Level(i,false)%>// ASP.NET can't data bind to public members of a structure<%= GetPrimaryKeys(PKs, GetMemberVariableScope(), i, "",true) %>
+<% foreach(ColumnSchema col in NPKs) { %>
+<%=Level(i,false)%><%= GetMemberVariableDeclarationStatement(col, "", true) %>
+<% } %>
+<% if(ChildCollectionName!=null && ChildCollectionName.Length>0) { %>
+<%=Level(i,false)%>// Any grand child collection should be declared here As Private....
+<%=Level(i,false)%><%= GetMemberVariableScope() + " " + ChildCollectionName + " " + MemberPrefix + GetCamelCaseName(ChildMemberName) + " = " + ChildCollectionName + ".New" + ChildCollectionName + "(); " %>
+
+<% } %>
+
+<% foreach(ColumnSchema col in PKs) { %><%= GetPropertyDeclarations(col, false, i, "", true) + "\r\n" %><% } %>
+<% foreach(ColumnSchema col in NPKs) { %><%= GetPropertyDeclarations(col, false, i, "", true) + "\r\n" %><% } %>
+<% if(ChildCollectionName!=null && ChildCollectionName.Length>0) { %>
+<%=Level(i,false) + "public " + GetOverrideable() + ChildCollectionName + " " + ChildMemberName %>
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>// If the Object has a child collection, 
+<%=Level(i,false)%>// this is property for read access into the grand child collection
+<%=Level(i,false)%><%= "get { return " + MemberPrefix + GetCamelCaseName(ChildMemberName) + "; } " %>
+<%=Level(--i,false)%>}
+
+<% } %>
+<%=Level(i,false)%>public bool Equals(<%= GetCustomClassName + " " + GetCamelCaseName(GetCustomClassName) %>)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>return <% foreach(ColumnSchema col in PKs) { %><%= GetMemberVariableName(col, "") + ".Equals(" + GetCamelCaseName(GetCustomClassName) + "." + GetPropertyName(col) + ")" %><% if(col.Name != PKs[PKOrd].Name) { %><%= " && " + Level(i+3,true)%><% } %><% } %>;
+<%=Level(--i,false)%>}
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Data Structure
+
+<%=Level(i,false)%>#region Business Properties and Methods
+<%=Level(i,false)%>public <%= GetCustomClassName %> this[int index]
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>get { return (<%= GetCustomClassName %>) List[index]; }
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Business Properties and Methods
+
+<%=Level(i,false)%>#region Contains
+<%=Level(i,false)%>public bool Contains(<%= GetCustomClassName %> item)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>return List.Contains(item);
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>public bool Contains(<% foreach(ColumnSchema col in PKs) { %><%= GetCSVariableType(col) + " " + GetCamelCaseName(GetPropertyName(col)) %><% if(col.Name != PKs[PKOrd].Name) { %>, <% } %><% } %>)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>foreach (<%= GetCustomClassName %> child in List)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>if(<% foreach(ColumnSchema col in PKs) { %><%= "child." + GetPropertyName(col) + ".Equals(" + GetCamelCaseName(GetPropertyName(col)) + ")" %><% if(col.Name != PKs[PKOrd].Name) { %><%= " && " + Level(i+3,true)%><% } %><% } %>)
+<%=Level(i+1,false)%>return true;
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>return false;
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Contains
+
+<%=Level(i,false)%>#region Constructor
+<%=Level(i,false)%><%= ConstructorDeclaration() + " " + GetBaseCollectionName + "() " %>
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//prevent direct creation<% if(AllowSort) {%>
+<%=Level(i,false)%>AllowSort = true; <%}%><% if(AllowFind) {%>
+<%=Level(i,false)%>AllowFind = true; <%}%>
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Constructor
+
+<%=Level(i,false)%>#region Criteria (identifies the Individual Object/ Primary Key)
+<%=Level(i,false)%>[Serializable]
+<%=Level(i,false)%>private class Criteria <%if(SetAsBaseClass) {%>: CSLA.Server.CriteriaBase<%}%>
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>public Criteria() <%if(SetAsBaseClass) {%>: base(typeof(<%= GetCustomCollectionName %>))<%}%>
+<%=Level(i++,false)%>{
+<%=Level(--i,false)%>}
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Criteria
+
+<%=Level(i,false)%>#region Static Methods
+<%=Level(i,false)%>public static <%= GetCustomCollectionName %> Get<%= GetCustomCollectionName %>()
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//TODO: In <%= GetBaseCollectionName %> - Uncomment and Change Roles for Security Implementation
+//<%=Level(i,false)%>if(!Threading.Thread.CurrentPrincipal.IsInRole("Management") && 
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("Administrator") &&
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("SysAdmin") &&
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("Supervisor"))
+//<%=Level(i++,false)%>{
+//<%=Level(i,false)%>throw new System.Security.Exception("Sorry, but you have not been set up to get <%= GetCustomClassName %>");
+//<%=Level(--i,false)%>}
+<%=Level(i,false)%>return (<%= GetCustomCollectionName %>) DataPortal.Fetch(new Criteria());
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Static Methods
+
+<%=Level(i,false)%>#region Data Access
+<%=Level(i,false)%>//Called by DataPortal to load data from the database<% if(TransactionType == TransactionEnum.EnterpriseServices) {%>
+<%=Level(i,false)%>[Transactional]<% } %>
+<%=Level(i,false)%>protected override void DataPortal_Fetch(object criteria)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//retrieve data from database
+<%=Level(i,false)%>Locked = false;
+<%=Level(i,false)%>Criteria crit = (Criteria) criteria;
+<%=Level(i,false)%>SqlConnection cn = new SqlConnection(DB("<%= RootTable.Database.Name %>"));
+<%=Level(i,false)%>SqlCommand cm = new SqlCommand();
+<% if(IsAdoTransaction) {%><%=Level(i,false)%>SqlTransaction tr;<%= "\r\n"%><%}%>
+<%=Level(i,false)%>cn.Open();
+<%=Level(i,false)%>try
+<%=Level(i++,false)%>{<% if(IsAdoTransaction) {%><%=Level(i,true)%>tr = cn.BeginTransaction(IsolationLevel.ReadCommitted);<%=Level(i,true) + "try" + Level(i++,true) + "{"%><%}%>
+<%=Level(i,false)%>cm.Connection = cn;<% if(IsAdoTransaction) {%><%=Level(i,true)%>cm.Transaction = tr;<%}%>
+<%=Level(i,false)%>cm.CommandType = CommandType.StoredProcedure;
+<%=Level(i,false)%>cm.CommandText = "<%= GeneralSPPrefix + SelectPrefix + GetCustomCollectionName %>";
+
+<%=Level(i,false)%>SafeDataReader dr = new SafeDataReader(cm.ExecuteReader());
+<%=Level(i,false)%>try
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>while(dr.Read())
+<%=Level(i++,false)%>{
+<%=Level(i,false)%><%= GetCustomClassName + " info = new " + GetCustomClassName + "();"%>
+<% int j = 0; foreach(ColumnSchema col in RootTable.Columns) { %>
+<%=Level(i,false)%><%= GetReaderAssignmentStatement(col, j++,"info") %>
+<%}%>
+<%=Level(i,false)%>InnerList.Add(info);
+<%if(ChildCollectionName!=null && ChildCollectionName.Length>0) {%>
+<%=Level(i,false)%>// Load grand child object here
+<%=Level(i,false)%>dr.NextResult();
+<%=Level(i,false)%><%= MemberPrefix + GetCamelCaseName(ChildMemberName) + " = " + ChildCollectionName + ".Get" + ChildCollectionName + "(dr); " %>
+<%}%>
+<%=Level(--i,false)%>}
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>finally
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>dr.Close();
+<%=Level(--i,false)%>}<% if(IsAdoTransaction) {%>
+<%=Level(i,false)%>tr.Commit();
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>catch(Exception ex)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>tr.Rollback();
+<%=Level(i,false)%>throw(ex);
+<%=Level(--i,false)%>}<%}%>
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>finally
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>cn.Close();
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>Locked = true;
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>#endregion //Data Access
+
+<%=Level(--i,false)%>}
+<% if(ClassNamespace != null && ClassNamespace.Length > 0) {%>}<%}%>
+

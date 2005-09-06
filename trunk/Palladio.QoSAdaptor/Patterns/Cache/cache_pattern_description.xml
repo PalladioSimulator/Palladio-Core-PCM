@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Pattern SYSTEM "..\PatternDescription.dtd">
+<Pattern>
+	<name>Cache</name>
+	<QoS-effect>
+		<attribute>
+			<name>Performance</name>
+			<suitability>+</suitability>
+		</attribute>
+		<attribute>
+			<name>Reliability</name>
+			<suitability>-</suitability>
+		</attribute>
+	</QoS-effect>
+	<description>A cache okjnsd  asjdfkl psadf kosal ösfjpkasö öljsaf asoiu snf soi lsdmp sdsup öakj ds hsf ödnso ysafm.</description>
+	<source>Kircher/Jain: Pattern Oriented Software Architecture</source>
+	<adapterTemplates>
+		<template>CacheAdaptor.cst</template>
+		<template>CacheAdaptorUnitTests.cst</template>
+	</adapterTemplates>
+	<predictionTemplates>
+		<template>SEA_CacheAdaptor.cst</template>
+	</predictionTemplates>
+</Pattern>

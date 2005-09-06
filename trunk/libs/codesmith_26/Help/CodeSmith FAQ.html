@@ -1,0 +1,591 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>CodeSmith Frequently Asked Questions</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	margin-left:10px;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	width:900;
+}
+h1
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:10px;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:Arial;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=Section1>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1>CodeSmith Frequently Asked Questions</h1>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Q: How can I add comments
+to my template?</span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>A:</b>  You need to include your comments inside the
+&lt;script&gt; or &lt;% %&gt; tags and then either use the comment character of
+the language you are using or the CodeSmith comment character For example:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;font-family:Verdana;color:black'>&lt;%--
+Comments --%&gt; - CodeSmith</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;font-family:Verdana;color:black'>&lt;%’
+Comments %&gt; - VB.NET</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;font-family:Verdana;color:black'>&lt;%
+// Comments %&gt; - C#</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;font-family:Verdana;color:black'>&lt;%
+/* Comments */ %&gt; - C#</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Q: How can I create a
+property that has a dropdown of values to choose from?</span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>A:</b> You can define an enumeration and then set the type
+of your property to that enumeration, here is an example:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;%@ Property Name=”CollectionType”
+Type=”CollectionTypeEnum” Category=”Collection” Description=”Type of
+collection” %&gt;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;script runat=”tempate”&gt;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>public enum CollectionTypeEnum</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>{</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>  Vector,</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>  HashTable,</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>  SortedList</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>}</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;/script&gt;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Q: I am generating ASP.NET
+code from my templates and the ASP.NET tags are causing CodeSmith to get
+confused.</span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>A:</b> Change the ASP.NET tags to &lt;%% instead of
+&lt;%, this will escape the tag and allow it to be passed down to the output of
+the template instead of being processed as template code.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Q: How can I declare a
+constant in my template?</span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>A:</b> Constants must be declared inside &lt;script
+runat=”template”&gt; tags.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Example:</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;script runat=”template”&gt;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>private const string MY_CONST = “example”; </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;/script&gt;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Q: How can I debug my
+template?</span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>A:</b> To debug a template it needs to be compiled in
+debug mode, to do this add debug=true to the CodeTemplate directive. You can
+then set break points using Debugger.Break() in your code.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Example:</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;%@ CodeTemplate Language=&quot;C#&quot;
+TargetLanguage=&quot;T-SQL&quot;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      Description=&quot;Debugging your
+template&quot; Debug=&quot;true&quot; %&gt;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;% Debugger.Break(); %&gt;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Q: How can I add a
+property that lets me select a folder?</span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>A:</b> Using the Editor attribute you can create a
+property that allows you to select a folder when running the template.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Example:</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>[Editor(typeof(System.Windows.Forms.Design.FolderNameEditor),
+typeof(System.Drawing.Design.UITypeEditor))]</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>public string OutputDirectory</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>{</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      get {return _outputDirectory;}</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      set {_outputDirectory= value;}</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>}</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Q: How can I use
+sub-templates?</span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>A:</b> Sub templates can be used to call another template
+from inside of your template by accessing the CodeSmith API. See below for an
+example of how to do this.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Example:</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;% </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>foreach (TableSchema table in SourceDatabase.Tables)
+</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>{ </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>   OutputSubTemplate(table); </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>} </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>%&gt; </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;script runat=&quot;template&quot;&gt; </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>private CodeTemplate _mySubTemplate; </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'> </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>  </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>[Browsable(false)]</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>public CodeTemplate MySubTemplate </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>{ </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>   get </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>   { </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      if (_mySubTemplate == null) </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      { </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>         CodeTemplateCompiler compiler = new
+CodeTemplateCompiler(this.CodeTemplateInfo.DirectoryName +
+&quot;MySubTemplate.cst&quot;); </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>         compiler.Compile(); </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>         </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>         if (compiler.Errors.Count == 0) </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>         { </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>            _mySubTemplate = compiler.CreateInstance();
+</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>         } </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>         else </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>         { </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>            for (int i = 0; i &lt;
+compiler.Errors.Count; i++) </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>            {</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>               Response.WriteLine(compiler.Errors[
+i].ToString()); </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>            } </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>         } </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      } </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      return _mySubTemplate; </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>   } </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>} </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>public void OutputSubTemplate(TableSchema table) </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>{ </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>  
+MySubTemplate.SetProperty(&quot;SourceTable&quot;, table); </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>  
+MySubTemplate.SetProperty(&quot;IncludeDrop&quot;, false); </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>  
+MySubTemplate.SetProperty(&quot;InsertPrefix&quot;, &quot;Insert&quot;); </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>   </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>   MySubTemplate.Render(Response); </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>} </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;/script&gt;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Template Download:</b> <a
+href="Example%20Templates/SubTemplatesExample.cst">SubTemplatesExample.cst</a>,
+and <a href="Example%20Templates/MySubTemplate.cst">MySubTemplate.cst</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Q: What assemblies and
+namespaces are loaded by default into a template?</span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>A: </b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Assemblies:</b> mscorlib, System, System.Xml,
+System.Data, System.Drawing, Microsoft.VisualBasic, System.Windows.Forms,
+CodeSmith.Engine</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Namespaces:</b> System, System.Data, System.Diagnostics,
+System.ComponentModel, Microsoft.VisualBasic, CodeSmith.Engine</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1>SchemaExplorer</h1>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Q: Is it possible to
+determine if a field is an Identity field using the SchemaExplorer?</span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>A:</b> The extended properties collection of the column contains
+a property called &quot;CS_IsIdentity&quot;. If this is set to true then the
+column is an identity column. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Example:</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>Identity Field = &lt;% foreach(ColumnSchema cs in
+SourceTable.Columns) {  </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      if(
+((bool)cs.ExtendedProperties[&quot;CS_IsIdentity&quot;].Value) == true)</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      {</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>            Response.Write(cs.Name);</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      }</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>}</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>%&gt;</span></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>Template Download:</b> <a
+href="Example%20Templates/CS_Identity_Example.cst">CS_Identity_Example.cst</a></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt'>Q: How can I detect input
+and output parameters of a stored procedure using the SchemaExplorer?</span></b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>A:</b> The CommandSchema object contains both input and
+output parameter collections which can be used to read these parameters.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Example: </b></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>Input Parameters: </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;%foreach(ParameterSchema ps in
+SourceProcedure.AllInputParameters)</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>{</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      Response.Write(ps.Name);</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      Response.Write(&quot;\n&quot;);</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>}</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>%&gt;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>Output Parameters: </span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>&lt;%foreach(ParameterSchema ps in
+SourceProcedure.AllOutputParameters)</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>{</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      Response.Write(ps.Name);</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>      Response.Write(&quot;\n&quot;);</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>}</span></p>
+
+<p class=MsoNormal style='background:#E0E0E0'><span style='font-size:10.0pt;
+font-family:"Courier New"'>%&gt;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Template Download:</b> <a
+href="Example%20Templates/InputOutputParameterExample.cst">InputOutputParameterExample.cst</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

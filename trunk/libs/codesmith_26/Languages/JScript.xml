@@ -1,0 +1,179 @@
+<SyntaxLanguage Key="JScript" LanguageDefinitionVersion="2.0" Secure="True" xmlns="http://ActiproSoftware/SyntaxEditor/2.0/LanguageDefinition">
+
+	<!-- String Properties -->
+	<Properties>
+		<Property Key="Creator" Value="Actipro Software LLC" />
+		<Property Key="Copyright" Value="Copyright (c) 2001-2004 Actipro Software LLC.  All rights reserved." />
+	</Properties>
+
+	<!-- Triggers -->
+	<Triggers>
+		<KeyPressTrigger Key="MemberListTrigger" Character=".">
+			<KeyPressTriggerValidStates>
+				<KeyPressTriggerValidState State="DefaultState" />
+			</KeyPressTriggerValidStates>
+		</KeyPressTrigger>
+	</Triggers>
+
+	<!-- Highlighting Styles -->	
+	<Styles>
+		<Style Key="ReservedWordStyle" ForeColor="Blue" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="NativeTypeStyle" ForeColor="Blue" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="OperatorStyle" ForeColor="Black" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="NumberStyle" ForeColor="Black" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="StringDelimiterStyle" ForeColor="Black" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="StringDefaultStyle" ForeColor="Black" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="CommentDelimiterStyle" ForeColor="Green" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="CommentDefaultStyle" ForeColor="Green" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+	</Styles>
+	
+	<!-- States -->
+	<States>
+		<!-- Code -->
+		<State Key="DefaultState">
+			<!-- Patterns Groups -->
+			<PatternGroups>
+				<!-- Whitespace -->
+				<RegexPatternGroup Token="WhitespaceToken" PatternValue="{WhitespaceMacro}+" IsWhitespace="True" />
+				<!-- Line Terminators -->
+				<RegexPatternGroup Token="LineTerminatorToken" PatternValue="{LineTerminatorMacro}" IsWhitespace="True" />
+				<!-- Brackets -->
+				<ExplicitPatternGroup Key="OpenParenthesisPatternGroup" Token="OpenParenthesisToken" PatternValue="(" EndBracket="CloseParenthesisPatternGroup" />
+				<ExplicitPatternGroup Key="CloseParenthesisPatternGroup" Token="CloseParenthesisToken" PatternValue=")" StartBracket="OpenParenthesisPatternGroup" />
+				<ExplicitPatternGroup Key="OpenCurlyBracePatternGroup" Token="OpenCurlyBraceToken" PatternValue="{" EndBracket="CloseCurlyBracePatternGroup" />
+				<ExplicitPatternGroup Key="CloseCurlyBracePatternGroup" Token="CloseCurlyBraceToken" PatternValue="}" StartBracket="OpenCurlyBracePatternGroup" />
+				<ExplicitPatternGroup Key="OpenSquareBracePatternGroup" Token="OpenSquareBraceToken" PatternValue="[" EndBracket="CloseSquareBracePatternGroup" />
+				<ExplicitPatternGroup Key="CloseSquareBracePatternGroup" Token="CloseSquareBraceToken" PatternValue="]" StartBracket="OpenSquareBracePatternGroup" />
+				<!-- Punctuation -->
+				<ExplicitPatternGroup Token="PunctuationToken">
+					<ExplicitPatterns>
+						. , : ;
+					</ExplicitPatterns>
+				</ExplicitPatternGroup>
+				<!-- Native Types -->
+				<ExplicitPatternGroup Token="NativeTypeToken" Style="NativeTypeStyle" LookAhead="{NonWordMacro}" StartsWith="[a-z]" CaseSensitivity="Sensitive">
+					<ExplicitPatterns>
+						byte short int long float double boolean char
+					</ExplicitPatterns>
+				</ExplicitPatternGroup>
+				<!-- Null -->
+				<ExplicitPatternGroup Token="NullToken" Style="ReservedWordStyle" PatternValue="null" LookAhead="{NonWordMacro}" CaseSensitivity="Sensitive" />
+				<!-- Reserved Words -->
+				<ExplicitPatternGroup Token="ReservedWordToken" Style="ReservedWordStyle" LookAhead="{NonWordMacro}" StartsWith="[a-z]" CaseSensitivity="Sensitive">
+					<ExplicitPatterns>
+						break case catch continue debugger default delete do else finally for function if in
+						instanceof new return switch this throw try typeof var void while with
+					</ExplicitPatterns>
+				</ExplicitPatternGroup>
+				<!-- Booleans -->
+				<ExplicitPatternGroup Token="BooleanToken" Style="ReservedWordStyle" LookAhead="{NonWordMacro}" CaseSensitivity="Sensitive">
+					<ExplicitPatterns>
+						false true
+					</ExplicitPatterns>
+				</ExplicitPatternGroup>
+				<!-- Identifier -->
+				<RegexPatternGroup Token="IdentifierToken" PatternValue="(_ | {AlphaMacro})({WordMacro})*" />
+				<!-- Operators -->
+				<ExplicitPatternGroup Token="OperatorToken" Style="OperatorStyle">
+					<ExplicitPatterns>
+						=== !==
+						== != 
+						= !
+						++ -- 
+						+= -= *= /= %=
+						+ - * / % 
+						&amp;&amp; || 
+						&amp;= |= ^=
+						&amp; | ~ ^ 
+						&lt;&lt;= &gt;&gt;&gt;= &gt;&gt;= 
+						&lt;&lt; &gt;&gt;&gt; &gt;&gt; 
+						&lt;= &lt; &gt;= &gt;  
+						? 
+					</ExplicitPatterns>
+				</ExplicitPatternGroup>
+				<!-- Numbers -->
+				<RegexPatternGroup Token="RealNumberToken" Style="NumberStyle" LookAhead="{NonWordMacro}">
+					<RegexPattern Value="{DigitMacro}* \. {DigitMacro}+ ([Ee] [\+\-]? {DigitMacro}+)?" />
+					<RegexPattern Value="{DigitMacro}+ [Ee] [\+\-]? {DigitMacro}+" />
+				</RegexPatternGroup>
+				<RegexPatternGroup Token="IntegerNumberToken" Style="NumberStyle" PatternValue="{DigitMacro}+" LookAhead="{NonWordMacro}" />
+				<RegexPatternGroup Token="HexIntegerNumberToken" Style="NumberStyle" PatternValue="0 [xX] {HexDigitMacro}+" LookAhead="{NonWordMacro}" />
+			</PatternGroups>
+			<!-- Child States -->
+			<ChildStates>
+				<ChildState Key="StringState" />
+				<ChildState Key="MultiLineCommentState" />
+				<ChildState Key="CommentState" />
+			</ChildStates>
+		</State>
+		
+		<!-- Strings -->
+		<State Key="StringState" Token="StringDefaultToken" Style="StringDefaultStyle">
+			<!-- Scopes -->
+			<Scopes>
+				<Scope>
+					<ExplicitPatternGroup Type="StartScope" Token="StringStartToken" Style="StringDelimiterStyle" PatternValue="&quot;" />
+					<ExplicitPatternGroup Type="EndScope" Token="StringEndToken" Style="StringDelimiterStyle" PatternValue="&quot;" />	
+				</Scope>
+			</Scopes>
+			<!-- Patterns Groups -->
+			<PatternGroups>
+				<RegexPatternGroup Token="StringEscapedCharacterToken" PatternValue="\\." />
+				<RegexPatternGroup Token="StringWhitespaceToken" PatternValue="{WhitespaceMacro}+" IsWhitespace="True" />
+				<RegexPatternGroup Token="StringLineTerminatorToken" PatternValue="{LineTerminatorMacro}" IsWhitespace="True" />
+				<RegexPatternGroup Token="StringWordToken" PatternValue="{WordMacro}+" />
+				<RegexPatternGroup Token="StringDefaultToken" PatternValue="[^\\\&quot;]" />
+			</PatternGroups>
+		</State>
+		
+		<!-- Comments -->
+		<State Key="CommentState" Token="CommentDefaultToken" Style="CommentDefaultStyle">
+			<!-- Scopes -->
+			<Scopes>
+				<Scope>
+					<ExplicitPatternGroup Type="StartScope" Token="CommentStartToken" Style="CommentDelimiterStyle" PatternValue="//" />
+					<RegexPatternGroup Type="EndScope" Token="CommentEndToken" Style="CommentDelimiterStyle" PatternValue="{LineTerminatorMacro}" />	
+				</Scope>
+			</Scopes>
+			<!-- Patterns Groups -->
+			<PatternGroups>
+				<RegexPatternGroup Token="CommentWhitespaceToken" PatternValue="{WhitespaceMacro}+" IsWhitespace="True" />
+				<RegexPatternGroup Token="CommentWordToken" PatternValue="{WordMacro}+" />
+				<RegexPatternGroup Token="CommentDefaultToken" PatternValue="{NonLineTerminatorMacro}" />
+			</PatternGroups>
+		</State>
+		
+		<!-- MultiLine Comments -->
+		<State Key="MultiLineCommentState" Token="MultiLineCommentDefaultToken" Style="CommentDefaultStyle">
+			<!-- Scopes -->
+			<Scopes>
+				<Scope BracketHighlight="True">
+					<ExplicitPatternGroup Type="StartScope" Token="MultiLineCommentStartToken" Style="CommentDelimiterStyle" PatternValue="/*" />
+					<ExplicitPatternGroup Type="EndScope" Token="MultiLineCommentEndToken" Style="CommentDelimiterStyle" PatternValue="*/" />	
+				</Scope>
+			</Scopes>
+			<!-- Patterns Groups -->
+			<PatternGroups>
+				<RegexPatternGroup Token="MultiLineCommentWhitespaceToken" PatternValue="{WhitespaceMacro}+" IsWhitespace="True" />
+				<RegexPatternGroup Token="MultiLineCommentLineTerminatorToken" PatternValue="{LineTerminatorMacro}" IsWhitespace="True" />
+				<RegexPatternGroup Token="MultiLineCommentWordToken" PatternValue="{WordMacro}+" />
+				<RegexPatternGroup Token="MultiLineCommentDefaultToken" PatternValue="[^\*]" />
+			</PatternGroups>
+		</State>
+	</States>
+
+	<!-- Example Text -->
+	<ExampleText>
+		<![CDATA[
+/* Comment */
+var sampleString = "Number:";
+function foo() {
+	// Write a paragraph
+	document.write("<P>" + sampleString);
+	document.write(7);
+	document.write("</P>" + sampleString);
+}
+		]]>
+	</ExampleText>
+		
+</SyntaxLanguage>

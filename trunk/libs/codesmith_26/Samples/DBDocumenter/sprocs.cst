@@ -1,0 +1,238 @@
+<%-- 
+CodeSmith DBDocumenter Templates
+Author:  Jason Alexander (jason@ngallery.org)
+Website: http://www.ngallery.org/dbdocumenter/
+%>
+<%@ CodeTemplate Language="C#" TargetLanguage="HTML" Description="Generates a set of HTML-based database documentation." %>
+<%@ Property Name="SourceDatabase" Type="SchemaExplorer.DatabaseSchema" Category="Context" Description="Database that the documentation should be based on." %>
+<%@ Property Name="ServerName" Type="System.String" Category="Output" Description="The name of the actual database server that is being documented." %>
+<%@ Property Name="DocumentationTitle" Type="System.String" Default="Database Documentation" Category="Output" Description="Defines what the title of the HTML page that will be generated will be." %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Assembly Name="System.Design" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<script runat="template">
+private CodeTemplate _storedProceduresTextTemplate;
+private CodeTemplate _storedProceduresDetailsTemplate;
+private CodeTemplate _storedProceduresSummaryTemplate;
+private string _outputDirectory = String.Empty; 
+
+
+[Editor(typeof(System.Windows.Forms.Design.FolderNameEditor), typeof(System.Drawing.Design.UITypeEditor))] 
+[CodeTemplateProperty(CodeTemplatePropertyOption.Optional)]
+[Category("Output")]
+[Description("The directory to output the results to.")]
+public string OutputDirectory 
+{ 
+	get
+	{
+		if (_outputDirectory.Length == 0) return this.CodeTemplateInfo.DirectoryName + "output";
+		return _outputDirectory;
+	}
+	set
+	{
+		if (value.EndsWith("\\")) value = value.Substring(0, value.Length - 1);
+		_outputDirectory = value;
+	} 
+}
+
+
+[Browsable(false)]
+public CodeTemplate StoredProceduresTextTemplate
+{
+	get
+	{
+		if (_storedProceduresTextTemplate == null) 
+		{
+			CodeTemplateCompiler compiler = new CodeTemplateCompiler(this.CodeTemplateInfo.DirectoryName + "sproc_text.cst");
+			compiler.Compile();
+			
+			if (compiler.Errors.Count == 0)
+			{
+				_storedProceduresTextTemplate = compiler.CreateInstance();
+			}
+			else
+			{
+				for (int i = 0; i < compiler.Errors.Count; i++)
+				{
+					Response.WriteLine(compiler.Errors[i].ToString());
+				}
+			}
+		}
+		
+		return _storedProceduresTextTemplate;
+	}
+}
+
+
+[Browsable(false)]
+public CodeTemplate StoredProceduresDetailsTemplate
+{
+	get
+	{
+		if (_storedProceduresDetailsTemplate == null) 
+		{
+			CodeTemplateCompiler compiler = new CodeTemplateCompiler(this.CodeTemplateInfo.DirectoryName + "sproc_details.cst");
+			compiler.Compile();
+			
+			if (compiler.Errors.Count == 0)
+			{
+				_storedProceduresDetailsTemplate = compiler.CreateInstance();
+			}
+			else
+			{
+				for (int i = 0; i < compiler.Errors.Count; i++)
+				{
+					Response.WriteLine(compiler.Errors[i].ToString());
+				}
+			}
+		}
+		
+		return _storedProceduresDetailsTemplate;
+	}
+}
+
+
+[Browsable(false)]
+public CodeTemplate StoredProceduresSummaryTemplate
+{
+	get
+	{
+		if (_storedProceduresSummaryTemplate == null) 
+		{
+			CodeTemplateCompiler compiler = new CodeTemplateCompiler(this.CodeTemplateInfo.DirectoryName + "sproc_summary.cst");
+			compiler.Compile();
+			
+			if (compiler.Errors.Count == 0)
+			{
+				_storedProceduresSummaryTemplate = compiler.CreateInstance();
+			}
+			else
+			{
+				for (int i = 0; i < compiler.Errors.Count; i++)
+				{
+					Response.WriteLine(compiler.Errors[i].ToString());
+				}
+			}
+		}
+		
+		return _storedProceduresSummaryTemplate;
+	}
+}
+
+
+public void Go()
+{
+	this.GenerateProcTextHTML(SourceDatabase);
+	this.GenerateProcDetailsHTML(SourceDatabase);
+	this.GenerateProcSummaryHTML(SourceDatabase);
+}
+
+
+public void GenerateProcTextHTML(DatabaseSchema database)
+{
+	CommandSchemaCollection commands = new CommandSchemaCollection(database.Commands);
+	
+	
+	commands.Sort(new PropertyComparer("FullName"));
+	
+	for (int i = 0; i < commands.Count; i++)
+	{
+		StoredProceduresTextTemplate.SetProperty("SourceCommand", commands[i]);
+		StoredProceduresTextTemplate.SetProperty("CommandIndex", i);
+		
+		StoredProceduresTextTemplate.RenderToFile(OutputDirectory + "\\sproc_" + i + ".html", true);
+	}
+	
+}
+
+
+public void GenerateProcDetailsHTML(DatabaseSchema database)
+{
+	CommandSchemaCollection commands = new CommandSchemaCollection(database.Commands);
+	
+	
+	commands.Sort(new PropertyComparer("FullName"));
+	
+	for (int i = 0; i < commands.Count; i++)
+	{
+		StoredProceduresDetailsTemplate.SetProperty("SourceCommand", commands[i]);
+		StoredProceduresDetailsTemplate.SetProperty("CommandIndex", i);
+		
+		StoredProceduresDetailsTemplate.RenderToFile(OutputDirectory + "\\sproc_details_" + i + ".html", true);
+	}
+	
+}
+
+
+public void GenerateProcSummaryHTML(DatabaseSchema database)
+{
+	StoredProceduresSummaryTemplate.SetProperty("SourceDatabase", SourceDatabase);
+	
+	StoredProceduresSummaryTemplate.RenderToFile(OutputDirectory + "\\sproc_summary.html", true);
+}
+
+
+</script>
+<%
+
+this.Go();
+
+%>
+<html>
+<head>
+	<title><%= DocumentationTitle %></title>
+<link href="dbdocs.css" type="text/css" rel="stylesheet" />	
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td width="5%">
+			&nbsp;&nbsp;<img src="images/server.gif" border="0">
+		</td>
+		<td class="titlebar">
+			<%= DocumentationTitle %> : <%= ServerName %> : <%= SourceDatabase.Database.Name %><a name="top">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="colorbar">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="menubar" colspan="2">
+			<table cellspacing="0" cellpadding="4" width="100%">
+				<tr>
+					<td class="menuitem-off" width="25%">
+						<a href="index.html" class="menuitemanchor">General</a>
+					</td>
+					<td class="menuitem-off" width="25%">
+						<a href="tables.html" class="menuitemanchor">Tables</a>
+					</td>
+					<td class="menuitem-on" width="25%">
+						Stored Procedures
+					</td>
+					<td class="menuitem-off" width="25%">
+						<a href="views.html" class="menuitemanchor">Views</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<br>
+<br>
+<img src="images/arrow.gif" border="0">&nbsp;&nbsp;<span class="header">Stored Procedures (<%= SourceDatabase.Commands.Count %> Total)</span><br>
+<hr width="100%">
+<iframe src="sproc_summary.html" name="sprocsummary" frameborder="0" height="150" width="100%"></iframe>
+<br>
+<br>
+<img src="images/arrow.gif" border="0">&nbsp;&nbsp;<span class="header">Stored Procedure Details</span><br>
+<hr width="100%">
+<iframe src="sproc_details_0.html" name="sprocdetails" frameborder="0" height="300" width="100%"></iframe>
+<br>
+<hr width="100%">
+<center>
+<span class="bodyText">Generated by <a href="http://www.ericjsmith.net/codesmith/">CodeSmith</a> & the <a href="http://www.ngallery.org/dbdocumenter">DBDocumenter Templates v2.0</a><br></span>
+<br>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<%@ CodeTemplate Src="CSLAHelper.cs" Inherits="CSLAHelper" Language="C#" TargetLanguage="C#" Description="Generates a CSLA Editable Root Object." %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<%@ Property Name="ChildCollectionName" Type="System.String" Default="" Optional="true" Category="2. Child Collection Business Object" Description="The Child Collection's Name. Used for the memeber variable and collection name." %>
+<%@ Property Name="ChildMemberName" Type="System.String" Default="" Optional="true"  Category="2. Child Collection Business Object" Description="The Child Collection's member variable name." %>
+<%-- Generic Variables for code to use  --%>
+<% int i = 0; %>
+<% ColumnSchemaCollection PKs = RootTable.PrimaryKey.MemberColumns; %>
+<% ColumnSchemaCollection NPKs = RootTable.NonPrimaryKeyColumns; %> 
+<% int PKOrd = PKs.Count - 1; %>
+<% int OrdinalColCount = RootTable.Columns.Count - 1; %> 
+<%=Level(i,false)%>using System;
+<%=Level(i,false)%>using System.Data;
+<%=Level(i,false)%>using System.Data.SqlClient;
+<%=Level(i,false)%>using CSLA;
+<%=Level(i,false)%>using CSLA.Data;
+
+<% if (ClassNamespace != null && ClassNamespace.Length > 0) { %>namespace <%= ClassNamespace %>
+<%=Level(i++,false)%>{ 
+<% } %> 
+<%=Level(i,false)%>/// <summary> 
+<%=Level(i,false)%>/// This business object represents the properties and methods of the <%= RootTable %> Table. 
+<%=Level(i,false)%>/// It corresponds to the EDITABLE ROOT OBJECT as outlined in the Book "Expert One-on-One VB.NET Business Objects" 
+<%=Level(i,false)%>/// Object was generated on <%= DateTime.Now.ToString() %> - By <%=Environment.UserName %> 
+<%=Level(i,false)%>/// </summary> 
+<%=Level(i,false)%>/// <remarks> 
+<%=Level(i,false)%>/// Parameters used to generate this class.
+<%=Level(i,false)%>/// Business Object
+<%=Level(i,false)%>///		ClassNamespace      = <%= ClassNamespace %>
+<%=Level(i,false)%>///		ObjectName          = <%= GetCustomClassName %>
+<%=Level(i,false)%>///		RootTable           = <%= RootTable.Database.Name %>.<%= RootTable %>
+<%=Level(i,false)%>///
+<%=Level(i,false)%>/// Business Object's Child Collection
+<%=Level(i,false)%>///		ChildCollectionName = <%= ChildCollectionName %>
+<%=Level(i,false)%>///		ChildMemberName     = <%= ChildMemberName %>
+<%=Level(i,false)%>///
+<%=Level(i,false)%>/// Options
+<%=Level(i,false)%>///		MemberPrefix        = <%= MemberPrefix %>
+<%=Level(i,false)%>///		FLCPrefix           = <%= FLCPrefix %>   
+<%=Level(i,false)%>///		Accessibility       = <%= Accessibility.ToString() %>
+<%=Level(i,false)%>///		Serializable        = <%= Serializable %>
+<%=Level(i,false)%>///		MustBeInherited     = <%= MustBeInherited %>
+<%=Level(i,false)%>///		TransactionType     = <%= TransactionType.ToString() %>
+<%=Level(i,false)%>/// 
+<%=Level(i,false)%>/// Stored Procedure Style
+<%=Level(i,false)%>///		GeneralSPPrefix     = <%= GeneralSPPrefix %>
+<%=Level(i,false)%>///		InsertPrefix        = <%= InsertPrefix %>
+<%=Level(i,false)%>///		UpdatePrefix        = <%= UpdatePrefix %>
+<%=Level(i,false)%>///		DeletePrefix        = <%= DeletePrefix %>
+<%=Level(i,false)%>///		SelectPrefix        = <%= SelectPrefix %>
+<%=Level(i,false)%>/// </remarks>
+<% if(Serializable) { %>
+<%=Level(i,false)%>[Serializable] 
+<% } %> 
+<%=Level(i,false)%><%= GetAccessModifier(Accessibility) %> <%= GetMustInherit(MustBeInherited) %>class <%= GetBaseClassName %> : CSLA.BusinessBase
+<%=Level(i++,false)%>{
+
+<%=Level(i,false)%>#region Class Level Private Variables
+<%= GetPrimaryKeys(PKs, GetMemberVariableScope(), i, "") %>
+<% foreach(ColumnSchema col in NPKs) { %>
+<%=Level(i,false)%><%= GetMemberVariableDeclarationStatement(col, "") %>
+<% } %>
+
+<%=Level(i,false)%>//Any child collection should be declared here As Private....
+<% if(ChildCollectionName!=null && ChildCollectionName.Length>0) { %>
+<%=Level(i,false)%><%= GetMemberVariableScope() + " " + ChildCollectionName + " " + MemberPrefix + GetCamelCaseName(ChildMemberName) + " = " + ChildCollectionName + ".New" + ChildCollectionName + "(); " %>
+
+<% } %>
+<%=Level(i,false)%>#endregion //Class Level Private Variables
+
+<%=Level(i,false)%>#region Constructors
+<%=Level(i,false)%><%= ConstructorDeclaration() + " " + GetBaseClassName + "() " %>
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//prevent direct creation
+<%=Level(i,false)%>CheckRules("");
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Constructors
+
+<%=Level(i,false)%>#region Business Properties and Methods
+<% foreach(ColumnSchema col in PKs) { %><%= GetPropertyDeclarations(col, true, i, "") + "\r\n" %><% } %>
+<% foreach(ColumnSchema col in NPKs) { %><%= GetPropertyDeclarations(col, false, i, "") + "\r\n" %><% } %>
+<% if(ChildCollectionName!=null && ChildCollectionName.Length>0) { %>
+<%=Level(i,false) + "public " + GetOverrideable() + ChildCollectionName + " " + ChildMemberName %>
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//If the Object has a child collection, 
+<%=Level(i,false)%>//this is property for read access into the child collection
+<%=Level(i,false)%><%= "get { return " + MemberPrefix + GetCamelCaseName(ChildMemberName) + "; } " %>
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>public override bool IsValid
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//If the Business Object has Children, We Need to check it 
+<%=Level(i,false)%>//with an && Child.IsValid clause with the Base As well
+<%=Level(i,false)%>get { return base.IsValid && <%= MemberPrefix + GetCamelCaseName(ChildMemberName) + ".IsValid; } " %>
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>public override bool IsDirty
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//If the Business Object has Children, We Need to check it 
+<%=Level(i,false)%>//with an || Child.IsDirty clause with the Base As well
+<%=Level(i,false)%>get { return base.IsDirty || <%= MemberPrefix + GetCamelCaseName(ChildMemberName) + ".IsDirty; } " %>
+<%=Level(--i,false)%>}
+
+<% } %>
+<%=Level(i,false)%>public bool IsSaveable
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//Since you cannot bind a control to multiple properties you need to create a property that combines the ones you need
+<%=Level(i,false)%>//In this case, bind the UI Save button Enabled property to IsSaveable. (Why save an object that has not changed?)
+<%=Level(i,false)%>get { return IsValid && IsDirty; }
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%><%=GetMemberVariableScope() + " " + GetOverrideable()%>void CheckRules(string propertyName)
+<%=Level(i++,false)%>{
+<% string rules; foreach(ColumnSchema col in NPKs) { %>
+<% rules = GetBrokenRules(col,i+1); if(rules.Length>0) { %>
+<%=Level(i,false)%>if(propertyName=="" || propertyName=="<%=GetPropertyName(col)%>")
+<%=Level(i++,false)%>{<%=rules%>
+<%=Level(--i,false)%>}
+<% } %><% } %>
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Business Properties and Methods
+
+<%=Level(i,false)%>#region System.Object Overrides
+<%=Level(i,false)%>public override string ToString()
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>return <%=StringReplacement(PKs) %>;
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>public bool Equals(<%= GetCustomClassName + " " + GetCamelCaseName(GetCustomClassName) %>)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>return <% foreach(ColumnSchema col in PKs) { %><%= GetMemberVariableName(col, "") + ".Equals(" + GetCamelCaseName(GetCustomClassName) + "." + GetPropertyName(col) + ")" %><% if(col.Name != PKs[PKOrd].Name) { %><%= " && " + Level(i+3,true)%><% } %><% } %>;
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>public override int GetHashCode()
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>return (<%=StringReplacement(PKs) %>).GetHashCode();
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //System.Object Overrides
+
+<%=Level(i,false)%>#region Static Methods
+<%=Level(i,false)%>public static <%= GetCustomClassName %> New<%= GetCustomClassName %>(<% foreach(ColumnSchema col in PKs) { %><%= GetCSVariableType(col) + " " + GetCamelCaseName(GetPropertyName(col)) %><% if(col.Name != PKs[PKOrd].Name) { %>, <% } %><% } %>)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//TODO: In <%= GetBaseClassName %> - Uncomment and Change Roles for Security Implementation
+//<%=Level(i,false)%>if(!Threading.Thread.CurrentPrincipal.IsInRole("Management") && 
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("Administrator"))
+//<%=Level(i++,false)%>{
+//<%=Level(i,false)%>throw new System.Security.Exception("Sorry, but you have not been set up to add a new <%= GetCustomClassName %>");
+//<%=Level(--i,false)%>}
+<%=Level(i,false)%>return (<%= GetCustomClassName %>) DataPortal.Create(new Criteria(<% foreach(ColumnSchema col in PKs) { %><%= GetCamelCaseName(GetPropertyName(col)) %><% if(col.Name != PKs[PKOrd].Name) { %>, <% } %><% } %>));
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>public static <%= GetCustomClassName %> Get<%= GetCustomClassName %>(<% foreach(ColumnSchema col in PKs) { %><%= GetCSVariableType(col) + " " + GetCamelCaseName(GetPropertyName(col)) %><% if(col.Name != PKs[PKOrd].Name) { %>, <% } %><% } %>)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//TODO: In <%= GetBaseClassName %> - Uncomment and Change Roles for Security Implementation
+//<%=Level(i,false)%>if(!Threading.Thread.CurrentPrincipal.IsInRole("Management") && 
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("Administrator") &&
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("SysAdmin") &&
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("Supervisor"))
+//<%=Level(i++,false)%>{
+//<%=Level(i,false)%>throw new System.Security.Exception("Sorry, but you have not been set up to get <%= GetCustomClassName %>");
+//<%=Level(--i,false)%>}
+<%=Level(i,false)%>return (<%= GetCustomClassName %>) DataPortal.Fetch(new Criteria(<% foreach(ColumnSchema col in PKs) { %><%= GetCamelCaseName(GetPropertyName(col)) %><% if(col.Name != PKs[PKOrd].Name) { %>, <% } %><% } %>));
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>public static void Delete<%= GetCustomClassName %>(<% foreach(ColumnSchema col in PKs) { %><%= GetCSVariableType(col) + " " + GetCamelCaseName(GetPropertyName(col)) %><% if(col.Name != PKs[PKOrd].Name) { %>, <% } %><% } %>)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//TODO: In <%= GetBaseClassName %> - Uncomment and Change Roles for Security Implementation
+//<%=Level(i,false)%>if(!Threading.Thread.CurrentPrincipal.IsInRole("Management") && 
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("Administrator") &&
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("SysAdmin"))
+//<%=Level(i++,false)%>{
+//<%=Level(i,false)%>throw new System.Security.Exception("Sorry, but you have not been set up to delete <%= GetCustomClassName %>");
+//<%=Level(--i,false)%>}
+<%=Level(i,false)%>DataPortal.Delete(new Criteria(<% foreach(ColumnSchema col in PKs) { %><%= GetCamelCaseName(GetPropertyName(col)) %><% if(col.Name != PKs[PKOrd].Name) { %>, <% } %><% } %>));
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>//TODO: In <%= GetBaseClassName %> - Uncomment and Change Roles for Security Implementation
+//<%=Level(i,false)%>public override BussinessBase Save() 
+//<%=Level(i++,false)%>{
+//<%=Level(i,false)%>if(IsDeleted)
+//<%=Level(i++,false)%>{
+//<%=Level(i,false)%>if(!Threading.Thread.CurrentPrincipal.IsInRole("Management") && 
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("Administrator") &&
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("SysAdmin"))
+//<%=Level(i++,false)%>{
+//<%=Level(i,false)%>throw new System.Security.Exception("Sorry, but you have not been set up to delete <%= GetCustomClassName %>");
+//<%=Level(--i,false)%>}
+//<%=Level(--i,false)%>}
+//<%=Level(i,false)%>else
+//<%=Level(i++,false)%>{
+//<%=Level(i,false)%>if(!Threading.Thread.CurrentPrincipal.IsInRole("Supervisor") && 
+//<%=Level(i+1,false)%>!Threading.Thread.CurrentPrincipal.IsInRole("Management"))
+//<%=Level(i++,false)%>{
+//<%=Level(i,false)%>throw new System.Security.Exception("Sorry, but you have not been set up to update <%= GetCustomClassName %>");
+//<%=Level(--i,false)%>}
+//<%=Level(--i,false)%>}
+//<%=Level(i,false)%>return base.Save();
+//<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Static Methods
+
+<%=Level(i,false)%>#region Criteria (identifies the Individual Object/ Primary Key)
+<%=Level(i,false)%>[Serializable]
+<%=Level(i,false)%>private class Criteria <%if(SetAsBaseClass) {%>: CSLA.Server.CriteriaBase<%}%>
+<%=Level(i++,false)%>{
+<%=Level(i,false)%><%= GetPrimaryKeys(PKs, "public", i, "") %>
+<%=Level(i,false)%>public Criteria(<% foreach(ColumnSchema col in PKs) { %><%= GetCSVariableType(col) + " " + GetCamelCaseName(GetPropertyName(col)) %><% if(col.Name != PKs[PKOrd].Name) { %>, <% } %><% } %>) <%if(SetAsBaseClass) {%>: base(typeof(<%= GetCustomClassName %>))<%}%>
+<%=Level(i++,false)%>{
+<% foreach(ColumnSchema col in PKs) { %>
+<%=Level(i,false) + "this." + GetPropertyName(col) + " = " + GetCamelCaseName(GetPropertyName(col)) + ";" %>
+<%}%>
+<%=Level(--i,false)%>}
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>#endregion //Criteria
+
+<%=Level(i,false)%>#region Data Access
+<%=Level(i,false)%>//Called by DataPortal so that we can set defaults as needed<% if(TransactionType == TransactionEnum.EnterpriseServices) {%>
+<%=Level(i,false)%>[Transactional]<% } %>
+<%=Level(i,false)%>protected override void DataPortal_Create(object criteria)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//Create new object with default stored in the database
+<%=Level(i,false)%>Criteria crit = (Criteria) criteria;
+<% foreach(ColumnSchema col in PKs) { %>
+<%= Level(i,false) + GetMemberVariableName(col, "") + " = crit." + GetPropertyName(col) + ";" %>
+<% } %>
+<%=Level(i,false)%>CheckRules("");
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>//Called by DataPortal to load data from the database<% if(TransactionType == TransactionEnum.EnterpriseServices) {%>
+<%=Level(i,false)%>[Transactional]<% } %>
+<%=Level(i,false)%>protected override void DataPortal_Fetch(object criteria)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//retrieve data from database
+<%=Level(i,false)%>Criteria crit = (Criteria) criteria;
+<%=Level(i,false)%>SqlConnection cn = new SqlConnection(DB("<%= RootTable.Database.Name %>"));
+<%=Level(i,false)%>SqlCommand cm = new SqlCommand();
+<% if(IsAdoTransaction) {%><%=Level(i,false)%>SqlTransaction tr;<%= "\r\n"%><%}%>
+<%=Level(i,false)%>cn.Open();
+<%=Level(i,false)%>try
+<%=Level(i++,false)%>{<% if(IsAdoTransaction) {%><%=Level(i,true)%>tr = cn.BeginTransaction(IsolationLevel.ReadCommitted);<%=Level(i,true) + "try" + Level(i++,true) + "{"%><%}%>
+<%=Level(i,false)%>cm.Connection = cn;<% if(IsAdoTransaction) {%><%=Level(i,true)%>cm.Transaction = tr;<%}%>
+<%=Level(i,false)%>cm.CommandType = CommandType.StoredProcedure;
+<%=Level(i,false)%>cm.CommandText = "<%= GeneralSPPrefix + SelectPrefix + GetCustomClassName %>";
+<% foreach(ColumnSchema col in PKs) {%>
+<%=Level(i,false)%><%= "cm.Parameters.Add(\"@" + col.Name + "\", crit." + GetPropertyName(col)+ "); "%>
+<%}%>
+
+<%=Level(i,false)%>SafeDataReader dr = new SafeDataReader(cm.ExecuteReader());
+<%=Level(i,false)%>try
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>dr.Read();
+<% int j = 0; foreach(ColumnSchema col in RootTable.Columns) { %>
+<%=Level(i,false)%><%= GetReaderAssignmentStatement(col, j++,"") %>
+<%}%>
+
+<%=Level(i,false)%>//Load child object here if there is any<%if(ChildCollectionName!=null && ChildCollectionName.Length>0) {%>
+<%=Level(i,false)%>dr.NextResult();
+<%=Level(i,false)%><%= MemberPrefix + GetCamelCaseName(ChildMemberName) + " = " + ChildCollectionName + ".Get" + ChildCollectionName + "(dr); " %>
+<%}%>
+
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>finally
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>dr.Close();
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>MarkOld();
+<%=Level(i,false)%>CheckRules("");<% if(IsAdoTransaction) {%>
+<%=Level(i,false)%>tr.Commit();
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>catch(Exception ex)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>tr.Rollback();
+<%=Level(i,false)%>throw(ex);
+<%=Level(--i,false)%>}<%}%>
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>finally
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>cn.Close();
+<%=Level(--i,false)%>}
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>//Called by DataPortal to delete/add/update data into the database<% if(TransactionType == TransactionEnum.EnterpriseServices) {%>
+<%=Level(i,false)%>[Transactional]<% } %>
+<%=Level(i,false)%>protected override void DataPortal_Update()
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>// save data into db
+<%=Level(i,false)%>SqlConnection cn = new SqlConnection(DB("<%= RootTable.Database.Name %>"));
+<%=Level(i,false)%>SqlCommand cm = new SqlCommand();<% if(IsAdoTransaction) {%>
+<%=Level(i,false)%>SqlTransaction tr;<%}%>
+
+<%=Level(i,false)%>cn.Open();
+<%=Level(i,false)%>try
+<%=Level(i++,false)%>{<% if(IsAdoTransaction) {%>
+<%=Level(i,false)%>tr = cn.BeginTransaction(IsolationLevel.Serializable);
+<%=Level(i,false) + "try" + Level(i++,true) + "{"%><%}%>
+<%=Level(i,false)%>cm.Connection = cn;<% if(IsAdoTransaction) {%>
+<%=Level(i,false)%>cm.Transaction = tr;<%}%>
+<%=Level(i,false)%>cm.CommandType = CommandType.StoredProcedure;
+
+<%=Level(i,false)%>if(this.IsDeleted)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//is deleted object, check if new
+<%=Level(i,false)%>if(this.IsNew)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>cm.CommandText = "<%= GeneralSPPrefix + DeletePrefix + GetCustomClassName %>";
+<% foreach(ColumnSchema col in PKs) {%>
+<%=Level(i,false)%>cm.Parameters.Add("@<%= col.Name  + "\", " + GetMemberVariableName(col,"") + GetSProcParmExt(col) + "); "%>
+<%}%>
+
+<%=Level(i,false)%>cm.ExecuteNonQuery();
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>// reset the object status to be new
+<%=Level(i,false)%>MarkNew();
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>else
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>// is not deleted object, check if this is an update or insert
+<%=Level(i,false)%>if(this.IsNew)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//perform an insert, object has not been persisted
+<%=Level(i,false)%>cm.CommandText = "<%= GeneralSPPrefix + InsertPrefix + GetCustomClassName %>";
+<% foreach(ColumnSchema col in PKs) {%>
+<%=Level(i,false)%>cm.Parameters.Add("@<%= col.Name  + "\", " + GetMemberVariableName(col,"") + GetSProcParmExt(col) + "); "%><% if(IsIdentityColumn(col)) { %>
+<%=Level(i,false)%>cm.Parameters["@<%= col.Name %>"].Direction = ParameterDirection.Output;<% } %>
+<%}%>
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>else
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//perform an update, object is not new so object has already been persisted
+<%=Level(i,false)%>cm.CommandText = "<%= GeneralSPPrefix + UpdatePrefix + GetCustomClassName %>";
+<% foreach(ColumnSchema col in PKs) {%>
+<%=Level(i,false)%>cm.Parameters.Add("@<%= col.Name  + "\", " + GetMemberVariableName(col,"") + GetSProcParmExt(col) + "); "%>
+<%}%>
+<%=Level(--i,false)%>}
+<% foreach(ColumnSchema col in NPKs) {%>
+<%=Level(i,false)%>cm.Parameters.Add("@<%= col.Name  + "\", " + GetMemberVariableName(col,"") + GetSProcParmExt(col) + "); "%>
+<%}%>
+<%=Level(i,false)%>cm.ExecuteNonQuery();
+<%if(IsAdoTransaction){%>
+<%=Level(i,true)%>// update child object, passing the transaction
+<%if(ChildCollectionName!=null && ChildCollectionName.Length>0) {%>
+<%=Level(i,false)%><%= MemberPrefix + GetCamelCaseName(ChildMemberName)%>.Update(tr, this); <%}%><%}%>
+
+<%=Level(i,false)%>// mark the object as old (persisted)
+<%=Level(i,false)%>MarkOld();
+<%=Level(--i,false)%>}<% if(IsAdoTransaction) {%>
+<%=Level(i,false)%>tr.Commit();
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>catch(Exception ex)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>tr.Rollback();
+<%=Level(i,false)%>throw(ex);
+<%=Level(--i,false)%>}<%}%>
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>finally
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>cn.Close();
+<%=Level(--i,false)%>}<%if(!IsAdoTransaction){%>
+<%=Level(i,true)%>// update child object
+<%if(ChildCollectionName!=null && ChildCollectionName.Length>0) {%>
+<%=Level(i,false)%><%= MemberPrefix + GetCamelCaseName(ChildMemberName)%>.Update(<% if(IsAdoTransaction) {%>tr, <%}%>this); <%}%><%}%>
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>//Called by DataPortal to delete data from the database<% if(TransactionType == TransactionEnum.EnterpriseServices) {%>
+<%=Level(i,false)%>[Transactional]<% } %>
+<%=Level(i,false)%>protected override void DataPortal_Delete(object criteria)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//delete data from database
+<%=Level(i,false)%>Criteria crit = (Criteria) criteria;
+<%=Level(i,false)%>SqlConnection cn = new SqlConnection(DB("<%= RootTable.Database.Name %>"));
+<%=Level(i,false)%>SqlCommand cm = new SqlCommand();
+<% if(IsAdoTransaction) {%><%=Level(i,false)%>SqlTransaction tr;<%}%>
+
+<%=Level(i,false)%>cn.Open();
+<%=Level(i,false)%>try
+<%=Level(i++,false)%>{<% if(IsAdoTransaction) {%>
+<%=Level(i,false)%>tr = cn.BeginTransaction(IsolationLevel.Serializable);
+<%=Level(i,false) + "try" + Level(i++,true) + "{"%><%}%>
+<%=Level(i,false)%>cm.Connection = cn;<% if(IsAdoTransaction) {%><%=Level(i,true)%>cm.Transaction = tr;<%}%>
+<%=Level(i,false)%>cm.CommandType = CommandType.StoredProcedure;
+<%=Level(i,false)%>cm.CommandText = "<%= GeneralSPPrefix + DeletePrefix + GetCustomClassName %>";
+<% foreach(ColumnSchema col in PKs) {%>
+<%=Level(i,false)%><%= "cm.Parameters.Add(\"@" + col.Name + "\", crit." + GetPropertyName(col)+ "); "%>
+<%}%>
+
+<%=Level(i,false)%>cm.ExecuteNonQuery();
+
+<% if(IsAdoTransaction) {%>
+<%=Level(i,false)%>tr.Commit();
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>catch(Exception ex)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>tr.Rollback();
+<%=Level(i,false)%>throw(ex);
+<%=Level(--i,false)%>}<%}%>
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>finally
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>cn.Close();
+<%=Level(--i,false)%>}
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%>#endregion //Data Access
+
+<%=Level(--i,false)%>}
+<% if(ClassNamespace != null && ClassNamespace.Length > 0) {%>}<%}%>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT Pattern (name, QoS-effect, description, source, adapterTemplates, predictionTemplates)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT QoS-effect (attribute*)>
+<!ELEMENT attribute (name, suitability)>
+<!ELEMENT suitability (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT source (#PCDATA)>
+<!ELEMENT adapterTemplates (template*)>
+<!ELEMENT predictionTemplates (template*)>
+<!ELEMENT template (#PCDATA)>

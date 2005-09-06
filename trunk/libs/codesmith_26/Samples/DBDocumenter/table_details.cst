@@ -1,0 +1,180 @@
+<%-- 
+CodeSmith DBDocumenter Templates
+Author:  Jason Alexander (jason@ngallery.org)
+Website: http://www.ngallery.org/dbdocumenter/
+%>
+<%@ CodeTemplate Language="C#" TargetLanguage="HTML" Description="Template description here." %>
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema" Category="Context" Description="Table that the documentation should be based on." %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<script runat="template">
+
+
+public void PrintTableDocumentation(TableSchema table)
+{
+
+	Response.WriteLine("      <table width=\"100%\">");
+	Response.WriteLine("        <tr>");
+	Response.WriteLine("          <td class=\"columnheaderbar\">");
+	Response.WriteLine("			Key");
+	Response.WriteLine("          </td>");
+	Response.WriteLine("          <td class=\"columnheaderbar\">");
+	Response.WriteLine("			ID");
+	Response.WriteLine("          </td>");
+	Response.WriteLine("          <td class=\"columnheaderbar\">");
+	Response.WriteLine("			Name");
+	Response.WriteLine("          </td>");
+	Response.WriteLine("          <td class=\"columnheaderbar\">");
+	Response.WriteLine("			Data Type");	
+	Response.WriteLine("          </td>");
+	Response.WriteLine("          <td class=\"columnheaderbar\">");
+	Response.WriteLine("			Size(Precision,Scale)");
+	Response.WriteLine("          </td>");
+	Response.WriteLine("          <td class=\"columnheaderbar\">");
+	Response.WriteLine("			Nulls");
+	Response.WriteLine("          </td>");
+	Response.WriteLine("          <td class=\"columnheaderbar\">");
+	Response.WriteLine("			Default");	
+	Response.WriteLine("          </td>");
+	Response.WriteLine("        </tr>");
+	
+	for (int i = 0; i < table.Columns.Count; i++)
+	{
+		 
+		this.PrintColumnDocumentation(table.Columns[i]);
+
+	}
+
+	Response.WriteLine("      </table>");
+
+}
+
+
+public void PrintColumnDocumentation(ColumnSchema column)
+{
+	Response.WriteLine("        <tr>");
+	Response.WriteLine("          <td align=\"center\">");
+	
+	// Primary key?
+	if (column.IsPrimaryKeyMember)
+	{
+		Response.WriteLine("            <img src=\"images/check_icon.gif\" border=\"0\">");
+	}
+	else
+	{
+		Response.WriteLine("            <img src=\"images/unchecked_icon.gif\" border=\"0\">");
+	}
+	
+	Response.WriteLine("          </td>");	
+	Response.WriteLine("          <td align=\"center\">");
+	
+	// Identity?
+	if (column.ExtendedProperties["CS_IsIdentity"].Value == "true")
+	{
+		Response.WriteLine("            <img src=\"images/check_icon.gif\" border=\"0\">");
+	}
+	else
+	{
+		Response.WriteLine("            <img src=\"images/unchecked_icon.gif\" border=\"0\">");
+	}
+	
+	Response.WriteLine("          </td>");	
+	Response.WriteLine("          <td>");
+	Response.WriteLine("            <span class=\"bodyText\">" + column.Name + "</span>");
+	Response.WriteLine("          </td>");
+	Response.WriteLine("          <td>");
+	Response.WriteLine("            <span class=\"bodyText\">" + column.NativeType + "</span>");
+	Response.WriteLine("          </td>");	
+	Response.WriteLine("          <td>");
+	Response.WriteLine("            <span class=\"bodyText\">" + column.Size);
+	
+	if (column.NativeType == "numeric")
+	{
+		if (column.Precision != 0)
+		{
+			Response.WriteLine("            (" + column.Precision + ", " + column.Scale + ")");
+		}
+	}
+	
+	Response.WriteLine("          </span></td>");	
+	Response.WriteLine("          <td align=\"center\">");
+	
+	// Nullable?
+	if (column.AllowDBNull)
+	{
+		Response.WriteLine("            <img src=\"images/check_icon.gif\" border=\"0\">");
+	}
+	else
+	{
+		Response.WriteLine("            <img src=\"images/unchecked_icon.gif\" border=\"0\">");
+	}
+
+	
+	Response.WriteLine("          </td>");	
+	Response.WriteLine("          <td>");
+	
+	// Does this column have a default value?
+	if (column.ExtendedProperties["CS_Default"].Value != "")
+	{
+		Response.WriteLine("            <span class=\"bodyText\">" + column.ExtendedProperties["CS_Default"].Value + "</span>");
+	}
+	
+	Response.WriteLine("          </td>");	
+	Response.WriteLine("        </tr>");
+	
+	if (column.ExtendedProperties["CS_Description"].Value != "")
+	{
+		Response.WriteLine("        <tr>");
+		Response.WriteLine("          <td colspan=\"2\">&nbsp;</td>");
+		Response.WriteLine("          <td class=\"descriptionBlock\" colspan=\"5\">");
+		Response.WriteLine("            " + column.ExtendedProperties["CS_Description"].Value);
+		Response.WriteLine("          </td>");
+		Response.WriteLine("        </tr>");
+	}
+	
+}
+
+</script>
+<html>
+<head>
+	<title>Table Details</title>
+	<link href="dbdocs.css" type="text/css" rel="stylesheet" />	
+</head>
+<body>
+
+<center>
+<table width="80%">
+	<tr>
+		<td class="tableheaderbar">
+		      <img src="images/tables_icon.gif" border="0">&nbsp;&nbsp;<%= SourceTable.Name %>&nbsp;&nbsp;<i>(Created <%= SourceTable.DateCreated %>)</i>
+		</td>
+	</tr>
+<%		
+
+	// Check to see if this table has a description set, and if so display it.
+	if (SourceTable.Description != "")
+	{
+		Response.WriteLine("  <tr>");
+		Response.WriteLine("    <td class=\"descriptionBlock\">");
+		Response.WriteLine("      <b>Description:</b><br>");
+		Response.WriteLine("      " + SourceTable.Description);
+		Response.WriteLine("    </td>");
+		Response.WriteLine("  </tr>");
+	}
+
+%>		
+		
+	<tr>
+		<td>
+<%
+
+	this.PrintTableDocumentation(SourceTable);
+
+%>
+		</td>
+	</tr>
+</table>
+</center>
+
+</body>
+</html>

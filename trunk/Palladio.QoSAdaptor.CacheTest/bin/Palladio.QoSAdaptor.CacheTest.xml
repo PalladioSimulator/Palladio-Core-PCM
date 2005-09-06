@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.QoSAdaptor.CacheTest</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.QoSAdaptor.Measurement.ServiceCacheAdaptor">
+            <summary>
+            This class implements a cache component for the Service service.
+            In this first version the component is only able to cache data services with 
+            one getter and one setter method using the same indexer to index the returned 
+            resource. 
+            The resources returned by getter are saved in a Palladio.Utils.Collections.Hashmap.
+            The cache is an generative implementation of the design pattern described in 
+            Kircher/Jain: Pattern-oriented software architecture volume 3 - Patterns for
+            resource management (pp. 83-96)
+            The cache implements the methods acquire and release described by the Cache 
+            pattern.
+            lock(this) is used in the public methods to secure concurrent access.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.ServiceCacheAdaptor.Release(Palladio.QoSAdaptor.Measurement.ServiceCacheAdaptor.ResourceWrapper)">
+            <summary>
+            The release method releases a resource after usage. In this case usage means
+            that the resource is taken from Service or the cache and 
+            returned to the calling component. 
+            The method puts resources that are used and not yet in the cache into the
+            cache hashmap and calls the evict method if the number of resources in the 
+            hashmap has reached the cache size. 
+            </summary>
+            <param name="resource">ResourceWrapper of the resource to be released.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.ServiceCacheAdaptor.Acquire(System.Int32)">
+            <summary>
+            The acquire method is called each time a resource shall be used. It returns
+            the resource from the hashmap or calls the Get method of 
+            Service if the resource is not yet in the cache.
+            </summary> 
+            <param name="id">ID of the aquired resource.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.ServiceCacheAdaptor.Evict">
+            <summary>
+            This method implements the LRU eviction strategy.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.ServiceCacheAdaptor.Get(System.Int32)">
+            <summary>
+            This method adapts the Get method of Service.
+            Instead of calling that method directly the cache methods are used to 
+            provide the requested service. 
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.ServiceCacheAdaptor.Set(System.Int32,System.Int32)">
+            <summary>
+            This method adapts the Set method of Service.
+            Instead of calling that method directly the cache methods are used to 
+            provide the requested service. 
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Measurement.ServiceCacheAdaptor.ResourceWrapper">
+            <summary>
+            A ResourceWrapper holds an instance of a resource returned by the 
+            Get method of Service and additional information 
+            needed by the cache implementation. 
+            In this first version the additional information consists of data needed 
+            by the LRU eviction strategy. 
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.ServiceCacheAdaptor.ResourceWrapper.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructs a ResourceWrapper using a given resource and sets the 
+            initial values if the eviction strategy data.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.ServiceCacheAdaptor.ResourceWrapper.Use">
+            <summary>
+            This method has to be called whenever the wrapped resource is used. 
+            It sets the resets the values of the eviction strategy data. 
+            </summary>
+        </member>
+    </members>
+</doc>

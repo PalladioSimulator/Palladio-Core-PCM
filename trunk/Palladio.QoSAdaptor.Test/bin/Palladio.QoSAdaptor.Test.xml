@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.QoSAdaptor.Test</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.QoSAdaptor.Test.ParserTest">
+            <summary>
+            Main class of a test application testing PatternDescription and GUI
+            without the QMLComparison.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Test.ParserTest.Main(System.String[])">
+            <summary>
+            Main method of the parser test.
+            </summary>
+            <param name="args">A list of XML pattern descriptions. The 
+            descriptions have to match PatternDescription.dtd.</param>
+        </member>
+    </members>
+</doc>

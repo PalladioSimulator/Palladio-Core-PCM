@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<codeSmith>
+	<propertySet>
+		<property name="OutputDirectory"></property>
+		<property name="SourceDatabase">
+			<connectionString>Data Source=SQL006;Initial Catalog=Northwind;Integrated Security=true;Connection Timeout=1;</connectionString>
+			<providerType>SchemaExplorer.SqlSchemaProvider,SchemaExplorer.SqlSchemaProvider</providerType>
+		</property>
+		<property name="ServerName">SQL006</property>
+		<property name="DocumentationTitle">Database Documentation</property>
+	</propertySet>
+</codeSmith>

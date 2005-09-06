@@ -1,0 +1,186 @@
+<%-- 
+CodeSmith DBDocumenter Templates
+Author:  Jason Alexander (jason@ngallery.org)
+Website: http://www.ngallery.org/dbdocumenter/
+%>
+<%@ CodeTemplate Language="C#" TargetLanguage="HTML" Description="Generates a set of HTML-based database documentation." %>
+<%@ Property Name="SourceDatabase" Type="SchemaExplorer.DatabaseSchema" Category="Context" Description="Database that the documentation should be based on." %>
+<%@ Property Name="ServerName" Type="System.String" Category="Output" Description="The name of the actual database server that is being documented." %>
+<%@ Property Name="DocumentationTitle" Type="System.String" Default="Database Documentation" Category="Output" Description="Defines what the title of the HTML page that will be generated will be." %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Assembly Name="System.Design" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<%@ Import NameSpace="System.IO" %>
+<script runat="template">
+private CodeTemplate _generalTemplate;
+private CodeTemplate _sprocsTemplate;
+private CodeTemplate _tablesTemplate;
+private CodeTemplate _viewsTemplate;
+private string _outputDirectory = String.Empty; 
+
+
+[Editor(typeof(System.Windows.Forms.Design.FolderNameEditor), typeof(System.Drawing.Design.UITypeEditor))] 
+[CodeTemplateProperty(CodeTemplatePropertyOption.Optional)]
+[Category("Output")]
+[Description("The directory to output the results to.")]
+public string OutputDirectory 
+{ 
+	get
+	{
+		if (_outputDirectory.Length == 0) return this.CodeTemplateInfo.DirectoryName + "output";
+		return _outputDirectory;
+	}
+	set
+	{
+		if (value.EndsWith("\\")) value = value.Substring(0, value.Length - 1);
+		_outputDirectory = value;
+	} 
+}
+
+
+public CodeTemplate CompileTemplate(string templateName)
+{
+	CodeTemplateCompiler compiler = new CodeTemplateCompiler(templateName);
+	compiler.Compile();
+	
+	if (compiler.Errors.Count == 0)
+	{
+		return compiler.CreateInstance();
+	}
+	else
+	{
+		for (int i = 0; i < compiler.Errors.Count; i++)
+		{
+			Response.WriteLine(compiler.Errors[i].ToString());
+		}
+		
+		return null;
+	}
+
+}
+
+
+public CodeTemplate GetTemplate(string templateType)
+{
+	CodeTemplate currentTemplate = new CodeTemplate();
+	
+	
+	switch (templateType)
+	{
+		case "general":
+			if (_generalTemplate != null) return _generalTemplate;
+			
+			currentTemplate = this.CompileTemplate(this.CodeTemplateInfo.DirectoryName + "general.cst");
+			_generalTemplate = currentTemplate;
+			
+			break;
+		case "sprocs":
+			if (_sprocsTemplate != null) return _sprocsTemplate;
+			
+			currentTemplate = this.CompileTemplate(this.CodeTemplateInfo.DirectoryName + "sprocs.cst");
+			_sprocsTemplate = currentTemplate;
+			
+			break;
+		case "tables":
+			if (_tablesTemplate != null) return _tablesTemplate;
+			
+			currentTemplate = this.CompileTemplate(this.CodeTemplateInfo.DirectoryName + "tables.cst");
+			_tablesTemplate = currentTemplate;
+			
+			break;
+		case "views":
+			if (_viewsTemplate != null) return _viewsTemplate;
+			
+			currentTemplate = this.CompileTemplate(this.CodeTemplateInfo.DirectoryName + "views.cst");
+			_viewsTemplate = currentTemplate;
+			
+			break;
+		default:
+			return null;
+	}
+	
+	return currentTemplate;
+}
+
+
+public void CleanOutputDirectory()
+{
+	string[] htmlFiles = Directory.GetFiles(OutputDirectory, "*.html");
+	
+	
+	for (int i = 0; i < htmlFiles.Length; i++)
+	{
+		try
+		{
+			File.Delete(htmlFiles[i]);
+		}
+		catch (Exception ex)
+		{
+			Response.WriteLine("Error while attempting to delete file (" + htmlFiles[i] + ") Error:" + ex.Message);
+		}
+	}
+}
+
+
+public void Go()
+{
+	DateTime startTime = DateTime.Now;
+	
+	
+	// Attempt to clean out the output directory.
+	Response.WriteLine("Cleaning up any old documentation in output directory...");
+	this.CleanOutputDirectory();
+	
+	
+	// Set, compile and run the templates.
+	// General
+	Response.WriteLine("Building general documentation (index.html)...");
+	this.GetTemplate("general").SetProperty("SourceDatabase", SourceDatabase);
+	this.GetTemplate("general").SetProperty("DocumentationTitle", DocumentationTitle);
+	this.GetTemplate("general").SetProperty("ServerName", ServerName);
+	
+	this.GetTemplate("general").RenderToFile(OutputDirectory + "\\index.html", true);
+
+	
+	// Tables
+	Response.WriteLine("Building table documentation (tables.html)...");
+	this.GetTemplate("tables").SetProperty("SourceDatabase", SourceDatabase);
+	this.GetTemplate("tables").SetProperty("DocumentationTitle", DocumentationTitle);
+	this.GetTemplate("tables").SetProperty("ServerName", ServerName);
+	this.GetTemplate("tables").SetProperty("OutputDirectory", OutputDirectory);
+	
+	this.GetTemplate("tables").RenderToFile(OutputDirectory + "\\tables.html", true);
+
+	
+	// Sprocs
+	Response.WriteLine("Building stored procedures documentation (sprocs.html)...");
+	this.GetTemplate("sprocs").SetProperty("SourceDatabase", SourceDatabase);
+	this.GetTemplate("sprocs").SetProperty("DocumentationTitle", DocumentationTitle);
+	this.GetTemplate("sprocs").SetProperty("ServerName", ServerName);
+	this.GetTemplate("sprocs").SetProperty("OutputDirectory", OutputDirectory);
+	
+	this.GetTemplate("sprocs").RenderToFile(OutputDirectory + "\\sprocs.html", true);
+	
+	
+	// Views
+	Response.WriteLine("Building views documentation (views.html)...");
+	this.GetTemplate("views").SetProperty("SourceDatabase", SourceDatabase);
+	this.GetTemplate("views").SetProperty("DocumentationTitle", DocumentationTitle);
+	this.GetTemplate("views").SetProperty("ServerName", ServerName);
+	this.GetTemplate("views").SetProperty("OutputDirectory", OutputDirectory);
+	
+	this.GetTemplate("views").RenderToFile(OutputDirectory + "\\views.html", true);
+
+
+	Response.WriteLine("Generation complete. Execution time: " + (DateTime.Now - startTime).ToString());
+	Response.WriteLine("To view the output go here: " + OutputDirectory + "\\index.html");
+}
+
+
+</script>
+
+<%
+
+this.Go();
+
+%>

@@ -1,0 +1,1 @@
+..\Palladio.QoSAdaptor.QMLcomparison\bin\Palladio.QoSAdaptor.QMLComparison.exe example.qml

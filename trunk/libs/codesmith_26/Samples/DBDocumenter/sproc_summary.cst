@@ -1,0 +1,72 @@
+<%-- 
+CodeSmith DBDocumenter Templates
+Author:  Jason Alexander (jason@ngallery.org)
+Website: http://www.ngallery.org/dbdocumenter/
+%>
+<%@ CodeTemplate Language="C#" TargetLanguage="HTML" Description="Template description here." %>
+<%@ Property Name="SourceDatabase" Type="SchemaExplorer.DatabaseSchema" Category="Context" Description="Database that the documentation should be based on." %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<script runat="template">
+
+
+// How many columns should be displayed in the table summary?
+private const int NUM_OF_ROWS = 5;
+
+
+// This method creates a columned display of all tables in the database
+// with anchor links down to a detail listing.
+public void PrintProcSummary(DatabaseSchema database)
+{
+	int rowCount = 1;
+	int currentRow = 1;
+	CommandSchemaCollection commands = new CommandSchemaCollection(database.Commands);
+	
+	
+	commands.Sort(new PropertyComparer("FullName"));
+	
+	Response.WriteLine("  <tr>");
+	Response.WriteLine("    <td valign=\"top\">");	
+	for (int i = 0; i < commands.Count; i++)
+	{
+		
+		Response.WriteLine("      <img src=\"images/stored_proc_icon.gif\" border=\"0\">&nbsp;&nbsp;<a href=\"sproc_details_" + i + ".html\" target=\"sprocdetails\">" + commands[i].Name + "</a><br>");
+
+		if (rowCount == NUM_OF_ROWS)
+		{
+			Response.WriteLine("    </td>");
+			Response.WriteLine("    <td valign=\"top\">");
+			rowCount = 1;
+			currentRow++;
+		}
+		else
+		{
+			rowCount++;
+		}
+	}
+	Response.WriteLine("    </td>");
+	Response.WriteLine("  </tr>");
+	
+}
+
+
+</script>
+<html>
+<head>
+	<title>Stored Procedure Summary</title>
+	<link href="dbdocs.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+<center>
+<table width="100%">
+<%
+
+this.PrintProcSummary(SourceDatabase);
+
+%>
+</table>
+</center>
+
+</body>
+</html>

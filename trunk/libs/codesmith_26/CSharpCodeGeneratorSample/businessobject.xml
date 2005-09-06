@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<codeSmith>
+	<!-- template that will be used to generate code -->
+	<template path="businessobject.cst" />
+	
+	<!-- namespace for the generated code -->
+	<namespace>CSharpCodeGeneratorSample</namespace>
+	
+	<!-- namespaces that should be imported -->
+	<imports>
+		<import namespace="System" />
+		<import namespace="System.Data" />
+		<import namespace="System.Data.SqlClient" />
+	</imports>
+	
+	<!-- any number of variables can be setup for use in the propery sets -->
+	<variables>
+		<add key="ConnectionString" value="Data Source=(local);Database=Northwind;Integrated Security=true;" />
+		<add key="ProviderType" value="SchemaExplorer.SqlSchemaProvider,SchemaExplorer.SqlSchemaProvider" />
+	</variables>
+	
+	<!-- any properties can be setup here as defaults and can be overridden in each property set -->
+	<defaultProperties>
+		<!--
+		<property name="SomeProperty">true</property>
+		-->
+	</defaultProperties>
+	
+	<!-- list of property sets which each get loaded into the template and executed -->
+	<propertySets>
+		<propertySet>
+			<property name="SourceTable">
+				<connectionString>$(ConnectionString)</connectionString>
+				<providerType>$(ProviderType)</providerType>
+				<tableName>Customers</tableName>
+			</property>
+		</propertySet>
+		<propertySet>
+			<property name="SourceTable">
+				<connectionString>$(ConnectionString)</connectionString>
+				<providerType>$(ProviderType)</providerType>
+				<tableName>Orders</tableName>
+			</property>
+		</propertySet>
+		<propertySet>
+			<property name="SourceTable">
+				<connectionString>$(ConnectionString)</connectionString>
+				<providerType>$(ProviderType)</providerType>
+				<tableName>Products</tableName>
+			</property>
+		</propertySet>
+		<propertySet>
+			<property name="SourceTable">
+				<connectionString>$(ConnectionString)</connectionString>
+				<providerType>$(ProviderType)</providerType>
+				<tableName>Shippers</tableName>
+			</property>
+		</propertySet>
+	</propertySets>
+</codeSmith>

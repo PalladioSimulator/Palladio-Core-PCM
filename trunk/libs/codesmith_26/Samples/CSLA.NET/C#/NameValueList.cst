@@ -1,0 +1,82 @@
+<%@ CodeTemplate Src="NameValueList.cs" Inherits="NameValueList" Language="C#" TargetLanguage="C#" Description="Generates a CSLA Name Value List." %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<%-- Generic Variables for code to use  --%>
+<% int i = 0; %>
+<%=Level(i,false)%>using System;
+<%=Level(i,false)%>using System.Runtime.Serialization;
+<%=Level(i,false)%>using CSLA;
+
+<% if (ClassNamespace != null && ClassNamespace.Length > 0) { %>namespace <%= ClassNamespace %>
+<%=Level(i++,false)%>{ 
+<% } %> 
+<%=Level(i,false)%>/// <summary> 
+<%=Level(i,false)%>/// This business object represents the properties and methods of the <%= RootTable %> Table. 
+<%=Level(i,false)%>/// It corresponds to the NAME VALUE LIST OBJECT as outlined in the Book "Expert One-on-One VB.NET Business Objects" 
+<%=Level(i,false)%>/// Object was generated on <%= DateTime.Now.ToString() %> - By <%=Environment.UserName %> 
+<%=Level(i,false)%>/// </summary> 
+<%=Level(i,false)%>/// <remarks> 
+<%=Level(i,false)%>/// Parameters used to generate this class.
+<%=Level(i,false)%>/// Business Object
+<%=Level(i,false)%>///		ClassNamespace      = <%= ClassNamespace %>
+<%=Level(i,false)%>///		ObjectName          = <%= GetCustomClassName %>
+<%=Level(i,false)%>///		RootTable           = <%= RootTable.Database.Name %>.<%= RootTable %>
+<%=Level(i,false)%>///
+<%=Level(i,false)%>/// Name Value List Options
+<%=Level(i,false)%>///		KeyColumn           = <%= KeyColumn %>
+<%=Level(i,false)%>///		ValueColumn         = <%= ValueColumn %>
+<%=Level(i,false)%>///
+<%=Level(i,false)%>/// Options
+<%=Level(i,false)%>///		MemberPrefix        = <%= MemberPrefix %>
+<%=Level(i,false)%>///		FLCPrefix           = <%= FLCPrefix %>   
+<%=Level(i,false)%>///		Accessibility       = <%= Accessibility.ToString() %>
+<%=Level(i,false)%>///		Serializable        = <%= Serializable %>
+<%=Level(i,false)%>///		MustBeInherited     = <%= MustBeInherited %>
+<%=Level(i,false)%>///		TransactionType     = <%= TransactionType.ToString() %>
+<%=Level(i,false)%>/// </remarks>
+<% if(Serializable) { %>
+<%=Level(i,false)%>[Serializable] 
+<% } %> 
+<%=Level(i,false)%><%= GetAccessModifier(Accessibility) %> <%= GetMustInherit(MustBeInherited) %>class <%= GetCustomClassName %> : CSLA.NameValueList
+<%=Level(i++,false)%>{
+
+<%=Level(i,false)%>#region Constructors
+<%=Level(i,false)%><%= ConstructorDeclaration() + " " + GetCustomClassName + "() " %>
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//prevent direct creation
+<%=Level(--i,false)%>}
+
+<%=Level(i,false)%><%= ConstructorDeclaration() + " " + GetCustomClassName %>(SerializationInfo info, StreamingContext context) : base(info, context)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//prevent direct creation
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Constructors
+
+<%=Level(i,false)%>#region Static Methods
+<%=Level(i,false)%>public static <%= GetCustomClassName %> GetList()
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>return (<%= GetCustomClassName %>) DataPortal.Fetch(new Criteria());
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Static Methods
+
+<%=Level(i,false)%>#region Criteria (identifies the Individual Object/ Primary Key)
+<%=Level(i,false)%>[Serializable]
+<%=Level(i,false)%>private class Criteria
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>public Criteria()
+<%=Level(i++,false)%>{
+<%=Level(--i,false)%>}
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Criteria
+
+<%=Level(i,false)%>#region Data Access
+<%=Level(i,false)%>//Called by DataPortal to load data from the database
+<%=Level(i,false)%>protected override void DataPortal_Fetch(object criteria)
+<%=Level(i++,false)%>{
+<%=Level(i,false)%>//retrieve data from database
+<%=Level(i,false)%>SimpleFetch("<%= RootTable.Database %>","<%= RootTable %>", "<%= KeyColumn %>", "<%= ValueColumn %>");
+<%=Level(--i,false)%>}
+<%=Level(i,false)%>#endregion //Data Access
+
+<%=Level(--i,false)%>}
+<% if(ClassNamespace != null && ClassNamespace.Length > 0) {%>}<%}%>

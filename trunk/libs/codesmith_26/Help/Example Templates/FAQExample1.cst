@@ -1,0 +1,22 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="T-SQL"
+	Description="Generates a update stored procedure." %>
+
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema"
+	Category="Context"
+	Description="Table that the stored procedures should be based on." %>
+
+<%@ Assembly Name="SchemaExplorer" %>
+
+<%@ Import Namespace="SchemaExplorer" %>
+
+<script runat="template">
+
+private string GetColumnName(ColumnSchema cs)
+{
+	return cs.Name;
+}
+</script>
+
+<% foreach (ColumnSchema cs in SourceTable.Columns) { %>
+<%= GetColumnName(cs) %>
+<% } %>

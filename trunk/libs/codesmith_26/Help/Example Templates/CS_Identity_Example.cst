@@ -1,0 +1,21 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="T-SQL"
+	Description="Identifies the identity field of a table" %>
+
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema"
+	Category="Context"
+	Description="Table to target." %>
+
+<%@ Assembly Name="SchemaExplorer" %>
+
+<%@ Import Namespace="SchemaExplorer" %>
+
+
+
+Identity Field = <% foreach(ColumnSchema cs in SourceTable.Columns) {  
+						if( ((bool)cs.ExtendedProperties["CS_IsIdentity"].Value) == true)
+						{
+							Response.Write(cs.Name);
+						}
+					}
+				 %>
+

@@ -1,0 +1,245 @@
+<%@ CodeTemplate Src="CSLAHelper.vb" Inherits="CSLAHelper" Debug="False" Language="VB" TargetLanguage="VB" Description="Generates a CSLA Editable Child Object." %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+                                          <%-- Code Verified - MFA 12/05/2003 against ProjectResource  --%>
+<%-- Generic Variables for code to use  --%><% Dim Col As ColumnSchema %><% Dim PKs As ColumnSchemaCollection = RootTable.primarykey.membercolumns %>
+<% Dim NPKs As ColumnSchemaCollection = RootTable.NonPrimaryKeyColumns %> <% Dim PKOrd As integer = PKs.Count - 1 %><% Dim OrdinalColCount as Integer = RootTable.columns.count - 1 %> 
+<%=Level(0,True)%>Option Strict On
+<%=Level(0,False)%>Option Explicit On
+<%=Level(0,False)%>Option Compare Text
+
+<%=Level(0,False)%>Imports CSLA
+<%=Level(0,False)%>Imports CSLA.Data
+<%=Level(0,False)%>Imports System.Data.SQLClient
+<% If Not ClassNamespace Is Nothing AndAlso ClassNamespace.Length > 0 Then %>Namespace <%= ClassNamespace %>
+<% End If %>
+   ''' <summary>
+   ''' This business object represents the properties and methods of the <%= RootTable.Database.Name %>.<%= RootTable %> Table. 
+   ''' It corresponds to the EDITABLE CHILD OBJECT as outlined in the Book "Expert One-on-One VB.NET Business Objects" 
+   ''' Object was generated on <%= Now() %> - By <%=Environment.UserName %> 
+   ''' </summary>
+   ''' <remarks>
+   ''' Parameters used to generate this class.
+   ''' Business Object
+   '''	ClassNamespace      = <%= ClassNamespace %>
+   '''	ObjectName          = <%= ObjectName %>
+   '''	RootTable           = <%= RootTable.Database.Name %>.<%= RootTable %>
+   '''  BaseClassExt        = <%= BaseClassExt %>
+   '''
+   '''Business Object's Child Collection
+   '''	ChildCollectionName = <%= ChildCollectionName %>
+   '''	ChildMemberName     = <%= ChildMemberName %>
+   '''  ParentName          = <%= ParentName %>
+   '''  ParentType          = <%= ParentType %>
+   '''
+   '''Options
+   '''	MemberPrefix        = <%= MemberPrefix %>
+   '''	FLCPrefix           = <%= FLCPrefix %>   
+   '''	Accessibility       = <%= Accessibility.ToString %>
+   '''	Serializable        = <%= Serializable %>
+   '''	MustBeInherited     = <%= MustBeInherited %>
+   '''	TransactionType     = <%= TransactionType.ToString %>
+   '''
+   '''Stored Procedure Style
+   '''	GeneralSPPrefix     = <%= GeneralSPPrefix %>
+   '''	InsertPrefix        = <%= InsertPrefix %>
+   '''	UpdatePrefix        = <%= UpdatePrefix %>
+   '''	DeletePrefix        = <%= DeletePrefix %>
+   '''	SelectPrefix        = <%= SelectPrefix %>
+   ''' </remarks>
+<%=Level(0,False)%><% If Serializable = True Then %><Serializable()> _<% End If %>
+<%=Level(0,False)%><%= GetAccessModifier(Accessibility) %> <%= GetMustInherit(MustBeInherited) %>Class <%= GetBaseClassName %>
+<%=Level(1,False)%>Inherits BusinessBase
+
+#Region "Class Level Private Variables ......"
+<%=Level(1,False)%><%= GetPrimaryKeys(PKs, MemberPrefix, ConstructorDeclaration) %>
+<%=Level(1,False)%><% For Each Col in NPKs %><%= GetMemberVariableDeclarationStatement(col) %><%=Level(1,True)%><% Next %>	
+	
+<%=Level(1,False)%>'Any grandchild collection should be declared here As Private....
+<%=Level(1,False)%><% IF Len(ChildCollectionName)>0 Then %><%= ConstructorDeclaration %> <%= MemberPrefix %><%= ChildMemberName %> As <%= ChildCollectionName %> = <%= ChildCollectionName %>.New<%= ChildCollectionName %>()<% End IF %>
+		
+#End Region ' Class Level Private Variables
+
+#Region " Constructors "
+
+<%=Level(1,False)%><%= ConstructorDeclaration %> Sub New()
+<%=Level(2,False)%>' prevent direct creation
+<%=Level(2,False)%>'Show the Framework that this is a child object
+<%=Level(2,False)%>MarkAsChild()
+<%=Level(1,False)%>End Sub
+
+<%=Level(1,False)%><%= ConstructorDeclaration %> Sub New(<% For Each col in PKs %>ByVal <%= col.name %> As <%= GetVBVariableType(col) %><% IF PKs.Item(PKOrd).name <> col.name Then %>, <% END IF%><% Next %>)<% For Each col in PKs %>
+<%=Level(2,False)%><%= GetMemberVariableName(col) %> = <%= col.name %><% Next %>
+<%=Level(2,False)%>MarkAsChild()
+<%=Level(1,False)%>End Sub
+
+#End Region ' Constructors 
+
+#Region " Business Properties and Methods "
+<%=Level(1,False)%><% For Each Col in PKs %><%= GetPropertyDeclarations(col, True) %><% Next %>
+<%=Level(1,False)%><% For Each Col in NPKs %><%= GetPropertyDeclarations(col,False) %><% Next %>
+<%=Level(1,False)%><% IF Len(ChildCollectionName)>0 Then %>Protected ReadOnly Property <%= ChildMemberName %>() As <%= ChildCollectionName %>
+<%=Level(2,False)%>Get
+<%=Level(3,False)%>Return <%= MemberPrefix %><%= ChildMemberName %>
+<%=Level(2,False)%>End Get
+<%=Level(1,False)%>End Property<% End If %>
+
+<%=Level(1,False)%>Public Overrides ReadOnly Property IsValid() As Boolean
+<%=Level(2,False)%>Get
+<%=Level(3,False)%>'If the Business Object has Children, We Need to check it 
+<%=Level(3,False)%>'with an AndAlso Child.IsValid clause with the Base As well
+<%=Level(3,False)%>Return MyBase.IsValid<% IF Len(ChildCollectionName)>0 Then %> AndAlso <%= MemberPrefix %><%= ChildMemberName %>.IsValid<% End If %>
+<%=Level(2,False)%>End Get
+<%=Level(1,False)%>End Property
+
+<%=Level(1,False)%>Public Overrides ReadOnly Property IsDirty() As Boolean
+<%=Level(2,False)%>Get
+<%=Level(3,False)%>'If the Business Object has Children, We Need to check it 
+<%=Level(3,False)%>'with an OrElse Child.IsDirty clause with the Base As well
+<%=Level(3,False)%>Return MyBase.IsDirty<% IF Len(ChildCollectionName)>0 Then %> OrElse <%= MemberPrefix %><%= ChildMemberName %>.IsDirty<% End If %>
+<%=Level(2,False)%>End Get
+<%=Level(1,False)%>End Property
+	
+#End Region ' Business Properties and Methods
+
+<% If Len(FLCPrefix) > 0 Then %><%=Level(0,False)%>#Region "Field Level Concurency Tracking"
+	
+<%=Level(1,False)%><%= GetPrimaryKeys(PKs, MemberPrefix, ConstructorDeclaration, 0, FLCPrefix) %>
+<%=Level(1,False)%><% For Each Col in NPKs %><%= GetMemberVariableDeclarationStatement(col, FLCPrefix) %><%=Level(1, True)%><% Next %>
+<%=Level(1,False)%><%= GetPrimaryKeys(PKs, MemberPrefix, ConstructorDeclaration, 0, "Cur_") %>
+<%=Level(1,False)%><% For Each Col in NPKs %><%= GetMemberVariableDeclarationStatement(col, "Cur_") %><%=Level(1, True)%><% Next %>
+<%=Level(0,False)%><% For Each Col in PKs %><%= GetPropertyDeclarations(col, True, 0, FLCPrefix) %><% Next %>
+<%=Level(0,False)%><% For Each Col in NPKs %><%= GetPropertyDeclarations(col, True, 0, FLCPrefix) %><% Next %>
+<%=Level(0,False)%><% For Each Col in PKs %><%= GetPropertyDeclarations(col, True, 0, "Cur_") %><% Next %>
+<%=Level(0,False)%><% For Each Col in NPKs %><%= GetPropertyDeclarations(col, True, 0, "Cur_") %><% Next %>
+	
+<%=Level(0,False)%>#End Region 'Field Level Concurency Tracking<%End If%>
+
+#Region " System.Object Overrides "
+
+<%=Level(1,False)%>Public Overrides Function ToString() As String
+<%=Level(2,False)%>'Return the Primary Key As a String
+<%=Level(2,False)%>Return <%= StringReplacement(PKs) %>
+<%=Level(1,False)%>End Function
+
+<%=Level(1,False)%>Public Overloads Function Equals(ByVal <%= GetCustomClassName() %> As <%= GetCustomClassName() %> ) As Boolean
+<%=Level(2,False)%>'Implement Equals Method Needed
+<%=Level(2,False)%>Return <% For Each col in PKs %><%= GetMemberVariableName(col) %>.Equals(<%= GetCustomClassName() %>.<%= GetPropertyName(Col) %>)<% IF PKs.Item(PKOrd).name <> col.name Then %> AND _<%= Level(2, False)%><% END IF%><% Next %>
+<%=Level(1,False)%>End Function	
+
+<%=Level(1,False)%>Public Overrides Function GetHashCode() As Integer
+<%=Level(2,False)%>'Implement GetHashCode Method Needed
+<%=Level(2,False)%>Return (<%= StringReplacement(PKs(0).Table.ToString,PKs) %>).GetHashCode
+<%=Level(1,False)%>End Function
+	
+#End Region ' System.Object Overrides
+
+#Region " Shared Factory Methods "
+
+<%=Level(1,False)%>Protected Friend Shared Function New<%= GetCustomClassName %>(<% For Each col in PKs %>ByVal <%= col.name %> As <%= GetVBVariableType(col) %><% IF PKs.Item(PKOrd).name <> col.name Then %>, <% END IF%><% Next %>) As <%= GetCustomClassName %>
+<%=Level(2,False)%>Return New <%= GetCustomClassName %>(<% For Each col in PKs %><%= col.name %><% IF PKs.Item(PKOrd).name <> col.name Then %>, <% END IF%><% Next %>)
+<%=Level(1,False)%>End Function
+
+<%=Level(1,False)%>Protected Friend Shared Function Get<%= GetCustomClassName %>(dr as SafeDataReader) As <%= GetCustomClassName %>
+<%=Level(2,False)%>'Load an Existing Object from Data Reader
+<%=Level(2,False)%>Dim child as New <%= GetCustomClassName %>
+<%=Level(2,False)%>child.Fetch(dr)
+<%=Level(2,False)%>Return child
+<%=Level(1,False)%>End Function
+	
+#End Region ' Shared Methods 
+
+#Region " Criteria Class (identifies the Individual Object/ Primary Key) "
+
+<%=Level(1,False)%>' criteria for identifying existing object and is always serializable
+<%=Level(1,False)%><Serializable()> _
+<%=Level(1,False)%>Protected Class Criteria
+<%=Level(2,False)%>Inherits CSLA.Server.CriteriaBase
+<%=Level(2,False)%><%= GetPrimaryKeys(PKs, MemberPrefix, "Public", 2) %>
+
+<%=Level(2,False)%>Public Sub New(<% For Each col in PKs %>ByVal <%= col.name %> As <%= GetVBVariableType(col) %><% IF PKs.Item(PKOrd).name <> col.name Then %>, <% END IF%><% Next %>)<% For Each col in PKs %>
+<%=Level(3,False)%>MyBase.New(GetType(<%= GetCustomClassName() %>))
+<%=Level(3,False)%>Me.<%= GetMemberVariableName(col) %> = <%= col.name %><% Next %>
+<%=Level(2,False)%>End Sub  
+  
+<%=Level(1,False)%>End Class
+
+#End Region ' Criteria
+
+#Region " Data Access "
+<%=Level(1,False)%>' called by parent so we can set defaults As needed
+<%=Level(1,False)%>Protected Overrides Sub DataPortal_Create(ByVal Criteria As Object)
+<%=Level(2,False)%>'Create new object with defaults stored in the Database
+<%=Level(2,False)%>Dim Crit as Criteria = CType(Criteria, Criteria)
+  
+<%=Level(1,False)%>End Sub
+
+<%=Level(1,False)%>'Called by the parent object to load data from its data reader
+<%=Level(1,False)%>Protected Overridable Sub Fetch(ByVal dr as SafeDataReader)
+<%=Level(2,False)%>'Retrieve the data from the passed in data reader, which may or may not have
+<%=Level(2,False)%>'a transaction associated with it
+<%=Level(2,False)%>With dr
+<%=Level(3,False)%><% Dim i As short %><% For i = 0 to OrdinalColCount %>
+<%=Level(3,False)%><%= GetReaderAssignmentStatement(RootTable.Columns(i), i) %><% Next i %>
+<%=Level(2,False)%>End With			  
+<%=Level(2,False)%>' load child objects here if there are any
+<%=Level(2,False)%><% IF Len(ChildCollectionName)>0 Then %>dr.NextResult()
+<%=Level(3,False)%><%= MemberPrefix %><%= ChildMemberName %> = <%= ChildCollectionName %>.Get<%= ChildCollectionName %>(dr)<% End If %>
+<%=Level(2,False)%>MarkOld() 	
+<%=Level(1,False)%>End Sub
+
+<%=Level(1,False)%>'Persist the child data to the database
+<%=Level(1,False)%><% IF TransactionType = 2 Then %><Transactional()> _<% END IF %>
+<%=Level(1,False)%>Protected Friend Overridable Sub Update(<% IF TransactionType = 1 Then %>ByVal tr As SqlTransaction, <% END IF %>ByVal <%= ParentName %> As <%= ParentType %>)
+<%=Level(2,False)%>If Not Me.IsDirty Then Exit Sub
+<%=Level(2,False)%>' save data into db
+<%=Level(2,False)%>Dim cn As New SqlConnection(db("<%= RootTable.database.name %>"))
+<%=Level(2,False)%>Dim cmd As New SqlCommand
+<%=Level(2,False)%>cn.Open()			  
+<%=Level(2,False)%>Try
+<%=Level(3,False)%>With cmd
+<%=Level(4,False)%>.Connection = cn<% IF TransactionType = 1 Then %>
+<%=Level(4,False)%>.transaction = tr<% END IF %>
+<%=Level(4,False)%>.CommandType = CommandType.StoredProcedure
+<%=Level(4,False)%>If Me.IsDeleted Then
+<%=Level(5,False)%>'We're being deleted
+<%=Level(5,False)%>If Not Me.IsNew Then	                
+<%=Level(6,False)%>.CommandText = "<%= GeneralSPPrefix %><%= DeletePrefix %><%= GetCustomClassName %>"
+<%=Level(6,False)%>'''ToDo: We may need to add the Primary Key Parameters for the Parent <%= ParentType %> Object here to get the SP to Delete properly  
+<%=Level(6,False)%><% For Each col in PKs %>.Parameters.Add("@<%= col.name %>", <%= GetMemberVariableName(col) %><% GetSProcParmExt(Col) %>)
+<%=Level(6,False)%><% Next %>
+<%=Level(5,False)%>.ExecuteNonQuery()
+<%=Level(5,False)%>End If
+<%=Level(4,False)%>'Reset the object status to be a new object	
+<%=Level(4,False)%>MarkNew()	        
+<%=Level(4,False)%>Else
+<%=Level(5,False)%>'We're not going to be deleted, so determine if this is an update or insert
+<%=Level(5,False)%>If Me.IsNew Then
+<%=Level(6,False)%>'Perform an insert, object has not yet been persisted
+<%=Level(6,False)%>.CommandText = "<%= GeneralSPPrefix %><%= InsertPrefix %><%= GetCustomClassName %>"
+<%=Level(5,False)%>Else
+<%=Level(6,False)%>'We're not new so the object must already be persited. Perform update on object.
+<%=Level(6,False)%>.commandText ="<%= GeneralSPPrefix %><%= UpdatePrefix %><%= GetCustomClassName %>"   
+<%=Level(5,False)%>End If  
+<%=Level(6,False)%>'''ToDo: We may need to add the Primary Key Parameters for the Parent <%= ParentType %> Object here to get the SP to Add and Update properly                  
+<%=Level(5,False)%><% For Each col in PKs %>.Parameters.Add("@<%= col.name %>", <%= GetMemberVariableName(col) %><% GetSProcParmExt(Col) %>)
+<%=Level(5,False)%><% Next %>
+<%=Level(5,False)%><% For Each col in NPKs %>.Parameters.Add("@<%= col.name %>", <%= GetMemberVariableName(col) %><% GetSProcParmExt(Col) %>)
+<%=Level(5,False)%><% Next %>
+<%=Level(5,False)%>.ExecuteNonQuery()
+<%=Level(5,False)%>'Update any necessary Child Objects   
+<%=Level(5,False)%><% IF Len(ChildCollectionName)>0 Then %><%= MemberPrefix %><%= ChildMemberName %>.Update(Me) <% End If %>
+<%=Level(5,False)%>'Mark the object as Old (Persisted)
+<%=Level(5,False)%>MarkOld()
+<%=Level(4,False)%>End If          	        
+<%=Level(3,False)%>End With    
+<%=Level(2,False)%>Finally
+<%=Level(2,False)%>End Try   
+<%=Level(1,False)%>End Sub
+#End Region ' Data Access 
+
+<%=Level(1,False)%>End Class
+
+<%=Level(1,False)%><% If Not ClassNamespace Is Nothing AndAlso ClassNamespace.Length > 0 Then %>End Namespace
+<% End If %>
+

@@ -1,0 +1,142 @@
+<SyntaxLanguage Key="CSS" LanguageDefinitionVersion="2.0" Secure="True" xmlns="http://ActiproSoftware/SyntaxEditor/2.0/LanguageDefinition">
+
+	<!-- String Properties -->
+	<Properties>
+		<Property Key="Creator" Value="Actipro Software LLC" />
+		<Property Key="Copyright" Value="Copyright (c) 2001-2004 Actipro Software LLC.  All rights reserved." />
+	</Properties>
+
+	<!-- Triggers -->
+	<Triggers>
+		<KeyPressTrigger Key="PropertyListTrigger" Character=" ">
+			<KeyPressTriggerValidStates>
+				<KeyPressTriggerValidState State="PropertyState" />
+			</KeyPressTriggerValidStates>
+		</KeyPressTrigger>
+		<KeyPressTrigger Key="ValueListTrigger" Character=" ">
+			<KeyPressTriggerValidStates>
+				<KeyPressTriggerValidState State="ValueState" />
+			</KeyPressTriggerValidStates>
+		</KeyPressTrigger>
+	</Triggers>
+
+	<!-- Highlighting Styles -->	
+	<Styles>
+		<Style Key="DefaultStyle" Name="Text" ForeColor="Maroon" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="PropertyDelimiterStyle" ForeColor="Black" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="PropertyDefaultStyle" ForeColor="Red" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="ValueDelimiterStyle" ForeColor="Black" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="ValueDefaultStyle" ForeColor="Blue" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="CommentDelimiterStyle" ForeColor="Green" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+		<Style Key="CommentDefaultStyle" ForeColor="Green" BackColor="Default" Bold="False" Italic="False" Underline="False" />
+	</Styles>
+	
+	<!-- Macros -->	
+	<Macros>
+		<!-- Redefine word macros to include hyphens -->
+		<Macro Key="WordMacro" Value="[a-zA-Z_0-9\-]" />
+		<Macro Key="NonWordMacro" Value="[^a-zA-Z_0-9\-]" />
+	</Macros>
+
+	<!-- States -->
+	<States>
+		<!-- Code -->
+		<State Key="DefaultState">
+			<!-- Patterns Groups -->
+			<PatternGroups>
+				<!-- Whitespace -->
+				<RegexPatternGroup Token="WhitespaceToken" PatternValue="{WhitespaceMacro}+" IsWhitespace="True" />
+				<!-- Line Terminators -->
+				<RegexPatternGroup Token="LineTerminatorToken" PatternValue="{LineTerminatorMacro}" IsWhitespace="True" />
+				<!-- Identifier -->
+				<RegexPatternGroup Token="IdentifierToken" PatternValue="{AlphaMacro}({WordMacro})*" />
+			</PatternGroups>
+			<!-- Child States -->
+			<ChildStates>
+				<ChildState Key="PropertyState" />
+				<ChildState Key="CommentState" />
+			</ChildStates>
+		</State>
+		
+		<!-- Properties -->
+		<State Key="PropertyState" Token="PropertyDefaultToken" Style="PropertyDefaultStyle">
+			<!-- Scopes -->
+			<Scopes>
+				<Scope BracketHighlight="True">
+					<ExplicitPatternGroup Type="StartScope" Token="PropertyStartToken" Style="PropertyDelimiterStyle" PatternValue="{" />
+					<ExplicitPatternGroup Type="EndScope" Token="PropertyEndToken" Style="PropertyDelimiterStyle" PatternValue="}" />	
+				</Scope>
+			</Scopes>
+			<!-- Patterns Groups -->
+			<PatternGroups>
+				<RegexPatternGroup Token="PropertyWhitespaceToken" PatternValue="{WhitespaceMacro}+" IsWhitespace="True" />
+				<RegexPatternGroup Token="PropertyLineTerminatorToken" PatternValue="{LineTerminatorMacro}" IsWhitespace="True" />
+				<RegexPatternGroup Token="PropertyWordToken" PatternValue="{WordMacro}+" />
+				<RegexPatternGroup Token="PropertyDefaultToken" PatternValue="[^:\}]" />
+			</PatternGroups>
+			<!-- Child States -->
+			<ChildStates>
+				<ChildState Key="ValueState" />
+				<ChildState Key="CommentState" />
+			</ChildStates>
+		</State>
+		
+		<!-- Values -->
+		<State Key="ValueState" Token="ValueDefaultToken" Style="ValueDefaultStyle">
+			<!-- Scopes -->
+			<Scopes>
+				<Scope>
+					<ExplicitPatternGroup Type="StartScope" Token="ValueStartToken" Style="ValueDelimiterStyle" PatternValue=":" />
+					<ExplicitPatternGroup Type="EndScope" Token="ValueEndToken" Style="ValueDelimiterStyle" PatternValue=";" />	
+				</Scope>
+			</Scopes>
+			<!-- Patterns Groups -->
+			<PatternGroups>
+				<RegexPatternGroup Token="ValueWhitespaceToken" PatternValue="{WhitespaceMacro}+" IsWhitespace="True" />
+				<RegexPatternGroup Token="ValueLineTerminatorToken" PatternValue="{LineTerminatorMacro}" IsWhitespace="True" />
+				<RegexPatternGroup Token="ValueWordToken" PatternValue="{WordMacro}+" />
+				<RegexPatternGroup Token="ValueDefaultToken" PatternValue="[^;\}]" />
+			</PatternGroups>
+			<!-- Child States -->
+			<ChildStates>
+				<ChildState Key="CommentState" />
+			</ChildStates>
+		</State>
+		
+		<!-- Comments -->
+		<State Key="CommentState" Token="CommentDefaultToken" Style="CommentDefaultStyle">
+			<!-- Scopes -->
+			<Scopes>
+				<Scope BracketHighlight="True">
+					<ExplicitPatternGroup Type="StartScope" Token="CommentStartToken" Style="CommentDelimiterStyle" PatternValue="/*" />
+					<ExplicitPatternGroup Type="EndScope" Token="CommentEndToken" Style="CommentDelimiterStyle" PatternValue="*/" />	
+				</Scope>
+			</Scopes>
+			<!-- Patterns Groups -->
+			<PatternGroups>
+				<RegexPatternGroup Token="CommentWhitespaceToken" PatternValue="{WhitespaceMacro}+" IsWhitespace="True" />
+				<RegexPatternGroup Token="CommentLineTerminatorToken" PatternValue="{LineTerminatorMacro}" IsWhitespace="True" />
+				<RegexPatternGroup Token="CommentWordToken" PatternValue="{WordMacro}+" />
+				<RegexPatternGroup Token="CommentDefaultToken" PatternValue="[^*]" />
+			</PatternGroups>
+		</State>		
+	</States>
+
+	<!-- Example Text -->
+	<ExampleText>
+		<![CDATA[
+/*
+	Comment
+*/
+
+a { /* Comment */ color: /* Comment */ Red; }
+
+.TestClass {
+	color: Black;
+	background-color: White;
+	text-align: left;
+}
+		]]>
+	</ExampleText>
+	
+</SyntaxLanguage>

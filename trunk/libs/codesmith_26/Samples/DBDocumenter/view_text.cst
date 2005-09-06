@@ -1,0 +1,57 @@
+<%-- 
+CodeSmith DBDocumenter Templates
+Author:  Jason Alexander (jason@ngallery.org)
+Website: http://www.ngallery.org/dbdocumenter/
+%>
+<%@ CodeTemplate Language="C#" TargetLanguage="HTML" Description="Generates a set of HTML-based database documentation." %>
+<%@ Property Name="SourceView" Type="SchemaExplorer.ViewSchema" Category="Context" Description="View that the documentation should be based on." %>
+<%@ Property Name="ViewIndex" Type="System.Int32" Category="Context" Description="The index of the view in the overall collection." %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Assembly Name="AylarSolutions.Highlight" %>
+<%@ Import Namespace="SchemaExplorer" %>
+<script runat="template">
+
+
+public string ColorizeSQL(string SQL)
+{
+	string colorizedSQL = "";
+	AylarSolutions.Highlight.Highlighter highlighter = new AylarSolutions.Highlight.Highlighter();
+
+	
+	highlighter.ConfigurationFile = this.CodeTemplateInfo.DirectoryName + "Definitions.xml";
+	colorizedSQL = highlighter.Highlight(SQL.Trim(), "T-SQL");
+
+ 	return colorizedSQL;
+}
+
+
+</script>
+<html>
+<head>
+	<title><%= SourceView.Name %></title>
+<link href="dbdocs.css" type="text/css" rel="stylesheet" />	
+</head>
+<body>
+
+<center>
+<table width="80%">
+	<tr>
+		<td class="sprocheaderbar" width="85%">
+			<%= SourceView.FullName %>
+		</td>
+		<td class="sprocheaderbar" align="center">
+			[<a href="view_details_<%= ViewIndex %>.html">Back to Details</a>]
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<pre>
+<%= this.ColorizeSQL(SourceView.ViewText) %>
+			</pre>
+		</td>
+	</tr>
+</table>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.QoSAdaptor.UnitTests</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.QoSAdaptor.UnitTests.PatternDescriptionParserTest">
+            <summary>
+            Tests the PatternDescriptionParser. Takes the 
+            cache_pattern_description.xml file as example. 
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.UnitTests.PatternDescriptionParserTest.SelectionTest">
+            <summary>
+            Tests if the parser works properly.
+            </summary>
+        </member>
+    </members>
+</doc>

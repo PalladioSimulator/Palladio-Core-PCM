@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<codeSmith>
+
+            <propertySet>
+
+                        <property name="SampleBooleanProperty">True</property>
+
+                        <property name="SampleStringProperty">TestString</property>
+
+            </propertySet>
+
+</codeSmith>

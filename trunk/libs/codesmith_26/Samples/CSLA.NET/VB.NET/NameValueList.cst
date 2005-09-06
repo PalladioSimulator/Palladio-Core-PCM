@@ -1,0 +1,96 @@
+<%@ CodeTemplate Src="CSLAHelper.vb" Inherits="CSLAHelper" Debug="False" Language="VB" TargetLanguage="VB" Description="Generates a CSLA Name Value List Object." %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+                                          <%-- Code Verified - MFA 12/05/2003 against Role List --%>
+<%-- Generic Variables for code to use  --%><% Dim Col As ColumnSchema %><% Dim PKs As ColumnSchemaCollection = RootTable.primarykey.membercolumns %>
+<% Dim NPKs As ColumnSchemaCollection = RootTable.NonPrimaryKeyColumns %> <% Dim PKOrd As integer = PKs.Count - 1 %><% Dim OrdinalColCount as Integer = RootTable.columns.count - 1 %> 
+<%=Level(0,True)%>Option Strict On
+<%=Level(0,False)%>Option Explicit On
+<%=Level(0,False)%>Option Compare Text
+
+<%=Level(0,False)%>Imports CSLA
+<%=Level(0,False)%>Imports CSLA.Data
+<%=Level(0,False)%>Imports System.Data.SQLClient
+<% If Not ClassNamespace Is Nothing AndAlso ClassNamespace.Length > 0 Then %>Namespace <%= ClassNamespace %>
+<% End If %>
+   ''' <summary>
+   ''' This business object represents the properties and methods of the <%= RootTable.Database.Name %>.<%= RootTable %> Table.
+   ''' It corresponds to the NAME VALUE LIST OBJECT as outlined in the Book "Expert One-on-One VB.NET Business Objects"
+   ''' Object was generated on <%= Now() %> - By <%=Environment.UserName %>
+   ''' </summary>
+   ''' <remarks>
+   ''' Parameters used to generate this class.
+   ''' Business Object
+   '''	ClassNamespace      = <%= ClassNamespace %>
+   '''	ObjectName          = <%= ObjectName %>
+   '''	RootTable           = <%= RootTable.Database.Name %>.<%= RootTable %>
+   '''  BaseClassExt        = <%= BaseClassExt %>
+   '''
+   '''Business Object's Child Collection
+   '''	ChildCollectionName = <%= ChildCollectionName %>
+   '''	ChildMemberName     = <%= ChildMemberName %>
+   '''
+   '''Options
+   '''	MemberPrefix        = <%= MemberPrefix %>
+   '''	FLCPrefix           = <%= FLCPrefix %>   
+   '''	Accessibility       = <%= Accessibility.ToString %>
+   '''	Serializable        = <%= Serializable %>
+   '''	MustBeInherited     = <%= MustBeInherited %>
+   '''	TransactionType     = <%= TransactionType.ToString %>
+   '''
+   '''Stored Procedure Style
+   '''	GeneralSPPrefix     = <%= GeneralSPPrefix %>
+   '''	InsertPrefix        = <%= InsertPrefix %>
+   '''	UpdatePrefix        = <%= UpdatePrefix %>
+   '''	DeletePrefix        = <%= DeletePrefix %>
+   '''	SelectPrefix        = <%= SelectPrefix %>
+   ''' </remarks>
+<%=Level(0,False)%><% If Serializable = True Then %><Serializable()> _<% End If %>
+<%=Level(0,False)%><%= GetAccessModifier(Accessibility) %> <%= GetMustInherit(MustBeInherited) %>Class <%=GetBaseClassName() %>
+<%=Level(1,False)%>Inherits NameValueList
+	
+#Region " Constructors "
+
+<%=Level(1,False)%><%= ConstructorDeclaration %> Sub New()
+<%=Level(2,False)%>' prevent direct creation
+<%=Level(1,False)%>End Sub
+
+<%=Level(1,False)%><%= ConstructorDeclaration %> Sub New(ByVal info as system.runtime.serialization.serializationinfo, _
+<%=Level(2,False)%>ByVal context as system.runtime.serialization.streamingcontext)
+<%=Level(2,False)%>MyBase.New(info, context)
+<%=Level(1,False)%>End Sub
+
+#End Region ' Constructors 	
+	
+#Region " Shared Methods"	
+
+<%=Level(1,False)%>Public Shared Function GetList() As <%= GetCustomClassName %>
+<%=Level(2,False)%>Return CType(DataPortal.Fetch(New Criteria()), <%= GetCustomClassName %>)
+<%=Level(1,False)%>End Function
+
+#End Region ' Shared Methods
+	
+#Region " Criteria Class (identifies the Individual Object/ Primary Key) "
+<%=Level(1,False)%>' criteria for identifying existing object and is always serializable
+<%=Level(1,False)%><Serializable()> _
+<%=Level(1,False)%><%= ConstructorDeclaration %> Class Criteria
+<%=Level(2,False)%>Inherits CSLA.Server.CriteriaBase
+<%=Level(2,False)%>Public Sub New()
+<%=Level(3,False)%>MyBase.New(GetType(<%= GetCustomClassName() %>))
+<%=Level(2,False)%>End Sub  
+  
+<%=Level(1,False)%>End Class
+
+#End Region ' Criteria
+
+#Region " Data Access "
+
+<%=Level(1,False)%><%= ConstructorDeclaration %> Overrides Sub DataPortal_Fetch(ByVal Criteria as Object)
+<%=Level(2,False)%>SimpleFetch("<%= RootTable.database %>","<%= RootTable %>", "<%= KeyColumn %>", "<%= ValueColumn %>")
+<%=Level(1,False)%>End Sub
+    
+#End Region ' Data Access 
+
+<%=Level(0,False)%>End Class
+
+<% If Not ClassNamespace Is Nothing AndAlso ClassNamespace.Length > 0 Then %><%=Level(0,False)%>End Namespace<% End If %>

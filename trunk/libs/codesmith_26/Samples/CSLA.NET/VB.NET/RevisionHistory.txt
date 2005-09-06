@@ -1,0 +1,73 @@
+CSLA CodeSmith Templates
+   ToDo List:
+
+      1. Add SQL Template for Stored Procedures 
+          
+   
+Current Revision 1.3.1205
+
+History
+1.3.1205
+-Added support for a suggestion that the developer code be generated to its own directory
+-Fixed a couple of bugs
+	1. Editable root generating different scopes of member variables
+	2. NVL Criteria class fixed
+	3. a few other fixes in multiple templates
+
+1.3.1203
+-*******Can only be run by the new beta versions 2.2.6+
+-Added the RenderTemplate Template to output to file
+-Added new Template 'CustomCodeClass' to support the new BaseClass->Class framework methodology
+-Moved the Template Property Code to the CSLA Helper file for Common Management and Ability to generate from multiple points.
+-Added support for the AllowSort and AllowFind constructor properties
+-Added support for the Field Level concurrency tracking that Robert Allard suggested - Thanks
+-many other changes that I cannot remember, hopefully for the best
+
+1.3.1120
+-Sweeping changes that will probably break a ton of stuff. Be sure to keep the version you are currently running to ensure 
+    that code can continue to be generated. I am in the learning process with all this as well and do not profess to be the 
+    authority on generating the code as such. I want to personally thank all of you have contributed your thoughts and ideas
+    into these templates and hope the improvements continue.
+-Moved the common functions to CSLAHelper.vb and referenced in the templates. This file should be located in the same
+    directory as the templates to be used properly as is. - Thanks to Joe Fallon for this tip as it saves a huge amount of work   
+-Added back the Default value of "0" for the private variable declarations
+-Added the function GetSProcParmExt and Parameter Section from Robert Allard, thank you. This provides the correct value 
+    for the parameter colletion of a stored procedure.
+-Fixed the GetHashCode method to include Parentheses around the PK Concatenation and added the table name 
+    ie.:(PODetail.PONo.LineNo).GetHashCode
+           Tbl     PK1   PK2
+-Changed the generated Method Names for EditableSwitchable and Child Objects to reflect the book.
+    ie.: New<BusiObjName>Child
+         Get<BusiObjName>Child
+-Corrected the Update methods to generate all parameters, not just PK Parameters
+-Corrected a couple of continuation characters that would cause compilation errors
+-Corrected the Editable root Delete method. Should be a Sub not a Function
+-Corrected the Editable Child Update Method to check if it is dirty before running.
+-Reviewed the DataPortal_Update methods and rewrote somewhat according to suggestions, the book, other code samples and 
+    transactional formats.
+-Formatting for the generated code. I had a couple of offline comments about the ugly output, so here is the solution.
+-Added options for the Key and Value columns in the NameValueList template.
+-Removed the MarkOld method, IsDirty and IsValid properties from the ReadOnly Template to correct the will not compile issues.
+
+
+1.3.1020
+-Corrected the method naming in the editable switchable template to match those of     the editable root object to maintain compatibility with UI code.
+
+
+1.3.1016
+Thanks to Joe Fallon for all the help on these corrections
+-Corrected the MarkDirty()End If jam up in the GetPropertyDeclarations function
+-Corrected the System.Security.SecurityException 
+-Implemented new GetHashCode method based on contencation of Primary Key
+-Implemented the change for SmartDate Property data type to solve the data binding
+    issues. Used Joe's GetPropertyVariableType function to provide correct data type
+    to property declarations.
+-Reviewed the default values for the properties and changed Byte() to receive no 
+    default value. Also remove the Case Else "0" statement. If the DataType does not
+    map to one specified, it will not get a default value.
+-Changed the DbType.Int32 to return "Integer" in the GetVBVariableType function
+
+
+1.3.0729
+-Changed the Location of MarkDirty to after the Broken rules were checked
+-Corrected the clause in the IsDirty to AndAlso

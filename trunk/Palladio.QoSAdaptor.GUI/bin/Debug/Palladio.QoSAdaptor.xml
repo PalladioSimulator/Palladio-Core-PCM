@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.QoSAdaptor</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.QoSAdaptor.Configuration.Config">
+            <summary>
+            This class is a container for some configuration constants needed by the 
+            components in the AdapterGeneration projects.
+            IMPORTANT: All links are specified relative to the bin directory in the top
+            AdapterGeneration folder. All dll's and executables created by the 
+            AdapterGeneration subprojects are therefore assumed to be saved in that folder. 
+            </summary>
+        </member>
+    </members>
+</doc>
