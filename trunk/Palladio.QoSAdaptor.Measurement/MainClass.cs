@@ -23,7 +23,8 @@ using log4net.Config;
 namespace Palladio.QoSAdaptor.Measurement
 {
 	/// <summary>
-	/// Zusammenfassung für MainClass.
+	/// Starts a measurement scenario.
+	/// TODO: Let all scenarios implement the same interface.
 	/// </summary>
 	public class MainClass
 	{
@@ -33,8 +34,27 @@ namespace Palladio.QoSAdaptor.Measurement
 			// The configuration can be found in 
 			// Palladio.QoSAdaptor.Measurement.config
 			XmlConfigurator.Configure();
-			SingleClientScenario scenario = new SingleClientScenario();
-			scenario.Start();
+			if (args[0] == null)
+			{
+				Console.WriteLine("Please choose a scenario.");
+				Console.WriteLine("Possible values: single concurrent");
+			}
+			else if (args[0].Equals("single"))
+			{
+				SingleClientScenario scenario = new SingleClientScenario();
+				scenario.Start();
+			}
+			else if (args[0].Equals("concurrent"))
+			{
+				ConcurrentClientScenario scenario = new ConcurrentClientScenario();
+				scenario.Start();
+			}
+			else
+			{
+				Console.WriteLine(args[0]+" is no regular scenario.");
+				Console.WriteLine("Possible values: single concurrent");
+			}
+			
 		}
 	}
 }

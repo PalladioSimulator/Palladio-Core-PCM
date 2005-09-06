@@ -1,1 +1,1 @@
-..\Palladio.QoSAdaptor.Measurement\bin\Palladio.QoSAdaptor.Measurement.exe
+..\Palladio.QoSAdaptor.Measurement\bin\Palladio.QoSAdaptor.Measurement.exe single

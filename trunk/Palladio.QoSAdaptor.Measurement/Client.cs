@@ -53,8 +53,8 @@ namespace Palladio.QoSAdaptor.Measurement
 				HiResTimer timer = new HiResTimer();
 				timer.Start();
 				service.Get(randomizer.Next(0, 99));
-				clientLogger.Debug(string.Format("Client {0}\t{1}",
-					this.GetHashCode(), timer.Stop()));
+				clientLogger.Debug(string.Format("Client {0}\t{1}\t{2}",
+					this.GetHashCode(), DateTime.Now, timer.Stop()));
 			}
 		}
 

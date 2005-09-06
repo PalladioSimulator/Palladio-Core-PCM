@@ -18,18 +18,57 @@
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 using System;
+using System.Threading;
 
 namespace Palladio.QoSAdaptor.Measurement
 {
 	/// <summary>
+	/// Implementation of a simple measurement scenario with multiple clients 
+	/// to examine the behaviour of the system when multiple clients call the 
+	/// system concurrently.
+	/// TODO: Implement clients that wait for a random time between the calls
+	/// to get more realistic results.
+	/// TODO: Log details about the resources the clients request to see if 
+	/// the cache works properly. 
+	/// TODO: Implement remote clients.
 	/// </summary>
 	public class ConcurrentClientScenario
 	{
+		private Client client1;
+		private Client client2;
+		private Client client3;
+		private Client client4;
+		private Client client5;
+
 		public ConcurrentClientScenario()
 		{
-			//
-			// TODO: Fügen Sie hier die Konstruktorlogik hinzu
-			//
+			client1 = new Client();
+			client2 = new Client();
+			client3 = new Client();
+			client4 = new Client();
+			client5 = new Client();
 		}
+	
+		public void Start()
+		{
+			Thread t = null;
+			t = new Thread(new ThreadStart(client1.Start)) ;
+			t.Start();
+			t = new Thread(new ThreadStart(client2.Start)) ;
+			t.Start();
+			t = new Thread(new ThreadStart(client3.Start)) ;
+			t.Start();
+			t = new Thread(new ThreadStart(client4.Start)) ;
+			t.Start();
+			t = new Thread(new ThreadStart(client5.Start)) ;
+			t.Start();
+			t.Join();
+			client1.MemoryAppender2File();
+			client2.MemoryAppender2File();
+			client3.MemoryAppender2File();
+			client4.MemoryAppender2File();
+			client5.MemoryAppender2File();
+		}
+
 	}
 }
