@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.QoSAdaptor</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.QoSAdaptor.Configuration.Config">
+            <summary>
+            This class is a container for some configuration constants needed by 
+            the components in the AdapterGeneration projects.
+            IMPORTANT: All links are specified relative to the bin directory in 
+            the top Palladio.QoSAdaptor folder. All executables created by the 
+            Palladio.QoSAdaptor subprojects are therefore assumed to be saved in  
+            that folder.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.HiResTimer">
+            <summary>
+            This high resolution timer class by Shawn Van Ness has been modified such that a
+            call to the <see cref="M:Palladio.QoSAdaptor.HiResTimer.Stop"/> method returns <see cref="P:Palladio.QoSAdaptor.HiResTimer.ElapsedMicroseconds"/>
+            instead of <see cref="P:Palladio.QoSAdaptor.HiResTimer.ElapsedTicks"/>, for convenience.
+            
+            This class has been copied unchanged from the software developed by 
+            Rico Starke in the context of his diploma thesis "Untersuchung des 
+            Trade-Offs zwischen Performanz und Wartbarkeit von Persistenz-
+            Frameworks für .NET".
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.HiResTimer.#ctor">
+            <summary>
+            Creates a new instance of the timer class.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.HiResTimer.Start">
+            <summary>
+            Starts a new timer measurement period.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.HiResTimer.Stop">
+            <summary>
+            Stops the timer and returns the number of
+            elapsed microseconds.
+            </summary>		
+        </member>
+        <member name="F:Palladio.QoSAdaptor.HiResTimer.a">
+            <summary>
+            Represents the starting time of the current timing operation.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.HiResTimer.b">
+            <summary>
+            Represents the ending time of the current timing operation.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.HiResTimer.f">
+            <summary>
+            Represents the ending time of the current timing operation.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.HiResTimer.ElapsedTicks">
+            <summary>
+            Gets the number of elapsed ticks for the 
+            timespan between the most recent calls of
+            <see cref="M:Palladio.QoSAdaptor.HiResTimer.Start"/> and <see cref="M:Palladio.QoSAdaptor.HiResTimer.Stop"/>.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.HiResTimer.ElapsedMicroseconds">
+            <summary>
+            Gets the number of elapsed microseconds for the 
+            timespan between the most recent calls of
+            <see cref="M:Palladio.QoSAdaptor.HiResTimer.Start"/> and <see cref="M:Palladio.QoSAdaptor.HiResTimer.Stop"/>.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.HiResTimer.ElapsedTimeSpan">
+            <summary>
+            Gets the <see cref="T:System.TimeSpan"/> between the most
+            recent calls of <see cref="M:Palladio.QoSAdaptor.HiResTimer.Start"/> and <see cref="M:Palladio.QoSAdaptor.HiResTimer.Stop"/>.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.HiResTimer.Frequency">
+            <summary>
+            Gets the frequency of the timer.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.LoggingHelper">
+            <summary>
+            Contains some static methods to make logging with log4net on the
+            server or client side easier.
+            
+            This class has been copied from the software developed by Rico Starke
+            in the context of his diploma thesis "Untersuchung des Trade-Offs 
+            zwischen Performanz und Wartbarkeit von Persistenz-Frameworks für .NET".
+            
+            Small changes have been made due to the changes in the log4net 
+            framework from version 1.2.0 to 1.2.9.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.LoggingHelper.SaveLogAppenderDataToDisk(log4net.Appender.MemoryAppender,System.String)">
+            <summary>
+            Stores all events that have been written to the given <see cref="T:log4net.Appender.MemoryAppender"/>
+            to a file. If the file already exists, it is overwritten.
+            </summary>
+            <param name="ma"><see cref="T:log4net.Appender.MemoryAppender"/> containing the desired log events</param>
+            <param name="fileName">name of the file</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.LoggingHelper.SaveLogAppenderDataToDisk(log4net.Appender.MemoryAppender,System.String,System.Boolean)">
+            <summary>
+            Stores all events that have been written to the given <see cref="T:log4net.Appender.MemoryAppender"/>
+            to a file.
+            </summary>
+            <param name="ma"><see cref="T:log4net.Appender.MemoryAppender"/> containing the desired log events</param>
+            <param name="fileName">name of the file</param>
+            <param name="append">defines whether the log events should be appended to
+            the file (<c>true</c>) or if a new file should be created (<c>false</c>)</param>
+        </member>
+    </members>
+</doc>

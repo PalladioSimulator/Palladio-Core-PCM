@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.QoSAdaptor.Measurement</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.QoSAdaptor.Measurement.Client">
+            <summary>
+            Client used to execute measurements with the generated adaptor.
+            Measurement are implemented using the HiResTimer class which results
+            are first written to memory and into a log file at the end of the 
+            measurement using the log4net framework.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Measurement.ConcurrentClientScenario">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Measurement.MainClass">
+            <summary>
+            Zusammenfassung für MainClass.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Measurement.SingleClientScenario">
+            <summary>
+            </summary>
+        </member>
+    </members>
+</doc>
