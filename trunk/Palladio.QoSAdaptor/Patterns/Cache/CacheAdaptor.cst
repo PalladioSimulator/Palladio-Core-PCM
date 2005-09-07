@@ -101,7 +101,7 @@ using System;
 using System.Collections;
 using <%=ServiceAssemblyName %>;
 
-namespace <%=CacheNameSpace %>{
+namespace <%=CacheNamespace %>{
 
 	/// <summary>
 	/// This class implements a cache component for the <%=ServiceClassName %> 
