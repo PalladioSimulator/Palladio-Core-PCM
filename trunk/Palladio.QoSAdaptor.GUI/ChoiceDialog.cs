@@ -17,6 +17,8 @@
 /// E-mail: niels.streekmann@informatik.uni-oldenburg.de
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
+
+using System.ComponentModel;
 using Palladio.QoSAdaptor.Configuration;
 using Palladio.QoSAdaptor.Pattern;
 using System;
@@ -248,12 +250,20 @@ namespace Palladio.QoSAdaptor.GUI
 				//start CodeSmith
 				Process proc = new Process();
 
-				proc.StartInfo.FileName = Config.CODESMITH_EXE;
+				//proc.StartInfo.FileName = Config.CODESMITH_EXE;
+				proc.StartInfo.FileName = "CodeSmith.exe";
 				string arg = this.patternDirectory+template;
 				proc.StartInfo.Arguments = arg;
 				proc.EnableRaisingEvents = true;
 				proc.Exited +=new EventHandler(Proc_Exited);
-				proc.Start();
+				try 
+				{
+					proc.Start();
+				}
+				catch (Win32Exception e)
+				{
+					MessageBox.Show(e.Message);
+				}
 				this.templates.Remove(enu.Current);
 			}
 			else 

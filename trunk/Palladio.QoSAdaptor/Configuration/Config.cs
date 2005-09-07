@@ -37,8 +37,8 @@ namespace Palladio.QoSAdaptor.Configuration
 											"..\\Palladio.QoSAdaptor\\AdaptorTemplates\\";
 		public const string PATTERN_DIRECTORY = 
 											"..\\Palladio.QoSAdaptor\\Patterns\\";
-		public const string CODESMITH_EXE = 
-									"..\\libs\\codesmith_26\\CodeSmith.exe";
+		//public const string CODESMITH_EXE = 
+		//							"..\\libs\\codesmith_26\\CodeSmith.exe";
 		#endregion
 	}
 }
