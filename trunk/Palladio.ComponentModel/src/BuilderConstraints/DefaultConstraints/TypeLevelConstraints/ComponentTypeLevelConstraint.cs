@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.2  2005/09/07 20:53:17  joemal
+	/// fix bug in constraint
+	///
 	/// Revision 1.1  2005/06/05 10:28:35  joemal
 	/// initial creation
 	///
@@ -135,7 +138,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		public void RemoveProvidesInterface(IInterfaceIdentifier ifaceID)
 		{
 			if(!this.Query.QueryTypeLevel
-				.QueryBasicComponent(this.ComponentId).IsProvidesInterface(ifaceID))
+				.QueryComponent(this.ComponentId).IsProvidesInterface(ifaceID))
 			{			
 				throw new InterfaceNotFromComponentException(this.ComponentId, ifaceID,
 					"The interface to delete is not provided by the component.");
@@ -157,7 +160,7 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		public void RemoveRequiresInterface(IInterfaceIdentifier ifaceID)
 		{
 			if(!this.Query.QueryTypeLevel
-				.QueryBasicComponent(this.ComponentId).IsRequiresInterface(ifaceID))
+				.QueryComponent(this.ComponentId).IsRequiresInterface(ifaceID))
 			{			
 				throw new InterfaceNotFromComponentException(this.ComponentId, ifaceID,
 					"The interface to delete is not required by the component.");

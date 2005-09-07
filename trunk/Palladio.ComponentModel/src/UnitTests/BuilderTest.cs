@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.29  2005/09/07 20:53:17  joemal
+	/// fix bug in constraint
+	///
 	/// Revision 1.28  2005/09/02 18:08:15  joemal
 	/// fix bug in cc-builder
 	///
@@ -224,7 +227,12 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void CC_AddProvidesInterfaceAndRemove()
 		{
-			Identifier.IInterfaceIdentifier i6 = rootBuilder.AddNewCompositeComponent("CC6").AddNewInterfaceAsProvides("IF6").Interface.InterfaceID;
+			ICompositeComponentTypeLevelBuilder ccB = rootBuilder.AddNewCompositeComponent("CC6");			
+			Identifier.IInterfaceIdentifier i6 = ccB.AddNewInterfaceAsProvides("IF6").Interface.InterfaceID;
+			Assert.IsTrue(componentModel.Query.QueryTypeLevel.QueryCompositeComponent(ccB.ComponentId).IsProvidesInterface(i6));
+			ccB.RemoveProvidesInterface(i6);
+			Assert.IsFalse(componentModel.Query.QueryTypeLevel.QueryCompositeComponent(ccB.ComponentId).IsProvidesInterface(i6));
+
 			rootBuilder.DestroyInterface(i6);
 		}
 
