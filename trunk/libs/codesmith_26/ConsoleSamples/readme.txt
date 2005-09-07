@@ -1,1 +1,0 @@
-This folder contains samples of using the CodeSmithConsole client.  Check the GenerateCode.bat file for samples.

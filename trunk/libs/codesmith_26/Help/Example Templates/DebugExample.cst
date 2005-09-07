@@ -1,5 +1,0 @@
-<%@ CodeTemplate Language="C#" TargetLanguage="T-SQL"
-	Description="Debugging your template" Debug="true" %>
-	
-<% Debugger.Break(); %>
-
