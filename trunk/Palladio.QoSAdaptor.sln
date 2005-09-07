@@ -5,14 +5,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor", "Pall
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.CacheTest", "Palladio.QoSAdaptor.CacheTest\Palladio.QoSAdaptor.CacheTest.csproj", "{B360E276-8752-408E-8E2E-9E535CBBE406}"
 	ProjectSection(ProjectDependencies) = postProject
+		{DBDDAC67-421A-4739-8BA7-E09B4A75B6F4} = {DBDDAC67-421A-4739-8BA7-E09B4A75B6F4}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.GUI", "Palladio.QoSAdaptor.GUI\Palladio.QoSAdaptor.GUI.csproj", "{936A2B28-F423-4E19-B228-B5BB7923EC6B}"
 	ProjectSection(ProjectDependencies) = postProject
+		{C12613AF-EB3B-4A0A-A39E-8DF3129DC057} = {C12613AF-EB3B-4A0A-A39E-8DF3129DC057}
+		{F552D8CF-208E-4115-90B1-29A6288AED00} = {F552D8CF-208E-4115-90B1-29A6288AED00}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.Measurement", "Palladio.QoSAdaptor.Measurement\Palladio.QoSAdaptor.Measurement.csproj", "{A2C6D3BB-50C5-4D70-A55D-7F0AC8191701}"
 	ProjectSection(ProjectDependencies) = postProject
+		{B360E276-8752-408E-8E2E-9E535CBBE406} = {B360E276-8752-408E-8E2E-9E535CBBE406}
+		{C12613AF-EB3B-4A0A-A39E-8DF3129DC057} = {C12613AF-EB3B-4A0A-A39E-8DF3129DC057}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.PatternDescription", "Palladio.QoSAdaptor.PatternDescription\Palladio.QoSAdaptor.PatternDescription.csproj", "{F552D8CF-208E-4115-90B1-29A6288AED00}"
@@ -25,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.QMLComp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.Test", "Palladio.QoSAdaptor.Test\Palladio.QoSAdaptor.Test.csproj", "{D8C1EEAD-7C17-4DE4-A23E-D41C17AF0694}"
 	ProjectSection(ProjectDependencies) = postProject
+		{936A2B28-F423-4E19-B228-B5BB7923EC6B} = {936A2B28-F423-4E19-B228-B5BB7923EC6B}
+		{F552D8CF-208E-4115-90B1-29A6288AED00} = {F552D8CF-208E-4115-90B1-29A6288AED00}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.TestService", "Palladio.QoSAdaptor.TestService\Palladio.QoSAdaptor.TestService.csproj", "{DBDDAC67-421A-4739-8BA7-E09B4A75B6F4}"
@@ -32,6 +39,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.TestSer
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.UnitTests", "Palladio.QoSAdaptor.UnitTests\Palladio.QoSAdaptor.UnitTests.csproj", "{29DCE41C-6CAD-4D6F-9F86-D8584E38FEEF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C12613AF-EB3B-4A0A-A39E-8DF3129DC057} = {C12613AF-EB3B-4A0A-A39E-8DF3129DC057}
+		{69CE78C6-3377-414F-AEC9-99D83A81BDD4} = {69CE78C6-3377-414F-AEC9-99D83A81BDD4}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.PatternConfiguration", "Palladio.QoSAdaptor.PatternConfiguration\Palladio.QoSAdaptor.PatternConfiguration.csproj", "{69CE78C6-3377-414F-AEC9-99D83A81BDD4}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -77,6 +90,10 @@ Global
 		{29DCE41C-6CAD-4D6F-9F86-D8584E38FEEF}.Debug.Build.0 = Debug|.NET
 		{29DCE41C-6CAD-4D6F-9F86-D8584E38FEEF}.Release.ActiveCfg = Release|.NET
 		{29DCE41C-6CAD-4D6F-9F86-D8584E38FEEF}.Release.Build.0 = Release|.NET
+		{69CE78C6-3377-414F-AEC9-99D83A81BDD4}.Debug.ActiveCfg = Debug|.NET
+		{69CE78C6-3377-414F-AEC9-99D83A81BDD4}.Debug.Build.0 = Debug|.NET
+		{69CE78C6-3377-414F-AEC9-99D83A81BDD4}.Release.ActiveCfg = Release|.NET
+		{69CE78C6-3377-414F-AEC9-99D83A81BDD4}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
