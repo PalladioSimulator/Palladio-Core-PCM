@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Diese Datei wird automatisch vom XML-Schema-Designer generiert. Sie enthält Layoutinformationen für Komponenten auf der Designeroberfläche.-->
+<XSDDesignerLayout layoutVersion="2" viewPortLeft="-7403" viewPortTop="-1687" zoom="100">
+    <Palladio.FiniteStateMachine_XmlElement left="-2302" top="-688" width="10848" height="3810" selected="0" zOrder="23" index="0" expanded="1">
+        <States_XmlElement left="-20793" top="3630" width="5291" height="2540" selected="0" zOrder="24" index="0" expanded="1">
+            <State_XmlElement left="-20794" top="6678" width="5292" height="2963" selected="0" zOrder="26" index="0" expanded="0" />
+        </States_XmlElement>
+        <InputSymbolAlphabet_XmlElement left="-14868" top="3630" width="6350" height="1693" selected="0" zOrder="28" index="1" expanded="1">
+            <InputSymbol_XmlElement left="-14339" top="5831" width="5292" height="2540" selected="0" zOrder="30" index="0" expanded="0" />
+        </InputSymbolAlphabet_XmlElement>
+        <Structure_XmlElement left="6931" top="3630" width="5292" height="2963" selected="0" zOrder="32" index="2" expanded="1">
+            <StartState_XmlElement left="-7884" top="7101" width="5292" height="2963" selected="0" zOrder="34" index="0" expanded="1" />
+            <FinalState_XmlElement left="-1958" top="7101" width="5292" height="2963" selected="0" zOrder="36" index="1" expanded="1" />
+            <Transition_XmlElement left="12857" top="7101" width="5292" height="2963" selected="0" zOrder="38" index="2" expanded="1">
+                <SourceStateRef_XmlElement left="3968" top="10572" width="5292" height="2963" selected="0" zOrder="40" index="0" expanded="1" />
+                <DestinationStateRef_XmlElement left="9894" top="10572" width="5292" height="2963" selected="0" zOrder="42" index="1" expanded="1" />
+                <InputSymbolRef_XmlElement left="15820" top="10572" width="5292" height="2963" selected="0" zOrder="44" index="2" expanded="1" />
+                <ref_x003D_attributes_XmlElement left="21746" top="10572" width="5292" height="2963" selected="0" zOrder="46" index="3" expanded="0" />
+            </Transition_XmlElement>
+        </Structure_XmlElement>
+    </Palladio.FiniteStateMachine_XmlElement>
+    <attributes_XmlElement left="21163" top="148" width="5292" height="2963" selected="0" zOrder="48" index="1" expanded="1">
+        <ref_x003D_attribute_XmlElement left="21163" top="3619" width="5292" height="2963" selected="0" zOrder="49" index="0" expanded="0" />
+    </attributes_XmlElement>
+    <attribute_XmlElement left="21178" top="6942" width="5292" height="2963" selected="0" zOrder="51" index="2" expanded="1" />
+    <StateSourceStateRef_XmlKeyref left="2899" top="14682" width="503" height="503" selected="0" zOrder="60" />
+    <InputSymbolInputSymbolRef_XmlKeyref left="14794" top="14366" width="503" height="503" selected="0" zOrder="66" />
+    <StateDestinationStateRef_XmlKeyref left="8930" top="14735" width="503" height="503" selected="0" zOrder="63" />
+    <StateFinalState_XmlKeyref left="-2922" top="11957" width="503" height="503" selected="0" zOrder="57" />
+    <StateStartState_XmlKeyref left="-8981" top="11428" width="503" height="503" selected="0" zOrder="54" />
+</XSDDesignerLayout>
