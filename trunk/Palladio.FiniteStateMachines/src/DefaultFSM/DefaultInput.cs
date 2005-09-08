@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/09/08 07:21:44  joemal
+	/// add method to return type id of inputs
+	///
 	/// Revision 1.2  2005/08/24 08:38:22  kelsaka
 	/// - added TypeID for IInputs
 	///
@@ -23,6 +26,11 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// </remarks>
 	internal class DefaultInput : IInput
 	{
+		/// <summary>
+		/// holds the type id of this implementation
+		/// </summary>
+		public static Guid TYPEID = new Guid("12345678-1111-0815-4711-007008009010");
+
 		protected IMatchable id;
 
 		/// <summary>
@@ -46,7 +54,7 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		{
 			get
 			{
-				return new Guid("12345678-1111-0815-4711-007008009010");
+				return DefaultInput.TYPEID;
 			}
 		}
 
@@ -90,6 +98,5 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 		{
 			return id.ToString();
 		}
-
 	}
 }

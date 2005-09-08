@@ -17,6 +17,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/08 07:21:44  joemal
+	/// add method to return type id of inputs
+	///
 	/// Revision 1.1  2005/02/21 13:19:38  joemal
 	/// initial import
 	///
@@ -88,6 +91,15 @@ namespace Palladio.FiniteStateMachines
 		public static IInput CreateDefaultInput(IMatchable anID)
 		{
 			return new DefaultInput( anID );
+		}
+
+		/// <summary>
+		/// called to return the type id of the <code>IInput</code> implementation used by this factory.
+		/// </summary>
+		/// <returns>the type id</returns>
+		public static Guid GetInputTypeId()
+		{
+			return DefaultInput.TYPEID;
 		}
 
 		/// <summary>
