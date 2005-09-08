@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Data;
 using Palladio.ComponentModel.Exceptions;
@@ -18,6 +17,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/09/08 18:22:17  joemal
+	/// add new query methods ...
+	///
 	/// Revision 1.2  2005/09/06 15:01:05  joemal
 	/// add query method for seffs
 	///
@@ -104,6 +106,34 @@ namespace Palladio.ComponentModel.Query.Impl
 			ModelDataSet.SeffsRow seffsRow=this.Dataset.Seffs.FindByguid(seffID.Key);
 			if (seffsRow == null) return false;
 			return seffsRow.RolesRow.fk_comp.Equals(this.componentID.Key);
+		}
+
+		/// <summary>
+		/// called to return the identifier of the signature that belongs to the seff that belongs to 
+		/// given seffId.
+		/// </summary>
+		/// <param name="seffId">the id of the service effect specification</param>
+		/// <returns>the id of the signature</returns>
+		public ISignatureIdentifier GetSignatureOfSeff(ISeffIdentifier seffId)
+		{
+			ModelDataSet.SeffsRow seffsRow=this.Dataset.Seffs.FindByguid(seffId.Key);
+			if (seffsRow == null) return null;
+
+			return new InternalEntityIdentifier(seffsRow.SignaturesRow.guid);
+		}
+
+		/// <summary>
+		/// called to return the identifier of the interface that contains the signature of the seff 
+		/// specified by given seffId.
+		/// </summary>
+		/// <param name="seffId">the id of the service effect specification</param>
+		/// <returns>the id of the interface</returns>
+		public ISignatureIdentifier GetInterfaceOfSeff(ISeffIdentifier seffId)
+		{
+			ModelDataSet.SeffsRow seffsRow=this.Dataset.Seffs.FindByguid(seffId.Key);
+			if (seffsRow == null) return null;
+
+			return new InternalEntityIdentifier(seffsRow.RolesRow.InterfacesRow.guid);
 		}
 
 		#endregion

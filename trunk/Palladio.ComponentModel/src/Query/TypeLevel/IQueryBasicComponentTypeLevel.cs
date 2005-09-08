@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/09/08 18:22:17  joemal
+	/// add new query methods ...
+	///
 	/// Revision 1.3  2005/09/06 15:01:05  joemal
 	/// add query method for seffs
 	///
@@ -46,5 +49,21 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// <param name="seffID">the id of the seff</param>
 		/// <returns>true, if the seff belongs to the bc</returns>
 		bool IsSeffFromBasicComponent(ISeffIdentifier seffID);
+
+		/// <summary>
+		/// called to return the identifier of the signature that belongs to the seff that belongs to 
+		/// given seffId.
+		/// </summary>
+		/// <param name="seffId">the id of the service effect specification</param>
+		/// <returns>the id of the signature</returns>
+		ISignatureIdentifier GetSignatureOfSeff(ISeffIdentifier seffId);
+
+		/// <summary>
+		/// called to return the identifier of the interface that contains the signature of the seff 
+		/// specified by given seffId.
+		/// </summary>
+		/// <param name="seffId">the id of the service effect specification</param>
+		/// <returns>the id of the interface</returns>
+		ISignatureIdentifier GetInterfaceOfSeff(ISeffIdentifier seffId);
 	}
 }
