@@ -18,6 +18,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.19  2005/09/08 07:24:23  joemal
+	/// to be continued ...
+	///
 	/// Revision 1.18  2005/09/01 09:02:52  kelsaka
 	/// - fixed bug: validating reader was not closed
 	/// - added nunit project
@@ -158,7 +161,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			try 
 			{
 				validatingReader = new XmlValidatingReader(xmlTextReader);
-				validatingReader.ValidationType = ValidationType.None; //TODO: ValidationType.Schema;
+				validatingReader.ValidationType = ValidationType.Schema;
 			
 	
 				XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
@@ -329,22 +332,26 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 
 				string inputSymbolTypeGUID = node.Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":inputSymbolTypeID").Value;
 
-				try 
+				//the default implementation of IInput doesn't contain any additional attributes. No serializerplugin needed.
+				if (!inputSymbolTypeGUID.Equals(FSMFactory.GetInputTypeId().ToString()))
 				{
-					if(inputSymbolTypeGUID != null)
+					Guid guid = new Guid(inputSymbolTypeGUID);
+					if(this.inputSerializerPlugins.ContainsKey(guid))
 					{
-						Guid guid = new Guid(inputSymbolTypeGUID);
 						// load by plugins:
 						efsm.AddInputSymbols(
 							((IInputSerializerPlugin)this.inputSerializerPlugins[guid]).DeserializeInput(node));
 					}
+					else
+						throw new InputNotSupportedException("No plugin loaded for inputSymbolTypeGUID: " 
+							+inputSymbolTypeGUID + ".");					
 				}
-				catch (Exception e)
+				else
 				{
-					throw new InputNotSupportedException(
-						"Could not find inputSymbolTypeGUID for attribute OR no plugin loaded for inputSymbolTypeGUID: " +
-						inputSymbolTypeGUID + "\nInner Exception Message: " + e.Message + "; " + e.StackTrace);
+					string inputSymbolID = node.Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":inputSymbolId").Value;
+					efsm.AddInputSymbols(FSMFactory.CreateDefaultInput(inputSymbolID));
 				}
+
 			}
 		}
 

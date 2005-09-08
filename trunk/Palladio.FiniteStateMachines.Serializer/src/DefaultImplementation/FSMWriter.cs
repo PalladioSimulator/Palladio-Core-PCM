@@ -6,7 +6,6 @@ using System.Xml;
 using Palladio.Attributes;
 using Palladio.FiniteStateMachines.Serializer;
 using Palladio.FiniteStateMachines.Serializer.Interfaces;
-using Palladio.FiniteStateMachines.UnitTests.TestClasses;
 
 namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 {
@@ -76,6 +75,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/09/08 07:24:23  joemal
+	/// to be continued ...
+	///
 	/// Revision 1.11  2005/09/01 09:02:52  kelsaka
 	/// - fixed bug: validating reader was not closed
 	/// - added nunit project
@@ -245,27 +247,26 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "attributes", XMLSerializer.XMLNAMESPACE);
 			xmlWriter.WriteComment("Written by plugin:");
 	
-			foreach(IAttributeType attributeType in attributeHash.AttributeTypes)
+			foreach(IAttributeType attrType in attributeHash.AttributeTypes)
 			{
-				// use Plugin for serialization:
-				if(attributeSerializerPlugins.ContainsKey(attributeType.GUID))
-				{
-					xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "attribute", XMLSerializer.XMLNAMESPACE);
-					xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "attributeType", XMLSerializer.XMLNAMESPACE, attributeType.GUID.ToString());
-
-					((IAttributeSerializerPlugin)attributeSerializerPlugins[attributeType.GUID])
-						.SerializeAttribute(attributeType, attributeHash[attributeType], xmlWriter);
-
-					xmlWriter.WriteEndElement();
-				}
-				else
+				IAttributeSerializerPlugin attrPlugIn = (IAttributeSerializerPlugin) attributeSerializerPlugins[attrType.GUID];
+				if (attrPlugIn == null)
 				{
 					throw new AttributeNotSupportedException(
 						"There is no serializer plugin registered for the attribute type " +
-						attributeType.GUID.ToString() + "; " + attributeType.DisplayName);
+						attrType.GUID.ToString() + "; " + attrType.DisplayName);
 				}
+
+				IAttribute attr = attributeHash[attrType];
+				xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX,"attribute",XMLSerializer.XMLNAMESPACE);
+				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX,"type",XMLSerializer.XMLNAMESPACE,attrType.GUID.ToString());
+				xmlWriter.WriteElementString(XMLSerializer.XMLPREFIX+":Description",attrType.Description);
+				xmlWriter.WriteElementString(XMLSerializer.XMLPREFIX+":Name",attrType.DisplayName);
+				xmlWriter.WriteElementString(XMLSerializer.XMLPREFIX+":ValueType",attrType.ValueType.ToString());
+				attrPlugIn.SerializeAttribute(attrType,attr,xmlWriter);
+				xmlWriter.WriteEndElement();
 			}
-	
+
 			xmlWriter.WriteEndElement();
 		}
 
@@ -336,7 +337,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		{
 			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "inputSymbol", XMLSerializer.XMLNAMESPACE);
 
-			xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "inputSymbolIdRef", XMLSerializer.XMLNAMESPACE, transition.InputSymbol.ID.ToString());
+			xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "inputSymbolId", XMLSerializer.XMLNAMESPACE, transition.InputSymbol.ID.ToString());
 			
 			xmlWriter.WriteEndElement();
 		}
@@ -356,19 +357,17 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "inputSymbolId", XMLSerializer.XMLNAMESPACE, input.ID.ToString());
 				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "inputSymbolTypeID", XMLSerializer.XMLNAMESPACE, input.TypeID.ToString());
 
-				// use Plugin for serialization:
-				if(inputSerializerPlugins.ContainsKey(input.TypeID))
+				//the default implementation of IInput doesn't contain any additional attributes. No serializerplugin needed.
+				if (!input.TypeID.Equals(FSMFactory.GetInputTypeId()))
 				{
-					((IInputSerializerPlugin)inputSerializerPlugins[input.TypeID])
-						.SerializeInput(input, xmlWriter);
+					// use Plugin for serialization:
+					if(inputSerializerPlugins.ContainsKey(input.TypeID))
+						((IInputSerializerPlugin)inputSerializerPlugins[input.TypeID]).SerializeInput(input, xmlWriter);
+					else
+						throw new InputNotSupportedException(
+							"There is no serializer plugin registered for the input type " + input.TypeID.ToString());
 				}
-				else
-				{
-					throw new InputNotSupportedException(
-						"There is no serializer plugin registered for the input type " +
-						input.TypeID.ToString());
-				}
-				
+
 				xmlWriter.WriteEndElement(); //end inputSymbol
 			}
 

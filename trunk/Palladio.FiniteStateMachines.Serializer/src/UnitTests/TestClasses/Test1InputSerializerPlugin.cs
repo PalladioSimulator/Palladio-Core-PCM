@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	/// 
 	/// $Log$
+	/// Revision 1.2  2005/09/08 07:24:23  joemal
+	/// to be continued ...
+	///
 	/// Revision 1.1  2005/08/25 09:41:20  kelsaka
 	/// - prepared support for "test1" input serialization test
 	///
@@ -19,6 +22,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// </remarks>
 	public class Test1InputSerializerPlugin : IInputSerializerPlugin
 	{
+		//holds the supported types of this plugin
+		private static Guid[] SUPPORTED_TYPES=new Guid[]{Test1Input.TYPEID};
+
 		/// <summary>
 		/// Serializes the given input and writes the results to the given xmlwriter.
 		/// </summary>
@@ -75,5 +81,17 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 				return "t1pre-input";
 			}
 		}
+
+		/// <summary>
+		/// called to return a list of supported ids of input types
+		/// </summary>
+		public Guid[] SupportedInputTypes
+		{
+			get
+			{
+				return Test1InputSerializerPlugin.SUPPORTED_TYPES;
+			}
+		}
+
 	}
 }

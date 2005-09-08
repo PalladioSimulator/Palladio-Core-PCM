@@ -11,6 +11,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/08 07:24:23  joemal
+	/// to be continued ...
+	///
 	/// Revision 1.1  2005/08/21 18:07:42  kelsaka
 	/// - added further tests
 	///
@@ -22,6 +25,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// </remarks>
 	public class Test1AttributeType : IAttributeType
 	{
+		//the type of this implementation 
+		private static Guid TYPEID = new Guid("8FD98D90-3592-4080-B846-4F3CA860CBBC");
+
 		/// <summary>
 		/// Default.
 		/// </summary>
@@ -60,8 +66,7 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		{
 			get
 			{ 
-				// has no special meaning:
-				return new Guid("12345678-1111-0815-0000-007000000000");
+				return Test1AttributeType.TYPEID;
 			}
 		}
 

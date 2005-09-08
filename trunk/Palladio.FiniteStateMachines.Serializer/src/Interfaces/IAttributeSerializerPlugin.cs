@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/09/08 07:24:23  joemal
+	/// to be continued ...
+	///
 	/// Revision 1.10  2005/08/24 09:25:40  kelsaka
 	/// - created serializer for the default input
 	/// - added methods for the IInputSerializerPlugin
@@ -86,6 +89,11 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 		/// The prefix to identify XML elements written by the plugin.
 		/// </summary>
 		string XmlPrefix { get; }
+
+		/// <summary>
+		/// called to return an array of supported attribute types
+		/// </summary>
+		IAttributeType[] SupportedTypes {get;} 
 
 		#endregion
 	}

@@ -11,6 +11,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/08 07:24:23  joemal
+	/// to be continued ...
+	///
 	/// Revision 1.1  2005/08/25 18:43:47  kelsaka
 	/// - support for default input serialization.
 	///
@@ -18,6 +21,11 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// </remarks>
 	public class Test1Input : IInput
 	{
+		/// <summary>
+		/// the typeid of this implementation
+		/// </summary>
+		public static Guid TYPEID = new Guid("12345678-1111-0815-4711-123458009010");
+
 		/// <summary>
 		/// Default.
 		/// </summary>
@@ -56,7 +64,7 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		{
 			get
 			{
-				return new Guid("12345678-1111-0815-4711-123458009010");
+				return Test1Input.TYPEID;
 			}
 		}
 	}

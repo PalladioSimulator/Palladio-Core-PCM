@@ -1,8 +1,6 @@
-using System;
 using System.Xml;
 using Palladio.Attributes;
 using Palladio.FiniteStateMachines.Serializer;
-using Palladio.FiniteStateMachines.Serializer.DefaultImplementation;
 using Palladio.FiniteStateMachines.Serializer.Interfaces;
 
 namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
@@ -15,6 +13,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/09/08 07:24:23  joemal
+	/// to be continued ...
+	///
 	/// Revision 1.6  2005/09/01 09:02:52  kelsaka
 	/// - fixed bug: validating reader was not closed
 	/// - added nunit project
@@ -45,6 +46,8 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// </remarks>
 	public class Test1AttributeSerializer : IAttributeSerializerPlugin
 	{
+		private static IAttributeType[] SUPPORTED_TYPES = new IAttributeType[]{new Test1AttributeType()};
+
 		/// <summary>
 		/// Default.
 		/// </summary>
@@ -62,10 +65,18 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// <param name="xmlWriter">The writer to use for serializing attributes.</param>
 		public void SerializeAttribute (IAttributeType attributeType, IAttribute attribute, XmlWriter xmlWriter)
 		{
-			xmlWriter.WriteAttributeString(this.XmlPrefix, "GUID", this.XmlNamespace, attributeType.GUID.ToString());
-			xmlWriter.WriteAttributeString(this.XmlPrefix, "displayName", this.XmlNamespace, attributeType.DisplayName);
-			xmlWriter.WriteAttributeString(this.XmlPrefix, "description", this.XmlNamespace, attributeType.Description);
-			xmlWriter.WriteAttributeString(this.XmlPrefix, "valueType", this.XmlNamespace, attributeType.ValueType.ToString());
+			xmlWriter.WriteStartElement(this.XmlPrefix,"Value",this.XmlNamespace);
+			WriteElementString(xmlWriter, "val", "1.765");
+			WriteElementString(xmlWriter, "unit", "cm");
+			xmlWriter.WriteEndElement();
+		}
+
+		//writes a full qualified element containing a string value
+		private void WriteElementString(XmlWriter xmlWriter, string attributeName, string val)
+		{
+			xmlWriter.WriteStartElement(this.XmlPrefix,attributeName, this.XmlNamespace);
+			xmlWriter.WriteString(val);
+			xmlWriter.WriteEndElement();
 		}
 
 		/// <summary>
@@ -76,13 +87,14 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// <returns>The deserialized attribute information.</returns>
 		public AttributeInfo DeserializeAttribute (XmlNode xmlNode)
 		{
-			Test1AttributeType at = new Test1AttributeType();
+/*			Test1AttributeType at = new Test1AttributeType();
 			if (!xmlNode.Attributes.GetNamedItem(this.XmlPrefix+":displayName").Value.Equals(at.DisplayName))
 			{
 				throw new ModelSerializationException("displayName was incorrect or not found");
 			}
 
-			return new AttributeInfo(new Test1Attribute(), at);
+			return new AttributeInfo(new Test1Attribute(), at);*/
+			return new AttributeInfo();
 		}
 
 		/// <summary>
@@ -113,6 +125,15 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 			get { return "t1pre-Attrib"; }
 		}
 
-
+		/// <summary>
+		/// called to return an array of supported attribute types
+		/// </summary>
+		public IAttributeType[] SupportedTypes
+		{
+			get
+			{
+				return Test1AttributeSerializer.SUPPORTED_TYPES;
+			}
+		}
 	}
 }

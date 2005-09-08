@@ -73,6 +73,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/09/08 07:24:22  joemal
+	/// to be continued ...
+	///
 	/// Revision 1.16  2005/08/25 18:43:47  kelsaka
 	/// - support for default input serialization.
 	///
@@ -183,9 +186,6 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		{
 			this.attributeSerializerPlugins = new Hashtable();
 			this.inputSerializerPlugins = new Hashtable();
-
-			//register default serializer for default IInputs:
-			AddInputSerializerPlugin(new DefaultInputSerializerPlugin(), FSMFactory.CreateDefaultInput("").TypeID);
 		}
 
 		#region public methods
@@ -252,16 +252,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// Adds a serializer for an <see cref="IAttribute"/>.
 		/// </summary>
 		/// <param name="plugin">The serializer for the attribute.</param>
-		/// <param name="attributeType">The attribute type to register for. If there is already an plugin registered
-		/// for the <see cref="IAttributeType"/> the new one is used. The GUID is used to identify the attribute
-		/// type.</param>
-		public void AddAttributeSerializerPlugin (IAttributeSerializerPlugin plugin, IAttributeType attributeType)
+		public void AddAttributeSerializerPlugin (IAttributeSerializerPlugin plugin)
 		{
-			if(attributeSerializerPlugins.ContainsKey(attributeType.GUID))
-			{
-				attributeSerializerPlugins.Remove(attributeType.GUID);
-			}
-			attributeSerializerPlugins.Add(attributeType.GUID, plugin);
+			foreach(IAttributeType type in plugin.SupportedTypes)
+				attributeSerializerPlugins[type.GUID]=plugin;
 		}
 
 		/// <summary>
@@ -279,14 +273,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// already is an registered plugin for the type it will be removed.
 		/// </summary>
 		/// <param name="plugin">The serializer for the input type.</param>
-		/// <param name="inputType">The InputType (GUID) to register for.</param>
-		public void AddInputSerializerPlugin (IInputSerializerPlugin plugin, Guid inputType)
+		public void AddInputSerializerPlugin (IInputSerializerPlugin plugin)
 		{
-			if(inputSerializerPlugins.ContainsKey(inputType))
-			{
-				inputSerializerPlugins.Remove(inputType);
-			}
-			inputSerializerPlugins.Add(inputType, plugin);
+			foreach(Guid type in plugin.SupportedInputTypes)
+				inputSerializerPlugins[type]=plugin;
 		}
 
 		/// <summary>

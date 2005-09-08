@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/09/08 07:24:23  joemal
+	/// to be continued ...
+	///
 	/// Revision 1.7  2005/08/24 08:38:22  kelsaka
 	/// - added TypeID for IInputs
 	///
@@ -91,8 +94,7 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 		/// Adds a serializer for an <see cref="IAttribute"/>.
 		/// </summary>
 		/// <param name="plugin">The serializer for the attribute.</param>
-		/// <param name="attributeType">The attribute type to register for.</param>
-		void AddAttributeSerializerPlugin(IAttributeSerializerPlugin plugin, IAttributeType attributeType);
+		void AddAttributeSerializerPlugin(IAttributeSerializerPlugin plugin);
 
 		/// <summary>
 		/// Removes an existing attribute serialiser plugin for the given <see cref="IAttribute"/>.
@@ -105,8 +107,7 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 		/// already is an registered plugin for the type it will be removed.
 		/// </summary>
 		/// <param name="plugin">The serializer for the input.</param>
-		/// <param name="inputType">The input type (GUID) to register for.</param>
-		void AddInputSerializerPlugin(IInputSerializerPlugin plugin, Guid inputType);
+		void AddInputSerializerPlugin(IInputSerializerPlugin plugin);
 
 		/// <summary>
 		/// Removes an existing input serialiser plugin for the given <see cref="IInput"/>.

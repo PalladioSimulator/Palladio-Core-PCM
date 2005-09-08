@@ -20,6 +20,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/09/08 07:24:23  joemal
+	/// to be continued ...
+	///
 	/// Revision 1.9  2005/09/01 09:02:52  kelsaka
 	/// - fixed bug: validating reader was not closed
 	/// - added nunit project
@@ -64,7 +67,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	[TestFixture]
 	public class SerializationTest
 	{
-		IFiniteStateMachine testFSM;
+		//IFiniteStateMachine testFSM;
 
 		/// <summary>
 		/// </summary>
@@ -112,8 +115,8 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		{
 			IFiniteStateMachine fsm = BuildExampleFSMAttributes();
 			IXMLSerializer serializer = new XMLSerializer();
-			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer(), new Test1AttributeType());
-			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer(), new Test1AttributeType());
+			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer());
+			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer());
 			serializer.Save(new FileInfo(".\\testFSM.xml"), fsm);
 		}
 
@@ -121,8 +124,8 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		public void AddMultipleAttributeSerializersForSameAttributeType()
 		{
 			IXMLSerializer serializer = new XMLSerializer();
-			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer(), new Test1AttributeType());
-			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer(), new Test1AttributeType());
+			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer());
+			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer());
 		}
 
 		[Test]
@@ -156,10 +159,10 @@ namespace Palladio.FiniteStateMachines.UnitTests
 		{
 			IFiniteStateMachine fsm = BuildExampleFSMAttributes();
 			IXMLSerializer serializer = new XMLSerializer();
-			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer(), new Test1AttributeType());
+			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer());
 			serializer.Save(new FileInfo(".\\testFSM.xml"), fsm);
 
-			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer(), new Test1AttributeType());
+			serializer.AddAttributeSerializerPlugin(new Test1AttributeSerializer());
 			fsm = serializer.Load(new FileInfo(".\\testFSM.xml"));
 			Assert.IsTrue(fsm.HasFinalStates);
 			Assert.IsTrue(fsm.HasStartState);
