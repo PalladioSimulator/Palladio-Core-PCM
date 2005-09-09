@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/09/09 10:29:59  kelsaka
+	/// - bugfix: changed return type of seff query to interface ID
+	///
 	/// Revision 1.4  2005/09/08 18:22:17  joemal
 	/// add new query methods ...
 	///
@@ -64,6 +67,6 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// </summary>
 		/// <param name="seffId">the id of the service effect specification</param>
 		/// <returns>the id of the interface</returns>
-		ISignatureIdentifier GetInterfaceOfSeff(ISeffIdentifier seffId);
+		IInterfaceIdentifier GetInterfaceOfSeff(ISeffIdentifier seffId);
 	}
 }
