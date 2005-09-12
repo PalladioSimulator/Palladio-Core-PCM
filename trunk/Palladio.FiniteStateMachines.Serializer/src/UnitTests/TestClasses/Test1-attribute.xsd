@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!-- Palladio FSM - Scheme for Test1 -->
 <!-- Pay attention that attributeFormDefault MUST be qualified! -->
-<xs:schema elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://Test1-Namespace.com/attribute" xmlns="http://Test1-Namespace.com/attribute">
-    <xs:element name="Value">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="val" type="xs:string" />
-                <xs:element name="unit" type="xs:string" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://Test1-Namespace.com/attribute" xmlns="http://Test1-Namespace.com/attribute">
+	<xs:element name="Value">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Val" type="xs:string" />
+				<xs:element name="Unit" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 </xs:schema>

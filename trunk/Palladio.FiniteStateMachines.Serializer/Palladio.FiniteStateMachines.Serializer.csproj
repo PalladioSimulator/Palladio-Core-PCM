@@ -16,7 +16,7 @@
                 DefaultTargetSchema = "IE50"
                 DelaySign = "false"
                 OutputType = "Library"
-                PreBuildEvent = 'REM copy XSDs to out dir&#xd;&#xa;copy "$(ProjectDir)src\UnitTests\TestClasses\Test1-attribute.xsd" "$(ProjectDir)$(OutDir)"&#xd;&#xa;copy "$(ProjectDir)Palladio.FiniteStateMachines.xsd" "$(ProjectDir)$(OutDir)"&#xd;&#xa;copy "$(ProjectDir)src\DefaultImplementation\DefaultInputSerializerPlugin.xsd" "$(ProjectDir)$(OutDir)"'
+                PreBuildEvent = 'REM copy XSDs to out dir&#xd;&#xa;copy "$(ProjectDir)src\UnitTests\TestClasses\Test1-attribute.xsd" "$(ProjectDir)$(OutDir)"&#xd;&#xa;copy "$(ProjectDir)Palladio.FiniteStateMachines.xsd" "$(ProjectDir)$(OutDir)"&#xd;&#xa;'
                 PostBuildEvent = ""
                 RootNamespace = "Palladio.FiniteStateMachines.Serializer"
                 RunPostBuildEvent = "OnBuildSuccess"
@@ -99,6 +99,15 @@
         <Files>
             <Include>
                 <File
+                    RelPath = "Palladio.FiniteStateMachines.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Palladio.FiniteStateMachines.xsx"
+                    DependentUpon = "Palladio.FiniteStateMachines.xsd"
+                    BuildAction = "None"
+                />
+                <File
                     RelPath = "src\AttributeNotSupportedException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -110,11 +119,6 @@
                 />
                 <File
                     RelPath = "src\ModelSerializationException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\DefaultImplementation\DefaultInputSerializerPlugin.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -162,6 +166,15 @@
                     RelPath = "src\UnitTests\TestClasses\Test1Attribute.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTests\TestClasses\Test1-attribute.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "src\UnitTests\TestClasses\Test1-attribute.xsx"
+                    DependentUpon = "Test1-attribute.xsd"
+                    BuildAction = "None"
                 />
                 <File
                     RelPath = "src\UnitTests\TestClasses\Test1AttributeSerializer.cs"

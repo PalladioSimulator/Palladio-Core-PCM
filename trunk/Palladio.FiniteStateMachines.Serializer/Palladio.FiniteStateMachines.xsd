@@ -14,10 +14,10 @@
 							<xs:element name="State" minOccurs="1" maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="isErrorState" type="xs:boolean" />
 										<xs:element ref="attributes" />
 									</xs:sequence>
 									<xs:attribute name="id" type="xs:string" use="required" />
+									<xs:attribute name="isErrorState" type="xs:boolean" />
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
@@ -26,10 +26,10 @@
 				<xs:element name="InputSymbolAlphabet">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="InputSymbol">
+							<xs:element name="InputSymbol" maxOccurs="unbounded" minOccurs="0">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:any />
+										<xs:any minOccurs="0" maxOccurs="unbounded" />
 									</xs:sequence>
 									<xs:attribute name="id" type="xs:string" />
 									<xs:attribute name="typeId" type="xs:string" />
@@ -47,36 +47,47 @@
 									<xs:attribute name="idref" type="xs:string" />
 								</xs:complexType>
 							</xs:element>
-							<xs:element name="FinalState" minOccurs="0" maxOccurs="unbounded">
-								<xs:complexType>
-									<xs:sequence />
-									<xs:attribute name="idref" type="xs:string" />
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="Transition">
+							<xs:element name="FinalStates">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="SourceStateRef">
+										<xs:element name="FinalState" minOccurs="0" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:sequence />
 												<xs:attribute name="idref" type="xs:string" />
 											</xs:complexType>
 										</xs:element>
-										<xs:element name="DestinationStateRef">
-											<xs:complexType>
-												<xs:sequence />
-												<xs:attribute name="idref" type="xs:string" />
-											</xs:complexType>
-										</xs:element>
-										<xs:element name="InputSymbolRef">
-											<xs:complexType>
-												<xs:sequence />
-												<xs:attribute name="idref" type="xs:string" />
-											</xs:complexType>
-										</xs:element>
-										<xs:element ref="attributes" />
 									</xs:sequence>
-									<xs:attribute name="id" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Transitions">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Transition" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="SourceStateRef">
+														<xs:complexType>
+															<xs:sequence />
+															<xs:attribute name="idref" type="xs:string" />
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="DestinationStateRef">
+														<xs:complexType>
+															<xs:sequence />
+															<xs:attribute name="idref" type="xs:string" />
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="InputSymbolRef">
+														<xs:complexType>
+															<xs:sequence />
+															<xs:attribute name="idref" type="xs:string" />
+														</xs:complexType>
+													</xs:element>
+													<xs:element ref="attributes" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
@@ -86,10 +97,6 @@
 		</xs:complexType>
 		<xs:key name="Palladio.FiniteStateMachineKey2">
 			<xs:selector xpath=".//fsm:InputSymbol" />
-			<xs:field xpath="@fsm:id" />
-		</xs:key>
-		<xs:key name="Palladio.FiniteStateMachineKey3">
-			<xs:selector xpath=".//fsm:Transition" />
 			<xs:field xpath="@fsm:id" />
 		</xs:key>
 		<xs:key name="Palladio.FiniteStateMachineKey1">
@@ -114,6 +121,10 @@
 		</xs:keyref>
 		<xs:keyref name="InputSymbolInputSymbolRef" refer="Palladio.FiniteStateMachineKey2">
 			<xs:selector xpath=".//fsm:InputSymbolRef" />
+			<xs:field xpath="@fsm:idref" />
+		</xs:keyref>
+		<xs:keyref name="StateFinalState1" refer="Palladio.FiniteStateMachineKey1">
+			<xs:selector xpath=".//fsm:FinalState" />
 			<xs:field xpath="@fsm:idref" />
 		</xs:keyref>
 	</xs:element>
