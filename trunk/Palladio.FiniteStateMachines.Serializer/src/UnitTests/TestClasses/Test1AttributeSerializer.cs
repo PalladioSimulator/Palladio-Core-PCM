@@ -1,3 +1,4 @@
+using System;
 using System.Xml;
 using Palladio.Attributes;
 using Palladio.FiniteStateMachines.Serializer;
@@ -13,6 +14,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/09/12 19:02:42  joemal
+	/// some changes in xml schema
+	///
 	/// Revision 1.7  2005/09/08 07:24:23  joemal
 	/// to be continued ...
 	///
@@ -66,8 +70,8 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		public void SerializeAttribute (IAttributeType attributeType, IAttribute attribute, XmlWriter xmlWriter)
 		{
 			xmlWriter.WriteStartElement(this.XmlPrefix,"Value",this.XmlNamespace);
-			WriteElementString(xmlWriter, "val", "1.765");
-			WriteElementString(xmlWriter, "unit", "cm");
+			WriteElementString(xmlWriter, "Val", ((Test1Attribute)attribute).Value.ToString());
+			WriteElementString(xmlWriter, "Unit", ((Test1Attribute)attribute).Unit);
 			xmlWriter.WriteEndElement();
 		}
 
@@ -87,14 +91,15 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// <returns>The deserialized attribute information.</returns>
 		public AttributeInfo DeserializeAttribute (XmlNode xmlNode)
 		{
-/*			Test1AttributeType at = new Test1AttributeType();
-			if (!xmlNode.Attributes.GetNamedItem(this.XmlPrefix+":displayName").Value.Equals(at.DisplayName))
-			{
-				throw new ModelSerializationException("displayName was incorrect or not found");
-			}
+			XmlDocument doc = xmlNode.OwnerDocument;
+			XmlNamespaceManager mgr = new XmlNamespaceManager(doc.NameTable);
+			mgr.AddNamespace(this.XmlPrefix,this.XmlNamespace);
+			Test1AttributeType at = new Test1AttributeType();
+			XmlNode valueNode = xmlNode.SelectSingleNode(this.XmlPrefix+":Value",mgr);
+			string value = valueNode.SelectSingleNode(this.XmlPrefix+":Val",mgr).InnerText;
+			string unit = valueNode.SelectSingleNode(this.XmlPrefix+":Unit",mgr).InnerText;
 
-			return new AttributeInfo(new Test1Attribute(), at);*/
-			return new AttributeInfo();
+			return new AttributeInfo(new Test1Attribute(double.Parse(value),unit), at);
 		}
 
 		/// <summary>

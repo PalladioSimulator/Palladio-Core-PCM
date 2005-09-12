@@ -20,6 +20,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/09/12 19:02:42  joemal
+	/// some changes in xml schema
+	///
 	/// Revision 1.10  2005/09/08 07:24:23  joemal
 	/// to be continued ...
 	///
@@ -233,14 +236,14 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			StateHash states = FSMFactory.CreateStatesFromList("1","2","3");
 			InputSymbolHash inputs = FSMFactory.CreateInputFromList("a","b","c","eps");
 			
-			states.StoredStates[0].Attributes.Add(new Test1AttributeType(), new Test1Attribute());
-			states.StoredStates[1].Attributes.Add(new Test1AttributeType(), new Test1Attribute());
+			states.StoredStates[0].Attributes.Add(new Test1AttributeType(), new Test1Attribute(19.0,"cm"));
+			states.StoredStates[1].Attributes.Add(new Test1AttributeType(), new Test1Attribute(22.0,"dm"));
 
 			fsm.AddStates(states.StoredStates);
 			fsm.AddInputSymbols(inputs.StoredInputs);
 
 			ITransition t1 = FSMFactory.CreateDefaultTransition(states["1"],inputs["a"],states["1"]);
-			t1.Attributes.Add(new Test1AttributeType(), new Test1Attribute());
+			t1.Attributes.Add(new Test1AttributeType(), new Test1Attribute(13.0,"m"));
 			fsm.AddTransitions (t1);
 
 			fsm.AddTransitions (FSMFactory.CreateDefaultTransition(states["1"],inputs["b"],states["2"]));

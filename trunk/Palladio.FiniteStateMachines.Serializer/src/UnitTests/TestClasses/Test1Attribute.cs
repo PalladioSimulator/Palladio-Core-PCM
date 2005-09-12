@@ -11,6 +11,9 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/12 19:02:42  joemal
+	/// some changes in xml schema
+	///
 	/// Revision 1.1  2005/08/21 18:07:42  kelsaka
 	/// - added further tests
 	///
@@ -22,12 +25,25 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 	/// </remarks>
 	public class Test1Attribute : IAttribute
 	{
+		#region data
+
+		//holds the value
+		private double value;
+
+		//holds the unit of the value
+		private string unit;
+
+		#endregion
+
 		/// <summary>
-		/// Default.
+		/// called to create a new Test Attribute with given value and unit
 		/// </summary>
-		public Test1Attribute()
+		/// <param name="value">the value</param>
+		/// <param name="unit">the unit</param>
+		public Test1Attribute(double value, string unit)
 		{
-			
+			this.value = value;
+			this.unit = unit;
 		}
 
 		/// <summary>
@@ -36,18 +52,23 @@ namespace Palladio.FiniteStateMachines.UnitTests.TestClasses
 		/// <returns></returns>
 		public object Clone ()
 		{
-			return new Test1Attribute();
+			return new Test1Attribute(this.value,this.unit);
 		}
 
 		/// <summary>
-		/// Test property - returns "Test1-Property".
+		/// called to return the value of this attribute
 		/// </summary>
-		public string TestProperty
+		public double Value
 		{
-			get
-			{
-				return "Test1-Property";
-			}
+			get { return this.value; }
+		}
+
+		/// <summary>
+		/// called to return the unit of this attribute
+		/// </summary>
+		public string Unit
+		{
+			get { return unit; }
 		}
 	}
 }
