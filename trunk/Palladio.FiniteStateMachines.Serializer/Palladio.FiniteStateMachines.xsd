@@ -141,7 +141,7 @@
 				<xs:element name="Description" type="xs:string" />
 				<xs:element name="Name" type="xs:string" />
 				<xs:element name="ValueType" type="xs:string" />
-				<xs:any />
+				<xs:any minOccurs="0" maxOccurs="unbounded" />
 			</xs:sequence>
 			<xs:attribute name="type" type="xs:string" />
 		</xs:complexType>

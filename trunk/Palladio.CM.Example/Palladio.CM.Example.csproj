@@ -119,6 +119,11 @@
                     Project = "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "Palladio.FiniteStateMachines.Serializer"
+                    Project = "{CBA72BE5-D344-4508-B5A3-90E67449DA68}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

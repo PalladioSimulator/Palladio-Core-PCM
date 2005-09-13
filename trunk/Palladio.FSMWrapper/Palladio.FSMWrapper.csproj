@@ -94,6 +94,27 @@
                     Project = "{8FCBDED0-6436-4FE6-B99B-13F3BDE8D65C}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "Palladio.FiniteStateMachines.Serializer"
+                    Project = "{CBA72BE5-D344-4508-B5A3-90E67449DA68}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "nunit.framework"
+                    AssemblyName = "nunit.framework"
+                    HintPath = "C:\Programme\DotNet\nunit\\bin\nunit.framework.dll"
+                    AssemblyFolderKey = "hklm\dn\nunit.framework"
+                />
+                <Reference
+                    Name = "Palladio.Attributes"
+                    Project = "{7726B451-F155-4534-986E-8960C7BA4D97}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "ReflectionBasedVisitor"
+                    Project = "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
@@ -119,7 +140,21 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\FSMSignatureCall.xsd"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "src\FSMSignatureCall.xsx"
+                    DependentUpon = "FSMSignatureCall.xsd"
+                    BuildAction = "None"
+                />
+                <File
                     RelPath = "src\FSMWrapperFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FSMWrapperInputSerializer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -130,6 +165,11 @@
                 />
                 <File
                     RelPath = "src\IFSMSignatureCall.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\UnitTest\WrapperTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
