@@ -18,6 +18,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.21  2005/09/13 14:59:19  joemal
+	/// work around the fsm id problems
+	///
 	/// Revision 1.20  2005/09/12 19:02:42  joemal
 	/// some changes in xml schema
 	///
@@ -277,7 +280,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 				XmlNode inputNode = node.SelectSingleNode(XMLSerializer.XMLPREFIX+":InputSymbolRef",mgr);
 				IState srcState = efsm.GetState(srcNode.Attributes[XMLSerializer.XMLPREFIX+":idref"].Value);
 				IState destState = efsm.GetState(destNode.Attributes[XMLSerializer.XMLPREFIX+":idref"].Value);
-				IInput inp = FSMFactory.CreateDefaultInput(inputNode.Attributes[XMLSerializer.XMLPREFIX+":idref"].Value);
+				IInput inp = efsm.GetInput(inputNode.Attributes[XMLSerializer.XMLPREFIX+":idref"].Value);
 				ITransition transition = FSMFactory.CreateDefaultTransition(srcState,inp,destState);
 				
 				// handle attributes:

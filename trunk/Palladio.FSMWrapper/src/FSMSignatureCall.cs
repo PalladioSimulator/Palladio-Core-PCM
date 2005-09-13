@@ -1,6 +1,7 @@
 using System;
 using Palladio.ComponentModel.Identifier;
 using Palladio.FiniteStateMachines;
+using Palladio.FiniteStateMachines.DefaultFSM;
 
 namespace Palladio.FSMWrapper
 {
@@ -12,6 +13,9 @@ namespace Palladio.FSMWrapper
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/09/13 14:57:35  joemal
+	/// work around the fsm id problems
+	///
 	/// Revision 1.2  2005/08/25 16:45:38  joemal
 	/// add stream location to serializer
 	///
@@ -85,7 +89,7 @@ namespace Palladio.FSMWrapper
 		{
 			get
 			{
-				return this;
+				return new MatchableString(this.signatureId.Key);
 			}
 		}
 
@@ -100,6 +104,16 @@ namespace Palladio.FSMWrapper
 				return TYPE_GUID;
 			}
 		}
+
+		/// <summary>
+		/// called to return a string representation of this object
+		/// </summary>
+		/// <returns>the string representation</returns>
+		public override string ToString()
+		{
+			return this.signatureId.Key;
+		}
+
 
 	}
 }

@@ -12,6 +12,9 @@ namespace Palladio.FiniteStateMachines
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/09/13 14:57:55  joemal
+	/// work around the fsm id problems
+	///
 	/// Revision 1.2  2005/07/29 16:04:42  joemal
 	/// remove unused import
 	///
@@ -114,6 +117,13 @@ namespace Palladio.FiniteStateMachines
 		/// <param name="anID">ID of an input symbol of the FSM.</param>
 		/// <returns>The input symbol with the ID anID.</returns>
 		IInput GetInput(IMatchable anID);
+
+		/// <summary>
+		/// hier musste mal der Flickschuster ran :-)
+		/// </summary>
+		/// <param name="key">a key</param>
+		/// <returns>a input symbol </returns>
+		IInput GetInput(string key);
 
 		/// <summary>
 		/// Removes all unreachable states and transitions from the FSM.

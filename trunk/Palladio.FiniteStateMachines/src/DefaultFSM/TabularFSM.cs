@@ -13,6 +13,9 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/13 14:57:55  joemal
+	/// work around the fsm id problems
+	///
 	/// Revision 1.1  2005/02/21 13:19:37  joemal
 	/// initial import
 	///
@@ -292,6 +295,16 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 			if (inputAlphabet.Contains(anInputID))
 				return (IInput)inputAlphabet[anInputID];
 			throw new NoInputWithIDException(anInputID);
+		}
+
+		/// <summary>
+		/// hier musste mal der Flickschuster ran :-)
+		/// </summary>
+		/// <param name="key">a key</param>
+		/// <returns>a input symbol </returns>
+		public IInput GetInput(string key)
+		{
+			return this.GetInput(new MatchableString(key));
 		}
 
 		public void Clean()

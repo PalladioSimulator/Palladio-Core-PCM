@@ -8,13 +8,16 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// <remarks>
 	/// <pre>
 	/// $Log$
+	/// Revision 1.2  2005/09/13 14:57:55  joemal
+	/// work around the fsm id problems
+	///
 	/// Revision 1.1  2005/02/21 13:19:37  joemal
 	/// initial import
 	///
 	///
 	/// </pre>
 	/// </remarks>
-	internal class MatchableString : IMatchable 
+	public class MatchableString : IMatchable 
 	{
 		public bool Match(IMatchable other)
 		{
