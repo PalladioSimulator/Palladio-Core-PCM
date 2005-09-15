@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/09/15 10:40:41  kelsaka
+	/// - fixed test-bug
+	///
 	/// Revision 1.7  2005/09/15 09:11:02  kelsaka
 	/// - added new method GetAssemblyConnectors()
 	///
@@ -163,9 +166,10 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the ids of all assembly connectors at the static view.</returns>
 		public IConnectionIdentifier[] GetAssemblyConnectors ()
 		{
+			// TODO:
 			// Code from the QueryCompositeComponentImpl.cs:
-			/*ModelDataSet.CompRelationsRow[] compRelRows = (ModelDataSet.CompRelationsRow[]) 
-				this.Dataset.CompRelations.Select("fk_parent = '"+this.componentID.Key+"'");
+			ModelDataSet.CompRelationsRow[] compRelRows = (ModelDataSet.CompRelationsRow[]) 
+				this.Dataset.CompRelations.Select("fk_parent = 'null'");
 
 			ArrayList conIDs = new ArrayList();
 
@@ -175,11 +179,10 @@ namespace Palladio.ComponentModel.Query.Impl
 					conIDs.Add(ComponentModelIdentifier.CreateConnectionID(conRow.guid));
 			}
 
-			return (IConnectionIdentifier[]) conIDs.ToArray(typeof(IConnectionIdentifier));*/
+			return (IConnectionIdentifier[]) conIDs.ToArray(typeof(IConnectionIdentifier));
 
-
-			// TODO:
-			return new IConnectionIdentifier[0];
+			
+			//return new IConnectionIdentifier[0];
 		}
 
 		/// <summary>

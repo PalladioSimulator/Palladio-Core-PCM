@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using Palladio.ComponentModel.Builder;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.Query;
@@ -159,6 +160,34 @@ namespace Palladio.ComponentModel.UnitTests
 
 			Assert.IsNull(bc1Query.GetInterfaceOfSeff(seff.SeffID));
 			Assert.IsNull(bc1Query.GetSignatureOfSeff(seff.SeffID));
+		}
+
+		[Test]
+		public void QueryStaticViewAssemblyConnectors()
+		{
+			IBasicComponentTypeLevelBuilder bc1TLB =
+				model.BuilderManager.RootTypeLevelBuilder.AddNewBasicComponent("bc1");
+			ICompositeComponentTypeLevelBuilder cc1TLB = 
+				model.BuilderManager.RootTypeLevelBuilder.AddNewCompositeComponent("cc1");
+			
+			IInterfaceIdentifier if1ID =
+				model.BuilderManager.RootTypeLevelBuilder.CreateInterface("if1").InterfaceId;
+			IInterfaceIdentifier if2ID =
+				model.BuilderManager.RootTypeLevelBuilder.CreateInterface("if2").InterfaceId;
+
+			cc1TLB.AddExistingInterfaceAsProvides(if1ID);
+			cc1TLB.AddExistingInterfaceAsRequires(if2ID);
+
+			bc1TLB.AddExistingInterfaceAsRequires(if1ID);
+			
+			IConnectionIdentifier con = model.BuilderManager.RootTypeLevelBuilder.
+				AddAssemblyConnector("ac1", bc1TLB.ComponentId, if1ID, cc1TLB.ComponentId, if1ID);
+
+			IConnectionIdentifier[] cons = model.Query.QueryTypeLevel.QueryStaticView().GetAssemblyConnectors();
+			
+			Console.Out.WriteLine(cons.Length);
+			Assert.IsTrue(cons.Length == 1);
+			Assert.AreSame(con, cons[0]);
 		}
 
 		[Test]
