@@ -185,9 +185,8 @@ namespace Palladio.ComponentModel.UnitTests
 
 			IConnectionIdentifier[] cons = model.Query.QueryTypeLevel.QueryStaticView().GetAssemblyConnectors();
 			
-			Console.Out.WriteLine(cons.Length);
 			Assert.IsTrue(cons.Length == 1);
-			Assert.AreSame(con, cons[0]);
+			Assert.AreEqual(con, cons[0]);
 		}
 
 		[Test]
