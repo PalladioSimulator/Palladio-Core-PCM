@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Data;
 using Palladio.ComponentModel.Identifier;
@@ -18,6 +19,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/09/15 09:11:02  kelsaka
+	/// - added new method GetAssemblyConnectors()
+	///
 	/// Revision 1.6  2005/06/17 18:33:09  joemal
 	/// changes in the connection tables
 	///
@@ -149,6 +153,33 @@ namespace Palladio.ComponentModel.Query.Impl
 					return ComponentModelIdentifier.CreateConnectionID(conRow.guid);
 
 			return null;
+		}
+
+		/// <summary>
+		/// returns the ids of all assembly connectors that are contained in the static view, but not part
+		/// of internal composite components. This means, that only assembly connectors lying 
+		/// directly at the static view (with no outer composite component) are returned.
+		/// </summary>
+		/// <returns>the ids of all assembly connectors at the static view.</returns>
+		public IConnectionIdentifier[] GetAssemblyConnectors ()
+		{
+			// Code from the QueryCompositeComponentImpl.cs:
+			/*ModelDataSet.CompRelationsRow[] compRelRows = (ModelDataSet.CompRelationsRow[]) 
+				this.Dataset.CompRelations.Select("fk_parent = '"+this.componentID.Key+"'");
+
+			ArrayList conIDs = new ArrayList();
+
+			foreach(ModelDataSet.CompRelationsRow compRelRow in compRelRows)
+			{
+				foreach(ModelDataSet.AssemblyConnectorsRow conRow in compRelRow.GetAssemblyConnectorsRowsByCompRelAsmConReq())
+					conIDs.Add(ComponentModelIdentifier.CreateConnectionID(conRow.guid));
+			}
+
+			return (IConnectionIdentifier[]) conIDs.ToArray(typeof(IConnectionIdentifier));*/
+
+
+			// TODO:
+			return new IConnectionIdentifier[0];
 		}
 
 		/// <summary>

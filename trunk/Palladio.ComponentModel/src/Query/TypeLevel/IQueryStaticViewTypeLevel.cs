@@ -10,6 +10,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/09/15 09:11:02  kelsaka
+	/// - added new method GetAssemblyConnectors()
+	///
 	/// Revision 1.4  2005/06/05 10:40:28  joemal
 	/// - components now can be added to more than one container
 	///
@@ -69,6 +72,14 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// <returns>the id of the connection</returns>
 		IConnectionIdentifier GetAssemblyConnector(IComponentIdentifier reqCompID, IInterfaceIdentifier reqIFaceID,
 			IComponentIdentifier provCompID, IInterfaceIdentifier provIFaceID);
+
+		/// <summary>
+		/// returns the ids of all assembly connectors that are contained in the static view, but not part
+		/// of internal composite components. This means, that only assembly connectors lying 
+		/// directly at the static view (with no outer composite component) are returned.
+		/// </summary>
+		/// <returns>the ids of all assembly connectors at the static view.</returns>
+		IConnectionIdentifier[] GetAssemblyConnectors();
 
 		/// <summary>
 		/// returns the ids of all basic components which are placed directly in the static view root.
