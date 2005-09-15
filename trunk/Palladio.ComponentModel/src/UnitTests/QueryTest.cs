@@ -167,6 +167,8 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			IBasicComponentTypeLevelBuilder bc1TLB =
 				model.BuilderManager.RootTypeLevelBuilder.AddNewBasicComponent("bc1");
+			IBasicComponentTypeLevelBuilder bc2TLB =
+				model.BuilderManager.RootTypeLevelBuilder.AddNewBasicComponent("bc2");
 			ICompositeComponentTypeLevelBuilder cc1TLB = 
 				model.BuilderManager.RootTypeLevelBuilder.AddNewCompositeComponent("cc1");
 			
@@ -175,11 +177,24 @@ namespace Palladio.ComponentModel.UnitTests
 			IInterfaceIdentifier if2ID =
 				model.BuilderManager.RootTypeLevelBuilder.CreateInterface("if2").InterfaceId;
 
+			// add interfaces to components:
+			bc1TLB.AddExistingInterfaceAsRequires(if1ID);
+			bc1TLB.AddExistingInterfaceAsProvides(if2ID);
+
+			bc2TLB.AddExistingInterfaceAsRequires(if2ID);
+			bc2TLB.AddExistingInterfaceAsProvides(if1ID);
+
 			cc1TLB.AddExistingInterfaceAsProvides(if1ID);
 			cc1TLB.AddExistingInterfaceAsRequires(if2ID);
 
-			bc1TLB.AddExistingInterfaceAsRequires(if1ID);
-			
+			// put BCs into CC1:
+			cc1TLB.AddExistingComponent(bc1TLB.ComponentId);
+			cc1TLB.AddExistingComponent(bc2TLB.ComponentId);
+
+			// this CC1-internal assembly connector should *not* be found:
+			cc1TLB.AddAssemblyConnector("ac-internal", bc1TLB.ComponentId, if1ID, bc2TLB.ComponentId, if2ID); 
+
+			// outer (static view) assembly connector - should be found.
 			IConnectionIdentifier con = model.BuilderManager.RootTypeLevelBuilder.
 				AddAssemblyConnector("ac1", bc1TLB.ComponentId, if1ID, cc1TLB.ComponentId, if1ID);
 
