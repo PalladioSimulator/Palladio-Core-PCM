@@ -192,12 +192,13 @@ namespace Palladio.ComponentModel.UnitTests
 			cc1TLB.AddExistingComponent(bc2TLB.ComponentId);
 
 			// this CC1-internal assembly connector should *not* be found:
-			cc1TLB.AddAssemblyConnector("ac-internal", bc1TLB.ComponentId, if1ID, bc2TLB.ComponentId, if2ID); 
+			cc1TLB.AddAssemblyConnector("ac-internal", bc1TLB.ComponentId, if1ID, bc2TLB.ComponentId, if1ID); 
 
 			// outer (static view) assembly connector - should be found.
 			IConnectionIdentifier con = model.BuilderManager.RootTypeLevelBuilder.
 				AddAssemblyConnector("ac1", bc1TLB.ComponentId, if1ID, cc1TLB.ComponentId, if1ID);
 
+			// should only return the assembly connector lying directly at the static view:
 			IConnectionIdentifier[] cons = model.Query.QueryTypeLevel.QueryStaticView().GetAssemblyConnectors();
 			
 			Assert.IsTrue(cons.Length == 1);
