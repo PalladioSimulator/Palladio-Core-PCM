@@ -19,6 +19,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/09/15 10:53:58  kelsaka
+	/// - fixed bug in SELECT-Statement
+	///
 	/// Revision 1.8  2005/09/15 10:40:41  kelsaka
 	/// - fixed test-bug
 	///
@@ -166,10 +169,9 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>the ids of all assembly connectors at the static view.</returns>
 		public IConnectionIdentifier[] GetAssemblyConnectors ()
 		{
-			// TODO:
 			// Code from the QueryCompositeComponentImpl.cs:
 			ModelDataSet.CompRelationsRow[] compRelRows = (ModelDataSet.CompRelationsRow[]) 
-				this.Dataset.CompRelations.Select("fk_parent = 'null'");
+				this.Dataset.CompRelations.Select("fk_parent is null");
 
 			ArrayList conIDs = new ArrayList();
 
@@ -181,8 +183,6 @@ namespace Palladio.ComponentModel.Query.Impl
 
 			return (IConnectionIdentifier[]) conIDs.ToArray(typeof(IConnectionIdentifier));
 
-			
-			//return new IConnectionIdentifier[0];
 		}
 
 		/// <summary>
