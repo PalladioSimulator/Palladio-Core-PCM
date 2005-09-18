@@ -20,6 +20,9 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/09/18 15:36:40  joemal
+	/// fix some bugs
+	///
 	/// Revision 1.11  2005/09/12 19:02:42  joemal
 	/// some changes in xml schema
 	///
@@ -197,7 +200,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 				xmlDoc.Load(validatingReader);
 				validatingReader.Close();
 
-				serializer.Load(xmlDoc);
+				fsm = serializer.Load(xmlDoc);
 			}
 			catch (Exception e)
 			{

@@ -3,6 +3,7 @@ using System.Collections;
 using System.IO;
 using System.Xml;
 using Palladio.Attributes;
+using Palladio.FiniteStateMachines;
 using Palladio.FiniteStateMachines.Serializer.Interfaces;
 
 namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
@@ -73,6 +74,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.18  2005/09/18 15:36:40  joemal
+	/// fix some bugs
+	///
 	/// Revision 1.17  2005/09/08 07:24:22  joemal
 	/// to be continued ...
 	///
@@ -202,6 +206,18 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		{
 			FSMLoader loader = new FSMLoader();
 			return loader.Load(xmlDocument, attributeSerializerPlugins, inputSerializerPlugins);
+		}
+
+		/// <summary>
+		/// Loads a <see cref="XmlNode"/> from a <see cref="IFiniteStateMachine"/>.
+		/// </summary>
+		/// <param name="xmlNode">A xml node that represents a FSM.</param>
+		/// <returns>The deserialized <see cref="IFiniteStateMachine"/>, that was represented
+		/// by the xmlNode.</returns>
+		public IFiniteStateMachine Load(XmlNode xmlNode)
+		{
+			FSMLoader loader = new FSMLoader();
+			return loader.Load(xmlNode, attributeSerializerPlugins, inputSerializerPlugins);			
 		}
 
 		/// <summary>

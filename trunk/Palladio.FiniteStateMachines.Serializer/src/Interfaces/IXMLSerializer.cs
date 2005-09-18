@@ -14,6 +14,9 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/09/18 15:36:40  joemal
+	/// fix some bugs
+	///
 	/// Revision 1.8  2005/09/08 07:24:23  joemal
 	/// to be continued ...
 	///
@@ -50,12 +53,21 @@ namespace Palladio.FiniteStateMachines.Serializer.Interfaces
 		#region Load methods
 
 		/// <summary>
-		/// Loads a <see cref="IFiniteStateMachine"/> from a <see cref="XmlNode"/>.
+		/// Loads a <see cref="IFiniteStateMachine"/> from a <see cref="XmlDocument"/>.
 		/// </summary>
 		/// <param name="xmlDocument">A xml document that represents a FSM.</param>
 		/// <returns>The deserialized <see cref="IFiniteStateMachine"/>, that was represented
 		/// by the xmlNode.</returns>
 		IFiniteStateMachine Load(XmlDocument xmlDocument);
+
+		/// <summary>
+		/// Loads a <see cref="IFiniteStateMachine"/> from a <see cref="XmlNode"/>.
+		/// </summary>
+		/// <param name="xmlNode">A xml node that represents a FSM.</param>
+		/// <returns>The deserialized <see cref="IFiniteStateMachine"/>, that was represented
+		/// by the xmlNode.</returns>
+		IFiniteStateMachine Load(XmlNode xmlNode);
+
 		/// <summary>
 		/// Loads a <see cref="IFiniteStateMachine"/> from a <see cref="XmlNode"/>.
 		/// </summary>

@@ -18,6 +18,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.22  2005/09/18 15:36:40  joemal
+	/// fix some bugs
+	///
 	/// Revision 1.21  2005/09/13 14:59:19  joemal
 	/// work around the fsm id problems
 	///
@@ -113,7 +116,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		#region public methods
 
 		/// <summary>
-		/// Loads a <see cref="IFiniteStateMachine"/> from a <see cref="XmlNode"/>.
+		/// Loads a <see cref="IFiniteStateMachine"/> from a <see cref="XmlDocument"/>.
 		/// </summary>
 		/// <param name="xmlDocument">A xmlDocument that represents a FSM.</param>
 		/// <param name="attributeSerializerPlugins">A List of registered serializer plugins for <see cref="IAttribute"/>s.</param>
@@ -130,6 +133,32 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 			XmlNode rootNode = xmlDocument.DocumentElement.SelectSingleNode(
 				"//"+XMLSerializer.XMLPREFIX+":Palladio.FiniteStateMachine", mgr);
 			
+			ExtractStates(rootNode, mgr);
+			ExtractInputAlphabet(rootNode, mgr);
+			ExtractStructure(rootNode, mgr);
+
+			return efsm;
+		}
+
+		/// <summary>
+		/// Loads a <see cref="IFiniteStateMachine"/> from a <see cref="XmlNode"/>.
+		/// </summary>
+		/// <param name="xmlNode">A xmlNode that represents a FSM.</param>
+		/// <param name="attributeSerializerPlugins">A List of registered serializer plugins for <see cref="IAttribute"/>s.</param>
+		/// <param name="inputSerializerPlugins">A list of registered serializer plugins for <see cref="IInput"/>s.</param>
+		/// <returns>The deserialized <see cref="IFiniteStateMachine"/>, that was represented
+		/// by the xmlNode.</returns>
+		public IFiniteStateMachine Load (XmlNode xmlNode, Hashtable attributeSerializerPlugins, Hashtable inputSerializerPlugins)
+		{
+			this.attributeSerializerPlugins = attributeSerializerPlugins;
+			this.inputSerializerPlugins = inputSerializerPlugins;
+
+			XmlDocument xmlDocument = xmlNode.OwnerDocument;
+			XmlNamespaceManager mgr = new XmlNamespaceManager(xmlDocument.NameTable);
+			mgr.AddNamespace(XMLSerializer.XMLPREFIX, XMLSerializer.XMLNAMESPACE);
+
+			XmlNode rootNode = xmlNode.SelectSingleNode(XMLSerializer.XMLPREFIX+":Palladio.FiniteStateMachine", mgr);
+
 			ExtractStates(rootNode, mgr);
 			ExtractInputAlphabet(rootNode, mgr);
 			ExtractStructure(rootNode, mgr);
@@ -195,9 +224,10 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		//called t ectract the structure part of the xml file
 		private void ExtractStructure(XmlNode rootNode, XmlNamespaceManager mgr)
 		{
-			ExtractStartState(rootNode, mgr);
-			ExtractFinalStates(rootNode, mgr);
-			ExtractTransitions(rootNode, mgr);
+			XmlNode structNode = rootNode.SelectSingleNode(XMLSerializer.XMLPREFIX+":Structure", mgr);
+			ExtractStartState(structNode, mgr);
+			ExtractFinalStates(structNode, mgr);
+			ExtractTransitions(structNode, mgr);
 		}
 
 		/// <summary>
@@ -208,7 +238,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		private void ExtractStates (XmlNode rootNode, XmlNamespaceManager mgr)
 		{
 			// get states:
-			XmlNodeList stateList = rootNode.SelectSingleNode("//"+XMLSerializer.XMLPREFIX+":States", mgr).ChildNodes;
+			XmlNodeList stateList = rootNode.SelectSingleNode(XMLSerializer.XMLPREFIX+":States", mgr).ChildNodes;
 
 			IState state;
 			foreach(XmlNode node in stateList)
@@ -244,7 +274,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		private void ExtractStartState(XmlNode rootNode, XmlNamespaceManager mgr)
 		{
 			efsm.StartState = efsm.
-				GetState(rootNode.SelectSingleNode("//"+XMLSerializer.XMLPREFIX+":StartState", mgr).
+				GetState(rootNode.SelectSingleNode(XMLSerializer.XMLPREFIX+":StartState", mgr).
 				Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":idref").Value);	
 		}
 
@@ -256,7 +286,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		private void ExtractFinalStates(XmlNode rootNode, XmlNamespaceManager mgr)
 		{
 			ArrayList finalStates = new ArrayList();
-			XmlNodeList nodes = rootNode.SelectSingleNode("//"+XMLSerializer.XMLPREFIX+":FinalStates", mgr).ChildNodes;
+			XmlNodeList nodes = rootNode.SelectSingleNode(XMLSerializer.XMLPREFIX+":FinalStates", mgr).ChildNodes;
 			foreach(XmlNode node in nodes)
 			{
 				finalStates.Add(efsm.GetState(node.Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":idref").Value));
@@ -272,7 +302,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <param name="mgr">namespace management to be applied</param>
 		private void ExtractTransitions(XmlNode rootNode, XmlNamespaceManager mgr)
 		{
-			XmlNodeList nodes = rootNode.SelectSingleNode("//"+XMLSerializer.XMLPREFIX+":Transitions", mgr).ChildNodes;
+			XmlNodeList nodes = rootNode.SelectSingleNode(XMLSerializer.XMLPREFIX+":Transitions", mgr).ChildNodes;
 			foreach(XmlNode node in nodes)
 			{
 				XmlNode srcNode = node.SelectSingleNode(XMLSerializer.XMLPREFIX+":SourceStateRef",mgr);
@@ -337,7 +367,7 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <param name="mgr">namespace management to be applied</param>
 		private void ExtractInputAlphabet(XmlNode rootNode, XmlNamespaceManager mgr)
 		{
-			XmlNodeList nodes = rootNode.SelectSingleNode("//"+XMLSerializer.XMLPREFIX+":InputSymbolAlphabet", mgr).ChildNodes;
+			XmlNodeList nodes = rootNode.SelectSingleNode(XMLSerializer.XMLPREFIX+":InputSymbolAlphabet", mgr).ChildNodes;
 			foreach(XmlNode node in nodes)
 			{
 
