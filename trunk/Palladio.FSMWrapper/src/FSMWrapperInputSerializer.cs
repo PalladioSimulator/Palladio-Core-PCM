@@ -6,7 +6,7 @@ using Palladio.FiniteStateMachines;
 using Palladio.FiniteStateMachines.Serializer;
 using Palladio.FiniteStateMachines.Serializer.Interfaces;
 
-namespace Palladio.FSMWrapper.src
+namespace Palladio.FSMWrapper
 {
 	/// <summary>
 	/// The fsm serializer plugin for <code>FSMSignatureCall</code> (extension of <code>IInput</code>).
@@ -16,6 +16,9 @@ namespace Palladio.FSMWrapper.src
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/18 15:37:59  joemal
+	/// now connected to the cm
+	///
 	/// Revision 1.1  2005/09/13 14:56:39  joemal
 	/// initial creation
 	///

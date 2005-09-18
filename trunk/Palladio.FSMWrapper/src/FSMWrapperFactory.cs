@@ -1,4 +1,3 @@
-using System;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.Serialization.Xml;
@@ -15,6 +14,9 @@ namespace Palladio.FSMWrapper
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/09/18 15:37:59  joemal
+	/// now connected to the cm
+	///
 	/// Revision 1.2  2005/08/30 13:42:34  kelsaka
 	/// - FSMWrappers are returning new public interface
 	/// - added query for all existing SEFFs in CM
@@ -78,7 +80,7 @@ namespace Palladio.FSMWrapper
 		/// <returns>the plugin</returns>
 		public static IXmlProtocolPlugIn CreateFSMProtocolPlugin()
 		{
-			throw new NotImplementedException("to be implemented ...");
+			return new FSMXmlPlugin();
 		}
 
 		/// <summary>
@@ -88,7 +90,7 @@ namespace Palladio.FSMWrapper
 		/// <returns>the plugin</returns>
 		public static IXmlSeffPlugIn CreateFSMSeffPlugin()
 		{
-			throw new NotImplementedException("to be implemented ...");
+			return new FSMXmlPlugin();
 		}
 
 		/// <summary>

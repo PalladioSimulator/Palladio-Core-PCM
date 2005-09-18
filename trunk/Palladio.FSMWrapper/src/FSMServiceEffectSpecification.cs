@@ -15,6 +15,9 @@ namespace Palladio.FSMWrapper
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/09/18 15:37:59  joemal
+	/// now connected to the cm
+	///
 	/// Revision 1.2  2005/08/30 13:42:34  kelsaka
 	/// - FSMWrappers are returning new public interface
 	/// - added query for all existing SEFFs in CM
@@ -31,7 +34,7 @@ namespace Palladio.FSMWrapper
 		#region data
 		
 		//the type id of the wrapper
-		private static ISeffTypeIdentifier SEFFTYPEID=
+		public static ISeffTypeIdentifier SEFFTYPEID=
 			ComponentModelIdentifier.CreateSeffTypeID("93295E86-E9C0-4f6c-9710-91AACDCC17C1");
 
 		//holds the fsm

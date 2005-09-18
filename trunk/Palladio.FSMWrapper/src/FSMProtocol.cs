@@ -15,6 +15,9 @@ namespace Palladio.FSMWrapper
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/09/18 15:37:59  joemal
+	/// now connected to the cm
+	///
 	/// Revision 1.2  2005/07/29 16:29:17  joemal
 	/// move #endregion a view lines
 	///
@@ -30,7 +33,7 @@ namespace Palladio.FSMWrapper
 		#region data
 		
 		//the type id of the wrapper
-		private static IProtocolTypeIdentifier PROTTYPEID=
+		public static IProtocolTypeIdentifier PROTTYPEID=
 			ComponentModelIdentifier.CreateProtocolTypeID("F0D7D670-AA37-4cdf-A094-E5547198E469");
 
 		//holds the fsm

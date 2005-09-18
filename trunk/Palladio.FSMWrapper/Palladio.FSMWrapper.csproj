@@ -115,6 +115,11 @@
                     Project = "{0B58EB89-A90A-4C44-8B3D-CEF6D20B2630}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "Palladio.Serialization"
+                    Project = "{D060F299-7C13-4834-882D-DDFC044A78B1}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
@@ -124,6 +129,7 @@
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
+                <Folder RelPath = "bin\Debug\" />
                 <File
                     RelPath = "src\FSMProtocol.cs"
                     SubType = "Code"
@@ -155,6 +161,11 @@
                 />
                 <File
                     RelPath = "src\FSMWrapperInputSerializer.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\FSMXmlProtocolPlugIn.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -9,7 +9,7 @@ using Palladio.FiniteStateMachines;
 using Palladio.FiniteStateMachines.Serializer;
 using Palladio.FiniteStateMachines.Serializer.DefaultImplementation;
 using Palladio.FiniteStateMachines.Serializer.Interfaces;
-using Palladio.FSMWrapper.src;
+using Palladio.FSMWrapper;
 
 namespace Palladio.FSMWrapper.UnitTest
 {
