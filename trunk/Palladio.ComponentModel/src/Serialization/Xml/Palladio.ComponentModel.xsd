@@ -16,6 +16,8 @@
 								<xs:element name="Signature" maxOccurs="unbounded" minOccurs="0" type="Signature"></xs:element>
 								<xs:element name="Protocol" maxOccurs="unbounded" minOccurs="0" type="Protocol"></xs:element>
 								<xs:element name="Connector" maxOccurs="unbounded" minOccurs="0" type="Connector"></xs:element>
+								<xs:element name="ServiceEffectSpecification" type="ServiceEffectSpecification" minOccurs="0"
+									maxOccurs="unbounded"></xs:element>
 							</xs:choice>
 						</xs:sequence>
 					</xs:complexType>
@@ -220,6 +222,25 @@
 										<xs:attribute name="guid" type="GUID" />
 									</xs:complexType>
 								</xs:element>
+								<xs:element name="ServiceEffectSpecification" minOccurs="0" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="Interface">
+												<xs:complexType>
+													<xs:sequence />
+													<xs:attribute name="guid" type="xs:string" />
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="Signature">
+												<xs:complexType>
+													<xs:sequence />
+													<xs:attribute name="guid" type="xs:string" />
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+										<xs:attribute name="guid" type="xs:string" />
+									</xs:complexType>
+								</xs:element>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -295,5 +316,16 @@
 			<xs:any minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 		<xs:attribute name="typeid" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="ServiceEffectSpecification">
+		<xs:complexContent>
+			<xs:extension base="xs:anyType">
+				<xs:sequence>
+					<xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+				<xs:attribute name="type" type="GUID" />
+				<xs:attribute name="guid" type="GUID" />
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 </xs:schema>

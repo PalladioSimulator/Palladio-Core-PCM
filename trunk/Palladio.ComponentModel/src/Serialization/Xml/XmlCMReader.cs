@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/09/18 15:36:23  joemal
+	/// add fsm seffs and protocols
+	///
 	/// Revision 1.8  2005/08/30 14:59:41  kelsaka
 	/// - fixed bugs
 	///
@@ -228,6 +231,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				string name = ExtractEntityName(compNode,mgr);
 				IBasicComponentBuilder compBuilder = typeLevelBuilder.CreateBasicComponent(compID,name);
 				ExtractComponentIfaces(compBuilder,compNode,mgr);
+				ExtractSeffs(compBuilder,typeLevelNode,compNode,mgr);
 				ExtractEntityAttributes(compBuilder.Component,compNode,mgr);
 			}		
 
@@ -249,6 +253,34 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				ICompositeComponentBuilder compBuilder = this.builderManager.GetCompositeComponentTypeLevelBuilder(compID);
 				BuildCompositeComponent(compBuilder,typeLevelNode,compNode,mgr);
 			}		
+		}
+
+		//adds the seffs to a basic component
+		private void ExtractSeffs(IBasicComponentBuilder builder,XmlNode typelevelNode ,XmlNode bcNode, XmlNamespaceManager mgr)
+		{
+			XmlNodeList seffRefNodes = bcNode.SelectNodes("cm:Structure/cm:ServiceEffectSpecification",mgr);
+			foreach(XmlNode seffRefNode in seffRefNodes)
+			{
+				string guid = seffRefNode.Attributes["guid"].Value;
+				XmlNode entityNode = GetEntityNode(guid, typelevelNode,mgr);
+				IServiceEffectSpecification seff = ExtractSeff(entityNode);
+				IInterfaceIdentifier ifaceId = (IInterfaceIdentifier) 
+					ExtractEntityIdentifier(seffRefNode.SelectSingleNode("cm:Interface",mgr));
+				ISignatureIdentifier sigId = (ISignatureIdentifier) 
+					ExtractEntityIdentifier(seffRefNode.SelectSingleNode("cm:Signature",mgr));
+				builder.AddServiceEffectSpecification(seff,ifaceId,sigId);
+			}	
+		}
+
+		//extract a seff
+		private IServiceEffectSpecification ExtractSeff(XmlNode seffNode)
+		{
+			string typeGuid = seffNode.Attributes["type"].Value;
+			IXmlSeffPlugIn plugIn = (IXmlSeffPlugIn) this.plugins[new InternalEntityIdentifier(typeGuid)];
+			if (plugIn == null)
+				throw new ModelSerializationException("No plugin found for sefftype "+typeGuid+".");
+			ISeffIdentifier seffId = new InternalEntityIdentifier(seffNode.Attributes["guid"].Value);
+			return plugIn.LoadSeff(seffId, seffNode);
 		}
 
 		#endregion
@@ -405,7 +437,8 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			IXmlProtocolPlugIn plugIn = (IXmlProtocolPlugIn) this.plugins[new InternalEntityIdentifier(typeGuid)];
 			if (plugIn == null)
 				throw new ModelSerializationException("No plugin found for protocoltype "+typeGuid+".");
-			return plugIn.LoadProtocol(protocolNode);
+			IProtocolIdentifier protId = new InternalEntityIdentifier(protocolNode.Attributes["guid"].Value);
+			return plugIn.LoadProtocol(protId, protocolNode);
 		}
 
 		//extract the identifier of an entity or entity reference

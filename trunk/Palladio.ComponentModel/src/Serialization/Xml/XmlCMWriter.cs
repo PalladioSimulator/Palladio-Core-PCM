@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/09/18 15:36:23  joemal
+	/// add fsm seffs and protocols
+	///
 	/// Revision 1.10  2005/08/25 16:45:38  joemal
 	/// add stream location to serializer
 	///
@@ -169,6 +172,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			WriteInterfaces(writer,query.QueryRepository.GetInterfaces());
 			WriteSignatures(writer,query.QueryRepository.GetSignatures());
 			WriteProtocols(writer,query.QueryRepository.GetProtocols());
+			WriteSeffs(writer,query.QueryRepository.GetServiceEffectSpecifications());
 			WriteConnections(writer,query.QueryRepository.GetConnections());
 
 			writer.WriteEndElement();
@@ -197,8 +201,43 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				writer.WriteStartElement("Structure");			
 				WriteRefs(writer,"ProvidesInterface",query.QueryTypeLevel.QueryComponent(comp.ComponentID).GetProvidesInterfaceIDs());
 				WriteRefs(writer,"RequiresInterface",query.QueryTypeLevel.QueryComponent(comp.ComponentID).GetRequiresInterfaceIDs());
+
+				WriteSeffRefs(writer,comp.ComponentID);
 				writer.WriteEndElement();
 				writer.WriteEndElement();				
+			}
+		}
+
+		//writes the references to the listed seffs
+		private void WriteSeffRefs(XmlWriter writer,IComponentIdentifier bcId)
+		{
+			IQueryBasicComponentTypeLevel bcQuery = query.QueryTypeLevel.QueryBasicComponent(bcId);
+			ISeffIdentifier[] seffIds = bcQuery.GetServiceEffectSpecifications();
+
+			foreach(ISeffIdentifier seffID in seffIds)
+			{
+				ISignatureIdentifier sigId = bcQuery.GetSignatureOfSeff(seffID);
+				IInterfaceIdentifier ifaceId = bcQuery.GetInterfaceOfSeff(seffID);
+				writer.WriteStartElement("ServiceEffectSpecification");
+				writer.WriteAttributeString("guid",seffID.Key);
+				WriteRefs(writer,"Interface",ifaceId);
+				WriteRefs(writer,"Signature",sigId);
+				writer.WriteEndElement();
+			}
+		}
+		//writes the given seffs
+		private void WriteSeffs(XmlWriter writer, params IServiceEffectSpecification[] seffs)
+		{
+			foreach(IServiceEffectSpecification seff in seffs)
+			{
+				writer.WriteStartElement("ServiceEffectSpecification");
+				writer.WriteAttributeString("type",seff.SeffTypeID.Key);
+				writer.WriteAttributeString("guid",seff.SeffID.Key);
+				IXmlSeffPlugIn seffPlugIn = (IXmlSeffPlugIn) plugins[seff.SeffTypeID];
+				if (seffPlugIn == null)
+					throw new ModelSerializationException("No plugin found for seff \""+seff.SeffTypeID.Key+"\".");
+				seffPlugIn.SaveSeff(writer, seff);
+				writer.WriteEndElement();
 			}
 		}
 

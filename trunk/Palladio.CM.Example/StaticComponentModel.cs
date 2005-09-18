@@ -19,6 +19,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/09/18 15:36:05  joemal
+	/// add fsm seffs and protocols
+	///
 	/// Revision 1.12  2005/08/25 16:45:38  joemal
 	/// add stream location to serializer
 	///
@@ -161,8 +164,7 @@ namespace Palladio.CM.Example
 			basicComponentTypeLevelBuilder.AddExistingInterfaceAsProvides(provIfaceID);
 			basicComponentTypeLevelBuilder.AddExistingInterfaceAsRequires(reqIFaceID);
 			ISignatureIdentifier sigId = this.Query.QueryInterface(provIfaceID).GetSignatures()[0];
-			//todo: uncomment when the plugin is ready
-			//basicComponentTypeLevelBuilder.AddServiceEffectSpecification(CreateSeffBC2(sigId,reqIFaceID),provIfaceID,sigId);
+			basicComponentTypeLevelBuilder.AddServiceEffectSpecification(CreateSeffBC2(sigId,reqIFaceID),provIfaceID,sigId);
 			return basicComponentTypeLevelBuilder.Component.ComponentID;
 		}
 
@@ -171,9 +173,8 @@ namespace Palladio.CM.Example
 			IInterfaceIdentifier provIfaceID)
 		{
 			basicComponentTypeLevelBuilder.AddExistingInterfaceAsProvides(provIfaceID);
-			ISignatureIdentifier sigId = this.Query.QueryInterface(provIfaceID).GetSignatures()[0];
-			//todo: uncomment when the plugin is ready
-			//basicComponentTypeLevelBuilder.AddServiceEffectSpecification(CreateSeffBC1(),provIfaceID,sigId);
+			ISignatureIdentifier sigId = this.Query.QueryInterface(provIfaceID).GetSignatures()[0];			
+			basicComponentTypeLevelBuilder.AddServiceEffectSpecification(CreateSeffBC1(),provIfaceID,sigId);
 			return basicComponentTypeLevelBuilder.Component.ComponentID;
 		}
 
@@ -182,8 +183,7 @@ namespace Palladio.CM.Example
 		{
 			ISignatureBuilder sigBuilder = levelBuilder.AddSignature("WriteSomething");
 			sigBuilder.AppendParameter(TypesFactory.CreateStringType("System.string"),"filename",ParameterModifierEnum.REF);
-			//todo: uncomment when the plugin is ready
-			//levelBuilder.AddProtocol(CreateSimpleProtocol(levelBuilder.InterfaceId,sigBuilder.SignatureId));
+			levelBuilder.AddProtocol(CreateSimpleProtocol(levelBuilder.InterfaceId,sigBuilder.SignatureId));
 			return levelBuilder.Interface.InterfaceID;
 		}
 
@@ -192,8 +192,7 @@ namespace Palladio.CM.Example
 		{
 			ISignatureBuilder sigBuilder = levelBuilder.AddSignature("WriteToDisk");
 			sigBuilder.AppendParameter(TypesFactory.CreateStringType("System.string"),"filename",ParameterModifierEnum.REF);
-			//todo: uncomment when the plugin is ready
-			//levelBuilder.AddProtocol(CreateSimpleProtocol(levelBuilder.InterfaceId,sigBuilder.SignatureId));
+			levelBuilder.AddProtocol(CreateSimpleProtocol(levelBuilder.InterfaceId,sigBuilder.SignatureId));
 			return levelBuilder.Interface.InterfaceID;
 		}
 

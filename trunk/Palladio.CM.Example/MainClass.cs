@@ -3,9 +3,9 @@ using System.Collections;
 using System.IO;
 using Palladio.CM.Example.Presentation;
 using Palladio.ComponentModel;
-using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.Serialization;
 using Palladio.ComponentModel.Serialization.Xml;
+using Palladio.FSMWrapper;
 using Palladio.Serialization;
 using Palladio.Types;
 
@@ -19,6 +19,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.15  2005/09/18 15:36:05  joemal
+	/// add fsm seffs and protocols
+	///
 	/// Revision 1.14  2005/08/25 16:45:38  joemal
 	/// add stream location to serializer
 	///
@@ -84,16 +87,13 @@ namespace Palladio.CM.Example
 		static void Main(string[] args)
 		{
 			MainClass test = new MainClass();
-			Console.WriteLine("Push empty model to stack ...");
-			test.PushModelToStack();
-            test.BuildModel();
-			Console.WriteLine("Push a model with three components to stack.");
-			test.PushModelToStack();
+			test.BuildModel();
+			test.SaveModel("test1.xml");
 			test.ClearModel();
-			test.PopModelFromStack();
-			test.Paint();
-			test.PopModelFromStack();
-			test.Paint();
+			test.LoadModel("test1.xml");
+			test.SaveModel("test2.xml");
+			test.ClearModel();
+			test.LoadModel("test2.xml");
 		}
 
 		/// <summary>
@@ -114,6 +114,8 @@ namespace Palladio.CM.Example
 			//here the chance to register xml serializerplugins that are used to serialize protocols,
 			//attributes and service effect specifications
 			//xmlSerializer.RegisterAttributePlugin(xxx);
+			xmlSerializer.RegisterProcotocolPlugin(FSMWrapperFactory.CreateFSMProtocolPlugin());
+			xmlSerializer.RegisterSeffPlugin(FSMWrapperFactory.CreateFSMSeffPlugin());
 			xmlSerializer.RegisterTypePlugin(TypesFactory.CreateStringTypeXMLSerializerPlugin());
 			modelEnvironment.SerializationManager.RegisterSerializer(xmlSerializer);
 
@@ -134,12 +136,13 @@ namespace Palladio.CM.Example
 		/// <summary>
 		/// call to save the current model to disk (test.xml in execution directory)
 		/// </summary>
-		public void SaveModel()
+		/// <param name="filename">the filename</param>
+		public void SaveModel(string filename)
 		{
 			Console.WriteLine("Try to store the model to file test.xml");
 			try
 			{
-				modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation("test.xml"));			
+				modelEnvironment.SerializationManager.Store(DefaultSerializerFactory.CreateXmlLocation(filename));			
 			}
 			catch(ModelSerializationException exc)
 			{
@@ -151,12 +154,13 @@ namespace Palladio.CM.Example
 		/// <summary>
 		/// call to load the current model from disk (test.xml in execution directory)
 		/// </summary>
-		public void LoadModel()
+		/// <param name="filename">thze filename</param>
+		public void LoadModel(string filename)
 		{
 			Console.WriteLine("Try to load the xmlfile ..");
 			try 
 			{
-				modelEnvironment.SerializationManager.Load(DefaultSerializerFactory.CreateXmlLocation("test.xml"));				
+				modelEnvironment.SerializationManager.Load(DefaultSerializerFactory.CreateXmlLocation(filename));				
 			}
 			catch(ModelSerializationException exc)
 			{

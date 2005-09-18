@@ -13,6 +13,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/18 15:36:23  joemal
+	/// add fsm seffs and protocols
+	///
 	/// Revision 1.1  2005/07/29 16:00:56  joemal
 	/// initial creation
 	///
@@ -27,7 +30,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		/// </summary>
 		/// <param name="seffNode">the xml node with the seff</param>
 		/// <returns>the seff</returns>
-		IServiceEffectSpecification LoadSeff(XmlNode seffNode);
+		IServiceEffectSpecification LoadSeff(ISeffIdentifier seffId, XmlNode seffNode);
 
 		/// <summary>
 		/// called by the serializer, when a seff has to be saved to the given xml writer. The type of the seff is
@@ -35,12 +38,12 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		/// </summary>
 		/// <param name="xmlWriter">the xml writer</param>
 		/// <param name="seff">the seff</param>
-		void SaveProtocol(XmlWriter xmlWriter, IServiceEffectSpecification seff);
+		void SaveSeff(XmlWriter xmlWriter, IServiceEffectSpecification seff);
 
 		/// <summary>
 		/// returns an array of supported seff types
 		/// </summary>
-		ISeffTypeIdentifier[] SupportedTypes
+		ISeffTypeIdentifier[] SupportedSeffs
 		{
 			get;
 		}

@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/09/18 15:36:23  joemal
+	/// add fsm seffs and protocols
+	///
 	/// Revision 1.5  2005/08/25 16:45:38  joemal
 	/// add stream location to serializer
 	///
@@ -136,7 +139,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		/// <param name="plugIn">the plugin</param>
 		public void RegisterProcotocolPlugin(IXmlProtocolPlugIn plugIn)
 		{
-			RegisterPlugIn(plugIn,plugIn.SupportedTypes);
+			RegisterPlugIn(plugIn,plugIn.SupportedProtocols);
 		}
 
 		/// <summary>
@@ -154,7 +157,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		/// <param name="plugIn">the plugin</param>
 		public void RegisterSeffPlugin(IXmlSeffPlugIn plugIn)
 		{
-			this.RegisterPlugIn(plugIn,plugIn.SupportedTypes);
+			this.RegisterPlugIn(plugIn,plugIn.SupportedSeffs);
 		}
 
 		/// <summary>
