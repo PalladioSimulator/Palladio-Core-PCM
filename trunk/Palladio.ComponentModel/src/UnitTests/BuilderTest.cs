@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.30  2005/09/20 16:11:27  kelsaka
+	/// - added test case
+	///
 	/// Revision 1.29  2005/09/07 20:53:17  joemal
 	/// fix bug in constraint
 	///
@@ -360,6 +363,20 @@ namespace Palladio.ComponentModel.UnitTests
 			Identifier.IConnectionIdentifier conID = ccB.AddProvidesDelegationConnector("ProvDelCon1",ifaceID,bcB.ComponentId,ifaceID);
 
 			ccB.RemoveConnection(conID);
+		}
+
+		[Test]
+		public void DestroyCC()
+		{	
+			Assert.IsTrue(rootBuilder.QueryRepository.GetComponents().Length == 0);
+			IBasicComponentTypeLevelBuilder bcB = rootBuilder.CreateBasicComponent("bc1");
+			Assert.IsTrue(rootBuilder.QueryRepository.GetComponents().Length == 1);
+			ICompositeComponentTypeLevelBuilder ccB = rootBuilder.CreateCompositeComponent("C1");
+			Assert.IsTrue(rootBuilder.QueryRepository.GetComponents().Length == 2);
+			rootBuilder.DestroyComponent(ccB.ComponentId);		
+			Assert.IsTrue(rootBuilder.QueryRepository.GetComponents().Length == 1);
+			rootBuilder.DestroyComponent(bcB.ComponentId);	
+			Assert.IsTrue(rootBuilder.QueryRepository.GetComponents().Length == 0);
 		}
 
 		[Test]
