@@ -75,6 +75,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/09/20 08:54:36  kelsaka
+	/// - Added support for FSMs without start state
+	///
 	/// Revision 1.13  2005/09/12 19:02:42  joemal
 	/// some changes in xml schema
 	///
@@ -293,10 +296,13 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <param name="fsm">FSM to serialize.</param>
 		private void writeStartState(XmlWriter xmlWriter, IFiniteStateMachine fsm)
 		{
-			xmlWriter.WriteComment("The start state of the FSM:");
-			xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "StartState", XMLSerializer.XMLNAMESPACE);
-			xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "idref", XMLSerializer.XMLNAMESPACE, fsm.StartState.ID);
-			xmlWriter.WriteEndElement();
+			if(fsm.HasStartState)
+			{
+				xmlWriter.WriteComment("The start state of the FSM:");
+				xmlWriter.WriteStartElement(XMLSerializer.XMLPREFIX, "StartState", XMLSerializer.XMLNAMESPACE);
+				xmlWriter.WriteAttributeString(XMLSerializer.XMLPREFIX, "idref", XMLSerializer.XMLNAMESPACE, fsm.StartState.ID);
+				xmlWriter.WriteEndElement();
+			}
 		}
 
 		/// <summary>

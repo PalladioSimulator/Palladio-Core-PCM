@@ -18,6 +18,9 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.23  2005/09/20 08:54:36  kelsaka
+	/// - Added support for FSMs without start state
+	///
 	/// Revision 1.22  2005/09/18 15:36:40  joemal
 	/// fix some bugs
 	///
@@ -273,9 +276,14 @@ namespace Palladio.FiniteStateMachines.Serializer.DefaultImplementation
 		/// <param name="mgr">namespace management to be applied</param>
 		private void ExtractStartState(XmlNode rootNode, XmlNamespaceManager mgr)
 		{
-			efsm.StartState = efsm.
-				GetState(rootNode.SelectSingleNode(XMLSerializer.XMLPREFIX+":StartState", mgr).
-				Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":idref").Value);	
+			XmlNode startStateNode = rootNode.SelectSingleNode(XMLSerializer.XMLPREFIX+":StartState", mgr);
+			// allow loading with no definded start states:
+			if(startStateNode != null)
+			{
+				efsm.StartState = efsm.
+					GetState(startStateNode.
+					Attributes.GetNamedItem(XMLSerializer.XMLPREFIX+":idref").Value);	
+			}
 		}
 
 		/// <summary>
