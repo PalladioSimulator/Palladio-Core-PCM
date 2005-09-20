@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/09/20 09:50:06  kelsaka
+	/// - fixed typo
+	///
 	/// Revision 1.8  2005/09/20 09:35:16  kelsaka
 	/// - added implementation for GetDelegationConnectors () and GetAssemblyConnectors ()
 	///
@@ -163,7 +166,7 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>an array of connections</returns>
 		public IConnection[] GetDelegationConnectors ()
 		{
-			// get all Assembly Connectors:
+			// get all Delegation Connectors:
 			DataRow[] resultRow = this.Dataset.DelegationConnectors.Select();
 
 			ArrayList result = new ArrayList();
