@@ -45,6 +45,16 @@ namespace Palladio.ComponentModel.UnitTests
 		}
 
 		[Test]
+		public void QuerySignature()
+		{
+			StaticComponentModel.Create(model);
+			Assert.AreEqual(model.Query.QueryTypeLevel.
+				QuerySignature(StaticComponentModel.SIG2ID).GetInterface(),StaticComponentModel.IWRITERBEID);
+			Assert.AreEqual(model.Query.QueryTypeLevel.
+				QuerySignature(StaticComponentModel.SIG1ID).GetInterface(),StaticComponentModel.IWRITERID);
+		}
+
+		[Test]
 		public void QueryComponentTest()
 		{
 			StaticComponentModel.Create(model);

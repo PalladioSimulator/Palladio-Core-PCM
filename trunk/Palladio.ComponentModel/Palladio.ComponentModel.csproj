@@ -741,6 +741,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Query\Impl\QuerySignatureImpl.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Query\Impl\QueryStaticViewImpl.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -771,6 +776,11 @@
                 />
                 <File
                     RelPath = "src\Query\TypeLevel\IQueryInterfaceTypeLevel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Query\TypeLevel\IQuerySignatureTypeLevel.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

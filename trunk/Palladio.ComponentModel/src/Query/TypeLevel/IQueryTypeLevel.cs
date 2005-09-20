@@ -11,6 +11,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/09/20 15:07:44  fst
+	/// add new query for signatures
+	///
 	/// Revision 1.2  2005/04/19 16:47:41  joemal
 	/// implement query methods
 	///
@@ -74,5 +77,13 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		/// <returns>the queryinterface</returns>
 		/// <exception cref="EntityNotFoundException">thrown if the interface could not be found in the model.</exception>
 		IQueryInterfaceTypeLevel QueryInterface(IInterfaceIdentifier ifaceID);
+
+		/// <summary>
+		/// returns an interface that contains several methods to query entities and relations that belong 
+		/// to a signature.
+		/// </summary>
+		/// <param name="sigId">the id of the signature</param>
+		/// <returns>the query interface</returns>
+		IQuerySignatureTypeLevel QuerySignature(ISignatureIdentifier sigId);
 	}
 }

@@ -16,6 +16,9 @@ namespace Palladio.ComponentModel.Query
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/09/20 15:07:44  fst
+	/// add new query for signatures
+	///
 	/// Revision 1.2  2005/07/30 15:43:48  joemal
 	/// add basiccomponent queries (for seffs)
 	///
@@ -128,6 +131,17 @@ namespace Palladio.ComponentModel.Query
 		public IQueryInterfaceTypeLevel QueryInterface(IInterfaceIdentifier ifaceID)
 		{
 			return new QueryInterfaceImpl(ifaceID, this.dataset,this.entities,this.query);
+		}
+
+		/// <summary>
+		/// returns an interface that contains several methods to query entities and relations that belong 
+		/// to a signature.
+		/// </summary>
+		/// <param name="sigId">the id of the signature</param>
+		/// <returns>the query interface</returns>
+		public IQuerySignatureTypeLevel QuerySignature(ISignatureIdentifier sigId)
+		{
+			return new QuerySignatureImpl(sigId,this.dataset,this.entities,this.query);
 		}
 
 		#endregion
