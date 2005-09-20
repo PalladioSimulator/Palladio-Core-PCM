@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Data;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelDataManagement;
 using Palladio.ComponentModel.ModelEntities;
@@ -15,6 +16,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/09/20 09:35:16  kelsaka
+	/// - added implementation for GetDelegationConnectors () and GetAssemblyConnectors ()
+	///
 	/// Revision 1.7  2005/09/20 08:55:12  kelsaka
 	/// - added methods to get all assembly/delegation connectors
 	///
@@ -159,7 +163,20 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>an array of connections</returns>
 		public IConnection[] GetDelegationConnectors ()
 		{
-			throw new NotImplementedException ();
+			// get all Assembly Connectors:
+			DataRow[] resultRow = this.Dataset.DelegationConnectors.Select();
+
+			ArrayList result = new ArrayList();
+			foreach(ModelDataSet.DelegationConnectorsRow conRow in resultRow)
+			{
+				// use query to return entities instead of IDs:
+				result.Add(
+					this.GetConnection(
+					ComponentModelIdentifier.CreateConnectionID(conRow.guid)
+					));
+			}
+
+			return (IConnection[]) result.ToArray(typeof(IConnection));
 		}
 
 		/// <summary>
@@ -168,7 +185,20 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>an array of connections</returns>
 		public IConnection[] GetAssemblyConnectors ()
 		{
-			throw new NotImplementedException ();
+			// get all Assembly Connectors:
+			DataRow[] resultRow = this.Dataset.AssemblyConnectors.Select();
+
+			ArrayList result = new ArrayList();
+			foreach(ModelDataSet.AssemblyConnectorsRow conRow in resultRow)
+			{
+				// use query to return entities instead of IDs:
+				result.Add(
+					this.GetConnection(
+					ComponentModelIdentifier.CreateConnectionID(conRow.guid)
+				));
+			}
+
+			return (IConnection[]) result.ToArray(typeof(IConnection));
 		}
 
 		/// <summary>
