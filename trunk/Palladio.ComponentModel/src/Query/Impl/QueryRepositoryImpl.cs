@@ -15,6 +15,9 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/09/20 08:55:12  kelsaka
+	/// - added methods to get all assembly/delegation connectors
+	///
 	/// Revision 1.6  2005/08/30 13:42:34  kelsaka
 	/// - FSMWrappers are returning new public interface
 	/// - added query for all existing SEFFs in CM
@@ -148,6 +151,24 @@ namespace Palladio.ComponentModel.Query.Impl
 		{
 			ArrayList result = this.AllEntities(typeof(IConnection));
 			return (IConnection[]) result.ToArray(typeof(IConnection));
+		}
+
+		/// <summary>
+		/// Returns all delegation connection from the componentmodel
+		/// </summary>
+		/// <returns>an array of connections</returns>
+		public IConnection[] GetDelegationConnectors ()
+		{
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Returns all assembly connection from the componentmodel
+		/// </summary>
+		/// <returns>an array of connections</returns>
+		public IConnection[] GetAssemblyConnectors ()
+		{
+			throw new NotImplementedException ();
 		}
 
 		/// <summary>

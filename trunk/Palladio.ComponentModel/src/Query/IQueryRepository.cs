@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.Query
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/09/20 08:55:12  kelsaka
+	/// - added methods to get all assembly/delegation connectors
+	///
 	/// Revision 1.6  2005/08/30 13:42:34  kelsaka
 	/// - FSMWrappers are returning new public interface
 	/// - added query for all existing SEFFs in CM
@@ -109,6 +112,18 @@ namespace Palladio.ComponentModel.Query
 		/// </summary>
 		/// <returns>an array with connections</returns>
 		IConnection[] GetConnections();
+
+		/// <summary>
+		/// Returns all delegation connection from the componentmodel
+		/// </summary>
+		/// <returns>an array of connections</returns>
+		IConnection[] GetDelegationConnectors();
+
+		/// <summary>
+		/// Returns all assembly connection from the componentmodel
+		/// </summary>
+		/// <returns>an array of connections</returns>
+		IConnection[] GetAssemblyConnectors();
 
 		/// <summary>
 		/// called to return all signatures of the componentmodel
