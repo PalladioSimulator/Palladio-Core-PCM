@@ -10,6 +10,10 @@
 %active table of contents but without borders
 \usepackage[colorlinks=false,citebordercolor=111,menubordercolor=111,linkbordercolor=111]{hyperref}
 
+%definiere absatz nach deutschem Standard (keine Einrckung, dafr gr�serer Zeilenabstand):
+\setlength{\parindent}{0pt} \setlength{\parskip}{5pt plus 2pt minus 1pt}
+
+
 \begin{document}
 
 % Kopfzeile mit Kapitel
@@ -43,6 +47,9 @@
 
 %Architektur
 \input{architektur.tex}
+
+%kern
+\input{kern.tex}
 
 %environment
 \input{env.tex}

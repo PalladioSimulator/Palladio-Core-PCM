@@ -1,7 +1,15 @@
 \section{Architektur}
 
+In diesem Kapitel wird die derzeitige Architektur des Komponentenmodells vorgestellt. Sie setzt sich aus den in Abbildung \ref{fig:arch} dargestellten und im Folgenden kurz erläuterten Bestandteilen zusammen. An der Umrandung der Blöcke ist abzulesen, ob diese bereits entworfen oder lediglich als Erweiterungen geplant sind. Details und Informationen zur Umsetzung der Bestandteile des Komponentenmodells sind Inhalt der folgenden Kapitel dieses Dokuments.
+
 \begin{figure}[ht]
- \centering \includegraphics[scale=0.8]{arch.png}
+ \centering \includegraphics{arch.png}
  \caption{Architektur des Komponentenmodells}
  \label{fig:arch}
 \end{figure}
+
+Zentrum der Architektur bildet die in der Abbildung mit \emph{data management} bezeichnete Datenhaltung. Sie dient der lokalen Speicherung der Entitäten und Relationen des Modells zur Laufzeit der nutzenden Anwendung. Hierfür stellt sie Möglichkeiten zum Lesen und Schreiben der Daten zur Verfügung. Die Konsistenz der Daten ist in dieser Schicht lediglich in Bezug auf die verwendeten Datenstrukturen zu gewährleisten. Semantische Fehler im Sinne des theoretischen Komponentenmodells sind von der Datenhaltung zu tollerieren, um unabhängig von möglichen Änderungen dieser Semantik zu bleiben. Aufgrund dessen ist der das Modell nutzenden Anwendung keine Möglichkeit zu gewähren, direkt auf die Datenhaltung zuzugreifen, da sonst Korrektheit im Sinne des theoretischen Modells nicht mehr gewährleistet werden kann. Zugriff ist erst nach Überprüfung durch entsprechende Zwischenschichten zu gestatten.
+
+Schreibende Änderungen der Anwendung am Modell sind hierbei durch den in der Architekur mit \emph{builder} bezeichneten Block vorgesehen. Dieser stellt eine Infrastruktur bereit, welche Änderungen an verschiedenen Stellen des Modells zulässt und den korrekten Aufbau gemäß dem theoretischen Modell sicherstellt. Es können an dieser Stelle bereits durch geschickte Wahl der Zugriffsmethoden Fehler ausgeschlossen werden. Eine Möglichkeit der Umsetzung dieser Schicht unter Beachtung der Hierarchie des Komponentmodells wird in Kapitel \ref{sec:builder} vorgestellt.
+  
+Der lesende Zugriff auf das Modell kann je nach Bedarf durch verschiedene Schichten erfolgen. Die in Abbildung \ref{fig:arch} mit \emph{query} bezeichnete Schicht dient der Abfrage von Attributen der Entitäten und der Beziehung zwischen diesen. Eine direkte Abfragemöglichkeit der Datenhaltung ist prinzipiell möglich, jedoch aufgrund fehlenden Wissens über das theoretische Modell unpraktikabel. Abstraktionen in diesem Sinn sind also ebenfalls Aufgabe der Abfrageschicht. 
