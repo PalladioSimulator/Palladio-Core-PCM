@@ -1,7 +1,6 @@
 using System;
 using Palladio.ComponentModel;
 using Palladio.ComponentModel.Identifier;
-using Palladio.ComponentModel.ModelEntities;
 using Palladio.FiniteStateMachines;
 using Palladio.Identifier;
 
@@ -15,6 +14,9 @@ namespace Palladio.FSMWrapper
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/09/25 11:24:14  kelsaka
+	/// - fixed bug: there was no public interface for IFSMProtocols
+	///
 	/// Revision 1.3  2005/09/18 15:37:59  joemal
 	/// now connected to the cm
 	///
@@ -28,7 +30,7 @@ namespace Palladio.FSMWrapper
 	///
 	/// </pre>
 	/// </remarks>
-	internal class FSMProtocol : IProtocol
+	internal class FSMProtocol : IFSMProtocol
 	{
 		#region data
 		

@@ -170,6 +170,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IFSMProtocol.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\IFSMServiceEffectSpecification.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

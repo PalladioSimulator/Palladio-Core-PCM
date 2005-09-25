@@ -10,6 +10,9 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/25 11:24:14  kelsaka
+	/// - fixed bug: there was no public interface for IFSMProtocols
+	///
 	/// Revision 1.1  2005/04/18 08:50:50  joemal
 	/// initial creation
 	///
@@ -39,13 +42,17 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		IQueryComponentTypeLevel QueryComponentTypeLevel(IComponentIdentifier componentID);
 
 		/// <summary>
-		/// call to return the id of the component on requires side of the connection
+		/// call to return the id of the component on requires side of the connection.
 		/// </summary>
 		/// <returns>the id of the component</returns>
 		IComponentIdentifier GetRequiringComponent();
 
 		/// <summary>
-		/// called to return the id of the interface on requires side of the connection
+		/// Called to return the id of the interface on requires side of the connection.
+		/// If the connection is a delegation connection at the provides side of two 
+		/// components this is the outer interface of the composite component.
+		/// If the connection is a delegation connection at the requires side of two 
+		/// components this is the inner interface.
 		/// </summary>
 		/// <returns>the id of the interface</returns>
 		IInterfaceIdentifier GetRequiringInterface();
@@ -57,7 +64,11 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 		IComponentIdentifier GetProvidingComponent();
 
 		/// <summary>
-		/// called to return the id of the interface on provides side of the connection
+		/// Called to return the id of the interface on provides side of the connection.
+		/// If the connection is a delegation connection at the provides side of two 
+		/// components this is the inner interface.
+		/// If the connection is a delegation connection at the provides side of two 
+		/// components this is the outer interface of the composite component.
 		/// </summary>
 		/// <returns>the id of the interface</returns>
 		IInterfaceIdentifier GetProvidingInterface();
