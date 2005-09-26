@@ -879,6 +879,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\UnitTests\EventsTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\UnitTests\LowLevelBuilderTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

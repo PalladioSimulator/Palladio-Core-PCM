@@ -195,13 +195,34 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		//the connection
 		private IConnection connection;
 
+		//the requiring iface
+		private IInterfaceIdentifier providingIfaceId;
+
+		//the providing iface
+		private IInterfaceIdentifier requiringIfaceId;
+
+		//the providing component
+		private IComponentIdentifier providingComponentId;
+
+		//the requiring component
+		private IComponentIdentifier requiringComponentId;
+
 		/// <summary>
 		/// called to create a new event argument structure
 		/// </summary>
 		/// <param name="con">the connection</param>
-		internal ConnectorRemovedEventArgs(IConnection con)
+		/// <param name="provCompId">the id of the providing component</param>
+		/// <param name="provIfaceId">the id of the providing interface</param>
+		/// <param name="reqCompId">the id of the requiring component</param>
+		/// <param name="reqIfaceId">the id of the requiring interface</param>
+		internal ConnectorRemovedEventArgs(IConnection con, IComponentIdentifier provCompId,IInterfaceIdentifier provIfaceId,
+			IComponentIdentifier reqCompId,IInterfaceIdentifier reqIfaceId)
 		{
 			this.connection = con;
+			this.providingIfaceId = provIfaceId;
+			this.requiringIfaceId = reqIfaceId;
+			this.providingComponentId = provCompId;
+			this.requiringComponentId = reqCompId;
 		}
 
 		/// <summary>
@@ -213,6 +234,38 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			{
 				return this.connection;
 			}
+		}
+
+		/// <summary>
+		/// returns the id of the providing interface
+		/// </summary>
+		public IInterfaceIdentifier ProvidingIfaceId
+		{
+			get { return providingIfaceId; }
+		}
+
+		/// <summary>
+		/// returns the id of the requiring interface
+		/// </summary>
+		public IInterfaceIdentifier RequiringIfaceId
+		{
+			get { return requiringIfaceId; }
+		}
+
+		/// <summary>
+		/// returns the id of the providing component
+		/// </summary>
+		public IComponentIdentifier ProvidingComponentId
+		{
+			get { return providingComponentId; }
+		}
+
+		/// <summary>
+		/// returns the id of the requiring component
+		/// </summary>
+		public IComponentIdentifier RequiringComponentId
+		{
+			get { return requiringComponentId; }
 		}
 	}
 

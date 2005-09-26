@@ -22,7 +22,11 @@ namespace Palladio.ComponentModel.UnitTests
 
 		public static IComponentIdentifier CCWRITEID;
 		public static IComponentIdentifier BCWRITEID; 
-		public static IComponentIdentifier BCWRITEBEID; 
+		public static IComponentIdentifier BCWRITEBEID;
+ 
+		public static IConnectionIdentifier PROV_CC_BC;
+		public static IConnectionIdentifier REQ_CC_BC;
+		public static IConnectionIdentifier ASM_CC_BC;
 
 		//holds the model environment
 		private static IRootTypeLevelBuilder rootBuilder;
@@ -46,7 +50,7 @@ namespace Palladio.ComponentModel.UnitTests
 			//- Auf ähnliche art und weise die Komponenten basteln
 			CCWRITEID = BuildCC1(rootBuilder.AddNewCompositeComponent("WriteCC"), IWRITERBEID,IWRITERID);
 			BCWRITEBEID = BuildBC1(rootBuilder.AddNewBasicComponent("WriterBackendBC"),IWRITERBEID);
-			rootBuilder.AddAssemblyConnector("WR -> WR_BE",CCWRITEID,IWRITERBEID,BCWRITEBEID,IWRITERBEID);
+			ASM_CC_BC=rootBuilder.AddAssemblyConnector("WR -> WR_BE",CCWRITEID,IWRITERBEID,BCWRITEBEID,IWRITERBEID);
 		}
 
 		#endregion
@@ -66,8 +70,8 @@ namespace Palladio.ComponentModel.UnitTests
 
 
 			//delegation connector ziehen
-			compositeComponentBuilder.AddProvidesDelegationConnector("WRCC.Prov -> WRBC.Prov",provIFace,BCWRITEID,provIFace);
-			compositeComponentBuilder.AddRequiresDelegationConnector("WRCC.Req -> WRBC.Req",BCWRITEID,reqIFace,reqIFace);
+			PROV_CC_BC = compositeComponentBuilder.AddProvidesDelegationConnector("WRCC.Prov -> WRBC.Prov",provIFace,BCWRITEID,provIFace);
+			REQ_CC_BC = compositeComponentBuilder.AddRequiresDelegationConnector("WRCC.Req -> WRBC.Req",BCWRITEID,reqIFace,reqIFace);
             			
             return compositeComponentBuilder.Component.ComponentID;
 		}

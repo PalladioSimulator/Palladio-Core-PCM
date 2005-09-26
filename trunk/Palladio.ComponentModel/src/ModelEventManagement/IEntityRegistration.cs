@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/09/26 17:55:29  joemal
+	/// now the remove event of a connection contains some more parameters
+	///
 	/// Revision 1.5  2005/07/29 16:02:47  joemal
 	/// now service effect specifications can be added ...
 	///
@@ -151,7 +154,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="connection">the connection</param>
 		/// <param name="compositeCompID">the composite component, in which this connection is placed or null,
 		/// if this connection belongs to the top level of the model.</param>
-		void UnregisterConnection(IConnection connection, IComponentIdentifier compositeCompID);
+		/// <param name="provPoint">the connection point of the connections providing side</param>
+		/// <param name="reqPoint">the connection point of the connections requiring side</param>
+		void UnregisterConnection(IConnection connection, IComponentIdentifier compositeCompID, ConnectionPoint provPoint,
+			ConnectionPoint reqPoint);
 
 		/// <summary>
 		/// called to register a new seff

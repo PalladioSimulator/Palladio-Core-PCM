@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.21  2005/09/26 17:55:29  joemal
+	/// now the remove event of a connection contains some more parameters
+	///
 	/// Revision 1.20  2005/08/30 15:01:12  kelsaka
 	/// - removed console.outs
 	///
@@ -242,15 +245,38 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		private void DelegationConnectorDeleted(object sender, ModelDataSet.DelegationConnectorsRowChangeEvent e)
 		{
 			string conKey = (string)e.Row["guid",DataRowVersion.Original];
+			long innerRoleId = (long)e.Row["fk_inner_role",DataRowVersion.Original];
+			long outerRoleId = (long)e.Row["fk_outer_role",DataRowVersion.Original];
 			long compRelID = (long) e.Row["fk_inner_comp_rel",DataRowVersion.Original];
 			object parentCompKey = CompRelationTable.FindByid(compRelID).fk_parent;
+
+			ModelDataSet.RolesRow outerRole = this.RolesTable.FindByid(outerRoleId);
+			ModelDataSet.RolesRow innerRole = this.RolesTable.FindByid(innerRoleId);
+
+			ConnectionPoint provConPoint;
+			ConnectionPoint reqConPoint;
+
+			if (outerRole.type == (sbyte)InterfaceRole.PROVIDES)
+			{
+				provConPoint = new ConnectionPoint(new InternalEntityIdentifier(outerRole.InterfacesRow.guid),
+					new InternalEntityIdentifier(outerRole.ComponentsRow.guid));
+				reqConPoint = new ConnectionPoint(new InternalEntityIdentifier(innerRole.InterfacesRow.guid),
+					new InternalEntityIdentifier(innerRole.ComponentsRow.guid));
+			}
+			else
+			{
+				provConPoint = new ConnectionPoint(new InternalEntityIdentifier(innerRole.InterfacesRow.guid),
+					new InternalEntityIdentifier(innerRole.ComponentsRow.guid));
+				reqConPoint = new ConnectionPoint(new InternalEntityIdentifier(outerRole.InterfacesRow.guid),
+					new InternalEntityIdentifier(outerRole.ComponentsRow.guid));
+			}
 
 			IComponentIdentifier parentCompID = null;
 
 			if (!(parentCompKey is DBNull))
 				parentCompID = new InternalEntityIdentifier((string)parentCompKey);
 			
-			entityReg.UnregisterConnection((IConnection) entityHashtable[conKey],parentCompID);
+			entityReg.UnregisterConnection((IConnection) entityHashtable[conKey],parentCompID, provConPoint, reqConPoint);
 
             entityHashtable.RemoveEntity(conKey);
 		}
@@ -260,13 +286,23 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		{
 			string conKey = (string)e.Row["guid",DataRowVersion.Original];
 			long compRelID = (long) e.Row["fk_prov_comp_rel",DataRowVersion.Original];
+			long provRoleId = (long)e.Row["fk_prov_role",DataRowVersion.Original];
+			long reqRoleId = (long)e.Row["fk_req_role",DataRowVersion.Original];
 			object parentCompKey = CompRelationTable.FindByid(compRelID).fk_parent;
 			IComponentIdentifier parentCompID = null;
 
 			if (parentCompKey != null)
 				parentCompID = new InternalEntityIdentifier((string)parentCompKey);
+
+			ModelDataSet.RolesRow reqRole = this.RolesTable.FindByid(reqRoleId);
+			ModelDataSet.RolesRow provRole = this.RolesTable.FindByid(provRoleId);
+
+			ConnectionPoint provConPoint=new ConnectionPoint(new InternalEntityIdentifier(provRole.InterfacesRow.guid),
+				new InternalEntityIdentifier(provRole.ComponentsRow.guid));
+			ConnectionPoint reqConPoint=new ConnectionPoint(new InternalEntityIdentifier(reqRole.InterfacesRow.guid),
+				new InternalEntityIdentifier(reqRole.ComponentsRow.guid));
             
-			entityReg.UnregisterConnection((IConnection)entityHashtable[conKey],parentCompID);
+			entityReg.UnregisterConnection((IConnection)entityHashtable[conKey],parentCompID, provConPoint, reqConPoint);
 
 			entityHashtable.RemoveEntity(conKey);
 		}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
@@ -17,6 +18,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/09/26 17:55:29  joemal
+	/// now the remove event of a connection contains some more parameters
+	///
 	/// Revision 1.7  2005/07/29 16:02:47  joemal
 	/// now service effect specifications can be added ...
 	///
@@ -288,19 +292,22 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		}
 
 		/// <summary>
-		/// called to unregister an assembly connector.
+		/// called to unregister a connection.
 		/// </summary>
-		/// <param name="connection">the connector</param>
+		/// <param name="connection">the connection</param>
 		/// <param name="compositeCompID">the composite component, in which this connection is placed or null,
 		/// if this connection belongs to the top level of the model.</param>
-		public void UnregisterConnection(IConnection connection, IComponentIdentifier compositeCompID)
+		/// <param name="provPoint">the connection point of the connections providing side</param>
+		/// <param name="reqPoint">the connection point of the connections requiring side</param>
+		public void UnregisterConnection(IConnection connection, IComponentIdentifier compositeCompID, ConnectionPoint provPoint, ConnectionPoint reqPoint)
 		{
 			this.eventStructures.Remove(connection.ID);
 			if (compositeCompID == null)
-				this.GetStaticViewEvents().NotifyAssemblyConnectorRemoved(this,new ConnectorRemovedEventArgs(connection));
+				this.GetStaticViewEvents().NotifyAssemblyConnectorRemoved(this,
+					new ConnectorRemovedEventArgs(connection,provPoint.componentID,provPoint.ifaceID,reqPoint.componentID,reqPoint.ifaceID));
 			else
-				this.GetCompositeComponentEvents(compositeCompID).
-					NotifyConnectorRemoved(this,new ConnectorRemovedEventArgs(connection));
+				this.GetCompositeComponentEvents(compositeCompID).NotifyConnectorRemoved(this,
+					new ConnectorRemovedEventArgs(connection,provPoint.componentID,provPoint.ifaceID,reqPoint.componentID,reqPoint.ifaceID));
 		}
 
 		/// <summary>
