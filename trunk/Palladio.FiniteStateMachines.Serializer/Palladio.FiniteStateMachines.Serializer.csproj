@@ -163,16 +163,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\UnitTests\FSMBuilder.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "src\UnitTests\JensTests.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\UnitTests\SerializationTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
