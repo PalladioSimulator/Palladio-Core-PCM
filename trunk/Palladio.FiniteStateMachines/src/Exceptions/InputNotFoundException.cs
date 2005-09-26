@@ -12,6 +12,10 @@ namespace Palladio.FiniteStateMachines.Exceptions
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/26 09:20:53  sliver
+	/// The addition of a duplicate transition to a finite state machine now
+	/// causes an TransitionAlreadyExistsException.
+	///
 	/// Revision 1.1  2005/02/21 13:19:37  joemal
 	/// initial import
 	///
@@ -25,5 +29,11 @@ namespace Palladio.FiniteStateMachines.Exceptions
 		/// </summary>
 		/// <param name="anInput">An input symbol of a FSM.</param>
 		public InputNotFoundException(IInput anInput) : base(anInput + " was not found!"){}
+		
+		/// <summary>
+		/// anInput cannot be found in a FSM.
+		/// </summary>
+		/// <param name="anInput">Name of an input symbol of a FSM.</param>
+		public InputNotFoundException(string anInput) : base(anInput + " was not found!"){}
 	}
 }

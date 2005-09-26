@@ -20,6 +20,10 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.13  2005/09/26 09:20:53  sliver
+	/// The addition of a duplicate transition to a finite state machine now
+	/// causes an TransitionAlreadyExistsException.
+	///
 	/// Revision 1.12  2005/09/18 15:36:40  joemal
 	/// fix some bugs
 	///
@@ -177,7 +181,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			Assert.IsTrue(fsm.Transitions.Length.Equals(4));
 			Assert.IsTrue(fsm.StartState.ID.Equals("1"));
 			
-			IEditableFiniteStateMachine efsm = FSMFactory.GetEditableFSM(fsm);
+			//IEditableFiniteStateMachine efsm = FSMFactory.GetEditableFSM(fsm);
 			//TODO: test for attributes
 			//Assert.IsTrue(((Test1Attribute)efsm.GetState("2").Attributes[new Test1AttributeType()]).TestProperty.Equals(new Test1Attribute().TestProperty));
 			//Console.Out.WriteLine ("***" + efsm.GetState("2").Attributes.AttributeTypes.Count);

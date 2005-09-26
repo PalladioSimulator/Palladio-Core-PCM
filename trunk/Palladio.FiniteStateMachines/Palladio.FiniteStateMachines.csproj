@@ -242,6 +242,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\Exceptions\TransitionAlreadyExistsException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\Exceptions\TransitionNotFoundException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

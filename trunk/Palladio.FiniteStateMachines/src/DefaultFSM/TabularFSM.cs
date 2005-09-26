@@ -13,6 +13,10 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/09/26 09:20:53  sliver
+	/// The addition of a duplicate transition to a finite state machine now
+	/// causes an TransitionAlreadyExistsException.
+	///
 	/// Revision 1.2  2005/09/13 14:57:55  joemal
 	/// work around the fsm id problems
 	///
@@ -344,7 +348,8 @@ namespace Palladio.FiniteStateMachines.DefaultFSM
 				transList = new Set();
 				inputTable[aTrans.InputSymbol] = transList;
 			}
-				transList.Add(aTrans);
+				if (transList.Add(aTrans) == Set.ERROR_CODE)
+					throw new TransitionAlreadyExistsException(aTrans);
 		}
 
 		private void AddToRevTransTable(ITransition aTrans)

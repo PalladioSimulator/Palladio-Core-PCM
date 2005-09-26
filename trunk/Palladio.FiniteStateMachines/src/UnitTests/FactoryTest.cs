@@ -16,6 +16,10 @@ namespace Palladio.FiniteStateMachines.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/26 09:20:53  sliver
+	/// The addition of a duplicate transition to a finite state machine now
+	/// causes an TransitionAlreadyExistsException.
+	///
 	/// Revision 1.1  2005/02/21 13:19:38  joemal
 	/// initial import
 	///
@@ -168,6 +172,7 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			fsm.AddTransitions(trans);
 		}
 
+		[ExpectedException(typeof(TransitionAlreadyExistsException))]
 		[Test] public void AddDuplicateTransitions()
 		{
 			IEditableFiniteStateMachine fsm = FSMFactory.CreateEmptyFSM();
@@ -177,10 +182,13 @@ namespace Palladio.FiniteStateMachines.UnitTests
 			fsm.AddStates(states.StoredStates);
 			fsm.AddInputSymbols(inputs.StoredInputs);
 			fsm.AddTransitions(trans,trans,trans);
-			Assert.IsTrue(fsm.Transitions.Length == 1);
-			Assert.IsTrue(fsm.Transitions[0].DestinationState.Equals(states["a"]));
-			Assert.IsTrue(fsm.Transitions[0].InputSymbol.Equals(inputs["a"]));
-			Assert.IsTrue(fsm.Transitions[0].SourceState.Equals(states["a"]));
+
+			// This test case changed. Now the addition of a duplicate transition
+			// isn't ignored, but causes an exception.
+//			Assert.IsTrue(fsm.Transitions.Length == 1);
+//			Assert.IsTrue(fsm.Transitions[0].DestinationState.Equals(states["a"]));
+//			Assert.IsTrue(fsm.Transitions[0].InputSymbol.Equals(inputs["a"]));
+//			Assert.IsTrue(fsm.Transitions[0].SourceState.Equals(states["a"]));
 		}
 
 		[Test] public void BuildTestFSM()
