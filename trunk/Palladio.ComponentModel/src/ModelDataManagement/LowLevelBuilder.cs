@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.22  2005/09/27 17:11:16  kelsaka
+	/// - RegisterProvidesDelegation() replaced with RegisterRequiresDelegation() in AddRequiresDelegationConnector(...)
+	///
 	/// Revision 1.21  2005/09/26 17:55:29  joemal
 	/// now the remove event of a connection contains some more parameters
 	///
@@ -558,7 +561,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		public void AddRequiresDelegationConnector(IConnection connection, ConnectionPoint innerPoint, ConnectionPoint outerPoint)
 		{
 			AddDelegation(innerPoint, outerPoint, connection, InterfaceRole.REQUIRES);
-			entityReg.RegisterProvidesDelegation(connection,outerPoint,innerPoint);
+			entityReg.RegisterRequiresDelegation(connection,outerPoint,innerPoint);
 		}
 
 		/// <summary>
