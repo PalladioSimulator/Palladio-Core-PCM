@@ -1,8 +1,12 @@
 using System;
 using System.Collections;
+using System.Diagnostics;
 using System.IO;
 using Palladio.CM.Example.Presentation;
 using Palladio.ComponentModel;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.Serialization;
 using Palladio.ComponentModel.Serialization.Xml;
 using Palladio.FSMWrapper;
@@ -19,6 +23,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.16  2005/09/27 17:00:48  kelsaka
+	/// - added test case
+	///
 	/// Revision 1.15  2005/09/18 15:36:05  joemal
 	/// add fsm seffs and protocols
 	///
@@ -80,6 +87,9 @@ namespace Palladio.CM.Example
 		//the stack that holds the models
 		private Stack modelStack = new Stack();
 
+		private bool f1;
+		private bool f2;
+
 		/// <summary>
 		/// the entry for the applications main thead
 		/// </summary>
@@ -87,13 +97,14 @@ namespace Palladio.CM.Example
 		static void Main(string[] args)
 		{
 			MainClass test = new MainClass();
-			test.BuildModel();
+			//test.BuildModel();
+			test.NewTest();
+
 			test.SaveModel("test1.xml");
-			test.ClearModel();
 			test.LoadModel("test1.xml");
-			test.SaveModel("test2.xml");
-			test.ClearModel();
-			test.LoadModel("test2.xml");
+
+			Done();
+
 		}
 
 		/// <summary>
@@ -242,6 +253,50 @@ namespace Palladio.CM.Example
 			}
 
 			Done();
+		}
+
+		public void NewTest ()
+		{
+			
+			ICompositeComponentTypeLevelBuilder cc1 = modelEnvironment.BuilderManager.RootTypeLevelBuilder.AddNewCompositeComponent("CC1");
+			IInterfaceTypeLevelBuilder ifp1 = cc1.AddNewInterfaceAsProvides("ifp1");
+			IInterfaceTypeLevelBuilder ifr1 = cc1.AddNewInterfaceAsRequires("ifr1");
+
+			ICompositeComponentTypeLevelBuilder cc2 = cc1.AddNewCompositeComponent("cc2");
+			IInterfaceTypeLevelBuilder ifp2 = cc2.AddNewInterfaceAsProvides("ifp2");
+			IInterfaceTypeLevelBuilder ifr2 = cc2.AddNewInterfaceAsRequires("ifr2");
+
+			modelEnvironment.EventInterface.GetCompositeComponentEvents(cc1.ComponentId).DelegationConnectorAddedEvent += new Palladio.ComponentModel.ModelEventManagement.DelegationConnectorBuildEventHandler(MainClass_DelegationConnectorAddedEvent);
+
+			f1 = false;
+			f2 = false;
+			Console.Out.WriteLine ("ProvSET");
+			cc1.AddProvidesDelegationConnector("pc1", ifp1.InterfaceId, cc2.ComponentId, ifp2.InterfaceId);
+			Debug.Assert(f1);
+			Debug.Assert(!f2);
+
+			f1 = false;
+			f2 = false;
+			Console.Out.WriteLine ("ReqSET");
+			cc1.AddRequiresDelegationConnector("rc2", cc2.ComponentId, ifr2.InterfaceId, ifr1.InterfaceId);
+			Debug.Assert(!f1);
+			Debug.Assert(f2);
+
+		}
+
+
+		private void MainClass_DelegationConnectorAddedEvent(object sender, Palladio.ComponentModel.ModelEventManagement.DelegationConnectorBuildEventArgs args)
+		{
+			if(args.Role == InterfaceRole.PROVIDES)
+			{
+				f1 = true;
+				Console.Out.WriteLine ("Prov");
+			}
+			if(args.Role == InterfaceRole.REQUIRES)
+			{
+				f2 = true;
+				Console.Out.WriteLine ("Req");
+			}
 		}
 	}
 }
