@@ -20,6 +20,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.12  2005/09/28 15:26:03  kelsaka
+	/// - fix: AssemblyConnector "EndElement" added
+	///
 	/// Revision 1.11  2005/09/18 15:36:23  joemal
 	/// add fsm seffs and protocols
 	///
@@ -458,12 +461,17 @@ namespace Palladio.ComponentModel.Serialization.Xml
 
 				writer.WriteStartElement("ProvidingIFace");
 				writer.WriteAttributeString("guid",conQuery.GetProvidingInterface().Key);
+				writer.WriteEndElement();
 				writer.WriteStartElement("ProvidingComponent");
 				writer.WriteAttributeString("guid",conQuery.GetProvidingComponent().Key);
+				writer.WriteEndElement();
 				writer.WriteStartElement("RequireingIFace");
 				writer.WriteAttributeString("guid",conQuery.GetRequiringInterface().Key);
+				writer.WriteEndElement();
 				writer.WriteStartElement("RequireingComponent");
 				writer.WriteAttributeString("guid",conQuery.GetRequiringComponent().Key);
+				writer.WriteEndElement();
+				
 				writer.WriteEndElement();
 			}			
 
