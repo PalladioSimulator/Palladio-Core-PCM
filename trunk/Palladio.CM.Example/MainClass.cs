@@ -23,6 +23,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/09/28 19:12:03  joemal
+	/// fix bug
+	///
 	/// Revision 1.16  2005/09/27 17:00:48  kelsaka
 	/// - added test case
 	///
@@ -97,11 +100,12 @@ namespace Palladio.CM.Example
 		static void Main(string[] args)
 		{
 			MainClass test = new MainClass();
-			//test.BuildModel();
-			test.NewTest();
+//			test.BuildModel();
+//			test.NewTest();
 
-			test.SaveModel("test1.xml");
-			test.LoadModel("test1.xml");
+//			test.SaveModel("test1.xml");
+//			test.LoadModel("test1.xml");
+			test.LoadModel("bla.xml");
 
 			Done();
 

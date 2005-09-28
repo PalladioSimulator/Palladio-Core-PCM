@@ -21,6 +21,9 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/09/28 19:12:03  joemal
+	/// fix bug
+	///
 	/// Revision 1.9  2005/09/18 15:36:23  joemal
 	/// add fsm seffs and protocols
 	///
@@ -315,18 +318,21 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			}				
 
 			nodeList = node.SelectNodes("cm:Structure/cm:AssemblyConnector",mgr);									
-			foreach(XmlNode conNode in nodeList)
+			foreach(XmlNode conRefNode in nodeList)
 			{
-				IConnectionIdentifier conID =(IConnectionIdentifier) this.ExtractEntityIdentifier(conNode);
+				IConnectionIdentifier conID =(IConnectionIdentifier) this.ExtractEntityIdentifier(conRefNode);
+				XmlNode conNode = this.GetEntityNode(conID.Key,typeLevelNode,mgr);
+
+				
 				string name = this.ExtractEntityName(conNode,mgr);
 				IInterfaceIdentifier provIFaceID = (IInterfaceIdentifier)this.
-					ExtractEntityIdentifier(conNode.SelectSingleNode("cm:ProvidingIFace",mgr));
+					ExtractEntityIdentifier(conRefNode.SelectSingleNode("cm:ProvidingIFace",mgr));
 				IComponentIdentifier provCompID = (IComponentIdentifier) this.
-					ExtractEntityIdentifier(conNode.SelectSingleNode("cm:ProvidingComponent",mgr));
+					ExtractEntityIdentifier(conRefNode.SelectSingleNode("cm:ProvidingComponent",mgr));
 				IInterfaceIdentifier reqIFaceID = (IInterfaceIdentifier)this.
-					ExtractEntityIdentifier(conNode.SelectSingleNode("cm:RequiringIFace",mgr));
+					ExtractEntityIdentifier(conRefNode.SelectSingleNode("cm:RequireingIFace",mgr));
 				IComponentIdentifier reqCompID = (IComponentIdentifier) this.
-					ExtractEntityIdentifier(conNode.SelectSingleNode("cm:RequiringComponent",mgr));
+					ExtractEntityIdentifier(conRefNode.SelectSingleNode("cm:RequireingComponent",mgr));
 
 				builder.AddAssemblyConnector(conID,name,reqCompID,reqIFaceID,provCompID,provIFaceID);
 			}
