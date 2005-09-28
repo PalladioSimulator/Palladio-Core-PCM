@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.23  2005/09/28 08:37:45  joemal
+	/// bug in rem. delegation event
+	///
 	/// Revision 1.22  2005/09/27 17:11:16  kelsaka
 	/// - RegisterProvidesDelegation() replaced with RegisterRequiresDelegation() in AddRequiresDelegationConnector(...)
 	///
@@ -327,8 +330,9 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		{
 			string compKey = (string)e.Row["fk_comp",DataRowVersion.Original];
 			string ifaceKey = (string)e.Row["fk_iface",DataRowVersion.Original];
+			sbyte type = (sbyte)e.Row["type",DataRowVersion.Original];
 			entityReg.UnregisterInterfaceFromComponent(new InternalEntityIdentifier(compKey),
-				new InternalEntityIdentifier(ifaceKey));
+				new InternalEntityIdentifier(ifaceKey), (InterfaceRole)type);
 		}
 
 		//called when a component relation has been removed
@@ -561,7 +565,7 @@ namespace Palladio.ComponentModel.ModelDataManagement
 		public void AddRequiresDelegationConnector(IConnection connection, ConnectionPoint innerPoint, ConnectionPoint outerPoint)
 		{
 			AddDelegation(innerPoint, outerPoint, connection, InterfaceRole.REQUIRES);
-			entityReg.RegisterRequiresDelegation(connection,outerPoint,innerPoint);
+			entityReg.RegisterRequiresDelegation(connection,innerPoint,outerPoint);
 		}
 
 		/// <summary>
