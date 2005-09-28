@@ -1,7 +1,9 @@
 #if TEST
 using System;
 using NUnit.Framework;
+using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
+using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.ModelEventManagement;
 
 namespace Palladio.ComponentModel.UnitTests
@@ -15,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/09/28 08:38:25  joemal
+	/// add role to rem. interface event
+	///
 	/// Revision 1.2  2005/09/26 17:55:29  joemal
 	/// now the remove event of a connection contains some more parameters
 	///
@@ -75,6 +80,21 @@ namespace Palladio.ComponentModel.UnitTests
 			if (errorFlag == true)
 				throw new AssertionException("In one of the event methods failed an assertion."+
 					"The silly dataset catched my exceptions so i've to go this way. Watch the console logs for details.");
+		}
+
+		[Test]
+		public void AddRemoveInterface()
+		{
+			StaticComponentModel.Create(this.componentModel);
+			ComponentEvents ev = componentModel.EventInterface.GetComponentEvents(StaticComponentModel.BCWRITEID);
+			ev.InterfaceRemovedEvent +=new InterfaceUseEventHandler(ev_InterfaceRemovedEvent);
+			IBasicComponentTypeLevelBuilder bc =
+				this.componentModel.BuilderManager.GetBasicComponentTypeLevelBuilder(StaticComponentModel.BCWRITEID);
+
+			bc.RemoveProvidesInterface(StaticComponentModel.IWRITERID);
+			Assert.AreEqual("-provif",sequenze);
+			bc.RemoveRequiresInterface(StaticComponentModel.IWRITERBEID);
+			Assert.AreEqual("-provif-reqif",sequenze);
 		}
 
 		private void ComponentAdded(object sender, ComponentUseEventArgs args)
@@ -148,6 +168,14 @@ namespace Palladio.ComponentModel.UnitTests
 				Console.WriteLine(e);
 				this.errorFlag=true;
 			}
+		}
+
+		private void ev_InterfaceRemovedEvent(object sender, InterfaceUseEventArgs args)
+		{
+			if (args.Role == InterfaceRole.PROVIDES)
+				this.sequenze += "-provif";
+			else
+				this.sequenze += "-reqif";
 		}
 	}
 }

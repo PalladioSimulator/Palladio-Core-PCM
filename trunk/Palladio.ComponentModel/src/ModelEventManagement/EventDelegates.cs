@@ -108,13 +108,18 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		//the the interface
 		private IInterfaceIdentifier ifaceID;
 
+		//the role of the interface
+		private InterfaceRole role;
+
 		/// <summary>
 		/// called to create a new event argument structure
 		/// </summary>
 		/// <param name="ifaceID">the interface</param>
-		internal InterfaceUseEventArgs(IInterfaceIdentifier ifaceID)
+		/// <param name="role">the role of the interface</param>
+		internal InterfaceUseEventArgs(IInterfaceIdentifier ifaceID, InterfaceRole role)
 		{
 			this.ifaceID = ifaceID;
+			this.role = role;
 		}
 
 		/// <summary>
@@ -126,6 +131,14 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			{
 				return this.ifaceID;
 			}
+		}
+
+		/// <summary>
+		/// the role of the interface
+		/// </summary>
+		public InterfaceRole Role
+		{
+			get { return role; }
 		}
 	}
 

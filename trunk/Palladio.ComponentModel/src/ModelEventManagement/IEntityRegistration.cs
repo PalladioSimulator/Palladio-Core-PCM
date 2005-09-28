@@ -14,6 +14,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/09/28 08:38:24  joemal
+	/// add role to rem. interface event
+	///
 	/// Revision 1.6  2005/09/26 17:55:29  joemal
 	/// now the remove event of a connection contains some more parameters
 	///
@@ -92,7 +95,8 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// </summary>
 		/// <param name="compID">the id of the component</param>
 		/// <param name="ifaceID">the id of the interface</param>
-		void UnregisterInterfaceFromComponent(IComponentIdentifier compID, IInterfaceIdentifier ifaceID);
+		/// <param name="role">the role of the interface</param>
+		void UnregisterInterfaceFromComponent(IComponentIdentifier compID, IInterfaceIdentifier ifaceID, InterfaceRole role);
 
 		/// <summary>
 		/// called to register a signature.

@@ -18,6 +18,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/09/28 08:38:24  joemal
+	/// add role to rem. interface event
+	///
 	/// Revision 1.8  2005/09/26 17:55:29  joemal
 	/// now the remove event of a connection contains some more parameters
 	///
@@ -176,10 +179,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 
 			if (role == InterfaceRole.PROVIDES)
 				this.GetComponentEvents(componentIdentifier).NotifyProvidesInterfaceAdded(this,
-					new InterfaceUseEventArgs(ifaceIdentifier));
+					new InterfaceUseEventArgs(ifaceIdentifier,role));
 			else
 				this.GetComponentEvents(componentIdentifier).NotifyRequiresInterfaceAdded(this,
-					new InterfaceUseEventArgs(ifaceIdentifier));
+					new InterfaceUseEventArgs(ifaceIdentifier,role));
 
 		}
 
@@ -188,12 +191,14 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// </summary>
 		/// <param name="compID">the id of the component</param>
 		/// <param name="ifaceID">the id of the interface</param>
-		public void UnregisterInterfaceFromComponent(IComponentIdentifier compID, IInterfaceIdentifier ifaceID)
+		/// <param name="role">the role of the interface</param>
+		public void UnregisterInterfaceFromComponent(IComponentIdentifier compID, IInterfaceIdentifier ifaceID
+			, InterfaceRole role)
 		{
 			if (!entityHashtable.ContainsKey(compID.Key))
 				throw new EntityNotFoundException(compID);
 
-			this.GetComponentEvents(compID).NotifyInterfaceRemoved(this,new InterfaceUseEventArgs(ifaceID));
+			this.GetComponentEvents(compID).NotifyInterfaceRemoved(this,new InterfaceUseEventArgs(ifaceID,role));
 		}
 
 		/// <summary>
