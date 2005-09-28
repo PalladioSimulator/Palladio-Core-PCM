@@ -12,6 +12,9 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/09/28 08:37:09  joemal
+	/// change string representation of System.Void
+	///
 	/// Revision 1.1  2005/07/23 18:58:18  joemal
 	/// initial creation
 	///
@@ -41,7 +44,7 @@ namespace Palladio.ComponentModel.ModelEntities.Impl
 		{
 			get
 			{
-				return "System.void";
+				return "System.Void";
 			}
 		}
 	}
