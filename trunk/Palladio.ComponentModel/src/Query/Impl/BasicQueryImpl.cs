@@ -15,6 +15,10 @@ namespace Palladio.ComponentModel.Query.Impl
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.9  2005/09/29 14:42:26  kelsaka
+	/// - added test cases
+	/// - fixed bug: null parameters of query intercepted
+	///
 	/// Revision 1.8  2005/07/29 16:02:57  joemal
 	/// now service effect specifications can be added ...
 	///
@@ -195,6 +199,10 @@ namespace Palladio.ComponentModel.Query.Impl
 		/// <returns>true, if the entity exists in the componentmodel</returns>
 		public bool ContainsEntity(IIdentifier entityIdentifier)
 		{
+			if(entityIdentifier == null)
+			{
+				return false;
+			}
 			return this.entityHashtable.ContainsKey(entityIdentifier.Key);
 		}
 

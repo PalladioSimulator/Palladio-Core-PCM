@@ -2,6 +2,7 @@ using System;
 using NUnit.Framework;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
+using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.Query;
@@ -250,6 +251,17 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.IsFalse(query.IsProtocolFromInterface(pro1.ProtocolID));
 			ifaceB.RemoveProtocol(pro2.ProtocolID);
 			Assert.IsFalse(query.IsProtocolFromInterface(pro2.ProtocolID));
+		}
+
+		[Test]
+		[ExpectedException(typeof(EntityNotFoundException))]
+		public void QueryNullIdentifiersTest()
+		{
+			model.Query.QueryTypeLevel.QueryConnection(null);
+			model.Query.QueryRepository.GetComponent(null);
+			model.Query.QueryRepository.ContainsEntity(null);
+			model.Query.QueryRepository.GetServiceEffectSpecification(null);
+			model.Query.QueryRepository.GetSignature(null);
 		}
 
         
