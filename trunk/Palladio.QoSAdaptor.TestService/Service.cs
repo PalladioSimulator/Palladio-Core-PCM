@@ -1,20 +1,20 @@
 #region info
 ///////////////////////////////////////////////////////////////////////////////
-/// This software has been developed as a part of the diploma thesis 
-/// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage für 
-/// Komponentenadapter" ("Influence of the configuration of a generator on the 
-/// prediction of the QoS of component adaptors")
-/// at the 
-/// University of Oldenburg
-/// Department of Computing Science
-/// Software Engineering Group
-/// Palladio Research Group
-/// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
-/// 
-/// Development period: July 2005 - January 2006
-/// 
-/// Author: Niels Streekmann
-/// E-mail: niels.streekmann@informatik.uni-oldenburg.de
+// This software has been developed as a part of the diploma thesis 
+// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage für 
+// Komponentenadapter" ("Influence of the configuration of a generator on the 
+// prediction of the QoS of component adaptors")
+// at the 
+// University of Oldenburg
+// Department of Computing Science
+// Software Engineering Group
+// Palladio Research Group
+// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
+// 
+// Development period: July 2005 - January 2006
+// 
+// Author: Niels Streekmann
+// E-mail: niels.streekmann@informatik.uni-oldenburg.de
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 
@@ -71,10 +71,10 @@ namespace Palladio.QoSAdaptor.TestService
 			// Modelling different percentiles of time consumption as indicated
 			// in SEA_CacheAdaptor.cst
 			Random timeConsumtionRandomizer = new Random();
-			int probability = timeConsumtionRandomizer.Next(0,10);
-			if (probability < 4)
-				Thread.Sleep((int)(probability * 1.25));	
-			else if (probability < 6)
+			int probability = timeConsumtionRandomizer.Next(0,100);
+			if (probability < 40)
+				Thread.Sleep((int)(probability * 1.25));
+			else if (probability < 60)
 				Thread.Sleep((int)(probability * 1.333));	
 			else 
 				Thread.Sleep(probability);	
