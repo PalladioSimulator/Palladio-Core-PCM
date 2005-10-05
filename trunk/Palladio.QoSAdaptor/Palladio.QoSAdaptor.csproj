@@ -84,55 +84,52 @@
                     AssemblyName = "log4net"
                     HintPath = "libs\log4net.dll"
                 />
+                <Reference
+                    Name = "Palladio.QoSAdaptor.PatternDescription"
+                    Project = "{F552D8CF-208E-4115-90B1-29A6288AED00}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "System.Windows.Forms"
+                    AssemblyName = "System.Windows.Forms"
+                    HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
+                />
             </References>
         </Build>
         <Files>
             <Include>
                 <File
-                    RelPath = "HiResTimer.cs"
+                    RelPath = "src\configuration\Config.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "LoggingHelper.cs"
+                    RelPath = "src\exceptions\IncompleteInterfaceCopingException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Configuration\Config.cs"
+                    RelPath = "src\interfaces\IComparator.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Patterns\PatternDescription.dtd"
-                    BuildAction = "None"
+                    RelPath = "src\interfaces\IMismatch.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Patterns\Cache\cache_pattern_description.xml"
-                    BuildAction = "Content"
+                    RelPath = "src\utils\HiResTimer.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Patterns\Cache\CacheAdaptor.cst"
-                    BuildAction = "Content"
+                    RelPath = "src\utils\LoggingHelper.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Patterns\Cache\CacheAdaptorUnitTests.cst"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "Patterns\Cache\cacheProperties.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Patterns\Cache\SEA_cache.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Patterns\Cache\SEA_CacheAdaptor.cst"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "Patterns\Replication\replication_pattern_description.xml"
+                    RelPath = "src\utils\README.txt"
                     BuildAction = "Content"
                 />
             </Include>

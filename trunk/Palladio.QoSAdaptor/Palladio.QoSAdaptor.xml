@@ -14,6 +14,104 @@
             that folder.
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.Configuration.Config.PATTERN_DIRECTORY">
+            <summary>
+            Path to the directory in which all pattern information is saved.
+            The path is relative to the bin directory.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Configuration.Config.considerSubAspectsInPatternSearch">
+            <summary>
+            Indicates whether subaspects of mismatched QoS aspects should be 
+            considered when searching for patterns that are able to correct 
+            the mismatch.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.IncompleteInterfaceCopingException">
+            <summary>
+            Zusammenfassung für IncompleteInterfaceCopingException.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.IComparator">
+            <summary>
+            Describes an interface for the comparison of the interface required by
+            on component and the interface provided by another component. Thereby
+            it abstracts from the considered interface model. This could be 
+            syntax-based, behavioral, interaction-based, conceptual or 
+            quality-based, which is used in this prototypical implementation.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.IComparator.FindMismatches(System.IO.TextReader,System.IO.TextReader)">
+            <summary>
+            This method is used to find mismatches between the two given 
+            interface model descriptions. TextReader are used to abstract from
+            the considered interface model. It is thereby assumed, that every
+            interface model can be described in a text representation. 
+            
+            TODO: Is this OK or should object be taken as parameter type?
+            
+            It is furthermore assumed that the returned IList contains objects
+            of type IMismatch.
+            
+            TODO: Introduce IMismatch -> Are there similarities of the 
+            mismatches of the different interface models?
+            </summary>
+            <param name="required">An interface model description of the 
+            required interface.</param>
+            <param name="provided">An interface model description of the 
+            provided interface.</param>
+            <returns>A list of interface mismatches.</returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.IComparator.RequiredSpecificationString">
+            <summary>
+            Returns a string representation of the internal interface model 
+            desription of the required interface model. 
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.IComparator.ProvidedSpecificationString">
+            <summary>
+            Returns a string representation of the internal interface model 
+            desription of the provided interface model. 
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.IMismatch">
+            <summary>
+            Represents a mismatch between two interface model descriptions. 
+            
+            TODO: Find similarities between the interface model mismatches.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.IMismatch.ToString">
+            <summary>
+            String representation of the mismatch needed in the GUI.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.IMismatch.AddPattern(Palladio.QoSAdaptor.Pattern.PatternDescription)">
+            <summary>
+            Adds the PatternDescription of a pattern that is able to correct 
+            this mismatch.
+            </summary>
+            <param name="pattern"></param>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.IMismatch.Patterns">
+            <summary>
+            A list of PatternDescriptions of patterns that are able to correct 
+            this mismatch.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.IMismatch.MismatchAttribute">
+            <summary>
+            Returns the name of the mismatched attribute belonging to this 
+            Mismatch
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.IMismatch.MismatchSubAttribute">
+            <summary>
+            Returns the name of the mismatched subattribute belonging to this 
+            Mismatch
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.HiResTimer">
             <summary>
             This high resolution timer class by Shawn Van Ness has been modified such that a
