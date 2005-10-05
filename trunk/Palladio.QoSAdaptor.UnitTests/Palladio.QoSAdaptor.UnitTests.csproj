@@ -108,6 +108,7 @@
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
+                <Folder RelPath = "src\" />
             </Include>
         </Files>
     </CSHARP>
