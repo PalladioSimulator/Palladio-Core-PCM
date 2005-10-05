@@ -8,12 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.CacheTe
 		{DBDDAC67-421A-4739-8BA7-E09B4A75B6F4} = {DBDDAC67-421A-4739-8BA7-E09B4A75B6F4}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.GUI", "Palladio.QoSAdaptor.GUI\Palladio.QoSAdaptor.GUI.csproj", "{936A2B28-F423-4E19-B228-B5BB7923EC6B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{C12613AF-EB3B-4A0A-A39E-8DF3129DC057} = {C12613AF-EB3B-4A0A-A39E-8DF3129DC057}
-		{F552D8CF-208E-4115-90B1-29A6288AED00} = {F552D8CF-208E-4115-90B1-29A6288AED00}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.Measurement", "Palladio.QoSAdaptor.Measurement\Palladio.QoSAdaptor.Measurement.csproj", "{A2C6D3BB-50C5-4D70-A55D-7F0AC8191701}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B360E276-8752-408E-8E2E-9E535CBBE406} = {B360E276-8752-408E-8E2E-9E535CBBE406}
@@ -28,12 +22,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.QMLComp
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.Test", "Palladio.QoSAdaptor.Test\Palladio.QoSAdaptor.Test.csproj", "{D8C1EEAD-7C17-4DE4-A23E-D41C17AF0694}"
-	ProjectSection(ProjectDependencies) = postProject
-		{936A2B28-F423-4E19-B228-B5BB7923EC6B} = {936A2B28-F423-4E19-B228-B5BB7923EC6B}
-		{F552D8CF-208E-4115-90B1-29A6288AED00} = {F552D8CF-208E-4115-90B1-29A6288AED00}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.TestService", "Palladio.QoSAdaptor.TestService\Palladio.QoSAdaptor.TestService.csproj", "{DBDDAC67-421A-4739-8BA7-E09B4A75B6F4}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
@@ -45,6 +33,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.UnitTes
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.PatternConfiguration", "Palladio.QoSAdaptor.PatternConfiguration\Palladio.QoSAdaptor.PatternConfiguration.csproj", "{69CE78C6-3377-414F-AEC9-99D83A81BDD4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.QMLParser", "Palladio.QoSAdaptor.QMLParser\Palladio.QoSAdaptor.QMLParser.csproj", "{4C2F551B-C2E1-42FF-AEF8-F3CD0F521761}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.Compiler", "Palladio.QoSAdaptor.Compiler\Palladio.QoSAdaptor.Compiler.csproj", "{A670B989-4E73-4105-A465-3F1A92BC1BE6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.Control", "Palladio.QoSAdaptor.Control\Palladio.QoSAdaptor.Control.csproj", "{20B68AFC-F177-4F6F-94F1-5CF479657DA4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.PatternSelection", "Palladio.QoSAdaptor.PatternSelection\Palladio.QoSAdaptor.PatternSelection.csproj", "{936A2B28-F423-4E19-B228-B5BB7923EC6B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.Starter", "Palladio.QoSAdaptor.Starter\Palladio.QoSAdaptor.Starter.csproj", "{D8C1EEAD-7C17-4DE4-A23E-D41C17AF0694}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -62,10 +70,6 @@ Global
 		{B360E276-8752-408E-8E2E-9E535CBBE406}.Debug.Build.0 = Debug|.NET
 		{B360E276-8752-408E-8E2E-9E535CBBE406}.Release.ActiveCfg = Release|.NET
 		{B360E276-8752-408E-8E2E-9E535CBBE406}.Release.Build.0 = Release|.NET
-		{936A2B28-F423-4E19-B228-B5BB7923EC6B}.Debug.ActiveCfg = Debug|.NET
-		{936A2B28-F423-4E19-B228-B5BB7923EC6B}.Debug.Build.0 = Debug|.NET
-		{936A2B28-F423-4E19-B228-B5BB7923EC6B}.Release.ActiveCfg = Release|.NET
-		{936A2B28-F423-4E19-B228-B5BB7923EC6B}.Release.Build.0 = Release|.NET
 		{A2C6D3BB-50C5-4D70-A55D-7F0AC8191701}.Debug.ActiveCfg = Debug|.NET
 		{A2C6D3BB-50C5-4D70-A55D-7F0AC8191701}.Debug.Build.0 = Debug|.NET
 		{A2C6D3BB-50C5-4D70-A55D-7F0AC8191701}.Release.ActiveCfg = Release|.NET
@@ -78,10 +82,6 @@ Global
 		{F0BC7726-D6F3-4B93-8980-562E8531DB97}.Debug.Build.0 = Debug|.NET
 		{F0BC7726-D6F3-4B93-8980-562E8531DB97}.Release.ActiveCfg = Release|.NET
 		{F0BC7726-D6F3-4B93-8980-562E8531DB97}.Release.Build.0 = Release|.NET
-		{D8C1EEAD-7C17-4DE4-A23E-D41C17AF0694}.Debug.ActiveCfg = Debug|.NET
-		{D8C1EEAD-7C17-4DE4-A23E-D41C17AF0694}.Debug.Build.0 = Debug|.NET
-		{D8C1EEAD-7C17-4DE4-A23E-D41C17AF0694}.Release.ActiveCfg = Release|.NET
-		{D8C1EEAD-7C17-4DE4-A23E-D41C17AF0694}.Release.Build.0 = Release|.NET
 		{DBDDAC67-421A-4739-8BA7-E09B4A75B6F4}.Debug.ActiveCfg = Debug|.NET
 		{DBDDAC67-421A-4739-8BA7-E09B4A75B6F4}.Debug.Build.0 = Debug|.NET
 		{DBDDAC67-421A-4739-8BA7-E09B4A75B6F4}.Release.ActiveCfg = Release|.NET
@@ -94,6 +94,26 @@ Global
 		{69CE78C6-3377-414F-AEC9-99D83A81BDD4}.Debug.Build.0 = Debug|.NET
 		{69CE78C6-3377-414F-AEC9-99D83A81BDD4}.Release.ActiveCfg = Release|.NET
 		{69CE78C6-3377-414F-AEC9-99D83A81BDD4}.Release.Build.0 = Release|.NET
+		{4C2F551B-C2E1-42FF-AEF8-F3CD0F521761}.Debug.ActiveCfg = Debug|.NET
+		{4C2F551B-C2E1-42FF-AEF8-F3CD0F521761}.Debug.Build.0 = Debug|.NET
+		{4C2F551B-C2E1-42FF-AEF8-F3CD0F521761}.Release.ActiveCfg = Release|.NET
+		{4C2F551B-C2E1-42FF-AEF8-F3CD0F521761}.Release.Build.0 = Release|.NET
+		{A670B989-4E73-4105-A465-3F1A92BC1BE6}.Debug.ActiveCfg = Debug|.NET
+		{A670B989-4E73-4105-A465-3F1A92BC1BE6}.Debug.Build.0 = Debug|.NET
+		{A670B989-4E73-4105-A465-3F1A92BC1BE6}.Release.ActiveCfg = Release|.NET
+		{A670B989-4E73-4105-A465-3F1A92BC1BE6}.Release.Build.0 = Release|.NET
+		{20B68AFC-F177-4F6F-94F1-5CF479657DA4}.Debug.ActiveCfg = Debug|.NET
+		{20B68AFC-F177-4F6F-94F1-5CF479657DA4}.Debug.Build.0 = Debug|.NET
+		{20B68AFC-F177-4F6F-94F1-5CF479657DA4}.Release.ActiveCfg = Release|.NET
+		{20B68AFC-F177-4F6F-94F1-5CF479657DA4}.Release.Build.0 = Release|.NET
+		{936A2B28-F423-4E19-B228-B5BB7923EC6B}.Debug.ActiveCfg = Debug|.NET
+		{936A2B28-F423-4E19-B228-B5BB7923EC6B}.Debug.Build.0 = Debug|.NET
+		{936A2B28-F423-4E19-B228-B5BB7923EC6B}.Release.ActiveCfg = Release|.NET
+		{936A2B28-F423-4E19-B228-B5BB7923EC6B}.Release.Build.0 = Release|.NET
+		{D8C1EEAD-7C17-4DE4-A23E-D41C17AF0694}.Debug.ActiveCfg = Debug|.NET
+		{D8C1EEAD-7C17-4DE4-A23E-D41C17AF0694}.Debug.Build.0 = Debug|.NET
+		{D8C1EEAD-7C17-4DE4-A23E-D41C17AF0694}.Release.ActiveCfg = Release|.NET
+		{D8C1EEAD-7C17-4DE4-A23E-D41C17AF0694}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
