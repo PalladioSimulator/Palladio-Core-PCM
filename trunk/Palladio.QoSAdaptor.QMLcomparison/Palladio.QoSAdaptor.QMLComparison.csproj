@@ -15,7 +15,7 @@
                 DefaultHTMLPageLayout = "Grid"
                 DefaultTargetSchema = "IE50"
                 DelaySign = "false"
-                OutputType = "Exe"
+                OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
                 RootNamespace = "Palladio.QoSAdaptor.QMLComparison"
@@ -80,9 +80,24 @@
                     HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
+                    Name = "Palladio.QoSAdaptor.PatternDescription"
+                    Project = "{F552D8CF-208E-4115-90B1-29A6288AED00}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Palladio.QoSAdaptor.QMLParser"
+                    Project = "{4C2F551B-C2E1-42FF-AEF8-F3CD0F521761}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
                     Name = "antlr.runtime"
                     AssemblyName = "antlr.runtime"
-                    HintPath = "..\libs\antlr.runtime.dll"
+                    HintPath = "libs\antlr.runtime.dll"
+                />
+                <Reference
+                    Name = "Palladio.QoSAdaptor"
+                    Project = "{C12613AF-EB3B-4A0A-A39E-8DF3129DC057}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>
@@ -94,134 +109,132 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "QMLComparator.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "QMLMismatch.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "QMLParserTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "README.txt"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "QMLParser2\NodeHelper.cs"
+                    RelPath = "QmlSpecification\IQMLStatConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\PrettyPrintTextTreeWalker.cs"
+                    RelPath = "QmlSpecification\QMLAspectConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\qml.g"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "QMLParser2\QMLAST.cs"
+                    RelPath = "QmlSpecification\QMLContract.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\QMLLexer.cs"
+                    RelPath = "QmlSpecification\QMLContractExpression.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\QMLParser.cs"
+                    RelPath = "QmlSpecification\QMLContractType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\QMLTokenTypes.cs"
+                    RelPath = "QmlSpecification\QMLDimensionDeclaration.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\QMLTokenTypes.txt"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "QMLParser2\Report.cs"
+                    RelPath = "QmlSpecification\QMLDimensionType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\SemanticTreeWalker.cs"
+                    RelPath = "QmlSpecification\QMLEntity.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\AspectConstr.cs"
+                    RelPath = "QmlSpecification\QMLFrequencyAspect.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\ContractTypeDecl.cs"
+                    RelPath = "QmlSpecification\QMLMeanAspect.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\ContrDecl.cs"
+                    RelPath = "QmlSpecification\QMLMismatchSearchException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\ContrExp.cs"
+                    RelPath = "QmlSpecification\QMLNoValidValueException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\DimConstraint.cs"
+                    RelPath = "QmlSpecification\QMLPercentileAspect.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\DimensionDecl.cs"
+                    RelPath = "QmlSpecification\QMLPercentileAspectComparer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\Frequency.cs"
+                    RelPath = "QmlSpecification\QMLProfile.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\MeanConstr.cs"
+                    RelPath = "QmlSpecification\QMLProfileExpression.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\OrderTable.cs"
+                    RelPath = "QmlSpecification\QMLRequirementClause.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\ProfileDecl.cs"
+                    RelPath = "QmlSpecification\QMLSimpleConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\ReqClause.cs"
+                    RelPath = "QmlSpecification\QMLSpecification.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\SemanticException.cs"
+                    RelPath = "QmlSpecification\QMLSpecificationConstructionException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\SimpleConstr.cs"
+                    RelPath = "QmlSpecification\QMLUnit.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\StatConstr.cs"
+                    RelPath = "QmlSpecification\QMLValueLiteral.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParser2\Semantic\SymboleTable.cs"
+                    RelPath = "QmlSpecification\QMLVarianceAspect.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

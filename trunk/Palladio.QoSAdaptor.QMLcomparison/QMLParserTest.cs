@@ -23,6 +23,7 @@ using System.IO;
 using antlr;
 using antlr.collections;
 using antlr.debug;
+using Palladio.QoSAdaptor.QMLComparison.QmlSpecification;
 using QmlParser;
 using QmlParser.Semantic;
 
@@ -35,23 +36,50 @@ namespace Palladio.QoSAdaptor.QMLComparison
 	{
 		static void Main (string[] args)
 		{
+			if ((args[0] == null) || args[1] == null)
+			{
+				Console.WriteLine("Two qml specifications have to be given as parameters.");
+				return;
+			}
+		
+			FileStream fileStream = new FileStream(args[0], 
+				System.IO.FileMode.Open);
+			StreamReader sr = new StreamReader(fileStream);
+			QMLSpecification requiredSpecification = CreateSpecification(
+				sr);
+			fileStream = new FileStream(args[1], System.IO.FileMode.Open);
+			sr = new StreamReader(fileStream);
+			QMLSpecification providedSpecification = CreateSpecification(
+				sr);
+
+			Console.WriteLine("\nREQUIRED SPECIFICATION \n"+
+				requiredSpecification.ToString());
+			Console.WriteLine("\n\nPROVIDED SPECIFICATION \n"+
+				providedSpecification.ToString());
+
+			/*try
+			{*/
+				IList mismatches = requiredSpecification.GetMismatches(
+					providedSpecification);	
+				Console.WriteLine();
+				Console.WriteLine("MISMATCHES:");
+				IEnumerator enu = mismatches.GetEnumerator();
+				while (enu.MoveNext())
+				{
+					QMLMismatch qmlMismatch = (QMLMismatch)enu.Current;
+					Console.WriteLine(qmlMismatch.ToString());
+				}
+			/*}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}*/
+
+
+			/*
 			// TODO: catch and throw exceptions
 			FileStream fileStream = new FileStream(args[0], System.IO.FileMode.Open);
 			StreamReader sr = new StreamReader(fileStream);
-			/*QMLLexer lexer = new QMLLexer(sr);
-			QMLParser parser = new QMLParser(lexer);
-			try
-			{
-				//parser.declarations();
-				parser.profileDecl();
-			}
-			catch (antlr.MismatchedTokenException e)
-			{
-				Console.WriteLine(e.fileName+" "+e.line+" "+e.Message);
-			}
-			AST ast = parser.getAST();
-			PrettyPrintTextTreeWalker pp = new PrettyPrintTextTreeWalker();
-			Console.WriteLine(pp.PrettyPrint(ast));*/
 
 			QMLLexer lexer = new QMLLexer(sr);	
 			lexer.setTokenObjectClass("antlr.CommonHiddenStreamToken");
@@ -63,95 +91,73 @@ namespace Palladio.QoSAdaptor.QMLComparison
 			QMLParser parser = new QMLParser(filter);
 			parser.setASTNodeClass("QmlParser.QMLAST");
 
-			
-
-				try
-				{
-					//parser.declarations();
-					parser.declarations();
-				}
-				catch (antlr.MismatchedTokenException e)
-				{
-					Console.WriteLine(e.fileName+" "+e.line+" "+e.Message);
-				}
-				
-				antlr.CommonAST ast = (antlr.CommonAST)parser.getAST();
-
-				while (ast != null)
-				{
-				Console.WriteLine("NEW DECLARATION");
-				if (ast == null)
-					Console.WriteLine("AST == NULL");
-
-				PrettyPrintTextTreeWalker pp = new PrettyPrintTextTreeWalker();
-				string tc = pp.PrettyPrint(ast);
-				Console.WriteLine("TC: "+tc);
-				Console.WriteLine();
-
-				// ASTFrame frame = new ASTFrame("QML AST Debugger", ast);
-				// frame.Show();
-
-				/*StringReader sr1 = new StringReader(tc);
-				QMLLexer lexer1 = new QMLLexer(sr1);	
-				lexer1.setTokenObjectClass("antlr.CommonHiddenStreamToken");
-				
-				TokenStreamHiddenTokenFilter filter1 = new TokenStreamHiddenTokenFilter(lexer1); 
-				filter1.hide(QMLLexer.SL_COMMENT);
-				filter1.hide(QMLLexer.ML_COMMENT);
-
-				QMLParser parser1 = new QMLParser(filter1);
-				parser1.setASTNodeClass("QmlParser.QMLAST");
-				parser1.declarations();
-
-				antlr.CommonAST ast1 = (antlr.CommonAST)parser1.getAST();
-              
-				SemanticTreeWalker stw = new SemanticTreeWalker();
-				SymboleTable st = stw.Check(ast1);
-				Console.WriteLine(st.ToString());*/
-
-				/*IEnumerator ienum2 = this.dockManager.Contents.GetEnumerator();
-				while (ienum2.MoveNext())
-				{
-							
-					if (((Content)(ienum2.Current)).Name == "OutputWindow")
-					{
-						TextBox tb = ((OutputWindow)(ienum2.Current)).textBox1;
-						tb.Text += st.ToString();
-						tb.Text += "\r\n";
-
-						tb.Text += stw.GetErrorsDebug();
-
-						IEnumerator ienum = stw.GetErrors();
-						while (ienum.MoveNext())
-						{
-							Error error = (Error)ienum.Current;
-							Point position = new Point(error.Column-1, error.Line-1);
-
-							int offset = tc.Document.PositionToOffset(position);
-
-							Point a = tc.Document.OffsetToPosition(offset);
-
-
-							TextMarker tm = new TextMarker(offset, error.Length-1, TextMarkerType.WaveLine);
-							tm.ToolTip = error.Message;
-							tc.Document.MarkerStrategy.TextMarker.Add(tm);
-						}
-
-						tc.Select();
-
-					}
-				}*/
-					try
-					{
-						parser.declarations();
-					}
-					catch (antlr.MismatchedTokenException e)
-					{
-						Console.WriteLine(e.fileName+" "+e.line+" "+e.Message);
-					}
-
-					ast = (antlr.CommonAST)parser.getAST();
+			try
+			{
+				parser.declarations();
 			}
+			catch (antlr.MismatchedTokenException e)
+			{
+				Console.WriteLine(e.fileName+" "+e.line+" "+e.Message);
+			}
+				
+			antlr.CommonAST ast = (antlr.CommonAST)parser.getAST();
+
+			PrettyPrintTextTreeWalker pp = new PrettyPrintTextTreeWalker();
+			string astString = pp.PrettyPrint(ast);
+
+			Console.WriteLine(astString);
+			Console.WriteLine();
+			Console.WriteLine();
+
+			Console.WriteLine("ROOT = "+ast.getText());
+			AST ast2 = ast.getFirstChild();
+			for (int i=0; i<ast.getNumberOfChildren(); i++)
+			{
+				Console.WriteLine("CHILD"+(i+1)+" = "+ast2.getText());
+				ast2 = ast2.getNextSibling();
+			}
+			*/
+		}
+
+		/*
+		private static void testComparison(string[] args)
+		{
+			// parse required 
+			FileStream fileStream = new FileStream(args[0], System.IO.FileMode.Open);
+			StreamReader sr = new StreamReader(fileStream);
+			QMLLexer lexer = new QMLLexer(sr);	
+			lexer.setTokenObjectClass("antlr.CommonHiddenStreamToken");
+			QMLParser parser = new QMLParser(lexer);
+			parser.setASTNodeClass("QmlParser.QMLAST");
+			parser.declarations();
+
+			// parse provided 
+			FileStream fileStream2 = new FileStream(args[1], System.IO.FileMode.Open);
+			StreamReader sr2 = new StreamReader(fileStream2);
+			QMLLexer lexer2 = new QMLLexer(sr2);	
+			lexer2.setTokenObjectClass("antlr.CommonHiddenStreamToken");
+			QMLParser parser2 = new QMLParser(lexer2);
+			parser2.setASTNodeClass("QmlParser.QMLAST");
+			parser2.declarations();
+
+			QMLComparator comparator = new QMLComparator();
+			comparator.Compare(parser.getAST(), parser2.getAST());
+
+		}*/
+
+		public static QMLSpecification CreateSpecification (TextReader 
+			textReader)
+		{
+			QMLLexer lexer = new QMLLexer(textReader);	
+			lexer.setTokenObjectClass("antlr.CommonHiddenStreamToken");
+			QMLParser parser = new QMLParser(lexer);
+			parser.setASTNodeClass("QmlParser.QMLAST");
+			parser.declarations();
+
+			QMLSpecification specification = new QMLSpecification(
+													parser.getAST());
+
+			return specification;
 		}
 	}
 }

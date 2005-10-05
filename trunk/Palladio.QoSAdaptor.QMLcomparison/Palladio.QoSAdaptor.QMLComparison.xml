@@ -4,14 +4,1163 @@
         <name>Palladio.QoSAdaptor.QMLComparison</name>
     </assembly>
     <members>
-        <member name="T:QmlParser.Semantic.MeanConstr">
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint">
             <summary>
-            Zusammenfassung für MeanConstr.
+            Common interface of all QMLStatConstraints. Used e.g. in 
+            QMLAspectConstraint as common interface of all aspects.
             </summary>
         </member>
-        <member name="T:QmlParser.NodeHelper">
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint.Type">
             <summary>
-            Zusammenfassung für NodeHelper.
+            Getter for the aspect type. Not implemented as property, because
+            properties are not allowed in interfaces.
+            </summary>
+            <returns>The type of implementing aspect. The value is specified in 
+            QMLParser.QMLTokenTypes.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
+            <summary>
+            Checks if an implementation of this interface matches another 
+            given IQMLStatConstraint. I.e. is better or equal.
+            </summary>
+            <param name="requiredConstraint">An IQMLStatConstraint defined in 
+            the required interface.</param>
+            <returns>True if the IQMLStatConstraints match. Else false.
+            </returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint">
+            <summary>
+            Represents a QML aspect constraint.
+            TODO: Inherit from superclass/interface QMLConstraint?
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new 
+            QMLAspectConstraint containing the same information as the AST.
+            </summary>
+            <param name="aspectConstraint">AST representing a QML aspect 
+            constraint.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.ToString">
+            <summary>
+            Returns a new QML aspect constraint string containing all 
+            information in this QMLAspectConstraint which is compatible to the 
+            grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML aspect constraint.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
+            <summary>
+            Checks if this QMLAspectConstraint matches the given constraint.
+            I.e. is better or equal to the given constraint. 
+            As part of a mismatch search this constraint should be part of the
+            provided specification while the given constraint should be part of the
+            required specification
+            </summary>
+            <param name="requiredConstraint">QMLAspectConstraint that is part 
+            of the required specification.</param>
+            <returns>True if this constraint matches the given constraint, 
+            else false.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.AspectMatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
+            <summary>
+            Checks if one of the aspects in this.statConstraints matches the 
+            given aspect.
+            </summary>
+            <param name="requiredAspect">IQMLStatConstraint that is defined in
+            the required specification.</param>
+            <returns>True if one of the aspects of this QMLAspectContraint 
+            matches the given aspect. Else false.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.GetThisPercentiles">
+            <summary>
+            Searches this.statConstraints for all percentile aspects and 
+            returns a list of them.
+            </summary>
+            <returns>IList with all QMLPercentileAspects of this aspect
+            constraint.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.GetSharedNumericOperator(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Tries to find and return a shared numeric operator of the given 
+            lists. The lists are expected to contain QMLPercentileAspect 
+            objects that all have the same numeric operator. If this is not the
+            case, -1 is returned. 
+            </summary>
+            <param name="percentiles1">A list of QMLPercentileAspects.</param>
+            <param name="percentiles2">A second list of QMLPercentileAspects.
+            </param>
+            <returns>The shared numeric operator or -1 if the list do not 
+            only contain QMLPercentileAspects or different numeric operators
+            are used in the different QMLPercentileAspects. -2 is returned
+            if both lists are empty.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.MatchLessThanPercentiles(System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            Checks if the function described by the percentiles in 
+            thisPercentiles matches the function described by the percentiles
+            in requiredPercentiles. 
+            It is assumed that all percentiles have the numeric operator 
+            QMLTokenTypes.NUMOP_LTHAN and the lists are reverse sorted by
+            percentiles starting with percentile 100.
+            </summary>
+            <param name="thisPercentiles">List of percentiles defined for the
+            provided interface.</param>
+            <param name="requiredPercentiles">List of percentiles defined for 
+            the required interface.</param>
+            <returns>True if thisPercentiles matches requiredPercentiles.
+            Else false.</returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.Name">
+            <summary>
+            Returns the name (QoS aspect) of this QMLAspectConstraint
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.StatConstraints">
+            <summary>
+            Returns the aspects (percentile, mean, variance, frequency) of
+            this QMLAspectConstraint.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract">
+            <summary>
+            Represents a QMLContract
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new QMLContract
+            containing the same information as the AST.
+            </summary>
+            <param name="contract">AST representing a QMLContract.
+            </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.#ctor(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
+            <summary>
+            Creates an unnamed QMLContract with the given contractExpression.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.ToString">
+            <summary>
+            Returns a new QML contract string containing all information
+            in this QMLContract which is compatible to the grammar
+            accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML contract specification.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.Equals(System.Object)">
+            <summary>
+            Defines two QMLContracts to be equal when they have the same name
+            and QMLContractExpression with the same names.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.FindMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract,System.String,System.String)">
+            <summary>
+            Lists mismatches of the contract expression of this contract and 
+            the given QMLContract. 
+            The names of the contract are thereby not examined.
+            </summary>
+            <param name="providedContract">A QMLContract of the provided 
+            interface which describes the same interface or entity as this
+            contract.</param>
+            <param name="entityName">The name of the entity this contract is 
+            defined for. Null if the contract describes an interface.</param>
+            <param name="interfaceName">The name of the interface this 
+            contract is defined for.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.Name">
+            <summary>
+            Returns the name of this contract.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.ContractExpression">
+            <summary>
+            Returns the contract expression belonging to this contract.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression">
+            <summary>
+            Represents a QML contract expression.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new 
+            QMLContractExpression containing the same information as the AST.
+            </summary>
+            <param name="contractExpression">AST representing a QML
+            contract expression.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.ToString">
+            <summary>
+            Returns a new QML contract expression string containing all 
+            information in this QMLContractExpression which is compatible to 
+            the grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML contract expression.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
+            <summary>
+            Compares this contract expression with the given contract 
+            expression and returns true if this contract expression 
+            matches the required contract expression. I.e. this expression is
+            better than or equal to the given contract expression.
+            </summary>
+            <param name="requiredContractExpression">The contract expression
+            this expression shall match.</param>
+            <returns>True, if this expression matches the given expression. 
+            Else false</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.GetMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
+            <summary>
+            Checks, if all constraints of this QMLContractExpression match the
+            given required QMLContractExpression. The constraints in the 
+            required expression that are not match are returned by their name.
+            </summary>
+            <param name="requiredContractExpression">The contract expression
+            this expression shall match.</param>
+            <returns>A list of names of mismatches constraints.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.SimpleConstraintMatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint)">
+            <summary>
+            Checks if the given QMLSimpleConstraint is matched by one of the
+            simple constraints defined in this contract expression.
+            </summary>
+            <param name="requiredConstraint">QMLSimpleConstraint defined in the
+            required specification.</param>
+            <returns>True if one simple constraint in this contract expression
+            matches the given constraint. Else false.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.AspectConstraintMatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
+            <summary>
+            Checks if the given QMLAspectConstraint is matched by one of the
+            aspect constraints defined in this contract expression.
+            </summary>
+            <param name="requiredConstraint">QMLAspectConstraint defined in the
+            required specification.</param>
+            <returns>True if one aspect constraint in this contract expression
+            matches the given constraint. Else false.</returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType">
+            <summary>
+            Represents a QML contract type specification.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new QMLContractType
+            containing the same information as the AST.
+            </summary>
+            <param name="contractType">AST representing a QMLContractType.
+            </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType.ToString">
+            <summary>
+            Returns a new QML contract type string containing all information
+            in this QMLContractType which is compatible to the grammar
+            accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML contract type specification.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType.Equals(System.Object)">
+            <summary>
+            Determines whether this object and the given 
+            QMLContractType object have the same value;
+            </summary>
+            <param name="obj">Object which is asked to equal this object.
+            </param>
+            <returns>True if this and obj have the name and dimension 
+            declarations, else false
+            </returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration">
+            <summary>
+            Represents a QML dimension declaration.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new 
+            QMLDimensionDeclaration containing the same information as the AST.
+            </summary>
+            <param name="dimensionDeclaration">AST representing a 
+            QMLDimensionDeclaration.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration.ToString">
+            <summary>
+            Returns a new QML dimension declaration string containing all 
+            information in this QMLDimensionDeclaration which is compatible to 
+            the grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML dimension declaration.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration.Equals(System.Object)">
+            <summary>
+            Determines whether this object and the given 
+            QMLDimensionDeclaration object have the same value;
+            </summary>
+            <param name="obj">Object which is asked to equal this object.
+            </param>
+            <returns>True if this and obj have the same name, type and unit, 
+            else false
+            </returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType">
+            <summary>
+            Represents a QML dimension type. At the moment only numeric types are
+            supported which are saved as a string. 
+            TODO: Implement types ENUM_DEF and SET_DEF and check if they can also
+                  be represented by a simple string.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new QMLDimensionType
+            containing the same information as the AST.
+            </summary>
+            <param name="dimensionType">AST representing a QMLDimensionType.
+            </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.ToString">
+            <summary>
+            Returns a new QML dimension type string containing all information
+            in this QMLDimensionType which is compatible to the grammar
+            accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML dimension type.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.Equals(System.Object)">
+            <summary>
+            Determines whether this object and the given QMLDimensionType 
+            object have the same value;
+            </summary>
+            <param name="obj">Object which is asked to equal this object.
+            </param>
+            <returns>True if this and obj have the same type, else false
+            </returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity">
+            <summary>
+            An represents QMLTokenTypes.ENTITY, QMLTokenTypes.ENTITY_PARM and 
+            QMLTokenTypes.ENTITY_RESULT_OF concepts, which are differed by the 
+            type attribute.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new 
+            QMLEntity containing the same information as the AST.
+            </summary>
+            <param name="entity">AST representing a QML entity.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity.ToString">
+            <summary>
+            Returns a new QML entity string containing all 
+            information in this QMLEntity which is compatible to the 
+            grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML entity.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity.Equals(System.Object)">
+            <summary>
+            Defines two objects to be equal if they are both QMLEntity's and 
+            have the same type and name.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity.Type">
+            <summary>
+            The type of this QMLEntity. Types are specified in 
+            QMLParser.QMLTokenTypes.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity.Name">
+            <summary>
+            The name of this QMLEntity.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect">
+            <summary>
+            Zusammenfassung für QMLFrequencyAspect.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new 
+            QMLFrequencyAspect containing the same information as the AST.
+            </summary>
+            <param name="frequencyAspect">AST representing a QML frequency 
+            aspect.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.ToString">
+            <summary>
+            Returns a new QML frequency aspect string containing all 
+            information in this QMLFrequencyAspect which is compatible to the 
+            grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML frequency aspect.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.Type">
+            <summary>
+            Getter for the aspect type. Not implemented as property, because
+            properties are not allowed in interfaces.
+            </summary>
+            <returns>The type of this aspect. The value is specified in 
+            QMLParser.QMLTokenTypes.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
+            <summary>
+            Checks if this QMLFrequencyAspect matches the given aspect.
+            I.e. is better or equal to the given aspect. 
+            As part of a mismatch search this aspect should be part of the
+            provided specification while the given aspect should be part of the
+            required specification.
+            Note: QMLFrequencyAspects are not regarded in mismatch retrieval at
+            the moment. Hence true is always returned when the given aspects 
+            type is QMLTokenTypes.FREQUENCY_CONTR so that frequency aspects in 
+            a contract definition do not cause irregular behaviour during the
+            mismatch retrieval.
+            </summary>
+            <param name="requiredAspect">QMLFrequencyAspect that is part of the
+            required specification.</param>
+            <returns>True if this aspect matches the given aspect, 
+            else false.</returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect">
+            <summary>
+            Zusammenfassung für QMLMeanAspect.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new 
+            QMLMeanAspect containing the same information as the AST.
+            </summary>
+            <param name="meanAspect">AST representing a QML mean aspect.
+            </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.ToString">
+            <summary>
+            Returns a new QML mean aspect string containing all 
+            information in this QMLMeanAspect which is compatible to the 
+            grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML mean aspect.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.Type">
+            <summary>
+            Getter for the aspect type. Not implemented as property, because
+            properties are not allowed in interfaces.
+            </summary>
+            <returns>The type of this aspect. The value is specified in 
+            QMLParser.QMLTokenTypes.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
+            <summary>
+            Checks if this QMLMeanAspect matches the given aspect.
+            I.e. is better or equal to the given aspect. 
+            As part of a mismatch search this aspect should be part of the
+            provided specification while the given aspect should be part of the
+            required specification.
+            </summary>
+            <param name="requiredAspect">QMLMeanAspect that is part of the
+            required specification.</param>
+            <returns>True if this aspect matches the given aspect, 
+            else false.</returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.NumericOperator">
+            <summary>
+            Returns the numeric operator of this QMLMeanAspect
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.Value">
+            <summary>
+            Returns the value of this QMLMeanAspect
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMismatchSearchException">
+            <summary>
+            Zusammenfassung für QMLMismatchSearchException.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLNoValidValueException">
+            <summary>
+            Zusammenfassung für QMLNoValidValueException.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLNoValidValueException.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this exception with a default
+            error message.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect">
+            <summary>
+            Zusammenfassung für QMLPercentileAspect.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new 
+            QMLPercentileAspect containing the same information as the AST.
+            </summary>
+            <param name="percentileAspect">AST representing a QML percentile 
+            aspect.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.ToString">
+            <summary>
+            Returns a new QML percentile aspect string containing all 
+            information in this QMLPercentileAspect which is compatible to the 
+            grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML percentile aspect.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.Type">
+            <summary>
+            Getter for the aspect type. Not implemented as property, because
+            properties are not allowed in interfaces.
+            </summary>
+            <returns>The type of this aspect. The value is specified in 
+            QMLParser.QMLTokenTypes.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
+            <summary>
+            Checks if this QMLPercentileAspect matches the given aspect.
+            I.e. is better or equal to the given aspect. 
+            As part of a mismatch search this aspect should be part of the
+            provided specification while the given aspect should be part of the
+            required specification.
+            
+            Note: This method is implemented here, because it is part of the
+            IQMLStatInterface. The method is not used in the mismatch search 
+            at the moment.
+            </summary>
+            <param name="requiredAspect">QMLPercentileAspect that is part of 
+            the required specification.</param>
+            <returns>True if this aspect matches the given aspect, 
+            else false.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.Compare(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect)">
+            <summary>
+            Compares this QMLPercentileAspect to another QMLPercentileAspect.
+            Only the percentiles are taken into consideration. The numeric 
+            operators and values are not looked at.
+            </summary>
+            <param name="aspect">A QMLPercentileAspect</param>
+            <returns>An int smaller than 0 if this.percentile is smaller than 
+            aspect.Percentile. 0 if they are equal and a value greater than 0
+            if this.percentile is bigger than aspect.Percentile.</returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.Percentile">
+            <summary>
+            Returns the value of the percentile field of this 
+            QMLPercentileAspect
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.NumericOperator">
+            <summary>
+            Returns the numeric operator belonging to this QMLPercentileAspect.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.Value">
+            <summary>
+            Returns the value belonging to this QMLPercentileAspect.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspectComparer">
+            <summary>
+            Implements an IComparer for QMLPercentileAspects. This is used to sort 
+            lists of percentile aspects.
+            It is expected that QMLPercentileAspect.Compare() only compares the
+            percentiles and not the numeric operators or values.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile">
+            <summary>
+            A QML profile describes QoS requirements for a certain interface.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.#ctor(antlr.collections.AST,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            Constructor that takes an AST and constructs a new QMLProfile 
+            containing the same information as the AST.
+            </summary>
+            <param name="profile">AST representing a QML profile.</param>
+            <param name="specification">The QMLSpecification this profile is 
+            a part of.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.Covers(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile)">
+            <summary>
+            Checks, if the given profile covers the same interface as this 
+            profile. Thereby it is possible that this profile describes
+            more entities than the given profile.
+            </summary>
+            <param name="profile">Profile which shall cover the same interface
+            as this profile.</param>
+            <returns>True, if this profile covers the same interface as the
+            given profile. False, else.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.ToString">
+            <summary>
+            Returns a new QML profile string containing all 
+            information in this QMLProfile which is compatible to the 
+            grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML profile.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.FindMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile)">
+            <summary>
+            Searches for mismatches between the entities of this QMLProfile and
+            the given provided profile.
+            </summary>
+            <param name="providedProfile">A QML profile of the provided 
+            service.</param>
+            <returns>A list of Mismatch objects.</returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.InterfaceName">
+            <summary>
+            The interface for which this profile specifies QoS attributes.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.ProfileExpression">
+            <summary>
+            The profile expression belonging to this profile.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression">
+            <summary>
+            Zusammenfassung für QMLProfileExpression.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.#ctor(antlr.collections.AST,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            Constructor that takes an AST and constructs a new 
+            QMLProfileExpression containing the same information as the AST.
+            </summary>
+            <param name="profileExpression">AST representing a QML profile 
+            expression.</param>
+            /// <param name="specification">The QMLSpecification this profile 
+            expression is a part of.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.Covers(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression)">
+            <summary>
+            Checks, if this profile expression covers the same requirements as 
+            the given profile expression. Thereby it is possible that this 
+            profile expression describes more entities than the given profile
+            expression.
+            It is only checked if the same entities are covered. For this test
+            it is possible that different contracts are discribed for the 
+            entities or the interface at all.
+            TODO: Should the contracts also be checked here so that this has
+            not to be done in the contract mismatch detection ???
+            </summary>
+            <param name="profileExpression">Profile expression which shall 
+            cover the same interface as this profile expression.</param>
+            <returns>True, if this profile expression covers the same 
+            requirements as the given profile expression. False, else.
+            </returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.FindMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression,System.String)">
+            <summary>
+            Searches for mismatches between the entities of this 
+            QMLProfileExpression and the given provided profile expression.
+            </summary>
+            <param name="providedProfileExpression">A QML profile expression
+            of the provided service.</param>
+            <param name="interfaceName">The name of the interface this profile
+            expression is defined for.</param>
+            <returns>A list of Mismatch objects.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.ToString">
+            <summary>
+            Returns a new QML profile eypression string containing all 
+            information in this QMLProfileExpression which is compatible to the 
+            grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML profile expression.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.CheckRequirementCoping(System.Collections.IList)">
+            <summary>
+            Checks if all given requirement clauses of are covered by 
+            the requirement clauses in this.requirementClauses.
+            </summary>
+            <param name="requirementClauses">Requirement clauses which shall be
+            covered by this profile expression.</param>
+            <returns>True, if all given requirement clauses are covered.
+            Else false.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.CompareContracts(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Compares two contract list.
+            </summary>
+            <param name="thisContracts">List of QMLContracts of this profile
+            expression.</param>
+            <param name="externalContracts">List of QMLContracts of another
+            profile expression.</param>
+            <returns>True, if thisContracts contains the contracts of 
+            externalContracts. Else false.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.FindEntityMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression,System.String)">
+            <summary>
+            Searches in the provided profile for an entity with the same name 
+            as the given entity and compares the contracts defined for 
+            these entities.
+            It is assumed that a corresponding entity to the given entity 
+            exists in the provided profile expression. This can be ensured
+            by a comparison of the provided and required specifications with
+            QMLSpecification.CheckCompleteCoping or this.Covers before 
+            calling this.FindMismatches.
+            </summary>
+            <param name="entity">A QMLEntity of the required interface.</param>
+            <param name="clause">The QMLRequirementClause the contracts for the
+            given entity are defined in.</param>
+            <param name="providedProfileExpression">A QMLProfileExpression of 
+            the provided interface.</param>
+            <param name="interfaceName">The name of the interface this profile
+            expression is defined for.</param>
+            <returns>A Mismatch object if the contract of the provided entity
+            corresponding to the given entity does not match the contract of
+            the given entity. Else null.</returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause">
+            <summary>
+            Zusammenfassung für QMLRequirementClause.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.entities">
+            <summary>
+            Contracts for certain methods
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.contracts">
+            <summary>
+            Contracts directly associated with an interface
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.#ctor(antlr.collections.AST,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            Constructor that takes an AST and constructs a new 
+            QMLRequirementClause containing the same information as the AST.
+            </summary>
+            <param name="requirementClause">AST representing a QML requirement 
+            clause.</param>
+            /// <param name="specification">The QMLSpecification this 
+            requirement clause is defined in.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.CreateEntities(antlr.collections.AST)">
+            <summary>
+            Creates new QMLEntities for the entrys of the given entity list.
+            </summary>
+            <param name="entityList">List of qml entities.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.CreateContracts(antlr.collections.AST,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            Gets named contracts from the given specification and creates new
+            unnamed contracts for unnamed contract expressions in profile
+            expression.
+            </summary>
+            <param name="contracts"></param>
+            <param name="specification"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.ToString">
+            <summary>
+            Returns a new QML requirement clause string containing all 
+            information in this QMLRequirementClause which is compatible to the 
+            grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML requirement clause.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.FindContractMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause,System.String,System.String)">
+            <summary>
+            Searches for mismatches in corresponding contracts of this 
+            requirement clause and the given requirement clause.
+            </summary>
+            <param name="clause">QMLRequirementClause of the provided service
+            that describes the same entity or interface.</param>
+            <param name="entityName">The name of the entity this requirement 
+            clause describes. Null, if the clause describes an interface.
+            </param>
+            <param name="interfaceName">The name of the interface this clause
+            is defined for.</param>
+            <returns>A list of Mismatch objects.</returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint">
+            <summary>
+            Represents a QML simple constraint.
+            TODO: Inherit from superclass/interface QMLConstraint?
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new 
+            QMLSimpleConstraint containing the same information as the AST.
+            </summary>
+            <param name="simpleConstraint">AST representing a QML simple 
+            constraint.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.ToString">
+            <summary>
+            Returns a new QML simple constraint string containing all 
+            information in this QMLSimpleConstraint which is compatible to the 
+            grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML simple constraint.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint)">
+            <summary>
+            Checks if this QMLSimpleConstraint matches the given constraint.
+            I.e. is better or equal to the given constraint. 
+            As part of a mismatch search this constraint should be part of the
+            provided specification while the given constraint should be part of the
+            required specification
+            </summary>
+            <param name="constraint">QMLSimpleConstraint that is part of the
+            required specification.</param>
+            <returns>True if this constraint matches the given constraint, 
+            else false.</returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.Name">
+            <summary>
+            Returns the name of this QMLSimpleConstraint
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.NumericOperator">
+            <summary>
+            Returns the numeric operator of this QMLSimpleContraint.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.ValueLiteral">
+            <summary>
+            Returns the value of this QMLSimpleConstraint
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification">
+            <summary>
+            Represents a QML specification.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new QMLSpecification
+            containing the same information as the AST.
+            </summary>
+            <param name="specification">AST representing a QML specification.
+            </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.GetMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            This method compares this QMLSpecification to the given 
+            specification, whereas this specification is looked upon as 
+            the required specification (seen in a CBSE context) and the given
+            specification as provided specification.
+            This method returns a list of QoS aspects (e.g. performance or 
+            reliability) that are required by this specification but not 
+            provided by the specication given as parameter. 
+            
+            For the search for mismatches it is required that the requirements
+            for a certain interface a described in exactly one profile.
+            Discriptions in two different profiles are not recognized. 
+            TODO: Is this QML standard?
+            
+            The result of this method is a list of Mismatch objects which 
+            represent a mismatched QoS aspect and the corresponding interface
+            and entity.
+            </summary>
+            <param name="providedSpecification">The provided QMLSpecification 
+            which is expected to contain mismatches to this specification.
+            </param>
+            <returns>IList with Mismatch objects.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.GetContract(System.String)">
+            <summary>
+            If this specification contains a contract with the given name the
+            corresponding QMLContract is returned. 
+            </summary>
+            <param name="contractName">Name of the seeked contract.</param>
+            <returns>Corresponding QMLContract or null if no contract with the
+            given name exists in this specification.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.ToString">
+            <summary>
+            Returns a new QML specification string containing all information
+            in this QMLSpecification which is compatible to the grammar
+            accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML specification.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.CheckCompleteCoping(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            Checks if the given profile is completely covered by the given 
+            specification. I.e. the interface and the entities in the profile
+            are also described by the same contract types in the given 
+            specification.
+            </summary>
+            <param name="profile">A profile of the required specification.
+            </param>
+            <param name="specification">The specification of the provided
+            service.</param>
+            <returns>True if the profile is covered by the given specification.
+            Else false.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.FindProfileMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            Searches for profile mismatches. I.e. a contract in the given 
+            profile is more strict than the corresponding contract in the 
+            provided specification.
+            </summary>
+            <param name="profile">Profile of the required specification.
+            </param>
+            <param name="providedSpecification">The QML specification of the 
+            provided service.</param>
+            <returns>A list of Mismatch objects.</returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecificationConstructionException">
+            <summary>
+            Zusammenfassung für QMLSpecificationConstructionException.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecificationConstructionException.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this exception with a default
+            error message.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLUnit">
+            <summary>
+            Represents a QMLUnit.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLUnit.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new QMLUnit
+            containing the same information as the AST.
+            </summary>
+            <param name="unit">AST representing a QMLUnit.
+            </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLUnit.ToString">
+            <summary>
+            Returns a new QML unit string containing all information
+            in this QMLUnit which is compatible to the grammar
+            accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML unit.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLUnit.Equals(System.Object)">
+            <summary>
+            Determines whether this object and the given QMLUnit object have 
+            the same value;
+            </summary>
+            <param name="obj">Object which is asked to equal this object.
+            </param>
+            <returns>True if this and obj have the same unitString, else false
+            </returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral">
+            <summary>
+            Represents a value literal.
+            
+            TODO: Use polymorphy instead of different types in this class?
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new QMLValueLiteral
+            containing the same information as the AST.
+            </summary>
+            <param name="valueLiteral">AST representing a QML value literal.
+            </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral.ToString">
+            <summary>
+            Returns a new QML value literal string containing all information
+            in this QMLValueLiteral which is compatible to the grammar
+            accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML value literal.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral.Equals(System.Object)">
+            <summary>
+            Tests if the given object equals this QMLValueLiteral.
+            </summary>
+            <param name="obj">Object to test.</param>
+            <returns>True if the given object is a QMLValueLiteral of the same 
+            type as this QMLValueLiteral and has the same value. Else false.
+            </returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral.CompareTo(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral)">
+            <summary>
+            Compares the given QMLValueLiteral to this QMLValueLiteral. Both
+            QMLLiterals need to be of the same type.
+            </summary>
+            <param name="value">A QMLValueLiteral.</param>
+            <returns>Integer smaller than 0, if this QMLLiteral is smaller than
+            the given QMLLiteral. 0, if both are equal. Integer bigger than 0, 
+            if this QMLLiteral is bigger than the given QMLLiteral.</returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral.Type">
+            <summary>
+            The type of this QMLValueLiteral. The values are specified in 
+            QMLParser.QMLTokenTypes.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral.NumberValue">
+            <summary>
+            The number value of this QMLValueLiteral. Only assigned, if 
+            Type == QMLTokenTypes.NUMBER
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral.NameValue">
+            <summary>
+            The name value of this QMLValueLiteral. Only assigned, if 
+            Type == QMLTokenTypes.NAME
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral.NameListValue">
+            <summary>
+            The name list value of this QMLValueLiteral. Only assigned, if 
+            Type == QMLTokenTypes.NAME_LIST
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect">
+            <summary>
+            Zusammenfassung für QMLVarianceAspect.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect.#ctor(antlr.collections.AST)">
+            <summary>
+            Constructor that takes an AST and constructs a new 
+            QMLVarianceAspect containing the same information as the AST.
+            </summary>
+            <param name="varianceAspect">AST representing a QML variance 
+            aspect.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect.ToString">
+            <summary>
+            Returns a new QML variance aspect string containing all 
+            information in this QMLVarianceAspect which is compatible to the 
+            grammar accepted by the QMLParser by Lars Karg.
+            </summary>
+            <returns>QML variance aspect.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect.Type">
+            <summary>
+            Getter for the aspect type. Not implemented as property, because
+            properties are not allowed in interfaces.
+            </summary>
+            <returns>The type of this aspect. The value is specified in 
+            QMLParser.QMLTokenTypes.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
+            <summary>
+            Checks if this QMLVarianceAspect matches the given aspect.
+            I.e. is better or equal to the given aspect. 
+            As part of a mismatch search this aspect should be part of the
+            provided specification while the given aspect should be part of the
+            required specification.
+            Note: QMLVarianceAspects are not regarded in mismatch retrieval at
+            the moment. Hence true is always returned when the given aspects 
+            type is QMLTokenTypes.VARIANCE_CONTR so that variance aspects in 
+            a contract definition do not cause irregular behaviour during the
+            mismatch retrieval.
+            </summary>
+            <param name="requiredAspect">QMLVarianceAspect that is part of the
+            required specification.</param>
+            <returns>True if this aspect matches the given aspect, 
+            else false.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLComparator.#ctor">
+            <summary>
+            Standard constructor.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLComparator.Parse(System.IO.TextReader)">
+            <summary>
+            Parses the given QML specification, builds an internal model of the
+            specification and returns its string representation.
+            Can e.g. be used for debugging of the parser. 
+            </summary>
+            <param name="specificationReader">A TextReader representing a QML
+            specification.</param>
+            <returns>The string representation of the internal model of the
+            QML specification.</returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLComparator.RequiredSpecificationString">
+            <summary>
+            Returns the last parsed required specification in its string 
+            representation
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLComparator.ProvidedSpecificationString">
+            <summary>
+            Returns the last parsed provided specification in its string 
+            representation
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QMLMismatch">
+            <summary>
+            Represents a mismatch that was found in the comparison of two 
+            QMLSpecification's. A mismatch object holds the interface and the
+            entity for which the mismatch occured and the QoS aspect that 
+            mismatched (e.g Performance or Reliability).
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="interfaceName">The interface for which the mismatch 
+            occurred.</param>
+            <param name="entity">The entitiy for which the mismatch 
+            occurred.</param>
+            <param name="mismatch">The mismatched QoS aspect.</param>
+            <param name="mismatchedSubAspect">The mismatches QoS subaspect
+            </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.ToString">
+            <summary>
+            Create string representation of this mismatch.
+            </summary>
+            <returns>String representation of this mismatch.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.AddPattern(Palladio.QoSAdaptor.Pattern.PatternDescription)">
+            <summary>
+            Adds a new pattern that covers this mismatch.
+            </summary>
+            <param name="pattern">A PatternDescription.</param>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.InterfaceName">
+            <summary>
+            Returns the name of the interface belonging to this Mismatch
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.Entity">
+            <summary>
+            Returns the name of the entity belonging to this Mismatch
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.MismatchAttribute">
+            <summary>
+            Returns the name of the mismatched QoS attribute belonging to this 
+            Mismatch
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.MismatchSubAttribute">
+            <summary>
+            Returns the name of the mismatched QoS subattribute belonging to 
+            this Mismatch
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.Patterns">
+            <summary>
+            Returns a list of PatternDescriptions of patterns that cover this
+            mismatch.
             </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QMLParserTest">

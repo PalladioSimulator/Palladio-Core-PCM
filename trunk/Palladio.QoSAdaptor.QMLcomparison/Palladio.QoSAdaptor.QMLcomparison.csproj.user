@@ -1,7 +1,7 @@
 <VisualStudioProject>
     <CSHARP LastOpenVersion = "7.10.3077" >
         <Build>
-            <Settings ReferencePath = "C:\Dokumente und Einstellungen\user\Eigene Dateien\Visual Studio Projects\AdaptorGeneration\libs\;C:\Dokumente und Einstellungen\user\Eigene Dateien\Visual Studio Projects\Palladio.QoSAdapter\libs\;C:\Dokumente und Einstellungen\user\Eigene Dateien\Visual Studio Projects\Palladio.QoSAdaptor\libs\" >
+            <Settings ReferencePath = "C:\Dokumente und Einstellungen\user\Eigene Dateien\Visual Studio Projects\AdaptorGeneration\libs\;C:\Dokumente und Einstellungen\user\Eigene Dateien\Visual Studio Projects\Palladio.QoSAdapter\libs\;C:\Dokumente und Einstellungen\user\Eigene Dateien\Visual Studio Projects\Palladio.QoSAdaptor\libs\;C:\Dokumente und Einstellungen\user\Eigene Dateien\Visual Studio Projects\Palladio.QoSAdaptor\Palladio.QoSAdaptor.QMLcomparison\libs\" >
                 <Config
                     Name = "Debug"
                     EnableASPDebugging = "false"
