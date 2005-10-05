@@ -4,6 +4,24 @@
         <name>Palladio.QoSAdaptor.PatternDescription</name>
     </assembly>
     <members>
+        <member name="T:Palladio.QoSAdaptor.Pattern.MismatchAttribute">
+            <summary>
+            A QoSAttribute describes the suitability of a design 
+            pattern for solving problems with certain QoS attributes.
+            The class has the attributes name and suitability, where
+            "suitability" describes the suitability of the pattern to
+            solve a problem with the QoS attribute referred to by 
+            "name". 
+            Suitability is a string which at the moment should have
+            one of the following values: ++, +, 0, -, --
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.MismatchAttribute.#ctor(System.String)">
+            <summary>
+            Constructs a new QoSAttribute with the given name.
+            </summary>
+            <param name="name">The name of the QoSAttribute</param>
+        </member>
         <member name="T:Palladio.QoSAdaptor.Pattern.PatternDescription">
             <summary>
             A PatternDescription has a number of attributes to 
@@ -16,7 +34,7 @@
             Constructs a new empty PatternDescription.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.AddQoSAttribute(Palladio.QoSAdaptor.Pattern.QoSAttribute)">
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.AddMismatchAttribute(Palladio.QoSAdaptor.Pattern.MismatchAttribute)">
             <summary>
             Adds a QoSattribute to the list of attributes the 
             description holds. 
@@ -46,6 +64,36 @@
             </summary>
             <param name="template">The filename of the template
             </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.HasMismatchAttribute(System.String)">
+            <summary>
+            Checks if this PatternDescription covers the given QoS attribute.
+            </summary>
+            <param name="attributeName">The name of a QoS attribute.</param>
+            <returns>True if this description covers the given attribute. Else
+            false.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.GetMismatchAttribute(System.String)">
+            <summary>
+            Returns the QoSAttribute with the given name. It is assumed that 
+            there is only one attribute with the given name. 
+            </summary>
+            <param name="attributeName">The name of the searched QoSAttribute.
+            </param>
+            <returns>The QoSAttribute, if it is in the attribute list of this
+            PatternDescription. Else null.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.Equals(System.Object)">
+            <summary>
+            Checks if two PatternDescriptions instances are equal. To check
+            this name, description and source are checked for equality.
+            qosAttributes and templates are not checked, because it is much 
+            more complex and it is assumed that if the first three attributes
+            are equal the whole description is equal.
+            </summary>
+            <param name="obj">A PatternDescription.</param>
+            <returns>True if the described attribute of this object equal the 
+            attributes of the given object. Else false.</returns>
         </member>
         <member name="T:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser">
             <summary>
@@ -99,9 +147,9 @@
             <param name="pattern">The final PatternDescription 
             object.</param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.ReadQoSEffects(System.Xml.XPath.XPathNavigator,Palladio.QoSAdaptor.Pattern.PatternDescription)">
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.ReadMismatches(System.Xml.XPath.XPathNavigator,Palladio.QoSAdaptor.Pattern.PatternDescription)">
             <summary>
-            This methods parses the QoS effects described in the 
+            This methods parses the mismatches described in the 
             XML file.
             </summary>
             <param name="nav">An XPathNavigator for the parsed XML
@@ -130,24 +178,6 @@
             file</param>
             <param name="pattern">The final PatternDescription 
             object.</param>
-        </member>
-        <member name="T:Palladio.QoSAdaptor.Pattern.QoSAttribute">
-            <summary>
-            A QoSAttribute describes the suitability of a design 
-            pattern for solving problems with certain QoS attributes.
-            The class has the attributes name and suitability, where
-            "suitability" describes the suitability of the pattern to
-            solve a problem with the QoS attribute referred to by 
-            "name". 
-            Suitability is a string which at the moment should have
-            one of the following values: ++, +, 0, -, --
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.Pattern.QoSAttribute.#ctor(System.String)">
-            <summary>
-            Constructs a new QoSAttribute with the given name.
-            </summary>
-            <param name="name">The name of the QoSAttribute</param>
         </member>
     </members>
 </doc>

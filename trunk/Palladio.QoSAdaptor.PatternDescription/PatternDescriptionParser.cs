@@ -1,20 +1,20 @@
 #region info
 ///////////////////////////////////////////////////////////////////////////////
-/// This software has been developed as a part of the diploma thesis 
-/// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage für 
-/// Komponentenadapter" ("Influence of the configuration of a generator on the 
-/// prediction of the QoS of component adaptors")
-/// at the 
-/// University of Oldenburg
-/// Department of Computing Science
-/// Software Engineering Group
-/// Palladio Research Group
-/// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
-/// 
-/// Development period: July 2005 - January 2006
-/// 
-/// Author: Niels Streekmann
-/// E-mail: niels.streekmann@informatik.uni-oldenburg.de
+// This software has been developed as a part of the diploma thesis 
+// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage für 
+// Komponentenadapter" ("Influence of the configuration of a generator on the 
+// prediction of the QoS of component adaptors")
+// at the 
+// University of Oldenburg
+// Department of Computing Science
+// Software Engineering Group
+// Palladio Research Group
+// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
+// 
+// Development period: July 2005 - January 2006
+// 
+// Author: Niels Streekmann
+// E-mail: niels.streekmann@informatik.uni-oldenburg.de
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 using System;
@@ -130,7 +130,7 @@ namespace Palladio.QoSAdaptor.Pattern
 				nav = doc.CreateNavigator();
 
 				ReadGeneralDescription(nav, pattern);
-				ReadQoSEffects(nav, pattern); 
+				ReadMismatches(nav, pattern); 
 				ReadAdapterTemplates(nav, pattern); 
 				ReadPredictionTemplates(nav, pattern); 
 			}
@@ -163,30 +163,31 @@ namespace Palladio.QoSAdaptor.Pattern
 			it = nav.Select("/Pattern");
 			it.MoveNext();
 			pattern.Name = GetValueOfChild(it, "name");
+			pattern.InterfaceModel = GetValueOfChild(it, "interfaceModel");
 			pattern.Description = GetValueOfChild(it, "description");
 			pattern.Source = GetValueOfChild(it, "source");
 		}
 
 		/// <summary>
-		/// This methods parses the QoS effects described in the 
+		/// This methods parses the mismatches described in the 
 		/// XML file.
 		/// </summary>
 		/// <param name="nav">An XPathNavigator for the parsed XML
 		/// file</param>
 		/// <param name="pattern">The final PatternDescription 
 		/// object.</param>
-		private void ReadQoSEffects(XPathNavigator nav, PatternDescription pattern)
+		private void ReadMismatches(XPathNavigator nav, PatternDescription pattern)
 		{
 			XPathNodeIterator it;
-			it = nav.Select("/Pattern/QoS-effect");
+			it = nav.Select("/Pattern/mismatches");
 			it.MoveNext();
 			XPathNodeIterator it2;
 			it2=it.Current.SelectChildren("attribute", it.Current.NamespaceURI);
 			while(it2.MoveNext())
 				{
-					QoSAttribute attribute = new QoSAttribute(GetValueOfChild(it2, "name"));
+					MismatchAttribute attribute = new MismatchAttribute(GetValueOfChild(it2, "name"));
 					attribute.Suitability = GetValueOfChild(it2, "suitability");
-					pattern.AddQoSAttribute(attribute);
+					pattern.AddMismatchAttribute(attribute);
 				}
 		}
 

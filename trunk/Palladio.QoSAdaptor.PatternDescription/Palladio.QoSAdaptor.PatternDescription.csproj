@@ -89,17 +89,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "MismatchAttribute.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "PatternDescription.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "PatternDescriptionParser.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "QoSAttribute.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
