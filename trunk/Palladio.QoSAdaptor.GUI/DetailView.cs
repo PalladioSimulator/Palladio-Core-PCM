@@ -1,20 +1,20 @@
 #region info
 ///////////////////////////////////////////////////////////////////////////////
-/// This software has been developed as a part of the diploma thesis 
-/// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage für 
-/// Komponentenadapter" ("Influence of the configuration of a generator on the 
-/// prediction of the QoS of component adaptors")
-/// at the 
-/// University of Oldenburg
-/// Department of Computing Science
-/// Software Engineering Group
-/// Palladio Research Group
-/// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
-/// 
-/// Development period: July 2005 - January 2006
-/// 
-/// Author: Niels Streekmann
-/// E-mail: niels.streekmann@informatik.uni-oldenburg.de
+// This software has been developed as a part of the diploma thesis 
+// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage für 
+// Komponentenadapter" ("Influence of the configuration of a generator on the 
+// prediction of the QoS of component adaptors")
+// at the 
+// University of Oldenburg
+// Department of Computing Science
+// Software Engineering Group
+// Palladio Research Group
+// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
+// 
+// Development period: July 2005 - January 2006
+// 
+// Author: Niels Streekmann
+// E-mail: niels.streekmann@informatik.uni-oldenburg.de
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 using Palladio.QoSAdaptor.Pattern;
@@ -22,7 +22,7 @@ using System.Drawing;
 using System.Collections;
 using System.Windows.Forms;
 
-namespace Palladio.QoSAdaptor.GUI
+namespace Palladio.QoSAdaptor.PatternSelection
 {
 	/// <summary>
 	/// This class implements a detailed view for a 
@@ -83,7 +83,8 @@ namespace Palladio.QoSAdaptor.GUI
 			this.ClientSize = new System.Drawing.Size(650, 250);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "DetailView";
-			this.Text = "Details of the "+this.pattern.Name+" pattern";
+			this.Text = "Detailed description of the "+this.pattern.Name+
+						" pattern";
 
 		}
 		#endregion
@@ -130,23 +131,26 @@ namespace Palladio.QoSAdaptor.GUI
 
 			ListViewItem item2 = new ListViewItem("Name");
 			item2.SubItems.Add(this.pattern.Name);
+			ListViewItem item21 = new ListViewItem("InterfaceModel");
+			item21.SubItems.Add(this.pattern.InterfaceModel);
 			ListViewItem item3 = new ListViewItem("Description");
 			item3.SubItems.Add(this.pattern.Description);
 			ListViewItem item4 = new ListViewItem("Source");
 			item4.SubItems.Add(this.pattern.Source);
 			
-			ListViewItem item5 = new ListViewItem("QoS attributes");
+			ListViewItem item5 = new ListViewItem("Mismatches");
 			item5.SubItems.Add("");
 			item5.BackColor = System.Drawing.Color.LightGray;
 
 			//Add the items to the ListView.
-			listView1.Items.AddRange(new ListViewItem[]{item1,item2,item3, item4, item5});
+			listView1.Items.AddRange(new ListViewItem[]{item1,item2,item21,
+														item3, item4, item5});
 
-			IEnumerator enu = this.pattern.QoSAttributes.GetEnumerator();
+			IEnumerator enu = this.pattern.MismatchAttributes.GetEnumerator();
 			while (enu.MoveNext())
 			{
-				ListViewItem item = new ListViewItem(((QoSAttribute)enu.Current).Name);
-				item.SubItems.Add(((QoSAttribute)enu.Current).Suitability);
+				ListViewItem item = new ListViewItem(((MismatchAttribute)enu.Current).Name);
+				item.SubItems.Add(((MismatchAttribute)enu.Current).Suitability);
 				listView1.Items.Add(item);
 			}			
 
