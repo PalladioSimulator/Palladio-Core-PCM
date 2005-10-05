@@ -91,8 +91,8 @@
                 />
                 <Reference
                     Name = "Palladio.QoSAdaptor.CacheTest"
-                    AssemblyName = "Palladio.QoSAdaptor.CacheTest"
-                    HintPath = "..\Palladio.QoSAdaptor.CacheTest\bin\Palladio.QoSAdaptor.CacheTest.dll"
+                    Project = "{B360E276-8752-408E-8E2E-9E535CBBE406}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>
