@@ -93,7 +93,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "CSharpCompiler.cs"
+                    RelPath = "src\CSharpCompiler.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ICSharpCompiler.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
