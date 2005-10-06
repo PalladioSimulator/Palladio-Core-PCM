@@ -36,7 +36,7 @@
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "false"
-                    OutputPath = "bin\"
+                    OutputPath = "bin\Debug\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -85,14 +85,14 @@
                     HintPath = "..\libs\nunit.framework.dll"
                 />
                 <Reference
-                    Name = "Palladio.QoSAdaptor"
-                    AssemblyName = "Palladio.QoSAdaptor"
-                    HintPath = "..\Palladio.QoSAdaptor\bin\Palladio.QoSAdaptor.dll"
-                />
-                <Reference
                     Name = "Palladio.QoSAdaptor.PatternDescription"
                     AssemblyName = "Palladio.QoSAdaptor.PatternDescription"
                     HintPath = "..\Palladio.QoSAdaptor.PatternDescription\bin\Palladio.QoSAdaptor.PatternDescription.dll"
+                />
+                <Reference
+                    Name = "Palladio.QoSAdaptor"
+                    Project = "{C12613AF-EB3B-4A0A-A39E-8DF3129DC057}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>
@@ -104,11 +104,10 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "PatternDescriptionParserTest.cs"
+                    RelPath = "src\PatternDescriptionParserTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
-                <Folder RelPath = "src\" />
             </Include>
         </Files>
     </CSHARP>
