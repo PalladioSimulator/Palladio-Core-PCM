@@ -36,7 +36,7 @@
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "false"
-                    OutputPath = "bin\"
+                    OutputPath = "bin\Debug\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -80,11 +80,6 @@
                     HintPath = "..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "log4net"
-                    AssemblyName = "log4net"
-                    HintPath = "libs\log4net.dll"
-                />
-                <Reference
                     Name = "Palladio.QoSAdaptor.PatternDescription"
                     Project = "{F552D8CF-208E-4115-90B1-29A6288AED00}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
@@ -94,42 +89,47 @@
                     AssemblyName = "System.Windows.Forms"
                     HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
                 />
+                <Reference
+                    Name = "log4net"
+                    AssemblyName = "log4net"
+                    HintPath = "lib\log4net.dll"
+                />
             </References>
         </Build>
         <Files>
             <Include>
                 <File
-                    RelPath = "src\configuration\Config.cs"
+                    RelPath = "src\Configuration\Config.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\exceptions\IncompleteInterfaceCopingException.cs"
+                    RelPath = "src\Exceptions\IncompleteInterfaceCopingException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\interfaces\IComparator.cs"
+                    RelPath = "src\Interfaces\IComparator.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\interfaces\IMismatch.cs"
+                    RelPath = "src\Interfaces\IMismatch.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\utils\HiResTimer.cs"
+                    RelPath = "src\Utils\HiResTimer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\utils\LoggingHelper.cs"
+                    RelPath = "src\Utils\LoggingHelper.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\utils\README.txt"
+                    RelPath = "src\Utils\README.txt"
                     BuildAction = "Content"
                 />
             </Include>
