@@ -22,6 +22,8 @@ using System.Collections;
 using System.IO;
 using System.Windows.Forms;
 using Palladio.QoSAdaptor.Configuration;
+using Palladio.QoSAdaptor.Exceptions;
+using Palladio.QoSAdaptor.Interfaces;
 using Palladio.QoSAdaptor.PatternSelection;
 using Palladio.QoSAdaptor.Pattern;
 using Palladio.QoSAdaptor.QMLComparison;
@@ -44,7 +46,7 @@ namespace Palladio.QoSAdaptor.Control
 	/// generated.
 	/// TODO: Overwork the ChoiceDialog and rename it to SelectionDialog.
 	/// </summary>
-	public class Controller
+	public class Controller : IController
 	{
 		#region data
 		private InterfaceModel interfaceModel;
