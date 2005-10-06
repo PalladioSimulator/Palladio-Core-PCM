@@ -21,8 +21,8 @@
 using log4net;
 using log4net.Appender;
 using log4net.Repository.Hierarchy;
-using Palladio.QoSAdaptor;
 using System;
+using Palladio.QoSAdaptor.Utils;
 
 namespace Palladio.QoSAdaptor.Measurement
 {

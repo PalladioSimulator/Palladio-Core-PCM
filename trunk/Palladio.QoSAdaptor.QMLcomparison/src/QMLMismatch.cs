@@ -18,6 +18,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 
+using Palladio.QoSAdaptor.Interfaces;
 using Palladio.QoSAdaptor.Pattern;
 using System.Collections;
 

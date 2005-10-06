@@ -36,7 +36,7 @@
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "false"
-                    OutputPath = "bin\"
+                    OutputPath = "bin\Debug\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -89,17 +89,17 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "MismatchAttribute.cs"
+                    RelPath = "src\MismatchAttribute.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "PatternDescription.cs"
+                    RelPath = "src\PatternDescription.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "PatternDescriptionParser.cs"
+                    RelPath = "src\PatternDescriptionParser.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

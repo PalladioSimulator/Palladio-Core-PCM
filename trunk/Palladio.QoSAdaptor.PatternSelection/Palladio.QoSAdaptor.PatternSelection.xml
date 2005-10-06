@@ -97,7 +97,7 @@
             PatternDescriptions.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.AddMismatch(Palladio.QoSAdaptor.IMismatch)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.AddMismatch(Palladio.QoSAdaptor.Interfaces.IMismatch)">
             <summary>
             Adds the mismatch text and the belonging patterns to the GUI.
             </summary>
@@ -115,7 +115,7 @@
             buttons to the GUI.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.ListPatterns(Palladio.QoSAdaptor.IMismatch)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.ListPatterns(Palladio.QoSAdaptor.Interfaces.IMismatch)">
             <summary>
             Lists the patterns the cover the given mismatch.
             </summary>

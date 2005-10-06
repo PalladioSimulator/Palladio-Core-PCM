@@ -36,7 +36,7 @@
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "false"
-                    OutputPath = "bin\"
+                    OutputPath = "bin\Debug\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -114,32 +114,32 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "DetailView.cs"
+                    RelPath = "src\DetailView.cs"
                     SubType = "Form"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "DetailView.resx"
+                    RelPath = "src\DetailView.resx"
                     DependentUpon = "DetailView.cs"
                     BuildAction = "EmbeddedResource"
                 />
                 <File
-                    RelPath = "SelectionDialog.cs"
+                    RelPath = "src\SelectionDialog.cs"
                     SubType = "Form"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "SelectionDialog.resx"
+                    RelPath = "src\SelectionDialog.resx"
                     DependentUpon = "SelectionDialog.cs"
                     BuildAction = "EmbeddedResource"
                 />
                 <File
-                    RelPath = "TextWindow.cs"
+                    RelPath = "src\TextWindow.cs"
                     SubType = "Form"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "TextWindow.resx"
+                    RelPath = "src\TextWindow.resx"
                     DependentUpon = "TextWindow.cs"
                     BuildAction = "EmbeddedResource"
                 />

@@ -36,7 +36,7 @@
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "false"
-                    OutputPath = "bin\"
+                    OutputPath = "bin\Debug\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -92,7 +92,7 @@
                 <Reference
                     Name = "antlr.runtime"
                     AssemblyName = "antlr.runtime"
-                    HintPath = "libs\antlr.runtime.dll"
+                    HintPath = "lib\antlr.runtime.dll"
                 />
                 <Reference
                     Name = "Palladio.QoSAdaptor"
@@ -109,132 +109,132 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLComparator.cs"
+                    RelPath = "src\QMLComparator.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLMismatch.cs"
+                    RelPath = "src\QMLMismatch.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QMLParserTest.cs"
+                    RelPath = "src\QMLParserTest.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\IQMLStatConstraint.cs"
+                    RelPath = "src\QmlSpecification\IQMLStatConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLAspectConstraint.cs"
+                    RelPath = "src\QmlSpecification\QMLAspectConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLContract.cs"
+                    RelPath = "src\QmlSpecification\QMLContract.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLContractExpression.cs"
+                    RelPath = "src\QmlSpecification\QMLContractExpression.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLContractType.cs"
+                    RelPath = "src\QmlSpecification\QMLContractType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLDimensionDeclaration.cs"
+                    RelPath = "src\QmlSpecification\QMLDimensionDeclaration.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLDimensionType.cs"
+                    RelPath = "src\QmlSpecification\QMLDimensionType.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLEntity.cs"
+                    RelPath = "src\QmlSpecification\QMLEntity.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLFrequencyAspect.cs"
+                    RelPath = "src\QmlSpecification\QMLFrequencyAspect.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLMeanAspect.cs"
+                    RelPath = "src\QmlSpecification\QMLMeanAspect.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLMismatchSearchException.cs"
+                    RelPath = "src\QmlSpecification\QMLMismatchSearchException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLNoValidValueException.cs"
+                    RelPath = "src\QmlSpecification\QMLNoValidValueException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLPercentileAspect.cs"
+                    RelPath = "src\QmlSpecification\QMLPercentileAspect.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLPercentileAspectComparer.cs"
+                    RelPath = "src\QmlSpecification\QMLPercentileAspectComparer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLProfile.cs"
+                    RelPath = "src\QmlSpecification\QMLProfile.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLProfileExpression.cs"
+                    RelPath = "src\QmlSpecification\QMLProfileExpression.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLRequirementClause.cs"
+                    RelPath = "src\QmlSpecification\QMLRequirementClause.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLSimpleConstraint.cs"
+                    RelPath = "src\QmlSpecification\QMLSimpleConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLSpecification.cs"
+                    RelPath = "src\QmlSpecification\QMLSpecification.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLSpecificationConstructionException.cs"
+                    RelPath = "src\QmlSpecification\QMLSpecificationConstructionException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLUnit.cs"
+                    RelPath = "src\QmlSpecification\QMLUnit.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLValueLiteral.cs"
+                    RelPath = "src\QmlSpecification\QMLValueLiteral.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "QmlSpecification\QMLVarianceAspect.cs"
+                    RelPath = "src\QmlSpecification\QMLVarianceAspect.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

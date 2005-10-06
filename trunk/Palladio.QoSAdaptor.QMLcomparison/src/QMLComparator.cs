@@ -21,6 +21,7 @@
 using System.Collections;
 using System.IO;
 using antlr.collections;
+using Palladio.QoSAdaptor.Interfaces;
 using Palladio.QoSAdaptor.QMLComparison.QmlSpecification;
 using QmlParser;
 

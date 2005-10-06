@@ -20,7 +20,7 @@
 
 using System.Collections;
 using antlr.collections;
-using Palladio.QoSAdaptor;
+using Palladio.QoSAdaptor.Exceptions;
 
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {

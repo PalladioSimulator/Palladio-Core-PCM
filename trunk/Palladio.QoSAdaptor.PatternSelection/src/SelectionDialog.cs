@@ -23,6 +23,7 @@ using System.ComponentModel;
 using System.IO;
 using Palladio.QoSAdaptor.Compiler;
 using Palladio.QoSAdaptor.Configuration;
+using Palladio.QoSAdaptor.Interfaces;
 using Palladio.QoSAdaptor.Pattern;
 using System;
 using System.Collections;
@@ -479,7 +480,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 				compiler.FilesToCompile.Add(fileInfo.FullName);
 
 			// get libs
-			dirInfo = new DirectoryInfo(this.patternDirectory+"libs\\");
+			dirInfo = new DirectoryInfo(this.patternDirectory+"lib\\");
 			fileInfos = dirInfo.GetFiles("*.dll");
 			foreach (FileInfo fileInfo in fileInfos)
 				compiler.ImportedDlls.Add(fileInfo.FullName);
