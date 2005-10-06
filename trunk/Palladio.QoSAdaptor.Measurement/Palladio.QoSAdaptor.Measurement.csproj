@@ -89,6 +89,11 @@
                     AssemblyName = "log4net"
                     HintPath = "lib\log4net.dll"
                 />
+                <Reference
+                    Name = "Adaptor"
+                    AssemblyName = "Adaptor"
+                    HintPath = "lib\Adaptor.dll"
+                />
             </References>
         </Build>
         <Files>
