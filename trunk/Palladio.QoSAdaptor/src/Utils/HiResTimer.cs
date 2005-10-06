@@ -32,7 +32,7 @@ I've included a handy preprocessor symbol (NOTIMER) to render the class inert.
 using System;
 using System.Runtime.InteropServices;
 
-namespace Palladio.QoSAdaptor
+namespace Palladio.QoSAdaptor.Utils
 {
 	/// <summary>
 	/// This high resolution timer class by Shawn Van Ness has been modified such that a

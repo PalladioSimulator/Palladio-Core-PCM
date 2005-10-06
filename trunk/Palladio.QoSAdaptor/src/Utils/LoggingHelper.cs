@@ -1,7 +1,7 @@
 using log4net.Appender;
 using log4net.Core;
 
-namespace Palladio.QoSAdaptor
+namespace Palladio.QoSAdaptor.Utils
 {
 	/// <summary>
 	/// Contains some static methods to make logging with log4net on the

@@ -1,7 +1,7 @@
 using System.Collections;
 using Palladio.QoSAdaptor.Pattern;
 
-namespace Palladio.QoSAdaptor
+namespace Palladio.QoSAdaptor.Interfaces
 {
 	/// <summary>
 	/// Represents a mismatch between two interface model descriptions. 

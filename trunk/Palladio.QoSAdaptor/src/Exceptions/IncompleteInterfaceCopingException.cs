@@ -1,6 +1,6 @@
 using System;
 
-namespace Palladio.QoSAdaptor
+namespace Palladio.QoSAdaptor.Exceptions
 {
 	/// <summary>
 	/// Zusammenfassung für IncompleteInterfaceCopingException.

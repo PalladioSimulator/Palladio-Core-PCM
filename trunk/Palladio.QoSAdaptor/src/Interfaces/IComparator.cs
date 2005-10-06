@@ -21,7 +21,7 @@
 using System.Collections;
 using System.IO;
 
-namespace Palladio.QoSAdaptor
+namespace Palladio.QoSAdaptor.Interfaces
 {
 	/// <summary>
 	/// Describes an interface for the comparison of the interface required by
