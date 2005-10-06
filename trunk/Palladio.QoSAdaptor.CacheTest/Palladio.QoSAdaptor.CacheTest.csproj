@@ -36,7 +36,7 @@
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "false"
-                    OutputPath = "bin\"
+                    OutputPath = "bin\Debug\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -80,14 +80,14 @@
                     HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "Palladio.Utils"
-                    AssemblyName = "Palladio.Utils"
-                    HintPath = "..\libs\Palladio.Utils.dll"
-                />
-                <Reference
                     Name = "Palladio.QoSAdaptor.TestService"
                     AssemblyName = "Palladio.QoSAdaptor.TestService"
                     HintPath = "..\Palladio.QoSAdaptor.TestService\bin\Palladio.QoSAdaptor.TestService.dll"
+                />
+                <Reference
+                    Name = "Palladio.Utils"
+                    AssemblyName = "Palladio.Utils"
+                    HintPath = "lib\Palladio.Utils.dll"
                 />
             </References>
         </Build>
