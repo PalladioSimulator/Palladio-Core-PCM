@@ -18,16 +18,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 
-using System.CodeDom.Compiler;
-using System.ComponentModel;
-using System.IO;
-using Palladio.QoSAdaptor.Compiler;
-using Palladio.QoSAdaptor.Configuration;
 using Palladio.QoSAdaptor.Interfaces;
 using Palladio.QoSAdaptor.Pattern;
-using System;
 using System.Collections;
-using System.Diagnostics;
 using System.Windows.Forms;
 using Palladio.Utils.Collections;
 
@@ -45,25 +38,38 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// </summary>
 		private System.ComponentModel.Container components = null;
 		private Hashmap mismatchSolvingPatterns;
-		private string requiredSpecification;
-		private string providedSpecification;
 		private ArrayList rButtons;
-		private string patternDirectory;
-		private IList templates;
 		private Button generateAdaptorButton;
 		private Button generatePredictionButton;
 		private int counter;
 		private int tabCounter;
+		private Selector controller;
+		#endregion
 
-		/// <summary>
-		/// If true an adaptor is compiled at the end of the selection process.
-		/// </summary>
-		private bool compileAdaptor;
-		/// <summary>
-		/// If true aprediction model is compiled at the end of the selection 
-		/// process.
-		/// </summary>
-		private bool compilePredictionModel;
+		#region properties
+		public IList RButtons
+		{
+			get
+			{
+				return this.rButtons;
+			}
+		}
+
+		public Button GenerateAdaptorButton
+		{
+			get
+			{
+				return this.generateAdaptorButton;
+			}
+		}
+
+		public Button GeneratePredictionButton
+		{
+			get
+			{
+				return this.generatePredictionButton;
+			}
+		}
 		#endregion
 
 		#region constructor
@@ -72,26 +78,18 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// </summary>
 		/// <param name="mismatchSolvingPatterns">A hashmap with mismatches as
 		/// keys and lists of patterns that are able to solve the 
-		/// corresponding mismatches as values.</param>
-		/// <param name="requiredSpecification">Interface model specification 
-		/// of the required interface.</param>
-		/// <param name="providedSpecification">Interface model specification 
-		/// of the provided interface.</param>
+		/// corresponding mismatches as values.</param>+
 		public SelectionDialog(Hashmap mismatchSolvingPatterns, 
-			string requiredSpecification, 
-			string providedSpecification)
+			Selector controller)
 		{
 			// TODO: add model class ???
 			this.counter = 0;
 			this.tabCounter = 0;
 			this.mismatchSolvingPatterns = mismatchSolvingPatterns;
-			this.requiredSpecification = requiredSpecification;
-			this.providedSpecification = providedSpecification;
 			this.rButtons = new ArrayList();
 			this.generateAdaptorButton = new Button();
 			this.generatePredictionButton = new Button();
-			this.compileAdaptor = false;
-			this.compilePredictionModel = false;
+			this.controller = controller;
 			
 			InitializeComponent();	
 
@@ -204,7 +202,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			generateAdaptorButton.Size = new System.Drawing.Size(150, 23);
 			generateAdaptorButton.Text = "Generate Adaptor";
 			generateAdaptorButton.Click += new System.EventHandler
-				(this.Generator_Click);
+				(this.controller.Generator_Click);
 			this.Controls.Add(generateAdaptorButton);
 			tabCounter++;
 			
@@ -215,7 +213,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			generatePredictionButton.Size = new System.Drawing.Size(150, 23);
 			generatePredictionButton.Text = "Generate Prediction Model";
 			generatePredictionButton.Click += new System.EventHandler
-				(this.Generator_Click);
+				(this.controller.Generator_Click);
 			this.Controls.Add(generatePredictionButton);
 		}
 
@@ -233,7 +231,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			requiredButton.Size = new System.Drawing.Size(150, 23);
 			requiredButton.Text = "Required Specification";
 			requiredButton.Click += new System.EventHandler
-				(this.Specification_Click);
+				(this.controller.Specification_Click);
 			this.Controls.Add(requiredButton);
 			tabCounter++;
 			
@@ -245,7 +243,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			providedButton.Size = new System.Drawing.Size(150, 23);
 			providedButton.Text = "Provided Specification";
 			providedButton.Click += new System.EventHandler
-				(this.Specification_Click);
+				(this.controller.Specification_Click);
 			this.Controls.Add(providedButton);
 			counter += 5;
 		}
@@ -276,267 +274,14 @@ namespace Palladio.QoSAdaptor.PatternSelection
 				button.Name = name;
 				button.TabIndex = tabCounter;
 				button.Text = "Details";
-				button.Click += new System.EventHandler(this.Button_Click);
+				button.Click += new System.EventHandler(this.controller.
+					Button_Click);
 
 				this.Controls.Add(button);
 				this.Controls.Add(rbutton);
 
 				tabCounter++;
 				counter += 4;
-			}
-		}
-		#endregion
-
-		#region event handling
-		/// <summary>
-		/// This method is called, when one of the buttons for the
-		/// detailed view is clicked. 
-		/// The method opens a new window which lists the details
-		/// of the chosen pattern. 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void Button_Click(object sender, System.EventArgs e)
-		{
-			string bName = ((Button)sender).Name;
-			bool breakLoop = false;
-			foreach (IMismatch mismatch in this.mismatchSolvingPatterns.Keys)
-			{
-				foreach (PatternDescription pattern in 
-					(IList)this.mismatchSolvingPatterns[mismatch])
-				{
-					if (pattern.Name.Equals(bName))
-					{
-						DetailView details = new DetailView(pattern);
-						details.Show();
-						breakLoop = true;
-						break;
-					}
-				}
-				// prevent that the DetailView is opened twice, because two
-				// mismatches can be corrected by the same pattern.
-				if (breakLoop)
-					break;
-			}
-		}
-
-
-		/// <summary>
-		/// This method is called, when a generator button has 
-		/// been clicked. 
-		/// The method opens a new instance of CodeSmith for 
-		/// every template that is listed in the 
-		/// PatternDescription of the chosen pattern. 
-		/// If no pattern is chosen a MessageBox is opened. 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void Generator_Click(object sender, System.EventArgs e)
-		{
-			bool check = false;
-			foreach (RadioButton rButton in this.rButtons)
-			{
-				if (rButton.Checked)
-				{
-					check = true;
-					ChoosePattern(sender, rButton.Name);
-				}
-			}
-			if (!check)
-				MessageBox.Show("No Pattern has been chosen.");
-		}
-
-		/// <summary>
-		/// This method is called, when a specification button has 
-		/// been clicked. 
-		/// The method opens a new TextBox is open showing the chosen QML
-		/// specification.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void Specification_Click(object sender, System.EventArgs e)
-		{
-			string buttonName = ((Button)sender).Name;
-			if (buttonName.Equals("Required Specification"))
-			{
-				TextWindow textWindow = new TextWindow(buttonName, 
-					this.requiredSpecification);
-				textWindow.Show();
-			}
-			else if (buttonName.Equals("Provided Specification"))
-			{
-				TextWindow textWindow = new TextWindow(buttonName, 
-					this.providedSpecification);
-				textWindow.Show();
-			}
-		}
-
-		/// <summary>
-		/// This is a helper method for generator_Click which
-		/// chooses the selected pattern and calls another
-		/// functions to open the corresponding templates.
-		/// </summary>
-		/// <param name="buttonName">The name of the selected 
-		/// radio button.</param>
-		private void ChoosePattern(object sender, string buttonName)
-		{
-			bool breakLoop = false;
-			foreach (IMismatch mismatch in this.mismatchSolvingPatterns.Keys)
-			{
-				foreach (PatternDescription pattern in 
-					(IList)this.mismatchSolvingPatterns[mismatch])
-				{
-					if (pattern.Name.Equals(buttonName))
-					{
-						MessageBox.Show("The generated files have to be saved to the "+
-							"corresponding folders in the src folder of the chosen "+
-							"pattern in Palladio.QosAdaptor\\Patterns.");
-
-						this.patternDirectory = Config.PATTERN_DIRECTORY+
-							pattern.Name+"\\";
-						if (sender.Equals(this.generateAdaptorButton))
-						{
-							this.templates = (IList)((ICloneable)pattern.
-								AdapterTemplates).Clone();
-							this.compileAdaptor = true;
-						}
-						else
-						{
-							this.templates = (IList)((ICloneable)pattern.
-								PredictionTemplates).Clone();
-							this.compilePredictionModel = true;
-						}
-						OpenTemplates();
-						breakLoop = true;
-						break;
-					}
-				}
-				// prevent that the DetailView is opened twice, because two
-				// mismatches can be corrected by the same pattern.
-				if (breakLoop)
-					break;
-			}
-		}
-
-		/// <summary>
-		/// This is a helper method for generator_Click which opens
-		/// the given templates in CodeSmith.
-		/// </summary>
-		private void OpenTemplates()
-		{
-			this.generateAdaptorButton.Enabled = false;
-			this.generatePredictionButton.Enabled = false;
-
-			IEnumerator enu = this.templates.GetEnumerator();
-			if (enu.MoveNext())
-			{
-				string template = (string)enu.Current;
-				StartCodeSmith(template);
-				this.templates.Remove(enu.Current);
-			}
-			else 
-			{
-				MessageBox.Show("All necessary templates have been generated."+
-					" The corresponding assembly will be compiled now. It can"+
-					" then be found in the bin subfolder of the folder of the"+
-					" corresponding pattern in Palladio.QoSAdaptor\\Patterns."+
-					" The dll of the adapted service has to be located in the"+
-					" corresponding libs folder for compilation.");
-
-				// compile generated sources
-				Compile();
-				// reset object variables
-				this.generateAdaptorButton.Enabled = true;
-				this.generatePredictionButton.Enabled = true;
-				this.compileAdaptor = false;
-				this.compilePredictionModel = false;
-			}
-		}
-
-		/// <summary>
-		/// Is called when CodeSmith is exited. Calls OpenTemplates to 
-		/// restart CodeSmith with the next template or compile the generated 
-		/// sources and return to the selection.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void Proc_Exited(object sender, EventArgs e)
-		{
-			OpenTemplates();
-		}
-
-		/// <summary>
-		/// Compiles the assembly for the current adaptor or prediction model.
-		/// </summary>
-		private void Compile()
-		{
-			CSharpCompiler compiler = new CSharpCompiler();
-
-			// get source files
-			System.IO.DirectoryInfo dirInfo = null;
-			if (this.compileAdaptor)
-				dirInfo = new DirectoryInfo(
-					this.patternDirectory+"src\\adaptor\\");
-			else if (this.compilePredictionModel)
-				dirInfo = new DirectoryInfo(
-					this.patternDirectory+"src\\prediction model\\");
-			// TODO: else throw exception
-
-			FileInfo[] fileInfos = dirInfo.GetFiles("*.cs");
-			foreach (FileInfo fileInfo in fileInfos)
-				compiler.FilesToCompile.Add(fileInfo.FullName);
-
-			// get libs
-			dirInfo = new DirectoryInfo(this.patternDirectory+"lib\\");
-			fileInfos = dirInfo.GetFiles("*.dll");
-			foreach (FileInfo fileInfo in fileInfos)
-				compiler.ImportedDlls.Add(fileInfo.FullName);
-
-			if (fileInfos.Length > 0)
-			{
-				// compile
-				CompilerResults results = compiler.Compile();
-
-				// copy dll to bin folder and delete older version if it 
-				// exists.
-				// TODO: Find good name for assembly and backup older versions
-				// if existent.
-				string fileName = "";
-				if (this.compileAdaptor) 
-					fileName = "Adaptor.dll";
-				else if (this.compilePredictionModel) 
-					fileName = "PredictionModel.dll";
-
-				System.IO.File.Delete(this.patternDirectory+
-					"bin\\"+fileName);
-				System.IO.File.Copy(results.PathToAssembly, this.patternDirectory+
-					"bin\\"+fileName);
-			}
-		}
-
-		/// <summary>
-		/// Starts the CodeSmith configuration and generation GUI with the
-		/// given template.
-		/// </summary>
-		/// <param name="template">The name of a CodeSmith template file.
-		/// As path the templates directory of the pattern is taken. </param>
-		private void StartCodeSmith(string template)
-		{
-			//start CodeSmith
-			Process proc = new Process();
-
-			proc.StartInfo.FileName = "CodeSmith.exe";
-			string arg = this.patternDirectory+"templates\\"+template;
-			proc.StartInfo.Arguments = arg;
-			proc.EnableRaisingEvents = true;
-			proc.Exited +=new EventHandler(Proc_Exited);
-			try 
-			{
-				proc.Start();
-			}
-			catch (Win32Exception e)
-			{
-				MessageBox.Show(e.Message);
 			}
 		}
 		#endregion

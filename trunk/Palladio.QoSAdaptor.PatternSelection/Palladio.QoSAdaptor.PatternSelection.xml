@@ -56,28 +56,13 @@
             Erforderliche Designervariable.
             </summary>
         </member>
-        <member name="F:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.compileAdaptor">
-            <summary>
-            If true an adaptor is compiled at the end of the selection process.
-            </summary>
-        </member>
-        <member name="F:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.compilePredictionModel">
-            <summary>
-            If true aprediction model is compiled at the end of the selection 
-            process.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.#ctor(Palladio.Utils.Collections.Hashmap,System.String,System.String)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.#ctor(Palladio.Utils.Collections.Hashmap,Palladio.QoSAdaptor.PatternSelection.Selector)">
             <summary>
             Constructor. 
             </summary>
             <param name="mismatchSolvingPatterns">A hashmap with mismatches as
             keys and lists of patterns that are able to solve the 
-            corresponding mismatches as values.</param>
-            <param name="requiredSpecification">Interface model specification 
-            of the required interface.</param>
-            <param name="providedSpecification">Interface model specification 
-            of the provided interface.</param>
+            corresponding mismatches as values.</param>+
         </member>
         <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.Dispose(System.Boolean)">
             <summary>
@@ -123,7 +108,68 @@
             </summary>
             <param name="mismatchPatterns">A list of patterns.</param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.Button_Click(System.Object,System.EventArgs)">
+        <member name="T:Palladio.QoSAdaptor.PatternSelection.Selector">
+            <summary>
+            Main class of the PatterSelection component. Controls the the GUI for 
+            user choice.
+            
+            TODO: Return selected patterns so that configuration and generation 
+            can started by the Control component.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.mismatchSolvingPatterns">
+            <summary>
+            Hashmap that contains all mismatches and a list of patterns for 
+            each mismatch that is able to correct the mismatch.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.selectionDialog">
+            <summary>
+            Instance of the selection GUI
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.requiredSpecification">
+            <summary>
+            Interface model specification of the required interface.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.providedSpecification">
+            <summary>
+            Interface model specification of the provided interface.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.patternDirectory">
+            <summary>
+            Path to the directory of the selected pattern.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.templates">
+            <summary>
+            A list of templates for the selected pattern.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.selectedPattern">
+            <summary>
+            The selected pattern.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.compileAdaptor">
+            <summary>
+            If true an adaptor is compiled at the end of the selection process.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.compilePredictionModel">
+            <summary>
+            If true a prediction model is compiled at the end of the selection 
+            process.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.#ctor">
+            <summary>
+            Standard constructor. 
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.Button_Click(System.Object,System.EventArgs)">
             <summary>
             This method is called, when one of the buttons for the
             detailed view is clicked. 
@@ -133,7 +179,7 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.Generator_Click(System.Object,System.EventArgs)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.Generator_Click(System.Object,System.EventArgs)">
             <summary>
             This method is called, when a generator button has 
             been clicked. 
@@ -145,7 +191,7 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.Specification_Click(System.Object,System.EventArgs)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.Specification_Click(System.Object,System.EventArgs)">
             <summary>
             This method is called, when a specification button has 
             been clicked. 
@@ -155,7 +201,7 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.ChoosePattern(System.Object,System.String)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.ChoosePattern(System.Object,System.String)">
             <summary>
             This is a helper method for generator_Click which
             chooses the selected pattern and calls another
@@ -164,13 +210,13 @@
             <param name="buttonName">The name of the selected 
             radio button.</param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.OpenTemplates">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.OpenTemplates">
             <summary>
             This is a helper method for generator_Click which opens
             the given templates in CodeSmith.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.Proc_Exited(System.Object,System.EventArgs)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.Proc_Exited(System.Object,System.EventArgs)">
             <summary>
             Is called when CodeSmith is exited. Calls OpenTemplates to 
             restart CodeSmith with the next template or compile the generated 
@@ -179,12 +225,12 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.Compile">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.Compile">
             <summary>
             Compiles the assembly for the current adaptor or prediction model.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.StartCodeSmith(System.String)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.StartCodeSmith(System.String)">
             <summary>
             Starts the CodeSmith configuration and generation GUI with the
             given template.

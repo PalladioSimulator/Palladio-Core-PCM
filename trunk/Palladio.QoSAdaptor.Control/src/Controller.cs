@@ -110,8 +110,10 @@ namespace Palladio.QoSAdaptor.Control
 				// generation using CodeSmith
 				// TODO: Use self-implemented PatternConfiguration.
 				// Run the GUI with the given patterns.
-				Application.Run(new SelectionDialog(mismatchSolvingPatterns, 
-					requiredSpecification, providedSpecification));	
+				Selector selector = new Selector();
+				PatternDescription selectedPattern = selector.StartSelection
+					(mismatchSolvingPatterns, requiredSpecification, 
+					providedSpecification);
 			}
 			else
 				MessageBox.Show("No mismatches have been found.");
