@@ -19,6 +19,7 @@
 #endregion
 
 using System.Collections;
+using Palladio.QoSAdaptor.Pattern.src;
 
 namespace Palladio.QoSAdaptor.Pattern
 {
@@ -30,14 +31,49 @@ namespace Palladio.QoSAdaptor.Pattern
 	public class PatternDescription
 	{
 		#region data
+		/// <summary>
+		/// The name of the pattern.
+		/// </summary>
 		private string name;
+
+		/// <summary>
+		/// The name of the interface model. E.g. Quality, Syntax, ...
+		/// </summary>
 		private string interfaceModel;
+
+		/// <summary>
+		/// A description of the pattern.
+		/// </summary>
 		private string description;
+
+		/// <summary>
+		/// The source of the pattern. I.e. where it was described first.
+		/// </summary>
 		private string source;
 
+		/// <summary>
+		/// A list of mismatches that can be corrected by the use of this 
+		/// pattern.
+		/// </summary>
 		private ArrayList mismatches;
+
+		/// <summary>
+		/// A list of templates for the adaptor that can be generated for this
+		/// pattern.
+		/// </summary>
 		private ArrayList adaptorTemplates;
+
+		/// <summary>
+		/// A list of templates for the prediction model.
+		/// DEPRECATED: Use predictionModels instead since a pattern van have 
+		/// more than one prediction model.
+		/// </summary>
 		private ArrayList predictionTemplates;
+
+		/// <summary>
+		/// A list of prediction models belonging to this pattern.
+		/// </summary>
+		private ArrayList predictionModels;
 		#endregion
 
 		#region constructor
@@ -49,10 +85,14 @@ namespace Palladio.QoSAdaptor.Pattern
 			mismatches = new ArrayList();
 			adaptorTemplates = new ArrayList();
 			predictionTemplates = new ArrayList();
+			this.predictionModels = new ArrayList();
 		}
 		#endregion
 
 		#region properties
+		/// <summary>
+		/// The name of this pattern.
+		/// </summary>
 		public string Name 
 		{
 			get
@@ -65,6 +105,10 @@ namespace Palladio.QoSAdaptor.Pattern
 			}
 		}
 
+		/// <summary>
+		/// The name of the interface model this pattern is able to correct 
+		/// mismatches of.s
+		/// </summary>
 		public string InterfaceModel 
 		{
 			get
@@ -77,6 +121,9 @@ namespace Palladio.QoSAdaptor.Pattern
 			}
 		}
 
+		/// <summary>
+		/// A description of the pattern.
+		/// </summary>
 		public string Description
 		{
 			get 
@@ -89,6 +136,9 @@ namespace Palladio.QoSAdaptor.Pattern
 			}
 		}
 
+		/// <summary>
+		/// The source where this pattern has been described first.
+		/// </summary>
 		public string Source
 		{
 			get 
@@ -101,6 +151,10 @@ namespace Palladio.QoSAdaptor.Pattern
 			}
 		}
 
+		/// <summary>
+		/// A list of mismatches that can be corrected by the use of this 
+		/// pattern.
+		/// </summary>
 		public IList MismatchAttributes
 		{
 			get
@@ -108,6 +162,11 @@ namespace Palladio.QoSAdaptor.Pattern
 				return mismatches;
 			}
 		}
+
+		/// <summary>
+		/// A list of templates to generate the adapter belonging to this
+		/// pattern.
+		/// </summary>
 		public IList AdapterTemplates
 		{
 			get
@@ -116,6 +175,9 @@ namespace Palladio.QoSAdaptor.Pattern
 			}
 		}
 
+		/// <summary>
+		/// DEPRECATED.
+		/// </summary>
 		public IList PredictionTemplates
 		{
 			get
@@ -124,6 +186,16 @@ namespace Palladio.QoSAdaptor.Pattern
 			}
 		}
 
+		/// <summary>
+		/// A list of prediction models for this pattern.
+		/// </summary>
+		public IList PredictionModels
+		{
+			get
+			{
+				return predictionModels;
+			}
+		}
 		#endregion 
 
 		#region public methods
@@ -165,6 +237,15 @@ namespace Palladio.QoSAdaptor.Pattern
 		public void AddPredictionTemplate (string template)
 		{
 			predictionTemplates.Add(template);
+		}
+
+		/// <summary>
+		/// Adds a prediction model to this pattern description.
+		/// </summary>
+		/// <param name="pModel">A PredictionModel object.</param>
+		public void AddPredictionModel(PredictionModel pModel)
+		{
+			this.predictionModels.Add(pModel);
 		}
 
 		/// <summary>

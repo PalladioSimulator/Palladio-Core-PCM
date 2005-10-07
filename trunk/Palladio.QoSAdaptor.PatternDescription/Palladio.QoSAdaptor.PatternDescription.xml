@@ -29,6 +29,50 @@
             helpful to choose a certain pattern for adaptation. 
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.PatternDescription.name">
+            <summary>
+            The name of the pattern.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.PatternDescription.interfaceModel">
+            <summary>
+            The name of the interface model. E.g. Quality, Syntax, ...
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.PatternDescription.description">
+            <summary>
+            A description of the pattern.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.PatternDescription.source">
+            <summary>
+            The source of the pattern. I.e. where it was described first.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.PatternDescription.mismatches">
+            <summary>
+            A list of mismatches that can be corrected by the use of this 
+            pattern.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.PatternDescription.adaptorTemplates">
+            <summary>
+            A list of templates for the adaptor that can be generated for this
+            pattern.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.PatternDescription.predictionTemplates">
+            <summary>
+            A list of templates for the prediction model.
+            DEPRECATED: Use predictionModels instead since a pattern van have 
+            more than one prediction model.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.PatternDescription.predictionModels">
+            <summary>
+            A list of prediction models belonging to this pattern.
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.#ctor">
             <summary>
             Constructs a new empty PatternDescription.
@@ -65,6 +109,12 @@
             <param name="template">The filename of the template
             </param>
         </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.AddPredictionModel(Palladio.QoSAdaptor.Pattern.src.PredictionModel)">
+            <summary>
+            Adds a prediction model to this pattern description.
+            </summary>
+            <param name="pModel">A PredictionModel object.</param>
+        </member>
         <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.HasMismatchAttribute(System.String)">
             <summary>
             Checks if this PatternDescription covers the given QoS attribute.
@@ -94,6 +144,49 @@
             <param name="obj">A PatternDescription.</param>
             <returns>True if the described attribute of this object equal the 
             attributes of the given object. Else false.</returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.PatternDescription.Name">
+            <summary>
+            The name of this pattern.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.PatternDescription.InterfaceModel">
+            <summary>
+            The name of the interface model this pattern is able to correct 
+            mismatches of.s
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.PatternDescription.Description">
+            <summary>
+            A description of the pattern.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.PatternDescription.Source">
+            <summary>
+            The source where this pattern has been described first.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.PatternDescription.MismatchAttributes">
+            <summary>
+            A list of mismatches that can be corrected by the use of this 
+            pattern.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.PatternDescription.AdapterTemplates">
+            <summary>
+            A list of templates to generate the adapter belonging to this
+            pattern.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.PatternDescription.PredictionTemplates">
+            <summary>
+            DEPRECATED.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.PatternDescription.PredictionModels">
+            <summary>
+            A list of prediction models for this pattern.
+            </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser">
             <summary>
@@ -178,6 +271,48 @@
             file</param>
             <param name="pattern">The final PatternDescription 
             object.</param>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Pattern.src.PredictionModel">
+            <summary>
+            Represents a prediction model entry of a pattern description. Contains
+            the name of the model and a list of patterns belonging to the model.
+            The path of the templates is determined by the calling application.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.src.PredictionModel.name">
+            <summary>
+            The name of the prediction model.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.src.PredictionModel.templates">
+            <summary>
+            A list of templates belonging to this prediction model.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.src.PredictionModel.#ctor(System.String)">
+            <summary>
+            Constructor that takes the name of the prediction model. Templates 
+            can be added by using AddTemplate.
+            </summary>
+            <param name="name">The name of this prediction model.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.src.PredictionModel.AddTemplate(System.String)">
+            <summary>
+            Adds a template to this prediction model.
+            </summary>
+            <param name="template">The name of the new template. The path of 
+            the template is determined of the folder structure of the calling
+            application.</param>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.src.PredictionModel.Name">
+            <summary>
+            The name of the prediction model.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.src.PredictionModel.Templates">
+            <summary>
+            A list of templates belonging to the prediction model.
+            </summary>
         </member>
     </members>
 </doc>
