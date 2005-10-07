@@ -104,6 +104,11 @@
                     Project = "{C12613AF-EB3B-4A0A-A39E-8DF3129DC057}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "Palladio.Utils"
+                    AssemblyName = "Palladio.Utils"
+                    HintPath = "lib\Palladio.Utils.dll"
+                />
             </References>
         </Build>
         <Files>

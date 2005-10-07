@@ -67,12 +67,13 @@
             process.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.#ctor(System.Collections.IList,System.String,System.String)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.#ctor(Palladio.Utils.Collections.Hashmap,System.String,System.String)">
             <summary>
             Constructor. 
             </summary>
-            <param name="mismatches">A list of mismatches found during the 
-            analysis of the two given interface model pecifications.</param>
+            <param name="mismatchSolvingPatterns">A hashmap with mismatches as
+            keys and lists of patterns that are able to solve the 
+            corresponding mismatches as values.</param>
             <param name="requiredSpecification">Interface model specification 
             of the required interface.</param>
             <param name="providedSpecification">Interface model specification 
@@ -115,11 +116,12 @@
             buttons to the GUI.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.ListPatterns(Palladio.QoSAdaptor.Interfaces.IMismatch)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.ListPatterns(System.Collections.IList)">
             <summary>
-            Lists the patterns the cover the given mismatch.
+            Lists the given patterns and creates a choice and a details button
+            for each pattern.
             </summary>
-            <param name="mismatch"></param>
+            <param name="mismatchPatterns">A list of patterns.</param>
         </member>
         <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.Button_Click(System.Object,System.EventArgs)">
             <summary>

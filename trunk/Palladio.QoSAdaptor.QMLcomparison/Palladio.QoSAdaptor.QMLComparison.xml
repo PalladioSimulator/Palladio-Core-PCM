@@ -1129,12 +1129,6 @@
             </summary>
             <returns>String representation of this mismatch.</returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.AddPattern(Palladio.QoSAdaptor.Pattern.PatternDescription)">
-            <summary>
-            Adds a new pattern that covers this mismatch.
-            </summary>
-            <param name="pattern">A PatternDescription.</param>
-        </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.InterfaceName">
             <summary>
             Returns the name of the interface belonging to this Mismatch
@@ -1155,12 +1149,6 @@
             <summary>
             Returns the name of the mismatched QoS subattribute belonging to 
             this Mismatch
-            </summary>
-        </member>
-        <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.Patterns">
-            <summary>
-            Returns a list of PatternDescriptions of patterns that cover this
-            mismatch.
             </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QMLParserTest">

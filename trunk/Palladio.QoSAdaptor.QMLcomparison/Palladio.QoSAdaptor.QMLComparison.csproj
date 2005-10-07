@@ -80,11 +80,6 @@
                     HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
-                    Name = "Palladio.QoSAdaptor.PatternDescription"
-                    Project = "{F552D8CF-208E-4115-90B1-29A6288AED00}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "Palladio.QoSAdaptor.QMLParser"
                     Project = "{4C2F551B-C2E1-42FF-AEF8-F3CD0F521761}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"

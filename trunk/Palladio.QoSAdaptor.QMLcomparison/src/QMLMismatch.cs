@@ -19,8 +19,6 @@
 #endregion
 
 using Palladio.QoSAdaptor.Interfaces;
-using Palladio.QoSAdaptor.Pattern;
-using System.Collections;
 
 namespace Palladio.QoSAdaptor.QMLComparison
 {
@@ -37,7 +35,6 @@ namespace Palladio.QoSAdaptor.QMLComparison
 		private string entity;
 		private string mismatchedQoSAspect;
 		private string mismatchedQoSSubAspect;
-		private ArrayList solutionPatterns;
 		#endregion
 
 		#region constructor
@@ -58,7 +55,6 @@ namespace Palladio.QoSAdaptor.QMLComparison
 			this.entity = entity;
 			this.mismatchedQoSAspect = mismatch;
 			this.mismatchedQoSSubAspect = mismatchedSubAspect;
-			this.solutionPatterns = new ArrayList();
 		}
 		#endregion
 
@@ -108,18 +104,6 @@ namespace Palladio.QoSAdaptor.QMLComparison
 				return this.mismatchedQoSSubAspect;
 			}
 		}
-
-		/// <summary>
-		/// Returns a list of PatternDescriptions of patterns that cover this
-		/// mismatch.
-		/// </summary>
-		public IList Patterns
-		{
-			get
-			{
-				return this.solutionPatterns;
-			}
-		}
 		#endregion
 
 		#region public methods
@@ -136,16 +120,6 @@ namespace Palladio.QoSAdaptor.QMLComparison
 			if (this.mismatchedQoSSubAspect != null)
 				s+= "."+this.mismatchedQoSSubAspect;
 			return s;
-		}
-
-		/// <summary>
-		/// Adds a new pattern that covers this mismatch.
-		/// </summary>
-		/// <param name="pattern">A PatternDescription.</param>
-		public void AddPattern (PatternDescription pattern)
-		{
-			if (!this.solutionPatterns.Contains(pattern))
-				this.solutionPatterns.Add(pattern);
 		}
 		#endregion
 	}

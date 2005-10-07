@@ -78,7 +78,9 @@
             <summary>
             Represents a mismatch between two interface model descriptions. 
             
-            TODO: Find similarities between the interface model mismatches.
+            TODO: Find similarities between the interface model mismatches. 
+            TODO: How can details about the mismatches as percentiles in an 
+            		QML specification be modelled commonly???
             </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.Interfaces.IMismatch.ToString">
@@ -87,17 +89,15 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Interfaces.IMismatch.AddPattern(Palladio.QoSAdaptor.Pattern.PatternDescription)">
+        <member name="P:Palladio.QoSAdaptor.Interfaces.IMismatch.InterfaceName">
             <summary>
-            Adds the PatternDescription of a pattern that is able to correct 
-            this mismatch.
+            Returns the name of the interface the mismatch occurs in.
             </summary>
-            <param name="pattern"></param>
         </member>
-        <member name="P:Palladio.QoSAdaptor.Interfaces.IMismatch.Patterns">
+        <member name="P:Palladio.QoSAdaptor.Interfaces.IMismatch.Entity">
             <summary>
-            A list of PatternDescriptions of patterns that are able to correct 
-            this mismatch.
+            Returns the name of the entity that corresponds to this mismatch.
+            Returns null, if the mismatch regards the whole interface.
             </summary>
         </member>
         <member name="P:Palladio.QoSAdaptor.Interfaces.IMismatch.MismatchAttribute">

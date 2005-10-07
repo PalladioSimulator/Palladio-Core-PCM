@@ -1,12 +1,31 @@
-using System.Collections;
-using Palladio.QoSAdaptor.Pattern;
+#region info
+///////////////////////////////////////////////////////////////////////////////
+// This software has been developed as a part of the diploma thesis 
+// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage für 
+// Komponentenadapter" ("Influence of the configuration of a generator on the 
+// prediction of the QoS of component adaptors")
+// at the 
+// University of Oldenburg
+// Department of Computing Science
+// Software Engineering Group
+// Palladio Research Group
+// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
+// 
+// Development period: July 2005 - January 2006
+// 
+// Author: Niels Streekmann
+// E-mail: niels.streekmann@informatik.uni-oldenburg.de
+///////////////////////////////////////////////////////////////////////////////
+#endregion
 
 namespace Palladio.QoSAdaptor.Interfaces
 {
 	/// <summary>
 	/// Represents a mismatch between two interface model descriptions. 
 	/// 
-	/// TODO: Find similarities between the interface model mismatches.
+	/// TODO: Find similarities between the interface model mismatches. 
+	/// TODO: How can details about the mismatches as percentiles in an 
+	///			QML specification be modelled commonly???
 	/// </summary>
 	public interface IMismatch
 	{
@@ -17,10 +36,15 @@ namespace Palladio.QoSAdaptor.Interfaces
 		string ToString();
 
 		/// <summary>
-		/// A list of PatternDescriptions of patterns that are able to correct 
-		/// this mismatch.
+		/// Returns the name of the interface the mismatch occurs in.
 		/// </summary>
-		IList Patterns{get;}
+		string InterfaceName{get;}
+
+		/// <summary>
+		/// Returns the name of the entity that corresponds to this mismatch.
+		/// Returns null, if the mismatch regards the whole interface.
+		/// </summary>
+		string Entity{get;}
 
 		/// <summary>
 		/// Returns the name of the mismatched attribute belonging to this 
@@ -34,11 +58,5 @@ namespace Palladio.QoSAdaptor.Interfaces
 		/// </summary>
 		string MismatchSubAttribute{get;}
 
-		/// <summary>
-		/// Adds the PatternDescription of a pattern that is able to correct 
-		/// this mismatch.
-		/// </summary>
-		/// <param name="pattern"></param>
-		void AddPattern (PatternDescription pattern);
 	}
 }

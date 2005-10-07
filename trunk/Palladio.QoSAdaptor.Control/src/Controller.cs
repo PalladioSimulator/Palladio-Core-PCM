@@ -27,6 +27,7 @@ using Palladio.QoSAdaptor.Interfaces;
 using Palladio.QoSAdaptor.PatternSelection;
 using Palladio.QoSAdaptor.Pattern;
 using Palladio.QoSAdaptor.QMLComparison;
+using Palladio.Utils.Collections;
 
 namespace Palladio.QoSAdaptor.Control
 {
@@ -44,7 +45,6 @@ namespace Palladio.QoSAdaptor.Control
 	/// a selection dialog. There on of the patterns can be selected and the 
 	/// adaptor and the prediction model belonging to chosen pattern can be 
 	/// generated.
-	/// TODO: Overwork the ChoiceDialog and rename it to SelectionDialog.
 	/// </summary>
 	public class Controller : IController
 	{
@@ -103,13 +103,14 @@ namespace Palladio.QoSAdaptor.Control
 			{
 				// Automatic pattern preselection
 				ArrayList patterns = GetPatternDescriptions();
-				AddMismatchPatterns(mismatches, patterns);
+				Hashmap mismatchSolvingPatterns = GetMismatchPatterns(
+					mismatches, patterns);
 
 				// Selection of patterns by the user and configuration and 
 				// generation using CodeSmith
 				// TODO: Use self-implemented PatternConfiguration.
 				// Run the GUI with the given patterns.
-				Application.Run(new SelectionDialog(mismatches, 
+				Application.Run(new SelectionDialog(mismatchSolvingPatterns, 
 					requiredSpecification, providedSpecification));	
 			}
 			else
@@ -151,13 +152,16 @@ namespace Palladio.QoSAdaptor.Control
 		/// <param name="mismatches">A list of mismatches.</param>
 		/// <param name="patterns">A list of PatternDescriptions of patterns
 		/// that may be able to correct the given mismatches.</param>
-		private void AddMismatchPatterns(IList mismatches, IList patterns)
+		private Hashmap GetMismatchPatterns(IList mismatches, IList patterns)
 		{
+			Hashmap MismatchSolvingPatterns = new Hashmap();
+
 			// Create a list of PatternDescriptions that cover the 
 			// mismatched attributes found by the Comparator. The list 
 			// should not contain duplicates.
 			foreach (IMismatch mismatch in mismatches)
 			{
+				IList mismatchPatterns = new ArrayList();
 				// TODO: consider mismatch.MismatchSubAttribute. Make this 
 				// consideration configurable.
 				string attribute = mismatch.MismatchAttribute;
@@ -172,11 +176,14 @@ namespace Palladio.QoSAdaptor.Control
 						if ((mismatchAttribute.Suitability.Equals("+")) ||
 							(mismatchAttribute.Suitability.Equals("++")))
 						{
-							mismatch.AddPattern(pattern);
+							//mismatch.AddPattern(pattern);
+							mismatchPatterns.Add(pattern);
 						}
 					}
 				}
+				MismatchSolvingPatterns.Add(mismatch, mismatchPatterns);
 			}
+			return MismatchSolvingPatterns;
 		}
 		#endregion
 	}

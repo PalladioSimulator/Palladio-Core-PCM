@@ -29,6 +29,7 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Palladio.Utils.Collections;
 
 namespace Palladio.QoSAdaptor.PatternSelection
 {
@@ -43,7 +44,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// Erforderliche Designervariable.
 		/// </summary>
 		private System.ComponentModel.Container components = null;
-		private IList mismatches;
+		private Hashmap mismatchSolvingPatterns;
 		private string requiredSpecification;
 		private string providedSpecification;
 		private ArrayList rButtons;
@@ -69,20 +70,21 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// <summary>
 		/// Constructor. 
 		/// </summary>
-		/// <param name="mismatches">A list of mismatches found during the 
-		/// analysis of the two given interface model pecifications.</param>
+		/// <param name="mismatchSolvingPatterns">A hashmap with mismatches as
+		/// keys and lists of patterns that are able to solve the 
+		/// corresponding mismatches as values.</param>
 		/// <param name="requiredSpecification">Interface model specification 
 		/// of the required interface.</param>
 		/// <param name="providedSpecification">Interface model specification 
 		/// of the provided interface.</param>
-		public SelectionDialog(IList mismatches, 
+		public SelectionDialog(Hashmap mismatchSolvingPatterns, 
 			string requiredSpecification, 
 			string providedSpecification)
 		{
 			// TODO: add model class ???
 			this.counter = 0;
 			this.tabCounter = 0;
-			this.mismatches = mismatches;
+			this.mismatchSolvingPatterns = mismatchSolvingPatterns;
 			this.requiredSpecification = requiredSpecification;
 			this.providedSpecification = providedSpecification;
 			this.rButtons = new ArrayList();
@@ -143,7 +145,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		{
 			AddSpecificationButtons();
 
-			foreach (IMismatch mismatch in this.mismatches)
+			foreach (IMismatch mismatch in this.mismatchSolvingPatterns.Keys)
 			{
 				AddMismatch(mismatch);
 			}
@@ -165,7 +167,9 @@ namespace Palladio.QoSAdaptor.PatternSelection
 				(10+(counter*10)));
 			label.Size = new System.Drawing.Size(220, 40);
 			label.Text = mismatch.ToString();
-			if (mismatch.Patterns.Count > 0)
+			IList mismatchPatterns = (IList)
+				this.mismatchSolvingPatterns[mismatch];
+			if (mismatchPatterns.Count > 0)
 				label.Text += "\nThe mismatch can be fixed by using one "+
 					"of the following design patterns:";
 			else
@@ -174,7 +178,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			this.Controls.Add(label);
 			counter += 4;
 
-			ListPatterns(mismatch);
+			ListPatterns(mismatchPatterns);
 
 			Label separator = new Label();
 			separator.Location = new System.Drawing.Point(15, 
@@ -247,12 +251,13 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		}
 
 		/// <summary>
-		/// Lists the patterns the cover the given mismatch.
+		/// Lists the given patterns and creates a choice and a details button
+		/// for each pattern.
 		/// </summary>
-		/// <param name="mismatch"></param>
-		private void ListPatterns(IMismatch mismatch)
+		/// <param name="mismatchPatterns">A list of patterns.</param>
+		private void ListPatterns(IList mismatchPatterns)
 		{
-			foreach (PatternDescription pattern in mismatch.Patterns)
+			foreach (PatternDescription pattern in mismatchPatterns)
 			{
 				RadioButton rbutton = new RadioButton();
 				Button button = new Button();
@@ -295,9 +300,10 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		{
 			string bName = ((Button)sender).Name;
 			bool breakLoop = false;
-			foreach (IMismatch mismatch in this.mismatches)
+			foreach (IMismatch mismatch in this.mismatchSolvingPatterns.Keys)
 			{
-				foreach (PatternDescription pattern in mismatch.Patterns)
+				foreach (PatternDescription pattern in 
+					(IList)this.mismatchSolvingPatterns[mismatch])
 				{
 					if (pattern.Name.Equals(bName))
 					{
@@ -375,9 +381,10 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		private void ChoosePattern(object sender, string buttonName)
 		{
 			bool breakLoop = false;
-			foreach (IMismatch mismatch in this.mismatches)
+			foreach (IMismatch mismatch in this.mismatchSolvingPatterns.Keys)
 			{
-				foreach (PatternDescription pattern in mismatch.Patterns)
+				foreach (PatternDescription pattern in 
+					(IList)this.mismatchSolvingPatterns[mismatch])
 				{
 					if (pattern.Name.Equals(buttonName))
 					{
