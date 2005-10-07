@@ -27,7 +27,9 @@ using QmlParser;
 
 namespace Palladio.QoSAdaptor.QMLComparison
 {
-	
+	/// <summary>
+	/// Compares QML specifications in order to find mismatches.
+	/// </summary>
 	public class QMLComparator : IComparator
 	{
 		#region data
@@ -71,6 +73,14 @@ namespace Palladio.QoSAdaptor.QMLComparison
 		#endregion
 
 		#region public methods
+		/// <summary>
+		/// Searches for mismatches in the two given QML specifications. 
+		/// </summary>
+		/// <param name="required">TextReader representing the specification 
+		/// for the required interface.</param>
+		/// <param name="provided">TextReader representing the specification 
+		/// for the provided interface.</param>
+		/// <returns>A list of QMLMismatch objects.</returns>
 		public IList FindMismatches (TextReader required, TextReader provided)
 		{
 			QMLSpecification requiredSpecification = CreateSpecification(
@@ -83,14 +93,6 @@ namespace Palladio.QoSAdaptor.QMLComparison
 
 			IList mismatches = requiredSpecification.GetMismatches(
 				providedSpecification);	
-
-			/* BEGIN DEBUG OUTPUT
-			Console.WriteLine("\nREQUIRED SPECIFICATION:\n");
-			Console.WriteLine(requiredSpecification.ToString());
-			Console.WriteLine("\n\nPROVIDEDED SPECIFICATION:\n");
-			Console.WriteLine(providedSpecification.ToString());
-			// END DEBUG OUTPUT*/
-
 			return mismatches;
 		}
 

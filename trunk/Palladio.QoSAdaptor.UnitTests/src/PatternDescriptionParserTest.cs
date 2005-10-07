@@ -34,12 +34,20 @@ namespace Palladio.QoSAdaptor.UnitTests
 		private PatternDescriptionParser parser;
 
 		#region initialisation and shutdown
+		/// <summary>
+		/// Initialises the parser and parses the cache pattern description.
+		/// TODO: Check the parsed description.
+		/// </summary>
 		[SetUp]
 		public void Init()
 		{	
-			this.parser = new PatternDescriptionParser(Config.PATTERN_DIRECTORY+"Cache\\cache_pattern_description.xml");
+			this.parser = new PatternDescriptionParser(
+				Config.PATTERN_DIRECTORY+"Cache\\cache_pattern_description.xml");
 		}
 
+		/// <summary>
+		/// Shutdown method needed by NUnit
+		/// </summary>
 		[TearDown]
 		public void Shutdown()
 		{	

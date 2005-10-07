@@ -80,6 +80,9 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		#endregion
 
 		#region properties
+		/// <summary>
+		/// A list of all entities describes by this requirement clause.
+		/// </summary>
 		public IList Entities
 		{
 			get
@@ -88,6 +91,9 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 			}
 		}
 
+		/// <summary>
+		/// A list of contracts described in this requirement clause.
+		/// </summary>
 		public IList Contracts
 		{
 			get
@@ -150,6 +156,12 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		#endregion
 
 		#region public methods
+		/// <summary>
+		/// Checks, if this QMLRequirementClause describes the given entity.
+		/// </summary>
+		/// <param name="entity">A QMLEntity.</param>
+		/// <returns>True, if the requirement clause contains the given entity.
+		/// Else false.</returns>
 		public bool hasEntity (QMLEntity entity)
 		{
 			foreach (QMLEntity currentEntity in this.entities)

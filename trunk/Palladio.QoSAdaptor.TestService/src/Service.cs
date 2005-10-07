@@ -66,6 +66,12 @@ namespace Palladio.QoSAdaptor.TestService
 		#endregion
 
 		#region public methods
+		/// <summary>
+		/// Returns the random integer value for the given index.
+		/// </summary>
+		/// <param name="index">The index of the wanted value. Has to be 
+		/// between 0 and 99.</param>
+		/// <returns>The random integer value for the given index.</returns>
 		public int Get(int index)
 		{
 			// Modelling different percentiles of time consumption as indicated
@@ -82,6 +88,12 @@ namespace Palladio.QoSAdaptor.TestService
 			return values[index];
 		}
 
+		/// <summary>
+		/// Set a new value at the given index.
+		/// </summary>
+		/// <param name="index">The index of the new value. Has to be between
+		/// 0 and 99.</param>
+		/// <param name="value">The new value.</param>
 		public void Set(int index, int value)
 		{
 			Thread.Sleep(100);

@@ -17,7 +17,6 @@
 // E-mail: niels.streekmann@informatik.uni-oldenburg.de
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
-using System;
 
 namespace Palladio.QoSAdaptor.Measurement
 {
@@ -25,17 +24,29 @@ namespace Palladio.QoSAdaptor.Measurement
 	/// </summary>
 	public class SingleClientScenario
 	{
+		#region data
 		private Client client;
+		#endregion
 
+		#region constructor
+		/// <summary>
+		/// Constructs a new SingleClientScenario.
+		/// </summary>
 		public SingleClientScenario()
 		{
 			client = new Client();
 		}
+		#endregion
 
+		#region public methods
+		/// <summary>
+		/// Starts the scenario.
+		/// </summary>
 		public void Start()
 		{
 			client.Start();
 			client.MemoryAppender2File();
 		}
+		#endregion
 	}
 }

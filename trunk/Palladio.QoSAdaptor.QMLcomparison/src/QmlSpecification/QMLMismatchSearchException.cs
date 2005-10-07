@@ -23,10 +23,15 @@ using System;
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
-	/// Zusammenfassung für QMLMismatchSearchException.
+	/// Exception thrown if an error occured during a mismatch search.
 	/// </summary>
 	public class QMLMismatchSearchException: Exception
 	{
+		/// <summary>
+		/// Constructor that defines a default message and adds the given 
+		/// message.
+		/// </summary>
+		/// <param name="message"></param>
 		public QMLMismatchSearchException(string message):
 			base("Error in mismatch search. "+message)
 		{

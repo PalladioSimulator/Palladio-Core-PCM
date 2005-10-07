@@ -41,6 +41,9 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		#endregion
 
 		#region properties
+		/// <summary>
+		/// The name of this contract expression
+		/// </summary>
 		public string Name
 		{
 			get

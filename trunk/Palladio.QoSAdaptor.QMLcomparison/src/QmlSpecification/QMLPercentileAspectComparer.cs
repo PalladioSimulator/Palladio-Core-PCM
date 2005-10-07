@@ -30,10 +30,14 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// </summary>
 	public class QMLPercentileAspectComparer : IComparer
 	{
-		public QMLPercentileAspectComparer()
-		{
-		}
-
+		/// <summary>
+		/// Compares two QMLPercentileAspects.
+		/// </summary>
+		/// <param name="aspect1">A QMLPercentileAspect object.</param>
+		/// <param name="aspect2">Another QMLPercentileAspect object.</param>
+		/// <returns>An int smaller than 0 if aspect1 is smaller than 
+		/// aspect2. 0 if they are equal and a value greater than 0
+		/// if aspect1 is bigger than aspect2.</returns>
 		public int Compare (object aspect1, object aspect2)
 		{
 			// TODO: Throw exception if the aspects have the wrong type

@@ -47,6 +47,10 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		#endregion
 
 		#region properties
+		/// <summary>
+		/// A list of all radio buttons of the GUI. Each button is linked to a
+		/// certain pattern.
+		/// </summary>
 		public IList RButtons
 		{
 			get
@@ -55,6 +59,9 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			}
 		}
 
+		/// <summary>
+		/// The button pressed to generate an adaptor.
+		/// </summary>
 		public Button GenerateAdaptorButton
 		{
 			get
@@ -63,6 +70,9 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			}
 		}
 
+		/// <summary>
+		/// The button pressed to generate a prediction model.
+		/// </summary>
 		public Button GeneratePredictionButton
 		{
 			get

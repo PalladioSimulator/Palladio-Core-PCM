@@ -17,7 +17,6 @@
 // E-mail: niels.streekmann@informatik.uni-oldenburg.de
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
-using System;
 using System.Threading;
 
 namespace Palladio.QoSAdaptor.Measurement
@@ -34,12 +33,18 @@ namespace Palladio.QoSAdaptor.Measurement
 	/// </summary>
 	public class ConcurrentClientScenario
 	{
+		#region data
 		private Client client1;
 		private Client client2;
 		private Client client3;
 		private Client client4;
 		private Client client5;
+		#endregion
 
+		#region constructor
+		/// <summary>
+		/// Constructs a ConcurrentClientScenario and initialises the clients.
+		/// </summary>
 		public ConcurrentClientScenario()
 		{
 			client1 = new Client();
@@ -48,7 +53,12 @@ namespace Palladio.QoSAdaptor.Measurement
 			client4 = new Client();
 			client5 = new Client();
 		}
+		#endregion
 	
+		#region public methods
+		/// <summary>
+		/// Starts the scenario.
+		/// </summary>
 		public void Start()
 		{
 			Thread t = null;
@@ -69,6 +79,6 @@ namespace Palladio.QoSAdaptor.Measurement
 			client4.MemoryAppender2File();
 			client5.MemoryAppender2File();
 		}
-
+		#endregion
 	}
 }

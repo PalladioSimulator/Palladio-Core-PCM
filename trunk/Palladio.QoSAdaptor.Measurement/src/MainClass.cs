@@ -28,6 +28,11 @@ namespace Palladio.QoSAdaptor.Measurement
 	/// </summary>
 	public class MainClass
 	{
+		/// <summary>
+		/// The main class of the measurement application. Start the given 
+		/// scenario.
+		/// </summary>
+		/// <param name="args"></param>
 		public static void Main (string[] args)
 		{
 			// Configure log4net for the measurement component. 

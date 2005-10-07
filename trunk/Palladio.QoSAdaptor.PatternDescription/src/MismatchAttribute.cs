@@ -49,6 +49,9 @@ namespace Palladio.QoSAdaptor.Pattern
 		#endregion
 
 		#region properties
+		/// <summary>
+		/// The name of this mismatch attribute.
+		/// </summary>
 		public string Name
 		{
 			get
@@ -57,6 +60,9 @@ namespace Palladio.QoSAdaptor.Pattern
 			}
 		}
 
+		/// <summary>
+		/// The suitability of this mismatch attribute.
+		/// </summary>
 		public string Suitability
 		{
 			get

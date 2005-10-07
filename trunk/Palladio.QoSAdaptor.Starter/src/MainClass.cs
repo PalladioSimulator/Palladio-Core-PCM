@@ -28,6 +28,11 @@ namespace Palladio.QoSAdaptor.Starter
 	/// </summary>
 	public class MainClass
 	{
+		/// <summary>
+		/// The main class of the Starter. Opens the given files and starts the
+		/// QoSAdaptor generation application.
+		/// </summary>
+		/// <param name="args"></param>
 		public static void Main (string[] args)
 		{
 			FileStream fileStream = new FileStream(args[0], 

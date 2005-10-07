@@ -37,17 +37,22 @@ namespace Palladio.QoSAdaptor.Pattern
 		#endregion
 
 		#region constructors
-		public PatternDescriptionParser()
+		/// <summary>
+		/// Constructs a new PatternDescriptionParser and parses the given 
+		/// file.
+		/// </summary>
+		/// <param name="description">A string containing a pattern
+		/// description.</param>
+		public PatternDescriptionParser(string description)
 		{
-		}
-		
-		public PatternDescriptionParser(string file)
-		{
-			pattern = ParseDescription(file);
+			pattern = ParseDescription(description);
 		}
 		#endregion
 
 		#region properties
+		/// <summary>
+		/// The parsed PatternDescription. 
+		/// </summary>
 		public PatternDescription Pattern
 		{
 			get

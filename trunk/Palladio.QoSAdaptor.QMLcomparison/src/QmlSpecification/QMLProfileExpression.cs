@@ -65,6 +65,9 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		#endregion
 
 		#region properties
+		/// <summary>
+		/// The type of this QMLProfileExpression.
+		/// </summary>
 		public int ExpressionType
 		{
 			get
@@ -73,6 +76,9 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 			}
 		}
 
+		/// <summary>
+		/// A list of requirement clauses contained in the profile expression.
+		/// </summary>
 		public IList RequirementClauses
 		{
 			get
