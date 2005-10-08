@@ -1,6 +1,8 @@
 \section{Datenhaltung im Modellkern}
 
-Der Modellkern, dessen Hauptaufgabe die Verwaltung der Daten darstellt, bildet den wichtigsten Bestandteil des Komponentenmodells mit den im Folgenden kurz erläuterten Anforderungen.
+Der Modellkern, dessen Hauptaufgabe die Verwaltung der Daten darstellt, bildet den wichtigsten Bestandteil des Komponentenmodells mit den im ersten Teil des Kapitels erläuterten Anforderungen. Es folgt die Präsentation von drei Ideen zu deren Umsetzung. Abschließend wird die in dieser Version des Komponentemodells implementierte Variante ausführlich erläutert.
+
+\subsection{Anforderungen an den Modellkern}
 
 \begin{itemize}
 \item \textbf{Speicherung}\\
@@ -15,14 +17,33 @@ Weiterhin wichtig ist sowohl bei den Zugriffsmethoden als auch bei der Speicheru
 
 \end{itemize}
 
-Zur Umsetzung des Modellkerns kommen eine Reihe von Strategien in Frage, von denen drei im Folgenden gegeneinander abgegrenzt werden. Abschließend folgt in diesem Kapitel die ausführliche Vorstellung der in dieser Version des Komponentemodells implementierten Variante.
+Nachdem die grundlegenden Anforderungen an den Modellkern erarbeitet wurden, folgt die Vorstellung von Ideen zu deren Umsetzung.
+
+\subsection{Ideen zur Umsetzung}
+
+Zur Umsetzung des Modellkerns kommen eine Reihe von Strategien in Frage, von denen drei im Folgenden gegeneinander abgegrenzt werden. 
 
 Die erste Strategie bedient sich ausschließlich objektorientierter Konzepte. Hierbei werden die Entitäten durch Klasseninstanzen und Beziehungen zwischen diesen durch Referenzen auf andere Instanzen modelliert. Vorteile dieser Variante ergeben sich aus guter Modellierbarkeit von Spezialisierung, problemloser Speicherung von Attributen unbekannten Typs und hoher Geschwindigkeit. Erfahrungen haben gezeigt, dass sich bei der Umsetzung dieses Konzeptes Probleme hinsichtlich Wartbarkeit und Erweiterbarkeit ergeben, die sich auf die starke Abhängigkeit der Klassen untereinander zurückführen lassen. Ebenfalls schwierig zu modellieren sind auf diese Art zirkuläre Abhänigkeiten.
 
-Der zweite Ansatz bedient sich einer relationalen oder einer objektrelationalen Datenbank. Die Entitäten werden hierbei in entsprechenden Tabellen der Datenbank gespeichert. Die Beziehungen zwischen den Entitäten lassen sich in der Datenbank entsprechend als Beziehungen zwischen den Tabellen modellieren. Details zum Entwurf solcher Datenbankschemata und deren Nutzung sei an dieser Stelle auf entsprechende Literatur (z.b. \cite{lit:db}) verwiesen. 
+Der zweite Ansatz bedient sich einer relationalen oder einer objektrelationalen Datenbank. Die Entitäten werden hierbei in entsprechenden Tabellen der Datenbank gespeichert. Die Beziehungen zwischen den Entitäten lassen sich in der Datenbank entsprechend als Beziehungen zwischen den Tabellen modellieren. Details zum Entwurf solcher Datenbankschemata und deren Nutzung sei an dieser Stelle auf entsprechende Literatur (z.b. \cite{lit:db}) verwiesen. Vorteil dieses Ansatzes liegt in der guten Infrastruktur zum Speichern, Laden und anfragen von Daten. Nachteilig ist jedoch das zur Entwurfszeit festgelegte Datenschema, welches den unbekannten Attributen nicht gerecht wird. Weiterhin bringt eine Datenbank viel Funktionalität mit, welche i.A. im Rahmen der Datenhaltung einer Anwendung (z.B. eines Editors für das Komponentenmodell) zuviel Aufwand bedeutet. Seitens der Geschwindigkeit kann die Datenbank mit dem ersten Ansatz in Hinblick auf den Anwendungsfall Komponentenmodell nicht mithalten.
+
+Die dritte hier vorgestellte und gleichzeitig von uns verwendete Idee kombiniert die Vorteile der beiden vorherigen Varianten. Deren detailierte Beschreibung folgt im nächsten Abschnitt.
+
+\subsection{Beschreibung der von uns umgesetzten Variante}
+
+Die durch ihre Attribute charakterisierten Entitäten werden gemäß dem ersten Ansatz des vorherigen Abschnitts in Form von Objektinstanzen gespeichert. Die Beziehungen zwischen diesen Entitäten hält eine Art Datenbank. Somit lassen sich problemlos alle Art von (auch unbekannten) Attributen speichern. Die verwendete Datenbank bietet performante und flexible Möglichkeiten, Beziehungen zwischen den Entitäten zu erfragen.
+  
+\subsubsection{Speicherung der Entitäten}
+%hashmap 
+
+\subsubsection{Speicherung der Beziehungen}
+%dataset
 
 \begin{figure}[ht]
  \centering \includegraphics[scale=0.53]{dataset.png}
  \caption{.NET Dataset des Modellkerns}
  \label{fig:dataset}
 \end{figure}
+
+\subsubsection{Schnittstelle nach außen}
+%lowlevel builder
