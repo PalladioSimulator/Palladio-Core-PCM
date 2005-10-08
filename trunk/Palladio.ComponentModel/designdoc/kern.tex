@@ -1,7 +1,28 @@
 \section{Datenhaltung im Modellkern}
 
+Der Modellkern, dessen Hauptaufgabe die Verwaltung der Daten darstellt, bildet den wichtigsten Bestandteil des Komponentenmodells mit den im Folgenden kurz erläuterten Anforderungen.
+
+\begin{itemize}
+\item \textbf{Speicherung}\\
+Der Modellkern muss in der Lage sein, alle Daten zur Laufzeit des nutzenden Programms zu speichern. Zu den Daten gehören die Entitäten des Komponentenmodells mit ihren Attributen. Die Struktur der Attribute beschränkt sich hierbei nicht auschließlich auf Standartdatentypen. Es müssen beliebige z.T. zur Entwurfszeit unbekannte Datenstrukturen speicherbar sein. Weiterhin müssen die Beziehungen zwischen den Entitäten (z.B. Komponente \emph{A} enthält Komponente \emph{B}) festgehalten werden. 
+
+\item \textbf{Konsistenzprüfung}\\
+Wie eingangs in der Architekturbescheibung erläutert besteht die Aufgabe des Modellkerns nicht in der Implementierung der Konsistenzprüfung des theoretischen Modells. Somit sollte im Idealfall prinzipiell erst einmal alles abspeicherbar sein. Da die Umsetzung dieser Anforderung viele ungenutzte und zu Lasten der Komplexität fallende Möglichkeiten bietet, ist die Nutzung von Wissen über das theoretische Modell bei der Konzeption der Datenhaltung sinnvoll einzubringen. Verstöße gegen die sich hierraus ergebenen Beschränkungen sind dann jedoch durch den Modellkern abzufangen und entsprechend zu behandeln. Soll beispielsweise entsprechend dem o.g. Beispiel die Komponente \emph{B} der Komponente \emph{A} hinzugefügt werden, so ist vom Modell diese Beziegung zu speichern. Setzt die gewählte Speicherstruktur hierbei das vorhandensein von Komponente A vorraus, so ist das durch den Modellkern sicherzustellen. Dieser kann dann entweder die Speicherung ablehnen oder selbständig eine Komponente A erzeugen.
+
+\item \textbf{Zugriffsmethoden}\\
+Die dritte Anforderung an den Modellkern stellen die Zugriffsmethoden dar. Da in die Datenhaltung, wie oben erläuert, nicht das vollständige Wissen über das theoretische Modell zu implementieren ist, können keine hierauf zugeschnittenen Zugriffsmethoden zur Verfügung gestellt werden. Es ist also eine Schnittstelle zu schaffen, die flexiblen Zugriff auf alle gespeicherten Daten bereitstellt. Bestehen im Modell der Datenhaltung bereits Beziehungen zwischen den Daten, so bietet sich deren Nutzung beim Zugriff an.
+Weiterhin wichtig ist sowohl bei den Zugriffsmethoden als auch bei der Speicherung die Geschwindigkeit. Dieser Teil des Modells bildet, wie bereits erläutert, die Datenhaltung für die laufende Anwendung. Sorgt die Arbeit auf dem Modell für zu hohe Latenz, so leidet die Nutzbarkeit der Anwendung hierrunter stark.
+
+\end{itemize}
+
+Zur Umsetzung des Modellkerns kommen eine Reihe von Strategien in Frage, von denen drei im Folgenden gegeneinander abgegrenzt werden. Abschließend folgt in diesem Kapitel die ausführliche Vorstellung der in dieser Version des Komponentemodells implementierten Variante.
+
+Die erste Strategie bedient sich ausschließlich objektorientierter Konzepte. Hierbei werden die Entitäten durch Klasseninstanzen und Beziehungen zwischen diesen durch Referenzen auf andere Instanzen modelliert. Vorteile dieser Variante ergeben sich aus guter Modellierbarkeit von Spezialisierung, problemloser Speicherung von Attributen unbekannten Typs und hoher Geschwindigkeit. Erfahrungen haben gezeigt, dass sich bei der Umsetzung dieses Konzeptes Probleme hinsichtlich Wartbarkeit und Erweiterbarkeit ergeben, die sich auf die starke Abhängigkeit der Klassen untereinander zurückführen lassen. Ebenfalls schwierig zu modellieren sind auf diese Art zirkuläre Abhänigkeiten.
+
+Der zweite Ansatz bedient sich einer relationalen oder einer objektrelationalen Datenbank. Die Entitäten werden hierbei in entsprechenden Tabellen der Datenbank gespeichert. Die Beziehungen zwischen den Entitäten lassen sich in der Datenbank entsprechend als Beziehungen zwischen den Tabellen modellieren. Details zum Entwurf solcher Datenbankschemata und deren Nutzung sei an dieser Stelle auf entsprechende Literatur (z.b. \cite{lit:db}) verwiesen. 
+
 \begin{figure}[ht]
- \centering \includegraphics[scale=0.44]{dataset.png}
+ \centering \includegraphics[scale=0.53]{dataset.png}
  \caption{.NET Dataset des Modellkerns}
  \label{fig:dataset}
 \end{figure}
