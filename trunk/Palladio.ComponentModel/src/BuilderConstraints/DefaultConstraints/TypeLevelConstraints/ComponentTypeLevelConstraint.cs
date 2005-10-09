@@ -16,6 +16,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.3  2005/10/09 14:42:12  kelsaka
+	/// - removed convenience properties to access a component model entity directly from a
+	///  builder. use the access cm-environment>query instead
+	///
 	/// Revision 1.2  2005/09/07 20:53:17  joemal
 	/// fix bug in constraint
 	///
@@ -171,17 +175,6 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 		#endregion
 
 		#region properties
-
-		/// <summary>
-		/// Accesses the created instance.
-		/// </summary>
-		public IComponent Component
-		{
-			get
-			{
-				return this.componentBuilderSuccessor.Component;
-			}
-		}
 
 		/// <summary>
 		/// Accesses the identifier of the actual instance.

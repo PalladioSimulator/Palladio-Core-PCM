@@ -20,6 +20,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.17  2005/10/09 14:42:12  kelsaka
+	/// - removed convenience properties to access a component model entity directly from a
+	///  builder. use the access cm-environment>query instead
+	///
 	/// Revision 1.16  2005/07/13 11:08:30  joemal
 	/// add query property
 	///
@@ -139,7 +143,6 @@ namespace Palladio.ComponentModel.Builder
 		/// <returns>A <see cref="ICompositeComponentBuilder"/> to build the further component.</returns>
 		ICompositeComponentTypeLevelBuilder CreateCompositeComponent(IComponentIdentifier componentIdentifier, string name);
 
-
 		/// <summary>
 		/// called to destroy a component. All references and all contained entities are also removed. 
 		/// </summary>
@@ -156,7 +159,9 @@ namespace Palladio.ComponentModel.Builder
 		#region properties
 
 		/// <summary>
-		/// called to query the repository of the componentmodel
+		/// called to query the repository of the componentmodel.
+		/// NOTE/TODO: This methods probably will be removed in future versions of the CM.
+		/// To access the QueryRepository use the ComponentModelEnironment.Queries instead.
 		/// </summary>
 		IQueryRepository QueryRepository
 		{

@@ -13,6 +13,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.20  2005/10/09 14:42:12  kelsaka
+	/// - removed convenience properties to access a component model entity directly from a
+	///  builder. use the access cm-environment>query instead
+	///
 	/// Revision 1.19  2005/07/23 18:59:57  joemal
 	/// IType now is implemented in external object. Plugins for serializer are created.
 	///
@@ -142,14 +146,6 @@ namespace Palladio.ComponentModel.Builder
 		#endregion
 
 		#region Properties
-
-		/// <summary>
-		/// Accesses the created instance.
-		/// </summary>
-		ISignature Signature
-		{
-			get;
-		}
 
 		/// <summary>
 		/// Accesses the identifier of the actual instance.

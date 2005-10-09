@@ -13,6 +13,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.19  2005/10/09 14:42:12  kelsaka
+	/// - removed convenience properties to access a component model entity directly from a
+	///  builder. use the access cm-environment>query instead
+	///
 	/// Revision 1.18  2005/06/25 16:53:53  joemal
 	/// fix bug in signaturebuilder
 	///
@@ -122,14 +126,6 @@ namespace Palladio.ComponentModel.Builder
 		#endregion
 
 		#region Properties
-
-		/// <summary>
-		/// Accesses the created instance.
-		/// </summary>
-		IInterface Interface
-		{
-			get;
-		}
 
 		/// <summary>
 		/// Accesses the identifier of the actual instance.

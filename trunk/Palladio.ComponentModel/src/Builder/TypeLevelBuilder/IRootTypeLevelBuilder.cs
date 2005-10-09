@@ -1,6 +1,4 @@
-using System;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
-
 
 namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 {
@@ -13,6 +11,10 @@ namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/10/09 14:42:12  kelsaka
+	/// - removed convenience properties to access a component model entity directly from a
+	///  builder. use the access cm-environment>query instead
+	///
 	/// Revision 1.4  2005/05/27 10:30:12  kelsaka
 	/// - updated some documentation
 	///

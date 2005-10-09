@@ -1,7 +1,5 @@
-using System;
 using Palladio.ComponentModel.Builder.ImplementationLevelBuilder;
 using Palladio.ComponentModel.Identifier;
-using Palladio.ComponentModel.ModelEntities;
 
 namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 {
@@ -14,6 +12,10 @@ namespace Palladio.ComponentModel.Builder.TypeLevelBuilder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/10/09 14:42:12  kelsaka
+	/// - removed convenience properties to access a component model entity directly from a
+	///  builder. use the access cm-environment>query instead
+	///
 	/// Revision 1.6  2005/06/05 10:36:55  joemal
 	/// - replace the entities by the ids
 	/// - components now can be added to more than one container

@@ -11,10 +11,14 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/10/09 14:42:12  kelsaka
+	/// - removed convenience properties to access a component model entity directly from a
+	///  builder. use the access cm-environment>query instead
+	///
 	/// Revision 1.3  2005/10/09 14:00:48  kelsaka
 	/// - removed convenience property to access QueryRepository. This property raised security
 	///  problems if the queries had been partially encapsulated: The access structure
-	///  of queries wa not a tree any more.
+	///  of queries was not a tree.
 	///
 	/// Revision 1.2  2005/06/12 17:07:31  joemal
 	/// renamed from QueryEntity to QueryRepository

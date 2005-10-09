@@ -73,7 +73,7 @@ namespace Palladio.ComponentModel.UnitTests
 			PROV_CC_BC = compositeComponentBuilder.AddProvidesDelegationConnector("WRCC.Prov -> WRBC.Prov",provIFace,BCWRITEID,provIFace);
 			REQ_CC_BC = compositeComponentBuilder.AddRequiresDelegationConnector("WRCC.Req -> WRBC.Req",BCWRITEID,reqIFace,reqIFace);
             			
-            return compositeComponentBuilder.Component.ComponentID;
+            return compositeComponentBuilder.ComponentId;
 		}
 
 		//creates the basic component bc1
@@ -91,7 +91,7 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			basicComponentTypeLevelBuilder.AddExistingInterfaceAsProvides(provIfaceID);
 			basicComponentTypeLevelBuilder.AddServiceEffectSpecification(new ASeff(),provIfaceID,SIG2ID);
-			return basicComponentTypeLevelBuilder.Component.ComponentID;
+			return basicComponentTypeLevelBuilder.ComponentId;
 		}
 
 		//creates the interface IWriter
@@ -99,14 +99,14 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			StaticComponentModel.SIG1ID = levelBuilder.AddSignature("sig1").SignatureId;
 			levelBuilder.AddProtocol(new AProtocol());
-			return levelBuilder.Interface.InterfaceID;
+			return levelBuilder.InterfaceId;
 		}
 
 		//creates the interface IWriterBackend
 		private static IInterfaceIdentifier BuildIFaceIWriterBackEnd(IInterfaceTypeLevelBuilder levelBuilder)
 		{
 			StaticComponentModel.SIG2ID = levelBuilder.AddSignature("sig2").SignatureId;
-			return levelBuilder.Interface.InterfaceID;
+			return levelBuilder.InterfaceId;
 		}
 
 		#endregion

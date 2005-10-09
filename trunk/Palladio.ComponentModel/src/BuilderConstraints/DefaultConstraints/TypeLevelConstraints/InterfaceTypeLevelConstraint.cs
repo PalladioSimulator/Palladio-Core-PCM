@@ -16,6 +16,10 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 	/// <pre>
 	/// Version history:
 	/// $Log$
+	/// Revision 1.7  2005/10/09 14:42:12  kelsaka
+	/// - removed convenience properties to access a component model entity directly from a
+	///  builder. use the access cm-environment>query instead
+	///
 	/// Revision 1.6  2005/06/25 16:54:09  joemal
 	/// fix bug in signaturebuilder
 	///
@@ -141,17 +145,6 @@ namespace Palladio.ComponentModel.BuilderConstraints.DefaultConstraints.TypeLeve
 			get
 			{
 				return this.interfaceBuilderSuccessor.ImplementationLevelBuilder;
-			}
-		}
-
-		/// <summary>
-		/// Accesses the created instance.
-		/// </summary>
-		public IInterface Interface
-		{
-			get
-			{
-				return this.interfaceBuilderSuccessor.Interface;
 			}
 		}
 

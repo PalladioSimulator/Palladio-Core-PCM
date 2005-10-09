@@ -8,6 +8,7 @@ using Palladio.ComponentModel.Builder.TypeLevelBuilder;
 using Palladio.ComponentModel.Identifier;
 using Palladio.ComponentModel.ModelEntities;
 using Palladio.ComponentModel.ModelEntities.Impl;
+using Palladio.ComponentModel.Query;
 using Palladio.Identifier;
 using Palladio.Serialization;
 
@@ -21,6 +22,10 @@ namespace Palladio.ComponentModel.Serialization.Xml
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/10/09 14:42:12  kelsaka
+	/// - removed convenience properties to access a component model entity directly from a
+	///  builder. use the access cm-environment>query instead
+	///
 	/// Revision 1.10  2005/09/28 19:12:03  joemal
 	/// fix bug
 	///
@@ -65,6 +70,8 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		//the plugins
 		private Hashtable plugins;
 
+		private IQueryRepository queryRepository;
+
 		#endregion
 
 		#region constructor
@@ -77,6 +84,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 		public XmlCMReader(IBuilderManager builderManager, Hashtable plugins)
 		{
 			this.builderManager = builderManager;
+			this.queryRepository = builderManager.RootTypeLevelBuilder.QueryRepository;
 			this.plugins = plugins;
 		}
 
@@ -235,7 +243,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				IBasicComponentBuilder compBuilder = typeLevelBuilder.CreateBasicComponent(compID,name);
 				ExtractComponentIfaces(compBuilder,compNode,mgr);
 				ExtractSeffs(compBuilder,typeLevelNode,compNode,mgr);
-				ExtractEntityAttributes(compBuilder.Component,compNode,mgr);
+				ExtractEntityAttributes(this.queryRepository.GetComponent(compBuilder.ComponentId),compNode,mgr);
 			}		
 
 			//create empty composite components and bind their interfaces to them
@@ -246,7 +254,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				string name = ExtractEntityName(compNode,mgr);
 				ICompositeComponentBuilder compBuilder = typeLevelBuilder.CreateCompositeComponent(compID,name);
 				ExtractComponentIfaces(compBuilder,compNode,mgr);
-				ExtractEntityAttributes(compBuilder.Component,compNode,mgr);
+				ExtractEntityAttributes(this.queryRepository.GetComponent(compBuilder.ComponentId),compNode,mgr);
 			}		
 
 			//now all components are present, fill the composite components 
@@ -368,7 +376,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 				IInterfaceBuilder ifaceBuilder = typeLevelBuilder.CreateInterface(ifaceID,name);
 				ExtractSignatures(ifaceBuilder,typelevelNode,ifaceNode, mgr);
 				ExtractProtocols(ifaceBuilder,typelevelNode,ifaceNode, mgr);
-				ExtractEntityAttributes(ifaceBuilder.Interface,ifaceNode,mgr);
+				ExtractEntityAttributes(this.queryRepository.GetInterface(ifaceBuilder.InterfaceId),ifaceNode,mgr);
 			}
 		}
 
@@ -407,7 +415,7 @@ namespace Palladio.ComponentModel.Serialization.Xml
 			foreach(XmlNode exception in exceptions)
 				builder.AddException(ExtractType(exception));
 
-			ExtractEntityAttributes(builder.Signature,sigNode,mgr);
+			ExtractEntityAttributes(this.queryRepository.GetSignature(builder.SignatureId),sigNode,mgr);
 		}
         
 		//extract the type from given node

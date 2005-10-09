@@ -220,16 +220,16 @@ namespace Palladio.ComponentModel.UnitTests
 		public void QueryInterfacesTest()
 		{
 			IInterfaceBuilder ifaceB = model.BuilderManager.RootTypeLevelBuilder.CreateInterface("IWriter");
-			ISignatureIdentifier sig1ID = ifaceB.AddSignature("Write1").Signature.SignatureID;
-			ISignatureIdentifier sig2ID = ifaceB.AddSignature("Write2").Signature.SignatureID;
-			ISignatureIdentifier sig3ID = ifaceB.AddSignature("Write3").Signature.SignatureID;
+			ISignatureIdentifier sig1ID = ifaceB.AddSignature("Write1").SignatureId;
+			ISignatureIdentifier sig2ID = ifaceB.AddSignature("Write2").SignatureId;
+			ISignatureIdentifier sig3ID = ifaceB.AddSignature("Write3").SignatureId;
 
 			IProtocol pro1 = new TestProtocol();
 			ifaceB.AddProtocol(pro1);
 			IProtocol pro2 = new TestProtocol();
 			ifaceB.AddProtocol(pro2);
 
-			IQueryInterfaceTypeLevel query = model.Query.QueryTypeLevel.QueryInterface(ifaceB.Interface.InterfaceID);
+			IQueryInterfaceTypeLevel query = model.Query.QueryTypeLevel.QueryInterface(ifaceB.InterfaceId);
 			Assert.AreEqual(query.GetSignatures().Length,3);
 			Assert.AreEqual(query.GetProtocols().Length,2);
 

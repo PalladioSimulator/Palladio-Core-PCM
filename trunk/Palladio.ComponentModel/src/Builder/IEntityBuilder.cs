@@ -13,6 +13,10 @@ namespace Palladio.ComponentModel.Builder
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.11  2005/10/09 14:42:12  kelsaka
+	/// - removed convenience properties to access a component model entity directly from a
+	///  builder. use the access cm-environment>query instead
+	///
 	/// Revision 1.10  2005/06/05 10:36:34  joemal
 	/// - replace the entities by the ids
 	/// - components now can be added to more than one container
@@ -58,7 +62,7 @@ namespace Palladio.ComponentModel.Builder
 		/// <summary>
 		/// called to returns the id of the entity that belongs to this builder
 		/// </summary>
-		IIdentifier Id{get;}
+		IIdentifier Id { get; }
 		
 		#endregion		
 	}
