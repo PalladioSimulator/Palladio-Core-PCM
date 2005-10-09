@@ -27,16 +27,31 @@ Die erste Strategie bedient sich ausschließlich objektorientierter Konzepte. Hie
 
 Der zweite Ansatz bedient sich einer relationalen oder einer objektrelationalen Datenbank. Die Entitäten werden hierbei in entsprechenden Tabellen der Datenbank gespeichert. Die Beziehungen zwischen den Entitäten lassen sich in der Datenbank entsprechend als Beziehungen zwischen den Tabellen modellieren. Details zum Entwurf solcher Datenbankschemata und deren Nutzung sei an dieser Stelle auf entsprechende Literatur (z.b. \cite{lit:db}) verwiesen. Vorteil dieses Ansatzes liegt in der guten Infrastruktur zum Speichern, Laden und anfragen von Daten. Nachteilig ist jedoch das zur Entwurfszeit festgelegte Datenschema, welches den unbekannten Attributen nicht gerecht wird. Weiterhin bringt eine Datenbank viel Funktionalität mit, welche i.A. im Rahmen der Datenhaltung einer Anwendung (z.B. eines Editors für das Komponentenmodell) zuviel Aufwand bedeutet. Seitens der Geschwindigkeit kann die Datenbank mit dem ersten Ansatz in Hinblick auf den Anwendungsfall Komponentenmodell nicht mithalten.
 
-Die dritte hier vorgestellte und gleichzeitig von uns verwendete Idee kombiniert die Vorteile der beiden vorherigen Varianten. Deren detailierte Beschreibung folgt im nächsten Abschnitt.
+Die dritte hier vorgestellte und gleichzeitig von uns verwendete Idee kombiniert die Vorteile der beiden vorherigen Varianten. Die durch ihre Attribute charakterisierten Entitäten werden gemäß dem ersten Ansatz in Form von Objektinstanzen gespeichert. Die Beziehungen zwischen diesen Entitäten hält eine Art Datenbank. Somit lassen sich problemlos alle Art von (auch unbekannten) Attributen speichern. Die verwendete Datenbank bietet performante und flexible Möglichkeiten, Beziehungen zwischen den Entitäten zu erfragen.
 
-\subsection{Beschreibung der von uns umgesetzten Variante}
+Es folgt die detailierte Beschreibung der von uns umgetzten Variante. 
 
-Die durch ihre Attribute charakterisierten Entitäten werden gemäß dem ersten Ansatz des vorherigen Abschnitts in Form von Objektinstanzen gespeichert. Die Beziehungen zwischen diesen Entitäten hält eine Art Datenbank. Somit lassen sich problemlos alle Art von (auch unbekannten) Attributen speichern. Die verwendete Datenbank bietet performante und flexible Möglichkeiten, Beziehungen zwischen den Entitäten zu erfragen.
+\subsection{Beschreibung der umgesetzten Variante}
+
+Wie im vorherigen Abschnitt kurz erläutert handelt es sich bei den Entitäten um reine Datenkontainer. Es existieren im Komponentenmodell zwei Arten von Entitäten, interne und externe Enitäten. Alle internen Entitäten besitzen neben einer ID einen Namen und eine Liste von zur Laufzeit frei wählbaren Attributen. Je nach Typ der Entität existieren zusätzliche jedoch zur Entwurfszeit festgelegte Attribute (z.B. der Typ einer Komponente). Zu internen Entitäten gehören Komponenten, Schnittstellen, Verbindungen und Signaturen.
+
+Externe Entitäten zeichnen sich durch ihre zur Entwurfszeit unbekannte Struktur aus. Ihnen ist ausschließlich eine ID und eine Typ-ID gemeinsam. Die ID sorgt für die Eindeutigkeit der Instanz in einem Modell, die Typ-ID dient der Identifikation der verwendeten Implementation der externen Entität. Im Komponentenmodell gehören Protokolle und Service-Effekt-Spezifikationen (siehe \cite{lit:reu}) zu den externen Entitäten, da diese auf verschiedenste Weise (z.B. durch Finite State Machines) implementierbar sind.
+
+Die Schnittstellen aller Entitäten sind in der derzeitigen Implementierung des Komponentenmodells im Namensraum \verb+Palladio.ComponentModel.ModelEntities+ zu finden. Es folgt eine genauere Beschreibung der Realisierung der internen und externen Entitäten.
   
-\subsubsection{Speicherung der Entitäten}
-%hashmap 
+\subsubsection{Realisierung interner Entitäten}
+
+
+\subsubsection{Realisierung der externen Entitäten}
+
+\subsubsection{Identifizierung von Entitäten}
+
+Da die gewählte Datenbank (siehe Abschnitt \ref{sec:kern:beschr:dataset}) nur die Speicherung von Standartdatentypen zuläßt, muss eine zusätzliche Infrastruktur geschaffen werden, welche die Entitäten des Modells hält. Hierfür bot sich die Hashtable des .NET-Frameworks an, in der die Entitäten durch ihre ID referenzierbar sind. ....
+%id konzept ...
+
 
 \subsubsection{Speicherung der Beziehungen}
+\label{sec:kern:beschr:dataset}
 %dataset
 
 \begin{figure}[ht]
