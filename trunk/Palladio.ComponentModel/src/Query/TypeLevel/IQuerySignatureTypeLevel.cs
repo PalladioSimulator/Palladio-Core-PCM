@@ -11,6 +11,11 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/09 14:00:48  kelsaka
+	/// - removed convenience property to access QueryRepository. This property raised security
+	///  problems if the queries had been partially encapsulated: The access structure
+	///  of queries wa not a tree any more.
+	///
 	/// Revision 1.1  2005/09/20 15:07:20  fst
 	/// initial class creation
 	///
@@ -21,13 +26,6 @@ namespace Palladio.ComponentModel.Query.TypeLevel
 	{
 		#region properties
 
-		/// <summary>
-		/// called to return the interface used to query the entities of the component model
-		/// </summary>
-		IQueryRepository QueryRepository
-		{
-			get;
-		}
 
 		#endregion
 

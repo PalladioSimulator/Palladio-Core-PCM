@@ -23,6 +23,11 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.18  2005/10/09 14:00:48  kelsaka
+	/// - removed convenience property to access QueryRepository. This property raised security
+	///  problems if the queries had been partially encapsulated: The access structure
+	///  of queries wa not a tree any more.
+	///
 	/// Revision 1.17  2005/09/28 19:12:03  joemal
 	/// fix bug
 	///
@@ -100,12 +105,6 @@ namespace Palladio.CM.Example
 		static void Main(string[] args)
 		{
 			MainClass test = new MainClass();
-//			test.BuildModel();
-//			test.NewTest();
-
-//			test.SaveModel("test1.xml");
-//			test.LoadModel("test1.xml");
-			test.LoadModel("bla.xml");
 
 			Done();
 
