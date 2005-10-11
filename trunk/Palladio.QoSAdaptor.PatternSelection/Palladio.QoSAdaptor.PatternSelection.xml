@@ -15,7 +15,12 @@
             The pattern that shall be shown in detail. 
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.#ctor(Palladio.QoSAdaptor.Pattern.PatternDescription)">
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.DetailView.listView">
+            <summary>
+            The list view containing all detail information.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.#ctor(Palladio.QoSAdaptor.Pattern.IPatternDescription)">
             <summary>
             Constructor. 
             </summary>
@@ -39,11 +44,64 @@
             in the constructor. 
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.CreateItems(System.Windows.Forms.ListView)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.CreateItems">
             <summary>
             Method used by InitializeListView to encapsulate the 
             creation of the ListItems.
             </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddGeneralItems">
+            <summary>
+            Adds the general information of the pattern to the list view.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddMismatchItems">
+            <summary>
+            Adds the items corresponding to the mismatch attributes of the 
+            current pattern.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddAdaptorTemplateItems">
+            <summary>
+            Adds the items corresponding to the adaptor templates of the 
+            current pattern.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddPredictionModelItems">
+            <summary>
+            Adds the items corresponding to the prediction models of the 
+            current pattern.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddItem(System.String,System.String,System.Boolean)">
+            <summary>
+            Adds an item to this.listView
+            </summary>
+            <param name="text">Text in the first column.</param>
+            <param name="subtext">Text in the second column.</param>
+            <param name="highlight">True, if text shall be highlighted, i.e.
+            is a heading.</param>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.PatternSelection.ISelector">
+            <summary>
+            The provided interface of the Palladio.QoSAdaptor.PatternSelection
+            component.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.ISelector.StartSelection(Palladio.Utils.Collections.Hashmap,System.String,System.String)">
+            <summary>
+            Starts the selection process, using a GUI where the user gets an 
+            overview over found mismatches and patterns that are able to 
+            correct these mismatches and returns a pattern chosen by the user. 
+            </summary>
+            <param name="mismatchSolvingPatterns">A hashmap containing 
+            mismatches and a list of PatternsDescriptions of patterns able to 
+            correct these mismatches.</param>
+            <param name="requiredSpecification">Textual representation of the 
+            required specification.</param>
+            <param name="providedSpecification">Textual representation of the 
+            provided specification.</param>
+            <returns>The PatternsDescription of the chosen pattern.</returns>
         </member>
         <member name="T:Palladio.QoSAdaptor.PatternSelection.SelectionDialog">
             <summary>
@@ -89,7 +147,7 @@
             </summary>
             <param name="mismatch"></param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.AddGeneratorButtons">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.AddGeneratorButton">
             <summary>
             Adds the "Generate Adaptor" and "Generate Prediction Model" buttons
             to the GUI.
@@ -108,13 +166,21 @@
             </summary>
             <param name="mismatchPatterns">A list of patterns.</param>
         </member>
+        <member name="P:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.RButtons">
+            <summary>
+            A list of all radio buttons of the GUI. Each button is linked to a
+            certain pattern.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.PatternSelection.SelectionDialog.GeneratorButton">
+            <summary>
+            The button pressed to generate an adaptor.
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.PatternSelection.Selector">
             <summary>
             Main class of the PatterSelection component. Controls the the GUI for 
             user choice.
-            
-            TODO: Return selected patterns so that configuration and generation 
-            can started by the Control component.
             </summary>
         </member>
         <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.mismatchSolvingPatterns">
@@ -138,36 +204,27 @@
             Interface model specification of the provided interface.
             </summary>
         </member>
-        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.patternDirectory">
-            <summary>
-            Path to the directory of the selected pattern.
-            </summary>
-        </member>
-        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.templates">
-            <summary>
-            A list of templates for the selected pattern.
-            </summary>
-        </member>
         <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.selectedPattern">
             <summary>
             The selected pattern.
             </summary>
         </member>
-        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.compileAdaptor">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.StartSelection(Palladio.Utils.Collections.Hashmap,System.String,System.String)">
             <summary>
-            If true an adaptor is compiled at the end of the selection process.
+            Starts the selection process, using a GUI where the user gets an 
+            overview over found mismatches and patterns that are able to 
+            correct these mismatches and returns a pattern chosen by the user. 
+            
+            TODO: Use graphical representations of the specifications?
             </summary>
-        </member>
-        <member name="F:Palladio.QoSAdaptor.PatternSelection.Selector.compilePredictionModel">
-            <summary>
-            If true a prediction model is compiled at the end of the selection 
-            process.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.#ctor">
-            <summary>
-            Standard constructor. 
-            </summary>
+            <param name="mismatchSolvingPatterns">A hashmap containing 
+            mismatches and a list of PatternsDescriptions of patterns able to 
+            correct these mismatches.</param>
+            <param name="requiredSpecification">Textual representation of the 
+            required specification.</param>
+            <param name="providedSpecification">Textual representation of the 
+            provided specification.</param>
+            <returns>The PatternsDescription of the chosen pattern.</returns>
         </member>
         <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.Button_Click(System.Object,System.EventArgs)">
             <summary>
@@ -201,7 +258,7 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.ChoosePattern(System.Object,System.String)">
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.ChoosePattern(System.String)">
             <summary>
             This is a helper method for generator_Click which
             chooses the selected pattern and calls another
@@ -209,34 +266,6 @@
             </summary>
             <param name="buttonName">The name of the selected 
             radio button.</param>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.OpenTemplates">
-            <summary>
-            This is a helper method for generator_Click which opens
-            the given templates in CodeSmith.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.Proc_Exited(System.Object,System.EventArgs)">
-            <summary>
-            Is called when CodeSmith is exited. Calls OpenTemplates to 
-            restart CodeSmith with the next template or compile the generated 
-            sources and return to the selection.
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.Compile">
-            <summary>
-            Compiles the assembly for the current adaptor or prediction model.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.StartCodeSmith(System.String)">
-            <summary>
-            Starts the CodeSmith configuration and generation GUI with the
-            given template.
-            </summary>
-            <param name="template">The name of a CodeSmith template file.
-            As path the templates directory of the pattern is taken. </param>
         </member>
         <member name="T:Palladio.QoSAdaptor.PatternSelection.TextWindow">
             <summary>

@@ -129,6 +129,11 @@
                     BuildAction = "EmbeddedResource"
                 />
                 <File
+                    RelPath = "src\ISelector.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\SelectionDialog.cs"
                     SubType = "Form"
                     BuildAction = "Compile"

@@ -17,9 +17,9 @@
 // E-mail: niels.streekmann@informatik.uni-oldenburg.de
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
+
 using Palladio.QoSAdaptor.Pattern;
 using System.Drawing;
-using System.Collections;
 using System.Windows.Forms;
 
 namespace Palladio.QoSAdaptor.PatternSelection
@@ -28,14 +28,19 @@ namespace Palladio.QoSAdaptor.PatternSelection
 	/// This class implements a detailed view for a 
 	/// PatternDescription. The view is realized as a ListView
 	/// </summary>
-	public class DetailView : System.Windows.Forms.Form
+	internal class DetailView : System.Windows.Forms.Form
 	{
 		#region data
 		private System.ComponentModel.Container components = null;
 		/// <summary>
 		/// The pattern that shall be shown in detail. 
 		/// </summary>
-		private PatternDescription pattern;
+		private IPatternDescription pattern;
+
+		/// <summary>
+		/// The list view containing all detail information.
+		/// </summary>
+		private ListView listView;
 		#endregion
 
 		#region constructor	
@@ -44,7 +49,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// </summary>
 		/// <param name="pattern">The PatternDescription of the 
 		/// chosen pattern</param>
-		public DetailView(PatternDescription pattern)
+		internal DetailView(IPatternDescription pattern)
 		{
 			this.pattern = pattern; 
 			InitializeComponent();
@@ -97,23 +102,23 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		private void InitializeListView()
 		{
 			// Create a new ListView control.
-			ListView listView1 = new ListView();
-			listView1.Bounds = new Rectangle(new Point(10,10), new Size(630,230));
+			this.listView = new ListView();
+			this.listView.Bounds = new Rectangle(new Point(10,10), new Size(630,230));
 
 			// Set the view to show details.
-			listView1.View = View.Details;
+			this.listView.View = View.Details;
 			// Display grid lines.
-			listView1.GridLines = true;
+			this.listView.GridLines = true;
    
 			// Create columns for the items and subitems.
-			listView1.Columns.Add("", -2, HorizontalAlignment.Left);
-			listView1.Columns.Add("", -2, HorizontalAlignment.Left);
+			this.listView.Columns.Add("", -2, HorizontalAlignment.Left);
+			this.listView.Columns.Add("", -2, HorizontalAlignment.Left);
 		
-			this.CreateItems(listView1);
+			CreateItems();
 
 			// Add the ListView to the control collection.
-			this.Controls.Add(listView1);
-			listView1.Size = new System.Drawing.Size(675, 300);
+			this.Controls.Add(this.listView);
+			this.listView.Size = new System.Drawing.Size(675, 300);
 			// TODO: Change size dynamically
 			this.Size = new System.Drawing.Size(700, 350);
 		}
@@ -122,67 +127,95 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// Method used by InitializeListView to encapsulate the 
 		/// creation of the ListItems.
 		/// </summary>
-		private void CreateItems(ListView listView1)
+		private void CreateItems()
 		{
-			// Create the items and their subitems.
-			ListViewItem item1 = new ListViewItem("General Info");
-			item1.SubItems.Add("");
-			item1.BackColor = System.Drawing.Color.LightGray;
-
-			ListViewItem item2 = new ListViewItem("Name");
-			item2.SubItems.Add(this.pattern.Name);
-			ListViewItem item21 = new ListViewItem("InterfaceModel");
-			item21.SubItems.Add(this.pattern.InterfaceModel);
-			ListViewItem item3 = new ListViewItem("Description");
-			item3.SubItems.Add(this.pattern.Description);
-			ListViewItem item4 = new ListViewItem("Source");
-			item4.SubItems.Add(this.pattern.Source);
+			AddGeneralItems();
 			
-			ListViewItem item5 = new ListViewItem("Mismatches");
-			item5.SubItems.Add("");
-			item5.BackColor = System.Drawing.Color.LightGray;
+			AddMismatchItems();
 
-			//Add the items to the ListView.
-			listView1.Items.AddRange(new ListViewItem[]{item1,item2,item21,
-														item3, item4, item5});
+			AddAdaptorTemplateItems();
 
-			IEnumerator enu = this.pattern.MismatchAttributes.GetEnumerator();
-			while (enu.MoveNext())
-			{
-				ListViewItem item = new ListViewItem(((MismatchAttribute)enu.Current).Name);
-				item.SubItems.Add(((MismatchAttribute)enu.Current).Suitability);
-				listView1.Items.Add(item);
-			}			
+			AddPredictionModelItems();
+		}
 
-			ListViewItem item6 = new ListViewItem("Adapter templates");
-			item6.SubItems.Add("");
-			item6.BackColor = System.Drawing.Color.LightGray;
-			listView1.Items.Add(item6);
+		/// <summary>
+		/// Adds the general information of the pattern to the list view.
+		/// </summary>
+		private void AddGeneralItems()
+		{
+			AddItem("General Info", "", true);
+			AddItem("Name", this.pattern.Name, false);
+			AddItem("InterfaceModel", this.pattern.InterfaceModel, false);
+			AddItem("Description", this.pattern.Description, false);
+			AddItem("Source", this.pattern.Source, false);
+		}
 
-			enu = this.pattern.AdapterTemplates.GetEnumerator();
+		/// <summary>
+		/// Adds the items corresponding to the mismatch attributes of the 
+		/// current pattern.
+		/// </summary>
+		private void AddMismatchItems()
+		{
+			AddItem("Mismatches", "", true);
+
+			foreach (IMismatchAttribute mismatchAttribute in 
+				this.pattern.MismatchAttributes)
+				AddItem(mismatchAttribute.Name, mismatchAttribute.Suitability, 
+					false);		
+		}
+
+		/// <summary>
+		/// Adds the items corresponding to the adaptor templates of the 
+		/// current pattern.
+		/// </summary>
+		private void AddAdaptorTemplateItems ()
+		{
+			AddItem("Adaptor templates", "", true);
+
 			int counter = 1;
-			while (enu.MoveNext())
+			foreach (string template in this.pattern.AdapterTemplates)
 			{
-				ListViewItem item = new ListViewItem("Template "+counter);
-				item.SubItems.Add((string)enu.Current);
-				listView1.Items.Add(item);
+				AddItem("Template "+counter, template, false);
 				counter++;
-			}
+			}	
+		}
 
-			ListViewItem item7 = new ListViewItem("Prediction templates");
-			item7.SubItems.Add("");
-			item7.BackColor = System.Drawing.Color.LightGray;
-			listView1.Items.Add(item7);
-
-			enu = this.pattern.PredictionTemplates.GetEnumerator();
-			counter = 1;
-			while (enu.MoveNext())
+		/// <summary>
+		/// Adds the items corresponding to the prediction models of the 
+		/// current pattern.
+		/// </summary>
+		private void AddPredictionModelItems()
+		{
+			AddItem("Prediction models", "", true);
+	
+			int counter = 1;
+			foreach (IPredictionModel predictionModel in 
+				this.pattern.PredictionModels)
 			{
-				ListViewItem item = new ListViewItem("Template "+counter);
-				item.SubItems.Add((string)enu.Current);
-				listView1.Items.Add(item);
-				counter++;
+				AddItem(predictionModel.Name, "", true);
+
+				foreach (string template in predictionModel.Templates)
+				{
+					AddItem("Template "+counter, template, false);
+					counter++;	
+				}
 			}
+		}
+
+		/// <summary>
+		/// Adds an item to this.listView
+		/// </summary>
+		/// <param name="text">Text in the first column.</param>
+		/// <param name="subtext">Text in the second column.</param>
+		/// <param name="highlight">True, if text shall be highlighted, i.e.
+		/// is a heading.</param>
+		private void AddItem(string text, string subtext, bool highlight)
+		{
+			ListViewItem mainItem = new ListViewItem(text);
+			mainItem.SubItems.Add(subtext);
+			if (highlight)
+				mainItem.BackColor = System.Drawing.Color.LightGray;
+			this.listView.Items.Add(mainItem);
 		}
 		#endregion
 	}

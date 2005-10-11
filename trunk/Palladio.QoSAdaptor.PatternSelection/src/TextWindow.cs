@@ -23,7 +23,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 	/// <summary>
 	/// Creates a new window including a text box.
 	/// </summary>
-	public class TextWindow : System.Windows.Forms.Form
+	internal class TextWindow : System.Windows.Forms.Form
 	{
 		#region data
 		private System.Windows.Forms.TextBox textBox1;
@@ -39,7 +39,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// <param name="name">The name of the window.</param>
 		/// <param name="text">The text shown in the TextBox of this window.
 		/// </param>
-		public TextWindow(string name, string text)
+		internal TextWindow(string name, string text)
 		{
 			this.name = name;
 			this.text = text;

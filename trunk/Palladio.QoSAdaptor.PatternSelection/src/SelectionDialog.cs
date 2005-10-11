@@ -30,7 +30,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 	/// This class implements a window in which one of the 
 	/// recommended patterns can be chosen. 
 	/// </summary>
-	public class SelectionDialog : System.Windows.Forms.Form
+	internal class SelectionDialog : System.Windows.Forms.Form
 	{
 		#region data
 		/// <summary>
@@ -39,8 +39,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		private System.ComponentModel.Container components = null;
 		private Hashmap mismatchSolvingPatterns;
 		private ArrayList rButtons;
-		private Button generateAdaptorButton;
-		private Button generatePredictionButton;
+		private Button generatorButton;
 		private int counter;
 		private int tabCounter;
 		private Selector controller;
@@ -62,22 +61,11 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// <summary>
 		/// The button pressed to generate an adaptor.
 		/// </summary>
-		public Button GenerateAdaptorButton
+		public Button GeneratorButton
 		{
 			get
 			{
-				return this.generateAdaptorButton;
-			}
-		}
-
-		/// <summary>
-		/// The button pressed to generate a prediction model.
-		/// </summary>
-		public Button GeneratePredictionButton
-		{
-			get
-			{
-				return this.generatePredictionButton;
+				return this.generatorButton;
 			}
 		}
 		#endregion
@@ -89,16 +77,14 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// <param name="mismatchSolvingPatterns">A hashmap with mismatches as
 		/// keys and lists of patterns that are able to solve the 
 		/// corresponding mismatches as values.</param>+
-		public SelectionDialog(Hashmap mismatchSolvingPatterns, 
+		internal SelectionDialog(Hashmap mismatchSolvingPatterns, 
 			Selector controller)
 		{
-			// TODO: add model class ???
 			this.counter = 0;
 			this.tabCounter = 0;
 			this.mismatchSolvingPatterns = mismatchSolvingPatterns;
 			this.rButtons = new ArrayList();
-			this.generateAdaptorButton = new Button();
-			this.generatePredictionButton = new Button();
+			this.generatorButton = new Button();
 			this.controller = controller;
 			
 			InitializeComponent();	
@@ -157,7 +143,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			{
 				AddMismatch(mismatch);
 			}
-			AddGeneratorButtons();
+			AddGeneratorButton();
 
 			int height = 130+(counter*10);
 			this.Size = new System.Drawing.Size(350, height);
@@ -203,28 +189,18 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// Adds the "Generate Adaptor" and "Generate Prediction Model" buttons
 		/// to the GUI.
 		/// </summary>
-		private void AddGeneratorButtons()
+		private void AddGeneratorButton()
 		{
-			generateAdaptorButton.Location = new System.Drawing.Point(15, 
+			this.generatorButton.Location = new System.Drawing.Point(95, 
 				(64+(counter*10)));
-			generateAdaptorButton.Name = "generateAdaptorButton";
-			generateAdaptorButton.TabIndex = tabCounter;
-			generateAdaptorButton.Size = new System.Drawing.Size(150, 23);
-			generateAdaptorButton.Text = "Generate Adaptor";
-			generateAdaptorButton.Click += new System.EventHandler
+			this.generatorButton.Name = "generateAdaptorButton";
+			this.generatorButton.TabIndex = tabCounter;
+			this.generatorButton.Size = new System.Drawing.Size(150, 23);
+			this.generatorButton.Text = "Generate Adaptor";
+			this.generatorButton.Click += new System.EventHandler
 				(this.controller.Generator_Click);
-			this.Controls.Add(generateAdaptorButton);
+			this.Controls.Add(this.generatorButton);
 			tabCounter++;
-			
-			generatePredictionButton.Location = new System.Drawing.Point(180, 
-				(64+(counter*10)));
-			generatePredictionButton.Name = "generatePredictionButton";
-			generatePredictionButton.TabIndex = tabCounter;
-			generatePredictionButton.Size = new System.Drawing.Size(150, 23);
-			generatePredictionButton.Text = "Generate Prediction Model";
-			generatePredictionButton.Click += new System.EventHandler
-				(this.controller.Generator_Click);
-			this.Controls.Add(generatePredictionButton);
 		}
 
 		/// <summary>
@@ -265,7 +241,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// <param name="mismatchPatterns">A list of patterns.</param>
 		private void ListPatterns(IList mismatchPatterns)
 		{
-			foreach (PatternDescription pattern in mismatchPatterns)
+			foreach (IPatternDescription pattern in mismatchPatterns)
 			{
 				RadioButton rbutton = new RadioButton();
 				Button button = new Button();
