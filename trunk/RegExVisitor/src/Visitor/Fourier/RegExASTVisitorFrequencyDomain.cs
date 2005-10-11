@@ -18,6 +18,9 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.1  2005/10/11 22:31:12  helgeh
+	/// *** empty log message ***
+	///
 	/// Revision 1.1  2005/08/12 07:59:20  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -86,6 +89,12 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 			this.Random = GetPDF(node);
 		}
 
+		private void AddFourierAttributes(IRegEx node)
+		{
+			RegExASTVisitorAddFourierAttributes visitor = new RegExASTVisitorAddFourierAttributes(samplingrate, maxTime); 
+			visitor.Visit(node);
+		}
+
 		/// <summary>
 		/// Returns the calculated result.
 		/// </summary>
@@ -130,7 +139,15 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 			double p2 = ProbabilityAttribute.GetAttribute(alternative.AlternativeTwo).Probability;
 
 			double pSum = p1 + p2;
-			IFourierFunction result = f1.GetScaled(p1/pSum).Add(f2.GetScaled(p2/pSum));
+			
+			IFourierFunction result;
+			if(pSum != 0)
+			{
+				result = f1.GetScaled(p1/pSum).Add(f2.GetScaled(p2/pSum));
+			} else
+			{
+				result = f1.GetScaled(0); 
+			}
 
 			alternative.Attributes.Add(FourierAttribute.AttributeType,
 				new FourierAttribute(result));
@@ -178,41 +195,6 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 		/// <param name="symbol"></param>
 		public override void VisitISymbol(ISymbol symbol)
 		{
-		}
-
-
-		/// <summary>
-		/// Creates Fourier Attributes for each symbol.
-		/// </summary>
-		/// <param name="node"></param>
-		private void AddFourierAttributes(IRegEx node)
-		{
-			if(node is ISymbol)
-			{
-				IDiscretePDFunction pdf = RandomVariable.GetAttribute(node).ProbabilityDensityFunction;
-				pdf.AdjustSamplingRate(this.samplingrate);
-				pdf.ExpandDomainPo2(0,this.maxTime);
-				IFourierFunction ff = 
-					MathTools.DiscreteFunctions.DiscreteFourierFunction(pdf);
-				node.Attributes.Add(FourierAttribute.AttributeType,new FourierAttribute(ff));
-			}
-			if(node is ISequence)
-			{
-				ISequence seq = (ISequence) node;
-				AddFourierAttributes(seq.Predecessor);
-				AddFourierAttributes(seq.Successor);
-			}
-			if(node is IAlternative)
-			{
-				IAlternative alt = (IAlternative) node;
-				AddFourierAttributes(alt.AlternativeOne);
-				AddFourierAttributes(alt.AlternativeTwo);
-			}
-			if(node is ILoop)
-			{
-				ILoop loop = (ILoop) node;
-				AddFourierAttributes(loop.InnerExpression);
-			}
 		}
 	}
 }

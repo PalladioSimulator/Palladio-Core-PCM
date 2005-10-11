@@ -19,6 +19,9 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.1  2005/10/11 22:31:12  helgeh
+	/// *** empty log message ***
+	///
 	/// Revision 1.1  2005/08/12 07:59:20  helgeh
 	/// Initial impot after refactoring.
 	///
