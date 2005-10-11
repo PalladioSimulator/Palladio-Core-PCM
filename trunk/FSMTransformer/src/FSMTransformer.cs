@@ -19,6 +19,10 @@ namespace Palladio.Performance.FSMTransformer
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -133,10 +137,10 @@ namespace Palladio.Performance.FSMTransformer
 			ITransition newTransition =
 				FSMFactory.CreateDefaultTransition(intermediateState, newInput, state);
 			newTransition.Attributes.Add(RandomVariable.AttributeType,
-			                             RandomVariable.GetAttribute(state) as IAttribute);
+			                             RandomVariable.GetAttribute(state));
 
 			ProbabilityAttribute prob = new ProbabilityAttribute(1);
-			newTransition.Attributes.Add(ProbabilityAttribute.AttributeType, prob as IAttribute);
+			newTransition.Attributes.Add(ProbabilityAttribute.AttributeType, prob);
 
 			resultFSM.AddTransitions(newTransition);
 		}
@@ -388,7 +392,7 @@ namespace Palladio.Performance.FSMTransformer
 				try
 				{
 					RandomVariable rand = RandomVariable.GetAttribute(fsm.States[i]);
-					IDiscreteFunction dg = rand.ProbabilityDensityFunction as IDiscreteFunction;
+					IDiscreteFunction dg = rand.ProbabilityDensityFunction;
 					result += dg;
 					result += "\n";
 				}
@@ -412,7 +416,7 @@ namespace Palladio.Performance.FSMTransformer
 			{
 				result += fsm.Transitions[i] + ": \n";
 				RandomVariable rand = RandomVariable.GetAttribute(fsm.Transitions[i]);
-				IDiscreteFunction dg = rand.ProbabilityDensityFunction as IDiscreteFunction;
+				IDiscreteFunction dg = rand.ProbabilityDensityFunction;
 				result += dg;
 				result += "\n";
 			}

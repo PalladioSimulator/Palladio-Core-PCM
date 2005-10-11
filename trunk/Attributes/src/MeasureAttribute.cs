@@ -32,6 +32,10 @@ namespace Palladio.Performance.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:13  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -161,6 +165,19 @@ namespace Palladio.Performance.Attributes
 
 		#region methods
 
+		public override string ToString()
+		{
+			string toReturn="";
+
+			int length = this.measures.Count;
+			for (int i= 0;i<length;i++)
+			{
+				toReturn += this.measures[i].ToString() + "\n";
+			}
+			return base.ToString ();
+		}
+
+
 		/// <summary>
 		/// Adds a new measure to the MeasureAttribute.
 		/// </summary>
@@ -193,7 +210,7 @@ namespace Palladio.Performance.Attributes
 		{
 			if(obj.Attributes.Contains(MeasureAttribute.AttributeType)) 
 			{
-				MeasureAttribute q = obj.Attributes[MeasureAttribute.AttributeType] as MeasureAttribute;
+				MeasureAttribute q = (MeasureAttribute) obj.Attributes[MeasureAttribute.AttributeType];
 				return q;
 			} 
 			else 

@@ -1,7 +1,6 @@
 using System;
 using System.Xml;
 using Palladio.Attributes;
-using Palladio.Performance.Math;
 
 namespace Palladio.Performance.Attributes
 {
@@ -21,6 +20,10 @@ namespace Palladio.Performance.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///

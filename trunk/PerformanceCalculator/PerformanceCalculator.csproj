@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "PerformanceCalculator"
+                AssemblyName = "Palladio.Performance.PerformanceCalculator"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -29,7 +29,7 @@
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
                     DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = "PerformanceCalculator.xml"
+                    DocumentationFile = "Palladio.Performance.PerformanceCalculator.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -90,11 +90,6 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "Palladio.RegularExpressions"
-                    Project = "{BEF536BF-20F0-40C3-A5AC-B131FD43CED7}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "Palladio.FiniteStateMachines"
                     AssemblyName = "Palladio.FiniteStateMachines"
                     HintPath = "..\lib\Palladio.FiniteStateMachines.dll"
@@ -128,6 +123,16 @@
                     Name = "nunit.framework"
                     AssemblyName = "nunit.framework"
                     HintPath = "..\lib\nunit.framework.dll"
+                />
+                <Reference
+                    Name = "Measurement"
+                    Project = "{CB4A028B-3835-4996-95E3-B64F6AE576FD}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Palladio.RegularExpressions"
+                    AssemblyName = "Palladio.RegularExpressions"
+                    HintPath = "..\lib\Palladio.RegularExpressions.dll"
                 />
             </References>
         </Build>

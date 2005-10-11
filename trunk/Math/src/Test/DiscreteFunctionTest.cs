@@ -311,6 +311,19 @@ namespace Palladio.Performance.Math.Test
 			Assert.AreEqual(new double[]{0.06,0.06,0.06,0.06,0.06,0.06,0.06,0.06,0.06,0.06,
 											0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.04},function.Data );
 		}
+		[Test]
+		public void AdjustSamplingRate3()
+		{
+			long xmin = 0;
+			long samplingrate = 10;
+			double[] data = {0.2,0.8};
+			IDiscretePDFunction function = MathTools.DiscreteFunctions.DiscreteValuePDFunction(xmin,samplingrate,data);
+
+			function.AdjustSamplingRate(5);
+			Assert.AreEqual(5,function.SamplingRate);
+			Assert.AreEqual(new double[]{0.2,0.4,0.4},function.Data );
+			Assert.AreEqual(0,function.XMin);
+		}
 	}
 }
 #endif

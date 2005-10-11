@@ -18,6 +18,10 @@ namespace Palladio.Performance.WebserverAnalyser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:25  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -66,15 +70,25 @@ namespace Palladio.Performance.WebserverAnalyser
 		[STAThread]
 		static void Main()
 		{
-			ConfigReader reader = new ConfigReader("../../../config/");
+			//AnalyseWebserver("../../../config/WebserverAnalyserConfig1.xml");
+//			AnalyseWebserver("../../../config/WebserverAnalyserConfig2.xml");
+//			AnalyseWebserver("../../../config/WebserverAnalyserConfig3.xml");
+//			AnalyseWebserver("../../../config/WebserverAnalyserConfig4.xml");
+			AnalyseWebserver("../../../config/WebserverAnalyserConfig.xml");
+		}
+
+		private static void AnalyseWebserver(string configFile)
+		{
+			ConfigReader reader = new ConfigReader(configFile);
 			Config configuration = reader.ReadConfig();
-
+	
 			IFiniteStateMachine fsm = CreateSeffWithAttributes(configuration);
-
-			XmlFileCreator.SavesSeffAsXml(configuration.SeffOutputFile, fsm);
-
+	
+			//XmlFileCreator.SavesSeffAsXml(configuration.SeffOutputFile, fsm);
+	
 			ComputeAndWriteFile(fsm, configuration);
 		}
+
 
 		/// <summary>
 		/// Creates the seff with attributes.
@@ -83,6 +97,8 @@ namespace Palladio.Performance.WebserverAnalyser
 		/// <returns>Seff with attributes.</returns>
 		private static IFiniteStateMachine CreateSeffWithAttributes(Config configuration)
 		{
+			Measure.Hrt.Start();
+			Measure.Hrt.Stop();
 			SeffWithAttributeCreator seffCreator =
 				new SeffWithAttributeCreator(configuration.MeasureFile, configuration.Samplingrate);
 	
@@ -92,6 +108,8 @@ namespace Palladio.Performance.WebserverAnalyser
 			IFiniteStateMachine fsm = (IFiniteStateMachine) m.Invoke(seffFactory, new object[] {});
 	
 			fsm = seffCreator.AddAttributesToSeff(fsm, configuration.ServiceName);
+			Measure.Hrt.Stop();
+			Console.WriteLine(Measure.GetTimeHrt());
 			return fsm;
 		}
 

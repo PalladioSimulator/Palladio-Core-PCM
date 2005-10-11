@@ -15,6 +15,10 @@ namespace Palladio.Performance.WebserverAnalyser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:25  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -300,7 +304,7 @@ namespace Palladio.Performance.WebserverAnalyser
 				AddElement(document, transitionElement, "input", transition.InputSymbol.ID.ToString());
 				AddElement(document, transitionElement, "destinationstate",transition.DestinationState.ID);
 				AddElement(document, transitionElement, "probability", 
-					Convert.ToString(ProbabilityAttribute.GetAttribute(transition as IAttributable).Probability));
+					Convert.ToString(ProbabilityAttribute.GetAttribute(transition).Probability));
 
 				AddTimeConsumptionToXML(transition,document,transitionElement);
 

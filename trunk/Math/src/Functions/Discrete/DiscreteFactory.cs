@@ -12,6 +12,10 @@ namespace Palladio.Performance.Math.Functions.Discrete
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -79,7 +83,7 @@ namespace Palladio.Performance.Math.Functions.Discrete
 		/// <summary>
 		/// Default length of the value array: width / precision
 		/// </summary>
-		private int length;
+		private int defaultLength;
 
 		#endregion
 
@@ -230,15 +234,32 @@ namespace Palladio.Performance.Math.Functions.Discrete
 		/// FunctionFactory.</returns>
 		public IDiscreteFunction ExponentialDistribution(double rate)
 		{
+			return ExponentialDistribution(this.xmin,this.samplingRate,rate, this.defaultLength);
+		}
+
+
+		/// <summary>
+		/// Returns the exponential distribution with a rate.
+		/// This is: f(x) = (1 / rate) * exp(- x (1 / rate)).
+		/// </summary>
+		/// <param name="xMin">Minimum value of the function.</param>
+		/// <param name="samplingrate">Samplingrate of the function.</param>
+		/// <param name="rate">Rate of the exponential distribution.</param>
+		/// <param name="length">Number of function values.</param>
+		/// <returns>Exponential distribution with the specified rate and properties of the 
+		/// FunctionFactory.</returns>
+		public IDiscreteFunction ExponentialDistribution(int xMin, int samplingrate, double rate, int length)
+		{
 			double[] values = new double[length];
-			int x = xmin;
+			int x = xMin;
+
 			double lambda = 1/rate;
 			for (int i = 0; i < length; i++)
 			{
 				values[i] = lambda*System.Math.Exp(-x*lambda);
 				x += samplingRate;
 			}
-			return new DiscreteFunction(values, samplingRate, 0);
+			return new DiscreteFunction(values,samplingrate,xMin);
 		}
 
 		/// <summary>
@@ -296,7 +317,7 @@ namespace Palladio.Performance.Math.Functions.Discrete
 		private void SetValues()
 		{
 			this.width = xmax - xmin;
-			this.length = (int) (width/samplingRate);
+			this.defaultLength = (int) (width/samplingRate);
 		}
 		#endregion
 	}

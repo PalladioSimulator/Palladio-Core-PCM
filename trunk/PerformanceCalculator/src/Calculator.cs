@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using Palladio.FiniteStateMachines;
 using Palladio.Performance.Attributes;
 using Palladio.Performance.PerformanceCalculator;
@@ -19,6 +18,10 @@ namespace Palladio.Performance.Calculator
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:20  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -91,6 +94,8 @@ namespace Palladio.Performance.Calculator
 		/// <returns>A RandomVariable that contains the time consumption of the specified service.</returns>
 		public RandomVariable CalculatePerformance(IFiniteStateMachine fsm) 
 		{
+			Measurement.Measure.Hrt.Start();
+			Measurement.Measure.Hrt.Stop();
 			IFiniteStateMachine validSeff = FSMTransformer.FSMTransformer.SEFFValidity(fsm);
 
 			IFiniteStateMachine decoratedFSM = FSMTransformer.FSMTransformer.FSMWithIntermediateState(validSeff);
@@ -107,7 +112,9 @@ namespace Palladio.Performance.Calculator
 			{
 				visitor = new RegExASTVisitorTimeDomain(regex,epsilon);
 			}
-
+				
+			Measurement.Measure.Hrt.Stop();
+			Console.WriteLine(Measurement.Measure.GetTimeHrt());
 			return visitor.Random;
 		}
 	}

@@ -122,15 +122,6 @@ namespace Palladio.Performance.Math.Test
 			}
 		}
 
-		[Test]
-		public void CompareSimpleAndFastFourierTransform()
-		{
-			double[] data = {0.2,0.15,0.3,0.35};
-			Complex[] simpleFT = MathTools.SimpleFourierTransform.ForwardFromReal(data);
-			Complex[] fastFT = MathTools.FastFourierTransform.ForwardFromReal(data);
-
-			Assert.AreEqual(simpleFT,fastFT);
-		}
 	}
 }
 #endif

@@ -17,6 +17,10 @@ namespace Palladio.Performance.XmlSeffParser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:25  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -180,8 +184,9 @@ namespace Palladio.Performance.XmlSeffParser
 					new ValidationEventHandler(OnValidateError);
 				while (val.Read()) ;
 			}
-			catch
+			catch(Exception e)
 			{
+				Console.WriteLine("An Exception was thrown while validation the XML file." + e);
 				throw;
 			}
 		}

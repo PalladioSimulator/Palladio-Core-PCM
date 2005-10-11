@@ -6,7 +6,8 @@ state machine created by the Palladio.FiniteStateMachines library. For the compu
 of each state and transition must be specified by an attribute. The calculation uses RandomVariable attributes for computation in time domain and FourierAttributes for computation in frequency domain. The time behavior can also be defined
 by QML aspects. A attribute transformer can transform the attributes from one to another.
 Additional the probability for each transition is needed as a ProbabilityAttribute.
-For the computation of the loop you have to define an epsilon. The calculation is aborted when the total probability of the result reaches 1-epsilon.
+For the computation of the loop you have to define an epsilon. The calculation is aborted when the total probability of the result reaches 1-epsilon. So the epsilon
+defines the precision of the loop calculation.
 
 ------------------------------
 ---- Folders:             ----

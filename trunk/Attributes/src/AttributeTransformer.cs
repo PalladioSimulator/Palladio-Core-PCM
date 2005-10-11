@@ -13,6 +13,10 @@ namespace Palladio.Performance.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:13  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -88,7 +92,7 @@ namespace Palladio.Performance.Attributes
 		/// <param name="samplingrate">SamplingRate of the new random variable</param>
 		public static RandomVariable MeasureAttribute2RandomVariable(MeasureAttribute measure, int samplingrate) 
 		{
-			if(measure.measures.Count<1) return new RandomVariable(0,1,new double[] {1}); // execution time of 0
+			if(measure.measures.Count<1) return new RandomVariable(0,samplingrate,new double[] {1}); // execution time of 0
 			
 			Hashtable timeHash = DetermineFrequencyOfEcexutionTimes(measure);
 			
@@ -178,28 +182,6 @@ namespace Palladio.Performance.Attributes
 			return new QMLAttribute(percentile,time);
 		}
 
-//		/// <summary>
-//		/// Converts a RandomVariable to a QMLAttribute. 
-//		/// This is a conversion from density function to distribution function.
-//		/// </summary>
-//		/// <param name="rand"><c>RandomVariable</c> to be transformed.</param>
-//		/// <returns>A new QMLAttribute equivalent to the RandomVariable.</returns>
-//		public static QMLAttribute RandomVariable2QML (RandomVariable rand) 
-//		{
-//			IDiscreteFunction pdf = rand.ProbabilityDensityFunction;
-//			int count = pdf.Count;
-//			double[] percentile = new double[count];
-//			long[] time = new long[count];
-//
-//			double actualPercentile=0;
-//			for(int i=0;i<count;i++) 
-//			{
-//				time[i] = pdf.XMin + (i*pdf.SamplingRate);
-//				actualPercentile += pdf.Data[i]*100;
-//				percentile[i] = actualPercentile;
-//			}
-//			return new QMLAttribute(percentile,time);
-//		}
 
 		/// <summary>
 		/// Creates a RandomVariable out of a QML Specification. This is a conversion from distribution function

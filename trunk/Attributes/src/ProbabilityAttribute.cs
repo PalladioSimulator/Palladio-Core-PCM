@@ -46,6 +46,10 @@ namespace Palladio.Performance.Attributes
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:13  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -146,7 +150,7 @@ namespace Palladio.Performance.Attributes
 		{
 			if(obj.Attributes.Contains(ProbabilityAttribute.AttributeType)) 
 			{
-				return obj.Attributes[ProbabilityAttribute.AttributeType] as ProbabilityAttribute;
+				return (ProbabilityAttribute) obj.Attributes[ProbabilityAttribute.AttributeType];
 			} else {
 				return null;
 			}

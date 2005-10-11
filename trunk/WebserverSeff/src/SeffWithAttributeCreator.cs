@@ -91,6 +91,10 @@ namespace Palladio.Performance.WebserverSeff
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:25  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -190,6 +194,8 @@ namespace Palladio.Performance.WebserverSeff
 
 						AddMeasuredExecutionTime(timeInfo[i], activeState, stateStartTime, actualTransition, seff, serviceStopTime);
 						activeState = actualTransition.DestinationState;
+						long transitionStopTime = timeInfo[i].StopTime;
+						stateStartTime = transitionStopTime;
 					}
 				} 
 				catch (NullReferenceException e) 
@@ -243,6 +249,7 @@ namespace Palladio.Performance.WebserverSeff
 			for (int i=0;i<timeInfo.Length;i++) 
 			{
 				timeInfo[i] = TimeInfo.GetTimeInfo(doc.GetElementById(calls[i]));
+				if(timeInfo[i] == null) Debugger.Break();
 			}
 			return timeInfo;
 		}
@@ -295,6 +302,7 @@ namespace Palladio.Performance.WebserverSeff
 		{
 			MeasureAttribute measure = MeasureAttribute.GetAttribute(attributable);
 			RandomVariable rv = AttributeTransformer.MeasureAttribute2RandomVariable(measure,samplingrate);
+			if(rv.ProbabilityDensityFunction.SamplingRate != samplingrate) Debugger.Break();
 			attributable.Attributes.Add(RandomVariable.AttributeType,rv);
 		}
 

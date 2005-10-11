@@ -14,43 +14,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -64,43 +68,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -111,6 +119,18 @@
             This is: f(x) = (1 / rate) * exp(- x (1 / rate)).
             </summary>
             <param name="rate">Rate of the exponential distribution.</param>
+            <returns>Exponential distribution with the specified rate and properties of the 
+            FunctionFactory.</returns>
+        </member>
+        <member name="M:Palladio.Performance.Math.IDiscreteFunctionFactory.ExponentialDistribution(System.Int32,System.Int32,System.Double,System.Int32)">
+            <summary>
+            Returns the exponential distribution with a rate.
+            This is: f(x) = (1 / rate) * exp(- x (1 / rate)).
+            </summary>
+            <param name="xMin">Minimum value of the function.</param>
+            <param name="samplingrate">Samplingrate of the function.</param>
+            <param name="rate">Rate of the exponential distribution.</param>
+            <param name="length">Number of function values.</param>
             <returns>Exponential distribution with the specified rate and properties of the 
             FunctionFactory.</returns>
         </member>
@@ -223,7 +243,7 @@
             xmax - xmin.
             </summary>
         </member>
-        <member name="F:Palladio.Performance.Math.Functions.Discrete.DiscreteFactory.length">
+        <member name="F:Palladio.Performance.Math.Functions.Discrete.DiscreteFactory.defaultLength">
             <summary>
             Default length of the value array: width / precision
             </summary>
@@ -295,6 +315,18 @@
             <returns>Exponential distribution with the specified rate and properties of the 
             FunctionFactory.</returns>
         </member>
+        <member name="M:Palladio.Performance.Math.Functions.Discrete.DiscreteFactory.ExponentialDistribution(System.Int32,System.Int32,System.Double,System.Int32)">
+            <summary>
+            Returns the exponential distribution with a rate.
+            This is: f(x) = (1 / rate) * exp(- x (1 / rate)).
+            </summary>
+            <param name="xMin">Minimum value of the function.</param>
+            <param name="samplingrate">Samplingrate of the function.</param>
+            <param name="rate">Rate of the exponential distribution.</param>
+            <param name="length">Number of function values.</param>
+            <returns>Exponential distribution with the specified rate and properties of the 
+            FunctionFactory.</returns>
+        </member>
         <member name="M:Palladio.Performance.Math.Functions.Discrete.DiscreteFactory.ConstantFunction(System.Double)">
             <summary>
             Returns the constant  function.
@@ -349,43 +381,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -401,43 +437,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -857,43 +897,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -907,43 +951,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -1068,43 +1116,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -1119,43 +1171,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -1274,50 +1330,55 @@
         </member>
         <member name="T:Palladio.Performance.Math.Fourier.FastFourierTransformation">
             <summary>
-            Class for the fast fourier transformation.
+            Class for the fast fourier transformation. For further information have a look
+            into "Introduction to Algorithms" by Cormen et al.
             </summary>
             <remarks>
             <pre>
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -1330,43 +1391,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -1458,43 +1523,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -1508,6 +1577,45 @@
             <param name="direction"></param>
             <returns></returns>
         </member>
+        <member name="T:Palladio.Performance.Math.Test.DiscreteFunctionTest">
+            <summary>
+            Zusammenfassung für DiscreteFunctionTest.
+            </summary>
+        </member>
+        <member name="T:Palladio.Performance.Math.Test.DiscretePDFunctionTest">
+            <summary>
+            Zusammenfassung für DiscreteFunctionTest.
+            </summary>
+        </member>
+        <member name="T:Palladio.Performance.Math.Test.FourierTest">
+            <summary>
+            Zusammenfassung für FourierTest.
+            </summary>
+        </member>
+        <member name="M:Palladio.Performance.Math.Test.FourierTest.FourierTransform">
+            <summary>
+            This tests, that the data array is not changed while silmy transform in the frequency domain
+            and transform back to the time domain.
+            </summary>
+        </member>
+        <member name="M:Palladio.Performance.Math.Test.FourierTest.FourierTransformException">
+            <summary>
+            This Test throws an ApplicationException, because the length of the data array is not
+            a power of 2.
+            </summary>
+        </member>
+        <member name="M:Palladio.Performance.Math.Test.FourierTest.FourierMultiplication">
+            <summary>
+            This tests, that the multiplication in den frquency domain is the same as the 
+            convolution in the time domain. For this the data array must be big enough.
+            </summary>
+        </member>
+        <member name="M:Palladio.Performance.Math.Test.FourierTest.FourierAddition">
+            <summary>
+            This tests, that the multiplication in den frquency domain is the same as the 
+            convolution in the time domain. For this the data array must be big enough.
+            </summary>
+        </member>
         <member name="T:Palladio.Performance.Math.IFunction">
             <summary>
             
@@ -1517,43 +1625,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -1608,43 +1720,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>
@@ -1688,43 +1804,47 @@
             Version history:
             
             $Log$
+            Revision 1.2  2005/10/11 22:05:14  helgeh
+            - Added NUnit project and NDoc documentation.
+            - fixed a bug in AdjustSamplingRate
+
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
-
+            
             Math:
             - Added DiscretePDFunction.
             - Added Fast Fourier Transformation and FourierFunction.
             - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
             - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
             - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
-
+            
             FSMTransformer:
             - Method SEFFValidity added.
             - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
-
+            
             WebserverSeffFactory:
             - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
-
+            
             WebserverAnalyser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             RegExASTVisitor:
             - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
-
+            
             RegularExpressions:
             - No changes.
-
+            
             XmlSeffParser:
             - Data class for configuration added.
             - ConfigReader added.
-
+            
             PerformanceCalculator:
             - Added interface IPerformanceCalculator. Added CalculatorFactory.
-
+            
             Unit Tests added.
             Updated documentation.
-
+            
             
             </pre>
             </remarks>

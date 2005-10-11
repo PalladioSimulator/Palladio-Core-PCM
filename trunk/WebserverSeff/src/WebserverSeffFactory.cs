@@ -12,6 +12,10 @@ namespace Palladio.Performance.WebserverSeff
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:25  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -133,8 +137,8 @@ namespace Palladio.Performance.WebserverSeff
 			fsm.AddStates(states);
 			fsm.StartState = WebserverModelHelper.GetState(6101);
 			fsm.FinalStates = new IState[] {WebserverModelHelper.GetState(6103)};
-			WebserverModelHelper.AddTransition(6104, ref fsm, 6101, 6102, "IWebserverMonitor_WriteLogEntry");
-			WebserverModelHelper.AddTransition(6105, ref fsm, 6102, 6103, "IHTTPRequestProcessor_HandleRequest");
+			WebserverModelHelper.AddTransition(6104, ref fsm, 6101, 6102, "IWebserverMonitor_WriteLogEntry","IWebserverMonitor_WriteLogEntry");
+			WebserverModelHelper.AddTransition(6105, ref fsm, 6102, 6103, "IHTTPRequestProcessor_HandleRequest", "IHTTPRequestProcessor_HandleRequest");
 			
 			return fsm;
 		}
@@ -150,18 +154,18 @@ namespace Palladio.Performance.WebserverSeff
 			fsm.AddStates(states);
 			fsm.StartState = WebserverModelHelper.GetState(6201);
 			fsm.FinalStates = new IState[] {WebserverModelHelper.GetState(6210)};
-			WebserverModelHelper.AddTransition(6211, ref fsm, 6201, 6202, "IBibTexDB_set_ConnectionString");
-			WebserverModelHelper.AddTransition(6212, ref fsm, 6201, 6210, "IHTTPRequestProcessor_HandleRequest");
-			WebserverModelHelper.AddTransition(6213, ref fsm, 6202, 6203, "IBibTexDB_AllEntries");
-			WebserverModelHelper.AddTransition(6214, ref fsm, 6202, 6203, "IBibTexDB_Search");
-			WebserverModelHelper.AddTransition(6215, ref fsm, 6203, 6207, "IWebserverMonitor_WriteDebugMessage");
-			WebserverModelHelper.AddTransition(6216, ref fsm, 6203, 6204, "IHTTPRequestProcessorTools_GetFileMimeTypeFor1");
-			WebserverModelHelper.AddTransition(6217, ref fsm, 6204, 6205, "IHTTPRequestProcessorTools_SendHTTPHeader");
-			WebserverModelHelper.AddTransition(6218, ref fsm, 6205, 6206, "IHTTPRequestProcessorTools_SendContentToClient1");
-			WebserverModelHelper.AddTransition(6219, ref fsm, 6206, 6210, "IWebserverMonitor_WriteLogEntry");
-			WebserverModelHelper.AddTransition(6220, ref fsm, 6207, 6208, "IHTTPRequestProcessorTools_GetFileMimeTypeFor2");
-			WebserverModelHelper.AddTransition(6221, ref fsm, 6208, 6209, "IHTTPRequestProcessorTools_SendHTTPHeader");
-			WebserverModelHelper.AddTransition(6222, ref fsm, 6209, 6210, "IHTTPRequestProcessorTools_SendContentToClient2");
+			WebserverModelHelper.AddTransition(6211, ref fsm, 6201, 6202, "IBibTexDB_set_ConnectionString", "IBibTexDB_set_ConnectionString");
+			WebserverModelHelper.AddTransition(6212, ref fsm, 6201, 6210, "IHTTPRequestProcessor_HandleRequest", "IHTTPRequestProcessor_HandleRequest");
+			WebserverModelHelper.AddTransition(6213, ref fsm, 6202, 6203, "IBibTexDB_SearchAllEntries", "IBibTexDB_SearchAllEntries");
+			WebserverModelHelper.AddTransition(6214, ref fsm, 6202, 6203, "IBibTexDB_Search", "IBibTexDB_Search");
+			WebserverModelHelper.AddTransition(6215, ref fsm, 6203, 6207, "IWebserverMonitor_WriteDebugMessage", "IWebserverMonitor_WriteDebugMessage");
+			WebserverModelHelper.AddTransition(6216, ref fsm, 6203, 6204, "IHTTPRequestProcessorTools_GetFileMimeTypeFor1", "IHTTPRequestProcessorTools_GetFileMimeTypeFor");
+			WebserverModelHelper.AddTransition(6217, ref fsm, 6204, 6205, "IHTTPRequestProcessorTools_SendHTTPHeader1", "IHTTPRequestProcessorTools_SendHTTPHeader");
+			WebserverModelHelper.AddTransition(6218, ref fsm, 6205, 6206, "IHTTPRequestProcessorTools_SendContentToClient1", "IHTTPRequestProcessorTools_SendContentToClient");
+			WebserverModelHelper.AddTransition(6219, ref fsm, 6206, 6210, "IWebserverMonitor_WriteLogEntry", "IWebserverMonitor_WriteLogEntry");
+			WebserverModelHelper.AddTransition(6220, ref fsm, 6207, 6208, "IHTTPRequestProcessorTools_GetFileMimeTypeFor2", "IHTTPRequestProcessorTools_GetFileMimeTypeFor");
+			WebserverModelHelper.AddTransition(6221, ref fsm, 6208, 6209, "IHTTPRequestProcessorTools_SendHTTPHeader2", "IHTTPRequestProcessorTools_SendHTTPHeader");
+			WebserverModelHelper.AddTransition(6222, ref fsm, 6209, 6210, "IHTTPRequestProcessorTools_SendContentToClient2", "IHTTPRequestProcessorTools_SendContentToClient");
 			
 			return fsm;
 		}
@@ -177,22 +181,22 @@ namespace Palladio.Performance.WebserverSeff
 			fsm.AddStates(states);
 			fsm.StartState = WebserverModelHelper.GetState(6301);
 			fsm.FinalStates = new IState[] {WebserverModelHelper.GetState(6309)};
-			WebserverModelHelper.AddTransition(6310, ref fsm, 6301, 6302, "IHTTPRequestProcessorTools_BuildCompletePath");
-			WebserverModelHelper.AddTransition(6311, ref fsm, 6301, 6309, "IHTTPRequestProcessor_HandleRequest1");
-			WebserverModelHelper.AddTransition(6312, ref fsm, 6302, 6309, "IHTTPRequestProcessor_HandleRequest2");
-			WebserverModelHelper.AddTransition(6313, ref fsm, 6302, 6303, "IWebserverMonitor_WriteLogEntry1");
-			WebserverModelHelper.AddTransition(6314, ref fsm, 6303, 6304, "IHTTPRequestProcessorTools_GetFileMimeTypeFor");
-			WebserverModelHelper.AddTransition(6315, ref fsm, 6304, 6305, "IWebserverMonitor_WriteLogEntry2");
-			WebserverModelHelper.AddTransition(6316, ref fsm, 6305, 6306, "IHTTPRequestProcessorTools_OpenFile");
-			WebserverModelHelper.AddTransition(6317, ref fsm, 6306, 6307, "IHTTPRequestProcessorTools_SendHTTPHeader");
-			WebserverModelHelper.AddTransition(6318, ref fsm, 6307, 6308, "IHTTPRequestProcessorTools_SendContentToClient");
-			WebserverModelHelper.AddTransition(6319, ref fsm, 6308, 6309, "IWebserverMonitor_WriteLogEntry3");
+			WebserverModelHelper.AddTransition(6310, ref fsm, 6301, 6302, "IHTTPRequestProcessorTools_BuildCompletePath", "IHTTPRequestProcessorTools_BuildCompletePath");
+			WebserverModelHelper.AddTransition(6311, ref fsm, 6301, 6309, "IHTTPRequestProcessor_HandleRequest1","IHTTPRequestProcessor_HandleRequest" );
+			WebserverModelHelper.AddTransition(6312, ref fsm, 6302, 6309, "IHTTPRequestProcessor_HandleRequest2", "IHTTPRequestProcessor_HandleRequest");
+			WebserverModelHelper.AddTransition(6313, ref fsm, 6302, 6303, "IWebserverMonitor_WriteLogEntry1", "IWebserverMonitor_WriteLogEntry");
+			WebserverModelHelper.AddTransition(6314, ref fsm, 6303, 6304, "IHTTPRequestProcessorTools_GetFileMimeTypeFor", "IHTTPRequestProcessorTools_GetFileMimeTypeFor");
+			WebserverModelHelper.AddTransition(6315, ref fsm, 6304, 6305, "IWebserverMonitor_WriteLogEntry2","IWebserverMonitor_WriteLogEntry");
+			WebserverModelHelper.AddTransition(6316, ref fsm, 6305, 6306, "IHTTPRequestProcessorTools_OpenFile", "IHTTPRequestProcessorTools_OpenFile");
+			WebserverModelHelper.AddTransition(6317, ref fsm, 6306, 6307, "IHTTPRequestProcessorTools_SendHTTPHeader", "IHTTPRequestProcessorTools_SendHTTPHeader");
+			WebserverModelHelper.AddTransition(6318, ref fsm, 6307, 6308, "IHTTPRequestProcessorTools_SendContentToClient","IHTTPRequestProcessorTools_SendContentToClient" );
+			WebserverModelHelper.AddTransition(6319, ref fsm, 6308, 6309, "IWebserverMonitor_WriteLogEntry3","IWebserverMonitor_WriteLogEntry3");
 			
 			return fsm;
 		}
 
 		/// <summary>
-		/// Creates the service effect automaton for the FileProvider.HandleRequest() service.
+		/// Creates the service effect automaton for the StaticFileProvider.HandleRequest() service.
 		/// </summary>
 		/// <returns></returns>
 		public   IFiniteStateMachine CreateSeff_FileProvider_HandleRequest()
@@ -202,20 +206,20 @@ namespace Palladio.Performance.WebserverSeff
 			fsm.AddStates(states);
 			fsm.StartState = WebserverModelHelper.GetState(6401);
 			fsm.FinalStates = new IState[] {WebserverModelHelper.GetState(6410)};
-			WebserverModelHelper.AddTransition(6411, ref fsm, 6401, 6402, "IHTTPRequestProcessorTools_BuildCompletePath");
-			WebserverModelHelper.AddTransition(6412, ref fsm, 6401, 6410, "IHTTPRequestProcessorTools_SendHTTPError");
-			WebserverModelHelper.AddTransition(6413, ref fsm, 6402, 6410, "IHTTPRequestProcessorTools_SendHTTPError");
-			WebserverModelHelper.AddTransition(6414, ref fsm, 6402, 6403, "IWebserverConfiguration_get_DefaultFileNames");
-			WebserverModelHelper.AddTransition(6415, ref fsm, 6402, 6404, "IWebserverMonitor_WriteLogEntry");
-			WebserverModelHelper.AddTransition(6416, ref fsm, 6403, 6404, "IWebserverMonitor_WriteLogEntry");
-			WebserverModelHelper.AddTransition(6417, ref fsm, 6404, 6404, "IWebserverMonitor_WriteLogEntry");
-			WebserverModelHelper.AddTransition(6418, ref fsm, 6404, 6410, "IHTTPRequestProcessorTools_SendHTTPError");
-			WebserverModelHelper.AddTransition(6419, ref fsm, 6404, 6405, "IHTTPRequestProcessorTools_GetFileMimeTypeFor");
-			WebserverModelHelper.AddTransition(6420, ref fsm, 6405, 6406, "IWebserverMonitor_WriteLogEntry");
-			WebserverModelHelper.AddTransition(6421, ref fsm, 6406, 6407, "IHTTPRequestProcessorTools_OpenFile");
-			WebserverModelHelper.AddTransition(6422, ref fsm, 6407, 6408, "IHTTPRequestProcessorTools_SendHTTPHeader");
-			WebserverModelHelper.AddTransition(6423, ref fsm, 6408, 6409, "IHTTPRequestProcessorTools_SendContentDataToClient");
-			WebserverModelHelper.AddTransition(6424, ref fsm, 6409, 6410, "IWebserverMonitor_WriteLogEntry");
+			WebserverModelHelper.AddTransition(6411, ref fsm, 6401, 6402, "IHTTPRequestProcessorTools_BuildCompletePath", "IHTTPRequestProcessorTools_BuildCompletePath");
+//			WebserverModelHelper.AddTransition(6412, ref fsm, 6401, 6410, "IHTTPRequestProcessorTools_SendHTTPError", "IHTTPRequestProcessorTools_SendHTTPError");
+			WebserverModelHelper.AddTransition(6413, ref fsm, 6402, 6410, "IHTTPRequestProcessorTools_SendHTTPError1", "IHTTPRequestProcessorTools_SendHTTPError");
+			WebserverModelHelper.AddTransition(6414, ref fsm, 6402, 6403, "IWebserverConfiguration_get_DefaultFileNames", "IWebserverConfiguration_get_DefaultFileNames");
+			WebserverModelHelper.AddTransition(6415, ref fsm, 6402, 6404, "IWebserverMonitor_WriteLogEntry1", "IWebserverMonitor_WriteLogEntry");
+			WebserverModelHelper.AddTransition(6416, ref fsm, 6403, 6404, "IWebserverMonitor_WriteLogEntry2", "IWebserverMonitor_WriteLogEntry");
+			WebserverModelHelper.AddTransition(6417, ref fsm, 6404, 6404, "IWebserverMonitor_WriteLogEntry3", "IWebserverMonitor_WriteLogEntry");
+			WebserverModelHelper.AddTransition(6418, ref fsm, 6404, 6410, "IHTTPRequestProcessorTools_SendHTTPError2", "IHTTPRequestProcessorTools_SendHTTPError");
+			WebserverModelHelper.AddTransition(6419, ref fsm, 6404, 6405, "IHTTPRequestProcessorTools_GetFileMimeTypeFor", "IHTTPRequestProcessorTools_GetFileMimeTypeFor");
+			WebserverModelHelper.AddTransition(6420, ref fsm, 6405, 6406, "IWebserverMonitor_WriteLogEntry4", "IWebserverMonitor_WriteLogEntry");
+			WebserverModelHelper.AddTransition(6421, ref fsm, 6406, 6407, "IHTTPRequestProcessorTools_OpenFile", "IHTTPRequestProcessorTools_OpenFile");
+			WebserverModelHelper.AddTransition(6422, ref fsm, 6407, 6408, "IHTTPRequestProcessorTools_SendHTTPHeader", "IHTTPRequestProcessorTools_SendHTTPHeader");
+			WebserverModelHelper.AddTransition(6423, ref fsm, 6408, 6409, "IHTTPRequestProcessorTools_SendContentDataToClient", "IHTTPRequestProcessorTools_SendContentDataToClient");
+			WebserverModelHelper.AddTransition(6424, ref fsm, 6409, 6410, "IWebserverMonitor_WriteLogEntry5", "IWebserverMonitor_WriteLogEntry");
 			
 			return fsm;
 		}

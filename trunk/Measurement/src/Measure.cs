@@ -8,6 +8,10 @@ namespace Palladio.Performance.Measurement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -90,9 +94,11 @@ namespace Palladio.Performance.Measurement
 		public static string GetTimeHrt()
 		{
 			long microseconds = (long) hrt.ElapsedMicroseconds;
+			long miliseconds = microseconds/1000;
 			long seconds = microseconds/1000000;
 			long minutes = seconds/60;
-			string s = minutes + " minutes and " + seconds%60 +" seconds";
+			string s = "Computation took " + minutes + " minutes and " + seconds%60 +" seconds  and "
+				+ miliseconds%1000 +  " Millisecons.";
 			return s;
 		}
 	}

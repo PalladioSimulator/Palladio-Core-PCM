@@ -13,6 +13,10 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:20  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -123,7 +127,7 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 		/// <param name="probability">Probability of reiterating the loop.</param>
 		public void ValidateLoopProbability(double probability)
 		{
-			if (probability >= 1) 
+			if (System.Math.Round(probability,2) >= 1)
 				throw new ApplicationException("The probability of the inner loop expression must be a value" +
 					" in [0,1[.");
 		}

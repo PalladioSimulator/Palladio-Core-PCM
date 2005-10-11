@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "RegExASTVisitor"
+                AssemblyName = "Palladio.Performance.RegExASTVisitor"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -28,8 +28,8 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = "RegExVisitor.xml"
+                    DefineConstants = "DEBUG;TRACE;TEST"
+                    DocumentationFile = "Palladio.Performance.RegExVisitor.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
@@ -120,11 +120,6 @@
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
                 <Reference
-                    Name = "Palladio.RegularExpressions"
-                    Project = "{BEF536BF-20F0-40C3-A5AC-B131FD43CED7}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "System.Drawing"
                     AssemblyName = "System.Drawing"
                     HintPath = "..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
@@ -138,6 +133,11 @@
                     Name = "nunit.framework"
                     AssemblyName = "nunit.framework"
                     HintPath = "..\lib\nunit.framework.dll"
+                />
+                <Reference
+                    Name = "Palladio.RegularExpressions"
+                    AssemblyName = "Palladio.RegularExpressions"
+                    HintPath = "..\lib\Palladio.RegularExpressions.dll"
                 />
             </References>
         </Build>
@@ -159,22 +159,27 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Visitor\RegExASTVisitorDetermineProbabilitiesAndMaxValue.cs"
+                    RelPath = "src\Visitor\Fourier\RegExASTVisitorAddFourierAttributes.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Visitor\RegExASTVisitorFrequencyDomain.cs"
+                    RelPath = "src\Visitor\Fourier\RegExASTVisitorDetermineProbabilitiesAndMaxValue.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\Visitor\RegExASTVisitorTimeDomain.cs"
+                    RelPath = "src\Visitor\Fourier\RegExASTVisitorFrequencyDomain.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\Visitor\Test\VisitorTest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\Visitor\Time\RegExASTVisitorTimeDomain.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

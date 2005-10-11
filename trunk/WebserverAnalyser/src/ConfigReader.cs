@@ -11,6 +11,10 @@ namespace Palladio.Performance.WebserverAnalyser
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:25  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -53,12 +57,12 @@ namespace Palladio.Performance.WebserverAnalyser
 	/// </remarks>
 	internal class ConfigReader
 	{
-		string pathToConfigFile;
+		string configFile;
 		XmlDocument doc = new XmlDocument();
 
-		internal ConfigReader(string path)
+		internal ConfigReader(string configFile)
 		{
-			this.pathToConfigFile=path;
+			this.configFile=configFile;
 		}
 
 		/// <summary>
@@ -67,7 +71,7 @@ namespace Palladio.Performance.WebserverAnalyser
 		/// <returns>Configuration of the XmlSeffParser.</returns>
 		internal Config ReadConfig()
 		{
-			doc.Load(pathToConfigFile+"WebserverAnalyserConfig.xml");
+			doc.Load(configFile);
 			string filepath = GetValueOfTag("FilePath");
 			string measureFile = GetValueOfTag("MeasureFile");
 			string serviceName = GetValueOfTag("ServiceName");

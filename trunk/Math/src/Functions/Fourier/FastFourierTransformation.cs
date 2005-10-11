@@ -4,13 +4,18 @@ using MathNet.Numerics;
 namespace Palladio.Performance.Math.Fourier
 {
 	/// <summary>
-	/// Class for the fast fourier transformation.
+	/// Class for the fast fourier transformation. For further information have a look
+	/// into "Introduction to Algorithms" by Cormen et al.
 	/// </summary>
 	/// <remarks>
 	/// <pre>
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -166,7 +171,7 @@ namespace Palladio.Performance.Math.Fourier
 			}
 		}
 
-		private static Complex PI = System.Math.PI;
-		private static Complex I = Complex.I;
+		private static  Complex PI = System.Math.PI;
+		private static  Complex I = Complex.I;
 	}
 }

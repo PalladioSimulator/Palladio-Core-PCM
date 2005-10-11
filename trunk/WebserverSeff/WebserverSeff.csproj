@@ -28,7 +28,7 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE;TEST"
+                    DefineConstants = "DEBUG;TRACE"
                     DocumentationFile = "WebserverSeff.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"
@@ -108,6 +108,11 @@
                     Name = "nunit.framework"
                     AssemblyName = "nunit.framework"
                     HintPath = "..\lib\nunit.framework.dll"
+                />
+                <Reference
+                    Name = "Math"
+                    Project = "{F604387D-7009-4FC0-B27B-BC2E0D37D684}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
         </Build>

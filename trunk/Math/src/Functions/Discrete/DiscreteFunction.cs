@@ -13,6 +13,10 @@ namespace Palladio.Performance.Math.Functions.Discrete
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -133,7 +137,7 @@ namespace Palladio.Performance.Math.Functions.Discrete
 
 			for(int i=0;i<this.Count;i++)
 			{
-				ret += "(" +this.ValueAt(i) +")(" + this.Data[i] + "), ";
+				ret += "(" +this.ValueAt(i) +")(" + this.Data[i] + ") \n ";
 			}
 			return ret;
 		}
@@ -523,11 +527,23 @@ namespace Palladio.Performance.Math.Functions.Discrete
 			double scaling = ((double)newSR)/((double)oldSR);
 			long factor = oldSR / newSR;
 
-			double[] newValues = new double[this.Data.Length*factor];
-			//newValues[0] = this.Data[0];
+			double[] newValues;
+			if(this.xmin==0) 
+			{
+				newValues = new double[this.Data.Length*factor - 1];
+			} else
+			{
+				newValues = new double[this.Data.Length*factor];
+			}
+
 			int counter = 0;
 			for(int i=0; i<this.Data.Length;i++)
 			{
+				if(i==0 && this.xmin==0)
+				{
+					newValues[counter++] = this.Data[0];
+					continue;
+				}
 				for(int j=0;j<factor;j++)
 				{
 					try 
@@ -536,13 +552,13 @@ namespace Palladio.Performance.Math.Functions.Discrete
 					} 
 					catch (OverflowException)
 					{
-						Console.WriteLine("An System.OverflowException occured. Value is set to 0.");
+						Console.WriteLine("A System.OverflowException occured. Value is set to 0.");
 						newValues[counter++]=0;
 					}
 				}
 			}
 			this.data = newValues;
-			this.xmin = (xmin-oldSR) + newSR;
+			if(this.xmin!=0) this.xmin = (xmin-oldSR) + newSR;
 			this.samplingRate=newSR;
 		}
 

@@ -10,6 +10,10 @@ namespace Palladio.Performance.Math.Fourier
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -107,7 +111,7 @@ namespace Palladio.Performance.Math.Fourier
 		{
 			Complex[] F = new Complex[X.Length];
 			double n = X.Length;
-			Complex w = (direction*(2*PI*I)/n).Exp(); // n-te komplexe Einheitswurzel
+			Complex w = (direction*(2*PI*I)/n).Exp(); // nth complex root of unity
 
 			for (int j = 0; j < F.Length; j++)
 			{

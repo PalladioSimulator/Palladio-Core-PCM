@@ -11,6 +11,10 @@ namespace Palladio.Performance.Math
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/11 22:05:14  helgeh
+	/// - Added NUnit project and NDoc documentation.
+	/// - fixed a bug in AdjustSamplingRate
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -62,6 +66,18 @@ namespace Palladio.Performance.Math
 		/// <returns>Exponential distribution with the specified rate and properties of the 
 		/// FunctionFactory.</returns>
 		IDiscreteFunction ExponentialDistribution(double rate);
+
+		/// <summary>
+		/// Returns the exponential distribution with a rate.
+		/// This is: f(x) = (1 / rate) * exp(- x (1 / rate)).
+		/// </summary>
+		/// <param name="xMin">Minimum value of the function.</param>
+		/// <param name="samplingrate">Samplingrate of the function.</param>
+		/// <param name="rate">Rate of the exponential distribution.</param>
+		/// <param name="length">Number of function values.</param>
+		/// <returns>Exponential distribution with the specified rate and properties of the 
+		/// FunctionFactory.</returns>
+		IDiscreteFunction ExponentialDistribution(int xMin, int samplingrate, double rate, int length);
 
 		/// <summary>
 		/// Returns the constant  function.

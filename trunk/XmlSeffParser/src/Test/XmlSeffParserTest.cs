@@ -8,7 +8,7 @@ namespace Palladio.Performance.XmlSeffParser.Test
 	[TestFixture]
 	public class XmlSeffParserTest
 	{
-		string testfile="../../src/Test/ExampleSeff.xml";
+		string testfile="../../../TestData/ExampleSeff.xml";
 		IEditableFiniteStateMachine other;
 
 		[Test]
@@ -33,7 +33,7 @@ namespace Palladio.Performance.XmlSeffParser.Test
 					other.GetOutgoingTransitions(other.GetState(state.ID));
 				for (int i=0;i<outgoingTransitions.Length;i++)
 				{
-					Assert.AreEqual(otherOutgoingTransitions[i], outgoingTransitions[i]);
+					Assert.IsTrue(ContainsTransition(outgoingTransitions[i],otherOutgoingTransitions));
 				}
 
 				if(fsm.IsFinalState(state))
@@ -42,6 +42,15 @@ namespace Palladio.Performance.XmlSeffParser.Test
 				}
 			}
 
+		}
+		
+		private bool ContainsTransition(ITransition t1, ITransition[] other)
+		{
+			for(int i=0;i<other.Length;i++)
+			{
+				if(t1.Equals(other[i])) return true;
+			}
+			return false;
 		}
 
 		[TestFixtureSetUp]
@@ -116,6 +125,7 @@ namespace Palladio.Performance.XmlSeffParser.Test
 
 			return transition;
 		}
+
 	}
 }
 #endif
