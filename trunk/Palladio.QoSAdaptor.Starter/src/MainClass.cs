@@ -41,7 +41,7 @@ namespace Palladio.QoSAdaptor.Starter
 			fileStream = new FileStream(args[1], System.IO.FileMode.Open);
 			StreamReader providedReader = new StreamReader(fileStream);
 
-			Controller controller = new Controller();
+			IController controller = new Controller();
 			controller.Start(Controller.InterfaceModel.Quality, requiredReader, 
 				providedReader);
 		}

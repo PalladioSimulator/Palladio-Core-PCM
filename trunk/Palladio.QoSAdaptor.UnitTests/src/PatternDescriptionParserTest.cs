@@ -61,7 +61,7 @@ namespace Palladio.QoSAdaptor.UnitTests
 		[Test]
 		public void SelectionTest()
 		{
-			PatternDescription pattern = this.parser.Pattern;
+			IPatternDescription pattern = this.parser.Pattern;
 			Assert.AreEqual(pattern.Name, "Cache");
 			// Further attributes of the description are not tested at the moment, 
 			// because are probably changed in the further development. 

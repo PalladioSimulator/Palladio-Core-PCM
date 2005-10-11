@@ -29,6 +29,14 @@ namespace Palladio.QoSAdaptor.QMLComparison
 {
 	/// <summary>
 	/// Compares QML specifications in order to find mismatches.
+	/// 
+	/// TODO: The mismatch search should be implemented using two visitors 
+	/// instead of being implemented in the class hierarchy itself. One visitor
+	/// should traverse the tree representing the required specification and 
+	/// route the second visitor to the same nodes (by name) in the provided 
+	/// specification. The second visitor should then return its current node
+	/// so the first visitor can compare it to its current node in order to 
+	/// find mismatches. 
 	/// </summary>
 	public class QMLComparator : IComparator
 	{
