@@ -89,6 +89,21 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IMismatchAttribute.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IPatternDescription.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\IPredictionModel.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\MismatchAttribute.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

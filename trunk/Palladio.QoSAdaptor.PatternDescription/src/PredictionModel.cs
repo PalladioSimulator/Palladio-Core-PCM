@@ -20,14 +20,14 @@
 
 using System.Collections;
 
-namespace Palladio.QoSAdaptor.Pattern.src
+namespace Palladio.QoSAdaptor.Pattern
 {
 	/// <summary>
 	/// Represents a prediction model entry of a pattern description. Contains
 	/// the name of the model and a list of patterns belonging to the model.
 	/// The path of the templates is determined by the calling application.
 	/// </summary>
-	public class PredictionModel
+	internal class PredictionModel : IPredictionModel
 	{
 		#region data
 		/// <summary>
@@ -78,14 +78,14 @@ namespace Palladio.QoSAdaptor.Pattern.src
 		}
 		#endregion
 
-		#region public methods
+		#region internal methods
 		/// <summary>
 		/// Adds a template to this prediction model.
 		/// </summary>
 		/// <param name="template">The name of the new template. The path of 
 		/// the template is determined of the folder structure of the calling
 		/// application.</param>
-		public void AddTemplate (string template)
+		internal void AddTemplate (string template)
 		{
 			this.templates.Add(template);
 		}

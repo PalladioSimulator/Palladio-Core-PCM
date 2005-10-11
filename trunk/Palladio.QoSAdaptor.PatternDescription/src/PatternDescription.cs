@@ -19,7 +19,6 @@
 #endregion
 
 using System.Collections;
-using Palladio.QoSAdaptor.Pattern.src;
 
 namespace Palladio.QoSAdaptor.Pattern
 {
@@ -28,7 +27,7 @@ namespace Palladio.QoSAdaptor.Pattern
 	/// describe all aspects of a design pattern that may be 
 	/// helpful to choose a certain pattern for adaptation. 
 	/// </summary>
-	public class PatternDescription
+	internal class PatternDescription : IPatternDescription
 	{
 		#region data
 		/// <summary>
@@ -64,13 +63,6 @@ namespace Palladio.QoSAdaptor.Pattern
 		private ArrayList adaptorTemplates;
 
 		/// <summary>
-		/// A list of templates for the prediction model.
-		/// DEPRECATED: Use predictionModels instead since a pattern van have 
-		/// more than one prediction model.
-		/// </summary>
-		private ArrayList predictionTemplates;
-
-		/// <summary>
 		/// A list of prediction models belonging to this pattern.
 		/// </summary>
 		private ArrayList predictionModels;
@@ -80,11 +72,10 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// <summary>
 		/// Constructs a new empty PatternDescription.
 		/// </summary>
-		public PatternDescription()
+		internal PatternDescription()
 		{
 			mismatches = new ArrayList();
 			adaptorTemplates = new ArrayList();
-			predictionTemplates = new ArrayList();
 			this.predictionModels = new ArrayList();
 		}
 		#endregion
@@ -107,7 +98,7 @@ namespace Palladio.QoSAdaptor.Pattern
 
 		/// <summary>
 		/// The name of the interface model this pattern is able to correct 
-		/// mismatches of.s
+		/// mismatches of.
 		/// </summary>
 		public string InterfaceModel 
 		{
@@ -176,17 +167,6 @@ namespace Palladio.QoSAdaptor.Pattern
 		}
 
 		/// <summary>
-		/// DEPRECATED.
-		/// </summary>
-		public IList PredictionTemplates
-		{
-			get
-			{
-				return predictionTemplates;
-			}
-		}
-
-		/// <summary>
 		/// A list of prediction models for this pattern.
 		/// </summary>
 		public IList PredictionModels
@@ -199,55 +179,6 @@ namespace Palladio.QoSAdaptor.Pattern
 		#endregion 
 
 		#region public methods
-		/// <summary>
-		/// Adds a QoSattribute to the list of attributes the 
-		/// description holds. 
-		/// </summary>
-		/// <param name="attribute">A new QoSAttribute</param>
-		public void AddMismatchAttribute (MismatchAttribute attribute)
-		{
-			mismatches.Add(attribute);
-		}
-
-		/// <summary>
-		/// Adds a template to the descriptions list of adapter 
-		/// templates. The filename of the template has to be 
-		/// given as a parameter. 
-		/// By default the templates should 
-		/// available in the same directory as the xml pattern 
-		/// description. 
-		/// </summary>
-		/// <param name="template">The filename of the template
-		/// </param>
-		public void AddAdaptorTemplate (string template)
-		{
-			adaptorTemplates.Add(template);
-		}
-
-		/// <summary>
-		/// Adds a template to the descriptions list of prediction 
-		/// templates. The filename of the template has to be 
-		/// given as a parameter. 
-		/// By default the templates should 
-		/// available in the same directory as the xml pattern 
-		/// description. 
-		/// </summary>
-		/// <param name="template">The filename of the template
-		/// </param>
-		public void AddPredictionTemplate (string template)
-		{
-			predictionTemplates.Add(template);
-		}
-
-		/// <summary>
-		/// Adds a prediction model to this pattern description.
-		/// </summary>
-		/// <param name="pModel">A PredictionModel object.</param>
-		public void AddPredictionModel(PredictionModel pModel)
-		{
-			this.predictionModels.Add(pModel);
-		}
-
 		/// <summary>
 		/// Checks if this PatternDescription covers the given QoS attribute.
 		/// </summary>
@@ -273,7 +204,7 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// </param>
 		/// <returns>The QoSAttribute, if it is in the attribute list of this
 		/// PatternDescription. Else null.</returns>
-		public MismatchAttribute GetMismatchAttribute (string attributeName)
+		public IMismatchAttribute GetMismatchAttribute (string attributeName)
 		{
 			foreach (MismatchAttribute attribute in this.mismatches)
 			{
@@ -303,6 +234,59 @@ namespace Palladio.QoSAdaptor.Pattern
 				this.source.Equals(pattern.Source))
 				return true;
 			return false;
+		}
+
+		/// <summary>
+		/// Getter for prediction models. 
+		/// </summary>
+		/// <param name="name">The name of the searched prediction model.
+		/// </param>
+		/// <returns>The searched prediction model or null if there is no 
+		/// prediction model with the given name.</returns>
+		public IPredictionModel GetPredictionModelByName(string name)
+		{
+			foreach (PredictionModel predictionModel in this.predictionModels)
+			{
+				if (name.Equals(predictionModel.Name))
+					return predictionModel;
+			}
+			return null;
+		}
+		#endregion
+
+		#region internal methods
+		/// <summary>
+		/// Adds a QoSattribute to the list of attributes the 
+		/// description holds. 
+		/// </summary>
+		/// <param name="attribute">A new QoSAttribute</param>
+		internal void AddMismatchAttribute (MismatchAttribute attribute)
+		{
+			mismatches.Add(attribute);
+		}
+
+		/// <summary>
+		/// Adds a template to the descriptions list of adapter 
+		/// templates. The filename of the template has to be 
+		/// given as a parameter. 
+		/// By default the templates should 
+		/// available in the same directory as the xml pattern 
+		/// description. 
+		/// </summary>
+		/// <param name="template">The filename of the template
+		/// </param>
+		internal void AddAdaptorTemplate (string template)
+		{
+			adaptorTemplates.Add(template);
+		}
+
+		/// <summary>
+		/// Adds a prediction model to this pattern description.
+		/// </summary>
+		/// <param name="pModel">A PredictionModel object.</param>
+		internal void AddPredictionModel(PredictionModel pModel)
+		{
+			this.predictionModels.Add(pModel);
 		}
 		#endregion
 	}

@@ -53,7 +53,7 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// <summary>
 		/// The parsed PatternDescription. 
 		/// </summary>
-		public PatternDescription Pattern
+		public IPatternDescription Pattern
 		{
 			get
 			{
@@ -129,7 +129,8 @@ namespace Palladio.QoSAdaptor.Pattern
 
 			try 
 			{
-				XmlValid(file);
+				// TODO: comment in, when new xsd is written.
+				//XmlValid(file);
 				doc = new XmlDocument();
 				doc.Load(file);
 				nav = doc.CreateNavigator();
@@ -137,7 +138,7 @@ namespace Palladio.QoSAdaptor.Pattern
 				ReadGeneralDescription(nav, pattern);
 				ReadMismatches(nav, pattern); 
 				ReadAdapterTemplates(nav, pattern); 
-				ReadPredictionTemplates(nav, pattern); 
+				ReadPredictionModels(nav, pattern); 
 			}
 			catch (XmlException e) 
 			{
@@ -220,26 +221,48 @@ namespace Palladio.QoSAdaptor.Pattern
 		}
 
 		/// <summary>
-		/// This method parses the list of templates that can be 
-		/// used to created the prediction model for the 
-		/// performance of the generated adapter. 
+		/// This method parses the list of prediction models that can be 
+		/// used to predict the performance of the generated adapter. 
 		/// </summary>
 		/// <param name="nav">An XPathNavigator for the parsed XML
 		/// file</param>
 		/// <param name="pattern">The final PatternDescription 
 		/// object.</param>
-		private void ReadPredictionTemplates(XPathNavigator nav, 
+		private void ReadPredictionModels(XPathNavigator nav, 
 			PatternDescription pattern)
 		{
 			XPathNodeIterator it;
-			it = nav.Select("/Pattern/predictionTemplates");
+			it = nav.Select("/Pattern/predictionModels");
 			it.MoveNext();
 			XPathNodeIterator it2;
-			it2=it.Current.SelectChildren("template",it.Current.NamespaceURI);
+			it2=it.Current.SelectChildren("predictionModel",
+				it.Current.NamespaceURI);
 			while(it2.MoveNext())
 			{
-				pattern.AddPredictionTemplate(it2.Current.Value);
+				pattern.AddPredictionModel(ReadPredictionModel(it2.Clone()));
 			}
+		}
+
+		/// <summary>
+		/// This method parses a single prediction model and returns it as
+		/// a PredictionModel object.
+		/// </summary>
+		/// <param name="it">XPathNodeIterator that points to the node of the 
+		/// prediction model that shall be parsed. </param>
+		/// <returns>The parsed PredictionModel.</returns>
+		private PredictionModel ReadPredictionModel(XPathNodeIterator it)
+		{
+			XPathNavigator nav = it.Current.Clone();
+			nav.MoveToFirstAttribute();
+			string name = nav.Value;
+			PredictionModel predictionModel = new PredictionModel(name);				
+
+			XPathNodeIterator it2 = it.Current.SelectChildren("template", 
+				it.Current.NamespaceURI);
+			while (it2.MoveNext())
+				predictionModel.AddTemplate(it2.Current.Value);
+
+			return predictionModel;
 		}
 		#endregion 
 	}

@@ -21,60 +21,23 @@
 namespace Palladio.QoSAdaptor.Pattern
 {
 	/// <summary>
-	/// A QoSAttribute describes the suitability of a design 
-	/// pattern for solving problems with certain QoS attributes.
-	/// The class has the attributes name and suitability, where
-	/// "suitability" describes the suitability of the pattern to
-	/// solve a problem with the QoS attribute referred to by 
-	/// "name". 
-	/// Suitability is a string which at the moment should have
-	/// one of the following values: ++, +, 0, -, --
+	/// Public interface of a MismatchAttribute.
+	/// 
+	/// All constructors and setters are implemented as internal. The 
+	/// interface only provides read methods.
 	/// </summary>
-	internal class MismatchAttribute : IMismatchAttribute
+	public interface IMismatchAttribute
 	{
-		#region data
-		private string name;
-		private string suitability;
-		#endregion 
-
-		#region constructor
-		/// <summary>
-		/// Constructs a new QoSAttribute with the given name.
-		/// </summary>
-		/// <param name="name">The name of the QoSAttribute</param>
-		internal MismatchAttribute(string name)
-		{
-			this.name = name;
-		}
-		#endregion
-
 		#region properties
 		/// <summary>
 		/// The name of this mismatch attribute.
 		/// </summary>
-		public string Name
-		{
-			get
-			{
-				return name;
-			}
-		}
+		string Name{get;}
 
 		/// <summary>
 		/// The suitability of this mismatch attribute.
 		/// </summary>
-		public string Suitability
-		{
-			get
-			{
-				return suitability;
-			}
-			set
-			{
-				suitability = value;
-			}
-		}
+		string Suitability{get;}
 		#endregion
-
 	}
 }
