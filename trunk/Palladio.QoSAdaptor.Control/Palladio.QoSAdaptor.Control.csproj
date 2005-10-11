@@ -109,6 +109,16 @@
                     AssemblyName = "Palladio.Utils"
                     HintPath = "lib\Palladio.Utils.dll"
                 />
+                <Reference
+                    Name = "Palladio.QoSAdaptor.Generation"
+                    Project = "{C676C878-18BB-4762-89A5-7C76C5BA4E35}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Palladio.QoSAdaptor.Compiler"
+                    Project = "{A670B989-4E73-4105-A465-3F1A92BC1BE6}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>
