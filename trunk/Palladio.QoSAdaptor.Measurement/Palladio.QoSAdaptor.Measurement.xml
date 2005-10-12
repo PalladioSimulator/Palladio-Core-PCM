@@ -24,14 +24,41 @@
             TODO: Implement remote clients.
             </summary>
         </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.ConcurrentClientScenario.#ctor">
+            <summary>
+            Constructs a ConcurrentClientScenario and initialises the clients.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.ConcurrentClientScenario.Start">
+            <summary>
+            Starts the scenario.
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.Measurement.MainClass">
             <summary>
             Starts a measurement scenario.
             TODO: Let all scenarios implement the same interface.
             </summary>
         </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.MainClass.Main(System.String[])">
+            <summary>
+            The main class of the measurement application. Start the given 
+            scenario.
+            </summary>
+            <param name="args"></param>
+        </member>
         <member name="T:Palladio.QoSAdaptor.Measurement.SingleClientScenario">
             <summary>
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.SingleClientScenario.#ctor">
+            <summary>
+            Constructs a new SingleClientScenario.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.SingleClientScenario.Start">
+            <summary>
+            Starts the scenario.
             </summary>
         </member>
     </members>

@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.QoSAdaptor.Control</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.QoSAdaptor.Control.Controller">
+            <summary>
+            The main class of the QoSAdaptor software. Represents the only 
+            interface that should be used from outside.
+            
+            Takes two interface model specifications as arguments, where the first 
+            is the required specification and the second is the provided 
+            specification.
+            
+            The application first calls the QMLComparison. If mismatches are 
+            returned all pattern descriptions in the Patterns folder are parsed and
+            for each returned mismatches aspect all adequate patterns are listed in
+            a selection dialog. There on of the patterns can be selected and the 
+            adaptor and the prediction model belonging to chosen pattern can be 
+            generated.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Control.IController">
+            <summary>
+            The interface provided by the Palladio.QoSAdaptor.Control component. 
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.IController.Start(Palladio.QoSAdaptor.Control.Controller.InterfaceModel,System.IO.TextReader,System.IO.TextReader)">
+            <summary>
+            This method starts the the analysis of the interface models,
+            the selection of a pattern that solves interface model mismatches 
+            and the generation of an adaptor and a prediction model using that
+            pattern.
+            </summary>
+            <param name="interfaceModel">The considered interface model.
+            </param>
+            <param name="required">The required interface model description.
+            </param>
+            <param name="provided">The provided interface model description.
+            </param>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Control.Controller.interfaceModel">
+            <summary>
+            The considered interface model
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Control.Controller.requiredSpecification">
+            <summary>
+            The considered required specification.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Control.Controller.providedSpecification">
+            <summary>
+            The considered provided specification.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.Start(Palladio.QoSAdaptor.Control.Controller.InterfaceModel,System.IO.TextReader,System.IO.TextReader)">
+            <summary>
+            This method starts the the analysis of the interface models,
+            the selection of a pattern that solves interface model mismatches 
+            and the generation of an adaptor and a prediction model using that
+            pattern.
+            </summary>
+            <param name="interfaceModel">The considered interface model.
+            </param>
+            <param name="required">The required interface model description.
+            </param>
+            <param name="provided">The provided interface model description.
+            </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.FindMismatches(System.IO.TextReader,System.IO.TextReader)">
+            <summary>
+            Looks for mismatches in the two given specifications. 
+            </summary>
+            <param name="required">Textual representation of the required 
+            specification.</param>
+            <param name="provided">Textual representation of the provided 
+            specification.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.SelectPattern(System.Collections.IList,System.String,System.String)">
+            <summary>
+            Semi-automatic selection of a pattern that is able to correct the 
+            found mismatches. 
+            </summary>
+            <param name="mismatches">A list of found mismatches.</param>
+            <param name="requiredSpecification">String representation of the 
+            required specification.</param>
+            <param name="providedSpecification">String representation of the
+            provided specification.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.GetPatternDescriptions">
+            <summary>
+            Reads the PatternDescriptions from their XML representations.
+            </summary>
+            <returns>A list of PatternDescription objects.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.GetMismatchPatterns(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Adds patterns able to correct a mismatch to the corresponding
+            mismatch.
+            </summary>
+            <param name="mismatches">A list of mismatches.</param>
+            <param name="patterns">A list of PatternDescriptions of patterns
+            that may be able to correct the given mismatches.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.Compile(Palladio.QoSAdaptor.Pattern.IPatternDescription)">
+            <summary>
+            Scans the src folder of the selected pattern for compilable 
+            artifacts, compiles them and copies the compilation to the 
+            corresponding bin folder. At the moment only .cs files are
+            compiled. All other artifacts are left unchanged in the 
+            src folder.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.CompileCSharpFiles(System.IO.FileInfo[],System.IO.FileInfo[])">
+            <summary>
+            Compiles the given files with the CSharpCompiler and returns the
+            path to the created assembly.
+            </summary>
+            <param name="sourceFiles">Array of CSharp files.</param>
+            <param name="libs">Array of DLLs needed to compile the given 
+            source files.</param>
+            <returns>Full path to created assembly.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.CopyAssembly(System.String,System.String,System.String)">
+            <summary>
+            Copies the assembly at the given path to the given subfolder of the
+            bin folder.
+            </summary>
+            <param name="assembly">Full path of the compiled assembly.
+            </param>
+            <param name="folderName">Destination folder to 
+            copy the assembly to.</param>
+            <param name="newAssemblyName">Destination name of the new assembly.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.GetLibs(System.String)">
+            <summary>
+            Returns the lib files in the given path.
+            </summary>
+            <param name="libDirectory">Path to the lib directory.</param>
+            <returns>An array of DLLs.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.CompileAdaptor(System.String,System.String,System.IO.FileInfo[])">
+            <summary>
+            Compiles the adaptor, if source files exist.
+            </summary>
+            <param name="sourceDirectory">The source directory of the 
+            selected pattern.</param>
+            <param name="binDirectory">The bin directory of the 
+            selected pattern.</param>
+            <param name="libs">DLLs needed to compile the source files.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.CompilePredictionModels(System.Collections.IList,System.String,System.String,System.IO.FileInfo[])">
+            <summary>
+            Compiles the prediction models of the selected pattern, if source 
+            files exist.
+            </summary>
+            <param name="predictionModels">Prediction models of the selected
+            pattern.</param>
+            <param name="sourceDirectory">The source directory of the 
+            selected pattern.</param>
+            <param name="binDirectory">The bin directory of the 
+            selected pattern.</param>
+            <param name="libs">DLLs needed to compile the source files.</param>
+        </member>
+    </members>
+</doc>

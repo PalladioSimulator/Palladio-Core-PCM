@@ -9,5 +9,12 @@
             Starts the QoSAdaptor as console application.
             </summary>
         </member>
+        <member name="M:Palladio.QoSAdaptor.Starter.MainClass.Main(System.String[])">
+            <summary>
+            The main class of the Starter. Opens the given files and starts the
+            QoSAdaptor generation application.
+            </summary>
+            <param name="args"></param>
+        </member>
     </members>
 </doc>

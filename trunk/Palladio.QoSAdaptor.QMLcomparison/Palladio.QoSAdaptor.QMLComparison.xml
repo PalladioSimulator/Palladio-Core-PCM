@@ -245,6 +245,11 @@
             <returns>True if one aspect constraint in this contract expression
             matches the given constraint. Else false.</returns>
         </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.Name">
+            <summary>
+            The name of this contract expression
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType">
             <summary>
             Represents a QML contract type specification.
@@ -485,8 +490,15 @@
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMismatchSearchException">
             <summary>
-            Zusammenfassung für QMLMismatchSearchException.
+            Exception thrown if an error occured during a mismatch search.
             </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMismatchSearchException.#ctor(System.String)">
+            <summary>
+            Constructor that defines a default message and adds the given 
+            message.
+            </summary>
+            <param name="message"></param>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLNoValidValueException">
             <summary>
@@ -579,6 +591,16 @@
             It is expected that QMLPercentileAspect.Compare() only compares the
             percentiles and not the numeric operators or values.
             </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspectComparer.Compare(System.Object,System.Object)">
+            <summary>
+            Compares two QMLPercentileAspects.
+            </summary>
+            <param name="aspect1">A QMLPercentileAspect object.</param>
+            <param name="aspect2">Another QMLPercentileAspect object.</param>
+            <returns>An int smaller than 0 if aspect1 is smaller than 
+            aspect2. 0 if they are equal and a value greater than 0
+            if aspect1 is bigger than aspect2.</returns>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile">
             <summary>
@@ -727,6 +749,16 @@
             corresponding to the given entity does not match the contract of
             the given entity. Else null.</returns>
         </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.ExpressionType">
+            <summary>
+            The type of this QMLProfileExpression.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.RequirementClauses">
+            <summary>
+            A list of requirement clauses contained in the profile expression.
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause">
             <summary>
             Zusammenfassung für QMLRequirementClause.
@@ -768,6 +800,14 @@
             <param name="specification"></param>
             <returns></returns>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.hasEntity(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity)">
+            <summary>
+            Checks, if this QMLRequirementClause describes the given entity.
+            </summary>
+            <param name="entity">A QMLEntity.</param>
+            <returns>True, if the requirement clause contains the given entity.
+            Else false.</returns>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.ToString">
             <summary>
             Returns a new QML requirement clause string containing all 
@@ -789,6 +829,16 @@
             <param name="interfaceName">The name of the interface this clause
             is defined for.</param>
             <returns>A list of Mismatch objects.</returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.Entities">
+            <summary>
+            A list of all entities describes by this requirement clause.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.Contracts">
+            <summary>
+            A list of contracts described in this requirement clause.
+            </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint">
             <summary>
@@ -1075,10 +1125,33 @@
             <returns>True if this aspect matches the given aspect, 
             else false.</returns>
         </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QMLComparator">
+            <summary>
+            Compares QML specifications in order to find mismatches.
+            
+            TODO: The mismatch search should be implemented using two visitors 
+            instead of being implemented in the class hierarchy itself. One visitor
+            should traverse the tree representing the required specification and 
+            route the second visitor to the same nodes (by name) in the provided 
+            specification. The second visitor should then return its current node
+            so the first visitor can compare it to its current node in order to 
+            find mismatches. 
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLComparator.#ctor">
             <summary>
             Standard constructor.
             </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLComparator.FindMismatches(System.IO.TextReader,System.IO.TextReader)">
+            <summary>
+            Searches for mismatches in the two given QML specifications. 
+            </summary>
+            <param name="required">TextReader representing the specification 
+            for the required interface.</param>
+            <param name="provided">TextReader representing the specification 
+            for the provided interface.</param>
+            <returns>A list of QMLMismatch objects.</returns>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLComparator.Parse(System.IO.TextReader)">
             <summary>

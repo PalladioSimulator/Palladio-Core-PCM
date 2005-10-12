@@ -10,6 +10,17 @@
             cache_pattern_description.xml file as example. 
             </summary>
         </member>
+        <member name="M:Palladio.QoSAdaptor.UnitTests.PatternDescriptionParserTest.Init">
+            <summary>
+            Initialises the parser and parses the cache pattern description.
+            TODO: Check the parsed description.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.UnitTests.PatternDescriptionParserTest.Shutdown">
+            <summary>
+            Shutdown method needed by NUnit
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.UnitTests.PatternDescriptionParserTest.SelectionTest">
             <summary>
             Tests if the parser works properly.

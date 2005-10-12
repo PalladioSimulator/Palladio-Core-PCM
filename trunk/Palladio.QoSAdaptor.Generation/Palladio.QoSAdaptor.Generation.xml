@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.QoSAdaptor.Generation</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.QoSAdaptor.Generation.Generator">
+            <summary>
+            The generator asks the user if the adaptor or one of the prediction 
+            models of the PatternDescription shall be generated and then uses 
+            CodeSmith to generate it. 
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Generation.IGenerator">
+            <summary>
+            The provided interface of the Palladio.QoSAdaptor.Generation component. 
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.IGenerator.Start(Palladio.QoSAdaptor.Pattern.IPatternDescription,System.String)">
+            <summary>
+            Starts the generation process for the given pattern. Generates 
+            artifact using CodeSmith. 
+            </summary>
+            <param name="pattern">The PatternDescription of the pattern for 
+            which artifacts are to be generated.</param>
+            <param name="configurationPath">The path of the CodeSmith 
+            configuration file.</param>
+            
+            TODO: Remove configurationPath and use standard path name?
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.Generator.pattern">
+            <summary>
+            The pattern for which artifacts shall be generated.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.Generator.configurationPath">
+            <summary>
+            The path of the CodeSmith configuration file for this.pattern.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.Generator.selectionDialog">
+            <summary>
+            The GUI used for user selection of artifacts.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.Generator.patternDirectory">
+            <summary>
+            The directory containing all information about this.pattern.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.Generator.currentArtifactName">
+            <summary>
+            The name of the currently chosen artifact.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.Generator.currentTemplates">
+            <summary>
+            The list of templates of the currently chosen artifact.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.Generator.generated">
+            <summary>
+            Shows if artifacts have been generated. 
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.Generator.Start(Palladio.QoSAdaptor.Pattern.IPatternDescription,System.String)">
+            <summary>
+            Starts the generation process for the given pattern. The user is 
+            asked whether the adaptor or one of the prediction models shall be
+            generated. After the generation the user can stop the generation
+            process or generate another artifact.
+            </summary>
+            <param name="pattern">The PatternDescription of the patttern for 
+            which artifacts are to be generated.</param>
+            <param name="configurationPath">The path of the CodeSmith 
+            configuration file.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.Generator.Generator_Click(System.Object,System.EventArgs)">
+            <summary>
+            This method is called, when a generator button has 
+            been clicked. 
+            The method opens a new instance of CodeSmith for 
+            every template that is listed in the 
+            PatternDescription of the chosen pattern. 
+            If no pattern is chosen a MessageBox is opened. 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.Generator.OpenTemplates">
+            <summary>
+            This is a helper method for generator_Click which opens
+            the given templates in CodeSmith.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.Generator.StartCodeSmith(System.String)">
+            <summary>
+            Starts the CodeSmith configuration and generation GUI with the
+            given template.
+            </summary>
+            <param name="template">The name of a CodeSmith template file.
+            As path the templates directory of the pattern is taken. </param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.Generator.Proc_Exited(System.Object,System.EventArgs)">
+            <summary>
+            Is called when CodeSmith is exited. Calls OpenTemplates to 
+            restart CodeSmith with the next template or compile the generated 
+            sources and return to the selection.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Generation.SelectionDialog">
+            <summary>
+            Creates a GUI to select an artifact for generation. 
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.SelectionDialog.components">
+            <summary>
+            Erforderliche Designervariable.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.SelectionDialog.controller">
+            <summary>
+            The controller which implements the event handling for this form.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.SelectionDialog.pattern">
+            <summary>
+            The pattern for which this form shows chooseable artifacts
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.SelectionDialog.counter">
+            <summary>
+            Counter used to get the right spaces in the GUI.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.SelectionDialog.tabCounter">
+            <summary>
+            A counter counting the number of tabs to provide correct tabbing
+            of the buttons.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.SelectionDialog.rButtons">
+            <summary>
+            A list of radio buttons. Each button belongs to a chooseable 
+            artifact. 
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.SelectionDialog.generatorButton">
+            <summary>
+            Button to start the generation of the selected artifact.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.SelectionDialog.Dispose(System.Boolean)">
+            <summary>
+            Die verwendeten Ressourcen bereinigen.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.SelectionDialog.InitializeComponent">
+            <summary>
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.SelectionDialog.InitialiseSelection">
+            <summary>
+            Initialises the selection dialog.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.SelectionDialog.AddRadioButton(System.String,System.String)">
+            <summary>
+            Adds a radio button with 
+            </summary>
+            <param name="name">The name of the new radio button.</param>
+            <param name="text">The text of the new radio button.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.SelectionDialog.AddGeneratorButton">
+            <summary>
+            Adds a button to start the generation of the chosen artifact.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Generation.SelectionDialog.RadioButtons">
+            <summary>
+            A list of radio buttons where each button belongs to an artifact.
+            The button belonging to the adaptor is name "adaptor". The other 
+            buttons have the same name as the prediction model they belong to.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Generation.SelectionDialog.GeneratorButton">
+            <summary>
+            Button to start the generation of the selected artifact.
+            </summary>
+        </member>
+    </members>
+</doc>
