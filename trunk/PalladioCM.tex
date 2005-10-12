@@ -1,5 +1,8 @@
 % Version history:
 % $Log$
+% Revision 1.8  2005/10/12 10:01:48  sliver
+% no message
+%
 % Revision 1.7  2005/08/17 15:19:44  sliver
 % added Outline.Tex. Its purpose is the creation of a thread (roter Faden) for the paper.
 % The file cantains a slightly different structure of the original paper.
@@ -47,7 +50,7 @@
 
 % Paper title
 \title{
-	The Palladio Component Meta Model: Towards an Engineering Approach to Software Architecture Design
+	The Palladio Component Meta Model:\\ Towards an Engineering Approach\\ to Software Architecture Design
 }
 
 \author {Ralf H. Reussner \and Steffen Becker \and Jens Happe \and Klaus Krogmann \\
@@ -59,147 +62,15 @@
 \maketitle			
 
 \begin{abstract}
-The Palladio Component described in this article is such a rich component meta model, specifically designed to support performance and reliability predictions. The meta model defines entities such as components, connection, interfaces and ports. A unique feature of this component meta model is the specification of the relationship between provided and required functionality and quality of service properties of a component. This concurs with the specification of components with parametric contracts which take into account component's functional and quality properties heavily depend on the component's context.
-Besides, ease of extensibility and closeness to UML2 concepts were driving forces of its design.  
+  
 \end{abstract}
 
-% ############################
 \section{Introduction}
-Explicitly modelling software architectures is no means by itself. One benefit of explicitly modelled software architectures is the early analysis of a software system regarding its quality attributes (e.g., performance and reliability), in particular to support the quality-driven selection of architectural alternatives and thus supporting an engineering approach to software development. The analysis of an architecture to predict the quality attributes of its later implementation is inherently difficult, as many degrees of freedom exist to implement the architecture. The use of component based software development helps in three ways to increase the power of model-driven software quality prediction. 
-
-%TODO:
-\begin{description}
-	\item[Restriction of these degrees of freedom] 
-	\item[Use of components with well-known properties]
-	\item[Use of compositional prediction models which reflect the component-based architecture]
-\end{description}
-
-However, an architectural analysis requires architectural information beyond the "classical" box-and-line-diagrams. This leads to so-called "rich components models" which include information necessary for tools performing architectural analyses. The Palladio Component described in this article is such a rich component model, specifically designed to support performance and reliability predictions. Besides the above mentioned benefit of using software component for system predictability, the use an component based software development approach also has to deal with problems specific to the re-use of components. One of these implications of component re-use is the need for component adaptation. In addition, ease of extensibility and closeness to UML2 concepts were driving forces of its design. 
-
-
 %contribution
-The model presented in this article differs from other components in several ways.
-\begin{enumerate}
-	\item Explicitly modelling of the relationship between provides and requires interfaces 
-	\item A layered component models, which explicitly distinguished "component types", "component implementation instances", "component deployment instances" and "component run-time instances".   
-\end{enumerate}
-
-The contribution of the first of this specifica is the support for the prediction of component properties which depend on the component context (functional and quality properties) and the architectural reasoning on system-wide quality attributes in dependency of the inner components properties and their inter-connection given by the software architecture. The second specifica contributes to the discussion on the term component by explicitly modelling components at different instance-levels.  
 %organisation
 
-%old version, uncommented by Steffen
-%This paper is organised as follows. Some prerequisites on component modelling are discussed in section \ref{sec:genremarks}. Elementary modelling constructs are presented in section \ref{sec:bme}. Section \ref{sec:layeredModel} presents models for components on different levels of abstraction, such as component types and the various component instance levels. The static structure of the entire component meta model is summarised in section \ref{sec:staticStructure}.
-This paper is organised as follows. First we introduce typical modelling scenarios when designing component based software architectures \ref{sec:examples}. Scenarios which should be supported during architectural design are presented in section \ref{sec:scenarios}. It is reasoned why existing component models do not support these scenarios appropriately. Elementary modelling constructs of the Palladio component model are presented in section \ref{sec:concepts}.
-%TODO: Weitere sections
+\section{
 
-\section{Scenarios of Component based Software Design}
-\label{sec:examples}
-
-%evtl. example of web-server (DA Jens)
-% ---> Steffen
-% * Three Tier architecture, 3 Komponenten als Typ (Erst Komponenten dann Schnittstellen)
-% * Komponenten eingekauft bzw. bereits implementiert
-% * Deploytes 3-Tier architecture zur QoS Vorhersage
-
-In the following, we give examples of common component based software architectures. These architectures are used later to highlight the types of analysis, which can be performed with the Palladio component meta model. In doing so, we demonstrate the advantages of our model compared to common enterprise scale or selected scientific component models.
-
-The most common type of architecture for business information systems is a three tier architecture consisting of a graphical user interface (GUI) tier, a business logic tier, and a database back-end tier. In component based software design, we can model each tier as a single component, which contains the sub-architecture best fitted for its requirements.
-
-In the GUI tier, we can identify components responsible for controlling certain workflows, e.g. wizard frames or sequential form-based masks. Additionally, components with a GUI part are used, which are called controls in some frameworks. Examples are reusable calendar controls, database grids or reporting views. The controls are used the design a common look and feel for the interface and they often implement only functionality to coordinate the display of their graphical representation and methods to get and set the data to be displayed. With a focus on architectural evaluation, this type of components is normally not being specified in the architectural description.
-
-The implementation of the identified and modelled processes supported by the software system resides in the business logic. The components in this tier mainly implement the domain tasks of the respective enterprise. Often the components are separated using their logical functionality, e.g. a component for accounting and one for customer relationship management. Note, that these components might be assembled from components again. 
-
-The database tier often consists of a database management system and technologies used to abstract from the logical representation of the data. Belonging to the later are connector technologies like ODBC/JDBC, SAP connectors, etc. but also persistency frameworks like object relational (OR-) mapper which support modelling and storing of the domain objects.
-
-Often, the three tiers are connected by some kind of middleware platform serving as component runtime environment and offering needed basic services for inter-component communication. Message passing like publish/subscribe services, RPC calls or web-services as well as adaptation techniques like interception are often offered to the components. Additionally, many middleware platforms offer services to enhance the architecture with quality related aspects like access control, replication or the afore-mentioned persistency services. The middleware is therefore part of the deployment specification and might have a significant impact on the resulting Quality of Service of the deployed system. Hence, such a specification is needed when performing QoS predictions.
-
-In the three tier example, we already identify several kinds of components. Some of the components are self-developed and tailored directly to the specific business needs of the applying enterprise. Some of the components can be purchased and reused as component of the shelf (COTS) software, e.g. the database and middleware technologies or certain GUI controls. And finally, every component can be deployed and adapted resulting in a different behaviour in the specific context. A component meta model has to support each of them.
-
-A three tier architecture which is used for QoS studies in our group is an experimental web server \cite{firus2005a}. The client tier is in this case a simple web browser or a test driver program simulation user interactions. The business logic implements the handling of HTML requests. A database is connected to enable dynamic HTML generation for web based applications.
-
-% ---> Jens
-% * Versch. Implementierungen eines Komponententyps, HTTP-Request Processor (Basic Component vs. Composite), Verweis auf UML 2.0 Komponentenbegriff
-% * Plugin-Konzept: Erst schnittstellen dann Komponenten (webserver plugins)
-
-Another typical scenario for component-based software development can be found in the prototypical web server developed in our group. The processing of each incoming HTTP request is realised by a Chain of Responsibility (CoR) \cite{gamma1995a}. A part of the chain is shown in figure \ref{fig:part_CoR}.
-
-
-Each element of the chain is a software component as shown in figure \ref{fig:CoR_Component}. The component provides and requires an interface called \texttt{IHttpRequestProcessor}, which contains a single service \texttt{HandleRequest}. Thus, it is possible to extend the functionality of the webserver by simply adding a new component to the CoR, which is conformant to the one shown in figure \ref{fig:CoR_Component}.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.6\columnwidth]{images/CoR_Part.pdf}
-  \caption{Part of the Chain of Responsibility.}
-  \label{fig:CoR_Part}
-\end{figure}
-
-Here, a single component shall not be replaced by another implementation of the same functionality, but the functionality of the system can be extended by adding components of the same type to the chain. 
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.6\columnwidth]{images/CoR.pdf}
-  \caption{One Component of the Chain of Responsibility.}
-  \label{fig:CoR_Component}
-\end{figure}
-
-
-
-%Die OMG schreibt über Komponenten (p.150, http://www.omg.org/docs/ptc/04-10-02.pdf):
-A component represents a modular part of a system that encapsulates its contents and whose manifestation is replaceable within its environment.
-
-A component defines its behaviour in terms of provided and required interfaces. As such, a component serves as a type, whose conformance is defined by these provided and required interfaces (encompassing both their static as well as dynamic semantics). One component may therefore be substituted by another only if the two are type conformant. Larger pieces of a system's functionality may be assembled by reusing components as parts in an encompassing component or assembly of components, and wiring together their required and provided interfaces.
-
-A component is modeled throughout the development life cycle and successively refined into deployment and run-time. A component may be manifest by one or more artifacts, and in turn, that artifact may be deployed to its execution environment. A deployment specification may define values that parameterize the component’s execution.
-
-
-
-
-\subsection{Scenarios to be Supported}
-\label{sec:scenarios}
-Entwurf:
--> Top Down/Bottom Up Iterativ (Neuentwicklung, COTS-integration)
--> Interfaces first / Components first
-Wartung:
--> Änderungsunterstützung
-Qualität:
--> Vorhersagen von QoS Eignenschaften
--> Validation
-
-\subsection{Problems of Current Component Meta Models}
--> UML2, CCM
-	-> Keine/rudimentäre Protokolle
-	-> Parm. Verträge, SEFFs
-	-> Analysierbare Qualitätsannotation
-	-> Trennung der Komponentenebenen
-	-> Subtype nicht klar definiert
--> ADLs? -- Sidenote
-
-\section{Concepts of the Palladio Meta Model}
-\label{sec:concepts}
-\subsection{Terms as UML Stereotypes}
--> Protocol
--> Interface
-
-\subsection{Abstraction Levels of Components}  
-
-\subsection{Relationships}
--> Association / Constrainsts: <Implements>, <Deploys>, <Executes>
-   OCL, Zusatzattibute
-
-\subsection{A Classification of Interface Models}
-
-% CBSE 7 paper klassification von Schnittstellen modellen anhand der KLassifikation von Interoperarbilitätsproblemen
-\subsection{Parametric Contracts}
-
-%to be taken from various papers :-)
-%contracts for components
-%parametric contracts for components
-\subsection{Roles of Interfaces}
-
-% free floating interfaces
-% provided and required interface as stereotypes
-% computation of deployment specific interfaces
-\subsection{Scenarios revisited}
 \section{Conclusions}
 
 
