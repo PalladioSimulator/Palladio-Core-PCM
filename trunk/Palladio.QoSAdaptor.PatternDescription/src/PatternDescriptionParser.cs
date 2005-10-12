@@ -97,7 +97,7 @@ namespace Palladio.QoSAdaptor.Pattern
 			{
 				XmlTextReader textReader = new XmlTextReader(file);
 				XmlValidatingReader val = new XmlValidatingReader(textReader);
-				val.ValidationType = ValidationType.DTD;
+				val.ValidationType = ValidationType.Schema;
 				val.ValidationEventHandler +=
 					new ValidationEventHandler(OnValidateError);
 				while (val.Read());			
@@ -129,7 +129,7 @@ namespace Palladio.QoSAdaptor.Pattern
 
 			try 
 			{
-				// TODO: comment in, when new xsd is written.
+				// TODO: Overwork validation
 				//XmlValid(file);
 				doc = new XmlDocument();
 				doc.Load(file);
@@ -166,7 +166,7 @@ namespace Palladio.QoSAdaptor.Pattern
 				PatternDescription pattern)
 		{
 			XPathNodeIterator it;
-			it = nav.Select("/Pattern");
+			it = nav.Select("/pattern");
 			it.MoveNext();
 			pattern.Name = GetValueOfChild(it, "name");
 			pattern.InterfaceModel = GetValueOfChild(it, "interfaceModel");
@@ -185,13 +185,14 @@ namespace Palladio.QoSAdaptor.Pattern
 		private void ReadMismatches(XPathNavigator nav, PatternDescription pattern)
 		{
 			XPathNodeIterator it;
-			it = nav.Select("/Pattern/mismatches");
+			it = nav.Select("/pattern/mismatches");
 			it.MoveNext();
 			XPathNodeIterator it2;
 			it2=it.Current.SelectChildren("attribute", it.Current.NamespaceURI);
 			while(it2.MoveNext())
 				{
-					MismatchAttribute attribute = new MismatchAttribute(GetValueOfChild(it2, "name"));
+					MismatchAttribute attribute = new MismatchAttribute(
+						GetValueOfChild(it2, "name"));
 					attribute.Suitability = GetValueOfChild(it2, "suitability");
 					pattern.AddMismatchAttribute(attribute);
 				}
@@ -210,7 +211,7 @@ namespace Palladio.QoSAdaptor.Pattern
 				PatternDescription pattern)
 		{
 			XPathNodeIterator it;
-			it = nav.Select("/Pattern/adapterTemplates");
+			it = nav.Select("/pattern/adaptorTemplates");
 			it.MoveNext();
 			XPathNodeIterator it2;
 			it2=it.Current.SelectChildren("template", it.Current.NamespaceURI);
@@ -232,7 +233,7 @@ namespace Palladio.QoSAdaptor.Pattern
 			PatternDescription pattern)
 		{
 			XPathNodeIterator it;
-			it = nav.Select("/Pattern/predictionModels");
+			it = nav.Select("/pattern/predictionModels");
 			it.MoveNext();
 			XPathNodeIterator it2;
 			it2=it.Current.SelectChildren("predictionModel",
