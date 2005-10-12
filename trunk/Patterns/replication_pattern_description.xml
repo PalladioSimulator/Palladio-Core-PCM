@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Pattern SYSTEM "PatternDescription.dtd">
-<Pattern>
+<pattern xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="pattern_description.xsd">
 	<name>Replication</name>
 	<interfaceModel>Quality</interfaceModel>
 	<mismatches>
@@ -19,14 +18,16 @@
 	</mismatches>
 	<description>Replication is a okjnsd  asjdfkl psadf kosal ösfjpkasö öljsaf asoiu snf soi lsdmp sdsup öakj ds hsf ödnso ysafm.</description>
 	<source>Kircher/Jain: Pattern Oriented Software Architecture</source>
-	<adapterTemplates>
+	<adaptorTemplates>
 		<template>Replication1.cst</template>
 		<template>Replication2.cst</template>
 		<template>Replication3.cst</template>
-	</adapterTemplates>
-	<predictionTemplates>
-		<template>ReplicationPrediction1.cst</template>
-		<template>ReplicationPrediction2.cst</template>
-		<template>ReplicationPrediction3.cst</template>
-	</predictionTemplates>
-</Pattern>
+	</adaptorTemplates>
+	<predictionModels>
+		<predictionModel>
+			<template>ReplicationPrediction1.cst</template>
+			<template>ReplicationPrediction2.cst</template>
+			<template>ReplicationPrediction3.cst</template>
+		</predictionModel>
+	</predictionModels>
+</pattern>

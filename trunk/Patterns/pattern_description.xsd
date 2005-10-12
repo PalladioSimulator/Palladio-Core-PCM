@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="pattern">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="name" type="xs:string"/>
+				<xs:element name="description" type="xs:string"/>
+				<xs:element name="source" type="xs:string"/>
+				<xs:element name="interfaceModel" type="interfaceModelType"/>
+				<xs:element name="mismatches">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="attribute" type="attributeType" maxOccurs="9"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="adaptorTemplates">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="template" type="xs:string" maxOccurs="100"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="predictionModels">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="predictionModel" type="predictionModelType" />
+						</xs:all>	
+					</xs:complexType>
+				</xs:element>	
+			</xs:all>
+		</xs:complexType>	
+	</xs:element>
+	<xs:simpleType name="interfaceModelType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Syntax"/>
+			<xs:enumeration value="Behaviour"/>
+			<xs:enumeration value="Interaction"/>
+			<xs:enumeration value="Quality"/>
+			<xs:enumeration value="Concept"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="suitabilityType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="--"/>
+			<xs:enumeration value="-"/>
+			<xs:enumeration value="o"/>
+			<xs:enumeration value="+"/>
+			<xs:enumeration value="++"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="predictionModelType">
+		<xs:sequence>
+			<xs:element name="template" type="xs:string" maxOccurs="100"/>
+		</xs:sequence>	
+		<xs:attribute name="name" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="attributeType">
+		<xs:all>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="suitability" type="suitabilityType"/>
+		</xs:all>
+	</xs:complexType>
+</xs:schema>

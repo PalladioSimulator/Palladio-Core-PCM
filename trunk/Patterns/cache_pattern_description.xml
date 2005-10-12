@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Pattern SYSTEM "PatternDescription.dtd">
-<Pattern>
+<pattern xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="pattern_description.xsd">
 	<name>Cache</name>
 	<interfaceModel>Quality</interfaceModel>
 	<mismatches>
@@ -15,11 +14,13 @@
 	</mismatches>
 	<description>A cache okjnsd  asjdfkl psadf kosal ösfjpkasö öljsaf asoiu snf soi lsdmp sdsup öakj ds hsf ödnso ysafm.</description>
 	<source>Kircher/Jain: Pattern Oriented Software Architecture</source>
-	<adapterTemplates>
+	<adaptorTemplates>
 		<template>CacheAdaptor.cst</template>
 		<template>CacheAdaptorUnitTests.cst</template>
-	</adapterTemplates>
-	<predictionTemplates>
-		<template>SEA_CacheAdaptor.cst</template>
-	</predictionTemplates>
-</Pattern>
+	</adaptorTemplates>
+	<predictionModels>
+		<predictionModel name="Palladio">
+			<template>SEA_CacheAdaptor.cst</template>
+		</predictionModel>
+	</predictionModels>
+</pattern>
