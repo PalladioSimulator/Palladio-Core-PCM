@@ -19,15 +19,15 @@ throughput > 2;
 cacheProfile for ICache = profile {
 from get require Performance contract {
 delay {
-percentile 50 < 5;
-percentile 80 < 10;
-percentile 100 < 20;
+percentile 25 < 2.5;
+percentile 70 < 10;
+percentile 100 < 15;
 mean < 7.5;
 };
 throughput > 2;
 },
 Reliability contract {
-numberOfFailures == 3;
+numberOfFailures == 2;
 };
 }
 
