@@ -205,8 +205,26 @@ namespace Palladio.QoSAdaptor.Control
 					PatternDescriptionParser (fileInfo.FullName);
 				// Only take PatternDescriptions with the correct 
 				// interfaceModel.
-				if (parser.Pattern.InterfaceModel.Equals(this.interfaceModel.ToString()))
-					patterns.Add(parser.Pattern);
+				// TODO: Throw exception in the parser, if an error occurs 
+				// while parsing.
+				if (parser.Pattern == null)
+				{
+					MessageBox.Show("Could not parse pattern description in "+
+						fileInfo.FullName);
+				}
+				else
+				{
+					if (parser.Pattern.InterfaceModel.Equals(
+						this.interfaceModel.ToString()))
+					{
+						patterns.Add(parser.Pattern);
+					}
+					else
+						MessageBox.Show("Pattern description in "+
+							fileInfo.FullName+" is not further considered, "+
+							"because it can not be used for the quality-based "
+							+"interface model.");
+				}
 			}
 			return patterns;
 		}
@@ -242,7 +260,6 @@ namespace Palladio.QoSAdaptor.Control
 						if ((mismatchAttribute.Suitability.Equals("+")) ||
 							(mismatchAttribute.Suitability.Equals("++")))
 						{
-							//mismatch.AddPattern(pattern);
 							mismatchPatterns.Add(pattern);
 						}
 					}
