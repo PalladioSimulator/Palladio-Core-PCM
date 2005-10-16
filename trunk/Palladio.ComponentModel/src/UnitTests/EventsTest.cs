@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/10/16 10:41:26  kelsaka
+	/// - added test to show problems with CM-use in Palladio Editor.
+	///
 	/// Revision 1.3  2005/09/28 08:38:25  joemal
 	/// add role to rem. interface event
 	///
@@ -32,6 +35,8 @@ namespace Palladio.ComponentModel.UnitTests
 		private ComponentModelEnvironment componentModel;
 		private string sequenze;
 		private bool errorFlag=false;
+		private bool flag01 = false;
+		private bool flag02 = false;
 
 		[SetUp]
 		public void Init()
@@ -95,6 +100,33 @@ namespace Palladio.ComponentModel.UnitTests
 			Assert.AreEqual("-provif",sequenze);
 			bc.RemoveRequiresInterface(StaticComponentModel.IWRITERBEID);
 			Assert.AreEqual("-provif-reqif",sequenze);
+		}
+
+		[Test]
+		public void AddInterface()
+		{
+			StaticComponentModel.Create(this.componentModel);
+
+			componentModel.EventInterface.GetRepositoryEvents().InterfaceAddedEvent += new InterfaceBuildEventHandler(EventsTest_InterfaceAddedEvent);
+			IInterfaceIdentifier interfaceID = componentModel.BuilderManager.RootTypeLevelBuilder.CreateInterface("if1").InterfaceId;
+
+			Assert.IsTrue(flag02, "No Creation Event.");
+
+			componentModel.EventInterface.GetInterfaceEvents(interfaceID);			
+			componentModel.Query.QueryRepository.GetInterface(interfaceID).Name = "..";
+			Assert.IsTrue(flag01, "NameChangedEvent not raised.");
+		}
+
+		private void EventsTest_NameChangedEvent(object sender)
+		{
+			flag01 = true;
+		}
+
+		private void EventsTest_InterfaceAddedEvent(object sender, InterfaceBuildEventArgs args)
+		{
+			componentModel.EventInterface.GetInterfaceEvents(args.Interface.InterfaceID).NameChangedEvent
+				+= new StaticAttributeChangedEventHandler(EventsTest_NameChangedEvent);
+			flag02 = true;
 		}
 
 		private void ComponentAdded(object sender, ComponentUseEventArgs args)
@@ -177,6 +209,8 @@ namespace Palladio.ComponentModel.UnitTests
 			else
 				this.sequenze += "-reqif";
 		}
+
+
 	}
 }
 
