@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/10/17 11:47:27  kelsaka
+	/// - extended test case
+	///
 	/// Revision 1.4  2005/10/16 10:41:26  kelsaka
 	/// - added test to show problems with CM-use in Palladio Editor.
 	///
@@ -105,7 +108,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void AddInterface()
 		{
-			StaticComponentModel.Create(this.componentModel);
+			this.componentModel = new ComponentModelEnvironment();
 
 			componentModel.EventInterface.GetRepositoryEvents().InterfaceAddedEvent += new InterfaceBuildEventHandler(EventsTest_InterfaceAddedEvent);
 			IInterfaceIdentifier interfaceID = componentModel.BuilderManager.RootTypeLevelBuilder.CreateInterface("if1").InterfaceId;
@@ -124,6 +127,8 @@ namespace Palladio.ComponentModel.UnitTests
 
 		private void EventsTest_InterfaceAddedEvent(object sender, InterfaceBuildEventArgs args)
 		{
+			Assert.IsNotNull(args.Interface, "event-arg 'interface' was null.");
+			Assert.IsNotNull(componentModel.Query.QueryRepository.GetInterface(args.Interface.InterfaceID), "query result: interface not found though event was raised.");
 			componentModel.EventInterface.GetInterfaceEvents(args.Interface.InterfaceID).NameChangedEvent
 				+= new StaticAttributeChangedEventHandler(EventsTest_NameChangedEvent);
 			flag02 = true;
