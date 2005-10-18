@@ -40,15 +40,14 @@ Externe Entitäten zeichnen sich durch ihre zur Entwurfszeit unbekannte Struktur 
 Die Schnittstellen aller Entitäten sind in der derzeitigen Implementierung des Komponentenmodells im Namensraum \verb+Palladio.ComponentModel.ModelEntities+ zu finden. Es folgt eine genauere Beschreibung der Realisierung der internen und externen Entitäten.
   
 \subsubsection{Realisierung interner Entitäten}
+Das Interface \verb+IComponentModelEntity+ bildet die Basisschnittstelle aller internen Entitäten. Es definiert Zugriffsmethoden auf die ID, den Namen und die Attribute, wobei auf ID auschließlich lesend, auf Name und die Attribute zusätzlich auch schreibend zugegriffen werden kann. Während der Name direkter Bestandteil der Schnittstelle ist, ist der Zugriff auf die Attribute im Interface \verb+IAttributable+ definiert. Dieses ist Teil des Palladio-Attribut-Konzepts und wird von \verb+IComponentModelEntity+ geerbt. Ebenso ist ID nicht direkt im Interfaces definiert sondern wird von einem Basisinterfaces ererbt. Eine detailierte Betrachtung der Identifizierung von Entitäten ist in Kapitel \ref{sec:kern:beschr:ids} zu finden. 
 
+Alle Entitäten des Komponentenmodells erhalten spezialisierte Interfaces
 
 \subsubsection{Realisierung der externen Entitäten}
 
-\subsubsection{Identifizierung von Entitäten}
-
-Da die gewählte Datenbank (siehe Abschnitt \ref{sec:kern:beschr:dataset}) nur die Speicherung von Standartdatentypen zuläßt, muss eine zusätzliche Infrastruktur geschaffen werden, welche die Entitäten des Modells hält. Hierfür bot sich die Hashtable des .NET-Frameworks an, in der die Entitäten durch ihre ID referenzierbar sind. ....
-%id konzept ...
-
+\subsubsection{Speicherung und Identifizierung von Entitäten}
+\label{sec:kern:beschr:ids}
 
 \subsubsection{Speicherung der Beziehungen}
 \label{sec:kern:beschr:dataset}
