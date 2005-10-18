@@ -6,7 +6,7 @@ Version=4
 MainFile=PalladioCM.tex
 UseBibTeX=1
 UseMakeIndex=0
-ActiveProfile=LaTeX => PDF
+ActiveProfile=LaTeX => DVI
 ProjectLanguage=
 ProjectDialect=
 
