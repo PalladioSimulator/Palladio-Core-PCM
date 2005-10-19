@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/10/19 14:21:43  kelsaka
+	/// - test-fix
+	///
 	/// Revision 1.5  2005/10/17 11:47:27  kelsaka
 	/// - extended test case
 	///
@@ -106,17 +109,17 @@ namespace Palladio.ComponentModel.UnitTests
 		}
 
 		[Test]
-		public void AddInterface()
+		public void QueryInterfaceAfterCreationEvent()
 		{
-			this.componentModel = new ComponentModelEnvironment();
+			ComponentModelEnvironment cme = new ComponentModelEnvironment();
 
-			componentModel.EventInterface.GetRepositoryEvents().InterfaceAddedEvent += new InterfaceBuildEventHandler(EventsTest_InterfaceAddedEvent);
-			IInterfaceIdentifier interfaceID = componentModel.BuilderManager.RootTypeLevelBuilder.CreateInterface("if1").InterfaceId;
+			cme.EventInterface.GetRepositoryEvents().InterfaceAddedEvent += new InterfaceBuildEventHandler(EventsTest_InterfaceAddedEvent);
+			IInterfaceIdentifier interfaceID = cme.BuilderManager.RootTypeLevelBuilder.CreateInterface("if1").InterfaceId;
 
 			Assert.IsTrue(flag02, "No Creation Event.");
 
-			componentModel.EventInterface.GetInterfaceEvents(interfaceID);			
-			componentModel.Query.QueryRepository.GetInterface(interfaceID).Name = "..";
+			cme.EventInterface.GetInterfaceEvents(interfaceID);			
+			cme.Query.QueryRepository.GetInterface(interfaceID).Name = "..";
 			Assert.IsTrue(flag01, "NameChangedEvent not raised.");
 		}
 
