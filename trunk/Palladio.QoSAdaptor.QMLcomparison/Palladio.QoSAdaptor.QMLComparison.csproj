@@ -104,6 +104,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\IQMLComparator.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\QMLComparator.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -169,11 +174,6 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "src\QmlSpecification\QMLMismatchSearchException.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "src\QmlSpecification\QMLNoValidValueException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -230,6 +230,51 @@
                 />
                 <File
                     RelPath = "src\QmlSpecification\QMLVarianceAspect.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\QmlSpecificationVisitors\IQMLSpecificationVisitor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\QmlSpecificationVisitors\IQMLVisitable.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\QmlSpecificationVisitors\QMLCompleteCopingException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\QmlSpecificationVisitors\QMLCompleteCopingUnknownProfileException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\QmlSpecificationVisitors\QMLMismatchSearchException.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\QmlSpecificationVisitors\QMLProvidedSpecificationCompleteCopingVisitor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\QmlSpecificationVisitors\QMLProvidedSpecificationMismatchSearchVisitor.cs.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\QmlSpecificationVisitors\QMLRequiredSpecificationCompleteCopingVisitor.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\QmlSpecificationVisitors\QMLRequiredSpecificationMismatchSearchVisitor.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

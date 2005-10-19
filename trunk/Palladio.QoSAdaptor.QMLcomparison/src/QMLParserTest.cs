@@ -59,8 +59,8 @@ namespace Palladio.QoSAdaptor.QMLComparison
 
 			/*try
 			{*/
-				IList mismatches = requiredSpecification.GetMismatches(
-					providedSpecification);	
+				IList mismatches = null; /* requiredSpecification.GetMismatches(
+					providedSpecification);	*/
 				Console.WriteLine();
 				Console.WriteLine("MISMATCHES:");
 				IEnumerator enu = mismatches.GetEnumerator();

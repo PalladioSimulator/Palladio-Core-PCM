@@ -18,17 +18,17 @@
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 
-using System.Collections;
 using antlr.collections;
+using Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors;
 
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
 	/// A QML profile describes QoS requirements for a certain interface.
 	/// </summary>
-	public class QMLProfile
+	public class QMLProfile : IQMLVisitable
 	{
-		#region data
+		#region attributes
 		private string name;
 		private string interfaceName;
 		private QMLProfileExpression profileExpression;
@@ -85,28 +85,14 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		}
 		#endregion
 
-		#region public methods
-		/// <summary>
-		/// Checks, if the given profile covers the same interface as this 
-		/// profile. Thereby it is possible that this profile describes
-		/// more entities than the given profile.
-		/// </summary>
-		/// <param name="profile">Profile which shall cover the same interface
-		/// as this profile.</param>
-		/// <returns>True, if this profile covers the same interface as the
-		/// given profile. False, else.</returns>
-		public bool Covers (QMLProfile profile)
+		#region methods inherited by IQMLVisitable
+		public void Accept(IQMLSpecificationVisitor visitor)
 		{
-			if (profile.InterfaceName.Equals
-				(this.interfaceName))
-			{
-				// check entities
-				if (this.profileExpression.Covers(profile.ProfileExpression))	
-					return true;
-			}
-			return false;
+			visitor.VisitQMLProfile(this);
 		}
+		#endregion
 
+		#region public methods
 		/// <summary>
 		/// Returns a new QML profile string containing all 
 		/// information in this QMLProfile which is compatible to the 
@@ -117,24 +103,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		{
 			return this.name+" for "+this.interfaceName+" = "+
 					this.profileExpression.ToString();
-		}
-
-		/// <summary>
-		/// Searches for mismatches between the entities of this QMLProfile and
-		/// the given provided profile.
-		/// </summary>
-		/// <param name="providedProfile">A QML profile of the provided 
-		/// service.</param>
-		/// <returns>A list of Mismatch objects.</returns>
-		public IList FindMismatches(QMLProfile providedProfile)
-		{
-			if (!this.interfaceName.Equals(providedProfile.InterfaceName))
-				throw new QMLMismatchSearchException("Error in QMLProfile."+
-					"FindMismatches. The profiles do not describe the "+
-					"same interfaces.");
-			
-			return this.profileExpression.FindMismatches(
-				providedProfile.ProfileExpression, this.interfaceName);
 		}
 		#endregion
 	}

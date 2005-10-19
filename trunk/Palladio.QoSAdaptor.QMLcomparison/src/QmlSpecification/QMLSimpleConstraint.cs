@@ -19,6 +19,7 @@
 #endregion
 
 using antlr.collections;
+using Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors;
 using QmlParser;
 
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
@@ -27,14 +28,29 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// Represents a QML simple constraint.
 	/// TODO: Inherit from superclass/interface QMLConstraint?
 	/// </summary>
-	public class QMLSimpleConstraint
+	public class QMLSimpleConstraint : IQMLVisitable
 	{
-		#region data
+		#region attributes
+		/// <summary>
+		/// The name of this simple constraint.
+		/// </summary>
 		private string name;
-		// Values of numericOperator are defined as constants in QMLParser
+
+		/// <summary>
+		/// The numeric operator of this simple constraint. Values of 
+		/// numericOperator are defined as constants in QMLParser.
+		/// </summary>
 		private int numericOperator; 
+
+		/// <summary>
+		/// The literal of this simple constraint
+		/// </summary>
 		private QMLValueLiteral valueLiteral;
-		// unit stays null when no unit is specified. No default value.
+
+		/// <summary>
+		/// The unit of this simple constraint. The unit is null when no 
+		/// unit is specified. There is no default value.
+		/// </summary>
 		private QMLUnit unit;
 		#endregion
 
@@ -113,6 +129,20 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		}
 		#endregion
 
+		#region method inherited by IQMLVisitable
+		/// <summary>
+		/// Implements the IQMLVisitable interface. Calls the 
+		/// VisitQMLSpecification method of the given visitor.
+		/// </summary>
+		/// <param name="visitor">Implemenation of the 
+		/// IQMLSpecificationVisitor interface that implements an operation on 
+		/// the QML specification class tree.</param>
+		public void Accept (IQMLSpecificationVisitor visitor)
+		{
+			visitor.VisitQMLSimpleConstraint(this);
+		}
+		#endregion
+
 		#region public methods
 		/// <summary>
 		/// Returns a new QML simple constraint string containing all 
@@ -146,85 +176,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 				s += " "+unit.ToString();
 			s += ";";
 			return s;
-		}
-
-		/// <summary>
-		/// Checks if this QMLSimpleConstraint matches the given constraint.
-		/// I.e. is better or equal to the given constraint. 
-		/// As part of a mismatch search this constraint should be part of the
-		/// provided specification while the given constraint should be part of the
-		/// required specification
-		/// </summary>
-		/// <param name="constraint">QMLSimpleConstraint that is part of the
-		/// required specification.</param>
-		/// <returns>True if this constraint matches the given constraint, 
-		/// else false.</returns>
-		public bool Matches (QMLSimpleConstraint constraint)
-		{
-			if (!this.name.Equals(constraint.Name))
-				return false;
-
-			// The units are not taken into consideration since they do not 
-			// have to be given. 
-			// Only the matches are described in the following switch 
-			// statement. Everything else is defined as not matched and 
-			// false is returned.
-
-			// Matching has to be checked for every possible numericOperator
-			// of the given constraint.
-			switch (constraint.NumericOperator)
-			{
-				case QMLTokenTypes.NUMOP_EQUAL:
-					if ((this.numericOperator == QMLTokenTypes.NUMOP_EQUAL) &&
-						this.valueLiteral.Equals(constraint.ValueLiteral))
-						return true;
-					break;
-				case QMLTokenTypes.NUMOP_GTE:
-					if (((this.numericOperator == QMLTokenTypes.NUMOP_GTE) ||
-						(this.numericOperator == QMLTokenTypes.NUMOP_EQUAL) ||
-						(this.numericOperator == QMLTokenTypes.NUMOP_GTHAN)) 
-						&&
-						(this.valueLiteral.CompareTo(constraint.ValueLiteral)
-						 >= 0))
-						return true;
-					break;
-				case QMLTokenTypes.NUMOP_GTHAN:
-					if (((this.numericOperator == QMLTokenTypes.NUMOP_GTHAN) &&
-						  (this.valueLiteral.CompareTo(constraint.ValueLiteral)
-						     >= 0)) 
-						||
-						(((this.numericOperator == QMLTokenTypes.NUMOP_GTE) ||
-						  (this.numericOperator==QMLTokenTypes.NUMOP_EQUAL)) 
-						   &&
-						  (this.valueLiteral.CompareTo(constraint.ValueLiteral) 
-						 	 > 0)))
-						return true;
-					break;
-				case QMLTokenTypes.NUMOP_LTE:
-					if (((this.numericOperator == QMLTokenTypes.NUMOP_EQUAL) ||
-						 (this.numericOperator == QMLTokenTypes.NUMOP_LTE) ||
-						 (this.numericOperator == QMLTokenTypes.NUMOP_LTHAN)) 
-						&&
-						(this.valueLiteral.CompareTo(constraint.ValueLiteral)
-						   <= 0))
-						return true;
-					break;
-				case QMLTokenTypes.NUMOP_LTHAN:
-					if (((this.numericOperator == QMLTokenTypes.NUMOP_LTHAN) && 
-						(this.valueLiteral.CompareTo(constraint.ValueLiteral)
-						  <= 0)
-						) 
-						||
-						(((this.numericOperator == QMLTokenTypes.NUMOP_EQUAL)||
-						  (this.numericOperator == QMLTokenTypes.NUMOP_LTE))
-						  &&
-						 (this.valueLiteral.CompareTo(constraint.ValueLiteral)
-						   < 0)))
-						return true;
-					break;
-
-			}
-			return false;
 		}
 		#endregion
 	}

@@ -18,17 +18,17 @@
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 
-using System.Collections;
 using antlr.collections;
+using Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors;
 
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
 	/// Represents a QMLContract
 	/// </summary>
-	public class QMLContract
+	public class QMLContract : IQMLVisitable
 	{
-		#region data
+		#region attributes
 		private string name;
 		private QMLContractExpression contractExpression;
 		#endregion
@@ -93,6 +93,20 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		}
 		#endregion
 
+		#region method inherited by IQMLVisitable
+		/// <summary>
+		/// Implements the IQMLVisitable interface. Calls the 
+		/// VisitQMLSpecification method of the given visitor.
+		/// </summary>
+		/// <param name="visitor">Implemenation of the 
+		/// IQMLSpecificationVisitor interface that implements an operation on 
+		/// the QML specification class tree.</param>
+		public void Accept (IQMLSpecificationVisitor visitor)
+		{
+			visitor.VisitQMLContract(this);
+		}
+		#endregion
+
 		#region public methods
 		/// <summary>
 		/// Returns a new QML contract string containing all information
@@ -122,51 +136,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 					return true;
 			}
 			return false;
-		}
-
-		/// <summary>
-		/// Lists mismatches of the contract expression of this contract and 
-		/// the given QMLContract. 
-		/// The names of the contract are thereby not examined.
-		/// </summary>
-		/// <param name="providedContract">A QMLContract of the provided 
-		/// interface which describes the same interface or entity as this
-		/// contract.</param>
-		/// <param name="entityName">The name of the entity this contract is 
-		/// defined for. Null if the contract describes an interface.</param>
-		/// <param name="interfaceName">The name of the interface this 
-		/// contract is defined for.</param>
-		/// <returns></returns>
-		public IList FindMismatches (QMLContract providedContract, 
-			string entityName, string interfaceName)
-		{
-			ArrayList mismatches = new ArrayList();
-			if (this.ContractExpression.Name.Equals(
-				providedContract.ContractExpression.Name))
-			{	
-				/* This part is commented out to try 
-				 * ContractExpression.GetMismatches instead of 
-				 * ContractExpression.Matches
-				 
-				if (!providedContract.ContractExpression.Matches(
-					this.contractExpression))
-					// Note: It is expected that ContractExpression.Name
-					// equals the name of the corresponding QoS aspect.
-					// Else a mapping would be necessary.
-					mismatches.Add(new QMLMismatch(interfaceName, 
-						entityName, 
-						this.contractExpression.Name));*/
-				IList contractMismatches = providedContract.ContractExpression.
-					GetMismatches(this.contractExpression);
-				if (contractMismatches != null)
-				{
-					foreach (string mismatchName in contractMismatches)
-						mismatches.Add(new QMLMismatch(interfaceName, 
-							entityName, this.contractExpression.Name, 
-							mismatchName));
-				}
-			}
-			return mismatches;
 		}
 		#endregion
 	}

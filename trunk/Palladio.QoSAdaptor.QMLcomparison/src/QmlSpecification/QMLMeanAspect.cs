@@ -26,13 +26,26 @@ using QmlParser;
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
-	/// Zusammenfassung für QMLMeanAspect.
+	/// Represents a mean aspect of an aspect constraint.
 	/// </summary>
 	public class QMLMeanAspect : IQMLStatConstraint
 	{
-		#region data
+		#region attributes
+		/// <summary>
+		/// The type of this QMLMeanAspect. The value is specified in 
+		/// QMLParser.QMLTokenTypes
+		/// </summary>
 		private int type;
+
+		/// <summary>
+		/// The numeric operator of this mean aspect. Possible values are
+		/// defined as constants in QMLParser.
+		/// </summary>
 		private int numericOperator;
+
+		/// <summary>
+		/// The value of this mean aspect.
+		/// </summary>
 		private double value;
 		#endregion
 
@@ -92,6 +105,18 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 				return this.value;
 			}
 		}
+
+		/// <summary>
+		/// The type of this aspect. The value is specified in 
+		/// QMLParser.QMLTokenTypes.
+		/// </summary>
+		public int Type
+		{
+			get
+			{
+				return this.type;	
+			}
+		}
 		#endregion
 
 		#region public methods
@@ -124,84 +149,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 			}
 			s += " "+this.value+";";
 			return s;
-		}
-
-		/// <summary>
-		/// Getter for the aspect type. Not implemented as property, because
-		/// properties are not allowed in interfaces.
-		/// </summary>
-		/// <returns>The type of this aspect. The value is specified in 
-		/// QMLParser.QMLTokenTypes.</returns>
-		public int Type()
-		{
-			return this.type;
-		}
-
-		/// <summary>
-		/// Checks if this QMLMeanAspect matches the given aspect.
-		/// I.e. is better or equal to the given aspect. 
-		/// As part of a mismatch search this aspect should be part of the
-		/// provided specification while the given aspect should be part of the
-		/// required specification.
-		/// </summary>
-		/// <param name="requiredAspect">QMLMeanAspect that is part of the
-		/// required specification.</param>
-		/// <returns>True if this aspect matches the given aspect, 
-		/// else false.</returns>
-		public bool Matches (IQMLStatConstraint requiredAspect)
-		{
-			if (this.type != requiredAspect.Type())
-				return false;
-
-			QMLMeanAspect requiredMeanAspect = (QMLMeanAspect)requiredAspect;
-
-			// Matching has to be checked for every possible numericOperator
-			// of the given constraint.
-			switch (requiredMeanAspect.NumericOperator)
-			{
-				case QMLTokenTypes.NUMOP_EQUAL:
-					if ((this.numericOperator == QMLTokenTypes.NUMOP_EQUAL) &&
-						this.value == requiredMeanAspect.Value)
-						return true;
-					break;
-				case QMLTokenTypes.NUMOP_GTE:
-					if (((this.numericOperator == QMLTokenTypes.NUMOP_GTE) ||
-						(this.numericOperator == QMLTokenTypes.NUMOP_EQUAL) ||
-						(this.numericOperator == QMLTokenTypes.NUMOP_GTHAN)) 
-						&&
-						(this.value >= requiredMeanAspect.Value))
-						return true;
-					break;
-				case QMLTokenTypes.NUMOP_GTHAN:
-					if (((this.numericOperator == QMLTokenTypes.NUMOP_GTHAN) &&
-						(this.value >= requiredMeanAspect.Value)) 
-						||
-						(((this.numericOperator == QMLTokenTypes.NUMOP_GTE) ||
-						(this.numericOperator==QMLTokenTypes.NUMOP_EQUAL)) 
-						&&
-						(this.value > requiredMeanAspect.Value)))
-						return true;
-					break;
-				case QMLTokenTypes.NUMOP_LTE:
-					if (((this.numericOperator == QMLTokenTypes.NUMOP_EQUAL) ||
-						(this.numericOperator == QMLTokenTypes.NUMOP_LTE) ||
-						(this.numericOperator == QMLTokenTypes.NUMOP_LTHAN)) 
-						&&
-						(this.value <= requiredMeanAspect.Value))
-						return true;
-					break;
-				case QMLTokenTypes.NUMOP_LTHAN:
-					if (((this.numericOperator == QMLTokenTypes.NUMOP_LTHAN) && 
-						(this.value <= requiredMeanAspect.Value)) 
-						||
-						(((this.numericOperator == QMLTokenTypes.NUMOP_EQUAL)||
-						(this.numericOperator == QMLTokenTypes.NUMOP_LTE))
-						&&
-						(this.value < requiredMeanAspect.Value)))
-						return true;
-					break;
-			}
-			return false;
 		}
 		#endregion
 	}

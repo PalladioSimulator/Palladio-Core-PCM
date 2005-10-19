@@ -10,7 +10,7 @@
             QMLAspectConstraint as common interface of all aspects.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint.Type">
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint.Type">
             <summary>
             Getter for the aspect type. Not implemented as property, because
             properties are not allowed in interfaces.
@@ -18,21 +18,27 @@
             <returns>The type of implementing aspect. The value is specified in 
             QMLParser.QMLTokenTypes.</returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
-            <summary>
-            Checks if an implementation of this interface matches another 
-            given IQMLStatConstraint. I.e. is better or equal.
-            </summary>
-            <param name="requiredConstraint">An IQMLStatConstraint defined in 
-            the required interface.</param>
-            <returns>True if the IQMLStatConstraints match. Else false.
-            </returns>
-        </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint">
             <summary>
             Represents a QML aspect constraint.
             TODO: Inherit from superclass/interface QMLConstraint?
             </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLVisitable">
+            <summary>
+            Interface that should be implemented by all classes that accept an
+            IQMLSpecificationVisitor.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLVisitable.Accept(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor)">
+            <summary>
+            Method to pass a visitor to the visitable class. The implementation
+            of the method should call corresponding Visit... method of the 
+            given visitor. 
+            </summary>
+            <param name="visitor">Implemenation of the IQMLSpecificationVisitor 
+            interface that implements an operation on QML specification class 
+            tree.</param>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.#ctor(antlr.collections.AST)">
             <summary>
@@ -42,6 +48,15 @@
             <param name="aspectConstraint">AST representing a QML aspect 
             constraint.</param>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.Accept(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor)">
+            <summary>
+            Implements the IQMLVisitable interface. Calls the 
+            VisitQMLSpecification method of the given visitor.
+            </summary>
+            <param name="visitor">Implemenation of the 
+            IQMLSpecificationVisitor interface that implements an operation on 
+            the QML specification class tree.</param>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.ToString">
             <summary>
             Returns a new QML aspect constraint string containing all 
@@ -49,68 +64,6 @@
             grammar accepted by the QMLParser by Lars Karg.
             </summary>
             <returns>QML aspect constraint.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
-            <summary>
-            Checks if this QMLAspectConstraint matches the given constraint.
-            I.e. is better or equal to the given constraint. 
-            As part of a mismatch search this constraint should be part of the
-            provided specification while the given constraint should be part of the
-            required specification
-            </summary>
-            <param name="requiredConstraint">QMLAspectConstraint that is part 
-            of the required specification.</param>
-            <returns>True if this constraint matches the given constraint, 
-            else false.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.AspectMatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
-            <summary>
-            Checks if one of the aspects in this.statConstraints matches the 
-            given aspect.
-            </summary>
-            <param name="requiredAspect">IQMLStatConstraint that is defined in
-            the required specification.</param>
-            <returns>True if one of the aspects of this QMLAspectContraint 
-            matches the given aspect. Else false.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.GetThisPercentiles">
-            <summary>
-            Searches this.statConstraints for all percentile aspects and 
-            returns a list of them.
-            </summary>
-            <returns>IList with all QMLPercentileAspects of this aspect
-            constraint.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.GetSharedNumericOperator(System.Collections.IList,System.Collections.IList)">
-            <summary>
-            Tries to find and return a shared numeric operator of the given 
-            lists. The lists are expected to contain QMLPercentileAspect 
-            objects that all have the same numeric operator. If this is not the
-            case, -1 is returned. 
-            </summary>
-            <param name="percentiles1">A list of QMLPercentileAspects.</param>
-            <param name="percentiles2">A second list of QMLPercentileAspects.
-            </param>
-            <returns>The shared numeric operator or -1 if the list do not 
-            only contain QMLPercentileAspects or different numeric operators
-            are used in the different QMLPercentileAspects. -2 is returned
-            if both lists are empty.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.MatchLessThanPercentiles(System.Collections.ArrayList,System.Collections.ArrayList)">
-            <summary>
-            Checks if the function described by the percentiles in 
-            thisPercentiles matches the function described by the percentiles
-            in requiredPercentiles. 
-            It is assumed that all percentiles have the numeric operator 
-            QMLTokenTypes.NUMOP_LTHAN and the lists are reverse sorted by
-            percentiles starting with percentile 100.
-            </summary>
-            <param name="thisPercentiles">List of percentiles defined for the
-            provided interface.</param>
-            <param name="requiredPercentiles">List of percentiles defined for 
-            the required interface.</param>
-            <returns>True if thisPercentiles matches requiredPercentiles.
-            Else false.</returns>
         </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.Name">
             <summary>
@@ -141,6 +94,15 @@
             Creates an unnamed QMLContract with the given contractExpression.
             </summary>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.Accept(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor)">
+            <summary>
+            Implements the IQMLVisitable interface. Calls the 
+            VisitQMLSpecification method of the given visitor.
+            </summary>
+            <param name="visitor">Implemenation of the 
+            IQMLSpecificationVisitor interface that implements an operation on 
+            the QML specification class tree.</param>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.ToString">
             <summary>
             Returns a new QML contract string containing all information
@@ -155,21 +117,6 @@
             and QMLContractExpression with the same names.
             </summary>
             <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.FindMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract,System.String,System.String)">
-            <summary>
-            Lists mismatches of the contract expression of this contract and 
-            the given QMLContract. 
-            The names of the contract are thereby not examined.
-            </summary>
-            <param name="providedContract">A QMLContract of the provided 
-            interface which describes the same interface or entity as this
-            contract.</param>
-            <param name="entityName">The name of the entity this contract is 
-            defined for. Null if the contract describes an interface.</param>
-            <param name="interfaceName">The name of the interface this 
-            contract is defined for.</param>
             <returns></returns>
         </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.Name">
@@ -195,6 +142,37 @@
             <param name="contractExpression">AST representing a QML
             contract expression.</param>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.Accept(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor)">
+            <summary>
+            Implements the IQMLVisitable interface. Calls the 
+            VisitQMLSpecification method of the given visitor.
+            </summary>
+            <param name="visitor">Implemenation of the 
+            IQMLSpecificationVisitor interface that implements an operation on 
+            the QML specification class tree.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.GetAspectConstraint(System.String)">
+            <summary>
+            If this contract expression contains a aspect constraint with the 
+            given name the corresponding QMLAspectConstraint is returned. 
+            </summary>
+            <param name="name">Name of the seeked aspect constraint.
+            </param>
+            <returns>Corresponding QMLAspectConstraint or null if no aspect 
+            constraint with the given name exists in this contract expression.
+            </returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.GetSimpleConstraint(System.String)">
+            <summary>
+            If this contract expression contains a simple constraint with the 
+            given name the corresponding QMLSimpleConstraint is returned. 
+            </summary>
+            <param name="name">Name of the seeked simple constraint.
+            </param>
+            <returns>Corresponding QMLSimpleConstraint or null if no simple 
+            constraint with the given name exists in this contract expression.
+            </returns>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.ToString">
             <summary>
             Returns a new QML contract expression string containing all 
@@ -203,51 +181,19 @@
             </summary>
             <returns>QML contract expression.</returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
-            <summary>
-            Compares this contract expression with the given contract 
-            expression and returns true if this contract expression 
-            matches the required contract expression. I.e. this expression is
-            better than or equal to the given contract expression.
-            </summary>
-            <param name="requiredContractExpression">The contract expression
-            this expression shall match.</param>
-            <returns>True, if this expression matches the given expression. 
-            Else false</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.GetMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
-            <summary>
-            Checks, if all constraints of this QMLContractExpression match the
-            given required QMLContractExpression. The constraints in the 
-            required expression that are not match are returned by their name.
-            </summary>
-            <param name="requiredContractExpression">The contract expression
-            this expression shall match.</param>
-            <returns>A list of names of mismatches constraints.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.SimpleConstraintMatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint)">
-            <summary>
-            Checks if the given QMLSimpleConstraint is matched by one of the
-            simple constraints defined in this contract expression.
-            </summary>
-            <param name="requiredConstraint">QMLSimpleConstraint defined in the
-            required specification.</param>
-            <returns>True if one simple constraint in this contract expression
-            matches the given constraint. Else false.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.AspectConstraintMatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
-            <summary>
-            Checks if the given QMLAspectConstraint is matched by one of the
-            aspect constraints defined in this contract expression.
-            </summary>
-            <param name="requiredConstraint">QMLAspectConstraint defined in the
-            required specification.</param>
-            <returns>True if one aspect constraint in this contract expression
-            matches the given constraint. Else false.</returns>
-        </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.Name">
             <summary>
             The name of this contract expression
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.SimpleConstraints">
+            <summary>
+            The simple constraints of this contract expression
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression.AspectConstraints">
+            <summary>
+            The aspect constraints of this contract expression
             </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType">
@@ -350,7 +296,7 @@
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity">
             <summary>
-            An represents QMLTokenTypes.ENTITY, QMLTokenTypes.ENTITY_PARM and 
+            Represents QMLTokenTypes.ENTITY, QMLTokenTypes.ENTITY_PARM and 
             QMLTokenTypes.ENTITY_RESULT_OF concepts, which are differed by the 
             type attribute.
             </summary>
@@ -391,7 +337,29 @@
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect">
             <summary>
-            Zusammenfassung für QMLFrequencyAspect.
+            Represents a frequency aspect of an aspect constraint.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.type">
+            <summary>
+            The type of this QMLFrequencyAspect. The value is specified in 
+            QMLParser.QMLTokenTypes
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.value">
+            <summary>
+            The value of this frequency aspect.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.numericOperator">
+            <summary>
+            The numeric operator of this frequency aspect. Possible values are
+            defined as constants in QMLParser.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.percentile">
+            <summary>
+            The percentile belonging to the value of this frequency aspect.
             </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.#ctor(antlr.collections.AST)">
@@ -410,35 +378,32 @@
             </summary>
             <returns>QML frequency aspect.</returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.Type">
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.Type">
             <summary>
-            Getter for the aspect type. Not implemented as property, because
-            properties are not allowed in interfaces.
+            The type of this aspect. The value is specified in 
+            QMLParser.QMLTokenTypes.
             </summary>
-            <returns>The type of this aspect. The value is specified in 
-            QMLParser.QMLTokenTypes.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
-            <summary>
-            Checks if this QMLFrequencyAspect matches the given aspect.
-            I.e. is better or equal to the given aspect. 
-            As part of a mismatch search this aspect should be part of the
-            provided specification while the given aspect should be part of the
-            required specification.
-            Note: QMLFrequencyAspects are not regarded in mismatch retrieval at
-            the moment. Hence true is always returned when the given aspects 
-            type is QMLTokenTypes.FREQUENCY_CONTR so that frequency aspects in 
-            a contract definition do not cause irregular behaviour during the
-            mismatch retrieval.
-            </summary>
-            <param name="requiredAspect">QMLFrequencyAspect that is part of the
-            required specification.</param>
-            <returns>True if this aspect matches the given aspect, 
-            else false.</returns>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect">
             <summary>
-            Zusammenfassung für QMLMeanAspect.
+            Represents a mean aspect of an aspect constraint.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.type">
+            <summary>
+            The type of this QMLMeanAspect. The value is specified in 
+            QMLParser.QMLTokenTypes
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.numericOperator">
+            <summary>
+            The numeric operator of this mean aspect. Possible values are
+            defined as constants in QMLParser.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.value">
+            <summary>
+            The value of this mean aspect.
             </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.#ctor(antlr.collections.AST)">
@@ -457,27 +422,6 @@
             </summary>
             <returns>QML mean aspect.</returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.Type">
-            <summary>
-            Getter for the aspect type. Not implemented as property, because
-            properties are not allowed in interfaces.
-            </summary>
-            <returns>The type of this aspect. The value is specified in 
-            QMLParser.QMLTokenTypes.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
-            <summary>
-            Checks if this QMLMeanAspect matches the given aspect.
-            I.e. is better or equal to the given aspect. 
-            As part of a mismatch search this aspect should be part of the
-            provided specification while the given aspect should be part of the
-            required specification.
-            </summary>
-            <param name="requiredAspect">QMLMeanAspect that is part of the
-            required specification.</param>
-            <returns>True if this aspect matches the given aspect, 
-            else false.</returns>
-        </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.NumericOperator">
             <summary>
             Returns the numeric operator of this QMLMeanAspect
@@ -488,17 +432,11 @@
             Returns the value of this QMLMeanAspect
             </summary>
         </member>
-        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMismatchSearchException">
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect.Type">
             <summary>
-            Exception thrown if an error occured during a mismatch search.
+            The type of this aspect. The value is specified in 
+            QMLParser.QMLTokenTypes.
             </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMismatchSearchException.#ctor(System.String)">
-            <summary>
-            Constructor that defines a default message and adds the given 
-            message.
-            </summary>
-            <param name="message"></param>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLNoValidValueException">
             <summary>
@@ -513,7 +451,29 @@
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect">
             <summary>
-            Zusammenfassung für QMLPercentileAspect.
+            Represents a percentile aspect of an aspect constraint.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.type">
+            <summary>
+            The type of this QMLPercentileAspect. The value is specified in 
+            QMLParser.QMLTokenTypes
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.percentile">
+            <summary>
+            The percentile of this percentile aspect.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.numericOperator">
+            <summary>
+            The numeric operator of this percentile aspect. Possible values are
+            defined as constants in QMLParser.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.value">
+            <summary>
+            The value belonging to the percentile of this percentile aspect.
             </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.#ctor(antlr.collections.AST)">
@@ -531,31 +491,6 @@
             grammar accepted by the QMLParser by Lars Karg.
             </summary>
             <returns>QML percentile aspect.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.Type">
-            <summary>
-            Getter for the aspect type. Not implemented as property, because
-            properties are not allowed in interfaces.
-            </summary>
-            <returns>The type of this aspect. The value is specified in 
-            QMLParser.QMLTokenTypes.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
-            <summary>
-            Checks if this QMLPercentileAspect matches the given aspect.
-            I.e. is better or equal to the given aspect. 
-            As part of a mismatch search this aspect should be part of the
-            provided specification while the given aspect should be part of the
-            required specification.
-            
-            Note: This method is implemented here, because it is part of the
-            IQMLStatInterface. The method is not used in the mismatch search 
-            at the moment.
-            </summary>
-            <param name="requiredAspect">QMLPercentileAspect that is part of 
-            the required specification.</param>
-            <returns>True if this aspect matches the given aspect, 
-            else false.</returns>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.Compare(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect)">
             <summary>
@@ -582,6 +517,12 @@
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.Value">
             <summary>
             Returns the value belonging to this QMLPercentileAspect.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect.Type">
+            <summary>
+            The type of this aspect. The value is specified in 
+            QMLParser.QMLTokenTypes.
             </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspectComparer">
@@ -616,17 +557,6 @@
             <param name="specification">The QMLSpecification this profile is 
             a part of.</param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.Covers(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile)">
-            <summary>
-            Checks, if the given profile covers the same interface as this 
-            profile. Thereby it is possible that this profile describes
-            more entities than the given profile.
-            </summary>
-            <param name="profile">Profile which shall cover the same interface
-            as this profile.</param>
-            <returns>True, if this profile covers the same interface as the
-            given profile. False, else.</returns>
-        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.ToString">
             <summary>
             Returns a new QML profile string containing all 
@@ -634,15 +564,6 @@
             grammar accepted by the QMLParser by Lars Karg.
             </summary>
             <returns>QML profile.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.FindMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile)">
-            <summary>
-            Searches for mismatches between the entities of this QMLProfile and
-            the given provided profile.
-            </summary>
-            <param name="providedProfile">A QML profile of the provided 
-            service.</param>
-            <returns>A list of Mismatch objects.</returns>
         </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.InterfaceName">
             <summary>
@@ -659,6 +580,18 @@
             Zusammenfassung für QMLProfileExpression.
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.type">
+            <summary>
+            The type of this profile expression. The types are specified in 
+            QMLParser.QMLTokenTypes. At the moment only PROFILE_EXP_PROFILE 
+            is supported.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.requirementClauses">
+            <summary>
+            A list of requirement clauses of this profile expression.
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.#ctor(antlr.collections.AST,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
             <summary>
             Constructor that takes an AST and constructs a new 
@@ -669,35 +602,6 @@
             /// <param name="specification">The QMLSpecification this profile 
             expression is a part of.</param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.Covers(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression)">
-            <summary>
-            Checks, if this profile expression covers the same requirements as 
-            the given profile expression. Thereby it is possible that this 
-            profile expression describes more entities than the given profile
-            expression.
-            It is only checked if the same entities are covered. For this test
-            it is possible that different contracts are discribed for the 
-            entities or the interface at all.
-            TODO: Should the contracts also be checked here so that this has
-            not to be done in the contract mismatch detection ???
-            </summary>
-            <param name="profileExpression">Profile expression which shall 
-            cover the same interface as this profile expression.</param>
-            <returns>True, if this profile expression covers the same 
-            requirements as the given profile expression. False, else.
-            </returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.FindMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression,System.String)">
-            <summary>
-            Searches for mismatches between the entities of this 
-            QMLProfileExpression and the given provided profile expression.
-            </summary>
-            <param name="providedProfileExpression">A QML profile expression
-            of the provided service.</param>
-            <param name="interfaceName">The name of the interface this profile
-            expression is defined for.</param>
-            <returns>A list of Mismatch objects.</returns>
-        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.ToString">
             <summary>
             Returns a new QML profile eypression string containing all 
@@ -705,49 +609,6 @@
             grammar accepted by the QMLParser by Lars Karg.
             </summary>
             <returns>QML profile expression.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.CheckRequirementCoping(System.Collections.IList)">
-            <summary>
-            Checks if all given requirement clauses of are covered by 
-            the requirement clauses in this.requirementClauses.
-            </summary>
-            <param name="requirementClauses">Requirement clauses which shall be
-            covered by this profile expression.</param>
-            <returns>True, if all given requirement clauses are covered.
-            Else false.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.CompareContracts(System.Collections.IList,System.Collections.IList)">
-            <summary>
-            Compares two contract list.
-            </summary>
-            <param name="thisContracts">List of QMLContracts of this profile
-            expression.</param>
-            <param name="externalContracts">List of QMLContracts of another
-            profile expression.</param>
-            <returns>True, if thisContracts contains the contracts of 
-            externalContracts. Else false.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.FindEntityMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression,System.String)">
-            <summary>
-            Searches in the provided profile for an entity with the same name 
-            as the given entity and compares the contracts defined for 
-            these entities.
-            It is assumed that a corresponding entity to the given entity 
-            exists in the provided profile expression. This can be ensured
-            by a comparison of the provided and required specifications with
-            QMLSpecification.CheckCompleteCoping or this.Covers before 
-            calling this.FindMismatches.
-            </summary>
-            <param name="entity">A QMLEntity of the required interface.</param>
-            <param name="clause">The QMLRequirementClause the contracts for the
-            given entity are defined in.</param>
-            <param name="providedProfileExpression">A QMLProfileExpression of 
-            the provided interface.</param>
-            <param name="interfaceName">The name of the interface this profile
-            expression is defined for.</param>
-            <returns>A Mismatch object if the contract of the provided entity
-            corresponding to the given entity does not match the contract of
-            the given entity. Else null.</returns>
         </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.ExpressionType">
             <summary>
@@ -816,19 +677,14 @@
             </summary>
             <returns>QML requirement clause.</returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.FindContractMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause,System.String,System.String)">
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.GetContract(System.String)">
             <summary>
-            Searches for mismatches in corresponding contracts of this 
-            requirement clause and the given requirement clause.
+            If this requirement clause contains a contract with the given name, 
+            the corresponding QMLContract is returned. 
             </summary>
-            <param name="clause">QMLRequirementClause of the provided service
-            that describes the same entity or interface.</param>
-            <param name="entityName">The name of the entity this requirement 
-            clause describes. Null, if the clause describes an interface.
-            </param>
-            <param name="interfaceName">The name of the interface this clause
-            is defined for.</param>
-            <returns>A list of Mismatch objects.</returns>
+            <param name="contractName">Name of the seeked contract.</param>
+            <returns>Corresponding QMLContract or null if no contract with the
+            given name exists in this requirement clause.</returns>
         </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.Entities">
             <summary>
@@ -846,6 +702,28 @@
             TODO: Inherit from superclass/interface QMLConstraint?
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.name">
+            <summary>
+            The name of this simple constraint.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.numericOperator">
+            <summary>
+            The numeric operator of this simple constraint. Values of 
+            numericOperator are defined as constants in QMLParser.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.valueLiteral">
+            <summary>
+            The literal of this simple constraint
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.unit">
+            <summary>
+            The unit of this simple constraint. The unit is null when no 
+            unit is specified. There is no default value.
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.#ctor(antlr.collections.AST)">
             <summary>
             Constructor that takes an AST and constructs a new 
@@ -854,6 +732,15 @@
             <param name="simpleConstraint">AST representing a QML simple 
             constraint.</param>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.Accept(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor)">
+            <summary>
+            Implements the IQMLVisitable interface. Calls the 
+            VisitQMLSpecification method of the given visitor.
+            </summary>
+            <param name="visitor">Implemenation of the 
+            IQMLSpecificationVisitor interface that implements an operation on 
+            the QML specification class tree.</param>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.ToString">
             <summary>
             Returns a new QML simple constraint string containing all 
@@ -861,19 +748,6 @@
             grammar accepted by the QMLParser by Lars Karg.
             </summary>
             <returns>QML simple constraint.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint)">
-            <summary>
-            Checks if this QMLSimpleConstraint matches the given constraint.
-            I.e. is better or equal to the given constraint. 
-            As part of a mismatch search this constraint should be part of the
-            provided specification while the given constraint should be part of the
-            required specification
-            </summary>
-            <param name="constraint">QMLSimpleConstraint that is part of the
-            required specification.</param>
-            <returns>True if this constraint matches the given constraint, 
-            else false.</returns>
         </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint.Name">
             <summary>
@@ -903,29 +777,14 @@
             <param name="specification">AST representing a QML specification.
             </param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.GetMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.Accept(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor)">
             <summary>
-            This method compares this QMLSpecification to the given 
-            specification, whereas this specification is looked upon as 
-            the required specification (seen in a CBSE context) and the given
-            specification as provided specification.
-            This method returns a list of QoS aspects (e.g. performance or 
-            reliability) that are required by this specification but not 
-            provided by the specication given as parameter. 
-            
-            For the search for mismatches it is required that the requirements
-            for a certain interface a described in exactly one profile.
-            Discriptions in two different profiles are not recognized. 
-            TODO: Is this QML standard?
-            
-            The result of this method is a list of Mismatch objects which 
-            represent a mismatched QoS aspect and the corresponding interface
-            and entity.
+            Implements the IQMLVisitable interface. Calls the 
+            VisitQMLSpecification method of the given visitor.
             </summary>
-            <param name="providedSpecification">The provided QMLSpecification 
-            which is expected to contain mismatches to this specification.
-            </param>
-            <returns>IList with Mismatch objects.</returns>
+            <param name="visitor">Implemenation of the 
+            IQMLSpecificationVisitor interface that implements an operation on 
+            the QML specification class tree.</param>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.GetContract(System.String)">
             <summary>
@@ -936,6 +795,16 @@
             <returns>Corresponding QMLContract or null if no contract with the
             given name exists in this specification.</returns>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.GetProfile(System.String)">
+            <summary>
+            If this specification contains a profile with the given interface 
+            name the corresponding QMLProfile is returned. Else null is 
+            returned.
+            </summary>
+            <param name="interfaceName">Name of the seeked profile.</param>
+            <returns>Corresponding QMLProfile or null if no contract with the
+            given name exists in this specification.</returns>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.ToString">
             <summary>
             Returns a new QML specification string containing all information
@@ -944,31 +813,10 @@
             </summary>
             <returns>QML specification.</returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.CheckCompleteCoping(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.Profiles">
             <summary>
-            Checks if the given profile is completely covered by the given 
-            specification. I.e. the interface and the entities in the profile
-            are also described by the same contract types in the given 
-            specification.
+            Provides a collection of the profiles of this specification. 
             </summary>
-            <param name="profile">A profile of the required specification.
-            </param>
-            <param name="specification">The specification of the provided
-            service.</param>
-            <returns>True if the profile is covered by the given specification.
-            Else false.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.FindProfileMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
-            <summary>
-            Searches for profile mismatches. I.e. a contract in the given 
-            profile is more strict than the corresponding contract in the 
-            provided specification.
-            </summary>
-            <param name="profile">Profile of the required specification.
-            </param>
-            <param name="providedSpecification">The QML specification of the 
-            provided service.</param>
-            <returns>A list of Mismatch objects.</returns>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecificationConstructionException">
             <summary>
@@ -1080,7 +928,24 @@
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect">
             <summary>
-            Zusammenfassung für QMLVarianceAspect.
+            Represents a variance aspect of an aspect constraint.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect.type">
+            <summary>
+            The type of this variance aspect. The value is specified in 
+            QMLParser.QMLTokenTypes
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect.numericOperator">
+            <summary>
+            The numeric operator of this variance aspect. Possible values are
+            defined as constants in QMLParser.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect.value">
+            <summary>
+            The value of this variance aspect. 
             </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect.#ctor(antlr.collections.AST)">
@@ -1099,31 +964,1027 @@
             </summary>
             <returns>QML variance aspect.</returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect.Type">
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect.Type">
             <summary>
-            Getter for the aspect type. Not implemented as property, because
-            properties are not allowed in interfaces.
+            The type of this aspect. The value is specified in 
+            QMLParser.QMLTokenTypes.
             </summary>
-            <returns>The type of this aspect. The value is specified in 
-            QMLParser.QMLTokenTypes.</returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect.Matches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor">
             <summary>
-            Checks if this QMLVarianceAspect matches the given aspect.
+            Interface that has to be implemented by all visitors that operate on 
+            the QML specification class tree. For every class of the tree this 
+            interface provides a method to be called by the accept method of that
+            class.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLAspectConstraint(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
+            <summary>
+            Visit method for an QMLAspectConstraint.
+            </summary>
+            <param name="aspectConstraint">A QMLAspectConstraint whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLContract(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract)">
+            <summary>
+            Visit method for an QMLContract.
+            </summary>
+            <param name="contract">A QMLContract whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLContractExpression(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
+            <summary>
+            Visit method for an QMLContractExpression.
+            </summary>
+            <param name="contractExpression">A QMLContractExpression whose 
+            Accept method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLContractType(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType)">
+            <summary>
+            Visit method for an QMLContractType.
+            </summary>
+            <param name="contractType">A QMLContractType whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLDimensionDeclaration(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration)">
+            <summary>
+            Visit method for an QMLDimensionDeclaration.
+            </summary>
+            <param name="dimensionDeclaration">A QMLDimensionDeclaration whose 
+            Accept method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLDimensionType(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType)">
+            <summary>
+            Visit method for an QMLDimensionType.
+            </summary>
+            <param name="dimensionType">A QMLDimensionType whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLEntity(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity)">
+            <summary>
+            Visit method for an QMLEntity.
+            </summary>
+            <param name="entity">A QMLEntity whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLFrequencyAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect)">
+            <summary>
+            Visit method for an QMLFrequencyAspect.
+            </summary>
+            <param name="frequencyAspect">A QMLFrequencyAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLMeanAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect)">
+            <summary>
+            Visit method for an QMLMeanAspect.
+            </summary>
+            <param name="meanAspect">A QMLMeanAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLPercentileAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect)">
+            <summary>
+            Visit method for an QMLPercentileAspect.
+            </summary>
+            <param name="percentileAspect">A QMLPercentileAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLProfile(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile)">
+            <summary>
+            Visit method for an QMLProfile.
+            </summary>
+            <param name="profile">A QMLProfile whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLProfileExpression(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression)">
+            <summary>
+            Visit method for an QMLProfileExpression.
+            </summary>
+            <param name="profileExpression">A QMLProfileExpression whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLRequirementClause(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause)">
+            <summary>
+            Visit method for an QMLRequirementClause.
+            </summary>
+            <param name="requirementClause">A QMLRequirementClause whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLSimpleConstraint(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint)">
+            <summary>
+            Visit method for an QMLSimpleConstraint.
+            </summary>
+            <param name="simpleConstraint">A QMLSimpleConstraint whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLSpecification(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            Visit method for an QMLSpecification.
+            </summary>
+            <param name="specification">A QMLSpecification whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLUnit(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLUnit)">
+            <summary>
+            Visit method for an QMLUnit.
+            </summary>
+            <param name="unit">A QMLUnit whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLValueLiteral(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral)">
+            <summary>
+            Visit method for an QMLValueLiteral.
+            </summary>
+            <param name="valueLiteral">A QMLValueLiteral whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor.VisitQMLVarianceAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect)">
+            <summary>
+            Visit method for an QMLVarianceAspect.
+            </summary>
+            <param name="varianceAspect">A QMLVarianceAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor">
+            <summary>
+            Visits the provided specification during the check for complete coping. 
+            Is lead through the tree by a 
+            QMLRequiredSpecificationCompleteCopingVisitor.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.visitedElements">
+            <summary>
+            List of visited elements of this visitor. Used to save already 
+            visited nodes to know the current node and to provide a 
+            functionality to go up in the tree to formerly visited nodes.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.#ctor">
+            <summary>
+            Constructs a new QMLProvidedSpecificationCompleteCopingVisitor and
+            initialises the list of visited elements.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLAspectConstraint(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
+            <summary>
+            Visit method for an QMLAspectConstraint.
+            </summary>
+            <param name="aspectConstraint">A QMLAspectConstraint whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLContract(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract)">
+            <summary>
+            Visit method for an QMLContract.
+            </summary>
+            <param name="contract">A QMLContract whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLContractExpression(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
+            <summary>
+            Visit method for an QMLContractExpression.
+            </summary>
+            <param name="contractExpression">A QMLContractExpression whose 
+            Accept method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLContractType(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType)">
+            <summary>
+            Visit method for an QMLContractType.
+            </summary>
+            <param name="contractType">A QMLContractType whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLDimensionDeclaration(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration)">
+            <summary>
+            Visit method for an QMLDimensionDeclaration.
+            </summary>
+            <param name="dimensionDeclaration">A QMLDimensionDeclaration whose 
+            Accept method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLDimensionType(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType)">
+            <summary>
+            Visit method for an QMLDimensionType.
+            </summary>
+            <param name="dimensionType">A QMLDimensionType whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLEntity(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity)">
+            <summary>
+            Visit method for an QMLEntity.
+            </summary>
+            <param name="entity">A QMLEntity whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLFrequencyAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect)">
+            <summary>
+            Visit method for an QMLFrequencyAspect.
+            </summary>
+            <param name="frequencyAspect">A QMLFrequencyAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLMeanAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect)">
+            <summary>
+            Visit method for an QMLMeanAspect.
+            </summary>
+            <param name="meanAspect">A QMLMeanAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLPercentileAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect)">
+            <summary>
+            Visit method for an QMLPercentileAspect.
+            </summary>
+            <param name="percentileAspect">A QMLPercentileAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLProfile(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile)">
+            <summary>
+            Visit method for an QMLProfile.
+            </summary>
+            <param name="profile">A QMLProfile whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLProfileExpression(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression)">
+            <summary>
+            Visit method for an QMLProfileExpression.
+            </summary>
+            <param name="profileExpression">A QMLProfileExpression whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLRequirementClause(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause)">
+            <summary>
+            Visit method for an QMLRequirementClause.
+            </summary>
+            <param name="requirementClause">A QMLRequirementClause whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLSimpleConstraint(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint)">
+            <summary>
+            Visit method for an QMLSimpleConstraint.
+            </summary>
+            <param name="simpleConstraint">A QMLSimpleConstraint whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLSpecification(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            Visit method for an QMLSpecification.
+            </summary>
+            <param name="specification">A QMLSpecification whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLUnit(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLUnit)">
+            <summary>
+            Visit method for an QMLUnit.
+            </summary>
+            <param name="unit">A QMLUnit whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLValueLiteral(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral)">
+            <summary>
+            Visit method for an QMLValueLiteral.
+            </summary>
+            <param name="valueLiteral">A QMLValueLiteral whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.VisitQMLVarianceAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect)">
+            <summary>
+            Visit method for an QMLVarianceAspect.
+            </summary>
+            <param name="varianceAspect">A QMLVarianceAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.GoToProfile(System.String)">
+            <summary>
+            Moves the visitor to the profile with the given interface name. A
+            QMLCompleteCopingException is thrown, when there is no profile 
+            with the given name.
+            </summary>
+            <param name="interfaceName">The interface name of the profile to 
+            move to.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.GoToProfileExpression">
+            <summary>
+            Moves the visitor to the ProfileExpression of the current node 
+            which has to be a QMLProfile.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.GoToContract(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract)">
+            <summary>
+            Pushs the visitor to the given contract.
+            </summary>
+            <param name="contract">The contract that shall be visited by the 
+            visitor.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.GoToContractExpression">
+            <summary>
+            Moves the visitor to the ContractExpression of the current node 
+            which has to be a QMLContract.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor.Current">
+            <summary>
+            Provides the current profile expression when a profile is visited.
+            When there is no current profile expression null is returned.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor">
+            <summary>
+            Visits the provided specification during the mismatch search. Is lead
+            through the tree by a QMLRequiredSpecificationMismatchSearchVisitor.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.visitedElements">
+            <summary>
+            List of visited elements of this visitor. Used to save already 
+            visited nodes to know the current node and to provide a 
+            functionality to go up in the tree to formerly visited nodes.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.#ctor">
+            <summary>
+            Constructs a new QMLProvidedSpecificationMismatchSearchVisitor and
+            initialises the list of visited elements.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLAspectConstraint(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
+            <summary>
+            Visit method for an QMLAspectConstraint.
+            </summary>
+            <param name="aspectConstraint">A QMLAspectConstraint whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLContract(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract)">
+            <summary>
+            Visit method for an QMLContract.
+            </summary>
+            <param name="contract">A QMLContract whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLContractExpression(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
+            <summary>
+            Visit method for an QMLContractExpression.
+            </summary>
+            <param name="contractExpression">A QMLContractExpression whose 
+            Accept method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLContractType(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType)">
+            <summary>
+            Visit method for an QMLContractType.
+            </summary>
+            <param name="contractType">A QMLContractType whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLDimensionDeclaration(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration)">
+            <summary>
+            Visit method for an QMLDimensionDeclaration.
+            </summary>
+            <param name="dimensionDeclaration">A QMLDimensionDeclaration whose 
+            Accept method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLDimensionType(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType)">
+            <summary>
+            Visit method for an QMLDimensionType.
+            </summary>
+            <param name="dimensionType">A QMLDimensionType whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLEntity(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity)">
+            <summary>
+            Visit method for an QMLEntity.
+            </summary>
+            <param name="entity">A QMLEntity whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLFrequencyAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect)">
+            <summary>
+            Visit method for an QMLFrequencyAspect.
+            </summary>
+            <param name="frequencyAspect">A QMLFrequencyAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLMeanAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect)">
+            <summary>
+            Visit method for an QMLMeanAspect.
+            </summary>
+            <param name="meanAspect">A QMLMeanAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLPercentileAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect)">
+            <summary>
+            Visit method for an QMLPercentileAspect.
+            </summary>
+            <param name="percentileAspect">A QMLPercentileAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLProfile(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile)">
+            <summary>
+            Visit method for an QMLProfile.
+            </summary>
+            <param name="profile">A QMLProfile whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLProfileExpression(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression)">
+            <summary>
+            Visit method for an QMLProfileExpression.
+            </summary>
+            <param name="profileExpression">A QMLProfileExpression whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLRequirementClause(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause)">
+            <summary>
+            Visit method for an QMLRequirementClause.
+            </summary>
+            <param name="requirementClause">A QMLRequirementClause whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLSimpleConstraint(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint)">
+            <summary>
+            Visit method for an QMLSimpleConstraint.
+            </summary>
+            <param name="simpleConstraint">A QMLSimpleConstraint whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLSpecification(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            Visit method for an QMLSpecification.
+            </summary>
+            <param name="specification">A QMLSpecification whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLUnit(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLUnit)">
+            <summary>
+            Visit method for an QMLUnit.
+            </summary>
+            <param name="unit">A QMLUnit whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLValueLiteral(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral)">
+            <summary>
+            Visit method for an QMLValueLiteral.
+            </summary>
+            <param name="valueLiteral">A QMLValueLiteral whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.VisitQMLVarianceAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect)">
+            <summary>
+            Visit method for an QMLVarianceAspect.
+            </summary>
+            <param name="varianceAspect">A QMLVarianceAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor.Current">
+            <summary>
+            Provides the current profile expression when a profile is visited.
+            When there is no current profile expression null is returned.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor">
+            <summary>
+            Checks the complete coping of a QMLSpecification interpreted as 
+            required specification and visited by an object of this class and a
+            provided specification visited by an 
+            QMLProvidedSpecificationCompleteCopingVisitor.
+            After the check which is started by first calling the Accept
+            method of the provided specification with the providedVisitor and then 
+            calling the Accept method of the required specification with an object
+            of this class. 
+            When the provided interfaces does not cover the required interface a
+            QMLCompleteCopingException will be thrown. The message of the 
+            exception provides further information about the incorrect part of the 
+            specification.
+            Some of the methods of the IQMLSpecificationVisitor interface are not 
+            implemented, because the corresponding classes are not needed for the 
+            mismatch search. A NotImplementedException is thrown instead.
+            
+            TODO: exception handling, when the Current Property of the 
+            providedVisitor is used.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.providedVisitor">
+            <summary>
+            Visitor of the corresponding provided specification.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.copingErrors">
+            <summary>
+            Lists the errors that occurred during the coping check.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.currentProfile">
+            <summary>
+            Contains the currently visited profile. Used to provide the name
+            of the profile in error messages.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.currentEntity">
+            <summary>
+            Contains the currently visited entity. Used to provide the name
+            of the entity in error messages.
+            </summary>		
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.currentContract">
+            <summary>
+            Contains the currently visited contract. Used to provide the name
+            of the contract in error messages.
+            </summary>		
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.#ctor(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor)">
+            <summary>
+            Constructs a new QMLRequiredSpecificationCompleteCopingVisitor. To
+            start the complete coping check the provided specification has to 
+            be visited by the given providedVisitor. After that this visitor 
+            has to be given to the Accept method of the corresponding 
+            QMLSpecification. 
+            </summary>
+            <param name="providedVisitor">The corresponding visitor of the 
+            provided specification.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLAspectConstraint(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
+            <summary>
+            Visit method for an QMLAspectConstraint.
+            </summary>
+            <param name="aspectConstraint">A QMLAspectConstraint whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLContract(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract)">
+            <summary>
+            Visit method for an QMLContract.
+            </summary>
+            <param name="contract">A QMLContract whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLContractExpression(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
+            <summary>
+            Visit method for an QMLContractExpression.
+            </summary>
+            <param name="contractExpression">A QMLContractExpression whose 
+            Accept method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLContractType(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType)">
+            <summary>
+            Visit method for an QMLContractType.
+            </summary>
+            <param name="contractType">A QMLContractType whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLDimensionDeclaration(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration)">
+            <summary>
+            Visit method for an QMLDimensionDeclaration.
+            </summary>
+            <param name="dimensionDeclaration">A QMLDimensionDeclaration whose 
+            Accept method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLDimensionType(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType)">
+            <summary>
+            Visit method for an QMLDimensionType.
+            </summary>
+            <param name="dimensionType">A QMLDimensionType whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLEntity(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity)">
+            <summary>
+            Visit method for an QMLEntity.
+            </summary>
+            <param name="entity">A QMLEntity whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLFrequencyAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect)">
+            <summary>
+            Visit method for an QMLFrequencyAspect.
+            </summary>
+            <param name="frequencyAspect">A QMLFrequencyAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLMeanAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect)">
+            <summary>
+            Visit method for an QMLMeanAspect.
+            </summary>
+            <param name="meanAspect">A QMLMeanAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLPercentileAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect)">
+            <summary>
+            Visit method for an QMLPercentileAspect.
+            </summary>
+            <param name="percentileAspect">A QMLPercentileAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLProfile(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile)">
+            <summary>
+            Visit method for an QMLProfile.
+            </summary>
+            <param name="profile">A QMLProfile whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLProfileExpression(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression)">
+            <summary>
+            Visit method for an QMLProfileExpression.
+            </summary>
+            <param name="profileExpression">A QMLProfileExpression whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLRequirementClause(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause)">
+            <summary>
+            Visit method for an QMLRequirementClause.
+            </summary>
+            <param name="requirementClause">A QMLRequirementClause whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLSimpleConstraint(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint)">
+            <summary>
+            Visit method for an QMLSimpleConstraint.
+            </summary>
+            <param name="simpleConstraint">A QMLSimpleConstraint whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLSpecification(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            Visit method for an QMLSpecification.
+            </summary>
+            <param name="specification">A QMLSpecification whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLUnit(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLUnit)">
+            <summary>
+            Visit method for an QMLUnit.
+            </summary>
+            <param name="unit">A QMLUnit whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLValueLiteral(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral)">
+            <summary>
+            Visit method for an QMLValueLiteral.
+            </summary>
+            <param name="valueLiteral">A QMLValueLiteral whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.VisitQMLVarianceAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect)">
+            <summary>
+            Visit method for an QMLVarianceAspect.
+            </summary>
+            <param name="varianceAspect">A QMLVarianceAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.CheckRequirementCoping(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Checks if all given requiredRequirementClauses are covered by 
+            the given providedRequirementClauses.
+            </summary>
+            <param name="requiredRequirementClauses">Requirement clauses which 
+            shall be covered by the providedRequirementClauses.</param>
+            <param name="providedRequirementClauses">Requirement clauses of the
+            provided interface.</param>
+            <returns>True, if all given requirement clauses are covered.
+            Else false.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.CheckForUncoveredContracts(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Compares two contract list. Throws an exception, if not all the 
+            contracts in requiredContracts are also contained in provided 
+            contracts.
+            </summary>
+            <param name="providedContracts">List of QMLContracts of the 
+            provided interfacer</param>
+            <param name="requiredContracts">List of QMLContracts of the
+            required interface.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.CheckSimpleConstraints(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
+            <summary>
+            Checks the given contract expression for uncovered 
+            QMLSimpleConstraints.
+            </summary>
+            <param name="requiredContractExpression">QMLContractExpression of
+            the required interface.</param>
+            <param name="providedContractExpression">QMLContractExpression of
+            the provided interface.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.CheckAspectConstraints(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
+            <summary>
+            Checks the given contract expression for uncovered 
+            QMLAspectConstraints.
+            </summary>
+            <param name="requiredContractExpression">QMLContractExpression of
+            the required interface.</param>
+            <param name="providedContractExpression">QMLContractExpression of
+            the provided interface.</param>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.CopingErrors">
+            <summary>
+            A list of strings that contain error messages for coping errors.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationCompleteCopingVisitor.CopingErrorMessage">
+            <summary>
+            Returns a list of all errors as one string.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor">
+            <summary>
+            Searches for mismatches between a QMLSpecification interpreted as 
+            required specification and visited by an object of this class and a
+            provided specification visited by an 
+            QMLProvidedSpecificationMismatchSearchVisitor.
+            After the mismatch search which is started by first calling the Accept
+            method of the provided specification with the providedVisitor and then 
+            calling the Accept method of the required specification with an object
+            of this class, the found mismatches can be requested using the 
+            Mismatches property.
+            Some of the methods of the IQMLSpecificationVisitor interface are not 
+            implemented, because the corresponding classes are not needed for the 
+            mismatch search. A NotImplementedException is thrown instead.
+            
+            TODO: exception handling, when the Current Property of the 
+            providedVisitor is used.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.providedVisitor">
+            <summary>
+            Visitor of the provided specification.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.mismatches">
+            <summary>
+            A list of found mismatches.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.currentInterfaceName">
+            <summary>
+            The name of the currently visited interface. Null if no interface 
+            is currently visited.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.currentEntityName">
+            <summary>
+            The name of the currently visited interface. Null if no entity is
+            currently visited.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.currentMismatchAttribute">
+            <summary>
+            The name of the current mismatch attribute. Null if there is no 
+            current mismatch attribute.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.#ctor(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor)">
+            <summary>
+            Constructs a new QMLRequiredSpecificationMismatchSearchVisitor. To
+            start the mismatch search the provided specification has to be 
+            visited by the given providedVisitor. After that this visitor has 
+            to be given to the Accept method of the corresponding 
+            QMLSpecification. 
+            </summary>
+            <param name="providedVisitor">The corresponding visitor of the 
+            provided specification.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLAspectConstraint(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
+            <summary>
+            Visit method for an QMLAspectConstraint.
+            </summary>
+            <param name="aspectConstraint">A QMLAspectConstraint whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLContract(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract)">
+            <summary>
+            Visit method for an QMLContract.
+            </summary>
+            <param name="contract">A QMLContract whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLContractExpression(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractExpression)">
+            <summary>
+            Visit method for an QMLContractExpression.
+            </summary>
+            <param name="contractExpression">A QMLContractExpression whose 
+            Accept method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLContractType(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType)">
+            <summary>
+            Visit method for an QMLContractType.
+            </summary>
+            <param name="contractType">A QMLContractType whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLDimensionDeclaration(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration)">
+            <summary>
+            Visit method for an QMLDimensionDeclaration.
+            </summary>
+            <param name="dimensionDeclaration">A QMLDimensionDeclaration whose 
+            Accept method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLDimensionType(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType)">
+            <summary>
+            Visit method for an QMLDimensionType.
+            </summary>
+            <param name="dimensionType">A QMLDimensionType whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLEntity(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity)">
+            <summary>
+            Visit method for an QMLEntity.
+            </summary>
+            <param name="entity">A QMLEntity whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLFrequencyAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLFrequencyAspect)">
+            <summary>
+            Visit method for an QMLFrequencyAspect.
+            </summary>
+            <param name="frequencyAspect">A QMLFrequencyAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLMeanAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect)">
+            <summary>
+            Visit method for an QMLMeanAspect.
+            </summary>
+            <param name="meanAspect">A QMLMeanAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLPercentileAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLPercentileAspect)">
+            <summary>
+            Visit method for an QMLPercentileAspect.
+            </summary>
+            <param name="percentileAspect">A QMLPercentileAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLProfile(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile)">
+            <summary>
+            Visit method for an QMLProfile.
+            </summary>
+            <param name="profile">A QMLProfile whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLProfileExpression(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression)">
+            <summary>
+            Visit method for an QMLProfileExpression.
+            </summary>
+            <param name="profileExpression">A QMLProfileExpression whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLRequirementClause(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause)">
+            <summary>
+            Visit method for an QMLRequirementClause.
+            </summary>
+            <param name="requirementClause">A QMLRequirementClause whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLSimpleConstraint(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint)">
+            <summary>
+            Visit method for an QMLSimpleConstraint.
+            </summary>
+            <param name="simpleConstraint">A QMLSimpleConstraint whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLSpecification(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification)">
+            <summary>
+            Visit method for an QMLSpecification.
+            </summary>
+            <param name="specification">A QMLSpecification whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLUnit(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLUnit)">
+            <summary>
+            Visit method for an QMLUnit.
+            </summary>
+            <param name="unit">A QMLUnit whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLValueLiteral(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral)">
+            <summary>
+            Visit method for an QMLValueLiteral.
+            </summary>
+            <param name="valueLiteral">A QMLValueLiteral whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.VisitQMLVarianceAspect(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLVarianceAspect)">
+            <summary>
+            Visit method for an QMLVarianceAspect.
+            </summary>
+            <param name="varianceAspect">A QMLVarianceAspect whose Accept 
+            method has been called.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.FindInterfaceRelatedClauseMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause)">
+            <summary>
+            Searches for interface related mismatches for the given
+            requirement clause.
+            </summary>
+            <param name="requiredClause">QMLRequirementClause of the required
+            interface.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.FindEntityRelatedClauseMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause)">
+            <summary>
+            Searches for entity related mismatches for the given
+            requirement clause.
+            </summary>
+            <param name="requiredClause">QMLRequirementClause of the required
+            interface.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.FindSimpleConstraintContractExpressionMismatches(System.Collections.ICollection,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSimpleConstraint)">
+            <summary>
+            Checks if the given QMLSimpleConstraint is matched by one of the
+            simple constraints defined in the given providedConstraints 
+            collection.
+            </summary>
+            <param name="providedConstraints">List of QMLSimpleConstraints of
+            the provided specification.</param>
+            <param name="requiredConstraint">QMLSimpleConstraint defined in 
+            the required specification.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.FindAspectConstraintContractExpressionMismatches(System.Collections.ICollection,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
+            <summary>
+            Checks if the given QMLAspectConstraint is matched by one of the
+            aspect constraints defined in the given providedConstraints 
+            collection.
+            </summary>
+            <param name="providedConstraints">List of QMLSimpleConstraints of
+            the provided specification.</param>
+            <param name="requiredConstraint">QMLAspectConstraint defined in 
+            the required specification.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.AspectMatches(System.Collections.ICollection,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
+            <summary>
+            Checks if one of the aspects in providedAspectConstraints matches 
+            the given aspect of the required interface.
+            </summary>
+            <param name="providedAspects">A collection of aspects of the
+            provided interface.</param>
+            <param name="requiredAspect">IQMLStatConstraint that is defined in
+            the required specification.</param>
+            <returns>string.Empty if one of the aspects in the given collection 
+            matches the given aspect. Else string that describes the mismatch.
+            </returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.PercentilesMatch(System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            Checks if the given percentile of the provided interface match the
+            given percentiles of the required interface.
+            </summary>
+            <param name="providedPercentiles">Collection of percentiles of the
+            provided interface.</param>
+            <param name="requiredPercentiles">Collection of percentiles of the
+            required interface.</param>
+            <returns>string.Empty if the given percentiles match. Else string 
+            that provides further details about the mismatch.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.GetSharedNumericOperator(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Tries to find and return a shared numeric operator of the given 
+            lists. The lists are expected to contain QMLPercentileAspect 
+            objects that all have the same numeric operator. If this is not the
+            case, -1 is returned. 
+            </summary>
+            <param name="percentiles1">A list of QMLPercentileAspects.</param>
+            <param name="percentiles2">A second list of QMLPercentileAspects.
+            </param>
+            <returns>The shared numeric operator or -1 if the list do not 
+            only contain QMLPercentileAspects or different numeric operators
+            are used in the different QMLPercentileAspects. -2 is returned
+            if both lists are empty.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.MatchLessThanPercentiles(System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            Checks if the function described by the percentiles in 
+            providedPercentiles matches the function described by the 
+            percentiles in requiredPercentiles. 
+            It is assumed that all percentiles have the numeric operator 
+            QMLTokenTypes.NUMOP_LTHAN and the lists are sorted by
+            percentiles starting with the lowest percentile.
+            </summary>
+            <param name="providedPercentiles">List of percentiles defined for the
+            provided interface.</param>
+            <param name="requiredPercentiles">List of percentiles defined for 
+            the required interface.</param>
+            <returns>string.Empty if thisPercentiles matches requiredPercentiles.
+            Else string that provides further details abaout the mismatch.
+            </returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.MeanAspectMatch(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect)">
+            <summary>
+            Checks if this QMLMeanAspect matches the given aspect.
             I.e. is better or equal to the given aspect. 
             As part of a mismatch search this aspect should be part of the
             provided specification while the given aspect should be part of the
             required specification.
-            Note: QMLVarianceAspects are not regarded in mismatch retrieval at
-            the moment. Hence true is always returned when the given aspects 
-            type is QMLTokenTypes.VARIANCE_CONTR so that variance aspects in 
-            a contract definition do not cause irregular behaviour during the
-            mismatch retrieval.
             </summary>
-            <param name="requiredAspect">QMLVarianceAspect that is part of the
+            <param name="requiredAspect">QMLMeanAspect that is part of the
             required specification.</param>
             <returns>True if this aspect matches the given aspect, 
             else false.</returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.Mismatches">
+            <summary>
+            Contains the found mismatches after a mismatch search.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.IQMLComparator">
+            <summary>
+            Interface provided by the Palladio.QoSAdaptor.QMLComparision component.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.IQMLComparator.CreateQMLSpecification(System.IO.TextReader)">
+            <summary>
+            Creates a QMLSpecification from the textual QML specification given
+            in form of a textReader.
+            </summary>
+            <param name="textReader">TextReader containing a textual 
+            representation of a QML specification.</param>
+            <returns></returns>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QMLComparator">
             <summary>
@@ -1143,13 +2004,26 @@
             Standard constructor.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLComparator.FindMismatches(System.IO.TextReader,System.IO.TextReader)">
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLComparator.CheckCompleteCoping(Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification,Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification)">
+            <summary>
+            Checks if the given provided specification covers the same 
+            interfaces and contracts as the given required specification.
+            If this is not the case an IncompleteInterfaceCopingException is 
+            thrown.
+            </summary>
+            <param name="requiredSpecification">QML specification of the 
+            required interface.</param>
+            <param name="providedSpecification">QML specification of the 
+            provided interface.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLComparator.FindMismatches(Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification,Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification)">
             <summary>
             Searches for mismatches in the two given QML specifications. 
+            CheckCompleteCoping has to be called before.
             </summary>
-            <param name="required">TextReader representing the specification 
+            <param name="requiredSpecification">TextReader representing the specification 
             for the required interface.</param>
-            <param name="provided">TextReader representing the specification 
+            <param name="providedSpecification">TextReader representing the specification 
             for the provided interface.</param>
             <returns>A list of QMLMismatch objects.</returns>
         </member>
@@ -1164,17 +2038,14 @@
             <returns>The string representation of the internal model of the
             QML specification.</returns>
         </member>
-        <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLComparator.RequiredSpecificationString">
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLComparator.CreateQMLSpecification(System.IO.TextReader)">
             <summary>
-            Returns the last parsed required specification in its string 
-            representation
+            Creates a QMLSpecification from the textual QML specification given
+            in form of a textReader.
             </summary>
-        </member>
-        <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLComparator.ProvidedSpecificationString">
-            <summary>
-            Returns the last parsed provided specification in its string 
-            representation
-            </summary>
+            <param name="textReader">TextReader containing a textual 
+            representation of a QML specification.</param>
+            <returns></returns>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QMLMismatch">
             <summary>
@@ -1184,7 +2055,32 @@
             mismatched (e.g Performance or Reliability).
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.#ctor(System.String,System.String,System.String,System.String)">
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.interfaceName">
+            <summary>
+            The interface for which a mismatch occurred.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.entity">
+            <summary>
+            The entity for which a mismatch occurred.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.mismatchedQoSAttribute">
+            <summary>
+            The mismatched QoS attribute.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.mismatchedQoSSubAttribute">
+            <summary>
+            The mismatched QoS subattribute.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.mismatchDetails">
+            <summary>
+            Further details about the mismatch.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.#ctor(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Constructor.
             </summary>
@@ -1193,7 +2089,9 @@
             <param name="entity">The entitiy for which the mismatch 
             occurred.</param>
             <param name="mismatch">The mismatched QoS aspect.</param>
-            <param name="mismatchedSubAspect">The mismatches QoS subaspect
+            <param name="mismatchedSubAttribute">The mismatches QoS subaspect
+            </param>
+            <param name="mismatchDetails">Further details about the mismatch.
             </param>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.ToString">
@@ -1224,10 +2122,50 @@
             this Mismatch
             </summary>
         </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QMLMismatch.MismatchDetails">
+            <summary>
+            Provides further details about the mismatch and its occurrence.
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QMLParserTest">
             <summary>
             Zusammenfassung für QMLParserTest.
             </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLCompleteCopingUnknownProfileException">
+            <summary>
+            Thrown by a QMLProvidedSpecificationCompleteCopingVisitor, if the 
+            QMLRequiredSpecificationCompleteCopingVisitor trys to push it to 
+            a profile that is not existent in the provided specification.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLCompleteCopingException">
+            <summary>
+            Exception that is thrown during the complete coping check, when an 
+            element that is requested by the 
+            QMLRequiredSpecificationCompleteCopingVisitor can not be found in the
+            provided specification by the 
+            QMLProvidedSpecificationCompleteCopingVisitor.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLCompleteCopingException.#ctor(System.String)">
+            <summary>
+            Constructor that defines a default message and adds the given 
+            message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLMismatchSearchException">
+            <summary>
+            Exception thrown if an error occured during a mismatch search.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLMismatchSearchException.#ctor(System.String)">
+            <summary>
+            Constructor that defines a default message and adds the given 
+            message.
+            </summary>
+            <param name="message"></param>
         </member>
     </members>
 </doc>

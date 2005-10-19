@@ -24,7 +24,7 @@ using QmlParser;
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
-	/// An represents QMLTokenTypes.ENTITY, QMLTokenTypes.ENTITY_PARM and 
+	/// Represents QMLTokenTypes.ENTITY, QMLTokenTypes.ENTITY_PARM and 
 	/// QMLTokenTypes.ENTITY_RESULT_OF concepts, which are differed by the 
 	/// type attribute.
 	/// </summary>

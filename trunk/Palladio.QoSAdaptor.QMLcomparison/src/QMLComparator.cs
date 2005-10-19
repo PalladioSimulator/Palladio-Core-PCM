@@ -21,8 +21,10 @@
 using System.Collections;
 using System.IO;
 using antlr.collections;
+using Palladio.QoSAdaptor.Exceptions;
 using Palladio.QoSAdaptor.Interfaces;
 using Palladio.QoSAdaptor.QMLComparison.QmlSpecification;
+using Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors;
 using QmlParser;
 
 namespace Palladio.QoSAdaptor.QMLComparison
@@ -38,13 +40,8 @@ namespace Palladio.QoSAdaptor.QMLComparison
 	/// so the first visitor can compare it to its current node in order to 
 	/// find mismatches. 
 	/// </summary>
-	public class QMLComparator : IComparator
+	public class QMLComparator : IQMLComparator
 	{
-		#region data
-		private string requiredString;
-		private string providedString;
-		#endregion
-
 		#region constructor
 		/// <summary>
 		/// Standard constructor.
@@ -54,53 +51,57 @@ namespace Palladio.QoSAdaptor.QMLComparison
 		}
 		#endregion
 
-		#region properties
-		/// <summary>
-		/// Returns the last parsed required specification in its string 
-		/// representation
-		/// </summary>
-		public string RequiredSpecificationString
-		{
-			get
-			{
-				return this.requiredString;
-			}
-		}
-
-		/// <summary>
-		/// Returns the last parsed provided specification in its string 
-		/// representation
-		/// </summary>
-		public string ProvidedSpecificationString
-		{
-			get
-			{
-				return this.providedString;
-			}
-		}
-		#endregion
-
 		#region public methods
 		/// <summary>
-		/// Searches for mismatches in the two given QML specifications. 
+		/// Checks if the given provided specification covers the same 
+		/// interfaces and contracts as the given required specification.
+		/// If this is not the case an IncompleteInterfaceCopingException is 
+		/// thrown.
 		/// </summary>
-		/// <param name="required">TextReader representing the specification 
+		/// <param name="requiredSpecification">QML specification of the 
+		/// required interface.</param>
+		/// <param name="providedSpecification">QML specification of the 
+		/// provided interface.</param>
+		public void CheckCompleteCoping (
+			IInterfaceModelSpecification requiredSpecification, 
+			IInterfaceModelSpecification providedSpecification)
+		{
+			QMLProvidedSpecificationCompleteCopingVisitor providedCCVisitor =
+				new QMLProvidedSpecificationCompleteCopingVisitor();
+			((QMLSpecification)providedSpecification).Accept(providedCCVisitor);
+
+			QMLRequiredSpecificationCompleteCopingVisitor requiredCCVisitor =
+				new QMLRequiredSpecificationCompleteCopingVisitor(
+				providedCCVisitor);
+			((QMLSpecification)requiredSpecification).Accept(requiredCCVisitor);
+			
+			if (!requiredCCVisitor.CopingErrorMessage.Equals(string.Empty))
+				throw new IncompleteInterfaceCopingException(
+					requiredCCVisitor.CopingErrorMessage); 
+		}
+
+		/// <summary>
+		/// Searches for mismatches in the two given QML specifications. 
+		/// CheckCompleteCoping has to be called before.
+		/// </summary>
+		/// <param name="requiredSpecification">TextReader representing the specification 
 		/// for the required interface.</param>
-		/// <param name="provided">TextReader representing the specification 
+		/// <param name="providedSpecification">TextReader representing the specification 
 		/// for the provided interface.</param>
 		/// <returns>A list of QMLMismatch objects.</returns>
-		public IList FindMismatches (TextReader required, TextReader provided)
+		public IList FindMismatches (
+			IInterfaceModelSpecification requiredSpecification, 
+			IInterfaceModelSpecification providedSpecification)
 		{
-			QMLSpecification requiredSpecification = CreateSpecification(
-				required);
-			QMLSpecification providedSpecification = CreateSpecification(
-				provided);
+			QMLProvidedSpecificationMismatchSearchVisitor providedVisitor = 
+				new QMLProvidedSpecificationMismatchSearchVisitor();
+			((QMLSpecification)providedSpecification).Accept(providedVisitor);
 
-			this.requiredString = requiredSpecification.ToString();
-			this.providedString = providedSpecification.ToString();
+			QMLRequiredSpecificationMismatchSearchVisitor requiredVisitor = 
+				new QMLRequiredSpecificationMismatchSearchVisitor(providedVisitor);
+			((QMLSpecification)requiredSpecification).Accept(requiredVisitor);
 
-			IList mismatches = requiredSpecification.GetMismatches(
-				providedSpecification);	
+			IList mismatches = requiredVisitor.Mismatches;
 			return mismatches;
 		}
 
@@ -115,14 +116,19 @@ namespace Palladio.QoSAdaptor.QMLComparison
 		/// QML specification.</returns>
 		public string Parse (TextReader specificationReader)
 		{
-			QMLSpecification specification = CreateSpecification(
+			QMLSpecification specification = CreateQMLSpecification(
 				specificationReader);
 			return specification.ToString();
 		}
-		#endregion
-
-		#region private methods
-		private QMLSpecification CreateSpecification (TextReader 
+		
+		/// <summary>
+		/// Creates a QMLSpecification from the textual QML specification given
+		/// in form of a textReader.
+		/// </summary>
+		/// <param name="textReader">TextReader containing a textual 
+		/// representation of a QML specification.</param>
+		/// <returns></returns>
+		public QMLSpecification CreateQMLSpecification (TextReader 
 			textReader)
 		{
 			QMLLexer lexer = new QMLLexer(textReader);	

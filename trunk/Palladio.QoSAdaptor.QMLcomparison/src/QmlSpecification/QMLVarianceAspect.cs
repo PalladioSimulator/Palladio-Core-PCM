@@ -26,13 +26,26 @@ using QmlParser;
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
-	/// Zusammenfassung für QMLVarianceAspect.
+	/// Represents a variance aspect of an aspect constraint.
 	/// </summary>
 	public class QMLVarianceAspect :IQMLStatConstraint
 	{
-		#region data
+		#region attributes
+		/// <summary>
+		/// The type of this variance aspect. The value is specified in 
+		/// QMLParser.QMLTokenTypes
+		/// </summary>
 		private int type;
+
+		/// <summary>
+		/// The numeric operator of this variance aspect. Possible values are
+		/// defined as constants in QMLParser.
+		/// </summary>
 		private int numericOperator;
+
+		/// <summary>
+		/// The value of this variance aspect. 
+		/// </summary>
 		private double value;
 		#endregion
 
@@ -70,6 +83,20 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		}
 		#endregion
 
+		#region properties
+		/// <summary>
+		/// The type of this aspect. The value is specified in 
+		/// QMLParser.QMLTokenTypes.
+		/// </summary>
+		public int Type
+		{
+			get
+			{
+				return this.type;	
+			}
+		}
+		#endregion
+
 		#region public methods
 		/// <summary>
 		/// Returns a new QML variance aspect string containing all 
@@ -101,42 +128,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 			}
 			s += " "+this.value+";";
 			return s;
-		}
-
-		/// <summary>
-		/// Getter for the aspect type. Not implemented as property, because
-		/// properties are not allowed in interfaces.
-		/// </summary>
-		/// <returns>The type of this aspect. The value is specified in 
-		/// QMLParser.QMLTokenTypes.</returns>
-		public int Type()
-		{
-			return this.type;
-		}
-
-		/// <summary>
-		/// Checks if this QMLVarianceAspect matches the given aspect.
-		/// I.e. is better or equal to the given aspect. 
-		/// As part of a mismatch search this aspect should be part of the
-		/// provided specification while the given aspect should be part of the
-		/// required specification.
-		/// Note: QMLVarianceAspects are not regarded in mismatch retrieval at
-		/// the moment. Hence true is always returned when the given aspects 
-		/// type is QMLTokenTypes.VARIANCE_CONTR so that variance aspects in 
-		/// a contract definition do not cause irregular behaviour during the
-		/// mismatch retrieval.
-		/// </summary>
-		/// <param name="requiredAspect">QMLVarianceAspect that is part of the
-		/// required specification.</param>
-		/// <returns>True if this aspect matches the given aspect, 
-		/// else false.</returns>
-		public bool Matches (IQMLStatConstraint requiredAspect)
-		{
-			if (this.type != requiredAspect.Type())
-				return false;
-
-			// TODO: implement reasonable comparison of variance aspects.
-			return true;
 		}
 		#endregion
 	}

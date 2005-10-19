@@ -26,14 +26,31 @@ using QmlParser;
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
-	/// Zusammenfassung für QMLFrequencyAspect.
+	/// Represents a frequency aspect of an aspect constraint.
 	/// </summary>
 	public class QMLFrequencyAspect : IQMLStatConstraint
 	{
-		#region data
+		#region attributes
+		/// <summary>
+		/// The type of this QMLFrequencyAspect. The value is specified in 
+		/// QMLParser.QMLTokenTypes
+		/// </summary>
 		private int type;
+
+		/// <summary>
+		/// The value of this frequency aspect.
+		/// </summary>
 		private string value;
+
+		/// <summary>
+		/// The numeric operator of this frequency aspect. Possible values are
+		/// defined as constants in QMLParser.
+		/// </summary>
 		private int numericOperator;
+
+		/// <summary>
+		/// The percentile belonging to the value of this frequency aspect.
+		/// </summary>
 		private double percentile;
 		#endregion
 		
@@ -74,6 +91,20 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		}
 		#endregion
 
+		#region properties
+		/// <summary>
+		/// The type of this aspect. The value is specified in 
+		/// QMLParser.QMLTokenTypes.
+		/// </summary>
+		public int Type
+		{
+			get
+			{
+				return this.type;	
+			}
+		}
+		#endregion
+
 		#region public methods
 		/// <summary>
 		/// Returns a new QML frequency aspect string containing all 
@@ -104,42 +135,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 			}
 			s += " "+this.percentile+" %;";
 			return s;
-		}
-
-		/// <summary>
-		/// Getter for the aspect type. Not implemented as property, because
-		/// properties are not allowed in interfaces.
-		/// </summary>
-		/// <returns>The type of this aspect. The value is specified in 
-		/// QMLParser.QMLTokenTypes.</returns>
-		public int Type()
-		{
-			return this.type;
-		}
-
-		/// <summary>
-		/// Checks if this QMLFrequencyAspect matches the given aspect.
-		/// I.e. is better or equal to the given aspect. 
-		/// As part of a mismatch search this aspect should be part of the
-		/// provided specification while the given aspect should be part of the
-		/// required specification.
-		/// Note: QMLFrequencyAspects are not regarded in mismatch retrieval at
-		/// the moment. Hence true is always returned when the given aspects 
-		/// type is QMLTokenTypes.FREQUENCY_CONTR so that frequency aspects in 
-		/// a contract definition do not cause irregular behaviour during the
-		/// mismatch retrieval.
-		/// </summary>
-		/// <param name="requiredAspect">QMLFrequencyAspect that is part of the
-		/// required specification.</param>
-		/// <returns>True if this aspect matches the given aspect, 
-		/// else false.</returns>
-		public bool Matches (IQMLStatConstraint requiredAspect)
-		{
-			if (this.type != requiredAspect.Type())
-				return false;
-
-			// TODO: implement reasonable comparison of frequency aspects.
-			return true;
 		}
 		#endregion
 	}

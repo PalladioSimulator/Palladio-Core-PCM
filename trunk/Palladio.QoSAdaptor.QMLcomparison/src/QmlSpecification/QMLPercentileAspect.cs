@@ -19,7 +19,6 @@
 #endregion
 
 using System;
-using System.Collections;
 using System.Globalization;
 using antlr.collections;
 using QmlParser;
@@ -27,15 +26,31 @@ using QmlParser;
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
-	/// Zusammenfassung für QMLPercentileAspect.
+	/// Represents a percentile aspect of an aspect constraint.
 	/// </summary>
 	public class QMLPercentileAspect : IQMLStatConstraint
 	{
-		#region data
-		// Type value is specified in QMLParser.QMLTokenTypes
+		#region attributes
+		/// <summary>
+		/// The type of this QMLPercentileAspect. The value is specified in 
+		/// QMLParser.QMLTokenTypes
+		/// </summary>
 		private int type; 
+
+		/// <summary>
+		/// The percentile of this percentile aspect.
+		/// </summary>
 		private double percentile;
+
+		/// <summary>
+		/// The numeric operator of this percentile aspect. Possible values are
+		/// defined as constants in QMLParser.
+		/// </summary>
 		private int numericOperator;
+
+		/// <summary>
+		/// The value belonging to the percentile of this percentile aspect.
+		/// </summary>
 		private double value;
 		#endregion	
 
@@ -110,6 +125,18 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 				return this.value;
 			}
 		}
+
+		/// <summary>
+		/// The type of this aspect. The value is specified in 
+		/// QMLParser.QMLTokenTypes.
+		/// </summary>
+		public int Type
+		{
+			get
+			{
+				return this.type;	
+			}
+		}
 		#endregion
 
 		#region public methods
@@ -142,41 +169,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 			}
 			s += " "+this.value+";";
 			return s;
-		}
-
-		/// <summary>
-		/// Getter for the aspect type. Not implemented as property, because
-		/// properties are not allowed in interfaces.
-		/// </summary>
-		/// <returns>The type of this aspect. The value is specified in 
-		/// QMLParser.QMLTokenTypes.</returns>
-		public int Type()
-		{
-			return this.type;
-		}
-
-		/// <summary>
-		/// Checks if this QMLPercentileAspect matches the given aspect.
-		/// I.e. is better or equal to the given aspect. 
-		/// As part of a mismatch search this aspect should be part of the
-		/// provided specification while the given aspect should be part of the
-		/// required specification.
-		/// 
-		/// Note: This method is implemented here, because it is part of the
-		/// IQMLStatInterface. The method is not used in the mismatch search 
-		/// at the moment.
-		/// </summary>
-		/// <param name="requiredAspect">QMLPercentileAspect that is part of 
-		/// the required specification.</param>
-		/// <returns>True if this aspect matches the given aspect, 
-		/// else false.</returns>
-		public bool Matches (IQMLStatConstraint requiredAspect)
-		{
-			if (this.type != requiredAspect.Type())
-				return false;
-
-			// TODO: implement
-			return true;
 		}
 
 		/// <summary>

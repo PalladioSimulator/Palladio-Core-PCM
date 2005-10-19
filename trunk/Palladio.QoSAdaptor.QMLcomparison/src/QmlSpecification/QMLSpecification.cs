@@ -20,19 +20,33 @@
 
 using System.Collections;
 using antlr.collections;
-using Palladio.QoSAdaptor.Exceptions;
+using Palladio.QoSAdaptor.Interfaces;
+using Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors;
 
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
 	/// Represents a QML specification.
 	/// </summary>
-	public class QMLSpecification
+	public class QMLSpecification : IInterfaceModelSpecification, IQMLVisitable
 	{
-		#region data
+		#region attributes
 		private ArrayList contracts;
 		private ArrayList contractTypes;
 		private ArrayList profiles;
+		#endregion
+
+		#region properties
+		/// <summary>
+		/// Provides a collection of the profiles of this specification. 
+		/// </summary>
+		public ICollection Profiles
+		{
+			get
+			{
+				return this.profiles;
+			}
+		}
 		#endregion
 
 		#region constructor
@@ -75,57 +89,21 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		}
 		#endregion
 
-		#region public methods
+		#region method inherited by IQMLVisitable
 		/// <summary>
-		/// This method compares this QMLSpecification to the given 
-		/// specification, whereas this specification is looked upon as 
-		/// the required specification (seen in a CBSE context) and the given
-		/// specification as provided specification.
-		/// This method returns a list of QoS aspects (e.g. performance or 
-		/// reliability) that are required by this specification but not 
-		/// provided by the specication given as parameter. 
-		/// 
-		/// For the search for mismatches it is required that the requirements
-		/// for a certain interface a described in exactly one profile.
-		/// Discriptions in two different profiles are not recognized. 
-		/// TODO: Is this QML standard?
-		/// 
-		/// The result of this method is a list of Mismatch objects which 
-		/// represent a mismatched QoS aspect and the corresponding interface
-		/// and entity.
+		/// Implements the IQMLVisitable interface. Calls the 
+		/// VisitQMLSpecification method of the given visitor.
 		/// </summary>
-		/// <param name="providedSpecification">The provided QMLSpecification 
-		/// which is expected to contain mismatches to this specification.
-		/// </param>
-		/// <returns>IList with Mismatch objects.</returns>
-		public IList GetMismatches (QMLSpecification providedSpecification)
+		/// <param name="visitor">Implemenation of the 
+		/// IQMLSpecificationVisitor interface that implements an operation on 
+		/// the QML specification class tree.</param>
+		public void Accept (IQMLSpecificationVisitor visitor)
 		{
-			ArrayList mismatches = new ArrayList();
-			// To find mismatches the provided specification has to specify the
-			// same entities in the same interfaces as this specification.
-			// This is called complete coping here.
-			foreach (QMLProfile profile in this.profiles)
-			{
-				// TODO: Throw more precise exception. Which method is not 
-				//       covered.
-				if (!CheckCompleteCoping(profile, providedSpecification))
-					throw new IncompleteInterfaceCopingException 
-						("Error in mismatch detection. The given "+
-						"specification does not cover the same interface as "+
-						"the called QMLSpecification object.");
-			}
-
-			// For every entity specified in this specification it has to be
-			// verfied that the provided specification does not mismatch the
-			// required specification
-			foreach (QMLProfile profile in this.profiles)
-			{
-				mismatches.AddRange(FindProfileMismatches(profile, 
-					providedSpecification));
-			}
-			return mismatches;
+			visitor.VisitQMLSpecification(this);
 		}
+		#endregion
 
+		#region public methods
 		/// <summary>
 		/// If this specification contains a contract with the given name the
 		/// corresponding QMLContract is returned. 
@@ -148,6 +126,28 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		}
 
 		/// <summary>
+		/// If this specification contains a profile with the given interface 
+		/// name the corresponding QMLProfile is returned. Else null is 
+		/// returned.
+		/// </summary>
+		/// <param name="interfaceName">Name of the seeked profile.</param>
+		/// <returns>Corresponding QMLProfile or null if no contract with the
+		/// given name exists in this specification.</returns>
+		public QMLProfile GetProfile (string interfaceName)
+		{
+			QMLProfile profile = null;
+			foreach (QMLProfile currentProfile in this.profiles)
+			{
+				if (currentProfile.InterfaceName.Equals(interfaceName))
+				{
+					profile = currentProfile;
+					break;
+				}	
+			}
+			return profile;
+		}
+
+		/// <summary>
 		/// Returns a new QML specification string containing all information
 		/// in this QMLSpecification which is compatible to the grammar
 		/// accepted by the QMLParser by Lars Karg.
@@ -166,65 +166,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 				specification += profile.ToString()+"\n\n";
 
 			return specification;
-		}
-		#endregion
-
-		#region private methods
-		/// <summary>
-		/// Checks if the given profile is completely covered by the given 
-		/// specification. I.e. the interface and the entities in the profile
-		/// are also described by the same contract types in the given 
-		/// specification.
-		/// </summary>
-		/// <param name="profile">A profile of the required specification.
-		/// </param>
-		/// <param name="specification">The specification of the provided
-		/// service.</param>
-		/// <returns>True if the profile is covered by the given specification.
-		/// Else false.</returns>
-		private bool CheckCompleteCoping (QMLProfile profile, 
-												QMLSpecification specification)
-		{
-			bool check = false;
-			foreach (QMLProfile currentProfile in specification.profiles)
-			{
-				if (currentProfile.Covers(profile))
-					check = true;
-			}
-			return check;
-		}
-
-		/// <summary>
-		/// Searches for profile mismatches. I.e. a contract in the given 
-		/// profile is more strict than the corresponding contract in the 
-		/// provided specification.
-		/// </summary>
-		/// <param name="profile">Profile of the required specification.
-		/// </param>
-		/// <param name="providedSpecification">The QML specification of the 
-		/// provided service.</param>
-		/// <returns>A list of Mismatch objects.</returns>
-		private IList FindProfileMismatches (QMLProfile profile, 
-			QMLSpecification providedSpecification)
-		{
-			ArrayList mismatches = new ArrayList();
-			bool check = false;
-			foreach (QMLProfile currentProfile in 
-				providedSpecification.profiles)
-			{
-				if (profile.InterfaceName.Equals(currentProfile.InterfaceName))
-				{
-					// TODO
-					mismatches.AddRange(profile.FindMismatches(
-						currentProfile));
-					check = true;
-				}
-			}
-			if (!check)
-				throw new QMLMismatchSearchException("No provided profile for"+
-					"interface: "+profile.InterfaceName);
-
-			return mismatches;
 		}
 		#endregion
 	}

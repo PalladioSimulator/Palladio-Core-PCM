@@ -31,10 +31,30 @@ namespace Palladio.QoSAdaptor.QMLComparison
 	public class QMLMismatch : IMismatch
 	{
 		#region data
+		/// <summary>
+		/// The interface for which a mismatch occurred.
+		/// </summary>
 		private string interfaceName;
+
+		/// <summary>
+		/// The entity for which a mismatch occurred.
+		/// </summary>
 		private string entity;
-		private string mismatchedQoSAspect;
-		private string mismatchedQoSSubAspect;
+
+		/// <summary>
+		/// The mismatched QoS attribute.
+		/// </summary>
+		private string mismatchedQoSAttribute;
+
+		/// <summary>
+		/// The mismatched QoS subattribute.
+		/// </summary>
+		private string mismatchedQoSSubAttribute;
+
+		/// <summary>
+		/// Further details about the mismatch.
+		/// </summary>
+		private string mismatchDetails;
 		#endregion
 
 		#region constructor
@@ -46,15 +66,19 @@ namespace Palladio.QoSAdaptor.QMLComparison
 		/// <param name="entity">The entitiy for which the mismatch 
 		/// occurred.</param>
 		/// <param name="mismatch">The mismatched QoS aspect.</param>
-		/// <param name="mismatchedSubAspect">The mismatches QoS subaspect
+		/// <param name="mismatchedSubAttribute">The mismatches QoS subaspect
+		/// </param>
+		/// <param name="mismatchDetails">Further details about the mismatch.
 		/// </param>
 		public QMLMismatch(string interfaceName, string entity, 
-			string mismatch, string mismatchedSubAspect)
+			string mismatch, string mismatchedSubAttribute, 
+			string mismatchDetails)
 		{
 			this.interfaceName = interfaceName;
 			this.entity = entity;
-			this.mismatchedQoSAspect = mismatch;
-			this.mismatchedQoSSubAspect = mismatchedSubAspect;
+			this.mismatchedQoSAttribute = mismatch;
+			this.mismatchedQoSSubAttribute = mismatchedSubAttribute;
+			this.mismatchDetails = mismatchDetails;
 		}
 		#endregion
 
@@ -89,7 +113,7 @@ namespace Palladio.QoSAdaptor.QMLComparison
 		{
 			get
 			{
-				return this.mismatchedQoSAspect;
+				return this.mismatchedQoSAttribute;
 			}
 		}
 
@@ -101,7 +125,18 @@ namespace Palladio.QoSAdaptor.QMLComparison
 		{
 			get
 			{
-				return this.mismatchedQoSSubAspect;
+				return this.mismatchedQoSSubAttribute;
+			}
+		}
+
+		/// <summary>
+		/// Provides further details about the mismatch and its occurrence.
+		/// </summary>
+		public string MismatchDetails
+		{
+			get
+			{
+				return this.mismatchDetails;
 			}
 		}
 		#endregion
@@ -116,9 +151,11 @@ namespace Palladio.QoSAdaptor.QMLComparison
 			string s = this.interfaceName;
 			if (entity != null)
 				s += "."+this.entity;
-			s += ": "+this.mismatchedQoSAspect;
-			if (this.mismatchedQoSSubAspect != null)
-				s+= "."+this.mismatchedQoSSubAspect;
+			s += ": "+this.mismatchedQoSAttribute;
+			if (this.mismatchedQoSSubAttribute != null)
+				s+= "."+this.mismatchedQoSSubAttribute;
+			if (this.mismatchDetails != string.Empty)
+				s+= "\n"+mismatchDetails;
 			return s;
 		}
 		#endregion

@@ -20,6 +20,7 @@
 
 using System.Collections;
 using antlr.collections;
+using Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors;
 using QmlParser;
 
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
@@ -27,9 +28,9 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// <summary>
 	/// Zusammenfassung für QMLRequirementClause.
 	/// </summary>
-	public class QMLRequirementClause
+	public class QMLRequirementClause : IQMLVisitable
 	{
-		#region data
+		#region attributes
 		/// <summary>
 		/// Contracts for certain methods
 		/// </summary>
@@ -60,7 +61,7 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 					"found "+requirementClause.Type);
 
 			AST child = requirementClause.getFirstChild();
-			this.entities = null;
+			this.entities = new ArrayList();
 			this.contracts = new ArrayList();
 
 			// Add entities if 
@@ -155,6 +156,13 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		} 
 		#endregion
 
+		#region methods inherited by IQMLVisitable
+		public void Accept(IQMLSpecificationVisitor visitor)
+		{
+			visitor.VisitQMLRequirementClause(this);
+		}
+		#endregion
+
 		#region public methods
 		/// <summary>
 		/// Checks, if this QMLRequirementClause describes the given entity.
@@ -204,37 +212,29 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 					s += contract.Name;
 				count++;
 			}
+			s += ";";
 			return s;
 		}
 
 		/// <summary>
-		/// Searches for mismatches in corresponding contracts of this 
-		/// requirement clause and the given requirement clause.
+		/// If this requirement clause contains a contract with the given name, 
+		/// the corresponding QMLContract is returned. 
 		/// </summary>
-		/// <param name="clause">QMLRequirementClause of the provided service
-		/// that describes the same entity or interface.</param>
-		/// <param name="entityName">The name of the entity this requirement 
-		/// clause describes. Null, if the clause describes an interface.
-		/// </param>
-		/// <param name="interfaceName">The name of the interface this clause
-		/// is defined for.</param>
-		/// <returns>A list of Mismatch objects.</returns>
-		public IList FindContractMismatches(QMLRequirementClause clause, 
-			string entityName, string interfaceName)
+		/// <param name="contractName">Name of the seeked contract.</param>
+		/// <returns>Corresponding QMLContract or null if no contract with the
+		/// given name exists in this requirement clause.</returns>
+		public QMLContract GetContract (string contractName)
 		{
-			ArrayList mismatches = new ArrayList();
-			foreach (QMLContract contract in this.contracts)
+			QMLContract contract = null;
+			foreach (QMLContract currentContract in this.contracts)
 			{
-				foreach (QMLContract providedContract in clause.Contracts)
+				if (currentContract.Name.Equals(contractName))
 				{
-					// TODO: Source this out to QMLContract and 
-					// QMLContractExpression
-					if (contract.Name.Equals(providedContract.Name))
-						mismatches.AddRange(contract.FindMismatches(
-							providedContract, entityName, interfaceName));
-				}
+					contract = currentContract;
+					break;
+				}	
 			}
-			return mismatches;
+			return contract;
 		}
 		#endregion
 	}

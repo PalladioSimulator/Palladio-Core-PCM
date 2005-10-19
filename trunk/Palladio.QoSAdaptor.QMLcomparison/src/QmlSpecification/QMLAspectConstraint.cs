@@ -17,9 +17,10 @@
 // E-mail: niels.streekmann@informatik.uni-oldenburg.de
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
-using System;
+
 using System.Collections;
 using antlr.collections;
+using Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors;
 using QmlParser;
 
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
@@ -28,9 +29,9 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// Represents a QML aspect constraint.
 	/// TODO: Inherit from superclass/interface QMLConstraint?
 	/// </summary>
-	public class QMLAspectConstraint
+	public class QMLAspectConstraint : IQMLVisitable
 	{
-		#region data
+		#region attributes
 		private string name;
 		private ArrayList statConstraints;
 		#endregion
@@ -112,6 +113,20 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		}
 		#endregion
 
+		#region method inherited by IQMLVisitable
+		/// <summary>
+		/// Implements the IQMLVisitable interface. Calls the 
+		/// VisitQMLSpecification method of the given visitor.
+		/// </summary>
+		/// <param name="visitor">Implemenation of the 
+		/// IQMLSpecificationVisitor interface that implements an operation on 
+		/// the QML specification class tree.</param>
+		public void Accept (IQMLSpecificationVisitor visitor)
+		{
+			visitor.VisitQMLAspectConstraint(this);
+		}
+		#endregion
+
 		#region public methods
 		/// <summary>
 		/// Returns a new QML aspect constraint string containing all 
@@ -127,230 +142,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 				s += ((IQMLStatConstraint)enu.Current).ToString()+"\n";
 			s += "};";
 			return s;
-		}
-
-		/// <summary>
-		/// Checks if this QMLAspectConstraint matches the given constraint.
-		/// I.e. is better or equal to the given constraint. 
-		/// As part of a mismatch search this constraint should be part of the
-		/// provided specification while the given constraint should be part of the
-		/// required specification
-		/// </summary>
-		/// <param name="requiredConstraint">QMLAspectConstraint that is part 
-		/// of the required specification.</param>
-		/// <returns>True if this constraint matches the given constraint, 
-		/// else false.</returns>
-		public bool Matches (QMLAspectConstraint requiredConstraint)
-		{
-			if (!this.name.Equals(requiredConstraint.Name))
-				return false;
-
-			bool match = true;
-			ArrayList requiredPercentiles = new ArrayList();
-			foreach (IQMLStatConstraint requiredAspect in 
-				requiredConstraint.StatConstraints)
-			{
-				// Collect all QMLPercentileAspects, because they have to be 
-				// compared as a whole.
-				if (requiredAspect.Type() == QMLTokenTypes.PERCENTILE_CONTR)
-					requiredPercentiles.Add(requiredAspect);
-				else if (!AspectMatches(requiredAspect))
-				{
-					match = false;
-					break;
-				}
-			}
-			if (!PercentilesMatch(requiredPercentiles))
-				match = false;
-			return match;
-		}
-		#endregion
-
-		#region private methods
-		/// <summary>
-		/// Checks if one of the aspects in this.statConstraints matches the 
-		/// given aspect.
-		/// </summary>
-		/// <param name="requiredAspect">IQMLStatConstraint that is defined in
-		/// the required specification.</param>
-		/// <returns>True if one of the aspects of this QMLAspectContraint 
-		/// matches the given aspect. Else false.</returns>
-		private bool AspectMatches(IQMLStatConstraint requiredAspect)
-		{
-			bool check = false;
-			// The loop is cancelled at the first finding of a matching 
-			// aspect. One could search for redundant/invalid aspect 
-			// definitions, which is not done for simplicity reasons.
-			foreach (IQMLStatConstraint thisAspect in this.statConstraints)
-			{
-				if (thisAspect.Matches(requiredAspect))
-				{
-					check = true;
-					break;
-				}
-			}
-			return check;
-		}
-
-		private bool PercentilesMatch (ArrayList requiredPercentiles)
-		{
-			ArrayList thisPercentiles = GetThisPercentiles();
-			// Sort the percentile lists so they start with the smallest 
-			// percentile.
-			IComparer comparer = new QMLPercentileAspectComparer();
-			thisPercentiles.Sort(comparer);
-			requiredPercentiles.Sort(comparer);
-			
-			// Constraint: Percentiles are only compared if they all share the
-			// same numeric operator
-			// TODO: implementation for groups like (<, <=, ==) or (>, >=, ==)
-			int numericOperator = GetSharedNumericOperator(thisPercentiles, 
-				requiredPercentiles);
-			switch (numericOperator)
-			{
-				case QMLTokenTypes.NUMOP_EQUAL:
-					throw new QMLMismatchSearchException("Error in "+
-						"QMLAspectConstraint.PercentilesMatch(). Numeric "+
-						"operator == is not supported in the current "+
-						"implementation of mismatch search for percentiles.");
-				case QMLTokenTypes.NUMOP_GTHAN:
-					throw new QMLMismatchSearchException("Error in "+
-						"QMLAspectConstraint.PercentilesMatch(). Numeric "+
-						"operator > is not supported in the current "+
-						"implementation of mismatch search for percentiles.");
-				case QMLTokenTypes.NUMOP_GTE:
-					throw new QMLMismatchSearchException("Error in "+
-						"QMLAspectConstraint.PercentilesMatch(). Numeric "+
-						"operator >= is not supported in the current "+
-						"implementation of mismatch search for percentiles.");
-				case QMLTokenTypes.NUMOP_LTHAN:
-					return MatchLessThanPercentiles(thisPercentiles, 
-						requiredPercentiles);					
-				case QMLTokenTypes.NUMOP_LTE:
-					throw new QMLMismatchSearchException("Error in "+
-						"QMLAspectConstraint.PercentilesMatch(). Numeric "+
-						"operator <= is not supported in the current "+
-						"implementation of mismatch search for percentiles.");
-				case -1:
-					throw new QMLMismatchSearchException("Error in "+
-						"QMLAspectConstraint.PercentilesMatch(). In the "+
-						"current implementation of the mismatch search all "+
-						"percentiles of an aspect constraint have to have "+
-						"the same numeric operator.");
-				case -2:
-					throw new QMLMismatchSearchException("Error in "+
-						"QMLAspectConstraint.PercentilesMatch(). The given "+
-						"percentile lists are empty.");
-				default:
-					throw new QMLMismatchSearchException("Error in "+
-						"QMLAspectConstraint.PercentilesMatch(). Unknown "+
-						"numeric operator: "+numericOperator);
-
-			}
-		}
-
-		/// <summary>
-		/// Searches this.statConstraints for all percentile aspects and 
-		/// returns a list of them.
-		/// </summary>
-		/// <returns>IList with all QMLPercentileAspects of this aspect
-		/// constraint.</returns>
-		private ArrayList GetThisPercentiles()
-		{
-			ArrayList percentiles = new ArrayList();
-			foreach (IQMLStatConstraint aspect in this.statConstraints)
-				if (aspect.Type() == QMLTokenTypes.PERCENTILE_CONTR)
-					percentiles.Add(aspect);
-			return percentiles;
-		}
-
-		/// <summary>
-		/// Tries to find and return a shared numeric operator of the given 
-		/// lists. The lists are expected to contain QMLPercentileAspect 
-		/// objects that all have the same numeric operator. If this is not the
-		/// case, -1 is returned. 
-		/// </summary>
-		/// <param name="percentiles1">A list of QMLPercentileAspects.</param>
-		/// <param name="percentiles2">A second list of QMLPercentileAspects.
-		/// </param>
-		/// <returns>The shared numeric operator or -1 if the list do not 
-		/// only contain QMLPercentileAspects or different numeric operators
-		/// are used in the different QMLPercentileAspects. -2 is returned
-		/// if both lists are empty.</returns>
-		private int GetSharedNumericOperator (IList percentiles1, 
-			IList percentiles2)
-		{
-			int numericOperator = -2;
-			foreach (QMLPercentileAspect aspect in percentiles1)
-			{
-				// Set the initial value of numericOperator
-				if (numericOperator == -2)
-					numericOperator = aspect.NumericOperator;
-				else if (numericOperator != aspect.NumericOperator)
-				{
-					numericOperator = -1;
-					break;
-				}
-			}
-			if (!(numericOperator == -1))
-			{
-				foreach (QMLPercentileAspect aspect in percentiles2)
-				{
-					// Set the initial value of numericOperator if the first 
-					// list should be empty.
-					if (numericOperator == -2)
-						numericOperator = aspect.NumericOperator;
-					else if (numericOperator != aspect.NumericOperator)
-					{
-						numericOperator = -1;
-						break;
-					}
-				}
-			}
-			return numericOperator;
-		}
-
-		/// <summary>
-		/// Checks if the function described by the percentiles in 
-		/// thisPercentiles matches the function described by the percentiles
-		/// in requiredPercentiles. 
-		/// It is assumed that all percentiles have the numeric operator 
-		/// QMLTokenTypes.NUMOP_LTHAN and the lists are reverse sorted by
-		/// percentiles starting with percentile 100.
-		/// </summary>
-		/// <param name="thisPercentiles">List of percentiles defined for the
-		/// provided interface.</param>
-		/// <param name="requiredPercentiles">List of percentiles defined for 
-		/// the required interface.</param>
-		/// <returns>True if thisPercentiles matches requiredPercentiles.
-		/// Else false.</returns>
-		private bool MatchLessThanPercentiles(ArrayList thisPercentiles, 
-			ArrayList requiredPercentiles)
-		{
-			bool match = true;
-			double currentPercentile = 0;
-			// Simple implementation of a percentile match. Performance could
-			// be enhanced in a future version.
-			foreach (QMLPercentileAspect thisAspect in thisPercentiles)
-			{
-				foreach (QMLPercentileAspect requiredAspect in 
-					requiredPercentiles)
-				{
-					if (requiredAspect.Percentile > currentPercentile)
-					{
-						if (requiredAspect.Value < thisAspect.Value)
-						{
-							match = false;
-						}
-							
-					}	
-				}	
-				if (!match)
-					break;
-				else
-					currentPercentile = thisAspect.Percentile;
-			}
-			return match;
 		}
 		#endregion
 	}

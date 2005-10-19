@@ -17,7 +17,6 @@
 // E-mail: niels.streekmann@informatik.uni-oldenburg.de
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
-using System;
 
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
@@ -33,16 +32,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		/// </summary>
 		/// <returns>The type of implementing aspect. The value is specified in 
 		/// QMLParser.QMLTokenTypes.</returns>
-		int Type();
-
-		/// <summary>
-		/// Checks if an implementation of this interface matches another 
-		/// given IQMLStatConstraint. I.e. is better or equal.
-		/// </summary>
-		/// <param name="requiredConstraint">An IQMLStatConstraint defined in 
-		/// the required interface.</param>
-		/// <returns>True if the IQMLStatConstraints match. Else false.
-		/// </returns>
-		bool Matches(IQMLStatConstraint requiredConstraint);
+		int Type{get;}
 	}
 }

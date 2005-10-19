@@ -20,6 +20,7 @@
 
 using System.Collections;
 using antlr.collections;
+using Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors;
 using QmlParser;
 
 namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
@@ -27,9 +28,9 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// <summary>
 	/// Represents a QML contract expression.
 	/// </summary>
-	public class QMLContractExpression
+	public class QMLContractExpression :IQMLVisitable
 	{
-		#region data
+		#region attributes
 		private string type;
 		// The name of the contract expression should be the name of the 
 		// corresponding QoS aspect. Else a mapping would be necessary for the
@@ -49,6 +50,28 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 			get
 			{
 				return this.name;
+			}
+		}
+
+		/// <summary>
+		/// The simple constraints of this contract expression
+		/// </summary>
+		public ICollection SimpleConstraints
+		{
+			get
+			{
+				return this.simpleConstraints;
+			}
+		}
+
+		/// <summary>
+		/// The aspect constraints of this contract expression
+		/// </summary>
+		public ICollection AspectConstraints
+		{
+			get
+			{
+				return this.aspectConstraints;
 			}
 		}
 		#endregion
@@ -86,7 +109,69 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		}
 		#endregion
 
+		#region method inherited by IQMLVisitable
+		/// <summary>
+		/// Implements the IQMLVisitable interface. Calls the 
+		/// VisitQMLSpecification method of the given visitor.
+		/// </summary>
+		/// <param name="visitor">Implemenation of the 
+		/// IQMLSpecificationVisitor interface that implements an operation on 
+		/// the QML specification class tree.</param>
+		public void Accept (IQMLSpecificationVisitor visitor)
+		{
+			visitor.VisitQMLContractExpression(this);
+		}
+		#endregion
+
 		#region public methods
+		/// <summary>
+		/// If this contract expression contains a aspect constraint with the 
+		/// given name the corresponding QMLAspectConstraint is returned. 
+		/// </summary>
+		/// <param name="name">Name of the seeked aspect constraint.
+		/// </param>
+		/// <returns>Corresponding QMLAspectConstraint or null if no aspect 
+		/// constraint with the given name exists in this contract expression.
+		/// </returns>
+		public QMLAspectConstraint GetAspectConstraint (string name)
+		{
+			QMLAspectConstraint aspectConstraint = null;
+			foreach (QMLAspectConstraint currentAspectConstraint in 
+				this.aspectConstraints)
+			{
+				if (currentAspectConstraint.Name.Equals(name))
+				{
+					aspectConstraint = currentAspectConstraint;
+					break;
+				}	
+			}
+			return aspectConstraint;
+		}
+
+		/// <summary>
+		/// If this contract expression contains a simple constraint with the 
+		/// given name the corresponding QMLSimpleConstraint is returned. 
+		/// </summary>
+		/// <param name="name">Name of the seeked simple constraint.
+		/// </param>
+		/// <returns>Corresponding QMLSimpleConstraint or null if no simple 
+		/// constraint with the given name exists in this contract expression.
+		/// </returns>
+		public QMLSimpleConstraint GetSimpleConstraint (string name)
+		{
+			QMLSimpleConstraint simpleConstraint = null;
+			foreach (QMLSimpleConstraint currentSimpleConstraint in 
+				this.simpleConstraints)
+			{
+				if (currentSimpleConstraint.Name.Equals(name))
+				{
+					simpleConstraint = currentSimpleConstraint;
+					break;
+				}	
+			}
+			return simpleConstraint;
+		}
+
 		/// <summary>
 		/// Returns a new QML contract expression string containing all 
 		/// information in this QMLContractExpression which is compatible to 
@@ -104,129 +189,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 
 			s += "}";
 			return s;
-		}
-
-		/// <summary>
-		/// Compares this contract expression with the given contract 
-		/// expression and returns true if this contract expression 
-		/// matches the required contract expression. I.e. this expression is
-		/// better than or equal to the given contract expression.
-		/// </summary>
-		/// <param name="requiredContractExpression">The contract expression
-		/// this expression shall match.</param>
-		/// <returns>True, if this expression matches the given expression. 
-		/// Else false</returns>
-		public bool Matches (QMLContractExpression requiredContractExpression)
-		{
-			// Throw exception if the expressions don't describe the same
-			// QoS aspect.
-			if (!this.name.Equals(requiredContractExpression.Name))
-				throw new QMLMismatchSearchException("Error in "+
-					"QMLContractExpression.Matches. The given expression "+
-					"does not the same QoS aspect as the called expression.");
-
-			// It is assumed that the expressions match. If one constraint 
-			// does not match false will be returned immediately without 
-			// further checks.
-
-			// Check all simple constraints.
-			foreach (QMLSimpleConstraint requiredConstraint in 
-				requiredContractExpression.simpleConstraints)
-				if (!SimpleConstraintMatches(requiredConstraint))
-					return false;
-
-			// Check all aspect constraints
-			foreach (QMLAspectConstraint requiredConstraint in 
-				requiredContractExpression.aspectConstraints)
-				if (!AspectConstraintMatches(requiredConstraint))
-					return false;
-			return true;
-		}
-
-		/// <summary>
-		/// Checks, if all constraints of this QMLContractExpression match the
-		/// given required QMLContractExpression. The constraints in the 
-		/// required expression that are not match are returned by their name.
-		/// </summary>
-		/// <param name="requiredContractExpression">The contract expression
-		/// this expression shall match.</param>
-		/// <returns>A list of names of mismatches constraints.</returns>
-		public IList GetMismatches (QMLContractExpression requiredContractExpression)
-		{
-			// Throw exception if the expressions don't describe the same
-			// QoS aspect.
-			if (!this.name.Equals(requiredContractExpression.Name))
-				throw new QMLMismatchSearchException("Error in "+
-					"QMLContractExpression.Matches. The given expression "+
-					"does not the same QoS aspect as the called expression.");
-
-			// It is assumed that the expressions match. If one constraint 
-			// does not match false will be returned immediately without 
-			// further checks.
-			ArrayList mismatches = new ArrayList();
-
-			// Check all simple constraints.
-			foreach (QMLSimpleConstraint requiredConstraint in 
-				requiredContractExpression.simpleConstraints)
-				if (!SimpleConstraintMatches(requiredConstraint))
-					mismatches.Add(requiredConstraint.Name);
-
-			// Check all aspect constraints
-			foreach (QMLAspectConstraint requiredConstraint in 
-				requiredContractExpression.aspectConstraints)
-				if (!AspectConstraintMatches(requiredConstraint))
-					mismatches.Add(requiredConstraint.Name);
-			return mismatches;
-		}
-		#endregion
-
-		#region private methods
-		/// <summary>
-		/// Checks if the given QMLSimpleConstraint is matched by one of the
-		/// simple constraints defined in this contract expression.
-		/// </summary>
-		/// <param name="requiredConstraint">QMLSimpleConstraint defined in the
-		/// required specification.</param>
-		/// <returns>True if one simple constraint in this contract expression
-		/// matches the given constraint. Else false.</returns>
-		private bool SimpleConstraintMatches(
-			QMLSimpleConstraint requiredConstraint)
-		{
-			bool check = false;
-			foreach (QMLSimpleConstraint thisConstraint in 
-				this.simpleConstraints)
-			{
-				if (thisConstraint.Matches(requiredConstraint))
-				{
-					check = true;
-					break;
-				}
-			}
-			return check;
-		}
-
-		/// <summary>
-		/// Checks if the given QMLAspectConstraint is matched by one of the
-		/// aspect constraints defined in this contract expression.
-		/// </summary>
-		/// <param name="requiredConstraint">QMLAspectConstraint defined in the
-		/// required specification.</param>
-		/// <returns>True if one aspect constraint in this contract expression
-		/// matches the given constraint. Else false.</returns>
-		private bool AspectConstraintMatches (
-			QMLAspectConstraint requiredConstraint)
-		{
-			bool check = false;
-			foreach (QMLAspectConstraint thisConstraint in 
-				this.aspectConstraints)
-			{
-				if (thisConstraint.Matches(requiredConstraint))
-				{
-					check = true;
-					break;
-				}
-			}
-			return check;
 		}
 		#endregion
 	}
