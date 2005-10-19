@@ -17,6 +17,9 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.7  2005/10/19 16:35:11  joemal
+	/// xxx
+	///
 	/// Revision 1.6  2005/10/19 14:21:43  kelsaka
 	/// - test-fix
 	///
@@ -111,15 +114,17 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void QueryInterfaceAfterCreationEvent()
 		{
-			ComponentModelEnvironment cme = new ComponentModelEnvironment();
+			//du solltest im EventHandler auch schon in der gleichen Instanz des CM nach dem Interface suchen,
+			//in die du das reingesteckt hast. Siehe EventsTest_InterfaceAddedEvent ...
+			//ComponentModelEnvironment cme = new ComponentModelEnvironment();
 
-			cme.EventInterface.GetRepositoryEvents().InterfaceAddedEvent += new InterfaceBuildEventHandler(EventsTest_InterfaceAddedEvent);
-			IInterfaceIdentifier interfaceID = cme.BuilderManager.RootTypeLevelBuilder.CreateInterface("if1").InterfaceId;
+			componentModel.EventInterface.GetRepositoryEvents().InterfaceAddedEvent += new InterfaceBuildEventHandler(EventsTest_InterfaceAddedEvent);
+			IInterfaceIdentifier interfaceID = componentModel.BuilderManager.RootTypeLevelBuilder.CreateInterface("if1").InterfaceId;
 
 			Assert.IsTrue(flag02, "No Creation Event.");
 
-			cme.EventInterface.GetInterfaceEvents(interfaceID);			
-			cme.Query.QueryRepository.GetInterface(interfaceID).Name = "..";
+			componentModel.EventInterface.GetInterfaceEvents(interfaceID);			
+			componentModel.Query.QueryRepository.GetInterface(interfaceID).Name = "..";
 			Assert.IsTrue(flag01, "NameChangedEvent not raised.");
 		}
 
@@ -132,6 +137,7 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			Assert.IsNotNull(args.Interface, "event-arg 'interface' was null.");
 			Assert.IsNotNull(componentModel.Query.QueryRepository.GetInterface(args.Interface.InterfaceID), "query result: interface not found though event was raised.");
+			//es sollte dir auch schwierig fallen, hier auf die oben lokal instanzierte Version Zugriff zu erhalten ...
 			componentModel.EventInterface.GetInterfaceEvents(args.Interface.InterfaceID).NameChangedEvent
 				+= new StaticAttributeChangedEventHandler(EventsTest_NameChangedEvent);
 			flag02 = true;
