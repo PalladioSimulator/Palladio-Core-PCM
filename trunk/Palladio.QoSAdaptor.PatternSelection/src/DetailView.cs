@@ -145,7 +145,8 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		{
 			AddItem("General Info", "", true);
 			AddItem("Name", this.pattern.Name, false);
-			AddItem("InterfaceModel", this.pattern.InterfaceModel, false);
+			AddItem("InterfaceModel", this.pattern.InterfaceModel.ToString(), 
+				false);
 			AddItem("Description", this.pattern.Description, false);
 			AddItem("Source", this.pattern.Source, false);
 		}
@@ -160,8 +161,8 @@ namespace Palladio.QoSAdaptor.PatternSelection
 
 			foreach (IMismatchAttribute mismatchAttribute in 
 				this.pattern.MismatchAttributes)
-				AddItem(mismatchAttribute.Name, mismatchAttribute.Suitability, 
-					false);		
+				AddItem(mismatchAttribute.Name, 
+					mismatchAttribute.Suitability.ToString(), false);		
 		}
 
 		/// <summary>

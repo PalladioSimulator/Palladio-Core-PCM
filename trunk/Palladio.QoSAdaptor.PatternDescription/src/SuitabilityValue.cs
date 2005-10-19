@@ -21,23 +21,15 @@
 namespace Palladio.QoSAdaptor.Pattern
 {
 	/// <summary>
-	/// Public interface of a MismatchAttribute.
-	/// 
-	/// All constructors and setters are implemented as internal. The 
-	/// interface only provides read methods.
+	/// Enumeration representing the possible values of the suitability of
+	/// a mismatch attribute.
 	/// </summary>
-	public interface IMismatchAttribute
+	public enum SuitabilityValue
 	{
-		#region properties
-		/// <summary>
-		/// The name of this mismatch attribute.
-		/// </summary>
-		string Name{get;}
-
-		/// <summary>
-		/// The suitability of this mismatch attribute.
-		/// </summary>
-		SuitabilityValue Suitability{get;}
-		#endregion
+		PLUSPLUS, 
+		PLUS, 
+		NEUTRAL,
+		MINUS,
+		MINUSMINUS
 	}
 }

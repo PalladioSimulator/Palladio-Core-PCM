@@ -29,7 +29,7 @@ namespace Palladio.QoSAdaptor.Pattern
 	/// </summary>
 	internal class PatternDescription : IPatternDescription
 	{
-		#region data
+		#region attributes
 		/// <summary>
 		/// The name of the pattern.
 		/// </summary>
@@ -38,7 +38,7 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// <summary>
 		/// The name of the interface model. E.g. Quality, Syntax, ...
 		/// </summary>
-		private string interfaceModel;
+		private Enumerations.InterfaceModel interfaceModel;
 
 		/// <summary>
 		/// A description of the pattern.
@@ -100,7 +100,7 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// The name of the interface model this pattern is able to correct 
 		/// mismatches of.
 		/// </summary>
-		public string InterfaceModel 
+		public Enumerations.InterfaceModel InterfaceModel 
 		{
 			get
 			{

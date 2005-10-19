@@ -1,5 +1,3 @@
-using System.Collections;
-
 #region info
 ///////////////////////////////////////////////////////////////////////////////
 // This software has been developed as a part of the diploma thesis 
@@ -19,6 +17,8 @@ using System.Collections;
 // E-mail: niels.streekmann@informatik.uni-oldenburg.de
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
+
+using System.Collections;
 
 namespace Palladio.QoSAdaptor.Pattern
 {
@@ -40,7 +40,7 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// The name of the interface model this pattern is able to correct 
 		/// mismatches of.
 		/// </summary>
-		string InterfaceModel {get;}
+		Enumerations.InterfaceModel InterfaceModel {get;}
 
 		/// <summary>
 		/// A description of the pattern.

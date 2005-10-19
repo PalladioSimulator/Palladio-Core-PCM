@@ -22,6 +22,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.XPath;
+using Palladio.QoSAdaptor.Enumerations;
 
 namespace Palladio.QoSAdaptor.Pattern
 {
@@ -169,7 +170,21 @@ namespace Palladio.QoSAdaptor.Pattern
 			it = nav.Select("/pattern");
 			it.MoveNext();
 			pattern.Name = GetValueOfChild(it, "name");
-			pattern.InterfaceModel = GetValueOfChild(it, "interfaceModel");
+			string interfaceModel = GetValueOfChild(it, "interfaceModel");
+			if (interfaceModel.Equals("Behaviour"))
+				pattern.InterfaceModel = InterfaceModel.BEHAVIOUR;
+			else if (interfaceModel.Equals("Conceptual"))
+				pattern.InterfaceModel = InterfaceModel.CONCEPTUAL;
+			else if (interfaceModel.Equals("Interaction"))
+				pattern.InterfaceModel = InterfaceModel.INTERACTION;
+			else if (interfaceModel.Equals("Quality"))
+				pattern.InterfaceModel = InterfaceModel.QUALITY;
+			else if (interfaceModel.Equals("Syntax"))
+				pattern.InterfaceModel = InterfaceModel.SYNTAX;
+			else
+			{
+				// TODO: Throw exception
+			}
 			pattern.Description = GetValueOfChild(it, "description");
 			pattern.Source = GetValueOfChild(it, "source");
 		}
@@ -182,7 +197,8 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// file</param>
 		/// <param name="pattern">The final PatternDescription 
 		/// object.</param>
-		private void ReadMismatches(XPathNavigator nav, PatternDescription pattern)
+		private void ReadMismatches(XPathNavigator nav, 
+			PatternDescription pattern)
 		{
 			XPathNodeIterator it;
 			it = nav.Select("/pattern/mismatches");
@@ -193,7 +209,18 @@ namespace Palladio.QoSAdaptor.Pattern
 				{
 					MismatchAttribute attribute = new MismatchAttribute(
 						GetValueOfChild(it2, "name"));
-					attribute.Suitability = GetValueOfChild(it2, "suitability");
+					string suitability = GetValueOfChild(it2, "suitability");
+					if (suitability.Equals("++"))
+						attribute.Suitability = SuitabilityValue.PLUSPLUS;
+					else if (suitability.Equals("+"))
+						attribute.Suitability = SuitabilityValue.PLUS;
+					else if (suitability.Equals("o"))
+						attribute.Suitability = SuitabilityValue.NEUTRAL;
+					else if (suitability.Equals("-"))
+						attribute.Suitability = SuitabilityValue.MINUS;
+					else if (suitability.Equals("--"))
+						attribute.Suitability = SuitabilityValue.MINUSMINUS;
+					// TODO: else throw exception
 					pattern.AddMismatchAttribute(attribute);
 				}
 		}

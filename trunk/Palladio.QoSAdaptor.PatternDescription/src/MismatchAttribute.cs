@@ -32,9 +32,9 @@ namespace Palladio.QoSAdaptor.Pattern
 	/// </summary>
 	internal class MismatchAttribute : IMismatchAttribute
 	{
-		#region data
+		#region attributes
 		private string name;
-		private string suitability;
+		private SuitabilityValue suitability;
 		#endregion 
 
 		#region constructor
@@ -63,7 +63,7 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// <summary>
 		/// The suitability of this mismatch attribute.
 		/// </summary>
-		public string Suitability
+		public SuitabilityValue Suitability
 		{
 			get
 			{
