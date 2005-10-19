@@ -1,4 +1,3 @@
-using System;
 using Palladio.ComponentModel;
 using Palladio.ComponentModel.Builder;
 using Palladio.ComponentModel.Builder.TypeLevelBuilder;
@@ -19,6 +18,9 @@ namespace Palladio.CM.Example
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.14  2005/10/19 16:35:03  joemal
+	/// changes in the builder methods
+	///
 	/// Revision 1.13  2005/09/18 15:36:05  joemal
 	/// add fsm seffs and protocols
 	///
@@ -154,7 +156,7 @@ namespace Palladio.CM.Example
 			compositeComponentBuilder.AddProvidesDelegationConnector("WRCC.Prov -> WRBC.Prov",provIFace,bc2ID,provIFace);
 			compositeComponentBuilder.AddRequiresDelegationConnector("WRCC.Req -> WRBC.Req",bc2ID,reqIFace,reqIFace);
             			
-            return compositeComponentBuilder.Component.ComponentID;
+            return compositeComponentBuilder.ComponentId;
 		}
 
 		//creates the basic component bc1
@@ -165,7 +167,7 @@ namespace Palladio.CM.Example
 			basicComponentTypeLevelBuilder.AddExistingInterfaceAsRequires(reqIFaceID);
 			ISignatureIdentifier sigId = this.Query.QueryInterface(provIfaceID).GetSignatures()[0];
 			basicComponentTypeLevelBuilder.AddServiceEffectSpecification(CreateSeffBC2(sigId,reqIFaceID),provIfaceID,sigId);
-			return basicComponentTypeLevelBuilder.Component.ComponentID;
+			return basicComponentTypeLevelBuilder.ComponentId;
 		}
 
 		//creates the basic component bc1
@@ -175,7 +177,7 @@ namespace Palladio.CM.Example
 			basicComponentTypeLevelBuilder.AddExistingInterfaceAsProvides(provIfaceID);
 			ISignatureIdentifier sigId = this.Query.QueryInterface(provIfaceID).GetSignatures()[0];			
 			basicComponentTypeLevelBuilder.AddServiceEffectSpecification(CreateSeffBC1(),provIfaceID,sigId);
-			return basicComponentTypeLevelBuilder.Component.ComponentID;
+			return basicComponentTypeLevelBuilder.ComponentId;
 		}
 
 		//creates the interface IWriter
@@ -184,7 +186,7 @@ namespace Palladio.CM.Example
 			ISignatureBuilder sigBuilder = levelBuilder.AddSignature("WriteSomething");
 			sigBuilder.AppendParameter(TypesFactory.CreateStringType("System.string"),"filename",ParameterModifierEnum.REF);
 			levelBuilder.AddProtocol(CreateSimpleProtocol(levelBuilder.InterfaceId,sigBuilder.SignatureId));
-			return levelBuilder.Interface.InterfaceID;
+			return levelBuilder.InterfaceId;
 		}
 
 		//creates the interface IWriterBackend
@@ -193,7 +195,7 @@ namespace Palladio.CM.Example
 			ISignatureBuilder sigBuilder = levelBuilder.AddSignature("WriteToDisk");
 			sigBuilder.AppendParameter(TypesFactory.CreateStringType("System.string"),"filename",ParameterModifierEnum.REF);
 			levelBuilder.AddProtocol(CreateSimpleProtocol(levelBuilder.InterfaceId,sigBuilder.SignatureId));
-			return levelBuilder.Interface.InterfaceID;
+			return levelBuilder.InterfaceId;
 		}
 
 		//called to create the seff of bc2
