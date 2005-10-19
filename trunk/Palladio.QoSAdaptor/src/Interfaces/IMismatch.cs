@@ -58,5 +58,10 @@ namespace Palladio.QoSAdaptor.Interfaces
 		/// </summary>
 		string MismatchSubAttribute{get;}
 
+		/// <summary>
+		/// Provides further information about the mismatch.
+		/// </summary>
+		string MismatchDetails{get;}
+
 	}
 }
