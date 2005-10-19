@@ -26,7 +26,7 @@
             The interface provided by the Palladio.QoSAdaptor.Control component. 
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Control.IController.Start(Palladio.QoSAdaptor.Control.Controller.InterfaceModel,System.IO.TextReader,System.IO.TextReader)">
+        <member name="M:Palladio.QoSAdaptor.Control.IController.Start(Palladio.QoSAdaptor.Enumerations.InterfaceModel,Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification,Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification)">
             <summary>
             This method starts the the analysis of the interface models,
             the selection of a pattern that solves interface model mismatches 
@@ -35,27 +35,13 @@
             </summary>
             <param name="interfaceModel">The considered interface model.
             </param>
-            <param name="required">The required interface model description.
+            <param name="requiredSpecification">The required interface model 
+            specification as IInterfaceModelSpecification.
             </param>
-            <param name="provided">The provided interface model description.
-            </param>
+            <param name="providedSpecification">The provided interface model
+            specification as IInterfaceModelSpecification.</param>
         </member>
-        <member name="F:Palladio.QoSAdaptor.Control.Controller.interfaceModel">
-            <summary>
-            The considered interface model
-            </summary>
-        </member>
-        <member name="F:Palladio.QoSAdaptor.Control.Controller.requiredSpecification">
-            <summary>
-            The considered required specification.
-            </summary>
-        </member>
-        <member name="F:Palladio.QoSAdaptor.Control.Controller.providedSpecification">
-            <summary>
-            The considered provided specification.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.Control.Controller.Start(Palladio.QoSAdaptor.Control.Controller.InterfaceModel,System.IO.TextReader,System.IO.TextReader)">
+        <member name="M:Palladio.QoSAdaptor.Control.IController.Start(Palladio.QoSAdaptor.Enumerations.InterfaceModel,System.IO.TextReader,System.IO.TextReader)">
             <summary>
             This method starts the the analysis of the interface models,
             the selection of a pattern that solves interface model mismatches 
@@ -64,21 +50,38 @@
             </summary>
             <param name="interfaceModel">The considered interface model.
             </param>
-            <param name="required">The required interface model description.
+            <param name="required">The required interface model 
+            specification as TextReader.
             </param>
-            <param name="provided">The provided interface model description.
-            </param>
+            <param name="provided">The provided interface model
+            specification as TextReader.</param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Control.Controller.FindMismatches(System.IO.TextReader,System.IO.TextReader)">
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.Start(Palladio.QoSAdaptor.Enumerations.InterfaceModel,Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification,Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification)">
+            <summary>
+            This method starts the the analysis of the interface models,
+            the selection of a pattern that solves interface model mismatches 
+            and the generation of an adaptor and a prediction model using that
+            pattern.
+            </summary>
+            <param name="interfaceModel">The considered interface model.
+            </param>
+            <param name="requiredSpecification">Interface model specification 
+            of the required interface.</param>
+            <param name="providedSpecification">Interface model specification 
+            of the provided interface.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.FindMismatches(Palladio.QoSAdaptor.Enumerations.InterfaceModel,Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification,Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification)">
             <summary>
             Looks for mismatches in the two given specifications. 
             </summary>
-            <param name="required">Textual representation of the required 
-            specification.</param>
-            <param name="provided">Textual representation of the provided 
-            specification.</param>
+            <param name="interfaceModel">The currently considered 
+            interfaceModel.</param>
+            <param name="requiredSpecification">Interface model specification 
+            of the required interface.</param>
+            <param name="providedSpecification">Interface model specification 
+            of the provided interface.</param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Control.Controller.SelectPattern(System.Collections.IList,System.String,System.String)">
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.SelectPattern(System.Collections.IList,Palladio.QoSAdaptor.Enumerations.InterfaceModel,System.String,System.String)">
             <summary>
             Semi-automatic selection of a pattern that is able to correct the 
             found mismatches. 
@@ -90,7 +93,7 @@
             provided specification.</param>
             <returns></returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Control.Controller.GetPatternDescriptions">
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.GetPatternDescriptions(Palladio.QoSAdaptor.Enumerations.InterfaceModel)">
             <summary>
             Reads the PatternDescriptions from their XML representations.
             </summary>

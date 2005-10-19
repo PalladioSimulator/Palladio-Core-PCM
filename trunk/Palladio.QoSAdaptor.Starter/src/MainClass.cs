@@ -20,6 +20,9 @@
 
 using Palladio.QoSAdaptor.Control;
 using System.IO;
+using Palladio.QoSAdaptor.Enumerations;
+using Palladio.QoSAdaptor.Interfaces;
+using Palladio.QoSAdaptor.QMLComparison;
 
 namespace Palladio.QoSAdaptor.Starter
 {
@@ -35,15 +38,27 @@ namespace Palladio.QoSAdaptor.Starter
 		/// <param name="args"></param>
 		public static void Main (string[] args)
 		{
-			FileStream fileStream = new FileStream(args[0], 
-				System.IO.FileMode.Open);
-			StreamReader requiredReader = new StreamReader(fileStream);
-			fileStream = new FileStream(args[1], System.IO.FileMode.Open);
-			StreamReader providedReader = new StreamReader(fileStream);
+			QMLComparator comparator = new QMLComparator();
+
+			IInterfaceModelSpecification requiredSpecification = null;
+			IInterfaceModelSpecification providedSpecification = null;
+
+			// TODO: Exception handling
+			StreamReader requiredReader = new StreamReader(new FileStream
+				(args[0], System.IO.FileMode.Open));
+			requiredSpecification = comparator.CreateQMLSpecification(
+				requiredReader);
+			requiredReader.Close();
+
+			StreamReader providedReader = new StreamReader(new FileStream
+				(args[1], System.IO.FileMode.Open));
+			providedSpecification = comparator.CreateQMLSpecification(
+				providedReader);
+			providedReader.Close();
 
 			IController controller = new Controller();
-			controller.Start(Controller.InterfaceModel.Quality, requiredReader, 
-				providedReader);
+			controller.Start(InterfaceModel.QUALITY, 
+				requiredSpecification, providedSpecification);
 		}
 	}
 }

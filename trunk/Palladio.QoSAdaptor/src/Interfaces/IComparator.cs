@@ -19,7 +19,6 @@
 #endregion
 
 using System.Collections;
-using System.IO;
 
 namespace Palladio.QoSAdaptor.Interfaces
 {
@@ -46,23 +45,12 @@ namespace Palladio.QoSAdaptor.Interfaces
 		/// TODO: Introduce IMismatch -> Are there similarities of the 
 		/// mismatches of the different interface models?
 		/// </summary>
-		/// <param name="required">An interface model description of the 
+		/// <param name="requiredSpecification">QML specification of the 
 		/// required interface.</param>
-		/// <param name="provided">An interface model description of the 
+		/// <param name="providedSpecification">QML specification of the 
 		/// provided interface.</param>
 		/// <returns>A list of interface mismatches.</returns>
-		IList FindMismatches(TextReader required, TextReader provided);
-
-		/// <summary>
-		/// Returns a string representation of the internal interface model 
-		/// desription of the required interface model. 
-		/// </summary>
-		string RequiredSpecificationString{get;}
-
-		/// <summary>
-		/// Returns a string representation of the internal interface model 
-		/// desription of the provided interface model. 
-		/// </summary>
-		string ProvidedSpecificationString{get;}
+		IList FindMismatches(IInterfaceModelSpecification requiredSpecification, 
+			IInterfaceModelSpecification providedSpecification);
 	}
 }

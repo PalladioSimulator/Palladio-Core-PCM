@@ -94,6 +94,16 @@
                     Project = "{20B68AFC-F177-4F6F-94F1-5CF479657DA4}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "Palladio.QoSAdaptor"
+                    Project = "{C12613AF-EB3B-4A0A-A39E-8DF3129DC057}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Palladio.QoSAdaptor.QMLComparison"
+                    Project = "{F0BC7726-D6F3-4B93-8980-562E8531DB97}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
             </References>
         </Build>
         <Files>

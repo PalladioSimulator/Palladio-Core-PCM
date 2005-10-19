@@ -27,6 +27,11 @@
             the mismatch.
             </summary>
         </member>
+        <member name="T:Palladio.QoSAdaptor.Enumerations.InterfaceModel">
+            <summary>
+            Enumeration representing the considered interface model
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.Exceptions.IncompleteInterfaceCopingException">
             <summary>
             Zusammenfassung für IncompleteInterfaceCopingException.
@@ -41,7 +46,7 @@
             quality-based, which is used in this prototypical implementation.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Interfaces.IComparator.FindMismatches(System.IO.TextReader,System.IO.TextReader)">
+        <member name="M:Palladio.QoSAdaptor.Interfaces.IComparator.FindMismatches(Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification,Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification)">
             <summary>
             This method is used to find mismatches between the two given 
             interface model descriptions. TextReader are used to abstract from
@@ -56,22 +61,16 @@
             TODO: Introduce IMismatch -> Are there similarities of the 
             mismatches of the different interface models?
             </summary>
-            <param name="required">An interface model description of the 
+            <param name="requiredSpecification">QML specification of the 
             required interface.</param>
-            <param name="provided">An interface model description of the 
+            <param name="providedSpecification">QML specification of the 
             provided interface.</param>
             <returns>A list of interface mismatches.</returns>
         </member>
-        <member name="P:Palladio.QoSAdaptor.Interfaces.IComparator.RequiredSpecificationString">
+        <member name="T:Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification">
             <summary>
-            Returns a string representation of the internal interface model 
-            desription of the required interface model. 
-            </summary>
-        </member>
-        <member name="P:Palladio.QoSAdaptor.Interfaces.IComparator.ProvidedSpecificationString">
-            <summary>
-            Returns a string representation of the internal interface model 
-            desription of the provided interface model. 
+            Interface that has to be implemented by all specifications of an 
+            interface model.
             </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.Interfaces.IMismatch">
@@ -110,6 +109,11 @@
             <summary>
             Returns the name of the mismatched subattribute belonging to this 
             Mismatch
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Interfaces.IMismatch.MismatchDetails">
+            <summary>
+            Provides further information about the mismatch.
             </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.Utils.HiResTimer">

@@ -24,6 +24,7 @@ using System.IO;
 using System.Windows.Forms;
 using Palladio.QoSAdaptor.Compiler;
 using Palladio.QoSAdaptor.Configuration;
+using Palladio.QoSAdaptor.Enumerations;
 using Palladio.QoSAdaptor.Exceptions;
 using Palladio.QoSAdaptor.Generation;
 using Palladio.QoSAdaptor.Interfaces;
@@ -51,36 +52,30 @@ namespace Palladio.QoSAdaptor.Control
 	/// </summary>
 	public class Controller : IController
 	{
-		#region data
-		/// <summary>
-		/// The considered interface model
-		/// </summary>
-		private InterfaceModel interfaceModel;
-
-		/// <summary>
-		/// The considered required specification.
-		/// </summary>
-		private string requiredSpecification;
-
-		/// <summary>
-		/// The considered provided specification.
-		/// </summary>
-		private string providedSpecification;
-		#endregion
-
-		#region enumerations
-		// enumeration representing the considered interface model
-		public enum InterfaceModel
-		{
-			Syntax, 
-			Behavior, 
-			Interaction,
-			Quality,
-			Conceptual
-		}
-		#endregion
-
 		#region public methods
+		public void Start(InterfaceModel interfaceModel, TextReader required, 
+			TextReader provided)
+		{
+			QMLComparator comparator = null;
+			if (interfaceModel == InterfaceModel.QUALITY)
+				comparator = new QMLComparator();
+			else
+			{
+				//throw exception
+			}
+
+			IInterfaceModelSpecification requiredSpecification = null;
+			IInterfaceModelSpecification providedSpecification = null;
+
+			requiredSpecification = comparator.CreateQMLSpecification(
+				required);
+			providedSpecification = comparator.CreateQMLSpecification(
+				provided);
+
+			Start (interfaceModel, requiredSpecification, 
+				providedSpecification);
+		}
+
 		/// <summary>
 		/// This method starts the the analysis of the interface models,
 		/// the selection of a pattern that solves interface model mismatches 
@@ -89,46 +84,59 @@ namespace Palladio.QoSAdaptor.Control
 		/// </summary>
 		/// <param name="interfaceModel">The considered interface model.
 		/// </param>
-		/// <param name="required">The required interface model description.
-		/// </param>
-		/// <param name="provided">The provided interface model description.
-		/// </param>
-		public void Start(InterfaceModel interfaceModel, TextReader required, 
-			TextReader provided)
+		/// <param name="requiredSpecification">Interface model specification 
+		/// of the required interface.</param>
+		/// <param name="providedSpecification">Interface model specification 
+		/// of the provided interface.</param>
+		public void Start(InterfaceModel interfaceModel, 
+			IInterfaceModelSpecification requiredSpecification, 
+			IInterfaceModelSpecification providedSpecification)
 		{
-			this.interfaceModel = interfaceModel;
-
-			IList mismatches = FindMismatches(required, provided);
-
-			if (mismatches.Count > 0)
+			IList mismatches = null;
+			try
 			{
-				// TODO: Loop selection, configuration and generation until it
-				// is aborted by the user.
+				mismatches = FindMismatches(interfaceModel, 
+					requiredSpecification, providedSpecification);
+			}
+			catch (IncompleteInterfaceCopingException e)
+			{
+				MessageBox.Show(e.Message);
+			}
 
-				// Pattern selection
-				IPatternDescription selectedPattern = SelectPattern(mismatches, 
-					this.requiredSpecification, this.providedSpecification);
-				
-				if (selectedPattern != null)
+			if (mismatches != null)
+			{
+				if (mismatches.Count > 0)
 				{
-					// Pattern configuration
-					// TODO: Use Palladio.QoSAdaptor.Configuration instead of the 
-					// CodeSmith configuration interfaced currently used in  
-					// Palladio.QoSAdaptor.Generation
+					// TODO: Loop selection, configuration and generation until it
+					// is aborted by the user.
 
-					// Generation
-					IGenerator generator = new Generator();
-					bool generated = generator.Start(selectedPattern, null);
-
-					if (generated)
+					// Pattern selection
+					IPatternDescription selectedPattern = SelectPattern(mismatches, 
+						interfaceModel,
+						requiredSpecification.ToString(), 
+						providedSpecification.ToString());
+				
+					if (selectedPattern != null)
 					{
-						// Compilation
-						Compile(selectedPattern);
+						// Pattern configuration
+						// TODO: Use Palladio.QoSAdaptor.Configuration instead of the 
+						// CodeSmith configuration interfaced currently used in  
+						// Palladio.QoSAdaptor.Generation
+
+						// Generation
+						IGenerator generator = new Generator();
+						bool generated = generator.Start(selectedPattern, null);
+
+						if (generated)
+						{
+							// Compilation
+							Compile(selectedPattern);
+						}
 					}
 				}
+				else
+					MessageBox.Show("No mismatches have been found.");
 			}
-			else
-				MessageBox.Show("No mismatches have been found.");
 
 		}
 		#endregion
@@ -137,25 +145,40 @@ namespace Palladio.QoSAdaptor.Control
 		/// <summary>
 		/// Looks for mismatches in the two given specifications. 
 		/// </summary>
-		/// <param name="required">Textual representation of the required 
-		/// specification.</param>
-		/// <param name="provided">Textual representation of the provided 
-		/// specification.</param>
-		private IList FindMismatches (TextReader required, TextReader provided)
+		/// <param name="interfaceModel">The currently considered 
+		/// interfaceModel.</param>
+		/// <param name="requiredSpecification">Interface model specification 
+		/// of the required interface.</param>
+		/// <param name="providedSpecification">Interface model specification 
+		/// of the provided interface.</param>
+		private IList FindMismatches(InterfaceModel interfaceModel,
+			IInterfaceModelSpecification requiredSpecification, 
+			IInterfaceModelSpecification providedSpecification)
 		{
-			IComparator comparator = new QMLComparator();
 			IList mismatches = new ArrayList();
+			IComparator comparator = null;
 
-			try
+			if (interfaceModel == InterfaceModel.QUALITY)
 			{
-				mismatches = comparator.FindMismatches(required, provided);
-				this.requiredSpecification = comparator.RequiredSpecificationString;
-				this.providedSpecification = comparator.ProvidedSpecificationString;
+				comparator = new QMLComparator();
+				try
+				{
+					((QMLComparator)comparator).CheckCompleteCoping(
+						requiredSpecification, providedSpecification);
+				}
+				catch (IncompleteInterfaceCopingException e)
+				{
+					throw e;
+				}
 			}
-			catch (IncompleteInterfaceCopingException e)
+			else
 			{
-				MessageBox.Show(e.Message);
+				//TODO: throw exception
 			}
+
+			mismatches = comparator.FindMismatches(requiredSpecification, 
+					providedSpecification);
+			
 			return mismatches;
 		}
 
@@ -170,10 +193,11 @@ namespace Palladio.QoSAdaptor.Control
 		/// provided specification.</param>
 		/// <returns></returns>
 		private IPatternDescription SelectPattern(IList mismatches, 
+			InterfaceModel interfaceModel,
 			string requiredSpecification, string providedSpecification)
 		{
 			// Automatic pattern preselection
-			ArrayList patterns = GetPatternDescriptions();
+			ArrayList patterns = GetPatternDescriptions(interfaceModel);
 			Hashmap mismatchSolvingPatterns = GetMismatchPatterns(
 				mismatches, patterns);
 
@@ -190,7 +214,8 @@ namespace Palladio.QoSAdaptor.Control
 		/// Reads the PatternDescriptions from their XML representations.
 		/// </summary>
 		/// <returns>A list of PatternDescription objects.</returns>
-		private ArrayList GetPatternDescriptions()
+		private ArrayList GetPatternDescriptions(
+			InterfaceModel interfaceModel)
 		{
 			// Read all xml files from the Pattern folder 
 			ArrayList patterns = new ArrayList();
@@ -214,8 +239,7 @@ namespace Palladio.QoSAdaptor.Control
 				}
 				else
 				{
-					if (parser.Pattern.InterfaceModel.Equals(
-						this.interfaceModel.ToString()))
+					if (parser.Pattern.InterfaceModel == interfaceModel)
 					{
 						patterns.Add(parser.Pattern);
 					}
@@ -257,8 +281,10 @@ namespace Palladio.QoSAdaptor.Control
 					{
 						IMismatchAttribute mismatchAttribute = pattern.
 							GetMismatchAttribute(attribute);
-						if ((mismatchAttribute.Suitability.Equals("+")) ||
-							(mismatchAttribute.Suitability.Equals("++")))
+						if ((mismatchAttribute.Suitability == 
+							SuitabilityValue.PLUS) ||
+							(mismatchAttribute.Suitability ==
+							SuitabilityValue.PLUSPLUS))
 						{
 							mismatchPatterns.Add(pattern);
 						}
