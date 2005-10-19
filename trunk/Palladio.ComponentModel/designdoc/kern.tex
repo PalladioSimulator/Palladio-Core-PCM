@@ -40,14 +40,27 @@ Externe Entitäten zeichnen sich durch ihre zur Entwurfszeit unbekannte Struktur 
 Die Schnittstellen aller Entitäten sind in der derzeitigen Implementierung des Komponentenmodells im Namensraum \verb+Palladio.ComponentModel.ModelEntities+ zu finden. Es folgt eine genauere Beschreibung der Realisierung der internen und externen Entitäten.
   
 \subsubsection{Realisierung interner Entitäten}
-Das Interface \verb+IComponentModelEntity+ bildet die Basisschnittstelle aller internen Entitäten. Es definiert Zugriffsmethoden auf die ID, den Namen und die Attribute, wobei auf ID auschließlich lesend, auf Name und die Attribute zusätzlich auch schreibend zugegriffen werden kann. Während der Name direkter Bestandteil der Schnittstelle ist, ist der Zugriff auf die Attribute im Interface \verb+IAttributable+ definiert. Dieses ist Teil des Palladio-Attribut-Konzepts und wird von \verb+IComponentModelEntity+ geerbt. Ebenso ist ID nicht direkt im Interfaces definiert sondern wird von einem Basisinterfaces ererbt. Eine detailierte Betrachtung der Identifizierung von Entitäten ist in Kapitel \ref{sec:kern:beschr:ids} zu finden. 
+Das Interface \verb+IComponentModelEntity+ bildet die Basisschnittstelle aller internen Entitäten. Es definiert Zugriffsmethoden auf die ID, den Namen und die Attribute, wobei auf ID auschließlich lesend, auf Name und die Attribute zusätzlich auch schreibend zugegriffen werden kann. Während der Name direkter Bestandteil der Schnittstelle ist, ist der Zugriff auf die Attribute im Interface \verb+IAttributable+ definiert. Dieses ist Teil des Palladio-Attribut-Konzepts und wird von \verb+IComponentModelEntity+ geerbt. Ebenso ist ID nicht direkt im Interfaces definiert sondern wird von einem Basisinterfaces ererbt. Eine detailierte Betrachtung der Identifizierung von Entitäten ist in Kapitel \ref{sec:kern:beschr:ids} zu finden. Alle internen Entitäten des Komponentenmodells erhalten spezialisierte Schnittstellen, die pro Entität zusätzliche Attribute definieren.
 
-Alle Entitäten des Komponentenmodells erhalten spezialisierte Interfaces
+Sowohl Basisinterface als auch die spezialisierten Schnittstellen sind von außerhalb zugreifbar. Die Implementierungen der Interfaces sind verborgen. Sie lassen sich unter Verwendung der Klasse \emph{EntityFactory} instanzieren. In der derzeitigen Version des Komponentenmodells ist diese Fabrik ebenfalls nicht von außen nutzbar. Sie wird ausschließlich durch die Builder-Schicht (vgl. Kapitel \ref{sec:arch}) genutzt. Sinn dieser Entscheidung ist die Vermeidung von fremden möglicherweise fehlerhaften Implementierungen der Enitäten. 
+
+Diverse Anforderungen nach Erweiterbarkeit der Entitäten um spezialisierte direkt über die Schnittstellen zugreifbare Attribute erzwingen an dieser jedoch möglicherweise eine Änderung der Designentscheidung. So besteht die Möglichkeit, die Implementierung der Entitäten in Form einer Fabrik von außen konfigurierbar zu gestalten.  
 
 \subsubsection{Realisierung der externen Entitäten}
 
+Im Gegensatz zu den internen Entitäten besteht bei den externen Entitäten bereits auch in dieser Version des Kompomentenmodells eine Unabhängigkeit zur Implementierung. Dies ist notwendig, da zur Entwurfszeit weder Informationen über Attribute der Entitäten noch über interne Strukturen bekannt sind. Die einzigen in den Schnittstellen definierten Attribute sind eine ID zur eindeutigen Identifizierung im Modell und eine Typ-ID zur Zuordnung der Implementierung.
+
+Aufgrund dieser Tatsache bestehen seitens des Komponentenmodells keinerlei Anfrage- oder Modifikationsmöglichkeiten der externen Entitäten. Es ist Aufgabe der nutzenden Anwendung hier eine geeignete Infrastruktur zur Verfügung zu stellen.
+
+Nachdem die Realisierung der sowohl internen als auch externen Entitäten verdeutlicht wurde, folgt nun die Beschreibung des verwendeten ID-Konzepts und der Speicherung der Entitäten im Modell.
+
 \subsubsection{Speicherung und Identifizierung von Entitäten}
 \label{sec:kern:beschr:ids}
+
+Die Identifizierung der Entitäten ist fundamentale Aufgabe im Modell. Sämtlicher Anfragen an das Modell oder Modifikationen an der Struktur des Modells verwenden nicht die Entitäten selber sondern deren IDs. Vorteil hierbei ist die Unabhängikeit der gesamten Infrastruktur des Komponentmodells von den Implementierungen der Entitäten. Bessere Wartbarkeit und geringere Fehleranfälligkeit sind die Konsequenz hieraus. Weiterhin erhält die nutzende Anwendung die Möglichleit der granularen Zuordnung von Rechten. So kann bestimmten Teilen die Verwendung von beispielsweise der Builder-Schicht gewährt werden, ohne direkten Zugriff auf die Entitäten selber zulassen zu müssen. Proxy-Konzepte sind unter anderem auf diese Art mit wenig Aufwand umsetzbar.    
+
+
+- probleme bei externen entitäten mit der ID-Erzeugung ...
 
 \subsubsection{Speicherung der Beziehungen}
 \label{sec:kern:beschr:dataset}
