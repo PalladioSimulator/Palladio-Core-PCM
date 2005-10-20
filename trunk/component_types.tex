@@ -1,14 +1,14 @@
 \section{Component Types}
-With the introduction of software components, the question of their substitutability arises. A component is not only defined by its provided interfaces, but also by the interfaces required from the environment. So, the constraints for replacing a component are more complex. The UML 2.0 superstructure addresses this issue only curtly:
+With the introduction of software components, the question of their substitutability and conformance arises. A component is not only defined by its provided interfaces, but also by the interfaces required from the environment. So, the constraints for replacing a component in its context are more complex than, for example, the constraints for replacing a class that implements a set of interfaces. The UML 2.0 superstructure addresses this issue only curtly:
 
 \begin{quote}
-``As such a component serves as a \emph{type}, whose conformance is defined by these provided and required interfaces. One component may therefore be substituted by another only if the two are type conformant.''
+``As such, a component serves as a type whose conformance is defined by these provided and required interfaces $[\ldots]$. One component may therefore be substituted by another only if the two are type conformant \cite[p.142]{OMGUML2005a}.''
 %TODO add reference: UML Superstructure p.150
 \end{quote}
 
-Here \emph{component types} and \emph{conformance} between components and types are mentioned. However, both concepts are not further clarified. We need a clear and useful definition of both terms to provide a component meta model that allows (a)  interoperability and substitutability checks of components and (b) enables the prediction of Quality of Service attributes of a component in a certain context.
+Here, the terms \emph{component type} and \emph{conformance} of components and types are mentioned. However, both concepts are not further clarified. We need a clear definition of both terms to provide a component meta model that allows (a)  interoperability and substitutability checks of components and (b) enables the prediction of Quality of Service attributes of a component in a certain context.
 
-In the following, we develop a more detailed approach to component types that allows different notions of substitutability. We also clarify the conformance of a component to a type. We introduce these concepts using the architecture of a web server shown in figure \ref{fig:WebserverComponents} and give a formal definition of the terms in the end of this section.
+In the following, we develop a more detailed approach to component types that allows different notions of substitutability. We also clarify the conformance of a component to a type. We introduce these concepts using the architecture of a web server shown in figure \ref{fig:WebserverComponents} and give a formal definition of the terms at the end of this section.
 
 \begin{figure}[htbp]
 \centering
@@ -17,42 +17,50 @@ In the following, we develop a more detailed approach to component types that al
 \label{fig:WebserverComponents}
 \end{figure}
 
-The main part of the web server is realised by the three components dispatcher, RequestParser, and HttpRequestProcessor. The Dispatcher listens on a set of incoming connections and spawns a new tread for each incoming HTTP request, which activates the RequestParser. The parser analyses the request and passes the result to the HttpRequestProcessor. The request processor is organised as a Chain of Responsability \cite{gamma1995a}. Each of its subcomponents checks whether it can handle the incoming request. If so, it returns the result, otherwise it passes the request to the next component in the chain. The ErrorHandler represents the end of the chain and returns an error message, if the request could not be handled by any of the components. Additionally, the SQLServer is required to create dynamic HTML pages.
+The main part of the web server is realised by the three components Dispatcher, RequestParser, and HttpRequestProcessor. The Dispatcher listens on a set of incoming connections. For each incoming HTTP request, it spawns a new tread and activates the RequestParser. The parser analyses the request and passes the result to the HttpRequestProcessor. The request processor is organised as a chain of responsability \cite{gamma1995a}. Each of its subcomponents checks whether it can handle the incoming request. If so, it returns the result, otherwise it passes the request to the next component in the chain of responsibility. The ErrorHandler represents the end of the chain and returns an error message if the request could not be handled by any of the components. Additionally, the SQLServer is required to create dynamic HTML pages.
 
-Looking at the architecture of the web server, we can identify at least two different types of components, which appear several times in the architecture. The components \texttt{StaticFileProvider} and \texttt{HttpRequestProcessor} provide and require the IRequestProcessor interface. The type of both components is shown in figure \ref{fig:RequestProcessorType}.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[scale=1.0]{example/RequestProcessorType}
+\includegraphics[scale=0.85]{example/DynamicRequestProcessorType}
+\caption{Component type for dynamic request processors.}
+\label{fig:DynamicRequestProcessorType}
+\end{figure}
+
+Looking at the architecture of the web server, we can identify different component types according to the definition in UML 2.0. For example, the components HttpRequestProcessor and DynamicFileProvide provide the IRequestProcessor interface and use the interfaces IDBConnector and IRequestProcessor. The first one is used to create dynamic content of web pages. The second one is required to forward the request to the next component in the chain of responsibility. The corresponding type of both components is shown in figure \ref{fig:DynamicRequestProcessorType}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.85]{example/RequestProcessorType}
 \caption{Another component type used in the web server.}
 \label{fig:RequestProcessorType}
 \end{figure}
 
-The components HttpRequestProcessor and DynamicFileProvide additionally require the IDBConnector interface to create the dynamic content of the pages. The type of these components is shown in figure \ref{fig:DynamicRequestProcessorType}.
+The type of the StaticFileProvider component shown in figure \ref{fig:RequestProcessorType} provides and requires the IRequestProcessor interface only. So, it differs from the DynamicRequestProcessorType, which additionally requires the IDBConnector interface. 
+
+The types shown in figures \ref{fig:DynamicRequestProcessorType} and \ref{fig:RequestProcessorType} are derived from existing components and describe their complete provided and required functionality.
+It is obvious that a component conforms to a type if it provides and requires exactly the interfaces specified by the type. However, this is not the case in general. A component is likely to differ from its more general type, but, nevertheless, still be conformant to the type. So, when does a component conform to a type?
+
+A component conforms to a type, if it offers at least the functionality specified by the provided interfaces of the type and uses only the functionality specified by the required interfaces of the type.
+
+For example, a component must offer the IRequestProcessor interface to conform to one of the types in figure \ref{fig:DynamicRequestProcessorType} or \ref{fig:RequestProcessorType}, but it can provide additional interfaces.
+Furthermore, a component can only use services that are specified in the required interfaces of the type. The DynamicFileProvider does not conform to the RequestProcessorType, since it uses the IDBConnector interface. Note that a component does not have to use all required interfaces of its type. So, all components that conform to the RequestProcessorType also conform to the DynamicRequestProcessorType, since they do not require the IDBConnectorInterface. 
+
+The definition of conformance corresponds to our view on required and provided interfaces as pre- and postcondition of components (see section \ref{sec:ComponentImplementation}). The precondition can only be strengthened. Thus, the component implementation must not use interfaces other than the required interfaces specified by the type. Furthermore, the postcondition can only be weakened. The component can offer any interfaces, but it must at least provide the ones specified by the type. With this notion of conformance, the type system of components is contravariant.
+
+This understanding of conformance between components and types allows us to define substitutability of components. A component \texttt{A} can be substituted by a component \texttt{B} if \texttt{B} conforms to the type defined by \texttt{A}. The type defined by a component includes all its provided and required interfaces. This is a very pessimistic definition of substitutability, which can be weakened under certain conditions. 
+
+In many cases, we are not only interested in the substitution of complete components including provided and required interfaces, but in a substitution with respect to provided interfaces only. This is the case if the functionality is more important than the requirements of a component or if we compare the functionality offered by different components. 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[scale=1.0]{example/DynamicRequestProcessorType}
-\caption{A component type used at different points in the web server.}
-\label{fig:DynamicRequestProcessorType}
-\end{figure}
-
-The types shown in figure \ref{fig:RequestProcessorType} and \ref{fig:DynamicRequestProcessorType} describe the complete functionality provided and required by all components of one of these types. A component conforms to a type, if it offers at least the functionality specified in the provided interfaces. It can have additional provided interfaces, which are not included in the type. So, a component must offer the IRequestProcessor interface to conform to one of the types in figure \ref{fig:RequestProcessorType} or \ref{fig:DynamicRequestProcessorType}. Furthermore, a component can only use services that are specified in the required interfaces of the type. For example, the DynamicFileProvider does not conform to the RequestProcessorType, since it uses the IDBConnector interface. Note that a component does not have to use all required interfaces of its type. So, all components that conform to the RequestProcessorType also conform to the DynamicRequestProcessorType, since they do not require the IDBConnectorInterface. 
-
-This understanding of conformance between components and types allows us to define substitutability of components.--TODO: How?-- However, in many cases we are not only interested in a complete substitutability that includes provided and required interfaces, but in a substitutability with respect to the provided interfaces only. This is the case if we replace a component and do not care for its required interfaces or if we want to compare only the functionality offered by a component. 
-
-
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[scale=1.0]{example/ProvidesType}
+\includegraphics[scale=0.85]{example/ProvidesType}
 \caption{Provides-type of the RequestProcessorType and DynamicRequestProcessorType.}
 \label{fig:ProvidesType}
 \end{figure}
 
-So, we want to allow conformance with respect to provided interfaces only. Therefore, we introduce a \emph{provides-type} which only describes provided interfaces. The provides-type of the RequestProcessortType and the DynamicRequestProcessorType is shown in figure \ref{fig:ProvidesType}. --TODO: Picture with hierarchy instead--
+Hence, we want to allow conformance with respect to provided interfaces only. Therefore, we introduce a \emph{provides-type} which only contains provided interfaces. The provides-type of the RequestProcessortType and the DynamicRequestProcessorType is shown in figure \ref{fig:ProvidesType}. 
 
-Contravariance, required and provided interfaces as contracts
 
 This is not the only Type that is used in the component model of the web server.
 
