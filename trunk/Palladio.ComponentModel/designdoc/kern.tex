@@ -54,13 +54,18 @@ Aufgrund dieser Tatsache bestehen seitens des Komponentenmodells keinerlei Anfra
 
 Nachdem die Realisierung der sowohl internen als auch externen Entitäten verdeutlicht wurde, folgt nun die Beschreibung des verwendeten ID-Konzepts und der Speicherung der Entitäten im Modell.
 
-\subsubsection{Speicherung und Identifizierung von Entitäten}
+\subsubsection{Identifizierung von Entitäten}
 \label{sec:kern:beschr:ids}
 
-Die Identifizierung der Entitäten ist fundamentale Aufgabe im Modell. Sämtlicher Anfragen an das Modell oder Modifikationen an der Struktur des Modells verwenden nicht die Entitäten selber sondern deren IDs. Vorteil hierbei ist die Unabhängikeit der gesamten Infrastruktur des Komponentmodells von den Implementierungen der Entitäten. Bessere Wartbarkeit und geringere Fehleranfälligkeit sind die Konsequenz hieraus. Weiterhin erhält die nutzende Anwendung die Möglichleit der granularen Zuordnung von Rechten. So kann bestimmten Teilen die Verwendung von beispielsweise der Builder-Schicht gewährt werden, ohne direkten Zugriff auf die Entitäten selber zulassen zu müssen. Proxy-Konzepte sind unter anderem auf diese Art mit wenig Aufwand umsetzbar.    
+Die Identifizierung der Entitäten ist fundamentale Aufgabe im Modell. Sämtliche Anfragen an das Modell oder Modifikationen an der Struktur des Modells verwenden nicht die Entitäten selber sondern deren IDs. Vorteil hierbei ist die Unabhängikeit der gesamten Infrastruktur des Komponentmodells von den Implementierungen der Entitäten. Bessere Wartbarkeit und geringere Fehleranfälligkeit sind die Konsequenz hieraus. Weiterhin erhält die nutzende Anwendung die Möglichleit der granularen Zuordnung von Rechten. So kann bestimmten Teilen die Verwendung von beispielsweise der Builder-Schicht gewährt werden, ohne direkten Zugriff auf die Entitäten selber zulassen zu müssen. Proxy-Konzepte sind unter anderem auf diese Art mit wenig Aufwand umsetzbar.    
 
+Zur Vermeidung von Fehlern bei der Nutzung des Komponentenmodells wurden die IDs typisiert. Dies bedeutet, dass beispielsweise die Anfrage an ein Interface nur unter Verwendung einer Interface-ID gestellt werden kann. Um Anfragen die Möglichkeit der Übergabe einer beliebigen ID zu ermöglichen \footnote{QueryRepository bietet beispielsweise die Möglichkeit, die zu einer übergebenen ID gehörige Entität egal welcher Art zurückzugeben.}, erben alle IDs von einem Basisinterface. 
 
-- probleme bei externen entitäten mit der ID-Erzeugung ...
+Sowohl das Basisinterface aller IDs als auch das Basisinterfaces der Entitäten, in dem die lesende Zugriffsmethode auf die ID definiert ist, sind Bestandteil des vom Komponentenmodell unabhängigen Projektes \verb+Palladio.Identifier+. Ziel dieser Ausgliederung ist die Wiederverwendbarkeit des ID-Konzepts und die dadurch gewonnene Kombinationsmöglichkeit sonst unabhängiger Projekte. Zusätzlich zu den beiden Interfaces werden Möglichkeiten zur Verwaltung von Entitäten und IDs zur Verfügung gestellt. Das Basisinterface aller IDs definiert die ausschließlich lesbare Eigenschaft \verb+Key+ vom Type \verb+System.String+. Dieser Umweg musste gewählt werden, um die oben erwähnte Möglichkeit zur Verwendung von typisierten IDs zu schaffen. Der Datentyp  \verb+System.String+ ist weder durch ein Interface gekapselt, noch ist er erweiterbar durch Ableitung. Die ebenfalls im Projekt zu findene Standartimplementierung einer ID bedient sich der String-Repräsentation einer GUID als Key.
+
+Das derzeitige Komponentenmodells enthält die von außen nutzbare Fabrik \verb+ComponentModelIdentifier+ zur Erzeugung von IDs. Es wird von dieser Fabrik für alle erzeugten IDs dieselbe alle ID-Interfaces implementierende Klasse \verb+InternalEntityIdentifier+ verwendet. Als Folge hieraus lassen sich IDs unterschiedlichen Typs ineinander casten. Dies sollte bei der Nutzung des Komponentenmodells keinerlei Probleme bereiten, da die Klasse selber nicht von außen sichtbar ist. 
+
+\subsubsection{Speicherung der Entitäten}
 
 \subsubsection{Speicherung der Beziehungen}
 \label{sec:kern:beschr:dataset}
