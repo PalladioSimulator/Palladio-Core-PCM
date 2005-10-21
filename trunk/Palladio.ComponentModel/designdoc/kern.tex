@@ -20,6 +20,7 @@ Weiterhin wichtig ist sowohl bei den Zugriffsmethoden als auch bei der Speicheru
 Nachdem die grundlegenden Anforderungen an den Modellkern erarbeitet wurden, folgt die Vorstellung von Ideen zu deren Umsetzung.
 
 \subsection{Ideen zur Umsetzung}
+\label{sec:kern:beschr:idee}
 
 Zur Umsetzung des Modellkerns kommen eine Reihe von Strategien in Frage, von denen drei im Folgenden gegeneinander abgegrenzt werden. 
 
@@ -54,7 +55,7 @@ Aufgrund dieser Tatsache bestehen seitens des Komponentenmodells keinerlei Anfra
 
 Nachdem die Realisierung der sowohl internen als auch externen Entitäten verdeutlicht wurde, folgt nun die Beschreibung des verwendeten ID-Konzepts und der Speicherung der Entitäten im Modell.
 
-\subsubsection{Identifizierung von Entitäten}
+\subsubsection{Identifizierung und lokale Speicherung von Entitäten}
 \label{sec:kern:beschr:ids}
 
 Die Identifizierung der Entitäten ist fundamentale Aufgabe im Modell. Sämtliche Anfragen an das Modell oder Modifikationen an der Struktur des Modells verwenden nicht die Entitäten selber sondern deren IDs. Vorteil hierbei ist die Unabhängikeit der gesamten Infrastruktur des Komponentmodells von den Implementierungen der Entitäten. Bessere Wartbarkeit und geringere Fehleranfälligkeit sind die Konsequenz hieraus. Weiterhin erhält die nutzende Anwendung die Möglichleit der granularen Zuordnung von Rechten. So kann bestimmten Teilen die Verwendung von beispielsweise der Builder-Schicht gewährt werden, ohne direkten Zugriff auf die Entitäten selber zulassen zu müssen. Proxy-Konzepte sind unter anderem auf diese Art mit wenig Aufwand umsetzbar.    
@@ -63,13 +64,22 @@ Zur Vermeidung von Fehlern bei der Nutzung des Komponentenmodells wurden die IDs
 
 Sowohl das Basisinterface aller IDs als auch das Basisinterfaces der Entitäten, in dem die lesende Zugriffsmethode auf die ID definiert ist, sind Bestandteil des vom Komponentenmodell unabhängigen Projektes \verb+Palladio.Identifier+. Ziel dieser Ausgliederung ist die Wiederverwendbarkeit des ID-Konzepts und die dadurch gewonnene Kombinationsmöglichkeit sonst unabhängiger Projekte. Zusätzlich zu den beiden Interfaces werden Möglichkeiten zur Verwaltung von Entitäten und IDs zur Verfügung gestellt. Das Basisinterface aller IDs definiert die ausschließlich lesbare Eigenschaft \verb+Key+ vom Type \verb+System.String+. Dieser Umweg musste gewählt werden, um die oben erwähnte Möglichkeit zur Verwendung von typisierten IDs zu schaffen. Der Datentyp  \verb+System.String+ ist weder durch ein Interface gekapselt, noch ist er erweiterbar durch Ableitung. Die ebenfalls im Projekt zu findene Standartimplementierung einer ID bedient sich der String-Repräsentation einer GUID als Key.
 
-Das derzeitige Komponentenmodells enthält die von außen nutzbare Fabrik \verb+ComponentModelIdentifier+ zur Erzeugung von IDs. Es wird von dieser Fabrik für alle erzeugten IDs dieselbe alle ID-Interfaces implementierende Klasse \verb+InternalEntityIdentifier+ verwendet. Als Folge hieraus lassen sich IDs unterschiedlichen Typs ineinander casten. Dies sollte bei der Nutzung des Komponentenmodells keinerlei Probleme bereiten, da die Klasse selber nicht von außen sichtbar ist. 
+Das derzeitige Komponentenmodell stellt zur Erzeugung von IDs die von außen nutzbare Fabrik \verb+ComponentModelIdentifier+ zur Verfügung. Es wird von dieser Fabrik für alle erzeugten IDs dieselbe alle Klasse \verb+InternalEntityIdentifier+ verwendet. Als Folge hieraus lassen sich IDs unterschiedlichen Typs ineinander casten. Dies sollte bei der Nutzung des Komponentenmodells keinerlei Probleme bereiten, da die Klasse selber nicht von außen sichtbar ist. 
 
-\subsubsection{Speicherung der Entitäten}
+Wie in Kapitel \ref{sec:kern:beschr:idee} bereits angedeutet, werden die Entitäten zur Laufzeit der Anwendung direkt als Objektinstanzen gespeichert. Die gekapselte Hashtabelle ist ebenfalls Bestandteil des Identifier-Projekts. Jede Entität des Komponentenmodells ist in dieser Tabelle mit ihrer ID als Schlüssel zugreifbar. Iteratoren ermöglichen einfachen Zugriff auf alle Entitäten.
 
-\subsubsection{Speicherung der Beziehungen}
+Nachdem das Konzept der internen und externen Entitäten inklusive der lokalen Speicherung und Identifizierung hinreichend dargestellt wurde, geht der folgende Abschnitt auf die Realisierung der Beziehungen zwischen den Entitäten ein. 
+
+\subsubsection{Lokale Speicherung der Beziehungen}
 \label{sec:kern:beschr:dataset}
-%dataset
+
+Die Speicherung der Beziehungen zwischen den Entitäten ist derzeit unter der Verwendung des \emph{ADO.Net-Dataset} realisiert. Es handelt sich hierbei um eine Datenverwaltung ähnlich einer relationalen Datenbank welche jedoch lokal im Kontext der Anwendung instanziert ist. Realisiert sind Datasets in einem Objektmodell bestehend aus Zeilen und Spalten innerhalb von Tabellen.  In Datasets können ebenso wie in realtionalen Datenbanken Beziehungen und Einschränkungen definiert werden. Die Struktur eines Datasets wird in Form eines XML-Schemas definiert. Die enthaltenen Daten können sind direkt in XML serialisierbar. Datasets lassen sich in typisiert und nicht typisiert untertteilen. Typisierte Dataset erweitern die Basisklasse \verb+Dataset+ um Zugriffsmethoden welche direkt auf dem zugrundeliegenden Schema aufbauen\cite{lit:dataset}.
+
+Die Verwendung eines Datasets im Kontext des Komponentenmodells zeichnet sich durch viele Vorteile aus. Die vollständige Integration in die Anwendung erfordert keinerlei zusätzliche Infrastruktur. Die Objektnatur der Datasets ermöglicht Navigation über Tabellen hinweg durch untereinander verlinkte Tabellenzeilen. Anfragen an eine Tabelle können in SQL ähnlicher Form gestellt werden.
+
+Nachteilig wirkt die fehlende Möglichkeit der Anfrage über mehrere Tabellen hinweg in Form von beispielsweise Joins. Hier müssen Tabellen einzeln abgefragt und die Ergebnisse für weitere Anfragen verwendet werden. Sinnvoll wäre weiterhin die Möglichkeit der freien Wahl der Datentypen in einem Dataset. Die bisher in einer Hashtabelle gehaltenen Entitäten (vgl. \ref{sec:kern:beschr:ids}) könnten so direkt in eine Tabelle des Datasets integriert werden. Das Konzept der XML-Serialisierbarkeit von Dataset erschwert möglicherweise die Umsetzung einer solchen Erweiterung.
+
+%Vorstellung unseres Schemas ...
 
 \begin{figure}[ht]
  \centering \includegraphics[scale=0.53]{dataset.png}
