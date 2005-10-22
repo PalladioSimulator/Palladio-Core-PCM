@@ -79,13 +79,29 @@ Die Verwendung eines Datasets im Kontext des Komponentenmodells zeichnet sich du
 
 Nachteilig wirkt die fehlende Möglichkeit der Anfrage über mehrere Tabellen hinweg in Form von beispielsweise Joins. Hier müssen Tabellen einzeln abgefragt und die Ergebnisse für weitere Anfragen verwendet werden. Sinnvoll wäre weiterhin die Möglichkeit der freien Wahl der Datentypen in einem Dataset. Die bisher in einer Hashtabelle gehaltenen Entitäten (vgl. \ref{sec:kern:beschr:ids}) könnten so direkt in eine Tabelle des Datasets integriert werden. Das Konzept der XML-Serialisierbarkeit von Dataset erschwert möglicherweise die Umsetzung einer solchen Erweiterung.
 
-%Vorstellung unseres Schemas ...
+Es folgt die Beschreibung des für das Komponentenmodell entworfenen Schemas welches in Abbildung \ref{fig:dataset} dargestellt ist.
 
 \begin{figure}[ht]
  \centering \includegraphics[scale=0.53]{dataset.png}
  \caption{.NET Dataset des Modellkerns}
  \label{fig:dataset}
 \end{figure}
+
+Die anfänglich geplante stikte Trennung von \emph{Type}-, \emph{Implementierungs}- und \emph{Deployment}-Ebene gemäß \cite{lit:cm} konnte aufgrund von Abhängigkeiten anderer Projekte in dieser Version des Modells nicht eingehalten werden. Aufgrund dieser Tatsache werden zukünftige Änderungen starken Einfluss auf das bisherige Schema haben. Unabhängig davon soll zum besseren Verständnis des derzeitigen Modells das aktuelle Schema erläutert werden. Dies kann ebenfalls als praktisches Beispiel zum Umgang mit Datasets im Kontext des Komponentenmodells dienen.
+
+Um in relationalen Datenbanken Beziehungen zwischen Entitäten herstellen zu können, müssen die Entitäten selber in Form einer Tabelle in der Datenbank vorliegen. Analog verhält sich die Speicherung der Beziehungen in einem Dataset. Da die Entitäten selbst jedoch als Objektinstanzen in einer Hashtabelle (vgl. \ref{sec:kern:beschr:dataset}) gehalten werden, sollten diese zur Vermeidung von Redundanz nicht vollständig in der Tabelle des Datasets gehalten werden. An dieser Stelle genügen Schlüssel- und Fremschlüsselattribute der Entitäten, um Beziehungen zwischen diesen modellieren zu können. Die folgende Auflistung erläutert die Dataset-Tabellen, welcher der Speicherung der Schlüsselattribute der Entitäten dienen.
+
+\begin{itemize}
+	\item \textbf{Components}\\
+	Das logische Komponentenmodell enthält gemäß \cite{lit:cm} zwei Arten von Komponenten, zusammengesetzte Komponenten (\emph{composite components}) und Basiskomponenten (\emph{basic components}). Beide sind Spezialisierungen von Komponenten, die sich jedoch nur in den Beziehungen zu anderen Entitäten unterscheiden. Die Art und Anzahl der Attribute beider Komponententypen sind gleich. Somit bietet sich als Modellierungsart die Auflösung der Spezialisierung unter Verwendung eines Typ-Attributs (vgl. \cite{lit:db}) an. Somit setzt sich die Tabelle \emph{Components} aus den Attributen guid (ID der Komponente) und type (Typ der Komponente) zusammen. 
+	
+	\item \textbf{Interfaces}\\
+	\item \textbf{Signatures}\\
+	\item \textbf{DelegationConnections}\\
+	\item \textbf{AssemblyConnections}\\
+	\item \textbf{Protocols}\\
+	\item \textbf{Seffs}\\	
+\end{itemize}
 
 \subsubsection{Schnittstelle nach außen}
 %lowlevel builder
