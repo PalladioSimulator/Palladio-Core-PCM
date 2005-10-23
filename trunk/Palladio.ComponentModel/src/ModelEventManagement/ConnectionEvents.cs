@@ -10,6 +10,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/10/23 16:26:42  kelsaka
+	/// - extracted event interfaces to make the events adaptable
+	/// - made event classes internal
+	///
 	/// Revision 1.2  2005/04/05 14:23:59  joemal
 	/// implement the rest of the notification
 	///
@@ -20,13 +24,13 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	///
 	/// </pre>
 	/// </remarks>
-	public class ConnectionEvents : EntityEvents
+	internal class ConnectionEvents : EntityEvents, IConnectionEvents
 	{
 		/// <summary>
 		/// called to create a eventstructure for a connection
 		/// </summary>
 		/// <param name="connection">the connection</param>
-		public ConnectionEvents(IConnection connection) : base(connection)
+		internal ConnectionEvents(IConnection connection) : base(connection)
 		{
 		}
 	}

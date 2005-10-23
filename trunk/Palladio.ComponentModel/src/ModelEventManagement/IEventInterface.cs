@@ -12,6 +12,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/10/23 16:26:42  kelsaka
+	/// - extracted event interfaces to make the events adaptable
+	/// - made event classes internal
+	///
 	/// Revision 1.2  2005/06/05 10:40:06  joemal
 	/// - components now can be added to more than one container
 	///
@@ -27,13 +31,13 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to register to one of the repository events
 		/// </summary>
 		/// <returns>the class that holds the events of the repository</returns>
-		RepositoryEvents GetRepositoryEvents();
+		IRepositoryEvents GetRepositoryEvents();
 
 		/// <summary>
 		/// called to register to one of the static view's events
 		/// </summary>
 		/// <returns>the class that holds the events of the static view</returns>
-		StaticViewEvents GetStaticViewEvents();
+		IStaticViewEvents GetStaticViewEvents();
 
 		/// <summary>
 		/// called to register to one of the events of the componentmodels entities
@@ -41,7 +45,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="entityID">the id of the entity</param>
 		/// <returns>the class that holds the events of an entity</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
-		EntityEvents GetEntityEvents(IIdentifier entityID);
+		IEntityEvents GetEntityEvents(IIdentifier entityID);
 
 		/// <summary>
 		/// called to register to one of the events of a component
@@ -49,7 +53,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="componentID">the id of the component</param>
 		/// <returns>the class that holds the events of a component</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
-		ComponentEvents GetComponentEvents(IComponentIdentifier componentID);
+		IComponentEvents GetComponentEvents(IComponentIdentifier componentID);
 
 		/// <summary>
 		/// called to register to one of the events of a composite component
@@ -58,7 +62,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <returns>the class that holds the events of a composite component</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
 		/// <exception cref="WrongComponentTypeException">the component with given id is not a composite component</exception>
-		CompositeComponentEvents GetCompositeComponentEvents(IComponentIdentifier ccID);
+		ICompositeComponentEvents GetCompositeComponentEvents(IComponentIdentifier ccID);
 
 		/// <summary>
 		/// called to register to one of the events of a basic component
@@ -67,7 +71,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <returns>the class that holds the events of a basic component</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
 		/// <exception cref="WrongComponentTypeException">the component with given id is not a basic component</exception>
-		BasicComponentEvents GetBasicComponentEvents(IComponentIdentifier bcID);
+		IBasicComponentEvents GetBasicComponentEvents(IComponentIdentifier bcID);
 
 		/// <summary>
 		/// called to register to one of the events of an interface
@@ -75,7 +79,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="ifaceID">the id of the interface</param>
 		/// <returns>the class that holds the events of an interface</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
-		InterfaceEvents GetInterfaceEvents(IInterfaceIdentifier ifaceID);
+		IInterfaceEvents GetInterfaceEvents(IInterfaceIdentifier ifaceID);
 
 		/// <summary>
 		/// called to register to one of the events of a signature
@@ -83,7 +87,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="sigID">the id of the signature</param>
 		/// <returns>the class that holds the events of a signature</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
-		SignatureEvents GetSignatureEvents(ISignatureIdentifier sigID);
+		ISignatureEvents GetSignatureEvents(ISignatureIdentifier sigID);
 		
 		/// <summary>
 		/// called to register to one of the events of a connection
@@ -91,6 +95,6 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="conID">the id of the connection</param>
 		/// <returns>the class that holds the events of a connection</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
-		ConnectionEvents GetConnectionEvents(IConnectionIdentifier conID);
+		IConnectionEvents GetConnectionEvents(IConnectionIdentifier conID);
 	}
 }

@@ -10,6 +10,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/10/23 16:26:42  kelsaka
+	/// - extracted event interfaces to make the events adaptable
+	/// - made event classes internal
+	///
 	/// Revision 1.2  2005/04/05 14:23:59  joemal
 	/// implement the rest of the notification
 	///
@@ -20,7 +24,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	///
 	/// </pre>
 	/// </remarks>
-	public class SignatureEvents : EntityEvents
+	internal class SignatureEvents : EntityEvents, ISignatureEvents
 	{
 		#region constructor
 
@@ -33,7 +37,6 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			signature.ParametersChanged += new StaticAttributeChangedEventHandler(signature_ParametersChanged);
 			signature.ExceptionsChanged += new StaticAttributeChangedEventHandler(signature_ExceptionsChanged);
 		}
-
 
 		#endregion
 

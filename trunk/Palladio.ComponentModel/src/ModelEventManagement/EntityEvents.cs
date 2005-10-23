@@ -11,6 +11,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/10/23 16:26:42  kelsaka
+	/// - extracted event interfaces to make the events adaptable
+	/// - made event classes internal
+	///
 	/// Revision 1.3  2005/04/06 20:48:59  joemal
 	/// implement the rest of the notification
 	///
@@ -24,7 +28,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	///
 	/// </pre>
 	/// </remarks>
-	public class EntityEvents
+	internal class EntityEvents : IEntityEvents
 	{
 		#region constructor
 

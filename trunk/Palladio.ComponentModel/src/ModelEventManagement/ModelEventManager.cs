@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Palladio.ComponentModel.Exceptions;
 using Palladio.ComponentModel.Identifier;
@@ -18,6 +17,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.10  2005/10/23 16:26:42  kelsaka
+	/// - extracted event interfaces to make the events adaptable
+	/// - made event classes internal
+	///
 	/// Revision 1.9  2005/09/28 08:38:24  joemal
 	/// add role to rem. interface event
 	///
@@ -59,7 +62,6 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		//Holds the events of the repository
 		private RepositoryEvents repositoryEvents;
 
-
 		//holds the event structures for the entities
 		private Hashtable eventStructures;
 
@@ -100,7 +102,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 
 			eventStructures.Add(component.ID,compEv);
 
-			GetRepositoryEvents().NotifyComponentAdded(this,new ComponentBuildEventArgs(component));
+			GetRepositoryEventsInternal().NotifyComponentAdded(this,new ComponentBuildEventArgs(component));
 		}
 
 		/// <summary>
@@ -110,7 +112,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void UnregisterComponent(IComponent component)
 		{
 			this.eventStructures.Remove(component.ID);
-			this.GetRepositoryEvents().NotifyComponentRemoved(this,new ComponentBuildEventArgs(component));			
+			this.GetRepositoryEventsInternal().NotifyComponentRemoved(this,new ComponentBuildEventArgs(component));			
 		}
 
 		/// <summary>
@@ -121,10 +123,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void RegisterComponentToComponent(IComponentIdentifier componentId, IComponentIdentifier parentComponentId)
 		{
 			if (parentComponentId == null)
-				this.GetStaticViewEvents().NotifyComponentAdded(this,
+				this.GetStaticViewEventsInternal().NotifyComponentAdded(this,
 					new ComponentUseEventArgs(componentId));
 			else
-                this.GetCompositeComponentEvents(parentComponentId).NotifyComponentAdded(this,
+                this.GetCompositeComponentEventsInternal(parentComponentId).NotifyComponentAdded(this,
 					new ComponentUseEventArgs(componentId));
 		}
 
@@ -137,10 +139,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void UnregisterComponentRelation(IComponentIdentifier child, IComponentIdentifier parent)
 		{
 			if (parent == null)
-				this.GetStaticViewEvents().NotifyComponentRemoved(this,
+				this.GetStaticViewEventsInternal().NotifyComponentRemoved(this,
 					new ComponentUseEventArgs(child));
 			else
-                this.GetCompositeComponentEvents(parent).NotifyComponentRemoved(this,
+                this.GetCompositeComponentEventsInternal(parent).NotifyComponentRemoved(this,
 					new ComponentUseEventArgs(child));
 		}
 
@@ -151,7 +153,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void RegisterInterface(IInterface iface)
 		{
 			eventStructures.Add(iface.ID,new InterfaceEvents(iface));
-			this.GetRepositoryEvents().NotifyInterfaceAdded(this,new InterfaceBuildEventArgs(iface));
+			this.GetRepositoryEventsInternal().NotifyInterfaceAdded(this,new InterfaceBuildEventArgs(iface));
 		}
 
 		/// <summary>
@@ -161,7 +163,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void UnregisterInterface(IInterface iface)
 		{
 			this.eventStructures.Remove(iface.ID);
-			this.GetRepositoryEvents().NotifyInterfaceRemoved(this,new InterfaceBuildEventArgs(iface));
+			this.GetRepositoryEventsInternal().NotifyInterfaceRemoved(this,new InterfaceBuildEventArgs(iface));
 		}
 
 		/// <summary>
@@ -178,10 +180,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 				throw new EntityNotFoundException(ifaceIdentifier);
 
 			if (role == InterfaceRole.PROVIDES)
-				this.GetComponentEvents(componentIdentifier).NotifyProvidesInterfaceAdded(this,
+				this.GetComponentEventsInternal(componentIdentifier).NotifyProvidesInterfaceAdded(this,
 					new InterfaceUseEventArgs(ifaceIdentifier,role));
 			else
-				this.GetComponentEvents(componentIdentifier).NotifyRequiresInterfaceAdded(this,
+				this.GetComponentEventsInternal(componentIdentifier).NotifyRequiresInterfaceAdded(this,
 					new InterfaceUseEventArgs(ifaceIdentifier,role));
 
 		}
@@ -198,7 +200,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			if (!entityHashtable.ContainsKey(compID.Key))
 				throw new EntityNotFoundException(compID);
 
-			this.GetComponentEvents(compID).NotifyInterfaceRemoved(this,new InterfaceUseEventArgs(ifaceID,role));
+			this.GetComponentEventsInternal(compID).NotifyInterfaceRemoved(this,new InterfaceUseEventArgs(ifaceID,role));
 		}
 
 		/// <summary>
@@ -210,7 +212,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void RegisterSignature(ISignature signature, IInterfaceIdentifier ifaceID)
 		{
 			eventStructures.Add(signature.ID,new SignatureEvents(signature));
-			this.GetInterfaceEvents(ifaceID).NotifySignatureAddedEvent(this,new SignatureBuildEventArgs(signature));
+			this.GetInterfaceEventsInternal(ifaceID).NotifySignatureAddedEvent(this,new SignatureBuildEventArgs(signature));
 		}
 
 		/// <summary>
@@ -221,7 +223,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void UnregisterSignature(ISignature signature, IInterfaceIdentifier ifaceID)
 		{
 			this.eventStructures.Remove(signature.ID);
-			this.GetInterfaceEvents(ifaceID).NotifySignatureRemovedEvent(this,new SignatureBuildEventArgs(signature));
+			this.GetInterfaceEventsInternal(ifaceID).NotifySignatureRemovedEvent(this,new SignatureBuildEventArgs(signature));
 		}
 
 		/// <summary>
@@ -232,7 +234,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <exception cref="EntityNotFoundException">the interface could not be found in cm.</exception>
 		public void RegisterProtocol(IProtocol protocol, IInterfaceIdentifier ifaceID)
 		{
-			this.GetInterfaceEvents(ifaceID).NotifyProtocolAddedEvent(this,new ProtocolBuildEventArgs(protocol));
+			this.GetInterfaceEventsInternal(ifaceID).NotifyProtocolAddedEvent(this,new ProtocolBuildEventArgs(protocol));
 		}
 
 		/// <summary>
@@ -242,7 +244,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="ifaceID">the interface, to which the protocol belongs</param>
 		public void UnregisterProtocol(IProtocol protocol, IInterfaceIdentifier ifaceID)
 		{
-			this.GetInterfaceEvents(ifaceID).NotifyProtocolRemovedEvent(this,new ProtocolBuildEventArgs(protocol));
+			this.GetInterfaceEventsInternal(ifaceID).NotifyProtocolRemovedEvent(this,new ProtocolBuildEventArgs(protocol));
 		}
 
 		/// <summary>
@@ -254,7 +256,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void RegisterRequiresDelegation(IConnection connection, ConnectionPoint innerPoint, ConnectionPoint outerPoint)
 		{
 			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
-			this.GetCompositeComponentEvents(outerPoint.componentID).NotifyDelegationConnectorAdded(this,
+			this.GetCompositeComponentEventsInternal(outerPoint.componentID).NotifyDelegationConnectorAdded(this,
 				new DelegationConnectorBuildEventArgs(connection,innerPoint.componentID,innerPoint.ifaceID,
 				outerPoint.componentID,outerPoint.ifaceID,InterfaceRole.REQUIRES));
 		}
@@ -268,7 +270,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void RegisterProvidesDelegation(IConnection connection, ConnectionPoint outerPoint, ConnectionPoint innerPoint)
 		{
 			this.eventStructures.Add(connection.ID,new ConnectionEvents(connection));
-			this.GetCompositeComponentEvents(outerPoint.componentID).NotifyDelegationConnectorAdded(this,
+			this.GetCompositeComponentEventsInternal(outerPoint.componentID).NotifyDelegationConnectorAdded(this,
 				new DelegationConnectorBuildEventArgs(connection,innerPoint.componentID,innerPoint.ifaceID,
 				outerPoint.componentID,outerPoint.ifaceID,InterfaceRole.PROVIDES));
 		}
@@ -290,7 +292,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 			else
 			{
 				IComponent parentC = (IComponent) entityHashtable[parentID];
-				this.GetCompositeComponentEvents(parentC.ComponentID).NotifyAssemblyConnectorAdded(this,
+				this.GetCompositeComponentEventsInternal(parentC.ComponentID).NotifyAssemblyConnectorAdded(this,
 					new AssemblyConnectorBuildEventArgs(connection,providesPoint.componentID,providesPoint.ifaceID,
 					requiresPoint.componentID,requiresPoint.ifaceID));
 			}
@@ -308,10 +310,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		{
 			this.eventStructures.Remove(connection.ID);
 			if (compositeCompID == null)
-				this.GetStaticViewEvents().NotifyAssemblyConnectorRemoved(this,
+				this.GetStaticViewEventsInternal().NotifyAssemblyConnectorRemoved(this,
 					new ConnectorRemovedEventArgs(connection,provPoint.componentID,provPoint.ifaceID,reqPoint.componentID,reqPoint.ifaceID));
 			else
-				this.GetCompositeComponentEvents(compositeCompID).NotifyConnectorRemoved(this,
+				this.GetCompositeComponentEventsInternal(compositeCompID).NotifyConnectorRemoved(this,
 					new ConnectorRemovedEventArgs(connection,provPoint.componentID,provPoint.ifaceID,reqPoint.componentID,reqPoint.ifaceID));
 		}
 
@@ -324,7 +326,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void RegisterSeff(IServiceEffectSpecification seff, ConnectionPoint conPoint,
 			ISignatureIdentifier sigId)
 		{
-			this.GetBasicComponentEvents(conPoint.componentID).NotifySeffAdded(this,
+			this.GetBasicComponentEventsInternal(conPoint.componentID).NotifySeffAdded(this,
 				new SeffBuildEventArgs(seff,conPoint.ifaceID,sigId));			
 		}
 
@@ -337,7 +339,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		public void UnregisterSeff(IServiceEffectSpecification seff, ConnectionPoint conPoint, 
 			ISignatureIdentifier sigId)
 		{
-			this.GetBasicComponentEvents(conPoint.componentID).NotifySeffRemoved(this,
+			this.GetBasicComponentEventsInternal(conPoint.componentID).NotifySeffRemoved(this,
 				new SeffBuildEventArgs(seff,conPoint.ifaceID,sigId));			
 		}
 
@@ -349,7 +351,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to register to one of the repository events
 		/// </summary>
 		/// <returns>the class that holds the events of the repository</returns>
-		public RepositoryEvents GetRepositoryEvents()
+		public IRepositoryEvents GetRepositoryEvents()
 		{
 			return this.repositoryEvents;			
 		}
@@ -358,7 +360,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to register to one of the static view's events
 		/// </summary>
 		/// <returns>the class that holds the events of the static view</returns>
-		public StaticViewEvents GetStaticViewEvents()
+		public IStaticViewEvents GetStaticViewEvents()
 		{
 			return this.staticViewEvents;
 		}
@@ -369,7 +371,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="entityID">the id of the entity</param>
 		/// <returns>the class that holds the events of an entity</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
-		public EntityEvents GetEntityEvents(IIdentifier entityID)
+		public IEntityEvents GetEntityEvents(IIdentifier entityID)
 		{
 			this.EntityEventStructureExists(entityID);
 			return (EntityEvents) eventStructures[entityID];
@@ -381,7 +383,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="componentID">the id of the component</param>
 		/// <returns>the class that holds the events of a component</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
-		public ComponentEvents GetComponentEvents(IComponentIdentifier componentID)
+		public IComponentEvents GetComponentEvents(IComponentIdentifier componentID)
 		{
 			this.EntityEventStructureExists(componentID);
 			return (ComponentEvents) eventStructures[componentID];
@@ -394,7 +396,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <returns>the class that holds the events of a composite component</returns>
 		/// <exception cref="WrongComponentTypeException">the entity with given id could not be found in cm</exception>
 		/// <exception cref="EntityNotFoundException">the component with given id is not a composite component</exception>
-		public CompositeComponentEvents GetCompositeComponentEvents(IComponentIdentifier ccID)
+		public ICompositeComponentEvents GetCompositeComponentEvents(IComponentIdentifier ccID)
 		{
 			this.EntityEventStructureExists(ccID);
 			return (CompositeComponentEvents) eventStructures[ccID];
@@ -407,7 +409,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <returns>the class that holds the events of a basic component</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
 		/// <exception cref="WrongComponentTypeException">the component with given id is not a basic component</exception>
-		public BasicComponentEvents GetBasicComponentEvents(IComponentIdentifier bcID)
+		public IBasicComponentEvents GetBasicComponentEvents(IComponentIdentifier bcID)
 		{
 			this.EntityEventStructureExists(bcID);
 			return (BasicComponentEvents) eventStructures[bcID];
@@ -419,7 +421,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="ifaceID">the id of the interface</param>
 		/// <returns>the class that holds the events of an interface</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
-		public InterfaceEvents GetInterfaceEvents(IInterfaceIdentifier ifaceID)
+		public IInterfaceEvents GetInterfaceEvents(IInterfaceIdentifier ifaceID)
 		{
 			this.EntityEventStructureExists(ifaceID);
 			return (InterfaceEvents) eventStructures[ifaceID];
@@ -431,7 +433,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="sigID">the id of the signature</param>
 		/// <returns>the class that holds the events of a signature</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
-		public SignatureEvents GetSignatureEvents(ISignatureIdentifier sigID)
+		public ISignatureEvents GetSignatureEvents(ISignatureIdentifier sigID)
 		{
 			this.EntityEventStructureExists(sigID);
 			return (SignatureEvents) eventStructures[sigID];
@@ -443,7 +445,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <param name="conID">the id of the connection</param>
 		/// <returns>the class that holds the events of a connection</returns>
 		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
-		public ConnectionEvents GetConnectionEvents(IConnectionIdentifier conID)
+		public IConnectionEvents GetConnectionEvents(IConnectionIdentifier conID)
 		{
 			this.EntityEventStructureExists(conID);
 			return (ConnectionEvents) eventStructures[conID];
@@ -478,6 +480,115 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		#endregion
 
 		#region private methods
+
+		#region members of IEventInterface -- returning original classes
+
+		/// <summary>
+		/// called to register to one of the repository events
+		/// </summary>
+		/// <returns>the class that holds the events of the repository</returns>
+		private RepositoryEvents GetRepositoryEventsInternal()
+		{
+			return this.repositoryEvents;			
+		}
+
+		/// <summary>
+		/// called to register to one of the static view's events
+		/// </summary>
+		/// <returns>the class that holds the events of the static view</returns>
+		private StaticViewEvents GetStaticViewEventsInternal()
+		{
+			return this.staticViewEvents;
+		}
+
+		/// <summary>
+		/// called to register to one of the events of the componentmodels entities
+		/// </summary>
+		/// <param name="entityID">the id of the entity</param>
+		/// <returns>the class that holds the events of an entity</returns>
+		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
+		private EntityEvents GetEntityEventsInternal(IIdentifier entityID)
+		{
+			this.EntityEventStructureExists(entityID);
+			return (EntityEvents) eventStructures[entityID];
+		}
+
+		/// <summary>
+		/// called to register to one of the events of a component
+		/// </summary>
+		/// <param name="componentID">the id of the component</param>
+		/// <returns>the class that holds the events of a component</returns>
+		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
+		private ComponentEvents GetComponentEventsInternal(IComponentIdentifier componentID)
+		{
+			this.EntityEventStructureExists(componentID);
+			return (ComponentEvents) eventStructures[componentID];
+		}
+
+		/// <summary>
+		/// called to register to one of the events of a composite component
+		/// </summary>
+		/// <param name="ccID">the id of the composite component</param>
+		/// <returns>the class that holds the events of a composite component</returns>
+		/// <exception cref="WrongComponentTypeException">the entity with given id could not be found in cm</exception>
+		/// <exception cref="EntityNotFoundException">the component with given id is not a composite component</exception>
+		private CompositeComponentEvents GetCompositeComponentEventsInternal(IComponentIdentifier ccID)
+		{
+			this.EntityEventStructureExists(ccID);
+			return (CompositeComponentEvents) eventStructures[ccID];
+		}
+
+		/// <summary>
+		/// called to register to one of the events of a basic component
+		/// </summary>
+		/// <param name="bcID">the id of the basic component</param>
+		/// <returns>the class that holds the events of a basic component</returns>
+		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
+		/// <exception cref="WrongComponentTypeException">the component with given id is not a basic component</exception>
+		private BasicComponentEvents GetBasicComponentEventsInternal(IComponentIdentifier bcID)
+		{
+			this.EntityEventStructureExists(bcID);
+			return (BasicComponentEvents) eventStructures[bcID];
+		}
+
+		/// <summary>
+		/// called to register to one of the events of an interface
+		/// </summary>
+		/// <param name="ifaceID">the id of the interface</param>
+		/// <returns>the class that holds the events of an interface</returns>
+		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
+		private InterfaceEvents GetInterfaceEventsInternal(IInterfaceIdentifier ifaceID)
+		{
+			this.EntityEventStructureExists(ifaceID);
+			return (InterfaceEvents) eventStructures[ifaceID];
+		}
+
+		/// <summary>
+		/// called to register to one of the events of a signature
+		/// </summary>
+		/// <param name="sigID">the id of the signature</param>
+		/// <returns>the class that holds the events of a signature</returns>
+		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
+		private SignatureEvents GetSignatureEventsInternal(ISignatureIdentifier sigID)
+		{
+			this.EntityEventStructureExists(sigID);
+			return (SignatureEvents) eventStructures[sigID];
+		}
+
+		/// <summary>
+		/// called to register to one of the events of a connection
+		/// </summary>
+		/// <param name="conID">the id of the connection</param>
+		/// <returns>the class that holds the events of a connection</returns>
+		/// <exception cref="EntityNotFoundException">the entity with given id could not be found in cm</exception>
+		private ConnectionEvents GetConnectionEventsInternal(IConnectionIdentifier conID)
+		{
+			this.EntityEventStructureExists(conID);
+			return (ConnectionEvents) eventStructures[conID];
+		}
+
+		#endregion
+
 
 		//checks whether an event structure for the given id exits in ht.
 		private void EntityEventStructureExists(IIdentifier id)

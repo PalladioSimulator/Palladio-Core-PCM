@@ -10,6 +10,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/10/23 16:26:42  kelsaka
+	/// - extracted event interfaces to make the events adaptable
+	/// - made event classes internal
+	///
 	/// Revision 1.4  2005/06/05 10:40:06  joemal
 	/// - components now can be added to more than one container
 	///
@@ -26,7 +30,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	///
 	/// </pre>
 	/// </remarks>
-	public class CompositeComponentEvents : ComponentEvents
+	internal class CompositeComponentEvents : ComponentEvents, ICompositeComponentEvents
 	{
 		#region constructor
 
@@ -34,7 +38,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// called to create a eventstructure for a composite component
 		/// </summary>
 		/// <param name="component">the component</param>
-		public CompositeComponentEvents(IComponent component) : base(component)
+		internal CompositeComponentEvents(IComponent component) : base(component)
 		{
 		}
 

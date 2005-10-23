@@ -8,6 +8,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.4  2005/10/23 16:26:42  kelsaka
+	/// - extracted event interfaces to make the events adaptable
+	/// - made event classes internal
+	///
 	/// Revision 1.3  2005/06/05 10:40:06  joemal
 	/// - components now can be added to more than one container
 	///
@@ -21,7 +25,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	///
 	/// </pre>
 	/// </remarks>
-	public class StaticViewEvents
+	internal class StaticViewEvents : IStaticViewEvents
 	{
 		#region internal notify methods
 		
@@ -76,7 +80,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 		/// <summary>
 		/// no need to be used from outside of the assembly
 		/// </summary>
-		internal StaticViewEvents(){}
+		public StaticViewEvents(){}
 
 		#endregion
 

@@ -10,6 +10,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/10/23 16:26:42  kelsaka
+	/// - extracted event interfaces to make the events adaptable
+	/// - made event classes internal
+	///
 	/// Revision 1.4  2005/07/29 16:02:47  joemal
 	/// now service effect specifications can be added ...
 	///
@@ -22,11 +26,9 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Revision 1.1  2005/03/29 13:05:37  joemal
 	/// initial class creation
 	///
-	///
-	///
 	/// </pre>
 	/// </remarks>
-	public class BasicComponentEvents : ComponentEvents
+	internal class BasicComponentEvents : ComponentEvents, IBasicComponentEvents
 	{
 		#region constructor
 

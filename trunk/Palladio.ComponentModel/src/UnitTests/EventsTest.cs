@@ -17,6 +17,10 @@ namespace Palladio.ComponentModel.UnitTests
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.8  2005/10/23 16:26:42  kelsaka
+	/// - extracted event interfaces to make the events adaptable
+	/// - made event classes internal
+	///
 	/// Revision 1.7  2005/10/19 16:35:11  joemal
 	/// xxx
 	///
@@ -58,7 +62,7 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void AddRemoveFromStaticView()
 		{
-			StaticViewEvents ev = componentModel.EventInterface.GetStaticViewEvents();
+			IStaticViewEvents ev = componentModel.EventInterface.GetStaticViewEvents();
 			ev.ComponentAddedEvent +=new ComponentUseEventHandler(ComponentAdded);
 			ev.ComponentRemovedEvent +=new ComponentUseEventHandler(ComponentRemoved);
 			ev.AssemblyConnectorAddedEvent += new AssemblyConnectorBuildEventHandler(AssemblyConnectorAdded);
@@ -80,7 +84,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void AddRemoveFromCC()
 		{
 			StaticComponentModel.Create(this.componentModel);
-			CompositeComponentEvents ev = componentModel.EventInterface.
+			ICompositeComponentEvents ev = componentModel.EventInterface.
 				GetCompositeComponentEvents(StaticComponentModel.CCWRITEID);
 			ev.ComponentAddedEvent +=new ComponentUseEventHandler(ComponentAdded);
 			ev.ComponentRemovedEvent +=new ComponentUseEventHandler(ComponentRemoved);
@@ -100,7 +104,7 @@ namespace Palladio.ComponentModel.UnitTests
 		public void AddRemoveInterface()
 		{
 			StaticComponentModel.Create(this.componentModel);
-			ComponentEvents ev = componentModel.EventInterface.GetComponentEvents(StaticComponentModel.BCWRITEID);
+			IComponentEvents ev = componentModel.EventInterface.GetComponentEvents(StaticComponentModel.BCWRITEID);
 			ev.InterfaceRemovedEvent +=new InterfaceUseEventHandler(ev_InterfaceRemovedEvent);
 			IBasicComponentTypeLevelBuilder bc =
 				this.componentModel.BuilderManager.GetBasicComponentTypeLevelBuilder(StaticComponentModel.BCWRITEID);
@@ -114,10 +118,6 @@ namespace Palladio.ComponentModel.UnitTests
 		[Test]
 		public void QueryInterfaceAfterCreationEvent()
 		{
-			//du solltest im EventHandler auch schon in der gleichen Instanz des CM nach dem Interface suchen,
-			//in die du das reingesteckt hast. Siehe EventsTest_InterfaceAddedEvent ...
-			//ComponentModelEnvironment cme = new ComponentModelEnvironment();
-
 			componentModel.EventInterface.GetRepositoryEvents().InterfaceAddedEvent += new InterfaceBuildEventHandler(EventsTest_InterfaceAddedEvent);
 			IInterfaceIdentifier interfaceID = componentModel.BuilderManager.RootTypeLevelBuilder.CreateInterface("if1").InterfaceId;
 
@@ -137,7 +137,10 @@ namespace Palladio.ComponentModel.UnitTests
 		{
 			Assert.IsNotNull(args.Interface, "event-arg 'interface' was null.");
 			Assert.IsNotNull(componentModel.Query.QueryRepository.GetInterface(args.Interface.InterfaceID), "query result: interface not found though event was raised.");
-			//es sollte dir auch schwierig fallen, hier auf die oben lokal instanzierte Version Zugriff zu erhalten ...
+
+			IInterfaceIdentifier newID = new Identifier.InternalEntityIdentifier(args.Interface.InterfaceID.Key);
+			Assert.IsNotNull(componentModel.Query.QueryRepository.GetInterface(newID), "query result: interface not found though event was raised.");
+
 			componentModel.EventInterface.GetInterfaceEvents(args.Interface.InterfaceID).NameChangedEvent
 				+= new StaticAttributeChangedEventHandler(EventsTest_NameChangedEvent);
 			flag02 = true;

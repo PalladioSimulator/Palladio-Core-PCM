@@ -9,6 +9,10 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/23 16:26:42  kelsaka
+	/// - extracted event interfaces to make the events adaptable
+	/// - made event classes internal
+	///
 	/// Revision 1.1  2005/06/05 10:28:35  joemal
 	/// initial creation
 	///
@@ -16,7 +20,7 @@ namespace Palladio.ComponentModel.ModelEventManagement
 	///
 	/// </pre>
 	/// </remarks>
-	public class RepositoryEvents
+	internal class RepositoryEvents : IRepositoryEvents
 	{
 		#region constructor
 

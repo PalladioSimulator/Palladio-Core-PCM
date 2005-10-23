@@ -647,6 +647,31 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ModelEventManagement\IBasicComponentEvents.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEventManagement\IComponentEvents.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEventManagement\ICompositeComponentEvents.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEventManagement\IConnectionEvents.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEventManagement\IEntityEvents.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ModelEventManagement\IEntityRegistration.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -657,12 +682,32 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\ModelEventManagement\IInterfaceEvents.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\ModelEventManagement\IModelEventManager.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "src\ModelEventManagement\InterfaceEvents.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEventManagement\IRepositoryEvents.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEventManagement\ISignatureEvents.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\ModelEventManagement\IStaticViewEvents.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
