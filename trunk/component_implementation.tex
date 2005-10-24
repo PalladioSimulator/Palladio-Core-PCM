@@ -2,56 +2,81 @@
 \label{sec:ComponentImplementation}
 
 In general, a component model does not provide any information about the inner
-structure of its components, since components are regarded as a black box
-entities. However, black box components inhibit the analysis of Quality of
+structure of its components, since components are regarded as a black-box
+entities. However, black-box components inhibit the analysis of Quality of
 Service (QoS) attributes of the system, since important information about the
 dependency of these attributes on external services, hardware and software
-resources, and the usage profile cannot be specified.  With black box
-components, only static QoS contracts, like the QoS Modelling Language (QML)
-\cite{frolund1998a}, can be used, but these are not sufficient
-for this task. If the required QoS profile of a component cannot be provided by
-the environment, the component is likely to work, but with lower quality.
-Therefore, we need additional information on the inner component structure to
-analyse QoS attributes of a component in dependence on its environment at design
-time.
+resources, and the usage profile cannot be specified.  With black-box
+components, only static QoS contracts, like the ones specified by the QoS
+Modeling Language (QML) \cite{frolund1998a}, can be used, but these are not
+sufficient for this task. If the required QoS profile of a component cannot be
+provided by the environment, the component is likely to work, but with lower
+quality. Therefore, we need additional information on the inner component
+structure to analyse QoS attributes of a component in dependence on its
+environment at design time.
 
 Parametric contracts \cite{TODO:reference} extend the design by contract
 principle of software components. They compute the postcondition of a component
 using the actual precondition offered by the environment. We state that a
-component can be considered as black box if the additional information
-used by parametric contracts (a) does not expose intellectual property of
-the component vendor and (b) has not to be understood by human users. So, the
-additional information is not available for the deployer but tools that
-examine it. We distinguish between \emph{basic components} and \emph{composite
-components} as two differnt ways of implementating a component.
+component can still be considered a black-box entity if the additional
+information used by parametric contracts (a) does not expose intellectual
+property of the component vendor and (b) has not to be understood by human
+users. So, the additional information and its analysis has to be transparent
+for the deployer. We distinguish between \emph{basic components} and
+\emph{composite components} as two different ways of implementing a component.
 
-\subsection{Basic Component}
-A basic component is a component that is not further subdived. Its describtion
-stores information about how each provided services uses the services
-specified by the required interfaces. This describtion of the relation
-between provided and required interfaces is calles service effect
+\paragraph*{Basic Component}
+A basic component is defined by its provided interfaces, required interfaces,
+and service effect specification. A basic component represents a basic block
+that implements a certain functionality and is not further subdived. 
+
+Its description stores information about how each provided services uses the
+services specified by the required interfaces. This description of the relation
+between provided and required interfaces is called service effect
 specification. In general, a service effect specification defines the
 behaviour of a service. This includes the used services, possible call
-sequences, and probabilities. The describtion only refers to external services.
-This abstracts the internal structure of a basic component and provids only the
+sequences, and, for example, probabilities of calling a service. The description
+only refers to external services.
+This abstracts the internal structure of a basic component and offers only the
 needed information.
 
 A finite state machine that represents a service effect specification is shown
-in figure \ref{fig:seff}.
+in figure \ref{fig:seff}. TODO: Figure and Description.
 
 
-\subsection{Composite Component}
+\paragraph*{Composite Component}
+A composite component contains a set of interconnected subcomponents that
+realise its functionality. 
 
+A required interface of an inner component is connected to a provided interface
+of another component by an \emph{assembly connector}. Provided and required
+interfaces of the composite component are mapped to interfaces of its inner
+structure by \emph{delegation connectors}. A provides delegation connector maps
+a provided interface of the composite component to provided interface of an
+inner component. A requires delegation connector maps a required interface of an
+inner component to a required interface of the composite component.
 
-Assembly/Delegation Connector 
-Today: theoretical construct no physical representation.
+TODO:Example
 
-Conforms Relation to the Complete Type
+As described in section \ref{sec:ComponentTypes}, a component implementation
+conforms to a complete-type if it offers at least the functionality specified
+in by the provided interfaces of the complete type and does not require more
+functionality than specified in the required interfaces of the complete-type.
 
-Description of the inner component structure. Type? -  In theory there might be
-different implementation that conform to the same description as in MDA. But
-since in most cases, this is a one to one relationship. We don't care.
+In section \ref{sec:ComponentTypes}, we introduced provided- and complete-types
+of components. Is the component implementation description also a type? In
+theory, there might exist different implementations that conform to the same
+implementation description (see Model Driven Architectures, MDA
+\cite{TODO:reference}). Hence, the implementation description would be a
+type. However, the implementation of a component and its description is
+usually in a one to one relationship. For this reason, we do not consider the
+component implementation as a type. 
 
--- Overview --
+Figure \ref{fig:TypeHierarchy} gives an overview of the relation of
+provided-types, complete-types and component implementation descriptions.
+TODO:Figure and description
 
-Benefit: Parametric Contracts (Example)
+With the implementation desciption of software components, we have enough
+information to compute QoS attribes of the component in dependence on external
+services.
+TODO:Example
