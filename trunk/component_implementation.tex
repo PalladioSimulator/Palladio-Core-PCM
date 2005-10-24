@@ -1,7 +1,9 @@
 \section{Component Implementation Description}
 \label{sec:ComponentImplementation}
 
-Description of the inner component structure. Type? -  In theory there might be different implementation that conform to the same description as in MDA. But since in most cases, this is a one to one relationship. We don't care.
+In general, a component model does not provide any information about the inner structure of its components, since components are regarded as a black box entities. However, black-box components inhibit the analysis of Quality of Service (QoS) attributes of the system, since important information about the dependency of these attributes on external services, hardware and software resources, and the usage profile cannot be specified. Static QoS contracts, like the QoS Modelling Language (QML) \cite{frolund1998a}, are also not sufficient for this task. If the required QoS profile of a component cannot be provided by the environment, the component is likely to work, but with lower quality. 
+
+Therefore, we need additional information on the inner component structure to analyse the QoS attributes of software components at design time.
 
 Provided and required interfaces as pre and postcondition
 
@@ -13,6 +15,8 @@ Assembly/Delegation Connector
 Today: theoretical construct no physical representation.
 
 Conforms Relation to the Complete Type
+
+Description of the inner component structure. Type? -  In theory there might be different implementation that conform to the same description as in MDA. But since in most cases, this is a one to one relationship. We don't care.
 
 -- Overview --
 
