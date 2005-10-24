@@ -1,22 +1,56 @@
 \section{Component Implementation Description}
 \label{sec:ComponentImplementation}
 
-In general, a component model does not provide any information about the inner structure of its components, since components are regarded as a black box entities. However, black-box components inhibit the analysis of Quality of Service (QoS) attributes of the system, since important information about the dependency of these attributes on external services, hardware and software resources, and the usage profile cannot be specified. Static QoS contracts, like the QoS Modelling Language (QML) \cite{frolund1998a}, are also not sufficient for this task. If the required QoS profile of a component cannot be provided by the environment, the component is likely to work, but with lower quality. 
+In general, a component model does not provide any information about the inner
+structure of its components, since components are regarded as a black box
+entities. However, black box components inhibit the analysis of Quality of
+Service (QoS) attributes of the system, since important information about the
+dependency of these attributes on external services, hardware and software
+resources, and the usage profile cannot be specified.  With black box
+components, only static QoS contracts, like the QoS Modelling Language (QML)
+\cite{frolund1998a}, can be used, but these are not sufficient
+for this task. If the required QoS profile of a component cannot be provided by
+the environment, the component is likely to work, but with lower quality.
+Therefore, we need additional information on the inner component structure to
+analyse QoS attributes of a component in dependence on its environment at design
+time.
 
-Therefore, we need additional information on the inner component structure to analyse the QoS attributes of software components at design time.
+Parametric contracts \cite{TODO:reference} extend the design by contract
+principle of software components. They compute the postcondition of a component
+using the actual precondition offered by the environment. We state that a
+component can be considered as black box if the additional information
+used by parametric contracts (a) does not expose intellectual property of
+the component vendor and (b) has not to be understood by human users. So, the
+additional information is not available for the deployer but tools that
+examine it. We distinguish between \emph{basic components} and \emph{composite
+components} as two differnt ways of implementating a component.
 
-Provided and required interfaces as pre and postcondition
+\subsection{Basic Component}
+A basic component is a component that is not further subdived. Its describtion
+stores information about how each provided services uses the services
+specified by the required interfaces. This describtion of the relation
+between provided and required interfaces is calles service effect
+specification. In general, a service effect specification defines the
+behaviour of a service. This includes the used services, possible call
+sequences, and probabilities. The describtion only refers to external services.
+This abstracts the internal structure of a basic component and provids only the
+needed information.
 
-Basic Component
-Service effect specification
+A finite state machine that represents a service effect specification is shown
+in figure \ref{fig:seff}.
 
-Composite Component
+
+\subsection{Composite Component}
+
+
 Assembly/Delegation Connector 
 Today: theoretical construct no physical representation.
 
 Conforms Relation to the Complete Type
 
-Description of the inner component structure. Type? -  In theory there might be different implementation that conform to the same description as in MDA. But since in most cases, this is a one to one relationship. We don't care.
+Description of the inner component structure. Type? -  In theory there might be
+different implementation that conform to the same description as in MDA. But
+since in most cases, this is a one to one relationship. We don't care.
 
 -- Overview --
 
