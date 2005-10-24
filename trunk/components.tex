@@ -5,12 +5,13 @@ UML 2.0 (history, UML 1.0 Component = unit of deployment)
 -	Are replaceable within its environment
 -	Define behaviour in terms of provided and required interfaces
 
-"As such a component serves as a type, whose conformance is defined by these provided and required interfaces."
-
 Corba Component Model
 J2EE, COM+
 
 SOFA
+
+Component contracts lift the Design-by-Contract principle of Meyer (``if a client fulfils the precondition of a supplier, the supplier guarantees the postcondition'' \cite{meyer1992a}) from methods to software components. A component guarantees a set of provided services if all required services are offered by its environment. Design-by-Contract cannot only be applied to functional properties, but also to non-functional properties. Adding Quality of Service (QoS) attributes to the contract, a component service ensures that it provides a certain QoS if its environment offers the required QoS attributes. 
+
 
 Software Engineering Processes (RUP, speziell CBSE etc.)
 
