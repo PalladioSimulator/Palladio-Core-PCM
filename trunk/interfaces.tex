@@ -1,8 +1,19 @@
 \section{Interfaces} %Steffen
-Semantics related to Java and C\#
--	free floating
--	protocols
--	type system 
--	subtyping
--	conformance, 
--	contra-variance
+
+In the book by Szyperski et al. the section on components and interfaces starts with
+
+\begin{quote}
+"`Interfaces are the means by which components connect \cite[p. 50]{szyperski2002a}."'
+\end{quote}
+
+For a components interfaces are a key concept as they serve multiple purposes. Consider an interface taken from common programming languages like Java or C\#. There, an interface specifies a set of operation signatures, consisting of an operation name, its parameter names and type, return types and exceptions. The corresponding operations can either be called by clients or have to be implemented by servers. In this sense, they can be seen as the contract on which communicating entities agree in both roles, client and server. As with legal contracts, interfaces can exist even when no one actually declared their commitment to them. For example, this is used to define a certain library standard to enable the constructions of clients and servers of these library independently. Thus, in the Palladio Component Meta Model the concept \emph{Interface} exists as first class entity which can be specified independent from components.
+
+Interfaces can be used to build a type system. A central idea of a type system is to allow \emph{subtyping}. The basic idea is that a subtype of a given supertype can be used at every place where an instance of the supertype was expected. Taking design-by-contract \cite{meyer1997a} into consideration this mean that the subtype's precondition has to be weaker than the supertype's and that the subtype's postcondition has to be stronger than the supertype's \footnote{A formal definition can be found in the book by Meyer \cite{meyer1997a}}. Applying the design-by-contract principle to the parameter types and return types of the signatures in an interface results in a type system which is contra-variant. We prefer this kind of type system for our interface model. A discussion on the advantages and disadvantages of so doing can be found in \cite[p. 628ff]{meyer1997a}.
+
+Additionally, we can also apply the type system to perform conformance checks. Conformance checks are useful if one has to decide whether a certain communication between a client and a server is contractually safe, i.e., does not result in a run-time error. For this, a necessary condition is that the required interface has to be a supertype of the provided interface it is bound to. 
+
+Hence, the analysis of the subtype relationship is essential for modelling a component based architecture and is therefore part of our component model. The information available can be further used to allow semi- and fully automatic adaptation of components, e.g., by using the Adapter design pattern \cite{gamma1995a}.
+
+An even more sophisticated subtype relationship is built by introducing interface protocols in our model. An interface protocol is used to characterise a set of allowed call sequences sent by a client to a server. However the actual meaning of the protocol of the interface depends on its relationship to a specific component. TODO: Soll das wirklich hier hin? Provided und Required Roles/Ports?
+
+However, having the concept of signatures and their protocol, there a still some open questions. For example, Szyperski et al. \cite{szyperski2002a} highlight some subtle problems in component communication resulting from additional concepts which are also important during the interaction of components. The insufficient specification of multi-threaded interaction, re-entrance or transactional behaviour are only examples of ongoing research in this field. Additionally, there are no widely established formalisms to specify Quality of Service constraints on a contractual basis. Hence, as there are no settled results in these fields of research yet, our model currently only includes the concepts of signatures and basic protocol information.
