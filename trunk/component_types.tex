@@ -3,11 +3,9 @@
 
 Introduce types for substitutability of components
 
-Most of today's component meta models do not clearly distinguish between a
-component and its type. Often, the difference between both concepts is
-not clarified. Furthermore, the conformance of a component to a type is not
-defined. So the introduced concepts are very vague and only a few knowledge
-about the substitutability of a component exists.
+component meta models do not clearly distinguish between components and
+component-types.
+define the conformance of a component to a type
 
 \begin{quote}
 ``As such, a component serves as a type whose conformance is defined by these
@@ -16,15 +14,15 @@ substituted by another only if the two are type conformant
 \cite[p.142]{OMGUML2005a}.''
 \end{quote}
 
-Here, the terms \emph{component type} and \emph{conformance} of components and
-types are mentioned. However, both concepts are not further clarified. 
+Here, the terms \emph{component type} and \emph{conformance of components and
+types} are mentioned. However, both concepts are not further clarified. 
 
 There are mainly two different concepts of component types. Both differ in
 their interpretation of substitutability. 
 
 The first one originates from object
 oriented software development. There, a class can be substituted by another if
-it implements at least the same interfaces. Translating this view to the
+it implements the same interfaces. Translating this view to the
 world of software components, a component can be substituted by another if it
 offers at least the same set of provided interfaces.
 
@@ -34,9 +32,10 @@ required interfaces of a component.
 Depending on the task, both concepts have their advantages and disadvantages.
 Thus, we do not want to limit on one of the concepts.
 
-Both schools specify the required interfaces of a software component. However,
+Both concepts specify the required interfaces of a software component. However,
 the interpretation of a required interface is completely different.
 
+%----------
 So far, we identified three different meanings of the specified required
 interfaces of a type:
 \begin{enumerate}
@@ -56,8 +55,9 @@ interfaces can be used by the component. The last case expresses additional
 component requirements. For example, we could specify that all information has
 to be stored in a database. So, the interface of the database must be called
 using certain call sequences.
+%-----------
 
-The Palladio Component Meta Model combines the two schools for component types
+The Palladio Component Meta Model combines the two concepts of component types
 and the different meanings of required interfaces to provide a more flexible
 type system for components.
 
@@ -69,7 +69,7 @@ type system for components.
 \end{figure}
 
 Figure \ref{fig:Tig:TypeOverview} shows the component type
-hierarchie of the Palladio component meta modell.
+hierarchy of the Palladio component meta model.
 <<provided component-type>>
 <<complete component-type>>
 component implementation description
@@ -104,51 +104,40 @@ error message if the request could not be handled by any of the components.
 Additionally, the SQLServer is required to create dynamic HTML pages.
 
 \subsection{Component Implementation Description}
-This is what most software engineers think of if they are talking about
-software components.
+When talking about software components most software architects think of
+'physical' components like a piece of code or binary files that
+realise a certain functionality. The component implementation description
+specifies the provided and required interfaces and the inner structure of
+such a binary component.
 
-A component implementation description is always associated with a real
-component implementation binary component. Certainly, multiple implementations
-can exist for a single description, implementing the component in different
-languages like Java and C\# and technoligies, like Corba, J2EE, or .Net.
+Thus, a component implementation description is always associated with at least
+one binary component. Certainly, multiple implementations
+can exist for a single description. For example, the same
+specification can be implemented in different programming languages like Java
+and C\# and/or component technologies, like Corba, J2EE, or .Net. 
 
-different specifications
+Different possibilities exist to specify the internal structure of a
+component. For example, the UML 2.0 superstructure allows to describe the
+inner component structure as a class diagram.
+Parametric contracts represent a different view
+on the inner structure of a component. They specify the dependency of provided
+and required interfaces by means of service effect specifications.
+Moreover, some components are constructed by composing other components. These
+inner components and their interconnection are also a representation of the
+inner component structure.
 
-UML the implementation of a component is described by a set of classes and
-their interactions. 
-
-Parametric contracts need a different view. They specifiy the dependency of
-provided an required interfaces by means of service effect specifications.
-
-Since our main aim is the prediction of QoS, we focus on the description using
-parametric contracts in this articel. However, any kind of implementation
-description is possible.
-
-Different implementation desriptions are possible.
-Composite components
-Basic components
-
-In general, a component model does not provide any information about the inner
-structure of its components, since components are regarded as a black-box
-entities. However, black-box components inhibit the analysis of Quality of
-Service (QoS) attributes of the system, since important information about the
-dependency of these attributes on external services, hardware and software
-resources, and the usage profile cannot be specified.  With black-box
-components, only static QoS contracts, like the ones specified by the QoS
-Modelling Language (QML) \cite{frolund1998a}, can be used, but these are not
-sufficient for this task. If the required QoS profile of a component cannot be
-provided by its environment, the component is likely to work, but with lower
-quality. Therefore, we need additional information on the inner
-structure to analyse QoS attributes of a component in dependence on its
-environment at design time.
+In this article, we focus on the component implementation description with
+parametric contracts and composite structures, since our main aim is the
+prediction of QoS attributes. Both concepts have been proofed to be beneficial
+for this task. Thus, we distinguish between two types of component
+implementation descriptions: Basic components and composite components.
 
 A \emph{basic component} represents a basic block that is not further
 subdivided. It implements a certain functionality and is defined by its provided
 interfaces, required interfaces, and service effect specifications.
 
-
 The fact that a basic component represents a single block does not imply that
-the real implementation hast to be one 'block' as well. Since we are talking
+the real implementation has to be one 'block' as well. Since we are talking
 about the implementation description and not the actual implementation, this
 difference is possible and actually desired in some cases. For example, the
 actual implementation of a component might consist of a set of classes and/or
@@ -284,7 +273,7 @@ offers a high flexibility in software architecture design.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=3.3in]{example/TypeHierachy}
-\caption{Type Hierarchie}
+\caption{Type Hierarchy}
 \label{fig:WebserverComponents}
 \end{figure}
 
