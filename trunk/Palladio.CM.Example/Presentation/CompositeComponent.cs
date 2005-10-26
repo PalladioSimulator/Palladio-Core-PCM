@@ -13,6 +13,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/10/26 08:52:32  kelsaka
+	/// - adapted to new usage of event-interface
+	///
 	/// Revision 1.4  2005/07/13 11:09:47  joemal
 	/// add clone methods
 	///
@@ -59,7 +62,7 @@ namespace Palladio.CM.Example.Presentation
 		//does some initial work
 		private void Init()
 		{
-			CompositeComponentEvents events = modelEnvironment.EventInterface.GetCompositeComponentEvents(Model.ComponentID);
+			ICompositeComponentEvents events = modelEnvironment.EventInterface.GetCompositeComponentEvents(Model.ComponentID);
 			events.ComponentAddedEvent += new ComponentUseEventHandler(events_ComponentAddedEvent);
 			events.ComponentRemovedEvent += new ComponentUseEventHandler(events_ComponentRemovedEvent);
 			events.ConnectorRemovedEvent += new ConnectorRemovedEventHandler(events_ConnectorRemovedEvent);

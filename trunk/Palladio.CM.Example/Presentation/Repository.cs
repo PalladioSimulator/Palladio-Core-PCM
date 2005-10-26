@@ -15,6 +15,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/10/26 08:52:32  kelsaka
+	/// - adapted to new usage of event-interface
+	///
 	/// Revision 1.1  2005/07/13 11:05:42  joemal
 	/// initial creation
 	///
@@ -46,7 +49,7 @@ namespace Palladio.CM.Example.Presentation
 		//private does some initial work
         private void Init()
 		{
-        	RepositoryEvents ev = this.modelEnvironment.EventInterface.GetRepositoryEvents();
+        	IRepositoryEvents ev = this.modelEnvironment.EventInterface.GetRepositoryEvents();
 
 			ev.ComponentAddedEvent +=new ComponentBuildEventHandler(ev_ComponentAddedEvent);
 			ev.ComponentRemovedEvent +=new ComponentBuildEventHandler(ev_ComponentRemovedEvent);

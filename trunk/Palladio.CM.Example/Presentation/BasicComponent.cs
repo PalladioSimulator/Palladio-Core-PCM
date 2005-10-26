@@ -12,6 +12,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/10/26 08:52:32  kelsaka
+	/// - adapted to new usage of event-interface
+	///
 	/// Revision 1.4  2005/07/29 16:29:30  joemal
 	/// add protocols to example
 	///
@@ -51,7 +54,7 @@ namespace Palladio.CM.Example.Presentation
 
 		private void Init()
 		{
-			BasicComponentEvents events = modelEnvironment.EventInterface.GetBasicComponentEvents(Model.ComponentID);
+			IBasicComponentEvents events = modelEnvironment.EventInterface.GetBasicComponentEvents(Model.ComponentID);
 			events.SeffAddedEvent +=new SeffBuildEventHandler(events_SeffAddedEvent);
 			events.SeffRemovedEvent += new SeffBuildEventHandler(events_SeffRemovedEvent);
 		}

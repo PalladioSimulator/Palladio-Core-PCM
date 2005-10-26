@@ -14,6 +14,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.6  2005/10/26 08:52:32  kelsaka
+	/// - adapted to new usage of event-interface
+	///
 	/// Revision 1.5  2005/07/13 11:09:47  joemal
 	/// add clone methods
 	///
@@ -85,7 +88,7 @@ namespace Palladio.CM.Example.Presentation
 		//does some initial work
 		private void Init()
 		{
-			StaticViewEvents events = modelEnvironment.EventInterface.GetStaticViewEvents();
+			IStaticViewEvents events = modelEnvironment.EventInterface.GetStaticViewEvents();
 			events.AssemblyConnectorAddedEvent += new AssemblyConnectorBuildEventHandler(events_AssemblyConnectorAddedEvent);
 			events.AssembyConnectorRemovedEvent += new ConnectorRemovedEventHandler(events_AssembyConnectorRemovedEvent);
 			events.ComponentAddedEvent +=new ComponentUseEventHandler(events_ComponentAddedEvent);

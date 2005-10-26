@@ -14,6 +14,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.5  2005/10/26 08:52:32  kelsaka
+	/// - adapted to new usage of event-interface
+	///
 	/// Revision 1.4  2005/07/13 11:09:47  joemal
 	/// add clone methods
 	///
@@ -69,7 +72,7 @@ namespace Palladio.CM.Example.Presentation
 		//does some intitial work
 		private void Init()
 		{
-			InterfaceEvents events = modelEnvironment.EventInterface.GetInterfaceEvents(Model.InterfaceID);
+			IInterfaceEvents events = modelEnvironment.EventInterface.GetInterfaceEvents(Model.InterfaceID);
 			events.ProtocolAddedEvent += new ProtocolBuildEventHandler(events_ProtocolAddedEvent);
 			events.ProtocolRemovedEvent += new ProtocolBuildEventHandler(events_ProtocolRemovedEvent);
 			events.SignatureAddedEvent += new SignatureBuildEventHandler(events_SignatureAddedEvent);

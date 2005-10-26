@@ -13,6 +13,9 @@ namespace Palladio.CM.Example.Presentation
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/10/26 08:52:32  kelsaka
+	/// - adapted to new usage of event-interface
+	///
 	/// Revision 1.2  2005/07/13 11:09:47  joemal
 	/// add clone methods
 	///
@@ -70,7 +73,7 @@ namespace Palladio.CM.Example.Presentation
 		//does some initial work
 		private void Init()
 		{
-			EntityEvents events = modelEnvironment.EventInterface.GetEntityEvents(entity.ID);
+			IEntityEvents events = modelEnvironment.EventInterface.GetEntityEvents(entity.ID);
 			events.AttributeChangedEvent += new AttributeChangedEventHandler(events_AttributeChangedEvent);
 			events.NameChangedEvent += new StaticAttributeChangedEventHandler(events_NameChangedEvent);
 		}
