@@ -1,3 +1,12 @@
+%
+% $ID$
+%
+% $Log$
+% Revision 1.2  2005/10/26 14:34:50  sbecker
+% Added section on method based design by contract and type systems
+%
+%
+
 \section{Foundations} % Arbeitstitel!
 \label{sec:foundations}
 
@@ -23,6 +32,20 @@ inner component.
 A requires delegation connector maps a required interface of an
 inner component to a required interface of the composite component.
 
+\subsection{Types and Design-by-Contract}
+\label{types_design_by_contract}
+
+A central idea of a type system is to allow \emph{subtyping}. The basic idea is that a subtype of a given supertype can be used at every place where an instance of the supertype was expected. Taking design-by-contract \cite{meyer1997a} \footnote{A formal definition can be found in the book by Meyer \cite{meyer1997a}} into consideration this has several implications:
+
+\begin{itemize}
+\item The precondition of every operation of the type has to be weaker than the supertype's operation precondition.
+\item The postcondition of every operation of the type has to be stronger than the supertype's operation postcondition.
+\item Any invariant of the supertype has also to be true for all subtypes.
+\end{itemize}
+
+Note that every type which is used in any kind of declaration is already a contract stating that the values contained in the declared variable conform to the specified type. Hence, the rules given above can be applied to type declarations as well. Applying this to the parameter and the return types of an arbitrary operation being part of an inheritance hierarchy leads to a type system which is contra-variant. A discussion on the advantages and disadvantages of so doing can be found in \cite[p. 628ff]{meyer1997a}.
+
+Another use of a type system is to perform conformance checks. Conformance checks are useful if one has to decide whether a certain communication between a client and a server is contractually safe, i.e., does not result in a run-time error. For this, a necessary condition is that the required interface has to be a supertype of the provided interface it is bound to. 
 
 \subsection{Parametric Contracts}
 
