@@ -76,13 +76,14 @@ component implementation description
 <<basic component>> <<composite component>>
 
 
-\subsection{Web Server}
+\subsection*{Web Server}
 In the following, we describe the concepts mentioned above in more detail. To do
 so, we use the architecture of a prototypical web server shown in figure
-\ref{fig:WebserverComponents}. The web server has been implemented in C\# for
-the .Net 1.1 framework. It consists of a set of components that
-communicate via a clear defined set of interfaces only. -- Architecture good
-for reasoning about software components.
+\ref{fig:WebserverComponents}. The web server has been implemented in C\#
+using the Microsoft .Net 1.1 framework. It consists of a set of components that
+communicate via a clear defined set of interfaces only. The web server uses all
+concepts relevant for component based software development. Moreover, its
+architecture is comparable to many three tier applications.
 
 \begin{figure}[htbp]
 \centering
@@ -103,24 +104,26 @@ responsibility. The ErrorHandler represents the end of the chain and returns an
 error message if the request could not be handled by any of the components.
 Additionally, the SQLServer is required to create dynamic HTML pages.
 
-\subsection{Component Implementation Description}
-When talking about software components most software architects think of
-'physical' components like a piece of code or binary files that
-realise a certain functionality. The component implementation description
-specifies the provided and required interfaces and the inner structure of
-such a binary component.
+\subsection*{Component Implementation Description}
+Today's understanding of software components is strongly influenced by
+state-of-the-art technologies, like J2EE, CORBA, and COM+.
+Most software architects think of a software component as a 'physical thing',
+like a piece of code, a special kind of class, or a binary file. All of them
+realise a certain functionality and have special requirements to the
+environment in order to function correctly.
+The component implementation description specifies the provided and required
+interfaces and the inner structure of such components.
 
-Thus, a component implementation description is always associated with at least
-one binary component. Certainly, multiple implementations
+A component implementation description is always associated with at least
+one binary ('physical') component. Certainly, multiple implementations
 can exist for a single description. For example, the same
 specification can be implemented in different programming languages like Java
-and C\# and/or component technologies, like Corba, J2EE, or .Net. 
+and C\# and/or component technologies, like CORBA, J2EE, or COM+. 
 
 Different possibilities exist to specify the internal structure of a
-component. For example, the UML 2.0 superstructure allows to describe the
-inner component structure as a class diagram.
-Parametric contracts represent a different view
-on the inner structure of a component. They specify the dependency of provided
+component. For example, the UML 2.0 superstructure \cite{OMGUML2005a} allows to
+describe the inner component structure as a class diagram.
+On the other hand, parametric contracts specify the dependency of provided
 and required interfaces by means of service effect specifications.
 Moreover, some components are constructed by composing other components. These
 inner components and their interconnection are also a representation of the
@@ -140,23 +143,69 @@ The fact that a basic component represents a single block does not imply that
 the real implementation has to be one 'block' as well. Since we are talking
 about the implementation description and not the actual implementation, this
 difference is possible and actually desired in some cases. For example, the
-actual implementation of a component might consist of a set of classes and/or
-subcomponents. This information is abstracted away in the description as a basic
-component. So, the description of a basic component only represents one view on
-a software component. Another view on a component are, for example, a class
-diagram or its source code.
+actual implementation of a component might consist of a set of classes. This
+information is abstracted away in the description as a basic component. In
+the web server example shown in figure \ref{fig:WebserverComponents}, the
+components StaticFileProvider and DynamicFileProvider are described as basic
+components.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.85]{example/HandleRequestSEFF}
+\caption{Service effect specification of the method HandleRequest in the
+DynamicFileProvider.}
+\label{fig:seff}
+\end{figure}
+
+Figure \ref{fig:seff} shows the service effect specification of the method
+HandleRequest of the DynamicFileProvider modelled as a
+finite state machine. If the DynamicFileProvider is responsible for the incoming
+request, it executes a query on the connected database. It uses the queried
+information to construct the web page and returns the result to the client.
+This is realised by internal component code that is not modelled by the
+service effect specification shown in figure \ref{fig:seff}. If the
+DynamicFileProvider is not responsible for the incoming
+request, it forwards it to the next component in the chain of
+responsibility. This is done by the call of the HandleRequest method of the
+component connected to the IHttpRequestHandler interface.
+
+A component cannot only be implemented by writing source code that realises the
+desired functionality, but also by composing components. We explicitly consider
+the composition of components and the writing of source code as equivalent
+means of implementation.
 
 A \emph{composite component} consists of a set of interconnected subcomponents
-that realise its functionality. 
+that realise its functionality \cite[TODO:page]{OMGUML2005a}. 
 
-The HttpRequestProcessor of the web server architecture.
+As in UML 2.0, the interconnection of the inner components is realised by
+assembly connectors while delegation connectors describe how the externally
+visible interfaces are mapped to the inner structure of the component.
 
-As described in section \ref{sec:ComponentTypes}, a component implementation
-conforms to a complete-type if it offers at least the functionality specified
-in by the provided interfaces of the complete type and does not require more
-functionality than specified in the required interfaces of the complete-type.
+It is important to mention that the composite structure of a component can be
+hidden from the deployer. Its service effect specifications can be computed out
+of the inner components and their interconnections \cite{TODO:Reference FESCA
+paper}. Unfortunately, composite components can hardly be represented with
+today's component technologies. The construction of a new component out of
+existing components can often only be done manually. So, composite
+components remain logical constructs in most cases. More sophisticated
+technologies are needed, which offer an easy way to hide the inner structure of
+composite components and generate its physical representation.
 
-\subsection{Complete Component Type}
+The HttpRequestProcessor is the only composite component shown in the
+architecture of the web server in figure \ref{fig:WebserverComponents}. It
+contains a set of different request processors that are organised in
+a  chain of responsability. This hides the different processors from the other
+components and presents them as a single entity to the outside world.
+
+Next, we introduce the complete component type as a more abstract view on
+software components.
+
+
+\subsection*{Complete Component Type}
+
+A complete component type generalises the component implementation description
+by omitting the inner structure of a component. Thus, it only contains provided
+and required interfaces.
 
 \begin{figure}[htbp]
 \centering
@@ -225,7 +274,7 @@ by a component \texttt{B} if \texttt{B} conforms to the type defined by
 required interfaces. This is a very pessimistic definition of substitutability,
 which can be weakened under certain conditions. 
 
-\subsection{Provided Component Type}
+\subsection*{Provided Component Type}
 
 In many cases, we are not only interested in the substitution of complete
 components including provided and required interfaces, but in a substitution
