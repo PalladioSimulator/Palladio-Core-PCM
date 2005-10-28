@@ -24,7 +24,8 @@
 		<template>Replication3.cst</template>
 	</adaptorTemplates>
 	<predictionModels>
-		<predictionModel>
+		<predictionModel name="Test">
+			<usageInstructions>sl flk fsd fl sdlkfodf ksfkf</usageInstructions>
 			<template>ReplicationPrediction1.cst</template>
 			<template>ReplicationPrediction2.cst</template>
 			<template>ReplicationPrediction3.cst</template>

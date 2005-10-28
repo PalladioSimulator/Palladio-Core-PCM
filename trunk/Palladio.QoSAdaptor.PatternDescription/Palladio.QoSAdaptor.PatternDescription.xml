@@ -120,6 +120,11 @@
             The name of the prediction model.
             </summary>
         </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.IPredictionModel.UsageInstructions">
+            <summary>
+            States how to use the predicition model.
+            </summary>
+        </member>
         <member name="P:Palladio.QoSAdaptor.Pattern.IPredictionModel.Templates">
             <summary>
             A list of templates belonging to the prediction model.
@@ -311,6 +316,11 @@
             Some parts of the parser were taken from XmlSeffParser.
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.pattern">
+            <summary>
+            The pattern that shall be parsed.
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.#ctor(System.String)">
             <summary>
             Constructs a new PatternDescriptionParser and parses the given 
@@ -426,6 +436,11 @@
             A list of templates belonging to this prediction model.
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.PredictionModel.usageInstructions">
+            <summary>
+            States how to use the predicition model
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.Pattern.PredictionModel.#ctor(System.String)">
             <summary>
             Constructor that takes the name of the prediction model. Templates 
@@ -449,6 +464,11 @@
         <member name="P:Palladio.QoSAdaptor.Pattern.PredictionModel.Templates">
             <summary>
             A list of templates belonging to the prediction model.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.PredictionModel.UsageInstructions">
+            <summary>
+            States how to use the prediction model.
             </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.Pattern.SuitabilityValue">

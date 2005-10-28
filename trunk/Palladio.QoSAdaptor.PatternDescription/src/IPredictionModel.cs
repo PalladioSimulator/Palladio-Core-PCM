@@ -38,6 +38,11 @@ namespace Palladio.QoSAdaptor.Pattern
 		string Name{get;}
 
 		/// <summary>
+		/// States how to use the predicition model.
+		/// </summary>
+		string UsageInstructions{get; set;}
+
+		/// <summary>
 		/// A list of templates belonging to the prediction model.
 		/// </summary>
 		IList Templates{get;}

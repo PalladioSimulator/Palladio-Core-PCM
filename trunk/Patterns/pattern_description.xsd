@@ -10,7 +10,7 @@
 				<xs:element name="mismatches">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="attribute" type="attributeType" maxOccurs="9"/>
+							<xs:element name="attribute" type="attributeType" maxOccurs="100"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -51,6 +51,7 @@
 	</xs:simpleType>
 	<xs:complexType name="predictionModelType">
 		<xs:sequence>
+			<xs:element name="usageInstructions" type="xs:string"/>
 			<xs:element name="template" type="xs:string" maxOccurs="100"/>
 		</xs:sequence>	
 		<xs:attribute name="name" type="xs:string"/>

@@ -145,8 +145,8 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		{
 			AddItem("General Info", "", true);
 			AddItem("Name", this.pattern.Name, false);
-			AddItem("InterfaceModel", this.pattern.InterfaceModel.ToString(), 
-				false);
+			AddItem("InterfaceModel", 
+				this.pattern.InterfaceModel.ToString().ToLower(), false);
 			AddItem("Description", this.pattern.Description, false);
 			AddItem("Source", this.pattern.Source, false);
 		}
@@ -161,8 +161,31 @@ namespace Palladio.QoSAdaptor.PatternSelection
 
 			foreach (IMismatchAttribute mismatchAttribute in 
 				this.pattern.MismatchAttributes)
-				AddItem(mismatchAttribute.Name, 
-					mismatchAttribute.Suitability.ToString(), false);		
+			{
+				string suitability;
+				switch (mismatchAttribute.Suitability)
+				{
+					case SuitabilityValue.MINUS:
+						suitability = "-";
+						break;
+					case SuitabilityValue.MINUSMINUS:
+						suitability = "--";
+						break;
+					case SuitabilityValue.NEUTRAL:
+						suitability = "o";
+						break;
+					case SuitabilityValue.PLUS:
+						suitability = "+";
+						break;
+					case SuitabilityValue.PLUSPLUS:
+						suitability = "++";
+						break;
+					default: 
+						suitability = "";
+						break;
+				}
+				AddItem(mismatchAttribute.Name, suitability, false);		
+			}
 		}
 
 		/// <summary>
@@ -194,6 +217,8 @@ namespace Palladio.QoSAdaptor.PatternSelection
 				this.pattern.PredictionModels)
 			{
 				AddItem(predictionModel.Name, "", true);
+				AddItem("Usage instructions", 
+					predictionModel.UsageInstructions, false);
 
 				foreach (string template in predictionModel.Templates)
 				{

@@ -29,7 +29,7 @@ namespace Palladio.QoSAdaptor.Pattern
 	/// </summary>
 	internal class PredictionModel : IPredictionModel
 	{
-		#region data
+		#region attributes
 		/// <summary>
 		/// The name of the prediction model.
 		/// </summary>
@@ -39,6 +39,11 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// A list of templates belonging to this prediction model.
 		/// </summary>
 		private ArrayList templates;
+
+		/// <summary>
+		/// States how to use the predicition model
+		/// </summary>
+		private string usageInstructions;
 		#endregion
 
 		#region constructor
@@ -51,6 +56,7 @@ namespace Palladio.QoSAdaptor.Pattern
 		{
 			this.name = name;
 			this.templates = new ArrayList();
+			this.usageInstructions = "";
 		}
 		#endregion
 
@@ -74,6 +80,21 @@ namespace Palladio.QoSAdaptor.Pattern
 			get
 			{
 				return this.templates;
+			}
+		}
+	
+		/// <summary>
+		/// States how to use the prediction model.
+		/// </summary>
+		public string UsageInstructions
+		{
+			get
+			{
+				return this.usageInstructions;
+			}
+			set
+			{
+				this.usageInstructions = value;
 			}
 		}
 		#endregion

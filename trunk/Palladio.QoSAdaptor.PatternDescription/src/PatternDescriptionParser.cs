@@ -33,7 +33,10 @@ namespace Palladio.QoSAdaptor.Pattern
 	/// </summary>
 	public class PatternDescriptionParser
 	{
-		#region data
+		#region attributes
+		/// <summary>
+		/// The pattern that shall be parsed.
+		/// </summary>
 		private PatternDescription pattern;
 		#endregion
 
@@ -283,7 +286,12 @@ namespace Palladio.QoSAdaptor.Pattern
 			XPathNavigator nav = it.Current.Clone();
 			nav.MoveToFirstAttribute();
 			string name = nav.Value;
-			PredictionModel predictionModel = new PredictionModel(name);				
+			PredictionModel predictionModel = new PredictionModel(name);	
+
+			XPathNodeIterator it3 = it.Current.SelectChildren(
+				"usageInstructions", it.Current.NamespaceURI);
+			it3.MoveNext();
+			predictionModel.UsageInstructions = it3.Current.Value;
 
 			XPathNodeIterator it2 = it.Current.SelectChildren("template", 
 				it.Current.NamespaceURI);
