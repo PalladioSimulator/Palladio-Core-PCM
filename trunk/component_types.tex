@@ -1,21 +1,57 @@
 \section{Component Type Hierarchy}
 \label{sec:ComponentTypes}
+The different meanings of provided and required interfaces and the possiblity
+to specify the inner structure of a software component using UML 2.0 and/or
+Parametric contracts brings up the question of substitutability. What has to be
+fulfilled by a software component that shall replace another component in its
+context?
 
-Introduce types for substitutability of components
+To answer this question is not an easy task, especially, if we want to allow
+different meanings of required and provided interfaces and support the analysis
+of QoS attributes. We need a component type system that supports different
+kinds of substitutability and, furthermore, handels QoS relevant information.
 
-component meta models do not clearly distinguish between components and
-component-types.
-define the conformance of a component to a type
+Current component meta models address this issue only
+briefly. Furthermore, most of them do not clearly distinguish between components
+and component types. For example, the UML 2.0 states:
 
 \begin{quote}
-``As such, a component serves as a type whose conformance is defined by these
+``$[\ldots]$ a component serves as a type whose conformance is defined by these
 provided and required interfaces $[\ldots]$. One component may therefore be
 substituted by another only if the two are type conformant
 \cite[p.142]{OMGUML2005a}.''
 \end{quote}
 
 Here, the terms \emph{component type} and \emph{conformance of components and
-types} are mentioned. However, both concepts are not further clarified. 
+types} are introduced, but their meaning is not further clearified. Within the
+scope of the UML 2.0 superstructure components and component-types are actually
+treated equivalently \cite{stand-irgendwo-in:OMGUML2005a}. This might be
+approapriate in many cases, but might lead to a blury concept of software
+components.
+
+In the following, we introduce the component type hierarchy as it is used by the
+Palladio Component Meta Model. There, we distingish the
+provided-component-type and complete-component-type as two different type
+concepts for software components. Additionally, we consider a
+component-implementation-description that specifies the internal structure of a
+component.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=3.3in]{example/Overview_TypeHierarchie}
+\caption{Different type levels of a software component.}
+\label{fig:TypeOverview}
+\end{figure}
+
+Figure \ref{fig:TypeOverview} shows the component type
+hierarchy. The provided-component-type is mainly characterised by provided
+interfaces. In addition, the complete-component-type considers
+required interfaces that can be used by an implementation of the type. We allow
+different kinds of component implementation descriptions: Basic components
+and composite components. Basic components describe the intra-component
+dependencies of provided and required interfaces using parametric contracts.
+Composite components are used to construct new components out of other
+components.
 
 There are mainly two different concepts of component types. Both differ in
 their interpretation of substitutability. 
@@ -35,45 +71,33 @@ Thus, we do not want to limit on one of the concepts.
 Both concepts specify the required interfaces of a software component. However,
 the interpretation of a required interface is completely different.
 
-%----------
-So far, we identified three different meanings of the specified required
-interfaces of a type:
-\begin{enumerate}
-\item	A required interface can be used, but additional interfaces can be
-added.
-\item	Only the listed required interfaces can be used.
-\item	A required interface has to be used in a predefined way and certain call
-sequences have to be executed. 
-\end{enumerate}
 
-Required interfaces of the provided-type are not considered explicitly. However,
-if they are specified, their meaning corresponds to the first case in the list,
-since, for provided-types, the use of external services is not limited. The
-second case corresponds to the complete-type. The usage of external services is
-limited to the required interfaces specified for the component and no further
-interfaces can be used by the component. The last case expresses additional
-component requirements. For example, we could specify that all information has
-to be stored in a database. So, the interface of the database must be called
-using certain call sequences.
-%-----------
 
 The Palladio Component Meta Model combines the two concepts of component types
 and the different meanings of required interfaces to provide a more flexible
 type system for components.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=3.3in]{example/Overview_TypeHierarchie}
-\caption{Different type levels of a software component.}
-\label{fig:TypeOverview}
-\end{figure}
 
-Figure \ref{fig:Tig:TypeOverview} shows the component type
-hierarchy of the Palladio component meta model.
-<<provided component-type>>
-<<complete component-type>>
-component implementation description
-<<basic component>> <<composite component>>
+
+During design time, it is often not clear what other components will be needed
+to implement the desired functionality. Expecting the software architect to
+decide this would require nearly the same effort as implementing the software
+component. Thus, the development process of a component should not be fixed to
+the required interfaces specified by a complete-component-type. It rather
+evolves with the development of the component. Provided and required interfaces
+are added and removed over time. The system architect specifies a basic set of
+interfaces that is used by the components to communicate. More interfaces might
+be added later to implement the functionality of the components.
+
+The distinction of provided- and complete-types brings several advantages. By
+provided-types, we gain a high flexibility during software development.
+Furthermore, we can define a substitutability focussing on the functionality of
+a component. On the other hand, complete-types define a strict substitutability.
+If a component is replaced by another and both conform to the same complete
+type, we can assure that certain classes of interoperability problems cannot
+occur. Moreover, complete-types allow a complete specification of the externally
+visible behaviour of a software component. The co-existence of both concepts
+offers a high flexibility in software architecture design.
 
 
 \subsection*{Web Server}
@@ -93,16 +117,17 @@ architecture is comparable to many three tier applications.
 \end{figure}
 
 The main part of the web server is realised by three components: Dispatcher,
-RequestParser, and HttpRequestProcessor. The Dispatcher listens for connections.
-For each incoming HTTP request, it spawns a new tread and
+RequestParser, and HttpRequestProcessor. The Dispatcher listens for
+incoming connections. For each HTTP request, it spawns a new thread and
 activates the RequestParser. The parser analyses the request and passes the
 result to the HttpRequestProcessor. The request processor is organised as a
-chain of responsability \cite{gamma1995a}. Each of its subcomponents checks
+Chain of Responsability \cite{gamma1995a}. Each of its subcomponents checks
 whether it can handle the incoming request. If so, it returns the result,
 otherwise it passes the request to the next component in the chain of
-responsibility. The ErrorHandler represents the end of the chain and returns an
-error message if the request could not be handled by any of the components.
-Additionally, the SQLServer is required to create dynamic HTML pages.
+responsibility. The ErrorHandler component represents the end of the chain and
+returns an error message if the request could not be handled by any of the
+components. Additionally, the SQLServer is required to create dynamic HTML
+pages.
 
 \subsection*{Component Implementation Description}
 Today's understanding of software components is strongly influenced by
@@ -182,19 +207,19 @@ assembly connectors while delegation connectors describe how the externally
 visible interfaces are mapped to the inner structure of the component.
 
 It is important to mention that the composite structure of a component can be
-hidden from the deployer. Its service effect specifications can be computed out
-of the inner components and their interconnections \cite{TODO:Reference FESCA
-paper}. Unfortunately, composite components can hardly be represented with
-today's component technologies. The construction of a new component out of
-existing components can often only be done manually. So, composite
-components remain logical constructs in most cases. More sophisticated
+hidden from the deployer. The service effect specifications of a composite
+component can be computed out of the inner components and their interconnections
+\cite{TODO:Reference FESCA paper}. Unfortunately, composite components can
+hardly be represented with today's component technologies. The construction of a
+new component out of existing components can often only be done manually. So,
+composite components remain logical constructs in most cases. More sophisticated
 technologies are needed, which offer an easy way to hide the inner structure of
 composite components and generate its physical representation.
 
 The HttpRequestProcessor is the only composite component shown in the
 architecture of the web server in figure \ref{fig:WebserverComponents}. It
 contains a set of different request processors that are organised in
-a  chain of responsability. This hides the different processors from the other
+a  Chain of Responsability. This hides the different processors from the other
 components and presents them as a single entity to the outside world.
 
 Next, we introduce the complete component type as a more abstract view on
@@ -210,16 +235,17 @@ and required interfaces.
 \begin{figure}[htbp]
 \centering
 \includegraphics[scale=0.85]{example/DynamicRequestProcessorType}
-\caption{Component type for dynamic request processors.}
+\caption{Component complete type for dynamic request processors.}
 \label{fig:DynamicRequestProcessorType}
 \end{figure}
 
 Looking at the architecture of the web server, we can identify different
 complete component types. For example, the components HttpRequestProcessor and
-DynamicFileProvide provide the IRequestProcessor interface and use the
-interfaces IDBConnector and IRequestProcessor. The first one is used to create
-dynamic content of web pages. The second one is required to forward the request
-to the next component in the chain of responsibility. The corresponding type of
+DynamicFileProvider provide the IRequestProcessor interface and use the
+interfaces IDBConnector and IRequestProcessor. The first one is used to retrieve
+dynamic content of web pages from a data base. The second one is required to
+forward the request to the next component in the chain of responsibility. The
+corresponding type of
 both components is shown in figure \ref{fig:DynamicRequestProcessorType}.
 
 \begin{figure}[htbp]
@@ -236,17 +262,19 @@ additionally requires the IDBConnector interface.
 
 The types shown in figures \ref{fig:DynamicRequestProcessorType} and
 \ref{fig:RequestProcessorType} are derived from existing components and describe
-their complete provided and required functionality.
-It is obvious that a component conforms to a type if it provides and requires
-exactly the interfaces specified by the type. However, this is not the case in
-general. A component is likely to differ from its more general type, but,
-nevertheless, still be conformant to the type. So, when does a component conform
-to a type?
+their complete provided and required functionality. A component conforms to a
+type if it provides and requires exactly the interfaces specified by the type.
+This very basic definition of conformance is not sufficient for a type system
+of component. A component is likely to differ from its more general type, but,
+nevertheless, still be conformant to the type. Thus, we can define the
+conformance relation between a component implementation description and a
+complete component type as follows:
 
-<<implementation-conforms>>
-A component conforms to a type, if it offers at least the functionality
-specified by the provided interfaces of the type and uses only the functionality
-specified by the required interfaces of the type.
+A component implementation description conforms to a complete component type, if
+it offers at least the functionality specified by the provided interfaces of the
+type and uses only the functionality specified by the required interfaces of the
+type. This type of conformance is labelled with the UML stereo-type
+$\ll$implementation-conforms$\gg$.
 
 For example, a component must offer the IRequestProcessor interface to conform
 to one of the types in figure \ref{fig:DynamicRequestProcessorType} or
@@ -267,21 +295,30 @@ postcondition can only be strengthened. The component can offer any interfaces,
 but it must at least provide the ones specified by the type. With this notion of
 conformance, the type system of components is contravariant.
 
-This understanding of conformance between components and types allows us to
+The relation $\ll$implementation-conforms$\gg$ allows us to
 define substitutability of components. A component \texttt{A} can be substituted
-by a component \texttt{B} if \texttt{B} conforms to the type defined by
-\texttt{A}. The type defined by a component includes all its provided and
-required interfaces. This is a very pessimistic definition of substitutability,
-which can be weakened under certain conditions. 
+by a component \texttt{B} if the description of \texttt{B} conforms to the type
+defined by \texttt{A}. The component complete type defined by a component
+and its description includes all its provided and required interfaces.
+Therefore, a component implementation description always conforms to at least
+the type it defines. This definition of substitutability is very conservative.
+It ensures that the new component can function in the existing environment,
+but, on the other hand, might be to restictive. Therefore, we introduce the
+provided component type next, which allows a more flexible notition of
+substitutability and type conformance.
 
 \subsection*{Provided Component Type}
 
-In many cases, we are not only interested in the substitution of complete
+In many cases, we are not solely interested in the substitution of complete
 components including provided and required interfaces, but in a substitution
 with respect to provided interfaces only. This is the case if the functionality
 is more important than the requirements of a component or if we compare the
-functionality offered by different components. Furthermore, it might not be
-possible to specify all required interfaces of a component in advance. 
+functionality offered by different components. This view is strongly influenced
+by object oriented programming, where required interfaces and/or classes are
+often not listed explicitly. There, substitutability of classes and interfaces
+is
+defined on the basis of the $\ll$realize$\gg$ and $\ll$extends$\gg$ relations
+\cite{TODO: sinnvolle referenz einfügen}.
 
 \begin{figure}[htbp]
 \centering
@@ -291,47 +328,55 @@ DynamicRequestProcessorType.}
 \label{fig:ProvidesType}
 \end{figure}
 
-Hence, we want to allow conformance with respect to provided interfaces only.
-Therefore, we introduce a \emph{provided-type} which only considers provided
-interfaces. The provided-type of the RequestProcessortType and the
-DynamicRequestProcessorType is shown in figure \ref{fig:ProvidesType}. 
-It represents a more abstract view on software components. This is needed,
-since, during design time, it is often not clear what other components will be
-needed to implement the desired functionality. Expecting the software architect
-to decide this would require nearly the same effort as implementing the software
-component. Thus, the development process of a component should not be fixed to
-the required interfaces specified by a component type. It rather evolves with
-the development of the component. Provided and required interfaces are added and
-removed over time. The system architect specifies a basic set of interfaces that
-is used by the components to communicate. More interfaces might be added later
-to implement the functionality of the components.
+Therefore, we introduce a \emph{provided-component-type}, which only considers
+provided interfaces for conformance checks. The provided-component-type of
+the RequestProcessortType and the DynamicRequestProcessorType is shown in figure
+\ref{fig:ProvidesType}. It only contains the single provided interface
+IRequestprocessor. Required interfaces can be specified for the
+provided-component-type as well, but their meaning differs from the ones
+specified in the complete-component-type. Here, required interfaces are
+used in the sense of can-require-interfaces, whose definition does not enforce
+any restrictions. Thus, the conformance relation of provided- and
+complete-component-types considers provided interfaces only.
 
+A complete-component-type conforms to a provided-component-type, if
+it offers at least the functionality specified by the provided interfaces of the
+provided-component-type This type of conformance is labelled with the UML
+stereo-type $\ll$provided-conforms$\gg$.
 
-The distinction of provided- and complete-types brings several advantages. By
-provided-types, we gain a high flexibility during software development.
-Furthermore, we can define a substitutability focussing on the functionality of
-a component. On the other hand, complete-types define a strict substitutability.
-If a component is replaced by another and both conform to the same complete
-type, we can assure that certain classes of interoperability problem cannot
-occur. Moreover, complete-types allow a complete specification of the externally
-visible behaviour of a software component. The co-existence of both concept
-offers a high flexibility in software architecture design.
+Since it exists an equivalent type for each component implementation
+description, the $\ll$provided-conforms$\gg$ relation is indirectly defined
+between component-implementation-descriptions and provided-component-types.
 
-\subsection{The Component Type Hierarchy}
+The provided-implementation-type completes the hierarchy introduced in the
+beginning of this section. Next, we summarise the results of this discussion.
+
+\subsection*{The Component Type Hierarchy}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=3.3in]{example/TypeHierachy}
 \caption{Type Hierarchy}
-\label{fig:WebserverComponents}
+\label{fig:TypeHierarchy}
 \end{figure}
 
-Figure \ref{fig:TypeHierarchy} gives an overview of the relation of
-provided-types, complete-types and component implementation descriptions.
-TODO:Figure and description
+Figure \ref{fig:TypeHierarchy} gives an overview of the relation between
+provided-component-types, complete-component-types and component implementation
+descriptions. On top of the hierarchy stands the provided-component-type. It is
+the most general and flexible view on software components. Its focus is on
+provided interfaces. It is also possible to add required interfaces, but
+with a very loose semantic. The complete-component-type is placed on
+the mid level of the hierarchy. It considers required interfaces
+with a more strict semantic, which prohibits the usage of interfaces other
+than the specified required interfaces. The component implementation description
+on the bottom of the hierarchy adds knowledge about the internal structure of
+a component to the model. As indicated by the fading bar on the left hand
+side, we do not consider the description as a type. 
 
-With the implementation description of software components, we have enough
-information to compute QoS attributes of the component in dependence on external
-services.
-TODO:Example
-
+With the implementation description of software components, we provide a lot of
+information, which allows us to compute QoS attributes with a higher precision.
+For example, we can determine the influence of the QoS of required services on
+the provided services \cite{TODO: FESCA05, QoSA, reussner2003d}. However, the
+QoS attributes are not only influenced by external services, but also by the
+underlying hardware and software resources. Thus, our next step is the
+modelling of the deployment context.

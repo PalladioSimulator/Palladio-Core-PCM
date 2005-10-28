@@ -2,6 +2,9 @@
 % $Id$
 %
 % $Log$
+% Revision 1.3  2005/10/28 14:25:13  sliver
+% *** empty log message ***
+%
 % Revision 1.2  2005/10/26 14:35:52  sbecker
 % Started section on provided interfaces
 %
@@ -9,4 +12,31 @@
 
 \section{Interface Relations}
 
-An interface protocol is used to characterise a set of allowed call sequences sent by a client to a server. However the actual meaning of the protocol of the interface depends on its relationship to a specific component. TODO: Soll das wirklich hier hin? Provided und Required Roles/Ports?
+An interface protocol is used to characterise a set of allowed call sequences
+sent by a client to a server. However the actual meaning of the protocol of the
+interface depends on its relationship to a specific component. TODO: Soll das
+wirklich hier hin? Provided und Required Roles/Ports?
+
+
+\subsection*{Interpretations of Interface Relations}
+%---------- Das vielleicht hier rein??????
+So far, we identified three different meanings of the specified required
+interfaces of a type:
+\begin{enumerate}
+\item	A required interface can be used, but additional interfaces can be
+added.
+\item	Only the listed required interfaces can be used.
+\item	A required interface has to be used in a predefined way and certain call
+sequences have to be executed. 
+\end{enumerate}
+
+Required interfaces of the provided-type are not considered explicitly. However,
+if they are specified, their meaning corresponds to the first case in the list,
+since, for provided-types, the use of external services is not limited. The
+second case corresponds to the complete-type. The usage of external services is
+limited to the required interfaces specified for the component and no further
+interfaces can be used by the component. The last case expresses additional
+component requirements. For example, we could specify that all information has
+to be stored in a database. So, the interface of the database must be called
+using certain call sequences.
+%-----------
