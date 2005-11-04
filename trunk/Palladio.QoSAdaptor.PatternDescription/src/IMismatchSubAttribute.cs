@@ -1,5 +1,3 @@
-using System.Collections;
-
 #region info
 ///////////////////////////////////////////////////////////////////////////////
 // This software has been developed as a part of the diploma thesis 
@@ -23,12 +21,12 @@ using System.Collections;
 namespace Palladio.QoSAdaptor.Pattern
 {
 	/// <summary>
-	/// Public interface of a MismatchAttribute.
+	/// Public interface of a MismatchSubAttribute.
 	/// 
 	/// All constructors and setters are implemented as internal. The 
 	/// interface only provides read methods.
 	/// </summary>
-	public interface IMismatchAttribute
+	public interface IMismatchSubAttribute
 	{
 		#region properties
 		/// <summary>
@@ -40,11 +38,6 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// The suitability of this mismatch attribute.
 		/// </summary>
 		SuitabilityValue Suitability{get;}
-
-		/// <summary>
-		/// A list of all defined subattributes.
-		/// </summary>
-		ICollection SubAttributes{get;}
 		#endregion
 	}
 }

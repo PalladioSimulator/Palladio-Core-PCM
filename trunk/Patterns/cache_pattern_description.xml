@@ -3,16 +3,12 @@
 	<name>Cache</name>
 	<interfaceModel>Quality</interfaceModel>
 	<mismatches>
-		<attribute>
-			<name>Performance</name>
-			<suitability>+</suitability>
+		<attribute name="Performance" suitability="+">
+			<subAttribute name="Throughput"  suitability="+"/>
 		</attribute>
-		<attribute>
-			<name>Reliability</name>
-			<suitability>-</suitability>
-		</attribute>
+		<attribute name="Reliability" suitability="-"/>
 	</mismatches>
-	<description>A cache okjnsd  asjdfkl psadf kosal ösfjpkasö öljsaf asoiu snf soi lsdmp sdsup öakj ds hsf ödnso ysafm.</description>
+	<description>A cache okjnsd  asjdfkl psadf kosal sfjpkas ljsaf asoiu snf soi lsdmp sdsup akj ds hsf dnso ysafm.</description>
 	<source>Kircher/Jain: Pattern Oriented Software Architecture</source>
 	<adaptorTemplates>
 		<template>CacheAdaptor.cst</template>

@@ -57,9 +57,14 @@
 		<xs:attribute name="name" type="xs:string"/>
 	</xs:complexType>
 	<xs:complexType name="attributeType">
-		<xs:all>
-			<xs:element name="name" type="xs:string"/>
-			<xs:element name="suitability" type="suitabilityType"/>
-		</xs:all>
+		<xs:sequence>
+			<xs:element name="subAttribute" type="subAttributeType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="suitability" type="suitabilityType"/>
+	</xs:complexType>
+	<xs:complexType name="subAttributeType">
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="suitability" type="suitabilityType"/>
 	</xs:complexType>
 </xs:schema>

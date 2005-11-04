@@ -22,6 +22,11 @@
             The suitability of this mismatch attribute.
             </summary>
         </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.IMismatchAttribute.SubAttributes">
+            <summary>
+            A list of all defined subattributes.
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.Pattern.IPatternDescription">
             <summary>
             Public interface of a PatternDescription.
@@ -132,21 +137,46 @@
         </member>
         <member name="T:Palladio.QoSAdaptor.Pattern.MismatchAttribute">
             <summary>
-            A QoSAttribute describes the suitability of a design 
-            pattern for solving problems with certain QoS attributes.
+            A MismatchAttribute describes the suitability of a design 
+            pattern for solving problems with certain attributes. For the 
+            quality-based interface model this can be quality attributes like 
+            performance or reliability.
             The class has the attributes name and suitability, where
-            "suitability" describes the suitability of the pattern to
-            solve a problem with the QoS attribute referred to by 
-            "name". 
-            Suitability is a string which at the moment should have
-            one of the following values: ++, +, 0, -, --
+            suitability describes the suitability of the pattern to
+            solve a problem with the attribute referred to by 
+            name. 
+            
+            TODO: Is the classification of attributes and subattributes also 
+            usable for other interface models?
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.MismatchAttribute.name">
+            <summary>
+            The name of the mismatch attribute.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.MismatchAttribute.suitability">
+            <summary>
+            Describes the influence of the pattern this mismatch attribute 
+            is defined for on this attribute.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.MismatchAttribute.subAttributes">
+            <summary>
+            A list of subattributes.
             </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.Pattern.MismatchAttribute.#ctor(System.String)">
             <summary>
-            Constructs a new QoSAttribute with the given name.
+            Constructs a new MismatchAttribute with the given name.
             </summary>
             <param name="name">The name of the QoSAttribute</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.MismatchAttribute.AddSubAttribute(Palladio.QoSAdaptor.Pattern.MismatchSubAttribute)">
+            <summary>
+            Adds the given subattribute to the list of subattributes.
+            </summary>
+            <param name="attribute">A MismatchSubAttribute.</param>
         </member>
         <member name="P:Palladio.QoSAdaptor.Pattern.MismatchAttribute.Name">
             <summary>
@@ -156,6 +186,11 @@
         <member name="P:Palladio.QoSAdaptor.Pattern.MismatchAttribute.Suitability">
             <summary>
             The suitability of this mismatch attribute.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.MismatchAttribute.SubAttributes">
+            <summary>
+            A list of all defined subattributes.
             </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.Pattern.PatternDescription">
@@ -384,6 +419,26 @@
             <param name="pattern">The final PatternDescription 
             object.</param>
         </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.ConvertSuitability(System.String)">
+            <summary>
+            Converts the string representation of the suitability value into
+            the SuitabilityValue representation.
+            </summary>
+            <param name="suitability">String representation of the suitability.
+            </param>
+            <returns>SuitabilityValue representation of the suitability.
+            </returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.AddMismatchSubAttributes(Palladio.QoSAdaptor.Pattern.MismatchAttribute,System.Xml.XPath.XPathNodeIterator)">
+            <summary>
+            Adds the subattributes defined in the given node to the given 
+            MismatchAttribute.
+            </summary>
+            <param name="attribute">A MismatchAttribute to add attributes to.
+            </param>
+            <param name="it">A node in the XML tree that contains mismatch 
+            subattributes.</param>
+        </member>
         <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescriptionParser.ReadAdapterTemplates(System.Xml.XPath.XPathNavigator,Palladio.QoSAdaptor.Pattern.PatternDescription)">
             <summary>
             This methods parses the list of templates needed to 
@@ -475,6 +530,65 @@
             <summary>
             Enumeration representing the possible values of the suitability of
             a mismatch attribute.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Pattern.MismatchSubAttribute">
+            <summary>
+            A MismatchSubAttribute describes the suitability of a design 
+            pattern for solving problems with certain subattributes. For the 
+            quality-based interface model this can be throughput or response time.
+            The class has the attributes name and suitability, where
+            suitability describes the suitability of the pattern to
+            solve a problem with the subattribute referred to by 
+            name. 
+            
+            TODO: Is the classification of attributes and subattributes also 
+            usable for other interface models?
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Pattern.IMismatchSubAttribute">
+            <summary>
+            Public interface of a MismatchSubAttribute.
+            
+            All constructors and setters are implemented as internal. The 
+            interface only provides read methods.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.IMismatchSubAttribute.Name">
+            <summary>
+            The name of this mismatch attribute.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.IMismatchSubAttribute.Suitability">
+            <summary>
+            The suitability of this mismatch attribute.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.MismatchSubAttribute.name">
+            <summary>
+            The name of the mismatch subattribute.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Pattern.MismatchSubAttribute.suitability">
+            <summary>
+            Describes the influence of the pattern this mismatch subattribute 
+            is defined for on this subattribute.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.MismatchSubAttribute.#ctor(System.String)">
+            <summary>
+            Constructs a new MismatchSubAttribute with the given name.
+            </summary>
+            <param name="name">The name of the QoSAttribute</param>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.MismatchSubAttribute.Name">
+            <summary>
+            The name of this mismatch subattribute.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.MismatchSubAttribute.Suitability">
+            <summary>
+            The suitability of this mismatch subattribute.
             </summary>
         </member>
     </members>

@@ -88,7 +88,7 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// <param name="args"></param>
 		private void OnValidateError(Object sender, ValidationEventArgs args ) 
 		{
-			throw new XmlException("File does not match PatternDescription.dtd  "+args.Message,null);
+			throw new XmlException("File does not match pattern_description.xsd. "+args.Message,null);
 		}
 
 		/// <summary>
@@ -210,22 +210,67 @@ namespace Palladio.QoSAdaptor.Pattern
 			it2=it.Current.SelectChildren("attribute", it.Current.NamespaceURI);
 			while(it2.MoveNext())
 				{
+					XPathNavigator nav2 = it2.Current.Clone();
 					MismatchAttribute attribute = new MismatchAttribute(
-						GetValueOfChild(it2, "name"));
-					string suitability = GetValueOfChild(it2, "suitability");
-					if (suitability.Equals("++"))
-						attribute.Suitability = SuitabilityValue.PLUSPLUS;
-					else if (suitability.Equals("+"))
-						attribute.Suitability = SuitabilityValue.PLUS;
-					else if (suitability.Equals("o"))
-						attribute.Suitability = SuitabilityValue.NEUTRAL;
-					else if (suitability.Equals("-"))
-						attribute.Suitability = SuitabilityValue.MINUS;
-					else if (suitability.Equals("--"))
-						attribute.Suitability = SuitabilityValue.MINUSMINUS;
-					// TODO: else throw exception
+						nav2.GetAttribute("name", it2.Current.NamespaceURI));
+					string suitability = nav2.GetAttribute
+						("suitability", it2.Current.NamespaceURI);
+					attribute.Suitability = ConvertSuitability(suitability);
+					AddMismatchSubAttributes(attribute, 
+						it2.Current.SelectChildren("subAttribute", 
+							it2.Current.NamespaceURI));
 					pattern.AddMismatchAttribute(attribute);
 				}
+		}
+
+		/// <summary>
+		/// Converts the string representation of the suitability value into
+		/// the SuitabilityValue representation.
+		/// </summary>
+		/// <param name="suitability">String representation of the suitability.
+		/// </param>
+		/// <returns>SuitabilityValue representation of the suitability.
+		/// </returns>
+		private SuitabilityValue ConvertSuitability(string suitability)
+		{
+			// TODO: Change default value?
+			SuitabilityValue convertedSuitability = SuitabilityValue.NEUTRAL;
+			if (suitability.Equals("++"))
+				convertedSuitability = SuitabilityValue.PLUSPLUS;
+			else if (suitability.Equals("+"))
+				convertedSuitability = SuitabilityValue.PLUS;
+			else if (suitability.Equals("o"))
+				convertedSuitability = SuitabilityValue.NEUTRAL;
+			else if (suitability.Equals("-"))
+				convertedSuitability = SuitabilityValue.MINUS;
+			else if (suitability.Equals("--"))
+				convertedSuitability = SuitabilityValue.MINUSMINUS;
+			// TODO: else throw exception
+			return convertedSuitability;
+		}
+
+		/// <summary>
+		/// Adds the subattributes defined in the given node to the given 
+		/// MismatchAttribute.
+		/// </summary>
+		/// <param name="attribute">A MismatchAttribute to add attributes to.
+		/// </param>
+		/// <param name="it">A node in the XML tree that contains mismatch 
+		/// subattributes.</param>
+		private void AddMismatchSubAttributes (MismatchAttribute attribute, 
+			XPathNodeIterator it)
+		{
+			while (it.MoveNext())
+			{
+				XPathNavigator nav2 = it.Current.Clone();
+				MismatchSubAttribute subAttribute = new MismatchSubAttribute(
+					nav2.GetAttribute("name", it.Current.NamespaceURI));
+				string suitability = nav2.GetAttribute
+					("suitability", it.Current.NamespaceURI);
+				subAttribute.Suitability = ConvertSuitability(suitability);
+
+				attribute.AddSubAttribute(subAttribute);
+			}
 		}
 
 		/// <summary>

@@ -3,18 +3,9 @@
 	<name>Replication</name>
 	<interfaceModel>Quality</interfaceModel>
 	<mismatches>
-		<attribute>
-			<name>Performance</name>
-			<suitability>++</suitability>
-		</attribute>
-		<attribute>
-			<name>Reliability</name>
-			<suitability>--</suitability>
-		</attribute>
-		<attribute>
-			<name>Security</name>
-			<suitability>o</suitability>
-		</attribute>
+		<attribute name="Performance" suitability="++"/>
+		<attribute name ="Reliability" suitability="--"/>
+		<attribute name ="Security" suitability="o"/>
 	</mismatches>
 	<description>Replication is a okjnsd  asjdfkl psadf kosal ösfjpkasö öljsaf asoiu snf soi lsdmp sdsup öakj ds hsf ödnso ysafm.</description>
 	<source>Kircher/Jain: Pattern Oriented Software Architecture</source>
@@ -29,6 +20,12 @@
 			<template>ReplicationPrediction1.cst</template>
 			<template>ReplicationPrediction2.cst</template>
 			<template>ReplicationPrediction3.cst</template>
+		</predictionModel>
+		<predictionModel name="Test2">
+			<usageInstructions>sl flk fsd fl sdlkfodf ksfkf</usageInstructions>
+			<template>ReplicationPrediction21.cst</template>
+			<template>ReplicationPrediction22.cst</template>
+			<template>ReplicationPrediction23.cst</template>
 		</predictionModel>
 	</predictionModels>
 </pattern>
