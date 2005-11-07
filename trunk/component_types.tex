@@ -1,5 +1,20 @@
 \section{Component Type Hierarchy}
 \label{sec:ComponentTypes}
+
+--------------------------
+TODO:
+Der Abschnitt muss wieder an die richtigen Stellen in diesem Abschnitt:
+Required interfaces of the provided-type are not considered explicitly. However,
+if they are specified, their meaning corresponds to the first case in the list,
+since, for provided-types, the use of external services is not limited. The
+second case corresponds to the complete-type. The usage of external services is
+limited to the required interfaces specified for the component and no further
+interfaces can be used by the component. The last case expresses additional
+component requirements. For example, we could specify that all information has
+to be stored in a database. So, the interface of the database must be called
+using certain call sequences.
+--------------------------
+
 The different meanings of provided and required interfaces and the possiblity
 to specify the inner structure of a software component using UML 2.0 and/or
 Parametric contracts brings up the question of substitutability. What has to be
