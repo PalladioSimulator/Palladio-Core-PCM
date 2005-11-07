@@ -1,7 +1,10 @@
 %
-% $ID$
+% $Id$
 %
 % $Log$
+% Revision 1.5  2005/11/07 18:52:52  sbecker
+% Minor changes to the type concept introduced here
+%
 % Revision 1.4  2005/10/27 16:46:29  sliver
 % *** empty log message ***
 %
@@ -41,7 +44,7 @@ inner component to a required interface of the composite component.
 \subsection{Types and Design-by-Contract}
 \label{types_design_by_contract}
 
-A central idea of a type system is to allow \emph{subtyping}. The basic idea is that a subtype of a given supertype can be used at every place where an instance of the supertype was expected. Taking design-by-contract \cite{meyer1997a} \footnote{A formal definition can be found in the book by Meyer \cite{meyer1997a}} into consideration this has several implications:
+A central idea of a type system is to allow \emph{subtyping}. The idea of a type in this section is inspired by object oriented concepts, hence, think of classes or interfaces as types in the following. The basic idea is that a subtype of a given supertype can be used at every place where an instance of the supertype was expected. Taking design-by-contract \cite{meyer1997a} \footnote{A formal definition can be found in the book by Meyer \cite{meyer1997a}} into consideration this has several implications:
 
 \begin{itemize}
 \item The precondition of every operation of the type has to be weaker than the supertype's operation precondition.
