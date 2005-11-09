@@ -264,8 +264,20 @@
             <summary>
             Represents a QML dimension type. At the moment only numeric types are
             supported which are saved as a string. 
-            TODO: Implement types ENUM_DEF and SET_DEF and check if they can also
-                  be represented by a simple string.
+            TODO: Implement types ENUM_DEF and SET_DEF. Introduce enumeration for 
+            	types.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.type">
+            <summary>
+            The type of this dimension type. In the current implementation only
+            NUMERIC is supported. 
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.dimensionOrder">
+            <summary>
+            The dimension order of this dimension type. In the current 
+            implementation only INCREASING and DECREASING are supported.
             </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.#ctor(antlr.collections.AST)">
@@ -293,6 +305,56 @@
             </param>
             <returns>True if this and obj have the same type, else false
             </returns>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.DimensionType">
+            <summary>
+            Provides the type of this dimension type.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.Order">
+            <summary>
+            Returns the dimension order of this dimension type.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.Type">
+            <summary>
+            Enumeration that defines possible types of a QMLDimensionType.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.Type.ENUMERATION">
+            <summary>
+            An enumeration of values.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.Type.SET">
+            <summary>
+            A set of values.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.Type.NUMERIC">
+            <summary>
+            A numeric value.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.DimensionOrder">
+            <summary>
+            Defines the order of values of the domain.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.DimensionOrder.NONE">
+            <summary>
+            NO order is defined for the domain values.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.DimensionOrder.INCREASING">
+            <summary>
+            Values are ordered increasingly.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.DimensionOrder.DECREASING">
+            <summary>
+            Values are ordered decreasingly.
+            </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity">
             <summary>
@@ -1104,6 +1166,41 @@
             <param name="varianceAspect">A QMLVarianceAspect whose Accept 
             method has been called.</param>
         </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLCompleteCopingException">
+            <summary>
+            Exception that is thrown during the complete coping check, when an 
+            element that is requested by the 
+            QMLRequiredSpecificationCompleteCopingVisitor can not be found in the
+            provided specification by the 
+            QMLProvidedSpecificationCompleteCopingVisitor.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLCompleteCopingException.#ctor(System.String)">
+            <summary>
+            Constructor that defines a default message and adds the given 
+            message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLCompleteCopingUnknownProfileException">
+            <summary>
+            Thrown by a QMLProvidedSpecificationCompleteCopingVisitor, if the 
+            QMLRequiredSpecificationCompleteCopingVisitor trys to push it to 
+            a profile that is not existent in the provided specification.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLMismatchSearchException">
+            <summary>
+            Exception thrown if an error occured during a mismatch search.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLMismatchSearchException.#ctor(System.String)">
+            <summary>
+            Constructor that defines a default message and adds the given 
+            message.
+            </summary>
+            <param name="message"></param>
+        </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationCompleteCopingVisitor">
             <summary>
             Visits the provided specification during the check for complete coping. 
@@ -1897,63 +1994,6 @@
             <param name="requiredConstraint">QMLAspectConstraint defined in 
             the required specification.</param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.AspectMatches(System.Collections.ICollection,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.IQMLStatConstraint)">
-            <summary>
-            Checks if one of the aspects in providedAspectConstraints matches 
-            the given aspect of the required interface.
-            </summary>
-            <param name="providedAspects">A collection of aspects of the
-            provided interface.</param>
-            <param name="requiredAspect">IQMLStatConstraint that is defined in
-            the required specification.</param>
-            <returns>string.Empty if one of the aspects in the given collection 
-            matches the given aspect. Else string that describes the mismatch.
-            </returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.PercentilesMatch(System.Collections.ArrayList,System.Collections.ArrayList)">
-            <summary>
-            Checks if the given percentile of the provided interface match the
-            given percentiles of the required interface.
-            </summary>
-            <param name="providedPercentiles">Collection of percentiles of the
-            provided interface.</param>
-            <param name="requiredPercentiles">Collection of percentiles of the
-            required interface.</param>
-            <returns>string.Empty if the given percentiles match. Else string 
-            that provides further details about the mismatch.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.GetSharedNumericOperator(System.Collections.IList,System.Collections.IList)">
-            <summary>
-            Tries to find and return a shared numeric operator of the given 
-            lists. The lists are expected to contain QMLPercentileAspect 
-            objects that all have the same numeric operator. If this is not the
-            case, -1 is returned. 
-            </summary>
-            <param name="percentiles1">A list of QMLPercentileAspects.</param>
-            <param name="percentiles2">A second list of QMLPercentileAspects.
-            </param>
-            <returns>The shared numeric operator or -1 if the list do not 
-            only contain QMLPercentileAspects or different numeric operators
-            are used in the different QMLPercentileAspects. -2 is returned
-            if both lists are empty.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.MatchLessThanPercentiles(System.Collections.ArrayList,System.Collections.ArrayList)">
-            <summary>
-            Checks if the function described by the percentiles in 
-            providedPercentiles matches the function described by the 
-            percentiles in requiredPercentiles. 
-            It is assumed that all percentiles have the numeric operator 
-            QMLTokenTypes.NUMOP_LTHAN and the lists are sorted by
-            percentiles starting with the lowest percentile.
-            </summary>
-            <param name="providedPercentiles">List of percentiles defined for the
-            provided interface.</param>
-            <param name="requiredPercentiles">List of percentiles defined for 
-            the required interface.</param>
-            <returns>string.Empty if thisPercentiles matches requiredPercentiles.
-            Else string that provides further details abaout the mismatch.
-            </returns>
-        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.MeanAspectMatch(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLMeanAspect)">
             <summary>
             Checks if this QMLMeanAspect matches the given aspect.
@@ -2132,40 +2172,88 @@
             Zusammenfassung für QMLParserTest.
             </summary>
         </member>
-        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLCompleteCopingUnknownProfileException">
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IAspectConstraintMismatchSearchStrategy">
             <summary>
-            Thrown by a QMLProvidedSpecificationCompleteCopingVisitor, if the 
-            QMLRequiredSpecificationCompleteCopingVisitor trys to push it to 
-            a profile that is not existent in the provided specification.
+            Interface for strategies to find mismatches in aspect constraints.
             </summary>
         </member>
-        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLCompleteCopingException">
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IAspectConstraintMismatchSearchStrategy.FindAspectConstraintMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
             <summary>
-            Exception that is thrown during the complete coping check, when an 
-            element that is requested by the 
-            QMLRequiredSpecificationCompleteCopingVisitor can not be found in the
-            provided specification by the 
-            QMLProvidedSpecificationCompleteCopingVisitor.
+            Searches for mismatches between required and provided aspect
+            constraints.
+            </summary>
+            <param name="requiredConstraint">QMLAspectConstraint of the 
+            required interface.</param>
+            <param name="providedConstraint">QMLAspectConstraint of the 
+            required interface.</param>
+            <returns>A string that describes details about the found 
+            mismatches.</returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy">
+            <summary>
+            IAspectConstraintMismatchSearchStrategy that only considers percentile
+            aspect. These are interpreted as upper border values. For further 
+            interpretations see diploma thesis mentioned in the info region.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLCompleteCopingException.#ctor(System.String)">
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.FindAspectConstraintMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
             <summary>
-            Constructor that defines a default message and adds the given 
-            message.
+            Searches for mismatches between required and provided aspect
+            constraints.
             </summary>
-            <param name="message"></param>
+            <param name="requiredConstraint">QMLAspectConstraint of the 
+            required interface.</param>
+            <param name="providedConstraint">QMLAspectConstraint of the 
+            required interface.</param>
+            <returns>A string that describes details about the found 
+            mismatches.</returns>
         </member>
-        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLMismatchSearchException">
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.FindPercentileMismatches(System.Collections.ArrayList,System.Collections.ArrayList)">
             <summary>
-            Exception thrown if an error occured during a mismatch search.
+            Searches for mismatches between required and provided percentile
+            definitions.
+            
+            TODO: Formalise mismatch details?
             </summary>
+            <param name="providedPercentiles">ArrayList of 
+            QMLPercentileAspects of the provided interface.</param>
+            <param name="requiredPercentiles">ArrayList of 
+            QMLPercentileAspects of the required interface.</param>
+            <returns>A string that describes details about the found 
+            mismatches or string.Empty, if at least one of the lists is empty.
+            </returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLMismatchSearchException.#ctor(System.String)">
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.MatchLessThanPercentiles(System.Collections.ArrayList,System.Collections.ArrayList)">
             <summary>
-            Constructor that defines a default message and adds the given 
-            message.
+            Checks if the function described by the percentiles in 
+            providedPercentiles matches the function described by the 
+            percentiles in requiredPercentiles. 
+            It is assumed that all percentiles have the numeric operator 
+            QMLTokenTypes.NUMOP_LTHAN and the lists are sorted by
+            percentiles starting with the lowest percentile.
             </summary>
-            <param name="message"></param>
+            <param name="providedPercentiles">List of percentiles defined for the
+            provided interface.</param>
+            <param name="requiredPercentiles">List of percentiles defined for 
+            the required interface.</param>
+            <returns>string.Empty if thisPercentiles matches requiredPercentiles.
+            Else string that provides further details abaout the mismatch.
+            </returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.GetSharedNumericOperator(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Tries to find and return a shared numeric operator of the given 
+            lists. The lists are expected to contain QMLPercentileAspect 
+            objects that all have the same numeric operator. If this is not the
+            case, -1 is returned. 
+            </summary>
+            <param name="percentiles1">A list of QMLPercentileAspects.</param>
+            <param name="percentiles2">A second list of QMLPercentileAspects.
+            </param>
+            <returns>The shared numeric operator or -1 if the list do not 
+            only contain QMLPercentileAspects or different numeric operators
+            are used in the different QMLPercentileAspects. -2 is returned
+            if both lists are empty.</returns>
         </member>
     </members>
 </doc>

@@ -234,6 +234,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\QmlSpecificationVisitors\AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "src\QmlSpecificationVisitors\IAspectConstraintMismatchSearchStrategy.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\QmlSpecificationVisitors\IQMLSpecificationVisitor.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
