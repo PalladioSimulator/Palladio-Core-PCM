@@ -198,7 +198,9 @@ namespace Palladio.QoSAdaptor.Control
 		{
 			// Automatic pattern preselection
 			ArrayList patterns = GetPatternDescriptions(interfaceModel);
-			Hashmap mismatchSolvingPatterns = GetMismatchPatterns(
+			IPatternPreselectionStrategy strategy = 
+				new SinglePatternPreselectionWithSubattributes();
+			Hashmap mismatchSolvingPatterns = strategy.PreselectPatterns(
 				mismatches, patterns);
 
 			// Selection of patterns by the user and configuration and 
@@ -251,48 +253,6 @@ namespace Palladio.QoSAdaptor.Control
 				}
 			}
 			return patterns;
-		}
-
-		/// <summary>
-		/// Adds patterns able to correct a mismatch to the corresponding
-		/// mismatch.
-		/// </summary>
-		/// <param name="mismatches">A list of mismatches.</param>
-		/// <param name="patterns">A list of PatternDescriptions of patterns
-		/// that may be able to correct the given mismatches.</param>
-		private Hashmap GetMismatchPatterns(IList mismatches, IList patterns)
-		{
-			Hashmap MismatchSolvingPatterns = new Hashmap();
-
-			// Create a list of PatternDescriptions that cover the 
-			// mismatched attributes found by the Comparator. The list 
-			// should not contain duplicates.
-			foreach (IMismatch mismatch in mismatches)
-			{
-				IList mismatchPatterns = new ArrayList();
-				// TODO: consider mismatch.MismatchSubAttribute. Make this 
-				// consideration configurable.
-				string attribute = mismatch.MismatchAttribute;
-				// Find patterns that cover the mismatches and have a 
-				// suitability of + or ++
-				foreach (IPatternDescription pattern in patterns)
-				{
-					if (pattern.HasMismatchAttribute(attribute))
-					{
-						IMismatchAttribute mismatchAttribute = pattern.
-							GetMismatchAttribute(attribute);
-						if ((mismatchAttribute.Suitability == 
-							SuitabilityValue.PLUS) ||
-							(mismatchAttribute.Suitability ==
-							SuitabilityValue.PLUSPLUS))
-						{
-							mismatchPatterns.Add(pattern);
-						}
-					}
-				}
-				MismatchSolvingPatterns.Add(mismatch, mismatchPatterns);
-			}
-			return MismatchSolvingPatterns;
 		}
 
 		/// <summary>

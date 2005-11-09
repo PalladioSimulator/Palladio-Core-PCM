@@ -99,15 +99,6 @@
             </summary>
             <returns>A list of PatternDescription objects.</returns>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Control.Controller.GetMismatchPatterns(System.Collections.IList,System.Collections.IList)">
-            <summary>
-            Adds patterns able to correct a mismatch to the corresponding
-            mismatch.
-            </summary>
-            <param name="mismatches">A list of mismatches.</param>
-            <param name="patterns">A list of PatternDescriptions of patterns
-            that may be able to correct the given mismatches.</param>
-        </member>
         <member name="M:Palladio.QoSAdaptor.Control.Controller.Compile(Palladio.QoSAdaptor.Pattern.IPatternDescription)">
             <summary>
             Scans the src folder of the selected pattern for compilable 
@@ -167,6 +158,68 @@
             <param name="binDirectory">The bin directory of the 
             selected pattern.</param>
             <param name="libs">DLLs needed to compile the source files.</param>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Control.IPatternPreselectionStrategy">
+            <summary>
+            Interface to be implemented by all strategys for automated pattern
+            preselection.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.IPatternPreselectionStrategy.PreselectPatterns(System.Collections.ICollection,System.Collections.ICollection)">
+            <summary>
+            Preselects patterns from the given patterns collection that can fix
+            the given mismatches. Thereby each mismatch is considered 
+            separately.
+            </summary>
+            <param name="mismatches">A collection of IMismatch objects.</param>
+            <param name="patterns">A collection of IPatternDescription objects.
+            </param>
+            <returns>A hashmap that indicates an ICollection of 
+            IPatternDescriptions for each of the given mismatches.</returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Control.SinglePatternPreselectionWithoutSubattributes">
+            <summary>
+            Implementation of IPatternPreselectionStrategy that does not 
+            consider subattributes of mismatches.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.SinglePatternPreselectionWithoutSubattributes.PreselectPatterns(System.Collections.ICollection,System.Collections.ICollection)">
+            <summary>
+            Preselects patterns from the given patterns collection that can fix
+            the given mismatches. Thereby each mismatch is considered 
+            separately.
+            This strategy only searches for attributes. Subattributes are not 
+            considered. Each pattern is considered separately. Dependencies 
+            between different patterns are not considered.
+            </summary>
+            <param name="mismatches">A collection of IMismatch objects.</param>
+            <param name="patterns">A collection of IPatternDescription objects.
+            </param>
+            <returns>A hashmap that indicates an ICollection of 
+            IPatternDescriptions for each of the given mismatches.</returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.Control.SinglePatternPreselectionWithSubattributes">
+            <summary>
+            Implementation of IPatternPreselectionStrategy that primary searches 
+            for suiting subattributes.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Control.SinglePatternPreselectionWithSubattributes.PreselectPatterns(System.Collections.ICollection,System.Collections.ICollection)">
+            <summary>
+            Preselects patterns from the given patterns collection that can fix
+            the given mismatches. Thereby each mismatch is considered 
+            separately.
+            This strategy only searches for subattributes with a positive 
+            suitability or attributes with a positive suitability, if an 
+            attribute has no subattributes. 
+            Each pattern is considered separately. Dependencies 
+            between different patterns are not considered.
+            </summary>
+            <param name="mismatches">A collection of IMismatch objects.</param>
+            <param name="patterns">A collection of IPatternDescription objects.
+            </param>
+            <returns>A hashmap that indicates an ICollection of 
+            IPatternDescriptions for each of the given mismatches.</returns>
         </member>
     </members>
 </doc>
