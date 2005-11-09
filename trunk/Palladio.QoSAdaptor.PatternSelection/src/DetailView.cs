@@ -120,6 +120,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			this.Controls.Add(this.listView);
 			this.listView.Size = new System.Drawing.Size(675, 300);
 			// TODO: Change size dynamically
+			this.AutoScroll = true;
 			this.Size = new System.Drawing.Size(700, 350);
 		}
 
@@ -161,31 +162,42 @@ namespace Palladio.QoSAdaptor.PatternSelection
 
 			foreach (IMismatchAttribute mismatchAttribute in 
 				this.pattern.MismatchAttributes)
-			{
-				string suitability;
-				switch (mismatchAttribute.Suitability)
-				{
-					case SuitabilityValue.MINUS:
-						suitability = "-";
-						break;
-					case SuitabilityValue.MINUSMINUS:
-						suitability = "--";
-						break;
-					case SuitabilityValue.NEUTRAL:
-						suitability = "o";
-						break;
-					case SuitabilityValue.PLUS:
-						suitability = "+";
-						break;
-					case SuitabilityValue.PLUSPLUS:
-						suitability = "++";
-						break;
-					default: 
-						suitability = "";
-						break;
-				}
-				AddItem(mismatchAttribute.Name, suitability, false);		
+			{	
+				AddItem(mismatchAttribute.Name, GetSuitabilityString(
+					mismatchAttribute.Suitability), false);		
+
+				foreach (IMismatchSubAttribute subAttribute in 
+					mismatchAttribute.SubAttributes)
+					AddItem(mismatchAttribute.Name+"."+subAttribute.Name, 
+						GetSuitabilityString(subAttribute.Suitability), false);
 			}
+		}
+
+		private string GetSuitabilityString(SuitabilityValue value)
+		{
+			string suitabilityString;
+			switch (value)
+			{
+				case SuitabilityValue.MINUS:
+					suitabilityString = "-";
+					break;
+				case SuitabilityValue.MINUSMINUS:
+					suitabilityString = "--";
+					break;
+				case SuitabilityValue.NEUTRAL:
+					suitabilityString = "o";
+					break;
+				case SuitabilityValue.PLUS:
+					suitabilityString = "+";
+					break;
+				case SuitabilityValue.PLUSPLUS:
+					suitabilityString = "++";
+					break;
+				default: 
+					suitabilityString = "unknown";
+					break;
+			}	
+			return suitabilityString;
 		}
 
 		/// <summary>
@@ -237,6 +249,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// is a heading.</param>
 		private void AddItem(string text, string subtext, bool highlight)
 		{
+			// TODO: Add more than one item, if text gets to long.
 			ListViewItem mainItem = new ListViewItem(text);
 			mainItem.SubItems.Add(subtext);
 			if (highlight)

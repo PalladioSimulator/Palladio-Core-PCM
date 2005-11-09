@@ -32,7 +32,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 	/// </summary>
 	internal class SelectionDialog : System.Windows.Forms.Form
 	{
-		#region data
+		#region attributes
 		/// <summary>
 		/// Erforderliche Designervariable.
 		/// </summary>
@@ -89,7 +89,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			
 			InitializeComponent();	
 
-			InitializeChoice();
+			InitialiseChoice();
 		}
 		#endregion
 
@@ -115,16 +115,16 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(SelectionDialog));
+			System.Resources.ResourceManager resources = 
+				new System.Resources.ResourceManager(typeof(SelectionDialog));
 			// 
 			// SelectionDialog
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(292, 273);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "SelectionDialog";
 			this.Text = "Choose a pattern";
-
+			this.AutoScroll = true;
 		}
 		#endregion
 
@@ -135,7 +135,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// to a detailed view of the corresponding
 		/// PatternDescriptions.
 		/// </summary>
-		private void InitializeChoice()
+		private void InitialiseChoice()
 		{
 			AddSpecificationButtons();
 
@@ -145,8 +145,14 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			}
 			AddGeneratorButton();
 
+			// Set the size of the selection window. If height > 600 the size 
+			// is set to the maximum size 0f 600 and a scroll bar will appear,
+			// since this.AutoScroll is set.
 			int height = 130+(counter*10);
-			this.Size = new System.Drawing.Size(350, height);
+			if (height < 600)
+				this.ClientSize = new System.Drawing.Size(365, height);
+			else 
+				this.ClientSize = new System.Drawing.Size(365, 600);
 		}
 
 		/// <summary>
