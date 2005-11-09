@@ -46,5 +46,25 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// </summary>
 		ICollection SubAttributes{get;}
 		#endregion
+
+		#region methods
+		/// <summary>
+		/// Indicates whether this attribute has a subattribute with the given 
+		/// name.
+		/// </summary>
+		/// <param name="name">The name of the subattribute.</param>
+		/// <returns>True if this attribute has a subattribute with the given
+		/// name. Else false.</returns>
+		bool HasSubAttribute(string name);
+
+		/// <summary>
+		/// Getter for a sub attribute with the given name. Before this method 
+		/// is called, it should be checked with HasSubAttribute whether the
+		/// subattribute exists. 
+		/// </summary>
+		/// <param name="name">The name of the subattribute.</param>
+		/// <returns>The subattribute or null, if it does not exist.</returns>
+		IMismatchSubAttribute GetSubAttribute(string name);
+		#endregion
 	}
 }

@@ -106,14 +106,48 @@ namespace Palladio.QoSAdaptor.Pattern
 		}
 		#endregion
 
-		#region public methods
+		#region internal methods
 		/// <summary>
 		/// Adds the given subattribute to the list of subattributes.
 		/// </summary>
 		/// <param name="attribute">A MismatchSubAttribute.</param>
-		public void AddSubAttribute (MismatchSubAttribute attribute)
+		internal void AddSubAttribute (MismatchSubAttribute attribute)
 		{
 			this.subAttributes.Add(attribute);
+		}
+		#endregion
+
+		#region public methods
+		/// <summary>
+		/// Indicates whether this attribute has a subattribute with the given 
+		/// name.
+		/// </summary>
+		/// <param name="name">The name of the subattribute.</param>
+		/// <returns>True if this attribute has a subattribute with the given
+		/// name. Else false.</returns>
+		public bool HasSubAttribute(string name)
+		{
+			bool result = false;
+			foreach (IMismatchSubAttribute subAttribute in this.subAttributes)
+				if (subAttribute.Name.Equals(name))
+					result = true;
+			return result;
+		}
+
+		/// <summary>
+		/// Getter for a sub attribute with the given name. Before this method 
+		/// is called, it should be checked with HasSubAttribute whether the
+		/// subattribute exists. 
+		/// </summary>
+		/// <param name="name">The name of the subattribute.</param>
+		/// <returns>The subattribute or null, if it does not exist.</returns>
+		public IMismatchSubAttribute GetSubAttribute(string name)
+		{
+			IMismatchSubAttribute result = null;
+			foreach (IMismatchSubAttribute subAttribute in this.subAttributes)
+				if (subAttribute.Name.Equals(name))
+					result = subAttribute;
+			return result;
 		}
 		#endregion
 	}

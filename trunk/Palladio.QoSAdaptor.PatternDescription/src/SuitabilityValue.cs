@@ -26,10 +26,33 @@ namespace Palladio.QoSAdaptor.Pattern
 	/// </summary>
 	public enum SuitabilityValue
 	{
+		/// <summary>
+		/// Suitability of the pattern to fix the mismatch is not known.
+		/// </summary>
+		UNKNOWN,
+		/// <summary>
+		/// Pattern is highly suitable to fix the mismatch.
+		/// </summary>
 		PLUSPLUS, 
+		/// <summary>
+		/// Pattern is suitable to fix the mismatch.
+		/// </summary>
 		PLUS, 
+		/// <summary>
+		/// Usage of the pattern is neutral refering to the considered mismatch.
+		/// </summary>
 		NEUTRAL,
+		/// <summary>
+		/// Usage of the pattern will make the mismatch worse or rather cause a 
+		/// new mismatch, if there is no mismatch for the described attribute
+		/// yet.
+		/// </summary>
 		MINUS,
+		/// <summary>
+		/// Usage of the pattern will make the mismatch much worse or rather 
+		/// cause a new mismatch, if there is no mismatch for the described 
+		/// attribute yet.
+		/// </summary>
 		MINUSMINUS
 	}
 }
