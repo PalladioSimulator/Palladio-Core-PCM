@@ -26,13 +26,67 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// <summary>
 	/// Represents a QML dimension type. At the moment only numeric types are
 	/// supported which are saved as a string. 
-	/// TODO: Implement types ENUM_DEF and SET_DEF and check if they can also
-	///       be represented by a simple string.
+	/// TODO: Implement types ENUM_DEF and SET_DEF. Introduce enumeration for 
+	///		types.
 	/// </summary>
 	public class QMLDimensionType
 	{
-		#region data
-		private string type;
+		#region attributes
+		/// <summary>
+		/// The type of this dimension type. In the current implementation only
+		/// NUMERIC is supported. 
+		/// </summary>
+		private Type type;
+
+		/// <summary>
+		/// The dimension order of this dimension type. In the current 
+		/// implementation only INCREASING and DECREASING are supported.
+		/// </summary>
+		private DimensionOrder dimensionOrder;		
+		#endregion
+
+		#region enumerations
+		/// <summary>
+		/// Enumeration that defines possible types of a QMLDimensionType.
+		/// </summary>
+		public enum Type 
+		{	
+			/// <summary>
+			/// An enumeration of values.
+			/// </summary>
+			ENUMERATION, 
+
+			/// <summary>
+			/// A set of values.
+			/// </summary>
+			SET, 
+
+			/// <summary>
+			/// A numeric value.
+			/// </summary>
+			NUMERIC
+		};
+
+		/// <summary>
+		/// Defines the order of values of the domain.
+		/// </summary>
+		public enum DimensionOrder
+		{
+			/// <summary>
+			/// NO order is defined for the domain values.
+			/// </summary>
+			NONE, 
+
+			/// <summary>
+			/// Values are ordered increasingly.
+			/// </summary>
+			INCREASING, 
+
+			/// <summary>
+			/// Values are ordered decreasingly.
+			/// </summary>
+			DECREASING
+		};
 		#endregion
 
 		#region constructor
@@ -51,19 +105,56 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 					"this version of QMLDimensionType.");
 			else if (dimensionType.Type == QMLTokenTypes.NUMERIC_DEF)
 			{
+				this.type = Type.NUMERIC;
 				AST child = dimensionType.getFirstChild();
-				this.type = "";
 				for (int i=0; i<dimensionType.getNumberOfChildren(); i++)
 				{
-					this.type += child.getText()+" ";
+					switch (child.Type)
+					{
+						case QMLTokenTypes.DECREASING_ORDER_SEM:
+							this.dimensionOrder = DimensionOrder.DECREASING;
+							break;
+						case QMLTokenTypes.INCREASING_ORDER_SEM:
+							this.dimensionOrder = DimensionOrder.INCREASING;
+							break;
+						default:
+							throw new QMLSpecificationConstructionException
+								("Only increasing and decreasing are allowed "+
+								"as dimension orders. Dimension declarations "+
+								"without a dimension order are not supported" +
+								"in the current implementation.");
+					}	
 					child = child.getNextSibling();
 				}
-				this.type += dimensionType.getText();
 			}
 			else 
 				throw new QMLSpecificationConstructionException
 					("Illegal argument in QMLDimensionType constructor. "+
 					 "Expected node types: ENUM_DEF, SET_DEF or NUMERIC_DEF");
+		}
+		#endregion
+
+		#region properties
+		/// <summary>
+		/// Provides the type of this dimension type.
+		/// </summary>
+		internal Type DimensionType
+		{
+			get
+			{
+				return this.DimensionType;
+			}
+		}
+
+		/// <summary>
+		/// Returns the dimension order of this dimension type.
+		/// </summary>
+		internal DimensionOrder Order
+		{
+			get
+			{
+				return this.dimensionOrder;
+			}
 		}
 		#endregion
 
@@ -76,7 +167,23 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		/// <returns>QML dimension type.</returns>
 		public override string ToString()
 		{
-			return this.type;
+			string s = "";
+			switch (this.dimensionOrder)
+			{
+				case DimensionOrder.DECREASING:
+					s += "decreasing ";
+					break;
+				case DimensionOrder.INCREASING:
+					s += "increasing ";
+					break;
+			}
+			switch (this.type)
+			{
+				case Type.NUMERIC:
+					s += "numeric";
+					break;
+			}
+			return s;
 		}
 
 		/// <summary>

@@ -27,7 +27,7 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// </summary>
 	public class QMLDimensionDeclaration
 	{
-		#region data
+		#region attribute
 		private string name;
 		private QMLDimensionType dimensionType;
 		private QMLUnit unit;
