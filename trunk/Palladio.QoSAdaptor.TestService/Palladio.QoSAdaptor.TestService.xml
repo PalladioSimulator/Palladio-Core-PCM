@@ -13,6 +13,16 @@
             comparable results.
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.TestService.Service.randomizer">
+            <summary>
+            Randomizer used to create random values as initial data.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.TestService.Service.values">
+            <summary>
+            Data array.
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.TestService.Service.#ctor">
             <summary>
             Constructor. Calls a method to initialize the data of the service.

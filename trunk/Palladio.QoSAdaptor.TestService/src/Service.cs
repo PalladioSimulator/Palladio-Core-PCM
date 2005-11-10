@@ -30,10 +30,17 @@ namespace Palladio.QoSAdaptor.TestService
 	/// seed, so that the sequence of values is always the same in order to get
 	/// comparable results.
 	/// </summary>
-	public class Service 
+	public class Service : MarshalByRefObject
 	{
-		#region data
+		#region attributes
+		/// <summary>
+		/// Randomizer used to create random values as initial data.
+		/// </summary>
 		private Random randomizer;
+
+		/// <summary>
+		/// Data array.
+		/// </summary>
 		private int[] values;
 		#endregion
 
@@ -46,7 +53,6 @@ namespace Palladio.QoSAdaptor.TestService
 			values = new int[100];
 			randomizer = new Random(0);
 			CreateValues();
-
 		}
 		#endregion 
 

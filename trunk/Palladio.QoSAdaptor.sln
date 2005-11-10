@@ -54,6 +54,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.Generat
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palladio.QoSAdaptor.RemotingService", "Palladio.QoSAdaptor.RemotingService\Palladio.QoSAdaptor.RemotingService.csproj", "{CA4371FA-38DE-470C-9471-25BFE010DB87}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -112,6 +116,10 @@ Global
 		{C676C878-18BB-4762-89A5-7C76C5BA4E35}.Debug.Build.0 = Debug|.NET
 		{C676C878-18BB-4762-89A5-7C76C5BA4E35}.Release.ActiveCfg = Release|.NET
 		{C676C878-18BB-4762-89A5-7C76C5BA4E35}.Release.Build.0 = Release|.NET
+		{CA4371FA-38DE-470C-9471-25BFE010DB87}.Debug.ActiveCfg = Debug|.NET
+		{CA4371FA-38DE-470C-9471-25BFE010DB87}.Debug.Build.0 = Debug|.NET
+		{CA4371FA-38DE-470C-9471-25BFE010DB87}.Release.ActiveCfg = Release|.NET
+		{CA4371FA-38DE-470C-9471-25BFE010DB87}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
