@@ -22,6 +22,7 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Threading;
 using Palladio.QoSAdaptor.Configuration;
 using Palladio.QoSAdaptor.Pattern;
 using System.Windows.Forms;
@@ -35,7 +36,7 @@ namespace Palladio.QoSAdaptor.Generation
 	/// </summary>
 	public class Generator : IGenerator	
 	{
-		#region data
+		#region attributes
 		/// <summary>
 		/// The pattern for which artifacts shall be generated.
 		/// </summary>
@@ -70,6 +71,12 @@ namespace Palladio.QoSAdaptor.Generation
 		/// Shows if artifacts have been generated. 
 		/// </summary>
 		private bool generated;
+
+		/// <summary>
+		/// Indicates if external generation using CodeSmith is working at the
+		/// moment.
+		/// </summary>
+		private bool generationInProgress;
 		#endregion 
 
 		#region public methods
@@ -101,6 +108,16 @@ namespace Palladio.QoSAdaptor.Generation
 		}
 		#endregion
 
+		#region constructor
+		/// <summary>
+		/// Constructs a new generator and sets its initial attribute values.
+		/// </summary>
+		public Generator()
+		{
+			this.generationInProgress = false;
+		}
+		#endregion
+
 		#region internal methods / event handling
 		/// <summary>
 		/// This method is called, when a generator button has 
@@ -114,17 +131,16 @@ namespace Palladio.QoSAdaptor.Generation
 		/// <param name="e"></param>
 		internal void Generator_Click(object sender, System.EventArgs e)
 		{
+			this.selectionDialog.GeneratorButton.Enabled = false;
 			bool check = false;
-			foreach (RadioButton rButton in this.selectionDialog.RadioButtons)
+			foreach (CheckBox checkBox in this.selectionDialog.CheckBoxes)
 			{
-				if (rButton.Checked)
+				if (checkBox.Checked)
 				{
 					check = true;
-					this.currentArtifactName = rButton.Name;
+					this.currentArtifactName = checkBox.Name;
 
-					MessageBox.Show("The generated files have to be saved to the "+
-						"corresponding folders in the src folder of the chosen "+
-						"pattern in Palladio.QosAdaptor\\Patterns.");
+					string message;
 
 					this.patternDirectory = Config.PATTERN_DIRECTORY+
 						this.pattern.Name+"\\";
@@ -133,6 +149,7 @@ namespace Palladio.QoSAdaptor.Generation
 					{
 						this.currentTemplates = (IList)((ICloneable)this.
 							pattern.AdapterTemplates).Clone();
+						message = "The adaptor is now generated using CodeSmith.\n";
 					}
 					else
 					{
@@ -140,13 +157,30 @@ namespace Palladio.QoSAdaptor.Generation
 							GetPredictionModelByName(this.currentArtifactName);
 						this.currentTemplates = (IList)((ICloneable)
 							predictionModel.Templates).Clone();
+						message = "Prediction model "+this.currentArtifactName+
+								" is now generated using CodeSmith.\n";
 					}
+					MessageBox.Show(message+
+						"The generated files have to be saved to the "+
+						"corresponding folders in the src folder of the chosen "+
+						"pattern in Palladio.QosAdaptor\\Patterns.");
+
 					OpenTemplates();
-					break;
+					while (generationInProgress)
+						Thread.Sleep(1000);
 				}
 			}
+			
 			if (!check)
 				MessageBox.Show("No artifact has been chosen for generation.");
+			else
+				MessageBox.Show("All necessary templates have been generated."+
+					" The corresponding assemblies will be compiled now. They can"+
+					" then be found in the bin subfolder of the folder of the"+
+					" corresponding pattern in Palladio.QoSAdaptor\\Patterns."+
+					" The dll of the adapted service has to be located in the"+
+					" corresponding libs folder for compilation.");
+			this.selectionDialog.Close();
 		}
 		#endregion
 
@@ -157,7 +191,7 @@ namespace Palladio.QoSAdaptor.Generation
 		/// </summary>
 		private void OpenTemplates()
 		{
-			this.selectionDialog.GeneratorButton.Enabled = false;
+			this.generationInProgress = true;
 
 			IEnumerator enu = this.currentTemplates.GetEnumerator();
 			if (enu.MoveNext())
@@ -168,15 +202,8 @@ namespace Palladio.QoSAdaptor.Generation
 			}
 			else 
 			{
-				MessageBox.Show("All necessary templates have been generated."+
-					" The corresponding assembly will be compiled now. It can"+
-					" then be found in the bin subfolder of the folder of the"+
-					" corresponding pattern in Palladio.QoSAdaptor\\Patterns."+
-					" The dll of the adapted service has to be located in the"+
-					" corresponding libs folder for compilation.");
-
 				this.generated = true;
-				this.selectionDialog.GeneratorButton.Enabled = true;
+				this.generationInProgress = false;
 			}
 		}
 
@@ -191,6 +218,7 @@ namespace Palladio.QoSAdaptor.Generation
 			//start CodeSmith
 			Process proc = new Process();
 
+			// TODO: Test what happens when the template does not exist.
 			proc.StartInfo.FileName = "CodeSmith.exe";
 			string arg = this.patternDirectory+"templates\\"+template;
 			proc.StartInfo.Arguments = arg;

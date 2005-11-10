@@ -29,7 +29,7 @@ namespace Palladio.QoSAdaptor.Generation
 	/// </summary>
 	public class SelectionDialog : System.Windows.Forms.Form
 	{
-		#region data
+		#region attributes
 		/// <summary>
 		/// Erforderliche Designervariable.
 		/// </summary>
@@ -57,10 +57,10 @@ namespace Palladio.QoSAdaptor.Generation
 		private int tabCounter;
 
 		/// <summary>
-		/// A list of radio buttons. Each button belongs to a chooseable 
+		/// A list of check boxes. Each box belongs to a chooseable 
 		/// artifact. 
 		/// </summary>
-		private ArrayList rButtons;
+		private ArrayList checkBoxes;
 
 		/// <summary>
 		/// Button to start the generation of the selected artifact.
@@ -76,7 +76,7 @@ namespace Palladio.QoSAdaptor.Generation
 			this.controller = controller;
 			this.counter = 0;
 			this.tabCounter = 0;
-			this.rButtons = new ArrayList();
+			this.checkBoxes = new ArrayList();
 
 			InitializeComponent();
 
@@ -90,11 +90,11 @@ namespace Palladio.QoSAdaptor.Generation
 		/// The button belonging to the adaptor is name "adaptor". The other 
 		/// buttons have the same name as the prediction model they belong to.
 		/// </summary>
-		internal IList RadioButtons
+		internal IList CheckBoxes
 		{
 			get
 			{
-				return this.rButtons;
+				return this.checkBoxes;
 			}
 		}
 
@@ -152,8 +152,8 @@ namespace Palladio.QoSAdaptor.Generation
 		/// </summary>
 		private void InitialiseSelection()
 		{
-			// Add adaptor button
-			AddRadioButton("adaptor", "Adaptor");
+			// Add adaptor check box
+			AddCheckBox("adaptor", "Adaptor");
 			this.counter += 2;
 
 			Label label = new Label();
@@ -167,12 +167,12 @@ namespace Palladio.QoSAdaptor.Generation
 			this.Controls.Add(label);
 			this.counter += 4;
 
-			// Add prediction model buttons
+			// Add prediction model check boxes
 			foreach (IPredictionModel predictionModel in 
 				this.pattern.PredictionModels)
 			{
 				string name = predictionModel.Name;
-				AddRadioButton(name, name);
+				AddCheckBox(name, name);
 			}
 
 			AddGeneratorButton();
@@ -182,23 +182,25 @@ namespace Palladio.QoSAdaptor.Generation
 		}
 
 		/// <summary>
-		/// Adds a radio button with 
+		/// Adds a radio button with the given name and text at the current 
+		/// position.
 		/// </summary>
 		/// <param name="name">The name of the new radio button.</param>
 		/// <param name="text">The text of the new radio button.</param>
-		private void AddRadioButton(string name, string text)
+		private void AddCheckBox(string name, string text)
 		{
-			RadioButton rbutton = new RadioButton();
-			rbutton.Location = new System.Drawing.Point(25, 
+			CheckBox box = new CheckBox();
+			box.Location = new System.Drawing.Point(25, 
 				(25+(this.counter*10)));
-			rbutton.Name = name;
-			rbutton.TabIndex = tabCounter;
-			rbutton.Text = text;
-			this.rButtons.Add(rbutton);	
-			this.Controls.Add(rbutton);
+			box.Name = name;
+			box.TabIndex = tabCounter;
+			box.Text = text;
+			this.checkBoxes.Add(box);	
+			this.Controls.Add(box);
 			this.counter += 2;
 			this.tabCounter ++;
 		}
+
 	
 		/// <summary>
 		/// Adds a button to start the generation of the chosen artifact.

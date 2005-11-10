@@ -63,6 +63,12 @@
             Shows if artifacts have been generated. 
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.Generation.Generator.generationInProgress">
+            <summary>
+            Indicates if external generation using CodeSmith is working at the
+            moment.
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.Generation.Generator.Start(Palladio.QoSAdaptor.Pattern.IPatternDescription,System.String)">
             <summary>
             Starts the generation process for the given pattern. The user is 
@@ -74,6 +80,11 @@
             which artifacts are to be generated.</param>
             <param name="configurationPath">The path of the CodeSmith 
             configuration file.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Generation.Generator.#ctor">
+            <summary>
+            Constructs a new generator and sets its initial attribute values.
+            </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.Generation.Generator.Generator_Click(System.Object,System.EventArgs)">
             <summary>
@@ -141,9 +152,9 @@
             of the buttons.
             </summary>
         </member>
-        <member name="F:Palladio.QoSAdaptor.Generation.SelectionDialog.rButtons">
+        <member name="F:Palladio.QoSAdaptor.Generation.SelectionDialog.checkBoxes">
             <summary>
-            A list of radio buttons. Each button belongs to a chooseable 
+            A list of check boxes. Each box belongs to a chooseable 
             artifact. 
             </summary>
         </member>
@@ -168,9 +179,10 @@
             Initialises the selection dialog.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Generation.SelectionDialog.AddRadioButton(System.String,System.String)">
+        <member name="M:Palladio.QoSAdaptor.Generation.SelectionDialog.AddCheckBox(System.String,System.String)">
             <summary>
-            Adds a radio button with 
+            Adds a radio button with the given name and text at the current 
+            position.
             </summary>
             <param name="name">The name of the new radio button.</param>
             <param name="text">The text of the new radio button.</param>
@@ -180,7 +192,7 @@
             Adds a button to start the generation of the chosen artifact.
             </summary>
         </member>
-        <member name="P:Palladio.QoSAdaptor.Generation.SelectionDialog.RadioButtons">
+        <member name="P:Palladio.QoSAdaptor.Generation.SelectionDialog.CheckBoxes">
             <summary>
             A list of radio buttons where each button belongs to an artifact.
             The button belonging to the adaptor is name "adaptor". The other 
