@@ -1,0 +1,10 @@
+content.layout.xml.[0]=<?xml version="1.0" encoding="UTF-8"?>`r`n<project-layout>`r`n  <tab_container selected_index="5">`r`n    <tab node_name="diagrams/AllocationContext.txvClassDiagram20"/>`r`n    <tab node_name="diagrams/AssemblyContext.txvClassDiagram20"/>`r`n    <tab node_name="diagrams/DeploymentModel.txvClassDiagram20"/>`r`n    <tab node_name="diagrams/ImplementationTypeView.txvClassDiagram20"/>`r`n    <tab node_name="diagrams/PalladioMetaModel.txvClassDiagram20"/>`r`n    <tab node_name="diagrams/ProvidesTypeView.txvClassDiagram20"/>`r`n  </tab_container>`r`n</project-layout>`r`n
+history.files.active[0]=diagrams/ProvidesTypeView.txvClassDiagram20
+history.files.open.1[0]=diagrams/AllocationContext.txvClassDiagram20
+history.files.open.2[0]=diagrams/AssemblyContext.txvClassDiagram20
+history.files.open.3[0]=diagrams/DeploymentModel.txvClassDiagram20
+history.files.open.4[0]=diagrams/ImplementationTypeView.txvClassDiagram20
+history.files.open.5[0]=diagrams/PalladioMetaModel.txvClassDiagram20
+history.files.open.6[0]=diagrams/ProvidesTypeView.txvClassDiagram20
+sys.ReopenHistory.1[0]=diagrams/Deployment Diagram.txvDeploymentDiagram20
+sys.ReopenHistory.2[0]=diagrams/ClassDiagram201.txvClassDiagram20
