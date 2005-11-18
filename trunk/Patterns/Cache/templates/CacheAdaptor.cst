@@ -4,38 +4,38 @@
 <%@ Assembly Name="CodeSmith.CustomProperties" %>
 
 <%@ Property Name="ServiceAssemblyName" Type="String"
-      Category="Resource Features"
+      Category="Service Features"
       Description="The assembly which includes the class which objects shall be cached." %>
 
 <%@ Property Name="ServiceClassName" Type="String"
-      Category="Resource Features"
+      Category="Service Features"
       Description="The name of the class which objects shall be cached." %>
 
 // TODO: What if the cached object has more than one constructor
 <%@ Property Name="ConstructorParamTypes" Type="CodeSmith.CustomProperties.StringCollection"
-      Category="Resource Features"
+      Category="Service Features" Optional="true"
       Description="The types of the parameters of the constructor of the cached object. The types have to be given in the correct order." %>  
 
 // TODO: What if Getter, Setter are implemented as Properties ???  
 <%@ Property Name="Getter" Type="String"
-      Category="Resource Features"
+      Category="Service Features"
       Description="Getter of the cached service." %>      
       
 <%@ Property Name="Setter" Type="String"
-      Category="Resource Features"
+      Category="Service Features"
       Description="Setter of the cached service. Return has to be void." %>            
       
-<%@ Property Name="DataObjectType" Type="String"
-      Category="Resource Features"
-      Description="The type of the cached data object." %>                      
+<%@ Property Name="DataType" Type="String"
+      Category="Service Features"
+      Description="The type of the cached data." %>                      
 
 <%@ Property Name="IndexType" Type="String"
-      Category="Resource Features"
-      Description="The type used to index the data objects." %>                  
+      Category="Service Features"
+      Description="The type used to index the data objects." %>                        
       
-<%@ Property Name="CacheNamespace" Type="String"
-      Category="Cache Features"
-      Description="The name of the namespace the cache is intented to be used in." %>      
+<%@ Property Name="AdaptorNamespace" Type="String"
+      Category="Adaptor Features"
+      Description="The name of the namespace the adaptor is intented to be used in." %>      
       
 <%@ Property Name="CacheSize" Type="Int32"
       Category="Cache Features" Default="100"
@@ -101,7 +101,7 @@ using System;
 using System.Collections;
 using <%=ServiceAssemblyName %>;
 
-namespace <%=CacheNamespace %>{
+namespace <%=AdaptorNamespace %>{
 
 	/// <summary>
 	/// This class implements a cache component for the <%=ServiceClassName %> 
@@ -122,7 +122,14 @@ namespace <%=CacheNamespace %>{
 		#region data
 		private <%=ServiceClassName %> cachedObject;
 		
+		/// <summary>
+		/// Hashmap containing the cached resources.
+		/// </summary>
 		private Hashmap map;
+
+		/// <summary>
+		/// The maximum size of the cache.
+		/// </summary>
 		private int cacheSize;
 		#endregion
 	
@@ -134,10 +141,25 @@ namespace <%=CacheNamespace %>{
 		/// In this first version the additional information consists of data 
 		/// needed by the <%=EvictionStrategy %> eviction strategy. 
 		/// </summary>
-		private class ResourceWrapper 
+		internal class ResourceWrapper 
 		{
-			private <%=DataObjectType %> resource;
+			/// <summary>
+			/// The wrapped resource.
+			/// </summary>
+			private <%=DataType %> resource;
+
+			/// <summary>
+			/// The index of the resource.
+			/// </summary>
 			private <%=IndexType %> id;
+
+			<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) {%>
+			/// <summary>
+			/// Indicates whether the resource has been written or not.
+			/// </summary>
+			private bool written;
+			<% } %>
+
 			<%
 			if (EvictionStrategy == EvictionStrategyEnum.LRU)
 				Response.WriteLine("			private DateTime lastUse;");
@@ -149,7 +171,7 @@ namespace <%=CacheNamespace %>{
 			/// Constructs a ResourceWrapper using a given resource and sets 
 			/// the initial values if the eviction strategy data.
 			/// </summary>
-			public ResourceWrapper(<%=DataObjectType %> resource, 
+			public ResourceWrapper(<%=DataType %> resource, 
 									<%=IndexType %> id) 
 			{
 				this.resource = resource;
@@ -162,14 +184,41 @@ namespace <%=CacheNamespace %>{
 				%>
 			}
 			
-			public <%=DataObjectType %> Resource
+			/// <summary>
+			/// Property that grants access to the wrapped resource.
+			/// </summary>
+			public <%=DataType %> Resource
 			{
 				get 
 				{
 					return this.resource;
 				}
+				set
+				{
+					this.resource = value;
+				}
 			}
-			
+
+			<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) {%>
+			/// <summary>
+			/// Indicates whether the resource has been written.
+			/// </summary>
+			public bool Written
+			{
+				get 
+				{
+					return this.written;
+				}
+				set
+				{
+					this.written = value;
+				}
+			}
+			<% } %>
+
+			/// <summary>			
+			/// Returns the index of the wrapped resource.
+			/// </summary>
 			public <%=IndexType %> Id
 			{
 				get 
@@ -212,16 +261,20 @@ namespace <%=CacheNamespace %>{
 	 
 		#region constructors
 		public <%=ServiceClassName %>CacheAdaptor(
+		<% if (ConstructorParamTypes != null) { %>
 		<% for (int i = 0; i < ConstructorParamTypes.Count; i++) { %>
 					<%= ConstructorParamTypes[i] %> param<%=i%><%if (!(i==ConstructorParamTypes.Count-1)) {%>, <% } %>
+		<% } %>
 		<% } %>
 		)
 		{
 			// TODO: call constructor of the cachedObject with given parameters
 			// i.e. adapt the constructor of the cachedObject.
 			this.cachedObject = new <%=ServiceClassName %>(
+		<% if (ConstructorParamTypes != null) { %>
 		<% for (int i = 0; i < ConstructorParamTypes.Count; i++) { %>
 					param<%=i%><%if (!(i==ConstructorParamTypes.Count-1)) {%>, <% } %>
+		<% } %>
 		<% } %>	
 			);
 			this.map = new Hashmap();
@@ -300,6 +353,10 @@ namespace <%=CacheNamespace %>{
 				%>
 				victim = res;
 			}
+			<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) {%>
+			if (victim.Written)
+				this.cachedObject.<%=Setter %>(victim.Id, victim.Resource);
+			<% } %>
 			this.map.Remove(victim.Id);
 		}
 		#endregion	
@@ -311,17 +368,17 @@ namespace <%=CacheNamespace %>{
 		/// Instead of calling that method directly the cache methods are used 
 		/// to provide the requested service. 
 		/// </summary>
-		public <%=DataObjectType %> <%=Getter %>(<%=IndexType %> index)
+		public <%=DataType %> <%=Getter %>(<%=IndexType %> index)
 		{
+			ResourceWrapper resource;
 			lock(this)
 			{
-				ResourceWrapper resource = this.Acquire(index);
+				resource = this.Acquire(index);
 				// set informations needed for the eviction strategies.
 				resource.Use();
 				this.Release(resource);
-				// TODO: Is a return statement inside a lock correct ???
-				return resource.Resource;
 			}
+			return resource.Resource;
 		}
 	
 		/// <summary>
@@ -331,21 +388,24 @@ namespace <%=CacheNamespace %>{
 		/// to provide the requested service. 
 		/// </summary>
 		public void <%=Setter %>(<%=IndexType %> index, 
-								<%=DataObjectType %> newResult)
+								<%=DataType %> newResult)
 		{
 			lock(this)
 			{
-				// TODO: implement write-back strategy!!!
-			
-				// implementation of write-through
-				if (this.map.ContainsKey(index))
-				{
-					this.map[index] = new ResourceWrapper(newResult, index);
-					//resource.Result = newResult;
+				ResourceWrapper resource = this.Acquire(index);
+				resource.Use();
+				<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
+					// TODO: implement write-back strategy!!!
+					// implementation of write-back
+					resource.Resource = newResult;
+					resource.Written = true;
+				<% } %>
+				<% else if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteThrough) { %>
+					// implementation of write-through
+					resource.Resource = newResult;
 					this.cachedObject.<%=Setter %>(index, newResult);
-				}
-				else 
-					this.cachedObject.<%=Setter %>(index, newResult);
+				<% } %>
+				this.Release(resource);
 			}
 		}
 		#endregion
