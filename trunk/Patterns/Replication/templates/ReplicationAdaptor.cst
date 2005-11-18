@@ -1,0 +1,241 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#"
+      Description="Generates a data cache" %>
+
+<%@ Assembly Name="CodeSmith.CustomProperties" %>
+
+<%@ Property Name="ServiceAssemblyName" Type="String"
+      Category="Service Features"
+      Description="The assembly which includes the class which objects shall be replicated." %>
+      
+<%@ Property Name="ServiceClassName" Type="String"
+      Category="Service Features"
+      Description="The name of the class which objects shall be replicated." %>      
+
+// NOTE: Restriction: Only services with standard constructor
+// TODO: Expand template to services with other constructors ???
+
+<%@ Property Name="Getter" Type="String"
+      Category="Service Features"
+      Description="Getter of the replicated service." %>      
+      
+<%@ Property Name="Setter" Type="String"
+      Category="Service Features"
+      Description="Setter of the replicated service. Return is assumed to be void." %>  
+ 
+<%@ Property Name="DataType" Type="String"
+     Category="Service Features"
+     Description="The type of the data." %>    
+     
+<%@ Property Name="IndexType" Type="String"
+      Category="Service Features"
+      Description="The type used to index the data." %>   
+      
+<%@ Property Name="AdaptorNamespace" Type="String"
+      Category="Adaptor Features"
+      Description="The name of the namespace the adaptor is intented to be used in." %>            
+   
+<%@ Property Name="ReplicaLocations" Type="CodeSmith.CustomProperties.StringCollection"
+      Category="Replication Features"
+      Description="The locations of the replicas. The replicas are expected to support .NET Remoting. The locations should be declared like: tcp://localhost:8085/Service . TCP is used by the adaptor." %>       
+      
+<%@ Property Name="ConsistencyStrategy" Type="ConsistencyStrategyEnum"
+      Category="Replication Features"
+      Description="The strategy that shall be used to keep the replicas consistent." %>         
+
+<script runat="template">
+public enum ConsistencyStrategyEnum
+{
+  NaivePessimisticConcurrencyStrategy, 
+  PrimaryBackupStrategy
+}  
+</script>        
+
+#region info
+///////////////////////////////////////////////////////////////////////////////
+// This software has been developed as a part of the diploma thesis 
+// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage fr 
+// Komponentenadapter" ("Influence of the configuration of a generator on the 
+// prediction of the QoS of component adaptors")
+// at the 
+// University of Oldenburg
+// Department of Computing Science
+// Software Engineering Group
+// Palladio Research Group
+// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
+// 
+// Development period: July 2005 - January 2006
+// 
+// Author: Niels Streekmann
+// E-mail: niels.streekmann@informatik.uni-oldenburg.de
+///////////////////////////////////////////////////////////////////////////////
+#endregion
+
+using System;
+using System.Collections;
+using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Channels.Tcp;
+using System.Threading;
+using <%=ServiceAssemblyName %>;
+
+namespace <%=AdaptorNamespace %>
+{
+	/// <summary>
+	/// Implements an adaptor generated from the replication pattern.
+	/// </summary>
+	public class <%=ServiceClassName %>ReplicationAdaptor
+	{
+		#region attributes
+		/// <summary>
+		/// A list containing all available replica locations as string.
+		/// Contrary to the pattern description it is assumed that all replicas
+		/// have are near enough to be used.
+		/// </summary>
+		private ArrayList availableReplicas;
+
+		/// <summary>
+		/// The number of totally available replicas. Needed when 
+		/// consistency strategies need to lock all replicas.
+		/// </summary>
+		private int numberOfReplicas;
+
+		/// <summary>
+		/// Indicates when all replicas have to be locked. E.g. for certain
+		/// consistency strategies. It is only allowed to set this to true, if
+		/// it is false.
+		/// 
+		/// TODO: Implement alternative ???
+		/// </summary>
+		private bool lockAllReplicas;
+
+		/// <summary>
+		/// The used consistency strategy
+		/// </summary>
+		private IConsistencyStrategy consistencyStrategy;
+		#endregion
+
+		#region constructor
+		public <%=ServiceClassName %>ReplicationAdaptor()
+		{
+			this.consistencyStrategy = new <%=ConsistencyStrategy %>();
+			this.availableReplicas = new ArrayList();
+			<% for (int i = 0; i < ReplicaLocations.Count; i++) { %>
+					this.availableReplicas.Add("<%= ReplicaLocations[i] %>");
+			<% } %>  
+			this.numberOfReplicas = this.availableReplicas.Count;
+			TcpChannel chan = new TcpChannel();
+			ChannelServices.RegisterChannel(chan);
+		}
+		#endregion
+
+		#region properties
+		/// <summary>
+		/// Indicates when all replicas have to be locked. E.g. for certain
+		/// consistency strategies. It is only allowed to set this to true, if
+		/// it is false.
+		/// 
+		/// TODO: Implement alternative ???
+		/// </summary>
+		internal bool LockAllReplicas
+		{
+			get
+			{
+				return this.lockAllReplicas;
+			}
+			set
+			{
+				this.lockAllReplicas = value;
+			}
+		}
+
+		/// <summary>
+		/// Returns the total number of replicas.
+		/// </summary>
+		internal int NumberOfReplicas
+		{
+			get
+			{
+				return this.numberOfReplicas;
+			}
+		}
+
+		/// <summary>
+		/// Returns a list of all currently available replicas.
+		/// </summary>
+		internal ICollection Replicas
+		{
+			get
+			{
+				return this.availableReplicas;
+			}
+		}
+		#endregion
+
+		#region methods of the adapted provided interface
+		/// <summary>
+		/// This method adapts the <%=Getter %> method of <%=ServiceClassName %>.
+		/// 
+		/// TODO: describe functionality of the replication
+		/// </summary>
+		public <%=DataType %> <%=Getter %>(<%=IndexType %> index)
+		{
+			int result = 0;
+			bool processed = false;
+			while (!processed)
+			{
+				if (!this.lockAllReplicas)
+				{
+					if (this.availableReplicas.Count > 0)
+					{
+						string replicaInfo;
+						lock(this)
+						{
+							replicaInfo = (string)this.availableReplicas[0];
+							this.availableReplicas.Remove(replicaInfo);
+						}
+						<%=ServiceClassName %> replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
+								replicaInfo);
+						
+						if (replica == null) 
+							// TODO: Throw exception
+							System.Console.WriteLine("Could not locate server");
+						else
+						{
+							try 
+							{
+								result = replica.Get(index);
+							}
+							catch (System.Net.Sockets.SocketException e)
+							{
+								// TODO: Throw exception
+								Console.WriteLine(e.Message);
+							}
+						}
+						this.availableReplicas.Add(replicaInfo);
+						processed = true;
+					}
+					else 
+					// TODO: Fit sleep time to exectution time.
+						Thread.Sleep(1000);
+				}
+				else
+					// TODO: Fit sleep time to exectution time.
+					Thread.Sleep(1000);
+			}
+			return result;
+		}
+
+		/// <summary>
+		/// This method adapts the <%=Setter %> method of <%=ServiceClassName %>.
+		/// 
+		/// TODO: describe functionality of the replication
+		/// </summary>
+		public void <%=Setter %>(<%=IndexType %> index, <%=DataType %> newResult)
+		{
+			this.consistencyStrategy.Write(this, index, newResult);
+		}
+		#endregion
+		
+		#region private methods
+		#endregion
+	}
+}

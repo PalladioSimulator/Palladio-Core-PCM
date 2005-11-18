@@ -1,0 +1,79 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#"
+      Description="Generates a data cache" %>
+
+<%@ Assembly Name="CodeSmith.CustomProperties" %>
+
+<%@ Property Name="AdaptorNamespace" Type="String"
+      Category="Adaptor Features"
+      Description="The name of the namespace the adaptor is intented to be used in." %> 
+
+<%@ Property Name="ServiceClassName" Type="String"
+      Category="Resource Features"
+      Description="The name of the class which objects shall be replicated." %>   
+
+
+#region info
+///////////////////////////////////////////////////////////////////////////////
+// This software has been developed as a part of the diploma thesis 
+// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage fr 
+// Komponentenadapter" ("Influence of the configuration of a generator on the 
+// prediction of the QoS of component adaptors")
+// at the 
+// University of Oldenburg
+// Department of Computing Science
+// Software Engineering Group
+// Palladio Research Group
+// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
+// 
+// Development period: July 2005 - January 2006
+// 
+// Author: Niels Streekmann
+// E-mail: niels.streekmann@informatik.uni-oldenburg.de
+///////////////////////////////////////////////////////////////////////////////
+#endregion
+
+using System;
+using System.Threading;
+using Palladio.QoSAdaptor.TestService;
+
+namespace <%=AdaptorNamespace %>
+{
+	/// <summary>
+	/// Implements the Naive Pessimistic Concurrency strategy to keep the 
+	/// replicas consistent.
+	/// </summary>
+	internal class NaivePessimisticConcurrencyStrategy : IConsistencyStrategy
+	{
+		public void Write(<%=ServiceClassName %>ReplicationAdaptor adaptor, int index, int value)
+		{
+			// Lock adaptor
+			bool locked = false;
+			while (!locked)
+			{
+				lock(adaptor)
+				{
+					if (adaptor.LockAllReplicas == false)
+					{
+						adaptor.LockAllReplicas = true;
+						locked = true;
+					}
+				}
+			}
+
+			// Wait until all replicas are free
+			if (adaptor.NumberOfReplicas != adaptor.Replicas.Count)
+				Thread.Sleep(100);
+			else
+			{
+				// Write to all replicas
+				foreach (string replicaInfo in adaptor.Replicas)
+				{
+					<%=ServiceClassName %> replica = 
+						(<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
+						replicaInfo);
+					replica.Set(index, value);
+				}
+			}
+		}
+	}
+}
