@@ -10,9 +10,10 @@
 	<description>Replication is a okjnsd  asjdfkl psadf kosal ösfjpkasö öljsaf asoiu snf soi lsdmp sdsup öakj ds hsf ödnso ysafm.</description>
 	<source>Kircher/Jain: Pattern Oriented Software Architecture</source>
 	<adaptorTemplates>
-		<template>Replication1.cst</template>
-		<template>Replication2.cst</template>
-		<template>Replication3.cst</template>
+		<template>ReplicationAdaptor.cst</template>
+		<template>IConsistencyStrategy.cst</template>
+		<template>NaivePessimisticConcurrencyStrategy.cst</template>
+		<template>PrimaryBackupStrategy.cst</template>
 	</adaptorTemplates>
 	<predictionModels>
 		<predictionModel name="Test">
