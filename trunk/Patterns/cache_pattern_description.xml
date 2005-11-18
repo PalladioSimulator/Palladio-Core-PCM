@@ -6,7 +6,9 @@
 		<attribute name="Performance" suitability="+">
 			<subAttribute name="Throughput"  suitability="+"/>
 		</attribute>
-		<attribute name="Reliability" suitability="-"/>
+		<attribute name="Reliability">
+			<subAttribute name="NumberOfFailures"  suitability="-"/>
+		</attribute>
 	</mismatches>
 	<description>A cache okjnsd  asjdfkl psadf kosal sfjpkas ljsaf asoiu snf soi lsdmp sdsup akj ds hsf dnso ysafm.</description>
 	<source>Kircher/Jain: Pattern Oriented Software Architecture</source>
