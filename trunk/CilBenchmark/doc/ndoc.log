@@ -1,0 +1,27 @@
+Building documentation...
+Initializing...
+Merging XML documentation...
+An error occured while trying to build the documentation.
+
+
+
+Exception: NDoc.Core.DocumenterException
+Die Datei ist vorhanden.
+
+
+Exception: System.IO.IOException
+Die Datei ist vorhanden.
+
+
+
+
+Exception: NDoc.Core.DocumenterException
+   at NDoc.Documenter.Msdn.MsdnDocumenter.Build(Project project)
+   at NDoc.Gui.BuildWorker.ThreadProc()
+
+Exception: System.IO.IOException
+   at System.IO.__Error.WinIOError(Int32 errorCode, String str)
+   at System.IO.Path.GetTempFileName()
+   at NDoc.Documenter.Msdn.MsdnDocumenter.Build(Project project)
+
+

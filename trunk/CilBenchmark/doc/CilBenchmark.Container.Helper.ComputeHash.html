@@ -1,0 +1,66 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>Helper.ComputeHash Method</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">Cil Benchmark Documentation</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">Helper.ComputeHash Method </h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> This code was not written by the Author. Generates a hash for the given plain text value and returns a base64-encoded result. Before the hash is computed, a random salt is generated and appended to the plain text. This salt is stored at the end of the hash value, so it can be used later for hash verification. </p>
+      <div class="syntax">public static <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemStringClassTopic.htm">string</a> ComputeHash(<br />   <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemStringClassTopic.htm">string</a> <i>plaintext</i>,<br />   <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemStringClassTopic.htm">string</a> <i>hashAlgorithm</i>,<br />   <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemByteClassTopic.htm">byte[]</a> <i>saltBytes</i><br />);</div>
+      <h4 class="dtH4">Parameters</h4>
+      <dl>
+        <dt>
+          <i>plaintext</i>
+        </dt>
+        <dd> Plaintext value to be hashed. The function does not check whether this parameter is null. </dd>
+        <dt>
+          <i>hashAlgorithm</i>
+        </dt>
+        <dd> Name of the hash algorithm. Allowed values are: "MD5", "SHA1", "SHA256", "SHA384", and "SHA512" (if any other value is specified MD5 hashing algorithm will be used). This value is case-insensitive. </dd>
+        <dt>
+          <i>saltBytes</i>
+        </dt>
+        <dd> Salt bytes. This parameter can be null, in which case a random salt value will be generated. </dd>
+      </dl>
+      <h4 class="dtH4">Return Value</h4>
+      <p> Hash value formatted as a base64-encoded string. </p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="CilBenchmark.Container.Helper.html">Helper Class</a> | <a href="CilBenchmark.Container.html">CilBenchmark.Container Namespace</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="ComputeHash method">
+        </param>
+        <param name="Keyword" value="ComputeHash method, Helper class">
+        </param>
+        <param name="Keyword" value="Helper.ComputeHash method">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a>(c) 2005 Winfried Klinker</a>
+        </p>
+        <p>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
