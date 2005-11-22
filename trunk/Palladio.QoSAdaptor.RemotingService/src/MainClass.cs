@@ -33,8 +33,8 @@ namespace Palladio.QoSAdaptor.RemotingService
 	{
 		public static int Main(string [] args) 
 		{
-
-			TcpChannel chan = new TcpChannel(8085);
+			int channel = Int32.Parse(args[0]);
+			TcpChannel chan = new TcpChannel(channel);
 			ChannelServices.RegisterChannel(chan);
 			Service service = new Service();
 
@@ -42,7 +42,7 @@ namespace Palladio.QoSAdaptor.RemotingService
 				// TODO: Why does Type.GetType not work???
 				//(Type.GetType("Palladio.QoSAdaptor.TestService.Service,object"), 
 				(service.GetType(),
-				"TestService", WellKnownObjectMode.SingleCall);
+				"TestService", WellKnownObjectMode.Singleton);
 			System.Console.WriteLine("Hit <enter> to exit...");
 			System.Console.ReadLine();
 			return 0;
