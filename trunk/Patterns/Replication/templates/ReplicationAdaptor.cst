@@ -122,6 +122,7 @@ namespace <%=AdaptorNamespace %>
 					this.availableReplicas.Add("<%= ReplicaLocations[i] %>");
 			<% } %>  
 			this.numberOfReplicas = this.availableReplicas.Count;
+			this.lockAllReplicas = false;
 			TcpChannel chan = new TcpChannel();
 			ChannelServices.RegisterChannel(chan);
 		}
@@ -192,9 +193,18 @@ namespace <%=AdaptorNamespace %>
 							replicaInfo = (string)this.availableReplicas[0];
 							this.availableReplicas.Remove(replicaInfo);
 						}
-						<%=ServiceClassName %> replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
+						<%=ServiceClassName %> replica = null;
+						try 
+						{
+							replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
 								replicaInfo);
-						
+						}
+						catch (System.Runtime.Remoting.RemotingException e)
+						{
+							// TODO: throw new exception
+							throw e;
+						}
+
 						if (replica == null) 
 							// TODO: Throw exception
 							System.Console.WriteLine("Could not locate server");
@@ -214,11 +224,13 @@ namespace <%=AdaptorNamespace %>
 						processed = true;
 					}
 					else 
-					// TODO: Fit sleep time to exectution time.
-						Thread.Sleep(1000);
+					// TODO: Fit sleep time to execution time.
+						Thread.Sleep(10);
 				}
 				else
-					// TODO: Fit sleep time to exectution time.
+					// TODO: Fit sleep time to execution time.
+					// TODO: Describe dependentcy to the calltime of a writing 
+					// 		call.
 					Thread.Sleep(1000);
 			}
 			return result;
@@ -233,9 +245,6 @@ namespace <%=AdaptorNamespace %>
 		{
 			this.consistencyStrategy.Write(this, index, newResult);
 		}
-		#endregion
-		
-		#region private methods
 		#endregion
 	}
 }
