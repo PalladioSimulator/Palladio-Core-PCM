@@ -276,9 +276,12 @@ namespace Palladio.QoSAdaptor.Control
 				DirectoryInfo srcDir = new DirectoryInfo(sourceDirectory);
 				if (!srcDir.Exists)
 					patternDir.CreateSubdirectory("src");
-				DirectoryInfo binDir = new DirectoryInfo(sourceDirectory);
+				DirectoryInfo binDir = new DirectoryInfo(binDirectory);
 				if (!binDir.Exists)
+				{
 					patternDir.CreateSubdirectory("bin");
+					binDir = new DirectoryInfo(binDirectory);
+				}
 	
 				FileInfo [] libs = GetLibs(libDirectory);
 
@@ -310,11 +313,15 @@ namespace Palladio.QoSAdaptor.Control
 		/// source files.</param>
 		/// <returns>Full path to created assembly.</returns>
 		private string CompileCSharpFiles(FileInfo[] sourceFiles, 
-			FileInfo[] libs)
+			FileInfo[] libs, string assemblyName)
 		{
 			CSharpCompiler compiler = new CSharpCompiler();
-			foreach (FileInfo lib in libs)
-				compiler.ImportedDlls.Add(lib.FullName);
+			
+			string[] libNames = new string[libs.Length];
+			for (int i=0; i<libs.Length; i++)
+				libNames[i] = libs[i].FullName;
+			compiler.CSharpCompilerParameters = new CompilerParameters(
+				libNames, assemblyName);
 			foreach (FileInfo sourceFile in sourceFiles)
 				compiler.FilesToCompile.Add(sourceFile.FullName);
 
@@ -336,8 +343,8 @@ namespace Palladio.QoSAdaptor.Control
 			string folderName, string newAssemblyName)
 		{
 			// TODO: Check if dir exists or create it. 
-			System.IO.File.Delete(folderName+newAssemblyName);
-			System.IO.File.Copy(assembly, folderName+newAssemblyName);
+			File.Delete(folderName+newAssemblyName);
+			File.Copy(assembly, folderName+newAssemblyName);
 		}
 
 		/// <summary>
@@ -367,16 +374,26 @@ namespace Palladio.QoSAdaptor.Control
 		private void CompileAdaptor(string sourceDirectory, 
 			string binDirectory, FileInfo[] libs)
 		{
-			System.IO.DirectoryInfo adaptorFolder = new DirectoryInfo(
+			DirectoryInfo adaptorDirectory = new DirectoryInfo(
 				sourceDirectory+"adaptor\\");
-			if (adaptorFolder.Exists)
+			if (adaptorDirectory.Exists)
 			{
-				FileInfo[] sourceFiles = adaptorFolder.GetFiles(".cs");
+				FileInfo[] sourceFiles = adaptorDirectory.GetFiles("*.cs");
 				if (sourceFiles.Length > 0)
 				{
-					string assemblyPath = CompileCSharpFiles(sourceFiles,libs);
-					CopyAssembly(assemblyPath, binDirectory+"adaptor\\", 
-						"Adaptor.dll");
+					string assemblyPath = CompileCSharpFiles(sourceFiles,libs, 
+						binDirectory+"adaptor\\"+"Adaptor.dll");
+					DirectoryInfo adaptorBinDirectory = new DirectoryInfo(
+						binDirectory+"adaptor\\");
+					if (!adaptorBinDirectory.Exists)
+					{
+						DirectoryInfo binDir = new DirectoryInfo(binDirectory);	
+						binDir.CreateSubdirectory("adaptor");
+						adaptorBinDirectory = new DirectoryInfo(binDirectory+
+							"adaptor\\");
+					}
+					//CopyAssembly(assemblyPath, binDirectory+"adaptor\\", 
+					//	"Adaptor.dll");
 				}
 			}
 		}
@@ -401,14 +418,24 @@ namespace Palladio.QoSAdaptor.Control
 					sourceDirectory+predictionModel.Name+"\\");
 				if (modelFolder.Exists)
 				{
-					FileInfo[] sourceFiles = modelFolder.GetFiles(".cs");
+					FileInfo[] sourceFiles = modelFolder.GetFiles("*.cs");
 					if (sourceFiles.Length > 0)
 					{
 						string assemblyPath = CompileCSharpFiles(sourceFiles, 
-							libs);
-						CopyAssembly(assemblyPath, binDirectory+
-							predictionModel.Name+"\\", 
-							".dll");
+							libs, binDirectory+predictionModel.Name+"\\"+
+							predictionModel.Name+".dll");
+						DirectoryInfo modelBinDirectory = new DirectoryInfo(
+							binDirectory+predictionModel.Name+"\\");
+						if (!modelBinDirectory.Exists)
+						{
+							DirectoryInfo binDir = new DirectoryInfo(binDirectory);	
+							binDir.CreateSubdirectory("predictionModel.Name");
+							modelBinDirectory = new DirectoryInfo(binDirectory+
+								predictionModel.Name+"\\");
+						}
+						//CopyAssembly(assemblyPath, binDirectory+
+						//	predictionModel.Name+"\\", 
+						//	"predictionModel.Name.dll");
 					}
 				}
 			}

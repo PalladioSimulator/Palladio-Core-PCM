@@ -108,7 +108,7 @@
             src folder.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Control.Controller.CompileCSharpFiles(System.IO.FileInfo[],System.IO.FileInfo[])">
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.CompileCSharpFiles(System.IO.FileInfo[],System.IO.FileInfo[],System.String)">
             <summary>
             Compiles the given files with the CSharpCompiler and returns the
             path to the created assembly.
