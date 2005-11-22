@@ -34,7 +34,7 @@ namespace Palladio.QoSAdaptor.Compiler
 	/// </summary>
 	public class CSharpCompiler : ICSharpCompiler
 	{
-		#region data
+		#region attributes
 		// Files to compile
 		protected StringCollection mFilesToCompile =  new 
 			System.Collections.Specialized.StringCollection();
@@ -168,10 +168,10 @@ namespace Palladio.QoSAdaptor.Compiler
 			Console.WriteLine("---------------------------------");*/
 			mCSharpCompilerErrors = oCSharpCompilerResults.Errors;
 			string ErrorLog = "";
-			foreach (CompilerError oVBCompilerError in oCSharpCompilerResults.Errors)
+			foreach (CompilerError oCSharpCompilerError in 
+				oCSharpCompilerResults.Errors)
 			{
-				ErrorLog += oVBCompilerError.ToString() + "\n";
-				//Console.WriteLine(oVBCompilerError.ToString());
+				ErrorLog += oCSharpCompilerError.ToString() + "\n";
 			}
 			if (oCSharpCompilerResults.Errors.Count > 0)
 				throw new Exception("The compiler has thrown the following errors:" +
