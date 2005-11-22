@@ -58,20 +58,27 @@ namespace <%=AdaptorNamespace %>
 						locked = true;
 					}
 				}
+				Thread.Sleep(0);
 			}
 
-			// Wait until all replicas are free
-			if (adaptor.NumberOfReplicas != adaptor.Replicas.Count)
-				Thread.Sleep(100);
-			else
+			bool allReplicasFree = false;
+			while (!allReplicasFree)
 			{
-				// Write to all replicas
-				foreach (string replicaInfo in adaptor.Replicas)
+				// Wait until all replicas are free
+				if (adaptor.NumberOfReplicas != adaptor.Replicas.Count)
+					Thread.Sleep(100);
+				else
 				{
-					<%=ServiceClassName %> replica = 
-						(<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
-						replicaInfo);
-					replica.Set(index, value);
+					allReplicasFree = true;
+					// Write to all replicas
+					foreach (string replicaInfo in adaptor.Replicas)
+					{
+						<%=ServiceClassName %> replica = 
+							(<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
+							replicaInfo);
+						replica.Set(index, value);
+					}
+					adaptor.LockAllReplicas = false;
 				}
 			}
 		}
