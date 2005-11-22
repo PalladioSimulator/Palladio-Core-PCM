@@ -18,10 +18,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 
+using System.Threading;
 using log4net;
-using log4net.Appender;
-using log4net.Repository.Hierarchy;
 using System;
+using Palladio.QoSAdaptor.ReplicationAdaptor;
 using Palladio.QoSAdaptor.Utils;
 
 namespace Palladio.QoSAdaptor.Measurement
@@ -34,45 +34,107 @@ namespace Palladio.QoSAdaptor.Measurement
 	/// </summary>
 	public class Client
 	{
+		#region attributes
+		/// <summary>
+		/// The measured service
+		/// </summary>
+		private ServiceReplicationAdaptor service;
+
+		/// <summary>
+		/// Indicates how many service calls shall be executed by the client.
+		/// </summary>
+		private int numberOfCalls;
+
+		/// <summary>
+		/// Randomizer for the indices used in service calls.
+		/// </summary>
+		private Random indexRandomizer;
+
+		/// <summary>
+		/// Randomizer for Thread.sleep() duration after each service call.
+		/// </summary>
+		private Random sleepRandomizer;
+
+		/// <summary>
+		/// Used to create writing calls with a certain probabiliy.
+		/// </summary>
+		private Random writeRandomizer;
+
+		/// <summary>
+		/// Timer to measure the response times of the service.
+		/// </summary>
+		private HiResTimer timer;
+
+		/// <summary>
+		/// log4net logger that writes all response times to the main memory.
+		/// </summary>
 		private static readonly ILog clientLogger = 
 			log4net.LogManager.GetLogger("ClientResponseTimeLogger");
-			
+		#endregion
 
-		public Client()
+		#region constructor
+		/// <summary>
+		/// Constructs a new Client object and initialises all attributes.
+		/// </summary>
+		/// <param name="service">The service that shall be used by the client.
+		/// </param>
+		/// <param name="numberOfCalls">The number of calls the client has to 
+		/// execute.</param>
+		public Client (ServiceReplicationAdaptor service, int numberOfCalls)
 		{
-		}
+			this.service = service;
+			this.numberOfCalls = numberOfCalls;
 
+			this.indexRandomizer = new Random(this.GetHashCode());
+			this.sleepRandomizer = new Random(this.GetHashCode()+1);
+			this.writeRandomizer = new Random(this.GetHashCode()+2);
+			this.timer = new HiResTimer();
+		}
+		#endregion
+		
+		#region properties
+		/// <summary>
+		/// Returns the logger used to log the response times in the main
+		/// memory.
+		/// </summary>
+		public static ILog ClientLogger
+		{
+			get
+			{
+				return clientLogger;
+			}
+		}
+		#endregion
+
+		#region public methods
+		/// <summary>
+		/// Starts the client.
+		/// </summary>
 		public void Start ()
 		{
-			ServiceCacheAdaptor service = new ServiceCacheAdaptor();
-			int seed = 1;
-			Random randomizer = new Random(seed);
-
-			for (int i = 0; i<500; i++)
+			for (int i = 0; i<numberOfCalls; i++)
 			{
-				HiResTimer timer = new HiResTimer();
-				timer.Start();
-				service.Get(randomizer.Next(0, 99));
-				clientLogger.Debug(string.Format("Client {0}\t{1}\t{2}",
-					this.GetHashCode(), DateTime.Now, timer.Stop()));
+				this.timer.Start();
+				int readWriteProbability = this.writeRandomizer.Next(0,10);
+				// write probability = 0.1
+				if (readWriteProbability == 9)
+				{
+					this.service.Set(this.indexRandomizer.Next(0, 99), 1);
+					clientLogger.Debug(string.Format("Client {0}\t{1}\t{2}\t{3}",
+						this.GetHashCode(), "Write", DateTime.Now, 
+						this.timer.Stop()));
+				}
+				else
+				{
+					this.service.Get(this.indexRandomizer.Next(0, 99));
+					clientLogger.Debug(string.Format("Client {0}\t{1}\t{2}\t{3}",
+						this.GetHashCode(), "Read", DateTime.Now, 
+						this.timer.Stop()));
+				}
+				
+				Thread.Sleep(this.sleepRandomizer.Next(0,100));
 			}
 		}
-
-		public void MemoryAppender2File()
-		{
-			// write accept shopping cart rt log contents to file
-			Logger logger = (Logger) clientLogger.Logger;
-			MemoryAppender ma = (MemoryAppender) logger.GetAppender(
-					"ClientResponseTimeAppender");
-			if (ma != null)
-			{
-				string fileName = "client"+this.GetHashCode()+".log";
-				LoggingHelper.SaveLogAppenderDataToDisk(ma, fileName);
-			}
-			else
-			{
-				Console.WriteLine("ERROR: Cannot write clogic log data to file, appender not found");
-			}
-		}
+		#endregion
 	}
 }
