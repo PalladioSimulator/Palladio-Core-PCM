@@ -18,7 +18,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 using System;
+using log4net.Appender;
 using log4net.Config;
+using log4net.Repository.Hierarchy;
+using Palladio.QoSAdaptor.Utils;
 
 namespace Palladio.QoSAdaptor.Measurement
 {
@@ -39,27 +42,57 @@ namespace Palladio.QoSAdaptor.Measurement
 			// The configuration can be found in 
 			// Palladio.QoSAdaptor.Measurement.config
 			XmlConfigurator.Configure();
-			if (args[0] == null)
+			int numberOfClients;
+			int numberOfCalls;
+			try
 			{
-				Console.WriteLine("Please choose a scenario.");
-				Console.WriteLine("Possible values: single concurrent");
+				numberOfClients = Int32.Parse(args[0]);
+				numberOfCalls = Int32.Parse(args[1]);
 			}
-			else if (args[0].Equals("single"))
+			catch (Exception)
 			{
-				SingleClientScenario scenario = new SingleClientScenario();
-				scenario.Start();
+				Console.WriteLine("The number of clients and the number of "+
+					"calls have to be given as arguments.");
+				return;
 			}
-			else if (args[0].Equals("concurrent"))
+			if (numberOfClients <= 0)
 			{
-				ConcurrentClientScenario scenario = new ConcurrentClientScenario();
-				scenario.Start();
+				Console.WriteLine("The number of clients has to be greater "+
+					"than 0.");
+				return;
+			}
+			if (numberOfCalls <= 0)
+			{
+				Console.WriteLine("The number of calls has to be greater "+
+					"than 0.");
+				return;
+			}
+
+			ConcurrentClientScenario scenario = 
+				new ConcurrentClientScenario(numberOfClients, numberOfCalls);
+			scenario.Start();
+			MemoryAppender2File("response_times_"+numberOfClients+
+									"_clients_"+numberOfCalls+"_calls"+".log");
+		}
+
+		/// <summary>
+		/// Writes the logs from the main memory to a file.
+		/// </summary>
+		private static void MemoryAppender2File(string fileName)
+		{
+			// write accept shopping cart rt log contents to file
+			Logger logger = (Logger) Client.ClientLogger.Logger;
+			MemoryAppender ma = (MemoryAppender) logger.GetAppender(
+				"ClientResponseTimeAppender");
+			if (ma != null)
+			{
+				LoggingHelper.SaveLogAppenderDataToDisk(ma, fileName);
 			}
 			else
 			{
-				Console.WriteLine(args[0]+" is no regular scenario.");
-				Console.WriteLine("Possible values: single concurrent");
+				Console.WriteLine("ERROR: Cannot write clogic log data to "+
+					"file, appender not found");
 			}
-			
 		}
 	}
 }

@@ -1,3 +1,5 @@
+using Palladio.QoSAdaptor.ReplicationAdaptor;
+
 #region info
 ///////////////////////////////////////////////////////////////////////////////
 // This software has been developed as a part of the diploma thesis 
@@ -24,7 +26,10 @@ namespace Palladio.QoSAdaptor.Measurement
 	/// </summary>
 	public class SingleClientScenario
 	{
-		#region data
+		#region attributes
+		/// <summary>
+		/// The client used for measurement.
+		/// </summary>
 		private Client client;
 		#endregion
 
@@ -34,7 +39,9 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// </summary>
 		public SingleClientScenario()
 		{
-			client = new Client();
+			//ServiceCacheAdaptor service = new ServiceCacheAdaptor();
+			ServiceReplicationAdaptor service = new ServiceReplicationAdaptor();
+			client = new Client(service, 500);
 		}
 		#endregion
 
@@ -45,7 +52,6 @@ namespace Palladio.QoSAdaptor.Measurement
 		public void Start()
 		{
 			client.Start();
-			client.MemoryAppender2File();
 		}
 		#endregion
 	}

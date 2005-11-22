@@ -12,6 +12,61 @@
             measurement using the log4net framework.
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.Measurement.Client.service">
+            <summary>
+            The measured service
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Measurement.Client.numberOfCalls">
+            <summary>
+            Indicates how many service calls shall be executed by the client.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Measurement.Client.indexRandomizer">
+            <summary>
+            Randomizer for the indices used in service calls.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Measurement.Client.sleepRandomizer">
+            <summary>
+            Randomizer for Thread.sleep() duration after each service call.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Measurement.Client.writeRandomizer">
+            <summary>
+            Used to create writing calls with a certain probabiliy.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Measurement.Client.timer">
+            <summary>
+            Timer to measure the response times of the service.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Measurement.Client.clientLogger">
+            <summary>
+            log4net logger that writes all response times to the main memory.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.Client.#ctor(Palladio.QoSAdaptor.ReplicationAdaptor.ServiceReplicationAdaptor,System.Int32)">
+            <summary>
+            Constructs a new Client object and initialises all attributes.
+            </summary>
+            <param name="service">The service that shall be used by the client.
+            </param>
+            <param name="numberOfCalls">The number of calls the client has to 
+            execute.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.Client.Start">
+            <summary>
+            Starts the client.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Measurement.Client.ClientLogger">
+            <summary>
+            Returns the logger used to log the response times in the main
+            memory.
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.Measurement.ConcurrentClientScenario">
             <summary>
             Implementation of a simple measurement scenario with multiple clients 
@@ -24,9 +79,15 @@
             TODO: Implement remote clients.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Measurement.ConcurrentClientScenario.#ctor">
+        <member name="F:Palladio.QoSAdaptor.Measurement.ConcurrentClientScenario.clients">
             <summary>
-            Constructs a ConcurrentClientScenario and initialises the clients.
+            A list of clients used for measurement.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.ConcurrentClientScenario.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructs a ConcurrentClientScenario and initialises the service 
+            and the clients.
             </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.Measurement.ConcurrentClientScenario.Start">
@@ -47,8 +108,18 @@
             </summary>
             <param name="args"></param>
         </member>
+        <member name="M:Palladio.QoSAdaptor.Measurement.MainClass.MemoryAppender2File(System.String)">
+            <summary>
+            Writes the logs from the main memory to a file.
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.Measurement.SingleClientScenario">
             <summary>
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Measurement.SingleClientScenario.client">
+            <summary>
+            The client used for measurement.
             </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.Measurement.SingleClientScenario.#ctor">

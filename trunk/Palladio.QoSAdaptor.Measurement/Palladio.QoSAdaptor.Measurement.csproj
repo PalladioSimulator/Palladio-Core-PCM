@@ -90,9 +90,14 @@
                     HintPath = "lib\log4net.dll"
                 />
                 <Reference
+                    Name = "Palladio.QoSAdaptor.TestService"
+                    AssemblyName = "Palladio.QoSAdaptor.TestService"
+                    HintPath = "lib\Palladio.QoSAdaptor.TestService.dll"
+                />
+                <Reference
                     Name = "Adaptor"
                     AssemblyName = "Adaptor"
-                    HintPath = "lib\Adaptor.dll"
+                    HintPath = "..\Patterns\Replication\bin\adaptor\Adaptor.dll"
                 />
             </References>
         </Build>

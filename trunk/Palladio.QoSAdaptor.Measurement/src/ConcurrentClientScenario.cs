@@ -17,7 +17,11 @@
 // E-mail: niels.streekmann@informatik.uni-oldenburg.de
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
+
+using System;
+using System.Collections;
 using System.Threading;
+using Palladio.QoSAdaptor.ReplicationAdaptor;
 
 namespace Palladio.QoSAdaptor.Measurement
 {
@@ -33,25 +37,25 @@ namespace Palladio.QoSAdaptor.Measurement
 	/// </summary>
 	public class ConcurrentClientScenario
 	{
-		#region data
-		private Client client1;
-		private Client client2;
-		private Client client3;
-		private Client client4;
-		private Client client5;
+		#region attributes
+		/// <summary>
+		/// A list of clients used for measurement.
+		/// </summary>
+		private ArrayList clients;
 		#endregion
 
 		#region constructor
 		/// <summary>
-		/// Constructs a ConcurrentClientScenario and initialises the clients.
+		/// Constructs a ConcurrentClientScenario and initialises the service 
+		/// and the clients.
 		/// </summary>
-		public ConcurrentClientScenario()
+		public ConcurrentClientScenario(int numberOfClients, int numberOfCalls)
 		{
-			client1 = new Client();
-			client2 = new Client();
-			client3 = new Client();
-			client4 = new Client();
-			client5 = new Client();
+			//ServiceCacheAdaptor service = new ServiceCacheAdaptor();
+			ServiceReplicationAdaptor service = new ServiceReplicationAdaptor();
+			clients = new ArrayList();
+			for (int i=0; i<numberOfClients; i++)
+				clients.Add(new Client(service, numberOfCalls));
 		}
 		#endregion
 	
@@ -62,22 +66,13 @@ namespace Palladio.QoSAdaptor.Measurement
 		public void Start()
 		{
 			Thread t = null;
-			t = new Thread(new ThreadStart(client1.Start)) ;
-			t.Start();
-			t = new Thread(new ThreadStart(client2.Start)) ;
-			t.Start();
-			t = new Thread(new ThreadStart(client3.Start)) ;
-			t.Start();
-			t = new Thread(new ThreadStart(client4.Start)) ;
-			t.Start();
-			t = new Thread(new ThreadStart(client5.Start)) ;
-			t.Start();
+			foreach (Client client in clients)
+			{
+				t = new Thread(new ThreadStart(client.Start)) ;
+				Console.WriteLine("START CLIENT "+client.GetHashCode());
+				t.Start();
+			}
 			t.Join();
-			client1.MemoryAppender2File();
-			client2.MemoryAppender2File();
-			client3.MemoryAppender2File();
-			client4.MemoryAppender2File();
-			client5.MemoryAppender2File();
 		}
 		#endregion
 	}
