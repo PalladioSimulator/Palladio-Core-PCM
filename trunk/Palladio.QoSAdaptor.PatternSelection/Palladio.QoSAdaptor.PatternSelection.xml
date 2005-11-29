@@ -4,6 +4,103 @@
         <name>Palladio.QoSAdaptor.PatternSelection</name>
     </assembly>
     <members>
+        <member name="T:Palladio.QoSAdaptor.PatternSelection.DetailView">
+            <summary>
+            This class implements a detailed view for a 
+            PatternDescription. The view is realized as a ListView
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.DetailView.pattern">
+            <summary>
+            The pattern that shall be shown in detail. 
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.PatternSelection.DetailView.listView">
+            <summary>
+            The list view containing all detail information.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.#ctor(Palladio.QoSAdaptor.Pattern.IPatternDescription)">
+            <summary>
+            Constructor. 
+            </summary>
+            <param name="pattern">The PatternDescription of the 
+            chosen pattern</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.Dispose(System.Boolean)">
+            <summary>
+            Die verwendeten Ressourcen bereinigen.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.InitializeComponent">
+            <summary>
+            Erforderliche Methode für die Designerunterstützung. 
+            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.InitializeListView">
+            <summary>
+            This method creates the listView of the pattern given
+            in the constructor. 
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.CreateItems">
+            <summary>
+            Method used by InitializeListView to encapsulate the 
+            creation of the ListItems.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddGeneralItems">
+            <summary>
+            Adds the general information of the pattern to the list view.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddMismatchItems">
+            <summary>
+            Adds the items corresponding to the mismatch attributes of the 
+            current pattern.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddAdaptorTemplateItems">
+            <summary>
+            Adds the items corresponding to the adaptor templates of the 
+            current pattern.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddPredictionModelItems">
+            <summary>
+            Adds the items corresponding to the prediction models of the 
+            current pattern.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddItem(System.String,System.String,System.Boolean)">
+            <summary>
+            Adds an item to this.listView. The text is always put into one 
+            item. If the subtext is longer than 120 characters than it is 
+            split and additional items with an empty first column are added.
+            </summary>
+            <param name="text">Text in the first column.</param>
+            <param name="subtext">Text in the second column.</param>
+            <param name="highlight">True, if text shall be highlighted, i.e.
+            is a heading.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.GetSubStrings(System.String,System.Int32,System.Char[])">
+            <summary>
+            Splits the string in substrings. The maximum lenghth of the 
+            substrings can be given. Strings are split at ' ' so that words 
+            are not split. 
+            To use this method in a generic context it should be checked 
+            that the longest word in words is shorter than length. This is not
+            implemented yet since the method is defined in a fixed context.
+            </summary>
+            <param name="text">The text that shall be split into substrings.
+            </param>
+            <param name="length">The maximum length of a substring.</param>
+            <param name="separators">One or more separators that indicate 
+            where the text can be split.</param>
+            <returns>A ICollection of strings containing the computed 
+            substrings.</returns>
+        </member>
         <member name="T:Palladio.QoSAdaptor.PatternSelection.ISelector">
             <summary>
             The provided interface of the Palladio.QoSAdaptor.PatternSelection
@@ -212,84 +309,6 @@
             Erforderliche Methode für die Designerunterstützung. 
             Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
             </summary>
-        </member>
-        <member name="T:Palladio.QoSAdaptor.PatternSelection.DetailView">
-            <summary>
-            This class implements a detailed view for a 
-            PatternDescription. The view is realized as a ListView
-            </summary>
-        </member>
-        <member name="F:Palladio.QoSAdaptor.PatternSelection.DetailView.pattern">
-            <summary>
-            The pattern that shall be shown in detail. 
-            </summary>
-        </member>
-        <member name="F:Palladio.QoSAdaptor.PatternSelection.DetailView.listView">
-            <summary>
-            The list view containing all detail information.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.#ctor(Palladio.QoSAdaptor.Pattern.IPatternDescription)">
-            <summary>
-            Constructor. 
-            </summary>
-            <param name="pattern">The PatternDescription of the 
-            chosen pattern</param>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.Dispose(System.Boolean)">
-            <summary>
-            Die verwendeten Ressourcen bereinigen.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.InitializeComponent">
-            <summary>
-            Erforderliche Methode für die Designerunterstützung. 
-            Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.InitializeListView">
-            <summary>
-            This method creates the listView of the pattern given
-            in the constructor. 
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.CreateItems">
-            <summary>
-            Method used by InitializeListView to encapsulate the 
-            creation of the ListItems.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddGeneralItems">
-            <summary>
-            Adds the general information of the pattern to the list view.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddMismatchItems">
-            <summary>
-            Adds the items corresponding to the mismatch attributes of the 
-            current pattern.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddAdaptorTemplateItems">
-            <summary>
-            Adds the items corresponding to the adaptor templates of the 
-            current pattern.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddPredictionModelItems">
-            <summary>
-            Adds the items corresponding to the prediction models of the 
-            current pattern.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.DetailView.AddItem(System.String,System.String,System.Boolean)">
-            <summary>
-            Adds an item to this.listView
-            </summary>
-            <param name="text">Text in the first column.</param>
-            <param name="subtext">Text in the second column.</param>
-            <param name="highlight">True, if text shall be highlighted, i.e.
-            is a heading.</param>
         </member>
     </members>
 </doc>

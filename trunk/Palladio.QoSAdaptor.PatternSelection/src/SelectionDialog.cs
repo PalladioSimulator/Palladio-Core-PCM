@@ -115,16 +115,15 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Resources.ResourceManager resources = 
-				new System.Resources.ResourceManager(typeof(SelectionDialog));
 			// 
 			// SelectionDialog
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.AutoScroll = true;
+			this.ClientSize = new System.Drawing.Size(292, 273);
 			this.Name = "SelectionDialog";
 			this.Text = "Choose a pattern";
-			this.AutoScroll = true;
+
 		}
 		#endregion
 
@@ -161,22 +160,26 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// <param name="mismatch"></param>
 		private void AddMismatch (IMismatch mismatch)
 		{
-			Label label = new Label();
-			label.Name = mismatch.ToString();
-			label.Location = new System.Drawing.Point(15, 
-				(10+(counter*10)));
-			label.Size = new System.Drawing.Size(220, 40);
-			label.Text = mismatch.ToString();
+
+			TextBox textBox = new TextBox();
+			textBox.Multiline = true;
+			textBox.ReadOnly = true;
+			string text = mismatch.ToString();
 			IList mismatchPatterns = (IList)
 				this.mismatchSolvingPatterns[mismatch];
 			if (mismatchPatterns.Count > 0)
-				label.Text += "\nThe mismatch can be fixed by using one "+
+				text += "\n \nThe mismatch can be fixed by using one "+
 					"of the following design patterns:";
 			else
-				label.Text += "\nThere are no known patterns to fix this "+
+				text += "\n \nThere are no known patterns to fix this "+
 					"mismatch.";
-			this.Controls.Add(label);
-			counter += 4;
+			string[] lines = text.Split('\n');
+			textBox.Lines = lines;
+			textBox.Location = new System.Drawing.Point(15, 
+				(10+(counter*10)));
+			textBox.Size = new System.Drawing.Size(310, (lines.Length * 20));
+			counter += lines.Length+6;
+			this.Controls.Add(textBox);
 
 			ListPatterns(mismatchPatterns);
 
