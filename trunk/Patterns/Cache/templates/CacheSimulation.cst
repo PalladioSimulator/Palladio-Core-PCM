@@ -1,0 +1,556 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#"
+      Description="Generates a cache simulation." %>
+
+<%@ Assembly Name="CodeSmith.CustomProperties" %>
+
+<%@ Property Name="StepTime" Type="Int32"
+      Category="SimulationFeatures"
+      Description="The duration of one step of the simulation in milliseconds." %> 
+
+<%@ Property Name="CacheHitProbability" Type="String"
+      Category="SimulationFeatures"
+      Description="The probability of a cache hit. The value has to be between 0 and 1." %> 
+
+<%@ Property Name="CallProbability" Type="String"
+      Category="SimulationFeatures"
+      Description="The probability of a call in one step. The value has to be between 0 and 1." %> 
+
+<%@ Property Name="WritingCallProbability" Type="String"
+      Category="SimulationFeatures"
+      Description="The probability that an executed call is a writing call. The value has to be between 0 and 1." %> 
+
+<%@ Property Name="WrittenResourceInCacheProbability" Type="String"
+      Category="SimulationFeatures"
+      Description="The probability that a writing call writes in already written resource that is still in the cache. This probability is only consider, when consistency strategy is WriteBack. The value has to be between 0 and 1." %> 
+
+<%@ Property Name="ServiceReadingPercentiles" Type="CodeSmith.CustomProperties.StringCollection"
+      Category="SimulationFeatures"
+      Description="The execution time of a reading call of the service given as percentiles. Uneven indices are interpreted as percentiles and even indices as values. The percentiles have to be increasing. The highest percentile has to be 100" %> 
+
+<%@ Property Name="ServiceWritingPercentiles" Type="CodeSmith.CustomProperties.StringCollection"
+      Category="SimulationFeatures"
+      Description="The execution time of a writing call of the service given as percentiles. Uneven indices are interpreted as percentiles and even indices as values in milliseconds. The percentiles have to be increasing. The highest percentile has to be 100" %> 
+
+<%@ Property Name="ConsistencyStrategy" Type="ConsistencyStrategyEnum"
+      Category="Cache Features"
+      Description="The strategy that shall be used to keep the cache consistent to the original service." %>         
+
+<script runat="template">
+public enum ConsistencyStrategyEnum
+{
+  WriteBack, 
+  WriteThrough
+}
+</script>
+
+
+#region info
+///////////////////////////////////////////////////////////////////////////////
+// This software has been developed as a part of the diploma thesis 
+// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage für 
+// Komponentenadapter" ("Influence of the configuration of a generator on the 
+// prediction of the QoS of component adaptors")
+// at the 
+// University of Oldenburg
+// Department of Computing Science
+// Software Engineering Group
+// Palladio Research Group
+// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
+// 
+// Development period: July 2005 - January 2006
+// 
+// Author: Niels Streekmann
+// E-mail: niels.streekmann@informatik.uni-oldenburg.de
+///////////////////////////////////////////////////////////////////////////////
+#endregion
+#region Description
+///////////////////////////////////////////////////////////////////////////////
+// Generated from CacheSimulation.cst
+// Generated on <%= DateTime.Now.ToShortDateString() %> 
+//
+// Usage instructions:
+// 1. Copy the generated code into the src/CacheSimulation subfolder of the 
+//    Cache folder.
+// 2. The assembly is automatically build and copied to the bin subfolder.
+// 3. The simulation can be run as a command line tool. The number of simulated
+//    calls has to be given as an argument of the tool.
+///////////////////////////////////////////////////////////////////////////////
+#endregion
+
+using System;
+using System.Collections;
+
+namespace Palladio.QoSAdaptor.CacheSimulation
+{
+	/// <summary>
+	///	Controls the simulation of the cache. The Controller implements a
+	///	synchronous simulation. I.e. the simulation is based on steps. 
+	///	This simulation simulates the cache in an established state. 
+	///	The filling phase of the cache is not simulated.
+	///	
+	///	An easy way to approximately simulate this would be to give the first
+	///	x calls the service execution time, where x is the size of the cache.
+	///	Another way would be to really simulate the caching of calls.
+	///	
+	///	TODO: describe advantages and disadvantages of the synchronous 
+	///	simulation	
+	/// </summary>
+	public class Controller
+	{
+		#region attributes
+		/// <summary>
+		/// The duration of one step in ms.
+		/// </summary>
+		private double stepTime;
+
+		/// <summary>
+		/// The queue of calls that have to be executed by the cache or the 
+		/// external service.
+		/// Using an ArrayList a FIFO strategy is used for the execution of 
+		/// the calls.
+		/// 
+		/// TODO: Use real Queue?
+		/// </summary>
+		private ArrayList queue;
+
+		/// <summary>
+		/// A list of simulated client call times.
+		/// </summary>
+		private ArrayList results;
+
+		/// <summary>
+		/// The ClientCall that is currently executed by the cache or the 
+		/// external service.
+		/// </summary>
+		private ClientCall currentClientCall;
+
+		/// <summary>
+		/// The execution time for the currentClientCall. 
+		/// </summary>
+		private double currentExecutionTime;
+
+		/// <summary>
+		/// The probability of a cache hit. Has to be between 0 and 1.
+		/// 
+		/// TODO: Remove this by simulating the cache.
+		/// </summary>
+		private double cacheHitProbability;
+
+		/// <summary>
+		/// Probability that a call occurs in one time step. The stepTime has
+		/// to be set in a way that the callProbability is between 0 and 1.
+		/// </summary>
+		private double callProbability;
+
+		/// <summary>
+		/// Probability that a call is a writing call.
+		/// </summary>
+		private double writingCallProbability;
+
+		/// <summary>
+		/// The probability that a resource that has been written is still in 
+		/// the cache when a second writing call for this resource is executed.
+		/// </summary>
+		private double writtenResourceInCacheProbability;
+
+		/// <summary>
+		/// The execution time of the cache implementation in ms. Could be set 
+		/// to a predicted time during generation. Since the execution time for
+		/// reading and writing on the cache is almost similar and very small 
+		/// compared to calling the cached service. This time is taken for 
+		/// reading and writing calls. 
+		/// Is set to 0 for testing. 
+		/// </summary>
+		private double cacheExecutionTime;
+
+		/// <summary>
+		/// Counts the number of method calls
+		/// </summary>
+		private int callCounter;
+
+		/// <summary>
+		/// Used to get random numbers for to match cache hit probability and
+		/// call probability.
+		/// </summary>
+		private Random randomiser;
+		#endregion
+
+		#region constructor
+		/// <summary>
+		/// Constructs a new Controller an sets the initial state of the 
+		/// simulation.
+		/// </summary>
+		public Controller()
+		{
+			// input by user
+			this.stepTime = <%=StepTime %>;
+			this.cacheHitProbability = <%=CacheHitProbability %>;
+			this.callProbability = <%=CallProbability %>;
+			this.writingCallProbability = <%=WritingCallProbability %>;
+			this.writtenResourceInCacheProbability = <%=WrittenResourceInCacheProbability %>;
+
+			this.queue = new ArrayList();
+			this.results = new ArrayList();
+			this.currentClientCall = null;
+
+			// TODO: Use a more realistic value, depending on the configuration 
+			// of the cache. Retrieve that value from measurements.
+			this.cacheExecutionTime = 0;
+
+			this.randomiser = new Random(DateTime.Now.Millisecond);
+		}
+		#endregion
+
+		#region public methods
+		/// <summary>
+		/// Starts the simulation. 
+		/// </summary>
+		/// <param name="calls">The number of method calls during the 
+		/// simulation.</param>
+		public void StartSimulation(int calls)
+		{
+			int stepCounter = 0;
+
+			this.callCounter = 0;
+
+			while ((this.callCounter < calls) || (this.queue.Count != 0) ||
+				this.currentClientCall != null)
+			{
+				AddClientCall(calls);
+
+				IncreaseClientCallTime();
+
+				if (this.currentClientCall != null)
+				{
+					if (this.currentClientCall.ExecutionTime > 
+						this.currentExecutionTime)
+						ReleaseCurrentClientCall();
+				}
+				else
+				{
+					SetNewCurrentClientCall();
+				}
+				stepCounter++;
+			}
+			ListResults();
+		}	
+		#endregion
+
+		#region private methods
+		/// <summary>
+		/// Adds a new ClientCall to the current queue with a defined 
+		/// probability.
+		/// </summary>
+		/// <param name="calls">Number of overall calls.</param>
+		private void AddClientCall(int calls)
+		{
+			if (this.callCounter < calls)
+			{
+				if (((double)this.randomiser.Next(0, 10000)/10000) <= 
+					this.callProbability)
+				{
+					// TODO: Test this
+					if (((double)this.randomiser.Next(0, 10000)/10000) <= 
+						this.writingCallProbability)
+						this.queue.Add(new ClientCall(true));
+					else
+						this.queue.Add(new ClientCall(false));
+					this.callCounter++;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Increases the time of all ClientCalls by the stepTime.
+		/// </summary>
+		private void IncreaseClientCallTime()
+		{
+			if (this.currentClientCall != null)
+				this.currentClientCall.increaseTime(this.stepTime);
+			
+			
+
+			foreach (ClientCall clientCall in this.queue)
+			{
+				clientCall.increaseTime(this.stepTime);
+			}
+		}
+
+		/// <summary>
+		/// Releases the currentClientCall and writes it overall CallTime to 
+		/// the results list.
+		/// </summary>
+		private void ReleaseCurrentClientCall()
+		{
+			this.results.Add(this.currentClientCall);
+			this.currentClientCall = null;
+		}
+
+		/// <summary>
+		/// Sets the first ClientCall in the queue as new currentClientCall
+		/// and removes it from the queue. Furthermore the execution time for
+		/// that ClientCall is determined.
+		/// </summary>
+		private void SetNewCurrentClientCall()
+		{
+			if (this.queue.Count > 0)
+			{
+				this.currentClientCall = (ClientCall)this.queue[0];
+				this.currentClientCall.IsExecuted = true;
+				this.queue.Remove(this.currentClientCall);
+				if (this.currentClientCall.IsWritingCall)
+				{
+					<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteThrough) { %>
+					this.currentExecutionTime = 
+						GetServiceWriteExecutionTime();
+					<% } %>
+					<% else if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
+					if (((double)this.randomiser.Next(0,10000)/10000) <= 
+						this.writtenResourceInCacheProbability)
+						this.currentExecutionTime = this.cacheExecutionTime;
+					else
+						this.currentExecutionTime = 
+							GetServiceWriteExecutionTime();
+					<% } %>
+				}
+				else
+				{
+					if (((double)this.randomiser.Next(0,10000)/10000) <= 
+						this.cacheHitProbability)
+						this.currentExecutionTime = this.cacheExecutionTime;	
+					else
+						this.currentExecutionTime = 
+							GetServiceReadExecutionTime();
+				}
+
+				if (this.currentExecutionTime == 0)
+					ReleaseCurrentClientCall();
+			}
+		}
+
+		/// <summary>
+		/// Computes a randomised execution time for a reading method of the 
+		/// service that is based on the percentiles given by the user 
+		/// during the configuration.
+		/// </summary>
+		/// <returns>Service executiion for a reading method.</returns>
+		private double GetServiceReadExecutionTime ()
+		{
+			double executionTime; 
+			int probability = this.randomiser.Next(0,100);
+
+			<% for (int i = 0; i < ServiceReadingPercentiles.Count; i+=2) { %>
+				<% if (ServiceReadingPercentiles[i].Equals("100")) { %>	
+					else
+				<% } %>
+				<% else if (i == 0) { %>	
+					if (probability <= <%=ServiceReadingPercentiles[i] %>)
+				<% } %>
+				<% else { %>	
+					else if (probability <= <%=ServiceReadingPercentiles[i] %>)
+				<% } %>
+				executionTime = (probability * <%=ServiceReadingPercentiles[i+1] %>)/100;
+			<% } %>	
+			
+			return executionTime;
+		}
+
+		/// <summary>
+		/// Returns a randomised execution time for a writing method of the 
+		/// service that is based on the percentiles given by the user 
+		/// during the configuration.
+		/// </summary>
+		/// <returns>Service executiion for a writing method.</returns>
+		private double GetServiceWriteExecutionTime ()
+		{
+			double executionTime; 
+			int probability = this.randomiser.Next(0,100);
+			<% for (int i = 0; i < ServiceWritingPercentiles.Count; i+=2) { %>
+				<% if (ServiceWritingPercentiles[i].Equals("100")) { %>	
+					else
+				<% } %>
+				<% else if (i == 0) { %>	
+					if (probability <= <%=ServiceWritingPercentiles[i] %>)
+				<% } %>
+				<% else { %>	
+					else if (probability <= <%=ServiceWritingPercentiles[i] %>)
+				<% } %>
+				executionTime = (probability * <%=ServiceWritingPercentiles[i+1] %>)/100;
+			<% } %>		
+			
+			return executionTime;
+		}
+
+		/// <summary>
+		/// Outputs all call times and the mean value to the console.
+		/// </summary>
+		private void ListResults()
+		{
+			double overallTime = 0;
+			double overallReadingTime = 0;
+			double overallWritingTime = 0;
+			int numberOfReadingCalls = 0;
+			int numberOfWritingCalls = 0;
+
+			foreach (ClientCall clientCall in this.results)
+			{
+				if (clientCall.IsWritingCall)
+				{
+					//Console.WriteLine("W "+clientCall.CallTime);
+					overallWritingTime += clientCall.CallTime;
+					numberOfWritingCalls++;
+				}
+				else
+				{
+					//Console.WriteLine("R "+clientCall.CallTime);
+					overallReadingTime += clientCall.CallTime;
+					numberOfReadingCalls++;
+				}
+				overallTime += clientCall.CallTime;
+			}
+			Console.WriteLine("\nNumber of calls = "+this.results.Count);
+			Console.WriteLine("Mean value = "+
+				(overallTime/this.results.Count));
+
+			Console.WriteLine("\nNumber of reading calls = "+
+				numberOfReadingCalls);
+			Console.WriteLine("Mean Reading Time = "+
+				overallReadingTime/numberOfReadingCalls);
+
+			Console.WriteLine("\nNumber of writing calls = "+
+				numberOfWritingCalls);
+			Console.WriteLine("Mean Writing Time = "+
+				overallWritingTime/numberOfWritingCalls);
+		}
+		#endregion
+
+		#region main method
+		/// <summary>
+		/// Main method of the cache simulation. Starts the simulation.
+		/// </summary>
+		[STAThread]
+		static void Main(string[] args)
+		{
+			if (args.Length == 0)
+			{
+				Console.WriteLine("Please add the number of calls that shall "+
+					"be simulated as argument.");
+				return;
+			}
+			Controller controller = new Controller();
+			controller.StartSimulation(Int32.Parse(args[0]));
+		}
+		#endregion
+
+		#region inner classes
+		/// <summary>
+		/// Models the call of the cache from a client. 
+		/// </summary>
+		private class ClientCall
+		{
+			#region attributes
+			/// <summary>
+			/// The overall time of the call. I.e. time in the queue + execution 
+			/// time.
+			/// </summary>
+			private double callTime;
+
+			/// <summary>
+			/// The time the call executes the cache or the external service.
+			/// </summary>
+			private double executionTime;
+
+			/// <summary>
+			/// Indicates whether the call is executed or still in the queue;
+			/// </summary>
+			private bool isExecuted;
+
+			/// <summary>
+			/// Indicates whether this is a writing or a reading call.
+			/// </summary>
+			private bool isWritingCall;
+			#endregion
+
+			#region constructor
+			/// <summary>
+			/// Constructs a new ClientCall object and sets its call time and 
+			/// execution time.
+			/// </summary>
+			public ClientCall(bool isWritingCall)
+			{
+				this.callTime = 0;
+				this.executionTime = 0;
+				this.isExecuted = false;
+				this.isWritingCall = isWritingCall;
+			}
+			#endregion
+
+			#region properties
+			/// <summary>
+			/// The overall time of the call. I.e. time in the queue + execution 
+			/// time.
+			/// </summary>
+			public double CallTime
+			{
+				get
+				{
+					return this.callTime;
+				}
+			}
+
+			/// <summary>
+			/// The time the call executes the cache or the external service.
+			/// </summary>
+			public double ExecutionTime
+			{
+				get
+				{
+					return this.executionTime;
+				}
+			}
+
+			/// <summary>
+			/// Indicates whether the call is executed or still in the queue.
+			/// </summary>
+			public bool IsExecuted
+			{
+				get
+				{
+					return this.isExecuted;
+				}
+				set
+				{
+					this.isExecuted = value;
+				}
+			}
+
+			/// <summary>
+			/// Indicates whether the call is a writing or a reading call.
+			/// </summary>
+			public bool IsWritingCall
+			{
+				get
+				{
+					return this.isWritingCall;
+				}
+			}
+			#endregion
+
+			#region public methods
+			/// <summary>
+			/// Increases the call time of this ClientCall by the current step 
+			/// time. If this call is currently executed, the execution time is 
+			/// also increased.
+			/// </summary>
+			/// <param name="stepTime">The length of the current step.</param>
+			public void increaseTime(double stepTime)
+			{
+				this.callTime += stepTime;
+				if (this.isExecuted)
+					this.executionTime += stepTime;
+			}
+			#endregion
+		}
+		#endregion
+	}
+}

@@ -22,5 +22,9 @@
 			<usageInstructions>Execute with Palladio_Performance_Prediction_xml.</usageInstructions>
 			<template>SEA_CacheAdaptor.cst</template>
 		</predictionModel>
+		<predictionModel name="CacheSimulation">
+			<usageInstructions>Call command line tool with the number of calls that shall be simulated.</usageInstructions>
+			<template>CacheSimulation.cst</template>
+		</predictionModel>
 	</predictionModels>
 </pattern>
