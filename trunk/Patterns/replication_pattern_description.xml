@@ -3,11 +3,11 @@
 	<name>Replication</name>
 	<interfaceModel>Quality</interfaceModel>
 	<mismatches>
-		<attribute name="Performance" suitability="++"/>
-		<attribute name ="Reliability" suitability="--"/>
-		<attribute name ="Security" suitability="o"/>
+		<attribute name="Performance" suitability="+"/>
+		<attribute name ="Reliability" suitability="++"/>
+		<attribute name ="Security" suitability="-"/>
 	</mismatches>
-	<description>Replication is a okjnsd  asjdfkl psadf kosal ösfjpkasö öljsaf asoiu snf soi lsdmp sdsup öakj ds hsf ödnso ysafm.</description>
+	<description>Replication is a okjnsd  asjdfkl psadf kosal ösfjpkasö öljsaf asoiu snf soi lsdmp sdsup öakj ds hsf ödnso ysafm. kls lfkhs slkjsdl sljs lskdjls lsdks slkjds.</description>
 	<source>Kircher/Jain: Pattern Oriented Software Architecture</source>
 	<adaptorTemplates>
 		<template>ReplicationAdaptor.cst</template>

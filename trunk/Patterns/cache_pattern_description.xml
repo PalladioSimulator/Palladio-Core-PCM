@@ -9,8 +9,9 @@
 		<attribute name="Reliability">
 			<subAttribute name="NumberOfFailures"  suitability="-"/>
 		</attribute>
+		<attribute name ="Security" suitability="o"/>
 	</mismatches>
-	<description>A cache okjnsd  asjdfkl psadf kosal sfjpkas ljsaf asoiu snf soi lsdmp sdsup akj ds hsf dnso ysafm.</description>
+	<description>The Caching pattern describes how to avoid expensive reacquisition of resources by not releasing the resources immediately after their use.</description>
 	<source>Kircher/Jain: Pattern Oriented Software Architecture</source>
 	<adaptorTemplates>
 		<template>CacheAdaptor.cst</template>
@@ -18,7 +19,7 @@
 	</adaptorTemplates>
 	<predictionModels>
 		<predictionModel name="Palladio">
-			<usageInstructions>Execute with Palladio_Performance_Prediction_xml</usageInstructions>
+			<usageInstructions>Execute with Palladio_Performance_Prediction_xml.</usageInstructions>
 			<template>SEA_CacheAdaptor.cst</template>
 		</predictionModel>
 	</predictionModels>
