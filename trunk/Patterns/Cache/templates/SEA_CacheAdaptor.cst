@@ -1,17 +1,47 @@
-<%@ CodeTemplate Language="C#" TargetLanguage="C#"
+<%@ CodeTemplate Language="C#" TargetLanguage="XML"
       Description="Generates a Service Effect Automaton used to 
       predict the performance of the generated cache adaptor." %>
+
+<%@ Assembly Name="CodeSmith.CustomProperties" %>
       
-<%@ Property Name="CacheHitProbability" Type="Single"
+<%@ Property Name="CacheHitProbability" Type="Double"
       Category="Service Effect Automaton" 
-      Description="The probability of a cache hit." %>      
+      Description="The probability of a cache hit. The value has to be between 0 and 1." %>   
+
+<%@ Property Name="WritingCallProbability" Type="Double"
+      Category="Service Effect Automaton"
+      Description="The probability that an executed call is a writing call. The value has to be between 0 and 1." %> 
+
+<%@ Property Name="WrittenResourceInCacheProbability" Type="Double"
+      Category="Service Effect Automaton"
+      Description="The probability that a writing call writes in already written resource that is still in the cache. This probability is only consider, when consistency strategy is WriteBack. The value has to be between 0 and 1." %> 
+
+<%@ Property Name="ServiceReadingPercentiles" Type="CodeSmith.CustomProperties.StringCollection"
+      Category="Service Effect Automaton"
+      Description="The execution time of a reading call of the service given as percentiles. Uneven indices are interpreted as percentiles and even indices as values. The percentiles have to be increasing. The highest percentile has to be 100" %> 
+
+<%@ Property Name="ServiceWritingPercentiles" Type="CodeSmith.CustomProperties.StringCollection"
+      Category="Service Effect Automaton"
+      Description="The execution time of a writing call of the service given as percentiles. Uneven indices are interpreted as percentiles and even indices as values in milliseconds. The percentiles have to be increasing. The highest percentile has to be 100" %> 
+
+<%@ Property Name="ConsistencyStrategy" Type="ConsistencyStrategyEnum"
+      Category="Cache Features"
+      Description="The strategy that shall be used to keep the cache consistent to the original service." %>         
+
+<script runat="template">
+public enum ConsistencyStrategyEnum
+{
+  WriteBack, 
+  WriteThrough
+}
+</script>   
 
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE ServiceEffectAutomaton SYSTEM "XmlSeffParser.dtd">
 <ServiceEffectAutomaton>
-        <statelist startstate="CacheInvoked">
+        <statelist startstate="AdaptorInvoked">
         <state>
-                <name>CacheInvoked</name>
+                <name>AdaptorInvoked</name>
                 <time_consumption percentile="100" time="0"></time_consumption>
         </state>
         <state isFinalState="true">
@@ -19,25 +49,47 @@
         </state>
         </statelist>
         <inputlist>
-                <input>InvokeService</input>
-                <input>NoInvocation</input>
+                  <input>CacheRead</input>
+		<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
+                  <input>CacheWrite</input>
+		<% } %>
+			<input>ServiceRead</input>
+                  <input>ServiceWrite</input>
         </inputlist>
         <transitionlist>
-                        <transition>
-                                <sourcestate>CacheInvoked</sourcestate>
-                                <input>InvokeService</input>
-                                <destinationstate>finalstate</destinationstate>
-                                <probability><%=1-CacheHitProbability %></probability>
-                                <time_consumption percentile="40" time="5"></time_consumption>
-                                <time_consumption percentile="60" time="8"></time_consumption>
-                                <time_consumption percentile="100" time="10"></time_consumption>
-                        </transition>
-        <transition>
-                <sourcestate>CacheInvoked</sourcestate>
-                <input>NoInvocation</input>
-                <destinationstate>finalstate</destinationstate>
-                <probability><%=CacheHitProbability %></probability>
-                <time_consumption percentile="100" time="0"></time_consumption>
-        </transition>
+            <transition>
+                  <sourcestate>AdaptorInvoked</sourcestate>
+                  <input>CacheRead</input>
+                  <destinationstate>finalstate</destinationstate>
+                  <probability><%= CacheHitProbability * (1-WritingCallProbability) %></probability>
+			<time_consumption percentile="100" time="0"></time_consumption>
+            </transition>
+	<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
+		<transition>
+                  <sourcestate>AdaptorInvoked</sourcestate>
+                  <input>CacheWrite</input>
+                  <destinationstate>finalstate</destinationstate>
+                  <probability><%= WritingCallProbability * WrittenResourceInCacheProbability %></probability>
+			<time_consumption percentile="100" time="0"></time_consumption>
+            </transition>
+	<% } %>
+        	<transition>
+                  <sourcestate>AdaptorInvoked</sourcestate>
+                  <input>ServiceRead</input>
+                  <destinationstate>finalstate</destinationstate>
+                  <probability><%= (1-CacheHitProbability)*(1-WritingCallProbability)%></probability>
+		<% for (int i = 0; i < ServiceReadingPercentiles.Count; i+=2) { %>	
+                  <time_consumption percentile="<%=ServiceReadingPercentiles[i] %>" time="<%=ServiceReadingPercentiles[i+1] %>"></time_consumption>
+		<% } %>
+		</transition>
+		<transition>
+                  <sourcestate>AdaptorInvoked</sourcestate>
+                  <input>ServiceWrite</input>
+                  <destinationstate>finalstate</destinationstate>
+                  <probability><%= WritingCallProbability *(1-WrittenResourceInCacheProbability)%></probability>
+		<% for (int i = 0; i < ServiceWritingPercentiles.Count; i+=2) { %>	
+                  <time_consumption percentile="<%=ServiceWritingPercentiles[i] %>" time="<%=ServiceWritingPercentiles[i+1] %>"></time_consumption>
+		<% } %>
+		</transition>
         </transitionlist>
 </ServiceEffectAutomaton>
