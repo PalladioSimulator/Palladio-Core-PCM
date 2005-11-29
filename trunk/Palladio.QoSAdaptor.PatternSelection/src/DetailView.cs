@@ -18,6 +18,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 
+using System.Collections;
 using Palladio.QoSAdaptor.Pattern;
 using System.Drawing;
 using System.Windows.Forms;
@@ -30,7 +31,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 	/// </summary>
 	internal class DetailView : System.Windows.Forms.Form
 	{
-		#region data
+		#region attributes
 		private System.ComponentModel.Container components = null;
 		/// <summary>
 		/// The pattern that shall be shown in detail. 
@@ -241,7 +242,9 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		}
 
 		/// <summary>
-		/// Adds an item to this.listView
+		/// Adds an item to this.listView. The text is always put into one 
+		/// item. If the subtext is longer than 120 characters than it is 
+		/// split and additional items with an empty first column are added.
 		/// </summary>
 		/// <param name="text">Text in the first column.</param>
 		/// <param name="subtext">Text in the second column.</param>
@@ -249,12 +252,56 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// is a heading.</param>
 		private void AddItem(string text, string subtext, bool highlight)
 		{
-			// TODO: Add more than one item, if text gets to long.
-			ListViewItem mainItem = new ListViewItem(text);
-			mainItem.SubItems.Add(subtext);
-			if (highlight)
-				mainItem.BackColor = System.Drawing.Color.LightGray;
-			this.listView.Items.Add(mainItem);
+			int count = 0;
+			ICollection subStrings = GetSubStrings(subtext, 110, ' ');
+			foreach (string currentSubText in subStrings)
+			{
+				ListViewItem mainItem;
+				if (count == 0)
+					mainItem = new ListViewItem(text);
+				else
+					mainItem = new ListViewItem("");
+				mainItem.SubItems.Add(currentSubText);
+				if (highlight)
+					mainItem.BackColor = System.Drawing.Color.LightGray;
+				this.listView.Items.Add(mainItem);
+				count ++;
+			}
+		}
+
+		/// <summary>
+		/// Splits the string in substrings. The maximum lenghth of the 
+		/// substrings can be given. Strings are split at ' ' so that words 
+		/// are not split. 
+		/// To use this method in a generic context it should be checked 
+		/// that the longest word in words is shorter than length. This is not
+		/// implemented yet since the method is defined in a fixed context.
+		/// </summary>
+		/// <param name="text">The text that shall be split into substrings.
+		/// </param>
+		/// <param name="length">The maximum length of a substring.</param>
+		/// <param name="separators">One or more separators that indicate 
+		/// where the text can be split.</param>
+		/// <returns>A ICollection of strings containing the computed 
+		/// substrings.</returns>
+		private ICollection GetSubStrings(string text, int length, 
+			params char[] separators)
+		{
+			ArrayList subStrings = new ArrayList();
+			string[] words = text.Split(separators);
+			string currentSubString = "";
+			foreach (string word in words)
+			{
+				if ((currentSubString.Length + word.Length) < length)
+					currentSubString += " "+word;
+				else
+				{
+					subStrings.Add(currentSubString);
+					currentSubString = word;
+				}
+			}
+			subStrings.Add(currentSubString);
+			return subStrings;
 		}
 		#endregion
 	}
