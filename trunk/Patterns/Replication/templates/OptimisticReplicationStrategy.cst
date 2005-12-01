@@ -1,0 +1,179 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#"
+      Description="Generates a data cache" %>
+
+<%@ Assembly Name="CodeSmith.CustomProperties" %>
+
+<%@ Property Name="AdaptorNamespace" Type="String"
+      Category="Adaptor Features"
+      Description="The name of the namespace the adaptor is intented to be used in." %> 
+
+<%@ Property Name="ServiceClassName" Type="String"
+      Category="Service Features"
+      Description="The name of the class which objects shall be replicated." %>  
+
+<%@ Property Name="ServiceAssemblyName" Type="String"
+      Category="Service Features"
+      Description="The assembly which includes the class which objects shall be replicated." %>
+
+
+#region info
+///////////////////////////////////////////////////////////////////////////////
+// This software has been developed as a part of the diploma thesis 
+// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage fr 
+// Komponentenadapter" ("Influence of the configuration of a generator on the 
+// prediction of the QoS of component adaptors")
+// at the 
+// University of Oldenburg
+// Department of Computing Science
+// Software Engineering Group
+// Palladio Research Group
+// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
+// 
+// Development period: July 2005 - January 2006
+// 
+// Author: Niels Streekmann
+// E-mail: niels.streekmann@informatik.uni-oldenburg.de
+///////////////////////////////////////////////////////////////////////////////
+#endregion
+
+using System;
+using System.Collections;
+using System.Threading;
+using <%=ServiceAssemblyName %>;
+
+namespace <%=AdaptorNamespace %>
+{
+	/// <summary>
+	/// Implements the Optimistic Replication strategy to keep the 
+	/// replicas consistent.
+	/// </summary>
+	internal class OptimisticReplicationStrategy : IConsistencyStrategy
+	{
+		public void Write(<%=ServiceClassName %>ReplicationAdaptor adaptor, int index, int value)
+		{
+			ICollection replicas = adaptor.AllReplicas;
+			
+			WriteToAllReplicas(replicas, index, value);
+
+			bool check = CheckAllReplicas(replicas, index, value);
+		
+			if (!check)
+				LockedWrite(adaptor, replicas, index, value);
+		}
+
+		#region private methods
+		/// <summary>
+		/// Writes to all replicas without locking them.
+		/// </summary>
+		/// <param name="replicas">A collection of replicas.</param>
+		/// <param name="index">The index to write to.</param>
+		/// <param name="value">The value to write.</param>
+		private void WriteToAllReplicas(ICollection replicas, int index, 
+			int value)
+		{
+			foreach (string replicaInfo in replicas)
+			{
+				Service replica = null;
+				try 
+				{
+					replica = (Service)Activator.GetObject(typeof(Service),
+						replicaInfo);
+				}
+				catch (System.Runtime.Remoting.RemotingException e)
+				{
+					// TODO: throw new exception
+					throw e;
+				}
+
+				if (replica == null) 
+					// TODO: Throw exception
+					System.Console.WriteLine("Could not locate server");
+				else
+				{
+					try 
+					{
+						// TODO: check adaptor.LockAllReplicas
+						replica.Set(index, value);
+					}
+					catch (System.Net.Sockets.SocketException e)
+					{
+						// TODO: Throw exception
+						Console.WriteLine(e.Message);
+						throw e;
+					}
+				}
+			}
+		}
+
+		private void LockedWrite(<%=ServiceClassName %>ReplicationAdaptor adaptor, 
+			ICollection replicas, int index, int value)
+		{
+			// Lock all replicas
+			bool locked = false;
+			while (!locked)
+			{
+				lock(adaptor)
+				{
+					if (adaptor.LockAllReplicas == false)
+					{
+						adaptor.LockAllReplicas = true;
+						locked = true;
+					}
+				}
+				Thread.Sleep(0);
+			}	
+
+			WriteToAllReplicas(replicas, index, value);
+			adaptor.LockAllReplicas = false;
+		}
+
+		/// <summary>
+		/// Checks if the given replicas have the correct value at the given 
+		/// index.
+		/// </summary>
+		/// <param name="replicas">A list of replicas.</param>
+		/// <param name="index">The index that has to be checked.</param>
+		/// <param name="value">The value all replicas should have at the 
+		/// given index.</param>
+		/// <returns>True if all replicas have the correct value. Else false.
+		/// </returns>
+		private bool CheckAllReplicas(ICollection replicas, int index, 
+			int value)
+		{
+			bool check = true;
+			foreach (string replicaInfo in replicas)
+			{
+				Service replica = null;
+				try 
+				{
+					replica = (Service)Activator.GetObject(typeof(Service),
+						replicaInfo);
+				}
+				catch (System.Runtime.Remoting.RemotingException e)
+				{
+					// TODO: throw new exception
+					throw e;
+				}
+
+				if (replica == null) 
+					// TODO: Throw exception
+					System.Console.WriteLine("Could not locate server");
+				else
+				{
+					try 
+					{
+						if (!value.Equals(replica.Get(index)))
+							check = false;
+					}
+					catch (System.Net.Sockets.SocketException e)
+					{
+						// TODO: Throw exception
+						Console.WriteLine(e.Message);
+					}
+				}
+			}
+			return check;
+		}
+		#endregion
+	}
+}
