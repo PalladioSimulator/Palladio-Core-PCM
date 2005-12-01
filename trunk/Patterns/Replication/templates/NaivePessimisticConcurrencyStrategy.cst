@@ -8,9 +8,12 @@
       Description="The name of the namespace the adaptor is intented to be used in." %> 
 
 <%@ Property Name="ServiceClassName" Type="String"
-      Category="Resource Features"
+      Category="Service Features"
       Description="The name of the class which objects shall be replicated." %>   
 
+<%@ Property Name="ServiceAssemblyName" Type="String"
+      Category="Service Features"
+      Description="The assembly which includes the class which objects shall be replicated." %>
 
 #region info
 ///////////////////////////////////////////////////////////////////////////////
@@ -34,7 +37,7 @@
 
 using System;
 using System.Threading;
-using Palladio.QoSAdaptor.TestService;
+using <%=ServiceAssemblyName %>;
 
 namespace <%=AdaptorNamespace %>
 {
