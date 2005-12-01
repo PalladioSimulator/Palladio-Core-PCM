@@ -46,7 +46,7 @@
 public enum ConsistencyStrategyEnum
 {
   NaivePessimisticConcurrencyStrategy, 
-  PrimaryBackupStrategy
+  OptimisticReplicationStrategy
 }  
 </script>        
 
