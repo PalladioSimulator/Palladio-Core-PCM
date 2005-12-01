@@ -46,7 +46,7 @@ namespace <%=AdaptorNamespace %>
 	{
 		public void Write(<%=ServiceClassName %>ReplicationAdaptor adaptor, int index, int value)
 		{
-			// Lock adaptor
+			// Lock all replicas
 			bool locked = false;
 			while (!locked)
 			{
