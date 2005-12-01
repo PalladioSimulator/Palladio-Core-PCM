@@ -93,6 +93,11 @@ namespace <%=AdaptorNamespace %>
 		private ArrayList availableReplicas;
 
 		/// <summary>
+		/// A list containing all replica locations as string.
+		/// </summary>
+		private ArrayList allReplicas;
+
+		/// <summary>
 		/// The number of totally available replicas. Needed when 
 		/// consistency strategies need to lock all replicas.
 		/// </summary>
@@ -121,6 +126,7 @@ namespace <%=AdaptorNamespace %>
 			<% for (int i = 0; i < ReplicaLocations.Count; i++) { %>
 					this.availableReplicas.Add("<%= ReplicaLocations[i] %>");
 			<% } %>  
+			this.allReplicas = (ArrayList)this.availableReplicas.Clone();
 			this.numberOfReplicas = this.availableReplicas.Count;
 			this.lockAllReplicas = false;
 			TcpChannel chan = new TcpChannel();
@@ -167,6 +173,17 @@ namespace <%=AdaptorNamespace %>
 			get
 			{
 				return this.availableReplicas;
+			}
+		}
+
+		/// <summary>
+		/// Returns a list of all currently available replicas.
+		/// </summary>
+		internal ICollection AllReplicas
+		{
+			get
+			{
+				return this.allReplicas;
 			}
 		}
 		#endregion
