@@ -93,11 +93,6 @@ namespace <%=AdaptorNamespace %>
 		private ArrayList availableReplicas;
 
 		/// <summary>
-		/// A list containing all replica locations as string.
-		/// </summary>
-		private ArrayList allReplicas;
-
-		/// <summary>
 		/// The number of totally available replicas. Needed when 
 		/// consistency strategies need to lock all replicas.
 		/// </summary>
@@ -126,7 +121,6 @@ namespace <%=AdaptorNamespace %>
 			<% for (int i = 0; i < ReplicaLocations.Count; i++) { %>
 					this.availableReplicas.Add("<%= ReplicaLocations[i] %>");
 			<% } %>  
-			this.allReplicas = (ArrayList)this.availableReplicas.Clone();
 			this.numberOfReplicas = this.availableReplicas.Count;
 			this.lockAllReplicas = false;
 			TcpChannel chan = new TcpChannel();
@@ -175,17 +169,6 @@ namespace <%=AdaptorNamespace %>
 				return this.availableReplicas;
 			}
 		}
-
-		/// <summary>
-		/// Returns a list of all currently available replicas.
-		/// </summary>
-		internal ICollection AllReplicas
-		{
-			get
-			{
-				return this.allReplicas;
-			}
-		}
 		#endregion
 
 		#region methods of the adapted provided interface
@@ -202,53 +185,47 @@ namespace <%=AdaptorNamespace %>
 			{
 				if (!this.lockAllReplicas)
 				{
-					if (this.availableReplicas.Count > 0)
+					string replicaInfo;
+					lock(this)
 					{
-						string replicaInfo;
-						lock(this)
-						{
-							replicaInfo = (string)this.availableReplicas[0];
-							this.availableReplicas.Remove(replicaInfo);
-						}
-						<%=ServiceClassName %> replica = null;
+						replicaInfo = (string)this.availableReplicas
+							[replicaCounter];
+						replicaCounter++;
+					}
+					<%=ServiceClassName %> replica = null;
+					try 
+					{
+						replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
+							replicaInfo);
+					}
+					catch (System.Runtime.Remoting.RemotingException e)
+					{
+						// TODO: throw new exception
+						throw e;
+					}
+
+					if (replica == null) 
+						// TODO: Throw exception
+						System.Console.WriteLine("Could not locate server");
+					else
+					{
 						try 
 						{
-							replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
-								replicaInfo);
+							result = replica.Get(index);
 						}
-						catch (System.Runtime.Remoting.RemotingException e)
+						catch (System.Net.Sockets.SocketException e)
 						{
-							// TODO: throw new exception
-							throw e;
-						}
-
-						if (replica == null) 
 							// TODO: Throw exception
-							System.Console.WriteLine("Could not locate server");
-						else
-						{
-							try 
-							{
-								result = replica.Get(index);
-							}
-							catch (System.Net.Sockets.SocketException e)
-							{
-								// TODO: Throw exception
-								Console.WriteLine(e.Message);
-							}
+							Console.WriteLine(e.Message);
 						}
-						this.availableReplicas.Add(replicaInfo);
-						processed = true;
 					}
-					else 
-					// TODO: Fit sleep time to execution time.
-						Thread.Sleep(10);
+					processed = true;
 				}
 				else
 					// TODO: Fit sleep time to execution time.
 					// TODO: Describe dependentcy to the calltime of a writing 
 					// 		call.
-					Thread.Sleep(1000);
+					Thread.Sleep(10);
 			}
 			return result;
 		}
