@@ -79,6 +79,7 @@ public enum ConsistencyStrategyEnum
 
 using System;
 using System.Collections;
+using System.IO;
 
 namespace Palladio.QoSAdaptor.CacheSimulation
 {
@@ -145,11 +146,13 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 		/// </summary>
 		private double writingCallProbability;
 
+	<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
 		/// <summary>
 		/// The probability that a resource that has been written is still in 
 		/// the cache when a second writing call for this resource is executed.
 		/// </summary>
 		private double writtenResourceInCacheProbability;
+	<% } %>
 
 		/// <summary>
 		/// The execution time of the cache implementation in ms. Could be set 
@@ -185,7 +188,9 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 			this.cacheHitProbability = <%=CacheHitProbability %>;
 			this.callProbability = <%=CallProbability %>;
 			this.writingCallProbability = <%=WritingCallProbability %>;
+		<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
 			this.writtenResourceInCacheProbability = <%=WrittenResourceInCacheProbability %>;
+		<% } %>
 
 			this.queue = new ArrayList();
 			this.results = new ArrayList();
@@ -409,16 +414,16 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 				}
 				overallTime += clientCall.CallTime;
 			}
-			streamWriter.WriteLine("\nNumber of calls = "+this.results.Count);
+			streamWriter.WriteLine("Number of calls = "+this.results.Count);
 			streamWriter.WriteLine("Mean value = "+
 				(overallTime/this.results.Count));
 
-			streamWriter.WriteLine("\nNumber of reading calls = "+
+			streamWriter.WriteLine("Number of reading calls = "+
 				numberOfReadingCalls);
 			streamWriter.WriteLine("Mean Reading Time = "+
 				overallReadingTime/numberOfReadingCalls);
 
-			streamWriter.WriteLine("\nNumber of writing calls = "+
+			streamWriter.WriteLine("Number of writing calls = "+
 				numberOfWritingCalls);
 			streamWriter.WriteLine("Mean Writing Time = "+
 				overallWritingTime/numberOfWritingCalls);
