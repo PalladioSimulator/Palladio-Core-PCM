@@ -51,7 +51,7 @@ namespace <%=AdaptorNamespace %>
 	{
 		public void Write(<%=ServiceClassName %>ReplicationAdaptor adaptor, int index, int value)
 		{
-			ICollection replicas = adaptor.AllReplicas;
+			ICollection replicas = adaptor.Replicas;
 			
 			WriteToAllReplicas(replicas, index, value);
 
