@@ -11,12 +11,12 @@
       Category="Service Features"
       Description="The name of the class which objects shall be cached." %>
 
-// TODO: What if the cached object has more than one constructor
+<%-- TODO: What if the cached object has more than one constructor? --%>
 <%@ Property Name="ConstructorParamTypes" Type="CodeSmith.CustomProperties.StringCollection"
       Category="Service Features" Optional="true"
       Description="The types of the parameters of the constructor of the cached object. The types have to be given in the correct order." %>  
 
-// TODO: What if Getter, Setter are implemented as Properties ???  
+<%-- TODO: What if Getter, Setter are implemented as Properties ???  --%>
 <%@ Property Name="Getter" Type="String"
       Category="Service Features"
       Description="Getter of the cached service." %>      
