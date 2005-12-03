@@ -108,8 +108,6 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 		/// external service.
 		/// Using an ArrayList a FIFO strategy is used for the execution of 
 		/// the calls.
-		/// 
-		/// TODO: Use real Queue?
 		/// </summary>
 		private ArrayList queue;
 
@@ -249,7 +247,6 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 				if (((double)this.randomiser.Next(0, 10000)/10000) <= 
 					this.callProbability)
 				{
-					// TODO: Test this
 					if (((double)this.randomiser.Next(0, 10000)/10000) <= 
 						this.writingCallProbability)
 						this.queue.Add(new ClientCall(true));
@@ -386,6 +383,10 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 		/// </summary>
 		private void ListResults()
 		{
+			FileStream fileStream = new FileStream("CacheSimulation.txt",
+				FileMode.Create);
+			StreamWriter streamWriter = new StreamWriter(fileStream);
+
 			double overallTime = 0;
 			double overallReadingTime = 0;
 			double overallWritingTime = 0;
@@ -396,31 +397,34 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 			{
 				if (clientCall.IsWritingCall)
 				{
-					//Console.WriteLine("W "+clientCall.CallTime);
+					//streamWriter.WriteLine("W "+clientCall.CallTime);
 					overallWritingTime += clientCall.CallTime;
 					numberOfWritingCalls++;
 				}
 				else
 				{
-					//Console.WriteLine("R "+clientCall.CallTime);
+					//streamWriter.WriteLine("R "+clientCall.CallTime);
 					overallReadingTime += clientCall.CallTime;
 					numberOfReadingCalls++;
 				}
 				overallTime += clientCall.CallTime;
 			}
-			Console.WriteLine("\nNumber of calls = "+this.results.Count);
-			Console.WriteLine("Mean value = "+
+			streamWriter.WriteLine("\nNumber of calls = "+this.results.Count);
+			streamWriter.WriteLine("Mean value = "+
 				(overallTime/this.results.Count));
 
-			Console.WriteLine("\nNumber of reading calls = "+
+			streamWriter.WriteLine("\nNumber of reading calls = "+
 				numberOfReadingCalls);
-			Console.WriteLine("Mean Reading Time = "+
+			streamWriter.WriteLine("Mean Reading Time = "+
 				overallReadingTime/numberOfReadingCalls);
 
-			Console.WriteLine("\nNumber of writing calls = "+
+			streamWriter.WriteLine("\nNumber of writing calls = "+
 				numberOfWritingCalls);
-			Console.WriteLine("Mean Writing Time = "+
+			streamWriter.WriteLine("Mean Writing Time = "+
 				overallWritingTime/numberOfWritingCalls);
+
+			streamWriter.Close();
+			fileStream.Close();
 		}
 		#endregion
 
