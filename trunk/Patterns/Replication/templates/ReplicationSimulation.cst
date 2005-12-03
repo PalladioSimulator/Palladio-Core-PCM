@@ -1,0 +1,714 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#"
+      Description="Generates a cache simulation." %>
+
+<%@ Assembly Name="CodeSmith.CustomProperties" %>
+
+<%@ Property Name="StepTime" Type="Int32"
+      Category="Simulation Features"
+      Description="The duration of one step of the simulation in milliseconds." %> 
+
+<%@ Property Name="NumberOfReplicas" Type="Int32"
+      Category="Replication Features"
+      Description="The number of replicas used in the simulated system." %> 
+
+<%@ Property Name="CallProbability" Type="String"
+      Category="Simulation Features"
+      Description="The probability of a call in one step. The value has to be between 0 and 1." %> 
+
+<%@ Property Name="WritingCallProbability" Type="String"
+      Category="Simulation Features"
+      Description="The probability that an executed call is a writing call. The value has to be between 0 and 1." %> 
+
+<%@ Property Name="WritingFailureProbability" Type="String"
+      Category="Simulation Features"
+      Description="The probability that two executed writing calls interfere so that the replicas are in an inconsistent state. The value has to be between 0 and 1." %> 
+
+<%@ Property Name="ServiceReadingPercentiles" Type="CodeSmith.CustomProperties.StringCollection"
+      Category="Simulation Features"
+      Description="The execution time of a reading call of the service given as percentiles. Uneven indices are interpreted as percentiles and even indices as values. The percentiles have to be increasing. The highest percentile has to be 100" %> 
+
+<%@ Property Name="ServiceWritingPercentiles" Type="CodeSmith.CustomProperties.StringCollection"
+      Category="Simulation Features"
+      Description="The execution time of a writing call of the service given as percentiles. Uneven indices are interpreted as percentiles and even indices as values in milliseconds. The percentiles have to be increasing. The highest percentile has to be 100" %> 
+
+<%@ Property Name="ConsistencyStrategy" Type="ConsistencyStrategyEnum"
+      Category="Replication Features"
+      Description="The strategy that shall be used to keep the cache consistent to the original service." %>         
+
+<script runat="template">
+public enum ConsistencyStrategyEnum
+{
+  NaivePessimisticConcurrency, 
+  OptimisticReplication
+}
+</script>
+
+
+#region info
+///////////////////////////////////////////////////////////////////////////////
+// This software has been developed as a part of the diploma thesis 
+// "Einfluss von Generatorkonfiguration auf die QoS-Vorhersage für 
+// Komponentenadapter" ("Influence of the configuration of a generator on the 
+// prediction of the QoS of component adaptors")
+// at the 
+// University of Oldenburg
+// Department of Computing Science
+// Software Engineering Group
+// Palladio Research Group
+// (http://se.informatik.uni-oldenburg.de/research/projects/Palladio)
+// 
+// Development period: July 2005 - January 2006
+// 
+// Author: Niels Streekmann
+// E-mail: niels.streekmann@informatik.uni-oldenburg.de
+///////////////////////////////////////////////////////////////////////////////
+#endregion
+#region Description
+///////////////////////////////////////////////////////////////////////////////
+// Generated from ReplicationSimulation.cst
+// Generated on <%= DateTime.Now.ToShortDateString() %> 
+//
+// Usage instructions:
+// 1. Copy the generated code into the src/ReplicationSimulation subfolder of the 
+//    Cache folder.
+// 2. The assembly is automatically build and copied to the bin subfolder.
+// 3. The simulation can be run as a command line tool. The number of simulated
+//    calls has to be given as an argument of the tool.
+///////////////////////////////////////////////////////////////////////////////
+#endregion
+
+using System;
+using System.Collections;
+using System.IO;
+
+namespace Palladio.QoSAdaptor.ReplicationSimulation
+{
+	/// <summary>
+	///	Controls the simulation of the cache. The Controller implements a
+	///	synchronous simulation. I.e. the simulation is based on steps. 
+	///	
+	///	TODO: describe advantages and disadvantages of the synchronous 
+	///	simulation
+	/// </summary>
+	public class Controller
+	{
+		#region attributes
+		/// <summary>
+		/// The duration of one step in ms.
+		/// </summary>
+		private double stepTime;
+
+		/// <summary>
+		/// The queue of calls that have to be executed by replica of the 
+		/// external service.
+		/// Using an ArrayList a FIFO strategy is used for the execution of 
+		/// the calls.
+		/// 
+		/// TODO: Use real Queue?
+		/// </summary>
+		private ArrayList queue;
+
+		/// <summary>
+		/// A list of simulated client call times.
+		/// </summary>
+		private ArrayList results;
+
+		/// <summary>
+		/// The ClientCall that is currently executed by the cache or the 
+		/// external service.
+		/// </summary>
+		private ArrayList currentClientCalls;
+
+		/// <summary>
+		/// The probability that a call occurs in one time step. The stepTime 
+		/// has to be set in a way that the callProbability is between 0 and 1.
+		/// </summary>
+		private double callProbability;
+
+	<% if (ConsistencyStrategy == ConsistencyStrategyEnum.OptimisticReplication) { %>
+		/// <summary>
+		/// The probability that two concurrent writing calls produce an 
+		/// inconsistent state of the replicas.
+		/// </summary>
+		private double writingFailureProbability;
+	<% } %>
+
+		/// <summary>
+		/// Used to get random numbers for to match call probability.
+		/// </summary>
+		private Random randomiser;
+
+		/// <summary>
+		/// Probability that a call is a writing call.
+		/// </summary>
+		private double writingCallProbability;
+
+		/// <summary>
+		/// The number of replicas to be simulated.
+		/// </summary>
+		private int numberOfReplicas;
+
+		/// <summary>
+		/// Is set, when all replicas have to be locked for a writing call.
+		/// </summary>
+		private bool lockAllReplicas;
+
+		/// <summary>
+		/// Indicates whether the call that set lockAllReplicas to true is 
+		/// already executed or some of the replicas are still busy with other 
+		/// calls. 
+		/// </summary>
+		private bool lockingCallIsExecuted;
+
+		/// <summary>
+		/// Counts the number of method calls
+		/// </summary>
+		private int callCounter;
+		#endregion
+
+		#region constructor
+		/// <summary>
+		/// Constructs a new Controller an sets the initial state of the 
+		/// simulation.
+		/// </summary>
+		public Controller()
+		{
+			this.stepTime = <%=StepTime %>;
+			this.numberOfReplicas = <%=NumberOfReplicas %>; 
+			this.callProbability = <%=CallProbability %>;
+			this.writingCallProbability = <%=WritingCallProbability %>;
+		<% if (ConsistencyStrategy == ConsistencyStrategyEnum.OptimisticReplication) { %>
+			this.writingFailureProbability = <%=WritingFailureProbability %>;
+		<% } %>
+
+			this.queue = new ArrayList();
+			this.results = new ArrayList();
+			this.currentClientCalls = new ArrayList();
+			this.randomiser = new Random(DateTime.Now.Millisecond);
+			this.lockAllReplicas = false;
+			this.lockingCallIsExecuted = false;
+		}
+		#endregion
+
+		#region public methods
+		/// <summary>
+		/// Starts the simulation. 
+		/// </summary>
+		/// <param name="calls">The number of method calls during the 
+		/// simulation.</param>
+		public void StartSimulation(int calls)
+		{
+			int stepCounter = 0;
+
+			this.callCounter = 0;
+
+			while ((this.callCounter < calls) || (this.queue.Count != 0) ||
+				this.currentClientCalls.Count != 0)
+			{
+				AddClientCall(calls);
+
+				IncreaseClientCallTime();
+
+				if (this.currentClientCalls.Count != 0)
+				{
+					// The enumeration works on a clone of currentClientCalls, 
+					// because ReleaseCurrentClientCall will remove the call
+					// from currentClientCalls.
+					foreach (ClientCall clientCall in 
+						(ArrayList)this.currentClientCalls.Clone())
+					{
+						if (clientCall.IsFinished)
+							ReleaseCurrentClientCall(clientCall);
+					}
+				}
+				if ((this.lockAllReplicas == true) 
+					&& this.lockingCallIsExecuted == false)
+					CheckLockingCallExecution();
+
+				if ((this.currentClientCalls.Count < this.numberOfReplicas)
+					&& (this.lockAllReplicas == false))
+					SetNewCurrentClientCalls();
+				stepCounter++;
+			}
+			WriteResults();
+		}	
+		#endregion
+
+		#region private methods
+		/// <summary>
+		/// Adds a new ClientCall to the current queue with a defined 
+		/// probability.
+		/// </summary>
+		/// <param name="calls">Number of overall calls.</param>
+		private void AddClientCall(int calls)
+		{
+			if (this.callCounter < calls)
+			{
+				if (((double)this.randomiser.Next(0, 10000)/10000) <= 
+					this.callProbability)
+				{
+					if (((double)this.randomiser.Next(0, 10000)/10000) <= 
+						this.writingCallProbability)
+					{
+					<% if (ConsistencyStrategy == ConsistencyStrategyEnum.NaivePessimisticConcurrency) { %>
+						this.queue.Add(new ClientCall(true, 1));
+					<% } %>
+
+					<% if (ConsistencyStrategy == ConsistencyStrategyEnum.OptimisticReplication) { %>
+						ClientCall writingCall = new ClientCall(true, 
+								this.numberOfReplicas);
+						// For unlocked writing, a writing call is added to the
+						// queue numberOfReplicas times to simulate writing
+						// calls to all replicas.. 
+						for (int i=0; i<this.numberOfReplicas; i++)
+							this.queue.Add(writingCall);
+					<% } %>
+					}	
+					else
+					{
+						this.queue.Add(new ClientCall(false, 1));
+					}
+					this.callCounter++;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Increases the time of all ClientCalls by the stepTime.
+		/// </summary>
+		private void IncreaseClientCallTime()
+		{
+			foreach (ClientCall clientCall in this.currentClientCalls)
+				clientCall.increaseTime(this.stepTime);
+
+			foreach (ClientCall clientCall in this.queue)
+				clientCall.increaseTime(this.stepTime);
+		}
+
+		/// <summary>
+		/// Releases the currentClientCall and writes it overall CallTime to 
+		/// the results list.
+		/// </summary>
+		private void ReleaseCurrentClientCall(ClientCall clientCall)
+		{
+		<% if (ConsistencyStrategy == ConsistencyStrategyEnum.OptimisticReplication) { %>
+			if (clientCall.IsCompletelyFinished)
+			{
+				if (clientCall.IsWritingCall && (!this.lockAllReplicas))
+				{
+					if ((this.randomiser.Next(0,10000)/10000) <= 
+						this.writingFailureProbability)
+					{
+						this.lockAllReplicas = true;
+						clientCall.AddReplicaExecutionTime( 
+							GetServiceWriteExecutionTime());
+						this.currentClientCalls.Add(clientCall);
+						if (this.currentClientCalls.Count == 1)
+						{
+							clientCall.IsExecuted = true;
+							this.lockingCallIsExecuted = true;
+						}						
+					}
+					else
+						this.results.Add(clientCall);
+				}
+				else
+					this.results.Add(clientCall);
+			}
+		<% } %>
+
+		<% if (ConsistencyStrategy == ConsistencyStrategyEnum.NaivePessimisticConcurrency) { %>
+			this.results.Add(clientCall);
+		<% } %>
+
+			if (this.lockAllReplicas && (this.currentClientCalls.Count == 1))
+			{
+				this.lockingCallIsExecuted = false;
+				this.lockAllReplicas = false;
+			<% if (ConsistencyStrategy == ConsistencyStrategyEnum.OptimisticReplication) { %>
+				this.results.Add(clientCall);
+			<% } %>
+			}
+			this.currentClientCalls.Remove(clientCall);
+		}
+
+		/// <summary>
+		/// Sets the first n ClientCalls in the queue as new currentClientCalls
+		/// and removes them from the queue. n is the number of free replicas.
+		/// Furthermore the execution time for the ClientCalls is determined.
+		/// </summary>
+		private void SetNewCurrentClientCalls()
+		{
+			int numberOfFreeReplicas = this.numberOfReplicas - 
+				this.currentClientCalls.Count;
+
+			for (int i=0; i<numberOfFreeReplicas; i++)
+			{
+				if (this.lockAllReplicas == false)
+				{
+					if (this.queue.Count > 0)
+					{
+						ClientCall currentClientCall = (ClientCall)this.queue[0];
+						this.queue.Remove(currentClientCall);
+						if (currentClientCall.IsWritingCall)
+						{
+							currentClientCall.AddReplicaExecutionTime( 
+								GetServiceWriteExecutionTime());
+							this.currentClientCalls.Add(currentClientCall);
+
+						<% if (ConsistencyStrategy == ConsistencyStrategyEnum.OptimisticReplication) { %>
+							currentClientCall.IsExecuted = true;
+						<% } %>
+
+						<% if (ConsistencyStrategy == ConsistencyStrategyEnum.NaivePessimisticConcurrency) { %>
+							this.lockAllReplicas = true;
+							if (this.currentClientCalls.Count == 1)
+							{
+								currentClientCall.IsExecuted = true;
+								this.lockingCallIsExecuted = true;
+							}
+						<% } %>
+						}
+						else
+						{
+							this.currentClientCalls.Add(currentClientCall);
+							currentClientCall.IsExecuted = true;
+							currentClientCall.AddReplicaExecutionTime(
+								GetServiceReadExecutionTime());
+						}
+
+						if (currentClientCall.IsFinished)
+							ReleaseCurrentClientCall(currentClientCall);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Is called when LookAllReplicas has been set to true. When all 
+		/// replicas are free after the lock and the locking call is the only
+		/// call left in this.currentClientCalls, then this calls execution is
+		/// started.
+		/// </summary>
+		private void CheckLockingCallExecution()
+		{
+			if (this.currentClientCalls.Count == 1)
+			{
+				ClientCall currentClientCall = 
+					(ClientCall)this.currentClientCalls[0];
+				currentClientCall.IsExecuted = true;
+				this.lockingCallIsExecuted = true;
+			}
+		}
+
+		/// <summary>
+		/// Computes a randomised execution time for a reading method of the 
+		/// service that is based on the percentiles given by the user 
+		/// during the configuration.
+		/// </summary>
+		/// <returns>Service executiion for a reading method.</returns>
+		private double GetServiceReadExecutionTime ()
+		{
+			double executionTime; 
+			int probability = this.randomiser.Next(0,100);
+
+			if (probability <= 40)
+				executionTime = (probability * 50)/100;
+			else if (probability <= 60)
+				executionTime = (probability * 80)/100;
+			else
+				executionTime = (probability * 100)/100;
+			return executionTime;
+		}
+
+		/// <summary>
+		/// Returns a randomised execution time for a writing method of the 
+		/// service that is based on the percentiles given by the user 
+		/// during the configuration.
+		/// </summary>
+		/// <returns>Service executiion for a writing method.</returns>
+		private double GetServiceWriteExecutionTime ()
+		{
+			double executionTime; 
+			int probability = this.randomiser.Next(0,100);
+			if (probability <= 40)
+				executionTime = (probability * 80)/100;
+			else if (probability <= 60)
+				executionTime = (probability * 90)/100;
+			else
+				executionTime = (probability * 100)/100;
+			return executionTime;
+		}
+
+		/// <summary>
+		/// Outputs all call times and the mean value to the console.
+		/// </summary>
+		private void WriteResults()
+		{
+			FileStream fileStream = new FileStream("ReplicationSimulation.txt",
+				FileMode.Create);
+			StreamWriter streamWriter = new StreamWriter(fileStream);
+
+			double overallTime = 0;
+			double overallExecutionTime = 0;
+			double overallReadingTime = 0;
+			double overallWritingTime = 0;
+			int numberOfReadingCalls = 0;
+			int numberOfWritingCalls = 0;
+
+			foreach (ClientCall clientCall in this.results)
+			{
+				if (clientCall.IsWritingCall)
+				{
+					overallWritingTime += clientCall.CallTime;
+					numberOfWritingCalls++;
+				}
+				else
+				{
+					overallReadingTime += clientCall.CallTime;
+					numberOfReadingCalls++;
+				}
+				overallTime += clientCall.CallTime;
+				overallExecutionTime += clientCall.ExecutionTime;
+			}
+			streamWriter.WriteLine("Number of calls = "+this.results.Count);
+			streamWriter.WriteLine("Mean call time = "+
+				(overallTime/this.results.Count));
+			streamWriter.WriteLine("Mean execution time = "+
+				(overallExecutionTime/this.results.Count));
+
+			streamWriter.WriteLine("Number of reading calls = "+
+				numberOfReadingCalls);
+			streamWriter.WriteLine("Mean Reading Time = "+
+				overallReadingTime/numberOfReadingCalls);
+
+			streamWriter.WriteLine("Number of writing calls = "+
+				numberOfWritingCalls);
+			streamWriter.WriteLine("Mean Writing Time = "+
+				overallWritingTime/numberOfWritingCalls);
+
+			/*foreach (ClientCall clientCall in this.results)
+			{
+				if (clientCall.IsWritingCall)
+					streamWriter.WriteLine("W "+clientCall.CallTime+" "+
+						clientCall.ExecutionTime+" "+
+						clientCall.ReplicaExecutionTime);
+				else
+					streamWriter.WriteLine("R "+clientCall.CallTime+" "+
+						clientCall.ExecutionTime+" "+
+						clientCall.ReplicaExecutionTime);
+			}*/
+
+			streamWriter.Close();
+			fileStream.Close();
+		}
+		#endregion
+
+		#region main method
+		/// <summary>
+		/// Main method of the cache simulation. Starts the simulation.
+		/// </summary>
+		[STAThread]
+		static void Main(string[] args)
+		{
+			if (args.Length == 0)
+			{
+				Console.WriteLine("Please add the number of calls that shall "+
+					"be simulated as argument.");
+				return;
+			}
+			Controller controller = new Controller();
+			controller.StartSimulation(Int32.Parse(args[0]));
+		}
+		#endregion
+
+		#region inner classes
+		/// <summary>
+		/// Models the call of the cache from a client. 
+		/// </summary>
+		private class ClientCall
+		{
+			#region attributes
+			/// <summary>
+			/// The overall time of the call. I.e. time in the queue + execution 
+			/// time.
+			/// </summary>
+			private double callTime;
+
+			/// <summary>
+			/// The time the call currently executes the cache or the external 
+			/// service.
+			/// </summary>
+			private double currentExecutionTime;
+
+			/// <summary>
+			/// The overall execution time of the replica the service is 
+			/// allocated to.
+			/// </summary>
+			private double overallExecutionTime;
+
+			/// <summary>
+			/// Indicates whether the call is executed or still in the queue;
+			/// </summary>
+			private bool isExecuted;
+
+			/// <summary>
+			/// Indicates whether this is a writing or a reading call.
+			/// </summary>
+			private bool isWritingCall;
+
+			/// <summary>
+			/// Needed to determine if there are still unexecuted replica 
+			/// calls for this client call. numberOfReplicaCalls is reduced
+			/// by property IsExecuted. So if all replica calls are executed
+			/// numberOfReplicaCalls is 0.
+			/// </summary>
+			private int numberOfReplicaCalls;
+
+			/// <summary>
+			/// Lists the execution times of all current replica calls of this 
+			/// client call. Always counted from the beginning of the first 
+			/// replica call. This is needed to return the correct value of 
+			/// IsFinished for every replica call. After a call is finished, 
+			/// its execution time is removed from the list.
+			/// </summary>
+			private ArrayList executionTimes;
+			#endregion
+
+			#region constructor
+			/// <summary>
+			/// Constructs a new ClientCall object and sets its call time and 
+			/// execution time.
+			/// </summary>
+			public ClientCall(bool isWritingCall, int numberOfReplicaCalls)
+			{
+				this.callTime = 0;
+				this.currentExecutionTime = 0;
+				this.overallExecutionTime = 0;
+				this.isExecuted = false;
+				this.isWritingCall = isWritingCall;
+				this.numberOfReplicaCalls = numberOfReplicaCalls;
+				this.executionTimes = new ArrayList();
+			}
+			#endregion
+
+			#region properties
+			/// <summary>
+			/// The overall time of the call. I.e. time in the queue + execution 
+			/// time.
+			/// </summary>
+			public double CallTime
+			{
+				get
+				{
+					return this.callTime;
+				}
+			}
+
+			/// <summary>
+			/// The overall execution time of all replica calls of this
+			/// client call. Different from the sum of this.executionTimes, 
+			/// because replica calls can be concurrent. Is equivalent to 
+			/// CallTime minus queue waiting time.
+			/// </summary>
+			public double ExecutionTime
+			{
+				get
+				{
+					return this.overallExecutionTime;
+				}
+			}
+
+			/// <summary>
+			/// Indicates whether the call is executed or still in the queue.
+			/// </summary>
+			public bool IsExecuted
+			{
+				get
+				{
+					return this.isExecuted;
+				}
+				set
+				{
+					if (value)
+						this.numberOfReplicaCalls--;
+					this.isExecuted = value;
+				}
+			}
+
+			/// <summary>
+			/// Indicates whether the call is a writing or a reading call.
+			/// </summary>
+			public bool IsWritingCall
+			{
+				get
+				{
+					return this.isWritingCall;
+				}
+			}
+
+			/// <summary>
+			/// Indicates whether the next ending replica call of this client
+			/// call is finished.
+			/// </summary>
+			public bool IsFinished
+			{
+				get
+				{
+					if (this.currentExecutionTime >= (double)
+						this.executionTimes[0])
+					{
+						this.executionTimes.RemoveAt(0);
+						return true;
+					}
+					else 
+						return false;
+				}
+			}
+
+			/// <summary>
+			/// Indicates whether all replica calls of this client call are
+			/// finished.
+			/// </summary>
+			public bool IsCompletelyFinished
+			{
+				get
+				{
+					if ((this.numberOfReplicaCalls == 0) && 
+						this.executionTimes.Count == 0)
+						return true;
+					else
+						return false;
+				}
+			}
+			#endregion
+
+			#region public methods
+			/// <summary>
+			/// Increases the call time of this ClientCall by the current step 
+			/// time. If this call is currently executed, the execution time is 
+			/// also increased.
+			/// </summary>
+			/// <param name="stepTime">The length of the current step.</param>
+			public void increaseTime(double stepTime)
+			{
+				this.callTime += stepTime;
+				if (this.isExecuted)
+					this.currentExecutionTime += stepTime;
+			}
+
+			public void AddReplicaExecutionTime(double newExecutionTime)
+			{
+				this.executionTimes.Add(this.currentExecutionTime + 
+					newExecutionTime);
+				// TODO: Check if the values are really sorted ascending
+				this.executionTimes.Sort();
+				if (this.executionTimes.Count == this.numberOfReplicaCalls)
+					this.overallExecutionTime = this.currentExecutionTime + 
+						newExecutionTime;
+			}
+			#endregion
+		}
+		#endregion
+	}
+}
