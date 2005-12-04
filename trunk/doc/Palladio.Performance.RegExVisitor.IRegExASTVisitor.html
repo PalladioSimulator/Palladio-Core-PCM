@@ -45,6 +45,12 @@
           </tr>
           <tr valign="top">
             <td width="50%">
+              <a href="Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorDetermineMaxTime.html">RegExASTVisitorDetermineMaxTime</a>
+            </td>
+            <td width="50%"> Zusammenfassung für RegExASTVisitorDetermineMaxTime. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
               <a href="Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorFrequencyDomain.html">RegExASTVisitorFrequencyDomain</a>
             </td>
             <td width="50%"> Visits each node of the abstract syntax tree of a regular expression and determines its total time consumption. The calculation of the performance uses the fourier transformation. Therefore, serveral requirements must be fullfilled: - each input symbol must contain a RandomVariable attribute. - each input symbol must contain a ProbabilityAttribute </td>
@@ -60,9 +66,10 @@
       <h4 class="dtH4">Remarks</h4>
       <p>
             <pre> Version history: $Log$
-            <pre> Version history: Revision 1.1  2005/10/11 22:05:18  helgeh
-            <pre> Version history: - Added NUnit project and NDoc documentation.
-            <pre> Version history: - fixed a bug in AdjustSamplingRate
+            <pre> Version history: Revision 1.2  2005/12/04 18:41:21  helgeh
+            <pre> Version history: - Simplified DiscreteFourierFunction.Calculate LoopLimit
+            <pre> Version history: - added new attribute MaximumExecutionTimeAttribute
+            <pre> Version history: - replaced AbstractRegExASTVisitor.DetermineMaxTime by  a new visitor RegExASTVisitorDetermineMaxTime
             <pre> Version history: Revision 1.1 2005/08/12 07:59:20 helgeh Initial impot after refactoring. Math: - Added DiscretePDFunction. - Added Fast Fourier Transformation and FourierFunction. - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density function the sum of function values is a value in [0,1]. - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate, FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add FSMTransformer: - Method SEFFValidity added. - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the transitions. WebserverSeffFactory: - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel. WebserverAnalyser: - Data class for configuration added. - ConfigReader added. RegExASTVisitor: - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain. RegularExpressions: - No changes. XmlSeffParser: - Data class for configuration added. - ConfigReader added. PerformanceCalculator: - Added interface IPerformanceCalculator. Added CalculatorFactory. Unit Tests added. Updated documentation. </pre>
             </p>
       <h4 class="dtH4">Requirements</h4>

@@ -1,7 +1,7 @@
 <VisualStudioProject>
     <CSHARP LastOpenVersion = "7.10.3077" >
         <Build>
-            <Settings ReferencePath = "L:\Helges Dateien\Visual Studio Projects\Performance\lib\;C:\Dokumente und Einstellungen\Helge\Eigene Dateien\Visual Studio Projects\Performance\lib\;C:\Dokumente und Einstellungen\helge\Desktop\Visual Studio Projects\Performance\lib\;H:\Visual Studio Projects\Performance\lib\;L:\Helges Dateien\Visual Studio Projects\Palladio.Performance\lib\" >
+            <Settings ReferencePath = "L:\Helges Dateien\Visual Studio Projects\Performance\lib\;C:\Dokumente und Einstellungen\Helge\Eigene Dateien\Visual Studio Projects\Performance\lib\;C:\Dokumente und Einstellungen\helge\Desktop\Visual Studio Projects\Performance\lib\;H:\Visual Studio Projects\Performance\lib\;L:\Helges Dateien\Visual Studio Projects\Palladio.Performance\lib\;L:\Helges Dateien\Visual Studio Projects\Refactor\Palladio.Performance\lib\" >
                 <Config
                     Name = "Debug"
                     EnableASPDebugging = "false"

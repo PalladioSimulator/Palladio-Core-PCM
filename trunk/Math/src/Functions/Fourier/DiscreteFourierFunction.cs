@@ -12,6 +12,11 @@ namespace Palladio.Performance.Math.Fourier
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/12/04 18:41:21  helgeh
+	/// - Simplified DiscreteFourierFunction.Calculate LoopLimit
+	/// - added new attribute MaximumExecutionTimeAttribute
+	/// - replaced AbstractRegExASTVisitor.DetermineMaxTime by  a new visitor RegExASTVisitorDetermineMaxTime
+	///
 	/// Revision 1.1  2005/08/12 07:59:19  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -194,6 +199,27 @@ namespace Palladio.Performance.Math.Fourier
 			return new DiscreteFourierFunction(result,this.samplingRate);
 		}
 
+//		/// <summary>
+//		/// Computes the execution time of a loop. This is an approximation which depends on the size 
+//		/// of the data array.
+//		/// </summary>
+//		/// <param name="p">Probability of re-iterating through the loop.</param>
+//		/// <returns>The fourier function of the loop limit.</returns>
+//		public IFourierFunction ComputeLoopLimit(double p)
+//		{
+//			double alpha = 1;
+//			double alphaInv = 1/alpha;
+//			int length = this.Data.Length;
+//			Complex[] result = new Complex[length];
+//			for (int i= 0; i<length;i++)
+//			{
+//				result[i] = alphaInv + ((p*data[i])/(1-p*alpha*data[i]));
+//				if(result[i].IsNaN) Debugger.Break();
+//			}
+//			IFourierFunction resultFunction = new DiscreteFourierFunction(result,this.samplingRate);
+//			return resultFunction.GetScaled(1-p);
+//		}
+
 		/// <summary>
 		/// Computes the execution time of a loop. This is an approximation which depends on the size 
 		/// of the data array.
@@ -202,13 +228,11 @@ namespace Palladio.Performance.Math.Fourier
 		/// <returns>The fourier function of the loop limit.</returns>
 		public IFourierFunction ComputeLoopLimit(double p)
 		{
-			double alpha = 1;
-			double alphaInv = 1/alpha;
 			int length = this.Data.Length;
 			Complex[] result = new Complex[length];
 			for (int i= 0; i<length;i++)
 			{
-				result[i] = alphaInv + ((p*data[i])/(1-p*alpha*data[i]));
+				result[i] = 1/(1-p*data[i]);
 				if(result[i].IsNaN) Debugger.Break();
 			}
 			IFourierFunction resultFunction = new DiscreteFourierFunction(result,this.samplingRate);

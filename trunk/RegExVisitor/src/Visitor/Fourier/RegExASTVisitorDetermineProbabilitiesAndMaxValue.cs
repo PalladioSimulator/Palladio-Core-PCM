@@ -1,6 +1,5 @@
 using Palladio.Performance.Attributes;
 using Palladio.Performance.Math;
-using Palladio.Performance.RegExVisitor.Visitor;
 using Palladio.RegularExpressions;
 
 namespace Palladio.Performance.RegExVisitor.Visitor
@@ -19,6 +18,11 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/12/04 18:41:21  helgeh
+	/// - Simplified DiscreteFourierFunction.Calculate LoopLimit
+	/// - added new attribute MaximumExecutionTimeAttribute
+	/// - replaced AbstractRegExASTVisitor.DetermineMaxTime by  a new visitor RegExASTVisitorDetermineMaxTime
+	///
 	/// Revision 1.1  2005/10/11 22:31:12  helgeh
 	/// *** empty log message ***
 	///
@@ -99,7 +103,14 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 		public RegExASTVisitorDetermineProbabilitiesAndMaxValue(IRegEx node, double epsilon) : base(epsilon)
 		{
 			Visit(node);
-			this.maxTime = DetermineMaxTime(node);
+			this.maxTime = DetermineMaxTime(node,epsilon);
+		}
+
+		private long DetermineMaxTime(IRegEx node, double epsilon)
+		{
+			RegExASTVisitorDetermineMaxTime visitor = new RegExASTVisitorDetermineMaxTime(epsilon);
+			visitor.Visit(node);
+			return MaximumExecutionTimeAttribute.GetAttribute(node).MaxExecutionTime;
 		}
 
 

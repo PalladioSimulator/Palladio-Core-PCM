@@ -16,10 +16,15 @@
             Version history:
             
             $Log$
+            Revision 1.3  2005/12/04 18:41:21  helgeh
+            - Simplified DiscreteFourierFunction.Calculate LoopLimit
+            - added new attribute MaximumExecutionTimeAttribute
+            - replaced AbstractRegExASTVisitor.DetermineMaxTime by  a new visitor RegExASTVisitorDetermineMaxTime
+
             Revision 1.2  2005/10/11 22:05:14  helgeh
             - Added NUnit project and NDoc documentation.
             - fixed a bug in AdjustSamplingRate
-
+            
             Revision 1.1  2005/08/12 07:59:19  helgeh
             Initial impot after refactoring.
             

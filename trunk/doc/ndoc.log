@@ -38,6 +38,23 @@ Palladio.Performance.Attributes.FourierAttribute.Deserialize.html
 Palladio.Performance.Attributes.FourierAttribute.GetAttribute.html
 Palladio.Performance.Attributes.FourierAttribute.Serialize.html
 Palladio.Performance.Attributes.FourierAttribute.SetAttribute.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttribute.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttributeMembers.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttributeConstructor.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttributeConstructor1.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttributeConstructor2.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttributeProperties.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttribute.AttributeType.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttribute.MaxExecutionTime.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttributeMethods.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttribute.Clone.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttribute.Deserialize.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttribute.Equals.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttribute.GetAttribute.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttribute.GetHashCode.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttribute.Serialize.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttribute.SetAttribute.html
+Palladio.Performance.Attributes.MaximumExecutionTimeAttribute.ToString.html
 Palladio.Performance.Attributes.MeasureAttribute.html
 Palladio.Performance.Attributes.MeasureAttributeMembers.html
 Palladio.Performance.Attributes.MeasureAttributeConstructor.html
@@ -323,7 +340,6 @@ Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitorProperties.html
 Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitor.Epsilon.html
 Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitor.Random.html
 Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitorMethods.html
-Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitor.DetermineMaxTime.html
 Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitor.DetermineNumberOfIterationsForLoop.html
 Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitor.ValidateLoopProbability.html
 Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitor.VisitIAlternative.html
@@ -331,6 +347,24 @@ Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitor.VisitILoop.htm
 Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitor.VisitISequence.html
 Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitor.VisitISymbol.html
 Palladio.Performance.RegExVisitor.Visitor.AbstractRegExASTVisitor.VisitObject.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorAddFourierAttributes.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorAddFourierAttributesMembers.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorAddFourierAttributesConstructor.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorAddFourierAttributesMethods.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorAddFourierAttributes.VisitIAlternative.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorAddFourierAttributes.VisitILoop.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorAddFourierAttributes.VisitISequence.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorAddFourierAttributes.VisitISymbol.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorAddFourierAttributes.VisitObject.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorDetermineMaxTime.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorDetermineMaxTimeMembers.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorDetermineMaxTimeConstructor.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorDetermineMaxTimeMethods.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorDetermineMaxTime.VisitIAlternative.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorDetermineMaxTime.VisitILoop.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorDetermineMaxTime.VisitISequence.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorDetermineMaxTime.VisitISymbol.html
+Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorDetermineMaxTime.VisitObject.html
 Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorFrequencyDomain.html
 Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorFrequencyDomainMembers.html
 Palladio.Performance.RegExVisitor.Visitor.RegExASTVisitorFrequencyDomainConstructor.html
@@ -438,18 +472,18 @@ Compiling HTML Help file...
 Compiling Html Help file
 Microsoft HTML Help Compiler 4.74.8702
 
-Compiling l:\Helges Dateien\Visual Studio Projects\Palladio.Performance\doc\ndoc_msdn_temp\Documentation.chm
+Compiling l:\Helges Dateien\Visual Studio Projects\Refactor\Palladio.Performance\doc\ndoc_msdn_temp\Documentation.chm
 
 
-Compile time: 0 minutes, 6 seconds
-823	Topics
-2,670	Local links
+Compile time: 0 minutes, 8 seconds
+891	Topics
+2,894	Local links
 0	Internet links
 6	Graphics
 
 
-Created l:\Helges Dateien\Visual Studio Projects\Palladio.Performance\doc\ndoc_msdn_temp\Documentation.chm, 215,538 bytes
-Compression decreased file by 1,113,699 bytes.
+Created l:\Helges Dateien\Visual Studio Projects\Refactor\Palladio.Performance\doc\ndoc_msdn_temp\Documentation.chm, 228,144 bytes
+Compression decreased file by 1,216,953 bytes.
 
 Html Help compile complete
 Done.

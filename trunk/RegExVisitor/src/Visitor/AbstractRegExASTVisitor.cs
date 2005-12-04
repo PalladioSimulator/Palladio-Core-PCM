@@ -13,6 +13,11 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.3  2005/12/04 18:41:21  helgeh
+	/// - Simplified DiscreteFourierFunction.Calculate LoopLimit
+	/// - added new attribute MaximumExecutionTimeAttribute
+	/// - replaced AbstractRegExASTVisitor.DetermineMaxTime by  a new visitor RegExASTVisitorDetermineMaxTime
+	///
 	/// Revision 1.2  2005/10/11 22:05:14  helgeh
 	/// - Added NUnit project and NDoc documentation.
 	/// - fixed a bug in AdjustSamplingRate
@@ -131,41 +136,6 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 				throw new ApplicationException("The probability of the inner loop expression must be a value" +
 					" in [0,1[.");
 		}
-		/// <summary>
-		/// Determines the maximum execution time of the resulting function. This is needed for dimension
-		/// of the data vector before the fourier transformation.
-		/// </summary>
-		/// <param name="node"></param>
-		/// <returns></returns>
-		public long DetermineMaxTime(IRegEx node)
-		{
-			if(node is ISymbol)
-			{
-				return RandomVariable.GetAttribute(node).ProbabilityDensityFunction.XMax;
-			}
-			if(node is ISequence)
-			{
-				ISequence seq = (ISequence) node;
-				return DetermineMaxTime(seq.Predecessor) + DetermineMaxTime(seq.Successor);
-			}
-			if(node is IAlternative)
-			{
-				IAlternative alt = (IAlternative) node;
-				return System.Math.Max(DetermineMaxTime(alt.AlternativeOne),DetermineMaxTime(alt.AlternativeTwo));
-			}
-			if(node is ILoop)
-			{
-				ILoop loop = (ILoop) node;
-				ProbabilityAttribute prob = 
-					ProbabilityAttribute.GetAttribute(loop.InnerExpression);
-				int predictedLoopIterations = 
-					DetermineNumberOfIterationsForLoop(prob.Probability);
-
-				long xmax = DetermineMaxTime(loop.InnerExpression);
-				return xmax * predictedLoopIterations;
-			}
-			return 0;
-		}
 
 
 		/// <summary>
@@ -205,25 +175,25 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 		#region Abstract Methods
 
 		/// <summary>
-		/// Computes the weighted sum of the two alternatives.
+		/// Visits the alternative.
 		/// </summary>
 		/// <param name="alternative"></param>
 		public abstract void VisitIAlternative(IAlternative alternative);
 
 		/// <summary>
-		/// Computes the convolution of the predecessor und the successor of the sequence.
+		/// Visits the sequence.
 		/// </summary>
 		/// <param name="sequence"></param>
 		public abstract void VisitISequence(ISequence sequence);
 
 		/// <summary>
-		/// Nothing has to be done when a Symbol is visited. A Symbol must have a RandomVariable.
+		/// Visits the symbol.
 		/// </summary>
 		/// <param name="symbol"></param>
 		public abstract void VisitISymbol(ISymbol symbol);
 
 		/// <summary>
-		///  Calculates the loop limit. 
+		///  Visits the loop. 
 		/// </summary>
 		/// <param name="loop"></param>
 		public abstract void VisitILoop(ILoop loop);

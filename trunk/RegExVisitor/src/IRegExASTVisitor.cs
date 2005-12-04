@@ -11,6 +11,11 @@ namespace Palladio.Performance.RegExVisitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/12/04 18:41:21  helgeh
+	/// - Simplified DiscreteFourierFunction.Calculate LoopLimit
+	/// - added new attribute MaximumExecutionTimeAttribute
+	/// - replaced AbstractRegExASTVisitor.DetermineMaxTime by  a new visitor RegExASTVisitorDetermineMaxTime
+	///
 	/// Revision 1.1  2005/08/12 07:59:20  helgeh
 	/// Initial impot after refactoring.
 	///
@@ -63,25 +68,25 @@ namespace Palladio.Performance.RegExVisitor
 		}
 
 		/// <summary>
-		/// Computes the weighted sum of the two alternatives.
+		/// Visits the alternative
 		/// </summary>
 		/// <param name="alternative"></param>
 		void VisitIAlternative(IAlternative alternative);
 
 		/// <summary>
-		/// Computes the convolution of the predecessor und the successor of the sequence.
+		/// Visits the Sequence.
 		/// </summary>
 		/// <param name="sequence"></param>
 		void VisitISequence(ISequence sequence);
 
 		/// <summary>
-		/// Nothing has to be done when a Symbol is visited. A Symbol must have a RandomVariable.
+		/// Visits the symbol.
 		/// </summary>
 		/// <param name="symbol"></param>
 		void VisitISymbol(ISymbol symbol);
 
 		/// <summary>
-		///  Calculates the loop limit. 
+		///  Visits the loop.
 		/// </summary>
 		/// <param name="loop"></param>
 		void VisitILoop(ILoop loop);

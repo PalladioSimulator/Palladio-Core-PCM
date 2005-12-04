@@ -28,7 +28,7 @@
                     BaseAddress = "285212672"
                     CheckForOverflowUnderflow = "false"
                     ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE;TEST"
+                    DefineConstants = "DEBUG;TRACE"
                     DocumentationFile = "Palladio.Performance.Math.xml"
                     DebugSymbols = "true"
                     FileAlignment = "4096"

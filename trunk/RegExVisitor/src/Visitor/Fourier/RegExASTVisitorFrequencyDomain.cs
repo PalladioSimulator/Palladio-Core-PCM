@@ -18,6 +18,11 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 	/// Version history:
 	///
 	/// $Log$
+	/// Revision 1.2  2005/12/04 18:41:21  helgeh
+	/// - Simplified DiscreteFourierFunction.Calculate LoopLimit
+	/// - added new attribute MaximumExecutionTimeAttribute
+	/// - replaced AbstractRegExASTVisitor.DetermineMaxTime by  a new visitor RegExASTVisitorDetermineMaxTime
+	///
 	/// Revision 1.1  2005/10/11 22:31:12  helgeh
 	/// *** empty log message ***
 	///
@@ -171,8 +176,6 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 				new FourierAttribute(result));
 		}
 
-
-
 		/// <summary>
 		///  Calculates the loop limit. 
 		/// </summary>
@@ -186,8 +189,6 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 			IFourierFunction result = fa.Function.ComputeLoopLimit(pin.Probability);
 			loop.Attributes.Add(FourierAttribute.AttributeType,new FourierAttribute(result));
 		}
-
-
 
 		/// <summary>
 		/// Nothing has to be done when a Symbol is visited. A Symbol must have a RandomVariable.

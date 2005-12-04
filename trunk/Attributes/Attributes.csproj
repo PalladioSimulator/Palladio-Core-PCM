@@ -144,6 +144,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\MaximumExecutionTimeAttribute.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\MeasureAttribute.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
