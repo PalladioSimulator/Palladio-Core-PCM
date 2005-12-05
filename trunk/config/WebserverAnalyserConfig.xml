@@ -4,7 +4,7 @@
 	<!--FilePath: Path to all files. -->
 	<FilePath>../../../TestData/WebAnalyser/</FilePath>
 	<!--MeasureFile: File containing the measures. -->
-	<MeasureFile>Measure16.xml</MeasureFile>
+	<MeasureFile>Measure13.xml</MeasureFile>
 	<!-- ServiceName: Name of the service which shall be analysed.-->
 <ServiceName>Palladio.Webserver.HTTPRequestParser.HTTPRequestParser_IRequestParser_HandleRequest</ServiceName>
 
@@ -30,11 +30,11 @@
 	<!-- SeffOutputFile: File for storing the generated service effect automaton.-->
 	<SeffOutputFile>SeffSFProvider9.xml</SeffOutputFile>
 	<!-- StoreFile: File for saving the the time consumption of all states and transitions and result of the calculation.-->
-	<StoreFile>RequestParser16.xml</StoreFile>
+	<StoreFile>RequestParser13.xml</StoreFile>
 	<!--Epsilon: precision of the loop calculation. This value is needed to predict the number of loop iterations after the calculation is aborted in
 time domain. The total probability of the loop result is 1-epsilon. The value is also needed for the calcuation in frequency domain, because the
 vector size  of the result has to be defined. -->
-	<Epsilon>0.05</Epsilon>
+	<Epsilon>0,05</Epsilon>
 	<!--frequencydomain: Set value true, if you want to calculate the performance in frequency domain, false for calculation in time domain-->
 	<FrequencyDomain>true</FrequencyDomain>
 	<!-- Samplingrate: Sampling rate of the generated RandomVariables.-->
