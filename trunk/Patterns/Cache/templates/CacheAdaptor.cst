@@ -263,20 +263,20 @@ namespace <%=AdaptorNamespace %>{
 	 
 		#region constructors
 		public <%=ServiceClassName %>CacheAdaptor(
-		<% if (ConstructorParamTypes != null) { %>
 		<% for (int i = 0; i < ConstructorParamTypes.Count; i++) { %>
+			<% if (ConstructorParamTypes[i] != "") { %>
 					<%= ConstructorParamTypes[i] %> param<%=i%><%if (!(i==ConstructorParamTypes.Count-1)) {%>, <% } %>
-		<% } %>
+			<% } %>
 		<% } %>
 		)
 		{
 			// TODO: call constructor of the cachedObject with given parameters
 			// i.e. adapt the constructor of the cachedObject.
 			this.cachedObject = new <%=ServiceClassName %>(
-		<% if (ConstructorParamTypes != null) { %>
 		<% for (int i = 0; i < ConstructorParamTypes.Count; i++) { %>
+			<% if (ConstructorParamTypes[i] != "") { %>
 					param<%=i%><%if (!(i==ConstructorParamTypes.Count-1)) {%>, <% } %>
-		<% } %>
+			<% } %>
 		<% } %>	
 			);
 			this.map = new Hashmap();
@@ -322,10 +322,10 @@ namespace <%=AdaptorNamespace %>{
 			{
 				resource = new ResourceWrapper(
 					this.cachedObject.<%=Getter %>(id), id);
-				Console.WriteLine("acquire:Resource NOT in cache");
+				//Console.WriteLine("acquire:Resource NOT in cache");
 			}
-			else
-				Console.WriteLine("acquire:Found Resource in cache");
+			/*else
+				Console.WriteLine("acquire:Found Resource in cache");*/
 			
 			return resource;
 		}
@@ -344,14 +344,11 @@ namespace <%=AdaptorNamespace %>{
 			{
 				ResourceWrapper res = (ResourceWrapper)enu.Value;
 				<%
-				if (EvictionStrategy == EvictionStrategyEnum.LRU){
-					Response.WriteLine("				Console.WriteLine(\"EVICTION LRU\");");
+				if (EvictionStrategy == EvictionStrategyEnum.LRU)
 					Response.WriteLine("				if (victim.Date.CompareTo(res.Date) > 0)");
-					}
-				else if (EvictionStrategy == EvictionStrategyEnum.LFU) {
-					Response.WriteLine("				Console.WriteLine(\"EVICTION LFU\"); ");
+					
+				else if (EvictionStrategy == EvictionStrategyEnum.LFU) 
 					Response.WriteLine("				if (victim.Count > res.Count)");
-					}	
 				%>
 				victim = res;
 			}
@@ -397,7 +394,6 @@ namespace <%=AdaptorNamespace %>{
 				ResourceWrapper resource = this.Acquire(index);
 				resource.Use();
 				<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
-					// TODO: implement write-back strategy!!!
 					// implementation of write-back
 					resource.Resource = newResult;
 					resource.Written = true;
