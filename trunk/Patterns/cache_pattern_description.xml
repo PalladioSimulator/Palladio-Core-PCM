@@ -18,11 +18,11 @@
 		<template>CacheAdaptorUnitTests.cst</template>
 	</adaptorTemplates>
 	<predictionModels>
-		<predictionModel name="Palladio">
+		<predictionModel name="Palladio" isExecutable="false">
 			<usageInstructions>Execute with Palladio_Performance_Prediction_xml.</usageInstructions>
 			<template>SEA_CacheAdaptor.cst</template>
 		</predictionModel>
-		<predictionModel name="CacheSimulation">
+		<predictionModel name="CacheSimulation" isExecutable="true">
 			<usageInstructions>Call command line tool with the number of calls that shall be simulated.</usageInstructions>
 			<template>CacheSimulation.cst</template>
 		</predictionModel>

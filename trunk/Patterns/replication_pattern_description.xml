@@ -13,20 +13,12 @@
 		<template>ReplicationAdaptor.cst</template>
 		<template>IConsistencyStrategy.cst</template>
 		<template>NaivePessimisticConcurrencyStrategy.cst</template>
-		<template>PrimaryBackupStrategy.cst</template>
+		<template>OptimisticReplicationStrategy.cst</template>
 	</adaptorTemplates>
 	<predictionModels>
-		<predictionModel name="Test">
-			<usageInstructions>sl flk fsd fl sdlkfodf ksfkf</usageInstructions>
-			<template>ReplicationPrediction1.cst</template>
-			<template>ReplicationPrediction2.cst</template>
-			<template>ReplicationPrediction3.cst</template>
-		</predictionModel>
-		<predictionModel name="Test2">
-			<usageInstructions>sl flk fsd fl sdlkfodf ksfkf</usageInstructions>
-			<template>ReplicationPrediction21.cst</template>
-			<template>ReplicationPrediction22.cst</template>
-			<template>ReplicationPrediction23.cst</template>
+		<predictionModel name="ReplicationSimulation" isExecutable="true">
+			<usageInstructions>Call command line tool with the number of calls that shall be simulated.</usageInstructions>
+			<template>ReplicationSimulation.cst</template>
 		</predictionModel>
 	</predictionModels>
 </pattern>
