@@ -25,11 +25,11 @@
 
 <%@ Property Name="ServiceReadingPercentiles" Type="CodeSmith.CustomProperties.StringCollection"
       Category="SimulationFeatures"
-      Description="The execution time of a reading call of the service given as percentiles. Uneven indices are interpreted as percentiles and even indices as values. The percentiles have to be increasing. The highest percentile has to be 100" %> 
+      Description="The execution time of a reading call of the service given as percentiles. Uneven indices are interpreted as percentiles and even indices as values. The percentiles have to be increasing. The highest percentile has to be 100. Percentiles and values have to be integer values." %> 
 
 <%@ Property Name="ServiceWritingPercentiles" Type="CodeSmith.CustomProperties.StringCollection"
       Category="SimulationFeatures"
-      Description="The execution time of a writing call of the service given as percentiles. Uneven indices are interpreted as percentiles and even indices as values in milliseconds. The percentiles have to be increasing. The highest percentile has to be 100" %> 
+      Description="The execution time of a writing call of the service given as percentiles. Uneven indices are interpreted as percentiles and even indices as values in milliseconds. The percentiles have to be increasing. The highest percentile has to be 100. Percentiles and values have to be integer values." %> 
 
 <%@ Property Name="ConsistencyStrategy" Type="ConsistencyStrategyEnum"
       Category="Cache Features"
@@ -344,14 +344,17 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 			<% for (int i = 0; i < ServiceReadingPercentiles.Count; i+=2) { %>
 				<% if (ServiceReadingPercentiles[i].Equals("100")) { %>	
 					else
+						executionTime = (this.randomiser.Next(<%= Int32.Parse(ServiceReadingPercentiles[i-1])+1 %>,<%=ServiceReadingPercentiles[i+1] %>));
+
 				<% } %>
 				<% else if (i == 0) { %>	
 					if (probability <= <%=ServiceReadingPercentiles[i] %>)
+						executionTime = (this.randomiser.Next(0,<%=ServiceReadingPercentiles[i+1] %>));
 				<% } %>
 				<% else { %>	
 					else if (probability <= <%=ServiceReadingPercentiles[i] %>)
+						executionTime = (this.randomiser.Next(<%= Int32.Parse(ServiceReadingPercentiles[i-1])+1 %>,<%=ServiceReadingPercentiles[i+1] %>));
 				<% } %>
-				executionTime = (probability * <%=ServiceReadingPercentiles[i+1] %>)/100;
 			<% } %>	
 			
 			return executionTime;
@@ -370,14 +373,16 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 			<% for (int i = 0; i < ServiceWritingPercentiles.Count; i+=2) { %>
 				<% if (ServiceWritingPercentiles[i].Equals("100")) { %>	
 					else
+						executionTime = (this.randomiser.Next(<%= Int32.Parse(ServiceWritingPercentiles[i-1])+1 %>,<%=ServiceWritingPercentiles[i+1] %>));
 				<% } %>
 				<% else if (i == 0) { %>	
 					if (probability <= <%=ServiceWritingPercentiles[i] %>)
+						executionTime = (this.randomiser.Next(0,<%=ServiceWritingPercentiles[i+1] %>));
 				<% } %>
 				<% else { %>	
 					else if (probability <= <%=ServiceWritingPercentiles[i] %>)
+						executionTime = (this.randomiser.Next(<%= Int32.Parse(ServiceWritingPercentiles[i-1])+1 %>,<%=ServiceWritingPercentiles[i+1] %>));
 				<% } %>
-				executionTime = (probability * <%=ServiceWritingPercentiles[i+1] %>)/100;
 			<% } %>		
 			
 			return executionTime;
@@ -402,13 +407,11 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 			{
 				if (clientCall.IsWritingCall)
 				{
-					//streamWriter.WriteLine("W "+clientCall.CallTime);
 					overallWritingTime += clientCall.CallTime;
 					numberOfWritingCalls++;
 				}
 				else
 				{
-					//streamWriter.WriteLine("R "+clientCall.CallTime);
 					overallReadingTime += clientCall.CallTime;
 					numberOfReadingCalls++;
 				}
@@ -427,6 +430,21 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 				numberOfWritingCalls);
 			streamWriter.WriteLine("Mean Writing Time = "+
 				overallWritingTime/numberOfWritingCalls);
+			
+			streamWriter.WriteLine();
+			streamWriter.WriteLine();
+			streamWriter.WriteLine("Read/Write, overall call time, execution time");
+			streamWriter.WriteLine();	
+
+			foreach (ClientCall clientCall in this.results)
+			{
+				if (clientCall.IsWritingCall)
+					streamWriter.WriteLine("W "+clientCall.CallTime+" "+
+						clientCall.ExecutionTime);
+				else
+					streamWriter.WriteLine("R "+clientCall.CallTime+" "+
+						clientCall.ExecutionTime);
+			}
 
 			streamWriter.Close();
 			fileStream.Close();
