@@ -51,7 +51,7 @@ namespace Palladio.QoSAdaptor.TestService
 		public Service()
 		{
 			values = new int[100];
-			randomizer = new Random(0);
+			randomizer = new Random(DateTime.Now.Millisecond);
 			CreateValues();
 		}
 		#endregion 
@@ -65,7 +65,7 @@ namespace Palladio.QoSAdaptor.TestService
 			int counter = 0;
 			while (counter < 100)
 			{
-				values[counter] = randomizer.Next();
+				values[counter] = this.randomizer.Next();
 				counter++;
 			}
 		}
@@ -81,14 +81,13 @@ namespace Palladio.QoSAdaptor.TestService
 		public int Get(int index)
 		{
 			// Modelling different percentiles of time consumption
-			Random timeConsumptionRandomizer = new Random();
-			int probability = timeConsumptionRandomizer.Next(0,100);
+			int probability = this.randomizer.Next(0,100);
 			if (probability < 30)
-				Thread.Sleep((timeConsumptionRandomizer.Next(0,10)));
+				Thread.Sleep(this.randomizer.Next(0,10));
 			else if (probability < 70)
-				Thread.Sleep(timeConsumptionRandomizer.Next(11,20));	
+				Thread.Sleep(this.randomizer.Next(11,20));	
 			else 
-				Thread.Sleep(timeConsumptionRandomizer.Next(21,40));	
+				Thread.Sleep(this.randomizer.Next(21,40));	
 
 			return values[index];
 		}
@@ -102,14 +101,13 @@ namespace Palladio.QoSAdaptor.TestService
 		public void Set(int index, int value)
 		{
 			// Modelling different percentiles of time consumption
-			Random timeConsumptionRandomizer = new Random();
-			int probability = timeConsumptionRandomizer.Next(0,100);
+			int probability = this.randomizer.Next(0,100);
 			if (probability < 30)
-				Thread.Sleep((timeConsumptionRandomizer.Next(0,20)));
+				Thread.Sleep((this.randomizer.Next(0,20)));
 			else if (probability < 70)
-				Thread.Sleep(timeConsumptionRandomizer.Next(21,40));	
+				Thread.Sleep(this.randomizer.Next(21,40));	
 			else 
-				Thread.Sleep(timeConsumptionRandomizer.Next(41,80));	
+				Thread.Sleep(this.randomizer.Next(41,80));	
 
 			values[index] = value;
 		}
