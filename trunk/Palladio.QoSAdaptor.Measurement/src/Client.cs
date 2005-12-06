@@ -21,7 +21,9 @@
 using System.Threading;
 using log4net;
 using System;
-using Palladio.QoSAdaptor.ReplicationAdaptor;
+//using Palladio.QoSAdaptor.ReplicationAdaptor;
+using Palladio.QoSAdaptor.CacheAdaptor;
+using Palladio.QoSAdaptor.TestService;
 using Palladio.QoSAdaptor.Utils;
 
 namespace Palladio.QoSAdaptor.Measurement
@@ -38,12 +40,19 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// <summary>
 		/// The measured service
 		/// </summary>
-		private ServiceReplicationAdaptor service;
+		//private ServiceReplicationAdaptor service;
+		//private ServiceCacheAdaptor service;
+		private Service service;
 
 		/// <summary>
 		/// Indicates how many service calls shall be executed by the client.
 		/// </summary>
 		private int numberOfCalls;
+
+		/// <summary>
+		/// The probability that the client executes a writing call.
+		/// </summary>
+		private double writeProbability;
 
 		/// <summary>
 		/// Randomizer for the indices used in service calls.
@@ -80,10 +89,12 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// </param>
 		/// <param name="numberOfCalls">The number of calls the client has to 
 		/// execute.</param>
-		public Client (ServiceReplicationAdaptor service, int numberOfCalls)
+		//public Client (ServiceReplicationAdaptor service, int numberOfCalls)
+		public Client (Service service, int numberOfCalls, double writeProbability)
 		{
 			this.service = service;
 			this.numberOfCalls = numberOfCalls;
+			this.writeProbability = writeProbability;
 
 			this.indexRandomizer = new Random(this.GetHashCode());
 			this.sleepRandomizer = new Random(this.GetHashCode()+1);
@@ -115,9 +126,11 @@ namespace Palladio.QoSAdaptor.Measurement
 			for (int i = 0; i<numberOfCalls; i++)
 			{
 				this.timer.Start();
-				int readWriteProbability = this.writeRandomizer.Next(0,10);
-				// write probability = 0.1
-				if (readWriteProbability == 9)
+				// 11 has been taken as max, because the the maximum value 
+				// seems not be taken as return value, but the min value
+				// may can appear (This has been tested with 1000 calls).
+				int readWriteProbability = this.writeRandomizer.Next(1,11);
+				if (readWriteProbability <= (this.writeProbability * 10))
 				{
 					this.service.Set(this.indexRandomizer.Next(0, 99), 1);
 					clientLogger.Debug(string.Format("Client {0}\t{1}\t{2}\t{3}",

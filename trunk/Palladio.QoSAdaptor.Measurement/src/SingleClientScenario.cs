@@ -1,4 +1,4 @@
-using Palladio.QoSAdaptor.ReplicationAdaptor;
+//using Palladio.QoSAdaptor.ReplicationAdaptor;
 
 #region info
 ///////////////////////////////////////////////////////////////////////////////
@@ -40,8 +40,8 @@ namespace Palladio.QoSAdaptor.Measurement
 		public SingleClientScenario()
 		{
 			//ServiceCacheAdaptor service = new ServiceCacheAdaptor();
-			ServiceReplicationAdaptor service = new ServiceReplicationAdaptor();
-			client = new Client(service, 500);
+			//ServiceReplicationAdaptor service = new ServiceReplicationAdaptor();
+			//client = new Client(service, 500);
 		}
 		#endregion
 

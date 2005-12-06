@@ -18,10 +18,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 
-using System;
 using System.Collections;
 using System.Threading;
-using Palladio.QoSAdaptor.ReplicationAdaptor;
+//using Palladio.QoSAdaptor.ReplicationAdaptor;
+using Palladio.QoSAdaptor.CacheAdaptor;
+using Palladio.QoSAdaptor.TestService;
 
 namespace Palladio.QoSAdaptor.Measurement
 {
@@ -49,13 +50,15 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// Constructs a ConcurrentClientScenario and initialises the service 
 		/// and the clients.
 		/// </summary>
-		public ConcurrentClientScenario(int numberOfClients, int numberOfCalls)
+		public ConcurrentClientScenario(int numberOfClients, int numberOfCalls,
+			double writeProbability)
 		{
+			Service service = new Service();
 			//ServiceCacheAdaptor service = new ServiceCacheAdaptor();
-			ServiceReplicationAdaptor service = new ServiceReplicationAdaptor();
+			//ServiceReplicationAdaptor service = new ServiceReplicationAdaptor();
 			clients = new ArrayList();
 			for (int i=0; i<numberOfClients; i++)
-				clients.Add(new Client(service, numberOfCalls));
+				clients.Add(new Client(service, numberOfCalls, writeProbability));
 		}
 		#endregion
 	
@@ -69,7 +72,6 @@ namespace Palladio.QoSAdaptor.Measurement
 			foreach (Client client in clients)
 			{
 				t = new Thread(new ThreadStart(client.Start)) ;
-				Console.WriteLine("START CLIENT "+client.GetHashCode());
 				t.Start();
 			}
 			t.Join();
