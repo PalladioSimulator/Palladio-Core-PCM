@@ -80,17 +80,16 @@ namespace Palladio.QoSAdaptor.TestService
 		/// <returns>The random integer value for the given index.</returns>
 		public int Get(int index)
 		{
-			// Modelling different percentiles of time consumption as indicated
-			// in SEA_CacheAdaptor.cst
-			Random timeConsumtionRandomizer = new Random();
-			int probability = timeConsumtionRandomizer.Next(0,100);
-			if (probability < 40)
-				Thread.Sleep((int)(probability * 1.25));
-			else if (probability < 60)
-				Thread.Sleep((int)(probability * 1.333));	
+			// Modelling different percentiles of time consumption
+			Random timeConsumptionRandomizer = new Random();
+			int probability = timeConsumptionRandomizer.Next(0,100);
+			if (probability < 30)
+				Thread.Sleep((timeConsumptionRandomizer.Next(0,10)));
+			else if (probability < 70)
+				Thread.Sleep(timeConsumptionRandomizer.Next(11,20));	
 			else 
-				Thread.Sleep(probability);	
-			
+				Thread.Sleep(timeConsumptionRandomizer.Next(21,40));	
+
 			return values[index];
 		}
 
@@ -102,7 +101,16 @@ namespace Palladio.QoSAdaptor.TestService
 		/// <param name="value">The new value.</param>
 		public void Set(int index, int value)
 		{
-			Thread.Sleep(100);
+			// Modelling different percentiles of time consumption
+			Random timeConsumptionRandomizer = new Random();
+			int probability = timeConsumptionRandomizer.Next(0,100);
+			if (probability < 30)
+				Thread.Sleep((timeConsumptionRandomizer.Next(0,20)));
+			else if (probability < 70)
+				Thread.Sleep(timeConsumptionRandomizer.Next(21,40));	
+			else 
+				Thread.Sleep(timeConsumptionRandomizer.Next(41,80));	
+
 			values[index] = value;
 		}
 		#endregion
