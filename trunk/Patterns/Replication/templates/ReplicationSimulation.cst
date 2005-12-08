@@ -230,7 +230,7 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 					SetNewCurrentClientCalls();
 				stepCounter++;
 			}
-			WriteResults();
+			WriteResults(calls);
 		}	
 		#endregion
 
@@ -464,10 +464,10 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 		/// <summary>
 		/// Outputs all call times and the mean value to the console.
 		/// </summary>
-		private void WriteResults()
+		private void WriteResults(int numberOfCalls)
 		{
-			FileStream fileStream = new FileStream("ReplicationSimulation.txt",
-				FileMode.Create);
+			FileStream fileStream = new FileStream("ReplicationSimulation.txt"+
+				numberOfCalls, FileMode.Create);
 			StreamWriter streamWriter = new StreamWriter(fileStream);
 
 			double overallTime = 0;

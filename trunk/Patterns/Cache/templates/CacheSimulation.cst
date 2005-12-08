@@ -235,7 +235,7 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 				}
 				stepCounter++;
 			}
-			ListResults();
+			ListResults(calls);
 		}	
 		#endregion
 
@@ -391,10 +391,10 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 		/// <summary>
 		/// Outputs all call times and the mean value to the console.
 		/// </summary>
-		private void ListResults()
+		private void ListResults(int numberOfCalls)
 		{
-			FileStream fileStream = new FileStream("CacheSimulation.txt",
-				FileMode.Create);
+			FileStream fileStream = new FileStream("CacheSimulation.txt"+
+				numberOfCalls, FileMode.Create);
 			StreamWriter streamWriter = new StreamWriter(fileStream);
 
 			double overallTime = 0;
