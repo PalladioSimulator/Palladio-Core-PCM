@@ -393,8 +393,8 @@ namespace Palladio.QoSAdaptor.CacheSimulation
 		/// </summary>
 		private void ListResults(int numberOfCalls)
 		{
-			FileStream fileStream = new FileStream("CacheSimulation.txt"+
-				numberOfCalls, FileMode.Create);
+			FileStream fileStream = new FileStream("CacheSimulation_"+
+				numberOfCalls+"Calls.txt", FileMode.Create);
 			StreamWriter streamWriter = new StreamWriter(fileStream);
 
 			double overallTime = 0;

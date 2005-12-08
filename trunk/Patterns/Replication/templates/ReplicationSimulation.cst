@@ -466,8 +466,8 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 		/// </summary>
 		private void WriteResults(int numberOfCalls)
 		{
-			FileStream fileStream = new FileStream("ReplicationSimulation.txt"+
-				numberOfCalls, FileMode.Create);
+			FileStream fileStream = new FileStream("ReplicationSimulation_"+
+				numberOfCalls+"Calls.txt", FileMode.Create);
 			StreamWriter streamWriter = new StreamWriter(fileStream);
 
 			double overallTime = 0;
