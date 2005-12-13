@@ -148,13 +148,11 @@ namespace Palladio.QoSAdaptor.Compiler
 
 			foreach (string oDll in mImportedDlls)
 				mCSharpCompilerParameters.ReferencedAssemblies.Add(oDll);
-				
 
 			string[] oFiles = new string[mFilesToCompile.Count];
 			mFilesToCompile.CopyTo(oFiles, 0);
 			oCSharpCompilerResults = oCSharpCodeCompiler.
 				CompileAssemblyFromFileBatch(mCSharpCompilerParameters, oFiles);
-			
 			mCSharpCompilerResults = oCSharpCompilerResults;
 
 			/*Console.WriteLine("---------------------------------");
