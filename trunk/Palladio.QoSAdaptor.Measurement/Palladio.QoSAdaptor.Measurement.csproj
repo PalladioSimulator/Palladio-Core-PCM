@@ -97,12 +97,7 @@
                 <Reference
                     Name = "Adaptor"
                     AssemblyName = "Adaptor"
-                    HintPath = "..\Patterns\Cache\bin\adaptor\Adaptor.dll"
-                />
-                <Reference
-                    Name = "Palladio.QoSAdaptor.TestService"
-                    Project = "{DBDDAC67-421A-4739-8BA7-E09B4A75B6F4}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    HintPath = "..\Patterns\Replication\bin\adaptor\Adaptor.dll"
                 />
             </References>
         </Build>

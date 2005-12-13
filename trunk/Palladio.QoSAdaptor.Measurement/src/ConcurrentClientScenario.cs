@@ -20,9 +20,9 @@
 
 using System.Collections;
 using System.Threading;
-//using Palladio.QoSAdaptor.ReplicationAdaptor;
-using Palladio.QoSAdaptor.CacheAdaptor;
-using Palladio.QoSAdaptor.TestService;
+using Palladio.QoSAdaptor.ReplicationAdaptor;
+//using Palladio.QoSAdaptor.CacheAdaptor;
+//using Palladio.QoSAdaptor.TestService;
 
 namespace Palladio.QoSAdaptor.Measurement
 {
@@ -53,9 +53,9 @@ namespace Palladio.QoSAdaptor.Measurement
 		public ConcurrentClientScenario(int numberOfClients, int numberOfCalls,
 			double writeProbability)
 		{
-			Service service = new Service();
+			//Service service = new Service();
 			//ServiceCacheAdaptor service = new ServiceCacheAdaptor();
-			//ServiceReplicationAdaptor service = new ServiceReplicationAdaptor();
+			ServiceReplicationAdaptor service = new ServiceReplicationAdaptor();
 			clients = new ArrayList();
 			for (int i=0; i<numberOfClients; i++)
 				clients.Add(new Client(service, numberOfCalls, writeProbability));
@@ -68,13 +68,28 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// </summary>
 		public void Start()
 		{
+			// Create threads
+			ArrayList threads = new ArrayList();
 			Thread t = null;
 			foreach (Client client in clients)
 			{
 				t = new Thread(new ThreadStart(client.Start)) ;
 				t.Start();
+				threads.Add(t);
 			}
-			t.Join();
+
+			// Wait until all threads are finished
+			bool allThreadsFinished = false;
+			while (!allThreadsFinished)
+			{
+				allThreadsFinished = true;
+				foreach (Thread thread in threads)
+				{
+					if (thread.IsAlive)
+						allThreadsFinished = false;
+				}
+				Thread.Sleep(1);
+			}
 		}
 		#endregion
 	}

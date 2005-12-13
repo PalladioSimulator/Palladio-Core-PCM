@@ -21,9 +21,9 @@
 using System.Threading;
 using log4net;
 using System;
-//using Palladio.QoSAdaptor.ReplicationAdaptor;
-using Palladio.QoSAdaptor.CacheAdaptor;
-using Palladio.QoSAdaptor.TestService;
+using Palladio.QoSAdaptor.ReplicationAdaptor;
+//using Palladio.QoSAdaptor.CacheAdaptor;
+//using Palladio.QoSAdaptor.TestService;
 using Palladio.QoSAdaptor.Utils;
 
 namespace Palladio.QoSAdaptor.Measurement
@@ -40,9 +40,9 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// <summary>
 		/// The measured service
 		/// </summary>
-		//private ServiceReplicationAdaptor service;
+		private ServiceReplicationAdaptor service;
 		//private ServiceCacheAdaptor service;
-		private Service service;
+		//private Service service;
 
 		/// <summary>
 		/// Indicates how many service calls shall be executed by the client.
@@ -89,8 +89,9 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// </param>
 		/// <param name="numberOfCalls">The number of calls the client has to 
 		/// execute.</param>
-		//public Client (ServiceReplicationAdaptor service, int numberOfCalls)
-		public Client (Service service, int numberOfCalls, double writeProbability)
+		public Client (ServiceReplicationAdaptor service, int numberOfCalls, double writeProbability)
+		//public Client (ServiceCacheAdaptor service, int numberOfCalls, double writeProbability)
+		//public Client (Service service, int numberOfCalls, double writeProbability)
 		{
 			this.service = service;
 			this.numberOfCalls = numberOfCalls;

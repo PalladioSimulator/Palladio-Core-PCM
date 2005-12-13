@@ -52,7 +52,7 @@
             log4net logger that writes all response times to the main memory.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Measurement.Client.#ctor(Palladio.QoSAdaptor.TestService.Service,System.Int32,System.Double)">
+        <member name="M:Palladio.QoSAdaptor.Measurement.Client.#ctor(Palladio.QoSAdaptor.ReplicationAdaptor.ServiceReplicationAdaptor,System.Int32,System.Double)">
             <summary>
             Constructs a new Client object and initialises all attributes.
             </summary>
