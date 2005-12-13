@@ -155,7 +155,7 @@ namespace <%=AdaptorNamespace %>{
 			/// </summary>
 			private <%=IndexType %> id;
 
-			<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) {%>
+			<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
 			/// <summary>
 			/// Indicates whether the resource has been written or not.
 			/// </summary>
@@ -201,7 +201,7 @@ namespace <%=AdaptorNamespace %>{
 				}
 			}
 
-			<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) {%>
+			<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
 			/// <summary>
 			/// Indicates whether the resource has been written.
 			/// </summary>
@@ -270,8 +270,6 @@ namespace <%=AdaptorNamespace %>{
 		<% } %>
 		)
 		{
-			// TODO: call constructor of the cachedObject with given parameters
-			// i.e. adapt the constructor of the cachedObject.
 			this.cachedObject = new <%=ServiceClassName %>(
 		<% for (int i = 0; i < ConstructorParamTypes.Count; i++) { %>
 			<% if (ConstructorParamTypes[i] != "") { %>
@@ -298,34 +296,30 @@ namespace <%=AdaptorNamespace %>{
 		/// released.</param>
 		private void Release (ResourceWrapper resource)
 		{
-			<%=IndexType %> id = resource.Id;
-			if (!map.ContainsKey(id))
+			// The adaptor is locked so the cache stays in an consistent state.
+			lock(this)
 			{
-				if (this.map.Count == this.cacheSize)
-					this.Evict();
-				this.map.Add(id, resource);
+				<%=IndexType %> id = resource.Id;
+				if (!map.ContainsKey(id))
+				{
+					if (this.map.Count == this.cacheSize)
+						this.Evict();
+					this.map.Add(id, resource);
+				}
 			}
 		}
 		
 
 		/// <summary>
 		/// The acquire method is called each time a resource shall be used. It 
-		/// returns the resource from the hashmap or calls the <%=Getter %> 
-		/// method of <%=ServiceClassName %> if the resource is not yet in the 
-		/// cache.
+		/// returns the resource from the hashmap, if the resource is already in 
+		/// the cache.
 		/// </summary> 
 		/// <param name="id">ID of the aquired resource.</param>
+		/// <>
 		private ResourceWrapper Acquire (<%=IndexType %> id)
 		{
 			ResourceWrapper resource = (ResourceWrapper)this.map[id];
-			if (resource == null)
-			{
-				resource = new ResourceWrapper(
-					this.cachedObject.<%=Getter %>(id), id);
-				//Console.WriteLine("acquire:Resource NOT in cache");
-			}
-			/*else
-				Console.WriteLine("acquire:Found Resource in cache");*/
 			
 			return resource;
 		}
@@ -364,45 +358,62 @@ namespace <%=AdaptorNamespace %>{
 		/// <summary>
 		/// This method adapts the <%=Getter %> method of 
 		/// <%=ServiceClassName %>.
-		/// Instead of calling that method directly the cache methods are used 
-		/// to provide the requested service. 
 		/// </summary>
+		/// <param name="index">The index of the value that shall be read.</param>
+		/// <returns>The data belonging to the given index.</returns>
 		public <%=DataType %> <%=Getter %>(<%=IndexType %> index)
 		{
 			ResourceWrapper resource;
-			lock(this)
+			
+			// Since there is no lock that restricts the concurrent use of a 
+			// resource, it may happen, that a resource is read more than once from 
+			// the adapted service when Acquire is called concurrently for a not
+			// cached resource before Release is called. This is tolerated since it 
+			// will not affect the consistency of the cache and enhances performance
+			// in most cases, because concurrent reading of other resources is 
+			// enabled.		
+			resource = this.Acquire(index);
+			if (resource == null)
 			{
-				resource = this.Acquire(index);
-				// set informations needed for the eviction strategies.
-				resource.Use();
-				this.Release(resource);
+				resource = new ResourceWrapper(
+					this.cachedObject.<%=Getter %>(id), id);
 			}
+			resource.Use();
+			this.Release(resource);
+
 			return resource.Resource;
 		}
 	
 		/// <summary>
 		/// This method adapts the <%=Setter %> method of 
 		/// <%=ServiceClassName %>.
-		/// Instead of calling that method directly the cache methods are used 
-		/// to provide the requested service. 
+		/// The method locks the adaptor, because else it could happen, that the 
+		/// cache becomes inconsistent, when a new ResourceWrapper is created here 
+		/// and another newly created ResourceWrapper is released to the cache, before
+		/// this ResourceWrapper is released.
 		/// </summary>
+		/// <param name="index">The index of the value that shall be written.</param>
+		/// <param name="newResult">The value that shall be written.</param>
 		public void <%=Setter %>(<%=IndexType %> index, 
 								<%=DataType %> newResult)
 		{
 			lock(this)
 			{
 				ResourceWrapper resource = this.Acquire(index);
+				if (resource == null)
+					resource = new ResourceWrapper(newResult, id);
+				else 
+					resource.Resource = newResult;
+
 				resource.Use();
-				<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
-					// implementation of write-back
-					resource.Resource = newResult;
-					resource.Written = true;
-				<% } %>
-				<% else if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteThrough) { %>
-					// implementation of write-through
-					resource.Resource = newResult;
-					this.cachedObject.<%=Setter %>(index, newResult);
-				<% } %>
+			<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
+				// implementation of write-back
+				resource.Written = true;
+			<% } %>
+			<% else if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteThrough) { %>
+				// implementation of write-through
+				this.cachedObject.<%=Setter %>(index, newResult);
+			<% } %>
 				this.Release(resource);
 			}
 		}
