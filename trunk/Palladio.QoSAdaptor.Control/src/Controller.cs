@@ -18,6 +18,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 
+using System;
 using System.CodeDom.Compiler;
 using System.Collections;
 using System.IO;
@@ -129,8 +130,17 @@ namespace Palladio.QoSAdaptor.Control
 
 						if (generated)
 						{
-							// Compilation
-							Compile(selectedPattern);
+							try
+							{
+								// Compilation
+								Compile(selectedPattern);
+							}
+							catch (Exception e)
+							{
+								MessageBox.Show("Error in Compilation:\n"+
+									e.Message);
+							}
+
 						}
 					}
 				}
@@ -285,7 +295,7 @@ namespace Palladio.QoSAdaptor.Control
 	
 				FileInfo [] libs = GetLibs(libDirectory);
 
-				// compile adaptor, if source file have been generated
+				// compile adaptor, if source files have been generated
 				CompileAdaptor(sourceDirectory, binDirectory, libs);
 				
 			
@@ -311,9 +321,13 @@ namespace Palladio.QoSAdaptor.Control
 		/// <param name="sourceFiles">Array of CSharp files.</param>
 		/// <param name="libs">Array of DLLs needed to compile the given 
 		/// source files.</param>
+		/// <param name="assemblyName">The name of the resulting assembly.
+		/// </param>
+		/// <param name="isExecutable">Indicates whether a class library or a
+		/// console application shall be created.</param>
 		/// <returns>Full path to created assembly.</returns>
 		private string CompileCSharpFiles(FileInfo[] sourceFiles, 
-			FileInfo[] libs, string assemblyName)
+			FileInfo[] libs, string assemblyName, bool isExecutable)
 		{
 			CSharpCompiler compiler = new CSharpCompiler();
 			
@@ -322,29 +336,15 @@ namespace Palladio.QoSAdaptor.Control
 				libNames[i] = libs[i].FullName;
 			compiler.CSharpCompilerParameters = new CompilerParameters(
 				libNames, assemblyName);
+			if (isExecutable)
+				compiler.CSharpCompilerParameters.GenerateExecutable = true;
+
 			foreach (FileInfo sourceFile in sourceFiles)
 				compiler.FilesToCompile.Add(sourceFile.FullName);
 
 			CompilerResults results = compiler.Compile();
 
 			return results.PathToAssembly;
-		}
-
-		/// <summary>
-		/// Copies the assembly at the given path to the given subfolder of the
-		/// bin folder.
-		/// </summary>
-		/// <param name="assembly">Full path of the compiled assembly.
-		/// </param>
-		/// <param name="folderName">Destination folder to 
-		/// copy the assembly to.</param>
-		/// <param name="newAssemblyName">Destination name of the new assembly.</param>
-		private void CopyAssembly(string assembly, 
-			string folderName, string newAssemblyName)
-		{
-			// TODO: Check if dir exists or create it. 
-			File.Delete(folderName+newAssemblyName);
-			File.Copy(assembly, folderName+newAssemblyName);
 		}
 
 		/// <summary>
@@ -381,8 +381,6 @@ namespace Palladio.QoSAdaptor.Control
 				FileInfo[] sourceFiles = adaptorDirectory.GetFiles("*.cs");
 				if (sourceFiles.Length > 0)
 				{
-					string assemblyPath = CompileCSharpFiles(sourceFiles,libs, 
-						binDirectory+"adaptor\\"+"Adaptor.dll");
 					DirectoryInfo adaptorBinDirectory = new DirectoryInfo(
 						binDirectory+"adaptor\\");
 					if (!adaptorBinDirectory.Exists)
@@ -392,8 +390,8 @@ namespace Palladio.QoSAdaptor.Control
 						adaptorBinDirectory = new DirectoryInfo(binDirectory+
 							"adaptor\\");
 					}
-					//CopyAssembly(assemblyPath, binDirectory+"adaptor\\", 
-					//	"Adaptor.dll");
+					CompileCSharpFiles(sourceFiles,libs, 
+						binDirectory+"adaptor\\"+"Adaptor.dll", false);
 				}
 			}
 		}
@@ -421,23 +419,26 @@ namespace Palladio.QoSAdaptor.Control
 					FileInfo[] sourceFiles = modelFolder.GetFiles("*.cs");
 					if (sourceFiles.Length > 0)
 					{
-						string assemblyPath = CompileCSharpFiles(sourceFiles, 
-							libs, binDirectory+predictionModel.Name+"\\"+
-							predictionModel.Name+".dll");
 						DirectoryInfo modelBinDirectory = new DirectoryInfo(
 							binDirectory+predictionModel.Name+"\\");
 						if (!modelBinDirectory.Exists)
 						{
 							DirectoryInfo binDir = new DirectoryInfo(binDirectory);	
-							binDir.CreateSubdirectory("predictionModel.Name");
+							binDir.CreateSubdirectory(predictionModel.Name);
 							modelBinDirectory = new DirectoryInfo(binDirectory+
 								predictionModel.Name+"\\");
 						}
-						//CopyAssembly(assemblyPath, binDirectory+
-						//	predictionModel.Name+"\\", 
-						//	"predictionModel.Name.dll");
+						string assemblyName;
+						if (predictionModel.IsExecutable)
+							assemblyName = predictionModel.Name+".exe";
+						else
+							assemblyName = predictionModel.Name+".dll";
+						CompileCSharpFiles(sourceFiles, 
+							libs, binDirectory+predictionModel.Name+"\\"+
+							assemblyName, predictionModel.IsExecutable);
 					}
 				}
+				// TODO: else throw exception
 			}
 		}
 		#endregion
