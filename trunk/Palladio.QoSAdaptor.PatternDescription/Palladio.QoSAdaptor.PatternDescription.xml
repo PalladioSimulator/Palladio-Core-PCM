@@ -171,6 +171,11 @@
             A list of templates belonging to the prediction model.
             </summary>
         </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.IPredictionModel.IsExecutable">
+            <summary>
+            Indicates whether the prediction model is executable or not.
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.Pattern.MismatchAttribute">
             <summary>
             A MismatchAttribute describes the suitability of a design 
@@ -591,7 +596,12 @@
             States how to use the predicition model
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Pattern.PredictionModel.#ctor(System.String)">
+        <member name="F:Palladio.QoSAdaptor.Pattern.PredictionModel.isExecutable">
+            <summary>
+            Indicates whether the prediction model is executable or not.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PredictionModel.#ctor(System.String,System.Boolean)">
             <summary>
             Constructor that takes the name of the prediction model. Templates 
             can be added by using AddTemplate.
@@ -619,6 +629,11 @@
         <member name="P:Palladio.QoSAdaptor.Pattern.PredictionModel.UsageInstructions">
             <summary>
             States how to use the prediction model.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.Pattern.PredictionModel.IsExecutable">
+            <summary>
+            Indicates whether the prediction model is executable or not.
             </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.Pattern.SuitabilityValue">

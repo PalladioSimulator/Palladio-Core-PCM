@@ -44,6 +44,11 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// States how to use the predicition model
 		/// </summary>
 		private string usageInstructions;
+
+		/// <summary>
+		/// Indicates whether the prediction model is executable or not.
+		/// </summary>
+		private bool isExecutable;
 		#endregion
 
 		#region constructor
@@ -52,9 +57,10 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// can be added by using AddTemplate.
 		/// </summary>
 		/// <param name="name">The name of this prediction model.</param>
-		public PredictionModel(string name)
+		public PredictionModel(string name, bool isExecutable)
 		{
 			this.name = name;
+			this.isExecutable = isExecutable;
 			this.templates = new ArrayList();
 			this.usageInstructions = "";
 		}
@@ -95,6 +101,17 @@ namespace Palladio.QoSAdaptor.Pattern
 			set
 			{
 				this.usageInstructions = value;
+			}
+		}
+
+		/// <summary>
+		/// Indicates whether the prediction model is executable or not.
+		/// </summary>
+		public bool IsExecutable
+		{
+			get
+			{
+				return this.isExecutable;
 			}
 		}
 		#endregion

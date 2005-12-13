@@ -331,7 +331,15 @@ namespace Palladio.QoSAdaptor.Pattern
 			XPathNavigator nav = it.Current.Clone();
 			nav.MoveToFirstAttribute();
 			string name = nav.Value;
-			PredictionModel predictionModel = new PredictionModel(name);	
+			nav.MoveToNextAttribute();
+			bool isExecutable;
+			if (nav.Value.Equals("true"))
+				isExecutable = true;
+			else
+				isExecutable = false;
+			
+			PredictionModel predictionModel = new PredictionModel(name, 
+				isExecutable);	
 
 			XPathNodeIterator it3 = it.Current.SelectChildren(
 				"usageInstructions", it.Current.NamespaceURI);

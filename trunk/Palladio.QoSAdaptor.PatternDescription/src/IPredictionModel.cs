@@ -47,7 +47,10 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// </summary>
 		IList Templates{get;}
 
-
+		/// <summary>
+		/// Indicates whether the prediction model is executable or not.
+		/// </summary>
+		bool IsExecutable{get;}
 		#endregion
 	}
 }
