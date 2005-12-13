@@ -38,6 +38,14 @@ namespace <%=AdaptorNamespace %>
 	/// </summary>
 	internal interface IConsistencyStrategy
 	{
+		/// <summary>
+		/// Write the given value to the replicas at the given index.
+		/// The adaptor reference is needed to get the replicas and set locks 
+		/// during writing.
+		/// </summary>
+		/// <param name="adaptor">The replication adaptor.</param>
+		/// <param name="index">The index to write to.</param>
+		/// <param name="value">The value to write.</param>
 		void Write(<%=ServiceClassName %>ReplicationAdaptor adaptor, int index, int value);
 	}
 }
