@@ -49,64 +49,165 @@ namespace <%=AdaptorNamespace %>
 	/// </summary>
 	internal class OptimisticReplicationStrategy : IConsistencyStrategy
 	{
+		#region attributes
+		/// <summary>
+		/// The replication adaptor.
+		/// </summary>
+		private <%=ServiceClassName %>ReplicationAdaptor adaptor;
+
+		/// <summary>
+		/// The replicas to write to. Used to initialise the WriteToReplica 
+		/// threads. When all threads are initialised the list is empty again.
+		/// </summary>
+		private ArrayList replicas; 
+
+		/// <summary>
+		/// The index to write to.
+		/// </summary>
+		private int index;
+
+		/// <summary>
+		/// The value to write to.
+		/// </summary>
+		private int value;
+		#endregion
+
+		#region public method inherited from IConsistencyStrategy
+		/// <summary>
+		/// Write the given value to the replicas at the given index.
+		/// The adaptor reference is needed to get the replicas and set locks 
+		/// during writing.
+		/// </summary>
+		/// <param name="adaptor">The replication adaptor.</param>
+		/// <param name="index">The index to write to.</param>
+		/// <param name="value">The value to write.</param>
 		public void Write(<%=ServiceClassName %>ReplicationAdaptor adaptor, int index, int value)
 		{
-			ICollection replicas = adaptor.Replicas;
-			
-			WriteToAllReplicas(replicas, index, value);
+			// Parameters are saved as private attributes, because the writing
+			// is implemented in threads for each replica and the ThreadStart 
+			// constructor only takes a method name and not the parameters 
+			// of this method as parameters.
+			this.adaptor = adaptor;
+			this.index = index;
+			this.value = value;
+			this.replicas = (ArrayList)adaptor.Replicas.Clone();
+
+			WriteToAllReplicas(adaptor);
 
 			bool check = CheckAllReplicas(replicas, index, value);
 		
 			if (!check)
-				LockedWrite(adaptor, replicas, index, value);
+				LockedWrite(adaptor);
 		}
+		#endregion
 
 		#region private methods
 		/// <summary>
-		/// Writes to all replicas without locking them.
+		/// Writes the given value to all given replicas at the given index.
 		/// </summary>
-		/// <param name="replicas">A collection of replicas.</param>
-		/// <param name="index">The index to write to.</param>
-		/// <param name="value">The value to write.</param>
-		private void WriteToAllReplicas(ICollection replicas, int index, 
-			int value)
+		/// <param name="adaptor">The replication adaptor.</param>
+		private void WriteToAllReplicas(<%=ServiceClassName %>ReplicationAdaptor adaptor)
 		{
-			foreach (string replicaInfo in replicas)
-			{
-				Service replica = null;
-				try 
-				{
-					replica = (Service)Activator.GetObject(typeof(Service),
-						replicaInfo);
-				}
-				catch (System.Runtime.Remoting.RemotingException e)
-				{
-					// TODO: throw new exception
-					throw e;
-				}
+			ICollection replicas = adaptor.Replicas;
+			ArrayList threads = new ArrayList();
+			Thread t = null;
 
-				if (replica == null) 
-					// TODO: Throw exception
-					System.Console.WriteLine("Could not locate server");
-				else
-				{
-					try 
-					{
-						// TODO: check adaptor.LockAllReplicas
-						replica.Set(index, value);
-					}
-					catch (System.Net.Sockets.SocketException e)
-					{
-						// TODO: Throw exception
-						Console.WriteLine(e.Message);
-						throw e;
-					}
-				}
+			// Create writing threads
+			for (int i=0; i<replicas.Count; i++)
+			{
+				t = new Thread(new ThreadStart(this.WriteToReplica));
+				t.Start();
+				threads.Add(t);
 			}
+
+			// Wait until all threads are finished.
+			bool allThreadsFinished = false;
+			while(!allThreadsFinished)
+			{
+				allThreadsFinished = true;
+				foreach (Thread thread in threads)
+				{
+					if (thread.IsAlive)
+						allThreadsFinished = false;
+				}
+				Thread.Sleep(1);
+			}		
 		}
 
-		private void LockedWrite(<%=ServiceClassName %>ReplicationAdaptor adaptor, 
-			ICollection replicas, int index, int value)
+		/// <summary>
+		/// Writes to the first replica in this.replicas and removes it from 
+		/// the list. The method is designed to be called in new threads to enable
+		/// parallel writing to several replicas.
+		/// </summary>
+		private void WriteToReplica()
+		{		
+			string replicaInfo;
+			lock (this)
+			{
+				replicaInfo = (string)
+					this.replicas[0];
+				this.replicas.Remove(replicaInfo);
+			}
+			bool written = false;	
+			while (!written)
+			{
+				bool replicaAvailable = false;
+				lock(adaptor)
+				{
+					if (!adaptor.LockAllReplicas)
+					{
+						if (adaptor.AvailableReplicas.Contains(
+							replicaInfo))
+						{
+							adaptor.AvailableReplicas.Remove(
+								replicaInfo);
+							replicaAvailable = true;
+						}
+					}
+				}
+				if (replicaAvailable)
+				{
+					<%=ServiceClassName %> replica = null;
+					try 
+					{
+						replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
+							replicaInfo);
+					}
+					catch (System.Runtime.Remoting.RemotingException e)
+					{
+						// TODO: throw new exception
+						throw e;
+					}
+
+					if (replica == null) 
+						// TODO: Throw exception
+						System.Console.WriteLine("Could not locate server");
+					else
+					{
+						try 
+						{
+							replica.Set(index, value);
+						}
+						catch (System.Net.Sockets.SocketException e)
+						{
+							// TODO: Throw exception
+							Console.WriteLine(e.Message);
+							throw e;
+						}
+					}
+					adaptor.AvailableReplicas.Add(replicaInfo);
+					written = true;
+				}
+				else
+					Thread.Sleep(1);
+			}		
+		}
+
+		/// <summary>
+		/// Locks all replicas and repeats the write.
+		/// </summary>
+		/// <param name="adaptor">The replication adaptor.</param>
+		private void LockedWrite(<%=ServiceClassName %>ReplicationAdaptor adaptor)
 		{
 			// Lock all replicas
 			bool locked = false;
@@ -123,7 +224,7 @@ namespace <%=AdaptorNamespace %>
 				Thread.Sleep(0);
 			}	
 
-			WriteToAllReplicas(replicas, index, value);
+			WriteToAllReplicas(adaptor);
 			adaptor.LockAllReplicas = false;
 		}
 
@@ -143,10 +244,10 @@ namespace <%=AdaptorNamespace %>
 			bool check = true;
 			foreach (string replicaInfo in replicas)
 			{
-				Service replica = null;
+				<%=ServiceClassName %> replica = null;
 				try 
 				{
-					replica = (Service)Activator.GetObject(typeof(Service),
+					replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
 						replicaInfo);
 				}
 				catch (System.Runtime.Remoting.RemotingException e)
