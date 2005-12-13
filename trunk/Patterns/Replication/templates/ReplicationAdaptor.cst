@@ -93,6 +93,11 @@ namespace <%=AdaptorNamespace %>
 		private ArrayList availableReplicas;
 
 		/// <summary>
+		/// A list containing all replica locations as string.
+		/// </summary>
+		private ArrayList allReplicas;
+
+		/// <summary>
 		/// The number of totally available replicas. Needed when 
 		/// consistency strategies need to lock all replicas.
 		/// </summary>
@@ -106,21 +111,16 @@ namespace <%=AdaptorNamespace %>
 		/// TODO: Implement alternative ???
 		/// </summary>
 		private bool lockAllReplicas;
-
-		/// <summary>
-		/// The used consistency strategy
-		/// </summary>
-		private IConsistencyStrategy consistencyStrategy;
 		#endregion
 
 		#region constructor
 		public <%=ServiceClassName %>ReplicationAdaptor()
 		{
-			this.consistencyStrategy = new <%=ConsistencyStrategy %>();
 			this.availableReplicas = new ArrayList();
 			<% for (int i = 0; i < ReplicaLocations.Count; i++) { %>
 					this.availableReplicas.Add("<%= ReplicaLocations[i] %>");
 			<% } %>  
+			this.allReplicas = (ArrayList)this.availableReplicas.Clone();
 			this.numberOfReplicas = this.availableReplicas.Count;
 			this.lockAllReplicas = false;
 			TcpChannel chan = new TcpChannel();
@@ -162,11 +162,22 @@ namespace <%=AdaptorNamespace %>
 		/// <summary>
 		/// Returns a list of all currently available replicas.
 		/// </summary>
-		internal ICollection Replicas
+		internal IList AvailableReplicas
 		{
 			get
 			{
 				return this.availableReplicas;
+			}
+		}
+
+		/// <summary>
+		/// Returns a list of all replicas.
+		/// </summary>
+		internal ArrayList Replicas
+		{
+			get
+			{
+				return this.allReplicas;
 			}
 		}
 		#endregion
@@ -185,47 +196,55 @@ namespace <%=AdaptorNamespace %>
 			{
 				if (!this.lockAllReplicas)
 				{
-					string replicaInfo;
+					string replicaInfo = string.Empty;
 					lock(this)
-					{
-						replicaInfo = (string)this.availableReplicas
-							[replicaCounter];
-						replicaCounter++;
+					{	
+						if (this.availableReplicas.Count > 0)
+						{
+							replicaInfo = (string)this.availableReplicas[0];
+							this.availableReplicas.Remove(replicaInfo);
+						}
 					}
-					<%=ServiceClassName %> replica = null;
-					try 
+					if (!replicaInfo.Equals(string.Empty))
 					{
-						replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
-							replicaInfo);
-					}
-					catch (System.Runtime.Remoting.RemotingException e)
-					{
-						// TODO: throw new exception
-						throw e;
-					}
-
-					if (replica == null) 
-						// TODO: Throw exception
-						System.Console.WriteLine("Could not locate server");
-					else
-					{
+						<%=ServiceClassName %> replica = null;
 						try 
 						{
-							result = replica.Get(index);
+							replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
+								replicaInfo);
 						}
-						catch (System.Net.Sockets.SocketException e)
+						catch (System.Runtime.Remoting.RemotingException e)
 						{
-							// TODO: Throw exception
-							Console.WriteLine(e.Message);
+							// TODO: throw new exception
+							throw e;
 						}
+	
+						if (replica == null) 
+							// TODO: Throw exception
+							System.Console.WriteLine("Could not locate server");
+						else
+						{
+							try 
+							{
+								result = replica.Get(index);
+							}
+							catch (System.Net.Sockets.SocketException e)
+							{
+								// TODO: Throw exception
+								Console.WriteLine(e.Message);
+							}
+						}
+						this.availableReplicas.Add(replicaInfo);
+						processed = true;
 					}
-					processed = true;
+					else 
+						Thread.Sleep(0);
 				}
 				else
 					// TODO: Fit sleep time to execution time.
 					// TODO: Describe dependentcy to the calltime of a writing 
 					// 		call.
-					Thread.Sleep(10);
+					Thread.Sleep(0);
 			}
 			return result;
 		}
@@ -237,7 +256,11 @@ namespace <%=AdaptorNamespace %>
 		/// </summary>
 		public void <%=Setter %>(<%=IndexType %> index, <%=DataType %> newResult)
 		{
-			this.consistencyStrategy.Write(this, index, newResult);
+			// A new consistency strategy object is create for each writing call
+			// since a consistency strategy object may have an internal state, e.g.
+			// an object of OptimisticReplication
+			IConsistencyStrategy consistencyStrategy = new <%=ConsistencyStrategy %>();
+			consistencyStrategy.Write(this, index, newResult);
 		}
 		#endregion
 	}
