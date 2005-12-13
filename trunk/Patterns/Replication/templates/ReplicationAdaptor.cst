@@ -98,17 +98,9 @@ namespace <%=AdaptorNamespace %>
 		private ArrayList allReplicas;
 
 		/// <summary>
-		/// The number of totally available replicas. Needed when 
-		/// consistency strategies need to lock all replicas.
-		/// </summary>
-		private int numberOfReplicas;
-
-		/// <summary>
 		/// Indicates when all replicas have to be locked. E.g. for certain
 		/// consistency strategies. It is only allowed to set this to true, if
 		/// it is false.
-		/// 
-		/// TODO: Implement alternative ???
 		/// </summary>
 		private bool lockAllReplicas;
 		#endregion
@@ -121,7 +113,6 @@ namespace <%=AdaptorNamespace %>
 					this.availableReplicas.Add("<%= ReplicaLocations[i] %>");
 			<% } %>  
 			this.allReplicas = (ArrayList)this.availableReplicas.Clone();
-			this.numberOfReplicas = this.availableReplicas.Count;
 			this.lockAllReplicas = false;
 			TcpChannel chan = new TcpChannel();
 			ChannelServices.RegisterChannel(chan);
@@ -155,7 +146,7 @@ namespace <%=AdaptorNamespace %>
 		{
 			get
 			{
-				return this.numberOfReplicas;
+				return this.allReplicas.Count;
 			}
 		}
 
