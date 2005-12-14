@@ -15,6 +15,21 @@
       Category="Service Features"
       Description="The assembly which includes the class which objects shall be replicated." %>
 
+<%@ Property Name="Getter" Type="String"
+      Category="Service Features"
+      Description="Getter of the replicated service." %>      
+      
+<%@ Property Name="Setter" Type="String"
+      Category="Service Features"
+      Description="Setter of the replicated service. Return is assumed to be void." %>  
+ 
+<%@ Property Name="DataType" Type="String"
+     Category="Service Features"
+     Description="The type of the data." %>    
+     
+<%@ Property Name="IndexType" Type="String"
+      Category="Service Features"
+      Description="The type used to index the data." %>   
 
 #region info
 ///////////////////////////////////////////////////////////////////////////////
@@ -64,12 +79,12 @@ namespace <%=AdaptorNamespace %>
 		/// <summary>
 		/// The index to write to.
 		/// </summary>
-		private int index;
+		private <%=IndexType %> index;
 
 		/// <summary>
 		/// The value to write to.
 		/// </summary>
-		private int value;
+		private <%=DataType %> value;
 		#endregion
 
 		#region public method inherited from IConsistencyStrategy
@@ -81,7 +96,7 @@ namespace <%=AdaptorNamespace %>
 		/// <param name="adaptor">The replication adaptor.</param>
 		/// <param name="index">The index to write to.</param>
 		/// <param name="value">The value to write.</param>
-		public void Write(<%=ServiceClassName %>ReplicationAdaptor adaptor, int index, int value)
+		public void Write(<%=ServiceClassName %>ReplicationAdaptor adaptor, <%=IndexType %> index, <%=DataType %> value)
 		{
 			// Parameters are saved as private attributes, because the writing
 			// is implemented in threads for each replica and the ThreadStart 
@@ -90,6 +105,7 @@ namespace <%=AdaptorNamespace %>
 			this.adaptor = adaptor;
 			this.index = index;
 			this.value = value;
+			this.lockedWrite = false;
 			this.replicas = (ArrayList)adaptor.Replicas.Clone();
 
 			WriteToAllReplicas(adaptor);
@@ -154,6 +170,77 @@ namespace <%=AdaptorNamespace %>
 				bool replicaAvailable = false;
 				lock(adaptor)
 				{
+					// Only write if the adaptor is not locked or locked by 
+					// this strategy.
+					if ((!adaptor.LockAllReplicas) || this.lockedWrite)
+					{
+						if (adaptor.AvailableReplicas.Contains(
+							replicaInfo))
+						{
+							adaptor.AvailableReplicas.Remove(
+								replicaInfo);
+							replicaAvailable = true;
+						}
+					}
+				}
+				if (replicaAvailable)
+				{
+					<%=ServiceClassName %> replica = null;
+					try 
+					{
+						replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
+							replicaInfo);
+					}
+					catch (System.Runtime.Remoting.RemotingException e)
+					{
+						// TODO: throw new exception
+						throw e;
+					}
+
+					if (replica == null) 
+						// TODO: Throw exception
+						System.Console.WriteLine("Could not locate server");
+					else
+					{
+						try 
+						{
+							replica.<%=Setter %>(index, value);
+						}
+						catch (System.Net.Sockets.SocketException e)
+						{
+							// TODO: Throw exception
+							Console.WriteLine(e.Message);
+							throw e;
+						}
+					}
+					adaptor.AvailableReplicas.Add(replicaInfo);
+					written = true;
+				}
+				else
+					Thread.Sleep(1);
+			}		
+		}
+
+		/// <summary>
+		/// Checks for the first replica in this.replicas if it has the 
+		/// correct value for this.index and writes the result to 
+		/// this.checks
+		/// </summary>
+		private void CheckReplica()
+		{
+			string replicaInfo;
+			lock (this)
+			{
+				replicaInfo = (string)
+					this.replicas[0];
+				this.replicas.Remove(replicaInfo);
+			}
+			bool isChecked = false;	
+			while (!isChecked)
+			{
+				bool replicaAvailable = false;
+				lock(adaptor)
+				{
 					if (!adaptor.LockAllReplicas)
 					{
 						if (adaptor.AvailableReplicas.Contains(
@@ -186,7 +273,8 @@ namespace <%=AdaptorNamespace %>
 					{
 						try 
 						{
-							replica.Set(index, value);
+							if (!this.value.Equals(replica.<%=Getter %>(index)))
+								this.check = false;
 						}
 						catch (System.Net.Sockets.SocketException e)
 						{
@@ -196,11 +284,11 @@ namespace <%=AdaptorNamespace %>
 						}
 					}
 					adaptor.AvailableReplicas.Add(replicaInfo);
-					written = true;
+					isChecked = true;
 				}
 				else
 					Thread.Sleep(1);
-			}		
+			}
 		}
 
 		/// <summary>
@@ -210,6 +298,7 @@ namespace <%=AdaptorNamespace %>
 		private void LockedWrite(<%=ServiceClassName %>ReplicationAdaptor adaptor)
 		{
 			// Lock all replicas
+			this.lockedWrite = true;
 			bool locked = false;
 			while (!locked)
 			{
@@ -232,48 +321,40 @@ namespace <%=AdaptorNamespace %>
 		/// Checks if the given replicas have the correct value at the given 
 		/// index.
 		/// </summary>
-		/// <param name="replicas">A list of replicas.</param>
-		/// <param name="index">The index that has to be checked.</param>
-		/// <param name="value">The value all replicas should have at the 
-		/// given index.</param>
 		/// <returns>True if all replicas have the correct value. Else false.
 		/// </returns>
-		private bool CheckAllReplicas(ICollection replicas, int index, 
-			int value)
+		private bool CheckAllReplicas()
 		{
-			bool check = true;
-			foreach (string replicaInfo in replicas)
-			{
-				<%=ServiceClassName %> replica = null;
-				try 
-				{
-					replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
-						replicaInfo);
-				}
-				catch (System.Runtime.Remoting.RemotingException e)
-				{
-					// TODO: throw new exception
-					throw e;
-				}
+			// reset this.replicas for the reading threads.
+			this.replicas = (ArrayList)adaptor.Replicas.Clone();
 
-				if (replica == null) 
-					// TODO: Throw exception
-					System.Console.WriteLine("Could not locate server");
-				else
-				{
-					try 
-					{
-						if (!value.Equals(replica.Get(index)))
-							check = false;
-					}
-					catch (System.Net.Sockets.SocketException e)
-					{
-						// TODO: Throw exception
-						Console.WriteLine(e.Message);
-					}
-				}
+			this.check = true;
+			ICollection replicas = this.adaptor.Replicas;
+			ArrayList threads = new ArrayList();
+			Thread t = null;
+
+			// Create reading threads
+			for (int i=0; i<replicas.Count; i++)
+			{
+				t = new Thread(new ThreadStart(this.CheckReplica));
+				t.Start();
+				threads.Add(t);
 			}
-			return check;
+			
+			// Wait until all threads are finished.
+			bool allThreadsFinished = false;
+			while(!allThreadsFinished)
+			{
+				allThreadsFinished = true;
+				foreach (Thread thread in threads)
+				{
+					if (thread.IsAlive)
+						allThreadsFinished = false;
+				}
+				Thread.Sleep(1);
+			}	
+
+			return this.check;
 		}
 		#endregion
 	}
