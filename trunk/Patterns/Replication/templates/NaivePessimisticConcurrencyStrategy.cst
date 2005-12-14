@@ -13,7 +13,20 @@
 
 <%@ Property Name="ServiceAssemblyName" Type="String"
       Category="Service Features"
-      Description="The assembly which includes the class which objects shall be replicated." %>
+      Description="The assembly which includes the class which objects shall be replicated." %>   
+      
+<%@ Property Name="Setter" Type="String"
+      Category="Service Features"
+      Description="Setter of the replicated service. Return is assumed to be void." %>  
+ 
+<%@ Property Name="DataType" Type="String"
+     Category="Service Features"
+     Description="The type of the data." %>    
+     
+<%@ Property Name="IndexType" Type="String"
+      Category="Service Features"
+      Description="The type used to index the data." %>   
+
 
 #region info
 ///////////////////////////////////////////////////////////////////////////////
@@ -58,12 +71,12 @@ namespace <%=AdaptorNamespace %>
 		/// <summary>
 		/// The index to write to.
 		/// </summary>
-		private int index;
+		private <%=IndexType %> index;
 
 		/// <summary>
 		/// The value to write to.
 		/// </summary>
-		private int value;
+		private <%=DataType %> value;
 		#endregion
 
 		#region public methods
@@ -75,7 +88,7 @@ namespace <%=AdaptorNamespace %>
 		/// <param name="adaptor">The replication adaptor.</param>
 		/// <param name="index">The index to write to.</param>
 		/// <param name="value">The value to write.</param>
-		public void Write(<%=ServiceClassName %>ReplicationAdaptor adaptor, int index, int value)
+		public void Write(<%=ServiceClassName %>ReplicationAdaptor adaptor, <%=IndexType %> index, <%=DataType %> value)
 		{
 			this.replicas = (ArrayList)adaptor.Replicas.Clone();
 			this.index = index;
@@ -182,7 +195,7 @@ namespace <%=AdaptorNamespace %>
 			{
 				try 
 				{
-					replica.Set(this.index, this.value);
+					replica.<%=Setter %>(this.index, this.value);
 				}
 				catch (System.Net.Sockets.SocketException e)
 				{
