@@ -85,6 +85,17 @@ namespace <%=AdaptorNamespace %>
 		/// The value to write to.
 		/// </summary>
 		private <%=DataType %> value;
+
+		/// <summary>
+		/// During the check of replicas this flags indicates whether the 
+		/// checks were positive or not.
+		/// </summary>
+		private bool check;
+
+		/// <summary>
+		/// Indicates whether this strategy has locked the adaptor or not.
+		/// </summary>
+		private bool lockedWrite;
 		#endregion
 
 		#region public method inherited from IConsistencyStrategy
@@ -110,7 +121,7 @@ namespace <%=AdaptorNamespace %>
 
 			WriteToAllReplicas(adaptor);
 
-			bool check = CheckAllReplicas(replicas, index, value);
+			bool check = CheckAllReplicas();
 		
 			if (!check)
 				LockedWrite(adaptor);
