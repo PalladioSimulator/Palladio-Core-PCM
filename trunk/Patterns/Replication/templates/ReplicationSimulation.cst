@@ -510,19 +510,17 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 
 			streamWriter.WriteLine();
 			streamWriter.WriteLine();
-			streamWriter.WriteLine("Read/Write, overall call time, execution time, execution time on replicas");
+			streamWriter.WriteLine("Read/Write, overall call time, execution time");
 			streamWriter.WriteLine();
 
 			foreach (ClientCall clientCall in this.results)
 			{
 				if (clientCall.IsWritingCall)
 					streamWriter.WriteLine("W "+clientCall.CallTime+" "+
-						clientCall.ExecutionTime+" "+
-						clientCall.ReplicaExecutionTime);
+						clientCall.ExecutionTime);
 				else
 					streamWriter.WriteLine("R "+clientCall.CallTime+" "+
-						clientCall.ExecutionTime+" "+
-						clientCall.ReplicaExecutionTime);
+						clientCall.ExecutionTime);
 			}
 
 			streamWriter.Close();
@@ -727,9 +725,8 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 			{
 				this.executionTimes.Add(this.currentExecutionTime + 
 					newExecutionTime);
-				// TODO: Check if the values are really sorted ascending
 				this.executionTimes.Sort();
-				if (this.executionTimes.Count == this.numberOfReplicaCalls)
+				if (this.numberOfReplicaCalls == 0)
 					this.overallExecutionTime = this.currentExecutionTime + 
 						newExecutionTime;
 			}
