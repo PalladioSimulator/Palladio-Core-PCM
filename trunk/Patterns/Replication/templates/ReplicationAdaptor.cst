@@ -185,56 +185,47 @@ namespace <%=AdaptorNamespace %>
 			bool processed = false;
 			while (!processed)
 			{
-				if (!this.lockAllReplicas)
-				{
-					string replicaInfo = string.Empty;
-					lock(this)
-					{	
-						if (this.availableReplicas.Count > 0)
-						{
-							replicaInfo = (string)this.availableReplicas[0];
-							this.availableReplicas.Remove(replicaInfo);
-						}
-					}
-					if (!replicaInfo.Equals(string.Empty))
+				string replicaInfo = string.Empty;
+				lock(this)
+				{	
+					if (this.availableReplicas.Count > 0 && (!this.lockAllReplicas))
 					{
-						<%=ServiceClassName %> replica = null;
+						replicaInfo = (string)this.availableReplicas[0];
+						this.availableReplicas.Remove(replicaInfo);
+					}
+				}
+				if (!replicaInfo.Equals(string.Empty))
+				{
+					<%=ServiceClassName %> replica = null;
+					try 
+					{
+						replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
+							replicaInfo);
+					}
+					catch (System.Runtime.Remoting.RemotingException e)
+					{
+						// TODO: throw new exception
+						throw e;
+					}
+							if (replica == null) 
+						// TODO: Throw exception
+						System.Console.WriteLine("Could not locate server");
+					else
+					{
 						try 
 						{
-							replica = (<%=ServiceClassName %>)Activator.GetObject(typeof(<%=ServiceClassName %>),
-								replicaInfo);
+							result = replica.Get(index);
 						}
-						catch (System.Runtime.Remoting.RemotingException e)
+						catch (System.Net.Sockets.SocketException e)
 						{
-							// TODO: throw new exception
-							throw e;
-						}
-	
-						if (replica == null) 
 							// TODO: Throw exception
-							System.Console.WriteLine("Could not locate server");
-						else
-						{
-							try 
-							{
-								result = replica.Get(index);
-							}
-							catch (System.Net.Sockets.SocketException e)
-							{
-								// TODO: Throw exception
-								Console.WriteLine(e.Message);
-							}
+							Console.WriteLine(e.Message);
 						}
-						this.availableReplicas.Add(replicaInfo);
-						processed = true;
 					}
-					else 
-						Thread.Sleep(0);
+					this.availableReplicas.Add(replicaInfo);
+					processed = true;
 				}
-				else
-					// TODO: Fit sleep time to execution time.
-					// TODO: Describe dependentcy to the calltime of a writing 
-					// 		call.
+				else 
 					Thread.Sleep(0);
 			}
 			return result;
