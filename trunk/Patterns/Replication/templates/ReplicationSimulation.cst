@@ -244,10 +244,10 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 		{
 			if (this.callCounter < calls)
 			{
-				if (((double)this.randomiser.Next(0, 10000)/10000) <= 
+				if (((double)this.randomiser.Next(0, 10000)/10000) < 
 					this.callProbability)
 				{
-					if (((double)this.randomiser.Next(0, 10000)/10000) <= 
+					if (((double)this.randomiser.Next(0, 10000)/10000) < 
 						this.writingCallProbability)
 					{
 					<% if (ConsistencyStrategy == ConsistencyStrategyEnum.NaivePessimisticConcurrency) { %>
@@ -352,8 +352,6 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 						this.queue.Remove(currentClientCall);
 						if (currentClientCall.IsWritingCall)
 						{
-							currentClientCall.AddReplicaExecutionTime( 
-								GetServiceWriteExecutionTime());
 							this.currentClientCalls.Add(currentClientCall);
 
 						<% if (ConsistencyStrategy == ConsistencyStrategyEnum.OptimisticReplication) { %>
@@ -365,6 +363,8 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 							if (this.currentClientCalls.Count == 1)
 							{
 								currentClientCall.IsExecuted = true;
+								currentClientCall.AddReplicaExecutionTime( 
+								GetServiceWriteExecutionTime());
 								this.lockingCallIsExecuted = true;
 							}
 						<% } %>
@@ -397,6 +397,8 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 				ClientCall currentClientCall = 
 					(ClientCall)this.currentClientCalls[0];
 				currentClientCall.IsExecuted = true;
+				currentClientCall.AddReplicaExecutionTime( 
+								GetServiceWriteExecutionTime());
 				this.lockingCallIsExecuted = true;
 			}
 		}
@@ -721,6 +723,18 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 					this.currentExecutionTime += stepTime;
 			}
 
+			/// <summary>
+			/// Adds a execution time of the call on a used replica. More than one 
+			/// execution time is necessary e.g. for writing calls which write to
+			/// more than one replica, where locked writing to more than one replica
+			/// is simulated as one call in this simulation and only unlocked writing
+			/// to several replicas at different times is simulated with different
+			/// execution times.
+			/// IsExecuted has to be called before to enable execution time 
+			/// measuring.
+			/// </summary>
+			/// <param name="newExecutionTime">The execution time of the call on a 
+			/// certain replica.</param>
 			public void AddReplicaExecutionTime(double newExecutionTime)
 			{
 				this.executionTimes.Add(this.currentExecutionTime + 
