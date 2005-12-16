@@ -353,6 +353,8 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 						if (currentClientCall.IsWritingCall)
 						{
 							this.currentClientCalls.Add(currentClientCall);
+							currentClientCall.AddReplicaExecutionTime( 
+								GetServiceWriteExecutionTime());
 
 						<% if (ConsistencyStrategy == ConsistencyStrategyEnum.OptimisticReplication) { %>
 							currentClientCall.IsExecuted = true;
@@ -363,8 +365,6 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 							if (this.currentClientCalls.Count == 1)
 							{
 								currentClientCall.IsExecuted = true;
-								currentClientCall.AddReplicaExecutionTime( 
-								GetServiceWriteExecutionTime());
 								this.lockingCallIsExecuted = true;
 							}
 						<% } %>
@@ -397,8 +397,6 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 				ClientCall currentClientCall = 
 					(ClientCall)this.currentClientCalls[0];
 				currentClientCall.IsExecuted = true;
-				currentClientCall.AddReplicaExecutionTime( 
-								GetServiceWriteExecutionTime());
 				this.lockingCallIsExecuted = true;
 			}
 		}
@@ -568,12 +566,6 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 			private double currentExecutionTime;
 
 			/// <summary>
-			/// The overall execution time of the replica the service is 
-			/// allocated to.
-			/// </summary>
-			private double overallExecutionTime;
-
-			/// <summary>
 			/// Indicates whether the call is executed or still in the queue;
 			/// </summary>
 			private bool isExecuted;
@@ -610,7 +602,6 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 			{
 				this.callTime = 0;
 				this.currentExecutionTime = 0;
-				this.overallExecutionTime = 0;
 				this.isExecuted = false;
 				this.isWritingCall = isWritingCall;
 				this.numberOfReplicaCalls = numberOfReplicaCalls;
@@ -641,7 +632,7 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 			{
 				get
 				{
-					return this.overallExecutionTime;
+					return this.currentExecutionTime;
 				}
 			}
 
@@ -740,9 +731,6 @@ namespace Palladio.QoSAdaptor.ReplicationSimulation
 				this.executionTimes.Add(this.currentExecutionTime + 
 					newExecutionTime);
 				this.executionTimes.Sort();
-				if (this.numberOfReplicaCalls == 0)
-					this.overallExecutionTime = this.currentExecutionTime + 
-						newExecutionTime;
 			}
 			#endregion
 		}
