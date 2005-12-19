@@ -376,7 +376,7 @@ namespace <%=AdaptorNamespace %>{
 			if (resource == null)
 			{
 				resource = new ResourceWrapper(
-					this.cachedObject.<%=Getter %>(id), id);
+					this.cachedObject.<%=Getter %>(index), index);
 			}
 			resource.Use();
 			this.Release(resource);
@@ -401,7 +401,7 @@ namespace <%=AdaptorNamespace %>{
 			{
 				ResourceWrapper resource = this.Acquire(index);
 				if (resource == null)
-					resource = new ResourceWrapper(newResult, id);
+					resource = new ResourceWrapper(newResult, index);
 				else 
 					resource.Resource = newResult;
 
