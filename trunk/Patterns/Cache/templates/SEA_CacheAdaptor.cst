@@ -86,9 +86,12 @@ public enum ConsistencyStrategyEnum
                   <sourcestate>AdaptorInvoked</sourcestate>
                   <input>ServiceWrite</input>
                   <destinationstate>finalstate</destinationstate>
-                  <probability><%= WritingCallProbability 
+                  <probability> 
 		<% if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteBack) { %>
-			*(1-WrittenResourceInCacheProbability)%>
+			<%= WritingCallProbability *(1-WrittenResourceInCacheProbability) %>
+		<% } %>
+		<% else if (ConsistencyStrategy == ConsistencyStrategyEnum.WriteThrough) { %>
+			<%= WritingCallProbability %>
 		<% } %>
 			</probability>
 		<% for (int i = 0; i < ServiceWritingPercentiles.Count; i+=2) { %>	
