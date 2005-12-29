@@ -211,8 +211,8 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 						if (requiredAspect.Value < providedAspect.Value)
 						{
 							mismatchDetail += "Required: "+
-								requiredAspect.ToString()+" Provided: "+
-								providedAspect.ToString();
+								requiredAspect.ToString()+"   Provided: "+
+								providedAspect.ToString()+"\n";
 						}
 							
 					}	

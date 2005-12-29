@@ -28,8 +28,15 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// </summary>
 	public class QMLContractType
 	{
-		#region data
+		#region attributes
+		/// <summary>
+		/// The name of this contract type.
+		/// </summary>
 		private string name;
+
+		/// <summary>
+		/// A list of dimensionDeclarations of this contract type.
+		/// </summary>
 		private ArrayList dimensionDeclarations;
 		#endregion
 
@@ -60,6 +67,31 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 				this.dimensionDeclarations.Add(
 										new QMLDimensionDeclaration(child));
 				child = child.getNextSibling();
+			}
+		}
+		#endregion
+
+		#region properties
+		/// <summary>
+		/// Returns the name of this contract type.
+		/// </summary>
+		public string Name
+		{
+			get
+			{
+				return this.name;
+			}
+		}
+
+		/// <summary>
+		/// Returns a collection of dimension declarations belonging to this 
+		/// contract type.
+		/// </summary>
+		public ICollection DimensionDeclarations
+		{
+			get
+			{
+				return this.dimensionDeclarations;
 			}
 		}
 		#endregion

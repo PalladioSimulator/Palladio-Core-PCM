@@ -148,6 +148,28 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		}
 
 		/// <summary>
+		/// If this specification contains a contract type with the given name 
+		/// the corresponding QMLContractType is returned. 
+		/// </summary>
+		/// <param name="name">Name of the seeked contract type.
+		/// </param>
+		/// <returns>Corresponding QMLContractType or null if no contract type 
+		/// with the given name exists in this specification.</returns>
+		public QMLContractType GetContractType (string name)
+		{
+			QMLContractType contractType = null;
+			foreach (QMLContractType currentContractType in this.contractTypes)
+			{
+				if (currentContractType.Name.Equals(name))
+				{
+					contractType = currentContractType;
+					break;
+				}	
+			}
+			return contractType;
+		}
+
+		/// <summary>
 		/// Returns a new QML specification string containing all information
 		/// in this QMLSpecification which is compatible to the grammar
 		/// accepted by the QMLParser by Lars Karg.

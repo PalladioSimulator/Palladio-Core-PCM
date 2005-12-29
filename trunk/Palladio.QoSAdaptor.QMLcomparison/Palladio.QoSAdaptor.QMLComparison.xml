@@ -201,6 +201,16 @@
             Represents a QML contract type specification.
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType.name">
+            <summary>
+            The name of this contract type.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType.dimensionDeclarations">
+            <summary>
+            A list of dimensionDeclarations of this contract type.
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType.#ctor(antlr.collections.AST)">
             <summary>
             Constructor that takes an AST and constructs a new QMLContractType
@@ -228,9 +238,37 @@
             declarations, else false
             </returns>
         </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType.Name">
+            <summary>
+            Returns the name of this contract type.
+            </summary>
+        </member>
+        <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType.DimensionDeclarations">
+            <summary>
+            Returns a collection of dimension declarations belonging to this 
+            contract type.
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration">
             <summary>
             Represents a QML dimension declaration.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration.name">
+            <summary>
+            The name of this dimension declaration. For the quality-based 
+            interface model this equals a quality subattribute like the delay
+            subattribute of the performance attribute.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration.dimensionType">
+            <summary>
+            The dimension type of this dimension declaration.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration.unit">
+            <summary>
+            The unit of this dimension declaration. E.g. msec or mb/msec
             </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration.#ctor(antlr.collections.AST)">
@@ -867,6 +905,16 @@
             <returns>Corresponding QMLProfile or null if no contract with the
             given name exists in this specification.</returns>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.GetContractType(System.String)">
+            <summary>
+            If this specification contains a contract type with the given name 
+            the corresponding QMLContractType is returned. 
+            </summary>
+            <param name="name">Name of the seeked contract type.
+            </param>
+            <returns>Corresponding QMLContractType or null if no contract type 
+            with the given name exists in this specification.</returns>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLSpecification.ToString">
             <summary>
             Returns a new QML specification string containing all information
@@ -1031,6 +1079,89 @@
             The type of this aspect. The value is specified in 
             QMLParser.QMLTokenTypes.
             </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy">
+            <summary>
+            IAspectConstraintMismatchSearchStrategy that only considers percentile
+            aspect. These are interpreted as upper border values. For further 
+            interpretations see diploma thesis mentioned in the info region.
+            </summary>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IAspectConstraintMismatchSearchStrategy">
+            <summary>
+            Interface for strategies to find mismatches in aspect constraints.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IAspectConstraintMismatchSearchStrategy.FindAspectConstraintMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
+            <summary>
+            Searches for mismatches between required and provided aspect
+            constraints.
+            </summary>
+            <param name="requiredConstraint">QMLAspectConstraint of the 
+            required interface.</param>
+            <param name="providedConstraint">QMLAspectConstraint of the 
+            required interface.</param>
+            <returns>A string that describes details about the found 
+            mismatches.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.FindAspectConstraintMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
+            <summary>
+            Searches for mismatches between required and provided aspect
+            constraints.
+            </summary>
+            <param name="requiredConstraint">QMLAspectConstraint of the 
+            required interface.</param>
+            <param name="providedConstraint">QMLAspectConstraint of the 
+            required interface.</param>
+            <returns>A string that describes details about the found 
+            mismatches.</returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.FindPercentileMismatches(System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            Searches for mismatches between required and provided percentile
+            definitions.
+            
+            TODO: Formalise mismatch details?
+            </summary>
+            <param name="providedPercentiles">ArrayList of 
+            QMLPercentileAspects of the provided interface.</param>
+            <param name="requiredPercentiles">ArrayList of 
+            QMLPercentileAspects of the required interface.</param>
+            <returns>A string that describes details about the found 
+            mismatches or string.Empty, if at least one of the lists is empty.
+            </returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.MatchLessThanPercentiles(System.Collections.ArrayList,System.Collections.ArrayList)">
+            <summary>
+            Checks if the function described by the percentiles in 
+            providedPercentiles matches the function described by the 
+            percentiles in requiredPercentiles. 
+            It is assumed that all percentiles have the numeric operator 
+            QMLTokenTypes.NUMOP_LTHAN and the lists are sorted by
+            percentiles starting with the lowest percentile.
+            </summary>
+            <param name="providedPercentiles">List of percentiles defined for the
+            provided interface.</param>
+            <param name="requiredPercentiles">List of percentiles defined for 
+            the required interface.</param>
+            <returns>string.Empty if thisPercentiles matches requiredPercentiles.
+            Else string that provides further details abaout the mismatch.
+            </returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.GetSharedNumericOperator(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Tries to find and return a shared numeric operator of the given 
+            lists. The lists are expected to contain QMLPercentileAspect 
+            objects that all have the same numeric operator. If this is not the
+            case, -1 is returned. 
+            </summary>
+            <param name="percentiles1">A list of QMLPercentileAspects.</param>
+            <param name="percentiles2">A second list of QMLPercentileAspects.
+            </param>
+            <returns>The shared numeric operator or -1 if the list do not 
+            only contain QMLPercentileAspects or different numeric operators
+            are used in the different QMLPercentileAspects. -2 is returned
+            if both lists are empty.</returns>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor">
             <summary>
@@ -1819,6 +1950,16 @@
             current mismatch attribute.
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.specification">
+            <summary>
+            The visited QML specification;
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.currentContract">
+            <summary>
+            The name of the currently visited contract.
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLRequiredSpecificationMismatchSearchVisitor.#ctor(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLProvidedSpecificationMismatchSearchVisitor)">
             <summary>
             Constructs a new QMLRequiredSpecificationMismatchSearchVisitor. To
@@ -2171,89 +2312,6 @@
             <summary>
             Zusammenfassung für QMLParserTest.
             </summary>
-        </member>
-        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IAspectConstraintMismatchSearchStrategy">
-            <summary>
-            Interface for strategies to find mismatches in aspect constraints.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IAspectConstraintMismatchSearchStrategy.FindAspectConstraintMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
-            <summary>
-            Searches for mismatches between required and provided aspect
-            constraints.
-            </summary>
-            <param name="requiredConstraint">QMLAspectConstraint of the 
-            required interface.</param>
-            <param name="providedConstraint">QMLAspectConstraint of the 
-            required interface.</param>
-            <returns>A string that describes details about the found 
-            mismatches.</returns>
-        </member>
-        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy">
-            <summary>
-            IAspectConstraintMismatchSearchStrategy that only considers percentile
-            aspect. These are interpreted as upper border values. For further 
-            interpretations see diploma thesis mentioned in the info region.
-            </summary>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.FindAspectConstraintMismatches(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint,Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint)">
-            <summary>
-            Searches for mismatches between required and provided aspect
-            constraints.
-            </summary>
-            <param name="requiredConstraint">QMLAspectConstraint of the 
-            required interface.</param>
-            <param name="providedConstraint">QMLAspectConstraint of the 
-            required interface.</param>
-            <returns>A string that describes details about the found 
-            mismatches.</returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.FindPercentileMismatches(System.Collections.ArrayList,System.Collections.ArrayList)">
-            <summary>
-            Searches for mismatches between required and provided percentile
-            definitions.
-            
-            TODO: Formalise mismatch details?
-            </summary>
-            <param name="providedPercentiles">ArrayList of 
-            QMLPercentileAspects of the provided interface.</param>
-            <param name="requiredPercentiles">ArrayList of 
-            QMLPercentileAspects of the required interface.</param>
-            <returns>A string that describes details about the found 
-            mismatches or string.Empty, if at least one of the lists is empty.
-            </returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.MatchLessThanPercentiles(System.Collections.ArrayList,System.Collections.ArrayList)">
-            <summary>
-            Checks if the function described by the percentiles in 
-            providedPercentiles matches the function described by the 
-            percentiles in requiredPercentiles. 
-            It is assumed that all percentiles have the numeric operator 
-            QMLTokenTypes.NUMOP_LTHAN and the lists are sorted by
-            percentiles starting with the lowest percentile.
-            </summary>
-            <param name="providedPercentiles">List of percentiles defined for the
-            provided interface.</param>
-            <param name="requiredPercentiles">List of percentiles defined for 
-            the required interface.</param>
-            <returns>string.Empty if thisPercentiles matches requiredPercentiles.
-            Else string that provides further details abaout the mismatch.
-            </returns>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.AspectConstraintMismatchSearchPercentilesUpperBorderStrategy.GetSharedNumericOperator(System.Collections.IList,System.Collections.IList)">
-            <summary>
-            Tries to find and return a shared numeric operator of the given 
-            lists. The lists are expected to contain QMLPercentileAspect 
-            objects that all have the same numeric operator. If this is not the
-            case, -1 is returned. 
-            </summary>
-            <param name="percentiles1">A list of QMLPercentileAspects.</param>
-            <param name="percentiles2">A second list of QMLPercentileAspects.
-            </param>
-            <returns>The shared numeric operator or -1 if the list do not 
-            only contain QMLPercentileAspects or different numeric operators
-            are used in the different QMLPercentileAspects. -2 is returned
-            if both lists are empty.</returns>
         </member>
     </members>
 </doc>

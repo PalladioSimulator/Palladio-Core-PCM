@@ -27,9 +27,22 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// </summary>
 	public class QMLDimensionDeclaration
 	{
-		#region attribute
+		#region attributes
+		/// <summary>
+		/// The name of this dimension declaration. For the quality-based 
+		/// interface model this equals a quality subattribute like the delay
+		/// subattribute of the performance attribute.
+		/// </summary>
 		private string name;
+
+		/// <summary>
+		/// The dimension type of this dimension declaration.
+		/// </summary>
 		private QMLDimensionType dimensionType;
+
+		/// <summary>
+		/// The unit of this dimension declaration. E.g. msec or mb/msec
+		/// </summary>
 		private QMLUnit unit;
 		#endregion
 

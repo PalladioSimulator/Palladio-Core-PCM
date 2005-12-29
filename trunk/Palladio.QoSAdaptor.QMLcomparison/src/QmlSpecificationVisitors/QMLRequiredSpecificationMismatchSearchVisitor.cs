@@ -73,6 +73,16 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 		/// current mismatch attribute.
 		/// </summary>
 		private string currentMismatchAttribute;
+
+		/// <summary>
+		/// The visited QML specification;
+		/// </summary>
+		private QMLSpecification specification;
+
+		/// <summary>
+		/// The name of the currently visited contract.
+		/// </summary>
+		private QMLContract currentContract;
 		#endregion
 
 		#region constructor
@@ -93,6 +103,8 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 			this.currentEntityName = null;
 			this.currentInterfaceName = null;
 			this.currentMismatchAttribute = null;
+			this.specification = null;
+			this.currentContract = null;
 		}
 		#endregion
 
@@ -146,6 +158,15 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 			// info region.
 			IAspectConstraintMismatchSearchStrategy strategy = new 
 				AspectConstraintMismatchSearchPercentilesUpperBorderStrategy();
+
+			// TODO: add dimension order ?
+			// TODO: get contractType for current contract of required and 
+			// provided. Get contractType from specification.contractTypes or
+			// from Requirement clause.
+
+			// TODO: Get dimension order for required and provided
+			//QMLDimensionType.DimensionOrder requiredOrder = 
+
 			string mismatchDetails = strategy.FindAspectConstraintMismatches(
 				aspectConstraint, providedConstraint);
 
@@ -167,9 +188,11 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 		/// method has been called.</param>
 		public void VisitQMLContract(QMLContract contract)
 		{
+			this.currentContract = contract;
 			this.providedVisitor.GoToContractExpression();
 			contract.ContractExpression.Accept(this);
 			this.providedVisitor.GoUp();
+			this.currentContract = null;
 		}
 
 
@@ -521,9 +544,11 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 			// required specification
 			foreach (QMLProfile profile in specification.Profiles)
 			{
+				this.specification = specification;
 				this.providedVisitor.GoToProfile(profile.InterfaceName);
 				profile.Accept(this);
 				this.providedVisitor.GoUp();
+				this.specification = null;
 			}
 		}
 		
