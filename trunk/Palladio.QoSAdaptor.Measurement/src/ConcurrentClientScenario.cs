@@ -20,8 +20,8 @@
 
 using System.Collections;
 using System.Threading;
-using Palladio.QoSAdaptor.ReplicationAdaptor;
-//using Palladio.QoSAdaptor.CacheAdaptor;
+//using Palladio.QoSAdaptor.ReplicationAdaptor;
+using Palladio.QoSAdaptor.CacheAdaptor;
 //using Palladio.QoSAdaptor.TestService;
 
 namespace Palladio.QoSAdaptor.Measurement
@@ -54,8 +54,8 @@ namespace Palladio.QoSAdaptor.Measurement
 			double writeProbability)
 		{
 			//Service service = new Service();
-			//ServiceCacheAdaptor service = new ServiceCacheAdaptor();
-			ServiceReplicationAdaptor service = new ServiceReplicationAdaptor();
+			ServiceCacheAdaptor service = new ServiceCacheAdaptor();
+			//ServiceReplicationAdaptor service = new ServiceReplicationAdaptor();
 			clients = new ArrayList();
 			for (int i=0; i<numberOfClients; i++)
 				clients.Add(new Client(service, numberOfCalls, writeProbability));

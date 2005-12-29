@@ -97,7 +97,7 @@
                 <Reference
                     Name = "Adaptor"
                     AssemblyName = "Adaptor"
-                    HintPath = "..\Patterns\Replication\bin\adaptor\Adaptor.dll"
+                    HintPath = "..\Patterns\Cache\bin\adaptor\Adaptor.dll"
                 />
             </References>
         </Build>

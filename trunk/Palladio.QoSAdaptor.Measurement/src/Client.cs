@@ -21,8 +21,8 @@
 using System.Threading;
 using log4net;
 using System;
-using Palladio.QoSAdaptor.ReplicationAdaptor;
-//using Palladio.QoSAdaptor.CacheAdaptor;
+//using Palladio.QoSAdaptor.ReplicationAdaptor;
+using Palladio.QoSAdaptor.CacheAdaptor;
 //using Palladio.QoSAdaptor.TestService;
 using Palladio.QoSAdaptor.Utils;
 
@@ -40,8 +40,8 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// <summary>
 		/// The measured service
 		/// </summary>
-		private ServiceReplicationAdaptor service;
-		//private ServiceCacheAdaptor service;
+		//private ServiceReplicationAdaptor service;
+		private ServiceCacheAdaptor service;
 		//private Service service;
 
 		/// <summary>
@@ -89,8 +89,8 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// </param>
 		/// <param name="numberOfCalls">The number of calls the client has to 
 		/// execute.</param>
-		public Client (ServiceReplicationAdaptor service, int numberOfCalls, double writeProbability)
-		//public Client (ServiceCacheAdaptor service, int numberOfCalls, double writeProbability)
+		//public Client (ServiceReplicationAdaptor service, int numberOfCalls, double writeProbability)
+		public Client (ServiceCacheAdaptor service, int numberOfCalls, double writeProbability)
 		//public Client (Service service, int numberOfCalls, double writeProbability)
 		{
 			this.service = service;
@@ -127,12 +127,20 @@ namespace Palladio.QoSAdaptor.Measurement
 			for (int i = 0; i<numberOfCalls; i++)
 			{
 				this.timer.Start();
-				// 11 has been taken as max, because the the maximum value 
+				// 1001 has been taken as max, because the the maximum value 
 				// seems not be taken as return value, but the min value
 				// may can appear (This has been tested with 1000 calls).
-				int readWriteProbability = this.writeRandomizer.Next(1,11);
-				if (readWriteProbability <= (this.writeProbability * 10))
+				// By using the factor 1000 writingProbabilities differing by
+				// 0,001 can be processed getting correct results.
+				int readWriteProbability = this.writeRandomizer.Next(1,1001);
+				if (readWriteProbability <= (this.writeProbability * 1000))
 				{
+					// The service is assigned in the measuring time, because
+					// through this the overhead of .NET remoting can be 
+					// measured according to the replication adaptor where this
+					// also happens in the measured time.
+					/*this.service = (Service)Activator.GetObject(typeof(Service),
+						"tcp://localhost:8085/TestService");*/
 					this.service.Set(this.indexRandomizer.Next(0, 99), 1);
 					clientLogger.Debug(string.Format("Client {0}\t{1}\t{2}\t{3}",
 						this.GetHashCode(), "Write", DateTime.Now, 
@@ -140,6 +148,12 @@ namespace Palladio.QoSAdaptor.Measurement
 				}
 				else
 				{
+					// The service is assigned in the measuring time, because
+					// through this the overhead of .NET remoting can be 
+					// measured according to the replication adaptor where this
+					// also happens in the measured time.
+					/*this.service = (Service)Activator.GetObject(typeof(Service),
+						"tcp://localhost:8085/TestService");*/
 					this.service.Get(this.indexRandomizer.Next(0, 99));
 					clientLogger.Debug(string.Format("Client {0}\t{1}\t{2}\t{3}",
 						this.GetHashCode(), "Read", DateTime.Now, 
