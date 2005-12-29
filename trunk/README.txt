@@ -23,23 +23,21 @@ Palladio.QoSAdaptor.Control:
 	models for the selected pattern.
 
 Palladio.QoSAdaptor.Generation: 
-	Uses CodeSmith to generate source files from templates. At the moment
-	also uses CodeSmith for the configuration of patterns. In the future
-	that step will be done by Palladio.QoSAdaptor.PatternConfiguration
+	Uses CodeSmith to generate source files from templates for the adaptor
+	and the prediction models.
 
 Palladio.QoSAdaptor.Measurement:
-	Contains the client used for measurement and different measurement 
-	scenarios.
+	Contains the measurement application that is used to measure the 
+	response times of the generated adaptors and the TestService.
 
 Palladio.QoSAdaptor.PatternConfiguration:
-	Only partly implemented. Parses a feature diagram and creates a 
-	configuration GUI from that diagram. After that a CodeSmith 
-	configuration file will be created to be used for the generation of
-	adaptors and prediction models.
+	Only partly implemented and unused. It was thought to parse a feature 
+	diagram and create a configuration GUI from that diagram. The 
+	CodeSmith GUI is now used instead.
 
 Palladio.QoSAdaptor.PatternDescription:
 	Contains classes used for the description of patterns which hold the 
-	same information as XML-files that follow the PatternDescription.dtd 
+	same information as XML-files that follow the PatternDescription.xsd 
 	and a parser for these files.
 
 Palladio.QoSAdaptor.PatternSelection:
@@ -49,13 +47,17 @@ Palladio.QoSAdaptor.PatternSelection:
  
 
 Palladio.QoSAdaptor.QMLComparison:
-	Implementation of a tool that compares two QML files in order to detect
-	QoS mismatches. Based on these mismatches a selection of patterns is 
-	given which are able to correct them.
+	Implementation of a tool that compares two QML files in order to 
+	detect QoS mismatches. Based on these mismatches a selection of 
+	patterns is given which are able to correct them.
 
 Palladio.QoSAdaptor.QMLParser:
 	A parser for QML specification files. The project is taken over by 
 	Lars Karg with a few minor changes.
+
+Palladio.QoSAdaptor.RemotingService:
+	Implements a .NET Remoting Server for the TestService, which is used
+	over .NET Remoting in the replication adaptor.
 
 Palladio.QoSAdaptor.Starter:	
 	A console application which starts the adaptor selection and 
@@ -64,7 +66,7 @@ Palladio.QoSAdaptor.Starter:
 
 Palladio.QoSAdaptor.TestService:
 	A simple service (simulating a service execution using Thread.Sleep())
-	component used to test measurement with generated adaptors.
+	component used to measure generated adaptors.
 
 Palladio.QoSAdaptor.UnitTest: 	
 	UnitTest of all projects. 
