@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.2  2006/01/03 16:45:21  kelsaka
+% - korrekturen eingepflegt: v. a. nähere definition der iterationsschritte
+%
 % Revision 1.1  2006/01/03 10:37:55  kelsaka
 % - move to folder proposal
 %
@@ -29,7 +32,7 @@ Komponenten können Schnittstellen anbieten (\textit{Provides Interfaces}) oder b
 
 Daneben wird die Komponenten- und Schnittstellen-Struktur in verschiedene Ebenen unterteilt, worüber sich Typ"=Konformitäts"=Anforderungen definieren lassen. Auf der obersten Ebene wird vom \textit{Provided Type} verlangt, zu deklarieren, welche Schnittstellen angeboten werden. Darunter liegende Ebenen verfeinern im Allgemeinen unter Erhaltung der Typ"=Konformität den Typ einer höheren Ebene. Über diesen Mechanismus lassen sich Software-Architekturen schrittweise verfeinern und mit mehr Informationen anreichern.
 
-Zusätzlich zu den beschriebenen statischen Strukturen bietet das Komponentenmodell Unterstützung für beliebige Zusatzattribute, die für Entitäten (Schnittstellen und Komponenten, Protokolle u. a.) vergegeben werden können. Hierunter fallen ebenfalls QoS (\textit{Quality of Service}) Attribute, für die das Komponentenmodell eine Berechnungsgrundlage bietet. Zu den Fähigkeiten des Komponentenmodells zählen parametrisierte Verträge, wie sie von Reussner in \cite{reussner01i} beschrieben werden, die Angabe von SEFFs (\textit{Service Effect Spezifikationen}, Spezifikation der externen Effekte von Dienstaufrufen auf einer Komponente) und die Verarbeitung von Protokollen auf Diensten einer Schnittstelle.
+Zusätzlich zu den beschriebenen statischen Strukturen bietet das Komponentenmodell Unterstützung für beliebige Zusatzattribute, die für Entitäten (Schnittstellen und Komponenten, Protokolle u. a.) vergegeben werden können. Hierunter fallen ebenfalls QoS (\textit{Quality of Service}) Attribute, für die das Komponentenmodell eine Berechnungsgrundlage bietet. Das Komponentenmodells ermöglicht mit seinen Daten die Auswertung von parametrisierten Verträgen, wie sie von Reussner in \cite{reussner01i} beschrieben werden, die Angabe von SEFFs (\textit{Service Effect Spezifikationen}, Spezifikation der externen Effekte von Dienstaufrufen auf einer Komponente) und die Verarbeitung von Protokollen auf Diensten einer Schnittstelle.
 
 Ein neues Paper, das das aktuelle Komponentenmodell beschreibt, wird in Kürze unter \cite{PalladioCMNeu} veröffentlicht.
 
@@ -71,7 +74,7 @@ So sprechen folgende Argumente für die Verwendung von Eclipse:
 
 \begin{itemize}
 	\item Das Basis-Framework Eclipse stellt die Möglichkeit bereit, eigene Plugins zu entwickeln um benötigten Funktionsumfang zu ergänzen. Daneben kann Eclipse als Basis für eigene selbständige Applikationen dienen (Rich Client Platform \cite{rcp}).
-	\item Insbesondere EMF (eine detailliertere Erklärung zu den hier aufgeführten Eclipse"=Projekten findet sich in Kapitel \ref{sec:EMF}) scheint als zentrales Meta-Modell zur Beschreibung des Palladio Metamodells (des Komponentenmodells) geeignet. Zudem bietet EMF die Möglichkeit generativ Modell-Quellcode, Queries und weiteres (siehe Kapitel \ref{sec:Gesamtprozess}) zu erzeugen.
+	\item Insbesondere EMF (eine detailliertere Erklärung zu den hier aufgeführten Eclipse"=Projekten findet sich in Kapitel \ref{sec:EMF}) scheint als zentrales Daten"=Modell zur Beschreibung des Palladio Metamodells (des Komponentenmodells) geeignet. Zudem bietet EMF die Möglichkeit generativ Modell"=Quellcode, Queries und weiteres (siehe Kapitel \ref{sec:Gesamtprozess}) zu erzeugen.
 	\item Daran anschließend erleichtern Modelltransformatoren wie Merlin und GMF die Erzeugung eines graphischen GEF-Editors.
 	\item Schließlich stellt Eclipse mit GEF ein umfangreiches GUI-Framework bereit. Die Verwendung von GEF in kommerziellen Produkten wie Borland Together Software Architect 2006 und IBM Rational Architect 6 zeigt die praktische Relevanz von GEF.
 \end{itemize}
@@ -81,7 +84,7 @@ Die .NET-Umgebung liegt in all diesen Bereichen deutlich zurück. Es gibt keine f
 \begin{itemize}
 	\item Die Möglichkeit auf die Generierung von Java-Quellcode zu einem Meta-Modell zurückzugreifen verspricht einen deutlichen Zeitgewinn, insbesondere bei einem häufigen Wechsel des zu Grunde liegenden Meta-Modells. Die Erfahrung innerhalb der Palladio"=Gruppe verdeutlicht, dass Änderungen des Komponentenmodells häufig vorgenommen wurden und werden. Dies ist wenig verwunderlich, zumal das Komponentenmodell zentraler Gegenstand der Forschung der Palladio"=Gruppe ist.
 	\item GEF stellt ein umfangreiches Framework zur graphischen Anzeige und Bearbeitung von Graphiken bereit. Das Framework ist erweiterbar und verfügt über umfangreiche Layout- und Rendering"=Werkzeuge. Die Architektur folgt dabei dem Model"=View"=Controller"=Prinzip. GEF ist domänenneutral und daher für eine breite Palette von Applikationen geeignet. Standardmäßig werden bereits Aktivitätsdiagramme, GUI"=Builder, Klassendiagramm"=Editoren, Zustandsmaschinen und WYSIWYG Text-Editoren unterstützt.
-	\item GMF und Merlin verfolgen einen generativen Ansatz, um zu bestehenden EMF-Meta-Modellen GEF-Editoren zu erzeugen. Merlin beschränkt sich dabei nicht nur auf das Generieren von GEF-Editoren. Dagegen versteht sich GMF als "`generative Brücke zwischen EMF und GEF"' und zielt speziell auf die Erzeugung mächtiger, flexibel generierbarer Editoren. Siehe hierzu auch Kapitel \ref{sec:Merlin-GMF}.
+	\item GMF und Merlin verfolgen einen generativen Ansatz, um zu bestehenden EMF-Meta-Modellen GEF-Editoren zu erzeugen. Merlin beschränkt sich dabei nicht nur auf das Generieren von GEF-Editoren, sondern unterstützt über JET Templates selbst definierte Transformationen (siehe Kapitel \ref{sec:Merlin-GMF}). Dagegen versteht sich GMF als "`generative Brücke zwischen EMF und GEF"' und zielt speziell auf die Erzeugung mächtiger, flexibel generierbarer Editoren. Siehe hierzu auch Kapitel \ref{sec:Merlin-GMF}.
 \end{itemize}
 
 
@@ -358,14 +361,14 @@ Zur weiteren prophylaktischen Minimierung von Risiken wurde bereits erfolgreich 
 \label{sec:Artefakte}
 Für den Verlauf der Diplomarbeit sind die folgenden Artefakte vorgesehen:
 \begin{itemize}
-	\item Proposal (dieses Dokument), \emph{\textbf{ö}}
-	\item Begleitfolien zum Proposal, \emph{\textbf{ö}}
+	\item Proposal (dieses Dokument), $\ast$
+	\item Begleitfolien zum Proposal, $\ast$
 	\item Quellcode anläßlich der Iterationen laut Kapitel \ref{sec:Iterationsschritte}
-	\item Diplomarbeit, \emph{\textbf{ö}}
-	\item Begleitfolien zur Diplomarbeit, \emph{\textbf{ö}}
-	\item Quelltexte und Modell-Serialisierungen der finalen Version des Meta-Modells, \emph{\textbf{ö}}
+	\item Diplomarbeit, $\ast$
+	\item Begleitfolien zur Diplomarbeit, $\ast$
+	\item Quelltexte und Modell-Serialisierungen der finalen Version des Meta-Modells, $\ast$
 \end{itemize}
-\emph{\textbf{ö}} kennzeichnet für die Veröffentlichung bestimmte Artefakte.
+$\ast$ kennzeichnet für die Veröffentlichung bestimmte Artefakte.
 
 
 \subsection{Entwicklungsumgebung und Werkzeuge}
@@ -406,12 +409,21 @@ Die Termine für die Vorträge im DuD-Seminar stehen derzeit noch nicht fest, sind
 \label{sec:Iterationsschritte}
 Für die Diplomarbeit werden die folgenden Iterationsschritte angestrebt, deren zeitliche Terminierung Kapitel \ref{sec:Gantt-Charts} zu entnehmen ist:
 \begin{itemize}
-	\item Vertikaler Prototyp unter Verwendung von GMF und dynamischer Annotation
-	\item 1. Iteration der Modellierung in EMF
-	\item 2. Iteration der Modellierung in EMF
-	\item GMF-Transformationen definieren, 1. Iteration; Editor-Funktionalität für das gesamte EMF-Modell herstellen
-	\item GMF-Transformationen definieren, 2. Iteration; Anpassung des generierten Editors (\textit{Customizing})
-	\item Manuelle Anpassung; eventuell vorhandene Fehler korrigieren
+	\item \textbf{Vertikaler Prototyp unter Verwendung von GMF und dynamischer Annotation.} Dieser Iterationsschritt umfasst eine prototypische Umsetzung ausgewählter Modellkonstrukte des Komponentenmodells, etwa das Anlegen von Komponenten und Schnittstellen mit der Möglichkeit zur Verfeinerung auf einer weiteren Modellierungsebene des Komponentenmodells, in EMF.
+	
+	Zusätzlich sollen dynamisch Zusatzattribute zu Entitäten anotiert werden können. Hier geht es wiederum primär um die Prüfung der Machbarkeit. Aufgezeigt werden sollen mögliche Wege zur Umsetzung der dynamischen Anotationen in EMF.
+	
+	Die Verwendung von GMF soll schließlich sicherstellen, dass sich die verwendeten Konzepte aus EMF problemlos in den Transformationen von GMF verwenden lassen, um zu einem lauffähigen GUI-Editor gelangen zu können.
+	
+	\item \textbf{1. Iteration der Modellierung in EMF.} Als Erweiterung des Prototypen aus dem vorangegangenen Iterationsschritt, werden in diesem Schritte zusätzliche Modellkonstrukte des Komponentenmodells in das EMF-Modell übernommen. Insbesondere sollen in diesem Schritt alle Entitäten des Komponentenmodells in EMF realisiert werden. Dabei ist zunächst an die Modellierung im Bereich der Typ-Ebene gedacht.
+	
+	\item \textbf{2. Iteration der Modellierung in EMF.} Erweiterungen dieser Iteration sollen ebenfalls alle vom Komponentenmodell definierten Ebenen sowie die zwischen den Ebenen definierten \textit{Constraints} berücksichtigen. Die Constraints sollen dabei, soweit möglich, programmatisch erfasst werden, um damit automatisiert prüfbar zu sein.
+	
+	\item \textbf{GMF-Transformationen definieren, 1. Iteration; Editor-Funktionalität für das gesamte EMF-Modell herstellen.} In diesem Schritt werden GMF-Transformormationen für das dann vorliegende EMF"=Modell definiert. Das Augenmerk liegt dabei vor allem beim \textit{Proof"=of"=Concept}. Es geht also vor allem darum, eventuelle Modellierungsfehler abzufangen, die eine Umsetzung im einem GUI"=Editor zuwider laufen. Daher kann in diesem Iterationsschritt zusätzlich eine Modifikation der EMF-Modellierung aus den vorangegangenen Schritten anfallen.
+	
+	\item \textbf{GMF-Transformationen definieren, 2. Iteration; Anpassung des generierten Editors (\textit{Customizing}).} Dieser Schritt befasst sich mit näheren Ausgestaltung von GMF-Transformationen um damit einen, an die Bedürfnisse der Palladio"=Gruppe angepassten, GUI-Editor zu erzeugen. Insbesondere Fragen der \textit{Usability} und der Interpretation der Darstellung von Modellierungsebenen sollen in diesem Schritt überprüft werden.
+	
+	\item \textbf{Manuelle Anpassung; eventuell vorhandene Fehler korrigieren.} Zuletzt wird in diesem Iterationsschritt vorgesehen, eventuelle manuellen Optimierungen eines generierten GUI"=Editor"=Prototypen durchzuführen. Zudem soll ergründet werden, wie umfangreich eventuelle manuelle Modifikationen sind, damit ein generierter GUI"=Editor den Anforderungen der Palladio"=Gruppe genügt.
 \end{itemize}
 
 
