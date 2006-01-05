@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.4  2006/01/05 16:08:48  kelsaka
+% - Beschreibung des Komponentenmodells überarbeitet und ergänzt
+%
 % Revision 1.3  2006/01/03 16:58:44  kelsaka
 % - Rechtschreibfehler korrigiert
 %
@@ -29,13 +32,37 @@ Zudem bezeichnet der Begriff \textit{Projekt}, solange er ohne sonstigen Kontext
 \label{sec:DasPalladioKomponentenmodell}
 Im Folgenden soll eine kurze Einführung in die Konzepte des Palladio Komponentenmodells gegeben werden.
 
-Das Palladio Komponentenmodell -- unter \cite{BECK} findet sich die Beschreibung einer älteren Fassung des Modells -- beschreibt Software-Architekturen als eine Menge von Komponenten und Schnittstellen, sowie darauf definierten Relationen. Komponenten werden dabei in \textit{Basic Components} und \textit{Composite Components} unterschieden. Wie die Namen bereits andeuten, unterstützt das Komponentenmodell zusammengesetzte Strukturen. Das bedeutet, dass Komponenten und Schnittstellen mit beliebiger Tiefe rekursiv in \textit{Composite Components} geschachtelt werden können. In diesem Falle läßt sich die "`enthält"' Relation als Realisierung einer Komponente interpretieren.
+Das Palladio Komponentenmodell -- unter \cite{BECK} findet sich die Beschreibung einer älteren Fassung des Modells -- beschreibt Software-Architekturen als eine Menge von Komponenten und Schnittstellen, sowie darauf definierten Relationen. Komponenten werden dabei in \textit{Basic Components} und \textit{Composite Components} unterschieden. Wie die Namen bereits andeuten, unterstützt das Komponentenmodell zusammengesetzte Strukturen. Das bedeutet, dass Komponenten und Schnittstellen mit beliebiger Tiefe rekursiv in \textit{Composite Components} geschachtelt werden können. In diesem Falle läßt sich die "`enthält"' Relation als Realisierung einer Komponente interpretieren. Das bedeutet, dass Komponenten, die innerhalb einer \textit{Composite Component} liegen, das Verhalten der äußeren Komponente bestimmen.
 
-Komponenten können Schnittstellen anbieten (\textit{Provides Interfaces}) oder benötigen (\textit{Requires Interfaces}).
+Komponenten können Schnittstellen anbieten (\textit{Provides Interfaces}) oder benötigen (\textit{Requires Interfaces}). Auf Schnittstellen sind dabei Dienste definiert, etwa \texttt{void} \texttt{Do\-Some\-thing(int a)}, sowie ein Protokoll, das gültige Aufrufreihenfolgen von Diensten definiert. Das Komponentenmodell limitiert dabei Protokolle nicht auf einen bestimmen Typ, wie endliche Automaten oder Petri"=Netze, sondern lässt diese Entscheidung bewußt offen. Um entscheiden zu können, ob Schnittstellen substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
 
-Daneben wird die Komponenten- und Schnittstellen-Struktur in verschiedene Ebenen unterteilt, worüber sich Typ"=Konformitäts"=Anforderungen definieren lassen. Auf der obersten Ebene wird vom \textit{Provided Type} verlangt, zu deklarieren, welche Schnittstellen angeboten werden. Darunter liegende Ebenen verfeinern im Allgemeinen unter Erhaltung der Typ"=Konformität den Typ einer höheren Ebene. Über diesen Mechanismus lassen sich Software-Architekturen schrittweise verfeinern und mit mehr Informationen anreichern.
+Eine gültige Substitution für eine Komponente liegt im Allgemeinen dann vor, wenn auf allen \textit{Provides Interfaces} einer Komponente
+\begin{itemize}
+	\item die Menge der angebotenen Dienste eine Obermenge der geforderten Dienste ist, und
+	\item das angebotene Protokoll eine Sprach-Obermenge des geforderten Protokolls ist.
+\end{itemize}
+Umgekehrt, man spricht in diesem Fall von "`Contra-Varianz"' (siehe auch \cite{co-contra}), muss für alle \textit{Requires Interfaces} gelten, dass sie
+\begin{itemize}
+	\item die geforderten Dienste eine Untermenge der angebotenen Dienste sind, und
+	\item das geforderte Protokoll eine Sprach-Untermenge des angebotenen Protokolls ist.
+\end{itemize}
 
-Zusätzlich zu den beschriebenen statischen Strukturen bietet das Komponentenmodell Unterstützung für beliebige Zusatzattribute, die für Entitäten (Schnittstellen und Komponenten, Protokolle u. a.) vergegeben werden können. Hierunter fallen ebenfalls QoS (\textit{Quality of Service}) Attribute, für die das Komponentenmodell eine Berechnungsgrundlage bietet. Das Komponentenmodells ermöglicht mit seinen Daten die Auswertung von parametrisierten Verträgen, wie sie von Reussner in \cite{reussner01i} beschrieben werden, die Angabe von SEFFs (\textit{Service Effect Spezifikationen}, Spezifikation der externen Effekte von Dienstaufrufen auf einer Komponente) und die Verarbeitung von Protokollen auf Diensten einer Schnittstelle.
+Daneben wird die Komponenten- und Schnittstellen"=Struktur in verschiedene Ebenen unterteilt, worüber sich Typ"=Konformitäts"=Anforderungen für Komponenten definieren lassen. Auf der obersten Ebene wird vom \textit{Provided Type} verlangt, zu deklarieren, welche Schnittstellen angeboten werden. Darunter liegende Ebenen verfeinern im Allgemeinen unter Erhaltung der Typ"=Konformität den Typ einer höheren Ebene. Über diesen Mechanismus lassen sich Software-Architekturen schrittweise verfeinern und mit mehr Informationen anreichern.
+
+Zusätzlich zum \textit{Provided Type} definiert das Komponentenmodell den \textit{Complete Type} und den \textit{Implementation Type}. Auf der Ebene des \textit{Complete Types} wird von Komponenten verlangt alle geforderten Schnittstellen (\textit{Requires Interfaces}) zu deklarieren. Unterhalb des \textit{Complete Types} liegt der \textit{Implementation Type}, der zusätzlich zur Schnittstellendeklaration Informationen über seine Realisierung enthält.
+
+Damit einher geht die Definition der \textit{Service Effect Specification, SEFF}. Diese gibt an, welche externen Effekte ein Dienstaufruf auf einer Komponente hat. Zu jedem angebotenen Dienst existiert daher eine Beschreibung, in welchen Aufrufen von geforderten Diensten die Verwendung einer Komponente resultiert. Da die Verwendung von geforderten Diensten vom Zustand einer Komponente oder Aufrufparametern eines Dienstes abhängen kann, werden \textit{SEFFs} beispielsweise als endliche Automaten dargestellten. Damit können auch Endscheidungen (beispielsweise \texttt{if}-Ausdrücke) oder Schleifen (etwa \texttt{while}) erfasst werden. Auch hier ist das Komponentenmodell nicht auf die konkrete Ausprägung in Form endlichen Automaten limitiert. Ebenso sind Petri"=Netze oder ähnliche Sprachdefinitionen denkbar.
+
+Als neu wird im Palladio Komponentenmodell der Begriff des "`Kontexts"' eingeführt. Dabei wird unterschieden in
+\begin{itemize}
+	\item "`Verdrahtung"' von Komponenten untereinander im Sinne einer Komponentenarchitektur (\textit{System Construction / Assembly Composition}) und
+	\item Allokation von Komponenten auf Ressourcen (\textit{Deployment / Allocation}).
+\end{itemize}
+Ziel des dahinter liegenden Konzepts ist eine Möglichkeit zur Unterscheidung von Komponenteneigenschaften je nach ihrem konkreten Verwendungskontext. So kann die \textit{gleiche} Komponente, unterschieden nach dem Typ auf einer der oben genannten Ebenen, ein unterschiedliches Verhalten, je nach Kontext, aufweisen.
+
+Nach der \textit{Assembly Composition} richten sich die aufgerufenen und aufrufenden Dienste. Damit können z. B. die Aufrufparameter von Diensten variieren. Es ändern sich also primär funktionale Eigenschaften einer Komponente. Mit der \textit{Allocation} variiert unter anderem die Ausführungsumgebung. Dies hat z. B. Auswirkungen auf die Ausführungsgeschwindigkeit, Sicherheit oder die Konfiguration zur Ausführung einer Komponente. Vornehmlich sind hiervon also nicht"=funktionale Eigenschaften betroffen.
+
+Zusätzlich zu den beschriebenen statischen Strukturen bietet das Komponentenmodell Unterstützung für beliebige Zusatzattribute, die für Entitäten (Schnittstellen und Komponenten, Protokolle u. a.) vergegeben werden können. Hierunter fallen ebenfalls QoS (\textit{Quality of Service}) Attribute, für die das Komponentenmodell eine Berechnungsgrundlage bietet. Das Komponentenmodells ermöglicht mit seinen Daten die Auswertung von parametrisierten Verträgen, wie sie von Reussner in \cite{reussner01i} beschrieben werden.
 
 Ein neues Paper, das das aktuelle Komponentenmodell beschreibt, wird in Kürze unter \cite{PalladioCMNeu} veröffentlicht.
 
