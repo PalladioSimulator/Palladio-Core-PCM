@@ -1,5 +1,5 @@
 % $Log$
-% Revision 1.2  2006/01/08 11:31:42  kelsaka
+% Revision 1.3  2006/01/08 15:42:41  kelsaka
 % - beschreibung des komponentenmodells ergänzt
 %
 % Revision 1.1  2006/01/05 16:46:14  kelsaka
@@ -34,7 +34,7 @@ Im Rahmen der Diplomarbeit wird ein Meta-Modell für das Palladio Komponentenmode
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.70\textwidth]{./image/cm-simple-component-01.pdf}
-	\caption{Einfache Komponente mit einer angebotener und zwei benötigten Schnittstellen}
+	\caption{Einfache Komponente mit einer angebotener und zwei be\-nö\-tig\-ten Schnittstellen}
 	\label{fig:cm-simple-component-01}
 \end{figure}
 
@@ -94,6 +94,38 @@ In Abbildung \ref{fig:cm-assembly-connector-01} wird die Verwendung zweier Assem
 
 Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebotenen Schnittstelle verbunden. Sind die angebotene Schnittstelle und die benötigte Schnittstelle einer Komponente identisch oder kompatibel (Def. siehe TODO), so kann eine Komponente grundsätzlich auch eigene Dienste aufrufen. In der noch folgenden Differenzierung über die Typ-Ebenen des Komponentenmodells (siehe Kapitel ref{TODO}) wird deutlich, weshalb dies nicht zwangsläufig zu einer infiniten Rekursion führen muss.
 
+
+
+\subsection{Zusammengesetzte Komponenten}
+\label{sec:ZusammengesetzteKomponenten}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.00\textwidth]{./image/cm-composite-component-01.pdf}
+	\caption{Eine zusammengesetzte Komponente mit inneren Komponenten}
+	\label{fig:cm-composite-component-01}
+\end{figure}
+
+
+
+Zusammengesetzte Komponenten, im Folgenden auch \textit{Composite Components} genannt, enthalten eine interne Realisierung über weitere Komponenten und über zugehörige Strukturen. Ein \textit{Composite Component} selbst enthält keine Realisierung etwa über Quellcode, sondern fasst eine logisch und / oder funktional zusammengehörige Menge von Komponente zusammen. Über diesen Mechanismus lassen sich Hierarchien von Komponenten definieren. Zudem stellt eine Composite Component eine Abstraktion und Kapselung ihres Innenlebens zur Verfügung, wenn sie nur über die äußeren Schnittstellen betrachtet wird (TODO: weitere Konzeptideen zu CC). In Kapitel ref{TODO Ebenen} werden die Abstraktionsebenen von Komponenten detailliert aufgezeigt.
+
+Verfügt eine Komponente über keine weiteren inneren Komponenten, so wird diese \textit{Basic Component} genannt. Damit bildet sie das Gegenstück zu einer \textit{Composite Component}.
+
+\textit{Composite Components} können neben \textit{Basic Components} ebenfalls weitere \textit{Composite Components} enthalten. Damit werden tiefere Hierarchiestufen realisiert. Im Beispiel ist "`Composite Component B"' eine weitere zusammengesetzte Komponente. Wie zu sehen ist, können \textit{Composite Components} genau wie andere Komponenten verwendet werden. Alle enthaltenen Komponente einer \textit{Composite Component} sind teil der "`contains"'-Relation der zusammengesetzen Komponente.
+
+In Abbildung \ref{fig:cm-composite-component-01} wird eine exemplarische \textit{Composite Component} dargestellt. Wie zu sehen ist, kann eine \textit{Composite Component} intern eine beliebige Menge von Komponente aufnehmen. Damit diese Komponenten verwendet werden können, bedient man sich zwischen den Komponenten auf der gleichen Hierarchiestufe den bereits eingeführten Assembly Konnektoren. Zusätzlich reglementieren Delegationskonnektoren (\textit{Delegation Connector}) wie auf der Provides-Seite externe Aufrufe auf interne Aufrufe geleitet werden und umgekehrt wie auf der Requires Seite Aufrufe interner Komponente nach außen aus die \textit{Composite Component} heraus geleitet werden.
+
+Damit die Abbildung zwischen der äußeren und inneren Schnittstelle einer Composite Component eindeutig bleibt, muss stets eine \texttt{1:1} Beziehung zwischen äußerer und innerer Schnittstelle bestehen. Ein Delegationskonnektor verbindet als immer genau zwei Schnittstellen (eine äußere angebotene Schnittstelle mit einer inneren angebotenen Schnittstelle \textit{oder} eine äußere geforderte Schnittstelle mit einer inneren geforderten Schnittstelle).
+
+Manchmal werden Delegationskonnektoren zusätzlich über ihren Verwendungskontext unterschieden. Findet die Verwendung zum Zwecke einer Abbildung zwischen angebotenen Schnittstellen statt, spricht man auch von \textit{Provides Delegation Connectors}. Im umgekehrten Fall der Verwendung zwischen benötigten Schnittstellen wird der entsprechende Delegationskonnektor auch \textit{Requires Delegation Connector} genant.
+
+Ein Signatur"=Mapping im Sinne eines Adapters (vgl. auch \cite{GAMMA,BUSCH}) ist für die Delagationskonnektoren jedoch nicht möglich. In diesem Falle wäre eine Adapterkomponente vorzusehen, die die notwendige Adaption vornimmt.
+
+Da \textit{Composite Components} vor allem eine logische Kapselung bieten, lassen sie sich vollständig auflösen, sofern ihre direkt enthaltenen (in der "`contains"'-Relation enhaltenen) Komponente vollständig einschließlich aller Delegationskonnektoren und Assembly Konnektoren bekannt sind.
+(muss nicht immer voll spezifiziert werden / informationsverliust): Auflösen von CCs
 
 
 
