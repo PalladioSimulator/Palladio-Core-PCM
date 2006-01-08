@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.2  2006/01/08 11:31:42  kelsaka
+% - beschreibung des komponentenmodells ergänzt
+%
 % Revision 1.1  2006/01/05 16:46:14  kelsaka
 % - initial creation
 %
@@ -17,8 +20,99 @@ Zudem bezeichnet der Begriff \textit{Projekt}, solange er ohne sonstigen Kontext
 
 
 
-\subsection{Das Palladio Komponentenmodell}
+\section{Das Palladio Komponentenmodell}
 \label{sec:DasPalladioKomponentenmodell}
+Im Rahmen der Diplomarbeit wird ein Meta-Modell für das Palladio Komponentenmodell erstellt. Daher ist es unabdingbar, dass ein vollständiges Verständnis für das Komponentenmodell existiert. Die folgenden Kapitel zeigen detailliert die Eigenschaften des Komponentenmodells auf. Schließlich wird dem gegenübergestellt, welche Konzepte des Komponentenmodells umgesetzt werden konnten, welche Einschränkungen bei der Modellierung auftraten und welche \textit{Work"=Arounds} aus welchen Gründen zur Abbildung notwendig waren.
+
+
+
+\subsection{Einfache Komponenten}
+\label{sec:EinfacheKomponenten}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.70\textwidth]{./image/cm-simple-component-01.pdf}
+	\caption{Einfache Komponente mit einer angebotener und zwei benötigten Schnittstellen}
+	\label{fig:cm-simple-component-01}
+\end{figure}
+
+
+
+Das Palladio Komponentenmodell -- unter \cite{BECK} findet sich die Beschreibung einer älteren Fassung des Modells -- beschreibt Software-Architekturen als eine Menge von Komponenten und Schnittstellen, sowie darauf definierten Relationen. In Abbildung \ref{fig:cm-simple-component-01} wird eine einfache Komponente "`Component"' gezeigt, die eine Schnittstelle anbietet (\textit{Provided Interface}), im Beispiel "`Provided Interface 1"' genannt. Daneben benötigt die Komponente zwei Schnittstellen ("`Required Interface 1 / 2"').
+
+Im Folgenden sollen zunächst einfache Basiskonstrukte des Komponentenmodell dargestellt werden. Eine detaillierte Erklärung, welche Konstrukte in welchen Situationen als valide bewertet werden, folgt in den nächsten Kapiteln (ref TODO: Kapitelnummer). In den Abbildungen dieses Kapitel wird auf die standardisierte Visualisierung mit Hilfe von UML 2 Komponentendiagrammen \cite{uml2} zurückgegriffen.
+
+Eine Komponente kann \texttt{0..*} Schnittstellen anbieten. Das bedeutet, dass die Komponenten die Dienste auch anbieten muss, die über eine Schnittstelle festgelegt sind. Der Aufbau einer Schnittstelle wird in Kapitel ref{TODO} beschrieben. Für eine Komponente darf im Allgemeinen jedoch nicht angenommen werden, das angebotene Schnittstellen und darauf definierte Dienste auch tatsächlich angesprochen werden.
+
+Auf der \textit{Requires}-Seite ist eine Komponente ebenso frei und kann \texttt{0..*} Schnittstellen benötigen. Durch die \textit{Requires}-Schnittstelle definiert eine Komponente die Dienste, die sie selbst benötigt. Wird eine Komponente verwendet, muss für eine vollständige uneingeschränkte Verwendung sichergestellt werden, dass die benötigten Dienste ebenso vollständig von anderen Komponenten angeboten werden und erreicht werden können (zur Verbindung zwischen Komponenten siehe Kapitel ref{TODO}).
+
+Eine Komponente kann im Übrigen die gleiche Schnittstelle anbieten und zugleich verlangen. Stellt man sich beispielsweise eine \textit{Chain-of-Responsibility} (vgl. \cite{GAMMA}) vor, die über Komponenten realisiert wird, so wird die gleiche Schnittstelle zur Annahme (\textit{provided}) von Dienstaufrufen und zur Weitergabe von Dienstaufrufen an den Nachfolger in der Kette verwendet.
+
+
+
+\subsection{Schnittstellen und Rollen}
+\label{sec:SchnittstellenUndRollen}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.55\textwidth]{./image/cm-interfaces-roles-01.pdf}
+	\caption{Angebotene und benötigte Schnittstellen mit ihren dazugehörigen Rollen in UML2"=Notation}
+	\label{cm-interfaces-roles-01}
+\end{figure}
+
+
+
+Über Abbildung \ref{cm-interfaces-roles-01} soll verdeutlicht werden, welche Bestandteile der graphischen Notation, die auch im Folgenden verwendet wird, einem Interface entsprechen. Auf der linken Seite ist eine Komponente angedeutet, die eine Schnittstelle anbietet. Bietet eine Komponente eine Schnittstelle an (\textit{Provided Interface}), so impliziert dies, dass eine \textit{Provides Role} zwischen Komponente und Interface existiert. In der graphischen Notation ist die vergleichbar mit der Verbindungslinie zwischen Schnittstelle und Komponente. Wird eine Komponente angeboten, resultiert dies in einer Kreisdarstellung für die Schnittstelle.
+
+Auf der rechten Seite der Abbildung ist die \textit{Requires Role} zwischen einer Komponente unter der Schnittstelle dargestellt. Auch hier entspricht die Verbindungslinie zwischen Komponente und Schnittstelle der Rollen-Beziehung. Die graphische Notation ändert sich jedoch. Aus dem Kreis, der die Schnittstelle symbolisiert, wird ein Halbkreis.
+
+Auch im Komponentenmodell wird die Relation zwischen Komponente und Schnittstelle als "`Rolle"' (\textit{Role}) bezeichnet. Die Art der Rolle (angeboten oder benötigt / \textit{provided} oder \textit{required}) entscheidet über die Verwendung der Schnittstelle. Die Eigenschaft der Schnittstelle selbst ändert sich jedoch nicht durch ihre Verwendung. Auch in Abbildung \ref{cm-interfaces-roles-01} könnten die Komponenten die beiden dargestellten Schnittstellen identisch sein.
+
+Eine Schnittstelle wird also erst durch eine \textit{Provides Role} zu einer angebotene Schnittstelle / einem \textit{Provided Interface}, bzw. über eine \textit{Requires Role} zu einer benötigten Schnittstelle / einem\textit{Required Interface}.
+
+
+
+\subsection{Assembly Konnektoren}
+\label{sec:Assembly Konnektoren}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.00\textwidth]{./image/cm-assembly-connector-01.pdf}
+	\caption{Eine Komponente wird über Assembly Konnektoren mit zwei weiteren Komponenten verbunden}
+	\label{fig:cm-assembly-connector-01}
+\end{figure}
+
+
+
+In Abbildung \ref{fig:cm-assembly-connector-01} wird die Verwendung zweier Assembly Konnektoren (\textit{Assembly Connector}) dargestellt. Präzise betrachtet verbinden Konnektoren je eine angebotene und eine benötigte Rolle einer Schnittstelle. Dies bedeutet, dass Aufrufe der über die \textit{Requires Role} mit der benötigten Schnittstelle verbundenen Komponente auf die angebotene Schnittstelle und damit auf die über eine \textit{Provides Role} damit verbundene Komponente weitergeleitet werden. Der Kontrollfluß folgt damit in diesem Fall der als gestrichelt dargestellten Linie.
+
+Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebotenen Schnittstelle verbunden. Sind die angebotene Schnittstelle und die benötigte Schnittstelle einer Komponente identisch oder kompatibel (Def. siehe TODO), so kann eine Komponente grundsätzlich auch eigene Dienste aufrufen. In der noch folgenden Differenzierung über die Typ-Ebenen des Komponentenmodells (siehe Kapitel ref{TODO}) wird deutlich, weshalb dies nicht zwangsläufig zu einer infiniten Rekursion führen muss.
+
+
+
+
+
+
+
+------------------------------------
+
+
+TODO:
+- Parametrisierte Verträge: Auswirkungen auf Requires-Schnittstelle: nicht mehr alles notwendig
+- Komponente ruft sich selbst auf: wann unendliche rekursion, wann auf welcher ebene erlaubt --> insbesondere unbekannt in CCs
+- mehrere konnektoren auf eine provided schnittstelle: zustand nicht mehr unterscheidbar.: In der Umkehrung kann eine angebotene Schnittstelle jedoch über \texttt{0..*} benötigte Rollen verwendet werden. Damit bleibt die graphische Notation nicht eindeutig...
+- keine Unterstützung für Zustände über mehrere schnittstellen hinweg.
+- Typ-Ersetzbarkeit
+
+
+------------------------------------
+
 
 
 Das Palladio Komponentenmodell -- unter \cite{BECK} findet sich die Beschreibung einer älteren Fassung des Modells -- beschreibt Software-Architekturen als eine Menge von Komponenten und Schnittstellen, sowie darauf definierten Relationen. Komponenten werden dabei in \textit{Basic Components} und \textit{Composite Components} unterschieden. Wie die Namen bereits andeuten, unterstützt das Komponentenmodell zusammengesetzte Strukturen. Das bedeutet, dass Komponenten und Schnittstellen mit beliebiger Tiefe rekursiv in \textit{Composite Components} geschachtelt werden können. In diesem Falle läßt sich die "`enthält"' Relation als Realisierung einer Komponente interpretieren. Das bedeutet, dass Komponenten, die innerhalb einer \textit{Composite Component} liegen, das Verhalten der äußeren Komponente bestimmen.
