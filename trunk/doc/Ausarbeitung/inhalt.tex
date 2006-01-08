@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.4  2006/01/08 17:43:03  kelsaka
+% - beschreibung des komponentenmodells weiter ergänzt
+%
 % Revision 1.3  2006/01/08 15:42:41  kelsaka
 % - beschreibung des komponentenmodells ergänzt
 %
@@ -110,7 +113,7 @@ Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebot
 
 
 
-Zusammengesetzte Komponenten, im Folgenden auch \textit{Composite Components} genannt, enthalten eine interne Realisierung über weitere Komponenten und über zugehörige Strukturen. Ein \textit{Composite Component} selbst enthält keine Realisierung etwa über Quellcode, sondern fasst eine logisch und / oder funktional zusammengehörige Menge von Komponente zusammen. Über diesen Mechanismus lassen sich Hierarchien von Komponenten definieren. Zudem stellt eine Composite Component eine Abstraktion und Kapselung ihres Innenlebens zur Verfügung, wenn sie nur über die äußeren Schnittstellen betrachtet wird (TODO: weitere Konzeptideen zu CC). In Kapitel ref{TODO Ebenen} werden die Abstraktionsebenen von Komponenten detailliert aufgezeigt.
+Zusammengesetzte Komponenten, im Folgenden auch \textit{Composite Components} genannt, enthalten eine interne Realisierung über weitere Komponenten und über zugehörige Strukturen. Ein \textit{Composite Component} selbst enthält keine Realisierung etwa über Quellcode, sondern fasst eine logisch und / oder funktional zusammengehörige Menge von Komponente zusammen. Über diesen Mechanismus lassen sich Hierarchien von Komponenten definieren. Zudem stellt eine Composite Component eine Abstraktion und Kapselung ihres Innenlebens (\textit{Information Hiding}) zur Verfügung, wenn sie nur über die äußeren Schnittstellen betrachtet wird (TODO: weitere Konzeptideen zu CC). In Kapitel ref{TODO Ebenen} werden die Abstraktionsebenen von Komponenten detailliert aufgezeigt.
 
 Verfügt eine Komponente über keine weiteren inneren Komponenten, so wird diese \textit{Basic Component} genannt. Damit bildet sie das Gegenstück zu einer \textit{Composite Component}.
 
@@ -124,11 +127,29 @@ Manchmal werden Delegationskonnektoren zusätzlich über ihren Verwendungskontext 
 
 Ein Signatur"=Mapping im Sinne eines Adapters (vgl. auch \cite{GAMMA,BUSCH}) ist für die Delagationskonnektoren jedoch nicht möglich. In diesem Falle wäre eine Adapterkomponente vorzusehen, die die notwendige Adaption vornimmt.
 
-Da \textit{Composite Components} vor allem eine logische Kapselung bieten, lassen sie sich vollständig auflösen, sofern ihre direkt enthaltenen (in der "`contains"'-Relation enhaltenen) Komponente vollständig einschließlich aller Delegationskonnektoren und Assembly Konnektoren bekannt sind.
-(muss nicht immer voll spezifiziert werden / informationsverliust): Auflösen von CCs
+Da \textit{Composite Components} lediglich eine logische Kapselung bieten, lassen sie sich vollständig auflösen, sofern ihre direkt enthaltenen (in der "`contains"'-Relation enhaltenen) Komponenten vollständig einschließlich aller Delegationskonnektoren und Assembly Konnektoren bekannt sind. Zu diesem Zwecke zeigen Delegaten auf der Angebotsseite direkt auf die enthaltenen Komponenten, die über Delegationskonnektoren verknüpft sind, beziehungsweise auf der Nachfrageseite direkt auf die über Delegationskonnektoren verbundenen äußeren Komponenten. Zu beachten ist, dass Composite Components, je nach Typ-Ebene (siehe Kapitel ref{Ebenen}), nicht von anderen Komponenten unterschieden werden können und ihre interne Realisierung nicht immer vollständigs bekannt sein muss. In diesen Fällen ist eine Auflösung nicht möglich.
+
+Auch wenn sich \textit{Composite Components} logisch auflösen lassen, so ist dies immer mit einem Informationsverlust verbunden. Da allein die Kapselung einer Menge von Komponenten eine Information darstellt, wenn man davon ausgeht, dass der Vorgang des Zusammenfassens von Komponenten nicht zufällig geschieht. Daneben ist auch der Name einer \textit{Composite Component} bezeichnend. Zudem ist es im Komponentenmodell möglich über Annotationen Informationen zu einer zusammengesetzten Komponente zu hinterlegen (siehe auch Kapitel ref{TODO: Anotationen}). Wird die Komponente aufgelöst, lassen sind auch diese Informationen nicht mehr speichern.
+
+Nicht immer können \textit{Composite Components} jedoch aufgelöst werden. An dieser Stelle sei auf Kapitel ref{Ebenen} verwiesen. Je nach Typ-Ebene wird das Innenleben einer Komponente teils bewußt ausgeblendet und bleibt in jedem Falle verborgen. Zudem läßt das Komponentenmodell \textit{Composite Components} zu, die nicht ausspezifiziert sind. Über diesen Mechanismus lassen sich Software"=Architekturen schrittweise verfeinern und mit mehr Informationen anreichern.
 
 
 
+\subsection{Schnittstellen, Signaturlisten und Protokolle}
+\label{sec:SchnittstellenSignaturlistenundProtokolle}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.00\textwidth]{./image/cm-interfaces-signature-protocol-01.pdf}
+	\caption{Beispielschnittstellen mit Signaturlisten und Protokollinformationen in Form von endlichen Automaten}
+	\label{fig:cm-interfaces-signature-protocol-01}
+\end{figure}
+
+
+
+Abbildung \ref{fig:cm-interfaces-signature-protocol-01}
 
 
 
@@ -141,6 +162,8 @@ TODO:
 - mehrere konnektoren auf eine provided schnittstelle: zustand nicht mehr unterscheidbar.: In der Umkehrung kann eine angebotene Schnittstelle jedoch über \texttt{0..*} benötigte Rollen verwendet werden. Damit bleibt die graphische Notation nicht eindeutig...
 - keine Unterstützung für Zustände über mehrere schnittstellen hinweg.
 - Typ-Ersetzbarkeit
+- Anotationen wann und wo?
+- QoS-Fähigkeiten
 
 
 ------------------------------------
