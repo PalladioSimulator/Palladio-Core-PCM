@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.8  2006/01/09 16:47:45  kelsaka
+% - Kapitel ergänzt
+%
 % Revision 1.7  2006/01/09 14:28:51  kelsaka
 % - beschreibung des komponentenmodells weiter ergänzt
 % - alte inhalte (aus prosposal) weitestgehend entfernt
@@ -253,13 +256,13 @@ Im Beispiel werden alle Initialisierungsvorgänge der Komponente (Konstruktoraufr
 
 Bei SEFFs werden die Kanten eines endlichen Automaten mit den externen Dienstaufrufen beschriftet. Die Zustände des Automaten repräsentieren den "`Zustandsbereich"' der Komponente zwischen den externen Aufrufen.
 
+
+
+\paragraph{SEFF-Typen}
+\label{sec:SEFF-Typen}
 Für jeden Dienst einer Komponente können \texttt{0..1} SEFFs eines SEFF"=Typs definiert werden. Als SEFF"=Typ gelten dabei endliche Automaten, Petri"=Netze und sonstige Sprachen. Existieren zu einem Dienst einer Komponent SEFF"=Beschreibungen unterschiedlichen Typs, so müssen diese konsistent sein, dürfen sich also nicht widersprechen. Das Komponentenmodell prüft zunächst in keinem Fall auf diese Konsistenz. Entsprechende Prüfungen müssen durch den Nutzer erfolgen (Eine Prüfung ist nicht in jedem Fall trivial: "`Sprach...inklusion...TODO"'). 
 
-Erklörung: warum unterschiedliche Typen erlaubt?
-
-
-
-
+Das Komponentenmodell verzichtet bewußt auf die Einschränkung nur einen SEFF"=Typ global im gleichen Komponentenmodell oder für einen Dienst zuzulassen. Dies erlaubt es die gleiche Komponentenarchitektur zur gleichen Zeit auf verschiedene Weise mit Informationen anzureichen. Dadurch können Modellierer, auch ohne Kenntnis von der spezifischen Darstellung von SEFFs, ihre eigenen Darstellungsformen verwenden. Im Sinne der Unabhängigkeit des Komponentenmodells von konkreten SEFF"=Typen, bleibt es durch dieses Weniger an Einschränkung möglich das Komponentenmodell gefiltert zu betrachten. Zugleich erkauft man sich diesen Vorteil durch die Gefahr, dass Inkonsistenzen verschiedener SEFF"=Typen auftreten oder spezielle SEFF"=Typen schlicht nicht verstanden werden und dadurch auch nicht konsistent zu halten sind.
 
 
 
@@ -267,6 +270,43 @@ Erklörung: warum unterschiedliche Typen erlaubt?
 \label{sec:EinschraenkungenSEFF}
 TODO: Was ist nicht mit endlichem Automaten darstellbar?
 
+
+
+\subsection{Typ-Ebenen}
+\label{sec:Typ-Ebenen}
+
+
+
+\subsubsection{Typ-Spezialisierung}
+\label{sec:Typ-Spezialisierung}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.00\textwidth]{./image/cm-level-refinement-01.pdf}
+	\caption{Spezialisierung eines \textit{Provided Type} zu einem \textit{Complete Type} (aus cite{TODO})}
+	\label{fig:cm-level-refinement-01}
+\end{figure}
+
+
+
+\subsubsection{Typ-Hierarchie}
+\label{sec:Typ-Hierarchie}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.00\textwidth]{./image/cm-type-levels-01.pdf}
+	\caption{Typ-Hierarchie: \textit{Provided Type}, \textit{Complete Type} und \textit{Implementation Type} (aus cite{TODO})}
+	\label{fig:cm-type-levels-01}
+\end{figure}
+
+
+
+\subsection{Kontext}
+\label{sec:Kontext}
 
 
 
