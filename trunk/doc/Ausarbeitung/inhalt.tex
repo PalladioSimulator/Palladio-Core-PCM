@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.6  2006/01/09 13:26:55  kelsaka
+% - beschreibung des komponentenmodells ergänzt
+%
 % Revision 1.5  2006/01/09 09:49:10  kelsaka
 % - beschreibung des komponentenmodells weiter ergänzt
 %
@@ -11,7 +14,19 @@
 % Revision 1.1  2006/01/05 16:46:14  kelsaka
 % - initial creation
 %
-%\section{Abstract}
+
+
+% TODO: auf rechte Seite prüfen --> je nach TOC
+\section{Abstract}
+\label{sec:Abstract}
+\begin{abstract}
+	TODO: Abstract
+\end{abstract}
+
+\newpage
+%	leere Seite
+$\,$
+\newpage
 
 
 
@@ -179,9 +194,27 @@ Eine Schnittstelle enthält genau eine Signaturliste. Diese Signaturliste wiederu
 
 \subsubsection{Protokolle}
 \label{sec:Protokolle}
-Das Komponentenmodell limitiert dabei Protokolle nicht auf einen bestimmen Typ, wie endliche Automaten oder Petri"=Netze, sondern lässt diese Entscheidung bewußt offen. Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
+Wie bereits oben angedeutet, definieren Protokolle von Schnittstellen gültige Aufrufsequenzen auf Diensten. In Abbildung \ref{fig:cm-interfaces-signature-protocol-01} werden beispielhaft endliche Automaten zur Darstellung der Protokolle auf den Schnittstellen verwendet. Das Komponentenmodell limitiert dabei Protokolle nicht auf einen bestimmen Typ, wie endliche Automaten oder Petri"=Netze, sondern lässt diese Entscheidung bewußt offen. Schnittstellen müssen nicht zwangsläufig Protokolle definieren.
 
-Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle definiert wurden, idententisch, deutet dies zumeist auf ein Design"=Problem des Komponentenmodells hin. Sind auch Zusatzattribute (z. B. QoS"=Attribute; siehe Kapitel ref{TODO Anotationen}) identisch, führt dies vermutlich zu ungewollten Inkonsistenzen zwischen einer vermeintlich identischen Schnittstelle.
+Um im Beispiel zu bleiben: hier beginnen alle gültigen Aufrufsequenzen mit einem \texttt{open()}, gefolgt von beliebigen \texttt{read()} und \texttt{write()} Operationen. In jedem Fall muss abschließend ein \texttt{close()} folgen. Alternativ sind auch Sequenzen gültig, die sofort enden (denn direkt nach dem Initialisieren befindet sich das Protokoll der Schnittstelle in einem gültigen Endzustand). Als Kantenbeschriftungen werden also Signaturen aus der Signaturliste der mit einem Protokoll zu versehenden Schnittstelle verwendet.
+
+Protokolle bieten somit eine Möglichkeit Abhängigkeiten zwischen Diensten, respektive Signaturaufrufen, \textit{einer} Schnittstelle definieren. Damit wird für Komponenten ein interner Zustand möglich. Über Dienstaufrufe kann der Zustand verändert werden. Abhängig von aktuellen Zustand sind nur bestimmte weitere Dienstaufrufe möglich. Nur bestimmte Sequenzen, nämlich jene, die zu einem Endzustand führen, sind gültig. Von Komponenten kann nur dann ein definiertes Verhalten erwartet werden, wenn die Schnittstellenprotokolle erfüllt werden.
+
+
+
+\paragraph{Einschränkungen}
+\label{sec:EinschraenkungenProtokoll}
+Das Komponentenmodell erlaubt indes derzeit keinen Zustandswechsel in Abhängigkeit von Aufrufparametern einer Signatur. Um weitere Zustandswechsel einer Komponente modellieren zu können, ist es notwendig die Zahl der Signaturen zu erhöhen. Damit kann, bei endlichen Parameterwerten, ein Verhalten nachgebildet werden, dass einer Abhängigkeit des internen Komponentenzustands von Parameterwerten entspricht.
+
+Zu beachten ist, dass Schnittstellen ein Protokoll definieren können, der Zustand jedoch von der implementierenden und anbietenden (\textit{provides}) Komponente abhängt.
+
+Als weitere Einschränkung des Komponentenmodells gilt derzeit, dass eine Komponente mehrere Schnittstellen zugleich anbieten oder benötigen können. Innerhalb der Menge der angebotenen \textit{oder} benötigten Schnittstellen gibt es jedoch keine Möglichkeit schnittstellenübergreifende Protokolle zu definieren. Somit kann eine Komponente zur gleichen Zeit \textit{mehrere} interne Zustande haben. Je Schnittstellenprotokoll existiert ein eigener Zustand.
+
+
+
+\paragraph{Schlechte Modellierung}
+\label{sec:SchlechteModellierung}
+Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle definiert wurden, identisch, deutet dies zumeist auf ein Design"=Problem des Komponentenmodells hin. Sind auch Zusatzattribute (z. B. QoS"=Attribute; siehe Kapitel ref{TODO Anotationen}) identisch, führt dies vermutlich zu ungewollten Inkonsistenzen zwischen einer vermeintlich identischen Schnittstelle.
 
 
 
@@ -212,6 +245,7 @@ TODO:
 - mehrere konnektoren auf eine provided schnittstelle: zustand nicht mehr unterscheidbar.: In der Umkehrung kann eine angebotene Schnittstelle jedoch über \texttt{0..*} benötigte Rollen verwendet werden. Damit bleibt die graphische Notation nicht eindeutig...
 - keine Unterstützung für Zustände über mehrere schnittstellen hinweg.
 - Typ-Ersetzbarkeit: Verschiedene Betrachtungsmöglichkeiten / Interoperabilitätsniveaus: Signatur, Protokoll, QoS --> Grafik
+Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
 - Anotationen wann und wo?
 - QoS-Fähigkeiten
 
