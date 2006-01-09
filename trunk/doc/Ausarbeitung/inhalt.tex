@@ -1,4 +1,8 @@
 % $Log$
+% Revision 1.7  2006/01/09 14:28:51  kelsaka
+% - beschreibung des komponentenmodells weiter ergänzt
+% - alte inhalte (aus prosposal) weitestgehend entfernt
+%
 % Revision 1.6  2006/01/09 13:26:55  kelsaka
 % - beschreibung des komponentenmodells ergänzt
 %
@@ -35,6 +39,13 @@ $\,$
 
 
 
+\subsection{Überblick}
+\label{sec:EinleitungUeberblick}
+
+
+
+\subsection{Bemerkungen}
+\label{sec:EinleitungBemerkungen}
 Ist im Folgenden von \textit{Komponentenmodell} die Rede, so ist, sofern nicht anders angegeben, das \textit{Palladio Komponentenmodell} gemeint. Als Palladio Komponentenmodell wird dabei das \textit{Meta}-Modell zur Darstellung von Komponentenarchitekturen der Palladio-Gruppe \cite{PALL} bezeichnet. Dieses Modell wird in Kapitel \ref{sec:DasPalladioKomponentenmodell} näher beschrieben.
 
 Zudem bezeichnet der Begriff \textit{Projekt}, solange er ohne sonstigen Kontext verwendet wird, die Diplomarbeit.
@@ -208,13 +219,13 @@ Das Komponentenmodell erlaubt indes derzeit keinen Zustandswechsel in Abhängigke
 
 Zu beachten ist, dass Schnittstellen ein Protokoll definieren können, der Zustand jedoch von der implementierenden und anbietenden (\textit{provides}) Komponente abhängt.
 
-Als weitere Einschränkung des Komponentenmodells gilt derzeit, dass eine Komponente mehrere Schnittstellen zugleich anbieten oder benötigen können. Innerhalb der Menge der angebotenen \textit{oder} benötigten Schnittstellen gibt es jedoch keine Möglichkeit schnittstellenübergreifende Protokolle zu definieren. Somit kann eine Komponente zur gleichen Zeit \textit{mehrere} interne Zustande haben. Je Schnittstellenprotokoll existiert ein eigener Zustand.
+Als weitere Einschränkung des Komponentenmodells gilt derzeit, dass eine Komponente mehrere Schnittstellen zugleich anbieten oder benötigen kann. Innerhalb der Menge der angebotenen \textit{oder} benötigten Schnittstellen gibt es jedoch keine Möglichkeit schnittstellenübergreifende Protokolle zu definieren. Somit kann eine Komponente zur gleichen Zeit \textit{mehrere} interne Zustande haben. Je Schnittstellenprotokoll existiert ein eigener Zustand. Damit lässt sich kein Verhalten modellieren, bei dem sich Schnittstellenaufrufe gegenseitig beeinflussen. Denkbar wären hier sich gegenseitig blockierende Aufrufe auf Grund einer gemeinsamen kritischen Ressource.
 
 
 
 \paragraph{Schlechte Modellierung}
 \label{sec:SchlechteModellierung}
-Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle definiert wurden, identisch, deutet dies zumeist auf ein Design"=Problem des Komponentenmodells hin. Sind auch Zusatzattribute (z. B. QoS"=Attribute; siehe Kapitel ref{TODO Anotationen}) identisch, führt dies vermutlich zu ungewollten Inkonsistenzen zwischen einer vermeintlich identischen Schnittstelle.
+Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle definiert wurden, identisch, deutet dies zumeist auf ein Design"=Problem des Komponentenmodells hin. Sind auch Zusatzattribute (z. B. Quality"=of"=Service"=Attribute; siehe Kapitel ref{TODO Anotationen}) identisch, führt dies vermutlich zu ungewollten Inkonsistenzen zwischen einer vermeintlich identischen Schnittstelle.
 
 
 
@@ -232,7 +243,30 @@ Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle defi
 
 
 
-In Abbildung \ref{fig:cm-code-seff-01} wird eine Service Effekt Spezifikation zu der in Abbildung \ref{fig:cm-interfaces-signature-protocol-01} eingeführten Komponente dargestellt.
+Während Protokolle gültige Aufrufsequenzen auf Schnittstellen beschreiben, stellen Service Effekt Spezifikationen, auch SEFF (\textit{Service Effect Specification}), eine Verbindung zwischen angebotenen und benötigten Schnittstellen einer Komponente her. SEFFs sind nicht verpflichtend für eine Komponente zu definieren.
+
+Wie der Name andeutet, beschreibt ein SEFF zu genau einem angebotenem Dienst (\textit{Service} des \textit{Provides Interfaces}) einer Komponente die externen Auswirkungen auf die benötigte Schnittstelle. Interne Vorgänge in der Komponente werden dabei abstrahiert. Dafür werden sämtliche Aufrufe auf externen Komponenten (über die benötigten Schnittstellen) erfasst. Damit ist es möglich die Auswirkungen eines Dienstaufrufs auf einer Komponente "`durch die Komponente hindurch"' zu beobachten. Zusätzlich werden Kontrollfluss"=Elemente der zu beschreibenden Komponente erfasst, sofern diese Kontrollfluss"=Elemente Auswirkungen auf die externen Aufrufe haben.
+
+In Abbildung \ref{fig:cm-code-seff-01} wird eine Service Effekt Spezifikation zu der in Abbildung \ref{fig:cm-interfaces-signature-protocol-01} eingeführten Komponente dargestellt. In diesem Beispiel wird wiederum auf endliche Automaten zur Darstellung von SEFFs zurückgegriffen. Auch an dieser Stelle limitiert das Komponentenmodell nicht auf die Verwendung von endlichen Automaten. Ebenso sind Petri"=Netze oder andere Sprachen möglich.
+
+Im Beispiel werden alle Initialisierungsvorgänge der Komponente (Konstruktoraufrufe, Variablen anlegen) ausgeblendet. Der erste Aufruf, der von Interesse ist, ist der Aufruf des Loggers (\texttt{logger.writeLog()}). Als nächstes werden die Kontrollfluss"=Elemente der Komponente abgebildet. Da \texttt{cache.readFromCache()} und \texttt{logger.writeLog()} in einer \texttt{while}"=Schleife aufgerufen werden können, wird ein Zwischenzustand eingeführt, der den Zustand nach dem Aufruf des Cache"=Zugriffs repräsentiert und ein Kante, die zum Zustand vor / nach der \texttt{while}"=Schleife zurück führt.
+
+Bei SEFFs werden die Kanten eines endlichen Automaten mit den externen Dienstaufrufen beschriftet. Die Zustände des Automaten repräsentieren den "`Zustandsbereich"' der Komponente zwischen den externen Aufrufen.
+
+Für jeden Dienst einer Komponente können \texttt{0..1} SEFFs eines SEFF"=Typs definiert werden. Als SEFF"=Typ gelten dabei endliche Automaten, Petri"=Netze und sonstige Sprachen. Existieren zu einem Dienst einer Komponent SEFF"=Beschreibungen unterschiedlichen Typs, so müssen diese konsistent sein, dürfen sich also nicht widersprechen. Das Komponentenmodell prüft zunächst in keinem Fall auf diese Konsistenz. Entsprechende Prüfungen müssen durch den Nutzer erfolgen (Eine Prüfung ist nicht in jedem Fall trivial: "`Sprach...inklusion...TODO"'). 
+
+Erklörung: warum unterschiedliche Typen erlaubt?
+
+
+
+
+
+
+
+\paragraph{Einschränkungen}
+\label{sec:EinschraenkungenSEFF}
+TODO: Was ist nicht mit endlichem Automaten darstellbar?
+
 
 
 
@@ -248,6 +282,7 @@ TODO:
 Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
 - Anotationen wann und wo?
 - QoS-Fähigkeiten
+- Ein neues Paper, das das aktuelle Komponentenmodell beschreibt, wird in Kürze unter \cite{PalladioCMNeu} veröffentlicht.
 
 
 ------------------------------------
@@ -293,247 +328,8 @@ Ein neues Paper, das das aktuelle Komponentenmodell beschreibt, wird in Kürze un
 ---------------------------------
 
 
-
-
-\subsection{Eclipse}
-\label{sec:Eclipse}
-Eclipse, wie auch alle anderen zu verwendenden Werkzeuge (zumeist Eclipse"=Plugins) im Bereich der Meta-Modellierung und anschließenden Modell-Transformation, befinden sich in einer stetigen Entwicklung. Der Charakter von Open-Source-Projekten macht die Entwicklungsarbeit in Teilen vom Engagement freiwilliger Entwickler ab\-hän\-gig. Dies hat zur Folge, dass die Wachstumsgeschwindigkeit dieser Projekte stark variabel sein kann, die Erweiterungen zugleich aber auch neue Möglichkeiten bieten können, die zum Zeitpunkt der Erstellung dieses Propsals nicht absehbar sind.
-
-Ebenso sind möglicherweise nicht alle verfügbaren Produkte bekannt, die sich zur Umsetzung der Diplomarbeit eignen würden. Somit kann die Auswahl geeigneter Werkzeuge lediglich eine unvollständige  Momentaufnahme in der Marktbeobachtung darstellen. Änderungen in der Verfügbarkeit von Werkzeugen haben somit direkt Einfluß auf die Diplomarbeit, sind zugleich aber nicht vorhersehbar.
-
-Eine ausführliche Abschätzung zu den allgemeinen Risiken findet sich in Kapitel \ref{sec:Risikomanagement}.
-
-
-
-\subsubsection{Entwicklung des Eclipse-Projekts}
-\label{sec:EntwicklungdesEclipse-Projekts}
-Eclipse \cite{eclipse} stellt ein umfangreiches Open Source Framework unter Java dar. Als solches stellt Eclipse diverse Plugin-Schnittstellen zur Verfügung, für die bereits eine Vielzahl Plugins existieren.
-
-Während das primäre Ziel von Eclipse die Bereitstellung einer Entwicklungsumgebung ist, wurden daneben mehrere Unterprojekte ausgegliedert, die sich des Eclipse"=Frameworks bedienen und für MDA-Prozesse (\textit{Model Driven Architecture}) Un\-ter\-stüt\-zung bereit stellen.
-
-Das Eclipse-Projekt wird maßgeblich durch IBM \cite{IBM} gefördert. So basieren auch neuere kommerzielle Entwicklungen wie der IBM Rational Software Architect 6 oder Borland Together 2006 auf dem Eclipse-Framework. Dies verdeutlicht die Bedeutung Eclipses für industrielle Anwendungen, führt andererseits aber auch dazu, dass sich die genannten Firmen, neben weiteren, finanziell und personell für das Eclipse-Projekt engagieren. Somit ist zugleich eine Weiterentwicklung des Projekts möglich, die Ideen und Anregungen aus der Open Source Community aufgreift und mit den Mitteln der Industrie umsetzt.
-
-Startete das Eclipse-Projekt im November 2001 noch mit acht Gründungsmitgliedern, waren es Ende 2003 bereits 80 und heute bereits über 115 Mitglieder (vgl. \cite{eclipse-history}). Das anhaltende Wachstum und die Diversifikation über mehrere Sub-Projekte erscheint somit auch für die Zukunft gesichert.
-
-
-
-\subsubsection{Eclipse Sub-Projekte}
-\label{sec:EclipseSub-Projekte}
-Im Rahmen der Diplomarbeit werden unter anderem die folgenden Sub-Projekte der Eclipse Foundation verwendet: EMF - Eclipse Modeling Framework \cite{EMF}, GEF - Graphical Editing Framework \cite{GEF}, GMF - Graphical Modeling Framework \cite{GMF} und der Merlin Generator \cite{Merlin}.
-
-
-
-\subsubsection{Verwendung im Palladio-Kontext}
-\label{sec:VerwendungimPalladio-Kontext}
-Die DFG Nachwuchsgruppe Palladio \cite{PALL}, in deren Rahmen diese Diplomarbeit entsteht, entwickelt seit dem Jahr 2003 unter anderem ein Komponentenmodell zur ingenieursmäßigen Evaluation von Software"=Architekturen, zur Vorhersage nicht"=funktionaler Eigenschaften und Untersuchung von Modelltransformationen (siehe auch Kapitel \ref{sec:DasPalladioKomponentenmodell}). Zur Validierung wissenschaftlicher Erkenntnisse wurde neben der konzeptionellen Entwicklung stets eine Referenz"=Implementierung des Palladio Komponentenmodells gepflegt. Erschien die Entwicklung in der Vergangenheit unter Microsofts .NET sinnvoll, vor allem weil die verwendete Programmiersprache C\# 1.0 gegenüber Java 1.4 benötigte Spracherweiterungen bot (bspw. Klassen"=Attribute), so zeigt bereits die in Kapitel  \ref{sec:EclipseSub-Projekte}, aufgeführte Palette existierender Eclipse-Entwicklungen, dass für den ebenfalls forschungsrelevanten Bereich der Modelltransformationen eine weitaus breitere Unterstützung unter Eclipse existiert. Zudem ist das in Java 1.4 als einschränkend empfundene Fehlen von Klassen"=Attributen unter Java 1.5 aufgehoben, da Java mittlerweile ähnliche Konzepte bietet.
-
-So sprechen folgende Argumente für die Verwendung von Eclipse:
-
-\begin{itemize}
-	\item Das Basis-Framework Eclipse stellt die Möglichkeit bereit, eigene Plugins zu entwickeln um benötigten Funktionsumfang zu ergänzen. Daneben kann Eclipse als Basis für eigene selbständige Applikationen dienen (Rich Client Platform \cite{rcp}).
-	\item Insbesondere EMF (eine detailliertere Erklärung zu den hier aufgeführten Eclipse"=Projekten findet sich in Kapitel \ref{sec:EMF}) scheint als zentrales Daten"=Modell zur Beschreibung des Palladio Metamodells (des Komponentenmodells) geeignet. Zudem bietet EMF die Möglichkeit generativ Modell"=Quellcode, Queries und weiteres (siehe Kapitel \ref{sec:Gesamtprozess}) zu erzeugen.
-	\item Daran anschließend erleichtern Modelltransformatoren wie Merlin und GMF die Erzeugung eines graphischen GEF-Editors.
-	\item Schließlich stellt Eclipse mit GEF ein umfangreiches GUI-Framework bereit. Die Verwendung von GEF in kommerziellen Produkten wie Borland Together Software Architect 2006 und IBM Rational Architect 6 zeigt die praktische Relevanz von GEF.
-\end{itemize}
-
-Die .NET-Umgebung liegt in all diesen Bereichen deutlich zurück. Es gibt keine freien Entsprechungen zu EMF, Modelltransformationstools oder freien Grafikbibliotheken mit der Mächtigkeit der Eclipse Sub"=Projekte. Der Wechsel von .NET zu Java und Eclipse erscheint unter diesen Gesichtspunkten sinnvoll:
-
-\begin{itemize}
-	\item Die Möglichkeit auf die Generierung von Java-Quellcode zu einem Meta-Modell zurückzugreifen verspricht einen deutlichen Zeitgewinn, insbesondere bei einem häufigen Wechsel des zu Grunde liegenden Meta-Modells. Die Erfahrung innerhalb der Palladio"=Gruppe verdeutlicht, dass Änderungen des Komponentenmodells häufig vorgenommen wurden und werden. Dies ist wenig verwunderlich, zumal das Komponentenmodell zentraler Gegenstand der Forschung der Palladio"=Gruppe ist.
-	\item GEF stellt ein umfangreiches Framework zur graphischen Anzeige und Bearbeitung von Graphiken bereit. Das Framework ist erweiterbar und verfügt über umfangreiche Layout- und Rendering"=Werkzeuge. Die Architektur folgt dabei dem Model"=View"=Controller"=Prinzip. GEF ist domänenneutral und daher für eine breite Palette von Applikationen geeignet. Standardmäßig werden bereits Aktivitätsdiagramme, GUI"=Builder, Klassendiagramm"=Editoren, Zustandsmaschinen und WYSIWYG Text-Editoren unterstützt.
-	\item GMF und Merlin verfolgen einen generativen Ansatz, um zu bestehenden EMF-Meta-Modellen GEF-Editoren zu erzeugen. Merlin beschränkt sich dabei nicht nur auf das Generieren von GEF-Editoren, sondern unterstützt über JET Templates selbst definierte Transformationen (siehe Kapitel \ref{sec:Merlin-GMF}). Dagegen versteht sich GMF als "`generative Brücke zwischen EMF und GEF"' und zielt speziell auf die Erzeugung mächtiger, flexibel generierbarer Editoren. Siehe hierzu auch Kapitel \ref{sec:Merlin-GMF}.
-\end{itemize}
-
-
-
-\subsection{MOF und EMF}
-\label{sec:MOF}
-\label{sec:EMF}
-MOF, die Meta Object Facility \cite{MOF-Spezifikation} der OMG, bietet eine Standard-Schnittstelle für Meta-Modellierung an. Entsprechend der Philosophie von MDA (\textit{Model Driven Architecture}, \cite{MDA}), ist MOF auf Plattformunabhängigkeit und Wiederverwendbarkeit bedacht. Der als Framework ausgelegte Standard beinhaltet Mechanismen zum Erzeugen, Manipulieren, Finden, Ändern und Zerstören von Objekten und Beziehungen zwischen diesen Objekten. Die Menge gültiger Aktionen wird dabei über Meta-Modelle festgelegt.
-
-In der aktuellen Spezifikation MOF 2.0 wird in Essential MOF (EMOF) und Complete MOF (CMOF) unterschieden. EMOF zielt dabei primär auf eine Erleichterung der Unterstützung durch Tools. Dazu wurde EMOF im Funktionsumfang reduziert und beschränkt sich auf die Kernkonzepte von MOF (\textit{Capabilities}): \textit{Reflection}, \textit{Identifiers}, \textit{Extension} und \textit{PrimitiveTypes}. Hinter \textit{Reflection} verbirgt sich ein Mechanismus zum Erkennen und Manipulieren von Meta-Objekten und Meta-Daten ohne initiales Wissen über Objekte, ähnlich dem Reflection-Mechanismus aus Microsofts C\#. \textit{Identifier} sind derzeit als URIs (Uniform Resource Identifier) realisiert und garantieren eine eindeutige Identifikation von Objekten, die auch über Transforms und Serialisierungen hinweg möglich ist. \textit{Extensions} stellen eine Möglichkeit bereit, Objekte dynamisch zu anotieren und unvorhersehbare Informationen über Key-Value-Paare zu ergänzen. \textit{PrimitiveTypes} stellen schließlich einen Basissatz von primitiven Datentypen (etwa String, Integer) zur Verfügung.
-
-EMF, das Eclipse Modeling Framework \cite{EMF}, ist in der aktuellen Version eine Java-Implementierung des EMOF-Standards, mit nur kleineren Abweichungen insbesondere bei der Benennung von Konzepten. EMF steht als Eclipse Plugin zum freien Download bereit. Das Basis-Datenmodell von EMF ist ECORE. Die Nähe zwischen EMOF und EMF geht so weit, dass EMF EMOF transparent lesen und schreiben kann.
-
-Für die Diplomarbeit bietet EMF den Vorteil, dass es sich nahtlos in Eclipse integriert, zugleich aber die Implementierung des weit verbreiteten EMOF-Standards ist. Damit bleibt die Kompatiblität zu anderen EMOF-Implementierungen erhalten, was später einen einfachen Datenaustausch ermöglichen kann.
-
-
-
-\subsection{Modellierung und Transformation}
-\label{sec:ModellierungundTransformation}
-
-
-
-\subsubsection{Transformation}
-\label{sec:Transformation}
-Transformationen werden in drei Klassen unterschieden:
-\begin{itemize}
-	\item \textbf{Model-to-Model} Werden zwei Modelle in einander überführt, so spricht man von einer Model-to-Model Transformation. Der Import von ECORE-Modellen in EMF entspricht einem solchen Transformationsvorgang.
-	\item \textbf{Model-to-Text} Werden Modelle auf eine textuelle ("`flache"') Repräsentation transformiert, so spricht man von Model-to-Text. Die Verwendung von JET (\textit{Java Emitter Templates}) in Merlin ermöglicht genau diese Form von Transformation. Mit Hilfe von JET-Templates wird zu einem gegebenen Modell eine GEF-Editor erzeugt. Auch GMF bietet eine Form von Model-to-Text Transformation, indem ebenfalls zu einem gegebenem Modell ein GEF-Editor generiert wird.
-	\item \textbf{Text-to-Model} Unter Text-to-Model kann der Importvorgang von Quellcode mit anschließender Überführung in ein Modell verstanden werden. Im Sinne eines Roundtrip-Zyklus zwischen Quellcode und Modell werden Modellinformationen aus Quellcode extrahiert.
-\end{itemize}
-Die Transformation von Text zu Text ist im Rahmen der Diplomarbeit nicht von Bedeutung. Anhand des Prozesses, der in Kapitel \ref{sec:Gesamtprozess} dargestellt wird, lassen sich die unterschiedlichen Transformationsvorgänge leicht nachvollziehen.
-
-
-
-\subsubsection{Merlin / GMF}
-\label{sec:Merlin-GMF}
-Der Merlin-Generator \cite{Merlin} ist ein freies Eclipse Plugin, das auf EMF basiert. Dem MDA-Ansatz folgend, ermöglicht Merlin die Definition erweiterter Mappings für Java Templates (JET) und Model-to-Model Transformationen, wie zum Beispiel in ECORE, von wo aus eine Quellcode-Generierung angestoßen werden kann.
-
-GMF, das Graphical Modeling Framework \cite{GMF}, versucht, wie auch Merlin, die Brücke zwischen EMF und GEF zu schlagen. Hinter GMF stehen Branchengrößen wie IBM und Borland, die das Projekt mit professionellen Mitarbeitern fördern. Ziel des Projekts ist die Schaffung einer gemeinsamen Infrastruktur für EMF-basierte Modelle zur Erzeugung GEF-basierter GUIs.
-
-
-
-\section{Konzeption}
-\label{sec:Konzeption}
-Die Idee hinter der Diplomarbeit ist die Möglichkeit, einen GUI-Editor nur auf Basis eines Meta-Modells sowie detaillierter Transformationsanweisungen erzeugen zu können. Änderungen am Meta-Modell könnten sich somit, solange sich die Änderungen in einem gewissen Rahmen bewegen, rein über einen neuerlichen Generierungsprozess in einem GUI-Editor wiederfinden. Damit würden Modifikationen schnell und einfach möglich.
-
-Damit die skizzierte Idee sinnvoll durchgeführt werden kann, darf jedoch der Aufwand (zeitlich und personell) für den Durchlauf des generativen Ansatzes nicht den Aufwand einer manuellen Implementierung überschreiten. Der Break-Even-Point ergibt sich demnach aus den folgenden Faktoren:
-
-\begin{itemize}
-	\item Generativer Ansatz	
-	\begin{enumerate}
-		\item Initiale Erstellung des Meta"=Modells
-		\item Pflege des Meta-Modells
-		\item Initiale Definition von Transformationen
-		\item Anpassung der Transformationen an die eigenen Bedürfnisse (\textit{customizing})
-		\item Pflege der Transformationsanweisungen
-		\item Häufigkeit der Änderungen des Meta-Modells
-		\item "`Technologietreue"'; wie häufig werden die verwendeten Techniken gewechselt?
-		\item "`Intensität"' der Änderungen; liegt ein Paradigmenwechsel vor, der die Anpassung von Transformationen verhindert?
-		\item Aufwand für die Durchführung eines Generierungsdurchlaufs
-		\item Aufwand für die "`manuelle Nachpflege"' eines Generierungsdurchlaufs
-	\end{enumerate}
-	\item Manuelle Implementierung
-	\begin{enumerate}
-		\item Häufigkeit der Änderungen des Meta-Modells
-		\item Aufwand der Code-Pflege nach einer Modifikation des Meta"=Modells
-		\item "`Technologietreue"'; wie häufig werden die verwendeten Techniken gewechselt?
-		\item Aufwand für die Anpassung existierender Frameworks, die verwendet werden
-	\end{enumerate}
-\end{itemize}
-
-Ein manuell erzeugter Editor dürfte dabei zumeist den Vorteil haben, flexibler anpassbar zu sein und den eigenen Visionen und Bedürfnissen einer Editor-Architektur folgen zu können. Spezielle eigene Funktionen können einem manuell erzeugten Editor einfacher hinzugefügt werden, da dazu keine Templates angepasst werden müssten. Der Aufwand bei einem Technologie"=Wechsel ist wahrscheinlich kleiner als im Vergleichsfall des generativen Ansatzes, da umfangreichere Änderungen in der Architektur ohnehin berücksichtigt werden müssten.
-
-Den größten Einfluß auf die Entscheidung, den manuellen Ansatz oder den generativen Ansatz zu wählen, hat die Häufigkeit der Änderungen am Meta-Modell und damit verbunden der Aufwand, einen generierten Editor manuell nachzupflegen.
-
-Im Rahmen eingehender Überlegungen in der Palladio"=Gruppe im Vorfeld der Diplomarbeit und extrapoliert aus den Erfahren mit dem Komponentenmodell in der Vergangenheit, scheint ein generativer Ansatz eine Aufwandsverminderung zu bedeuten. Eine Evaluation erfolgt somit en passant mit der Diplomarbeit.
-
-
-
-\subsection{Geplanter Prozess}
-\label{sec:GeplanterProzess}
-In den folgenden beiden Unterkapiteln wird der für die Diplomarbeit geplante Prozess beschrieben. In Kapitel \ref{sec:Gesamtprozess} wird der Gesamtprozess beschrieben, der vom Ablauf der Modellierung des Komponenten-Meta-Modells über Transformationen bis hin zu einem lauffähigen GEF-Editor geht. Den Kern der Diplomarbeit bildet hingegen der in Kapitel \ref{sec:Modellierungsprozess} beschriebene Prozess: die Modellierung des Meta-Modells des Palladio Komponentenmodells in EMF.
-
-
-
-\subsubsection{Gesamtprozess}
-\label{sec:Gesamtprozess}
-
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=1.00\textwidth]{./image/prozess01.pdf}
-	\caption{Skizze des Gesamt-Entwicklungsprozesses der Diplomarbeit zur Generierung eines GEF-Editors}
-	\label{fig:prozess01}
-\end{figure}
-
-In Abbildung \ref{fig:prozess01} wird der angestrebte Entwicklungsprozess für die Diplomarbeit grob skizziert. Im Kern wird sich die Diplomarbeit dabei mit den im oberen Bereich der Abbildung dargestellten Teilen des Entwicklungsprozesses beschäftigen, der Erzeugung eines Meta-Modells des Palladio Komponentenmodells.
-
-Dabei läßt sich der Entwicklungsprozess in die folgenden Schritte gliedern (wobei Tools in blau, respektive dunkel und Artefakte in gelb, respektive hell in Abbildung \ref{fig:prozess01} dargestellt sind):
-
-\begin{enumerate}
-	\item Für die initiale Beschreibung des Meta-Modells in UML 2 bieten sich verschiedene Alternativen an. Zum einen ist eine Modellierung mit Hilfe von IBM Rational Software Architect 6 denkbar, daneben ist eine Modellierung unter Borland Together Architect 2006 möglich. In beiden Fällen ist ein Export zu UML2 und ECORE möglich. Da beide Tools einen ähnlichen Funktionsumfang aufweisen und gleichermaßen in Eclipse integriert sind, dürfte die Art der Verfügbaren Lizenzen über die Verwendung entscheiden. Derzeit existiert für IBM Rational eine Lizensierung für das OFFIS \cite{OFFIS}, die im Rahmen der Arbeit verwendet werden kann.
-	\item\label{enum:ECORE} Im zweiten Schritt liegt das Meta-Modell, wie bereits beschrieben, alternativ als ECORE- oder UML2-Modell vor. Parallel dazu besteht die Option anotiertes Java für den folgenden Import in EMF zu verwenden. An dieser Stelle erscheint derzeit die Verwendung von ECORE den anderen zu bevorzugen, da ECORE das Basis-Meta-Modell für EMF darstellt.
-	Eine Nutzung von anotiertem Java ist initial ohnehin nicht möglich, da dies zuvor eine einmalige Generierung von Java-Code voraussetzt (siehe hierzu auch Schritt \ref{enum:RoundtripZyklus}).
-	\item Von zentraler Bedeutung für die Konzeption des Modellierungs-Prozesses ist die Verwendung von Eclipse, erweitert um EMF als Modellframework. Als Eingaben bietet sich neben den bereits genannten Möglichkeiten in Form von ECORE, UML2 und anotiertem Java auch das Serialisierungsformat von IBM Rational an. Aus Gründen der Kompatiblität und der Offenheit für den Datenaustausch mit anderen Modellierungstools wird das Rational Datenformat jedoch nicht berücksichtigt, da es sich um ein proprietäres Datenformat handelt.
-	\item Das Kernmodell für das zu entwickelnde Meta-Modell soll eine EMF-Repräsentation darstellen. In der Abbildung \ref{fig:prozess01} wird dieses Artefakt daher auch mit fetten Lettern hervorgehoben. Insbesondere durch die Möglichkeit EMF im Rahmen eines Roundtrip-Prozesses einzubinden, wie er in den folgenden Schritten skizziert wird, zeigt sich die Eignung als Kerndatenmodell, das, wie genannt, über viele Wege durch Imports aufgebaut und durch die Nähe zum EMOF-Standard weiterverwendet werden kann.
-	\item Der mit \textit{EMF"=Generator} bezeichnete Kasten des Prozesses stellt einen wichtigen Aspekt für die Möglichkeit dar, ein Meta-Modell-Framework zu einem gegebenem EMF"=Modell zu generieren. Der "`EMF"=Generator"' setzt sich intern aus den Paketen \textit{core Framework} und \textit{EMF.Edit} zusammen.
-	\item Insgesamt wird über den EMF-Generator ein vollwertiges Eclipse"=Plugin erzeugt, dass das vorgegebene Meta"=Modell bearbeitbar macht. Mit Hilfe des EMF"=Generators lassen sich die folgenden Teile eines Code"=Frameworks zu einem gegebenen Meta"=Modell generieren:
-	
-	\begin{itemize}
-		\item \textbf{Klassen} Zu allen Elementen eines Meta-Modells kann Java-Quellcode erzeugt werden. Dabei werden alle in den UML-Diagrammen angegebenen Attribute in Getter / Setter übersetzt und Methoden angelegt. Der Generator erzeugt zu allen Meta-Modell-Entitäten eigene Interfaces sowie eine dazugehörige Implementierung. Auch manuelle Änderungen werden von diesem Generator berücksichtigt. Dazu wird für generierten Quellcode das \textit{Tag} \texttt{@generated} eingeführt, dass eben diesen generierten Code kennzeichnet. Wird das \textit{Tag} weggelassen, so bleiben die entsprechenden Code-Teile (bspw. nach manuellen Änderungen) erhalten, werden also nicht neu generiert.
-		
-		Die generierten Klassen ermöglichen automatisch eine konsistente Verwaltung von externen Referenzen. Hat also beispielsweise ein Auto eine Referenz auf seine Reifen, so können die Reifen gleichermaßen eine Referenz auf das Auto haben. Werden Änderungen an den Referenzen auf einer Seite vorgenommen, etwa das Entfernen der Zuordnung eines Reifens zu einem Auto, so sorgt ein Event-Mechanismus dafür, dass sowohl Reifen als auch Auto aktualisiert werden.
-		
-		Im Vergleich zu der Implementierung des Palladio Komponentenmodells im November 2005 (C\#-Implementierung, siehe \cite{PalladioCMTechreportMH}) kann damit die Auftrennung in ein relationales Schema unter Benutzung von IDs (eindeutige Bezeichner) zur Abbildung der Entitäten-Relationen und parallel dazu einer Sammlung aller vorhandenen Entitäten entfallen. Vormals konnten die Entitäten nur über einen speziellen Query-Mechanismus mit Hilfe ihrer ID erreicht werden.
-		\item \textbf{Factories} Entsprechend dem Factory-Method Muster, wie es in \cite{GAMMA} beschrieben wird, wird zu jedem Modell über den EMF"=Generator ein Factory"=Interface nebst zugehöriger Implementierung generiert. Die Instanz der Factory wird dabei als Singleton (siehe ebenfalls \cite{GAMMA}) gehalten, womit garantiert wird, dass zu keinem Zeitpunkt Instanzen des Modells unter Nutzung verschiedener Instanzen der gleichen Factory erzeugt werden können.
-		
-		Die Kapselung des Erzeugungsprozesses (Instanzierung der Modell-Klassen) wird zugleich gekapselt und dadurch einfacher austauschbar. Die Factory liefert lediglich Instanzen des Interfaces, jedoch nicht der internen Implementierungen zurück. Sollen andere Implementierung verwendet werden, muss lediglich die einmalige Factory-Instanzierung auf eine andere Implementierung gelenkt werden.
-		\item \textbf{Model Wizard} Der \textit{Model Wizard} ermöglicht es, mit den in Eclipse üblichen Dialog-Wizards neue Modelle anzulegen. Damit ist die Bedienbarkeit konsistent zu den Eclipse-Standards.
-		\item \textbf{Editor} Auf der GUI-Seite besteht der generierte Quellcode im Kern aus einem modell"=spezifischen Editor. Dieser integriert sich für die im Model Wizard generierten Modelle in Eclipse und kann dann zum Bearbeiten der Modelle verwendet werden. Der Editor besteht im Wesentlichen aus einer Baumansicht (\textit{Tree View}), in der kontextsensitiv Knoten eingehängt werden können. Das heisst also, dass beispielsweise in einem Auto-Modell-Editor nur maximal vier Reifen zu einem Auto hinzufügbar sind.
-		
-		Neben der Baumansicht lassen sich zudem die Eigenschaften der Modell-Entitäten im \textit{Propertysheet} von Eclipse bearbeiten. Dies sind im Allgemeinen die Modell"=Eigenschaften, die über Getter / Setter verfügen.
-		\item \textbf{Tests} Zu dem generierten Eclipse-Plugin werden automatisch Unit-Tests erzeugt, die im JUnit-Framework \cite{JUnit} ablauffähig sind. Diese Tests umfassen das Erzeugen von Modell-Entitäten sowie das Laden und Speichern eines Modell-Beispiels mit dem Editor-Plugin. Vor allem manuelle Anpassungen des generierten Codes werden dadurch fehlerrobuster möglich. Durch ein permanentes Testen gegen die generierten Tests wird sichergestellt, dass wichtige Grundfunktionalitäten stets erfüllt sind.
-		\item \textbf{Commands} Damit zu einem Zeitpunkt mehrere Sichten auf ein Modell möglich sind und Änderungen konsistent von allen Sichten (inklusive des "`Propertysheets"') erfasst werden können, wird automatisch eine Adpater-Schicht generiert, die eine command-ähnliche Funktion inne hat. Für alle Setter wird bereits automatisch ein Event-Handling generiert, so dass Änderungen an Eigenschaften der Modell-Entitäten von beliebigen Betrachtern beobachtet werden können. Um auch eine Unterstützung für das Eclipse-Framework außerhalb des Modell-Editor-Plugins bieten zu können, werden die intern als \textit{EMF adapter notification} bezeichneten Aufrufe durch die Adapterschicht in \texttt{fireNotifyChanged} Ereignisse des Eclipse-Frameworks übersetzt.
-		
-		Die Erzeugung von Adaptoren ist wiederum über Factories gekapselt.
-		\item \textbf{Reflective API manipulation} EMF bietet eine Reflective API, um Instanzen eines Modells zu erzeugen (vgl. \cite{devx}), zu initialisieren und zuzugreifen oder dynamisch Modelle zu erstellen. Analog zur Java-Methode \texttt{Object.} \texttt{getClass()} bietet \texttt{eClass()} die Möglichkeit Meta-Daten einer Instanz (etwa die \texttt{EClass}) in Erfahrung zu bringen. Auf jedem Objekt kann der Zugriff auf Daten per \texttt{eGet()} und \texttt{eSet(}) erfolgen, ähnlich dem in Java üblichen Zugriff über \texttt{java.lang.reflect.Method.invoke()}. Zusätzlich bietet jedes Instanz"=Objekt Zugriff auf seine Container (\textit{Parent}-Beziehung) über \texttt{eContainer()}. Da \texttt{EObject} von \texttt{Notifier} erbt, ist es möglich alle Änderungen von Objekt-Daten zu überwachen (\textit{monitoring}).
-		\item \textbf{Validation"=Framework} EMF unterstützt die Validierung von Modell"=Constraints. Constraints können zum Beispiel über XML"=Schemata ausgedrückt und mit einem Bezeichner versehen werden. Im annotierten Java erfolgt dann eine Referenzierung der Constraints:
-\begin{verbatim}
-      @model
-        annotation="[URI - http://www.here.com]
-        constraints='[constraint name]'"
-\end{verbatim}
-im Bereich der JavaDocs.
-
-Zudem ist die Definition von Constraints auch im generierten Java"=Quellcode möglich. Siehe hierzu auch \cite{emf-validation}.
-		\item \textbf{Queries} Queries ermöglichen das gezielte Durchsuchen von EMF-Modellen, um an Entitäten des Modells zu gelangen oder Struktur-Informationen zu extrahieren.
-	\end{itemize}
-	
-	\item\label{enum:RoundtripZyklus} Der bereits oben angedeutete Roundtrip-Zyklus (in der Abbildung \ref{fig:prozess01} als Schleife oben rechts erkennbar) schließt mit der Repräsentation des Modells in anotiertem Java, das wiederum von EMF importiert werden kann. Damit ist eine Synchronisation zwischen EMF-Modell und der Modell-Repräsentation im Java-Quellcode möglich.
-	
-	Dennoch scheint dieser Roundtrip-Zyklus für die Diplomarbeit nicht angeraten, da die unter Schritt \ref{enum:ECORE} angeführte Modell-Repräsentation im ECORE-Modell nicht konsistent mitgepflegt würde. Um auch diesen Schritt des Modellierungsprozesses konsistent zu halten, sollten Modelliterationen nicht über den Roundtrip-Zyklus vorgenommen werden, sondern stets mit Modifikationen des ECORE-Modells beginnen. Unter der Annahme, dass der generierte Quellcode nach einer Modelländerungen problemlos mit manuellen Änderungen zusammengeführt (\textit{merge}) werden kann, läßt sich der skizzierte Prozess ohne den Re-Import von anotiertem Java stets wiederholen, wobei das Modell schrittweise verfeinert werden kann.
-	
-	Zusammengefasst erscheint eine Nutzung der Roundtrip-Möglichkeit mit dem Import von anotiertem Java zunächst nicht sinnvoll, da dass ECORE-Modell nicht in den Roundtrip-Zyklus einbezogen werden könnte.
-	
-	\item Der nächste Schritt des Prozesses ist die Transformation unter Verwendung von GMF bzw. Merlin. Wie bereits in Kapitel \ref{sec:Merlin-GMF} angesprochen, zielen Merlin und GMF zu Teilen in die gleiche Richtung: "`Eine generative Brücke zwischen EMF und GEF"'.
-	
-	Während Merlin in erster Linie Code-Generierung und Model-Transformationen unterstützt, zielt GMF direkt auf die Erzeugung von GEF-Editoren. Im Merlin-Kontext nimmt die GEF-Generierung derzeit eine Nebenrolle ein. Hier sind vordefinierte Templates verfügbar, die einen einfachen graphischen Editor erzeugen.
-	
-	Wie bereits oben angesprochen, gibt es Bestrebungen, Merlin in das GMF-Projekt zu überführen. Da GMF zum derzeitigen Zeitpunkt bereits mächtiger als Merlin erscheint und laufend an Stabilität gewinnt, ist mit einer sinnvoll verwendbaren Version für die Zeit der geplanten Transformationen zu rechnen. Vor diesem Hintergrund bietet sich die Verwendung von GMF für die Transformationsprozesse in der Diplomarbeit an.
-	
-	Wie in Abbildung \ref{fig:prozess01} angedeutet, sind zur gezielten Erzeugung eines GEF"=Editors zusätzliche Transformationsanweisungen (\textit{Transformations}) notwendig. In diesen Transformationsanweisungen muss unter anderem hinterlegt werden, ob und wie Assoziationsklassen  dargestellt werden sollen, welche Darstellungssymbole verwendet werden sollen und welche Elemente in der Werkzeugleiste erscheinen sollen. Die Transformationsanweisungen fließen schließlich in den generierten GEF-Editor ein.
-	
-	\item Der GEF-Editor stellt das nahezu fertige Produkt dar. Realistischer Weise ist jedoch davon auszugehen, dass trotz stark anpassbarer Transformationen kleinere Änderungen manuell nachzupflegen bleiben. Idealerweise ist der hier notwendige Aufwand möglichst klein. Da diese manuellen Modifikationen nach jeder Änderungen des ECORE-Modells durchzuführen wären, entscheidet sich an dieser Stelle, ob der generative Ansatz leistungsfähiger als der der vollständig manuellen Implementierung ist.
-	
-	\item Der Editor ist das Endprodukt, dass jederzeit nach Änderungen am zu Grunde liegenden ECORE-Modell durch einen neuerlichen Durchlauf des Generierungsprozesses entstehen soll. Dieses Produkt muss sich unter anderem mit dem Ergebnis der Projektgruppe Ride.NET \cite{RideDotNet} messen lassen, deren Ziel die Implementierung eines Editors des Palladio Komponentenmodells unter C\# war.
-\end{enumerate}
-
-
-
-\subsubsection{Modellierungsprozess}
-\label{sec:Modellierungsprozess}
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=1.00\textwidth]{./image/model-process01.pdf}
-	\caption{Modellierungs--Prozess}
-	\label{fig:model-process01}
-\end{figure}
-
-Im Kern soll sich die Diplomarbeit mit der Meta-Modellierung des Palladio Komponentenmodells beschäftigen. In Abbildung \ref{fig:model-process01} wird eine iterative Variante zur Entwicklung des Meta-Modells dargestellt. Dazu wird der in Abbildung \ref{fig:prozess01} dargestellte obere Bereich hervorgehoben. Im Gegensatz zur Darstellung des Gesamtprozesses wird jedoch bewusst der Roundtrip-Zyklus über den Import von anotiertem Java ausgeblendet. Wie bereits im vorigen Kapitel erläutert wurde, würde bei diesem Vorgehen die ECORE-Modell-Darstellung "`out-of-sync"' geraten.
-
-Statt dessen ist eine Evaluation der generierten Modelle mittels kleinerer Modellierungstests vorgesehen. Durch mehrere Iterationen soll das Meta-Modell des Palladio Komponentenmodells verfeinert werden. Dieses Verfahren ist vor allem notwendig, weil es bisher keine abgeschlossene vollständige formale Darstellung des Palladio Komponentenmodells gibt. Daher muss der skizzierte Modellierungs-Prozess zugleich als ein Verfahren zur Ermittlung von Anforderungen aufgefasst werden. In diesem Verfahren geht es darum, zu prüfen, ob sich alle (theoretischen) Konzepte, die dem Palladio Komponentenmodell zu Grunde liegen, ebenfalls im EMF Meta"=Modell widerspiegeln, bzw. mit dem Meta"=Modell abbilden lassen.
-
-Der iterative Prozess sieht daher wie folgt aus:
-\begin{enumerate}
-	\item Das ECORE-Modell wird initial modelliert.
-	\item Aus dem ECORE-Modell wird mit Hilfe des EMF-Generators eine Abbildung auf Java-Code vorgenommen.
-	\item In der Evaluationsphase wird geprüft, ob die Umsetzung des Modells
-	\begin{itemize}
-		\item vollständig
-		\item korrekt
-		\item applizierbar
-	\end{itemize}
-	ist. Damit wird sichergestellt, ob sich alle Konzepte des Palladio Komponentenmodells umsetzen lassen. Oder es wird festgestellt, welche Konzepte sich nicht über ein ECORE-Modell darstellen lassen und welche Einschränkungen hierfür der Grund sind. Zudem wird darauf geachtet, dass das richtige Meta-Modell entworfen wird und das Meta-Modell richtig entworfen wird. Nicht zuletzt führt der praktische Test zu einem anwendbaren Modell, das sich für Test-Modelle bereits bewährt hat.
-	
-	Der iterative Ansatz ist der Wartbarkeit als zuträglich aufzufassen. Da das Palladio Komponentenmodell in der Vergangenheit diverse Änderungen und Erweiterungen erfahren hat, ist davon auszugehen, dass auch zukünftig weitere Modifikationen zu erwarten sind. Durch die Wahl mehrerer Iterationsschritte wird die Wartbarkeit / Änderungsfreundlichkeit des zu entwickelnden Meta-Modells unmittelbar getestet.
-\end{enumerate}
-
-Zum jetzigen Zeitpunkt ist bereits absehbar, dass die Erweiterbarkeit des Meta-Modells um variable, zuvor nicht typisierte Zusatzattribute  Teil eines fest geplanten Iterationsschrittes sein wird. Siehe hierzu auch Kapitel \ref{sec:Fragestellungen}.
-
-Das in der Abbildung \ref{fig:model-process01} angeführte "`Feedback"' wird von den Mitgliedern der Forschungsgruppe Palladio und vom Diplomanden durch eine kritische Reflexion vorgenommen. Eine klare konzeptionelle Abgrenzung des Komponentenmodells ist dabei ebenfalls Teil der Diplomarbeit.
+\newpage
+\section{ALT}
 
 
 
@@ -554,14 +350,14 @@ Der Diplomarbeit liegen unter anderem die folgenden Fragestellungen zu Grunde:
 
 \subsection{Annahmen}
 \label{sec:Annahmen}
-Um die Diplomarbeit entsprechend der Planungen aus Kapitel \ref{sec:GeplanterProzess} durchführen zu können, müssen einige Annahmen erfüllt sein. Diese Annahmen lassen sich nicht in vollem Umfang überprüfen, da dies wesentliche Teile der Diplomarbeit vorweg nehmen würde.
+
 
 \begin{itemize}
 	\item UML, ECORE, EMF und anotiertes Java müssen mächtig genug sein, um darin alle Konzepte des Palladio Komponentenmodells abzubilden.
 	\item Um die bereits angesprochenen variablen Zusatzattribute zu Modell-Entitäten zu ermöglichen, ist es notwendig, dass dies durch die Meta-Modellierung auf den folgenden Ebenen unterstützt wird: UML, ECORE, EMF und anotiertem Java. Für UML bedeutet dies, dass das Meta-Modell für ein gegebenes Zusatzattribut dynamisch vom Kern-Meta-Modell (Meta-Modell ohne Zusatzattribute) referenziert werden kann.
 	\item Ferner wird angenommen, dass der zu verwendende Generator von EMF ausreichend mächtig ist, um alle Aspekte des Palladio Komponentenmodells in anotiertem Java abzubilden.
 	\item Die Möglichkeiten die Transformationen von GMF eigenen Bedürfnissen anzupassen müssen ausreichend groß sein, um einen den Benutzerbedürfnissen entsprechenden Editor generieren zu können.
-	\item Wie bereits angesprochen, muss davon ausgegangen werden, dass der in Kapitel \ref{sec:Gesamtprozess} skizzierte Prozess in mehreren Iterationen (insbesondere auf Grund der "`konzeptionellen Variabilität"' des Palladio Komponentenmodells) durchlaufen werden muss. Da nicht davon ausgegangen werden kann, dass jegliche generierten Modelle und Code ohne manuelle Nachpflege verwendet werden können, ergibt sich zwingend die Anforderung, dass der EMF-Generator und auch GMF funktionierende "`Merge"'-Mechanismen implementieren, die verschiedene Modellversionen (zumindest nach kleineren Änderungen) unter Erhaltung manueller Änderungen zusammenführen können. Nur mit einem solchen Mechanismus lässt sich der iterative Prozess sinnvoll durchführen.
+	\item Wie bereits angesprochen, muss davon ausgegangen werden, dass der in Kapitel ref{TODO:sec:Gesamtprozess} skizzierte Prozess in mehreren Iterationen (insbesondere auf Grund der "`konzeptionellen Variabilität"' des Palladio Komponentenmodells) durchlaufen werden muss. Da nicht davon ausgegangen werden kann, dass jegliche generierten Modelle und Code ohne manuelle Nachpflege verwendet werden können, ergibt sich zwingend die Anforderung, dass der EMF-Generator und auch GMF funktionierende "`Merge"'-Mechanismen implementieren, die verschiedene Modellversionen (zumindest nach kleineren Änderungen) unter Erhaltung manueller Änderungen zusammenführen können. Nur mit einem solchen Mechanismus lässt sich der iterative Prozess sinnvoll durchführen.
 	
 	Zum Zeitpunkt der Niederschrift dieses Proposals wird ein solcher Merge"=Mechanismus von Merlin nicht unterstützt.
 \end{itemize}
@@ -570,8 +366,9 @@ Sind nicht alle hier dargestellten Annahmen erfüllt, hat dies direkte Auswirkung
 
 
 
-%\subsection{Fehlerquellen}
-%\label{sec:Fehlerquellen}
+\subsection{Fehlerquellen}
+\label{sec:Fehlerquellen}
+TODO
 
 
 
@@ -602,86 +399,11 @@ Zur weiteren prophylaktischen Minimierung von Risiken wurde bereits erfolgreich 
 
 
 
-\section{Durchführung}
-\label{sec:Durchfuehrung}
-\subsection{Betreuer}
-\label{sec:Betreuer}
-\begin{itemize}
-	\item \textbf{Erstgutachter:} Jun.-Prof. Dr. Ralf Reussner
-	\item \textbf{Zweitgutachter:} Prof. Dr. Wilhelm Hasselbring
-	\item \textbf{Betreuer:} Dipl.-Wirtsch.-Inform. Steffen Becker
-\end{itemize}
-
-
-
-\subsection{Artefakte}
-\label{sec:Artefakte}
-Für den Verlauf der Diplomarbeit sind die folgenden Artefakte vorgesehen:
-\begin{itemize}
-	\item Proposal (dieses Dokument), $\ast$
-	\item Begleitfolien zum Proposal, $\ast$
-	\item Quellcode anläßlich der Iterationen laut Kapitel \ref{sec:Iterationsschritte}
-	\item Diplomarbeit, $\ast$
-	\item Begleitfolien zur Diplomarbeit, $\ast$
-	\item Quelltexte und Modell-Serialisierungen der finalen Version des Meta-Modells, $\ast$
-\end{itemize}
-$\ast$ kennzeichnet für die Veröffentlichung bestimmte Artefakte.
-
-
-\subsection{Entwicklungsumgebung und Werkzeuge}
-\label{sec:EntwicklungsumgebungundTools}
-Als Entwicklungsumgebung wird Eclipse verwendet. Zusätzlich zu verwendende Werkzeuge sind: Rational Software Architect sowie als Ergänzung des Eclipse-Frameworks die Eclipse-Plugins EMF, GMF, Merlin, UML2, GEF und Omondo UML.
-
-Daneben sind vorgesehen: LaTeX, TeXnicCenter, CVS und Visio 2003.
-
-
-
-\subsection{Vorgehensmodell}
-\label{sec:Vorgehensmodell}
-Wie bereits im Kapitel \ref{sec:GeplanterProzess} genannt, wird für die Diplomarbeit ein iteratives und inkrementelles Vorgehen gewählt. Dies hat ebenfalls einen positiven Effekt auf die Projektrisiken, da bereits zu einem frühen Zeitpunkt ein lauffähiges Produkt zur Verfügung steht, das ein gänzliches Scheitern der Diplomarbeit verhindert.
-
-
 
 \subsection{Zeitplanung}
 \label{sec:Zeitplanung}
 Entsprechend der Vorgaben der DPO4 vom 01.02.2002 beträgt die Dauer der Diplomarbeit sechs Monate. Die Diplomarbeit beginnt am 01.01.2006 und endet entsprechend spätestens am 31.06.2006. Während der Diplomarbeit finden in der Regel wöchentliche Besprechungen mit den Betreuern statt.
 
-
-
-\subsubsection{Gantt-Charts}
-\label{sec:Gantt-Charts}
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=0.60\textwidth]{./image/zeitplanung01.pdf}
-	\caption{Zeitplanung der Diplomarbeit}
-	\label{fig:zeitplanung01}
-\end{figure}
-In Abbildung \ref{fig:zeitplanung01} wird der geplante zeitliche Verlauf der Diplomarbeit, inklusive aller wichtigen Meilensteine, dargestellt.
-
-Die Termine für die Vorträge im DuD-Seminar stehen derzeit noch nicht fest, sind in der Gantt-Chart-Darstellung jedoch bereits enthalten.
-
-
-
-\subsubsection{Iterationsschritte}
-\label{sec:Iterationsschritte}
-Für die Diplomarbeit werden die folgenden Iterationsschritte angestrebt, deren zeitliche Terminierung Kapitel \ref{sec:Gantt-Charts} zu entnehmen ist:
-\begin{itemize}
-	\item \textbf{Vertikaler Prototyp unter Verwendung von GMF und dynamischer Annotation.} Dieser Iterationsschritt umfasst eine prototypische Umsetzung ausgewählter Modellkonstrukte des Komponentenmodells, etwa das Anlegen von Komponenten und Schnittstellen mit der Möglichkeit zur Verfeinerung auf einer weiteren Modellierungsebene des Komponentenmodells, in EMF.
-	
-	Zusätzlich sollen dynamisch Zusatzattribute zu Entitäten anotiert werden können. Hier geht es wiederum primär um die Prüfung der Machbarkeit. Aufgezeigt werden sollen mögliche Wege zur Umsetzung der dynamischen Anotationen in EMF.
-	
-	Die Verwendung von GMF soll schließlich sicherstellen, dass sich die verwendeten Konzepte aus EMF problemlos in den Transformationen von GMF verwenden lassen, um zu einem lauffähigen GUI-Editor gelangen zu können.
-	
-	\item \textbf{1. Iteration der Modellierung in EMF.} Als Erweiterung des Prototypen aus dem vorangegangenen Iterationsschritt, werden in diesem Schritte zusätzliche Modellkonstrukte des Komponentenmodells in das EMF-Modell übernommen. Insbesondere sollen in diesem Schritt alle Entitäten des Komponentenmodells in EMF realisiert werden. Dabei ist zunächst an die Modellierung im Bereich der Typ-Ebene gedacht.
-	
-	\item \textbf{2. Iteration der Modellierung in EMF.} Erweiterungen dieser Iteration sollen ebenfalls alle vom Komponentenmodell definierten Ebenen sowie die zwischen den Ebenen definierten \textit{Constraints} berücksichtigen. Die \textit{Constraints} sollen dabei, soweit möglich, programmatisch erfasst werden, um damit automatisiert prüfbar zu sein.
-	
-	\item \textbf{GMF-Transformationen definieren, 1. Iteration; Editor-Funktionalität für das gesamte EMF-Modell herstellen.} In diesem Schritt werden GMF-Transformormationen für das dann vorliegende EMF"=Modell definiert. Das Augenmerk liegt dabei vor allem beim \textit{Proof"=of"=Concept}. Es geht also vor allem darum, eventuelle Modellierungsfehler abzufangen, die einer Umsetzung im einem GUI"=Editor zuwider laufen. Daher kann in diesem Iterationsschritt zusätzlich eine Modifikation der EMF-Modellierung aus den vorangegangenen Schritten anfallen.
-	
-	\item \textbf{GMF-Transformationen definieren, 2. Iteration; Anpassung des generierten Editors (\textit{Customizing}).} Dieser Schritt befasst sich mit der näheren Ausgestaltung von GMF"=Transformationen um damit einen, an die Bedürfnisse der Palladio"=Gruppe angepassten, GUI-Editor zu erzeugen. Insbesondere Fragen der \textit{Usability} und der Interpretation der Darstellung von Modellierungsebenen sollen in diesem Schritt überprüft werden.
-	
-	\item \textbf{Manuelle Anpassung; eventuell vorhandene Fehler korrigieren.} Zuletzt wird in diesem Iterationsschritt vorgesehen, eventuelle manuelle Optimierungen eines generierten GUI"=Editor"=Prototypen durchzuführen. Zudem soll ergründet werden, wie umfangreich eventuelle manuelle Modifikationen sind, damit ein generierter GUI"=Editor den Anforderungen der Palladio"=Gruppe genügt.
-\end{itemize}
 
 
 
