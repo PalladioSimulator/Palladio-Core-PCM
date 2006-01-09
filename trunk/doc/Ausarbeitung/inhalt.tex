@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.5  2006/01/09 09:49:10  kelsaka
+% - beschreibung des komponentenmodells weiter ergänzt
+%
 % Revision 1.4  2006/01/08 17:43:03  kelsaka
 % - beschreibung des komponentenmodells weiter ergänzt
 %
@@ -149,7 +152,54 @@ Nicht immer können \textit{Composite Components} jedoch aufgelöst werden. An die
 
 
 
-Abbildung \ref{fig:cm-interfaces-signature-protocol-01}
+Bisher wurden Schnittstelle nicht näher charakterisiert. Daher konnten auch keine Interoperabilitätsbedingungen für Komponenten definiert werden. Wesentliche Eigenschaften einer Schnittstelle werden durch die Signaturliste und durch das Protokoll bestimmt. Auf Schnittstellen können innerhalb von Signaturlisten Dienste definiert sein, sowie ein Protokoll, das gültige Aufrufreihenfolgen von Diensten definiert.
+
+Abbildung \ref{fig:cm-interfaces-signature-protocol-01} zeigt eine Beispielskomponente "`ReadWriter Component"', die die Schnittstelle "`Interface 1"' anbietet und die Schnittstellen "`Interface 2"' und "`Interface 3"' benötigt. Diese Komponente wird auch in Kapitel \ref{sec:ServiceEffektSpezifikation} als Beispiel verwendet. Zudem wird zu jeder Schnittstelle eine beispielhafte Signaturliste mit dazu gehörigem Protokoll im Form eines endlichen Automaten gezeigt.
+
+
+
+\subsubsection{Signaturlisten und Signaturen}
+\label{sec:SignaturlistenundSignaturen}
+Jeder Dienst weist auf einer Schnittstelle eine eindeutige Signatur auf, etwa \texttt{void} \texttt{Do\-Some\-thing(int a)}. In Anlehnung an Methoden"=Signaturen aus Programmiersprachen wie C\# und Java haben Signaturen
+
+\begin{itemize}
+	\item einen Rückgabetyp oder \texttt{void},
+	\item einen Bezeichner, üblicherweise mit einem sprechenden Namen,
+	\item eine Menge von Parametern (\texttt{0..*}), die jeweils aus einem Typ und einem Bezeichner (innerhalb der Parameter eindeutig) bestehen. Zusätzlich können die Modifizierer \texttt{in}, \texttt{out} und \texttt{ref} für Parameter in Analogie zur C\# Semantik verwendet werden. Parameter werden in Klammern angegeben und durch Kommata getrennt, Modifizierer werden den Parametern vorangestellt.
+	\item Daneben müssen alle \textit{Exceptions} (Ausnahmen) angegeben werden, die von einer Signatur geworfen werden können. Die verpflichtende Angabe von \textit{Exceptions} folgt den Vorgaben von Java. \textit{Exceptions} werden mit dem Schlüsselwort \texttt{throws} an die Methoden"=Signatur angehängt und durch Kommata getrennt.
+\end{itemize}
+
+Eine Signatur ist eindeutig über Rückgabetyp, Bezeichner und Parameter (Typ und Bezeichner) unter Berücksichtigung der Reihenfolge.
+
+
+
+Eine Schnittstelle enthält genau eine Signaturliste. Diese Signaturliste wiederum enthält \texttt{0..*} Signaturen. Signaturen und Signaturlisten können nicht zur gleichen Zeit von verschiedenen Schnittstellen referenziert werden. Gleichwohl können verschiedene Schnittstellen identische Signaturlisten oder einzelne Signaturen definieren. 
+
+
+
+\subsubsection{Protokolle}
+\label{sec:Protokolle}
+Das Komponentenmodell limitiert dabei Protokolle nicht auf einen bestimmen Typ, wie endliche Automaten oder Petri"=Netze, sondern lässt diese Entscheidung bewußt offen. Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
+
+Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle definiert wurden, idententisch, deutet dies zumeist auf ein Design"=Problem des Komponentenmodells hin. Sind auch Zusatzattribute (z. B. QoS"=Attribute; siehe Kapitel ref{TODO Anotationen}) identisch, führt dies vermutlich zu ungewollten Inkonsistenzen zwischen einer vermeintlich identischen Schnittstelle.
+
+
+
+\subsection{Service Effekt Spezifikation}
+\label{sec:ServiceEffektSpezifikation}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.00\textwidth]{./image/cm-code-seff-01.pdf}
+	\caption{Service Effekt Spezifikation als endlicher Automat zu beispielhaftem Pseudo"=Quellcode}
+	\label{fig:cm-code-seff-01}
+\end{figure}
+
+
+
+In Abbildung \ref{fig:cm-code-seff-01} wird eine Service Effekt Spezifikation zu der in Abbildung \ref{fig:cm-interfaces-signature-protocol-01} eingeführten Komponente dargestellt.
 
 
 
@@ -161,7 +211,7 @@ TODO:
 - Komponente ruft sich selbst auf: wann unendliche rekursion, wann auf welcher ebene erlaubt --> insbesondere unbekannt in CCs
 - mehrere konnektoren auf eine provided schnittstelle: zustand nicht mehr unterscheidbar.: In der Umkehrung kann eine angebotene Schnittstelle jedoch über \texttt{0..*} benötigte Rollen verwendet werden. Damit bleibt die graphische Notation nicht eindeutig...
 - keine Unterstützung für Zustände über mehrere schnittstellen hinweg.
-- Typ-Ersetzbarkeit
+- Typ-Ersetzbarkeit: Verschiedene Betrachtungsmöglichkeiten / Interoperabilitätsniveaus: Signatur, Protokoll, QoS --> Grafik
 - Anotationen wann und wo?
 - QoS-Fähigkeiten
 
