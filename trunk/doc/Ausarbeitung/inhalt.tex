@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.9  2006/01/11 16:19:45  kelsaka
+% - beschreibung des komponentenmodells ergänzt
+%
 % Revision 1.8  2006/01/09 16:47:45  kelsaka
 % - Kapitel ergänzt
 %
@@ -274,20 +277,18 @@ TODO: Was ist nicht mit endlichem Automaten darstellbar?
 
 \subsection{Typ-Ebenen}
 \label{sec:Typ-Ebenen}
+Das Palladio Komponentenmodell umfasst das Konzept verschiedener Modellierungs"=Ebenen für eine Modell"=Ausprägung. Die Modellierungs"=Ebenen spiegeln sich dabei in Ebenen eines sich detaillierenden Typ"=Begriffs wider. Dies bedeutet, dass es möglich ist, auf verschiedenen Abstraktionsniveaus eine Komponentearchitektur zu modellieren. Damit wird ein \textit{Top"=Down}"=Vorgehen (vgl. \cite{WikiTopDown}) bei der Modellierung gesondert unterstützt. Es ist möglich gezielt Komponentendetails hinzuzufügen. Dabei werden für die Detaillierung durch das Komponentenmodell \textit{Conforms}-Beziehungen definiert, denen die Verfeinerung folgen muss. Somit lassen sich Verfeinerungen konsistent über Typ"=Ebenen hinweg durchführen.
 
+Da das Komponentenmodell zur gleichen Zeit Komponenten verschiedener Typ"=Ebenen -- auch Typ"=Niveaus genannt -- in einem Modell unterstützt, sind auch auch gemischte Vorgehen aus \textit{Top"=Down} und \textit{Bottom"=Up} "`Gegenstrom"' möglich. Detailinformationen können somit auch nur jenen Komponenten hinzugefügt werden,
 
+\begin{itemize}
+	\item die aktuell von Interesse sind,
+	\item die bei iterativem Vorgehen bereits behandelt wurden,
+	\item über die überhaupt Detailinformationen vorliegen,
+	\item die die Informations"=Komplexität nicht sprengen und unter Umständen die Berechenbarkeit einer Modellinstanz erhalten.
+\end{itemize}
 
-\subsubsection{Typ-Spezialisierung}
-\label{sec:Typ-Spezialisierung}
-
-
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=1.00\textwidth]{./image/cm-level-refinement-01.pdf}
-	\caption{Spezialisierung eines \textit{Provided Type} zu einem \textit{Complete Type} (aus cite{TODO})}
-	\label{fig:cm-level-refinement-01}
-\end{figure}
+Anders herum können Komponenten, deren Detail"=Beschreibung man beispielsweise über Reflection"=Mechanismen (vgl. \cite{DotNetComponents}, S. 412ff für .NET) gewonnen hat, abstrahiert in das Komponentenmodell übernommen werden.
 
 
 
@@ -299,8 +300,54 @@ TODO: Was ist nicht mit endlichem Automaten darstellbar?
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=1.00\textwidth]{./image/cm-type-levels-01.pdf}
-	\caption{Typ-Hierarchie: \textit{Provided Type}, \textit{Complete Type} und \textit{Implementation Type} (aus cite{TODO})}
+	\caption{Typ-Hierarchie: \textit{Provided Type}, \textit{Complete Type} und \textit{Implementation Type} (nach \cite{PalladioCMNeuSlides}, S. 18)}
 	\label{fig:cm-type-levels-01}
+\end{figure}
+
+
+
+Im Komponentenmodell wird derzeit in drei Typ"=Ebenen unterschieden, die einander in der angegebenen Reihenfolge nach unten spezialisieren:
+
+\begin{itemize}
+	\item \textit{Provided Type}
+	\item \textit{Complete Type}
+	\item \textit{Implementation Type}
+\end{itemize}
+
+In Abbildung \ref{fig:cm-type-levels-01} wird die Typ"=Hierarchie des Komponentenmodells dargestellt. Zwischen den Typ"=Ebenen besteht eine \textit{Conforms}"=Beziehung, wobei sich diese zwischen (\textit{Provided Type} und \textit{Complete Type}) und (\textit{Complete Type} und \textit{Implementation Type}) unterscheidet. Zur \textit{Conform}s"=Beziehung siehe auch Kapitel \ref{sec:Typ-Spezialisierung}.
+
+Die farbliche Hinterlegung des "`Typ"=Balkens"' auf der linken Seite deutet an, dass der \textit{Provided Type} dem "`klassischen"' Typ"=Verständnis entspricht, indem die angebotene Schnittstelle definiert wird, wohingegen der \textit{Implementation Type} auch Vorgaben für die Realisierung eines Typs macht.
+
+Würde man die Typ"=Hierarchie nach unten weiter führen, dürfte sich noch ein Laufzeit"=Typ anschließen, der die Laufzeiteigenschaften einer Komponente reglementiert. Diese Typ"=Ebene wird im Komponentenmodell jedoch nicht betrachtet.
+
+
+
+\paragraph{Provided Type}
+\label{sec:ProvidedType}
+
+
+
+\paragraph{Complete Type}
+\label{sec:CompleteType}
+
+
+
+\paragraph{Implementation Type}
+\label{sec:ImplementationType}
+
+
+
+
+\subsubsection{Typ-Spezialisierung}
+\label{sec:Typ-Spezialisierung}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.00\textwidth]{./image/cm-level-refinement-01.pdf}
+	\caption{Spezialisierung eines \textit{Provided Type} zu einem \textit{Complete Type} (nach \cite{PalladioCMNeuSlides}, S. 17)}
+	\label{fig:cm-level-refinement-01}
 \end{figure}
 
 
