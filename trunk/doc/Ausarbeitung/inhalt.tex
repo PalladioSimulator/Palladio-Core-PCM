@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.11  2006/01/12 09:43:53  kelsaka
+% - präzisierungen eingefügt
+%
 % Revision 1.10  2006/01/11 17:18:05  kelsaka
 % - beschreibung des komponentenmodells ergänzt
 %
@@ -131,9 +134,9 @@ Eine Schnittstelle wird also erst durch eine \textit{Provides Role} zu einer ang
 
 
 
-In Abbildung \ref{fig:cm-assembly-connector-01} wird die Verwendung zweier Assembly Konnektoren (\textit{Assembly Connector}) dargestellt. Präzise betrachtet verbinden Konnektoren je eine angebotene und eine benötigte Rolle einer Schnittstelle. Dies bedeutet, dass Aufrufe der über die \textit{Requires Role} mit der benötigten Schnittstelle verbundenen Komponente auf die angebotene Schnittstelle und damit auf die über eine \textit{Provides Role} damit verbundene Komponente weitergeleitet werden. Der Kontrollfluß folgt damit in diesem Fall der als gestrichelt dargestellten Linie.
+In Abbildung \ref{fig:cm-assembly-connector-01} wird die Verwendung zweier Assembly Konnektoren (\textit{Assembly Connector}) dargestellt. Präzise betrachtet verbinden Assembly Konnektoren je eine angebotene (\textit{Provides Role}) und eine benötigte Rolle (\textit{Requires Role}) einer Schnittstelle. Dies bedeutet, dass Aufrufe der über die \textit{Requires Role} mit der benötigten Schnittstelle verbundenen Komponente auf die angebotene Schnittstelle und damit auf die über eine \textit{Provides Role} damit verbundene Komponente weitergeleitet werden. Der Kontrollfluß folgt damit in diesem Fall der als gestrichelt dargestellten Linie in Pfeilrichtung.
 
-Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebotenen Schnittstelle verbunden. Sind die angebotene Schnittstelle und die benötigte Schnittstelle einer Komponente identisch oder kompatibel (Def. siehe TODO), so kann eine Komponente grundsätzlich auch eigene Dienste aufrufen. In der noch folgenden Differenzierung über die Typ-Ebenen des Komponentenmodells (siehe Kapitel ref{TODO}) wird deutlich, weshalb dies nicht zwangsläufig zu einer infiniten Rekursion führen muss.
+Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebotenen Schnittstelle verbunden. Sind die angebotene Schnittstelle und die benötigte Schnittstelle einer Komponente identisch oder kompatibel (Def. siehe TODO), so kann eine Komponente grundsätzlich auch eigene Dienste aufrufen. In der noch folgenden Differenzierung über die Typ-Ebenen des Komponentenmodells (siehe Kapitel \ref{sec:Typ-Ebenen}) wird deutlich, weshalb dies nicht zwangsläufig zu einer infiniten Rekursion führen muss.
 
 
 
@@ -161,7 +164,7 @@ In Abbildung \ref{fig:cm-composite-component-01} wird eine exemplarische \textit
 
 Damit die Abbildung zwischen der äußeren und inneren Schnittstelle einer Composite Component eindeutig bleibt, muss stets eine \texttt{1:1} Beziehung zwischen äußerer und innerer Schnittstelle bestehen. Ein Delegationskonnektor verbindet als immer genau zwei Schnittstellen (eine äußere angebotene Schnittstelle mit einer inneren angebotenen Schnittstelle \textit{oder} eine äußere geforderte Schnittstelle mit einer inneren geforderten Schnittstelle).
 
-Manchmal werden Delegationskonnektoren zusätzlich über ihren Verwendungskontext unterschieden. Findet die Verwendung zum Zwecke einer Abbildung zwischen angebotenen Schnittstellen statt, spricht man auch von \textit{Provides Delegation Connectors}. Im umgekehrten Fall der Verwendung zwischen benötigten Schnittstellen wird der entsprechende Delegationskonnektor auch \textit{Requires Delegation Connector} genant.
+Manchmal werden Delegationskonnektoren zusätzlich über ihren Verwendungskontext unterschieden. Findet die Verwendung zum Zwecke einer Abbildung zwischen angebotenen Schnittstellen statt, spricht man auch von \textit{Provides Delegation Connectors}. Hier werden somit genau eine interne \textit{Provides Role} und genau eine externe \textit{Provides Role} einer \textit{Composite Component} miteinander verbunden. Im umgekehrten Fall der Verwendung zwischen benötigten Schnittstellen wird der entsprechende Delegationskonnektor auch \textit{Requires Delegation Connector} genannt. Dies entspricht der Verbindung genau einer internen \textit{Requires Role} mit genau einer externen \textit{Requires Role} einer \textit{Composite Component}.
 
 Ein Signatur"=Mapping im Sinne eines Adapters (vgl. auch \cite{GAMMA,BUSCH}) ist für die Delagationskonnektoren jedoch nicht möglich. In diesem Falle wäre eine Adapterkomponente vorzusehen, die die notwendige Adaption vornimmt.
 
@@ -325,25 +328,29 @@ Würde man die Typ"=Hierarchie nach unten weiter führen, dürfte sich noch ein Lau
 
 
 
-
 \paragraph{Provided Type}
 \label{sec:ProvidedType}
+Der \textit{Provided Type} definiert nur seine angebotenen Schnittstellen. Er enthält keine Informationen über die interne Realisierung, darf diese Informationen also nicht spezifizieren. Zudem darf er keine benötigten Schnittstellen angeben. Dies bedeutet, dass alle Sub"=Typen eines konkreten \textit{Provided Type} in der internen Realisierung frei sind und ebenfalls keine Vorgaben über die benötigten Schnittstellen einhalten muss. Damit ist der \textit{Provided Type} der Typ, der für Sub"=Typen am wenigstens Anforderungen definiert. Auf diese Weise werden Komponenten definiert, deren Verwendung im Vordergrund steht.
 
+TODO: --> Instanzbegriff! von Sub-Typ unterscheiden!
 
 
 \paragraph{Complete Type}
 \label{sec:CompleteType}
+In Erweiterung des \textit{Provided Type} ermöglicht der \textit{Complete Type} zusätzlich die Definition der benötigten Schnittstellen. Ein \textit{Complete Type} muss \textit{alle} erlaubten benötigten Schnittstellen definieren. Ein Sub"=Typ 
 
 
 
 \paragraph{Implementation Type}
 \label{sec:ImplementationType}
+Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der \textit{Implementation Type} seine interne Realisierung festlegen. Das bedeutet, dass alle internen Komponenten, die direkt in einer derart typisierten Komponente enthalten sind, definiert werden müssen.
 
 
 
 
 \subsubsection{Typ-Spezialisierung}
 \label{sec:Typ-Spezialisierung}
+m:n erklären 
 
 
 
