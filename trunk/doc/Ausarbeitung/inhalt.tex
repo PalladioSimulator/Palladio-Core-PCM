@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.13  2006/01/13 12:47:27  kelsaka
+% - seff-berechnung ergänzt
+%
 % Revision 1.12  2006/01/13 08:06:44  kelsaka
 % - protokollberechnung ergänzt
 %
@@ -286,7 +289,7 @@ TODO: Was ist nicht mit endlichem Automaten darstellbar?
 
 \subsection{Berechnung von SEFFs und Protokollen}
 \label{sec:BerechnungvonSEFFsundProtokollen}
-Eine vollständige Berechnung von Protokollen und SEFFs ist nicht Gegenstand der Ausführungen in dieser Diplomarbeit. Um dennoch abgrenzen zu können, welche Berechnungen grundsätzlich möglich sind wird in den folgenden beiden Unterkapiteln grob dargestellt, wie die möglichen Berechnungen durchführbar sind und welche Einschränkungen sich dadurch für manuell spezifizierte SEFFs und Protokolle ergeben.
+Eine vollständige Berechnung von Protokollen und SEFFs ist nicht Gegenstand der Ausführungen in dieser Diplomarbeit. Um dennoch abgrenzen zu können, welche Berechnungen grundsätzlich möglich sind, wird in den folgenden beiden Unterkapiteln grob dargestellt, wie die möglichen Berechnungen durchführbar sind und welche Einschränkungen sich dadurch für manuell spezifizierte SEFFs und Protokolle ergeben.
 
 
 
@@ -297,7 +300,7 @@ Eine vollständige Berechnung von Protokollen und SEFFs ist nicht Gegenstand der 
 
 \begin{figure}[htbp]
 	\centering
-		\includegraphics[width=1.00\textwidth]{./image/cm-calculated-requires-protocol-01.pdf}
+		\includegraphics[width=0.80\textwidth]{./image/cm-calculated-requires-protocol-01.pdf}
 	\caption{Beispiel der Berechnung eines \textit{Requires Protocols} aus einem \textit{Provides Protocol} und SEFFs}
 	\label{fig:cm-calculated-requires-protocol-01}
 \end{figure}
@@ -315,9 +318,26 @@ Wird dieses Prozedere für jede Transition des angebotenen Protokolls durchgeführ
 \subsubsection{Berechnung der SEFFs von Composite Components}
 \label{sec:BerechnungderSEFFsvonCompositeComponents}
 
-CC-SEFF berechnen
 
 
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.80\textwidth]{./image/cm-calculated-cc-seff-01.pdf}
+	\caption{Beispiel der Berechnung eines SEFFs für eine \textit{Composite Component} bei endlichen Automaten}
+	\label{fig:cm-calculated-cc-seff-01}
+\end{figure}
+
+
+
+In Kapitel \ref{sec:ServiceEffektSpezifikation} wurde bereits dargelegt, weshalb \textit{Composite Components} selbst keine SEFFs besitzen. Dennoch läßt sich für \textit{Composite Components} ein SEFF berechnen. Dieser ergibt sich aus den zusammengesetzten SEFFs innenliegender Komponenten. Entsprechend ist ein solcher SEFF nur berechenbar, wenn auch für alle innenliegenden Komponenten, einschließlich innerer \textit{Composite Components}, SEFFs vorliegen. Liegen für alle inneren (auch rekursiv absteigend) Komponenten vollständig \textit{Basic Components} und somit auch SEFFs vor, lassen sich die SEFFs höher liegender \textit{Composite Components} rekursiv berechnen. Damit wird dann schließlich auch der SEFF der zu betrachtenden Composite Component berechenbar. Bei einem voll spezifizierten Modell (siehe auch Implementation"=Type in Kapitel \ref{sec:Typ-Ebenen}) verweisen letztlich alle \textit{Composite Components} auf \textit{Basic Components}.
+
+Abbildung \ref{fig:cm-calculated-cc-seff-01} zeigt beispielshaft die Berechnung von SEFFs für eine \textit{Composite Component} aus den SEFFs zweier Sub"=Komponenten. Auch hier sind die SEFFs wieder als endliche Automaten dargestellt. Ähnlich der Vorgehensweise bei der Berechnung des \textit{Requires Protocols} erfolgt auch hier eine Ersetzung von Transitionen. Zusammengefasst führen all jene Methodenaufrufe, die nicht aus einer \textit{Composite Component} heraus gehen, zur Ersetzung der Transition, die den Methodenaufruf repräsentiert, mit dem SEFF, der dem Methodenaufruf entspricht. Ebenso wie beim Protokoll werden $\epsilon$"=Transition eingeführt, die in den Startzustand führen und vom Endzustand wieder zurück. Auch der der Endzustand des eingefügten SEFFs wird entfernt.
+
+Im Beispiel bietet "`Composite Component A"' mit \texttt{a()} genau eine Methode an, die durch "`Component B"' implementiert wird. "`Component B"' delegiert die Aufrufe von \texttt{b()} und \texttt{c()} auf "`Component C"'. Diese Komponente benötigt die Methoden \texttt{e()} und \texttt{d()}. Da \texttt{e()} und \texttt{d()} nicht von einer inneren Komponente angeboten werden, führen diese Methodenaufrufe aus "`Composite Component A"' heraus. Zusätzlich sind die SEFFs zu den Methodenaufrufen \texttt{a()}, \texttt{b()} und \texttt{c()} angegeben, also jene Methoden, die durch innere Komponenten angeboten werden.
+
+Der berechnete SEFF für "`Composite Component A"' und die Methode \texttt{a()} ergibt sich, entsprechend dem oben skizzierten Verfahren, zunächst aus dem SEFF für \texttt{a()} aus "`Component B"'. In diesem SEFF werden die Aufrufe von \texttt{b()} und \texttt{c()} durch die entsprechenden SEFFs aus "`Component C"' ersetzt (dunkelgrau bzw. blau eingefärbte Zustände resultieren aus dem SEFF von \texttt{b()}; hellgrau bzw. gelb eingefärbte Zustände resultieren aus dem SEFF von \texttt{c()}).
+
+Da die Berechnung von SEFFs für \textit{Composite Components} damit problemlos und effizient möglich ist, unterstützt das Komponentenmodell für zusammengesetzte Komponente nur berechnete SEFFs. Diese haben den Vorteil automatisch konsistent mit den inneren SEFFs einer Komponente gehalten werden zu können.
 
 
 
