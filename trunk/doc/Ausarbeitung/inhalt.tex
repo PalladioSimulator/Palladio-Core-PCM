@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.15  2006/01/13 16:25:16  kelsaka
+% - ebenen-beziehungen ergänzt
+%
 % Revision 1.14  2006/01/13 15:52:43  kelsaka
 % - komponenten-typen: beschreibung ergänzt
 %
@@ -427,8 +430,17 @@ Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der 
 
 
 
-\paragraph{Bermerkungen}
+\paragraph{Bemerkungen}
 \label{sec:BemerkungenKomponentenTyp}
+
+
+
+\textit{Composite Components} können zur gleichen Zeit beliebige Komponententypen in ihrem Inneren vereinen, sich also intern aus unterschiedlich detaillierten Komponenten zusammensetzen.
+
+
+
+\subsubsection{Darstellung und Ebenenbeziehungen}
+\label{sec:DarstellungundEbenenbeziehungen}
 
 
 
@@ -441,9 +453,10 @@ Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der 
 
 
 
-Wie Abbildung \ref{fig:cm-component-types-inheritance-conforms-01} aufzeigt, 
+Wie Abbildung \ref{fig:cm-component-types-inheritance-conforms-01} aufzeigt, bestehen zwischen den Typ"=Ebenen der Komponenten des Komponentenmodells paarweise jeweils zwei Beziehungen: Zum einen erben die Komponenten"=Typen jeweils von ihrem Vater"=Typ, sofern vorhanden, zum anderen erfüllen die Komponenten jeweils eine Konformitätsbeziehung (\textit{conforms}). Das bedeutet, dass die Eigenschaften und der Informationsgehalt der Komponententypen sich ebenfalls nach unten vererben. Weiter unten stehende Komponenten"=Typen enthalten also immer mehr Informationen. Gleichzeitig bedeutet die Konformitätsbeziehung, dass Ausprägungen von Komponenten"=Typen, die Sub"=Typen von einander sind, festen Regeln folgen müssen. Somit bezieht sich die Konformität auf konkrete Ausprägungen von Komponenten untereinander, wohingegen die Vererbung die Eigenschaften der Komponenten"=Typen definiert.
 
-\textit{Composite Components} können zur gleichen Zeit beliebige Komponententypen in ihrem Inneren vereinen, sich also intern aus unterschiedlich detaillierten Komponenten zusammensetzen.
+Die Darstellungsweise von der Typ"=Ebenen der Komponenten sollte, wie in Abbildung \ref{fig:cm-component-types-inheritance-conforms-01} angegeben, die Typ"=Ebene als Stereotyp tragen. Naheliegend führen \textit{Provides Types} keine benötigten Schnittstellen auf und \textit{Implementation Types} geben in ihrem Innern ihre Realisierung an. Anders als in der Abbildung, werden die internen Konnektoren und Schnittstellen dabei angegeben.
+
 
 
 
