@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.16  2006/01/13 17:07:21  kelsaka
+% - weitere ergänzung
+%
 % Revision 1.15  2006/01/13 16:25:16  kelsaka
 % - ebenen-beziehungen ergänzt
 %
@@ -416,7 +419,7 @@ In Abbildung \ref{fig:cm-type-levels-01} ist der \textit{Provided Type} als ober
 
 \paragraph{Complete Type}
 \label{sec:CompleteType}
-In Erweiterung des \textit{Provided Type} ermöglicht der \textit{Complete Type} zusätzlich die Definition der benötigten Schnittstellen. Ein \textit{Complete Type} muss \textit{alle} erlaubten benötigten Schnittstellen definieren. Dies bedeutet, dass weder Sub"=Typen noch Implementierungen mehr Schnittstellen fordern dürfen, als im spezifiziert, zugleich aber auch nicht weniger Schnittstellen anbieten dürfen, als über den \textit{Complete Type} angegeben. Wie auch der Provided Type darf der Complete Type keine Informationen oder Vorgaben über die interne Realisierung enthalten. Auch hier sind die Sub"=Typen und Implementierungen in der Umsetzung frei. Erst eine \textit{Complete Type} Komponente kann zuverlässlich durch eine andere Komponente substituiert werden, da erst mit diesem Detailniveau die Anforderungen vollständig bekannt sind.
+In Erweiterung des \textit{Provided Type} ermöglicht der \textit{Complete Type} zusätzlich die Definition der benötigten Schnittstellen. Ein \textit{Complete Type} muss \textit{alle} erlaubten benötigten Schnittstellen definieren. Dies bedeutet, dass weder Sub"=Typen noch Implementierungen mehr Schnittstellen fordern dürfen, als im spezifiziert, zugleich aber auch nicht weniger Schnittstellen anbieten dürfen, als über den \textit{Complete Type} angegeben. Wie auch der \textit{Provided Type} darf der \textit{Complete Type} keine Informationen oder Vorgaben über die interne Realisierung enthalten. Auch hier sind die Sub"=Typen und Implementierungen in der Umsetzung frei. Erst eine \textit{Complete Type} Komponente kann zuverlässlich durch eine andere Komponente substituiert werden, da erst mit diesem Detailniveau die Anforderungen vollständig bekannt sind (TODO: richtig?).
 
 In Abbildung \ref{fig:cm-type-levels-01} ist der \textit{Complete Type} als mittlere Ebene dargestellt.
 
@@ -424,9 +427,13 @@ In Abbildung \ref{fig:cm-type-levels-01} ist der \textit{Complete Type} als mitt
 
 \paragraph{Implementation Type}
 \label{sec:ImplementationType}
-Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der \textit{Implementation Type} seine interne Realisierung festlegen. Das bedeutet, dass alle internen Komponenten, die direkt in einer derart typisierten Komponente enthalten sind, definiert werden müssen.
+Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der \textit{Implementation Type} seine interne Realisierung festlegen. Das bedeutet, dass alle internen Komponenten, die direkt in einer derart typisierten Komponente enthalten sind, mit samt der Assembly Konnektoren und Delegationskonnektoren definiert werden müssen.
+
+Für einen \textit{Implementation Type} muss ein SEFF verpflichtend definiert werden. Im Falle von \textit{Composite Components} ist der SEFF, wie in Kapitel \ref{sec:BerechnungderSEFFsvonCompositeComponents} dargestellt, berechnet. 
 
 - SEFFs sind verpflichtend. Bei CCs ist der SEFF berechnet. berechnetes requires protocol muss konsistent mit protokoll auf höheren ebenen sein, wo von hand spezifiziert, siehe \ref{sec:BerechnungvonSEFFsundProtokollen}.
+
+In Abbildung \ref{fig:cm-type-levels-01} ist der \textit{Implementation Type} als unterste Ebene dargestellt.
 
 
 
@@ -436,6 +443,8 @@ Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der 
 
 
 \textit{Composite Components} können zur gleichen Zeit beliebige Komponententypen in ihrem Inneren vereinen, sich also intern aus unterschiedlich detaillierten Komponenten zusammensetzen.
+
+Sowohl \textit{Composite Components} als auch \textit{Basic Components} sind \textit{Implementation Types}. Sie erben direkt von der Meta-Klasse "`Implementation Type"', wie sie in Abbildung \ref{fig:cm-component-types-inheritance-conforms-01} dargestellt wird.
 
 
 
