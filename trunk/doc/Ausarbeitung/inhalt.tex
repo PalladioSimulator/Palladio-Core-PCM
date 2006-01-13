@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.17  2006/01/13 18:58:05  kelsaka
+% - abschluss der typ-beschreibung
+%
 % Revision 1.16  2006/01/13 17:07:21  kelsaka
 % - weitere ergänzung
 %
@@ -413,7 +416,7 @@ Im Komponentenmodell wird die Laufzeitinstanz einer Komponente zunächst nicht be
 \label{sec:ProvidedType}
 Der \textit{Provided Type} definiert nur seine angebotenen Schnittstellen. Er enthält keine Informationen über die interne Realisierung, darf diese Informationen also nicht spezifizieren. Zudem darf er keine benötigten Schnittstellen angeben. Dies bedeutet, dass alle Sub"=Typen und Implementierungen eines konkreten \textit{Provided Type} in der internen Realisierung frei sind und ebenfalls keine Vorgaben über die benötigten Schnittstellen einhalten muss. Damit ist der \textit{Provided Type} der Typ, der für Sub"=Typen und Implementierungen am wenigstens Anforderungen definiert. Auf diese Weise werden Komponenten definiert, deren Verwendungsmöglichkeiten im Vordergrund steht.
 
-In Abbildung \ref{fig:cm-type-levels-01} ist der \textit{Provided Type} als oberste Ebene dargestellt.
+In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Provided Type} als oberste Ebene dargestellt.
 
 
 
@@ -421,19 +424,17 @@ In Abbildung \ref{fig:cm-type-levels-01} ist der \textit{Provided Type} als ober
 \label{sec:CompleteType}
 In Erweiterung des \textit{Provided Type} ermöglicht der \textit{Complete Type} zusätzlich die Definition der benötigten Schnittstellen. Ein \textit{Complete Type} muss \textit{alle} erlaubten benötigten Schnittstellen definieren. Dies bedeutet, dass weder Sub"=Typen noch Implementierungen mehr Schnittstellen fordern dürfen, als im spezifiziert, zugleich aber auch nicht weniger Schnittstellen anbieten dürfen, als über den \textit{Complete Type} angegeben. Wie auch der \textit{Provided Type} darf der \textit{Complete Type} keine Informationen oder Vorgaben über die interne Realisierung enthalten. Auch hier sind die Sub"=Typen und Implementierungen in der Umsetzung frei. Erst eine \textit{Complete Type} Komponente kann zuverlässlich durch eine andere Komponente substituiert werden, da erst mit diesem Detailniveau die Anforderungen vollständig bekannt sind (TODO: richtig?).
 
-In Abbildung \ref{fig:cm-type-levels-01} ist der \textit{Complete Type} als mittlere Ebene dargestellt.
+In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Complete Type} als mittlere Ebene dargestellt.
 
 
 
 \paragraph{Implementation Type}
 \label{sec:ImplementationType}
-Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der \textit{Implementation Type} seine interne Realisierung festlegen. Das bedeutet, dass alle internen Komponenten, die direkt in einer derart typisierten Komponente enthalten sind, mit samt der Assembly Konnektoren und Delegationskonnektoren definiert werden müssen.
+Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der \textit{Implementation Type} seine interne Realisierung festlegen. Das bedeutet, dass alle internen Komponenten, die direkt in einer derart typisierten Komponente enthalten sind, mit samt der assoziierten Assembly Konnektoren und Delegationskonnektoren definiert werden müssen.
 
-Für einen \textit{Implementation Type} muss ein SEFF verpflichtend definiert werden. Im Falle von \textit{Composite Components} ist der SEFF, wie in Kapitel \ref{sec:BerechnungderSEFFsvonCompositeComponents} dargestellt, berechnet. 
+Für einen \textit{Implementation Type} muss ein SEFF verpflichtend definiert werden. Im Falle von \textit{Composite Components} ist der SEFF, wie in Kapitel \ref{sec:BerechnungderSEFFsvonCompositeComponents} dargestellt, berechnet. Da sich durch die Möglichkeit und Pflicht zur Spezifikation von SEFFs das \textit{Requires Protocol} berechnet werden kann, muss dieses auch nach der Modellierung von Komponenten auf der Implementierungs"=Typ"=Ebene konsistent zwischen den Typ"=Ebenen bleiben.
 
-- SEFFs sind verpflichtend. Bei CCs ist der SEFF berechnet. berechnetes requires protocol muss konsistent mit protokoll auf höheren ebenen sein, wo von hand spezifiziert, siehe \ref{sec:BerechnungvonSEFFsundProtokollen}.
-
-In Abbildung \ref{fig:cm-type-levels-01} ist der \textit{Implementation Type} als unterste Ebene dargestellt.
+In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Implementation Type} als unterste Ebene dargestellt.
 
 
 
@@ -471,9 +472,6 @@ Die Darstellungsweise von der Typ"=Ebenen der Komponenten sollte, wie in Abbildu
 
 \subsubsection{Typ-Spezialisierung}
 \label{sec:Typ-Spezialisierung}
-TODO: m:n erklären 
-TODO: auch auf protokolle eingehen
-wann ein ein Typ ersetzt werden?
 
 
 
@@ -486,8 +484,19 @@ wann ein ein Typ ersetzt werden?
 
 
 
-\subsection{..}
-\label{sec:..}
+TODO: m:n erklären 
+TODO: auch auf protokolle eingehen
+wann ein ein Typ ersetzt werden?
+
+
+
+\subsection{Assembly}
+\label{sec:Assembly}
+
+
+
+\subsubsection{Differenzierung von Assemblies gegenüber Composite Components}
+\label{sec:DifferenzierungvonAssemblieszuCompositeComponents}
 Assembly != Composite Component
 S. 27 Folien Steffen/Jens
 CC: innere Komponenten sind verborgen für System Deployer
@@ -495,8 +504,8 @@ Assembly:
 
 
 
-\subsection{Assembly}
-\label{sec:Assembly}
+\subsubsection{Assemblydefinition}
+\label{sec:..}
 
 
 
