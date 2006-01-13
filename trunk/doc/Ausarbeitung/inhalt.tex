@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.14  2006/01/13 15:52:43  kelsaka
+% - komponenten-typen: beschreibung ergänzt
+%
 % Revision 1.13  2006/01/13 12:47:27  kelsaka
 % - seff-berechnung ergänzt
 %
@@ -331,13 +334,13 @@ Wird dieses Prozedere für jede Transition des angebotenen Protokolls durchgeführ
 
 In Kapitel \ref{sec:ServiceEffektSpezifikation} wurde bereits dargelegt, weshalb \textit{Composite Components} selbst keine SEFFs besitzen. Dennoch läßt sich für \textit{Composite Components} ein SEFF berechnen. Dieser ergibt sich aus den zusammengesetzten SEFFs innenliegender Komponenten. Entsprechend ist ein solcher SEFF nur berechenbar, wenn auch für alle innenliegenden Komponenten, einschließlich innerer \textit{Composite Components}, SEFFs vorliegen. Liegen für alle inneren (auch rekursiv absteigend) Komponenten vollständig \textit{Basic Components} und somit auch SEFFs vor, lassen sich die SEFFs höher liegender \textit{Composite Components} rekursiv berechnen. Damit wird dann schließlich auch der SEFF der zu betrachtenden Composite Component berechenbar. Bei einem voll spezifizierten Modell (siehe auch Implementation"=Type in Kapitel \ref{sec:Typ-Ebenen}) verweisen letztlich alle \textit{Composite Components} auf \textit{Basic Components}.
 
-Abbildung \ref{fig:cm-calculated-cc-seff-01} zeigt beispielshaft die Berechnung von SEFFs für eine \textit{Composite Component} aus den SEFFs zweier Sub"=Komponenten. Auch hier sind die SEFFs wieder als endliche Automaten dargestellt. Ähnlich der Vorgehensweise bei der Berechnung des \textit{Requires Protocols} erfolgt auch hier eine Ersetzung von Transitionen. Zusammengefasst führen all jene Methodenaufrufe, die nicht aus einer \textit{Composite Component} heraus gehen, zur Ersetzung der Transition, die den Methodenaufruf repräsentiert, mit dem SEFF, der dem Methodenaufruf entspricht. Ebenso wie beim Protokoll werden $\epsilon$"=Transition eingeführt, die in den Startzustand führen und vom Endzustand wieder zurück. Auch der der Endzustand des eingefügten SEFFs wird entfernt.
+Abbildung \ref{fig:cm-calculated-cc-seff-01} zeigt beispielshaft die Berechnung von SEFFs für eine \textit{Composite Component} aus den SEFFs zweier Sub"=Komponenten. Auch hier sind die SEFFs wieder als endliche Automaten dargestellt. Ähnlich der Vorgehensweise bei der Berechnung des \textit{Requires Protocols} erfolgt auch hier eine Ersetzung von Transitionen. Zusammengefasst führen all jene Methodenaufrufe, die nicht aus einer \textit{Composite Component} heraus gehen, zur Ersetzung der Transition, die den Methodenaufruf repräsentiert, mit dem SEFF, der dem Methodenaufruf entspricht. Ebenso wie beim Protokoll werden $\epsilon$"=Transition eingeführt, die in den Startzustand führen und vom Endzustand wieder zurück. Auch der Endzustand des eingefügten SEFFs wird entfernt.
 
 Im Beispiel bietet "`Composite Component A"' mit \texttt{a()} genau eine Methode an, die durch "`Component B"' implementiert wird. "`Component B"' delegiert die Aufrufe von \texttt{b()} und \texttt{c()} auf "`Component C"'. Diese Komponente benötigt die Methoden \texttt{e()} und \texttt{d()}. Da \texttt{e()} und \texttt{d()} nicht von einer inneren Komponente angeboten werden, führen diese Methodenaufrufe aus "`Composite Component A"' heraus. Zusätzlich sind die SEFFs zu den Methodenaufrufen \texttt{a()}, \texttt{b()} und \texttt{c()} angegeben, also jene Methoden, die durch innere Komponenten angeboten werden.
 
 Der berechnete SEFF für "`Composite Component A"' und die Methode \texttt{a()} ergibt sich, entsprechend dem oben skizzierten Verfahren, zunächst aus dem SEFF für \texttt{a()} aus "`Component B"'. In diesem SEFF werden die Aufrufe von \texttt{b()} und \texttt{c()} durch die entsprechenden SEFFs aus "`Component C"' ersetzt (dunkelgrau bzw. blau eingefärbte Zustände resultieren aus dem SEFF von \texttt{b()}; hellgrau bzw. gelb eingefärbte Zustände resultieren aus dem SEFF von \texttt{c()}).
 
-Da die Berechnung von SEFFs für \textit{Composite Components} damit problemlos und effizient möglich ist, unterstützt das Komponentenmodell für zusammengesetzte Komponente nur berechnete SEFFs. Diese haben den Vorteil automatisch konsistent mit den inneren SEFFs einer Komponente gehalten werden zu können.
+Da die Berechnung von SEFFs für \textit{Composite Components} damit problemlos und effizient möglich ist, unterstützt das Komponentenmodell für zusammengesetzte Komponenten nur berechnete SEFFs. Diese haben den Vorteil automatisch konsistent mit den inneren SEFFs einer Komponente gehalten werden zu können.
 
 
 
@@ -372,7 +375,7 @@ Anders herum können Komponenten, deren Detail"=Beschreibung man beispielsweise ü
 
 
 
-Im Komponentenmodell wird derzeit in drei Typ"=Ebenen unterschieden, die einander in der angegebenen Reihenfolge nach unten spezialisieren:
+Im Komponentenmodell wird derzeit in drei Typ"=Ebenen für Komponenten unterschieden, die einander in der angegebenen Reihenfolge nach unten spezialisieren:
 
 \begin{itemize}
 	\item \textit{Provided Type}
@@ -388,17 +391,31 @@ Würde man die Typ"=Hierarchie nach unten weiter führen, dürfte sich noch ein Lau
 
 
 
+\paragraph{Sub-Typ und Implementierung}
+\label{sec:Sub-TypundImplementierung}
+Im Folgenden werden die Begriffe Sub"=Typ und Implementierung verwendet. Zur Klärung der Begriffe:
+\begin{itemize}
+	\item \textbf{Sub-Typ.} Beim Sub"=Typ handelt es sich um eine Relation zwischen zwei Komponenten. Gilt diese Relation, so kann ein Sub"=Typ für den "`Ober"=Typ"' verwendet werden. Damit ist der Sub"=Typ eine Spezialisierung des "`Ober"=Typs"'. Siehe hierzu auch Kapitel \ref{sec:Typ-Spezialisierung} auf Seite \pageref{sec:Typ-Spezialisierung}. Dort wird ebenfalls auf Co- und Contra-Varianz im Zusammenhang mit Komponenten eingegangen.
+	\item \textbf{Implementierung.} Wird der Begriff Implementierung verwendet, so ist im Folgenden eine Binärinstanz einer Komponente oder eine programmiersprachliche Repräsentation einer Komponente gemeint. Wie im Bereich der objektorientierten Programmierung (siehe etwas \cite{visual-csharp-oop}, S. 203ff) gibt es von Komponenten"="'Vorlagen"' Implementierungen -- analog zu OO-\textit{Interfaces} und Klassen. Präzise betrachtet kann es zu einer Ausprägung eines Komponenten"=Typs \texttt{0..*} Implementierungen geben.
+\end{itemize}
+
+Im Komponentenmodell wird die Laufzeitinstanz einer Komponente zunächst nicht betrachtet.
+
+
+
 \paragraph{Provided Type}
 \label{sec:ProvidedType}
-Der \textit{Provided Type} definiert nur seine angebotenen Schnittstellen. Er enthält keine Informationen über die interne Realisierung, darf diese Informationen also nicht spezifizieren. Zudem darf er keine benötigten Schnittstellen angeben. Dies bedeutet, dass alle Sub"=Typen eines konkreten \textit{Provided Type} in der internen Realisierung frei sind und ebenfalls keine Vorgaben über die benötigten Schnittstellen einhalten muss. Damit ist der \textit{Provided Type} der Typ, der für Sub"=Typen am wenigstens Anforderungen definiert. Auf diese Weise werden Komponenten definiert, deren Verwendung im Vordergrund steht.
+Der \textit{Provided Type} definiert nur seine angebotenen Schnittstellen. Er enthält keine Informationen über die interne Realisierung, darf diese Informationen also nicht spezifizieren. Zudem darf er keine benötigten Schnittstellen angeben. Dies bedeutet, dass alle Sub"=Typen und Implementierungen eines konkreten \textit{Provided Type} in der internen Realisierung frei sind und ebenfalls keine Vorgaben über die benötigten Schnittstellen einhalten muss. Damit ist der \textit{Provided Type} der Typ, der für Sub"=Typen und Implementierungen am wenigstens Anforderungen definiert. Auf diese Weise werden Komponenten definiert, deren Verwendungsmöglichkeiten im Vordergrund steht.
 
-TODO: --> Instanzbegriff! von Sub-Typ unterscheiden!
+In Abbildung \ref{fig:cm-type-levels-01} ist der \textit{Provided Type} als oberste Ebene dargestellt.
 
 
 
 \paragraph{Complete Type}
 \label{sec:CompleteType}
-In Erweiterung des \textit{Provided Type} ermöglicht der \textit{Complete Type} zusätzlich die Definition der benötigten Schnittstellen. Ein \textit{Complete Type} muss \textit{alle} erlaubten benötigten Schnittstellen definieren. Ein Sub"=Typ 
+In Erweiterung des \textit{Provided Type} ermöglicht der \textit{Complete Type} zusätzlich die Definition der benötigten Schnittstellen. Ein \textit{Complete Type} muss \textit{alle} erlaubten benötigten Schnittstellen definieren. Dies bedeutet, dass weder Sub"=Typen noch Implementierungen mehr Schnittstellen fordern dürfen, als im spezifiziert, zugleich aber auch nicht weniger Schnittstellen anbieten dürfen, als über den \textit{Complete Type} angegeben. Wie auch der Provided Type darf der Complete Type keine Informationen oder Vorgaben über die interne Realisierung enthalten. Auch hier sind die Sub"=Typen und Implementierungen in der Umsetzung frei. Erst eine \textit{Complete Type} Komponente kann zuverlässlich durch eine andere Komponente substituiert werden, da erst mit diesem Detailniveau die Anforderungen vollständig bekannt sind.
+
+In Abbildung \ref{fig:cm-type-levels-01} ist der \textit{Complete Type} als mittlere Ebene dargestellt.
 
 
 
@@ -410,10 +427,31 @@ Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der 
 
 
 
+\paragraph{Bermerkungen}
+\label{sec:BemerkungenKomponentenTyp}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.40\textwidth]{./image/cm-component-types-inheritance-conforms-01.pdf}
+	\caption{Komponenten Typ-Ebenen: Vererbungs- und Konformitätsbeziehungen}
+	\label{fig:cm-component-types-inheritance-conforms-01}
+\end{figure}
+
+
+
+Wie Abbildung \ref{fig:cm-component-types-inheritance-conforms-01} aufzeigt, 
+
+\textit{Composite Components} können zur gleichen Zeit beliebige Komponententypen in ihrem Inneren vereinen, sich also intern aus unterschiedlich detaillierten Komponenten zusammensetzen.
+
+
 
 \subsubsection{Typ-Spezialisierung}
 \label{sec:Typ-Spezialisierung}
-m:n erklären 
+TODO: m:n erklären 
+TODO: auch auf protokolle eingehen
+wann ein ein Typ ersetzt werden?
 
 
 
@@ -423,6 +461,15 @@ m:n erklären
 	\caption{Spezialisierung eines \textit{Provided Type} zu einem \textit{Complete Type} (nach \cite{PalladioCMNeuSlides}, S. 17)}
 	\label{fig:cm-level-refinement-01}
 \end{figure}
+
+
+
+\subsection{..}
+\label{sec:..}
+Assembly != Composite Component
+S. 27 Folien Steffen/Jens
+CC: innere Komponenten sind verborgen für System Deployer
+Assembly: 
 
 
 
