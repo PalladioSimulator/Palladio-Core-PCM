@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.12  2006/01/13 08:06:44  kelsaka
+% - protokollberechnung ergänzt
+%
 % Revision 1.11  2006/01/12 09:43:53  kelsaka
 % - präzisierungen eingefügt
 %
@@ -156,7 +159,7 @@ Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebot
 
 Zusammengesetzte Komponenten, im Folgenden auch \textit{Composite Components} genannt, enthalten eine interne Realisierung über weitere Komponenten und über zugehörige Strukturen. Ein \textit{Composite Component} selbst enthält keine Realisierung etwa über Quellcode, sondern fasst eine logisch und / oder funktional zusammengehörige Menge von Komponente zusammen. Über diesen Mechanismus lassen sich Hierarchien von Komponenten definieren. Zudem stellt eine Composite Component eine Abstraktion und Kapselung ihres Innenlebens (\textit{Information Hiding}) zur Verfügung, wenn sie nur über die äußeren Schnittstellen betrachtet wird (TODO: weitere Konzeptideen zu CC). In Kapitel ref{TODO Ebenen} werden die Abstraktionsebenen von Komponenten detailliert aufgezeigt.
 
-Verfügt eine Komponente über keine weiteren inneren Komponenten, so wird diese \textit{Basic Component} genannt. Damit bildet sie das Gegenstück zu einer \textit{Composite Component}.
+Verfügt eine Komponente über keine weiteren inneren Komponenten, so wird diese \textit{Basic Component} genannt. Damit bildet sie das Gegenstück zu einer \textit{Composite Component}. \textit{Basic Components} enthalten Informationen über ihre interne Realisierung. Siehe hierzu Kapitel \ref{sec:ServiceEffektSpezifikation}.
 
 \textit{Composite Components} können neben \textit{Basic Components} ebenfalls weitere \textit{Composite Components} enthalten. Damit werden tiefere Hierarchiestufen realisiert. Im Beispiel ist "`Composite Component B"' eine weitere zusammengesetzte Komponente. Wie zu sehen ist, können \textit{Composite Components} genau wie andere Komponenten verwendet werden. Alle enthaltenen Komponente einer \textit{Composite Component} sind teil der "`contains"'-Relation der zusammengesetzen Komponente.
 
@@ -221,7 +224,7 @@ Wie bereits oben angedeutet, definieren Protokolle von Schnittstellen gültige Au
 
 Um im Beispiel zu bleiben: hier beginnen alle gültigen Aufrufsequenzen mit einem \texttt{open()}, gefolgt von beliebigen \texttt{read()} und \texttt{write()} Operationen. In jedem Fall muss abschließend ein \texttt{close()} folgen. Alternativ sind auch Sequenzen gültig, die sofort enden (denn direkt nach dem Initialisieren befindet sich das Protokoll der Schnittstelle in einem gültigen Endzustand). Als Kantenbeschriftungen werden also Signaturen aus der Signaturliste der mit einem Protokoll zu versehenden Schnittstelle verwendet.
 
-Protokolle bieten somit eine Möglichkeit Abhängigkeiten zwischen Diensten, respektive Signaturaufrufen, \textit{einer} Schnittstelle definieren. Damit wird für Komponenten ein interner Zustand möglich. Über Dienstaufrufe kann der Zustand verändert werden. Abhängig von aktuellen Zustand sind nur bestimmte weitere Dienstaufrufe möglich. Nur bestimmte Sequenzen, nämlich jene, die zu einem Endzustand führen, sind gültig. Von Komponenten kann nur dann ein definiertes Verhalten erwartet werden, wenn die Schnittstellenprotokolle erfüllt werden.
+Protokolle bieten somit eine Möglichkeit Abhängigkeiten zwischen Diensten, respektive Signaturaufrufen, \textit{einer} Schnittstelle zu definieren. Damit wird für Komponenten ein interner Zustand möglich. Über Dienstaufrufe kann der Zustand verändert werden. Abhängig von aktuellen Zustand sind nur bestimmte weitere Dienstaufrufe möglich. Nur bestimmte Sequenzen, nämlich jene, die zu einem Endzustand führen, sind gültig. Von Komponenten kann nur dann ein definiertes Verhalten erwartet werden, wenn die Schnittstellenprotokolle erfüllt werden.
 
 
 
@@ -255,11 +258,11 @@ Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle defi
 
 
 
-Während Protokolle gültige Aufrufsequenzen auf Schnittstellen beschreiben, stellen Service Effekt Spezifikationen, auch SEFF (\textit{Service Effect Specification}), eine Verbindung zwischen angebotenen und benötigten Schnittstellen einer Komponente her. SEFFs sind nicht verpflichtend für eine Komponente zu definieren.
+Während Protokolle gültige Aufrufsequenzen auf Schnittstellen beschreiben, stellen Service Effekt Spezifikationen, auch SEFF (\textit{Service Effect Specification}), eine Verbindung zwischen angebotenen und benötigten Schnittstellen einer Komponente her. SEFFs sind grundsätzlich nur für \textit{Basic Components} zugelassen, da nur diese Form der Komponenten eine Realisierung enthält, die nicht auf weitere interne Komponenten verweist.
 
 Wie der Name andeutet, beschreibt ein SEFF zu genau einem angebotenem Dienst (\textit{Service} des \textit{Provides Interfaces}) einer Komponente die externen Auswirkungen auf die benötigte Schnittstelle. Interne Vorgänge in der Komponente werden dabei abstrahiert. Dafür werden sämtliche Aufrufe auf externen Komponenten (über die benötigten Schnittstellen) erfasst. Damit ist es möglich die Auswirkungen eines Dienstaufrufs auf einer Komponente "`durch die Komponente hindurch"' zu beobachten. Zusätzlich werden Kontrollfluss"=Elemente der zu beschreibenden Komponente erfasst, sofern diese Kontrollfluss"=Elemente Auswirkungen auf die externen Aufrufe haben.
 
-In Abbildung \ref{fig:cm-code-seff-01} wird eine Service Effekt Spezifikation zu der in Abbildung \ref{fig:cm-interfaces-signature-protocol-01} eingeführten Komponente dargestellt. In diesem Beispiel wird wiederum auf endliche Automaten zur Darstellung von SEFFs zurückgegriffen. Auch an dieser Stelle limitiert das Komponentenmodell nicht auf die Verwendung von endlichen Automaten. Ebenso sind Petri"=Netze oder andere Sprachen möglich.
+In Abbildung \ref{fig:cm-code-seff-01} wird eine Service Effekt Spezifikation zu der in Abbildung \ref{fig:cm-interfaces-signature-protocol-01} eingeführten Komponente dargestellt. In diesem Beispiel wird wiederum auf endliche Automaten (\textit{Finite State Machine}, FSM) zur Darstellung von SEFFs zurückgegriffen. Auch an dieser Stelle limitiert das Komponentenmodell nicht auf die Verwendung von endlichen Automaten. Ebenso sind Petri"=Netze oder andere Sprachen möglich. Die möglichen Typen von SEFFs müssen die SEFF"=Anforderungen spezialieren, also einen Sub"=Typ der SEFF"=Anforderungen bilden. Somit sind endliche Automaten, sofern sie im Komponentenmodell verwendet werden, eine Spezialisierung von SEFFs. Damit einher geht die Forderung, dass es eine Abbildungsvorschriften zur bijektiven Abbildung zwischen SEFF und endlichem Automaten gibt.
 
 Im Beispiel werden alle Initialisierungsvorgänge der Komponente (Konstruktoraufrufe, Variablen anlegen) ausgeblendet. Der erste Aufruf, der von Interesse ist, ist der Aufruf des Loggers (\texttt{logger.writeLog()}). Als nächstes werden die Kontrollfluss"=Elemente der Komponente abgebildet. Da \texttt{cache.readFromCache()} und \texttt{logger.writeLog()} in einer \texttt{while}"=Schleife aufgerufen werden können, wird ein Zwischenzustand eingeführt, der den Zustand nach dem Aufruf des Cache"=Zugriffs repräsentiert und ein Kante, die zum Zustand vor / nach der \texttt{while}"=Schleife zurück führt.
 
@@ -281,9 +284,46 @@ TODO: Was ist nicht mit endlichem Automaten darstellbar?
 
 
 
-\subsection{Typ-Ebenen}
+\subsection{Berechnung von SEFFs und Protokollen}
+\label{sec:BerechnungvonSEFFsundProtokollen}
+Eine vollständige Berechnung von Protokollen und SEFFs ist nicht Gegenstand der Ausführungen in dieser Diplomarbeit. Um dennoch abgrenzen zu können, welche Berechnungen grundsätzlich möglich sind wird in den folgenden beiden Unterkapiteln grob dargestellt, wie die möglichen Berechnungen durchführbar sind und welche Einschränkungen sich dadurch für manuell spezifizierte SEFFs und Protokolle ergeben.
+
+
+
+\subsubsection{Berechnung von benötigten Protokollen}
+\label{sec:BerechnungvonbenoetigtenProtokollen}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.00\textwidth]{./image/cm-calculated-requires-protocol-01.pdf}
+	\caption{Beispiel der Berechnung eines \textit{Requires Protocols} aus einem \textit{Provides Protocol} und SEFFs}
+	\label{fig:cm-calculated-requires-protocol-01}
+\end{figure}
+
+
+
+Da SEFFs eine Verbindung zwischen den Protokollen auf der angebotenen und benötigten Seite herstellen, läßt sich sich zu einem gegebenen angebotenem Protokoll mit Hilfe eines SEFFs ein benötigtes Protokoll berechnen. Abbildung \ref{fig:cm-calculated-requires-protocol-01} zeigt exemplarisch die Berechnung eines \textit{Requires Protocols} aus einem \textit{Provides Protocol} und SEFFs anhand endlicher Automaten.
+
+Kurz skizziert erfolgt eine Erweiterung des angebotenen Protokolls. Dazu wird das angebotene Protokoll als Grundlage genommen und für jede Transition dieses Automaten wird der Automat des SEFFs eingefügt, der die Realisierung der Methode aus der Beschriftung der Kante enthält. Die Endzustände des SEFFs werden dabei entfernt. Um die aus dem SEFF stammenden Teilautomaten in das ursprüngliche angebotene Protokoll einzufügen, werden zwei $\epsilon$"=Transitionen eingefügt: eine führt vom ursprünglichen Startzustand der Transition aus dem angebotenem Protokoll in den ursprünglichen Startzustand des SEFF"=Automaten. Eine weitere $\epsilon$"=Transition führt vom ursprünglichen Endzustand des SEFF"=Automaten in den ursprünglichen Folgezustand der ersetzten Transition des angebotenen Protokolls.
+
+Wird dieses Prozedere für jede Transition des angebotenen Protokolls durchgeführt, erhält man ein benötigtes Protokoll der Komponente. An dieser Stelle soll nicht näher auf die Berechnung des benötigten Protokolls eingegangen, sondern lediglich kurz skizziert werden, dass eine Möglichkeit besteht das benötigte Protokoll zu berechnen. Daraus ergibt sich die Notwendigkeit, dass, sofern benötigte Protokolle manuell spezifiziert werden, diese konsistent zu einer berechneten Form sein müssen. Üblicherweise wird man jedoch auf eine manuelle Spezifikation des benötigten Protokolls verzichten und dieses berechnen lassen.
+
+
+
+\subsubsection{Berechnung der SEFFs von Composite Components}
+\label{sec:BerechnungderSEFFsvonCompositeComponents}
+
+CC-SEFF berechnen
+
+
+
+
+
+\subsection{Komponenten: Typ-Ebenen}
 \label{sec:Typ-Ebenen}
-Das Palladio Komponentenmodell umfasst das Konzept verschiedener Modellierungs"=Ebenen für eine Modell"=Ausprägung. Die Modellierungs"=Ebenen spiegeln sich dabei in Ebenen eines sich detaillierenden Typ"=Begriffs wider. Dies bedeutet, dass es möglich ist, auf verschiedenen Abstraktionsniveaus eine Komponentearchitektur zu modellieren. Damit wird ein \textit{Top"=Down}"=Vorgehen (vgl. \cite{WikiTopDown}) bei der Modellierung gesondert unterstützt. Es ist möglich gezielt Komponentendetails hinzuzufügen. Dabei werden für die Detaillierung durch das Komponentenmodell \textit{Conforms}-Beziehungen definiert, denen die Verfeinerung folgen muss. Somit lassen sich Verfeinerungen konsistent über Typ"=Ebenen hinweg durchführen.
+Das Palladio Komponentenmodell umfasst das Konzept verschiedener Modellierungs"=Ebenen für eine Modell"=Ausprägung. Die Modellierungs"=Ebenen spiegeln sich dabei in Ebenen eines sich detaillierenden Typ"=Begriffs für Komponenten wider. Dies bedeutet, dass es möglich ist, auf verschiedenen Abstraktionsniveaus eine Komponentearchitektur zu modellieren. Damit wird ein \textit{Top"=Down}"=Vorgehen (vgl. \cite{WikiTopDown}) bei der Modellierung gesondert unterstützt. Es ist möglich gezielt Komponentendetails hinzuzufügen. Dabei werden für die Detaillierung durch das Komponentenmodell \textit{Conforms}-Beziehungen definiert, denen die Verfeinerung folgen muss. Somit lassen sich Verfeinerungen konsistent über Typ"=Ebenen hinweg durchführen.
 
 Da das Komponentenmodell zur gleichen Zeit Komponenten verschiedener Typ"=Ebenen -- auch Typ"=Niveaus genannt -- in einem Modell unterstützt, sind auch auch gemischte Vorgehen aus \textit{Top"=Down} und \textit{Bottom"=Up} "`Gegenstrom"' möglich. Detailinformationen können somit auch nur jenen Komponenten hinzugefügt werden,
 
@@ -335,6 +375,7 @@ Der \textit{Provided Type} definiert nur seine angebotenen Schnittstellen. Er en
 TODO: --> Instanzbegriff! von Sub-Typ unterscheiden!
 
 
+
 \paragraph{Complete Type}
 \label{sec:CompleteType}
 In Erweiterung des \textit{Provided Type} ermöglicht der \textit{Complete Type} zusätzlich die Definition der benötigten Schnittstellen. Ein \textit{Complete Type} muss \textit{alle} erlaubten benötigten Schnittstellen definieren. Ein Sub"=Typ 
@@ -344,6 +385,8 @@ In Erweiterung des \textit{Provided Type} ermöglicht der \textit{Complete Type} 
 \paragraph{Implementation Type}
 \label{sec:ImplementationType}
 Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der \textit{Implementation Type} seine interne Realisierung festlegen. Das bedeutet, dass alle internen Komponenten, die direkt in einer derart typisierten Komponente enthalten sind, definiert werden müssen.
+
+- SEFFs sind verpflichtend. Bei CCs ist der SEFF berechnet. berechnetes requires protocol muss konsistent mit protokoll auf höheren ebenen sein, wo von hand spezifiziert, siehe \ref{sec:BerechnungvonSEFFsundProtokollen}.
 
 
 
@@ -360,6 +403,16 @@ m:n erklären
 	\caption{Spezialisierung eines \textit{Provided Type} zu einem \textit{Complete Type} (nach \cite{PalladioCMNeuSlides}, S. 17)}
 	\label{fig:cm-level-refinement-01}
 \end{figure}
+
+
+
+\subsection{Assembly}
+\label{sec:Assembly}
+
+
+
+\subsection{Allokation}
+\label{sec:Allokation}
 
 
 
