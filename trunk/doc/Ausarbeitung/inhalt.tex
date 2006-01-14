@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.23  2006/01/14 18:20:07  kelsaka
+% - sub-typ-beschreibungen vervollständigt
+%
 % Revision 1.22  2006/01/14 17:04:04  kelsaka
 % - trivial protokoll eingführt
 %
@@ -236,13 +239,13 @@ Abbildung \ref{fig:cm-interfaces-signature-protocol-01} zeigt eine Beispielskomp
 Jeder Dienst weist auf einer Schnittstelle eine eindeutige Signatur auf, etwa \texttt{void} \texttt{Do\-Some\-thing(int a)}. In Anlehnung an Methoden"=Signaturen aus Programmiersprachen wie C\# und Java haben Signaturen
 
 \begin{itemize}
-	\item einen Rückgabetyp oder \texttt{void},
+	\item einen Rückgabe"=Datentyp oder \texttt{void},
 	\item einen Bezeichner, üblicherweise mit einem sprechenden Namen,
-	\item eine Menge von Parametern (\texttt{0..*}), die jeweils aus einem Typ und einem Bezeichner (innerhalb der Parameter eindeutig) bestehen. Zusätzlich können die Modifizierer \texttt{in}, \texttt{out} und \texttt{ref} für Parameter in Analogie zur C\# Semantik verwendet werden. Parameter werden in Klammern angegeben und durch Kommata getrennt, Modifizierer werden den Parametern vorangestellt.
+	\item eine Menge von Parametern (\texttt{0..*}), die jeweils aus einem Datentyp und einem Bezeichner (innerhalb der Parameter eindeutig) bestehen. Zusätzlich können die Modifizierer \texttt{in}, \texttt{out} und \texttt{ref} für Parameter in Analogie zur C\# Semantik verwendet werden. Parameter werden in Klammern angegeben und durch Kommata getrennt, Modifizierer werden den Parametern vorangestellt.
 	\item Daneben müssen alle \textit{Exceptions} (Ausnahmen) angegeben werden, die von einer Signatur geworfen werden können. Die verpflichtende Angabe von \textit{Exceptions} folgt den Vorgaben von Java. \textit{Exceptions} werden mit dem Schlüsselwort \texttt{throws} an die Methoden"=Signatur angehängt und durch Kommata getrennt.
 \end{itemize}
 
-Eine Signatur ist eindeutig über Rückgabetyp, Bezeichner und Parameter (Typ und Bezeichner) unter Berücksichtigung der Reihenfolge.
+Eine Signatur ist eindeutig über Rückgabe"=Datentyp, Bezeichner und Parameter (Datentyp und Bezeichner) unter Berücksichtigung der Reihenfolge.
 
 
 
@@ -580,7 +583,7 @@ Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere s
 
 Da Protokolle auf Schnittstellen, unabhängig von der Typ"=Ebene von Komponenten, definiert werden \textit{können}, gibt es keine Kopplung zwischen vorliegenden Komponenten einer bestimmten Typ"=Ebene und dem Vorkommen von Protokolle. Es ist jeweils möglich, dass ein Protokoll definiert ist, eine Sicherheit gibt hierfür nicht. Um dennoch die Substitutierbarkeit unter Beachtung von Protokollen prüfen zu können, nimmt das Komponentenmodell, sofern auf einer Schnittstelle kein Protokoll definiert ist, ein Trivial"=Protokoll an. Abbildung \ref{fig:cm-trivial-protocol-01} zeigt ein Trivial-Protokoll. Bei diesem implizit angenommenen Protokoll sind Dienstaufrufe auf der Schnittstelle in beliebiger Reihenfolge möglich.
 
-Soll eine Komponente substituiert werden, die auf einem Teil ihrer Schnittstellen kein Protokoll definiert hat, wird für diese Schnittstellen das Trivial"=Protokoll zur Prüfung anhand der in Kapitel \ref{sec:Co-undContra-Varianz} genannten Regeln herangezogen. Die Prüfung ist damit problemlos wie in allen anderen Fällen möglich.
+Soll eine Komponente substituiert werden, die auf einem Teil ihrer Schnittstellen kein Protokoll definiert hat, wird für diese Schnittstellen das Trivial"=Protokoll (siehe Abbildung \ref{fig:cm-trivial-protocol-01}) zur Prüfung anhand der in Kapitel \ref{sec:Co-undContra-Varianz} genannten Regeln herangezogen. Die Prüfung ist damit problemlos wie in allen anderen Fällen möglich.
 
 
 
@@ -593,30 +596,17 @@ Soll eine Komponente substituiert werden, die auf einem Teil ihrer Schnittstelle
 
 
 
-Der \textit{Provided Type} definiert keinerlei benötigte Schnittstellen.
+Der \textit{Provided Type} definiert keinerlei benötigte Schnittstellen. Soll ein solcher Komponenten"=Typ substituiert werden oder für eine Substituion verwendet werden, nimmt man auf der \textit{Requires}"=Seite implizit genau eine Schnittstelle an. Diese Schnittstelle ist leer, definiert also keine Dienste und ein Protokoll, das nur einen Endzustand besitzt, also die Leere Sprache ($L\:=\:\varnothing$) akzeptiert. Anhand der allgemein definierten Regeln wird dann überprüft, ob eine Substitution gültig ist.
 
-
-
-
-
-
-was, wenn komponenten unterschiedlichen detail-niveaus aufeinander treffen? geht? trivialprotokoll angenommen? seffs frei? berechnete requires protokolle.
-
-protokolle sind unabhängig von typ-ebene *möglich*
-
-
-
-
-
-%\subsubsection{Protokolle}
-%\label{sec:ProtokolleSubTyp}
-%TODO: auch auf protokolle eingehen
+Wird eine \textit{Provided Type} oder eine \textit{Complete Type} Komponente durch eine \textit{Implementation Type} Komponente ersetzt, sollte bedacht werden, dass mit dem \textit{Implementation Type} und dem damit verbundenen SEFF das benötigte Protokoll berechenbar wird. Entsprechend muss das berechnete Protokoll, dass sich damit von einem vorher definierten Protokoll unterscheiden kann, für die Substitution valide sein.
 
 
 
 \subsubsection{Delegations-Konnektoren}
 \label{sec:Delegations-KonnektorenSubTyp}
-TODO: Problem: auch innen-außen außen-innen Delegation Konnek-bedingungen
+Delegations"=Konnektoren lassen sich nicht ohne Weiteres mit den in Kapitel \ref{sec:Co-undContra-Varianz} angeführten Regeln auf Validität prüfen, da sie zunächst gleichartige Schnittstellentypen miteinander verbinden. Betrachtet man bei \textit{Provides}"=Delegations"=Konnektoren die äußere Schnittstelle als \textit{Requires}"=Schnittstelle und bei \textit{Requires}"=Delegations"=Konnektoren die äußere Schnittstelle als \textit{Provides}"=Schnittstelle, können die bereits bekannten Regeln aus Kapitel \ref{sec:Co-undContra-Varianz} verwendet werden.
+
+Auf der \textit{Provides}"=Seite darf die äußere Schnittstelle also nur die gleiche Schnittstelle wie die innere anbieten oder diese eingeschränkt anbieten. Dies führt dazu, dass alle Dienstaufrufe auf definierte innere Schnittstellen geleitet werden. Auf der \textit{Requires}"=Seite darf die äußere Schnittstelle gleich viel wie die innere Schnittstelle oder mehr verlangen. Auf diese Weise können zwar nicht benötigte Anforderungen definiert werden, anders herum laufen jedoch keine Dienstanfragen ins Leere.
 
 
 
