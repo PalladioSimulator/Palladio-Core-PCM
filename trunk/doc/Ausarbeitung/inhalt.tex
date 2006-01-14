@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.22  2006/01/14 17:04:04  kelsaka
+% - trivial protokoll eingführt
+%
 % Revision 1.21  2006/01/14 15:00:05  kelsaka
 % - komponenten-substitution
 %
@@ -548,6 +551,10 @@ Zu bedenken bleibt, dass, je nach Detailniveau respektive Typ"=Ebene der Kompone
 
 
 
+\paragraph{Allgemein}
+
+
+
 Eine gültige Substitution für eine Komponente liegt im Allgemeinen dann vor, wenn auf allen \textit{Provides Interfaces} einer Komponente
 \begin{itemize}
 	\item die Menge der angebotenen Dienste eine Obermenge der geforderten Dienste ist, und
@@ -559,26 +566,51 @@ Umgekehrt, man spricht in diesem Fall von "`Contra-Varianz"' (siehe auch \cite{c
 	\item das geforderte Protokoll eine Sprach-Untermenge des angebotenen Protokolls ist.
 \end{itemize}
 
+TODO:--> Signatur, wann gleich. Wird das beachtet? Einfachster Fall: nur identische Signaturen beachtet.
+
+Genügen alle \textit{Provides} und alle \textit{Requires} Schnittstelle einer Komponente den oben genannten Bedingungen, kann sie (als Substitut) verwendet werden.
+
+Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist. Wie bereits zuvor erwähnt wurde, ist die Verwendung von endlichen Automaten im Komponentenmodell sehr verbreitet. Da endliche Automaten und reguläre Ausdrücke sprachäquivalent sind, und für reguläre Ausdrücke das Inklusionsproblem lösbar ist, womit diese Problem auch für endliche Automaten lösbar ist, erscheint die Entscheidung zur Verwendung von endlichen Automaten in Praxisbeispielen sinnvoll (vgl. cite{TODO}). Die andere, im Komponentenmodell-Kontext verbreitete Variante zur Darstellung von Protokollen und SEFFs, die Petri-Netze, sind kontextsensitiv, weshalb das Wortproblem ebenfalls lösbar ist (vgl. cite{TODO}).
+
+
+
+\paragraph{Typ-Ebenen abhängig}
+
+
+
+Da Protokolle auf Schnittstellen, unabhängig von der Typ"=Ebene von Komponenten, definiert werden \textit{können}, gibt es keine Kopplung zwischen vorliegenden Komponenten einer bestimmten Typ"=Ebene und dem Vorkommen von Protokolle. Es ist jeweils möglich, dass ein Protokoll definiert ist, eine Sicherheit gibt hierfür nicht. Um dennoch die Substitutierbarkeit unter Beachtung von Protokollen prüfen zu können, nimmt das Komponentenmodell, sofern auf einer Schnittstelle kein Protokoll definiert ist, ein Trivial"=Protokoll an. Abbildung \ref{fig:cm-trivial-protocol-01} zeigt ein Trivial-Protokoll. Bei diesem implizit angenommenen Protokoll sind Dienstaufrufe auf der Schnittstelle in beliebiger Reihenfolge möglich.
+
+Soll eine Komponente substituiert werden, die auf einem Teil ihrer Schnittstellen kein Protokoll definiert hat, wird für diese Schnittstellen das Trivial"=Protokoll zur Prüfung anhand der in Kapitel \ref{sec:Co-undContra-Varianz} genannten Regeln herangezogen. Die Prüfung ist damit problemlos wie in allen anderen Fällen möglich.
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.45\textwidth]{./image/cm-trivial-protocol-01.pdf}
+	\caption{Trivial-Protokoll; Dienstaufrufe sind in beliebiger Reihenfolge möglich}
+	\label{fig:cm-trivial-protocol-01}
+\end{figure}
+
+
+
+Der \textit{Provided Type} definiert keinerlei benötigte Schnittstellen.
 
 
 
 
 
-
-
-
-wann ein ein Typ ersetzt werden?
 
 was, wenn komponenten unterschiedlichen detail-niveaus aufeinander treffen? geht? trivialprotokoll angenommen? seffs frei? berechnete requires protokolle.
 
-Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
+protokolle sind unabhängig von typ-ebene *möglich*
 
 
 
 
-\subsubsection{Protokolle}
-\label{sec:ProtokolleSubTyp}
-TODO: auch auf protokolle eingehen
+
+%\subsubsection{Protokolle}
+%\label{sec:ProtokolleSubTyp}
+%TODO: auch auf protokolle eingehen
 
 
 
