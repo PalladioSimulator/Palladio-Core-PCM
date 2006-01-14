@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.19  2006/01/14 11:46:03  kelsaka
+% - sub-typ-beispiel überarbeitet und erklärt
+%
 % Revision 1.18  2006/01/14 10:58:34  kelsaka
 % - SEFFs: Präzisierung
 %
@@ -88,6 +91,8 @@ Zudem bezeichnet der Begriff \textit{Projekt}, solange er ohne sonstigen Kontext
 \section{Das Palladio Komponentenmodell}
 \label{sec:DasPalladioKomponentenmodell}
 Im Rahmen der Diplomarbeit wird ein Meta-Modell für das Palladio Komponentenmodell erstellt. Daher ist es unabdingbar, dass ein vollständiges Verständnis für das Komponentenmodell existiert. Die folgenden Kapitel zeigen detailliert die Eigenschaften des Komponentenmodells auf. Schließlich wird dem gegenübergestellt, welche Konzepte des Komponentenmodells umgesetzt werden konnten, welche Einschränkungen bei der Modellierung auftraten und welche \textit{Work"=Arounds} aus welchen Gründen zur Abbildung notwendig waren.
+
+Das im Folgenden dargestellte Palladio Komponentenmodell entspricht dem Stand der Konzepte des Januars 2006.
 
 
 
@@ -282,7 +287,7 @@ Wie der Name andeutet, beschreibt ein SEFF zu genau einem angebotenem Dienst (\t
 
 In Abbildung \ref{fig:cm-code-seff-01} wird eine Service Effekt Spezifikation zu der in Abbildung \ref{fig:cm-interfaces-signature-protocol-01} eingeführten Komponente dargestellt. In diesem Beispiel wird wiederum auf endliche Automaten (\textit{Finite State Machine}, FSM) zur Darstellung von SEFFs zurückgegriffen. Auch an dieser Stelle limitiert das Komponentenmodell nicht auf die Verwendung von endlichen Automaten. Ebenso sind Petri"=Netze oder andere Sprachen möglich. Die möglichen Typen von SEFFs müssen die SEFF"=Anforderungen spezialieren, also einen Sub"=Typ der SEFF"=Anforderungen bilden. Somit sind endliche Automaten, sofern sie im Komponentenmodell verwendet werden, eine Spezialisierung von SEFFs. Damit einher geht die Forderung, dass es eine Abbildungsvorschriften zur bijektiven Abbildung zwischen SEFF und endlichem Automaten gibt.
 
-Da die Verwendung von geforderten Diensten auch vom Zustand einer Komponente oder den Aufrufparametern eines angebotenen Dienstes abhängen kann, werden \textit{SEFFs} beispielsweise als endliche Automaten dargestellt, damit auch Endscheidungen (beispielsweise \texttt{if}-Ausdrücke) oder Schleifen (etwa \texttt{while}) erfasst werden können.
+Da die Verwendungsreihenfolge von geforderten Diensten auch vom Zustand einer Komponente oder den Aufrufparametern eines angebotenen Dienstes abhängen kann, werden \textit{SEFFs} beispielsweise als endliche Automaten dargestellt, damit auch Endscheidungen (beispielsweise \texttt{if}-Ausdrücke) oder Schleifen (etwa \texttt{while}) erfasst werden können.
 
 Im Beispiel werden alle Initialisierungsvorgänge der Komponente (Konstruktoraufrufe, Variablen anlegen) ausgeblendet. Der erste Aufruf, der von Interesse ist, ist der Aufruf des Loggers (\texttt{logger.writeLog()}). Als nächstes werden die Kontrollfluss"=Elemente der Komponente abgebildet. Da \texttt{cache.readFromCache()} und \texttt{logger.writeLog()} in einer \texttt{while}"=Schleife aufgerufen werden können, wird ein Zwischenzustand eingeführt, der den Zustand nach dem Aufruf des Cache"=Zugriffs repräsentiert und ein Kante, die zum Zustand vor / nach der \texttt{while}"=Schleife zurück führt.
 
@@ -292,7 +297,7 @@ Bei SEFFs werden die Kanten eines endlichen Automaten mit den externen Dienstauf
 
 \paragraph{SEFF-Typen}
 \label{sec:SEFF-Typen}
-Für jeden Dienst einer Komponente können \texttt{0..1} SEFFs eines SEFF"=Typs definiert werden. Als SEFF"=Typ gelten dabei endliche Automaten, Petri"=Netze und sonstige Sprachen (TODO: spracherzeugenden konstrukte). Existieren zu einem Dienst einer Komponent SEFF"=Beschreibungen unterschiedlichen Typs, so müssen diese konsistent sein, dürfen sich also nicht widersprechen. Das Komponentenmodell prüft zunächst in keinem Fall auf diese Konsistenz. Entsprechende Prüfungen müssen durch den Nutzer erfolgen (Eine Prüfung ist nicht in jedem Fall trivial: "`Sprach...inklusion...TODO"'). 
+Für jeden Dienst einer Komponente können \texttt{0..1} SEFFs eines SEFF"=Typs definiert werden. Als SEFF"=Typ gelten dabei endliche Automaten, Petri"=Netze und sonstige Sprachen (TODO: spracherzeugenden konstrukte). Existieren zu einem Dienst einer Komponent SEFF"=Beschreibungen unterschiedlichen Typs, so müssen diese konsistent sein, dürfen sich also nicht widersprechen. Das Komponentenmodell prüft zunächst in keinem Fall auf diese Konsistenz. Entsprechende Prüfungen müssen durch den Nutzer erfolgen (Eine Prüfung ist nicht in jedem Fall trivial: "`Sprachinklusion... TODO"'). 
 
 Das Komponentenmodell verzichtet bewußt auf die Einschränkung nur einen SEFF"=Typ global im gleichen Komponentenmodell oder für einen Dienst zuzulassen. Dies erlaubt es die gleiche Komponentenarchitektur zur gleichen Zeit auf verschiedene Weise mit Informationen anzureichen. Dadurch können Modellierer, auch ohne Kenntnis von der spezifischen Darstellung von SEFFs, ihre eigenen Darstellungsformen verwenden. Im Sinne der Unabhängigkeit des Komponentenmodells von konkreten SEFF"=Typen, bleibt es durch dieses Weniger an Einschränkung möglich das Komponentenmodell gefiltert zu betrachten. Zugleich erkauft man sich diesen Vorteil durch die Gefahr, dass Inkonsistenzen verschiedener SEFF"=Typen auftreten oder spezielle SEFF"=Typen schlicht nicht verstanden werden und dadurch auch nicht konsistent zu halten sind.
 
@@ -439,6 +444,8 @@ Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der 
 
 Für einen \textit{Implementation Type} muss ein SEFF verpflichtend definiert werden. Im Falle von \textit{Composite Components} ist der SEFF, wie in Kapitel \ref{sec:BerechnungderSEFFsvonCompositeComponents} dargestellt, berechnet. Da sich durch die Möglichkeit und Pflicht zur Spezifikation von SEFFs das \textit{Requires Protocol} berechnet werden kann, muss dieses auch nach der Modellierung von Komponenten auf der Implementierungs"=Typ"=Ebene konsistent zwischen den Typ"=Ebenen bleiben.
 
+Interpretiert man die akzeptierten Wörter eines SEFFs als Sprache, muss diese Sprache größer oder gleich der real von einer Implementierung einer Komponente akzeptierten Sprache sein. Ein SEFFs muss also eine Obermenge ($SEFF-Sprache \supseteq Implementierungssprache$) aller gültigen Aufrufe auf der benötigten Schnittstelle darstellen. Einer Implementierung einer Komponente bleibt es damit frei gestellt, ob sie beispielsweise die Möglichkeit nutzt eine Schleife unendlich oft zu durchlaufen oder nur eingeschränkt oft.
+
 In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Implementation Type} als unterste Ebene dargestellt.
 
 
@@ -483,9 +490,15 @@ Die Darstellungsweise von der Typ"=Ebenen der Komponenten sollte, wie in Abbildu
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.80\textwidth]{./image/cm-level-refinement-01.pdf}
-	\caption{Spezialisierung eines \textit{Provided Type} zu einem \textit{Complete Type} (nach \cite{PalladioCMNeuSlides}, S. 17)}
+	\caption{Spezialisierung eines \textit{Provided Type} zu zwei \textit{Complete Types} (nach \cite{PalladioCMNeuSlides}, S. 17)}
 	\label{fig:cm-level-refinement-01}
 \end{figure}
+
+
+
+Zunächst einmal soll anhand von Abbildung \ref{fig:cm-level-refinement-01} illustriert werden, dass es zu einem \textit{Provided Type} eine beliebige Menge (\texttt{0..*}) von \textit{Complete Types} geben kann. Solange das durch den \textit{Provides Type} vorgegebene angebotene Interface vom \textit{Complete Type} angeboten wird, handelt es sich um Sub"=Typen. Der \textit{Complete Type} kann so, wie im Beispiel mit \texttt{IMyService}, zusätzliche Schnittstellen anbieten. Außerdem sind die \textit{Complete Types} komplett bezüglich der benötigten Schnittstellen frei. Im Beispiel wird die Schnittstelle \texttt{IRequestProcessor} lediglich von der linken Komponente angeboten. Auch die im Beispiel überschneidend angeführten Schnittstellen \texttt{IMonitor} und \texttt{IWebTools} sind nicht erforderlich zwischen zwei Sub"=Typen des gleichen \textit{Provided Types}.
+
+
 
 
 
@@ -518,7 +531,7 @@ Umgekehrt, man spricht in diesem Fall von "`Contra-Varianz"' (siehe auch \cite{c
 Assembly != Composite Component
 S. 27 Folien Steffen/Jens
 CC: innere Komponenten sind verborgen für System Deployer
-Assembly: 
+Assembly: ...
 
 
 
@@ -537,10 +550,17 @@ Assembly:
 
 
 
+\subsection{Ausblick auf die Entwicklung}
+\label{sec:AusblickaufdieEntwicklung}
+TODO: Ein neues Paper, das das aktuelle Komponentenmodell beschreibt, wird in Kürze unter \cite{PalladioCMNeu} veröffentlicht.
+
+
+
+
 ------------------------------------
 
 
-TODO:
+\textbf{TODO:}
 - Parametrisierte Verträge: Auswirkungen auf Requires-Schnittstelle: nicht mehr alles notwendig
 - Komponente ruft sich selbst auf: wann unendliche rekursion, wann auf welcher ebene erlaubt --> insbesondere unbekannt in CCs
 - mehrere konnektoren auf eine provided schnittstelle: zustand nicht mehr unterscheidbar.: In der Umkehrung kann eine angebotene Schnittstelle jedoch über \texttt{0..*} benötigte Rollen verwendet werden. Damit bleibt die graphische Notation nicht eindeutig...
@@ -556,26 +576,7 @@ Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere s
 
 
 
-Das Palladio Komponentenmodell -- unter \cite{BECK} findet sich die Beschreibung einer älteren Fassung des Modells -- beschreibt Software-Architekturen als eine Menge von Komponenten und Schnittstellen, sowie darauf definierten Relationen. Komponenten werden dabei in \textit{Basic Components} und \textit{Composite Components} unterschieden. Wie die Namen bereits andeuten, unterstützt das Komponentenmodell zusammengesetzte Strukturen. Das bedeutet, dass Komponenten und Schnittstellen mit beliebiger Tiefe rekursiv in \textit{Composite Components} geschachtelt werden können. In diesem Falle läßt sich die "`enthält"' Relation als Realisierung einer Komponente interpretieren. Das bedeutet, dass Komponenten, die innerhalb einer \textit{Composite Component} liegen, das Verhalten der äußeren Komponente bestimmen.
 
-Komponenten können Schnittstellen anbieten (\textit{Provides Interfaces}) oder benötigen (\textit{Requires Interfaces}). Auf Schnittstellen sind dabei Dienste definiert, etwa \texttt{void} \texttt{Do\-Some\-thing(int a)}, sowie ein Protokoll, das gültige Aufrufreihenfolgen von Diensten definiert. Das Komponentenmodell limitiert dabei Protokolle nicht auf einen bestimmen Typ, wie endliche Automaten oder Petri"=Netze, sondern lässt diese Entscheidung bewußt offen. Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
-
-Eine gültige Substitution für eine Komponente liegt im Allgemeinen dann vor, wenn auf allen \textit{Provides Interfaces} einer Komponente
-\begin{itemize}
-	\item die Menge der angebotenen Dienste eine Obermenge der geforderten Dienste ist, und
-	\item das angebotene Protokoll eine Sprach-Obermenge des geforderten Protokolls ist.
-\end{itemize}
-Umgekehrt, man spricht in diesem Fall von "`Contra-Varianz"' (siehe auch \cite{co-contra}), muss für alle \textit{Requires Interfaces} gelten, dass
-\begin{itemize}
-	\item die geforderten Dienste eine Untermenge der angebotenen Dienste sind, und
-	\item das geforderte Protokoll eine Sprach-Untermenge des angebotenen Protokolls ist.
-\end{itemize}
-
-Daneben wird die Komponenten- und Schnittstellen"=Struktur in verschiedene Ebenen unterteilt, worüber sich Typ"=Konformitäts"=Anforderungen für Komponenten definieren lassen. Auf der obersten Ebene wird vom \textit{Provided Type} verlangt, zu deklarieren, welche Schnittstellen angeboten werden. Darunter liegende Ebenen verfeinern im Allgemeinen unter Erhaltung der Typ"=Konformität den Typ einer höheren Ebene. Über diesen Mechanismus lassen sich Software-Architekturen schrittweise verfeinern und mit mehr Informationen anreichern.
-
-Zusätzlich zum \textit{Provided Type} definiert das Komponentenmodell den \textit{Complete Type} und den \textit{Implementation Type}. Auf der Ebene des \textit{Complete Types} wird von Komponenten verlangt alle geforderten Schnittstellen (\textit{Requires Interfaces}) zu deklarieren. Unterhalb des \textit{Complete Types} liegt der \textit{Implementation Type}, der zusätzlich zur Schnittstellendeklaration Informationen über seine Realisierung enthält.
-
-Damit einher geht die Definition der \textit{Service Effect Specification, SEFF}. Diese gibt an, welche externen Effekte ein Dienstaufruf auf einer Komponente hat. Zu jedem angebotenen Dienst existiert daher eine Beschreibung, in welchen Aufrufen von geforderten Diensten die Verwendung einer Komponente resultiert. Da die Verwendung von geforderten Diensten vom Zustand einer Komponente oder Aufrufparametern eines Dienstes abhängen kann, werden \textit{SEFFs} beispielsweise als endliche Automaten dargestellten. Damit können auch Endscheidungen (beispielsweise \texttt{if}-Ausdrücke) oder Schleifen (etwa \texttt{while}) erfasst werden. Auch hier ist das Komponentenmodell nicht auf die konkrete Ausprägung in Form endlichen Automaten limitiert. Ebenso sind Petri"=Netze oder ähnliche Sprachdefinitionen denkbar.
 
 Neu wird im Palladio Komponentenmodell der Begriff des "`Kontexts"' eingeführt. Dabei wird unterschieden in
 \begin{itemize}
