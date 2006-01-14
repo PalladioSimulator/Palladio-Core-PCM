@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.18  2006/01/14 10:58:34  kelsaka
+% - SEFFs: Präzisierung
+%
 % Revision 1.17  2006/01/13 18:58:05  kelsaka
 % - abschluss der typ-beschreibung
 %
@@ -279,6 +282,8 @@ Wie der Name andeutet, beschreibt ein SEFF zu genau einem angebotenem Dienst (\t
 
 In Abbildung \ref{fig:cm-code-seff-01} wird eine Service Effekt Spezifikation zu der in Abbildung \ref{fig:cm-interfaces-signature-protocol-01} eingeführten Komponente dargestellt. In diesem Beispiel wird wiederum auf endliche Automaten (\textit{Finite State Machine}, FSM) zur Darstellung von SEFFs zurückgegriffen. Auch an dieser Stelle limitiert das Komponentenmodell nicht auf die Verwendung von endlichen Automaten. Ebenso sind Petri"=Netze oder andere Sprachen möglich. Die möglichen Typen von SEFFs müssen die SEFF"=Anforderungen spezialieren, also einen Sub"=Typ der SEFF"=Anforderungen bilden. Somit sind endliche Automaten, sofern sie im Komponentenmodell verwendet werden, eine Spezialisierung von SEFFs. Damit einher geht die Forderung, dass es eine Abbildungsvorschriften zur bijektiven Abbildung zwischen SEFF und endlichem Automaten gibt.
 
+Da die Verwendung von geforderten Diensten auch vom Zustand einer Komponente oder den Aufrufparametern eines angebotenen Dienstes abhängen kann, werden \textit{SEFFs} beispielsweise als endliche Automaten dargestellt, damit auch Endscheidungen (beispielsweise \texttt{if}-Ausdrücke) oder Schleifen (etwa \texttt{while}) erfasst werden können.
+
 Im Beispiel werden alle Initialisierungsvorgänge der Komponente (Konstruktoraufrufe, Variablen anlegen) ausgeblendet. Der erste Aufruf, der von Interesse ist, ist der Aufruf des Loggers (\texttt{logger.writeLog()}). Als nächstes werden die Kontrollfluss"=Elemente der Komponente abgebildet. Da \texttt{cache.readFromCache()} und \texttt{logger.writeLog()} in einer \texttt{while}"=Schleife aufgerufen werden können, wird ein Zwischenzustand eingeführt, der den Zustand nach dem Aufruf des Cache"=Zugriffs repräsentiert und ein Kante, die zum Zustand vor / nach der \texttt{while}"=Schleife zurück führt.
 
 Bei SEFFs werden die Kanten eines endlichen Automaten mit den externen Dienstaufrufen beschriftet. Die Zustände des Automaten repräsentieren den "`Zustandsbereich"' der Komponente zwischen den externen Aufrufen.
@@ -287,7 +292,7 @@ Bei SEFFs werden die Kanten eines endlichen Automaten mit den externen Dienstauf
 
 \paragraph{SEFF-Typen}
 \label{sec:SEFF-Typen}
-Für jeden Dienst einer Komponente können \texttt{0..1} SEFFs eines SEFF"=Typs definiert werden. Als SEFF"=Typ gelten dabei endliche Automaten, Petri"=Netze und sonstige Sprachen. Existieren zu einem Dienst einer Komponent SEFF"=Beschreibungen unterschiedlichen Typs, so müssen diese konsistent sein, dürfen sich also nicht widersprechen. Das Komponentenmodell prüft zunächst in keinem Fall auf diese Konsistenz. Entsprechende Prüfungen müssen durch den Nutzer erfolgen (Eine Prüfung ist nicht in jedem Fall trivial: "`Sprach...inklusion...TODO"'). 
+Für jeden Dienst einer Komponente können \texttt{0..1} SEFFs eines SEFF"=Typs definiert werden. Als SEFF"=Typ gelten dabei endliche Automaten, Petri"=Netze und sonstige Sprachen (TODO: spracherzeugenden konstrukte). Existieren zu einem Dienst einer Komponent SEFF"=Beschreibungen unterschiedlichen Typs, so müssen diese konsistent sein, dürfen sich also nicht widersprechen. Das Komponentenmodell prüft zunächst in keinem Fall auf diese Konsistenz. Entsprechende Prüfungen müssen durch den Nutzer erfolgen (Eine Prüfung ist nicht in jedem Fall trivial: "`Sprach...inklusion...TODO"'). 
 
 Das Komponentenmodell verzichtet bewußt auf die Einschränkung nur einen SEFF"=Typ global im gleichen Komponentenmodell oder für einen Dienst zuzulassen. Dies erlaubt es die gleiche Komponentenarchitektur zur gleichen Zeit auf verschiedene Weise mit Informationen anzureichen. Dadurch können Modellierer, auch ohne Kenntnis von der spezifischen Darstellung von SEFFs, ihre eigenen Darstellungsformen verwenden. Im Sinne der Unabhängigkeit des Komponentenmodells von konkreten SEFF"=Typen, bleibt es durch dieses Weniger an Einschränkung möglich das Komponentenmodell gefiltert zu betrachten. Zugleich erkauft man sich diesen Vorteil durch die Gefahr, dass Inkonsistenzen verschiedener SEFF"=Typen auftreten oder spezielle SEFF"=Typen schlicht nicht verstanden werden und dadurch auch nicht konsistent zu halten sind.
 
@@ -477,7 +482,7 @@ Die Darstellungsweise von der Typ"=Ebenen der Komponenten sollte, wie in Abbildu
 
 \begin{figure}[htbp]
 	\centering
-		\includegraphics[width=1.00\textwidth]{./image/cm-level-refinement-01.pdf}
+		\includegraphics[width=0.80\textwidth]{./image/cm-level-refinement-01.pdf}
 	\caption{Spezialisierung eines \textit{Provided Type} zu einem \textit{Complete Type} (nach \cite{PalladioCMNeuSlides}, S. 17)}
 	\label{fig:cm-level-refinement-01}
 \end{figure}
@@ -487,6 +492,19 @@ Die Darstellungsweise von der Typ"=Ebenen der Komponenten sollte, wie in Abbildu
 TODO: m:n erklären 
 TODO: auch auf protokolle eingehen
 wann ein ein Typ ersetzt werden?
+
+Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
+
+Eine gültige Substitution für eine Komponente liegt im Allgemeinen dann vor, wenn auf allen \textit{Provides Interfaces} einer Komponente
+\begin{itemize}
+	\item die Menge der angebotenen Dienste eine Obermenge der geforderten Dienste ist, und
+	\item das angebotene Protokoll eine Sprach-Obermenge des geforderten Protokolls ist.
+\end{itemize}
+Umgekehrt, man spricht in diesem Fall von "`Contra-Varianz"' (siehe auch \cite{co-contra}), muss für alle \textit{Requires Interfaces} gelten, dass
+\begin{itemize}
+	\item die geforderten Dienste eine Untermenge der angebotenen Dienste sind, und
+	\item das geforderte Protokoll eine Sprach-Untermenge des angebotenen Protokolls ist.
+\end{itemize}
 
 
 
