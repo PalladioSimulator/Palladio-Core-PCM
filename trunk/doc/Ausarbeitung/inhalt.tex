@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.20  2006/01/14 13:14:14  kelsaka
+% - sub-typ beziehung ergänzt
+%
 % Revision 1.19  2006/01/14 11:46:03  kelsaka
 % - sub-typ-beispiel überarbeitet und erklärt
 %
@@ -468,7 +471,7 @@ Sowohl \textit{Composite Components} als auch \textit{Basic Components} sind \te
 
 \begin{figure}[htbp]
 	\centering
-		\includegraphics[width=0.40\textwidth]{./image/cm-component-types-inheritance-conforms-01.pdf}
+		\includegraphics[width=0.50\textwidth]{./image/cm-component-types-inheritance-conforms-01.pdf}
 	\caption{Komponenten Typ-Ebenen: Vererbungs- und Konformitätsbeziehungen}
 	\label{fig:cm-component-types-inheritance-conforms-01}
 \end{figure}
@@ -487,6 +490,11 @@ Die Darstellungsweise von der Typ"=Ebenen der Komponenten sollte, wie in Abbildu
 
 
 
+\paragraph{Quantifizierung der Spezialisierungsbeziehungen}
+\label{sec:QuantifizierungderSpezialisierungsbeziehungen}
+
+
+
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.80\textwidth]{./image/cm-level-refinement-01.pdf}
@@ -496,14 +504,29 @@ Die Darstellungsweise von der Typ"=Ebenen der Komponenten sollte, wie in Abbildu
 
 
 
-Zunächst einmal soll anhand von Abbildung \ref{fig:cm-level-refinement-01} illustriert werden, dass es zu einem \textit{Provided Type} eine beliebige Menge (\texttt{0..*}) von \textit{Complete Types} geben kann. Solange das durch den \textit{Provides Type} vorgegebene angebotene Interface vom \textit{Complete Type} angeboten wird, handelt es sich um Sub"=Typen. Der \textit{Complete Type} kann so, wie im Beispiel mit \texttt{IMyService}, zusätzliche Schnittstellen anbieten. Außerdem sind die \textit{Complete Types} komplett bezüglich der benötigten Schnittstellen frei. Im Beispiel wird die Schnittstelle \texttt{IRequestProcessor} lediglich von der linken Komponente angeboten. Auch die im Beispiel überschneidend angeführten Schnittstellen \texttt{IMonitor} und \texttt{IWebTools} sind nicht erforderlich zwischen zwei Sub"=Typen des gleichen \textit{Provided Types}.
+\subparagraph{1:n}
+Zunächst einmal soll anhand von Abbildung \ref{fig:cm-level-refinement-01} illustriert werden, dass es zu einem \textit{Provided Type} eine beliebige Menge (\texttt{0..*}) von \textit{Complete Types} geben kann. Solange das/die durch den \textit{Provides Type} vorgegebene(n) angebotene(n) Interface(s) (im Beispiel \texttt{IRequestProcessor}) vom \textit{Complete Type} angeboten wird/werden, handelt es sich um Sub"=Typen. Sub"=Typen folgen der \textit{conforms}"=Beziehung (siehe Abb. \ref{fig:cm-type-levels-01}) zwischen den betroffenen Typ"=Ebenen für Komponenten. Der \textit{Complete Type} kann so, wie im Beispiel mit \texttt{IMyService}, zusätzliche Schnittstellen anbieten. Außerdem sind die \textit{Complete Types} komplett bezüglich der benötigten Schnittstellen frei. Im Beispiel wird die Schnittstelle \texttt{IRequestProcessor} lediglich von der linken Komponente angeboten. Auch die im Beispiel überschneidend angeführten Schnittstellen \texttt{IMonitor} und \texttt{IWebTools} sind nicht zwischen zwei Sub"=Typen des gleichen \textit{Provided Types} erforderlich .
 
 
 
+\subparagraph{m:1}
+Abbildung \ref{fig:cm-type-levels-01} zeigt eine weitere Besonderheit zwischen den Typ"=Ebenen auf. Ein \textit{Complete Type} kann der Sub"=Typ einer beliebigen Anzahl (0..*) von \textit{Provides Types} sein und ein \textit{Implementation Type} kann Sub"=Typ einer beliebigen Anzahl von \textit{Complete Types} sein.
+
+Die \texttt{m:1}"=Beziehung zwischen \textit{Provides Type} und \textit{Complete Type} ist möglich, da, wie oben beschrieben, ein \textit{Complete Type} ebenfalls Schnittstellen anbieten kann, die vom \textit{Provides Type} nicht spezifiziert wurden. Dafür können "`zuviel"' angebotene Schnittstellen von anderen \textit{Provides Types} angeboten werden, wodurch der gleiche \textit{Complete Type} automatisch zu einem möglichen gültigen Sub"=Typ werden kann. Um die gewünschten Sub"=Typ"=Beziehungen von zufällig vorkommenden zu unterscheiden, spezifiziert ein jeder Sub"=Typ seine "`Eltern"'"=Typen in einer \textit{Parent}"=Relation, realisiert als eine Liste von Eltern"=Komponenten.
+
+Auch die \texttt{m:1}"=Beziehung zwischen \textit{Complete Type} und \textit{Implementation Type} --> TODO.
 
 
-TODO: m:n erklären 
-TODO: auch auf protokolle eingehen
+
+\subparagraph{m:n}
+Insgesamt ergeben sich somit zwischen den "`benachbarten"' Typ"=Ebenen \texttt{m:n}"=Beziehungen.
+
+
+
+\subparagraph{Co- und Contra-Varianz}
+\label{sec:Co-undContra-Varianz}
+
+
 wann ein ein Typ ersetzt werden?
 
 Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
@@ -518,6 +541,12 @@ Umgekehrt, man spricht in diesem Fall von "`Contra-Varianz"' (siehe auch \cite{c
 	\item die geforderten Dienste eine Untermenge der angebotenen Dienste sind, und
 	\item das geforderte Protokoll eine Sprach-Untermenge des angebotenen Protokolls ist.
 \end{itemize}
+
+
+
+\paragraph{Protokolle}
+\label{sec:ProtokolleSubTyp}
+TODO: auch auf protokolle eingehen
 
 
 
@@ -547,6 +576,18 @@ Assembly: ...
 
 \subsection{Kontext}
 \label{sec:Kontext}
+
+
+
+\subsection{Identität}
+\label{sec:Identitaet}
+Komp. mit gleichen prov und req interf. kann != anderer sein, die die gleichen schnittstellen bietet! --> ID.
+
+Was hat ID, wie ich equals und == definiert?
+
+Typisierte IDs --> Möglichkeiten mit EMF bedenken
+
+In Relationen werden üblicherweise IDs verwendet
 
 
 
