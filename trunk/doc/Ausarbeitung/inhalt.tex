@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.25  2006/01/15 11:21:23  kelsaka
+% - kleinere ergänzungen
+%
 % Revision 1.24  2006/01/14 19:18:35  kelsaka
 % - inhaltsstruktur ergänzt
 %
@@ -457,6 +460,8 @@ In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Complete Type} als mit
 \label{sec:ImplementationType}
 Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der \textit{Implementation Type} seine interne Realisierung festlegen. Das bedeutet, dass alle internen Komponenten, die direkt in einer derart typisierten Komponente enthalten sind, mit samt der assoziierten Assembly Konnektoren und Delegationskonnektoren definiert werden müssen.
 
+Gegenüber seinem \textit{Complete Type} Vater darf ein \textit{Implementation Type} weder \textit{Provides} noch \textit{Requires} Schnittstellen hinzufügen oder entfernen. TODO: richtig?
+
 Für einen \textit{Implementation Type} muss ein SEFF verpflichtend definiert werden. Im Falle von \textit{Composite Components} ist der SEFF, wie in Kapitel \ref{sec:BerechnungderSEFFsvonCompositeComponents} dargestellt, berechnet. Da sich durch die Möglichkeit und Pflicht zur Spezifikation von SEFFs das \textit{Requires Protocol} berechnet werden kann, muss dieses auch nach der Modellierung von Komponenten auf der Implementierungs"=Typ"=Ebene konsistent zwischen den Typ"=Ebenen bleiben.
 
 Interpretiert man die akzeptierten Wörter eines SEFFs als Sprache, muss diese Sprache größer oder gleich der real von einer Implementierung einer Komponente akzeptierten Sprache sein. Ein SEFFs muss also eine Obermenge ($SEFF-Sprache \supseteq Implementierungssprache$) aller gültigen Aufrufe auf der benötigten Schnittstelle darstellen. Einer Implementierung einer Komponente bleibt es damit frei gestellt, ob sie beispielsweise die Möglichkeit nutzt eine Schleife unendlich oft zu durchlaufen oder nur eingeschränkt oft.
@@ -613,6 +618,16 @@ Auf der \textit{Provides}"=Seite darf die äußere Schnittstelle also nur die glei
 
 
 
+\subsubsection{Einschränkungen}
+\label{sec:EinschraenkungenSubTyp}
+Ob die in diesem Kapitel genannten Regeln für die Substitution von Typen eingehalten werden, hängt von der konkreten Implementierung des Komponenten"=Meta"=Modells ab. Zunächst einmal gibt das Komponenten"=Meta"=Modell, das beschrieben wurde, lediglich einen Satz von allgemeinen Regeln vor, kann die Einhaltung jedoch nicht aktiv übernehmen. Implementierungen des Komponenten"=Meta"=Modells sind jedoch daran gehalten, solche Überprüfungen, die nicht zuletzt auch konsistenz"=erhaltend sind, zu definieren.
+
+Es sollte bedacht werden, dass weder für Protokolle noch SEFFs vom Komponenten("=Meta"=)modell spezielle Typen vorgegeben werden. Entsprechend müssen die zu definierenden Prüfungs"=Algorithmen austauschbar sein. Eine Implementierung des Komponentenmodells sollte daher im Kern keine festen Typen vorsehen, sondern eine Erweiterbarkeit um "`Prüfmodule"' über \textit{Plugin}"=ähnliche Mechanismen, die dann auf einem konkreten Typ funktionieren.
+
+Allgemeine Bemerkungen zur Validierung des Komponentenmodells finden sich in Kapitel \ref{sec:ValidierungvonModellinstanzen}.
+
+
+
 \subsection{Assembly}
 \label{sec:Assembly}
 
@@ -634,6 +649,7 @@ Assembly: ...
 
 \subsection{Allokation}
 \label{sec:Allokation}
+was ist deployment?
 
 
 
@@ -662,6 +678,13 @@ In Relationen werden üblicherweise IDs verwendet
 \subsection{Weitere Fähigkeiten}
 \label{sec:WeitereFaehigkeiten}
 Parametrisierte Verträge, QoS, ...
+
+
+
+\subsection{Validierung von Modellinstanzen}
+\label{sec:ValidierungvonModellinstanzen}
+TODO: Erweiterungen zu Kapitel \ref{sec:Typ-Spezialisierung}. Insbesondere auf QoS-Attributen, parametrisieren Verträgen und SEFFs (prüfen ob eine substitution zulässig: erhaltung der seff-eigenschaften denkbar).
+TODO: Unterscheidung: Validierung vs. Konsistenz.
 
 
 
