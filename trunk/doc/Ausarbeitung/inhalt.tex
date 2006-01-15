@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.27  2006/01/15 14:31:43  kelsaka
+% - deployment --> allocation --> unterscheidung
+%
 % Revision 1.26  2006/01/15 13:43:23  kelsaka
 % - allokation, assembly, deployment, ...
 %
@@ -631,43 +634,47 @@ Allgemeine Bemerkungen zur Validierung des Komponentenmodells finden sich in Kap
 
 
 
-\subsection{Allokation}
-\label{sec:Allokation}
+\subsection{Allokation und Assembly}
+\label{sec:AllokationundAssembly}
+
+
+
+Im Palladio Kontext wird häufig der Begriff Allokation verwendet und meint die Allokation von Komponenten auf Ressourcen. Es wird also festgelegt, welche Komponente welche Ressourcen nutzt. Neben den Komponenten erfolgt eine Abbildung der Konnektoren auf "`Verbindungsressourcen"', also etwa LAN- und WAN-Verbindungen. Als Stereotyp der Relation zwischen Komponenten, Konnektoren und Ressourcen wird \texttt{$\flqq$deployed-on$\frqq$} verwendet.
 
 
 
 \begin{figure}[htbp]
 	\centering
-		\includegraphics[width=0.60\textwidth]{./image/cm-assembly-allocation-01.pdf}
+		\includegraphics[width=0.70\textwidth]{./image/cm-assembly-allocation-01.pdf}
 	\caption{Assembly und Allokation (nach \cite{PalladioCMNeuSlides}, S. 26)}
 	\label{fig:cm-assembly-allocation-01}
 \end{figure}
 
 
 
-In Abbildung \ref{fig:cm-assembly-allocation-01} wird versucht die Begrifflichkeiten der Assembly und der Allokation (\textit{Allocation}) zu unterscheiden, so wie sie im Kontext des Palladio Komponentenmodells verwendet werden. Diese Sprachregelungen müssen sich nicht zwangsläufig mit anderen Definitionen decken. 
+Abbildung \ref{fig:cm-assembly-allocation-01} zeigt beispielhaft die Allokation, einer Assembly, bestehend aus zwei Komponenten und einem Assembly Konnektor, auf zwei Server sowie eine Verbindung zwischen den Servern. Dabei wird zwischen der Begrifflichkeit der Assembly und der Allokation (\textit{Allocation}) unterschieden, so wie sie im Kontext des Palladio Komponentenmodells verwendet werden. Die Allokation beschreibt die Verteilung auf Ressourcen, wohingegen eine Assembly eine Menge von Komponenten zusammenfasst. Komponenten und Konnektoren einer Assembly werden über die \texttt{$\flqq$deployed-on$\frqq$}"=Relation allokiert, also Teil der Allokation.
 
+
+
+\subsection{Allokation und Deployment}
+\label{sec:AllokationundDeployment}
+Deployment (Installation) durch \textit{System Deployer}
+Die Verwendung erfolgt im Sinne von \textit{Deployment} und meint die Allokation von Komponenten auf Ressourcen.
 TODO:
-
 was ist deployment?
 
 
 System construction
 Assembly of components
-Deployment (Installation)
+
 Allocation of components on resources 
 Both can be done independently
 Both define the context of a component
 
 
 
-\subsection{Assembly}
-\label{sec:Assembly}
-
-
-
-\subsubsection{Differenzierung von Assemblies gegenüber Composite Components}
-\label{sec:DifferenzierungvonAssemblieszuCompositeComponents}
+\subsection{Assembly und Composite Component}
+\label{sec:AssemblyundCompositeComponent}
 
 
 
@@ -681,29 +688,25 @@ Wie bereits beschrieben, setzt sich eine \textit{Composite Component} aus andere
 
 
 \paragraph{Assembly}
-Auch \textit{Assemblies} (im Komponentenmodell auch \textit{Component Assemblies} genannt) werden aus Komponenten aufgebaut. Im Gegensatz zur \textit{Composite Component} ist das Innere einer \textit{Assembly} jedoch zum Zeitpunkt des \textit{Deployments} für den \textit{System Deployer} sichtbar. Dies ermöglicht, dass innere Komponenten einer Assembly auf unterschiedlichen Ausführungsumgebung allokiert werden können.
+Auch \textit{Assemblies} (im Komponentenmodell auch \textit{Component Assemblies} genannt) werden aus Komponenten aufgebaut. Im Gegensatz zur \textit{Composite Component} ist das Innere einer Assembly jedoch zum Zeitpunkt des \textit{Deployments} für den \textit{System Deployer} sichtbar. Dies ermöglicht, dass innere Komponenten einer Assembly auf unterschiedlichen Ausführungsumgebung allokiert werden können.
 Das bedeutet, dass einzelne Komponenten (ohne Kopien) durch ihre Erfassung in einer Assembly zur gleichen Zeit nicht auf unterschiedlichen Ausführungsumgebungen ausgeführt werden können. Sehr wohl kann jedoch komponentenweise verteilt werden. 
 
 
 
 \begin{figure}[htbp]
 	\centering
-		\includegraphics[width=0.80\textwidth]{./image/cm-il-legal-deployment-01.pdf}
-	\caption{Illegales und legales \textit{Deployment} von Komponenten}
-	\label{fig:cm-il-legal-deployment-01}
+		\includegraphics[width=0.80\textwidth]{./image/cm-il-legal-allocation-01.pdf}
+	\caption{Illegale und legale Allocation von Komponenten}
+	\label{fig:cm-il-legal-allocation-01}
 \end{figure}
 
 
 
-In Abbildung \ref{fig:cm-il-legal-deployment-01} wird gegenüber gestellt, welche \textit{Deployment}formen legal sind. Auf der linken Seite wird eine ungültige Variante dargestellt, bei der eine Komponente ("`Component A"') auf verschiedene Ressourcen ("`Server 1 und Server 2"') verteilt werden soll. Auf der rechten Seite erfolgt ein gültiges \textit{Deployment}. Die Komponenten "`Component B"' und "`Component C"' liegen in einer \textit{Assembly}. Zugleich werden sie jeweils auf eigene Ressourcen verteilt. Eine ebenfalls gültige Variante wäre die Verteilung der Komponenten B und C auf die gleiche Ressource.
+In Abbildung \ref{fig:cm-il-legal-allocation-01} wird gegenüber gestellt, welche Allokationsformen legal sind. Auf der linken Seite wird eine ungültige Variante dargestellt, bei der eine Komponente ("`Component A"') auf verschiedene Ressourcen ("`Server 1 und Server 2"') verteilt werden soll. Auf der rechten Seite erfolgt eine gültige Allokation. Die Komponenten "`Component B"' und "`Component C"' liegen in einer Assembly. Zugleich werden sie jeweils auf eigene Ressourcen verteilt. Eine ebenfalls gültige Variante wäre die Verteilung der Komponenten B und C auf die gleiche Ressource.
 
+TODO:
 Therefore, it is possible that its inner components can be allocated on different execution environments. An assembly itself cannot be composed (as it is no component) but it can be extended (with other components or assemblies) or it can be transformed into a (composite) component by making its internal structure invisible for the system deployer. 
 
-
-
-
-\subsubsection{Assemblydefinition}
-\label{sec:..}
 
 
 
