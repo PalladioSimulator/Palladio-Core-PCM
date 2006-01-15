@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.28  2006/01/15 15:43:20  kelsaka
+% - deployment, allocation, assembly abgeschlossen
+%
 % Revision 1.27  2006/01/15 14:31:43  kelsaka
 % - deployment --> allocation --> unterscheidung
 %
@@ -639,7 +642,7 @@ Allgemeine Bemerkungen zur Validierung des Komponentenmodells finden sich in Kap
 
 
 
-Im Palladio Kontext wird häufig der Begriff Allokation verwendet und meint die Allokation von Komponenten auf Ressourcen. Es wird also festgelegt, welche Komponente welche Ressourcen nutzt. Neben den Komponenten erfolgt eine Abbildung der Konnektoren auf "`Verbindungsressourcen"', also etwa LAN- und WAN-Verbindungen. Als Stereotyp der Relation zwischen Komponenten, Konnektoren und Ressourcen wird \texttt{$\flqq$deployed-on$\frqq$} verwendet.
+Im Palladio Kontext wird häufig der Begriff Allokation verwendet. Die Verwendung erfolgt im Sinne von \textit{Deployment} und meint die Verteilung von Komponenten auf Ressourcen. Es wird also festgelegt, welche Komponente welche Ressourcen nutzt. Neben den Komponenten erfolgt eine Abbildung der Konnektoren auf "`Verbindungsressourcen"', also etwa LAN- und WAN-Verbindungen. Als Stereotyp der Relation zwischen Komponenten, Konnektoren und Ressourcen wird \texttt{$\flqq$deployed-on$\frqq$} verwendet.
 
 
 
@@ -652,29 +655,22 @@ Im Palladio Kontext wird häufig der Begriff Allokation verwendet und meint die A
 
 
 
-Abbildung \ref{fig:cm-assembly-allocation-01} zeigt beispielhaft die Allokation, einer Assembly, bestehend aus zwei Komponenten und einem Assembly Konnektor, auf zwei Server sowie eine Verbindung zwischen den Servern. Dabei wird zwischen der Begrifflichkeit der Assembly und der Allokation (\textit{Allocation}) unterschieden, so wie sie im Kontext des Palladio Komponentenmodells verwendet werden. Die Allokation beschreibt die Verteilung auf Ressourcen, wohingegen eine Assembly eine Menge von Komponenten zusammenfasst. Komponenten und Konnektoren einer Assembly werden über die \texttt{$\flqq$deployed-on$\frqq$}"=Relation allokiert, also Teil der Allokation.
+Abbildung \ref{fig:cm-assembly-allocation-01} zeigt beispielhaft die Allokation, einer Assembly, bestehend aus zwei Komponenten und einem Assembly Konnektor, auf zwei Server sowie eine Verbindung zwischen den Servern. Dabei wird zwischen der Begrifflichkeit der Assembly und der Allokation (\textit{Allocation}) unterschieden, so wie sie im Kontext des Palladio Komponentenmodells verwendet werden. Die Allokation beschreibt die Verteilung auf Ressourcen, wohingegen eine Assembly eine Menge von Komponenten und die damit assoziierten Konnektoren zusammenfasst. Komponenten und Konnektoren einer Assembly werden über die \texttt{$\flqq$deployed-on$\frqq$}"=Relation allokiert, also Teil der Allokation.
+
+Zur Unterscheidung von Allokation (\textit{Deployment}) und Assembly ist der Zeitpunkt wichtig, zu dem die Aktion vorgenommen wird:
+
+\begin{itemize}
+	\item Die \textbf{Assembly} wird zum Zeitpunkt der Konstruktion eines System bzw. Komponentenarchitektur definiert.
+	\item Die \textbf{Allokation} wird zum Zeitpunkt der Installation vorgenommen.
+\end{itemize}
+
+Die Assembly"=Definition wird kann unabhängig von der Allokation erfolgen. Beide Aktionen zusammen definieren den Kontext, der in Kapitel \ref{sec:Kontext} beschrieben wird.
+TODO: Muss Assembly-Def der Allokation voraus gehen?
 
 
 
-\subsection{Allokation und Deployment}
-\label{sec:AllokationundDeployment}
-Deployment (Installation) durch \textit{System Deployer}
-Die Verwendung erfolgt im Sinne von \textit{Deployment} und meint die Allokation von Komponenten auf Ressourcen.
-TODO:
-was ist deployment?
-
-
-System construction
-Assembly of components
-
-Allocation of components on resources 
-Both can be done independently
-Both define the context of a component
-
-
-
-\subsection{Assembly und Composite Component}
-\label{sec:AssemblyundCompositeComponent}
+\subsection{Assembly und Composite Component, Allokation}
+\label{sec:AssemblyundCompositeComponentAllokation}
 
 
 
@@ -702,14 +698,26 @@ Das bedeutet, dass einzelne Komponenten (ohne Kopien) durch ihre Erfassung in ei
 
 
 
+\paragraph{Allokation}
 In Abbildung \ref{fig:cm-il-legal-allocation-01} wird gegenüber gestellt, welche Allokationsformen legal sind. Auf der linken Seite wird eine ungültige Variante dargestellt, bei der eine Komponente ("`Component A"') auf verschiedene Ressourcen ("`Server 1 und Server 2"') verteilt werden soll. Auf der rechten Seite erfolgt eine gültige Allokation. Die Komponenten "`Component B"' und "`Component C"' liegen in einer Assembly. Zugleich werden sie jeweils auf eigene Ressourcen verteilt. Eine ebenfalls gültige Variante wäre die Verteilung der Komponenten B und C auf die gleiche Ressource.
 
-TODO:
-Therefore, it is possible that its inner components can be allocated on different execution environments. An assembly itself cannot be composed (as it is no component) but it can be extended (with other components or assemblies) or it can be transformed into a (composite) component by making its internal structure invisible for the system deployer. 
+
+
+\paragraph{Assembly vs. Komponente}
+Eine Assembly ist keine Komponente. Daher kann sie nicht zusammengesetzt sein, so dass sie nach außen eine Menge von Diensten erbringen könnte. Sie fasst lediglich eine Menge von Komponenten und Konnektoren zusammen. Dennoch lassen sich Assemblies um Komponenten oder mit weiteren Assemblies ergänzen, indem die zusätzlichen Komponenten und Konnektoren mit in die Assembly aufgenommen werden.
 
 
 
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.60\textwidth]{./image/cm-assembly-to-cc-01.pdf}
+	\caption{Transformation einer Assembly in eine \textit{Composite Component} (aus Sicht eines System Deployers)}
+	\label{fig:cm-assembly-to-cc-01}
+\end{figure}
 
+
+
+Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembly in eine \textit{Composite Component}, so wie der Vorgang von einem \textit{System Deployer} wahrgenommen würde. Da das Innere einer Composite Component nicht mehr sichtbar ist, würden innere Komponenten und Konnektoren bei einer Transformation unsichtbar. Dafür muss für eine solche Transformation definiert werden, welche Schnittstellen angeboten und benötigt werden, damit die neue Composite Componente vollständig spezifiziert ist. Auch die Delegation"=Konnektoren müssen definiert werden, auch wenn sie für den System Deployer nicht sichtbar sind, damit alle Aufrufe definierten Aufrufpfaden folgen können.
 
 
 
