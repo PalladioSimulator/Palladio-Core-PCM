@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.29  2006/01/15 16:38:32  kelsaka
+% - grafiken zu kontext
+%
 % Revision 1.28  2006/01/15 15:43:20  kelsaka
 % - deployment, allocation, assembly abgeschlossen
 %
@@ -674,7 +677,7 @@ TODO: Muss Assembly-Def der Allokation voraus gehen?
 
 
 
-In der Sprachwelt des Komponentenmodells sind \textit{Assemblies} und \textit{Composite Components} strikt zu unterscheiden (vgl. \cite{PalladioCMNeuSlides}, S. 27f).
+In der Sprachwelt des Komponentenmodells sind \textit{Assemblies} und \textit{Composite Components} strikt zu unterscheiden (nach \cite{PalladioCMNeuSlides}, S. 27f).
 
 
 
@@ -711,13 +714,13 @@ Eine Assembly ist keine Komponente. Daher kann sie nicht zusammengesetzt sein, s
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.60\textwidth]{./image/cm-assembly-to-cc-01.pdf}
-	\caption{Transformation einer Assembly in eine \textit{Composite Component} (aus Sicht eines System Deployers)}
+	\caption{Transformation einer Assembly in eine \textit{Composite Component} (aus Sicht eines \textit{System Deployers})}
 	\label{fig:cm-assembly-to-cc-01}
 \end{figure}
 
 
 
-Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembly in eine \textit{Composite Component}, so wie der Vorgang von einem \textit{System Deployer} wahrgenommen würde. Da das Innere einer Composite Component nicht mehr sichtbar ist, würden innere Komponenten und Konnektoren bei einer Transformation unsichtbar. Dafür muss für eine solche Transformation definiert werden, welche Schnittstellen angeboten und benötigt werden, damit die neue Composite Componente vollständig spezifiziert ist. Auch die Delegation"=Konnektoren müssen definiert werden, auch wenn sie für den System Deployer nicht sichtbar sind, damit alle Aufrufe definierten Aufrufpfaden folgen können.
+Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembly in eine \textit{Composite Component}, so wie der Vorgang von einem \textit{System Deployer} wahrgenommen würde. Da das Innere einer \textit{Composite Component} nicht mehr sichtbar ist, würden innere Komponenten und Konnektoren bei einer Transformation unsichtbar. Dafür muss für eine solche Transformation definiert werden, welche Schnittstellen angeboten und benötigt werden, damit die neue \textit{Composite Componente} vollständig spezifiziert ist. Auch die Delegation"=Konnektoren müssen definiert werden, auch wenn sie für den \textit{System Deployer} nicht sichtbar sind, damit alle Aufrufe definierten Aufrufpfaden folgen können.
 
 
 
@@ -726,11 +729,41 @@ Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembl
 
 
 
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.00\textwidth]{./image/cm-context-01.pdf}
+	\caption{Komponente "`C1"' in zwei unterschiedlichen Kontexten (nach \cite{PalladioCMNeuSlides}, S. 31)}
+	\label{fig:cm-context-01}
+\end{figure}
+
+
+
+Einer der neuesten Begriffe, im Vergleich mit den Vorversionen, des Palladio Komponentenmodell ist der des Kontexts. Abbildung \ref{fig:cm-context-01}. 
+
+
+TODO: Allokation + Assembly als benötigt?
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.60\textwidth]{./image/cm-component-hierarchy-context-01.pdf}
+	\caption{Komponentenhierarchie mit Einordnung des Kontexts (nach \cite{PalladioCMNeuSlides}, S. 33)}
+	\label{fig:cm-component-hierarchy-context-01}
+\end{figure}
+
+
+
+Abbildung \ref{fig:cm-component-hierarchy-context-01}
+
+
+
+
 \subsection{Identität}
 \label{sec:Identitaet}
 Komp. mit gleichen prov und req interf. kann != anderer sein, die die gleichen schnittstellen bietet! --> ID.
 
-Was hat ID, wie ich equals und == definiert?
+Was hat ID, wie ist equals und == definiert?
 
 Typisierte IDs --> Möglichkeiten mit EMF bedenken
 
@@ -764,6 +797,17 @@ TODO: Unterscheidung: Validierung vs. Konsistenz.
 \subsection{Ausblick auf die Entwicklung}
 \label{sec:AusblickaufdieEntwicklung}
 TODO: Ein neues Paper, das das aktuelle Komponentenmodell beschreibt, wird in Kürze unter \cite{PalladioCMNeu} veröffentlicht.
+
+TODO:
+Runtime
+	Dynamic binding
+	Instance creation and destruction
+Component State
+Implementation of the concepts > Steffen
+Improvement of QoS prediction models
+	Concurrency modelling
+	Usage profile
+	Resources
 
 
 
