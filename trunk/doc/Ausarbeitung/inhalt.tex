@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.26  2006/01/15 13:43:23  kelsaka
+% - allokation, assembly, deployment, ...
+%
 % Revision 1.25  2006/01/15 11:21:23  kelsaka
 % - kleinere ergänzungen
 %
@@ -628,6 +631,36 @@ Allgemeine Bemerkungen zur Validierung des Komponentenmodells finden sich in Kap
 
 
 
+\subsection{Allokation}
+\label{sec:Allokation}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.60\textwidth]{./image/cm-assembly-allocation-01.pdf}
+	\caption{Assembly und Allokation (nach \cite{PalladioCMNeuSlides}, S. 26)}
+	\label{fig:cm-assembly-allocation-01}
+\end{figure}
+
+
+
+In Abbildung \ref{fig:cm-assembly-allocation-01} wird versucht die Begrifflichkeiten der Assembly und der Allokation (\textit{Allocation}) zu unterscheiden, so wie sie im Kontext des Palladio Komponentenmodells verwendet werden. Diese Sprachregelungen müssen sich nicht zwangsläufig mit anderen Definitionen decken. 
+
+TODO:
+
+was ist deployment?
+
+
+System construction
+Assembly of components
+Deployment (Installation)
+Allocation of components on resources 
+Both can be done independently
+Both define the context of a component
+
+
+
 \subsection{Assembly}
 \label{sec:Assembly}
 
@@ -635,10 +668,37 @@ Allgemeine Bemerkungen zur Validierung des Komponentenmodells finden sich in Kap
 
 \subsubsection{Differenzierung von Assemblies gegenüber Composite Components}
 \label{sec:DifferenzierungvonAssemblieszuCompositeComponents}
-Assembly != Composite Component
-S. 27 Folien Steffen/Jens
-CC: innere Komponenten sind verborgen für System Deployer
-Assembly: ...
+
+
+
+In der Sprachwelt des Komponentenmodells sind \textit{Assemblies} und \textit{Composite Components} strikt zu unterscheiden (vgl. \cite{PalladioCMNeuSlides}, S. 27f).
+
+
+
+\paragraph{Composite Component}
+Wie bereits beschrieben, setzt sich eine \textit{Composite Component} aus anderen Komponenten zusammen. Zum Zeitpunkt des \textit{Deployments} ist das Innere, die Realisierung einer \textit{Composite Components} unsichtbar. Daher ist es einem \textit{System Deployer} nicht möglich, eine \textit{Composite Component} über verschiedene Ausführungsungsumgebungen (\textit{Execution Environment}) zu verteilen.
+
+
+
+\paragraph{Assembly}
+Auch \textit{Assemblies} (im Komponentenmodell auch \textit{Component Assemblies} genannt) werden aus Komponenten aufgebaut. Im Gegensatz zur \textit{Composite Component} ist das Innere einer \textit{Assembly} jedoch zum Zeitpunkt des \textit{Deployments} für den \textit{System Deployer} sichtbar. Dies ermöglicht, dass innere Komponenten einer Assembly auf unterschiedlichen Ausführungsumgebung allokiert werden können.
+Das bedeutet, dass einzelne Komponenten (ohne Kopien) durch ihre Erfassung in einer Assembly zur gleichen Zeit nicht auf unterschiedlichen Ausführungsumgebungen ausgeführt werden können. Sehr wohl kann jedoch komponentenweise verteilt werden. 
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.80\textwidth]{./image/cm-il-legal-deployment-01.pdf}
+	\caption{Illegales und legales \textit{Deployment} von Komponenten}
+	\label{fig:cm-il-legal-deployment-01}
+\end{figure}
+
+
+
+In Abbildung \ref{fig:cm-il-legal-deployment-01} wird gegenüber gestellt, welche \textit{Deployment}formen legal sind. Auf der linken Seite wird eine ungültige Variante dargestellt, bei der eine Komponente ("`Component A"') auf verschiedene Ressourcen ("`Server 1 und Server 2"') verteilt werden soll. Auf der rechten Seite erfolgt ein gültiges \textit{Deployment}. Die Komponenten "`Component B"' und "`Component C"' liegen in einer \textit{Assembly}. Zugleich werden sie jeweils auf eigene Ressourcen verteilt. Eine ebenfalls gültige Variante wäre die Verteilung der Komponenten B und C auf die gleiche Ressource.
+
+Therefore, it is possible that its inner components can be allocated on different execution environments. An assembly itself cannot be composed (as it is no component) but it can be extended (with other components or assemblies) or it can be transformed into a (composite) component by making its internal structure invisible for the system deployer. 
+
 
 
 
@@ -647,9 +707,6 @@ Assembly: ...
 
 
 
-\subsection{Allokation}
-\label{sec:Allokation}
-was ist deployment?
 
 
 
