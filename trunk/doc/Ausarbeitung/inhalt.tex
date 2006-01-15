@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.30  2006/01/15 17:19:05  kelsaka
+% - kontext ergänzt
+%
 % Revision 1.29  2006/01/15 16:38:32  kelsaka
 % - grafiken zu kontext
 %
@@ -738,8 +741,11 @@ Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembl
 
 
 
-Einer der neuesten Begriffe, im Vergleich mit den Vorversionen, des Palladio Komponentenmodell ist der des Kontexts. Abbildung \ref{fig:cm-context-01}. 
+Einer der neuesten Begriffe, im Vergleich mit den Vorversionen, des Palladio Komponentenmodell ist der Begriff des Kontexts (\textit{Context}). Abbildung \ref{fig:cm-context-01} zeigt, dass wie sich ein Kontext definiert. Im Beispiel kommt die Komponente "`C1"' als Kopie in zwei unterschiedlichen Kontexten vor. Zum einen (in "`Context 2"') ist sie mit "`C0"' auf der \textit{Provides}"=Seite und "`C2"' auf der \textit{Requires}"=Seite verbunden, zum anderen (in "`Context 1"') ist sie auf der \textit{Provides}"=Seite mit "`Master"' und auf der \textit{Requires}"=Seite mit "`C3"' verbunden. Um exakt definieren zu können, welche Verwendung von "`Co"' bzw. einer Komponente im Allgemeinen gemeint ist, wird der Kontext eingeführt, der beschreibt, mit welchen anderen Komponenten eine Komponente verbunden ist.
 
+Der gerade skizzierte Begriff des Kontexts bezieht sich auf das Vorkommen von Komponenten in Assemblies und Kompositionen (TODO: erklären od. besserer Begriff). Neben dieser Bedeutung definiert das Komponentenmodell den Kontext ebenfalls für Allokationen. Wird der Kontext auf der Ebene von Allokationen verwendet, werden die Ressourcen, auf denen eine zu betrachtende Komponente allokiert ist, ebenfalls im Kontext erfasst.
+
+TODO: Was ist Teil des Kontext? --> exakt def.: z. B. parent, ...
 
 TODO: Allokation + Assembly als benötigt?
 
@@ -754,20 +760,44 @@ TODO: Allokation + Assembly als benötigt?
 
 
 
-Abbildung \ref{fig:cm-component-hierarchy-context-01}
+Wie in Abbildung \ref{fig:cm-component-hierarchy-context-01} zu sehen ist, kann ein Kontext unterschiedliche Detail"=Niveaus erfassen. Er ist definiert für:
 
+\begin{itemize}
+	\item den \textbf{\textit{Implementation Type}}, dann werden nur die Kompositionsstrukturen (Komponentenarchitektur) berücksichtigt
+	\item \textbf{Assembly}, hier wird zusätzlich die Assembly berücksichtigt, in der der Kontext liegt
+	\item \textbf{Allocation}, hier werden zusätzlich die Ressourcen (\textit{computational}, \textit{non"=computational}) erfasst, auf denen die Komponenten und Konnektoren allokiert wurden.
+\end{itemize}
+
+TODO:
+	Composition	Allocation
+Specified	Connection
+Containment
+Component	Deployed-on relation
+Execution environment
+- Concurrency, security…
+ Container properties
+ Component configuration
+Computed	Functional
+Results of parametric contracts	Non-functional
+QoS-attributes
+
+
+
+Zusätzlich erfasst Abbildung \ref{fig:cm-component-hierarchy-context-01} die bereits in vorangehenden Kapiteln definierten Komponenten"=Typ"=Ebenen, die Assembly, die Allokation (\textit{Allocation}) und die Laufzeit (\textit{Runtime}) in einer Graphik. Letztere Ebene ist im Komponentenmodell bisher lediglich angedacht, jedoch noch nicht umgesetzt. Weitere Informationen hierzu finden sich in Kapitel \ref{sec:AusblickaufdieEntwicklung}, Seite \pageref{sec:AusblickaufdieEntwicklung}.
+
+Je tiefer eine Ebene in der Graphik dargestellt ist, desto detailreicher müssen die Komponenten"=Typen definiert werden, entsprechend sind mehr Informationen über die Komponenten definiert. In umgekehrter Richtung nach oben werden die Komponenteninformationen abstrakter und kommen damit einer Grob"=Modellierung Komponentenarchitekturen entgegen.
 
 
 
 \subsection{Identität}
 \label{sec:Identitaet}
-Komp. mit gleichen prov und req interf. kann != anderer sein, die die gleichen schnittstellen bietet! --> ID.
+TODO: Komp. mit gleichen prov und req interf. kann != anderer sein, die die gleichen schnittstellen bietet! --> ID.
 
-Was hat ID, wie ist equals und == definiert?
+TODO: Was hat ID, wie ist equals und == definiert?
 
-Typisierte IDs --> Möglichkeiten mit EMF bedenken
+TODO: Typisierte IDs --> Möglichkeiten mit EMF bedenken
 
-In Relationen werden üblicherweise IDs verwendet
+TODO: In Relationen werden üblicherweise IDs verwendet
 
 
 
@@ -824,6 +854,7 @@ Improvement of QoS prediction models
 Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
 - Anotationen wann und wo?
 - QoS-Fähigkeiten
+- Ressourcen-Typen definieren: Berechnend und nicht-berechnend in Kapitel Allokation.
 
 
 ------------------------------------
