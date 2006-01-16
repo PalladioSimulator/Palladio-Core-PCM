@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.35  2006/01/16 16:29:39  kelsaka
+% - inhaltliche korrekturen
+%
 % Revision 1.34  2006/01/16 15:52:48  kelsaka
 % - identifier abgeschlossen
 %
@@ -663,6 +666,13 @@ Allgemeine Bemerkungen zur Validierung des Komponentenmodells finden sich in Kap
 
 Im Palladio Kontext wird häufig der Begriff Allokation verwendet. Die Verwendung erfolgt im Sinne von \textit{Deployment} und meint die Verteilung von Komponenten auf Ressourcen. Es wird also festgelegt, welche Komponente welche Ressourcen nutzt. Neben den Komponenten erfolgt eine Abbildung der Konnektoren auf "`Verbindungsressourcen"', also etwa LAN- und WAN-Verbindungen. Als Stereotyp der Relation zwischen Komponenten, Konnektoren und Ressourcen wird \texttt{$\flqq$deployed-on$\frqq$} verwendet.
 
+Als Ressourcen"=Typen kennt das Komponentenmodell:
+
+\begin{itemize}
+	\item Rechnende Ressourcen (computational resources); etwa Server"=Hardware. In Abbildung \ref{fig:cm-assembly-allocation-01} werden diese Ressourcen UML2"=konform als "`Boxen"' dargestellt.
+	\item Nicht"=Rechnende Ressourcen (non"=computational resources); hierzu zählen Netzwerkverbindungen, also jene Ressourcen, die zur Datenübertragung zwischen rechnenden Ressourcen vermitteln. In Abbildung \ref{fig:cm-assembly-allocation-01} wird diese Form der Ressourcen UML2"=konform als Linie zwischen den berechnenden Ressourcen dargestellt.
+\end{itemize}
+
 
 
 \begin{figure}[htbp]
@@ -764,6 +774,7 @@ TODO: Allokation + Assembly als benötigt?
 
 
 
+
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.80\textwidth]{./image/cm-component-hierarchy-context-01.pdf}
@@ -791,6 +802,9 @@ TODO: 1:n-Beziehung zwischen Implementation Type und Assembly.
 
 \subsection{Identität}
 \label{sec:Identitaet}
+
+
+
 Alle Entitäten des Komponentenmodells tragen einen eindeutige Bezeichner (ID). Werden in Relationen andere Entitäten referenziert, erfolgt diese Referenzierung stets über die IDs der Entitäten, damit an keiner Stelle die Relationen des Komponentenmodells mehrdeutig sein können.
 
 Bieten beispielsweise zwei Komponenten mit dem gleichen Namen "`Component"' die gleiche Schnittstelle "`InterfaceP"' an und benötigen gleichermaßen die Schnittstelle "`InterfaceR"' sind sie als \textit{Complete Type} über keine weiteren Merkmale zu unterscheiden. Daher werden sie zusätzlich mit einem eindeutigen Bezeichner / ID versehen, um unterscheidbar zu sein.
@@ -805,6 +819,9 @@ In Implementierungen des Komponenten"=Meta"=Modells muss sich das ID"=Konzept wi
 
 \subsection{Anotationen}
 \label{sec:Anotationen}
+
+
+
 Das Komponentenmodell bietet die Möglichkeit alle Entitäten des Modells mit beliebigen Zusatzinformationen "`Anotationen"' (Attribute) zu versehen. Da die genauen Anwendungsszenarien des Komponentenmodells nicht exakt absehbar sind und Vorgaben das Modell nicht unnötig limitieren sollen, bleibt das Komponentenmodell, ebenso wie bei Protokollen und SEFFs, offen und gibt keine feste Menge von Typen vor. Damit lassen sich beliebige Anotations"=Typen ergänzen, sofern sie benötigt werden. Diese können Messwerte ebenso sein wie \textit{Quality of Service} Merkmale (siehe Kapitel \ref{sec:WeitereFaehigkeiten}) von Entitäten oder beliebige andere Anotations"=Typen. Das heißt also, dass die Datentypen und Datenstrukturen nicht durch das Komponentenmodell festgelegt werden.
 
 Gleichwohl definiert das Komponentenmodell einen Standardsatz von Anotations"=Typen, die eine schnelle Arbeit mit dem Komponentenmodell vereinfachen sollen. Hierzu zählen die Datentypen Integer (\texttt{int}, \texttt{long}), Fließkommazahl (\texttt{float}, \texttt{double}) und Zeichenkette (\texttt{string}) analog ihrer Definition in .NET C\# 1.1 (siehe \cite{net-csharp-gleitkommatypen,net-csharp-ganzzahltypen,net-csharp-string}).
@@ -815,7 +832,7 @@ Anotationen können zu den folgenden Entitäten des Komponentenmodells vergeben we
 \begin{itemize}
 	\item Komponenten, wobei die Anotation eindeutig einer Komponente zugeordnet werden kann. Die Anotation höherer Komponenten Typ"=Ebenen vererbt sich, kann also auch von Kinder"=Entitäten einer Komponente zugegriffen werden.
 	\item Schnittstellen
-	\item Kontexte; hier tragen die Kontexte Zusatzinformationen, die sich nicht nur auf eine Komponente beziehen.
+	\item Kontexte; hier tragen die Kontexte Zusatzinformationen (beispielsweise QoS"=Informationen), die sich nicht nur auf eine Komponente beziehen, sondern nur für eine Komponente mit ihrer "`Umgebung"'.
 	\item Assembly"=Konnektoren; hier sind im Zusammenhang mit der Abbildung auf Ressourcen beispielsweise Durchsatzwerte denkbar.
 	\item Delegations"=Konnektoren TODO: Sinn unterhalb Assembly-Ebene?
 	\item Ressourcen (berechnend und nicht-berechnend)
@@ -875,15 +892,15 @@ Improvement of QoS prediction models
 - keine Unterstützung für Zustände über mehrere schnittstellen hinweg.
 - Typ-Ersetzbarkeit: Verschiedene Betrachtungsmöglichkeiten / Interoperabilitätsniveaus: Signatur, Protokoll, QoS --> Grafik
 Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
-- Anotationen wann und wo?
 - QoS-Fähigkeiten
-- Ressourcen-Typen definieren: Berechnend und nicht-berechnend in Kapitel Allokation.
+
 
 - Komponentenbeschreibung getrennt von verwendung
 - auf gleicher hierarchiestufe darf eine komponente nicht mehrfach vorkommen
 - komponente liegt IM kontext
-- kontext: qos-.. attributierbar
 - "`äußere"' assembly connectors nur unterhalb von impl. möglich --> vorher TYP!
+- Typ-Hierarchie (Typ vs. inter-comp-conn) erklären
+- Sichtbarkeit des Inneren von CCs erklären: Entwickler hat IMMER Einblick, Deployer nicht (nur in Assemblies)
 
 ------------------------------------
 
