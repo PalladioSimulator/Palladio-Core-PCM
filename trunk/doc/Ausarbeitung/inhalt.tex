@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.36  2006/01/16 18:39:00  kelsaka
+% - inhaltliche korrekturen
+%
 % Revision 1.35  2006/01/16 16:29:39  kelsaka
 % - inhaltliche korrekturen
 %
@@ -554,7 +557,7 @@ Zunächst einmal soll anhand von Abbildung \ref{fig:cm-level-refinement-01} illus
 \paragraph{m:1}
 Abbildung \ref{fig:cm-type-levels-01} zeigt eine weitere Besonderheit zwischen den Typ"=Ebenen auf. Ein \textit{Complete Type} kann der Sub"=Typ einer beliebigen Anzahl (0..*) von \textit{Provides Types} sein und ein \textit{Implementation Type} kann Sub"=Typ einer beliebigen Anzahl von \textit{Complete Types} sein.
 
-Die \texttt{m:1}"=Beziehung zwischen \textit{Provides Type} und \textit{Complete Type} ist möglich, da, wie oben beschrieben, ein \textit{Complete Type} ebenfalls Schnittstellen anbieten kann, die vom \textit{Provides Type} nicht spezifiziert wurden. Dafür können "`zuviel"' angebotene Schnittstellen von anderen \textit{Provides Types} angeboten werden, wodurch der gleiche \textit{Complete Type} automatisch zu einem möglichen gültigen Sub"=Typ werden kann. Um die gewünschten Sub"=Typ"=Beziehungen von zufällig vorkommenden zu unterscheiden, spezifiziert ein jeder Sub"=Typ seine "`Eltern"'"=Typen in einer \textit{Parent}"=Relation, realisiert als eine Liste von Eltern"=Komponenten.
+Die \texttt{m:1}"=Beziehung zwischen \textit{Provides Type} und \textit{Complete Type} ist möglich, da, wie oben beschrieben, ein \textit{Complete Type} ebenfalls Schnittstellen anbieten kann, die von einem konkreten \textit{Provides Type} nicht spezifiziert wurden. Dafür können diese "`zuviel"' angebotene Schnittstellen von anderen \textit{Provides Types} angeboten werden. Prinzipiell kann somit ein \textit{Complete Type} zugleich Sub"=Type einer Menge von \textit{Provides Typen} sein. Damit könnte ein \textit{Complete Type} automatisch zum Sub"=Typ aller möglichen gültigen \textit{Provides Typen} werden. Um die gewünschten Sub"=Typ"=Beziehungen von zufällig vorkommenden zu unterscheiden, spezifiziert ein jeder Sub"=Typ seine "`Eltern"'"=Typen in einer \textit{Parent}"=Relation, realisiert als eine Liste von Eltern"=Komponenten.
 
 Auch die \texttt{m:1}"=Beziehung zwischen \textit{Complete Type} und \textit{Implementation Type} --> TODO.
 
