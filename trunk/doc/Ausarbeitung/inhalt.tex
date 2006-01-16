@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.32  2006/01/16 11:48:49  kelsaka
+% - anotation ergänzt
+%
 % Revision 1.31  2006/01/15 17:56:31  kelsaka
 % - kontext ergänzt
 %
@@ -775,6 +778,8 @@ Abbildung \ref{fig:cm-component-hierarchy-context-01} erfasst die bereits in vor
 
 Je tiefer eine Ebene in der Graphik dargestellt ist, desto detailreicher müssen die Komponenten"=Typen definiert werden, entsprechend sind mehr Informationen über die Komponenten definiert. In umgekehrter Richtung nach oben werden die Komponenteninformationen abstrakter und kommen damit einer Grob"=Modellierung Komponentenarchitekturen entgegen.
 
+TODO: 1:n-Beziehung zwischen Implementation Type und Assembly.
+
 
 
 \subsection{Identität}
@@ -791,6 +796,29 @@ TODO: In Relationen werden üblicherweise IDs verwendet
 
 \subsection{Anotationen}
 \label{sec:Anotationen}
+Das Komponentenmodell bietet die Möglichkeit alle Entitäten des Modells mit beliebigen Zusatzinformationen "`Anotationen"' (Attribute) zu versehen. Da die genauen Anwendungsszenarien des Komponentenmodells nicht exakt absehbar sind und Vorgaben das Modell nicht unnötig limitieren sollen, bleibt das Komponentenmodell, ebenso wie bei Protokollen und SEFFs, offen und gibt keine feste Menge von Typen vor. Damit lassen sich beliebige Anotations"=Typen ergänzen, sofern sie benötigt werden. Diese können Messwerte ebenso sein wie \textit{Quality of Service} Merkmale (siehe Kapitel \ref{sec:WeitereFaehigkeiten}) von Entitäten oder beliebige andere Anotations"=Typen. Das heißt also, dass die Datentypen und Datenstrukturen nicht durch das Komponentenmodell festgelegt werden.
+
+Gleichwohl definiert das Komponentenmodell einen Standardsatz von Anotations"=Typen, die eine schnelle Arbeit mit dem Komponentenmodell vereinfachen sollen. Hierzu zählen die Datentypen Integer (\texttt{int}, \texttt{long}), Fließkommazahl (\texttt{float}, \texttt{double}) und Zeichenkette (\texttt{string}) analog ihrer Definition in .NET C\# 1.1 (siehe \cite{net-csharp-gleitkommatypen,net-csharp-ganzzahltypen,net-csharp-string}).
+
+Um die Unterscheidung zu erleichtern, welcher Datentyp für eine Anotation in einem konkreten Fall vorliegt, muss jede Anotation den Datentyp für das Datenfeld deklarieren. Zusätzlich trägt eine Anotation einen Anotationsnamen, der auch über mehrere Anotationen hinweg benutzt werden kann, um beispielsweise eine speziellen Laufzeitmesswert bei allen Komponenten einer Modell"=Instanz zu kennzeichnen. Daher ist eine Anotation ein Tripel, bestehend aus $(Anotationsnamen, Datentyp, Datenfeld)$. 
+
+Anotationen können zu den folgenden Entitäten des Komponentenmodells vergeben werden:
+\begin{enumerate}
+	\item Komponenten, wobei die Anotation eindeutig einer Komponente zugeordnet werden kann. Die Anotation höherer Komponenten Typ"=Ebenen vererbt sich, kann also auch von Kinder"=Entitäten einer Komponente zugegriffen werden.
+	\item Schnittstellen
+	\item Kontexte, TODO
+	\item Assembly"=Konnektoren; hier sind im Zusammenhang mit der Abbildung auf Ressourcen beispielsweise Durchsatzwerte denkbar.
+	\item Delegations"=Konnektoren TODO: Sinn unterhalb Assembly-Ebene?
+	\item Ressourcen (berechnend und nicht-berechnend)
+\end{enumerate}
+
+Zusätzlich 
+
+TODO: oder doch nur Tupel? Gibt es für Anotationsnamen ein ID-Konzept; für Datentypen?
+
+Bag von Anotationen
+
+was genau kann Anotation tragen?
 
 
 
@@ -844,6 +872,10 @@ Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere s
 - QoS-Fähigkeiten
 - Ressourcen-Typen definieren: Berechnend und nicht-berechnend in Kapitel Allokation.
 
+- Komponentenbeschreibung getrennt von verwendung
+- auf gleicher hierarchiestufe darf
+- komponente liegt IM kontext
+- kontext: qos-.. attributierbar
 
 ------------------------------------
 
