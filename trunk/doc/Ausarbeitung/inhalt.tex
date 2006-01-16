@@ -1,4 +1,8 @@
 % $Log$
+% Revision 1.33  2006/01/16 15:39:24  kelsaka
+% - identität ergänzt
+% - cm hierarchie aktualisiert
+%
 % Revision 1.32  2006/01/16 11:48:49  kelsaka
 % - anotation ergänzt
 %
@@ -747,7 +751,7 @@ Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembl
 
 
 
-Einer der neuesten Begriffe, im Vergleich mit den Vorversionen, des Palladio Komponentenmodell ist der Begriff des Kontexts (\textit{Context}). Abbildung \ref{fig:cm-context-01} zeigt, dass wie sich ein Kontext definiert. Im Beispiel kommt die Komponente "`C1"' als Kopie in zwei unterschiedlichen Kontexten vor. Zum einen (in "`Context 2"') ist sie mit "`C0"' auf der \textit{Provides}"=Seite und "`C2"' auf der \textit{Requires}"=Seite verbunden, zum anderen (in "`Context 1"') ist sie auf der \textit{Provides}"=Seite mit "`Master"' und auf der \textit{Requires}"=Seite mit "`C3"' verbunden. Um exakt definieren zu können, welche Verwendung von "`Co"' bzw. einer Komponente im Allgemeinen gemeint ist, wird der Kontext eingeführt, der beschreibt, mit welchen anderen Komponenten eine Komponente verbunden ist.
+Einer der neuesten Begriffe, im Vergleich mit den Vorversionen, des Palladio Komponentenmodell ist der Begriff des Kontexts (\textit{Context}). Abbildung \ref{fig:cm-context-01} zeigt, dass wie sich ein Kontext definiert. Im Beispiel kommt die Komponente "`C1"' als Kopie in zwei unterschiedlichen Kontexten vor. Zum einen (in "`Context 2"') ist sie mit "`C0"' auf der \textit{Provides}"=Seite und "`C2"' auf der \textit{Requires}"=Seite verbunden, zum anderen (in "`Context 1"') ist sie auf der \textit{Provides}"=Seite mit "`Master"' und auf der \textit{Requires}"=Seite mit "`C3"' verbunden. Um exakt definieren zu können, welche Verwendung von "`C1"' bzw. einer Komponente im Allgemeinen gemeint ist, wird der Kontext eingeführt, der beschreibt, mit welchen anderen Komponenten eine Komponente verbunden ist.
 
 Der gerade skizzierte Begriff des Kontexts bezieht sich auf das Vorkommen von Komponenten in Assemblies und die Kompositionsstruktur. Neben dieser Bedeutung definiert das Komponentenmodell den Kontext ebenfalls für Allokationen. Wird der Kontext auf der Ebene von Allokationen verwendet, werden die Ressourcen, auf denen eine zu betrachtende Komponente allokiert ist, ebenfalls im Kontext erfasst.
 
@@ -759,7 +763,7 @@ TODO: Allokation + Assembly als benötigt?
 
 \begin{figure}[htbp]
 	\centering
-		\includegraphics[width=0.60\textwidth]{./image/cm-component-hierarchy-context-01.pdf}
+		\includegraphics[width=0.80\textwidth]{./image/cm-component-hierarchy-context-01.pdf}
 	\caption{Komponentenhierarchie mit Einordnung des Kontexts (nach \cite{PalladioCMNeuSlides}, S. 33)}
 	\label{fig:cm-component-hierarchy-context-01}
 \end{figure}
@@ -784,6 +788,14 @@ TODO: 1:n-Beziehung zwischen Implementation Type und Assembly.
 
 \subsection{Identität}
 \label{sec:Identitaet}
+Alle Entitäten des Komponentenmodells tragen eine eindeutige Identifizierer (ID). Werden in Relationen andere Entitäten referenziert, erfolgt diese Referenzierung stets über die IDs der Entitäten, damit an keiner Stelle die Relationen des Komponentenmodells mehrdeutig sein können.
+
+Bieten beispielsweise zwei Komponenten mit dem gleichen Namen "`Component"' die gleiche Schnittstelle "`InterfaceP"' an und benötigen gleichermaßen die Schnittstelle "`InterfaceR"' sind sie als \textit{Complete Type} über keine weiteren Merkmale zu unterscheiden. Daher werden sie zusätzlich mit einem eindeutigen Bezeichner / ID versehen, um unterscheidbar zu sein.
+
+Um IDs auch bei Zusammenführung unterschiedlicher Komponentenmodell"=Instanzen eindeutig zu erhalten, wird empfohlen ein der \textit{Globally Unique Identifier} (GUID, siehe auch \cite{guid-wiki}) ähnliches Konzept zu verwenden. Dieses Konzept macht es auch über Systemgrenzen hinweg und für einander vollkommen unbekannte Systeme wahrscheinlich, dass die generierte GUID eindeutig ist.
+
+
+
 TODO: Komp. mit gleichen prov und req interf. kann != anderer sein, die die gleichen schnittstellen bietet! --> ID.
 
 TODO: Was hat ID, wie ist equals und == definiert?
@@ -803,22 +815,20 @@ Gleichwohl definiert das Komponentenmodell einen Standardsatz von Anotations"=Ty
 Um die Unterscheidung zu erleichtern, welcher Datentyp für eine Anotation in einem konkreten Fall vorliegt, muss jede Anotation den Datentyp für das Datenfeld deklarieren. Zusätzlich trägt eine Anotation einen Anotationsnamen, der auch über mehrere Anotationen hinweg benutzt werden kann, um beispielsweise eine speziellen Laufzeitmesswert bei allen Komponenten einer Modell"=Instanz zu kennzeichnen. Daher ist eine Anotation ein Tripel, bestehend aus $(Anotationsnamen, Datentyp, Datenfeld)$. 
 
 Anotationen können zu den folgenden Entitäten des Komponentenmodells vergeben werden:
-\begin{enumerate}
+\begin{itemize}
 	\item Komponenten, wobei die Anotation eindeutig einer Komponente zugeordnet werden kann. Die Anotation höherer Komponenten Typ"=Ebenen vererbt sich, kann also auch von Kinder"=Entitäten einer Komponente zugegriffen werden.
 	\item Schnittstellen
-	\item Kontexte, TODO
+	\item Kontexte; hier tragen die Kontexte Zusatzinformationen, die sich nicht nur auf eine Komponente beziehen.
 	\item Assembly"=Konnektoren; hier sind im Zusammenhang mit der Abbildung auf Ressourcen beispielsweise Durchsatzwerte denkbar.
 	\item Delegations"=Konnektoren TODO: Sinn unterhalb Assembly-Ebene?
 	\item Ressourcen (berechnend und nicht-berechnend)
-\end{enumerate}
+\end{itemize}
 
-Zusätzlich 
+Zu einer Entität sind \texttt{0..*} Anotationen möglich. Damit kann die gleiche Anotation jedoch nicht für mehrere Entitäten zugleich verwendet werden. Die Anotationen zu einer Entität sind ungeordnet. Anotationen können für bestimmte Entitäten nicht vorgeschrieben werden. Es ist also nicht vorhersehbar, ob eine Entität eine bestimmte Anotation trägt.
+
+Zusätzlich können auch SEFFs und Protokolle Anotationen verwenden. Da die Typen für SEFFs und Protokolle nicht festgelegt sind, kann an dieser Stelle jedoch nicht beschrieben werden, zu welchen dann erweiterten Modellkonstrukten Anotationen vergeben werden können. Anotationen folgen dennoch dem gleichen, oben beschriebenen, Aufbau.
 
 TODO: oder doch nur Tupel? Gibt es für Anotationsnamen ein ID-Konzept; für Datentypen?
-
-Bag von Anotationen
-
-was genau kann Anotation tragen?
 
 
 
@@ -873,9 +883,10 @@ Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere s
 - Ressourcen-Typen definieren: Berechnend und nicht-berechnend in Kapitel Allokation.
 
 - Komponentenbeschreibung getrennt von verwendung
-- auf gleicher hierarchiestufe darf
+- auf gleicher hierarchiestufe darf eine komponente nicht mehrfach vorkommen
 - komponente liegt IM kontext
 - kontext: qos-.. attributierbar
+- "`äußere"' assembly connectors nur unterhalb von impl. möglich --> vorher TYP!
 
 ------------------------------------
 
