@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.37  2006/01/16 19:08:15  kelsaka
+% - inhaltliche korrekturen
+%
 % Revision 1.36  2006/01/16 18:39:00  kelsaka
 % - inhaltliche korrekturen
 %
@@ -559,7 +562,7 @@ Abbildung \ref{fig:cm-type-levels-01} zeigt eine weitere Besonderheit zwischen d
 
 Die \texttt{m:1}"=Beziehung zwischen \textit{Provides Type} und \textit{Complete Type} ist möglich, da, wie oben beschrieben, ein \textit{Complete Type} ebenfalls Schnittstellen anbieten kann, die von einem konkreten \textit{Provides Type} nicht spezifiziert wurden. Dafür können diese "`zuviel"' angebotene Schnittstellen von anderen \textit{Provides Types} angeboten werden. Prinzipiell kann somit ein \textit{Complete Type} zugleich Sub"=Type einer Menge von \textit{Provides Typen} sein. Damit könnte ein \textit{Complete Type} automatisch zum Sub"=Typ aller möglichen gültigen \textit{Provides Typen} werden. Um die gewünschten Sub"=Typ"=Beziehungen von zufällig vorkommenden zu unterscheiden, spezifiziert ein jeder Sub"=Typ seine "`Eltern"'"=Typen in einer \textit{Parent}"=Relation, realisiert als eine Liste von Eltern"=Komponenten.
 
-Auch die \texttt{m:1}"=Beziehung zwischen \textit{Complete Type} und \textit{Implementation Type} --> TODO.
+Auch die \texttt{m:1}"=Beziehung zwischen \textit{Complete Type} und \textit{Implementation Type} gründet auf einem der gleichen Möglichkeit, dass ein Implementation Type zugleich Sub"=Typ zweier Complete Types ist. Bietet ein \textit{Implementation Type} die Schnittstellen "`I1"' und "`I2"' an, so kann es zwei \textit{Complete Types} geben, von denen einer ebenfalls "`I1"' anbietet, der andere jedoch "`I2"'. Damit gibt es zu einem \textit{Implementation Type} zwei, und im Allgemeinen m, "`Eltern"'"=Typen.
 
 
 
