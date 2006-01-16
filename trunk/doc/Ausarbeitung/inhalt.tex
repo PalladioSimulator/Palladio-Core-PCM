@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.34  2006/01/16 15:52:48  kelsaka
+% - identifier abgeschlossen
+%
 % Revision 1.33  2006/01/16 15:39:24  kelsaka
 % - identität ergänzt
 % - cm hierarchie aktualisiert
@@ -788,21 +791,15 @@ TODO: 1:n-Beziehung zwischen Implementation Type und Assembly.
 
 \subsection{Identität}
 \label{sec:Identitaet}
-Alle Entitäten des Komponentenmodells tragen eine eindeutige Identifizierer (ID). Werden in Relationen andere Entitäten referenziert, erfolgt diese Referenzierung stets über die IDs der Entitäten, damit an keiner Stelle die Relationen des Komponentenmodells mehrdeutig sein können.
+Alle Entitäten des Komponentenmodells tragen einen eindeutige Bezeichner (ID). Werden in Relationen andere Entitäten referenziert, erfolgt diese Referenzierung stets über die IDs der Entitäten, damit an keiner Stelle die Relationen des Komponentenmodells mehrdeutig sein können.
 
 Bieten beispielsweise zwei Komponenten mit dem gleichen Namen "`Component"' die gleiche Schnittstelle "`InterfaceP"' an und benötigen gleichermaßen die Schnittstelle "`InterfaceR"' sind sie als \textit{Complete Type} über keine weiteren Merkmale zu unterscheiden. Daher werden sie zusätzlich mit einem eindeutigen Bezeichner / ID versehen, um unterscheidbar zu sein.
 
+Eine Abfrage auf Gleichheit (\textit{equals}) zweier Entitäten wird im Komponentenmodell auf IDs zurückgeführt. Sind zwei IDs identisch, handelt es sich um die gleiche Entität. Die Gleichheit muss strikt von der Prüfung auf Substituierbarkeit, wie sie in Kapitel \ref{sec:Typ-Spezialisierung} beschrieben wird, unterschieden werden. Gleiche Typen lassen sich substituieren, aus der Substituierbarkeit kann jedoch keine Gleichheit gefolgert werden.
+
 Um IDs auch bei Zusammenführung unterschiedlicher Komponentenmodell"=Instanzen eindeutig zu erhalten, wird empfohlen ein der \textit{Globally Unique Identifier} (GUID, siehe auch \cite{guid-wiki}) ähnliches Konzept zu verwenden. Dieses Konzept macht es auch über Systemgrenzen hinweg und für einander vollkommen unbekannte Systeme wahrscheinlich, dass die generierte GUID eindeutig ist.
 
-
-
-TODO: Komp. mit gleichen prov und req interf. kann != anderer sein, die die gleichen schnittstellen bietet! --> ID.
-
-TODO: Was hat ID, wie ist equals und == definiert?
-
-TODO: Typisierte IDs --> Möglichkeiten mit EMF bedenken
-
-TODO: In Relationen werden üblicherweise IDs verwendet
+In Implementierungen des Komponenten"=Meta"=Modells muss sich das ID"=Konzept wiederfinden. Entitäten müssen also stets über eine Entsprechung zum eindeutigen Bezeichner verfügen. IDs können intern verwaltet werden und somit der Kontrolle eines Modellierers entzogen werden, damit die Eindeutigkeit durch eine Implementierung sichergestellt werden kann.
 
 
 
