@@ -119,6 +119,13 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.GetHashCode">
+            <summary>
+            Overrides GetHashCode. This is necessary, because Equals is 
+            overridden.
+            </summary>
+            <returns>The hashcode of this object.</returns>
+        </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContract.Name">
             <summary>
             Returns the name of this contract.
@@ -238,6 +245,13 @@
             declarations, else false
             </returns>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType.GetHashCode">
+            <summary>
+            Overrides GetHashCode. This is necessary, because Equals is 
+            overridden.
+            </summary>
+            <returns>The hashcode of this object.</returns>
+        </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLContractType.Name">
             <summary>
             Returns the name of this contract type.
@@ -298,6 +312,13 @@
             else false
             </returns>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionDeclaration.GetHashCode">
+            <summary>
+            Overrides GetHashCode. This is necessary, because Equals is 
+            overridden.
+            </summary>
+            <returns>The hashcode of this object.</returns>
+        </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType">
             <summary>
             Represents a QML dimension type. At the moment only numeric types are
@@ -343,6 +364,13 @@
             </param>
             <returns>True if this and obj have the same type, else false
             </returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.GetHashCode">
+            <summary>
+            Overrides GetHashCode. This is necessary, because Equals is 
+            overridden.
+            </summary>
+            <returns>The hashcode of this object.</returns>
         </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLDimensionType.DimensionType">
             <summary>
@@ -423,6 +451,13 @@
             </summary>
             <param name="obj"></param>
             <returns></returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity.GetHashCode">
+            <summary>
+            Overrides GetHashCode. This is necessary, because Equals is 
+            overridden.
+            </summary>
+            <returns>The hashcode of this object.</returns>
         </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity.Type">
             <summary>
@@ -657,6 +692,13 @@
             <param name="specification">The QMLSpecification this profile is 
             a part of.</param>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.Accept(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor)">
+            <summary>
+            Method from the visitor pattern. The visitor method for this 
+            class is called on the given visitor.
+            </summary>
+            <param name="visitor">Visitor that visits this node.</param>
+        </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfile.ToString">
             <summary>
             Returns a new QML profile string containing all 
@@ -701,6 +743,13 @@
             expression.</param>
             /// <param name="specification">The QMLSpecification this profile 
             expression is a part of.</param>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.Accept(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor)">
+            <summary>
+            Method from the visitor pattern. The visitor method for this 
+            class is called on the given visitor.
+            </summary>
+            <param name="visitor">Visitor that visits this node.</param>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLProfileExpression.ToString">
             <summary>
@@ -760,6 +809,13 @@
             <param name="contracts"></param>
             <param name="specification"></param>
             <returns></returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.Accept(Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.IQMLSpecificationVisitor)">
+            <summary>
+            Method from the visitor pattern. The visitor method for this 
+            class is called on the given visitor.
+            </summary>
+            <param name="visitor">Visitor that visits this node.</param>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLRequirementClause.hasEntity(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLEntity)">
             <summary>
@@ -970,6 +1026,13 @@
             <returns>True if this and obj have the same unitString, else false
             </returns>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLUnit.GetHashCode">
+            <summary>
+            Overrides GetHashCode. This is necessary, because Equals is 
+            overridden.
+            </summary>
+            <returns>The hashcode of this object.</returns>
+        </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral">
             <summary>
             Represents a value literal.
@@ -1001,6 +1064,13 @@
             <returns>True if the given object is a QMLValueLiteral of the same 
             type as this QMLValueLiteral and has the same value. Else false.
             </returns>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral.GetHashCode">
+            <summary>
+            Overrides GetHashCode. This is necessary, because Equals is 
+            overridden.
+            </summary>
+            <returns>The hashcode of this object.</returns>
         </member>
         <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral.CompareTo(Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral)">
             <summary>
@@ -1318,6 +1388,12 @@
             Thrown by a QMLProvidedSpecificationCompleteCopingVisitor, if the 
             QMLRequiredSpecificationCompleteCopingVisitor trys to push it to 
             a profile that is not existent in the provided specification.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLCompleteCopingUnknownProfileException.#ctor">
+            <summary>
+            Constructor that calls the parent constructor with an empty 
+            message.
             </summary>
         </member>
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors.QMLMismatchSearchException">
@@ -2145,6 +2221,8 @@
             </summary>
             <param name="requiredAspect">QMLMeanAspect that is part of the
             required specification.</param>
+            <param name="providedAspect">QMLMeanAspect that is part of the
+            provided specification.</param>
             <returns>True if this aspect matches the given aspect, 
             else false.</returns>
         </member>
@@ -2312,6 +2390,15 @@
             <summary>
             Zusammenfassung für QMLParserTest.
             </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QMLParserTest.CreateSpecification(System.IO.TextReader)">
+            <summary>
+            Creates a specification needed to test the parser. 
+            </summary>
+            <param name="textReader">TextReader representing a QML 
+            specification</param>
+            <returns>A QMLSpecification object that equals the given 
+            specification.</returns>
         </member>
     </members>
 </doc>

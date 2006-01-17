@@ -711,6 +711,8 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 		/// </summary>
 		/// <param name="requiredAspect">QMLMeanAspect that is part of the
 		/// required specification.</param>
+		/// <param name="providedAspect">QMLMeanAspect that is part of the
+		/// provided specification.</param>
 		/// <returns>True if this aspect matches the given aspect, 
 		/// else false.</returns>
 		public bool MeanAspectMatch (QMLMeanAspect requiredAspect,

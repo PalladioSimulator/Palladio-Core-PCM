@@ -28,6 +28,10 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 	public class QMLCompleteCopingUnknownProfileException : 
 		QMLCompleteCopingException
 	{
+		/// <summary>
+		/// Constructor that calls the parent constructor with an empty 
+		/// message.
+		/// </summary>
 		public QMLCompleteCopingUnknownProfileException():base("")
 		{
 		}

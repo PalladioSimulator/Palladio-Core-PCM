@@ -100,6 +100,11 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		#endregion
 
 		#region methods inherited by IQMLVisitable
+		/// <summary>
+		/// Method from the visitor pattern. The visitor method for this 
+		/// class is called on the given visitor.
+		/// </summary>
+		/// <param name="visitor">Visitor that visits this node.</param>
 		public void Accept(IQMLSpecificationVisitor visitor)
 		{
 			visitor.VisitQMLProfileExpression(this);
