@@ -126,6 +126,15 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 			return false;
 		}
 
+		/// <summary>
+		/// Overrides GetHashCode. This is necessary, because Equals is 
+		/// overridden.
+		/// </summary>
+		/// <returns>The hashcode of this object.</returns>
+		public override int GetHashCode()
+		{
+			return base.GetHashCode ();
+		}
 		#endregion
 	}
 }

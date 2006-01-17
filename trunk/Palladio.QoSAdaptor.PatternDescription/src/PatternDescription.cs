@@ -237,6 +237,16 @@ namespace Palladio.QoSAdaptor.Pattern
 		}
 
 		/// <summary>
+		/// Overrides GetHashCode. This is necessary, because Equals is 
+		/// overridden.
+		/// </summary>
+		/// <returns>The hashcode of this object.</returns>
+		public override int GetHashCode()
+		{
+			return base.GetHashCode ();
+		}
+
+		/// <summary>
 		/// Getter for prediction models. 
 		/// </summary>
 		/// <param name="name">The name of the searched prediction model.
