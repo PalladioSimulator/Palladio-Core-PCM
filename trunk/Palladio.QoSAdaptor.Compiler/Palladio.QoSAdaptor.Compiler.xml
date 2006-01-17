@@ -53,6 +53,31 @@
             source files.
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.Compiler.CSharpCompiler.mFilesToCompile">
+            <summary>
+            Files to compile
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Compiler.CSharpCompiler.mImportedDlls">
+            <summary>
+            Referenced assemblies
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Compiler.CSharpCompiler.mCSharpCompilerResults">
+            <summary>
+            Compiler output
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Compiler.CSharpCompiler.mCSharpCompilerErrors">
+            <summary>
+            Compiler errors
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Compiler.CSharpCompiler.mCSharpCompilerParameters">
+            <summary>
+            Compiler parameters
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.Compiler.CSharpCompiler.#ctor">
             <summary>
             Creates a new CSharpCompiler. Before the Compile() method is 

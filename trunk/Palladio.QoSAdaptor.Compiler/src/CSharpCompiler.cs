@@ -35,19 +35,30 @@ namespace Palladio.QoSAdaptor.Compiler
 	public class CSharpCompiler : ICSharpCompiler
 	{
 		#region attributes
-		// Files to compile
+		/// <summary>
+		/// Files to compile
+		/// </summary>
 		protected StringCollection mFilesToCompile =  new 
 			System.Collections.Specialized.StringCollection();
 
-		// Referenced assemblies
+		/// <summary>
+		/// Referenced assemblies
+		/// </summary>
 		protected StringCollection mImportedDlls = new StringCollection();
 
-		// Compiler output
+		/// <summary>
+		/// Compiler output
+		/// </summary>
 		protected CompilerResults mCSharpCompilerResults;
 
-		// Compiler errors
+		/// <summary>
+		/// Compiler errors
+		/// </summary>
 		protected CompilerErrorCollection mCSharpCompilerErrors;
-		// Compiler parameters
+
+		/// <summary>
+		/// Compiler parameters
+		/// </summary>
 		protected CompilerParameters mCSharpCompilerParameters = new 
 			CompilerParameters();
 		#endregion
