@@ -32,10 +32,47 @@
             Enumeration representing the considered interface model
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.Enumerations.InterfaceModel.SYNTAX">
+            <summary>
+            The syntax-based interface model describes describes signature
+            mismatches.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Enumerations.InterfaceModel.BEHAVIOUR">
+            <summary>
+            The behavioural interface model describes mismatches in 
+            assertions.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Enumerations.InterfaceModel.INTERACTION">
+            <summary>
+            The interaction-based interface model describes protocoll 
+            mismatches.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Enumerations.InterfaceModel.QUALITY">
+            <summary>
+            The quality-based interface model describes mismatches of 
+            quality attributes like performance or reliability.
+            </summary>
+        </member>
+        <member name="F:Palladio.QoSAdaptor.Enumerations.InterfaceModel.CONCEPTUAL">
+            <summary>
+            The conceptual interface model describes concept mismatches like 
+            equally defined entities with different names.
+            </summary>
+        </member>
         <member name="T:Palladio.QoSAdaptor.Exceptions.IncompleteInterfaceCopingException">
             <summary>
             Zusammenfassung für IncompleteInterfaceCopingException.
             </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.Exceptions.IncompleteInterfaceCopingException.#ctor(System.String)">
+            <summary>
+            Constructor which calls the parent constructor with the given
+            message.
+            </summary>
+            <param name="message">The exception message.</param>
         </member>
         <member name="T:Palladio.QoSAdaptor.Interfaces.IComparator">
             <summary>
