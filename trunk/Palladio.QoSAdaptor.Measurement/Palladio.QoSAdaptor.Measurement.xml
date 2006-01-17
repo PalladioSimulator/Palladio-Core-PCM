@@ -60,6 +60,8 @@
             </param>
             <param name="numberOfCalls">The number of calls the client has to 
             execute.</param>
+            <param name="writeProbability">The probability of a writing call.
+            </param>
         </member>
         <member name="M:Palladio.QoSAdaptor.Measurement.Client.Start">
             <summary>

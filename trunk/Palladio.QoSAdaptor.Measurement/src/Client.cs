@@ -89,6 +89,8 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// </param>
 		/// <param name="numberOfCalls">The number of calls the client has to 
 		/// execute.</param>
+		/// <param name="writeProbability">The probability of a writing call.
+		/// </param>
 		//public Client (ServiceReplicationAdaptor service, int numberOfCalls, double writeProbability)
 		public Client (ServiceCacheAdaptor service, int numberOfCalls, double writeProbability)
 		//public Client (Service service, int numberOfCalls, double writeProbability)
