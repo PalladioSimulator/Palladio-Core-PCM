@@ -57,6 +57,8 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// can be added by using AddTemplate.
 		/// </summary>
 		/// <param name="name">The name of this prediction model.</param>
+		/// <param name="isExecutable">Indicates whether the prediction model
+		/// is executable or not.</param>
 		public PredictionModel(string name, bool isExecutable)
 		{
 			this.name = name;

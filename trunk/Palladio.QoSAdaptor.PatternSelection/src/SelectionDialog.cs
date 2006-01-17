@@ -76,7 +76,9 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// </summary>
 		/// <param name="mismatchSolvingPatterns">A hashmap with mismatches as
 		/// keys and lists of patterns that are able to solve the 
-		/// corresponding mismatches as values.</param>+
+		/// corresponding mismatches as values.</param>
+		/// <param name="controller">The controller that handles the events
+		/// of this form.</param>
 		internal SelectionDialog(Hashmap mismatchSolvingPatterns, 
 			Selector controller)
 		{

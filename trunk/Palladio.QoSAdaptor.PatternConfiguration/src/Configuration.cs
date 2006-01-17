@@ -34,6 +34,9 @@ namespace Palladio.QoSAdaptor.PatternConfiguration
 		#endregion
 
 		#region constructor
+		/// <summary>
+		/// Constructor which calls the initialisation method of the form.
+		/// </summary>
 		public Configuration()
 		{
 			InitializeComponent();

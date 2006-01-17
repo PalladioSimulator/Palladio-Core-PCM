@@ -15,6 +15,11 @@
             Erforderliche Designervariable.
             </summary>
         </member>
+        <member name="M:Palladio.QoSAdaptor.PatternConfiguration.Configuration.#ctor">
+            <summary>
+            Constructor which calls the initialisation method of the form.
+            </summary>
+        </member>
         <member name="M:Palladio.QoSAdaptor.PatternConfiguration.Configuration.Dispose(System.Boolean)">
             <summary>
             Die verwendeten Ressourcen bereinigen.
@@ -78,6 +83,14 @@
             A list of child features of this feature in the feature tree. 
             Empty, if this is a leaf feature.
             </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.PatternConfiguration.Feature.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor. Sets the default values.
+            </summary>
+            <param name="name">The name of the feature.</param>
+            <param name="description">The description of the feature.</param>
+            <param name="guid">The guid of the feature.</param>
         </member>
         <member name="M:Palladio.QoSAdaptor.PatternConfiguration.Feature.AddChild(Palladio.QoSAdaptor.PatternConfiguration.Feature)">
             <summary>

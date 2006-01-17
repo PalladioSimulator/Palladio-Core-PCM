@@ -218,6 +218,12 @@ namespace Palladio.QoSAdaptor.PatternConfiguration
 		#endregion
 
 		#region constructor
+		/// <summary>
+		/// Constructor. Sets the default values.
+		/// </summary>
+		/// <param name="name">The name of the feature.</param>
+		/// <param name="description">The description of the feature.</param>
+		/// <param name="guid">The guid of the feature.</param>
 		public Feature(string name, string description, string guid)
 		{
 			this.name = name;

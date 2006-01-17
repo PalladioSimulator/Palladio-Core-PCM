@@ -372,6 +372,13 @@
             <returns>True if the described attribute of this object equal the 
             attributes of the given object. Else false.</returns>
         </member>
+        <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.GetHashCode">
+            <summary>
+            Overrides GetHashCode. This is necessary, because Equals is 
+            overridden.
+            </summary>
+            <returns>The hashcode of this object.</returns>
+        </member>
         <member name="M:Palladio.QoSAdaptor.Pattern.PatternDescription.GetPredictionModelByName(System.String)">
             <summary>
             Getter for prediction models. 
@@ -607,6 +614,8 @@
             can be added by using AddTemplate.
             </summary>
             <param name="name">The name of this prediction model.</param>
+            <param name="isExecutable">Indicates whether the prediction model
+            is executable or not.</param>
         </member>
         <member name="M:Palladio.QoSAdaptor.Pattern.PredictionModel.AddTemplate(System.String)">
             <summary>
