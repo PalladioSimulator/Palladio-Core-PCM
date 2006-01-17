@@ -209,6 +209,17 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		}
 
 		/// <summary>
+		/// Overrides GetHashCode. This is necessary, because Equals is 
+		/// overridden.
+		/// </summary>
+		/// <returns>The hashcode of this object.</returns>
+		public override int GetHashCode()
+		{
+			return base.GetHashCode ();
+		}
+
+
+		/// <summary>
 		/// Compares the given QMLValueLiteral to this QMLValueLiteral. Both
 		/// QMLLiterals need to be of the same type.
 		/// </summary>
@@ -232,7 +243,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 					break;
 				case QMLTokenTypes.NAME:
 					return this.nameValue.CompareTo(value.nameValue);
-					break;
 				case QMLTokenTypes.NAME_LIST:
 					if (this.nameListValue.Equals(value.nameListValue))
 						return 0;
@@ -240,7 +250,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 						throw new Exception("Error in "+
 							"QMLValueLiteral.CompareTo(). An order on the "+
 							"values of lists is not defined.");
-					break;
 				default:
 					throw new Exception("Error in QMLLiteral.CompareTo(). "+
 						"Unknown value literal type.");
