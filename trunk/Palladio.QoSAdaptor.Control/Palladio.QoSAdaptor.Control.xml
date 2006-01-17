@@ -56,6 +56,17 @@
             <param name="provided">The provided interface model
             specification as TextReader.</param>
         </member>
+        <member name="M:Palladio.QoSAdaptor.Control.Controller.Start(Palladio.QoSAdaptor.Enumerations.InterfaceModel,System.IO.TextReader,System.IO.TextReader)">
+            <summary>
+            Creates IInterfaceModelSpecifications from the given TextReader
+            specifications and then calls the corresponding Start method.
+            </summary>
+            <param name="interfaceModel">The considered interface model.</param>
+            <param name="required">The required specification as a TextReader.
+            </param>
+            <param name="provided">The provided specification as a TextReader.
+            </param>
+        </member>
         <member name="M:Palladio.QoSAdaptor.Control.Controller.Start(Palladio.QoSAdaptor.Enumerations.InterfaceModel,Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification,Palladio.QoSAdaptor.Interfaces.IInterfaceModelSpecification)">
             <summary>
             This method starts the the analysis of the interface models,
@@ -87,6 +98,8 @@
             found mismatches. 
             </summary>
             <param name="mismatches">A list of found mismatches.</param>
+            <param name="interfaceModel">The interface model the mismatches
+            are defined for.</param>
             <param name="requiredSpecification">String representation of the 
             required specification.</param>
             <param name="providedSpecification">String representation of the
@@ -116,6 +129,10 @@
             <param name="sourceFiles">Array of CSharp files.</param>
             <param name="libs">Array of DLLs needed to compile the given 
             source files.</param>
+            <param name="assemblyName">The name of the resulting assembly.
+            </param>
+            <param name="isExecutable">Indicates whether a class library or a
+            console application shall be created.</param>
             <returns>Full path to created assembly.</returns>
         </member>
         <member name="M:Palladio.QoSAdaptor.Control.Controller.GetLibs(System.String)">

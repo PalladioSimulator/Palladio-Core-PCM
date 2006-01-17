@@ -54,6 +54,15 @@ namespace Palladio.QoSAdaptor.Control
 	public class Controller : IController
 	{
 		#region public methods
+		/// <summary>
+		/// Creates IInterfaceModelSpecifications from the given TextReader
+		/// specifications and then calls the corresponding Start method.
+		/// </summary>
+		/// <param name="interfaceModel">The considered interface model.</param>
+		/// <param name="required">The required specification as a TextReader.
+		/// </param>
+		/// <param name="provided">The provided specification as a TextReader.
+		/// </param>
 		public void Start(InterfaceModel interfaceModel, TextReader required, 
 			TextReader provided)
 		{
@@ -197,6 +206,8 @@ namespace Palladio.QoSAdaptor.Control
 		/// found mismatches. 
 		/// </summary>
 		/// <param name="mismatches">A list of found mismatches.</param>
+		/// <param name="interfaceModel">The interface model the mismatches
+		/// are defined for.</param>
 		/// <param name="requiredSpecification">String representation of the 
 		/// required specification.</param>
 		/// <param name="providedSpecification">String representation of the
