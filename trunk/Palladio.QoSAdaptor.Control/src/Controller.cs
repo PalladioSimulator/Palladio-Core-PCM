@@ -127,7 +127,7 @@ namespace Palladio.QoSAdaptor.Control
 					{
 						// Generation
 						IGenerator generator = new Generator();
-						bool generated = generator.Start(selectedPattern, null);
+						bool generated = generator.Start(selectedPattern);
 
 						if (generated)
 						{
