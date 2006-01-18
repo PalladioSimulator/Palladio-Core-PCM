@@ -65,30 +65,7 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 			child = child.getNextSibling();
 			for (int i=0; i<aspectConstraint.getNumberOfChildren()-1; i++)
 			{
-				switch (child.Type)
-				{
-					case QMLTokenTypes.PERCENTILE_CONTR:
-						this.statConstraints.Add(
-											new QMLPercentileAspect(child));
-						break;
-					case QMLTokenTypes.FREQUENCY_CONTR:
-						this.statConstraints.Add(
-							new QMLFrequencyAspect(child));
-						break;
-					case QMLTokenTypes.MEAN_CONTR:
-						this.statConstraints.Add(
-							new QMLMeanAspect(child));
-						break;
-					case QMLTokenTypes.VARIANCE_CONTR:
-						this.statConstraints.Add(
-							new QMLVarianceAspect(child));
-						break;
-					default:
-						throw new QMLSpecificationConstructionException
-							("Illegal argument in QMLAspectConstraint "+
-							"constructor. Unknown aspect type: "
-							+child.Type);
-				}
+				this.statConstraints.Add(GetStatConstraint(child));
 				child = child.getNextSibling();
 			}
 		}
@@ -148,6 +125,40 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 				s += ((IQMLStatConstraint)enu.Current).ToString()+"\n";
 			s += "};";
 			return s;
+		}
+		#endregion
+
+		#region private methods
+		/// <summary>
+		/// Creates stat constraint objects from the given AST. 
+		/// </summary>
+		/// <param name="constraintAST">AST representing an 
+		/// IQMLStatConstraint</param>
+		/// <returns>The created IQMLStatConstraint</returns>
+		private IQMLStatConstraint GetStatConstraint (AST constraintAST)
+		{
+			IQMLStatConstraint statConstraint = null;
+			switch (constraintAST.Type)
+			{
+				case QMLTokenTypes.PERCENTILE_CONTR:
+					statConstraint = new QMLPercentileAspect(constraintAST);
+					break;
+				case QMLTokenTypes.FREQUENCY_CONTR:
+					statConstraint = new QMLFrequencyAspect(constraintAST);
+					break;
+				case QMLTokenTypes.MEAN_CONTR:
+					statConstraint = new QMLMeanAspect(constraintAST);
+					break;
+				case QMLTokenTypes.VARIANCE_CONTR:
+					statConstraint = new QMLVarianceAspect(constraintAST);
+					break;
+				default:
+					throw new QMLSpecificationConstructionException
+						("Illegal argument in QMLAspectConstraint "+
+						"constructor. Unknown aspect type: "
+						+constraintAST.Type);
+			}
+			return statConstraint;
 		}
 		#endregion
 	}
