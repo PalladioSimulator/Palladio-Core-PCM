@@ -22,6 +22,7 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Threading;
 using Palladio.QoSAdaptor.Configuration;
 using Palladio.QoSAdaptor.Pattern;
@@ -192,10 +193,16 @@ namespace Palladio.QoSAdaptor.Generation
 		{
 			//start CodeSmith
 			Process proc = new Process();
-
-			// TODO: Test what happens when the template does not exist.
-			proc.StartInfo.FileName = "CodeSmith.exe";
+			
 			string arg = this.patternDirectory+"templates\\"+template;
+			FileInfo templateFile = new FileInfo(arg);
+			if (!templateFile.Exists)
+				MessageBox.Show("Template "+arg+" could not be found. Please"+
+					" load the template manually in CodeSmith and check "+
+					"the pattern description and the files in the "+
+					"template folder.");
+			
+			proc.StartInfo.FileName = "CodeSmith.exe";
 			proc.StartInfo.Arguments = arg;
 			proc.EnableRaisingEvents = true;
 			proc.Exited +=new EventHandler(Proc_Exited);
