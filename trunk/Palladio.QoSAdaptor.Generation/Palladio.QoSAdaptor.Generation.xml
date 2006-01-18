@@ -16,26 +16,17 @@
             The provided interface of the Palladio.QoSAdaptor.Generation component. 
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Generation.IGenerator.Start(Palladio.QoSAdaptor.Pattern.IPatternDescription,System.String)">
+        <member name="M:Palladio.QoSAdaptor.Generation.IGenerator.Start(Palladio.QoSAdaptor.Pattern.IPatternDescription)">
             <summary>
             Starts the generation process for the given pattern. Generates 
             artifact using CodeSmith. 
             </summary>
             <param name="pattern">The PatternDescription of the pattern for 
             which artifacts are to be generated.</param>
-            <param name="configurationPath">The path of the CodeSmith 
-            configuration file.</param>
-            
-            TODO: Remove configurationPath and use standard path name?
         </member>
         <member name="F:Palladio.QoSAdaptor.Generation.Generator.pattern">
             <summary>
             The pattern for which artifacts shall be generated.
-            </summary>
-        </member>
-        <member name="F:Palladio.QoSAdaptor.Generation.Generator.configurationPath">
-            <summary>
-            The path of the CodeSmith configuration file for this.pattern.
             </summary>
         </member>
         <member name="F:Palladio.QoSAdaptor.Generation.Generator.selectionDialog">
@@ -69,7 +60,7 @@
             moment.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Generation.Generator.Start(Palladio.QoSAdaptor.Pattern.IPatternDescription,System.String)">
+        <member name="M:Palladio.QoSAdaptor.Generation.Generator.Start(Palladio.QoSAdaptor.Pattern.IPatternDescription)">
             <summary>
             Starts the generation process for the given pattern. The user is 
             asked whether the adaptor or one of the prediction models shall be
@@ -78,8 +69,6 @@
             </summary>
             <param name="pattern">The PatternDescription of the patttern for 
             which artifacts are to be generated.</param>
-            <param name="configurationPath">The path of the CodeSmith 
-            configuration file.</param>
         </member>
         <member name="M:Palladio.QoSAdaptor.Generation.Generator.#ctor">
             <summary>

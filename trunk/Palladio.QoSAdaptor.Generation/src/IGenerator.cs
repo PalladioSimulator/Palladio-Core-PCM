@@ -33,10 +33,6 @@ namespace Palladio.QoSAdaptor.Generation
 		/// </summary>
 		/// <param name="pattern">The PatternDescription of the pattern for 
 		/// which artifacts are to be generated.</param>
-		/// <param name="configurationPath">The path of the CodeSmith 
-		/// configuration file.</param>
-		/// 
-		/// TODO: Remove configurationPath and use standard path name?
-		bool Start(IPatternDescription pattern, string configurationPath);
+		bool Start(IPatternDescription pattern);
 	}
 }

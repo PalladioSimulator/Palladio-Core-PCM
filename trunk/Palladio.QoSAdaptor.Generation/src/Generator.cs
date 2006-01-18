@@ -43,11 +43,6 @@ namespace Palladio.QoSAdaptor.Generation
 		private IPatternDescription pattern;
 
 		/// <summary>
-		/// The path of the CodeSmith configuration file for this.pattern.
-		/// </summary>
-		private string configurationPath;
-
-		/// <summary>
 		/// The GUI used for user selection of artifacts.
 		/// </summary>
 		private SelectionDialog selectionDialog;
@@ -88,21 +83,13 @@ namespace Palladio.QoSAdaptor.Generation
 		/// </summary>
 		/// <param name="pattern">The PatternDescription of the patttern for 
 		/// which artifacts are to be generated.</param>
-		/// <param name="configurationPath">The path of the CodeSmith 
-		/// configuration file.</param>
-		public bool Start(IPatternDescription pattern, string configurationPath)
+		public bool Start(IPatternDescription pattern)
 		{
 			this.pattern = pattern;
-			this.configurationPath = configurationPath;
 			this.generated = false;
 
 			this.selectionDialog = new SelectionDialog(this.pattern, this);
 			Application.Run(this.selectionDialog);
-			// TODO: Create GUI to choose the adaptor or one of the 
-			// prediction models or end the generation.
-
-			// TODO: Start CodeSmith to generate the source code and copy the 
-			// source code to the correct location (Use Config.PatternFolder).
 
 			return this.generated;
 		}
@@ -230,7 +217,9 @@ namespace Palladio.QoSAdaptor.Generation
 			}
 			catch (Win32Exception e)
 			{
-				MessageBox.Show(e.Message);
+				MessageBox.Show("External application CodeSmith could not be"+
+					" started. Perhaps it is not included in the system "+
+					"path. \n\n"+e.Message);
 			}
 		}
 
