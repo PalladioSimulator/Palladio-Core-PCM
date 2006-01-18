@@ -18,6 +18,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #endregion
 
+using System;
 using Palladio.QoSAdaptor.Control;
 using System.IO;
 using Palladio.QoSAdaptor.Enumerations;
@@ -42,18 +43,74 @@ namespace Palladio.QoSAdaptor.Starter
 
 			IInterfaceModelSpecification requiredSpecification = null;
 			IInterfaceModelSpecification providedSpecification = null;
+	
+			string requiredFileName;
+			string providedFileName;
 
-			// TODO: Exception handling
-			StreamReader requiredReader = new StreamReader(new FileStream
-				(args[0], System.IO.FileMode.Open));
-			requiredSpecification = comparator.CreateQMLSpecification(
-				requiredReader);
+			try
+			{
+				requiredFileName = args[0];
+				providedFileName = args[1];
+			}
+			catch (Exception)
+			{
+				Console.WriteLine("The filenames of the QML specifications "+
+					"of the required and the provided interfaces have to be "+
+					"given as parameters.");
+				return;
+			}
+
+			StreamReader requiredReader;
+			StreamReader providedReader;
+
+			try
+			{
+				requiredReader = new StreamReader(new FileStream
+					(requiredFileName, System.IO.FileMode.Open));
+			}
+			catch (Exception)
+			{
+				Console.WriteLine(requiredFileName+" could not be opened.");
+				return;
+			}
+			try
+			{
+				providedReader = new StreamReader(new FileStream
+					(providedFileName, System.IO.FileMode.Open));
+			}
+			catch (Exception)
+			{
+				Console.WriteLine(requiredFileName+" could not be opened.");
+				return;
+			}
+
+			try
+			{
+				requiredSpecification = comparator.CreateQMLSpecification(
+					requiredReader);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("The internal representation of the "+
+					"required QML specification could not be created.\n\n"+
+					e.Message);
+				return;
+			}
+
+			try
+			{
+				providedSpecification = comparator.CreateQMLSpecification(
+					providedReader);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("The internal representation of the "+
+					"required QML specification could not be created.\n\n"+
+					e.Message);
+				return;
+			}
+			
 			requiredReader.Close();
-
-			StreamReader providedReader = new StreamReader(new FileStream
-				(args[1], System.IO.FileMode.Open));
-			providedSpecification = comparator.CreateQMLSpecification(
-				providedReader);
 			providedReader.Close();
 
 			IController controller = new Controller();
