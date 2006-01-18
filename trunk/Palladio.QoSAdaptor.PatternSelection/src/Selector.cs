@@ -32,7 +32,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 	/// </summary>
 	public class Selector : ISelector
 	{
-		#region data
+		#region attributes
 		/// <summary>
 		/// Hashmap that contains all mismatches and a list of patterns for 
 		/// each mismatch that is able to correct the mismatch.
