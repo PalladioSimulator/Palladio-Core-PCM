@@ -51,14 +51,15 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// and the clients.
 		/// </summary>
 		public ConcurrentClientScenario(int numberOfClients, int numberOfCalls,
-			double writeProbability)
+			double writeProbability, double repetitionProbability)
 		{
 			//Service service = new Service();
 			ServiceCacheAdaptor service = new ServiceCacheAdaptor();
 			//ServiceReplicationAdaptor service = new ServiceReplicationAdaptor();
 			clients = new ArrayList();
 			for (int i=0; i<numberOfClients; i++)
-				clients.Add(new Client(service, numberOfCalls, writeProbability));
+				clients.Add(new Client(service, numberOfCalls, 
+					writeProbability, repetitionProbability));
 		}
 		#endregion
 	

@@ -50,6 +50,12 @@ namespace Palladio.QoSAdaptor.Measurement
 		private int numberOfCalls;
 
 		/// <summary>
+		/// The probability that the current call uses the same resource as 
+		/// the previous call.
+		/// </summary>
+		private double repetitionProbability;
+
+		/// <summary>
 		/// The probability that the client executes a writing call.
 		/// </summary>
 		private double writeProbability;
@@ -91,17 +97,18 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// execute.</param>
 		/// <param name="writeProbability">The probability of a writing call.
 		/// </param>
-		//public Client (ServiceReplicationAdaptor service, int numberOfCalls, double writeProbability)
-		public Client (ServiceCacheAdaptor service, int numberOfCalls, double writeProbability)
-		//public Client (Service service, int numberOfCalls, double writeProbability)
+		//public Client (ServiceReplicationAdaptor service, int numberOfCalls, double writeProbability, double repetitionProbability)
+		public Client (ServiceCacheAdaptor service, int numberOfCalls, double writeProbability, double repetitionProbability)
+		//public Client (Service service, int numberOfCalls, double writeProbability, double repetitionProbability)
 		{
 			this.service = service;
 			this.numberOfCalls = numberOfCalls;
 			this.writeProbability = writeProbability;
+			this.repetitionProbability = repetitionProbability;
 
-			this.indexRandomizer = new Random(this.GetHashCode());
-			this.sleepRandomizer = new Random(this.GetHashCode()+1);
-			this.writeRandomizer = new Random(this.GetHashCode()+2);
+			this.indexRandomizer = new Random();
+			this.sleepRandomizer = new Random();
+			this.writeRandomizer = new Random();
 			this.timer = new HiResTimer();
 		}
 		#endregion
@@ -126,9 +133,12 @@ namespace Palladio.QoSAdaptor.Measurement
 		/// </summary>
 		public void Start ()
 		{
+			int resource = 0;
 			for (int i = 0; i<numberOfCalls; i++)
 			{
-				this.timer.Start();
+				int repetitionValue = this.writeRandomizer.Next(1,1001);
+				if (repetitionValue > (this.repetitionProbability *1000))
+					resource = this.indexRandomizer.Next(0, 99);		
 				// 1001 has been taken as max, because the the maximum value 
 				// seems not be taken as return value, but the min value
 				// may can appear (This has been tested with 1000 calls).
@@ -143,10 +153,11 @@ namespace Palladio.QoSAdaptor.Measurement
 					// also happens in the measured time.
 					/*this.service = (Service)Activator.GetObject(typeof(Service),
 						"tcp://localhost:8085/TestService");*/
-					this.service.Set(this.indexRandomizer.Next(0, 99), 1);
+					this.timer.Start();
+					this.service.Set(resource, 1);
+					ulong timerStop =  this.timer.Stop();
 					clientLogger.Debug(string.Format("Client {0}\t{1}\t{2}\t{3}",
-						this.GetHashCode(), "Write", DateTime.Now, 
-						this.timer.Stop()));
+						this.GetHashCode(), "Write", DateTime.Now, timerStop));
 				}
 				else
 				{
@@ -156,10 +167,11 @@ namespace Palladio.QoSAdaptor.Measurement
 					// also happens in the measured time.
 					/*this.service = (Service)Activator.GetObject(typeof(Service),
 						"tcp://localhost:8085/TestService");*/
-					this.service.Get(this.indexRandomizer.Next(0, 99));
+					this.timer.Start();
+					this.service.Get(resource);
+					ulong timerStop = this.timer.Stop();
 					clientLogger.Debug(string.Format("Client {0}\t{1}\t{2}\t{3}",
-						this.GetHashCode(), "Read", DateTime.Now, 
-						this.timer.Stop()));
+						this.GetHashCode(), "Read", DateTime.Now, timerStop));
 				}
 				
 				Thread.Sleep(this.sleepRandomizer.Next(0,100));

@@ -22,6 +22,12 @@
             Indicates how many service calls shall be executed by the client.
             </summary>
         </member>
+        <member name="F:Palladio.QoSAdaptor.Measurement.Client.repetitionProbability">
+            <summary>
+            The probability that the current call uses the same resource as 
+            the previous call.
+            </summary>
+        </member>
         <member name="F:Palladio.QoSAdaptor.Measurement.Client.writeProbability">
             <summary>
             The probability that the client executes a writing call.
@@ -52,7 +58,7 @@
             log4net logger that writes all response times to the main memory.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Measurement.Client.#ctor(Palladio.QoSAdaptor.CacheAdaptor.ServiceCacheAdaptor,System.Int32,System.Double)">
+        <member name="M:Palladio.QoSAdaptor.Measurement.Client.#ctor(Palladio.QoSAdaptor.CacheAdaptor.ServiceCacheAdaptor,System.Int32,System.Double,System.Double)">
             <summary>
             Constructs a new Client object and initialises all attributes.
             </summary>
@@ -91,7 +97,7 @@
             A list of clients used for measurement.
             </summary>
         </member>
-        <member name="M:Palladio.QoSAdaptor.Measurement.ConcurrentClientScenario.#ctor(System.Int32,System.Int32,System.Double)">
+        <member name="M:Palladio.QoSAdaptor.Measurement.ConcurrentClientScenario.#ctor(System.Int32,System.Int32,System.Double,System.Double)">
             <summary>
             Constructs a ConcurrentClientScenario and initialises the service 
             and the clients.

@@ -45,11 +45,14 @@ namespace Palladio.QoSAdaptor.Measurement
 			int numberOfClients;
 			int numberOfCalls;
 			double writeProbability;
+			double repetitionProbability = 0;
 			try
 			{
 				numberOfClients = Int32.Parse(args[0]);
 				numberOfCalls = Int32.Parse(args[1]);
 				writeProbability = Double.Parse(args[2]);
+				if (args.Length >= 4)
+					repetitionProbability = Double.Parse(args[3]);
 			}
 			catch (Exception)
 			{
@@ -78,14 +81,21 @@ namespace Palladio.QoSAdaptor.Measurement
 				return;
 			}
 
+			if ((repetitionProbability < 0 || repetitionProbability > 1))
+			{
+				Console.WriteLine("The repetition probability has to be "+
+					"between  0 and 1.");
+				return;
+			}
 
 			ConcurrentClientScenario scenario = 
 				new ConcurrentClientScenario(numberOfClients, numberOfCalls, 
-					writeProbability);
+					writeProbability, repetitionProbability);
 			scenario.Start();
 			MemoryAppender2File("response_times_"+numberOfClients+
 									"_clients_"+numberOfCalls+"_calls_"+
-									"WP="+writeProbability+".log");
+									"WP="+writeProbability+
+									"_RP="+repetitionProbability+".log");
 		}
 
 		/// <summary>
