@@ -31,14 +31,27 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	public class QMLContractExpression :IQMLVisitable
 	{
 		#region attributes
+		/// <summary>
+		/// The type of this contract expression
+		/// </summary>
 		private string type;
-		// The name of the contract expression should be the name of the 
-		// corresponding QoS aspect. Else a mapping would be necessary for the
-		// mismatch search.
+		
+		/// <summary>
+		/// The name of the contract expression. Should be the name of the 
+		/// corresponding quality attribute. Else a mapping would be necessary for the
+		/// mismatch search.
+		/// </summary>
 		private string name;
+
+		/// <summary>
+		/// A list of simple constraints of this expression
+		/// </summary>
 		private ArrayList simpleConstraints;
+
+		/// <summary>
+		/// A list of aspect constraints of this expression
+		/// </summary>
 		private ArrayList aspectConstraints;
-		// TODO: hold both in one constraint list???
 		#endregion
 
 		#region properties

@@ -26,7 +26,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
 	/// Represents a QML simple constraint.
-	/// TODO: Inherit from superclass/interface QMLConstraint?
 	/// </summary>
 	public class QMLSimpleConstraint : IQMLVisitable
 	{

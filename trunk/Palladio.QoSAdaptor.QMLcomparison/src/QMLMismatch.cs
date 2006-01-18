@@ -30,7 +30,7 @@ namespace Palladio.QoSAdaptor.QMLComparison
 	/// </summary>
 	public class QMLMismatch : IMismatch
 	{
-		#region data
+		#region attributes
 		/// <summary>
 		/// The interface for which a mismatch occurred.
 		/// </summary>

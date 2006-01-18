@@ -40,9 +40,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 	/// Some of the methods of the IQMLSpecificationVisitor interface are not 
 	/// implemented, because the corresponding classes are not needed for the 
 	/// mismatch search. A NotImplementedException is thrown instead.
-	/// 
-	/// TODO: exception handling, when the Current Property of the 
-	/// providedVisitor is used.
 	/// </summary>
 	internal class QMLRequiredSpecificationCompleteCopingVisitor : 
 		IQMLSpecificationVisitor

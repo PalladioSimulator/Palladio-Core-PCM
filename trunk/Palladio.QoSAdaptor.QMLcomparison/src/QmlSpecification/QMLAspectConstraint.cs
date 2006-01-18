@@ -27,12 +27,18 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
 	/// Represents a QML aspect constraint.
-	/// TODO: Inherit from superclass/interface QMLConstraint?
 	/// </summary>
 	public class QMLAspectConstraint : IQMLVisitable
 	{
 		#region attributes
+		/// <summary>
+		/// The name of the aspect constraint
+		/// </summary>
 		private string name;
+
+		/// <summary>
+		/// A list of aspects (IQMLStatConstraint objects)
+		/// </summary>
 		private ArrayList statConstraints;
 		#endregion
 

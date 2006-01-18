@@ -30,8 +30,15 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// </summary>
 	public class QMLEntity
 	{
-		#region data
+		#region attributes
+		/// <summary>
+		/// The type of this entity.
+		/// </summary>
 		private int type;
+
+		/// <summary>
+		/// The name of this entity.
+		/// </summary>
 		private string name;
 		#endregion
 

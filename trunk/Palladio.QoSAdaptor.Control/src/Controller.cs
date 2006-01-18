@@ -117,9 +117,6 @@ namespace Palladio.QoSAdaptor.Control
 			{
 				if (mismatches.Count > 0)
 				{
-					// TODO: Loop selection, configuration and generation until it
-					// is aborted by the user.
-
 					// Pattern selection
 					IPatternDescription selectedPattern = SelectPattern(mismatches, 
 						interfaceModel,
@@ -128,11 +125,6 @@ namespace Palladio.QoSAdaptor.Control
 				
 					if (selectedPattern != null)
 					{
-						// Pattern configuration
-						// TODO: Use Palladio.QoSAdaptor.Configuration instead of the 
-						// CodeSmith configuration interfaced currently used in  
-						// Palladio.QoSAdaptor.Generation
-
 						// Generation
 						IGenerator generator = new Generator();
 						bool generated = generator.Start(selectedPattern, null);
@@ -224,10 +216,7 @@ namespace Palladio.QoSAdaptor.Control
 			Hashmap mismatchSolvingPatterns = strategy.PreselectPatterns(
 				mismatches, patterns);
 
-			// Selection of patterns by the user and configuration and 
-			// generation using CodeSmith
-			// TODO: Use self-implemented PatternConfiguration.
-			// Run the GUI with the given patterns.
+			// Run the GUI for user selection with the given patterns.
 			ISelector selector = new Selector();
 			return selector.StartSelection(mismatchSolvingPatterns, 
 				requiredSpecification, providedSpecification);
@@ -449,7 +438,6 @@ namespace Palladio.QoSAdaptor.Control
 							assemblyName, predictionModel.IsExecutable);
 					}
 				}
-				// TODO: else throw exception
 			}
 		}
 		#endregion

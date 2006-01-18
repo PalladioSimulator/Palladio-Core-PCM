@@ -33,8 +33,11 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// </summary>
 	public class QMLValueLiteral
 	{
-		#region data
-		// The type value is specified in QMLParser.QMLTokenTypes
+		#region attributes
+		/// <summary>
+		/// The type of this value literal. The type value is 
+		/// specified in QMLParser.QMLTokenTypes
+		/// </summary>
 		private int type;
 		private double numberValue;
 		private string nameValue;

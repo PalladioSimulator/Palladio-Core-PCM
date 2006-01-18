@@ -79,11 +79,7 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 				else if (child.getText().Equals("contrDecl"))
 					this.contracts.Add(new QMLContract(child));
 				else if (child.getText().Equals("profileDecl"))
-				{
 					this.profiles.Add(new QMLProfile(child, this));
-					// TODO: check if the profile contains contracts not yet
-					// listed in this.contracts and add them.
-				}
 				child = child.getNextSibling();
 			}
 		}

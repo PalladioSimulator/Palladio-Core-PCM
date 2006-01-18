@@ -103,8 +103,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 		/// <summary>
 		/// Searches for mismatches between required and provided percentile
 		/// definitions.
-		/// 
-		/// TODO: Formalise mismatch details?
 		/// </summary>
 		/// <param name="providedPercentiles">ArrayList of 
 		/// QMLPercentileAspects of the provided interface.</param>

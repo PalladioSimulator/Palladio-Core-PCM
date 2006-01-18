@@ -28,7 +28,10 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 	/// </summary>
 	public class QMLUnit
 	{
-		#region data
+		#region attributes
+		/// <summary>
+		/// The string representing this QMLUnit.
+		/// </summary>
 		private string unitString;
 		#endregion
 

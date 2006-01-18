@@ -66,10 +66,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		/// </param>
 		public QMLContract(AST contract)
 		{
-			// TOD0: Is a identity default name necessary, if the contract is
-			// unnamed, e.g. in a profile declaration ???
-			// TODO: take the functionality of QMLContractExpression into this
-			// class ???
 			// check if the AST has the correct root node
 			if (!contract.getText().Equals("contrDecl"))
 				throw new QMLSpecificationConstructionException
