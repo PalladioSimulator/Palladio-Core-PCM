@@ -279,15 +279,6 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:Palladio.QoSAdaptor.PatternSelection.Selector.ChoosePattern(System.String)">
-            <summary>
-            This is a helper method for generator_Click which
-            chooses the selected pattern and calls another
-            functions to open the corresponding templates.
-            </summary>
-            <param name="buttonName">The name of the selected 
-            radio button.</param>
-        </member>
         <member name="T:Palladio.QoSAdaptor.PatternSelection.TextWindow">
             <summary>
             Creates a new window including a text box.

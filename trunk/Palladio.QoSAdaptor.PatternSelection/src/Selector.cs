@@ -126,7 +126,6 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			}
 		}
 
-
 		/// <summary>
 		/// This method is called, when a generator button has 
 		/// been clicked. 
@@ -145,7 +144,8 @@ namespace Palladio.QoSAdaptor.PatternSelection
 				if (rButton.Checked)
 				{
 					check = true;
-					ChoosePattern(rButton.Name);
+					this.selectedPattern = (IPatternDescription)rButton.Tag;
+					this.selectionDialog.Close();
 				}
 			}
 			if (!check)
@@ -174,36 +174,6 @@ namespace Palladio.QoSAdaptor.PatternSelection
 				TextWindow textWindow = new TextWindow(buttonName, 
 					this.providedSpecification);
 				textWindow.Show();
-			}
-		}
-		#endregion
-
-		#region private methods
-		/// <summary>
-		/// This is a helper method for generator_Click which
-		/// chooses the selected pattern and calls another
-		/// functions to open the corresponding templates.
-		/// </summary>
-		/// <param name="buttonName">The name of the selected 
-		/// radio button.</param>
-		private void ChoosePattern(string buttonName)
-		{
-			bool breakLoop = false;
-			foreach (IMismatch mismatch in this.mismatchSolvingPatterns.Keys)
-			{
-				foreach (IPatternDescription pattern in 
-					(IList)this.mismatchSolvingPatterns[mismatch])
-				{
-					if (pattern.Name.Equals(buttonName))
-					{
-						this.selectedPattern = pattern;
-						this.selectionDialog.Close();
-					}
-				}
-				// prevent that the DetailView is opened twice, because two
-				// mismatches can be corrected by the same pattern.
-				if (breakLoop)
-					break;
 			}
 		}
 		#endregion

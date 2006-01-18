@@ -263,6 +263,7 @@ namespace Palladio.QoSAdaptor.PatternSelection
 				rbutton.Name = name;
 				rbutton.TabIndex = tabCounter;
 				rbutton.Text = pattern.Name;
+				rbutton.Tag = pattern;
 				this.rButtons.Add(rbutton);	
 				tabCounter++;
 
