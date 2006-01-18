@@ -74,11 +74,7 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 			this.value = child.getText();
 
 			child = child.getNextSibling();
-			if (child.Type == QMLParser.NUMOP_EQUAL ||
-				child.Type == QMLParser.NUMOP_GTE ||
-				child.Type == QMLParser.NUMOP_GTHAN ||
-				child.Type == QMLParser.NUMOP_LTE ||
-				child.Type == QMLParser.NUMOP_LTHAN)
+			if (NumericOperatorHelper.IsNumericOperator(child.Type))
 				this.numericOperator = child.Type;
 			else 
 				throw new QMLSpecificationConstructionException
@@ -115,24 +111,8 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		public override string ToString()
 		{
 			string s = "frequency "+this.value+" ";
-			switch (this.numericOperator)
-			{
-				case QMLParser.NUMOP_GTE:
-					s += ">=";
-					break;
-				case QMLParser.NUMOP_GTHAN:
-					s += ">";
-					break;
-				case QMLParser.NUMOP_LTHAN:
-					s += "<";
-					break;
-				case QMLParser.NUMOP_LTE:
-					s += "<=";
-					break;
-				case QMLParser.NUMOP_EQUAL:
-					s += "==";
-					break;
-			}
+			s += NumericOperatorHelper.NumericOperatorToString(
+				this.numericOperator);
 			s += " "+this.percentile+" %;";
 			return s;
 		}
