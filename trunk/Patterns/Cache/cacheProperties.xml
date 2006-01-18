@@ -13,7 +13,7 @@
 		<property name="DataType">int</property>
 		<property name="IndexType">int</property>
 		<property name="AdaptorNamespace">Palladio.QoSAdaptor.CacheAdaptor</property>
-		<property name="CacheSize">100</property>
+		<property name="CacheSize">10</property>
 		<property name="EvictionStrategy">LRU</property>
 		<property name="ConsistencyStrategy">WriteBack</property>
 	</propertySet>
