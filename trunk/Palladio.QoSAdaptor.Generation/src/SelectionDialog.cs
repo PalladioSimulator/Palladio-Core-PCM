@@ -19,6 +19,7 @@
 #endregion
 
 using System.Collections;
+using System.Drawing;
 using System.Windows.Forms;
 using Palladio.QoSAdaptor.Pattern;
 
@@ -192,6 +193,7 @@ namespace Palladio.QoSAdaptor.Generation
 			CheckBox box = new CheckBox();
 			box.Location = new System.Drawing.Point(25, 
 				(25+(this.counter*10)));
+			box.Size = new Size(200, 24);
 			box.Name = name;
 			box.TabIndex = tabCounter;
 			box.Text = text;
