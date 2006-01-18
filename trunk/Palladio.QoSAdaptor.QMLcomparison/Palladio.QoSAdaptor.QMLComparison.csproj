@@ -129,6 +129,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "src\QmlSpecification\NumericOperatorHelper.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "src\QmlSpecification\QMLAspectConstraint.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

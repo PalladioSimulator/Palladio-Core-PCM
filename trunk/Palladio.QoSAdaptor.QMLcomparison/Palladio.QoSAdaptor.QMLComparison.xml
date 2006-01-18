@@ -74,6 +74,14 @@
             </summary>
             <returns>QML aspect constraint.</returns>
         </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.GetStatConstraint(antlr.collections.AST)">
+            <summary>
+            Creates stat constraint objects from the given AST. 
+            </summary>
+            <param name="constraintAST">AST representing an 
+            IQMLStatConstraint</param>
+            <returns>The created IQMLStatConstraint</returns>
+        </member>
         <member name="P:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLAspectConstraint.Name">
             <summary>
             Returns the name (QoS aspect) of this QMLAspectConstraint
@@ -2434,6 +2442,29 @@
             specification</param>
             <returns>A QMLSpecification object that equals the given 
             specification.</returns>
+        </member>
+        <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.NumericOperatorHelper">
+            <summary>
+            This class encapsulates helper function for the numeric operator 
+            constants of the QMLParser.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.NumericOperatorHelper.NumericOperatorToString(System.Int32)">
+            <summary>
+            Provides the string representations of the numeric operator 
+            constants of the QMLParser. This static method is included in 
+            this class, because it is used in the aspect and simple 
+            constraint classes which are only used by this class.
+            </summary>
+        </member>
+        <member name="M:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.NumericOperatorHelper.IsNumericOperator(System.Int32)">
+            <summary>
+            Decides whether the given int is a legal numeric operator.
+            </summary>
+            <param name="numericOperator">The numeric operator constant.
+            </param>
+            <returns>True, if the given constant is a numeric operator. 
+            Else false.</returns>
         </member>
     </members>
 </doc>

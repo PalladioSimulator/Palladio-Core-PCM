@@ -130,8 +130,7 @@ namespace Palladio.QoSAdaptor.QMLComparison
 			parser.declarations();
 
 			QMLSpecification specification = new QMLSpecification(
-				(AST)parser.getAST());
-
+			(AST)parser.getAST());
 			return specification;
 		}
 		#endregion
