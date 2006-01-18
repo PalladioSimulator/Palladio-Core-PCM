@@ -491,7 +491,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 				}
 				else
 				{
-					// TODO: check contracts for missing attributes.
 					foreach (QMLContract providedContract in 
 						providedContracts)
 					{

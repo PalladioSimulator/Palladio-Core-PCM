@@ -28,8 +28,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 {
 	/// <summary>
 	/// Represents a value literal.
-	/// 
-	/// TODO: Use polymorphy instead of different types in this class?
 	/// </summary>
 	public class QMLValueLiteral
 	{
@@ -199,8 +197,7 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 							return true;
 						break;
 					case QMLTokenTypes.NAME_LIST:
-						// TODO: implement
-						// TODO: Are name lists ordered ???
+						// not implemented
 						break;
 					default:
 						throw new Exception("Error on QMLValueLiteral.Equals."+

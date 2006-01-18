@@ -23,6 +23,8 @@
 namespace Palladio.QoSAdaptor.Measurement
 {
 	/// <summary>
+	/// This scenario is no longer used. Starting the ConcurrentClientScenario
+	/// with 1 client will have the same effect.
 	/// </summary>
 	public class SingleClientScenario
 	{

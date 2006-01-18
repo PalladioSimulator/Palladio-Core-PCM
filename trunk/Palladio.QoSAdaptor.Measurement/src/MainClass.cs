@@ -27,7 +27,6 @@ namespace Palladio.QoSAdaptor.Measurement
 {
 	/// <summary>
 	/// Starts a measurement scenario.
-	/// TODO: Let all scenarios implement the same interface.
 	/// </summary>
 	public class MainClass
 	{

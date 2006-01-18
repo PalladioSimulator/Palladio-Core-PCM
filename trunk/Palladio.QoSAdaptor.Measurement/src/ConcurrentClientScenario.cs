@@ -30,11 +30,6 @@ namespace Palladio.QoSAdaptor.Measurement
 	/// Implementation of a simple measurement scenario with multiple clients 
 	/// to examine the behaviour of the system when multiple clients call the 
 	/// system concurrently.
-	/// TODO: Implement clients that wait for a random time between the calls
-	/// to get more realistic results.
-	/// TODO: Log details about the resources the clients request to see if 
-	/// the cache works properly. 
-	/// TODO: Implement remote clients.
 	/// </summary>
 	public class ConcurrentClientScenario
 	{

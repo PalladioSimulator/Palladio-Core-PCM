@@ -77,7 +77,7 @@ namespace Palladio.QoSAdaptor.QMLComparison
 
 
 			/*
-			// TODO: catch and throw exceptions
+			// TODO: catch exceptions
 			FileStream fileStream = new FileStream(args[0], System.IO.FileMode.Open);
 			StreamReader sr = new StreamReader(fileStream);
 

@@ -54,7 +54,6 @@ namespace Palladio.QoSAdaptor.PatternConfiguration
 		/// </summary>
 		private string type;
 
-		// TODO: Find another word for "instances"
 		/// <summary>
 		/// The minimum number of instances of this feature
 		/// </summary>

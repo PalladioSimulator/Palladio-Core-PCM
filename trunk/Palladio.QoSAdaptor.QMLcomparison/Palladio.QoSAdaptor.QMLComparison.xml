@@ -1089,8 +1089,6 @@
         <member name="T:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral">
             <summary>
             Represents a value literal.
-            
-            TODO: Use polymorphy instead of different types in this class?
             </summary>
         </member>
         <member name="F:Palladio.QoSAdaptor.QMLComparison.QmlSpecification.QMLValueLiteral.type">

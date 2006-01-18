@@ -7,8 +7,6 @@ namespace Palladio.QoSAdaptor.Compiler
 	/// <summary>
 	/// The C# compiler interfaces provided by the Palladio.QoSAdaptor.Compiler
 	/// component. 
-	/// 
-	/// TODO: Describe usage protocol.
 	/// </summary>
 	public interface ICSharpCompiler
 	{
@@ -39,7 +37,9 @@ namespace Palladio.QoSAdaptor.Compiler
 		StringCollection ImportedDlls {get; set;}
 
 		/// <summary>
-		/// Starts the compilation process.
+		/// Starts the compilation process. Before this method is called, 
+		/// the files to compile have to be set and the needed dll and other
+		/// needed compiler parameters have to be set.
 		/// </summary>
 		/// <returns>The results of the compilation.</returns>
 		CompilerResults Compile();

@@ -156,14 +156,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 			IAspectConstraintMismatchSearchStrategy strategy = new 
 				AspectConstraintMismatchSearchPercentilesUpperBorderStrategy();
 
-			// TODO: add dimension order ?
-			// TODO: get contractType for current contract of required and 
-			// provided. Get contractType from specification.contractTypes or
-			// from Requirement clause.
-
-			// TODO: Get dimension order for required and provided
-			//QMLDimensionType.DimensionOrder requiredOrder = 
-
 			string mismatchDetails = strategy.FindAspectConstraintMismatches(
 				aspectConstraint, providedConstraint);
 
@@ -386,8 +378,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 				foreach (QMLContract providedContract in 
 					providedRequirementClause.Contracts)
 				{
-					// TODO: Source this out to QMLContract and 
-					// QMLContractExpression
 					if (contract.ContractExpression.Name.Equals(
 						providedContract.ContractExpression.Name))
 					{

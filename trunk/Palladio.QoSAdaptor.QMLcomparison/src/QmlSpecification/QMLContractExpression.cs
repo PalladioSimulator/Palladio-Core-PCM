@@ -102,7 +102,7 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 				throw new QMLSpecificationConstructionException
 					("Illegal node type in constructor QMLContractExpression. "
 					+"Note: Refinement is not supported yet");
-			// TODO: implement refinement
+			// refinement of contracts is not implemented
 			this.type = "contract";
 			AST child = contractExpression.getFirstChild();
 			this.name = child.getText();

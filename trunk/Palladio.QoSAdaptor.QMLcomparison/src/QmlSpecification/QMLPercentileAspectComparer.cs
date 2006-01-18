@@ -40,7 +40,6 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecification
 		/// if aspect1 is bigger than aspect2.</returns>
 		public int Compare (object aspect1, object aspect2)
 		{
-			// TODO: Throw exception if the aspects have the wrong type
 			return ((QMLPercentileAspect)aspect1).Compare(
 				(QMLPercentileAspect)aspect2);
 		}
