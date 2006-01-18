@@ -22,10 +22,6 @@ namespace Palladio.QoSAdaptor.Interfaces
 {
 	/// <summary>
 	/// Represents a mismatch between two interface model descriptions. 
-	/// 
-	/// TODO: Find similarities between the interface model mismatches. 
-	/// TODO: How can details about the mismatches as percentiles in an 
-	///			QML specification be modelled commonly???
 	/// </summary>
 	public interface IMismatch
 	{

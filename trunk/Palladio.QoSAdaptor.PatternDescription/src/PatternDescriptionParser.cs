@@ -233,7 +233,6 @@ namespace Palladio.QoSAdaptor.Pattern
 		/// </returns>
 		private SuitabilityValue ConvertSuitability(string suitability)
 		{
-			// TODO: Change default value?
 			SuitabilityValue convertedSuitability = SuitabilityValue.UNKNOWN;
 			if (suitability.Equals("++"))
 				convertedSuitability = SuitabilityValue.PLUSPLUS;

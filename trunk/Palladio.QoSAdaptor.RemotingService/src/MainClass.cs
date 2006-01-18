@@ -39,8 +39,6 @@ namespace Palladio.QoSAdaptor.RemotingService
 			Service service = new Service();
 
 			RemotingConfiguration.RegisterWellKnownServiceType
-				// TODO: Why does Type.GetType not work???
-				//(Type.GetType("Palladio.QoSAdaptor.TestService.Service,object"), 
 				(service.GetType(),
 				"TestService", WellKnownObjectMode.Singleton);
 			System.Console.WriteLine("Hit <enter> to exit...");

@@ -28,9 +28,6 @@ namespace Palladio.QoSAdaptor.Pattern
 	/// suitability describes the suitability of the pattern to
 	/// solve a problem with the subattribute referred to by 
 	/// name. 
-	/// 
-	/// TODO: Is the classification of attributes and subattributes also 
-	/// usable for other interface models?
 	/// </summary>
 	internal class MismatchSubAttribute : IMismatchSubAttribute
 	{

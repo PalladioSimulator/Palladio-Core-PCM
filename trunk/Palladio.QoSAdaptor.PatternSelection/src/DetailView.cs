@@ -120,7 +120,6 @@ namespace Palladio.QoSAdaptor.PatternSelection
 			// Add the ListView to the control collection.
 			this.Controls.Add(this.listView);
 			this.listView.Size = new System.Drawing.Size(675, 300);
-			// TODO: Change size dynamically
 			this.AutoScroll = true;
 			this.Size = new System.Drawing.Size(700, 350);
 		}

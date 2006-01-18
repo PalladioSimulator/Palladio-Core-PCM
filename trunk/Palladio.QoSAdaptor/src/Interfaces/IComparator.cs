@@ -37,13 +37,8 @@ namespace Palladio.QoSAdaptor.Interfaces
 		/// the considered interface model. It is thereby assumed, that every
 		/// interface model can be described in a text representation. 
 		/// 
-		/// TODO: Is this OK or should object be taken as parameter type?
-		/// 
 		/// It is furthermore assumed that the returned IList contains objects
 		/// of type IMismatch.
-		/// 
-		/// TODO: Introduce IMismatch -> Are there similarities of the 
-		/// mismatches of the different interface models?
 		/// </summary>
 		/// <param name="requiredSpecification">QML specification of the 
 		/// required interface.</param>

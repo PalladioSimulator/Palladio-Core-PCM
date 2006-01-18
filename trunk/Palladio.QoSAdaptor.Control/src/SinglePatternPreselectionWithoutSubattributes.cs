@@ -55,10 +55,6 @@ namespace Palladio.QoSAdaptor.Control
 			// should not contain duplicates.
 			foreach (IMismatch mismatch in mismatches)
 			{
-				// TODO: Use Strategy pattern and pattern selector ??? To 
-				// support future implementations for automatic pattern 
-				// preselection.
-
 				IList mismatchPatterns = new ArrayList();
 				string attribute = mismatch.MismatchAttribute;
 				// Find patterns that cover the mismatches and have a 

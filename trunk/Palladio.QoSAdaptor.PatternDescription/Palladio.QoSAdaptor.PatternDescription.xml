@@ -186,9 +186,6 @@
             suitability describes the suitability of the pattern to
             solve a problem with the attribute referred to by 
             name. 
-            
-            TODO: Is the classification of attributes and subattributes also 
-            usable for other interface models?
             </summary>
         </member>
         <member name="F:Palladio.QoSAdaptor.Pattern.MismatchAttribute.name">
@@ -261,9 +258,6 @@
             suitability describes the suitability of the pattern to
             solve a problem with the subattribute referred to by 
             name. 
-            
-            TODO: Is the classification of attributes and subattributes also 
-            usable for other interface models?
             </summary>
         </member>
         <member name="F:Palladio.QoSAdaptor.Pattern.MismatchSubAttribute.name">

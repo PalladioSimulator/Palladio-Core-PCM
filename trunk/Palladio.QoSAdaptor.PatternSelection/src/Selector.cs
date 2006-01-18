@@ -65,8 +65,6 @@ namespace Palladio.QoSAdaptor.PatternSelection
 		/// Starts the selection process, using a GUI where the user gets an 
 		/// overview over found mismatches and patterns that are able to 
 		/// correct these mismatches and returns a pattern chosen by the user. 
-		/// 
-		/// TODO: Use graphical representations of the specifications?
 		/// </summary>
 		/// <param name="mismatchSolvingPatterns">A hashmap containing 
 		/// mismatches and a list of PatternsDescriptions of patterns able to 
