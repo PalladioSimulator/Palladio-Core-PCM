@@ -6,13 +6,13 @@
         <assembly location=".\Palladio.QoSAdaptor.Measurement\bin\Debug\Palladio.QoSAdaptor.Measurement.exe" documentation=".\Palladio.QoSAdaptor.Measurement\Palladio.QoSAdaptor.Measurement.xml" />
         <assembly location=".\Palladio.QoSAdaptor.QMLcomparison\bin\Debug\Palladio.QoSAdaptor.QMLComparison.dll" documentation=".\Palladio.QoSAdaptor.QMLcomparison\Palladio.QoSAdaptor.QMLComparison.xml" />
         <assembly location=".\Palladio.QoSAdaptor.Compiler\bin\Debug\Palladio.QoSAdaptor.Compiler.dll" documentation=".\Palladio.QoSAdaptor.Compiler\Palladio.QoSAdaptor.Compiler.xml" />
-        <assembly location=".\Palladio.QoSAdaptor.PatternConfiguration\bin\Debug\Palladio.QoSAdaptor.PatternConfiguration.exe" documentation=".\Palladio.QoSAdaptor.PatternConfiguration\Palladio.QoSAdaptor.PatternConfiguration.xml" />
         <assembly location=".\Palladio.QoSAdaptor.Control\bin\Debug\Palladio.QoSAdaptor.Control.dll" documentation=".\Palladio.QoSAdaptor.Control\Palladio.QoSAdaptor.Control.xml" />
         <assembly location=".\Palladio.QoSAdaptor.Starter\bin\Debug\Palladio.QoSAdaptor.Starter.exe" documentation=".\Palladio.QoSAdaptor.Starter\Palladio.QoSAdaptor.Starter.xml" />
         <assembly location=".\Palladio.QoSAdaptor\bin\Debug\Palladio.QoSAdaptor.dll" documentation=".\Palladio.QoSAdaptor\Palladio.QoSAdaptor.xml" />
         <assembly location=".\Palladio.QoSAdaptor.QMLParser\bin\Debug\Palladio.QoSAdaptor.QMLParser.dll" documentation="" />
         <assembly location=".\Palladio.QoSAdaptor.UnitTests\bin\Debug\Palladio.QoSAdaptor.UnitTests.dll" documentation=".\Palladio.QoSAdaptor.UnitTests\Palladio.QoSAdaptor.UnitTests.xml" />
         <assembly location=".\Palladio.QoSAdaptor.Generation\bin\Debug\Palladio.QoSAdaptor.Generation.dll" documentation=".\Palladio.QoSAdaptor.Generation\Palladio.QoSAdaptor.Generation.xml" />
+        <assembly location=".\Palladio.QoSAdaptor.RemotingService\bin\Debug\Palladio.QoSAdaptor.RemotingService.exe" documentation="" />
     </assemblies>
     <documenters>
         <documenter name="JavaDoc">
