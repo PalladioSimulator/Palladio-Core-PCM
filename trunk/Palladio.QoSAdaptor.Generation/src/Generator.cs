@@ -66,12 +66,6 @@ namespace Palladio.QoSAdaptor.Generation
 		/// Shows if artifacts have been generated. 
 		/// </summary>
 		private bool generated;
-
-		/// <summary>
-		/// Indicates if external generation using CodeSmith is working at the
-		/// moment.
-		/// </summary>
-		private bool generationInProgress;
 		#endregion 
 
 		#region public methods
@@ -91,17 +85,10 @@ namespace Palladio.QoSAdaptor.Generation
 			this.selectionDialog = new SelectionDialog(this.pattern, this);
 			Application.Run(this.selectionDialog);
 
-			return this.generated;
-		}
-		#endregion
+			while (!this.generated)
+				Thread.Sleep(1000);
 
-		#region constructor
-		/// <summary>
-		/// Constructs a new generator and sets its initial attribute values.
-		/// </summary>
-		public Generator()
-		{
-			this.generationInProgress = false;
+			return this.generated;
 		}
 		#endregion
 
@@ -153,8 +140,8 @@ namespace Palladio.QoSAdaptor.Generation
 						"pattern in Palladio.QosAdaptor\\Patterns.");
 
 					OpenTemplates();
-					while (generationInProgress)
-						Thread.Sleep(1000);
+					//while (generationInProgress)
+					//	Thread.Sleep(1000);
 				}
 			}
 			
@@ -178,8 +165,6 @@ namespace Palladio.QoSAdaptor.Generation
 		/// </summary>
 		private void OpenTemplates()
 		{
-			this.generationInProgress = true;
-
 			IEnumerator enu = this.currentTemplates.GetEnumerator();
 			if (enu.MoveNext())
 			{
@@ -188,10 +173,7 @@ namespace Palladio.QoSAdaptor.Generation
 				this.currentTemplates.Remove(enu.Current);
 			}
 			else 
-			{
 				this.generated = true;
-				this.generationInProgress = false;
-			}
 		}
 
 		/// <summary>

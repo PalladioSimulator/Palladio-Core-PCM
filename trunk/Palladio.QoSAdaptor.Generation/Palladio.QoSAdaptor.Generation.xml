@@ -54,12 +54,6 @@
             Shows if artifacts have been generated. 
             </summary>
         </member>
-        <member name="F:Palladio.QoSAdaptor.Generation.Generator.generationInProgress">
-            <summary>
-            Indicates if external generation using CodeSmith is working at the
-            moment.
-            </summary>
-        </member>
         <member name="M:Palladio.QoSAdaptor.Generation.Generator.Start(Palladio.QoSAdaptor.Pattern.IPatternDescription)">
             <summary>
             Starts the generation process for the given pattern. The user is 
@@ -69,11 +63,6 @@
             </summary>
             <param name="pattern">The PatternDescription of the patttern for 
             which artifacts are to be generated.</param>
-        </member>
-        <member name="M:Palladio.QoSAdaptor.Generation.Generator.#ctor">
-            <summary>
-            Constructs a new generator and sets its initial attribute values.
-            </summary>
         </member>
         <member name="M:Palladio.QoSAdaptor.Generation.Generator.Generator_Click(System.Object,System.EventArgs)">
             <summary>
