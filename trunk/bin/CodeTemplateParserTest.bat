@@ -1,1 +1,1 @@
-..\Palladio.QoSAdaptor.PatternConfiguration\bin\Palladio.QoSAdaptor.PatternConfiguration.exe FD-Cache.xml
+..\Palladio.QoSAdaptor.PatternConfiguration\bin\Debug\Palladio.QoSAdaptor.PatternConfiguration.exe FD-Cache.xml
