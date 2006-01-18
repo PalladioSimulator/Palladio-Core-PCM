@@ -1,1 +1,0 @@
-..\Palladio.QoSAdaptor.Test\bin\Palladio.QoSAdaptor.Test.exe ..\Palladio.QoSAdaptor\Patterns\Cache\cache_pattern_description.xml ..\Palladio.QoSAdaptor\Patterns\Replication\replication_pattern_description.xml

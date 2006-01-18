@@ -1,1 +1,0 @@
-..\Palladio.QoSAdaptor.Test\bin\Palladio.QoSAdaptor.Test.exe cacheRequired.qml cacheProvided.qml
