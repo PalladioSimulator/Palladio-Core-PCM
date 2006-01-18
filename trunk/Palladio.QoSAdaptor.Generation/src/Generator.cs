@@ -85,8 +85,16 @@ namespace Palladio.QoSAdaptor.Generation
 			this.selectionDialog = new SelectionDialog(this.pattern, this);
 			Application.Run(this.selectionDialog);
 
+			// wait until all templates have been generated.
 			while (!this.generated)
 				Thread.Sleep(1000);
+
+			MessageBox.Show("All necessary templates have been generated."+
+				" The corresponding assemblies will be compiled now. They can"+
+				" then be found in the bin subfolder of the folder of the"+
+				" corresponding pattern in Palladio.QoSAdaptor\\Patterns."+
+				" The dll of the adapted service has to be located in the"+
+				" corresponding libs folder for compilation.");
 
 			return this.generated;
 		}
@@ -146,15 +154,10 @@ namespace Palladio.QoSAdaptor.Generation
 			}
 			
 			if (!check)
+			{
 				MessageBox.Show("No artifact has been chosen for generation.");
-			else
-				MessageBox.Show("All necessary templates have been generated."+
-					" The corresponding assemblies will be compiled now. They can"+
-					" then be found in the bin subfolder of the folder of the"+
-					" corresponding pattern in Palladio.QoSAdaptor\\Patterns."+
-					" The dll of the adapted service has to be located in the"+
-					" corresponding libs folder for compilation.");
-			this.selectionDialog.Close();
+				this.selectionDialog.GeneratorButton.Enabled = true;
+			}
 		}
 		#endregion
 
@@ -172,8 +175,11 @@ namespace Palladio.QoSAdaptor.Generation
 				StartCodeSmith(template);
 				this.currentTemplates.Remove(enu.Current);
 			}
-			else 
+			else
+			{
 				this.generated = true;
+				this.selectionDialog.Close();
+			}
 		}
 
 		/// <summary>
