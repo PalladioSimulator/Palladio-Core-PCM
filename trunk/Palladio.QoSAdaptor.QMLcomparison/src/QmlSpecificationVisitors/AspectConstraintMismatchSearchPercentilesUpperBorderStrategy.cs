@@ -32,6 +32,11 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 	public class AspectConstraintMismatchSearchPercentilesUpperBorderStrategy : 
 		IAspectConstraintMismatchSearchStrategy
 	{
+		#region constants
+		private const int UNEQUAL_OPERATOR = -1;
+		private const int EMPTY_LIST = -2;
+		#endregion
+
 		#region public methods
 		/// <summary>
 		/// Searches for mismatches between required and provided aspect
@@ -153,13 +158,13 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 							"QMLAspectConstraint.PercentilesMatch(). Numeric "+
 							"operator <= is not supported in the current "+
 							"implementation of mismatch search for percentiles.");
-					case -1:
+					case UNEQUAL_OPERATOR:
 						throw new QMLMismatchSearchException("Error in "+
 							"QMLAspectConstraint.PercentilesMatch(). In the "+
 							"current implementation of the mismatch search all "+
 							"percentiles of an aspect constraint have to have "+
 							"the same numeric operator.");
-					case -2:
+					case EMPTY_LIST:
 						throw new QMLMismatchSearchException("Error in "+
 							"QMLAspectConstraint.PercentilesMatch(). The given "+
 							"percentile lists are empty.");
@@ -236,29 +241,29 @@ namespace Palladio.QoSAdaptor.QMLComparison.QmlSpecificationVisitors
 		private int GetSharedNumericOperator (IList percentiles1, 
 			IList percentiles2)
 		{
-			int numericOperator = -2;
+			int numericOperator = EMPTY_LIST;
 			foreach (QMLPercentileAspect aspect in percentiles1)
 			{
 				// Set the initial value of numericOperator
-				if (numericOperator == -2)
+				if (numericOperator == EMPTY_LIST)
 					numericOperator = aspect.NumericOperator;
 				else if (numericOperator != aspect.NumericOperator)
 				{
-					numericOperator = -1;
+					numericOperator = UNEQUAL_OPERATOR;
 					break;
 				}
 			}
-			if (!(numericOperator == -1))
+			if (!(numericOperator == UNEQUAL_OPERATOR))
 			{
 				foreach (QMLPercentileAspect aspect in percentiles2)
 				{
 					// Set the initial value of numericOperator if the first 
 					// list should be empty.
-					if (numericOperator == -2)
+					if (numericOperator == EMPTY_LIST)
 						numericOperator = aspect.NumericOperator;
 					else if (numericOperator != aspect.NumericOperator)
 					{
-						numericOperator = -1;
+						numericOperator = UNEQUAL_OPERATOR;
 						break;
 					}
 				}
