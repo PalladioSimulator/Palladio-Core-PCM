@@ -4,7 +4,6 @@
 2. Requirements
 3. Build instructions for the measurement tool
 4. Application example
-5. Known errors
 ------------------------------------------------------------------------------
 
 1. Description of the projects
@@ -121,13 +120,5 @@ README.txt:
   start the adaptor selection and generation application with a simple example
   which is not meant to be realistic. To generate an adaptor or a prediction
   model the requirement at 2. has to be fulfilled.
-
--------------------------------------------------------------------------------
-
-5. Known errors
-
-- It is known that there are 29 build errors. Most of them reference 
-  uncommented methods and methods that need to be overridden. These will be 
-  eliminated soon. Some also occur in the QMLParser sources by Lars Karg.
 
 -------------------------------------------------------------------------------
