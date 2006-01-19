@@ -5,29 +5,35 @@ throughput: increasing numeric mb/sec;
 type Reliability = contract {
 numberOfFailures: decreasing numeric no/year;
 }
+type Security = contract {
+authenticationFailures: increasing numeric percent;
+}
+setSecurity = Security contract {
+authenticationFailures > 98;
+}
+setReliability = Reliability contract{
+numberOfFailures < 3;
+}
 setPerformance = Performance contract{
 delay{
-percentile 50 < 10;
-percentile 80 < 20;
-percentile 100 < 40;
-mean < 15;
-variance >= 0.6;
-frequency a1 <= 10%;
+percentile 50 < 5;
+percentile 80 < 12;
+percentile 100 < 20;
+mean < 14;
 };
-throughput > 2;
+throughput > 3;
 }
 cacheProfile for ICache = profile {
+require setSecurity;
+from setter require setReliability;
 from get require Performance contract {
 delay {
-percentile 25 < 2.5;
-percentile 70 < 10;
-percentile 100 < 15;
-mean < 7.5;
+percentile 50 < 2.5;
+percentile 80 < 8;
+percentile 100 < 11;
+mean < 3.75;
 };
-throughput > 2;
-},
-Reliability contract {
-numberOfFailures == 2;
+throughput > 4;
 };
 }
 
