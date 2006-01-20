@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.40  2006/01/20 10:28:13  kelsaka
+% - assembly-definition verfeinert
+%
 % Revision 1.39  2006/01/20 10:06:48  kelsaka
 % - inhaltliche korrekturen - kapitelübergreifend
 %
@@ -520,7 +523,7 @@ In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Implementation Type} a
 
 \textit{Composite Components} können zur gleichen Zeit beliebige Komponententypen in ihrem Inneren vereinen, sich also intern aus unterschiedlich detaillierten Komponenten zusammensetzen.
 
-Sowohl \textit{Composite Components} als auch \textit{Basic Components} sind \textit{Implementation Types}. Sie erben direkt von der Meta-Klasse "`Implementation Type"', wie sie in Abbildung \ref{fig:cm-component-types-inheritance-conforms-01} dargestellt wird.
+Sowohl \textit{Composite Components} als auch \textit{Basic Components} sind \textit{Implementation Types}. Sie erben direkt von der Meta-Klasse "`Implementation Type"', wie in Abbildung \ref{fig:cm-component-types-inheritance-conforms-01} dargestellt wird.
 
 
 
@@ -676,6 +679,11 @@ Allgemeine Bemerkungen zur Validierung des Komponentenmodells finden sich in Kap
 
 
 
+\subsubsection{Allokation}
+\label{sec:Allokation}
+
+
+
 Im Palladio Kontext wird häufig der Begriff Allokation verwendet. Die Verwendung erfolgt im Sinne von \textit{Deployment} und meint die Verteilung von Komponenten auf Ressourcen. Es wird also festgelegt, welche Komponente welche Ressourcen nutzt. Neben den Komponenten erfolgt eine Abbildung der Konnektoren auf "`Verbindungsressourcen"', also etwa LAN- und WAN-Verbindungen. Als Stereotyp der Relation zwischen Komponenten, Konnektoren und Ressourcen wird \texttt{$\flqq$deployed-on$\frqq$} verwendet.
 
 Als Ressourcen"=Typen kennt das Komponentenmodell:
@@ -684,6 +692,11 @@ Als Ressourcen"=Typen kennt das Komponentenmodell:
 	\item Rechnende Ressourcen (computational resources); etwa Server"=Hardware. In Abbildung \ref{fig:cm-assembly-allocation-01} werden diese Ressourcen UML2"=konform als "`Boxen"' dargestellt.
 	\item Nicht"=Rechnende Ressourcen (non"=computational resources); hierzu zählen Netzwerkverbindungen, also jene Ressourcen, die zur Datenübertragung zwischen rechnenden Ressourcen vermitteln. In Abbildung \ref{fig:cm-assembly-allocation-01} wird diese Form der Ressourcen UML2"=konform als Linie zwischen den berechnenden Ressourcen dargestellt.
 \end{itemize}
+
+
+
+\subsubsection{Vergleich von Allokation und Assembly}
+\label{sec:VergleichAllokationAssembly}
 
 
 
@@ -705,8 +718,22 @@ Zur Unterscheidung von Allokation (\textit{Deployment}) und Assembly ist der Zei
 	\item Die \textbf{Allokation} wird zum Zeitpunkt der Installation vorgenommen.
 \end{itemize}
 
-Die Assembly"=Definition wird kann unabhängig von der Allokation erfolgen. Beide Aktionen zusammen definieren den Kontext, der in Kapitel \ref{sec:Kontext} beschrieben wird.
-TODO: Muss Assembly-Def der Allokation voraus gehen?
+Die Assembly"=Definition wird kann unabhängig von der Allokation erfolgen. Beide Aktionen zusammen definieren den Kontext, der in Kapitel \ref{sec:Kontext} beschrieben wird. Komponenten können jedoch nur allokiert werden, wenn Sie zuvor in einer Assembly definiert wurden. Das heißt, dass ein Allokation immer nur von Assemblies erfolgt, nie von Komponenten direkt. Im einfachsten Fall wird dabei eine Komponente dabei von genau einer Assembly erfasst und allokiert.
+
+
+
+\subsubsection{Assembly}
+\label{sec:Assembly}
+Im vorigen Kapitel wurde die Definition einer Assembly bereits angedeutet. An dieser Stelle sollen die Eigenschaften zusammengefasst dargestellt werden.
+
+\begin{itemize}
+	\item Eine Assembly beinhaltet eine Menge von Komponenten.
+	\item Erst innerhalb einer Assembly darf Assembly"=Konnektoren zwischen Komponenten geben, die innerhalb keiner weiteren \textit{Composite Component} liegen. Das bedeutet, dass Assembly"=Konnektoren oberhalb der Assembly"=Ebene lediglich innerhalb von \textit{Composite Components} verwendet werden dürfen.
+	\item Assemblies werden nur von System"=Deployern verwendet. Die für diese Zielgruppe definierte Sicht
+\end{itemize}
+
+Unsichtbarkeit des Komponenten-Innenlebens (für Deployer) --> Verwendung ab Assembly nur Deployer vorgesehen
+
 
 
 
