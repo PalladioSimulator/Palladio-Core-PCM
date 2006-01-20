@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.38  2006/01/20 09:48:12  kelsaka
+% - einpflege weiterer änderungen aus email-verkehr
+%
 % Revision 1.37  2006/01/16 19:08:15  kelsaka
 % - inhaltliche korrekturen
 %
@@ -497,7 +500,7 @@ In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Complete Type} als mit
 \label{sec:ImplementationType}
 Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der \textit{Implementation Type} seine interne Realisierung festlegen. Das bedeutet, dass alle internen Komponenten, die direkt in einer derart typisierten Komponente enthalten sind, mit samt der assoziierten Assembly Konnektoren und Delegationskonnektoren definiert werden müssen.
 
-Gegenüber seinem \textit{Complete Type} Vater darf ein \textit{Implementation Type} weder \textit{Provides} noch \textit{Requires} Schnittstellen hinzufügen oder entfernen. TODO: richtig?
+Gegenüber seinem \textit{Complete Type} Vater darf ein \textit{Implementation Type} \textit{Provides} Schnittstellen hinzufügen und weniger \textit{Requires} Schnittstellen benötigen. Ein gültiger Sub"=Typ folgt dabei -- näher betrachtet -- den Vorgaben von Co- und Contra"=Varianz, wie sie in Kapitel \ref{sec:Co-undContra-Varianz} vorgestellt wird.
 
 Für einen \textit{Implementation Type} muss ein SEFF verpflichtend definiert werden. Im Falle von \textit{Composite Components} ist der SEFF, wie in Kapitel \ref{sec:BerechnungderSEFFsvonCompositeComponents} dargestellt, berechnet. Da sich durch die Möglichkeit und Pflicht zur Spezifikation von SEFFs das \textit{Requires Protocol} berechnet werden kann, muss dieses auch nach der Modellierung von Komponenten auf der Implementierungs"=Typ"=Ebene konsistent zwischen den Typ"=Ebenen bleiben.
 
@@ -567,7 +570,7 @@ Auch die \texttt{m:1}"=Beziehung zwischen \textit{Complete Type} und \textit{Imp
 
 
 \paragraph{m:n}
-Insgesamt ergeben sich somit zwischen den "`benachbarten"' Typ"=Ebenen der Komponenten \texttt{m:n}"=Beziehungen.
+Insgesamt ergeben sich somit zwischen den "`benachbarten"' Typ"=Ebenen der Komponenten \texttt{m:n}"=Beziehungen. Da die Sub"=Typ"=Beziehung transitiv ist, folgt daraus, dass diese Bedingung für alle Ebenen gilt.
 
 
 
@@ -618,7 +621,7 @@ TODO:--> Signatur, wann gleich. Wird das beachtet? Einfachster Fall: nur identis
 
 Genügen alle \textit{Provides} und alle \textit{Requires} Schnittstelle einer Komponente den oben genannten Bedingungen, kann sie (als Substitut) verwendet werden.
 
-Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist. Wie bereits zuvor erwähnt wurde, ist die Verwendung von endlichen Automaten im Komponentenmodell sehr verbreitet. Da endliche Automaten und reguläre Ausdrücke sprachäquivalent sind, und für reguläre Ausdrücke das Inklusionsproblem lösbar ist, womit diese Problem auch für endliche Automaten lösbar ist, erscheint die Entscheidung zur Verwendung von endlichen Automaten in Praxisbeispielen sinnvoll (vgl. cite{TODO}). Die andere, im Komponentenmodell-Kontext verbreitete Variante zur Darstellung von Protokollen und SEFFs, die Petri-Netze, sind kontextsensitiv, weshalb das Wortproblem ebenfalls lösbar ist (vgl. cite{TODO}).
+Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist. Wie bereits zuvor erwähnt wurde, ist die Verwendung von endlichen Automaten im Komponentenmodell sehr verbreitet. Da endliche Automaten und reguläre Ausdrücke sprachäquivalent sind, und für reguläre Ausdrücke das Inklusionsproblem lösbar ist, womit diese Problem auch für endliche Automaten lösbar ist, erscheint die Entscheidung zur Verwendung von endlichen Automaten in Praxisbeispielen sinnvoll (vgl. cite{TODO}). Die andere, im Komponentenmodell-Kontext verbreitete Variante zur Darstellung von Protokollen und SEFFs, die Petri-Netze, sind über kontextsensitive Grammatiken darstellbar, weshalb das Wortproblem ebenfalls lösbar ist (vgl. cite{TODO}).
 
 
 
@@ -832,7 +835,7 @@ Das Komponentenmodell bietet die Möglichkeit alle Entitäten des Modells mit beli
 
 Gleichwohl definiert das Komponentenmodell einen Standardsatz von Anotations"=Typen, die eine schnelle Arbeit mit dem Komponentenmodell vereinfachen sollen. Hierzu zählen die Datentypen Integer (\texttt{int}, \texttt{long}), Fließkommazahl (\texttt{float}, \texttt{double}) und Zeichenkette (\texttt{string}) analog ihrer Definition in .NET C\# 1.1 (siehe \cite{net-csharp-gleitkommatypen,net-csharp-ganzzahltypen,net-csharp-string}).
 
-Um die Unterscheidung zu erleichtern, welcher Datentyp für eine Anotation in einem konkreten Fall vorliegt, muss jede Anotation den Datentyp für das Datenfeld deklarieren. Zusätzlich trägt eine Anotation einen Anotationsnamen, der auch über mehrere Anotationen hinweg benutzt werden kann, um beispielsweise eine speziellen Laufzeitmesswert bei allen Komponenten einer Modell"=Instanz zu kennzeichnen. Daher ist eine Anotation ein Tripel, bestehend aus $(Anotationsnamen, Datentyp, Datenfeld)$. 
+Um die Unterscheidung zu erleichtern, welcher Datentyp für eine Anotation in einem konkreten Fall vorliegt, muss jede Anotation den Datentyp für das Datenfeld deklarieren. Zusätzlich trägt eine Anotation einen Anotationsnamen, der auch über mehrere Anotationen hinweg benutzt werden kann, um beispielsweise eine speziellen Laufzeitmesswert bei allen Komponenten einer Modell"=Instanz zu kennzeichnen. Anotation können überdies aus anderen Anotationswerten berechnet werden. Um eine Unterscheidung zu erlauben, welche Werte berechnet wurden, gibt es je Anotation ein \textit{Flag}, dass diese Werte kennzeichnet. Im Allgemeinen sind berechnete Anotationen \textit{read"=only}. Gleichwohl können Berechnungen, die auf eine Komponentenmodellinstanz durchgeführt wurden, berechnete Werte setzen. Daher ist eine Anotation ein Vier"=Tupel, bestehend aus $(Anotationsnamen, Datentyp, Datenfeld, Calculated-Flag)$. 
 
 Anotationen können zu den folgenden Entitäten des Komponentenmodells vergeben werden:
 \begin{itemize}
@@ -842,6 +845,7 @@ Anotationen können zu den folgenden Entitäten des Komponentenmodells vergeben we
 	\item Assembly"=Konnektoren; hier sind im Zusammenhang mit der Abbildung auf Ressourcen beispielsweise Durchsatzwerte denkbar.
 	\item Delegations"=Konnektoren TODO: Sinn unterhalb Assembly-Ebene?
 	\item Ressourcen (berechnend und nicht-berechnend)
+	\item Assemblies; komplette Assemblies können ebenfalls eigene Anotationen tragen.
 \end{itemize}
 
 Zu einer Entität sind \texttt{0..*} Anotationen möglich. Damit kann die gleiche Anotation jedoch nicht für mehrere Entitäten zugleich verwendet werden. Die Anotationen zu einer Entität sind ungeordnet. Anotationen können für bestimmte Entitäten nicht vorgeschrieben werden. Es ist also nicht vorhersehbar, ob eine Entität eine bestimmte Anotation trägt.
@@ -862,6 +866,10 @@ Parametrisierte Verträge, QoS, ...
 \label{sec:ValidierungvonModellinstanzen}
 TODO: Erweiterungen zu Kapitel \ref{sec:Typ-Spezialisierung}. Insbesondere auf QoS-Attributen, parametrisieren Verträgen und SEFFs (prüfen ob eine substitution zulässig: erhaltung der seff-eigenschaften denkbar).
 TODO: Unterscheidung: Validierung vs. Konsistenz.
+
+zwei möglichkeiten zur validierung
+- dauerhaft valide (on the fly)
+- auf wunsch
 
 
 
@@ -907,6 +915,9 @@ Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere s
 - "`äußere"' assembly connectors nur unterhalb von impl. möglich --> vorher TYP!
 - Typ-Hierarchie (Typ vs. inter-comp-conn) erklären
 - Sichtbarkeit des Inneren von CCs erklären: Entwickler hat IMMER Einblick, Deployer nicht (nur in Assemblies)
+
+Spätere TODOs:
+- Vergleich des Editor mit Palladio Editor
 
 ------------------------------------
 
