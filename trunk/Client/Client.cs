@@ -3,6 +3,7 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Threading;
 using ServiceReplication;
+using MathNet.Numerics.Generators;
 
 namespace RemoteClient
 {
@@ -26,6 +27,7 @@ namespace RemoteClient
 //			rand.NextBytes(_randomData50);
 //			_randomData5 = new byte[5 * 1024];
 //			rand.NextBytes(_randomData5);
+
 
 			ChannelServices.RegisterChannel(channel);
 
@@ -52,6 +54,8 @@ namespace RemoteClient
 				clientNum = clientCnt;
 			}
 			Random rand = new Random(clientNum);
+			ExponentialGenerator randExp = new ExponentialGenerator(0.5);
+
 			try
 			{
 				ReplicatedService repService = new ReplicatedService("tcp://localhost:8081/ReplicationManager", channel,"Client"+clientNum);
@@ -70,7 +74,10 @@ namespace RemoteClient
 						Console.WriteLine(data.Length + " Bytes read.");
 					}
 					
-					Thread.Sleep((int)(50d + rand.NextDouble() * 100d));
+
+					//Thread.Sleep((int)(50d + rand.NextDouble() * 100d));
+					Thread.Sleep((int)(50d + randExp.Next() * 100d));
+					
 				}
 				((ServiceProbe)service).Save();
 				repService.Save();

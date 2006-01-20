@@ -1,7 +1,7 @@
 <VisualStudioProject>
     <CSHARP LastOpenVersion = "7.10.3077" >
         <Build>
-            <Settings ReferencePath = "" >
+            <Settings ReferencePath = "C:\Programme\WebCab Components\Probability and Statistics for .NET\NET Libraries\;C:\Programme\CenterSpace\NMath\Core 2.2\Assemblies\;C:\Programme\MathNet.Numerics-v0.3\bin\" >
                 <Config
                     Name = "Debug"
                     EnableASPDebugging = "false"

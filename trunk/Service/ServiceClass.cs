@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using Measurement;
+using MathNet.Numerics.Generators;
 
 namespace RemoteClient
 {
@@ -9,12 +10,14 @@ namespace RemoteClient
 		private byte[] _data;
 		private int _max; 
 		HiResTimer timer;
+		ExponentialGenerator randExp;
 
 		public ServiceClass()
 		{
 			_data = new byte[_max];
 			Random rand = new Random();
 			rand.NextBytes(_data);
+			randExp = new ExponentialGenerator(0.5);
 			timer = new HiResTimer();
 		}
 
@@ -22,7 +25,7 @@ namespace RemoteClient
 		{
 			_data = data;
 			timer.Start();
-			Thread.Sleep(100);
+			Thread.Sleep((int) (randExp.Next() * 10d));
 			timer.Stop();
 			Console.WriteLine("Writer slept "+timer.ElapsedMicroseconds);
 
@@ -31,7 +34,7 @@ namespace RemoteClient
 		public byte[] ReadData()
 		{
 			timer.Start();
-			Thread.Sleep(200);
+			Thread.Sleep((int) (randExp.Next() * 20d));
 			timer.Stop();
 			Console.WriteLine("Reader slept " + timer.ElapsedMicroseconds);
 			return _data;

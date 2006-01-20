@@ -99,6 +99,21 @@
                     Project = "{8801CA75-B4B9-4584-9CE8-4C5A53DF9947}"
                     Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
+                <Reference
+                    Name = "WebCab.Libraries.StatisticsDemo"
+                    AssemblyName = "WebCab.Libraries.StatisticsDemo"
+                    HintPath = "..\..\..\..\..\..\..\Programme\WebCab Components\Probability and Statistics for .NET\NET Libraries\WebCab.Libraries.StatisticsDemo.dll"
+                />
+                <Reference
+                    Name = "NMathCore"
+                    AssemblyName = "NMathCore"
+                    HintPath = "..\..\..\..\..\..\..\Programme\CenterSpace\NMath\Core 2.2\Assemblies\NMathCore.dll"
+                />
+                <Reference
+                    Name = "MathNet.Numerics"
+                    AssemblyName = "MathNet.Numerics"
+                    HintPath = "..\..\..\..\..\..\..\Programme\MathNet.Numerics-v0.3\bin\MathNet.Numerics.dll"
+                />
             </References>
         </Build>
         <Files>

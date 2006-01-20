@@ -79,6 +79,11 @@
                     AssemblyName = "System.Xml"
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
+                <Reference
+                    Name = "MathNet.Numerics"
+                    AssemblyName = "MathNet.Numerics"
+                    HintPath = "..\..\..\..\..\..\..\Programme\MathNet.Numerics-v0.3\bin\MathNet.Numerics.dll"
+                />
             </References>
         </Build>
         <Files>
