@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.41  2006/01/21 16:18:11  kelsaka
+% - Ergänzungen: Assembly
+%
 % Revision 1.40  2006/01/20 10:28:13  kelsaka
 % - assembly-definition verfeinert
 %
@@ -727,13 +730,14 @@ Die Assembly"=Definition wird kann unabhängig von der Allokation erfolgen. Beide
 Im vorigen Kapitel wurde die Definition einer Assembly bereits angedeutet. An dieser Stelle sollen die Eigenschaften zusammengefasst dargestellt werden.
 
 \begin{itemize}
-	\item Eine Assembly beinhaltet eine Menge von Komponenten.
+	\item Eine Assembly fasst eine Menge von Komponenten und die dazugehörigen "`äußeren"' Assembly"=Konnektoren zusammen. Als "`äußere"' Assembly"=Konnektoren gelten dabei jene, die innerhalb keiner Komponente liegen.
 	\item Erst innerhalb einer Assembly darf Assembly"=Konnektoren zwischen Komponenten geben, die innerhalb keiner weiteren \textit{Composite Component} liegen. Das bedeutet, dass Assembly"=Konnektoren oberhalb der Assembly"=Ebene lediglich innerhalb von \textit{Composite Components} verwendet werden dürfen.
-	\item Assemblies werden nur von System"=Deployern verwendet. Die für diese Zielgruppe definierte Sicht
+	\item Assemblies werden nur von System"=Deployern verwendet. Die für diese Zielgruppe definierte Sicht blendet dabei das Innere von \textit{Composite Components} aus. In der Folge kann ein \textit{System"=Deployer} bei der Allokation Composite Components nicht auf verschiedene Ressourcen verteilen, da sich diese Komponente keine für ihn identifizierbaren Sub"=Komponenten besitzt, die sich einzeln ansprechen ließen. 
 \end{itemize}
 
-Unsichtbarkeit des Komponenten-Innenlebens (für Deployer) --> Verwendung ab Assembly nur Deployer vorgesehen
+Die Assembly"=Ebene (und die darunter liegenden Ebenen Allokation und \textit{Runtime}) haben daher nur für das \textit{Deployment} / die Allokation eine Funktion.
 
+TODO: kann mehr als eine Assembly zur zeit deployed werden?
 
 
 
@@ -753,7 +757,7 @@ Wie bereits beschrieben, setzt sich eine \textit{Composite Component} aus andere
 
 \paragraph{Assembly}
 Auch \textit{Assemblies} (im Komponentenmodell auch \textit{Component Assemblies} genannt) werden aus Komponenten aufgebaut. Im Gegensatz zur \textit{Composite Component} ist das Innere einer Assembly jedoch zum Zeitpunkt des \textit{Deployments} für den \textit{System Deployer} sichtbar. Dies ermöglicht, dass innere Komponenten einer Assembly auf unterschiedlichen Ausführungsumgebung allokiert werden können.
-Das bedeutet, dass einzelne Komponenten (ohne Kopien) durch ihre Erfassung in einer Assembly zur gleichen Zeit nicht auf unterschiedlichen Ausführungsumgebungen ausgeführt werden können. Sehr wohl kann jedoch komponentenweise verteilt werden. 
+Das bedeutet im Umkehrschluss, dass einzelne Komponenten (ohne Kopien) durch ihre Erfassung in einer Assembly zur gleichen Zeit nicht auf unterschiedlichen Ausführungsumgebungen ausgeführt werden können. Sehr wohl kann jedoch komponentenweise verteilt werden. 
 
 
 
@@ -767,7 +771,7 @@ Das bedeutet, dass einzelne Komponenten (ohne Kopien) durch ihre Erfassung in ei
 
 
 \paragraph{Allokation}
-In Abbildung \ref{fig:cm-il-legal-allocation-01} wird gegenüber gestellt, welche Allokationsformen legal sind. Auf der linken Seite wird eine ungültige Variante dargestellt, bei der eine Komponente ("`Component A"') auf verschiedene Ressourcen ("`Server 1 und Server 2"') verteilt werden soll. Auf der rechten Seite erfolgt eine gültige Allokation. Die Komponenten "`Component B"' und "`Component C"' liegen in einer Assembly. Zugleich werden sie jeweils auf eigene Ressourcen verteilt. Eine ebenfalls gültige Variante wäre die Verteilung der Komponenten B und C auf die gleiche Ressource.
+In Abbildung \ref{fig:cm-il-legal-allocation-01} wird gegenüber gestellt, welche Allokationsformen legal sind. Auf der linken Seite wird eine ungültige Variante dargestellt, bei der eine Komponente ("`Component A"') auf verschiedene Ressourcen ("`Server 1"' und "`Server 2"') verteilt werden soll. Auf der rechten Seite erfolgt eine gültige Allokation. Die Komponenten "`Component B"' und "`Component C"' liegen in einer Assembly. Zugleich werden sie jeweils auf eigene Ressourcen verteilt. Eine ebenfalls gültige Variante wäre die Verteilung der Komponenten B und C auf die gleiche Ressource.
 
 
 
@@ -785,7 +789,7 @@ Eine Assembly ist keine Komponente. Daher kann sie nicht zusammengesetzt sein, s
 
 
 
-Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembly in eine \textit{Composite Component}, so wie der Vorgang von einem \textit{System Deployer} wahrgenommen würde. Da das Innere einer \textit{Composite Component} nicht mehr sichtbar ist, würden innere Komponenten und Konnektoren bei einer Transformation unsichtbar. Dafür muss für eine solche Transformation definiert werden, welche Schnittstellen angeboten und benötigt werden, damit die neue \textit{Composite Componente} vollständig spezifiziert ist. Auch die Delegation"=Konnektoren müssen definiert werden, auch wenn sie für den \textit{System Deployer} nicht sichtbar sind, damit alle Aufrufe definierten Aufrufpfaden folgen können.
+Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembly in eine \textit{Composite Component}, so wie der Vorgang von einem \textit{System Deployer} wahrgenommen würde. Da das Innere einer \textit{Composite Component} nicht mehr sichtbar ist, würden innere Komponenten und Konnektoren bei einer Transformation unsichtbar. Dafür muss für eine solche Transformation definiert werden, welche Schnittstellen angeboten und benötigt werden, damit die neue \textit{Composite Componente} vollständig spezifiziert ist. Auch die Delegations"=Konnektoren müssen definiert werden, auch wenn sie für den \textit{System Deployer} nicht sichtbar sind, damit alle Aufrufe definierten Aufrufpfaden folgen können.
 
 
 
