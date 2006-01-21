@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.42  2006/01/21 16:29:03  kelsaka
+% - inhalts-restrukturierung: assembly / allokation
+%
 % Revision 1.41  2006/01/21 16:18:11  kelsaka
 % - Ergänzungen: Assembly
 %
@@ -698,6 +701,19 @@ Als Ressourcen"=Typen kennt das Komponentenmodell:
 
 
 
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.80\textwidth]{./image/cm-il-legal-allocation-01.pdf}
+	\caption{Illegale und legale Allocation von Komponenten}
+	\label{fig:cm-il-legal-allocation-01}
+\end{figure}
+
+
+
+In Abbildung \ref{fig:cm-il-legal-allocation-01} wird gegenüber gestellt, welche Allokationsformen legal sind. Auf der linken Seite wird eine ungültige Variante dargestellt, bei der eine Komponente ("`Component A"') auf verschiedene Ressourcen ("`Server 1"' und "`Server 2"') verteilt werden soll. Auf der rechten Seite erfolgt eine gültige Allokation. Die Komponenten "`Component B"' und "`Component C"' liegen in einer Assembly. Zugleich werden sie jeweils auf eigene Ressourcen verteilt. Eine ebenfalls gültige Variante wäre die Verteilung der Komponenten B und C auf die gleiche Ressource.
+
+
+
 \subsubsection{Vergleich von Allokation und Assembly}
 \label{sec:VergleichAllokationAssembly}
 
@@ -741,7 +757,7 @@ TODO: kann mehr als eine Assembly zur zeit deployed werden?
 
 
 
-\subsection{Assembly und Composite Component, Allokation}
+\subsection{Assembly und Composite Component}
 \label{sec:AssemblyundCompositeComponentAllokation}
 
 
@@ -758,20 +774,6 @@ Wie bereits beschrieben, setzt sich eine \textit{Composite Component} aus andere
 \paragraph{Assembly}
 Auch \textit{Assemblies} (im Komponentenmodell auch \textit{Component Assemblies} genannt) werden aus Komponenten aufgebaut. Im Gegensatz zur \textit{Composite Component} ist das Innere einer Assembly jedoch zum Zeitpunkt des \textit{Deployments} für den \textit{System Deployer} sichtbar. Dies ermöglicht, dass innere Komponenten einer Assembly auf unterschiedlichen Ausführungsumgebung allokiert werden können.
 Das bedeutet im Umkehrschluss, dass einzelne Komponenten (ohne Kopien) durch ihre Erfassung in einer Assembly zur gleichen Zeit nicht auf unterschiedlichen Ausführungsumgebungen ausgeführt werden können. Sehr wohl kann jedoch komponentenweise verteilt werden. 
-
-
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=0.80\textwidth]{./image/cm-il-legal-allocation-01.pdf}
-	\caption{Illegale und legale Allocation von Komponenten}
-	\label{fig:cm-il-legal-allocation-01}
-\end{figure}
-
-
-
-\paragraph{Allokation}
-In Abbildung \ref{fig:cm-il-legal-allocation-01} wird gegenüber gestellt, welche Allokationsformen legal sind. Auf der linken Seite wird eine ungültige Variante dargestellt, bei der eine Komponente ("`Component A"') auf verschiedene Ressourcen ("`Server 1"' und "`Server 2"') verteilt werden soll. Auf der rechten Seite erfolgt eine gültige Allokation. Die Komponenten "`Component B"' und "`Component C"' liegen in einer Assembly. Zugleich werden sie jeweils auf eigene Ressourcen verteilt. Eine ebenfalls gültige Variante wäre die Verteilung der Komponenten B und C auf die gleiche Ressource.
 
 
 
