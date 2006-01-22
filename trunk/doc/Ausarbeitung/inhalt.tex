@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.49  2006/01/22 16:54:56  kelsaka
+% - Parametrisierte Verträge ergänzt
+%
 % Revision 1.48  2006/01/22 16:16:36  kelsaka
 % ID vervollständigt
 %
@@ -871,6 +874,8 @@ TODO: Allokation + Assembly als benötigt?
 
 TODO: Kontext: kennzeichnet "`Einsatzstelle"' eines Implementation Type. --> Unterscheidbarkeit der Verwendung
 
+TODO: Das Ziel des dahinter liegenden Konzepts ist eine Möglichkeit zur Unterscheidung von Komponenteneigenschaften je nach ihrem konkreten Verwendungskontext. So kann die \textit{gleiche} Komponente, unterschieden nach dem Typ auf einer der oben genannten Ebenen, ein unterschiedliches Verhalten je nach Kontext aufweisen.
+
 
 Wie in Abbildung \ref{fig:cm-component-hierarchy-context-01} zu sehen ist, kann ein Kontext unterschiedliche Detail"=Niveaus erfassen. Er ist definiert für:
 
@@ -908,12 +913,13 @@ Die folgenden Entitäten (respektive Typen von Entitäten) tragen IDs; die ID"=Typ
 
 \begin{itemize}
 	\item Komponenten"=Typen (je Typ"=Ebene eine eigener ID"=Typ). Jeder Komponenten"=Typ einer Typ"=Ebene lässt sich damit von anderen unterscheiden. Wird ein Komponenten"=Typ verfeinert, so tragen auch jene Komponenten, die untereinander in einer \textit{conforms}"=Beziehung stehen, unterschiedliche IDs.
-	\item Schnittstellen. Jede Schnittstelle unterscheidet sich von jeder anderen über die ID, auch wenn die Schnittstellen ansonsten vollkommen identisch sind (bspw. exakt die gleichen Signaturen tragen). Ausnahmen sind jedoch unter bestimmten Bedingungen möglich: Werden, wie beispielsweise in einer Chain"=of"=Responsibility (vgl. \cite{GAMMA}, S. 410ff) üblich, in einer Kette von Komponenten stets die gleichen Schnittstellen angeboten und benötigt, so kann aus Gründen der Übersichtlichkeit und muss auch Gründen der Eindeutigkeit der Zuordnung direkt miteinander verknüpfter Komponenten, die \textit{gleiche} Schnittstelle mehrfach verwendet werden. An dieser Stelle muss einem Entwickler eindeutig klar sein, dass tatsächlich die gleiche Schnittstelle verwendet.
+	\item Schnittstellen. Jede Schnittstelle unterscheidet sich von jeder anderen über die ID, auch wenn die Schnittstellen ansonsten vollkommen identisch sind (bspw. exakt die gleichen Signaturen tragen). Ausnahmen sind jedoch unter bestimmten Bedingungen möglich: Werden, wie beispielsweise in einer \textit{Chain"=of"=Responsibility} (vgl. \cite{GAMMA}, S. 410ff) üblich, in einer Kette von Komponenten stets die gleichen Schnittstellen angeboten und benötigt, so kann aus Gründen der Übersichtlichkeit und muss auch Gründen der Eindeutigkeit der Zuordnung direkt miteinander verknüpfter Komponenten, die \textit{gleiche} Schnittstelle mehrfach verwendet werden. An dieser Stelle muss einem Entwickler eindeutig klar sein, dass tatsächlich die gleiche Schnittstelle verwendet.
 	\item TODO: Seffs? Protokolle? Signatur?
 	\item Konnektoren. Die IDs von Konnektoren müssen sich unterscheiden, wenn sich die IDs der verbundenen Schnittstellen unterscheiden. Zusätzlich müssen sich die IDs der Konnektoren unterscheiden, wenn die Rollen, über die die Schnittstellen assoziiert werden, andere sind. Damit resultieren unterschiedliche Rollen über die Schnittstelle in unterschiedlichen IDs von Konnektoren. 
 	\item Ressourcen. IDs von Ressourcen müssen sich unterscheiden, wenn die dahinter stehende Hardware oder Ausführungsumgebung eine andere ist. 
 	\item Assemblies. Jede Assembly mit unterschiedlichem Inneren trägt eine unterschiedliche ID. Auch Assemblies mit gleichen Inneren können eine unterschiedliche ID haben. Wird die gleiche Assembly auf verschiedene Ressourcen \textit{deployed}, ist die ID der Assembly die gleiche.
 	\item Kontexte. Jeder Kontext trägt eine eigene ID. Zu jeder Verwendung einer Komponente entsteht ein Kontext mit neuer ID. Kontext"=IDs können unter keinen Umständen mehrfach auftreten. TODO: richtig?
+	\item TODO: Annotationen mit ID?
 \end{itemize}
 
 
@@ -950,7 +956,21 @@ TODO: oder doch nur Tupel? Gibt es für Annotationsnamen ein ID-Konzept; für Date
 
 \subsection{Weitere Fähigkeiten}
 \label{sec:WeitereFaehigkeiten}
-Parametrisierte Verträge, QoS, ...
+Viele zusätzliche Fähigkeiten des Komponentenmodells erwachsen aus den flexiblen Möglichkeiten in der Verwendung von Annotationen.
+
+
+
+\subsubsection{Parametrisierte Verträge}
+\label{sec:ParametrisierteVertraege}
+Parametrisierte Verträge, wie sie von Reussner in \cite{reussner01i} beschrieben werden, können im Komponentenmodell als Annotation spezifiziert werden und ermöglichen die Definition von Abhängigkeiten zwischen \textit{Provides}- und \textit{Requires}"=Schnittstelle in Abhängigkeit von Parameter"=Werten. Im Kern kann die Idee von parametrisierten Verträgen wie folgt skizziert werden: Wird eine \textit{Requires}"=Schnittstelle lediglich begrenzt bedient, die mit der \textit{Requires}"=Schnittstelle konnektierte \textit{Provides}"=Schnittstelle bietet also nicht den vollen Umfang, so kann die \textit{Provides}"=Schnittstelle unter Umständen dennoch begrenzt erfüllt werden. Ein parametrisierter Vertrag definiert exakt, mit welchen Einschränkungen die \textit{Provides}"=Schnittstelle, respektive der dahinter stehende Vertrag, erfüllt werden kann.
+
+Wurde für eine konkrete Einschränkung der Schnittstellen("=Verträge) der parametrisierte Vertrag berechnet, so können wiederum die Annotationen zum Ablegen der Ergebnisse verwendet werden.
+
+
+
+\subsubsection{Quality of Service}
+\label{sec:QualityofService}
+Quality of Service"=Daten lassen sich ebenfalls über Annotationen erfassen. 
 
 
 
