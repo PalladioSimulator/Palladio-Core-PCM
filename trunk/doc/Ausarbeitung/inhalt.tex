@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.48  2006/01/22 16:16:36  kelsaka
+% ID vervollständigt
+%
 % Revision 1.47  2006/01/22 15:32:20  kelsaka
 % - IDs: komplexer Typ
 %
@@ -895,26 +898,23 @@ Bieten beispielsweise zwei Komponenten mit dem gleichen Namen "`Component"' die 
 
 Eine Abfrage auf Gleichheit (\textit{equals}) zweier Entitäten wird im Komponentenmodell auf IDs zurückgeführt. Sind zwei IDs identisch, handelt es sich um die gleiche Entität. Die Gleichheit muss strikt von der Prüfung auf Substituierbarkeit, wie sie in Kapitel \ref{sec:Typ-Spezialisierung} beschrieben wird, unterschieden werden. Gleiche Typen lassen sich substituieren, aus der Substituierbarkeit kann jedoch keine Gleichheit gefolgert werden.
 
-Um grundsätzlich die Gleicheit zwischen zwei Entitäts"=Typen (etwa Komponente als \textit{Provided Type} und einer Schnittstelle) auszuschließen, sind IDs im Komponentenmodell komplexe Typen, die aus einem eindeutig identifizierenden Teil (ID"=Teil) sowie einem ID"=Typ bestehen. Je Entitäts"=Typ gibt es einen ID"=Typ. Das bedeutet, dass es \textit{Provided Type} Komponenten"=IDs, Schnittstellen"=IDs usw. gibt. Damit können selbst zwei Komponenten unterschiedlicher Typ"=Ebenen mit dem gleichen ID"=Teil über den ID"=Typ unterschieden werden und vor allem nie identisch sein.
-
-Zwei IDs sind nur gleich, wenn sowohl der ID"=Teil als auch der ID"=Typ gleich sind.
+Um grundsätzlich die Gleicheit zwischen zwei Entitäts"=Typen (etwa Komponente als \textit{Provided Type} und einer Schnittstelle) auszuschließen, sind IDs im Komponentenmodell komplexe Typen, die aus einem eindeutig identifizierenden Teil ("`ID"=Teil"') sowie einem ID"=Typ bestehen. Je Entitäts"=Typ gibt es einen ID"=Typ. Das bedeutet, dass es \textit{Provided Type} Komponenten"=IDs, Schnittstellen"=IDs usw. gibt. Damit können selbst zwei Komponenten unterschiedlicher Typ"=Ebenen mit dem gleichen ID"=Teil über den ID"=Typ unterschieden werden und vor allem nie identisch sein. Zwei IDs sind nur gleich, wenn sowohl der ID"=Teil als auch der ID"=Typ gleich sind.
 
 Um den ID"=Teil auch bei Zusammenführung unterschiedlicher Komponentenmodell"=Instanzen eindeutig zu erhalten, wird empfohlen ein der \textit{Globally Unique Identifier} (GUID, siehe auch \cite{guid-wiki}) ähnliches Konzept zu verwenden. Dieses Konzept macht es auch über Systemgrenzen hinweg und für einander vollkommen unbekannte Systeme wahrscheinlich, dass die generierte GUID eindeutig ist.
 
 In Implementierungen des Komponenten"=Meta"=Modells muss sich das ID"=Konzept wiederfinden. Entitäten müssen also stets über eine Entsprechung zum eindeutigen Bezeichner verfügen. IDs können intern verwaltet werden und somit der Kontrolle eines Modellierers entzogen werden, damit die Eindeutigkeit durch eine Implementierung sichergestellt werden kann.
 
-Die folgenden Entitäten tragen IDs; die ID"=Typen unterscheiden sich entsprechend:
+Die folgenden Entitäten (respektive Typen von Entitäten) tragen IDs; die ID"=Typen unterscheiden sich entsprechend:
 
 \begin{itemize}
 	\item Komponenten"=Typen (je Typ"=Ebene eine eigener ID"=Typ). Jeder Komponenten"=Typ einer Typ"=Ebene lässt sich damit von anderen unterscheiden. Wird ein Komponenten"=Typ verfeinert, so tragen auch jene Komponenten, die untereinander in einer \textit{conforms}"=Beziehung stehen, unterschiedliche IDs.
 	\item Schnittstellen. Jede Schnittstelle unterscheidet sich von jeder anderen über die ID, auch wenn die Schnittstellen ansonsten vollkommen identisch sind (bspw. exakt die gleichen Signaturen tragen). Ausnahmen sind jedoch unter bestimmten Bedingungen möglich: Werden, wie beispielsweise in einer Chain"=of"=Responsibility (vgl. \cite{GAMMA}, S. 410ff) üblich, in einer Kette von Komponenten stets die gleichen Schnittstellen angeboten und benötigt, so kann aus Gründen der Übersichtlichkeit und muss auch Gründen der Eindeutigkeit der Zuordnung direkt miteinander verknüpfter Komponenten, die \textit{gleiche} Schnittstelle mehrfach verwendet werden. An dieser Stelle muss einem Entwickler eindeutig klar sein, dass tatsächlich die gleiche Schnittstelle verwendet.
 	\item TODO: Seffs? Protokolle? Signatur?
-	\item Rollen, Konnektoren. Konnektoren stellen Rollen dar. 
-	\item TODO: was unterscheidet sich von was.
-	\item Kontexte; jeder Kontext trägt eine ID.
+	\item Konnektoren. Die IDs von Konnektoren müssen sich unterscheiden, wenn sich die IDs der verbundenen Schnittstellen unterscheiden. Zusätzlich müssen sich die IDs der Konnektoren unterscheiden, wenn die Rollen, über die die Schnittstellen assoziiert werden, andere sind. Damit resultieren unterschiedliche Rollen über die Schnittstelle in unterschiedlichen IDs von Konnektoren. 
+	\item Ressourcen. IDs von Ressourcen müssen sich unterscheiden, wenn die dahinter stehende Hardware oder Ausführungsumgebung eine andere ist. 
+	\item Assemblies. Jede Assembly mit unterschiedlichem Inneren trägt eine unterschiedliche ID. Auch Assemblies mit gleichen Inneren können eine unterschiedliche ID haben. Wird die gleiche Assembly auf verschiedene Ressourcen \textit{deployed}, ist die ID der Assembly die gleiche.
+	\item Kontexte. Jeder Kontext trägt eine eigene ID. Zu jeder Verwendung einer Komponente entsteht ein Kontext mit neuer ID. Kontext"=IDs können unter keinen Umständen mehrfach auftreten. TODO: richtig?
 \end{itemize}
-
-IDs sind im Komponentenmodell durch Untertypen unterscheidbar. Komponenten"=Typen haben also auf jeder Ebene eigene ID"=Typen.
 
 
 
