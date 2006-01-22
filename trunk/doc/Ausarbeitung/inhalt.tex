@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.46  2006/01/22 14:11:47  kelsaka
+% - IDs ergänzt
+%
 % Revision 1.45  2006/01/22 13:09:02  kelsaka
 % - anotation --> annotation
 %
@@ -896,11 +899,14 @@ In Implementierungen des Komponenten"=Meta"=Modells muss sich das ID"=Konzept wi
 Die folgenden Entitäten tragen IDs:
 
 \begin{itemize}
-	\item Komponenten"=Typen. Jeder Komponenten"=Typ einer Typ"=Ebene lässt sich damit von anderen unterscheiden. Wird ein Komponenten"=Typ verfeinert, so tragen auch jene Komponenten, die untereinander in einer \textit{conforms}"=Beziehung stehen, unterschiedliche IDs.
-	\item Schnittstellen. Jede Schnittstelle unterscheidet sich von jeder anderen über die ID, auch wenn die Schnittstellen ansonsten vollkommen identisch sind (bspw. exakt die gleichen Signaturen tragen). Ausnahmen sind jedoch unter bestimmten Bedingungen möglich: Werden, wie beispielsweise in einer Chain"=of"=Responsibility üblich, in einer Kette von Komponenten stets die gleichen Schnittstellen angeboten und benötigt, so kann aus Gründen der Übersichtlichkeit und Eindeutigkeit der 
+	\item Komponenten"=Typen je Ebene. Jeder Komponenten"=Typ einer Typ"=Ebene lässt sich damit von anderen unterscheiden. Wird ein Komponenten"=Typ verfeinert, so tragen auch jene Komponenten, die untereinander in einer \textit{conforms}"=Beziehung stehen, unterschiedliche IDs.
+	\item Schnittstellen. Jede Schnittstelle unterscheidet sich von jeder anderen über die ID, auch wenn die Schnittstellen ansonsten vollkommen identisch sind (bspw. exakt die gleichen Signaturen tragen). Ausnahmen sind jedoch unter bestimmten Bedingungen möglich: Werden, wie beispielsweise in einer Chain"=of"=Responsibility üblich, in einer Kette von Komponenten stets die gleichen Schnittstellen angeboten und benötigt, so kann aus Gründen der Übersichtlichkeit und muss auch Gründen der Eindeutigkeit der Zuordnung direkt miteinander verknüpfter Komponenten, die \textit{gleiche} Schnittstelle mehrfach verwendet werden. An dieser Stelle muss einem Entwickler eindeutig klar sein, dass tatsächlich die gleiche Schnittstelle verwendet.
+	\item 
 	\item TODO: was unterscheidet sich von was.
 	\item Kontexte; jeder Kontext trägt eine ID.
 \end{itemize}
+
+IDs sind im Komponentenmodell durch Untertypen unterscheidbar. Komponenten"=Typen haben also auf jeder Ebene eigene ID"=Typen.
 
 
 
