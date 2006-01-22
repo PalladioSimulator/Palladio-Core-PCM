@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.45  2006/01/22 13:09:02  kelsaka
+% - anotation --> annotation
+%
 % Revision 1.44  2006/01/22 09:43:32  kelsaka
 % - kleinere änderungen
 %
@@ -272,7 +275,7 @@ Ein Signatur"=Mapping im Sinne eines Adapters (vgl. auch \cite{GAMMA,BUSCH}) ist
 
 Da \textit{Composite Components} lediglich eine logische Kapselung bieten, lassen sie sich vollständig auflösen, sofern ihre direkt enthaltenen (in der "`contains"'-Relation enhaltenen) Komponenten vollständig einschließlich aller Delegationskonnektoren und Assembly Konnektoren bekannt sind. Zu diesem Zwecke zeigen Delegaten auf der Angebotsseite direkt auf die enthaltenen Komponenten, die über Delegationskonnektoren verknüpft sind, beziehungsweise auf der Nachfrageseite direkt auf die über Delegationskonnektoren verbundenen äußeren Komponenten. Zu beachten ist, dass Composite Components, je nach Typ-Ebene (siehe Kapitel \ref{sec:Typ-Ebenen}), nicht von anderen Komponenten unterschieden werden können und ihre interne Realisierung nicht immer vollständigs bekannt sein muss. In diesen Fällen ist eine Auflösung nicht möglich.
 
-Auch wenn sich \textit{Composite Components} logisch auflösen lassen, so ist dies immer mit einem Informationsverlust verbunden. Da allein die Kapselung einer Menge von Komponenten eine Information darstellt, wenn man davon ausgeht, dass der Vorgang des Zusammenfassens von Komponenten nicht zufällig geschieht. Daneben ist auch der Name einer \textit{Composite Component} bezeichnend. Zudem ist es im Komponentenmodell möglich über Annotationen Informationen zu einer zusammengesetzten Komponente zu hinterlegen (siehe auch Kapitel \ref{sec:Anotationen}). Wird die Komponente aufgelöst, lassen sind auch diese Informationen nicht mehr speichern.
+Auch wenn sich \textit{Composite Components} logisch auflösen lassen, so ist dies immer mit einem Informationsverlust verbunden. Da allein die Kapselung einer Menge von Komponenten eine Information darstellt, wenn man davon ausgeht, dass der Vorgang des Zusammenfassens von Komponenten nicht zufällig geschieht. Daneben ist auch der Name einer \textit{Composite Component} bezeichnend. Zudem ist es im Komponentenmodell möglich über Annotationen Informationen zu einer zusammengesetzten Komponente zu hinterlegen (siehe auch Kapitel \ref{sec:Annotationen}). Wird die Komponente aufgelöst, lassen sind auch diese Informationen nicht mehr speichern.
 
 Nicht immer können \textit{Composite Components} jedoch aufgelöst werden. An dieser Stelle sei auf Kapitel \ref{sec:Typ-Ebenen} verwiesen. Je nach Typ-Ebene wird das Innenleben einer Komponente teils bewußt ausgeblendet und bleibt in jedem Falle verborgen. Zudem läßt das Komponentenmodell \textit{Composite Components} zu, die nicht ausspezifiziert sind. Über diesen Mechanismus lassen sich Software"=Architekturen schrittweise verfeinern und mit mehr Informationen anreichern.
 
@@ -339,7 +342,7 @@ Als weitere Einschränkung des Komponentenmodells gilt derzeit, dass eine Kompone
 
 \paragraph{Schlechte Modellierung}
 \label{sec:SchlechteModellierung}
-Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle definiert wurden, identisch, deutet dies zumeist auf ein Design"=Problem des Komponentenmodells hin. Sind auch Zusatzattribute (z. B. Quality"=of"=Service"=Attribute; siehe Kapitel ref{TODO Anotationen}) identisch, führt dies vermutlich zu ungewollten Inkonsistenzen zwischen einer vermeintlich identischen Schnittstelle.
+Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle definiert wurden, identisch, deutet dies zumeist auf ein Design"=Problem des Komponentenmodells hin. Sind auch Zusatzattribute (z. B. Quality"=of"=Service"=Attribute; siehe Kapitel ref{TODO Annotationen}) identisch, führt dies vermutlich zu ungewollten Inkonsistenzen zwischen einer vermeintlich identischen Schnittstelle.
 
 
 
@@ -828,9 +831,9 @@ Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembl
 In Abbildung \ref{fig:cm-component-hierarchy-context-01} werden alle Ebenen des Komponentenmodells aufgezeigt. Wichtig ist die Unterscheidung der obersten drei Ebenen von der vierten (Assembly) und fünften (Allokation) Ebene.
 
 \begin{itemize}
-	\item \textit{Provided Type}, \textit{Complete Type} und \textit{Implementation Type} definieren jeweils Komponenen"=Typen auf verschieden Detail"=Niveaus, sie beschreiben Typen von Komponenten. Kompositions"=Strukturen sind nur innerhalb von Komponenten möglich. In Analogie zur objektorientierten Programmierung, werden Typen über Klassen festgelegt, die vorgegebenen Regeln folgen. Betrachtet man die Erstellung und Verfeinerung von Komponenten"=Typen als Prozess, so liegt am Ende des Prozesses eine ungeordnete Menge von Komponenten vor, die einer Verwendung harren.
+	\item \textit{Provided Type}, \textit{Complete Type} und \textit{Implementation Type} definieren jeweils Komponenen"=Typen auf verschieden Detail"=Niveaus, sie beschreiben Typen von Komponenten ("`Component Type Composition"'). Kompositions"=Strukturen sind nur innerhalb von Komponenten möglich. In Analogie zur objektorientierten Programmierung, werden Typen über Klassen festgelegt, die vorgegebenen Regeln folgen. Betrachtet man die Erstellung und Verfeinerung von Komponenten"=Typen als Prozess, so liegt am Ende des Prozesses eine ungeordnete Menge von Komponenten vor, die einer Verwendung harren.
 
-	\item Assembly und Allokation hingegen erlauben es Kompositions"=Strukturen zwischen Komponenten zu definieren. Komponenten können über die Assembly und Allokation "`verwendet"' werden. In Analogie zum Klassen"=Beispiel, werden die Komponenten"=Typen zu Instanzen. Die zuvor definierten Komponenten"=Typen werden verwendet und über Assembly"=Konnektoren untereinander verbunden. Damit werden auf diesen Ebenen Komponentenarchitekturen definiert.
+	\item Assembly und Allokation hingegen erlauben es Kompositions"=Strukturen zwischen Komponenten zu definieren ("`Inter Component Composition"'). Komponenten können über die Assembly und Allokation "`verwendet"' werden. In Analogie zum Klassen"=Beispiel, werden die Komponenten"=Typen zu Instanzen. Die zuvor definierten Komponenten"=Typen werden verwendet und über Assembly"=Konnektoren untereinander verbunden. Damit werden auf diesen Ebenen Komponentenarchitekturen definiert.
 \end{itemize}
 
 
@@ -857,13 +860,13 @@ TODO: Was ist Teil des Kontext? --> exakt def.: z. B. parent, ...
 
 TODO: Allokation + Assembly als benötigt?
 
+TODO: Kontext: kennzeichnet "`Einsatzstelle"' eines Implementation Type. --> Unterscheidbarkeit der Verwendung
 
 
 Wie in Abbildung \ref{fig:cm-component-hierarchy-context-01} zu sehen ist, kann ein Kontext unterschiedliche Detail"=Niveaus erfassen. Er ist definiert für:
 
 \begin{itemize}
-	\item den \textbf{\textit{Implementation Type}}, dann werden die Kompositionsstrukturen (Komponentenarchitektur) mit Komponenten, den Konnektoren und der "`Enthalten"'"=Beziehung berücksichtigt.
-	\item \textbf{Assembly}, hier wird zusätzlich die Assembly berücksichtigt, in der der Kontext liegt.
+	\item \textbf{Assembly}, dann werden die Kompositionsstrukturen (Komponentenarchitektur) mit Komponenten, den Konnektoren und der "`Enthalten"'"=Beziehung berücksichtigt. zusätzlich die Assembly berücksichtigt, in der der Kontext liegt. TODO
 	\item \textbf{Allokation}, hier werden zusätzlich die Ressourcen (\textit{computational}, \textit{non"=computational}) über die \texttt{$\flqq$deployed-on$\frqq$}"=Relation und die Ausführungsumgebung erfasst, auf denen die Komponenten und Konnektoren allokiert wurden. Zusätzlich können die folgenden Eigenschaften erfasst werden: \textit{Concurrency}, \textit{Security}, Container"=Eigenschaften, Komponentenkonfiguration.
 \end{itemize}
 
@@ -890,35 +893,44 @@ Um IDs auch bei Zusammenführung unterschiedlicher Komponentenmodell"=Instanzen e
 
 In Implementierungen des Komponenten"=Meta"=Modells muss sich das ID"=Konzept wiederfinden. Entitäten müssen also stets über eine Entsprechung zum eindeutigen Bezeichner verfügen. IDs können intern verwaltet werden und somit der Kontrolle eines Modellierers entzogen werden, damit die Eindeutigkeit durch eine Implementierung sichergestellt werden kann.
 
+Die folgenden Entitäten tragen IDs:
 
-
-\subsection{Anotationen}
-\label{sec:Anotationen}
-
-
-
-Das Komponentenmodell bietet die Möglichkeit alle Entitäten des Modells mit beliebigen Zusatzinformationen "`Anotationen"' (Attribute) zu versehen. Da die genauen Anwendungsszenarien des Komponentenmodells nicht exakt absehbar sind und Vorgaben das Modell nicht unnötig limitieren sollen, bleibt das Komponentenmodell, ebenso wie bei Protokollen und SEFFs, offen und gibt keine feste Menge von Typen vor. Damit lassen sich beliebige Anotations"=Typen ergänzen, sofern sie benötigt werden. Diese können Messwerte ebenso sein wie \textit{Quality of Service} Merkmale (siehe Kapitel \ref{sec:WeitereFaehigkeiten}) von Entitäten oder beliebige andere Anotations"=Typen. Das heißt also, dass die Datentypen und Datenstrukturen nicht durch das Komponentenmodell festgelegt werden.
-
-Gleichwohl definiert das Komponentenmodell einen Standardsatz von Anotations"=Typen, die eine schnelle Arbeit mit dem Komponentenmodell vereinfachen sollen. Hierzu zählen die Datentypen Integer (\texttt{int}, \texttt{long}), Fließkommazahl (\texttt{float}, \texttt{double}) und Zeichenkette (\texttt{string}) analog ihrer Definition in .NET C\# 1.1 (siehe \cite{net-csharp-gleitkommatypen,net-csharp-ganzzahltypen,net-csharp-string}).
-
-Um die Unterscheidung zu erleichtern, welcher Datentyp für eine Anotation in einem konkreten Fall vorliegt, muss jede Anotation den Datentyp für das Datenfeld deklarieren. Zusätzlich trägt eine Anotation einen Anotationsnamen, der auch über mehrere Anotationen hinweg benutzt werden kann, um beispielsweise eine speziellen Laufzeitmesswert bei allen Komponenten einer Modell"=Instanz zu kennzeichnen. Anotation können überdies aus anderen Anotationswerten berechnet werden. Um eine Unterscheidung zu erlauben, welche Werte berechnet wurden, gibt es je Anotation ein \textit{Flag}, dass diese Werte kennzeichnet. Im Allgemeinen sind berechnete Anotationen \textit{read"=only}. Gleichwohl können Berechnungen, die auf eine Komponentenmodellinstanz durchgeführt wurden, berechnete Werte setzen. Daher ist eine Anotation ein Vier"=Tupel, bestehend aus $(Anotationsnamen, Datentyp, Datenfeld, Calculated-Flag)$. 
-
-Anotationen können zu den folgenden Entitäten des Komponentenmodells vergeben werden:
 \begin{itemize}
-	\item Komponenten, wobei die Anotation eindeutig einer Komponente zugeordnet werden kann. Die Anotation höherer Komponenten Typ"=Ebenen vererbt sich, kann also auch von Kinder"=Entitäten einer Komponente zugegriffen werden.
+	\item Komponenten"=Typen. Jeder Komponenten"=Typ einer Typ"=Ebene lässt sich damit von anderen unterscheiden. Wird ein Komponenten"=Typ verfeinert, so tragen auch jene Komponenten, die untereinander in einer \textit{conforms}"=Beziehung stehen, unterschiedliche IDs.
+	\item Schnittstellen. Jede Schnittstelle unterscheidet sich von jeder anderen über die ID, auch wenn die Schnittstellen ansonsten vollkommen identisch sind (bspw. exakt die gleichen Signaturen tragen). Ausnahmen sind jedoch unter bestimmten Bedingungen möglich: Werden, wie beispielsweise in einer Chain"=of"=Responsibility üblich, in einer Kette von Komponenten stets die gleichen Schnittstellen angeboten und benötigt, so kann aus Gründen der Übersichtlichkeit und Eindeutigkeit der 
+	\item TODO: was unterscheidet sich von was.
+	\item Kontexte; jeder Kontext trägt eine ID.
+\end{itemize}
+
+
+
+\subsection{Annotationen}
+\label{sec:Annotationen}
+
+
+
+Das Komponentenmodell bietet die Möglichkeit alle Entitäten des Modells mit beliebigen Zusatzinformationen "`Annotationen"' (Attribute) zu versehen. Da die genauen Anwendungsszenarien des Komponentenmodells nicht exakt absehbar sind und Vorgaben das Modell nicht unnötig limitieren sollen, bleibt das Komponentenmodell, ebenso wie bei Protokollen und SEFFs, offen und gibt keine feste Menge von Typen vor. Damit lassen sich beliebige Annotations"=Typen ergänzen, sofern sie benötigt werden. Diese können Messwerte ebenso sein wie \textit{Quality of Service} Merkmale (siehe Kapitel \ref{sec:WeitereFaehigkeiten}) von Entitäten oder beliebige andere Annotations"=Typen. Das heißt also, dass die Datentypen und Datenstrukturen nicht durch das Komponentenmodell festgelegt werden.
+
+Gleichwohl definiert das Komponentenmodell einen Standardsatz von annotations"=Typen, die eine schnelle Arbeit mit dem Komponentenmodell vereinfachen sollen. Hierzu zählen die Datentypen Integer (\texttt{int}, \texttt{long}), Fließkommazahl (\texttt{float}, \texttt{double}) und Zeichenkette (\texttt{string}) analog ihrer Definition in .NET C\# 1.1 (siehe \cite{net-csharp-gleitkommatypen,net-csharp-ganzzahltypen,net-csharp-string}).
+
+Um die Unterscheidung zu erleichtern, welcher Datentyp für eine annotation in einem konkreten Fall vorliegt, muss jede Annotation den Datentyp für das Datenfeld deklarieren. Zusätzlich trägt eine Annotation einen Annotationsnamen, der auch über mehrere Annotationen hinweg benutzt werden kann, um beispielsweise eine speziellen Laufzeitmesswert bei allen Komponenten einer Modell"=Instanz zu kennzeichnen. Annotation können überdies aus anderen Annotationswerten berechnet werden. Um eine Unterscheidung zu erlauben, welche Werte berechnet wurden, gibt es je Annotation ein \textit{Flag}, dass diese Werte kennzeichnet. Im Allgemeinen sind berechnete Annotationen \textit{read"=only}. Gleichwohl können Berechnungen, die auf eine Komponentenmodellinstanz durchgeführt wurden, berechnete Werte setzen. Daher ist eine Annotation ein Vier"=Tupel, bestehend aus $(Annotationsnamen, Datentyp, Datenfeld, Calculated-Flag)$. 
+
+Annotationen können zu den folgenden Entitäten des Komponentenmodells vergeben werden:
+\begin{itemize}
+	\item Komponenten, wobei die Annotation eindeutig einer Komponente zugeordnet werden kann. Die Annotation höherer Komponenten Typ"=Ebenen vererbt sich, kann also auch von Kinder"=Entitäten einer Komponente zugegriffen werden.
 	\item Schnittstellen
 	\item Kontexte; hier tragen die Kontexte Zusatzinformationen (beispielsweise QoS"=Informationen), die sich nicht nur auf eine Komponente beziehen, sondern nur für eine Komponente mit ihrer "`Umgebung"'.
 	\item Assembly"=Konnektoren; hier sind im Zusammenhang mit der Abbildung auf Ressourcen beispielsweise Durchsatzwerte denkbar.
 	\item Delegations"=Konnektoren TODO: Sinn unterhalb Assembly-Ebene?
 	\item Ressourcen (berechnend und nicht-berechnend)
-	\item Assemblies; komplette Assemblies können ebenfalls eigene Anotationen tragen.
+	\item Assemblies; komplette Assemblies können ebenfalls eigene Annotationen tragen.
 \end{itemize}
 
-Zu einer Entität sind \texttt{0..*} Anotationen möglich. Damit kann die gleiche Anotation jedoch nicht für mehrere Entitäten zugleich verwendet werden. Die Anotationen zu einer Entität sind ungeordnet. Anotationen können für bestimmte Entitäten nicht vorgeschrieben werden. Es ist also nicht vorhersehbar, ob eine Entität eine bestimmte Anotation trägt.
+Zu einer Entität sind \texttt{0..*} Annotationen möglich. Damit kann die gleiche Annotation jedoch nicht für mehrere Entitäten zugleich verwendet werden. Die Annotationen zu einer Entität sind ungeordnet. Annotationen können für bestimmte Entitäten nicht vorgeschrieben werden. Es ist also nicht vorhersehbar, ob eine Entität eine bestimmte Annotation trägt.
 
-Zusätzlich können auch SEFFs und Protokolle Anotationen verwenden. Da die Typen für SEFFs und Protokolle nicht festgelegt sind, kann an dieser Stelle jedoch nicht beschrieben werden, zu welchen dann erweiterten Modellkonstrukten Anotationen vergeben werden können. Anotationen folgen dennoch dem gleichen, oben beschriebenen, Aufbau.
+Zusätzlich können auch SEFFs und Protokolle Annotationen verwenden. Da die Typen für SEFFs und Protokolle nicht festgelegt sind, kann an dieser Stelle jedoch nicht beschrieben werden, zu welchen dann erweiterten Modellkonstrukten Annotationen vergeben werden können. Annotationen folgen dennoch dem gleichen, oben beschriebenen, Aufbau.
 
-TODO: oder doch nur Tupel? Gibt es für Anotationsnamen ein ID-Konzept; für Datentypen?
+TODO: oder doch nur Tupel? Gibt es für Annotationsnamen ein ID-Konzept; für Datentypen?
 
 
 
