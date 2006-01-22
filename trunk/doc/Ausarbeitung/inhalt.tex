@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.50  2006/01/22 18:30:48  kelsaka
+% - QoS ergänzt
+%
 % Revision 1.49  2006/01/22 16:54:56  kelsaka
 % - Parametrisierte Verträge ergänzt
 %
@@ -956,8 +959,7 @@ TODO: oder doch nur Tupel? Gibt es für Annotationsnamen ein ID-Konzept; für Date
 
 \subsection{Weitere Fähigkeiten}
 \label{sec:WeitereFaehigkeiten}
-Viele zusätzliche Fähigkeiten des Komponentenmodells erwachsen aus den flexiblen Möglichkeiten in der Verwendung von Annotationen.
-
+Viele zusätzliche Fähigkeiten des Komponentenmodells erwachsen aus den flexiblen Möglichkeiten in der Verwendung von Annotationen zur Speicherung beliebiger Daten.
 
 
 \subsubsection{Parametrisierte Verträge}
@@ -966,11 +968,13 @@ Parametrisierte Verträge, wie sie von Reussner in \cite{reussner01i} beschrieben
 
 Wurde für eine konkrete Einschränkung der Schnittstellen("=Verträge) der parametrisierte Vertrag berechnet, so können wiederum die Annotationen zum Ablegen der Ergebnisse verwendet werden.
 
+Eine konkrete Ausprägung von parametrisierten Verträgen oder eine Berechnungsfunktion für diese ist nicht Teil des Palladio Komponentenmodells.
+
 
 
 \subsubsection{Quality of Service}
 \label{sec:QualityofService}
-Quality of Service"=Daten lassen sich ebenfalls über Annotationen erfassen. 
+Quality of Service"=Daten lassen sich ebenfalls über Annotationen erfassen. Dabei lassen sich QoS"=Daten aus Messungen hinterlegen, berechnete Werte zu Entitäten speichern und aus beiden Formen von Werten weitere Berechnungen vornehmen. Da auch SEFFs mit QoS"=Daten annotierbar sind, lassen sich über komplette Komponentenarchitekturen hinweg Berechnungen vornehmen.
 
 
 
