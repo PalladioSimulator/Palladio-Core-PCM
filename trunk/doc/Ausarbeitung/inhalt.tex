@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.44  2006/01/22 09:43:32  kelsaka
+% - kleinere änderungen
+%
 % Revision 1.43  2006/01/21 16:47:55  kelsaka
 % - Rollen erklärt
 %
@@ -808,6 +811,30 @@ Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembl
 
 
 
+\subsection{Komponenten-Typ vs. Komponenten-Verwendung}
+\label{sec:Komponenten-Typ vs. Komponenten-Verwendung}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.80\textwidth]{./image/cm-component-hierarchy-context-01.pdf}
+	\caption{Komponentenhierarchie mit Einordnung des Kontexts (nach \cite{PalladioCMNeuSlides}, S. 33)}
+	\label{fig:cm-component-hierarchy-context-01}
+\end{figure}
+
+
+
+In Abbildung \ref{fig:cm-component-hierarchy-context-01} werden alle Ebenen des Komponentenmodells aufgezeigt. Wichtig ist die Unterscheidung der obersten drei Ebenen von der vierten (Assembly) und fünften (Allokation) Ebene.
+
+\begin{itemize}
+	\item \textit{Provided Type}, \textit{Complete Type} und \textit{Implementation Type} definieren jeweils Komponenen"=Typen auf verschieden Detail"=Niveaus, sie beschreiben Typen von Komponenten. Kompositions"=Strukturen sind nur innerhalb von Komponenten möglich. In Analogie zur objektorientierten Programmierung, werden Typen über Klassen festgelegt, die vorgegebenen Regeln folgen. Betrachtet man die Erstellung und Verfeinerung von Komponenten"=Typen als Prozess, so liegt am Ende des Prozesses eine ungeordnete Menge von Komponenten vor, die einer Verwendung harren.
+
+	\item Assembly und Allokation hingegen erlauben es Kompositions"=Strukturen zwischen Komponenten zu definieren. Komponenten können über die Assembly und Allokation "`verwendet"' werden. In Analogie zum Klassen"=Beispiel, werden die Komponenten"=Typen zu Instanzen. Die zuvor definierten Komponenten"=Typen werden verwendet und über Assembly"=Konnektoren untereinander verbunden. Damit werden auf diesen Ebenen Komponentenarchitekturen definiert.
+\end{itemize}
+
+
+
 \subsection{Kontext}
 \label{sec:Kontext}
 
@@ -829,15 +856,6 @@ Der gerade skizzierte Begriff des Kontexts bezieht sich auf das Vorkommen von Ko
 TODO: Was ist Teil des Kontext? --> exakt def.: z. B. parent, ...
 
 TODO: Allokation + Assembly als benötigt?
-
-
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=0.80\textwidth]{./image/cm-component-hierarchy-context-01.pdf}
-	\caption{Komponentenhierarchie mit Einordnung des Kontexts (nach \cite{PalladioCMNeuSlides}, S. 33)}
-	\label{fig:cm-component-hierarchy-context-01}
-\end{figure}
 
 
 
@@ -957,12 +975,9 @@ Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere s
 - QoS-Fähigkeiten
 
 
-- Komponentenbeschreibung getrennt von verwendung
+
 - auf gleicher hierarchiestufe darf eine komponente nicht mehrfach vorkommen
 - komponente liegt IM kontext
-- "`äußere"' assembly connectors nur unterhalb von impl. möglich --> vorher TYP!
-- Typ-Hierarchie (Typ vs. inter-comp-conn) erklären
-- Sichtbarkeit des Inneren von CCs erklären: Entwickler hat IMMER Einblick, Deployer nicht (nur in Assemblies)
 
 Spätere TODOs:
 - Vergleich des Editor mit Palladio Editor
