@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.54  2006/01/23 13:01:23  kelsaka
+% - first class entity erklärt
+%
 % Revision 1.53  2006/01/23 12:37:01  kelsaka
 % - ausblick ergänzt
 %
@@ -713,14 +716,30 @@ Allgemeine Bemerkungen zur Validierung des Komponentenmodells finden sich in Kap
 
 
 
-\subsection{Rollen}
+\subsection{First Class Entities}
+\label{sec:FirstClassEntities}
+\textit{First Class Entities } (Entitäten erster Klasse) bezeichnen im Komponentenmodell all jene Entitäten, die direkt in einer Modellinstanz existieren können, da sie von keiner anderen Entität abhängen. Zu den \textit{First Class Entities} zählen:
+
+\begin{itemize}
+	\item Komponenten (gleich welcher Typ"=Ebene)
+	\item Schnittstellen
+	\item Ressourcen
+\end{itemize}
+
+Alle anderen Entitäten hängen von \textit{First Class Enitities} ab und können nicht ohne eine \textit{First Class Entity} existieren. Deshalb werden sie \textit{Second Class Entities} genannt. Beispielsweise kann es keine Signatur ohne eine Schnittstelle geben.
+
+
+
+\subsection{Benutzer-Rollen}
 \label{sec:Rollen}
-Rollen sind kein expliziter Bestandteil des Komponentenmodells, gleichwohl wird über Rollen unterschieden, welche Sichten auf das Komponentenmodell möglich sind. In Kapitel \ref{sec:Assembly} wird auf Rollen Bezug genommen, die wie folgt definiert sind:
+Benutzer- oder Anwender"=Rollen sind kein expliziter Bestandteil des Komponentenmodells, gleichwohl wird über Benutzer"'=Rollen unterschieden, welche Sichten auf das Komponentenmodell möglich sind. In Kapitel \ref{sec:Assembly} wird auf Benutzer"=Rollen Bezug genommen, die wie folgt definiert sind:
 
 \begin{itemize}
 	\item \textbf{Entwickler} entwerfen und definieren Komponenten und Schnittstellen sowie Konnektoren zwischen diesen Entitäten.
 	\item \textbf{\textit{System"=Deployer}} definieren Beziehungen zwischen Komponenten, Konnektoren und Ressourcen (siehe Kapitel \ref{sec:Allokation}).
 \end{itemize}
+
+Benutzer"=Rollen sind strikt von Rollen, wie sie in Kapitel \ref{sec:SchnittstellenUndRollen} definiert werden, zu unterscheiden.
 
 
 
@@ -962,7 +981,7 @@ Zu einer Entität sind \texttt{0..*} Annotationen möglich. Damit kann die gleiche
 
 Zusätzlich können auch SEFFs und Protokolle Annotationen verwenden. Da die Typen für SEFFs und Protokolle nicht festgelegt sind, kann an dieser Stelle jedoch nicht beschrieben werden, zu welchen dann erweiterten Modellkonstrukten Annotationen vergeben werden können. Annotationen folgen dennoch dem gleichen, oben beschriebenen, Aufbau.
 
-TODO: oder doch nur Tupel? Gibt es für Annotationsnamen ein ID-Konzept; für Datentypen?
+TODO: Gibt es für Annotationsnamen ein ID-Konzept; für Datentypen?
 
 
 
@@ -1038,9 +1057,9 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 - keine Unterstützung für Zustände über mehrere schnittstellen hinweg.
 - Typ-Ersetzbarkeit: Verschiedene Betrachtungsmöglichkeiten / Interoperabilitätsniveaus: Signatur, Protokoll, QoS --> Grafik
 Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
-- QoS-Fähigkeiten
 
-- was first class entity? was von anderen abhängig?
+
+
 
 - auf gleicher hierarchiestufe darf eine komponente nicht mehrfach vorkommen
 - komponente liegt IM kontext
