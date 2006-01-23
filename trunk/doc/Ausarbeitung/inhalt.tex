@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.51  2006/01/23 10:40:42  kelsaka
+% - "validierung" begonnen
+%
 % Revision 1.50  2006/01/22 18:30:48  kelsaka
 % - QoS ergänzt
 %
@@ -964,28 +967,43 @@ Viele zusätzliche Fähigkeiten des Komponentenmodells erwachsen aus den flexiblen
 
 \subsubsection{Parametrisierte Verträge}
 \label{sec:ParametrisierteVertraege}
-Parametrisierte Verträge, wie sie von Reussner in \cite{reussner01i} beschrieben werden, können im Komponentenmodell als Annotation spezifiziert werden und ermöglichen die Definition von Abhängigkeiten zwischen \textit{Provides}- und \textit{Requires}"=Schnittstelle in Abhängigkeit von Parameter"=Werten. Im Kern kann die Idee von parametrisierten Verträgen wie folgt skizziert werden: Wird eine \textit{Requires}"=Schnittstelle lediglich begrenzt bedient, die mit der \textit{Requires}"=Schnittstelle konnektierte \textit{Provides}"=Schnittstelle bietet also nicht den vollen Umfang, so kann die \textit{Provides}"=Schnittstelle unter Umständen dennoch begrenzt erfüllt werden. Ein parametrisierter Vertrag definiert exakt, mit welchen Einschränkungen die \textit{Provides}"=Schnittstelle, respektive der dahinter stehende Vertrag, erfüllt werden kann.
+Parametrisierte Verträge, wie sie von Reussner in \cite{reussner01i} beschrieben werden, können im Komponentenmodell als Annotation spezifiziert werden und ermöglichen die Definition von Abhängigkeiten zwischen \textit{Provides}- und \textit{Requires}"=Schnittstelle. Im Kern kann die Idee von parametrisierten Verträgen wie folgt skizziert werden: Wird eine \textit{Requires}"=Schnittstelle lediglich begrenzt bedient, die mit der \textit{Requires}"=Schnittstelle konnektierte \textit{Provides}"=Schnittstelle bietet also nicht den vollen Umfang, so kann die \textit{Provides}"=Schnittstelle unter Umständen dennoch begrenzt erfüllt werden. Ein parametrisierter Vertrag definiert exakt, mit welchen Einschränkungen die \textit{Provides}"=Schnittstelle, respektive der dahinter stehende Vertrag, erfüllt werden kann.
 
 Wurde für eine konkrete Einschränkung der Schnittstellen("=Verträge) der parametrisierte Vertrag berechnet, so können wiederum die Annotationen zum Ablegen der Ergebnisse verwendet werden.
 
-Eine konkrete Ausprägung von parametrisierten Verträgen oder eine Berechnungsfunktion für diese ist nicht Teil des Palladio Komponentenmodells.
+Eine konkrete Ausprägung von parametrisierten Verträgen -- oder eine Berechnungsfunktion für diese -- ist nicht Teil des Palladio Komponentenmodells.
 
 
 
 \subsubsection{Quality of Service}
 \label{sec:QualityofService}
-Quality of Service"=Daten lassen sich ebenfalls über Annotationen erfassen. Dabei lassen sich QoS"=Daten aus Messungen hinterlegen, berechnete Werte zu Entitäten speichern und aus beiden Formen von Werten weitere Berechnungen vornehmen. Da auch SEFFs mit QoS"=Daten annotierbar sind, lassen sich über komplette Komponentenarchitekturen hinweg Berechnungen vornehmen.
+Quality of Service"=Daten lassen sich ebenfalls über Annotationen erfassen. Dabei lassen sich QoS"=Daten aus Messungen hinterlegen, berechnete Werte zu Entitäten speichern und aus beiden Formen von Werten weitere Berechnungen vornehmen. Auch SEFFs mit QoS"=Daten annotierbar sind, weshalb sich über komplette Komponentenarchitekturen hinweg Berechnungen vornehmen lassen.
+
+Da eine beliebige Zahl von Annotation zur gleichen Zeit für eine Entität denkbar sind, erlauben sich parallele Berechnungen verschiedener QoS"=Aspekte an der gleichen Modellinstanz, ohne, dass sich unerwünschte Seiteneffekte ergeben. Damit ist ein und dieselbe Modellinstanz zur gleichen Zeit aus verschiedenen Sichten examinierbar.
 
 
 
 \subsection{Validierung von Modellinstanzen}
 \label{sec:ValidierungvonModellinstanzen}
-TODO: Erweiterungen zu Kapitel \ref{sec:Typ-Spezialisierung}. Insbesondere auf QoS-Attributen, parametrisieren Verträgen und SEFFs (prüfen ob eine substitution zulässig: erhaltung der seff-eigenschaften denkbar).
-TODO: Unterscheidung: Validierung vs. Konsistenz.
+Zunächst einmal muss im Komponentenmodell zwischen \textit{Validierung} und \textit{Konsistenz} unterschieden werden. Das Komponentenmodell muss immer konsistent gehalten werden. Mit Konsistenz ist dabei die Einhaltung gültiger Modellkonstrukte und Modellstruktur gemeint. Würden sich zwei Schnittstellen gegenseitig anbieten, wäre dieses ein ungültiges Modellkonstrukt und würde die Konsistenz des Modells verletzten. Unter der Validierung wird in diesem Zusammenhang eine über die Konsistenzwahrung hinaus gehende Prüfung des Modells, nicht mehr der bloßen Konstrukte, verstanden. Validierungen umfassen minimal die Überprüfung auf Gültigkeit der Bedingungen aus den Kapiteln \ref{sec:Typ-Ebenen} und \ref{sec:Typ-Spezialisierung}.
 
-zwei möglichkeiten zur validierung
-- dauerhaft valide (on the fly)
-- auf wunsch
+Validierungsalgorithmen sind kein zwingender Bestandteil einer Implementierung des Komponentenmodells, sondern optionale Elemente. Dies spiegelt sich an verschiedenen Validierungsstrategien wider, die für das Komponentenmodell vorgesehen sind:
+
+\begin{itemize}
+	\item \textbf{Permanente Validierung}. Bei dieser Form der Validierung wird eine valider Modellzustand permanent durch Überprüfung eingehalten. Die Überprüfung erfolgt \textit{on"=the"=fly} mit dem Erstellen neuer Modellelemente. Nur Modellelemente, die als valide betrachtet werden, werden zugelassen.
+	\item \textbf{Punktuelle Validierung}. Diese Form der Validierung wird stets manuell initiiert und bezieht sich auf einen festen Zustand einer Modellinstanz. Werden invalide Modellelemente erkannt, so erfolgt eine Rückmeldung über die Art des Fehlers und die betroffenen Modellelemente, so dass beispielsweise ein Korrektur vorgenommen werden kann.
+\end{itemize}
+
+
+
+weitere annotationen einbeziehen
+
+
+
+TODO: Erweiterungen zu Kapitel \ref{sec:Typ-Spezialisierung}. Insbesondere auf QoS-Attributen, parametrisieren Verträgen und SEFFs (prüfen ob eine substitution zulässig: erhaltung der seff-eigenschaften denkbar).
+
+
+Auch invalide Modellinstanzen des Komponentenmodells müssen serialisiert werden können. Inkonsistente Modelle werden hingegen gar nicht unterstützt und dürfen nicht eintreten.
 
 
 
@@ -1024,7 +1042,7 @@ Improvement of QoS prediction models
 Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
 - QoS-Fähigkeiten
 
-
+- was first class entity? was von anderen abhängig?
 
 - auf gleicher hierarchiestufe darf eine komponente nicht mehrfach vorkommen
 - komponente liegt IM kontext
