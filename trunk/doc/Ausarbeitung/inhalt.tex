@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.53  2006/01/23 12:37:01  kelsaka
+% - ausblick ergänzt
+%
 % Revision 1.52  2006/01/23 12:07:48  kelsaka
 % - validierung ergänzt
 %
@@ -1012,18 +1015,15 @@ Auch invalide Modellinstanzen des Komponentenmodells müssen serialisiert werden 
 
 \subsection{Ausblick auf die Entwicklung}
 \label{sec:AusblickaufdieEntwicklung}
-TODO: Ein neues Paper, das das aktuelle Komponentenmodell beschreibt, wird in Kürze unter \cite{PalladioCMNeu} veröffentlicht.
+Das Palladio Komponentenmodell unterliegt einer permanenten Entwicklung durch die Palladio"=Gruppe. Das Komponentenmodell stellt einen Gegenstand aktiver Forschung dar und variiert entsprechend. Der aktuelle Stand des Komponentenmodells wird durch ein neues Paper, das in Kürze unter \cite{PalladioCMNeu} veröffentlicht wird, beschrieben.
 
-TODO:
-Runtime
-	Dynamic binding
-	Instance creation and destruction
-Component State
-Implementation of the concepts > Steffen
-Improvement of QoS prediction models
-	Concurrency modelling
-	Usage profile
-	Resources
+Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
+
+\begin{itemize}
+	\item \textit{Runtime}. Die Laufzeitebene für Komponenten soll erfasst werden. Dazu gehört die Berücksichtigung von dynamischem Binden und das Erzeugen und Zerstören von Istanzen.
+	\item Zustand von Komponenten. Bisher sind Komponenten nahezu zustandslos. Lediglich während der Ausführung eines konkreten SEFFs ist derzeit ein Komponentenzustand erkennbar. Außerdem lassen sich über die Protokolle der angebotenen Schnittstellen Zustände der Komponenten erkennen. Ein weiter gehender Zustandsbegriff (siehe auch Kapitel \ref{sec:EinschraenkungenCM}) ist derzeit jedoch noch nicht möglich, soll jedoch eingeführt werden. 
+	\item Derzeit existiert keine Implementierung zum aktuellen Stand des Komponenten"=Meta"=Modells. Im Rahmen dieser Diplomarbeit stellt das entwickelte EMF"=Modell jedoch eine (generierte) Implementierung dar.
+\end{itemize}
 
 
 
