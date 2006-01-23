@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.52  2006/01/23 12:07:48  kelsaka
+% - validierung ergänzt
+%
 % Revision 1.51  2006/01/23 10:40:42  kelsaka
 % - "validierung" begonnen
 %
@@ -994,16 +997,11 @@ Validierungsalgorithmen sind kein zwingender Bestandteil einer Implementierung d
 	\item \textbf{Punktuelle Validierung}. Diese Form der Validierung wird stets manuell initiiert und bezieht sich auf einen festen Zustand einer Modellinstanz. Werden invalide Modellelemente erkannt, so erfolgt eine Rückmeldung über die Art des Fehlers und die betroffenen Modellelemente, so dass beispielsweise ein Korrektur vorgenommen werden kann.
 \end{itemize}
 
+Neben einer Basis"=Validierung, wie sie oben beschrieben wurde, sind beliebige weitere Definitionen von Validitität denkbar, die eine strengere Prüfung auf einer Modellinstanz vornehmen. So lassen sich Annotationen in die Validitätsprüfung mit einbeziehen. Dadurch können beispielsweise parametrisierte Verträge überprüft werden und QoS"=Attribute validiert werden. Für SEFFs wären Prüfungen denkbar, die die Substitution von Komponenten analysieren und nur jene Substitutionen zulassen, bei der der ersetzte SEFF mindestens die gleichen Kontrollelemente berücksichtigt wie die zu ersetzende Komponente. 
 
+Auch mehrere Validierungs"=Definition, die zur gleichen Zeit angewendet werden, sind denkbar, sofern diese keine widersprüchlichen Anforderungen an eine Modellinstanz stellen. Es gibt nicht \textit{die} valide Instanz des Komponentenmodells, bewußt sind die Validierungen erweiterbar gehalten.
 
-weitere annotationen einbeziehen
-
-
-
-TODO: Erweiterungen zu Kapitel \ref{sec:Typ-Spezialisierung}. Insbesondere auf QoS-Attributen, parametrisieren Verträgen und SEFFs (prüfen ob eine substitution zulässig: erhaltung der seff-eigenschaften denkbar).
-
-
-Auch invalide Modellinstanzen des Komponentenmodells müssen serialisiert werden können. Inkonsistente Modelle werden hingegen gar nicht unterstützt und dürfen nicht eintreten.
+Auch invalide Modellinstanzen des Komponentenmodells müssen serialisiert werden können. Inkonsistente Modelle werden hingegen gar nicht unterstützt und dürfen nicht "`erzeugbar"' sein.
 
 
 
