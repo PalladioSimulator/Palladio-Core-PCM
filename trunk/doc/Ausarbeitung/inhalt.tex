@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.56  2006/01/23 13:53:26  kelsaka
+% - weitere todos eingepflegt
+%
 % Revision 1.55  2006/01/23 13:11:22  kelsaka
 % - kleinere todos abgearbeitet
 %
@@ -805,11 +808,15 @@ Zur Unterscheidung von Allokation (\textit{Deployment}) und Assembly ist der Zei
 
 Die Assembly"=Definition wird kann unabhängig von der Allokation erfolgen. Beide Aktionen zusammen definieren den Kontext, der in Kapitel \ref{sec:Kontext} beschrieben wird. Komponenten können jedoch nur allokiert werden, wenn Sie zuvor in einer Assembly definiert wurden. Das heißt, dass ein Allokation immer nur von Assemblies erfolgt, nie von Komponenten direkt. Im einfachsten Fall wird dabei eine Komponente dabei von genau einer Assembly erfasst und allokiert.
 
+Nach der in einer Assembly definierten Komposition richten sich die tatsächlich aufgerufenen und aufrufenden Dienste einer Komponente. Damit können z. B. die Aufrufparameter von Diensten einer Komponentne auf Grund der konkreten Verwendung variieren, weil die aufrufende Komponente lediglich ein begrenztes Spektrum der möglichen Aufrufparameter nutzt. Damit ändern sich also primär funktionale Eigenschaften einer Komponente. 
+
+Mit der Allokation variiert unter anderem die Ausführungsumgebung einer Komponente. Dies hat z. B. Auswirkungen auf die Ausführungsgeschwindigkeit, Sicherheit oder die Konfiguration zur Ausführung einer Komponente. Vornehmlich sind hiervon also nicht"=funktionale Eigenschaften betroffen.
+
 
 
 \subsubsection{Assembly}
 \label{sec:Assembly}
-Im vorigen Kapitel wurde die Definition einer Assembly bereits angedeutet. An dieser Stelle sollen die Eigenschaften zusammengefasst dargestellt werden.
+Im vorigen Kapitel wurde die Definition einer Assembly bereits angedeutet. Eine Assembly wird gelegentlich auch als \textit{Assembly"=Composition} bezeichnet. An dieser Stelle sollen die Eigenschaften zusammengefasst dargestellt werden.
 
 \begin{itemize}
 	\item Eine Assembly fasst eine Menge von Komponenten und die dazugehörigen "`äußeren"' Assembly"=Konnektoren zusammen. Als "`äußere"' Assembly"=Konnektoren gelten dabei jene, die innerhalb keiner Komponente liegen.
@@ -911,6 +918,7 @@ TODO: Kontext: kennzeichnet "`Einsatzstelle"' eines Implementation Type. --> Unt
 TODO: Das Ziel des dahinter liegenden Konzepts ist eine Möglichkeit zur Unterscheidung von Komponenteneigenschaften je nach ihrem konkreten Verwendungskontext. So kann die \textit{gleiche} Komponente, unterschieden nach dem Typ auf einer der oben genannten Ebenen, ein unterschiedliches Verhalten je nach Kontext aufweisen.
 
 
+
 Wie in Abbildung \ref{fig:cm-component-hierarchy-context-01} zu sehen ist, kann ein Kontext unterschiedliche Detail"=Niveaus erfassen. Er ist definiert für:
 
 \begin{itemize}
@@ -990,7 +998,8 @@ TODO: Gibt es für Annotationsnamen ein ID-Konzept; für Datentypen?
 
 \subsection{Weitere Fähigkeiten}
 \label{sec:WeitereFaehigkeiten}
-Viele zusätzliche Fähigkeiten des Komponentenmodells erwachsen aus den flexiblen Möglichkeiten in der Verwendung von Annotationen zur Speicherung beliebiger Daten.
+Viele zusätzliche Fähigkeiten des Komponentenmodells erwachsen aus den flexiblen Möglichkeiten in der Verwendung von Annotationen zur Speicherung beliebiger Daten. Dabei dient das Komponentenmodell mit seinen Strukturinformationen als Grundlage für Berechnungen.
+
 
 
 \subsubsection{Parametrisierte Verträge}
@@ -1068,26 +1077,8 @@ Spätere TODOs:
 - Vergleich des Editor mit Palladio Editor
 
 ------------------------------------
-
-
-
-
-
-Neu wird im Palladio Komponentenmodell der Begriff des "`Kontexts"' eingeführt. Dabei wird unterschieden in
-\begin{itemize}
-	\item "`Verdrahtung"' von Komponenten untereinander im Sinne einer Komponentenarchitektur (\textit{System Construction / Assembly Composition}) und
-	\item Allokation von Komponenten auf Ressourcen (\textit{Deployment / Allocation}).
-\end{itemize}
-Das Ziel des dahinter liegenden Konzepts ist eine Möglichkeit zur Unterscheidung von Komponenteneigenschaften je nach ihrem konkreten Verwendungskontext. So kann die \textit{gleiche} Komponente, unterschieden nach dem Typ auf einer der oben genannten Ebenen, ein unterschiedliches Verhalten je nach Kontext aufweisen.
-
-Nach der \textit{Assembly Composition} richten sich die aufgerufenen und aufrufenden Dienste. Damit können z. B. die Aufrufparameter von Diensten variieren. Es ändern sich also primär funktionale Eigenschaften einer Komponente. Mit der \textit{Allocation} variiert unter anderem die Ausführungsumgebung. Dies hat z. B. Auswirkungen auf die Ausführungsgeschwindigkeit, Sicherheit oder die Konfiguration zur Ausführung einer Komponente. Vornehmlich sind hiervon also nicht"=funktionale Eigenschaften betroffen.
-
-Zusätzlich zu den beschriebenen statischen Strukturen bietet das Komponentenmodell Unterstützung für beliebige Zusatzattribute, die für Entitäten (Schnittstellen und Komponenten, Protokolle u. a.) vergegeben werden können. Hierunter fallen ebenfalls QoS (\textit{Quality of Service}) Attribute, für die das Komponentenmodell eine Berechnungsgrundlage bietet. Das Komponentenmodells ermöglicht mit seinen Daten die Auswertung von parametrisierten Verträgen, wie sie von Reussner in \cite{reussner01i} beschrieben werden.
-
-
-
-
 ---------------------------------
+
 
 
 \newpage
