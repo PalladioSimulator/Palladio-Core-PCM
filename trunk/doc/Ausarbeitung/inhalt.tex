@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.55  2006/01/23 13:11:22  kelsaka
+% - kleinere todos abgearbeitet
+%
 % Revision 1.54  2006/01/23 13:01:23  kelsaka
 % - first class entity erklärt
 %
@@ -718,7 +721,7 @@ Allgemeine Bemerkungen zur Validierung des Komponentenmodells finden sich in Kap
 
 \subsection{First Class Entities}
 \label{sec:FirstClassEntities}
-\textit{First Class Entities } (Entitäten erster Klasse) bezeichnen im Komponentenmodell all jene Entitäten, die direkt in einer Modellinstanz existieren können, da sie von keiner anderen Entität abhängen. Zu den \textit{First Class Entities} zählen:
+\textit{First Class Entities } (Entitäten erster Klasse) bezeichnen im Komponentenmodell all jene Entitäten, die direkt in einer Modellinstanz existieren können, da sie von keiner anderen Entität abhängen. Die Modellierung einer Modellinstanz muss mit einer \textit{First Class Entity} beginnen. Zu den \textit{First Class Entities} zählen:
 
 \begin{itemize}
 	\item Komponenten (gleich welcher Typ"=Ebene)
@@ -1021,7 +1024,9 @@ Validierungsalgorithmen sind kein zwingender Bestandteil einer Implementierung d
 
 Neben einer Basis"=Validierung, wie sie oben beschrieben wurde, sind beliebige weitere Definitionen von Validitität denkbar, die eine strengere Prüfung auf einer Modellinstanz vornehmen. So lassen sich Annotationen in die Validitätsprüfung mit einbeziehen. Dadurch können beispielsweise parametrisierte Verträge überprüft werden und QoS"=Attribute validiert werden. Für SEFFs wären Prüfungen denkbar, die die Substitution von Komponenten analysieren und nur jene Substitutionen zulassen, bei der der ersetzte SEFF mindestens die gleichen Kontrollelemente berücksichtigt wie die zu ersetzende Komponente. 
 
-Auch mehrere Validierungs"=Definition, die zur gleichen Zeit angewendet werden, sind denkbar, sofern diese keine widersprüchlichen Anforderungen an eine Modellinstanz stellen. Es gibt nicht \textit{die} valide Instanz des Komponentenmodells, bewußt sind die Validierungen erweiterbar gehalten.
+Da über die Validierung auch die Typ"=Substitution reglementiert werden kann, können verschiedene "`Interoperabilitätsniveaus"' zwischen Komponenten definiert und betrachtet werden. Auch die klassischerweise (vgl. TODO cite{Niveaus}) betrachteten Niveaus Signatur / Protokoll / QoS werden über Validierungen modellierbar.
+
+Auch mehrere Validierungs"=Definitionen, die zur gleichen Zeit angewendet werden, sind denkbar, sofern diese keine widersprüchlichen Anforderungen an eine Modellinstanz stellen. Es gibt nicht \textit{die} valide Instanz des Komponentenmodells, bewußt sind die Validierungen erweiterbar gehalten.
 
 Auch invalide Modellinstanzen des Komponentenmodells müssen serialisiert werden können. Inkonsistente Modelle werden hingegen gar nicht unterstützt und dürfen nicht "`erzeugbar"' sein.
 
@@ -1029,6 +1034,9 @@ Auch invalide Modellinstanzen des Komponentenmodells müssen serialisiert werden 
 
 \subsection{Einschränkungen}
 \label{sec:EinschraenkungenCM}
+- keine Unterstützung für Zustände über mehrere schnittstellen hinweg.
+- Komponente ruft sich selbst auf: wann unendliche rekursion, wann auf welcher ebene erlaubt --> insbesondere unbekannt in CCs
+- mehrere konnektoren auf eine provided schnittstelle: zustand nicht mehr unterscheidbar.: In der Umkehrung kann eine angebotene Schnittstelle jedoch über \texttt{0..*} benötigte Rollen verwendet werden. Damit bleibt die graphische Notation nicht eindeutig...
 
 
 
@@ -1047,19 +1055,11 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 
 
 
+\newpage
 ------------------------------------
 
 
 \textbf{TODO:}
-- Parametrisierte Verträge: Auswirkungen auf Requires-Schnittstelle: nicht mehr alles notwendig
-- Komponente ruft sich selbst auf: wann unendliche rekursion, wann auf welcher ebene erlaubt --> insbesondere unbekannt in CCs
-- mehrere konnektoren auf eine provided schnittstelle: zustand nicht mehr unterscheidbar.: In der Umkehrung kann eine angebotene Schnittstelle jedoch über \texttt{0..*} benötigte Rollen verwendet werden. Damit bleibt die graphische Notation nicht eindeutig...
-- keine Unterstützung für Zustände über mehrere schnittstellen hinweg.
-- Typ-Ersetzbarkeit: Verschiedene Betrachtungsmöglichkeiten / Interoperabilitätsniveaus: Signatur, Protokoll, QoS --> Grafik
-Um entscheiden zu können, ob Komponenten mit ihren Schnittstellen durch andere substituiert (Sub"=Typ"=Beziehung) werden können, ist es sinnvoll Protokolle, respektive Sprachen, zu verwenden, deren Inklusionsproblem entscheidbar ist.
-
-
-
 
 - auf gleicher hierarchiestufe darf eine komponente nicht mehrfach vorkommen
 - komponente liegt IM kontext
