@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.59  2006/01/23 19:42:54  kelsaka
+% - einschränkungen ergänzt
+%
 % Revision 1.58  2006/01/23 16:47:20  kelsaka
 % - einschränkungen ergänzt
 %
@@ -1074,14 +1077,19 @@ Generell gilt, dass nur ein gewisses Maß Einschränkungen für Modelle zwingend er
 
 
 
+Das Schnittstellen"=Protokoll wird auf Schnittstellen selbst definiert. Die Zustände eines angebotenen Protokolls entsprechend jedoch internen Zuständen der anbietenden Komponente. Abbildung \ref{fig:cm-missing-protocol-sync-01} verdeutlicht eine Einschränkung des Komponentenmodells, die die fehlende Synchronisation von Protokollen über angebotene Schnittstellen einer Komponente hinweg betrifft. Je angebotener Schnittstelle hat eine Komponente einen eigenen internen Zustand. Die internen Zustände einer Komponente lassen sich jedoch synchronisieren, die Protokolle werden damit vollkommen unabhängig voneinander durchlaufen.
 
-Protokoll-Zustand ist Zustand der Komp, nicht der Schnittstelle.
+Im Beispiel können \texttt{a()} und \texttt{b()} beliebig abwechselnd ausgeführt werden. Auch \texttt{c()} und \texttt{d()} lassen sich abwechselnd ausführen. Da beide Protokolle jedoch auf unterschiedlichen Schnittstellen (\texttt{I1} und \texttt{I2}) definiert sind, ließe sich nicht beschreiben, dass nach dem Ausführen von \texttt{a()} zunächst \texttt{c()} ausgeführt werden müsste.
 
-Der Zustand einer Komponente kann nicht über Protokolle verschiedener Schnittstellen hinweg synchronisiert werden.
+Eine Komponente hat damit keinen einzelnen eindeutigen Zustand, sondern je nach Anzahl der angebotenen Schnittstellen eine Menge von Zuständen.
 
-Protokoll"=Synchronisation
-- keine Unterstützung für Zustände über mehrere schnittstellen hinweg.
-- echte einschränkung? --> zusammenhängede fkt müssen auf *einer* schnittstelle def werden.
+Funktional ist dies jedoch keine echte Einschränkung. Modelliert man statt einzelner kleiner (gemessen an der Zahl der definierten Dienste) Schnittstellen eine große Schnittstelle, die in der Summe alle Dienste der kleinen Schnittstellen vereint, so resultiert dies in einer Komponente mit nur einem internen Zustand. Damit lassen sich beliebige Abhängigkeiten zwischen Diensten einer Komponente definieren. Bei der Verwendung dieser einen großen Schnittstelle, würde jede benutzende Komponente dann "`ihren"' ursprünglichen Teil der Dienste aufrufen und das verbleibende Angebot auf der Schnittstelle ignorieren.
+
+Man kann argumentieren, dass Abhängigkeiten von Diensten untereinander darauf hindeuten, dass diese Dienste ohnehin auf \textit{einer} Schnittstelle zu definieren wären, da zwischen unabhängigen Diensten keine Protokollreihenfolge notwendig wäre. Die Notwendigkeit eine Protokoll definieren zu können, deutete in diesem Fall auf zusammenhängende Funktionalität hin.
+
+Umgekehrt betrachtet kann eine große Komponente vielfältige und sehr unterschiedliche Schnittstellen anbieten. Eine Schnittstelle mit "`An/Aus"'"=Funktionalität könnte dennoch ungewollt eine einzelne große Schnittstelle notwendig machen, damit ein gemeinsames Protokoll definiert werden könnte. Aus dieser Sicht würde die einzelne große Schnittstelle das Design der Komponente erheblich einschränken und verschlechtern. Nahezu voneinander unabhängige Funktionalität würde unerwünscht vermischt. Die hinter der Bündelung von Diensten in einer Schnittstelle stehenden Design"=Entscheidungen eines Entwicklers würden verschleiert.
+
+Es bleibt festzustellen, dass die Möglichkeit Protokollzustände über verschiedene Schnittstellen einer Komponente hinweg zu synchronisieren, die Modellierungsmöglichkeiten erheblich erweitern würde.
 
 
 
