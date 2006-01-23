@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.58  2006/01/23 16:47:20  kelsaka
+% - einschränkungen ergänzt
+%
 % Revision 1.57  2006/01/23 15:26:02  kelsaka
 % - einschränkunen CM
 %
@@ -1053,10 +1056,37 @@ Auch invalide Modellinstanzen des Komponentenmodells müssen serialisiert werden 
 \label{sec:EinschraenkungenCM}
 Wie jedes Modell stellt das Palladio Komponentenmodell eine Abstraktion realer Komponentenarchitekturen. Dies impliziert Einschränkungen der Modellkonstrukte. Das Komponentenmodell ist somit nicht in Lage beliebige Eigenschaften realer Komponentenarchitekturen abzubilden. Bei diesen Einschränkungen ist zu unterscheiden zwischen jenen Einschränkungen, die im Rahmen der Abstraktion bewußt vorgenommen wurden und Einschränkungen, die in nicht bedachter Weise auftreten und die Nutzbarkeit des Komponentenmodells unerwünscht einschränken.
 
-Generell gilt, dass nur ein gewisses Maß Einschränkungen für Modelle zwingend erforderlich ist, damit Modelle berechenbar bleiben, auf Modellen gerechnet werden kann und die Zahl der Modellkonstrukte überschaubar und damit verständlich ist. Abstraktion darf nicht zu Gunsten eines allumfassenden und absolut vollständigem Modell aufgegeben werden. Ein solche Modell würde die Vorteile des Modell"=Gedanken zu nichte machen.
+Generell gilt, dass nur ein gewisses Maß Einschränkungen für Modelle zwingend erforderlich ist, damit Modelle berechenbar bleiben, auf Modellen gerechnet werden kann und die Zahl der Modellkonstrukte überschaubar und damit verständlich ist. Abstraktion darf nicht zu Gunsten eines allumfassenden und absolut vollständigem Modell aufgegeben werden. Ein solches Modell würde die Vorteile des Modell"=Gedankens zu nichte machen.
 
 
+
+\subsubsection{Zustandsmodellierung}
+\label{sec:Zustandsmodellierung}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.60\textwidth]{./image/cm-missing-protocol-sync-01.pdf}
+	\caption{Komponente mit zwei angebotenen Schnittstellen und den darauf spezifizierten Protokollen.}
+	\label{fig:cm-missing-protocol-sync-01}
+\end{figure}
+
+
+
+
+Protokoll-Zustand ist Zustand der Komp, nicht der Schnittstelle.
+
+Der Zustand einer Komponente kann nicht über Protokolle verschiedener Schnittstellen hinweg synchronisiert werden.
+
+Protokoll"=Synchronisation
 - keine Unterstützung für Zustände über mehrere schnittstellen hinweg.
+- echte einschränkung? --> zusammenhängede fkt müssen auf *einer* schnittstelle def werden.
+
+
+
+\subsubsection{TODO}
+\label{sec:..}
 - Komponente ruft sich selbst auf: wann unendliche rekursion, wann auf welcher ebene erlaubt --> insbesondere unbekannt in CCs
 - mehrere konnektoren auf eine provided schnittstelle: zustand nicht mehr unterscheidbar.: In der Umkehrung kann eine angebotene Schnittstelle jedoch über \texttt{0..*} benötigte Rollen verwendet werden. Damit bleibt die graphische Notation nicht eindeutig...
 
