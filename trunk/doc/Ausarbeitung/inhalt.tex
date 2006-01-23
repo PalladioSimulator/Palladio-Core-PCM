@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.57  2006/01/23 15:26:02  kelsaka
+% - einschränkunen CM
+%
 % Revision 1.56  2006/01/23 13:53:26  kelsaka
 % - weitere todos eingepflegt
 %
@@ -184,11 +187,13 @@ $\,$
 
 \section{Einleitung}
 \label{sec:Einleitung}
+TODO: Thema grob vorstellen.
 
 
 
 \subsection{Überblick}
 \label{sec:EinleitungUeberblick}
+TODO: Überblick über Kapitel: Was ist wo zu finden. "`Roten Faden"' skizzieren.
 
 
 
@@ -808,9 +813,9 @@ Zur Unterscheidung von Allokation (\textit{Deployment}) und Assembly ist der Zei
 
 Die Assembly"=Definition wird kann unabhängig von der Allokation erfolgen. Beide Aktionen zusammen definieren den Kontext, der in Kapitel \ref{sec:Kontext} beschrieben wird. Komponenten können jedoch nur allokiert werden, wenn Sie zuvor in einer Assembly definiert wurden. Das heißt, dass ein Allokation immer nur von Assemblies erfolgt, nie von Komponenten direkt. Im einfachsten Fall wird dabei eine Komponente dabei von genau einer Assembly erfasst und allokiert.
 
-Nach der in einer Assembly definierten Komposition richten sich die tatsächlich aufgerufenen und aufrufenden Dienste einer Komponente. Damit können z. B. die Aufrufparameter von Diensten einer Komponentne auf Grund der konkreten Verwendung variieren, weil die aufrufende Komponente lediglich ein begrenztes Spektrum der möglichen Aufrufparameter nutzt. Damit ändern sich also primär funktionale Eigenschaften einer Komponente. 
+Nach der in einer Assembly definierten Komposition richten sich die tatsächlich aufgerufenen und aufrufenden Dienste einer Komponente. Damit können z. B. die Aufrufparameter von Diensten einer Komponente auf Grund der konkreten Verwendung variieren, weil die aufrufende Komponente lediglich ein begrenztes Spektrum der möglichen Aufrufparameter nutzt. Mit der Verwendung (und "`Verdrahtung"') einer Komponente in einer Assembly ändern sich also primär \textit{funktionale Eigenschaften}. 
 
-Mit der Allokation variiert unter anderem die Ausführungsumgebung einer Komponente. Dies hat z. B. Auswirkungen auf die Ausführungsgeschwindigkeit, Sicherheit oder die Konfiguration zur Ausführung einer Komponente. Vornehmlich sind hiervon also nicht"=funktionale Eigenschaften betroffen.
+Mit der Allokation variiert unter anderem die Ausführungsumgebung einer Komponente. Dies hat z. B. Auswirkungen auf die Ausführungsgeschwindigkeit, Sicherheit oder die Konfiguration zur Ausführung einer Komponente. Vornehmlich sind hiervon also \textit{nicht"=funktionale Eigenschaften} betroffen.
 
 
 
@@ -916,6 +921,9 @@ TODO: Allokation + Assembly als benötigt?
 TODO: Kontext: kennzeichnet "`Einsatzstelle"' eines Implementation Type. --> Unterscheidbarkeit der Verwendung
 
 TODO: Das Ziel des dahinter liegenden Konzepts ist eine Möglichkeit zur Unterscheidung von Komponenteneigenschaften je nach ihrem konkreten Verwendungskontext. So kann die \textit{gleiche} Komponente, unterschieden nach dem Typ auf einer der oben genannten Ebenen, ein unterschiedliches Verhalten je nach Kontext aufweisen.
+
+TODO: - auf gleicher hierarchiestufe darf eine komponente nicht mehrfach vorkommen?
+- komponente liegt IM kontext
 
 
 
@@ -1043,6 +1051,11 @@ Auch invalide Modellinstanzen des Komponentenmodells müssen serialisiert werden 
 
 \subsection{Einschränkungen}
 \label{sec:EinschraenkungenCM}
+Wie jedes Modell stellt das Palladio Komponentenmodell eine Abstraktion realer Komponentenarchitekturen. Dies impliziert Einschränkungen der Modellkonstrukte. Das Komponentenmodell ist somit nicht in Lage beliebige Eigenschaften realer Komponentenarchitekturen abzubilden. Bei diesen Einschränkungen ist zu unterscheiden zwischen jenen Einschränkungen, die im Rahmen der Abstraktion bewußt vorgenommen wurden und Einschränkungen, die in nicht bedachter Weise auftreten und die Nutzbarkeit des Komponentenmodells unerwünscht einschränken.
+
+Generell gilt, dass nur ein gewisses Maß Einschränkungen für Modelle zwingend erforderlich ist, damit Modelle berechenbar bleiben, auf Modellen gerechnet werden kann und die Zahl der Modellkonstrukte überschaubar und damit verständlich ist. Abstraktion darf nicht zu Gunsten eines allumfassenden und absolut vollständigem Modell aufgegeben werden. Ein solche Modell würde die Vorteile des Modell"=Gedanken zu nichte machen.
+
+
 - keine Unterstützung für Zustände über mehrere schnittstellen hinweg.
 - Komponente ruft sich selbst auf: wann unendliche rekursion, wann auf welcher ebene erlaubt --> insbesondere unbekannt in CCs
 - mehrere konnektoren auf eine provided schnittstelle: zustand nicht mehr unterscheidbar.: In der Umkehrung kann eine angebotene Schnittstelle jedoch über \texttt{0..*} benötigte Rollen verwendet werden. Damit bleibt die graphische Notation nicht eindeutig...
@@ -1069,10 +1082,6 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 
 
 \textbf{TODO:}
-
-- auf gleicher hierarchiestufe darf eine komponente nicht mehrfach vorkommen
-- komponente liegt IM kontext
-
 Spätere TODOs:
 - Vergleich des Editor mit Palladio Editor
 
@@ -1127,12 +1136,18 @@ TODO
 
 \subsection{Einschränkungen}
 \label{sec:Einschraenkungen}
+
+
+
 Im Rahmen der Diplomarbeit ist \textit{nicht} geplant, einen vollständigen, industriellen Standards genügenden, GUI-Editor für das Palladio Komponentenmodell zu erzeugen. Im Vordergrund steht die Modellierung der EMF-Darstellung des dem Editor als Basis dienenden Komponenten-Meta-Modells und die Erprobung möglicher Wege zur Generierung eines vollständigen Editors.
 
 
 
 \subsection{Risikomanagement}
 \label{sec:Risikomanagement}
+
+
+
 Die Durchführung der Diplomarbeit unterliegt vielfältigen Risiken. Ändern sich Grundannahmen, wie in Kapitel \ref{sec:Annahmen} dargestellt, kann ein erfolgreicher Abschluss der Diplomarbeit gefährdet sein. Um Risiken zu minimieren werden an dieser Stelle für wahrscheinliche Risiken Auswege aufgezeigt.
 
 \paragraph{Konzeptioneller Wandel im Palladio Komponentenmodell} Wie bereits mehrfach in vorangegangenen Kapiteln erwähnt wurde, ist das Palladio Komponentenmodell aktiver Gegenstand von Forschungsarbeit. Damit verbunden ist das Risiko, dass sich Modell"=Konzepte ändern können, Modell"=Erweiterungen ergänzt werden und nicht mehr benötigte oder problematische Teile des Modells wegfallen können. Um das Risiko in diesem Bereich einzugrenzen, bieten sich zwei Strategien an:
