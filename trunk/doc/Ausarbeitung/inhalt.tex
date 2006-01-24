@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.62  2006/01/24 15:25:22  kelsaka
+% - cc rekursion
+%
 % Revision 1.61  2006/01/24 13:54:35  kelsaka
 % - rekursion
 %
@@ -1117,9 +1120,9 @@ Es bleibt festzustellen, dass die Möglichkeit Protokollzustände über verschieden
 
 Abbildung \ref{fig:cm-cc-recursion-01} zeigt ein Problem auf, das sich bei Komponentenmodell"=Instanzen ergibt, auf die nur eine begrenzte Sicht möglich ist. Auf der linken Seite ist erkennbar, dass \textit{Composite Component} "`CC1"' zunächst "`CC2"' enthält, diese jedoch wiederum "`CC1"'. Auf der rechten Seite wird eine eingeschränkte Sicht gezeigt, in der das Innere von "`CC2"' nicht sichtbar ist. "`CC1"' verwendet nach wie vor "`CC2"', es ist aber keine unendliche Rekursion erkennbar.
 
-Die skizzierte Situation kann eintreten, wenn 
+Die skizzierte Situation kann eintreten, wenn "`CC2"' als \textit{Complete Type} modelliert wurde und unabhängig davon "`CC1"' als \textit{Implementation Type} erzeugt wird und "`CC2"' intern verwendet. Der Modellierer von "`CC1"' findet in der Typ"=Beschreibung von "`CC2"' exakt die Komponente die er benötigt und nutzt sie daraufhin. Erst in einem späteren Schritt wird "`CC2"' als \textit{Implementation Type} beschrieben. Da zu diesem Zeitpunkt bereits der Typ von "`CC1"' definiert wurde, kann der Entwickler von "`CC2"' "`CC1"' verwenden. Wird dabei "`CC1"' bewußt als \textit{Complete Type} betrachtet, kann der Entwickler von "`CC2"' nicht erkennen, dass "`CC1"' intern auf "`CC2"' verweist. Auch die Verwendung von "`CC2"' in "`CC1"' ist einem Entwickler von "`CC2"' nicht zwangläufig bekannt. Auf diese Weise entsteht eine, in diesem Fall unendliche, Rekursion, die unerwünscht ist.
 
-- Komponente ruft sich selbst auf: wann unendliche rekursion, wann auf welcher ebene erlaubt --> insbesondere unbekannt in CCs
+Das skizzierte Szenario ist stark konstruiert und kann nur in speziellen Situationen auftreten. Insbesondere bei der \textit{Bottom"=Up}"=Verwendung des Komponentenmodells sind Rekursionen ausgeschlossen, da hier stets ein funktionierender Implementation Type vorliegt. Dennoch läßt sich eine solche Rekursion auch im Speziellen Fall erkennen. Setzt man voraus, dass alle Komponenten vor der Verwendung in einer Assembly vollständig mit allen inneren Komponenten als \textit{Implementation Type} offen liegen müssen, lässt sich eine Rekursion erkennen, vermeiden oder als Fehler einer Validierung ausgeben.
 
 
 
@@ -1130,6 +1133,7 @@ Die skizzierte Situation kann eintreten, wenn
 - die gleiche Schnittstelle darf nur 1x angeboten werden: keine Konzepte von Ports (mit eigenem Zustand)
 
 - Ja, außnahme hierzu, die wir bewußt ausgeklammer haben, wären benötigte Sequenzen. Das sind Sequenzen auf dem Requires Interface, die immer als Reaktion auf einen bestimmmten Stimulus erfolgen müssen. Beispielsweise das Speichern von Daten in einer Datenbank bei einer Datenänderung. Der Aufruf auf der DB ist Teil des Requires Interfaces, muss aber erfolgen. Den Fall kannst du in der Ausarbeitung erwähnen, er gilt aber bislang als Future Work.
+
 
 
 \subsection{Ausblick auf die Entwicklung}
