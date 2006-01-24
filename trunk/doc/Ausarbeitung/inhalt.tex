@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.60  2006/01/24 10:04:59  kelsaka
+% - einschränkungen ergänzt
+%
 % Revision 1.59  2006/01/23 19:42:54  kelsaka
 % - einschränkungen ergänzt
 %
@@ -985,7 +988,7 @@ Die folgenden Entitäten (respektive Typen von Entitäten) tragen IDs; die ID"=Typ
 
 
 
-Das Komponentenmodell bietet die Möglichkeit alle Entitäten des Modells mit beliebigen Zusatzinformationen "`Annotationen"' (Attribute) zu versehen. Da die genauen Anwendungsszenarien des Komponentenmodells nicht exakt absehbar sind und Vorgaben das Modell nicht unnötig limitieren sollen, bleibt das Komponentenmodell, ebenso wie bei Protokollen und SEFFs, offen und gibt keine feste Menge von Typen vor. Damit lassen sich beliebige Annotations"=Typen ergänzen, sofern sie benötigt werden. Diese können Messwerte ebenso sein wie \textit{Quality of Service} Merkmale (siehe Kapitel \ref{sec:WeitereFaehigkeiten}) von Entitäten oder beliebige andere Annotations"=Typen. Das heißt also, dass die Datentypen und Datenstrukturen nicht durch das Komponentenmodell festgelegt werden.
+Das Komponentenmodell bietet die Möglichkeit alle Entitäten des Modells mit beliebigen Zusatzinformationen "`Annotationen"' (Attribute) zu versehen. Da die genauen Anwendungsszenarien des Komponentenmodells nicht exakt absehbar sind und Vorgaben das Modell nicht unnötig limitieren sollen, bleibt das Komponentenmodell, ebenso wie bei Protokollen und SEFFs, offen und gibt keine feste Menge von Typen vor. Damit lassen sich beliebige Annotations"=Typen ergänzen, sofern sie benötigt werden. Diese können Messwerte ebenso sein wie \textit{Quality of Service} Merkmale (siehe Kapitel \ref{sec:WeitereFaehigkeiten}) von Entitäten, komplexe Datentypen wie Verteilungsfunktionen oder beliebige andere Annotations"=Typen. Das heißt also, dass die Datentypen und Datenstrukturen nicht durch das Komponentenmodell festgelegt werden.
 
 Gleichwohl definiert das Komponentenmodell einen Standardsatz von annotations"=Typen, die eine schnelle Arbeit mit dem Komponentenmodell vereinfachen sollen. Hierzu zählen die Datentypen Integer (\texttt{int}, \texttt{long}), Fließkommazahl (\texttt{float}, \texttt{double}) und Zeichenkette (\texttt{string}) analog ihrer Definition in .NET C\# 1.1 (siehe \cite{net-csharp-gleitkommatypen,net-csharp-ganzzahltypen,net-csharp-string}).
 
@@ -1077,25 +1080,30 @@ Generell gilt, dass nur ein gewisses Maß Einschränkungen für Modelle zwingend er
 
 
 
-Das Schnittstellen"=Protokoll wird auf Schnittstellen selbst definiert. Die Zustände eines angebotenen Protokolls entsprechend jedoch internen Zuständen der anbietenden Komponente. Abbildung \ref{fig:cm-missing-protocol-sync-01} verdeutlicht eine Einschränkung des Komponentenmodells, die die fehlende Synchronisation von Protokollen über angebotene Schnittstellen einer Komponente hinweg betrifft. Je angebotener Schnittstelle hat eine Komponente einen eigenen internen Zustand. Die internen Zustände einer Komponente lassen sich jedoch synchronisieren, die Protokolle werden damit vollkommen unabhängig voneinander durchlaufen.
+Das Schnittstellen"=Protokoll wird auf Schnittstellen selbst definiert. Die Zustände eines angebotenen Protokolls entsprechend jedoch internen Zuständen der anbietenden Komponente. Abbildung \ref{fig:cm-missing-protocol-sync-01} verdeutlicht eine Einschränkung des Komponentenmodells, die die fehlende Synchronisation von Protokollen über angebotene Schnittstellen einer Komponente hinweg betrifft. Je angebotener Schnittstelle hat eine Komponente einen eigenen internen Zustand. Die internen Zustände einer Komponente lassen sich jedoch nicht synchronisieren, die Protokolle werden damit vollkommen unabhängig voneinander durchlaufen.
 
 Im Beispiel können \texttt{a()} und \texttt{b()} beliebig abwechselnd ausgeführt werden. Auch \texttt{c()} und \texttt{d()} lassen sich abwechselnd ausführen. Da beide Protokolle jedoch auf unterschiedlichen Schnittstellen (\texttt{I1} und \texttt{I2}) definiert sind, ließe sich nicht beschreiben, dass nach dem Ausführen von \texttt{a()} zunächst \texttt{c()} ausgeführt werden müsste.
 
 Eine Komponente hat damit keinen einzelnen eindeutigen Zustand, sondern je nach Anzahl der angebotenen Schnittstellen eine Menge von Zuständen.
 
-Funktional ist dies jedoch keine echte Einschränkung. Modelliert man statt einzelner kleiner (gemessen an der Zahl der definierten Dienste) Schnittstellen eine große Schnittstelle, die in der Summe alle Dienste der kleinen Schnittstellen vereint, so resultiert dies in einer Komponente mit nur einem internen Zustand. Damit lassen sich beliebige Abhängigkeiten zwischen Diensten einer Komponente definieren. Bei der Verwendung dieser einen großen Schnittstelle, würde jede benutzende Komponente dann "`ihren"' ursprünglichen Teil der Dienste aufrufen und das verbleibende Angebot auf der Schnittstelle ignorieren.
+Funktional ist dies jedoch keine echte Einschränkung. Modelliert man statt einzelner kleiner (gemessen an der Zahl der definierten Dienste) Schnittstellen eine große Schnittstelle, die in der Summe alle Dienste der kleinen Schnittstellen vereint, so resultiert dies in einer Komponente mit nur einem internen Zustand. Damit lassen sich beliebige Abhängigkeiten zwischen Diensten einer Komponente definieren. Bei der Verwendung dieser einen großen Schnittstelle, würde jede benutzende Komponente dann "`ihren"' ursprünglichen Teil der Dienste aufrufen und das verbleibende Angebot auf der angebotenen Schnittstelle ignorieren.
 
-Man kann argumentieren, dass Abhängigkeiten von Diensten untereinander darauf hindeuten, dass diese Dienste ohnehin auf \textit{einer} Schnittstelle zu definieren wären, da zwischen unabhängigen Diensten keine Protokollreihenfolge notwendig wäre. Die Notwendigkeit eine Protokoll definieren zu können, deutete in diesem Fall auf zusammenhängende Funktionalität hin.
+Man kann argumentieren, dass Abhängigkeiten von Diensten untereinander darauf hindeuten, dass diese Dienste ohnehin auf \textit{einer} Schnittstelle zu definieren wären, da zwischen unabhängigen Diensten keine Protokollreihenfolge notwendig wäre. Die Notwendigkeit ein Protokoll definieren zu können, deutete in diesem Fall auf zusammenhängende Funktionalität hin.
 
-Umgekehrt betrachtet kann eine große Komponente vielfältige und sehr unterschiedliche Schnittstellen anbieten. Eine Schnittstelle mit "`An/Aus"'"=Funktionalität könnte dennoch ungewollt eine einzelne große Schnittstelle notwendig machen, damit ein gemeinsames Protokoll definiert werden könnte. Aus dieser Sicht würde die einzelne große Schnittstelle das Design der Komponente erheblich einschränken und verschlechtern. Nahezu voneinander unabhängige Funktionalität würde unerwünscht vermischt. Die hinter der Bündelung von Diensten in einer Schnittstelle stehenden Design"=Entscheidungen eines Entwicklers würden verschleiert.
+Umgekehrt betrachtet kann eine große Komponente vielfältige und sehr unterschiedliche Schnittstellen anbieten. Eine Schnittstelle mit "`An/Aus"'"=Funktionalität könnte dennoch ungewollt eine einzelne große Schnittstelle notwendig machen, damit ein gemeinsames Protokoll definiert werden könnte. Aus dieser Sicht würde die einzelne große Schnittstelle das Design der Komponente erheblich einschränken und verschlechtern. Nahezu voneinander unabhängige Funktionalität würden unerwünscht vermischt. Die hinter der Bündelung von Diensten in einer Schnittstelle stehenden Design"=Entscheidungen eines Entwicklers würden verschleiert.
 
-Es bleibt festzustellen, dass die Möglichkeit Protokollzustände über verschiedene Schnittstellen einer Komponente hinweg zu synchronisieren, die Modellierungsmöglichkeiten erheblich erweitern würde.
+Es bleibt festzustellen, dass die Möglichkeit Protokollzustände über verschiedene Schnittstellen einer Komponente hinweg zu synchronisieren, die Modellierungsmöglichkeiten erheblich erweitern würde und daher wünschenswert ist.
+
+
+
+\subsubsection{Rekursion auf der Allokationsebene}
+\label{sec:..}
+- Komponente ruft sich selbst auf: wann unendliche rekursion, wann auf welcher ebene erlaubt --> insbesondere unbekannt in CCs
 
 
 
 \subsubsection{TODO}
 \label{sec:..}
-- Komponente ruft sich selbst auf: wann unendliche rekursion, wann auf welcher ebene erlaubt --> insbesondere unbekannt in CCs
 - mehrere konnektoren auf eine provided schnittstelle: zustand nicht mehr unterscheidbar.: In der Umkehrung kann eine angebotene Schnittstelle jedoch über \texttt{0..*} benötigte Rollen verwendet werden. Damit bleibt die graphische Notation nicht eindeutig...
 
 
