@@ -1,4 +1,8 @@
 % $Log$
+% Revision 1.64  2006/01/25 14:43:00  kelsaka
+% - titelfolie: datum
+% - mehrfache-delegation bei assembly konnektoren
+%
 % Revision 1.63  2006/01/24 17:11:04  kelsaka
 % - mehrfachverwendung von schnittstellen ergänzt
 %
@@ -300,6 +304,8 @@ Eine Schnittstelle wird also erst durch eine \textit{Provides Role} zu einer ang
 In Abbildung \ref{fig:cm-assembly-connector-01} wird die Verwendung zweier Assembly Konnektoren (\textit{Assembly Connector}) dargestellt. Präzise betrachtet verbinden Assembly Konnektoren je eine angebotene (\textit{Provides Role}) und eine benötigte Rolle (\textit{Requires Role}) einer Schnittstelle. Dies bedeutet, dass Aufrufe der über die \textit{Requires Role} mit der benötigten Schnittstelle verbundenen Komponente auf die angebotene Schnittstelle und damit auf die über eine \textit{Provides Role} damit verbundene Komponente weitergeleitet werden. Der Kontrollfluß folgt damit in diesem Fall der als gestrichelt dargestellten Linie in Pfeilrichtung (bei Events in der entgegengesetzten Richtung).
 
 Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebotenen Schnittstelle verbunden. Sind die angebotene Schnittstelle und die benötigte Schnittstelle einer Komponente identisch oder kompatibel (Def. siehe TODO), so kann eine Komponente grundsätzlich auch eigene Dienste aufrufen. In der noch folgenden Differenzierung über die Typ-Ebenen des Komponentenmodells (siehe Kapitel \ref{sec:Typ-Ebenen}) wird deutlich, weshalb dies nicht zwangsläufig zu einer infiniten Rekursion führen muss.
+
+Ein Assembly Konnektor kann lediglich eine \textit{Requires}"=Schnittstelle mit einer \textit{Provides}"=Schnittstelle verbinden, die ansonsten jeweils \textit{nicht} über Assembly Konnektoren verbunden sind. Diese Einschränkung (vgl. Kapitel \ref{sec:MehrfacheSchnittstellen-Verwendung}) garantiert, dass der Kontrollfluss klar definierten Verbindungen folgt.
 
 
 
@@ -1107,8 +1113,8 @@ Es bleibt festzustellen, dass die Möglichkeit Protokollzustände über verschieden
 
 
 
-\subsubsection{Angebot von Schnittstellen}
-\label{sec:Angebot von Schnittstellen}
+\subsubsection{Mehrfache Schnittstellen-Verwendung}
+\label{sec:MehrfacheSchnittstellen-Verwendung}
 
 
 
@@ -1121,9 +1127,12 @@ Es bleibt festzustellen, dass die Möglichkeit Protokollzustände über verschieden
 
 
 
-Das Komponentenmodell reglementiert stark die Art und Weise, in der Schnittstellen angeboten und angebotene Schnittstellen verwendet werden dürfen.
+Das Komponentenmodell reglementiert stark die Art und Weise, in der Schnittstellen angeboten und angebotene Schnittstellen verwendet werden dürfen. Ebenso wird die Deklaration von verwendeten Schnittstellen und der Verwendung von Schnittstellen eingeschränkt. Im Folgenden wird, getrennt nach "`angeboten"' und "`benötigt"', aufgezeigt, welche exakten Einschränkungen das Komponentenmodell vorgibt.
 
-Abbildung \ref{fig:cm-interface-twice-forbidden-01}.
+In Abbildung \ref{fig:cm-interface-twice-forbidden-01} werden zwei Fälle für das Anbieten von Schnittstellen unterschieden. Auf der linken Seite wird dargestellt, wie die Komponente "`Cp"' die Schnittstelle "`Ip"' zwei mal anbietet. Dieser Fall ist im Komponentenmodell nicht erlaubt. Möchten unterschiedliche Komponenten (wie im Beispiel dargestellt) die gleichen Dienste einer angebotenen Schnittstelle einer Komponente verwenden, müssen \textit{mehrere} Komponenten die gleiche Schnittstelle anbieten.
+
+Auf der rechten Seite wird eine alternative Modellierung dargestellt. Hier bietet die Komponente "`Cp"' die Schnittstelle "`Ip"' lediglich ein mal an. Dies ist im Komponentenmodell ein gültiges Konstrukt. Es greifen jedoch zur gleichen Zeit zwei unterschiedliche Komponenten (hier "`Cr1"' und "`Cr2"') zwei Komponenten auf die eine Schnittstelle zu. Diese Situation ist im Komponentenmodell untersagt. Ein Assembly Konnektor kann lediglich eine \textit{Requires}"=Schnittstelle mit einer \textit{Provides}"=Schnittstelle verbinden, die ansonsten jeweils nicht über Assembly Konnektoren verbunden sind.
+
 - die gleiche Schnittstelle darf nur 1x angeboten werden: keine Konzepte von Ports (mit eigenem Zustand)
 --> Zustand
 
@@ -1189,6 +1198,17 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 
 
 \textbf{TODO:}
+CM ein Datenspeicher und keine
+Algorithmensammlung
+
+Beides ist hier denkbar, drum ist das CM ein Datenspeicher und keine
+Algorithmensammlung. Ausgefeiltere Algorithmen erkennen halt andere Klassen
+von Interoperabilitätsproblemen. Es gibt aber nur eine Datensammlung jedoch
+viele Strategien (Stichwort: Strategy Muster). Da ich mich ja auch nicht
+mehr hauptberuflich mit Interoperabilitätsprüfungen beschäftige, wird wohl
+am Ende entweder nichts oder was relativ einfaches implementiert sein (siehe
+auch dein IP).
+
 Spätere TODOs:
 - Vergleich des Editor mit Palladio Editor
 
