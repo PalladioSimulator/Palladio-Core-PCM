@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.66  2006/01/26 14:43:35  kelsaka
+% - einschränkungen: doppelt requires
+%
 % Revision 1.65  2006/01/26 11:55:51  kelsaka
 % - mehrfachverwendung von schnittstellen ergänzt
 %
@@ -1150,6 +1153,8 @@ Das in Abbildung \ref{fig:cm-interface-twice-forbidden-01} auf der rechten Seite
 
 Der Fall auf der linken Seite der Abbildung ließe sich unter Umständen mit einem "`Port"'"=Konzept umsetzten. Wenn man bedenkt, dass bereits jetzt für \textit{unterschiedliche} angebotene Schnittstellen einer Komponente angenommen wird, dass die Komponente eigenen eigenen internen Zustand besitzt (vgl. Kapitel \ref{sec:Zustandsmodellierung}), so ist eine Erweiterung auf \textit{identische} Schnittstellen nicht vollständig auszuschließen. Dabei muss jedoch des Realisierung mit Hilfe realer Komponententechnologien im Hinterkopf behalten werden.
 
+Soll im Komponentenmodell die gleiche Komponente mit der gleichen angebotenen Schnittstelle modelliert werden, lassen die konzeptionellen Begrenzungen derzeit keinen anderen Ausweg, als die gleiche Komponente mit mehreren Instanzen auf der Assembly"=Ebene vorzuhalten. Damit einher geht, dass der interne Zustand der somit duplizierten Komponente sich zwangsläufig unterscheidet.
+
 
 
 \paragraph{Benötigte Schnittstellen}
@@ -1165,11 +1170,21 @@ Der Fall auf der linken Seite der Abbildung ließe sich unter Umständen mit einem
 
 
 
-Mit Analogien zu den angebotenen Schnittstellen ist es auch auf der Seite der benötigten Schnittstellen einer Komponente untersagt, dass die gleiche Schnittstelle, im Beispiel in Abbildung \ref{fig:cm-interface-twice-forbidden-req-01} \texttt{Ir} genannt, mehr als ein mal von einer Komponente als benötigt angeben wird.
+Mit Analogien zu den angebotenen Schnittstellen, ist es auch auf der Seite der benötigten Schnittstellen einer Komponente untersagt, dass die gleiche Schnittstelle, im Beispiel in Abbildung \ref{fig:cm-interface-twice-forbidden-req-01} links \texttt{Ir} genannt, mehr als ein mal von einer Komponente als benötigt angeben wird. Ebenso (in der Abbildung auf der rechten Seite zu sehen) darf eine benötigte Schnittstelle nicht zugleich über zwei Assembly Konnektoren mit zwei angebotenen Schnittstelle verbunden sein.
 
-Replicator
+Solche Formen eine Schnittstelle doppelt zu benötigen lassen die Frage offen, welche der Assembly Konnektoren tatsächlich genutzt wird. Möglich wäre verschiedene Strategien:
 
-Abbildung \ref{fig:cm-interface-twice-forbidden-req-01}. --> Modellierbar wäre redundante Verbindung --> Ausfallsicherheit; inbesondere weil auf verschiedene Ressourcen allokierbar. nicht entscheidbar, welche tatsächlich genutzt
+\begin{itemize}
+	\item Beide Assembly Konnektoren werden zugleich genutzt. Wie der gleichzeitige oder sequentielle Aufruf auf beiden angebotenen Schnittstellen realisiert wird, bleibt offen. Zudem bleibt ungeklärt, welche Rückgabewerte der möglichen Methodenaufrufe genutzt werden (hier lassen sich beliebig komplexe Verfahren anwenden, bspw. das Quorum- oder Consensus"=Verfahren, vgl. \cite{VerteilteDB}, S. 265ff). 
+	\item Assembly Konnektoren werden auf der Allokationsebene auf Ressourcen (etwa LAN"=Verbindungen) abgebildet. Nur bei Ausfall einer Verbindung könnte auf eine andere Ressource gewechselt werden. Hier bliebe offen, wie ein Ausfall einer Verbindung erkannt wird, wie (bei mehr als zwei redundanten Verbindungen) die nächste Verbindung bestimmt wird und welche Verbindung initial verwendet wird.
+	\item Würde zufällig (ohne Möglichkeit zum Wechsel auf andere Verbindungen) eine Verbindung ausgewählt, bliebe offen, wo eine Annotation von Wahrscheinlichkeiten über die Verwendung von Verbindungen hinterlegt werden könnte.
+\end{itemize}
+
+Zusammengefasst wäre ist nicht entscheidbar, welche Assembly Konnektoren, respektive Verbindungs"=Ressourcen, tatsächlich genutzt würden. Damit würde das Komponentenmodell in diesem Bereich an Vorhersagbarkeit und Berechenbarkeit verlieren.
+
+Gleichwohl gibt es Szenarien, in denen eine der beiden vorgestellten Varianten wünschenswert wäre. Soll beispielsweise auf der \textit{Requires}"=Seite einer Komponente über Redundante Verbindungen zu angebotenen Schnittstellen einer Komponente und durch Duplikation der anbietenden Komponenten Ausfallsicherheit erzielt werden (siehe auch \textit{Cache Replicator Pattern} \cite{DataAccessPatterns}, S. 350ff), wird dieses nicht direkt vom Komponentenmodell unterstützt.
+
+Zu Gunsten der Entscheidbarkeit, Vorhersagbarkeit und Berechenbarkeit verzichtet das Komponentenmodell auf die direkte Modellierbarkeit redundanter Verbindungen.
 
 
 
