@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.65  2006/01/26 11:55:51  kelsaka
+% - mehrfachverwendung von schnittstellen ergänzt
+%
 % Revision 1.64  2006/01/25 14:43:00  kelsaka
 % - titelfolie: datum
 % - mehrfache-delegation bei assembly konnektoren
@@ -1118,6 +1121,10 @@ Es bleibt festzustellen, dass die Möglichkeit Protokollzustände über verschieden
 
 
 
+\paragraph{Angebotene Schnittstellen}
+
+
+
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=1.00\textwidth]{./image/cm-interface-twice-forbidden-01.pdf}
@@ -1129,12 +1136,24 @@ Es bleibt festzustellen, dass die Möglichkeit Protokollzustände über verschieden
 
 Das Komponentenmodell reglementiert stark die Art und Weise, in der Schnittstellen angeboten und angebotene Schnittstellen verwendet werden dürfen. Ebenso wird die Deklaration von verwendeten Schnittstellen und der Verwendung von Schnittstellen eingeschränkt. Im Folgenden wird, getrennt nach "`angeboten"' und "`benötigt"', aufgezeigt, welche exakten Einschränkungen das Komponentenmodell vorgibt.
 
-In Abbildung \ref{fig:cm-interface-twice-forbidden-01} werden zwei Fälle für das Anbieten von Schnittstellen unterschieden. Auf der linken Seite wird dargestellt, wie die Komponente "`Cp"' die Schnittstelle "`Ip"' zwei mal anbietet. Dieser Fall ist im Komponentenmodell nicht erlaubt. Möchten unterschiedliche Komponenten (wie im Beispiel dargestellt) die gleichen Dienste einer angebotenen Schnittstelle einer Komponente verwenden, müssen \textit{mehrere} Komponenten die gleiche Schnittstelle anbieten.
+In Abbildung \ref{fig:cm-interface-twice-forbidden-01} werden zwei Fälle für das Anbieten von Schnittstellen unterschieden. Auf der linken Seite wird dargestellt, wie die Komponente \texttt{Cp} die Schnittstelle \texttt{Ip} zwei mal anbietet. Dieser Fall ist im Komponentenmodell nicht erlaubt. Möchten unterschiedliche Komponenten (wie im Beispiel dargestellt) die gleichen Dienste einer angebotenen Schnittstelle einer Komponente verwenden, müssen \textit{mehrere} Komponenten die gleiche Schnittstelle anbieten.
 
-Auf der rechten Seite wird eine alternative Modellierung dargestellt. Hier bietet die Komponente "`Cp"' die Schnittstelle "`Ip"' lediglich ein mal an. Dies ist im Komponentenmodell ein gültiges Konstrukt. Es greifen jedoch zur gleichen Zeit zwei unterschiedliche Komponenten (hier "`Cr1"' und "`Cr2"') zwei Komponenten auf die eine Schnittstelle zu. Diese Situation ist im Komponentenmodell untersagt. Ein Assembly Konnektor kann lediglich eine \textit{Requires}"=Schnittstelle mit einer \textit{Provides}"=Schnittstelle verbinden, die ansonsten jeweils nicht über Assembly Konnektoren verbunden sind.
+Auf der rechten Seite wird eine alternative Modellierung dargestellt. Hier bietet die Komponente \texttt{Cp} die Schnittstelle \texttt{Ip} lediglich ein mal an. Dies ist im Komponentenmodell ein gültiges Konstrukt. Es greifen jedoch zur gleichen Zeit zwei unterschiedliche Komponenten (hier \texttt{Cr1} und \texttt{Cr2}) zwei Komponenten auf die eine Schnittstelle zu. Diese Situation ist im Komponentenmodell untersagt. Ein Assembly Konnektor kann lediglich eine \textit{Requires}"=Schnittstelle mit einer \textit{Provides}"=Schnittstelle verbinden, die ansonsten jeweils nicht über Assembly Konnektoren verbunden sind. Auch in diesem Fall lässt sich ein \textit{Work"=Around} modellieren, indem eine weitere Komponente die gleiche Schnittstelle anbietet und alle zusätzlichen Assembly Konnektoren ihre Aufrufe auf die angebotenen Schnittstellen der zusätzlichen Komponenten delegieren.
 
-- die gleiche Schnittstelle darf nur 1x angeboten werden: keine Konzepte von Ports (mit eigenem Zustand)
---> Zustand
+Das Kernproblem wird durch die \textit{Work"=Arounds} allerdings nicht gelöst. Es gründet in der Tatsache, dass eine Komponente je angebotener Schnittstelle nur einen einzigen Zustand besitzt (wird eine identische Schnittstelle angeboten, existiert ebenso nur ein Zustand). Erfolgen auf einer Schnittstelle, zu der ein Protokoll gehört, Aufrufe durch mehr als zwei Komponenten abwechselnd oder gleichzeitig, ist für die zugreifenden Komponenten der Protokollzustand nicht vorhersehbar. Da es keinen direkten Mechanismus gibt, mit dem der Protokollzustand einer Komponente abgerufen werden kann, können die aufrufenden Komponenten nicht mehr garantieren einem anderem Protokoll als dem "`Trivial Protokoll"' zu folgen.
+
+Würde die Einschränkung, die gleiche Schnittstelle nur ein mal anbieten zu dürfen, aufgehoben, wäre die Übertragbarkeit auf reale Implemententierungen von Komponentenmodell"=Instanzen fraglich. Eine Komponente müsste für jede mehrfach angebotene Schnittstelle intern eine eigene Instanz vorhalten, die den internen Zustand für das jeweilige Schnittstellen"=Protokoll repräsentiert. Eine Annahme des Komponentenmodells ist jedoch, dass Komponenten sich grundsätzlich nicht selbst instanziieren können.
+
+Eine Abbildung des Komponentenmodells auf real existierende Komponentenarchitektur (und umgekehrt) ist wichtig um beispielsweise QoS"=Vorhersagen validieren zu können. Daher wird bei der Konzeption des Komponentenmodells Wert darauf gelegt, dass eine Realisierung mit existierenden Komponententechnologien (eventuell unter Zuhilfenahme von Erweiterungen) stets möglich ist.
+
+Das in Abbildung \ref{fig:cm-interface-twice-forbidden-01} auf der rechten Seite dargestellte Szenario birgt zusätzlich das Problem, dass selbst bei einer Erweiterung des Komponentenmodells um eigene Zustände je identisch angebotener Schnittstelle einer Komponente, in jedem Fall beide zugreifenden Komponenten auf der gleichen Instanz arbeiten. Hier wäre kein eigenes Protokoll je Schnittstelle zugreifbar. Deshalb wird dieser Fall auch zukünftig nicht vom Komponentenmodell unterstützt werden.
+
+Der Fall auf der linken Seite der Abbildung ließe sich unter Umständen mit einem "`Port"'"=Konzept umsetzten. Wenn man bedenkt, dass bereits jetzt für \textit{unterschiedliche} angebotene Schnittstellen einer Komponente angenommen wird, dass die Komponente eigenen eigenen internen Zustand besitzt (vgl. Kapitel \ref{sec:Zustandsmodellierung}), so ist eine Erweiterung auf \textit{identische} Schnittstellen nicht vollständig auszuschließen. Dabei muss jedoch des Realisierung mit Hilfe realer Komponententechnologien im Hinterkopf behalten werden.
+
+
+
+\paragraph{Benötigte Schnittstellen}
+
 
 
 \begin{figure}[htbp]
@@ -1143,6 +1162,12 @@ Auf der rechten Seite wird eine alternative Modellierung dargestellt. Hier biete
 	\caption{Die gleiche Schnittstelle wird zweifach benötigt; eine Schnittstelle wird zweifach delegiert}
 	\label{fig:cm-interface-twice-forbidden-req-01}
 \end{figure}
+
+
+
+Mit Analogien zu den angebotenen Schnittstellen ist es auch auf der Seite der benötigten Schnittstellen einer Komponente untersagt, dass die gleiche Schnittstelle, im Beispiel in Abbildung \ref{fig:cm-interface-twice-forbidden-req-01} \texttt{Ir} genannt, mehr als ein mal von einer Komponente als benötigt angeben wird.
+
+Replicator
 
 Abbildung \ref{fig:cm-interface-twice-forbidden-req-01}. --> Modellierbar wäre redundante Verbindung --> Ausfallsicherheit; inbesondere weil auf verschiedene Ressourcen allokierbar. nicht entscheidbar, welche tatsächlich genutzt
 
