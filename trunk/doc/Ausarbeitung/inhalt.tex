@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.67  2006/01/28 16:20:05  kelsaka
+% - kontext: korrekturen
+%
 % Revision 1.66  2006/01/26 14:43:35  kelsaka
 % - einschränkungen: doppelt requires
 %
@@ -862,7 +865,7 @@ Im vorigen Kapitel wurde die Definition einer Assembly bereits angedeutet. Eine 
 	\item	Entwickler erzeugen und definieren Assemblies. Für diese Zielgruppe ist das Innere von \textit{Composite Components} sichtbar. Dieser Gruppe steht mit Assemblies eine Mittel zur Verfügung, mit dem sie festlegen können, wie eine Komponentenarchitektur außerhalb von Composite Components realisiert werden soll. Eine Assembly stellt damit eine Gesamtarchitektur und ein Softwaresystem dar, die durch Entwickler erzeugt werden.
 \end{itemize}
 
-TODO: kann mehr als eine Assembly zur zeit deployed werden?
+Zu einem Zeitpunkt kann nur genau eine Assembly im Modell allokiert werden. Pro Ausführungsumgebung kann genau eine Assemly oder ein Teil einer Assembly (bei Verteilung über verschiedene Ressourcen) allokiert werden.
 
 
 
@@ -882,6 +885,7 @@ Wie bereits beschrieben, setzt sich eine \textit{Composite Component} aus andere
 
 \paragraph{Assembly}
 Auch \textit{Assemblies} (im Komponentenmodell auch \textit{Component Assemblies} genannt) werden aus Komponenten (in Kontexten liegend) aufgebaut. Im Gegensatz zur \textit{Composite Component} ist das Innere einer Assembly jedoch zum Zeitpunkt des \textit{Deployments} für den \textit{System Deployer} sichtbar. Dies ermöglicht, dass innere Komponenten einer Assembly auf unterschiedlichen Ausführungsumgebung allokiert werden können.
+
 Das bedeutet im Umkehrschluss, dass einzelne Komponenten (ohne Kopien) durch ihre Erfassung in einer Assembly zur gleichen Zeit nicht auf unterschiedlichen Ausführungsumgebungen ausgeführt werden können. Sehr wohl kann jedoch komponentenweise verteilt werden. 
 
 
@@ -942,35 +946,52 @@ In Abbildung \ref{fig:cm-component-hierarchy-context-01} werden alle Ebenen des 
 
 
 
+\paragraph{Idee}
 Einer der neuesten Begriffe des Palladio Komponentenmodells, im Vergleich mit den Vorversionen, ist der Begriff des Kontexts (\textit{Context}). Abbildung \ref{fig:cm-context-01} zeigt, dass wie sich ein Kontext definiert. Im Beispiel kommt die Komponente "`C1"' als Kopie in zwei unterschiedlichen Kontexten vor. Zum einen (in "`Context 2"') ist sie mit "`C0"' auf der \textit{Provides}"=Seite und "`C2"' auf der \textit{Requires}"=Seite verbunden, zum anderen (in "`Context 1"') ist sie auf der \textit{Provides}"=Seite mit "`Master"' und auf der \textit{Requires}"=Seite mit "`C3"' verbunden. Um exakt definieren zu können, welche Verwendung von "`C1"' bzw. einer Komponente im Allgemeinen gemeint ist, wird der Kontext eingeführt, der beschreibt, mit welchen anderen Komponenten eine Komponente verbunden ist.
 
-Der gerade skizzierte Begriff des Kontexts bezieht sich auf das Vorkommen von Komponenten in Assemblies und die Kompositionsstruktur. Neben dieser Bedeutung definiert das Komponentenmodell den Kontext ebenfalls für Allokationen. Wird der Kontext auf der Ebene von Allokationen verwendet, werden die Ressourcen, auf denen eine zu betrachtende Komponente allokiert ist, ebenfalls im Kontext erfasst.
-
-TODO: Was ist Teil des Kontext? --> exakt def.: z. B. parent, ...
-
-TODO: Allokation + Assembly als benötigt?
-
-TODO: Kontext: kennzeichnet "`Einsatzstelle"' eines Implementation Type. --> Unterscheidbarkeit der Verwendung
-
-TODO: Das Ziel des dahinter liegenden Konzepts ist eine Möglichkeit zur Unterscheidung von Komponenteneigenschaften je nach ihrem konkreten Verwendungskontext. So kann die \textit{gleiche} Komponente, unterschieden nach dem Typ auf einer der oben genannten Ebenen, ein unterschiedliches Verhalten je nach Kontext aufweisen.
-
-TODO: - auf gleicher hierarchiestufe darf eine komponente nicht mehrfach vorkommen?
-- komponente liegt IM kontext
+Der gerade skizzierte Begriff des Kontexts bezieht sich auf das Vorkommen von Komponenten in Assemblies und die Kompositionsstruktur. Neben dieser Bedeutung definiert das Komponentenmodell den Kontext ebenfalls für Allokationen. Wird eine Komponente auf der Allokationsebene betrachtet, liegt die Komponente in einem Kontext, der auch die verwendeten Ressourcen erfasst.
 
 
+
+\paragraph{Definition}
+Komponenten können nie ohne Kontext auftreten. Wichtig ist zu beachten, dass Komponenten in einem Kontext liegen, Komponenten also einen Zeiger auf den Kontext haben, in dem sie liegen. Zu jeder Komponente existiert \textit{implizit} ein Kontext. Da jeder Kontext eindeutig ist (siehe Kapitel \ref{sec:Identitaet}), kann eine Komponente -- beispielsweise der Assembly"=Ebene -- auf der gleichen Hierarchie"=Stufe mehrfach vorkommen, ihre Verwendung bleibt jedoch automatisch eindeutig über den Kontext.
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.80\textwidth]{./image/cm-context-A-B-01.pdf}
+	\caption{Komponente "`Component A"' in zwei unterschiedlichen Kontexten}
+	\label{fig:cm-context-A-B-01}
+\end{figure}
+
+
+
+In Abbildung \ref{fig:cm-context-A-B-01} wird "`Component A"' zweifach verwendet. Da es sich um die gleiche Komponente handelt, ließen sich die Verwendungen nicht unterscheiden. Über den Kontext gelingt jedoch die Unterscheidung. Die linke Komponente liegt in "`Context A"', die rechte Komponente in "`Context B"'. Da der Kontext implizit vorhanden ist, bleibt die Verwendung der gleichen Komponenten in jedem Fall eindeutig.
 
 Wie in Abbildung \ref{fig:cm-component-hierarchy-context-01} zu sehen ist, kann ein Kontext unterschiedliche Detail"=Niveaus erfassen. Er ist definiert für:
 
 \begin{itemize}
-	\item \textbf{Assembly}, dann werden die Kompositionsstrukturen (Komponentenarchitektur) mit Komponenten, den Konnektoren und der "`Enthalten"'"=Beziehung berücksichtigt. zusätzlich die Assembly berücksichtigt, in der der Kontext liegt. TODO
-	\item \textbf{Allokation}, hier werden zusätzlich die Ressourcen (\textit{computational}, \textit{non"=computational}) über die \texttt{$\flqq$deployed-on$\frqq$}"=Relation und die Ausführungsumgebung erfasst, auf denen die Komponenten und Konnektoren allokiert wurden. Zusätzlich können die folgenden Eigenschaften erfasst werden: \textit{Concurrency}, \textit{Security}, Container"=Eigenschaften, Komponentenkonfiguration.
+	\item \textbf{Assembly}, dann werden die Kompositionsstrukturen (Komponentenarchitektur) eindeutig. Hierzu zählen die im Kontext liegende Komponente mit allen angebotenen und benötigen Schnittstellen (Rollenbeziehung), die direkt auf diesen Schnittstellen definierten Konnektoren, sowie die Rollen die über die Konnektoren erreicht werden. Zudem wird die Assembly berücksichtigt, in der ein Kontext liegt.
+	\item \textbf{Allokation}, hier werden zusätzlich die Ressourcen (\textit{computational}, \textit{non"=computational}) über die \texttt{$\flqq$deployed-on$\frqq$}"=Relation und die Ausführungsumgebung eindeutig erfasst, auf denen die Komponenten und Konnektoren allokiert wurden.
+	
+	Über Kontexte auf der Allokationseben lassen sich zusätzliche Eigenschaften erfassen, wie \textit{Concurrency}, \textit{Security}, Container"=Eigenschaften und Komponentenkonfiguration.
 \end{itemize}
 
-Abbildung \ref{fig:cm-component-hierarchy-context-01} erfasst die bereits in vorangehenden Kapiteln definierten Komponenten"=Typ"=Ebenen, die Assembly, die Allokation (\textit{Allocation}) und die Laufzeit (\textit{Runtime}) in einer Graphik. Letztere Ebene ist im Komponentenmodell bisher lediglich angedacht, jedoch noch nicht umgesetzt. Weitere Informationen hierzu finden sich in Kapitel \ref{sec:AusblickaufdieEntwicklung}, Seite \pageref{sec:AusblickaufdieEntwicklung}.
+Das Ziel des dahinter liegenden Konzepts ist eine Möglichkeit zur Unterscheidung von Komponenteneigenschaften je nach ihrem konkreten Verwendungskontext. So kann die \textit{gleiche} Komponente ein unterschiedliches Verhalten je nach Kontext aufweisen, je nachdem, von welcher Komponente die benötigten Dienste einer Komponente erfüllt werden. Wird eine wenig performante, dafür aber hochgradig zuverlässige Komponente verwendet, oder eine hoch performante und wenig zuverlässige Komponente verwendet, variieren die QoS"=Werte einer nutzenden Komponente stark.
+
+
+
+\subsection{Hierarchie-Ebenen}
+\label{sec:Hierarchie-Ebenen}
+
+
+
+Abbildung \ref{fig:cm-component-hierarchy-context-01} (Seite \pageref{fig:cm-component-hierarchy-context-01}) erfasst die bereits in vorangehenden Kapiteln definierten Komponenten"=Typ"=Ebenen, die Assembly, die Allokation (\textit{Allocation}) und die Laufzeit (\textit{Runtime}) in einer Graphik. Letztere Ebene ist im Komponentenmodell bisher lediglich angedacht, jedoch noch nicht umgesetzt. Weitere Informationen hierzu finden sich in Kapitel \ref{sec:AusblickaufdieEntwicklung}, Seite \pageref{sec:AusblickaufdieEntwicklung}.
 
 Je tiefer eine Ebene in der Graphik dargestellt ist, desto detailreicher müssen die Komponenten"=Typen definiert werden, entsprechend sind mehr Informationen über die Komponenten definiert. In umgekehrter Richtung nach oben werden die Komponenteninformationen abstrakter und kommen damit einer Grob"=Modellierung Komponentenarchitekturen entgegen.
 
-TODO: 1:n-Beziehung zwischen Implementation Type und Assembly.
+Ein Implementation Type kann ich \texttt{0..*} Assemblies erfasst werden und zu einer Assembly können \texttt{0..*} Allokationen definiert werden.
 
 
 
@@ -1000,7 +1021,7 @@ Die folgenden Entitäten (respektive Typen von Entitäten) tragen IDs; die ID"=Typ
 	\item Konnektoren. Die IDs von Konnektoren müssen sich unterscheiden, wenn sich die IDs der verbundenen Schnittstellen unterscheiden. Zusätzlich müssen sich die IDs der Konnektoren unterscheiden, wenn die Rollen, über die die Schnittstellen assoziiert werden, andere sind. Damit resultieren unterschiedliche Rollen über die Schnittstelle in unterschiedlichen IDs von Konnektoren. 
 	\item Ressourcen. IDs von Ressourcen müssen sich unterscheiden, wenn die dahinter stehende Hardware oder Ausführungsumgebung eine andere ist. 
 	\item Assemblies. Jede Assembly mit unterschiedlichem Inneren trägt eine unterschiedliche ID. Auch Assemblies mit gleichen Inneren können eine unterschiedliche ID haben. Wird die gleiche Assembly auf verschiedene Ressourcen \textit{deployed}, ist die ID der Assembly die gleiche.
-	\item Kontexte. Jeder Kontext trägt eine eigene ID. Zu jeder Verwendung einer Komponente entsteht ein Kontext mit neuer ID. Kontext"=IDs können unter keinen Umständen mehrfach auftreten. TODO: richtig?
+	\item Kontexte. Jeder Kontext trägt eine eigene ID. Zu jeder Verwendung einer Komponente entsteht ein Kontext mit neuer ID. Kontext"=IDs können unter keinen Umständen mehrfach auftreten.
 	\item TODO: Annotationen mit ID?
 \end{itemize}
 
@@ -1212,9 +1233,7 @@ Das skizzierte Szenario ist stark konstruiert und kann nur in speziellen Situati
 
 \subsubsection{TODO}
 \label{sec:..}
-- mehrere konnektoren auf eine provided schnittstelle: zustand nicht mehr unterscheidbar.: In der Umkehrung kann eine angebotene Schnittstelle jedoch über \texttt{0..*} benötigte Rollen verwendet werden. Damit bleibt die graphische Notation nicht eindeutig...
-
-- Ja, außnahme hierzu, die wir bewußt ausgeklammer haben, wären benötigte Sequenzen. Das sind Sequenzen auf dem Requires Interface, die immer als Reaktion auf einen bestimmmten Stimulus erfolgen müssen. Beispielsweise das Speichern von Daten in einer Datenbank bei einer Datenänderung. Der Aufruf auf der DB ist Teil des Requires Interfaces, muss aber erfolgen. Den Fall kannst du in der Ausarbeitung erwähnen, er gilt aber bislang als Future Work.
+- "`Ja, außnahme hierzu, die wir bewußt ausgeklammer haben, wären benötigte Sequenzen. Das sind Sequenzen auf dem Requires Interface, die immer als Reaktion auf einen bestimmmten Stimulus erfolgen müssen. Beispielsweise das Speichern von Daten in einer Datenbank bei einer Datenänderung. Der Aufruf auf der DB ist Teil des Requires Interfaces, muss aber erfolgen. Den Fall kannst du in der Ausarbeitung erwähnen, er gilt aber bislang als Future Work."'
 
 
 
