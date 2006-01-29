@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.69  2006/01/29 10:59:05  kelsaka
+% - stimulus-response ergänzt
+%
 % Revision 1.68  2006/01/29 08:34:33  kelsaka
 % - korrekturen und ergänzungen
 %
@@ -1244,9 +1247,25 @@ Das skizzierte Szenario ist stark konstruiert und kann nur in speziellen Situati
 
 
 
-\subsubsection{TODO}
-\label{sec:..}
-- "`Ja, außnahme hierzu, die wir bewußt ausgeklammer haben, wären benötigte Sequenzen. Das sind Sequenzen auf dem Requires Interface, die immer als Reaktion auf einen bestimmmten Stimulus erfolgen müssen. Beispielsweise das Speichern von Daten in einer Datenbank bei einer Datenänderung. Der Aufruf auf der DB ist Teil des Requires Interfaces, muss aber erfolgen. Den Fall kannst du in der Ausarbeitung erwähnen, er gilt aber bislang als Future Work."'
+\subsubsection{Stimulus-Response-Mechanismus}
+\label{sec:Stimulus-Response-Mechanismus}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.60\textwidth]{./image/cm-stimulus-response-01.pdf}
+	\caption{Beispiel: Notwendigkeit für einen Stimulus"=Response"=Mechanismus}
+	\label{fig:cm-stimulus-response-01}
+\end{figure}
+
+
+
+Derzeit bietet das Komponentenmodell noch keine Möglichkeit einen Stimulus"=Response"=Mechanismus (vgl. cite{TODO}) nachzubilden. Dieser würde es ermöglichen, dass bei bestimmten Änderungen (Stimulus) \textit{immer} ein bestimmter Aufruf (Response) auf dem \textit{Requires Interface} erfolgen müsste.
+
+Die Notwendigkeit einen solchen Mechanismus nachbilden zu können, kann durch das folgende Beispiel (siehe Abbildung \ref{fig:cm-stimulus-response-01}) illustriert werden. Eine Komponente ("`Data"=Acquisition"=Component"') legt die Änderungen ihres internen Datenzustands in einer externen Datenbank ("`Database"', eigene Komponente) ab. Damit jegliche Datenänderung in der Datenbank erfasst wird, müsste das Speichern der Datenänderungen in der Datenbank fest als Aufruf auf der Requires"=Schnittstelle erfasst werden können.
+
+Eine Erweiterung des Komponentenmodells um diesen Mechanismus ist für die Zukunft angedacht.
 
 
 
