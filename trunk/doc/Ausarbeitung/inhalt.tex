@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.71  2006/01/30 10:58:49  kelsaka
+% - ref korrigiert
+%
 % Revision 1.70  2006/01/30 09:49:32  kelsaka
 % - kleinere änderungen
 %
@@ -257,7 +260,7 @@ Das im Folgenden dargestellte Palladio Komponentenmodell entspricht dem Stand de
 \label{sec:IdeeCM}
 Komponentenarchitekturen existieren in Form realer Komponentensysteme. Das Palladio Komponenten"=Meta"=Modell bietet eine strukturierte Form zur Erfassung solcher Komponentenarchitekturen, mithin Komponentenmodell"=Instanzen. Das Komponenten"=Meta"=Modell versteht sich dabei als Datenspeicher, das eine Menge von Basis"=\textit{Constraints} definiert, die die Konsistenz und Integrität des Datenspeichers sichern. Damit lassen sich fest definierte Strukturen realer Komponentensysteme auf Komponentenmodell"=Instanzen abbilden.
 
-Bewußt und klar von der Funktionalität eines Datenspeichers für Komponentenarchitekturen getrennt, ist die Anwendung oder Definition von Algorithmen auf Komponentenmodell"=Instanzen. Entsprechend der Grundsätze des Strategie Musters (\textit{Strategy Pattern}, vgl. \cite{GAMMA}, TODO: S. XXff), können auf einer Modell"=Instanz beliebig viele strategy"=abhängige Algorithmen angewendet werden. Daher sind weitergehende Algorithmen, die Bereiche wie Validitätsprüfung, Interoperabilitätsprüfung oder ähnliches betreffen, nicht Bestandteil des Komponenten"=Meta"=Modells, sondern flexibel anwendbar.
+Bewußt und klar von der Funktionalität eines Datenspeichers für Komponentenarchitekturen getrennt, ist die Anwendung oder Definition von Algorithmen auf Komponentenmodell"=Instanzen. Entsprechend der Grundsätze des Strategie Musters (\textit{Strategy Pattern}, vgl. \cite{GAMMA}, TODO: S. 315ff), können auf einer Modell"=Instanz beliebig viele strategy"=abhängige Algorithmen angewendet werden. Daher sind weitergehende Algorithmen, die Bereiche wie Validitätsprüfung, Interoperabilitätsprüfung oder ähnliches betreffen, nicht Bestandteil des Komponenten"=Meta"=Modells, sondern flexibel anwendbar.
 
 
 
@@ -329,7 +332,7 @@ Eine Schnittstelle wird also erst durch eine \textit{Provides Role} zu einer ang
 
 In Abbildung \ref{fig:cm-assembly-connector-01} wird die Verwendung zweier Assembly Konnektoren (\textit{Assembly Connector}) dargestellt. Präzise betrachtet verbinden Assembly Konnektoren je eine angebotene (\textit{Provides Role}) und eine benötigte Rolle (\textit{Requires Role}) einer Schnittstelle. Dies bedeutet, dass Aufrufe der über die \textit{Requires Role} mit der benötigten Schnittstelle verbundenen Komponente auf die angebotene Schnittstelle und damit auf die über eine \textit{Provides Role} damit verbundene Komponente weitergeleitet werden. Der Kontrollfluß folgt damit in diesem Fall der als gestrichelt dargestellten Linie in Pfeilrichtung (bei Events in der entgegengesetzten Richtung).
 
-Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebotenen Schnittstelle verbunden. Sind die angebotene Schnittstelle und die benötigte Schnittstelle einer Komponente identisch oder interoperabel (zu den Definitionsmöglichkeiten von Interoperabilität siehe Kapilte \ref{sev:Validation}), so kann eine Komponente grundsätzlich auch eigene Dienste aufrufen. In der noch folgenden Differenzierung über die Typ-Ebenen des Komponentenmodells (siehe Kapitel \ref{sec:Typ-Ebenen}) wird deutlich, weshalb dies nicht zwangsläufig zu einer infiniten Rekursion führen muss.
+Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebotenen Schnittstelle verbunden. Sind die angebotene Schnittstelle und die benötigte Schnittstelle einer Komponente identisch oder interoperabel (zu den Definitionsmöglichkeiten von Interoperabilität siehe Kapitel \ref{sec:ValidierungvonModellinstanzen}), so kann eine Komponente grundsätzlich auch eigene Dienste aufrufen. In der noch folgenden Differenzierung über die Typ-Ebenen des Komponentenmodells (siehe Kapitel \ref{sec:Typ-Ebenen}) wird deutlich, weshalb dies nicht zwangsläufig zu einer infiniten Rekursion führen muss.
 
 Ein Assembly Konnektor kann lediglich eine \textit{Requires}"=Schnittstelle mit einer \textit{Provides}"=Schnittstelle verbinden, die ansonsten jeweils \textit{nicht} über Assembly Konnektoren verbunden sind. Diese Einschränkung (vgl. Kapitel \ref{sec:MehrfacheSchnittstellen-Verwendung}) garantiert, dass der Kontrollfluss klar definierten Verbindungen folgt.
 
