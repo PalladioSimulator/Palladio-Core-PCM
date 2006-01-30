@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.70  2006/01/30 09:49:32  kelsaka
+% - kleinere änderungen
+%
 % Revision 1.69  2006/01/29 10:59:05  kelsaka
 % - stimulus-response ergänzt
 %
@@ -326,7 +329,7 @@ Eine Schnittstelle wird also erst durch eine \textit{Provides Role} zu einer ang
 
 In Abbildung \ref{fig:cm-assembly-connector-01} wird die Verwendung zweier Assembly Konnektoren (\textit{Assembly Connector}) dargestellt. Präzise betrachtet verbinden Assembly Konnektoren je eine angebotene (\textit{Provides Role}) und eine benötigte Rolle (\textit{Requires Role}) einer Schnittstelle. Dies bedeutet, dass Aufrufe der über die \textit{Requires Role} mit der benötigten Schnittstelle verbundenen Komponente auf die angebotene Schnittstelle und damit auf die über eine \textit{Provides Role} damit verbundene Komponente weitergeleitet werden. Der Kontrollfluß folgt damit in diesem Fall der als gestrichelt dargestellten Linie in Pfeilrichtung (bei Events in der entgegengesetzten Richtung).
 
-Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebotenen Schnittstelle verbunden. Sind die angebotene Schnittstelle und die benötigte Schnittstelle einer Komponente identisch oder kompatibel (Def. siehe TODO), so kann eine Komponente grundsätzlich auch eigene Dienste aufrufen. In der noch folgenden Differenzierung über die Typ-Ebenen des Komponentenmodells (siehe Kapitel \ref{sec:Typ-Ebenen}) wird deutlich, weshalb dies nicht zwangsläufig zu einer infiniten Rekursion führen muss.
+Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebotenen Schnittstelle verbunden. Sind die angebotene Schnittstelle und die benötigte Schnittstelle einer Komponente identisch oder interoperabel (zu den Definitionsmöglichkeiten von Interoperabilität siehe Kapilte \ref{sev:Validation}), so kann eine Komponente grundsätzlich auch eigene Dienste aufrufen. In der noch folgenden Differenzierung über die Typ-Ebenen des Komponentenmodells (siehe Kapitel \ref{sec:Typ-Ebenen}) wird deutlich, weshalb dies nicht zwangsläufig zu einer infiniten Rekursion führen muss.
 
 Ein Assembly Konnektor kann lediglich eine \textit{Requires}"=Schnittstelle mit einer \textit{Provides}"=Schnittstelle verbinden, die ansonsten jeweils \textit{nicht} über Assembly Konnektoren verbunden sind. Diese Einschränkung (vgl. Kapitel \ref{sec:MehrfacheSchnittstellen-Verwendung}) garantiert, dass der Kontrollfluss klar definierten Verbindungen folgt.
 
@@ -429,7 +432,7 @@ Als weitere Einschränkung des Komponentenmodells gilt derzeit, dass eine Kompone
 
 \paragraph{Schlechte Modellierung}
 \label{sec:SchlechteModellierung}
-Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle definiert wurden, identisch, deutet dies zumeist auf ein Design"=Problem des Komponentenmodells hin. Sind auch Zusatzattribute (z. B. Quality"=of"=Service"=Attribute; siehe Kapitel ref{TODO Annotationen}) identisch, führt dies vermutlich zu ungewollten Inkonsistenzen zwischen einer vermeintlich identischen Schnittstelle.
+Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle definiert wurden, identisch, deutet dies zumeist auf ein Design"=Problem des Komponentenmodells hin. Sind auch Zusatzattribute (z. B. Quality"=of"=Service"=Attribute; siehe Kapitel \ref{sec:Annotationen}) identisch, führt dies vermutlich zu ungewollten Inkonsistenzen zwischen einer vermeintlich identischen Schnittstelle.
 
 
 
@@ -1290,25 +1293,7 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 \textbf{TODO:}
 
 \begin{verbatim}
->> - Anotation habe ich derzeit definiert als Tripel aus 
->> > > (Anotationsnamen, Datentyp, Datenfeld), wobei 
-> > Anotationsname so etwas 
->> > > wie Laufzeitmesswert XY (auch über alle Komponenten hinweg) 
-> > sein kann, 
->> > > der Datentyp legt die Interpretation für das Datenfeld (den 
->> > > eigentlichen Wert) fest. Soll es für Anotationsnamen und Datentypen 
->> > > ein ID-Konzept geben? Oder sollen Datentyp und Datenfeld in einem 
->> > > komplexen Typ zusammengefasst werden?
-> > 
-> > Hmmm.... müsste ich mal genauer drüber nachdenken. Auf  den 
-> > ersten Blick 
-> > würde ich sagen, dass ID's auch da ne gute Sache sind. Das 
-> > sollten wir 
-> > evtl. noch mal mit Steffen diskutieren, wenn möglich.
-Ich finde das gut und verfolge immer noch die Idee, dass ein Annotationstyp,
-den einer einführt, durchaus von anderen wiederverwendet werden könnte...
-Z.B. definiere ich Steffens Performance Annotation und Jens findet die
-hilfreich in seinem Verfahren. Dann verwendet er meine ID weiter...
+- - -
 \end{verbatim}
 
 
