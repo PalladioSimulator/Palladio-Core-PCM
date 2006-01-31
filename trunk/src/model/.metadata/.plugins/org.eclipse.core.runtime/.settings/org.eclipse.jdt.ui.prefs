@@ -1,0 +1,9 @@
+#Sat Nov 26 11:50:00 CET 2005
+useAnnotationsPrefPage=true
+org.eclipse.jdt.ui.formatterprofiles.version=6
+org.eclipse.jface.textfont=1|Courier New|10|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Courier New;
+eclipse.preferences.version=1
+fontPropagated=true
+Refactoring.ErrorPage.severityThreshold=2
+useQuickDiffPrefPage=true
+tabWidthPropagated=true

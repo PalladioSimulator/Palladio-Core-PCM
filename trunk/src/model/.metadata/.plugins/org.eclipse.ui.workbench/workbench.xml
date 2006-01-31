@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench version="2.0">
+<window height="768" maximized="true" width="1024" x="188" y="0">
+<fastViewData fastViewLocation="131072">
+<orientation position="512" view="com.ibm.xtools.patterns.ui.views.explorer.PatternExplorer"/>
+</fastViewData>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="95" y="22"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="com.ibm.etools.webservice.consumption" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="com.ibm.xtools.modeler.ui.actions.ModelingActionSet" itemType="typeToolBarContribution" x="36" y="22"/>
+<coolItem id="com.ibm.xtools.publish.ui.internal.actions.PublishActionSet" itemType="typeToolBarContribution" x="59" y="22"/>
+<coolItem id="com.ibm.xtools.traceability.internal.actions.actionSet" itemType="typeToolBarContribution" x="36" y="22"/>
+<coolItem id="com.rational.clearcase.ActionSet" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="93" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="36" y="22"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="108" y="22"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="ModelerDiagramEditor" itemType="typeToolBarContribution" x="845" y="22"/>
+</coolbarLayout>
+<page focus="true" label="Workspace - Modeling">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor focus="true" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="PalladioCM.emx" partName="PalladioCM.emx" path="E:/Eigene Dateien/CVS-Module/Palladio.EMFComponentModel/src/model/PalladioCM/PalladioCM.emx" title="PalladioCM.emx" tooltip="PalladioCM/PalladioCM.emx" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PalladioCM/PalladioCM.emx"/>
+</editor>
+</editors>
+<views>
+<view id="com.ibm.xtools.modeler.ui.views.modelexplorer.ModelExplorer" partName="Model Explorer">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="com.ibm.xtools.modeler.internal.ui.views.InheritanceExplorer" partName="Inheritance Explorer"/>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
+<viewState/>
+</view>
+<view id="com.ibm.xtools.common.ui.views.DiagramNavigator" partName="Diagram Navigator"/>
+<view id="org.eclipse.ui.views.BookmarkView" partName="Bookmarks"/>
+<view id="com.ibm.xtools.patterns.ui.views.explorer.PatternExplorer" partName="Pattern Explorer"/>
+</views>
+<perspectives activePart="com.ibm.xtools.modeler.ui.views.modelexplorer.ModelExplorer" activePerspective="com.ibm.xtools.modeler.internal.ui.perspectives.ModelingPerspective">
+<perspective editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="com.ibm.xtools.modeler.internal.ui.perspectives.ModelingPerspective" id="com.ibm.xtools.modeler.internal.ui.perspectives.ModelingPerspective" label="Modeling"/>
+<actionSet id="com.ibm.esupport.client.ActionSet"/>
+<actionSet id="com.ibm.etools.webservice.consumption"/>
+<actionSet id="com.ibm.etools.webtools.ConvertWebProjectTypeActionSet"/>
+<actionSet id="com.ibm.orca.updaterPlugin.actionSet"/>
+<actionSet id="com.ibm.rational.welcome.core.helpSearchActionSet"/>
+<actionSet id="com.ibm.rational.rup.eclipse.plugins.actionSet"/>
+<actionSet id="com.ibm.samplegallery.sampleGalleryActionSet"/>
+<actionSet id="com.ibm.01.tutorialgallery.tutorialGalleryActionSet"/>
+<actionSet id="org.eclipse.search.searchActionSet"/>
+<actionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<actionSet id="org.eclipse.ui.edit.text.actionSet.openExternalFile"/>
+<actionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<actionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<actionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<actionSet id="com.ibm.xtools.modeler.ui.actions.ModelingActionSet"/>
+<actionSet id="com.ibm.xtools.pluglets.ui.actionSet"/>
+<actionSet id="com.ibm.xtools.publish.ui.internal.actions.PublishActionSet"/>
+<actionSet id="com.ibm.xtools.traceability.internal.actions.actionSet"/>
+<actionSet id="com.ibm.xtools.transform.ui.actionSet"/>
+<actionSet id="com.rational.clearcase.ActionSet"/>
+<alwaysOnActionSet id="com.ibm.esupport.client.ActionSet"/>
+<alwaysOnActionSet id="com.ibm.etools.webservice.consumption"/>
+<alwaysOnActionSet id="com.ibm.etools.webtools.ConvertWebProjectTypeActionSet"/>
+<alwaysOnActionSet id="com.ibm.orca.updaterPlugin.actionSet"/>
+<alwaysOnActionSet id="com.ibm.rational.welcome.core.helpSearchActionSet"/>
+<alwaysOnActionSet id="com.ibm.rational.rup.eclipse.plugins.actionSet"/>
+<alwaysOnActionSet id="com.ibm.samplegallery.sampleGalleryActionSet"/>
+<alwaysOnActionSet id="com.ibm.01.tutorialgallery.tutorialGalleryActionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.openExternalFile"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<alwaysOnActionSet id="com.ibm.xtools.modeler.ui.actions.ModelingActionSet"/>
+<alwaysOnActionSet id="com.ibm.xtools.pluglets.ui.actionSet"/>
+<alwaysOnActionSet id="com.ibm.xtools.publish.ui.internal.actions.PublishActionSet"/>
+<alwaysOnActionSet id="com.ibm.xtools.traceability.internal.actions.actionSet"/>
+<alwaysOnActionSet id="com.ibm.xtools.transform.ui.actionSet"/>
+<alwaysOnActionSet id="com.rational.clearcase.ActionSet"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="com.ibm.xtools.modeler.ui.views.modelexplorer.ModelExplorer"/>
+<show_view_action id="com.ibm.xtools.modeler.internal.ui.views.InheritanceExplorer"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.BookmarkView"/>
+<show_view_action id="com.ibm.xtools.common.ui.views.DiagramNavigator"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.gef.ui.palette_view"/>
+<show_view_action id="com.ibm.xtools.patterns.ui.views.explorer.PatternExplorer"/>
+<show_view_action id="com.ibm.xtools.patterns.ui.authoring.internal.views.PatternAuthoringView"/>
+<show_view_action id="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="com.ibm.xtools.traceability.internal.views.modelreport"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="com.ibm.xtools.pluglets.ui.newPluglet"/>
+<new_wizard_action id="com.ibm.xtools.modeler.ui.actions.NewModelActionWizard"/>
+<perspective_action id="org.eclipse.cdt.ui.CPerspective"/>
+<perspective_action id="com.ibm.etools.j2ee.J2EEPerspective"/>
+<perspective_action id="com.ibm.etools.webtools.webperspective.WebToolsPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.pde.ui.PDEPerspective"/>
+<perspective_action id="com.ibm.xtools.reqpro.activities.internal.perspective.RequirementPerspective"/>
+<view id="com.ibm.xtools.modeler.ui.views.modelexplorer.ModelExplorer"/>
+<view id="com.ibm.xtools.common.ui.views.DiagramNavigator"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="com.ibm.xtools.modeler.internal.ui.views.InheritanceExplorer"/>
+<view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.BookmarkView"/>
+<fastViews>
+<view id="com.ibm.xtools.patterns.ui.views.explorer.PatternExplorer" ratio="0.25"/>
+</fastViews>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@6c506c5">
+<folder activePageID="com.ibm.xtools.modeler.ui.views.modelexplorer.ModelExplorer" appearance="2" expanded="2">
+<page content="com.ibm.xtools.modeler.ui.views.modelexplorer.ModelExplorer" label="Model Explorer"/>
+<page content="com.ibm.xtools.common.ui.views.DiagramNavigator" label="Diagram Navigator"/>
+<page content="com.ibm.xtools.patterns.ui.authoring.internal.views.PatternAuthoringView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.74925077" ratioLeft="750" ratioRight="251" relationship="2" relative="org.eclipse.ui.internal.ViewStack@6c506c5">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer" ratio="0.25974026" ratioLeft="260" ratioRight="741" relationship="2" relative="org.eclipse.ui.internal.ViewStack@6c506c5"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@3e1c3e1c" ratio="0.72696245" ratioLeft="639" ratioRight="240" relationship="4" relative="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer">
+<folder activePageID="org.eclipse.ui.views.PropertySheet" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="Bookmarks"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.24966262" ratioLeft="185" ratioRight="556" relationship="2" relative="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1ae61ae6" ratio="0.6596702" ratioLeft="440" ratioRight="227" relationship="4" relative="org.eclipse.ui.internal.ViewStack@6c506c5">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="com.ibm.xtools.modeler.internal.ui.views.InheritanceExplorer" label="Inheritance Explorer"/>
+<page content="com.ibm.xtools.linkage.ui.internal.views.linkclipboard.LinkClipboardView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" path="/PalladioCM/PalladioCM.emx"/>
+</editors>
+<item active="true" historyLabel="PalladioCM.emx" index="0"/>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="PalladioCM.emx" tooltip="PalladioCM/PalladioCM.emx">
+<persistable path="/PalladioCM/PalladioCM.emx"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="PalladioCMShapes.emx" tooltip="PalladioCM/PalladioCMShapes.emx">
+<persistable path="/PalladioCM/PalladioCMShapes.emx"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="shapes.emx" tooltip="Miscellaneous Models/shapes.emx">
+<persistable path="/Miscellaneous Models/shapes.emx"/>
+</file>
+</mruList>
+</workbench>
