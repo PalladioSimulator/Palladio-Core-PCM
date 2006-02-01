@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.74  2006/02/01 13:59:59  kelsaka
+% - sprachliche korrekturen
+%
 % Revision 1.73  2006/02/01 13:52:32  kelsaka
 % - kontext: implementation als zusätzliche ebene beschrieben
 %
@@ -1000,9 +1003,9 @@ In Abbildung \ref{fig:cm-context-A-B-01} wird "`Component A"' zweifach verwendet
 Wie in Abbildung \ref{fig:cm-component-hierarchy-context-01} zu sehen ist, kann ein Kontext unterschiedliche Detail"=Niveaus erfassen. Er ist definiert für:
 
 \begin{itemize}
-	\item \textbf{Implementation}, dann werden die Kompositionsstrukturen innerhalb von \textit{Composite Components} eindeutig. Zu den zu erfassenden Informationen gehören die im Kontext liegende Komponente mit allen angebotenen und benötigen Schnittstellen (Rollenbeziehung), die direkt auf diesen Schnittstellen definierten Konnektoren, sowie die Rollen die über die Konnektoren erreicht werden.
-	\item \textbf{Assembly}, auf diesem Detail"=Niveau werden die Kompositionsstrukturen der Komponentenarchitektur eindeutig, da auch außerhalb von \textit{Composite Components} liegende Assembly Konnektoren erfasst werden. Zudem wird die Assembly berücksichtigt, in der ein Kontext liegt.
-	\item \textbf{Allokation}, hier werden zusätzlich die Ressourcen (\textit{computational}, \textit{non"=computational}) über die \texttt{$\flqq$deployed-on$\frqq$}"=Relation und die Ausführungsumgebung eindeutig erfasst, auf denen die Komponenten und Konnektoren allokiert wurden.
+	\item \textbf{Implementation}. Es werden die Kompositionsstrukturen innerhalb von \textit{Composite Components} eindeutig. Zu den zu erfassenden Informationen gehören die im Kontext liegende Komponente mit allen angebotenen und benötigen Schnittstellen (Rollenbeziehung), die direkt auf diesen Schnittstellen definierten Konnektoren, sowie die Rollen die über die Konnektoren erreicht werden.
+	\item \textbf{Assembly}. Auf diesem Detail"=Niveau werden die Kompositionsstrukturen der Komponentenarchitektur eindeutig, da auch außerhalb von \textit{Composite Components} liegende Assembly Konnektoren erfasst werden. Zudem wird die Assembly berücksichtigt, in der ein Kontext liegt.
+	\item \textbf{Allokation}. Hier werden zusätzlich die Ressourcen (\textit{computational}, \textit{non"=computational}) über die \texttt{$\flqq$deployed-on$\frqq$}"=Relation und die Ausführungsumgebung eindeutig erfasst, auf denen die Komponenten und Konnektoren allokiert wurden.
 	
 	Über Kontexte auf der Allokationseben lassen sich zusätzliche Eigenschaften erfassen, wie \textit{Concurrency}, \textit{Security}, Container"=Eigenschaften und Komponentenkonfiguration.
 \end{itemize}
