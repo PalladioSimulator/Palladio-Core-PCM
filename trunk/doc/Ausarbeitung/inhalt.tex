@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.76  2006/02/02 11:49:08  kelsaka
+% - assembly konnektoren ergänzt
+%
 % Revision 1.75  2006/02/02 11:03:38  kelsaka
 % - Schnittstellenvererbung ergänzt
 %
@@ -355,6 +358,8 @@ In Abbildung \ref{fig:cm-assembly-connector-01} wird die Verwendung zweier Assem
 Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebotenen Schnittstelle verbunden. Sind die angebotene Schnittstelle und die benötigte Schnittstelle einer Komponente identisch oder interoperabel (zu den Definitionsmöglichkeiten von Interoperabilität siehe Kapitel \ref{sec:ValidierungvonModellinstanzen}), so kann eine Komponente grundsätzlich auch eigene Dienste aufrufen. In der noch folgenden Differenzierung über die Typ-Ebenen des Komponentenmodells (siehe Kapitel \ref{sec:Typ-Ebenen}) wird deutlich, weshalb dies nicht zwangsläufig zu einer infiniten Rekursion führen muss.
 
 Ein Assembly Konnektor kann lediglich eine \textit{Requires}"=Schnittstelle mit einer \textit{Provides}"=Schnittstelle verbinden, die ansonsten jeweils \textit{nicht} über Assembly Konnektoren verbunden sind. Diese Einschränkung (vgl. Kapitel \ref{sec:MehrfacheSchnittstellen-Verwendung}) garantiert, dass der Kontrollfluss klar definierten Verbindungen folgt.
+
+Assembly Konnektoren sind implizit immer vorhanden, wenn eine \textit{Requires}"=Schnittstelle mit einer \textit{Provides}"=Schnittstelle verbunden ist. Auch wenn Assembly Konnektoren in der graphischen Notation nicht gezeichnet werden, wie in Abbildung \ref{fig:cm-calculated-cc-seff-01}, ist ein Assembly Konnektor vorhanden.
 
 
 
