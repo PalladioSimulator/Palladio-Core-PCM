@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.75  2006/02/02 11:03:38  kelsaka
+% - Schnittstellenvererbung ergänzt
+%
 % Revision 1.74  2006/02/01 13:59:59  kelsaka
 % - sprachliche korrekturen
 %
@@ -315,6 +318,7 @@ Eine Komponente darf \textit{eine} Schnittstelle (Gleichheit entsprechend der Id
 
 
 
+\paragraph{Definition}
 Über Abbildung \ref{cm-interfaces-roles-01} soll verdeutlicht werden, welche Bestandteile der graphischen Notation, die auch im Folgenden verwendet wird, einem Interface entsprechen. Auf der linken Seite ist eine Komponente angedeutet, die eine Schnittstelle anbietet. Bietet eine Komponente eine Schnittstelle an (\textit{Provided Interface}), so impliziert dies, dass eine \textit{Provides Role} zwischen Komponente und Interface existiert. In der graphischen Notation ist die vergleichbar mit der Verbindungslinie zwischen Schnittstelle und Komponente. Wird eine Komponente angeboten, resultiert dies in einer Kreisdarstellung für die Schnittstelle.
 
 Auf der rechten Seite der Abbildung ist die \textit{Requires Role} zwischen einer Komponente unter der Schnittstelle dargestellt. Auch hier entspricht die Verbindungslinie zwischen Komponente und Schnittstelle der Rollen-Beziehung. Die graphische Notation ändert sich jedoch. Aus dem Kreis, der die Schnittstelle symbolisiert, wird ein Halbkreis.
@@ -322,6 +326,13 @@ Auf der rechten Seite der Abbildung ist die \textit{Requires Role} zwischen eine
 Auch im Komponentenmodell wird die Relation zwischen Komponente und Schnittstelle als "`Rolle"' (\textit{Role}) bezeichnet. Die Art der Rolle (angeboten oder benötigt / \textit{provided} oder \textit{required}) entscheidet über die Verwendung der Schnittstelle. Die Eigenschaft der Schnittstelle selbst ändert sich jedoch nicht durch ihre Verwendung. Auch in Abbildung \ref{cm-interfaces-roles-01} könnten die Komponenten die beiden dargestellten Schnittstellen identisch sein.
 
 Eine Schnittstelle wird also erst durch eine \textit{Provides Role} zu einer angebotene Schnittstelle / einem \textit{Provided Interface}, bzw. über eine \textit{Requires Role} zu einer benötigten Schnittstelle / einem\textit{Required Interface}.
+
+
+
+\paragraph{Vererbung}
+Schnittstellen können untereinander erben. Dabei ist Mehrfachvererbung zugelassen. Die Vererbung ist, analog zum Verständnis bei objektorientierten Programmiersprachen (vgl. \cite{OOP-VS-NET2002}, S. 97ff), eine Relation zwischen einer erbenden Schnittstelle und einer Menge von Schnittstellen von denen die erbende Schnittstelle sämtliche Eigenschaften übernimmt. Zusätzlich kann die erbende Schnittstelle weitere Eigenschaften hinzufügen. In jedem Fall lässt sich die erbende Schnittstelle für eine ihrer beerbten Schnittstellen einsetzen, da sie mindestens die gleichen Eigenschaften besitzt.
+
+Eine Schnittstelle kann mehrfach beerbt werden.
 
 
 
@@ -810,8 +821,8 @@ Alle anderen Entitäten hängen von \textit{First Class Enitities} ab und können n
 Benutzer- oder Anwender"=Rollen sind kein expliziter Bestandteil des Komponentenmodells, gleichwohl wird über Benutzer"'=Rollen unterschieden, welche Sichten auf das Komponentenmodell möglich sind. In Kapitel \ref{sec:Assembly} wird auf Benutzer"=Rollen Bezug genommen, die wie folgt definiert sind:
 
 \begin{itemize}
-	\item \textbf{Entwickler} entwerfen und definieren Komponenten und Schnittstellen sowie Konnektoren zwischen diesen Entitäten.
-	\item \textbf{\textit{System"=Deployer}} definieren Beziehungen zwischen Komponenten, Konnektoren und Ressourcen (siehe Kapitel \ref{sec:Allokation}).
+	\item \textbf{Entwickler} entwerfen und definieren Komponenten und Schnittstellen sowie Konnektoren zwischen diesen Entitäten. In \cite{JensHeikoCBSE06}, Seite 2, wird diese Rolle des \textit{Component Developers} näher beschrieben.
+	\item \textbf{\textit{System"=Deployer}} definieren Beziehungen zwischen Komponenten, Konnektoren und Ressourcen (siehe Kapitel \ref{sec:Allokation} und \cite{JensHeikoCBSE06}, S. 3).
 \end{itemize}
 
 Benutzer"=Rollen sind strikt von Rollen, wie sie in Kapitel \ref{sec:SchnittstellenUndRollen} definiert werden, zu unterscheiden.
@@ -1306,7 +1317,7 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 \textbf{TODO:}
 
 \begin{verbatim}
-- - -
+- Vererbung von Schnittstellen (Komponentenschnittstellen)
 \end{verbatim}
 
 
