@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.78  2006/02/03 16:35:28  kelsaka
+% - interface-vererbung präzisiert
+%
 % Revision 1.77  2006/02/03 13:58:51  kelsaka
 % - assembly-begriff verfeinert
 %
@@ -336,9 +339,11 @@ Eine Schnittstelle wird also erst durch eine \textit{Provides Role} zu einer ang
 
 
 \paragraph{Vererbung}
-Schnittstellen können untereinander erben. Dabei ist Mehrfachvererbung zugelassen. Die Vererbung ist, analog zum Verständnis bei objektorientierten Programmiersprachen (vgl. \cite{OOP-VS-NET2002}, S. 97ff), eine Relation zwischen einer erbenden Schnittstelle und einer Menge von Schnittstellen von denen die erbende Schnittstelle sämtliche Eigenschaften übernimmt. Zusätzlich kann die erbende Schnittstelle weitere Eigenschaften hinzufügen. In jedem Fall lässt sich die erbende Schnittstelle für eine ihrer beerbten Schnittstellen einsetzen, da sie mindestens die gleichen Eigenschaften besitzt.
+Schnittstellen können untereinander erben. Dabei ist Mehrfachvererbung zugelassen. Die Vererbung ist, analog zum Verständnis bei objektorientierten Programmiersprachen (vgl. \cite{OOP-VS-NET2002}, S. 97ff), eine Relation zwischen einer erbenden Schnittstelle und einer Menge von Schnittstellen von denen die erbende Schnittstelle sämtliche Eigenschaften übernimmt. Zusätzlich kann die erbende Schnittstelle weitere Eigenschaften hinzufügen. In jedem Fall lässt sich die erbende Schnittstelle für eine ihrer beerbten Schnittstellen ("`Vater"=Schnittstelle) einsetzen, da sie mindestens die gleichen Eigenschaften besitzt.
 
 Eine Schnittstelle kann mehrfach beerbt werden.
+
+Die Vererbung von Schnittstellen muss stets unter Erhaltung der Semantik erfolgen. Das heißt, dass eine erbende Schnittstelle die Bedeutung der auf der Vater"=Schnittstelle definierten Dienste erhalten muss. Die Einhaltung der Semantik wird nicht durch das Komponentenmodell überprüft.
 
 
 
@@ -614,7 +619,9 @@ Würde man die Typ"=Hierarchie nach unten weiter führen, schließt sich unter ande
 \label{sec:Sub-TypundImplementierung}
 Im Folgenden werden die Begriffe Sub"=Typ und Implementierung verwendet. Zur Klärung der Begriffe:
 \begin{itemize}
-	\item \textbf{Sub-Typ.} Beim Sub"=Typ handelt es sich um eine Relation zwischen zwei Komponenten. Gilt diese Relation, so kann ein Sub"=Typ für den "`Ober"=Typ"' verwendet werden. Damit ist der Sub"=Typ eine Spezialisierung des "`Ober"=Typs"'. Siehe hierzu auch Kapitel \ref{sec:Typ-Spezialisierung} auf Seite \pageref{sec:Typ-Spezialisierung}. Dort wird ebenfalls auf Co- und Contra-Varianz im Zusammenhang mit Komponenten eingegangen.
+	\item \textbf{Sub-Typ.} Beim Sub"=Typ handelt es sich um eine Relation zwischen zwei Komponenten oder zwei Schnittstellen. Gilt diese Relation, so kann ein Sub"=Typ für den "`Ober"=Typ"' verwendet werden. Damit ist der Sub"=Typ eine Spezialisierung des "`Ober"=Typs"'. Siehe hierzu auch Kapitel \ref{sec:Typ-Spezialisierung} auf Seite \pageref{sec:Typ-Spezialisierung}. Dort wird ebenfalls auf Co- und Contra-Varianz im Zusammenhang mit Komponenten eingegangen.
+	
+	
 	\item \textbf{Implementierung.} Wird der Begriff Implementierung verwendet, so ist im Folgenden eine Binärinstanz einer Komponente oder eine programmiersprachliche Repräsentation einer Komponente gemeint. Wie im Bereich der objektorientierten Programmierung (siehe etwas \cite{visual-csharp-oop}, S. 203ff) gibt es von Komponenten"="'Vorlagen"' Implementierungen -- analog zu OO-\textit{Interfaces} und Klassen. Präzise betrachtet kann es zu einer Ausprägung eines Komponenten"=Typs \texttt{0..*} Implementierungen geben.
 \end{itemize}
 
@@ -632,7 +639,11 @@ In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Provided Type} als obe
 
 \paragraph{Complete Type}
 \label{sec:CompleteType}
-In Erweiterung des \textit{Provided Type} ermöglicht der \textit{Complete Type} zusätzlich die Definition der benötigten Schnittstellen. Ein \textit{Complete Type} muss \textit{alle} erlaubten benötigten Schnittstellen definieren. Dies bedeutet, dass weder Sub"=Typen noch Implementierungen mehr Schnittstellen fordern dürfen, als im spezifiziert, zugleich aber auch nicht weniger Schnittstellen anbieten dürfen, als über den \textit{Complete Type} angegeben. Wie auch der \textit{Provided Type} darf der \textit{Complete Type} keine Informationen oder Vorgaben über die interne Realisierung enthalten. Auch hier sind die Sub"=Typen und Implementierungen in der Umsetzung frei. Erst eine \textit{Complete Type} Komponente kann zuverlässlich durch eine andere Komponente substituiert werden, da erst mit diesem Detailniveau die Anforderungen vollständig bekannt sind (TODO: richtig?).
+In Erweiterung des \textit{Provided Type} ermöglicht der \textit{Complete Type} zusätzlich die Definition der benötigten Schnittstellen. Ein \textit{Complete Type} muss \textit{alle} erlaubten benötigten Schnittstellen definieren. Dies bedeutet, dass weder Sub"=Typen noch Implementierungen mehr Schnittstellen fordern dürfen, als im \textit{Complete Type} spezifiziert, zugleich aber auch nicht weniger Schnittstellen anbieten dürfen, als über den \textit{Complete Type} angegeben.
+
+Zudem darf der \textit{Complete Type} auf der \textit{Provides}"=Seite anstelle der vom \textit{Provided Type} angebotenen Schnittstelle eine Schnittstelle anbieten, die von der ursprünglichen Schnittstelle erbt. Auf der \textit{Requires}"=Seite darf ein Ober"=Typ der vom \textit{Provided Type} deklarierten Schnittstelle verwendet werden. Der \textit{Complete Type} ist damit in Lage unter Ausnutzung der Sub"=Typ"=Beziehungen (Vererbungshierarchie) auf Schnittstellen auf der Angebots"=Seite mehr Dienste auf einer Schnittstelle anbieten (bzw. auf der benötigten Seite weniger Dienste benötigen). Siehe hierzu auch Kapitel \ref{sec:Typ-Spezialisierung}.
+
+Wie auch der \textit{Provided Type} darf der \textit{Complete Type} keine Informationen oder Vorgaben über die interne Realisierung enthalten. Auch hier sind die Sub"=Typen und Implementierungen in der Umsetzung frei. Erst eine \textit{Complete Type} Komponente kann zuverlässlich durch eine andere Komponente substituiert werden, da erst mit diesem Detailniveau die Anforderungen vollständig bekannt sind (TODO: richtig?).
 
 In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Complete Type} als mittlere Ebene dargestellt.
 
@@ -643,6 +654,8 @@ In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Complete Type} als mit
 Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der \textit{Implementation Type} seine interne Realisierung festlegen. Das bedeutet, dass alle internen Komponenten, die direkt in einer derart typisierten Komponente enthalten sind, mit samt der assoziierten Assembly Konnektoren und Delegationskonnektoren definiert werden müssen.
 
 Gegenüber seinem \textit{Complete Type} Vater darf ein \textit{Implementation Type} \textit{Provides} Schnittstellen hinzufügen und weniger \textit{Requires} Schnittstellen benötigen. Ein gültiger Sub"=Typ folgt dabei -- näher betrachtet -- den Vorgaben von Co- und Contra"=Varianz, wie sie in Kapitel \ref{sec:Co-undContra-Varianz} vorgestellt wird.
+
+In Analogie zur Beziehung zwischen \textit{Provided Type} und \textit{Complete Type} darf auch zwischen \textit{Complete Type} und \textit{Implementation Type} die Co- und Contra"=Varianz \textit{auf} Schnittstellen genutzt werden. Auf der angebotenen Seite dürfen also mehr Dienste auf einer Schnittstelle definiert werden, auf der benötigten Schnittstelle weniger.
 
 Für einen \textit{Implementation Type} muss ein SEFF verpflichtend definiert werden. Im Falle von \textit{Composite Components} ist der SEFF, wie in Kapitel \ref{sec:BerechnungderSEFFsvonCompositeComponents} dargestellt, berechnet. Da sich durch die Möglichkeit und Pflicht zur Spezifikation von SEFFs das \textit{Requires Protocol} berechnet werden kann, muss dieses auch nach der Modellierung von Komponenten auf der Implementierungs"=Typ"=Ebene konsistent zwischen den Typ"=Ebenen bleiben.
 
@@ -1326,8 +1339,14 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 \textbf{TODO:}
 
 \begin{verbatim}
-- Vererbung von Schnittstellen (Komponentenschnittstellen)
---> semantik erhalten
+
+Ja, eine hätte ich spontan noch: Unsere Komponenten sind nur reaktiv und nicht proaktiv. Sprich, ich muss von außen einen Dienst aufrufen, damit die Komponente etwas tut. Es kann aber durchaus Komponenten geben, die von sichaus aktiv sind.
+
+keine Möglichkeit die Semantik auf Diensten zu definieren. Keine Anotationen auf Diensten möglich. Nur Name des Dienstes + Signatur kann derzeit Hinweis auf Semantik geben. --> derzeit nicht überprüfbar ob semantik passt (bspw. bei erbenden Schnittstellen).
+
+sub-typ prüfung nur rudimentär bestandteil des CMs. alles andere teil von validierung(salgorithmen) --> z. T. semi-entscheidbar, weshalb algorithmen schwer allgemein möglich.
+
+Abb. 21 rechts (zwei Required Interfaces benutzen ein Provided Interface) ist erlaubt. 
 \end{verbatim}
 
 
