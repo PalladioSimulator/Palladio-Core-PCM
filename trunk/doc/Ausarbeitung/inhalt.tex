@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.79  2006/02/04 10:56:19  kelsaka
+% - minor changes
+%
 % Revision 1.78  2006/02/03 16:35:28  kelsaka
 % - interface-vererbung präzisiert
 %
@@ -1097,7 +1100,7 @@ Die folgenden Entitäten (respektive Typen von Entitäten) tragen IDs; die ID"=Typ
 
 
 
-Das Komponentenmodell bietet die Möglichkeit alle Entitäten des Modells mit beliebigen Zusatzinformationen "`Annotationen"' (Attribute) zu versehen. Da die genauen Anwendungsszenarien des Komponentenmodells nicht exakt absehbar sind und Vorgaben das Modell nicht unnötig limitieren sollen, bleibt das Komponentenmodell, ebenso wie bei Protokollen und SEFFs, offen und gibt keine feste Menge von Typen vor. Damit lassen sich beliebige Annotations"=Typen ergänzen, sofern sie benötigt werden. Diese können Messwerte ebenso sein wie \textit{Quality of Service} Merkmale (siehe Kapitel \ref{sec:WeitereFaehigkeiten}) von Entitäten, komplexe Datentypen wie Verteilungsfunktionen oder beliebige andere Annotations"=Typen. Das heißt also, dass die Datentypen und Datenstrukturen nicht durch das Komponentenmodell festgelegt werden.
+Das Komponentenmodell bietet die Möglichkeit alle Entitäten des Modells mit beliebigen Zusatzinformationen "`Annotationen"' (Attribute) zu versehen. Da die genauen Anwendungsszenarien des Komponentenmodells nicht exakt absehbar sind und Vorgaben das Modell nicht unnötig limitieren sollen, bleibt das Komponentenmodell, ebenso wie bei Protokollen und SEFFs, offen und gibt keine feste Menge von Annotations"=Typen vor. Damit lassen sich beliebige Annotations"=Typen ergänzen, sofern sie benötigt werden. Dies können ebenso Messwerte wie \textit{Quality of Service} Merkmale (siehe Kapitel \ref{sec:WeitereFaehigkeiten}) von Entitäten, komplexe Datentypen wie Verteilungsfunktionen oder beliebige andere Annotations"=Typen sein. Zusätzlich sind ebenfalls \textit{Constraints} denkbar, die über Validierungsalgorithmen (Kapitel \ref{sec:ValidierungvonModellinstanzen}) erfasst werden. Das heißt also, dass weder die Datentypen noch Datenstrukturen durch das Komponentenmodell abschließend festgelegt werden.
 
 Gleichwohl definiert das Komponentenmodell einen Standardsatz von Annotations"=Typen, die eine schnelle Arbeit mit dem Komponentenmodell vereinfachen sollen. Hierzu zählen die Datentypen Integer (\texttt{int}, \texttt{long}), Fließkommazahl (\texttt{float}, \texttt{double}) und Zeichenkette (\texttt{string}) analog ihrer Definition in .NET C\# 1.1 (siehe \cite{net-csharp-gleitkommatypen,net-csharp-ganzzahltypen,net-csharp-string}).
 
