@@ -5157,7 +5157,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7u8bApJ0EdqSSImFLKDkSg"/>
     </ownedAttribute>
   </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_9CubEJJIEdqSSImFLKDkSg" name="Role">
+  <ownedMember xmi:type="uml:Class" xmi:id="_9CubEJJIEdqSSImFLKDkSg" name="Role" isAbstract="true">
     <generalization xmi:id="_VHP5UJJwEdqSSImFLKDkSg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_-M7kYJJIEdqSSImFLKDkSg" name="ProvidedRole">
@@ -5359,7 +5359,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qes8kJP_EdqSSImFLKDkSg"/>
     </ownedAttribute>
   </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_UMp04JMWEdqSSImFLKDkSg" name="Identifier">
+  <ownedMember xmi:type="uml:Class" xmi:id="_UMp04JMWEdqSSImFLKDkSg" name="Identifier" isAbstract="true">
     <ownedAttribute xmi:id="_bTQrMJMWEdqSSImFLKDkSg" name="id">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
@@ -5390,7 +5390,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IlZLE5QMEdqSSImFLKDkSg" value="1"/>
     </ownedAttribute>
   </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_F3SCEJMnEdqSSImFLKDkSg" name="Resource">
+  <ownedMember xmi:type="uml:Class" xmi:id="_F3SCEJMnEdqSSImFLKDkSg" name="Resource" isAbstract="true">
     <generalization xmi:id="_JO1nIJQAEdqSSImFLKDkSg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_-wOWMJPeEdqSSImFLKDkSg" name="ImplementationContext">
@@ -5461,10 +5461,10 @@
   <ownedMember xmi:type="uml:Association" xmi:id="_ZnMLEJP_EdqSSImFLKDkSg" memberEnd="_ZnMLEZP_EdqSSImFLKDkSg _ZnMLEpP_EdqSSImFLKDkSg">
     <ownedEnd xmi:id="_ZnMLEpP_EdqSSImFLKDkSg" visibility="private" type="_BjS6wJPfEdqSSImFLKDkSg" association="_ZnMLEJP_EdqSSImFLKDkSg"/>
   </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_SdDqMJQAEdqSSImFLKDkSg" name="DelegationConnector">
+  <ownedMember xmi:type="uml:Class" xmi:id="_SdDqMJQAEdqSSImFLKDkSg" name="DelegationConnector" isAbstract="true">
     <generalization xmi:id="_VhOl0JQAEdqSSImFLKDkSg" general="_UkxkoJQAEdqSSImFLKDkSg"/>
   </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_UkxkoJQAEdqSSImFLKDkSg" name="Connector">
+  <ownedMember xmi:type="uml:Class" xmi:id="_UkxkoJQAEdqSSImFLKDkSg" name="Connector" isAbstract="true">
     <ownedAttribute xmi:id="_BuR4YZQDEdqSSImFLKDkSg" name="non-calculatingresource" type="_tf-gAJMmEdqSSImFLKDkSg" association="_BuR4YJQDEdqSSImFLKDkSg"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_BuR4YJQDEdqSSImFLKDkSg" name="&lt;deployed-on2>" memberEnd="_BuR4YZQDEdqSSImFLKDkSg _BuR4YpQDEdqSSImFLKDkSg"/>
