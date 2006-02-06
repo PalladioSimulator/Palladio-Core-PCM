@@ -2368,7 +2368,7 @@
         </children>
         <children xmi:id="_fTf5qpJqEdqSSImFLKDkSg" type="ToRoleLabel" element="_fS7R4pJqEdqSSImFLKDkSg">
           <children xmi:id="_fTf5rJJqEdqSSImFLKDkSg" type="ToRole" element="_fS7R4pJqEdqSSImFLKDkSg"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_fTf5q5JqEdqSSImFLKDkSg" x="-368" y="-127"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_fTf5q5JqEdqSSImFLKDkSg" x="-50" y="-127"/>
         </children>
         <children xmi:id="_fTf5rZJqEdqSSImFLKDkSg" type="FromMultiplicityLabel" element="_fS7R4ZJqEdqSSImFLKDkSg">
           <children xmi:id="_fTf5r5JqEdqSSImFLKDkSg" type="FromMultiplicity" element="_fS7R4ZJqEdqSSImFLKDkSg"/>
@@ -2423,11 +2423,11 @@
         </children>
         <children xmi:id="_fzx8PZJqEdqSSImFLKDkSg" type="FromMultiplicityLabel" element="_fzfoUZJqEdqSSImFLKDkSg">
           <children xmi:id="_fzx8P5JqEdqSSImFLKDkSg" type="FromMultiplicity" element="_fzfoUZJqEdqSSImFLKDkSg"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_fzx8PpJqEdqSSImFLKDkSg" y="397"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_fzx8PpJqEdqSSImFLKDkSg" x="1570" y="374"/>
         </children>
         <children xmi:id="_fzx8QJJqEdqSSImFLKDkSg" type="FromRoleLabel" element="_fzfoUZJqEdqSSImFLKDkSg">
           <children xmi:id="_fzx8QpJqEdqSSImFLKDkSg" type="FromRole" element="_fzfoUZJqEdqSSImFLKDkSg"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_fzx8QZJqEdqSSImFLKDkSg" x="369" y="-787"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_fzx8QZJqEdqSSImFLKDkSg" x="1252" y="-1282"/>
         </children>
         <children xmi:id="_fzx8Q5JqEdqSSImFLKDkSg" type="ToQualifierLabel" element="_fzfoUpJqEdqSSImFLKDkSg">
           <children xmi:id="_fzx8RZJqEdqSSImFLKDkSg" type="QualifierCompartment" element="_fzfoUpJqEdqSSImFLKDkSg">
@@ -4925,9 +4925,9 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HLvhYZJoEdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HLvhYJJoEdqSSImFLKDkSg"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_XjQQcZJqEdqSSImFLKDkSg" name="factory" type="_TWBbAJJqEdqSSImFLKDkSg" association="_XjQQcJJqEdqSSImFLKDkSg" aggregation="shared">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XjWXEZJqEdqSSImFLKDkSg" value="-1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XjWXEJJqEdqSSImFLKDkSg"/>
+    <ownedAttribute xmi:id="_XjQQcZJqEdqSSImFLKDkSg" name="factory" type="_TWBbAJJqEdqSSImFLKDkSg" association="_XjQQcJJqEdqSSImFLKDkSg" aggregation="composite">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XjWXEZJqEdqSSImFLKDkSg" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XjWXEJJqEdqSSImFLKDkSg" value="1"/>
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_xtWJIJJGEdqIo-u3cE9-DA" name="ProvidesComponentType">
@@ -4940,16 +4940,13 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l6W1sZJmEdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l6W1sJJmEdqSSImFLKDkSg"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_dYGj8pJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_dYGj8JJqEdqSSImFLKDkSg"/>
     <ownedAttribute xmi:id="_8v97gpTXEdqSSImFLKDkSg" name="calculatingresource" type="_kzkJgJMmEdqSSImFLKDkSg" association="_8v97gJTXEdqSSImFLKDkSg"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_0Ske8JJGEdqIo-u3cE9-DA" name="CompleteComponentType">
     <generalization xmi:id="_BA8PAJJHEdqIo-u3cE9-DA" general="_xtWJIJJGEdqIo-u3cE9-DA"/>
-    <ownedAttribute xmi:id="_d-HbEpJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_d-HbEJJqEdqSSImFLKDkSg"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_4XfF4JJGEdqIo-u3cE9-DA" name="ImplementationComponentType">
     <generalization xmi:id="_Ae8VMJJHEdqIo-u3cE9-DA" general="_0Ske8JJGEdqIo-u3cE9-DA"/>
-    <ownedAttribute xmi:id="_eiHgApJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_eiHgAJJqEdqSSImFLKDkSg"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_mhK5sJJIEdqSSImFLKDkSg" name="CompositeComponent">
     <generalization xmi:id="_r_lDIJJIEdqSSImFLKDkSg" general="_4XfF4JJGEdqIo-u3cE9-DA"/>
@@ -4957,7 +4954,6 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fSfbxJJkEdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fSfbw5JkEdqSSImFLKDkSg"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_cJ4dUpJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_cJ4dUJJqEdqSSImFLKDkSg"/>
     <ownedAttribute xmi:id="_nqCeEZJ7EdqSSImFLKDkSg" name="assemblyconnector" type="_fbGtwJJ7EdqSSImFLKDkSg" association="_nqCeEJJ7EdqSSImFLKDkSg" aggregation="shared">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nqCeFJJ7EdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nqCeE5J7EdqSSImFLKDkSg"/>
@@ -4974,7 +4970,6 @@
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_oz-CwJJIEdqSSImFLKDkSg" name="BasicComponent">
     <generalization xmi:id="_sZLO4JJIEdqSSImFLKDkSg" general="_4XfF4JJGEdqIo-u3cE9-DA"/>
-    <ownedAttribute xmi:id="_fS7R4pJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_fS7R4JJqEdqSSImFLKDkSg"/>
     <ownedAttribute xmi:id="_7u8bAJJ0EdqSSImFLKDkSg" name="serviceeffectspecification" type="_1qN_0JJxEdqSSImFLKDkSg" association="_7u2UYJJ0EdqSSImFLKDkSg" aggregation="shared">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7u8bA5J0EdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7u8bApJ0EdqSSImFLKDkSg"/>
@@ -5015,7 +5010,6 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nlm2kZJmEdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nlm2kJJmEdqSSImFLKDkSg"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_fzfoUpJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_fzfoUJJqEdqSSImFLKDkSg"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_cqkLgJJJEdqSSImFLKDkSg" name="Protocol">
     <ownedAttribute xmi:id="_rnRggJVsEdqSSImFLKDkSg" name="ProtocolTypeID">
@@ -5099,22 +5093,52 @@
   <ownedMember xmi:type="uml:Association" xmi:id="_7YF_EJJlEdqSSImFLKDkSg" memberEnd="_7YF_EZJlEdqSSImFLKDkSg _7YF_EpJlEdqSSImFLKDkSg"/>
   <ownedMember xmi:type="uml:Association" xmi:id="_AMAvIJJoEdqSSImFLKDkSg" name="contains" memberEnd="_AMAvIZJoEdqSSImFLKDkSg _AMAvIpJoEdqSSImFLKDkSg"/>
   <ownedMember xmi:type="uml:Class" xmi:id="_TWBbAJJqEdqSSImFLKDkSg" name="Factory">
-    <ownedAttribute xmi:id="_cJ4dUZJqEdqSSImFLKDkSg" name="compositecomponent" type="_mhK5sJJIEdqSSImFLKDkSg" association="_cJ4dUJJqEdqSSImFLKDkSg"/>
-    <ownedAttribute xmi:id="_dYGj8ZJqEdqSSImFLKDkSg" name="providescomponenttype" type="_xtWJIJJGEdqIo-u3cE9-DA" association="_dYGj8JJqEdqSSImFLKDkSg"/>
-    <ownedAttribute xmi:id="_d-HbEZJqEdqSSImFLKDkSg" name="completecomponenttype" type="_0Ske8JJGEdqIo-u3cE9-DA" association="_d-HbEJJqEdqSSImFLKDkSg"/>
-    <ownedAttribute xmi:id="_eiHgAZJqEdqSSImFLKDkSg" name="implementationcomponenttype" type="_4XfF4JJGEdqIo-u3cE9-DA" association="_eiHgAJJqEdqSSImFLKDkSg"/>
-    <ownedAttribute xmi:id="_fS7R4ZJqEdqSSImFLKDkSg" name="basiccomponent" type="_oz-CwJJIEdqSSImFLKDkSg" association="_fS7R4JJqEdqSSImFLKDkSg"/>
-    <ownedAttribute xmi:id="_fzfoUZJqEdqSSImFLKDkSg" name="interface" type="_cIR90JJJEdqSSImFLKDkSg" association="_fzfoUJJqEdqSSImFLKDkSg"/>
+    <ownedAttribute xmi:id="_cJ4dUZJqEdqSSImFLKDkSg" name="compositecomponents" type="_mhK5sJJIEdqSSImFLKDkSg" association="_cJ4dUJJqEdqSSImFLKDkSg" aggregation="shared">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OhLyoJcCEdq38OEoBK_ByQ" value="-1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OhFsAJcCEdq38OEoBK_ByQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_dYGj8ZJqEdqSSImFLKDkSg" name="providescomponenttypes" type="_xtWJIJJGEdqIo-u3cE9-DA" association="_dYGj8JJqEdqSSImFLKDkSg" aggregation="shared">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PA5NcZcCEdq38OEoBK_ByQ" value="-1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PA5NcJcCEdq38OEoBK_ByQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_d-HbEZJqEdqSSImFLKDkSg" name="completecomponenttypes" type="_0Ske8JJGEdqIo-u3cE9-DA" association="_d-HbEJJqEdqSSImFLKDkSg" aggregation="shared">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PhpxIZcCEdq38OEoBK_ByQ" value="-1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PhpxIJcCEdq38OEoBK_ByQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_eiHgAZJqEdqSSImFLKDkSg" name="implementationcomponenttypes" type="_4XfF4JJGEdqIo-u3cE9-DA" association="_eiHgAJJqEdqSSImFLKDkSg" aggregation="shared">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QCUOMZcCEdq38OEoBK_ByQ" value="-1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QCUOMJcCEdq38OEoBK_ByQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_fS7R4ZJqEdqSSImFLKDkSg" name="basiccomponents" type="_oz-CwJJIEdqSSImFLKDkSg" association="_fS7R4JJqEdqSSImFLKDkSg" aggregation="shared">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yynkYZcCEdq38OEoBK_ByQ" value="-1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yynkYJcCEdq38OEoBK_ByQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_fzfoUZJqEdqSSImFLKDkSg" name="interfaces" type="_cIR90JJJEdqSSImFLKDkSg" association="_fzfoUJJqEdqSSImFLKDkSg" aggregation="shared">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qr26cZcCEdq38OEoBK_ByQ" value="-1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qr26cJcCEdq38OEoBK_ByQ"/>
+    </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_XjQQcJJqEdqSSImFLKDkSg" memberEnd="_XjQQcZJqEdqSSImFLKDkSg _XjQQcpJqEdqSSImFLKDkSg">
     <ownedEnd xmi:id="_XjQQcpJqEdqSSImFLKDkSg" visibility="private" type="_au_WpWA_EdqdHZdhXRxKVg" association="_XjQQcJJqEdqSSImFLKDkSg"/>
   </ownedMember>
-  <ownedMember xmi:type="uml:Association" xmi:id="_cJ4dUJJqEdqSSImFLKDkSg" memberEnd="_cJ4dUZJqEdqSSImFLKDkSg _cJ4dUpJqEdqSSImFLKDkSg"/>
-  <ownedMember xmi:type="uml:Association" xmi:id="_dYGj8JJqEdqSSImFLKDkSg" memberEnd="_dYGj8ZJqEdqSSImFLKDkSg _dYGj8pJqEdqSSImFLKDkSg"/>
-  <ownedMember xmi:type="uml:Association" xmi:id="_d-HbEJJqEdqSSImFLKDkSg" memberEnd="_d-HbEZJqEdqSSImFLKDkSg _d-HbEpJqEdqSSImFLKDkSg"/>
-  <ownedMember xmi:type="uml:Association" xmi:id="_eiHgAJJqEdqSSImFLKDkSg" memberEnd="_eiHgAZJqEdqSSImFLKDkSg _eiHgApJqEdqSSImFLKDkSg"/>
-  <ownedMember xmi:type="uml:Association" xmi:id="_fS7R4JJqEdqSSImFLKDkSg" memberEnd="_fS7R4ZJqEdqSSImFLKDkSg _fS7R4pJqEdqSSImFLKDkSg"/>
-  <ownedMember xmi:type="uml:Association" xmi:id="_fzfoUJJqEdqSSImFLKDkSg" memberEnd="_fzfoUZJqEdqSSImFLKDkSg _fzfoUpJqEdqSSImFLKDkSg"/>
+  <ownedMember xmi:type="uml:Association" xmi:id="_cJ4dUJJqEdqSSImFLKDkSg" memberEnd="_cJ4dUZJqEdqSSImFLKDkSg _cJ4dUpJqEdqSSImFLKDkSg">
+    <ownedEnd xmi:id="_cJ4dUpJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_cJ4dUJJqEdqSSImFLKDkSg"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Association" xmi:id="_dYGj8JJqEdqSSImFLKDkSg" memberEnd="_dYGj8ZJqEdqSSImFLKDkSg _dYGj8pJqEdqSSImFLKDkSg">
+    <ownedEnd xmi:id="_dYGj8pJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_dYGj8JJqEdqSSImFLKDkSg"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Association" xmi:id="_d-HbEJJqEdqSSImFLKDkSg" memberEnd="_d-HbEZJqEdqSSImFLKDkSg _d-HbEpJqEdqSSImFLKDkSg">
+    <ownedEnd xmi:id="_d-HbEpJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_d-HbEJJqEdqSSImFLKDkSg"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Association" xmi:id="_eiHgAJJqEdqSSImFLKDkSg" memberEnd="_eiHgAZJqEdqSSImFLKDkSg _eiHgApJqEdqSSImFLKDkSg">
+    <ownedEnd xmi:id="_eiHgApJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_eiHgAJJqEdqSSImFLKDkSg"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Association" xmi:id="_fS7R4JJqEdqSSImFLKDkSg" memberEnd="_fS7R4ZJqEdqSSImFLKDkSg _fS7R4pJqEdqSSImFLKDkSg">
+    <ownedEnd xmi:id="_fS7R4pJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_fS7R4JJqEdqSSImFLKDkSg"/>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Association" xmi:id="_fzfoUJJqEdqSSImFLKDkSg" memberEnd="_fzfoUZJqEdqSSImFLKDkSg _fzfoUpJqEdqSSImFLKDkSg">
+    <ownedEnd xmi:id="_fzfoUpJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_fzfoUJJqEdqSSImFLKDkSg"/>
+  </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_1qN_0JJxEdqSSImFLKDkSg" name="ServiceEffectSpecification">
     <ownedAttribute xmi:id="_6wc7kJVrEdqSSImFLKDkSg" name="seffTypeID">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
@@ -5191,7 +5215,7 @@
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_UMp04JMWEdqSSImFLKDkSg" name="Identifier">
-    <ownedAttribute xmi:id="_bTQrMJMWEdqSSImFLKDkSg" name="id" visibility="private">
+    <ownedAttribute xmi:id="_bTQrMJMWEdqSSImFLKDkSg" name="id">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
   </ownedMember>
@@ -5246,7 +5270,7 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mtUSpJPlEdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mtUSo5PlEdqSSImFLKDkSg"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_4qt04ZP8EdqSSImFLKDkSg" name="assemblyConnectors" type="_fbGtwJJ7EdqSSImFLKDkSg" association="_4qt04JP8EdqSSImFLKDkSg" aggregation="shared">
+    <ownedAttribute xmi:id="_4qt04ZP8EdqSSImFLKDkSg" name="internalAssemblyConnectors" type="_fbGtwJJ7EdqSSImFLKDkSg" association="_4qt04JP8EdqSSImFLKDkSg" aggregation="shared">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4qt05JP8EdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4qt045P8EdqSSImFLKDkSg"/>
     </ownedAttribute>
@@ -5257,7 +5281,7 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3S2_NJP-EdqSSImFLKDkSg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3S2_M5P-EdqSSImFLKDkSg" value="1"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_-nmYIZP-EdqSSImFLKDkSg" name="assemblyConnectors" type="_fbGtwJJ7EdqSSImFLKDkSg" association="_-nmYIJP-EdqSSImFLKDkSg" aggregation="shared">
+    <ownedAttribute xmi:id="_-nmYIZP-EdqSSImFLKDkSg" name="outerAssemblyConnectors" type="_fbGtwJJ7EdqSSImFLKDkSg" association="_-nmYIJP-EdqSSImFLKDkSg" aggregation="shared">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-nmYJJP-EdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-nmYI5P-EdqSSImFLKDkSg"/>
     </ownedAttribute>
