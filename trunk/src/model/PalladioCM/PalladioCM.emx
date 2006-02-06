@@ -4762,7 +4762,7 @@
       </edges>
     </contents>
     <contents xmi:type="notation:Diagram" xmi:id="_Gm3vMJTYEdqSSImFLKDkSg" type="Class" element="_au_WgGA_EdqdHZdhXRxKVg" name="BasicComponentSEFF">
-      <children xmi:id="_Ioqn0JTYEdqSSImFLKDkSg" sourceEdges="_KcIJgJTYEdqSSImFLKDkSg" element="_oz-CwJJIEdqSSImFLKDkSg">
+      <children xmi:id="_Ioqn0JTYEdqSSImFLKDkSg" sourceEdges="_KcIJgJTYEdqSSImFLKDkSg" targetEdges="_hmAoMJVyEdqSSImFLKDkSg" element="_oz-CwJJIEdqSSImFLKDkSg">
         <children xmi:id="_Ioqn05TYEdqSSImFLKDkSg" type="ImageCompartment" element="_oz-CwJJIEdqSSImFLKDkSg">
           <layoutConstraint xmi:type="notation:Size" xmi:id="_Ioqn1JTYEdqSSImFLKDkSg" width="1320" height="1320"/>
         </children>
@@ -4809,6 +4809,13 @@
         <children xmi:id="_PBbgs5TYEdqSSImFLKDkSg" type="Description"/>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_PBbgsJTYEdqSSImFLKDkSg" description="TODO: SEFF-Types" fillColor="13369343" lineColor="6737151"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PBbgsZTYEdqSSImFLKDkSg" x="954" y="954"/>
+      </children>
+      <children xmi:id="_hl0a8JVyEdqSSImFLKDkSg" sourceEdges="_hmAoMJVyEdqSSImFLKDkSg" element="_hluUUJVyEdqSSImFLKDkSg">
+        <children xmi:id="_hl0a85VyEdqSSImFLKDkSg" type="Name" element="_hluUUJVyEdqSSImFLKDkSg"/>
+        <children xmi:id="_hl0a9JVyEdqSSImFLKDkSg" type="Stereotype" element="_hluUUJVyEdqSSImFLKDkSg"/>
+        <children xmi:id="_hl0a9ZVyEdqSSImFLKDkSg" type="ValueSpecification" element="_hluUUJVyEdqSSImFLKDkSg"/>
+        <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_hl0a8ZVyEdqSSImFLKDkSg" fillColor="13356031" lineColor="8421631" showStereotype="Label"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hl0a8pVyEdqSSImFLKDkSg" x="16854" y="2862"/>
       </children>
       <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_Gm3vMZTYEdqSSImFLKDkSg"/>
       <edges xmi:id="_KcIJgJTYEdqSSImFLKDkSg" element="_7u2UYJJ0EdqSSImFLKDkSg" source="_Ioqn0JTYEdqSSImFLKDkSg" target="_Kb78QJTYEdqSSImFLKDkSg">
@@ -4861,6 +4868,10 @@
         </children>
         <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_KcIJgZTYEdqSSImFLKDkSg" showStereotype="Text"/>
         <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KcIJgpTYEdqSSImFLKDkSg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      </edges>
+      <edges xmi:id="_hmAoMJVyEdqSSImFLKDkSg" type="Reference" source="_hl0a8JVyEdqSSImFLKDkSg" target="_Ioqn0JTYEdqSSImFLKDkSg">
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_hmAoMZVyEdqSSImFLKDkSg" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hmAoMpVyEdqSSImFLKDkSg" points="[2, 0, -453, -192]$[510, 216, 55, 24]"/>
       </edges>
     </contents>
   </eAnnotations>
@@ -4976,6 +4987,9 @@
     <ownedAttribute xmi:id="_Q3rjcpPiEdqSSImFLKDkSg" name="outerImplementationContext" type="_-wOWMJPeEdqSSImFLKDkSg" association="_Q3rjcJPiEdqSSImFLKDkSg"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_oz-CwJJIEdqSSImFLKDkSg" name="BasicComponent">
+    <ownedRule xmi:id="_hluUUJVyEdqSSImFLKDkSg" name="const2" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_hluUUZVyEdqSSImFLKDkSg" body="self." language="OCL"/>
+    </ownedRule>
     <generalization xmi:id="_sZLO4JJIEdqSSImFLKDkSg" general="_4XfF4JJGEdqIo-u3cE9-DA"/>
     <ownedAttribute xmi:id="_fS7R4pJqEdqSSImFLKDkSg" name="factory" visibility="private" type="_TWBbAJJqEdqSSImFLKDkSg" association="_fS7R4JJqEdqSSImFLKDkSg"/>
     <ownedAttribute xmi:id="_7u8bAJJ0EdqSSImFLKDkSg" name="serviceeffectspecification" type="_1qN_0JJxEdqSSImFLKDkSg" association="_7u2UYJJ0EdqSSImFLKDkSg" aggregation="shared">
