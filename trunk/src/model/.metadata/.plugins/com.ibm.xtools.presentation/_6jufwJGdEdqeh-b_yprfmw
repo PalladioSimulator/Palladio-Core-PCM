@@ -1,15 +1,15 @@
-#Thu Feb 02 12:27:21 CET 2006
+#Mon Feb 06 11:04:33 CET 2006
 print.margin.bottom=0.5
 print.margin.top=0.5
 print.page.height=11.69
 print.usePortrait=true
 snaptogrid=true
-viewport.y=456
+viewport.y=-142
 print.margin.left=0.5
 print.margin.right=0.5
 print.page.size=A4
 print.useInches=true
 print.useWorkspaceSettings=true
-print.page.width=8.268
-zoom=1.0
 pagebreak.y=-25364
+zoom=1.0
+print.page.width=8.268
