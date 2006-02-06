@@ -4907,9 +4907,6 @@
     <importedPackage xmi:type="uml:Model" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_EfRZoK86EdieaYgxtVWN8Q"/>
   </packageImport>
   <ownedMember xmi:type="uml:Class" xmi:id="_au_WlWA_EdqdHZdhXRxKVg" name="Entity" isAbstract="true">
-    <generalization xmi:id="_W2I9sGGUEdq33O5tAWmbPQ">
-      <general xmi:type="uml:Class" href="PalladioCMShapes.emx#_au_WgmA_EdqdHZdhXRxKVg?PalladioCMShapes/Shape"/>
-    </generalization>
     <ownedAttribute xmi:id="_au_Wl2A_EdqdHZdhXRxKVg" name="Name">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
