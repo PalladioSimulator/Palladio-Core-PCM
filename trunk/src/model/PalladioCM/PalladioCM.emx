@@ -3285,7 +3285,7 @@
           <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_026sfpfIEdqwqsvROVlojA"/>
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_026scZfIEdqwqsvROVlojA" showStereotype="Label"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_026scpfIEdqwqsvROVlojA" x="5088" y="-636"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_026scpfIEdqwqsvROVlojA" x="5088" y="-636" height="1618"/>
       </children>
       <children xmi:id="_2qogQJfdEdqwqsvROVlojA" targetEdges="_35PBYJfdEdqwqsvROVlojA" element="_UMp04JMWEdqSSImFLKDkSg">
         <children xmi:id="_2qogQ5fdEdqwqsvROVlojA" type="ImageCompartment" element="_UMp04JMWEdqSSImFLKDkSg">
@@ -5782,10 +5782,16 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nCXYs5ceEdq38OEoBK_ByQ"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_OSaOkpf5EdqwqsvROVlojA" name="parentAssembly" type="__Tf0sJMVEdqSSImFLKDkSg" association="_OSaOkJf5EdqwqsvROVlojA"/>
+    <ownedAttribute xmi:id="_n73CEJgGEdqwqsvROVlojA" name="description" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
+    </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_01MOIJfIEdqwqsvROVlojA" name="ContextProvidedRole">
     <ownedAttribute xmi:id="_fRAOwpfaEdqwqsvROVlojA" name="encapsulatedRole" type="_-M7kYJJIEdqSSImFLKDkSg" association="_fRAOwJfaEdqwqsvROVlojA"/>
     <ownedAttribute xmi:id="_CHJRwpfcEdqwqsvROVlojA" name="context" type="_vk0WIJfHEdqwqsvROVlojA" association="_CHJRwJfcEdqwqsvROVlojA"/>
+    <ownedAttribute xmi:id="_xD3vcJgGEdqwqsvROVlojA" name="description" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
+    </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_fRAOwJfaEdqwqsvROVlojA" name="context appearance 2" memberEnd="_fRAOwZfaEdqwqsvROVlojA _fRAOwpfaEdqwqsvROVlojA"/>
   <ownedMember xmi:type="uml:Association" xmi:id="_CHJRwJfcEdqwqsvROVlojA" memberEnd="_CHJRwZfcEdqwqsvROVlojA _CHJRwpfcEdqwqsvROVlojA"/>
