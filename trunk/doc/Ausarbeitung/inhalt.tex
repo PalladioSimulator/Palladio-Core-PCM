@@ -1,4 +1,8 @@
 % $Log$
+% Revision 1.80  2006/02/07 15:11:22  kelsaka
+% - doc: added todos
+% - src: finished definition of context
+%
 % Revision 1.79  2006/02/04 10:56:19  kelsaka
 % - minor changes
 %
@@ -1350,6 +1354,14 @@ keine Möglichkeit die Semantik auf Diensten zu definieren. Keine Anotationen auf
 sub-typ prüfung nur rudimentär bestandteil des CMs. alles andere teil von validierung(salgorithmen) --> z. T. semi-entscheidbar, weshalb algorithmen schwer allgemein möglich.
 
 Abb. 21 rechts (zwei Required Interfaces benutzen ein Provided Interface) ist erlaubt. 
+
+Ergebnisteil:
+
+Kontext:
+- Komponenten und Rollen jeweils als Kontext-Instanz
+- Konnektoren verbinden *Kontext*-Rollen miteinander
+- Allokation erfolgt: Kontext-Komponente - Calc Ressource
+- Allokation: Konnektor - con calc resource (Konnektor auf Kontext-Rollen definiert, daher insgesamt kontextabhängig)
 \end{verbatim}
 
 
