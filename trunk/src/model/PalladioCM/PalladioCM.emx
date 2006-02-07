@@ -3878,7 +3878,7 @@
           <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_qdDAvpfrEdqwqsvROVlojA"/>
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_qdDAsZfrEdqwqsvROVlojA" showStereotype="Label"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qdDAspfrEdqwqsvROVlojA" x="318" y="3180"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qdDAspfrEdqwqsvROVlojA" x="1272" y="3498"/>
       </children>
       <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_cnqkQZMUEdqSSImFLKDkSg"/>
       <edges xmi:id="_nDINsJceEdq38OEoBK_ByQ" element="_nCXYsJceEdq38OEoBK_ByQ" source="_qdDAsJfrEdqwqsvROVlojA" target="_7vN48JQCEdqSSImFLKDkSg">
@@ -3893,7 +3893,7 @@
         </children>
         <children xmi:id="_nDINupceEdq38OEoBK_ByQ" type="ToRoleLabel" element="_nCXYspceEdq38OEoBK_ByQ">
           <children xmi:id="_nDINvJceEdq38OEoBK_ByQ" type="ToRole" element="_nCXYspceEdq38OEoBK_ByQ"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_nDINu5ceEdq38OEoBK_ByQ" x="13" y="-2104"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_nDINu5ceEdq38OEoBK_ByQ" x="36" y="-1779"/>
         </children>
         <children xmi:id="_nDINvZceEdq38OEoBK_ByQ" type="FromMultiplicityLabel" element="_nCXYsZceEdq38OEoBK_ByQ">
           <children xmi:id="_nDINv5ceEdq38OEoBK_ByQ" type="FromMultiplicity" element="_nCXYsZceEdq38OEoBK_ByQ"/>
@@ -5441,14 +5441,14 @@
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_kzkJgJMmEdqSSImFLKDkSg" name="CalculatingResource">
     <generalization xmi:id="_G1EgAJMnEdqSSImFLKDkSg" general="_F3SCEJMnEdqSSImFLKDkSg"/>
-    <ownedAttribute xmi:id="_nCXYspceEdq38OEoBK_ByQ" name="ProvidesComponentType" type="_xM1AUJfIEdqwqsvROVlojA" association="_nCXYsJceEdq38OEoBK_ByQ">
+    <ownedAttribute xmi:id="_nCXYspceEdq38OEoBK_ByQ" name="components" type="_xM1AUJfIEdqwqsvROVlojA" association="_nCXYsJceEdq38OEoBK_ByQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dpsKYZckEdq38OEoBK_ByQ" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dpsKYJckEdq38OEoBK_ByQ"/>
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_tf-gAJMmEdqSSImFLKDkSg" name="Non-CalculatingResource">
     <generalization xmi:id="_HKLNUJMnEdqSSImFLKDkSg" general="_F3SCEJMnEdqSSImFLKDkSg"/>
-    <ownedAttribute xmi:id="_WJ6-cJcqEdq38OEoBK_ByQ" name="Connector" type="_UkxkoJQAEdqSSImFLKDkSg" association="_WJoqkJcqEdq38OEoBK_ByQ">
+    <ownedAttribute xmi:id="_WJ6-cJcqEdq38OEoBK_ByQ" name="connectors" type="_UkxkoJQAEdqSSImFLKDkSg" association="_WJoqkJcqEdq38OEoBK_ByQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g8PcEJcrEdq38OEoBK_ByQ" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g8JVcJcrEdq38OEoBK_ByQ"/>
     </ownedAttribute>
