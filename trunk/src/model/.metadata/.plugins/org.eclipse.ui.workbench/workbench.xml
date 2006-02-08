@@ -29,25 +29,25 @@
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="14"/>
-<part id="16"/>
+<part id="8"/>
+<part id="7"/>
 <part id="11"/>
+<part id="3"/>
 <part id="13"/>
 <part id="4"/>
-<part id="12"/>
-<part id="19"/>
-<part id="7"/>
-<part id="2"/>
-<part id="6"/>
-<part id="1"/>
-<part id="18"/>
-<part id="17"/>
-<part id="15"/>
-<part id="5"/>
 <part id="10"/>
-<part id="3"/>
+<part id="6"/>
+<part id="2"/>
 <part id="9"/>
-<part id="8"/>
+<part id="5"/>
+<part id="16"/>
+<part id="17"/>
+<part id="14"/>
+<part id="15"/>
+<part id="19"/>
+<part id="18"/>
+<part id="12"/>
+<part id="1"/>
 <part id="0"/>
 </presentation>
 </folder>
