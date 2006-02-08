@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.82  2006/02/08 14:22:58  kelsaka
+% - todos aufgeräumt
+%
 % Revision 1.81  2006/02/08 10:59:02  kelsaka
 % - todos ergänzt
 %
@@ -1364,7 +1367,16 @@ NIcht jene Assembly Connection (delegation conn werden gar nicht deployed) muss 
 
 was genau enthalten CCs? - Kontext-Komps + Konnektoren. Rollen nicht?
 
+nur assembly konnektors und context comp können deployed werden --> kein Blick ins innere von CCs --> keine del conn. deploybar. und auch nicht sinnvoll, da bereits aufgelöst.
+
 Ergebnisteil:
+- Prüfung, ob Assembly Konnektoren erlaubt sind (außerhalb von CCs) nur über Constraints möglich.
+
+- GUID können in UML2 nicht als Identifier gekennzeichnet werden. Erst in Ecore ist isID-Attribut verfügbar. Dann auch Verwendung der GUID in Serialisierung. --> GUID aus Diagramm raus, da später über isID-Attribut gekennzeichnet wird.
+
+- GUIDs wirklich für Modellierung in EMF erforderlich? Automatisch bei der Serialisierung wird aber lediglich relative Referenz auf andere Entitäten gesetzt. Intern erfolgt Referenzierung trotz Einführung von GUID nicht über GUIDs. --> ansonsten schwer modellierbar. --> Einführung typisierter GUIDs notwendig.
+
+
 
 Kontext:
 - Komponenten und Rollen jeweils als Kontext-Instanz
