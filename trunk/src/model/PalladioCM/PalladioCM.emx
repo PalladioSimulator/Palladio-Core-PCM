@@ -5857,6 +5857,11 @@
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_xM1AUJfIEdqwqsvROVlojA" name="ContextComponent">
+    <ownedComment xmi:id="_j3vcMJiREdqtLe_PGONyyQ" body="the attribute &quot;description&quot; is only used for identifikation by human" annotatedElement="_xM1AUJfIEdqwqsvROVlojA">
+      <eAnnotations xmi:id="_j3vcMZiREdqtLe_PGONyyQ" source="appliedStereotypes">
+        <contents xmi:type="Default_0:Default__Documentation" xmi:id="_j3vcMpiREdqtLe_PGONyyQ"/>
+      </eAnnotations>
+    </ownedComment>
     <ownedAttribute xmi:id="_AWKm4ZfdEdqwqsvROVlojA" name="context" type="_vk0WIJfHEdqwqsvROVlojA" association="_AWKm4JfdEdqwqsvROVlojA" aggregation="composite">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AWKm5JfdEdqwqsvROVlojA" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AWKm45fdEdqwqsvROVlojA" value="1"/>
@@ -5867,6 +5872,9 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nCXYs5ceEdq38OEoBK_ByQ"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_OSaOkpf5EdqwqsvROVlojA" name="parentAssembly" type="__Tf0sJMVEdqSSImFLKDkSg" association="_OSaOkJf5EdqwqsvROVlojA"/>
+    <ownedAttribute xmi:id="_hCefQJiREdqtLe_PGONyyQ" name="description" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
+    </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_01MOIJfIEdqwqsvROVlojA" name="ContextProvidedRole">
     <ownedComment xmi:id="_dV3c4JiMEdqtLe_PGONyyQ" body="the attribute &quot;description&quot; is only used for identifikation by human" annotatedElement="_01MOIJfIEdqwqsvROVlojA">
@@ -5888,8 +5896,16 @@
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_3S3dkJfgEdqwqsvROVlojA" name="context appearance 1" memberEnd="_3S3dkZfgEdqwqsvROVlojA _3S3dkpfgEdqwqsvROVlojA"/>
   <ownedMember xmi:type="uml:Class" xmi:id="_iEEAsJfkEdqwqsvROVlojA" name="ContextRequiredRole">
+    <ownedComment xmi:id="_1TaTwJiPEdqtLe_PGONyyQ" body="the attribute &quot;description&quot; is only used for identifikation by human" annotatedElement="_iEEAsJfkEdqwqsvROVlojA">
+      <eAnnotations xmi:id="_1TaTwZiPEdqtLe_PGONyyQ" source="appliedStereotypes">
+        <contents xmi:type="Default_0:Default__Documentation" xmi:id="_1TaTwpiPEdqtLe_PGONyyQ"/>
+      </eAnnotations>
+    </ownedComment>
     <ownedAttribute xmi:id="_nMHfoZfkEdqwqsvROVlojA" name="context" type="_vk0WIJfHEdqwqsvROVlojA" association="_nMHfoJfkEdqwqsvROVlojA"/>
     <ownedAttribute xmi:id="_83OhMpfkEdqwqsvROVlojA" name="encapsulatedRole" type="__o_5wJJIEdqSSImFLKDkSg" association="_83OhMJfkEdqwqsvROVlojA"/>
+    <ownedAttribute xmi:id="_yI2cQJiPEdqtLe_PGONyyQ" name="description" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
+    </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_nMHfoJfkEdqwqsvROVlojA" memberEnd="_nMHfoZfkEdqwqsvROVlojA _nMHfopfkEdqwqsvROVlojA"/>
   <ownedMember xmi:type="uml:Association" xmi:id="_83OhMJfkEdqwqsvROVlojA" name="context appearance 3" memberEnd="_83OhMZfkEdqwqsvROVlojA _83OhMpfkEdqwqsvROVlojA"/>
