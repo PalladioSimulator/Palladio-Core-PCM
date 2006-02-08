@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.81  2006/02/08 10:59:02  kelsaka
+% - todos ergänzt
+%
 % Revision 1.80  2006/02/07 15:11:22  kelsaka
 % - doc: added todos
 % - src: finished definition of context
@@ -1355,6 +1358,12 @@ sub-typ prüfung nur rudimentär bestandteil des CMs. alles andere teil von validi
 
 Abb. 21 rechts (zwei Required Interfaces benutzen ein Provided Interface) ist erlaubt. 
 
+Non-Calc Ressources verbinden je genau zwei ressourcen bi-direktional.
+
+NIcht jene Assembly Connection (delegation conn werden gar nicht deployed) muss deployed werden: liegt nur auf einem rechner ohne VErbindung über Netzwerk
+
+was genau enthalten CCs? - Kontext-Komps + Konnektoren. Rollen nicht?
+
 Ergebnisteil:
 
 Kontext:
@@ -1362,6 +1371,9 @@ Kontext:
 - Konnektoren verbinden *Kontext*-Rollen miteinander
 - Allokation erfolgt: Kontext-Komponente - Calc Ressource
 - Allokation: Konnektor - con calc resource (Konnektor auf Kontext-Rollen definiert, daher insgesamt kontextabhängig)
+- Innere Komponenten und Konnektoren von CCs sind kontext-bezogen
+
+Ziel der Modellierung: möglichst viele Konzepte ohne Constraints in Modellkonstrukten unterbringen. --> intuitiveres und sichereres Modellieren.
 \end{verbatim}
 
 
