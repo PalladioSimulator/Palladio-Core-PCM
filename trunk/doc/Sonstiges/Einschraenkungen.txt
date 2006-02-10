@@ -1,0 +1,53 @@
+- Imports nach Generierung doppelt
+- überhaupt keine Generierung wird mehr angestoßen
+- Kein Merge von Merlin "gefgenmodel"s nach Änderungen am zu Grunde liegenden EMF-Modells
+
+Merlin:
+- bestehende Instanzen von ECORE-Modellen können nicht importiert werden:
+	- kein Layout-Algorithmus
+	- keine Möglichkeit bspw. aus ECORE-Editor Instanzen auf GUI zu ziehen
+	--> kein richtiges Refactoring
+- Verwendung eigener Connections (z. B. mit Pfeil) - Shapes nicht ohne Weiteres möglich. Zumeist: Event loop exception
+- keine eigenen Shapes für Komponenten: eigene Label schwer zu realisieren. Bei Verwendung eigener Implementierungen, Anpassung oder vorgegebener Implementierungen aus GEF: Event Loop Exceptions
+- Änderungen an GEF GEN MODEL nach Reimport von EMF-Modellen sind erneut von Hand einzupflegen --> beinhaltet u. a. Shapes-Anpassung, Connection zu "Real Connection"
+
+- Komponentenmodell: Nur Protokoll auf einzelner Schnittstelle, nicht auf Menge von Schnittstellen möglich.
+
+ECORE:
+- Aus RSA Export von ECORE und Import in EMF: Zwar XML:
+		<xsd:annotation>
+		   <xsd:appinfo source="http://www.eclipse.org/emf/2002/Ecore" 
+		   ecore:key="constraints">
+			 NonNegativeQuantity ValidShipDate
+		   </xsd:appinfo>
+		</xsd:annotation>
+	damit Codegerüst für Validitätsprüfung angelegt. Jedoch Codegerüst auf "if(false)" gesetzt. Keine Constraints im ECORE-Modell angelegt.
+	--> Abhilfe: Export aus RSA zu *UML2*. Darin korrekt Constraints-Body (OCL) angelegt. Bei Import in EMF ebenfalls Constraints in ECORE-Modell vorhanden.
+- EMF kann keine OCL-Constraints (als nicht-Java-Quellcode) prüfen. --> Kent OCL Library
+  
+
+RSA:
+- Stereotypen, die über UML Profiles definiert und dann importiert werden, werden nicht für den Export zu UML2-Datei unterstützt. Es erfolgt keine Ausgabe mehr im Dateisystem bei Export.
+
+
+
+
+Fragen an Steffen wg. CM:
+- im UML-Diagramm:
+	- ParameterType setzt sich aus ValueType oder Interface zusammen: Interface ist aber Componenten-Interface und kein Interface auf Signaturniveau
+	
+	
+	
+
+TODOs UML:
+- Protokoll-Typ --> mehrere Typen (FSM, Petri-Netz) möglich zur gleichen Zeit, aber nur einer zur Zeit
+- Interface (Komp interface) kann untereinander erben
+- Stereotypen für "extends" und "deployed-on" evtl. "contains"
+
+- GUID können in UML2 nicht als Identifier gekennzeichnet werden. Erst in Ecore ist isID-Attribut verfügbar. Dann auch Verwendung der GUID in Serialisierung. --> GUID aus Diagramm raus, da später über isID-Attribut gekennzeichnet wird.
+
+- GUIDs wirklich für Modellierung in EMF erforderlich? Automatisch bei der Serialisierung wird aber lediglich relative Referenz auf andere Entitäten gesetzt. Intern erfolgt Referenzierung trotz Einführung von GUID nicht über GUIDs. --> ansonsten schwer modellierbar. --> Einführung typisierter GUIDs notwendig.
+- typ-hierarchie für singnatur-typen noch nicht möglich, da daten-typen nicht unabhängig erzeugt werden können.
+
+- später: description bei Kontext entfernen: nur Hilfsmittel zur Modellierung für Menschen...
+	             
