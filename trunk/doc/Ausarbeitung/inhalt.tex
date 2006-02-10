@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.84  2006/02/10 15:48:09  kelsaka
+% - allokation exakter beschrieben
+%
 % Revision 1.83  2006/02/10 15:05:01  kelsaka
 % - einschränkungen ergänzt
 %
@@ -876,14 +879,25 @@ Benutzer"=Rollen sind strikt von Rollen (von Komponenten), wie sie in Kapitel \r
 
 
 
+\paragraph{Definition}
 Im Palladio Kontext wird der Begriff der \textit{Allokation} verwendet. Die Verwendung erfolgt im Sinne von \textit{Deployment} und meint die Verteilung von Komponenten auf Ressourcen. Es wird also festgelegt, welche Komponente welche Ressourcen nutzt. Neben den Komponenten erfolgt eine Abbildung der Konnektoren auf "`Verbindungsressourcen"', also etwa LAN- und WAN-Verbindungen. Als Stereotyp der Relation zwischen Komponenten, Konnektoren und Ressourcen wird \texttt{$\flqq$deployed-on$\frqq$} verwendet.
 
 Als Ressourcen"=Typen kennt das Komponentenmodell:
 
 \begin{itemize}
 	\item \textbf{Rechnende Ressourcen} (\textit{calculating resources}); etwa Server"=Hardware. In Abbildung \ref{fig:cm-assembly-allocation-01} werden diese Ressourcen UML2"=konform als "`Boxen"' dargestellt.
-	\item \textbf{Nicht"=Rechnende Ressourcen} (\textit{non"=calculating resources}); hierzu zählen Netzwerkverbindungen, also jene Ressourcen, die zur Datenübertragung zwischen rechnenden Ressourcen vermitteln. In Abbildung \ref{fig:cm-assembly-allocation-01} wird diese Form der Ressourcen UML2"=konform als Linie zwischen den berechnenden Ressourcen dargestellt.
+	\item \textbf{Nicht"=Rechnende Ressourcen} (\textit{non"=calculating resources}); hierzu zählen Netzwerkverbindungen, also jene Ressourcen, die zur Datenübertragung zwischen rechnenden Ressourcen vermitteln. In Abbildung \ref{fig:cm-assembly-allocation-01} wird diese Form der Ressourcen UML2"=konform als Linie zwischen den berechnenden Ressourcen dargestellt. Nicht"=Rechnende Ressourcen verbinden genau zwei nicht identische Rechnende Ressource bidirektional (Daten können in beide Richtungen fließen) miteinander.
 \end{itemize}
+
+Komponenten können nur auf Rechnenden Ressourcen \textit{deployed} werden. Assembly Konnektoren können nur auf Nicht"=Rechnenden Ressourcen \textit{deployed} werden. Da für den \textit{System Deployer} das Innere von \textit{Composite Components} nicht sichtbar ist, erfolgt das \textit{Deployment} aller Sub"=Komponenten einer \textit{Composite Component} stets auf die gleiche Rechnende Ressource (siehe auch Kapitel \ref{sec:AssemblyundCompositeComponentAllokation}). Umgekehrt können beide Arten von Ressourcen eine beliebige Menge (\texttt{0..*}) Komponenten, respektive Assembly Konnektoren, aufnehmen.
+
+Ein \textit{vollständiges} Deployment liegt vor, wenn jede Komponente auf genau einer Rechnenden Ressource \textit{deployed} wurde. Zusätzlich muss jeder Assembly Konnektor, der Rollen von Komponenten verbindet, die nicht auf der gleichen Rechnenden Ressource liegen, auf genau einer Nicht"=Rechnenden Ressource \textit{deployed} werden. Wird ein Assembly Konnektor nicht \textit{deployed}, weil die Rollen an beiden Seiten des Assembly Konnektors Komponenten auf der gleichen Ressource zugeordnet werden, entspricht dies direkten Methodenaufrufen in der objektorientierten Welt.
+
+Delegations"=Konnektoren können nicht gezielt \textit{deployed} werden. Zum einen hat der \textit{System Deployer} keinen Einblick in \textit{Composite Components}, weshalb Delegations"=Konnektoren nicht identifiziert werden können. Zum anderen werden \textit{Composite Components} mit dem \textit{Deployment} faktisch aufgelöst. Lediglich \textit{Basic Components} werden in die Ausführungsumgebung eingebracht. Damit liegen keine Delegations"=Konnektoren mehr vor, die deployed werden könnten.
+
+
+
+\paragraph{Gültige und ungültige Allokationsformen}
 
 
 
@@ -1379,9 +1393,7 @@ sub-typ prüfung nur rudimentär bestandteil des CMs. alles andere teil von validi
 
 Abb. 21 rechts (zwei Required Interfaces benutzen ein Provided Interface) ist erlaubt. 
 
-Non-Calc Ressources verbinden je genau zwei ressourcen bi-direktional.
 
-NIcht jene Assembly Connection (delegation conn werden gar nicht deployed) muss deployed werden: liegt nur auf einem rechner ohne VErbindung über Netzwerk
 
 was genau enthalten CCs? - Kontext-Komps + Konnektoren. Rollen nicht?
 
@@ -1403,6 +1415,7 @@ Kontext:
 - Allokation erfolgt: Kontext-Komponente - Calc Ressource
 - Allokation: Konnektor - con calc resource (Konnektor auf Kontext-Rollen definiert, daher insgesamt kontextabhängig)
 - Innere Komponenten und Konnektoren von CCs sind kontext-bezogen
+--> Änderungen der Konzepte des CMs werden bereits in Kapitel CM erfasst.
 
 Ziel der Modellierung: möglichst viele Konzepte ohne Constraints in Modellkonstrukten unterbringen. --> intuitiveres und sichereres Modellieren.
 \end{verbatim}
