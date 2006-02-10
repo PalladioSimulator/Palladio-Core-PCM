@@ -39,10 +39,13 @@ Fragen an Steffen wg. CM:
 	
 	
 
-TODOs UML:
+TODOs
+UML:
 - Protokoll-Typ --> mehrere Typen (FSM, Petri-Netz) möglich zur gleichen Zeit, aber nur einer zur Zeit
 - Interface (Komp interface) kann untereinander erben
-- Stereotypen für "extends" und "deployed-on" evtl. "contains"
+
+ECORE:
+- Enum für in, out, ref - Signatur-Parameter
 
 - GUID können in UML2 nicht als Identifier gekennzeichnet werden. Erst in Ecore ist isID-Attribut verfügbar. Dann auch Verwendung der GUID in Serialisierung. --> GUID aus Diagramm raus, da später über isID-Attribut gekennzeichnet wird.
 
@@ -51,3 +54,6 @@ TODOs UML:
 
 - später: description bei Kontext entfernen: nur Hilfsmittel zur Modellierung für Menschen...
 	             
+
+Alte TODOs:
+- Stereotypen für "extends" und "deployed-on" evtl. "contains" --> Problem mit Export unter RSA
