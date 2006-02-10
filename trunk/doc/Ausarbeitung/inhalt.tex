@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.83  2006/02/10 15:05:01  kelsaka
+% - einschränkungen ergänzt
+%
 % Revision 1.82  2006/02/08 14:22:58  kelsaka
 % - todos aufgeräumt
 %
@@ -1331,6 +1334,26 @@ Eine Erweiterung des Komponentenmodells um diesen Mechanismus ist für die Zukunf
 
 
 
+\subsubsection{Reaktivität}
+\label{sec:Reaktivitaet}
+Derzeit sieht das Komponentenmodell lediglich \textit{reaktive} Komponenten vor. Stellt man sich eine größere Komponentenarchitektur vor, so könnten lediglich Aufrufe über "`äußere"' Schnittstellen Aktionen im Modell anstoßen. Keine Komponente kann ohne vorausgehende Dienstaufrufe selbst Dienstaufrufe durchführen.
+
+Zu einen ist das äußere Aufrufen von Diensten auf angebotenen Schnittstellen einer Komponentenarchitektur nicht modellierbar. Die (externen) Aufrufe können schlicht nicht erfasst werden. Dies betrifft die Zeit der Aufrufe, die Dauer der Aufrufe und die Art der aufgerufenen Dienste.
+
+Zum anderen kann keine der Komponenten einer Architektur von sich aus Dienstaufrufe initiieren. Faktisch sind damit zunächst keine Dienstaufrufe auf Instanzen des Komponentenmodells möglich, da Initiatoren für eine Aufrufekette nicht existieren. Im Grenzbereich der Modellierbarkeit liegen Timer, die periodisch, regelmäßig und ohne zeitliche Beschränkung Dienstaufrufe durchführen. Timer ließen sich nicht aktivieren, sondern wären immer aktiv. Da Zeit derzeit nicht direkt modellierbar ist, erschwert dies zusätzlich die Funktionalität eines Timers.
+
+Eine Erweiterung um \textit{proaktive} Komponenten wäre für die zukünftige Erweiterung des Komponentenmodells wünschenwert.
+
+
+
+\subsubsection{Semantikdefinition}
+\label{sec:Semantikdefinition}
+Derzeit wird gefordert, dass untereinander erbende Schnittstellen die Semantik erhalten. Die Semantik von Diensten, die auf Schnittstellen definiert sind, lassen sich indes nicht im Komponentenmodell erfassen. Bei Diensten dient beispielsweise der Dienstname und die Signatur als Indiz für eine mögliche Semantik, liefert jedoch keine Garantien über die tatsächliche Bedeutung der Dienste.
+
+Die Überprüfung von Semantik wäre in jedem Fall die Aufgabe von Validierungs"=Algorithmen. Gleichwohl ist die Überprüfung bis dato nicht möglich, da Modellkonstrukte zur Speicherung von Semantik fehlen. Die Erfassung von Semantik über Annotationen ist derzeit nicht möglich, da zu Diensten keine Annotationen vergeben werden können. Zudem ist die Notation von Semantik weder standardisiert noch evaluiert.
+
+
+
 \subsection{Ausblick auf die Entwicklung}
 \label{sec:AusblickaufdieEntwicklung}
 Das Palladio Komponentenmodell unterliegt einer permanenten Entwicklung durch die Palladio"=Gruppe. Das Komponentenmodell stellt einen Gegenstand aktiver Forschung dar und variiert entsprechend. Der aktuelle Stand des Komponentenmodells wird durch ein neues Paper, das in Kürze unter \cite{PalladioCMNeu} veröffentlicht wird, beschrieben.
@@ -1352,11 +1375,6 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 \textbf{TODO:}
 
 \begin{verbatim}
-
-Ja, eine hätte ich spontan noch: Unsere Komponenten sind nur reaktiv und nicht proaktiv. Sprich, ich muss von außen einen Dienst aufrufen, damit die Komponente etwas tut. Es kann aber durchaus Komponenten geben, die von sichaus aktiv sind.
-
-keine Möglichkeit die Semantik auf Diensten zu definieren. Keine Anotationen auf Diensten möglich. Nur Name des Dienstes + Signatur kann derzeit Hinweis auf Semantik geben. --> derzeit nicht überprüfbar ob semantik passt (bspw. bei erbenden Schnittstellen).
-
 sub-typ prüfung nur rudimentär bestandteil des CMs. alles andere teil von validierung(salgorithmen) --> z. T. semi-entscheidbar, weshalb algorithmen schwer allgemein möglich.
 
 Abb. 21 rechts (zwei Required Interfaces benutzen ein Provided Interface) ist erlaubt. 
@@ -1369,13 +1387,14 @@ was genau enthalten CCs? - Kontext-Komps + Konnektoren. Rollen nicht?
 
 nur assembly konnektors und context comp können deployed werden --> kein Blick ins innere von CCs --> keine del conn. deploybar. und auch nicht sinnvoll, da bereits aufgelöst.
 
+annotationen können nur genau einer entität zugeordnet werden. Alternative, aber nicht begangene Wege: Annotationen vererben nicht auf untergeordnete Objekte ODER Annotationen sind zu n Entitäten möglich: Globale Werte können definiert werden.
+
 Ergebnisteil:
 - Prüfung, ob Assembly Konnektoren erlaubt sind (außerhalb von CCs) nur über Constraints möglich.
 
 - GUID können in UML2 nicht als Identifier gekennzeichnet werden. Erst in Ecore ist isID-Attribut verfügbar. Dann auch Verwendung der GUID in Serialisierung. --> GUID aus Diagramm raus, da später über isID-Attribut gekennzeichnet wird.
 
 - GUIDs wirklich für Modellierung in EMF erforderlich? Automatisch bei der Serialisierung wird aber lediglich relative Referenz auf andere Entitäten gesetzt. Intern erfolgt Referenzierung trotz Einführung von GUID nicht über GUIDs. --> ansonsten schwer modellierbar. --> Einführung typisierter GUIDs notwendig.
-
 
 
 Kontext:
@@ -1391,6 +1410,7 @@ Ziel der Modellierung: möglichst viele Konzepte ohne Constraints in Modellkonstr
 
 Spätere TODOs:
 - Vergleich des Editor mit Palladio Editor
+- Generierung von Java-Code aus UML: Schema / Ideen, siehe NileshThesis.pdf
 
 ---------------------------------------------------------------------
 
