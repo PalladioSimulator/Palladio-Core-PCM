@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.5  2006/02/10 19:07:23  kelsaka
+% - auf buch-dokument-typ gewechselt
+%
 % Revision 1.4  2006/01/25 14:43:00  kelsaka
 % - titelfolie: datum
 % - mehrfache-delegation bei assembly konnektoren
@@ -14,7 +17,7 @@
 %
 
 
-\documentclass[12pt]{scrartcl}
+\documentclass[12pt]{scrbook} %scrartcl
 
 \usepackage[a4paper,left=3.0cm,right=2.5cm,top=3.0cm,bottom=2.5cm,headheight=15pt,headsep=1.5cm,footskip=1cm]{geometry}
 
@@ -79,10 +82,8 @@ citecolor=black, urlcolor=black]{hyperref}
 	\setcounter{page}{2}
 	
 
-  %	leere Seite nach der Titelseite
-	$\,$
-	\newpage
-		
+	\pagestyle{empty}		
+	
 	% Inhaltsverzeichnis
 	\tableofcontents
 	
@@ -91,14 +92,15 @@ citecolor=black, urlcolor=black]{hyperref}
 	%\newpage
 	%$\,$
 
-	\newpage
+
 	% Fancyheader setzen
-	\pagestyle{fancy}
+	%\pagestyle{fancy}
 		
 	%Inhalt
 	\include{inhalt}
 	
 	% Anhang
+	\chapter{Anhang}
 	% Abbildungsverzeichnis
 	\addcontentsline{toc}{section}{Abbildungsverzeichnis}
 	\lhead{Abbildungsverzeichnis} \chead{} \rhead{\thepage}

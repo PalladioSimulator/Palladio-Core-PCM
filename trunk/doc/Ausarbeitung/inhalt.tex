@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.86  2006/02/10 19:07:23  kelsaka
+% - auf buch-dokument-typ gewechselt
+%
 % Revision 1.85  2006/02/10 16:38:14  kelsaka
 % - weitere todos abgearbeitet
 %
@@ -257,33 +260,27 @@
 %
 
 
-% TODO: auf rechte Seite prüfen --> je nach TOC
-\section{Abstract}
+
+
+\chapter*{Abstract}
 \label{sec:Abstract}
-\begin{abstract}
-	TODO: Abstract
-\end{abstract}
-
-\newpage
-%	leere Seite
-$\,$
-\newpage
+TODO: Abstract
 
 
-
-\section{Einleitung}
+\pagestyle{fancy}
+\chapter{Einleitung}
 \label{sec:Einleitung}
 TODO: Thema grob vorstellen.
 
 
 
-\subsection{Überblick}
+\section{Überblick}
 \label{sec:EinleitungUeberblick}
 TODO: Überblick über Kapitel: Was ist wo zu finden. "`Roten Faden"' skizzieren.
 
 
 
-\subsection{Bemerkungen}
+\section{Bemerkungen}
 \label{sec:EinleitungBemerkungen}
 Ist im Folgenden von \textit{Komponentenmodell} die Rede, so ist, sofern nicht anders angegeben, das \textit{Palladio Komponentenmodell} gemeint. Als Palladio Komponentenmodell wird dabei das \textit{Meta}-Modell zur Darstellung von Komponentenarchitekturen der Palladio-Gruppe \cite{PALL} bezeichnet. Dieses Modell wird in Kapitel \ref{sec:DasPalladioKomponentenmodell} näher beschrieben.
 
@@ -291,7 +288,7 @@ Zudem bezeichnet der Begriff \textit{Projekt}, solange er ohne sonstigen Kontext
 
 
 
-\section{Das Palladio Komponentenmodell}
+\chapter{Das Palladio Komponentenmodell}
 \label{sec:DasPalladioKomponentenmodell}
 Im Rahmen der Diplomarbeit wird ein Meta-Modell für das Palladio Komponentenmodell erstellt. Daher ist es unabdingbar, dass ein vollständiges Verständnis für das Komponentenmodell existiert. Die folgenden Kapitel zeigen detailliert die Eigenschaften des Komponentenmodells auf. Schließlich wird dem gegenübergestellt, welche Konzepte des Komponentenmodells umgesetzt werden konnten, welche Einschränkungen bei der Modellierung auftraten und welche \textit{Work"=Arounds} aus welchen Gründen zur Abbildung notwendig waren.
 
@@ -299,7 +296,7 @@ Das im Folgenden dargestellte Palladio Komponentenmodell entspricht dem Stand de
 
 
 
-\subsection{Idee}
+\section{Idee}
 \label{sec:IdeeCM}
 Komponentenarchitekturen existieren in Form realer Komponentensysteme. Das Palladio Komponenten"=Meta"=Modell bietet eine strukturierte Form zur Erfassung solcher Komponentenarchitekturen, mithin Komponentenmodell"=Instanzen. Das Komponenten"=Meta"=Modell versteht sich dabei als Datenspeicher, das eine Menge von Basis"=\textit{Constraints} definiert, die die Konsistenz und Integrität des Datenspeichers sichern. Damit lassen sich fest definierte Strukturen realer Komponentensysteme auf Komponentenmodell"=Instanzen abbilden.
 
@@ -307,7 +304,7 @@ Bewußt und klar von der Funktionalität eines Datenspeichers für Komponentenarchi
 
 
 
-\subsection{Einfache Komponenten}
+\section{Einfache Komponenten}
 \label{sec:EinfacheKomponenten}
 
 
@@ -335,7 +332,7 @@ Eine Komponente darf \textit{eine} Schnittstelle (Gleichheit entsprechend der Id
 
 
 
-\subsection{Schnittstellen und Rollen}
+\section{Schnittstellen und Rollen}
 \label{sec:SchnittstellenUndRollen}
 
 
@@ -369,7 +366,7 @@ Die Vererbung von Schnittstellen muss stets unter Erhaltung der Semantik erfolge
 
 
 
-\subsection{Assembly Konnektoren}
+\section{Assembly Konnektoren}
 \label{sec:Assembly Konnektoren}
 
 
@@ -393,7 +390,7 @@ Assembly Konnektoren sind implizit immer vorhanden, wenn eine \textit{Requires}"
 
 
 
-\subsection{Zusammengesetzte Komponenten}
+\section{Zusammengesetzte Komponenten}
 \label{sec:ZusammengesetzteKomponenten}
 
 
@@ -429,7 +426,7 @@ Nicht immer können \textit{Composite Components} jedoch aufgelöst werden. An die
 
 
 
-\subsection{Schnittstellen, Signaturlisten und Protokolle}
+\section{Schnittstellen, Signaturlisten und Protokolle}
 \label{sec:SchnittstellenSignaturlistenundProtokolle}
 
 
@@ -449,7 +446,7 @@ Abbildung \ref{fig:cm-interfaces-signature-protocol-01} zeigt eine Beispielskomp
 
 
 
-\subsubsection{Signaturlisten und Signaturen}
+\subsection{Signaturlisten und Signaturen}
 \label{sec:SignaturlistenundSignaturen}
 Jeder Dienst weist auf einer Schnittstelle eine eindeutige Signatur auf, etwa \texttt{void} \texttt{Do\-Some\-thing(int a)}. In Anlehnung an Methoden"=Signaturen aus Programmiersprachen wie C\# und Java haben Signaturen
 
@@ -468,7 +465,7 @@ Eine Schnittstelle enthält genau eine Signaturliste. Diese Signaturliste wiederu
 
 
 
-\subsubsection{Protokolle}
+\subsection{Protokolle}
 \label{sec:Protokolle}
 Wie bereits oben angedeutet, definieren Protokolle von Schnittstellen gültige Aufrufsequenzen auf Diensten. In Abbildung \ref{fig:cm-interfaces-signature-protocol-01} werden beispielhaft endliche Automaten zur Darstellung der Protokolle auf den Schnittstellen verwendet. Das Komponentenmodell limitiert dabei Protokolle nicht auf einen bestimmen Typ, wie endliche Automaten oder Petri"=Netze, sondern lässt diese Entscheidung bewußt offen. Schnittstellen müssen nicht zwangsläufig Protokolle definieren.
 
@@ -494,7 +491,7 @@ Sind die Signaturlisten und Protokolle, die auf verschiedenen Schnittstelle defi
 
 
 
-\subsection{Service Effekt Spezifikation}
+\section{Service Effekt Spezifikation}
 \label{sec:ServiceEffektSpezifikation}
 
 
@@ -536,13 +533,13 @@ TODO: Was ist nicht mit endlichem Automaten darstellbar?
 
 
 
-\subsection{Berechnung von SEFFs und Protokollen}
+\section{Berechnung von SEFFs und Protokollen}
 \label{sec:BerechnungvonSEFFsundProtokollen}
 Eine vollständige Berechnung von Protokollen und SEFFs ist nicht Gegenstand der Ausführungen in dieser Diplomarbeit. Um dennoch abgrenzen zu können, welche Berechnungen grundsätzlich möglich sind, wird in den folgenden beiden Unterkapiteln grob dargestellt, wie die möglichen Berechnungen durchführbar sind und welche Einschränkungen sich dadurch für manuell spezifizierte SEFFs und Protokolle ergeben.
 
 
 
-\subsubsection{Berechnung von benötigten Protokollen}
+\subsection{Berechnung von benötigten Protokollen}
 \label{sec:BerechnungvonbenoetigtenProtokollen}
 
 
@@ -564,7 +561,7 @@ Wird dieses Prozedere für jede Transition des angebotenen Protokolls durchgeführ
 
 
 
-\subsubsection{Berechnung der SEFFs von Composite Components}
+\subsection{Berechnung der SEFFs von Composite Components}
 \label{sec:BerechnungderSEFFsvonCompositeComponents}
 
 
@@ -590,7 +587,7 @@ Da die Berechnung von SEFFs für \textit{Composite Components} damit problemlos u
 
 
 
-\subsection{Komponenten: Typ-Ebenen}
+\section{Komponenten: Typ-Ebenen}
 \label{sec:Typ-Ebenen}
 Das Palladio Komponentenmodell umfasst das Konzept verschiedener Modellierungs"=Ebenen für eine Modell"=Ausprägung. Die Modellierungs"=Ebenen spiegeln sich dabei in Ebenen eines sich detaillierenden Typ"=Begriffs für Komponenten wider. Dies bedeutet, dass es möglich ist, auf verschiedenen Abstraktionsniveaus eine Komponentearchitektur zu modellieren. Damit wird ein \textit{Top"=Down}"=Vorgehen (vgl. \cite{WikiTopDown}) bei der Modellierung gesondert unterstützt. Es ist möglich gezielt Komponentendetails hinzuzufügen. Dabei werden für die Detaillierung durch das Komponentenmodell \textit{Conforms}-Beziehungen definiert, denen die Verfeinerung folgen muss. Somit lassen sich Verfeinerungen konsistent über Typ"=Ebenen hinweg durchführen.
 
@@ -607,7 +604,7 @@ Anders herum können Komponenten, deren Detail"=Beschreibung man beispielsweise ü
 
 
 
-\subsubsection{Typ-Hierarchie}
+\subsection{Typ-Hierarchie}
 \label{sec:Typ-Hierarchie}
 
 
@@ -698,7 +695,7 @@ Sowohl \textit{Composite Components} als auch \textit{Basic Components} sind \te
 
 
 
-\subsubsection{Darstellung und Ebenenbeziehungen}
+\subsection{Darstellung und Ebenenbeziehungen}
 \label{sec:DarstellungundEbenenbeziehungen}
 
 
@@ -718,7 +715,7 @@ Die Darstellungsweise von der Typ"=Ebenen der Komponenten sollte, wie in Abbildu
 
 
 
-\subsubsection{Quantittäten der Sub-Typ-Beziehungen}
+\subsection{Quantittäten der Sub-Typ-Beziehungen}
 \label{sec:QuantittaetenderSub-Typ-Beziehungen}
 
 
@@ -751,7 +748,7 @@ Insgesamt ergeben sich somit zwischen den "`benachbarten"' Typ"=Ebenen der Kompo
 
 
 
-\subsection{Substitution von Typen}
+\section{Substitution von Typen}
 \label{sec:Typ-Spezialisierung}
 Nicht immer implementieren "`miteinander verbundene"' Komponenten die exakt gleiche Schnittstelle. Werden reale Komponenten (-architekturen) modelliert, werden zwangsläufig auch bestehende Komponenten erfasst, die fest und unabänderlich (wenn man von Adaption absieht) bestimmte Schnittstellen anbieten und benötigen. Daher stellt sich für Assembly Konnektoren die Frage, ob und welche Verbindungen gültig sind. Abhängig davon, wie streng der Typ-Begriff gefasst wird, also entsprechend der in Kapitel \ref{sec:Typ-Hierarchie} definierten Typ"=Ebenen, lassen sich in bestehenden Komponentenarchitekturen Komponenten zu festen Konditionen durch andere ersetzen.
 
@@ -774,7 +771,7 @@ Zu bedenken bleibt, dass, je nach Detailniveau respektive Typ"=Ebene der Kompone
 
 
 
-\subsubsection{Co- und Contra-Varianz}
+\subsection{Co- und Contra-Varianz}
 \label{sec:Co-undContra-Varianz}
 
 
@@ -827,7 +824,7 @@ Wird eine \textit{Provided Type} oder eine \textit{Complete Type} Komponente dur
 
 
 
-\subsubsection{Delegations-Konnektoren}
+\subsection{Delegations-Konnektoren}
 \label{sec:Delegations-KonnektorenSubTyp}
 Delegations"=Konnektoren lassen sich nicht ohne Weiteres mit den in Kapitel \ref{sec:Co-undContra-Varianz} angeführten Regeln auf Validität prüfen, da sie zunächst gleichartige Schnittstellentypen miteinander verbinden. Betrachtet man bei \textit{Provides}"=Delegations"=Konnektoren die äußere Schnittstelle als \textit{Requires}"=Schnittstelle und bei \textit{Requires}"=Delegations"=Konnektoren die äußere Schnittstelle als \textit{Provides}"=Schnittstelle, können die bereits bekannten Regeln aus Kapitel \ref{sec:Co-undContra-Varianz} verwendet werden.
 
@@ -835,7 +832,7 @@ Auf der \textit{Provides}"=Seite darf die äußere Schnittstelle also nur die glei
 
 
 
-\subsubsection{Einschränkungen}
+\subsection{Einschränkungen}
 \label{sec:EinschraenkungenSubTyp}
 Ob die in diesem Kapitel genannten Regeln für die Substitution von Typen eingehalten werden, hängt von der konkreten Implementierung des Komponenten"=Meta"=Modells ab. Zunächst einmal gibt das Komponenten"=Meta"=Modell, das beschrieben wurde, lediglich einen Satz von allgemeinen Regeln vor, kann die Einhaltung jedoch nicht aktiv übernehmen. Implementierungen des Komponenten"=Meta"=Modells sind jedoch daran gehalten, solche Überprüfungen, die nicht zuletzt auch konsistenz"=erhaltend sind, zu definieren.
 
@@ -845,7 +842,7 @@ Allgemeine Bemerkungen zur Validierung des Komponentenmodells finden sich in Kap
 
 
 
-\subsection{First Class Entities}
+\section{First Class Entities}
 \label{sec:FirstClassEntities}
 \textit{First Class Entities } (Entitäten erster Klasse) bezeichnen im Komponentenmodell all jene Entitäten, die direkt in einer Modellinstanz existieren können, da sie von keiner anderen Entität abhängen. Die Modellierung einer Modellinstanz muss mit einer \textit{First Class Entity} beginnen. Zu den \textit{First Class Entities} zählen:
 
@@ -859,7 +856,7 @@ Alle anderen Entitäten hängen von \textit{First Class Enitities} ab und können n
 
 
 
-\subsection{Benutzer-Rollen}
+\section{Benutzer-Rollen}
 \label{sec:Rollen}
 Benutzer- oder Anwender"=Rollen sind kein expliziter Bestandteil des Komponentenmodells, gleichwohl wird über Benutzer"'=Rollen unterschieden, welche Sichten auf das Komponentenmodell möglich sind. In Kapitel \ref{sec:Assembly} wird auf Benutzer"=Rollen Bezug genommen, die wie folgt definiert sind:
 
@@ -872,12 +869,12 @@ Benutzer"=Rollen sind strikt von Rollen (von Komponenten), wie sie in Kapitel \r
 
 
 
-\subsection{Allokation und Assembly}
+\section{Allokation und Assembly}
 \label{sec:AllokationundAssembly}
 
 
 
-\subsubsection{Allokation}
+\subsection{Allokation}
 \label{sec:Allokation}
 
 
@@ -917,7 +914,7 @@ In Abbildung \ref{fig:cm-il-legal-allocation-01} wird gegenüber gestellt, welche
 
 
 
-\subsubsection{Vergleich von Allokation und Assembly}
+\subsection{Vergleich von Allokation und Assembly}
 \label{sec:VergleichAllokationAssembly}
 
 
@@ -950,7 +947,7 @@ Mit der Allokation variiert unter anderem die Ausführungsumgebung einer Komponen
 
 
 
-\subsubsection{Assembly}
+\subsection{Assembly}
 \label{sec:Assembly}
 Im vorigen Kapitel wurde die Definition einer Assembly bereits angedeutet. Eine Assembly wird gelegentlich auch als \textit{Assembly"=Composition} bezeichnet. An dieser Stelle sollen die Eigenschaften zusammengefasst dargestellt werden.
 
@@ -966,7 +963,7 @@ Zu einem Zeitpunkt kann nur genau eine Assembly im Modell allokiert werden. Pro 
 
 
 
-\subsection{Assembly und Composite Component}
+\section{Assembly und Composite Component}
 \label{sec:AssemblyundCompositeComponentAllokation}
 
 
@@ -1005,7 +1002,7 @@ Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembl
 
 
 
-\subsection{Komponenten-Typ vs. Komponenten-Verwendung}
+\section{Komponenten-Typ vs. Komponenten-Verwendung}
 \label{sec:Komponenten-Typ vs. Komponenten-Verwendung}
 
 
@@ -1029,7 +1026,7 @@ In Abbildung \ref{fig:cm-component-hierarchy-context-01} werden alle Ebenen des 
 
 
 
-\subsection{Kontext}
+\section{Kontext}
 \label{sec:Kontext}
 
 
@@ -1080,7 +1077,7 @@ Das Ziel des dahinter liegenden Konzepts ist eine Möglichkeit zur Unterscheidung
 
 
 
-\subsection{Hierarchie-Ebenen}
+\section{Hierarchie-Ebenen}
 \label{sec:Hierarchie-Ebenen}
 
 
@@ -1093,7 +1090,7 @@ Ein Implementation Type kann ich \texttt{0..*} Assemblies erfasst werden und zu 
 
 
 
-\subsection{Identität}
+\section{Identität}
 \label{sec:Identitaet}
 
 
@@ -1125,7 +1122,7 @@ Die folgenden Entitäten (respektive Typen von Entitäten) tragen IDs; die ID"=Typ
 
 
 
-\subsection{Annotationen}
+\section{Annotationen}
 \label{sec:Annotationen}
 
 
@@ -1155,13 +1152,18 @@ Zusätzlich können auch SEFFs und Protokolle Annotationen verwenden. Da die Typen
 
 
 
-\subsection{Weitere Fähigkeiten}
+\paragraph{Alternativen}
+annotationen können nur genau einer entität zugeordnet werden. Alternative, aber nicht begangene Wege: Annotationen vererben nicht auf untergeordnete Objekte ODER Annotationen sind zu n Entitäten möglich: Globale Werte können definiert werden.
+
+
+
+\section{Weitere Fähigkeiten}
 \label{sec:WeitereFaehigkeiten}
 Viele zusätzliche Fähigkeiten des Komponentenmodells erwachsen aus den flexiblen Möglichkeiten in der Verwendung von Annotationen zur Speicherung beliebiger Daten. Dabei dient das Komponentenmodell mit seinen Strukturinformationen als Grundlage für Berechnungen.
 
 
 
-\subsubsection{Parametrisierte Verträge}
+\subsection{Parametrisierte Verträge}
 \label{sec:ParametrisierteVertraege}
 Parametrisierte Verträge, wie sie von Reussner in \cite{reussner01i} beschrieben werden, können im Komponentenmodell als Annotation spezifiziert werden und ermöglichen die Definition von Abhängigkeiten zwischen \textit{Provides}- und \textit{Requires}"=Schnittstelle. Im Kern kann die Idee von parametrisierten Verträgen wie folgt skizziert werden: Wird eine \textit{Requires}"=Schnittstelle lediglich begrenzt bedient, die mit der \textit{Requires}"=Schnittstelle konnektierte \textit{Provides}"=Schnittstelle bietet also nicht den vollen Umfang, so kann die \textit{Provides}"=Schnittstelle unter Umständen dennoch begrenzt erfüllt werden. Ein parametrisierter Vertrag definiert exakt, mit welchen Einschränkungen die \textit{Provides}"=Schnittstelle, respektive der dahinter stehende Vertrag, erfüllt werden kann.
 
@@ -1171,7 +1173,7 @@ Eine konkrete Ausprägung von parametrisierten Verträgen -- oder eine Berechnungs
 
 
 
-\subsubsection{Quality of Service}
+\subsection{Quality of Service}
 \label{sec:QualityofService}
 Quality of Service"=Daten lassen sich ebenfalls über Annotationen erfassen. Dabei lassen sich QoS"=Daten aus Messungen hinterlegen, berechnete Werte zu Entitäten speichern und aus beiden Formen von Werten weitere Berechnungen vornehmen. Auch SEFFs mit QoS"=Daten annotierbar sind, weshalb sich über komplette Komponentenarchitekturen hinweg Berechnungen vornehmen lassen.
 
@@ -1179,7 +1181,7 @@ Da eine beliebige Zahl von Annotation zur gleichen Zeit für eine Entität denkbar
 
 
 
-\subsection{Validierung von Modellinstanzen}
+\section{Validierung von Modellinstanzen}
 \label{sec:ValidierungvonModellinstanzen}
 Zunächst einmal muss im Komponentenmodell zwischen \textit{Validierung} und \textit{Konsistenz} unterschieden werden. Das Komponentenmodell muss immer konsistent gehalten werden. Mit Konsistenz ist dabei die Einhaltung gültiger Modellkonstrukte und Modellstruktur gemeint. Würden sich zwei Schnittstellen gegenseitig anbieten, wäre dieses ein ungültiges Modellkonstrukt und würde die Konsistenz des Modells verletzten. Unter der Validierung wird in diesem Zusammenhang eine über die Konsistenzwahrung hinaus gehende Prüfung des Modells, nicht mehr der bloßen Konstrukte, verstanden. Validierungen umfassen minimal die Überprüfung auf Gültigkeit der Bedingungen aus den Kapiteln \ref{sec:Typ-Ebenen} und \ref{sec:Typ-Spezialisierung}.
 
@@ -1200,7 +1202,7 @@ Auch invalide Modellinstanzen des Komponentenmodells müssen serialisiert werden 
 
 
 
-\subsection{Einschränkungen}
+\section{Einschränkungen}
 \label{sec:EinschraenkungenCM}
 Wie jedes Modell stellt das Palladio Komponentenmodell eine Abstraktion realer Komponentenarchitekturen. Dies impliziert Einschränkungen der Modellkonstrukte. Das Komponentenmodell ist somit nicht in Lage beliebige Eigenschaften realer Komponentenarchitekturen abzubilden. Bei diesen Einschränkungen ist zu unterscheiden zwischen jenen Einschränkungen, die im Rahmen der Abstraktion bewußt vorgenommen wurden und Einschränkungen, die in nicht bedachter Weise auftreten und die Nutzbarkeit des Komponentenmodells unerwünscht einschränken.
 
@@ -1208,7 +1210,7 @@ Generell gilt, dass nur ein gewisses Maß Einschränkungen für Modelle zwingend er
 
 
 
-\subsubsection{Zustandsmodellierung}
+\subsection{Zustandsmodellierung}
 \label{sec:Zustandsmodellierung}
 
 
@@ -1238,7 +1240,7 @@ Es bleibt festzustellen, dass die Möglichkeit Protokollzustände über verschieden
 
 
 
-\subsubsection{Mehrfache Schnittstellen-Verwendung}
+\subsection{Mehrfache Schnittstellen-Verwendung}
 \label{sec:MehrfacheSchnittstellen-Verwendung}
 
 
@@ -1307,7 +1309,7 @@ Zu Gunsten der Entscheidbarkeit, Vorhersagbarkeit und Berechenbarkeit verzichtet
 
 
 
-\subsubsection{Rekursion von Composite Components}
+\subsection{Rekursion von Composite Components}
 \label{sec:RekursionvonCompositeComponents}
 
 
@@ -1329,7 +1331,7 @@ Das skizzierte Szenario ist stark konstruiert und kann nur in speziellen Situati
 
 
 
-\subsubsection{Stimulus-Response-Mechanismus}
+\subsection{Stimulus-Response-Mechanismus}
 \label{sec:Stimulus-Response-Mechanismus}
 
 
@@ -1351,7 +1353,7 @@ Eine Erweiterung des Komponentenmodells um diesen Mechanismus ist für die Zukunf
 
 
 
-\subsubsection{Reaktivität}
+\subsection{Reaktivität}
 \label{sec:Reaktivitaet}
 Derzeit sieht das Komponentenmodell lediglich \textit{reaktive} Komponenten vor. Stellt man sich eine größere Komponentenarchitektur vor, so könnten lediglich Aufrufe über "`äußere"' Schnittstellen Aktionen im Modell anstoßen. Keine Komponente kann ohne vorausgehende Dienstaufrufe selbst Dienstaufrufe durchführen.
 
@@ -1363,7 +1365,7 @@ Eine Erweiterung um \textit{proaktive} Komponenten wäre für die zukünftige Erwei
 
 
 
-\subsubsection{Semantikdefinition}
+\subsection{Semantikdefinition}
 \label{sec:Semantikdefinition}
 Derzeit wird gefordert, dass untereinander erbende Schnittstellen die Semantik erhalten. Die Semantik von Diensten, die auf Schnittstellen definiert sind, lassen sich indes nicht im Komponentenmodell erfassen. Bei Diensten dient beispielsweise der Dienstname und die Signatur als Indiz für eine mögliche Semantik, liefert jedoch keine Garantien über die tatsächliche Bedeutung der Dienste.
 
@@ -1371,7 +1373,7 @@ Die Überprüfung von Semantik wäre in jedem Fall die Aufgabe von Validierungs"=Al
 
 
 
-\subsection{Ausblick auf die Entwicklung}
+\section{Ausblick auf die Entwicklung}
 \label{sec:AusblickaufdieEntwicklung}
 Das Palladio Komponentenmodell unterliegt einer permanenten Entwicklung durch die Palladio"=Gruppe. Das Komponentenmodell stellt einen Gegenstand aktiver Forschung dar und variiert entsprechend. Der aktuelle Stand des Komponentenmodells wird durch ein neues Paper, das in Kürze unter \cite{PalladioCMNeu} veröffentlicht wird, beschrieben.
 
@@ -1399,8 +1401,6 @@ Abb. 21 rechts (zwei Required Interfaces benutzen ein Provided Interface) ist er
 was genau enthalten CCs? - Kontext-Komps + Konnektoren. Rollen nicht?
 
 nur assembly konnektors und *context* comp können deployed werden
-
-annotationen können nur genau einer entität zugeordnet werden. Alternative, aber nicht begangene Wege: Annotationen vererben nicht auf untergeordnete Objekte ODER Annotationen sind zu n Entitäten möglich: Globale Werte können definiert werden.
 
 Ergebnisteil:
 - Prüfung, ob Assembly Konnektoren erlaubt sind (außerhalb von CCs) nur über Constraints möglich.
@@ -1432,11 +1432,11 @@ Spätere TODOs:
 
 
 \newpage
-\section{ALT}
+\chapter{ALT}
 
 
 
-\subsection{Fragestellungen}
+\section{Fragestellungen}
 \label{sec:Fragestellungen}
 Der Diplomarbeit liegen unter anderem die folgenden Fragestellungen zu Grunde:
 \begin{itemize}
@@ -1451,7 +1451,7 @@ Der Diplomarbeit liegen unter anderem die folgenden Fragestellungen zu Grunde:
 
 
 
-\subsection{Annahmen}
+\section{Annahmen}
 \label{sec:Annahmen}
 
 
@@ -1469,13 +1469,13 @@ Sind nicht alle hier dargestellten Annahmen erfüllt, hat dies direkte Auswirkung
 
 
 
-\subsection{Fehlerquellen}
+\section{Fehlerquellen}
 \label{sec:Fehlerquellen}
 TODO
 
 
 
-\subsection{Einschränkungen}
+\section{Einschränkungen}
 \label{sec:Einschraenkungen}
 
 
@@ -1484,7 +1484,7 @@ Im Rahmen der Diplomarbeit ist \textit{nicht} geplant, einen vollständigen, indu
 
 
 
-\subsection{Risikomanagement}
+\section{Risikomanagement}
 \label{sec:Risikomanagement}
 
 
@@ -1509,10 +1509,9 @@ Zur weiteren prophylaktischen Minimierung von Risiken wurde bereits erfolgreich 
 
 
 
-\subsection{Zeitplanung}
+\section{Zeitplanung}
 \label{sec:Zeitplanung}
 Zeitplanung in der Retrospektive
-
 
 
 
