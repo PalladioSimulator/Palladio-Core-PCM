@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.93  2006/02/11 16:01:36  kelsaka
+% - kontext-bezüge in weiteren kapiteln überarbeitet
+%
 % Revision 1.92  2006/02/11 14:35:02  kelsaka
 % - cc im hinblick auf kontext überarbeitet
 %
@@ -501,15 +504,13 @@ Abbildung \ref{fig:cm-interfaces-signature-protocol-01} zeigt eine Beispielskomp
 Jeder Dienst weist auf einer Schnittstelle eine eindeutige Signatur auf, etwa \texttt{void} \texttt{Do\-Some\-thing(int a)}. In Anlehnung an Methoden"=Signaturen aus Programmiersprachen wie C\# und Java haben Signaturen
 
 \begin{itemize}
-	\item einen Rückgabe"=Datentyp oder \texttt{void},
+	\item einen Rückgabe"=Datentyp oder \texttt{void} (kein Rückgabewert),
 	\item einen Bezeichner, üblicherweise mit einem sprechenden Namen,
 	\item eine Menge von Parametern (\texttt{0..*}), die jeweils aus einem Datentyp und einem Bezeichner (innerhalb der Parameter eindeutig) bestehen. Zusätzlich können die Modifizierer \texttt{in}, \texttt{out} und \texttt{ref} für Parameter in Analogie zur C\# Semantik verwendet werden. Parameter werden in Klammern angegeben und durch Kommata getrennt, Modifizierer werden den Parametern vorangestellt.
 	\item Daneben müssen alle \textit{Exceptions} (Ausnahmen) angegeben werden, die von einer Signatur geworfen werden können. Die verpflichtende Angabe von \textit{Exceptions} folgt den Vorgaben von Java. \textit{Exceptions} werden mit dem Schlüsselwort \texttt{throws} an die Methoden"=Signatur angehängt und durch Kommata getrennt.
 \end{itemize}
 
 Eine Signatur ist eindeutig über Rückgabe"=Datentyp, Bezeichner und Parameter (Datentyp und Bezeichner) unter Berücksichtigung der Reihenfolge.
-
-
 
 Eine Schnittstelle enthält genau eine Signaturliste. Diese Signaturliste wiederum enthält \texttt{0..*} Signaturen. Signaturen und Signaturlisten können nicht zur gleichen Zeit von verschiedenen Schnittstellen referenziert werden. Gleichwohl können verschiedene Schnittstellen identische Signaturlisten oder einzelne Signaturen definieren. 
 
@@ -678,7 +679,7 @@ Im Komponentenmodell wird derzeit in drei Typ"=Ebenen für Komponenten unterschie
 
 In Abbildung \ref{fig:cm-type-levels-01} wird die Typ"=Hierarchie des Komponentenmodells dargestellt. Zwischen den Typ"=Ebenen besteht eine \textit{Conforms}"=Beziehung, wobei sich diese zwischen (\textit{Provided Type} und \textit{Complete Type}) und (\textit{Complete Type} und \textit{Implementation Type}) unterscheidet. Zur \textit{Conform}s"=Beziehung siehe auch Kapitel \ref{sec:Typ-Spezialisierung}.
 
-Die farbliche Hinterlegung des "`Typ"=Balkens"' auf der linken Seite deutet an, dass der \textit{Provided Type} dem "`klassischen"' Typ"=Verständnis (vgl. \cite{CZ-SOFA-CM-Hierarchy2,CZ-SOFA-CM-Hierarchy}) entspricht, indem die angebotene Schnittstelle definiert wird, wohingegen der \textit{Implementation Type} auch Vorgaben für die Realisierung eines Typs macht. Letzteres wird klassischerweise weniger als Typ angesehen.
+Die farbliche Hinterlegung des "`Typ"=Balkens"' auf der linken Seite deutet an, dass der \textit{Provided Type} und \textit{Complete Type} dem "`klassischen"' Typ"=Verständnis (vgl. \cite{CZ-SOFA-CM-Hierarchy2,CZ-SOFA-CM-Hierarchy}) entsprichen, indem die angebotenen Schnittstellen definiert werden, wohingegen der \textit{Implementation Type} auch Vorgaben für die interne Realisierung eines Typs macht. Letzteres wird klassischerweise weniger als Typ angesehen.
 
 Würde man die Typ"=Hierarchie nach unten weiter führen, schließt sich unter anderem ein Laufzeit"=Typ anschließen, der die Laufzeiteigenschaften einer Komponente reglementiert. Diese Typ"=Ebene wird im Komponentenmodell jedoch nicht betrachtet. Über den bloßen Komponenten"=Typ hinaus gehen gehen die in Kapitel \ref{sec:Kontext} betrachteten weiteren Ebenen des Komponentenmodells.
 
@@ -722,7 +723,7 @@ In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Complete Type} als mit
 \label{sec:ImplementationType}
 Neben den Anforderungen, die ein \textit{Complete Type} erfüllen muss, muss der \textit{Implementation Type} seine interne Realisierung festlegen. Das bedeutet, dass alle internen Komponenten, die direkt in einer derart typisierten Komponente enthalten sind, mit samt der assoziierten Assembly Konnektoren und Delegationskonnektoren definiert werden müssen.
 
-Gegenüber seinem \textit{Complete Type} Vater darf ein \textit{Implementation Type} \textit{Provides} Schnittstellen hinzufügen und weniger \textit{Requires} Schnittstellen benötigen. Ein gültiger Sub"=Typ folgt dabei -- näher betrachtet -- den Vorgaben von Co- und Contra"=Varianz, wie sie in Kapitel \ref{sec:Co-undContra-Varianz} vorgestellt wird.
+Gegenüber seinem \textit{Complete Type} Vater darf ein \textit{Implementation Type} \textit{Provides} Schnittstellen hinzufügen und weniger \textit{Requires} Schnittstellen benötigen. Ein gültiger Sub"=Typ folgt dabei -- näher betrachtet -- den Vorgaben von Co- und Contra"=Varianz, wie sie in Kapitel \ref{sec:Co-undContra-Varianz} vorgestellt werden.
 
 In Analogie zur Beziehung zwischen \textit{Provided Type} und \textit{Complete Type} darf auch zwischen \textit{Complete Type} und \textit{Implementation Type} die Co- und Contra"=Varianz \textit{auf} Schnittstellen genutzt werden. Auf der angebotenen Seite dürfen also mehr Dienste auf einer Schnittstelle definiert werden, auf der benötigten Schnittstelle weniger.
 
@@ -1448,6 +1449,8 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 
 \begin{verbatim}
 Delagationskonnektor / Delegations"=Konnektor / Delegations-Konnektor einheitlich schreiben
+
+intern in implementation type --> kontext-komp + kontext-rollen
 
 sub-typ prüfung nur rudimentär bestandteil des CMs. alles andere teil von validierung(salgorithmen) --> z. T. semi-entscheidbar, weshalb algorithmen schwer allgemein möglich.
 

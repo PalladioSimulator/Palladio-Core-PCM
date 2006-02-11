@@ -43,6 +43,7 @@ TODOs
 UML:
 - Protokoll-Typ --> mehrere Typen (FSM, Petri-Netz) möglich zur gleichen Zeit, aber nur einer zur Zeit
 - Interface (Komp interface) kann untereinander erben
+- "contains" als Beschriftung zu CC-Innereien
 
 ECORE:
 - Enum für in, out, ref - Signatur-Parameter
