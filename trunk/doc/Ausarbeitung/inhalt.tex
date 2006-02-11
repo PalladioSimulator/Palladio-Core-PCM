@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.89  2006/02/11 10:56:16  kelsaka
+% - kontext kurzeinführung ergänzt
+%
 % Revision 1.88  2006/02/11 10:02:08  kelsaka
 % - appendix angefügt
 %
@@ -306,7 +309,7 @@ Das im Folgenden dargestellte Palladio Komponentenmodell entspricht dem Stand de
 \label{sec:IdeeCM}
 Komponentenarchitekturen existieren in Form realer Komponentensysteme. Das Palladio Komponenten"=Meta"=Modell bietet eine strukturierte Form zur Erfassung solcher Komponentenarchitekturen, mithin Komponentenmodell"=Instanzen. Das Komponenten"=Meta"=Modell versteht sich dabei als Datenspeicher, das eine Menge von Basis"=\textit{Constraints} definiert, die die Konsistenz und Integrität des Datenspeichers sichern. Damit lassen sich fest definierte Strukturen realer Komponentensysteme auf Komponentenmodell"=Instanzen abbilden.
 
-Bewußt und klar von der Funktionalität eines Datenspeichers für Komponentenarchitekturen getrennt, ist die Anwendung oder Definition von Algorithmen auf Komponentenmodell"=Instanzen. Entsprechend der Grundsätze des Strategie Musters (\textit{Strategy Pattern}, vgl. \cite{GAMMA}, TODO: S. 315ff), können auf einer Modell"=Instanz beliebig viele strategy"=abhängige Algorithmen angewendet werden. Daher sind weitergehende Algorithmen, die Bereiche wie Validitätsprüfung, Interoperabilitätsprüfung oder ähnliches betreffen, nicht Bestandteil des Komponenten"=Meta"=Modells, sondern flexibel anwendbar.
+Bewußt und klar von der Funktionalität eines Datenspeichers für Komponentenarchitekturen getrennt, ist die Anwendung oder Definition von Algorithmen auf Komponentenmodell"=Instanzen. Entsprechend der Grundsätze des Strategie Musters (\textit{Strategy Pattern}, vgl. \cite{GAMMA}, TODO: S. 315ff), können auf einer Modell"=Instanz beliebig viele strategy"=abhängige Algorithmen angewendet werden. Daher sind weitergehende Algorithmen, die Bereiche wie Validitätsprüfung, Interoperabilitätsprüfung oder ähnliches betreffen, nicht fester Bestandteil des Komponenten"=Meta"=Modells, sondern als optionale Elemente flexibel anwendbar.
 
 
 
@@ -369,6 +372,16 @@ Schnittstellen können untereinander erben. Dabei ist Mehrfachvererbung zugelasse
 Eine Schnittstelle kann mehrfach beerbt werden.
 
 Die Vererbung von Schnittstellen muss stets unter Erhaltung der Semantik erfolgen. Das heißt, dass eine erbende Schnittstelle die Bedeutung der auf der Vater"=Schnittstelle definierten Dienste erhalten muss. Die Einhaltung der Semantik wird nicht durch das Komponentenmodell überprüft.
+
+
+
+\section{Kurzeinführung: Kontext}
+\label{sec:Kurzeinfuehrung-Kontext}
+An dieser Stelle soll der Begriff des \textit{Kontext}s kurz skizziert werden. Um die weiteren Konzepte des Komponentenmodells korrekt darstellen zu können, wird eine kurze Definition dieses Begriffs vorgezogen. In den nächsten Kapiteln reicht ein Basis"=Verständnis des Konzepts aus. Die ausführliche Beschreibung des Kontexts findet in Kapitel \ref{sec:Kontext} auf Seite \pageref{sec:Kontext}, wo unter Berücksichtigung der bis dahin eingeführten Hierarchie des Komponentenmodells, eine genauere Definition erfolgen kann.
+
+Bisher wurden Komponenten und Rollen vorgestellt. Tatsächlich wurden noch keine Möglichkeiten zur Interaktion zwischen Rollen vorgestellt. Komponenten, die Rollen anbieten, werden bis jetzt also von ihrer Verwendung losgelöst beschrieben. In diesem Zusammenhang eignet sich der Begriff des \textit{Komponenten"=Typs} zur Einordnung des aktuellen Verständnisses: Welche Rollen eine Komponente einnimmt, wird über ihren Typ definiert.
+
+Komponenten und Rollen können, wie zu erwarten, verwendet werden. Werden Komponenten und Rollen verwendet, stehen sie, vereinfacht betrachtet, in einem Verwendungs"=\textit{Kontext}. Es ist also strikt zwischen \textit{Komponenten"=Typen} und der Verwendung von Komponenten"=Typen in einem \textit{Kontext} zu unterscheiden. Ein Komponenten"=Typ kann also in einer beliebigen Anzahl (\texttt{0..*}) von Kontexten verwendet werden. Der Kontext ermöglicht eine eindeutige Identifikation des Verwendungsortes. Die Verwendung einer Komponente bzw. Rolle impliziert einen Kontext, in dem die Komponente bzw. Rolle liegt.
 
 
 
@@ -880,7 +893,7 @@ Benutzer"=Rollen sind strikt von Rollen (von Komponenten), wie sie in Kapitel \r
 
 
 
-\subsection{Allokation}
+\subsection{Allokation und Ressourcen}
 \label{sec:Allokation}
 
 
@@ -1034,6 +1047,7 @@ In Abbildung \ref{fig:cm-component-hierarchy-context-01} werden alle Ebenen des 
 
 \section{Kontext}
 \label{sec:Kontext}
+TODO: bereits oben angedeutet Kurzdef. Hier als vorraussetzung andere konzepte bekannt: vollständige darstellung.
 
 
 
@@ -1405,6 +1419,8 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 sub-typ prüfung nur rudimentär bestandteil des CMs. alles andere teil von validierung(salgorithmen) --> z. T. semi-entscheidbar, weshalb algorithmen schwer allgemein möglich.
 
 Abb. 21 rechts (zwei Required Interfaces benutzen ein Provided Interface) ist erlaubt. 
+
+assembly muss nicht alle komps. eines modells enthalten.
 
 was genau enthalten CCs? - Kontext-Komps + Konnektoren. Rollen nicht?
 
