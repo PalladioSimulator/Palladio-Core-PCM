@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.8  2006/02/11 13:00:05  kelsaka
+% - anhang ausgegliedert
+%
 % Revision 1.7  2006/02/11 10:02:08  kelsaka
 % - appendix angefügt
 %
@@ -104,9 +107,13 @@ citecolor=black, urlcolor=black]{hyperref}
 	%Inhalt
 	\include{inhalt}
 	
+	
 	% Anhang
-	%\chapter{Anhang}
 	\appendix
+	\include{anhang}
+	
+	
+	
 	% Abbildungsverzeichnis
 	\addcontentsline{toc}{section}{Abbildungsverzeichnis}
 	\lhead{Abbildungsverzeichnis} \chead{} \rhead{\thepage}
