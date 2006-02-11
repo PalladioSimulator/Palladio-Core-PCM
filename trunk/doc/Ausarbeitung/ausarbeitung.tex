@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.7  2006/02/11 10:02:08  kelsaka
+% - appendix angefügt
+%
 % Revision 1.6  2006/02/10 19:15:26  kelsaka
 % - pagestyle geändert
 %
@@ -83,7 +86,8 @@ citecolor=black, urlcolor=black]{hyperref}
 
 	% Pagecounter auf 2 Setzen
 	\setcounter{page}{2}
-		
+	
+	\setcounter{secnumdepth}{3}
 	
 	% Inhaltsverzeichnis
 	\tableofcontents
@@ -101,7 +105,8 @@ citecolor=black, urlcolor=black]{hyperref}
 	\include{inhalt}
 	
 	% Anhang
-	\chapter{Anhang}
+	%\chapter{Anhang}
+	\appendix
 	% Abbildungsverzeichnis
 	\addcontentsline{toc}{section}{Abbildungsverzeichnis}
 	\lhead{Abbildungsverzeichnis} \chead{} \rhead{\thepage}
