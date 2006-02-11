@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.92  2006/02/11 14:35:02  kelsaka
+% - cc im hinblick auf kontext überarbeitet
+%
 % Revision 1.91  2006/02/11 13:00:05  kelsaka
 % - anhang ausgegliedert
 %
@@ -435,18 +438,36 @@ Assembly Konnektoren sind implizit immer vorhanden, wenn eine \textit{Requires}"
 
 Zusammengesetzte Komponenten, im Folgenden auch \textit{Composite Components} genannt, enthalten eine interne Realisierung über weitere Komponenten und über zugehörige Strukturen. Ein \textit{Composite Component} selbst enthält keine Realisierung etwa über Quellcode, sondern fasst eine logisch und / oder funktional zusammengehörige Menge von Komponente zusammen. Über diesen Mechanismus lassen sich Hierarchien von Komponenten definieren. Zudem stellt eine Composite Component eine Abstraktion und Kapselung ihres Innenlebens (\textit{Information Hiding}) zur Verfügung, wenn sie nur über die äußeren Schnittstellen (als "`Komponenten"=Typ"') betrachtet wird. In Kapitel \ref{sec:Typ-Ebenen} werden die Abstraktionsebenen von Komponenten detailliert aufgezeigt.
 
+
+
+\paragraph{Basic Component}
 Verfügt eine Komponente über keine weiteren inneren Komponenten, so wird diese \textit{Basic Component} genannt. Damit bildet sie das Gegenstück zu einer \textit{Composite Component}. \textit{Basic Components} enthalten Informationen über ihre interne Realisierung. Siehe hierzu Kapitel \ref{sec:ServiceEffektSpezifikation}.
 
 \textit{Composite Components} können neben \textit{Basic Components} ebenfalls weitere \textit{Composite Components} enthalten. Damit werden tiefere Hierarchiestufen realisiert. Im Beispiel ist "`Composite Component B"' eine weitere zusammengesetzte Komponente. Wie zu sehen ist, können \textit{Composite Components} genau wie andere Komponenten verwendet werden. Alle enthaltenen Komponenten einer \textit{Composite Component} sind teil der "`contains"'-Relation der zusammengesetzen Komponente.
 
-In Abbildung \ref{fig:cm-composite-component-01} wird eine exemplarische \textit{Composite Component} dargestellt. Wie zu sehen ist, kann eine \textit{Composite Component} intern eine beliebige Menge von Komponente aufnehmen. Damit diese Komponenten verwendet werden können, bedient man sich zwischen den Komponenten auf der gleichen Hierarchiestufe den bereits eingeführten Assembly Konnektoren. Zusätzlich reglementieren Delegationskonnektoren (\textit{Delegation Connector}), wie auf der Provides-Seite externe Aufrufe auf interne Aufrufe geleitet werden und umgekehrt wie auf der Requires Seite Aufrufe interner Komponente nach außen aus die \textit{Composite Component} heraus geleitet werden.
 
-Damit die Abbildung zwischen der äußeren und inneren Schnittstelle einer Composite Component eindeutig bleibt, muss stets eine \texttt{1:1} Beziehung zwischen äußerer und innerer Schnittstelle bestehen. Ein Delegationskonnektor verbindet als immer genau zwei Schnittstellen (eine äußere angebotene Schnittstelle mit einer inneren angebotenen Schnittstelle \textit{oder} eine äußere geforderte Schnittstelle mit einer inneren geforderten Schnittstelle).
 
-Manchmal werden Delegationskonnektoren zusätzlich über ihren Verwendungskontext unterschieden. Findet die Verwendung zum Zwecke einer Abbildung zwischen angebotenen Schnittstellen statt, spricht man auch von \textit{Provides Delegation Connectors}. Hier werden somit genau eine interne \textit{Provides Role} und genau eine externe \textit{Provides Role} einer \textit{Composite Component} miteinander verbunden. Im umgekehrten Fall der Verwendung zwischen benötigten Schnittstellen wird der entsprechende Delegationskonnektor auch \textit{Requires Delegation Connector} genannt. Dies entspricht der Verbindung genau einer internen \textit{Requires Role} mit genau einer externen \textit{Requires Role} einer \textit{Composite Component}.
+\paragraph{Delegations"=Konnektor}
+In Abbildung \ref{fig:cm-composite-component-01} wird eine exemplarische \textit{Composite Component} dargestellt. Wie zu sehen ist, kann eine \textit{Composite Component} intern eine beliebige Menge von Komponente aufnehmen. Damit diese Komponenten verwendet werden können, bedient man sich zwischen den Komponenten auf der gleichen Hierarchiestufe der bereits eingeführten Assembly Konnektoren. Zusätzlich reglementieren Delegationskonnektoren (\textit{Delegation Connector}), wie auf der Provides-Seite externe Aufrufe auf interne Aufrufe geleitet werden und umgekehrt wie auf der Requires Seite Aufrufe interner Komponente nach außen aus die \textit{Composite Component} heraus geleitet werden.
+
+Auch im Bezug auf die \textit{Composite Components} und Delegations"=Konnektoren ist der Kontext bei genauer Betrachtung zu berücksichtigen. Während eine Composite Component \textit{nach außen} über die von ihr angebotenen und benötigten Rollen als Komponenten"=Typ aufgefasst werden können, findet intern eine Verwendung von Komponenten statt. Entsprechend muss der Verwendungskontext von Rollen und Komponenten erfasst werden.
+
+Damit die Abbildung zwischen der äußeren und inneren Rolle einer \textit{Composite Component} eindeutig bleibt, muss stets eine \texttt{1:1} Beziehung zwischen äußerer und innerer Rolle, bestehen. Ein Delegationskonnektor verbindet als immer genau zwei Kontext"=Rollen (eine äußere angebotene Kontext"=Rolle mit einer inneren angebotenen Kontext"=Rolle \textit{oder} eine äußere geforderte Kontext"=Rolle mit einer inneren geforderten Kontext"=Rolle). 
+
+Manchmal werden Delegationskonnektoren zusätzlich über ihren Verwendungskontext unterschieden. Findet die Verwendung zum Zwecke einer Abbildung zwischen angebotenen Rollen statt, spricht man auch von \textit{Provides Delegation Connectors}. Hier werden somit genau eine interne Kontext"=\textit{Provides Role} und genau eine externe Kontext"=\textit{Provides Role} einer \textit{Composite Component} miteinander verbunden. Im umgekehrten Fall der Verwendung zwischen benötigten Schnittstellen wird der entsprechende Delegationskonnektor auch \textit{Requires Delegation Connector} genannt. Dies entspricht der Verbindung genau einer internen Kontext"=\textit{Requires Role} mit genau einer externen Kontext"=\textit{Requires Role} einer \textit{Composite Component}.
 
 Ein Signatur"=Mapping im Sinne eines Adapters (vgl. auch \cite{GAMMA,BUSCH}) ist für die Delagationskonnektoren jedoch nicht möglich. In diesem Falle wäre eine Adapterkomponente vorzusehen, die die notwendige Adaption vornimmt.
 
+In der graphischen Visualisierung mit UML erscheinen Delegations"=Konnektoren als gestrichelte Verbindungslinie unter Angabe der Delegationsrichtung über einen Pfeil. Die Linie verbindet eine äußere mit einer inneren Schnittstelle. Wird im Sprachgebrauch davon gesprochen, dass ein Delegations"=Konnektor zwei Schnittstellen miteinander verbindet, sind, präzise betrachtet, die in der UML"=Darstellung mit den Schnittstellen assoziierten Rollen gemeint.
+
+
+
+\paragraph{Definition: Composite Component}
+Eine \textit{Composite Component} ist zunächst einmal eine einfache Komponente mit angebotenen und benötigten Rollen. Zusätzlich gehören zu einer \textit{Composite Component} die inneren Kontext"=Komponenten (\texttt{0..*}) und die inneren Konnektoren (\texttt{0..*}) (Assembly Konnektor, \textit{Provided Delegation Connector}, \textit{Required Delegation Connector}). Da Konnektoren (sowohl Delegation als auch Assembly) auf Kontext"=Rollen definiert sind, sind auch Konnektoren vom Kontext abhängig. Interne Schnittstellen werden indirekt über die internen Konnektoren $\mapsto$ Rollen erfasst. Nicht zu einer \textit{Composite Component} gehören externe Assembly Konnektoren.
+
+
+
+\paragraph{Auflösen von Composite Components}
 Da \textit{Composite Components} lediglich eine logische Kapselung bieten, lassen sie sich vollständig auflösen, sofern ihre direkt enthaltenen (in der "`contains"'-Relation enhaltenen) Komponenten vollständig einschließlich aller Delegationskonnektoren und Assembly Konnektoren bekannt sind. Zu diesem Zwecke zeigen Delegaten auf der Angebotsseite direkt auf die enthaltenen Komponenten, die über Delegationskonnektoren verknüpft sind, beziehungsweise auf der Nachfrageseite direkt auf die über Delegationskonnektoren verbundenen äußeren Komponenten. Zu beachten ist, dass Composite Components, je nach Typ-Ebene (siehe Kapitel \ref{sec:Typ-Ebenen}), nicht von anderen Komponenten unterschieden werden können und ihre interne Realisierung nicht immer vollständigs bekannt sein muss. In diesen Fällen ist eine Auflösung nicht möglich.
 
 Auch wenn sich \textit{Composite Components} logisch auflösen lassen, so ist dies immer mit einem Informationsverlust verbunden. Da allein die Kapselung einer Menge von Komponenten eine Information darstellt, wenn man davon ausgeht, dass der Vorgang des Zusammenfassens von Komponenten nicht zufällig geschieht. Daneben ist auch der Name einer \textit{Composite Component} bezeichnend. Zudem ist es im Komponentenmodell möglich über Annotationen Informationen zu einer zusammengesetzten Komponente zu hinterlegen (siehe auch Kapitel \ref{sec:Annotationen}). Wird die Komponente aufgelöst, lassen sind auch diese Informationen nicht mehr speichern.
@@ -1426,6 +1447,8 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 \textbf{TODO:}
 
 \begin{verbatim}
+Delagationskonnektor / Delegations"=Konnektor / Delegations-Konnektor einheitlich schreiben
+
 sub-typ prüfung nur rudimentär bestandteil des CMs. alles andere teil von validierung(salgorithmen) --> z. T. semi-entscheidbar, weshalb algorithmen schwer allgemein möglich.
 
 Abb. 21 rechts (zwei Required Interfaces benutzen ein Provided Interface) ist erlaubt. 

@@ -1,13 +1,39 @@
 % $Log$
+% Revision 1.2  2006/02/11 14:35:02  kelsaka
+% - cc im hinblick auf kontext überarbeitet
+%
 % Revision 1.1  2006/02/11 13:00:05  kelsaka
 % - anhang ausgegliedert
 %
 
 
+	
 
 \chapter{Anhang}
-	
-	
+\label{sec:Anhang}
+
+
+
+\section{UML}
+
+
+
+% Abbildungsverzeichnis
+\addcontentsline{toc}{section}{Abbildungsverzeichnis} %\protect\numberline{1}{Abbildungsverzeichnis}}
+\lhead{Abbildungsverzeichnis} \chead{} \rhead{\thepage}
+\listoffigures
+
+
+
+%Literaturverzeichnis
+\newpage
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\lhead{Literaturverzeichnis} \chead{} \rhead{}
+% \cite* % Verursacht [] vor dem Literaturverzeichnis; ausserdem nur noch Anzeige verwendeter Literatur.
+\bibliographystyle{ieeetrans}
+\bibliography{Literaturverzeichnis}
+
+
 
 \section{Selbstständigkeitserklärung}
 \label{sec:Selbststaendigkeitserklaerung}
@@ -22,5 +48,7 @@ Harkebrügge, den \today{}
 ------------------------------
 
 \scriptsize{Klaus Krogmann}
-
 \normalsize
+
+
+
