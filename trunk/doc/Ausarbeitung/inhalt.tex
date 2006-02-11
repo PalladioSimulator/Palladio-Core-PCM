@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.90  2006/02/11 11:34:49  kelsaka
+% - kontext bei assembly konnektoren ergänzt
+%
 % Revision 1.89  2006/02/11 10:56:16  kelsaka
 % - kontext kurzeinführung ergänzt
 %
@@ -362,7 +365,7 @@ Auf der rechten Seite der Abbildung ist die \textit{Requires Role} zwischen eine
 
 Auch im Komponentenmodell wird die Relation zwischen Komponente und Schnittstelle als "`Rolle"' (\textit{Role}) bezeichnet. Die Art der Rolle (angeboten oder benötigt / \textit{provided} oder \textit{required}) entscheidet über die Verwendung der Schnittstelle. Die Eigenschaft der Schnittstelle selbst ändert sich jedoch nicht durch ihre Verwendung. Auch in Abbildung \ref{cm-interfaces-roles-01} könnten die Komponenten die beiden dargestellten Schnittstellen identisch sein.
 
-Eine Schnittstelle wird also erst durch eine \textit{Provides Role} zu einer angebotene Schnittstelle / einem \textit{Provided Interface}, bzw. über eine \textit{Requires Role} zu einer benötigten Schnittstelle / einem\textit{Required Interface}.
+Eine Schnittstelle wird also erst durch eine \textit{Provides Role} zu einer angebotene Schnittstelle / einem \textit{Provided Interface}, bzw. über eine \textit{Requires Role} zu einer benötigten Schnittstelle / einem \textit{Required Interface}.
 
 
 
@@ -383,6 +386,8 @@ Bisher wurden Komponenten und Rollen vorgestellt. Tatsächlich wurden noch keine 
 
 Komponenten und Rollen können, wie zu erwarten, verwendet werden. Werden Komponenten und Rollen verwendet, stehen sie, vereinfacht betrachtet, in einem Verwendungs"=\textit{Kontext}. Es ist also strikt zwischen \textit{Komponenten"=Typen} und der Verwendung von Komponenten"=Typen in einem \textit{Kontext} zu unterscheiden. Ein Komponenten"=Typ kann also in einer beliebigen Anzahl (\texttt{0..*}) von Kontexten verwendet werden. Der Kontext ermöglicht eine eindeutige Identifikation des Verwendungsortes. Die Verwendung einer Komponente bzw. Rolle impliziert einen Kontext, in dem die Komponente bzw. Rolle liegt.
 
+Um eine einfachere Unterscheidung zwischen Komponenten (als Typ) bzw. Rollen und Komponent bzw. Rollen im Kontext zu ermöglichen, werden im Kontext verwendete Komponenten und Rollen im Folgenden kurz "`Kontext"=Komponenten"' und "`Kontext"=Rollen"' genannt.
+
 
 
 \section{Assembly Konnektoren}
@@ -399,13 +404,15 @@ Komponenten und Rollen können, wie zu erwarten, verwendet werden. Werden Kompone
 
 
 
-In Abbildung \ref{fig:cm-assembly-connector-01} wird die Verwendung zweier Assembly Konnektoren (\textit{Assembly Connector}) dargestellt. Präzise betrachtet verbinden Assembly Konnektoren je eine angebotene (\textit{Provides Role}) und eine benötigte Rolle (\textit{Requires Role}) einer Schnittstelle. Dies bedeutet, dass Aufrufe der über die \textit{Requires Role} mit der benötigten Schnittstelle verbundenen Komponente auf die angebotene Schnittstelle und damit auf die über eine \textit{Provides Role} damit verbundene Komponente weitergeleitet werden. Der Kontrollfluß folgt damit in diesem Fall der als gestrichelt dargestellten Linie in Pfeilrichtung (bei Events in der entgegengesetzten Richtung).
+In Abbildung \ref{fig:cm-assembly-connector-01} wird die Verwendung zweier Assembly Konnektoren (\textit{Assembly Connector}) dargestellt. Präzise betrachtet verbinden Assembly Konnektoren je eine angebotene (\textit{Provides Role}) und eine benötigte Kontext"=Rolle (\textit{Requires Role}) einer Schnittstelle. Dies bedeutet, dass Aufrufe der über die \textit{Requires Role} mit der benötigten Schnittstelle verbundenen Komponente auf die angebotene Schnittstelle und damit auf die über eine \textit{Provides Role} damit verbundene Komponente weitergeleitet werden. Der Kontrollfluß folgt damit in diesem Fall der als gestrichelt dargestellten Linie in Pfeilrichtung (bei Events in der entgegengesetzten Richtung).
 
 Jede benötigte Schnittstelle einer Komponente wird damit mit genau einer angebotenen Schnittstelle verbunden. Sind die angebotene Schnittstelle und die benötigte Schnittstelle einer Komponente identisch oder interoperabel (zu den Definitionsmöglichkeiten von Interoperabilität siehe Kapitel \ref{sec:ValidierungvonModellinstanzen}), so kann eine Komponente grundsätzlich auch eigene Dienste aufrufen. In der noch folgenden Differenzierung über die Typ-Ebenen des Komponentenmodells (siehe Kapitel \ref{sec:Typ-Ebenen}) wird deutlich, weshalb dies nicht zwangsläufig zu einer infiniten Rekursion führen muss.
 
+Dass Assembly Konnektoren Rollen im \textit{Kontext} miteinander verbinden und damit indirekt Komponenten im Kontext, jedoch nicht Rollen und Komponenten als Typ, wird schnell deutlich, wenn man bedenkt, dass Komponenten einen internen Zustand haben können, der von der aktuellen Verwendung abhängt.
+
 Ein Assembly Konnektor kann lediglich eine \textit{Requires}"=Schnittstelle mit einer \textit{Provides}"=Schnittstelle verbinden, die ansonsten jeweils \textit{nicht} über Assembly Konnektoren verbunden sind. Diese Einschränkung (vgl. Kapitel \ref{sec:MehrfacheSchnittstellen-Verwendung}) garantiert, dass der Kontrollfluss klar definierten Verbindungen folgt.
 
-Assembly Konnektoren sind implizit immer vorhanden, wenn eine \textit{Requires}"=Schnittstelle mit einer \textit{Provides}"=Schnittstelle verbunden ist. Auch wenn Assembly Konnektoren in der graphischen Notation nicht gezeichnet werden, wie in Abbildung \ref{fig:cm-calculated-cc-seff-01}, ist ein Assembly Konnektor vorhanden.
+Assembly Konnektoren sind implizit immer vorhanden, wenn eine \textit{Requires}"=Schnittstelle mit einer \textit{Provides}"=Schnittstelle verbunden ist. Auch wenn Assembly Konnektoren in der graphischen Notation, wie in Abbildung \ref{fig:cm-calculated-cc-seff-01}, nicht gezeichnet werden, ist ein Assembly Konnektor vorhanden.
 
 
 
