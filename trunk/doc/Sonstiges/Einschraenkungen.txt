@@ -37,7 +37,6 @@ Fragen an Steffen wg. CM:
 	- ParameterType setzt sich aus ValueType oder Interface zusammen: Interface ist aber Componenten-Interface und kein Interface auf Signaturniveau
 	
 	
-	
 
 TODOs
 UML:

@@ -1,5 +1,5 @@
 % $Log$
-% Revision 1.93  2006/02/11 16:01:36  kelsaka
+% Revision 1.94  2006/02/11 18:47:31  kelsaka
 % - kontext-bezüge in weiteren kapiteln überarbeitet
 %
 % Revision 1.92  2006/02/11 14:35:02  kelsaka
@@ -393,7 +393,7 @@ An dieser Stelle soll der Begriff des \textit{Kontext}s kurz skizziert werden. U
 
 Bisher wurden Komponenten und Rollen vorgestellt. Tatsächlich wurden noch keine Möglichkeiten zur Interaktion zwischen Rollen vorgestellt. Komponenten, die Rollen anbieten, werden bis jetzt also von ihrer Verwendung losgelöst beschrieben. In diesem Zusammenhang eignet sich der Begriff des \textit{Komponenten"=Typs} zur Einordnung des aktuellen Verständnisses: Welche Rollen eine Komponente einnimmt, wird über ihren Typ definiert.
 
-Komponenten und Rollen können, wie zu erwarten, verwendet werden. Werden Komponenten und Rollen verwendet, stehen sie, vereinfacht betrachtet, in einem Verwendungs"=\textit{Kontext}. Es ist also strikt zwischen \textit{Komponenten"=Typen} und der Verwendung von Komponenten"=Typen in einem \textit{Kontext} zu unterscheiden. Ein Komponenten"=Typ kann also in einer beliebigen Anzahl (\texttt{0..*}) von Kontexten verwendet werden. Der Kontext ermöglicht eine eindeutige Identifikation des Verwendungsortes. Die Verwendung einer Komponente bzw. Rolle impliziert einen Kontext, in dem die Komponente bzw. Rolle liegt.
+Komponenten und Rollen können, wie zu erwarten, verwendet werden. Werden Komponenten und Rollen verwendet, stehen sie, vereinfacht betrachtet, in einem Verwendungs"=\textit{Kontext}. Es ist also strikt zwischen \textit{Komponenten"=Typen} und der Verwendung von Komponenten"=Typen in einem \textit{Kontext} zu unterscheiden. Ein Komponenten"=Typ kann also in einer beliebigen Anzahl (\texttt{0..*}) von Kontexten verwendet werden. Der Kontext ermöglicht eine eindeutige Identifikation des Verwendungsortes. Die Verwendung einer Komponente bzw. Rolle impliziert einen Kontext, in dem die Komponente bzw. Rolle liegt. Der Kontext sollte als immanente Eigenschaft verstanden werden, die an die Verwendung von Komponenten geknüpft ist.
 
 Um eine einfachere Unterscheidung zwischen Komponenten (als Typ) bzw. Rollen und Komponent bzw. Rollen im Kontext zu ermöglichen, werden im Kontext verwendete Komponenten und Rollen im Folgenden kurz "`Kontext"=Komponenten"' und "`Kontext"=Rollen"' genannt.
 
@@ -820,6 +820,8 @@ Das skizzierte Problem besteht bei der Neu"=Definition von Komponentenarchitektu
 
 Zu bedenken bleibt, dass, je nach Detailniveau respektive Typ"=Ebene der Komponenten, auf den Schnittstellen Protokolle definiert sein können und die Komponenten selbst SEFFs vorschreiben. Bei einer Komponenten-Substitution sind gegebenenfalls auch diese zu berücksichtigen.
 
+Die genaue Definition gültiger Substitutionen ist variabel und nicht an fest durch das Komponentenmodell festgeschrieben. Kapitel \ref{sec:ValidierungvonModellinstanzen} beschreibt Möglichkeiten zur dynamischen Definition von Validität. Daher kann an dieser Stelle nur das allgemeine, dem Komponentenmodell zu Grunde liegende, Verständnis dargestellt werden.
+
 
 
 \subsection{Co- und Contra-Varianz}
@@ -898,7 +900,7 @@ Allgemeine Bemerkungen zur Validierung des Komponentenmodells finden sich in Kap
 \textit{First Class Entities } (Entitäten erster Klasse) bezeichnen im Komponentenmodell all jene Entitäten, die direkt in einer Modellinstanz existieren können, da sie von keiner anderen Entität abhängen. Die Modellierung einer Modellinstanz muss mit einer \textit{First Class Entity} beginnen. Zu den \textit{First Class Entities} zählen:
 
 \begin{itemize}
-	\item Komponenten (gleich welcher Typ"=Ebene)
+	\item Komponenten (gleich welcher Ebene)
 	\item Schnittstellen
 	\item Ressourcen
 \end{itemize}
@@ -909,7 +911,7 @@ Alle anderen Entitäten hängen von \textit{First Class Enitities} ab und können n
 
 \section{Benutzer-Rollen}
 \label{sec:Rollen}
-Benutzer- oder Anwender"=Rollen sind kein expliziter Bestandteil des Komponentenmodells, gleichwohl wird über Benutzer"'=Rollen unterschieden, welche Sichten auf das Komponentenmodell möglich sind. In Kapitel \ref{sec:Assembly} wird auf Benutzer"=Rollen Bezug genommen, die wie folgt definiert sind:
+Benutzer- oder Anwender"=Rollen sind kein expliziter Bestandteil des Komponentenmodells, gleichwohl wird über Benutzer"=Rollen unterschieden, welche Sichten auf das Komponentenmodell möglich sind. In Kapitel \ref{sec:Assembly} wird auf Benutzer"=Rollen Bezug genommen, die wie folgt definiert sind:
 
 \begin{itemize}
 	\item \textbf{Entwickler} entwerfen und definieren Komponenten und Schnittstellen sowie Konnektoren zwischen diesen Entitäten. In \cite{JensHeikoCBSE06}, Seite 2, wird diese Rolle des \textit{Component Developers} näher beschrieben.
@@ -931,7 +933,9 @@ Benutzer"=Rollen sind strikt von Rollen (von Komponenten), wie sie in Kapitel \r
 
 
 \paragraph{Definition}
-Im Palladio Kontext wird der Begriff der \textit{Allokation} verwendet. Die Verwendung erfolgt im Sinne von \textit{Deployment} und meint die Verteilung von Komponenten auf Ressourcen. Es wird also festgelegt, welche Komponente welche Ressourcen nutzt. Neben den Komponenten erfolgt eine Abbildung der Konnektoren auf "`Verbindungsressourcen"', also etwa LAN- und WAN-Verbindungen. Als Stereotyp der Relation zwischen Komponenten, Konnektoren und Ressourcen wird \texttt{$\flqq$deployed-on$\frqq$} verwendet.
+In der Palladio"=Gruppe wird der Begriff der \textit{Allokation} verwendet. Die Verwendung erfolgt im Sinne von \textit{Deployment} und meint die Verteilung von Komponenten auf Ressourcen. Es wird also festgelegt, welche Komponente welche Ressourcen nutzt. Neben den Komponenten erfolgt eine Abbildung der Konnektoren auf "`Verbindungsressourcen"', also etwa LAN- und WAN-Verbindungen. Als Stereotyp der Relation zwischen Komponenten, Konnektoren und Ressourcen wird \texttt{$\flqq$deployed-on$\frqq$} verwendet.
+
+\textit{Allokation} findet immer für Komponenten und Assembly Konnektoren im Kontext statt. Assembly"=Konnektoren liegen immer im Kontext vor, da sie nur zwischen Kontext"=Rollen definiert sind. Dass die \textit{Allokation} nur für Kontext"=Komponenten sinnvoll ist, wird schnell ersichtlich, wenn man bedenkt, dass der gleiche Komponenten"=Typ sehr oft verwendet werden kann und dabei mit unterschiedlichen anderen Kontext"=Komponenten interagiert, die nicht auf den gleichen Ressourcen liegen.
 
 Als Ressourcen"=Typen kennt das Komponentenmodell:
 
@@ -988,8 +992,6 @@ Zur Unterscheidung von Allokation (\textit{Deployment}) und Assembly ist der Zei
 	\item Die \textbf{Allokation} wird zum Zeitpunkt der Installation vorgenommen.
 \end{itemize}
 
-Zu diesem Zeitpunkt wurde der Begriff des \textit{Kontexts} (vgl. Kapitel \ref{sec:Kontext}) noch nicht eingeführt. Solange darf der Kontext als immanente Eigenschaft einer Komponente verstanden werden, die sich nach dem Ort der Verwendung richtet.
-
 Die Assembly"=Definition kann unabhängig von der Allokation erfolgen. Beide Aktionen werden, präzise betrachtet, auf Kontexten ausgeführt. Komponenten können nur allokiert werden, wenn Sie zuvor in einer Assembly definiert wurden. Das heißt, dass ein Allokation immer nur von Assemblies erfolgt, nie von Komponenten direkt. Im einfachsten Fall wird dabei eine Komponente dabei von genau einer Assembly erfasst und allokiert.
 
 Nach der in einer Assembly definierten Komposition richten sich die tatsächlich aufgerufenen und aufrufenden Dienste einer Komponente. Damit können z. B. die Aufrufparameter von Diensten einer Komponente auf Grund der konkreten Verwendung variieren, weil die aufrufende Komponente lediglich ein begrenztes Spektrum der möglichen Aufrufparameter nutzt. Mit der Verwendung (und "`Verdrahtung"') einer Komponente in einer Assembly ändern sich also primär \textit{funktionale Eigenschaften}. 
@@ -1003,11 +1005,12 @@ Mit der Allokation variiert unter anderem die Ausführungsumgebung einer Komponen
 Im vorigen Kapitel wurde die Definition einer Assembly bereits angedeutet. Eine Assembly wird gelegentlich auch als \textit{Assembly"=Composition} bezeichnet. An dieser Stelle sollen die Eigenschaften zusammengefasst dargestellt werden.
 
 \begin{itemize}
-	\item Eine Assembly fasst eine Menge von Komponenten und die dazugehörigen "`äußeren"' Assembly"=Konnektoren, die in Kontexten liegen, zusammen. Als "`äußere"' Assembly"=Konnektoren gelten dabei jene, die innerhalb keiner Komponente liegen.
-	\item Die Komponenten im Inneren einer Assembly sind nicht auf eine bestimmte Komponenten"=Typ"=Ebene beschränkt. Zur gleichen Zeit dürfen auch Komponenten unterschiedlicher Typ"=Ebenen auftreten.
+	\item Eine Assembly fasst eine Menge von Kontext"=Komponenten (\texttt{1..*}) und die dazugehörigen "`äußeren"' Assembly Konnektoren zusammen. Als "`äußere"' Assembly"=Konnektoren gelten dabei jene, die innerhalb keiner Komponente liegen. Die Assembly darf keine Komponenten außerhalb von Kontexten ("`Komponenten"=Typ"') enthalten. 
+	\item Die Kontext"=Komponenten im Inneren einer Assembly sind nicht auf Kontext"=Instanzen einer bestimmten Komponenten"=Typ"=Ebene beschränkt. Zur gleichen Zeit dürfen auch Kontext"=Komponenten unterschiedlicher Typ"=Ebenen auftreten.
 	\item Erst innerhalb einer Assembly darf Assembly"=Konnektoren zwischen Komponenten geben, die innerhalb keiner weiteren \textit{Composite Component} liegen. Das bedeutet, dass Assembly"=Konnektoren oberhalb der Assembly"=Ebene lediglich innerhalb von \textit{Composite Components} verwendet werden dürfen.
 	\item Assemblies werden von \textit{System"=Deployer}n verwendet. Die für diese Zielgruppe definierte Sicht blendet dabei das Innere von \textit{Composite Components} aus. In der Folge kann ein \textit{System"=Deployer} bei der Allokation Composite Components nicht auf verschiedene Ressourcen verteilen, da sich diese Komponente keine für ihn identifizierbaren Sub"=Komponenten besitzt, die sich einzeln ansprechen ließen. 
 	\item	Entwickler erzeugen und definieren Assemblies. Für diese Zielgruppe ist das Innere von \textit{Composite Components} sichtbar. Dieser Gruppe steht mit Assemblies eine Mittel zur Verfügung, mit dem sie festlegen können, wie eine Komponentenarchitektur außerhalb von Composite Components realisiert werden soll. Eine Assembly stellt damit eine Gesamtarchitektur und ein Softwaresystem dar, die durch Entwickler erzeugt werden.
+	\item Nicht alle Komponenten einer Modell"=Instanz müssen Teil in einer Assembly erfasst werden. Die Assembly stellt somit eine Auswahl dar.
 \end{itemize}
 
 Zu einem Zeitpunkt kann nur genau eine Assembly im Modell allokiert werden. Pro Ausführungsumgebung kann genau eine Assemly oder ein Teil einer Assembly (bei Verteilung über verschiedene Ressourcen) allokiert werden.
