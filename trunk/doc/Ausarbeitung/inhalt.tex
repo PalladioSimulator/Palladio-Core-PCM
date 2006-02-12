@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.99  2006/02/12 15:04:28  kelsaka
+% - Annotationen um Alternativen ergänzt
+%
 % Revision 1.98  2006/02/12 14:49:26  kelsaka
 % - IDs im Bezug auf Kontext überarbeitet
 %
@@ -1235,7 +1238,13 @@ Zusätzlich können auch SEFFs und Protokolle Annotationen verwenden. Da die Typen
 
 
 \paragraph{Alternativen}
-annotationen können nur genau einer entität zugeordnet werden. Alternative, aber nicht begangene Wege: Annotationen vererben nicht auf untergeordnete Objekte ODER Annotationen sind zu n Entitäten möglich: Globale Werte können definiert werden.
+Annotation können derzeit nur genau einer Entität zugeordnet werden. Für das Komponentenmodell sind für die Zukunft zwei Alternativen nicht ausgeschlossen:
+\begin{enumerate}
+	\item Annotationen sind weiterhin nur genau einer Komponente zugeordnet, können sich jedoch rekursiv auf untergeordnete Entitäten vererben. Die rekursive Vererbung ist ohnehin (siehe oben) entlang der Komponenten"=Typ"=Hierarachie vorgesehen. Die Erweiterungen würden Annotationen einer \textit{Composite Component} auf alle inneren Komponenten vererben. Eigenschaften einer Assembly würden sich auf die Entitäten in der Assembly übertragen.
+	\item Annotationen könnten alternativ zu \texttt{n} Entitäten zugelassen werden. Damit könnten sich unterschiedliche Entitäten die gleichen Annotationen teilen. Zudem ermöglicht diese Variante die Definition globaler Werte, die für eine gesamte Komponentenmodell"=Instanz gelten. Dies kann von konkreten Ausfallwahrscheinlichkeiten bis hin zu globalen Zeit"=Multiplikatoren reichen.
+\end{enumerate}
+
+Beiden Ansätzen ist gemein, dass mehrfach benötigte Werte nicht redundant vorgehalten werden müssen. Damit werden zusätzlich Inkonsistenzen zwischen Annotationen verhindert.
 
 
 
@@ -1453,8 +1462,6 @@ Derzeit wird gefordert, dass untereinander erbende Schnittstellen die Semantik e
 
 Die Überprüfung von Semantik wäre in jedem Fall die Aufgabe von Validierungs"=Algorithmen. Gleichwohl ist die Überprüfung bis dato nicht möglich, da Modellkonstrukte zur Speicherung von Semantik fehlen. Die Erfassung von Semantik über Annotationen ist derzeit nicht möglich, da zu Diensten keine Annotationen vergeben werden können. Zudem ist die Notation von Semantik weder standardisiert noch evaluiert.
 
-\subsubsection{Test}
-Text
 
 
 \section{Ausblick auf die Entwicklung}
