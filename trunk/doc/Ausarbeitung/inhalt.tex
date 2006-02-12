@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.100  2006/02/12 15:17:40  kelsaka
+% - inhalt: modellierung in inhalt2 ausgegliedert
+%
 % Revision 1.99  2006/02/12 15:04:28  kelsaka
 % - Annotationen um Alternativen ergänzt
 %
@@ -1420,6 +1423,8 @@ Die skizzierte Situation kann eintreten, wenn "`CC2"' als \textit{Complete Type}
 
 Das skizzierte Szenario ist stark konstruiert und kann nur in speziellen Situationen auftreten. Insbesondere bei der \textit{Bottom"=Up}"=Verwendung des Komponentenmodells sind Rekursionen ausgeschlossen, da hier stets ein funktionierender \textit{Implementation Type} vorliegt. Dennoch läßt sich eine solche Rekursion auch im Speziellen Fall erkennen. Setzt man voraus, dass alle Komponenten vor der Verwendung in einer Assembly vollständig mit allen inneren Komponenten als \textit{Implementation Type} offen liegen müssen, lässt sich eine Rekursion erkennen, vermeiden oder als Fehler einer Validierung ausgeben.
 
+(Infinite) Rekursionen von Komponenten sind im Komponentenmodell verboten.
+
 
 
 \subsection{Stimulus-Response-Mechanismus}
@@ -1482,9 +1487,16 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 \newpage
 ---------------------------------------------------------------------
 
+\begin{verbatim}
+############################################
+############################################
+############################################
+############################################
+############################################
+\end{verbatim}
+
 \textbf{TODO:}
 
-\begin{verbatim}
 Delagationskonnektor / Delegations"=Konnektor / Delegations-Konnektor einheitlich schreiben
 
 intern in implementation type --> kontext-komp + kontext-rollen
@@ -1493,135 +1505,8 @@ sub-typ prüfung nur rudimentär bestandteil des CMs. alles andere teil von validi
 
 Abb. 21 rechts (zwei Required Interfaces benutzen ein Provided Interface) ist erlaubt. 
 
-assembly muss nicht alle komps. eines modells enthalten.
-
-was genau enthalten CCs? - Kontext-Komps + Konnektoren. Rollen nicht?
-
 nur assembly konnektors und *context* comp können deployed werden
 
-Ergebnisteil:
-- Prüfung, ob Assembly Konnektoren erlaubt sind (außerhalb von CCs) nur über Constraints möglich.
-
-- GUID können in UML2 nicht als Identifier gekennzeichnet werden. Erst in Ecore ist isID-Attribut verfügbar. Dann auch Verwendung der GUID in Serialisierung. --> GUID aus Diagramm raus, da später über isID-Attribut gekennzeichnet wird.
-
-- GUIDs wirklich für Modellierung in EMF erforderlich? Automatisch bei der Serialisierung wird aber lediglich relative Referenz auf andere Entitäten gesetzt. Intern erfolgt Referenzierung trotz Einführung von GUID nicht über GUIDs. --> ansonsten schwer modellierbar. --> Einführung typisierter GUIDs notwendig.
-
-
-Kontext:
-- Komponenten und Rollen jeweils als Kontext-Instanz
-- Konnektoren verbinden *Kontext*-Rollen miteinander
-- Allokation erfolgt: Kontext-Komponente - Calc Ressource
-- Allokation: Konnektor - con calc resource (Konnektor auf Kontext-Rollen definiert, daher insgesamt kontextabhängig)
-- Innere Komponenten und Konnektoren von CCs sind kontext-bezogen
---> Änderungen der Konzepte des CMs werden bereits in Kapitel CM erfasst.
-
-Ziel der Modellierung: möglichst viele Konzepte ohne Constraints in Modellkonstrukten unterbringen. --> intuitiveres und sichereres Modellieren.
-\end{verbatim}
-
-
-Spätere TODOs:
-- Vergleich des Editor mit Palladio Editor
-- Generierung von Java-Code aus UML: Schema / Ideen, siehe NileshThesis.pdf
 
 ---------------------------------------------------------------------
-
-
-
-
-\newpage
-\chapter{ALT}
-
-
-
-\section{Fragestellungen}
-\label{sec:Fragestellungen}
-Der Diplomarbeit liegen unter anderem die folgenden Fragestellungen zu Grunde:
-\begin{itemize}
-	\item Widersprechen sich Modellierungskonzepte des Palladio Komponentenmodells? Sind Einschränkungen des Komponentenmodells erkennbar? Wurden auf Grund fehlender formaler Manifestierung des Modells Unvollständigkeiten übersehen? Welche Semantik verbirgt sich hinter spezifischen Modellierungskonstrukten?
-	\item Das Palladio Komponentenmodell ist zu kleinen Teilen nur implizit in den Köpfen der Mitglieder der Palladio-Gruppe vorhanden. Gibt es Widersprüche in den impliziten Annahmen?
-	\item Welche der konzeptionellen Aspekte des Palladio Komponentenmodells lassen sich mit den gewählten Hilfsmitteln wie UML, ECORE, EMF und anotiertem Java abbilden?
-	\item Welche Aspekte lassen sich nicht abbilden und aus welchen Gründen scheitert diese Abbildung. Welche Einschränkungen gelten für UML, ECORE, EMF und anotiertem Java? Welche Erweiterungen der (Abbildungs-) Modelle müssten vorgenommen werden.
-	\item Welche Wege bieten sich zur Modellierung an? Welche Alternativen gibt es bei der Modellierung? Aus welchen Gründen wurden welche Alternativen gewählt? Gibt es gleichwertige Alternativen oder widersprüchliche Herangehensweisen?
-	\item Wie lassen sich variable Zusatzattribute im Meta-Modell unterbringen und wie finden sich diese Zusatzattribute im generierten Modell-Code bzw. einem Modell-Editor wieder?
-	\item Welche technologischen und konzeptionellen Einschränkungen bringen die verwendeten Generatoren und Transformatoren mit sich?
-\end{itemize}
-
-
-
-\section{Annahmen}
-\label{sec:Annahmen}
-
-
-\begin{itemize}
-	\item UML, ECORE, EMF und anotiertes Java müssen mächtig genug sein, um darin alle Konzepte des Palladio Komponentenmodells abzubilden.
-	\item Um die bereits angesprochenen variablen Zusatzattribute zu Modell-Entitäten zu ermöglichen, ist es notwendig, dass dies durch die Meta-Modellierung auf den folgenden Ebenen unterstützt wird: UML, ECORE, EMF und anotiertem Java. Für UML bedeutet dies, dass das Meta-Modell für ein gegebenes Zusatzattribut dynamisch vom Kern-Meta-Modell (Meta-Modell ohne Zusatzattribute) referenziert werden kann.
-	\item Ferner wird angenommen, dass der zu verwendende Generator von EMF ausreichend mächtig ist, um alle Aspekte des Palladio Komponentenmodells in anotiertem Java abzubilden.
-	\item Die Möglichkeiten die Transformationen von GMF eigenen Bedürfnissen anzupassen müssen ausreichend groß sein, um einen den Benutzerbedürfnissen entsprechenden Editor generieren zu können.
-	\item Wie bereits angesprochen, muss davon ausgegangen werden, dass der in Kapitel ref{TODO:sec:Gesamtprozess} skizzierte Prozess in mehreren Iterationen (insbesondere auf Grund der "`konzeptionellen Variabilität"' des Palladio Komponentenmodells) durchlaufen werden muss. Da nicht davon ausgegangen werden kann, dass jegliche generierten Modelle und Code ohne manuelle Nachpflege verwendet werden können, ergibt sich zwingend die Anforderung, dass der EMF-Generator und auch GMF funktionierende "`Merge"'-Mechanismen implementieren, die verschiedene Modellversionen (zumindest nach kleineren Änderungen) unter Erhaltung manueller Änderungen zusammenführen können. Nur mit einem solchen Mechanismus lässt sich der iterative Prozess sinnvoll durchführen.
-	
-	Zum Zeitpunkt der Niederschrift dieses Proposals wird ein solcher Merge"=Mechanismus von Merlin nicht unterstützt.
-\end{itemize}
-
-Sind nicht alle hier dargestellten Annahmen erfüllt, hat dies direkte Auswirkungen auf die Umsetzung der Diplomarbeit. Daher sind die hier genannten Annahmen auch im Zusammenhang mit den Risiken zur Umsetzung der Diplomarbeit (siehe Kapitel \ref{sec:Risikomanagement}) zu sehen.
-
-
-
-\section{Fehlerquellen}
-\label{sec:Fehlerquellen}
-TODO
-
-
-
-\section{Einschränkungen}
-\label{sec:Einschraenkungen}
-
-
-
-Im Rahmen der Diplomarbeit ist \textit{nicht} geplant, einen vollständigen, industriellen Standards genügenden, GUI-Editor für das Palladio Komponentenmodell zu erzeugen. Im Vordergrund steht die Modellierung der EMF-Darstellung des dem Editor als Basis dienenden Komponenten-Meta-Modells und die Erprobung möglicher Wege zur Generierung eines vollständigen Editors.
-
-
-
-\section{Risikomanagement}
-\label{sec:Risikomanagement}
-
-
-
-Die Durchführung der Diplomarbeit unterliegt vielfältigen Risiken. Ändern sich Grundannahmen, wie in Kapitel \ref{sec:Annahmen} dargestellt, kann ein erfolgreicher Abschluss der Diplomarbeit gefährdet sein. Um Risiken zu minimieren werden an dieser Stelle für wahrscheinliche Risiken Auswege aufgezeigt.
-
-\paragraph{Konzeptioneller Wandel im Palladio Komponentenmodell} Wie bereits mehrfach in vorangegangenen Kapiteln erwähnt wurde, ist das Palladio Komponentenmodell aktiver Gegenstand von Forschungsarbeit. Damit verbunden ist das Risiko, dass sich Modell"=Konzepte ändern können, Modell"=Erweiterungen ergänzt werden und nicht mehr benötigte oder problematische Teile des Modells wegfallen können. Um das Risiko in diesem Bereich einzugrenzen, bieten sich zwei Strategien an:
-\begin{enumerate}
-	\item Wird die Version des Komponentenmodells für die Diplomarbeit eingefroren, kommen konzeptionelle Änderungen in der Diplomarbeit nicht zum Tragen. Dieser Ansatz birgt jedoch die Gefahr, dass die Modellversionen in der Diplomarbeit und der realen Entwicklung stark divergieren.
-	\item Änderungen am Komponentenmodell können genau beobachtet werden und nur wenn Änderungen als unkritisch eingestuft werden, fließen sie in die Diplomarbeit ein. Dies hat den Vorteil, dass das Meta-Modell aus der Diplomarbeit stärker dem realen Stand entspricht.
-\end{enumerate} 
-
-\paragraph{Annahmen nicht erfüllt} Sind Annahmen, die in Kapitel \ref{sec:Annahmen} festgestellt wurden, nicht erfüllt, sind hiermit die größten Projektrisiken verbunden. Je nachdem, zu welchem Zeitpunkt im Prozess die nicht erfüllten Annahmen zum Tragen kommen, ist anzunehmen, dass die Erfüllung aller späteren Teile des Prozesses nur noch unwahrscheinlich ist. Das bedeutet, dass Abstriche im Umfang der Diplomarbeit zu erwarten sind. Um diesen Ausfall abzumildern, könnten beispielsweise für die verwendeten Modelle und Werkzeuge Alternativ-Produkte verwendet werden.
-
-\paragraph{Verfügbarkeit verwendeter Werkzeuge} Sollten im Rahmen der Diplomarbeit verwendete Werkzeuge nicht mehr verfügbar sein (etwa aus Gründen von Lizenzproblemen), sollte versucht werden, geeignete Alternativen zu finden und zu verwenden. Insbesondere im Falle von GMF baut die Diplomarbeit darauf, dass dieses Werkzeug, wie in der Vergangenheit, weiterentwickelt wird. Da hinter GMF maßgeblich IBM und Borland mit professionellen, bezahlten Entwicklern stehen, ist es notwendig, dass diese Firmen weiterhin Interesse an der Entwicklung haben und keinen strategischen Wechsel vollziehen. Zudem ist die Diplomarbeit davon abhängig, dass das Projekt ausreichend schnell voranschreitet und in einen stabilen Zustand gelangt.
-
-Sollten Probleme mit GMF auftreten, bietet sich ein Rückgriff auf Merlin oder die bis dahin letzte stabile Entwicklerversion an.
-
-\paragraph{Vertikaler Prototyp}
-Zur weiteren prophylaktischen Minimierung von Risiken wurde bereits erfolgreich (wenn auch mit gewissen Einschränkungen) ein vertikaler Prototyp unter Verwendung von Merlin erzeugt. Als einer der ersten Schritte der Diplomarbeit ist ein weiterer vertikaler Prototyp geplant, der später auch Basis darauf folgender Iterationen sein wird. Dieser soll GMF verwenden und variable Zusatzattribute testen.
-
-
-
-
-\section{Zeitplanung}
-\label{sec:Zeitplanung}
-Zeitplanung in der Retrospektive
-
-
-
-
-
-
-%____________________________________________________________________________________________________________
-%____________________________________________________________________________________________________________
-%____________________________________________________________________________________________________________
-%
-% "`Hineinlinken"' von Zusatzinformationen in UML muss möglich sein. Zunächst Linking und Referenzieren ausprobieren.
-%
-% Wichtig: Trennung von Shapes und Entitäten
-%
-% KM3 Eclipse --> Ascii-Repräsentation
 
