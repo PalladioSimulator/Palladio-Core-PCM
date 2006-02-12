@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.98  2006/02/12 14:49:26  kelsaka
+% - IDs im Bezug auf Kontext überarbeitet
+%
 % Revision 1.97  2006/02/12 14:21:00  kelsaka
 % - Kapitel Kontext überarbeitet - vollständig
 %
@@ -1162,7 +1165,7 @@ In den graphischen Darstellungen dieses Kapitels wurden die Kontexte hervorgehob
 
 Abbildung \ref{fig:cm-component-hierarchy-context-01} (Seite \pageref{fig:cm-component-hierarchy-context-01}) erfasst die bereits in vorangehenden Kapiteln definierten Komponenten"=Typ"=Ebenen, die Assembly, die Allokation (\textit{Allocation}) und die Laufzeit (\textit{Runtime}) in einer Graphik. Letztere Ebene ist im Komponentenmodell bisher lediglich angedacht, jedoch noch nicht umgesetzt. Weitere Informationen hierzu finden sich in Kapitel \ref{sec:AusblickaufdieEntwicklung}, Seite \pageref{sec:AusblickaufdieEntwicklung}.
 
-Je tiefer eine Ebene in der Graphik dargestellt ist, desto detailreicher müssen die Komponenten"=Typen definiert werden, entsprechend sind mehr Informationen über die Komponenten definiert. In umgekehrter Richtung nach oben werden die Komponenteninformationen abstrakter und kommen damit einer Grob"=Modellierung von Komponentenarchitekturen entgegen.
+Je tiefer eine Ebene in der Graphik dargestellt ist, desto detailreicher können die Komponenten"=Typen definiert werden, entsprechend sind mehr Informationen über die Komponenten auf den niederen Ebenen definiert. In umgekehrter Richtung nach oben werden die Komponenteninformationen abstrakter und kommen damit einer Grob"=Modellierung von Komponentenarchitekturen entgegen.
 
 Ein Implementation Type kann ich \texttt{0..*} Assemblies erfasst werden und zu einer Assembly können \texttt{0..*} Allokationen definiert werden.
 
@@ -1173,7 +1176,7 @@ Ein Implementation Type kann ich \texttt{0..*} Assemblies erfasst werden und zu 
 
 
 
-Alle Entitäten des Komponentenmodells tragen einen eindeutige Bezeichner (ID). Werden in Relationen andere Entitäten referenziert, erfolgt diese Referenzierung stets über die IDs der Entitäten, damit an keiner Stelle die Relationen des Komponentenmodells mehrdeutig sein können.
+Alle Entitäten des Komponentenmodells tragen einen eindeutigen Bezeichner (ID). Werden in Relationen andere Entitäten referenziert, erfolgt diese Referenzierung stets über die IDs der Entitäten, damit an keiner Stelle die Relationen des Komponentenmodells mehrdeutig sein können.
 
 Bieten beispielsweise zwei Komponenten mit dem gleichen Namen "`Component"' die gleiche Schnittstelle "`InterfaceP"' an und benötigen gleichermaßen die Schnittstelle "`InterfaceR"' sind sie als \textit{Complete Type} über keine weiteren Merkmale zu unterscheiden. Daher werden sie zusätzlich mit einem eindeutigen Bezeichner / ID versehen, um unterscheidbar zu sein.
 
@@ -1188,13 +1191,14 @@ In Implementierungen des Komponenten"=Meta"=Modells muss sich das ID"=Konzept wi
 Die folgenden Entitäten (respektive Typen von Entitäten) tragen IDs; die ID"=Typen unterscheiden sich entsprechend:
 
 \begin{itemize}
-	\item Komponenten"=Typen (je Typ"=Ebene eine eigener ID"=Typ). Jeder Komponenten"=Typ einer Typ"=Ebene lässt sich damit von anderen unterscheiden. Wird ein Komponenten"=Typ verfeinert, so tragen auch jene Komponenten, die untereinander in einer \textit{conforms}"=Beziehung stehen, unterschiedliche IDs.
-	\item Schnittstellen. Jede Schnittstelle unterscheidet sich von jeder anderen über die ID, auch wenn die Schnittstellen ansonsten vollkommen identisch sind (bspw. exakt die gleichen Signaturen tragen). Ausnahmen sind jedoch unter bestimmten Bedingungen möglich: Werden, wie beispielsweise in einer \textit{Chain"=of"=Responsibility} (vgl. \cite{GAMMA}, S. 410ff) üblich, in einer Kette von Komponenten stets die gleichen Schnittstellen angeboten und benötigt, so kann aus Gründen der Übersichtlichkeit und muss auch Gründen der Eindeutigkeit der Zuordnung direkt miteinander verknüpfter Komponenten, die \textit{gleiche} Schnittstelle mehrfach verwendet werden. An dieser Stelle muss einem Entwickler eindeutig klar sein, dass tatsächlich die gleiche Schnittstelle verwendet.
+	\item Kontext. Jeder Kontext trägt eine eigene ID. Zu jeder Verwendung einer Komponente entsteht ein Kontext mit neuer ID. Kontext"=IDs können unter keinen Umständen mehrfach auftreten.
+	\item Komponenten"=Typen (je Typ"=Ebene eine eigener ID"=Typ). Jeder Komponenten"=Typ einer Typ"=Ebene lässt sich damit von anderen unterscheiden. Wird ein Komponenten"=Typ verfeinert, so tragen auch jene Komponenten, die untereinander in einer \textit{conforms}"=Beziehung stehen, unterschiedliche IDs. Kontext"=Komponenten unterscheiden sich untereinander über die ID des Kontexts, in dem sie liegen. Da jeder Kontext nur genau eine Kontext"=Komponente enthält, ist eine Kontext"=Komponente eindeutig identifiziert.
+	\item Schnittstellen. Jede Schnittstelle unterscheidet sich von jeder anderen über die ID, auch wenn die Schnittstellen ansonsten vollkommen identisch sind (bspw. exakt die gleichen Signaturen tragen). Ausnahmen sind jedoch unter bestimmten Bedingungen möglich: Werden, wie beispielsweise in einer \textit{Chain"=of"=Responsibility} (vgl. \cite{GAMMA}, S. 410ff) üblich, in einer Kette von Komponenten stets die gleichen Schnittstellen angeboten und benötigt, so kann aus Gründen der Übersichtlichkeit in der Darstellung und muss auch Gründen der Eindeutigkeit der Zuordnung direkt miteinander verknüpfter Komponenten, die \textit{gleiche} Schnittstelle mehrfach dargestellt und verwendet werden. An dieser Stelle muss einem Entwickler eindeutig klar sein, dass tatsächlich die gleiche Schnittstelle verwendet.
 	\item TODO: Seffs? Protokolle? Signatur? (wird im Zusammenhang mit der Modellierbarkeit in EMF geklärt)
-	\item Konnektoren. Die IDs von Konnektoren müssen sich unterscheiden, wenn sich die IDs der verbundenen Schnittstellen unterscheiden. Zusätzlich müssen sich die IDs der Konnektoren unterscheiden, wenn die Rollen, über die die Schnittstellen assoziiert werden, andere sind. Damit resultieren unterschiedliche Rollen über die Schnittstelle in unterschiedlichen IDs von Konnektoren. 
+	\item Konnektoren. Die IDs von Konnektoren müssen sich unterscheiden.
+	\item Rollen. Jede Rolle hat eine eigene ID. Jede Kontext"=Rolle hat eine von der "`normalen"' Rolle und untereinander verschiedene ID. 
 	\item Ressourcen. IDs von Ressourcen müssen sich unterscheiden, wenn die dahinter stehende Hardware oder Ausführungsumgebung eine andere ist. 
 	\item Assemblies. Jede Assembly mit unterschiedlichem Inneren trägt eine unterschiedliche ID. Auch Assemblies mit gleichen Inneren können eine unterschiedliche ID haben. Wird die gleiche Assembly auf verschiedene Ressourcen \textit{deployed}, ist die ID der Assembly die gleiche.
-	\item Kontexte. Jeder Kontext trägt eine eigene ID. Zu jeder Verwendung einer Komponente entsteht ein Kontext mit neuer ID. Kontext"=IDs können unter keinen Umständen mehrfach auftreten.
 	\item Annotationen. Annotationen selbst können über IDs referenziert werden. Zudem lassen sich Datentypen über ID identifizieren. Siehe hierzu auch Kapitel \ref{sec:Annotationen}.
 \end{itemize}
 
