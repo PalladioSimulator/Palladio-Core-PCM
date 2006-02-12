@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.96  2006/02/12 13:50:10  kelsaka
+% - Kapitel Kontext überarbeitet
+%
 % Revision 1.95  2006/02/12 09:55:38  kelsaka
 % - weitere überarbeitung
 %
@@ -1076,7 +1079,7 @@ Abbildung \ref{fig:cm-assembly-to-cc-01} beschreibt die Umwandlung einer Assembl
 In Abbildung \ref{fig:cm-component-hierarchy-context-01} werden alle Ebenen des Komponentenmodells aufgezeigt. Wichtig ist die Unterscheidung der obersten drei Ebenen von der vierten (Assembly) und fünften (Allokation) Ebene.
 
 \begin{itemize}
-	\item \textit{Provided Type}, \textit{Complete Type} und \textit{Implementation Type} definieren jeweils Komponenen"=Typen auf verschieden Detail"=Niveaus, sie beschreiben Typen von Komponenten ("`Component Type Composition"'). Kompositions"=Strukturen sind nur innerhalb von Komponenten möglich. In Analogie zur objektorientierten Programmierung, werden Typen über Klassen festgelegt, die vorgegebenen Regeln folgen. Betrachtet man die Erstellung und Verfeinerung von Komponenten"=Typen als Prozess, so liegt am Ende des Prozesses eine ungeordnete Menge von Komponenten vor, die einer Verwendung harren.
+	\item \textit{Provided Type}, \textit{Complete Type} und \textit{Implementation Type} definieren jeweils Komponenen"=Typen auf verschieden Detail"=Niveaus, sie beschreiben Typen von Komponenten ("`Component Type Composition"'). Kompositions"=Strukturen sind nur innerhalb von Komponenten möglich. In Analogie zur objektorientierten Programmierung, werden Typen über Klassen festgelegt, die vorgegebenen Regeln folgen. Betrachtet man die Erstellung und Verfeinerung von Komponenten"=Typen als Prozess, so liegt am Ende des Prozesses eine ungeordnete Menge von Komponenten vor, die einer Verwendung harren. Die Menge definierter Komponenten"=Typen kann als Komponenten"=\textit{Repository} interpretiert werden.
 
 	\item Assembly und Allokation sowie das Innere von \texttt{Implementation Types} erlauben es hingegen Kompositions"=Strukturen zwischen Komponenten zu definieren ("`Inter Component Composition"'). Komponenten können über die Assembly und Allokation "`verwendet"' werden. In Analogie zum Klassen"=Beispiel, werden die Komponenten"=Typen zu Instanzen. Die zuvor definierten Komponenten"=Typen werden verwendet und über Assembly"=Konnektoren untereinander verbunden. Damit werden auf diesen Ebenen Komponentenarchitekturen definiert.
 \end{itemize}
@@ -1091,22 +1094,22 @@ Im vorigen Kapitel wurde die \textit{Verwendung} von Komponenten"=Typen gegenübe
 
 \begin{figure}[htbp]
 	\centering
-		\includegraphics[width=1.00\textwidth]{./image/cm-context-01.pdf}
-	\caption{Komponente "`C1"' in zwei unterschiedlichen Kontexten (nach \cite{PalladioCMNeuSlides}, S. 31)}
-	\label{fig:cm-context-01}
+		\includegraphics[width=1.00\textwidth]{./image/cm-context-repository-usage-01.pdf}
+	\caption{Unterscheidung von Komponenten"=Typ und Komponenten"=Kontext}
+	\label{fig:cm-context-repository-usage-01}
 \end{figure}
 
 
 
 \paragraph{Idee}
-Einer der neuesten Begriffe des Palladio Komponentenmodells, im Vergleich mit den Vorversionen, ist der Begriff des Kontexts (\textit{Context}). Abbildung \ref{fig:cm-context-01} zeigt, dass wie sich ein Kontext definiert. Im Beispiel kommt die Komponente "`C1"' als Kopie in zwei unterschiedlichen Kontexten vor. Zum einen (in "`Context 2"') ist sie mit "`C0"' auf der \textit{Provides}"=Seite und "`C2"' auf der \textit{Requires}"=Seite verbunden, zum anderen (in "`Context 1"') ist sie auf der \textit{Provides}"=Seite mit "`Master"' und auf der \textit{Requires}"=Seite mit "`C3"' verbunden. Um exakt definieren zu können, welche Verwendung von "`C1"' bzw. einer Komponente im Allgemeinen gemeint ist, wird der Kontext eingeführt, der beschreibt, mit welchen anderen Komponenten eine Komponente verbunden ist.
+Einer der neuesten Begriffe des Palladio Komponentenmodells, im Vergleich zu den Vorversionen, ist der Begriff des Kontexts (\textit{Context}). Abbildung \ref{fig:cm-context-repository-usage-01} zeigt, wie sich ein Kontext definiert. Im Beispiel kommt die Komponente "`C1"' als Kopie bzw. Instanz in zwei unterschiedlichen Kontexten vor. Zum einen (in "`Context 1"') ist sie mit "`C0"' auf der \textit{Provides}"=Seite und "`C2"' auf der \textit{Requires}"=Seite verbunden, zum anderen (in "`Context 2"') ist sie auf der \textit{Provides}"=Seite mit "`Master"' und auf der \textit{Requires}"=Seite mit "`C3"' verbunden. Um exakt definieren zu können, welche Verwendung von "`C1"' bzw. einer Komponente im Allgemeinen gemeint ist, wird der Kontext eingeführt, der beschreibt, wie eine Komponente verwendet wird (auch "`Kontext"=Komponente"'), also mit welchen anderen Komponenten eine Komponente verbunden ist. Der Kontext identifiziert eindeutig den Ort der Verwendung.
 
 Der gerade skizzierte Begriff des Kontexts bezieht sich auf das Vorkommen von Komponenten in Assemblies und die Kompositionsstruktur. Neben dieser Bedeutung definiert das Komponentenmodell den Kontext ebenfalls für Allokationen. Wird eine Komponente auf der Allokationsebene betrachtet, liegt die Komponente in einem Kontext, der auch die verwendeten Ressourcen erfasst.
 
 
 
-\paragraph{Definition}
-Komponenten können nie ohne Kontext auftreten. Wichtig ist zu beachten, dass Komponenten in einem Kontext liegen, Komponenten also einen Zeiger auf den Kontext haben, in dem sie liegen. Zu jeder Komponente existiert \textit{implizit} ein Kontext. Da jeder Kontext eindeutig ist (siehe Kapitel \ref{sec:Identitaet}), kann eine Komponente -- beispielsweise der Assembly"=Ebene -- auf der gleichen Hierarchie"=Stufe mehrfach vorkommen, ihre Verwendung bleibt jedoch automatisch eindeutig über den Kontext.
+\paragraph{Identifikation}
+Komponenten können nie ohne Kontext verwendet werden. Wichtig ist zu beachten, dass Komponenten \textit{in} einem Kontext liegen, Komponenten also einen Zeiger auf den Kontext haben, in dem sie liegen. Zu jeder Komponente, die außerhalb der Definition des Komponenten"=Typen im \textit{Repository} existiert, gibt es \textit{implizit} ein Kontext. Da jeder Kontext eindeutig ist (siehe Kapitel \ref{sec:Identitaet}), kann eine Komponente -- beispielsweise der Assembly"=Ebene -- auf der gleichen Hierarchie"=Stufe mehrfach vorkommen, ihre Verwendung bleibt automatisch eindeutig über den Kontext.
 
 
 
@@ -1119,8 +1122,17 @@ Komponenten können nie ohne Kontext auftreten. Wichtig ist zu beachten, dass Kom
 
 
 
-In Abbildung \ref{fig:cm-context-A-B-01} wird "`Component A"' zweifach verwendet. Da es sich um die gleiche Komponente handelt, ließen sich die Verwendungen nicht unterscheiden. Über den Kontext gelingt jedoch die Unterscheidung. Die linke Komponente liegt in "`Context A"', die rechte Komponente in "`Context B"'. Da der Kontext implizit vorhanden ist, bleibt die Verwendung der gleichen Komponenten in jedem Fall eindeutig.
+In Abbildung \ref{fig:cm-context-A-B-01} wird "`Component A"' zweifach verwendet. Da es sich um den gleiche Komponenten"=Typ handelt, ließen sich die Verwendungen nicht unterscheiden. Über den Kontext gelingt jedoch die Unterscheidung. Die linke (Kontext"=)Komponente liegt in "`Context A"', die rechte (Kontext"=)Komponente in "`Context B"'. Da der Kontext implizit vorhanden ist, bleibt die Verwendung des gleichen Komponenten"=Typs in jedem Fall eindeutig.
 
+Im Kapitel über Konnektoren wurde definiert, dass Konnektoren stets \textit{Kontext}"=Rollen verbinden. Bisher wurden Kontext"=Rollen noch nicht näher betrachtet. Kontext"=Rollen unterscheiden sich von "`normalen"' Rollen lediglich durch den Ort ihrer Verwendung. Komponenten"=Typen sind mit "`normalen"' Rollen assoziiert. Kontext"=Komponenten sind mit Kontext"=Rollen assoziiert. Der Kontext, in dem eine Kontext"=Komponente und ihre Kontext"=Rollen liegen, muss der gleiche sein. Der Kontext wird durch die Kontext"=Komponente bestimmt. Alle assoziierten Kontext"=Rollen einer Kontext"=Komponente fallen automatisch in den gleichen Kontext wie die Kontext"=Komponente.
+
+Eine Kontext"=Komponente muss die die gleichen Kontext"=Rollen anbieten und benötigen, wie der Komponenten"=Typ "`normale"' Rollen anbietet und benötigt. Zwischen "`normalen"' Rollen und Kontext"=Rollen gibt es ebenso eine "`instance-of"' Beziehung wie zwischen Komponenten"=Typen und Kontext"=Komponenten. Kontext"=Rollen sind Instanzen "`normaler"' Rollen.
+
+Um die Unterscheidung zwischen \textit{Provided Roles} und \textit{Required Roles} zu erhalten, gibt \textit{Provided} Kontext"=Rollen und \textit{Required} Kontext"=Rollen.
+
+
+
+\paragraph{Definition}
 Wie in Abbildung \ref{fig:cm-component-hierarchy-context-01} zu sehen ist, kann ein Kontext unterschiedliche Detail"=Niveaus erfassen. Er ist definiert für:
 
 \begin{itemize}
