@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.97  2006/02/12 14:21:00  kelsaka
+% - Kapitel Kontext überarbeitet - vollständig
+%
 % Revision 1.96  2006/02/12 13:50:10  kelsaka
 % - Kapitel Kontext überarbeitet
 %
@@ -1108,11 +1111,6 @@ Der gerade skizzierte Begriff des Kontexts bezieht sich auf das Vorkommen von Ko
 
 
 
-\paragraph{Identifikation}
-Komponenten können nie ohne Kontext verwendet werden. Wichtig ist zu beachten, dass Komponenten \textit{in} einem Kontext liegen, Komponenten also einen Zeiger auf den Kontext haben, in dem sie liegen. Zu jeder Komponente, die außerhalb der Definition des Komponenten"=Typen im \textit{Repository} existiert, gibt es \textit{implizit} ein Kontext. Da jeder Kontext eindeutig ist (siehe Kapitel \ref{sec:Identitaet}), kann eine Komponente -- beispielsweise der Assembly"=Ebene -- auf der gleichen Hierarchie"=Stufe mehrfach vorkommen, ihre Verwendung bleibt automatisch eindeutig über den Kontext.
-
-
-
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.80\textwidth]{./image/cm-context-A-B-01.pdf}
@@ -1124,6 +1122,11 @@ Komponenten können nie ohne Kontext verwendet werden. Wichtig ist zu beachten, d
 
 In Abbildung \ref{fig:cm-context-A-B-01} wird "`Component A"' zweifach verwendet. Da es sich um den gleiche Komponenten"=Typ handelt, ließen sich die Verwendungen nicht unterscheiden. Über den Kontext gelingt jedoch die Unterscheidung. Die linke (Kontext"=)Komponente liegt in "`Context A"', die rechte (Kontext"=)Komponente in "`Context B"'. Da der Kontext implizit vorhanden ist, bleibt die Verwendung des gleichen Komponenten"=Typs in jedem Fall eindeutig.
 
+
+
+\paragraph{Definition}
+Komponenten können nie ohne Kontext verwendet werden. Wichtig ist zu beachten, dass Komponenten \textit{in} einem Kontext liegen, Komponenten also einen Zeiger auf den Kontext haben, in dem sie liegen. Zu jeder Komponente, die außerhalb der Definition des Komponenten"=Typen im \textit{Repository} existiert, gibt es \textit{implizit} ein Kontext. Da jeder Kontext eindeutig ist (siehe Kapitel \ref{sec:Identitaet}), kann eine Komponente -- beispielsweise der Assembly"=Ebene -- auf der gleichen Hierarchie"=Stufe mehrfach vorkommen, ihre Verwendung bleibt automatisch eindeutig über den Kontext.
+
 Im Kapitel über Konnektoren wurde definiert, dass Konnektoren stets \textit{Kontext}"=Rollen verbinden. Bisher wurden Kontext"=Rollen noch nicht näher betrachtet. Kontext"=Rollen unterscheiden sich von "`normalen"' Rollen lediglich durch den Ort ihrer Verwendung. Komponenten"=Typen sind mit "`normalen"' Rollen assoziiert. Kontext"=Komponenten sind mit Kontext"=Rollen assoziiert. Der Kontext, in dem eine Kontext"=Komponente und ihre Kontext"=Rollen liegen, muss der gleiche sein. Der Kontext wird durch die Kontext"=Komponente bestimmt. Alle assoziierten Kontext"=Rollen einer Kontext"=Komponente fallen automatisch in den gleichen Kontext wie die Kontext"=Komponente.
 
 Eine Kontext"=Komponente muss die die gleichen Kontext"=Rollen anbieten und benötigen, wie der Komponenten"=Typ "`normale"' Rollen anbietet und benötigt. Zwischen "`normalen"' Rollen und Kontext"=Rollen gibt es ebenso eine "`instance-of"' Beziehung wie zwischen Komponenten"=Typen und Kontext"=Komponenten. Kontext"=Rollen sind Instanzen "`normaler"' Rollen.
@@ -1132,18 +1135,23 @@ Um die Unterscheidung zwischen \textit{Provided Roles} und \textit{Required Role
 
 
 
-\paragraph{Definition}
+\paragraph{Identifikation}
 Wie in Abbildung \ref{fig:cm-component-hierarchy-context-01} zu sehen ist, kann ein Kontext unterschiedliche Detail"=Niveaus erfassen. Er ist definiert für:
 
 \begin{itemize}
-	\item \textbf{Implementation}. Es werden die Kompositionsstrukturen innerhalb von \textit{Composite Components} eindeutig. Zu den zu erfassenden Informationen gehören die im Kontext liegende Komponente mit allen angebotenen und benötigen Schnittstellen (Rollenbeziehung), die direkt auf diesen Schnittstellen definierten Konnektoren, sowie die Rollen die über die Konnektoren erreicht werden.
-	\item \textbf{Assembly}. Auf diesem Detail"=Niveau werden die Kompositionsstrukturen der Komponentenarchitektur eindeutig, da auch außerhalb von \textit{Composite Components} liegende Assembly Konnektoren erfasst werden. Zudem wird die Assembly berücksichtigt, in der ein Kontext liegt.
-	\item \textbf{Allokation}. Hier werden zusätzlich die Ressourcen (\textit{computational}, \textit{non"=computational}) über die \texttt{$\flqq$deployed-on$\frqq$}"=Relation und die Ausführungsumgebung eindeutig erfasst, auf denen die Komponenten und Konnektoren allokiert wurden.
+	\item \textbf{Implementation}. Es werden die Kompositionsstrukturen innerhalb von \textit{Composite Components} eindeutig. Da die inneren Assembly Konnektoren von Composite Components zwischen Kontext"=Rollen verbinden, erfolgt eine Verbindung zweier eindeutiger Kontexte. Eindeutig im Kontext sind somit: Kontext"=Komponenten, Kontex"=Rollen, Schnittstellenverwendung (über Rollen) und Assembly Konnektoren.
+	\item \textbf{Assembly}. Auf diesem Detail"=Niveau werden die Kompositionsstrukturen der Komponentenarchitektur eindeutig, da auch außerhalb von \textit{Composite Components} liegende Assembly Konnektoren erfasst werden.
+	\item \textbf{Allokation}. Hier werden zusätzlich die Ressourcen (\textit{computational}, \textit{non"=computational}) über die \texttt{$\flqq$deployed-on$\frqq$}"=Relation und die Ausführungsumgebung eindeutig erfasst, auf denen die Kontext"=Komponenten und Konnektoren allokiert wurden.
 	
 	Über Kontexte auf der Allokationseben lassen sich zusätzliche Eigenschaften erfassen, wie \textit{Concurrency}, \textit{Security}, Container"=Eigenschaften und Komponentenkonfiguration.
 \end{itemize}
 
 Das Ziel des dahinter liegenden Konzepts ist eine Möglichkeit zur Unterscheidung von Komponenteneigenschaften je nach ihrem konkreten Verwendungskontext. So kann die \textit{gleiche} Komponente ein unterschiedliches Verhalten je nach Kontext aufweisen, je nachdem, von welcher Komponente die benötigten Dienste einer Komponente erfüllt werden. Wird eine wenig performante, dafür aber hochgradig zuverlässige Komponente verwendet, oder eine hoch performante und wenig zuverlässige Komponente verwendet, variieren die QoS"=Werte einer nutzenden Komponente stark.
+
+
+
+\paragraph{Graphische Darstellung}
+In den graphischen Darstellungen dieses Kapitels wurden die Kontexte hervorgehoben eingezeichnet. Der Kontext sollte jedoch als immanente Eigenschaft von Kontext"=Komponenten und auch Kontext"=Rollen verstanden werden, der nur zur einfacheren Erkennbarkeit des Kontexts gezeichnet wird. Eine "`physische Ausprägung"' im Sinne eines Datencontainers hat ein Kontext jedoch nicht. 
 
 
 
