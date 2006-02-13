@@ -215,7 +215,7 @@
       </edges>
     </contents>
   </eAnnotations>
-  <ownedComment xmi:id="_PuUdoJy0EdqX-LqEpACX-A" body="Wrapper for Petri Nets (PetriNet).&#xD;&#xA;Wrapps Petr Nets for Protocols and Service Effect Specifications (SEFFs)." annotatedElement="_k0XrIJyEEdqN_b565_mSbQ">
+  <ownedComment xmi:id="_PuUdoJy0EdqX-LqEpACX-A" body="Wrapper for Petri Nets (PetriNet).&#xD;&#xA;Wrapps Petri Nets for Protocols and Service Effect Specifications (SEFFs)." annotatedElement="_k0XrIJyEEdqN_b565_mSbQ">
     <eAnnotations xmi:id="_PuakQJy0EdqX-LqEpACX-A" source="appliedStereotypes">
       <contents xmi:type="Default_0:Default__Documentation" xmi:id="_PuakQZy0EdqX-LqEpACX-A"/>
     </eAnnotations>
