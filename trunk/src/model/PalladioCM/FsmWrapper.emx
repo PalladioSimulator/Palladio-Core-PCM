@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--xtools2_universal_type_manager-->
-<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.ibm.com/xtools/1.5.0/Notation" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.0/Umlnotation" xmi:id="_Fj2vMJx8EdqN_b565_mSbQ" name="FsmWrapperProject" appliedProfile="_Fj2vNJx8EdqN_b565_mSbQ _FkJDEpx8EdqN_b565_mSbQ _FkJDFZx8EdqN_b565_mSbQ _FkJDGJx8EdqN_b565_mSbQ _FkJDG5x8EdqN_b565_mSbQ">
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.ibm.com/xtools/1.5.0/Notation" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.0/Umlnotation" xmi:id="_Fj2vMJx8EdqN_b565_mSbQ" name="FsmWrapperModel" appliedProfile="_Fj2vNJx8EdqN_b565_mSbQ _FkJDEpx8EdqN_b565_mSbQ _FkJDFZx8EdqN_b565_mSbQ _FkJDGJx8EdqN_b565_mSbQ _FkJDG5x8EdqN_b565_mSbQ">
   <eAnnotations xmi:id="_Fj2vMZx8EdqN_b565_mSbQ" source="uml2.diagrams">
     <contents xmi:type="notation:Diagram" xmi:id="_TRjY0Jx9EdqN_b565_mSbQ" type="Class" element="_Fj2vMJx8EdqN_b565_mSbQ" name="FsmWrapperDiagram">
       <children xmi:id="_dPC8sJx9EdqN_b565_mSbQ" targetEdges="_IpatwJyDEdqN_b565_mSbQ">
         <children xmi:id="_dPC8s5x9EdqN_b565_mSbQ" type="ImageCompartment">
-          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSM/FiniteStateMachine"/>
+          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSMModel/FiniteStateMachine"/>
           <layoutConstraint xmi:type="notation:Size" xmi:id="_dPC8tJx9EdqN_b565_mSbQ" width="1320" height="1320"/>
         </children>
         <children xmi:id="_dPC8tZx9EdqN_b565_mSbQ" type="Stereotype">
-          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSM/FiniteStateMachine"/>
+          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSMModel/FiniteStateMachine"/>
         </children>
         <children xmi:id="_dPC8tpx9EdqN_b565_mSbQ" type="Name">
-          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSM/FiniteStateMachine"/>
+          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSMModel/FiniteStateMachine"/>
         </children>
         <children xmi:id="_dPJDUJx9EdqN_b565_mSbQ" type="AttributeCompartment">
           <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dPJDUZx9EdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSM/FiniteStateMachine"/>
+          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSMModel/FiniteStateMachine"/>
         </children>
         <children xmi:id="_dPJDUpx9EdqN_b565_mSbQ" type="OperationCompartment">
           <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dPJDU5x9EdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSM/FiniteStateMachine"/>
+          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSMModel/FiniteStateMachine"/>
         </children>
         <children xmi:id="_dPJDVJx9EdqN_b565_mSbQ" visible="false" type="SignalCompartment">
           <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_dPJDVZx9EdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSM/FiniteStateMachine"/>
+          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSMModel/FiniteStateMachine"/>
         </children>
         <children xmi:id="_dPJDVpx9EdqN_b565_mSbQ" visible="false" type="StructureCompartment">
           <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_dPJDV5x9EdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSM/FiniteStateMachine"/>
+          <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSMModel/FiniteStateMachine"/>
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_dPC8sZx9EdqN_b565_mSbQ" showStereotype="Label"/>
-        <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSM/FiniteStateMachine"/>
+        <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSMModel/FiniteStateMachine"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dPC8spx9EdqN_b565_mSbQ" x="6360" y="9858"/>
       </children>
       <children xmi:id="_gCmCYJx9EdqN_b565_mSbQ" targetEdges="_WDI9YJyCEdqN_b565_mSbQ">
@@ -235,10 +235,10 @@
     <generalization xmi:id="_PUhT0JyDEdqN_b565_mSbQ">
       <general xmi:type="uml:Class" href="PalladioCM.emx#_1qN_0JJxEdqSSImFLKDkSg?PalladioCM/ServiceEffectSpecification"/>
     </generalization>
-    <ownedAttribute xmi:id="_Io2GAZyDEdqN_b565_mSbQ" name="finitestatemachine" association="_Io2GAJyDEdqN_b565_mSbQ" aggregation="composite">
-      <type xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSM/FiniteStateMachine"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Io2GBJyDEdqN_b565_mSbQ" value="-1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Io2GA5yDEdqN_b565_mSbQ"/>
+    <ownedAttribute xmi:id="_Io2GAZyDEdqN_b565_mSbQ" name="finiteStateMachine" association="_Io2GAJyDEdqN_b565_mSbQ" aggregation="composite">
+      <type xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSMModel/FiniteStateMachine"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Io2GBJyDEdqN_b565_mSbQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Io2GA5yDEdqN_b565_mSbQ" value="1"/>
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_Io2GAJyDEdqN_b565_mSbQ" memberEnd="_Io2GAZyDEdqN_b565_mSbQ _Io2GApyDEdqN_b565_mSbQ">

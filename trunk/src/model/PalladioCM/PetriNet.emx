@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--xtools2_universal_type_manager-->
-<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default_0="http:///Default_0.profile.uml2" xmlns:notation="http://www.ibm.com/xtools/1.5.0/Notation" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.0/Umlnotation" xsi:schemaLocation="http:///Default_0.profile.uml2 pathmap://UML2_MSL_PROFILES/Default.epx#_bA7Pc9WLEdiy4IqP8whjFA?Default/%3CEPackage%3E" xmi:id="_w-DIEJvnEdqN_b565_mSbQ" name="PetriNetProject" appliedProfile="_w-DIFJvnEdqN_b565_mSbQ _w-DIF5vnEdqN_b565_mSbQ _w-DIGpvnEdqN_b565_mSbQ _w-DIHZvnEdqN_b565_mSbQ _w-DIIJvnEdqN_b565_mSbQ">
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default_0="http:///Default_0.profile.uml2" xmlns:notation="http://www.ibm.com/xtools/1.5.0/Notation" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.0/Umlnotation" xsi:schemaLocation="http:///Default_0.profile.uml2 pathmap://UML2_MSL_PROFILES/Default.epx#_bA7Pc9WLEdiy4IqP8whjFA?Default/%3CEPackage%3E" xmi:id="_w-DIEJvnEdqN_b565_mSbQ" name="PetriNetModel" appliedProfile="_w-DIFJvnEdqN_b565_mSbQ _w-DIF5vnEdqN_b565_mSbQ _w-DIGpvnEdqN_b565_mSbQ _w-DIHZvnEdqN_b565_mSbQ _w-DIIJvnEdqN_b565_mSbQ">
   <eAnnotations xmi:id="_w-DIEZvnEdqN_b565_mSbQ" source="uml2.diagrams" references="_w-DIEpvnEdqN_b565_mSbQ">
     <contents xmi:type="notation:Diagram" xmi:id="_w-DIEpvnEdqN_b565_mSbQ" type="Class" name="PetriNetDiagram">
-      <children xmi:id="_zuvHAJvnEdqN_b565_mSbQ" sourceEdges="_LkgIMJxqEdqN_b565_mSbQ _L96GsJxqEdqN_b565_mSbQ _cmfzIJx2EdqN_b565_mSbQ _dsULsJx2EdqN_b565_mSbQ _epoIgJx2EdqN_b565_mSbQ" element="_zuiSsJvnEdqN_b565_mSbQ">
+      <children xmi:id="_zuvHAJvnEdqN_b565_mSbQ" sourceEdges="_cmfzIJx2EdqN_b565_mSbQ _dsULsJx2EdqN_b565_mSbQ _epoIgJx2EdqN_b565_mSbQ" element="_zuiSsJvnEdqN_b565_mSbQ">
         <children xmi:id="_zuvHA5vnEdqN_b565_mSbQ" type="ImageCompartment" element="_zuiSsJvnEdqN_b565_mSbQ">
           <layoutConstraint xmi:type="notation:Size" xmi:id="_zuvHBJvnEdqN_b565_mSbQ" width="1320" height="1320"/>
         </children>
@@ -23,68 +23,6 @@
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_zuvHAZvnEdqN_b565_mSbQ" showStereotype="Label"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zuvHApvnEdqN_b565_mSbQ" x="8904" y="954"/>
-      </children>
-      <children xmi:id="_Bal48JxqEdqN_b565_mSbQ" targetEdges="_LkgIMJxqEdqN_b565_mSbQ">
-        <children xmi:id="_Bal485xqEdqN_b565_mSbQ" type="ImageCompartment">
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_1qN_0JJxEdqSSImFLKDkSg?PalladioCM/ServiceEffectSpecification"/>
-          <layoutConstraint xmi:type="notation:Size" xmi:id="_Bal49JxqEdqN_b565_mSbQ" width="1320" height="1320"/>
-        </children>
-        <children xmi:id="_Bal49ZxqEdqN_b565_mSbQ" type="Stereotype">
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_1qN_0JJxEdqSSImFLKDkSg?PalladioCM/ServiceEffectSpecification"/>
-        </children>
-        <children xmi:id="_Bal49pxqEdqN_b565_mSbQ" type="Name">
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_1qN_0JJxEdqSSImFLKDkSg?PalladioCM/ServiceEffectSpecification"/>
-        </children>
-        <children xmi:id="_Bal495xqEdqN_b565_mSbQ" type="AttributeCompartment">
-          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Bal4-JxqEdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_1qN_0JJxEdqSSImFLKDkSg?PalladioCM/ServiceEffectSpecification"/>
-        </children>
-        <children xmi:id="_BbEaEJxqEdqN_b565_mSbQ" type="OperationCompartment">
-          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_BbEaEZxqEdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_1qN_0JJxEdqSSImFLKDkSg?PalladioCM/ServiceEffectSpecification"/>
-        </children>
-        <children xmi:id="_BbEaEpxqEdqN_b565_mSbQ" visible="false" type="SignalCompartment">
-          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_BbEaE5xqEdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_1qN_0JJxEdqSSImFLKDkSg?PalladioCM/ServiceEffectSpecification"/>
-        </children>
-        <children xmi:id="_BbEaFJxqEdqN_b565_mSbQ" visible="false" type="StructureCompartment">
-          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_BbEaFZxqEdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_1qN_0JJxEdqSSImFLKDkSg?PalladioCM/ServiceEffectSpecification"/>
-        </children>
-        <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Bal48ZxqEdqN_b565_mSbQ" showStereotype="Label"/>
-        <element xmi:type="uml:Class" href="PalladioCM.emx#_1qN_0JJxEdqSSImFLKDkSg?PalladioCM/ServiceEffectSpecification"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bal48pxqEdqN_b565_mSbQ" x="3180" y="-3498"/>
-      </children>
-      <children xmi:id="_DEyw8JxqEdqN_b565_mSbQ" targetEdges="_L96GsJxqEdqN_b565_mSbQ">
-        <children xmi:id="_DEyw85xqEdqN_b565_mSbQ" type="ImageCompartment">
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_cqkLgJJJEdqSSImFLKDkSg?PalladioCM/Protocol"/>
-          <layoutConstraint xmi:type="notation:Size" xmi:id="_DEyw9JxqEdqN_b565_mSbQ" width="1320" height="1320"/>
-        </children>
-        <children xmi:id="_DEyw9ZxqEdqN_b565_mSbQ" type="Stereotype">
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_cqkLgJJJEdqSSImFLKDkSg?PalladioCM/Protocol"/>
-        </children>
-        <children xmi:id="_DEyw9pxqEdqN_b565_mSbQ" type="Name">
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_cqkLgJJJEdqSSImFLKDkSg?PalladioCM/Protocol"/>
-        </children>
-        <children xmi:id="_DEyw95xqEdqN_b565_mSbQ" type="AttributeCompartment">
-          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_DEyw-JxqEdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_cqkLgJJJEdqSSImFLKDkSg?PalladioCM/Protocol"/>
-        </children>
-        <children xmi:id="_DEyw-ZxqEdqN_b565_mSbQ" type="OperationCompartment">
-          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_DEyw-pxqEdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_cqkLgJJJEdqSSImFLKDkSg?PalladioCM/Protocol"/>
-        </children>
-        <children xmi:id="_DEyw-5xqEdqN_b565_mSbQ" visible="false" type="SignalCompartment">
-          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_DEyw_JxqEdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_cqkLgJJJEdqSSImFLKDkSg?PalladioCM/Protocol"/>
-        </children>
-        <children xmi:id="_DE43kJxqEdqN_b565_mSbQ" visible="false" type="StructureCompartment">
-          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_DE43kZxqEdqN_b565_mSbQ"/>
-          <element xmi:type="uml:Class" href="PalladioCM.emx#_cqkLgJJJEdqSSImFLKDkSg?PalladioCM/Protocol"/>
-        </children>
-        <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_DEyw8ZxqEdqN_b565_mSbQ" showStereotype="Label"/>
-        <element xmi:type="uml:Class" href="PalladioCM.emx#_cqkLgJJJEdqSSImFLKDkSg?PalladioCM/Protocol"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DEyw8pxqEdqN_b565_mSbQ" x="12402" y="-3498"/>
       </children>
       <children xmi:id="_TBvfYJx2EdqN_b565_mSbQ" targetEdges="_cmfzIJx2EdqN_b565_mSbQ _bEI9oJx4EdqN_b565_mSbQ" element="_TBpYwJx2EdqN_b565_mSbQ">
         <children xmi:id="_TBvfY5x2EdqN_b565_mSbQ" type="ImageCompartment" element="_TBpYwJx2EdqN_b565_mSbQ">
@@ -150,24 +88,6 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z1JF0px2EdqN_b565_mSbQ" x="14710" y="6138"/>
       </children>
       <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_w-DIE5vnEdqN_b565_mSbQ"/>
-      <edges xmi:id="_LkgIMJxqEdqN_b565_mSbQ" element="_LjW4sJxqEdqN_b565_mSbQ" source="_zuvHAJvnEdqN_b565_mSbQ" target="_Bal48JxqEdqN_b565_mSbQ">
-        <children xmi:id="_LkmO0JxqEdqN_b565_mSbQ" type="NameLabel" element="_LjW4sJxqEdqN_b565_mSbQ">
-          <children xmi:id="_LkmO0pxqEdqN_b565_mSbQ" type="Stereotype" element="_LjW4sJxqEdqN_b565_mSbQ"/>
-          <children xmi:id="_LkmO05xqEdqN_b565_mSbQ" type="Name" element="_LjW4sJxqEdqN_b565_mSbQ"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LkmO0ZxqEdqN_b565_mSbQ" y="-185"/>
-        </children>
-        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_LkgIMZxqEdqN_b565_mSbQ" showStereotype="Text"/>
-        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_LkgIMpxqEdqN_b565_mSbQ" points="[-27, -23, 170, 107]$[-97, -129, 100, 1]"/>
-      </edges>
-      <edges xmi:id="_L96GsJxqEdqN_b565_mSbQ" element="_L9OxQJxqEdqN_b565_mSbQ" source="_zuvHAJvnEdqN_b565_mSbQ" target="_DEyw8JxqEdqN_b565_mSbQ">
-        <children xmi:id="_L96Gs5xqEdqN_b565_mSbQ" type="NameLabel" element="_L9OxQJxqEdqN_b565_mSbQ">
-          <children xmi:id="_L96GtZxqEdqN_b565_mSbQ" type="Stereotype" element="_L9OxQJxqEdqN_b565_mSbQ"/>
-          <children xmi:id="_L96GtpxqEdqN_b565_mSbQ" type="Name" element="_L9OxQJxqEdqN_b565_mSbQ"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L96GtJxqEdqN_b565_mSbQ" y="-185"/>
-        </children>
-        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_L96GsZxqEdqN_b565_mSbQ" showStereotype="Text"/>
-        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_L96GspxqEdqN_b565_mSbQ" points="[35, -22, -166, 105]$[145, -101, -56, 26]"/>
-      </edges>
       <edges xmi:id="_cmfzIJx2EdqN_b565_mSbQ" element="_cmTl4Jx2EdqN_b565_mSbQ" source="_zuvHAJvnEdqN_b565_mSbQ" target="_TBvfYJx2EdqN_b565_mSbQ">
         <children xmi:id="_cmfzI5x2EdqN_b565_mSbQ" type="NameLabel" element="_cmTl4Jx2EdqN_b565_mSbQ">
           <children xmi:id="_cmfzJZx2EdqN_b565_mSbQ" type="Stereotype" element="_cmTl4Jx2EdqN_b565_mSbQ"/>
@@ -425,12 +345,6 @@
         <contents xmi:type="Default_0:Default__Documentation" xmi:id="_5ACugZxpEdqN_b565_mSbQ"/>
       </eAnnotations>
     </ownedComment>
-    <generalization xmi:id="_LjW4sJxqEdqN_b565_mSbQ">
-      <general xmi:type="uml:Class" href="PalladioCM.emx#_1qN_0JJxEdqSSImFLKDkSg?PalladioCM/ServiceEffectSpecification"/>
-    </generalization>
-    <generalization xmi:id="_L9OxQJxqEdqN_b565_mSbQ">
-      <general xmi:type="uml:Class" href="PalladioCM.emx#_cqkLgJJJEdqSSImFLKDkSg?PalladioCM/Protocol"/>
-    </generalization>
     <ownedAttribute xmi:id="_R9WgoJxqEdqN_b565_mSbQ" name="name" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
