@@ -27,6 +27,30 @@
           <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSMModel/FiniteStateMachine"/>
         </children>
         <children xmi:id="_dPJDVpx9EdqN_b565_mSbQ" visible="false" type="StructureCompartment">
+          <children xmi:id="_SsUR4JyKEdqN_b565_mSbQ">
+            <children xmi:id="_SsUR45yKEdqN_b565_mSbQ" type="Name">
+              <element xmi:type="uml:Property" href="FSM.emx#_-y1w0ZvrEdqN_b565_mSbQ?FSMModel/FiniteStateMachine/transitions"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_SsUR4ZyKEdqN_b565_mSbQ" showStereotype="Label"/>
+            <element xmi:type="uml:Property" href="FSM.emx#_-y1w0ZvrEdqN_b565_mSbQ?FSMModel/FiniteStateMachine/transitions"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SsUR4pyKEdqN_b565_mSbQ"/>
+          </children>
+          <children xmi:id="_SsUR5JyKEdqN_b565_mSbQ">
+            <children xmi:id="_SsUR55yKEdqN_b565_mSbQ" type="Name">
+              <element xmi:type="uml:Property" href="FSM.emx#_BxprUZvsEdqN_b565_mSbQ?FSMModel/FiniteStateMachine/states"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_SsUR5ZyKEdqN_b565_mSbQ" showStereotype="Label"/>
+            <element xmi:type="uml:Property" href="FSM.emx#_BxprUZvsEdqN_b565_mSbQ?FSMModel/FiniteStateMachine/states"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SsUR5pyKEdqN_b565_mSbQ" x="10" y="10"/>
+          </children>
+          <children xmi:id="_SsUR6JyKEdqN_b565_mSbQ">
+            <children xmi:id="_SsUR65yKEdqN_b565_mSbQ" type="Name">
+              <element xmi:type="uml:Property" href="FSM.emx#_UjevMZyHEdqN_b565_mSbQ?FSMModel/FiniteStateMachine/inputsymbol"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_SsUR6ZyKEdqN_b565_mSbQ" showStereotype="Label"/>
+            <element xmi:type="uml:Property" href="FSM.emx#_UjevMZyHEdqN_b565_mSbQ?FSMModel/FiniteStateMachine/inputsymbol"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SsUR6pyKEdqN_b565_mSbQ" x="20" y="20"/>
+          </children>
           <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_dPJDV5x9EdqN_b565_mSbQ"/>
           <element xmi:type="uml:Class" href="FSM.emx#_zuiSsJvnEdqN_b565_mSbQ?FSMModel/FiniteStateMachine"/>
         </children>

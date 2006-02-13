@@ -43,8 +43,9 @@ UML:
 - Protokoll-Typ --> mehrere Typen (FSM, Petri-Netz) möglich zur gleichen Zeit, aber nur einer zur Zeit
 - Typen von Identifiern je Entitäts-Typ
 
+
+
 ECORE:
-- Enum für in, out, ref - Signatur-Parameter
 
 - GUID können in UML2 nicht als Identifier gekennzeichnet werden. Erst in Ecore ist isID-Attribut verfügbar. Dann auch Verwendung der GUID in Serialisierung. --> GUID aus Diagramm raus, da später über isID-Attribut gekennzeichnet wird.
 
@@ -56,3 +57,14 @@ ECORE:
 
 Alte TODOs:
 - Stereotypen für "extends" und "deployed-on" evtl. "contains" --> Problem mit Export unter RSA
+- Import von ECORE vs. UML2 in EMF:
+	- UML2:
+		- Import von Constraints
+		- Konsistenzprüfung (doppelte Verbung, doppelte Attribute, etc)
+		- Umbenennung von Entitäten, bei nicht validen Java-Namen (mit "-" im Namen)
+		- Import verlinkter Modelle nicht möglich: Fehlermeldung.
+	- ECORE:
+		- Bei Import verlinkter Modelle (bspw. PCM + FSM) werde Abhängigkeiten erkannt. Import nur bei Auswahl aller benötigten Modelle
+		- Keine Umbenennung von Enitäten
+		- Keine Konsistenzprüfung
+		- Kein Constraints-Import

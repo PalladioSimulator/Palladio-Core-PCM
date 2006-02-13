@@ -57,3 +57,8 @@ org.eclipse.draw2d.RectangleFigure
 
 # Connection:
 PalladioCM.gef PalladioCM.editparts.PProvidesRoleLinkEditPart
+
+# Import-Problem: EMF + PetriNet
+1. import PetriNet.impl.*;
+2. Präfix: PetriNet.impl. von Verwendungen entfernen
+--> Abhilfe: Andere Namen für Projekt und Diagramm in RSA vergeben. Überall "PetriNet" --> Fehler bei der Code-Erzeugung durch EMF

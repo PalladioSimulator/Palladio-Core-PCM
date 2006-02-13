@@ -1,7 +1,8 @@
 Klaus Krogmann
 kelsaka@gmx.de
+http://www.kelsaka.de
 
-DA: "Entwicklung und Transformation eines EMF-Modells des Palladio Komponenten-Meta-Modells"
+Diploma Thesis: "Entwicklung und Transformation eines EMF-Modells des Palladio Komponenten-Meta-Modells"
 
 
 Content:

@@ -19,6 +19,21 @@
           <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_zuvHDJvnEdqN_b565_mSbQ"/>
         </children>
         <children xmi:id="_zuvHDZvnEdqN_b565_mSbQ" visible="false" type="StructureCompartment" element="_zuiSsJvnEdqN_b565_mSbQ">
+          <children xmi:id="_SLp00JyKEdqN_b565_mSbQ" element="_-y1w0ZvrEdqN_b565_mSbQ">
+            <children xmi:id="_SLp005yKEdqN_b565_mSbQ" type="Name" element="_-y1w0ZvrEdqN_b565_mSbQ"/>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_SLp00ZyKEdqN_b565_mSbQ" showStereotype="Label"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SLp00pyKEdqN_b565_mSbQ"/>
+          </children>
+          <children xmi:id="_SLp01JyKEdqN_b565_mSbQ" element="_BxprUZvsEdqN_b565_mSbQ">
+            <children xmi:id="_SLp015yKEdqN_b565_mSbQ" type="Name" element="_BxprUZvsEdqN_b565_mSbQ"/>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_SLp01ZyKEdqN_b565_mSbQ" showStereotype="Label"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SLp01pyKEdqN_b565_mSbQ" x="10" y="10"/>
+          </children>
+          <children xmi:id="_SLp02JyKEdqN_b565_mSbQ" element="_UjevMZyHEdqN_b565_mSbQ">
+            <children xmi:id="_SLp025yKEdqN_b565_mSbQ" type="Name" element="_UjevMZyHEdqN_b565_mSbQ"/>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_SLp02ZyKEdqN_b565_mSbQ" showStereotype="Label"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SLp02pyKEdqN_b565_mSbQ" x="20" y="20"/>
+          </children>
           <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_zuvHDpvnEdqN_b565_mSbQ"/>
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_zuvHAZvnEdqN_b565_mSbQ" showStereotype="Label"/>
