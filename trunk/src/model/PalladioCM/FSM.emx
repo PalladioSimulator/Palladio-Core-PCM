@@ -224,7 +224,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_h2uKZ5vsEdqN_b565_mSbQ" y="1058"/>
         </children>
         <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_h2oDsZvsEdqN_b565_mSbQ" showStereotype="Text"/>
-        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_h2oDspvsEdqN_b565_mSbQ" points="[-1429, -687, 11695, -687]$[-3175, -1508, 9949, -1508]$[-9076, -1508, 4048, -1508]$[-11616, -582, 1508, -582]"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_h2oDspvsEdqN_b565_mSbQ" points="[-1588, -687, 11589, -1111]$[-3228, -1375, 9949, -1799]$[-9234, -1375, 3943, -1799]$[-11060, -555, 2117, -979]"/>
       </edges>
       <edges xmi:id="_rr6GwJvsEdqN_b565_mSbQ" element="_rrt5gJvsEdqN_b565_mSbQ" source="_WgyCQJvrEdqN_b565_mSbQ" target="_VonrMJvrEdqN_b565_mSbQ">
         <children xmi:id="_rr6Gw5vsEdqN_b565_mSbQ" type="NameLabel" element="_rrt5gJvsEdqN_b565_mSbQ">
@@ -275,7 +275,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_rsANapvsEdqN_b565_mSbQ" y="1058"/>
         </children>
         <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_rr6GwZvsEdqN_b565_mSbQ" showStereotype="Text"/>
-        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rr6GwpvsEdqN_b565_mSbQ" points="[-1244, 688, 11880, 688]$[-3070, 1667, 10054, 1667]$[-9129, 1667, 3995, 1667]$[-11616, 609, 1508, 609]"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rr6GwpvsEdqN_b565_mSbQ" points="[-1112, 688, 12065, 264]$[-3043, 1879, 10134, 1455]$[-9234, 1879, 3943, 1455]$[-11060, 1191, 2117, 767]"/>
       </edges>
       <edges xmi:id="_1TugIJvtEdqN_b565_mSbQ" type="NoteAttachment" source="_1TiS4JvtEdqN_b565_mSbQ" target="_VonrMJvrEdqN_b565_mSbQ">
         <styles xmi:type="notation:ConnectorStyle" xmi:id="_1TugIZvtEdqN_b565_mSbQ"/>
