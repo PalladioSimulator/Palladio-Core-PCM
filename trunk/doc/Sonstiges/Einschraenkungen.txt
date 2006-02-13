@@ -40,7 +40,7 @@ Fragen an Steffen wg. CM:
 
 TODOs
 UML:
-- Protokoll-Typ --> mehrere Typen (FSM, Petri-Netz) möglich zur gleichen Zeit, aber nur einer zur Zeit
+
 - Typen von Identifiern je Entitäts-Typ
 
 
@@ -56,6 +56,7 @@ ECORE:
 	             
 
 Alte TODOs:
+- Protokoll-Typ --> mehrere Typen (FSM, Petri-Netz) möglich zur gleichen Zeit, aber nur einer zur Zeit
 - Stereotypen für "extends" und "deployed-on" evtl. "contains" --> Problem mit Export unter RSA
 - Import von ECORE vs. UML2 in EMF:
 	- UML2:
@@ -68,3 +69,4 @@ Alte TODOs:
 		- Keine Umbenennung von Enitäten
 		- Keine Konsistenzprüfung
 		- Kein Constraints-Import
+- Attribute von Klassen dürfen nicht "context" heißen, da es ansonsten einen Benamungkonflikt mit dem OCL-"context" gibt. Mehrdeutigkeit in OCL nicht erlaubt. Es wird der vordefinierte Kontext von OCL angenommen. --> daher in Context-Diagramm Umbenennung in "parentContext".

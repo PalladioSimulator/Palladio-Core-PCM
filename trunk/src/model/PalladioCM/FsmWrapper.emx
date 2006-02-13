@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--xtools2_universal_type_manager-->
-<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.ibm.com/xtools/1.5.0/Notation" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.0/Umlnotation" xmi:id="_Fj2vMJx8EdqN_b565_mSbQ" name="FsmWrapperModel" appliedProfile="_Fj2vNJx8EdqN_b565_mSbQ _FkJDEpx8EdqN_b565_mSbQ _FkJDFZx8EdqN_b565_mSbQ _FkJDGJx8EdqN_b565_mSbQ _FkJDG5x8EdqN_b565_mSbQ">
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default_0="http:///Default_0.profile.uml2" xmlns:notation="http://www.ibm.com/xtools/1.5.0/Notation" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.0/Umlnotation" xsi:schemaLocation="http:///Default_0.profile.uml2 pathmap://UML2_MSL_PROFILES/Default.epx#_bA7Pc9WLEdiy4IqP8whjFA?Default/%3CEPackage%3E" xmi:id="_Fj2vMJx8EdqN_b565_mSbQ" name="FsmWrapperModel" appliedProfile="_Fj2vNJx8EdqN_b565_mSbQ _FkJDEpx8EdqN_b565_mSbQ _FkJDFZx8EdqN_b565_mSbQ _FkJDGJx8EdqN_b565_mSbQ _FkJDG5x8EdqN_b565_mSbQ">
   <eAnnotations xmi:id="_Fj2vMZx8EdqN_b565_mSbQ" source="uml2.diagrams">
     <contents xmi:type="notation:Diagram" xmi:id="_TRjY0Jx9EdqN_b565_mSbQ" type="Class" element="_Fj2vMJx8EdqN_b565_mSbQ" name="FsmWrapperDiagram">
       <children xmi:id="_dPC8sJx9EdqN_b565_mSbQ" targetEdges="_IpatwJyDEdqN_b565_mSbQ">
@@ -214,6 +214,11 @@
     </contents>
   </eAnnotations>
   <eAnnotations xmi:id="_HIijJZx-EdqN_b565_mSbQ" source="http://www.eclipse.org/emf/2002/Ecore"/>
+  <ownedComment xmi:id="_ZjgaEJy0EdqX-LqEpACX-A" body="Wrapper for Finite State Machines (FSMs).&#xD;&#xA;Wrapps FSMs for Protocols and Service Effect Specifications (SEFFs)." annotatedElement="_Fj2vMJx8EdqN_b565_mSbQ">
+    <eAnnotations xmi:id="_ZjmgsJy0EdqX-LqEpACX-A" source="appliedStereotypes">
+      <contents xmi:type="Default_0:Default__Documentation" xmi:id="_ZjmgsZy0EdqX-LqEpACX-A"/>
+    </eAnnotations>
+  </ownedComment>
   <packageImport xmi:type="uml:ProfileApplication" xmi:id="_Fj2vNJx8EdqN_b565_mSbQ">
     <eAnnotations xmi:id="_FkJDEJx8EdqN_b565_mSbQ" source="attributes">
       <details xmi:id="_FkJDEZx8EdqN_b565_mSbQ" key="version" value="0"/>

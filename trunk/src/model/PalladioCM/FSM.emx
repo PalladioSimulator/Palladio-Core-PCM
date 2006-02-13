@@ -422,6 +422,11 @@
     </contents>
   </eAnnotations>
   <eAnnotations xmi:id="_HIijI5x-EdqN_b565_mSbQ" source="http://www.eclipse.org/emf/2002/Ecore"/>
+  <ownedComment xmi:id="_dZDIQJy0EdqX-LqEpACX-A" body="Finite State Machines (FSMs)." annotatedElement="_w-DIEJvnEdqN_b565_mSbQ">
+    <eAnnotations xmi:id="_dZJO4Jy0EdqX-LqEpACX-A" source="appliedStereotypes">
+      <contents xmi:type="Default_0:Default__Documentation" xmi:id="_dZJO4Zy0EdqX-LqEpACX-A"/>
+    </eAnnotations>
+  </ownedComment>
   <packageImport xmi:type="uml:ProfileApplication" xmi:id="_w-DIFJvnEdqN_b565_mSbQ">
     <eAnnotations xmi:id="_w-DIFZvnEdqN_b565_mSbQ" source="attributes">
       <details xmi:id="_w-DIFpvnEdqN_b565_mSbQ" key="version" value="0"/>

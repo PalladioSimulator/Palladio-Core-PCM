@@ -2763,7 +2763,7 @@
       </edges>
     </contents>
     <contents xmi:type="notation:Diagram" xmi:id="_NXeeUJJ9EdqSSImFLKDkSg" type="Class" element="_au_WgGA_EdqdHZdhXRxKVg" name="AssemblyConnector">
-      <children xmi:id="_PfPcEJJ9EdqSSImFLKDkSg" sourceEdges="_P7n2EZJ9EdqSSImFLKDkSg _QMJlYJJ9EdqSSImFLKDkSg" targetEdges="_WAhVIJysEdqX-LqEpACX-A" element="_fbGtwJJ7EdqSSImFLKDkSg">
+      <children xmi:id="_PfPcEJJ9EdqSSImFLKDkSg" sourceEdges="_P7n2EZJ9EdqSSImFLKDkSg _QMJlYJJ9EdqSSImFLKDkSg" targetEdges="_WAhVIJysEdqX-LqEpACX-A _LFMy4JyzEdqX-LqEpACX-A" element="_fbGtwJJ7EdqSSImFLKDkSg">
         <children xmi:id="_PfPcE5J9EdqSSImFLKDkSg" type="ImageCompartment" element="_fbGtwJJ7EdqSSImFLKDkSg">
           <layoutConstraint xmi:type="notation:Size" xmi:id="_PfPcFJJ9EdqSSImFLKDkSg" width="1320" height="1320"/>
         </children>
@@ -2784,7 +2784,7 @@
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_PfPcEZJ9EdqSSImFLKDkSg" showStereotype="Label"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PfPcEpJ9EdqSSImFLKDkSg" x="9525" y="2222"/>
       </children>
-      <children xmi:id="_PmMhwJflEdqwqsvROVlojA" targetEdges="_P7n2EZJ9EdqSSImFLKDkSg _Q6tcoJfwEdqwqsvROVlojA" element="_01MOIJfIEdqwqsvROVlojA">
+      <children xmi:id="_PmMhwJflEdqwqsvROVlojA" targetEdges="_P7n2EZJ9EdqSSImFLKDkSg" element="_01MOIJfIEdqwqsvROVlojA">
         <children xmi:id="_PmMhw5flEdqwqsvROVlojA" type="ImageCompartment" element="_01MOIJfIEdqwqsvROVlojA">
           <layoutConstraint xmi:type="notation:Size" xmi:id="_PmMhxJflEdqwqsvROVlojA" width="1320" height="1320"/>
         </children>
@@ -2805,7 +2805,7 @@
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_PmMhwZflEdqwqsvROVlojA" showStereotype="Label"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PmMhwpflEdqwqsvROVlojA" x="5406" y="9858"/>
       </children>
-      <children xmi:id="_QAppIJflEdqwqsvROVlojA" targetEdges="_QMJlYJJ9EdqSSImFLKDkSg _QeKDgJfwEdqwqsvROVlojA" element="_iEEAsJfkEdqwqsvROVlojA">
+      <children xmi:id="_QAppIJflEdqwqsvROVlojA" targetEdges="_QMJlYJJ9EdqSSImFLKDkSg" element="_iEEAsJfkEdqwqsvROVlojA">
         <children xmi:id="_QAppI5flEdqwqsvROVlojA" type="ImageCompartment" element="_iEEAsJfkEdqwqsvROVlojA">
           <layoutConstraint xmi:type="notation:Size" xmi:id="_QAppJJflEdqwqsvROVlojA" width="1320" height="1320"/>
         </children>
@@ -2826,18 +2826,19 @@
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_QAppIZflEdqwqsvROVlojA" showStereotype="Label"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QAppIpflEdqwqsvROVlojA" x="13038" y="9858"/>
       </children>
-      <children xmi:id="_MO08UJfwEdqwqsvROVlojA" type="Note" sourceEdges="_QeKDgJfwEdqwqsvROVlojA _Q6tcoJfwEdqwqsvROVlojA">
-        <children xmi:id="_MO08U5fwEdqwqsvROVlojA" type="DiagramName"/>
-        <children xmi:id="_MO08VJfwEdqwqsvROVlojA" type="Description"/>
-        <styles xmi:type="notation:ShapeStyle" xmi:id="_MO08UZfwEdqwqsvROVlojA" description="Context.IDs have to differ" fillColor="13369343" lineColor="6737151"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MO08UpfwEdqwqsvROVlojA" x="8904" y="12720" height="687"/>
-      </children>
       <children xmi:id="_WAVH4JysEdqX-LqEpACX-A" sourceEdges="_WAhVIJysEdqX-LqEpACX-A" element="_WAI6oJysEdqX-LqEpACX-A">
         <children xmi:id="_WAVH45ysEdqX-LqEpACX-A" type="Name" element="_WAI6oJysEdqX-LqEpACX-A"/>
         <children xmi:id="_WAVH5JysEdqX-LqEpACX-A" type="Stereotype" element="_WAI6oJysEdqX-LqEpACX-A"/>
         <children xmi:id="_WAVH5ZysEdqX-LqEpACX-A" type="ValueSpecification" element="_WAI6oJysEdqX-LqEpACX-A"/>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_WAVH4ZysEdqX-LqEpACX-A" fillColor="13356031" lineColor="8421631" showStereotype="Label"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WAVH4pysEdqX-LqEpACX-A" x="14628" y="2226"/>
+      </children>
+      <children xmi:id="_LFAloJyzEdqX-LqEpACX-A" sourceEdges="_LFMy4JyzEdqX-LqEpACX-A" element="_LE0YYJyzEdqX-LqEpACX-A">
+        <children xmi:id="_LFAlo5yzEdqX-LqEpACX-A" type="Name" element="_LE0YYJyzEdqX-LqEpACX-A"/>
+        <children xmi:id="_LFAlpJyzEdqX-LqEpACX-A" type="Stereotype" element="_LE0YYJyzEdqX-LqEpACX-A"/>
+        <children xmi:id="_LFAlpZyzEdqX-LqEpACX-A" type="ValueSpecification" element="_LE0YYJyzEdqX-LqEpACX-A"/>
+        <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_LFAloZyzEdqX-LqEpACX-A" fillColor="13356031" lineColor="8421631" showStereotype="Label"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LFAlopyzEdqX-LqEpACX-A" x="14628" y="4080"/>
       </children>
       <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_NXeeUZJ9EdqSSImFLKDkSg"/>
       <edges xmi:id="_P7n2EZJ9EdqSSImFLKDkSg" element="_0A334JJ7EdqSSImFLKDkSg" source="_PfPcEJJ9EdqSSImFLKDkSg" target="_PmMhwJflEdqwqsvROVlojA">
@@ -2942,17 +2943,13 @@
         <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_QMJlYZJ9EdqSSImFLKDkSg" showStereotype="Text"/>
         <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QMJlYpJ9EdqSSImFLKDkSg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
       </edges>
-      <edges xmi:id="_QeKDgJfwEdqwqsvROVlojA" type="NoteAttachment" source="_MO08UJfwEdqwqsvROVlojA" target="_QAppIJflEdqwqsvROVlojA">
-        <styles xmi:type="notation:ConnectorStyle" xmi:id="_QeKDgZfwEdqwqsvROVlojA"/>
-        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QeKDgpfwEdqwqsvROVlojA" points="[13, -14, -124, 84]$[91, -121, -46, -23]"/>
-      </edges>
-      <edges xmi:id="_Q6tcoJfwEdqwqsvROVlojA" type="NoteAttachment" source="_MO08UJfwEdqwqsvROVlojA" target="_PmMhwJflEdqwqsvROVlojA">
-        <styles xmi:type="notation:ConnectorStyle" xmi:id="_Q6tcoZfwEdqwqsvROVlojA"/>
-        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Q6tcopfwEdqwqsvROVlojA" points="[-22, -14, 130, 84]$[-198, -122, -46, -24]"/>
-      </edges>
       <edges xmi:id="_WAhVIJysEdqX-LqEpACX-A" type="Reference" source="_WAVH4JysEdqX-LqEpACX-A" target="_PfPcEJJ9EdqSSImFLKDkSg">
         <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_WAhVIZysEdqX-LqEpACX-A" showStereotype="Text"/>
         <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WAhVIpysEdqX-LqEpACX-A" points="[2, 0, -437, -106]$[520, 125, 81, 19]"/>
+      </edges>
+      <edges xmi:id="_LFMy4JyzEdqX-LqEpACX-A" type="Reference" source="_LFAloJyzEdqX-LqEpACX-A" target="_PfPcEJJ9EdqSSImFLKDkSg">
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_LFMy4ZyzEdqX-LqEpACX-A" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_LFMy4pyzEdqX-LqEpACX-A" points="[2, 0, -437, -106]$[520, 125, 81, 19]"/>
       </edges>
     </contents>
     <contents xmi:type="notation:Diagram" xmi:id="_cZnn0JJ9EdqSSImFLKDkSg" type="Class" element="_au_WgGA_EdqdHZdhXRxKVg" name="ProvidedDelegationConnector">
@@ -5265,7 +5262,7 @@
     </contents>
   </eAnnotations>
   <eAnnotations xmi:id="_NTEugGBAEdqdHZdhXRxKVg" source="http://www.eclipse.org/emf/2002/Ecore"/>
-  <ownedComment xmi:id="_qPLKIJyIEdqN_b565_mSbQ" body="The Palladio Component Model (PCM). &#xD;&#xA;Diploma Thesis: &quot;Entwicklung und Transformation eines EMF-Modells des Palladio Komponenten-Meta-Modells&quot; &#xD;&#xA;created by Klaus Krogmann, kelsaka@gmx.de, http://www.kelsaka.de, 2006" annotatedElement="_au_WgGA_EdqdHZdhXRxKVg">
+  <ownedComment xmi:id="_qPLKIJyIEdqN_b565_mSbQ" body="The Palladio Component Model (PCM). Former: Palladio Group, University of Oldenburg, Software-Engineering. Now: IPD Reussner, University of Karlsruhe (TH). &#xD;&#xA;Diploma Thesis: &quot;Entwicklung und Transformation eines EMF-Modells des Palladio Komponenten-Meta-Modells&quot; &#xD;&#xA;created by Klaus Krogmann, kelsaka@gmx.de, http://www.kelsaka.de, 2006" annotatedElement="_au_WgGA_EdqdHZdhXRxKVg">
     <eAnnotations xmi:id="_qPLKIZyIEdqN_b565_mSbQ" source="appliedStereotypes">
       <contents xmi:type="Default_0:Default__Documentation" xmi:id="_qPLKIpyIEdqN_b565_mSbQ"/>
     </eAnnotations>
@@ -5576,7 +5573,10 @@
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_fbGtwJJ7EdqSSImFLKDkSg" name="AssemblyConnector">
     <ownedRule xmi:id="_WAI6oJysEdqX-LqEpACX-A" name="contextIDsOfProvidesRoleNotEqualRequiresRole" constrainedElement="_fbGtwJJ7EdqSSImFLKDkSg">
-      <specification xmi:type="uml:OpaqueExpression" xmi:id="_WAI6oZysEdqX-LqEpACX-A" body="-- Context.IDs have to differ&#xD;&#xA;self.providingRole.parentContext.identifier.id&lt;>self.requiringRole.parentContext.identifier.id" language="OCL"/>
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_WAI6oZysEdqX-LqEpACX-A" body="-- Context-IDs of providingRole and requiringRole have to differ&#xD;&#xA;self.providingRole.parentContext.identifier.id&lt;>self.requiringRole.parentContext.identifier.id" language="OCL"/>
+    </ownedRule>
+    <ownedRule xmi:id="_LE0YYJyzEdqX-LqEpACX-A" name="checkForIllegalUseOutsiteOfCompositeComponentWithoutAssembly" constrainedElement="_fbGtwJJ7EdqSSImFLKDkSg">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_LE0YYZyzEdqX-LqEpACX-A" body="-- checks wether the assemly connector is legal.&#xD;&#xA;-- it is only legal if is part of a composite component or assembly&#xD;&#xA;-- if not in cc --> in assembly erfasst" language="OCL"/>
     </ownedRule>
     <generalization xmi:id="_WA16AJQAEdqSSImFLKDkSg" general="_UkxkoJQAEdqSSImFLKDkSg"/>
     <ownedAttribute xmi:id="_0A9-gJJ7EdqSSImFLKDkSg" name="providingRole" type="_01MOIJfIEdqwqsvROVlojA" association="_0A334JJ7EdqSSImFLKDkSg" aggregation="shared">
