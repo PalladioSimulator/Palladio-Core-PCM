@@ -709,7 +709,7 @@
       </edges>
     </contents>
     <contents xmi:type="notation:Diagram" xmi:id="_GznGUJJJEdqSSImFLKDkSg" type="Class" element="_au_WgGA_EdqdHZdhXRxKVg" name="Interface">
-      <children xmi:id="_cI2lkJJJEdqSSImFLKDkSg" sourceEdges="_y6j6cJJXEdqSSImFLKDkSg _4W3LEJJXEdqSSImFLKDkSg _V_vFsJJeEdqSSImFLKDkSg" targetEdges="_V_vFsJJeEdqSSImFLKDkSg" element="_cIR90JJJEdqSSImFLKDkSg">
+      <children xmi:id="_cI2lkJJJEdqSSImFLKDkSg" sourceEdges="_y6j6cJJXEdqSSImFLKDkSg _4W3LEJJXEdqSSImFLKDkSg _V_vFsJJeEdqSSImFLKDkSg" targetEdges="_V_vFsJJeEdqSSImFLKDkSg _AjyWgJybEdqX-LqEpACX-A" element="_cIR90JJJEdqSSImFLKDkSg">
         <children xmi:id="_cI2lk5JJEdqSSImFLKDkSg" type="ImageCompartment" element="_cIR90JJJEdqSSImFLKDkSg">
           <layoutConstraint xmi:type="notation:Size" xmi:id="_cI2llJJJEdqSSImFLKDkSg" width="1320" height="1320"/>
         </children>
@@ -884,6 +884,13 @@
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_WkiagZvjEdqN_b565_mSbQ" fontName="Arial" fontHeight="10" fillColor="13434879" lineColor="3342489" showStereotype="Label"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WkiagpvjEdqN_b565_mSbQ" x="-8586" y="9858"/>
+      </children>
+      <children xmi:id="_AjgCoJybEdqX-LqEpACX-A" sourceEdges="_AjyWgJybEdqX-LqEpACX-A" element="_AjZ8AJybEdqX-LqEpACX-A">
+        <children xmi:id="_AjmJQJybEdqX-LqEpACX-A" type="Name" element="_AjZ8AJybEdqX-LqEpACX-A"/>
+        <children xmi:id="_AjmJQZybEdqX-LqEpACX-A" type="Stereotype" element="_AjZ8AJybEdqX-LqEpACX-A"/>
+        <children xmi:id="_AjmJQpybEdqX-LqEpACX-A" type="ValueSpecification" element="_AjZ8AJybEdqX-LqEpACX-A"/>
+        <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_AjgCoZybEdqX-LqEpACX-A" fillColor="13356031" lineColor="8421631" showStereotype="Label"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AjgCopybEdqX-LqEpACX-A" x="19716" y="318"/>
       </children>
       <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_GznGUZJJEdqSSImFLKDkSg"/>
       <edges xmi:id="_cJQF0JJXEdqSSImFLKDkSg" type="NoteAttachment" source="_cJD4kJJXEdqSSImFLKDkSg" target="_NmW5kJJWEdqSSImFLKDkSg">
@@ -1348,6 +1355,10 @@
         </children>
         <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_bcXFEZvjEdqN_b565_mSbQ" fontName="Arial" fontHeight="10" lineColor="3342489" showStereotype="Text"/>
         <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bcXFEpvjEdqN_b565_mSbQ" points="[-86, -12, 148, -4]$[-161, -12, 73, -4]"/>
+      </edges>
+      <edges xmi:id="_AjyWgJybEdqX-LqEpACX-A" type="Reference" source="_AjgCoJybEdqX-LqEpACX-A" target="_cI2lkJJJEdqSSImFLKDkSg">
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_AjyWgZybEdqX-LqEpACX-A" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_AjyWgpybEdqX-LqEpACX-A" points="[2, 0, -438, -107]$[540, 132, 100, 25]"/>
       </edges>
     </contents>
     <contents xmi:type="notation:Diagram" xmi:id="_LMHiMJJKEdqSSImFLKDkSg" type="Class" element="_au_WgGA_EdqdHZdhXRxKVg" name="Identifier">
@@ -5409,12 +5420,15 @@
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_cIR90JJJEdqSSImFLKDkSg" name="Interface">
+    <ownedRule xmi:id="_AjZ8AJybEdqX-LqEpACX-A" name="noProtocolTypeIDUsedTwice" constrainedElement="_cIR90JJJEdqSSImFLKDkSg">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_AjZ8AZybEdqX-LqEpACX-A" body="-- Comment&#xD;&#xA;self.protocols->forAll(p1, p2 |&#xD;&#xA;p1.protocolTypeID &lt;> p2.protocolTypeID)&#xD;&#xA;" language="OCL"/>
+    </ownedRule>
     <generalization xmi:id="_TmZxoJJwEdqSSImFLKDkSg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
-    <ownedAttribute xmi:id="_y6FZUZJXEdqSSImFLKDkSg" name="protocol" type="_cqkLgJJJEdqSSImFLKDkSg" association="_y6FZUJJXEdqSSImFLKDkSg" aggregation="composite">
+    <ownedAttribute xmi:id="_y6FZUZJXEdqSSImFLKDkSg" name="protocols" type="_cqkLgJJJEdqSSImFLKDkSg" association="_y6FZUJJXEdqSSImFLKDkSg" aggregation="composite">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_y6FZVJJXEdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_y6FZU5JXEdqSSImFLKDkSg"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_4WewkZJXEdqSSImFLKDkSg" name="signature" type="_hh0OUJJJEdqSSImFLKDkSg" association="_4WewkJJXEdqSSImFLKDkSg" aggregation="composite">
+    <ownedAttribute xmi:id="_4WewkZJXEdqSSImFLKDkSg" name="signatures" type="_hh0OUJJJEdqSSImFLKDkSg" association="_4WewkJJXEdqSSImFLKDkSg" aggregation="composite">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4WewlJJXEdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4Wewk5JXEdqSSImFLKDkSg"/>
     </ownedAttribute>
@@ -5432,12 +5446,12 @@
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_cqkLgJJJEdqSSImFLKDkSg" name="Protocol" isAbstract="true">
-    <ownedAttribute xmi:id="_rnRggJVsEdqSSImFLKDkSg" name="ProtocolTypeID">
+    <ownedAttribute xmi:id="_rnRggJVsEdqSSImFLKDkSg" name="protocolTypeID">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_hh0OUJJJEdqSSImFLKDkSg" name="Signature">
-    <ownedAttribute xmi:id="_C3NFsJJKEdqSSImFLKDkSg" name="ServiceName">
+    <ownedAttribute xmi:id="_C3NFsJJKEdqSSImFLKDkSg" name="serviceName">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_YuRXQZJYEdqSSImFLKDkSg" name="parameter" type="_8b84gJJUEdqSSImFLKDkSg" isOrdered="true" association="_YuRXQJJYEdqSSImFLKDkSg" aggregation="composite">
@@ -5471,7 +5485,7 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vbHl0pJcEdqSSImFLKDkSg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vbHl0ZJcEdqSSImFLKDkSg"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_9UzLoJewEdqwqsvROVlojA" name="Type">
+    <ownedAttribute xmi:id="_9UzLoJewEdqwqsvROVlojA" name="type">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
   </ownedMember>
