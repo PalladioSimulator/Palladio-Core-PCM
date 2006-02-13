@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PalladioCM"
+    nsURI="http:///PalladioCM.ecore" nsPrefix="PalladioCM">
+  <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="identifier" lowerBound="1"
+        eType="#//Identifier" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotations" upperBound="-1"
+        eType="#//Anotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Identifier" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Anotation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DataTypeID" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anotationdatavalue" lowerBound="1"
+        eType="#//AnotationDataValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnotationDataValue" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CMEnvironment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modeDescription" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelName" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="New Component Model"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compositecomponents" upperBound="-1"
+        eType="#//CompositeComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providescomponenttypes"
+        upperBound="-1" eType="#//ProvidesComponentType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="completecomponenttypes"
+        upperBound="-1" eType="#//CompleteComponentType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementationcomponenttypes"
+        upperBound="-1" eType="#//ImplementationComponentType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="basiccomponents" upperBound="-1"
+        eType="#//BasicComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
+        eType="#//Interface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//ImplementationComponentType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="innerAssemblyConnectors"
+        upperBound="-1" eType="#//AssemblyConnector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnectors"
+        upperBound="-1" eType="#//ProvidedDelegationConnector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnectors"
+        upperBound="-1" eType="#//RequiredDelegationConnector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="innerContextComponents"
+        upperBound="-1" eType="#//ContextComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponentType" eSuperTypes="#//CompleteComponentType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentCompleteComponentType"
+        upperBound="-1" eType="#//CompleteComponentType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompleteComponentType" eSuperTypes="#//ProvidesComponentType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles" upperBound="-1"
+        eType="#//RequiredRole" eOpposite="#//RequiredRole/requiringComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentProvidesComponentType"
+        upperBound="-1" eType="#//ProvidesComponentType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles" upperBound="-1"
+        eType="#//ProvidedRole" eOpposite="#//ProvidedRole/providingComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextComponents" upperBound="-1"
+        eType="#//ContextComponent" containment="true" eOpposite="#//ContextComponent/encapsulatedComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" eSuperTypes="#//Role">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterface" lowerBound="1"
+        eType="#//Interface" eOpposite="#//Interface/providedRoles"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextProvidedRoles" upperBound="-1"
+        eType="#//ContextProvidedRole" containment="true" eOpposite="#//ContextProvidedRole/encapsulatedRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providingComponent" lowerBound="1"
+        eType="#//ProvidesComponentType" eOpposite="#//ProvidesComponentType/providedRoles"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true" eSuperTypes="#//Entity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocol" upperBound="-1"
+        eType="#//Protocol" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signature" upperBound="-1"
+        eType="#//Signature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentInterface" eType="#//Interface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles" upperBound="-1"
+        eType="#//ProvidedRole" eOpposite="#//ProvidedRole/providedInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles" upperBound="-1"
+        eType="#//RequiredRole" eOpposite="#//RequiredRole/requiredInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Protocol" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ProtocolTypeID" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Signature">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ServiceName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returntype" lowerBound="1"
+        eType="#//DataType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"
+        eType="#//ExceptionType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" lowerBound="1"
+        eType="#//DataType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifier" lowerBound="1"
+        eType="#//ParameterModifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentDataType" eType="#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ParameterModifier">
+    <eLiterals name="none"/>
+    <eLiterals name="in" value="1"/>
+    <eLiterals name="out" value="2"/>
+    <eLiterals name="ref" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExceptionType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredRole" eSuperTypes="#//Role">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface" lowerBound="1"
+        eType="#//Interface" eOpposite="#//Interface/requiredRoles"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiringComponent" lowerBound="1"
+        eType="#//CompleteComponentType" eOpposite="#//CompleteComponentType/requiredRoles"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextRequiredRoles" upperBound="-1"
+        eType="#//ContextRequiredRole" containment="true" eOpposite="#//ContextRequiredRole/encapsulatedRole"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextRequiredRole">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
+        eType="#//Context" eOpposite="#//Context/contextRequiredRoles"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedRole" lowerBound="1"
+        eType="#//RequiredRole" eOpposite="#//RequiredRole/contextRequiredRoles"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Context">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextProvidedRoles" upperBound="-1"
+        eType="#//ContextProvidedRole" eOpposite="#//ContextProvidedRole/context"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextComponents" lowerBound="1"
+        eType="#//ContextComponent" eOpposite="#//ContextComponent/context"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="identifier" lowerBound="1"
+        eType="#//Identifier" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextRequiredRoles" upperBound="-1"
+        eType="#//ContextRequiredRole" eOpposite="#//ContextRequiredRole/context"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextProvidedRole">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedRole" lowerBound="1"
+        eType="#//ProvidedRole" eOpposite="#//ProvidedRole/contextProvidedRoles"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
+        eType="#//Context" eOpposite="#//Context/contextProvidedRoles"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
+        eType="#//Context" containment="true" eOpposite="#//Context/contextComponents"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedComponent"
+        lowerBound="1" eType="#//ProvidesComponentType" eOpposite="#//ProvidesComponentType/contextComponents"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calculatingResource" eType="#//CalculatingResource"
+        eOpposite="#//CalculatingResource/deployedComponents"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentAssembly" lowerBound="1"
+        eType="#//Assembly" eOpposite="#//Assembly/components"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CalculatingResource" eSuperTypes="#//Resource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deployedComponents" upperBound="-1"
+        eType="#//ContextComponent" eOpposite="#//ContextComponent/calculatingResource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionRessourcesAsSource"
+        upperBound="-1" eType="#//NonCalculatingResource" eOpposite="#//NonCalculatingResource/calculatingResourceSource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionRessourcesAsTarget"
+        upperBound="-1" eType="#//NonCalculatingResource" eOpposite="#//NonCalculatingResource/calculatingResourceTarget"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource" abstract="true" eSuperTypes="#//Entity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NonCalculatingResource" eSuperTypes="#//Resource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deployedConnectors" upperBound="-1"
+        eType="#//AssemblyConnector" eOpposite="#//AssemblyConnector/nonCalculatingResource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calculatingResourceSource"
+        lowerBound="1" eType="#//CalculatingResource" eOpposite="#//CalculatingResource/connectionRessourcesAsSource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calculatingResourceTarget"
+        lowerBound="1" eType="#//CalculatingResource" eOpposite="#//CalculatingResource/connectionRessourcesAsTarget"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector" eSuperTypes="#//Connector">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providingRole" lowerBound="1"
+        eType="#//ContextProvidedRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiringRole" lowerBound="1"
+        eType="#//ContextRequiredRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentAssembly" lowerBound="1"
+        eType="#//Assembly" eOpposite="#//Assembly/assemblyConnectors"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nonCalculatingResource"
+        eType="#//NonCalculatingResource" eOpposite="#//NonCalculatingResource/deployedConnectors"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//Entity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Assembly" eSuperTypes="#//Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//ContextComponent" eOpposite="#//ContextComponent/parentAssembly"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnectors" upperBound="-1"
+        eType="#//AssemblyConnector" eOpposite="#//AssemblyConnector/parentAssembly"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvidedDelegationConnector" eSuperTypes="#//DelegationConnector">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="innerProvidingRole" lowerBound="1"
+        eType="#//ContextProvidedRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outerProvidingRole" lowerBound="1"
+        eType="#//ContextProvidedRole"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
+      eSuperTypes="#//Connector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredDelegationConnector" eSuperTypes="#//DelegationConnector">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="innerRequiringRole" lowerBound="1"
+        eType="#//ContextRequiredRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outerRequiringRole" lowerBound="1"
+        eType="#//ContextRequiredRole"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BasicComponent" eSuperTypes="#//ImplementationComponentType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceeffectspecification"
+        upperBound="-1" eType="#//ServiceEffectSpecification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceEffectSpecification" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seffTypeID" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="_Factory">
+    <eAnnotations source="uml2.alias">
+      <details key="Factory"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
+        eType="#//Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cmenvironment" lowerBound="1"
+        eType="#//CMEnvironment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceeffectspecification"
+        upperBound="-1" eType="#//ServiceEffectSpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GUID" eSuperTypes="#//Identifier"/>
+  <eSubpackages name="DefaultAnotationDataTypes" nsURI="http:///PalladioCM/DefaultAnotationDataTypes.ecore"
+      nsPrefix="PalladioCM.DefaultAnotationDataTypes">
+    <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//AnotationDataValue">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Double" eSuperTypes="#//AnotationDataValue">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Integer" eSuperTypes="#//AnotationDataValue">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Long" eSuperTypes="#//AnotationDataValue">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Short" eSuperTypes="#//AnotationDataValue">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//AnotationDataValue">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

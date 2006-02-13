@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PetriNet"
+    nsURI="http:///PetriNet.ecore" nsPrefix="PetriNet">
+  <eClassifiers xsi:type="ecore:EClass" name="PetriNet" eSuperTypes="PalladioCM.ecore#//ServiceEffectSpecification PalladioCM.ecore#//Protocol">
+    <eAnnotations source="uml2.alias">
+      <details key="FSM"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tokens" upperBound="-1"
+        eType="#//Token" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="places" upperBound="-1"
+        eType="#//Place" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transititions" upperBound="-1"
+        eType="#//Transitition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Token"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Place"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transitition"/>
+</ecore:EPackage>
