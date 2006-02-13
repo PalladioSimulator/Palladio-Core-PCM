@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PetriNet"
-    nsURI="http:///PetriNet.ecore" nsPrefix="PetriNet">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PetriNetProject"
+    nsURI="http:///PetriNetProject.ecore" nsPrefix="PetriNetProject">
   <eClassifiers xsi:type="ecore:EClass" name="PetriNet" eSuperTypes="PalladioCM.ecore#//ServiceEffectSpecification PalladioCM.ecore#//Protocol">
     <eAnnotations source="uml2.alias">
       <details key="PN"/>
