@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="FSM"
     nsURI="http:///FSM.ecore" nsPrefix="FSM">
-  <eClassifiers xsi:type="ecore:EClass" name="FiniteStateMachine" eSuperTypes="PalladioCM.ecore#//ServiceEffectSpecification PalladioCM.ecore#//Protocol">
+  <eClassifiers xsi:type="ecore:EClass" name="FiniteStateMachine">
     <eAnnotations source="uml2.alias">
       <details key="FSM"/>
     </eAnnotations>

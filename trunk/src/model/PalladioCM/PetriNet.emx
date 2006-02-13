@@ -374,6 +374,7 @@
       </edges>
     </contents>
   </eAnnotations>
+  <eAnnotations xmi:id="_HIijIJx-EdqN_b565_mSbQ" source="http://www.eclipse.org/emf/2002/Ecore"/>
   <packageImport xmi:type="uml:ProfileApplication" xmi:id="_w-DIFJvnEdqN_b565_mSbQ">
     <eAnnotations xmi:id="_w-DIFZvnEdqN_b565_mSbQ" source="attributes">
       <details xmi:id="_w-DIFpvnEdqN_b565_mSbQ" key="version" value="0"/>
