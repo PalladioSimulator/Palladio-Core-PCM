@@ -427,7 +427,7 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BxprVJvsEdqN_b565_mSbQ" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BxprU5vsEdqN_b565_mSbQ"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_R9WgoJxqEdqN_b565_mSbQ" name="Name">
+    <ownedAttribute xmi:id="_R9WgoJxqEdqN_b565_mSbQ" name="name" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
   </ownedMember>

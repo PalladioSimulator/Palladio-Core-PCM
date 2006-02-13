@@ -5,9 +5,9 @@
     nsURI="http:///PetriNet.ecore" nsPrefix="PetriNet">
   <eClassifiers xsi:type="ecore:EClass" name="PetriNet" eSuperTypes="PalladioCM.ecore#//ServiceEffectSpecification PalladioCM.ecore#//Protocol">
     <eAnnotations source="uml2.alias">
-      <details key="FSM"/>
+      <details key="PN"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tokens" upperBound="-1"
         eType="#//Token" containment="true"/>
@@ -17,6 +17,9 @@
         eType="#//Transitition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Token"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Place"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Place">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tokens" upperBound="-1"
+        eType="#//Token"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transitition"/>
 </ecore:EPackage>
