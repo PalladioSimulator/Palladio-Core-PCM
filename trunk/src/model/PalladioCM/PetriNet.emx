@@ -87,6 +87,12 @@
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Z1JF0Zx2EdqN_b565_mSbQ" showStereotype="Label"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z1JF0px2EdqN_b565_mSbQ" x="14710" y="6138"/>
       </children>
+      <children xmi:id="_IqmcsJyHEdqN_b565_mSbQ" type="Note">
+        <children xmi:id="_Iqmcs5yHEdqN_b565_mSbQ" type="DiagramName"/>
+        <children xmi:id="_IqmctJyHEdqN_b565_mSbQ" type="Description"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_IqmcsZyHEdqN_b565_mSbQ" description="Not complete so far." fillColor="13369343" lineColor="6737151"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IqmcspyHEdqN_b565_mSbQ" x="318" y="318"/>
+      </children>
       <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_w-DIE5vnEdqN_b565_mSbQ"/>
       <edges xmi:id="_cmfzIJx2EdqN_b565_mSbQ" element="_cmTl4Jx2EdqN_b565_mSbQ" source="_zuvHAJvnEdqN_b565_mSbQ" target="_TBvfYJx2EdqN_b565_mSbQ">
         <children xmi:id="_cmfzI5x2EdqN_b565_mSbQ" type="NameLabel" element="_cmTl4Jx2EdqN_b565_mSbQ">

@@ -55,7 +55,7 @@
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_xmpq0ZyEEdqN_b565_mSbQ" showStereotype="Label"/>
         <element xmi:type="uml:Class" href="PetriNet.emx#_zuiSsJvnEdqN_b565_mSbQ?PetriNetModel/PetriNet"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xmpq0pyEEdqN_b565_mSbQ" x="10494" y="9858"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xmpq0pyEEdqN_b565_mSbQ" x="10176" y="9858"/>
       </children>
       <children xmi:id="_5HatkJyEEdqN_b565_mSbQ" targetEdges="_6hGdUJyEEdqN_b565_mSbQ">
         <children xmi:id="_5Hatk5yEEdqN_b565_mSbQ" type="ImageCompartment">
