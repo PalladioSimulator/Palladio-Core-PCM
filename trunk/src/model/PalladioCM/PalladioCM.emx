@@ -5438,7 +5438,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nlm2kJJmEdqSSImFLKDkSg"/>
     </ownedAttribute>
   </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_cqkLgJJJEdqSSImFLKDkSg" name="Protocol">
+  <ownedMember xmi:type="uml:Class" xmi:id="_cqkLgJJJEdqSSImFLKDkSg" name="Protocol" isAbstract="true">
     <ownedAttribute xmi:id="_rnRggJVsEdqSSImFLKDkSg" name="ProtocolTypeID">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
@@ -5544,7 +5544,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pd8VA5cyEdqwqsvROVlojA"/>
     </ownedAttribute>
   </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_1qN_0JJxEdqSSImFLKDkSg" name="ServiceEffectSpecification">
+  <ownedMember xmi:type="uml:Class" xmi:id="_1qN_0JJxEdqSSImFLKDkSg" name="ServiceEffectSpecification" isAbstract="true">
     <ownedAttribute xmi:id="_6wc7kJVrEdqSSImFLKDkSg" name="seffTypeID">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
@@ -5563,7 +5563,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0pSiw5J7EdqSSImFLKDkSg" value="1"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_uYuDspf5EdqwqsvROVlojA" name="parentAssembly" type="__Tf0sJMVEdqSSImFLKDkSg" association="_uYuDsJf5EdqwqsvROVlojA"/>
-    <ownedAttribute xmi:id="_WJoqkZcqEdq38OEoBK_ByQ" name="non-calculatingresource" type="_tf-gAJMmEdqSSImFLKDkSg" association="_WJoqkJcqEdq38OEoBK_ByQ" aggregation="shared">
+    <ownedAttribute xmi:id="_WJoqkZcqEdq38OEoBK_ByQ" name="nonCalculatingResource" type="_tf-gAJMmEdqSSImFLKDkSg" association="_WJoqkJcqEdq38OEoBK_ByQ" aggregation="shared">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WKNSUZcqEdq38OEoBK_ByQ" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WKNSUJcqEdq38OEoBK_ByQ"/>
     </ownedAttribute>
@@ -5654,7 +5654,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sWDxgJh_EdqtLe_PGONyyQ"/>
     </ownedAttribute>
   </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_tf-gAJMmEdqSSImFLKDkSg" name="Non-CalculatingResource">
+  <ownedMember xmi:type="uml:Class" xmi:id="_tf-gAJMmEdqSSImFLKDkSg" name="NonCalculatingResource">
     <generalization xmi:id="_HKLNUJMnEdqSSImFLKDkSg" general="_F3SCEJMnEdqSSImFLKDkSg"/>
     <ownedAttribute xmi:id="_WJ6-cJcqEdq38OEoBK_ByQ" name="deployedConnectors" type="_fbGtwJJ7EdqSSImFLKDkSg" association="_WJoqkJcqEdq38OEoBK_ByQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g8PcEJcrEdq38OEoBK_ByQ" value="-1"/>
@@ -5808,7 +5808,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AWKm45fdEdqwqsvROVlojA" value="1"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_3S3dkpfgEdqwqsvROVlojA" name="encapsulatedComponent" type="_xtWJIJJGEdqIo-u3cE9-DA" association="_3S3dkJfgEdqwqsvROVlojA"/>
-    <ownedAttribute xmi:id="_nCXYsZceEdq38OEoBK_ByQ" name="calculatingresource" type="_kzkJgJMmEdqSSImFLKDkSg" association="_nCXYsJceEdq38OEoBK_ByQ" aggregation="shared">
+    <ownedAttribute xmi:id="_nCXYsZceEdq38OEoBK_ByQ" name="calculatingResource" type="_kzkJgJMmEdqSSImFLKDkSg" association="_nCXYsJceEdq38OEoBK_ByQ" aggregation="shared">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nCXYtJceEdq38OEoBK_ByQ" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nCXYs5ceEdq38OEoBK_ByQ"/>
     </ownedAttribute>
