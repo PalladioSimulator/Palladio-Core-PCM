@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.102  2006/02/14 10:09:17  kelsaka
+% - assembly: kontext-komponente darf in 0..1 assemblies erfasst werden.
+%
 % Revision 1.101  2006/02/12 15:29:24  kelsaka
 % - weitere TODOs entfernt
 %
@@ -1028,6 +1031,7 @@ Im vorigen Kapitel wurde die Definition einer Assembly bereits angedeutet. Eine 
 \begin{itemize}
 	\item Eine Assembly fasst eine Menge von Kontext"=Komponenten (\texttt{1..*}) und die dazugehörigen "`äußeren"' Assembly Konnektoren zusammen. Als "`äußere"' Assembly"=Konnektoren gelten dabei jene, die innerhalb keiner Komponente liegen. Die Assembly darf keine Komponenten außerhalb von Kontexten ("`Komponenten"=Typ"') enthalten. 
 	\item Die Kontext"=Komponenten im Inneren einer Assembly sind nicht auf Kontext"=Instanzen einer bestimmten Komponenten"=Typ"=Ebene beschränkt. Zur gleichen Zeit dürfen auch Kontext"=Komponenten unterschiedlicher Typ"=Ebenen auftreten.
+	\item Kontext"=Komponenten dürfen in \texttt{0..1} Assemblies referenziert werden. Im ersten Fall werden sie nicht von der Assembly erfasst -- im zweiten Fall sind sie auf eine Assembly festgelegt.
 	\item Erst innerhalb einer Assembly darf Assembly"=Konnektoren zwischen Komponenten geben, die innerhalb keiner weiteren \textit{Composite Component} liegen. Das bedeutet, dass Assembly"=Konnektoren oberhalb der Assembly"=Ebene lediglich innerhalb von \textit{Composite Components} verwendet werden dürfen.
 	\item Assemblies werden von \textit{System"=Deployer}n verwendet. Die für diese Zielgruppe definierte Sicht blendet dabei das Innere von \textit{Composite Components} aus. In der Folge kann ein \textit{System"=Deployer} bei der Allokation Composite Components nicht auf verschiedene Ressourcen verteilen, da sich diese Komponente keine für ihn identifizierbaren Sub"=Komponenten besitzt, die sich einzeln ansprechen ließen. 
 	\item	Entwickler erzeugen und definieren Assemblies. Für diese Zielgruppe ist das Innere von \textit{Composite Components} sichtbar. Dieser Gruppe steht mit Assemblies eine Mittel zur Verfügung, mit dem sie festlegen können, wie eine Komponentenarchitektur außerhalb von Composite Components realisiert werden soll. Eine Assembly stellt damit eine Gesamtarchitektur und ein Softwaresystem dar, die durch Entwickler erzeugt werden.
@@ -1505,6 +1509,7 @@ Delagationskonnektor / Delegations"=Konnektor / Delegations-Konnektor einheitlic
 intern in implementation type --> kontext-komp + kontext-rollen
 
 Abb. 21 rechts (zwei Required Interfaces benutzen ein Provided Interface) ist erlaubt. 
+
 
 ---------------------------------------------------------------------
 
