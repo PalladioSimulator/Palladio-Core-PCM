@@ -47,19 +47,22 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//ImplementationComponentType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="innerAssemblyConnectors"
-        upperBound="-1" eType="#//AssemblyConnector"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnectors"
-        upperBound="-1" eType="#//ProvidedDelegationConnector"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnectors"
-        upperBound="-1" eType="#//RequiredDelegationConnector"/>
+        upperBound="-1" eType="#//AssemblyConnector" eOpposite="#//AssemblyConnector/parentCompositeComponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="innerContextComponents"
-        upperBound="-1" eType="#//ContextComponent"/>
+        upperBound="-1" eType="#//ContextComponent" eOpposite="#//ContextComponent/parentCompositeComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnectors"
+        upperBound="-1" eType="#//ProvidedDelegationConnector" eOpposite="#//ProvidedDelegationConnector/parentCompositeComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnectors"
+        upperBound="-1" eType="#//RequiredDelegationConnector" eOpposite="#//RequiredDelegationConnector/parentCompositeComponent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponentType" eSuperTypes="#//CompleteComponentType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentCompleteComponentType"
         upperBound="-1" eType="#//CompleteComponentType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompleteComponentType" eSuperTypes="#//ProvidesComponentType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="Nope"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles" upperBound="-1"
         eType="#//RequiredRole" eOpposite="#//RequiredRole/requiringComponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentProvidesComponentType"
@@ -171,16 +174,21 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextComponent">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="onlyAssembledContextComponentsAllowedForAllocation"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" lowerBound="1"
         eType="#//Context" containment="true" eOpposite="#//Context/contextComponents"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedComponent"
         lowerBound="1" eType="#//ProvidesComponentType" eOpposite="#//ProvidesComponentType/contextComponents"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="calculatingResource" eType="#//CalculatingResource"
         eOpposite="#//CalculatingResource/deployedComponents"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentAssembly" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentAssemblies" upperBound="-1"
         eType="#//Assembly" eOpposite="#//Assembly/components"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentCompositeComponent"
+        lowerBound="1" eType="#//CompositeComponent" eOpposite="#//CompositeComponent/innerContextComponents"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CalculatingResource" eSuperTypes="#//Resource">
     <eStructuralFeatures xsi:type="ecore:EReference" name="deployedComponents" upperBound="-1"
@@ -201,29 +209,33 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector" eSuperTypes="#//Connector">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="contextIDsOfProvidesRoleNotEqualRequiresRole checkForIllegalUseOutsiteOfCompositeComponentWithoutAssembly"/>
+      <details key="constraints" value="contextIDsOfProvidesRoleNotEqualRequiresRole checkForIllegalUseOutsiteOfCompositeComponentWithoutAssembly onlyAssembledAssemblyConnectorsAllowedForAllocation"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providingRole" lowerBound="1"
         eType="#//ContextProvidedRole"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiringRole" lowerBound="1"
         eType="#//ContextRequiredRole"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentAssembly" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentAssemblies" upperBound="-1"
         eType="#//Assembly" eOpposite="#//Assembly/assemblyConnectors"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nonCalculatingResource"
         eType="#//NonCalculatingResource" eOpposite="#//NonCalculatingResource/deployedConnectors"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentCompositeComponent"
+        eType="#//CompositeComponent" eOpposite="#//CompositeComponent/innerAssemblyConnectors"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//Entity"/>
   <eClassifiers xsi:type="ecore:EClass" name="Assembly" eSuperTypes="#//Entity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//ContextComponent" eOpposite="#//ContextComponent/parentAssembly"/>
+        eType="#//ContextComponent" eOpposite="#//ContextComponent/parentAssemblies"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnectors" upperBound="-1"
-        eType="#//AssemblyConnector" eOpposite="#//AssemblyConnector/parentAssembly"/>
+        eType="#//AssemblyConnector" eOpposite="#//AssemblyConnector/parentAssemblies"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProvidedDelegationConnector" eSuperTypes="#//DelegationConnector">
     <eStructuralFeatures xsi:type="ecore:EReference" name="innerProvidingRole" lowerBound="1"
         eType="#//ContextProvidedRole"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outerProvidingRole" lowerBound="1"
         eType="#//ContextProvidedRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentCompositeComponent"
+        lowerBound="1" eType="#//CompositeComponent" eOpposite="#//CompositeComponent/providedDelegationConnectors"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
       eSuperTypes="#//Connector"/>
@@ -232,6 +244,8 @@
         eType="#//ContextRequiredRole"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outerRequiringRole" lowerBound="1"
         eType="#//ContextRequiredRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentCompositeComponent"
+        lowerBound="1" eType="#//CompositeComponent" eOpposite="#//CompositeComponent/requiredDelegationConnectors"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BasicComponent" eSuperTypes="#//ImplementationComponentType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">

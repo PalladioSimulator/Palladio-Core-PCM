@@ -4121,7 +4121,7 @@
         <styles xmi:type="notation:ShapeStyle" xmi:id="_xD29YZh_EdqtLe_PGONyyQ" description="Connections (Non-CalculationgResources) have to work bi-directional" fillColor="13369343" lineColor="6737151"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xD29Yph_EdqtLe_PGONyyQ" x="6996" y="11766" width="4841"/>
       </children>
-      <children xmi:id="_pT4ggJisEdqtLe_PGONyyQ" sourceEdges="_WNpn4JcqEdq38OEoBK_ByQ" element="_fbGtwJJ7EdqSSImFLKDkSg">
+      <children xmi:id="_pT4ggJisEdqtLe_PGONyyQ" sourceEdges="_WNpn4JcqEdq38OEoBK_ByQ" targetEdges="_f1w2UJ04EdqX-LqEpACX-A" element="_fbGtwJJ7EdqSSImFLKDkSg">
         <children xmi:id="_pVCXEJisEdqtLe_PGONyyQ" type="ImageCompartment" element="_fbGtwJJ7EdqSSImFLKDkSg">
           <layoutConstraint xmi:type="notation:Size" xmi:id="_pVCXEZisEdqtLe_PGONyyQ" width="1320" height="1320"/>
         </children>
@@ -4147,7 +4147,14 @@
         <children xmi:id="_5vUVoZ01EdqX-LqEpACX-A" type="Stereotype" element="_5vIIYJ01EdqX-LqEpACX-A"/>
         <children xmi:id="_5vUVop01EdqX-LqEpACX-A" type="ValueSpecification" element="_5vIIYJ01EdqX-LqEpACX-A"/>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_5vOPAZ01EdqX-LqEpACX-A" fillColor="13356031" lineColor="8421631" showStereotype="Label"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5vOPAp01EdqX-LqEpACX-A" x="-2226"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5vOPAp01EdqX-LqEpACX-A" x="-954" y="954"/>
+      </children>
+      <children xmi:id="_f1eicJ04EdqX-LqEpACX-A" sourceEdges="_f1w2UJ04EdqX-LqEpACX-A" element="_f1MOkJ04EdqX-LqEpACX-A">
+        <children xmi:id="_f1eic504EdqX-LqEpACX-A" type="Name" element="_f1MOkJ04EdqX-LqEpACX-A"/>
+        <children xmi:id="_f1eidJ04EdqX-LqEpACX-A" type="Stereotype" element="_f1MOkJ04EdqX-LqEpACX-A"/>
+        <children xmi:id="_f1eidZ04EdqX-LqEpACX-A" type="ValueSpecification" element="_f1MOkJ04EdqX-LqEpACX-A"/>
+        <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_f1eicZ04EdqX-LqEpACX-A" fillColor="13356031" lineColor="8421631" showStereotype="Label"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_f1eicp04EdqX-LqEpACX-A" x="10494" y="1272"/>
       </children>
       <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_cnqkQZMUEdqSSImFLKDkSg"/>
       <edges xmi:id="_nDINsJceEdq38OEoBK_ByQ" element="_nCXYsJceEdq38OEoBK_ByQ" source="_qdDAsJfrEdqwqsvROVlojA" target="_7vN48JQCEdqSSImFLKDkSg">
@@ -4357,6 +4364,10 @@
       <edges xmi:id="_5vy2wJ01EdqX-LqEpACX-A" type="Reference" source="_5vOPAJ01EdqX-LqEpACX-A" target="_qdDAsJfrEdqwqsvROVlojA">
         <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_5vy2wZ01EdqX-LqEpACX-A" showStereotype="Text"/>
         <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5vy2wp01EdqX-LqEpACX-A" points="[-1, 0, -129, -157]$[148, 183, 20, 26]"/>
+      </edges>
+      <edges xmi:id="_f1w2UJ04EdqX-LqEpACX-A" type="Reference" source="_f1eicJ04EdqX-LqEpACX-A" target="_pT4ggJisEdqtLe_PGONyyQ">
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_f1w2UZ04EdqX-LqEpACX-A" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_f1w2Up04EdqX-LqEpACX-A" points="[2, 0, -546, -154]$[629, 178, 81, 24]"/>
       </edges>
     </contents>
     <contents xmi:type="notation:Diagram" xmi:id="_jomLMJMmEdqSSImFLKDkSg" type="Class" element="_au_WgGA_EdqdHZdhXRxKVg" name="Resources">
@@ -5378,7 +5389,7 @@
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_0Ske8JJGEdqIo-u3cE9-DA" name="CompleteComponentType">
-    <ownedRule xmi:id="_-vqjsJ0tEdqX-LqEpACX-A" constrainedElement="_0Ske8JJGEdqIo-u3cE9-DA">
+    <ownedRule xmi:id="_-vqjsJ0tEdqX-LqEpACX-A" name="Nope" constrainedElement="_0Ske8JJGEdqIo-u3cE9-DA">
       <specification xmi:type="uml:OpaqueExpression" xmi:id="_-vqjsZ0tEdqX-LqEpACX-A"/>
     </ownedRule>
     <generalization xmi:id="_BA8PAJJHEdqIo-u3cE9-DA" general="_xtWJIJJGEdqIo-u3cE9-DA"/>
@@ -5591,6 +5602,9 @@
     <ownedRule xmi:id="_LE0YYJyzEdqX-LqEpACX-A" name="checkForIllegalUseOutsiteOfCompositeComponentWithoutAssembly" constrainedElement="_fbGtwJJ7EdqSSImFLKDkSg">
       <specification xmi:type="uml:OpaqueExpression" xmi:id="_LE0YYZyzEdqX-LqEpACX-A" body="-- checks wether the assemly connector is legal.&#xD;&#xA;-- it is only legal if is part of a composite component or assembly #&#xD;&#xA;self.parentAssemblies->notEmpty() or&#xD;&#xA;self.parentCompositeComponent->notEmpty()" language="OCL"/>
     </ownedRule>
+    <ownedRule xmi:id="_f1MOkJ04EdqX-LqEpACX-A" name="onlyAssembledAssemblyConnectorsAllowedForAllocation" constrainedElement="_fbGtwJJ7EdqSSImFLKDkSg">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_f1SVMJ04EdqX-LqEpACX-A" body="self.nonCalculatingResource->notEmpty()&#xD;&#xA;implies self.parentAssembly->notEmpty()" language="OCL"/>
+    </ownedRule>
     <generalization xmi:id="_WA16AJQAEdqSSImFLKDkSg" general="_UkxkoJQAEdqSSImFLKDkSg"/>
     <ownedAttribute xmi:id="_0A9-gJJ7EdqSSImFLKDkSg" name="providingRole" type="_01MOIJfIEdqwqsvROVlojA" association="_0A334JJ7EdqSSImFLKDkSg" aggregation="shared">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0A9-g5J7EdqSSImFLKDkSg" value="1"/>
@@ -5600,8 +5614,8 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0pSixJJ7EdqSSImFLKDkSg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0pSiw5J7EdqSSImFLKDkSg" value="1"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_uYuDspf5EdqwqsvROVlojA" name="parentAssemblies" type="__Tf0sJMVEdqSSImFLKDkSg" association="_uYuDsJf5EdqwqsvROVlojA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Mx6PgZy3EdqX-LqEpACX-A" value="-1"/>
+    <ownedAttribute xmi:id="_uYuDspf5EdqwqsvROVlojA" name="parentAssembly" type="__Tf0sJMVEdqSSImFLKDkSg" association="_uYuDsJf5EdqwqsvROVlojA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Mx6PgZy3EdqX-LqEpACX-A" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Mx6PgJy3EdqX-LqEpACX-A"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_WJoqkZcqEdq38OEoBK_ByQ" name="nonCalculatingResource" type="_tf-gAJMmEdqSSImFLKDkSg" association="_WJoqkJcqEdq38OEoBK_ByQ" aggregation="shared">
@@ -5854,7 +5868,7 @@
       </eAnnotations>
     </ownedComment>
     <ownedRule xmi:id="_5vIIYJ01EdqX-LqEpACX-A" name="onlyAssembledContextComponentsAllowedForAllocation" constrainedElement="_xM1AUJfIEdqwqsvROVlojA">
-      <specification xmi:type="uml:OpaqueExpression" xmi:id="_5vIIYZ01EdqX-LqEpACX-A" body="-- Allocation only allowed for assembled components.&#xD;&#xA;-- Which assembly actually is deployed can not be grasped at the moment.&#xD;&#xA;-- Only if that assembly is deployed the deployment would be valid at all.#&#xD;&#xA;self.calculatingResource->notEmpty()&#xD;&#xA;implies self.parentAssemblies->notEmpty()" language="OCL"/>
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_5vIIYZ01EdqX-LqEpACX-A" body="-- Allocation only allowed for assembled components.#&#xD;&#xA;self.calculatingResource->notEmpty()&#xD;&#xA;implies self.parentAssembly->notEmpty()" language="OCL"/>
     </ownedRule>
     <ownedAttribute xmi:id="_AWKm4ZfdEdqwqsvROVlojA" name="parentContext" type="_vk0WIJfHEdqwqsvROVlojA" association="_AWKm4JfdEdqwqsvROVlojA" aggregation="composite">
       <ownedComment xmi:id="_Ke2MQJytEdqX-LqEpACX-A" body="must *not* be named &quot;context&quot; due to naming conflict with the ocl &quot;context&quot; --> naming would be ambiguous." annotatedElement="_AWKm4ZfdEdqwqsvROVlojA">
@@ -5870,8 +5884,8 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nCXYtJceEdq38OEoBK_ByQ" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nCXYs5ceEdq38OEoBK_ByQ"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_OSaOkpf5EdqwqsvROVlojA" name="parentAssemblies" type="__Tf0sJMVEdqSSImFLKDkSg" association="_OSaOkJf5EdqwqsvROVlojA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NTJUUZy3EdqX-LqEpACX-A" value="-1"/>
+    <ownedAttribute xmi:id="_OSaOkpf5EdqwqsvROVlojA" name="parentAssembly" type="__Tf0sJMVEdqSSImFLKDkSg" association="_OSaOkJf5EdqwqsvROVlojA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NTJUUZy3EdqX-LqEpACX-A" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NTJUUJy3EdqX-LqEpACX-A"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_hCefQJiREdqtLe_PGONyyQ" name="description" visibility="private">
