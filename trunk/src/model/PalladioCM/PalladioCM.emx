@@ -1452,7 +1452,7 @@
       </edges>
     </contents>
     <contents xmi:type="notation:Diagram" xmi:id="_LMHiMJJKEdqSSImFLKDkSg" type="Class" element="_au_WgGA_EdqdHZdhXRxKVg" name="Identifier">
-      <children xmi:id="_UNgwgJMWEdqSSImFLKDkSg" targetEdges="_WqDEYJMWEdqSSImFLKDkSg" element="_UMp04JMWEdqSSImFLKDkSg">
+      <children xmi:id="_UNgwgJMWEdqSSImFLKDkSg" element="_UMp04JMWEdqSSImFLKDkSg">
         <children xmi:id="_UNm3IJMWEdqSSImFLKDkSg" type="ImageCompartment" element="_UMp04JMWEdqSSImFLKDkSg">
           <layoutConstraint xmi:type="notation:Size" xmi:id="_UNm3IZMWEdqSSImFLKDkSg" width="1320" height="1320"/>
         </children>
@@ -1473,47 +1473,13 @@
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_UNgwgZMWEdqSSImFLKDkSg" showStereotype="Label"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UNgwgpMWEdqSSImFLKDkSg" x="9048" y="1508"/>
       </children>
-      <children xmi:id="_VVPNkJMWEdqSSImFLKDkSg" sourceEdges="_WqDEYJMWEdqSSImFLKDkSg" targetEdges="_zIeM0JMWEdqSSImFLKDkSg" element="_VU2zEJMWEdqSSImFLKDkSg">
-        <children xmi:id="_VVPNk5MWEdqSSImFLKDkSg" type="ImageCompartment" element="_VU2zEJMWEdqSSImFLKDkSg">
-          <layoutConstraint xmi:type="notation:Size" xmi:id="_VVPNlJMWEdqSSImFLKDkSg" width="1320" height="1320"/>
-        </children>
-        <children xmi:id="_VVPNlZMWEdqSSImFLKDkSg" type="Stereotype" element="_VU2zEJMWEdqSSImFLKDkSg"/>
-        <children xmi:id="_VVVUMJMWEdqSSImFLKDkSg" type="Name" element="_VU2zEJMWEdqSSImFLKDkSg"/>
-        <children xmi:id="_VVVUMZMWEdqSSImFLKDkSg" type="AttributeCompartment" element="_VU2zEJMWEdqSSImFLKDkSg">
-          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_VVVUMpMWEdqSSImFLKDkSg"/>
-        </children>
-        <children xmi:id="_VVVUM5MWEdqSSImFLKDkSg" type="OperationCompartment" element="_VU2zEJMWEdqSSImFLKDkSg">
-          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_VVVUNJMWEdqSSImFLKDkSg"/>
-        </children>
-        <children xmi:id="_VVVUNZMWEdqSSImFLKDkSg" visible="false" type="SignalCompartment" element="_VU2zEJMWEdqSSImFLKDkSg">
-          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_VVVUNpMWEdqSSImFLKDkSg"/>
-        </children>
-        <children xmi:id="_VVVUN5MWEdqSSImFLKDkSg" visible="false" type="StructureCompartment" element="_VU2zEJMWEdqSSImFLKDkSg">
-          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_VVVUOJMWEdqSSImFLKDkSg"/>
-        </children>
-        <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_VVPNkZMWEdqSSImFLKDkSg" showStereotype="Label"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VVPNkpMWEdqSSImFLKDkSg" x="9222" y="6360" width="2328"/>
-      </children>
-      <children xmi:id="_zIR_kJMWEdqSSImFLKDkSg" type="Note" sourceEdges="_zIeM0JMWEdqSSImFLKDkSg">
+      <children xmi:id="_zIR_kJMWEdqSSImFLKDkSg" type="Note">
         <children xmi:id="_zIYGMJMWEdqSSImFLKDkSg" type="DiagramName"/>
         <children xmi:id="_zIYGMZMWEdqSSImFLKDkSg" type="Description"/>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_zIR_kZMWEdqSSImFLKDkSg" description="Only process of ID creation changes" fillColor="13369343" lineColor="6737151"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zIR_kpMWEdqSSImFLKDkSg" x="12084" y="6360" width="2644"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zIR_kpMWEdqSSImFLKDkSg" x="12720" y="1590" width="2644"/>
       </children>
       <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_LMHiMZJKEdqSSImFLKDkSg"/>
-      <edges xmi:id="_WqDEYJMWEdqSSImFLKDkSg" element="_Wp89wJMWEdqSSImFLKDkSg" source="_VVPNkJMWEdqSSImFLKDkSg" target="_UNgwgJMWEdqSSImFLKDkSg">
-        <children xmi:id="_WqDEY5MWEdqSSImFLKDkSg" type="NameLabel" element="_Wp89wJMWEdqSSImFLKDkSg">
-          <children xmi:id="_WqDEZZMWEdqSSImFLKDkSg" type="Stereotype" element="_Wp89wJMWEdqSSImFLKDkSg"/>
-          <children xmi:id="_WqDEZpMWEdqSSImFLKDkSg" type="Name" element="_Wp89wJMWEdqSSImFLKDkSg"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WqDEZJMWEdqSSImFLKDkSg" y="-185"/>
-        </children>
-        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_WqDEYZMWEdqSSImFLKDkSg" showStereotype="Text"/>
-        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WqDEYpMWEdqSSImFLKDkSg" points="[5, -23, -2, 160]$[-5, -207, -12, -24]"/>
-      </edges>
-      <edges xmi:id="_zIeM0JMWEdqSSImFLKDkSg" type="NoteAttachment" source="_zIR_kJMWEdqSSImFLKDkSg" target="_VVPNkJMWEdqSSImFLKDkSg">
-        <styles xmi:type="notation:ConnectorStyle" xmi:id="_zIeM0ZMWEdqSSImFLKDkSg"/>
-        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zIeM0pMWEdqSSImFLKDkSg" points="[2, 0, -387, -262]$[423, 286, 34, 24]"/>
-      </edges>
     </contents>
     <contents xmi:type="notation:Diagram" xmi:id="_ePvv4JJlEdqSSImFLKDkSg" type="Class" element="_au_WgGA_EdqdHZdhXRxKVg" name="Roles">
       <children xmi:id="_sn1PwJJlEdqSSImFLKDkSg" targetEdges="_4zuk4JJlEdqSSImFLKDkSg _7Z588JJlEdqSSImFLKDkSg" element="_-M7kYJJIEdqSSImFLKDkSg">
@@ -5491,8 +5457,8 @@
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_0Ske8JJGEdqIo-u3cE9-DA" name="CompleteComponentType">
-    <ownedRule xmi:id="_-vqjsJ0tEdqX-LqEpACX-A" name="Nope" constrainedElement="_0Ske8JJGEdqIo-u3cE9-DA">
-      <specification xmi:type="uml:OpaqueExpression" xmi:id="_-vqjsZ0tEdqX-LqEpACX-A"/>
+    <ownedRule xmi:id="_-vqjsJ0tEdqX-LqEpACX-A" name="providedInterfacesHaveToConformCompleteType" constrainedElement="_0Ske8JJGEdqIo-u3cE9-DA">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_-vqjsZ0tEdqX-LqEpACX-A" body="--self.providedRoles->&#xD;&#xA;" language="OCL"/>
     </ownedRule>
     <generalization xmi:id="_BA8PAJJHEdqIo-u3cE9-DA" general="_xtWJIJJGEdqIo-u3cE9-DA"/>
     <ownedAttribute xmi:id="_66rDQpJlEdqSSImFLKDkSg" name="requiredRoles" type="__o_5wJJIEdqSSImFLKDkSg" association="_66rDQJJlEdqSSImFLKDkSg">
@@ -5800,12 +5766,14 @@
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_UMp04JMWEdqSSImFLKDkSg" name="Identifier" isAbstract="true">
+    <ownedComment xmi:id="_ozoGMJ1ZEdqX-LqEpACX-A" body="Identifiers can not locked to one realization. GUIDs are recommend. GUIDs are described in their own model. See GUIDModel (GUID.emx)." annotatedElement="_UMp04JMWEdqSSImFLKDkSg">
+      <eAnnotations xmi:id="_ozoGMZ1ZEdqX-LqEpACX-A" source="appliedStereotypes">
+        <contents xmi:type="Default_0:Default__Documentation" xmi:id="_ozoGMp1ZEdqX-LqEpACX-A"/>
+      </eAnnotations>
+    </ownedComment>
     <ownedAttribute xmi:id="_bTQrMJMWEdqSSImFLKDkSg" name="id">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
-  </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_VU2zEJMWEdqSSImFLKDkSg" name="GUID">
-    <generalization xmi:id="_Wp89wJMWEdqSSImFLKDkSg" general="_UMp04JMWEdqSSImFLKDkSg"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_s-gk8JMWEdqSSImFLKDkSg" memberEnd="_s-gk8ZMWEdqSSImFLKDkSg _s-gk8pMWEdqSSImFLKDkSg">
     <ownedEnd xmi:id="_s-gk8pMWEdqSSImFLKDkSg" visibility="private" type="_au_WlWA_EdqdHZdhXRxKVg" association="_s-gk8JMWEdqSSImFLKDkSg"/>

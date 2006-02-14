@@ -54,6 +54,8 @@
         upperBound="-1" eType="#//ProvidedDelegationConnector" eOpposite="#//ProvidedDelegationConnector/parentCompositeComponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnectors"
         upperBound="-1" eType="#//RequiredDelegationConnector" eOpposite="#//RequiredDelegationConnector/parentCompositeComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementationomponentType"
+        eType="#//ImplementationComponentType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponentType" eSuperTypes="#//CompleteComponentType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentCompleteComponentType"
@@ -61,7 +63,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompleteComponentType" eSuperTypes="#//ProvidesComponentType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="Nope"/>
+      <details key="constraints" value="providedInterfacesHaveToConformCompleteType"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles" upperBound="-1"
         eType="#//RequiredRole" eOpposite="#//RequiredRole/requiringComponent"/>
@@ -183,8 +185,8 @@
         lowerBound="1" eType="#//ProvidesComponentType" eOpposite="#//ProvidesComponentType/contextComponents"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="calculatingResource" eType="#//CalculatingResource"
         eOpposite="#//CalculatingResource/deployedComponents"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentAssemblies" upperBound="-1"
-        eType="#//Assembly" eOpposite="#//Assembly/components"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentAssembly" eType="#//Assembly"
+        eOpposite="#//Assembly/components"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentCompositeComponent"
@@ -215,8 +217,8 @@
         eType="#//ContextProvidedRole"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiringRole" lowerBound="1"
         eType="#//ContextRequiredRole"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentAssemblies" upperBound="-1"
-        eType="#//Assembly" eOpposite="#//Assembly/assemblyConnectors"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentAssembly" eType="#//Assembly"
+        eOpposite="#//Assembly/assemblyConnectors"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nonCalculatingResource"
         eType="#//NonCalculatingResource" eOpposite="#//NonCalculatingResource/deployedConnectors"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentCompositeComponent"
@@ -225,9 +227,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//Entity"/>
   <eClassifiers xsi:type="ecore:EClass" name="Assembly" eSuperTypes="#//Entity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//ContextComponent" eOpposite="#//ContextComponent/parentAssemblies"/>
+        eType="#//ContextComponent" eOpposite="#//ContextComponent/parentAssembly"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnectors" upperBound="-1"
-        eType="#//AssemblyConnector" eOpposite="#//AssemblyConnector/parentAssemblies"/>
+        eType="#//AssemblyConnector" eOpposite="#//AssemblyConnector/parentAssembly"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProvidedDelegationConnector" eSuperTypes="#//DelegationConnector">
     <eStructuralFeatures xsi:type="ecore:EReference" name="innerProvidingRole" lowerBound="1"
@@ -253,6 +255,8 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="serviceEffectSpecifications"
         upperBound="-1" eType="#//ServiceEffectSpecification" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementationComponentType"
+        eType="#//ImplementationComponentType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceEffectSpecification" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="seffTypeID" lowerBound="1"
@@ -267,7 +271,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="cmenvironment" lowerBound="1"
         eType="#//CMEnvironment" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GUID" eSuperTypes="#//Identifier"/>
   <eSubpackages name="DefaultAnotationDataTypes" nsURI="http:///PalladioCM/DefaultAnotationDataTypes.ecore"
       nsPrefix="PalladioCM.DefaultAnotationDataTypes">
     <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//AnotationDataValue">
