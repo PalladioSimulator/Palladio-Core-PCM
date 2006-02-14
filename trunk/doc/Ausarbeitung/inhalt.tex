@@ -1,4 +1,7 @@
 % $Log$
+% Revision 1.103  2006/02/14 10:34:02  kelsaka
+% - BC und CC als Realisierung eines Implementation Type herausgestellt
+%
 % Revision 1.102  2006/02/14 10:09:17  kelsaka
 % - assembly: kontext-komponente darf in 0..1 assemblies erfasst werden.
 %
@@ -766,7 +769,7 @@ In Abbildung \ref{fig:cm-type-levels-01} wird der \textit{Implementation Type} a
 
 \textit{Composite Components} können zur gleichen Zeit beliebige Komponententypen in ihrem Inneren vereinen, sich also intern aus unterschiedlich detaillierten Komponenten zusammensetzen.
 
-Sowohl \textit{Composite Components} als auch \textit{Basic Components} sind \textit{Implementation Types}. Sie erben direkt von der Meta-Klasse "`Implementation Type"', wie in Abbildung \ref{fig:cm-component-types-inheritance-conforms-01} dargestellt wird.
+Sowohl \textit{Composite Components} als auch \textit{Basic Components} sind \textit{Implementation Types}. Sie erben direkt von der Meta-Klasse "`Implementation Type"', wie in Abbildung \ref{fig:cm-component-types-inheritance-conforms-01} dargestellt wird. Ein \textit{Implementation Type} kann entweder von einer \textit{Composite Component} oder einer \textit{Basic Component} realisiert werden (\texttt{$\flqq$realizes$\frqq$}"=Stereotyp).
 
 
 
@@ -814,7 +817,7 @@ Abbildung \ref{fig:cm-type-levels-01} zeigt eine weitere Besonderheit zwischen d
 
 Die \texttt{m:1}"=Beziehung zwischen \textit{Provides Type} und \textit{Complete Type} ist möglich, da, wie oben beschrieben, ein \textit{Complete Type} ebenfalls Schnittstellen anbieten kann, die von einem konkreten \textit{Provides Type} nicht spezifiziert wurden. Dafür können diese "`zuviel"' angebotene Schnittstellen von anderen \textit{Provides Types} angeboten werden. Prinzipiell kann somit ein \textit{Complete Type} zugleich Sub"=Type einer Menge von \textit{Provides Typen} sein. Damit könnte ein \textit{Complete Type} automatisch zum Sub"=Typ aller möglichen gültigen \textit{Provides Typen} werden. Um die gewünschten Sub"=Typ"=Beziehungen von zufällig vorkommenden zu unterscheiden, spezifiziert ein jeder Sub"=Typ seine "`Eltern"'"=Typen in einer \textit{Parent}"=Relation, realisiert als eine Liste von Eltern"=Komponenten.
 
-Auch die \texttt{m:1}"=Beziehung zwischen \textit{Complete Type} und \textit{Implementation Type} gründet auf einem der gleichen Möglichkeit, dass ein Implementation Type zugleich Sub"=Typ zweier Complete Types ist. Bietet ein \textit{Implementation Type} die Schnittstellen "`I1"' und "`I2"' an, so kann es zwei \textit{Complete Types} geben, von denen einer ebenfalls "`I1"' anbietet, der andere jedoch "`I2"'. Damit gibt es zu einem \textit{Implementation Type} zwei, und im Allgemeinen m, "`Eltern"'"=Typen.
+Auch die \texttt{m:1}"=Beziehung zwischen \textit{Complete Type} und \textit{Implementation Type} gründet auf einem der gleichen Möglichkeit, dass ein \textit{Implementation Type} zugleich Sub"=Typ zweier \textit{Complete Types} ist. Bietet ein \textit{Implementation Type} die Schnittstellen "`I1"' und "`I2"' an, so kann es zwei \textit{Complete Types} geben, von denen einer ebenfalls "`I1"' anbietet, der andere jedoch "`I2"'. Damit gibt es zu einem \textit{Implementation Type} zwei, und im Allgemeinen m, "`Eltern"'"=Typen.
 
 
 
@@ -1100,7 +1103,7 @@ In Abbildung \ref{fig:cm-component-hierarchy-context-01} werden alle Ebenen des 
 \begin{itemize}
 	\item \textit{Provided Type}, \textit{Complete Type} und \textit{Implementation Type} definieren jeweils Komponenen"=Typen auf verschieden Detail"=Niveaus, sie beschreiben Typen von Komponenten ("`Component Type Composition"'). Kompositions"=Strukturen sind nur innerhalb von Komponenten möglich. In Analogie zur objektorientierten Programmierung, werden Typen über Klassen festgelegt, die vorgegebenen Regeln folgen. Betrachtet man die Erstellung und Verfeinerung von Komponenten"=Typen als Prozess, so liegt am Ende des Prozesses eine ungeordnete Menge von Komponenten vor, die einer Verwendung harren. Die Menge definierter Komponenten"=Typen kann als Komponenten"=\textit{Repository} interpretiert werden.
 
-	\item Assembly und Allokation sowie das Innere von \texttt{Implementation Types} erlauben es hingegen Kompositions"=Strukturen zwischen Komponenten zu definieren ("`Inter Component Composition"'). Komponenten können über die Assembly und Allokation "`verwendet"' werden. In Analogie zum Klassen"=Beispiel, werden die Komponenten"=Typen zu Instanzen. Die zuvor definierten Komponenten"=Typen werden verwendet und über Assembly"=Konnektoren untereinander verbunden. Damit werden auf diesen Ebenen Komponentenarchitekturen definiert.
+	\item Assembly und Allokation sowie das Innere von \texttt{Implementation Types} (als \textit{Composite Component} realisiert) erlauben es hingegen Kompositions"=Strukturen zwischen Komponenten zu definieren ("`Inter Component Composition"'). Komponenten können über die Assembly und Allokation "`verwendet"' werden. In Analogie zum Klassen"=Beispiel, werden die Komponenten"=Typen zu Instanzen. Die zuvor definierten Komponenten"=Typen werden verwendet und über Assembly"=Konnektoren untereinander verbunden. Damit werden auf diesen Ebenen Komponentenarchitekturen definiert.
 \end{itemize}
 
 
@@ -1179,8 +1182,6 @@ In den graphischen Darstellungen dieses Kapitels wurden die Kontexte hervorgehob
 Abbildung \ref{fig:cm-component-hierarchy-context-01} (Seite \pageref{fig:cm-component-hierarchy-context-01}) erfasst die bereits in vorangehenden Kapiteln definierten Komponenten"=Typ"=Ebenen, die Assembly, die Allokation (\textit{Allocation}) und die Laufzeit (\textit{Runtime}) in einer Graphik. Letztere Ebene ist im Komponentenmodell bisher lediglich angedacht, jedoch noch nicht umgesetzt. Weitere Informationen hierzu finden sich in Kapitel \ref{sec:AusblickaufdieEntwicklung}, Seite \pageref{sec:AusblickaufdieEntwicklung}.
 
 Je tiefer eine Ebene in der Graphik dargestellt ist, desto detailreicher können die Komponenten"=Typen definiert werden, entsprechend sind mehr Informationen über die Komponenten auf den niederen Ebenen definiert. In umgekehrter Richtung nach oben werden die Komponenteninformationen abstrakter und kommen damit einer Grob"=Modellierung von Komponentenarchitekturen entgegen.
-
-Ein Implementation Type kann ich \texttt{0..*} Assemblies erfasst werden und zu einer Assembly können \texttt{0..*} Allokationen definiert werden.
 
 
 
@@ -1505,8 +1506,6 @@ Angedachte Erweiterungen des Komponentenmodells erfassen die folgenden Bereiche:
 \textbf{TODO:}
 
 Delagationskonnektor / Delegations"=Konnektor / Delegations-Konnektor einheitlich schreiben
-
-intern in implementation type --> kontext-komp + kontext-rollen
 
 Abb. 21 rechts (zwei Required Interfaces benutzen ein Provided Interface) ist erlaubt. 
 
