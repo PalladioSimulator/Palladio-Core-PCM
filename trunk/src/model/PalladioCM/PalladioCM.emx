@@ -465,8 +465,8 @@
         <children xmi:id="_-vwqU50tEdqX-LqEpACX-A" type="Name" element="_-vqjsJ0tEdqX-LqEpACX-A"/>
         <children xmi:id="_-vwqVJ0tEdqX-LqEpACX-A" type="Stereotype" element="_-vqjsJ0tEdqX-LqEpACX-A"/>
         <children xmi:id="_-vwqVZ0tEdqX-LqEpACX-A" type="ValueSpecification" element="_-vqjsJ0tEdqX-LqEpACX-A"/>
-        <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_-vwqUZ0tEdqX-LqEpACX-A" fillColor="13356031" lineColor="8421631" showStereotype="Label"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-vwqUp0tEdqX-LqEpACX-A" x="14946" y="3180"/>
+        <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_-vwqUZ0tEdqX-LqEpACX-A" fillColor="13356031" lineColor="8421631" showStereotype="Text"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-vwqUp0tEdqX-LqEpACX-A" x="15264" y="2544"/>
       </children>
       <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_6jufwZGdEdqeh-b_yprfmw"/>
       <edges xmi:id="_AfIicJJHEdqIo-u3cE9-DA" element="_Ae8VMJJHEdqIo-u3cE9-DA" source="_4X4HcJJGEdqIo-u3cE9-DA" target="_0S85cJJGEdqIo-u3cE9-DA">
@@ -576,7 +576,7 @@
         </children>
         <children xmi:id="_t4feoJfEEdqwqsvROVlojA" type="FromRoleLabel" element="_t30wMZfEEdqwqsvROVlojA">
           <children xmi:id="_t4feopfEEdqwqsvROVlojA" type="FromRole" element="_t30wMZfEEdqwqsvROVlojA"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_t4feoZfEEdqwqsvROVlojA" x="-2336" y="1740"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_t4feoZfEEdqwqsvROVlojA" x="-2436" y="1583"/>
         </children>
         <children xmi:id="_t4feo5fEEdqwqsvROVlojA" type="ToQualifierLabel" element="_t30wMpfEEdqwqsvROVlojA">
           <children xmi:id="_t4fepZfEEdqwqsvROVlojA" type="QualifierCompartment" element="_t30wMpfEEdqwqsvROVlojA">
@@ -2060,12 +2060,6 @@
         <children xmi:id="_ThrqxJQSEdqSSImFLKDkSg" type="Description"/>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_ThrqwZQSEdqSSImFLKDkSg" description="X" fillColor="13369343" lineColor="6737151"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ThrqwpQSEdqSSImFLKDkSg" x="9222" y="13038" width="634" height="634"/>
-      </children>
-      <children xmi:id="_XgS1YJQSEdqSSImFLKDkSg" type="Note">
-        <children xmi:id="_XgS1Y5QSEdqSSImFLKDkSg" type="DiagramName"/>
-        <children xmi:id="_XgS1ZJQSEdqSSImFLKDkSg" type="Description"/>
-        <styles xmi:type="notation:ShapeStyle" xmi:id="_XgS1YZQSEdqSSImFLKDkSg" description="X" fillColor="13369343" lineColor="6737151"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XgS1YpQSEdqSSImFLKDkSg" x="4770" y="9222" width="634" height="714"/>
       </children>
       <children xmi:id="_aeivMJQSEdqSSImFLKDkSg" type="Note" sourceEdges="_aeo10JQSEdqSSImFLKDkSg">
         <children xmi:id="_aeivM5QSEdqSSImFLKDkSg" type="DiagramName"/>
@@ -5490,22 +5484,22 @@
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_0Ske8JJGEdqIo-u3cE9-DA" name="CompleteComponentType">
-    <ownedRule xmi:id="_-vqjsJ0tEdqX-LqEpACX-A" name="providedInterfacesHaveToConformCompleteType" constrainedElement="_0Ske8JJGEdqIo-u3cE9-DA">
-      <specification xmi:type="uml:OpaqueExpression" xmi:id="_-vqjsZ0tEdqX-LqEpACX-A" body="--self.providedRoles->&#xD;&#xA;" language="OCL"/>
+    <ownedRule xmi:id="_-vqjsJ0tEdqX-LqEpACX-A" name="providedInterfacesHaveToConformToCompleteType" constrainedElement="_0Ske8JJGEdqIo-u3cE9-DA">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_-vqjsZ0tEdqX-LqEpACX-A" body="let selProvidesIFaceIDs : Set(String) =&#xD;&#xA;&#x9;self.providedRoles->collect(p : ProvidedRole |&#xD;&#xA;&#x9;&#x9;p.providedInterface.identifier.id) in&#xD;&#xA;let parentProvidedIFaceIDs : Set(String) =&#xD;&#xA;&#x9;self.parentProvidesComponentTypes->collect(t : ProvidesComponentType |&#xD;&#xA;&#x9;&#x9;&#x9;t.providedRoles->collect(r : ProvidedRole |&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;r.providedInterface.identifier.id&#xD;&#xA;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;) in&#xD;&#xA;&#x9;1 = 1&#xD;&#xA;" language="OCL"/>
     </ownedRule>
     <generalization xmi:id="_BA8PAJJHEdqIo-u3cE9-DA" general="_xtWJIJJGEdqIo-u3cE9-DA"/>
     <ownedAttribute xmi:id="_66rDQpJlEdqSSImFLKDkSg" name="requiredRoles" type="__o_5wJJIEdqSSImFLKDkSg" association="_66rDQJJlEdqSSImFLKDkSg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n-uhMZJmEdqSSImFLKDkSg" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n-uhMJJmEdqSSImFLKDkSg"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_iUU30ZfEEdqwqsvROVlojA" name="parentProvidesComponentType" type="_xtWJIJJGEdqIo-u3cE9-DA" association="_iUU30JfEEdqwqsvROVlojA">
+    <ownedAttribute xmi:id="_iUU30ZfEEdqwqsvROVlojA" name="parentProvidesComponentTypes" type="_xtWJIJJGEdqIo-u3cE9-DA" association="_iUU30JfEEdqwqsvROVlojA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iUU31JfEEdqwqsvROVlojA" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iUU305fEEdqwqsvROVlojA"/>
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_4XfF4JJGEdqIo-u3cE9-DA" name="ImplementationComponentType">
     <generalization xmi:id="_Ae8VMJJHEdqIo-u3cE9-DA" general="_0Ske8JJGEdqIo-u3cE9-DA"/>
-    <ownedAttribute xmi:id="_t30wMZfEEdqwqsvROVlojA" name="parentCompleteComponentType" type="_0Ske8JJGEdqIo-u3cE9-DA" association="_t30wMJfEEdqwqsvROVlojA">
+    <ownedAttribute xmi:id="_t30wMZfEEdqwqsvROVlojA" name="parentCompleteComponentTypes" type="_0Ske8JJGEdqIo-u3cE9-DA" association="_t30wMJfEEdqwqsvROVlojA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t30wNJfEEdqwqsvROVlojA" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t30wM5fEEdqwqsvROVlojA"/>
     </ownedAttribute>
