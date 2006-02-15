@@ -19,7 +19,7 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="93" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="36" y="22"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="845" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="707" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="ModelerDiagramEditor" itemType="typeToolBarContribution" x="845" y="22"/>
 </coolbarLayout>
@@ -29,63 +29,19 @@
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="7"/>
-<part id="8"/>
-<part id="6"/>
-<part id="5"/>
-<part id="16"/>
-<part id="17"/>
-<part id="20"/>
-<part id="15"/>
-<part id="1"/>
-<part id="23"/>
-<part id="24"/>
-<part id="26"/>
-<part id="22"/>
-<part id="27"/>
-<part id="28"/>
-<part id="9"/>
-<part id="14"/>
-<part id="29"/>
-<part id="2"/>
-<part id="21"/>
-<part id="18"/>
-<part id="25"/>
-<part id="19"/>
-<part id="13"/>
-<part id="12"/>
-<part id="10"/>
-<part id="11"/>
-<part id="4"/>
-<part id="3"/>
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="PalladioCM.emx" partName="PalladioCM.emx" path="E:/Eigene Dateien/CVS-Module/Palladio.EMFComponentModel/src/model/PalladioCM/PalladioCM.emx" title="PalladioCM.emx" tooltip="PalladioCM/PalladioCM.emx" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PalladioCM/PalladioCM.emx"/>
-</editor>
-<editor id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="TestModel.emx" partName="TestModel.emx" path="E:/Eigene Dateien/CVS-Module/Palladio.EMFComponentModel/src/model/PalladioCM/TestModel.emx" title="TestModel.emx" tooltip="PalladioCM/TestModel.emx" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PalladioCM/TestModel.emx"/>
-</editor>
-<editor id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="ExampleAnotation.emx" partName="ExampleAnotation.emx" path="E:/Eigene Dateien/CVS-Module/Palladio.EMFComponentModel/src/model/PalladioCM/ExampleAnotation.emx" title="ExampleAnotation.emx" tooltip="PalladioCM/ExampleAnotation.emx" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PalladioCM/ExampleAnotation.emx"/>
-</editor>
-<editor id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="FSM.emx" partName="FSM.emx" path="E:/Eigene Dateien/CVS-Module/Palladio.EMFComponentModel/src/model/PalladioCM/FSM.emx" title="FSM.emx" tooltip="PalladioCM/FSM.emx" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PalladioCM/FSM.emx"/>
-</editor>
-<editor id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="FsmWrapper.emx" partName="FsmWrapper.emx" path="E:/Eigene Dateien/CVS-Module/Palladio.EMFComponentModel/src/model/PalladioCM/FsmWrapper.emx" title="FsmWrapper.emx" tooltip="PalladioCM/FsmWrapper.emx" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PalladioCM/FsmWrapper.emx"/>
-</editor>
-<editor id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="PetriNet.emx" partName="PetriNet.emx" path="E:/Eigene Dateien/CVS-Module/Palladio.EMFComponentModel/src/model/PalladioCM/PetriNet.emx" title="PetriNet.emx" tooltip="PalladioCM/PetriNet.emx" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PalladioCM/PetriNet.emx"/>
-</editor>
-<editor id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="PetriNetWrapper.emx" partName="PetriNetWrapper.emx" path="E:/Eigene Dateien/CVS-Module/Palladio.EMFComponentModel/src/model/PalladioCM/PetriNetWrapper.emx" title="PetriNetWrapper.emx" tooltip="PalladioCM/PetriNetWrapper.emx" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PalladioCM/PetriNetWrapper.emx"/>
-</editor>
-<editor id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="GUID.emx" partName="GUID.emx" path="E:/Eigene Dateien/CVS-Module/Palladio.EMFComponentModel/src/model/PalladioCM/GUID.emx" title="GUID.emx" tooltip="PalladioCM/GUID.emx" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/PalladioCM/GUID.emx"/>
 </editor>
 </editors>
 <views>
@@ -112,7 +68,7 @@
 </viewState>
 </view>
 </views>
-<perspectives activePart="ModelerDiagramEditor" activePerspective="com.ibm.xtools.modeler.internal.ui.perspectives.ModelingPerspective">
+<perspectives activePart="org.eclipse.ui.views.ContentOutline" activePerspective="com.ibm.xtools.modeler.internal.ui.perspectives.ModelingPerspective">
 <perspective editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.ibm.xtools.modeler.internal.ui.perspectives.ModelingPerspective" id="com.ibm.xtools.modeler.internal.ui.perspectives.ModelingPerspective" label="Modeling"/>
 <actionSet id="com.ibm.esupport.client.ActionSet"/>
@@ -210,7 +166,7 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer" ratio="0.2558651" ratioLeft="349" ratioRight="1015" relationship="2" relative="org.eclipse.ui.internal.ViewStack@6c506c5"/>
+<info part="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer" ratio="0.20454545" ratioLeft="279" ratioRight="1085" relationship="2" relative="org.eclipse.ui.internal.ViewStack@6c506c5"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@3e1c3e1c" ratio="0.6678043" ratioLeft="587" ratioRight="292" relationship="4" relative="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer">
 <folder activePageID="org.eclipse.ui.views.PropertySheet" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
@@ -248,6 +204,15 @@
 </page>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="Model2.emx" tooltip="Test/Model2.emx">
+<persistable path="/Test/Model2.emx"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="Model1.emx" tooltip="Test/Model1.emx">
+<persistable path="/Test/Model1.emx"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="PalladioCM.emx" tooltip="PalladioCM/PalladioCM.emx">
+<persistable path="/PalladioCM/PalladioCM.emx"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="GUID.emx" tooltip="PalladioCM/GUID.emx">
 <persistable path="/PalladioCM/GUID.emx"/>
 </file>
@@ -262,18 +227,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="FSM.emx" tooltip="PalladioCM/FSM.emx">
 <persistable path="/PalladioCM/FSM.emx"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="ExampleAnotation.emx" tooltip="PalladioCM/ExampleAnotation.emx">
-<persistable path="/PalladioCM/ExampleAnotation.emx"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="TestModel.emx" tooltip="PalladioCM/TestModel.emx">
-<persistable path="/PalladioCM/TestModel.emx"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.editors.internal.ModelEditor" name="PalladioCM.emx" tooltip="PalladioCM/PalladioCM.emx">
-<persistable path="/PalladioCM/PalladioCM.emx"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.ibm.xtools.modeler.ui.profile.internal.editors.ProfileEditor" name="PalladioCM-UMLProfile.epx" tooltip="PalladioCM/PalladioCM-UMLProfile.epx">
-<persistable path="/PalladioCM/PalladioCM-UMLProfile.epx"/>
 </file>
 </mruList>
 </workbench>

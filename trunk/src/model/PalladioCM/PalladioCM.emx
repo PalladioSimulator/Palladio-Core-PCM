@@ -5485,7 +5485,7 @@
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_0Ske8JJGEdqIo-u3cE9-DA" name="CompleteComponentType">
     <ownedRule xmi:id="_-vqjsJ0tEdqX-LqEpACX-A" name="providedInterfacesHaveToConformToCompleteType" constrainedElement="_0Ske8JJGEdqIo-u3cE9-DA">
-      <specification xmi:type="uml:OpaqueExpression" xmi:id="_-vqjsZ0tEdqX-LqEpACX-A" body="self.providedRoles->(p : ProvidedRole |&#xD;&#xA;&#x9;p.providedInterface.identifier.id)&#xD;&#xA;=&#xD;&#xA;self.parentProvidesComponentTypes->collect(t : ProvidesComponentType |&#xD;&#xA;&#x9;t.providedRoles->collect(r : ProvidedRole |&#xD;&#xA;&#x9;&#x9;r.providedInterface.identifier.id&#xD;&#xA;&#x9;)&#xD;&#xA;)" language="OCL"/>
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_-vqjsZ0tEdqX-LqEpACX-A" body="-- CompleteTypes provided Interfaces have to be a superset&#xD;&#xA;-- of ProvideComponentType provided Interfaces&#xD;&#xA;self.providedRoles->collect(p : ProvidedRole |&#xD;&#xA;&#x9;p.providedInterface.identifier.id)->includesAll(&#xD;&#xA;&#x9;&#x9;self.parentProvidesComponentTypes->collect(pt : ProvidesComponentType |&#xD;&#xA;&#x9;&#x9;&#x9;pt.providedRoles->collect(r : ProvidedRole |&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;r.providedInterface.identifier.id&#xD;&#xA;&#x9;&#x9;&#x9;)&#xD;&#xA;&#x9;&#x9;)&#xD;&#xA;&#x9;)" language="OCL"/>
     </ownedRule>
     <generalization xmi:id="_BA8PAJJHEdqIo-u3cE9-DA" general="_xtWJIJJGEdqIo-u3cE9-DA"/>
     <ownedAttribute xmi:id="_66rDQpJlEdqSSImFLKDkSg" name="requiredRoles" type="__o_5wJJIEdqSSImFLKDkSg" association="_66rDQJJlEdqSSImFLKDkSg">
