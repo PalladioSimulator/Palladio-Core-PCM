@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config SYSTEM "WebserverXML.dtd">
+<Config xmlns:xsi="Webserver" xsi:noNamespaceSchemaLocation="WebserverXML.dtd">
+	<!--ListenIP: The IP the webserver shall be listening on. By default (and only local use) you may use "127.0.0.1". Otherwise use the IP-address for the used network-interface.-->
+	<ListenIP ip="127.0.0.1"></ListenIP>
+
+	<!--Name of the webserver that is sent in the http-header.-->
+	<ServerName>Palladio.Webserver/v0.1</ServerName>
+
+	<!--DocumentRoot: the path where the documents, that are delivered by the webserver, can be found. (default: "../../../documents")-->
+	<DocumentRoot path="../../../documents"></DocumentRoot>
+	
+	<LogFile path="log.txt"></LogFile>
+	
+	<DebugFile path="debug.txt"></DebugFile>
+	
+	<Ports>
+		<!--port: defines the port, the server is listening at.-->
+		<Port number="81"></Port>
+		<Port number="82"></Port>
+	</Ports>
+	
+	<!-- The default-content-type is used, if no fitting extension can be found. -->
+	<MimeTypes default-content-type="text/html">
+		<!--documentType: The types of documents which shall be delivered by the webserver and their header-information.-->
+		<MimeType extension=".html" content-type="text/html"></MimeType>
+		<MimeType extension=".htm" content-type="text/html"></MimeType>
+		<MimeType extension=".text" content-type="plaintext"></MimeType>
+		<MimeType extension=".gif" content-type="image/gif"></MimeType>
+		<MimeType extension=".jpg" content-type="image/jpeg"></MimeType>
+		<MimeType extension=".png" content-type="image/png"></MimeType>
+		<MimeType extension=".css" content-type="text/css"></MimeType>
+		<MimeType extension=".shtml" content-type="text/html"></MimeType>
+		<MimeType extension=".bibhtml" content-type="text/html"></MimeType>
+	</MimeTypes>
+	<DefaultFiles>
+		<!--FileName: Order of files that are delivered to the client by default if a folder is requested. The order has to start with id 0, which indicates the highest priority.-->
+		<FileName id="0">index.htm</FileName> 
+		<FileName id="1">index.html</FileName> 
+	</DefaultFiles>
+</Config>
+
+

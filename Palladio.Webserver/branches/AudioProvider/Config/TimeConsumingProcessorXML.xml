@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config SYSTEM "TimeConsumingProcessorXML.dtd">
+<Config xmlns:xsi="Webserver" xsi:noNamespaceSchemaLocation="TimeConsumingProcessorXML.dtd">
+
+	<!--Active: Specifies, wether the TimeConsumer is activated. "1": active, "0": inactive. Pay attention that the activation might slow down the
+		webserver extremely.-->
+	<Active Value="0" />
+	
+	<!--WaitOption: The TimeConsumoingProcessor knows two ways how to wait. If threadSleep is set to "1" the current thread will sleep for the specified time.
+		The other way the time is consumed by busy waiting. For this set threadSleep to "0".-->
+	<WaitOption ThreadSleep="1" />	
+	
+	<!--Delay: The delays this component should produce. basicDelay: the default delay, that is produced. The variance specifies the range out of which the
+		delays are calculated. The time has to be specified in milliseconds. -->
+	<Delay BasicDelay="5000" Variance="0" />
+	
+	<!--ProbaliltyOfActivation: How often the consumer should produce a time consume. This will cause unpredictable time consuming. If the value is 100 the 
+		consumption will always be enabled, if the value is 0 the chance of activation is 1 to 100. All integer number between 0 and 100 are allowed. Default is 100.-->
+	<ProbaliltyOfActivation Value="100" />
+
+	<!--Seed: if the seed is != 0 the specified value is used to initialize a random-object.  If the InitialSeed is set to "0" the default-construction is used.-->
+	<Seed InitialSeed="0" />
+	
+</Config>
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT Config (ListenIP, ServerName, DocumentRoot,LogFile,DebugFile, Ports,MimeTypes,DefaultFiles)>
+<!ATTLIST Config
+	xmlns:xsi CDATA #REQUIRED
+	xsi:noNamespaceSchemaLocation CDATA #REQUIRED
+>
+
+<!ELEMENT ListenIP EMPTY>
+<!ATTLIST ListenIP
+	ip CDATA #REQUIRED
+>
+
+<!ELEMENT ServerName (#PCDATA)>
+
+<!ELEMENT DocumentRoot EMPTY>
+<!ATTLIST DocumentRoot
+	path CDATA #REQUIRED
+>
+
+
+<!ELEMENT LogFile EMPTY>
+<!ATTLIST LogFile
+	path CDATA #REQUIRED
+>
+
+
+<!ELEMENT DebugFile EMPTY>
+<!ATTLIST DebugFile
+	path CDATA #REQUIRED
+>
+
+
+
+<!ELEMENT Ports (Port+)>
+
+<!ELEMENT Port EMPTY>
+<!ATTLIST Port
+	number CDATA #REQUIRED 
+>
+
+
+<!ELEMENT MimeTypes (MimeType*)>
+<!ATTLIST MimeTypes
+	default-content-type CDATA #REQUIRED
+>
+
+<!ELEMENT MimeType EMPTY>
+<!ATTLIST MimeType
+	extension CDATA #REQUIRED
+	content-type CDATA #REQUIRED
+>
+
+<!ELEMENT DefaultFiles (FileName*)>
+
+<!ELEMENT FileName (#PCDATA)>
+<!ATTLIST FileName
+	id CDATA #REQUIRED
+>
