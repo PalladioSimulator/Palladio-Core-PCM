@@ -2,28 +2,42 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
+using System.Diagnostics;
 using System.IO;
 using System.Web;
-using System.Web.SessionState;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 
 namespace WebAudioStore
 {
 	/// <summary>
 	/// Zusammenfassung für WebForm1.
 	/// </summary>
-	public class UploadForm : System.Web.UI.Page
+	public class UploadForm : Page
 	{
-		protected System.Web.UI.HtmlControls.HtmlInputFile myFile;
-		protected System.Web.UI.WebControls.DataGrid grid;
-		protected System.Web.UI.WebControls.Button Button1;
+		protected HtmlInputFile myFile;
+		protected DataGrid grid;
 		protected DataView dataView;
+		protected ListBox ListBox1;
+		protected Button AddFile;
+		protected Button RemvFile;
+		protected HtmlInputFile FindFile;
+		protected HtmlInputButton Upload;
+		protected Label Label1;
+
+		public ArrayList files = new ArrayList();
+		static public ArrayList hif = new ArrayList();
+		public int filesUploaded = 0;
+		
+		protected DBQueries queries;
 	
-		private void Page_Load(object sender, System.EventArgs e)
+		public UploadForm()
+		{
+			this.queries = new DBQueries();
+		}
+
+		private void Page_Load(object sender, EventArgs e)
 		{
 			// Hier Benutzercode zur Seiteninitialisierung einfügen
 		}
@@ -31,27 +45,8 @@ namespace WebAudioStore
 		#region Vom Web Form-Designer generierter Code
 		override protected void OnInit(EventArgs e)
 		{
-			DataSet ds = new DataSet();
-			DataTable t = new DataTable("ImageTable");
-			t.Columns.Add("ID",typeof(int));
-			t.Columns.Add("Name",typeof(string));
-			t.Columns.Add("Size",typeof(int));
-			ds.Tables.Add(t);
-
-			DirectoryInfo di = new DirectoryInfo(Server.MapPath("Data"));
-			// Create an array representing the files in the current directory.
-			FileInfo[] fis = di.GetFiles();
-			int i = 1;
-			foreach (FileInfo fi in fis)
-			{
-				object[] vals = new object[3];
-				vals[0] = i++;
-				vals[1] = fi.Name;
-				vals[2] = fi.Length;
-				t.Rows.Add(vals);
-			}
-
-			dataView = ds.Tables["ImageTable"].DefaultView;
+			DataSet ds = queries.GetAudioFileInfo(); // read AudioFileInfo table from database
+			dataView = ds.Tables["ImageTable"].DefaultView; // add table to webpage
 
 			//
 			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
@@ -66,20 +61,23 @@ namespace WebAudioStore
 		/// </summary>
 		private void InitializeComponent()
 		{    
-			this.grid.Load += new System.EventHandler(this.GridLoad);
-			this.Button1.Click += new System.EventHandler(this.Button1_Click);
+			this.AddFile.Click += new EventHandler(this.AddFile_Click);
+			this.RemvFile.Click += new EventHandler(this.RemvFile_Click);
+			this.grid.Load += new EventHandler(this.GridLoad);
+			this.Upload.ServerClick += new EventHandler(this.Upload_ServerClick);
+			this.Load += new EventHandler(this.Page_Load);
 
 		}
 		#endregion
 
-		private void GridLoad(object sender, System.EventArgs e)
+		private void GridLoad(object sender, EventArgs e)
 		{
 			grid.HeaderStyle.Font.Bold = true;
-			grid.AlternatingItemStyle.BackColor = System.Drawing.Color.LightGray;
 			grid.DataSource = dataView;
 			grid.DataBind();
 		}
 
+		/* not used anymore:
 		private void Button1_Click(object sender, System.EventArgs e)
 		{
 			if (myFile.PostedFile != null)
@@ -92,8 +90,147 @@ namespace WebAudioStore
 				{
 					fs.Write(buffer,0,buffer.Length);
 				}
+				StringBuilder respString = 
+					this.queries.InsertFile(buffer, postedFile.FileName, postedFile.ContentLength);
+				
+				Response.Write("<html><body>"+respString+"</body><html>");
 			}
-			Response.Redirect("uploaded.htm");
+			Response.Redirect("UploadForm.aspx");
+		}
+		*/
+
+		/// <summary>
+		/// AddFile will add the path of the client side file that is currently in the 
+		/// PostedFile
+		/// property of the HttpInputFile control to the listbox.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void AddFile_Click(object sender, EventArgs e)
+		{
+			if (Page.IsPostBack == true)
+			{
+				hif.Add(FindFile);
+				ListBox1.Items.Add(FindFile.PostedFile.FileName);
+			}
+			else
+			{
+                
+			}
+		}
+
+		/// <summary>
+		/// RemvFile will remove the currently selected file from the listbox.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void RemvFile_Click(object sender, EventArgs e)
+		{
+			if(ListBox1.Items.Count != 0)
+			{
+				hif.RemoveAt(ListBox1.SelectedIndex);
+				ListBox1.Items.Remove(ListBox1.SelectedItem.Text);
+			}
+        
+		}
+
+		/// <summary>
+		/// Upload_ServerClick is the server side script that will upload the files to 
+		/// the web server
+		/// by looping through the files in the listbox.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void Upload_ServerClick(object sender, EventArgs e)
+		{
+			string baseLocation = "C:\\temp\\";
+			string status = "";
+            
+            
+			if((ListBox1.Items.Count == 0) && (filesUploaded == 0))
+			{
+				Label1.Text = "Error - a file name must be specified.";
+				return;
+
+			}
+			else
+			{
+				foreach(HtmlInputFile HIF in hif)
+				{
+					try
+					{
+						string fn = ProcessFile(HIF);
+						status += fn + "<br>";
+					}
+					catch(Exception err)
+					{
+						Label1.Text = "Error saving file " + baseLocation
+							+ "<br>" + err.ToString();
+					}
+				}
+
+				if(filesUploaded == hif.Count)
+				{
+					Label1.Text = "These " + filesUploaded + " file(s) were "
+						+ "uploaded:<br>" + status;
+				}
+				hif.Clear();
+				ListBox1.Items.Clear();
+			}
+			Response.Redirect("UploadForm.aspx"); // to reload the table
+		}
+
+		
+		const int ERROR_FILE_NOT_FOUND = 2;
+		const int ERROR_ACCESS_DENIED = 5;
+
+		private string ProcessFile(HtmlInputFile HIF)
+		{
+			HttpPostedFile postedFile = HIF.PostedFile;
+			byte[] buffer = new byte[postedFile.ContentLength];
+			postedFile.InputStream.Read(buffer,0,buffer.Length);
+			string fn = Path.GetFileName(HIF.PostedFile.FileName);
+	
+			string fileName = Server.MapPath("Data\\"+fn);
+			using(FileStream fs = new FileStream(fileName,FileMode.Create))
+			{
+				fs.Write(buffer,0,buffer.Length);
+			}
+	
+			/*
+			Process myProcess = new Process();
+            
+			try
+			{
+				// Get the path that stores user documents.
+				string myDocumentsPath = 
+					Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+				
+
+				myProcess.StartInfo.FileName = "C:\\Inetpub\\wwwroot\\WebAudioStore\\bin\\oggenc2.exe";				myProcess.StartInfo.Verb = "Print";
+				myProcess.StartInfo.CreateNoWindow = false;
+				myProcess.Start();
+			}
+			catch (Win32Exception e)
+			{
+				if(e.NativeErrorCode == ERROR_FILE_NOT_FOUND)
+				{
+					Console.WriteLine(e.Message + ". Check the path.");
+				} 
+
+				else if (e.NativeErrorCode == ERROR_ACCESS_DENIED)
+				{
+					// Note that if your word processor might generate exceptions
+					// such as this, which are handled first.
+					Console.WriteLine(e.Message + 
+						". You do not have permission to print this file.");
+				}
+			}
+			*/
+
+			this.queries.InsertFile(buffer, fn, postedFile.ContentLength);
+			filesUploaded++;
+			return fn;
 		}
 	}
 }
