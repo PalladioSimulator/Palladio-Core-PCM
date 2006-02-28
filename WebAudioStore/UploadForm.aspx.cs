@@ -4,10 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.ComponentModel;
+using System.Threading;
 
 namespace WebAudioStore
 {
@@ -76,8 +79,7 @@ namespace WebAudioStore
 			grid.DataSource = dataView;
 			grid.DataBind();
 		}
-
-		/* not used anymore:
+/*
 		private void Button1_Click(object sender, System.EventArgs e)
 		{
 			if (myFile.PostedFile != null)
@@ -97,8 +99,7 @@ namespace WebAudioStore
 			}
 			Response.Redirect("UploadForm.aspx");
 		}
-		*/
-
+*/
 		/// <summary>
 		/// AddFile will add the path of the client side file that is currently in the 
 		/// PostedFile
@@ -196,10 +197,19 @@ namespace WebAudioStore
 			{
 				fs.Write(buffer,0,buffer.Length);
 			}
-	
-			/*
+
 			Process myProcess = new Process();
-            
+			ProcessStartInfo pInfo = new ProcessStartInfo("C:\\Inetpub\\wwwroot\\WebAudioStore\\Data\\oggenc2.exe");
+			pInfo.WorkingDirectory = "C:\\Inetpub\\wwwroot\\WebAudioStore\\Data";
+			pInfo.Arguments = fileName;
+			pInfo.UseShellExecute = true;
+			pInfo.CreateNoWindow = true;
+			myProcess.StartInfo = pInfo;
+			myProcess.Start();		
+			myProcess.WaitForExit();
+
+
+/*            
 			try
 			{
 				// Get the path that stores user documents.
@@ -226,8 +236,7 @@ namespace WebAudioStore
 						". You do not have permission to print this file.");
 				}
 			}
-			*/
-
+*/
 			this.queries.InsertFile(buffer, fn, postedFile.ContentLength);
 			filesUploaded++;
 			return fn;
