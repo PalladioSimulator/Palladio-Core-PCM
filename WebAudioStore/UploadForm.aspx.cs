@@ -187,8 +187,8 @@ namespace WebAudioStore
 		/// <summary>
 		/// Controls the handling of an uploaded file:
 		/// 1. stores it to disk
-		/// 2. encodes it on disk
-		/// 3. stores it in database
+		/// 2. (optionally) encodes it
+		/// 3. stores it to database
 		/// </summary>
 		private string ProcessFile(HtmlInputFile HIF, bool doEncode)
 		{
@@ -210,14 +210,13 @@ namespace WebAudioStore
 			} 
 			else
 			{
-				// encode to OGG
+				// do encoding, write file to disk
 				EncodeFile(fileName);
 
+				// read encoded file from disk
 				string encodedFileName = fileName.Substring(0,fileName.Length-3);
 				encodedFileName+="ogg";
-
 				byte[] encodedFileContent = null;
-
 				using(FileStream fs = new FileStream(encodedFileName,FileMode.Open))
 				{
 					int encodedFileLength = (int)fs.Length;
@@ -225,7 +224,7 @@ namespace WebAudioStore
 					fs.Read(encodedFileContent,0,encodedFileLength);
 				}
 
-				// store OGG to DB
+				// store encoded file to database
 				this.queries.InsertFile(encodedFileContent, encodedFileName, encodedFileContent.Length);
 			}
 
