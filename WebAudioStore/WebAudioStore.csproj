@@ -105,12 +105,17 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "DBConfig.cs"
+                    RelPath = "AudioDBQueries.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "DBQueries.cs"
+                    RelPath = "AudioStore.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "DBConfig.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -129,6 +134,21 @@
                     RelPath = "Global.asax.resx"
                     DependentUpon = "Global.asax.cs"
                     BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "IAudioDB.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "IAudioStore.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "OggEncAdapter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
                 />
                 <File
                     RelPath = "uploaded.htm"

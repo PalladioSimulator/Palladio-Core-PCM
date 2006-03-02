@@ -32,16 +32,17 @@ namespace WebAudioStore
 		public ArrayList files = new ArrayList();
 		static public ArrayList hif = new ArrayList();
 		public int filesUploaded = 0;
+
+		protected IAudioStore audioStore;
 		
-		protected DBQueries queries;
 		
-		const int ERROR_FILE_NOT_FOUND = 2;
 		protected System.Web.UI.WebControls.CheckBox CheckBox1;
-		const int ERROR_ACCESS_DENIED = 5;
 	
 		public UploadForm()
 		{
-			this.queries = new DBQueries();
+			IAudioDB db = new AudioDBQueries();
+			IAudioDB encdb = new OggEncAdapter(db);
+			audioStore = new AudioStore(encdb);
 		}
 
 		private void Page_Load(object sender, EventArgs e)
@@ -52,8 +53,7 @@ namespace WebAudioStore
 		#region Vom Web Form-Designer generierter Code
 		override protected void OnInit(EventArgs e)
 		{
-			DataSet ds = queries.GetAudioFileInfo(); // read AudioFileInfo table from database
-			dataView = ds.Tables["ImageTable"].DefaultView; // add table to webpage
+			dataView = audioStore.GetUploadedFileView();
 
 			//
 			// CODEGEN: Dieser Aufruf ist für den ASP.NET Web Form-Designer erforderlich.
@@ -83,27 +83,7 @@ namespace WebAudioStore
 			grid.DataSource = dataView;
 			grid.DataBind();
 		}
-/*
-		private void Button1_Click(object sender, System.EventArgs e)
-		{
-			if (myFile.PostedFile != null)
-			{
-				HttpPostedFile postedFile = myFile.PostedFile;
-				byte[] buffer = new byte[postedFile.ContentLength];
-				postedFile.InputStream.Read(buffer,0,buffer.Length);
-				string fileName = Server.MapPath("Data\\"+Path.GetFileName(postedFile.FileName));
-				using(FileStream fs = new FileStream(fileName,FileMode.Create))
-				{
-					fs.Write(buffer,0,buffer.Length);
-				}
-				StringBuilder respString = 
-					this.queries.InsertFile(buffer, postedFile.FileName, postedFile.ContentLength);
-				
-				Response.Write("<html><body>"+respString+"</body><html>");
-			}
-			Response.Redirect("UploadForm.aspx");
-		}
-*/
+
 		/// <summary>
 		/// AddFile will add the path of the client side file that is currently in the 
 		/// PostedFile
@@ -163,7 +143,7 @@ namespace WebAudioStore
 				{
 					try
 					{
-						string fn = ProcessFile(HIF, CheckBox1.Checked);
+						string fn = audioStore.HandleUpload(HIF.PostedFile);
 						status += fn + "<br>";
 					}
 					catch(Exception err)
@@ -183,92 +163,5 @@ namespace WebAudioStore
 			}
 			Response.Redirect("UploadForm.aspx"); // to reload the table
 		}
-
-		/// <summary>
-		/// Controls the handling of an uploaded file:
-		/// 1. stores it to disk
-		/// 2. (optionally) encodes it
-		/// 3. stores it to database
-		/// </summary>
-		private string ProcessFile(HtmlInputFile HIF, bool doEncode)
-		{
-			HttpPostedFile postedFile = HIF.PostedFile;
-			byte[] postedFileContent = new byte[postedFile.ContentLength];
-			postedFile.InputStream.Read(postedFileContent,0,postedFileContent.Length);
-			string postedFileName = Path.GetFileName(HIF.PostedFile.FileName);
-	
-			string fileName = Server.MapPath("Data\\"+postedFileName);
-			using(FileStream fs = new FileStream(fileName,FileMode.Create))
-			{
-				fs.Write(postedFileContent,0,postedFileContent.Length);
-			}
-
-			if (!doEncode)
-			{
-				// store directly in DB
-				this.queries.InsertFile(postedFileContent, postedFileName, postedFileContent.Length);	
-			} 
-			else
-			{
-				// do encoding, write file to disk
-				EncodeFile(fileName);
-
-				// read encoded file from disk
-				string encodedFileName = fileName.Substring(0,fileName.Length-3);
-				encodedFileName+="ogg";
-				byte[] encodedFileContent = null;
-				using(FileStream fs = new FileStream(encodedFileName,FileMode.Open))
-				{
-					int encodedFileLength = (int)fs.Length;
-					encodedFileContent = new byte[encodedFileLength];
-					fs.Read(encodedFileContent,0,encodedFileLength);
-				}
-
-				// store encoded file to database
-				this.queries.InsertFile(encodedFileContent, encodedFileName, encodedFileContent.Length);
-			}
-
-			filesUploaded++;
-			return fileName;
-		}
-
-		/// <summary>
-		/// Encodes the file with the given fileName from a WAV to OGG
-		/// by starting an external process (oggenc2.exe).
-		/// </summary>
-		private void EncodeFile(string fileName)
-		{
-			Process myProcess = new Process();
-			
-			// configure process
-			ProcessStartInfo pInfo = 
-				new ProcessStartInfo("C:\\Inetpub\\wwwroot\\WebAudioStore\\Data\\oggenc2.exe");
-			pInfo.WorkingDirectory = "C:\\Inetpub\\wwwroot\\WebAudioStore\\Data";
-			pInfo.Arguments = fileName;
-			pInfo.UseShellExecute = true;
-			pInfo.CreateNoWindow = true;
-			myProcess.StartInfo = pInfo;
-			
-			// execute process
-			try
-			{
-				myProcess.Start();		
-				myProcess.WaitForExit();	
-			}
-			catch (Win32Exception e)
-			{
-				if(e.NativeErrorCode == ERROR_FILE_NOT_FOUND)
-				{
-					Console.WriteLine(e.Message + ". Check the path.");
-				} 
-
-				else if (e.NativeErrorCode == ERROR_ACCESS_DENIED)
-				{
-					Console.WriteLine(e.Message + 
-						". You do not have permission to print this file.");
-				}
-			}
-		}
-
 	}
 }

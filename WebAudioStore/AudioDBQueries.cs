@@ -9,22 +9,20 @@ namespace WebAudioStore
 	/// <summary>
 	/// Zusammenfassung für DBQueries.
 	/// </summary>
-	public class DBQueries
+	public class AudioDBQueries : IAudioDB
 	{
 		protected String connectionString;
 		
-		public DBQueries()
+		public AudioDBQueries()
 		{
 			this.connectionString = DBConfig.GetConnectionString();
 		}
 
-		/// <summary>
-		/// Stores the buffer into the Table "AudioFiles" as a BLOB
-		/// </summary>
-		public StringBuilder InsertFile(byte[] fileContent, String fileName, int fileSize)
+		public int InsertAudioFile(byte[] fileContent)
 		{
 			MySqlConnection connection = new MySqlConnection(this.connectionString);			
 			MySqlDataReader dataReader = null;
+			int fileID = -42;
 
 			String insertAudioFiles="INSERT INTO AudioFiles VALUES(null, ?File)";
 			MySqlCommand cmd1 = new MySqlCommand(insertAudioFiles);
@@ -38,14 +36,6 @@ namespace WebAudioStore
 			MySqlCommand cmd2 = new MySqlCommand(selectMaxId);
 			cmd2.Connection = connection;
 
-			StringBuilder insertAudioFileInfo = new StringBuilder();
-			insertAudioFileInfo.Append("INSERT INTO AudioFileInfo VALUES(null, ");
-			insertAudioFileInfo.Append("'"+Path.GetFileName(fileName)+"', "+fileSize+", ?AudioFileId)");
-			MySqlCommand cmd3 = new MySqlCommand(insertAudioFileInfo.ToString());
-			cmd3.Connection = connection;
-			
-			StringBuilder responseString = new StringBuilder();
-			
 			try
 			{
 				connection.Open();
@@ -53,25 +43,47 @@ namespace WebAudioStore
 				
 				dataReader = cmd2.ExecuteReader(); // SELECT maxID from AudioFiles
 				dataReader.Read();
-				cmd3.Parameters.Add("?AudioFileId", dataReader.GetInt32(0));
+				
+				fileID = dataReader.GetInt32(0);
 				dataReader.Close();
-				
-				cmd3.ExecuteNonQuery(); // INSERT into AudioFileInfo
-				responseString.Append("Successfully inserted "+fileName+"!");
-				
-				connection.Close(); // might be omitted if exception is thrown earlier, thus finally-block
 			}
 			catch(Exception e)
 			{
-				String blah = e.ToString();
 				// TODO
 			}
 			finally 
 			{
 				connection.Close();
 			}
-			return responseString;
+			return fileID;
 		}
+
+		public void InsertAudioInfo(int fileID, string fileName, int fileSize)
+		{
+			MySqlConnection connection = new MySqlConnection(this.connectionString);			
+			StringBuilder insertAudioFileInfo = new StringBuilder();
+			insertAudioFileInfo.Append("INSERT INTO AudioFileInfo VALUES(null, ");
+			insertAudioFileInfo.Append("'"+Path.GetFileName(fileName)+"', "+fileSize+", ?AudioFileId)");
+			MySqlCommand cmd3 = new MySqlCommand(insertAudioFileInfo.ToString());
+			cmd3.Parameters.Add("?AudioFileId", fileID);				
+			cmd3.Connection = connection;			
+			try
+			{
+				connection.Open();
+				cmd3.ExecuteNonQuery(); // INSERT into AudioFileInfo				
+			}
+			catch(Exception e)
+			{
+				string info = e.Message;
+				Console.WriteLine(e);
+				// TODO
+			}
+			finally 
+			{
+				connection.Close();
+			}
+		}
+
 
 		public DataSet GetAudioFileInfo()
 		{
