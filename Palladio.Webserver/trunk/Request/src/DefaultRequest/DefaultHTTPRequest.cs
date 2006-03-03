@@ -47,7 +47,7 @@ namespace Palladio.Webserver.Request
 		private NetworkStream networkStream;
 		private Hashtable variablesGET;
 		private Hashtable variablesPOST;
-
+        private Hashtable metaDataHash;
 
 		public DefaultHTTPRequest()
 		{
@@ -181,6 +181,18 @@ namespace Palladio.Webserver.Request
 				return variablesGET;
 			}
 		}
+
+        public Hashtable MetaData
+        {
+            get
+            {
+                return metaDataHash;
+            }
+            set
+            {
+                metaDataHash = value;
+            }
+        }
 
 	}
 }

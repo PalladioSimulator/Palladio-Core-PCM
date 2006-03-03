@@ -61,24 +61,28 @@ namespace Palladio.Webserver.BibTeXProvider
 			StringBuilder responseString = new StringBuilder();
 			SqlDataReader sqlDataReader = null;
 
-			try
-			{
-				connection.Open();
+            try
+            {
+                connection.Open();
 
-				StringBuilder sqlRequest = new StringBuilder();
-				sqlRequest.Append("SELECT * FROM " + bibTeXTableName + " ");
+                StringBuilder sqlRequest = new StringBuilder();
+                sqlRequest.Append("SELECT * FROM " + bibTeXTableName + " ");
 
-				sqlRequest.Append(BuildWhereClause (httpRequest, bibTeXFieldNames)); 
+                sqlRequest.Append(BuildWhereClause(httpRequest, bibTeXFieldNames));
 
-				sqlRequest.Append(";");
+                sqlRequest.Append(";");
 
-				SqlCommand sqlCommand = new SqlCommand(sqlRequest.ToString(), connection);		
-				sqlDataReader = sqlCommand.ExecuteReader();
+                SqlCommand sqlCommand = new SqlCommand(sqlRequest.ToString(), connection);
+                sqlDataReader = sqlCommand.ExecuteReader();
 
-				responseString.Append(CreateHTMLDataTableFromResult(sqlDataReader));
+                responseString.Append(CreateHTMLDataTableFromResult(sqlDataReader));
 
-				sqlDataReader.Close();
-			}
+                sqlDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
 			finally 
 			{
 				sqlDataReader.Close();
@@ -143,7 +147,7 @@ namespace Palladio.Webserver.BibTeXProvider
 				for(int x = 0; x < sqlDataReader.FieldCount; x++)
 				{	
 					responseString.Append("<td>");
-					responseString.Append(sqlDataReader.GetString(x));
+					responseString.Append(sqlDataReader.GetValue(x).ToString());
 					responseString.Append("</td>");
 				}
 				responseString.Append("</tr>\n");

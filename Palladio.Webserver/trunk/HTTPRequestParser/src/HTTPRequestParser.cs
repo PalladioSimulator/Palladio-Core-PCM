@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
+using System.Collections;
 using Palladio.Webserver.ConfigReader;
 using Palladio.Webserver.HTTPRequestProcessor;
 using Palladio.Webserver.Request;
@@ -190,6 +191,11 @@ namespace Palladio.Webserver.HTTPRequestParser
 				return;
 			}
 
+            // Second and half: hack by Steffen, Parse the metadata of the HTTP Request
+            // normally, you would parse the request only once!!!!
+            StringReader sr = new StringReader(requestString);
+            ReadHTTPCommand(sr);
+            httpRequest.MetaData = ReadHTTPRequestMetaData(sr);
 
 			// THIRD: Parse
 			// POST-Method:
@@ -252,58 +258,66 @@ namespace Palladio.Webserver.HTTPRequestParser
 			int contentLength = 0;
 			char[] charBuffer;
 			bool contentRead = false;
-	
-			try 
-			{
-				while(true) 
-				{
-					
-					//if the content has been read (blockread) the ReadLine-command would hang:
-					if(!contentRead)
-					{
-						buffer = reader.ReadLine();
-					}
-					// break looping if teh is buffer emtpy or the content (from post-requests) has been read:
-					if (buffer == null || buffer.Length <= 0 || contentRead)
-					{
-						break;
-					}
-					
-					// for the POST-Variables; that section start with "Content-Length:", so search for it.
-					// This part of the request can not be read by using ReadLine, because its size depends on each request.
-					// The size has to be read from the request itself.
-					if(buffer.IndexOf("Content-Length:") != -1)
-					{
-						requestStringBuffer += buffer + "\n";
 
-						int lengthStartIndex = buffer.IndexOf(":") + 2; // 2: ":" is followed by a space - so read 2 chars later.
-						string contentLengthString = buffer.Substring(lengthStartIndex, buffer.Length - lengthStartIndex);
-						contentLength = Int32.Parse(contentLengthString) + 2; // 2: Two Linebreaks before the Variables start
-						
-						charBuffer = new char[contentLength];
-						// read the rest of the request in a block; size is known from the request itself.
-						int requestSize = reader.ReadBlock(charBuffer, 0, contentLength);
-						buffer = new string(charBuffer);						
-
-						webserverMonitor.WriteLogEntry("Got request; size (bytes): " + requestSize);
-						contentRead = true;
-					}
-
-					// complete the request that has already been read.
-					requestStringBuffer += buffer + "\n";
-				}
-			} 
-			catch (SocketException e) 
-			{
-				webserverMonitor.WriteDebugMessage("ERROR: Caught Socket exception " + e, 1);
-			} 
-			catch (IOException e) 
-			{
-				webserverMonitor.WriteDebugMessage("ERROR: Caught IO exception " + e, 1);
-				throw e; // might be handled by a COR-Successor
-			}
+            try
+            {
+                requestStringBuffer += ReadHTTPCommand(reader) + "\n";
+                // Hack: Eigentlich sollte der Code hier schon die Hashtabelle lesen, aber ich wollte nicht den ganzen Folge-Code anpassen
+                // Darum stelle ich den String wieder her...
+                Hashtable metaData = ReadHTTPRequestMetaData(reader);
+                foreach (DictionaryEntry s in metaData)
+                {
+                    requestStringBuffer += (string)s.Key + ": " + (string)s.Value + "\n";
+                }
+                requestStringBuffer += "\n";
+                if (metaData.ContainsKey("Content-Length"))
+                {
+                    requestStringBuffer += ReadContent(reader, Int32.Parse((string)metaData["Content-Length"]));
+                }
+            }
+            catch (SocketException e)
+            {
+                webserverMonitor.WriteDebugMessage("ERROR: Caught Socket exception " + e, 1);
+            }
+            catch (IOException e)
+            {
+                webserverMonitor.WriteDebugMessage("ERROR: Caught IO exception " + e, 1);
+                throw e; // might be handled by a COR-Successor
+            }
 			return requestStringBuffer;
 		}
+
+        private string ReadHTTPCommand(TextReader sr)
+        {
+            // First Line of each HTTP Request contains the command
+            string result = sr.ReadLine();
+            return result;
+        }
+
+        private Hashtable ReadHTTPRequestMetaData(TextReader sr)
+        {
+            Hashtable result = new Hashtable();
+            string line = null;
+
+            while ((line = sr.ReadLine()) != "")
+            {
+                // line contains <key>: <value>\n
+                string[] keyvalue = line.Split(new char[] {':'});
+                string value = "";
+                for (int i = 1; i < keyvalue.Length-1; i++)
+                    value += keyvalue[i].Trim() + ":";
+                value += keyvalue[keyvalue.Length-1].Trim();
+                result.Add(keyvalue[0], value);
+            }
+            return result;
+        }
+
+        private string ReadContent(TextReader sr, int count)
+        {
+            char[] block = new char[count];
+            sr.ReadBlock(block, 0, count);
+            return new String(block);
+        }
 
 		/// <summary>
 		/// Parses the rest (httpStartPos) of a get-method-request.
@@ -337,12 +351,17 @@ namespace Palladio.Webserver.HTTPRequestParser
 			httpRequest.RequestedFileType = parseFileType(httpRequest.RequestedFileName);
 
 			// Extract the request-part, that contains the variables-names and values:
-			int contentIndex = requestStringBuffer.IndexOf("Content-Length:");
+            // They must be the last <number-of-content-length>-bytes
+            string contentStringPart = requestStringBuffer.Substring((requestStringBuffer.Length-1)+"\n".Length-Int32.Parse((string)httpRequest.MetaData["Content-Length"]));
+#if false
+            int contentIndex = requestStringBuffer.IndexOf("Content-Length:");
 			string contentStringPart = requestStringBuffer.Substring(contentIndex, requestStringBuffer.Length - contentIndex);
 			contentIndex = contentStringPart.IndexOf("\n");
 			// 3: remove superfluent line-breaks at the beginning of the string
 			// 4: remove superfluent line-breaks at the end of the string
 			contentStringPart = contentStringPart.Substring(contentIndex + 3, contentStringPart.Length - contentIndex - 4);
+#endif
+
 
 			// seperates the string into variables and set as POST-Variables (false):
 			this.parseVariablesAndAddToHTTPRequest(contentStringPart, httpRequest, false);		

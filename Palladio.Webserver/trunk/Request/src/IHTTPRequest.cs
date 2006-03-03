@@ -122,6 +122,11 @@ namespace Palladio.Webserver.Request
 		/// </summary>
 		Hashtable GETHashtable {get;}
 
+        /// <summary>
+        /// Hashtable containing the meta-data fields of the request
+        /// </summary>
+        Hashtable MetaData { get; set;}
+
 
 	}
 }
