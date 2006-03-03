@@ -25,7 +25,11 @@ namespace WebAudioStore
 
 		public DataView GetUploadedFileView()
 		{
+			CallLogger.OnCall("IAudioStore", this.GetType().GetMethod("GetUploadedFileView"));
+
 			DataSet ds = audioDB.GetAudioFileInfo(); // read AudioFileInfo table from database
+			
+			CallLogger.OnReturn();
 			return ds.Tables["ImageTable"].DefaultView; // add table to webpage			
 		}
 
@@ -34,6 +38,8 @@ namespace WebAudioStore
 		/// </summary>
 		public string HandleUpload(HttpPostedFile postedFile)
 		{
+			CallLogger.OnCall("IAudioStore", this.GetType().GetMethod("HandleUpload"));
+
 			byte[] postedFileContent = new byte[postedFile.ContentLength];
 			postedFile.InputStream.Read(postedFileContent,0,postedFileContent.Length);
 
@@ -43,6 +49,8 @@ namespace WebAudioStore
 			this.audioDB.InsertAudioInfo(id, postedFileName, postedFileContent.Length);
 			
 			filesUploaded++;
+
+			CallLogger.OnReturn();
 			return postedFileName;
 		}
 	}

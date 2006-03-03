@@ -125,6 +125,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "EncodingAdapter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "Global.asax"
                     SubType = "Component"
                     BuildAction = "Content"
@@ -156,7 +161,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "OggEncAdapter.cs"
+                    RelPath = "IEncoder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "OggEncoder.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -1,16 +1,9 @@
 using System;
 using System.Collections;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.ComponentModel;
-using System.Threading;
 
 namespace WebAudioStore
 {
@@ -34,16 +27,16 @@ namespace WebAudioStore
 		public int filesUploaded = 0;
 
 		protected IAudioStore audioStore;
-		protected System.Web.UI.WebControls.Button Button1;
+		protected Button Button1;
 		
 		
-		protected System.Web.UI.WebControls.CheckBox CheckBox1;
+		protected CheckBox CheckBox1;
 	
 		public UploadForm()
 		{
 			IAudioDB db = new AudioDBQueries();
-			IAudioDB encdb = new OggEncAdapter(db);
-			audioStore = new AudioStore(db);
+			IAudioDB encdb = new EncodingAdapter(db, new OggEncoder());
+			audioStore = new AudioStore(encdb);
 		}
 
 		private void Page_Load(object sender, EventArgs e)
@@ -69,12 +62,12 @@ namespace WebAudioStore
 		/// </summary>
 		private void InitializeComponent()
 		{    
-			this.AddFile.Click += new System.EventHandler(this.AddFile_Click);
-			this.RemvFile.Click += new System.EventHandler(this.RemvFile_Click);
-			this.grid.Load += new System.EventHandler(this.GridLoad);
-			this.Upload.ServerClick += new System.EventHandler(this.Upload_ServerClick);
-			this.Button1.Click += new System.EventHandler(this.Button1_Click);
-			this.Load += new System.EventHandler(this.Page_Load);
+			this.AddFile.Click += new EventHandler(this.AddFile_Click);
+			this.RemvFile.Click += new EventHandler(this.RemvFile_Click);
+			this.grid.Load += new EventHandler(this.GridLoad);
+			this.Upload.ServerClick += new EventHandler(this.Upload_ServerClick);
+			this.Button1.Click += new EventHandler(this.Button1_Click);
+			this.Load += new EventHandler(this.Page_Load);
 
 		}
 		#endregion
@@ -166,7 +159,7 @@ namespace WebAudioStore
 			Response.Redirect("UploadForm.aspx"); // to reload the table
 		}
 
-		private void Button1_Click(object sender, System.EventArgs e)
+		private void Button1_Click(object sender, EventArgs e)
 		{
 			CallLogger.SaveLoggedInformationXML(1);
 		}
