@@ -34,7 +34,7 @@ namespace WebAudioStore
 	
 		public UploadForm()
 		{
-			IAudioDB db = new AudioDBQueries();
+			IAudioDB db = new DBAdapter();
 			IAudioDB encdb = new EncodingAdapter(db, new OggEncoder());
 			audioStore = new AudioStore(encdb);
 		}
