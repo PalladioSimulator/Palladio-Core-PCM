@@ -34,6 +34,7 @@ namespace WebAudioStore
 		public int filesUploaded = 0;
 
 		protected IAudioStore audioStore;
+		protected System.Web.UI.WebControls.Button Button1;
 		
 		
 		protected System.Web.UI.WebControls.CheckBox CheckBox1;
@@ -42,7 +43,7 @@ namespace WebAudioStore
 		{
 			IAudioDB db = new AudioDBQueries();
 			IAudioDB encdb = new OggEncAdapter(db);
-			audioStore = new AudioStore(encdb);
+			audioStore = new AudioStore(db);
 		}
 
 		private void Page_Load(object sender, EventArgs e)
@@ -72,6 +73,7 @@ namespace WebAudioStore
 			this.RemvFile.Click += new System.EventHandler(this.RemvFile_Click);
 			this.grid.Load += new System.EventHandler(this.GridLoad);
 			this.Upload.ServerClick += new System.EventHandler(this.Upload_ServerClick);
+			this.Button1.Click += new System.EventHandler(this.Button1_Click);
 			this.Load += new System.EventHandler(this.Page_Load);
 
 		}
@@ -162,6 +164,11 @@ namespace WebAudioStore
 				ListBox1.Items.Clear();
 			}
 			Response.Redirect("UploadForm.aspx"); // to reload the table
+		}
+
+		private void Button1_Click(object sender, System.EventArgs e)
+		{
+			CallLogger.SaveLoggedInformationXML(1);
 		}
 	}
 }

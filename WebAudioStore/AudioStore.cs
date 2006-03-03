@@ -30,10 +30,7 @@ namespace WebAudioStore
 		}
 
 		/// <summary>
-		/// Controls the handling of an uploaded file:
-		/// 1. stores it to disk
-		/// 2. (optionally) encodes it
-		/// 3. stores it to database
+		/// Uploads Files to DB
 		/// </summary>
 		public string HandleUpload(HttpPostedFile postedFile)
 		{

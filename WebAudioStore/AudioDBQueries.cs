@@ -20,6 +20,8 @@ namespace WebAudioStore
 
 		public int InsertAudioFile(byte[] fileContent)
 		{
+			CallLogger.OnCall("IAudioDB", this.GetType().GetMethod("InsertAudioFile"));
+
 			MySqlConnection connection = new MySqlConnection(this.connectionString);			
 			MySqlDataReader dataReader = null;
 			int fileID = -42;
@@ -49,17 +51,23 @@ namespace WebAudioStore
 			}
 			catch(Exception e)
 			{
+				String blah = e.Message;
 				// TODO
 			}
 			finally 
 			{
 				connection.Close();
 			}
+			
+			CallLogger.OnReturn();
+			
 			return fileID;
 		}
 
 		public void InsertAudioInfo(int fileID, string fileName, int fileSize)
 		{
+			CallLogger.OnCall("IAudioDB", this.GetType().GetMethod("InsertAudioInfo"));
+
 			MySqlConnection connection = new MySqlConnection(this.connectionString);			
 			StringBuilder insertAudioFileInfo = new StringBuilder();
 			insertAudioFileInfo.Append("INSERT INTO AudioFileInfo VALUES(null, ");
@@ -82,11 +90,15 @@ namespace WebAudioStore
 			{
 				connection.Close();
 			}
+			
+			CallLogger.OnReturn();
 		}
 
 
 		public DataSet GetAudioFileInfo()
 		{
+			CallLogger.OnCall("IAudioDB", this.GetType().GetMethod("GetAudioFileInfo"));
+
 			MySqlConnection connection = new MySqlConnection(this.connectionString);			
 			MySqlDataReader dataReader = null;
 
@@ -124,6 +136,7 @@ namespace WebAudioStore
 				dataReader.Close();
 				cmd1.Connection.Close();
 			}
+			CallLogger.OnReturn();
 			return dataSet;
 		}
 

@@ -115,6 +115,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "CallLogger.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "DBConfig.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -134,6 +139,11 @@
                     RelPath = "Global.asax.resx"
                     DependentUpon = "Global.asax.cs"
                     BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "HiResTimer.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
                 />
                 <File
                     RelPath = "IAudioDB.cs"
