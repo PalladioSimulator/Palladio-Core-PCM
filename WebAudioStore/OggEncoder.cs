@@ -42,12 +42,51 @@ namespace WebAudioStore
 
 		private static string WriteFileToDisk(byte[] fileContent)
 		{
-			string tempFileName = @"C:\Inetpub\wwwroot\WebAudioStore\Data\temp.wav";
+			string tempFileName = @"C:\Inetpub\wwwroot\WebAudioStore\Data\temp.mp3";
 			using(FileStream fs = new FileStream(tempFileName,FileMode.Create))
 			{
 				fs.Write(fileContent,0,fileContent.Length);
 			}
-			return tempFileName;
+
+
+			Mp32Wav(tempFileName);
+
+			return @"C:\Inetpub\wwwroot\WebAudioStore\Data\temp.wav";
+
+		}
+
+		private static void Mp32Wav(string tempFileName)
+		{
+			Process myProcess = new Process();
+	
+			// configure process
+			ProcessStartInfo pInfo = 
+				new ProcessStartInfo("C:\\Inetpub\\wwwroot\\WebAudioStore\\Data\\lame.exe");
+			pInfo.WorkingDirectory = "C:\\Inetpub\\wwwroot\\WebAudioStore\\Data";
+			pInfo.Arguments = "--decode "+tempFileName+" temp.wav";
+			pInfo.UseShellExecute = true;
+			pInfo.CreateNoWindow = true;
+			myProcess.StartInfo = pInfo;
+	
+			// execute process
+			try
+			{
+				myProcess.Start();		
+				myProcess.WaitForExit();
+			}
+			catch (Win32Exception e)
+			{
+				if(e.NativeErrorCode == ERROR_FILE_NOT_FOUND)
+				{
+					Console.WriteLine(e.Message + ". Check the path.");
+				} 
+
+				else if (e.NativeErrorCode == ERROR_ACCESS_DENIED)
+				{
+					Console.WriteLine(e.Message + 
+						". You do not have permission to print this file.");
+				}
+			}
 		}
 
 		private static void ExecuteEncoder(string tempFileName)
@@ -67,7 +106,7 @@ namespace WebAudioStore
 			try
 			{
 				myProcess.Start();		
-				myProcess.WaitForExit();	
+				myProcess.WaitForExit();
 			}
 			catch (Win32Exception e)
 			{
