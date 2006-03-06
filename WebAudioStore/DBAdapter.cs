@@ -9,11 +9,11 @@ namespace WebAudioStore
 	/// <summary>
 	/// Zusammenfassung für DBQueries.
 	/// </summary>
-	public class AudioDBQueries : IAudioDB
+	public class DBAdapter : IAudioDB
 	{
 		protected String connectionString;
 		
-		public AudioDBQueries()
+		public DBAdapter()
 		{
 			this.connectionString = DBConfig.GetConnectionString();
 		}
