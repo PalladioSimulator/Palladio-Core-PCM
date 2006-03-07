@@ -1,0 +1,616 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Palladio.Utils</name>
+    </assembly>
+    <members>
+        <member name="T:Palladio.Utils.Collections.Hashmap">
+            <summary>
+            Hashmap.
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log: Palladio.Utils.xml,v $
+            Revision 1.1  2005/08/12 07:59:31  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            Revision 1.1  2005/06/03 09:33:43  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/05/18 21:35:09  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/02/21 12:16:30  joemal
+            initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.Equals(System.Object)">
+            <summary>
+            The Equals method determines whether the specified 
+            System.Object is equal to the current System.Object.
+            </summary>
+            <param name="obj">Contains the Object to compare with 
+            the current object.</param>
+            <returns>Returns true if the specified object is equal 
+            to the current objector or false if the obejcts 
+            are not equal.</returns>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.GetHashCode">
+            <summary>
+            The GetHashCode method serves as a hash function 
+            for a particular type, suitable for use in hashing 
+            algorithms and data structures like a hash table.
+            </summary>
+            <returns>A hash value for the current object.</returns>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.Clone">
+            <summary>
+            Creates a copy of the current instance.
+            </summary>
+            <returns>A new object with the same values as the current instance.</returns>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.#ctor">
+            <overloads>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class.
+            </overloads>
+            <summary>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class
+            that is empty and has the default initial capacity, the default load factor,
+            the default hash code provider and the default comparer.
+            </summary>
+            <remarks>Please refer to <see cref="M:Palladio.Utils.Collections.Hashmap.#ctor"/> for details.</remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Collections.IHashCodeProvider,System.Collections.IComparer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class
+            that is empty and has the default initial capacity, the default load factor,
+            the specified hash code provider and the specified comparer.
+            </summary>
+            <param name="provider">
+            <para>The <see cref="T:System.Collections.IHashCodeProvider"/> that supplies the hash codes
+            for all keys in the <see cref="T:Palladio.Utils.Collections.Hashmap"/>.</para>
+            <para>-or-</para>
+            <para>A null reference to use the default hash code provider, which is each key's
+            implementation of <see cref="M:System.Object.GetHashCode"/>.</para></param>
+            <param name="comparer">
+            <para>The <see cref="T:System.Collections.IComparer"/> to use to determine whether two keys are equal.</para>
+            <para>-or-</para>
+            <para>A null reference to use the default comparer, which is each key's
+            implementation of <see cref="M:System.Object.Equals(System.Object)"/>.</para></param>
+            <remarks>
+            Please refer to <see cref="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Collections.IHashCodeProvider,System.Collections.IComparer)"/> for details.
+            </remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class
+            that is empty and has the specified initial capacity, the default load factor,
+            the default hash code provider and the default comparer.
+            </summary>
+            <param name="capacity">The approximate number of elements that the new
+            <see cref="T:Palladio.Utils.Collections.Hashmap"/> is initially capable of storing.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="capacity"/> is less than zero.</exception>
+            <remarks>Please refer to <see cref="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Int32)"/> for details.</remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Int32,System.Collections.IHashCodeProvider,System.Collections.IComparer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class
+            that is empty and has the specified initial capacity, the default load factor,
+            the specified hash code provider and the specified comparer.
+            </summary>
+            <param name="capacity">The approximate number of elements that the new
+            <see cref="T:Palladio.Utils.Collections.Hashmap"/> is initially capable of storing.</param>
+            <param name="provider">
+            <para>The <see cref="T:System.Collections.IHashCodeProvider"/> that supplies the hash codes
+            for all keys in the <see cref="T:Palladio.Utils.Collections.Hashmap"/>.</para>
+            <para>-or-</para>
+            <para>A null reference to use the default hash code provider, which is each key's
+            implementation of <see cref="M:System.Object.GetHashCode"/>.</para></param>
+            <param name="comparer">
+            <para>The <see cref="T:System.Collections.IComparer"/> to use to determine whether two keys are equal.</para>
+            <para>-or-</para>
+            <para>A null reference to use the default comparer, which is each key's
+            implementation of <see cref="M:System.Object.Equals(System.Object)"/>.</para></param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="capacity"/> is less than zero.</exception>
+            <remarks>
+            Please refer to <see cref="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Int32,System.Collections.IHashCodeProvider,System.Collections.IComparer)"/> for details.
+            </remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Int32,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class
+            that is empty and has the specified initial capacity, the specified load factor,
+            the default hash code provider and the default comparer.
+            </summary>
+            <param name="capacity">The approximate number of elements that the new
+            <see cref="T:Palladio.Utils.Collections.Hashmap"/> is initially capable of storing.</param>
+            <param name="loadFactor">A number in the range from 0.1 through 1.0
+            indicating the maximum ratio of elements to buckets.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <para><paramref name="capacity"/> is less than zero.</para>
+            <para>-or-</para>
+            <para><paramref name="loadFactor"/> is less than 0.1.</para>
+            <para>-or-</para>
+            <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
+            <remarks>Please refer to <see cref="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Int32,System.Single)"/> for details.</remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Int32,System.Single,System.Collections.IHashCodeProvider,System.Collections.IComparer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class
+            that is empty and has the specified initial capacity, the specified load factor,
+            the specified hash code provider and the specified comparer.
+            </summary>
+            <param name="capacity">The approximate number of elements that the new
+            <see cref="T:Palladio.Utils.Collections.Hashmap"/> is initially capable of storing.</param>
+            <param name="loadFactor">A number in the range from 0.1 through 1.0
+            indicating the maximum ratio of elements to buckets.</param>
+            <param name="provider">
+            <para>The <see cref="T:System.Collections.IHashCodeProvider"/> that supplies the hash codes
+            for all keys in the <see cref="T:Palladio.Utils.Collections.Hashmap"/>.</para>
+            <para>-or-</para>
+            <para>A null reference to use the default hash code provider, which is each key's
+            implementation of <see cref="M:System.Object.GetHashCode"/>.</para></param>
+            <param name="comparer">
+            <para>The <see cref="T:System.Collections.IComparer"/> to use to determine whether two keys are equal.</para>
+            <para>-or-</para>
+            <para>A null reference to use the default comparer, which is each key's
+            implementation of <see cref="M:System.Object.Equals(System.Object)"/>.</para></param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <para><paramref name="capacity"/> is less than zero.</para>
+            <para>-or-</para>
+            <para><paramref name="loadFactor"/> is less than 0.1.</para>
+            <para>-or-</para>
+            <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
+            <remarks>
+            Please refer to <see cref="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Int32,System.Single,System.Collections.IHashCodeProvider,System.Collections.IComparer)"/>
+            for details.</remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.#ctor(Palladio.Utils.Collections.Hashmap)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class
+            that contains elements copied from the specified dictionary and
+            that has the same initial capacity as the number of elements copied, the
+            default load factor, the default hash code provider and the default comparer.
+            </summary>
+            <param name="dictionary">The <see cref="T:Palladio.Utils.Collections.Hashmap"/>
+            whose elements are copied to the new collection.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="dictionary"/> is a null reference.</exception>
+            <remarks>Please refer to <see cref="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Collections.IDictionary)"/> for details.</remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Collections.IDictionary)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class
+            that contains elements copied from the specified <see cref="T:System.Collections.IDictionary"/>
+            and that has the same initial capacity as the number of elements copied, the
+            default load factor, the default hash code provider and the default comparer.
+            </summary>
+            <param name="dictionary">The <see cref="T:System.Collections.IDictionary"/>
+            whose elements are copied to the new collection.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="dictionary"/> is a null reference.</exception>
+            <remarks>Please refer to <see cref="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Collections.IDictionary)"/> for details.</remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Collections.IDictionary,System.Collections.IHashCodeProvider,System.Collections.IComparer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class
+            that contains elements copied from the specified <see cref="T:System.Collections.IDictionary"/>
+            and that has the same initial capacity as the number of elements copied, the
+            default load factor, the specified hash code provider and the specified comparer.
+            </summary>
+            <param name="dictionary">The <see cref="T:System.Collections.IDictionary"/>
+            whose elements are copied to the new collection.</param>
+            <param name="provider">
+            <para>The <see cref="T:System.Collections.IHashCodeProvider"/> that supplies the hash codes
+            for all keys in the <see cref="T:Palladio.Utils.Collections.Hashmap"/>.</para>
+            <para>-or-</para>
+            <para>A null reference to use the default hash code provider, which is each key's
+            implementation of <see cref="M:System.Object.GetHashCode"/>.</para></param>
+            <param name="comparer">
+            <para>The <see cref="T:System.Collections.IComparer"/> to use to determine whether two keys are equal.</para>
+            <para>-or-</para>
+            <para>A null reference to use the default comparer, which is each key's
+            implementation of <see cref="M:System.Object.Equals(System.Object)"/>.</para></param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="dictionary"/> is a null reference.</exception>
+            <remarks>
+            Please refer to <see cref="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Collections.IDictionary,System.Collections.IHashCodeProvider,System.Collections.IComparer)"/>
+            for details.</remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Collections.IDictionary,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class
+            that contains elements copied from the specified <see cref="T:System.Collections.IDictionary"/>
+            and that has the same initial capacity as the number of elements copied, the
+            specified load factor, the default hash code provider and the default comparer.
+            </summary>
+            <param name="dictionary">The <see cref="T:System.Collections.IDictionary"/>
+            whose elements are copied to the new collection.</param>
+            <param name="loadFactor">A number in the range from 0.1 through 1.0
+            indicating the maximum ratio of elements to buckets.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="dictionary"/> is a null reference.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <para><paramref name="loadFactor"/> is less than 0.1.</para>
+            <para>-or-</para>
+            <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
+            <remarks>
+            Please refer to <see cref="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Collections.IDictionary,System.Single)"/> for details.
+            </remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Collections.IDictionary,System.Single,System.Collections.IHashCodeProvider,System.Collections.IComparer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Palladio.Utils.Collections.Hashmap"/> class
+            that contains elements copied from the specified <see cref="T:System.Collections.IDictionary"/>
+            and that has the same initial capacity as the number of elements copied, the
+            specified load factor, the specified hash code provider and the specified comparer.
+            </summary>
+            <param name="dictionary">The <see cref="T:System.Collections.IDictionary"/>
+            whose elements are copied to the new collection.</param>
+            <param name="loadFactor">A number in the range from 0.1 through 1.0
+            indicating the maximum ratio of elements to buckets.</param>
+            <param name="provider">
+            <para>The <see cref="T:System.Collections.IHashCodeProvider"/> that supplies the hash codes
+            for all keys in the <see cref="T:Palladio.Utils.Collections.Hashmap"/>.</para>
+            <para>-or-</para>
+            <para>A null reference to use the default hash code provider, which is each key's
+            implementation of <see cref="M:System.Object.GetHashCode"/>.</para></param>
+            <param name="comparer">
+            <para>The <see cref="T:System.Collections.IComparer"/> to use to determine whether two keys are equal.</para>
+            <para>-or-</para>
+            <para>A null reference to use the default comparer, which is each key's
+            implementation of <see cref="M:System.Object.Equals(System.Object)"/>.</para></param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="dictionary"/> is a null reference.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <para><paramref name="loadFactor"/> is less than 0.1.</para>
+            <para>-or-</para>
+            <para><paramref name="loadFactor"/> is greater than 1.0.</para></exception>
+            <remarks>
+            Please refer to <see cref="M:Palladio.Utils.Collections.Hashmap.#ctor(System.Collections.IDictionary,System.Single,System.Collections.IHashCodeProvider,System.Collections.IComparer)"/>
+            for details.</remarks>
+        </member>
+        <member name="T:Palladio.Utils.Exceptions.MethodNotImplementedException">
+            <summary>
+            This exception is thrown, if the called method is not
+            implemented by a class.
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log: Palladio.Utils.xml,v $
+            Revision 1.1  2005/08/12 07:59:31  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            Revision 1.1  2005/06/03 09:33:43  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/05/18 21:35:09  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/02/21 12:16:30  joemal
+            initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="M:Palladio.Utils.Exceptions.MethodNotImplementedException.#ctor">
+            <summary>
+            This exception is thrown, if the called method is not
+            implemented by a class.
+            </summary>
+        </member>
+        <member name="T:Palladio.Utils.Collections.Set">
+            <summary>
+                A collection that contains no duplicate elements.
+                To reach this, the Add Methods of a default Vector 
+                are extended.
+            </summary>
+            <remarks>
+            <pre>
+            $Log: Palladio.Utils.xml,v $
+            Revision 1.1  2005/08/12 07:59:31  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            Revision 1.1  2005/06/03 09:33:43  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/05/18 21:35:09  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/02/21 12:16:30  joemal
+            initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="T:Palladio.Utils.Collections.Vector">
+            <summary>
+            Vector overrides the Equals-Method of ArrayList using an 
+            equals-by-elements instead of an reference-equals. Also
+            the ToString-Method is replaced by a pretty listing of
+            the vector elements.
+            </summary>
+            <remarks>
+            <pre>
+            $Log: Palladio.Utils.xml,v $
+            Revision 1.1  2005/08/12 07:59:31  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            Revision 1.1  2005/06/03 09:33:43  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/05/18 21:35:09  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/02/21 12:16:30  joemal
+            initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Vector.#ctor">
+            <summary>
+            Creates an empty Vector.
+            </summary>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Vector.#ctor(System.Collections.ICollection)">
+            <summary>
+            Creates a Vector containing all elements of the incoming collection.
+            </summary>
+            <param name="c">A collection of elements.</param>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Vector.#ctor(System.Int32)">
+            <summary>
+            Creates a Vector with an initial size of initialCapacity.
+            </summary>
+            <param name="initialCapacity">Initial size of the vector.</param>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Vector.Equals(System.Object)">
+            <summary>
+            The Equals method determines whether the specified 
+            System.Object is equal to the current System.Object.
+            </summary>
+            <param name="obj">Contains the Object to compare with 
+            the current object.</param>
+            <returns>Returns true if the specified object is equal 
+            to the current objector or false if the obejcts 
+            are not equal.</returns>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Vector.ToString">
+            <summary>
+            Retrieves a string representation of the object.
+            </summary>
+            <returns>String representation of the object.</returns>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Vector.GetHashCode">
+            <summary>
+            The GetHashCode method serves as a hash function 
+            for a particular type, suitable for use in hashing 
+            algorithms and data structures like a hash table.
+            </summary>
+            <returns>A hash value for the current object.</returns>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Vector.Clone">
+            <summary>
+            Creates a copy of the current instance.
+            </summary>
+            <returns>A new object with the same values as the current instance.</returns>
+        </member>
+        <member name="F:Palladio.Utils.Collections.Set.ERROR_CODE">
+            <summary>
+                Code indicating that an element was NOT 
+                added to the set.
+            </summary>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Set.#ctor">
+            <summary>
+            Creates an empty Set.
+            </summary>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Set.#ctor(System.Collections.ICollection)">
+            <summary>
+            Creates a Set containing all elements of the incoming collection
+            without any duplicates.
+            </summary>
+            <param name="c">Any kind of collection.</param>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Set.#ctor(System.Int32)">
+            <summary>
+            Creates a Set with a size given by initialCapacity.
+            </summary>
+            <param name="initialCapacity">Initial size of the Set.</param>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Set.Add(System.Object)">
+            <summary>
+            If the value is not already contained by the set, it is added to it,
+            otherwise an ERROR_CODE is returned.
+            </summary>
+            <param name="value">Object which should be added.</param>
+            <returns>The index of the value in the Set or ERROR_CODE, if it is already
+            in the Set.</returns>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Set.Insert(System.Int32,System.Object)">
+            <summary>
+            If value is not in this set it is added, otherwise nothing happens.
+            </summary>
+            <param name="index">Index, where the object should be added.</param>
+            <param name="value">Object which should be added.</param>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Set.InsertRange(System.Int32,System.Collections.ICollection)">
+            <summary>
+            Adds each element of the collection, if it is not already contained in the Set.
+            </summary>
+            <param name="index">Zero based index, where the elements should be added.</param>
+            <param name="c">Collection which should be added.</param>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Set.AddRange(System.Collections.ICollection)">
+            <summary>
+            Adds each element of the collection, if it is not already contained in the Set.
+            </summary>
+            <param name="c">Collection which should be added.</param>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Set.Clone">
+            <summary>
+            Creates a copy of the current instance.
+            </summary>
+            <returns>A new object with the same values as the current instance.</returns>
+        </member>
+        <member name="M:Palladio.Utils.Collections.Set.SetwiseEquals(System.Collections.IEnumerable,System.Collections.IEnumerable)">
+            <summary>
+            Compare two array by treating their contents as if beeing a set - without 
+            respect to order or multiple instances
+            </summary>
+            <param name="a">Array A</param>
+            <param name="b">Array B</param>
+            <returns>true if Array A is equal to Array B if both are taken as sets</returns>
+        </member>
+    </members>
+</doc>

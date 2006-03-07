@@ -1,0 +1,52 @@
+<Configuration>
+  <RecentFilesTracker>
+    <RecentFilesTracker>
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\WebserverSeff\src\SeffWithAttributeCreator.cs" offset="7465" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\FSMTransformer\src\FSMTransformer.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\WebserverSeff\IWebAudioStoreSeffFactory.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\WebserverSeff\IWebserverSeffFactory.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\WebserverSeff\src\WebAudioStoreSeffFactory.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Math\src\Functions\Fourier\SimpleFourierTransform.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\PerformanceCalculator\src\IPerformanceCalculator.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Attributes\src\MeasureAttribute.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Math\src\Functions\Discrete\DiscretePDFunction.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Math\src\Functions\Discrete\DiscreteFactory.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Math\src\IDiscreteFunctionFactory.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Attributes\src\RandomVariable.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\WebserverAnalyser\src\ConfigReader.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\PerformanceCalculator\src\CalculatorFactory.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\WebserverAnalyser\src\Config.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Math\src\IDiscretePDFunction.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Attributes\src\MaximumExecutionTimeAttribute.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\RegExVisitor\src\Visitor\Time\RegExASTVisitorTimeDomain.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\WebserverAnalyser\src\Main.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\WebserverAnalyser\src\XmlFileCreator.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Math\src\Functions\Fourier\DiscreteFourierFunction.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Math\src\IFourierFunction.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Math\src\Functions\Fourier\FastFourierTransformation.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\WebserverSeff\src\WebserverSeffFactory.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Math\src\IDiscreteFunction.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\RegExVisitor\src\Visitor\AbstractRegExASTVisitor.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\Math\src\Functions\Discrete\DiscreteFunction.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\RegExVisitor\src\Visitor\Test\VisitorTest.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\RegExVisitor\src\Visitor\Fourier\RegExASTVisitorDetermineMaxTime.cs" offset="0" line="-1" column="-1" />
+      <TrackedFile location="C:\Dokumente und Einstellungen\Koziolek\Eigene Dateien\Diss\Palladio\Palladio.Performance\RegExVisitor\src\Visitor\Fourier\RegExASTVisitorDetermineProbabilitiesAndMaxValue.cs" offset="0" line="-1" column="-1" />
+    </RecentFilesTracker>
+  </RecentFilesTracker>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean />
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:@System.Math">
+      <Item value="Round" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:double[]">
+      <Item value="Length" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.XmlDocument">
+      <Item value="GetElementById" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

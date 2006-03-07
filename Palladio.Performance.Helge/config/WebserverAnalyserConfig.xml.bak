@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Config SYSTEM "WebserverAnalyserConfig.dtd">
+<Config>
+	<!--FilePath: Path to all files. -->
+	<FilePath>../../../../../../../../../Inetpub/wwwroot/WebAudioStore/Data/</FilePath>
+	<!--MeasureFile: File containing the measures. -->
+	<MeasureFile>measure1.xml</MeasureFile>
+	<!-- ServiceName: Name of the service which shall be analysed.-->
+<ServiceName>WebAudioStore.AudioStore_IAudioStore_HandleUpload</ServiceName>
+
+<!--	
+<ServiceName>Palladio.Webserver.HTTPRequestParser.HTTPRequestParser_IRequestParser_HandleRequest</ServiceName>
+<ServiceName>Palladio.Webserver.StaticFileProvider.StaticFileProvider_IHTTPRequestProcessor_HandleRequest</ServiceName>
+<ServiceName>Palladio.Webserver.DynamicFileProvider.DynamicFileProvider_IHTTPRequestProcessor_HandleRequest</ServiceName>
+<ServiceName>Palladio.Webserver.BibTeXProvider.BibTeXProvider_IHTTPRequestProcessor_HandleRequest</ServiceName>
+<ServiceName>Palladio.Webserver.SimpleTemplateFileProvider.SimpleTemplateFileProvider_IHTTPRequestProcessor_HandleRequest</ServiceName>
+<ServiceName>Palladio.Webserver.HTTPRequestProcessor.DefaultHTTPRequestProcessorTools_IHTTPRequestProcessorTools_BuildCompletePath</ServiceName>
+-->
+	<!--Seff: Name of the service effect automaton. -->
+	<Seff>AudioStore_HandleUpload</Seff>
+
+	
+<!--
+	
+	<Seff>HTTPRequestParser_HandleRequest</Seff>
+	<Seff>DynamicFileProvider_HandleRequest</Seff>
+	<Seff>BibTexProvider_HandleRequest</Seff>
+	<Seff>TemplateFileProvider_HandleRequest</Seff>
+	<Seff>FileProvider_HandleRequest</Seff>
+-->
+	<!--Seff>DefaultHTTPRequestProcessor_BuildCompletePath</Seff-->
+	<!-- SeffOutputFile: File for storing the generated service effect automaton.-->
+	<SeffOutputFile>Seff_AudioStore_HandleUpload.xml</SeffOutputFile>
+	<!-- StoreFile: File for saving the the time consumption of all states and transitions and result of the calculation.-->
+	<StoreFile>AudioStore_HandleUpload_measure1.xml</StoreFile>
+	<!--Epsilon: precision of the loop calculation. This value is needed to predict the number of loop iterations after the calculation is aborted in
+time domain. The total probability of the loop result is 1-epsilon. The value is also needed for the calcuation in frequency domain, because the
+vector size  of the result has to be defined. -->
+	<Epsilon>0,05</Epsilon>
+	<!--frequencydomain: Set value true, if you want to calculate the performance in frequency domain, false for calculation in time domain-->
+	<FrequencyDomain>true</FrequencyDomain>
+	<!-- Samplingrate: Sampling rate of the generated RandomVariables.-->
+	<Samplingrate>10</Samplingrate>
+	<!-- numberoffunctionvalues: Number of values for the resulting function. The sampling rate is adjusted, so the function has fewer values. 
+A value of 0 means, the function is stored as computed.-->
+	<NumberOfFunctionValues>0</NumberOfFunctionValues>
+</Config>

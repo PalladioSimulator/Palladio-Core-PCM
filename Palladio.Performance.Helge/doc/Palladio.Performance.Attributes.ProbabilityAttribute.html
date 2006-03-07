@@ -1,0 +1,64 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>ProbabilityAttribute Class</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">An NDoc Documented Class Library</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">ProbabilityAttribute Class</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p> Attribute containig the probability of a transition. Each transition in a service-effect-automaton should have an ProbabilityAttribute </p>
+      <p>For a list of all members of this type, see <a href="Palladio.Performance.Attributes.ProbabilityAttributeMembers.html">ProbabilityAttribute Members</a>.</p>
+      <p>
+        <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemObjectClassTopic.htm">System.Object</a>
+        <br />   <b>Palladio.Performance.Attributes.ProbabilityAttribute</b></p>
+      <div class="syntax">
+        <div>public class ProbabilityAttribute<b> : <a href="Palladio.Attributes.IAttribute.html">IAttribute</a>, <a href="ms-help://MS.NETFrameworkSDKv1.1/cpref/html/frlrfSystemICloneableClassTopic.htm">ICloneable</a></b></div>
+      </div>
+      <H4 class="dtH4">Thread Safety</H4>
+      <P>Public static (<b>Shared</b> in Visual Basic) members of this type are 
+				safe for multithreaded operations. Instance members are <b>not</b> guaranteed to be 
+				thread-safe.</P>
+      <h4 class="dtH4">Remarks</h4>
+      <p>
+            <pre> Version history: $Log: Palladio.Performance.Attributes.ProbabilityAttribute.html,v $
+            <pre> Version history: Revision 1.2  2005/12/04 18:41:21  helgeh
+            <pre> Version history: - Simplified DiscreteFourierFunction.Calculate LoopLimit
+            <pre> Version history: - added new attribute MaximumExecutionTimeAttribute
+            <pre> Version history: - replaced AbstractRegExASTVisitor.DetermineMaxTime by  a new visitor RegExASTVisitorDetermineMaxTime
+            <pre> Version history: Revision 1.2 2005/10/11 22:05:13 helgeh - Added NUnit project and NDoc documentation. - fixed a bug in AdjustSamplingRate Revision 1.1 2005/08/12 07:59:19 helgeh Initial impot after refactoring. Math: - Added DiscretePDFunction. - Added Fast Fourier Transformation and FourierFunction. - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density function the sum of function values is a value in [0,1]. - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate, FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add FSMTransformer: - Method SEFFValidity added. - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the transitions. WebserverSeffFactory: - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel. WebserverAnalyser: - Data class for configuration added. - ConfigReader added. RegExASTVisitor: - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain. RegularExpressions: - No changes. XmlSeffParser: - Data class for configuration added. - ConfigReader added. PerformanceCalculator: - Added interface IPerformanceCalculator. Added CalculatorFactory. Unit Tests added. Updated documentation. </pre>
+            </p>
+      <h4 class="dtH4">Requirements</h4>
+      <p>
+        <b>Namespace: </b>
+        <a href="Palladio.Performance.Attributes.html">Palladio.Performance.Attributes</a>
+      </p>
+      <p>
+        <b>Assembly: </b>Palladio.Performance.Attributes (in Palladio.Performance.Attributes.dll)
+					</p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="Palladio.Performance.Attributes.ProbabilityAttributeMembers.html">ProbabilityAttribute Members</a> | <a href="Palladio.Performance.Attributes.html">Palladio.Performance.Attributes Namespace</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="ProbabilityAttribute class, about ProbabilityAttribute class">
+        </param>
+      </object>
+    </div>
+  </body>
+</html>

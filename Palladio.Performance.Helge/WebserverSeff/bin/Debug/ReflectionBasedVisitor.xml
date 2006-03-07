@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ReflectionBasedVisitor</name>
+    </assembly>
+    <members>
+        <member name="T:ReflectionBasedVisitor.IVisitable">
+            <summary>
+            Interface for objects than can be visited by an IVisitor. Objects have to 
+            implement this to take part in the reflection based visitor pattern.
+            Consult the documentation of the <see cref="T:ReflectionBasedVisitor.ReflectionBasedVisitor"/> to get 
+            an example.
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log: ReflectionBasedVisitor.xml,v $
+            Revision 1.1  2005/08/12 07:59:31  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            Revision 1.1  2005/06/03 09:33:43  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/05/18 21:35:09  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/02/21 11:57:06  joemal
+            initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="M:ReflectionBasedVisitor.IVisitable.AcceptVisitor(ReflectionBasedVisitor.IVisitor)">
+            <summary>
+            This method is called by the <see cref="T:ReflectionBasedVisitor.ReflectionBasedVisitor"/> to allow data
+            structure driven visiting of the structure.<br></br>
+            Leave this method's body empty if you don't need data structure driven visiting.
+            </summary>
+            <param name="visitor">The visitor to accept</param>
+        </member>
+        <member name="T:ReflectionBasedVisitor.IVisitor">
+            <summary>
+            Implementation of the ReflectiveVisitor 
+            see <a href="http://www.javaworld.com/javaworld/javatips/jw-javatip98.html">
+            http://www.javaworld.com/javaworld/javatips/jw-javatip98.html</a>.
+            This interface has to be implemented by a class visiting a certain data 
+            structure implementing the reflection based visitor pattern.
+            </summary>
+            <remarks>
+            <pre>
+            Version history:
+            
+            $Log: ReflectionBasedVisitor.xml,v $
+            Revision 1.1  2005/08/12 07:59:31  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            Revision 1.1  2005/06/03 09:33:43  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/05/18 21:35:09  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/02/21 11:57:06  joemal
+            initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="M:ReflectionBasedVisitor.IVisitor.Visit(System.Object)">
+            <summary>
+            The core of the <see cref="T:ReflectionBasedVisitor.ReflectionBasedVisitor"/>. This method is 
+            provided by the visitor. Please inherit from <see cref="T:ReflectionBasedVisitor.ReflectionBasedVisitor"/> 
+            to implement your own visitors! <br></br>
+            Consult the documentation of the <see cref="T:ReflectionBasedVisitor.ReflectionBasedVisitor"/> to get 
+            an example.
+            </summary>
+            <param name="o">An object to be visited</param>
+        </member>
+        <member name="T:ReflectionBasedVisitor.ReflectionBasedVisitor">
+            <summary>
+            The base class for a reflection based visitor pattern.
+            See <a href="http://www.javaworld.com/javaworld/javatips/jw-javatip98.html">
+            http://www.javaworld.com/javaworld/javatips/jw-javatip98.html</a> for details 
+            on the usage.
+            </summary>
+            <remarks>
+            A usage example in a client using this assembly
+            <code>
+            class MyType : IVisitable
+            {
+            	public virtual void AcceptVisitor(IVisitor v) 
+            	{
+            		// Add code here if you need data structure driven visiting!
+            		// Otherwise leave empty!
+            	}
+            }
+            
+            class MyVisitor : ReflectionBasedVisitor.ReflectionBasedVisitor, IVisitor
+            {
+            	public override void VisitObject(object o)
+            	{
+            	   // Add default behaviour here if the visitor visits an object of unknown
+            	   // type
+            	}
+            
+            	public void VisitMyType(MyType objectOfMyType)
+            	{
+            	   // Do sth. when visiting an obejct of type MyType
+            	   // For example:
+            	   Console.WriteLine("Visiting "+objectOfMyType);
+            	   Visit(objectOfMyType.Next);
+            	}
+            
+            }
+            </code>
+            <pre>
+            Version history:
+            
+            $Log: ReflectionBasedVisitor.xml,v $
+            Revision 1.1  2005/08/12 07:59:31  helgeh
+            Initial impot after refactoring.
+
+            Math:
+            - Added DiscretePDFunction.
+            - Added Fast Fourier Transformation and FourierFunction.
+            - Changed operations of DiscreteFunction. The operations are independent of the sampling rate. For a probability density  function the sum of function values is a value in [0,1].
+            - Added to interface IDiscreteFunction: Sum,ExpandDomainPo2, Crop, NumberOfNullValues, AdjustSamplingRate,  FunctionWithNValues, ToFile, ValueAt, DismissValuesSmalerThanN, ValueOf, MaximumDataValue
+            - Altered MEthods: ExpandDomain, Scale, GetScaled, Convolution, Add
+
+            FSMTransformer:
+            - Method SEFFValidity added.
+            - The Method FSMWithIntermediateState now returns a FSM, where all time consumption is contained by the input symbols of the  transitions.
+
+            WebserverSeffFactory:
+            - All service effect automaton are now IFiniteStateMachines. No use of the PAlladio.ComponentModel.
+
+            WebserverAnalyser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            RegExASTVisitor:
+            - There are now two visitors. One for the calculation in time domain and one for the calculation in frequency domain.
+
+            RegularExpressions:
+            - No changes.
+
+            XmlSeffParser:
+            - Data class for configuration added.
+            - ConfigReader added.
+
+            PerformanceCalculator:
+            - Added interface IPerformanceCalculator. Added CalculatorFactory.
+
+            Unit Tests added.
+            Updated documentation.
+
+            Revision 1.1  2005/06/03 09:33:43  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/05/18 21:35:09  helgeh
+            *** empty log message ***
+
+            Revision 1.1  2005/02/21 11:57:06  joemal
+            initial import
+            
+            
+            </pre>
+            </remarks>
+        </member>
+        <member name="F:ReflectionBasedVisitor.ReflectionBasedVisitor.isDataDrivenVisitor">
+             <summary>
+            Determines if the visitor moves by the way
+             determined by the data structure (true) or if it moves on its own (false).
+             </summary>
+        </member>
+        <member name="M:ReflectionBasedVisitor.ReflectionBasedVisitor.#ctor(System.Boolean)">
+            <summary>
+            Default constructor of the base class
+            </summary>
+            <param name="isDataDrivenVisitor">Determines if the visitor moves by the way
+            determined by the data structure (true) or if it moves on its own (false).</param>
+        </member>
+        <member name="M:ReflectionBasedVisitor.ReflectionBasedVisitor.VisitObject(System.Object)">
+            <summary>
+            The default function which is called if no "VisitTYPE" method is found
+            by the reflection API
+            </summary>
+            <param name="o">The object calling the unknown visitor function</param>
+        </member>
+        <member name="M:ReflectionBasedVisitor.ReflectionBasedVisitor.Visit(System.Object)">
+            <summary>
+            The Visit method called by the reflection API. Do not alter this!!!
+            </summary>
+            <param name="o">The object beening visited</param>
+        </member>
+    </members>
+</doc>
