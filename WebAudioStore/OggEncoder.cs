@@ -10,7 +10,7 @@ namespace WebAudioStore
 	/// </summary>
 	public class OggEncoder : IEncoder
 	{
-		public const string WORKINGDIR = @"C:\Inetpub\wwwroot\WebAudioStore\Data\";
+		public const string WORKINGDIR = @"F:\";
 		public const string TEMP_FILENAME_BASE ="temp";
 		public const string TEMP_FILENAME_MP3 = TEMP_FILENAME_BASE + ".mp3";
 		public const string TEMP_FILENAME_WAV = TEMP_FILENAME_BASE + ".wav";
@@ -48,15 +48,17 @@ namespace WebAudioStore
 			return buffer;
 		}
 
-		private void WriteMp3ToDisk(byte[] fileContent)
+		public void WriteMp3ToDisk(byte[] fileContent)
 		{
+			CallLogger.OnCall("IEncoder", this.GetType().GetMethod("WriteMp3ToDisk"));
 			using(FileStream fs = new FileStream(WORKINGDIR + TEMP_FILENAME_MP3,FileMode.Create))
 			{
 				fs.Write(fileContent,0,fileContent.Length);
 			}
+			CallLogger.OnReturn();
 		}
 
-		private void Mp32Wav()
+		public void Mp32Wav()
 		{
 			CallLogger.OnCall("IEncoder", this.GetType().GetMethod("Mp32Wav"));
 			Process myProcess = new Process();
@@ -92,7 +94,7 @@ namespace WebAudioStore
 			CallLogger.OnReturn();
 		}
 
-		private void ExecuteEncoder()
+		public void ExecuteEncoder()
 		{
 			CallLogger.OnCall("IEncoder", this.GetType().GetMethod("ExecuteEncoder"));
 
@@ -129,7 +131,7 @@ namespace WebAudioStore
 			CallLogger.OnReturn();
 		}
 
-		private byte[] ReadEncodedFileFromDisk()
+		public byte[] ReadEncodedFileFromDisk()
 		{
 			CallLogger.OnCall("IEncoder", this.GetType().GetMethod("ReadEncodedFileFromDisk"));
 			byte[] encodedFileContent = null;

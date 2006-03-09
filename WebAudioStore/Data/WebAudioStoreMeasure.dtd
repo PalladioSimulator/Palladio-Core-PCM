@@ -61,5 +61,29 @@
 	CallerID IDREF #IMPLIED
 	Calls IDREFS #IMPLIED
 >
+<!ELEMENT WebAudioStore.OggEncoder_IEncoder_WriteMp3ToDisk (ClassName, InterfaceName, MethodName, CallTime, ReturnTime, ExecutionTime)>
+<!ATTLIST WebAudioStore.OggEncoder_IEncoder_WriteMp3ToDisk
+	CallNumber ID #REQUIRED
+	CallerID IDREF #IMPLIED
+	Calls IDREFS #IMPLIED
+>
+<!ELEMENT WebAudioStore.OggEncoder_IEncoder_Mp32Wav (ClassName, InterfaceName, MethodName, CallTime, ReturnTime, ExecutionTime)>
+<!ATTLIST WebAudioStore.OggEncoder_IEncoder_Mp32Wav
+	CallNumber ID #REQUIRED
+	CallerID IDREF #IMPLIED
+	Calls IDREFS #IMPLIED
+>
+<!ELEMENT WebAudioStore.OggEncoder_IEncoder_ExecuteEncoder (ClassName, InterfaceName, MethodName, CallTime, ReturnTime, ExecutionTime)>
+<!ATTLIST WebAudioStore.OggEncoder_IEncoder_ExecuteEncoder
+	CallNumber ID #REQUIRED
+	CallerID IDREF #IMPLIED
+	Calls IDREFS #IMPLIED
+>
+<!ELEMENT WebAudioStore.OggEncoder_IEncoder_ReadEncodedFileFromDisk (ClassName, InterfaceName, MethodName, CallTime, ReturnTime, ExecutionTime)>
+<!ATTLIST WebAudioStore.OggEncoder_IEncoder_ReadEncodedFileFromDisk
+	CallNumber ID #REQUIRED
+	CallerID IDREF #IMPLIED
+	Calls IDREFS #IMPLIED
+>
 
 <!ELEMENT WebserverMeasure (RunID | WebAudioStore.EncodingAdapter_IAudioDB_GetAudioFileInfo | WebAudioStore.DBAdapter_IAudioDB_GetAudioFileInfo | WebAudioStore.AudioStore_IAudioStore_GetUploadedFileView | WebAudioStore.AudioStore_IAudioStore_HandleUpload | WebAudioStore.DBAdapter_IAudioDB_InsertAudioFile | WebAudioStore.DBAdapter_IAudioDB_InsertAudioInfo | WebAudioStore.EncodingAdapter_IAudioDB_InsertAudioFile | WebAudioStore.EncodingAdapter_IAudioDB_InsertAudioInfo)+>
