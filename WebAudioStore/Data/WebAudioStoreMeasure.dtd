@@ -85,5 +85,11 @@
 	CallerID IDREF #IMPLIED
 	Calls IDREFS #IMPLIED
 >
+<!ELEMENT WebAudioStore.OggEncoder_IEncoder_EncodeFile (ClassName, InterfaceName, MethodName, CallTime, ReturnTime, ExecutionTime)>
+<!ATTLIST WebAudioStore.OggEncoder_IEncoder_EncodeFile
+	CallNumber ID #REQUIRED
+	CallerID IDREF #IMPLIED
+	Calls IDREFS #IMPLIED
+>
 
 <!ELEMENT WebserverMeasure (RunID | WebAudioStore.EncodingAdapter_IAudioDB_GetAudioFileInfo | WebAudioStore.DBAdapter_IAudioDB_GetAudioFileInfo | WebAudioStore.AudioStore_IAudioStore_GetUploadedFileView | WebAudioStore.AudioStore_IAudioStore_HandleUpload | WebAudioStore.DBAdapter_IAudioDB_InsertAudioFile | WebAudioStore.DBAdapter_IAudioDB_InsertAudioInfo | WebAudioStore.EncodingAdapter_IAudioDB_InsertAudioFile | WebAudioStore.EncodingAdapter_IAudioDB_InsertAudioInfo)+>
