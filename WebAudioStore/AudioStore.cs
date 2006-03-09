@@ -56,5 +56,10 @@ namespace WebAudioStore
 			CallLogger.OnReturn();
 			return postedFileName;
 		}
+
+		public void FinalizeUpload()
+		{
+			this.audioDB.FinalizeUpload();
+		}
 	}
 }

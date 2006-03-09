@@ -7,5 +7,6 @@ namespace WebAudioStore
 		int InsertAudioFile(byte[] fileContent);
 		void InsertAudioInfo(int fileID, string fileName, int fileSize);
 		DataSet GetAudioFileInfo();
+		void FinalizeUpload();
 	}
 }

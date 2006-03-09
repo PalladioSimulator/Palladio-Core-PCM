@@ -8,5 +8,6 @@ namespace WebAudioStore
 		int FilesUploaded { get; }
 		string HandleUpload(HttpPostedFile postedFile);
 		DataView GetUploadedFileView();
+		void FinalizeUpload();
 	}
 }

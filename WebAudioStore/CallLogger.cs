@@ -176,7 +176,8 @@ namespace WebAudioStore
 		
 		public static void SaveLoggedInformationXML(long runID)
 		{
-			string tempPath = @"C:\Inetpub\wwwroot\WebAudioStore\Data\";
+			//string tempPath = @"C:\Inetpub\wwwroot\WebAudioStore\Data\";
+			string tempPath = @"Z:\Data2\";
 			XmlDocument document = new XmlDocument();
 			XmlDeclaration decl = document.CreateXmlDeclaration("1.0",null,null);
 			document.AppendChild(decl);

@@ -35,7 +35,8 @@ namespace WebAudioStore
 		public UploadForm()
 		{
 			//IAudioDB db = new DBAdapter();
-			IAudioDB db = new EncodingAdapter(new DBAdapter(), new OggEncoder());
+			//IAudioDB db = new EncodingAdapter(new DBAdapter(), new OggEncoder());
+			IAudioDB db = new EncodingAdapter(new BufferingDBAdapter(), new OggEncoder());
 			audioStore = new AudioStore(db);
 		}
 
@@ -147,6 +148,8 @@ namespace WebAudioStore
 							+ "<br>" + err.ToString();
 					}
 				}
+
+				audioStore.FinalizeUpload(); // for the BufferingDBAdapter to finish
 
 				if(filesUploaded == hif.Count)
 				{

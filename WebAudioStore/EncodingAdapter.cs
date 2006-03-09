@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 
 namespace WebAudioStore
@@ -50,5 +51,11 @@ namespace WebAudioStore
 			CallLogger.OnReturn();
 			return this.audioDB.GetAudioFileInfo();
 		}
+
+		public void FinalizeUpload()
+		{
+			this.audioDB.FinalizeUpload();
+		}
+
 	}
 }

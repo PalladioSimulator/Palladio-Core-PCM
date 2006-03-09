@@ -110,6 +110,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "BufferingDBAdapter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "CallLogger.cs"
                     SubType = "Code"
                     BuildAction = "Compile"

@@ -50,14 +50,26 @@ namespace WebAudioStore
 
 			try
 			{
+				CallLogger.OnCall("IConnection", connection.GetType().GetMethod("Open"));
 				connection.Open();
-				cmd1.ExecuteNonQuery(); // INSERT into AudioFiles
+				CallLogger.OnReturn();
 				
+				CallLogger.OnCall("ICommand", cmd1.GetType().GetMethod("ExecuteNonQuery"));
+				cmd1.ExecuteNonQuery(); // INSERT into AudioFiles
+				CallLogger.OnReturn();
+
+				CallLogger.OnCall("ICommand", cmd2.GetType().GetMethod("ExecuteReader",new Type[0]));
 				dataReader = cmd2.ExecuteReader(); // SELECT maxID from AudioFiles
+				CallLogger.OnReturn();
+
+				CallLogger.OnCall("IDataReader", dataReader.GetType().GetMethod("Read"));
 				dataReader.Read();
+				CallLogger.OnReturn();
 				
 				fileID = dataReader.GetInt32(0);
+				CallLogger.OnCall("IDataReader", dataReader.GetType().GetMethod("Close"));
 				dataReader.Close();
+				CallLogger.OnReturn();
 			}
 			catch(Exception e)
 			{
@@ -66,7 +78,10 @@ namespace WebAudioStore
 			}
 			finally 
 			{
+				CallLogger.OnCall("IConnection", connection.GetType().GetMethod("Close"));
 				connection.Close();
+				CallLogger.OnReturn();
+
 				CallLogger.OnReturn();
 			}
 			return fileID;
@@ -85,8 +100,13 @@ namespace WebAudioStore
 			cmd3.Connection = connection;			
 			try
 			{
+				CallLogger.OnCall("IConnection", connection.GetType().GetMethod("Open"));
 				connection.Open();
+				CallLogger.OnReturn();
+
+				CallLogger.OnCall("ICommand", cmd3.GetType().GetMethod("ExecuteNonQuery"));
 				cmd3.ExecuteNonQuery(); // INSERT into AudioFileInfo				
+				CallLogger.OnReturn();
 			}
 			catch(Exception e)
 			{
@@ -96,9 +116,10 @@ namespace WebAudioStore
 			}
 			finally 
 			{
+				CallLogger.OnCall("IConnection", connection.GetType().GetMethod("Close"));
 				connection.Close();
+				CallLogger.OnReturn();
 			}
-			
 			CallLogger.OnReturn();
 		}
 
@@ -124,8 +145,16 @@ namespace WebAudioStore
 
 			try
 			{
+				CallLogger.OnCall("IConnection", connection.GetType().GetMethod("Open"));
 				connection.Open();
+				CallLogger.OnReturn();
+
+				CallLogger.OnCall("ICommand", cmd1.GetType().GetMethod("ExecuteReader",new Type[0]));
 				dataReader = cmd1.ExecuteReader();
+				CallLogger.OnReturn();
+
+
+				CallLogger.OnCall("IDataReader", dataReader.GetType().GetMethod("Read"));
 				while (dataReader.Read()) 
 				{
 					vals[0] = dataReader.GetInt32(0);
@@ -133,7 +162,8 @@ namespace WebAudioStore
 					vals[2] = dataReader.GetInt32(2);
 					t.Rows.Add(vals);
 				}
-				dataReader.Close();
+				CallLogger.OnReturn();
+
 			}
 			catch(Exception e)
 			{
@@ -141,11 +171,23 @@ namespace WebAudioStore
 			}
 			finally 
 			{
+				CallLogger.OnCall("IDataReader", cmd1.GetType().GetMethod("Close"));
 				dataReader.Close();
-				cmd1.Connection.Close();
+				CallLogger.OnReturn();
+
+				CallLogger.OnCall("IConnection", connection.GetType().GetMethod("Close"));
+				connection.Close();
+				CallLogger.OnReturn();
 			}
 			CallLogger.OnReturn();
 			return dataSet;
+		}
+
+		public void FinalizeUpload()
+		{
+			CallLogger.OnCall("IAudioDB", this.GetType().GetMethod("FinalizeUpload"));
+			//do nothing; this method is just for the BufferingDBAdapter
+			CallLogger.OnReturn();
 		}
 
 	}
