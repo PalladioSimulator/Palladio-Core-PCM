@@ -75,6 +75,7 @@ namespace Palladio.Performance.WebserverAnalyser
 //			AnalyseWebserver("../../../config/WebserverAnalyserConfig3.xml");
 //			AnalyseWebserver("../../../config/WebserverAnalyserConfig4.xml");
 			AnalyseWebserver("../../../config/WebserverAnalyserConfig.xml");
+			Console.ReadLine();
 		}
 
 		private static void AnalyseWebserver(string configFile)
