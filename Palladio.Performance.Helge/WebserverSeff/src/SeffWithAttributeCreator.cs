@@ -318,7 +318,7 @@ namespace Palladio.Performance.WebserverSeff
 		{
 			foreach(ITransition transition in seff.GetOutgoingTransitions(state))
 			{
-				string method = (string) WebserverModelHelper.MethodHash[transition.InputSymbol.ToString()];
+				string method = transition.InputSymbol.ToString(); //(string) WebserverModelHelper.MethodHash[transition.InputSymbol.ToString()];
 				if(method.Equals(transitionName)) return transition;
 			}
 			throw new ApplicationException("No service " + transitionName + " found.");

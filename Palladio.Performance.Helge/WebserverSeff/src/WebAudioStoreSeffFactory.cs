@@ -34,8 +34,8 @@ namespace Palladio.Performance.WebserverSeff
 			fsm.FinalStates = new IState[] {WebserverModelHelper.GetState(204)};
 			
 			WebserverModelHelper.AddTransition(205, ref fsm, 201, 202, "InputStream_Read");			
-			WebserverModelHelper.AddTransition(206, ref fsm, 202, 203, "IAudioDB.InsertAudioFile");			
-			WebserverModelHelper.AddTransition(207, ref fsm, 203, 204, "IAudioDB.InsertAudioInfo");			
+			WebserverModelHelper.AddTransition(206, ref fsm, 202, 203, "IAudioDB_InsertAudioFile");			
+			WebserverModelHelper.AddTransition(207, ref fsm, 203, 204, "IAudioDB_InsertAudioInfo");			
 			return fsm;
 		}
 
@@ -47,7 +47,7 @@ namespace Palladio.Performance.WebserverSeff
 			fsm.StartState = WebserverModelHelper.GetState(301);
 			fsm.FinalStates = new IState[] {WebserverModelHelper.GetState(303)};
 			
-			WebserverModelHelper.AddTransition(304, ref fsm, 301, 302, "InputStream_Read");			
+			WebserverModelHelper.AddTransition(304, ref fsm, 301, 302, "IEncoder_EncodeFile");			
 			WebserverModelHelper.AddTransition(305, ref fsm, 302, 303, "IAudioDB_InsertAudioFile");			
 			return fsm;
 		}
@@ -67,14 +67,15 @@ namespace Palladio.Performance.WebserverSeff
 		public IFiniteStateMachine CreateSeff_OggEncoder_EncodeFile()
 		{
 			IEditableFiniteStateMachine fsm = FSMFactory.CreateEmptyFSM();
-			IState[] states = WebserverModelHelper.CreateStates(501, 502, 503, 504);
+			IState[] states = WebserverModelHelper.CreateStates(501, 502, 503, 504, 505);
 			fsm.AddStates(states);
 			fsm.StartState = WebserverModelHelper.GetState(501);
-			fsm.FinalStates = new IState[] {WebserverModelHelper.GetState(504)};
+			fsm.FinalStates = new IState[] {WebserverModelHelper.GetState(505)};
 			
-			WebserverModelHelper.AddTransition(505, ref fsm, 501, 502, "WriteFileToDisk");			
-			WebserverModelHelper.AddTransition(506, ref fsm, 502, 503, "ExecuteEncoder");			
-			WebserverModelHelper.AddTransition(507, ref fsm, 503, 504, "ReadEncodedFileFromDisk");			
+			WebserverModelHelper.AddTransition(505, ref fsm, 501, 502, "IEncoder_WriteMp3ToDisk");			
+			WebserverModelHelper.AddTransition(506, ref fsm, 502, 503, "IEncoder_Mp32Wav");			
+			WebserverModelHelper.AddTransition(507, ref fsm, 503, 504, "IEncoder_ExecuteEncoder");			
+			WebserverModelHelper.AddTransition(508, ref fsm, 504, 505, "IEncoder_ReadEncodedFileFromDisk");			
 			return fsm;
 		}
 
