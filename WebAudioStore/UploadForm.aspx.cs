@@ -34,9 +34,9 @@ namespace WebAudioStore
 	
 		public UploadForm()
 		{
-			IAudioDB db = new DBAdapter();
-			IAudioDB encdb = new EncodingAdapter(db, new OggEncoder());
-			audioStore = new AudioStore(encdb);
+			//IAudioDB db = new DBAdapter();
+			IAudioDB db = new EncodingAdapter(new DBAdapter(), new OggEncoder());
+			audioStore = new AudioStore(db);
 		}
 
 		private void Page_Load(object sender, EventArgs e)
@@ -164,54 +164,5 @@ namespace WebAudioStore
 			CallLogger.SaveLoggedInformationXML(1);
 		}
 
-		#region Modified ViewState Code
-		protected sealed override object LoadPageStateFromPersistenceMedium() 
-		{
-			LosFormatter format = new LosFormatter();
-			int cnt = 0;
-			try
-			{
-				cnt =
-					Convert.ToInt32(Request["__VIEWSTATE0"].ToString());
-			}
-			catch (System.NullReferenceException)
-			{}
-
-			System.Text.StringBuilder s     = new
-				System.Text.StringBuilder();
-
-			for ( int i = 1; i <= cnt; i++ )
-				s.Append( Request["__VIEWSTATE" +
-					i.ToString()].ToString() );
-
-			return format.Deserialize(s.ToString());
-		}
-
-		protected sealed override void SavePageStateToPersistenceMedium(object
-			viewState)
-		{
-			LosFormatter format = new LosFormatter();
-			System.IO.StringWriter writer   = new System.IO.StringWriter();
-			format.Serialize(writer, viewState);
-			System.Text.StringBuilder s = new
-				System.Text.StringBuilder(writer.ToString());
-			int cnt = 1;
-			int left = s.Length;
-
-			while( left > 0 )
-			{
-				int cut = (left > 1000) ? 1000 : left;  //Change 1000 to whatever size you need
-				RegisterHiddenField("__VIEWSTATE" + cnt.ToString(),
-					  s.ToString().Substring(0,cut));       	
-				s = s.Remove(0,cut);
-				left    -= cut;
-				cnt++;
-			}
-			cnt--;
-
-			RegisterHiddenField("__VIEWSTATE0", cnt.ToString());
-			RegisterHiddenField("__VIEWSTATE", "");
-		}
-		#endregion
 	}
 }

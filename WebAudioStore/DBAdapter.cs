@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.IO;
 using System.Text;
+using System.Threading;
 using MySql.Data.MySqlClient;
 
 namespace WebAudioStore
@@ -21,6 +22,15 @@ namespace WebAudioStore
 		public int InsertAudioFile(byte[] fileContent)
 		{
 			CallLogger.OnCall("IAudioDB", this.GetType().GetMethod("InsertAudioFile"));
+
+			HiResTimer timer = new HiResTimer();
+			timer.Start();
+			ulong sleepTime = (ulong)fileContent.LongLength / 125  * 1000; // zeit die auf einer 1Mbit leitung in µs benötigt wird.
+			do // busy waiting, thread.sleep ist zu ungenau.
+			{
+				timer.Stop();
+			} while (timer.ElapsedMicroseconds < sleepTime);
+			//Thread.Sleep((int)sleepTime);
 
 			MySqlConnection connection = new MySqlConnection(this.connectionString);			
 			MySqlDataReader dataReader = null;
@@ -57,10 +67,8 @@ namespace WebAudioStore
 			finally 
 			{
 				connection.Close();
+				CallLogger.OnReturn();
 			}
-			
-			CallLogger.OnReturn();
-			
 			return fileID;
 		}
 

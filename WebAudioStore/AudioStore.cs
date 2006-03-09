@@ -41,7 +41,10 @@ namespace WebAudioStore
 			CallLogger.OnCall("IAudioStore", this.GetType().GetMethod("HandleUpload"));
 
 			byte[] postedFileContent = new byte[postedFile.ContentLength];
+
+			CallLogger.OnCall("InputStream", postedFile.InputStream.GetType().GetMethod("Read"));
 			postedFile.InputStream.Read(postedFileContent,0,postedFileContent.Length);
+			CallLogger.OnReturn();
 
 			string postedFileName = Path.GetFileName(postedFile.FileName);
 

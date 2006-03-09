@@ -27,10 +27,12 @@ namespace WebAudioStore
 		    // save file lenght for AudioFileInfo-Table
 			encodedFileLength = encodedFileContent.Length;
 
+			int id = this.audioDB.InsertAudioFile(encodedFileContent);	
+			
 			CallLogger.OnReturn();
 
 			// store encoded file to database
-			return this.audioDB.InsertAudioFile(encodedFileContent);	
+			return id;
 		}
 
 		public void InsertAudioInfo(int fileID, string fileName, int fileSize)

@@ -10,6 +10,12 @@ namespace WebAudioStore
 	/// </summary>
 	public class OggEncoder : IEncoder
 	{
+		public const string WORKINGDIR = @"C:\Inetpub\wwwroot\WebAudioStore\Data\";
+		public const string TEMP_FILENAME_BASE ="temp";
+		public const string TEMP_FILENAME_MP3 = TEMP_FILENAME_BASE + ".mp3";
+		public const string TEMP_FILENAME_WAV = TEMP_FILENAME_BASE + ".wav";
+		public const string TEMP_FILENAME_OGG = TEMP_FILENAME_BASE + ".ogg";
+		
 		public OggEncoder()
 		{
 			//
@@ -33,37 +39,33 @@ namespace WebAudioStore
 		/// </summary>
 		public byte[] EncodeFile(byte[] fileContent)
 		{
-			string tempFileName = WriteFileToDisk(fileContent);
-
-			ExecuteEncoder(tempFileName);
-
-			return ReadEncodedFileFromDisk(tempFileName);
+			CallLogger.OnCall("IEncoder", this.GetType().GetMethod("EncodeFile"));
+			WriteMp3ToDisk(fileContent);
+			Mp32Wav();
+			ExecuteEncoder();
+			byte[] buffer = ReadEncodedFileFromDisk();
+			CallLogger.OnReturn();
+			return buffer;
 		}
 
-		private static string WriteFileToDisk(byte[] fileContent)
+		private void WriteMp3ToDisk(byte[] fileContent)
 		{
-			string tempFileName = @"C:\Inetpub\wwwroot\WebAudioStore\Data\temp.mp3";
-			using(FileStream fs = new FileStream(tempFileName,FileMode.Create))
+			using(FileStream fs = new FileStream(WORKINGDIR + TEMP_FILENAME_MP3,FileMode.Create))
 			{
 				fs.Write(fileContent,0,fileContent.Length);
 			}
-
-
-			Mp32Wav(tempFileName);
-
-			return @"C:\Inetpub\wwwroot\WebAudioStore\Data\temp.wav";
-
 		}
 
-		private static void Mp32Wav(string tempFileName)
+		private void Mp32Wav()
 		{
+			CallLogger.OnCall("IEncoder", this.GetType().GetMethod("Mp32Wav"));
 			Process myProcess = new Process();
 	
 			// configure process
 			ProcessStartInfo pInfo = 
-				new ProcessStartInfo("C:\\Inetpub\\wwwroot\\WebAudioStore\\Data\\lame.exe");
-			pInfo.WorkingDirectory = "C:\\Inetpub\\wwwroot\\WebAudioStore\\Data";
-			pInfo.Arguments = "--decode "+tempFileName+" temp.wav";
+				new ProcessStartInfo(WORKINGDIR + "lame.exe");
+			pInfo.WorkingDirectory = WORKINGDIR;
+			pInfo.Arguments = "--decode "+WORKINGDIR+TEMP_FILENAME_MP3+" "+TEMP_FILENAME_WAV;
 			pInfo.UseShellExecute = true;
 			pInfo.CreateNoWindow = true;
 			myProcess.StartInfo = pInfo;
@@ -87,17 +89,20 @@ namespace WebAudioStore
 						". You do not have permission to print this file.");
 				}
 			}
+			CallLogger.OnReturn();
 		}
 
-		private static void ExecuteEncoder(string tempFileName)
+		private void ExecuteEncoder()
 		{
+			CallLogger.OnCall("IEncoder", this.GetType().GetMethod("ExecuteEncoder"));
+
 			Process myProcess = new Process();
 	
 			// configure process
 			ProcessStartInfo pInfo = 
-				new ProcessStartInfo("C:\\Inetpub\\wwwroot\\WebAudioStore\\Data\\oggenc2.exe");
-			pInfo.WorkingDirectory = "C:\\Inetpub\\wwwroot\\WebAudioStore\\Data";
-			pInfo.Arguments = tempFileName;
+				new ProcessStartInfo(WORKINGDIR+"oggenc2.exe");
+			pInfo.WorkingDirectory = WORKINGDIR;
+			pInfo.Arguments = WORKINGDIR+TEMP_FILENAME_WAV;
 			pInfo.UseShellExecute = true;
 			pInfo.CreateNoWindow = true;
 			myProcess.StartInfo = pInfo;
@@ -121,18 +126,20 @@ namespace WebAudioStore
 						". You do not have permission to print this file.");
 				}
 			}
+			CallLogger.OnReturn();
 		}
 
-		private static byte[] ReadEncodedFileFromDisk(string tempFileName)
+		private byte[] ReadEncodedFileFromDisk()
 		{
-			string encodedFileName = tempFileName.Substring(0,tempFileName.Length-3)+"ogg";
+			CallLogger.OnCall("IEncoder", this.GetType().GetMethod("ReadEncodedFileFromDisk"));
 			byte[] encodedFileContent = null;
-			using(FileStream fs = new FileStream(encodedFileName,FileMode.Open))
+			using(FileStream fs = new FileStream(WORKINGDIR+TEMP_FILENAME_OGG,FileMode.Open))
 			{
 				int encodedFileLength = (int)fs.Length;
 				encodedFileContent = new byte[encodedFileLength];
 				fs.Read(encodedFileContent,0,encodedFileLength);
 			}
+			CallLogger.OnReturn();
 			return encodedFileContent;
 		}
 		#endregion

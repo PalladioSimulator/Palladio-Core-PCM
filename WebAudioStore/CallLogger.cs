@@ -180,7 +180,7 @@ namespace WebAudioStore
 			XmlDocument document = new XmlDocument();
 			XmlDeclaration decl = document.CreateXmlDeclaration("1.0",null,null);
 			document.AppendChild(decl);
-			XmlDocumentType type = document.CreateDocumentType("WebserverMeasure",null,tempPath+"WebserverMeasure.dtd",null);
+			XmlDocumentType type = document.CreateDocumentType("WebserverMeasure",null,tempPath+"WebAudioStoreMeasure.dtd",null);
 			document.AppendChild(type);
 			XmlElement rootElem = document.CreateElement("WebserverMeasure");
 			document.AppendChild(rootElem);
@@ -234,6 +234,15 @@ namespace WebAudioStore
 			}
 			
 			document.Save(tempPath+"measure" + runID +".xml");
+			ResetLogger();
+		}
+
+		public static void ResetLogger()
+		{
+			callId = 0;
+			callInfoList.Clear();
+			threadStackTable.Clear();
+			callIDHash.Clear();
 		}
 	}
 }
