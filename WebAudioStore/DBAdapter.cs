@@ -23,14 +23,6 @@ namespace WebAudioStore
 		{
 			CallLogger.OnCall("IAudioDB", this.GetType().GetMethod("InsertAudioFile"));
 
-			HiResTimer timer = new HiResTimer();
-			timer.Start();
-			ulong sleepTime = (ulong)fileContent.LongLength / 125  * 1000; // zeit die auf einer 1Mbit leitung in µs benötigt wird.
-			do // busy waiting, thread.sleep ist zu ungenau.
-			{
-				timer.Stop();
-			} while (timer.ElapsedMicroseconds < sleepTime);
-			//Thread.Sleep((int)sleepTime);
 
 			MySqlConnection connection = new MySqlConnection(this.connectionString);			
 			MySqlDataReader dataReader = null;
@@ -55,6 +47,7 @@ namespace WebAudioStore
 				CallLogger.OnReturn();
 				
 				CallLogger.OnCall("ICommand", cmd1.GetType().GetMethod("ExecuteNonQuery"));
+				BusyWaiting(fileContent.LongLength);
 				cmd1.ExecuteNonQuery(); // INSERT into AudioFiles
 				CallLogger.OnReturn();
 
@@ -85,6 +78,19 @@ namespace WebAudioStore
 				CallLogger.OnReturn();
 			}
 			return fileID;
+		}
+
+		public static void BusyWaiting(long fileSize)
+		{
+			HiResTimer timer = new HiResTimer();
+			timer.Start();
+			ulong sleepTime = (ulong)fileSize / 125  * 1000; // zeit die auf einer 1Mbit leitung in µs benötigt wird.
+			sleepTime *= 2; // 512KBit
+			do // busy waiting, thread.sleep ist zu ungenau.
+			{
+				timer.Stop();
+			} while (timer.ElapsedMicroseconds < sleepTime);
+			//Thread.Sleep((int)sleepTime);
 		}
 
 		public void InsertAudioInfo(int fileID, string fileName, int fileSize)
@@ -171,7 +177,7 @@ namespace WebAudioStore
 			}
 			finally 
 			{
-				CallLogger.OnCall("IDataReader", cmd1.GetType().GetMethod("Close"));
+				CallLogger.OnCall("IDataReader", dataReader.GetType().GetMethod("Close"));
 				dataReader.Close();
 				CallLogger.OnReturn();
 

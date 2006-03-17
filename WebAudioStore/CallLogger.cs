@@ -176,8 +176,7 @@ namespace WebAudioStore
 		
 		public static void SaveLoggedInformationXML(long runID)
 		{
-			//string tempPath = @"C:\Inetpub\wwwroot\WebAudioStore\Data\";
-			string tempPath = @"Z:\Data2\";
+			string tempPath = @"C:\Inetpub\wwwroot\WebAudioStore\Data\";
 			XmlDocument document = new XmlDocument();
 			XmlDeclaration decl = document.CreateXmlDeclaration("1.0",null,null);
 			document.AppendChild(decl);
@@ -190,7 +189,7 @@ namespace WebAudioStore
 			document.DocumentElement.AppendChild(id);
 			foreach (CallInfo callInfo in Calls)
 			{
-				XmlElement measure = document.CreateElement
+				 XmlElement measure = document.CreateElement
 					(callInfo.MethodInfo.DeclaringType.ToString() + "_" + callInfo.InterfaceName +
 					"_" + callInfo.MethodInfo.Name);
 				measure.SetAttribute("CallNumber","_"+Convert.ToString(callInfo.CallNumber));

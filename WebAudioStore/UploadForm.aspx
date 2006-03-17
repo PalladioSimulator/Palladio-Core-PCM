@@ -20,11 +20,11 @@
 				runat="server" CssClass="bluebutton" Height="23px" Width="72px" Text="Remove"></asp:button>
 			<INPUT id="Upload" style="Z-INDEX: 107; LEFT: 456px; WIDTH: 71px; POSITION: absolute; TOP: 152px; HEIGHT: 24px"
 				type="submit" value="Upload" runat="server" onserverclick="Upload_ServerClick" NAME="Upload">
-			<asp:DataGrid id="grid" style="Z-INDEX: 103; LEFT: 16px; POSITION: absolute; TOP: 288px" runat="server"
+			<asp:DataGrid id="grid" style="Z-INDEX: 103; LEFT: 48px; POSITION: absolute; TOP: 336px" runat="server"
 				CellPadding="0"></asp:DataGrid>
 			<HR style="Z-INDEX: 108; LEFT: 16px; WIDTH: 70.32%; POSITION: absolute; TOP: 232px; HEIGHT: 1px"
 				width="70.32%" SIZE="1">
-			<DIV style="DISPLAY: inline; Z-INDEX: 109; LEFT: 24px; WIDTH: 192px; POSITION: absolute; TOP: 248px; HEIGHT: 8px"
+			<DIV style="DISPLAY: inline; Z-INDEX: 109; LEFT: 48px; WIDTH: 192px; POSITION: absolute; TOP: 304px; HEIGHT: 8px"
 				ms_positioning="FlowLayout">Table AudioFileInfo:</DIV>
 			<asp:label id="Label1" style="Z-INDEX: 105; LEFT: 40px; POSITION: absolute; TOP: 192px" runat="server"
 				Height="25px" Width="249px"></asp:label>
@@ -32,6 +32,8 @@
 				runat="server" Text="Encode Files"></asp:CheckBox>
 			<asp:Button id="Button1" style="Z-INDEX: 111; LEFT: 360px; POSITION: absolute; TOP: 192px" runat="server"
 				Text="Save Logged Times"></asp:Button>
+			<asp:TextBox id="TextBox1" style="Z-INDEX: 112; LEFT: 40px; POSITION: absolute; TOP: 256px" runat="server"
+				Width="488px"></asp:TextBox>
 		</form>
 	</body>
 </HTML>

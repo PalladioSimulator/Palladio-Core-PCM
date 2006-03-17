@@ -150,19 +150,12 @@ namespace WebAudioStore
 				{
 					enumInfo.MoveNext(); // move to next audioFileInfo row
 					
-					//-------------------------------------------------------
-					HiResTimer timer = new HiResTimer();
-					timer.Start();
-					ulong sleepTime = (ulong)fileContent.LongLength / 125  * 1000; // zeit die auf einer 1Mbit leitung in µs benötigt wird.
-					do // busy waiting, thread.sleep ist zu ungenau.
-					{
-						timer.Stop();
-					} while (timer.ElapsedMicroseconds < sleepTime);
-					//Thread.Sleep((int)sleepTime);
-					//-------------------------------------------------------
+
 
 					cmd1.Parameters.Add("?File", fileContent); // add BLOB to INSERT statement
+
 					CallLogger.OnCall("ICommand", cmd1.GetType().GetMethod("ExecuteNonQuery"));
+					DBAdapter.BusyWaiting(fileContent.LongLength);
 					cmd1.ExecuteNonQuery(); // INSERT into AudioFiles
 					CallLogger.OnReturn();
 

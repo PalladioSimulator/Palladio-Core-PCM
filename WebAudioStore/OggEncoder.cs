@@ -11,7 +11,7 @@ namespace WebAudioStore
 	public class OggEncoder : IEncoder
 	{
 		//public const string WORKINGDIR = @"C:\Inetpub\wwwroot\WebAudioStore\Data\";
-		public const string WORKINGDIR = @"Z:\Data2\";
+		public const string WORKINGDIR = @"F:\";
 		public const string TEMP_FILENAME_BASE ="temp";
 		public const string TEMP_FILENAME_MP3 = TEMP_FILENAME_BASE + ".mp3";
 		public const string TEMP_FILENAME_WAV = TEMP_FILENAME_BASE + ".wav";

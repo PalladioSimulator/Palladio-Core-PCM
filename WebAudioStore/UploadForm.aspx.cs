@@ -28,6 +28,7 @@ namespace WebAudioStore
 
 		protected IAudioStore audioStore;
 		protected Button Button1;
+		protected System.Web.UI.WebControls.TextBox TextBox1;
 		
 		
 		protected CheckBox CheckBox1;
@@ -35,8 +36,9 @@ namespace WebAudioStore
 		public UploadForm()
 		{
 			//IAudioDB db = new DBAdapter();
-			//IAudioDB db = new EncodingAdapter(new DBAdapter(), new OggEncoder());
-			IAudioDB db = new EncodingAdapter(new BufferingDBAdapter(), new OggEncoder());
+			// IAudioDB db = new EncodingAdapter(new DBAdapter(), new OggEncoder());
+			//IAudioDB db = new EncodingAdapter(new BufferingDBAdapter(), new OggEncoder());
+			IAudioDB db = new BufferingDBAdapter();
 			audioStore = new AudioStore(db);
 		}
 
@@ -63,12 +65,12 @@ namespace WebAudioStore
 		/// </summary>
 		private void InitializeComponent()
 		{    
-			this.AddFile.Click += new EventHandler(this.AddFile_Click);
-			this.RemvFile.Click += new EventHandler(this.RemvFile_Click);
-			this.grid.Load += new EventHandler(this.GridLoad);
-			this.Upload.ServerClick += new EventHandler(this.Upload_ServerClick);
-			this.Button1.Click += new EventHandler(this.Button1_Click);
-			this.Load += new EventHandler(this.Page_Load);
+			this.AddFile.Click += new System.EventHandler(this.AddFile_Click);
+			this.RemvFile.Click += new System.EventHandler(this.RemvFile_Click);
+			this.grid.Load += new System.EventHandler(this.GridLoad);
+			this.Button1.Click += new System.EventHandler(this.Button1_Click);
+			this.Upload.ServerClick += new System.EventHandler(this.Upload_ServerClick);
+			this.Load += new System.EventHandler(this.Page_Load);
 
 		}
 		#endregion
