@@ -93,58 +93,30 @@ namespace Palladio.Performance.Attributes
 		public static RandomVariable MeasureAttribute2RandomVariable(MeasureAttribute measure, int samplingrate) 
 		{
 			if(measure.measures.Count<1) return new RandomVariable(0,samplingrate,new double[] {1}); // execution time of 0
-			
-			Hashtable timeHash = DetermineFrequencyOfEcexutionTimes(measure);
+
+
 			
 			long span = measure.MaxMeasure - measure.MinMeasure;
-			long min =  measure.MinMeasure;
-			double[] probabilities = new double[span+1];
-			double totalFrequency = (double)measure.measures.Count;
+			long dataLength = span / samplingrate + 1;
+			long min =  (measure.MinMeasure / samplingrate) * samplingrate; // Das neue Minimum ist kleiner oder gleich dem alten, abgerundet
 
-			int valuesLength = probabilities.Length;
-			for (int i=0;i<valuesLength;i++) 
+			double[] data = new double[dataLength];
+			foreach (Measure m in measure.measures)
 			{
-				if(timeHash[min+(i)] != null) 
-				{
-					double timeFrequency = Convert.ToDouble(timeHash[min+(i)]);
-					probabilities[i]= timeFrequency / totalFrequency;
-				}
+				int pos = (int)System.Math.Round((double)m.executionTime / (double)samplingrate);
+				data[pos] += 1;
 			}
-			RandomVariable result = 
-				new RandomVariable(MathTools.DiscreteFunctions.DiscreteValuePDFunction(min,1,probabilities));
-			result.ProbabilityDensityFunction.AdjustSamplingRate(samplingrate);
-			return result; 
+
+			// Convert Histogramm to PMF
+			double totalNumOfMeasures = (double)measure.measures.Count;
+			for (int i=0; i<data.Length; i++)
+			{
+				data[i] /= totalNumOfMeasures;
+			}
+
+			return new RandomVariable(MathTools.DiscreteFunctions.DiscreteValuePDFunction(min,samplingrate,data));
 		}
 
-
-		/// <summary>
-		/// Determines the frequency of each execution time of the <c>MeasureAttribute</c>.
-		/// </summary>
-		/// <param name="measure"><c>MeasureAttribute</c> containing the measures.</param>
-		/// <returns>Hashtable that contains the frequency for each execution time.</returns>
-		private static Hashtable DetermineFrequencyOfEcexutionTimes(MeasureAttribute measure)
-		{
-			Hashtable timeHash = new Hashtable();
-			int length = measure.measures.Count;
-			long[] times = new long[length];
-			
-			for (int i =0;i<length;i++) 
-			{
-				times[i] = ((Measure)measure.measures[i]).executionTime;
-				if(timeHash.Contains(times[i]))
-				{
-					int frequency = Convert.ToInt32(timeHash[times[i]]);
-					frequency++;
-					timeHash[times[i]] = frequency;
-				} 
-				else 
-				{
-					int frequency = 1;
-					timeHash[times[i]] = frequency;
-				}
-			}
-			return timeHash;
-		}
 
 		/// <summary>
 		/// Converts a RandomVariable to a QMLAttribute. 
