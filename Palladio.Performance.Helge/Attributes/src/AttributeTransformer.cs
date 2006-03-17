@@ -95,15 +95,15 @@ namespace Palladio.Performance.Attributes
 			if(measure.measures.Count<1) return new RandomVariable(0,samplingrate,new double[] {1}); // execution time of 0
 
 
-			
-			long span = measure.MaxMeasure - measure.MinMeasure;
-			long dataLength = span / samplingrate + 1;
 			long min =  (measure.MinMeasure / samplingrate) * samplingrate; // Das neue Minimum ist kleiner oder gleich dem alten, abgerundet
+			long span = measure.MaxMeasure - min;
+			long dataLength = span / samplingrate + 2;
+			
 
 			double[] data = new double[dataLength];
 			foreach (Measure m in measure.measures)
 			{
-				int pos = (int)System.Math.Round((double)m.executionTime / (double)samplingrate);
+				int pos = (int)System.Math.Round(((double)m.executionTime-(double)min) / (double)samplingrate);
 				data[pos] += 1;
 			}
 
