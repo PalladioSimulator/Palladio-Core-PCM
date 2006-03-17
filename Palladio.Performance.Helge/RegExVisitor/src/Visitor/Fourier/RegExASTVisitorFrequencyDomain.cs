@@ -1,3 +1,4 @@
+using System.Collections;
 using Palladio.Performance.Attributes;
 using Palladio.Performance.Math;
 using Palladio.RegularExpressions;
@@ -188,26 +189,59 @@ namespace Palladio.Performance.RegExVisitor.Visitor
 			Visit(loop.InnerExpression);
 
 			FourierAttribute fa = FourierAttribute.GetAttribute(loop.InnerExpression);
-			
-			IFourierFunction result = fa.Function.Multiply(fa.Function).Multiply(fa.Function).Multiply(fa.Function).Multiply((fa.Function));
+
+			Hashtable loopProbHash = new Hashtable();
+			loopProbHash.Add(8,0.1);
+			loopProbHash.Add(9,0.1);
+			loopProbHash.Add(10,0.2);
+			loopProbHash.Add(11,0.4);
+			loopProbHash.Add(12,0.2);
+		
+			IFourierFunction result = null;
+			foreach(DictionaryEntry de in loopProbHash)
+			{
+				IFourierFunction loopFunction = fa.Function;
+				IFourierFunction result2 = new DiscreteFourierFunction((DiscreteFourierFunction)fa.Function);
+				for(int i=0; i<(int)de.Key; i++)
+				{
+					result2 = result2.Multiply(loopFunction);
+				}
+				
+				if (result == null)
+				{
+					result = result2.GetScaled((double)de.Value);
+				} 
+				else
+				{
+					result = result.Add(result2.GetScaled((double)de.Value));
+				}
+			}
+			loop.Attributes.Add(FourierAttribute.AttributeType,new FourierAttribute(result));
+
+
+			//IFourierFunction result = fa.Function.Multiply(fa.Function).Multiply(fa.Function).Multiply(fa.Function).Multiply((fa.Function));
+//			IFourierFunction result = fa.Function;
 			
 /*			int length = fa.Function.Data.Length;
 			Complex[] resultData = new Complex[length];
 			for (int i=0; i<length;i++) {	resultData[i] = 1;	}
 			IFourierFunction result = new DiscreteFourierFunction(resultData,fa.Function.SamplingRate);
 */			
+
+/*
 			ProbabilityAttribute pin = ProbabilityAttribute.GetAttribute(loop.InnerExpression);
 			Console.WriteLine("Inner Loop Probability: " + pin.Probability);
 
 			loop.Attributes.Add(FourierAttribute.AttributeType,new FourierAttribute(result));
-
-/*			
-
+*/
+			
+/*
 			ProbabilityAttribute pin = ProbabilityAttribute.GetAttribute(loop.InnerExpression);
 			FourierAttribute fa = FourierAttribute.GetAttribute(loop.InnerExpression);
 			IFourierFunction result = fa.Function.ComputeLoopLimit(pin.Probability);
 			loop.Attributes.Add(FourierAttribute.AttributeType,new FourierAttribute(result));
 */
+
 		}
 
 		/// <summary>
