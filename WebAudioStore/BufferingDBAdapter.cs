@@ -104,6 +104,8 @@ namespace WebAudioStore
 
 		public void FinalizeUpload()
 		{
+			byte[] dummy = new byte[100];
+			
 			CallLogger.OnCall("IAudioDB", this.GetType().GetMethod("FinalizeUpload"));
 			MySqlConnection connection = new MySqlConnection(this.connectionString);			
 			MySqlDataReader dataReader = null;
@@ -152,12 +154,11 @@ namespace WebAudioStore
 					
 
 
-					cmd1.Parameters.Add("?File", fileContent); // add BLOB to INSERT statement
+					cmd1.Parameters.Add("?File", dummy); // add BLOB to INSERT statement
 
 					CallLogger.OnCall("ICommand", cmd1.GetType().GetMethod("ExecuteNonQuery"));
-					DBAdapter.BusyWaiting(fileContent.LongLength);
 					cmd1.ExecuteNonQuery(); // INSERT into AudioFiles
-					CallLogger.OnReturn();
+					CallLogger.OnReturn(DBAdapter.BusyWaiting(fileContent.LongLength));
 
 					AudioFileInfo afi = (AudioFileInfo)enumInfo.Current;
 					cmd3.Parameters.Add("?FileName", afi.fileName);

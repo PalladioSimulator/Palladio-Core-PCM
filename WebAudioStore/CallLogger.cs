@@ -15,8 +15,8 @@ namespace WebAudioStore
 		public long CallerID;
 		public string InterfaceName;
 		public MethodInfo MethodInfo;
-		public long StartTime;
-		public long StopTime;
+		public ulong StartTime;
+		public ulong StopTime;
 		public string Calls;
 		public HiResTimer timer;
 
@@ -103,7 +103,7 @@ namespace WebAudioStore
 				}
 				CallInfo info = new CallInfo(id, threadInfo.CallLevel, caller, interfaceName, method, threadInfo.ThreadId);
 				info.timer.Start();
-				info.StartTime = (long) info.timer.StartTime;
+				info.StartTime = info.timer.StartTime + timeOffset;
 				threadInfo.CallStack.Push(info);
 			}
 		}
@@ -120,7 +120,22 @@ namespace WebAudioStore
 				info.Calls = (string) callIDHash[info.CallNumber];
 				callInfoList.Add(info);
 				info.timer.Stop();
-				info.StopTime = (long) info.timer.StopTime;
+				info.StopTime = info.timer.StopTime + timeOffset;
+				threadInfo.CallLevel--;
+			}
+		}
+
+		public static void OnReturn(ulong sleeptime)
+		{
+			lock(myLock)
+			{
+				timeOffset += sleeptime;
+				ThreadInfo threadInfo = GetCurrentThreadInfo();
+				CallInfo info = (CallInfo) threadInfo.CallStack.Pop();
+				info.Calls = (string) callIDHash[info.CallNumber];
+				callInfoList.Add(info);
+				info.timer.Stop();
+				info.StopTime = info.timer.StopTime + timeOffset;
 				threadInfo.CallLevel--;
 			}
 		}
@@ -174,7 +189,7 @@ namespace WebAudioStore
 			private static long threadCnt = 0;
 		}
 		
-		public static void SaveLoggedInformationXML(long runID)
+		public static void SaveLoggedInformationXML(string fileName)
 		{
 			string tempPath = @"C:\Inetpub\wwwroot\WebAudioStore\Data\";
 			XmlDocument document = new XmlDocument();
@@ -185,7 +200,7 @@ namespace WebAudioStore
 			XmlElement rootElem = document.CreateElement("WebserverMeasure");
 			document.AppendChild(rootElem);
 			XmlElement id = document.CreateElement("RunID");
-			id.AppendChild(document.CreateTextNode(Convert.ToString(runID)));
+			id.AppendChild(document.CreateTextNode(Convert.ToString(1)));
 			document.DocumentElement.AppendChild(id);
 			foreach (CallInfo callInfo in Calls)
 			{
@@ -233,16 +248,18 @@ namespace WebAudioStore
 				document.DocumentElement.AppendChild(measure);
 			}
 			
-			document.Save(tempPath+"measure" + runID +".xml");
+			document.Save(tempPath+fileName);
 			ResetLogger();
 		}
 
 		public static void ResetLogger()
 		{
-			callId = 0;
+			//callId = 0;
 			callInfoList.Clear();
 			threadStackTable.Clear();
 			callIDHash.Clear();
 		}
+
+		private static ulong timeOffset = 0;
 	}
 }

@@ -24,22 +24,29 @@ namespace WebAudioStore
 
 		public ArrayList files = new ArrayList();
 		static public ArrayList hif = new ArrayList();
-		public int filesUploaded = 0;
+		static public int filesUploaded = 0;
 
-		protected IAudioStore audioStore;
 		protected Button Button1;
 		protected System.Web.UI.WebControls.TextBox TextBox1;
 		
 		
 		protected CheckBox CheckBox1;
-	
+
+		static IAudioStore direct_db = new AudioStore(new DBAdapter());
+		static IAudioStore direct_encoding_db  = new AudioStore(new EncodingAdapter(new DBAdapter(), new OggEncoder()));
+		static IAudioStore buffering_db = new AudioStore(new BufferingDBAdapter());
+		static IAudioStore buffering_encoding_db = new AudioStore(new EncodingAdapter(new BufferingDBAdapter(), new OggEncoder()));
+		static protected IAudioStore audioStore = direct_encoding_db;
+		private static int uploadCnt = 0;
+		private static int repID = 0;
+
+
 		public UploadForm()
 		{
-			//IAudioDB db = new DBAdapter();
-			// IAudioDB db = new EncodingAdapter(new DBAdapter(), new OggEncoder());
-			//IAudioDB db = new EncodingAdapter(new BufferingDBAdapter(), new OggEncoder());
-			IAudioDB db = new BufferingDBAdapter();
-			audioStore = new AudioStore(db);
+			direct_db.Identifier = "direct_db";
+			direct_encoding_db.Identifier = "direct_encoding_db";
+			buffering_db.Identifier = "buffering_db";
+			buffering_encoding_db.Identifier = "buffering_encoding_db";
 		}
 
 		private void Page_Load(object sender, EventArgs e)
@@ -67,7 +74,7 @@ namespace WebAudioStore
 		{    
 			this.AddFile.Click += new System.EventHandler(this.AddFile_Click);
 			this.RemvFile.Click += new System.EventHandler(this.RemvFile_Click);
-			this.grid.Load += new System.EventHandler(this.GridLoad);
+//			this.grid.Load += new System.EventHandler(this.GridLoad);
 			this.Button1.Click += new System.EventHandler(this.Button1_Click);
 			this.Upload.ServerClick += new System.EventHandler(this.Upload_ServerClick);
 			this.Load += new System.EventHandler(this.Page_Load);
@@ -75,12 +82,12 @@ namespace WebAudioStore
 		}
 		#endregion
 
-		private void GridLoad(object sender, EventArgs e)
-		{
-			grid.HeaderStyle.Font.Bold = true;
-			grid.DataSource = dataView;
-			grid.DataBind();
-		}
+//		private void GridLoad(object sender, EventArgs e)
+//		{
+//			grid.HeaderStyle.Font.Bold = true;
+//			grid.DataSource = dataView;
+//			grid.DataBind();
+//		}
 
 		/// <summary>
 		/// AddFile will add the path of the client side file that is currently in the 
@@ -161,13 +168,60 @@ namespace WebAudioStore
 				hif.Clear();
 				ListBox1.Items.Clear();
 			}
+			
+			uploadCnt++;
+			if (uploadCnt >= 50)
+			{
+				SaveTimes();
+				ChangeStrategy();
+				repID++;
+				uploadCnt = 0;
+			}
+
 			Response.Redirect("UploadForm.aspx"); // to reload the table
+		}
+
+		private void ChangeStrategy()
+		{
+			if (audioStore.Identifier.Equals("direct_db"))
+			{
+				audioStore = direct_encoding_db; 
+				return;
+			}
+			if (audioStore.Identifier.Equals("direct_encoding_db"))
+			{
+				audioStore = buffering_db; 
+				return;
+			}
+			if (audioStore.Identifier.Equals("buffering_db"))
+			{
+				audioStore = buffering_encoding_db; 
+				return;
+			}
+			if (audioStore.Identifier.Equals("buffering_encoding_db"))
+			{
+				audioStore = direct_db; 
+				return;
+			}
+		}
+
+		private void SaveTimes()
+		{
+			string fileName = DateTime.Now.Day.ToString() + "measure_" + repID + "_" + GetCurrentStrategyName() + "_" + ".xml";
+			CallLogger.SaveLoggedInformationXML(fileName);
+			CallLogger.ResetLogger();
+		}
+
+		private string GetCurrentStrategyName()
+		{
+			return audioStore.Identifier;
 		}
 
 		private void Button1_Click(object sender, EventArgs e)
 		{
-			CallLogger.SaveLoggedInformationXML(1);
+			CallLogger.SaveLoggedInformationXML("measure.xml");
 		}
+
 
 	}
 }

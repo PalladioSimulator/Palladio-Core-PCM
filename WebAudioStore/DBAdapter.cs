@@ -21,6 +21,8 @@ namespace WebAudioStore
 
 		public int InsertAudioFile(byte[] fileContent)
 		{
+			byte[] dummy = new byte[100];
+			
 			CallLogger.OnCall("IAudioDB", this.GetType().GetMethod("InsertAudioFile"));
 
 
@@ -30,7 +32,7 @@ namespace WebAudioStore
 
 			String insertAudioFiles="INSERT INTO AudioFiles VALUES(null, ?File)";
 			MySqlCommand cmd1 = new MySqlCommand(insertAudioFiles);
-			cmd1.Parameters.Add("?File", fileContent); // add BLOB to INSERT statement
+			cmd1.Parameters.Add("?File", dummy); // add BLOB to INSERT statement
 			cmd1.Connection = connection;
 
 			// The primary-key of table 'AudioFiles' is generated via auto-increment by MySQL.
@@ -47,9 +49,8 @@ namespace WebAudioStore
 				CallLogger.OnReturn();
 				
 				CallLogger.OnCall("ICommand", cmd1.GetType().GetMethod("ExecuteNonQuery"));
-				BusyWaiting(fileContent.LongLength);
 				cmd1.ExecuteNonQuery(); // INSERT into AudioFiles
-				CallLogger.OnReturn();
+				CallLogger.OnReturn(BusyWaiting(fileContent.LongLength));
 
 				CallLogger.OnCall("ICommand", cmd2.GetType().GetMethod("ExecuteReader",new Type[0]));
 				dataReader = cmd2.ExecuteReader(); // SELECT maxID from AudioFiles
@@ -80,16 +81,17 @@ namespace WebAudioStore
 			return fileID;
 		}
 
-		public static void BusyWaiting(long fileSize)
+		public static ulong BusyWaiting(long fileSize)
 		{
-			HiResTimer timer = new HiResTimer();
-			timer.Start();
+//			HiResTimer timer = new HiResTimer();
+//			timer.Start();
 			ulong sleepTime = (ulong)fileSize / 125  * 1000; // zeit die auf einer 1Mbit leitung in µs benötigt wird.
 			sleepTime *= 2; // 512KBit
-			do // busy waiting, thread.sleep ist zu ungenau.
-			{
-				timer.Stop();
-			} while (timer.ElapsedMicroseconds < sleepTime);
+//			do // busy waiting, thread.sleep ist zu ungenau.
+//			{
+//				timer.Stop();
+//			} while (timer.ElapsedMicroseconds < sleepTime);
+			return sleepTime;
 			//Thread.Sleep((int)sleepTime);
 		}
 

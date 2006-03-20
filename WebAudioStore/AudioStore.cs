@@ -12,6 +12,13 @@ namespace WebAudioStore
 	{
 		protected IAudioDB audioDB;
 		private int filesUploaded = 0;
+		private string id;
+
+		public string Identifier
+		{
+			get { return id; }
+			set { id = value; }
+		}
 
 		public int FilesUploaded
 		{
@@ -21,6 +28,7 @@ namespace WebAudioStore
 		public AudioStore(IAudioDB audioDB)
 		{
 			this.audioDB = audioDB;
+			id = "";
 		}
 
 		public DataView GetUploadedFileView()
