@@ -1,1 +1,1 @@
-<%@ Application Codebehind="Global.asax.cs" Inherits="WebAudioStore.Global" %>
+<%@ Application Inherits="WebAudioStore.Global" Language="C#" %>

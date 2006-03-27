@@ -10,33 +10,23 @@ namespace WebAudioStore
 	/// <summary>
 	/// Zusammenfassung für WebForm1.
 	/// </summary>
-	public class UploadForm : Page
+	public partial class UploadForm : Page
 	{
 		protected HtmlInputFile myFile;
-		protected DataGrid grid;
 		protected DataView dataView;
-		protected ListBox ListBox1;
-		protected Button AddFile;
-		protected Button RemvFile;
-		protected HtmlInputFile FindFile;
-		protected HtmlInputButton Upload;
-		protected Label Label1;
 
 		public ArrayList files = new ArrayList();
 		static public ArrayList hif = new ArrayList();
 		static public int filesUploaded = 0;
 
-		protected Button Button1;
-		protected System.Web.UI.WebControls.TextBox TextBox1;
 		
 		
-		protected CheckBox CheckBox1;
 
 		static IAudioStore direct_db = new AudioStore(new DBAdapter());
 		static IAudioStore direct_encoding_db  = new AudioStore(new EncodingAdapter(new DBAdapter(), new OggEncoder()));
 		static IAudioStore buffering_db = new AudioStore(new BufferingDBAdapter());
 		static IAudioStore buffering_encoding_db = new AudioStore(new EncodingAdapter(new BufferingDBAdapter(), new OggEncoder()));
-		static protected IAudioStore audioStore = direct_encoding_db;
+        static protected IAudioStore audioStore = buffering_encoding_db;
 		private static int uploadCnt = 0;
 		private static int repID = 0;
 
@@ -49,7 +39,7 @@ namespace WebAudioStore
 			buffering_encoding_db.Identifier = "buffering_encoding_db";
 		}
 
-		private void Page_Load(object sender, EventArgs e)
+		protected void Page_Load(object sender, EventArgs e)
 		{
 			// Hier Benutzercode zur Seiteninitialisierung einfügen
 		}
@@ -72,12 +62,6 @@ namespace WebAudioStore
 		/// </summary>
 		private void InitializeComponent()
 		{    
-			this.AddFile.Click += new System.EventHandler(this.AddFile_Click);
-			this.RemvFile.Click += new System.EventHandler(this.RemvFile_Click);
-//			this.grid.Load += new System.EventHandler(this.GridLoad);
-			this.Button1.Click += new System.EventHandler(this.Button1_Click);
-			this.Upload.ServerClick += new System.EventHandler(this.Upload_ServerClick);
-			this.Load += new System.EventHandler(this.Page_Load);
 
 		}
 		#endregion
@@ -96,7 +80,7 @@ namespace WebAudioStore
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void AddFile_Click(object sender, EventArgs e)
+		protected void AddFile_Click(object sender, EventArgs e)
 		{
 			if (Page.IsPostBack == true)
 			{
@@ -114,7 +98,7 @@ namespace WebAudioStore
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void RemvFile_Click(object sender, EventArgs e)
+		protected void RemvFile_Click(object sender, EventArgs e)
 		{
 			if(ListBox1.Items.Count != 0)
 			{
@@ -170,7 +154,7 @@ namespace WebAudioStore
 			}
 			
 			uploadCnt++;
-			if (uploadCnt >= 50)
+			if (uploadCnt >= 100)
 			{
 				SaveTimes();
 				ChangeStrategy();
@@ -217,7 +201,7 @@ namespace WebAudioStore
 			return audioStore.Identifier;
 		}
 
-		private void Button1_Click(object sender, EventArgs e)
+		protected void Button1_Click(object sender, EventArgs e)
 		{
 			CallLogger.SaveLoggedInformationXML("measure.xml");
 		}

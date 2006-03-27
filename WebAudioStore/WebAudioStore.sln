@@ -1,21 +1,36 @@
-Microsoft Visual Studio Solution File, Format Version 8.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAudioStore", "http://localhost/WebAudioStore/WebAudioStore.csproj", "{8F7221BC-635C-4024-B18E-BF45DBE365D4}"
-	ProjectSection(ProjectDependencies) = postProject
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "http://localhost/WebAudioStore/", "http://localhost/WebAudioStore", "{8F7221BC-635C-4024-B18E-BF45DBE365D4}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/WebAudioStore"
+		Debug.AspNetCompiler.PhysicalPath = "..\WebAudioStore\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebAudioStore\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebAudioStore"
+		Release.AspNetCompiler.PhysicalPath = "..\WebAudioStore\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebAudioStore\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\WebAudioStore\"
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(SolutionConfiguration) = preSolution
-		Debug = Debug
-		Release = Release
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
 	EndGlobalSection
-	GlobalSection(ProjectConfiguration) = postSolution
-		{8F7221BC-635C-4024-B18E-BF45DBE365D4}.Debug.ActiveCfg = Debug|.NET
-		{8F7221BC-635C-4024-B18E-BF45DBE365D4}.Debug.Build.0 = Debug|.NET
-		{8F7221BC-635C-4024-B18E-BF45DBE365D4}.Release.ActiveCfg = Release|.NET
-		{8F7221BC-635C-4024-B18E-BF45DBE365D4}.Release.Build.0 = Release|.NET
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F7221BC-635C-4024-B18E-BF45DBE365D4}.Debug|Default.ActiveCfg = Debug|.NET
+		{8F7221BC-635C-4024-B18E-BF45DBE365D4}.Debug|Default.Build.0 = Debug|.NET
+		{8F7221BC-635C-4024-B18E-BF45DBE365D4}.Release|Default.ActiveCfg = Release|.NET
+		{8F7221BC-635C-4024-B18E-BF45DBE365D4}.Release|Default.Build.0 = Release|.NET
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-	EndGlobalSection
-	GlobalSection(ExtensibilityAddIns) = postSolution
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
