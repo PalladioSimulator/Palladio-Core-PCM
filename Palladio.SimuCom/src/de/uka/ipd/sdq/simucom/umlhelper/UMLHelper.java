@@ -1,4 +1,4 @@
-package de.uka.ipd.simucom.umlhelper;
+package de.uka.ipd.sdq.simucom.umlhelper;
 
 import java.util.Set;
 

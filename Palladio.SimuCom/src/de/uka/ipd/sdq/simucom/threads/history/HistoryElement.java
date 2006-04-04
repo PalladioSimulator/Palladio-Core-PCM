@@ -1,4 +1,4 @@
-package de.uka.ipd.simucom.threads.history;
+package de.uka.ipd.sdq.simucom.threads.history;
 
 import desmoj.core.simulator.SimTime;
 

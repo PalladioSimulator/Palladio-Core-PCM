@@ -1,6 +1,6 @@
-package de.uka.ipd.simucom.component;
+package de.uka.ipd.sdq.simucom.component;
 
-import de.uka.ipd.simucom.threads.IThreadActionVisitor;
+import de.uka.ipd.sdq.simucom.threads.IThreadActionVisitor;
 import desmoj.core.simulator.Model;
 
 public class Method {

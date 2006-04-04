@@ -1,8 +1,8 @@
-package de.uka.ipd.simucom.threads;
+package de.uka.ipd.sdq.simucom.threads;
 
-import de.uka.ipd.simucom.component.Component;
-import de.uka.ipd.simucom.component.Method;
-import de.uka.ipd.simucom.component.ServiceEffect;
+import de.uka.ipd.sdq.simucom.component.Component;
+import de.uka.ipd.sdq.simucom.component.Method;
+import de.uka.ipd.sdq.simucom.component.ServiceEffect;
 
 public interface IThreadActionVisitor {
 	void visitComponent(Component c) throws Exception;

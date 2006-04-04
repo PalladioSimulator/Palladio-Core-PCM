@@ -1,8 +1,9 @@
-package de.uka.ipd.simucom.threads;
+package de.uka.ipd.sdq.simucom.threads;
 
 import java.util.ArrayList;
-import de.uka.ipd.simucom.component.Component;
-import de.uka.ipd.simucom.threads.history.HistoryElement;
+
+import de.uka.ipd.sdq.simucom.component.Component;
+import de.uka.ipd.sdq.simucom.threads.history.HistoryElement;
 import desmoj.core.simulator.Model;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;

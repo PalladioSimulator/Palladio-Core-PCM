@@ -1,4 +1,4 @@
-package de.uka.ipd.simucom;
+package de.uka.ipd.sdq.simucom;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.uml2.Package;
@@ -6,7 +6,7 @@ import org.eclipse.uml2.UML2Package;
 
 import com.sun.security.auth.login.ConfigFile;
 
-import de.uka.ipd.simucom.threads.SimulatedThread;
+import de.uka.ipd.sdq.simucom.threads.SimulatedThread;
 import desmoj.core.simulator.Experiment;
 import desmoj.core.simulator.Model;
 import desmoj.core.simulator.SimTime;

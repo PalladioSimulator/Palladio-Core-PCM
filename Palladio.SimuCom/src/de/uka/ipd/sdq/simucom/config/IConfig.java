@@ -1,4 +1,4 @@
-package de.uka.ipd.siucom.config;
+package de.uka.ipd.sdq.simucom.config;
 
 public interface IConfig {
 	String getUMLRessourceURI();

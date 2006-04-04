@@ -1,4 +1,4 @@
-package de.uka.ipd.simucom.reflectivevisitor;
+package de.uka.ipd.sdq.simucom.reflectivevisitor;
 
 public interface Visitable {
 	void accept(ReflectiveVisitor v);

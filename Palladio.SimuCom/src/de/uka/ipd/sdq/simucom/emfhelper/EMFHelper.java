@@ -1,4 +1,4 @@
-package de.uka.ipd.simucom.emfhelper;
+package de.uka.ipd.sdq.simucom.emfhelper;
 
 import java.util.Iterator;
 

@@ -1,4 +1,4 @@
-package de.uka.ipd.simucom.threads;
+package de.uka.ipd.sdq.simucom.threads;
 
 import java.util.ArrayList;
 
@@ -11,10 +11,10 @@ import org.eclipse.uml2.ControlFlow;
 import org.eclipse.uml2.InitialNode;
 import org.eclipse.uml2.LoopNode;
 
-import de.uka.ipd.simucom.fsm.ActivityQueries;
-import de.uka.ipd.simucom.reflectivevisitor.ReflectiveVisitor;
-import de.uka.ipd.simucom.threads.history.HistoryElement;
-import de.uka.ipd.simucom.umlhelper.UMLHelper;
+import de.uka.ipd.sdq.simucom.activity.ActivityQueries;
+import de.uka.ipd.sdq.simucom.reflectivevisitor.ReflectiveVisitor;
+import de.uka.ipd.sdq.simucom.threads.history.HistoryElement;
+import de.uka.ipd.sdq.simucom.umlhelper.UMLHelper;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
 
