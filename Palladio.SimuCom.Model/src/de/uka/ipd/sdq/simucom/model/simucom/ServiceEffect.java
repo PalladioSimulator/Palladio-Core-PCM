@@ -10,6 +10,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.uml2.Activity;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Service Effect</b></em>'.
@@ -26,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ServiceEffect extends EObject {
+public interface ServiceEffect extends EObject{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35,19 +37,30 @@ public interface ServiceEffect extends EObject {
 	String copyright = "(c) by Steffen Becker, 2006"; //$NON-NLS-1$
 
 	/**
-	 * Returns the value of the '<em><b>Activity</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.uml2.Activity}.
+	 * Returns the value of the '<em><b>Activity</b></em>' reference.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Activity</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Activity</em>' reference list.
+	 * @return the value of the '<em>Activity</em>' reference.
+	 * @see #setActivity(Activity)
 	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimuComModelPackage#getServiceEffect_Activity()
-	 * @model type="org.eclipse.uml2.Activity"
+	 * @model required="true"
 	 * @generated
 	 */
-	EList getActivity();
+	Activity getActivity();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.simucom.model.simucom.ServiceEffect#getActivity <em>Activity</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Activity</em>' reference.
+	 * @see #getActivity()
+	 * @generated
+	 */
+	void setActivity(Activity value);
 
 } // ServiceEffect

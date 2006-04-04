@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SimulatedMethod extends EObject {
+public interface SimulatedMethod extends EObject{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,7 +71,7 @@ public interface SimulatedMethod extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimuComModelPackage#getSimulatedMethod_Name()
-	 * @model default=""
+	 * @model default="" derived="true"
 	 * @generated
 	 */
 	String getName();

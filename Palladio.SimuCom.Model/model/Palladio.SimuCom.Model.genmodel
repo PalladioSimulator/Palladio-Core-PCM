@@ -10,9 +10,11 @@
       ecorePackage="Palladio.SimuCom.Model.ecore#/">
     <genClasses ecoreClass="Palladio.SimuCom.Model.ecore#//SimulatedArchitecture">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Palladio.SimuCom.Model.ecore#//SimulatedArchitecture/components"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Palladio.SimuCom.Model.ecore#//SimulatedArchitecture/name"/>
     </genClasses>
     <genClasses ecoreClass="Palladio.SimuCom.Model.ecore#//SimulatedComponent">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Palladio.SimuCom.Model.ecore#//SimulatedComponent/methods"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Palladio.SimuCom.Model.ecore#//SimulatedComponent/name"/>
     </genClasses>
     <genClasses ecoreClass="Palladio.SimuCom.Model.ecore#//SimulatedMethod">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Palladio.SimuCom.Model.ecore#//SimulatedMethod/serviceEffect"/>
@@ -20,6 +22,16 @@
     </genClasses>
     <genClasses ecoreClass="Palladio.SimuCom.Model.ecore#//ServiceEffect">
       <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference Palladio.SimuCom.Model.ecore#//ServiceEffect/activity"/>
+    </genClasses>
+    <genClasses ecoreClass="Palladio.SimuCom.Model.ecore#//SimulatedWorld">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Palladio.SimuCom.Model.ecore#//SimulatedWorld/architecture"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Palladio.SimuCom.Model.ecore#//SimulatedWorld/users"/>
+    </genClasses>
+    <genClasses ecoreClass="Palladio.SimuCom.Model.ecore#//SimulatedUser">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference Palladio.SimuCom.Model.ecore#//SimulatedUser/activity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Palladio.SimuCom.Model.ecore#//SimulatedUser/thinkTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Palladio.SimuCom.Model.ecore#//SimulatedUser/thinkFirst"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Palladio.SimuCom.Model.ecore#//SimulatedUser/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

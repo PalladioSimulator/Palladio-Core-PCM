@@ -13,6 +13,9 @@ import de.uka.ipd.sdq.simucom.model.simucom.SimulatedArchitecture;
 import de.uka.ipd.sdq.simucom.model.simucom.SimulatedComponent;
 import de.uka.ipd.sdq.simucom.model.simucom.SimulatedMethod;
 
+import de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser;
+import de.uka.ipd.sdq.simucom.model.simucom.SimulatedWorld;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -66,6 +69,20 @@ public class SimuComModelPackageImpl extends EPackageImpl implements SimuComMode
 	 * @generated
 	 */
 	private EClass serviceEffectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass simulatedWorldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass simulatedUserEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -162,6 +179,15 @@ public class SimuComModelPackageImpl extends EPackageImpl implements SimuComMode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSimulatedArchitecture_Name() {
+		return (EAttribute)simulatedArchitectureEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSimulatedComponent() {
 		return simulatedComponentEClass;
 	}
@@ -173,6 +199,15 @@ public class SimuComModelPackageImpl extends EPackageImpl implements SimuComMode
 	 */
 	public EReference getSimulatedComponent_Methods() {
 		return (EReference)simulatedComponentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSimulatedComponent_Name() {
+		return (EAttribute)simulatedComponentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -225,6 +260,78 @@ public class SimuComModelPackageImpl extends EPackageImpl implements SimuComMode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSimulatedWorld() {
+		return simulatedWorldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSimulatedWorld_Architecture() {
+		return (EReference)simulatedWorldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSimulatedWorld_Users() {
+		return (EReference)simulatedWorldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSimulatedUser() {
+		return simulatedUserEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSimulatedUser_Activity() {
+		return (EReference)simulatedUserEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSimulatedUser_ThinkTime() {
+		return (EAttribute)simulatedUserEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSimulatedUser_ThinkFirst() {
+		return (EAttribute)simulatedUserEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSimulatedUser_Name() {
+		return (EAttribute)simulatedUserEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SimuComModelFactory getSimuComModelFactory() {
 		return (SimuComModelFactory)getEFactoryInstance();
 	}
@@ -250,9 +357,11 @@ public class SimuComModelPackageImpl extends EPackageImpl implements SimuComMode
 		// Create classes and their features
 		simulatedArchitectureEClass = createEClass(SIMULATED_ARCHITECTURE);
 		createEReference(simulatedArchitectureEClass, SIMULATED_ARCHITECTURE__COMPONENTS);
+		createEAttribute(simulatedArchitectureEClass, SIMULATED_ARCHITECTURE__NAME);
 
 		simulatedComponentEClass = createEClass(SIMULATED_COMPONENT);
 		createEReference(simulatedComponentEClass, SIMULATED_COMPONENT__METHODS);
+		createEAttribute(simulatedComponentEClass, SIMULATED_COMPONENT__NAME);
 
 		simulatedMethodEClass = createEClass(SIMULATED_METHOD);
 		createEReference(simulatedMethodEClass, SIMULATED_METHOD__SERVICE_EFFECT);
@@ -260,6 +369,16 @@ public class SimuComModelPackageImpl extends EPackageImpl implements SimuComMode
 
 		serviceEffectEClass = createEClass(SERVICE_EFFECT);
 		createEReference(serviceEffectEClass, SERVICE_EFFECT__ACTIVITY);
+
+		simulatedWorldEClass = createEClass(SIMULATED_WORLD);
+		createEReference(simulatedWorldEClass, SIMULATED_WORLD__ARCHITECTURE);
+		createEReference(simulatedWorldEClass, SIMULATED_WORLD__USERS);
+
+		simulatedUserEClass = createEClass(SIMULATED_USER);
+		createEReference(simulatedUserEClass, SIMULATED_USER__ACTIVITY);
+		createEAttribute(simulatedUserEClass, SIMULATED_USER__THINK_TIME);
+		createEAttribute(simulatedUserEClass, SIMULATED_USER__THINK_FIRST);
+		createEAttribute(simulatedUserEClass, SIMULATED_USER__NAME);
 	}
 
 	/**
@@ -293,16 +412,28 @@ public class SimuComModelPackageImpl extends EPackageImpl implements SimuComMode
 		// Initialize classes and features; add operations and parameters
 		initEClass(simulatedArchitectureEClass, SimulatedArchitecture.class, "SimulatedArchitecture", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getSimulatedArchitecture_Components(), this.getSimulatedComponent(), null, "components", null, 0, -1, SimulatedArchitecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getSimulatedArchitecture_Name(), ecorePackage.getEString(), "name", null, 0, 1, SimulatedArchitecture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(simulatedComponentEClass, SimulatedComponent.class, "SimulatedComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getSimulatedComponent_Methods(), this.getSimulatedMethod(), null, "methods", null, 0, -1, SimulatedComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getSimulatedComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, SimulatedComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(simulatedMethodEClass, SimulatedMethod.class, "SimulatedMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getSimulatedMethod_ServiceEffect(), this.getServiceEffect(), null, "serviceEffect", null, 1, 1, SimulatedMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getSimulatedMethod_Name(), ecorePackage.getEString(), "name", "", 0, 1, SimulatedMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getSimulatedMethod_Name(), ecorePackage.getEString(), "name", "", 0, 1, SimulatedMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
 		initEClass(serviceEffectEClass, ServiceEffect.class, "ServiceEffect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getServiceEffect_Activity(), theUML2Package.getActivity(), null, "activity", "", 0, -1, ServiceEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEReference(getServiceEffect_Activity(), theUML2Package.getActivity(), null, "activity", "", 1, 1, ServiceEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+
+		initEClass(simulatedWorldEClass, SimulatedWorld.class, "SimulatedWorld", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getSimulatedWorld_Architecture(), this.getSimulatedArchitecture(), null, "architecture", null, 1, 1, SimulatedWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSimulatedWorld_Users(), this.getSimulatedUser(), null, "users", null, 1, -1, SimulatedWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(simulatedUserEClass, SimulatedUser.class, "SimulatedUser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getSimulatedUser_Activity(), theUML2Package.getActivity(), null, "activity", null, 1, 1, SimulatedUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getSimulatedUser_ThinkTime(), ecorePackage.getEInt(), "thinkTime", null, 1, 1, SimulatedUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getSimulatedUser_ThinkFirst(), ecorePackage.getEBoolean(), "thinkFirst", "true", 1, 1, SimulatedUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getSimulatedUser_Name(), ecorePackage.getEString(), "name", null, 1, 1, SimulatedUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

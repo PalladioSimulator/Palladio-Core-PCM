@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EFactory;
  * @see de.uka.ipd.sdq.simucom.model.simucom.SimuComModelPackage
  * @generated
  */
-public interface SimuComModelFactory extends EFactory {
+public interface SimuComModelFactory extends EFactory{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,6 +67,24 @@ public interface SimuComModelFactory extends EFactory {
 	 * @generated
 	 */
 	ServiceEffect createServiceEffect();
+
+	/**
+	 * Returns a new object of class '<em>Simulated World</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Simulated World</em>'.
+	 * @generated
+	 */
+	SimulatedWorld createSimulatedWorld();
+
+	/**
+	 * Returns a new object of class '<em>Simulated User</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Simulated User</em>'.
+	 * @generated
+	 */
+	SimulatedUser createSimulatedUser();
 
 	/**
 	 * Returns the package supported by this factory.

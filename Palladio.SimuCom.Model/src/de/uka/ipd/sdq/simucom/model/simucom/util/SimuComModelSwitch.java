@@ -118,6 +118,18 @@ public class SimuComModelSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SimuComModelPackage.SIMULATED_WORLD: {
+				SimulatedWorld simulatedWorld = (SimulatedWorld)theEObject;
+				Object result = caseSimulatedWorld(simulatedWorld);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SimuComModelPackage.SIMULATED_USER: {
+				SimulatedUser simulatedUser = (SimulatedUser)theEObject;
+				Object result = caseSimulatedUser(simulatedUser);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -179,6 +191,36 @@ public class SimuComModelSwitch {
 	 * @generated
 	 */
 	public Object caseServiceEffect(ServiceEffect object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Simulated World</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Simulated World</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseSimulatedWorld(SimulatedWorld object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Simulated User</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Simulated User</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseSimulatedUser(SimulatedUser object) {
 		return null;
 	}
 

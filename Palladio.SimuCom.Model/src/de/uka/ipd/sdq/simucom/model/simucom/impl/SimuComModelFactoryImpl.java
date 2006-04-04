@@ -48,6 +48,8 @@ public class SimuComModelFactoryImpl extends EFactoryImpl implements SimuComMode
 			case SimuComModelPackage.SIMULATED_COMPONENT: return createSimulatedComponent();
 			case SimuComModelPackage.SIMULATED_METHOD: return createSimulatedMethod();
 			case SimuComModelPackage.SERVICE_EFFECT: return createServiceEffect();
+			case SimuComModelPackage.SIMULATED_WORLD: return createSimulatedWorld();
+			case SimuComModelPackage.SIMULATED_USER: return createSimulatedUser();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -91,6 +93,26 @@ public class SimuComModelFactoryImpl extends EFactoryImpl implements SimuComMode
 	public ServiceEffect createServiceEffect() {
 		ServiceEffectImpl serviceEffect = new ServiceEffectImpl();
 		return serviceEffect;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SimulatedWorld createSimulatedWorld() {
+		SimulatedWorldImpl simulatedWorld = new SimulatedWorldImpl();
+		return simulatedWorld;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SimulatedUser createSimulatedUser() {
+		SimulatedUserImpl simulatedUser = new SimulatedUserImpl();
+		return simulatedUser;
 	}
 
 	/**

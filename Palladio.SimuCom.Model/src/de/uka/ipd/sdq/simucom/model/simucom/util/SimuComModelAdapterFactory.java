@@ -89,6 +89,12 @@ public class SimuComModelAdapterFactory extends AdapterFactoryImpl {
 			public Object caseServiceEffect(ServiceEffect object) {
 				return createServiceEffectAdapter();
 			}
+			public Object caseSimulatedWorld(SimulatedWorld object) {
+				return createSimulatedWorldAdapter();
+			}
+			public Object caseSimulatedUser(SimulatedUser object) {
+				return createSimulatedUserAdapter();
+			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -160,6 +166,34 @@ public class SimuComModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createServiceEffectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedWorld <em>Simulated World</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedWorld
+	 * @generated
+	 */
+	public Adapter createSimulatedWorldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser <em>Simulated User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser
+	 * @generated
+	 */
+	public Adapter createSimulatedUserAdapter() {
 		return null;
 	}
 

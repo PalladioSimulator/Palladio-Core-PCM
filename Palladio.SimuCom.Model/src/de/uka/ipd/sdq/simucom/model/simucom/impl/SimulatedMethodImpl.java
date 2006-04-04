@@ -136,10 +136,9 @@ public class SimulatedMethodImpl extends EObjectImpl implements SimulatedMethod 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String getName() {
-		return name;
+		return getServiceEffect().getActivity().getName();
 	}
 
 	/**

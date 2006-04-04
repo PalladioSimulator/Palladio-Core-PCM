@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedComponent#getMethods <em>Methods</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedComponent#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SimulatedComponent extends EObject {
+public interface SimulatedComponent extends EObject{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,5 +50,31 @@ public interface SimulatedComponent extends EObject {
 	 * @generated
 	 */
 	EList getMethods();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimuComModelPackage#getSimulatedComponent_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedComponent#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // SimulatedComponent

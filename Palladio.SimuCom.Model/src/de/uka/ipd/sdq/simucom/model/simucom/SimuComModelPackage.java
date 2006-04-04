@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EReference;
  * @model kind="package"
  * @generated
  */
-public interface SimuComModelPackage extends EPackage {
+public interface SimuComModelPackage extends EPackage{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,13 +86,22 @@ public interface SimuComModelPackage extends EPackage {
 	int SIMULATED_ARCHITECTURE__COMPONENTS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATED_ARCHITECTURE__NAME = 1;
+
+	/**
 	 * The number of structural features of the the '<em>Simulated Architecture</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATED_ARCHITECTURE_FEATURE_COUNT = 1;
+	int SIMULATED_ARCHITECTURE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.simucom.model.simucom.impl.SimulatedComponentImpl <em>Simulated Component</em>}' class.
@@ -114,13 +123,22 @@ public interface SimuComModelPackage extends EPackage {
 	int SIMULATED_COMPONENT__METHODS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATED_COMPONENT__NAME = 1;
+
+	/**
 	 * The number of structural features of the the '<em>Simulated Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATED_COMPONENT_FEATURE_COUNT = 1;
+	int SIMULATED_COMPONENT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.simucom.model.simucom.impl.SimulatedMethodImpl <em>Simulated Method</em>}' class.
@@ -170,7 +188,7 @@ public interface SimuComModelPackage extends EPackage {
 	int SERVICE_EFFECT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Activity</b></em>' reference list.
+	 * The feature id for the '<em><b>Activity</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -186,6 +204,99 @@ public interface SimuComModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVICE_EFFECT_FEATURE_COUNT = 1;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.simucom.model.simucom.impl.SimulatedWorldImpl <em>Simulated World</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.impl.SimulatedWorldImpl
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.impl.SimuComModelPackageImpl#getSimulatedWorld()
+	 * @generated
+	 */
+	int SIMULATED_WORLD = 4;
+
+	/**
+	 * The feature id for the '<em><b>Architecture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATED_WORLD__ARCHITECTURE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Users</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATED_WORLD__USERS = 1;
+
+	/**
+	 * The number of structural features of the the '<em>Simulated World</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATED_WORLD_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.simucom.model.simucom.impl.SimulatedUserImpl <em>Simulated User</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.impl.SimulatedUserImpl
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.impl.SimuComModelPackageImpl#getSimulatedUser()
+	 * @generated
+	 */
+	int SIMULATED_USER = 5;
+
+	/**
+	 * The feature id for the '<em><b>Activity</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATED_USER__ACTIVITY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Think Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATED_USER__THINK_TIME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Think First</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATED_USER__THINK_FIRST = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATED_USER__NAME = 3;
+
+	/**
+	 * The number of structural features of the the '<em>Simulated User</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATED_USER_FEATURE_COUNT = 4;
 
 
 	/**
@@ -210,6 +321,17 @@ public interface SimuComModelPackage extends EPackage {
 	EReference getSimulatedArchitecture_Components();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedArchitecture#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedArchitecture#getName()
+	 * @see #getSimulatedArchitecture()
+	 * @generated
+	 */
+	EAttribute getSimulatedArchitecture_Name();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedComponent <em>Simulated Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,6 +351,17 @@ public interface SimuComModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSimulatedComponent_Methods();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedComponent#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedComponent#getName()
+	 * @see #getSimulatedComponent()
+	 * @generated
+	 */
+	EAttribute getSimulatedComponent_Name();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedMethod <em>Simulated Method</em>}'.
@@ -273,15 +406,101 @@ public interface SimuComModelPackage extends EPackage {
 	EClass getServiceEffect();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.simucom.model.simucom.ServiceEffect#getActivity <em>Activity</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.simucom.model.simucom.ServiceEffect#getActivity <em>Activity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Activity</em>'.
+	 * @return the meta object for the reference '<em>Activity</em>'.
 	 * @see de.uka.ipd.sdq.simucom.model.simucom.ServiceEffect#getActivity()
 	 * @see #getServiceEffect()
 	 * @generated
 	 */
 	EReference getServiceEffect_Activity();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedWorld <em>Simulated World</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Simulated World</em>'.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedWorld
+	 * @generated
+	 */
+	EClass getSimulatedWorld();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedWorld#getArchitecture <em>Architecture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Architecture</em>'.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedWorld#getArchitecture()
+	 * @see #getSimulatedWorld()
+	 * @generated
+	 */
+	EReference getSimulatedWorld_Architecture();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedWorld#getUsers <em>Users</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Users</em>'.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedWorld#getUsers()
+	 * @see #getSimulatedWorld()
+	 * @generated
+	 */
+	EReference getSimulatedWorld_Users();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser <em>Simulated User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Simulated User</em>'.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser
+	 * @generated
+	 */
+	EClass getSimulatedUser();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser#getActivity <em>Activity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Activity</em>'.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser#getActivity()
+	 * @see #getSimulatedUser()
+	 * @generated
+	 */
+	EReference getSimulatedUser_Activity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser#getThinkTime <em>Think Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Think Time</em>'.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser#getThinkTime()
+	 * @see #getSimulatedUser()
+	 * @generated
+	 */
+	EAttribute getSimulatedUser_ThinkTime();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser#isThinkFirst <em>Think First</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Think First</em>'.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser#isThinkFirst()
+	 * @see #getSimulatedUser()
+	 * @generated
+	 */
+	EAttribute getSimulatedUser_ThinkFirst();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.uka.ipd.sdq.simucom.model.simucom.SimulatedUser#getName()
+	 * @see #getSimulatedUser()
+	 * @generated
+	 */
+	EAttribute getSimulatedUser_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
