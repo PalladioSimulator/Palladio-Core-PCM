@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="(c) by Steffen Becker, 2006"
+    modelDirectory="/Palladio.SimuCom.Model/src" modelPluginID="Palladio.SimuCom.Model"
+    modelName="Palladio.SimuCom" nonNLSMarkers="true" importerID="org.eclipse.emf.importer.ecore"
+    usedGenPackages="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../../plugin/org.eclipse.uml2/model/UML2.genmodel#//uml2">
+  <foreignModel>Palladio.SimuCom.Model.ecore</foreignModel>
+  <genPackages prefix="SimuComModel" basePackage="de.uka.ipd.sdq.simucom.model" disposableProviderFactory="true"
+      ecorePackage="Palladio.SimuCom.Model.ecore#/">
+    <genClasses ecoreClass="Palladio.SimuCom.Model.ecore#//SimulatedArchitecture">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Palladio.SimuCom.Model.ecore#//SimulatedArchitecture/components"/>
+    </genClasses>
+    <genClasses ecoreClass="Palladio.SimuCom.Model.ecore#//SimulatedComponent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Palladio.SimuCom.Model.ecore#//SimulatedComponent/methods"/>
+    </genClasses>
+    <genClasses ecoreClass="Palladio.SimuCom.Model.ecore#//SimulatedMethod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Palladio.SimuCom.Model.ecore#//SimulatedMethod/serviceEffect"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Palladio.SimuCom.Model.ecore#//SimulatedMethod/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Palladio.SimuCom.Model.ecore#//ServiceEffect">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference Palladio.SimuCom.Model.ecore#//ServiceEffect/activity"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

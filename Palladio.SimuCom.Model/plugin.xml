@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://seq.ipd.uka.de/simucom" 
+       class = "de.uka.ipd.sdq.simucom.model.simucom.SimuComModelPackage"
+       genModel = "model/Palladio.SimuCom.Model.genmodel" /> 
+  </extension>
+
+</plugin>
+
