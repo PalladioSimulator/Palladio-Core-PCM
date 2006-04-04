@@ -1,11 +1,23 @@
 package de.uka.ipd.sdq.simucom.reflectivevisitor;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectiveVisitor {
 	public void visit(Object object) throws Exception {
 		Method method = getMethod(object.getClass());
-		method.invoke(this, new Object[] { object });
+		try
+		{
+			method.invoke(this, new Object[] { object });
+		}
+		catch(InvocationTargetException ex)
+		{
+			throw new Exception(ex.getCause().toString());
+		}
+		catch(Exception ex)
+		{
+			throw ex;
+		}
 		if (object instanceof Visitable) {
 			callAccept((Visitable) object);
 		}

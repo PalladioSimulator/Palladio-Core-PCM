@@ -1,12 +1,14 @@
 package de.uka.ipd.sdq.simucom;
 
+import java.util.Vector;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.uml2.Package;
 import org.eclipse.uml2.UML2Package;
 
 import com.sun.security.auth.login.ConfigFile;
 
-import de.uka.ipd.sdq.simucom.threads.SimulatedThread;
+import de.uka.ipd.sdq.simucom.user.User;
 import desmoj.core.simulator.Experiment;
 import desmoj.core.simulator.Model;
 import desmoj.core.simulator.SimTime;
@@ -14,8 +16,8 @@ import desmoj.core.simulator.SimTime;
 public class SimuComModel extends Model {
 
 	protected ModelSetup setup;
-	SimulatedThread startThread = null;
 	protected static String configFile = null;
+	Vector<User> users = null;
 	
 	public SimuComModel(Model arg0, String arg1, boolean arg2, boolean arg3) {
 		super(arg0, arg1, arg2, arg3);
@@ -29,14 +31,16 @@ public class SimuComModel extends Model {
 
 	@Override
 	public void doInitialSchedules() {
-		startThread.activate(new SimTime(0));
+		for (User u : users)
+		{
+			u.activate(new SimTime(0));
+		}
 	}
 
 	@Override
 	public void init() {
 		setup =  new ModelSetup(this, configFile);
-		startThread = new SimulatedThread(this,"Thread",true);
-		startThread.init(setup.getStartComponent());
+		users = setup.getUser();
 	}
 
 	/**

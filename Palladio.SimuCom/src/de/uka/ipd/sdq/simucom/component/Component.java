@@ -22,10 +22,13 @@ public class Component {
 		return methods.toArray(new Method[0]);
 	}
 
-	public void accept(IThreadActionVisitor t) throws Exception {
-		t.visitComponent(this);
+	public Method findMethod(String name)
+	{
+		for(Method m : methods)
+			if (m.getID().equals(name))
+				return m;
+		return null;
 	}
-	
 	@Override
 	public String toString() {
 		return "Component >"+ID+"<";

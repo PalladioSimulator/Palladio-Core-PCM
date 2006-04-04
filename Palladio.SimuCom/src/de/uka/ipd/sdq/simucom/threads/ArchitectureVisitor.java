@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.simucom.threads;
 
 import java.util.ArrayList;
 
+import de.uka.ipd.sdq.simucom.activity.ActivityVisitor;
 import de.uka.ipd.sdq.simucom.component.Component;
 import de.uka.ipd.sdq.simucom.component.Method;
 import de.uka.ipd.sdq.simucom.component.ServiceEffect;
@@ -30,16 +31,9 @@ implements IThreadActionVisitor {
 
 	public void visitServiceEffect(ServiceEffect se) throws Exception {
 		addHistoryEntry("SimulatedThread visits "+se.toString());
-		new ActivityVisitor(parent,localHistory).visitActivity(se.getSimulatedActivity());
+		new ActivityServiceEffectVisitor(parent,localHistory).visitActivity(se.getSimulatedActivity());
 	}
-	
-	public void visitComponent(Component c) throws Exception {
-		addHistoryEntry("SimulatedThread visisits "+c.toString());
-		for (Method m : c.getMethods()){
-			m.accept(this);
-		}
-	}
-	
+		
 	private void addHistoryEntry(String message) {
 		localHistory.add(new HistoryElement(SimTime.NOW,message));
 	}

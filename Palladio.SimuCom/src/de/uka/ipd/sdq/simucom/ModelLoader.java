@@ -12,6 +12,7 @@ import org.eclipse.uml2.util.UML2Resource;
 
 import de.uka.ipd.sdq.simucom.model.simucom.SimuComModelPackage;
 import de.uka.ipd.sdq.simucom.model.simucom.SimulatedArchitecture;
+import de.uka.ipd.sdq.simucom.model.simucom.SimulatedWorld;
 
 public class ModelLoader {
 	protected static void registerResourceFactories() {
@@ -31,7 +32,7 @@ public class ModelLoader {
 			uri.appendSegment("profiles").appendSegment(""));
 	}
 
-	protected static SimulatedArchitecture loadSimuComModel(String uri)
+	protected static SimulatedWorld loadSimuComModel(String uri)
 	{
         ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -43,18 +44,18 @@ public class ModelLoader {
         URI fileURI = URI.createFileURI(uri);
         
         Object o = SimuComModelPackage.eINSTANCE;
-        SimulatedArchitecture sa = null;
+        SimulatedWorld simulatedWorld = null;
         try {
          	 // Demand load the resource for this file.
      	   Resource resource = resourceSet.getResource(fileURI, true);
          	 
-              sa = (SimulatedArchitecture) EcoreUtil.getObjectByType(
-                        resource.getContents(), SimuComModelPackage.eINSTANCE.getSimulatedArchitecture());
+              simulatedWorld = (SimulatedWorld) EcoreUtil.getObjectByType(
+                        resource.getContents(), SimuComModelPackage.eINSTANCE.getSimulatedWorld());
            resource.save(System.out,null);
          } catch (Exception we) {
               System.out.println(we.getMessage());
               System.exit(1);
          }
-         return sa;		
+         return simulatedWorld;		
 	}
 }
