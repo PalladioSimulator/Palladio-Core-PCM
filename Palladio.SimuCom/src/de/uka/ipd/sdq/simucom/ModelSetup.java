@@ -1,8 +1,10 @@
 package de.uka.ipd.sdq.simucom;
 
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.uml2.Activity;
 import org.eclipse.uml2.Element;
@@ -16,7 +18,6 @@ import de.uka.ipd.sdq.simucom.config.IConfig;
 import de.uka.ipd.sdq.simucom.model.simucom.SimulatedArchitecture;
 import de.uka.ipd.sdq.simucom.model.simucom.SimulatedComponent;
 import de.uka.ipd.sdq.simucom.model.simucom.SimulatedMethod;
-
 import desmoj.core.simulator.Model;
 
 public class ModelSetup {
@@ -25,6 +26,7 @@ public class ModelSetup {
 	protected Package umlModel = null;
 	protected IConfig myConfig = null;
 	protected SimulatedArchitecture sa = null;
+	protected Hashtable<String,Component> simulatedComponents = new Hashtable<String,Component>();
 	
 	public ModelSetup(Model m, String configFileName) {
 		this.m = m;
@@ -35,40 +37,57 @@ public class ModelSetup {
 			e.printStackTrace();
 			System.exit(-1);
 		}
-		UMLLoader.registerResourceFactories();
-		UMLLoader.registerPathmaps(URI.createURI(myConfig.getUMLRessourceURI()));
-		umlModel = UMLLoader.load(myConfig.getUMLModelURI());
-		sa = UMLLoader.loadSimuComModel("C:/Dokumente und Einstellungen/Snowball/runtime-workbench-workspace/p/My.simucom");
+		ModelLoader.registerResourceFactories();
+		ModelLoader.registerPathmaps(URI.createURI(myConfig.getUMLRessourceURI()));
+		try{
+			sa = ModelLoader.loadSimuComModel(myConfig.getSimuComModelURI());
+		} catch (Exception e){
+			System.out.println("Error while loading simulation model: "+e.getLocalizedMessage());
+			System.exit(-1);
+		}
 	}
 	
 	public Component getStartComponent(){
-		Component outer = new Component("SC1");
-		outer.AddMethod(newMethod("a"));
-		outer.AddMethod(newMethod("b"));
-		
-		return outer;
+		return getSimulatedComponent("Upload Handler");
 	}
 	
-	public Method newMethod(String ID) {
-		Method result = new Method(ID,m);
-		result.setServiceEffectSpecification(newServiceEffect("SE1"));
+	public Component getSimulatedComponent(String name){
+		if (!simulatedComponents.containsKey(name))
+		{
+			SimulatedComponent simComponent = getComponentFromModel(name);
+			Component c = new Component(simComponent.getName());
+			for (Iterator i=simComponent.getMethods().iterator(); i.hasNext(); )
+			{
+				SimulatedMethod m = (SimulatedMethod) i.next();
+				c.AddMethod(newMethod(m));
+			}
+			simulatedComponents.put(name,c);
+			return c;
+		}
+		else
+			return simulatedComponents.get(name);
+	}
+	
+	private SimulatedComponent getComponentFromModel(String name) {
+		EList components = sa.getComponents();
+		for (Iterator i=components.iterator(); i.hasNext(); )
+		{
+			SimulatedComponent component = (SimulatedComponent)i.next();
+			if (component.getName().equals(name))
+				return component;
+		}
+		return null;
+	}
+
+	public Method newMethod(SimulatedMethod method) {
+		Method result = new Method(method.getName());
+		result.setServiceEffectSpecification(newServiceEffect(method.getServiceEffect()));
 		return result;
 	}
 	
-	
-	public ServiceEffect newServiceEffect(String ID) {
-		ServiceEffect result = new ServiceEffect(ID,m);
-		List elements = umlModel.getOwnedElements();
-		Iterator i = elements.iterator(); Element e = null;
-		while((e = (Element)i.next())!=null)
-		{
-			if (e instanceof Activity)
-				break;
-		}
-		// result.setActivity((Activity)e);
-		SimulatedComponent sc = (SimulatedComponent)sa.getComponents().get(0);
-		SimulatedMethod sm = (SimulatedMethod) sc.getMethods().get(0);
-		result.setActivity((Activity)sm.getServiceEffect().getActivity().get(0));
+	public ServiceEffect newServiceEffect(de.uka.ipd.sdq.simucom.model.simucom.ServiceEffect serviceEffect) {
+		ServiceEffect result = new ServiceEffect();
+		result.setActivity(serviceEffect.getActivity());
 		return result;
 	}
 }

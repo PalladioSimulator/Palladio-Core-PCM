@@ -5,16 +5,13 @@ import desmoj.core.simulator.Model;
 
 public class Method {
 	protected String ID = "<not set>";
-	protected Model m;
-
 	protected ServiceEffect serviceEffectSpecification = null;
 	
 	public String getID() {
 		return ID;
 	}
 	
-	public Method(String id, Model m){
-		this.serviceEffectSpecification = new ServiceEffect("SE1",m);
+	public Method(String id){
 		this.ID = id;
 	}
 

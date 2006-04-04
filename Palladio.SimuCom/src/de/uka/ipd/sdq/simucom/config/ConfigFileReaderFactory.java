@@ -50,8 +50,8 @@ public class ConfigFileReaderFactory implements IConfig {
 		return result;
 	}
 
-	public String getUMLModelURI() {
-		String result = dom.getElementsByTagName("UMLModel").item(0).getTextContent();
+	public String getSimuComModelURI() {
+		String result = dom.getElementsByTagName("SimuComModel").item(0).getTextContent();
 		return result;
 	}	
 }

@@ -13,7 +13,7 @@ import org.eclipse.uml2.util.UML2Resource;
 import de.uka.ipd.sdq.simucom.model.simucom.SimuComModelPackage;
 import de.uka.ipd.sdq.simucom.model.simucom.SimulatedArchitecture;
 
-public class UMLLoader {
+public class ModelLoader {
 	protected static void registerResourceFactories() {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 			UML2Resource.FILE_EXTENSION, UML2Resource.Factory.INSTANCE);
@@ -56,33 +56,5 @@ public class UMLLoader {
               System.exit(1);
          }
          return sa;		
-	}
-	
-	protected static org.eclipse.uml2.Package load(String uri) {
-        org.eclipse.uml2.Package package_ = null;
-        // Create a resource set.
-        ResourceSet resourceSet = new ResourceSetImpl();
-
-       // Register the default resource factory -- only needed for stand-alone!
-       resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
-         Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-
-       // Get the URI of the model file.
-       URI fileURI = URI.createFileURI(uri);
-       
-       Object o = UML2Package.eINSTANCE;
-       
-       try {
-        	 // Demand load the resource for this file.
-    	   Resource resource = resourceSet.getResource(fileURI, true);
-        	 
-             package_ = (org.eclipse.uml2.Package) EcoreUtil.getObjectByType(
-                       resource.getContents(), UML2Package.eINSTANCE.getPackage());
-          resource.save(System.out,null);
-        } catch (Exception we) {
-             System.out.println(we.getMessage());
-             System.exit(1);
-        }
-        return package_;
 	}
 }
