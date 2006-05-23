@@ -2,11 +2,10 @@ import java.util.Arrays;
 
 public class ServerComponent {
 
-	static int counter = 0;
+	//static int counter = 0;
 	
 	public void providedMethod1(){
 		activeWaiting();
-		
 		//passiveWaiting();
 	}
 

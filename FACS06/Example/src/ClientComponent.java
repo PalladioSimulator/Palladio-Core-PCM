@@ -4,16 +4,13 @@ import java.util.concurrent.Future;
 public class ClientComponent {
 
 	private ServerComponent[] scArray;
-	private long startTime = 0;
-	private final static int numWorkers = 15;
+	private final static int numWorkers = 5;
 	
 	public ClientComponent(){
 		scArray = new ServerComponent[numWorkers];
 		for (int i=0; i<numWorkers; i++){
 			scArray[i] = new ServerComponent();
 		}
-		
-		this.startTime = System.nanoTime();
 	}
 	
 	public void providedMethod1(ExecutorService tpes) {
@@ -21,31 +18,20 @@ public class ClientComponent {
             new CallableWorkerThread[numWorkers];
         Future<Integer> futures[] = new Future[numWorkers];
         
-        
+        // start threads
         for (int i = 0; i < numWorkers; i++) {
             workers[i] = new CallableWorkerThread(i,scArray[i]);
             futures[i]=tpes.submit(workers[i]);
-            //printTimestamp("after start "+i);
         }
         
+        // join
         for (int i = 0; i < numWorkers; i++) {
-            try {
+            try { 
             	futures[i].get();
-/* 	        	System.out.format("Ending worker: %d%n",
-                      futures[i].get());
-               
-*/	        } catch (Exception e) {}
+ 	        	//System.out.format("Ending worker: %d%n",futures[i].get());
+	        } catch (Exception e) {
+	        	System.out.println(e.getStackTrace());
+	        }
         }
-        
-        printTimestamp("finishing all");
-
 	}  
-	
-	protected void printTimestamp(String markingDescription){
-		System.out.println("Elapsed after "
-				+ markingDescription 
-				+ ": " 
-				+ ((System.nanoTime() - startTime)));
-	}
-
 }
