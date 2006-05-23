@@ -7,6 +7,7 @@ import RegEx.RegExFactory;
 import RegEx.RegExPackage;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -240,7 +241,9 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 	public DistributionFunction getFFT(){
 		Complex[] points = getPointArray();
 		Complex[] freqPoints = FFT.fft(points);
-		return createDF(freqPoints, getDistance());		
+		DistributionFunction result = createDF(freqPoints, getDistance());
+		result.setIsFourierTransformed(true);
+		return result;
 	}
 	
 	public DistributionFunction getIFFT(){
@@ -250,6 +253,134 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 	}
 
 	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public DistributionFunction max(DistributionFunction df) {
+		if (isIsFourierTransformed() || df.isIsFourierTransformed())			
+			return null; // TODO: throw exception
+		
+		DistributionFunction cdf1 = this.getCDF();
+		DistributionFunction cdf2 = this.getCDF();
+		DistributionFunction result = cdf1.multiply(cdf2);
+		return result.getInvCDF();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public DistributionFunction scaleRandomVariable(double factor) {
+		DistributionFunction df = createDF(getPointArray(), getDistance() * factor);
+		return df.adjustDistance(getDistance());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public DistributionFunction getCDF() {
+		DistributionFunction cdf = new DistributionFunctionImpl();
+		
+		Complex currentVal = RegExFactory.eINSTANCE.createComplex();
+		for (Iterator iter = getPoints().iterator(); iter.hasNext();) {
+			Complex val = (Complex) iter.next();
+			currentVal = currentVal.plus(val);
+			cdf.addPoint(currentVal);
+		}
+		return cdf;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public DistributionFunction getInvCDF() {
+		DistributionFunction df = new DistributionFunctionImpl();
+		
+		Complex lastVal = RegExFactory.eINSTANCE.createComplex();
+		for (Iterator iter = getPoints().iterator(); iter.hasNext();) {
+			Complex val = (Complex) iter.next();
+			if (val.getRe() == lastVal.getRe()){
+				df.addPoint(RegExFactory.eINSTANCE.createComplex());
+			}
+			else {
+				df.addPoint(val.minus(lastVal));				
+			}
+			lastVal = val;
+		}
+		return df;
+	}
+	
+	public DistributionFunction adjustDistance(double distance) {
+		DistributionFunction df = RegExFactory.eINSTANCE.createDistributionFunction();
+		df.setDistance(distance);
+		double stepSize = distance / getDistance();
+		if (stepSize < 1){
+			double pos = stepSize;
+			Iterator iter = getPoints().iterator();
+			Complex val = (Complex) iter.next();
+			boolean active = true;
+			while(active){
+				while(pos <= 1){
+					Complex newVal = RegExFactory.eINSTANCE.createComplex();
+					newVal.setRe(stepSize * val.getRe());
+					df.addPoint(newVal);
+					pos += stepSize;
+				}
+				Complex newVal = RegExFactory.eINSTANCE.createComplex();
+				
+				double rightPartSize = pos - 1;
+				double leftPartSize = stepSize - rightPartSize;
+				double res = leftPartSize * val.getRe();
+				if (iter.hasNext()){
+					val = (Complex)iter.next();
+					res += rightPartSize * val.getRe();
+				} else {
+					active = false;
+				}
+				newVal.setRe(res);
+				df.addPoint(newVal);				
+				pos = rightPartSize + stepSize;
+			}
+		} else if (stepSize > 1){
+			double mark = stepSize / 2;
+			double pos = 0;
+			double res = 0;
+			Iterator iter = getPoints().iterator();
+			boolean active = true;
+			while(active){
+				while((pos < mark) && active){
+					if (iter.hasNext()){
+						Complex val = (Complex) iter.next();
+						res += val.getRe();						
+						pos += 1;
+					} else {
+						active = false;
+					}
+				}
+				double newRes = 0;
+				if (iter.hasNext()){
+					Complex val = (Complex) iter.next();
+					double rightPartSize = pos - mark;
+					double leftPartSize = 1 - rightPartSize;
+					res += leftPartSize * val.getRe();
+					newRes = rightPartSize * val.getRe();
+					mark += stepSize;
+					pos += 1;
+				} else {
+					active = false;
+				}				
+				Complex newVal = RegExFactory.eINSTANCE.createComplex();
+				newVal.setRe(res);
+				df.addPoint(newVal);
+				res = newRes;
+			}
+		}
+		return df;
+	}	
 
 	private Complex[] getPointArray(){
 		return (Complex[]) getPoints().toArray();

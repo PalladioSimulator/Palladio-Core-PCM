@@ -41,7 +41,7 @@ public interface RegExPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "null";
+	String eNS_URI = "";
 
 	/**
 	 * The package namespace name.
@@ -49,7 +49,7 @@ public interface RegExPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "null";
+	String eNS_PREFIX = "RegEx";
 
 	/**
 	 * The singleton instance of the package.
@@ -88,13 +88,22 @@ public interface RegExPackage extends EPackage {
 	int EXPRESSION__DISTRIBUTION_FUNCTION_FREQ = 1;
 
 	/**
+	 * The feature id for the '<em><b>Father Parallel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION__FATHER_PARALLEL = 2;
+
+	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = 2;
+	int EXPRESSION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link RegEx.impl.SymbolImpl <em>Symbol</em>}' class.
@@ -123,6 +132,15 @@ public interface RegExPackage extends EPackage {
 	 * @ordered
 	 */
 	int SYMBOL__DISTRIBUTION_FUNCTION_FREQ = EXPRESSION__DISTRIBUTION_FUNCTION_FREQ;
+
+	/**
+	 * The feature id for the '<em><b>Father Parallel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYMBOL__FATHER_PARALLEL = EXPRESSION__FATHER_PARALLEL;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -169,6 +187,15 @@ public interface RegExPackage extends EPackage {
 	 * @ordered
 	 */
 	int ALTERNATIVE__DISTRIBUTION_FUNCTION_FREQ = EXPRESSION__DISTRIBUTION_FUNCTION_FREQ;
+
+	/**
+	 * The feature id for the '<em><b>Father Parallel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE__FATHER_PARALLEL = EXPRESSION__FATHER_PARALLEL;
 
 	/**
 	 * The feature id for the '<em><b>Alt One</b></em>' containment reference.
@@ -244,6 +271,15 @@ public interface RegExPackage extends EPackage {
 	int SEQUENCE__DISTRIBUTION_FUNCTION_FREQ = EXPRESSION__DISTRIBUTION_FUNCTION_FREQ;
 
 	/**
+	 * The feature id for the '<em><b>Father Parallel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__FATHER_PARALLEL = EXPRESSION__FATHER_PARALLEL;
+
+	/**
 	 * The feature id for the '<em><b>Pre</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -299,6 +335,15 @@ public interface RegExPackage extends EPackage {
 	int LOOP__DISTRIBUTION_FUNCTION_FREQ = EXPRESSION__DISTRIBUTION_FUNCTION_FREQ;
 
 	/**
+	 * The feature id for the '<em><b>Father Parallel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP__FATHER_PARALLEL = EXPRESSION__FATHER_PARALLEL;
+
+	/**
 	 * The feature id for the '<em><b>Inner</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -352,6 +397,15 @@ public interface RegExPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARALLEL__DISTRIBUTION_FUNCTION_FREQ = EXPRESSION__DISTRIBUTION_FUNCTION_FREQ;
+
+	/**
+	 * The feature id for the '<em><b>Father Parallel</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL__FATHER_PARALLEL = EXPRESSION__FATHER_PARALLEL;
 
 	/**
 	 * The feature id for the '<em><b>Task One</b></em>' containment reference.
@@ -495,6 +549,17 @@ public interface RegExPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getExpression_DistributionFunctionFreq();
+
+	/**
+	 * Returns the meta object for the attribute '{@link RegEx.Expression#isFatherParallel <em>Father Parallel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Father Parallel</em>'.
+	 * @see RegEx.Expression#isFatherParallel()
+	 * @see #getExpression()
+	 * @generated
+	 */
+	EAttribute getExpression_FatherParallel();
 
 	/**
 	 * Returns the meta object for class '{@link RegEx.Symbol <em>Symbol</em>}'.
@@ -789,6 +854,14 @@ public interface RegExPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EXPRESSION__DISTRIBUTION_FUNCTION_FREQ = eINSTANCE.getExpression_DistributionFunctionFreq();
+
+		/**
+		 * The meta object literal for the '<em><b>Father Parallel</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPRESSION__FATHER_PARALLEL = eINSTANCE.getExpression_FatherParallel();
 
 		/**
 		 * The meta object literal for the '{@link RegEx.impl.SymbolImpl <em>Symbol</em>}' class.

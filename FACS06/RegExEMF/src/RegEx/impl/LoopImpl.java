@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link RegEx.impl.LoopImpl#getDistributionFunction <em>Distribution Function</em>}</li>
  *   <li>{@link RegEx.impl.LoopImpl#getDistributionFunctionFreq <em>Distribution Function Freq</em>}</li>
+ *   <li>{@link RegEx.impl.LoopImpl#isFatherParallel <em>Father Parallel</em>}</li>
  *   <li>{@link RegEx.impl.LoopImpl#getInner <em>Inner</em>}</li>
  *   <li>{@link RegEx.impl.LoopImpl#getReiterationDistribution <em>Reiteration Distribution</em>}</li>
  * </ul>
@@ -56,6 +57,26 @@ public class LoopImpl extends EObjectImpl implements Loop {
 	 * @ordered
 	 */
 	protected DistributionFunction distributionFunctionFreq = null;
+
+	/**
+	 * The default value of the '{@link #isFatherParallel() <em>Father Parallel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFatherParallel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FATHER_PARALLEL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFatherParallel() <em>Father Parallel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFatherParallel()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean fatherParallel = FATHER_PARALLEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getInner() <em>Inner</em>}' containment reference.
@@ -186,6 +207,27 @@ public class LoopImpl extends EObjectImpl implements Loop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isFatherParallel() {
+		return fatherParallel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFatherParallel(boolean newFatherParallel) {
+		boolean oldFatherParallel = fatherParallel;
+		fatherParallel = newFatherParallel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RegExPackage.LOOP__FATHER_PARALLEL, oldFatherParallel, fatherParallel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Expression getInner() {
 		return inner;
 	}
@@ -297,6 +339,8 @@ public class LoopImpl extends EObjectImpl implements Loop {
 				return getDistributionFunction();
 			case RegExPackage.LOOP__DISTRIBUTION_FUNCTION_FREQ:
 				return getDistributionFunctionFreq();
+			case RegExPackage.LOOP__FATHER_PARALLEL:
+				return isFatherParallel() ? Boolean.TRUE : Boolean.FALSE;
 			case RegExPackage.LOOP__INNER:
 				return getInner();
 			case RegExPackage.LOOP__REITERATION_DISTRIBUTION:
@@ -317,6 +361,9 @@ public class LoopImpl extends EObjectImpl implements Loop {
 				return;
 			case RegExPackage.LOOP__DISTRIBUTION_FUNCTION_FREQ:
 				setDistributionFunctionFreq((DistributionFunction)newValue);
+				return;
+			case RegExPackage.LOOP__FATHER_PARALLEL:
+				setFatherParallel(((Boolean)newValue).booleanValue());
 				return;
 			case RegExPackage.LOOP__INNER:
 				setInner((Expression)newValue);
@@ -341,6 +388,9 @@ public class LoopImpl extends EObjectImpl implements Loop {
 			case RegExPackage.LOOP__DISTRIBUTION_FUNCTION_FREQ:
 				setDistributionFunctionFreq((DistributionFunction)null);
 				return;
+			case RegExPackage.LOOP__FATHER_PARALLEL:
+				setFatherParallel(FATHER_PARALLEL_EDEFAULT);
+				return;
 			case RegExPackage.LOOP__INNER:
 				setInner((Expression)null);
 				return;
@@ -362,12 +412,29 @@ public class LoopImpl extends EObjectImpl implements Loop {
 				return distributionFunction != null;
 			case RegExPackage.LOOP__DISTRIBUTION_FUNCTION_FREQ:
 				return distributionFunctionFreq != null;
+			case RegExPackage.LOOP__FATHER_PARALLEL:
+				return fatherParallel != FATHER_PARALLEL_EDEFAULT;
 			case RegExPackage.LOOP__INNER:
 				return inner != null;
 			case RegExPackage.LOOP__REITERATION_DISTRIBUTION:
 				return reiterationDistribution != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (fatherParallel: ");
+		result.append(fatherParallel);
+		result.append(')');
+		return result.toString();
 	}
 
 } //LoopImpl

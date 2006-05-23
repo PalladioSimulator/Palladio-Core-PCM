@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link RegEx.Expression#getDistributionFunction <em>Distribution Function</em>}</li>
  *   <li>{@link RegEx.Expression#getDistributionFunctionFreq <em>Distribution Function Freq</em>}</li>
+ *   <li>{@link RegEx.Expression#isFatherParallel <em>Father Parallel</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +78,32 @@ public interface Expression extends EObject {
 	 * @generated
 	 */
 	void setDistributionFunctionFreq(DistributionFunction value);
+
+	/**
+	 * Returns the value of the '<em><b>Father Parallel</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Father Parallel</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Father Parallel</em>' attribute.
+	 * @see #setFatherParallel(boolean)
+	 * @see RegEx.RegExPackage#getExpression_FatherParallel()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isFatherParallel();
+
+	/**
+	 * Sets the value of the '{@link RegEx.Expression#isFatherParallel <em>Father Parallel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Father Parallel</em>' attribute.
+	 * @see #isFatherParallel()
+	 * @generated
+	 */
+	void setFatherParallel(boolean value);
 
 } // Expression

@@ -31,7 +31,7 @@ public class RegExFactoryImpl extends EFactoryImpl implements RegExFactory {
 	 */
 	public static RegExFactory init() {
 		try {
-			RegExFactory theRegExFactory = (RegExFactory)EPackage.Registry.INSTANCE.getEFactory("null"); 
+			RegExFactory theRegExFactory = (RegExFactory)EPackage.Registry.INSTANCE.getEFactory(""); 
 			if (theRegExFactory != null) {
 				return theRegExFactory;
 			}

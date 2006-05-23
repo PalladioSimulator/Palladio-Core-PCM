@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link RegEx.impl.SymbolImpl#getDistributionFunction <em>Distribution Function</em>}</li>
  *   <li>{@link RegEx.impl.SymbolImpl#getDistributionFunctionFreq <em>Distribution Function Freq</em>}</li>
+ *   <li>{@link RegEx.impl.SymbolImpl#isFatherParallel <em>Father Parallel</em>}</li>
  *   <li>{@link RegEx.impl.SymbolImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -54,6 +55,26 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
 	 * @ordered
 	 */
 	protected DistributionFunction distributionFunctionFreq = null;
+
+	/**
+	 * The default value of the '{@link #isFatherParallel() <em>Father Parallel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFatherParallel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FATHER_PARALLEL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFatherParallel() <em>Father Parallel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFatherParallel()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean fatherParallel = FATHER_PARALLEL_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -184,6 +205,27 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isFatherParallel() {
+		return fatherParallel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFatherParallel(boolean newFatherParallel) {
+		boolean oldFatherParallel = fatherParallel;
+		fatherParallel = newFatherParallel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RegExPackage.SYMBOL__FATHER_PARALLEL, oldFatherParallel, fatherParallel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getName() {
 		return name;
 	}
@@ -226,6 +268,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
 				return getDistributionFunction();
 			case RegExPackage.SYMBOL__DISTRIBUTION_FUNCTION_FREQ:
 				return getDistributionFunctionFreq();
+			case RegExPackage.SYMBOL__FATHER_PARALLEL:
+				return isFatherParallel() ? Boolean.TRUE : Boolean.FALSE;
 			case RegExPackage.SYMBOL__NAME:
 				return getName();
 		}
@@ -244,6 +288,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
 				return;
 			case RegExPackage.SYMBOL__DISTRIBUTION_FUNCTION_FREQ:
 				setDistributionFunctionFreq((DistributionFunction)newValue);
+				return;
+			case RegExPackage.SYMBOL__FATHER_PARALLEL:
+				setFatherParallel(((Boolean)newValue).booleanValue());
 				return;
 			case RegExPackage.SYMBOL__NAME:
 				setName((String)newValue);
@@ -265,6 +312,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
 			case RegExPackage.SYMBOL__DISTRIBUTION_FUNCTION_FREQ:
 				setDistributionFunctionFreq((DistributionFunction)null);
 				return;
+			case RegExPackage.SYMBOL__FATHER_PARALLEL:
+				setFatherParallel(FATHER_PARALLEL_EDEFAULT);
+				return;
 			case RegExPackage.SYMBOL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -283,6 +333,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
 				return distributionFunction != null;
 			case RegExPackage.SYMBOL__DISTRIBUTION_FUNCTION_FREQ:
 				return distributionFunctionFreq != null;
+			case RegExPackage.SYMBOL__FATHER_PARALLEL:
+				return fatherParallel != FATHER_PARALLEL_EDEFAULT;
 			case RegExPackage.SYMBOL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
@@ -298,7 +350,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
+		result.append(" (fatherParallel: ");
+		result.append(fatherParallel);
+		result.append(", name: ");
 		result.append(name);
 		result.append(')');
 		return result.toString();

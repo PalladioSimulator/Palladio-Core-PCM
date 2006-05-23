@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link RegEx.impl.AlternativeImpl#getDistributionFunction <em>Distribution Function</em>}</li>
  *   <li>{@link RegEx.impl.AlternativeImpl#getDistributionFunctionFreq <em>Distribution Function Freq</em>}</li>
+ *   <li>{@link RegEx.impl.AlternativeImpl#isFatherParallel <em>Father Parallel</em>}</li>
  *   <li>{@link RegEx.impl.AlternativeImpl#getAltOne <em>Alt One</em>}</li>
  *   <li>{@link RegEx.impl.AlternativeImpl#getAltTwo <em>Alt Two</em>}</li>
  *   <li>{@link RegEx.impl.AlternativeImpl#getProbOne <em>Prob One</em>}</li>
@@ -58,6 +59,26 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 	 * @ordered
 	 */
 	protected DistributionFunction distributionFunctionFreq = null;
+
+	/**
+	 * The default value of the '{@link #isFatherParallel() <em>Father Parallel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFatherParallel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FATHER_PARALLEL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFatherParallel() <em>Father Parallel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFatherParallel()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean fatherParallel = FATHER_PARALLEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAltOne() <em>Alt One</em>}' containment reference.
@@ -228,6 +249,27 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isFatherParallel() {
+		return fatherParallel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFatherParallel(boolean newFatherParallel) {
+		boolean oldFatherParallel = fatherParallel;
+		fatherParallel = newFatherParallel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RegExPackage.ALTERNATIVE__FATHER_PARALLEL, oldFatherParallel, fatherParallel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Expression getAltOne() {
 		return altOne;
 	}
@@ -381,6 +423,8 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 				return getDistributionFunction();
 			case RegExPackage.ALTERNATIVE__DISTRIBUTION_FUNCTION_FREQ:
 				return getDistributionFunctionFreq();
+			case RegExPackage.ALTERNATIVE__FATHER_PARALLEL:
+				return isFatherParallel() ? Boolean.TRUE : Boolean.FALSE;
 			case RegExPackage.ALTERNATIVE__ALT_ONE:
 				return getAltOne();
 			case RegExPackage.ALTERNATIVE__ALT_TWO:
@@ -405,6 +449,9 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 				return;
 			case RegExPackage.ALTERNATIVE__DISTRIBUTION_FUNCTION_FREQ:
 				setDistributionFunctionFreq((DistributionFunction)newValue);
+				return;
+			case RegExPackage.ALTERNATIVE__FATHER_PARALLEL:
+				setFatherParallel(((Boolean)newValue).booleanValue());
 				return;
 			case RegExPackage.ALTERNATIVE__ALT_ONE:
 				setAltOne((Expression)newValue);
@@ -435,6 +482,9 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 			case RegExPackage.ALTERNATIVE__DISTRIBUTION_FUNCTION_FREQ:
 				setDistributionFunctionFreq((DistributionFunction)null);
 				return;
+			case RegExPackage.ALTERNATIVE__FATHER_PARALLEL:
+				setFatherParallel(FATHER_PARALLEL_EDEFAULT);
+				return;
 			case RegExPackage.ALTERNATIVE__ALT_ONE:
 				setAltOne((Expression)null);
 				return;
@@ -462,6 +512,8 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 				return distributionFunction != null;
 			case RegExPackage.ALTERNATIVE__DISTRIBUTION_FUNCTION_FREQ:
 				return distributionFunctionFreq != null;
+			case RegExPackage.ALTERNATIVE__FATHER_PARALLEL:
+				return fatherParallel != FATHER_PARALLEL_EDEFAULT;
 			case RegExPackage.ALTERNATIVE__ALT_ONE:
 				return altOne != null;
 			case RegExPackage.ALTERNATIVE__ALT_TWO:
@@ -483,7 +535,9 @@ public class AlternativeImpl extends EObjectImpl implements Alternative {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (probOne: ");
+		result.append(" (fatherParallel: ");
+		result.append(fatherParallel);
+		result.append(", probOne: ");
 		result.append(probOne);
 		result.append(", probTwo: ");
 		result.append(probTwo);

@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link RegEx.impl.ParallelImpl#getDistributionFunction <em>Distribution Function</em>}</li>
  *   <li>{@link RegEx.impl.ParallelImpl#getDistributionFunctionFreq <em>Distribution Function Freq</em>}</li>
+ *   <li>{@link RegEx.impl.ParallelImpl#isFatherParallel <em>Father Parallel</em>}</li>
  *   <li>{@link RegEx.impl.ParallelImpl#getTaskOne <em>Task One</em>}</li>
  *   <li>{@link RegEx.impl.ParallelImpl#getTaskTwo <em>Task Two</em>}</li>
  * </ul>
@@ -56,6 +57,26 @@ public class ParallelImpl extends EObjectImpl implements Parallel {
 	 * @ordered
 	 */
 	protected DistributionFunction distributionFunctionFreq = null;
+
+	/**
+	 * The default value of the '{@link #isFatherParallel() <em>Father Parallel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFatherParallel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FATHER_PARALLEL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFatherParallel() <em>Father Parallel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFatherParallel()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean fatherParallel = FATHER_PARALLEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTaskOne() <em>Task One</em>}' containment reference.
@@ -186,6 +207,27 @@ public class ParallelImpl extends EObjectImpl implements Parallel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isFatherParallel() {
+		return fatherParallel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFatherParallel(boolean newFatherParallel) {
+		boolean oldFatherParallel = fatherParallel;
+		fatherParallel = newFatherParallel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RegExPackage.PARALLEL__FATHER_PARALLEL, oldFatherParallel, fatherParallel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Expression getTaskOne() {
 		return taskOne;
 	}
@@ -297,6 +339,8 @@ public class ParallelImpl extends EObjectImpl implements Parallel {
 				return getDistributionFunction();
 			case RegExPackage.PARALLEL__DISTRIBUTION_FUNCTION_FREQ:
 				return getDistributionFunctionFreq();
+			case RegExPackage.PARALLEL__FATHER_PARALLEL:
+				return isFatherParallel() ? Boolean.TRUE : Boolean.FALSE;
 			case RegExPackage.PARALLEL__TASK_ONE:
 				return getTaskOne();
 			case RegExPackage.PARALLEL__TASK_TWO:
@@ -317,6 +361,9 @@ public class ParallelImpl extends EObjectImpl implements Parallel {
 				return;
 			case RegExPackage.PARALLEL__DISTRIBUTION_FUNCTION_FREQ:
 				setDistributionFunctionFreq((DistributionFunction)newValue);
+				return;
+			case RegExPackage.PARALLEL__FATHER_PARALLEL:
+				setFatherParallel(((Boolean)newValue).booleanValue());
 				return;
 			case RegExPackage.PARALLEL__TASK_ONE:
 				setTaskOne((Expression)newValue);
@@ -341,6 +388,9 @@ public class ParallelImpl extends EObjectImpl implements Parallel {
 			case RegExPackage.PARALLEL__DISTRIBUTION_FUNCTION_FREQ:
 				setDistributionFunctionFreq((DistributionFunction)null);
 				return;
+			case RegExPackage.PARALLEL__FATHER_PARALLEL:
+				setFatherParallel(FATHER_PARALLEL_EDEFAULT);
+				return;
 			case RegExPackage.PARALLEL__TASK_ONE:
 				setTaskOne((Expression)null);
 				return;
@@ -362,12 +412,29 @@ public class ParallelImpl extends EObjectImpl implements Parallel {
 				return distributionFunction != null;
 			case RegExPackage.PARALLEL__DISTRIBUTION_FUNCTION_FREQ:
 				return distributionFunctionFreq != null;
+			case RegExPackage.PARALLEL__FATHER_PARALLEL:
+				return fatherParallel != FATHER_PARALLEL_EDEFAULT;
 			case RegExPackage.PARALLEL__TASK_ONE:
 				return taskOne != null;
 			case RegExPackage.PARALLEL__TASK_TWO:
 				return taskTwo != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (fatherParallel: ");
+		result.append(fatherParallel);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ParallelImpl

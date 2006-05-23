@@ -188,6 +188,15 @@ public class RegExPackageImpl extends EPackageImpl implements RegExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getExpression_FatherParallel() {
+		return (EAttribute)expressionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSymbol() {
 		return symbolEClass;
 	}
@@ -421,6 +430,7 @@ public class RegExPackageImpl extends EPackageImpl implements RegExPackage {
 		expressionEClass = createEClass(EXPRESSION);
 		createEReference(expressionEClass, EXPRESSION__DISTRIBUTION_FUNCTION);
 		createEReference(expressionEClass, EXPRESSION__DISTRIBUTION_FUNCTION_FREQ);
+		createEAttribute(expressionEClass, EXPRESSION__FATHER_PARALLEL);
 
 		symbolEClass = createEClass(SYMBOL);
 		createEAttribute(symbolEClass, SYMBOL__NAME);
@@ -487,6 +497,7 @@ public class RegExPackageImpl extends EPackageImpl implements RegExPackage {
 		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExpression_DistributionFunction(), this.getDistributionFunction(), null, "distributionFunction", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getExpression_DistributionFunctionFreq(), this.getDistributionFunction(), null, "distributionFunctionFreq", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExpression_FatherParallel(), ecorePackage.getEBoolean(), "fatherParallel", "false", 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSymbol_Name(), ecorePackage.getEString(), "name", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -534,6 +545,19 @@ public class RegExPackageImpl extends EPackageImpl implements RegExPackage {
 		addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "getFFT", 0, 1);
 
 		addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "getIFFT", 0, 1);
+
+		op = addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "max", 0, 1);
+		addEParameter(op, this.getDistributionFunction(), "df", 0, 1);
+
+		op = addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "scaleRandomVariable", 0, 1);
+		addEParameter(op, ecorePackage.getEDouble(), "factor", 0, 1);
+
+		op = addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "adjustDistance", 0, 1);
+		addEParameter(op, ecorePackage.getEDouble(), "distance", 0, 1);
+
+		addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "getCDF", 0, 1);
+
+		addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "getInvCDF", 0, 1);
 
 		initEClass(complexEClass, Complex.class, "Complex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComplex_Re(), ecorePackage.getEDouble(), "re", null, 0, 1, Complex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

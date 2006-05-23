@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link RegEx.impl.SequenceImpl#getDistributionFunction <em>Distribution Function</em>}</li>
  *   <li>{@link RegEx.impl.SequenceImpl#getDistributionFunctionFreq <em>Distribution Function Freq</em>}</li>
+ *   <li>{@link RegEx.impl.SequenceImpl#isFatherParallel <em>Father Parallel</em>}</li>
  *   <li>{@link RegEx.impl.SequenceImpl#getPre <em>Pre</em>}</li>
  *   <li>{@link RegEx.impl.SequenceImpl#getPost <em>Post</em>}</li>
  * </ul>
@@ -56,6 +57,26 @@ public class SequenceImpl extends EObjectImpl implements Sequence {
 	 * @ordered
 	 */
 	protected DistributionFunction distributionFunctionFreq = null;
+
+	/**
+	 * The default value of the '{@link #isFatherParallel() <em>Father Parallel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFatherParallel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FATHER_PARALLEL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFatherParallel() <em>Father Parallel</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFatherParallel()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean fatherParallel = FATHER_PARALLEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getPre() <em>Pre</em>}' containment reference.
@@ -186,6 +207,27 @@ public class SequenceImpl extends EObjectImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isFatherParallel() {
+		return fatherParallel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFatherParallel(boolean newFatherParallel) {
+		boolean oldFatherParallel = fatherParallel;
+		fatherParallel = newFatherParallel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RegExPackage.SEQUENCE__FATHER_PARALLEL, oldFatherParallel, fatherParallel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Expression getPre() {
 		return pre;
 	}
@@ -297,6 +339,8 @@ public class SequenceImpl extends EObjectImpl implements Sequence {
 				return getDistributionFunction();
 			case RegExPackage.SEQUENCE__DISTRIBUTION_FUNCTION_FREQ:
 				return getDistributionFunctionFreq();
+			case RegExPackage.SEQUENCE__FATHER_PARALLEL:
+				return isFatherParallel() ? Boolean.TRUE : Boolean.FALSE;
 			case RegExPackage.SEQUENCE__PRE:
 				return getPre();
 			case RegExPackage.SEQUENCE__POST:
@@ -317,6 +361,9 @@ public class SequenceImpl extends EObjectImpl implements Sequence {
 				return;
 			case RegExPackage.SEQUENCE__DISTRIBUTION_FUNCTION_FREQ:
 				setDistributionFunctionFreq((DistributionFunction)newValue);
+				return;
+			case RegExPackage.SEQUENCE__FATHER_PARALLEL:
+				setFatherParallel(((Boolean)newValue).booleanValue());
 				return;
 			case RegExPackage.SEQUENCE__PRE:
 				setPre((Expression)newValue);
@@ -341,6 +388,9 @@ public class SequenceImpl extends EObjectImpl implements Sequence {
 			case RegExPackage.SEQUENCE__DISTRIBUTION_FUNCTION_FREQ:
 				setDistributionFunctionFreq((DistributionFunction)null);
 				return;
+			case RegExPackage.SEQUENCE__FATHER_PARALLEL:
+				setFatherParallel(FATHER_PARALLEL_EDEFAULT);
+				return;
 			case RegExPackage.SEQUENCE__PRE:
 				setPre((Expression)null);
 				return;
@@ -362,12 +412,29 @@ public class SequenceImpl extends EObjectImpl implements Sequence {
 				return distributionFunction != null;
 			case RegExPackage.SEQUENCE__DISTRIBUTION_FUNCTION_FREQ:
 				return distributionFunctionFreq != null;
+			case RegExPackage.SEQUENCE__FATHER_PARALLEL:
+				return fatherParallel != FATHER_PARALLEL_EDEFAULT;
 			case RegExPackage.SEQUENCE__PRE:
 				return pre != null;
 			case RegExPackage.SEQUENCE__POST:
 				return post != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (fatherParallel: ");
+		result.append(fatherParallel);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SequenceImpl
