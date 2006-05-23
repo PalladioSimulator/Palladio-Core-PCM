@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/TestEMF/src"
+    modelPluginID="TestEMF" modelName="My" importerID="org.eclipse.emf.importer.ecore">
+  <foreignModel>My.ecore</foreignModel>
+  <genPackages prefix="RegEx" disposableProviderFactory="true" ecorePackage="My.ecore#/">
+    <genClasses image="false" ecoreClass="My.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Expression/distributionFunction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Expression/distributionFunctionFreq"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Symbol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Symbol/name"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Alternative">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Alternative/altOne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Alternative/altTwo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Alternative/probOne"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Alternative/probTwo"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Sequence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Sequence/pre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Sequence/post"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Loop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Loop/inner"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Loop/reiterationDistribution"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Parallel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Parallel/taskOne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//Parallel/taskTwo"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//DistributionFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//DistributionFunction/distance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference My.ecore#//DistributionFunction/points"/>
+      <genOperations ecoreOperation="My.ecore#//DistributionFunction/retPoints"/>
+    </genClasses>
+    <genClasses ecoreClass="My.ecore#//Complex">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Complex/re"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute My.ecore#//Complex/im"/>
+      <genOperations ecoreOperation="My.ecore#//Complex/abs"/>
+      <genOperations ecoreOperation="My.ecore#//Complex/phase"/>
+      <genOperations ecoreOperation="My.ecore#//Complex/plus">
+        <genParameters ecoreParameter="My.ecore#//Complex/plus/b"/>
+      </genOperations>
+      <genOperations ecoreOperation="My.ecore#//Complex/minus">
+        <genParameters ecoreParameter="My.ecore#//Complex/minus/b"/>
+      </genOperations>
+      <genOperations ecoreOperation="My.ecore#//Complex/times">
+        <genParameters ecoreParameter="My.ecore#//Complex/times/b"/>
+      </genOperations>
+      <genOperations ecoreOperation="My.ecore#//Complex/conjugate"/>
+      <genOperations ecoreOperation="My.ecore#//Complex/reciprocal"/>
+      <genOperations ecoreOperation="My.ecore#//Complex/divides">
+        <genParameters ecoreParameter="My.ecore#//Complex/divides/b"/>
+      </genOperations>
+      <genOperations ecoreOperation="My.ecore#//Complex/plus.1">
+        <genParameters ecoreParameter="My.ecore#//Complex/plus.1/a"/>
+        <genParameters ecoreParameter="My.ecore#//Complex/plus.1/b"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
