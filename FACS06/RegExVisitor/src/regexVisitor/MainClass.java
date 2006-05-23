@@ -84,10 +84,17 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		Expression expr = loadRegEx("/home/jens/workspace/My.regex");
-		RegExToStringVisitor visitor = new RegExToStringVisitor(expr);
-		System.out.println(visitor.getResult());
 		RegExPerformanceVisitor perfVisitor = new RegExPerformanceVisitor(expr);
-		Complex[] points = getPointArray(perfVisitor.getResult());
+	
+		DistributionFunction result = perfVisitor.getResult();
+		printDF(result);
+		DistributionFunction cdf = result.scaleRandomVariable(0.32);
+		printDF(cdf);
+		
+	}
+	
+	public static void printDF(DistributionFunction df){
+		Complex[] points = getPointArray(df);
 		double sum = 0;
 		for (int i = 0; i < points.length; i++) {
 			if (points[i].getRe() < 0.0001){
@@ -96,9 +103,10 @@ public class MainClass {
 				System.out.println(points[i].getRe());				
 			}
 			sum += points[i].getRe();
-		}
+		}		
 		System.out.println();
 		System.out.println(sum);
+		System.out.println();
 	}
 	
 	public static Complex[] getPointArray(DistributionFunction df){

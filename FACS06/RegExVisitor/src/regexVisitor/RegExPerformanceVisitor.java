@@ -1,7 +1,5 @@
 package regexVisitor;
 
-import org.eclipse.emf.common.util.EList;
-
 import RegEx.*;
 
 public class RegExPerformanceVisitor extends ReflectionBasedVisitor {
@@ -52,7 +50,9 @@ public class RegExPerformanceVisitor extends ReflectionBasedVisitor {
 
 	public void visitParallel(Parallel par){
 		visit(par.getTaskOne());
-		visit(par.getTaskTwo());		
+		visit(par.getTaskTwo());
+		
+		
 	}
 	
 	public void visitSequence(Sequence seq){

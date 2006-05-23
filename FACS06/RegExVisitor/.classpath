@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/TestEMF"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/RegExEMF"/>
 	<classpathentry kind="lib" path="/home/jens/tools/eclipse/plugins/org.eclipse.emf.common_2.2.0.v200605051423.jar"/>
 	<classpathentry kind="lib" path="/home/jens/tools/eclipse/plugins/org.eclipse.emf.ecore.xmi_2.2.0.v200605051423.jar"/>
 	<classpathentry kind="lib" path="/home/jens/tools/eclipse/plugins/org.eclipse.emf.ecore_2.2.0.v200605051423.jar"/>
