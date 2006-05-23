@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import RegEx.Complex;
+import RegEx.DistributionFunction;
 import RegEx.Expression;
 import RegEx.RegExPackage;
 
@@ -86,7 +87,7 @@ public class MainClass {
 		RegExToStringVisitor visitor = new RegExToStringVisitor(expr);
 		System.out.println(visitor.getResult());
 		RegExPerformanceVisitor perfVisitor = new RegExPerformanceVisitor(expr);
-		Complex[] points = perfVisitor.getResult();
+		Complex[] points = getPointArray(perfVisitor.getResult());
 		double sum = 0;
 		for (int i = 0; i < points.length; i++) {
 			if (points[i].getRe() < 0.0001){
@@ -99,4 +100,9 @@ public class MainClass {
 		System.out.println();
 		System.out.println(sum);
 	}
+	
+	public static Complex[] getPointArray(DistributionFunction df){
+		return (Complex[]) df.getPoints().toArray();
+	}
+	
 }
