@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/RegExEMF/src"
+    modelPluginID="RegExEMF" modelName="RegEx" importerID="org.eclipse.emf.importer.ecore">
+  <foreignModel>RegEx.ecore</foreignModel>
+  <genPackages prefix="RegEx" disposableProviderFactory="true" ecorePackage="RegEx.ecore#/">
+    <genClasses image="false" ecoreClass="RegEx.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//Expression/distributionFunction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//Expression/distributionFunctionFreq"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RegEx.ecore#//Expression/fatherParallel"/>
+    </genClasses>
+    <genClasses ecoreClass="RegEx.ecore#//Symbol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RegEx.ecore#//Symbol/name"/>
+    </genClasses>
+    <genClasses ecoreClass="RegEx.ecore#//Alternative">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//Alternative/altOne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//Alternative/altTwo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RegEx.ecore#//Alternative/probOne"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RegEx.ecore#//Alternative/probTwo"/>
+    </genClasses>
+    <genClasses ecoreClass="RegEx.ecore#//Sequence">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//Sequence/pre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//Sequence/post"/>
+    </genClasses>
+    <genClasses ecoreClass="RegEx.ecore#//Loop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//Loop/inner"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//Loop/reiterationDistribution"/>
+    </genClasses>
+    <genClasses ecoreClass="RegEx.ecore#//Parallel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//Parallel/taskOne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//Parallel/taskTwo"/>
+    </genClasses>
+    <genClasses ecoreClass="RegEx.ecore#//DistributionFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RegEx.ecore#//DistributionFunction/distance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//DistributionFunction/points"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RegEx.ecore#//DistributionFunction/isFourierTransformed"/>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/makePow2Elements"/>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/expandTo">
+        <genParameters ecoreParameter="RegEx.ecore#//DistributionFunction/expandTo/length"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/add">
+        <genParameters ecoreParameter="RegEx.ecore#//DistributionFunction/add/df"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/scale">
+        <genParameters ecoreParameter="RegEx.ecore#//DistributionFunction/scale/factor"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/multiply">
+        <genParameters ecoreParameter="RegEx.ecore#//DistributionFunction/multiply/df"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/addPoint">
+        <genParameters ecoreParameter="RegEx.ecore#//DistributionFunction/addPoint/point"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/getFFT"/>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/getIFFT"/>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/max">
+        <genParameters ecoreParameter="RegEx.ecore#//DistributionFunction/max/df"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/scaleRandomVariable">
+        <genParameters ecoreParameter="RegEx.ecore#//DistributionFunction/scaleRandomVariable/factor"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/adjustDistance">
+        <genParameters ecoreParameter="RegEx.ecore#//DistributionFunction/adjustDistance/distance"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/getCDF"/>
+      <genOperations ecoreOperation="RegEx.ecore#//DistributionFunction/getInvCDF"/>
+    </genClasses>
+    <genClasses ecoreClass="RegEx.ecore#//Complex">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RegEx.ecore#//Complex/re"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RegEx.ecore#//Complex/im"/>
+      <genOperations ecoreOperation="RegEx.ecore#//Complex/abs"/>
+      <genOperations ecoreOperation="RegEx.ecore#//Complex/phase"/>
+      <genOperations ecoreOperation="RegEx.ecore#//Complex/plus">
+        <genParameters ecoreParameter="RegEx.ecore#//Complex/plus/b"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//Complex/minus">
+        <genParameters ecoreParameter="RegEx.ecore#//Complex/minus/b"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//Complex/times">
+        <genParameters ecoreParameter="RegEx.ecore#//Complex/times/b"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//Complex/conjugate"/>
+      <genOperations ecoreOperation="RegEx.ecore#//Complex/reciprocal"/>
+      <genOperations ecoreOperation="RegEx.ecore#//Complex/divides">
+        <genParameters ecoreParameter="RegEx.ecore#//Complex/divides/b"/>
+      </genOperations>
+      <genOperations ecoreOperation="RegEx.ecore#//Complex/plus.1">
+        <genParameters ecoreParameter="RegEx.ecore#//Complex/plus.1/a"/>
+        <genParameters ecoreParameter="RegEx.ecore#//Complex/plus.1/b"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
