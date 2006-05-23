@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link RegEx.DistributionFunction#getDistance <em>Distance</em>}</li>
  *   <li>{@link RegEx.DistributionFunction#getPoints <em>Points</em>}</li>
+ *   <li>{@link RegEx.DistributionFunction#isIsFourierTransformed <em>Is Fourier Transformed</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,11 +72,77 @@ public interface DistributionFunction extends EObject {
 	EList getPoints();
 
 	/**
+	 * Returns the value of the '<em><b>Is Fourier Transformed</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Fourier Transformed</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model type="RegEx.Complex"
+	 * @return the value of the '<em>Is Fourier Transformed</em>' attribute.
+	 * @see #setIsFourierTransformed(boolean)
+	 * @see RegEx.RegExPackage#getDistributionFunction_IsFourierTransformed()
+	 * @model
 	 * @generated
 	 */
-	EList retPoints();
+	boolean isIsFourierTransformed();
+
+	/**
+	 * Sets the value of the '{@link RegEx.DistributionFunction#isIsFourierTransformed <em>Is Fourier Transformed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Fourier Transformed</em>' attribute.
+	 * @see #isIsFourierTransformed()
+	 * @generated
+	 */
+	void setIsFourierTransformed(boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void makePow2Elements();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void expandTo(int length);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	DistributionFunction add(DistributionFunction df);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	DistributionFunction scale(double factor);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	DistributionFunction multiply(DistributionFunction df);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPoint(Complex point);
 
 } // DistributionFunction

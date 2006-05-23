@@ -1,10 +1,5 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
 package RegEx.impl;
+
 
 import RegEx.Complex;
 import RegEx.RegExPackage;

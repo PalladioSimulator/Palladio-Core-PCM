@@ -1,13 +1,9 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
 package RegEx.impl;
+
 
 import RegEx.Complex;
 import RegEx.DistributionFunction;
+import RegEx.RegExFactory;
 import RegEx.RegExPackage;
 
 import java.util.Collection;
@@ -26,6 +22,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Distribution Function</b></em>'.
@@ -35,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link RegEx.impl.DistributionFunctionImpl#getDistance <em>Distance</em>}</li>
  *   <li>{@link RegEx.impl.DistributionFunctionImpl#getPoints <em>Points</em>}</li>
+ *   <li>{@link RegEx.impl.DistributionFunctionImpl#isIsFourierTransformed <em>Is Fourier Transformed</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +68,26 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 	 * @ordered
 	 */
 	protected EList points = null;
+
+	/**
+	 * The default value of the '{@link #isIsFourierTransformed() <em>Is Fourier Transformed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsFourierTransformed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_FOURIER_TRANSFORMED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsFourierTransformed() <em>Is Fourier Transformed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsFourierTransformed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isFourierTransformed = IS_FOURIER_TRANSFORMED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -127,10 +145,122 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList retPoints() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public boolean isIsFourierTransformed() {
+		return isFourierTransformed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsFourierTransformed(boolean newIsFourierTransformed) {
+		boolean oldIsFourierTransformed = isFourierTransformed;
+		isFourierTransformed = newIsFourierTransformed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RegExPackage.DISTRIBUTION_FUNCTION__IS_FOURIER_TRANSFORMED, oldIsFourierTransformed, isFourierTransformed));
+	}
+
+	public void makePow2Elements() {
+		 EList points = getPoints();		 
+		 int i = 0;
+		 while(points.size() > java.lang.Math.pow(2, i)) { 
+			 i++;
+		 }
+		 expandTo((int)java.lang.Math.pow(2, i));
+	}
+	
+	public void expandTo(int length) {
+		 EList points = getPoints();		 
+		 for (int i=points.size(); i < length; i++){
+			 points.add(RegExFactory.eINSTANCE.createComplex());
+		 }		
+	}
+	
+	public DistributionFunction add(DistributionFunction df) {
+		
+		Complex[] points1 = getPointArray(); 
+		Complex[] points2 = getPointArray(df.getPoints());
+		
+		if (points1.length < points2.length){
+			Complex[] temp = points1;
+			points1 = points2;
+			points2 = temp;
+		}		
+
+		DistributionFunction result = createDF(getDistance());		
+		Complex zero = RegExFactory.eINSTANCE.createComplex();
+		zero.setIm(0);
+		zero.setRe(0);
+		for (int i = 0; i < points1.length; i++) {
+			if (i < points2.length){
+				result.addPoint(points1[i].plus(points2[i]));
+			} else {
+				result.addPoint(points1[i]);
+			}
+		}
+		return result;
+	}
+
+	public DistributionFunction scale(double fac) {
+		Complex[] points = getPointArray();
+		Complex cfac = RegExFactory.eINSTANCE.createComplex();
+		cfac.setRe(fac);
+		DistributionFunction result = createDF(getDistance());
+		for (int i = 0; i < points.length; i++) {
+			result.addPoint(points[i].times(cfac));
+		}		
+		return result;
+	}
+
+	public DistributionFunction multiply(DistributionFunction df2) {
+		Complex[] points1 = getPointArray();
+		Complex[] points2 = getPointArray(df2.getPoints());
+		if (points1.length < points2.length){
+			Complex[] temp = points1;
+			points1 = points2;
+			points2 = temp;
+		}		
+		DistributionFunction result = createDF(getDistance());
+		Complex zero = RegExFactory.eINSTANCE.createComplex();
+		zero.setIm(0);
+		zero.setRe(0);
+		for (int i = 0; i < points1.length; i++) {
+			if (i < points2.length){
+				result.addPoint(points1[i].times(points2[i]));
+			} else {
+				result.addPoint(points1[i].times(zero));
+			}
+		}
+		return result;
+	}
+	
+
+	private Complex[] getPointArray(){
+		return (Complex[]) getPoints().toArray();
+	}
+	
+	private Complex[] getPointArray(EList pointList){
+		return (Complex[]) pointList.toArray();
+	}
+
+	public void addPoint(Complex point){
+		getPoints().add(point);	
+	}
+	
+	private DistributionFunction createDF(double distance){
+		DistributionFunction result = RegExFactory.eINSTANCE.createDistributionFunction();
+		result.setDistance(getDistance());
+		return result;
+	}
+	
+	private DistributionFunction createDF(Complex[] points, double distance){
+		DistributionFunction result = RegExFactory.eINSTANCE.createDistributionFunction();
+		result.setDistance(distance);
+		for (int i = 0; i < points.length; i++) {
+			result.addPoint(points[i]);			
+		}
+		return result;
 	}
 
 	/**
@@ -157,6 +287,8 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 				return new Double(getDistance());
 			case RegExPackage.DISTRIBUTION_FUNCTION__POINTS:
 				return getPoints();
+			case RegExPackage.DISTRIBUTION_FUNCTION__IS_FOURIER_TRANSFORMED:
+				return isIsFourierTransformed() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -175,6 +307,9 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 				getPoints().clear();
 				getPoints().addAll((Collection)newValue);
 				return;
+			case RegExPackage.DISTRIBUTION_FUNCTION__IS_FOURIER_TRANSFORMED:
+				setIsFourierTransformed(((Boolean)newValue).booleanValue());
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -192,6 +327,9 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 			case RegExPackage.DISTRIBUTION_FUNCTION__POINTS:
 				getPoints().clear();
 				return;
+			case RegExPackage.DISTRIBUTION_FUNCTION__IS_FOURIER_TRANSFORMED:
+				setIsFourierTransformed(IS_FOURIER_TRANSFORMED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -207,6 +345,8 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 				return distance != DISTANCE_EDEFAULT;
 			case RegExPackage.DISTRIBUTION_FUNCTION__POINTS:
 				return points != null && !points.isEmpty();
+			case RegExPackage.DISTRIBUTION_FUNCTION__IS_FOURIER_TRANSFORMED:
+				return isFourierTransformed != IS_FOURIER_TRANSFORMED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -222,6 +362,8 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (distance: ");
 		result.append(distance);
+		result.append(", isFourierTransformed: ");
+		result.append(isFourierTransformed);
 		result.append(')');
 		return result.toString();
 	}

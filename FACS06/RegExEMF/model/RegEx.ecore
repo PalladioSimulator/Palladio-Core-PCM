@@ -38,9 +38,26 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DistributionFunction">
+    <eOperations name="makePow2Elements"/>
+    <eOperations name="expandTo">
+      <eParameters name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="add" eType="#//DistributionFunction">
+      <eParameters name="df" eType="#//DistributionFunction"/>
+    </eOperations>
+    <eOperations name="scale" eType="#//DistributionFunction">
+      <eParameters name="factor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eOperations name="multiply" eType="#//DistributionFunction">
+      <eParameters name="df" eType="#//DistributionFunction"/>
+    </eOperations>
+    <eOperations name="addPoint">
+      <eParameters name="point" eType="#//Complex"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="points" upperBound="-1"
         eType="#//Complex" defaultValueLiteral="" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isFourierTransformed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Complex">
     <eOperations name="abs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>

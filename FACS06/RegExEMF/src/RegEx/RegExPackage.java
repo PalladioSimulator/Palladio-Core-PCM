@@ -409,13 +409,22 @@ public interface RegExPackage extends EPackage {
 	int DISTRIBUTION_FUNCTION__POINTS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Is Fourier Transformed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_FUNCTION__IS_FOURIER_TRANSFORMED = 2;
+
+	/**
 	 * The number of structural features of the '<em>Distribution Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_FUNCTION_FEATURE_COUNT = 2;
+	int DISTRIBUTION_FUNCTION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link RegEx.impl.ComplexImpl <em>Complex</em>}' class.
@@ -691,6 +700,17 @@ public interface RegExPackage extends EPackage {
 	EReference getDistributionFunction_Points();
 
 	/**
+	 * Returns the meta object for the attribute '{@link RegEx.DistributionFunction#isIsFourierTransformed <em>Is Fourier Transformed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Fourier Transformed</em>'.
+	 * @see RegEx.DistributionFunction#isIsFourierTransformed()
+	 * @see #getDistributionFunction()
+	 * @generated
+	 */
+	EAttribute getDistributionFunction_IsFourierTransformed();
+
+	/**
 	 * Returns the meta object for class '{@link RegEx.Complex <em>Complex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -933,6 +953,14 @@ public interface RegExPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DISTRIBUTION_FUNCTION__POINTS = eINSTANCE.getDistributionFunction_Points();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Fourier Transformed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISTRIBUTION_FUNCTION__IS_FOURIER_TRANSFORMED = eINSTANCE.getDistributionFunction_IsFourierTransformed();
 
 		/**
 		 * The meta object literal for the '{@link RegEx.impl.ComplexImpl <em>Complex</em>}' class.

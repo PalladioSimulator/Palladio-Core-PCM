@@ -359,6 +359,15 @@ public class RegExPackageImpl extends EPackageImpl implements RegExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDistributionFunction_IsFourierTransformed() {
+		return (EAttribute)distributionFunctionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getComplex() {
 		return complexEClass;
 	}
@@ -437,6 +446,7 @@ public class RegExPackageImpl extends EPackageImpl implements RegExPackage {
 		distributionFunctionEClass = createEClass(DISTRIBUTION_FUNCTION);
 		createEAttribute(distributionFunctionEClass, DISTRIBUTION_FUNCTION__DISTANCE);
 		createEReference(distributionFunctionEClass, DISTRIBUTION_FUNCTION__POINTS);
+		createEAttribute(distributionFunctionEClass, DISTRIBUTION_FUNCTION__IS_FOURIER_TRANSFORMED);
 
 		complexEClass = createEClass(COMPLEX);
 		createEAttribute(complexEClass, COMPLEX__RE);
@@ -502,8 +512,24 @@ public class RegExPackageImpl extends EPackageImpl implements RegExPackage {
 		initEClass(distributionFunctionEClass, DistributionFunction.class, "DistributionFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDistributionFunction_Distance(), ecorePackage.getEDouble(), "distance", null, 0, 1, DistributionFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistributionFunction_Points(), this.getComplex(), null, "points", "", 0, -1, DistributionFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDistributionFunction_IsFourierTransformed(), ecorePackage.getEBoolean(), "isFourierTransformed", null, 0, 1, DistributionFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(distributionFunctionEClass, this.getComplex(), "retPoints", 0, -1);
+		addEOperation(distributionFunctionEClass, null, "makePow2Elements");
+
+		EOperation op = addEOperation(distributionFunctionEClass, null, "expandTo");
+		addEParameter(op, ecorePackage.getEInt(), "length", 0, 1);
+
+		op = addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "add", 0, 1);
+		addEParameter(op, this.getDistributionFunction(), "df", 0, 1);
+
+		op = addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "scale", 0, 1);
+		addEParameter(op, ecorePackage.getEDouble(), "factor", 0, 1);
+
+		op = addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "multiply", 0, 1);
+		addEParameter(op, this.getDistributionFunction(), "df", 0, 1);
+
+		op = addEOperation(distributionFunctionEClass, null, "addPoint");
+		addEParameter(op, this.getComplex(), "point", 0, 1);
 
 		initEClass(complexEClass, Complex.class, "Complex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComplex_Re(), ecorePackage.getEDouble(), "re", null, 0, 1, Complex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -513,7 +539,7 @@ public class RegExPackageImpl extends EPackageImpl implements RegExPackage {
 
 		addEOperation(complexEClass, ecorePackage.getEDouble(), "phase", 0, 1);
 
-		EOperation op = addEOperation(complexEClass, this.getComplex(), "plus", 0, 1);
+		op = addEOperation(complexEClass, this.getComplex(), "plus", 0, 1);
 		addEParameter(op, this.getComplex(), "b", 0, 1);
 
 		op = addEOperation(complexEClass, this.getComplex(), "minus", 0, 1);
