@@ -54,6 +54,8 @@
     <eOperations name="addPoint">
       <eParameters name="point" eType="#//Complex"/>
     </eOperations>
+    <eOperations name="getFFT" eType="#//DistributionFunction"/>
+    <eOperations name="getIFFT" eType="#//DistributionFunction"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="points" upperBound="-1"
         eType="#//Complex" defaultValueLiteral="" containment="true"/>

@@ -531,6 +531,10 @@ public class RegExPackageImpl extends EPackageImpl implements RegExPackage {
 		op = addEOperation(distributionFunctionEClass, null, "addPoint");
 		addEParameter(op, this.getComplex(), "point", 0, 1);
 
+		addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "getFFT", 0, 1);
+
+		addEOperation(distributionFunctionEClass, this.getDistributionFunction(), "getIFFT", 0, 1);
+
 		initEClass(complexEClass, Complex.class, "Complex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComplex_Re(), ecorePackage.getEDouble(), "re", null, 0, 1, Complex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComplex_Im(), ecorePackage.getEDouble(), "im", null, 0, 1, Complex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -145,4 +145,20 @@ public interface DistributionFunction extends EObject {
 	 */
 	void addPoint(Complex point);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	DistributionFunction getFFT();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	DistributionFunction getIFFT();
+
 } // DistributionFunction

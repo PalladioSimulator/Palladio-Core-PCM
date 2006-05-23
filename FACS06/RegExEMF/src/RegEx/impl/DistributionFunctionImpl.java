@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Distribution Function</b></em>'.
@@ -234,6 +235,20 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 		}
 		return result;
 	}
+	
+	
+	public DistributionFunction getFFT(){
+		Complex[] points = getPointArray();
+		Complex[] freqPoints = FFT.fft(points);
+		return createDF(freqPoints, getDistance());		
+	}
+	
+	public DistributionFunction getIFFT(){
+		Complex[] freqPoints = getPointArray();
+		Complex[] points = FFT.ifft(freqPoints);
+		return createDF(points, getDistance());
+	}
+
 	
 
 	private Complex[] getPointArray(){
