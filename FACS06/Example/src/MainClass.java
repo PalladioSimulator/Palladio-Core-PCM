@@ -1,8 +1,10 @@
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import RegEx.DistributionFunction;
+
 import sun.misc.Cleaner;
-import RegEx.impl.*;
+
 
 
 /**
@@ -22,7 +24,7 @@ public class MainClass {
 		ClientComponent cc = new ClientComponent();
 		ExecutorService tpes = Executors.newCachedThreadPool();
 
-		for(int i=0; i<10; i++){
+		for(int i=0; i<500; i++){
 			long startTime = System.nanoTime();
 			cc.providedMethod1(tpes);
 			tpes.shutdown();
@@ -32,7 +34,9 @@ public class MainClass {
 		
 		Monitoring.printResults();
 		
-	}
+		DistributionFunction distFunc = Monitoring.getDistFunc(1000000.0);
 		
-
+		Visualization vis = new Visualization();
+		vis.visualize(distFunc);
+	}
 }
