@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SystemPackage"
+    nsURI="http:///SystemPackage.ecore" nsPrefix="SystemPackage">
+  <eClassifiers xsi:type="ecore:EClass" name="SystemProvidedRole">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system_SystemProvidedRole"
+        lowerBound="1" eType="#//System" eOpposite="#//System/systemProvidedRole_System"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnector_SystemProvidedRole"
+        lowerBound="1" eType="#//SystemProvidedDelegationConnector" eOpposite="#//SystemProvidedDelegationConnector/systemProvidedRole_SystemProvidedDelegationConnector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface_SystemProvidedRole"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Interface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="System">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemRequiredRole_System"
+        upperBound="-1" eType="#//SystemRequiredRole" containment="true" eOpposite="#//SystemRequiredRole/system_SystemRequiredRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemProvidedRole_System"
+        upperBound="-1" eType="#//SystemProvidedRole" containment="true" eOpposite="#//SystemProvidedRole/system_SystemProvidedRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assembly_System" lowerBound="1"
+        eType="ecore:EClass AssemblyPackage.ecore#//Assembly"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnector_System"
+        upperBound="-1" eType="#//SystemProvidedDelegationConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnector_System"
+        upperBound="-1" eType="#//SystemRequiredDelegationConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocation_System" lowerBound="1"
+        eType="ecore:EClass PalladioCM.AllocationPackage.ecore#//Allocation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemRequiredRole">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system_SystemRequiredRole"
+        lowerBound="1" eType="#//System" eOpposite="#//System/systemRequiredRole_System"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface_SystemRequiredRole"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Interface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnector_SystemRequiredRole"
+        lowerBound="1" eType="#//SystemRequiredDelegationConnector" eOpposite="#//SystemRequiredDelegationConnector/systemRequiredRole_SystemRequiredDelegationConnector"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemRequiredDelegationConnector">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemRequiredRole_SystemRequiredDelegationConnector"
+        lowerBound="1" eType="#//SystemRequiredRole" eOpposite="#//SystemRequiredRole/requiredDelegationConnector_SystemRequiredRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_SystemRequiredDelegationConnector"
+        lowerBound="1" eType="ecore:EClass AssemblyPackage.ecore#//AssemblyContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole_SystemRequiredDelegationConnector"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//RequiredRole"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemProvidedDelegationConnector">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemProvidedRole_SystemProvidedDelegationConnector"
+        lowerBound="1" eType="#//SystemProvidedRole" eOpposite="#//SystemProvidedRole/providedDelegationConnector_SystemProvidedRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_SystemProvidedDelegationConnector"
+        lowerBound="1" eType="ecore:EClass AssemblyPackage.ecore#//AssemblyContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="componentProvidedRole_SystemProvidedDelegationConnector"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//ProvidedRole"/>
+  </eClassifiers>
+</ecore:EPackage>

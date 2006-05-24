@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/PalladioCM.Repository/src"
+    editDirectory="/PalladioCM.Repository/src" editorDirectory="/PalladioCM.Repository/src"
+    modelPluginID="PalladioCM.Repository" modelName="PalladioCM.Repository" testsDirectory="/PalladioCM.Repository/src"
+    importerID="org.eclipse.emf.importer.ecore" usedGenPackages="../../Palladio.Annotations/model/Annotations.genmodel#//AnnotationPackage ../../Palladio.Identifier/model/Identifier.genmodel#//IdentifierPackage">
+  <foreignModel>RepositoryPackage.ecore</foreignModel>
+  <genPackages prefix="RepositoryPackage" basePackage="PalladioCM" disposableProviderFactory="true"
+      ecorePackage="RepositoryPackage.ecore#/">
+    <genEnums ecoreEnum="RepositoryPackage.ecore#//ParameterModifier">
+      <genEnumLiterals ecoreEnumLiteral="RepositoryPackage.ecore#//ParameterModifier/none"/>
+      <genEnumLiterals ecoreEnumLiteral="RepositoryPackage.ecore#//ParameterModifier/in"/>
+      <genEnumLiterals ecoreEnumLiteral="RepositoryPackage.ecore#//ParameterModifier/out"/>
+      <genEnumLiterals ecoreEnumLiteral="RepositoryPackage.ecore#//ParameterModifier/inout"/>
+    </genEnums>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//Signature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RepositoryPackage.ecore#//Signature/serviceName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//Signature/parameters__Signature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//Signature/returntype__Signature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//Signature/exceptions__Signature"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//Parameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//Parameter/datatype__Parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RepositoryPackage.ecore#//Parameter/parameterName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RepositoryPackage.ecore#//Parameter/modifier__Parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//DataType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//DataType/parentDataType__DataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RepositoryPackage.ecore#//DataType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//ExceptionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RepositoryPackage.ecore#//ExceptionType/exceptionName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RepositoryPackage.ecore#//ExceptionType/exceptionMessage"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="RepositoryPackage.ecore#//Role"/>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//RequiredRole">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//RequiredRole/requiredInterface__RequiredRole"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//Interface">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//Interface/signatures__Interface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//Interface/parentInterface__Interface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//Interface/anchestorInterfaces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//Interface/protocols__Interface"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//RequiredDelegationConnector">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//RequiredDelegationConnector/innerRequiredRole_RequiredDelegationConnector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//RequiredDelegationConnector/outerRequiredRole_RequiredDelegationConnector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//RequiredDelegationConnector/childComponentContext_RequiredDelegationConnector"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="RepositoryPackage.ecore#//DelegationConnector"/>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//ChildComponentContext">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//ChildComponentContext/encapsulatedComponent_ChildComponentContext"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//ProvidesComponentType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//ProvidesComponentType/providedRoles__ProvidesComponentType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//ProvidesComponentType/requiredRoles_ProvidesComponentType"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//ProvidedRole">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//ProvidedRole/providedInterface__ProvidedRole"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//ProvidedRole/providingComponent__ProvidedRole"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//Repository">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RepositoryPackage.ecore#//Repository/modelDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RepositoryPackage.ecore#//Repository/modelName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//Repository/components__Repository"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//Repository/interfaces__Repository"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//ProvidedDelegationConnector">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//ProvidedDelegationConnector/innerProvidedRole_ProvidedDelegationConnector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//ProvidedDelegationConnector/outerProvidedRole_ProvidedDelegationConnector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//ProvidedDelegationConnector/childComponentContext_ProvidedDelegationConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//ImplementationComponentType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//ImplementationComponentType/parentCompleteComponentTypes"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//CompleteComponentType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//CompleteComponentType/parentProvidesComponentTypes"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//CompositeComponent">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//CompositeComponent/providedDelegationConnectors__CompositeComponent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//CompositeComponent/requiredDelegationConnectors__CompositeComponent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//CompositeComponent/implementationComponentType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//CompositeComponent/childComponentContexts_CompositeComponent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//CompositeComponent/compositeAssemblyConnectors_CompositeComponent"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//CompositeAssemblyConnector">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//CompositeAssemblyConnector/requiringChildComponentContext_CompositeAssemblyConnector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//CompositeAssemblyConnector/providingChildComponentContext_CompositeAssemblyConnector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//CompositeAssemblyConnector/providedRole_CompositeAssemblyConnector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//CompositeAssemblyConnector/requiredRole_CompositeAssemblyConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="RepositoryPackage.ecore#//BasicComponent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//BasicComponent/implementationComponentType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//BasicComponent/serviceEffectSpecifications__BasicComponent"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="CorePackage" basePackage="PalladioCM" disposableProviderFactory="true"
+      ecorePackage="PalladioCM.CorePackage.ecore#/">
+    <nestedGenPackages prefix="Entity" basePackage="PalladioCM.CorePackage" disposableProviderFactory="true"
+        ecorePackage="PalladioCM.CorePackage.ecore#//Entity">
+      <genClasses image="false" ecoreClass="PalladioCM.CorePackage.ecore#//Entity/Entity">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PalladioCM.CorePackage.ecore#//Entity/Entity/entityName"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PalladioCM.CorePackage.ecore#//Entity/Entity/anotations__Entity"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Connectors" basePackage="PalladioCM.CorePackage" disposableProviderFactory="true"
+        ecorePackage="PalladioCM.CorePackage.ecore#//Connectors">
+      <genClasses image="false" ecoreClass="PalladioCM.CorePackage.ecore#//Connectors/Connector"/>
+    </nestedGenPackages>
+  </genPackages>
+  <genPackages prefix="ProtocolPackage" basePackage="PalladioCM" disposableProviderFactory="true"
+      ecorePackage="ProtocolPackage.ecore#/">
+    <genClasses image="false" ecoreClass="ProtocolPackage.ecore#//Protocol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProtocolPackage.ecore#//Protocol/protocolTypeID"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ProtocolPackage.ecore#//ServiceCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProtocolPackage.ecore#//ServiceCall/signature__ServiceCall"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="SEFFPackage" basePackage="PalladioCM" disposableProviderFactory="true"
+      ecorePackage="SEFFPackage.ecore#/">
+    <genClasses ecoreClass="SEFFPackage.ecore#//SystemExternalCall"/>
+    <genClasses image="false" ecoreClass="SEFFPackage.ecore#//ExternalCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//ExternalCall/calledService_ExternalService"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//ExternalCall/parametricParameterUsage_ExternalCall"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="SEFFPackage.ecore#//AbstractAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//AbstractAction/predecessor_AbstractAction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//AbstractAction/successor_AbstractAction"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//ParametricParameterUsage"/>
+    <genClasses ecoreClass="SEFFPackage.ecore#//StopAction"/>
+    <genClasses image="false" ecoreClass="SEFFPackage.ecore#//Action">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Action/resourceDemand_Action"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//ParametricResourceDemand">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//ParametricResourceDemand/action_ParametricResourceDemand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SEFFPackage.ecore#//ParametricResourceDemand/demand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SEFFPackage.ecore#//ParametricResourceDemand/unit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//ParametricResourceDemand/requiredResource_ParametricResourceDemand"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//StartAction"/>
+    <genClasses image="false" ecoreClass="SEFFPackage.ecore#//ServiceEffectSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SEFFPackage.ecore#//ServiceEffectSpecification/seffTypeID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//ServiceEffectSpecification/describedService__SEFF"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//Release">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Release/resourceType_Release"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//Loop">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SEFFPackage.ecore#//Loop/iterations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Loop/bodyBehaviour_Loop"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//Behaviour">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Behaviour/steps_Behaviour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Behaviour/parametricResourceDemands_Behaviour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Behaviour/parametricParameterUsages_Behaviour"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//InternalAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SEFFPackage.ecore#//InternalAction/failureProbability"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//Fork">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Fork/forkedBehaviours_Fork"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//ComponentExternalCall"/>
+    <genClasses ecoreClass="SEFFPackage.ecore#//Branch">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Branch/branches_Branch"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//BranchTransition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SEFFPackage.ecore#//BranchTransition/branchProbability"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//BranchTransition/branchBehaviour_BranchTransition"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//Aquire">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Aquire/resourceType_Aquire"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="ResourceTypePackage" basePackage="PalladioCM" disposableProviderFactory="true"
+      ecorePackage="ResourceTypePackage.ecore#/">
+    <genClasses image="false" ecoreClass="ResourceTypePackage.ecore#//ResourceType"/>
+    <genClasses ecoreClass="ResourceTypePackage.ecore#//PassiveResourceType"/>
+    <genClasses ecoreClass="ResourceTypePackage.ecore#//ProcessingResourceType"/>
+    <genClasses ecoreClass="ResourceTypePackage.ecore#//ResourceRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceTypePackage.ecore#//ResourceRepository/availableResourceTypes_ResourceRepository"/>
+    </genClasses>
+    <genClasses ecoreClass="ResourceTypePackage.ecore#//CommunicationLinkResourceType"/>
+  </genPackages>
+</genmodel:GenModel>

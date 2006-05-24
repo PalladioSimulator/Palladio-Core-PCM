@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UsageModelPackage"
+    nsURI="http:///UsageModelPackage.ecore" nsPrefix="UsageModelPackage">
+  <eClassifiers xsi:type="ecore:EClass" name="UsageModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usageScenario_UsageModel"
+        upperBound="-1" eType="#//UsageScenario" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UsageScenario">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workload_UsageScenario"
+        lowerBound="1" eType="#//Workload" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scenarioBehaviour_UsageScenario"
+        lowerBound="1" eType="#//ScenarioBehaviour" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Workload" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ScenarioBehaviour">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions_ScenarioBehaviour"
+        upperBound="-1" eType="#//AbstractUserAction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractUserAction" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successor" eType="#//AbstractUserAction"
+        eOpposite="#//AbstractUserAction/predecessor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor" eType="#//AbstractUserAction"
+        eOpposite="#//AbstractUserAction/successor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OpenWorkload" eSuperTypes="#//Workload">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrivalRate" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClosedWorkload" eSuperTypes="#//Workload">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="population" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thinkTime" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntryLevelComponentCall" eSuperTypes="#//AbstractUserAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualParamterUsage_EntryLevelComponentCall"
+        upperBound="-1" eType="#//ActualParameterUsage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemProvidedRole_EntryLevelComponentCall"
+        lowerBound="1" eType="ecore:EClass SystemPackage.ecore#//SystemProvidedRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signature_EntryLevelComponentCall"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Signature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualParameterUsage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="structure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_ActualParameterUsage"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Parameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value_ActualParameterUsage"
+        lowerBound="1" eType="ecore:EClass ../../Palladio.Statistics/model/Statistics.ecore#//NumericProbabilityMassFunction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Branch" eSuperTypes="#//AbstractUserAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branchedBehaviour_Branch"
+        upperBound="-1" eType="#//ScenarioBehaviour" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//AbstractUserAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Stop" eSuperTypes="#//AbstractUserAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//AbstractUserAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" lowerBound="1"
+        eType="#//ScenarioBehaviour" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iterations" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+  </eClassifiers>
+</ecore:EPackage>

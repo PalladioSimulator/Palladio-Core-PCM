@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SEFFPackage"
+    nsURI="http:///PalladioCM/SEFFPackage.ecore" nsPrefix="PalladioCM.SEFFPackage">
+  <eClassifiers xsi:type="ecore:EClass" name="SystemExternalCall" eSuperTypes="#//ExternalCall"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalCall" abstract="true" eSuperTypes="#//AbstractAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calledService_ExternalService"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Signature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametricParameterUsage_ExternalCall"
+        upperBound="-1" eType="#//ParametricParameterUsage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractAction" abstract="true" eSuperTypes="PalladioCM.CorePackage.ecore#//Entity/Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor_AbstractAction"
+        eType="#//AbstractAction" eOpposite="#//AbstractAction/successor_AbstractAction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successor_AbstractAction"
+        eType="#//AbstractAction" eOpposite="#//AbstractAction/predecessor_AbstractAction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParametricParameterUsage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StopAction" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//AbstractAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemand_Action"
+        upperBound="-1" eType="#//ParametricResourceDemand" eOpposite="#//ParametricResourceDemand/action_ParametricResourceDemand"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action_ParametricResourceDemand"
+        lowerBound="1" eType="#//Action" eOpposite="#//Action/resourceDemand_Action"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="demand" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource_ParametricResourceDemand"
+        lowerBound="1" eType="ecore:EClass ResourceTypePackage.ecore#//ProcessingResourceType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StartAction" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceEffectSpecification" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seffTypeID" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="describedService__SEFF"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Signature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Release" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Release" lowerBound="1"
+        eType="ecore:EClass ResourceTypePackage.ecore#//PassiveResourceType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iterations" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" lowerBound="1"
+        eType="#//Behaviour" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Behaviour" eSuperTypes="#//ServiceEffectSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps_Behaviour" upperBound="-1"
+        eType="#//AbstractAction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametricResourceDemands_Behaviour"
+        upperBound="-1" eType="#//ParametricResourceDemand" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametricParameterUsages_Behaviour"
+        upperBound="-1" eType="#//ParametricParameterUsage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InternalAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureProbability" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fork" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forkedBehaviours_Fork"
+        upperBound="-1" eType="#//Behaviour" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentExternalCall" eSuperTypes="#//ExternalCall"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Branch" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branches_Branch" upperBound="-1"
+        eType="#//BranchTransition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BranchTransition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branchBehaviour_BranchTransition"
+        lowerBound="1" eType="#//Behaviour" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Aquire" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Aquire" lowerBound="1"
+        eType="ecore:EClass ResourceTypePackage.ecore#//PassiveResourceType"/>
+  </eClassifiers>
+</ecore:EPackage>
