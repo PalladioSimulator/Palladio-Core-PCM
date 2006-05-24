@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="AnnotationPackage"
+    nsURI="http://sdq.ipd.uka.de/AnnotationPackage" nsPrefix="AnnotationPackage">
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotationTypeID" lowerBound="1"
+        eType="#//AnnotationType" changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCalculated" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AnnotationType">
+    <eLiterals name="description"/>
+  </eClassifiers>
+  <eSubpackages name="DefaultAnnotationDataTypes" nsURI="http:///AnnotationPackage/DefaultAnnotationDataTypes.ecore"
+      nsPrefix="AnnotationPackage.DefaultAnnotationDataTypes">
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanAnnotation" eSuperTypes="#//Annotation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DoubleAnnotation" eSuperTypes="#//Annotation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IntegerAnnotation" eSuperTypes="#//Annotation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LongAnnotation" eSuperTypes="#//Annotation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ShortAnnotation" eSuperTypes="#//Annotation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringAnnotation" eSuperTypes="#//Annotation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataField" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>
