@@ -1,4 +1,4 @@
-package regexVisitor;
+package RegEx.visitor;
 
 import java.lang.reflect.*;
 
@@ -15,8 +15,17 @@ public abstract class ReflectionBasedVisitor {
 		try {
 			Method m = getMethod(o);
 			m.invoke(this, new Object[] { o });
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
+		} catch (NoSuchMethodException ex) {
+			ex.printStackTrace();
+		} catch (IllegalArgumentException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IllegalAccessException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} catch (InvocationTargetException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
 		}
 	}
 	

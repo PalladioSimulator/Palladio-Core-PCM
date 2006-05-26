@@ -1,4 +1,4 @@
-package regexVisitor;
+package RegEx.visitor;
 
 import java.io.File;
 import java.util.Iterator;
@@ -17,9 +17,11 @@ import RegEx.Complex;
 import RegEx.DistributionFunction;
 import RegEx.Expression;
 import RegEx.RegExPackage;
+import RegEx.TimeConsumption;
 
 public class MainClass {
 
+	@SuppressWarnings("unchecked")
 	public static Expression loadRegEx(String fileName) {
 		// Create a resource set to hold the resources.
 		//
@@ -83,13 +85,13 @@ public class MainClass {
 	}
 
 	public static void main(String[] args) {
-		Expression expr = loadRegEx("/home/jens/workspace/My.regex");
-		RegExPerformanceVisitor perfVisitor = new RegExPerformanceVisitor(expr);
+		Expression expr = loadRegEx("/home/jens/workspace/Parallel.regex");
+		RegExPerformanceVisitor perfVisitor = new RegExPerformanceVisitor(expr,2);
 	
-		DistributionFunction result = perfVisitor.getResult();
-		printDF(result);
-		DistributionFunction cdf = result.scaleRandomVariable(0.32);
-		printDF(cdf);
+		TimeConsumption[] cpuTimes = perfVisitor.getResultCpuTimes();
+		for (int i = 0; i < cpuTimes.length; i++) {
+			printDF(cpuTimes[i].getNormDF());
+		}
 		
 	}
 	

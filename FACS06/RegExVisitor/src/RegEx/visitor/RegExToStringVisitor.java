@@ -1,4 +1,4 @@
-package regexVisitor;
+package RegEx.visitor;
 
 import RegEx.*;
 
