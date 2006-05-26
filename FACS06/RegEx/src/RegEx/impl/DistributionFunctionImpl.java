@@ -242,6 +242,7 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 	
 	
 	public DistributionFunction getFFT(){
+		makePow2Elements();
 		Complex[] points = getPointArray();
 		Complex[] freqPoints = FFT.fft(points);
 		DistributionFunction result = createDF(freqPoints, getDistance());
@@ -250,6 +251,7 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 	}
 	
 	public DistributionFunction getIFFT(){
+		makePow2Elements();
 		Complex[] freqPoints = getPointArray();
 		Complex[] points = FFT.ifft(freqPoints);
 		return createDF(points, getDistance());
@@ -268,7 +270,7 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 		DistributionFunction cdf1 = this.getCDF();
 		DistributionFunction cdf2 = this.getCDF();
 		DistributionFunction result = cdf1.multiply(cdf2);
-		return result.getInvCDF();
+		return result.getPMF();
 	}
 
 	/**
@@ -300,7 +302,23 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public DistributionFunction getInvCDF() {
+	public DistributionFunction getNegative() {
+		if (isFourierTransformed) return null;
+		
+		DistributionFunction df = new DistributionFunctionImpl();
+		df.setDistance(getDistance());
+		for (Iterator iter = getPoints().iterator(); iter.hasNext();) {
+			Complex point = (Complex) iter.next();
+			df.addPoint(new ComplexImpl(1-point.getRe(),0));
+		}
+		return df;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public DistributionFunction getPMF() {
 		DistributionFunction df = new DistributionFunctionImpl();
 		
 		Complex lastVal = RegExFactory.eINSTANCE.createComplex();
@@ -381,6 +399,8 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 				df.addPoint(newVal);
 				res = newRes;
 			}
+		} else if (stepSize == 1){
+			df = this;
 		}
 		return df;
 	}	

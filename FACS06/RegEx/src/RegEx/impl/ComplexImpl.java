@@ -131,8 +131,7 @@ public class ComplexImpl extends EObjectImpl implements Complex {
 			eNotify(new ENotificationImpl(this, Notification.SET, RegExPackage.COMPLEX__IM, oldIm, im));
 	}
 
-
-	protected ComplexImpl(double real, double imag) {
+	public ComplexImpl(double real, double imag) {
 		super();
 		re = real;
 		im = imag;

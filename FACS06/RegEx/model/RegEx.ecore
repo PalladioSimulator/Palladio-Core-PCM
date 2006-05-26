@@ -4,12 +4,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="RegEx"
     nsURI="http://sdq.ipd.uka.de/RegEx" nsPrefix="RegEx">
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="distributionFunction" eType="#//DistributionFunction"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="distributionFunctionFreq"
-        eType="#//DistributionFunction" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fatherParallel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cpuTimes" upperBound="-1"
+        eType="#//TimeConsumption" defaultValueLiteral="" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Symbol" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -31,8 +29,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inner" eType="#//Expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reiterationDistribution"
-        eType="#//DistributionFunction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="iterations" eType="#//DistributionFunction"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parallel" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="taskOne" eType="#//Expression"
@@ -69,7 +67,8 @@
       <eParameters name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="getCDF" eType="#//DistributionFunction"/>
-    <eOperations name="getInvCDF" eType="#//DistributionFunction"/>
+    <eOperations name="getNegative" eType="#//DistributionFunction"/>
+    <eOperations name="getPMF" eType="#//DistributionFunction"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="points" upperBound="-1"
         eType="#//Complex" defaultValueLiteral="" containment="true"/>
@@ -98,5 +97,23 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="re" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="im" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeConsumption">
+    <eOperations name="getFreqDF" eType="#//DistributionFunction"/>
+    <eOperations name="getNormDF" eType="#//DistributionFunction"/>
+    <eOperations name="setNormDF">
+      <eParameters name="normDf" eType="#//DistributionFunction"/>
+    </eOperations>
+    <eOperations name="setFreqDF">
+      <eParameters name="freqDf" eType="#//DistributionFunction"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="freqency" eType="#//DistributionFunction"
+        defaultValueLiteral="" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="normal" eType="#//DistributionFunction"
+        defaultValueLiteral="" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasFrequency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasNormal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
 </ecore:EPackage>
