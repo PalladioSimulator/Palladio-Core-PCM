@@ -3,6 +3,7 @@ package RegEx.visitor;
 import java.util.ArrayList;
 import java.util.List;
 
+import RegEx.Complex;
 import RegEx.DistributionFunction;
 import RegEx.Parallel;
 import RegEx.RegExFactory;
@@ -21,8 +22,8 @@ public class ParallelHandler implements IParallelHandler {
 	 */
 	@SuppressWarnings("unchecked")
 	public void handle(Parallel par){
-		List<TimeConsumption> concurrencyTimes = getCpuUsageTimes(par.getTaskOne().getCpuTimes());
-		List<TimeConsumption> addTimes = getCpuUsageTimes(par.getTaskTwo().getCpuTimes());
+		List<TimeConsumption> concurrencyTimes = par.getTaskOne().getCpuTimes(); // getCpuUsageTimes(par.getTaskOne().getCpuTimes());
+		List<TimeConsumption> addTimes = par.getTaskTwo().getCpuTimes(); //getCpuUsageTimes(par.getTaskTwo().getCpuTimes());
 		for (TimeConsumption time : addTimes) {
 			addLast(concurrencyTimes,time);
 			concurrencyTimes = getCpuUsageTimes(concurrencyTimes);
@@ -62,11 +63,21 @@ public class ParallelHandler implements IParallelHandler {
 				pMore = pMore.add(pNactive.get(j+1));
 			}
 			TimeConsumption tc = RegExFactory.eINSTANCE.createTimeConsumption();
-			tc.setNormDF(pMore.getNegative().getPMF());
+			DistributionFunction pmf = pMore.getNegative().getPMF();
+			tc.setNormDF(pmf);
 			tcResult.add(i, tc);
 		}
 		
 		return tcResult;
+	}
+	
+	private double sum(DistributionFunction df){
+		List<Complex> pointList = df.getPoints();
+		double sum = 0;
+		for (Complex point : pointList) {
+			sum += point.getRe();
+		}
+		return sum;
 	}
 
 	private void computeProbRec(List<DistributionFunction> active, List<DistributionFunction> passive, int numActive, int numPassive, DistributionFunction pCurrent, List<DistributionFunction> result) {
