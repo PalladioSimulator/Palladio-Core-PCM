@@ -18,6 +18,7 @@ import RegEx.DistributionFunction;
 import RegEx.Expression;
 import RegEx.RegExPackage;
 import RegEx.TimeConsumption;
+import RegEx.visualise.Visualization;
 
 public class MainClass {
 
@@ -89,10 +90,13 @@ public class MainClass {
 		RegExPerformanceVisitor perfVisitor = new RegExPerformanceVisitor(expr,2);
 	
 		TimeConsumption[] cpuTimes = perfVisitor.getResultCpuTimes();
+		Visualization vis = new Visualization(cpuTimes[0].getNormDF().getDistance());
+
 		for (int i = 0; i < cpuTimes.length; i++) {
 			printDF(cpuTimes[i].getNormDF());
+			vis.addDistributionFunction(cpuTimes[i].getNormDF(), "CPU"+i);
 		}
-		
+		vis.visualize();	
 	}
 	
 	public static void printDF(DistributionFunction df){
