@@ -6,7 +6,7 @@ import RegEx.RegExFactory;
 
 public class Tools {
 	public static int ACCURACY = 128;
-	public static double DISTANCE = 10;
+	public static double DISTANCE = 1000000.0;
 	
 	
 	public static DistributionFunction getDiracImpulse(int length, double distance) {

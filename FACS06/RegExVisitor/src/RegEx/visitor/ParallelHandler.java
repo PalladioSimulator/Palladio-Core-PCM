@@ -54,7 +54,7 @@ public class ParallelHandler implements IParallelHandler {
 		}
 		pNactive.add(zeroDF);
 		
-		computeProbRec(pActive,pPassive, 0, 0, Tools.getOnes(Tools.ACCURACY, Tools.DISTANCE), pNactive);
+		computeProbRec(pActive,pPassive, 0, 0, null, pNactive);
 		
 		for(int i=0; i< numCPUs; i++){
 			DistributionFunction pMore = Tools.getZeros(Tools.ACCURACY, Tools.DISTANCE);
@@ -75,8 +75,13 @@ public class ParallelHandler implements IParallelHandler {
 			DistributionFunction old = result.get(numActive);
 			result.set(numActive, old.add(pCurrent));
 		} else {
-			computeProbRec(active, passive, numActive+1, numPassive, pCurrent.multiply(active.get(pos)), result);
-			computeProbRec(active, passive, numActive, numPassive+1, pCurrent.multiply(passive.get(pos)), result);
+			if (pCurrent == null) {
+				computeProbRec(active, passive, numActive+1, numPassive, active.get(pos), result);
+				computeProbRec(active, passive, numActive, numPassive+1, passive.get(pos), result);
+			} else {
+				computeProbRec(active, passive, numActive+1, numPassive, pCurrent.multiply(active.get(pos)), result);
+				computeProbRec(active, passive, numActive, numPassive+1, pCurrent.multiply(passive.get(pos)), result);
+			}
 		}
 	}
 
