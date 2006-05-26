@@ -1,4 +1,4 @@
-package Example;
+package RegEx.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +24,7 @@ import RegEx.impl.DistributionFunctionImpl;
 
 public class Serialization {
 	
-	public void saveToXMI(DistributionFunction distFunc, String fileName) {
+	public static void saveToXMI(EObject objectToSave, String fileName) {
 		  // Create a resource set.
 		  ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -39,7 +39,7 @@ public class Serialization {
 		  Resource resource = resourceSet.createResource(fileURI);
 
 		  // Add the book and writer objects to the contents.
-		  resource.getContents().add(distFunc);
+		  resource.getContents().add(objectToSave);
 
 		  // Save the contents of the resource to the file system.
 		  try
@@ -49,7 +49,7 @@ public class Serialization {
 		  catch (IOException e) {}
 	}
 	
-	public DistributionFunction loadFromXMI(String fileName) {
+	public static EObject loadFromXMI(String fileName) {
 		// Create a resource set to hold the resources.
 		ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -83,7 +83,7 @@ public class Serialization {
 			}
 		}
 		EObject eObject = (EObject)resource.getContents().iterator().next();
-		return (DistributionFunction) EcoreUtil.getRootContainer(eObject);
+		return EcoreUtil.getRootContainer(eObject);
 	}
 	
 	protected static void printDiagnostic(Diagnostic diagnostic, String indent) {

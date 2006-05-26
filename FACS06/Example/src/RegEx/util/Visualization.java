@@ -1,4 +1,4 @@
-package RegEx.visualise;
+package RegEx.util;
 
 import java.awt.BorderLayout;
 import java.awt.Toolkit;

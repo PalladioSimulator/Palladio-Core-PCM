@@ -6,7 +6,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import RegEx.DistributionFunction;
-import RegEx.visualise.Visualization;
+import RegEx.util.Monitoring;
+import RegEx.util.Serialization;
+import RegEx.util.Visualization;
 
 import sun.misc.Cleaner;
 
@@ -26,7 +28,7 @@ public class MainClass {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		/*
+		
 		ClientComponent cc = new ClientComponent();
 		ExecutorService tpes = Executors.newCachedThreadPool();
 
@@ -41,11 +43,9 @@ public class MainClass {
 		Monitoring.printResults();
 		
 		DistributionFunction distFunc = Monitoring.getDistFunc(1000000.0);
-		*/
 
-		Serialization ser = new Serialization();
-		//ser.saveToXMI(distFunc, "single_thread.xmi");
-		DistributionFunction distFunc = ser.loadFromXMI("single_thread.xmi");
+		Serialization.saveToXMI(distFunc, "single_thread1.xmi");
+		//DistributionFunction distFunc = Serialization.loadFromXMI("single_thread1.xmi");
 		
 		Visualization vis = new Visualization(distFunc.getDistance());
 		vis.addDistributionFunction(distFunc, "Measured");
