@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.Iterator;
 
-
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -16,10 +15,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import RegEx.DistributionFunction;
-import RegEx.Expression;
 import RegEx.RegExPackage;
-import RegEx.impl.DistributionFunctionImpl;
 
 
 public class Serialization {
