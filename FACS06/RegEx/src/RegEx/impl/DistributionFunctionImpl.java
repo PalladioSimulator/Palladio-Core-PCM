@@ -175,6 +175,7 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 		 expandTo((int)java.lang.Math.pow(2, i));
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void expandTo(int length) {
 		 EList points = getPoints();		 
 		 for (int i=points.size(); i < length; i++){
@@ -287,7 +288,7 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 	 * <!-- end-user-doc -->
 	 */
 	public DistributionFunction getCDF() {
-		DistributionFunction cdf = new DistributionFunctionImpl();
+		DistributionFunction cdf = createDF(getDistance());
 		
 		Complex currentVal = RegExFactory.eINSTANCE.createComplex();
 		for (Iterator iter = getPoints().iterator(); iter.hasNext();) {
@@ -305,7 +306,7 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 	public DistributionFunction getNegative() {
 		if (isFourierTransformed) return null;
 		
-		DistributionFunction df = new DistributionFunctionImpl();
+		DistributionFunction df = createDF(getDistance());
 		df.setDistance(getDistance());
 		for (Iterator iter = getPoints().iterator(); iter.hasNext();) {
 			Complex point = (Complex) iter.next();
@@ -319,7 +320,7 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 	 * <!-- end-user-doc -->
 	 */
 	public DistributionFunction getPMF() {
-		DistributionFunction df = new DistributionFunctionImpl();
+		DistributionFunction df = createDF(getDistance());
 		
 		Complex lastVal = RegExFactory.eINSTANCE.createComplex();
 		for (Iterator iter = getPoints().iterator(); iter.hasNext();) {
@@ -336,8 +337,7 @@ public class DistributionFunctionImpl extends EObjectImpl implements Distributio
 	}
 	
 	public DistributionFunction adjustDistance(double distance) {
-		DistributionFunction df = RegExFactory.eINSTANCE.createDistributionFunction();
-		df.setDistance(distance);
+		DistributionFunction df = createDF(distance);
 		double stepSize = distance / getDistance();
 		if (stepSize < 1){
 			double pos = stepSize;
