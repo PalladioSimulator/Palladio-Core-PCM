@@ -1,3 +1,5 @@
+package RegEx.visualise;
+
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import java.io.File;
@@ -25,32 +27,36 @@ public class Visualization {
 
 	protected int thinkTime;
 	protected boolean thinkFirst;
-	protected XYSeries measuredSeries;
-	protected XYSeries predictedSeries;
 	protected JFrame graphFrame;
 	protected JFreeChart myChart;
 	protected ChartPanel chartPanel;
+	protected DefaultTableXYDataset dataset;
+	protected double distance;
 	
-	public void visualize(DistributionFunction distFunc){
-
+	
+	public Visualization(double distance){
+		dataset = new DefaultTableXYDataset();		
 		graphFrame = new JFrame("Result: Measured Execution Time");
-		DefaultTableXYDataset dataset=new DefaultTableXYDataset();
-		measuredSeries = new XYSeries("Measurement",true,false);
-		predictedSeries = new XYSeries("Prediction",true,false);
+		this.distance = distance; 
+	}
+	
+	public void addDistributionFunction(DistributionFunction distFunc, String name){
+
+		XYSeries series = new XYSeries(name,true,false);
 		
 		EList points = distFunc.getPoints();
 		int amountOfPoints = points.size();
 		Complex[] pointArray = (Complex[]) points.toArray(); 
-		double distance = distFunc.getDistance();
+		distFunc = distFunc.adjustDistance(distance);
 		for (int i=0; i<amountOfPoints; i++){
 			Complex currentPoint = pointArray[i];
-			measuredSeries.add(i, currentPoint.getRe());
-			predictedSeries.add(i, currentPoint.getRe()/2);
+			series.add(i, currentPoint.getRe());
 
 		}
-		dataset.addSeries(predictedSeries);
-		dataset.addSeries(measuredSeries);
-
+		dataset.addSeries(series);
+	}
+	
+	public void visualize(){
 		dataset.setIntervalWidth(1);
 		myChart = ChartFactory.createHistogram("Measured Execution Time Histogram",
 				"Time [ms]",
@@ -58,7 +64,7 @@ public class Visualization {
 				dataset,
 				PlotOrientation.VERTICAL,true,true,true);
 		XYPlot plot = (XYPlot)myChart.getPlot();
-		plot.getRangeAxis().setRange(0,400d);
+		plot.getRangeAxis().setRange(0,1.1d);
 		graphFrame.setSize(600,400);
 		graphFrame.setLocation(
 		        (Toolkit.getDefaultToolkit().getScreenSize().width-
@@ -70,13 +76,12 @@ public class Visualization {
 		graphFrame.getContentPane().add(chartPanel,BorderLayout.CENTER);
 		graphFrame.setVisible(true);
 		
-		File testFile = new File("test.png");
-		try {
-			ChartUtilities.saveChartAsPNG(testFile, myChart, 600, 400);
-		} catch (IOException e) {
+//		File testFile = new File("test.png");
+//		try {
+//			ChartUtilities.saveChartAsPNG(testFile, myChart, 600, 400);
+//		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+//			e.printStackTrace();
+//		}		
 	}
 }

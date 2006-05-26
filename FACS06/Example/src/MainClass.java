@@ -2,6 +2,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import RegEx.DistributionFunction;
+import RegEx.visualise.Visualization;
 
 import sun.misc.Cleaner;
 
@@ -36,7 +37,8 @@ public class MainClass {
 		
 		DistributionFunction distFunc = Monitoring.getDistFunc(1000000.0);
 		
-		Visualization vis = new Visualization();
-		vis.visualize(distFunc);
+		Visualization vis = new Visualization(distFunc.getDistance());
+		vis.addDistributionFunction(distFunc, "Measured");
+		vis.visualize();
 	}
 }
