@@ -9,6 +9,7 @@ import RegEx.*;
 public class RegExPerformanceVisitor extends ReflectionBasedVisitor {
 	
 	private TimeConsumption[] resultCpuTimes = null;
+	public TimeConsumption symTime = null;
 	private int numCPUs;
 	
 	public RegExPerformanceVisitor(Expression expr, int numCPUs) {
@@ -67,6 +68,9 @@ public class RegExPerformanceVisitor extends ReflectionBasedVisitor {
 			df.expandTo(Tools.ACCURACY);
 			tc.setNormDF(df);
 			i++;
+			
+			if (symTime == null)
+				symTime = tc;
 		}
 		// set the computation times for all other cpus to zero
 		while(i < numCPUs){

@@ -5,7 +5,7 @@ import RegEx.DistributionFunction;
 import RegEx.RegExFactory;
 
 public class Tools {
-	public static int ACCURACY = 128;
+	public static int ACCURACY = 1024;
 	public static double DISTANCE = 1000000.0;
 	
 	
