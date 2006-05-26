@@ -12,8 +12,8 @@ public class ServerComponent {
 	}
 
 	private void activeWaiting() {
-		double[] lotsOfDoubles = new double[10000];
-		for (int i=0; i<10000; i++){
+		double[] lotsOfDoubles = new double[100000];
+		for (int i=0; i<100000; i++){
 			lotsOfDoubles[i] = Math.random();
 		}
 		Arrays.sort(lotsOfDoubles);

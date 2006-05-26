@@ -6,7 +6,7 @@ import java.util.concurrent.Future;
 public class ClientComponent {
 
 	private ServerComponent[] scArray;
-	private final static int numWorkers = 1;
+	private final static int numWorkers = 3;
 	
 	public ClientComponent(){
 		scArray = new ServerComponent[numWorkers];

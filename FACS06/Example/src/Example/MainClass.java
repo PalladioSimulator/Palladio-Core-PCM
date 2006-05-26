@@ -32,7 +32,7 @@ public class MainClass {
 		ClientComponent cc = new ClientComponent();
 		ExecutorService tpes = Executors.newCachedThreadPool();
 
-		for(int i=0; i<100; i++){
+		for(int i=0; i<500; i++){
 			long startTime = System.nanoTime();
 			cc.providedMethod1(tpes);
 			tpes.shutdown();
@@ -44,7 +44,7 @@ public class MainClass {
 		
 		DistributionFunction distFunc = Monitoring.getDistFunc(1000000.0);
 
-		Serialization.saveToXMI(distFunc, "single_thread1.xmi");
+		Serialization.saveToXMI(distFunc, "thread3.xmi");
 		//DistributionFunction distFunc = Serialization.loadFromXMI("single_thread1.xmi");
 		
 		Visualization vis = new Visualization(distFunc.getDistance());
