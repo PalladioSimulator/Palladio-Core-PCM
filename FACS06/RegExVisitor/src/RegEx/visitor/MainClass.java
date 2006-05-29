@@ -40,10 +40,13 @@ public class MainClass {
 		// get measured distribution function
 		DistributionFunction distFunc = 
 			(DistributionFunction)Serialization.loadFromXMI(
-			"/home/jens/workspace/Example/single_thread.xmi");
+			"/home/jens/workspace/Example/single_thread_long.xmi");
 		
 		// add measured distribution function to symbol nodes
 		RegExInitVisitor initVisitor = new RegExInitVisitor(expr,distFunc);
+		
+		// add labels to each node
+		RegExToStringVisitor stringVisitor = new RegExToStringVisitor(expr);
 
 		RegExPerformanceVisitor perfVisitor = new RegExPerformanceVisitor(expr,2);
 	

@@ -70,15 +70,6 @@ public class ParallelHandler implements IParallelHandler {
 		
 		return tcResult;
 	}
-	
-	private double sum(DistributionFunction df){
-		List<Complex> pointList = df.getPoints();
-		double sum = 0;
-		for (Complex point : pointList) {
-			sum += point.getRe();
-		}
-		return sum;
-	}
 
 	private void computeProbRec(List<DistributionFunction> active, List<DistributionFunction> passive, int numActive, int numPassive, DistributionFunction pCurrent, List<DistributionFunction> result) {
 		int pos = numActive + numPassive;

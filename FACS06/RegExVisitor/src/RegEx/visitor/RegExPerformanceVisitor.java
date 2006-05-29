@@ -43,9 +43,11 @@ public class RegExPerformanceVisitor extends ReflectionBasedVisitor {
 		par.getTaskTwo().setFatherParallel(true);
 		visit(par.getTaskOne());
 		visit(par.getTaskTwo());
-		
+				
 		IParallelHandler handler = new ParallelHandler(numCPUs);
-		handler.handle(par);		
+		handler.handle(par);
+		
+		Tools.printExpr(par);		
 	}
 	
 
