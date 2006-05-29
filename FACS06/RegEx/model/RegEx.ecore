@@ -8,6 +8,7 @@
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cpuTimes" upperBound="-1"
         eType="#//TimeConsumption" defaultValueLiteral="" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="asString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Symbol" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

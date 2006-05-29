@@ -8,6 +8,7 @@
     <genClasses image="false" ecoreClass="RegEx.ecore#//Expression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RegEx.ecore#//Expression/fatherParallel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RegEx.ecore#//Expression/cpuTimes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RegEx.ecore#//Expression/asString"/>
     </genClasses>
     <genClasses ecoreClass="RegEx.ecore#//Symbol">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RegEx.ecore#//Symbol/name"/>
