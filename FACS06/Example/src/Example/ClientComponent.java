@@ -3,12 +3,15 @@ package Example;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
+import RegEx.util.Monitoring;
+
 public class ClientComponent {
 
 	private ServerComponent[] scArray;
-	private final static int numWorkers = 3;
+	private int numWorkers = 0;
 	
-	public ClientComponent(){
+	public ClientComponent(int numberOfThreads){
+		numWorkers = numberOfThreads;
 		scArray = new ServerComponent[numWorkers];
 		for (int i=0; i<numWorkers; i++){
 			scArray[i] = new ServerComponent();
@@ -36,4 +39,12 @@ public class ClientComponent {
 	        }
         }
 	}  
+	
+	public void providedMethod1() {
+    	long startTime = System.nanoTime();
+    	scArray[0].providedMethod1();
+    	scArray[0].providedMethod1();
+    	scArray[0].providedMethod1();
+    	Monitoring.addThreadMeasurement(System.nanoTime()-startTime);
+	} 
 }

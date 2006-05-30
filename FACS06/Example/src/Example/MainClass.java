@@ -29,12 +29,13 @@ public class MainClass {
 	 */
 	public static void main(String[] args) {
 		
-		ClientComponent cc = new ClientComponent();
+		ClientComponent cc = new ClientComponent(3);
 		ExecutorService tpes = Executors.newCachedThreadPool();
 
 		for(int i=0; i<500; i++){
 			long startTime = System.nanoTime();
 			cc.providedMethod1(tpes);
+			//cc.providedMethod1();
 			tpes.shutdown();
 			Monitoring.addCallMeasurement(System.nanoTime()-startTime);
 			tpes = Executors.newCachedThreadPool();
@@ -44,7 +45,7 @@ public class MainClass {
 		
 		DistributionFunction distFunc = Monitoring.getDistFunc(1000000.0);
 
-		Serialization.saveToXMI(distFunc, "thread3.xmi");
+		Serialization.saveToXMI(distFunc, "measurements\\test.xmi");
 		//DistributionFunction distFunc = Serialization.loadFromXMI("single_thread1.xmi");
 		
 		Visualization vis = new Visualization(distFunc.getDistance());
