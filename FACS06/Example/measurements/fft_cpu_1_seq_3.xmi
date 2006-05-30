@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="ASCII"?>
+<RegEx:DistributionFunction xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:RegEx="http://sdq.ipd.uka.de/RegEx" distance="1000000.0">
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points re="0.020000000000000004"/>
+  <points re="0.20400000000000015"/>
+  <points re="0.2620000000000002"/>
+  <points re="0.1380000000000001"/>
+  <points re="0.05200000000000003"/>
+  <points re="0.02800000000000001"/>
+  <points re="0.018000000000000002"/>
+  <points re="0.012"/>
+  <points re="0.016"/>
+  <points re="0.022000000000000006"/>
+  <points re="0.0060"/>
+  <points re="0.0080"/>
+  <points re="0.0060"/>
+  <points re="0.018000000000000002"/>
+  <points re="0.01"/>
+  <points re="0.0040"/>
+  <points re="0.0080"/>
+  <points/>
+  <points re="0.0040"/>
+  <points re="0.012"/>
+  <points re="0.02800000000000001"/>
+  <points re="0.03800000000000002"/>
+  <points re="0.0060"/>
+  <points re="0.012"/>
+  <points re="0.0040"/>
+  <points re="0.0020"/>
+  <points/>
+  <points re="0.0020"/>
+  <points re="0.0020"/>
+  <points re="0.0020"/>
+  <points/>
+  <points/>
+  <points re="0.0020"/>
+  <points/>
+  <points/>
+  <points re="0.0020"/>
+  <points re="0.0040"/>
+  <points re="0.0020"/>
+  <points re="0.0060"/>
+  <points re="0.0020"/>
+  <points re="0.0020"/>
+  <points/>
+  <points/>
+  <points/>
+  <points re="0.0020"/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points re="0.0020"/>
+  <points/>
+  <points re="0.0040"/>
+  <points re="0.0040"/>
+  <points re="0.0060"/>
+  <points re="0.0040"/>
+  <points re="0.0040"/>
+  <points/>
+  <points/>
+  <points re="0.0020"/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points re="0.0020"/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points re="0.0040"/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points/>
+  <points re="0.0020"/>
+</RegEx:DistributionFunction>
