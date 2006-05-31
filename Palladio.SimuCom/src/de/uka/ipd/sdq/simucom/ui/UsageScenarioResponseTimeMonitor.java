@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.simucom.ui;
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JFrame;
 
@@ -16,7 +17,7 @@ import org.jfree.data.xy.XYSeries;
 
 import de.uka.ipd.sdq.simucom.usage.SimulatedUsageScenario;
 
-public class UsageScenarioResponseTimeMonitor {
+public class UsageScenarioResponseTimeMonitor implements Observer {
 
 	protected XYSeries series;
 	protected JFrame graphFrame;

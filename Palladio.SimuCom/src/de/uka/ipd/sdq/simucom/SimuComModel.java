@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucom;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import UsageModelPackage.UsageScenario;
@@ -14,7 +15,6 @@ public class SimuComModel extends Model {
 	protected ModelSetup setup;
 	protected String configFile = null;
 	protected DistributionObjectsStorage distributionStorage = null;
-	protected Vector<UsageScenario> usageScenarios = null;
 	
 	public SimuComModel(Model owner, String myName, boolean showInReport, boolean showInTrace, String configFile) {
 		super(owner, myName, showInReport, showInTrace);
@@ -29,23 +29,32 @@ public class SimuComModel extends Model {
 
 	@Override
 	public void doInitialSchedules() {
-		for (UsageScenario u : usageScenarios)
+		for (UsageScenario u : setup.getScenarios())
 		{
 			SimulatedUsageScenario simulatedScenario = 
-				new SimulatedUsageScenario(u, getModel(), true);
+				new SimulatedUsageScenario(u, this, true);
 			simulatedScenario.activate(new SimTime(0));
-			new UsageScenarioResponseTimeMonitor(simulatedScenario);
+			simulatedScenario.getResponseTimeSensor().addObserver(new UsageScenarioResponseTimeMonitor(simulatedScenario));
 		}
 	}
 
 	@Override
 	public void init() {
 		setup =  new ModelSetup(this, configFile);
-		usageScenarios = setup.getScenarios();
 	}
 
 	public DistributionObjectsStorage getDistributionObjectsStorage()
 	{
 		return distributionStorage;
+	}
+	
+	public ArrayList<UsageScenario> getUsageScenarios()
+	{
+		return setup.getScenarios();
+	}
+	
+	public SystemPackage.System getSystem()
+	{
+		return setup.getSystem();
 	}
 }

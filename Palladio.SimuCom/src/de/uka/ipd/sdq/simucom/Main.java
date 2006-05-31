@@ -4,7 +4,7 @@ import desmoj.core.simulator.Experiment;
 import desmoj.core.simulator.SimTime;
 
 public class Main {
-	private static final int SIMULATION_TIME = 150000;
+	private static final int SIMULATION_TIME = 150;
 
 	/**
 	 * Runs the model.

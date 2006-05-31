@@ -45,8 +45,13 @@ public class ConfigFileReaderFactory implements IConfig {
 		}
 	}
 
-	public String getSimuComModelURI() {
-		String result = dom.getElementsByTagName("SimuComModel").item(0).getTextContent();
+	public String getSimuComUsageModel() {
+		String result = dom.getElementsByTagName("SimuComUsageModel").item(0).getTextContent();
+		return result;
+	}	
+
+	public String getSimuComSystem() {
+		String result = dom.getElementsByTagName("SimuComSystem").item(0).getTextContent();
 		return result;
 	}	
 }

@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucom;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import UsageModelPackage.UsageModel;
@@ -13,7 +14,8 @@ public class ModelSetup {
 	
 	protected Model m;
 	protected IConfig myConfig = null;
-	protected UsageModel myUsageModel = null;;
+	protected UsageModel myUsageModel = null;
+	protected SystemPackage.System system = null;
 	
 	public ModelSetup(Model m, String configFileName) {
 		this.m = m;
@@ -25,16 +27,22 @@ public class ModelSetup {
 			System.exit(-1);
 		}
 		try{
-			myUsageModel = ModelLoader.loadSimuComModel(myConfig.getSimuComModelURI());
+			myUsageModel = ModelLoader.loadSimuComUsageModel(myConfig.getSimuComUsageModel());
+			system = ModelLoader.loadSimuComSystem(myConfig.getSimuComSystem());
 		} catch (Exception e){
 			System.out.println("Error while loading simulation model: "+e.getLocalizedMessage());
 			System.exit(-1);
 		}
 	}
 	
-	public Vector<UsageScenario> getScenarios()
+	public ArrayList<UsageScenario> getScenarios()
 	{
-		return new Vector<UsageScenario>(myUsageModel.getUsageScenario_UsageModel());
+		return new ArrayList<UsageScenario>(myUsageModel.getUsageScenario_UsageModel());
+	}
+	
+	public SystemPackage.System getSystem()
+	{
+		return system;
 	}
 }
 

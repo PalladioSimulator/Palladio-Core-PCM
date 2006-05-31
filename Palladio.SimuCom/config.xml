@@ -1,3 +1,4 @@
 <config>
-	<SimuComModel>C:\Dokumente und Einstellungen\Snowball\runtime-wosp\PCMInstance\My.usagemodelpackage</SimuComModel>
+	<SimuComUsageModel>C:\Dokumente und Einstellungen\Snowball\runtime-wosp\PCMInstance\My.usagemodelpackage</SimuComUsageModel>
+	<SimuComSystem>C:\Dokumente und Einstellungen\Snowball\runtime-wosp\PCMInstance\My.systempackage</SimuComSystem>
 </config>
