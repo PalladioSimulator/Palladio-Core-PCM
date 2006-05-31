@@ -1,15 +1,5 @@
 package de.uka.ipd.sdq.simucom;
 
-import javax.swing.JFrame;
-
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.xy.DefaultTableXYDataset;
-import org.jfree.data.xy.IntervalXYDataset;
-import org.jfree.data.xy.XYSeries;
-
 import desmoj.core.simulator.Experiment;
 import desmoj.core.simulator.SimTime;
 

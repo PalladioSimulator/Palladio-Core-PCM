@@ -1,4 +1,3 @@
 <config>
-	<UMLRessourceURI>jar:file:/c:/downloads/eclipse/eclipse/plugins/org.eclipse.uml2.resources_1.1.0.jar!/</UMLRessourceURI>
-	<SimuComModel>C:/Dokumente und Einstellungen/Snowball/runtime-workbench-workspace/p/My.simucommodel</SimuComModel>
+	<SimuComModel>C:\Dokumente und Einstellungen\Snowball\runtime-wosp\PCMInstance\My.usagemodelpackage</SimuComModel>
 </config>

@@ -45,11 +45,6 @@ public class ConfigFileReaderFactory implements IConfig {
 		}
 	}
 
-	public String getUMLRessourceURI() {
-		String result = dom.getElementsByTagName("UMLRessourceURI").item(0).getTextContent();
-		return result;
-	}
-
 	public String getSimuComModelURI() {
 		String result = dom.getElementsByTagName("SimuComModel").item(0).getTextContent();
 		return result;

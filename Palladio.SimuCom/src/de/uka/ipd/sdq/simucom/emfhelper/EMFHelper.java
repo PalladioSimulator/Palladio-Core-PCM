@@ -5,6 +5,8 @@ import java.util.Iterator;
 import org.eclipse.emf.common.util.EList;
 
 public class EMFHelper {
+	
+	@SuppressWarnings("unchecked")
 	public static Object getObjectByType(EList collection, Class c) {
 		Iterator i = collection.iterator();
 		Object o = null;
