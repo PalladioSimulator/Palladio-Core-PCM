@@ -1,11 +1,9 @@
 package de.uka.ipd.sdq.simucom;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 import UsageModelPackage.UsageModel;
 import UsageModelPackage.UsageScenario;
-
 import de.uka.ipd.sdq.simucom.config.ConfigFileReaderFactory;
 import de.uka.ipd.sdq.simucom.config.IConfig;
 import desmoj.core.simulator.Model;
@@ -35,6 +33,7 @@ public class ModelSetup {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public ArrayList<UsageScenario> getScenarios()
 	{
 		return new ArrayList<UsageScenario>(myUsageModel.getUsageScenario_UsageModel());

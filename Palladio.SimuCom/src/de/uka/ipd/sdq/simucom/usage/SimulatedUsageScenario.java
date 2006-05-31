@@ -1,15 +1,11 @@
 package de.uka.ipd.sdq.simucom.usage;
 
-import java.util.ArrayList;
-
 import UsageModelPackage.ClosedWorkload;
 import UsageModelPackage.UsageModelPackagePackage;
 import UsageModelPackage.UsageScenario;
 import UsageModelPackage.Workload;
 import de.uka.ipd.sdq.simucom.SimuComModel;
-import de.uka.ipd.sdq.simucom.threads.history.HistoryElement;
 import desmoj.core.exception.SimFinishedException;
-import desmoj.core.simulator.Model;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
 import desmoj.core.statistic.Histogram;
@@ -40,7 +36,6 @@ extends SimProcess
 	
 	@Override
 	public void lifeCycle() {
-		ArrayList<HistoryElement> history = new ArrayList<HistoryElement>();
 		Workload load = myScenario.getWorkload_UsageScenario(); 
 
 		try

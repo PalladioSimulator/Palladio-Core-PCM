@@ -1,10 +1,8 @@
 package de.uka.ipd.sdq.simucom;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 import UsageModelPackage.UsageScenario;
-
 import de.uka.ipd.sdq.simucom.ui.UsageScenarioResponseTimeMonitor;
 import de.uka.ipd.sdq.simucom.usage.SimulatedUsageScenario;
 import desmoj.core.simulator.Model;

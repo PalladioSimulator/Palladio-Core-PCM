@@ -2,10 +2,7 @@ package de.uka.ipd.sdq.simucom.usage;
 
 import java.util.ArrayList;
 
-import org.eclipse.emf.ecore.EObject;
-
 import PalladioCM.RepositoryPackage.BasicComponent;
-import PalladioCM.RepositoryPackage.ProvidedRole;
 import PalladioCM.RepositoryPackage.ProvidesComponentType;
 import PalladioCM.RepositoryPackage.RepositoryPackagePackage;
 import PalladioCM.RepositoryPackage.Signature;
@@ -18,7 +15,6 @@ import UsageModelPackage.EntryLevelComponentCall;
 import UsageModelPackage.ScenarioBehaviour;
 import UsageModelPackage.Start;
 import UsageModelPackage.Stop;
-
 import de.uka.ipd.sdq.simucom.ModelLoader;
 import de.uka.ipd.sdq.simucom.SimuComModel;
 import de.uka.ipd.sdq.simucom.behaviour.BehaviourVisitor;

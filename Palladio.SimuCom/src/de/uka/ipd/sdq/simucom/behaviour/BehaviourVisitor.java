@@ -8,7 +8,6 @@ import PalladioCM.SEFFPackage.InternalAction;
 import PalladioCM.SEFFPackage.Loop;
 import PalladioCM.SEFFPackage.StartAction;
 import PalladioCM.SEFFPackage.StopAction;
-
 import de.uka.ipd.sdq.simucom.SimuComModel;
 import de.uka.ipd.sdq.simucom.emfhelper.EMFHelper;
 import de.uka.ipd.sdq.simucom.reflectivevisitor.ReflectiveVisitor;
