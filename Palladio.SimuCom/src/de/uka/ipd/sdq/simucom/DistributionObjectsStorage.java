@@ -4,7 +4,6 @@ import java.util.Hashtable;
 
 import Statistics.NumericProbabilityMassFunction;
 import Statistics.NumericSample;
-
 import desmoj.core.dist.IntDistEmpirical;
 import desmoj.core.simulator.Model;
 

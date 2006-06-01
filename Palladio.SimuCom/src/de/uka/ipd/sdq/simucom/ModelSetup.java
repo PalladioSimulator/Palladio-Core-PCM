@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.simucom;
 
 import java.util.ArrayList;
 
+import PalladioCM.ResourceEnvironmentPackage.ResourceEnvironment;
 import UsageModelPackage.UsageModel;
 import UsageModelPackage.UsageScenario;
 import de.uka.ipd.sdq.simucom.config.ConfigFileReaderFactory;
@@ -14,6 +15,7 @@ public class ModelSetup {
 	protected IConfig myConfig = null;
 	protected UsageModel myUsageModel = null;
 	protected SystemPackage.System system = null;
+	protected ResourceEnvironment resourceEnv = null;
 	
 	public ModelSetup(Model m, String configFileName) {
 		this.m = m;
@@ -27,6 +29,7 @@ public class ModelSetup {
 		try{
 			myUsageModel = ModelLoader.loadSimuComUsageModel(myConfig.getSimuComUsageModel());
 			system = ModelLoader.loadSimuComSystem(myConfig.getSimuComSystem());
+			resourceEnv = ModelLoader.loadSimuComResourceEnvironment(myConfig.getSimuComResourceEnvironment());
 		} catch (Exception e){
 			System.out.println("Error while loading simulation model: "+e.getLocalizedMessage());
 			System.exit(-1);
@@ -42,6 +45,11 @@ public class ModelSetup {
 	public SystemPackage.System getSystem()
 	{
 		return system;
+	}
+	
+	public ResourceEnvironment getResourceEnvironment()
+	{
+		return resourceEnv;
 	}
 }
 

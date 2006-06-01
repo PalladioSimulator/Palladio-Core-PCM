@@ -1,4 +1,5 @@
 <config>
 	<SimuComUsageModel>C:\Dokumente und Einstellungen\Snowball\runtime-wosp\PCMInstance\My.usagemodelpackage</SimuComUsageModel>
 	<SimuComSystem>C:\Dokumente und Einstellungen\Snowball\runtime-wosp\PCMInstance\My.systempackage</SimuComSystem>
+	<SimuComResourceEnvironment>C:\Dokumente und Einstellungen\Snowball\runtime-wosp\PCMInstance\My.resourceenvironmentpackage</SimuComResourceEnvironment>
 </config>

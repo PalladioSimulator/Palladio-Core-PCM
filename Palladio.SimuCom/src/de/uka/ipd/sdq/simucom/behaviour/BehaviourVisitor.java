@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simucom.behaviour;
 
-import java.awt.image.SampleModel;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -14,6 +13,7 @@ import PalladioCM.SEFFPackage.Behaviour;
 import PalladioCM.SEFFPackage.ExternalCall;
 import PalladioCM.SEFFPackage.InternalAction;
 import PalladioCM.SEFFPackage.Loop;
+import PalladioCM.SEFFPackage.ParametricResourceDemand;
 import PalladioCM.SEFFPackage.ServiceEffectSpecification;
 import PalladioCM.SEFFPackage.StartAction;
 import PalladioCM.SEFFPackage.StopAction;
@@ -26,10 +26,9 @@ import de.uka.ipd.sdq.simucom.ModelLoader;
 import de.uka.ipd.sdq.simucom.SimuComModel;
 import de.uka.ipd.sdq.simucom.emfhelper.EMFHelper;
 import de.uka.ipd.sdq.simucom.reflectivevisitor.ReflectiveVisitor;
+import de.uka.ipd.sdq.simucom.resources.SimulatedActiveResource;
 import de.uka.ipd.sdq.simucom.threads.history.HistoryElement;
 import de.uka.ipd.sdq.simucom.threads.history.HistoryHelper;
-import desmoj.core.dist.IntDistEmpirical;
-import desmoj.core.dist.RealDistEmpirical;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
 
@@ -64,6 +63,14 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 	public void visitInternalAction(InternalAction action) throws Exception {
 		myHistory.add(new HistoryElement(SimTime.NOW,
 				"Executing internal action " + action.getEntityName()));
+		SimuComModel myModel = (SimuComModel)myParentProcess.getModel();
+		if (action.getResourceDemand_Action().size()>0)
+		{
+			ParametricResourceDemand paramResDemand = (ParametricResourceDemand) action.getResourceDemand_Action().get(0);
+			SimulatedActiveResource activeResource = myModel.getSimulatedResources().getResourceContainer("Application Server").getActiveResource(paramResDemand.getRequiredResource_ParametricResourceDemand());
+			activeResource.consumeResource(myParentProcess, 100);
+		}
+		
 		visit(action.getSuccessor_AbstractAction());
 	}
 
@@ -101,8 +108,9 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 	/**
 	 * @param calledService
 	 * @param foundSystemRequiredDelegationConnector
+	 * @throws Exception 
 	 */
-	private void performSimulatedSystemExternalCall(Signature calledService, SystemRequiredDelegationConnector foundSystemRequiredDelegationConnector) {
+	private void performSimulatedSystemExternalCall(Signature calledService, SystemRequiredDelegationConnector foundSystemRequiredDelegationConnector) throws Exception {
 		SystemRequiredRole externalRole = foundSystemRequiredDelegationConnector
 				.getSystemRequiredRole_SystemRequiredDelegationConnector();
 		Iterator timeConsumptions = externalRole
@@ -115,9 +123,10 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 					.getServiceName()
 					.equals(calledService.getServiceName())) {
 				waitForSpecifiedTimeSpan(consumption);
-				break;
+				return;
 			}
 		}
+		throw new Exception("No timing information found on system required role!");
 	}
 
 	private Behaviour getTargetBehaviourFromAssemblyConnector(SystemAssemblyConnector connector, Signature targetMethod) {

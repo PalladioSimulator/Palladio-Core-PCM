@@ -2,7 +2,9 @@ package de.uka.ipd.sdq.simucom;
 
 import java.util.ArrayList;
 
+import PalladioCM.ResourceEnvironmentPackage.ResourceEnvironment;
 import UsageModelPackage.UsageScenario;
+import de.uka.ipd.sdq.simucom.resources.SimulatedResources;
 import de.uka.ipd.sdq.simucom.ui.UsageScenarioResponseTimeMonitor;
 import de.uka.ipd.sdq.simucom.usage.SimulatedUsageScenario;
 import desmoj.core.simulator.Model;
@@ -13,6 +15,7 @@ public class SimuComModel extends Model {
 	protected ModelSetup setup;
 	protected String configFile = null;
 	protected DistributionObjectsStorage distributionStorage = null;
+	protected SimulatedResources resources = null;
 	
 	public SimuComModel(Model owner, String myName, boolean showInReport, boolean showInTrace, String configFile) {
 		super(owner, myName, showInReport, showInTrace);
@@ -27,6 +30,7 @@ public class SimuComModel extends Model {
 
 	@Override
 	public void doInitialSchedules() {
+		resources.activateAllActiveResources();
 		for (UsageScenario u : setup.getScenarios())
 		{
 			SimulatedUsageScenario simulatedScenario = 
@@ -39,6 +43,7 @@ public class SimuComModel extends Model {
 	@Override
 	public void init() {
 		setup =  new ModelSetup(this, configFile);
+		resources = new SimulatedResources(this, setup.getResourceEnvironment());
 	}
 
 	public DistributionObjectsStorage getDistributionObjectsStorage()
@@ -54,5 +59,10 @@ public class SimuComModel extends Model {
 	public SystemPackage.System getSystem()
 	{
 		return setup.getSystem();
+	}
+	
+	public SimulatedResources getSimulatedResources()
+	{
+		return resources;
 	}
 }
