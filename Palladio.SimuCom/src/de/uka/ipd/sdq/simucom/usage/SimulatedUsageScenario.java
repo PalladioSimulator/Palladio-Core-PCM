@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucom.usage;
 
+import DerivedContext.Context;
+import DerivedContext.DerivedContextFactory;
 import UsageModelPackage.ClosedWorkload;
 import UsageModelPackage.UsageModelPackagePackage;
 import UsageModelPackage.UsageScenario;
@@ -25,7 +27,7 @@ extends SimProcess
 		this.myScenario = myScenario;
 
 		// TODO: Fix hardcoded bounds
-		responseTimeDistribution = new Histogram(model, "UserResponseTime", supplier, 0, 1500, 150, true, false);
+		responseTimeDistribution = new Histogram(model, "UserResponseTime", supplier, 0, 1500, 1500, true, false);
 		responseTimeDistribution.reset();
 	}
 	
@@ -42,7 +44,12 @@ extends SimProcess
 		{
 			while (true) {
 				double activityStart = this.currentTime().getTimeValue();
-				WorkloadVisitor visitor = new WorkloadVisitor(this);
+				SystemPackage.System system = ((SimuComModel)getModel()).getSystem();
+				
+				Context callContext = DerivedContextFactory.eINSTANCE.createContext();
+				callContext.setSystem(system);
+				
+				WorkloadVisitor visitor = new WorkloadVisitor(this,callContext);
 				visitor.visitScenarioBehaviour(myScenario.getScenarioBehaviour_UsageScenario());
 				responseTimeDistribution.update(this.currentTime().getTimeValue()-activityStart);
 				supplier.newResponseTimeMeassurment(this.currentTime().getTimeValue()-activityStart);

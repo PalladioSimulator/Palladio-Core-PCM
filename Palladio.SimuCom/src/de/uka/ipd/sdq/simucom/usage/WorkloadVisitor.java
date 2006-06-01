@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.simucom.usage;
 
 import java.util.ArrayList;
 
+import DerivedContext.Context;
+import DerivedContext.DerivedContextFactory;
 import PalladioCM.RepositoryPackage.BasicComponent;
 import PalladioCM.RepositoryPackage.ProvidesComponentType;
 import PalladioCM.RepositoryPackage.RepositoryPackagePackage;
@@ -30,12 +32,14 @@ extends ReflectiveVisitor {
 	protected ArrayList<HistoryElement> myHistory = new ArrayList<HistoryElement>();
 	protected SimProcess myParentProcess = null;
 	protected SystemPackage.System mySystem;
+	protected Context myContext = null;
 
 	
-	public WorkloadVisitor(SimProcess parent) {
+	public WorkloadVisitor(SimProcess parent, Context workloadContext) {
 		super();
 		this.myParentProcess = parent;
 		mySystem = ((SimuComModel)myParentProcess.getModel()).getSystem();
+		myContext = workloadContext;
 	}
 
 	public void visitScenarioBehaviour(ScenarioBehaviour behaviour) throws Exception {
@@ -71,15 +75,18 @@ extends ReflectiveVisitor {
 			ServiceEffectSpecification seff = (ServiceEffectSpecification) EMFHelper.executeOCLQuery(ModelLoader.getSystemResourceSet(),
 					basicComponent,
 					"self.serviceEffectSpecifications__BasicComponent->select(seff|seff.describedService__SEFF.serviceName = '"+method.getServiceName()+"')->first()");
-			Behaviour b = (Behaviour)seff;
-			BehaviourVisitor visitor = new BehaviourVisitor(myParentProcess);
-			visitor.visitBehaviour(b);
+
+			Context callContext = DerivedContextFactory.eINSTANCE.createContext();
+			callContext.setSystem(myContext.getSystem());
+			callContext.setDerivedAssemblyContext(delegationConnector.getAssemblyContext_SystemProvidedDelegationConnector());
 			
+			Behaviour b = (Behaviour)seff;
+			BehaviourVisitor visitor = new BehaviourVisitor(myParentProcess, callContext);
+			visitor.visitBehaviour(b);
 		}
 		else
 			throw new Exception("Component type not supported by visitor yet!");
 		
-		myParentProcess.hold(new SimTime(1));
 		visit(call.getSuccessor());
 	}
 }
