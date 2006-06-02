@@ -2,11 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Programme/eclipse-calisto/eclipse/plugins/org.eclipse.emf.common_2.2.0.v200605151820.jar"/>
 	<classpathentry kind="lib" path="C:/Programme/jfreechart-1.0.1/lib/jcommon-1.0.0.jar"/>
 	<classpathentry kind="lib" path="C:/Programme/jfreechart-1.0.1/lib/jfreechart-1.0.1.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/RegEx"/>
-	<classpathentry kind="lib" path="C:/Programme/eclipse-calisto/eclipse/plugins/org.eclipse.emf.ecore_2.2.0.v200605151820.jar"/>
-	<classpathentry kind="lib" path="C:/Programme/eclipse-calisto/eclipse/plugins/org.eclipse.emf.ecore.xmi_2.2.0.v200605151820.jar"/>
+	<classpathentry kind="lib" path="C:/Programme/eclipse-calisto/eclipse/plugins/org.eclipse.emf.common_2.2.0.v200605051423.jar"/>
+	<classpathentry kind="lib" path="C:/Programme/eclipse-calisto/eclipse/plugins/org.eclipse.emf.ecore.xmi_2.2.0.v200605051423.jar"/>
+	<classpathentry kind="lib" path="C:/Programme/eclipse-calisto/eclipse/plugins/org.eclipse.emf.ecore_2.2.0.v200605051423.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,6 +1,7 @@
 package RegEx.util;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
@@ -84,4 +85,49 @@ public class Visualization {
 //			e.printStackTrace();
 //		}		
 	}
+	
+	public void visualizeOverlay(){
+		dataset.setIntervalWidth(1);
+		myChart = ChartFactory.createHistogram("",
+				"Time [ms]", 	// x Axis label
+				"Probability", 		// y Axis label
+				dataset,
+				PlotOrientation.VERTICAL,
+				true,	// legend
+				true,	// tooltips
+				true);	// url
+		
+		
+		XYPlot plot = (XYPlot)myChart.getPlot();
+		
+		plot.getRenderer().setSeriesPaint(0, Color.LIGHT_GRAY); // Foreground Series
+		plot.getRenderer().setSeriesPaint(1, Color.DARK_GRAY.brighter()); // Background Series
+
+		plot.setForegroundAlpha( 0.8f ); // for transparency		
+
+		plot.getRangeAxis().setRange(0,0.4d);
+
+		plot.setBackgroundPaint(Color.white);
+
+		graphFrame.setSize(600,400);
+		graphFrame.setLocation(
+		        (Toolkit.getDefaultToolkit().getScreenSize().width-
+		         graphFrame.getSize().width) / 2,
+		        (Toolkit.getDefaultToolkit().getScreenSize().height-
+		         graphFrame.getSize().height) / 2);		
+		graphFrame.getContentPane().setLayout(new BorderLayout());
+		chartPanel = new ChartPanel(myChart);
+		graphFrame.getContentPane().add(chartPanel,BorderLayout.CENTER);
+		graphFrame.setVisible(true);
+		
+		File testFile = new File("examplePMF2.png");
+		try {
+			ChartUtilities.saveChartAsPNG(testFile, myChart, 600, 400);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
+		
+		
+	}
 }
+

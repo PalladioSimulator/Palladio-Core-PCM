@@ -5,7 +5,9 @@ import java.net.URI;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import RegEx.Complex;
 import RegEx.DistributionFunction;
+import RegEx.impl.RegExFactoryImpl;
 import RegEx.util.Monitoring;
 import RegEx.util.Serialization;
 import RegEx.util.Visualization;
@@ -28,7 +30,12 @@ public class MainClass {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+		//executeExampleScenario();
+		exampleDist();
+		//compareMeasurements();
+	}
+
+	private static void executeExampleScenario() {
 		ClientComponent cc = new ClientComponent(3);
 		ExecutorService tpes = Executors.newCachedThreadPool();
 
@@ -46,13 +53,54 @@ public class MainClass {
 		DistributionFunction distFunc = Monitoring.getDistFunc(1000000.0);
 
 		Serialization.saveToXMI(distFunc, "measurements\\test.xmi");
-		//DistributionFunction distFunc = Serialization.loadFromXMI("single_thread1.xmi");
-		
-		Visualization vis = new Visualization(distFunc.getDistance());
-		vis.addDistributionFunction(distFunc, "Measured");
-		vis.visualize();
-
 	}
 
+	private static void compareMeasurements() {
+		DistributionFunction distFunc1 = (DistributionFunction)
+			Serialization.loadFromXMI("measurements/fft_cpu_2_threads_3.xmi");
+		
+		DistributionFunction distFunc2 = (DistributionFunction)
+			Serialization.loadFromXMI("measurements/fft_cpu_2_seq_3.xmi");
+		
+		Visualization vis = new Visualization(distFunc1.getDistance());
+		vis.addDistributionFunction(distFunc1, "3 Threads");
+		vis.addDistributionFunction(distFunc2, "3 Seq");
+		vis.visualize();
+	}
+
+	private static void exampleDist() {
+		double[] points1 = {0.0, 0.0, 0.0, 0.03, 0.07, 0.09, 0.11, 0.17, 0.23, 0.16, 0.14, 0.09, 0.12, 0.20, 0.30, 0.10, 0.03, 0.00, 0.00, 0.00};
+		double[] points2 = {0.0, 0.0, 0.0, 0.00, 0.00, 0.00, 0.05, 0.05, 0.08, 0.12, 0.25, 0.15, 0.11, 0.09, 0.06, 0.04, 0.03, 0.02, 0.01, 0.00};
+
+		DistributionFunction df1 = getDistFunc(points1);
+		DistributionFunction df2 = getDistFunc(points2);
+		
+		
+		Visualization vis = new Visualization(df1.getDistance());
+		vis.addDistributionFunction(df1, "PMF1");
+		vis.addDistributionFunction(df2, "PMF2");
+		//vis.visualizeOverlay();
+		
+		DistributionFunction convoluted = df1.getCDF().multiply(df2.getCDF());
+		convoluted = convoluted.getPMF();
+		
+		Visualization vis2 = new Visualization(convoluted.getDistance());
+		vis2.addDistributionFunction(convoluted, "PMF3 = max(PMF1,PMF2)");
+		vis2.visualizeOverlay();
+		
+	}
+
+	private static DistributionFunction getDistFunc(double[] points) {
+		RegExFactoryImpl regExFact = new RegExFactoryImpl();
+		DistributionFunction distFunc = regExFact.createDistributionFunction(); 
+		distFunc.setDistance(1.0);
+		for (int i=0; i<points.length; i++){
+			Complex point = regExFact.createComplex();
+			point.setRe(points[i]);
+			point.setIm(0.0);
+			distFunc.addPoint(point);
+		}
+		return distFunc;
+	}
 
 }
