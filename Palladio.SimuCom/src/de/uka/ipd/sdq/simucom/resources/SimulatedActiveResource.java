@@ -1,10 +1,10 @@
 package de.uka.ipd.sdq.simucom.resources;
 
+import PalladioCM.ResourceEnvironmentPackage.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.simucom.SimuComModel;
 import desmoj.core.simulator.ProcessQueue;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
-import PalladioCM.ResourceEnvironmentPackage.ProcessingResourceSpecification;
 
 public class SimulatedActiveResource extends SimProcess {
 

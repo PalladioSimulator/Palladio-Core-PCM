@@ -3,11 +3,10 @@ package de.uka.ipd.sdq.simucom.resources;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import de.uka.ipd.sdq.simucom.SimuComModel;
-
 import PalladioCM.ResourceEnvironmentPackage.ProcessingResourceSpecification;
 import PalladioCM.ResourceEnvironmentPackage.ResourceContainer;
 import PalladioCM.ResourceTypePackage.ProcessingResourceType;
+import de.uka.ipd.sdq.simucom.SimuComModel;
 
 public class SimulatedResourceContainer {
 

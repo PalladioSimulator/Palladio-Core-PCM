@@ -15,8 +15,6 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.DefaultTableXYDataset;
 import org.jfree.data.xy.XYSeries;
 
-import de.uka.ipd.sdq.simucom.usage.SimulatedUsageScenario;
-
 public class UsageScenarioResponseTimeMonitor implements Observer {
 
 	protected XYSeries series;
@@ -24,14 +22,14 @@ public class UsageScenarioResponseTimeMonitor implements Observer {
 	protected JFreeChart myChart;
 	protected ChartPanel chartPanel;
 
-	public UsageScenarioResponseTimeMonitor(SimulatedUsageScenario monitoredScenario)
+	public UsageScenarioResponseTimeMonitor(String title)
 	{
-		graphFrame = new JFrame("Result: "+monitoredScenario.getName());
+		graphFrame = new JFrame("Result: "+title);
 		DefaultTableXYDataset dataset=new DefaultTableXYDataset();
-		series = new XYSeries(monitoredScenario.getName(),true,false);
+		series = new XYSeries(title,true,false);
 		dataset.addSeries(series);
 		dataset.setIntervalWidth(1);
-		myChart = ChartFactory.createHistogram("Response Time Histogram of "+monitoredScenario.getName(),"Time [ms]","Number", dataset,PlotOrientation.VERTICAL,true,true,true);
+		myChart = ChartFactory.createHistogram("Response Time Histogram of "+title,"Time [ms]","Number", dataset,PlotOrientation.VERTICAL,true,true,true);
 		XYPlot plot = (XYPlot)myChart.getPlot();
 		plot.getRangeAxis().setRange(0,400d);
 		graphFrame.setSize(600,400);

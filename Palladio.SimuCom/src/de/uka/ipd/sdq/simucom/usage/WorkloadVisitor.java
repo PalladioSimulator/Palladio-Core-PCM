@@ -21,9 +21,9 @@ import de.uka.ipd.sdq.simucom.ModelLoader;
 import de.uka.ipd.sdq.simucom.SimuComModel;
 import de.uka.ipd.sdq.simucom.behaviour.BehaviourVisitor;
 import de.uka.ipd.sdq.simucom.emfhelper.EMFHelper;
+import de.uka.ipd.sdq.simucom.history.HistoryElement;
+import de.uka.ipd.sdq.simucom.history.HistoryHelper;
 import de.uka.ipd.sdq.simucom.reflectivevisitor.ReflectiveVisitor;
-import de.uka.ipd.sdq.simucom.threads.history.HistoryElement;
-import de.uka.ipd.sdq.simucom.threads.history.HistoryHelper;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
 

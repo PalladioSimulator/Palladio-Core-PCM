@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucom.threads.history;
+package de.uka.ipd.sdq.simucom.history;
 
 import java.util.ArrayList;
 

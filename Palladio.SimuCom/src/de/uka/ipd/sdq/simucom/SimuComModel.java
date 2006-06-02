@@ -2,13 +2,10 @@ package de.uka.ipd.sdq.simucom;
 
 import java.util.ArrayList;
 
-import PalladioCM.ResourceEnvironmentPackage.ResourceEnvironment;
 import UsageModelPackage.UsageScenario;
 import de.uka.ipd.sdq.simucom.resources.SimulatedResources;
-import de.uka.ipd.sdq.simucom.ui.UsageScenarioResponseTimeMonitor;
 import de.uka.ipd.sdq.simucom.usage.SimulatedUsageScenario;
 import desmoj.core.simulator.Model;
-import desmoj.core.simulator.SimTime;
 
 public class SimuComModel extends Model {
 
@@ -33,10 +30,9 @@ public class SimuComModel extends Model {
 		resources.activateAllActiveResources();
 		for (UsageScenario u : setup.getScenarios())
 		{
-			SimulatedUsageScenario simulatedScenario = 
-				new SimulatedUsageScenario(u, this, true);
-			simulatedScenario.activate(new SimTime(0));
-			simulatedScenario.getResponseTimeSensor().addObserver(new UsageScenarioResponseTimeMonitor(simulatedScenario));
+			SimulatedUsageScenario simulatedScenario = new SimulatedUsageScenario(u, this);
+			simulatedScenario.init();
+			// simulatedScenario.getResponseTimeSensor().addObserver(new UsageScenarioResponseTimeMonitor(simulatedScenario));
 		}
 	}
 
