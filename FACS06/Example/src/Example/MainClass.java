@@ -69,20 +69,25 @@ public class MainClass {
 	}
 
 	private static void exampleDist() {
-		double[] points1 = {0.0, 0.0, 0.0, 0.03, 0.07, 0.09, 0.11, 0.17, 0.23, 0.16, 0.14, 0.09, 0.12, 0.20, 0.30, 0.10, 0.03, 0.00, 0.00, 0.00};
-		double[] points2 = {0.0, 0.0, 0.0, 0.00, 0.00, 0.00, 0.05, 0.05, 0.08, 0.12, 0.25, 0.15, 0.11, 0.09, 0.06, 0.04, 0.03, 0.02, 0.01, 0.00};
-
+		double[] points1 = {0.0, 0.0, 0.0, 0.01, 0.04, 0.07, 0.09, 0.11, 0.15, 0.10, 0.08, 0.05, 0.03, 0.07, 0.15, 0.05, 0.00, 0.00, 0.00, 0.00};
+		double[] points2 = {0.0, 0.0, 0.0, 0.00, 0.00, 0.01, 0.04, 0.05, 0.08, 0.12, 0.19, 0.15, 0.11, 0.09, 0.06, 0.04, 0.03, 0.02, 0.01, 0.00};
+		
 		DistributionFunction df1 = getDistFunc(points1);
 		DistributionFunction df2 = getDistFunc(points2);
+		
+		printDF(df1);
+		printDF(df2);
 		
 		
 		Visualization vis = new Visualization(df1.getDistance());
 		vis.addDistributionFunction(df1, "PMF1");
 		vis.addDistributionFunction(df2, "PMF2");
-		//vis.visualizeOverlay();
+		vis.visualizeOverlay();
 		
 		DistributionFunction convoluted = df1.getCDF().multiply(df2.getCDF());
 		convoluted = convoluted.getPMF();
+		
+		printDF(convoluted);
 		
 		Visualization vis2 = new Visualization(convoluted.getDistance());
 		vis2.addDistributionFunction(convoluted, "PMF3 = max(PMF1,PMF2)");
@@ -102,5 +107,24 @@ public class MainClass {
 		}
 		return distFunc;
 	}
-
+	
+	public static void printDF(DistributionFunction df){
+		Complex[] points = getPointArray(df);
+		double sum = 0;
+		for (int i = 0; i < points.length; i++) {
+			if (points[i].getRe() < 0.0001){
+				System.out.println("0");				
+			} else {
+				System.out.println(points[i].getRe());				
+			}
+			sum += points[i].getRe();
+		}		
+		System.out.println();
+		System.out.println(sum);
+		System.out.println();
+	}
+	
+	public static Complex[] getPointArray(DistributionFunction df){
+		return (Complex[]) df.getPoints().toArray();
+	}	
 }

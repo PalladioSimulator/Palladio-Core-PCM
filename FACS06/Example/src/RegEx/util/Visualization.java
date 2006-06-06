@@ -105,7 +105,7 @@ public class Visualization {
 
 		plot.setForegroundAlpha( 0.8f ); // for transparency		
 
-		plot.getRangeAxis().setRange(0,0.4d);
+		plot.getRangeAxis().setRange(0,0.25d);
 
 		plot.setBackgroundPaint(Color.white);
 
