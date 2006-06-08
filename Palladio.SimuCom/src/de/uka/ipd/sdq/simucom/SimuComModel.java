@@ -32,7 +32,6 @@ public class SimuComModel extends Model {
 		{
 			SimulatedUsageScenario simulatedScenario = new SimulatedUsageScenario(u, this);
 			simulatedScenario.init();
-			// simulatedScenario.getResponseTimeSensor().addObserver(new UsageScenarioResponseTimeMonitor(simulatedScenario));
 		}
 	}
 

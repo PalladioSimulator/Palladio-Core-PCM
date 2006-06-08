@@ -12,7 +12,7 @@ public class SimulatedResources {
 	protected HashMap<String,SimulatedResourceContainer> resources = new HashMap<String,SimulatedResourceContainer>();
 	
 	public SimulatedResources(SimuComModel myModel, ResourceEnvironment resourceEnvironment) {
-		Iterator resourceContainer = resourceEnvironment.getResourcecontainer().iterator();
+		Iterator resourceContainer = resourceEnvironment.getResourceContainer_ResourceEnvironment().iterator();
 		while (resourceContainer.hasNext())
 		{
 			ResourceContainer newContainer = (ResourceContainer)resourceContainer.next();

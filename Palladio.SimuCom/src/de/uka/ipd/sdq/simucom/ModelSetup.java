@@ -2,7 +2,15 @@ package de.uka.ipd.sdq.simucom;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ocl.helper.HelperUtil;
+import org.eclipse.emf.ocl.helper.IOCLHelper;
+import org.eclipse.emf.ocl.helper.OCLParsingException;
+import org.eclipse.emf.ocl.parser.EcoreEnvironmentFactory;
+
+import DerivedContext.DerivedContextFactory;
 import PalladioCM.ResourceEnvironmentPackage.ResourceEnvironment;
+import ParameterPackage.ParameterPackageFactory;
 import UsageModelPackage.UsageModel;
 import UsageModelPackage.UsageScenario;
 import de.uka.ipd.sdq.simucom.config.ConfigFileReaderFactory;
@@ -32,6 +40,40 @@ public class ModelSetup {
 			resourceEnv = ModelLoader.loadSimuComResourceEnvironment(myConfig.getSimuComResourceEnvironment());
 		} catch (Exception e){
 			System.out.println("Error while loading simulation model: "+e.getLocalizedMessage());
+			System.exit(-1);
+		}
+		setupOCLEnvironment();
+	}
+
+	private void setupOCLEnvironment() {
+		
+		IOCLHelper helper = HelperUtil.createOCLHelper(
+				new EcoreEnvironmentFactory(EPackage.Registry.INSTANCE));
+		helper.setContext(DerivedContextFactory.eINSTANCE.createContext());
+		try {
+			helper.define("CollectionParameter(name : String) : ParameterPackage::CollectionParameterUsage = self.derivedUsageContext.parameter->select(p|p.parameter_ParameterUsage.parameterName=name)->first().oclAsType(ParameterPackage::CollectionParameterUsage)");
+			helper.define("PrimitiveParameter(name : String) : ParameterPackage::ParameterUsage = self.derivedUsageContext.parameter->select(p|p.parameter_ParameterUsage.parameterName=name)->first().oclAsType(ParameterPackage::ParameterUsage)");
+		} catch (OCLParsingException e) {
+			System.out.println("OCL definition failed: "+e.getMessage());
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
+		helper.setContext(ParameterPackageFactory.eINSTANCE.createCollectionParameterUsage());
+		try {
+			helper.define("collectionCharacterisationValue(type : ParameterPackage::CollectionParameterCharacterisationType) : OclAny = self.characterisation_CollectionParameterUsage->select(c|c.type = type)->first().value_CollectionParameterCharacterisation");
+		} catch (OCLParsingException e) {
+			System.out.println("OCL definition failed: "+e.getMessage());
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
+		helper.setContext(ParameterPackageFactory.eINSTANCE.createParameterUsage());
+		try {
+			helper.define("primitiveCharacterisationValue(type : ParameterPackage::PrimitiveParameterCharacterisationType) : OclAny = self.parameterCharacterisation_ParameterUsage->select(c|c.type = type)->first().value_PrimitiveParameterCharacterisation");
+		} catch (OCLParsingException e) {
+			System.out.println("OCL definition failed: "+e.getMessage());
+			e.printStackTrace();
 			System.exit(-1);
 		}
 	}

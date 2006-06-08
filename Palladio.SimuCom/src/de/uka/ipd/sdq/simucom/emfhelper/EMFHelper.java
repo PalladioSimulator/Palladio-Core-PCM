@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ocl.helper.HelperUtil;
 import org.eclipse.emf.ocl.helper.IOCLHelper;
 import org.eclipse.emf.ocl.helper.OCLParsingException;
@@ -23,11 +23,10 @@ public class EMFHelper {
 		return o;
 	}
 	
-	public static EObject executeOCLQuery(ResourceSet resource, EObject context, String query)
+	public static EObject executeOCLQuery(EObject context, String query)
 	{
 		IOCLHelper helper = HelperUtil.createOCLHelper(
-				new EcoreEnvironmentFactory(
-						resource.getPackageRegistry()));
+				new EcoreEnvironmentFactory(EPackage.Registry.INSTANCE));
 			
 		// set our helper's context object to parse against it
 		helper.setContext(context);

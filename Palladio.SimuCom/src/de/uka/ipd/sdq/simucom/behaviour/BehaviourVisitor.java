@@ -6,6 +6,7 @@ import java.util.Iterator;
 import AssemblyPackage.SystemAssemblyConnector;
 import DerivedContext.Context;
 import DerivedContext.DerivedContextFactory;
+import DerivedContext.IntegerCharacterisationValue;
 import PalladioCM.RepositoryPackage.BasicComponent;
 import PalladioCM.RepositoryPackage.Interface;
 import PalladioCM.RepositoryPackage.Signature;
@@ -22,7 +23,6 @@ import Statistics.NumericSample;
 import SystemPackage.SpecifiedTimeConsumption;
 import SystemPackage.SystemRequiredDelegationConnector;
 import SystemPackage.SystemRequiredRole;
-import de.uka.ipd.sdq.simucom.ModelLoader;
 import de.uka.ipd.sdq.simucom.SimuComModel;
 import de.uka.ipd.sdq.simucom.emfhelper.EMFHelper;
 import de.uka.ipd.sdq.simucom.history.HistoryElement;
@@ -68,7 +68,10 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 		{
 			ParametricResourceDemand paramResDemand = (ParametricResourceDemand) action.getResourceDemand_Action().get(0);
 			SimulatedActiveResource activeResource = myModel.getSimulatedResources().getResourceContainer("Application Server").getActiveResource(paramResDemand.getRequiredResource_ParametricResourceDemand());
-			activeResource.consumeResource(myParentProcess, 100);
+			//TODO!
+			//int demand = ((IntegerCharacterisationValue)EMFHelper.executeOCLQuery(myContext, paramResDemand.getDemand())).getIntValue();
+			int demand = 100;
+			activeResource.consumeResource(myParentProcess, demand);
 		}
 		
 		visit(action.getSuccessor_AbstractAction());
@@ -78,8 +81,19 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 		myHistory.add(new HistoryElement(SimTime.NOW, "Executing loop "
 				+ loop.getEntityName()));
 		visit(loop.getSuccessor_AbstractAction());
+			
+		int actualLoopCount = ((IntegerCharacterisationValue) EMFHelper.executeOCLQuery(myContext, 
+			loop.getIterations())).getIntValue();
+		
+		for (int i=0; i<actualLoopCount; i++)
+		{
+			myHistory.add(new HistoryElement(SimTime.NOW, "Executing loop "+loop.getEntityName()+" iteration: "+i));
+			BehaviourVisitor loopBodyVisitor = new BehaviourVisitor(myParentProcess, myContext);
+			loopBodyVisitor.visit (loop.getBodyBehaviour_Loop());
+		}
+		visit(loop.getSuccessor_AbstractAction());
 	}
-
+	
 	public void visitExternalCall(ExternalCall call) throws Exception {
 		myHistory.add(new HistoryElement(SimTime.NOW,
 				"Calling component service "
@@ -137,7 +151,6 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 		// TODO: Über Interfaces suchen...
 		ServiceEffectSpecification seff = (ServiceEffectSpecification) EMFHelper
 				.executeOCLQuery(
-						ModelLoader.getSystemResourceSet(),
 						targetBasicComponent,
 						"self.serviceEffectSpecifications__BasicComponent->select(seff|seff.describedService__SEFF.serviceName = '"
 								+ targetMethod.getServiceName()
@@ -224,7 +237,6 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 			double randomSample = ((NumericSample) probabilityDistribution
 					.getSamples_DistributionFunction().get((int) index))
 					.getValue();
-			System.out.println("System holds for " + randomSample);
 			myParentProcess.hold(new SimTime(randomSample));
 		}
 	}
