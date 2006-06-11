@@ -54,7 +54,7 @@ public abstract class IdentifierImpl extends EObjectImpl implements Identifier {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	protected IdentifierImpl() {
 		super();
