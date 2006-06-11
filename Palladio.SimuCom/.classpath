@@ -3,8 +3,10 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/DESMOJ"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/EMF"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JFREECHART"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/PCM"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ANTLR"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/StoExParser"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MY_EMF_RUNTIME"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

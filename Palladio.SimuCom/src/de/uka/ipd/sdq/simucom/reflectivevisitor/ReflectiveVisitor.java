@@ -2,10 +2,14 @@ package de.uka.ipd.sdq.simucom.reflectivevisitor;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 
 public class ReflectiveVisitor {
+
+	private static HashMap<Class,HashMap<Class,Method>> cache = new HashMap<Class, HashMap<Class,Method>>();
+		
 	public void visit(Object object) throws Exception {
-		Method method = getMethod(object.getClass());
+		Method method = getMethodWithCache(object.getClass());
 		try
 		{
 			method.invoke(this, new Object[] { object });
@@ -21,6 +25,20 @@ public class ReflectiveVisitor {
 		if (object instanceof Visitable) {
 			callAccept((Visitable) object);
 		}
+	}
+
+	private Method getMethodWithCache(Class typeOfObjectToVisit) {
+		HashMap<Class,Method> thisClassCache = cache.get(this.getClass());
+		if (thisClassCache == null)
+		{
+			thisClassCache = new HashMap<Class, Method>();
+			cache.put(this.getClass(),thisClassCache);
+		}
+		if (!thisClassCache.containsKey(typeOfObjectToVisit))
+		{
+			thisClassCache.put(typeOfObjectToVisit,getMethod(typeOfObjectToVisit));
+		}
+		return thisClassCache.get(typeOfObjectToVisit);
 	}
 
 	public void visitObject(Object o) throws Exception

@@ -17,7 +17,7 @@ public class SimuComModel extends Model {
 	public SimuComModel(Model owner, String myName, boolean showInReport, boolean showInTrace, String configFile) {
 		super(owner, myName, showInReport, showInTrace);
 		this.configFile = configFile;
-		this.distributionStorage = new DistributionObjectsStorage(this);
+		DistributionObjectsStorage.getSingletonInstance().initializeModel(this);
 	}
 
 	@Override

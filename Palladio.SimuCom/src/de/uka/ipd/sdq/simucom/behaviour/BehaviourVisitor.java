@@ -1,12 +1,22 @@
 package de.uka.ipd.sdq.simucom.behaviour;
 
+import java.io.StringBufferInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import org.eclipse.emf.ecore.xml.type.util.XMLTypeResourceImpl.StackFrame;
+import org.eclipse.emf.ocl.expressions.EvaluationVisitor;
+
+import stoex.parser.ExpressionLexer;
+import stoex.parser.ExpressionParser;
+
+import antlr.CommonAST;
+import antlr.RecognitionException;
+import antlr.TokenStreamException;
 
 import AssemblyPackage.SystemAssemblyConnector;
 import DerivedContext.Context;
 import DerivedContext.DerivedContextFactory;
-import DerivedContext.IntegerCharacterisationValue;
 import PalladioCM.RepositoryPackage.BasicComponent;
 import PalladioCM.RepositoryPackage.Interface;
 import PalladioCM.RepositoryPackage.Signature;
@@ -18,8 +28,6 @@ import PalladioCM.SEFFPackage.ParametricResourceDemand;
 import PalladioCM.SEFFPackage.ServiceEffectSpecification;
 import PalladioCM.SEFFPackage.StartAction;
 import PalladioCM.SEFFPackage.StopAction;
-import Statistics.NumericProbabilityMassFunction;
-import Statistics.NumericSample;
 import SystemPackage.SpecifiedTimeConsumption;
 import SystemPackage.SystemRequiredDelegationConnector;
 import SystemPackage.SystemRequiredRole;
@@ -29,6 +37,10 @@ import de.uka.ipd.sdq.simucom.history.HistoryElement;
 import de.uka.ipd.sdq.simucom.history.HistoryHelper;
 import de.uka.ipd.sdq.simucom.reflectivevisitor.ReflectiveVisitor;
 import de.uka.ipd.sdq.simucom.resources.SimulatedActiveResource;
+import de.uka.ipd.sdq.simucom.stochastics.RandomVariableHelper;
+import de.uka.ipd.sdq.simucom.stochastics.StoExEvaluationVisitor;
+import de.uka.ipd.sdq.simucom.stochastics.TypeEnum;
+import de.uka.ipd.sdq.simucom.stochastics.TypeInferenceVisitor;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
 
@@ -39,11 +51,14 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 	protected SimProcess myParentProcess = null;
 
 	protected Context myContext = null;
+	
+	protected SimulatedStackFrame myStackFrame = null;
 
-	public BehaviourVisitor(SimProcess parent, Context callContext) {
+	public BehaviourVisitor(SimProcess parent, Context callContext, SimulatedStackFrame stackFrame) {
 		super();
 		this.myParentProcess = parent;
 		myContext = callContext;
+		myStackFrame = stackFrame;
 	}
 
 	public void visitBehaviour(Behaviour behaviour) throws Exception {
@@ -68,27 +83,20 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 		{
 			ParametricResourceDemand paramResDemand = (ParametricResourceDemand) action.getResourceDemand_Action().get(0);
 			SimulatedActiveResource activeResource = myModel.getSimulatedResources().getResourceContainer("Application Server").getActiveResource(paramResDemand.getRequiredResource_ParametricResourceDemand());
-			//TODO!
-			//int demand = ((IntegerCharacterisationValue)EMFHelper.executeOCLQuery(myContext, paramResDemand.getDemand())).getIntValue();
-			int demand = 100;
+			double demand = RandomVariableHelper.getDoubleSample(paramResDemand.getDemand(),myStackFrame);
 			activeResource.consumeResource(myParentProcess, demand);
 		}
-		
 		visit(action.getSuccessor_AbstractAction());
 	}
 
 	public void visitLoop(Loop loop) throws Exception {
 		myHistory.add(new HistoryElement(SimTime.NOW, "Executing loop "
 				+ loop.getEntityName()));
-		visit(loop.getSuccessor_AbstractAction());
-			
-		int actualLoopCount = ((IntegerCharacterisationValue) EMFHelper.executeOCLQuery(myContext, 
-			loop.getIterations())).getIntValue();
-		
+		int actualLoopCount=RandomVariableHelper.getIntSample(loop.getIterations(), myStackFrame);
 		for (int i=0; i<actualLoopCount; i++)
 		{
 			myHistory.add(new HistoryElement(SimTime.NOW, "Executing loop "+loop.getEntityName()+" iteration: "+i));
-			BehaviourVisitor loopBodyVisitor = new BehaviourVisitor(myParentProcess, myContext);
+			BehaviourVisitor loopBodyVisitor = new BehaviourVisitor(myParentProcess, myContext,myStackFrame);
 			loopBodyVisitor.visit (loop.getBodyBehaviour_Loop());
 		}
 		visit(loop.getSuccessor_AbstractAction());
@@ -112,8 +120,11 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 		} else {
 			// Found assembly Connector -> Perform Component Call
 			Behaviour b = getTargetBehaviourFromAssemblyConnector(foundAssemblyConnector, serviceToBeCalled);
+			SimulatedStackFrame newStackFrame = new SimulatedStackFrame();
+			newStackFrame.buildParametricParameterContext(call.getParametricParameterUsage_ParametricParameterUsage(),myStackFrame);
 			BehaviourVisitor visitor = new BehaviourVisitor(myParentProcess,
-					initializeCallContext(foundAssemblyConnector));
+					initializeCallContext(foundAssemblyConnector),
+					newStackFrame);
 			visitor.visitBehaviour(b);
 		}
 		visit(call.getSuccessor_AbstractAction());
@@ -221,23 +232,12 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 
 	/**
 	 * @param consumption
+	 * @throws TokenStreamException 
+	 * @throws RecognitionException 
 	 */
-	private void waitForSpecifiedTimeSpan(SpecifiedTimeConsumption consumption) {
-		NumericProbabilityMassFunction probabilityDistribution = consumption
-				.getTimeDistribution_SpecifiedTimeConsumption();
-		if (probabilityDistribution.getSamples_DistributionFunction().size() == 1) {
-			myParentProcess.hold(new SimTime(
-					((NumericSample) probabilityDistribution
-							.getSamples_DistributionFunction().get(0))
-							.getValue()));
-		} else {
-			long index = ((SimuComModel) myParentProcess.getModel())
-					.getDistributionObjectsStorage().getIntDistribution(
-							probabilityDistribution).sample();
-			double randomSample = ((NumericSample) probabilityDistribution
-					.getSamples_DistributionFunction().get((int) index))
-					.getValue();
+	private void waitForSpecifiedTimeSpan(SpecifiedTimeConsumption consumption) throws Exception, TokenStreamException {
+		double randomSample = RandomVariableHelper.getDoubleSample(consumption.getSpecification(),myStackFrame);
+		if (randomSample > 0)
 			myParentProcess.hold(new SimTime(randomSample));
-		}
 	}
 }

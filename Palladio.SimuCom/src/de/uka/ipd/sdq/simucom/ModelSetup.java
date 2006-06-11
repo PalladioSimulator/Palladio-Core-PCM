@@ -42,7 +42,7 @@ public class ModelSetup {
 			System.out.println("Error while loading simulation model: "+e.getLocalizedMessage());
 			System.exit(-1);
 		}
-		setupOCLEnvironment();
+		// setupOCLEnvironment();
 	}
 
 	private void setupOCLEnvironment() {

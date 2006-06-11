@@ -2,45 +2,56 @@ package de.uka.ipd.sdq.simucom;
 
 import java.util.Hashtable;
 
-import Statistics.NumericProbabilityMassFunction;
-import Statistics.NumericSample;
+import stoex.stochastics.RandomVariable;
+import stoex.stochastics.Sample;
+
 import desmoj.core.dist.IntDistEmpirical;
 import desmoj.core.simulator.Model;
 
 public class DistributionObjectsStorage {
 	protected Model myModel = null;
-
-	protected Hashtable<String, IntDistEmpirical> decisionNodeDistributions = new Hashtable<String, IntDistEmpirical>();
+	
+	protected static DistributionObjectsStorage singleton = new DistributionObjectsStorage();
 
 	protected Hashtable<String, IntDistEmpirical> intEmpiricalDistributions = new Hashtable<String, IntDistEmpirical>();
 
-	public DistributionObjectsStorage(Model myModel) {
-		this.myModel = myModel;
+	public static DistributionObjectsStorage getSingletonInstance()
+	{
+		return singleton;
+	}
+	
+	public static void initializeModel(Model m)
+	{
+		getSingletonInstance().myModel = m;
 	}
 
-	public IntDistEmpirical getIntDistribution(
-			NumericProbabilityMassFunction distribution) {
-		if (intEmpiricalDistributions.containsKey(distribution.getId()))
-			return intEmpiricalDistributions.get(distribution.getId());
-		else {
-			IntDistEmpirical newDistribution = new IntDistEmpirical(myModel,
-					distribution.getId(), true, false);
-			newDistribution.setSeed(System.currentTimeMillis());
-			double sum = 0.0;
-			for (int i = 0; i < distribution.getSamples_DistributionFunction()
-					.size(); i++) {
-				NumericSample sample = (NumericSample) distribution
-						.getSamples_DistributionFunction().get(i);
-				double probability = sample.getProbability();
-				sum += probability;
-				if (i == distribution.getSamples_DistributionFunction().size() - 1)
-					newDistribution.addEntry(i, 1.0);
-				else
-					newDistribution.addEntry(i, sum);
-			}
-			intEmpiricalDistributions
-					.put(distribution.getId(), newDistribution);
-			return newDistribution;
+	private DistributionObjectsStorage() {
+	}
+
+	private IntDistEmpirical getIntDistribution(RandomVariable distribution, String spec) {
+		IntDistEmpirical newDistribution = new IntDistEmpirical(myModel,
+				spec, true, false);
+		newDistribution.setSeed(System.currentTimeMillis());
+		double sum = 0.0;
+		for (int i = 0; i < distribution.getSamples().size(); i++) {
+			Sample<Integer> sample = (Sample<Integer>) distribution
+					.getSamples().get(i);
+			double probability = sample.getProbability();
+			sum += probability;
+			if (i == distribution.getSamples().size() - 1)
+				newDistribution.addEntry(i, 1.0);
+			else
+				newDistribution.addEntry(i, sum);
 		}
+		return newDistribution;
+	}
+
+	public Object getDistributionSample(String specification, RandomVariable r) {
+		long index = -1;
+		if (!intEmpiricalDistributions.containsKey(specification)) {
+			intEmpiricalDistributions.put(specification, getIntDistribution(r,specification));
+		}
+		index = intEmpiricalDistributions.get(specification).sample();
+		return ((Sample) r.getSamples().get((int) index)).getValue();
 	}
 }

@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucom.resources;
 
+import java.util.HashMap;
+
 import PalladioCM.ResourceEnvironmentPackage.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.simucom.SimuComModel;
 import desmoj.core.simulator.ProcessQueue;
@@ -9,6 +11,7 @@ import desmoj.core.simulator.SimTime;
 public class SimulatedActiveResource extends SimProcess {
 
 	protected ProcessQueue associatedQueue = null;
+	protected HashMap<SimProcess,Double> resourceDemands = null;
 	
 	public SimulatedActiveResource(SimuComModel myModel, ProcessingResourceSpecification spec)
 	{
@@ -18,10 +21,12 @@ public class SimulatedActiveResource extends SimProcess {
 				spec.getActiveResourceType_ActiveResourceSpecification().getEntityName()+" WaitQueue",
 				true,
 				true);
+		resourceDemands = new HashMap<SimProcess, Double>();
 	}
 	
-	public void consumeResource(SimProcess thread, int demand)
+	public void consumeResource(SimProcess thread, double demand)
 	{
+		resourceDemands.put(thread,demand);
 		associatedQueue.insert(thread);
 		activateAfter(thread);
 		thread.passivate();
@@ -37,14 +42,15 @@ public class SimulatedActiveResource extends SimProcess {
 		while (true)
 		{
 			if (associatedQueue.isEmpty()) {
-				this.sendTraceNote("Resource passivated");
 				passivate();
 			}
 			else
 			{
 				SimProcess waitingProcess = associatedQueue.first();
 				associatedQueue.remove(waitingProcess);
-				hold(new SimTime(100));
+				Double demand = resourceDemands.get(waitingProcess);
+				resourceDemands.remove(waitingProcess);
+				hold(new SimTime(demand));
 				waitingProcess.activateAfter(this);
 			}
 		}

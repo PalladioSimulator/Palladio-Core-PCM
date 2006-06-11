@@ -43,7 +43,6 @@ public class ClosedWorkloadDriver extends SimProcess {
 	}
 
 	public Observable getResponseTimeSensor() {
-		// TODO Auto-generated method stub
 		return supplier;
 	}
 

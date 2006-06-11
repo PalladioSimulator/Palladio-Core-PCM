@@ -47,30 +47,4 @@ public class SimulatedUsageScenario
 			driver.activateNow();
 		}
 	}
-
-//	public void lifeCycle() {
-//		Workload load = myScenario.getWorkload_UsageScenario(); 
-//
-//		try
-//		{
-//			while (true) {
-//				WorkloadVisitor visitor = new WorkloadVisitor(this,callContext);
-//				visitor.visitScenarioBehaviour(myScenario.getScenarioBehaviour_UsageScenario());
-//				responseTimeDistribution.update(this.currentTime().getTimeValue()-activityStart);
-//				supplier.newResponseTimeMeassurment(this.currentTime().getTimeValue()-activityStart);
-//				
-//				if (load.eClass() == UsageModelPackagePackage.eINSTANCE.getClosedWorkload())
-//				{
-//					ClosedWorkload closedLoad = (ClosedWorkload)load;
-//					this.hold(new SimTime(closedLoad.getThinkTime()));
-//				}
-//			}
-//		} catch (SimFinishedException ex) {
-//			System.out.println("UsageScenario "+getName()+" aborted due to SimTime limit");
-//		} catch (Exception ex) {
-//			System.out.println("Simulated User caused exception: "
-//					+ ex.getMessage());
-//			// System.exit(-1);
-//		}
-//	}
 }
