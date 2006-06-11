@@ -6,6 +6,7 @@
     modelPluginID="PalladioCM.Repository" modelName="PalladioCM.Repository" testsDirectory="/PalladioCM.Repository/src"
     importerID="org.eclipse.emf.importer.ecore" usedGenPackages="../../Palladio.Annotations/model/Annotations.genmodel#//AnnotationPackage ../../Palladio.Identifier/model/Identifier.genmodel#//IdentifierPackage">
   <foreignModel>RepositoryPackage.ecore</foreignModel>
+  <foreignModel>ParameterPackage.ecore</foreignModel>
   <genPackages prefix="RepositoryPackage" basePackage="PalladioCM" disposableProviderFactory="true"
       ecorePackage="RepositoryPackage.ecore#/">
     <genEnums ecoreEnum="RepositoryPackage.ecore#//ParameterModifier">
@@ -95,6 +96,34 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RepositoryPackage.ecore#//BasicComponent/serviceEffectSpecifications__BasicComponent"/>
     </genClasses>
   </genPackages>
+  <genPackages prefix="ParameterPackage" disposableProviderFactory="true" ecorePackage="ParameterPackage.ecore#/">
+    <genEnums ecoreEnum="ParameterPackage.ecore#//CollectionParameterCharacterisationType">
+      <genEnumLiterals ecoreEnumLiteral="ParameterPackage.ecore#//CollectionParameterCharacterisationType/NUMBER_OF_ELEMENTS"/>
+      <genEnumLiterals ecoreEnumLiteral="ParameterPackage.ecore#//CollectionParameterCharacterisationType/STRUCTURE"/>
+    </genEnums>
+    <genEnums ecoreEnum="ParameterPackage.ecore#//PrimitiveParameterCharacterisationType">
+      <genEnumLiterals ecoreEnumLiteral="ParameterPackage.ecore#//PrimitiveParameterCharacterisationType/VALUE"/>
+      <genEnumLiterals ecoreEnumLiteral="ParameterPackage.ecore#//PrimitiveParameterCharacterisationType/BYTESIZE"/>
+      <genEnumLiterals ecoreEnumLiteral="ParameterPackage.ecore#//PrimitiveParameterCharacterisationType/DATATYPE"/>
+    </genEnums>
+    <genClasses ecoreClass="ParameterPackage.ecore#//ParameterUsage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParameterPackage.ecore#//ParameterUsage/parameter_ParameterUsage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ParameterPackage.ecore#//ParameterUsage/parameterCharacterisation_ParameterUsage"/>
+    </genClasses>
+    <genClasses ecoreClass="ParameterPackage.ecore#//PrimitiveParameterCharacterisation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParameterPackage.ecore#//PrimitiveParameterCharacterisation/type"/>
+    </genClasses>
+    <genClasses ecoreClass="ParameterPackage.ecore#//CompositeParameterUsage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ParameterPackage.ecore#//CompositeParameterUsage/innerParameters_ParameterUsage"/>
+    </genClasses>
+    <genClasses ecoreClass="ParameterPackage.ecore#//CollectionParameterUsage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ParameterPackage.ecore#//CollectionParameterUsage/innerElement_ParameterUsage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ParameterPackage.ecore#//CollectionParameterUsage/parameterCharacterisation_CollectionParameterUsage"/>
+    </genClasses>
+    <genClasses ecoreClass="ParameterPackage.ecore#//CollectionParameterCharacterisation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParameterPackage.ecore#//CollectionParameterCharacterisation/type"/>
+    </genClasses>
+  </genPackages>
   <genPackages prefix="CorePackage" basePackage="PalladioCM" disposableProviderFactory="true"
       ecorePackage="PalladioCM.CorePackage.ecore#/">
     <nestedGenPackages prefix="Entity" basePackage="PalladioCM.CorePackage" disposableProviderFactory="true"
@@ -108,6 +137,12 @@
         ecorePackage="PalladioCM.CorePackage.ecore#//Connectors">
       <genClasses image="false" ecoreClass="PalladioCM.CorePackage.ecore#//Connectors/Connector"/>
     </nestedGenPackages>
+    <nestedGenPackages prefix="Stochastics" basePackage="PalladioCM.CorePackage" disposableProviderFactory="true"
+        ecorePackage="PalladioCM.CorePackage.ecore#//Stochastics">
+      <genClasses ecoreClass="PalladioCM.CorePackage.ecore#//Stochastics/RandomVariable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PalladioCM.CorePackage.ecore#//Stochastics/RandomVariable/specification"/>
+      </genClasses>
+    </nestedGenPackages>
   </genPackages>
   <genPackages prefix="ProtocolPackage" basePackage="PalladioCM" disposableProviderFactory="true"
       ecorePackage="ProtocolPackage.ecore#/">
@@ -120,19 +155,13 @@
   </genPackages>
   <genPackages prefix="SEFFPackage" basePackage="PalladioCM" disposableProviderFactory="true"
       ecorePackage="SEFFPackage.ecore#/">
-    <genClasses ecoreClass="SEFFPackage.ecore#//SystemExternalCall"/>
-    <genClasses image="false" ecoreClass="SEFFPackage.ecore#//ExternalCall">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//ExternalCall/calledService_ExternalService"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//ExternalCall/parametricParameterUsage_ExternalCall"/>
+    <genClasses ecoreClass="SEFFPackage.ecore#//StopAction"/>
+    <genClasses image="false" ecoreClass="SEFFPackage.ecore#//Action">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Action/resourceDemand_Action"/>
     </genClasses>
     <genClasses image="false" ecoreClass="SEFFPackage.ecore#//AbstractAction">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//AbstractAction/predecessor_AbstractAction"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//AbstractAction/successor_AbstractAction"/>
-    </genClasses>
-    <genClasses ecoreClass="SEFFPackage.ecore#//ParametricParameterUsage"/>
-    <genClasses ecoreClass="SEFFPackage.ecore#//StopAction"/>
-    <genClasses image="false" ecoreClass="SEFFPackage.ecore#//Action">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Action/resourceDemand_Action"/>
     </genClasses>
     <genClasses ecoreClass="SEFFPackage.ecore#//ParametricResourceDemand">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//ParametricResourceDemand/action_ParametricResourceDemand"/>
@@ -155,7 +184,10 @@
     <genClasses ecoreClass="SEFFPackage.ecore#//Behaviour">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Behaviour/steps_Behaviour"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Behaviour/parametricResourceDemands_Behaviour"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Behaviour/parametricParameterUsages_Behaviour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Behaviour/parametricParameterUsage_Behaviour"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="SEFFPackage.ecore#//ParametricParameterUsage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//ParametricParameterUsage/characterisedParameter_ParametricParameterUsage"/>
     </genClasses>
     <genClasses ecoreClass="SEFFPackage.ecore#//InternalAction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SEFFPackage.ecore#//InternalAction/failureProbability"/>
@@ -163,7 +195,10 @@
     <genClasses ecoreClass="SEFFPackage.ecore#//Fork">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Fork/forkedBehaviours_Fork"/>
     </genClasses>
-    <genClasses ecoreClass="SEFFPackage.ecore#//ComponentExternalCall"/>
+    <genClasses image="false" ecoreClass="SEFFPackage.ecore#//ExternalCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//ExternalCall/calledService_ExternalService"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//ExternalCall/parametricParameterUsage_ParametricParameterUsage"/>
+    </genClasses>
     <genClasses ecoreClass="SEFFPackage.ecore#//Branch">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Branch/branches_Branch"/>
     </genClasses>
@@ -173,6 +208,12 @@
     </genClasses>
     <genClasses ecoreClass="SEFFPackage.ecore#//Aquire">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SEFFPackage.ecore#//Aquire/resourceType_Aquire"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//CollectionParametricParameterUsage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SEFFPackage.ecore#//CollectionParametricParameterUsage/type"/>
+    </genClasses>
+    <genClasses ecoreClass="SEFFPackage.ecore#//PrimitiveParametricParameterUsage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SEFFPackage.ecore#//PrimitiveParametricParameterUsage/type"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="ResourceTypePackage" basePackage="PalladioCM" disposableProviderFactory="true"

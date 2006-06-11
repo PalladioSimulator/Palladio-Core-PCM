@@ -42,7 +42,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ResourceEnvironment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkingresource" upperBound="-1"
         eType="#//LinkingResource" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resourcecontainer" upperBound="-1"
-        eType="#//ResourceContainer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_ResourceEnvironment"
+        upperBound="-1" eType="#//ResourceContainer" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

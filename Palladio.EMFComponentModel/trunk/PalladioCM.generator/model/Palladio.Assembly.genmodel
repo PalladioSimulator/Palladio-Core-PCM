@@ -4,7 +4,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/PalladioCM.Assembly/src"
     editDirectory="/PalladioCM.Assembly/src" editorDirectory="/PalladioCM.Assembly/src"
     modelPluginID="PalladioCM.Assembly" modelName="PalladioCM.Assembly" testsDirectory="/PalladioCM.Assembly/src"
-    importerID="org.eclipse.emf.importer.ecore" usedGenPackages="PalladioCM.RepositoryPackage.genmodel#//RepositoryPackage PalladioCM.RepositoryPackage.genmodel#//CorePackage PalladioCM.RepositoryPackage.genmodel#//ProtocolPackage PalladioCM.RepositoryPackage.genmodel#//SEFFPackage PalladioCM.RepositoryPackage.genmodel#//ResourceTypePackage ../../Palladio.Identifier/model/Identifier.genmodel#//IdentifierPackage ../../Palladio.Annotations/model/Annotations.genmodel#//AnnotationPackage">
+    importerID="org.eclipse.emf.importer.ecore" usedGenPackages="PalladioCM.RepositoryPackage.genmodel#//RepositoryPackage PalladioCM.RepositoryPackage.genmodel#//CorePackage PalladioCM.RepositoryPackage.genmodel#//ProtocolPackage PalladioCM.RepositoryPackage.genmodel#//SEFFPackage PalladioCM.RepositoryPackage.genmodel#//ResourceTypePackage ../../Palladio.Identifier/model/Identifier.genmodel#//IdentifierPackage ../../Palladio.Annotations/model/Annotations.genmodel#//AnnotationPackage PalladioCM.RepositoryPackage.genmodel#//ParameterPackage">
   <foreignModel>AssemblyPackage.ecore</foreignModel>
   <genPackages prefix="AssemblyPackage" disposableProviderFactory="true" ecorePackage="AssemblyPackage.ecore#/">
     <genClasses ecoreClass="AssemblyPackage.ecore#//SystemAssemblyConnector">

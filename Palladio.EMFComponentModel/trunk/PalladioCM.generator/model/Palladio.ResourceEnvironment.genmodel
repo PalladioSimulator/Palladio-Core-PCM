@@ -34,7 +34,7 @@
     </genClasses>
     <genClasses ecoreClass="ResourceEnvironmentPackage.ecore#//ResourceEnvironment">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceEnvironmentPackage.ecore#//ResourceEnvironment/linkingresource"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceEnvironmentPackage.ecore#//ResourceEnvironment/resourcecontainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceEnvironmentPackage.ecore#//ResourceEnvironment/resourceContainer_ResourceEnvironment"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

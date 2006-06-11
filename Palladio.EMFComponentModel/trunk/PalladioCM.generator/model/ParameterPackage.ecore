@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ParameterPackage"
+    nsURI="http:///PalladioCM/ParameterPackage.ecore" nsPrefix="PalladioCM.ParameterPackage">
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterUsage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_ParameterUsage"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Parameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterCharacterisation_ParameterUsage"
+        upperBound="-1" eType="#//PrimitiveParameterCharacterisation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CollectionParameterCharacterisationType">
+    <eLiterals name="NUMBER_OF_ELEMENTS"/>
+    <eLiterals name="STRUCTURE" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveParameterCharacterisationType">
+    <eLiterals name="VALUE"/>
+    <eLiterals name="BYTESIZE" value="1"/>
+    <eLiterals name="DATATYPE" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveParameterCharacterisation"
+      eSuperTypes="PalladioCM.CorePackage.ecore#//Stochastics/RandomVariable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//PrimitiveParameterCharacterisationType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeParameterUsage" eSuperTypes="#//ParameterUsage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="innerParameters_ParameterUsage"
+        upperBound="-1" eType="#//ParameterUsage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionParameterUsage" eSuperTypes="#//ParameterUsage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="innerElement_ParameterUsage"
+        lowerBound="1" eType="#//ParameterUsage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterCharacterisation_CollectionParameterUsage"
+        upperBound="-1" eType="#//CollectionParameterCharacterisation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionParameterCharacterisation"
+      eSuperTypes="PalladioCM.CorePackage.ecore#//Stochastics/RandomVariable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//CollectionParameterCharacterisationType"/>
+  </eClassifiers>
+</ecore:EPackage>

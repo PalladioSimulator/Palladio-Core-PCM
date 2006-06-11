@@ -3,24 +3,16 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SEFFPackage"
     nsURI="http:///PalladioCM/SEFFPackage.ecore" nsPrefix="PalladioCM.SEFFPackage">
-  <eClassifiers xsi:type="ecore:EClass" name="SystemExternalCall" eSuperTypes="#//ExternalCall"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternalCall" abstract="true" eSuperTypes="#//AbstractAction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="calledService_ExternalService"
-        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Signature"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parametricParameterUsage_ExternalCall"
-        upperBound="-1" eType="#//ParametricParameterUsage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StopAction" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//AbstractAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemand_Action"
+        upperBound="-1" eType="#//ParametricResourceDemand" eOpposite="#//ParametricResourceDemand/action_ParametricResourceDemand"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractAction" abstract="true" eSuperTypes="PalladioCM.CorePackage.ecore#//Entity/Entity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor_AbstractAction"
         eType="#//AbstractAction" eOpposite="#//AbstractAction/successor_AbstractAction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="successor_AbstractAction"
         eType="#//AbstractAction" eOpposite="#//AbstractAction/predecessor_AbstractAction"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParametricParameterUsage"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StopAction" eSuperTypes="#//Action"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//AbstractAction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemand_Action"
-        upperBound="-1" eType="#//ParametricResourceDemand" eOpposite="#//ParametricResourceDemand/action_ParametricResourceDemand"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
     <eStructuralFeatures xsi:type="ecore:EReference" name="action_ParametricResourceDemand"
@@ -54,8 +46,13 @@
         eType="#//AbstractAction" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parametricResourceDemands_Behaviour"
         upperBound="-1" eType="#//ParametricResourceDemand" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parametricParameterUsages_Behaviour"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametricParameterUsage_Behaviour"
         upperBound="-1" eType="#//ParametricParameterUsage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParametricParameterUsage" abstract="true"
+      eSuperTypes="PalladioCM.CorePackage.ecore#//Stochastics/RandomVariable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="characterisedParameter_ParametricParameterUsage"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Parameter"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InternalAction" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureProbability" lowerBound="1"
@@ -65,7 +62,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="forkedBehaviours_Fork"
         upperBound="-1" eType="#//Behaviour" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComponentExternalCall" eSuperTypes="#//ExternalCall"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalCall" eSuperTypes="#//AbstractAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calledService_ExternalService"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Signature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametricParameterUsage_ParametricParameterUsage"
+        upperBound="-1" eType="#//ParametricParameterUsage"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Branch" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="branches_Branch" upperBound="-1"
         eType="#//BranchTransition" containment="true"/>
@@ -79,5 +81,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Aquire" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Aquire" lowerBound="1"
         eType="ecore:EClass ResourceTypePackage.ecore#//PassiveResourceType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionParametricParameterUsage"
+      eSuperTypes="#//ParametricParameterUsage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EEnum ParameterPackage.ecore#//CollectionParameterCharacterisationType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveParametricParameterUsage" eSuperTypes="#//ParametricParameterUsage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EEnum ParameterPackage.ecore#//PrimitiveParameterCharacterisationType"/>
   </eClassifiers>
 </ecore:EPackage>

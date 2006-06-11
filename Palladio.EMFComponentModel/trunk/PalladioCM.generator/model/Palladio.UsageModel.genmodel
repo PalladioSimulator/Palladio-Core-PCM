@@ -4,7 +4,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/PalladioCM.UsageModel/src"
     editDirectory="/PalladioCM.UsageModel/src" editorDirectory="/PalladioCM.UsageModel/src"
     modelPluginID="PalladioCM.UsageModel" modelName="PalladioCM.UsageModel" testsDirectory="/PalladioCM.UsageModel/src"
-    importerID="org.eclipse.emf.importer.ecore" usedGenPackages="../../Palladio.Annotations/model/Annotations.genmodel#//AnnotationPackage ../../Palladio.Identifier/model/Identifier.genmodel#//IdentifierPackage ../../Palladio.Statistics/model/Statistics.genmodel#//Statistics Palladio.Allocation.genmodel#//AllocationPackage Palladio.Assembly.genmodel#//AssemblyPackage PalladioCM.RepositoryPackage.genmodel#//RepositoryPackage PalladioCM.RepositoryPackage.genmodel#//CorePackage PalladioCM.RepositoryPackage.genmodel#//ProtocolPackage PalladioCM.RepositoryPackage.genmodel#//SEFFPackage PalladioCM.RepositoryPackage.genmodel#//ResourceTypePackage Palladio.ResourceEnvironment.genmodel#//ResourceEnvironmentPackage Palladio.System.genmodel#//SystemPackage">
+    importerID="org.eclipse.emf.importer.ecore" usedGenPackages="../../Palladio.Annotations/model/Annotations.genmodel#//AnnotationPackage ../../Palladio.Identifier/model/Identifier.genmodel#//IdentifierPackage Palladio.Allocation.genmodel#//AllocationPackage Palladio.Assembly.genmodel#//AssemblyPackage PalladioCM.RepositoryPackage.genmodel#//RepositoryPackage PalladioCM.RepositoryPackage.genmodel#//ParameterPackage PalladioCM.RepositoryPackage.genmodel#//CorePackage PalladioCM.RepositoryPackage.genmodel#//ProtocolPackage PalladioCM.RepositoryPackage.genmodel#//SEFFPackage PalladioCM.RepositoryPackage.genmodel#//ResourceTypePackage Palladio.ResourceEnvironment.genmodel#//ResourceEnvironmentPackage Palladio.System.genmodel#//SystemPackage">
   <foreignModel>UsageModelPackage.ecore</foreignModel>
   <genPackages prefix="UsageModelPackage" disposableProviderFactory="true" ecorePackage="UsageModelPackage.ecore#/">
     <genClasses ecoreClass="UsageModelPackage.ecore#//UsageModel">
@@ -29,18 +29,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UsageModelPackage.ecore#//ClosedWorkload/population"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UsageModelPackage.ecore#//ClosedWorkload/thinkTime"/>
     </genClasses>
-    <genClasses ecoreClass="UsageModelPackage.ecore#//EntryLevelComponentCall">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UsageModelPackage.ecore#//EntryLevelComponentCall/actualParamterUsage_EntryLevelComponentCall"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UsageModelPackage.ecore#//EntryLevelComponentCall/systemProvidedRole_EntryLevelComponentCall"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UsageModelPackage.ecore#//EntryLevelComponentCall/signature_EntryLevelComponentCall"/>
-    </genClasses>
-    <genClasses ecoreClass="UsageModelPackage.ecore#//ActualParameterUsage">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UsageModelPackage.ecore#//ActualParameterUsage/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UsageModelPackage.ecore#//ActualParameterUsage/elements"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UsageModelPackage.ecore#//ActualParameterUsage/size"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UsageModelPackage.ecore#//ActualParameterUsage/structure"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UsageModelPackage.ecore#//ActualParameterUsage/parameter_ActualParameterUsage"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UsageModelPackage.ecore#//ActualParameterUsage/value_ActualParameterUsage"/>
+    <genClasses ecoreClass="UsageModelPackage.ecore#//EntryLevelSystemCall">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UsageModelPackage.ecore#//EntryLevelSystemCall/actualParamterUsage_EntryLevelSystemCall"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UsageModelPackage.ecore#//EntryLevelSystemCall/systemProvidedRole_EntryLevelSystemCall"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UsageModelPackage.ecore#//EntryLevelSystemCall/signature_EntryLevelSystemCall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UsageModelPackage.ecore#//EntryLevelSystemCall/actualparameterusage"/>
     </genClasses>
     <genClasses ecoreClass="UsageModelPackage.ecore#//Branch">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UsageModelPackage.ecore#//Branch/branchedBehaviour_Branch"/>

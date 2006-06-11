@@ -7,7 +7,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="usageScenario_UsageModel"
         upperBound="-1" eType="#//UsageScenario" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UsageScenario">
+  <eClassifiers xsi:type="ecore:EClass" name="UsageScenario" eSuperTypes="PalladioCM.CorePackage.ecore#//Entity/Entity">
     <eStructuralFeatures xsi:type="ecore:EReference" name="workload_UsageScenario"
         lowerBound="1" eType="#//Workload" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scenarioBehaviour_UsageScenario"
@@ -34,28 +34,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="thinkTime" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EntryLevelComponentCall" eSuperTypes="#//AbstractUserAction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actualParamterUsage_EntryLevelComponentCall"
-        upperBound="-1" eType="#//ActualParameterUsage" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="systemProvidedRole_EntryLevelComponentCall"
-        lowerBound="1" eType="ecore:EClass SystemPackage.ecore#//SystemProvidedRole"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="signature_EntryLevelComponentCall"
-        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Signature"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ActualParameterUsage">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="structure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_ActualParameterUsage"
-        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Parameter"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value_ActualParameterUsage"
-        lowerBound="1" eType="ecore:EClass ../../Palladio.Statistics/model/Statistics.ecore#//NumericProbabilityMassFunction"
+  <eClassifiers xsi:type="ecore:EClass" name="EntryLevelSystemCall" eSuperTypes="#//AbstractUserAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualParamterUsage_EntryLevelSystemCall"
+        upperBound="-1" eType="ecore:EClass ParameterPackage.ecore#//ParameterUsage"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemProvidedRole_EntryLevelSystemCall"
+        lowerBound="1" eType="ecore:EClass SystemPackage.ecore#//SystemProvidedRole"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signature_EntryLevelSystemCall"
+        lowerBound="1" eType="ecore:EClass RepositoryPackage.ecore#//Signature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualparameterusage" upperBound="-1"
+        eType="ecore:EClass ParameterPackage.ecore#//ParameterUsage" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Branch" eSuperTypes="#//AbstractUserAction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="branchedBehaviour_Branch"

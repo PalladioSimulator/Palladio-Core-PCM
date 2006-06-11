@@ -4,7 +4,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/PalladioCM.System/src"
     editDirectory="/PalladioCM.System/src" editorDirectory="/PalladioCM.System/src"
     modelPluginID="PalladioCM.System" modelName="PalladioCM.System" testsDirectory="/PalladioCM.System/src"
-    importerID="org.eclipse.emf.importer.ecore" usedGenPackages="../../Palladio.Annotations/model/Annotations.genmodel#//AnnotationPackage ../../Palladio.Identifier/model/Identifier.genmodel#//IdentifierPackage Palladio.Allocation.genmodel#//AllocationPackage Palladio.Assembly.genmodel#//AssemblyPackage PalladioCM.RepositoryPackage.genmodel#//RepositoryPackage PalladioCM.RepositoryPackage.genmodel#//CorePackage PalladioCM.RepositoryPackage.genmodel#//ProtocolPackage PalladioCM.RepositoryPackage.genmodel#//SEFFPackage PalladioCM.RepositoryPackage.genmodel#//ResourceTypePackage Palladio.ResourceEnvironment.genmodel#//ResourceEnvironmentPackage">
+    importerID="org.eclipse.emf.importer.ecore" usedGenPackages="../../Palladio.Annotations/model/Annotations.genmodel#//AnnotationPackage ../../Palladio.Identifier/model/Identifier.genmodel#//IdentifierPackage Palladio.Allocation.genmodel#//AllocationPackage Palladio.Assembly.genmodel#//AssemblyPackage PalladioCM.RepositoryPackage.genmodel#//RepositoryPackage PalladioCM.RepositoryPackage.genmodel#//CorePackage PalladioCM.RepositoryPackage.genmodel#//ProtocolPackage PalladioCM.RepositoryPackage.genmodel#//SEFFPackage PalladioCM.RepositoryPackage.genmodel#//ResourceTypePackage Palladio.ResourceEnvironment.genmodel#//ResourceEnvironmentPackage PalladioCM.RepositoryPackage.genmodel#//ParameterPackage">
   <foreignModel>SystemPackage.ecore</foreignModel>
   <genPackages prefix="SystemPackage" disposableProviderFactory="true" ecorePackage="SystemPackage.ecore#/">
     <genClasses ecoreClass="SystemPackage.ecore#//SystemProvidedRole">
@@ -24,11 +24,15 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SystemPackage.ecore#//SystemRequiredRole/system_SystemRequiredRole"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemPackage.ecore#//SystemRequiredRole/interface_SystemRequiredRole"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemPackage.ecore#//SystemRequiredRole/requiredDelegationConnector_SystemRequiredRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SystemPackage.ecore#//SystemRequiredRole/specifiedTimeConsumption_SystemRequiredRole"/>
     </genClasses>
     <genClasses ecoreClass="SystemPackage.ecore#//SystemRequiredDelegationConnector">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemPackage.ecore#//SystemRequiredDelegationConnector/systemRequiredRole_SystemRequiredDelegationConnector"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemPackage.ecore#//SystemRequiredDelegationConnector/assemblyContext_SystemRequiredDelegationConnector"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemPackage.ecore#//SystemRequiredDelegationConnector/requiredRole_SystemRequiredDelegationConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="SystemPackage.ecore#//SpecifiedTimeConsumption">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemPackage.ecore#//SpecifiedTimeConsumption/signature_SpecifiedTimeConsumption"/>
     </genClasses>
     <genClasses ecoreClass="SystemPackage.ecore#//SystemProvidedDelegationConnector">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SystemPackage.ecore#//SystemProvidedDelegationConnector/systemProvidedRole_SystemProvidedDelegationConnector"/>
