@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UsageModelPackage:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PalladioCM.ParameterPackage="http:///PalladioCM/ParameterPackage.ecore" xmlns:UsageModelPackage="http:///UsageModelPackage.ecore">
+  <usageScenario_UsageModel id="_nGgGMPJBEdqv3_RQD0-jSA">
+    <workload_UsageScenario xsi:type="UsageModelPackage:ClosedWorkload" population="1"/>
+    <scenarioBehaviour_UsageScenario>
+      <actions_ScenarioBehaviour xsi:type="UsageModelPackage:Start" successor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1"/>
+      <actions_ScenarioBehaviour xsi:type="UsageModelPackage:EntryLevelSystemCall" successor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2" predecessor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.0">
+        <actualParamterUsage_EntryLevelSystemCall xsi:type="PalladioCM.ParameterPackage:CollectionParameterUsage">
+          <parameter_ParameterUsage href="My.repositorypackage#//@interfaces__Repository.8/@signatures__Interface.0/@parameters__Signature.0"/>
+          <innerElement_ParameterUsage>
+            <parameterCharacterisation_ParameterUsage type="BYTESIZE" specification="IntRandomVar[(0.1;3500000)(0.6;4000000)(0.3;4500000)]">
+            </parameterCharacterisation_ParameterUsage>
+          </innerElement_ParameterUsage>
+          <parameterCharacterisation_CollectionParameterUsage specification="IntRandomVar[(0.1;8)(0.1;9)(0.2;10)(0.4;11)(0.2;12)]">
+          </parameterCharacterisation_CollectionParameterUsage>
+        </actualParamterUsage_EntryLevelSystemCall>
+        <systemProvidedRole_EntryLevelSystemCall href="My.systempackage#//@systemProvidedRole_System.0"/>
+        <signature_EntryLevelSystemCall href="My.repositorypackage#//@interfaces__Repository.8/@signatures__Interface.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="UsageModelPackage:Stop" predecessor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1"/>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+</UsageModelPackage:UsageModel>

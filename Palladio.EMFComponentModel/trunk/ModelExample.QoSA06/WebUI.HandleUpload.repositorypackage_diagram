@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:PalladioCM.SEFFPackage="http:///PalladioCM/SEFFPackage.ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmi:id="_PLz_8PmaEdqNruD62P1j1Q" type="PalladioCM.Repository" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_PPF9cPmaEdqNruD62P1j1Q" type="1009">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_PPF9cfmaEdqNruD62P1j1Q"/>
+    <element xmi:type="PalladioCM.SEFFPackage:StartAction" href="My.repositorypackage#_D9tVkPGTEdqJcvwivguuBw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PPF9cvmaEdqNruD62P1j1Q" x="84" y="192"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_PPF9c_maEdqNruD62P1j1Q" type="1005">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_PPF9dPmaEdqNruD62P1j1Q"/>
+    <element xmi:type="PalladioCM.SEFFPackage:StopAction" href="My.repositorypackage#_D9tVkfGTEdqJcvwivguuBw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PPF9dfmaEdqNruD62P1j1Q" x="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_PPF9dvmaEdqNruD62P1j1Q" type="1006">
+    <children xmi:type="notation:Node" xmi:id="_PPF9efmaEdqNruD62P1j1Q" type="4007"/>
+    <children xmi:type="notation:Node" xmi:id="_PPF9evmaEdqNruD62P1j1Q" type="4008"/>
+    <children xmi:type="notation:Node" xmi:id="_PPPucPmaEdqNruD62P1j1Q" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_PPY4YPmaEdqNruD62P1j1Q" type="2001">
+        <children xmi:type="notation:Node" xmi:id="_PPipYPmaEdqNruD62P1j1Q" type="5002">
+          <children xmi:type="notation:Node" xmi:id="_PPipZfmaEdqNruD62P1j1Q" type="2002">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_PPipZvmaEdqNruD62P1j1Q"/>
+            <element xmi:type="PalladioCM.SEFFPackage:StartAction" href="My.repositorypackage#_D9tVk_GTEdqJcvwivguuBw"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PPipZ_maEdqNruD62P1j1Q" x="20" y="54"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_PPrzUPmaEdqNruD62P1j1Q" type="2003">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_PPrzUfmaEdqNruD62P1j1Q"/>
+            <element xmi:type="PalladioCM.SEFFPackage:StopAction" href="My.repositorypackage#_D9tVlPGTEdqJcvwivguuBw"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PPrzUvmaEdqNruD62P1j1Q" x="271" y="42"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_PPrzU_maEdqNruD62P1j1Q" type="2005">
+            <children xmi:type="notation:Node" xmi:id="_PPrzVvmaEdqNruD62P1j1Q" type="4004"/>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_PPrzVPmaEdqNruD62P1j1Q"/>
+            <element xmi:type="PalladioCM.SEFFPackage:ExternalCall" href="My.repositorypackage#_D9tVlfGTEdqJcvwivguuBw"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PPrzVfmaEdqNruD62P1j1Q" x="91" y="54"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_PPrzV_maEdqNruD62P1j1Q" type="2006">
+            <children xmi:type="notation:Node" xmi:id="_PP_VUPmaEdqNruD62P1j1Q" type="4005"/>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_PPrzWPmaEdqNruD62P1j1Q"/>
+            <element xmi:type="PalladioCM.SEFFPackage:PrimitiveParametricParameterUsage" href="My.repositorypackage#//@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@parametricParameterUsage_Behaviour.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PPrzWfmaEdqNruD62P1j1Q" x="43" y="126"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_PPipY_maEdqNruD62P1j1Q"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_PPipZPmaEdqNruD62P1j1Q"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_PPY4YfmaEdqNruD62P1j1Q"/>
+        <element xmi:type="PalladioCM.SEFFPackage:Behaviour" href="My.repositorypackage#//@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PPY4YvmaEdqNruD62P1j1Q" width="320" height="186"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_PPPuc_maEdqNruD62P1j1Q"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_PPPudPmaEdqNruD62P1j1Q"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_PPF9d_maEdqNruD62P1j1Q"/>
+    <element xmi:type="PalladioCM.SEFFPackage:Loop" href="My.repositorypackage#_D9tVkvGTEdqJcvwivguuBw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PPF9ePmaEdqNruD62P1j1Q" x="156" y="72" width="333" height="263"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_PPPudfmaEdqNruD62P1j1Q" type="1010">
+    <children xmi:type="notation:Node" xmi:id="_PPPuePmaEdqNruD62P1j1Q" type="4011"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_PPPudvmaEdqNruD62P1j1Q"/>
+    <element xmi:type="PalladioCM.SEFFPackage:ExternalCall" href="My.repositorypackage#_D9tVlvGTEdqJcvwivguuBw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PPPud_maEdqNruD62P1j1Q" x="252"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_PLz_8fmaEdqNruD62P1j1Q"/>
+  <element xmi:type="PalladioCM.SEFFPackage:Behaviour" href="My.repositorypackage#//@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0"/>
+</notation:Diagram>

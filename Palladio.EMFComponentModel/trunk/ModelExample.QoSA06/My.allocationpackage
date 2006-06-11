@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PalladioCM.AllocationPackage:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:PalladioCM.AllocationPackage="http:///PalladioCM/AllocationPackage.ecore">
+  <allocationContexts>
+    <referencedAssemblyContext_AllocationContext href="My.assemblypackage#AudioStore_AssCtx"/>
+    <resourceContainer_AllocationContext href="My.resourceenvironmentpackage#Application Server"/>
+  </allocationContexts>
+  <allocationContexts>
+    <referencedAssemblyContext_AllocationContext href="My.assemblypackage#EncodingAdapter_AssCtx"/>
+    <resourceContainer_AllocationContext href="My.resourceenvironmentpackage#Application Server"/>
+  </allocationContexts>
+  <allocationContexts>
+    <referencedAssemblyContext_AllocationContext href="My.assemblypackage#OggEncoder_AssCtx"/>
+    <resourceContainer_AllocationContext href="My.resourceenvironmentpackage#Application Server"/>
+  </allocationContexts>
+  <allocationContexts>
+    <referencedAssemblyContext_AllocationContext href="My.assemblypackage#WebUI_AssCtx"/>
+    <resourceContainer_AllocationContext href="My.resourceenvironmentpackage#Application Server"/>
+  </allocationContexts>
+</PalladioCM.AllocationPackage:Allocation>

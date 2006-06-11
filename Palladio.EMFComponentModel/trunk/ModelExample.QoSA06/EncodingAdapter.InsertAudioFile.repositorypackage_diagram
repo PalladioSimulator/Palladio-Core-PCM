@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PalladioCM.SEFFPackage="http:///PalladioCM/SEFFPackage.ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmi:id="_U4kxoPmeEdqVpI5LkquxuQ" type="PalladioCM.Repository" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_U6p1QPmeEdqVpI5LkquxuQ" type="1009">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_U6p1QfmeEdqVpI5LkquxuQ"/>
+    <element xmi:type="PalladioCM.SEFFPackage:StartAction" href="My.repositorypackage#_D9jklfGTEdqJcvwivguuBw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U6p1QvmeEdqVpI5LkquxuQ" x="12" y="48"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_U6p1Q_meEdqVpI5LkquxuQ" type="1005">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_U6p1RPmeEdqVpI5LkquxuQ"/>
+    <element xmi:type="PalladioCM.SEFFPackage:StopAction" href="My.repositorypackage#_D9jklvGTEdqJcvwivguuBw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U6p1RfmeEdqVpI5LkquxuQ" x="12" y="120"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_U6p1RvmeEdqVpI5LkquxuQ" type="1010">
+    <children xmi:type="notation:Node" xmi:id="_U6p1SfmeEdqVpI5LkquxuQ" type="4011"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_U6p1R_meEdqVpI5LkquxuQ"/>
+    <element xmi:type="PalladioCM.SEFFPackage:ExternalCall" href="My.repositorypackage#_D9jkl_GTEdqJcvwivguuBw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U6p1SPmeEdqVpI5LkquxuQ" x="120" y="48"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_U6p1SvmeEdqVpI5LkquxuQ" type="1010">
+    <children xmi:type="notation:Node" xmi:id="_U6p1TfmeEdqVpI5LkquxuQ" type="4011"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_U6p1S_meEdqVpI5LkquxuQ"/>
+    <element xmi:type="PalladioCM.SEFFPackage:ExternalCall" href="My.repositorypackage#_D9jkmPGTEdqJcvwivguuBw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U6p1TPmeEdqVpI5LkquxuQ" x="120" y="108"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_U6p1TvmeEdqVpI5LkquxuQ" type="1011">
+    <children xmi:type="notation:Node" xmi:id="_U6p1UfmeEdqVpI5LkquxuQ" type="4012"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_U6p1T_meEdqVpI5LkquxuQ"/>
+    <element xmi:type="PalladioCM.SEFFPackage:PrimitiveParametricParameterUsage" href="My.repositorypackage#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@parametricParameterUsage_Behaviour.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U6p1UPmeEdqVpI5LkquxuQ" x="360" y="48"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_U4kxofmeEdqVpI5LkquxuQ"/>
+  <element xmi:type="PalladioCM.SEFFPackage:Behaviour" href="My.repositorypackage#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0"/>
+  <edges xmi:type="notation:Edge" xmi:id="_U7ZcIPmeEdqVpI5LkquxuQ" type="3001" source="_U6p1QPmeEdqVpI5LkquxuQ" target="_U6p1RvmeEdqVpI5LkquxuQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_U7ZcIfmeEdqVpI5LkquxuQ"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_U7ZcIvmeEdqVpI5LkquxuQ" points="[20, 5, -55, -15]$[0, 0, -75, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_U7jNIPmeEdqVpI5LkquxuQ" type="3001" source="_U6p1RvmeEdqVpI5LkquxuQ" target="_U6p1SvmeEdqVpI5LkquxuQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_U7jNIfmeEdqVpI5LkquxuQ"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_U7jNIvmeEdqVpI5LkquxuQ" points="[20, 20, 10, 10]$[-10, -10, -20, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_U7jNI_meEdqVpI5LkquxuQ" type="3001" source="_U6p1SvmeEdqVpI5LkquxuQ" target="_U6p1Q_meEdqVpI5LkquxuQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_U7jNJPmeEdqVpI5LkquxuQ"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_U7jNJfmeEdqVpI5LkquxuQ" points="[-75, -20, 0, 0]$[-55, -15, 20, 5]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_v5jEoPmeEdqVpI5LkquxuQ" type="3003" source="_U6p1RvmeEdqVpI5LkquxuQ" target="_U6p1TvmeEdqVpI5LkquxuQ">
+    <children xmi:type="notation:Node" xmi:id="_v5jEo_meEdqVpI5LkquxuQ" type="4014">
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_v5jEpPmeEdqVpI5LkquxuQ" x="-1" y="-25"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_v5jEofmeEdqVpI5LkquxuQ"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v5jEovmeEdqVpI5LkquxuQ" points="[16, -8, -181, -6]$[106, -8, -91, -6]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v5jEpfmeEdqVpI5LkquxuQ" id="(0.8933333,0.55)"/>
+  </edges>
+</notation:Diagram>
