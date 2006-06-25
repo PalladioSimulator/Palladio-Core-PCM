@@ -8,21 +8,21 @@
     <specifiedTimeConsumption_SystemRequiredRole specification="=0">
       <signature_SpecifiedTimeConsumption href="My.repositorypackage#//@interfaces__Repository.2/@signatures__Interface.1"/>
     </specifiedTimeConsumption_SystemRequiredRole>
-    <specifiedTimeConsumption_SystemRequiredRole specification="=RealRandomVar[(0.05;36)(0.03;37)(0.29;41)(0.31;42)(0.11;46)(0.21;47)]">
+    <specifiedTimeConsumption_SystemRequiredRole specification="=RealRandomVar[(0.05;36)(0.03;37)(0.29;41)(0.31;42)(0.11;46)(0.21;47)] * 100 / 62">
       <signature_SpecifiedTimeConsumption href="My.repositorypackage#//@interfaces__Repository.2/@signatures__Interface.0"/>
     </specifiedTimeConsumption_SystemRequiredRole>
   </systemRequiredRole_System>
   <systemProvidedRole_System providedDelegationConnector_SystemProvidedRole="//@providedDelegationConnector_System.0">
     <interface_SystemProvidedRole href="My.repositorypackage#IHTTP"/>
   </systemProvidedRole_System>
-  <assembly_System href="My.assemblypackage#/"/>
+  <assembly_System href="My.original.assemblypackage#/"/>
   <providedDelegationConnector_System systemProvidedRole_SystemProvidedDelegationConnector="//@systemProvidedRole_System.0">
-    <assemblyContext_SystemProvidedDelegationConnector href="My.assemblypackage#WebUI_AssCtx"/>
+    <assemblyContext_SystemProvidedDelegationConnector href="My.original.assemblypackage#WebUI_AssCtx"/>
     <componentProvidedRole_SystemProvidedDelegationConnector href="My.repositorypackage#Prov_WebGUI_IHTTP"/>
   </providedDelegationConnector_System>
   <requiredDelegationConnector_System systemRequiredRole_SystemRequiredDelegationConnector="//@systemRequiredRole_System.0">
-    <assemblyContext_SystemRequiredDelegationConnector href="My.assemblypackage#EncodingAdapter_AssCtx"/>
+    <assemblyContext_SystemRequiredDelegationConnector href="My.original.assemblypackage#AudioStore_AssCtx"/>
     <requiredRole_SystemRequiredDelegationConnector href="My.repositorypackage#Req_EncodingAdapter_IAudioDB"/>
   </requiredDelegationConnector_System>
-  <allocation_System href="My.allocationpackage#/"/>
+  <allocation_System href="My.original.allocationpackage#/"/>
 </SystemPackage:System>
