@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PalladioCM.AllocationPackage:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:PalladioCM.AllocationPackage="http:///PalladioCM/AllocationPackage.ecore">
+<PalladioCM.AllocationPackage:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:PalladioCM.AllocationPackage="http:///PalladioCM/AllocationPackage.ecore" id="_WrrigBsSEdutieAL11TBXw">
   <allocationContexts>
     <referencedAssemblyContext_AllocationContext href="My.assemblypackage#AudioStore_AssCtx"/>
     <resourceContainer_AllocationContext href="My.resourceenvironmentpackage#Application Server"/>

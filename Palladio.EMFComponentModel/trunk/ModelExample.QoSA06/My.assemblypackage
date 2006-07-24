@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PalladioCM.AssemblyPackage:Assembly xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:PalladioCM.AssemblyPackage="http:///PalladioCM/AssemblyPackage.ecore">
+<PalladioCM.AssemblyPackage:Assembly xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:PalladioCM.AssemblyPackage="http:///PalladioCM/AssemblyPackage.ecore" id="_WqyKoBsSEdutieAL11TBXw">
   <assemblycontexts_Assembly id="WebUI_AssCtx" entityName="WebUI_AssCtx">
     <encapsulatedComponent__AssemblyContext href="My.repositorypackage#WebUI"/>
   </assemblycontexts_Assembly>
