@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="AllocationPackage"
+    nsURI="http:///PalladioCM/AllocationPackage.ecore" nsPrefix="PalladioCM.AllocationPackage">
+  <eClassifiers xsi:type="ecore:EClass" name="AllocationContext">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedAssemblyContext_AllocationContext"
+        lowerBound="1" eType="ecore:EClass AssemblyPackage.ecore#//AssemblyContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_AllocationContext"
+        lowerBound="1" eType="ecore:EClass ResourceEnvironmentPackage.ecore#//ResourceContainer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Allocation" eSuperTypes="PalladioCM.CorePackage.ecore#//Entity/Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContexts" upperBound="-1"
+        eType="#//AllocationContext" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
