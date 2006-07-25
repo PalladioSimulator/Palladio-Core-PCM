@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http://sdq.ipd.uka.de/AnnotationPackage" 
+       class = "AnnotationPackage.provider.AnnotationPackageItemProviderAdapterFactory"
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+  
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http:///AnnotationPackage/DefaultAnnotationDataTypes.ecore" 
+       class = "AnnotationPackage.DefaultAnnotationDataTypes.provider.DefaultAnnotationDataTypesItemProviderAdapterFactory"
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+  
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http://sdq.ipd.uka.de/AnnotationPackage"
+       class = "AnnotationPackage.AnnotationPackagePackage"
+       genModel = "model/Annotations.genmodel" /> 
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http:///AnnotationPackage/DefaultAnnotationDataTypes.ecore"
+       class = "AnnotationPackage.DefaultAnnotationDataTypes.DefaultAnnotationDataTypesPackage"
+       genModel = "model/Annotations.genmodel" /> 
+  </extension>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+      id = "org.eclipse.emf.ecore.Wizard.category.ID"
+      name="%_UI_Wizard_category">
+    </category>
+    <wizard
+      id = "AnnotationPackage.DefaultAnnotationDataTypes.presentation.DefaultAnnotationDataTypesModelWizardID"
+      name = "%_UI_DefaultAnnotationDataTypesModelWizard_label"
+      class = "AnnotationPackage.DefaultAnnotationDataTypes.presentation.DefaultAnnotationDataTypesModelWizard"
+      category = "org.eclipse.emf.ecore.Wizard.category.ID"
+      icon = "icons/full/obj16/DefaultAnnotationDataTypesModelFile.gif">
+      <description>%_UI_DefaultAnnotationDataTypesModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "AnnotationPackage.DefaultAnnotationDataTypes.presentation.DefaultAnnotationDataTypesEditorID"
+        name = "%_UI_DefaultAnnotationDataTypesEditor_label"
+        icon = "icons/full/obj16/DefaultAnnotationDataTypesModelFile.gif"
+        extensions = "defaultannotationdatatypes"
+        class = "AnnotationPackage.DefaultAnnotationDataTypes.presentation.DefaultAnnotationDataTypesEditor" 
+        contributorClass="AnnotationPackage.DefaultAnnotationDataTypes.presentation.DefaultAnnotationDataTypesActionBarContributor" >
+    </editor>
+  </extension>    
+</plugin>
