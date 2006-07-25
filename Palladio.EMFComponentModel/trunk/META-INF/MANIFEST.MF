@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Palladio Component Model Meta Models Plug-in
+Bundle-SymbolicName: PalladioCM.models
+Bundle-Version: 1.0.1.qualifier
+Bundle-Vendor: SDQ, IPD, UKA
+Bundle-Localization: plugin

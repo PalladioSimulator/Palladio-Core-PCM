@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ResourceEnvironmentPackage"
+    nsURI="http:///PalladioCM/ResourceEnvironmentPackage.ecore" nsPrefix="PalladioCM.ResourceEnvironmentPackage">
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceContainer" eSuperTypes="PalladioCM.CorePackage.ecore#//Entity/Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceSpecifications_ResourceContainer"
+        upperBound="-1" eType="#//ProcessingResourceSpecification" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResourceSpecifications_ResourceContainer"
+        upperBound="-1" eType="#//PassiveResourceSpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceType_ActiveResourceSpecification"
+        lowerBound="1" eType="ecore:EClass ResourceTypePackage.ecore#//ProcessingResourceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingRate" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PassiveResourceSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResourceType_PassiveResourceSpecification"
+        lowerBound="1" eType="ecore:EClass ResourceTypePackage.ecore#//PassiveResourceType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkingResource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toResourceContainer_LinkingResource"
+        upperBound="-1" eType="#//ResourceContainer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fromResourceContainer_LinkingResource"
+        upperBound="-1" eType="#//ResourceContainer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="communicationLinkResourceSpecifications_LinkingResource"
+        lowerBound="1" eType="#//CommunicationLinkResourceSpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="communicationLinkResourceType_CommunicationLinkResourceSpecification"
+        lowerBound="1" eType="ecore:EClass ResourceTypePackage.ecore#//CommunicationLinkResourceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="throughput" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceEnvironment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkingresource" upperBound="-1"
+        eType="#//LinkingResource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_ResourceEnvironment"
+        upperBound="-1" eType="#//ResourceContainer" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
