@@ -1,3 +1,15 @@
+/*
+ * Copyright 2006 by:
+ * University of Karlsruhe (TH)
+ * Faculty of Computer Science
+ * Institute for Program Structures and Data Organization (IPD)
+ * Software Design and Quality (SDQ)
+ * Germany
+ * Homepage: http://sdq.ipd.uni-karlsruhe.de
+ * 
+ * This is free software. You are welcome to redistribute it.
+ * It comes with ABSOLUTELY NO WARRANTY.
+ */
 using System;
 using System.Collections.Generic;
 using System.Text;
