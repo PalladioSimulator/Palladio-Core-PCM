@@ -49,7 +49,7 @@
 		<antcall target="gather.bin.parts">
 			<param name="destination.temp.folder" value="${temp.folder}/"/>
 		</antcall>
-		<zip destfile="${plugin.destination}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958.jar" basedir="${temp.folder}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958" filesonly="false" whenempty="skip" update="false"/>
+		<zip destfile="${plugin.destination}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309.jar" basedir="${temp.folder}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309" filesonly="false" whenempty="skip" update="false"/>
 		<delete dir="${temp.folder}"/>
 	</target>
 
@@ -123,34 +123,34 @@
 	</target>
 
 	<target name="gather.bin.parts" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958"/>
-		<copy todir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958" failonerror="true" overwrite="false">
+		<mkdir dir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309"/>
+		<copy todir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309" failonerror="true" overwrite="false">
 			<fileset dir="${build.result.folder}/@dot" includes="**"			/>
 		</copy>
-		<copy todir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958" failonerror="true" overwrite="false">
-			<fileset dir="${basedir}" includes=",icons/,META-INF/,plugin.xml,plugin.properties"			/>
+		<copy todir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309" failonerror="true" overwrite="false">
+			<fileset dir="${basedir}" includes=",META-INF/,plugin.xml,plugin.properties"			/>
 		</copy>
-		<eclipse.versionReplacer path="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958" version="1.1.0.200608111958"/>
+		<eclipse.versionReplacer path="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309" version="1.2.0.200608112309"/>
 	</target>
 
 	<target name="build.zips" depends="init">
 	</target>
 
 	<target name="gather.sources" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958"/>
-		<copy file="${build.result.folder}/src.zip" todir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958" failonerror="false" overwrite="false"/>
+		<mkdir dir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309"/>
+		<copy file="${build.result.folder}/src.zip" todir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309" failonerror="false" overwrite="false"/>
 	</target>
 
 	<target name="gather.logs" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958"/>
-		<copy file="${temp.folder}/@dot.bin${logExtension}" todir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958" failonerror="false" overwrite="false"/>
+		<mkdir dir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309"/>
+		<copy file="${temp.folder}/@dot.bin${logExtension}" todir="${destination.temp.folder}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309" failonerror="false" overwrite="false"/>
 	</target>
 
 	<target name="clean" depends="init" description="Clean the plug-in: de.uka.ipd.sdq.identifier.edit of all the zips, jars and logs created.">
 		<delete dir="${build.result.folder}/@dot"/>
 		<delete file="${build.result.folder}/src.zip"/>
-		<delete file="${plugin.destination}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958.jar"/>
-		<delete file="${plugin.destination}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958.zip"/>
+		<delete file="${plugin.destination}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309.jar"/>
+		<delete file="${plugin.destination}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309.zip"/>
 		<delete dir="${temp.folder}"/>
 	</target>
 
@@ -173,7 +173,7 @@
 		<delete>
 			<fileset dir="${temp.folder}" includes="**/*.bin${logExtension}"			/>
 		</delete>
-		<zip destfile="${plugin.destination}/de.uka.ipd.sdq.identifier.edit_1.1.0.200608111958.zip" basedir="${temp.folder}" filesonly="true" whenempty="skip" update="false"/>
+		<zip destfile="${plugin.destination}/de.uka.ipd.sdq.identifier.edit_1.2.0.200608112309.zip" basedir="${temp.folder}" filesonly="true" whenempty="skip" update="false"/>
 		<delete dir="${temp.folder}"/>
 	</target>
 

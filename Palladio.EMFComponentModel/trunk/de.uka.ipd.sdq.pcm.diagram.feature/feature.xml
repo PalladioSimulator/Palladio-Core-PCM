@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.pcm.diagram.feature"
       label="Palladio Component Model Diagramming Feature"
-      version="1.0.0.qualifier"
+      version="1.1.0.qualifier"
       provider-name="sdq.ipd.uka.de">
 
    <description url="http://i43pc12.ipd.uka.de/eclipse/PCM/">
@@ -218,7 +218,7 @@ litigation.
    </url>
 
    <requires>
-      <import feature="PalladioCM.Feature" version="1.1.0" match="greaterOrEqual"/>
+      <import feature="PalladioCM.Feature" version="1.2.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.jface"/>
@@ -254,7 +254,7 @@ litigation.
          id="de.uka.ipd.sdq.pcm.gmf.seff"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.1.0.qualifier"
          unpack="false"/>
 
 </feature>

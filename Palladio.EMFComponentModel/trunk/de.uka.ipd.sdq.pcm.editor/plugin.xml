@@ -18,9 +18,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.ipd.uka.sdq.pcm.assembly.presentation.AssemblyModelWizardID"
+      id = "de.uka.ipd.sdq.pcm.assembly.presentation.AssemblyModelWizardID"
       name = "%_UI_AssemblyModelWizard_label"
-      class = "de.ipd.uka.sdq.pcm.assembly.presentation.AssemblyModelWizard"
+      class = "de.uka.ipd.sdq.pcm.assembly.presentation.AssemblyModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/AssemblyModelFile.gif">
       <description>%_UI_AssemblyModelWizard_description</description>
@@ -30,12 +30,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.ipd.uka.sdq.pcm.assembly.presentation.AssemblyEditorID"
+        id = "de.uka.ipd.sdq.pcm.assembly.presentation.AssemblyEditorID"
         name = "%_UI_AssemblyEditor_label"
         icon = "icons/full/obj16/AssemblyModelFile.gif"
         extensions = "assembly"
-        class = "de.ipd.uka.sdq.pcm.assembly.presentation.AssemblyEditor" 
-        contributorClass="de.ipd.uka.sdq.pcm.assembly.presentation.AssemblyActionBarContributor" >
+        class = "de.uka.ipd.sdq.pcm.assembly.presentation.AssemblyEditor" 
+        contributorClass="de.uka.ipd.sdq.pcm.assembly.presentation.AssemblyActionBarContributor" >
     </editor>
   </extension>    
 
@@ -46,9 +46,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.ipd.uka.sdq.pcm.core.stochastics.presentation.StochasticsModelWizardID"
+      id = "de.uka.ipd.sdq.pcm.core.stochastics.presentation.StochasticsModelWizardID"
       name = "%_UI_StochasticsModelWizard_label"
-      class = "de.ipd.uka.sdq.pcm.core.stochastics.presentation.StochasticsModelWizard"
+      class = "de.uka.ipd.sdq.pcm.core.stochastics.presentation.StochasticsModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/StochasticsModelFile.gif">
       <description>%_UI_StochasticsModelWizard_description</description>
@@ -58,12 +58,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.ipd.uka.sdq.pcm.core.stochastics.presentation.StochasticsEditorID"
+        id = "de.uka.ipd.sdq.pcm.core.stochastics.presentation.StochasticsEditorID"
         name = "%_UI_StochasticsEditor_label"
         icon = "icons/full/obj16/StochasticsModelFile.gif"
         extensions = "stochastics"
-        class = "de.ipd.uka.sdq.pcm.core.stochastics.presentation.StochasticsEditor" 
-        contributorClass="de.ipd.uka.sdq.pcm.core.stochastics.presentation.StochasticsActionBarContributor" >
+        class = "de.uka.ipd.sdq.pcm.core.stochastics.presentation.StochasticsEditor" 
+        contributorClass="de.uka.ipd.sdq.pcm.core.stochastics.presentation.StochasticsActionBarContributor" >
     </editor>
   </extension>    
 
@@ -74,9 +74,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.ipd.uka.sdq.pcm.repository.presentation.RepositoryModelWizardID"
+      id = "de.uka.ipd.sdq.pcm.repository.presentation.RepositoryModelWizardID"
       name = "%_UI_RepositoryModelWizard_label"
-      class = "de.ipd.uka.sdq.pcm.repository.presentation.RepositoryModelWizard"
+      class = "de.uka.ipd.sdq.pcm.repository.presentation.RepositoryModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/RepositoryModelFile.gif">
       <description>%_UI_RepositoryModelWizard_description</description>
@@ -86,12 +86,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.ipd.uka.sdq.pcm.repository.presentation.RepositoryEditorID"
+        id = "de.uka.ipd.sdq.pcm.repository.presentation.RepositoryEditorID"
         name = "%_UI_RepositoryEditor_label"
         icon = "icons/full/obj16/RepositoryModelFile.gif"
         extensions = "repository"
-        class = "de.ipd.uka.sdq.pcm.repository.presentation.RepositoryEditor" 
-        contributorClass="de.ipd.uka.sdq.pcm.repository.presentation.RepositoryActionBarContributor" >
+        class = "de.uka.ipd.sdq.pcm.repository.presentation.RepositoryEditor" 
+        contributorClass="de.uka.ipd.sdq.pcm.repository.presentation.RepositoryActionBarContributor" >
     </editor>
   </extension>    
 
@@ -102,9 +102,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.ipd.uka.sdq.pcm.seff.presentation.SeffModelWizardID"
+      id = "de.uka.ipd.sdq.pcm.seff.presentation.SeffModelWizardID"
       name = "%_UI_SeffModelWizard_label"
-      class = "de.ipd.uka.sdq.pcm.seff.presentation.SeffModelWizard"
+      class = "de.uka.ipd.sdq.pcm.seff.presentation.SeffModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/SeffModelFile.gif">
       <description>%_UI_SeffModelWizard_description</description>
@@ -114,12 +114,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.ipd.uka.sdq.pcm.seff.presentation.SeffEditorID"
+        id = "de.uka.ipd.sdq.pcm.seff.presentation.SeffEditorID"
         name = "%_UI_SeffEditor_label"
         icon = "icons/full/obj16/SeffModelFile.gif"
         extensions = "seff"
-        class = "de.ipd.uka.sdq.pcm.seff.presentation.SeffEditor" 
-        contributorClass="de.ipd.uka.sdq.pcm.seff.presentation.SeffActionBarContributor" >
+        class = "de.uka.ipd.sdq.pcm.seff.presentation.SeffEditor" 
+        contributorClass="de.uka.ipd.sdq.pcm.seff.presentation.SeffActionBarContributor" >
     </editor>
   </extension>    
 
@@ -130,9 +130,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.ipd.uka.sdq.pcm.resourcetype.presentation.ResourcetypeModelWizardID"
+      id = "de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeModelWizardID"
       name = "%_UI_ResourcetypeModelWizard_label"
-      class = "de.ipd.uka.sdq.pcm.resourcetype.presentation.ResourcetypeModelWizard"
+      class = "de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/ResourcetypeModelFile.gif">
       <description>%_UI_ResourcetypeModelWizard_description</description>
@@ -142,12 +142,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.ipd.uka.sdq.pcm.resourcetype.presentation.ResourcetypeEditorID"
+        id = "de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeEditorID"
         name = "%_UI_ResourcetypeEditor_label"
         icon = "icons/full/obj16/ResourcetypeModelFile.gif"
         extensions = "resourcetype"
-        class = "de.ipd.uka.sdq.pcm.resourcetype.presentation.ResourcetypeEditor" 
-        contributorClass="de.ipd.uka.sdq.pcm.resourcetype.presentation.ResourcetypeActionBarContributor" >
+        class = "de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeEditor" 
+        contributorClass="de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeActionBarContributor" >
     </editor>
   </extension>    
 
@@ -158,9 +158,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.ipd.uka.sdq.pcm.parameter.presentation.ParameterModelWizardID"
+      id = "de.uka.ipd.sdq.pcm.parameter.presentation.ParameterModelWizardID"
       name = "%_UI_ParameterModelWizard_label"
-      class = "de.ipd.uka.sdq.pcm.parameter.presentation.ParameterModelWizard"
+      class = "de.uka.ipd.sdq.pcm.parameter.presentation.ParameterModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/ParameterModelFile.gif">
       <description>%_UI_ParameterModelWizard_description</description>
@@ -170,12 +170,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.ipd.uka.sdq.pcm.parameter.presentation.ParameterEditorID"
+        id = "de.uka.ipd.sdq.pcm.parameter.presentation.ParameterEditorID"
         name = "%_UI_ParameterEditor_label"
         icon = "icons/full/obj16/ParameterModelFile.gif"
         extensions = "parameter"
-        class = "de.ipd.uka.sdq.pcm.parameter.presentation.ParameterEditor" 
-        contributorClass="de.ipd.uka.sdq.pcm.parameter.presentation.ParameterActionBarContributor" >
+        class = "de.uka.ipd.sdq.pcm.parameter.presentation.ParameterEditor" 
+        contributorClass="de.uka.ipd.sdq.pcm.parameter.presentation.ParameterActionBarContributor" >
     </editor>
   </extension>    
 
@@ -186,9 +186,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.ipd.uka.sdq.pcm.allocation.presentation.AllocationModelWizardID"
+      id = "de.uka.ipd.sdq.pcm.allocation.presentation.AllocationModelWizardID"
       name = "%_UI_AllocationModelWizard_label"
-      class = "de.ipd.uka.sdq.pcm.allocation.presentation.AllocationModelWizard"
+      class = "de.uka.ipd.sdq.pcm.allocation.presentation.AllocationModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/AllocationModelFile.gif">
       <description>%_UI_AllocationModelWizard_description</description>
@@ -198,12 +198,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.ipd.uka.sdq.pcm.allocation.presentation.AllocationEditorID"
+        id = "de.uka.ipd.sdq.pcm.allocation.presentation.AllocationEditorID"
         name = "%_UI_AllocationEditor_label"
         icon = "icons/full/obj16/AllocationModelFile.gif"
         extensions = "allocation"
-        class = "de.ipd.uka.sdq.pcm.allocation.presentation.AllocationEditor" 
-        contributorClass="de.ipd.uka.sdq.pcm.allocation.presentation.AllocationActionBarContributor" >
+        class = "de.uka.ipd.sdq.pcm.allocation.presentation.AllocationEditor" 
+        contributorClass="de.uka.ipd.sdq.pcm.allocation.presentation.AllocationActionBarContributor" >
     </editor>
   </extension>    
 
@@ -214,9 +214,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.ipd.uka.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizardID"
+      id = "de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizardID"
       name = "%_UI_ResourceenvironmentModelWizard_label"
-      class = "de.ipd.uka.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizard"
+      class = "de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/ResourceenvironmentModelFile.gif">
       <description>%_UI_ResourceenvironmentModelWizard_description</description>
@@ -226,12 +226,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.ipd.uka.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentEditorID"
+        id = "de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentEditorID"
         name = "%_UI_ResourceenvironmentEditor_label"
         icon = "icons/full/obj16/ResourceenvironmentModelFile.gif"
         extensions = "resourceenvironment"
-        class = "de.ipd.uka.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentEditor" 
-        contributorClass="de.ipd.uka.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentActionBarContributor" >
+        class = "de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentEditor" 
+        contributorClass="de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentActionBarContributor" >
     </editor>
   </extension>    
 
@@ -242,9 +242,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.ipd.uka.sdq.pcm.usagemodel.presentation.UsagemodelModelWizardID"
+      id = "de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelModelWizardID"
       name = "%_UI_UsagemodelModelWizard_label"
-      class = "de.ipd.uka.sdq.pcm.usagemodel.presentation.UsagemodelModelWizard"
+      class = "de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/UsagemodelModelFile.gif">
       <description>%_UI_UsagemodelModelWizard_description</description>
@@ -254,12 +254,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.ipd.uka.sdq.pcm.usagemodel.presentation.UsagemodelEditorID"
+        id = "de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelEditorID"
         name = "%_UI_UsagemodelEditor_label"
         icon = "icons/full/obj16/UsagemodelModelFile.gif"
         extensions = "usagemodel"
-        class = "de.ipd.uka.sdq.pcm.usagemodel.presentation.UsagemodelEditor" 
-        contributorClass="de.ipd.uka.sdq.pcm.usagemodel.presentation.UsagemodelActionBarContributor" >
+        class = "de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelEditor" 
+        contributorClass="de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelActionBarContributor" >
     </editor>
   </extension>    
 
@@ -270,9 +270,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.ipd.uka.sdq.pcm.system.presentation.SystemModelWizardID"
+      id = "de.uka.ipd.sdq.pcm.system.presentation.SystemModelWizardID"
       name = "%_UI_SystemModelWizard_label"
-      class = "de.ipd.uka.sdq.pcm.system.presentation.SystemModelWizard"
+      class = "de.uka.ipd.sdq.pcm.system.presentation.SystemModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/SystemModelFile.gif">
       <description>%_UI_SystemModelWizard_description</description>
@@ -282,12 +282,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.ipd.uka.sdq.pcm.system.presentation.SystemEditorID"
+        id = "de.uka.ipd.sdq.pcm.system.presentation.SystemEditorID"
         name = "%_UI_SystemEditor_label"
         icon = "icons/full/obj16/SystemModelFile.gif"
         extensions = "system"
-        class = "de.ipd.uka.sdq.pcm.system.presentation.SystemEditor" 
-        contributorClass="de.ipd.uka.sdq.pcm.system.presentation.SystemActionBarContributor" >
+        class = "de.uka.ipd.sdq.pcm.system.presentation.SystemEditor" 
+        contributorClass="de.uka.ipd.sdq.pcm.system.presentation.SystemActionBarContributor" >
     </editor>
   </extension>    
 </plugin>

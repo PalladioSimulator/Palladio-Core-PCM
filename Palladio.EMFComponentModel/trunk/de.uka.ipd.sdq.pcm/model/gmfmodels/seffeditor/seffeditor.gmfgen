@@ -2,7 +2,7 @@
 <gmfgen:GenEditorGenerator xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgen="http://www.eclipse.org/gmf/2005/GenModel" packageNamePrefix="de.ipd.uka.sdq.pcm.gmf.seff"
+    xmlns:gmfgen="http://www.eclipse.org/gmf/2005/GenModel" packageNamePrefix="de.uka.ipd.sdq.pcm.gmf.seff"
     diagramFileExtension="seff_diagram"
     domainFileExtension="repository"
     templateDirectory=""

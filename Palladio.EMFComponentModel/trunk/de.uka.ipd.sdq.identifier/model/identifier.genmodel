@@ -18,7 +18,7 @@
     <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
   </genAnnotations>
   <foreignModel>file:/C:/Dokumente%20und%20Einstellungen/Snowball/Desktop/pcm_test2/identifier.uml2</foreignModel>
-  <genPackages prefix="Identifier" basePackage="de.ipd.uka.sdq" disposableProviderFactory="true"
+  <genPackages prefix="Identifier" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="identifier.ecore#/">
     <genClasses image="false" ecoreClass="identifier.ecore#//Identifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute identifier.ecore#//Identifier/id"/>

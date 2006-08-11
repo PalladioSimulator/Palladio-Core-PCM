@@ -13,7 +13,7 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://sdq.ipd.uka.de/Identifier/1.0" 
-       class = "de.ipd.uka.sdq.identifier.IdentifierPackage"
+       class = "de.uka.ipd.sdq.identifier.IdentifierPackage"
        genModel = "model/identifier.genmodel" /> 
   </extension>
 

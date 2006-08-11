@@ -4,7 +4,7 @@
   <eAnnotations xmi:id="_hFALoa6GEdqR97hrnpMlhg" source="uml2.diagrams"/>
   <eAnnotations xmi:id="_jGBoMK6GEdqR97hrnpMlhg" source="http://www.eclipse.org/emf/2002/Ecore"/>
   <eAnnotations xmi:id="_rjKKkCiuEduNHNn-nQsgCQ" source="appliedStereotypes">
-    <contents xmi:type="Ecore_0:Ecore__EPackage" xmi:id="_rjKKkSiuEduNHNn-nQsgCQ" nsPrefix="identifier" nsURI="http://sdq.ipd.uka.de/Identifier/1.0" basePackage="de.ipd.uka.sdq"/>
+    <contents xmi:type="Ecore_0:Ecore__EPackage" xmi:id="_rjKKkSiuEduNHNn-nQsgCQ" nsPrefix="identifier" nsURI="http://sdq.ipd.uka.de/Identifier/1.0" basePackage="de.uka.ipd.sdq"/>
   </eAnnotations>
   <packageImport xmi:type="uml:ProfileApplication" xmi:id="_hFALpK6GEdqR97hrnpMlhg">
     <eAnnotations xmi:id="_hFALpa6GEdqR97hrnpMlhg" source="attributes">

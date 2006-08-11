@@ -2,21 +2,21 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.editor; singleton:=true
-Bundle-Version: 1.1.0.qualifier
+Bundle-Version: 1.2.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: de.ipd.uka.sdq.pcm.assembly.presentation.PcmEditorPlugin$Implementation
+Bundle-Activator: de.uka.ipd.sdq.pcm.assembly.presentation.PcmEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: de.ipd.uka.sdq.pcm.allocation.presentation,
- de.ipd.uka.sdq.pcm.assembly.presentation,
- de.ipd.uka.sdq.pcm.core.stochastics.presentation,
- de.ipd.uka.sdq.pcm.parameter.presentation,
- de.ipd.uka.sdq.pcm.repository.presentation,
- de.ipd.uka.sdq.pcm.resourceenvironment.presentation,
- de.ipd.uka.sdq.pcm.resourcetype.presentation,
- de.ipd.uka.sdq.pcm.seff.presentation,
- de.ipd.uka.sdq.pcm.system.presentation,
- de.ipd.uka.sdq.pcm.usagemodel.presentation
+Export-Package: de.uka.ipd.sdq.pcm.allocation.presentation,
+ de.uka.ipd.sdq.pcm.assembly.presentation,
+ de.uka.ipd.sdq.pcm.core.stochastics.presentation,
+ de.uka.ipd.sdq.pcm.parameter.presentation,
+ de.uka.ipd.sdq.pcm.repository.presentation,
+ de.uka.ipd.sdq.pcm.resourceenvironment.presentation,
+ de.uka.ipd.sdq.pcm.resourcetype.presentation,
+ de.uka.ipd.sdq.pcm.seff.presentation,
+ de.uka.ipd.sdq.pcm.system.presentation,
+ de.uka.ipd.sdq.pcm.usagemodel.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  de.uka.ipd.sdq.pcm.edit;visibility:=reexport,

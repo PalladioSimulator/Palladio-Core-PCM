@@ -21,9 +21,10 @@
   </genAnnotations>
   <foreignModel>file:/C:/Dokumente%20und%20Einstellungen/Snowball/Desktop/pcm_test2/pcm.uml2</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
-  <genPackages prefix="Pcm" basePackage="de.ipd.uka.sdq" disposableProviderFactory="true"
+  <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
-    <nestedGenPackages prefix="Assembly" disposableProviderFactory="true" ecorePackage="pcm.ecore#//assembly">
+    <nestedGenPackages prefix="Assembly" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//assembly">
       <genClasses ecoreClass="pcm.ecore#//assembly/SystemAssemblyConnector">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//assembly/SystemAssemblyConnector/providingContext_SystemAssemblyConnector"/>
@@ -47,22 +48,27 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//assembly/Assembly/assemblyConnectors_Assembly"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Core" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core">
-      <nestedGenPackages prefix="Stochastics" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/stochastics">
+    <nestedGenPackages prefix="Core" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//core">
+      <nestedGenPackages prefix="Stochastics" basePackage="de.uka.ipd.sdq.pcm.core"
+          disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/stochastics">
         <genClasses ecoreClass="pcm.ecore#//core/stochastics/RandomVariable">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//core/stochastics/RandomVariable/specification"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages prefix="Entity" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/entity">
+      <nestedGenPackages prefix="Entity" basePackage="de.uka.ipd.sdq.pcm.core" disposableProviderFactory="true"
+          ecorePackage="pcm.ecore#//core/entity">
         <genClasses image="false" ecoreClass="pcm.ecore#//core/entity/Entity">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//core/entity/Entity/entityName"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages prefix="Connectors" disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/connectors">
+      <nestedGenPackages prefix="Connectors" basePackage="de.uka.ipd.sdq.pcm.core"
+          disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/connectors">
         <genClasses image="false" ecoreClass="pcm.ecore#//core/connectors/Connector"/>
       </nestedGenPackages>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Repository" disposableProviderFactory="true" ecorePackage="pcm.ecore#//repository">
+    <nestedGenPackages prefix="Repository" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//repository">
       <genEnums ecoreEnum="pcm.ecore#//repository/ParameterModifier">
         <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//repository/ParameterModifier/none"/>
         <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//repository/ParameterModifier/in"/>
@@ -258,7 +264,8 @@
         </genOperations>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Protocol" disposableProviderFactory="true" ecorePackage="pcm.ecore#//protocol">
+    <nestedGenPackages prefix="Protocol" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//protocol">
       <genClasses image="false" ecoreClass="pcm.ecore#//protocol/ServiceCall">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//protocol/ServiceCall/signature__ServiceCall"/>
@@ -267,7 +274,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//protocol/Protocol/protocolTypeID"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Seff" disposableProviderFactory="true" ecorePackage="pcm.ecore#//seff">
+    <nestedGenPackages prefix="Seff" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//seff">
       <genClasses ecoreClass="pcm.ecore#//seff/StopAction"/>
       <genClasses image="false" ecoreClass="pcm.ecore#//seff/AbstractResourceDemandingAction">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -341,7 +349,8 @@
             ecoreFeature="ecore:EReference pcm.ecore#//seff/ServiceEffectSpecification/describedService__SEFF"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Resourcetype" disposableProviderFactory="true" ecorePackage="pcm.ecore#//resourcetype">
+    <nestedGenPackages prefix="Resourcetype" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//resourcetype">
       <genClasses image="false" ecoreClass="pcm.ecore#//resourcetype/ResourceType"/>
       <genClasses ecoreClass="pcm.ecore#//resourcetype/ResourceRepository">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ResourceRepository/availableResourceTypes_ResourceRepository"/>
@@ -350,7 +359,8 @@
       <genClasses ecoreClass="pcm.ecore#//resourcetype/CommunicationLinkResourceType"/>
       <genClasses ecoreClass="pcm.ecore#//resourcetype/ProcessingResourceType"/>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Parameter" disposableProviderFactory="true" ecorePackage="pcm.ecore#//parameter">
+    <nestedGenPackages prefix="Parameter" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//parameter">
       <genEnums ecoreEnum="pcm.ecore#//parameter/CollectionParameterCharacterisationType">
         <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/CollectionParameterCharacterisationType/NUMBER_OF_ELEMENTS"/>
         <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/CollectionParameterCharacterisationType/STRUCTURE"/>
@@ -379,7 +389,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/CollectionParameterCharacterisation/type"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Allocation" disposableProviderFactory="true" ecorePackage="pcm.ecore#//allocation">
+    <nestedGenPackages prefix="Allocation" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//allocation">
       <genClasses ecoreClass="pcm.ecore#//allocation/AllocationContext">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//allocation/AllocationContext/referencedAssemblyContext_AllocationContext"/>
@@ -390,8 +401,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//allocation/Allocation/allocationContexts"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Resourceenvironment" disposableProviderFactory="true"
-        ecorePackage="pcm.ecore#//resourceenvironment">
+    <nestedGenPackages prefix="Resourceenvironment" basePackage="de.uka.ipd.sdq.pcm"
+        disposableProviderFactory="true" ecorePackage="pcm.ecore#//resourceenvironment">
       <genClasses ecoreClass="pcm.ecore#//resourceenvironment/ResourceEnvironment">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceEnvironment/linkingresource"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceEnvironment/resourceContainer_ResourceEnvironment"/>
@@ -425,7 +436,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceContainer/passiveResourceSpecifications_ResourceContainer"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Usagemodel" disposableProviderFactory="true" ecorePackage="pcm.ecore#//usagemodel">
+    <nestedGenPackages prefix="Usagemodel" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//usagemodel">
       <genClasses image="false" ecoreClass="pcm.ecore#//usagemodel/Workload"/>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/UsageScenario">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/UsageScenario/workload_UsageScenario"/>
@@ -468,7 +480,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/Branch/branchedBehaviour_Branch"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="System" disposableProviderFactory="true" ecorePackage="pcm.ecore#//system">
+    <nestedGenPackages prefix="System" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//system">
       <genClasses ecoreClass="pcm.ecore#//system/SystemRequiredRole">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//system/SystemRequiredRole/system_SystemRequiredRole"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
