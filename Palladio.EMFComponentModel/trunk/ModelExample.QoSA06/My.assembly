@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PalladioCM.AssemblyPackage:Assembly xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:PalladioCM.AssemblyPackage="http:///PalladioCM/AssemblyPackage.ecore" id="_WqyKoBsSEdutieAL11TBXw">
+<pcm.assembly:Assembly xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.assembly="http://sdq.ipd.uka.de/PalladioComponentModel/Assembly/1.0" id="_WqyKoBsSEdutieAL11TBXw">
   <assemblycontexts_Assembly id="WebUI_AssCtx" entityName="WebUI_AssCtx">
-    <encapsulatedComponent__AssemblyContext href="My.repositorypackage#WebUI"/>
+    <encapsulatedComponent__AssemblyContext href="My.repository#WebUI"/>
   </assemblycontexts_Assembly>
   <assemblycontexts_Assembly id="AudioStore_AssCtx" entityName="AudioStore_AssCtx">
-    <encapsulatedComponent__AssemblyContext href="My.repositorypackage#AudioStore"/>
+    <encapsulatedComponent__AssemblyContext href="My.repository#AudioStore"/>
   </assemblycontexts_Assembly>
   <assemblycontexts_Assembly id="EncodingAdapter_AssCtx" entityName="EncodingAdapter_AssCtx">
-    <encapsulatedComponent__AssemblyContext href="My.repositorypackage#EncodingAdapter"/>
+    <encapsulatedComponent__AssemblyContext href="My.repository#EncodingAdapter"/>
   </assemblycontexts_Assembly>
   <assemblycontexts_Assembly id="OggEncoder_AssCtx" entityName="OggEncoder_AssCtx">
-    <encapsulatedComponent__AssemblyContext href="My.repositorypackage#OggEncoder"/>
+    <encapsulatedComponent__AssemblyContext href="My.repository#OggEncoder"/>
   </assemblycontexts_Assembly>
   <assemblyConnectors_Assembly id="Con_WebUI_AudioStore" entityName="Con_WebUI_AudioStore" providingContext_SystemAssemblyConnector="AudioStore_AssCtx" requiringContext_SystemAssemblyConnector="WebUI_AssCtx">
-    <providedRole_SystemAssemblyConnector href="My.repositorypackage#ProvRole_AudioStore_IAudioStore"/>
-    <requiredRole_SystemAssemblyConnector href="My.repositorypackage#Req_WebGUI_AudioStore"/>
+    <providedRole_SystemAssemblyConnector href="My.repository#ProvRole_AudioStore_IAudioStore"/>
+    <requiredRole_SystemAssemblyConnector href="My.repository#Req_WebGUI_AudioStore"/>
   </assemblyConnectors_Assembly>
   <assemblyConnectors_Assembly id="Con_AudioStore_EncodingAdapter" entityName="Con_AudioStore_EncodingAdapter" providingContext_SystemAssemblyConnector="EncodingAdapter_AssCtx" requiringContext_SystemAssemblyConnector="AudioStore_AssCtx">
-    <providedRole_SystemAssemblyConnector href="My.repositorypackage#Prov_EncodingAdapter_IAudioDB"/>
-    <requiredRole_SystemAssemblyConnector href="My.repositorypackage#ReqRole_AudioStore_IAudioDB"/>
+    <providedRole_SystemAssemblyConnector href="My.repository#Prov_EncodingAdapter_IAudioDB"/>
+    <requiredRole_SystemAssemblyConnector href="My.repository#ReqRole_AudioStore_IAudioDB"/>
   </assemblyConnectors_Assembly>
   <assemblyConnectors_Assembly id="Con_EncodingAdapter_OggEncoder" entityName="Con_EncodingAdapter_OggEncoder" providingContext_SystemAssemblyConnector="OggEncoder_AssCtx" requiringContext_SystemAssemblyConnector="EncodingAdapter_AssCtx">
-    <providedRole_SystemAssemblyConnector href="My.repositorypackage#Prov_OggEncoder_IEncoder"/>
-    <requiredRole_SystemAssemblyConnector href="My.repositorypackage#Req_EncodingAdapter_IEncoder"/>
+    <providedRole_SystemAssemblyConnector href="My.repository#Prov_OggEncoder_IEncoder"/>
+    <requiredRole_SystemAssemblyConnector href="My.repository#Req_EncodingAdapter_IEncoder"/>
   </assemblyConnectors_Assembly>
-</PalladioCM.AssemblyPackage:Assembly>
+</pcm.assembly:Assembly>

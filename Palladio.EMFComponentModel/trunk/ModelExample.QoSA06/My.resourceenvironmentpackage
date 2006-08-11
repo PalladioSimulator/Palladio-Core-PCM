@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<PalladioCM.ResourceEnvironmentPackage:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:PalladioCM.ResourceEnvironmentPackage="http:///PalladioCM/ResourceEnvironmentPackage.ecore">
-  <resourceContainer_ResourceEnvironment id="Application Server" entityName="Application Server">
-    <activeResourceSpecifications_ResourceContainer processingRate="1000" units="instr/sec">
-      <activeResourceType_ActiveResourceSpecification href="My.resourcetypepackage#cpu"/>
-    </activeResourceSpecifications_ResourceContainer>
-  </resourceContainer_ResourceEnvironment>
-</PalladioCM.ResourceEnvironmentPackage:ResourceEnvironment>

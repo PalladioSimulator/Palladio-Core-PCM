@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PalladioCM.AssemblyPackage:Assembly xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:PalladioCM.AssemblyPackage="http:///PalladioCM/AssemblyPackage.ecore">
+<pcm.assembly:Assembly xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.assembly="http://sdq.ipd.uka.de/PalladioComponentModel/Assembly/1.0">
   <assemblycontexts_Assembly id="WebUI_AssCtx" entityName="WebUI_AssCtx">
-    <encapsulatedComponent__AssemblyContext href="My.repositorypackage#WebUI"/>
+    <encapsulatedComponent__AssemblyContext href="My.repository#WebUI"/>
   </assemblycontexts_Assembly>
   <assemblycontexts_Assembly id="AudioStore_AssCtx" entityName="AudioStore_AssCtx">
-    <encapsulatedComponent__AssemblyContext href="My.repositorypackage#AudioStore"/>
+    <encapsulatedComponent__AssemblyContext href="My.repository#AudioStore"/>
   </assemblycontexts_Assembly>
   <assemblycontexts_Assembly id="EncodingAdapter_AssCtx" entityName="EncodingAdapter_AssCtx">
-    <encapsulatedComponent__AssemblyContext href="My.repositorypackage#EncodingAdapter"/>
+    <encapsulatedComponent__AssemblyContext href="My.repository#EncodingAdapter"/>
   </assemblycontexts_Assembly>
   <assemblycontexts_Assembly id="OggEncoder_AssCtx" entityName="OggEncoder_AssCtx">
-    <encapsulatedComponent__AssemblyContext href="My.repositorypackage#OggEncoder"/>
+    <encapsulatedComponent__AssemblyContext href="My.repository#OggEncoder"/>
   </assemblycontexts_Assembly>
   <assemblyConnectors_Assembly id="Con_WebUI_AudioStore" entityName="Con_WebUI_AudioStore" providingContext_SystemAssemblyConnector="AudioStore_AssCtx" requiringContext_SystemAssemblyConnector="WebUI_AssCtx">
-    <providedRole_SystemAssemblyConnector href="My.repositorypackage#ProvRole_AudioStore_IAudioStore"/>
-    <requiredRole_SystemAssemblyConnector href="My.repositorypackage#Req_WebGUI_AudioStore"/>
+    <providedRole_SystemAssemblyConnector href="My.repository#ProvRole_AudioStore_IAudioStore"/>
+    <requiredRole_SystemAssemblyConnector href="My.repository#Req_WebGUI_AudioStore"/>
   </assemblyConnectors_Assembly>
-</PalladioCM.AssemblyPackage:Assembly>
+</pcm.assembly:Assembly>
