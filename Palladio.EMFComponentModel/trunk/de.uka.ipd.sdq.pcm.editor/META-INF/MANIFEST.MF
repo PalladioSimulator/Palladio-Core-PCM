@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uka.ipd.sdq.pcm.editor; singleton:=true
+Bundle-Version: 1.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: de.ipd.uka.sdq.pcm.assembly.presentation.PcmEditorPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: de.ipd.uka.sdq.pcm.allocation.presentation,
+ de.ipd.uka.sdq.pcm.assembly.presentation,
+ de.ipd.uka.sdq.pcm.core.stochastics.presentation,
+ de.ipd.uka.sdq.pcm.parameter.presentation,
+ de.ipd.uka.sdq.pcm.repository.presentation,
+ de.ipd.uka.sdq.pcm.resourceenvironment.presentation,
+ de.ipd.uka.sdq.pcm.resourcetype.presentation,
+ de.ipd.uka.sdq.pcm.seff.presentation,
+ de.ipd.uka.sdq.pcm.system.presentation,
+ de.ipd.uka.sdq.pcm.usagemodel.presentation
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources;visibility:=reexport,
+ de.uka.ipd.sdq.pcm.edit;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.emf.edit.ui;visibility:=reexport,
+ org.eclipse.ui.ide;visibility:=reexport,
+ de.uka.ipd.sdq.identifier.edit;visibility:=reexport
+Eclipse-LazyStart: true
