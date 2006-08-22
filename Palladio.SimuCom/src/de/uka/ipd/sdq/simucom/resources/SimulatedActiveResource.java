@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.simucom.resources;
 
 import java.util.HashMap;
 
-import PalladioCM.ResourceEnvironmentPackage.ProcessingResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.simucom.SimuComModel;
 import desmoj.core.simulator.ProcessQueue;
 import desmoj.core.simulator.SimProcess;

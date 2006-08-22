@@ -4,7 +4,6 @@ import java.util.Hashtable;
 
 import stoex.stochastics.RandomVariable;
 import stoex.stochastics.Sample;
-
 import desmoj.core.dist.IntDistEmpirical;
 import desmoj.core.simulator.Model;
 
@@ -20,7 +19,7 @@ public class DistributionObjectsStorage {
 		return singleton;
 	}
 	
-	public static void initializeModel(Model m)
+	public void initializeModel(Model m)
 	{
 		getSingletonInstance().myModel = m;
 	}

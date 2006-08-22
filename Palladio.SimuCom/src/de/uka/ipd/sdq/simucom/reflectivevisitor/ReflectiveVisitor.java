@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simucom.reflectivevisitor;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 
@@ -10,18 +9,7 @@ public class ReflectiveVisitor {
 		
 	public void visit(Object object) throws Exception {
 		Method method = getMethodWithCache(object.getClass());
-		try
-		{
-			method.invoke(this, new Object[] { object });
-		}
-		catch(InvocationTargetException ex)
-		{
-			throw new Exception(ex.getCause().toString());
-		}
-		catch(Exception ex)
-		{
-			throw ex;
-		}
+		method.invoke(this, new Object[] { object });
 		if (object instanceof Visitable) {
 			callAccept((Visitable) object);
 		}

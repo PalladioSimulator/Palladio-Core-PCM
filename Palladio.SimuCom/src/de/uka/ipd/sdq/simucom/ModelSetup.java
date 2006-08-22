@@ -8,11 +8,11 @@ import org.eclipse.emf.ocl.helper.IOCLHelper;
 import org.eclipse.emf.ocl.helper.OCLParsingException;
 import org.eclipse.emf.ocl.parser.EcoreEnvironmentFactory;
 
-import DerivedContext.DerivedContextFactory;
-import PalladioCM.ResourceEnvironmentPackage.ResourceEnvironment;
-import ParameterPackage.ParameterPackageFactory;
-import UsageModelPackage.UsageModel;
-import UsageModelPackage.UsageScenario;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+import de.uka.ipd.sdq.pcm.system.SystemPackage;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.simucom.config.ConfigFileReaderFactory;
 import de.uka.ipd.sdq.simucom.config.IConfig;
 import desmoj.core.simulator.Model;
@@ -22,7 +22,7 @@ public class ModelSetup {
 	protected Model m;
 	protected IConfig myConfig = null;
 	protected UsageModel myUsageModel = null;
-	protected SystemPackage.System system = null;
+	protected de.uka.ipd.sdq.pcm.system.System system = null;
 	protected ResourceEnvironment resourceEnv = null;
 	
 	public ModelSetup(Model m, String configFileName) {
@@ -49,7 +49,7 @@ public class ModelSetup {
 		
 		IOCLHelper helper = HelperUtil.createOCLHelper(
 				new EcoreEnvironmentFactory(EPackage.Registry.INSTANCE));
-		helper.setContext(DerivedContextFactory.eINSTANCE.createContext());
+		helper.setContext(new Context());
 		try {
 			helper.define("CollectionParameter(name : String) : ParameterPackage::CollectionParameterUsage = self.derivedUsageContext.parameter->select(p|p.parameter_ParameterUsage.parameterName=name)->first().oclAsType(ParameterPackage::CollectionParameterUsage)");
 			helper.define("PrimitiveParameter(name : String) : ParameterPackage::ParameterUsage = self.derivedUsageContext.parameter->select(p|p.parameter_ParameterUsage.parameterName=name)->first().oclAsType(ParameterPackage::ParameterUsage)");
@@ -59,7 +59,7 @@ public class ModelSetup {
 			System.exit(-1);
 		}
 
-		helper.setContext(ParameterPackageFactory.eINSTANCE.createCollectionParameterUsage());
+		helper.setContext(ParameterFactory.eINSTANCE.createCollectionParameterUsage());
 		try {
 			helper.define("collectionCharacterisationValue(type : ParameterPackage::CollectionParameterCharacterisationType) : OclAny = self.characterisation_CollectionParameterUsage->select(c|c.type = type)->first().value_CollectionParameterCharacterisation");
 		} catch (OCLParsingException e) {
@@ -68,7 +68,7 @@ public class ModelSetup {
 			System.exit(-1);
 		}
 
-		helper.setContext(ParameterPackageFactory.eINSTANCE.createParameterUsage());
+		helper.setContext(ParameterFactory.eINSTANCE.createParameterUsage());
 		try {
 			helper.define("primitiveCharacterisationValue(type : ParameterPackage::PrimitiveParameterCharacterisationType) : OclAny = self.parameterCharacterisation_ParameterUsage->select(c|c.type = type)->first().value_PrimitiveParameterCharacterisation");
 		} catch (OCLParsingException e) {
@@ -84,7 +84,7 @@ public class ModelSetup {
 		return new ArrayList<UsageScenario>(myUsageModel.getUsageScenario_UsageModel());
 	}
 	
-	public SystemPackage.System getSystem()
+	public de.uka.ipd.sdq.pcm.system.System getSystem()
 	{
 		return system;
 	}

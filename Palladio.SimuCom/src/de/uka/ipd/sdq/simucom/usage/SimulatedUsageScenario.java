@@ -1,9 +1,9 @@
 package de.uka.ipd.sdq.simucom.usage;
 
-import UsageModelPackage.ClosedWorkload;
-import UsageModelPackage.OpenWorkload;
-import UsageModelPackage.UsageModelPackagePackage;
-import UsageModelPackage.UsageScenario;
+import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
+import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.simucom.SimuComModel;
 import desmoj.core.simulator.SimTime;
 
@@ -19,7 +19,7 @@ public class SimulatedUsageScenario
 	
 	public void init()
 	{
-		if (myScenario.getWorkload_UsageScenario().eClass() == UsageModelPackagePackage.eINSTANCE.getClosedWorkload())
+		if (myScenario.getWorkload_UsageScenario().eClass() == UsagemodelPackage.eINSTANCE.getClosedWorkload())
 		{
 			initialiseClosedWorkload();
 		}
@@ -31,14 +31,14 @@ public class SimulatedUsageScenario
 
 	private void initialiseOpenWorkload() {
 		OpenWorkload load = (OpenWorkload)myScenario.getWorkload_UsageScenario();
-		String baseName = "A scenario";
+		String baseName = "Scenario "+myScenario.getEntityName();
 		OpenWorkloadDriver driver = new OpenWorkloadDriver(load, myModel, baseName , true);
 		driver.activate(SimTime.NOW);
 	}
 
 	private void initialiseClosedWorkload() {
 		ClosedWorkload load = (ClosedWorkload) myScenario.getWorkload_UsageScenario();
-		String baseName = "A scenario"/*TODO: myScenario.getScenarioName()*/;
+		String baseName = "Scenario "+myScenario.getEntityName();
 		
 		for (int i=0; i<load.getPopulation(); i++)
 		{

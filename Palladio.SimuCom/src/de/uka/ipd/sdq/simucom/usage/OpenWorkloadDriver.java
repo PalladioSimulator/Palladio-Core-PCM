@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.simucom.usage;
 
-import UsageModelPackage.OpenWorkload;
+import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
 import de.uka.ipd.sdq.simucom.ResponseTimeValueSupplier;
 import desmoj.core.dist.RealDistExponential;
 import desmoj.core.simulator.Model;

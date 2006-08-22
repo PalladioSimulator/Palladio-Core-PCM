@@ -6,24 +6,21 @@ import java.util.Iterator;
 import org.eclipse.emf.common.util.EList;
 
 import antlr.RecognitionException;
-import antlr.TokenStreamException;
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType;
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType;
+import de.uka.ipd.sdq.pcm.seff.CollectionParametricParameterUsage;
+import de.uka.ipd.sdq.pcm.seff.ParametricParameterUsage;
+import de.uka.ipd.sdq.pcm.seff.PrimitiveParametricParameterUsage;
 import de.uka.ipd.sdq.simucom.stochastics.RandomVariableHelper;
-
-import PalladioCM.SEFFPackage.CollectionParametricParameterUsage;
-import PalladioCM.SEFFPackage.ParametricParameterUsage;
-import PalladioCM.SEFFPackage.PrimitiveParametricParameterUsage;
-import ParameterPackage.CollectionParameterCharacterisation;
-import ParameterPackage.CollectionParameterCharacterisationType;
-import ParameterPackage.CollectionParameterUsage;
-import ParameterPackage.ParameterUsage;
-import ParameterPackage.PrimitiveParameterCharacterisation;
-import ParameterPackage.PrimitiveParameterCharacterisationType;
-import UsageModelPackage.EntryLevelSystemCall;
 
 class PrimitiveParameterAbstractionComplexKey
 {
 	private String parameterName;
-	private PrimitiveParameterCharacterisationType type;
+	private de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType type;
 	
 	public PrimitiveParameterAbstractionComplexKey(String parameterName, PrimitiveParameterCharacterisationType type)
 	{

@@ -1,18 +1,5 @@
 package de.uka.ipd.sdq.simucom.stochastics;
 
-import java.io.StringBufferInputStream;
-
-import stoex.parser.ExpressionLexer;
-import stoex.parser.ExpressionParser;
-import stoex.parser.ExpressionParserTokenTypes;
-import stoex.stochastics.RandomVariable;
-import stoex.visitors.DefinitionTreeParser;
-import antlr.CommonAST;
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
-import antlr.collections.AST;
-import de.uka.ipd.sdq.simucom.DistributionObjectsStorage;
-import de.uka.ipd.sdq.simucom.SimuComModel;
 import de.uka.ipd.sdq.simucom.behaviour.SimulatedStackFrame;
 
 public class RandomVariableHelper {

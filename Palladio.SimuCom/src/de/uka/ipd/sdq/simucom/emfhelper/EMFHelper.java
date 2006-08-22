@@ -43,7 +43,7 @@ public class EMFHelper {
 	    }
 	    if (result == null)
 	    {
-	    	System.out.println("Query resulted in an empty result :-(");
+	    	System.out.println("Query resulted in an empty result :-( "+query);
 	    	System.exit(-1);
 	    }
 	    return (EObject)result;

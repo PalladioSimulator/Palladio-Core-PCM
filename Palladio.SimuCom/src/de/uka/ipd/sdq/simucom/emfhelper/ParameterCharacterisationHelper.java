@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.simucom.emfhelper;
 
-import ParameterPackage.CollectionParameterCharacterisationType;
-import ParameterPackage.PrimitiveParameterCharacterisationType;
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType;
+import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType;
 
 public class ParameterCharacterisationHelper {
 

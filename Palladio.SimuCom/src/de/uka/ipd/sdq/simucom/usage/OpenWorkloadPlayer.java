@@ -5,8 +5,7 @@ package de.uka.ipd.sdq.simucom.usage;
 
 import java.util.ArrayList;
 
-import DerivedContext.Context;
-import DerivedContext.DerivedContextFactory;
+import de.uka.ipd.sdq.simucom.Context;
 import de.uka.ipd.sdq.simucom.SimuComModel;
 import desmoj.core.simulator.Model;
 import desmoj.core.simulator.SimProcess;
@@ -42,9 +41,9 @@ extends SimProcess
 	@Override
 	public void lifeCycle() {
 		double activityStart = this.currentTime().getTimeValue();
-		SystemPackage.System system = ((SimuComModel)getModel()).getSystem();
+		de.uka.ipd.sdq.pcm.system.System system = ((SimuComModel)getModel()).getSystem();
 		
-		Context callContext = DerivedContextFactory.eINSTANCE.createContext();
+		Context callContext = new Context();
 		callContext.setSystem(system);
 		
 		timeConsumed = this.currentTime().getTimeValue()-activityStart;

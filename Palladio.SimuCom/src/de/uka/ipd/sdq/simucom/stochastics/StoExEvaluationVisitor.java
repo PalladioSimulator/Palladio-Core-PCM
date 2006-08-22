@@ -3,22 +3,22 @@ package de.uka.ipd.sdq.simucom.stochastics;
 import java.io.StringBufferInputStream;
 import java.util.Iterator;
 
-import de.uka.ipd.sdq.simucom.DistributionObjectsStorage;
-import de.uka.ipd.sdq.simucom.behaviour.SimulatedStackFrame;
-import de.uka.ipd.sdq.simucom.emfhelper.ParameterCharacterisationHelper;
 import stoex.parser.ExpressionLexer;
 import stoex.parser.ExpressionParser;
 import stoex.parser.ExpressionParserTokenTypes;
 import stoex.stochastics.RandomVariable;
 import stoex.visitors.DefinitionTreeParser;
-import ParameterPackage.CollectionParameterCharacterisationType;
-import ParameterPackage.ParameterPackagePackage;
-import ParameterPackage.ParameterUsage;
-import ParameterPackage.PrimitiveParameterCharacterisation;
-import ParameterPackage.PrimitiveParameterCharacterisationType;
 import antlr.CommonAST;
 import antlr.TreeParser;
 import antlr.collections.AST;
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType;
+import de.uka.ipd.sdq.simucom.DistributionObjectsStorage;
+import de.uka.ipd.sdq.simucom.behaviour.SimulatedStackFrame;
+import de.uka.ipd.sdq.simucom.emfhelper.ParameterCharacterisationHelper;
 
 public class StoExEvaluationVisitor extends TreeParser {
 
@@ -40,18 +40,8 @@ public class StoExEvaluationVisitor extends TreeParser {
 	}
 
 	public Object evaluate() throws Exception {
-		switch (parseTree.getType()) {
-		case ExpressionParserTokenTypes.EQUAL:
-			return evaluateFormular(parseTree);
-		case ExpressionParserTokenTypes.INT_DEF:
-		case ExpressionParserTokenTypes.ENUM_DEF:
-		case ExpressionParserTokenTypes.REAL_DEF:
-			RandomVariable r = DefinitionTreeParser.parseDefinition(parseTree);
-			return DistributionObjectsStorage.getSingletonInstance()
-					.getDistributionSample(mySpecification, r);
-		}
-		throw new Exception(
-				"You should never arrive here, otherwise the parser is broken");
+		match(parseTree,ExpressionParserTokenTypes.EQUAL);
+		return evaluateFormular(parseTree);
 	}
 
 	public Object evaluateFormular(AST expr) throws Exception {
@@ -82,7 +72,7 @@ public class StoExEvaluationVisitor extends TreeParser {
 				t = t.getFirstChild();
 				String parameterName = t.getFirstChild().getText();
 				ParameterUsage usage = myStackFrame.getInnerParameter(parameterName);
-				if (usage.eClass() != ParameterPackagePackage.eINSTANCE
+				if (usage.eClass() != ParameterPackage.eINSTANCE
 						.getCollectionParameterUsage()) {
 					PrimitiveParameterCharacterisationType type = ParameterCharacterisationHelper
 							.getPrimitiveParameterCharacterisationType(characterisationType);
@@ -109,16 +99,20 @@ public class StoExEvaluationVisitor extends TreeParser {
 						* (Integer) evaluateFormularInternal(t.getFirstChild()
 								.getNextSibling()));
 			if (typeVisitor.getASTNodeType(t) == TypeEnum.REAL)
-				return new Double((Double) evaluateFormularInternal(t
-						.getFirstChild())
-						* (Double) evaluateFormularInternal(t.getFirstChild()
-								.getNextSibling()));
+				return new Double(saveDoubleCast(evaluateFormularInternal(t.getFirstChild()))
+						* saveDoubleCast(evaluateFormularInternal(t.getFirstChild().getNextSibling())));
 		case ExpressionParserTokenTypes.DIV:
 			if (typeVisitor.getASTNodeType(t) == TypeEnum.REAL)
 				return saveDoubleCast(evaluateFormularInternal(t
 						.getFirstChild()))
 						/ saveDoubleCast(evaluateFormularInternal(t.getFirstChild()
 								.getNextSibling()));
+		case ExpressionParserTokenTypes.INT_DEF:
+		case ExpressionParserTokenTypes.ENUM_DEF:
+		case ExpressionParserTokenTypes.REAL_DEF:
+			RandomVariable r = DefinitionTreeParser.parseDefinition(t);
+			return DistributionObjectsStorage.getSingletonInstance()
+					.getDistributionSample(mySpecification, r);
 		}
 		return null;
 	}
@@ -148,7 +142,7 @@ public class StoExEvaluationVisitor extends TreeParser {
 		ExpressionLexer lexer = new ExpressionLexer(
 				new StringBufferInputStream(mySpecification));
 		ExpressionParser parser = new ExpressionParser(lexer);
-		parser.stochexpr();
+		parser.formular();
 		return (CommonAST) parser.getAST();
 	}
 

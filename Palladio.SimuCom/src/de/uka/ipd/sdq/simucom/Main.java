@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucom;
 
+import de.uka.ipd.sdq.simucom.ui.MainUI;
 import desmoj.core.simulator.Experiment;
 import desmoj.core.simulator.SimTime;
 
@@ -33,7 +34,7 @@ public class Main {
 	    // filename constraints of your computer's operating system.
 	   model.connectToExperiment(exp);
 	   	//	 set experiment parameters
-	   exp.setShowProgressBar(true);  // display a progress bar (or not)
+	   exp.setShowProgressBar(false);  // display a progress bar (or not)
 	   exp.stop(new SimTime(SIMULATION_TIME));   // set end of simulation at 1500 time units
 	   exp.tracePeriod(new SimTime(0.0), new SimTime(SIMULATION_TIME));
 	                                              // set the period of the trace
@@ -41,12 +42,21 @@ public class Main {
 	      // ATTENTION!
 	      // Don't use too long periods. Otherwise a huge HTML page will
 	      // be created which crashes Netscape :-)
+
+	   new MainUI(model).setVisible(true);
+	   
+//	   MessageDistributor msgManager = exp.getMessageManager();
+//	   XMLReportOutput xmlOutput = new XMLReportOutput();
+//	   xmlOutput.open(".","Simucom_XML_Report");
+//	   msgManager.register(xmlOutput, Reporter.class);
+//	  
+	   
 	   exp.start();
 	   
 	   //	 generate the report (and other output files)
 	   exp.report();
 
 	   // stop all threads still alive and close all output files
-	   exp.finish();	   
+	   exp.finish();
 	}
 }

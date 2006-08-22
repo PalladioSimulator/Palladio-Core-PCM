@@ -2,15 +2,12 @@ package de.uka.ipd.sdq.simucom.stochastics;
 
 import java.util.HashMap;
 
-import de.uka.ipd.sdq.simucom.emfhelper.ParameterCharacterisationHelper;
-
 import stoex.parser.ExpressionParserTokenTypes;
-
-import ParameterPackage.CollectionParameterCharacterisationType;
-import ParameterPackage.PrimitiveParameterCharacterisationType;
-
 import antlr.TreeParser;
 import antlr.collections.AST;
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType;
+import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType;
+import de.uka.ipd.sdq.simucom.emfhelper.ParameterCharacterisationHelper;
 
 public class TypeInferenceVisitor extends TreeParser {
 
@@ -20,23 +17,8 @@ public class TypeInferenceVisitor extends TreeParser {
 	}
 
 	public TypeEnum inferType(AST expr) throws Exception {
-		switch(expr.getType())
-		{
-		case ExpressionParserTokenTypes.EQUAL:
-			typeAnnotation.put(expr,inferFormularType(expr));
-			break;
-		case ExpressionParserTokenTypes.INT_DEF:
-			typeAnnotation.put(expr,TypeEnum.INT);
-			break;
-		case ExpressionParserTokenTypes.ENUM_DEF:
-			typeAnnotation.put(expr,TypeEnum.ENUM);
-			break;
-		case ExpressionParserTokenTypes.REAL_DEF:
-			typeAnnotation.put(expr,TypeEnum.REAL);
-			break;
-		default:
-			throw new Exception("You should never arrive here, otherwise the parser is broken");
-		}
+		match(expr,ExpressionParserTokenTypes.EQUAL);
+		typeAnnotation.put(expr,inferFormularType(expr));
 		return typeAnnotation.get(expr);
 	}
 
@@ -50,6 +32,15 @@ public class TypeInferenceVisitor extends TreeParser {
 
 	private TypeEnum inferFormularTypeInternal(AST t) throws Exception {
 		switch (t.getType()) {
+		case ExpressionParserTokenTypes.INT_DEF:
+			typeAnnotation.put(t,TypeEnum.INT);
+			return TypeEnum.INT;
+		case ExpressionParserTokenTypes.ENUM_DEF:
+			typeAnnotation.put(t,TypeEnum.ENUM);
+			return TypeEnum.ENUM;
+		case ExpressionParserTokenTypes.REAL_DEF:
+			typeAnnotation.put(t,TypeEnum.REAL);
+			return TypeEnum.REAL;
 		case ExpressionParserTokenTypes.PARAM:
 			TypeEnum paramType = inferParamType(t);
 			typeAnnotation.put(t,paramType);

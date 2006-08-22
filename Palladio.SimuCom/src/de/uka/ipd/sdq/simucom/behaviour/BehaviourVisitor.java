@@ -1,36 +1,31 @@
 package de.uka.ipd.sdq.simucom.behaviour;
 
-import java.io.StringBufferInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.eclipse.emf.ecore.xml.type.util.XMLTypeResourceImpl.StackFrame;
-import org.eclipse.emf.ocl.expressions.EvaluationVisitor;
-
-import stoex.parser.ExpressionLexer;
-import stoex.parser.ExpressionParser;
-
-import antlr.CommonAST;
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
-
-import AssemblyPackage.SystemAssemblyConnector;
-import DerivedContext.Context;
-import DerivedContext.DerivedContextFactory;
-import PalladioCM.RepositoryPackage.BasicComponent;
-import PalladioCM.RepositoryPackage.Interface;
-import PalladioCM.RepositoryPackage.Signature;
-import PalladioCM.SEFFPackage.Behaviour;
-import PalladioCM.SEFFPackage.ExternalCall;
-import PalladioCM.SEFFPackage.InternalAction;
-import PalladioCM.SEFFPackage.Loop;
-import PalladioCM.SEFFPackage.ParametricResourceDemand;
-import PalladioCM.SEFFPackage.ServiceEffectSpecification;
-import PalladioCM.SEFFPackage.StartAction;
-import PalladioCM.SEFFPackage.StopAction;
-import SystemPackage.SpecifiedTimeConsumption;
-import SystemPackage.SystemRequiredDelegationConnector;
-import SystemPackage.SystemRequiredRole;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import de.uka.ipd.sdq.pcm.assembly.AssemblyContext;
+import de.uka.ipd.sdq.pcm.assembly.SystemAssemblyConnector;
+import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.seff.AquireAction;
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import de.uka.ipd.sdq.pcm.seff.InternalAction;
+import de.uka.ipd.sdq.pcm.seff.LoopAction;
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.seff.StartAction;
+import de.uka.ipd.sdq.pcm.seff.StopAction;
+import de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption;
+import de.uka.ipd.sdq.pcm.system.SystemRequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
+import de.uka.ipd.sdq.simucom.Context;
 import de.uka.ipd.sdq.simucom.SimuComModel;
 import de.uka.ipd.sdq.simucom.emfhelper.EMFHelper;
 import de.uka.ipd.sdq.simucom.history.HistoryElement;
@@ -38,9 +33,6 @@ import de.uka.ipd.sdq.simucom.history.HistoryHelper;
 import de.uka.ipd.sdq.simucom.reflectivevisitor.ReflectiveVisitor;
 import de.uka.ipd.sdq.simucom.resources.SimulatedActiveResource;
 import de.uka.ipd.sdq.simucom.stochastics.RandomVariableHelper;
-import de.uka.ipd.sdq.simucom.stochastics.StoExEvaluationVisitor;
-import de.uka.ipd.sdq.simucom.stochastics.TypeEnum;
-import de.uka.ipd.sdq.simucom.stochastics.TypeInferenceVisitor;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
 
@@ -53,6 +45,10 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 	protected Context myContext = null;
 	
 	protected SimulatedStackFrame myStackFrame = null;
+	
+	protected SimTime startTime, stopTime;
+
+	private String histogramId;
 
 	public BehaviourVisitor(SimProcess parent, Context callContext, SimulatedStackFrame stackFrame) {
 		super();
@@ -61,35 +57,77 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 		myStackFrame = stackFrame;
 	}
 
-	public void visitBehaviour(Behaviour behaviour) throws Exception {
+	public void visitResourceDemandingSEFF(ResourceDemandingSEFF behaviour) throws Exception {
 		StartAction startAction = (StartAction) EMFHelper.getObjectByType(
 				behaviour.getSteps_Behaviour(), StartAction.class);
+		SimuComModel model = (SimuComModel)myParentProcess.getModel();
+
+		this.histogramId = myContext.getDerivedAssemblyContext().getEntityName()+"_"+
+			myContext.getDerivedAssemblyContext().getEncapsulatedComponent__AssemblyContext().getEntityName()+"_"+
+			behaviour.getDescribedService__SEFF().getServiceName();
+		
+		if (!model.getSensorFactory().hasHistogram(histogramId))
+			model.getSensorFactory().createHistogramSensor(histogramId);
+		visit(startAction);
+	}
+
+	public void visitResourceDemandingBehaviour(ResourceDemandingBehaviour behaviour) throws Exception {
+		StartAction startAction = (StartAction) EMFHelper.getObjectByType(
+				behaviour.getSteps_Behaviour(), StartAction.class);
+
 		visit(startAction);
 	}
 
 	public void visitStartAction(StartAction start) throws Exception {
+		// Remember when we started
+		startTime = myParentProcess.getModel().currentTime(); 
+		
 		visit(start.getSuccessor_AbstractAction());
 	}
 
 	public void visitStopAction(StopAction stop) throws Exception {
 		HistoryHelper.dumpHistory("Behaviour visitor", myHistory);
+
+		// Remember when we started
+		stopTime = myParentProcess.getModel().currentTime();
+		SimuComModel model = (SimuComModel)myParentProcess.getModel();
+		if (histogramId != null)
+		{
+			model.getSensorFactory().getValueSupplierForSensor(histogramId).newResponseTimeMeassurment(
+					SimTime.diff(stopTime, startTime).getTimeValue());
+		}
 	}
 
 	public void visitInternalAction(InternalAction action) throws Exception {
 		myHistory.add(new HistoryElement(SimTime.NOW,
 				"Executing internal action " + action.getEntityName()));
 		SimuComModel myModel = (SimuComModel)myParentProcess.getModel();
-		if (action.getResourceDemand_Action().size()>0)
+		
+		Iterator resourceDemands = action.getResourceDemand_Action().iterator();
+		while(resourceDemands.hasNext())
 		{
-			ParametricResourceDemand paramResDemand = (ParametricResourceDemand) action.getResourceDemand_Action().get(0);
-			SimulatedActiveResource activeResource = myModel.getSimulatedResources().getResourceContainer("Application Server").getActiveResource(paramResDemand.getRequiredResource_ParametricResourceDemand());
+			ParametricResourceDemand paramResDemand = (ParametricResourceDemand) resourceDemands.next();
+			AllocationContext myAllocationContext = findAllocationContext(myContext.getDerivedAssemblyContext());
+			SimulatedActiveResource activeResource = myModel.getSimulatedResources().getResourceContainer(myAllocationContext.getResourceContainer_AllocationContext().getId()).getActiveResource(paramResDemand.getRequiredResource_ParametricResourceDemand());
 			double demand = RandomVariableHelper.getDoubleSample(paramResDemand.getDemand(),myStackFrame);
 			activeResource.consumeResource(myParentProcess, demand);
 		}
 		visit(action.getSuccessor_AbstractAction());
 	}
 
-	public void visitLoop(Loop loop) throws Exception {
+	private AllocationContext findAllocationContext(AssemblyContext assemblyContext)
+	{
+		Iterator allocationContexts = myContext.getSystem().getAllocation_System().getAllocationContexts().iterator();
+		while(allocationContexts.hasNext())
+		{
+			AllocationContext context = (AllocationContext)allocationContexts.next();
+			if (context.getReferencedAssemblyContext_AllocationContext() == assemblyContext)
+				return context;
+		}
+		return null;
+	}
+
+	public void visitLoopAction(LoopAction loop) throws Exception {
 		myHistory.add(new HistoryElement(SimTime.NOW, "Executing loop "
 				+ loop.getEntityName()));
 		int actualLoopCount=RandomVariableHelper.getIntSample(loop.getIterations(), myStackFrame);
@@ -102,7 +140,25 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 		visit(loop.getSuccessor_AbstractAction());
 	}
 	
-	public void visitExternalCall(ExternalCall call) throws Exception {
+	public void visitAquire(AquireAction aquire) throws Exception{
+		SimuComModel myModel = (SimuComModel)myParentProcess.getModel();
+		AllocationContext myAllocationContext = findAllocationContext(myContext.getDerivedAssemblyContext());
+
+		myModel.getSimulatedResources().getResourceContainer(myAllocationContext.getResourceContainer_AllocationContext().getId()).
+			getPassiveResource(aquire.getResourceType_Aquire()).aquire(myParentProcess);
+		visit(aquire.getSuccessor_AbstractAction());
+	}
+	
+	public void visitRelease(ReleaseAction release) throws Exception{
+		SimuComModel myModel = (SimuComModel)myParentProcess.getModel();
+		AllocationContext myAllocationContext = findAllocationContext(myContext.getDerivedAssemblyContext());
+
+		myModel.getSimulatedResources().getResourceContainer(myAllocationContext.getResourceContainer_AllocationContext().getId()).
+			getPassiveResource(release.getResourceType_Release()).release();
+		visit(release.getSuccessor_AbstractAction());
+	}
+	
+	public void visitExternalCall(ExternalCallAction call) throws Exception {
 		myHistory.add(new HistoryElement(SimTime.NOW,
 				"Calling component service "
 						+ call.getCalledService_ExternalService()
@@ -119,13 +175,13 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 			performSimulatedSystemExternalCall(serviceToBeCalled, foundSystemRequiredDelegationConnector);
 		} else {
 			// Found assembly Connector -> Perform Component Call
-			Behaviour b = getTargetBehaviourFromAssemblyConnector(foundAssemblyConnector, serviceToBeCalled);
+			ResourceDemandingSEFF b = getTargetBehaviourFromAssemblyConnector(foundAssemblyConnector, serviceToBeCalled);
 			SimulatedStackFrame newStackFrame = new SimulatedStackFrame();
 			newStackFrame.buildParametricParameterContext(call.getParametricParameterUsage_ParametricParameterUsage(),myStackFrame);
 			BehaviourVisitor visitor = new BehaviourVisitor(myParentProcess,
 					initializeCallContext(foundAssemblyConnector),
 					newStackFrame);
-			visitor.visitBehaviour(b);
+			visitor.visitResourceDemandingSEFF(b);
 		}
 		visit(call.getSuccessor_AbstractAction());
 	}
@@ -141,20 +197,29 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 		Iterator timeConsumptions = externalRole
 				.getSpecifiedTimeConsumption_SystemRequiredRole()
 				.iterator();
+		SimuComModel model = (SimuComModel)myParentProcess.getModel();
+
 		while (timeConsumptions.hasNext()) {
 			SpecifiedTimeConsumption consumption = (SpecifiedTimeConsumption) timeConsumptions
 					.next();
-			if (consumption.getSignature_SpecifiedTimeConsumption()
-					.getServiceName()
-					.equals(calledService.getServiceName())) {
+			if (consumption.getSignature_SpecifiedTimeConsumption().getServiceName().equals(calledService.getServiceName())) {
+				String serviceHistogramId = "External_"+myContext.getDerivedAssemblyContext().getEntityName()+"_"+
+					externalRole.getInterface_SystemRequiredRole().getEntityName()+"_"+
+					calledService.getServiceName();
+				if (!model.getSensorFactory().hasHistogram(serviceHistogramId))
+					model.getSensorFactory().createHistogramSensor(serviceHistogramId);
+				SimTime externalCallStartTime = model.currentTime();
 				waitForSpecifiedTimeSpan(consumption);
+				model.getSensorFactory().getValueSupplierForSensor(serviceHistogramId).newResponseTimeMeassurment(
+						SimTime.diff(model.currentTime(), externalCallStartTime).getTimeValue());
 				return;
 			}
 		}
+
 		throw new Exception("No timing information found on system required role!");
 	}
 
-	private Behaviour getTargetBehaviourFromAssemblyConnector(SystemAssemblyConnector connector, Signature targetMethod) {
+	private ResourceDemandingSEFF getTargetBehaviourFromAssemblyConnector(SystemAssemblyConnector connector, Signature targetMethod) {
 		BasicComponent targetBasicComponent = (BasicComponent) connector
 				.getProvidedRole_SystemAssemblyConnector()
 				.getProvidingComponent__ProvidedRole();
@@ -167,14 +232,14 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 								+ targetMethod.getServiceName()
 								+ "')->first()");
 
-		return (Behaviour) seff;
+		return (ResourceDemandingSEFF) seff;
 	}
 
 	/**
 	 * @param connector
 	 */
 	private Context initializeCallContext(SystemAssemblyConnector connector) {
-		Context callContext = DerivedContextFactory.eINSTANCE.createContext();
+		Context callContext = new Context();
 		callContext.setSystem(myContext.getSystem());
 		callContext.setDerivedAssemblyContext(connector
 				.getProvidingContext_SystemAssemblyConnector());
