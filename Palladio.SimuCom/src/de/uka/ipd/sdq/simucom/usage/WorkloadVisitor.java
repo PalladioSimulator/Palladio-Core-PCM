@@ -66,7 +66,7 @@ extends ReflectiveVisitor {
 		SystemProvidedDelegationConnector delegationConnector = 
 			(SystemProvidedDelegationConnector) EMFHelper.executeOCLQuery(
 				mySystem,
-				"self.providedDelegationConnector_System->select(dc|dc.systemProvidedRole_SystemProvidedDelegationConnector.interface_SystemProvidedRole.id = '"+role.getInterface_SystemProvidedRole().getId()+"')->first()");
+				"self.providedDelegationConnector_System->select(dc|dc.systemProvidedRole_SystemProvidedDelegationConnector.interface_SystemProvidedRole.id = '"+role.getInterface_SystemProvidedRole().getId()+"')->asOrderedSet()->first()");
 		ProvidesComponentType offeringComponent = delegationConnector.getAssemblyContext_SystemProvidedDelegationConnector().getEncapsulatedComponent__AssemblyContext();
 		if (offeringComponent.eClass() == RepositoryPackage.eINSTANCE.getBasicComponent())
 		{
@@ -74,7 +74,7 @@ extends ReflectiveVisitor {
 			//TODO: Über Interfaces suchen...
 			ServiceEffectSpecification seff = (ServiceEffectSpecification) EMFHelper.executeOCLQuery(
 					basicComponent,
-					"self.serviceEffectSpecifications__BasicComponent->select(seff|seff.describedService__SEFF.serviceName = '"+method.getServiceName()+"')->first()");
+					"self.serviceEffectSpecifications__BasicComponent->select(seff|seff.describedService__SEFF.serviceName = '"+method.getServiceName()+"')->asOrderedSet()->first()");
 
 			Context callContext = new Context();
 			SimulatedStackFrame stackFrame = new SimulatedStackFrame();

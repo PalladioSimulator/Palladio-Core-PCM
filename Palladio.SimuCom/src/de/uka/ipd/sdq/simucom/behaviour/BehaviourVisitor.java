@@ -158,7 +158,7 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 		visit(release.getSuccessor_AbstractAction());
 	}
 	
-	public void visitExternalCall(ExternalCallAction call) throws Exception {
+	public void visitExternalCallAction(ExternalCallAction call) throws Exception {
 		myHistory.add(new HistoryElement(SimTime.NOW,
 				"Calling component service "
 						+ call.getCalledService_ExternalService()
@@ -230,7 +230,7 @@ public class BehaviourVisitor extends ReflectiveVisitor {
 						targetBasicComponent,
 						"self.serviceEffectSpecifications__BasicComponent->select(seff|seff.describedService__SEFF.serviceName = '"
 								+ targetMethod.getServiceName()
-								+ "')->first()");
+								+ "')->asOrderedSet()->first()");
 
 		return (ResourceDemandingSEFF) seff;
 	}
