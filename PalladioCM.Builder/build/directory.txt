@@ -1,0 +1,10 @@
+feature@de.uka.ipd.sdq.pcm.feature=COPY,c:/PCM/PalladioCM.Builder/build/svn_checkout,de.uka.ipd.sdq.pcm.feature
+plugin@de.uka.ipd.sdq.pcm=COPY,C:/PCM/PalladioCM.Builder/build/svn_checkout,de.uka.ipd.sdq.pcm
+plugin@de.uka.ipd.sdq.pcm.stochasticexpressions=COPY,C:/PCM/PalladioCM.Builder/build/svn_checkout,de.uka.ipd.sdq.pcm.stochasticexpressions
+plugin@de.uka.ipd.sdq.pcm.edit=COPY,C:/PCM/PalladioCM.Builder/build/svn_checkout,de.uka.ipd.sdq.pcm.edit
+plugin@de.uka.ipd.sdq.pcm.editor=COPY,C:/PCM/PalladioCM.Builder/build/svn_checkout,de.uka.ipd.sdq.pcm.editor
+plugin@de.uka.ipd.sdq.identifier=COPY,C:/PCM/PalladioCM.Builder/build/svn_checkout,de.uka.ipd.sdq.identifier
+plugin@de.uka.ipd.sdq.identifier.edit=COPY,C:/PCM/PalladioCM.Builder/build/svn_checkout,de.uka.ipd.sdq.identifier.edit
+feature@de.uka.ipd.sdq.pcm.diagram.feature=COPY,C:/PCM/PalladioCM.Builder/build/svn_checkout,de.uka.ipd.sdq.pcm.diagram.feature
+plugin@de.uka.ipd.sdq.pcm.gmf.seff=COPY,C:/PCM/PalladioCM.Builder/build/svn_checkout,de.uka.ipd.sdq.pcm.gmf.seff
+plugin@de.uka.ipd.sdq.pcm.gmf.repository=COPY,C:/PCM/PalladioCM.Builder/build/svn_checkout,de.uka.ipd.sdq.pcm.gmf.repository
