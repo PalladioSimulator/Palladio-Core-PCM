@@ -1,4 +1,5 @@
 <project name="Build specific targets and properties" default="noDefault">
+	<taskdef classname="org.tigris.subversion.svnant.SvnTask" name="svn"></taskdef>
 
 	<!-- ===================================================================== -->
 	<!-- Run a given ${target} on all elements being built -->
@@ -75,6 +76,9 @@
 	<!-- Steps to do before fetching the build elements -->
 	<!-- ===================================================================== -->
 	<target name="preFetch">
+		<exec executable="svn.exe">
+		  <arg line="co svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk ${rootSourceFolder} --username steffen"/>
+		</exec>
 	</target>
 
 	<!-- ===================================================================== -->
