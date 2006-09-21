@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-Activator: org.eclipse.pde.internal.build.BuildActivator
+Import-Package: com.ibm.icu.util
+Bundle-RequiredExecutionEnvironment: J2SE-1.4
+Export-Package: org.eclipse.pde.build,org.eclipse.pde.internal.build;x
+ -friends:="org.eclipse.pde.core,org.eclipse.pde.ui",org.eclipse.pde.i
+ nternal.build.ant;x-internal:=true,org.eclipse.pde.internal.build.bui
+ lder;x-internal:=true,org.eclipse.pde.internal.build.packager;x-inter
+ nal:=true,org.eclipse.pde.internal.build.site;x-internal:=true
+Bundle-Version: 3.2.0.v20060603
+Eclipse-LazyStart: true
+Bundle-Name: %pluginName
+Bundle-ClassPath: pdebuild.jar
+Bundle-ManifestVersion: 2
+Bundle-Vendor: %providerName
+Bundle-SymbolicName: org.eclipse.pde.build; singleton:=true
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.2.0,4.0.0)
+ ",org.eclipse.ant.core;bundle-version="[3.1.100,4.0.0)",org.eclipse.u
+ pdate.core;bundle-version="[3.1.100,4.0.0)",org.eclipse.core.runtime.
+ compatibility;bundle-version="[3.1.100,4.0.0)";resolution:=optional
+
