@@ -430,34 +430,34 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt1167=0;
-		_loop1167:
+		int _cnt43=0;
+		_loop43:
 		do {
 			if (((LA(1) >= '0' && LA(1) <= '9'))) {
 				mDIGIT(false);
 			}
 			else {
-				if ( _cnt1167>=1 ) { break _loop1167; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt43>=1 ) { break _loop43; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			
-			_cnt1167++;
+			_cnt43++;
 		} while (true);
 		}
 		{
 		if ((LA(1)=='.')) {
 			match('.');
 			{
-			int _cnt1170=0;
-			_loop1170:
+			int _cnt46=0;
+			_loop46:
 			do {
 				if (((LA(1) >= '0' && LA(1) <= '9'))) {
 					mDIGIT(false);
 				}
 				else {
-					if ( _cnt1170>=1 ) { break _loop1170; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+					if ( _cnt46>=1 ) { break _loop46; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 				}
 				
-				_cnt1170++;
+				_cnt46++;
 			} while (true);
 			}
 		}
@@ -611,8 +611,8 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt1180=0;
-		_loop1180:
+		int _cnt56=0;
+		_loop56:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -639,10 +639,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt1180>=1 ) { break _loop1180; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt56>=1 ) { break _loop56; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt1180++;
+			_cnt56++;
 		} while (true);
 		}
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {

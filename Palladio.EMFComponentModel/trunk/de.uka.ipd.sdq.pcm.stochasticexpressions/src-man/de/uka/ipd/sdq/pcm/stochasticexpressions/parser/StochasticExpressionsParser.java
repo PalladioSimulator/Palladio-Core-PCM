@@ -143,7 +143,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop1132:
+		_loop8:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
 				{
@@ -167,7 +167,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				prodExpr();
 			}
 			else {
-				break _loop1132;
+				break _loop8;
 			}
 			
 		} while (true);
@@ -329,17 +329,17 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			}
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt1142=0;
-			_loop1142:
+			int _cnt18=0;
+			_loop18:
 			do {
 				if ((LA(1)==LPAREN)) {
 					numericsample();
 				}
 				else {
-					if ( _cnt1142>=1 ) { break _loop1142; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt18>=1 ) { break _loop18; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt1142++;
+				_cnt18++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -352,17 +352,17 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			}
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt1145=0;
-			_loop1145:
+			int _cnt21=0;
+			_loop21:
 			do {
 				if ((LA(1)==LPAREN)) {
 					stringsample();
 				}
 				else {
-					if ( _cnt1145>=1 ) { break _loop1145; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt21>=1 ) { break _loop21; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt1145++;
+				_cnt21++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
