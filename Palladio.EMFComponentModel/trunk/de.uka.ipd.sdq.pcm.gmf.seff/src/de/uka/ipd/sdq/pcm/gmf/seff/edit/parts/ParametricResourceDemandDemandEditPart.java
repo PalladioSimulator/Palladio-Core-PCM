@@ -84,7 +84,7 @@ public class ParametricResourceDemandDemandEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4013;
+	public static final int VISUAL_ID = 4014;
 
 	/**
 	 * @generated

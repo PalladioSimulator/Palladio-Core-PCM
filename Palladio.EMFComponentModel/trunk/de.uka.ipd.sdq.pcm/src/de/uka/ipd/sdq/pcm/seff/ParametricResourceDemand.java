@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 import org.eclipse.emf.ecore.EObject;
@@ -22,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getDemand <em>Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getUnit <em>Unit</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand <em>Required Resource Parametric Resource Demand</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getResourceDemand_ParametricResourceDemand <em>Resource Demand Parametric Resource Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}</li>
  * </ul>
  * </p>
@@ -108,6 +111,32 @@ public interface ParametricResourceDemand extends EObject {
 	 * @generated
 	 */
 	void setRequiredResource_ParametricResourceDemand(ProcessingResourceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Resource Demand Parametric Resource Demand</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resource Demand Parametric Resource Demand</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resource Demand Parametric Resource Demand</em>' containment reference.
+	 * @see #setResourceDemand_ParametricResourceDemand(RandomVariable)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getParametricResourceDemand_ResourceDemand_ParametricResourceDemand()
+	 * @model containment="true" required="true" ordered="false"
+	 * @generated
+	 */
+	RandomVariable getResourceDemand_ParametricResourceDemand();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getResourceDemand_ParametricResourceDemand <em>Resource Demand Parametric Resource Demand</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resource Demand Parametric Resource Demand</em>' containment reference.
+	 * @see #getResourceDemand_ParametricResourceDemand()
+	 * @generated
+	 */
+	void setResourceDemand_ParametricResourceDemand(RandomVariable value);
 
 	/**
 	 * Returns the value of the '<em><b>Action Parametric Resource Demand</b></em>' reference.

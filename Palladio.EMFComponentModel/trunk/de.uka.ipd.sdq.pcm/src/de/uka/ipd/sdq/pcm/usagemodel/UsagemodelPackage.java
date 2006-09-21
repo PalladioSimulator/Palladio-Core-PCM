@@ -414,13 +414,13 @@ public interface UsagemodelPackage extends EPackage {
 	int ENTRY_LEVEL_SYSTEM_CALL__PREDECESSOR = ABSTRACT_USER_ACTION__PREDECESSOR;
 
 	/**
-	 * The feature id for the '<em><b>Actual Paramter Usage Entry Level System Call</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Actual Parameter Usage Entry Level System Call</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
+	int ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>System Provided Role Entry Level System Call</b></em>' reference.
@@ -441,22 +441,13 @@ public interface UsagemodelPackage extends EPackage {
 	int ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Actualparameterusage</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE = ABSTRACT_USER_ACTION_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Entry Level System Call</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 4;
+	int ENTRY_LEVEL_SYSTEM_CALL_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl <em>Closed Workload</em>}' class.
@@ -742,15 +733,15 @@ public interface UsagemodelPackage extends EPackage {
 	EClass getEntryLevelSystemCall();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualParamterUsage_EntryLevelSystemCall <em>Actual Paramter Usage Entry Level System Call</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualParameterUsage_EntryLevelSystemCall <em>Actual Parameter Usage Entry Level System Call</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Actual Paramter Usage Entry Level System Call</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualParamterUsage_EntryLevelSystemCall()
+	 * @return the meta object for the containment reference list '<em>Actual Parameter Usage Entry Level System Call</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualParameterUsage_EntryLevelSystemCall()
 	 * @see #getEntryLevelSystemCall()
 	 * @generated
 	 */
-	EReference getEntryLevelSystemCall_ActualParamterUsage_EntryLevelSystemCall();
+	EReference getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSystemProvidedRole_EntryLevelSystemCall <em>System Provided Role Entry Level System Call</em>}'.
@@ -773,17 +764,6 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEntryLevelSystemCall_Signature_EntryLevelSystemCall();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualparameterusage <em>Actualparameterusage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Actualparameterusage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualparameterusage()
-	 * @see #getEntryLevelSystemCall()
-	 * @generated
-	 */
-	EReference getEntryLevelSystemCall_Actualparameterusage();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload <em>Closed Workload</em>}'.
@@ -859,7 +839,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.WorkloadImpl <em>Workload</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1033,12 +1013,12 @@ public interface UsagemodelPackage extends EPackage {
 		EClass ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall();
 
 		/**
-		 * The meta object literal for the '<em><b>Actual Paramter Usage Entry Level System Call</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Actual Parameter Usage Entry Level System Call</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_ActualParamterUsage_EntryLevelSystemCall();
+		EReference ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall();
 
 		/**
 		 * The meta object literal for the '<em><b>System Provided Role Entry Level System Call</b></em>' reference feature.
@@ -1055,14 +1035,6 @@ public interface UsagemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_Signature_EntryLevelSystemCall();
-
-		/**
-		 * The meta object literal for the '<em><b>Actualparameterusage</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE = eINSTANCE.getEntryLevelSystemCall_Actualparameterusage();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl <em>Closed Workload</em>}' class.

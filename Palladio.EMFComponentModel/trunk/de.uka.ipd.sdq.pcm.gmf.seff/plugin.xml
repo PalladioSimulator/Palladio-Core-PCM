@@ -143,6 +143,14 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
             <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
          </popupContribution>
@@ -425,6 +433,17 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </metamodel>
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2009"
+               name="ExternalCallAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ExternalCallActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_1003"/>
+            <param name="semanticHint" value="2009"/>
+         </specializationType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_1001"
                name="StartAction"
@@ -575,6 +594,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2006"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchTransition_2007"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2008"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2009"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_1001"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_1002"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_1003"/>

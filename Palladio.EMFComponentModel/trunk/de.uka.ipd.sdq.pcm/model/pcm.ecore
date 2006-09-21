@@ -44,6 +44,49 @@
       <eClassifiers xsi:type="ecore:EClass" name="RandomVariable">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="specification" ordered="false"
             lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="specification_RandomVariable"
+            ordered="false" lowerBound="1" eType="#//core/stochastics/Expression"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Comparison" abstract="true" eSuperTypes="#//core/stochastics/Expression"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Term" abstract="true" eSuperTypes="#//core/stochastics/Comparison"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Product" abstract="true" eSuperTypes="#//core/stochastics/Term"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Power" abstract="true" eSuperTypes="#//core/stochastics/Product"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Atom" abstract="true" eSuperTypes="#//core/stochastics/Power"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//core/stochastics/Atom">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Parantesis" eSuperTypes="#//core/stochastics/Atom">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="innerExpression" ordered="false"
+            lowerBound="1" eType="#//core/stochastics/Expression" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral" abstract="true"
+          eSuperTypes="#//core/stochastics/Atom"/>
+      <eClassifiers xsi:type="ecore:EClass" name="IntLiteral" eSuperTypes="#//core/stochastics/NumericLiteral">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="DoubleLiteral" eSuperTypes="#//core/stochastics/NumericLiteral">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="CompareExpression" eSuperTypes="#//core/stochastics/Comparison">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="left" ordered="false"
+            lowerBound="1" eType="#//core/stochastics/Comparison" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="right" ordered="false"
+            lowerBound="1" eType="#//core/stochastics/Comparison" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" ordered="false"
+            lowerBound="1" eType="#//core/stochastics/CompareOperations"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="CompareOperations">
+        <eLiterals name="GREATER"/>
+        <eLiterals name="EQUALS" value="1"/>
+        <eLiterals name="LESS" value="2"/>
+        <eLiterals name="NOTEQUAL" value="3"/>
+        <eLiterals name="LESSEQUAL" value="4"/>
+        <eLiterals name="GREATEREQUAL" value="5"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/1.0"
@@ -409,6 +452,9 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource_ParametricResourceDemand"
           ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemand_ParametricResourceDemand"
+          ordered="false" lowerBound="1" eType="#//core/stochastics/RandomVariable"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="action_ParametricResourceDemand"
           ordered="false" lowerBound="1" eType="#//seff/AbstractResourceDemandingAction"
           eOpposite="#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
@@ -466,7 +512,7 @@
           lowerBound="1" eType="#//parameter/CollectionParameterCharacterisationType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BranchTransition">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" ordered="false"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchCondition" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchBehaviour_BranchTransition"
           ordered="false" lowerBound="1" eType="#//seff/ResourceDemandingBehaviour"
@@ -637,14 +683,12 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EntryLevelSystemCall" eSuperTypes="#//usagemodel/AbstractUserAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="actualParamterUsage_EntryLevelSystemCall"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="actualParameterUsage_EntryLevelSystemCall"
           ordered="false" upperBound="-1" eType="#//parameter/ParameterUsage" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="systemProvidedRole_EntryLevelSystemCall"
           ordered="false" lowerBound="1" eType="#//system/SystemProvidedRole"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature_EntryLevelSystemCall"
           ordered="false" lowerBound="1" eType="#//repository/Signature"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="actualparameterusage"
-          ordered="false" upperBound="-1" eType="#//parameter/ParameterUsage" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ClosedWorkload" eSuperTypes="#//usagemodel/Workload">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="population" ordered="false"

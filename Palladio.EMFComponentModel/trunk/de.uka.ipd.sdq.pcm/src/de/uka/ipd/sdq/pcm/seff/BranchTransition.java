@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchProbability <em>Branch Probability</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchCondition <em>Branch Condition</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchBehaviour_BranchTransition <em>Branch Behaviour Branch Transition</em>}</li>
  * </ul>
  * </p>
@@ -28,30 +28,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface BranchTransition extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Branch Probability</b></em>' attribute.
+	 * Returns the value of the '<em><b>Branch Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Branch Probability</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Branch Condition</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Branch Probability</em>' attribute.
-	 * @see #setBranchProbability(String)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getBranchTransition_BranchProbability()
+	 * @return the value of the '<em>Branch Condition</em>' attribute.
+	 * @see #setBranchCondition(String)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getBranchTransition_BranchCondition()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	String getBranchProbability();
+	String getBranchCondition();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchProbability <em>Branch Probability</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchCondition <em>Branch Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Branch Probability</em>' attribute.
-	 * @see #getBranchProbability()
+	 * @param value the new value of the '<em>Branch Condition</em>' attribute.
+	 * @see #getBranchCondition()
 	 * @generated
 	 */
-	void setBranchProbability(String value);
+	void setBranchCondition(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference.

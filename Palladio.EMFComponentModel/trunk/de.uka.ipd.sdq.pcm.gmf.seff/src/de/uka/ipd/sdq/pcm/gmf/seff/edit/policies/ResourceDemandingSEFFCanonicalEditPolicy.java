@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParametricParameterUsage_ParametricParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
@@ -275,6 +276,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case BranchActionEditPart.VISUAL_ID:
 		case BranchTransitionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
+		case ExternalCallAction2EditPart.VISUAL_ID:
 		case ResourceDemandingSEFFEditPart.VISUAL_ID: {
 			myEObject2ViewMap.put(modelElement, view);
 			storeLinks(modelElement, getDiagram());

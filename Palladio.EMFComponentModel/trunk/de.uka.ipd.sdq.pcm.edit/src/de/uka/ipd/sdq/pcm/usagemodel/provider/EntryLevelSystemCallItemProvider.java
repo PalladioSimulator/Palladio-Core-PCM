@@ -127,22 +127,9 @@ public class EntryLevelSystemCallItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
-			childrenFeatures.add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE);
+			childrenFeatures.add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
 		}
 		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -176,8 +163,7 @@ public class EntryLevelSystemCallItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EntryLevelSystemCall.class)) {
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE:
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -196,55 +182,18 @@ public class EntryLevelSystemCallItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL,
+				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL,
 				 ParameterFactory.eINSTANCE.createParameterUsage()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL,
+				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL,
 				 ParameterFactory.eINSTANCE.createCompositeParameterUsage()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL,
+				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL,
 				 ParameterFactory.eINSTANCE.createCollectionParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE,
-				 ParameterFactory.eINSTANCE.createParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE,
-				 ParameterFactory.eINSTANCE.createCompositeParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE,
-				 ParameterFactory.eINSTANCE.createCollectionParameterUsage()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL ||
-			childFeature == UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

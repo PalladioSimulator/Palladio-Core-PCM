@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable#getSpecification <em>Specification</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable#getSpecification_RandomVariable <em>Specification Random Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,5 +52,31 @@ public interface RandomVariable extends EObject {
 	 * @generated
 	 */
 	void setSpecification(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Specification Random Variable</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Specification Random Variable</em>' containment reference.
+	 * @see #setSpecification_RandomVariable(Expression)
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage#getRandomVariable_Specification_RandomVariable()
+	 * @model containment="true" required="true" ordered="false"
+	 * @generated
+	 */
+	Expression getSpecification_RandomVariable();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable#getSpecification_RandomVariable <em>Specification Random Variable</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Specification Random Variable</em>' containment reference.
+	 * @see #getSpecification_RandomVariable()
+	 * @generated
+	 */
+	void setSpecification_RandomVariable(Expression value);
 
 } // RandomVariable

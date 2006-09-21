@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
@@ -32,6 +34,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getDemand <em>Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getRequiredResource_ParametricResourceDemand <em>Required Resource Parametric Resource Demand</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getResourceDemand_ParametricResourceDemand <em>Resource Demand Parametric Resource Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}</li>
  * </ul>
  * </p>
@@ -88,6 +91,16 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 * @ordered
 	 */
 	protected ProcessingResourceType requiredResource_ParametricResourceDemand = null;
+
+	/**
+	 * The cached value of the '{@link #getResourceDemand_ParametricResourceDemand() <em>Resource Demand Parametric Resource Demand</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourceDemand_ParametricResourceDemand()
+	 * @generated
+	 * @ordered
+	 */
+	protected RandomVariable resourceDemand_ParametricResourceDemand = null;
 
 	/**
 	 * The cached value of the '{@link #getAction_ParametricResourceDemand() <em>Action Parametric Resource Demand</em>}' reference.
@@ -203,6 +216,49 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RandomVariable getResourceDemand_ParametricResourceDemand() {
+		return resourceDemand_ParametricResourceDemand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetResourceDemand_ParametricResourceDemand(RandomVariable newResourceDemand_ParametricResourceDemand, NotificationChain msgs) {
+		RandomVariable oldResourceDemand_ParametricResourceDemand = resourceDemand_ParametricResourceDemand;
+		resourceDemand_ParametricResourceDemand = newResourceDemand_ParametricResourceDemand;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND, oldResourceDemand_ParametricResourceDemand, newResourceDemand_ParametricResourceDemand);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResourceDemand_ParametricResourceDemand(RandomVariable newResourceDemand_ParametricResourceDemand) {
+		if (newResourceDemand_ParametricResourceDemand != resourceDemand_ParametricResourceDemand) {
+			NotificationChain msgs = null;
+			if (resourceDemand_ParametricResourceDemand != null)
+				msgs = ((InternalEObject)resourceDemand_ParametricResourceDemand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SeffPackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND, null, msgs);
+			if (newResourceDemand_ParametricResourceDemand != null)
+				msgs = ((InternalEObject)newResourceDemand_ParametricResourceDemand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SeffPackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND, null, msgs);
+			msgs = basicSetResourceDemand_ParametricResourceDemand(newResourceDemand_ParametricResourceDemand, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND, newResourceDemand_ParametricResourceDemand, newResourceDemand_ParametricResourceDemand));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AbstractResourceDemandingAction getAction_ParametricResourceDemand() {
 		if (action_ParametricResourceDemand != null && action_ParametricResourceDemand.eIsProxy()) {
 			InternalEObject oldAction_ParametricResourceDemand = (InternalEObject)action_ParametricResourceDemand;
@@ -280,6 +336,8 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND:
+				return basicSetResourceDemand_ParametricResourceDemand(null, msgs);
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				return basicSetAction_ParametricResourceDemand(null, msgs);
 		}
@@ -300,6 +358,8 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				if (resolve) return getRequiredResource_ParametricResourceDemand();
 				return basicGetRequiredResource_ParametricResourceDemand();
+			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND:
+				return getResourceDemand_ParametricResourceDemand();
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				if (resolve) return getAction_ParametricResourceDemand();
 				return basicGetAction_ParametricResourceDemand();
@@ -322,6 +382,9 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 				return;
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				setRequiredResource_ParametricResourceDemand((ProcessingResourceType)newValue);
+				return;
+			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND:
+				setResourceDemand_ParametricResourceDemand((RandomVariable)newValue);
 				return;
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				setAction_ParametricResourceDemand((AbstractResourceDemandingAction)newValue);
@@ -346,6 +409,9 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				setRequiredResource_ParametricResourceDemand((ProcessingResourceType)null);
 				return;
+			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND:
+				setResourceDemand_ParametricResourceDemand((RandomVariable)null);
+				return;
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				setAction_ParametricResourceDemand((AbstractResourceDemandingAction)null);
 				return;
@@ -366,6 +432,8 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 				return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				return requiredResource_ParametricResourceDemand != null;
+			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND:
+				return resourceDemand_ParametricResourceDemand != null;
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				return action_ParametricResourceDemand != null;
 		}

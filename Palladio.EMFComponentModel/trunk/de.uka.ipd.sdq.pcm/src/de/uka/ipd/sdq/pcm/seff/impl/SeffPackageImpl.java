@@ -429,8 +429,17 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParametricResourceDemand_Action_ParametricResourceDemand() {
+	public EReference getParametricResourceDemand_ResourceDemand_ParametricResourceDemand() {
 		return (EReference)parametricResourceDemandEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParametricResourceDemand_Action_ParametricResourceDemand() {
+		return (EReference)parametricResourceDemandEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -663,7 +672,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBranchTransition_BranchProbability() {
+	public EAttribute getBranchTransition_BranchCondition() {
 		return (EAttribute)branchTransitionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -780,6 +789,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		createEAttribute(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__DEMAND);
 		createEAttribute(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__UNIT);
 		createEReference(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND);
+		createEReference(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND);
 		createEReference(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND);
 
 		startActionEClass = createEClass(START_ACTION);
@@ -818,7 +828,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		createEAttribute(collectionParametricParameterUsageEClass, COLLECTION_PARAMETRIC_PARAMETER_USAGE__TYPE);
 
 		branchTransitionEClass = createEClass(BRANCH_TRANSITION);
-		createEAttribute(branchTransitionEClass, BRANCH_TRANSITION__BRANCH_PROBABILITY);
+		createEAttribute(branchTransitionEClass, BRANCH_TRANSITION__BRANCH_CONDITION);
 		createEReference(branchTransitionEClass, BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION);
 
 		branchActionEClass = createEClass(BRANCH_ACTION);
@@ -894,6 +904,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEAttribute(getParametricResourceDemand_Demand(), ecorePackage.getEString(), "demand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getParametricResourceDemand_Unit(), ecorePackage.getEString(), "unit", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getParametricResourceDemand_RequiredResource_ParametricResourceDemand(), theResourcetypePackage.getProcessingResourceType(), null, "requiredResource_ParametricResourceDemand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getParametricResourceDemand_ResourceDemand_ParametricResourceDemand(), theStochasticsPackage.getRandomVariable(), null, "resourceDemand_ParametricResourceDemand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getParametricResourceDemand_Action_ParametricResourceDemand(), this.getAbstractResourceDemandingAction(), this.getAbstractResourceDemandingAction_ResourceDemand_Action(), "action_ParametricResourceDemand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(startActionEClass, StartAction.class, "StartAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -932,7 +943,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEAttribute(getCollectionParametricParameterUsage_Type(), theParameterPackage.getCollectionParameterCharacterisationType(), "type", null, 1, 1, CollectionParametricParameterUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(branchTransitionEClass, BranchTransition.class, "BranchTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBranchTransition_BranchProbability(), ecorePackage.getEString(), "branchProbability", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBranchTransition_BranchCondition(), ecorePackage.getEString(), "branchCondition", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBranchTransition_BranchBehaviour_BranchTransition(), this.getResourceDemandingBehaviour(), null, "branchBehaviour_BranchTransition", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(branchActionEClass, BranchAction.class, "BranchAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

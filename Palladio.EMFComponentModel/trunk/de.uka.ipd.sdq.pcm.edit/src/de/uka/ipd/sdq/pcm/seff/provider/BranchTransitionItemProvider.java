@@ -65,25 +65,25 @@ public class BranchTransitionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBranchProbabilityPropertyDescriptor(object);
+			addBranchConditionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Branch Probability feature.
+	 * This adds a property descriptor for the Branch Condition feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBranchProbabilityPropertyDescriptor(Object object) {
+	protected void addBranchConditionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BranchTransition_branchProbability_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BranchTransition_branchProbability_feature", "_UI_BranchTransition_type"),
-				 SeffPackage.Literals.BRANCH_TRANSITION__BRANCH_PROBABILITY,
+				 getString("_UI_BranchTransition_branchCondition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BranchTransition_branchCondition_feature", "_UI_BranchTransition_type"),
+				 SeffPackage.Literals.BRANCH_TRANSITION__BRANCH_CONDITION,
 				 true,
 				 false,
 				 false,
@@ -125,7 +125,7 @@ public class BranchTransitionItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((BranchTransition)object).getBranchProbability();
+		String label = ((BranchTransition)object).getBranchCondition();
 		return label == null || label.length() == 0 ?
 			getString("_UI_BranchTransition_type") :
 			getString("_UI_BranchTransition_type") + " " + label;
@@ -142,7 +142,7 @@ public class BranchTransitionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BranchTransition.class)) {
-			case SeffPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
+			case SeffPackage.BRANCH_TRANSITION__BRANCH_CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SeffPackage.BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:

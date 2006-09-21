@@ -31,5 +31,8 @@
 #ADAPTER#ACCESS#eclipse3.2/eclipse/plugins/com.ibm.icu_3.4.4.1.jar[?**/*]
 #ADAPTER#ACCESS#de.uka.ipd.sdq.identifier/bin/[+de/uka/ipd/sdq/identifier/*;+de/uka/ipd/sdq/identifier/impl/*;+de/uka/ipd/sdq/identifier/util/*;?**/*]
 #ADAPTER#ACCESS#de.uka.ipd.sdq.identifier/@dot[+de/uka/ipd/sdq/identifier/*;+de/uka/ipd/sdq/identifier/impl/*;+de/uka/ipd/sdq/identifier/util/*;?**/*]
+#ADAPTER#ACCESS#de.uka.ipd.sdq.builder/pdebuild.jar[?**/*]
+#ADAPTER#ACCESS#eclipse3.2/eclipse/plugins/org.eclipse.update.core_3.2.0.v20060605.jar[?**/*]
+#ADAPTER#ACCESS#eclipse3.2/eclipse/plugins/org.eclipse.update.core.win32_3.2.0.v20060605.jar[?**/*]
 #ADAPTER#ACCESS#de.uka.ipd.sdq.identifier.edit/bin/[+de/uka/ipd/sdq/identifier/provider/*;?**/*]
 #ADAPTER#ACCESS#de.uka.ipd.sdq.identifier.edit/@dot[+de/uka/ipd/sdq/identifier/provider/*;?**/*]

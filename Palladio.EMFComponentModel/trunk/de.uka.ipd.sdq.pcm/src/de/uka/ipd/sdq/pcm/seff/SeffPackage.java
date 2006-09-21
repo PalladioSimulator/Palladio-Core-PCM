@@ -284,13 +284,22 @@ public interface SeffPackage extends EPackage {
 	int PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = 2;
 
 	/**
+	 * The feature id for the '<em><b>Resource Demand Parametric Resource Demand</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND = 3;
+
+	/**
 	 * The feature id for the '<em><b>Action Parametric Resource Demand</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = 3;
+	int PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = 4;
 
 	/**
 	 * The number of structural features of the '<em>Parametric Resource Demand</em>' class.
@@ -299,7 +308,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = 4;
+	int PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl <em>Start Action</em>}' class.
@@ -495,6 +504,15 @@ public interface SeffPackage extends EPackage {
 	int PARAMETRIC_PARAMETER_USAGE__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETRIC_PARAMETER_USAGE__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
+
+	/**
 	 * The feature id for the '<em><b>Characterised Parameter Parametric Parameter Usage</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -603,6 +621,15 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_PARAMETRIC_PARAMETER_USAGE__SPECIFICATION = PARAMETRIC_PARAMETER_USAGE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_PARAMETRIC_PARAMETER_USAGE__SPECIFICATION_RANDOM_VARIABLE = PARAMETRIC_PARAMETER_USAGE__SPECIFICATION_RANDOM_VARIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Characterised Parameter Parametric Parameter Usage</b></em>' reference.
@@ -952,6 +979,15 @@ public interface SeffPackage extends EPackage {
 	int COLLECTION_PARAMETRIC_PARAMETER_USAGE__SPECIFICATION = PARAMETRIC_PARAMETER_USAGE__SPECIFICATION;
 
 	/**
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLECTION_PARAMETRIC_PARAMETER_USAGE__SPECIFICATION_RANDOM_VARIABLE = PARAMETRIC_PARAMETER_USAGE__SPECIFICATION_RANDOM_VARIABLE;
+
+	/**
 	 * The feature id for the '<em><b>Characterised Parameter Parametric Parameter Usage</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -989,13 +1025,13 @@ public interface SeffPackage extends EPackage {
 	int BRANCH_TRANSITION = 15;
 
 	/**
-	 * The feature id for the '<em><b>Branch Probability</b></em>' attribute.
+	 * The feature id for the '<em><b>Branch Condition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH_TRANSITION__BRANCH_PROBABILITY = 0;
+	int BRANCH_TRANSITION__BRANCH_CONDITION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference.
@@ -1306,6 +1342,17 @@ public interface SeffPackage extends EPackage {
 	EReference getParametricResourceDemand_RequiredResource_ParametricResourceDemand();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getResourceDemand_ParametricResourceDemand <em>Resource Demand Parametric Resource Demand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Resource Demand Parametric Resource Demand</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getResourceDemand_ParametricResourceDemand()
+	 * @see #getParametricResourceDemand()
+	 * @generated
+	 */
+	EReference getParametricResourceDemand_ResourceDemand_ParametricResourceDemand();
+
+	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1580,15 +1627,15 @@ public interface SeffPackage extends EPackage {
 	EClass getBranchTransition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchProbability <em>Branch Probability</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchCondition <em>Branch Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Branch Probability</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchProbability()
+	 * @return the meta object for the attribute '<em>Branch Condition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchCondition()
 	 * @see #getBranchTransition()
 	 * @generated
 	 */
-	EAttribute getBranchTransition_BranchProbability();
+	EAttribute getBranchTransition_BranchCondition();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchBehaviour_BranchTransition <em>Branch Behaviour Branch Transition</em>}'.
@@ -1696,7 +1743,7 @@ public interface SeffPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StopActionImpl <em>Stop Action</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1784,6 +1831,14 @@ public interface SeffPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = eINSTANCE.getParametricResourceDemand_RequiredResource_ParametricResourceDemand();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Demand Parametric Resource Demand</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND = eINSTANCE.getParametricResourceDemand_ResourceDemand_ParametricResourceDemand();
 
 		/**
 		 * The meta object literal for the '<em><b>Action Parametric Resource Demand</b></em>' reference feature.
@@ -2018,12 +2073,12 @@ public interface SeffPackage extends EPackage {
 		EClass BRANCH_TRANSITION = eINSTANCE.getBranchTransition();
 
 		/**
-		 * The meta object literal for the '<em><b>Branch Probability</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Branch Condition</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BRANCH_TRANSITION__BRANCH_PROBABILITY = eINSTANCE.getBranchTransition_BranchProbability();
+		EAttribute BRANCH_TRANSITION__BRANCH_CONDITION = eINSTANCE.getBranchTransition_BranchCondition();
 
 		/**
 		 * The meta object literal for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference feature.

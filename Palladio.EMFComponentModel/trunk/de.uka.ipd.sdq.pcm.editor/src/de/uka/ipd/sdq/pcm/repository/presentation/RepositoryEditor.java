@@ -44,7 +44,9 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 
+import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ColumnWeightData;
+import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -72,7 +74,10 @@ import org.eclipse.swt.graphics.Point;
 
 import org.eclipse.swt.layout.FillLayout;
 
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -99,7 +104,9 @@ import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
+import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
+import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
@@ -114,6 +121,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.ui.MarkerHelper;
 import org.eclipse.emf.common.ui.ViewerPane;
 
+import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
 
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
@@ -137,6 +145,8 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
@@ -151,6 +161,8 @@ import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.edit.ui.provider.PropertyDescriptor;
+import org.eclipse.emf.edit.ui.provider.PropertySource;
 
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 
@@ -170,6 +182,7 @@ import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapter
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
 
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.StochasticsItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
@@ -180,6 +193,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemPr
 
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
 
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
@@ -1353,7 +1367,7 @@ public class RepositoryEditor
 	 * This accesses a cached version of the property sheet.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
 		if (propertySheetPage == null) {
@@ -1369,7 +1383,52 @@ public class RepositoryEditor
 						getActionBarContributor().shareGlobalActions(this, actionBars);
 					}
 				};
-			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+				// propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+				propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory)
+				{
+
+					@Override
+					protected IPropertySource createPropertySource(Object object, IItemPropertySource itemPropertySource) {
+					    if (object instanceof RandomVariable)
+					    {
+					    	return new PropertySource(object, itemPropertySource){
+
+								@Override
+								protected IPropertyDescriptor createPropertyDescriptor(IItemPropertyDescriptor itemPropertyDescriptor) {
+								    return new PropertyDescriptor(object, itemPropertyDescriptor){
+
+										@Override
+										public CellEditor createPropertyEditor(Composite composite) {
+											CellEditor result = new ExtendedDialogCellEditor(composite, new AdapterFactoryLabelProvider(adapterFactory))
+											{
+
+												@Override
+												protected Object openDialogBox(Control cellEditorWindow) {
+													StoachasticExpressionEditDialog dialog = new StoachasticExpressionEditDialog(cellEditorWindow.getShell());
+													dialog.open();
+													if (dialog.getResult() != null)
+													{
+														// TODO: Use Property sheet mechanism to support undo/redo of this!
+														RandomVariable randVar = (RandomVariable)object;
+														randVar.setSpecification_RandomVariable(dialog.getResult());
+													}
+													return null;
+												}
+												
+											};
+											return result;
+										}
+								    	
+								    };
+								}
+					    		
+					    	};
+					    }
+					    else
+					    	return super.createPropertySource(object, itemPropertySource);
+					}
+					
+				});
 		}
 
 		return propertySheetPage;

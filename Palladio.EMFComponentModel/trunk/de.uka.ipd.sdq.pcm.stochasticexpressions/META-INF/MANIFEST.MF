@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Stochasticexpressions
+Bundle-SymbolicName: de.uka.ipd.sdq.pcm.stochasticexpressions
+Bundle-Version: 1.0.0
+Bundle-Localization: plugin
+Require-Bundle: de.uka.ipd.sdq.pcm,
+ org.antlr
+Export-Package: de.uka.ipd.sdq.pcm.stochasticexpressions.parser

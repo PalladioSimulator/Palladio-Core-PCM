@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
@@ -59,6 +60,10 @@ public class ResourceDemandingBehaviourBranchCompartmentCanonicalEditPolicy
 				break;
 			}
 			case BranchActionEditPart.VISUAL_ID: {
+				result.add(nextValue);
+				break;
+			}
+			case ExternalCallAction2EditPart.VISUAL_ID: {
 				result.add(nextValue);
 				break;
 			}

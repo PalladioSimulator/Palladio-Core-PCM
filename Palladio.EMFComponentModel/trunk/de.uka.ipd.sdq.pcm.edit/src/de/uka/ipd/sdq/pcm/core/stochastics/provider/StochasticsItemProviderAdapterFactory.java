@@ -98,6 +98,116 @@ public class StochasticsItemProviderAdapterFactory extends StochasticsAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.stochastics.Variable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VariableItemProvider variableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.Variable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createVariableAdapter() {
+		if (variableItemProvider == null) {
+			variableItemProvider = new VariableItemProvider(this);
+		}
+
+		return variableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.stochastics.Parantesis} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParantesisItemProvider parantesisItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.Parantesis}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createParantesisAdapter() {
+		if (parantesisItemProvider == null) {
+			parantesisItemProvider = new ParantesisItemProvider(this);
+		}
+
+		return parantesisItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntLiteralItemProvider intLiteralItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createIntLiteralAdapter() {
+		if (intLiteralItemProvider == null) {
+			intLiteralItemProvider = new IntLiteralItemProvider(this);
+		}
+
+		return intLiteralItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.stochastics.DoubleLiteral} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DoubleLiteralItemProvider doubleLiteralItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.DoubleLiteral}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createDoubleLiteralAdapter() {
+		if (doubleLiteralItemProvider == null) {
+			doubleLiteralItemProvider = new DoubleLiteralItemProvider(this);
+		}
+
+		return doubleLiteralItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompareExpressionItemProvider compareExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createCompareExpressionAdapter() {
+		if (compareExpressionItemProvider == null) {
+			compareExpressionItemProvider = new CompareExpressionItemProvider(this);
+		}
+
+		return compareExpressionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +304,11 @@ public class StochasticsItemProviderAdapterFactory extends StochasticsAdapterFac
 	 */
 	public void dispose() {
 		if (randomVariableItemProvider != null) randomVariableItemProvider.dispose();
+		if (variableItemProvider != null) variableItemProvider.dispose();
+		if (parantesisItemProvider != null) parantesisItemProvider.dispose();
+		if (intLiteralItemProvider != null) intLiteralItemProvider.dispose();
+		if (doubleLiteralItemProvider != null) doubleLiteralItemProvider.dispose();
+		if (compareExpressionItemProvider != null) compareExpressionItemProvider.dispose();
 	}
 
 }

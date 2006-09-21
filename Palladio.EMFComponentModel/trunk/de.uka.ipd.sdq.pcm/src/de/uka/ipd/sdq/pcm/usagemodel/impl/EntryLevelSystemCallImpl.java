@@ -38,10 +38,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getActualParamterUsage_EntryLevelSystemCall <em>Actual Paramter Usage Entry Level System Call</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getActualParameterUsage_EntryLevelSystemCall <em>Actual Parameter Usage Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getSystemProvidedRole_EntryLevelSystemCall <em>System Provided Role Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getActualparameterusage <em>Actualparameterusage</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,14 +48,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements EntryLevelSystemCall {
 	/**
-	 * The cached value of the '{@link #getActualParamterUsage_EntryLevelSystemCall() <em>Actual Paramter Usage Entry Level System Call</em>}' containment reference list.
+	 * The cached value of the '{@link #getActualParameterUsage_EntryLevelSystemCall() <em>Actual Parameter Usage Entry Level System Call</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getActualParamterUsage_EntryLevelSystemCall()
+	 * @see #getActualParameterUsage_EntryLevelSystemCall()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList actualParamterUsage_EntryLevelSystemCall = null;
+	protected EList actualParameterUsage_EntryLevelSystemCall = null;
 
 	/**
 	 * The cached value of the '{@link #getSystemProvidedRole_EntryLevelSystemCall() <em>System Provided Role Entry Level System Call</em>}' reference.
@@ -77,17 +76,6 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * @ordered
 	 */
 	protected Signature signature_EntryLevelSystemCall = null;
-
-	/**
-	 * The cached value of the '{@link #getActualparameterusage() <em>Actualparameterusage</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActualparameterusage()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList actualparameterusage = null;
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,11 +100,11 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getActualParamterUsage_EntryLevelSystemCall() {
-		if (actualParamterUsage_EntryLevelSystemCall == null) {
-			actualParamterUsage_EntryLevelSystemCall = new EObjectContainmentEList(ParameterUsage.class, this, UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
+	public EList getActualParameterUsage_EntryLevelSystemCall() {
+		if (actualParameterUsage_EntryLevelSystemCall == null) {
+			actualParameterUsage_EntryLevelSystemCall = new EObjectContainmentEList(ParameterUsage.class, this, UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
 		}
-		return actualParamterUsage_EntryLevelSystemCall;
+		return actualParameterUsage_EntryLevelSystemCall;
 	}
 
 	/**
@@ -200,24 +188,10 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getActualparameterusage() {
-		if (actualparameterusage == null) {
-			actualparameterusage = new EObjectContainmentEList(ParameterUsage.class, this, UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE);
-		}
-		return actualparameterusage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
-				return ((InternalEList)getActualParamterUsage_EntryLevelSystemCall()).basicRemove(otherEnd, msgs);
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE:
-				return ((InternalEList)getActualparameterusage()).basicRemove(otherEnd, msgs);
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
+				return ((InternalEList)getActualParameterUsage_EntryLevelSystemCall()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -229,16 +203,14 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
-				return getActualParamterUsage_EntryLevelSystemCall();
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
+				return getActualParameterUsage_EntryLevelSystemCall();
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
 				if (resolve) return getSystemProvidedRole_EntryLevelSystemCall();
 				return basicGetSystemProvidedRole_EntryLevelSystemCall();
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				if (resolve) return getSignature_EntryLevelSystemCall();
 				return basicGetSignature_EntryLevelSystemCall();
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE:
-				return getActualparameterusage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,19 +222,15 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
-				getActualParamterUsage_EntryLevelSystemCall().clear();
-				getActualParamterUsage_EntryLevelSystemCall().addAll((Collection)newValue);
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
+				getActualParameterUsage_EntryLevelSystemCall().clear();
+				getActualParameterUsage_EntryLevelSystemCall().addAll((Collection)newValue);
 				return;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
 				setSystemProvidedRole_EntryLevelSystemCall((SystemProvidedRole)newValue);
 				return;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				setSignature_EntryLevelSystemCall((Signature)newValue);
-				return;
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE:
-				getActualparameterusage().clear();
-				getActualparameterusage().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,17 +243,14 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
-				getActualParamterUsage_EntryLevelSystemCall().clear();
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
+				getActualParameterUsage_EntryLevelSystemCall().clear();
 				return;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
 				setSystemProvidedRole_EntryLevelSystemCall((SystemProvidedRole)null);
 				return;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				setSignature_EntryLevelSystemCall((Signature)null);
-				return;
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE:
-				getActualparameterusage().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -298,14 +263,12 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMTER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
-				return actualParamterUsage_EntryLevelSystemCall != null && !actualParamterUsage_EntryLevelSystemCall.isEmpty();
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
+				return actualParameterUsage_EntryLevelSystemCall != null && !actualParameterUsage_EntryLevelSystemCall.isEmpty();
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
 				return systemProvidedRole_EntryLevelSystemCall != null;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				return signature_EntryLevelSystemCall != null;
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUALPARAMETERUSAGE:
-				return actualparameterusage != null && !actualparameterusage.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

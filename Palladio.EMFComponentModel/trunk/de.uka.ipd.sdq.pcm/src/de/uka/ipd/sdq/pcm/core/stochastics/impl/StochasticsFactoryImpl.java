@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.pcm.core.stochastics.impl;
 import de.uka.ipd.sdq.pcm.core.stochastics.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -60,8 +61,41 @@ public class StochasticsFactoryImpl extends EFactoryImpl implements StochasticsF
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case StochasticsPackage.RANDOM_VARIABLE: return createRandomVariable();
+			case StochasticsPackage.VARIABLE: return createVariable();
+			case StochasticsPackage.PARANTESIS: return createParantesis();
+			case StochasticsPackage.INT_LITERAL: return createIntLiteral();
+			case StochasticsPackage.DOUBLE_LITERAL: return createDoubleLiteral();
+			case StochasticsPackage.COMPARE_EXPRESSION: return createCompareExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case StochasticsPackage.COMPARE_OPERATIONS:
+				return createCompareOperationsFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case StochasticsPackage.COMPARE_OPERATIONS:
+				return convertCompareOperationsToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -73,6 +107,76 @@ public class StochasticsFactoryImpl extends EFactoryImpl implements StochasticsF
 	public RandomVariable createRandomVariable() {
 		RandomVariableImpl randomVariable = new RandomVariableImpl();
 		return randomVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable createVariable() {
+		VariableImpl variable = new VariableImpl();
+		return variable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Parantesis createParantesis() {
+		ParantesisImpl parantesis = new ParantesisImpl();
+		return parantesis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntLiteral createIntLiteral() {
+		IntLiteralImpl intLiteral = new IntLiteralImpl();
+		return intLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DoubleLiteral createDoubleLiteral() {
+		DoubleLiteralImpl doubleLiteral = new DoubleLiteralImpl();
+		return doubleLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompareExpression createCompareExpression() {
+		CompareExpressionImpl compareExpression = new CompareExpressionImpl();
+		return compareExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompareOperations createCompareOperationsFromString(EDataType eDataType, String initialValue) {
+		CompareOperations result = CompareOperations.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCompareOperationsToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

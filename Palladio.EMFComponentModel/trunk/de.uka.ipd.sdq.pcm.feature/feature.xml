@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="PalladioCM.Feature"
+      id="de.uka.ipd.sdq.pcm.feature"
       label="Palladio Component Model Feature"
-      version="1.2.0.qualifier"
+      version="1.2.3.qualifier"
       provider-name="sdq.ipd.uka.de">
 
    <description url="http://i43pc12.ipd.uka.de/eclipse/PCM/">
@@ -110,6 +110,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.emf.ocl"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
@@ -120,35 +121,35 @@ This Agreement is governed by the laws of the State of New York and the intellec
          id="de.uka.ipd.sdq.identifier"
          download-size="0"
          install-size="0"
-         version="1.2.0.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="de.uka.ipd.sdq.identifier.edit"
          download-size="0"
          install-size="0"
-         version="1.2.0.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="de.uka.ipd.sdq.pcm"
          download-size="0"
          install-size="0"
-         version="1.2.0.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="de.uka.ipd.sdq.pcm.edit"
          download-size="0"
          install-size="0"
-         version="1.2.0.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
          id="de.uka.ipd.sdq.pcm.editor"
          download-size="0"
          install-size="0"
-         version="1.2.0.qualifier"
+         version="0.0.0"
          unpack="false"/>
 
 </feature>

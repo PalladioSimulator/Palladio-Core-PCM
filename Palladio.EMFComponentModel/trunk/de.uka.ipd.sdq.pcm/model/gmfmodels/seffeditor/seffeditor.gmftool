@@ -73,7 +73,9 @@
           title="Control Flow"
           description="Create new Control Flow Link">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="/icons/full/ctool16/ControlFlow.gif"
+            bundle="de.uka.ipd.sdq.pcm.edit"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
@@ -82,7 +84,9 @@
           title="Resource Demand"
           description="Create new Resource Demand">
         <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
+            xsi:type="gmftool:BundleImage"
+            path="/icons/full/ctool16/ParametricRessourceDemand.gif"
+            bundle="de.uka.ipd.sdq.pcm.edit"/>
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>

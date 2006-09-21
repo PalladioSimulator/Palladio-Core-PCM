@@ -181,6 +181,7 @@ public class PcmPaletteFactory {
 
 		final List elementTypes = new ArrayList();
 		elementTypes.add(PcmElementTypes.ExternalCallAction_1003);
+		elementTypes.add(PcmElementTypes.ExternalCallAction_2009);
 		ToolEntry result = new NodeToolEntry("ExternalCallAction",
 				"Create new ExternalCallAction", smallImage, largeImage,
 				elementTypes);
@@ -216,8 +217,8 @@ public class PcmPaletteFactory {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
-		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.AbstractActionSuccessor_AbstractAction_3001);
+		smallImage = PcmDiagramEditorPlugin
+				.findImageDescriptor("/de.uka.ipd.sdq.pcm.edit/icons/full/ctool16/ControlFlow.gif");
 
 		largeImage = smallImage;
 
@@ -238,8 +239,8 @@ public class PcmPaletteFactory {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
-		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.AbstractResourceDemandingActionResourceDemand_Action_3003);
+		smallImage = PcmDiagramEditorPlugin
+				.findImageDescriptor("/de.uka.ipd.sdq.pcm.edit/icons/full/ctool16/ParametricRessourceDemand.gif");
 
 		largeImage = smallImage;
 

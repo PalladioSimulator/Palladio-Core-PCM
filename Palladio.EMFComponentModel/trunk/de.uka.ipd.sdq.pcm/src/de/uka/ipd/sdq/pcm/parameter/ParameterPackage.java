@@ -82,6 +82,15 @@ public interface ParameterPackage extends EPackage {
 	int PRIMITIVE_PARAMETER_CHARACTERISATION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_PARAMETER_CHARACTERISATION__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -255,6 +264,15 @@ public interface ParameterPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLLECTION_PARAMETER_CHARACTERISATION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLECTION_PARAMETER_CHARACTERISATION__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -463,7 +481,7 @@ public interface ParameterPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterCharacterisationImpl <em>Primitive Parameter Characterisation</em>}' class.
 		 * <!-- begin-user-doc -->

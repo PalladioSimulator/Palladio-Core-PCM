@@ -35,6 +35,51 @@ public interface StochasticsFactory extends EFactory {
 	RandomVariable createRandomVariable();
 
 	/**
+	 * Returns a new object of class '<em>Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable</em>'.
+	 * @generated
+	 */
+	Variable createVariable();
+
+	/**
+	 * Returns a new object of class '<em>Parantesis</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parantesis</em>'.
+	 * @generated
+	 */
+	Parantesis createParantesis();
+
+	/**
+	 * Returns a new object of class '<em>Int Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Int Literal</em>'.
+	 * @generated
+	 */
+	IntLiteral createIntLiteral();
+
+	/**
+	 * Returns a new object of class '<em>Double Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Double Literal</em>'.
+	 * @generated
+	 */
+	DoubleLiteral createDoubleLiteral();
+
+	/**
+	 * Returns a new object of class '<em>Compare Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compare Expression</em>'.
+	 * @generated
+	 */
+	CompareExpression createCompareExpression();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

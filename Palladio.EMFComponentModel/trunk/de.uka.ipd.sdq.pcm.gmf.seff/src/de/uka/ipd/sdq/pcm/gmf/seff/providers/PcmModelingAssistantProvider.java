@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartmentEditPart;
@@ -59,6 +60,7 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(PcmElementTypes.LoopAction_2004);
 			types.add(PcmElementTypes.InternalAction_2005);
 			types.add(PcmElementTypes.BranchAction_2006);
+			types.add(PcmElementTypes.ExternalCallAction_2009);
 			return types;
 		}
 		if (editPart instanceof LoopActionBehaviourCompartment2EditPart) {
@@ -83,6 +85,7 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(PcmElementTypes.LoopAction_2004);
 			types.add(PcmElementTypes.InternalAction_2005);
 			types.add(PcmElementTypes.BranchAction_2006);
+			types.add(PcmElementTypes.ExternalCallAction_2009);
 			return types;
 		}
 		if (editPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
@@ -113,6 +116,12 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
 		if (sourceEditPart instanceof ExternalCallActionEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PcmElementTypes.ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002);
+			return types;
+		}
+		if (sourceEditPart instanceof ExternalCallAction2EditPart) {
 			List types = new ArrayList();
 			types
 					.add(PcmElementTypes.ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002);
@@ -149,6 +158,10 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 			List types = new ArrayList();
 			return types;
 		}
+		if (sourceEditPart instanceof ExternalCallAction2EditPart) {
+			List types = new ArrayList();
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -174,6 +187,10 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
 		if (sourceEditPart instanceof ExternalCallActionEditPart) {
+			List types = new ArrayList();
+			return types;
+		}
+		if (sourceEditPart instanceof ExternalCallAction2EditPart) {
 			List types = new ArrayList();
 			return types;
 		}

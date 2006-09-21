@@ -14,7 +14,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchProbabilityE
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageSpecificationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
@@ -304,6 +306,12 @@ public class PcmVisualIDRegistry {
 			}
 			return getUnrecognizedResourceDemandingBehaviour_2008ChildNodeID(
 					domainElement, semanticHint);
+		case ExternalCallAction2EditPart.VISUAL_ID:
+			if (ExternalCallActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
+				return ExternalCallActionEntityName2EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedExternalCallAction_2009ChildNodeID(
+					domainElement, semanticHint);
 		case LoopActionBehaviourCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
@@ -343,6 +351,12 @@ public class PcmVisualIDRegistry {
 							domainElementMetaclass)
 					&& (domainElement == null || isNodeBranchAction_2006((BranchAction) domainElement))) {
 				return BranchActionEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getExternalCallAction()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeExternalCallAction_2009((ExternalCallAction) domainElement))) {
+				return ExternalCallAction2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedResourceDemandingBehaviourLoopCompartment_5002ChildNodeID(
 					domainElement, semanticHint);
@@ -403,6 +417,12 @@ public class PcmVisualIDRegistry {
 							domainElementMetaclass)
 					&& (domainElement == null || isNodeBranchAction_2006((BranchAction) domainElement))) {
 				return BranchActionEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getExternalCallAction()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeExternalCallAction_2009((ExternalCallAction) domainElement))) {
+				return ExternalCallAction2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedResourceDemandingBehaviourBranchCompartment_5006ChildNodeID(
 					domainElement, semanticHint);
@@ -694,6 +714,17 @@ public class PcmVisualIDRegistry {
 	}
 
 	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeExternalCallAction_2009(
+			ExternalCallAction element) {
+		return true;
+	}
+
+	/**
 	 * User can change implementation of this method to handle some specific
 	 * situations not covered by default logic.
 	 *
@@ -876,6 +907,17 @@ public class PcmVisualIDRegistry {
 	 * @generated
 	 */
 	private static int getUnrecognizedResourceDemandingBehaviour_2008ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedExternalCallAction_2009ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

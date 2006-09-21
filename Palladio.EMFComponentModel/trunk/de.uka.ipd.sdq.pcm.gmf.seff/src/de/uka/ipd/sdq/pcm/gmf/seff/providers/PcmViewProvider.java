@@ -20,7 +20,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchProbabilityE
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageSpecificationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
@@ -63,6 +65,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchTransitionBranchProbabil
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchTransitionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionParametricParameterUsageSpecificationViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionParametricParameterUsageViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallAction2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionEntityName2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionParametricParameterUsage_ParametricParameterUsageViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionViewFactory;
@@ -188,6 +192,10 @@ public class PcmViewProvider extends AbstractViewProvider {
 			return BranchTransitionBranchProbabilityViewFactory.class;
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 			return ResourceDemandingBehaviour2ViewFactory.class;
+		case ExternalCallAction2EditPart.VISUAL_ID:
+			return ExternalCallAction2ViewFactory.class;
+		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
+			return ExternalCallActionEntityName2ViewFactory.class;
 		case LoopActionBehaviourCompartmentEditPart.VISUAL_ID:
 			return LoopActionBehaviourCompartmentViewFactory.class;
 		case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:

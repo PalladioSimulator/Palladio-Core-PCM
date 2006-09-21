@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.editor; singleton:=true
-Bundle-Version: 1.2.0.qualifier
+Bundle-Version: 1.2.3.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.pcm.assembly.presentation.PcmEditorPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -23,5 +23,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
- de.uka.ipd.sdq.identifier.edit;visibility:=reexport
+ de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
+ de.uka.ipd.sdq.pcm.stochasticexpressions,
+ org.antlr
 Eclipse-LazyStart: true

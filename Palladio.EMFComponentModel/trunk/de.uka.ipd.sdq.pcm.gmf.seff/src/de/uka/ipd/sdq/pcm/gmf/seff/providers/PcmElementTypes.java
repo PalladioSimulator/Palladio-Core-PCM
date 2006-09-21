@@ -161,6 +161,8 @@ public class PcmElementTypes {
 					.getBranchTransition());
 			elements.put(ResourceDemandingBehaviour_2008, SeffPackage.eINSTANCE
 					.getResourceDemandingBehaviour());
+			elements.put(ExternalCallAction_2009, SeffPackage.eINSTANCE
+					.getExternalCallAction());
 			elements.put(StartAction_1001, SeffPackage.eINSTANCE
 					.getStartAction());
 			elements
@@ -242,6 +244,11 @@ public class PcmElementTypes {
 	 * @generated
 	 */
 	public static final IElementType ResourceDemandingBehaviour_2008 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2008"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ExternalCallAction_2009 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2009"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -330,6 +337,7 @@ public class PcmElementTypes {
 			KNOWN_ELEMENT_TYPES.add(BranchAction_2006);
 			KNOWN_ELEMENT_TYPES.add(BranchTransition_2007);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_2008);
+			KNOWN_ELEMENT_TYPES.add(ExternalCallAction_2009);
 			KNOWN_ELEMENT_TYPES.add(StartAction_1001);
 			KNOWN_ELEMENT_TYPES.add(StopAction_1002);
 			KNOWN_ELEMENT_TYPES.add(ExternalCallAction_1003);

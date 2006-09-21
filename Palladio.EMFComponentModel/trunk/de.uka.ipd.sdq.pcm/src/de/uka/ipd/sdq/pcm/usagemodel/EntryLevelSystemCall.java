@@ -21,10 +21,9 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualParamterUsage_EntryLevelSystemCall <em>Actual Paramter Usage Entry Level System Call</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualParameterUsage_EntryLevelSystemCall <em>Actual Parameter Usage Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSystemProvidedRole_EntryLevelSystemCall <em>System Provided Role Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualparameterusage <em>Actualparameterusage</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,20 +33,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface EntryLevelSystemCall extends AbstractUserAction {
 	/**
-	 * Returns the value of the '<em><b>Actual Paramter Usage Entry Level System Call</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Actual Parameter Usage Entry Level System Call</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Actual Paramter Usage Entry Level System Call</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Actual Parameter Usage Entry Level System Call</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actual Paramter Usage Entry Level System Call</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_ActualParamterUsage_EntryLevelSystemCall()
+	 * @return the value of the '<em>Actual Parameter Usage Entry Level System Call</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall()
 	 * @model type="de.uka.ipd.sdq.pcm.parameter.ParameterUsage" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getActualParamterUsage_EntryLevelSystemCall();
+	EList getActualParameterUsage_EntryLevelSystemCall();
 
 	/**
 	 * Returns the value of the '<em><b>System Provided Role Entry Level System Call</b></em>' reference.
@@ -100,21 +99,5 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 	 * @generated
 	 */
 	void setSignature_EntryLevelSystemCall(Signature value);
-
-	/**
-	 * Returns the value of the '<em><b>Actualparameterusage</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Actualparameterusage</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actualparameterusage</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_Actualparameterusage()
-	 * @model type="de.uka.ipd.sdq.pcm.parameter.ParameterUsage" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList getActualparameterusage();
 
 } // EntryLevelSystemCall

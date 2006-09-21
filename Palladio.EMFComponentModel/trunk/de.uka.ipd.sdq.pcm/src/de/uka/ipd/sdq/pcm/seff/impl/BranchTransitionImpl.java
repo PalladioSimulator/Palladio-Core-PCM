@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.BranchTransitionImpl#getBranchProbability <em>Branch Probability</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.BranchTransitionImpl#getBranchCondition <em>Branch Condition</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.BranchTransitionImpl#getBranchBehaviour_BranchTransition <em>Branch Behaviour Branch Transition</em>}</li>
  * </ul>
  * </p>
@@ -36,24 +36,24 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class BranchTransitionImpl extends EObjectImpl implements BranchTransition {
 	/**
-	 * The default value of the '{@link #getBranchProbability() <em>Branch Probability</em>}' attribute.
+	 * The default value of the '{@link #getBranchCondition() <em>Branch Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBranchProbability()
+	 * @see #getBranchCondition()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String BRANCH_PROBABILITY_EDEFAULT = null;
+	protected static final String BRANCH_CONDITION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBranchProbability() <em>Branch Probability</em>}' attribute.
+	 * The cached value of the '{@link #getBranchCondition() <em>Branch Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBranchProbability()
+	 * @see #getBranchCondition()
 	 * @generated
 	 * @ordered
 	 */
-	protected String branchProbability = BRANCH_PROBABILITY_EDEFAULT;
+	protected String branchCondition = BRANCH_CONDITION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getBranchBehaviour_BranchTransition() <em>Branch Behaviour Branch Transition</em>}' containment reference.
@@ -89,8 +89,8 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getBranchProbability() {
-		return branchProbability;
+	public String getBranchCondition() {
+		return branchCondition;
 	}
 
 	/**
@@ -98,11 +98,11 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBranchProbability(String newBranchProbability) {
-		String oldBranchProbability = branchProbability;
-		branchProbability = newBranchProbability;
+	public void setBranchCondition(String newBranchCondition) {
+		String oldBranchCondition = branchCondition;
+		branchCondition = newBranchCondition;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY, oldBranchProbability, branchProbability));
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.BRANCH_TRANSITION__BRANCH_CONDITION, oldBranchCondition, branchCondition));
 	}
 
 	/**
@@ -168,8 +168,8 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				return getBranchProbability();
+			case SeffPackage.BRANCH_TRANSITION__BRANCH_CONDITION:
+				return getBranchCondition();
 			case SeffPackage.BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
 				return getBranchBehaviour_BranchTransition();
 		}
@@ -183,8 +183,8 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				setBranchProbability((String)newValue);
+			case SeffPackage.BRANCH_TRANSITION__BRANCH_CONDITION:
+				setBranchCondition((String)newValue);
 				return;
 			case SeffPackage.BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
 				setBranchBehaviour_BranchTransition((ResourceDemandingBehaviour)newValue);
@@ -200,8 +200,8 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				setBranchProbability(BRANCH_PROBABILITY_EDEFAULT);
+			case SeffPackage.BRANCH_TRANSITION__BRANCH_CONDITION:
+				setBranchCondition(BRANCH_CONDITION_EDEFAULT);
 				return;
 			case SeffPackage.BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
 				setBranchBehaviour_BranchTransition((ResourceDemandingBehaviour)null);
@@ -217,8 +217,8 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-				return BRANCH_PROBABILITY_EDEFAULT == null ? branchProbability != null : !BRANCH_PROBABILITY_EDEFAULT.equals(branchProbability);
+			case SeffPackage.BRANCH_TRANSITION__BRANCH_CONDITION:
+				return BRANCH_CONDITION_EDEFAULT == null ? branchCondition != null : !BRANCH_CONDITION_EDEFAULT.equals(branchCondition);
 			case SeffPackage.BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
 				return branchBehaviour_BranchTransition != null;
 		}
@@ -234,8 +234,8 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (branchProbability: ");
-		result.append(branchProbability);
+		result.append(" (branchCondition: ");
+		result.append(branchCondition);
 		result.append(')');
 		return result.toString();
 	}

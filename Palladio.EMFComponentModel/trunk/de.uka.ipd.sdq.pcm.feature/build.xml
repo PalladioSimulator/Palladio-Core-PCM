@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="PalladioCM.Feature" default="build.update.jar" basedir=".">
-
+	
 	<target name="init">
 		<property name="feature.temp.folder" value="${basedir}/feature.temp.folder"/>
 		<property name="feature.destination" value="${basedir}"/>
@@ -8,29 +8,14 @@
 
 	<target name="all.plugins" depends="init">
 		<ant antfile="build.xml" dir="../de.uka.ipd.sdq.identifier" target="${target}">
-			<property name="arch" value="x86"/>
-			<property name="os" value="win32"/>
-			<property name="ws" value="win32"/>
 		</ant>
 		<ant antfile="build.xml" dir="../de.uka.ipd.sdq.identifier.edit" target="${target}">
-			<property name="arch" value="x86"/>
-			<property name="os" value="win32"/>
-			<property name="ws" value="win32"/>
 		</ant>
 		<ant antfile="build.xml" dir="../de.uka.ipd.sdq.pcm" target="${target}">
-			<property name="arch" value="x86"/>
-			<property name="os" value="win32"/>
-			<property name="ws" value="win32"/>
 		</ant>
 		<ant antfile="build.xml" dir="../de.uka.ipd.sdq.pcm.edit" target="${target}">
-			<property name="arch" value="x86"/>
-			<property name="os" value="win32"/>
-			<property name="ws" value="win32"/>
 		</ant>
 		<ant antfile="build.xml" dir="../de.uka.ipd.sdq.pcm.editor" target="${target}">
-			<property name="arch" value="x86"/>
-			<property name="os" value="win32"/>
-			<property name="ws" value="win32"/>
 		</ant>
 	</target>
 	<target name="all.features" depends="init">
@@ -77,26 +62,26 @@
 			<param name="os" value="*"/>
 			<param name="feature.base" value="${feature.temp.folder}"/>
 		</antcall>
-		<jar destfile="${feature.destination}/PalladioCM.Feature_1.2.0.200608112309.jar" basedir="${feature.temp.folder}/features/PalladioCM.Feature_1.2.0.200608112309"/>
+		<jar destfile="${feature.destination}/PalladioCM.Feature_1.2.3.200608152238.jar" basedir="${feature.temp.folder}/features/PalladioCM.Feature_1.2.3.200608152238"/>
 		<delete dir="${feature.temp.folder}"/>
 	</target>
 
 	<target name="gather.bin.parts" depends="init" if="feature.base">
-		<mkdir dir="${feature.base}/features/PalladioCM.Feature_1.2.0.200608112309"/>
+		<mkdir dir="${feature.base}/features/PalladioCM.Feature_1.2.3.200608152238"/>
 		<antcall target="children">
 			<param name="destination.temp.folder" value="${feature.base}/plugins"/>
 			<param name="target" value="gather.bin.parts"/>
 		</antcall>
-		<copy todir="${feature.base}/features/PalladioCM.Feature_1.2.0.200608112309" failonerror="true" overwrite="false">
+		<copy todir="${feature.base}/features/PalladioCM.Feature_1.2.3.200608152238" failonerror="true" overwrite="false">
 			<fileset dir="${basedir}" includes="feature.xml"			/>
 		</copy>
-		<eclipse.idReplacer featureFilePath="${feature.base}/features/PalladioCM.Feature_1.2.0.200608112309/feature.xml"  selfVersion="1.2.0.200608112309" featureIds="" pluginIds="de.uka.ipd.sdq.identifier,1.2.0.200608112309,de.uka.ipd.sdq.identifier.edit,1.2.0.200608112309,de.uka.ipd.sdq.pcm,1.2.0.200608112309,de.uka.ipd.sdq.pcm.edit,1.2.0.200608112309,de.uka.ipd.sdq.pcm.editor,1.2.0.200608112309,"/>
+		<eclipse.idReplacer featureFilePath="${feature.base}/features/PalladioCM.Feature_1.2.3.200608152238/feature.xml"  selfVersion="1.2.3.200608152238" featureIds="" pluginIds="de.uka.ipd.sdq.identifier,1.2.3.200608152238,de.uka.ipd.sdq.identifier.edit,1.2.3.200608152238,de.uka.ipd.sdq.pcm,1.2.3.200608152238,de.uka.ipd.sdq.pcm.edit,1.2.3.200608152238,de.uka.ipd.sdq.pcm.editor,1.2.3.200608152238,"/>
 		<antcall target="rootFiles${os}_${ws}_${arch}"/>
 	</target>
-	<target name="rootFileswin32_win32_x86">
+	<target name="rootFiles*_*_*">
 	</target>
 	<target name="rootFilesgroup_group_group">
-		<antcall target="rootFileswin32_win32_x86"/>
+		<antcall target="rootFiles*_*_*"/>
 	</target>
 
 	<target name="zip.distribution" depends="init" description="Create a zip containing all the plug-ins and features for the feature: PalladioCM.Feature.">
@@ -110,7 +95,7 @@
 			<param name="feature.base" value="${feature.temp.folder}"/>
 			<param name="os" value="*"/>
 		</antcall>
-		<zip destfile="${feature.destination}/PalladioCM.Feature_1.2.0.200608112309.bin.dist.zip" basedir="${feature.temp.folder}" filesonly="false" whenempty="skip" update="false"/>
+		<zip destfile="${feature.destination}/PalladioCM.Feature_1.2.3.200608152238.bin.dist.zip" basedir="${feature.temp.folder}" filesonly="false" whenempty="skip" update="false"/>
 		<delete dir="${feature.temp.folder}"/>
 	</target>
 
@@ -118,11 +103,11 @@
 		<delete dir="${feature.temp.folder}"/>
 		<mkdir dir="${feature.temp.folder}"/>
 		<antcall target="all.children">
-			<param name="destination.temp.folder" value="${feature.temp.folder}/plugins/PalladioCM.Feature.source_1.2.0.200608112309/src"/>
+			<param name="destination.temp.folder" value="${feature.temp.folder}/plugins/PalladioCM.Feature.source_1.2.3.200608152238/src"/>
 			<param name="include.children" value="true"/>
 			<param name="target" value="gather.sources"/>
 		</antcall>
-		<zip destfile="${feature.destination}/PalladioCM.Feature_1.2.0.200608112309.src.zip" basedir="${feature.temp.folder}" filesonly="true" whenempty="skip" update="false"/>
+		<zip destfile="${feature.destination}/PalladioCM.Feature_1.2.3.200608152238.src.zip" basedir="${feature.temp.folder}" filesonly="true" whenempty="skip" update="false"/>
 		<delete dir="${feature.temp.folder}"/>
 	</target>
 
@@ -134,15 +119,15 @@
 			<param name="include.children" value="true"/>
 			<param name="target" value="gather.logs"/>
 		</antcall>
-		<zip destfile="${feature.destination}/PalladioCM.Feature_1.2.0.200608112309.log.zip" basedir="${feature.temp.folder}" filesonly="true" whenempty="skip" update="false"/>
+		<zip destfile="${feature.destination}/PalladioCM.Feature_1.2.3.200608152238.log.zip" basedir="${feature.temp.folder}" filesonly="true" whenempty="skip" update="false"/>
 		<delete dir="${feature.temp.folder}"/>
 	</target>
 
 	<target name="clean" depends="init" description="Clean the feature: PalladioCM.Feature of all the zips, jars and logs created.">
-		<delete file="${feature.destination}/PalladioCM.Feature_1.2.0.200608112309.jar"/>
-		<delete file="${feature.destination}/PalladioCM.Feature_1.2.0.200608112309.bin.dist.zip"/>
-		<delete file="${feature.destination}/PalladioCM.Feature_1.2.0.200608112309.log.zip"/>
-		<delete file="${feature.destination}/PalladioCM.Feature_1.2.0.200608112309.src.zip"/>
+		<delete file="${feature.destination}/PalladioCM.Feature_1.2.3.200608152238.jar"/>
+		<delete file="${feature.destination}/PalladioCM.Feature_1.2.3.200608152238.bin.dist.zip"/>
+		<delete file="${feature.destination}/PalladioCM.Feature_1.2.3.200608152238.log.zip"/>
+		<delete file="${feature.destination}/PalladioCM.Feature_1.2.3.200608152238.src.zip"/>
 		<delete dir="${feature.temp.folder}"/>
 		<antcall target="all.children">
 			<param name="target" value="clean"/>
@@ -158,7 +143,7 @@
 	</target>
 	<target name="gather.sources">
 		<antcall target="children">
-			<param name="destination.temp.folder" value="${feature.temp.folder}/plugins/PalladioCM.Feature.source_1.2.0.200608112309/src"/>
+			<param name="destination.temp.folder" value="${feature.temp.folder}/plugins/PalladioCM.Feature.source_1.2.3.200608152238/src"/>
 			<param name="target" value="gather.sources"/>
 		</antcall>
 	</target>

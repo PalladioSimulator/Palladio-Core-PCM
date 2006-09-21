@@ -338,6 +338,15 @@ public interface SystemPackage extends EPackage {
 	int SPECIFIED_TIME_CONSUMPTION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIED_TIME_CONSUMPTION__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
+
+	/**
 	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -721,7 +730,7 @@ public interface SystemPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.system.impl.SystemRequiredRoleImpl <em>Required Role</em>}' class.
 		 * <!-- begin-user-doc -->

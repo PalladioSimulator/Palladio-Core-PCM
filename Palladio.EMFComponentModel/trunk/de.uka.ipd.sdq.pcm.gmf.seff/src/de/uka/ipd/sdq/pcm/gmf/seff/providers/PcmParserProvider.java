@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageSpecificationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
@@ -116,22 +117,22 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser branchActionBranchActionEntityName_4006Parser;
+	private IParser branchActionBranchActionEntityName_4007Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getBranchActionBranchActionEntityName_4006Parser() {
-		if (branchActionBranchActionEntityName_4006Parser == null) {
-			branchActionBranchActionEntityName_4006Parser = createBranchActionBranchActionEntityName_4006Parser();
+	private IParser getBranchActionBranchActionEntityName_4007Parser() {
+		if (branchActionBranchActionEntityName_4007Parser == null) {
+			branchActionBranchActionEntityName_4007Parser = createBranchActionBranchActionEntityName_4007Parser();
 		}
-		return branchActionBranchActionEntityName_4006Parser;
+		return branchActionBranchActionEntityName_4007Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createBranchActionBranchActionEntityName_4006Parser() {
+	protected IParser createBranchActionBranchActionEntityName_4007Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getEntity().getEStructuralFeature(
 						"entityName")); //$NON-NLS-1$
@@ -141,25 +142,50 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser branchTransitionBranchTransitionBranchProbability_4005Parser;
+	private IParser branchTransitionBranchTransitionBranchProbability_4006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getBranchTransitionBranchTransitionBranchProbability_4005Parser() {
-		if (branchTransitionBranchTransitionBranchProbability_4005Parser == null) {
-			branchTransitionBranchTransitionBranchProbability_4005Parser = createBranchTransitionBranchTransitionBranchProbability_4005Parser();
+	private IParser getBranchTransitionBranchTransitionBranchProbability_4006Parser() {
+		if (branchTransitionBranchTransitionBranchProbability_4006Parser == null) {
+			branchTransitionBranchTransitionBranchProbability_4006Parser = createBranchTransitionBranchTransitionBranchProbability_4006Parser();
 		}
-		return branchTransitionBranchTransitionBranchProbability_4005Parser;
+		return branchTransitionBranchTransitionBranchProbability_4006Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createBranchTransitionBranchTransitionBranchProbability_4005Parser() {
+	protected IParser createBranchTransitionBranchTransitionBranchProbability_4006Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				SeffPackage.eINSTANCE.getBranchTransition()
 						.getEStructuralFeature("branchProbability")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser externalCallActionExternalCallActionEntityName_4005Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getExternalCallActionExternalCallActionEntityName_4005Parser() {
+		if (externalCallActionExternalCallActionEntityName_4005Parser == null) {
+			externalCallActionExternalCallActionEntityName_4005Parser = createExternalCallActionExternalCallActionEntityName_4005Parser();
+		}
+		return externalCallActionExternalCallActionEntityName_4005Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createExternalCallActionExternalCallActionEntityName_4005Parser() {
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getEntity().getEStructuralFeature(
+						"entityName")); //$NON-NLS-1$
 		return parser;
 	}
 
@@ -191,22 +217,22 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser loopActionLoopActionEntityName_4007Parser;
+	private IParser loopActionLoopActionEntityName_4008Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLoopActionLoopActionEntityName_4007Parser() {
-		if (loopActionLoopActionEntityName_4007Parser == null) {
-			loopActionLoopActionEntityName_4007Parser = createLoopActionLoopActionEntityName_4007Parser();
+	private IParser getLoopActionLoopActionEntityName_4008Parser() {
+		if (loopActionLoopActionEntityName_4008Parser == null) {
+			loopActionLoopActionEntityName_4008Parser = createLoopActionLoopActionEntityName_4008Parser();
 		}
-		return loopActionLoopActionEntityName_4007Parser;
+		return loopActionLoopActionEntityName_4008Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createLoopActionLoopActionEntityName_4007Parser() {
+	protected IParser createLoopActionLoopActionEntityName_4008Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getEntity().getEStructuralFeature(
 						"entityName")); //$NON-NLS-1$
@@ -216,22 +242,22 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser loopActionLoopActionIterations_4008Parser;
+	private IParser loopActionLoopActionIterations_4009Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLoopActionLoopActionIterations_4008Parser() {
-		if (loopActionLoopActionIterations_4008Parser == null) {
-			loopActionLoopActionIterations_4008Parser = createLoopActionLoopActionIterations_4008Parser();
+	private IParser getLoopActionLoopActionIterations_4009Parser() {
+		if (loopActionLoopActionIterations_4009Parser == null) {
+			loopActionLoopActionIterations_4009Parser = createLoopActionLoopActionIterations_4009Parser();
 		}
-		return loopActionLoopActionIterations_4008Parser;
+		return loopActionLoopActionIterations_4009Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createLoopActionLoopActionIterations_4008Parser() {
+	protected IParser createLoopActionLoopActionIterations_4009Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				SeffPackage.eINSTANCE.getLoopAction().getEStructuralFeature(
 						"iterations")); //$NON-NLS-1$
@@ -241,22 +267,22 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser branchActionBranchActionEntityName_4009Parser;
+	private IParser branchActionBranchActionEntityName_4010Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getBranchActionBranchActionEntityName_4009Parser() {
-		if (branchActionBranchActionEntityName_4009Parser == null) {
-			branchActionBranchActionEntityName_4009Parser = createBranchActionBranchActionEntityName_4009Parser();
+	private IParser getBranchActionBranchActionEntityName_4010Parser() {
+		if (branchActionBranchActionEntityName_4010Parser == null) {
+			branchActionBranchActionEntityName_4010Parser = createBranchActionBranchActionEntityName_4010Parser();
 		}
-		return branchActionBranchActionEntityName_4009Parser;
+		return branchActionBranchActionEntityName_4010Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createBranchActionBranchActionEntityName_4009Parser() {
+	protected IParser createBranchActionBranchActionEntityName_4010Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getEntity().getEStructuralFeature(
 						"entityName")); //$NON-NLS-1$
@@ -266,22 +292,22 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser internalActionInternalActionEntityName_4010Parser;
+	private IParser internalActionInternalActionEntityName_4011Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getInternalActionInternalActionEntityName_4010Parser() {
-		if (internalActionInternalActionEntityName_4010Parser == null) {
-			internalActionInternalActionEntityName_4010Parser = createInternalActionInternalActionEntityName_4010Parser();
+	private IParser getInternalActionInternalActionEntityName_4011Parser() {
+		if (internalActionInternalActionEntityName_4011Parser == null) {
+			internalActionInternalActionEntityName_4011Parser = createInternalActionInternalActionEntityName_4011Parser();
 		}
-		return internalActionInternalActionEntityName_4010Parser;
+		return internalActionInternalActionEntityName_4011Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createInternalActionInternalActionEntityName_4010Parser() {
+	protected IParser createInternalActionInternalActionEntityName_4011Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getEntity().getEStructuralFeature(
 						"entityName")); //$NON-NLS-1$
@@ -291,22 +317,22 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser primitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4011Parser;
+	private IParser primitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4012Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPrimitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4011Parser() {
-		if (primitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4011Parser == null) {
-			primitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4011Parser = createPrimitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4011Parser();
+	private IParser getPrimitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4012Parser() {
+		if (primitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4012Parser == null) {
+			primitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4012Parser = createPrimitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4012Parser();
 		}
-		return primitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4011Parser;
+		return primitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4012Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createPrimitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4011Parser() {
+	protected IParser createPrimitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4012Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				StochasticsPackage.eINSTANCE.getRandomVariable()
 						.getEStructuralFeature("specification")); //$NON-NLS-1$
@@ -316,22 +342,22 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser collectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4012Parser;
+	private IParser collectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4013Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCollectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4012Parser() {
-		if (collectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4012Parser == null) {
-			collectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4012Parser = createCollectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4012Parser();
+	private IParser getCollectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4013Parser() {
+		if (collectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4013Parser == null) {
+			collectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4013Parser = createCollectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4013Parser();
 		}
-		return collectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4012Parser;
+		return collectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4013Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createCollectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4012Parser() {
+	protected IParser createCollectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4013Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				StochasticsPackage.eINSTANCE.getRandomVariable()
 						.getEStructuralFeature("specification")); //$NON-NLS-1$
@@ -341,22 +367,22 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser parametricResourceDemandParametricResourceDemandDemand_4013Parser;
+	private IParser parametricResourceDemandParametricResourceDemandDemand_4014Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getParametricResourceDemandParametricResourceDemandDemand_4013Parser() {
-		if (parametricResourceDemandParametricResourceDemandDemand_4013Parser == null) {
-			parametricResourceDemandParametricResourceDemandDemand_4013Parser = createParametricResourceDemandParametricResourceDemandDemand_4013Parser();
+	private IParser getParametricResourceDemandParametricResourceDemandDemand_4014Parser() {
+		if (parametricResourceDemandParametricResourceDemandDemand_4014Parser == null) {
+			parametricResourceDemandParametricResourceDemandDemand_4014Parser = createParametricResourceDemandParametricResourceDemandDemand_4014Parser();
 		}
-		return parametricResourceDemandParametricResourceDemandDemand_4013Parser;
+		return parametricResourceDemandParametricResourceDemandDemand_4014Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createParametricResourceDemandParametricResourceDemandDemand_4013Parser() {
+	protected IParser createParametricResourceDemandParametricResourceDemandDemand_4014Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				SeffPackage.eINSTANCE.getParametricResourceDemand()
 						.getEStructuralFeature("demand")); //$NON-NLS-1$
@@ -375,25 +401,27 @@ public class PcmParserProvider extends AbstractProvider implements
 		case InternalActionEntityNameEditPart.VISUAL_ID:
 			return getInternalActionInternalActionEntityName_4004Parser();
 		case BranchActionEntityNameEditPart.VISUAL_ID:
-			return getBranchActionBranchActionEntityName_4006Parser();
+			return getBranchActionBranchActionEntityName_4007Parser();
 		case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:
-			return getBranchTransitionBranchTransitionBranchProbability_4005Parser();
+			return getBranchTransitionBranchTransitionBranchProbability_4006Parser();
+		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
+			return getExternalCallActionExternalCallActionEntityName_4005Parser();
 		case ExternalCallActionEntityNameEditPart.VISUAL_ID:
 			return getExternalCallActionExternalCallActionEntityName_4001Parser();
 		case LoopActionEntityName2EditPart.VISUAL_ID:
-			return getLoopActionLoopActionEntityName_4007Parser();
+			return getLoopActionLoopActionEntityName_4008Parser();
 		case LoopActionIterations2EditPart.VISUAL_ID:
-			return getLoopActionLoopActionIterations_4008Parser();
+			return getLoopActionLoopActionIterations_4009Parser();
 		case BranchActionEntityName2EditPart.VISUAL_ID:
-			return getBranchActionBranchActionEntityName_4009Parser();
+			return getBranchActionBranchActionEntityName_4010Parser();
 		case InternalActionEntityName2EditPart.VISUAL_ID:
-			return getInternalActionInternalActionEntityName_4010Parser();
+			return getInternalActionInternalActionEntityName_4011Parser();
 		case PrimitiveParametricParameterUsageSpecificationEditPart.VISUAL_ID:
-			return getPrimitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4011Parser();
+			return getPrimitiveParametricParameterUsagePrimitiveParametricParameterUsageSpecification_4012Parser();
 		case CollectionParametricParameterUsageSpecificationEditPart.VISUAL_ID:
-			return getCollectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4012Parser();
+			return getCollectionParametricParameterUsageCollectionParametricParameterUsageSpecification_4013Parser();
 		case ParametricResourceDemandDemandEditPart.VISUAL_ID:
-			return getParametricResourceDemandParametricResourceDemandDemand_4013Parser();
+			return getParametricResourceDemandParametricResourceDemandDemand_4014Parser();
 		}
 		return null;
 	}

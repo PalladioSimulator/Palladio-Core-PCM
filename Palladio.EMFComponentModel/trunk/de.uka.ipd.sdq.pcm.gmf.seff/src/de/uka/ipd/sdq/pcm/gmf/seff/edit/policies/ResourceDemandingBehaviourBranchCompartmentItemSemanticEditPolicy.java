@@ -63,6 +63,13 @@ public class ResourceDemandingBehaviourBranchCompartmentItemSemanticEditPolicy
 			}
 			return getMSLWrapper(new CreateBranchAction_2006Command(req));
 		}
+		if (PcmElementTypes.ExternalCallAction_2009 == req.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(SeffPackage.eINSTANCE
+						.getResourceDemandingBehaviour_Steps_Behaviour());
+			}
+			return getMSLWrapper(new CreateExternalCallAction_2009Command(req));
+		}
 		return super.getCreateCommand(req);
 	}
 
@@ -208,6 +215,39 @@ public class ResourceDemandingBehaviourBranchCompartmentItemSemanticEditPolicy
 		 * @generated
 		 */
 		public CreateBranchAction_2006Command(CreateElementRequest req) {
+			super(req);
+		}
+
+		/**
+		 * @generated
+		 */
+		protected EClass getEClassToEdit() {
+			return SeffPackage.eINSTANCE.getResourceDemandingBehaviour();
+		};
+
+		/**
+		 * @generated
+		 */
+		protected EObject getElementToEdit() {
+			EObject container = ((CreateElementRequest) getRequest())
+					.getContainer();
+			if (container instanceof View) {
+				container = ((View) container).getElement();
+			}
+			return container;
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private static class CreateExternalCallAction_2009Command extends
+			CreateElementCommand {
+
+		/**
+		 * @generated
+		 */
+		public CreateExternalCallAction_2009Command(CreateElementRequest req) {
 			super(req);
 		}
 

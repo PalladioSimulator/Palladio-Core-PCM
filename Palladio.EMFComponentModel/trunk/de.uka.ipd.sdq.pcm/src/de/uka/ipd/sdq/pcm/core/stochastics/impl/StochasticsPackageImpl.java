@@ -24,9 +24,23 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
 
+import de.uka.ipd.sdq.pcm.core.stochastics.Atom;
+import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations;
+import de.uka.ipd.sdq.pcm.core.stochastics.Comparison;
+import de.uka.ipd.sdq.pcm.core.stochastics.DoubleLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
+import de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.NumericLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.Parantesis;
+import de.uka.ipd.sdq.pcm.core.stochastics.Power;
+import de.uka.ipd.sdq.pcm.core.stochastics.Product;
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.Term;
+import de.uka.ipd.sdq.pcm.core.stochastics.Variable;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
@@ -62,7 +76,10 @@ import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -79,6 +96,97 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 	 * @generated
 	 */
 	private EClass randomVariableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass expressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comparisonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass termEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass productEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass powerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass atomEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parantesisEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass numericLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass intLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass doubleLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass compareExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum compareOperationsEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -212,6 +320,195 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRandomVariable_Specification_RandomVariable() {
+		return (EReference)randomVariableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExpression() {
+		return expressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComparison() {
+		return comparisonEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTerm() {
+		return termEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProduct() {
+		return productEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPower() {
+		return powerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAtom() {
+		return atomEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariable() {
+		return variableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariable_Id() {
+		return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getParantesis() {
+		return parantesisEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParantesis_InnerExpression() {
+		return (EReference)parantesisEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNumericLiteral() {
+		return numericLiteralEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntLiteral() {
+		return intLiteralEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntLiteral_Value() {
+		return (EAttribute)intLiteralEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDoubleLiteral() {
+		return doubleLiteralEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDoubleLiteral_Value() {
+		return (EAttribute)doubleLiteralEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCompareExpression() {
+		return compareExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompareExpression_Left() {
+		return (EReference)compareExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompareExpression_Right() {
+		return (EReference)compareExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompareExpression_Operation() {
+		return (EAttribute)compareExpressionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCompareOperations() {
+		return compareOperationsEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StochasticsFactory getStochasticsFactory() {
 		return (StochasticsFactory)getEFactoryInstance();
 	}
@@ -237,6 +534,41 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		// Create classes and their features
 		randomVariableEClass = createEClass(RANDOM_VARIABLE);
 		createEAttribute(randomVariableEClass, RANDOM_VARIABLE__SPECIFICATION);
+		createEReference(randomVariableEClass, RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE);
+
+		expressionEClass = createEClass(EXPRESSION);
+
+		comparisonEClass = createEClass(COMPARISON);
+
+		termEClass = createEClass(TERM);
+
+		productEClass = createEClass(PRODUCT);
+
+		powerEClass = createEClass(POWER);
+
+		atomEClass = createEClass(ATOM);
+
+		variableEClass = createEClass(VARIABLE);
+		createEAttribute(variableEClass, VARIABLE__ID);
+
+		parantesisEClass = createEClass(PARANTESIS);
+		createEReference(parantesisEClass, PARANTESIS__INNER_EXPRESSION);
+
+		numericLiteralEClass = createEClass(NUMERIC_LITERAL);
+
+		intLiteralEClass = createEClass(INT_LITERAL);
+		createEAttribute(intLiteralEClass, INT_LITERAL__VALUE);
+
+		doubleLiteralEClass = createEClass(DOUBLE_LITERAL);
+		createEAttribute(doubleLiteralEClass, DOUBLE_LITERAL__VALUE);
+
+		compareExpressionEClass = createEClass(COMPARE_EXPRESSION);
+		createEReference(compareExpressionEClass, COMPARE_EXPRESSION__LEFT);
+		createEReference(compareExpressionEClass, COMPARE_EXPRESSION__RIGHT);
+		createEAttribute(compareExpressionEClass, COMPARE_EXPRESSION__OPERATION);
+
+		// Create enums
+		compareOperationsEEnum = createEEnum(COMPARE_OPERATIONS);
 	}
 
 	/**
@@ -263,10 +595,62 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		setNsURI(eNS_URI);
 
 		// Add supertypes to classes
+		comparisonEClass.getESuperTypes().add(this.getExpression());
+		termEClass.getESuperTypes().add(this.getComparison());
+		productEClass.getESuperTypes().add(this.getTerm());
+		powerEClass.getESuperTypes().add(this.getProduct());
+		atomEClass.getESuperTypes().add(this.getPower());
+		variableEClass.getESuperTypes().add(this.getAtom());
+		parantesisEClass.getESuperTypes().add(this.getAtom());
+		numericLiteralEClass.getESuperTypes().add(this.getAtom());
+		intLiteralEClass.getESuperTypes().add(this.getNumericLiteral());
+		doubleLiteralEClass.getESuperTypes().add(this.getNumericLiteral());
+		compareExpressionEClass.getESuperTypes().add(this.getComparison());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(randomVariableEClass, RandomVariable.class, "RandomVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRandomVariable_Specification(), ecorePackage.getEString(), "specification", null, 1, 1, RandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRandomVariable_Specification_RandomVariable(), this.getExpression(), null, "specification_RandomVariable", null, 1, 1, RandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(comparisonEClass, Comparison.class, "Comparison", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(termEClass, Term.class, "Term", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(productEClass, Product.class, "Product", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(powerEClass, Power.class, "Power", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(atomEClass, Atom.class, "Atom", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVariable_Id(), ecorePackage.getEString(), "id", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(parantesisEClass, Parantesis.class, "Parantesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParantesis_InnerExpression(), this.getExpression(), null, "innerExpression", null, 1, 1, Parantesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(numericLiteralEClass, NumericLiteral.class, "NumericLiteral", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(intLiteralEClass, IntLiteral.class, "IntLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIntLiteral_Value(), ecorePackage.getEInt(), "value", null, 1, 1, IntLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(doubleLiteralEClass, DoubleLiteral.class, "DoubleLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDoubleLiteral_Value(), ecorePackage.getEDouble(), "value", null, 1, 1, DoubleLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(compareExpressionEClass, CompareExpression.class, "CompareExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompareExpression_Left(), this.getComparison(), null, "left", null, 1, 1, CompareExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCompareExpression_Right(), this.getComparison(), null, "right", null, 1, 1, CompareExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCompareExpression_Operation(), this.getCompareOperations(), "operation", null, 1, 1, CompareExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(compareOperationsEEnum, CompareOperations.class, "CompareOperations");
+		addEEnumLiteral(compareOperationsEEnum, CompareOperations.GREATER_LITERAL);
+		addEEnumLiteral(compareOperationsEEnum, CompareOperations.EQUALS_LITERAL);
+		addEEnumLiteral(compareOperationsEEnum, CompareOperations.LESS_LITERAL);
+		addEEnumLiteral(compareOperationsEEnum, CompareOperations.NOTEQUAL_LITERAL);
+		addEEnumLiteral(compareOperationsEEnum, CompareOperations.LESSEQUAL_LITERAL);
+		addEEnumLiteral(compareOperationsEEnum, CompareOperations.GREATEREQUAL_LITERAL);
 
 		// Create resource
 		createResource(eNS_URI);
