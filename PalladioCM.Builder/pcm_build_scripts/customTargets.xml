@@ -75,6 +75,7 @@
 	<!-- Steps to do before fetching the build elements -->
 	<!-- ===================================================================== -->
 	<target name="preFetch">
+	        <delete dir="${buildDirectory}/${buildLabel}"/>
 		<exec executable="svn.exe">
 		  <arg line="co svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk ${rootSourceFolder} --username ${svnUserName}"/>
 		</exec>
