@@ -24,7 +24,16 @@
            name="repository_model Diagram Editor">
      </editor>
    </extension>
-
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+         type="my_seff_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+      <parser
+         type="my_repository_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
       <clientContext id="MyPcmClientContext">
          <enablement>

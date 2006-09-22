@@ -8,7 +8,7 @@ import org.osgi.framework.BundleContext;
 
 public class PCMBenchActivator extends AbstractUIPlugin {
 
-	public final static String PLUGIN_ID = "de.uka.ipd.sdq.PCMBench";
+	public final static String PLUGIN_ID = "de.uka.ipd.sdq.pcmbench";
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
 	 */
