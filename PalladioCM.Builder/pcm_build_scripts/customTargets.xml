@@ -141,6 +141,7 @@
 	<!-- ===================================================================== -->
 	<target name="postBuild">
 		<antcall target="gatherLogs" />
+		<antcall target="publish" />
 	</target>
 
 	<!-- ===================================================================== -->
@@ -153,6 +154,25 @@
 	<!-- Steps to do to publish the build results -->
 	<!-- ===================================================================== -->
 	<target name="publish">
+		<delete dir="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/feature"/>
+		<delete dir="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/plugin"/>
+		<unzip  dest="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite">
+		  <fileset dir="${buildDirectory}/${buildLabel}">
+		     <include name="*.zip"/>
+		  </fileset>
+		</unzip>
+		<copy file="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/site.xml.template"
+		      tofile="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/site.xml"/>
+		<replace 
+		    file="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/site.xml"
+		    propertyFile="${buildDirectory}/finalFeaturesVersions.properties">
+			<replacefilter 
+			    token="@@de.uka.ipd.sdq.pcm.feature.version@@" 
+    			    property="de.uka.ipd.sdq.pcm.feature"/>
+			<replacefilter 
+			    token="@@de.uka.ipd.sdq.pcm.diagram.feature.version@@" 
+    			    property="de.uka.ipd.sdq.pcm.diagram.feature"/>
+		</replace>
 	</target>
 
 	<!-- ===================================================================== -->
