@@ -154,8 +154,8 @@
 	<!-- Steps to do to publish the build results -->
 	<!-- ===================================================================== -->
 	<target name="publish">
-		<delete dir="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/feature"/>
-		<delete dir="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/plugin"/>
+		<delete dir="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/features"/>
+		<delete dir="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/plugins"/>
 		<unzip  dest="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite">
 		  <fileset dir="${buildDirectory}/${buildLabel}">
 		     <include name="*.zip"/>
