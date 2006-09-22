@@ -77,7 +77,7 @@
 	<!-- ===================================================================== -->
 	<target name="preFetch">
 		<exec executable="svn.exe">
-		  <arg line="co svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk ${rootSourceFolder} --username steffen"/>
+		  <arg line="co svn://i43pc13.ipd.uka.de/code/Palladio.EMFComponentModel/trunk ${rootSourceFolder} --username ${svnUserName}"/>
 		</exec>
 	</target>
 
