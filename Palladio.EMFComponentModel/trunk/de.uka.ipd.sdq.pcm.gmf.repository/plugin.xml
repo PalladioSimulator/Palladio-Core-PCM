@@ -227,8 +227,7 @@ Copyright 2006 Institute for Software-Design and Quality, University of Karlsruh
                id="de.uka.ipd.sdq.pcm.gmf.repository.ResourceDemandingSEFF_2002"
                name="SEFF"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ResourceDemandingSEFF"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.ResourceDemandingSEFFEditHelper">
+			>
             <param name="semanticHint" value="2002"/>
             <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_79"/>
          </specializationType>
