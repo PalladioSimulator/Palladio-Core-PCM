@@ -1,5 +1,4 @@
 <project name="Build specific targets and properties" default="noDefault">
-	<taskdef classname="org.tigris.subversion.svnant.SvnTask" name="svn"></taskdef>
 
 	<!-- ===================================================================== -->
 	<!-- Run a given ${target} on all elements being built -->
@@ -10,7 +9,7 @@
 	<target name="allElements">
 		<antcall target="allElementsDelegator" />
 	</target>
-	
+
 	<!-- ===================================================================== -->
 	<!-- ===================================================================== -->
 	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
@@ -163,14 +162,14 @@
 		</unzip>
 		<copy file="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/site.xml.template"
 		      tofile="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/site.xml"/>
-		<replace 
+		<replace
 		    file="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/site.xml"
 		    propertyFile="${buildDirectory}/finalFeaturesVersions.properties">
-			<replacefilter 
-			    token="@@de.uka.ipd.sdq.pcm.feature.version@@" 
+			<replacefilter
+			    token="@@de.uka.ipd.sdq.pcm.feature.version@@"
     			    property="de.uka.ipd.sdq.pcm.feature"/>
-			<replacefilter 
-			    token="@@de.uka.ipd.sdq.pcm.diagram.feature.version@@" 
+			<replacefilter
+			    token="@@de.uka.ipd.sdq.pcm.diagram.feature.version@@"
     			    property="de.uka.ipd.sdq.pcm.diagram.feature"/>
 		</replace>
 	</target>
