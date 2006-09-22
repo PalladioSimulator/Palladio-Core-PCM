@@ -161,7 +161,8 @@
 		  </fileset>
 		</unzip>
 		<copy file="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/site.xml.template"
-		      tofile="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/site.xml"/>
+		      tofile="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/site.xml"
+		      overwrite="true"/>
 		<replace
 		    file="${rootSourceFolder}/de.uka.ipd.sdq.pcm.updatesite/site.xml"
 		    propertyFile="${buildDirectory}/finalFeaturesVersions.properties">
