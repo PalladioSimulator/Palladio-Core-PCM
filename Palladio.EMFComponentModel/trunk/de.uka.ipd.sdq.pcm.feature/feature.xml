@@ -108,7 +108,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <includes
          id="de.uka.ipd.sdq.pcm.feature.source"
-         version="1.2.3.qualifier"
+         version="0.0.0"
    />
 
    <requires>
