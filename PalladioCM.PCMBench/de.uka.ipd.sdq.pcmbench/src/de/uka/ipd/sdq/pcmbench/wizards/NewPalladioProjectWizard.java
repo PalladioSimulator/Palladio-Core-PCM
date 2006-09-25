@@ -6,12 +6,15 @@ import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.*;
 import org.eclipse.jface.wizard.*;
+
+import de.uka.ipd.sdq.pcmbench.PCMBenchActivator;
 
 public class NewPalladioProjectWizard extends Wizard implements INewWizard {
 
@@ -64,6 +67,13 @@ public class NewPalladioProjectWizard extends Wizard implements INewWizard {
 	@Override
 	public void addPages() {
 		page = new WizardNewProjectCreationPage("Create New Palladio Project");
+		page.setDescription("Create a new Palladio Repository Modelling Project. "+
+				"This type of project is used to specify component repositories.");
+		page.setMessage(page.getDescription(),IMessageProvider.INFORMATION);
+		page.setImageDescriptor(PCMBenchActivator.imageDescriptorFromPlugin(
+					PCMBenchActivator.PLUGIN_ID,
+					"icons/palladio-logo.gif"));
+		page.setTitle("Create a PCM Repository Modelling Project");
 		this.addPage(page);
 	}
 

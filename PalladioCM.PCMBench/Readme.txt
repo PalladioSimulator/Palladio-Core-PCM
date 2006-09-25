@@ -8,8 +8,8 @@ This is still a development version, no stable release exists.
 
 --- Getting started ---
 To get started compile the source and run the plugins as an Eclipse application. Create a new Palladio Component Model
-project using the New Project wizard. Note: The project name is still hardcoded in other parts so please use
-"x" for the GMF integration to work. This is still a major construction site :-)
+project using the New Project wizard. Note: The project name is no longer hardcoded in other parts so you can now use abitrary 
+project names for the GMF integration to work. However, the whole thing is still a major construction site :-)
 
 Switch the perspective to "PCMBench". You should see a specialised Navigator, a Resource view, a property sheet and an outline.
 

@@ -7,6 +7,7 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
@@ -35,16 +36,25 @@ public class OpenRepositoryAction extends Action implements IWorkbenchWindowActi
 		final TransactionalEditingDomain domain = 
 			TransactionalEditingDomain.Registry.INSTANCE.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
 
-		URI model = URI.createFileURI("C:/Dokumente und Einstellungen/Snowball/PCM/ModelExample.QoSA06/My.repository");
-		ResourceSet resourceSet = domain.getResourceSet();
-		try
+		FileDialog selectRepositoryDialog = new FileDialog(shell);
+		selectRepositoryDialog.setFilterExtensions(new String[]{"*.repository"});
+		selectRepositoryDialog.setFilterNames(new String[]{"PCM Repositories (*.repository)"});
+		selectRepositoryDialog.setText("Select a PCM repository to open...");
+		selectRepositoryDialog.setFileName("C:/Dokumente und Einstellungen/Snowball/PCM/ModelExample.QoSA06/My.repository");
+		String filename = selectRepositoryDialog.open();
+		if (filename != null)
 		{
-			resourceSet.getResource(model, true);
-		}
-		catch (Throwable t)
-		{
-			MessageDialog.openInformation(shell, "Resource Loader Error",
-					t.getMessage());
+			URI model = URI.createFileURI(filename);
+			ResourceSet resourceSet = domain.getResourceSet();
+			try
+			{
+				resourceSet.getResource(model, true);
+			}
+			catch (Throwable t)
+			{
+				MessageDialog.openInformation(shell, "Resource Loader Error",
+						t.getMessage());
+			}
 		}
 	}
 

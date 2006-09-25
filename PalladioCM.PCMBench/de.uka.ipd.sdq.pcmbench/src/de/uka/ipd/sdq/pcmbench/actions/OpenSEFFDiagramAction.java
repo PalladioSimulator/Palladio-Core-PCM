@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringBufferInputStream;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
@@ -28,9 +30,11 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -38,6 +42,8 @@ import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.ActionFactory.IWorkbenchAction;
 import org.eclipse.ui.ide.IDE;
+import org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider;
+import org.eclipse.ui.navigator.CommonViewer;
 import org.eclipse.ui.part.FileEditorInput;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
@@ -46,6 +52,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 import de.uka.ipd.sdq.pcmbench.MySeffDiagramEditor;
+import de.uka.ipd.sdq.pcmbench.gmfintegration.FileAndDiagramElementEditorInput;
 
 public class OpenSEFFDiagramAction extends Action {
 
@@ -55,7 +62,10 @@ public class OpenSEFFDiagramAction extends Action {
 	private EObject selectedEObject;
 	private IWorkbenchPage page;
 	private ISelectionProvider provider;
+	private IProject selectedProject;
 	
+	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
+			.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
 	
 	public OpenSEFFDiagramAction(IWorkbenchPage p, ISelectionProvider selectionProvider) {
 		setText("Open Property"); //$NON-NLS-1$
@@ -84,29 +94,52 @@ public class OpenSEFFDiagramAction extends Action {
 					"Unable to set charset for diagram file", e); //$NON-NLS-1$
 		}
 
-		ResourceSet resourceSet = new ResourceSetImpl();
-		final Resource diagramResource = resourceSet
-				.createResource(URI.createPlatformResourceURI(diagramFile
-						.getFullPath().toString()));
+		final Resource diagramResource = editingDomain.getResourceSet()
+				.getResource(URI.createPlatformResourceURI(diagramFile
+						.getFullPath().toString()),true);
+		boolean diagramExists = false;
+		Diagram diagramRoot = null;
+		for (Iterator it = diagramResource.getContents().iterator(); it.hasNext(); )
+	    {
+	    	EObject node = (EObject)it.next();
+	    	if (node instanceof Diagram)
+	    	{
+	    		Diagram foundDiagram = (Diagram)node;
+	    		if (foundDiagram.getElement() == selectedEObject)
+	    		{
+	    			diagramExists = true;
+	    			diagramRoot = foundDiagram;
+	    			break;
+	    		}
+	    	}
+	    }
 
-		int diagramVID = PcmVisualIDRegistry.getDiagramVisualID(myDiagramRoot);
-		if (diagramVID != ResourceDemandingSEFFEditPart.VISUAL_ID) {
-			PcmDiagramEditorPlugin.getInstance().logError(
-					"Unable to create diagram - diagram root invalid"); //$NON-NLS-1$
-			return;
+		if (!diagramExists)
+		{	
+			int diagramVID = PcmVisualIDRegistry.getDiagramVisualID(myDiagramRoot);
+			if (diagramVID != ResourceDemandingSEFFEditPart.VISUAL_ID) {
+				PcmDiagramEditorPlugin.getInstance().logError(
+						"Unable to create diagram - diagram root invalid"); //$NON-NLS-1$
+				return;
+			}
+			final Diagram diagram = ViewService.createDiagram(myDiagramRoot,
+							ResourceDemandingSEFFEditPart.MODEL_ID,
+							PcmDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
+			// TODO: We need a transaction to modify the resource here.
+			RecordingCommand cmd = new RecordingCommand(editingDomain){
+
+				@Override
+				protected void doExecute() {
+					diagramResource.getContents().add(diagram);
+				}
+				
+			};
+			editingDomain.getCommandStack().execute(cmd);
+			diagramRoot = diagram;
 		}
-		Diagram diagram = ViewService.createDiagram(myDiagramRoot,
-						ResourceDemandingSEFFEditPart.MODEL_ID,
-						PcmDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
-		diagramResource.getContents().add(diagram);
 		try {
-			diagramResource.save(Collections.EMPTY_MAP);
-			page.openEditor(new FileEditorInput(diagramFile), MySeffDiagramEditor.ID);
-		} catch (IOException ex) {
-			PcmDiagramEditorPlugin
-					.getInstance()
-					.logError(
-							"Save operation failed for: " + diagramFile.getFullPath().toString(), ex); //$NON-NLS-1$
+			// diagramResource.save(Collections.EMPTY_MAP);
+			page.openEditor(new FileAndDiagramElementEditorInput(diagramFile,diagramRoot), MySeffDiagramEditor.ID);
 		} catch (PartInitException ex) {
 			PcmDiagramEditorPlugin.getInstance().logError(
 					"Unable to open editor", ex); //$NON-NLS-1$
@@ -114,9 +147,7 @@ public class OpenSEFFDiagramAction extends Action {
 	}
 
 	private IFile createFile() {
-		IWorkspaceRoot myWorkspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
-		IProject myProject = myWorkspaceRoot.getProject("x");
-		IFile newFile = myProject.getFile("diagram.my_seff_diagram");
+		IFile newFile = selectedProject.getFile("diagram.my_seff_diagram");
 		InputStream is = new StringBufferInputStream("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"+
 				"<xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\"/>");
 		try {
@@ -139,8 +170,16 @@ public class OpenSEFFDiagramAction extends Action {
 			if(sSelection.size() == 1 && 
 			   sSelection.getFirstElement() instanceof ResourceDemandingSEFF) 
 			{
-				selectedEObject = ((ResourceDemandingSEFF)sSelection.getFirstElement()); 				
-				return true;
+				selectedEObject = ((ResourceDemandingSEFF)sSelection.getFirstElement());
+				if (sSelection instanceof TreeSelection)
+				{
+					TreeSelection treeSelection = ((TreeSelection)sSelection);
+					if (treeSelection.getPaths()[0].getFirstSegment() instanceof IProject)
+					{
+						selectedProject = (IProject)treeSelection.getPaths()[0].getFirstSegment();
+						return true;
+					}
+				}
 			}
 		}
 		return false;

@@ -249,7 +249,7 @@
             name="New Palladio Project Wizard"
             preferredPerspectives="de.uka.ipd.sdq.PCMBench.perspective"
             project="true">
-         <description>This wiztard creates a new Palladio Modelling Project for CBSE based Quality of Service evaluations</description>
+         <description>This wizard creates a new Palladio Modelling Project for CBSE based Quality of Service evaluations.</description>
       </wizard>
    </extension>
    <extension
