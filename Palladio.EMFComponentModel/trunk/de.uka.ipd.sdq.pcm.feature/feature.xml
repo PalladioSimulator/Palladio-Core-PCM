@@ -108,8 +108,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <includes
          id="de.uka.ipd.sdq.pcm.feature.source"
-         version="0.0.0"
-   />
+         version="0.0.0"/>
 
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
@@ -120,6 +119,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.antlr"/>
    </requires>
 
    <plugin
