@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.context/src"
+    modelPluginID="de.uka.ipd.sdq.context" modelName="Context" importerID="org.eclipse.uml2.uml.ecore.importer"
+    usedGenPackages="../../../plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../../plugin/de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+  </genAnnotations>
+  <foreignModel>file:/C:/Dokumente%20und%20Einstellungen/Snowball/Desktop/pcm_uml2/context.uml2</foreignModel>
+  <genPackages prefix="Context" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
+      ecorePackage="context.ecore#/">
+    <nestedGenPackages prefix="Usage" basePackage="de.uka.ipd.sdq.context" disposableProviderFactory="true"
+        ecorePackage="context.ecore#//usage">
+      <genClasses ecoreClass="context.ecore#//usage/UsageContext">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//usage/UsageContext/branchprobabilities_UsageContext"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//usage/UsageContext/loopiterations_UsageContext"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//usage/UsageContext/actualParameterUsage_UsageContext"/>
+      </genClasses>
+      <genClasses ecoreClass="context.ecore#//usage/BranchProbability">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute context.ecore#//usage/BranchProbability/probability"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference context.ecore#//usage/BranchProbability/branchtransition_BranchProbability"/>
+      </genClasses>
+      <genClasses ecoreClass="context.ecore#//usage/LoopIteration">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference context.ecore#//usage/LoopIteration/loopaction_LoopIteration"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//usage/LoopIteration/iterations_LoopIteration"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Allocation" disposableProviderFactory="true" ecorePackage="context.ecore#//allocation">
+      <genClasses ecoreClass="context.ecore#//allocation/ActualAllocationContext">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//allocation/ActualAllocationContext/actualResourceDemands_ActualAllocationContext"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference context.ecore#//allocation/ActualAllocationContext/usageContext_ActualAllocationContext"/>
+      </genClasses>
+      <genClasses ecoreClass="context.ecore#//allocation/ActualResourceDemand">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference context.ecore#//allocation/ActualResourceDemand/parametricResourceDemand_ActualResourceDemand"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference context.ecore#//allocation/ActualResourceDemand/randomVariable_ActualResourceDemand"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
