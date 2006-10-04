@@ -79,7 +79,7 @@ public class AssemblyItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AssemblyPackage.Literals.ASSEMBLY__ASSEMBLYCONTEXTS_ASSEMBLY);
+			childrenFeatures.add(AssemblyPackage.Literals.ASSEMBLY__ASSEMBLY_CONTEXTS_ASSEMBLY);
 			childrenFeatures.add(AssemblyPackage.Literals.ASSEMBLY__ASSEMBLY_CONNECTORS_ASSEMBLY);
 		}
 		return childrenFeatures;
@@ -131,7 +131,7 @@ public class AssemblyItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Assembly.class)) {
-			case AssemblyPackage.ASSEMBLY__ASSEMBLYCONTEXTS_ASSEMBLY:
+			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONTEXTS_ASSEMBLY:
 			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONNECTORS_ASSEMBLY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -151,7 +151,7 @@ public class AssemblyItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AssemblyPackage.Literals.ASSEMBLY__ASSEMBLYCONTEXTS_ASSEMBLY,
+				(AssemblyPackage.Literals.ASSEMBLY__ASSEMBLY_CONTEXTS_ASSEMBLY,
 				 AssemblyFactory.eINSTANCE.createAssemblyContext()));
 
 		newChildDescriptors.add

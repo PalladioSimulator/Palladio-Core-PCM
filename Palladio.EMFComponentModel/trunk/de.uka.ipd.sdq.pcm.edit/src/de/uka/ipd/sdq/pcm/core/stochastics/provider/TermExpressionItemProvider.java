@@ -9,10 +9,10 @@ package de.uka.ipd.sdq.pcm.core.stochastics.provider;
 
 import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
-import de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+import de.uka.ipd.sdq.pcm.core.stochastics.TermExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.TermOperations;
 
 import java.util.Collection;
 import java.util.List;
@@ -34,13 +34,13 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.TermExpression} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompareExpressionItemProvider
-	extends ComparisonItemProvider
+public class TermExpressionItemProvider
+	extends TermItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -53,7 +53,7 @@ public class CompareExpressionItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompareExpressionItemProvider(AdapterFactory adapterFactory) {
+	public TermExpressionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -83,9 +83,9 @@ public class CompareExpressionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompareExpression_operation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompareExpression_operation_feature", "_UI_CompareExpression_type"),
-				 StochasticsPackage.Literals.COMPARE_EXPRESSION__OPERATION,
+				 getString("_UI_TermExpression_operation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TermExpression_operation_feature", "_UI_TermExpression_type"),
+				 StochasticsPackage.Literals.TERM_EXPRESSION__OPERATION,
 				 true,
 				 false,
 				 false,
@@ -105,8 +105,8 @@ public class CompareExpressionItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(StochasticsPackage.Literals.COMPARE_EXPRESSION__LEFT);
-			childrenFeatures.add(StochasticsPackage.Literals.COMPARE_EXPRESSION__RIGHT);
+			childrenFeatures.add(StochasticsPackage.Literals.TERM_EXPRESSION__LEFT);
+			childrenFeatures.add(StochasticsPackage.Literals.TERM_EXPRESSION__RIGHT);
 		}
 		return childrenFeatures;
 	}
@@ -124,13 +124,13 @@ public class CompareExpressionItemProvider
 	}
 
 	/**
-	 * This returns CompareExpression.gif.
+	 * This returns TermExpression.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompareExpression"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TermExpression"));
 	}
 
 	/**
@@ -140,11 +140,11 @@ public class CompareExpressionItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		CompareOperations labelValue = ((CompareExpression)object).getOperation();
+		TermOperations labelValue = ((TermExpression)object).getOperation();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CompareExpression_type") :
-			getString("_UI_CompareExpression_type") + " " + label;
+			getString("_UI_TermExpression_type") :
+			getString("_UI_TermExpression_type") + " " + label;
 	}
 
 	/**
@@ -157,12 +157,12 @@ public class CompareExpressionItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CompareExpression.class)) {
-			case StochasticsPackage.COMPARE_EXPRESSION__OPERATION:
+		switch (notification.getFeatureID(TermExpression.class)) {
+			case StochasticsPackage.TERM_EXPRESSION__OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case StochasticsPackage.COMPARE_EXPRESSION__LEFT:
-			case StochasticsPackage.COMPARE_EXPRESSION__RIGHT:
+			case StochasticsPackage.TERM_EXPRESSION__LEFT:
+			case StochasticsPackage.TERM_EXPRESSION__RIGHT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,62 +181,52 @@ public class CompareExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__LEFT,
+				(StochasticsPackage.Literals.TERM_EXPRESSION__LEFT,
 				 StochasticsFactory.eINSTANCE.createVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__LEFT,
+				(StochasticsPackage.Literals.TERM_EXPRESSION__LEFT,
 				 StochasticsFactory.eINSTANCE.createParantesis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__LEFT,
+				(StochasticsPackage.Literals.TERM_EXPRESSION__LEFT,
 				 StochasticsFactory.eINSTANCE.createIntLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__LEFT,
+				(StochasticsPackage.Literals.TERM_EXPRESSION__LEFT,
 				 StochasticsFactory.eINSTANCE.createDoubleLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__LEFT,
-				 StochasticsFactory.eINSTANCE.createTermExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__LEFT,
+				(StochasticsPackage.Literals.TERM_EXPRESSION__LEFT,
 				 StochasticsFactory.eINSTANCE.createProductExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__RIGHT,
+				(StochasticsPackage.Literals.TERM_EXPRESSION__RIGHT,
 				 StochasticsFactory.eINSTANCE.createVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__RIGHT,
+				(StochasticsPackage.Literals.TERM_EXPRESSION__RIGHT,
 				 StochasticsFactory.eINSTANCE.createParantesis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__RIGHT,
+				(StochasticsPackage.Literals.TERM_EXPRESSION__RIGHT,
 				 StochasticsFactory.eINSTANCE.createIntLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__RIGHT,
+				(StochasticsPackage.Literals.TERM_EXPRESSION__RIGHT,
 				 StochasticsFactory.eINSTANCE.createDoubleLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__RIGHT,
-				 StochasticsFactory.eINSTANCE.createTermExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.COMPARE_EXPRESSION__RIGHT,
+				(StochasticsPackage.Literals.TERM_EXPRESSION__RIGHT,
 				 StochasticsFactory.eINSTANCE.createProductExpression()));
 	}
 
@@ -251,8 +241,8 @@ public class CompareExpressionItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == StochasticsPackage.Literals.COMPARE_EXPRESSION__LEFT ||
-			childFeature == StochasticsPackage.Literals.COMPARE_EXPRESSION__RIGHT;
+			childFeature == StochasticsPackage.Literals.TERM_EXPRESSION__LEFT ||
+			childFeature == StochasticsPackage.Literals.TERM_EXPRESSION__RIGHT;
 
 		if (qualify) {
 			return getString

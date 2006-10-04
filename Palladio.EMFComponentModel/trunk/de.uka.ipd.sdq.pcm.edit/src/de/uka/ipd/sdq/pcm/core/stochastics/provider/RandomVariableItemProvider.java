@@ -186,6 +186,16 @@ public class RandomVariableItemProvider
 			(createChildParameter
 				(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
 				 StochasticsFactory.eINSTANCE.createCompareExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
+				 StochasticsFactory.eINSTANCE.createTermExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
+				 StochasticsFactory.eINSTANCE.createProductExpression()));
 	}
 
 	/**

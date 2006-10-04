@@ -9,7 +9,7 @@ package de.uka.ipd.sdq.pcm.core.stochastics.provider;
 
 import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.Parantesis;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 
@@ -21,6 +21,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -29,13 +31,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.Parantesis} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParantesisItemProvider
-	extends AtomItemProvider
+public class ProductExpressionItemProvider
+	extends ProductItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -48,7 +50,7 @@ public class ParantesisItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParantesisItemProvider(AdapterFactory adapterFactory) {
+	public ProductExpressionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,19 +79,32 @@ public class ParantesisItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION);
+			childrenFeatures.add(StochasticsPackage.Literals.PRODUCT_EXPRESSION__LEFT);
+			childrenFeatures.add(StochasticsPackage.Literals.PRODUCT_EXPRESSION__RIGHT);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * This returns Parantesis.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns ProductExpression.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Parantesis"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProductExpression"));
 	}
 
 	/**
@@ -99,7 +114,7 @@ public class ParantesisItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_Parantesis_type");
+		return getString("_UI_ProductExpression_type");
 	}
 
 	/**
@@ -112,8 +127,9 @@ public class ParantesisItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Parantesis.class)) {
-			case StochasticsPackage.PARANTESIS__INNER_EXPRESSION:
+		switch (notification.getFeatureID(ProductExpression.class)) {
+			case StochasticsPackage.PRODUCT_EXPRESSION__LEFT:
+			case StochasticsPackage.PRODUCT_EXPRESSION__RIGHT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -132,38 +148,65 @@ public class ParantesisItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
+				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__LEFT,
 				 StochasticsFactory.eINSTANCE.createVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
+				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__LEFT,
 				 StochasticsFactory.eINSTANCE.createParantesis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
+				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__LEFT,
 				 StochasticsFactory.eINSTANCE.createIntLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
+				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__LEFT,
 				 StochasticsFactory.eINSTANCE.createDoubleLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
-				 StochasticsFactory.eINSTANCE.createCompareExpression()));
+				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
+				 StochasticsFactory.eINSTANCE.createVariable()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
-				 StochasticsFactory.eINSTANCE.createTermExpression()));
+				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
+				 StochasticsFactory.eINSTANCE.createParantesis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
-				 StochasticsFactory.eINSTANCE.createProductExpression()));
+				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
+				 StochasticsFactory.eINSTANCE.createIntLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
+				 StochasticsFactory.eINSTANCE.createDoubleLiteral()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == StochasticsPackage.Literals.PRODUCT_EXPRESSION__LEFT ||
+			childFeature == StochasticsPackage.Literals.PRODUCT_EXPRESSION__RIGHT;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

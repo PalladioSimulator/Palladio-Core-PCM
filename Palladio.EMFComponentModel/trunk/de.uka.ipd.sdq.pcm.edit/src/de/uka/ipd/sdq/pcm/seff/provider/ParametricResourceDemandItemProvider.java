@@ -168,22 +168,6 @@ public class ParametricResourceDemandItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Collection getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffPackage.Literals.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND);
-		}
-		return childrenFeatures;
-	}
-
-	/**
 	 * This returns ParametricResourceDemand.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,9 +205,6 @@ public class ParametricResourceDemandItemProvider
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__UNIT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -237,36 +218,6 @@ public class ParametricResourceDemandItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND,
-				 SeffFactory.eINSTANCE.createPrimitiveParametricParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND,
-				 SeffFactory.eINSTANCE.createCollectionParametricParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND,
-				 StochasticsFactory.eINSTANCE.createRandomVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND,
-				 ParameterFactory.eINSTANCE.createPrimitiveParameterCharacterisation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND,
-				 ParameterFactory.eINSTANCE.createCollectionParameterCharacterisation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND,
-				 SystemFactory.eINSTANCE.createSpecifiedTimeConsumption()));
 	}
 
 	/**

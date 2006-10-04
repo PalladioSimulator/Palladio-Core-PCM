@@ -128,8 +128,8 @@ public class InterfaceItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RepositoryPackage.Literals.INTERFACE__SIGNATURES_INTERFACE);
 			childrenFeatures.add(RepositoryPackage.Literals.INTERFACE__PROTOCOLS_INTERFACE);
+			childrenFeatures.add(RepositoryPackage.Literals.INTERFACE__SIGNATURES_INTERFACE);
 		}
 		return childrenFeatures;
 	}
@@ -180,8 +180,8 @@ public class InterfaceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Interface.class)) {
-			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
+			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

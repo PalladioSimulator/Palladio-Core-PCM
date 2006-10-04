@@ -208,6 +208,50 @@ public class StochasticsItemProviderAdapterFactory extends StochasticsAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.stochastics.TermExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TermExpressionItemProvider termExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.TermExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createTermExpressionAdapter() {
+		if (termExpressionItemProvider == null) {
+			termExpressionItemProvider = new TermExpressionItemProvider(this);
+		}
+
+		return termExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProductExpressionItemProvider productExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createProductExpressionAdapter() {
+		if (productExpressionItemProvider == null) {
+			productExpressionItemProvider = new ProductExpressionItemProvider(this);
+		}
+
+		return productExpressionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,6 +353,8 @@ public class StochasticsItemProviderAdapterFactory extends StochasticsAdapterFac
 		if (intLiteralItemProvider != null) intLiteralItemProvider.dispose();
 		if (doubleLiteralItemProvider != null) doubleLiteralItemProvider.dispose();
 		if (compareExpressionItemProvider != null) compareExpressionItemProvider.dispose();
+		if (termExpressionItemProvider != null) termExpressionItemProvider.dispose();
+		if (productExpressionItemProvider != null) productExpressionItemProvider.dispose();
 	}
 
 }
