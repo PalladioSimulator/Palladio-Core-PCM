@@ -120,8 +120,8 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof BranchTransitionBranchProbabilityEditPart) {
-			((BranchTransitionBranchProbabilityEditPart) childEditPart)
+		if (childEditPart instanceof BranchTransitionBranchConditionEditPart) {
+			((BranchTransitionBranchConditionEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureBranchTransitionProbabilityLabel());
 			return true;
@@ -191,7 +191,7 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PcmVisualIDRegistry
-				.getType(BranchTransitionBranchProbabilityEditPart.VISUAL_ID));
+				.getType(BranchTransitionBranchConditionEditPart.VISUAL_ID));
 	}
 
 	/**

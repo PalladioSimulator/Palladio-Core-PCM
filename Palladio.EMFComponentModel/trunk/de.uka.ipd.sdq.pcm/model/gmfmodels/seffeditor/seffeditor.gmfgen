@@ -315,9 +315,9 @@
       </modelFacet>
       <labels
           visualID="4006"
-          editPartClassName="BranchTransitionBranchProbabilityEditPart"
-          itemSemanticEditPolicyClassName="BranchTransitionBranchProbabilityItemSemanticEditPolicy"
-          notationViewFactoryClassName="BranchTransitionBranchProbabilityViewFactory"
+          editPartClassName="BranchTransitionBranchConditionEditPart"
+          itemSemanticEditPolicyClassName="BranchTransitionBranchConditionItemSemanticEditPolicy"
+          notationViewFactoryClassName="BranchTransitionBranchConditionViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -328,7 +328,7 @@
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet">
           <metaFeature
-              href="../../pcm.genmodel#//pcm/seff/BranchTransition/branchProbability"/>
+              href="../../pcm.genmodel#//pcm/seff/BranchTransition/branchCondition"/>
         </modelFacet>
       </labels>
     </childNodes>

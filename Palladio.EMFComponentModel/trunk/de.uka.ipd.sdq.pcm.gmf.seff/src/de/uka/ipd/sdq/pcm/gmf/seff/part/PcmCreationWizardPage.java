@@ -80,7 +80,7 @@ public class PcmCreationWizardPage extends EditorWizardPage {
 					.append(
 							getDiagramFileCreator().appendExtensionToFileName(
 									fileName));
-			path = path.removeFileExtension().addFileExtension("pcm"); //$NON-NLS-1$
+			path = path.removeFileExtension().addFileExtension("repository"); //$NON-NLS-1$
 			if (ResourcesPlugin.getWorkspace().getRoot().exists(path)) {
 				setErrorMessage("Model File already exists: "
 						+ path.lastSegment());

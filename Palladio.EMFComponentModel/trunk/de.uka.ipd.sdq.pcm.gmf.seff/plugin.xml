@@ -135,7 +135,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchProbabilityEditPart"/>
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchConditionEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">

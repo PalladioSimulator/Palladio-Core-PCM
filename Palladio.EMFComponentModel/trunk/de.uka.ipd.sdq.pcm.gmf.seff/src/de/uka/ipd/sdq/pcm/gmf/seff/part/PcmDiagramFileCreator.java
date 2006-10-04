@@ -75,7 +75,7 @@ public class PcmDiagramFileCreator extends IDEEditorFileCreator {
 	 * @generated
 	 */
 	private String appendExtensionToModelFileName(String fileName) {
-		return fileName + ".pcm"; //$NON-NLS-1$
+		return fileName + ".repository"; //$NON-NLS-1$
 	}
 
 }

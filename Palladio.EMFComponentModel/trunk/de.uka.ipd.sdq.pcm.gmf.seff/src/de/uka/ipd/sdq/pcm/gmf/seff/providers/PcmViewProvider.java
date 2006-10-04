@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchConditionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageEditPart;
@@ -61,6 +62,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionEntityName2ViewFac
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchTransitionBehaviourCompartmentViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchTransitionBranchConditionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchTransitionBranchProbabilityViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchTransitionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionParametricParameterUsageSpecificationViewFactory;
@@ -188,8 +190,8 @@ public class PcmViewProvider extends AbstractViewProvider {
 			return BranchActionEntityNameViewFactory.class;
 		case BranchTransitionEditPart.VISUAL_ID:
 			return BranchTransitionViewFactory.class;
-		case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:
-			return BranchTransitionBranchProbabilityViewFactory.class;
+		case BranchTransitionBranchConditionEditPart.VISUAL_ID:
+			return BranchTransitionBranchConditionViewFactory.class;
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 			return ResourceDemandingBehaviour2ViewFactory.class;
 		case ExternalCallAction2EditPart.VISUAL_ID:

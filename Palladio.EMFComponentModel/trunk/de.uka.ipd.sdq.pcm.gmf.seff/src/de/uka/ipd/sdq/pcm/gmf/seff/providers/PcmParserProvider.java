@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchConditionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
@@ -142,25 +143,25 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser branchTransitionBranchTransitionBranchProbability_4006Parser;
+	private IParser branchTransitionBranchTransitionBranchCondition_4006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getBranchTransitionBranchTransitionBranchProbability_4006Parser() {
-		if (branchTransitionBranchTransitionBranchProbability_4006Parser == null) {
-			branchTransitionBranchTransitionBranchProbability_4006Parser = createBranchTransitionBranchTransitionBranchProbability_4006Parser();
+	private IParser getBranchTransitionBranchTransitionBranchCondition_4006Parser() {
+		if (branchTransitionBranchTransitionBranchCondition_4006Parser == null) {
+			branchTransitionBranchTransitionBranchCondition_4006Parser = createBranchTransitionBranchTransitionBranchCondition_4006Parser();
 		}
-		return branchTransitionBranchTransitionBranchProbability_4006Parser;
+		return branchTransitionBranchTransitionBranchCondition_4006Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createBranchTransitionBranchTransitionBranchProbability_4006Parser() {
+	protected IParser createBranchTransitionBranchTransitionBranchCondition_4006Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				SeffPackage.eINSTANCE.getBranchTransition()
-						.getEStructuralFeature("branchProbability")); //$NON-NLS-1$
+						.getEStructuralFeature("branchCondition")); //$NON-NLS-1$
 		return parser;
 	}
 
@@ -402,8 +403,8 @@ public class PcmParserProvider extends AbstractProvider implements
 			return getInternalActionInternalActionEntityName_4004Parser();
 		case BranchActionEntityNameEditPart.VISUAL_ID:
 			return getBranchActionBranchActionEntityName_4007Parser();
-		case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:
-			return getBranchTransitionBranchTransitionBranchProbability_4006Parser();
+		case BranchTransitionBranchConditionEditPart.VISUAL_ID:
+			return getBranchTransitionBranchTransitionBranchCondition_4006Parser();
 		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
 			return getExternalCallActionExternalCallActionEntityName_4005Parser();
 		case ExternalCallActionEntityNameEditPart.VISUAL_ID:

@@ -145,7 +145,7 @@
                 href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
           </children>
           <compartments
-              children="//@nodes.3/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.5">
+              children="//@nodes.3/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.5">
             <compartment
                 href="seffeditor.gmfgraph#LoopCompartment"/>
           </compartments>
@@ -190,7 +190,7 @@
             <diagramLabel
                 href="seffeditor.gmfgraph#BranchTransitionProbabilityDiagramLabel"/>
             <features
-                href="../../pcm.ecore#//seff/BranchTransition/branchProbability"/>
+                href="../../pcm.ecore#//seff/BranchTransition/branchCondition"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"

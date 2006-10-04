@@ -95,8 +95,8 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new BranchActionEntityNameEditPart(view);
 			case BranchTransitionEditPart.VISUAL_ID:
 				return new BranchTransitionEditPart(view);
-			case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:
-				return new BranchTransitionBranchProbabilityEditPart(view);
+			case BranchTransitionBranchConditionEditPart.VISUAL_ID:
+				return new BranchTransitionBranchConditionEditPart(view);
 			case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 				return new ResourceDemandingBehaviour2EditPart(view);
 			case ExternalCallAction2EditPart.VISUAL_ID:

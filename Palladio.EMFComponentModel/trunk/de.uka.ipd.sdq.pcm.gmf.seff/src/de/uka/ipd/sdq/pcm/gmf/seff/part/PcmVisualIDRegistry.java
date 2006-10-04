@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchConditionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageEditPart;
@@ -292,8 +293,8 @@ public class PcmVisualIDRegistry {
 			return getUnrecognizedBranchAction_2006ChildNodeID(domainElement,
 					semanticHint);
 		case BranchTransitionEditPart.VISUAL_ID:
-			if (BranchTransitionBranchProbabilityEditPart.VISUAL_ID == nodeVisualID) {
-				return BranchTransitionBranchProbabilityEditPart.VISUAL_ID;
+			if (BranchTransitionBranchConditionEditPart.VISUAL_ID == nodeVisualID) {
+				return BranchTransitionBranchConditionEditPart.VISUAL_ID;
 			}
 			if (BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID;
@@ -502,6 +503,9 @@ public class PcmVisualIDRegistry {
 	 * @generated
 	 */
 	public static int getLinkWithClassVisualID(EObject domainElement) {
+		if (domainElement == null) {
+			return -1;
+		}
 		EClass domainElementMetaclass = domainElement.eClass();
 		return getLinkWithClassVisualID(domainElement, domainElementMetaclass);
 	}
