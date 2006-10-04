@@ -40,7 +40,5 @@ public class RepositoryEditPart extends DiagramEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new RepositoryItemSemanticEditPolicy());
-		//installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-		//		new RepositoryCanonicalEditPolicy());
 	}
 }

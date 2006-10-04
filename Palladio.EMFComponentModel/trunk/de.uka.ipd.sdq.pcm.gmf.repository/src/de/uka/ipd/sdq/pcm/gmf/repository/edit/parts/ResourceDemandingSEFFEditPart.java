@@ -264,11 +264,11 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 	 */
 	protected String getLabelText() {
 		String text = "";
-		ResourceDemandingSEFF s = (ResourceDemandingSEFF)((View)this.getModel()).getElement();
+		ResourceDemandingSEFF s = (ResourceDemandingSEFF) ((View) this
+				.getModel()).getElement();
 		Signature sig = s.getDescribedService__SEFF();
-		if (sig != null)
-		{
-			text = sig.getServiceName() == null ? "" : sig.getServiceName();  
+		if (sig != null) {
+			text = sig.getServiceName() == null ? "" : sig.getServiceName();
 		}
 		return text;
 	}

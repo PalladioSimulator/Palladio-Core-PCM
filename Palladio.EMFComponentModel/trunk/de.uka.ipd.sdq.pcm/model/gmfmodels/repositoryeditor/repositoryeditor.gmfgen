@@ -12,7 +12,8 @@
       itemSemanticEditPolicyClassName="RepositoryItemSemanticEditPolicy"
       notationViewFactoryClassName="RepositoryViewFactory"
       iconProviderPriority="Low"
-      canonicalEditPolicyClassName="RepositoryCanonicalEditPolicy">
+      canonicalEditPolicyClassName="RepositoryCanonicalEditPolicy"
+      synchronized="false">
     <diagramRunTimeClass
         href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
     <elementType
@@ -396,7 +397,7 @@
     </palette>
   </diagram>
   <plugin
-      iD="de.uka.ipd.sdq.pcm.gmf.repository.sync"
+      iD="de.uka.ipd.sdq.pcm.gmf.repository"
       name="Repository Diagram Plugin"
       provider="sdq.ipd.uka.de"
       printingEnabled="true"

@@ -42,7 +42,7 @@ public class InterfaceViewFactory extends AbstractShapeViewFactory {
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void decorateView(View containerView, View view,
 			IAdaptable semanticAdapter, String semanticHint, int index,
