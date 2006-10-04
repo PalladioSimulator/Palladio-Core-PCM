@@ -80,6 +80,24 @@ public interface StochasticsFactory extends EFactory {
 	CompareExpression createCompareExpression();
 
 	/**
+	 * Returns a new object of class '<em>Term Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Term Expression</em>'.
+	 * @generated
+	 */
+	TermExpression createTermExpression();
+
+	/**
+	 * Returns a new object of class '<em>Product Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Product Expression</em>'.
+	 * @generated
+	 */
+	ProductExpression createProductExpression();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

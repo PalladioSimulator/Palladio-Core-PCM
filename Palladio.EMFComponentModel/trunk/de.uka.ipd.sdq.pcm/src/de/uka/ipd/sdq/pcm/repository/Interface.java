@@ -22,10 +22,10 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterface__Interface <em>Parent Interface Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces <em>Anchestor Interfaces</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols Interface</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,22 +34,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Interface extends Entity {
-	/**
-	 * Returns the value of the '<em><b>Signatures Interface</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Signature}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Signatures Interface</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Signatures Interface</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_Signatures__Interface()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.Signature" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList getSignatures__Interface();
-
 	/**
 	 * Returns the value of the '<em><b>Parent Interface Interface</b></em>' reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Interface}.
@@ -97,6 +81,22 @@ public interface Interface extends Entity {
 	 * @generated
 	 */
 	EList getProtocols__Interface();
+
+	/**
+	 * Returns the value of the '<em><b>Signatures Interface</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Signature}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Signatures Interface</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Signatures Interface</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_Signatures__Interface()
+	 * @model type="de.uka.ipd.sdq.pcm.repository.Signature" containment="true" ordered="false"
+	 * @generated
+	 */
+	EList getSignatures__Interface();
 
 
 	/**

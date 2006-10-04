@@ -351,22 +351,13 @@ public interface RepositoryPackage extends EPackage {
 	int INTERFACE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Signatures Interface</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__SIGNATURES_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Parent Interface Interface</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__PARENT_INTERFACE_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+	int INTERFACE__PARENT_INTERFACE_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Anchestor Interfaces</b></em>' reference list.
@@ -375,7 +366,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__ANCHESTOR_INTERFACES = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+	int INTERFACE__ANCHESTOR_INTERFACES = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Protocols Interface</b></em>' containment reference list.
@@ -384,7 +375,16 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__PROTOCOLS_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+	int INTERFACE__PROTOCOLS_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Signatures Interface</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__SIGNATURES_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Interface</em>' class.
@@ -1404,17 +1404,6 @@ public interface RepositoryPackage extends EPackage {
 	EClass getInterface();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Signatures Interface</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface()
-	 * @see #getInterface()
-	 * @generated
-	 */
-	EReference getInterface_Signatures__Interface();
-
-	/**
 	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterface__Interface <em>Parent Interface Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1446,6 +1435,17 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInterface_Protocols__Interface();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Signatures Interface</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface()
+	 * @see #getInterface()
+	 * @generated
+	 */
+	EReference getInterface_Signatures__Interface();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector <em>Required Delegation Connector</em>}'.
@@ -1906,7 +1906,7 @@ public interface RepositoryPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl <em>Signature</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -2074,14 +2074,6 @@ public interface RepositoryPackage extends EPackage {
 		EClass INTERFACE = eINSTANCE.getInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>Signatures Interface</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTERFACE__SIGNATURES_INTERFACE = eINSTANCE.getInterface_Signatures__Interface();
-
-		/**
 		 * The meta object literal for the '<em><b>Parent Interface Interface</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2104,6 +2096,14 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INTERFACE__PROTOCOLS_INTERFACE = eINSTANCE.getInterface_Protocols__Interface();
+
+		/**
+		 * The meta object literal for the '<em><b>Signatures Interface</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE__SIGNATURES_INTERFACE = eINSTANCE.getInterface_Signatures__Interface();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredDelegationConnectorImpl <em>Required Delegation Connector</em>}' class.

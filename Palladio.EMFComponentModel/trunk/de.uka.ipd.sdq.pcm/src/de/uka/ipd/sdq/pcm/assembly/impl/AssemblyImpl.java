@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.assembly.impl.AssemblyImpl#getAssemblycontexts_Assembly <em>Assemblycontexts Assembly</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.assembly.impl.AssemblyImpl#getAssemblyContexts_Assembly <em>Assembly Contexts Assembly</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.assembly.impl.AssemblyImpl#getAssemblyConnectors_Assembly <em>Assembly Connectors Assembly</em>}</li>
  * </ul>
  * </p>
@@ -42,14 +42,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class AssemblyImpl extends EntityImpl implements Assembly {
 	/**
-	 * The cached value of the '{@link #getAssemblycontexts_Assembly() <em>Assemblycontexts Assembly</em>}' containment reference list.
+	 * The cached value of the '{@link #getAssemblyContexts_Assembly() <em>Assembly Contexts Assembly</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAssemblycontexts_Assembly()
+	 * @see #getAssemblyContexts_Assembly()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList assemblycontexts_Assembly = null;
+	protected EList assemblyContexts_Assembly = null;
 
 	/**
 	 * The cached value of the '{@link #getAssemblyConnectors_Assembly() <em>Assembly Connectors Assembly</em>}' containment reference list.
@@ -85,11 +85,11 @@ public class AssemblyImpl extends EntityImpl implements Assembly {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getAssemblycontexts_Assembly() {
-		if (assemblycontexts_Assembly == null) {
-			assemblycontexts_Assembly = new EObjectContainmentEList(AssemblyContext.class, this, AssemblyPackage.ASSEMBLY__ASSEMBLYCONTEXTS_ASSEMBLY);
+	public EList getAssemblyContexts_Assembly() {
+		if (assemblyContexts_Assembly == null) {
+			assemblyContexts_Assembly = new EObjectContainmentEList(AssemblyContext.class, this, AssemblyPackage.ASSEMBLY__ASSEMBLY_CONTEXTS_ASSEMBLY);
 		}
-		return assemblycontexts_Assembly;
+		return assemblyContexts_Assembly;
 	}
 
 	/**
@@ -111,8 +111,8 @@ public class AssemblyImpl extends EntityImpl implements Assembly {
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AssemblyPackage.ASSEMBLY__ASSEMBLYCONTEXTS_ASSEMBLY:
-				return ((InternalEList)getAssemblycontexts_Assembly()).basicRemove(otherEnd, msgs);
+			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONTEXTS_ASSEMBLY:
+				return ((InternalEList)getAssemblyContexts_Assembly()).basicRemove(otherEnd, msgs);
 			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONNECTORS_ASSEMBLY:
 				return ((InternalEList)getAssemblyConnectors_Assembly()).basicRemove(otherEnd, msgs);
 		}
@@ -126,8 +126,8 @@ public class AssemblyImpl extends EntityImpl implements Assembly {
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AssemblyPackage.ASSEMBLY__ASSEMBLYCONTEXTS_ASSEMBLY:
-				return getAssemblycontexts_Assembly();
+			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONTEXTS_ASSEMBLY:
+				return getAssemblyContexts_Assembly();
 			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONNECTORS_ASSEMBLY:
 				return getAssemblyConnectors_Assembly();
 		}
@@ -141,9 +141,9 @@ public class AssemblyImpl extends EntityImpl implements Assembly {
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AssemblyPackage.ASSEMBLY__ASSEMBLYCONTEXTS_ASSEMBLY:
-				getAssemblycontexts_Assembly().clear();
-				getAssemblycontexts_Assembly().addAll((Collection)newValue);
+			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONTEXTS_ASSEMBLY:
+				getAssemblyContexts_Assembly().clear();
+				getAssemblyContexts_Assembly().addAll((Collection)newValue);
 				return;
 			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONNECTORS_ASSEMBLY:
 				getAssemblyConnectors_Assembly().clear();
@@ -160,8 +160,8 @@ public class AssemblyImpl extends EntityImpl implements Assembly {
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AssemblyPackage.ASSEMBLY__ASSEMBLYCONTEXTS_ASSEMBLY:
-				getAssemblycontexts_Assembly().clear();
+			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONTEXTS_ASSEMBLY:
+				getAssemblyContexts_Assembly().clear();
 				return;
 			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONNECTORS_ASSEMBLY:
 				getAssemblyConnectors_Assembly().clear();
@@ -177,8 +177,8 @@ public class AssemblyImpl extends EntityImpl implements Assembly {
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AssemblyPackage.ASSEMBLY__ASSEMBLYCONTEXTS_ASSEMBLY:
-				return assemblycontexts_Assembly != null && !assemblycontexts_Assembly.isEmpty();
+			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONTEXTS_ASSEMBLY:
+				return assemblyContexts_Assembly != null && !assemblyContexts_Assembly.isEmpty();
 			case AssemblyPackage.ASSEMBLY__ASSEMBLY_CONNECTORS_ASSEMBLY:
 				return assemblyConnectors_Assembly != null && !assemblyConnectors_Assembly.isEmpty();
 		}

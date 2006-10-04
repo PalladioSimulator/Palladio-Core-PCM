@@ -247,6 +247,15 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAllocation_TargetResourceEnvironment_Allocation() {
+		return (EReference)allocationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AllocationFactory getAllocationFactory() {
 		return (AllocationFactory)getEFactoryInstance();
 	}
@@ -276,6 +285,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
 		allocationEClass = createEClass(ALLOCATION);
 		createEReference(allocationEClass, ALLOCATION__ALLOCATION_CONTEXTS);
+		createEReference(allocationEClass, ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION);
 	}
 
 	/**
@@ -316,6 +326,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
 		initEClass(allocationEClass, Allocation.class, "Allocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAllocation_AllocationContexts(), this.getAllocationContext(), null, "allocationContexts", null, 0, -1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAllocation_TargetResourceEnvironment_Allocation(), theResourceenvironmentPackage.getResourceEnvironment(), null, "targetResourceEnvironment_Allocation", null, 0, 1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.assembly.Assembly#getAssemblycontexts_Assembly <em>Assemblycontexts Assembly</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.assembly.Assembly#getAssemblyContexts_Assembly <em>Assembly Contexts Assembly</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.assembly.Assembly#getAssemblyConnectors_Assembly <em>Assembly Connectors Assembly</em>}</li>
  * </ul>
  * </p>
@@ -30,20 +30,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Assembly extends Entity {
 	/**
-	 * Returns the value of the '<em><b>Assemblycontexts Assembly</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Assembly Contexts Assembly</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.assembly.AssemblyContext}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Assemblycontexts Assembly</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Assembly Contexts Assembly</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Assemblycontexts Assembly</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.assembly.AssemblyPackage#getAssembly_Assemblycontexts_Assembly()
+	 * @return the value of the '<em>Assembly Contexts Assembly</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.assembly.AssemblyPackage#getAssembly_AssemblyContexts_Assembly()
 	 * @model type="de.uka.ipd.sdq.pcm.assembly.AssemblyContext" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getAssemblycontexts_Assembly();
+	EList getAssemblyContexts_Assembly();
 
 	/**
 	 * Returns the value of the '<em><b>Assembly Connectors Assembly</b></em>' containment reference list.

@@ -9,6 +9,8 @@ package de.uka.ipd.sdq.pcm.allocation;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -20,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts <em>Allocation Contexts</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getTargetResourceEnvironment_Allocation <em>Target Resource Environment Allocation</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,5 +46,31 @@ public interface Allocation extends Entity {
 	 * @generated
 	 */
 	EList getAllocationContexts();
+
+	/**
+	 * Returns the value of the '<em><b>Target Resource Environment Allocation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Resource Environment Allocation</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Resource Environment Allocation</em>' reference.
+	 * @see #setTargetResourceEnvironment_Allocation(ResourceEnvironment)
+	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocation_TargetResourceEnvironment_Allocation()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	ResourceEnvironment getTargetResourceEnvironment_Allocation();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getTargetResourceEnvironment_Allocation <em>Target Resource Environment Allocation</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Resource Environment Allocation</em>' reference.
+	 * @see #getTargetResourceEnvironment_Allocation()
+	 * @generated
+	 */
+	void setTargetResourceEnvironment_Allocation(ResourceEnvironment value);
 
 } // Allocation

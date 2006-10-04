@@ -13,14 +13,19 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getAllocationContexts <em>Allocation Contexts</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getTargetResourceEnvironment_Allocation <em>Target Resource Environment Allocation</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,6 +54,17 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * @ordered
 	 */
 	protected EList allocationContexts = null;
+
+
+	/**
+	 * The cached value of the '{@link #getTargetResourceEnvironment_Allocation() <em>Target Resource Environment Allocation</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetResourceEnvironment_Allocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected ResourceEnvironment targetResourceEnvironment_Allocation = null;
 
 
 	/**
@@ -85,6 +102,44 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ResourceEnvironment getTargetResourceEnvironment_Allocation() {
+		if (targetResourceEnvironment_Allocation != null && targetResourceEnvironment_Allocation.eIsProxy()) {
+			InternalEObject oldTargetResourceEnvironment_Allocation = (InternalEObject)targetResourceEnvironment_Allocation;
+			targetResourceEnvironment_Allocation = (ResourceEnvironment)eResolveProxy(oldTargetResourceEnvironment_Allocation);
+			if (targetResourceEnvironment_Allocation != oldTargetResourceEnvironment_Allocation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION, oldTargetResourceEnvironment_Allocation, targetResourceEnvironment_Allocation));
+			}
+		}
+		return targetResourceEnvironment_Allocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceEnvironment basicGetTargetResourceEnvironment_Allocation() {
+		return targetResourceEnvironment_Allocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetResourceEnvironment_Allocation(ResourceEnvironment newTargetResourceEnvironment_Allocation) {
+		ResourceEnvironment oldTargetResourceEnvironment_Allocation = targetResourceEnvironment_Allocation;
+		targetResourceEnvironment_Allocation = newTargetResourceEnvironment_Allocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION, oldTargetResourceEnvironment_Allocation, targetResourceEnvironment_Allocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS:
@@ -102,6 +157,9 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 		switch (featureID) {
 			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS:
 				return getAllocationContexts();
+			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
+				if (resolve) return getTargetResourceEnvironment_Allocation();
+				return basicGetTargetResourceEnvironment_Allocation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,6 +175,9 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 				getAllocationContexts().clear();
 				getAllocationContexts().addAll((Collection)newValue);
 				return;
+			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
+				setTargetResourceEnvironment_Allocation((ResourceEnvironment)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -131,6 +192,9 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS:
 				getAllocationContexts().clear();
 				return;
+			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
+				setTargetResourceEnvironment_Allocation((ResourceEnvironment)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -144,6 +208,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 		switch (featureID) {
 			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS:
 				return allocationContexts != null && !allocationContexts.isEmpty();
+			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
+				return targetResourceEnvironment_Allocation != null;
 		}
 		return super.eIsSet(featureID);
 	}

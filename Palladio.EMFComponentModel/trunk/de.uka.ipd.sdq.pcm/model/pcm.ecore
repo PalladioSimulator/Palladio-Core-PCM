@@ -30,7 +30,7 @@
           ordered="false" lowerBound="1" eType="#//repository/ProvidesComponentType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Assembly" eSuperTypes="#//core/entity/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblycontexts_Assembly"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContexts_Assembly"
           ordered="false" upperBound="-1" eType="#//assembly/AssemblyContext" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnectors_Assembly"
           ordered="false" upperBound="-1" eType="#//assembly/SystemAssemblyConnector"
@@ -74,9 +74,9 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="CompareExpression" eSuperTypes="#//core/stochastics/Comparison">
         <eStructuralFeatures xsi:type="ecore:EReference" name="left" ordered="false"
-            lowerBound="1" eType="#//core/stochastics/Comparison" containment="true"/>
+            lowerBound="1" eType="#//core/stochastics/Term" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="right" ordered="false"
-            lowerBound="1" eType="#//core/stochastics/Comparison" containment="true"/>
+            lowerBound="1" eType="#//core/stochastics/Term" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" ordered="false"
             lowerBound="1" eType="#//core/stochastics/CompareOperations"/>
       </eClassifiers>
@@ -87,6 +87,29 @@
         <eLiterals name="NOTEQUAL" value="3"/>
         <eLiterals name="LESSEQUAL" value="4"/>
         <eLiterals name="GREATEREQUAL" value="5"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="TermExpression" eSuperTypes="#//core/stochastics/Term">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="left" ordered="false"
+            lowerBound="1" eType="#//core/stochastics/Product" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="right" ordered="false"
+            lowerBound="1" eType="#//core/stochastics/Product" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" ordered="false"
+            lowerBound="1" eType="#//core/stochastics/TermOperations"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="TermOperations">
+        <eLiterals name="ADD"/>
+        <eLiterals name="SUB" value="1"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ProductExpression" eSuperTypes="#//core/stochastics/Product">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="left" ordered="false"
+            lowerBound="1" eType="#//core/stochastics/Power" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="right" ordered="false"
+            lowerBound="1" eType="#//core/stochastics/Power" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="ProductOperations">
+        <eLiterals name="MULT"/>
+        <eLiterals name="DIV" value="1"/>
+        <eLiterals name="MOD" value="2"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/1.0"
@@ -185,14 +208,14 @@
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signatures__Interface"
-          ordered="false" upperBound="-1" eType="#//repository/Signature" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentInterface__Interface"
           ordered="false" upperBound="-1" eType="#//repository/Interface"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="anchestorInterfaces"
           ordered="false" upperBound="-1" eType="#//repository/Interface"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="protocols__Interface"
           ordered="false" upperBound="-1" eType="#//protocol/Protocol" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signatures__Interface"
+          ordered="false" upperBound="-1" eType="#//repository/Signature" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RequiredDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
       <eOperations name="innerAndOuterRoleNeedToHaveDifferentContextIDs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -452,9 +475,6 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource_ParametricResourceDemand"
           ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemand_ParametricResourceDemand"
-          ordered="false" lowerBound="1" eType="#//core/stochastics/RandomVariable"
-          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="action_ParametricResourceDemand"
           ordered="false" lowerBound="1" eType="#//seff/AbstractResourceDemandingAction"
           eOpposite="#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
@@ -595,6 +615,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Allocation" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContexts" ordered="false"
           upperBound="-1" eType="#//allocation/AllocationContext" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetResourceEnvironment_Allocation"
+          ordered="false" eType="#//resourceenvironment/ResourceEnvironment"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="resourceenvironment" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0"

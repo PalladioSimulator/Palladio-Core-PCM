@@ -214,6 +214,25 @@ public class StochasticsSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StochasticsPackage.TERM_EXPRESSION: {
+				TermExpression termExpression = (TermExpression)theEObject;
+				Object result = caseTermExpression(termExpression);
+				if (result == null) result = caseTerm(termExpression);
+				if (result == null) result = caseComparison(termExpression);
+				if (result == null) result = caseExpression(termExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StochasticsPackage.PRODUCT_EXPRESSION: {
+				ProductExpression productExpression = (ProductExpression)theEObject;
+				Object result = caseProductExpression(productExpression);
+				if (result == null) result = caseProduct(productExpression);
+				if (result == null) result = caseTerm(productExpression);
+				if (result == null) result = caseComparison(productExpression);
+				if (result == null) result = caseExpression(productExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -410,6 +429,36 @@ public class StochasticsSwitch {
 	 * @generated
 	 */
 	public Object caseCompareExpression(CompareExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Term Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Term Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseTermExpression(TermExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Product Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Product Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseProductExpression(ProductExpression object) {
 		return null;
 	}
 

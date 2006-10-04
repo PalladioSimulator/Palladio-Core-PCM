@@ -532,7 +532,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_Signatures__Interface() {
+	public EReference getInterface_ParentInterface__Interface() {
 		return (EReference)interfaceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -541,7 +541,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_ParentInterface__Interface() {
+	public EReference getInterface_AnchestorInterfaces() {
 		return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -550,7 +550,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_AnchestorInterfaces() {
+	public EReference getInterface_Protocols__Interface() {
 		return (EReference)interfaceEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -559,7 +559,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_Protocols__Interface() {
+	public EReference getInterface_Signatures__Interface() {
 		return (EReference)interfaceEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -985,10 +985,10 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		createEReference(requiredRoleEClass, REQUIRED_ROLE__REQUIRED_INTERFACE_REQUIRED_ROLE);
 
 		interfaceEClass = createEClass(INTERFACE);
-		createEReference(interfaceEClass, INTERFACE__SIGNATURES_INTERFACE);
 		createEReference(interfaceEClass, INTERFACE__PARENT_INTERFACE_INTERFACE);
 		createEReference(interfaceEClass, INTERFACE__ANCHESTOR_INTERFACES);
 		createEReference(interfaceEClass, INTERFACE__PROTOCOLS_INTERFACE);
+		createEReference(interfaceEClass, INTERFACE__SIGNATURES_INTERFACE);
 
 		requiredDelegationConnectorEClass = createEClass(REQUIRED_DELEGATION_CONNECTOR);
 		createEReference(requiredDelegationConnectorEClass, REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR);
@@ -1122,10 +1122,10 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEReference(getRequiredRole_RequiredInterface__RequiredRole(), this.getInterface(), null, "requiredInterface__RequiredRole", null, 1, 1, RequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInterface_Signatures__Interface(), this.getSignature(), null, "signatures__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getInterface_ParentInterface__Interface(), this.getInterface(), null, "parentInterface__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getInterface_AnchestorInterfaces(), this.getInterface(), null, "anchestorInterfaces", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getInterface_Protocols__Interface(), theProtocolPackage.getProtocol(), null, "protocols__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getInterface_Signatures__Interface(), this.getSignature(), null, "signatures__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(interfaceEClass, ecorePackage.getEBoolean(), "noProtocolTypeIDUsedTwice", 0, 1);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);

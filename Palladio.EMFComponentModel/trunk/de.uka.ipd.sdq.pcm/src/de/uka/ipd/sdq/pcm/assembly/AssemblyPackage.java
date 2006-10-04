@@ -210,13 +210,13 @@ public interface AssemblyPackage extends EPackage {
 	int ASSEMBLY__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Assemblycontexts Assembly</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Assembly Contexts Assembly</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSEMBLY__ASSEMBLYCONTEXTS_ASSEMBLY = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+	int ASSEMBLY__ASSEMBLY_CONTEXTS_ASSEMBLY = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Assembly Connectors Assembly</b></em>' containment reference list.
@@ -323,15 +323,15 @@ public interface AssemblyPackage extends EPackage {
 	EClass getAssembly();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.assembly.Assembly#getAssemblycontexts_Assembly <em>Assemblycontexts Assembly</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.assembly.Assembly#getAssemblyContexts_Assembly <em>Assembly Contexts Assembly</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Assemblycontexts Assembly</em>'.
-	 * @see de.uka.ipd.sdq.pcm.assembly.Assembly#getAssemblycontexts_Assembly()
+	 * @return the meta object for the containment reference list '<em>Assembly Contexts Assembly</em>'.
+	 * @see de.uka.ipd.sdq.pcm.assembly.Assembly#getAssemblyContexts_Assembly()
 	 * @see #getAssembly()
 	 * @generated
 	 */
-	EReference getAssembly_Assemblycontexts_Assembly();
+	EReference getAssembly_AssemblyContexts_Assembly();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.assembly.Assembly#getAssemblyConnectors_Assembly <em>Assembly Connectors Assembly</em>}'.
@@ -365,7 +365,7 @@ public interface AssemblyPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.assembly.impl.SystemAssemblyConnectorImpl <em>System Assembly Connector</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -437,12 +437,12 @@ public interface AssemblyPackage extends EPackage {
 		EClass ASSEMBLY = eINSTANCE.getAssembly();
 
 		/**
-		 * The meta object literal for the '<em><b>Assemblycontexts Assembly</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Assembly Contexts Assembly</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSEMBLY__ASSEMBLYCONTEXTS_ASSEMBLY = eINSTANCE.getAssembly_Assemblycontexts_Assembly();
+		EReference ASSEMBLY__ASSEMBLY_CONTEXTS_ASSEMBLY = eINSTANCE.getAssembly_AssemblyContexts_Assembly();
 
 		/**
 		 * The meta object literal for the '<em><b>Assembly Connectors Assembly</b></em>' containment reference list feature.

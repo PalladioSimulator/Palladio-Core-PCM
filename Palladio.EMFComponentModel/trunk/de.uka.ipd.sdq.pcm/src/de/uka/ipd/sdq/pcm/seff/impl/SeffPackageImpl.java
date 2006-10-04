@@ -429,17 +429,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParametricResourceDemand_ResourceDemand_ParametricResourceDemand() {
-		return (EReference)parametricResourceDemandEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getParametricResourceDemand_Action_ParametricResourceDemand() {
-		return (EReference)parametricResourceDemandEClass.getEStructuralFeatures().get(4);
+		return (EReference)parametricResourceDemandEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -789,7 +780,6 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		createEAttribute(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__DEMAND);
 		createEAttribute(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__UNIT);
 		createEReference(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND);
-		createEReference(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND);
 		createEReference(parametricResourceDemandEClass, PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND);
 
 		startActionEClass = createEClass(START_ACTION);
@@ -904,7 +894,6 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEAttribute(getParametricResourceDemand_Demand(), ecorePackage.getEString(), "demand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getParametricResourceDemand_Unit(), ecorePackage.getEString(), "unit", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getParametricResourceDemand_RequiredResource_ParametricResourceDemand(), theResourcetypePackage.getProcessingResourceType(), null, "requiredResource_ParametricResourceDemand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getParametricResourceDemand_ResourceDemand_ParametricResourceDemand(), theStochasticsPackage.getRandomVariable(), null, "resourceDemand_ParametricResourceDemand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getParametricResourceDemand_Action_ParametricResourceDemand(), this.getAbstractResourceDemandingAction(), this.getAbstractResourceDemandingAction_ResourceDemand_Action(), "action_ParametricResourceDemand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(startActionEClass, StartAction.class, "StartAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

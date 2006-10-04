@@ -7,12 +7,10 @@
  */
 package de.uka.ipd.sdq.pcm.core.stochastics.impl;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
-import de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations;
-import de.uka.ipd.sdq.pcm.core.stochastics.Comparison;
+import de.uka.ipd.sdq.pcm.core.stochastics.Product;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.Term;
+import de.uka.ipd.sdq.pcm.core.stochastics.TermExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.TermOperations;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,20 +22,20 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Compare Expression</b></em>'.
+ * An implementation of the model object '<em><b>Term Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.CompareExpressionImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.CompareExpressionImpl#getRight <em>Right</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.CompareExpressionImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.TermExpressionImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.TermExpressionImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.TermExpressionImpl#getOperation <em>Operation</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CompareExpressionImpl extends ComparisonImpl implements CompareExpression {
+public class TermExpressionImpl extends TermImpl implements TermExpression {
 	/**
 	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -46,7 +44,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * @generated
 	 * @ordered
 	 */
-	protected Term left = null;
+	protected Product left = null;
 
 	/**
 	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -56,7 +54,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * @generated
 	 * @ordered
 	 */
-	protected Term right = null;
+	protected Product right = null;
 
 	/**
 	 * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.
@@ -66,7 +64,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * @generated
 	 * @ordered
 	 */
-	protected static final CompareOperations OPERATION_EDEFAULT = CompareOperations.GREATER_LITERAL;
+	protected static final TermOperations OPERATION_EDEFAULT = TermOperations.ADD_LITERAL;
 
 	/**
 	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' attribute.
@@ -76,7 +74,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * @generated
 	 * @ordered
 	 */
-	protected CompareOperations operation = OPERATION_EDEFAULT;
+	protected TermOperations operation = OPERATION_EDEFAULT;
 
 
 	/**
@@ -84,7 +82,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CompareExpressionImpl() {
+	protected TermExpressionImpl() {
 		super();
 	}
 
@@ -94,7 +92,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return StochasticsPackage.Literals.COMPARE_EXPRESSION;
+		return StochasticsPackage.Literals.TERM_EXPRESSION;
 	}
 
 	/**
@@ -102,7 +100,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Term getLeft() {
+	public Product getLeft() {
 		return left;
 	}
 
@@ -111,11 +109,11 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLeft(Term newLeft, NotificationChain msgs) {
-		Term oldLeft = left;
+	public NotificationChain basicSetLeft(Product newLeft, NotificationChain msgs) {
+		Product oldLeft = left;
 		left = newLeft;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StochasticsPackage.COMPARE_EXPRESSION__LEFT, oldLeft, newLeft);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StochasticsPackage.TERM_EXPRESSION__LEFT, oldLeft, newLeft);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -126,18 +124,18 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLeft(Term newLeft) {
+	public void setLeft(Product newLeft) {
 		if (newLeft != left) {
 			NotificationChain msgs = null;
 			if (left != null)
-				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StochasticsPackage.COMPARE_EXPRESSION__LEFT, null, msgs);
+				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StochasticsPackage.TERM_EXPRESSION__LEFT, null, msgs);
 			if (newLeft != null)
-				msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StochasticsPackage.COMPARE_EXPRESSION__LEFT, null, msgs);
+				msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StochasticsPackage.TERM_EXPRESSION__LEFT, null, msgs);
 			msgs = basicSetLeft(newLeft, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StochasticsPackage.COMPARE_EXPRESSION__LEFT, newLeft, newLeft));
+			eNotify(new ENotificationImpl(this, Notification.SET, StochasticsPackage.TERM_EXPRESSION__LEFT, newLeft, newLeft));
 	}
 
 	/**
@@ -145,7 +143,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Term getRight() {
+	public Product getRight() {
 		return right;
 	}
 
@@ -154,11 +152,11 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRight(Term newRight, NotificationChain msgs) {
-		Term oldRight = right;
+	public NotificationChain basicSetRight(Product newRight, NotificationChain msgs) {
+		Product oldRight = right;
 		right = newRight;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StochasticsPackage.COMPARE_EXPRESSION__RIGHT, oldRight, newRight);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StochasticsPackage.TERM_EXPRESSION__RIGHT, oldRight, newRight);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -169,18 +167,18 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRight(Term newRight) {
+	public void setRight(Product newRight) {
 		if (newRight != right) {
 			NotificationChain msgs = null;
 			if (right != null)
-				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StochasticsPackage.COMPARE_EXPRESSION__RIGHT, null, msgs);
+				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StochasticsPackage.TERM_EXPRESSION__RIGHT, null, msgs);
 			if (newRight != null)
-				msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StochasticsPackage.COMPARE_EXPRESSION__RIGHT, null, msgs);
+				msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StochasticsPackage.TERM_EXPRESSION__RIGHT, null, msgs);
 			msgs = basicSetRight(newRight, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StochasticsPackage.COMPARE_EXPRESSION__RIGHT, newRight, newRight));
+			eNotify(new ENotificationImpl(this, Notification.SET, StochasticsPackage.TERM_EXPRESSION__RIGHT, newRight, newRight));
 	}
 
 	/**
@@ -188,7 +186,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompareOperations getOperation() {
+	public TermOperations getOperation() {
 		return operation;
 	}
 
@@ -197,11 +195,11 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperation(CompareOperations newOperation) {
-		CompareOperations oldOperation = operation;
+	public void setOperation(TermOperations newOperation) {
+		TermOperations oldOperation = operation;
 		operation = newOperation == null ? OPERATION_EDEFAULT : newOperation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StochasticsPackage.COMPARE_EXPRESSION__OPERATION, oldOperation, operation));
+			eNotify(new ENotificationImpl(this, Notification.SET, StochasticsPackage.TERM_EXPRESSION__OPERATION, oldOperation, operation));
 	}
 
 	/**
@@ -211,9 +209,9 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StochasticsPackage.COMPARE_EXPRESSION__LEFT:
+			case StochasticsPackage.TERM_EXPRESSION__LEFT:
 				return basicSetLeft(null, msgs);
-			case StochasticsPackage.COMPARE_EXPRESSION__RIGHT:
+			case StochasticsPackage.TERM_EXPRESSION__RIGHT:
 				return basicSetRight(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -226,11 +224,11 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StochasticsPackage.COMPARE_EXPRESSION__LEFT:
+			case StochasticsPackage.TERM_EXPRESSION__LEFT:
 				return getLeft();
-			case StochasticsPackage.COMPARE_EXPRESSION__RIGHT:
+			case StochasticsPackage.TERM_EXPRESSION__RIGHT:
 				return getRight();
-			case StochasticsPackage.COMPARE_EXPRESSION__OPERATION:
+			case StochasticsPackage.TERM_EXPRESSION__OPERATION:
 				return getOperation();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -243,14 +241,14 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StochasticsPackage.COMPARE_EXPRESSION__LEFT:
-				setLeft((Term)newValue);
+			case StochasticsPackage.TERM_EXPRESSION__LEFT:
+				setLeft((Product)newValue);
 				return;
-			case StochasticsPackage.COMPARE_EXPRESSION__RIGHT:
-				setRight((Term)newValue);
+			case StochasticsPackage.TERM_EXPRESSION__RIGHT:
+				setRight((Product)newValue);
 				return;
-			case StochasticsPackage.COMPARE_EXPRESSION__OPERATION:
-				setOperation((CompareOperations)newValue);
+			case StochasticsPackage.TERM_EXPRESSION__OPERATION:
+				setOperation((TermOperations)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -263,13 +261,13 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StochasticsPackage.COMPARE_EXPRESSION__LEFT:
-				setLeft((Term)null);
+			case StochasticsPackage.TERM_EXPRESSION__LEFT:
+				setLeft((Product)null);
 				return;
-			case StochasticsPackage.COMPARE_EXPRESSION__RIGHT:
-				setRight((Term)null);
+			case StochasticsPackage.TERM_EXPRESSION__RIGHT:
+				setRight((Product)null);
 				return;
-			case StochasticsPackage.COMPARE_EXPRESSION__OPERATION:
+			case StochasticsPackage.TERM_EXPRESSION__OPERATION:
 				setOperation(OPERATION_EDEFAULT);
 				return;
 		}
@@ -283,11 +281,11 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StochasticsPackage.COMPARE_EXPRESSION__LEFT:
+			case StochasticsPackage.TERM_EXPRESSION__LEFT:
 				return left != null;
-			case StochasticsPackage.COMPARE_EXPRESSION__RIGHT:
+			case StochasticsPackage.TERM_EXPRESSION__RIGHT:
 				return right != null;
-			case StochasticsPackage.COMPARE_EXPRESSION__OPERATION:
+			case StochasticsPackage.TERM_EXPRESSION__OPERATION:
 				return operation != OPERATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -308,4 +306,4 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 		return result.toString();
 	}
 
-} //CompareExpressionImpl
+} //TermExpressionImpl

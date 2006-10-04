@@ -284,22 +284,13 @@ public interface SeffPackage extends EPackage {
 	int PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = 2;
 
 	/**
-	 * The feature id for the '<em><b>Resource Demand Parametric Resource Demand</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND = 3;
-
-	/**
 	 * The feature id for the '<em><b>Action Parametric Resource Demand</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = 4;
+	int PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = 3;
 
 	/**
 	 * The number of structural features of the '<em>Parametric Resource Demand</em>' class.
@@ -308,7 +299,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = 5;
+	int PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl <em>Start Action</em>}' class.
@@ -1342,17 +1333,6 @@ public interface SeffPackage extends EPackage {
 	EReference getParametricResourceDemand_RequiredResource_ParametricResourceDemand();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getResourceDemand_ParametricResourceDemand <em>Resource Demand Parametric Resource Demand</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Resource Demand Parametric Resource Demand</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getResourceDemand_ParametricResourceDemand()
-	 * @see #getParametricResourceDemand()
-	 * @generated
-	 */
-	EReference getParametricResourceDemand_ResourceDemand_ParametricResourceDemand();
-
-	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1831,14 +1811,6 @@ public interface SeffPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = eINSTANCE.getParametricResourceDemand_RequiredResource_ParametricResourceDemand();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Demand Parametric Resource Demand</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARAMETRIC_RESOURCE_DEMAND__RESOURCE_DEMAND_PARAMETRIC_RESOURCE_DEMAND = eINSTANCE.getParametricResourceDemand_ResourceDemand_ParametricResourceDemand();
 
 		/**
 		 * The meta object literal for the '<em><b>Action Parametric Resource Demand</b></em>' reference feature.

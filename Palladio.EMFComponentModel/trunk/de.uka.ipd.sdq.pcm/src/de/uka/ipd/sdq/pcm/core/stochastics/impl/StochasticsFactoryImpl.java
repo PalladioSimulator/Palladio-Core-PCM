@@ -66,6 +66,8 @@ public class StochasticsFactoryImpl extends EFactoryImpl implements StochasticsF
 			case StochasticsPackage.INT_LITERAL: return createIntLiteral();
 			case StochasticsPackage.DOUBLE_LITERAL: return createDoubleLiteral();
 			case StochasticsPackage.COMPARE_EXPRESSION: return createCompareExpression();
+			case StochasticsPackage.TERM_EXPRESSION: return createTermExpression();
+			case StochasticsPackage.PRODUCT_EXPRESSION: return createProductExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,6 +82,10 @@ public class StochasticsFactoryImpl extends EFactoryImpl implements StochasticsF
 		switch (eDataType.getClassifierID()) {
 			case StochasticsPackage.COMPARE_OPERATIONS:
 				return createCompareOperationsFromString(eDataType, initialValue);
+			case StochasticsPackage.TERM_OPERATIONS:
+				return createTermOperationsFromString(eDataType, initialValue);
+			case StochasticsPackage.PRODUCT_OPERATIONS:
+				return createProductOperationsFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -94,6 +100,10 @@ public class StochasticsFactoryImpl extends EFactoryImpl implements StochasticsF
 		switch (eDataType.getClassifierID()) {
 			case StochasticsPackage.COMPARE_OPERATIONS:
 				return convertCompareOperationsToString(eDataType, instanceValue);
+			case StochasticsPackage.TERM_OPERATIONS:
+				return convertTermOperationsToString(eDataType, instanceValue);
+			case StochasticsPackage.PRODUCT_OPERATIONS:
+				return convertProductOperationsToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -164,6 +174,26 @@ public class StochasticsFactoryImpl extends EFactoryImpl implements StochasticsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TermExpression createTermExpression() {
+		TermExpressionImpl termExpression = new TermExpressionImpl();
+		return termExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProductExpression createProductExpression() {
+		ProductExpressionImpl productExpression = new ProductExpressionImpl();
+		return productExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CompareOperations createCompareOperationsFromString(EDataType eDataType, String initialValue) {
 		CompareOperations result = CompareOperations.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -176,6 +206,46 @@ public class StochasticsFactoryImpl extends EFactoryImpl implements StochasticsF
 	 * @generated
 	 */
 	public String convertCompareOperationsToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TermOperations createTermOperationsFromString(EDataType eDataType, String initialValue) {
+		TermOperations result = TermOperations.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTermOperationsToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProductOperations createProductOperationsFromString(EDataType eDataType, String initialValue) {
+		ProductOperations result = ProductOperations.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertProductOperationsToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

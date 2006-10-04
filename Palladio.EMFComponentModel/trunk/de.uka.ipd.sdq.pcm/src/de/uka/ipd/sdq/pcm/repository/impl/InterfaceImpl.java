@@ -55,26 +55,16 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getSignatures__Interface <em>Signatures Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getParentInterface__Interface <em>Parent Interface Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getAnchestorInterfaces <em>Anchestor Interfaces</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getProtocols__Interface <em>Protocols Interface</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getSignatures__Interface <em>Signatures Interface</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class InterfaceImpl extends EntityImpl implements Interface {
-	/**
-	 * The cached value of the '{@link #getSignatures__Interface() <em>Signatures Interface</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSignatures__Interface()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList signatures__Interface = null;
-
 	/**
 	 * The cached value of the '{@link #getParentInterface__Interface() <em>Parent Interface Interface</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -104,6 +94,17 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @ordered
 	 */
 	protected EList protocols__Interface = null;
+
+
+	/**
+	 * The cached value of the '{@link #getSignatures__Interface() <em>Signatures Interface</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSignatures__Interface()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList signatures__Interface = null;
 
 
 	/**
@@ -149,18 +150,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getSignatures__Interface() {
-		if (signatures__Interface == null) {
-			signatures__Interface = new EObjectContainmentEList(Signature.class, this, RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE);
-		}
-		return signatures__Interface;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList getParentInterface__Interface() {
 		if (parentInterface__Interface == null) {
 			parentInterface__Interface = new EObjectResolvingEList(Interface.class, this, RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE);
@@ -190,6 +179,18 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			protocols__Interface = new EObjectContainmentEList(Protocol.class, this, RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE);
 		}
 		return protocols__Interface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList getSignatures__Interface() {
+		if (signatures__Interface == null) {
+			signatures__Interface = new EObjectContainmentEList(Signature.class, this, RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE);
+		}
+		return signatures__Interface;
 	}
 
 
@@ -279,10 +280,10 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
-				return ((InternalEList)getSignatures__Interface()).basicRemove(otherEnd, msgs);
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				return ((InternalEList)getProtocols__Interface()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
+				return ((InternalEList)getSignatures__Interface()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -294,14 +295,14 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
-				return getSignatures__Interface();
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				return getParentInterface__Interface();
 			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES:
 				return getAnchestorInterfaces();
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				return getProtocols__Interface();
+			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
+				return getSignatures__Interface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -313,10 +314,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
-				getSignatures__Interface().clear();
-				getSignatures__Interface().addAll((Collection)newValue);
-				return;
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				getParentInterface__Interface().clear();
 				getParentInterface__Interface().addAll((Collection)newValue);
@@ -329,6 +326,10 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				getProtocols__Interface().clear();
 				getProtocols__Interface().addAll((Collection)newValue);
 				return;
+			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
+				getSignatures__Interface().clear();
+				getSignatures__Interface().addAll((Collection)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -340,9 +341,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
-				getSignatures__Interface().clear();
-				return;
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				getParentInterface__Interface().clear();
 				return;
@@ -351,6 +349,9 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				return;
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				getProtocols__Interface().clear();
+				return;
+			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
+				getSignatures__Interface().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -363,14 +364,14 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
-				return signatures__Interface != null && !signatures__Interface.isEmpty();
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				return parentInterface__Interface != null && !parentInterface__Interface.isEmpty();
 			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES:
 				return anchestorInterfaces != null && !anchestorInterfaces.isEmpty();
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				return protocols__Interface != null && !protocols__Interface.isEmpty();
+			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
+				return signatures__Interface != null && !signatures__Interface.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

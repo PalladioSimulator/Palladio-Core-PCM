@@ -35,11 +35,15 @@ import de.uka.ipd.sdq.pcm.core.stochastics.NumericLiteral;
 import de.uka.ipd.sdq.pcm.core.stochastics.Parantesis;
 import de.uka.ipd.sdq.pcm.core.stochastics.Power;
 import de.uka.ipd.sdq.pcm.core.stochastics.Product;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations;
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.Term;
+import de.uka.ipd.sdq.pcm.core.stochastics.TermExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.TermOperations;
 import de.uka.ipd.sdq.pcm.core.stochastics.Variable;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
@@ -186,7 +190,35 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass termExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass productExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum compareOperationsEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum termOperationsEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum productOperationsEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -500,8 +532,89 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTermExpression() {
+		return termExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTermExpression_Left() {
+		return (EReference)termExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTermExpression_Right() {
+		return (EReference)termExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTermExpression_Operation() {
+		return (EAttribute)termExpressionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProductExpression() {
+		return productExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProductExpression_Left() {
+		return (EReference)productExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProductExpression_Right() {
+		return (EReference)productExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getCompareOperations() {
 		return compareOperationsEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTermOperations() {
+		return termOperationsEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProductOperations() {
+		return productOperationsEEnum;
 	}
 
 	/**
@@ -567,8 +680,19 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		createEReference(compareExpressionEClass, COMPARE_EXPRESSION__RIGHT);
 		createEAttribute(compareExpressionEClass, COMPARE_EXPRESSION__OPERATION);
 
+		termExpressionEClass = createEClass(TERM_EXPRESSION);
+		createEReference(termExpressionEClass, TERM_EXPRESSION__LEFT);
+		createEReference(termExpressionEClass, TERM_EXPRESSION__RIGHT);
+		createEAttribute(termExpressionEClass, TERM_EXPRESSION__OPERATION);
+
+		productExpressionEClass = createEClass(PRODUCT_EXPRESSION);
+		createEReference(productExpressionEClass, PRODUCT_EXPRESSION__LEFT);
+		createEReference(productExpressionEClass, PRODUCT_EXPRESSION__RIGHT);
+
 		// Create enums
 		compareOperationsEEnum = createEEnum(COMPARE_OPERATIONS);
+		termOperationsEEnum = createEEnum(TERM_OPERATIONS);
+		productOperationsEEnum = createEEnum(PRODUCT_OPERATIONS);
 	}
 
 	/**
@@ -606,6 +730,8 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		intLiteralEClass.getESuperTypes().add(this.getNumericLiteral());
 		doubleLiteralEClass.getESuperTypes().add(this.getNumericLiteral());
 		compareExpressionEClass.getESuperTypes().add(this.getComparison());
+		termExpressionEClass.getESuperTypes().add(this.getTerm());
+		productExpressionEClass.getESuperTypes().add(this.getProduct());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(randomVariableEClass, RandomVariable.class, "RandomVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -639,9 +765,18 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		initEAttribute(getDoubleLiteral_Value(), ecorePackage.getEDouble(), "value", null, 1, 1, DoubleLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(compareExpressionEClass, CompareExpression.class, "CompareExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompareExpression_Left(), this.getComparison(), null, "left", null, 1, 1, CompareExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCompareExpression_Right(), this.getComparison(), null, "right", null, 1, 1, CompareExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCompareExpression_Left(), this.getTerm(), null, "left", null, 1, 1, CompareExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCompareExpression_Right(), this.getTerm(), null, "right", null, 1, 1, CompareExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCompareExpression_Operation(), this.getCompareOperations(), "operation", null, 1, 1, CompareExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(termExpressionEClass, TermExpression.class, "TermExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTermExpression_Left(), this.getProduct(), null, "left", null, 1, 1, TermExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getTermExpression_Right(), this.getProduct(), null, "right", null, 1, 1, TermExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getTermExpression_Operation(), this.getTermOperations(), "operation", null, 1, 1, TermExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(productExpressionEClass, ProductExpression.class, "ProductExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProductExpression_Left(), this.getPower(), null, "left", null, 1, 1, ProductExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProductExpression_Right(), this.getPower(), null, "right", null, 1, 1, ProductExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(compareOperationsEEnum, CompareOperations.class, "CompareOperations");
@@ -651,6 +786,15 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		addEEnumLiteral(compareOperationsEEnum, CompareOperations.NOTEQUAL_LITERAL);
 		addEEnumLiteral(compareOperationsEEnum, CompareOperations.LESSEQUAL_LITERAL);
 		addEEnumLiteral(compareOperationsEEnum, CompareOperations.GREATEREQUAL_LITERAL);
+
+		initEEnum(termOperationsEEnum, TermOperations.class, "TermOperations");
+		addEEnumLiteral(termOperationsEEnum, TermOperations.ADD_LITERAL);
+		addEEnumLiteral(termOperationsEEnum, TermOperations.SUB_LITERAL);
+
+		initEEnum(productOperationsEEnum, ProductOperations.class, "ProductOperations");
+		addEEnumLiteral(productOperationsEEnum, ProductOperations.MULT_LITERAL);
+		addEEnumLiteral(productOperationsEEnum, ProductOperations.DIV_LITERAL);
+		addEEnumLiteral(productOperationsEEnum, ProductOperations.MOD_LITERAL);
 
 		// Create resource
 		createResource(eNS_URI);

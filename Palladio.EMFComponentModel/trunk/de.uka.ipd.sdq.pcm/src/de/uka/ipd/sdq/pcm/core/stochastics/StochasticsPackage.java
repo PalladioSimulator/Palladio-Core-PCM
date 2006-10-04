@@ -392,6 +392,89 @@ public interface StochasticsPackage extends EPackage {
 	int COMPARE_EXPRESSION_FEATURE_COUNT = COMPARISON_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.TermExpressionImpl <em>Term Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.TermExpressionImpl
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getTermExpression()
+	 * @generated
+	 */
+	int TERM_EXPRESSION = 13;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TERM_EXPRESSION__LEFT = TERM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TERM_EXPRESSION__RIGHT = TERM_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TERM_EXPRESSION__OPERATION = TERM_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Term Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TERM_EXPRESSION_FEATURE_COUNT = TERM_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.ProductExpressionImpl <em>Product Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.ProductExpressionImpl
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getProductExpression()
+	 * @generated
+	 */
+	int PRODUCT_EXPRESSION = 14;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT_EXPRESSION__LEFT = PRODUCT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT_EXPRESSION__RIGHT = PRODUCT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Product Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT_EXPRESSION_FEATURE_COUNT = PRODUCT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations <em>Compare Operations</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -399,7 +482,28 @@ public interface StochasticsPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getCompareOperations()
 	 * @generated
 	 */
-	int COMPARE_OPERATIONS = 13;
+	int COMPARE_OPERATIONS = 15;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.TermOperations <em>Term Operations</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.TermOperations
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getTermOperations()
+	 * @generated
+	 */
+	int TERM_OPERATIONS = 16;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations <em>Product Operations</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getProductOperations()
+	 * @generated
+	 */
+	int PRODUCT_OPERATIONS = 17;
 
 
 	/**
@@ -632,6 +736,81 @@ public interface StochasticsPackage extends EPackage {
 	EAttribute getCompareExpression_Operation();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.stochastics.TermExpression <em>Term Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Term Expression</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.TermExpression
+	 * @generated
+	 */
+	EClass getTermExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.core.stochastics.TermExpression#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.TermExpression#getLeft()
+	 * @see #getTermExpression()
+	 * @generated
+	 */
+	EReference getTermExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.core.stochastics.TermExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.TermExpression#getRight()
+	 * @see #getTermExpression()
+	 * @generated
+	 */
+	EReference getTermExpression_Right();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.core.stochastics.TermExpression#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.TermExpression#getOperation()
+	 * @see #getTermExpression()
+	 * @generated
+	 */
+	EAttribute getTermExpression_Operation();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression <em>Product Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Product Expression</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression
+	 * @generated
+	 */
+	EClass getProductExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression#getLeft()
+	 * @see #getProductExpression()
+	 * @generated
+	 */
+	EReference getProductExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression#getRight()
+	 * @see #getProductExpression()
+	 * @generated
+	 */
+	EReference getProductExpression_Right();
+
+	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations <em>Compare Operations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -640,6 +819,26 @@ public interface StochasticsPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getCompareOperations();
+
+	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.core.stochastics.TermOperations <em>Term Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Term Operations</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.TermOperations
+	 * @generated
+	 */
+	EEnum getTermOperations();
+
+	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations <em>Product Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Product Operations</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations
+	 * @generated
+	 */
+	EEnum getProductOperations();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -866,6 +1065,66 @@ public interface StochasticsPackage extends EPackage {
 		EAttribute COMPARE_EXPRESSION__OPERATION = eINSTANCE.getCompareExpression_Operation();
 
 		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.TermExpressionImpl <em>Term Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.TermExpressionImpl
+		 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getTermExpression()
+		 * @generated
+		 */
+		EClass TERM_EXPRESSION = eINSTANCE.getTermExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TERM_EXPRESSION__LEFT = eINSTANCE.getTermExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TERM_EXPRESSION__RIGHT = eINSTANCE.getTermExpression_Right();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TERM_EXPRESSION__OPERATION = eINSTANCE.getTermExpression_Operation();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.ProductExpressionImpl <em>Product Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.ProductExpressionImpl
+		 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getProductExpression()
+		 * @generated
+		 */
+		EClass PRODUCT_EXPRESSION = eINSTANCE.getProductExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRODUCT_EXPRESSION__LEFT = eINSTANCE.getProductExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRODUCT_EXPRESSION__RIGHT = eINSTANCE.getProductExpression_Right();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations <em>Compare Operations</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -874,6 +1133,26 @@ public interface StochasticsPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum COMPARE_OPERATIONS = eINSTANCE.getCompareOperations();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.TermOperations <em>Term Operations</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.core.stochastics.TermOperations
+		 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getTermOperations()
+		 * @generated
+		 */
+		EEnum TERM_OPERATIONS = eINSTANCE.getTermOperations();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations <em>Product Operations</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations
+		 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getProductOperations()
+		 * @generated
+		 */
+		EEnum PRODUCT_OPERATIONS = eINSTANCE.getProductOperations();
 
 	}
 
