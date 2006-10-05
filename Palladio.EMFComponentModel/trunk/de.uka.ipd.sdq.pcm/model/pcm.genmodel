@@ -105,6 +105,7 @@
         <genClasses ecoreClass="pcm.ecore#//core/stochastics/ProductExpression">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/stochastics/ProductExpression/left"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/stochastics/ProductExpression/right"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//core/stochastics/ProductExpression/operation"/>
         </genClasses>
       </nestedGenPackages>
       <nestedGenPackages prefix="Entity" basePackage="de.uka.ipd.sdq.pcm.core" disposableProviderFactory="true"

@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.pcm.core.stochastics.impl;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.Product;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+import de.uka.ipd.sdq.pcm.core.stochastics.Term;
 import de.uka.ipd.sdq.pcm.core.stochastics.TermExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.TermOperations;
 
@@ -44,7 +45,7 @@ public class TermExpressionImpl extends TermImpl implements TermExpression {
 	 * @generated
 	 * @ordered
 	 */
-	protected Product left = null;
+	protected Term left = null;
 
 	/**
 	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -100,7 +101,7 @@ public class TermExpressionImpl extends TermImpl implements TermExpression {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Product getLeft() {
+	public Term getLeft() {
 		return left;
 	}
 
@@ -109,8 +110,8 @@ public class TermExpressionImpl extends TermImpl implements TermExpression {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLeft(Product newLeft, NotificationChain msgs) {
-		Product oldLeft = left;
+	public NotificationChain basicSetLeft(Term newLeft, NotificationChain msgs) {
+		Term oldLeft = left;
 		left = newLeft;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StochasticsPackage.TERM_EXPRESSION__LEFT, oldLeft, newLeft);
@@ -124,7 +125,7 @@ public class TermExpressionImpl extends TermImpl implements TermExpression {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLeft(Product newLeft) {
+	public void setLeft(Term newLeft) {
 		if (newLeft != left) {
 			NotificationChain msgs = null;
 			if (left != null)
@@ -242,7 +243,7 @@ public class TermExpressionImpl extends TermImpl implements TermExpression {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StochasticsPackage.TERM_EXPRESSION__LEFT:
-				setLeft((Product)newValue);
+				setLeft((Term)newValue);
 				return;
 			case StochasticsPackage.TERM_EXPRESSION__RIGHT:
 				setRight((Product)newValue);
@@ -262,7 +263,7 @@ public class TermExpressionImpl extends TermImpl implements TermExpression {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case StochasticsPackage.TERM_EXPRESSION__LEFT:
-				setLeft((Product)null);
+				setLeft((Term)null);
 				return;
 			case StochasticsPackage.TERM_EXPRESSION__RIGHT:
 				setRight((Product)null);

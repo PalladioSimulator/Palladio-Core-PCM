@@ -9,6 +9,8 @@ package de.uka.ipd.sdq.pcm.seff.provider;
 
 import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
 
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.RandomVariableItemProvider;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
@@ -44,7 +46,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ParametricResourceDemandItemProvider
-	extends ItemProviderAdapter
+	extends RandomVariableItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -184,7 +186,7 @@ public class ParametricResourceDemandItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((ParametricResourceDemand)object).getDemand();
+		String label = ((ParametricResourceDemand)object).getSpecification();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ParametricResourceDemand_type") :
 			getString("_UI_ParametricResourceDemand_type") + " " + label;

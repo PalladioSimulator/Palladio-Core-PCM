@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ParametricResourceDemand extends EObject {
+public interface ParametricResourceDemand extends RandomVariable {
 	/**
 	 * Returns the value of the '<em><b>Demand</b></em>' attribute.
 	 * <!-- begin-user-doc -->

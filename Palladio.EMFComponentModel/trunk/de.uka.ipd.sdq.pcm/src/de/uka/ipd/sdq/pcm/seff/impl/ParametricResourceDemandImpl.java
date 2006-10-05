@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.pcm.core.stochastics.impl.RandomVariableImpl;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
@@ -40,7 +42,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ParametricResourceDemandImpl extends EObjectImpl implements ParametricResourceDemand {
+public class ParametricResourceDemandImpl extends RandomVariableImpl implements ParametricResourceDemand {
 	/**
 	 * The default value of the '{@link #getDemand() <em>Demand</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -16,7 +16,7 @@ import antlr.MismatchedTokenException;
 import antlr.SemanticException;
 import antlr.ParserSharedInputState;
 import antlr.collections.impl.BitSet;
-
+@SuppressWarnings({"unused"})
 public class StochasticExpressionsParser extends antlr.LLkParser       implements StochasticExpressionsParserTokenTypes
  {
 
@@ -139,23 +139,26 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		
 		t = null;
 		
-		Product p1 = null;
+		Product p1 = null, p2 = null;
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop8:
+		_loop1418:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
+				TermExpression termExp = StochasticsFactory.eINSTANCE.createTermExpression();
 				{
 				switch ( LA(1)) {
 				case PLUS:
 				{
 					match(PLUS);
+					termExp.setOperation(TermOperations.ADD_LITERAL);
 					break;
 				}
 				case MINUS:
 				{
 					match(MINUS);
+					termExp.setOperation(TermOperations.SUB_LITERAL);
 					break;
 				}
 				default:
@@ -164,10 +167,11 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				}
 				}
 				}
-				prodExpr();
+				p2=prodExpr();
+				termExp.setLeft(t); termExp.setRight(p2); t = termExp;
 			}
 			else {
-				break _loop8;
+				break _loop1418;
 			}
 			
 		} while (true);
@@ -184,54 +188,44 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		pw1=powExpr();
 		p = pw1;
 		{
-		switch ( LA(1)) {
-		case MUL:
-		case DIV:
-		case MOD:
-		{
-			{
-			switch ( LA(1)) {
-			case MUL:
-			{
-				match(MUL);
-				break;
+		_loop1422:
+		do {
+			if (((LA(1) >= MUL && LA(1) <= MOD))) {
+				ProductExpression prodExp = StochasticsFactory.eINSTANCE.createProductExpression();
+				{
+				switch ( LA(1)) {
+				case MUL:
+				{
+					match(MUL);
+					prodExp.setOperation(ProductOperations.MULT_LITERAL);
+					break;
+				}
+				case DIV:
+				{
+					match(DIV);
+					prodExp.setOperation(ProductOperations.DIV_LITERAL);
+					break;
+				}
+				case MOD:
+				{
+					match(MOD);
+					prodExp.setOperation(ProductOperations.MOD_LITERAL);
+					break;
+				}
+				default:
+				{
+					throw new NoViableAltException(LT(1), getFilename());
+				}
+				}
+				}
+				pw2=powExpr();
+				prodExp.setLeft(p); prodExp.setRight(pw2); p = prodExp;
 			}
-			case DIV:
-			{
-				match(DIV);
-				break;
+			else {
+				break _loop1422;
 			}
-			case MOD:
-			{
-				match(MOD);
-				break;
-			}
-			default:
-			{
-				throw new NoViableAltException(LT(1), getFilename());
-			}
-			}
-			}
-			pw2=powExpr();
-			break;
-		}
-		case EOF:
-		case EQUAL:
-		case GREATER:
-		case LESS:
-		case NOTEQUAL:
-		case GREATEREQUAL:
-		case LESSEQUAL:
-		case PLUS:
-		case MINUS:
-		{
-			break;
-		}
-		default:
-		{
-			throw new NoViableAltException(LT(1), getFilename());
-		}
-		}
+			
+		} while (true);
 		}
 		return p;
 	}
@@ -241,15 +235,15 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		
 		pw = null;
 		
-		Atom a = null;
-		a=atom();
-		pw = a;
+		Atom a1 = null, a2 = null;
+		a1=atom();
+		pw = a1;
 		{
 		switch ( LA(1)) {
 		case POW:
 		{
 			match(POW);
-			atom();
+			a2=atom();
 			break;
 		}
 		case EOF:
@@ -280,25 +274,47 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		Atom a;
 		
 		Token  number = null;
+		Token  id = null;
 		a = null;
 		
-		number = LT(1);
-		match(NUMBER);
-		
-						String value = number.getText();
-						if (value.indexOf('.') < 0)
-						{
-							IntLiteral il = StochasticsFactory.eINSTANCE.createIntLiteral();
-							il.setValue(Integer.parseInt(value));
-							a = il;
-						}
-						else
-						{
-							DoubleLiteral dl = StochasticsFactory.eINSTANCE.createDoubleLiteral();
-							dl.setValue(Double.parseDouble(value));
-							a = dl;
-						}
+		{
+		switch ( LA(1)) {
+		case NUMBER:
+		{
+			number = LT(1);
+			match(NUMBER);
+			
+							String value = number.getText();
+							if (value.indexOf('.') < 0)
+							{
+								IntLiteral il = StochasticsFactory.eINSTANCE.createIntLiteral();
+								il.setValue(Integer.parseInt(value));
+								a = il;
+							}
+							else
+							{
+								DoubleLiteral dl = StochasticsFactory.eINSTANCE.createDoubleLiteral();
+								dl.setValue(Double.parseDouble(value));
+								a = dl;
+							}
+						
+			break;
+		}
+		case ID:
+		{
+			id = LT(1);
+			match(ID);
+			a = StochasticsFactory.eINSTANCE.createVariable();
+					  	((Variable)a).setId(id.getText());
 					
+			break;
+		}
+		default:
+		{
+			throw new NoViableAltException(LT(1), getFilename());
+		}
+		}
+		}
 		return a;
 	}
 	
@@ -329,17 +345,17 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			}
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt18=0;
-			_loop18:
+			int _cnt1430=0;
+			_loop1430:
 			do {
 				if ((LA(1)==LPAREN)) {
 					numericsample();
 				}
 				else {
-					if ( _cnt18>=1 ) { break _loop18; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt1430>=1 ) { break _loop1430; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt18++;
+				_cnt1430++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -352,17 +368,17 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			}
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt21=0;
-			_loop21:
+			int _cnt1433=0;
+			_loop1433:
 			do {
 				if ((LA(1)==LPAREN)) {
 					stringsample();
 				}
 				else {
-					if ( _cnt21>=1 ) { break _loop21; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt1433>=1 ) { break _loop1433; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt21++;
+				_cnt1433++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -438,6 +454,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		"MOD",
 		"POW",
 		"NUMBER",
+		"ID",
 		"INT_DEF",
 		"REAL_DEF",
 		"SQUARE_PAREN_L",
@@ -450,7 +467,6 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		"INNER",
 		"DIGIT",
 		"ALPHA",
-		"PARAM",
 		"MEAN",
 		"PROB",
 		"FUNCTION_DEF",

@@ -90,7 +90,7 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="TermExpression" eSuperTypes="#//core/stochastics/Term">
         <eStructuralFeatures xsi:type="ecore:EReference" name="left" ordered="false"
-            lowerBound="1" eType="#//core/stochastics/Product" containment="true"/>
+            lowerBound="1" eType="#//core/stochastics/Term" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="right" ordered="false"
             lowerBound="1" eType="#//core/stochastics/Product" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" ordered="false"
@@ -102,9 +102,11 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ProductExpression" eSuperTypes="#//core/stochastics/Product">
         <eStructuralFeatures xsi:type="ecore:EReference" name="left" ordered="false"
-            lowerBound="1" eType="#//core/stochastics/Power" containment="true"/>
+            lowerBound="1" eType="#//core/stochastics/Product" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="right" ordered="false"
             lowerBound="1" eType="#//core/stochastics/Power" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" ordered="false"
+            lowerBound="1" eType="#//core/stochastics/ProductOperations"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EEnum" name="ProductOperations">
         <eLiterals name="MULT"/>
@@ -468,7 +470,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="successor_AbstractAction"
           ordered="false" eType="#//seff/AbstractAction" eOpposite="#//seff/AbstractAction/predecessor_AbstractAction"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
+    <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand" eSuperTypes="#//core/stochastics/RandomVariable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="demand" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" ordered="false"

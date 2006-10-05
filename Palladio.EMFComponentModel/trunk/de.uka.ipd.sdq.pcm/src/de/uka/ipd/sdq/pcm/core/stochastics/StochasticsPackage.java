@@ -466,13 +466,22 @@ public interface StochasticsPackage extends EPackage {
 	int PRODUCT_EXPRESSION__RIGHT = PRODUCT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Operation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT_EXPRESSION__OPERATION = PRODUCT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Product Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRODUCT_EXPRESSION_FEATURE_COUNT = PRODUCT_FEATURE_COUNT + 2;
+	int PRODUCT_EXPRESSION_FEATURE_COUNT = PRODUCT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations <em>Compare Operations</em>}' enum.
@@ -811,6 +820,17 @@ public interface StochasticsPackage extends EPackage {
 	EReference getProductExpression_Right();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression#getOperation()
+	 * @see #getProductExpression()
+	 * @generated
+	 */
+	EAttribute getProductExpression_Operation();
+
+	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations <em>Compare Operations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1123,6 +1143,14 @@ public interface StochasticsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PRODUCT_EXPRESSION__RIGHT = eINSTANCE.getProductExpression_Right();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRODUCT_EXPRESSION__OPERATION = eINSTANCE.getProductExpression_Operation();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations <em>Compare Operations</em>}' enum.

@@ -202,6 +202,11 @@ public class TermExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StochasticsPackage.Literals.TERM_EXPRESSION__LEFT,
+				 StochasticsFactory.eINSTANCE.createTermExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StochasticsPackage.Literals.TERM_EXPRESSION__LEFT,
 				 StochasticsFactory.eINSTANCE.createProductExpression()));
 
 		newChildDescriptors.add

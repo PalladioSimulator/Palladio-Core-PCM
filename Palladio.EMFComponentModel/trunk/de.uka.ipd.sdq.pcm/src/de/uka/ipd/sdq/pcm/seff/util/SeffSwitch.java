@@ -123,6 +123,7 @@ public class SeffSwitch {
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND: {
 				ParametricResourceDemand parametricResourceDemand = (ParametricResourceDemand)theEObject;
 				Object result = caseParametricResourceDemand(parametricResourceDemand);
+				if (result == null) result = caseRandomVariable(parametricResourceDemand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

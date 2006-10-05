@@ -36,12 +36,12 @@ public interface TermExpression extends Term {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Left</em>' containment reference.
-	 * @see #setLeft(Product)
+	 * @see #setLeft(Term)
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage#getTermExpression_Left()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	Product getLeft();
+	Term getLeft();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.stochastics.TermExpression#getLeft <em>Left</em>}' containment reference.
@@ -51,7 +51,7 @@ public interface TermExpression extends Term {
 	 * @see #getLeft()
 	 * @generated
 	 */
-	void setLeft(Product value);
+	void setLeft(Term value);
 
 	/**
 	 * Returns the value of the '<em><b>Right</b></em>' containment reference.
