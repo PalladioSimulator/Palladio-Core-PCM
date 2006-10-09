@@ -225,7 +225,7 @@ public class SeffSwitchDS extends SeffSwitch {
 		while (paramListIter.hasNext()) {
 			ParameterUsage pu = (ParameterUsage) paramListIter.next();
 			// uc.getActualParameterUsage_UsageContext().add(pu);
-			actualParList.add(pu);
+			//actualParList.add(pu);
 		}
 		callContext.setUsageContext(uc);
 
