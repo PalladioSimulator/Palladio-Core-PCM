@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.core.stochastics="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Stochastics/1.0" xmlns:pcm.usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
+  <usageScenario_UsageModel id="_wf7cEDQeEduaPaOP6VcQiw" entityName="UScenario">
+    <workload_UsageScenario xsi:type="pcm.usagemodel:ClosedWorkload" population="1" thinkTime="1.0"/>
+    <scenarioBehaviour_UsageScenario>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" successor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1"/>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:EntryLevelSystemCall" successor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2" predecessor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.0">
+        <actualParameterUsage_EntryLevelSystemCall>
+          <parameter_ParameterUsage href="DSolverExample1.repository#//@interfaces__Repository.0/@signatures__Interface.0/@parameters__Signature.0"/>
+          <parameterCharacterisation_ParameterUsage specification="=IntRandomVar[(0.4;1)(0.6;10)]">
+            <specification_RandomVariable xsi:type="pcm.core.stochastics:Variable"/>
+          </parameterCharacterisation_ParameterUsage>
+        </actualParameterUsage_EntryLevelSystemCall>
+        <systemProvidedRole_EntryLevelSystemCall href="DSolverExample1.system#_P1rCADRCEduaPaOP6VcQiw"/>
+        <signature_EntryLevelSystemCall href="DSolverExample1.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" predecessor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1"/>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+</pcm.usagemodel:UsageModel>
