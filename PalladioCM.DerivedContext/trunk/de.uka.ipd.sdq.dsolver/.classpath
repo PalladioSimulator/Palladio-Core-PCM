@@ -12,5 +12,8 @@
 	<classpathentry kind="lib" path="C:/Programme/eclipse-callisto-3.2.1/plugins/lpgjavaruntime.jar"/>
 	<classpathentry kind="lib" path="C:/Programme/logging-log4j-1.2.14/dist/lib/log4j-1.2.14.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.context"/>
+	<classpathentry kind="lib" path="C:/Programme/eclipse-callisto-3.2.1/plugins/org.antlr.eclipse.core_4.1.0/antlrcore.jar"/>
+	<classpathentry kind="lib" path="C:/Programme/eclipse-callisto-3.2.1/plugins/org.antlr_2.7.6/antlr.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.pcm.stochasticexpressions"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

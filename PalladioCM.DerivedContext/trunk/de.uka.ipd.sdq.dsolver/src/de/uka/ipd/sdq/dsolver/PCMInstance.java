@@ -141,6 +141,22 @@ public class PCMInstance {
 	}
 
 	
+	public ActualAllocation getActualAllocation() {
+		return actualAllocation;
+	}
+
+	public void setActualAllocation(ActualAllocation actualAllocation) {
+		this.actualAllocation = actualAllocation;
+	}
+
+	public Usage getUsage() {
+		return usage;
+	}
+
+	public void setUsage(Usage usage) {
+		this.usage = usage;
+	}
+
 	public void loadFromFiles(Properties config) {
 		String filename = config.getProperty("Filename_Allocation");
 		this.allocation = ((Allocation) loadFromXMIFile(filename));
@@ -268,22 +284,6 @@ public class PCMInstance {
 		resourceSet.getPackageRegistry().put(UsagemodelPackage.eNS_URI,
 				UsagemodelPackage.eINSTANCE);
 
-	}
-
-	public ActualAllocation getActualAllocation() {
-		return actualAllocation;
-	}
-
-	public void setActualAllocation(ActualAllocation actualAllocation) {
-		this.actualAllocation = actualAllocation;
-	}
-
-	public Usage getUsage() {
-		return usage;
-	}
-
-	public void setUsage(Usage usage) {
-		this.usage = usage;
 	}
 
 }

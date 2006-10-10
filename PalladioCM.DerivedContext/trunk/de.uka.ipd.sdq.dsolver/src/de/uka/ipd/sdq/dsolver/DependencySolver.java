@@ -7,13 +7,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
-import de.uka.ipd.sdq.dsolver.visitors.UsagemodelSwitchDS;
+import de.uka.ipd.sdq.dsolver.visitors.UsagemodelSwitchDSolver;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 
 
@@ -35,14 +36,19 @@ public class DependencySolver {
 		logger.debug("Loading PCM Instance");
 		currentModel = new PCMInstance(config);
 		
+		long startTime = System.nanoTime();
 		visitScenarioEMFSwitch();
+		long endTime = System.nanoTime();
+
+		long duration = TimeUnit.NANOSECONDS.toMillis(endTime-startTime);
+		logger.debug("Finished Traversal, Duration: "+ duration + " ms");
 		
 		logger.debug("Saving PCM Instance");
 		currentModel.saveToFiles("SolvedDSolverExample1");
 	}
 
 	private void visitScenarioEMFSwitch(){
-		UsagemodelSwitchDS visitor = new UsagemodelSwitchDS(currentModel);
+		UsagemodelSwitchDSolver visitor = new UsagemodelSwitchDSolver(currentModel);
 		try {
 			UsageScenario us = (UsageScenario) currentModel.getUsageModel()
 					.getUsageScenario_UsageModel().get(0);

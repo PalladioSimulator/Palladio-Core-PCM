@@ -1,9 +1,10 @@
 package de.uka.ipd.sdq.dsolver;
 
+import java.util.ArrayList;
+
 import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.pcm.assembly.AssemblyContext;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 
 public class Context {
 	private de.uka.ipd.sdq.pcm.system.System mySystem;
@@ -11,6 +12,14 @@ public class Context {
 	
 	private UsageContext usageContext;
 	private ActualAllocationContext actualAllocationContext;
+	
+	private ArrayList currentLoopIterationNumber;
+	private ArrayList currentEvaluatedBranchConditions;
+		
+	public Context(){
+		this.currentEvaluatedBranchConditions = new ArrayList();
+		this.currentLoopIterationNumber = new ArrayList();
+	}
 	
 	/**
 	 * @return the myAssemblyContext
@@ -49,7 +58,18 @@ public class Context {
 	public void setUsageContext(UsageContext usageContext) {
 		this.usageContext = usageContext;
 	}
-
-	
+	public ArrayList getCurrentEvaluatedBranchConditions() {
+		return currentEvaluatedBranchConditions;
+	}
+	public void setCurrentEvaluatedBranchConditions(
+			ArrayList currentEvaluatedBranchConditions) {
+		this.currentEvaluatedBranchConditions = currentEvaluatedBranchConditions;
+	}
+	public ArrayList getCurrentLoopIterationNumber() {
+		return currentLoopIterationNumber;
+	}
+	public void setCurrentLoopIterationNumber(ArrayList currentLoopIterationNumber) {
+		this.currentLoopIterationNumber = currentLoopIterationNumber;
+	}
 	
 }
