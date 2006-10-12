@@ -32,13 +32,12 @@ import flanagan.complex.Complex;
  * @author Ihssane
  * 
  */
-public class ProbabilityFunctionFactoryImpl implements
-		IProbabilityFunctionFactory {
+public class ProbabilityFunctionFactoryImpl
+		implements
+			IProbabilityFunctionFactory {
 
 	public static final String DEFAULT_UNIT_NAME = "ms";
-
 	private probfunctionFactory eFactory = probfunctionFactory.eINSTANCE;
-
 	private static final IProbabilityFunctionFactory factoryInstance = new ProbabilityFunctionFactoryImpl();
 
 	private ProbabilityFunctionFactoryImpl() {
@@ -46,18 +45,35 @@ public class ProbabilityFunctionFactoryImpl implements
 	}
 
 	public IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction epdf) {
-		// TODO Auto-generated method stub
-		return null;
+		IBoxedPDF bpdf = createBoxedPDF();
+		if (epdf instanceof BoxedPDF) {
+			for (Object s : ((BoxedPDF) epdf).getSamples())
+				bpdf.getSamples().add(
+						transformToContinuousSample((ContinuousSample) s));
+		} else if (epdf instanceof SamplePDF) {
+			int i = 1;
+			for (Object v : ((SamplePDF) epdf).getValues()) {
+				bpdf.getSamples()
+						.add(createContinuousSample(i* ((SamplePDF) epdf).getDistance(),
+										(Double) v));
+				i++;
+			}
+		}
+		return bpdf;
 	}
 
-	public ISamplePDF transformToSamplePDF(ProbabilityDensityFunction ePDF) {
-		// TODO Auto-generated method stub
-		return null;
+	public ISamplePDF transformToSamplePDF(ProbabilityDensityFunction epdf)
+			throws UnknownPDFTypeException {
+		IBoxedPDF bpdf = transformToBoxedPDF(epdf);
+		return transformToSamplePDF(bpdf);
 	}
 
 	public IProbabilityMassFunction transformToPMF(ProbabilityMassFunction epmf) {
-		// TODO Auto-generated method stub
-		return null;
+		IProbabilityMassFunction pmf = createProbabilityMassFunction();
+		for (Object s : epmf.getSamples())
+			pmf.getSamples().add(
+					transformToSample((Sample) s));
+		return pmf;
 	}
 
 	public IBoxedPDF createBoxedPDF() {
@@ -137,6 +153,7 @@ public class ProbabilityFunctionFactoryImpl implements
 		return resultPDF;
 	}
 
+	@SuppressWarnings("unchecked")
 	public BoxedPDF transformToModelBoxedPDF(IProbabilityDensityFunction pdf)
 			throws UnknownPDFTypeException {
 		IBoxedPDF boxedPDF = transformToBoxedPDF(pdf);
@@ -163,10 +180,10 @@ public class ProbabilityFunctionFactoryImpl implements
 		return ePDF;
 	}
 
+	@SuppressWarnings("unchecked")
 	public ProbabilityMassFunction transformToModelPMF(
 			IProbabilityMassFunction pmf) {
-		ProbabilityMassFunction epmf = eFactory
-				.createProbabilityMassFunction();
+		ProbabilityMassFunction epmf = eFactory.createProbabilityMassFunction();
 		EList list = epmf.getSamples();
 
 		for (ISample s : pmf.getSamples())
@@ -174,6 +191,7 @@ public class ProbabilityFunctionFactoryImpl implements
 		return epmf;
 	}
 
+	@SuppressWarnings("unchecked")
 	public SamplePDF transformToModelSamplePDF(IProbabilityDensityFunction pdf)
 			throws UnknownPDFTypeException {
 		ISamplePDF samplePDF = transformToSamplePDF(pdf);
@@ -283,6 +301,7 @@ public class ProbabilityFunctionFactoryImpl implements
 					.getDistance()
 					* i, d);
 			samples.add(sample);
+			i++;
 		}
 		return createBoxedPDF(samples);
 	}
