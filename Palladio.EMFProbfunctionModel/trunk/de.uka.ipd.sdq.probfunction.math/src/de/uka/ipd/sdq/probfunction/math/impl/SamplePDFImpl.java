@@ -27,23 +27,19 @@ import flanagan.math.FourierTransform;
  * @author Ihssane
  * 
  */
-public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
-		ISamplePDF {
+public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
+		implements
+			ISamplePDF {
 
 	private enum Operation {
 		ADD, SUB, MULT, DIV
 	}
 
 	private static final Complex DEFAULT_FILL_VALUE = new Complex(0, 0);
-
 	private static final int FOURIER_TRANSFORM = 0;
-
 	private static final int INVERSE_FOURIER_TRANSFORM = 1;
-
 	private double distance;
-
 	private List<Complex> values;
-
 	private Complex fillValue;
 
 	private FourierTransform fft = new FourierTransform();
@@ -78,7 +74,6 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 			FunctionsInDifferenDomainsException, IncompatibleUnitsException {
 		return performOperation(Operation.MULT, this, pdf);
 	}
-	
 
 	public IProbabilityDensityFunction div(IProbabilityDensityFunction pdf)
 			throws FunctionsInDifferenDomainsException,
@@ -90,7 +85,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 			throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException {
 		return performOperation(Operation.SUB, this, pdf);
-	}	
+	}
 
 	public IProbabilityDensityFunction scale(double scalar) {
 		ArrayList<Complex> resultList = new ArrayList<Complex>();
@@ -179,13 +174,21 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 	}
 
 	public double drawSample() {
-		// TODO Auto-generated method stub
-		return 0;
+		double result = 0.0;
+		List<Double> intervals = MathTools
+				.computeIntervalOfProb(getValuesAsDouble());
+
+		double random = Math.random();
+		for (int j = 0; j < intervals.size(); j++)
+			if (random < intervals.get(j)) {
+				result = distance * (j + 1);
+				break;
+			}
+		return result;
 	}
 
 	public double getArithmeticMeanValue() throws DomainNotNumbersException {
-		// TODO Auto-generated method stub
-		return 0;
+		return MathTools.sumOfDoubles(getValuesAsDouble()) / values.size();
 	}
 
 	public Object getMedian() throws UnorderedDomainException {
@@ -294,21 +297,21 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 			Complex z2 = iterator.next();
 			Complex result;
 			switch (op) {
-			case ADD:
-				result = z1.plus(z2);
-				break;
-			case SUB:
-				result = z1.minus(z2);
-				break;
-			case MULT:
-				result = z1.times(z2);
-				break;
-			case DIV:
-				result = z1.over(z2);
-				break;
-			default:
-				result = null;
-				break;
+				case ADD :
+					result = z1.plus(z2);
+					break;
+				case SUB :
+					result = z1.minus(z2);
+					break;
+				case MULT :
+					result = z1.times(z2);
+					break;
+				case DIV :
+					result = z1.over(z2);
+					break;
+				default :
+					result = null;
+					break;
 			}
 			resultList.add(result);
 		}
