@@ -8,6 +8,8 @@ package de.uka.ipd.sdq.pcm.assembly.provider;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
+import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -45,6 +47,7 @@ public final class PcmEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     IdentifierEditPlugin.INSTANCE,
+		     ProbabilityFunctionEditPlugin.INSTANCE,
 		   });
 	}
 

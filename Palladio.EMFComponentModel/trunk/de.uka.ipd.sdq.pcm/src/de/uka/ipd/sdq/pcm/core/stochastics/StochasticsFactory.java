@@ -98,6 +98,15 @@ public interface StochasticsFactory extends EFactory {
 	ProductExpression createProductExpression();
 
 	/**
+	 * Returns a new object of class '<em>Probability Function Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Probability Function Literal</em>'.
+	 * @generated
+	 */
+	ProbabilityFunctionLiteral createProbabilityFunctionLiteral();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

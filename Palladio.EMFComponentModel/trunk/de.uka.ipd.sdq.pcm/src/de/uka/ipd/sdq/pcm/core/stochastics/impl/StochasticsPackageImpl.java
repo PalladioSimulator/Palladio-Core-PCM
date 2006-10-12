@@ -34,6 +34,7 @@ import de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral;
 import de.uka.ipd.sdq.pcm.core.stochastics.NumericLiteral;
 import de.uka.ipd.sdq.pcm.core.stochastics.Parantesis;
 import de.uka.ipd.sdq.pcm.core.stochastics.Power;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.pcm.core.stochastics.Product;
 import de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations;
@@ -77,6 +78,8 @@ import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
+
+import de.uka.ipd.sdq.probfunction.probfunctionPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -204,6 +207,13 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass probabilityFunctionLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum compareOperationsEEnum = null;
 
 	/**
@@ -278,6 +288,7 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
+		probfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		AssemblyPackageImpl theAssemblyPackage = (AssemblyPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AssemblyPackage.eNS_URI) instanceof AssemblyPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AssemblyPackage.eNS_URI) : AssemblyPackage.eINSTANCE);
@@ -604,6 +615,24 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getProbabilityFunctionLiteral() {
+		return probabilityFunctionLiteralEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProbabilityFunctionLiteral_Function_ProbabilityFunctionLiteral() {
+		return (EReference)probabilityFunctionLiteralEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getCompareOperations() {
 		return compareOperationsEEnum;
 	}
@@ -699,6 +728,9 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		createEReference(productExpressionEClass, PRODUCT_EXPRESSION__RIGHT);
 		createEAttribute(productExpressionEClass, PRODUCT_EXPRESSION__OPERATION);
 
+		probabilityFunctionLiteralEClass = createEClass(PROBABILITY_FUNCTION_LITERAL);
+		createEReference(probabilityFunctionLiteralEClass, PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL);
+
 		// Create enums
 		compareOperationsEEnum = createEEnum(COMPARE_OPERATIONS);
 		termOperationsEEnum = createEEnum(TERM_OPERATIONS);
@@ -728,6 +760,9 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		probfunctionPackage theprobfunctionPackage = (probfunctionPackage)EPackage.Registry.INSTANCE.getEPackage(probfunctionPackage.eNS_URI);
+
 		// Add supertypes to classes
 		comparisonEClass.getESuperTypes().add(this.getExpression());
 		termEClass.getESuperTypes().add(this.getComparison());
@@ -742,6 +777,7 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		compareExpressionEClass.getESuperTypes().add(this.getComparison());
 		termExpressionEClass.getESuperTypes().add(this.getTerm());
 		productExpressionEClass.getESuperTypes().add(this.getProduct());
+		probabilityFunctionLiteralEClass.getESuperTypes().add(this.getAtom());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(randomVariableEClass, RandomVariable.class, "RandomVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -788,6 +824,9 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		initEReference(getProductExpression_Left(), this.getProduct(), null, "left", null, 1, 1, ProductExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProductExpression_Right(), this.getPower(), null, "right", null, 1, 1, ProductExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getProductExpression_Operation(), this.getProductOperations(), "operation", null, 1, 1, ProductExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(probabilityFunctionLiteralEClass, ProbabilityFunctionLiteral.class, "ProbabilityFunctionLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProbabilityFunctionLiteral_Function_ProbabilityFunctionLiteral(), theprobfunctionPackage.getProbabilityFunction(), null, "function_ProbabilityFunctionLiteral", null, 1, 1, ProbabilityFunctionLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(compareOperationsEEnum, CompareOperations.class, "CompareOperations");

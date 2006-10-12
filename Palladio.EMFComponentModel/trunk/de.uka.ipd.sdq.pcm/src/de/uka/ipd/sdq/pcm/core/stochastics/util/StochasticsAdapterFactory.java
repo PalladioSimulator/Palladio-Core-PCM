@@ -115,6 +115,9 @@ public class StochasticsAdapterFactory extends AdapterFactoryImpl {
 			public Object caseProductExpression(ProductExpression object) {
 				return createProductExpressionAdapter();
 			}
+			public Object caseProbabilityFunctionLiteral(ProbabilityFunctionLiteral object) {
+				return createProbabilityFunctionLiteralAdapter();
+			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -340,6 +343,20 @@ public class StochasticsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProductExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral <em>Probability Function Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral
+	 * @generated
+	 */
+	public Adapter createProbabilityFunctionLiteralAdapter() {
 		return null;
 	}
 

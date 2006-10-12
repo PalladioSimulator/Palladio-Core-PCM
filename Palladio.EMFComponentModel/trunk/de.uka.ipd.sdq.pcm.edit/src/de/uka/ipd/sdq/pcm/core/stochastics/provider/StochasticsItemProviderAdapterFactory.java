@@ -252,6 +252,28 @@ public class StochasticsItemProviderAdapterFactory extends StochasticsAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProbabilityFunctionLiteralItemProvider probabilityFunctionLiteralItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createProbabilityFunctionLiteralAdapter() {
+		if (probabilityFunctionLiteralItemProvider == null) {
+			probabilityFunctionLiteralItemProvider = new ProbabilityFunctionLiteralItemProvider(this);
+		}
+
+		return probabilityFunctionLiteralItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -355,6 +377,7 @@ public class StochasticsItemProviderAdapterFactory extends StochasticsAdapterFac
 		if (compareExpressionItemProvider != null) compareExpressionItemProvider.dispose();
 		if (termExpressionItemProvider != null) termExpressionItemProvider.dispose();
 		if (productExpressionItemProvider != null) productExpressionItemProvider.dispose();
+		if (probabilityFunctionLiteralItemProvider != null) probabilityFunctionLiteralItemProvider.dispose();
 	}
 
 }

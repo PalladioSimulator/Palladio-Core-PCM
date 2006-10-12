@@ -211,6 +211,11 @@ public class CompareExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(StochasticsPackage.Literals.COMPARE_EXPRESSION__LEFT,
+				 StochasticsFactory.eINSTANCE.createProbabilityFunctionLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(StochasticsPackage.Literals.COMPARE_EXPRESSION__RIGHT,
 				 StochasticsFactory.eINSTANCE.createVariable()));
 
@@ -238,6 +243,11 @@ public class CompareExpressionItemProvider
 			(createChildParameter
 				(StochasticsPackage.Literals.COMPARE_EXPRESSION__RIGHT,
 				 StochasticsFactory.eINSTANCE.createProductExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StochasticsPackage.Literals.COMPARE_EXPRESSION__RIGHT,
+				 StochasticsFactory.eINSTANCE.createProbabilityFunctionLiteral()));
 	}
 
 	/**

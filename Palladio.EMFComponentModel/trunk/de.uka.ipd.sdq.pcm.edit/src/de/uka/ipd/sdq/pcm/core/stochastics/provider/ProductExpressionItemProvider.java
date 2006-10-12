@@ -206,6 +206,11 @@ public class ProductExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__LEFT,
+				 StochasticsFactory.eINSTANCE.createProbabilityFunctionLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
 				 StochasticsFactory.eINSTANCE.createVariable()));
 
@@ -223,6 +228,11 @@ public class ProductExpressionItemProvider
 			(createChildParameter
 				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
 				 StochasticsFactory.eINSTANCE.createDoubleLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StochasticsPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
+				 StochasticsFactory.eINSTANCE.createProbabilityFunctionLiteral()));
 	}
 
 	/**

@@ -233,6 +233,18 @@ public class StochasticsSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StochasticsPackage.PROBABILITY_FUNCTION_LITERAL: {
+				ProbabilityFunctionLiteral probabilityFunctionLiteral = (ProbabilityFunctionLiteral)theEObject;
+				Object result = caseProbabilityFunctionLiteral(probabilityFunctionLiteral);
+				if (result == null) result = caseAtom(probabilityFunctionLiteral);
+				if (result == null) result = casePower(probabilityFunctionLiteral);
+				if (result == null) result = caseProduct(probabilityFunctionLiteral);
+				if (result == null) result = caseTerm(probabilityFunctionLiteral);
+				if (result == null) result = caseComparison(probabilityFunctionLiteral);
+				if (result == null) result = caseExpression(probabilityFunctionLiteral);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -459,6 +471,21 @@ public class StochasticsSwitch {
 	 * @generated
 	 */
 	public Object caseProductExpression(ProductExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Probability Function Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Probability Function Literal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseProbabilityFunctionLiteral(ProbabilityFunctionLiteral object) {
 		return null;
 	}
 

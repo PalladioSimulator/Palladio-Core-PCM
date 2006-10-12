@@ -9,9 +9,10 @@ package de.uka.ipd.sdq.pcm.core.stochastics.provider;
 
 import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.Parantesis;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+
+import de.uka.ipd.sdq.probfunction.probfunctionFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -29,12 +30,12 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.Parantesis} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParantesisItemProvider
+public class ProbabilityFunctionLiteralItemProvider
 	extends AtomItemProvider
 	implements	
 		IEditingDomainItemProvider,	
@@ -48,7 +49,7 @@ public class ParantesisItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParantesisItemProvider(AdapterFactory adapterFactory) {
+	public ProbabilityFunctionLiteralItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -77,19 +78,19 @@ public class ParantesisItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION);
+			childrenFeatures.add(StochasticsPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * This returns Parantesis.gif.
+	 * This returns ProbabilityFunctionLiteral.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Parantesis"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProbabilityFunctionLiteral"));
 	}
 
 	/**
@@ -99,7 +100,7 @@ public class ParantesisItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_Parantesis_type");
+		return getString("_UI_ProbabilityFunctionLiteral_type");
 	}
 
 	/**
@@ -112,8 +113,8 @@ public class ParantesisItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Parantesis.class)) {
-			case StochasticsPackage.PARANTESIS__INNER_EXPRESSION:
+		switch (notification.getFeatureID(ProbabilityFunctionLiteral.class)) {
+			case StochasticsPackage.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -132,43 +133,23 @@ public class ParantesisItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
-				 StochasticsFactory.eINSTANCE.createVariable()));
+				(StochasticsPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
+				 probfunctionFactory.eINSTANCE.createProbabilityDensityFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
-				 StochasticsFactory.eINSTANCE.createParantesis()));
+				(StochasticsPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
+				 probfunctionFactory.eINSTANCE.createBoxedPDF()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
-				 StochasticsFactory.eINSTANCE.createIntLiteral()));
+				(StochasticsPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
+				 probfunctionFactory.eINSTANCE.createProbabilityMassFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
-				 StochasticsFactory.eINSTANCE.createDoubleLiteral()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
-				 StochasticsFactory.eINSTANCE.createCompareExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
-				 StochasticsFactory.eINSTANCE.createTermExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
-				 StochasticsFactory.eINSTANCE.createProductExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.PARANTESIS__INNER_EXPRESSION,
-				 StochasticsFactory.eINSTANCE.createProbabilityFunctionLiteral()));
+				(StochasticsPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
+				 probfunctionFactory.eINSTANCE.createSamplePDF()));
 	}
 
 	/**

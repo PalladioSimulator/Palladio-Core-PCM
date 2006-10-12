@@ -484,6 +484,34 @@ public interface StochasticsPackage extends EPackage {
 	int PRODUCT_EXPRESSION_FEATURE_COUNT = PRODUCT_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.ProbabilityFunctionLiteralImpl <em>Probability Function Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.ProbabilityFunctionLiteralImpl
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getProbabilityFunctionLiteral()
+	 * @generated
+	 */
+	int PROBABILITY_FUNCTION_LITERAL = 15;
+
+	/**
+	 * The feature id for the '<em><b>Function Probability Function Literal</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL = ATOM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Probability Function Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILITY_FUNCTION_LITERAL_FEATURE_COUNT = ATOM_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations <em>Compare Operations</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -491,7 +519,7 @@ public interface StochasticsPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getCompareOperations()
 	 * @generated
 	 */
-	int COMPARE_OPERATIONS = 15;
+	int COMPARE_OPERATIONS = 16;
 
 
 	/**
@@ -502,7 +530,7 @@ public interface StochasticsPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getTermOperations()
 	 * @generated
 	 */
-	int TERM_OPERATIONS = 16;
+	int TERM_OPERATIONS = 17;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations <em>Product Operations</em>}' enum.
@@ -512,7 +540,7 @@ public interface StochasticsPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getProductOperations()
 	 * @generated
 	 */
-	int PRODUCT_OPERATIONS = 17;
+	int PRODUCT_OPERATIONS = 18;
 
 
 	/**
@@ -829,6 +857,27 @@ public interface StochasticsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProductExpression_Operation();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral <em>Probability Function Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Probability Function Literal</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral
+	 * @generated
+	 */
+	EClass getProbabilityFunctionLiteral();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral#getFunction_ProbabilityFunctionLiteral <em>Function Probability Function Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Function Probability Function Literal</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral#getFunction_ProbabilityFunctionLiteral()
+	 * @see #getProbabilityFunctionLiteral()
+	 * @generated
+	 */
+	EReference getProbabilityFunctionLiteral_Function_ProbabilityFunctionLiteral();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations <em>Compare Operations</em>}'.
@@ -1151,6 +1200,24 @@ public interface StochasticsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PRODUCT_EXPRESSION__OPERATION = eINSTANCE.getProductExpression_Operation();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.ProbabilityFunctionLiteralImpl <em>Probability Function Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.ProbabilityFunctionLiteralImpl
+		 * @see de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl#getProbabilityFunctionLiteral()
+		 * @generated
+		 */
+		EClass PROBABILITY_FUNCTION_LITERAL = eINSTANCE.getProbabilityFunctionLiteral();
+
+		/**
+		 * The meta object literal for the '<em><b>Function Probability Function Literal</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL = eINSTANCE.getProbabilityFunctionLiteral_Function_ProbabilityFunctionLiteral();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations <em>Compare Operations</em>}' enum.

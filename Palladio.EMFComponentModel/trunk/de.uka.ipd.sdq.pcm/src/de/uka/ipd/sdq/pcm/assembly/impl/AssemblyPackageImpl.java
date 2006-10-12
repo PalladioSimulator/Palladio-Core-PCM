@@ -64,6 +64,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
 
+import de.uka.ipd.sdq.probfunction.probfunctionPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -158,6 +160,7 @@ public class AssemblyPackageImpl extends EPackageImpl implements AssemblyPackage
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
+		probfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		StochasticsPackageImpl theStochasticsPackage = (StochasticsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI) instanceof StochasticsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI) : StochasticsPackage.eINSTANCE);

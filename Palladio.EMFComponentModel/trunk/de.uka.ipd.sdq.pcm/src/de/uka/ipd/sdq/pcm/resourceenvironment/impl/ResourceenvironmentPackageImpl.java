@@ -65,6 +65,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
 
+import de.uka.ipd.sdq.probfunction.probfunctionPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -179,6 +181,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
+		probfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		AssemblyPackageImpl theAssemblyPackage = (AssemblyPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AssemblyPackage.eNS_URI) instanceof AssemblyPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AssemblyPackage.eNS_URI) : AssemblyPackage.eINSTANCE);

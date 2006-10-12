@@ -120,6 +120,8 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.antlr"/>
+      <import plugin="org.eclipse.pde.build"/>
+      <import plugin="de.uka.ipd.sdq.probfunction"/>
    </requires>
 
    <plugin

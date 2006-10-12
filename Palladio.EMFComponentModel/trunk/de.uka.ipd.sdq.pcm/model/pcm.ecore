@@ -113,6 +113,11 @@
         <eLiterals name="DIV" value="1"/>
         <eLiterals name="MOD" value="2"/>
       </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ProbabilityFunctionLiteral" eSuperTypes="#//core/stochastics/Atom">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="function_ProbabilityFunctionLiteral"
+            ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityFunction"
+            containment="true"/>
+      </eClassifiers>
     </eSubpackages>
     <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/1.0"
         nsPrefix="pcm.core.entity">

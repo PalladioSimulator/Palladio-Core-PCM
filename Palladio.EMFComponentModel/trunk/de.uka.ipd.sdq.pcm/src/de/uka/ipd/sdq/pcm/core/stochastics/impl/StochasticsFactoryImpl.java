@@ -68,6 +68,7 @@ public class StochasticsFactoryImpl extends EFactoryImpl implements StochasticsF
 			case StochasticsPackage.COMPARE_EXPRESSION: return createCompareExpression();
 			case StochasticsPackage.TERM_EXPRESSION: return createTermExpression();
 			case StochasticsPackage.PRODUCT_EXPRESSION: return createProductExpression();
+			case StochasticsPackage.PROBABILITY_FUNCTION_LITERAL: return createProbabilityFunctionLiteral();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -187,6 +188,16 @@ public class StochasticsFactoryImpl extends EFactoryImpl implements StochasticsF
 	public ProductExpression createProductExpression() {
 		ProductExpressionImpl productExpression = new ProductExpressionImpl();
 		return productExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProbabilityFunctionLiteral createProbabilityFunctionLiteral() {
+		ProbabilityFunctionLiteralImpl probabilityFunctionLiteral = new ProbabilityFunctionLiteralImpl();
+		return probabilityFunctionLiteral;
 	}
 
 	/**
