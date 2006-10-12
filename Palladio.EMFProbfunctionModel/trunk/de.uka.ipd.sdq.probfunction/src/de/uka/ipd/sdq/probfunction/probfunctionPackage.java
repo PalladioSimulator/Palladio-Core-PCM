@@ -77,7 +77,7 @@ public interface probfunctionPackage extends EPackage {
 	int PROBABILITY_FUNCTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * The feature id for the '<em><b>Unit</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -105,7 +105,7 @@ public interface probfunctionPackage extends EPackage {
 	int PROBABILITY_DENSITY_FUNCTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * The feature id for the '<em><b>Unit</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -133,7 +133,7 @@ public interface probfunctionPackage extends EPackage {
 	int BOXED_PDF = 0;
 
 	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * The feature id for the '<em><b>Unit</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -235,7 +235,7 @@ public interface probfunctionPackage extends EPackage {
 	int PROBABILITY_MASS_FUNCTION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * The feature id for the '<em><b>Unit</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -244,7 +244,7 @@ public interface probfunctionPackage extends EPackage {
 	int PROBABILITY_MASS_FUNCTION__UNIT = PROBABILITY_FUNCTION__UNIT;
 
 	/**
-	 * The feature id for the '<em><b>Samples</b></em>' reference list.
+	 * The feature id for the '<em><b>Samples</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -309,7 +309,7 @@ public interface probfunctionPackage extends EPackage {
 	int SAMPLE_PDF = 7;
 
 	/**
-	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * The feature id for the '<em><b>Unit</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -387,10 +387,10 @@ public interface probfunctionPackage extends EPackage {
 	EClass getProbabilityFunction();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.probfunction.ProbabilityFunction#getUnit <em>Unit</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.probfunction.ProbabilityFunction#getUnit <em>Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Unit</em>'.
+	 * @return the meta object for the containment reference '<em>Unit</em>'.
 	 * @see de.uka.ipd.sdq.probfunction.ProbabilityFunction#getUnit()
 	 * @see #getProbabilityFunction()
 	 * @generated
@@ -461,10 +461,10 @@ public interface probfunctionPackage extends EPackage {
 	EClass getProbabilityMassFunction();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.probfunction.ProbabilityMassFunction#getSamples <em>Samples</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.probfunction.ProbabilityMassFunction#getSamples <em>Samples</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Samples</em>'.
+	 * @return the meta object for the containment reference list '<em>Samples</em>'.
 	 * @see de.uka.ipd.sdq.probfunction.ProbabilityMassFunction#getSamples()
 	 * @see #getProbabilityMassFunction()
 	 * @generated
@@ -556,7 +556,7 @@ public interface probfunctionPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.probfunction.impl.BoxedPDFImpl <em>Boxed PDF</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -596,7 +596,7 @@ public interface probfunctionPackage extends EPackage {
 		EClass PROBABILITY_FUNCTION = eINSTANCE.getProbabilityFunction();
 
 		/**
-		 * The meta object literal for the '<em><b>Unit</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Unit</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -658,7 +658,7 @@ public interface probfunctionPackage extends EPackage {
 		EClass PROBABILITY_MASS_FUNCTION = eINSTANCE.getProbabilityMassFunction();
 
 		/**
-		 * The meta object literal for the '<em><b>Samples</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Samples</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

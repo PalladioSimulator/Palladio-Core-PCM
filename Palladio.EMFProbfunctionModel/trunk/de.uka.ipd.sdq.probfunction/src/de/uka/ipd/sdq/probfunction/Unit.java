@@ -34,7 +34,6 @@ public interface Unit extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Unit Name</b></em>' attribute.
-	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Unit Name</em>' attribute isn't clear,
@@ -44,7 +43,7 @@ public interface Unit extends EObject {
 	 * @return the value of the '<em>Unit Name</em>' attribute.
 	 * @see #setUnitName(String)
 	 * @see de.uka.ipd.sdq.probfunction.probfunctionPackage#getUnit_UnitName()
-	 * @model default="" required="true"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	String getUnitName();

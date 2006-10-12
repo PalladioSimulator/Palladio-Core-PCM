@@ -12,6 +12,8 @@ import de.uka.ipd.sdq.probfunction.probfunctionPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -40,7 +42,7 @@ public abstract class ProbabilityFunctionImpl extends EObjectImpl implements Pro
 	public static final String copyright = "Copyright by SDQ U Karlsruhe (TH) 2006";
 
 	/**
-	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' reference.
+	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getUnit()
@@ -73,14 +75,6 @@ public abstract class ProbabilityFunctionImpl extends EObjectImpl implements Pro
 	 * @generated
 	 */
 	public Unit getUnit() {
-		if (unit != null && unit.eIsProxy()) {
-			InternalEObject oldUnit = (InternalEObject)unit;
-			unit = (Unit)eResolveProxy(oldUnit);
-			if (unit != oldUnit) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, probfunctionPackage.PROBABILITY_FUNCTION__UNIT, oldUnit, unit));
-			}
-		}
 		return unit;
 	}
 
@@ -89,8 +83,14 @@ public abstract class ProbabilityFunctionImpl extends EObjectImpl implements Pro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Unit basicGetUnit() {
-		return unit;
+	public NotificationChain basicSetUnit(Unit newUnit, NotificationChain msgs) {
+		Unit oldUnit = unit;
+		unit = newUnit;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, probfunctionPackage.PROBABILITY_FUNCTION__UNIT, oldUnit, newUnit);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -99,10 +99,30 @@ public abstract class ProbabilityFunctionImpl extends EObjectImpl implements Pro
 	 * @generated
 	 */
 	public void setUnit(Unit newUnit) {
-		Unit oldUnit = unit;
-		unit = newUnit;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, probfunctionPackage.PROBABILITY_FUNCTION__UNIT, oldUnit, unit));
+		if (newUnit != unit) {
+			NotificationChain msgs = null;
+			if (unit != null)
+				msgs = ((InternalEObject)unit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - probfunctionPackage.PROBABILITY_FUNCTION__UNIT, null, msgs);
+			if (newUnit != null)
+				msgs = ((InternalEObject)newUnit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - probfunctionPackage.PROBABILITY_FUNCTION__UNIT, null, msgs);
+			msgs = basicSetUnit(newUnit, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, probfunctionPackage.PROBABILITY_FUNCTION__UNIT, newUnit, newUnit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case probfunctionPackage.PROBABILITY_FUNCTION__UNIT:
+				return basicSetUnit(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -113,8 +133,7 @@ public abstract class ProbabilityFunctionImpl extends EObjectImpl implements Pro
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case probfunctionPackage.PROBABILITY_FUNCTION__UNIT:
-				if (resolve) return getUnit();
-				return basicGetUnit();
+				return getUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

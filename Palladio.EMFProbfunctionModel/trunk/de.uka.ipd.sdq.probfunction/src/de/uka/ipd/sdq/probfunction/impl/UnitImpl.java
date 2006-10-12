@@ -45,7 +45,7 @@ public class UnitImpl extends EObjectImpl implements Unit {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String UNIT_NAME_EDEFAULT = "";
+	protected static final String UNIT_NAME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getUnitName() <em>Unit Name</em>}' attribute.
