@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.probfunction.math;
 
 import java.util.List;
 
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
+
 /**
  * 
  * A BoxedPDF is an approximation of an actual probability density function. It
@@ -34,7 +36,8 @@ public interface IBoxedPDF extends IProbabilityDensityFunction {
 	 * If the probabilities in the samples do not sum up to one a ProbabilitiesNotOneException is thrown.
 	 * 
 	 * @param samples List of sampling points describing a probability density function.
+	 * @throws ProbabilitySumNotOneException 
 	 */
-	void setSamples(List<IContinuousSample> samples);
+	void setSamples(List<IContinuousSample> samples) throws ProbabilitySumNotOneException;
 
 }
