@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/regexp"/>
+	<classpathentry kind="lib" path="/home/jens/tools/eclipse/plugins/org.eclipse.emf.common_2.2.1.v200609210005.jar"/>
+	<classpathentry kind="lib" path="/home/jens/tools/eclipse/plugins/org.eclipse.emf.ecore_2.2.1.v200609210005.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

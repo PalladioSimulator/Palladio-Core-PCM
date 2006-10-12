@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uka.ipd.sdq.spa; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: de.uka.ipd.sdq.spa.expression,
+ de.uka.ipd.sdq.spa.expression.impl,
+ de.uka.ipd.sdq.spa.expression.util,
+ de.uka.ipd.sdq.spa.resource,
+ de.uka.ipd.sdq.spa.resource.impl,
+ de.uka.ipd.sdq.spa.resource.util,
+ de.uka.ipd.sdq.spa.system,
+ de.uka.ipd.sdq.spa.system.impl,
+ de.uka.ipd.sdq.spa.system.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction;visibility:=reexport
+Eclipse-LazyStart: true
