@@ -22,8 +22,9 @@ import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
  * @author Ihssane
  * 
  */
-public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl implements
-		IBoxedPDF {
+public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
+		implements
+			IBoxedPDF {
 
 	private List<IContinuousSample> samples;
 
@@ -62,19 +63,18 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl implements
 	}
 
 	public List<IContinuousSample> getSamples() {
-		// TODO Auto-generated method stub
-		return null;
+		return samples;
 	}
 
 	public void setSamples(List<IContinuousSample> samples) {
-		// TODO Auto-generated method stub
-
+		this.samples = samples;
 	}
 
 	public IProbabilityDensityFunction div(IProbabilityDensityFunction pdf)
-			throws FunctionsInDifferenDomainsException {
-		// TODO Auto-generated method stub
-		return null;
+			throws FunctionsInDifferenDomainsException,
+			UnknownPDFTypeException, IncompatibleUnitsException {
+		ISamplePDF sPDF = pfFactory.transformToSamplePDF(this);
+		return sPDF.div(pdf);
 	}
 
 	public double drawSample() {
@@ -84,14 +84,34 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl implements
 
 	public IProbabilityDensityFunction getFourierTransform()
 			throws FunctionNotInTimeDomainException {
-		// TODO Auto-generated method stub
-		return null;
+		if (!isInTimeDomain())
+			throw new FunctionNotInTimeDomainException();
+
+		ISamplePDF sPDF = null;
+		try {
+			sPDF = pfFactory.transformToSamplePDF(this);
+		} catch (UnknownPDFTypeException e) {
+			// should never happen...
+			e.printStackTrace();
+			System.exit(1);
+		}
+		return sPDF.getFourierTransform();
 	}
 
 	public IProbabilityDensityFunction getInverseFourierTransform()
 			throws FunctionNotInFrequencyDomainException {
-		// TODO Auto-generated method stub
-		return null;
+		if (isInTimeDomain())
+			throw new FunctionNotInFrequencyDomainException();
+
+		ISamplePDF sPDF = null;
+		try {
+			sPDF = pfFactory.transformToSamplePDF(this);
+		} catch (UnknownPDFTypeException e) {
+			// should never happen...
+			e.printStackTrace();
+			System.exit(1);
+		}
+		return sPDF.getInverseFourierTransform();
 	}
 
 	public double getLowerDomainBorder() {
@@ -100,9 +120,10 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl implements
 	}
 
 	public IProbabilityDensityFunction sub(IProbabilityDensityFunction pdf)
-			throws FunctionsInDifferenDomainsException {
-		// TODO Auto-generated method stub
-		return null;
+			throws FunctionsInDifferenDomainsException,
+			UnknownPDFTypeException, IncompatibleUnitsException {
+		ISamplePDF sPDF = pfFactory.transformToSamplePDF(this);
+		return sPDF.sub(pdf);
 	}
 
 	public double getArithmeticMeanValue() throws DomainNotNumbersException {
