@@ -133,10 +133,12 @@ public interface IProbabilityFunctionFactory {
 	 *            Distance between the sampling points stored in samples.
 	 * @param samples
 	 *            Sampling points of the approximated PDF.
-	 * @param unit TODO
+	 * @param unit
+	 *            TODO
 	 * @return New instance of SamplePDF with set attributes.
 	 */
-	ISamplePDF createSamplePDFFromDouble(double distance, List<Double> samples, IUnit unit);
+	ISamplePDF createSamplePDFFromDouble(double distance, List<Double> samples,
+			IUnit unit);
 
 	/**
 	 * Creates a new SamplePDF instace whose distance is set to 'distance' and
@@ -146,11 +148,15 @@ public interface IProbabilityFunctionFactory {
 	 *            Distance between the sampling points stored in samples.
 	 * @param samples
 	 *            Sampling points of the approximated PDF.
-	 * @param isInFrequencyDomain Indicates whether the values are in frequency domain (true) or time domain (false).
-	 * @param unit TODO
+	 * @param isInFrequencyDomain
+	 *            Indicates whether the values are in frequency domain (true) or
+	 *            time domain (false).
+	 * @param unit
+	 *            TODO
 	 * @return New instance of SamplePDF with set attributes.
 	 */
-	ISamplePDF createSamplePDFFromComplex(double distance, List<Complex> samples, boolean isInFrequencyDomain, IUnit unit) ;
+	ISamplePDF createSamplePDFFromComplex(double distance,
+			List<Complex> samples, boolean isInFrequencyDomain, IUnit unit);
 
 	/**
 	 * creates a distribution function, wich represents a dirac impulse. The
@@ -160,10 +166,12 @@ public interface IProbabilityFunctionFactory {
 	 *            number of points.
 	 * @param distance
 	 *            distance between each two points.
-	 * @param unit TODO
+	 * @param unit
+	 *            TODO
 	 * @return a new DistributionFunction with entered parameters.
 	 */
-	ISamplePDF createDiracImpulse(int numOfSamplingPoints, double distance, IUnit unit);
+	ISamplePDF createDiracImpulse(int numOfSamplingPoints, double distance,
+			IUnit unit);
 
 	/**
 	 * creates a distribution function, wich consists of numOfSamplingspoints
@@ -175,7 +183,8 @@ public interface IProbabilityFunctionFactory {
 	 *            distance between each two points.
 	 * @return a new "zeros" DistributionFunction.
 	 */
-	ISamplePDF createZeroFunction(int numOfSamplingPoints, double distance, IUnit unit);
+	ISamplePDF createZeroFunction(int numOfSamplingPoints, double distance,
+			IUnit unit);
 
 	/**
 	 * Converts a arbitrary PDF to a SamplePDF. So far, only two cases are
@@ -199,8 +208,11 @@ public interface IProbabilityFunctionFactory {
 	 * @param ePDF
 	 *            Object to transform.
 	 * @return New SamplePDF instance.
+	 * @throws UnknownPDFTypeException
+	 *             Thrown in case pdf is neither a BoxedPDF nor a SamplePDF
 	 */
-	ISamplePDF transformToSamplePDF(ProbabilityDensityFunction ePDF);
+	ISamplePDF transformToSamplePDF(ProbabilityDensityFunction ePDF)
+			throws UnknownPDFTypeException;
 
 	/**
 	 * Converts a function object to a model object with the same attributes.
@@ -214,12 +226,14 @@ public interface IProbabilityFunctionFactory {
 
 	/**
 	 * Creates a new, empty BoxedPDF.
+	 * 
 	 * @return New BoxedPDF instance.
 	 */
 	IBoxedPDF createBoxedPDF();
 
 	/**
 	 * Creates a new BoxedPDF, whose boxes are defined by 'samples'.
+	 * 
 	 * @param samples
 	 *            List of ContinuousSamples, which defines the upper right
 	 *            corners of the PDF's boxes. The list may be unsorted. The
@@ -281,8 +295,8 @@ public interface IProbabilityFunctionFactory {
 	 *            Marks a set as ordered.
 	 * @return New ProbabilityMassFunction instance.
 	 */
-	IProbabilityMassFunction createProbabilityMassFunction(List<ISample> samples,
-			boolean isOrderedSet);
+	IProbabilityMassFunction createProbabilityMassFunction(
+			List<ISample> samples, boolean isOrderedSet);
 
 	/**
 	 * Converts a model object to a function object with the same attributes.
