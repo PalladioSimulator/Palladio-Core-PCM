@@ -4,6 +4,9 @@
 package de.uka.ipd.sdq.probfunction.math.impl;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
@@ -15,8 +18,11 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainEx
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
+import de.uka.ipd.sdq.probfunction.math.util.Line;
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 
 /**
  * @author Ihssane
@@ -66,7 +72,38 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return samples;
 	}
 
-	public void setSamples(List<IContinuousSample> samples) {
+	public List<Double> getValues() {
+		List<Double> values = new ArrayList<Double>();
+		for (IContinuousSample cs : samples)
+			values.add(cs.getValue());
+		return values;
+	}
+
+	public List<Double> getProbabilities() {
+		List<Double> probs = new ArrayList<Double>();
+		for (IContinuousSample cs : samples)
+			probs.add(cs.getProbability());
+		return probs;
+	}
+
+	public void setSamples(List<IContinuousSample> samples)
+			throws ProbabilitySumNotOneException {
+		if (!MathTools.equalsDouble(MathTools.sumOfCountinuousSamples(samples),
+				1.0))
+			throw new ProbabilitySumNotOneException();
+
+		Collections.sort(samples, new Comparator<IContinuousSample>() {
+			public int compare(IContinuousSample o1, IContinuousSample o2) {
+				int result = -1;
+				if (o1.getProbability() > o2.getProbability())
+					result = 1;
+				else if (MathTools.equalsDouble(o1.getProbability(), o2
+						.getProbability()))
+					result = 0;
+				return result;
+			}
+
+		});
 		this.samples = samples;
 	}
 
@@ -78,8 +115,20 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public double drawSample() {
-		// TODO Auto-generated method stub
-		return 0;
+		double result = 0.0;
+
+		List<Double> intervals = MathTools.computeIntervalOfProb(getValues());
+		HashMap<Double, Line> lines = MathTools
+				.computeLines(samples, intervals);
+
+		double random = Math.random();
+		for (int j = 0; j < intervals.size(); j++)
+			if (random < intervals.get(j)) {
+				result = lines.get(intervals.get(j)).getX(random);
+				break;
+			}
+
+		return result;
 	}
 
 	public IProbabilityDensityFunction getFourierTransform()
@@ -127,8 +176,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public double getArithmeticMeanValue() throws DomainNotNumbersException {
-		// TODO Auto-generated method stub
-		return 0;
+		return MathTools.sumOfCountinuousSamples(samples) / samples.size();
 	}
 
 	public Object getMedian() throws UnorderedDomainException {
