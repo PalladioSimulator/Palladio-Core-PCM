@@ -2,6 +2,7 @@
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 	import de.uka.ipd.sdq.pcm.core.stochastics.*;
+	import de.uka.ipd.sdq.probfunction.*;
 
 import antlr.TokenBuffer;
 import antlr.TokenStreamException;
@@ -143,7 +144,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop8:
+		_loop1897:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
 				TermExpression termExp = StochasticsFactory.eINSTANCE.createTermExpression();
@@ -171,7 +172,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				termExp.setLeft(t); termExp.setRight(p2); t = termExp;
 			}
 			else {
-				break _loop8;
+				break _loop1897;
 			}
 			
 		} while (true);
@@ -188,7 +189,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		pw1=powExpr();
 		p = pw1;
 		{
-		_loop12:
+		_loop1901:
 		do {
 			if (((LA(1) >= MUL && LA(1) <= MOD))) {
 				ProductExpression prodExp = StochasticsFactory.eINSTANCE.createProductExpression();
@@ -222,7 +223,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				prodExp.setLeft(p); prodExp.setRight(pw2); p = prodExp;
 			}
 			else {
-				break _loop12;
+				break _loop1901;
 			}
 			
 		} while (true);
@@ -309,6 +310,13 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					
 			break;
 		}
+		case INT_DEF:
+		case REAL_DEF:
+		case ENUM_DEF:
+		{
+			a=definition();
+			break;
+		}
 		default:
 		{
 			throw new NoViableAltException(LT(1), getFilename());
@@ -318,44 +326,58 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		return a;
 	}
 	
-	public final void definition() throws RecognitionException, TokenStreamException {
+	public final ProbabilityFunctionLiteral  definition() throws RecognitionException, TokenStreamException {
+		ProbabilityFunctionLiteral pfl;
 		
+		pfl = StochasticsFactory.eINSTANCE.createProbabilityFunctionLiteral();
+			 ProbabilityFunction probFunction = null;
 		
 		switch ( LA(1)) {
 		case INT_DEF:
-		case REAL_DEF:
 		{
-			{
-			switch ( LA(1)) {
-			case INT_DEF:
-			{
-				match(INT_DEF);
-				break;
-			}
-			case REAL_DEF:
-			{
-				match(REAL_DEF);
-				break;
-			}
-			default:
-			{
-				throw new NoViableAltException(LT(1), getFilename());
-			}
-			}
-			}
+			match(INT_DEF);
+			probFunction = probfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+							   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt20=0;
-			_loop20:
+			int _cnt1908=0;
+			_loop1908:
 			do {
 				if ((LA(1)==LPAREN)) {
-					numericsample();
+					Sample isample=null;
+					isample=numeric_int_sample();
+					((ProbabilityMassFunction)probFunction).getSamples().add(isample);
 				}
 				else {
-					if ( _cnt20>=1 ) { break _loop20; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt1908>=1 ) { break _loop1908; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt20++;
+				_cnt1908++;
+			} while (true);
+			}
+			match(SQUARE_PAREN_R);
+			break;
+		}
+		case REAL_DEF:
+		{
+			match(REAL_DEF);
+			probFunction = probfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+							   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
+			match(SQUARE_PAREN_L);
+			{
+			int _cnt1910=0;
+			_loop1910:
+			do {
+				if ((LA(1)==LPAREN)) {
+					Sample rsample=null;
+					rsample=numeric_real_sample();
+					((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
+				}
+				else {
+					if ( _cnt1910>=1 ) { break _loop1910; } else {throw new NoViableAltException(LT(1), getFilename());}
+				}
+				
+				_cnt1910++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -363,22 +385,24 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		}
 		case ENUM_DEF:
 		{
-			{
 			match(ENUM_DEF);
-			}
+			probFunction = probfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+							   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt23=0;
-			_loop23:
+			int _cnt1912=0;
+			_loop1912:
 			do {
 				if ((LA(1)==LPAREN)) {
-					stringsample();
+					Sample ssample=null;
+					ssample=stringsample();
+					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt23>=1 ) { break _loop23; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt1912>=1 ) { break _loop1912; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt23++;
+				_cnt1912++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -389,26 +413,67 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			throw new NoViableAltException(LT(1), getFilename());
 		}
 		}
+		return pfl;
 	}
 	
-	public final void numericsample() throws RecognitionException, TokenStreamException {
+	public final Sample  numeric_int_sample() throws RecognitionException, TokenStreamException {
+		Sample s;
 		
+		Token  n = null;
+		Token  n2 = null;
+		s = null;
 		
 		match(LPAREN);
+		s = probfunctionFactory.eINSTANCE.createSample();
+		n = LT(1);
 		match(NUMBER);
+		s.setProbability(Double.parseDouble(n.getText()));
 		match(SEMI);
+		n2 = LT(1);
 		match(NUMBER);
+		s.setValue(Integer.parseInt(n2.getText()));
 		match(RPAREN);
+		return s;
 	}
 	
-	public final void stringsample() throws RecognitionException, TokenStreamException {
+	public final Sample  numeric_real_sample() throws RecognitionException, TokenStreamException {
+		Sample s;
 		
+		Token  n = null;
+		Token  n2 = null;
+		s = null;
 		
 		match(LPAREN);
+		s = probfunctionFactory.eINSTANCE.createSample();
+		n = LT(1);
 		match(NUMBER);
+		s.setProbability(Double.parseDouble(n.getText()));
 		match(SEMI);
+		n2 = LT(1);
+		match(NUMBER);
+		s.setValue(Double.parseDouble(n2.getText()));
+		match(RPAREN);
+		return s;
+	}
+	
+	public final Sample  stringsample() throws RecognitionException, TokenStreamException {
+		Sample s;
+		
+		Token  n = null;
+		Token  str = null;
+		s = null;
+		
+		match(LPAREN);
+		s = probfunctionFactory.eINSTANCE.createSample();
+		n = LT(1);
+		match(NUMBER);
+		s.setProbability(Double.parseDouble(n.getText()));
+		match(SEMI);
+		str = LT(1);
 		match(STRING_LITERAL);
+		s.setValue(str.getText().replace("\"",""));
 		match(RPAREN);
+		return s;
 	}
 	
 	public final void parameter_id() throws RecognitionException, TokenStreamException {
@@ -456,9 +521,9 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		"NUMBER",
 		"ID",
 		"INT_DEF",
-		"REAL_DEF",
 		"SQUARE_PAREN_L",
 		"SQUARE_PAREN_R",
+		"REAL_DEF",
 		"ENUM_DEF",
 		"LPAREN",
 		"SEMI",

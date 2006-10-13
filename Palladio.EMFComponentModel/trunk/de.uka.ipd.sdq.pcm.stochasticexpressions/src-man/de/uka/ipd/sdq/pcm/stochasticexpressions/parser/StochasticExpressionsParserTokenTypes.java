@@ -2,6 +2,7 @@
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 	import de.uka.ipd.sdq.pcm.core.stochastics.*;
+	import de.uka.ipd.sdq.probfunction.*;
 
 public interface StochasticExpressionsParserTokenTypes {
 	int EOF = 1;
@@ -21,9 +22,9 @@ public interface StochasticExpressionsParserTokenTypes {
 	int NUMBER = 16;
 	int ID = 17;
 	int INT_DEF = 18;
-	int REAL_DEF = 19;
-	int SQUARE_PAREN_L = 20;
-	int SQUARE_PAREN_R = 21;
+	int SQUARE_PAREN_L = 19;
+	int SQUARE_PAREN_R = 20;
+	int REAL_DEF = 21;
 	int ENUM_DEF = 22;
 	int LPAREN = 23;
 	int SEMI = 24;

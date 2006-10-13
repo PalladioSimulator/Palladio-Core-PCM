@@ -1,6 +1,7 @@
 header{  
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 	import de.uka.ipd.sdq.pcm.core.stochastics.*;
+	import de.uka.ipd.sdq.probfunction.*;
 }
 
 {@SuppressWarnings({"unused"})}
@@ -82,13 +83,78 @@ atom returns [Atom a]
 		  { a = StochasticsFactory.eINSTANCE.createVariable();
 		  	((Variable)a).setId(id.getText());
 		  }
+		  | 
+		  a = definition
 	    )
 ;
 
-definition : (INT_DEF^|REAL_DEF^) SQUARE_PAREN_L! (numericsample)+ SQUARE_PAREN_R! |
-			(ENUM_DEF^) SQUARE_PAREN_L! (stringsample)+ SQUARE_PAREN_R!;
-numericsample : LPAREN! NUMBER SEMI^ NUMBER RPAREN!;
-stringsample : LPAREN! NUMBER SEMI^ STRING_LITERAL RPAREN!;
+definition returns [ProbabilityFunctionLiteral pfl] 
+	{pfl = StochasticsFactory.eINSTANCE.createProbabilityFunctionLiteral();
+	 ProbabilityFunction probFunction = null; } : 
+		
+		// Numeric PMF
+			
+			INT_DEF
+				{probFunction = probfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
+			SQUARE_PAREN_L 
+				( {Sample isample=null;}
+				  isample = numeric_int_sample
+				  {((ProbabilityMassFunction)probFunction).getSamples().add(isample);})+ 
+	 		SQUARE_PAREN_R 
+	 		|
+		 	REAL_DEF 
+				{probFunction = probfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
+		 	SQUARE_PAREN_L 
+				( {Sample rsample=null;} 
+				rsample = numeric_real_sample
+			   	{((ProbabilityMassFunction)probFunction).getSamples().add(rsample);})+ 
+			SQUARE_PAREN_R
+			| 
+		// Enum PMF
+			ENUM_DEF 
+				{probFunction = probfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
+			SQUARE_PAREN_L 
+				( {Sample ssample=null;} 
+				ssample = stringsample
+			   	{((ProbabilityMassFunction)probFunction).getSamples().add(ssample);})+ 
+			SQUARE_PAREN_R;
+
+numeric_int_sample returns [Sample s]
+	{s = null;} : 
+		LPAREN
+			{s = probfunctionFactory.eINSTANCE.createSample();} 
+			n:NUMBER
+			{s.setProbability(Double.parseDouble(n.getText()));} 
+			SEMI 
+			n2:NUMBER 
+			{s.setValue(Integer.parseInt(n2.getText()));} 
+			RPAREN;
+		
+numeric_real_sample returns [Sample s]
+	{s = null;} : 
+		LPAREN
+			{s = probfunctionFactory.eINSTANCE.createSample();} 
+			n:NUMBER
+			{s.setProbability(Double.parseDouble(n.getText()));} 
+			SEMI 
+			n2:NUMBER 
+			{s.setValue(Double.parseDouble(n2.getText()));} 
+			RPAREN;
+			
+stringsample returns [Sample s] 
+	{s = null;} : 
+		LPAREN
+			{s = probfunctionFactory.eINSTANCE.createSample();} 
+		n:NUMBER 
+			{s.setProbability(Double.parseDouble(n.getText()));} 
+		SEMI
+		str:STRING_LITERAL 
+			{s.setValue(str.getText().replace("\"",""));} 
+		RPAREN;
+		
 parameter_id : STRING_LITERAL | INNER^ LESS! STRING_LITERAL GREATER!;
  
 {@SuppressWarnings({"unused"})}
