@@ -164,7 +164,6 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public double getLowerDomainBorder() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -180,14 +179,19 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public Object getMedian() throws UnorderedDomainException {
-		// TODO Auto-generated method stub
-		return null;
+		if (!hasOrderedDomain())
+			throw new UnorderedDomainException();
+
+		return getPercentile(50);
 	}
 
 	public Object getPercentile(int p) throws IndexOutOfBoundsException,
 			UnorderedDomainException {
-		// TODO Auto-generated method stub
-		return null;
+		if (p < 0 || p > 100)
+			throw new IndexOutOfBoundsException();
+
+		int rank = (int) Math.round((p * (samples.size() + 1.0)) / 100.0);
+		return samples.get(rank).getProbability();
 	}
 
 	public boolean isInFrequencyDomain() {
