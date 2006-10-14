@@ -8,126 +8,130 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
+import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 
 /**
  * @author Ihssane
  * 
  */
-public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl implements IProbabilityMassFunction {
+public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
+		implements
+			IProbabilityMassFunction {
 
 	private List<ISample> samples;
-	private IProbabilityFunctionFactory pfFactory;
+
+	private enum Operation {
+		ADD, SUB, MULT, DIV
+	}
 
 	protected ProbabilityMassFunctionImpl() {
 		samples = new ArrayList<ISample>();
-		pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 	}
 
 	protected ProbabilityMassFunctionImpl(List<ISample> samples) {
 		this.samples = samples;
 	}
+	private static IProbabilityMassFunction performOperation(Operation op,
+			IProbabilityMassFunction pmf1, IProbabilityMassFunction pmf2) {
+		List<ISample> resultList = new ArrayList<ISample>();
 
-	public IProbabilityMassFunction add(IProbabilityMassFunction pmf) {
-		if (haveSameDomain(this.samples, pmf.getSamples()))
-			throw new IllegalArgumentException("Operation not supported");
-		if (samples.size() != pmf.getSamples().size())
-			throw new IllegalArgumentException("");
+		Iterator<ISample> iterator = pmf2.getSamples().iterator();
+		for (ISample s1 : pmf1.getSamples()) {
+			ISample s2 = iterator.next();
+			double result;
+			switch (op) {
+				case ADD :
+					result = s1.getProbability() + s2.getProbability();
+					break;
+				case SUB :
+					result = s1.getProbability() - s2.getProbability();
+					break;
+				case MULT :
+					result = s1.getProbability() * s2.getProbability();
+					break;
+				case DIV :
+					result = s1.getProbability() / s2.getProbability();
+					break;
+				default :
+					result = 0.0;
+					break;
+			}
+			resultList.add(pfFactory.createSample(s1.getValue(), result));
+		}
+		return pfFactory.createProbabilityMassFunction(resultList, false);
+	}
+
+	public IProbabilityMassFunction add(IProbabilityMassFunction pmf)
+			throws DifferentDomainsException {
+		if (!haveSameDomain(this.samples, pmf.getSamples()))
+			throw new DifferentDomainsException();
+
+		return performOperation(Operation.ADD, this, pmf);
+	}
+
+	public IProbabilityMassFunction mult(IProbabilityMassFunction pmf)
+			throws DifferentDomainsException {
+		if (!haveSameDomain(this.samples, pmf.getSamples()))
+			throw new DifferentDomainsException();
+
+		return performOperation(Operation.MULT, this, pmf);
+	}
+
+	public IProbabilityMassFunction scale(double scalar) {
 
 		List<ISample> newList = new ArrayList<ISample>();
-		Iterator<ISample> iterator = pmf.getSamples().iterator();
 		for (ISample sample : samples)
-			newList.add(pfFactory.createSample( sample.getValue(), sample.getProbability()
-					+ iterator.next().getProbability()));
+			newList.add(pfFactory.createSample(sample.getValue(), sample
+					.getProbability()
+					* scalar));
 
 		return pfFactory.createProbabilityMassFunction(newList, false);
 	}
 
-	public IProbabilityMassFunction mult(IProbabilityMassFunction pmf) {
-		if (haveSameDomain(this.samples, pmf.getSamples()))
-			throw new IllegalArgumentException("Operation not supported");
-		if (samples.size() != pmf.getSamples().size())
-			throw new IllegalArgumentException("");
+	public IProbabilityMassFunction div(IProbabilityMassFunction pmf)
+			throws DifferentDomainsException {
+		if (!haveSameDomain(this.samples, pmf.getSamples()))
+			throw new DifferentDomainsException();
 
-		List<ISample> newList = new ArrayList<ISample>();
-		Iterator<ISample> iterator = pmf.getSamples().iterator();
-		for (ISample sample : samples)
-			newList.add(pfFactory.createSample(sample.getValue(), sample.getProbability()
-					* iterator.next().getProbability()));
-		
-		return pfFactory.createProbabilityMassFunction(newList, false);
+		return performOperation(Operation.DIV, this, pmf);
 	}
 
-	public IProbabilityMassFunction scale(Double scalar) {
+	public IProbabilityMassFunction sub(IProbabilityMassFunction pmf)
+			throws DifferentDomainsException {
+		if (!haveSameDomain(this.samples, pmf.getSamples()))
+			throw new DifferentDomainsException();
 
-		List<ISample> newList = new ArrayList<ISample>();
-		for (ISample sample : samples)
-			newList.add(pfFactory.createSample(sample
-					.getValue(), sample.getProbability() * scalar));
-
-		return pfFactory.createProbabilityMassFunction(newList, false);
+		return performOperation(Operation.SUB, this, pmf);
 	}
 
 	@SuppressWarnings("unchecked")
-	public boolean haveSameDomain(List<ISample> values1, List<ISample> values2) {
+	private boolean haveSameDomain(List<ISample> values1, List<ISample> values2) {
 		if (values1.size() != values2.size())
 			return false;
-
-		if (!((values1.get(0).getValue() instanceof Double && values2.get(0)
-				.getValue() instanceof Double)
-				|| (values1.get(0).getValue() instanceof String && values2.get(
-						0).getValue() instanceof String) || (values1.get(0)
-				.getValue() instanceof Integer && values2.get(0).getValue() instanceof Integer)))
+		if (values1.size() == 0 && values2.size() == 0)
+			return true;
+		if (!(values1.get(0).getValue().getClass().isInstance(values2.get(0)
+				.getValue())))
 			return false;
-		List s1 = null;
-		List s2 = null;
+		if (!(values1.get(0).getValue() instanceof Comparable))
+			return false;
 
-		if (values1.get(0).getValue() instanceof Double) {
-			s1 = convertToDoubleList(values1);
-			s2 = convertToDoubleList(values2);
-		} else if (values1.get(0).getValue() instanceof Integer) {
-			s1 = convertToIntegerList(values1);
-			s2 = convertToIntegerList(values2);
-		} else {
-			s1 = convertToStringList(values1);
-			s2 = convertToStringList(values2);
-		}
+		Collections.sort(values1, MathTools.getSampleComparator());
+		Collections.sort(values2, MathTools.getSampleComparator());
 
-		Collections.sort(s1);
-		Collections.sort(s2);
-		
 		boolean result = true;
-		Iterator iterator = s2.iterator();
-		for (Object o : s1)
+		Iterator iterator = values2.iterator();
+		for (Object o : values1)
 			if (!o.equals(iterator.next()))
 				result = false;
 
 		return result;
-	}
-
-	private List<Double> convertToDoubleList(List<ISample> list) {
-		List<Double> newList = new ArrayList<Double>();
-		for (ISample o : list)
-			newList.add((Double) o.getValue());
-		return newList;
-	}
-
-	private List<String> convertToStringList(List<ISample> list) {
-		List<String> newList = new ArrayList<String>();
-		for (ISample o : list)
-			newList.add((String) o.getValue());
-		return newList;
-	}
-
-	private List<Integer> convertToIntegerList(List<ISample> list) {
-		List<Integer> newList = new ArrayList<Integer>();
-		for (ISample o : list)
-			newList.add((Integer) o.getValue());
-		return newList;
 	}
 
 	public IProbabilityMassFunction getFourierTramsform() {
@@ -144,45 +148,40 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl impleme
 	 * @return the samples
 	 */
 	public List<ISample> getSamples() {
-		return samples;
+		return new ArrayList<ISample>(samples);
 	}
 
 	/**
 	 * @param samples
 	 *            the samples to set
+	 * @throws ProbabilitySumNotOneException
 	 */
-	public void setSamples(List<ISample> samples) {
+	public void setSamples(List<ISample> samples)
+			throws ProbabilitySumNotOneException {
+		if (!MathTools.equalsDouble(MathTools.sumOfSamples(samples), 1.0))
+			throw new ProbabilitySumNotOneException();
+		if (samples.size() > 1
+				&& samples.get(0).getValue() instanceof Comparable)
+			Collections.sort(samples, MathTools.getSampleComparator());
 		this.samples = samples;
 	}
 
-	public IProbabilityMassFunction div(IProbabilityMassFunction pmf) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public IProbabilityMassFunction scale(double scalar) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public IProbabilityMassFunction sub(IProbabilityMassFunction pmf) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public double getArithmeticMeanValue() throws DomainNotNumbersException {
-		// TODO Auto-generated method stub
-		return 0;
+		return MathTools.sumOfSamples(samples) / samples.size();
 	}
 
 	public Object getMedian() throws UnorderedDomainException {
-		// TODO Auto-generated method stub
-		return null;
+		return getPercentile(50);
 	}
 
 	public Object getPercentile(int p) throws IndexOutOfBoundsException, UnorderedDomainException {
-		// TODO Auto-generated method stub
-		return null;
+		if (!hasOrderedDomain())
+			throw new UnorderedDomainException();
+		if (p < 0 || p > 100)
+			throw new IndexOutOfBoundsException();
+
+		int rank = (int) Math.round((p * (samples.size() + 1.0)) / 100.0);
+		return samples.get(rank);
 	}
 
 	public boolean hasOrderedDomain() {
@@ -201,8 +200,24 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl impleme
 	}
 
 	public Object drawSample() {
-		// TODO Auto-generated method stub
-		return null;
+		Object result = 0.0;
+		List<Double> intervals = MathTools
+				.computeIntervalsOfProb(getProbabilities());
+
+		double random = Math.random();
+		for (int j = 0; j < intervals.size(); j++)
+			if (random < intervals.get(j)) {
+				result = samples.get(j).getValue();
+				break;
+			}
+		return result;
+	}
+
+	private List<Double> getProbabilities() {
+		List<Double> prob = new ArrayList<Double>();
+		for (ISample s : samples)
+			prob.add(s.getProbability());
+		return prob;
 	}
 
 }
