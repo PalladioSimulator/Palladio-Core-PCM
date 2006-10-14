@@ -1,10 +1,12 @@
 package de.uka.ipd.sdq.probfunction.math.util;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
+import de.uka.ipd.sdq.probfunction.math.ISample;
 import flanagan.complex.Complex;
 
 /**
@@ -107,7 +109,8 @@ public class MathTools {
 	}
 
 	/**
-	 * Compute the sum of probabilities of an IContinuousSample list.
+	 * Compute the sum of probabilities associated with a set of
+	 * IContinuousSamples.
 	 * 
 	 * @param list
 	 * @return the computed value.
@@ -118,9 +121,23 @@ public class MathTools {
 			sum += s.getProbability();
 		return sum;
 	}
-	
+
 	/**
-	 * Compute the sum of a Double list.
+	 * Compute the sum of probabilities associated with a set of ISamples.
+	 * 
+	 * @param list
+	 * @return the computed value.
+	 */
+	public static double sumOfSamples(List<ISample> list) {
+		double sum = 0.0;
+		for (ISample s : list)
+			sum += s.getProbability();
+		return sum;
+	}
+
+	/**
+	 * Compute the sum of a set Doubles.
+	 * 
 	 * @param list
 	 * @return the computed value.
 	 */
@@ -135,7 +152,7 @@ public class MathTools {
 	 * @param prob
 	 * @return
 	 */
-	public static List<Double> computeIntervalOfProb(List<Double> prob) {
+	public static List<Double> computeIntervalsOfProb(List<Double> prob) {
 		List<Double> probabilities = new ArrayList<Double>();
 		probabilities.add(prob.get(0));
 
@@ -164,5 +181,27 @@ public class MathTools {
 		}
 
 		return lines;
+	}
+
+	public static Comparator<IContinuousSample> getContinuousSampleComparator() {
+		Comparator<IContinuousSample> comp = new Comparator<IContinuousSample>() {
+			@SuppressWarnings("unchecked")
+			public int compare(IContinuousSample o1, IContinuousSample o2) {
+				return ((Comparable) o1.getValue()).compareTo(o2.getValue());
+			}
+
+		};
+		return comp;
+	}
+
+	public static Comparator<ISample> getSampleComparator() {
+		Comparator<ISample> sComparator = new Comparator<ISample>() {
+
+			@SuppressWarnings("unchecked")
+			public int compare(ISample o1, ISample o2) {
+				return ((Comparable) o1.getValue()).compareTo(o2.getValue());
+			}
+		};
+		return sComparator;
 	}
 }
