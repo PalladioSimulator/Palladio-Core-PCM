@@ -4,6 +4,7 @@ import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.SizeTooSmallException;
 import flanagan.complex.Complex;
 
@@ -53,10 +54,11 @@ public interface ISamplePDF extends IProbabilityDensityFunction {
 	 *            Distance of the new function.
 	 * @return A new SamplePDF that describes the same PDF, but whose sampling
 	 *         points are adjusted to the new distance.
-	 * @throws FunctionNotInTimeDomainException 
-	 * @throws NegativeDistanceException 
+	 * @throws FunctionNotInTimeDomainException
+	 * @throws NegativeDistanceException
 	 */
-	ISamplePDF getFunctionWithNewDistance(double distance) throws NegativeDistanceException, FunctionNotInTimeDomainException;
+	ISamplePDF getFunctionWithNewDistance(double distance)
+			throws NegativeDistanceException, FunctionNotInTimeDomainException;
 
 	/**
 	 * Returns the real part of the function's samples. <i>Copy only!</i>
@@ -87,7 +89,8 @@ public interface ISamplePDF extends IProbabilityDensityFunction {
 	 * @throws ProbabilitySumNotOneException
 	 *             Thrown, if the sum of the values is not one.
 	 */
-	void setValuesAsDouble(List<Double> values);
+	void setValuesAsDouble(List<Double> values)
+			throws ProbabilitySumNotOneException;
 
 	/**
 	 * Sets the sampling points of the function.
@@ -99,7 +102,8 @@ public interface ISamplePDF extends IProbabilityDensityFunction {
 	 *             if the function is in the time domain (isInFrequencyDomain ==
 	 *             false).
 	 */
-	void setValues(List<Complex> values, boolean isInFrequencyDomain);
+	void setValues(List<Complex> values, boolean isInFrequencyDomain)
+			throws ProbabilitySumNotOneException;
 
 	/**
 	 * Returns the real part of the value used to fill unset sampling points at
@@ -136,8 +140,8 @@ public interface ISamplePDF extends IProbabilityDensityFunction {
 
 	/**
 	 * The number of samples used to approximate the pdf.
-	 * @return
-	 * 	Number of Samples.
+	 * 
+	 * @return Number of Samples.
 	 */
 	int numberOfSamples();
 }
