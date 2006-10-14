@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.probfunction.math.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -69,7 +68,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public List<IContinuousSample> getSamples() {
-		return samples;
+		return new ArrayList<IContinuousSample>(samples);
 	}
 
 	public List<Double> getValues() {
@@ -92,18 +91,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 				1.0))
 			throw new ProbabilitySumNotOneException();
 
-		Collections.sort(samples, new Comparator<IContinuousSample>() {
-			public int compare(IContinuousSample o1, IContinuousSample o2) {
-				int result = -1;
-				if (o1.getProbability() > o2.getProbability())
-					result = 1;
-				else if (MathTools.equalsDouble(o1.getProbability(), o2
-						.getProbability()))
-					result = 0;
-				return result;
-			}
-
-		});
+		Collections.sort(samples, MathTools.getContinuousSampleComparator());
 		this.samples = samples;
 	}
 
@@ -117,7 +105,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	public double drawSample() {
 		double result = 0.0;
 
-		List<Double> intervals = MathTools.computeIntervalOfProb(getValues());
+		List<Double> intervals = MathTools.computeIntervalsOfProb(getValues());
 		HashMap<Double, Line> lines = MathTools
 				.computeLines(samples, intervals);
 
