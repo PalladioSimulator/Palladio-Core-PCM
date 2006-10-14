@@ -5,6 +5,7 @@ import java.util.List;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 
 /**
  * A probability mass function (abbreviated pmf) gives the probability that a
@@ -195,6 +196,6 @@ public interface IProbabilityMassFunction extends IProbabilityFunction {
 	 * @throws ProbabilitySumNotOneException
 	 *             Thrown if the sum of the samples probabilities is not one.
 	 */
-	void setSamples(List<ISample> samples);
+	void setSamples(List<ISample> samples) throws ProbabilitySumNotOneException;
 
 }
