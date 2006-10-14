@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainExcepti
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.SizeTooSmallException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
@@ -125,7 +126,10 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		return MathTools.transformComplexToDouble(values);
 	}
 
-	public void setValuesAsDouble(List<Double> values) {
+	public void setValuesAsDouble(List<Double> values) throws ProbabilitySumNotOneException {
+		if (!MathTools.equalsDouble(MathTools.sumOfDoubles(values),
+				1.0))
+			throw new ProbabilitySumNotOneException();		
 		this.values = MathTools.transformDoubleToComplex(values);
 	}
 
@@ -164,7 +168,12 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 
 	}
 
-	public void setValues(List<Complex> values, boolean isInFrequencyDomain) {
+	public void setValues(List<Complex> values, boolean isInFrequencyDomain)
+			throws ProbabilitySumNotOneException {
+		List<Double> valuesAsDouble = MathTools.transformComplexToDouble(values);
+		if (!MathTools.equalsDouble(MathTools.sumOfDoubles(valuesAsDouble),
+				1.0))
+			throw new ProbabilitySumNotOneException();		
 		this.values = values;
 		this.setInFrequencyDomain(isInFrequencyDomain);
 	}
@@ -176,7 +185,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 	public double drawSample() {
 		double result = 0.0;
 		List<Double> intervals = MathTools
-				.computeIntervalOfProb(getValuesAsDouble());
+				.computeIntervalsOfProb(getValuesAsDouble());
 
 		double random = Math.random();
 		for (int j = 0; j < intervals.size(); j++)
