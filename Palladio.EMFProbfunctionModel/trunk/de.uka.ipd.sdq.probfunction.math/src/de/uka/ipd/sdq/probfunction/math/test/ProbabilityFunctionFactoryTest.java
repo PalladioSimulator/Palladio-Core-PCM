@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.probfunction.math.test;
 
 import static org.junit.Assert.assertEquals;
@@ -14,6 +11,9 @@ import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+
+
+
 
 /**
  * @author Ihssane

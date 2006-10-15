@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.probfunction.math.visualization;
 
 import java.util.ArrayList;

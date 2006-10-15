@@ -105,7 +105,25 @@ public class MathTools {
 	 *         EPSILON_ERROR; false otherwise.
 	 */
 	public static boolean equalsDouble(double d1, double d2) {
-		return (Math.abs(d1 - d2) < EPSILON_ERROR);
+		boolean result = false;
+		if (d1 == Double.NaN && d2 == Double.NaN) {
+			result = true;
+		} else {
+			result = (Math.abs(d1 - d2) < EPSILON_ERROR);
+		}
+		return result;
+	}
+
+	public static boolean equalsComplex(Complex z1, Complex z2) {
+		boolean result = false;
+		if (z1.isNaN() && z2.isNaN()) {
+			result = true;
+		} else {
+			result = equalsDouble(z1.getReal(), z2.getReal())
+					&& equalsDouble(z1.getImag(), z2.getImag());
+		}
+		return result;
+
 	}
 
 	/**
@@ -203,5 +221,10 @@ public class MathTools {
 			}
 		};
 		return sComparator;
+	}
+
+	public static String asString(double val) {
+		double rVal = (double)Math.round(val * 1000) / 1000.0;
+		return Double.toString(rVal);
 	}
 }

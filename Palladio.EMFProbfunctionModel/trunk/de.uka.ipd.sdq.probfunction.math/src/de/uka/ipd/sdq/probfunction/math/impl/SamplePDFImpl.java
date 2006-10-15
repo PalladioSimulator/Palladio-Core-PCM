@@ -221,6 +221,68 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 	public int numberOfSamples() {
 		return values.size();
 	}
+	
+	
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		boolean result = false;
+		if (obj instanceof ISamplePDF){
+			ISamplePDF pdf = (ISamplePDF) obj;
+			if ((pdf.getDistance() == this.getDistance())){
+				List<Complex> v1 = values;
+				List<Complex> v2 = pdf.getValues();
+				if (v1.size() > v2.size()){
+					List<Complex> tmp = v2;
+					v2 = v1;
+					v1 = tmp;
+				}
+				Iterator<Complex> iter = v2.iterator();
+				result = true;
+				for (Complex z : v1) {
+					if (!MathTools.equalsComplex(iter.next(), z)){
+						result = false;
+						break;
+					}
+				}
+				while(iter.hasNext() && result){
+					if(!(MathTools.equalsComplex(iter.next(), new Complex(0,0)))){
+						result = false;
+					}
+				}
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		String result = "unit = " + getUnit().getUnitName() + "; ";
+		result += "distance = " + getDistance() + "; ";
+		result+= "samples: ";
+		boolean isFirst = true;
+		for (Complex z : values) {
+			if (isFirst){
+				isFirst = false;
+			} else {
+				result += ", ";
+			}
+			result += "("+ MathTools.asString(z.getReal())+", "+MathTools.asString(z.getImag()) + ")";
+		}
+		return result;
+	}
 
 	private List<Double> getValuesForDistance(double newDistance)
 			throws NegativeDistanceException, FunctionNotInTimeDomainException {
@@ -238,9 +300,11 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		int currentIndex = 0;
 		double buffer = 0.0;
 
-		ArrayList<Double> newValues = new ArrayList<Double>();
+		List<Double> newValues = new ArrayList<Double>();
 
-		if (newDistance < distance) {
+		if (MathTools.equalsDouble(newDistance, distance)){
+			newValues = getValuesAsDouble();
+		} else if (newDistance < distance) {
 			while (currentIndex < values.size()) {
 				if (newPoint < oldPoint) {
 					newValues.add(getProb(currentIndex, newDistance));
@@ -255,8 +319,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 				}
 				newPoint += newDistance;
 			}
-		}
-		if (newDistance > distance) {
+		} else if (newDistance > distance) {
 			while (currentIndex < values.size()) {
 				if (oldPoint < newPoint) {
 					buffer += values.get(currentIndex).getReal();

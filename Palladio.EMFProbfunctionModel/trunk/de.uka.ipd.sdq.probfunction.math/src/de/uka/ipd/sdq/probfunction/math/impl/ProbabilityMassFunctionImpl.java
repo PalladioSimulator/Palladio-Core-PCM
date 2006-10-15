@@ -160,6 +160,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 			throws ProbabilitySumNotOneException {
 		if (!MathTools.equalsDouble(MathTools.sumOfSamples(samples), 1.0))
 			throw new ProbabilitySumNotOneException();
+		
 		if (samples.size() > 1
 				&& samples.get(0).getValue() instanceof Comparable)
 			Collections.sort(samples, MathTools.getSampleComparator());
