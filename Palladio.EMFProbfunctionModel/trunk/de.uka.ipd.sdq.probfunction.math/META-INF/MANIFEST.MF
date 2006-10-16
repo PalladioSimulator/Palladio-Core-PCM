@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: probfunction; singleton:=true
+Bundle-SymbolicName: de.uka.ipd.sdq.probfunction.math;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .,
  js.jar,
@@ -24,5 +24,21 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.swt,
  com.ibm.icu,
  org.eclipse.ui,
- de.uka.ipd.sdq.probfunction
+ de.uka.ipd.sdq.probfunction,
+ org.eclipse.birt,
+ org.eclipse.birt.chart,
+ org.eclipse.birt.chart.cshelp,
+ org.eclipse.birt.chart.device.extension,
+ org.eclipse.birt.chart.device.pdf,
+ org.eclipse.birt.chart.device.svg,
+ org.eclipse.birt.chart.device.swt,
+ org.eclipse.birt.chart.engine,
+ org.eclipse.birt.chart.engine.extension,
+ org.eclipse.birt.chart.examples,
+ org.eclipse.birt.chart.reportitem,
+ org.eclipse.birt.chart.reportitem.ui,
+ org.eclipse.birt.chart.runtime,
+ org.eclipse.birt.chart.ui,
+ org.eclipse.birt.chart.ui.extension,
+ org.junit4
 Eclipse-LazyStart: true

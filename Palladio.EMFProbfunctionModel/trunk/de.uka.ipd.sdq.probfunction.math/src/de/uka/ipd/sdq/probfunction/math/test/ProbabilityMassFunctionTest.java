@@ -11,6 +11,7 @@ import org.junit.Test;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
+import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 
 public class ProbabilityMassFunctionTest {
@@ -34,14 +35,14 @@ public class ProbabilityMassFunctionTest {
 		u2 = createPMF(new Object[] { "dog", 0.2, "cat", 0.3, "pig", 0.4,
 				"cow", 0.1 }, false);
 
-		o1 = createPMF(new Object[] { 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.1 },
+			o1 = createPMF(new Object[] { 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4, 0.1 },
 				true);
+		o1same = createPMF(new Object[] { 0.1, 0.1, 0.2, 0.4, 0.3, 0.2, 0.4, 0.3 }, true);
+
 		o1extended = createPMF(new Object[] { 0.1, 0.2, 0.2, 0.3, 0.3, 0.4,
 				0.4, 0.1, 0.5, 0.0 }, true);
 		o1exDiffProbs = createPMF(new Object[] { 0.1, 0.1, 0.2, 0.15, 0.3,
 				0.25, 0.4, 0.3, 0.5, 0.1 }, true);
-		o1same = createPMF(new Object[] { 0.1, 0.1, 0.2, 0.4, 0.3, 0.2, 0.4,
-				0.3 }, true);
 		o2 = createPMF(new Object[] { 0.2, 0.2, 0.4, 0.3, 0.6, 0.4, 0.8, 0.1 },
 				true);
 	}
@@ -49,6 +50,8 @@ public class ProbabilityMassFunctionTest {
 	@Test 
 	public void testCreatePMF(){
 		Assert.assertEquals(4, o1.getSamples().size());
+		Assert.assertEquals(4, u1.getSamples().size());
+		Assert.assertEquals(5, u1extended.getSamples().size());
 	}
 
 	@Test
@@ -107,7 +110,73 @@ public class ProbabilityMassFunctionTest {
 	public void percentile() throws IndexOutOfBoundsException, UnorderedDomainException{
 		Assert.assertEquals(0.3, o1.getPercentile(50)); //??
 	}
+	
+	@Test
+	public void getMedian() throws UnorderedDomainException{
+		Assert.assertEquals(0.3, o1.getMedian());
+	}
+	
+	@Test
+	public void addSameDom() throws DifferentDomainsException{
+		IProbabilityMassFunction sum = o1.add(o1same);
+		IProbabilityMassFunction expected = createPMF(new Object[] { 0.1, 0.3, 0.2, 0.7, 0.3, 0.6, 0.4, 0.4 }, true);
+		Assert.assertEquals(expected, sum);
 
+		sum = u1.add(u1same);
+		expected = createPMF(new Object[] { 0.1, 0.3, 0.2, 0.7, 0.3, 0.6, 0.4, 0.4 }, true);
+		Assert.assertEquals(expected, sum);
+	}
+	
+	
+	@Test (expected=DifferentDomainsException.class)
+	public void addExtendedDomOrdered() throws DifferentDomainsException{
+		o1.add(o1extended);
+	}
+
+	@Test (expected=DifferentDomainsException.class)
+	public void addExtendedDomUnOrdered() throws DifferentDomainsException{
+		u1.add(u1extended);
+	}
+	
+	@Test (expected=DifferentDomainsException.class)
+	public void addOrderedUnOrdered() throws DifferentDomainsException{
+		o1.add(u1);
+	}
+	
+	@Test
+	public void multSameDom() throws DifferentDomainsException{
+		IProbabilityMassFunction sum = o1.add(o1same);
+		IProbabilityMassFunction expected = createPMF(new Object[] { 0.1, 0.02, 0.2, 0.12, 0.3, 0.08, 0.4, 0.03 }, true);
+		Assert.assertEquals(expected, sum);
+		
+		sum = u1.add(u1same);
+		Assert.assertEquals(expected, sum);
+	}
+	
+	@Test
+	public void scale() {
+		IProbabilityMassFunction result = u1.scale(0.1);
+		IProbabilityMassFunction expected = createPMF(new Object[] { "car", 0.01, "house", 0.05, "bike", 0.03, "street", 0.01 }, false);
+		Assert.assertEquals(expected, result);
+	}
+	
+	
+	@Test (expected=DifferentDomainsException.class)
+	public void multExtendedDomOrdered() throws DifferentDomainsException{
+		o1.add(o1extended);
+	}
+
+	@Test (expected=DifferentDomainsException.class)
+	public void multExtendedDomUnOrdered() throws DifferentDomainsException{
+		u1.add(u1extended);
+	}
+	
+	@Test (expected=DifferentDomainsException.class)
+	public void multOrderedUnOrdered() throws DifferentDomainsException{
+		o1.add(u1);
+	}	
+	
+	
 	private IProbabilityFunctionFactory dfFactory = IProbabilityFunctionFactory.eINSTANCE;
 
 	private IProbabilityMassFunction createPMF(Object[] samples,
