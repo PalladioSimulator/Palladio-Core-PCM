@@ -38,139 +38,104 @@ public class SamplePDFTest {
 	@Before
 	public void setUp() {
 		df1 = createSamplePDF(10, new Double[] { 0.1, 0.2, 0.4, 0.3 });
-		df2 = createSamplePDF(10, new Double[] { 0.0, 0.2, 0.1, 0.2, 0.3,
-				0.2 });
-		df3 = createSamplePDF(10, new Double[] { 0.0, 0.2, 0.05, 0.15,
-				0.3, 0.2, 0.07, 0.03, 0.0 });
+		df2 = createSamplePDF(10, new Double[] { 0.0, 0.2, 0.1, 0.2, 0.3, 0.2 });
+		df3 = createSamplePDF(10, new Double[] { 0.0, 0.2, 0.05, 0.15, 0.3,
+				0.2, 0.07, 0.03, 0.0 });
 	}
 
 	@Test
-	public void timeDomain() {
-		try {
-			Assert.assertTrue(df1.isInTimeDomain());
-			Assert.assertTrue(df2.isInTimeDomain());
-			Assert.assertFalse(df1.isInFrequencyDomain());
-			IProbabilityDensityFunction pdf = df1.getFourierTransform();
-			Assert.assertFalse(pdf.isInTimeDomain());
-			Assert.assertTrue(pdf.isInFrequencyDomain());
-		} catch (FunctionNotInTimeDomainException e) {
-			e.printStackTrace();
-			Assert.assertFalse(true);
-		}
+	public void timeDomain() throws FunctionNotInTimeDomainException {
+		Assert.assertTrue(df1.isInTimeDomain());
+		Assert.assertTrue(df2.isInTimeDomain());
+		Assert.assertFalse(df1.isInFrequencyDomain());
+		IProbabilityDensityFunction pdf = df1.getFourierTransform();
+		Assert.assertFalse(pdf.isInTimeDomain());
+		Assert.assertTrue(pdf.isInFrequencyDomain());
 	}
 
 	@Test
 	public void equals() {
 		Assert.assertTrue(df1.equals(df1));
 
-		ISamplePDF df1copy = createSamplePDF(10, new Double[] { 0.1, 0.2,
-				0.4, 0.3 });
+		ISamplePDF df1copy = createSamplePDF(10, new Double[] { 0.1, 0.2, 0.4,
+				0.3 });
 		Assert.assertTrue(df1.equals(df1copy));
 
 		ISamplePDF df1LongCopy = createSamplePDF(10, new Double[] { 0.1, 0.2,
 				0.4, 0.3, 0.0 });
 		Assert.assertTrue(df1.equals(df1LongCopy));
-		
-		ISamplePDF df1LongWrongCopy = createSamplePDF(10, new Double[] { 0.1, 0.2,
-				0.4, 0.3, 0.0,0.01 });
+
+		ISamplePDF df1LongWrongCopy = createSamplePDF(10, new Double[] { 0.1,
+				0.2, 0.4, 0.3, 0.0, 0.01 });
 		Assert.assertFalse(df1.equals(df1LongWrongCopy));
 
 		Assert.assertFalse(df2.equals(df1));
-		ISamplePDF df1WrongCopy = createSamplePDF(10, new Double[] { 0.2,
-				0.1, 0.4, 0.3 });
+		ISamplePDF df1WrongCopy = createSamplePDF(10, new Double[] { 0.2, 0.1,
+				0.4, 0.3 });
 		Assert.assertFalse(df1.equals(df1WrongCopy));
 	}
 
 	@Test
 	public void scale() {
 		IProbabilityDensityFunction df1scale = df1.scale(0.1);
-		ISamplePDF spdf = createSamplePDF(10, new Double[] { 0.01, 0.02,
-				0.04, 0.03 });
+		ISamplePDF spdf = createSamplePDF(10, new Double[] { 0.01, 0.02, 0.04,
+				0.03 });
 		Assert.assertEquals(spdf, df1scale);
 	}
 
 	@Test
-	public void adjustDistance() {
-		try {
-			ISamplePDF pdf = df1.getFunctionWithNewDistance(10.0);
-			Assert.assertEquals(df1, pdf);			
-			
-			pdf = df1.getFunctionWithNewDistance(5.0);
-			ISamplePDF expected = createSamplePDF(5, new Double[] { 0.05,
-					0.05, 0.1, 0.1, 0.2, 0.2, 0.15, 0.15 });
-			Assert.assertEquals(expected, pdf);
+	public void adjustDistance() throws NegativeDistanceException,
+			FunctionNotInTimeDomainException {
+		ISamplePDF pdf = df1.getFunctionWithNewDistance(10.0);
+		Assert.assertEquals(df1, pdf);
 
-			pdf = df1.getFunctionWithNewDistance(7.0);
-			expected = createSamplePDF(7, new Double[] { 0.07, 0.11,
-					0.16, 0.28, 0.23, 0.15 });
-			Assert.assertEquals(expected, pdf);
-			
-			pdf = df1.getFunctionWithNewDistance(15.0);
-			expected = createSamplePDF(15, new Double[] { 0.2, 0.5,
-					0.3 });
-			Assert.assertEquals(expected, pdf);
-			
-			pdf = df1.getFunctionWithNewDistance(13.0);
-			expected = createSamplePDF(13, new Double[] { 0.16, 0.38,
-					0.43, 0.03 });
-			Assert.assertEquals(expected, pdf);
-		} catch (NegativeDistanceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FunctionNotInTimeDomainException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		pdf = df1.getFunctionWithNewDistance(5.0);
+		ISamplePDF expected = createSamplePDF(5, new Double[] { 0.05, 0.05,
+				0.1, 0.1, 0.2, 0.2, 0.15, 0.15 });
+		Assert.assertEquals(expected, pdf);
+
+		pdf = df1.getFunctionWithNewDistance(7.0);
+		expected = createSamplePDF(7, new Double[] { 0.07, 0.11, 0.16, 0.28,
+				0.23, 0.15 });
+		Assert.assertEquals(expected, pdf);
+
+		pdf = df1.getFunctionWithNewDistance(15.0);
+		expected = createSamplePDF(15, new Double[] { 0.2, 0.5, 0.3 });
+		Assert.assertEquals(expected, pdf);
+
+		pdf = df1.getFunctionWithNewDistance(13.0);
+		expected = createSamplePDF(13, new Double[] { 0.16, 0.38, 0.43, 0.03 });
+		Assert.assertEquals(expected, pdf);
 	}
 
 	@Test
-	public void add() {
-		try {
-			IProbabilityDensityFunction sum = df1.add(df1);
-			ISamplePDF sumExpected = createSamplePDF(10, new Double[] {
-					0.2, 0.4, 0.8, 0.6 });
-			Assert.assertEquals(sumExpected, sum);
+	public void add() throws FunctionsInDifferenDomainsException,
+			UnknownPDFTypeException, IncompatibleUnitsException {
+		IProbabilityDensityFunction sum = df1.add(df1);
+		ISamplePDF sumExpected = createSamplePDF(10, new Double[] { 0.2, 0.4,
+				0.8, 0.6 });
+		Assert.assertEquals(sumExpected, sum);
 
-			sum = df1.add(df3);
-			sumExpected = createSamplePDF(10, new Double[] { 0.1, 0.4,
-					0.45, 0.45, 0.3, 0.2, 0.07, 0.03, 0.0 });
-			Assert.assertEquals(sumExpected, sum);
+		sum = df1.add(df3);
+		sumExpected = createSamplePDF(10, new Double[] { 0.1, 0.4, 0.45, 0.45,
+				0.3, 0.2, 0.07, 0.03, 0.0 });
+		Assert.assertEquals(sumExpected, sum);
 
-			ISamplePDF pdf = createSamplePDF(5, new Double[] { 0.05,
-					0.05, 0.1, 0.1, 0.2, 0.2, 0.15, 0.15 });
-			sum = df1.add(pdf);
-			sumExpected = createSamplePDF(5, new Double[] { 0.1, 0.1,
-					0.2, 0.2, 0.4, 0.4, 0.3, 0.3 });
-			Assert.assertEquals(sumExpected, sum);
-		} catch (FunctionsInDifferenDomainsException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnknownPDFTypeException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IncompatibleUnitsException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ISamplePDF pdf = createSamplePDF(5, new Double[] { 0.05, 0.05, 0.1,
+				0.1, 0.2, 0.2, 0.15, 0.15 });
+		sum = df1.add(pdf);
+		sumExpected = createSamplePDF(5, new Double[] { 0.1, 0.1, 0.2, 0.2,
+				0.4, 0.4, 0.3, 0.3 });
+		Assert.assertEquals(sumExpected, sum);
 	}
-	
+
 	@Test
-	public void mult(){
-		try {
-			IProbabilityDensityFunction prod = df1.mult(df1);
-			ISamplePDF expected = createSamplePDF(10, new Double[] {
-					0.01, 0.04, 0.16, 0.09 });
-			Assert.assertEquals(expected, prod);
-		} catch (FunctionsInDifferenDomainsException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnknownPDFTypeException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IncompatibleUnitsException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void mult() throws FunctionsInDifferenDomainsException,
+			UnknownPDFTypeException, IncompatibleUnitsException {
+		IProbabilityDensityFunction prod = df1.mult(df1);
+		ISamplePDF expected = createSamplePDF(10, new Double[] { 0.01, 0.04,
+				0.16, 0.09 });
+		Assert.assertEquals(expected, prod);
 	}
 
 	public static junit.framework.Test suite() {
