@@ -88,7 +88,7 @@ public class SeffSwitchDSolver extends SeffSwitch {
 	public SeffSwitchDSolver(PCMInstance inst, Context callContext) {
 		pcmInstance = inst;
 		myContext = callContext;
-		buildChainOfResponsibility();
+		handler = AbstractHandler.createHandler(this);
 	}
 
 	/* (non-Javadoc)
@@ -137,7 +137,7 @@ public class SeffSwitchDSolver extends SeffSwitch {
 	 */
 	@Override
 	public Object caseInternalAction(InternalAction action) {
-		return caseDefaultWithHandle(action);
+		return caseDefault(action);
 	}
 
 	/* (non-Javadoc)
@@ -145,7 +145,7 @@ public class SeffSwitchDSolver extends SeffSwitch {
 	 */
 	@Override
 	public Object caseBranchAction(BranchAction branch) {
-		return caseDefaultWithHandle(branch);
+		return caseDefault(branch);
 	}
 
 	/* (non-Javadoc)
@@ -153,23 +153,23 @@ public class SeffSwitchDSolver extends SeffSwitch {
 	 */
 	@Override
 	public Object caseLoopAction(LoopAction loop) {
-		return caseDefaultWithHandle(loop);
+		return caseDefault(loop);
 	}
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcm.seff.util.SeffSwitch#caseAquireAction(de.uka.ipd.sdq.pcm.seff.AquireAction)
 	 */
 	@Override
-	public Object caseAquireAction(AquireAction object) {
-		return caseDefault(object);
+	public Object caseAquireAction(AquireAction acquire) {
+		return caseDefault(acquire);
 	}
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcm.seff.util.SeffSwitch#caseReleaseAction(de.uka.ipd.sdq.pcm.seff.ReleaseAction)
 	 */
 	@Override
-	public Object caseReleaseAction(ReleaseAction object) {
-		return caseDefault(object);
+	public Object caseReleaseAction(ReleaseAction release) {
+		return caseDefault(release);
 	}
 
 	/* (non-Javadoc)
@@ -179,7 +179,7 @@ public class SeffSwitchDSolver extends SeffSwitch {
 	public Object caseExternalCallAction(ExternalCallAction call) {
 		logger.debug("Calling "
 				+ call.getCalledService_ExternalService().getServiceName());
-		return caseDefaultWithHandle(call);
+		return caseDefault(call);
 	}
 
 	/**
@@ -188,30 +188,15 @@ public class SeffSwitchDSolver extends SeffSwitch {
 	 */
 	private Object caseDefault(AbstractAction object) {
 		logger.debug("Visit"+object.getClass().getSimpleName());
-		doSwitch(object.getSuccessor_AbstractAction());
-		return object;
-	}
 
-	/**
-	 * @param object
-	 * @return
-	 */
-	private Object caseDefaultWithHandle(AbstractAction object) {
+		// solve the dependencies for a particular type of action
+		// (invokes chain of responsibility of handlers)
 		handler.handle(object);
-		return caseDefault(object);
-	}
-	
-	/**
-	 * Builds up a chain of responsibility for the handlers of 
-	 * single actions. (See Gamma et. al.). 
-	 */
-	private void buildChainOfResponsibility() {
-		ExternalCallActionHandler ech = new ExternalCallActionHandler(
-				pcmInstance, myContext, null);
-		InternalActionHandler iah = new InternalActionHandler(myContext, ech);
-		BranchActionHandler bah = new BranchActionHandler(myContext, this, iah);
-		LoopActionHandler lah = new LoopActionHandler(myContext, this, bah);
-		handler = lah;
+		
+		// visit the following action 
+		doSwitch(object.getSuccessor_AbstractAction());
+		
+		return object;
 	}
 
 	/**
@@ -234,6 +219,22 @@ public class SeffSwitchDSolver extends SeffSwitch {
 		StartAction startAction = (StartAction) EMFHelper.getObjectByType(
 				behaviour.getSteps_Behaviour(), StartAction.class);
 		return startAction;
+	}
+
+	public Context getMyContext() {
+		return myContext;
+	}
+
+	public void setMyContext(Context myContext) {
+		this.myContext = myContext;
+	}
+
+	public PCMInstance getPcmInstance() {
+		return pcmInstance;
+	}
+
+	public void setPcmInstance(PCMInstance pcmInstance) {
+		this.pcmInstance = pcmInstance;
 	}
 	
 }

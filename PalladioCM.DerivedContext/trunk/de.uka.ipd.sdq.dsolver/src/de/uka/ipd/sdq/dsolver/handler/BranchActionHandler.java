@@ -17,6 +17,9 @@ import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.dsolver.visitors.SeffSwitchDSolver;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations;
+import de.uka.ipd.sdq.pcm.core.stochastics.DoubleLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.BranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -78,8 +81,25 @@ public class BranchActionHandler extends AbstractHandler {
 			myContext.getCurrentEvaluatedBranchConditions()
 					.add(branchCondition);
 
-			// CompareExpression exp = parseBranchCondition(branchCondition);
-			// Term left = exp.getLeft();
+//			CompareExpression exp = parseBranchCondition(branchCondition);
+
+			
+//			CompareOperations op = exp.getOperation();
+//			if (op.getValue() == CompareOperations.LESS) {
+//				int foo = 0;
+//				double bar = 0.0;
+//				if (exp.getLeft() instanceof IntLiteral) {
+//					foo = ((IntLiteral) exp.getLeft()).getValue();
+//				}
+//				if (exp.getRight() instanceof DoubleLiteral) {
+//					bar = ((DoubleLiteral) exp.getRight()).getValue();
+//				}
+//				if (foo < bar) {
+//					prob.setProbability(1.0);
+//				} else {
+//					prob.setProbability(0.0);
+//				}
+//			}
 
 			// TODO: solve dependency
 			prob.setBranchtransition_BranchProbability(bt);

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_PidLEDRCEduaPaOP6VcQiw" entityName="">
+  <systemProvidedRole_System id="_P1rCADRCEduaPaOP6VcQiw" entityName="System_FirstInterface" providedDelegationConnector_SystemProvidedRole="//@providedDelegationConnector_System.0">
+    <interface_SystemProvidedRole href="DSolverExample1.repository#_iu2OpTQaEduaPaOP6VcQiw"/>
+  </systemProvidedRole_System>
+  <assembly_System href="DSolverExample1.assembly#_S7wbEDZkEduqqrLaEKboKw"/>
+  <providedDelegationConnector_System systemProvidedRole_SystemProvidedDelegationConnector="_P1rCADRCEduaPaOP6VcQiw">
+    <assemblyContext_SystemProvidedDelegationConnector href="DSolverExample1.assembly#_SQdT8FOzEduoe89HJlp_NQ"/>
+    <componentProvidedRole_SystemProvidedDelegationConnector href="DSolverExample1.repository#_sTcKUDQaEduaPaOP6VcQiw"/>
+  </providedDelegationConnector_System>
+  <allocation_System href="DSolverExample1.allocation#_bF9YMDZrEduqqrLaEKboKw"/>
+</pcm.system:System>

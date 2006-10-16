@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.core.stochastics="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Stochastics/1.0" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+<?xml version="1.0" encoding="ASCII"?>
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_empqNDQaEduaPaOP6VcQiw" entityName="FirstComponent">
     <providedRoles__ProvidesComponentType id="_sTcKUDQaEduaPaOP6VcQiw" entityName="ProvidedRoleComponent1" providedInterface__ProvidedRole="_iu2OpTQaEduaPaOP6VcQiw"/>
     <requiredRoles_ProvidesComponentType id="_vyqDMTQaEduaPaOP6VcQiw" entityName="RequiredRoleComponent1" requiredInterface__RequiredRole="_pIeqNDQaEduaPaOP6VcQiw"/>
@@ -10,7 +10,7 @@
         <branches_Branch branchCondition="=3&lt;3.5">
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_kQ73ATQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_lwvc5jQbEduaPaOP6VcQiw"/>
-            <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_lwvc5jQbEduaPaOP6VcQiw" entityName="ExternalCalling" predecessor_AbstractAction="_kQ73ATQbEduaPaOP6VcQiw" successor_AbstractAction="_mIlVIDQbEduaPaOP6VcQiw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0"/>
+            <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_lwvc5jQbEduaPaOP6VcQiw" entityName="ExternalCalling" predecessor_AbstractAction="_kQ73ATQbEduaPaOP6VcQiw" successor_AbstractAction="_mIlVIDQbEduaPaOP6VcQiw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0" parametricParameterUsage_ParametricParameterUsage="//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@parametricParameterUsage_Behaviour.0"/>
             <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_mIlVIDQbEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_lwvc5jQbEduaPaOP6VcQiw"/>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
@@ -23,9 +23,9 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_dy1LIDQbEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_a5KPVzQbEduaPaOP6VcQiw"/>
       <parametricResourceDemands_Behaviour demand="1000" unit="CPU cycles" action_ParametricResourceDemand="_Z92dpDQbEduaPaOP6VcQiw">
-        <specification_RandomVariable xsi:type="pcm.core.stochastics:IntLiteral" value="10"/>
         <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
       </parametricResourceDemands_Behaviour>
+      <parametricParameterUsage_Behaviour xsi:type="pcm.seff:PrimitiveParametricParameterUsage" specification="=priml_param&lt;number;VALUE>" characterisedParameter_ParametricParameterUsage="//@interfaces__Repository.1/@signatures__Interface.0/@parameters__Signature.0"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_hj5edDQaEduaPaOP6VcQiw" entityName="SecondComponent">

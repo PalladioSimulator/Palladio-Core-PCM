@@ -80,7 +80,7 @@ public class LoopActionHandler extends AbstractHandler {
 		String iterations = loop.getIterations();
 		RandomVariable rv = stochasticsFactory.createRandomVariable();
 		
-		Expression expr = parseLoopIterations(iterations);
+		//Expression expr = parseLoopIterations(iterations);
 		//ProbabilityDistributionFunction pdf = convert(expr);
 		
 		rv.setSpecification(iterations); // TODO: fix here

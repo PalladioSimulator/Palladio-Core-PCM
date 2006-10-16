@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<pcm.allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_bF9YMDZrEduqqrLaEKboKw" entityName="Allocation_DSolverExample1">
+  <allocationContexts>
+    <referencedAssemblyContext_AllocationContext href="DSolverExample1.assembly#_SQdT8FOzEduoe89HJlp_NQ"/>
+    <resourceContainer_AllocationContext href="DSolverExample1.resourceenvironment#_oEjdUDRBEduaPaOP6VcQiw"/>
+  </allocationContexts>
+  <allocationContexts>
+    <referencedAssemblyContext_AllocationContext href="DSolverExample1.assembly#_gGZHsFeSEduN2olq57y0Gw"/>
+    <resourceContainer_AllocationContext href="DSolverExample1.resourceenvironment#_oEjdUDRBEduaPaOP6VcQiw"/>
+  </allocationContexts>
+</pcm.allocation:Allocation>
