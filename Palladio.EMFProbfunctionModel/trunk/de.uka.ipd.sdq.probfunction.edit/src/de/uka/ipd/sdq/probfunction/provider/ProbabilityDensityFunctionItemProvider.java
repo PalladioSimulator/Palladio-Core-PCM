@@ -36,13 +36,6 @@ public class ProbabilityDensityFunctionItemProvider
 		IItemLabelProvider,	
 		IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright by SDQ U Karlsruhe (TH) 2006";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

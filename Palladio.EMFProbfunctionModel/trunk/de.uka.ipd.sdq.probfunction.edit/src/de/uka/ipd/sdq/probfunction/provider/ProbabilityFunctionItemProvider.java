@@ -7,16 +7,12 @@
 package de.uka.ipd.sdq.probfunction.provider;
 
 
-import de.uka.ipd.sdq.probfunction.probfunctionPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,6 +20,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.probfunction.ProbabilityFunction} object.
@@ -39,13 +37,6 @@ public class ProbabilityFunctionItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright by SDQ U Karlsruhe (TH) 2006";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,7 +75,7 @@ public class ProbabilityFunctionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ProbabilityFunction_unit_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ProbabilityFunction_unit_feature", "_UI_ProbabilityFunction_type"),
-				 probfunctionPackage.Literals.PROBABILITY_FUNCTION__UNIT,
+				 ProbfunctionPackage.Literals.PROBABILITY_FUNCTION__UNIT,
 				 true,
 				 false,
 				 true,

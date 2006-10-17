@@ -7,17 +7,12 @@
 package de.uka.ipd.sdq.probfunction.provider;
 
 
-import de.uka.ipd.sdq.probfunction.ContinuousSample;
-import de.uka.ipd.sdq.probfunction.probfunctionPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,6 +22,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.probfunction.ContinuousSample} object.
@@ -42,13 +40,6 @@ public class ContinuousSampleItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright by SDQ U Karlsruhe (TH) 2006";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -88,7 +79,7 @@ public class ContinuousSampleItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ContinuousSample_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ContinuousSample_value_feature", "_UI_ContinuousSample_type"),
-				 probfunctionPackage.Literals.CONTINUOUS_SAMPLE__VALUE,
+				 ProbfunctionPackage.Literals.CONTINUOUS_SAMPLE__VALUE,
 				 true,
 				 false,
 				 false,
@@ -110,7 +101,7 @@ public class ContinuousSampleItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ContinuousSample_probability_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ContinuousSample_probability_feature", "_UI_ContinuousSample_type"),
-				 probfunctionPackage.Literals.CONTINUOUS_SAMPLE__PROBABILITY,
+				 ProbfunctionPackage.Literals.CONTINUOUS_SAMPLE__PROBABILITY,
 				 true,
 				 false,
 				 false,
@@ -151,8 +142,8 @@ public class ContinuousSampleItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ContinuousSample.class)) {
-			case probfunctionPackage.CONTINUOUS_SAMPLE__VALUE:
-			case probfunctionPackage.CONTINUOUS_SAMPLE__PROBABILITY:
+			case ProbfunctionPackage.CONTINUOUS_SAMPLE__VALUE:
+			case ProbfunctionPackage.CONTINUOUS_SAMPLE__PROBABILITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

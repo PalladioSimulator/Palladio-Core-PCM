@@ -18,13 +18,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
  */
 public final class ProbabilityFunctionEditPlugin extends EMFPlugin {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright by SDQ U Karlsruhe (TH) 2006";
-
-	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

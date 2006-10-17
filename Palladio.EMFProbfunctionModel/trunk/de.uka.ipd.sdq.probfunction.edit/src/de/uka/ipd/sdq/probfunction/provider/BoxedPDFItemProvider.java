@@ -7,24 +7,22 @@
 package de.uka.ipd.sdq.probfunction.provider;
 
 
-import de.uka.ipd.sdq.probfunction.BoxedPDF;
-import de.uka.ipd.sdq.probfunction.probfunctionFactory;
-import de.uka.ipd.sdq.probfunction.probfunctionPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.probfunction.BoxedPDF} object.
@@ -40,13 +38,6 @@ public class BoxedPDFItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright by SDQ U Karlsruhe (TH) 2006";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -82,7 +73,7 @@ public class BoxedPDFItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(probfunctionPackage.Literals.BOXED_PDF__SAMPLES);
+			childrenFeatures.add(ProbfunctionPackage.Literals.BOXED_PDF__SAMPLES);
 		}
 		return childrenFeatures;
 	}
@@ -118,7 +109,7 @@ public class BoxedPDFItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BoxedPDF.class)) {
-			case probfunctionPackage.BOXED_PDF__SAMPLES:
+			case ProbfunctionPackage.BOXED_PDF__SAMPLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -137,8 +128,8 @@ public class BoxedPDFItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(probfunctionPackage.Literals.BOXED_PDF__SAMPLES,
-				 probfunctionFactory.eINSTANCE.createContinuousSample()));
+				(ProbfunctionPackage.Literals.BOXED_PDF__SAMPLES,
+				 ProbfunctionFactory.eINSTANCE.createContinuousSample()));
 	}
 
 	/**
