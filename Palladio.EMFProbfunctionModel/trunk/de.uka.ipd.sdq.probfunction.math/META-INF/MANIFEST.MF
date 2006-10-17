@@ -4,23 +4,13 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.probfunction.math;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .,
- js.jar,
- org.eclipse.birt.chart_2.1.0.N20060628-1351.jar,
- org.eclipse.birt.chart.device.extension_2.1.0.N20060628-1351.jar,
- org.eclipse.birt.chart.device.pdf_2.1.0.N20060628-1351.jar,
- org.eclipse.birt.chart.device.swt_2.1.0.N20060628-1351.jar,
- org.eclipse.birt.chart.engine_2.1.0.N20060628-1351.jar,
- org.eclipse.birt.chart.engine.extension_2.1.0.N20060628-1351.jar,
- org.eclipse.birt.chart.ui_2.1.0.N20060628-1351.jar,
- org.eclipse.birt.chart.ui.extension_2.1.0.N20060628-1351.jar,
- org.eclipse.birt.core_2.1.0.N20060628-1351.jar,
- org.eclipse.birt.core.ui_2.1.0.N20060628-1351.jar,
  lib/flanagan.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: de.uka.ipd.sdq.probfunction.math,
+ de.uka.ipd.sdq.probfunction.math.exception,
  de.uka.ipd.sdq.probfunction.math.util,
- de.uka.ipd.sdq.probfunction.math.exception
+ flanagan.complex
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.swt,
