@@ -13,7 +13,7 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://sdq.ipd.uka.de/ProbFunction/1.0" 
-       class = "de.uka.ipd.sdq.probfunction.probfunctionPackage"
+       class = "de.uka.ipd.sdq.probfunction.ProbfunctionPackage"
        genModel = "model/ProbabilityFunction.genmodel" /> 
   </extension>
 
