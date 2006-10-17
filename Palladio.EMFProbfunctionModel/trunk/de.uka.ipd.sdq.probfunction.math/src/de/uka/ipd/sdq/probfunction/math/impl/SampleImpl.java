@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.probfunction.math.impl;
 
 import de.uka.ipd.sdq.probfunction.math.ISample;
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 
 /**
  * @author Ihssane
@@ -24,7 +25,6 @@ public class SampleImpl implements ISample {
 		this.value = value;
 	}
 
-
 	public double getProbability() {
 		return probability;
 	}
@@ -39,6 +39,16 @@ public class SampleImpl implements ISample {
 
 	public void setValue(Object value) {
 		this.value = value;
+	}
+
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		return this.getValue().equals(((ISample) obj).getValue())
+				&& MathTools.equalsDouble(this.getProbability(),
+						((ISample) obj).getProbability());
 	}
 
 }
