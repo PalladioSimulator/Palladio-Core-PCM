@@ -20,14 +20,7 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://sdq.ipd.uka.de/Analytical/Resources/1.0" 
-       class = "de.uka.ipd.sdq.spa.resource.ResourcePackage"
-       genModel = "model/StochasticProcessAlgebra.genmodel" /> 
-  </extension>
-
-  <extension point="org.eclipse.emf.ecore.generated_package">
-    <package 
-       uri = "http://sdq.ipd.uka.de/Analytical/System/1.0" 
-       class = "de.uka.ipd.sdq.spa.system.SystemPackage"
+       class = "de.uka.ipd.sdq.spa.environment.EnvironmentPackage"
        genModel = "model/StochasticProcessAlgebra.genmodel" /> 
   </extension>
 
