@@ -11,3 +11,4 @@ plugin@de.uka.ipd.sdq.pcm.gmf.repository=COPY,c:/temp/testpcm,build/src/svn_chec
 feature@de.uka.ipd.sdq.probfunction.feature=COPY,c:/temp/testpcm,build/src/svn_checkout/ProbFunction/de.uka.ipd.sdq.probfunction.feature
 plugin@de.uka.ipd.sdq.probfunction=COPY,c:/temp/testpcm,build/src/svn_checkout/ProbFunction/de.uka.ipd.sdq.probfunction
 plugin@de.uka.ipd.sdq.probfunction.edit=COPY,c:/temp/testpcm,build/src/svn_checkout/ProbFunction/de.uka.ipd.sdq.probfunction.edit
+plugin@de.uka.ipd.sdq.probfunction.math=COPY,c:/temp/testpcm,build/src/svn_checkout/ProbFunction/de.uka.ipd.sdq.probfunction.math
