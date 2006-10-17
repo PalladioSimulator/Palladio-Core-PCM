@@ -25,6 +25,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 			IProbabilityMassFunction {
 
 	private List<ISample> samples;
+	private boolean isOrderSet;
 
 	private enum Operation {
 		ADD, SUB, MULT, DIV
@@ -34,10 +35,13 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		samples = new ArrayList<ISample>();
 	}
 
-	protected ProbabilityMassFunctionImpl(List<ISample> samples) {
+	protected ProbabilityMassFunctionImpl(List<ISample> samples,
+			boolean isOrderSet) {
 		this.samples = samples;
+		this.isOrderSet = isOrderSet;
 	}
-	private static IProbabilityMassFunction performOperation(Operation op,
+
+	private IProbabilityMassFunction performOperation(Operation op,
 			IProbabilityMassFunction pmf1, IProbabilityMassFunction pmf2) {
 		List<ISample> resultList = new ArrayList<ISample>();
 
@@ -64,7 +68,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 			}
 			resultList.add(pfFactory.createSample(s1.getValue(), result));
 		}
-		return pfFactory.createProbabilityMassFunction(resultList, false);
+		return pfFactory.createProbabilityMassFunction(resultList, isOrderSet);
 	}
 
 	public IProbabilityMassFunction add(IProbabilityMassFunction pmf)
@@ -126,10 +130,11 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		Collections.sort(values2, MathTools.getSampleComparator());
 
 		boolean result = true;
-		Iterator iterator = values2.iterator();
-		for (Object o : values1)
-			if (!o.equals(iterator.next()))
+		Iterator<ISample> iterator = values2.iterator();
+		for (ISample o : values1) {
+			if (!o.getValue().equals((iterator.next().getValue())))
 				result = false;
+		}
 
 		return result;
 	}
@@ -160,7 +165,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 			throws ProbabilitySumNotOneException {
 		if (!MathTools.equalsDouble(MathTools.sumOfSamples(samples), 1.0))
 			throw new ProbabilitySumNotOneException();
-		
+
 		if (samples.size() > 1
 				&& samples.get(0).getValue() instanceof Comparable)
 			Collections.sort(samples, MathTools.getSampleComparator());
@@ -175,19 +180,19 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		return getPercentile(50);
 	}
 
-	public Object getPercentile(int p) throws IndexOutOfBoundsException, UnorderedDomainException {
+	public Object getPercentile(int p) throws IndexOutOfBoundsException,
+			UnorderedDomainException {
 		if (!hasOrderedDomain())
 			throw new UnorderedDomainException();
 		if (p < 0 || p > 100)
 			throw new IndexOutOfBoundsException();
 
-		int rank = (int) Math.round((p * (samples.size() + 1.0)) / 100.0);
-		return samples.get(rank);
+		int rank = (int) Math.floor((p * (samples.size() + 1.0)) / 100.0);
+		return samples.get(rank).getValue();
 	}
 
 	public boolean hasOrderedDomain() {
-		// TODO Auto-generated method stub
-		return false;
+		return isOrderSet;
 	}
 
 	public boolean isInFrequencyDomain() {
@@ -219,6 +224,26 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		for (ISample s : samples)
 			prob.add(s.getProbability());
 		return prob;
+	}
+
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (((IProbabilityMassFunction) obj).getSamples().size() != this.samples
+				.size())
+			return false;
+
+		boolean result = true;
+		Iterator<ISample> iterator = ((IProbabilityMassFunction) obj)
+				.getSamples().iterator();
+		for (ISample o : this.getSamples()) {
+			if (!o.equals(iterator.next()))
+				result = false;
+		}
+
+		return result;
 	}
 
 }
