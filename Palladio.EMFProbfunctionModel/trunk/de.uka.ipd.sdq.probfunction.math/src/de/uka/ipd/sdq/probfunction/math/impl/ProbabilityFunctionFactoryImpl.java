@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.Unit;
-import de.uka.ipd.sdq.probfunction.probfunctionFactory;
+import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
@@ -37,7 +37,7 @@ public class ProbabilityFunctionFactoryImpl
 			IProbabilityFunctionFactory {
 
 	public static final String DEFAULT_UNIT_NAME = "ms";
-	private probfunctionFactory eFactory = probfunctionFactory.eINSTANCE;
+	private ProbfunctionFactory eFactory = ProbfunctionFactory.eINSTANCE;
 	private static final IProbabilityFunctionFactory factoryInstance = new ProbabilityFunctionFactoryImpl();
 
 	private ProbabilityFunctionFactoryImpl() {
