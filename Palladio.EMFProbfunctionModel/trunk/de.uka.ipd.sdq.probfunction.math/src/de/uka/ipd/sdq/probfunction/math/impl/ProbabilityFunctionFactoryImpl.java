@@ -113,7 +113,7 @@ public class ProbabilityFunctionFactoryImpl
 
 	public IProbabilityMassFunction createProbabilityMassFunction(
 			List<ISample> samples, boolean isOrderedSet) {
-		return new ProbabilityMassFunctionImpl();
+		return new ProbabilityMassFunctionImpl(samples, isOrderedSet);
 	}
 
 	public ISample createSample(Object value, double probability) {
