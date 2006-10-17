@@ -5,43 +5,51 @@
     nsURI="http://sdq.ipd.uka.de/StochasticProcessAlgebra/1.0" nsPrefix="spa">
   <eSubpackages name="expression" nsURI="http://sdq.ipd.uka.de/Analytical/Expression/1.0"
       nsPrefix="spa.expression">
-    <eClassifiers xsi:type="ecore:EClass" name="Terminal" eSuperTypes="#//expression/RegularExpression"/>
-    <eClassifiers xsi:type="ecore:EClass" name="RegularExpression" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Terminal" abstract="true" eSuperTypes="#//expression/Expression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="Symbol" eSuperTypes="#//expression/Terminal">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="inputValue" eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityDensityFunction"
-          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="demand" upperBound="-1"
+          eType="#//expression/ResourceDemand" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemand">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pdf" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityDensityFunction"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+          eType="#//environment/ProcessingResource"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Sleep" eSuperTypes="#//expression/Terminal">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="inputVal" eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityDensityFunction"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pdf" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityDensityFunction"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Sequence" eSuperTypes="#//expression/Operation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="leftRegExp" lowerBound="1"
-          eType="#//expression/RegularExpression" containment="true"/>
+          eType="#//expression/Expression" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rightRegExp" lowerBound="1"
-          eType="#//expression/RegularExpression" containment="true"/>
+          eType="#//expression/Expression" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//expression/RegularExpression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//expression/Expression"/>
     <eClassifiers xsi:type="ecore:EClass" name="Release" eSuperTypes="#//expression/Terminal">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//resource/Resource"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+          eType="#//environment/PassiveResource"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Parallel" eSuperTypes="#//expression/Operation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="leftTask" eType="#//expression/RegularExpression"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="leftTask" eType="#//expression/Expression"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rightTask" eType="#//expression/RegularExpression"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rightTask" eType="#//expression/Expression"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Option">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="regexp" lowerBound="1"
-          eType="#//expression/RegularExpression" containment="true"/>
+          eType="#//expression/Expression" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//expression/Operation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="regExp" lowerBound="1"
-          eType="#//expression/RegularExpression" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="iterations" eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityMassFunction"
+          eType="#//expression/Expression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iterations" lowerBound="1"
+          eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityMassFunction"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Alternative" eSuperTypes="#//expression/Operation">
@@ -51,33 +59,31 @@
           eType="#//expression/Option" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Acquire" eSuperTypes="#//expression/Terminal">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//resource/Resource"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+          eType="#//environment/PassiveResource"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="resource" nsURI="http://sdq.ipd.uka.de/Analytical/Resources/1.0"
-      nsPrefix="spa.resource">
-    <eClassifiers xsi:type="ecore:EClass" name="Semaphore" eSuperTypes="#//resource/Resource"/>
+  <eSubpackages name="environment" nsURI="http://sdq.ipd.uka.de/Analytical/Resources/1.0"
+      nsPrefix="spa.environment">
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessBehaviour">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numReplicas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" lowerBound="1"
+          eType="#//expression/Expression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SPAModel">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
+          eType="#//environment/ProcessBehaviour" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+          eType="#//environment/Resource" containment="true"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Resource" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="numReplicas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResource" eSuperTypes="#//resource/Resource"/>
-  </eSubpackages>
-  <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/Analytical/System/1.0"
-      nsPrefix="spa.system">
-    <eClassifiers xsi:type="ecore:EClass" name="SystemModel">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
-          eType="#//system/Behaviour" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
-          eType="#//resource/Resource" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Behaviour">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numReplicas" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" eType="#//expression/RegularExpression"
-          containment="true"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PassiveResource" eSuperTypes="#//environment/Resource"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResource" eSuperTypes="#//environment/Resource"/>
   </eSubpackages>
 </ecore:EPackage>
