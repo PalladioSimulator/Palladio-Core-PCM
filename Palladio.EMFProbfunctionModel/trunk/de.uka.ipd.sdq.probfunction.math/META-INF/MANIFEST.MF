@@ -14,7 +14,8 @@ Bundle-ClassPath: .,
  org.eclipse.birt.chart.ui_2.1.0.N20060628-1351.jar,
  org.eclipse.birt.chart.ui.extension_2.1.0.N20060628-1351.jar,
  org.eclipse.birt.core_2.1.0.N20060628-1351.jar,
- org.eclipse.birt.core.ui_2.1.0.N20060628-1351.jar
+ org.eclipse.birt.core.ui_2.1.0.N20060628-1351.jar,
+ lib/flanagan.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: de.uka.ipd.sdq.probfunction.math,
