@@ -12,7 +12,9 @@ import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 
-import de.uka.ipd.sdq.probfunction.probfunctionFactory;
+import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
+
+
 
 import java.util.Collection;
 import java.util.List;
@@ -134,22 +136,22 @@ public class ProbabilityFunctionLiteralItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StochasticsPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
-				 probfunctionFactory.eINSTANCE.createProbabilityDensityFunction()));
+				 ProbfunctionFactory.eINSTANCE.createProbabilityDensityFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(StochasticsPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
-				 probfunctionFactory.eINSTANCE.createBoxedPDF()));
+				 ProbfunctionFactory.eINSTANCE.createBoxedPDF()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(StochasticsPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
-				 probfunctionFactory.eINSTANCE.createProbabilityMassFunction()));
+				 ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(StochasticsPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
-				 probfunctionFactory.eINSTANCE.createSamplePDF()));
+				 ProbfunctionFactory.eINSTANCE.createSamplePDF()));
 	}
 
 	/**

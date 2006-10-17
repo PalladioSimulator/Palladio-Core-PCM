@@ -6,24 +6,22 @@
  */
 package de.uka.ipd.sdq.pcm.core.stochastics.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
-
 import de.uka.ipd.sdq.pcm.assembly.AssemblyPackage;
-
 import de.uka.ipd.sdq.pcm.assembly.impl.AssemblyPackageImpl;
-
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
-
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
-
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.Atom;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations;
@@ -41,54 +39,27 @@ import de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations;
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.Term;
 import de.uka.ipd.sdq.pcm.core.stochastics.TermExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.TermOperations;
 import de.uka.ipd.sdq.pcm.core.stochastics.Variable;
-
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
-
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
-
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
-
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
-
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
 import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
-
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
-
-import de.uka.ipd.sdq.probfunction.probfunctionPackage;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -288,7 +259,7 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
-		probfunctionPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		AssemblyPackageImpl theAssemblyPackage = (AssemblyPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AssemblyPackage.eNS_URI) instanceof AssemblyPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AssemblyPackage.eNS_URI) : AssemblyPackage.eINSTANCE);
@@ -761,7 +732,7 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		probfunctionPackage theprobfunctionPackage = (probfunctionPackage)EPackage.Registry.INSTANCE.getEPackage(probfunctionPackage.eNS_URI);
+		ProbfunctionPackage theProbfunctionPackage = (ProbfunctionPackage)EPackage.Registry.INSTANCE.getEPackage(ProbfunctionPackage.eNS_URI);
 
 		// Add supertypes to classes
 		comparisonEClass.getESuperTypes().add(this.getExpression());
@@ -826,7 +797,7 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		initEAttribute(getProductExpression_Operation(), this.getProductOperations(), "operation", null, 1, 1, ProductExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(probabilityFunctionLiteralEClass, ProbabilityFunctionLiteral.class, "ProbabilityFunctionLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProbabilityFunctionLiteral_Function_ProbabilityFunctionLiteral(), theprobfunctionPackage.getProbabilityFunction(), null, "function_ProbabilityFunctionLiteral", null, 1, 1, ProbabilityFunctionLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProbabilityFunctionLiteral_Function_ProbabilityFunctionLiteral(), theProbfunctionPackage.getProbabilityFunction(), null, "function_ProbabilityFunctionLiteral", null, 1, 1, ProbabilityFunctionLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(compareOperationsEEnum, CompareOperations.class, "CompareOperations");

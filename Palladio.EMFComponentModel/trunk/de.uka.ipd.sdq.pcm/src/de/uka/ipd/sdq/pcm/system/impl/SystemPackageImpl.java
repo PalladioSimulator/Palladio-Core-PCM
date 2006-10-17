@@ -6,52 +6,34 @@
  */
 package de.uka.ipd.sdq.pcm.system.impl;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
-
 import de.uka.ipd.sdq.pcm.assembly.AssemblyPackage;
-
 import de.uka.ipd.sdq.pcm.assembly.impl.AssemblyPackageImpl;
-
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
-
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
-
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl;
-
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
-
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
-
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
-
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
-
 import de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
@@ -59,18 +41,9 @@ import de.uka.ipd.sdq.pcm.system.SystemProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
 import de.uka.ipd.sdq.pcm.system.SystemRequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
-
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
-
-import de.uka.ipd.sdq.probfunction.probfunctionPackage;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -179,7 +152,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
-		probfunctionPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		AssemblyPackageImpl theAssemblyPackage = (AssemblyPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AssemblyPackage.eNS_URI) instanceof AssemblyPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AssemblyPackage.eNS_URI) : AssemblyPackage.eINSTANCE);

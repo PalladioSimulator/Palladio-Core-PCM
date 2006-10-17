@@ -319,7 +319,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceTypeImpl <em>Resource Type</em>}' class.
 		 * <!-- begin-user-doc -->

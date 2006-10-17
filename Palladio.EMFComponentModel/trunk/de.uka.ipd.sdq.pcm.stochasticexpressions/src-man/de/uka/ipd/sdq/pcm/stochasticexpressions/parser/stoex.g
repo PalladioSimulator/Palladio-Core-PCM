@@ -95,7 +95,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 		// Numeric PMF
 			
 			INT_DEF
-				{probFunction = probfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
 			SQUARE_PAREN_L 
 				( {Sample isample=null;}
@@ -104,7 +104,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 	 		SQUARE_PAREN_R 
 	 		|
 		 	REAL_DEF 
-				{probFunction = probfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
 		 	SQUARE_PAREN_L 
 				( {Sample rsample=null;} 
@@ -114,7 +114,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			| 
 		// Enum PMF
 			ENUM_DEF 
-				{probFunction = probfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
 			SQUARE_PAREN_L 
 				( {Sample ssample=null;} 
@@ -125,7 +125,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 numeric_int_sample returns [Sample s]
 	{s = null;} : 
 		LPAREN
-			{s = probfunctionFactory.eINSTANCE.createSample();} 
+			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 			n:NUMBER
 			{s.setProbability(Double.parseDouble(n.getText()));} 
 			SEMI 
@@ -136,7 +136,7 @@ numeric_int_sample returns [Sample s]
 numeric_real_sample returns [Sample s]
 	{s = null;} : 
 		LPAREN
-			{s = probfunctionFactory.eINSTANCE.createSample();} 
+			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 			n:NUMBER
 			{s.setProbability(Double.parseDouble(n.getText()));} 
 			SEMI 
@@ -147,7 +147,7 @@ numeric_real_sample returns [Sample s]
 stringsample returns [Sample s] 
 	{s = null;} : 
 		LPAREN
-			{s = probfunctionFactory.eINSTANCE.createSample();} 
+			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 		n:NUMBER 
 			{s.setProbability(Double.parseDouble(n.getText()));} 
 		SEMI
