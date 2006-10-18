@@ -26,26 +26,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ProbabilityFunction extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Unit</b></em>' reference.
+	 * Returns the value of the '<em><b>Unit</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Unit</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Unit</em>' reference.
+	 * @return the value of the '<em>Unit</em>' containment reference.
 	 * @see #setUnit(Unit)
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getProbabilityFunction_Unit()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Unit getUnit();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.probfunction.ProbabilityFunction#getUnit <em>Unit</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.probfunction.ProbabilityFunction#getUnit <em>Unit</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Unit</em>' reference.
+	 * @param value the new value of the '<em>Unit</em>' containment reference.
 	 * @see #getUnit()
 	 * @generated
 	 */

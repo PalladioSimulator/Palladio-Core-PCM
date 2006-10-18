@@ -60,7 +60,6 @@ public class ProbfunctionFactoryImpl extends EFactoryImpl implements Probfunctio
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ProbfunctionPackage.BOXED_PDF: return createBoxedPDF();
-			case ProbfunctionPackage.PROBABILITY_DENSITY_FUNCTION: return createProbabilityDensityFunction();
 			case ProbfunctionPackage.UNIT: return createUnit();
 			case ProbfunctionPackage.CONTINUOUS_SAMPLE: return createContinuousSample();
 			case ProbfunctionPackage.PROBABILITY_MASS_FUNCTION: return createProbabilityMassFunction();
@@ -79,16 +78,6 @@ public class ProbfunctionFactoryImpl extends EFactoryImpl implements Probfunctio
 	public BoxedPDF createBoxedPDF() {
 		BoxedPDFImpl boxedPDF = new BoxedPDFImpl();
 		return boxedPDF;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProbabilityDensityFunction createProbabilityDensityFunction() {
-		ProbabilityDensityFunctionImpl probabilityDensityFunction = new ProbabilityDensityFunctionImpl();
-		return probabilityDensityFunction;
 	}
 
 	/**

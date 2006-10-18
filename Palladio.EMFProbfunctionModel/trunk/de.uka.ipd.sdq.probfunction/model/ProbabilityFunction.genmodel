@@ -11,7 +11,7 @@
     </genClasses>
     <genClasses ecoreClass="ProbabilityFunction.ecore#//ProbabilityDensityFunction"/>
     <genClasses image="false" ecoreClass="ProbabilityFunction.ecore#//ProbabilityFunction">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProbabilityFunction.ecore#//ProbabilityFunction/unit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProbabilityFunction.ecore#//ProbabilityFunction/unit"/>
     </genClasses>
     <genClasses ecoreClass="ProbabilityFunction.ecore#//Unit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//Unit/unitName"/>
@@ -21,7 +21,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//ContinuousSample/probability"/>
     </genClasses>
     <genClasses ecoreClass="ProbabilityFunction.ecore#//ProbabilityMassFunction">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ProbabilityFunction.ecore#//ProbabilityMassFunction/samples"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProbabilityFunction.ecore#//ProbabilityMassFunction/samples"/>
     </genClasses>
     <genClasses ecoreClass="ProbabilityFunction.ecore#//Sample">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//Sample/value"/>

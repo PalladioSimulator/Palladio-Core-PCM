@@ -9,6 +9,8 @@ package de.uka.ipd.sdq.probfunction.impl;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,6 +18,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,24 +57,14 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 	protected double distance = DISTANCE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValues() <em>Values</em>}' attribute.
+	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValues()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EList VALUES_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValues()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList values = VALUES_EDEFAULT;
+	protected EList values = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,19 +111,10 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 	 * @generated
 	 */
 	public EList getValues() {
+		if (values == null) {
+			values = new EDataTypeUniqueEList(Double.class, this, ProbfunctionPackage.SAMPLE_PDF__VALUES);
+		}
 		return values;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValues(EList newValues) {
-		EList oldValues = values;
-		values = newValues;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ProbfunctionPackage.SAMPLE_PDF__VALUES, oldValues, values));
 	}
 
 	/**
@@ -158,7 +143,8 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 				setDistance(((Double)newValue).doubleValue());
 				return;
 			case ProbfunctionPackage.SAMPLE_PDF__VALUES:
-				setValues((EList)newValue);
+				getValues().clear();
+				getValues().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -175,7 +161,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 				setDistance(DISTANCE_EDEFAULT);
 				return;
 			case ProbfunctionPackage.SAMPLE_PDF__VALUES:
-				setValues(VALUES_EDEFAULT);
+				getValues().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -191,7 +177,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 			case ProbfunctionPackage.SAMPLE_PDF__DISTANCE:
 				return distance != DISTANCE_EDEFAULT;
 			case ProbfunctionPackage.SAMPLE_PDF__VALUES:
-				return VALUES_EDEFAULT == null ? values != null : !VALUES_EDEFAULT.equals(values);
+				return values != null && !values.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

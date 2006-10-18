@@ -7,9 +7,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="samples" upperBound="-1"
         eType="#//ContinuousSample" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProbabilityDensityFunction" eSuperTypes="#//ProbabilityFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProbabilityDensityFunction" abstract="true"
+      eSuperTypes="#//ProbabilityFunction"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProbabilityFunction" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="1" eType="#//Unit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="1" eType="#//Unit"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Unit">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitName" lowerBound="1"
@@ -21,7 +23,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProbabilityMassFunction" eSuperTypes="#//ProbabilityFunction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="samples" upperBound="-1"
-        eType="#//Sample"/>
+        eType="#//Sample" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sample">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
@@ -29,6 +31,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SamplePDF" eSuperTypes="#//ProbabilityDensityFunction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>

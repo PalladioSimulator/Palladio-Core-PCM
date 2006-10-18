@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ProbabilityDensityFunctionImpl extends ProbabilityFunctionImpl implements ProbabilityDensityFunction {
+public abstract class ProbabilityDensityFunctionImpl extends ProbabilityFunctionImpl implements ProbabilityDensityFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

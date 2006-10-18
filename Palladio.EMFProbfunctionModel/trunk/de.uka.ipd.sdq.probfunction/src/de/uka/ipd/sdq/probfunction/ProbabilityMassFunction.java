@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ProbabilityMassFunction extends ProbabilityFunction {
 	/**
-	 * Returns the value of the '<em><b>Samples</b></em>' reference list.
+	 * Returns the value of the '<em><b>Samples</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.probfunction.Sample}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -34,9 +34,9 @@ public interface ProbabilityMassFunction extends ProbabilityFunction {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Samples</em>' reference list.
+	 * @return the value of the '<em>Samples</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getProbabilityMassFunction_Samples()
-	 * @model type="de.uka.ipd.sdq.probfunction.Sample"
+	 * @model type="de.uka.ipd.sdq.probfunction.Sample" containment="true"
 	 * @generated
 	 */
 	EList getSamples();

@@ -14,7 +14,7 @@ package de.uka.ipd.sdq.probfunction;
  *
  *
  * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getProbabilityDensityFunction()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ProbabilityDensityFunction extends ProbabilityFunction {

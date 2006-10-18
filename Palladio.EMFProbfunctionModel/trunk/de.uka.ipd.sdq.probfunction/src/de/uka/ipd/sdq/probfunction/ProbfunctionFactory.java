@@ -35,15 +35,6 @@ public interface ProbfunctionFactory extends EFactory {
 	BoxedPDF createBoxedPDF();
 
 	/**
-	 * Returns a new object of class '<em>Probability Density Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Probability Density Function</em>'.
-	 * @generated
-	 */
-	ProbabilityDensityFunction createProbabilityDensityFunction();
-
-	/**
 	 * Returns a new object of class '<em>Unit</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
