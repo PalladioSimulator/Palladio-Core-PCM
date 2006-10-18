@@ -24,14 +24,13 @@ public class ProbabilityMassFunctionTest {
 
 	@Before
 	public void setUp() throws Exception {
-		u1 = createPMF(new Object[] { "car", 0.1, "house", 0.5, "bike", 0.3,
-				"street", 0.1 }, false);
+		    u1 = createPMF(new Object[] { "car", 0.1, "house", 0.5, "bike", 0.3, "street", 0.1 }, false);
+		u1same = createPMF(new Object[] { "car", 0.2, "house", 0.3, "bike", 0.4, "street", 0.1 }, false);
+		
 		u1extended = createPMF(new Object[] { "car", 0.1, "house", 0.5, "bike",
 				0.3, "street", 0.1, "tree", 0.0 }, false);
 		u1exDiffProbs = createPMF(new Object[] { "car", 0.1, "house", 0.15,
 				"bike", 0.3, "street", 0.1, "tree", 3.5 }, false);
-		u1same = createPMF(new Object[] { "car", 0.2, "house", 0.3, "bike",
-				0.4, "street", 0.1 }, false);
 		u2 = createPMF(new Object[] { "dog", 0.2, "cat", 0.3, "pig", 0.4,
 				"cow", 0.1 }, false);
 
@@ -123,7 +122,12 @@ public class ProbabilityMassFunctionTest {
 		Assert.assertEquals(expected, sum);
 
 		sum = u1.add(u1same);
-		expected = createPMF(new Object[] { 0.1, 0.3, 0.2, 0.7, 0.3, 0.6, 0.4, 0.4 }, true);
+        expected = createPMF(new Object[] { "car", 0.3, "house", 0.8, "bike", 0.7, "street", 0.2 }, true);
+		Assert.assertEquals(expected, sum);
+		
+		IProbabilityMassFunction unsorted = createPMF(new Object[] { "car", 0.2, "street", 0.1, "house", 0.3, "bike", 0.4 }, false);
+		sum = u1.add(unsorted);
+        expected = createPMF(new Object[] { "house", 0.8, "bike", 0.7, "car", 0.3, "street", 0.2 }, true);
 		Assert.assertEquals(expected, sum);
 	}
 	

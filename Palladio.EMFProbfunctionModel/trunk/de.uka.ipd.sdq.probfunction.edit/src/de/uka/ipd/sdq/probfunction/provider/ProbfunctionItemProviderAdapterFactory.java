@@ -98,28 +98,6 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProbabilityDensityFunctionItemProvider probabilityDensityFunctionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createProbabilityDensityFunctionAdapter() {
-		if (probabilityDensityFunctionItemProvider == null) {
-			probabilityDensityFunctionItemProvider = new ProbabilityDensityFunctionItemProvider(this);
-		}
-
-		return probabilityDensityFunctionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.probfunction.Unit} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -326,7 +304,6 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	 */
 	public void dispose() {
 		if (boxedPDFItemProvider != null) boxedPDFItemProvider.dispose();
-		if (probabilityDensityFunctionItemProvider != null) probabilityDensityFunctionItemProvider.dispose();
 		if (unitItemProvider != null) unitItemProvider.dispose();
 		if (continuousSampleItemProvider != null) continuousSampleItemProvider.dispose();
 		if (probabilityMassFunctionItemProvider != null) probabilityMassFunctionItemProvider.dispose();

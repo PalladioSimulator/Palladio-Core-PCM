@@ -183,13 +183,11 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public boolean isInFrequencyDomain() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	public boolean isInTimeDomain() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
