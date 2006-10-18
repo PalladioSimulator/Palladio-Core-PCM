@@ -7,6 +7,23 @@
   <foreignModel>StochasticProcessAlgebra.ecore</foreignModel>
   <genPackages prefix="Spa" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="StochasticProcessAlgebra.ecore#/">
+    <genClasses ecoreClass="StochasticProcessAlgebra.ecore#//SPAModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StochasticProcessAlgebra.ecore#//SPAModel/processes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StochasticProcessAlgebra.ecore#//SPAModel/resources"/>
+    </genClasses>
+    <nestedGenPackages prefix="Resource" disposableProviderFactory="true" ecorePackage="StochasticProcessAlgebra.ecore#//resource">
+      <genClasses ecoreClass="StochasticProcessAlgebra.ecore#//resource/ProcessBehaviour">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StochasticProcessAlgebra.ecore#//resource/ProcessBehaviour/numReplicas"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StochasticProcessAlgebra.ecore#//resource/ProcessBehaviour/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StochasticProcessAlgebra.ecore#//resource/ProcessBehaviour/behaviour"/>
+      </genClasses>
+      <genClasses ecoreClass="StochasticProcessAlgebra.ecore#//resource/ProcessingResource"/>
+      <genClasses image="false" ecoreClass="StochasticProcessAlgebra.ecore#//resource/Resource">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StochasticProcessAlgebra.ecore#//resource/Resource/numReplicas"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StochasticProcessAlgebra.ecore#//resource/Resource/name"/>
+      </genClasses>
+      <genClasses ecoreClass="StochasticProcessAlgebra.ecore#//resource/PassiveResource"/>
+    </nestedGenPackages>
     <nestedGenPackages prefix="Expression" disposableProviderFactory="true" ecorePackage="StochasticProcessAlgebra.ecore#//expression">
       <genClasses image="false" ecoreClass="StochasticProcessAlgebra.ecore#//expression/Terminal"/>
       <genClasses image="false" ecoreClass="StochasticProcessAlgebra.ecore#//expression/Expression"/>
@@ -51,23 +68,6 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference StochasticProcessAlgebra.ecore#//expression/Acquire/resource"/>
       </genClasses>
-    </nestedGenPackages>
-    <nestedGenPackages prefix="Environment" disposableProviderFactory="true" ecorePackage="StochasticProcessAlgebra.ecore#//environment">
-      <genClasses ecoreClass="StochasticProcessAlgebra.ecore#//environment/ProcessBehaviour">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StochasticProcessAlgebra.ecore#//environment/ProcessBehaviour/numReplicas"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StochasticProcessAlgebra.ecore#//environment/ProcessBehaviour/name"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StochasticProcessAlgebra.ecore#//environment/ProcessBehaviour/behaviour"/>
-      </genClasses>
-      <genClasses ecoreClass="StochasticProcessAlgebra.ecore#//environment/SPAModel">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StochasticProcessAlgebra.ecore#//environment/SPAModel/processes"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StochasticProcessAlgebra.ecore#//environment/SPAModel/resources"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="StochasticProcessAlgebra.ecore#//environment/Resource">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StochasticProcessAlgebra.ecore#//environment/Resource/numReplicas"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StochasticProcessAlgebra.ecore#//environment/Resource/name"/>
-      </genClasses>
-      <genClasses ecoreClass="StochasticProcessAlgebra.ecore#//environment/PassiveResource"/>
-      <genClasses ecoreClass="StochasticProcessAlgebra.ecore#//environment/ProcessingResource"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

@@ -37,13 +37,13 @@
           eType="#//expression/ResourceDemand" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceDemand">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="pdf" lowerBound="1" eType="ecore:EClass ProbabilityFunction.ecore#//ProbabilityDensityFunction"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pdf" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityDensityFunction"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
           eType="#//resource/ProcessingResource"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Sleep" eSuperTypes="#//expression/Terminal">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="pdf" lowerBound="1" eType="ecore:EClass ProbabilityFunction.ecore#//ProbabilityDensityFunction"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pdf" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityDensityFunction"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Sequence" eSuperTypes="#//expression/Operation">
@@ -72,7 +72,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="regExp" lowerBound="1"
           eType="#//expression/Expression" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="iterations" lowerBound="1"
-          eType="ecore:EClass ProbabilityFunction.ecore#//ProbabilityMassFunction"
+          eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityMassFunction"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Alternative" eSuperTypes="#//expression/Operation">
