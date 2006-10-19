@@ -330,7 +330,7 @@
         </children>
         <children xmi:id="_3__dY1YOEduVzvtHWuORYA" type="FromRoleLabel" element="_zWMAvVYOEduVzvtHWuORYA">
           <children xmi:id="_3__dZVYOEduVzvtHWuORYA" type="FromRole" element="_zWMAvVYOEduVzvtHWuORYA"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_3__dZFYOEduVzvtHWuORYA" y="-389"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_3__dZFYOEduVzvtHWuORYA" x="21" y="-1097"/>
         </children>
         <children xmi:id="_3__dZlYOEduVzvtHWuORYA" type="ToQualifierLabel" element="_zWMAwVYOEduVzvtHWuORYA">
           <children xmi:id="_3__daFYOEduVzvtHWuORYA" type="QualifierCompartment" element="_zWMAwVYOEduVzvtHWuORYA">
@@ -429,15 +429,15 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMnylYOEduVzvtHWuORYA"/>
     </ownedAttribute>
   </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_zWMAx1YOEduVzvtHWuORYA" name="ProbabilityDensityFunction">
+  <ownedMember xmi:type="uml:Class" xmi:id="_zWMAx1YOEduVzvtHWuORYA" name="ProbabilityDensityFunction" isAbstract="true">
     <generalization xmi:id="_zWMAyFYOEduVzvtHWuORYA" general="_zWMAslYOEduVzvtHWuORYA"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_zWMAslYOEduVzvtHWuORYA" name="ProbabilityFunction" isAbstract="true">
-    <ownedAttribute xmi:id="_zWMAs1YOEduVzvtHWuORYA" name="unit" type="_zWMAtlYOEduVzvtHWuORYA" isOrdered="true" association="_zWMAtFYOEduVzvtHWuORYA"/>
+    <ownedAttribute xmi:id="_zWMAs1YOEduVzvtHWuORYA" name="unit" type="_zWMAtlYOEduVzvtHWuORYA" isOrdered="true" association="_zWMAtFYOEduVzvtHWuORYA" aggregation="composite"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_zWMAuVYOEduVzvtHWuORYA" name="ProbabilityMassFunction">
     <generalization xmi:id="_zWMAulYOEduVzvtHWuORYA" general="_zWMAslYOEduVzvtHWuORYA"/>
-    <ownedAttribute xmi:id="_zWMAvVYOEduVzvtHWuORYA" name="samples" type="_zWMAwlYOEduVzvtHWuORYA" isOrdered="true" association="_zWMAwFYOEduVzvtHWuORYA">
+    <ownedAttribute xmi:id="_zWMAvVYOEduVzvtHWuORYA" name="samples" type="_zWMAwlYOEduVzvtHWuORYA" isOrdered="true" association="_zWMAwFYOEduVzvtHWuORYA" aggregation="composite">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zWMAvlYOEduVzvtHWuORYA" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMAv1YOEduVzvtHWuORYA"/>
     </ownedAttribute>
@@ -459,7 +459,8 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMAzFYOEduVzvtHWuORYA"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_zWMAzVYOEduVzvtHWuORYA" name="values">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_OQ654q86EdieaYgxtVWN8Q"/>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_OQ654K86EdieaYgxtVWN8Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__J0gMF34EdugyLjy7sG7VA" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMAzlYOEduVzvtHWuORYA"/>
     </ownedAttribute>
   </ownedMember>
