@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.probfunction.math;
 
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
+import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 
 /**
@@ -44,13 +45,23 @@ public interface IProbabilityFunction {
 	 * by first calculating the rank k = p(n+1)/100, rounded to the nearest
 	 * integer and then taking the value that corresponds to that rank.
 	 * 
-	 * @param p sets the percentile which shall be computed. p must take values between 0 and 100.
+	 * @param p
+	 *            sets the percentile which shall be computed. p must take
+	 *            values between 0 and 100.
 	 * @return Object that is the border for the 'p'th percentile.
-	 * @throws 
+	 * @throws
 	 */
-	Object getPercentile(int p) throws IndexOutOfBoundsException, UnorderedDomainException;
-	
-	
+	Object getPercentile(int p) throws IndexOutOfBoundsException,
+			UnorderedDomainException;
+
+	/**
+	 * Computes the sum of all probabilities specified in the function. For pdfs
+	 * this is the area under the graph; for pmfs the sum of all probabilities.
+	 * 
+	 * @return Sum of all probabilities in the function.
+	 * @throws FunctionNotInTimeDomainException 
+	 */
+	double getProbabilitySum() throws FunctionNotInTimeDomainException;
 
 	/**
 	 * Returns the unit of the probability functions domain.

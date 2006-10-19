@@ -246,4 +246,12 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		return result;
 	}
 
+	public double getProbabilitySum() {
+		double sum = 0;
+		for (ISample sample : samples) {
+			sum += sample.getProbability();
+		}
+		return sum;
+	}
+
 }

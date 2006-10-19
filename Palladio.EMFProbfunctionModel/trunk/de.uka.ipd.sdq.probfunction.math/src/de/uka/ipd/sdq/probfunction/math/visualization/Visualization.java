@@ -47,6 +47,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
@@ -121,10 +122,24 @@ public class Visualization implements PaintListener {
 		}
 	}
 
+	
+	public void addProbabilityFunction(IProbabilityFunction pf){
+		if (pf instanceof IProbabilityMassFunction) {
+			IProbabilityMassFunction pmf = (IProbabilityMassFunction) pf;
+			addPMF(pmf);
+		} else if (pf instanceof IBoxedPDF) {
+			IBoxedPDF boxedPDF = (IBoxedPDF) pf;
+			addBoxedPDF(boxedPDF);
+		} if (pf instanceof ISamplePDF) {
+			ISamplePDF samplePDF = (ISamplePDF) pf;
+			addSamplePDF(samplePDF);
+		}
+	}
+	
 	/**
 	 * @param pmf
 	 */
-	public void addProbabilityFunction(IProbabilityMassFunction pmf) {
+	private void addPMF(IProbabilityMassFunction pmf) {
 		List<Object> values = new ArrayList<Object>();
 		List<Double> probs = new ArrayList<Double>();
 		for (ISample s : pmf.getSamples()) {
@@ -137,7 +152,7 @@ public class Visualization implements PaintListener {
 	/**
 	 * @param spdf
 	 */
-	public void addProbabilityFunction(ISamplePDF spdf) {
+	private void addSamplePDF(ISamplePDF spdf) {
 		List<Object> values = new ArrayList<Object>();
 		for (int i = 1; i <= spdf.getValues().size(); i++)
 			values.add(new Double(i));
@@ -147,7 +162,7 @@ public class Visualization implements PaintListener {
 	/**
 	 * @param bpdf
 	 */
-	public void addProbabilityFunction(IBoxedPDF bpdf) {
+	private void addBoxedPDF(IBoxedPDF bpdf) {
 		List<Object> values = new ArrayList<Object>();
 		List<Double> probs = new ArrayList<Double>();
 		for (IContinuousSample s : bpdf.getSamples()) {

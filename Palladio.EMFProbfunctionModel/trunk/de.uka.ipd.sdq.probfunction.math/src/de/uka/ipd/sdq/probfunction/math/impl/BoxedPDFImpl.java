@@ -189,5 +189,13 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	public boolean isInTimeDomain() {
 		return true;
 	}
+	
+	public double getProbabilitySum() {
+		double sum = 0;
+		for (IContinuousSample sample : samples) {
+			sum += sample.getProbability();
+		}
+		return sum;
+	}	
 
 }

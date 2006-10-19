@@ -509,6 +509,16 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		return resultList;
 	}
 
+	public double getProbabilitySum() throws FunctionNotInTimeDomainException {
+		if (!isInTimeDomain())
+			throw new FunctionNotInTimeDomainException();
+		double sum = 0;
+		for (Complex value : values) {
+			sum += value.getReal();
+		}
+		return sum;
+	}
+
 
 
 }

@@ -175,7 +175,7 @@ public interface IProbabilityMassFunction extends IProbabilityFunction {
 
 	/**
 	 * List of samples describing the pmf. They associate a value (x axis) with
-	 * a probability (y axis). In case the values can be ordered, they are
+	 * a probability (y axis). In case 'hasOrderedDomain' is true, they are
 	 * sorted. Note: The function returns only a copy of the sample list.
 	 * 
 	 * @return A <i>Copy</i> of the list of (ordered) samples describing the
