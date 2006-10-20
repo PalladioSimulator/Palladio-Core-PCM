@@ -1,12 +1,12 @@
 package simurex;
 
-import de.uka.ipd.sdq.fixit.FixIt;
 import de.uka.ipd.sdq.model.analysis.resource.Semaphore;
 import de.uka.ipd.sdq.model.analysis.system.Behaviour;
 import de.uka.ipd.sdq.model.analysis.system.SystemModel;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityDensityFunctionImpl;
 import de.uka.ipd.sdq.probfunction.math.visualization.Visualization;
+import de.uka.ipd.sdq.spa.concurrencysolver.FixIt;
 import de.uka.ipd.sdq.util.EMFTools;
 import desmoj.core.dist.RealDistEmpirical;
 import desmoj.core.simulator.Experiment;
