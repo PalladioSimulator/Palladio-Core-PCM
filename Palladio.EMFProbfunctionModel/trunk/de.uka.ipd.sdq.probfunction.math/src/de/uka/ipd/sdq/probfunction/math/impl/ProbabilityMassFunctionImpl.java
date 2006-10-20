@@ -22,8 +22,7 @@ import de.uka.ipd.sdq.probfunction.math.util.MathTools;
  * 
  */
 public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
-		implements
-			IProbabilityMassFunction {
+		implements IProbabilityMassFunction {
 
 	private List<ISample> samples;
 
@@ -31,14 +30,15 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		ADD, SUB, MULT, DIV
 	}
 
-	protected ProbabilityMassFunctionImpl(IUnit unit, boolean hasOrderedDomain, boolean isInFrequencyDomain) {
-		super(unit,hasOrderedDomain,isInFrequencyDomain);
+	protected ProbabilityMassFunctionImpl(IUnit unit, boolean hasOrderedDomain,
+			boolean isInFrequencyDomain) {
+		super(unit, hasOrderedDomain, isInFrequencyDomain);
 		samples = new ArrayList<ISample>();
 	}
 
 	protected ProbabilityMassFunctionImpl(List<ISample> samples, IUnit unit,
 			boolean hasOrderedDomain, boolean isInFrequencyDomain) {
-		super(unit,hasOrderedDomain,isInFrequencyDomain);
+		super(unit, hasOrderedDomain, isInFrequencyDomain);
 		this.samples = samples;
 	}
 
@@ -51,25 +51,26 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 			ISample s2 = iterator.next();
 			double result;
 			switch (op) {
-				case ADD :
-					result = s1.getProbability() + s2.getProbability();
-					break;
-				case SUB :
-					result = s1.getProbability() - s2.getProbability();
-					break;
-				case MULT :
-					result = s1.getProbability() * s2.getProbability();
-					break;
-				case DIV :
-					result = s1.getProbability() / s2.getProbability();
-					break;
-				default :
-					result = 0.0;
-					break;
+			case ADD:
+				result = s1.getProbability() + s2.getProbability();
+				break;
+			case SUB:
+				result = s1.getProbability() - s2.getProbability();
+				break;
+			case MULT:
+				result = s1.getProbability() * s2.getProbability();
+				break;
+			case DIV:
+				result = s1.getProbability() / s2.getProbability();
+				break;
+			default:
+				result = 0.0;
+				break;
 			}
 			resultList.add(pfFactory.createSample(s1.getValue(), result));
 		}
-		return pfFactory.createProbabilityMassFunction(resultList, this.getUnit(), hasOrderedDomain());
+		return pfFactory.createProbabilityMassFunction(resultList, this
+				.getUnit(), hasOrderedDomain());
 	}
 
 	public IProbabilityMassFunction add(IProbabilityMassFunction pmf)
@@ -96,7 +97,8 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 					.getProbability()
 					* scalar));
 
-		return pfFactory.createProbabilityMassFunction(newList, this.getUnit(), this.hasOrderedDomain());
+		return pfFactory.createProbabilityMassFunction(newList, this.getUnit(),
+				this.hasOrderedDomain());
 	}
 
 	public IProbabilityMassFunction div(IProbabilityMassFunction pmf)
@@ -174,7 +176,26 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 	}
 
 	public double getArithmeticMeanValue() throws DomainNotNumbersException {
-		return MathTools.sumOfSamples(samples) / samples.size();
+		double mean = 0;
+		for (ISample sample : this.samples) {
+			Object value = sample.getValue();
+			if (value instanceof Double) {
+				Double d = (Double) value;
+				mean += d * sample.getProbability();
+			} else if (value instanceof Integer) {
+				Integer i = (Integer) value;
+				mean += i * sample.getProbability();
+			} else if (value instanceof Long) {
+				Long i = (Long) value;
+				mean += i * sample.getProbability();
+			} else if (value instanceof Float) {
+				Float i = (Float) value;
+				mean += i * sample.getProbability();
+			} else {
+				throw new DomainNotNumbersException();
+			}
+		}
+		return mean;
 	}
 
 	public Object getMedian() throws UnorderedDomainException {

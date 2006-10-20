@@ -194,8 +194,16 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		return result;
 	}
 
-	public double getArithmeticMeanValue() throws DomainNotNumbersException {
-		return MathTools.sumOfDoubles(getValuesAsDouble()) / values.size();
+	public double getArithmeticMeanValue() throws DomainNotNumbersException, FunctionNotInTimeDomainException {
+		if (!isInTimeDomain())
+			throw new FunctionNotInTimeDomainException();
+		double pos = 0;
+		double mean = 0;
+		for (Complex val : values) {
+			mean += pos * val.getReal();
+			pos += distance;
+		}
+		return mean;
 	}
 
 	public Object getMedian() throws UnorderedDomainException {

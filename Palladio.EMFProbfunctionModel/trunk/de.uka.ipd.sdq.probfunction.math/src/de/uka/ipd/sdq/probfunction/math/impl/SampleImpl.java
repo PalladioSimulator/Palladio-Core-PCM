@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.probfunction.math.util.MathTools;
  */
 public class SampleImpl implements ISample {
 
+
 	private double probability;
 	private Object value;
 
@@ -49,6 +50,12 @@ public class SampleImpl implements ISample {
 		return this.getValue().equals(((ISample) obj).getValue())
 				&& MathTools.equalsDouble(this.getProbability(),
 						((ISample) obj).getProbability());
+	}
+	
+
+	@Override
+	public String toString() {
+		return "(" + getValue() + ", " + MathTools.asString( getProbability() ) + ")";
 	}
 
 }

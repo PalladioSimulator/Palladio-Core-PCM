@@ -31,8 +31,9 @@ public interface IProbabilityFunction {
 	 * 
 	 * @return The arithmetic mean.
 	 * @throws DomainNotNumbersException
+	 * @throws FunctionNotInTimeDomainException 
 	 */
-	double getArithmeticMeanValue() throws DomainNotNumbersException;
+	double getArithmeticMeanValue() throws DomainNotNumbersException, FunctionNotInTimeDomainException;
 
 	/**
 	 * In descriptive statistics, the 'p'th percentile is a scale value for a
