@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Concurrencysolver Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.spa.concurrencysolver; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: SDQ U Karlsruhe (TH)
+Bundle-Localization: plugin
+Require-Bundle: de.uka.ipd.sdq.probfunction.math,
+ de.uka.ipd.sdq.probfunction,
+ de.uka.ipd.sdq.spa,
+ de.uka.ipd.sdq.spa.basicsolver
+Eclipse-LazyStart: true
+Export-Package: de.uka.ipd.sdq.spa.concurrencysolver
