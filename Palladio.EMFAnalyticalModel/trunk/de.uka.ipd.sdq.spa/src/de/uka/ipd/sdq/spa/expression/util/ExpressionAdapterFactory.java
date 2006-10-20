@@ -82,9 +82,6 @@ public class ExpressionAdapterFactory extends AdapterFactoryImpl {
 			public Object caseResourceDemand(ResourceDemand object) {
 				return createResourceDemandAdapter();
 			}
-			public Object caseSleep(Sleep object) {
-				return createSleepAdapter();
-			}
 			public Object caseSequence(Sequence object) {
 				return createSequenceAdapter();
 			}
@@ -180,20 +177,6 @@ public class ExpressionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceDemandAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.spa.expression.Sleep <em>Sleep</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.spa.expression.Sleep
-	 * @generated
-	 */
-	public Adapter createSleepAdapter() {
 		return null;
 	}
 

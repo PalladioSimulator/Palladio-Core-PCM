@@ -44,15 +44,6 @@ public interface ExpressionFactory extends EFactory {
 	ResourceDemand createResourceDemand();
 
 	/**
-	 * Returns a new object of class '<em>Sleep</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sleep</em>'.
-	 * @generated
-	 */
-	Sleep createSleep();
-
-	/**
 	 * Returns a new object of class '<em>Sequence</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

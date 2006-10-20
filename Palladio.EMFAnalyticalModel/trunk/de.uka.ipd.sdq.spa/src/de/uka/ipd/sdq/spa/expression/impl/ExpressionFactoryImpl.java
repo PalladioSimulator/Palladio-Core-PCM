@@ -61,7 +61,6 @@ public class ExpressionFactoryImpl extends EFactoryImpl implements ExpressionFac
 		switch (eClass.getClassifierID()) {
 			case ExpressionPackage.SYMBOL: return createSymbol();
 			case ExpressionPackage.RESOURCE_DEMAND: return createResourceDemand();
-			case ExpressionPackage.SLEEP: return createSleep();
 			case ExpressionPackage.SEQUENCE: return createSequence();
 			case ExpressionPackage.RELEASE: return createRelease();
 			case ExpressionPackage.PARALLEL: return createParallel();
@@ -92,16 +91,6 @@ public class ExpressionFactoryImpl extends EFactoryImpl implements ExpressionFac
 	public ResourceDemand createResourceDemand() {
 		ResourceDemandImpl resourceDemand = new ResourceDemandImpl();
 		return resourceDemand;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Sleep createSleep() {
-		SleepImpl sleep = new SleepImpl();
-		return sleep;
 	}
 
 	/**

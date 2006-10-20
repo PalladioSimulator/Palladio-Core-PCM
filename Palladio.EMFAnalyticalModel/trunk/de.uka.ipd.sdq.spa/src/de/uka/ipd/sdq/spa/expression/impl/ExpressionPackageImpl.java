@@ -79,13 +79,6 @@ public class ExpressionPackageImpl extends EPackageImpl implements ExpressionPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sleepEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass sequenceEClass = null;
 
 	/**
@@ -286,24 +279,6 @@ public class ExpressionPackageImpl extends EPackageImpl implements ExpressionPac
 	 */
 	public EReference getResourceDemand_Resource() {
 		return (EReference)resourceDemandEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSleep() {
-		return sleepEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSleep_Pdf() {
-		return (EReference)sleepEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -526,9 +501,6 @@ public class ExpressionPackageImpl extends EPackageImpl implements ExpressionPac
 		createEReference(resourceDemandEClass, RESOURCE_DEMAND__PDF);
 		createEReference(resourceDemandEClass, RESOURCE_DEMAND__RESOURCE);
 
-		sleepEClass = createEClass(SLEEP);
-		createEReference(sleepEClass, SLEEP__PDF);
-
 		sequenceEClass = createEClass(SEQUENCE);
 		createEReference(sequenceEClass, SEQUENCE__LEFT_REG_EXP);
 		createEReference(sequenceEClass, SEQUENCE__RIGHT_REG_EXP);
@@ -588,7 +560,6 @@ public class ExpressionPackageImpl extends EPackageImpl implements ExpressionPac
 		// Add supertypes to classes
 		terminalEClass.getESuperTypes().add(this.getExpression());
 		symbolEClass.getESuperTypes().add(this.getTerminal());
-		sleepEClass.getESuperTypes().add(this.getTerminal());
 		sequenceEClass.getESuperTypes().add(this.getOperation());
 		operationEClass.getESuperTypes().add(this.getExpression());
 		releaseEClass.getESuperTypes().add(this.getTerminal());
@@ -609,9 +580,6 @@ public class ExpressionPackageImpl extends EPackageImpl implements ExpressionPac
 		initEClass(resourceDemandEClass, ResourceDemand.class, "ResourceDemand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceDemand_Pdf(), theProbfunctionPackage.getProbabilityDensityFunction(), null, "pdf", null, 1, 1, ResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResourceDemand_Resource(), theEnvironmentPackage.getProcessingResource(), null, "resource", null, 1, 1, ResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(sleepEClass, Sleep.class, "Sleep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSleep_Pdf(), theProbfunctionPackage.getProbabilityDensityFunction(), null, "pdf", null, 1, 1, Sleep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequenceEClass, Sequence.class, "Sequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequence_LeftRegExp(), this.getExpression(), null, "leftRegExp", null, 1, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

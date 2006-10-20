@@ -42,10 +42,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
           eType="#//environment/ProcessingResource"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Sleep" eSuperTypes="#//expression/Terminal">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="pdf" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityDensityFunction"
-          containment="true"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Sequence" eSuperTypes="#//expression/Operation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="leftRegExp" lowerBound="1"
           eType="#//expression/Expression" containment="true"/>

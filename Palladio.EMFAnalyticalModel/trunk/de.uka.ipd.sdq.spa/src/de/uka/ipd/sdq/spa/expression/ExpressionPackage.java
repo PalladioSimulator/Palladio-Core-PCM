@@ -172,34 +172,6 @@ public interface ExpressionPackage extends EPackage {
 	int RESOURCE_DEMAND_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.expression.impl.SleepImpl <em>Sleep</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.spa.expression.impl.SleepImpl
-	 * @see de.uka.ipd.sdq.spa.expression.impl.ExpressionPackageImpl#getSleep()
-	 * @generated
-	 */
-	int SLEEP = 4;
-
-	/**
-	 * The feature id for the '<em><b>Pdf</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLEEP__PDF = TERMINAL_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Sleep</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLEEP_FEATURE_COUNT = TERMINAL_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.expression.impl.OperationImpl <em>Operation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,7 +179,7 @@ public interface ExpressionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.expression.impl.ExpressionPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 6;
+	int OPERATION = 5;
 
 	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
@@ -226,7 +198,7 @@ public interface ExpressionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.expression.impl.ExpressionPackageImpl#getSequence()
 	 * @generated
 	 */
-	int SEQUENCE = 5;
+	int SEQUENCE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Left Reg Exp</b></em>' containment reference.
@@ -263,7 +235,7 @@ public interface ExpressionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.expression.impl.ExpressionPackageImpl#getRelease()
 	 * @generated
 	 */
-	int RELEASE = 7;
+	int RELEASE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' reference.
@@ -291,7 +263,7 @@ public interface ExpressionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.expression.impl.ExpressionPackageImpl#getParallel()
 	 * @generated
 	 */
-	int PARALLEL = 8;
+	int PARALLEL = 7;
 
 	/**
 	 * The feature id for the '<em><b>Left Task</b></em>' containment reference.
@@ -328,7 +300,7 @@ public interface ExpressionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.expression.impl.ExpressionPackageImpl#getOption()
 	 * @generated
 	 */
-	int OPTION = 9;
+	int OPTION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Probability</b></em>' attribute.
@@ -365,7 +337,7 @@ public interface ExpressionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.expression.impl.ExpressionPackageImpl#getLoop()
 	 * @generated
 	 */
-	int LOOP = 10;
+	int LOOP = 9;
 
 	/**
 	 * The feature id for the '<em><b>Reg Exp</b></em>' containment reference.
@@ -402,7 +374,7 @@ public interface ExpressionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.expression.impl.ExpressionPackageImpl#getAlternative()
 	 * @generated
 	 */
-	int ALTERNATIVE = 11;
+	int ALTERNATIVE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Left Option</b></em>' containment reference.
@@ -439,7 +411,7 @@ public interface ExpressionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.expression.impl.ExpressionPackageImpl#getAcquire()
 	 * @generated
 	 */
-	int ACQUIRE = 12;
+	int ACQUIRE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' reference.
@@ -543,27 +515,6 @@ public interface ExpressionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResourceDemand_Resource();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.spa.expression.Sleep <em>Sleep</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sleep</em>'.
-	 * @see de.uka.ipd.sdq.spa.expression.Sleep
-	 * @generated
-	 */
-	EClass getSleep();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.spa.expression.Sleep#getPdf <em>Pdf</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Pdf</em>'.
-	 * @see de.uka.ipd.sdq.spa.expression.Sleep#getPdf()
-	 * @see #getSleep()
-	 * @generated
-	 */
-	EReference getSleep_Pdf();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.spa.expression.Sequence <em>Sequence</em>}'.
@@ -798,7 +749,7 @@ public interface ExpressionPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.spa.expression.impl.TerminalImpl <em>Terminal</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -870,24 +821,6 @@ public interface ExpressionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESOURCE_DEMAND__RESOURCE = eINSTANCE.getResourceDemand_Resource();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.spa.expression.impl.SleepImpl <em>Sleep</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.spa.expression.impl.SleepImpl
-		 * @see de.uka.ipd.sdq.spa.expression.impl.ExpressionPackageImpl#getSleep()
-		 * @generated
-		 */
-		EClass SLEEP = eINSTANCE.getSleep();
-
-		/**
-		 * The meta object literal for the '<em><b>Pdf</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SLEEP__PDF = eINSTANCE.getSleep_Pdf();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.spa.expression.impl.SequenceImpl <em>Sequence</em>}' class.
