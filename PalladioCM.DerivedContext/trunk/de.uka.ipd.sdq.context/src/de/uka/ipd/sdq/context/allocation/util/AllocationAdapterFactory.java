@@ -76,6 +76,9 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 			public Object caseActualResourceDemand(ActualResourceDemand object) {
 				return createActualResourceDemandAdapter();
 			}
+			public Object caseActualAllocation(ActualAllocation object) {
+				return createActualAllocationAdapter();
+			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -119,6 +122,20 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActualResourceDemandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.context.allocation.ActualAllocation <em>Actual Allocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.context.allocation.ActualAllocation
+	 * @generated
+	 */
+	public Adapter createActualAllocationAdapter() {
 		return null;
 	}
 

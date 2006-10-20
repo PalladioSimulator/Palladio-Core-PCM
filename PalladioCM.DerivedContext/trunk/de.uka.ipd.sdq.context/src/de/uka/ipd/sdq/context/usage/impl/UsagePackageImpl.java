@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.context.allocation.impl.AllocationPackageImpl;
 
 import de.uka.ipd.sdq.context.usage.BranchProbability;
 import de.uka.ipd.sdq.context.usage.LoopIteration;
+import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.context.usage.UsagePackage;
@@ -76,6 +77,13 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 	 * @generated
 	 */
 	private EClass loopIterationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass usageEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -261,6 +269,24 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUsage() {
+		return usageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUsage_UsageContexts() {
+		return (EReference)usageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UsageFactory getUsageFactory() {
 		return (UsageFactory)getEFactoryInstance();
 	}
@@ -296,6 +322,9 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 		loopIterationEClass = createEClass(LOOP_ITERATION);
 		createEReference(loopIterationEClass, LOOP_ITERATION__LOOPACTION_LOOP_ITERATION);
 		createEReference(loopIterationEClass, LOOP_ITERATION__ITERATIONS_LOOP_ITERATION);
+
+		usageEClass = createEClass(USAGE);
+		createEReference(usageEClass, USAGE__USAGE_CONTEXTS);
 	}
 
 	/**
@@ -341,6 +370,9 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 		initEClass(loopIterationEClass, LoopIteration.class, "LoopIteration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLoopIteration_Loopaction_LoopIteration(), theSeffPackage.getLoopAction(), null, "loopaction_LoopIteration", null, 1, 1, LoopIteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getLoopIteration_Iterations_LoopIteration(), theStochasticsPackage.getRandomVariable(), null, "iterations_LoopIteration", null, 1, 1, LoopIteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(usageEClass, Usage.class, "Usage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUsage_UsageContexts(), this.getUsageContext(), null, "usageContexts", null, 0, -1, Usage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

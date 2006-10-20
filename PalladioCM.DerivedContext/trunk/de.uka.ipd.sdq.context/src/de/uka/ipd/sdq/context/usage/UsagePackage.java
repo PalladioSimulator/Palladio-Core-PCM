@@ -181,6 +181,35 @@ public interface UsagePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.context.usage.impl.UsageImpl <em>Usage</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.context.usage.impl.UsageImpl
+	 * @see de.uka.ipd.sdq.context.usage.impl.UsagePackageImpl#getUsage()
+	 * @generated
+	 */
+	int USAGE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Usage Contexts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USAGE__USAGE_CONTEXTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Usage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USAGE_FEATURE_COUNT = 1;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.context.usage.UsageContext <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -288,6 +317,27 @@ public interface UsagePackage extends EPackage {
 	EReference getLoopIteration_Iterations_LoopIteration();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.context.usage.Usage <em>Usage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Usage</em>'.
+	 * @see de.uka.ipd.sdq.context.usage.Usage
+	 * @generated
+	 */
+	EClass getUsage();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.context.usage.Usage#getUsageContexts <em>Usage Contexts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Usage Contexts</em>'.
+	 * @see de.uka.ipd.sdq.context.usage.Usage#getUsageContexts()
+	 * @see #getUsage()
+	 * @generated
+	 */
+	EReference getUsage_UsageContexts();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -308,7 +358,7 @@ public interface UsagePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.context.usage.impl.UsageContextImpl <em>Context</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -394,6 +444,24 @@ public interface UsagePackage extends EPackage {
 		 * @generated
 		 */
 		EReference LOOP_ITERATION__ITERATIONS_LOOP_ITERATION = eINSTANCE.getLoopIteration_Iterations_LoopIteration();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.context.usage.impl.UsageImpl <em>Usage</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.context.usage.impl.UsageImpl
+		 * @see de.uka.ipd.sdq.context.usage.impl.UsagePackageImpl#getUsage()
+		 * @generated
+		 */
+		EClass USAGE = eINSTANCE.getUsage();
+
+		/**
+		 * The meta object literal for the '<em><b>Usage Contexts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USAGE__USAGE_CONTEXTS = eINSTANCE.getUsage_UsageContexts();
 
 	}
 
