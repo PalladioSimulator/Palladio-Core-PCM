@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.probfunction.math.util;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -227,4 +228,21 @@ public class MathTools {
 		double rVal = (double)Math.round(val * 1000) / 1000.0;
 		return Double.toString(rVal);
 	}
+	
+	public static BigDecimal over(int n, int k) {
+		return factorial(n).divide(factorial(k).multiply(factorial(n-k)));
+	}
+
+	public static BigDecimal factorial(long n) {
+		if (n<0) 
+			return null;
+		if (n == 0) 
+			return new BigDecimal(1);
+		BigDecimal fac = new BigDecimal(1);
+		for(long i=1; i<= n; i++){
+			fac = fac.multiply(new BigDecimal(i));
+		}
+		return fac;
+	}
+	
 }

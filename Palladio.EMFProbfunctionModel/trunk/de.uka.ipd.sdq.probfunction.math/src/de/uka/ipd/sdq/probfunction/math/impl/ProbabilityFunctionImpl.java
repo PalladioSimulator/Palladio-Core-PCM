@@ -28,7 +28,7 @@ public abstract class ProbabilityFunctionImpl implements IProbabilityFunction {
 	}
 
 	// hide constructor
-	protected ProbabilityFunctionImpl(){
+	private ProbabilityFunctionImpl(){
 	}
 
 

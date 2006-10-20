@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
@@ -60,8 +61,31 @@ public class ProbabilityMassFunctionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addOrderedDomainPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Ordered Domain feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOrderedDomainPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProbabilityMassFunction_orderedDomain_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProbabilityMassFunction_orderedDomain_feature", "_UI_ProbabilityMassFunction_type"),
+				 ProbfunctionPackage.Literals.PROBABILITY_MASS_FUNCTION__ORDERED_DOMAIN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -97,7 +121,8 @@ public class ProbabilityMassFunctionItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_ProbabilityMassFunction_type");
+		ProbabilityMassFunction probabilityMassFunction = (ProbabilityMassFunction)object;
+		return getString("_UI_ProbabilityMassFunction_type") + " " + probabilityMassFunction.isOrderedDomain();
 	}
 
 	/**
@@ -111,6 +136,9 @@ public class ProbabilityMassFunctionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProbabilityMassFunction.class)) {
+			case ProbfunctionPackage.PROBABILITY_MASS_FUNCTION__ORDERED_DOMAIN:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case ProbfunctionPackage.PROBABILITY_MASS_FUNCTION__SAMPLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

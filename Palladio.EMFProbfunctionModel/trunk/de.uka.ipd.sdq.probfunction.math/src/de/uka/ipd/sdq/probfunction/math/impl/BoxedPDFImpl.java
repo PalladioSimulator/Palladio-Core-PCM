@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
+import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
@@ -33,13 +34,13 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 
 	private List<IContinuousSample> samples;
 
-	protected BoxedPDFImpl() {
-		super();
+	protected BoxedPDFImpl(IUnit unit) {
+		super(unit,false);
 		samples = new ArrayList<IContinuousSample>();
 	}
 
-	protected BoxedPDFImpl(List<IContinuousSample> samples) {
-		this();
+	protected BoxedPDFImpl(List<IContinuousSample> samples, IUnit unit) {
+		this(unit);
 		this.samples = samples;
 	}
 
@@ -64,7 +65,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 					.getProbability()
 					* scalar));
 
-		return pfFactory.createBoxedPDF(list);
+		return pfFactory.createBoxedPDF(list,this.getUnit());
 	}
 
 	public List<IContinuousSample> getSamples() {

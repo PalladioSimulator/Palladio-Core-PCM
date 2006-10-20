@@ -22,6 +22,7 @@
     </genClasses>
     <genClasses ecoreClass="ProbabilityFunction.ecore#//ProbabilityMassFunction">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProbabilityFunction.ecore#//ProbabilityMassFunction/samples"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//ProbabilityMassFunction/orderedDomain"/>
     </genClasses>
     <genClasses ecoreClass="ProbabilityFunction.ecore#//Sample">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//Sample/value"/>

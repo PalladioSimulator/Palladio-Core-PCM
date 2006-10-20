@@ -246,13 +246,22 @@ public interface ProbfunctionPackage extends EPackage {
 	int PROBABILITY_MASS_FUNCTION__SAMPLES = PROBABILITY_FUNCTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Ordered Domain</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILITY_MASS_FUNCTION__ORDERED_DOMAIN = PROBABILITY_FUNCTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Probability Mass Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROBABILITY_MASS_FUNCTION_FEATURE_COUNT = PROBABILITY_FUNCTION_FEATURE_COUNT + 1;
+	int PROBABILITY_MASS_FUNCTION_FEATURE_COUNT = PROBABILITY_FUNCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.probfunction.impl.SampleImpl <em>Sample</em>}' class.
@@ -465,6 +474,17 @@ public interface ProbfunctionPackage extends EPackage {
 	EReference getProbabilityMassFunction_Samples();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.probfunction.ProbabilityMassFunction#isOrderedDomain <em>Ordered Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ordered Domain</em>'.
+	 * @see de.uka.ipd.sdq.probfunction.ProbabilityMassFunction#isOrderedDomain()
+	 * @see #getProbabilityMassFunction()
+	 * @generated
+	 */
+	EAttribute getProbabilityMassFunction_OrderedDomain();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.probfunction.Sample <em>Sample</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -657,6 +677,14 @@ public interface ProbfunctionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROBABILITY_MASS_FUNCTION__SAMPLES = eINSTANCE.getProbabilityMassFunction_Samples();
+
+		/**
+		 * The meta object literal for the '<em><b>Ordered Domain</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROBABILITY_MASS_FUNCTION__ORDERED_DOMAIN = eINSTANCE.getProbabilityMassFunction_OrderedDomain();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.probfunction.impl.SampleImpl <em>Sample</em>}' class.

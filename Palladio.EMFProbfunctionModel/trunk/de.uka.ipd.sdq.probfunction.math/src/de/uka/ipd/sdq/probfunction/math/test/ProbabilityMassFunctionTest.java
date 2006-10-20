@@ -11,6 +11,7 @@ import org.junit.Test;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
+import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 
@@ -191,8 +192,9 @@ public class ProbabilityMassFunctionTest {
 					(Double) samples[i + 1]);
 			sList.add(s);
 		}
+		IUnit ms = dfFactory.createUnit("ms");
 		IProbabilityMassFunction pmf = dfFactory.createProbabilityMassFunction(
-				sList, isOrderedSet);
+				sList,ms, isOrderedSet);
 		return pmf;
 	}
 }

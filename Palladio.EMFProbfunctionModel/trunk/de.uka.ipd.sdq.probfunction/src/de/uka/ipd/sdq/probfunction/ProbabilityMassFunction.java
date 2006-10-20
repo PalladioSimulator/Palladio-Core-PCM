@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.probfunction.ProbabilityMassFunction#getSamples <em>Samples</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.probfunction.ProbabilityMassFunction#isOrderedDomain <em>Ordered Domain</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,5 +41,31 @@ public interface ProbabilityMassFunction extends ProbabilityFunction {
 	 * @generated
 	 */
 	EList getSamples();
+
+	/**
+	 * Returns the value of the '<em><b>Ordered Domain</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ordered Domain</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ordered Domain</em>' attribute.
+	 * @see #setOrderedDomain(boolean)
+	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getProbabilityMassFunction_OrderedDomain()
+	 * @model unique="false" required="true"
+	 * @generated
+	 */
+	boolean isOrderedDomain();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.probfunction.ProbabilityMassFunction#isOrderedDomain <em>Ordered Domain</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ordered Domain</em>' attribute.
+	 * @see #isOrderedDomain()
+	 * @generated
+	 */
+	void setOrderedDomain(boolean value);
 
 } // ProbabilityMassFunction

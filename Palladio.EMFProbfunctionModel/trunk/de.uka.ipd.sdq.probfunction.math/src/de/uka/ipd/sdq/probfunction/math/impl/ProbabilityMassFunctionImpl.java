@@ -10,6 +10,7 @@ import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
+import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
@@ -25,20 +26,20 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 			IProbabilityMassFunction {
 
 	private List<ISample> samples;
-	private boolean isOrderSet;
 
 	private enum Operation {
 		ADD, SUB, MULT, DIV
 	}
 
-	protected ProbabilityMassFunctionImpl() {
+	protected ProbabilityMassFunctionImpl(IUnit unit, boolean hasOrderedDomain, boolean isInFrequencyDomain) {
+		super(unit,hasOrderedDomain,isInFrequencyDomain);
 		samples = new ArrayList<ISample>();
 	}
 
-	protected ProbabilityMassFunctionImpl(List<ISample> samples,
-			boolean isOrderSet) {
+	protected ProbabilityMassFunctionImpl(List<ISample> samples, IUnit unit,
+			boolean hasOrderedDomain, boolean isInFrequencyDomain) {
+		super(unit,hasOrderedDomain,isInFrequencyDomain);
 		this.samples = samples;
-		this.isOrderSet = isOrderSet;
 	}
 
 	private IProbabilityMassFunction performOperation(Operation op,
@@ -68,7 +69,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 			}
 			resultList.add(pfFactory.createSample(s1.getValue(), result));
 		}
-		return pfFactory.createProbabilityMassFunction(resultList, isOrderSet);
+		return pfFactory.createProbabilityMassFunction(resultList, this.getUnit(), hasOrderedDomain());
 	}
 
 	public IProbabilityMassFunction add(IProbabilityMassFunction pmf)
@@ -95,7 +96,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 					.getProbability()
 					* scalar));
 
-		return pfFactory.createProbabilityMassFunction(newList, false);
+		return pfFactory.createProbabilityMassFunction(newList, this.getUnit(), this.hasOrderedDomain());
 	}
 
 	public IProbabilityMassFunction div(IProbabilityMassFunction pmf)
@@ -189,20 +190,6 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 
 		int rank = (int) Math.floor((p * (samples.size() + 1.0)) / 100.0);
 		return samples.get(rank).getValue();
-	}
-
-	public boolean hasOrderedDomain() {
-		return isOrderSet;
-	}
-
-	public boolean isInFrequencyDomain() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean isInTimeDomain() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	public Object drawSample() {

@@ -45,7 +45,8 @@ public class ProbabilityFunctionFactoryImpl
 	}
 
 	public IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction epdf) {
-		IBoxedPDF bpdf = createBoxedPDF();
+		IUnit unit = transformToUnit(epdf.getUnit());
+		IBoxedPDF bpdf = createBoxedPDF(unit);
 		if (epdf instanceof BoxedPDF) {
 			for (Object s : ((BoxedPDF) epdf).getSamples())
 				bpdf.getSamples().add(
@@ -62,26 +63,37 @@ public class ProbabilityFunctionFactoryImpl
 		return bpdf;
 	}
 
+	@SuppressWarnings("unchecked")
 	public ISamplePDF transformToSamplePDF(ProbabilityDensityFunction epdf)
 			throws UnknownPDFTypeException {
-		IBoxedPDF bpdf = transformToBoxedPDF(epdf);
-		return transformToSamplePDF(bpdf);
+		 if (epdf instanceof SamplePDF) {
+			SamplePDF spdf = (SamplePDF) epdf;
+			double distance = spdf.getDistance();
+			IUnit unit = transformToUnit(spdf.getUnit());
+			List<Double> values = new ArrayList<Double>((List<Double>) spdf.getValues());
+			return createSamplePDFFromDouble(distance, values, unit);			
+		} else {
+			IBoxedPDF bpdf = transformToBoxedPDF(epdf);
+			return transformBoxedToSamplePDF(bpdf);
+		}
 	}
 
 	public IProbabilityMassFunction transformToPMF(ProbabilityMassFunction epmf) {
-		IProbabilityMassFunction pmf = createProbabilityMassFunction();
+		IUnit unit = transformToUnit(epmf.getUnit());
+		boolean hasOrderedDomain = epmf.isOrderedDomain();
+		IProbabilityMassFunction pmf = createProbabilityMassFunction(unit,hasOrderedDomain);
 		for (Object s : epmf.getSamples())
 			pmf.getSamples().add(
 					transformToSample((Sample) s));
 		return pmf;
 	}
 
-	public IBoxedPDF createBoxedPDF() {
-		return new BoxedPDFImpl();
+	public IBoxedPDF createBoxedPDF(IUnit unit) {
+		return new BoxedPDFImpl(unit);
 	}
 
-	public IBoxedPDF createBoxedPDF(List<IContinuousSample> samples) {
-		return new BoxedPDFImpl(samples);
+	public IBoxedPDF createBoxedPDF(List<IContinuousSample> samples, IUnit unit) {
+		return new BoxedPDFImpl(samples, unit);
 	}
 
 	public IContinuousSample createContinuousSample(double value, double d) {
@@ -107,13 +119,13 @@ public class ProbabilityFunctionFactoryImpl
 		return resultList;
 	}
 
-	public IProbabilityMassFunction createProbabilityMassFunction() {
-		return new ProbabilityMassFunctionImpl();
+	public IProbabilityMassFunction createProbabilityMassFunction(IUnit unit, boolean hasOrderedDomain) {
+		return new ProbabilityMassFunctionImpl(unit,hasOrderedDomain,false);
 	}
 
 	public IProbabilityMassFunction createProbabilityMassFunction(
-			List<ISample> samples, boolean isOrderedSet) {
-		return new ProbabilityMassFunctionImpl(samples, isOrderedSet);
+			List<ISample> samples, IUnit unit, boolean hasOrderedDomain) {
+		return new ProbabilityMassFunctionImpl(samples,unit, hasOrderedDomain, false);
 	}
 
 	public ISample createSample(Object value, double probability) {
@@ -303,7 +315,7 @@ public class ProbabilityFunctionFactoryImpl
 			samples.add(sample);
 			i++;
 		}
-		return createBoxedPDF(samples);
+		return createBoxedPDF(samples, spdf.getUnit());
 	}
 
 	private List<Double> continuousSamplesToDoubles(List<IContinuousSample> list) {

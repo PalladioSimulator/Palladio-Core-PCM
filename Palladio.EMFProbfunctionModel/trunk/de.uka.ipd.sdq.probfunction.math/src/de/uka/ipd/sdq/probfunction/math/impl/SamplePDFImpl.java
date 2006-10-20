@@ -49,7 +49,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 	protected SamplePDFImpl(double distance, List<Double> samples, IUnit unit) {
 		super(unit, false);
 		this.distance = distance;
-		values = MathTools.transformDoubleToComplex(samples);
+		values = new ArrayList<Complex>(MathTools.transformDoubleToComplex(samples));
 		fillValue = DEFAULT_FILL_VALUE;
 	}
 
@@ -57,13 +57,10 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 			boolean isInFrequencyDomain) {
 		super(unit, isInFrequencyDomain);
 		this.distance = distance;
-		values = samples;
+		values = new ArrayList<Complex>(samples);
 		fillValue = DEFAULT_FILL_VALUE;
 	}
 
-	// hide constructor
-	protected SamplePDFImpl() {
-	}
 
 	public IProbabilityDensityFunction add(IProbabilityDensityFunction pdf)
 			throws UnknownPDFTypeException,
@@ -131,7 +128,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		if (!MathTools.equalsDouble(MathTools.sumOfDoubles(values),
 				1.0))
 			throw new ProbabilitySumNotOneException();		
-		this.values = MathTools.transformDoubleToComplex(values);
+		this.values = new ArrayList<Complex>( MathTools.transformDoubleToComplex(values));
 	}
 
 	/**
@@ -175,7 +172,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		if (!MathTools.equalsDouble(MathTools.sumOfDoubles(valuesAsDouble),
 				1.0))
 			throw new ProbabilitySumNotOneException();		
-		this.values = values;
+		this.values = new ArrayList<Complex>( values );
 		this.setInFrequencyDomain(isInFrequencyDomain);
 	}
 

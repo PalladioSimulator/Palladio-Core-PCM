@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -112,7 +114,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 	 */
 	public EList getValues() {
 		if (values == null) {
-			values = new EDataTypeUniqueEList(Double.class, this, ProbfunctionPackage.SAMPLE_PDF__VALUES);
+			values = new EDataTypeEList(Double.class, this, ProbfunctionPackage.SAMPLE_PDF__VALUES);
 		}
 		return values;
 	}

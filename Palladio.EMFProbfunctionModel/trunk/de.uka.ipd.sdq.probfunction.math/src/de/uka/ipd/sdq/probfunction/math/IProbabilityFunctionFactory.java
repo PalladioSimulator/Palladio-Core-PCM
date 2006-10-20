@@ -10,6 +10,8 @@ import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.Unit;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.probfunction.math.impl.BoxedPDFImpl;
+import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityMassFunctionImpl;
 import flanagan.complex.Complex;
 
 /**
@@ -229,8 +231,8 @@ public interface IProbabilityFunctionFactory {
 	 * 
 	 * @return New BoxedPDF instance.
 	 */
-	IBoxedPDF createBoxedPDF();
-
+	IBoxedPDF createBoxedPDF(IUnit unit);
+	
 	/**
 	 * Creates a new BoxedPDF, whose boxes are defined by 'samples'.
 	 * 
@@ -240,7 +242,7 @@ public interface IProbabilityFunctionFactory {
 	 *            values of all samples must be greater or equal to zero.
 	 * @return New BoxedPDF instance.
 	 */
-	IBoxedPDF createBoxedPDF(List<IContinuousSample> samples);
+	IBoxedPDF createBoxedPDF(List<IContinuousSample> samples, IUnit unit);
 
 	/**
 	 * Converts a arbitrary PDF to a BoxedPDF. So far, only two cases are
@@ -282,7 +284,8 @@ public interface IProbabilityFunctionFactory {
 	 * 
 	 * @return New ProbabilityMassFunction instance.
 	 */
-	IProbabilityMassFunction createProbabilityMassFunction();
+	IProbabilityMassFunction createProbabilityMassFunction(IUnit unit,
+			boolean hasOrderedDomain);
 
 	/**
 	 * Creates a new ProbabilityMassFunction whose samples are set to 'samples'.
@@ -291,12 +294,12 @@ public interface IProbabilityFunctionFactory {
 	 * 
 	 * @param samples
 	 *            List of samples for the PMF.
-	 * @param isOrderedSet
+	 * @param hasOrderedDomain
 	 *            Marks a set as ordered.
 	 * @return New ProbabilityMassFunction instance.
 	 */
 	IProbabilityMassFunction createProbabilityMassFunction(
-			List<ISample> samples, boolean isOrderedSet);
+			List<ISample> samples, IUnit unit, boolean hasOrderedDomain);
 
 	/**
 	 * Converts a model object to a function object with the same attributes.
