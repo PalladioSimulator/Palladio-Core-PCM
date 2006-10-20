@@ -6,14 +6,16 @@
  */
 package de.uka.ipd.sdq.spa.expression.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
 import de.uka.ipd.sdq.spa.SpaPackage;
-
 import de.uka.ipd.sdq.spa.environment.EnvironmentPackage;
-
 import de.uka.ipd.sdq.spa.environment.impl.EnvironmentPackageImpl;
-
 import de.uka.ipd.sdq.spa.expression.Acquire;
 import de.uka.ipd.sdq.spa.expression.Alternative;
 import de.uka.ipd.sdq.spa.expression.Expression;
@@ -26,18 +28,9 @@ import de.uka.ipd.sdq.spa.expression.Parallel;
 import de.uka.ipd.sdq.spa.expression.Release;
 import de.uka.ipd.sdq.spa.expression.ResourceDemand;
 import de.uka.ipd.sdq.spa.expression.Sequence;
-import de.uka.ipd.sdq.spa.expression.Sleep;
 import de.uka.ipd.sdq.spa.expression.Symbol;
 import de.uka.ipd.sdq.spa.expression.Terminal;
-
 import de.uka.ipd.sdq.spa.impl.SpaPackageImpl;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
