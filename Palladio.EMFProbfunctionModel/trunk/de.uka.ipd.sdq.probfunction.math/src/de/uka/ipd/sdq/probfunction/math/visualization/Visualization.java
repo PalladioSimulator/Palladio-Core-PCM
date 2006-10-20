@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.probfunction.math.visualization;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.birt.chart.device.IDeviceRenderer;
@@ -59,7 +60,6 @@ import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
  */
 public class Visualization implements PaintListener {
 
-	
 	private IDeviceRenderer idr = null;
 	private Chart cm = null;
 
@@ -71,7 +71,6 @@ public class Visualization implements PaintListener {
 	private boolean isChartTilteVisible = false;
 	private boolean isXAxisTitleVisible = false;
 	private boolean isYAxisTitleVisible = false;
-	
 
 	private static final String EMPTY_TITLE = "";
 	private static final ColorDefinition DEFAULt_BACKGROUND = ColorDefinitionImpl
@@ -90,13 +89,15 @@ public class Visualization implements PaintListener {
 	public static void main(String[] ihs) {
 		Visualization scv = new Visualization();
 		IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
-		
-		IBoxedPDF boxed = pfFactory.createBoxedPDF(null);
-		boxed.getSamples().add(pfFactory.createContinuousSample(0.9, 0.3));
-		boxed.getSamples().add(pfFactory.createContinuousSample(1.5, 0.4));
-		boxed.getSamples().add(pfFactory.createContinuousSample(1.8, 0.2));
-		boxed.getSamples().add(pfFactory.createContinuousSample(2.4, 0.1));
-		scv.addProbabilityFunction(boxed);
+
+		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
+		Collections.addAll(samples, pfFactory.createContinuousSample(0.9, 0.3),
+				pfFactory.createContinuousSample(1.5, 0.4), pfFactory
+						.createContinuousSample(1.8, 0.2), pfFactory
+						.createContinuousSample(2.4, 0.1));
+		IBoxedPDF boxed = pfFactory.createBoxedPDF(samples, null);
+
+		scv.addBoxedPDF(boxed);
 		scv.visualize();
 
 	}
@@ -122,20 +123,20 @@ public class Visualization implements PaintListener {
 		}
 	}
 
-	
-	public void addProbabilityFunction(IProbabilityFunction pf){
+	public void addProbabilityFunction(IProbabilityFunction pf) {
 		if (pf instanceof IProbabilityMassFunction) {
 			IProbabilityMassFunction pmf = (IProbabilityMassFunction) pf;
 			addPMF(pmf);
 		} else if (pf instanceof IBoxedPDF) {
 			IBoxedPDF boxedPDF = (IBoxedPDF) pf;
 			addBoxedPDF(boxedPDF);
-		} if (pf instanceof ISamplePDF) {
+		}
+		if (pf instanceof ISamplePDF) {
 			ISamplePDF samplePDF = (ISamplePDF) pf;
 			addSamplePDF(samplePDF);
 		}
 	}
-	
+
 	/**
 	 * @param pmf
 	 */
@@ -174,6 +175,7 @@ public class Visualization implements PaintListener {
 
 	@SuppressWarnings("unchecked")
 	private void createChart(List<Object> values, List<Double> prob) {
+
 		// BAR CHARTS ARE BASED ON CHARTS THAT CONTAIN AXES
 		ChartWithAxes cwaBar = ChartWithAxesImpl.create();
 		cwaBar.getBlock().setBackground(backgroung);
@@ -229,7 +231,7 @@ public class Visualization implements PaintListener {
 		BarSeries bs1 = (BarSeries) BarSeriesImpl.create();
 		bs1.setSeriesIdentifier("My Bar Series");
 		bs1.setDataSet(orthoValues1);
-		bs1.setRiserOutline(null);
+		// bs1.setRiserOutline(null);
 		bs1.getLabel().setVisible(true);
 		bs1.setLabelPosition(Position.INSIDE_LITERAL);
 
