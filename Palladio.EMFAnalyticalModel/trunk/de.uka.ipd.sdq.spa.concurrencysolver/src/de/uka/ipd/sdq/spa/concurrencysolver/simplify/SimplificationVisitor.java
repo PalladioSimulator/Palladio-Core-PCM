@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.spa.concurrencysolver.simplify;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.uka.ipd.sdq.spa.environment.ProcessingResource;
 import de.uka.ipd.sdq.spa.expression.Acquire;
 import de.uka.ipd.sdq.spa.expression.Alternative;
 import de.uka.ipd.sdq.spa.expression.Expression;
@@ -10,6 +11,7 @@ import de.uka.ipd.sdq.spa.expression.ExpressionFactory;
 import de.uka.ipd.sdq.spa.expression.Loop;
 import de.uka.ipd.sdq.spa.expression.Parallel;
 import de.uka.ipd.sdq.spa.expression.Release;
+import de.uka.ipd.sdq.spa.expression.ResourceDemand;
 import de.uka.ipd.sdq.spa.expression.Sequence;
 import de.uka.ipd.sdq.spa.expression.Symbol;
 import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
@@ -19,6 +21,8 @@ public class SimplificationVisitor {
 	List<Expression> expressionList;
 
 	Expression currentExpression;
+
+	private ProcessingResource currentResource;
 
 	ExpressionFactory eFactory = ExpressionFactory.eINSTANCE;
 
@@ -64,15 +68,13 @@ public class SimplificationVisitor {
 		}
 
 		@Override
-		public Object caseSleep(Sleep object) {
-			addCurrentExpressionToList();
-			expressionList.add(object);
-			return object;
-		}
-
-		@Override
 		public Object caseSymbol(Symbol object) {
-			addNode(object);
+			if (sameResource(object)) {
+				addNode(object);
+			} else {
+				addCurrentExpressionToList();
+				expressionList.add(object);
+			}
 			return object;
 		}
 
@@ -84,6 +86,19 @@ public class SimplificationVisitor {
 		this.expressionList = new ArrayList<Expression>();
 	}
 
+	protected boolean sameResource(Symbol symbol) {
+		ResourceDemand demand = (ResourceDemand) symbol.getDemand().get(0);
+		boolean result = true;;
+		if (currentResource != null) {
+			if (!demand.getResource().equals(currentResource)){
+				result = false;
+			}
+		} else {
+			currentResource = demand.getResource();
+		}
+		return result;
+	}
+
 	public void visit(Expression expr) {
 		exprswitch.doSwitch(expr);
 	}
@@ -92,9 +107,10 @@ public class SimplificationVisitor {
 		if (currentExpression != null) {
 			expressionList.add(currentExpression);
 			currentExpression = null;
+			currentResource = null;
 		}
 	}
-	
+
 	private void addNode(Expression expr) {
 		if (currentExpression == null) {
 			currentExpression = expr;
@@ -105,11 +121,9 @@ public class SimplificationVisitor {
 			currentExpression = result;
 		}
 	}
-	
-	public List<Expression> getResultList(){
+
+	public List<Expression> getResultList() {
 		return expressionList;
 	}
-
-	
 
 }

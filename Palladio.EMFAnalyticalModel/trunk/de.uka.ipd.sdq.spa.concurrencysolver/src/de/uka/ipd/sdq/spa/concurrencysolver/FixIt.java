@@ -22,7 +22,6 @@ import de.uka.ipd.sdq.spa.environment.ProcessBehaviour;
 import de.uka.ipd.sdq.spa.expression.Acquire;
 import de.uka.ipd.sdq.spa.expression.Expression;
 import de.uka.ipd.sdq.spa.expression.Release;
-import de.uka.ipd.sdq.spa.expression.Sleep;
 
 public class FixIt {
 
@@ -34,6 +33,7 @@ public class FixIt {
 			ProcessBehaviour behaviour = (ProcessBehaviour) model
 					.getProcesses().get(0);
 			List<Expression> expressionList = simplify(behaviour);
+			
 			if (isValid(expressionList)) {
 				List<ServiceCentre> timeList = getServiceTimes(expressionList,
 						256);
@@ -167,12 +167,7 @@ public class FixIt {
 					isValid = false;
 					break;
 				}
-			} else if (expr instanceof Sleep) {
-				if (expectedRelease != null) {
-					isValid = false;
-					break;
-				}
-			}
+			} 
 		}
 		return (isValid && expectedRelease == null);
 	}

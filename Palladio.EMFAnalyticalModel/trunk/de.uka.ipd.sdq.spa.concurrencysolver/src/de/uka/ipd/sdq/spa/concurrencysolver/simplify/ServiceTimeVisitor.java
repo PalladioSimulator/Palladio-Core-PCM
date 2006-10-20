@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
-import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
-import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
-import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
-import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.spa.basicsolver.visitor.PerformanceVisitor;
 import de.uka.ipd.sdq.spa.basicsolver.visitor.perfhandler.PerformanceHandlerFactory;
 import de.uka.ipd.sdq.spa.environment.EnvironmentFactory;
@@ -15,7 +11,6 @@ import de.uka.ipd.sdq.spa.environment.PassiveResource;
 import de.uka.ipd.sdq.spa.expression.Acquire;
 import de.uka.ipd.sdq.spa.expression.Expression;
 import de.uka.ipd.sdq.spa.expression.Release;
-import de.uka.ipd.sdq.spa.expression.Sleep;
 import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
 
 public class ServiceTimeVisitor {
@@ -42,8 +37,11 @@ public class ServiceTimeVisitor {
 			time = pv.getResponseTime(object);
 			
 			PrintVisitor prv = new PrintVisitor();
-			name = resource.getName() + "(" + prv.visit(object) + ")";
-			
+			if (resource != null){
+				name = resource.getName() + "(" + prv.visit(object) + ")";				
+			} else {
+				name = prv.visit(object);
+			}
 			return time;
 		}
 
@@ -55,21 +53,21 @@ public class ServiceTimeVisitor {
 			return stime;
 		}
 
-		@Override
-		public Object caseSleep(Sleep object) {
-			
-			ServiceCentre sTime = null;
-			try {
-				ISamplePDF spdf = IProbabilityFunctionFactory.eINSTANCE.transformToSamplePDF(object.getPdf());
-				spdf.expand(domainSize);
-				sTime = new ServiceCentre( thinkResource,spdf , "Sleep");
-				times.add(sTime);
-			} catch (ProbabilityFunctionException e) {
-				e.printStackTrace();
-				System.exit(1);
-			}
-			return sTime;
-		}
+//		@Override
+//		public Object caseSleep(Sleep object) {
+//			
+//			ServiceCentre sTime = null;
+//			try {
+//				ISamplePDF spdf = IProbabilityFunctionFactory.eINSTANCE.transformToSamplePDF(object.getPdf());
+//				spdf.expand(domainSize);
+//				sTime = new ServiceCentre( thinkResource,spdf , "Sleep");
+//				times.add(sTime);
+//			} catch (ProbabilityFunctionException e) {
+//				e.printStackTrace();
+//				System.exit(1);
+//			}
+//			return sTime;
+//		}
 	};
 	
 
